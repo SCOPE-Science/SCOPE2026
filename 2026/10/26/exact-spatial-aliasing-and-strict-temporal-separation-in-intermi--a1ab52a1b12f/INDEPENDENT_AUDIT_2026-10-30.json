@@ -1,0 +1,124 @@
+{
+  "audit_date_utc": "2026-10-30",
+  "audited_at_utc": "2026-10-30T09:02:40Z",
+  "axes": {
+    "correctness": {
+      "limitations": [
+        "Symmetric ± ballistic signs, all rates positive, constant diffusion, complete reset of both X and mode, Poisson clock; off-balance spatial equality false."
+      ],
+      "rationale": "Solve the three-state stationary Fourier generator with reset injections into state 0 or symmetric ±. With L=beta+rho and S=alpha+beta+rho, their characteristic functions have the common strictly positive denominator Q=(rho+Dk²)(L²+v²k²)+alpha(rho L+v²k²), and numerator difference rho*k²*(v²-DL). Therefore the complete stationary position laws agree iff v²=DL; on balance Q=L(rho+Dk²)(S+Dk²), giving both exactly rho/(rho+Dk²), the symmetric Laplace law. The internal stationary ballistic fractions differ, alpha/S versus (alpha+rho)/S. Applying the stationary generator to X eta(J) gives H=v*pi_bal/L and to X² gives variance 2D/rho on balance. Condition on no Poisson reset over lag t; heading expectation decays as e^(-beta t), yielding C(t)=e^(-rho t)[E X²+v²*pi_bal*(1-e^(-beta t))/(beta L)]. This proves C_B>C_D>C_resetBM strictly for t>0, with positive difference D*rho/(beta S)e^(-rho t)(1-e^(-beta t)) and integrated gap D/[S(beta+rho)]. These are stationary correlations, not arrival probabilities or full-process equivalence.",
+      "status": "PASS",
+      "verification": [
+        "Independent SymPy algebra verified Fourier factorization, uniqueness, covariance gap and integrated time gap; separate mode-resolved stationary moments and transition matrix calculations confirmed selected rate tuples. Fresh finite/symbolic check output INDEPENDENT_BATCH4709_FINITE_CHECKS_OK.",
+        "Inspected actual source CHECK.py (SHA fed144e9045fbe83b9816e07345266c8f70197ad) and frozen RESULT.md (SHA 9f873063bb1e4c9682a21089a41b92d2b516f775); authored logs alone not treated as proof."
+      ]
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Santra/Olsen/Gupta general switching-process dynamics and Datta/Beta/Großmann intermittent propulsion investigate related temporal stochastic correlations."
+        ],
+        "reasoning": "General transform techniques or autocorrelations for another intermittent propulsion model do not automatically deliver the two specific complete reset-protocol covariances on the exact tuning surface; their complete full-text dominance has not been eliminated.",
+        "searches": [
+          "intermittent diffusive ballistic random walk resetting stationary position identical diffusion ballistic protocol autocorrelation covariance",
+          "DOI:10.1039/D4SM01054J",
+          "DOI:10.1103/PhysRevResearch.6.043281"
+        ]
+      },
+      "checked_sources": [
+        "https://webs.uab.cat/vmendez/wp-content/uploads/sites/97/2024/03/127.pdf",
+        "https://arxiv.org/abs/2401.16849",
+        "https://doi.org/10.1039/D4SM01054J",
+        "https://doi.org/10.1103/PhysRevResearch.6.043281",
+        "https://doi.org/10.3389/fphy.2022.789097"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "On the tuning surface, the source spatial formulas imply a shared Laplace position law. Its prior mean-square displacement does not fix mixed time moments E[X_0 X_t]."
+        ],
+        "reasoning": "The submitted result adds mode-resolved stationary cross moment E[X eta], its lag evolution and positive integrated gap; these are not a mere relabeling of the prior stationary distribution, though a specialist general switching theorem could subsume the generator computation.",
+        "searches": [
+          "intermittent diffusive ballistic random walk resetting stationary position identical diffusion ballistic protocol autocorrelation covariance",
+          "DOI:10.1103/PhysRevE.109.034103",
+          "DOI:10.1039/D4SM01054J"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Flaquer-Galmés/Campos/Méndez Sec III A, Eqs. (26)–(30), gives stationary density for both resetting protocols; the equality surface is algebraically derivable from that prior work."
+        ],
+        "reasoning": "The finding explicitly credits one-time aliasing and tests the stronger equivalence-versus-correlation separation. Equal one-time position laws do not logically imply equal two-time correlations, and these latter formulas require stationary heading-position moments not supplied in examined source section.",
+        "searches": [
+          "intermittent diffusive ballistic random walk resetting stationary position identical diffusion ballistic protocol autocorrelation covariance",
+          "arXiv:2401.16849",
+          "DOI:10.1103/PhysRevE.109.034103"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "Source article lists stationary spatial densities and mean-square displacements, but no tabulated matched-all-lag covariance gap in the inspected main text and appendices; Resultary hits concerned different processes."
+        ],
+        "reasoning": "No same mathematical model exact positive-lag covariance table was found; a search result alone would not prove novelty and the source-derived one-time identity is specifically treated as known.",
+        "searches": [
+          "intermittent diffusive ballistic random walk resetting stationary position identical diffusion ballistic protocol autocorrelation covariance",
+          "DOI:10.1103/PhysRevE.109.034103",
+          "Resultary:intermittent reset autocovariance search"
+        ]
+      },
+      "rationale": "The parent paper already derives both one-time stationary densities: equality at v²=D(beta+rho) is a specialization of prior formulas and expressly not a novel standalone result. The distinct additional claim is exact all-positive-lag stationary covariance ordering and the nonzero integrated discrepancy among models with identical position marginals.",
+      "residual_risks": [
+        "An overlooked two-time section or a general switching-process covariance theorem could imply the algebra with this parameter choice.",
+        "The one-time spatial coincidence is known from prior paper and is NOT independently original; only the strict all-lag/integrated comparison remains."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "The stationary laws and source mechanisms are previously known; no stationary two-time autocovariance comparison in examined paper.",
+          "evidence": [
+            "Sec III A equations 26–30 stationary reset densities; abstract concerns first arrival and renewal; search for autocorrelation no matching passage."
+          ],
+          "identifier_or_url": "https://webs.uab.cat/vmendez/wp-content/uploads/sites/97/2024/03/127.pdf",
+          "material_read": "Full author-posted 11-page PDF: model Eqs 1–8, transient MSD Sec II, reset renewal Eqs 26–30 and discussion, appendices; page 4 screenshot examined.",
+          "method": "Read primary PDF text, searched autocorrelation and inspected publisher-format page screenshot of exact stationary formulas.",
+          "title": "Intermittent random walks under stochastic resetting",
+          "trigger": "Same process, full two resetting protocols and stationary densities."
+        },
+        {
+          "assessment": "Not used to assert whole-document noncoverage; residual risk of general covariance specialization retained.",
+          "evidence": [
+            "Generic switching and intermittent active motion analysis, rather than explicit two complete-reset stationary aliasing protocols in material read."
+          ],
+          "identifier_or_url": "https://doi.org/10.1039/D4SM01054J",
+          "material_read": "Accessible bibliographic/abstract-level content; complete paper not materially read.",
+          "method": "Compared publication abstract and objects/parameters.",
+          "title": "Dynamics of switching processes: general results and applications in intermittent active motion",
+          "trigger": "General switching-process results could dominate a two-time moment derivation."
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "limitations": [
+        "No prediction for partial reset, asymmetric signs, non-Poisson renewal or first-arrival observables."
+      ],
+      "rationale": "The research question is identifiability of distinct transport/reset protocols from stationary observations. Constructing exactly identical complete position distributions but a provably strict, analytically quantified discrepancy at every time lag gives a meaningful discriminator and an integrated time-average variance contrast. This is a natural nonequilibrium stochastic-process invariant, not a cosmetic restatement of a known spatial density.",
+      "status": "PASS"
+    }
+  },
+  "checked_sources": [
+    "https://webs.uab.cat/vmendez/wp-content/uploads/sites/97/2024/03/127.pdf",
+    "https://arxiv.org/abs/2401.16849",
+    "https://doi.org/10.1039/D4SM01054J",
+    "https://doi.org/10.1103/PhysRevResearch.6.043281",
+    "https://doi.org/10.3389/fphy.2022.789097"
+  ],
+  "disposition": "passed",
+  "limitations": [
+    "Spatial aliasing is not original on its own; prior work fully credited.",
+    "Only complete, symmetric one-dimensional three-mode Poisson renewal process; no claim of whole-process equivalence."
+  ],
+  "residual_risks": [
+    "An overlooked two-time section or a general switching-process covariance theorem could imply the algebra with this parameter choice.",
+    "The one-time spatial coincidence is known from prior paper and is NOT independently original; only the strict all-lag/integrated comparison remains."
+  ],
+  "schema_version": 1
+}
