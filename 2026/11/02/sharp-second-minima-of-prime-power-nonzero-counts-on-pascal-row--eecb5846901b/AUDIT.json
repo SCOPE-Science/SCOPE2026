@@ -1,0 +1,145 @@
+{
+  "correctness": {
+    "rationale": "Kummer borrows imply strictly monotone counts under coordinatewise increase of n digits. This reduces all second-extremal rows to N+p^j or 2N; the digit transfer matrix yields the stated exact borrow polynomials, and exhaustive coefficient-truncation comparison gives all p,alpha,h regimes and ties. Tested independently against 84 full intervals (138920 rows) and 3680 exact-binomial counts; these are corroboration rather than an infinite proof.",
+    "status": "PASS"
+  },
+  "independent": false,
+  "independent_audit_status": "not_performed",
+  "originality": {
+    "broader_coverage": {
+      "evidence": [
+        "https://arxiv.org/abs/1001.1783: full 2010 primary text, all n and alpha row enumeration.",
+        "https://arxiv.org/abs/1604.07089: explicit universal generating function for exact valuation counts.",
+        "https://arxiv.org/abs/0710.1468: complete pointwise digit count formula."
+      ],
+      "reasoning": "These works give strictly broader pointwise counting inputs for arbitrary rows, and hence logically imply the ability to calculate each candidate number; the claimed new conclusion is the proven global second-order minimum and unique/tied optimizers uniformly in unrestricted p,alpha,h. The distinction is new optimization, not new raw data. General formulas do not immediately establish the exclusion of all other block rows without digit monotonicity and sharp comparison.",
+      "searches": [
+        "Rowland The number of nonzero binomial coefficients modulo p^alpha full text",
+        "Spiegelhofer Wallner explicit generating function counts binomial coefficients divisible by powers primes",
+        "Everett Number of binomial coefficients divided by fixed power of a prime"
+      ]
+    },
+    "checked_sources": [
+      "arxiv:1001.1783",
+      "arxiv:0710.1468",
+      "arxiv:1604.07089",
+      "Davis–Webb 1991 modulus-four PDF",
+      "arxiv:2408.06817"
+    ],
+    "claim_vs_prior_implication": {
+      "evidence": [
+        "Kummer 1852: valuation equals subtraction borrow count; foundational tool, not this extremum.",
+        "Rowland 2010: pointwise explicit formulas and dependence on digit subwords, not second minimizers.",
+        "published-finding corpus deficiency-one result evaluates valuations of selected binomials; prime-base tower result studies isolated binomial congruence periods, neither rowwise counts."
+      ],
+      "reasoning": "The theorem specializes established valuation distributions but requires an additional digitwise strict-domination lemma and exhaustive sharp comparison over all row indices; no inspected primary theorem gives this conclusion. A prior uniform extremal corollary may exist and remains a residual risk; absence of a search hit is not proof of uniqueness.",
+      "searches": [
+        "second-smallest number of binomial coefficients in Pascal row nonzero modulo p^alpha, unique minimizers interval p^h to p^(h+1), near extremal rows",
+        "stability and sharp gap of least nonzero binomial coefficient counts modulo prime powers for fixed digit length, p-adic carries Pascal triangle",
+        "Rowland a_{p^alpha}(n) second smallest value near n=p^h and p^h+p, 2p^h",
+        "2026/10/4/SCOPE-exact-small-prime-valuations-in-the-proposed-deficiency-one-cons--b1c9c7629241",
+        "2026/10/4/SCOPE-prime-power-towers-for-the-prime-base-binomial-congruence--a71ec1d0fa28"
+      ]
+    },
+    "equivalent_formulations": {
+      "evidence": [
+        "Rowland arXiv:1001.1783, Theorem 1: explicit row counts, not a second-minimum optimization.",
+        "Everett arXiv:0710.1468: exact-valuation row counts via binary borrow words."
+      ],
+      "reasoning": "The second distinct minimum over the entire fixed-leading-digit block is not equivalent to simply evaluating a fixed n. Prior exact formulas make the finite optimization computable, but do not visibly state the uniform optimizer set or the h versus alpha threshold. Searches for near-extremal and next-smallest formulations did not find stronger coverage.",
+      "searches": [
+        "second-smallest number of binomial coefficients in Pascal row nonzero modulo p^alpha, unique minimizers interval p^h to p^(h+1), near extremal rows",
+        "stability and sharp gap of least nonzero binomial coefficient counts modulo prime powers for fixed digit length, p-adic carries Pascal triangle",
+        "Rowland a_{p^alpha}(n) second smallest value near n=p^h and p^h+p, 2p^h",
+        "\"second minimum\" \"nonzero binomial coefficients\" prime power row",
+        "\"second smallest\" \"nonzero\" \"Pascal's triangle\" modulo"
+      ]
+    },
+    "exact_database_or_table": {
+      "evidence": [
+        "Rowland arXiv:1001.1783 documents known formulas for a_4(n), a_8(n), a_9(n); these tabulate individual counts rather than the uniform second minimum.",
+        "Davis–Webb 1991 covers the p=2 alpha=2 component only."
+      ],
+      "reasoning": "No exact preexisting table or complete second-minimum classification was identified; sparse modulus-four examples can be recovered from existing formulas and are not independently claimed as novel.",
+      "searches": [
+        "\"second smallest\" \"nondivisible\" \"Pascal's triangle\" rows",
+        "\"minimum number\" \"binomial coefficients\" \"not divisible\" \"prime power\" row",
+        "OEIS Pascal triangle count nonzero modulo prime powers second minimum"
+      ]
+    },
+    "rationale": "The classical Rowland, Everett, and Spiegelhofer–Wallner pointwise counting formulas are explicitly acknowledged as stronger background data, but inspected full articles do not state or prove the sharp second-order block-wide optimization with every equality case. Actual published-finding corpus semantic comparisons and alias searches found related binomial divisibility and p-adic statements on distinct objects, not dominating implications. Coverage in uninspected literature remains possible.",
+    "residual_risks": [
+      "A structural corollary hidden in a different extremal or digital-combinatorics paper may duplicate this second minimum.",
+      "Pointwise formulas in Rowland imply computability of all values; intellectual distinction from their unstated optimization requires independent contextual scrutiny."
+    ],
+    "source_inspections": [
+      {
+        "assessment": "POINTWISE_COVERAGE_NOT_EXTREMAL",
+        "evidence": [
+          "2010-01-12 initial arXiv date.",
+          "Theorem 1 derives prime-power count for each row using Kummer, but no second distinct minimum and all argmin classification on each full block."
+        ],
+        "identifier_or_url": "https://arxiv.org/abs/1001.1783",
+        "material_read": "Full HTML article, introduction, Theorem 1, word-count formulas, proofs and references",
+        "method": "arXiv full HTML, theorem and all sections inspected",
+        "title": "The number of nonzero binomial coefficients modulo p^alpha",
+        "trigger": "direct same quantity, arbitrary prime power modulus"
+      },
+      {
+        "assessment": "POINTWISE_NOT_BLOCK_OPTIMUM",
+        "evidence": [
+          "2007-10-08 earliest arXiv date.",
+          "Formula sums over borrow patterns for fixed n and valuation j; does not state second-minimum optimization."
+        ],
+        "identifier_or_url": "https://arxiv.org/abs/0710.1468",
+        "material_read": "Full arXiv text (abstract, binary-word formula, special-case discussion)",
+        "method": "arXiv complete HTML full document",
+        "title": "Number of binomial coefficients divided by a fixed power of a prime",
+        "trigger": "closely related exact distribution of valuations"
+      },
+      {
+        "assessment": "SYMBOLIC_FORMULAS_NOT_SHARP_EXTREMA",
+        "evidence": [
+          "2016-04-24 initial arXiv date.",
+          "Polynomial generating function for exact valuation counts; no all-parameter second-block minima."
+        ],
+        "identifier_or_url": "https://arxiv.org/abs/1604.07089",
+        "material_read": "Full arXiv HTML article, introduction, principal generating-function results and proof sections",
+        "method": "arXiv article full-text inspection",
+        "title": "An explicit generating function arising in counting binomial coefficients divisible by powers of primes",
+        "trigger": "general symbolic distribution, potential broader implication"
+      },
+      {
+        "assessment": "PARTIAL_SPECIAL_MODULUS",
+        "evidence": [
+          "Only alpha=2,p=2 modulus case, no all-prime / all-exponent classification."
+        ],
+        "identifier_or_url": "https://www.fq.math.ca/Scanned/29-1/davis.pdf",
+        "material_read": "Five-page full PDF covering modulus-four residue counts",
+        "method": "Lawful OA primary PDF and page-image inspection",
+        "title": "Pascal’s triangle modulo 4",
+        "trigger": "low-prime boundary and exceptional equality case"
+      },
+      {
+        "assessment": "DIFFERENT_SUMMATORY_OBJECT",
+        "evidence": [
+          "2024 paper optimizes summed counts over first n rows modulo p, not rowwise second minima modulo p^alpha."
+        ],
+        "identifier_or_url": "https://arxiv.org/abs/2408.06817",
+        "material_read": "Full arXiv HTML article, definitions and principal theorems",
+        "method": "Lawful open full text",
+        "title": "Periodic minimum in the count of binomial coefficients not divisible by a prime",
+        "trigger": "similar terminology periodic minimum, possible alias"
+      }
+    ],
+    "status": "PASS"
+  },
+  "review_type": "self_review",
+  "schema_version": 1,
+  "scope_run_id": "eecb5846-901b-4e10-bea9-c8f23a8964d6",
+  "self_review_status": "passed",
+  "value": {
+    "rationale": "A natural second-order extremum of prime-power Pascal-row support has a uniform piecewise law and complete equality classification, revealing a phase transition at h=alpha and exceptional binary ties. This goes beyond isolated rows, mechanical restatement of the pointwise digit formula, and finite table entries; it is relevant to stability of sparse Pascal rows.",
+    "status": "PASS"
+  }
+}
