@@ -1,0 +1,119 @@
+{
+  "correctness": {
+    "rationale": "Fresh independent Gaussian probes give exactly gamma-distributed multipliers; the strong law determines strict pathwise signs. Exact exponential-integral formulas follow by integrating gamma densities. The opposite signs at 107/40 have certified rational Taylor enclosures, not simulation. The derivative at any four-probe root and endpoint signs give uniqueness. Gamma central moments and an exponentially small far-tail singularity estimate prove the uniform large-n logarithmic expansion and locally unique crossing. verify.py reproduced 21 checks.",
+    "status": "PASS"
+  },
+  "independent": false,
+  "independent_audit_status": "not_performed",
+  "originality": {
+    "broader_coverage": {
+      "evidence": [
+        "Song et al. (2026), arXiv:2604.14669v1, Appendix B.3 equations (136)–(141), treats averaged Gaussian probes and mean-square covariance; its inspected text does not state the sign reversal or the large-probe logarithmic asymptotic.",
+        "Ziyin et al. (2023), arXiv:2303.13093, discusses known Lyapunov exponent criteria for probabilistic stability; no novelty asserted for the general logarithmic criterion."
+      ],
+      "reasoning": "Broader mean-square convergence results do not imply the pathwise comparison. General multiplicative-noise Lyapunov theory supplies the known criterion but no statement dominating the exact finite-probe reversal and explicit 8/n asymptotic gap.",
+      "searches": [
+        "nonmonotonic noise averaging almost sure stability gamma multiplicative gradients 2 4 samples",
+        "zeroth order stability more Gaussian probes mean square versus almost sure",
+        "2023 probabilistic stability SGD Lyapunov theorem"
+      ]
+    },
+    "checked_sources": [
+      "https://arxiv.org/html/2604.14669v1",
+      "https://arxiv.org/abs/2303.13093",
+      "https://proceedings.mlr.press/v306/song26ac.html",
+      "2026/9/20/SCOPE-sosgm-feedback-curvature-stability--021cc30589a6",
+      "2026/9/18/SCOPE-exact-haar-moments-sparse-ssd--d9ecf263b248"
+    ],
+    "claim_vs_prior_implication": {
+      "evidence": [
+        "Song et al. (2026), arXiv:2604.14669v1, Appendix B.3 equations (136)–(141), treats averaged Gaussian probes and mean-square covariance; its inspected text does not state the sign reversal or the large-probe logarithmic asymptotic.",
+        "Ziyin et al. (2023), arXiv:2303.13093, discusses known Lyapunov exponent criteria for probabilistic stability; no novelty asserted for the general logarithmic criterion.",
+        "Published finding 2026/9/20/SCOPE-sosgm-feedback-curvature-stability--021cc30589a6 treats random-curvature online step feedback, not independently averaged Gaussian two-point finite differences. Published finding 2026/9/18/SCOPE-exact-haar-moments-sparse-ssd--d9ecf263b248 treats Haar projector mean-square bounds, not this Gaussian almost-sure comparison."
+      ],
+      "reasoning": "The exact source covariance recursion proves the mean-square boundary 2n/(n+2), but offers no order relation on E log|1-aY_n|. The known Lyapunov criterion reduces the problem to that expectation; the new explicit gamma integral inequalities and asymptotic analysis supply the non-implied specialization.",
+      "searches": [
+        "Gaussian two point zeroth order gradient averaging independent directions chi square batch almost sure logarithmic stability nonmonotone probe count exponential integral",
+        "Gaussian LMS stochastic multiplicative update chi square two versus four averaged probes logarithmic Lyapunov contraction thresholds",
+        "nonmonotonic noise averaging almost sure stability gamma multiplicative gradients 2 4 samples",
+        "arxiv:2604.14669v1 Appendix B.3 equations 136–141",
+        "arxiv:2303.13093 theorem logarithmic Lyapunov"
+      ]
+    },
+    "equivalent_formulations": {
+      "evidence": [
+        "Song et al. (2026), arXiv:2604.14669v1, Appendix B.3 equations (136)–(141), treats averaged Gaussian probes and mean-square covariance; its inspected text does not state the sign reversal or the large-probe logarithmic asymptotic.",
+        "Ziyin et al. (2023), arXiv:2303.13093, discusses known Lyapunov exponent criteria for probabilistic stability; no novelty asserted for the general logarithmic criterion.",
+        "Published finding 2026/9/20/SCOPE-sosgm-feedback-curvature-stability--021cc30589a6 treats random-curvature online step feedback, not independently averaged Gaussian two-point finite differences. Published finding 2026/9/18/SCOPE-exact-haar-moments-sparse-ssd--d9ecf263b248 treats Haar projector mean-square bounds, not this Gaussian almost-sure comparison."
+      ],
+      "reasoning": "The equivalent update is an iid product with normalized chi-square gains. The existing general random-product criterion states how to test a distribution, but not the evaluated two/four opposite signs or the large-n shift. A one-probe threshold in a 2023 LMS discussion concerns a different gamma shape.",
+      "searches": [
+        "Gaussian two point zeroth order gradient averaging independent directions chi square batch almost sure logarithmic stability nonmonotone probe count exponential integral",
+        "Gaussian LMS stochastic multiplicative update chi square two versus four averaged probes logarithmic Lyapunov contraction thresholds",
+        "random multiplier product E log abs(1-step chi square average)"
+      ]
+    },
+    "exact_database_or_table": {
+      "evidence": [
+        "Published finding 2026/9/20/SCOPE-sosgm-feedback-curvature-stability--021cc30589a6 treats random-curvature online step feedback, not independently averaged Gaussian two-point finite differences. Published finding 2026/9/18/SCOPE-exact-haar-moments-sparse-ssd--d9ecf263b248 treats Haar projector mean-square bounds, not this Gaussian almost-sure comparison.",
+        "Targeted public literature web queries for normalized chi-square log-product thresholds returned the motivating 2026 mean-square paper and older general stochastic-approximation sources but no exact 2-versus-4 table."
+      ],
+      "reasoning": "The claim is an exact analytic sign and asymptotic, not a recomputation of a known named numerical table. Absence of matches is not a novelty proof.",
+      "searches": [
+        "averaged Gaussian gradient zero order chi square almost sure stability nonmonotonic batch size exponential integral thresholds",
+        "stochastic approximation almost sure stability multi probe chi square 2.684510 2.662995",
+        "chi square log multiplier roots 2.684510350820 2.662995668706"
+      ]
+    },
+    "rationale": "The explicit strict two-versus-four probe a.s. reversal and the asymptotic pathwise-versus-mean-square separation are not implied as stated by the inspected source mean-square result or known general log-Lyapunov criterion; exact Gaussian LMS one-probe stability is excluded. The targeted published-record queries returned no matching implication. Specialized uninspected historical random-products and LMS literature creates residual priority uncertainty.",
+    "residual_risks": [
+      "Specialized older randomized least-mean-squares/block Gaussian-product papers were not exhaustively available or inspected.",
+      "Published research-record search is semantic and incomplete; absence of a hit does not establish uniqueness.",
+      "Asymptotic local root result does not classify all positive roots for arbitrary large fixed probe counts."
+    ],
+    "source_inspections": [
+      {
+        "assessment": "Gives the exact setup and mean-square operator, not the claimed almost-sure comparison",
+        "evidence": [
+          "Song et al. (2026), arXiv:2604.14669v1, Appendix B.3 equations (136)–(141), treats averaged Gaussian probes and mean-square covariance; its inspected text does not state the sign reversal or the large-probe logarithmic asymptotic."
+        ],
+        "identifier_or_url": "https://arxiv.org/html/2604.14669v1",
+        "material_read": "Full HTML contents and Appendix B.3 equations (136) through (141), title/abstract and theoretical sections on mean-square stability",
+        "method": "Read public arXiv HTML and compare precise estimator and quantifiers",
+        "title": "Zeroth-Order Optimization at the Edge of Stability",
+        "trigger": "Same estimator and averaging parameter"
+      },
+      {
+        "assessment": "General log-Lyapunov framework acknowledged; no identified concrete two/four gamma calculation",
+        "evidence": [
+          "Ziyin et al. (2023), arXiv:2303.13093, discusses known Lyapunov exponent criteria for probabilistic stability; no novelty asserted for the general logarithmic criterion."
+        ],
+        "identifier_or_url": "https://arxiv.org/abs/2303.13093",
+        "material_read": "Public abstract and available theorem-level statements on multiplicative Lyapunov criteria; complete full text not confirmed read in this round",
+        "method": "Public preprint metadata and theorem-level comparison",
+        "title": "Type-II Saddles and Probabilistic Stability of Stochastic Gradient Descent",
+        "trigger": "Plausible dominating theorem about pathwise stability"
+      },
+      {
+        "assessment": "One-probe special case is previously known and explicitly excluded",
+        "evidence": [
+          "Earlier one-probe scalar Gaussian multiplier threshold about 2.42124952; gamma shapes one and two are not covered by that calculation."
+        ],
+        "identifier_or_url": "https://math.stackexchange.com/",
+        "material_read": "Indexed discussion information about single Gaussian multiplier and 2.4212495 value; direct full page not accessible",
+        "method": "Search indexing and mathematical parameter comparison",
+        "title": "Scalar Gaussian LMS stability discussion",
+        "trigger": "Exact earlier one-probe Gaussian threshold"
+      }
+    ],
+    "status": "PASS"
+  },
+  "review_type": "self_review",
+  "schema_version": 1,
+  "scope_run_id": "bd4e7bf6-76c0-4c91-845e-44e3d1d3e727",
+  "self_review_status": "passed",
+  "value": {
+    "rationale": "The cited numerical method explicitly treats query averaging as a stability-control lever. A rigorous counterexample to monotonic pathwise safety despite increasing mean-square safety, plus a signed first-order asymptotic gap of 8/n, explains a practically relevant distinction between sample-path stability and expected-square guarantees. The results concern a natural algorithmic dimension rather than an arbitrary numerical slice.",
+    "status": "PASS"
+  }
+}
