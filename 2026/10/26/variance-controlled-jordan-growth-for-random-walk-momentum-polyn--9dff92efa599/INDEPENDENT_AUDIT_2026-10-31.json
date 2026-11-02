@@ -1,0 +1,123 @@
+{
+  "audit_date_utc": "2026-10-31",
+  "audited_at_utc": "2026-10-31T20:48:00Z",
+  "axes": {
+    "correctness": {
+      "finite_check_path": "independent_checks.py (private independent bounded check, 13490 total assertions across 4 subjects)",
+      "rationale": "Define Y=1-j with probabilities p_j, E Y=0 and σ²=E Y²>0. Differentiating Σp_j P_(n+1-j)(z)=zP_n(z) at z=1 gives L D_(n,k)=k D_(n,k-1), where L=E shift by Y minus identity, D_(n,0)=1. The characteristic polynomial is G(s)-s=(s-1)²H(s) with H nonincreasing nonnegative coefficients; positivity and p0>0 exclude roots of H in |s|≤1, so all nonunit characteristic modes decay. For polynomial n^(2k), L has leading term k(2k-1)σ² n^(2k-2), so comparison of highest forcing coefficients gives c_k=c_(k-1)/((2k-1)σ²)=1/[σ^(2k)(2k-1)!!], and the lower polynomial/decaying modes contribute O(n^(2k-1)). The Jordan polynomial functional calculus P_n(I+N_q)=Σ D_(n,k)N_q^k/k! has leading n^(2q-2)N_q^(q-1) and ||N_q^(q-1)||2=1. Since -(m-1)≤Y≤1 and E Y=0, E[(1-Y)(Y+m-1)]≥0 gives σ²≤m-1, with equality only for the endpoint p0=(m-1)/m,pm=1/m. Independent exact rational jets for two higher-order admissible distributions and root/leading-ratio checks corroborated formulas at finite n, not infinite proof.",
+      "specific_checks": [
+        "Independent Poisson/Beta-moment/resultant/rational-jet computations, limited finite samples; no infinite inference."
+      ],
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Cowal et al Theorem 1.2 concerns regionwise bounds and growing outside regions, not derivative coefficients at a double characteristic root",
+          "The earlier deltoid paper considers a special recurrence; Theorem 4 explicitly uses an eigenbasis expansion, not a defective Jordan analysis"
+        ],
+        "reasoning": "No inspected stronger theorem implies the all-admissible-law σ-universal coefficient and unique endpoint variance optimizer; possible special-case earlier coverage is not excluded.",
+        "searches": [
+          "https://arxiv.org/abs/2510.24608",
+          "https://arxiv.org/abs/2507.01885",
+          "Published Resultary semantic search: random walks Faber polynomials momentum recurrences derivative at 1 Jordan block asymptotic variance powers (11 returned; no matching theorem)"
+        ]
+      },
+      "checked_sources": [
+        "https://arxiv.org/abs/2510.24608",
+        "https://arxiv.org/abs/2509.22588",
+        "https://arxiv.org/abs/2507.01885",
+        "https://arxiv.org/abs/2511.05364",
+        "Published Resultary semantic search: random walks Faber polynomials momentum recurrences derivative at 1 Jordan block asymptotic variance powers (11 returned; no matching theorem)"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "Primary 2510.24608 matrix-iteration result explicitly diagonalizable/simple dominant eigenvalue; Jordan blocks violate this hypothesis",
+          "Theorem 1.2 pointwise scalar bounds do not provide 2k-th polynomial derivative growth at a neutral double root"
+        ],
+        "reasoning": "The exact variance-parametric Jordan asymptotic is not a permissible corollary of the closest inspected diagonalizable theorem; a separate characteristic-root and jet recurrence proof is needed.",
+        "searches": [
+          "https://arxiv.org/abs/2510.24608",
+          "https://arxiv.org/abs/2509.22588",
+          "https://arxiv.org/abs/2511.05364",
+          "Published Resultary semantic search: random walks Faber polynomials momentum recurrences derivative at 1 Jordan block asymptotic variance powers (11 returned; no matching theorem)"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Cowal–Marshall–Pollock arXiv:2510.24608 same polynomial recurrence but scalar norm and diagonalizable matrix setting",
+          "Jordan-block norm is exactly controlled by high derivatives of the same polynomial at the defective eigenvalue"
+        ],
+        "reasoning": "The scalar polynomial and matrix polynomial calculus are legitimate aliases, but scalar |P_n(z)| boundedness on a region does not bound derivatives at its boundary or P_n(J_q) for nontrivial Jordan blocks.",
+        "searches": [
+          "random walk momentum polynomial recurrence derivative at z=1 Jordan block n^{2k} variance",
+          "Published Resultary semantic search: random walks Faber polynomials momentum recurrences derivative at 1 Jordan block asymptotic variance powers (11 returned; no matching theorem)"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "The all-k sequence c_k=1/(σ^(2k)(2k-1)!!) follows from the audited double-root recurrence calculation, not an experimental table",
+          "Resultary hits about other random walks and Jordan constants are different invariant objects"
+        ],
+        "reasoning": "Exact natural coefficients for every fixed k,q are not found in checked published tables; search failure alone is not a mathematical originality proof.",
+        "searches": [
+          "n^2 derivative at 1 random walk recurrence variance formula Jordan polynomial Faber",
+          "Published Resultary semantic search: random walks Faber polynomials momentum recurrences derivative at 1 Jordan block asymptotic variance powers (11 returned; no matching theorem)"
+        ]
+      },
+      "rationale": "Cowal–Marshall–Pollock arXiv:2510.24608 establishes the same random-walk polynomial family and its boundedness/rapid exterior growth, but the inspected Theorem 1.2 and application assume diagonalizability with simple dominant eigenvalue; they do not quantify defective Jordan-block boundary amplification or all-order derivatives at 1. Miña-Díaz–Rubin–Wennman arXiv:2509.22588 studies geometric supremum norms of classical Chebyshev/Faber polynomials, not this recurrence derivative invariant. The deltoid special-case arXiv:2507.01885 primary PDF was inspected through Theorems 2–4 and §3.3 (the convergence theorem assumes an eigenvector basis), and restarted Lanczos arXiv:2511.05364 primary HTML was inspected through its matrix hypotheses and §2, which assumes symmetric or Hermitian matrices. Thus these inspected results also concern diagonalizable cases rather than defective Jordan growth. A hidden classical special-case derivative calculation remains a qualified priority risk. Published Resultary semantic search identified no theorem covering the exact σ-dependent coefficients. Originality is best-of-knowledge.",
+      "residual_risks": [
+        "Earlier deltoid recurrence algebra or broader classical Faber boundary-derivative literature may contain an implicit special-case coefficient despite the inspected eigenbasis application theorem; a negative keyword search alone cannot rule it out.",
+        "Fixed k,q,m only; no eigenvector convergence claim for defective dominant eigenvalue.",
+        "Finite recurrence tests do not certify characteristic-root location for all admissible laws."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "SAME_POLYNOMIAL_DIAGONALIZABLE_SETTING",
+          "evidence": [
+            "The source does not state the σ-controlled fixed-order derivative coefficients or defective Jordan norm asymptotic in the inspected relevant sections."
+          ],
+          "identifier_or_url": "https://arxiv.org/abs/2510.24608",
+          "material_read": "Primary arXiv PDF Theorem 1.2 and matrix-application hypotheses including diagonalizable assumption; pages 6 and 9 visually inspected",
+          "method": "Read PDF theorem text and key equation/proof context; searched primary text for Jordan/derivative claim",
+          "title": "Random Walks, Faber Polynomials and Accelerated Power Methods",
+          "trigger": "Same recurrence and possible stronger power-method theorem"
+        },
+        {
+          "assessment": "SPECIAL_RECURRENCE_DIAGONALIZABLE_APPLICATION",
+          "evidence": [
+            "Theorem 4 explicitly expands into an eigenvector basis; main theorems give deltoid scalar bounds, approximation and iteration, not a σ-controlled Jordan derivative theorem."
+          ],
+          "identifier_or_url": "https://arxiv.org/abs/2507.01885",
+          "material_read": "Primary arXiv PDF relevant Theorems 2–4, §2.3 and §3.3 proof of Theorem 4, and recurrence (4); PDF page 3 visually inspected",
+          "method": "Read mathematical theorem hypotheses and relevant proof equations; searched for Jordan terminology, not merely abstract",
+          "title": "Faber polynomials in a deltoid region and power iteration momentum methods",
+          "trigger": "Special recurrence of same research family, potential prior special case"
+        },
+        {
+          "assessment": "HERMITIAN_AND_CHEBYSHEV_SETTING_NOT_THE_DEFECTIVE_FAMILY",
+          "evidence": [
+            "The analysis assumes real symmetric or complex Hermitian A and hence has no nontrivial Jordan block; the polynomial family is Chebyshev-based rather than the audited all-law higher recurrence."
+          ],
+          "identifier_or_url": "https://arxiv.org/abs/2511.05364",
+          "material_read": "Primary arXiv HTML §1.1, §2.1–2.2 and §3 mathematical setting and theorem comparisons",
+          "method": "Read precise symmetric/Hermitian hypothesis, eigenbasis spectral decomposition, Chebyshev-based polynomial ratios and main comparison theorem context",
+          "title": "Momentum accelerated power iterations and the restarted Lanczos method",
+          "trigger": "Related matrix-iteration numerical analysis and potentially broader spectral theorem"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "rationale": "Boundary defective Jordan blocks are a natural non-normal stress test for polynomial acceleration. The exact σ-dependent leading amplification for every fixed block size makes the stability cost measurable and the unique variance-maximizing endpoint law a genuine recurrence-design optimality statement, not merely a restatement of bounded scalar polynomials.",
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "limitations": [
+    "Fixed m≥3, k≥1, q≥2, mean-zero law p0>0,p1=0 and positive higher-order p_j; excludes Chebyshev-only case.",
+    "Asymptotic n→∞ with fixed parameters, not uniform large-Jordan-size or algorithmic eigenvector convergence.",
+    "Related deltoid and Hermitian-momentum primary theorem sections were inspected, but full historical priority remains qualified."
+  ],
+  "schema_version": 1
+}
