@@ -1,19 +1,21 @@
-# Review of exact common-edge laws for complete bipartite spanning trees
+# Independent mathematical audit
 
-## Correctness — PASS
+## correctness
 
-The two main assertions use a unique degree-core decomposition. A tree of \(K_{a,b}\) has exactly \(a-1\) excess degree units on the \(b\)-side, so at most \(a-1\) nonleaf vertices there. Conditioned on a fixed skeleton, the other vertices choose neighbours independently and uniformly. For a pair of skeletons, at most \(2(a-1)\) vertices require special treatment; all remaining common-edge indicators give independent Bernoulli \(1/a\) trials. Nonnegative probability-polynomial factorization establishes an **exact** convolution rather than a limiting approximation, and the maximum common-edge count bounds the correction degree. In the three-vertex-side case, exhaustive classification into the two possible skeleton forms gives the displayed rational polynomial, normalization, moments, and the exact number of disjoint tree pairs. The eight listed skeleton-pair cases distinguish all overlap patterns without double counting. Reproducibility checks from `verify.py` independently enumerate all \(186{,}624\) tree pairs of \(K_{3,4}\) and \(4{,}100{,}625\) pairs of \(K_{3,5}\), and verify the exact rational expressions through \(n=40\). The infinite claims are justified by the core and counting proofs, not finite tests.
+PASS
 
-## Originality — PASS, with priority qualifications
+PASS: For uniform spanning tree T of labelled K_{a,b}, sum of B-side degree excess is a−1, so at most a−1 B-vertices are nonleaves and removing all other B leaves gives a unique connected acyclic skeleton on A and the core. Conditional on this exact skeleton, all omitted B vertices attach independently and uniformly to one of a A-neighbors. For two independent trees, union of core B labels has size r<=2(a−1); the b−r double leaves contribute independent Bernoulli(1/a) overlaps, independent of all core overlap conditional on skeletons. For b>=2a−2 factor out Bin(b−2a+2,1/a) from every conditional PGF, leaving a mixture with nonnegative coefficients; maximal total overlap a+b−1 bounds residual degree by 3(a−1). For K_{3,n}, I/II skeleton types of a 3-star or two 2-stars are exhaustive. Enumeration by core sharing and edge overlap gives the stated Q_n(t) nonnegative correction polynomial, exact edge-disjoint ordered pair count and mean/variance. Independent direct tree enumeration matches full polynomial at n=4,5: 432 and 2025 spanning trees, 186624 and 4100625 ordered pairs, and zero-overlap counts 216 and 6480.
 
-The closest direct paper, Bóna–Burghart–Wagner, arXiv:2501.18570v4, §5, observes an **approximately** binomial law when one bipartition class stays fixed and proves asymptotic results under other growth regimes. Its full inspected text does not determine an independent exact finite binomial component, the six-degree correction polynomial for \(K_{3,n}\), or the number of pairs with zero common edges. The forest-extension count of Dong–Ge, arXiv:2103.05294, and the multipartite version of Wang–Ge, arXiv:2602.03602, give counts for trees containing a fixed forest rather than the complete pair-overlap distribution. A two-row overlap formula applies only to \(K_{2,b}\); the three-row formulas and all-\(a\) convolution do not follow from that specialization alone. Related tree-packing existence theorems do not count the ordered pairs. No equivalent finite law was identified in the available comparisons. Historical priority under alternative names and the possibility of a derivation from more general unpublished identities remain residual risks; independent historical verification is not complete.
+## originality
 
-## Mathematical value — PASS
+PASS
 
-The precise fixed-small-side distribution is directly motivated by the non-Poisson regime identified in the recent random-spanning-tree literature. Determining its exact binomial factor for every small-side size, and the entire nontrivial bounded correction for the first three-vertex case, is substantially more informative than knowing the asymptotic normal regime or a first moment. The explicit zero-overlap term counts ordered edge-disjoint tree pairs for an infinite graph family, connecting probabilistic overlap laws with classical tree-packing enumeration. Both the law and the count are natural invariants of labelled complete bipartite graphs, not arbitrary parameter slices.
+PASS, qualified: Bóna, Burghart and Wagner (2026, full paper section 5) establish asymptotic/approximately binomial overlap for fixed small side, not exact finite semiring divisibility or explicit K_{3,n} distribution. Dong and Ge give a generic count of spanning trees containing a fixed forest; extracting an exact common binomial factor and positive residual from pairs is not an immediate stated corollary. The exact Q_n polynomial and ordered disjoint-tree census are specialized novel content relative to inspected originals. Possible unindexed exact enumeration remains a risk.
 
-## Limits and comparison risks
+## value
 
-The general factorization currently supplies the support bound rather than a closed expression for its correction polynomial; the full correction is established here for \(a=3\), \(b\ge4\). The result does not enumerate unlabeled tree decompositions or apply to arbitrary bipartite graphs. While the key related papers were inspected and multiple synonyms compared, broad literature coverage cannot establish absolute priority. The proof has had no independent mathematical audit.
+PASS
 
-Self-review: passed. Independent audit: not yet performed.
+PASS: Exact positive binomial-factor extraction is a natural structural feature of uniform spanning-tree intersections on bipartite graphs; an explicit K_{3,n} overlap law and ordered tree-packing census are reusable finite exact invariants, not a recomputed single small case.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

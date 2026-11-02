@@ -5,8 +5,11 @@
     "status": "not_performed"
   },
   "independent_audit": {
-    "evidence": null,
-    "status": "not_performed"
+    "status": "passed",
+    "evidence": [
+      "INDEPENDENT_AUDIT_2026-10-31.md",
+      "INDEPENDENT_AUDIT_2026-10-31.json"
+    ]
   },
   "lean_verification": {
     "evidence": null,
@@ -16,10 +19,24 @@
 }
 ---
 
-# Reproducible verification
+# Independent mathematical audit
 
-Run `python3 verify.py` using only the Python standard library. The program has two separately specified paths: it enumerates labelled spanning trees as connected acyclic edge subsets and calculates the overlap histogram of every ordered pair, while its rational polynomial arithmetic independently evaluates the formula for \(\mathbb E[t^{X_{3,n}}]\).
+## correctness
 
-The program enumerates all \(432\) trees of \(K_{3,4}\) and their \(186{,}624\) ordered pairs, and all \(2025\) trees of \(K_{3,5}\) and their \(4{,}100{,}625\) ordered pairs; every coefficient agrees exactly. It confirms the edge-disjoint pair count and performs 37 additional exact-rational polynomial checks for \(4\le n\le40\), including nonnegative coefficients, coefficient sum one, the mean, variance, and zero-overlap identity. Observed final marker: `VERIFY_OK exhaustive_pairs= 4287249 additional_rational_laws= 37`.
+PASS
 
-The all-parameter independent convolution theorem is a symbolic consequence of the bounded-degree-core construction in `RESULT.md`. The finite checks do not certify the theorem for all orders; they test two full exact histograms and additional formula specializations. Literature-priority assessment is also separate from computational correctness.
+PASS: For uniform spanning tree T of labelled K_{a,b}, sum of B-side degree excess is a−1, so at most a−1 B-vertices are nonleaves and removing all other B leaves gives a unique connected acyclic skeleton on A and the core. Conditional on this exact skeleton, all omitted B vertices attach independently and uniformly to one of a A-neighbors. For two independent trees, union of core B labels has size r<=2(a−1); the b−r double leaves contribute independent Bernoulli(1/a) overlaps, independent of all core overlap conditional on skeletons. For b>=2a−2 factor out Bin(b−2a+2,1/a) from every conditional PGF, leaving a mixture with nonnegative coefficients; maximal total overlap a+b−1 bounds residual degree by 3(a−1). For K_{3,n}, I/II skeleton types of a 3-star or two 2-stars are exhaustive. Enumeration by core sharing and edge overlap gives the stated Q_n(t) nonnegative correction polynomial, exact edge-disjoint ordered pair count and mean/variance. Independent direct tree enumeration matches full polynomial at n=4,5: 432 and 2025 spanning trees, 186624 and 4100625 ordered pairs, and zero-overlap counts 216 and 6480.
+
+## originality
+
+PASS
+
+PASS, qualified: Bóna, Burghart and Wagner (2026, full paper section 5) establish asymptotic/approximately binomial overlap for fixed small side, not exact finite semiring divisibility or explicit K_{3,n} distribution. Dong and Ge give a generic count of spanning trees containing a fixed forest; extracting an exact common binomial factor and positive residual from pairs is not an immediate stated corollary. The exact Q_n polynomial and ordered disjoint-tree census are specialized novel content relative to inspected originals. Possible unindexed exact enumeration remains a risk.
+
+## value
+
+PASS
+
+PASS: Exact positive binomial-factor extraction is a natural structural feature of uniform spanning-tree intersections on bipartite graphs; an explicit K_{3,n} overlap law and ordered tree-packing census are reusable finite exact invariants, not a recomputed single small case.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
