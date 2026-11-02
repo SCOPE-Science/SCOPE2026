@@ -1,0 +1,113 @@
+{
+  "correctness": {
+    "rationale": "Matrix-tree contraction, labeled alternating-path count, telescoping survival, strict monotone ratio calculation with all supports; 24,635 independent exact checks including complete K_{a,b} trees for 2≤a,b≤4.",
+    "status": "PASS"
+  },
+  "independent": false,
+  "independent_audit_status": "not_performed",
+  "originality": {
+    "broader_coverage": {
+      "evidence": [
+        "Ge–Dong, arXiv:1904.07766, Theorem 1.4 (PDF page 2, proof pages 11–12), counts spanning trees containing a prescribed tree.",
+        "Dong–Ge, arXiv:2103.05294, Theorem 4 (PDF page 2), gives counts for any prescribed spanning forest."
+      ],
+      "reasoning": "These are broader coverage for the enumerative path-containment ingredient, and that ingredient is not credited as novel. Neither inspected theorem quantifies how the normalized same-side distance distributions of the two vertex classes are likelihood-ratio ordered. General forest containment does not directly state an ordering of entire endpoint-distance laws. The claim is limited to the latter ordering, with the closed mass and survival laws as its proof.",
+      "searches": [
+        "Scientific record query: exact law graph distance vertices in same bipartition of K_{a,b} spanning trees",
+        "Literature query: 2019 Ge Dong spanning trees containing path complete bipartite graph theorem",
+        "Literature query: 2021 Dong Ge counting spanning trees containing given spanning forest"
+      ]
+    },
+    "checked_sources": [
+      "https://doi.org/10.1002/jgt.20577",
+      "https://cs.du.edu/~paulhorn/pap/spanningtree-final.pdf",
+      "https://arxiv.org/abs/1904.07766",
+      "https://arxiv.org/abs/2103.05294",
+      "Published scientific records on complete-bipartite spanning-tree classwise distances"
+    ],
+    "claim_vs_prior_implication": {
+      "evidence": [
+        "Chung–Horn–Lu, 2010 manuscript / 2011 journal first-online, studies diameter of a uniform spanning tree on a general graph, not same-part two-point likelihood-ratio comparisons; the inspected proof framework uses a nonbipartite spectral mixing assumption.",
+        "Ge–Dong 2019 Theorem 1.4 entails fixed-path inclusion counts, while Dong–Ge 2021 extends it to forests; deriving and ordering the two endpoint distance distributions requires extra path summation and a strict ratio argument."
+      ],
+      "reasoning": "The conditional two-point distance law is not the tree diameter, and the strict class-size likelihood-ratio comparison does not follow from a diameter bound. The prescribed-forest formulas logically imply each fixed-path probability and permit reconstruction of the distribution, but do not alone express an all-threshold or likelihood-ratio comparison. The present result explicitly supplies that extra statement and proof. Priority is qualified because such a deduction might have appeared in another paper.",
+      "searches": [
+        "Scientific record query: uniform spanning trees of complete bipartite graph distances between two marked vertices in the larger vertex class versus smaller class monotone likelihood ratio",
+        "Scientific record query: conditional graph distance same-side vertices bipartite random spanning tree class-size ordering hazard ratio",
+        "Literature query: complete bipartite random spanning tree distance distribution"
+      ]
+    },
+    "equivalent_formulations": {
+      "evidence": [
+        "No direct two-class likelihood-ratio assertion surfaced in the checked matching records.",
+        "The exact one-class PMF is recovered from the 2019 Ge–Dong prescribed-tree containment theorem, which does not provide a comparison of the two side laws."
+      ],
+      "reasoning": "The same-side path length is a loop-erased random-walk length in an equivalent formulation. A path-inclusion probability is not itself a cross-vertex-class likelihood-ratio order; that requires proving monotonicity of the ratio of two fully normalized distance laws. The necessary product ratio comparison is proved explicitly. Historical implicit equivalence remains possible.",
+      "searches": [
+        "Scientific record query: uniform spanning trees of complete bipartite graph distances between two marked vertices in the larger vertex class versus smaller class monotone likelihood ratio",
+        "Scientific record query: conditional graph distance same-side vertices bipartite random spanning tree class-size ordering hazard ratio",
+        "Literature query: random spanning tree complete bipartite distance same partition vertices likelihood ratio monotone"
+      ]
+    },
+    "exact_database_or_table": {
+      "evidence": [
+        "No published exact same-class distance two-side table or comparison matching the all-size likelihood-ratio theorem was identified.",
+        "The standalone exact verifier reconstructs complete tree counts through K_{4,4}, but is a current check, not a prior database."
+      ],
+      "reasoning": "The main theorem is infinite and includes strict likelihood-ratio inequalities at all admissible class sizes. Finite tables, even if found, would not automatically imply the all-size ordering. A broader direct theorem would supersede it, but was not identified.",
+      "searches": [
+        "Scientific record query: exact law graph distance vertices in same bipartition of K_{a,b} spanning trees",
+        "Literature query: uniform spanning tree complete bipartite two vertices in same part path length probability distribution stochastic"
+      ]
+    },
+    "rationale": "The strongest identified exact containment results of Ge–Dong 2019 and Dong–Ge 2021 are acknowledged as covering the path-count ingredient, not the new cross-vertex-class strict likelihood-ratio theorem. Chung–Horn–Lu diameter bounds do not imply it. Related existing claims concerning opposite-side endpoints or degree-conditioned laws do not provide this same-side pair comparison. Historical implicit priority risk is acknowledged.",
+    "residual_risks": [
+      "A broader historical probability, electrical-network or loop-erased-walk publication may state an implicitly equivalent pair-distance likelihood-ratio order.",
+      "The enumerative path inclusion law is established literature, not a novel subclaim."
+    ],
+    "source_inspections": [
+      {
+        "assessment": "COVERS path inclusion count; no same-side two-class likelihood-ratio ordering in examined result or proof",
+        "evidence": [
+          "Theorem 1.4 depends only on bipartition sizes of a prescribed tree; proof evaluates contracted Laplacian."
+        ],
+        "identifier_or_url": "https://arxiv.org/abs/1904.07766",
+        "material_read": "Full-text PDF introduction and Theorem 1.4 (page 2), proof (pages 11–12), including the matrix-tree derivation",
+        "method": "Read arXiv full text and inspected PDF page images",
+        "title": "Spanning trees in complete bipartite graphs and resistance distance in nearly complete bipartite graphs",
+        "trigger": "Direct same-host path-count theorem possibly dominating the claim"
+      },
+      {
+        "assessment": "COVERS general forest containment, not an asserted class-comparison likelihood-ratio theorem",
+        "evidence": [
+          "Theorem 4 is a forest containment count, Theorem 3 repeats the 2019 tree containment formula."
+        ],
+        "identifier_or_url": "https://arxiv.org/abs/2103.05294",
+        "material_read": "Full-text PDF abstract, introduction and Theorems 3–4 on page 2",
+        "method": "Read arXiv full text and inspected PDF page image",
+        "title": "Counting spanning trees in a complete bipartite graph which contain a given spanning forest",
+        "trigger": "Stronger general fixed-spanning-forest theorem"
+      },
+      {
+        "assessment": "Studies graph-wide diameter and asymptotic estimates rather than two-point class-size likelihood-ratio order",
+        "evidence": [
+          "The general spectral bound assumes a nonbipartite host for sigma<1; the paper does not present a K_{a,b} fixed-pair law."
+        ],
+        "identifier_or_url": "https://doi.org/10.1002/jgt.20577",
+        "material_read": "Author 2010 manuscript abstract, introduction, general host graph statements and assumptions, random-walk construction",
+        "method": "Read accessible author PDF and inspected first-page image, cross-checked 2011-03-04 online journal publication date",
+        "title": "Diameter of random spanning trees in a given graph",
+        "trigger": "Relevant pre-2016 probabilistic random-spanning-tree scope source"
+      }
+    ],
+    "status": "PASS"
+  },
+  "review_type": "self_review",
+  "schema_version": 1,
+  "scope_run_id": "f7e0faa9-1c33-46f1-abea-e28e9548d719",
+  "self_review_status": "passed",
+  "value": {
+    "rationale": "A complete, sharp and strict likelihood-ratio comparison of same-class distances inside a fixed natural nonexchangeable random spanning-tree model, implying simultaneous ordering for all increasing distance observables. Exact finite all-size statement, not a tiny isolated computation.",
+    "status": "PASS"
+  }
+}
