@@ -1,0 +1,15 @@
+# Scientific review
+
+## Correctness — PASS
+The concentration operator is a positive selfadjoint contraction defined by its norm-compression form. The logarithmic radial coordinate transforms the harmonic equation into a flat cylinder equation, and orthogonal angular Fourier blocks have exactly the two radial solutions stated. Direct full/partial Gram integration produces every pair and its multiplicity; the zero block gives the modulus-independent extremal pair. The derivative power series with coefficients \((4^k-4k^2)/(2k+1)!>0\) shows strict spectral ordering, eliminating any unexamined intermediate eigenvalues. The exponential tails yield the exact multiplicities and logarithmic counting coefficient. The zero-block trace is strictly monotone in the general cut coordinate, proving its rigidity. A standalone numerical checker independently passed 271 finite assertions, which are not substituted for proof of the infinite conclusions.
+
+## Originality — PASS (provisional)
+The closest full-text studies of harmonic Hilbert spaces and Toeplitz forms—Üreyen (arXiv:2303.12137v1, harmonic hyperbolic balls, atomic/interpolation/inclusion theorems) and Doğan (arXiv:2202.12771v1, harmonic Bergman–Besov balls and positive Toeplitz criteria)—do not imply this *exact two-radial-solution cylindrical concentration spectrum*. The inspected work on harmonic disk circle traces concerns a different trace form; half-space Fourier/Hermite concentration identities concern bandlimited functions, rather than the full harmonic annulus and its logarithmic mode. Holomorphic annulus Toeplitz spaces omit the \(s\) radial harmonic mode and do not directly dominate the result. Related historic annulus material was available only as an extract, leaving an explicit priority risk. The mathematical claim is original to the extent justified by these bounded comparisons, not certified unique in all literature.
+
+## Mathematical value — PASS
+Ordinary Toeplitz criteria do not quantify the sharp failure of a spatial concentration compression to be a projection. Here the exact obstruction is independent of annulus modulus yet *attained*, its forbidden spectral interval is uniform, the compact spectral defect is in every Schatten class, and its logarithmic tail recovers the conformal modulus. The uniqueness of the balanced cut ties analytic spectral symmetry to a canonical geometric dividing circle. These are related consequences of one structural result, not arbitrary parameter substitutions.
+
+## Limitations and unresolved literature risk
+All constants are tied to conformal cylindrical area and concentric logarithmic bisection; Euclidean-area and off-centre observations are not covered. A 1994 annulus Toeplitz/Hankel paper is a plausible older source not available here in complete form, so hidden earlier equivalent results remain possible. Mathematical proofs were independently reconstructed within the self-review only; no independent mathematical validation is asserted.
+
+Self-review: passed. Independent audit: not yet performed.
