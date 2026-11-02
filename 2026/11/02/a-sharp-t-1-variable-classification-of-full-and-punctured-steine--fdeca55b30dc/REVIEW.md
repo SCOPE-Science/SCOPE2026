@@ -1,0 +1,19 @@
+# Review of the sharp \((t+1)\)-variable classification
+
+## Correctness — PASS
+
+For every fixed \(t\ge2\) and every existing \(S(t,t+1,v)\) with \(v\ge2t+2\), the proof derives a unique missing \(t\)-set above each surviving \((t-1)\)-set after a point deletion. Its two exact extension cases are: for missing \(t\)-anchors, all \(v-t-1\) outside choices agree; for covered anchors, there are exactly one block completion, \(t\) different missing-tuple completions, and \(v-2t-2\) free choices. These facts yield permanent back-and-forth \((t+1)\)-pebble strategies inside each stated phase. Two sentences using at most \(t+1\) variable symbols separate full from punctured and the exceptional puncture size from larger ones; a bound-variable shadowing argument is spelled out rather than using an illicit extra symbol. With only \(t\) variables the block relation is always false, leaving pure equality. Finite checkers reproduce all predicted patterns on 50 deletions and independently verify exact logical refinement on selected examples. No finite extrapolation is used in the unrestricted theorem.
+
+## Originality — PASS, qualified
+
+The closest earlier results concern: general noncounting pebble games; existence and embedding of Steiner designs; unique one-point extendability of residual designs; a special case for Steiner triple-system deletions; and bounded-quantifier-rank observations for complete Steiner quadruple systems. The prior triple-system result is the \(t=2\) instance; it does not prove any higher-strength puncture classification. The bounded-rank quadruple result concerns full structures and does not establish unrestricted \(\mathrm{FO}^{4}\) equivalence of all punctures or the exact exceptional phase. The present result gives a uniform all-\(t\) theorem with a sharp, nontrivial free-witness cutoff. Four different implication/equivalence checks are recorded in `AUDIT.json`. The principal unresolved priority risk is an inaccessible full 1993 residual-design article and possible stronger results under other terminology; absence from searches is not claimed as proof of uniqueness.
+
+## Mathematical value — PASS
+
+The class is a natural cornerstone of design theory, not an arbitrary family selected for its behavior. The new classification describes a sharp collapse of fixed-width logical power across all strengths, all source designs, and arbitrarily large orders despite differing numbers of points and distinct internal geometries. The single arithmetic threshold \(v=2t+2\) has a structural explanation: exactly \(t+1\) distinct forced completions exhaust the outside points. This simultaneously subsumes the familiar triple-system phenomenon and gives new unrestricted conclusions for punctured quadruple systems and higher designs. It is relevant to expressiveness limits for hypergraph databases and to the contrast between unique extendability of designs and bounded-variable distinguishability. No use of a downstream theorem is required for this classification to have independent mathematical content.
+
+## Sources and remaining limits
+
+Primary sources compared: Grohe–Otto, arXiv:1204.1990 (2012); Keevash, arXiv:1401.3665 (2014); Baartmans–Blake–Tonchev, DOI 10.1002/jcd.3180010305 (1993, abstract only); Dukes–Feng–Ling, DOI 10.1016/j.ffa.2014.09.011 (2015, accessible article sections). The source-date field identifies the earliest verified exact initial arXiv posting among these cited sources; it does not convert a year-only historical citation into a fabricated day. The theorem is conditional on design existence; it excludes enriched signatures, counting quantifiers and widths above \(t+1\). Independent mathematical validation and comprehensive historical-priority assessment remain outstanding.
+
+Self-review: passed. Independent audit: not yet performed.
