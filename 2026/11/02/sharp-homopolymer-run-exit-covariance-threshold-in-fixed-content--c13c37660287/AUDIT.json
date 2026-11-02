@@ -1,0 +1,121 @@
+{
+  "correctness": {
+    "rationale": "For each prescribed collection of distinct sites, the fixed-count probability is (a)_u(b)_(r-u)/(n)_r. The only compatible overlap shifts for 000 and 001 are +1 and +2; disjoint placements have five zeros and one one. The exact first and mixed moments yield the displayed rational covariance, checked by independent symbolic cancellation and 79723 finite rational assertions. A factor-sign argument proves the strict threshold. If equality holds, 2n-3 divides 15, giving only n=4,9, with a=3,4. Direct enumeration handles n=4,5; hence all integer domains are covered. Bounded enumeration alone is not the infinite proof.",
+    "status": "PASS"
+  },
+  "independent": false,
+  "independent_audit_status": "not_performed",
+  "originality": {
+    "broader_coverage": {
+      "evidence": [
+        "Régnier, Discrete Applied Mathematics 104 (2000), Sections 2.2 and 8: the specified random-text models are Bernoulli and stationary Markov, with exact moment calculations.",
+        "Rukhin 2010 Section 2 and Theorem 1 treat stationary Markov text and increasing pattern lengths, not fixed-composition random arrangements."
+      ],
+      "reasoning": "The cited general word-source moment theorems are not directly the fixed-count law: conditioning an iid text on its global number of zeros changes every disjoint placement probability to a multivariate hypergeometric ratio. A general word enumerator could derive this case by extra coefficient extraction, which is a residual priority risk, but the inspected coverage does not supply the sign cutoff or zero classification.",
+      "searches": [
+        "covariance word counts uniformly random permutation multiset fixed letter composition overlapping patterns exact 000 001",
+        "exact covariances k-mer frequencies fixed nucleotide composition permutation sequence without replacement",
+        "random word fixed composition motif covariance overlapping pattern counts pattern frequency",
+        "doi:10.1016/S0166-218X(00)00195-5"
+      ]
+    },
+    "checked_sources": [
+      "Rukhin (2010), doi:10.1137/S0040585X97984115",
+      "Régnier (2000), doi:10.1016/S0166-218X(00)00195-5",
+      "Rukhin (2006/2007), doi:10.4213/tvp21, title/abstract and pertinent PDF pages",
+      "Exact dependence phases of fixed-composition run transitions (public repository RESULT.md)"
+    ],
+    "claim_vs_prior_implication": {
+      "evidence": [
+        "The published transition result classifies Cov(T_i,T_j), where T_i indicates a two-symbol change, and has exact square and disjoint thresholds in the imbalance parameter.",
+        "The present covariance requires five- and six-position placements of 000 and 001, and its cutoff a=(n+6)(n-1)/(4n-6) is not either transition threshold.",
+        "Régnier and Rukhin calculate moments under different source distributions; direct substitution does not produce sampling without replacement."
+      ],
+      "reasoning": "The exact prior statements do not quantify the two triple-pattern counts or the divisibility equation 2(2n-3)a=(n+6)(n-1). Their implications do not immediately dominate the present sharp boundary, although general-purpose word enumerators could encode it implicitly.",
+      "searches": [
+        "random fixed-content binary string count 000 homopolymer triples and 001 run-ending triples exact covariance phase transition at a approximately n/4",
+        "uniform multiset permutations fixed zeros ones covariance patterns 000 and 001 overlap word counts independence n=9",
+        "doi:10.1137/S0040585X97984115",
+        "https://github.com/Resultary/2026/tree/main/2026/10/4/SCOPE-exact-dependence-phases-of-fixed-composition-run-transitions--c6b28ad6d93d"
+      ]
+    },
+    "equivalent_formulations": {
+      "evidence": [
+        "An exact 000/001 covariance is equivalent to a mixed second derivative of its bivariate occurrence-count generating function after taking the fixed-letter coefficient; inspected fixed-count search results did not state that coefficient or its sign.",
+        "The 2006/2007 and 2010 Rukhin models use stationary Markov/independent sources, rather than random arrangements with fixed global symbol counts."
+      ],
+      "reasoning": "Reversal swaps 001 and 100, but does not identify the pair 000/001 with ordinary local transition indicators. Complement swaps 000/001 with 111/110 at exchanged letter counts. The exact affine composition threshold is not equivalent to either previously published two-position transition threshold.",
+      "searches": [
+        "random fixed-content binary string count 000 homopolymer triples and 001 run-ending triples exact covariance phase transition at a approximately n/4",
+        "uniform multiset permutations fixed zeros ones covariance patterns 000 and 001 overlap word counts independence n=9",
+        "run length 3 and run ending pattern covariance random binary sequence conditioned on symbol frequencies"
+      ]
+    },
+    "exact_database_or_table": {
+      "evidence": [
+        "The closest direct archived hit is the two-position transition-indicator dependence theorem, with distinct threshold equations.",
+        "An accessible literature result on the pattern-correlation matrix covers iid/Markov patterns, not this exact finite-population table."
+      ],
+      "reasoning": "No identical covariance formula, indexed table, or sign classification was located in accessible direct search results or recovered previous titles. Absence of a search hit is not proof of uniqueness; this is best-knowledge originality with an explicit residual risk.",
+      "searches": [
+        "random fixed-content binary string count 000 homopolymer triples and 001 run-ending triples exact covariance phase transition at a approximately n/4",
+        "uniform multiset permutations fixed zeros ones covariance patterns 000 and 001 overlap word counts independence n=9",
+        "run length 3 and run ending pattern covariance random binary sequence conditioned on symbol frequencies"
+      ]
+    },
+    "rationale": "The fixed-symbol-composition covariance for the overlapping triple-pattern counts 000 and 001 has an exact linear sign cutoff and only two nondegenerate integer zeros. Searches and direct comparisons identify adjacent/distant two-position transition covariances, iid/Markov pattern-correlation matrices, and general word-occurrence formulae, but not this fixed-count motif pair or its arithmetic zero classification. Generic generating-function frameworks create an acknowledged historical priority risk.",
+    "residual_risks": [
+      "Classical multivariate cluster or generating-function frameworks may contain the same fixed-composition covariance implicitly; this specialized sign/equality theorem was not found directly.",
+      "Some older mathematical-statistics sources and the complete publisher-hosted rendering of Régnier (2000) were not accessible for exhaustive document-by-document priority review.",
+      "No independent literature or mathematical audit has been performed."
+    ],
+    "source_inspections": [
+      {
+        "assessment": "Uses stationary Markov chains and iid rare-word examples, not finite uniform binary words conditioned on symbol totals.",
+        "evidence": [
+          "2010 original paper pp.246–248 gives stationary Markov assumption and asymptotic covariance matrix.",
+          "p.257 examples use independent uniform bits with growing word length.",
+          "NIST public record lists Published January 14, 2010."
+        ],
+        "identifier_or_url": "https://tsapps.nist.gov/publication/get_pdf.cfm?pub_id=50909",
+        "material_read": "PDF title and Introduction, Section 2 pattern-correlation and limiting covariance formula (5), Theorem 1 hypotheses, Section 5 examples, references; source pages 246, 248, 257, 259 inspected visually and parsed text searched for fixed composition.",
+        "method": "Primary full-text PDF reviewed by page screenshots and parsed sections, with term searches.",
+        "title": "Joint Distribution of Pattern Frequencies and Multivariate Polya–Aeppli Law",
+        "trigger": "Closest archived probability paper analyzing joint overlapping-word frequencies and covariance matrices"
+      },
+      {
+        "assessment": "Explicitly restricts random text generation to Bernoulli and stationary Markov models; gives broad prior moment framework, not a fixed-composition sign theorem.",
+        "evidence": [
+          "Section 2.2 lists Bernoulli and Markov random sources as the models.",
+          "Conclusion states moments linear in text length for those models."
+        ],
+        "identifier_or_url": "https://doi.org/10.1016/S0166-218X(00)00195-5",
+        "material_read": "Accessible full-text article sections 1, 2.1–2.3, numerical evaluation and conclusion were inspected; search result text includes model definitions and moment conclusions.",
+        "method": "Publisher-indexed full-text HTML extraction from search result; publisher redirect unavailable for a separate manual full-document retrieval.",
+        "title": "A unified approach to word occurrence probabilities",
+        "trigger": "Plausible stronger general source for exact moments of overlapping pattern counts"
+      },
+      {
+        "assessment": "Classifies pairwise indicators of two-symbol changes, not joint counts of three-symbol motifs; algebraic sign boundaries differ.",
+        "evidence": [
+          "Its adjacent threshold is (a-b)^2=n; its disjoint threshold is (a-b)^2=n(n-2)/(2n-3).",
+          "Its proof uses two-position and four-position transition coincidences."
+        ],
+        "identifier_or_url": "https://github.com/Resultary/2026/tree/main/2026/10/4/SCOPE-exact-dependence-phases-of-fixed-composition-run-transitions--c6b28ad6d93d",
+        "material_read": "Complete published RESULT.md including theorem, formulas, proof, scope, limitations and references.",
+        "method": "Read public repository scientific file via read-only repository access.",
+        "title": "Exact dependence phases of fixed-composition run transitions",
+        "trigger": "Closest fixed-count binary-word dependence phase theorem surfaced by semantic search"
+      }
+    ],
+    "status": "PASS"
+  },
+  "review_type": "self_review",
+  "schema_version": 1,
+  "scope_run_id": "c13c3766-0287-4c88-a19a-2bd343bcc04e",
+  "self_review_status": "passed",
+  "value": {
+    "rationale": "Under the natural fixed-composition binary-pattern null, 000 counts the total length in excess of two across all zero runs, while 001 counts zero runs of length at least two that exit into a one. Their joint covariance determines whether these two motif signals reinforce or compete when calibrating a contrast. The exact all-size sign cutoff, its O(1) finite-size offset from n/4, and the complete arithmetic classification of nondegenerate zero cases are not mere normalizations or a single small-n computation. The theorem does not claim new test power or a complete joint distribution.",
+    "status": "PASS"
+  }
+}
