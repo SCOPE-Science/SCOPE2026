@@ -1,0 +1,116 @@
+{
+  "correctness": {
+    "rationale": "For the precisely defined two-sided stationary Poisson age process, conditioning on the absence/presence of a reset yields C(h)=exp(-rh)Cov(f(A),f(A+h)). The explicit gamma-Laplace mixture f(a)=integral m_p(u)exp(-ua)du produces the positive kernel ruv/[(r+u+v)(r+u)(r+v)], proving a strictly positive spectral weight w_p(v) for all v>0. Differentiation establishes all signs and strict log-convexity. The small-v expansion has coefficient T0*d_mu_dr/[Gamma(p)c^p], whose Watson transform yields the exact prefactor p*T0*d_mu_dr/c^p and exponent p+1; the two-term differentiated expansion yields the logarithmic-decay parameter limits. The stationary reset-age generator independently proves -C'(0+)=r/2 E[(T0-T)^2]. Strict decrease of the mean in c establishes the remaining identification. 288 independent quadrature and finite-difference checks passed after reconstructing the formulas from the package. Numerical tests are corroborative; uniform parameter claims follow analytically.",
+    "status": "PASS"
+  },
+  "independent": false,
+  "independent_audit_status": "not_performed",
+  "originality": {
+    "broader_coverage": {
+      "evidence": [
+        "Majumdar–Oshanin, arXiv:1806.03435, provides an exact general resetting correlation formula for zero-mean parent processes and a fractional-Brownian-motion PSD, not the granular cooling spectrum or mean-response edge coefficient.",
+        "Rose–Touchette–Lesanovsky–Garrahan, arXiv:1806.01298v2, gives reset-induced generator eigenvalue shifts, not the continuous spectral density of the deterministic cooling observable."
+      ],
+      "reasoning": "The generic reset relation is credited rather than reasserted as new. Applying it to a nonzero-mean deterministic cooling trajectory, obtaining the symmetric positive Laplace covariance kernel, proving w_p(v) has positive p-order edge, and tying the edge amplitude to d_mu/dr require separate analytical work. The other identified general source mechanisms do not provide the full explicit family-specific edge coefficient.",
+      "searches": [
+        "resetting spectral density autocorrelation deterministic flow power law decay exponents",
+        "Poisson resetting nonlinear deterministic relaxation covariance long time power law t^{-p-1} rate r",
+        "arxiv:1806.03435, Sections II–III",
+        "arxiv:1806.01298v2, Sections II–III"
+      ]
+    },
+    "checked_sources": [
+      "arxiv:2403.18974 (first public 2024-03-27; full HTML v5, published Phys. Rev. E 111 015405)",
+      "arxiv:1806.03435 (2018 general resetting covariance Sections II–III)",
+      "arxiv:1806.01298v2 (2018 spectral reset generators Sections II–III)",
+      "Semantic literature searches of exact object, Haff/viscoelastic aliases, covariance, edge, and generic domination"
+    ],
+    "claim_vs_prior_implication": {
+      "evidence": [
+        "Bodrova et al. give f and the fixed-time moments; they do not directly assert the continuous C(h) or its w_p(v).",
+        "Majumdar–Oshanin gives a general reset covariance decomposition for zero-mean parents; the proposed result states the explicit covariance kernel, strict spectral signs, static-response amplitude and large-lag slope inversion for a specific nonzero-mean physical model.",
+        "Rose et al. shifts nonstationary eigenvalues by reset rate but does not give the observable-dependent spectral density or its exact small-v power."
+      ],
+      "reasoning": "The generic renewal mechanism provides a starting representation, so that mechanism is not novel. Neither it nor the source one-time law immediately states the complete spectral-edge and response theorem; its exact parameter-dependent kernel and asymptotic coefficient are established independently in RESULT.md. A future stronger general functional theorem could subsume this specialization, and this is a recorded residual risk.",
+      "searches": [
+        "Bodrova–Chechkin–Dubey arxiv:2403.18974v5 Eqs. (11),(15),(18),(21)",
+        "Majumdar–Oshanin arxiv:1806.03435 Sec. II Eq. (4), Sec. III",
+        "Rose et al. arxiv:1806.01298v2 Sec. III Eq. (14)"
+      ]
+    },
+    "equivalent_formulations": {
+      "evidence": [
+        "Bodrova–Chechkin–Dubey, arXiv:2403.18974v5, Eq. (11) and Eqs. (14)–(21), gives cooling and stationary one-time law/moments.",
+        "Targeted searches found that indexed descriptions of the work discuss one-time temperature PDFs and moments, not a two-time relaxation-rate density.",
+        "Direct source inspection found no equivalent covariance spectrum, edge amplitude or identification theorem."
+      ],
+      "reasoning": "The paper contains all inputs f and the reset law but not the covariance object and its positive mixture. Its formulas for E[T] and E[T^2] determine only C(0), not the full time-dependent C(h); known generic renewal identities still require a nontrivial explicit positive kernel and small-edge analysis.",
+      "searches": [
+        "Granular gas resetting cooling power law stationary autocovariance Laplace mixture complete monotonicity and identification of cooling exponent",
+        "Poisson-reheated granular temperature with Haff's law: stationary two-time covariance, spectral density, strict complete monotonicity, log-convex relaxation, spectral-edge exponent and response-to-reset-rate identity",
+        "\"Granular gases under resetting\" covariance time autocorrelation temperature autocorrelation Haff law",
+        "arxiv:2403.18974v5, Sections III.1–III.3 and IV"
+      ]
+    },
+    "exact_database_or_table": {
+      "evidence": [
+        "Targeted semantic searches did not return an exact granular cooling two-time spectral theorem among the closest returned records."
+      ],
+      "reasoning": "No exact tabulation of the granular covariance spectral weights, p-dependent edge coefficient or inference limits was located. Negative database search is only evidence of a bounded search, not a proof of universal uniqueness.",
+      "searches": [
+        "Granular gases under Poisson temperature resetting Haff cooling law stationary temperature temporal autocovariance completely monotone Bernstein mixture spectral gap cubic exponential tail e^{-r t}t^{-3}, log-convex relaxation",
+        "Stationary deterministic cooling with exponential resetting two-time correlation covariance log-convex spectral representation temperature Haff law",
+        "Stochastic reset of deterministic power-law decay; e^{-rt} t^{-p-1} long lag covariance, reset rate identifiable from logarithmic decay, derivative stationary mean"
+      ]
+    },
+    "rationale": "The 2024 Bodrova–Chechkin–Dubey work establishes the exact physical cooling model and its one-time temperature distribution, stationary mean and variance, but not the present two-time spectral theorem. Reset-correlation and reset-generator spectral methods are explicitly credited to earlier literature. The combined strictly positive continuous temperature-covariance rate spectrum, lower-edge power p, exact derivative-of-mean amplitude, and exact cooling-exponent inference are not stated in the inspected source or broader reset references. Generic renewal-covariance identities are mathematical ingredients and do not directly supply the edge coefficient or identifiability formulas without further analysis. A stronger unlocated general theorem could reduce novelty; no decisive such coverage was found in the materials accessible in this review.",
+    "residual_risks": [
+      "A sufficiently general unpublished or overlooked renewal-spectral theorem might implicitly subsume the specific power-law edge calculation and static response; independent comprehensive priority verification remains necessary.",
+      "The inspected general correlation paper centers on zero-mean parent processes; extensions of its apparatus to arbitrary deterministic nonzero-mean cooling are methodologically close, though no directly covering coefficient or identification theorem was located."
+    ],
+    "source_inspections": [
+      {
+        "assessment": "Source supplies f, stationary one-time law and moments, not the assessed exact two-time positive spectral edge, static-response amplitude or covariance-based cooling-power inference.",
+        "evidence": [
+          "arxiv:2403.18974v5, Sections III.1–III.3, displayed equations (11),(14),(15),(18),(20),(21); Section IV simulation method; arxiv:2403.18974 public abstract dated 2024-03-27."
+        ],
+        "identifier_or_url": "https://arxiv.org/html/2403.18974v5",
+        "material_read": "Full HTML main text, Sections I–V, cooling law, Poisson renewal, one-time PDF, means, moments, simulations, references, conclusion.",
+        "method": "Read direct open-access arXiv HTML, inspected equations (11)–(21), Haff special case and concluding scope.",
+        "title": "Granular gases under resetting",
+        "trigger": "Exact physical source model, arbitrary positive cooling exponent and alleged gap in two-time covariance."
+      },
+      {
+        "assessment": "General zero-mean process resetting covariance technique is credited, without matching this nonzero-mean granular rate-density result or derivative-response edge law.",
+        "evidence": [
+          "arxiv:1806.03435, Section II, Eq. (4), assumes zero-mean parent process; Section III studies fBM frequency power spectra."
+        ],
+        "identifier_or_url": "https://arxiv.org/abs/1806.03435",
+        "material_read": "Full accessible arXiv rendered text Sections I–III including general resetting covariance equation (4), fBM application and power spectra.",
+        "method": "Opened arXiv abstract-linked HTML content and inspected reset-correlation derivation and its hypotheses.",
+        "title": "Spectral content of fractional Brownian motion with stochastic reset",
+        "trigger": "Plausible broader existing reset-covariance and PSD formalism."
+      },
+      {
+        "assessment": "Known eigenvalue shift is relevant background but does not specify the positive density for the granular cooling observable nor its small-rate power.",
+        "evidence": [
+          "arxiv:1806.01298v2, Sections II–III, generator Eq. (12), eigenvalue shift Eq. (14)."
+        ],
+        "identifier_or_url": "https://arxiv.org/html/1806.01298v2",
+        "material_read": "Open-access arXiv HTML Sections II–III, reset generator, shifted eigenvalues and stationary spectra.",
+        "method": "Direct primary HTML read of reset Markov generator and eigenmode-shift formulas.",
+        "title": "Spectral properties of simple classical and quantum reset processes",
+        "trigger": "Possible general spectral theorem subsuming the result."
+      }
+    ],
+    "status": "PASS"
+  },
+  "review_type": "self_review",
+  "schema_version": 1,
+  "scope_run_id": "f0d35c73-f77c-4ba8-96b5-d4158dd1e81d",
+  "self_review_status": "passed",
+  "value": {
+    "rationale": "The motivating granular-gas source studies stationary temperature PDFs and variance but not fluctuation lifetimes. The natural temporal covariance has an unexpectedly strictly positive continuum of exponential modes with p-dependent edge, a one-power algebraic shift from deterministic cooling to stationary covariance, and a sharp amplitude equal to an experimentally motivated static susceptibility d_mu/dr. Exact all-positive-p log-convexity and two complementary reset-rate identities plus exponent recovery supply structural, testable mathematical information and identify meaningful Haff versus viscoelastic differences. These are not single-point experiments, a trivial normalization, or a recomputation of the source one-time moments. Particle-level and finite-sample limitations are explicitly stated.",
+    "status": "PASS"
+  }
+}

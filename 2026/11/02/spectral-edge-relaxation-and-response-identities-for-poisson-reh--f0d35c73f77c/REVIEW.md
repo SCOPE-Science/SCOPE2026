@@ -1,0 +1,19 @@
+# Scientific assessment
+
+## Correctness: PASS
+
+The model is the stationary two-sided Poisson renewal age transformed by the strictly decreasing deterministic cooling law. The lag covariance is derived by conditioning on whether an event occurs during the lag. Its gamma-Laplace expansion yields the explicit positive kernel \(ruv/[(r+u+v)(r+u)(r+v)]\), whose sign and normalization were separately reconstructed. The strictly positive rate density proves complete monotonicity and strict logarithmic convexity. A first-order expansion at the lower edge identifies the coefficient \(T_0(\partial_r\mu)/(\Gamma(p)c^p)\), and Watson's lemma yields both the \(p+1\) temporal exponent and the parameter-recovery limits. The independent short-lag generator identity and monotone inversion of the mean were checked directly. `verify.py` passed 288 independent finite numerical comparisons. Analytic quantifiers, limits and assumptions appear in `RESULT.md`.
+
+## Originality: PASS (qualified)
+
+The complete one-time temperature law, the generalized Haff family and its moments are prior results of Bodrova–Chechkin–Dubey (arXiv:2403.18974). The renewal decomposition is an established technique, including general reset correlation calculations by Majumdar–Oshanin (arXiv:1806.03435). The source's one-time formulas and these broad methods do not by themselves state the explicit positive **granular two-time relaxation-rate density**, its strictly positive edge and static-response amplitude, the all-positive-parameter strict log-convexity law, or exact cooling-exponent recovery from the long-lag slope. Their proofs require combining the physical cooling closure with the covariance-subtraction kernel and edge analysis. Related prior spectral results for Poisson-reset deterministic systems use the same technique but differ in the object and do not supply this continuum of granular cooling exponents and accompanying response identity. Searches found no exact covering theorem in accessible materials. A broad, not yet identified spectral-renewal result could still imply parts of the claim, so external priority verification remains a genuine limitation.
+
+## Mathematical value: PASS
+
+The observable is the natural stationary temperature time series of an explicitly studied non-equilibrium granular-gas closure. Its one-time distribution cannot describe fluctuation lifetimes. The theorem supplies the full continuous **temporal** relaxation spectrum, proves all decay-mode weights are positive, exhibits a one-power shift from the deterministic Haff cooling exponent to the stationary covariance exponent, and relates the sharp amplitude exactly to the steady-state mean's response to reheating frequency. It gives two mathematically exact reset-rate diagnostics and identifies cooling exponents \(2\) versus \(5/3\) from the subexponential tail. These results are more substantive than recalculating the known mean or variance; they are independent of microscopic molecular-dynamics simulations, with limits stated in `RESULT.md`.
+
+## Closest literature and risks
+
+Bodrova, Chechkin and Dubey, arXiv:2403.18974v5, Sections III.1–III.3 and IV, were inspected in full HTML and supply the model, generalized cooling and one-time moments, but not the two-time conclusions. Majumdar and Oshanin, arXiv:1806.03435, Sections II–III, provide a broad reset-covariance framework for zero-mean parent processes. Rose, Touchette, Lesanovsky and Garrahan, arXiv:1806.01298v2, Sections II–III, provide the general reset-generator spectral shift. The present result is a strict specialization of the physical cooling assumptions and an extension in evaluated temporal statistics, not a claim to invent resetting or the renewal identity. An unidentified stronger result, or nontrivial re-expression of general resetting theory, might diminish publication priority; a future independent literature audit is necessary.
+
+Self-review: passed. Independent audit: not yet performed.
