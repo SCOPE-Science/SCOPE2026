@@ -1,0 +1,124 @@
+{
+  "audit_date_utc": "2026-10-31",
+  "audited_at_utc": "2026-10-31T12:46:38Z",
+  "axes": {
+    "correctness": {
+      "checked_sources": [
+        "2026/10/26/a-strictly-signed-fluctuation-response-defect-in-a-randomly-swit--91e29b772bb6/RESULT.md",
+        "2026/10/26/a-strictly-signed-fluctuation-response-defect-in-a-randomly-swit--91e29b772bb6/VERIFICATION.md",
+        "2026/10/26/a-strictly-signed-fluctuation-response-defect-in-a-randomly-swit--91e29b772bb6/verify_fluctuation_response.py",
+        "independently constructed bounded calculations in independent_checks_1234.py"
+      ],
+      "rationale": "Using the column environment generator Q=[[-a,b],[a,-b]], diagonal K, stationary state weights p=(b,a)/(a+b), the second moments u solve (2K-Q)u=2Dp. C(t)=1^T exp((Q-K)t)u and R(t)=1^T exp((Q-K)t)p. Stationarity gives F(0)=k^Tu-D=0, while exact matrix algebra gives F’(0)=Dab(k1-k0)^2/[(a+b)Z]. The two distinct positive decay rates lambda± of -(Q-K) have spectral gap Delta and product Y, uniquely yielding F(t)=F’(0)/Delta [exp(-lambda_-t)-exp(-lambda_+t)]. For k1!=k0 this is strictly positive and has exactly one maximum at log(lambda_+/lambda_-)/Delta; its area is F’(0)/Y. At k0=0, Z=Y=bk1 cancels k1 exactly. Independently verified stationary moment identities, the two-mode derivative, area and boundary with rational/symbolic matrix checks; finite numeric tests do not replace eigenvalue proof.",
+      "residual_risks": [
+        "The Markov two-state generator and moment equations are known standard machinery and not original; a broad Markov-modulated fluctuation-response paper might implicitly entail the displayed exact defect."
+      ],
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Primary results on stationary variance, entropy production and exact switching-trap distributions supply the underlying model, but the inspected sections did not state the all-lag two-exponential drift-response defect and stiffness-invariant area."
+        ],
+        "reasoning": "General linear Markov-modulated OU theory might give a formal spectral recipe, but the explicit sign and on/off cancellation do not follow from a cited theorem without further evaluation.",
+        "searches": [
+          "Santra Das Nath 2104.00609",
+          "Alston Cocconi Bertrand 2202.02630",
+          "Frydel 2407.12213"
+        ]
+      },
+      "checked_sources": [
+        "Santra–Das–Nath arXiv:2104.00609, Brownian motion under intermittent harmonic potentials",
+        "Alston–Cocconi–Bertrand arXiv:2202.02630, nonequilibrium thermodynamics fluctuating potentials",
+        "Frydel arXiv:2407.12213, statistical mechanics passive Brownian fluctuating harmonic trap",
+        "Frozen RESULT.md and verify_fluctuation_response.py",
+        "Resultary switching stochastic-process search"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "Known stationary variance and environmental switching alone determine ingredients u and Q-K, but they do not explicitly assert the comparative additive-force response or strict all-time defect sign in inspected main material."
+        ],
+        "reasoning": "An independent algebraic combination yields an exact quantified fact; stronger uninspected fluctuation-response theorems remain a priority risk and are explicitly recorded.",
+        "searches": [
+          "Frydel 2407.12213 stationary moments",
+          "Santra 2104.00609 intermittently harmonic Brownian motion",
+          "Alston 2202.02630 entropy production"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Same mathematics can be represented as the two-state substochastic generator Q-K and comparison between its propagation of stationary second moments u and environment weights p."
+        ],
+        "reasoning": "Changing the response to a stiffness/bath perturbation changes R(t), so seemingly similar FDT statements with other conventions are not equivalent.",
+        "searches": [
+          "intermittently trapped Ornstein Uhlenbeck two-state Markov modulation drift response autocorrelation",
+          "fluctuation dissipation theorem violation random telegraph stiffness OU positive correlation response defect"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "The expression is analytic over a continuous parameter family and not a known finite classification table. Resultary found different stochastic switching systems, not the same response observable."
+        ],
+        "reasoning": "A possible prior physics data table is not ruled out globally; no direct indexed matching exact area or peak formula was found.",
+        "searches": [
+          "Markov switching OU stiffness integrated fluctuation response area Da/b(a+b)",
+          "Resultary stochastic switching harmonic trap semantic query"
+        ]
+      },
+      "rationale": "Best-of-knowledge originality of the exact final statement, rather than its standard background ingredients: The difference of passive correlation decay and forced drift response is a natural experimentally discriminating nonequilibrium observable. Its uniform positive-lag sign, exact location of the peak and stiffness-independent on/off integrated sum rule are motivated, quantitatively usable facts beyond a generic stationary variance calculation. No assertion under alternate FDT conventions. The searched and materially inspected primary results do not directly cover the full exact statement; plausible uninspected generalizations remain residual risks.",
+      "residual_risks": [
+        "The Markov two-state generator and moment equations are known standard machinery and not original; a broad Markov-modulated fluctuation-response paper might implicitly entail the displayed exact defect.",
+        "The theorem uses a particular additive-drift response normalization and does not establish a model-independent nonequilibrium FDT sign or alternate perturbation protocol."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "SAME_MODEL_STATIONARY_NOT_EXPLICIT_DEFECT",
+          "evidence": "Derives stationary distributions and moments; no explicit matching two-exponential additive-force defect located in inspected material.",
+          "identifier_or_url": "https://arxiv.org/abs/2407.12213",
+          "material_read": "Public primary PDF opened and visually checked first page and stationary model/results; searched PDF text for response terminology, including references; not a full sentencewise scan",
+          "method": "public arXiv PDF with visual page check",
+          "title": "Statistical mechanics of passive Brownian particles in a fluctuating harmonic trap",
+          "trigger": "same randomly fluctuating harmonic trap and stationary moments"
+        },
+        {
+          "assessment": "SAME_ON_OFF_MODEL_NO_IDENTIFIED_RESPONSE",
+          "evidence": "Studies intermittently confined Brownian dynamics, not the directly inspected simultaneous stationary C and additive-drift R theorem.",
+          "identifier_or_url": "https://arxiv.org/abs/2104.00609",
+          "material_read": "Public primary PDF opened and first page visually inspected, with variance/dynamics discussion reviewed and response-term search",
+          "method": "public arXiv PDF with visual page check",
+          "title": "Brownian motion under intermittent harmonic potentials",
+          "trigger": "same intermittent harmonic confinement and on/off limit"
+        },
+        {
+          "assessment": "RELATED_ENTROPY_PRODUCTION_NO_EXPLICIT_DEFECT",
+          "evidence": "The inspected focus is entropy production in fluctuating potentials, not the displayed exact all-lag drift susceptibility difference.",
+          "identifier_or_url": "https://arxiv.org/abs/2202.02630",
+          "material_read": "Public primary PDF opened and first page visually inspected, introduction and thermodynamic result scope reviewed",
+          "method": "public arXiv PDF with visual page check",
+          "title": "Non-equilibrium thermodynamics of diffusion in fluctuating potentials",
+          "trigger": "fluctuation-response and switching environment potential coverage"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "checked_sources": [
+        "2026/10/26/a-strictly-signed-fluctuation-response-defect-in-a-randomly-swit--91e29b772bb6/RESULT.md",
+        "Santra–Das–Nath arXiv:2104.00609, Brownian motion under intermittent harmonic potentials",
+        "Alston–Cocconi–Bertrand arXiv:2202.02630, nonequilibrium thermodynamics fluctuating potentials"
+      ],
+      "rationale": "The difference of passive correlation decay and forced drift response is a natural experimentally discriminating nonequilibrium observable. Its uniform positive-lag sign, exact location of the peak and stiffness-independent on/off integrated sum rule are motivated, quantitatively usable facts beyond a generic stationary variance calculation. No assertion under alternate FDT conventions.",
+      "residual_risks": [
+        "The theorem uses a particular additive-drift response normalization and does not establish a model-independent nonequilibrium FDT sign or alternate perturbation protocol."
+      ],
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "final_claim": "In a stationary scalar overdamped OU process with independently switching two-state Markov stiffness k1>0,k0>=0, the defect -C’(t)-D R(t) for additive-drift response is positive at all t>0 iff k1!=k0, has one exact two-exponential peak, and integrates to Dab(k1-k0)^2/[(a+b)ZY]; when k0=0 the area is Da/[b(a+b)] independent of k1.",
+  "limitations": [
+    "The Markov two-state generator and moment equations are known standard machinery and not original; a broad Markov-modulated fluctuation-response paper might implicitly entail the displayed exact defect.",
+    "The theorem uses a particular additive-drift response normalization and does not establish a model-independent nonequilibrium FDT sign or alternate perturbation protocol."
+  ],
+  "schema_version": 1
+}

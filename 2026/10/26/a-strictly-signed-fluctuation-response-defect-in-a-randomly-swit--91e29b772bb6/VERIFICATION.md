@@ -5,8 +5,11 @@
     "status": "not_performed"
   },
   "independent_audit": {
-    "evidence": null,
-    "status": "not_performed"
+    "status": "passed",
+    "evidence": [
+      "INDEPENDENT_AUDIT_2026-10-31.md",
+      "INDEPENDENT_AUDIT_2026-10-31.json"
+    ]
   },
   "lean_verification": {
     "evidence": null,
@@ -16,10 +19,24 @@
 }
 ---
 
-# Reproducibility and limits
+# Independent mathematical audit
 
-The closed-form result follows from the two-state generator \(Q\), the tilted matrix \(Q-K\), and the stationary second-moment equation \((2K-Q)u=2Dp\). The critical exact identities are \(-C'(0)=D\), \(\mathcal F'(0)=Dab(k_1-k_0)^2/[(a+b)Z]\), \(\lambda_+\lambda_-=Y\), and the two-mode spectral decomposition. The theorem explicitly includes the nontrivial boundary \(k_0=0\) because switching into the \(k_1>0\) state still ensures stationary second moments.
+## correctness
 
-Run `python verify_fluctuation_response.py` with NumPy and SciPy. The program forms the matrices independently from the displayed scalar expression, checks 960 response/covariance comparisons over 160 parameter regimes, verifies 160 area formulas and peak conditions, and performs two separate event-driven switching/Brownian Monte Carlo checks. The matrix-exponential checks are numerical approximations; the stationary generator identities and exact eigenvalue calculations provide the proof. The Monte Carlo checks have sampling tolerance and cannot establish all-parameter statements or priority against prior research.
+PASS
 
-No external or independent scientific audit has been performed. Claims outside two-state Markov switching, harmonic drift and additive-force response are not covered.
+Using the column environment generator Q=[[-a,b],[a,-b]], diagonal K, stationary state weights p=(b,a)/(a+b), the second moments u solve (2K-Q)u=2Dp. C(t)=1^T exp((Q-K)t)u and R(t)=1^T exp((Q-K)t)p. Stationarity gives F(0)=k^Tu-D=0, while exact matrix algebra gives F’(0)=Dab(k1-k0)^2/[(a+b)Z]. The two distinct positive decay rates lambda± of -(Q-K) have spectral gap Delta and product Y, uniquely yielding F(t)=F’(0)/Delta [exp(-lambda_-t)-exp(-lambda_+t)]. For k1!=k0 this is strictly positive and has exactly one maximum at log(lambda_+/lambda_-)/Delta; its area is F’(0)/Y. At k0=0, Z=Y=bk1 cancels k1 exactly. Independently verified stationary moment identities, the two-mode derivative, area and boundary with rational/symbolic matrix checks; finite numeric tests do not replace eigenvalue proof.
+
+## originality
+
+PASS
+
+Best-of-knowledge originality of the exact final statement, rather than its standard background ingredients: The difference of passive correlation decay and forced drift response is a natural experimentally discriminating nonequilibrium observable. Its uniform positive-lag sign, exact location of the peak and stiffness-independent on/off integrated sum rule are motivated, quantitatively usable facts beyond a generic stationary variance calculation. No assertion under alternate FDT conventions. The searched and materially inspected primary results do not directly cover the full exact statement; plausible uninspected generalizations remain residual risks.
+
+## value
+
+PASS
+
+The difference of passive correlation decay and forced drift response is a natural experimentally discriminating nonequilibrium observable. Its uniform positive-lag sign, exact location of the peak and stiffness-independent on/off integrated sum rule are motivated, quantitatively usable facts beyond a generic stationary variance calculation. No assertion under alternate FDT conventions.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
