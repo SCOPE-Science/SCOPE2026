@@ -5,8 +5,11 @@
     "status": "not_performed"
   },
   "independent_audit": {
-    "evidence": null,
-    "status": "not_performed"
+    "status": "passed",
+    "evidence": [
+      "INDEPENDENT_AUDIT_2026-10-30.md",
+      "INDEPENDENT_AUDIT_2026-10-30.json"
+    ]
   },
   "lean_verification": {
     "evidence": null,
@@ -15,12 +18,25 @@
   "schema_version": 1
 }
 ---
-# Verification scope
 
-The proof is deductive. Formula (1) is an exact algebraic rearrangement of the standard local divisor-sum formulas. Its decisive congruence follows from \(U^2\equiv-(U+V-1)\pmod Q\); the displayed expansions for \(R-Q\) and \(2Q-R\) and the induction over \(k\ge3\) are complete, so no numerical upper bound on primes or exponents is assumed.
+# Independent mathematical audit
 
-Run `python verify.py` using Python 3 with no external packages. The executed verifier returned:
+## correctness
 
-`VERIFY_OK: 4200 prime-pair equalities and 1791 integer-base dyadic layers`
+PASS
 
-It tests exact divisor-sum identities for distinct primes up to \(100\) and \(1\le k\le7\), and modular nondivisibility for integer bases \(2\) through \(200\) and \(2\le k\le10\). Passing finite cases is not a proof of the unrestricted theorem; that proof appears in `RESULT.md`. No independent audit or third-party mathematical certification is claimed.
+Reconstructed prime-power multiplicativity and exact cancellation p^(2^k)+1=q Q_k(p). For k=1 integrality forces p-1|2, so p=2,3 and q=5. At k=2, remainder (x-1)^2+1 lies strictly between 0 and Q=x^2+x-1. At k>=3 put U=x^(2^(k-2)), V=sum_{j=0}^{k-3}x^(2^j). Q=U^2+U+V-1 and U^4+1 congruent (U+V-1)^2+1 mod Q. The difference R-Q=U(2V-3)+(V-1)(V-2)+1>0. The induction U>=3(V-2) holds at k=3 since x^2>=3(x-2), and extends because U^2>=4U>=3(U+V-2); it yields 2Q-R>=2U^2/9>0. Thus Q<R<2Q uniformly. New independent arbitrary-precision calculation verified 343 (x,k) cases x=2..50, k=2..8 and 630 distinct-prime pair comparisons, finding only the two stated solutions. The interval induction is the infinite proof.
+
+## originality
+
+PASS
+
+Existing work records the motivating equality and examples and a published finite classification of exponents a<=49. Because 2^k<=49 only for k<=5, its exact finite classification does not imply exclusion of k>=6, whereas the integer-base modular lemma does. An older equivalent lacunary polynomial divisibility lemma remains a priority risk.
+
+## value
+
+PASS
+
+The all-k impossibility theorem resolves a natural infinite exponent ray in an open divisor-function comparison problem, with a stronger prime-independent algebraic obstruction; it is not a bounded example search or reformulation of OEIS terms.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

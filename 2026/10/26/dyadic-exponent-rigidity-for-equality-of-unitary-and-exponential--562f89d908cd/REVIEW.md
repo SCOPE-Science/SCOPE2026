@@ -1,11 +1,21 @@
-# Mathematical review
+# Independent mathematical audit
 
-**Correctness — PASS.** The prime-power formulas give equation (1) exactly, with no hidden hypotheses beyond distinct primes. For \(k=1\), integrality reduces to \(p-1\mid2\) and yields the two verified solutions. For \(k=2\), the reduced residue is strictly between zero and the modulus. For every \(k\ge3\), the two algebraic difference identities and the induction \(U\ge3(V-2)\) prove the remainder lies strictly between one and two moduli. All boundary cases \(x=2\), \(k=2\), and \(k=3\) are included. The exact-arithmetic verifier was executed from the standalone program. No unproved analytic or computational premise is used.
+## correctness
 
-**Originality — PASS, subject to residual literature risk.** Trudgian raises the equality question and records isolated examples. OEIS A236474 records equality values but gives no uniform infinite-power-of-two classification. The published finite 49-exponent classification implies the exclusions here only through \(k=5\) and explicitly makes no claim beyond its cutoff. The present result contains every \(k\ge6\), and its prime-independent nondivisibility theorem is stronger than numerical census. Searches for polynomial and Fermat-type aliases located no covering primary result. That absence is not a uniqueness proof; independently rediscovered modular-divisibility arguments remain possible.
+PASS
 
-**Mathematical value — PASS.** This solves exactly one infinite, structurally natural exponent family inside Trudgian's equality/infinitude problem. Powers of two are singled out by the exponent-divisor lattice, and the proof exploits this geometry to replace infinitely many prime searches with a sharp two-modulus bound. The result is not merely a new numerical cutoff, a renamed known theorem, or an arbitrary fixed slice. It does not claim progress on general exponent patterns or the global infinitude question.
+Reconstructed prime-power multiplicativity and exact cancellation p^(2^k)+1=q Q_k(p). For k=1 integrality forces p-1|2, so p=2,3 and q=5. At k=2, remainder (x-1)^2+1 lies strictly between 0 and Q=x^2+x-1. At k>=3 put U=x^(2^(k-2)), V=sum_{j=0}^{k-3}x^(2^j). Q=U^2+U+V-1 and U^4+1 congruent (U+V-1)^2+1 mod Q. The difference R-Q=U(2V-3)+(V-1)(V-2)+1>0. The induction U>=3(V-2) holds at k=3 since x^2>=3(x-2), and extends because U^2>=4U>=3(U+V-2); it yields 2Q-R>=2U^2/9>0. Thus Q<R<2Q uniformly. New independent arbitrary-precision calculation verified 343 (x,k) cases x=2..50, k=2..8 and 630 distinct-prime pair comparisons, finding only the two stated solutions. The interval induction is the infinite proof.
 
-**Closest sources and limitations.** Trudgian (arXiv:1312.4615, especially the concluding equality question), OEIS A236474, and *The first 49 exponent layers of the unitary–exponential divisor-sum equality* were compared on their actual asserted domains. The last covers the low-exponent overlap but not the infinite tail. The completeness of external literature indexing is not guaranteed. Independent review remains necessary before treating the originality assessment as definitive.
+## originality
 
-Self-review: passed. Independent audit: not yet performed.
+PASS
+
+Existing work records the motivating equality and examples and a published finite classification of exponents a<=49. Because 2^k<=49 only for k<=5, its exact finite classification does not imply exclusion of k>=6, whereas the integer-base modular lemma does. An older equivalent lacunary polynomial divisibility lemma remains a priority risk.
+
+## value
+
+PASS
+
+The all-k impossibility theorem resolves a natural infinite exponent ray in an open divisor-function comparison problem, with a stronger prime-independent algebraic obstruction; it is not a bounded example search or reformulation of OEIS terms.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
