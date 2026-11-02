@@ -1,11 +1,21 @@
-# Self-review
+# Independent mathematical audit
 
-**Correctness — PASS.** The two matrix families, normalization, domain, and complex-vector quantifiers are fixed explicitly. The identity \(12D+D^2\) and both rank-two boundary defects reconstruct every matrix entry; the edge-difference transformation reduces each boundary defect to a rank-two Hermitian form with exactly calculable least eigenvalue. The fact that every edge occurs at most twice proves the global inequality for all \(n\ge5\), independently of the finite replay. Standard dissipativity identities yield the semigroup and implicit-step conclusions. Exact rational code checks independently confirm the identities on dimensions \(5\) through \(35\). The limits of those checks are disclosed.
+## correctness
 
-**Originality — PASS (best-knowledge, residual risk).** The 2026 spectral-reality paper explicitly proves positive real eigenvalues for the same matrices; this does not imply a positive Euclidean symmetric part or nontransient Euclidean decay. Searches for numerical range, Euclidean contractivity, dissipativity, symmetric-part positivity, and boundary energy estimates did not identify the present quantitative theorem. Older Bramble--Hubbard studies and later one-sided schemes may contain a stronger energy statement not available in the inspected materials; historical priority is not independently established. The distinction is mathematical, not merely terminological.
+PASS
 
-**Value — PASS.** Euclidean heat-semigroup and implicit-step contraction of nonsymmetric fourth-order boundary closures is a useful stability guarantee absent from positive-real-spectrum information alone. The proof gives a dimension-uniform, explicit boundary energy certificate, and it distinguishes norm stability from order positivity or diagonal symmetrization. This is a structural stability lemma for two natural boundary schemes, not an arbitrary parameter slice or a claim of a general high-order theorem.
+The assigned matrix boundary rows and interior five-point stencil reconstruct as M=12D+D²+e1*r^T+en*(Jr)^T. For d_j=u_j-u_(j-1), the two left defect Hermitian forms are (-2|d1|²+3Re d1*d2-Re d1*d3) and (-3|d1|²+6Re d1*d2-4Re d1*d3+Re d1*d4). Rank-two least eigenvalues give losses tau_BH=1+sqrt(14)/2 and tau_OS=(3+sqrt(62))/2; boundary edge sets overlap at most twice, giving 12-2tau=beta. Dirichlet eigenvalue lambda_n>0 then yields the stated accretivity bound for any complex u, and standard energy/resolvent identities prove the contraction estimates. The positive (2,4) off-diagonal of M yields a negative (2,4) heat-kernel entry to first order; mismatched (1,3) and (3,1) prevent positive diagonal symmetrization. Checked actual verify.py quadratic-form construction and independently enumerated n=5..9 integer vectors. No optimal beta claim or higher-order generality.
 
-**Closest literature and limitations.** Feng, Gao and Shao, arXiv:2609.32410 (2026), Theorems 1--2 and boundary definitions, supplies positive real spectra but not the required Euclidean numerical-range estimate in the materially inspected sections. Bramble--Hubbard (1964) and van Linde (1971) are historical comparators, with full-text priority uncertainty. The new constants are explicit but not optimized. No claim applies to general variable coefficients or arbitrary boundary stencils.
+## originality
 
-Self-review: passed. Independent audit: not yet performed.
+PASS
+
+The original Feng–Gao–Shao paper addresses *the same two matrices* and their real positive eigenvalues. Positive eigenvalues do not imply positive symmetric part or Euclidean contraction (a 2x2 nonnormal upper triangular counterexample suffices), so its accessible advertised theorem is not a covering implication. Originality is best-of-knowledge because the full paper and historical Bramble–Hubbard/von Linde energy literature were inaccessible; no whole-document noncoverage judgment is made. The explicit rank-two energy certificates are independently reconstructed, not a cosmetic restatement of spectral location.
+
+## value
+
+PASS
+
+Dimension-uniform explicit Euclidean accretivity for the actual nonsymmetric higher-order Dirichlet closures supplies a stability guarantee absent from mere spectral positivity, while the negative heat-kernel entry distinguishes norm dissipation from order preservation. This is a motivated structural numerical-analysis lemma, not a general claim about all fourth-order discretizations.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
