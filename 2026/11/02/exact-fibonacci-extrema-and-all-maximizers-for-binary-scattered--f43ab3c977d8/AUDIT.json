@@ -1,0 +1,120 @@
+{
+  "correctness": {
+    "rationale": "The exact outermost-symbol partition is a bijective enumeration of nonempty distinct palindrome patterns. When both binary symbols repeat, same-endpoint and opposite-endpoint cases bound by 4+M(n-2)+M(n-4) and 4+2M(n-3); singleton/constant cases are strict for n>=4. Fibonacci identities (including strict odd-length difference F(m-1)) prove the all-length upper bound. Alternating words and even-length centrally doubled alternating palindromes attain it by the same exact decomposition. Equality forces positions and shorter extremizers inductively, giving all and only the stated maximizers. The package contains a separate interval-DP checker, direct brute-subsequence enumeration and finite classification verification; these corroborate but do not replace the proof.",
+    "status": "PASS"
+  },
+  "independent": false,
+  "independent_audit_status": "not_performed",
+  "originality": {
+    "broader_coverage": {
+      "evidence": [
+        "2021 Theorem 4.2 upper bound F_{n+2}-1 applies but does not yield the sharper parity-dependent binary optimum.",
+        "2021 Theorem 5.4 is sharp only for used alphabet size q>=n/2, so its binary q=2 case covers only n<=4; its full-alphabet Conjecture 5.6 optimizes over q rather than fixing q=2.",
+        "2019 Müllner–Ryzhikov studies long palindromic subsequence length, not counts of distinct palindrome patterns."
+      ],
+      "reasoning": "Neither a weaker general Fibonacci upper bound nor an alphabet-sensitive theorem restricted to q>=n/2 implies the exact binary maximum for every n>=5. The source conjecture about unrestricted alphabet size is not the same optimization problem. No broader published theorem implying the present classification was identified in the full texts inspected.",
+      "searches": [
+        "arXiv:2108.02729 Sections 4–6, Theorems 4.2 and 5.4",
+        "Mahalingam Pandoh scattered palindromes binary Fibonacci exact extremal subsequent proof 2023 2024 2025 2026",
+        "arXiv:1901.07502 full text"
+      ]
+    },
+    "checked_sources": [
+      "https://arxiv.org/abs/2108.02729",
+      "https://www.karlin.mff.cuni.cz/~holub/soubory/subpal.pdf",
+      "https://arxiv.org/abs/1901.07502",
+      "2021 Table 4 q=2 initial entries",
+      "Semantically related published research records and source/alias queries",
+      "Targeted OEIS sequence queries"
+    ],
+    "claim_vs_prior_implication": {
+      "evidence": [
+        "2021 Table 4 implies the present numerical formula only at n<=10 after separate verification; 2021 Theorem 5.4 implies exact binary q=2 maxima only for n<=4.",
+        "Holub–Saari 2009 proves determination of binary word up to reversal by its set of palindromic scattered subsequences and properties of longest such subsequences, but not the cardinality maximum.",
+        "Research-record closest results treat absent subsequences, palindromic duplication channels, factors, or attractors, none of which logically implies the exact present palindrome-pattern extremum."
+      ],
+      "reasoning": "The same observable appears in the primary paper, but its proved parameter ranges do not imply the infinite binary theorem. Counting distinct presence of all palindromic subsequence patterns is not the same as the maximum length of one palindrome, the number of absent subsequences, palindromic factors, or duplication-code capacity. Independently proving the full set of maximizers adds equality information not implied by earlier finite tables.",
+      "searches": [
+        "arXiv:2108.02729 Theorem 5.4, Table 4, Conjecture 5.6, Conclusion",
+        "Holub–Saari 2009 Sections 3–5 in full PDF",
+        "binary scattered palindromic rich words maximum q=2 odd even n Fibonacci and four extremizers"
+      ]
+    },
+    "equivalent_formulations": {
+      "evidence": [
+        "Mahalingam–Pandoh (arXiv:2108.02729), Sec. 5 Table 4 contains binary n<=10, while Thm. 5.4 requires q>=n/2 and Sec. 6 identifies q<n/2 as unproved.",
+        "A semantically close published result concerns Fibonacci extrema for shortest ABSENT subsequences; that different invariant does not cover present palindrome patterns."
+      ],
+      "reasoning": "Equivalent formulations were tested under scattered palindromic subwords, distinct palindromic subsequences, Fibonacci extrema, alternating maximizers and fixed binary alphabet. The identified finite data and generic count DP are not an all-length sharp extremal proof. Shortest absent subsequences are different objects and do not imply counts of all present palindromic ones.",
+      "searches": [
+        "maximum distinct scattered palindromic subsequences binary words length n exact Fibonacci 2021 Mahalingam Pandoh conjecture",
+        "For binary word w length n number of distinct nonempty palindromic scattered subsequences maximum 2 F_{floor(n/2)+3}-4 and extremizers alternating or palindrome with central doubled letter",
+        "\"number of distinct palindromic subsequences\" binary maximum Fibonacci alternating",
+        "\"Counting scattered palindromes in a finite word\" \"Conjecture 5.6\" proof"
+      ]
+    },
+    "exact_database_or_table": {
+      "evidence": [
+        "The first ten binary maximum values 1,2,4,6,9,12,17,22,30,38 occur in the published 2021 Table 4 and are explicitly credited to it.",
+        "OEIS searches above returned no decisive exact matching theorem or entry, which is not a proof of database absence."
+      ],
+      "reasoning": "This is not a novelty claim for the finite initial table. The mathematical contribution is an infinite formula with a proof and complete descriptions of all maximizers for each length. Online sequence search is incomplete and not treated as proof of uniqueness.",
+      "searches": [
+        "2021 Mahalingam–Pandoh Table 4 n versus q",
+        "site:oeis.org 1,2,4,6,9,12,17,22,30,38 palindromic subsequences",
+        "site:oeis.org 2,6,12,22,38,64,106,174,284",
+        "site:oeis.org 4,9,17,30,51,85,140,229"
+      ]
+    },
+    "rationale": "The 2021 primary text states the same general observable, tabulates fixed binary counts only through length ten, proves its q-dependent capacity formula under q>=n/2, and explicitly leaves q<n/2 open. The new proof supplies an exact binary infinite-family formula and an exhaustive equality classification. Direct original full-text comparisons and semantic research-record queries did not reveal a result implying both claims. Initial small values are not claimed new; residual risk of a missed equivalent formulation is recorded.",
+    "residual_risks": [
+      "A later proof or an implicit specialization in older algebraic combinatorics or distinct-subsequence algorithm literature may have escaped the bounded searches; publication of a prior result would require reassessment.",
+      "Generic interval dynamic-programming recurrences are known, but an algorithm to evaluate each input does not itself establish the extremal Fibonacci formulas or equality classification.",
+      "Early numerical values n<=10 are known and not included as a novel finite census."
+    ],
+    "source_inspections": [
+      {
+        "assessment": "NOT_COVERING the all-length binary theorem; it reports matching n<=10 values, a weak general bound, and a sharp bound restricted to q>=n/2. q=2, n>=5 is outside its proved sharp range.",
+        "evidence": [
+          "arXiv:2108.02729, Theorem 4.2, Theorem 5.4, Table 4, Conjecture 5.6 and Section 6 explicitly states q<n/2 remains future work."
+        ],
+        "identifier_or_url": "https://arxiv.org/abs/2108.02729",
+        "material_read": "Entire accessible rendered arXiv text: introduction, definitions, upper bounds, full Section 5 including Table 4 and Conjecture 5.6, and Section 6",
+        "method": "Read lawful open arXiv full rendered text and matched theorem assumptions, quantifiers, parameter ranges, table and conclusion",
+        "title": "Counting scattered palindromes in a finite word",
+        "trigger": "Exact same object, terminology, fixed alphabet q=2, and closely related conjectures"
+      },
+      {
+        "assessment": "NOT_COVERING: proves set-determination up to reversal and different longest-palindrome and minimal-palindromic extension results, not maximum distinct-palindromic-subsequence count.",
+        "evidence": [
+          "Holub–Saari, introduction and Sections 3–5: reconstruction and extremal longest lengths do not imply palindrome-set cardinality maxima."
+        ],
+        "identifier_or_url": "https://www.karlin.mff.cuni.cz/~holub/soubory/subpal.pdf",
+        "material_read": "Nine-page freely available author manuscript including abstract/introduction, definitions, its palindrome-set reconstruction theorem in Section 4 and quantitative questions in Section 5; page 1 visually checked",
+        "method": "Open publisher-independent author PDF, inspect page screenshot and source text, compare main theorem statements",
+        "title": "On Highly Palindromic Words",
+        "trigger": "Earlier work on exactly binary scattered palindrome sets"
+      },
+      {
+        "assessment": "NOT_COVERING: optimizes length of a longest (anti)palindromic subsequence in linear/circular words, not count of all distinct palindromic subsequence patterns.",
+        "evidence": [
+          "arXiv:1901.07502, abstract and Sections 1–3."
+        ],
+        "identifier_or_url": "https://arxiv.org/abs/1901.07502",
+        "material_read": "Accessible full arXiv rendered text: abstract, introduction, conjectures and main results on longest subsequence lengths",
+        "method": "Read lawful open arXiv full rendered text and compare objective and quantifiers",
+        "title": "Palindromic Subsequences in Finite Words",
+        "trigger": "Plausible title and binary palindromic subsequence setting"
+      }
+    ],
+    "status": "PASS"
+  },
+  "review_type": "self_review",
+  "schema_version": 1,
+  "scope_run_id": "f43ab3c9-77d8-48ff-93bc-f2792767fce2",
+  "self_review_status": "passed",
+  "value": {
+    "rationale": "The 2021 primary paper explicitly identifies the tight fixed-alphabet regime q<n/2 as outstanding; the binary q=2 case is fundamental. This all-length exact Fibonacci capacity and complete maximizing-word classification supplies a theorem rather than an isolated enumeration or a generic dynamic-programming exercise. The decomposition and parity-sensitive equality classification also give structural information useful for future low-alphabet extremal questions; no larger alphabet result is asserted.",
+    "status": "PASS"
+  }
+}
