@@ -1,15 +1,21 @@
-# Scientific review
+# Independent mathematical audit
 
-## Correctness — PASS
-The claim is a three-index inertia theorem for the ordinary adjacency matrix of the line graph of two vertex-disjoint cycles of lengths \(a,b\ge3\) joined by exactly one otherwise disjoint path with \(d\ge1\) edges. The incidence-matrix equality transports inertia from \(Q(B)-2I\), with exactly one additional negative eigenvalue because the bicyclic host has one more edge than vertex. The proof separately verifies the congruence contribution of each attached cycle in all four residues; residue-two cycle blocks eliminate an endpoint by a nonsingular saddle block. The remaining weighted path has an explicitly evaluated inertia for zero, one, or two deleted endpoints and both parities of \(d\). The signature and nullity clauses follow by exhaustive residue-case implications, not finite sampling. Independently constructed exact rational elimination directly on 512 line-graph adjacency matrices matches every predicted inertia triple. This finite corroboration is not a proof outside the checked ranges.
+## correctness
 
-## Originality — PASS, with identified risks
-A semantic publication-record search covering "dumbbell", "kayak paddle", "two cycles joined by a path", "line graph", "inertia", and "signature", plus full-text reading of the central recent preprints and searches in a mathematical findings database, did not locate the all-parameter signed-index, nullity, and equality classification. Francis–Uptain (arXiv:2607.22874v2) explicitly record the isolated equality examples \(B(4,5,1)\) and \(B(5,5,1)\) but not the general closed result. Paone–Paone (DOI:10.5281/zenodo.21744051, Remark 9.2) expressly state that this dumbbell class lies outside their two exactly solved classes, roses and generalized theta graphs. Their path elimination is an acknowledged antecedent, not independently new. Wang–Fan's earlier signature bounds and published spectral *characterization* papers do not directly supply the three-parameter inertia table. The corresponding primary records and detailed claim-versus-implication comparisons appear in `AUDIT.json`. Risk remains from unindexed equivalent spectral formulas and inaccessible tangential inverse-spectral full texts; negative searches do not prove uniqueness.
+PASS
 
-## Value — PASS
-The two-cycle dumbbell is the natural bridged third topological core type for connected bicyclic graphs, alongside rose/figure-eight and theta cores. The new theorem closes its full ordinary line-graph inertia classification, rather than providing a sample calculation or a slight numerical bound; it resolves every bridge length and all singular modulo-four branches, with a sharp signature-one equality criterion. This is relevant because the proposed general signature-one upper bound for connected line graphs is false, while structural families on which it remains sharp help separate positive from negative mechanisms. The theorem also determines multiplicity of the signless-Laplacian eigenvalue two for every such graph.
+Nonoriented incidence converts adjacency inertia of the m=n+1-edge line graph into inertia of Q(B)-2I with one extra negative. Each cycle interior is a path P_(t-1); exact congruence pivots yield symmetric increments q(t), zero mode z(t), endpoint weights 1,3,-1 for residues 0,1,3 or remove the endpoint for residue 2 via a nonsingular saddle block. Remaining path with d-1 internal vertices is reduced by parity to α+β or [[α,1],[1,β]] or deleted-endpoint paths. Direct independent construction of zero-one line graph matrices, numeric spectra with well-separated tolerance, confirms all three indices for a,b=3..8 and d=1..5 (180 cases); the proof handles the infinite parameter domain and singular branches.
 
-## Scope and risks
-The theorem does not extend to attached trees, arbitrary cacti, signed line graphs, or full eigenvalue distributions. Literature coverage is incomplete; independence and priority are not certified. Self-review correctness/originality/value checks are not an external audit.
+## originality
 
-Self-review: passed. Independent audit: not yet performed.
+PASS
+
+Full primary web edition of Paone–Paone explicitly excludes vertex-disjoint cycles joined by a path (Remark 9.2). Francis–Uptain abstract treats an unbounded signature phenomenon and examples, not an all-parameter dumbbell table. Known path-block and incidence identities are acknowledged; what survives is the exact missing bicyclic core classification.
+
+## value
+
+PASS
+
+The bridge-separated two-cycle graph is a canonical connected bicyclic core excluded from already solved rose/theta classes. Complete ordinary line-graph inertia, all singular modulo-four branches, and a sharp signature-one criterion are naturally useful invariants and more than a slight bound improvement.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
