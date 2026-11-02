@@ -1,0 +1,15 @@
+# Scientific review of the ternary-switching stationary-mode theorem
+
+## Correctness — PASS
+For strictly positive relaxation \(k\) and pairwise switching rate \(q\), the full joint generator admits the explicit invariant measure \(w_i\mathrm{Dirichlet}(q/k,q/k,q/k)(dw)\). Dirichlet integration by parts cancels the drift and jump terms exactly; exponential contraction conditional on the same environmental path proves uniqueness. The projection Jacobian and beta endpoint integrals give the stated density and asymptotics. For concentrations at least one half, integral monotonicity rules out lateral extrema; below one half, strict logarithmic convexity and divergence at both positive-half endpoints prove a unique minimum and exactly three singular peaks. The independent executable checker returned 4677 successful finite checks, including 3888 exact rational generator identities. The proof, rather than finite tests, establishes the all-parameter assertions.
+
+## Originality — PASS, with residual literature risk
+Caligiuri and Galla's open-access 2023 paper analyzes a *different* three-state **path-graph** environment numerically and already observes qualitatively similar peak reduction; it is not claimed as novel here. The evaluated new assertion is the exact closed stationary density and **sharp exhaustive mode-count criterion** for symmetric complete-graph switching. General Dirichlet random-mean literature likely contains the underlying projected law in another form, which is expressly credited as structural background, not claimed as a new probability distribution. Searches for equivalences, three-state switching, Dirichlet projections and modality thresholds in the retrieved research index and the accessible prior research records did not identify this complete-graph switching criterion. Specialist coverage by unindexed Dirichlet-mean shape theory remains possible. The 2002 Dirichlet-mean article and 2016 three-valued telegraph article could be assessed only from available abstracts, not their complete bodies.
+
+## Mathematical value — PASS
+Three-state environmental influencer models are the first case beyond analytically tractable binary switching treated numerically in the motivating work. The symmetric complete-graph three-state process is a natural distinct intervention protocol. The result replaces stationary numerical integration by a closed density and an exact, global transition \(q/k=1/2\), including the number of all interior extrema, endpoint singular exponents and the marginal boundary behavior. This is a complete classification for a motivated minimal multienvironment model, not an arbitrary finite measurement or a bare reproduction of the Dirichlet distribution.
+
+## Scope and risk
+The source's path-graph transition rates, arbitrary three-state generators, arbitrary attractor positions, and finite-population fluctuations are not covered. The result requires equal restoring slopes and symmetric complete-graph rates. There is no external scientific validation.
+
+Self-review: passed. Independent audit: not yet performed.
