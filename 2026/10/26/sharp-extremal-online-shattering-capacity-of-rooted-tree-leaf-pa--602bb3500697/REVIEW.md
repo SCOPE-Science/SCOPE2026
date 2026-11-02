@@ -1,11 +1,21 @@
-# Scientific review: sharp leaf-path extremal law
+# Independent mathematical audit
 
-**Correctness (PASS).** For a complete depth-\(d\) binary decision tree, every query before the last level must be at a nonleaf of the underlying rooted tree. The laminar descendant-leaf sets force queries at all decision nodes to be distinct, while the underlying root cannot be a split. Thus \(I\ge2^{d-1}\), independently of the separate leaf count \(L\ge2^d\). A two-copy grafting construction attains both limits simultaneously, and leaf additions/edge subdivisions realize arbitrary feasible resource pairs without weakening the witnesses. The VC bound follows from ancestor comparability. Exact enumeration on all unlabeled rooted trees through twelve vertices and explicit certificates through depth five independently test the theorem. The all-depth claim uses proof, not brute force.
+## correctness
 
-**Originality (PASS, conditional on accessible literature).** The closest comparison is Walker (2022, arXiv:2203.12211), whose binary-tree leaf-subset embeddings and generalized Sauer bounds are different parameters and do not imply a rooted-tree vertex-budget lower bound. Chase–Freitag–Reyzin (2023, arXiv:2310.04812) handles query learning and compression, whereas Ghazi et al. (2020, arXiv:2007.03668) handles Boolean closure bounds. A related descendant-cone concept family indexes hypotheses by all tree vertices rather than leaves and uses the transpose incidence orientation; its height bounds do not imply the present minimum-order formula. Accessible searches found no exact \(3\cdot2^{d-1}\) threshold or the bivariate extremal formula. This is not a proof of absolute priority; unindexed literature remains a risk.
+PASS
 
-**Value (PASS).** This is a complete, sharp all-parameter extremal classification of the cost of adaptive shattering inside the natural VC-dimension-one class of hierarchical root-to-leaf paths. The \(50\%\) vertex overhead over the \(2^d\)-hypothesis information minimum is forced structurally and attained at every depth, while the bivariate formula isolates distinct leaf and branch-vertex bottlenecks. It predicts the exact maximum deterministic realizable mistake bound for any specified tree order and establishes a motivated natural invariant, not a selected table entry.
+Reconstructed laminar subtree-leaf query sets S_v and their non-repetition in a completely shattered binary mistake tree. Depth d requires 2^d leaf concepts and 2^(d-1)-1 distinct nonroot internal query vertices; together with the root this forces I>=2^(d-1). Recursive gluing of two depth-d tree witnesses attains depth d+1 with L=2^(d+1), I=2^d. Adding root-child leaves or subdividing edges realizes every (I,L) with the claimed extremal d. The fixed-order 3*2^(d-1), VC<=1, and I=0/L=1 boundaries follow. Independent standard-library subset-mask Littlestone recursion evaluated 1,205 unlabeled rooted tree shapes through n=10 and confirmed the exact maximum for every occurring (I,L); the package verifier was read but its saved log alone is not used as proof. Finite checks do not establish the all-depth theorem.
 
-**Limits.** The theorem optimizes across tree shapes, not each fixed tree's exact dimension; vertex-membership queries and unary vertices are part of the domain. Priority remains conditional on the inspected references and searches. The independent scientific audit remains to be performed.
+## originality
 
-Self-review: passed. Independent audit: not yet performed.
+PASS
+
+Best-of-knowledge new sharp vertex/nonleaf budget for leaf-indexed root-to-leaf membership concepts; earlier Walker tree dimension is an embedding parameter, while general Littlestone closure and query-learning work does not supply this combined extremal. No universal priority guarantee.
+
+## value
+
+PASS
+
+Exact bivariate resource tradeoff for online adaptive vertex queries in a natural laminar concept class is mathematically useful: the exponential internal-vertex necessity is additional to the information-theoretic leaf bound and exhibits unbounded Littlestone complexity while ordinary VC dimension remains one. Construction supplies the sharp minimum tree order at each target dimension.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
