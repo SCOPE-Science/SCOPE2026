@@ -1,0 +1,19 @@
+# Scientific review: sharp zero-noise convergence rates in heterogeneous congestion
+
+## Correctness — PASS
+
+The result is a theorem about a precisely stated two-resource atomless game, not an extrapolation of a finite numerical experiment. Cost differences reduce both the pure equilibrium and every logit equilibrium to one strictly increasing scalar fixed-point equation. Its unique root converges to the interior pure cutoff by compactness and dominated convergence. The logistic boundary-layer kernel is odd, its zeroth moment vanishes, and its first moment equals \(\pi^2/6\); the implicit denominator is strictly positive, \(1+f(t_0)\). Rescaled integrals give independent strictly positive \(L^1\) and squared-\(L^2\) constants, while the induced deterministic partition has the cutoff-displacement scale. In the explicit example, the cutoff root, non-potential antisymmetry \(3/64\), all-noise cutoff monotonicity, and infinite-noise limit follow from direct algebra and pairing arguments. The attached reproducible checker compares the asymptotic constants to numerical equilibrium solutions and includes a second nonuniform-density stress test. The analysis does not mistake these finite checks for proof.
+
+## Originality — PASS, with residual publication-priority risk
+
+The full available primary manuscript of Dupont, Petit, and Séguret (arXiv:2610.18035) proves existence, uniqueness, and qualitative convergence, and explicitly proposes quantitative zero-noise rates as future work. Its Theorems 2.1 and 2.2 do not state the exact \(L^1\), \(L^2\), and deterministic-cutoff coefficients; the non-potential example and strict global noise monotonicity here are additional precise statements. A classical Sommerfeld moment expansion supplies a known analytic ingredient, but it does not by itself identify the feedback denominator and the separation of probabilistic and deterministic equilibrium observables. Searches for the natural equivalent formulations, including published-finding corpus mathematical records, found no implication-equivalent prior claim. Work on large-atomic-game limits and on demand comparative statics addresses different perturbation parameters. Residual risks are unindexed sources and possibly a hidden equivalent small-noise lemma in broader perturbation literature; the secondary works were assessed using accessible abstracts rather than complete texts.
+
+## Mathematical value — PASS
+
+The motivating primary manuscript explicitly identifies quantitative zero-noise convergence as an open direction. The theorem yields a full smooth two-resource structural law with exact constants and exhibits *two different sharp convergence orders* for two natural observables. Its non-potential witness rules out explaining the answer as an ordinary potential-minimization result, and strict global cutoff monotonicity shows how the sharp low-noise correction fits a complete noise response in that example. The positive density, interior cutoff, and nonzero example coefficient demonstrate that neither order is a numerical artifact. This does not claim a general theorem for three resources or arbitrary nonsmooth externalities.
+
+## Closest literature, comparisons, and limits
+
+The primary paper's qualitative results and non-potential criterion are acknowledged rather than claimed again. Cominetti, Scarsini, Schröder, and Stier-Moses analyze a limit in population granularity, not the fixed-population logit noise scale. Cominetti, Dose, and Scarsini investigate demand-driven monotonicity, not these Gumbel-noise asymptotic constants. The Sommerfeld integral coefficient is classical. The complete primary source was inspected; these other sources were not uniformly available as complete text. No independent scientific or publication-priority audit has been performed.
+
+Self-review: passed. Independent audit: not yet performed.
