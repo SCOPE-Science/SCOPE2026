@@ -1,15 +1,21 @@
-# Scientific review
+# Independent mathematical audit
 
-## Correctness — PASS
+## correctness
 
-The source's two-step coefficients and MPE denominator embedding were reconstructed directly from the published formulas. The exact nonlinear two-state update, positive/conservative representation, Jacobian and root locations were derived algebraically. The stationarity condition reduces to a quartic with exactly one positive zero (Descartes' sign rule and endpoint signs), which proves the unique fastest step; expansions yield the near-zero and stiff limits. Replaying the standalone verifier checked the symbolic identities and 392 exact-rational updates. Its finite tests are reproducibility checks, not an infinite proof. The analysis is local around the positive steady state only.
+PASS
 
-## Originality — PASS, residual publication-priority risk
+For two-state symmetric exchange with mass one and two strictly positive starts, insert the published coefficients alpha_1=0,alpha_2=1,beta_1=2,beta_2=0 and MPE one-step weight denominators. Solving the two-by-two transfer system yields the displayed rational imbalance recurrence, with strictly positive components for all finite h>0. Jacobian at equilibrium has a=1/(1+4h), b=-8h²/[(1+2h)(1+4h)] and dominant negative spectral root modulus rho. p(-1),p(0),p(1) show local attraction; comparing p at MPE m proves rho>m. Implicit differentiation yields stationarity quartic 32h⁴+32h³−8h²−8h−1=0; exactly one positive root by Descartes, derivative sign changes from negative to positive. Independent symbolic reconstruction, 125 exact rational two-state updates and both asymptotic series match h*=.5365660925 and rho*=.767326988. Only a local equilibrium spectral claim, not global convergence.
 
-The Izzo–Messina–Pezzella–Vecchio preprint (2024) already proves unconditional positivity and conservation, constructs the embedding, identifies the two-step coefficients, and proves order convergence. Torlo–Öffner–Ranocha (2021) already identify oscillations in related Patankar families, and Zhu–Huang–Yang (2022) analyze different multistep schemes. These facts are prior inputs. The particular rational equilibrium Jacobian, sharp local decay factor, strict MPE comparison, unique finite optimal step, and large-step degeneration have not been located in the inspected relevant full texts or searched mathematical records. Searches do not prove novelty: equivalent later or differently parameterized calculations remain plausible. No independent priority audit has occurred.
+## originality
 
-## Value — PASS
+PASS
 
-Unconditional positivity and conservation guarantee physically admissible nonnegative state variables but do not quantify how quickly the algorithm relaxes to equilibrium under large steps. The exact unique fastest step and stiff-step contraction \(\rho(h)\to1\) expose a nontrivial design limitation, distinguish two-step embedding from one-step MPE damping, and provide a reproducible two-state benchmark. This is a motivated algorithmic boundary rather than a renamed generic multistep stability fact. General high-dimensional or global nonlinear consequences are not established.
+Izzo et al. originated this very algorithm and its embedding, positivity and order conditions. Torlo–Öffner–Ranocha analyze other Patankar stability pathologies. The optimized exact Jacobian, specific quartic critical point, strict one-step MPE comparison and stiff-limit approach to nondamping are distinct and were not found as a stronger implication of inspected source theorems. Narrow but qualified priority.
 
-Self-review: passed. Independent audit: not yet performed.
+## value
+
+PASS
+
+A sharp positive-step optimum and arbitrarily slow large-step relaxation are directly motivated failure modes for an unconditionally positive/conservative integrator; exact threshold and comparison separate positivity from efficiency and offer a reproducible design benchmark. Not a renaming of the source positivity theorem.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

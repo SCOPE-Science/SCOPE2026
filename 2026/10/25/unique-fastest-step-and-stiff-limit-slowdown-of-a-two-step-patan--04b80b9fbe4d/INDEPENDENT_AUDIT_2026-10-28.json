@@ -1,0 +1,121 @@
+{
+  "audit_date_utc": "2026-10-28",
+  "audited_at_utc": "2026-10-28T12:51:19Z",
+  "axes": {
+    "correctness": {
+      "rationale": "For two-state symmetric exchange with mass one and two strictly positive starts, insert the published coefficients alpha_1=0,alpha_2=1,beta_1=2,beta_2=0 and MPE one-step weight denominators. Solving the two-by-two transfer system yields the displayed rational imbalance recurrence, with strictly positive components for all finite h>0. Jacobian at equilibrium has a=1/(1+4h), b=-8h²/[(1+2h)(1+4h)] and dominant negative spectral root modulus rho. p(-1),p(0),p(1) show local attraction; comparing p at MPE m proves rho>m. Implicit differentiation yields stationarity quartic 32h⁴+32h³−8h²−8h−1=0; exactly one positive root by Descartes, derivative sign changes from negative to positive. Independent symbolic reconstruction, 125 exact rational two-state updates and both asymptotic series match h*=.5365660925 and rho*=.767326988. Only a local equilibrium spectral claim, not global convergence.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Source eqs (2.8),(3.19),(3.20) define scheme and MPE predictor, and Theorem 3.6 proves convergence as h→0. Full text numerical tests not the same all-h spectral minimization."
+        ],
+        "reasoning": "Existing unconditional positivity and small-h convergence are weaker with respect to all-h relaxation rate and unique finite optimum.",
+        "searches": [
+          "Izzo Messina Pezzella Vecchio 2024 MPLM arXiv:2407.12540v1",
+          "Torlo Öffner Ranocha 2021 Issues with Positivity-Preserving Patankar-type Schemes",
+          "Zhu Huang Yang 2022 modified Patankar multistep"
+        ]
+      },
+      "checked_sources": [
+        "Git RESULT.md 6cb5c7c4cdc10864ffca0a9efbd2a4cb681bfcd3",
+        "Git verify.py 9255ee4b5482f2eb3186a55d98f21b2d6a844709",
+        "arXiv:2407.12540v1",
+        "arXiv:2108.07347",
+        "arXiv:2211.05600"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "The all-h closed recurrence, negative dominant root and unique positive critical quartic require a new local equilibrium differentiation and extremal calculation. Algorithm definition alone can be specialized but does not state the result."
+        ],
+        "reasoning": "Qualitative oscillation and A-stability discussions of other schemes cannot imply this precise optimizer or stiff asymptotic of the given denominator embedding.",
+        "searches": [
+          "arXiv:2407.12540v1 complete Sections 2–4",
+          "arXiv:2108.07347 stability and oscillation scope"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Imbalance mode u=y_1−1/2 and two-step companion Jacobian reduce the nonlinear integrator to an exact local 2×2 eigenvalue problem; MPE factor 1/(1+2h) is a different one-step method."
+        ],
+        "reasoning": "Both full two-species scheme and scalar imbalance are mathematically equivalent only locally for spectral claims; a general positive time integrator is not equivalent to a linearized damping optimization.",
+        "searches": [
+          "modified Patankar linear multistep MPE denominators two step exchange equation step size optimal damping stiff limit spectral radius",
+          "MPE-embedded MPLM two-step symmetric production destruction spectral radius eigenvalues",
+          "fixed-step exchange modified Patankar multistep scalar imbalance Jacobian"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "Resultary nearest optimizers concern unrelated forward-reflected-backward/PDHG and positivity barriers; not source scheme. Source article tables list coefficients and numerical test convergence, not a complete spectral-rate table."
+        ],
+        "reasoning": "No exact tabulation of same characteristic quartic was identified; a no-hit does not certify novelty.",
+        "searches": [
+          "modified Patankar linear multistep MPE denominators two step exchange equation step size optimal damping stiff limit spectral radius",
+          "Resultary modified Patankar exact optimal step spectral radius",
+          "Patankar 2-step exchange rate h 0.536566",
+          "Patankar linear multistep stiff-step relaxation"
+        ]
+      },
+      "rationale": "Izzo et al. originated this very algorithm and its embedding, positivity and order conditions. Torlo–Öffner–Ranocha analyze other Patankar stability pathologies. The optimized exact Jacobian, specific quartic critical point, strict one-step MPE comparison and stiff-limit approach to nondamping are distinct and were not found as a stronger implication of inspected source theorems. Narrow but qualified priority.",
+      "residual_risks": [
+        "Scope is local equilibrium, symmetric two-species, exact constant-step algorithm only; no global convergence.",
+        "Unreviewed full stability literature could include same specialized 2x2 companion factor; novelty qualified."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Prior positivity, conservation, construction and convergence; no claim of the exact two-species optimizer found",
+          "evidence": "arXiv:2407.12540v1 §§2–4, equations 2.8,3.19,3.20",
+          "identifier_or_url": "https://arxiv.org/html/2407.12540v1",
+          "material_read": "Complete arXiv HTML, Sections 2–4, notably algorithm equations (2.8), MPE (3.19), embedding (3.20), Theorem 3.6 and numerical tests.",
+          "method": "Full primary HTML",
+          "title": "Modified Patankar Linear Multistep methods for production-destruction systems",
+          "trigger": "Same algorithm and denominator scheme"
+        },
+        {
+          "assessment": "Shows qualitative issues and oscillatory modes in related methods, not verified identical MPE-embedded two-step recurrence",
+          "evidence": "arXiv:2108.07347",
+          "identifier_or_url": "https://arxiv.org/abs/2108.07347",
+          "material_read": "Accessible abstract and targeted stability discussion description, no complete article inspection in this run.",
+          "method": "Abstract and indexed scope",
+          "title": "Issues with Positivity-Preserving Patankar-type Schemes",
+          "trigger": "Potential stronger general failure-mode theorem"
+        },
+        {
+          "assessment": "Different integration method; no complete-paper noncoverage asserted",
+          "evidence": "arXiv:2211.05600",
+          "identifier_or_url": "https://arxiv.org/abs/2211.05600",
+          "material_read": "Abstract and methodological description only.",
+          "method": "Abstract",
+          "title": "Bound-preserving discontinuous Galerkin methods with modified Patankar time integrations for chemical reacting flows",
+          "trigger": "Related modified multi-step algorithm"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "rationale": "A sharp positive-step optimum and arbitrarily slow large-step relaxation are directly motivated failure modes for an unconditionally positive/conservative integrator; exact threshold and comparison separate positivity from efficiency and offer a reproducible design benchmark. Not a renaming of the source positivity theorem.",
+      "status": "PASS"
+    }
+  },
+  "checked_sources": [
+    "Git RESULT.md 6cb5c7c4cdc10864ffca0a9efbd2a4cb681bfcd3",
+    "Git verify.py 9255ee4b5482f2eb3186a55d98f21b2d6a844709",
+    "arXiv:2407.12540v1",
+    "arXiv:2108.07347",
+    "arXiv:2211.05600"
+  ],
+  "disposition": "passed",
+  "limitations": [
+    "Scope is local equilibrium, symmetric two-species, exact constant-step algorithm only; no global convergence.",
+    "Unreviewed full stability literature could include same specialized 2x2 companion factor; novelty qualified.",
+    "The full directory tree was not independently enumerated; pinned RESULT.md and scientific checker blob identities read from assigned commit and compared to expected Git file identities.",
+    "Publication withheld for operational-provenance confidentiality and missing verified complete replacement guards."
+  ],
+  "residual_risks": [
+    "Scope is local equilibrium, symmetric two-species, exact constant-step algorithm only; no global convergence.",
+    "Unreviewed full stability literature could include same specialized 2x2 companion factor; novelty qualified."
+  ],
+  "schema_version": 1
+}

@@ -5,8 +5,11 @@
     "status": "not_performed"
   },
   "independent_audit": {
-    "evidence": null,
-    "status": "not_performed"
+    "status": "passed",
+    "evidence": [
+      "INDEPENDENT_AUDIT_2026-10-28.md",
+      "INDEPENDENT_AUDIT_2026-10-28.json"
+    ]
   },
   "lean_verification": {
     "evidence": null,
@@ -16,10 +19,24 @@
 }
 ---
 
-# Verification of the exact local Patankar relaxation law
+# Independent mathematical audit
 
-The supplied `verify.py` uses SymPy to check the closed nonlinear recurrence against the MPE-embedded two-step algebra, Jacobian derivatives at equilibrium, characteristic boundary signs, MPE comparison polynomial, critical-point quartic identity, small- and large-step leading limits, and uniqueness of the positive critical root by its sign pattern. Separate exact-rational arithmetic then checks 392 two-component updates over a grid of eight positive steps and seven values for each of the two preceding imbalances. All tested states lie strictly inside the mass-one positive simplex.
+## correctness
 
-Command: `python verify.py` (requires Python 3 and SymPy). The expected terminal message includes `392 exact-rational updates`; computed numerical values are \(h_*=0.536566092485493\ldots\) and \(\rho(h_*)=0.767326987978960\ldots\).
+PASS
 
-The mathematically universal claims follow from the exact derivation and inequalities in `RESULT.md`. Checks do not certify global convergence, full parameter-family uniqueness outside the given order conditions, or publication priority. No independent scientific audit has been performed.
+For two-state symmetric exchange with mass one and two strictly positive starts, insert the published coefficients alpha_1=0,alpha_2=1,beta_1=2,beta_2=0 and MPE one-step weight denominators. Solving the two-by-two transfer system yields the displayed rational imbalance recurrence, with strictly positive components for all finite h>0. Jacobian at equilibrium has a=1/(1+4h), b=-8h²/[(1+2h)(1+4h)] and dominant negative spectral root modulus rho. p(-1),p(0),p(1) show local attraction; comparing p at MPE m proves rho>m. Implicit differentiation yields stationarity quartic 32h⁴+32h³−8h²−8h−1=0; exactly one positive root by Descartes, derivative sign changes from negative to positive. Independent symbolic reconstruction, 125 exact rational two-state updates and both asymptotic series match h*=.5365660925 and rho*=.767326988. Only a local equilibrium spectral claim, not global convergence.
+
+## originality
+
+PASS
+
+Izzo et al. originated this very algorithm and its embedding, positivity and order conditions. Torlo–Öffner–Ranocha analyze other Patankar stability pathologies. The optimized exact Jacobian, specific quartic critical point, strict one-step MPE comparison and stiff-limit approach to nondamping are distinct and were not found as a stronger implication of inspected source theorems. Narrow but qualified priority.
+
+## value
+
+PASS
+
+A sharp positive-step optimum and arbitrarily slow large-step relaxation are directly motivated failure modes for an unconditionally positive/conservative integrator; exact threshold and comparison separate positivity from efficiency and offer a reproducible design benchmark. Not a renaming of the source positivity theorem.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
