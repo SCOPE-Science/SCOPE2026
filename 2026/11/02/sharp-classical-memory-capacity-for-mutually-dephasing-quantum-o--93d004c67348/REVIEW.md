@@ -1,0 +1,21 @@
+# Scientific review — mutually dephasing observations with finite classical memory
+
+## Correctness — PASS
+
+The exact domain is a single qubit driven by a *conserved* classical phase label with \(M\ge2\) positive sector probabilities; the pairwise reduced channels are the unconditional causal-break maps with no conditioning on previous measurement results. The qubit off-diagonal multiplier is the characteristic function \(\gamma(t)=\sum_s p_s e^{-2\mathrm i\omega_s t}\). Pairwise vanishing produces orthogonal normalized vectors in \(\mathbb C^M\), proving the cardinality bound. A Hilbert–Schmidt frame-potential identity proves the squared-visibility bound without requiring equal time spacing. At a regular \(M\)-point clock, a square unitary Vandermonde matrix forces equal weights and a complete rotated root spectrum. The retained-label process state reduces to a uniform mixture of \(M\) phase-state product vectors; Fourier cancellation gives the binomial Dicke eigenvalues and the coherence formula. The central-limit entropy expansion has explicit tail control. Independent numerical reconstruction passed 326 finite assertions; these are cross-checks, not the universal proof.
+
+## Originality — PASS (best-knowledge, qualified)
+
+The closest physical source is Sajnok–Costa, arXiv:2610.08241v1, whose Sections IV.1–IV.3 prove the three-time incoherent-channel / coherent-process example for two environmental bits and whose Appendix A treats indefinitely many *fixed-origin* dephasing channels for one memory bit. It does not give the sharp maximum number of mutually *pairwise* dephasing observation times, the weight-sensitive visibility penalty, or the regular-clock necessity and sufficiency of a Fourier phase spectrum. General process-tensor theory, including the overview arXiv:2509.07661v1, supplies the framework but not these formulas.
+
+The exact phase-ensemble Gram spectrum is not claimed as independently new: the indexed result *Exact multi-copy discrimination law for regular rebit polygons* already gives a binomial residue spectral law that implies this spectral subcalculation after identifying the pure-state ensemble. The scientific claim assessed here is the **joint temporal channel bound, saturation rigidity, quantitative weight penalty and their forced process-coherence consequence**, not the binomial entropy identity in isolation. The original paper and review were inspected in relevant full HTML sections. The rebit record was accessible only by abstract-level result, and its GitHub full text was inaccessible; consequently residual risk remains for a more comprehensive prior physical or Fourier-spectral formulation. No independent priority certification is claimed.
+
+## Value — PASS
+
+The theorem determines the exact classical-memory size required to conceal channel coherence **between every pair** in a time grid, rather than only at times compared with a fixed origin. It specifies the sole regular-clock equality geometry, quantifies how unbalanced environmental populations force experimentally detectable residual channel visibility, and calculates how much coherence is necessarily retained by the full multi-time process. For \(M=4\) it augments the recent three-observation Ising example to the maximal four-observation construction and identifies \(\frac34\ln3\) nats of hidden coherence. These are natural operational properties of a directly motivated qubit–memory model; they do not purport to extend to arbitrary quantum memory or prove priority over generic Fourier theorems.
+
+## Constraints and risks
+
+The result assumes static classical sector labels, exact ideal interactions, causal-break channel characterization with prior results unconditioned, and a complete-dephasing reference basis. A preassigned frequency spectrum may not attain the sharp visibility bound; equality is asserted over all spectra/times. The entropy law is specific to the saturated regular-clock family, and its binomial-ensemble component overlaps with existing state-discrimination mathematics. The full rebit-polygon record could not be inspected; a broader physical statement in presently unidentified literature could imply this application.
+
+Self-review: passed. Independent audit: not yet performed.
