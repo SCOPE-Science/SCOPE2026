@@ -5,8 +5,11 @@
     "status": "not_performed"
   },
   "independent_audit": {
-    "evidence": null,
-    "status": "not_performed"
+    "status": "passed",
+    "evidence": [
+      "INDEPENDENT_AUDIT_2026-10-31.md",
+      "INDEPENDENT_AUDIT_2026-10-31.json"
+    ]
   },
   "lean_verification": {
     "evidence": null,
@@ -16,12 +19,24 @@
 }
 ---
 
-# Reproduction
+# Independent mathematical audit
 
-From this package directory, execute `sh scripts/verify.sh` using a C++17 compiler and Python 3 with NumPy. The programs use only exact arithmetic in \(\mathbf F_4=\mathbf F_2[\alpha]/(\alpha^2+\alpha+1)\). No network or third-party database is needed to rerun the finite calculations. The raw line-separated file `tangent_noline_codes.txt` contains the 280 normalized cubics and is recreated by both incidence implementations; the two code lists are compared byte-for-byte by `cmp`.
+## correctness
 
-The expected complete counts are 349525 normalized cubics; 11368 tangent-filling; 11088 of those with a rational line factor and 280 without one. Geometric smoothness is checked by exact row-reduction on the Jacobian-quadrics-to-quartics matrix: ranks 11 (5040 cubics), 13 (6048), and 15 (280). The invertible-matrix enumeration gives \(|\operatorname{GL}_3(\mathbf F_4)|=181440\), Hermitian stabilizer size 648 in \(\operatorname{GL}_3\), hence stabilizer size 216 in \(\operatorname{PGL}_3\) and orbit size 280. The generated orbit equals the 280 no-line cubics and the 280 geometrically smooth tangent-filling cubics. Full program output is included as `verification_output.txt`.
+PASS
 
-# Limits
+Independently rebuilt F4=F2[a]/(a^2+a+1), all 21 rational projective points/lines, ten cubic monomials and their characteristic-two gradients. Wrote and executed an independently coded exhaustive C++17 finite-field incidence scan through every one of (4^10-1)/3=349525 last-nonzero-coefficient normalized cubics, checking all smooth rational tangent lines and coverage. Exact outputs: 11368 tangent filling, with 5320 nine-point and 6048 ten-point cubics; 280 without a rational line and 11088 with one. A second independent GL3(F4) enumerator scanned all 4^9 matrices, identified 181440 invertible, and computed the cubic (row_1)^3+(row_2)^3+(row_3)^3, yielding exactly 280 normalized Hermitian-orbit equations, stabilizer 648 in GL3 and 216 in PGL3; these 280 codes matched the independent incidence scan exactly, coefficient-for-coefficient. Restriction of degree-3 cubic to a rational line has 5 rational projective points, so vanishing at all 5 proves a rational factor. The original Jacobian rank-15 criterion for geometric smoothness also follows from regular-sequence/Hilbert-series reasoning, but we did not independently reproduce all 11368 rank calculations. Main no-line classification is independently exhausted, not extrapolated.
 
-The verification is exhaustive only for ternary homogeneous cubics over \(\mathbf F_4\), including their 21 rational projective points, 21 rational lines, and rational change-of-coordinate matrices. It does not by itself establish publication priority. No independent audit or formal certification has been performed.
+## originality
+
+PASS
+
+The Hermitian cubic and its tangent-filling property are already given by Asgarli–Ghioca, and its unitary stabilizer is classical. The new comparison is the converse for every F4 cubic without a rational line factor and all 11368/11088/280 counts. The primary 2023 paper discusses examples and large-field degree bounds, not this F4 exhaustive classification. Unindexed older small-field catalogues and full geometric references remain risks.
+
+## value
+
+PASS
+
+F4 is the first square field where the smooth Hermitian unital is a cubic. An incidence-covering condition might permit many singular or non-Hermitian irreducible cubics; the exact complete classification of all line-free cases and decomposition of line-factor exceptions is a natural finite-geometry rigidity statement, not arbitrary data mining. An exact finite invariant with full orbit certificate is independently useful without higher-field generalization.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
