@@ -1,0 +1,235 @@
+{
+  "audit_date_utc": "2026-10-26",
+  "audited_at_utc": "2026-10-26T06:57:26Z",
+  "axes": {
+    "correctness": {
+      "evidence": [
+        "Original frozen RESULT.md proof and VERIFICATION.md, six exact Git blobs, reconstructed Git tree 7d629b56c8e013c6e2e01424b50138a01f94e6e8",
+        "Independent SymPy factorization verified constraint identity, balanced equalization and active condition, both endpoint substitutions, and derivative signs at the crossing; all symbolic residuals zero.",
+        "Separate SciPy constrained one-variable stress test of 10,000 pseudorandom admissible parameter pairs across all four regimes found zero discrepancies beyond numerical tolerance (6106 disk, 2025 balanced, 942 u=1, 927 v=1); this is corroboration, not an infinite certificate."
+      ],
+      "rationale": "For every real 0<a,c<1 with a≠c, the norm is a signed-coordinate-invariant polygonal norm. Independently reconstructed a full equivalent quadratic-ellipsoid sandwich: averaging Q over sign changes proves no oblique quadratic form improves distortion; the inner condition is exactly u,v≥1 and A²/u+B²/v≤1 by weighted Cauchy–Schwarz; the outer factor is exactly max(u+a²v,c²u+v) by the four quadrant vertices. If A²+B²≤1 (equivalent to a+c+ac≥1), u=v=1 is coordinatewise minimal. Otherwise the minimizing active-constraint arc has v=B²u/(u−A²), the two costs cross exactly once at explicit (u*,v*), with negative L2 derivative before and positive L1 derivative after; clipping at u=1 or v=1 produces precisely the two endpoint branches. The two infeasible strict conditions cannot coexist under a+c+ac<1 and equality boundaries match. The proof covers all parameter quantifiers and boundaries in its stated open region; no finite computation is used as the general proof.",
+      "residual_risks": [
+        "No claim of uniqueness of all non-diagonal optimum forms was needed or checked: proof provides optimal pullbacks up to scalar, not unique ellipsoid classification beyond explicit examples.",
+        "The formula does not address a=c, a=0, c=0, higher dimensions or complex spaces."
+      ],
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Zuo–Huang–Wang Theorem 3.3 inputs an already-known Banach–Mazur distance to bound generalized Gao constants, instead of computing the distance.",
+          "Praetorius Corollary 3.2 and general Ader characterizations show planar uniqueness/contact properties, not the thresholds a+c+ac=1, a(c+2)=1, c(a+2)=1.",
+          "The symmetric midpoint theorem requires a=c, excluded in the assigned assertion."
+        ],
+        "reasoning": "Broader general theorems on Euclidean ellipsoids and geometric constants supply a framework or take the distance as input, not a closed evaluation on this asymmetric polygon family. The strongest near-scope symmetry theorem requires an extra hypothesis violated in the claimed domain.",
+        "searches": [
+          "Banach Mazur distance to Euclidean ℓ2 for absolute norm polygon two parameter eight vertices optimal inscribed Löwner John ellipsoid diagonal",
+          "Extreme absolute normalized norm psi alpha beta exact Banach Mazur distance including asymmetric and symmetric boundary sections",
+          "Zuo–Huang–Wang DOI 10.7153/mia-2023-26-09 Theorem 3.3",
+          "Grundbacher–Kobos DOI 10.1112/mtk.70062 Ader distance ellipsoids",
+          "Babev–Ivanov–Nikolov arXiv:2602.17191"
+        ]
+      },
+      "checked_sources": [
+        "https://www.kurims.kyoto-u.ac.jp/~kyodo/kokyuroku/contents/pdf/1737-10.pdf",
+        "doi:10.1016/j.jmaa.2010.04.016",
+        "https://files.ele-math.com/articles/mia-26-09.pdf; doi:10.7153/mia-2023-26-09",
+        "https://www.impan.pl/shop/en/publication/transaction/download/product/87395; Colloquium Mathematicum 93 (2002), 41–53",
+        "https://arxiv.org/abs/2602.17191",
+        "doi:10.1112/mtk.70062",
+        "https://github.com/Resultary/2026/blob/main/2026/10/4/SCOPE-euclidean-banach-mazur-profile-of-a-classical-hexagonal-family--19a906569c60/RESULT.md",
+        "https://github.com/Resultary/2026/blob/main/2026/10/11/SCOPE-ptolemy-constants-equal-squared-euclidean-banach-mazur-distortio--66766780aaed/RESULT.md",
+        "https://github.com/Resultary/2026/blob/main/2026/10/11/SCOPE-exact-euclidean-distortion-of-absolute-piecewise-hilbertian-plan--055e67264471/RESULT.md",
+        "Resultary semantic finding searches with five actual queries recorded above"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "The published hexagon distance profile uses max(|y|,|x|+(1-gamma)|y|), a six-vertex boundary subfamily, not the interior (1,a),(c,1) octagon.",
+          "The midpoint-symmetry theorem requires psi(t)=psi(1-t), equivalent to a=c within the extreme parameterization, explicitly excluded.",
+          "Komuro–Saito–Mitani give the extreme family but no Banach–Mazur evaluation in the inspected seven-page exposition; Zuo–Huang–Wang uses d_BM only as comparison input."
+        ],
+        "reasoning": "Neither an already solved parameter slice nor a general qualitative optimal-ellipse characterization entails the full four-region algebraic distance and optimizing forms on the open asymmetric domain. Explicit implication checks were made; a prior direct all-parameter result hidden in an unexamined original remains possible.",
+        "searches": [
+          "Extreme absolute normalized norm psi alpha beta exact Banach Mazur distance including asymmetric and symmetric boundary sections",
+          "extreme absolute normalized norm symmetric a equals c exact Euclidean Banach Mazur distance",
+          "Published SCOPE hexagonal family full RESULT",
+          "Published SCOPE symmetric absolute midpoint theorem full RESULT",
+          "RIMS extreme-family Theorem 1",
+          "Zuo–Huang–Wang Theorem 3.3"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Same family N=max(|x|,|y|,A|x|+B|y|) is equivalent to the extreme psi_{alpha,beta} parametrization by alpha=a/(1+a), beta=1/(1+c) (RIMS Theorem 1).",
+          "Praetorius (2002) studies general distance ellipsoids; no explicit two-parameter asymmetric polygon four-phase result."
+        ],
+        "reasoning": "Tested Banach–Mazur, optimal ellipse, John/Löwner, polytope and psi-function aliases against actual statements. Parameterizations coincide with the original extreme family, but its older extremality and other geometric-constant results do not imply the specific Euclidean optimal-ellipse solution. General ellipsoid criteria require a separate instance-specific optimization.",
+        "searches": [
+          "Euclidean Banach Mazur distance exact asymmetric extreme absolute normalized 2D norms, polygons with vertices (1,a),(c,1), minimum distortion ellipsoid piecewise",
+          "Banach Mazur distance to Euclidean ℓ2 for absolute norm polygon two parameter eight vertices optimal inscribed Löwner John ellipsoid diagonal",
+          "Extreme absolute normalized norm psi alpha beta exact Banach Mazur distance including asymmetric and symmetric boundary sections",
+          "Original full text: RIMS Kôkyûroku 1737 (2011), Theorem 1",
+          "Praetorius (2002), distance ellipsoid vocabulary"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "Semantic results contained the assigned RESULT entry itself, which was excluded as prior evidence.",
+          "The original 2026/10/4 SCOPE hexagon proof gives a one-parameter boundary slice only.",
+          "The piecewise-Hilbertian and other returned planar distance results use different norm families; no inspected exact entry contains the interior asymmetric four-regime law."
+        ],
+        "reasoning": "Actual ranked Resultary searches using norms, polygon vertices, optimizer and Euclidean distance terminology identified similar results but no prior exact table or record implying the complete interior asymmetric classification. A failed retrieval cannot prove universal novelty; older unindexed tables remain a recorded risk.",
+        "searches": [
+          "Euclidean Banach Mazur distance exact asymmetric extreme absolute normalized 2D norms, polygons with vertices (1,a),(c,1), minimum distortion ellipsoid piecewise",
+          "Banach Mazur distance to Euclidean ℓ2 for absolute norm polygon two parameter eight vertices optimal inscribed Löwner John ellipsoid diagonal",
+          "Extreme absolute normalized norm psi alpha beta exact Banach Mazur distance including asymmetric and symmetric boundary sections",
+          "extreme absolute normalized norm symmetric a equals c exact Euclidean Banach Mazur distance",
+          "ellipsoid unit ball max |x| |y| A|x|+B|y| four-regime exact distortion",
+          "Resultary published SCOPE: one-sided hexagonal Euclidean Banach–Mazur profile",
+          "Resultary published SCOPE: piecewise-Hilbertian two-dimensional distortion"
+        ]
+      },
+      "rationale": "Best-of-knowledge PASS based on direct comparison of exact statements and implications: same-family primary RIMS exposition identifies the extreme norms but computes different geometric invariants; general ellipse papers provide methods/uniqueness, not the four-region algebraic formula; published one-sided/symmetric results cover explicitly excluded slices, and quadratic-piecewise results concern a different body. Multiple semantic Resultary searches returned no independently prior theorem implying the complete asymmetric interior phase diagram. Full original 2010 journal article has not been accessed; priority is not certified.",
+      "residual_risks": [
+        "The 2010 original JMAA journal article was accessible at abstract/bibliographic level but not read in full; its same-author RIMS companion exposition was fully read. An appendix or alternative result in the original remains possible.",
+        "Older unindexed distance-ellipsoid/convex-polygon literature might encode the same special family or a more general formula with different coordinates.",
+        "Search-result nonappearance is not a novelty proof; exact priority awaits any relevant additional full-text source."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "SAME_OBJECT_NOT_COVERING_THE_CLAIM",
+          "evidence": [
+            "Theorem 1 characterizes the extreme psi_{alpha,beta} functions; later theorems compute other geometric constants, not Euclidean Banach–Mazur optimal ellipses or the four-phase formula."
+          ],
+          "identifier_or_url": "https://www.kurims.kyoto-u.ac.jp/~kyodo/kokyuroku/contents/pdf/1737-10.pdf",
+          "material_read": "Complete seven-page original RIMS PDF; family parameterization, Theorem 1 and proofs, von Neumann–Jordan and James constants, references.",
+          "method": "Full-text reading plus rendered original PDF pages; checked the exact family definition and theorem statements.",
+          "title": "Extremal structure of the set of absolute norms",
+          "trigger": "Precisely the extreme two-parameter absolute normalized norm family under alpha=a/(1+a), beta=1/(1+c)."
+        },
+        {
+          "assessment": "POSSIBLE_UNREAD_JOURNAL_DETAIL_RESIDUAL_PRIORITY_RISK",
+          "evidence": [
+            "The journal title and abstract concern extremal structure and von Neumann–Jordan constant; full journal text not inspected, so cannot assert whole-paper noncoverage."
+          ],
+          "identifier_or_url": "doi:10.1016/j.jmaa.2010.04.016",
+          "material_read": "Bibliographic data and available abstract; the same authors’ complete subsequent RIMS exposition was read separately and cross-compared.",
+          "method": "Bibliographic/abstract check and primary same-authors exposition cross-reference; journal full text was not established to have been read.",
+          "title": "Extremal structure of the set of absolute norms on R2 and the von Neumann–Jordan constant",
+          "trigger": "Original journal presentation of the same extremal-family classification."
+        },
+        {
+          "assessment": "COMPARISON_INPUT_NOT_EXACT_DISTANCE",
+          "evidence": [
+            "Theorem 3.3 derives bounds on generalized Gao constants from a given d_BM; it does not compute d_BM for the psi_{alpha,beta} family."
+          ],
+          "identifier_or_url": "https://files.ele-math.com/articles/mia-26-09.pdf; doi:10.7153/mia-2023-26-09",
+          "material_read": "Entire accessible 21-page PDF, especially definitions and Theorem 3.3/Corollary 3.4 and proofs.",
+          "method": "Primary full-text and PDF-page inspection.",
+          "title": "The generalized Gao’s constant of absolute normalized norms in R2",
+          "trigger": "Theorem 3.3 explicitly invokes Banach–Mazur distance of absolute normalized planes."
+        },
+        {
+          "assessment": "GENERAL_FRAMEWORK_NOT_FOUR_REGIME_POLYGON_CLASSIFICATION",
+          "evidence": [
+            "Corollary 3.2 shows uniqueness of distance ellipsoids in normed planes, and Theorem 4.3 constructs contact-point examples in larger dimensions. Neither supplies the asymmetric extreme absolute-norm four-regime exact distance."
+          ],
+          "identifier_or_url": "https://www.impan.pl/shop/en/publication/transaction/download/product/87395; Colloquium Mathematicum 93 (2002), 41–53",
+          "material_read": "Complete 13-page original PDF text, sections 1–4 including all theorems, concrete examples and bibliography; rendered first page.",
+          "method": "Primary full-text and PDF-page inspection, including sections on uniqueness, contact points and Maurey constructions.",
+          "title": "Remarks and examples concerning distance ellipsoids",
+          "trigger": "Older paper directly about Euclidean Banach–Mazur distance and distance ellipsoids; plausible alternative nomenclature."
+        },
+        {
+          "assessment": "GENERAL_ELLIPSE_CHARACTERIZATION_NOT_COVERING_EXPLICIT_PARAMETER_FAMILY",
+          "evidence": [
+            "General optimal-ellipse conditions do not state the given polygon family nor its algebraic four-region threshold solution."
+          ],
+          "identifier_or_url": "https://arxiv.org/abs/2602.17191",
+          "material_read": "Open original arXiv HTML mathematical text, theorem statements and relevant proof/characterization sections.",
+          "method": "Original full-text reading and comparison to this explicit asymmetric polygon.",
+          "title": "On the Banach-Mazur Ellipse",
+          "trigger": "Recent broad results on optimal Euclidean ellipses may dominate specialized planar computations."
+        },
+        {
+          "assessment": "BROADER_METHOD_NOT_EXPLICIT_FAMILY_COVERAGE",
+          "evidence": [
+            "The article concerns extremal Banach–Mazur distances and general Ader conditions; no theorem yields the submitted explicit asymmetric two-parameter phase diagram."
+          ],
+          "identifier_or_url": "doi:10.1112/mtk.70062",
+          "material_read": "Accessible full original article HTML including Ader characterization, statements and relevant planar consequences.",
+          "method": "Primary HTML full-text comparison of hypotheses and conclusions.",
+          "title": "On certain extremal Banach–Mazur distances and Ader’s characterization of distance ellipsoids",
+          "trigger": "Recent broad characterization and planar uniqueness potentially covering optimal ellipses."
+        },
+        {
+          "assessment": "BOUNDARY_ONLY_NOT_INTERIOR_ASYMMETRIC",
+          "evidence": [
+            "N_gamma=max(|y|,|x|+(1-gamma)|y|) has six boundary vertices and corresponds to one of a=0 or c=0 after coordinate interchange, excluded by 0<a,c<1."
+          ],
+          "identifier_or_url": "https://github.com/Resultary/2026/blob/main/2026/10/4/SCOPE-euclidean-banach-mazur-profile-of-a-classical-hexagonal-family--19a906569c60/RESULT.md",
+          "material_read": "Entire RESULT.md including hypotheses, exact two-branch law and proof.",
+          "method": "GitHub original source blob read and direct parameter-geometry comparison.",
+          "title": "Euclidean Banach–Mazur profile of a classical hexagonal family",
+          "trigger": "Published SCOPE result on a one-sided boundary hexagonal subfamily."
+        },
+        {
+          "assessment": "REQUIRES_COORDINATE_INTERCHANGE_SYMMETRY_EXCLUDED_BY_A_NE_C",
+          "evidence": [
+            "The theorem requires psi(t)=psi(1-t) and a midpoint extremum, whereas the assigned family excludes a=c and lacks coordinate interchange invariance."
+          ],
+          "identifier_or_url": "https://github.com/Resultary/2026/blob/main/2026/10/11/SCOPE-ptolemy-constants-equal-squared-euclidean-banach-mazur-distortio--66766780aaed/RESULT.md",
+          "material_read": "Entire original RESULT.md and proof.",
+          "method": "GitHub original source blob and rigorous hypothesis comparison.",
+          "title": "Ptolemy constants equal squared Euclidean Banach–Mazur distortion for a symmetric absolute plane class",
+          "trigger": "Broader absolute-norm and Banach–Mazur theorem that might imply the result via midpoint maximizers."
+        },
+        {
+          "assessment": "DIFFERENT_PIECEWISE_QUADRATIC_FAMILY",
+          "evidence": [
+            "Its N^2=a x²+2b|xy|+c y² has smooth quadratic pieces; the submitted N=max(|x|,|y|,A|x|+B|y|) is piecewise linear with flat facets, not included except possible degenerate coincidences."
+          ],
+          "identifier_or_url": "https://github.com/Resultary/2026/blob/main/2026/10/11/SCOPE-exact-euclidean-distortion-of-absolute-piecewise-hilbertian-plan--055e67264471/RESULT.md",
+          "material_read": "Entire original RESULT.md, including statement, proof and normalization.",
+          "method": "GitHub primary mathematical text read and comparison of defining norms.",
+          "title": "Exact Euclidean distortion of absolute piecewise-Hilbertian planes",
+          "trigger": "Potentially more general two-parameter absolute plane family with exact Euclidean distortion."
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "evidence": [
+        "Original extreme-family classification: RIMS Kôkyûroku 1737 Theorem 1.",
+        "Independent exact optimization verifies two-parameter four-regime structure; published SCOPE hexagon profile covers only one boundary slice.",
+        "Praetorius and recent distance-ellipse characterizations motivate the sharp affine distortion invariant but do not compute this family."
+      ],
+      "rationale": "The extreme points of the convex set of two-dimensional absolute normalized norms constitute a natural canonical two-parameter family; after symmetric and boundary cases are removed, the interior asymmetric case still has a genuine two-dimensional parameter region. The result computes the exact Euclidean Banach–Mazur distance at every interior asymmetric point, with four sharp feasible regions and corresponding optimal ellipsoids. Those two distinct coordinate-tangent phases and their algebraic transitions are not supplied by the inspected old family classification or general ellipse uniqueness. A precise sharp distance and ellipse for a canonical family are independently useful, without requiring a higher-dimensional generalization. This is a natural complete classification, not a renamed special case or arbitrary small numerical instance.",
+      "residual_risks": [
+        "This is a planar family-specific invariant; it does not settle higher-dimensional Banach–Mazur optimization.",
+        "Historical priority limitation on an equivalent general closed formula also qualifies value if later found."
+      ],
+      "status": "PASS"
+    }
+  },
+  "checked_sources": [
+    "https://www.kurims.kyoto-u.ac.jp/~kyodo/kokyuroku/contents/pdf/1737-10.pdf",
+    "doi:10.1016/j.jmaa.2010.04.016",
+    "https://files.ele-math.com/articles/mia-26-09.pdf; doi:10.7153/mia-2023-26-09",
+    "https://www.impan.pl/shop/en/publication/transaction/download/product/87395; Colloquium Mathematicum 93 (2002), 41–53",
+    "https://arxiv.org/abs/2602.17191",
+    "doi:10.1112/mtk.70062",
+    "https://github.com/Resultary/2026/blob/main/2026/10/4/SCOPE-euclidean-banach-mazur-profile-of-a-classical-hexagonal-family--19a906569c60/RESULT.md",
+    "https://github.com/Resultary/2026/blob/main/2026/10/11/SCOPE-ptolemy-constants-equal-squared-euclidean-banach-mazur-distortio--66766780aaed/RESULT.md",
+    "https://github.com/Resultary/2026/blob/main/2026/10/11/SCOPE-exact-euclidean-distortion-of-absolute-piecewise-hilbertian-plan--055e67264471/RESULT.md",
+    "Resultary semantic finding searches with five actual queries recorded above"
+  ],
+  "disposition": "passed",
+  "schema_version": 1,
+  "scientific_limitations": [
+    "Review not formal verification; no Lean proof or external expert attestation claimed.",
+    "2010 JMAA journal source not available in full, explicitly reflected in best-of-knowledge originality residual risks.",
+    "Finite stress testing corroborates but cannot establish the continuous-parameter theorem."
+  ]
+}

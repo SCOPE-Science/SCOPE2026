@@ -1,15 +1,21 @@
-# Review
+# Independent mathematical audit
 
-## Correctness
-PASS. Sign averaging is legitimate because the norm is invariant under independent coordinate sign changes, and it reduces the Euclidean comparison to diagonal quadratic forms without worsening either side of the distortion inequality. The lower comparison is exactly the dual quadratic inequality for the three defining functionals. The upper factor is attained at polygon vertices. The remaining minimization is solved globally: the active constraint is forced outside the disk regime, the two affine vertex costs cross exactly once, their one-sided derivatives have the required signs at the crossing, and the only infeasible-crossing cases terminate at one of the coordinate constraints. The four regimes are exhaustive and the boundary formulas agree.
+## correctness
 
-## Originality
-PASS. The primary extreme-norm literature was inspected in full text and gives the two-parameter \(\psi_{\alpha,\beta}\) classification plus von Neumann--Jordan/James constants, but no Euclidean Banach--Mazur formula. A later full-text paper uses Banach--Mazur distance only as a comparison tool for generalized Gao constants, not as an exact optimal-ellipse calculation. Searches over the exact family name, \(\psi_{\alpha,\beta}\), asymmetric/extreme aliases, optimal ellipses, and Euclidean Banach--Mazur distance found no stronger statement. The checked prior ledger already covers the symmetric and one-sided boundary slices, so those are removed from the novelty claim rather than counted again.
+PASS
 
-## Value
-PASS. Extreme points of the convex set of absolute normalized norms are a natural structural class, and the interior asymmetric portion is genuinely two-parameter. The result gives a complete exact invariant, explicit phase boundaries, and an optimal ellipse in every regime. This is not a parameter substitution or a table recomputation: asymmetry forces a nontrivial competition between two distinct vertices and produces two different coordinate-tangent phases in addition to the balanced phase.
+For every real 0<a,c<1 with a≠c, the norm is a signed-coordinate-invariant polygonal norm. Independently reconstructed a full equivalent quadratic-ellipsoid sandwich: averaging Q over sign changes proves no oblique quadratic form improves distortion; the inner condition is exactly u,v≥1 and A²/u+B²/v≤1 by weighted Cauchy–Schwarz; the outer factor is exactly max(u+a²v,c²u+v) by the four quadrant vertices. If A²+B²≤1 (equivalent to a+c+ac≥1), u=v=1 is coordinatewise minimal. Otherwise the minimizing active-constraint arc has v=B²u/(u−A²), the two costs cross exactly once at explicit (u*,v*), with negative L2 derivative before and positive L1 derivative after; clipping at u=1 or v=1 produces precisely the two endpoint branches. The two infeasible strict conditions cannot coexist under a+c+ac<1 and equality boundaries match. The proof covers all parameter quantifiers and boundaries in its stated open region; no finite computation is used as the general proof.
 
-## Closest literature and limitations
-Komuro--Saito--Mitani classify the same extreme family and calculate other geometric constants. Zuo--Huang--Wang establish general Banach--Mazur comparison inequalities for geometric constants of absolute normalized norms. Neither inspected source states the exact four-regime Euclidean distance. The main residual risk is an older equivalent formulation in convex-geometric optimal-ellipse language. The theorem is only for real two-dimensional interior asymmetric extreme absolute normalized norms.
+## originality
 
-Same-model review: passed. Independent audit: not yet performed.
+PASS
+
+Best-of-knowledge PASS based on direct comparison of exact statements and implications: same-family primary RIMS exposition identifies the extreme norms but computes different geometric invariants; general ellipse papers provide methods/uniqueness, not the four-region algebraic formula; published one-sided/symmetric results cover explicitly excluded slices, and quadratic-piecewise results concern a different body. Multiple semantic Resultary searches returned no independently prior theorem implying the complete asymmetric interior phase diagram. Full original 2010 journal article has not been accessed; priority is not certified.
+
+## value
+
+PASS
+
+The extreme points of the convex set of two-dimensional absolute normalized norms constitute a natural canonical two-parameter family; after symmetric and boundary cases are removed, the interior asymmetric case still has a genuine two-dimensional parameter region. The result computes the exact Euclidean Banach–Mazur distance at every interior asymmetric point, with four sharp feasible regions and corresponding optimal ellipsoids. Those two distinct coordinate-tangent phases and their algebraic transitions are not supplied by the inspected old family classification or general ellipse uniqueness. A precise sharp distance and ellipse for a canonical family are independently useful, without requiring a higher-dimensional generalization. This is a natural complete classification, not a renamed special case or arbitrary small numerical instance.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
