@@ -1,11 +1,21 @@
-# Review summary
+# Independent mathematical audit
 
-**Correctness — PASS.** The continuous and discrete minimizers follow from strict convexity and their scalar first-order conditions. Conditional expectation is the exact best adapted constant on each interval; integrating Brownian increment variance gives \(h_i^2/8\). Direct evaluation of the two optimal costs gives the same \(\frac18\sum_i h_i^2\) difference.
+## correctness
 
-**Originality — PASS, within the stated scope.** The closest literature treats general convergence rates for extended mean-field control or value-function approximation for stochastic control. The inspected sources do not state the exact mesh-dependent identity tying strong control error, value bias, and the mean-control coupling parameter for this quadratic model. This is not a claim of a new general convergence theorem.
+PASS
 
-**Value — PASS.** The identity gives an exact irreducible error floor and an optimal grid for a representative Brownian-driven control problem. It separates control approximation error from optimization-solver error and quantifies the left-endpoint value bias, which is useful for calibrating numerical implementations.
+Strict convexity yields unique optimal controls α_t=−W_t/2−m/(2+θ) and α_i^π=−W_ti/2−m/(2+θ) for θ≥0. Orthogonal conditional expectation on F_ti and Brownian variance (t−ti)/4 integrate exactly to h_i²/8; any other left-endpoint adapted constant incurs a nonnegative extra error. Independently symbolically substituted the optimizer and obtained the running cost t/4+m²(1+θ)/(2(2+θ)); left Riemann quadrature differs by ∑ h_i²/8. Cauchy–Schwarz yields T²/(8N) with unique uniform grid. Assumptions uncontrolled Brownian and all-real actions essential.
 
-**Closest literature and limits.** Reisinger et al. (2025) give general bounds for extended mean-field control, including a strong control approximation bound of order \(1/4\). Jakobsen et al. (2019) analyze value-function convergence for piecewise-constant policies. Neither result is the exact strong-control identity proved here. The claim is restricted to the stated scalar quadratic model and does not establish general rates for nonlinear systems or bounded controls.
+## originality
 
-Self-review: passed. Independent audit: not yet performed.
+PASS
+
+Best-of-knowledge qualified PASS: the exact equality of Brownian strong control-process projection error, discrete optimization value bias and ∑h_i²/8 on every partition was not asserted by the inspected broader convergence-rate theorems. Brownian L2 projection and quadrature are acknowledged standard, so originality is limited to the model-specific coupling/equality and optimal mesh benchmark, not a novel general convergence method.
+
+## value
+
+PASS
+
+PASS (specialized benchmark): despite elementary Brownian projection ingredients, the simultaneous exact model-specific equality of irreducible optimal-control approximation error and optimal-value left-endpoint bias, for every nonuniform mesh and any θ≥0, gives a falsifiable sharp calibration target and identifies the unique optimal N-step grid. The contribution is narrow and not a general stochastic-control convergence theorem; its benchmark motivation is substantive, not based on novelty alone.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
