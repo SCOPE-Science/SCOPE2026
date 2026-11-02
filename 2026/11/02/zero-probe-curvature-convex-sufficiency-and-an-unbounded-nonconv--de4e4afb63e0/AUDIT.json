@@ -1,0 +1,131 @@
+{
+  "correctness": {
+    "rationale": "Convex side follows from feasible-set inclusion and strict convexity. On the indefinite side exact Taylor expansion gives ell=y and q=-xy; the SQP optimum is (r,0), with q=0. The unconstrained optimum (r,m) is strictly SQCQP-feasible for r>1,m>0, yielding gap m²/2 and distance m. Negative multiplier m/(1-r) proves the SQP point is not SQCQP stationary. Hessian eigenvalues ±1 and base gradient norm one are verified algebraically. 16,269 exact-rational witness tests and nine convex controls supplement, not replace, the quantified proof.",
+    "status": "PASS"
+  },
+  "independent": false,
+  "independent_audit_status": "not_performed",
+  "originality": {
+    "broader_coverage": {
+      "evidence": [
+        "arXiv:2610.18428v1, §4.2, Lemma 2 assumes a small SQP direction, local strong regularity, shared active set; no all-direction statement.",
+        "Solodov, Math. Oper. Res. 29 (2004), pp. 64–67, defines nonnegative-semidefinite surrogate curvature and slack variables.",
+        "Fukushima, Luo and Tseng (2003) treats convex quadratic constraints by its published abstract."
+      ],
+      "reasoning": "The source local small-step theorem does not dominate the finite nonlocal gap; the older convex surrogate setting excludes the indefinite Hessian that creates it. The supporting convex inclusion fact is elementary and is not claimed as a separate novelty.",
+      "searches": [
+        "adaptive stochastic sequential quadratically constrained quadratic programming Tiwari Ansary 2026 RCMCI relative constraint-model curvature indicator",
+        "zero quadratic curvature probe at SQP minimizer implies identical optimal SQCQP quadratic inequality if positive semidefinite, fails for nonconvex indefinite constraints",
+        "\"sequential quadratically constrained quadratic programming\" \"adaptive\" \"curvature\" model selection",
+        "Solodov 2004 sequential quadratically constrained quadratic programming positive semidefinite surrogate pdf",
+        "Fukushima Luo Tseng 2003 differentiable convex minimization SQCQP"
+      ]
+    },
+    "checked_sources": [
+      "arXiv:2610.18428v1 (relevant primary full-text sections read)",
+      "doi:10.1287/moor.1030.0069 (primary PDF pages 64–67 inspected)",
+      "doi:10.1137/S1052623401398120 (published abstract only)",
+      "published-finding corpus record 2026/10/4/SCOPE-paired-moreau-merit-has-an-unavoidable-squared-conditioning-barr--911bdbf49685",
+      "published-finding corpus record 2026/9/18/SCOPE-lanczos-proximal-convexification-certificate--3f4cca8affa4",
+      "published-finding corpus record 2026/9/17/SCOPE-projected-eigenpair-certification-false-positive--dc23fa36a6e4"
+    ],
+    "claim_vs_prior_implication": {
+      "evidence": [
+        "arXiv:2610.18428v1 equations (4),(5),(10)–(15): introduced models and scalar curvature indicator; §4.2 local theorem does not bound global subproblem gap under zero probe.",
+        "Solodov 2004 primary PDF §1–2 adopts semidefinite constraints as a convex surrogate, which yields no nonconvex counterexample.",
+        "Published published-finding corpus closest records have different objects and do not imply an SQP/SQCQP indicator-gap theorem."
+      ],
+      "reasoning": "The new negative claim is not an automatic instance of the 2026 small-direction theorem and is not implied by convex SQCQP results. It isolates a nonlocal false-negative of the new method-specific selector, with fixed identity objective Hessians and a norm-one indefinite constraint Hessian. The general idea that nonconvex QP feasible sets may differ is prior knowledge; the exact diagnostic and unbounded objective-gap implication have not been located as previously stated.",
+      "searches": [
+        "quadratic constraint curvature indicator direction SQP probe vanishes but SQCQP quadratic programming direction differs; first order vs second order model selection",
+        "zero quadratic curvature probe at SQP minimizer implies identical optimal SQCQP quadratic inequality if positive semidefinite, fails for nonconvex indefinite constraints",
+        "AVR-SSQCQP relative constraint-model curvature indicator RCMCI zero curvature probe unbounded quadratic subproblem objective gap Tiwari Ansary",
+        "\"SQP\" \"SQCQP\" \"curvature indicator\" quadratic constraint model switching",
+        "\"sequential quadratically constrained quadratic programming\" \"adaptive\" \"curvature\" model selection"
+      ]
+    },
+    "equivalent_formulations": {
+      "evidence": [
+        "arXiv:2610.18428v1, §§2.1 and 3.1: source RCMCI evaluates the scalar quadratic constraint correction at the SQP point; same mathematical model B=G not required there.",
+        "Our exact statement controls equality or divergence of minimizers of an affine-constrained and quadratic-constrained strongly convex QP, despite zero scalar correction.",
+        "published-finding corpus top similarities involved general quadratic optimizer conditioning and projected eigenpair certificates, with no same source and no equivalent claim."
+      ],
+      "reasoning": "Reformulations tested include scalar second-order curvature tests, model-selection false negatives, SQP/SQCQP optimality gaps, zero corrections with nonstationary QCQP points, and loss of quadratic-model improvement. Published tests uncovered no equivalent statement; basic QCQP nonconvexity alone does not state a zero-RCMCI, unbounded-gap family.",
+      "searches": [
+        "stochastic SQP SQCQP curvature indicator probe zero while quadratic constraint model has different global minimizer, nonlinear inequality blind spot",
+        "quadratic constraint curvature indicator direction SQP probe vanishes but SQCQP quadratic programming direction differs; first order vs second order model selection",
+        "SQP versus SQCQP different optima even when quadratic constraint correction vanishes at SQP direction, curvature Hessian gradient reverse sign",
+        "\"SQP\" \"SQCQP\" \"curvature indicator\" quadratic constraint model switching",
+        "\"SQP\" \"quadratic constraint\" \"probe\" curvature \"zero\" model"
+      ]
+    },
+    "exact_database_or_table": {
+      "evidence": [
+        "No search hit or accessible source provided an exact table of this method-specific scalar-indicator versus quadratic-optimality-gap relation.",
+        "The claim is a parametric mathematical construction, not a finite database lookup."
+      ],
+      "reasoning": "Searched both the source identity and the claim in equivalent languages; exact RCMCI data tables in the paper report experiments rather than the parametric family. No hidden or proprietary exact table was used.",
+      "searches": [
+        "stochastic SQP SQCQP curvature indicator probe zero while quadratic constraint model has different global minimizer, nonlinear inequality blind spot",
+        "adaptive stochastic sequential quadratically constrained quadratic programming Tiwari Ansary 2026 RCMCI relative constraint-model curvature indicator",
+        "AVR-SSQCQP relative constraint-model curvature indicator RCMCI zero curvature probe unbounded quadratic subproblem objective gap Tiwari Ansary",
+        "\"relative constraint-model curvature indicator\" SQCQP"
+      ]
+    },
+    "rationale": "The inspected 2026 source introduces the raw quadratic-probe indicator and gives only local small-direction SQP–SQCQP comparison. It does not provide the zero-indicator, unbounded discrepancy model. The closest classical SQCQP treatments use convex or positive-semidefinite quadratic surrogates and do not imply the indefinite construction. published-finding corpus and literature equivalence/coverage searches found no directly dominating statement; basic feasible-set inclusion is acknowledged as elementary. Residual priority uncertainty is explicitly recorded.",
+    "residual_risks": [
+      "A specialized pre-2026 nonconvex SQCQP treatment may include an equivalent probe-zero counterexample; historical novelty remains best-knowledge, not independently established.",
+      "Only the abstract of Fukushima–Luo–Tseng (2003) was inspected; it is a convex formulation and does not itself resolve the indefinite claim.",
+      "The theorem compares exact global solutions of two local subproblems, not algorithm trajectories; local SQCQP solvers and merit globalization may have different behavior.",
+      "The unbounded family varies the objective target parameter; statements with additional bounds on objective gradient or a trust-region radius are not ruled out."
+    ],
+    "source_inspections": [
+      {
+        "assessment": "No matching zero-curvature nonstationary quadratic-model counterexample or uniform gap bound stated. Their §4.2 theorem is local and cannot be applied to the fixed nonlocal example.",
+        "evidence": [
+          "Eq. (4): affine SQP inequality",
+          "Eq. (5): Hessian-enriched SQCQP inequality",
+          "Eqs. (10)–(15): positive normalization and selection thresholds",
+          "§4.2 Lemma 2: local small-step requirement"
+        ],
+        "identifier_or_url": "https://arxiv.org/abs/2610.18428",
+        "material_read": "Accessible full arXiv HTML: abstract, introduction, §2.1 equations (4)–(5), §3.1 equations (10)–(15), model selection, §4.2 Lemma 2, §4.6 eventual switching, conclusions and reference list",
+        "method": "full-text HTML sections and equation-level comparison",
+        "title": "Adaptive Variance-Reduced Stochastic Sequential (Quadratic Constrained) Quadratic Programming",
+        "trigger": "Defines new SQP-vs-SQCQP curvature-probe switch and local direction comparison"
+      },
+      {
+        "assessment": "Its SQCQP surrogates use positive-semidefinite quadratic constraint models, not the indefinite RCMCI counterexample, and it does not define that 2026 scalar indicator.",
+        "evidence": [
+          "Journal p.66, equation (4): G_i^k positive semidefinite, slack t",
+          "Journal pp.64–65: global analysis assumes convex original inequality mapping"
+        ],
+        "identifier_or_url": "https://pages.cs.wisc.edu/~solodov/mvs04sqcqp.pdf",
+        "material_read": "Primary PDF pages 1–4 of 16 (journal pp. 64–67): scope, earlier methods, equation (4), semidefinite curvature and slack; PDF page 3 was also visually inspected",
+        "method": "primary text extraction plus PDF page screenshot",
+        "title": "On the Sequential Quadratically Constrained Quadratic Programming Methods",
+        "trigger": "Classical SQCQP original framework potentially dominating convex-side comparison"
+      },
+      {
+        "assessment": "Convex quadratic inequality model is the relevant background to the elementary positive lemma; no evidence of the 2026 source-specific indefinite-indicator gap from the accessible abstract.",
+        "evidence": [
+          "Publisher abstract: convex quadratic objective and convex quadratic inequality constraints; convergence and Maratos effect"
+        ],
+        "identifier_or_url": "https://doi.org/10.1137/S1052623401398120",
+        "material_read": "Publisher abstract and MSC information only; the full text was not accessed",
+        "method": "published abstract and bibliographic record",
+        "title": "A Sequential Quadratically Constrained Quadratic Programming Method for Differentiable Convex Minimization",
+        "trigger": "Older convex QCQP model selection potentially containing convex sufficiency"
+      }
+    ],
+    "status": "PASS"
+  },
+  "review_type": "self_review",
+  "schema_version": 1,
+  "scope_run_id": "de4e4afb-63e0-4cc9-a357-64480f8fc42a",
+  "self_review_status": "passed",
+  "value": {
+    "rationale": "The source proposes a scalar curvature probe to decide whether a costly quadratic constraint model is needed. The new result supplies the natural convex-sufficiency boundary and an opposite worst case: zero scalar probe correction fails even first-order KKT conditions of the quadratic model and misses an arbitrarily better minimizer, despite bounded constraint curvature, regular linearization, exact derivatives, and matched identity quadratic objective matrices. This is a substantive directional-information limitation relevant to nonconvex model selection, not just a scaling or sign error.",
+    "status": "PASS"
+  }
+}
