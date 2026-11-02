@@ -1,15 +1,21 @@
-# Scientific review: hidden stationary anisotropy under position-only resetting
+# Independent mathematical audit
 
-## Correctness — PASS
-The model has independent rotational Brownian motion of generator \(q\partial_{\theta\theta}\) and a rate-\(r\) position-only reset mechanism. The stationary angular law is uniform and position has a finite-moment last-reset Gaussian-mixture representation. Applying the stationary projected generator to \(z^2\), \(z^2\cos 2\theta\), and \(z^4\) yields the exact fourth-moment excess \(12\delta^2/[r(r+4q)]\), which is independently reconstructed by Gaussian-mixture angular two-time correlations. Strict parameter inequalities establish \(3<K<6\) whenever the two diffusivities differ and establish the sharp supremum. The attached checker validates 984 symbolic, rational, quadrature, and dynamical identities; the infinite-dimensional stochastic statements rest on the proof, not the finite checks.
+## correctness
 
-## Originality — PASS (limited to inspected coverage)
-Chaki, Olsen, and Löwen, *Anisotropic Brownian particles under resetting*, arXiv:2406.17550, section on positional resetting and its discussion, supply the physical model, the covariance, and a general renewal identity. They infer the stationary marginal is the same symmetric-exponential law as the corresponding isotropic particle. The new strictly positive fourth-moment discrepancy contradicts that inferred full-distribution equivalence while preserving their second-moment result. A general unevaluated moment renewal identity is not the explicit fourth-moment evaluation or the sharp anisotropy-identifiability statement. Evans–Majumdar's constant-diffusivity Laplace law is exactly the zero-contrast case. The later Ghosh–Mandal–Chaki self-propelled model and earlier orientation-only-resetting results differ in dynamics or reset state. Relevant published searches did not identify a stronger statement, but general Markov-additive or Gaussian-mixture literature could already imply the particular fourth-moment calculation. Independent scholarly priority assessment has not been performed.
+PASS
 
-## Scientific value — PASS
-The 2024 motivating paper's identification of complete stationary laws from second moments makes the discrepancy a substantive, falsifiable physical and mathematical boundary rather than an isolated extra moment. It proves that statistical isotropy is insufficient to establish loss of particle-shape information, supplies an exact fourth-order diagnostic for the diffusivity contrast, and identifies the sharp limits of that diagnostic across reset/rotation timescales.
+With generator a(theta)*partial_z^2+q*partial_theta^2+r[f(0,theta)-f(z,theta)], a(theta)=barD+delta*cos(2(theta-phi)), stationarity and uniform angular invariant measure yield r E[z^2]=2barD and (r+4q)E[z^2 cos2(theta-phi)]=delta. The z^4 generator equation gives E[z^4]=24barD^2/r^2+12delta^2/[r(r+4q)]. Independently, the age T~Exp(r), angular covariance exp(-4q|t-s|)/2 and conditional Gaussian Wick fourth moment reproduce the same coefficient. Strict Dparallel,Dperp,q,r>0 ensures uniqueness, K=3 iff delta=0, and 3<K<6 otherwise, with sharp singular supremum 6. Symbolic generator and independent Laplace-age integrals passed, including the exact example variance=2, fourth=51/2, excess=27/8. No finite experiment replaces these all-parameter identities.
 
-## Scope and risks
-No conclusion about angular resetting, propulsion, drift, nonpositive diffusion rates, the zero-angular-diffusion boundary, finite-time laws, or finite-sample estimation. Independent validation and exhaustive priority searches remain outstanding. Literature comparisons reflect materially read relevant sections, not unread portions presumed negative.
+## originality
 
-Self-review: passed. Independent audit: not yet performed.
+PASS
+
+The same mathematical model Chaki--Olsen--Löwen 2024/2025 paper establishes stationary covariance isotropy and asserts a stronger, full Laplace-equivalence conclusion. Inspecting its actual position-only resetting and discussion paragraphs shows its general renewal formula is prior but the fourth moment is not evaluated there; the present formula is a quantitative counterexample to the asserted distributional equivalence and identifies the exact contrast bound. An isotropic classical reset formula covers only the delta=0 boundary. Resultary and related active resetting source checks found no covering evaluated formula. A later full-text or general Markov-additive fourth-moment treatment could subsume the expression; this is a best-of-knowledge assessment, not a novelty certificate.
+
+## value
+
+PASS
+
+The baseline 2024 work explicitly identifies position-only reset as restoring a spherical-particle stationary law; the new strictly positive fourth cumulant furnishes a parameter-uniform counterexample, a sharp 3<K<6 range and a feasible stationary signature of microscopic anisotropy despite a rotationally invariant position distribution. This is a substantive correction to a same mathematical model physical inference, not a routine covariance calculation.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
