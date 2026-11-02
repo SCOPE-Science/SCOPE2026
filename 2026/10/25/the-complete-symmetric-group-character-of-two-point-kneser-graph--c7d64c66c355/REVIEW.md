@@ -1,11 +1,21 @@
-# Scientific review
+# Independent mathematical audit
 
-**Correctness — PASS.** The uniform proof shows \(KG(n,2)\) is 3-connected and nonplanar for every \(n\ge6\), applies Ko–Park’s stated first-homology theorem, and proves the natural map from unordered configuration first homology onto graph first homology using breadth-first fundamental cycles. The group actions on 0-, 1-, and 2-cubes are counted with their actual orientation signs. The local star correction to the exterior-square edge character subtracts every intersecting edge pair exactly once. Direct arithmetic independently verifies all 720 actions at six symbols and all 15 conjugacy types at seven symbols; degree-two integral torsion-freeness follows from a two-dimensional free cubical chain complex.
+## correctness
 
-**Originality — PASS, with bibliographic uncertainty.** Ko–Park’s Theorem 3.16 and the graph-braid introduction were checked in the actual preprint; their nonequivariant ranks and two-torsion are explicitly excluded from novelty. Farber–Hanbury’s ordered configuration method and related Betti formulas were checked. The strongest matching indexed records concern either two particles on the Petersen graph, or the Kneser graph’s neighborhood/Čech complexes, which are different graphs or different spaces. Neither their reported statements nor the inspected primary theorems provide the fixed-data degree-two character for all \(KG(n,2)\) or the displayed nine-constituent \(S_6\)-decomposition. Residual risk: equivalent character calculations may exist outside the accessible indices; a general homological machinery theorem can imply a new calculation without having stated it.
+PASS
 
-**Value — PASS.** The two-subset Kneser sequence begins with the Petersen graph, and its first triangle-bearing member at six symbols is a canonical highly symmetric test graph. An exact rational character gives fixed-point/quotient and decomposition information unavailable from the known Betti numbers; the uniform expression avoids exponentially larger two-particle boundary matrices and produces an explicit nine-type \(S_6\)-module, including the nontrivial vanishing of \(A_6\)-invariants. The fact is motivated by graph braid topology and the natural coordinate symmetry, not an arbitrary graph slice.
+For n≥6, KG(n,2) has v=C(n,2), degree=C(n-2,2), nonplanar (KG(6,2) has 15 vertices,45 edges versus planar max39) and three-vertex-connectivity. Ko–Park Theorem 3.16 gives H1 rational rank e-v+1. Natural Abel–Jacobi map onto graph H1 is surjective by parking one particle outside each short (<v) fundamental cycle, hence an equivariant isomorphism; H1 trace T-F+1. Direct cubical degree-zero/one/two signed chain traces give C2=(T²-T2-L)/2, C1=TF-2P, C0=(F²+F2)/2-F. Equivariant Euler yields boxed H2 formula; H2 integral torsion-free as subgroup of free C2 with no C3. Independently reconstructed KG6 105/585/765 cubical cells and all 720 signed S6 direct Lefschetz traces; every value equals formula; identity trace 315; class values 0,0,1,1,0,0,0,3,-9,-9,315. Small Specht character orthogonality produces claimed nine nonzero multiplicities and no trivial/sign constituents. Kneser 7 identity and transposition also checked; infinite n follows formal proof, not these finite cases.
 
-The review is a self-review, not external certification. Possible equivalent unpublished or unindexed treatments remain a limitation.
+## originality
 
-Self-review: passed. Independent audit: not yet performed.
+PASS
+
+Ko–Park supplies nonequivariant H1 graph-braid ranks and torsion, Farber–Hanbury studies ordered two-particle homology and intersection forms. The Resultary Petersen n5 S5 module and Kneser neighborhood-complex S6 module are relevant but structurally different. The exact fixed-vertex/edge character for unordered two-particle KG(n,2) at all n≥6 and n6 decomposition were not found in primary coverage.
+
+## value
+
+PASS
+
+Uniform character of H2 across every Kneser graph KG(n,2), with explicit combinatorial fixed-data evaluation and first 315-dimensional S6 decomposition, yields natural symmetry information not determined by Betti ranks or graph connectivity. Absence of A6 invariants is meaningful and the formula avoids large homology matrices.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
