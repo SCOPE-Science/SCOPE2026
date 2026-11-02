@@ -1,0 +1,105 @@
+{
+  "audit_date_utc": "2026-10-30",
+  "audited_at_utc": "2026-10-30T19:59:50.940773Z",
+  "axes": {
+    "correctness": {
+      "rationale": "In the multigroup adaptive SIS dynamics with n=2, B=[[4,1],[1,1/2]], all epidemiological and link rates 1, breaking functions 1 and creation 1 except cr_21(y1)=max(1-2y1,0)^3 (C^2 nonincreasing), the disease-free next-generation radius equals (9+sqrt65)/8>1. Stationarity of y1 forces y1>1/2 if both groups infected; then z21=0 and stationary y2 equation is -y2(3+y2)/4<0. Thus only DFE and y1=1/2,y2=0 partial state exist. Full 6x6 Jacobian eigenvalues {-2 multiplicity3,-1 multiplicity2,-3/4}, independently reconstructed in exact SymPy. For strictly positive creation and positive Q on infection-carrying edges, positive Metzler Perron bound at R0>1, a compact truncated cube, and inward-pointing Brouwer projection ensure nonzero reduced equilibrium; irreducibility plus positive Z propagates any zero coordinate to all, so equilibrium is fully endemic.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Achterberg–Sensi–Sottile Theorem 5 and Conjecture 6; static irreducible SIS existence theorems; Theorem 5 assumes minimum next-generation row sum >1; the constructed example has minimum 3/4 and so does not violate theorem, only disproves proposed broader conjecture. Static-network positive-link assumptions do not apply when creation can vanish."
+        ],
+        "reasoning": "Theorem 5 assumes minimum next-generation row sum >1; the constructed example has minimum 3/4 and so does not violate theorem, only disproves proposed broader conjecture. Static-network positive-link assumptions do not apply when creation can vanish.",
+        "searches": [
+          "adaptive multigroup SIS epidemic directed link creation vanishing endemic equilibrium spectral radius conjecture counterexample positive creation",
+          "Resultary semantic search for Achterberg–Sensi–Sottile Theorem 5 and Conjecture 6; static irreducible SIS existence theorems"
+        ]
+      },
+      "checked_sources": [
+        "Actual RESULT.md tree blob 272774eb645cc5d6f3267e3588aac1ad3547aee7",
+        "Achterberg–Sensi–Sottile full arXiv:2407.17639 Theorem 5 and Conjecture 6",
+        "Resultary query: adaptive multigroup SIS epidemic directed link creation vanishing endemic equilibrium spectral radius conjecture counterexample positive creation"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "Explicit Conjecture 6 R0>1 => fully endemic; A conjecture cannot be taken as known coverage. The exact counterexample contradicts its conclusion under its model assumptions; positive creation supplies a sufficient replacement not established by its weaker theorem."
+        ],
+        "reasoning": "A conjecture cannot be taken as known coverage. The exact counterexample contradicts its conclusion under its model assumptions; positive creation supplies a sufficient replacement not established by its weaker theorem.",
+        "searches": [
+          "adaptive multigroup SIS epidemic directed link creation vanishing endemic equilibrium spectral radius conjecture counterexample positive creation",
+          "Resultary semantic search for Explicit Conjecture 6 R0>1 => fully endemic"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Irreducible adaptive SIS fixed-point positive prevalence / Metzler cooperative system; After eliminating positive-denominator link stationarity, the infection equilibrium reduces to an inward-pointing continuous vector field; this is a legitimate reformulation not an assumption of static-network SIS."
+        ],
+        "reasoning": "After eliminating positive-denominator link stationarity, the infection equilibrium reduces to an inward-pointing continuous vector field; this is a legitimate reformulation not an assumption of static-network SIS.",
+        "searches": [
+          "adaptive multigroup SIS epidemic directed link creation vanishing endemic equilibrium spectral radius conjecture counterexample positive creation",
+          "Resultary semantic search for Irreducible adaptive SIS fixed-point positive prevalence / Metzler cooperative system"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "Resultary multigroup epidemic threshold counterexamples; source table of adaptive parameters; Closest Resultary statements concern SEIR movement and static models, not this two-group adaptive contact-creation response or exact (9+sqrt65)/8 radius."
+        ],
+        "reasoning": "Closest Resultary statements concern SEIR movement and static models, not this two-group adaptive contact-creation response or exact (9+sqrt65)/8 radius.",
+        "searches": [
+          "adaptive multigroup SIS epidemic directed link creation vanishing endemic equilibrium spectral radius conjecture counterexample positive creation",
+          "Resultary semantic search for Resultary multigroup epidemic threshold counterexamples; source table of adaptive parameters"
+        ]
+      },
+      "rationale": "Original Achterberg–Sensi–Sottile 2024/2025 primary work states Conjecture 6 that R0>1 implies fully endemic equilibrium without an all-group link-creation condition; its Theorem 5 proves stronger row-sum sufficient criterion. Read primary arXiv HTML and checked hypotheses: counterexample has minimum row sum 3/4 and is not refuted by Theorem 5. This is a substantive counterexample to the conjectured implication in its allowed smooth monotone function class plus a meaningful repaired sufficient hypothesis. Resultary papers on static multigroup R0 or other adaptive diseases do not cover the exact mechanism.",
+      "residual_risks": [
+        "Other work may have settled Conjecture 6 since the original 2024/2025 publication; indexed and semantic searches performed but cannot certify universal priority."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Relevant exact same object; result supplies a counterexample outside the proved row-sum regime and a new strictly-positive-creation sufficient theorem",
+          "evidence": [
+            "Conjecture 6 proposes R0>1 sufficient; Theorem 5 requires minimum row sum >1."
+          ],
+          "identifier_or_url": "https://arxiv.org/abs/2407.17639",
+          "material_read": "Read complete relevant arXiv HTML model definitions, next-generation operator, Theorem 5 and Conjecture 6",
+          "method": "Public arXiv full-text HTML",
+          "title": "A minimal model for multigroup adaptive SIS epidemics",
+          "trigger": "Identical model and explicit Conjecture 6"
+        },
+        {
+          "assessment": "Does not settle multigroup adaptive link-creation counterexample",
+          "evidence": [
+            "Single-community adaptation is a narrower object."
+          ],
+          "identifier_or_url": "https://arxiv.org/abs/2209.01224",
+          "material_read": "Read abstract and identified one-community model distinctions",
+          "method": "Public arXiv abstract; no complete full-text comparison claimed",
+          "title": "A minimal model for adaptive SIS epidemics",
+          "trigger": "Earlier single-community foundation"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "rationale": "Settles an explicit natural conjecture about infectious pathway extinction with a smooth exact two-group example, while proving a structural positivity condition under which the expected supercritical implication is restored. The distinction is mathematically useful beyond mere numerical mismatch.",
+      "status": "PASS"
+    }
+  },
+  "checked_sources": [
+    "Actual RESULT.md tree blob 272774eb645cc5d6f3267e3588aac1ad3547aee7",
+    "Achterberg–Sensi–Sottile full arXiv:2407.17639 Theorem 5 and Conjecture 6",
+    "Resultary query: adaptive multigroup SIS epidemic directed link creation vanishing endemic equilibrium spectral radius conjecture counterexample positive creation"
+  ],
+  "disposition": "passed",
+  "limitations": [
+    "The counterexample relies on infection-carrying directed contact creation vanishing, not on all positive contacts.",
+    "Sufficient theorem establishes existence only, not global attraction, uniqueness or persistence.",
+    "Local asymptotic stability at boundary equilibrium, not global convergence."
+  ],
+  "residual_risks": [
+    "Other work may have settled Conjecture 6 since the original 2024/2025 publication; indexed and semantic searches performed but cannot certify universal priority."
+  ],
+  "schema_version": 1
+}
