@@ -1,0 +1,129 @@
+{
+  "correctness": {
+    "rationale": "For all Bernoulli parameters in [0,1], ex-ante EF means equal expected bundle sums. With 3 items, swapping the isolated item from b to a changes exact ex-post probability by c(a-b)[2-c-(1-c)(a+b-2ab)], which is nonnegative whenever a>=b, since 0<=a+b-2ab<=1. Splits dominate empty-versus-all because both one-sided weak-order probabilities dominate respective zero-count probabilities. This proves the universal boundary including endpoints. For the 4-item example, independent rational convolution and direct 256-outcome enumeration agree on the exact fractions and 12813853/12800000000 positive difference. The proof and code are mutually consistent, with no finite-to-infinite extrapolation.",
+    "status": "PASS"
+  },
+  "independent": false,
+  "independent_audit_status": "not_performed",
+  "originality": {
+    "broader_coverage": {
+      "evidence": [
+        "arXiv:2610.34906: a sufficient condition for optimal ex-ante fair solutions, plus general log-concave/symmetric approximation guarantees; not a general optimality implication for heterogeneous Bernoulli parameters.",
+        "arXiv:2512.17238: item-specific sampled valuations but allocations can be computed after observing valuation samples/realizations, and statements are asymptotic."
+      ],
+      "reasoning": "General stochastic allocation existence or approximation theorems do not imply the sharp exact finite-item threshold or exact four-item probabilities. The subsequent theorem on convolution-power families is inapplicable to the unrestricted independent heterogeneous Bernoulli success vector.",
+      "searches": [
+        "\"fair division of lotteries\" Bernoulli different probabilities optimal two agents",
+        "arXiv:2610.34906 Theorem 4.2 common convolution-power",
+        "arXiv:2512.17238 Sections 1–2"
+      ]
+    },
+    "checked_sources": [
+      "https://arxiv.org/abs/2512.17238",
+      "https://arxiv.org/abs/2602.12359",
+      "https://arxiv.org/abs/2610.34906",
+      "https://aamas.csc.liv.ac.uk/Proceedings/aamas2024/pdfs/p2120.pdf",
+      "Related studies of exact Poisson-binomial Gini dispersion, collision entropy, and transport, compared by scientific object and implication"
+    ],
+    "claim_vs_prior_implication": {
+      "evidence": [
+        "The prior known four-item example uses independent agent-good lottery payoffs in {0,2} and {0,6}, whereas this result uses only {0,1} and item-dependent parameters 7/20,7/20,1/20,13/20.",
+        "arXiv:2610.34906 Example 1.1 uses a rare high-magnitude good and deterministic positive-value items, and Theorem 4.2 assumes a common convolution-power family.",
+        "Our three-item statement holds for every vector of Bernoulli parameters, with no common-convolution-power or identical-item assumption."
+      ],
+      "reasoning": "Broader verbal claims that ex-ante EF can be suboptimal cannot imply suboptimality for a specific restrictive domain; earlier 3/4-item examples fail the assumptions. Conversely the current theorem cannot disprove the prior common-convolution-power result. The exact restricted positive theorem is additional information, not a restatement of existing general impossibility.",
+      "searches": [
+        "two agent independent Bernoulli lotteries good-specific success probabilities 4 items ex ante envy free partition not maximizing probability of ex post envy free; sharp three-item success",
+        "arXiv:2610.34906 Section 4 and Appendix A",
+        "arXiv:2512.17238 full text"
+      ]
+    },
+    "equivalent_formulations": {
+      "evidence": [
+        "arXiv:2610.34906, Sections 4–5: optimality under a common convolution-power family; heterogeneous Bernoulli probabilities do not generally belong to one such family.",
+        "The exact Bernoulli exchange factor is c(a-b)[2-c-(1-c)(a+b-2ab)], which has a fixed sign throughout the parameter cube.",
+        "A related study of Poisson-binomial collision entropy evaluates a different functional, not the probability of simultaneous envy-freeness."
+      ],
+      "reasoning": "Searching by objective, symmetric item-specific Bernoulli utilities and number of goods returned no equivalent formula or classification. Common-convolution-power statements are not equivalent because success parameters vary by good and Bernoulli laws with different parameters generally are not powers of one fixed distribution.",
+      "searches": [
+        "two agent independent Bernoulli lotteries good-specific success probabilities 4 items ex ante envy free partition not maximizing probability of ex post envy free; sharp three-item success",
+        "\"Bernoulli\" \"probability of envy-freeness\" two agents",
+        "heterogeneous Bernoulli items probability of envy-freeness optimal partition two agents three items"
+      ]
+    },
+    "exact_database_or_table": {
+      "evidence": [
+        "A related exact analysis of Gini dispersion of Poisson-binomial sums concerns a different functional and has no bundle partition or simultaneous envy-freeness event.",
+        "A related exact law for Bernoulli pair-balancing and distributional transport does not compare two-agent envy-free allocation probabilities.",
+        "An existing four-good lottery counterexample uses one magnitude-six and three magnitude-two positive payoffs, all with success probability one-half; it does not furnish a unit-valued Bernoulli counterexample or a universal positive three-good theorem."
+      ],
+      "reasoning": "Actual semantic searches revealed no exact restricted table or matching claim. An earlier nearby own result already has the same objective and a four-item counterexample but uses non-unit values; the current sharp classification is within a distinct strictly more restricted value alphabet and is not an implication of those prior numbers.",
+      "searches": [
+        "two agents independent Bernoulli utility of each uncertain good identical across agents ex ante envy-free allocation maximizing ex-post probability three goods four goods minimum counterexample",
+        "fair division lotteries Bernoulli unequal success probabilities minimal number goods ex ante envy-free not optimal ex post envy free probability",
+        "two agent independent Bernoulli lotteries good-specific success probabilities 4 items ex ante envy free partition not maximizing probability of ex post envy free; sharp three-item success"
+      ]
+    },
+    "rationale": "Inspected full text of arXiv:2512.17238, arXiv:2602.12359, and the directly relevant subsequent arXiv:2610.34906, compared exact quantifiers against prior accessible source claims and semantic-record hits. Existing four-item failures with variable positive utility magnitudes do not imply failure with unit Bernoulli values and item-varying success parameters. No checked source states or implies the universal three-item exchange identity and its restricted four-item sharpness. Priority remains provisional because search completeness is not guaranteed.",
+    "residual_risks": [
+      "Earlier unindexed or inaccessible results may contain the exact unit-Bernoulli specialization.",
+      "Aloisio et al. full technical paper was not fully inspected; only available abstract/extended abstract.",
+      "The most directly related Igarashi–Oh paper was first posted 2026-10-26, one day after the source-date anchor, and its comparisons are supplementary to the eligible source."
+    ],
+    "source_inspections": [
+      {
+        "assessment": "No direct coverage of pre-realization deterministic allocation maximizing exact ex-post EF probability at 3–4 goods",
+        "evidence": [
+          "Sections 1–2 discuss existence of EF plus social welfare maximizing allocations with high probability and sampling algorithms for non-identical items."
+        ],
+        "identifier_or_url": "https://arxiv.org/abs/2512.17238",
+        "material_read": "Introduction, formal model, theorem statements and related work in accessible arXiv HTML full text",
+        "method": "Read arXiv accessible full-text HTML and compared timing of information and optimized objectives",
+        "title": "Fairly Dividing Non-identical Random Items: Just Sample or Match",
+        "trigger": "Same independent item-dependent utility distributions, eligible first public source 2025-12-19"
+      },
+      {
+        "assessment": "Strategic truthfulness and expected welfare/high-probability EF mechanisms, not the fixed exact ex-post probability comparison",
+        "evidence": [
+          "Sections 1–3 explain DSIC mechanisms and i.i.d. prophet-inequality connection."
+        ],
+        "identifier_or_url": "https://arxiv.org/abs/2602.12359",
+        "material_read": "Introduction, model, contribution statements, key DSIC/BIC theorems of arXiv HTML full text",
+        "method": "Read full-text HTML sections and compared objectives",
+        "title": "Truthful Fair Division under Stochastic Valuations",
+        "trigger": "Recent two-agent stochastic valuation fairness model"
+      },
+      {
+        "assessment": "Direct foundational objective coverage but no stated special-case unit Bernoulli 3/4-item classification; later source not used for first-source date",
+        "evidence": [
+          "Theorem 4.2 is for common convolution-power item families; Example 1.1 has unequal magnitudes; Appendix A uses multiple agents; Section 7 has identical realized agent valuations."
+        ],
+        "identifier_or_url": "https://arxiv.org/abs/2610.34906",
+        "material_read": "Sections 1, 3–7 and Appendix A of accessible arXiv HTML full text, including Theorem 4.2, Examples 1.1 and section 7",
+        "method": "Read relevant full-text results and hypotheses; compare convolution-family assumptions and examples",
+        "title": "Fair Division of Lotteries",
+        "trigger": "Direct objective match; first publicly released 2026-10-26, after present anchor"
+      },
+      {
+        "assessment": "Minimizes expected maximum envy rather than maximizing exact no-envy probability; technical-body overlap not fully excluded",
+        "evidence": [
+          "AAMAS 2024 abstract identifies expected maximum envy and ex-ante stochastic allocation, not four-item Bernoulli threshold."
+        ],
+        "identifier_or_url": "https://aamas.csc.liv.ac.uk/Proceedings/aamas2024/pdfs/p2120.pdf",
+        "material_read": "Publisher abstract and extended abstract via searchable text, not full technical paper",
+        "method": "Compared stated objective and available concise abstract",
+        "title": "Approximately Fair Allocation of Indivisible Items with Random Valuations",
+        "trigger": "Earlier random utility valuation with preallocation, potential broad coverage"
+      }
+    ],
+    "status": "PASS"
+  },
+  "review_type": "self_review",
+  "schema_version": 1,
+  "scope_run_id": "b294cc29-c2d2-4d2e-a43a-df1222f15409",
+  "self_review_status": "passed",
+  "value": {
+    "rationale": "The sharp 3/4 threshold is for the minimal unit-payoff Bernoulli family under heterogeneous item success rates. It reveals a structural failure of a natural ex-ante fairness heuristic without relying on unequal winning magnitudes or correlated agents. The three-good exchange identity classifies optimizers for all continuous parameter values. The specific gain is small, so only the qualitative sharp restriction and structural formula, not large performance loss, are claimed.",
+    "status": "PASS"
+  }
+}
