@@ -1,11 +1,21 @@
-# Scientific review
+# Independent mathematical audit
 
-**Correctness (C): PASS.** Every parity-check representation reduces by a choice of independent check rows to standard coordinates plus arbitrary dependent checks; this is a column permutation because Hamming parity-check columns exhaust all nonzero vectors. An explicit induced four-cycle excludes zero redundant rows for every redundancy at least four. Exact enumeration of 31 functionals in dimension five and all 63 singles and 1953 distinct pairs in dimension six excludes smaller augmentations, using the established maximum-cardinality-search chordality criterion. Induced-subgraph inheritance extends these finite exhaustive obstructions to every higher dimension. Grouped-coordinate check-row constructions attain the exact row minima through redundancy six. The standalone checker returned `VERIFY_OK`.
+## correctness
 
-**Originality (O): PASS, with limited full-text coverage.** The direct 2026 source introduces the concept of chordal code parity-check representations and motivates elimination-cost questions, but the accessible abstract does not report an exact Hamming check-row cost or these bounds. The standard MCS reference concerns graph testing, not Hamming representations. The searches and comparisons listed in `AUDIT.json` found no equivalent Hamming check-row threshold among accessible records. The full text of the motivating 2026 source could not be inspected; a covered example or stronger result remains a documented risk, not a negative full-text comparison.
+PASS
 
-**Value (V): PASS.** Counting the extra linear equations necessary to obtain a chordal representation is a natural complexity-versus-redundant-check invariant for an important family of optimal distance-three perfect codes. The result identifies the first unavoidable nonchordality, quantifies its exact repair cost at three successive redundancies, and proves uniform obstructions for every larger redundancy. It is not just a graph census on arbitrary chosen small matrices: the enumeration covers *all* equivalent presentations in the stated dimensions.
+Because every nonzero F_2^r vector occurs once as a column, selecting r independent parity checks and changing basis permutes the variable columns; all presentations reduce to r basis functionals plus t arbitrary extra functionals. Four columns labeled e1+e2,e2+e3,e3+e4,e4+e1 induce an unchorded 4-cycle without extra checks. The r=5 one-extra and r=6 one/two-extra obstructions reduce to all 31/63/1953 possibilities. The source enumerator uses an exact bit-parity support graph and MCS plus PEO verification; an independent implementation used networkx chordality, covering all 1953 r=6 pairs via 37 complete coordinate-permutation orbits, none chordal. The obstructions extend to higher r by induced coordinate restrictions. Adding checks on disjoint coordinate pairs yields a true-twin blowup of intersecting nonempty subsets of <=3 groups, a chordal graph, giving matching r<=6 constructions. The finite exhaustive part is a complete finite proof paired with analytic reduction, not a sampled experiment.
 
-**Limitations.** This assesses column-primal chordality and row count only. The exact minimum is unknown here above redundancy six, full text of the motivating paper was unavailable, and independent assessment may identify overlooked literature.
+## originality
 
-Self-review: passed. Independent audit: not yet performed.
+PASS
+
+Qualified PASS for first exact representation row-cost function of canonical Hamming codes; not a claim to invent chordal codes, MCS or Gaussian-elimination gains. Chen–Guo–Li–Zhu (arXiv:2610.17934, October 13 2026) introduces chordal code representations and describes general decoding; the accessible abstract does not state this Hamming-specific classification. Full same-paper arXiv/OA attempts were unsuccessful, and authorized institutional retrieval reported disconnected VPN; do NOT infer paper-wide noncoverage from abstract. A relevant unpublished example or stronger bound remains a named serious residual originality risk, but access failure alone is not a scientific FAIL.
+
+## value
+
+PASS
+
+Number of additional equations needed to make a fixed parity-check code column-primal graph chordal is a natural representation/decoding complexity invariant, with code held fixed and all basis transformations allowed. The exact first four redundancy values and universal lower obstacles quantify a real tradeoff for the familiar perfect Hamming family; the classification is exhaustive across representations, not an arbitrary small matrix table. Does not assert exact h(r) for r>=7.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
