@@ -1,0 +1,112 @@
+{
+  "correctness": {
+    "rationale": "For arbitrary positive rates, equilibrium level and step, and every finite nonnegative sweep count, the two-node Gauss–Lobatto update is exactly the stated exponential predictor/trapezoid correction. At the positive equilibrium \\(g=0\\) and \\(Dg=Q/s\\); differentiation gives \\(DF_{h,0}=I+hQ\\) and \\(DF_{h,m}=I+(h/2)Q(I+DF_{h,m-1})\\). The exchange generator has eigenvalues \\(0\\) and \\(-(a+b)\\), giving \\(R_0=1-2u\\), \\(R_m=1-u(1+R_{m-1})\\) for \\(u=h(a+b)/2\\), and the exact formula \\(R_m=(1-u+2(-1)^{m+1}u^{m+2})/(1+u)\\). Parity inequalities prove strict transverse contraction exactly for \\(0<u<1\\), critical multipliers \\(\\pm1\\) at \\(u=1\\), and expansion for every \\(u>1\\). Positivity follows inductively from exponentials. The local implicit branch follows from invertibility of \\(I-hQ/2\\), with transverse multiplier \\((1-u)/(1+u)\\). The difference has exact magnitude \\(2u^{m+2}/(1+u)\\). Analytical arguments supply universal correctness; the independent implementation of the nonlinear step and exact-rational recurrence in the packaged verifier passed 9,766 supplementary checks.",
+    "status": "PASS"
+  },
+  "independent": false,
+  "independent_audit_status": "not_performed",
+  "originality": {
+    "broader_coverage": {
+      "evidence": [
+        "https://arxiv.org/abs/2606.29523 Theorem 5.1: exact diagonal scalar test equation, not coupled exchange",
+        "https://arxiv.org/abs/2606.29523 Theorems 5.5–5.7: implicit collocation contractivity under specific dissipativity hypotheses, predictor bound and small-step finite-sweep estimates",
+        "https://ictp.acad.ro/jnaat/journal/article/view/1146/1372 Theorem 3.3: convergence as h decreases, without exact finite-sweep boundary for multiplicative SPIDeC"
+      ],
+      "reasoning": "Source diagonal L-stability exploits constant component ratios and does not imply stability of coupled exchange after nonlinear exponential updates. Its collocation result concerns an implicit map, not arbitrary finite explicit sweeps, while finite-sweep estimates are not if-and-only-if bounds for this family. The classical general small-step Picard argument and research-record alternative integrators do not dominate the new exact boundary.",
+      "searches": [
+        "Stable Positive Integral Deferred Correction Methods Positive Dynamical Systems Pezzella Gauss Lobatto two state reversible exchange k times h finite correction exact transverse stability",
+        "\"SPIDeC\" \"stability\" \"correction\" sweep",
+        "\"Picard\" \"trapezoidal\" iterative method stability region number iterations",
+        "SPIDeC finite correction positive method fails contractivity despite convergence implicit collocation"
+      ]
+    },
+    "checked_sources": [
+      "https://arxiv.org/abs/2606.29523 (full HTML primary, first posted 2026-06-28)",
+      "https://ictp.acad.ro/jnaat/journal/article/view/1146/1372 (published HTML 2019)",
+      "Published finding: Two-state immunity and three-state sharpness for endpoint positivity of SSP-SDIRK2(2)",
+      "Published finding: Eight-state barrier for Markov positivity of the [2/2] Padé map",
+      "Published finding: A resolvent-return law for Crank–Nicolson positivity on reversible Markov chains",
+      "Published finding: Exact relaxation resonance in a classical forward-backward sweep counterexample"
+    ],
+    "claim_vs_prior_implication": {
+      "evidence": [
+        "https://arxiv.org/abs/2606.29523 Theorem 5.6 bounds the unswept predictor under logarithmic dissipation; Theorem 5.7 gives a finite-correction near-contractivity estimate for limited sweep counts",
+        "https://arxiv.org/abs/2606.29523 Section 5 distinguishes diagonal exact integration from nonlinear coupling; Section 2 defines multiplicative Picard sweeps",
+        "https://ictp.acad.ro/jnaat/journal/article/view/1146/1372 contraction-based Picard method convergence"
+      ],
+      "reasoning": "The primary source supplies the algorithm and limiting collocation framework but does not imply the claim by simply applying its own stability conclusions: its diagonal semigroup theorem does not apply to coupled nonconstant ratios, and its corrected-map bound is not a sharp threshold. Applying a fresh exact Jacobian recurrence to this natural exchange family gives the all-sweep result. The identified classical Picard results motivate but do not explicitly state the subject-specific sharp classification.",
+      "searches": [
+        "SPIDeC multiplicative trapezoidal collocation two-state exchange eigenvalue stability R_m recurrence sweep predictor convergence radius",
+        "Stable Positive Integral Deferred Correction Methods Positive Dynamical Systems Pezzella Gauss Lobatto two state reversible exchange k times h finite correction exact transverse stability",
+        "multiplicative exponential collocation Picard iteration Gauss Lobatto stability 2 state Markov generator sharp step threshold",
+        "\"SPIDeC\" \"exchange\" \"stability\""
+      ]
+    },
+    "equivalent_formulations": {
+      "evidence": [
+        "https://arxiv.org/abs/2606.29523 Section 2 equations (3), (5)–(8), including the fixed-point/Picard interpretation",
+        "https://ictp.acad.ro/jnaat/journal/article/view/1146/1372 Sections 2–3: additive Picard-collocation iteration and small-step convergence"
+      ],
+      "reasoning": "The local linearized SPIDeC sweep is algebraically equivalent to fixed-point iteration of trapezoidal collocation on the exchange eigenmode; this is explicitly acknowledged and used. General Picard contraction principles do not by themselves state the exact source-specific rational formula, parity classification, and all-finite-sweep threshold for this positive nonlinear exchange map. No equivalent inspected claim was found.",
+      "searches": [
+        "SPIDeC multiplicative trapezoidal collocation two-state exchange eigenvalue stability R_m recurrence sweep predictor convergence radius",
+        "two point Gauss Lobatto multiplicative Volterra deferred correction coupled Markov generator finite sweep instability positivity",
+        "\"multiplicative Picard\" \"trapezoidal\" \"exchange\"",
+        "\"SPIDeC\" \"Gauss–Lobatto\" \"two\" \"stability\""
+      ]
+    },
+    "exact_database_or_table": {
+      "evidence": [
+        "Published research-record hits include SSP-SDIRK2 two-state endpoint positivity, Padé Markov positivity, and Crank–Nicolson resolvent-return conditions; these are other methods with different claims.",
+        "https://arxiv.org/abs/2606.29523 full HTML Sections 2, 3 and 5: no exact table or closed form matching the coupled-exchange recurrence in the inspected statements"
+      ],
+      "reasoning": "No exact database entry or published table identified for this fixed two-node multiplicative sweep. Research-record search was semantic rather than exhaustive, so this is supporting comparison evidence only, not a uniqueness proof.",
+      "searches": [
+        "SPIDeC stable positive integral deferred correction finite sweep two-state mass conservation exchange linear stability Lobatto",
+        "Stable Positive Integral Deferred Correction Methods Positive Dynamical Systems Pezzella Gauss Lobatto two state reversible exchange k times h finite correction exact transverse stability",
+        "SPIDeC multiplicative trapezoidal collocation two-state exchange eigenvalue stability R_m recurrence sweep predictor convergence radius",
+        "phase-type representation strong stability preserving Runge Kutta phase-type moment SSP positivity stability optimal tableaux"
+      ]
+    },
+    "rationale": "Pezzella (arXiv:2606.29523) is the directly relevant method source; its inspected Section 2 and Section 5 provide multiplicative sweeps, diagonal scalar exactness and conditional nonlinear estimates but not the two-rate all-finite-sweep eigenvalue classification or the impossibility of improving its exact coupled-exchange threshold with further finite corrections. Scheiber (2019) establishes general small-step Picard-collocation convergence for additive approximations rather than this specific multiplicative positive map. The closest published research-record results concern different numerical methods and distinct positivity or stability properties. Priority is based on inspected-source implication comparisons, not an assertion that absence of search results proves novelty.",
+    "residual_risks": [
+      "Generic finite Picard iteration algebra may have been specialized to a closely equivalent scheme in less discoverable earlier literature.",
+      "Semantic research-record search is not an exhaustive historical priority check.",
+      "The method source discusses a general collocation convergence interpretation; this work distinguishes the finite sweep map from the implicit collocation branch and does not claim that a generic Picard recurrence is itself new."
+    ],
+    "source_inspections": [
+      {
+        "assessment": "Direct method definition, no matching sharp exchange finite-sweep classification in inspected sections",
+        "evidence": [
+          "https://arxiv.org/abs/2606.29523 equations (3), (5)–(8)",
+          "https://arxiv.org/abs/2606.29523 Theorems 5.1 and 5.5–5.7"
+        ],
+        "identifier_or_url": "https://arxiv.org/abs/2606.29523",
+        "material_read": "Full arXiv HTML, Sections 2 and 3 and Section 5 including equation (3), equations (5)–(8), Theorems 3.1, 3.2, 5.1, 5.5, 5.6, 5.7 and surrounding proof/discussion; source submission date on article page",
+        "method": "Direct examination of arXiv HTML equations, named theorem assumptions and implication scope",
+        "title": "Stable Positive Integral Deferred Correction Methods for Positive Dynamical Systems",
+        "trigger": "Direct method source, exact update and all-stability comparison"
+      },
+      {
+        "assessment": "General additive numerical Picard convergence, no exact multiplicative two-species exchange derivative or threshold",
+        "evidence": [
+          "https://ictp.acad.ro/jnaat/journal/article/view/1146/1372 Sections 2–3 and Theorem 3.3"
+        ],
+        "identifier_or_url": "https://ictp.acad.ro/jnaat/journal/article/view/1146/1372",
+        "material_read": "Open full HTML, introduction and Sections 2–3, including convergence Theorems 3.2–3.3 and stepsize assumptions",
+        "method": "Direct examination of published HTML mathematical statements and proof sections",
+        "title": "On the numerical Picard iterations with collocations for the Initial Value Problem",
+        "trigger": "Potential dominating classical Picard/collocation theory"
+      }
+    ],
+    "status": "PASS"
+  },
+  "review_type": "self_review",
+  "schema_version": 1,
+  "scope_run_id": "f64f37a3-9bd2-4fb0-a6ac-8f39e6cc47d1",
+  "self_review_status": "passed",
+  "value": {
+    "rationale": "The natural smallest coupled positive exchange problem exposes a sharp boundary hidden by the method’s exact scalar diagonal test equation. The exact all-finite-sweep threshold, critical parity, and divergence of attempted large-step collocation iteration give a clear practical obstruction to stabilizing stiff coupled positive dynamics merely by adding correction sweeps. The theorem is an exact parameter-space classification on a motivated method/test family, not an arbitrary numerical example or a claim of global nonlinear instability. It complements the source’s small-step estimates and locally stable implicit collocation map.",
+    "status": "PASS"
+  }
+}
