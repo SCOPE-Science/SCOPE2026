@@ -5,8 +5,11 @@
     "status": "not_performed"
   },
   "independent_audit": {
-    "evidence": null,
-    "status": "not_performed"
+    "status": "passed",
+    "evidence": [
+      "INDEPENDENT_AUDIT_2026-10-31.md",
+      "INDEPENDENT_AUDIT_2026-10-31.json"
+    ]
   },
   "lean_verification": {
     "evidence": null,
@@ -16,10 +19,24 @@
 }
 ---
 
-The finite claim was checked by two Python 3 standard-library programs, `verify_switch.py` and `verify_direct.py`, executed from the same directory as this file. See their exact recorded outputs in `verify_switch.out` and `verify_direct.out`.
+# Independent mathematical audit
 
-The first program enumerates all fifty-six spreads by smallest-uncovered-point exact-cover backtracking, verifies all \(560\) deletion triples have exactly one opposite triple, tests all \(280\) switches, and uses exhaustive bitmask Bron–Kerbosch enumeration on the complement to identify exactly eight largest independent sets (size \(21\)). The thirty-five original lines each occur in eight spreads and have distinct incidence fingerprints, proving that the collineation action on spreads is faithful. Every spread has exactly three intrinsic labels, all fifty-six triple signatures are different, and all unordered spread pairs satisfy the Kneser-disjointness equivalence. It additionally prints SHA-256 digests of the exact ordered spread list and switch-edge list for comparison.
+## correctness
 
-The independently structured second program tests all \(\binom{35}{5}=324632\) line choices directly, recomputes the switch/intersection and common-neighbor counts, and checks all \(560\) local replacement triples. Each executable prints `PASS` only after all assertions succeed.
+PASS
 
-Finite enumeration proves only the stated order-two theorem; it does not establish an analogous isomorphism for arbitrary finite fields. The originality check included inspected open full papers and source-specific search comparisons, while the 1974 switching paper and Jeurissen's 1995 paper on this finite space remained inaccessible in full. No independent audit has been performed.
+PASS: In PG(3,2), lines are triples {a,b,a⊕b} of nonzero F2^4 vectors. A wholly fresh exact enumeration of the 35 lines, all 35-choose-5 line subsets and valid 15-point partitions found exactly 56 spreads. For all 560 three-line subsets of spreads, independent complete nine-point partition enumeration found exactly two partitions (original and unique opposite regulus) and the resulting spreads are exactly all 280 pairs sharing two original lines. Every spread has degree ten. An independent NetworkX complement maximal-clique search found precisely 23936 maximal no-switch sets, with size counts 7:240, 10:13552, 12:8120, 14:1680, 16:336, 21:8. Each of the 56 spreads lies in exactly three of the eight maximum independent families, all signatures are distinct 3-subsets of eight symbols, and for every pair adjacency equals disjointness of signatures. This proves KG(8,3), diameter two, absence of triangles, Aut=S8 and GL4(2) order 20160 embedding by intrinsic maximal families. Finite domain explicitly complete; no higher-q claim.
+
+## originality
+
+PASS
+
+PASS (qualified): Magaud (2021/2022) gives 56 spreads and 240 seven-spread packings, and Marcelis (2021) already encodes the 56 spreads as all 3-subsets of eight symbols via a hyperpacking. These discoveries are prior. The inspected primary material does not establish that the SINGLE opposite-regulus switch relation is disjointness in the intrinsic EKR labeling, nor classify all eight maximum 21-spread no-switch families. Closest inaccessible Jeurissen 1995 and Bruen--Silverman 1974 switching-set papers leave serious priority risk but their inaccessibility alone does not negate best-knowledge originality.
+
+## value
+
+PASS
+
+PASS: Identifies a canonical and computationally exhaustive global structure behind an elementary local regulus surgery: an intrinsic EKR/Kneser graph model, exactly eight canonical maximum no-switch families, diameter, and a strict index-two symmetry enhancement beyond ambient geometry. Distinguishes the switch graph from simply counting 56 spreads or constructing arbitrary 8-symbol labels.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

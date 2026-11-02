@@ -1,9 +1,21 @@
-# Scientific review of the regulus-switch graph identification
+# Independent mathematical audit
 
-**Correctness: PASS.** The exact coordinate model has \(15\) points and \(35\) lines. Two source programs, using respectively recursive exact covering and brute-force \(\binom{35}{5}\) selection, find the same \(56\) spreads. Every three-line subset of every spread has precisely one alternative three-line partition of the same nine points. The primary program enumerates all maximal no-switch sets via an exhaustive bitmask Bron–Kerbosch search; the maximal sizes/counts, the eight families of size \(21\), and the complete \(56\)-by-\(56\) signature-and-adjacency comparison establish the graph isomorphism. The two outputs agree on switches and distances. The proof's nonstandard computational steps and the recursive search invariant are explained and reproducible. Risk: correct interpretation requires this precise binary-space coordinate model; no higher-field claim is made.
+## correctness
 
-**Originality: PASS, with residual risk.** Bruen's 1977 paper on replaceable nets and Magaud's 2021 full enumeration of spreads/packings were inspected in full where relevant: neither states the new graph identification or the intrinsic eight maximal no-switch families. Bruen–Silverman's 1974 paper studies partial-spread switching but its full text remained unavailable; its indexed abstract gives only general restrictions. Jeurissen's 1995 paper treats special line sets in this exact small space but could not be read in full. Marcelis (2021) already labels the fifty-six spreads by all triples of eight symbols, so the existence of such a labeling is **prior art**, not a claimed novelty; the additional equivalence between one regulus switch and disjointness in the *canonical maximal-independent-family encoding* was not supplied there. Mathematical-record semantic searches for line-spread switches, alternative encodings, and Kneser graphs found no covering result; source titles and implications, not mere keyword absence, were compared. The closest accessible historical claims likewise cover unrelated graph exchange invariants, not these projective-space spreads. Risk: unpublished or inaccessible exact switch-graph descriptions, particularly the 1974 and 1995 articles or material underlying the 2021 hyperpacking construction, may make the result previously known.
+PASS
 
-**Mathematical value: PASS.** This is a natural, structural classification of a standard finite-geometry move, not merely another count of the fifty-six already-known spreads. The Kneser identification exposes the complete exchange distances, the exact obstruction to one-step motion, eight intrinsically characterized maximal no-switch families, and extra graph symmetries invisible as projective collineations. It is a meaningful refinement of classical regulus replacement and small-space spread enumeration, albeit specific to the smallest projective three-space. It does not assert a general field-order theorem.
+PASS: In PG(3,2), lines are triples {a,b,a⊕b} of nonzero F2^4 vectors. A wholly fresh exact enumeration of the 35 lines, all 35-choose-5 line subsets and valid 15-point partitions found exactly 56 spreads. For all 560 three-line subsets of spreads, independent complete nine-point partition enumeration found exactly two partitions (original and unique opposite regulus) and the resulting spreads are exactly all 280 pairs sharing two original lines. Every spread has degree ten. An independent NetworkX complement maximal-clique search found precisely 23936 maximal no-switch sets, with size counts 7:240, 10:13552, 12:8120, 14:1680, 16:336, 21:8. Each of the 56 spreads lies in exactly three of the eight maximum independent families, all signatures are distinct 3-subsets of eight symbols, and for every pair adjacency equals disjointness of signatures. This proves KG(8,3), diameter two, absence of triangles, Aut=S8 and GL4(2) order 20160 embedding by intrinsic maximal families. Finite domain explicitly complete; no higher-q claim.
 
-Self-review: passed. Independent audit: not yet performed.
+## originality
+
+PASS
+
+PASS (qualified): Magaud (2021/2022) gives 56 spreads and 240 seven-spread packings, and Marcelis (2021) already encodes the 56 spreads as all 3-subsets of eight symbols via a hyperpacking. These discoveries are prior. The inspected primary material does not establish that the SINGLE opposite-regulus switch relation is disjointness in the intrinsic EKR labeling, nor classify all eight maximum 21-spread no-switch families. Closest inaccessible Jeurissen 1995 and Bruen--Silverman 1974 switching-set papers leave serious priority risk but their inaccessibility alone does not negate best-knowledge originality.
+
+## value
+
+PASS
+
+PASS: Identifies a canonical and computationally exhaustive global structure behind an elementary local regulus surgery: an intrinsic EKR/Kneser graph model, exactly eight canonical maximum no-switch families, diameter, and a strict index-two symmetry enhancement beyond ambient geometry. Distinguishes the switch graph from simply counting 56 spreads or constructing arbitrary 8-symbol labels.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
