@@ -1,0 +1,132 @@
+{
+  "correctness": {
+    "rationale": "Proposition 9 of Cai--Kiah--Nguyen--Yaakobi (arXiv:2001.01376v2) equates binary two-deletion-descendant intersections with a uniquely delimited opposite-phase alternating interval; its proof and boundary cases were read. For each fixed center the neighbor intervals correspond bijectively to nonempty subintervals of one-runs in its binary difference word. Unique run decomposition gives F=(1+R)/(1-z-zR), where R=sum_{h>=1}z^h u^{h(h+1)/2}; differentiating F at u=1 yields exact coefficients and variance. Exact direct graph comparison over all binary lengths 1..9 covers 174251 unordered center pairs; independent coefficient recurrence and rational first/second moment checks agree through length 14. Verification does not replace the general proof.",
+    "status": "PASS"
+  },
+  "independent": false,
+  "independent_audit_status": "not_performed",
+  "originality": {
+    "broader_coverage": {
+      "evidence": [
+        "The 2026 public edge result counts edges for all alphabet sizes q, and its RESULT.md expressly states that it does not give a degree distribution.",
+        "Cai et al. 2020 gives the Type-A pairwise characterization for relevant source pairs; Chrisnata--Kiah--Yaakobi 2022 use the graph for code-bound clique covers rather than enumerate degrees.",
+        "Wang--Li--Fu arXiv:2609.16837 studies q-ary higher-deletion intersection extrema (abstract), not the one-deletion degree law."
+      ],
+      "reasoning": "The alphabet-uniform edge theorem is broader in alphabet, but weaker in graph invariant: edge totals determine only the first moment of degrees and do not imply their full histogram or second moment. General code-redundancy and intersection-maximization theorems similarly do not imply this complete all-vertex local invariant.",
+      "searches": [
+        "published-finding corpus: two read single deletion reconstruction graph degree variance alternating substrings",
+        "published-finding corpus: type A confusability graph two deletion reads degree distribution variance",
+        "Web: two-read single deletion reconstruction graph type A confusable pairs alternating segment full text"
+      ]
+    },
+    "checked_sources": [
+      "https://arxiv.org/html/2001.01376v2",
+      "https://doi.org/10.1109/TIT.2022.3184868",
+      "https://github.com/Resultary/2026/tree/main/2026/10/4/SCOPE-exact-edge-count-of-the-finite-alphabet-two-read-single-deletion--737fed325e91",
+      "https://arxiv.org/abs/2609.16837",
+      "https://mathscinet.ams.org/mathscinet/msc/msc2020.html?s=94B05"
+    ],
+    "claim_vs_prior_implication": {
+      "evidence": [
+        "The public edge note gives \\(|E|=1+(n-2)2^{n-1}\\), so the handshake identity yields mean degree \\(n-2+2^{1-n}\\).",
+        "The new derivative formula gives the same mean and additionally proves variance \\(6n-30+(2n^2+6n+17)/2^{n-1}-4^{1-n}\\).",
+        "The full bivariate enumerator determines each degree class, unlike prior pairwise adjacency or global first-moment results."
+      ],
+      "reasoning": "Although Type-A adjacency suffices as an input to derive the new law, the closest published statements do not already assert it or any dominating complete degree distribution. The proof requires a weighted run factorization and exact second-factorial-moment extraction not provided by the edge total.",
+      "searches": [
+        "published-finding corpus id: 2026/10/4/SCOPE-exact-edge-count-of-the-finite-alphabet-two-read-single-deletion--737fed325e91",
+        "Full public RESULT.md at https://github.com/Resultary/2026/tree/main/2026/10/4/SCOPE-exact-edge-count-of-the-finite-alphabet-two-read-single-deletion--737fed325e91",
+        "Cai et al. arXiv:2001.01376v2 Proposition 9",
+        "Chrisnata et al. 2022 Section IV two-read graph"
+      ]
+    },
+    "equivalent_formulations": {
+      "evidence": [
+        "The binary difference word turns an alternating interval of length at least two into an all-one consecutive substring, so the claimed degree is equivalent to the count of such intervals.",
+        "Cai et al., Proposition 9 (arXiv:2001.01376v2), proves the structural equivalence of graph edges and Type-A alternating pairs, but does not state the bivariate degree enumerator.",
+        "No equivalent exact bivariate all-length degree law was returned by the named search queries."
+      ],
+      "reasoning": "Searching both two-read graph terminology and alternating-run-count equivalents exposed the underlying Type-A lemma and edge totals but not the joint size/degree histogram. The absence of a hit is not a novelty proof; the inspected statements and their implications are the stronger evidence.",
+      "searches": [
+        "published-finding corpus: degree distribution confusability graph of two-read single-deletion reconstruction codes Type-A alternating runs triangular number",
+        "published-finding corpus: bivariate generating function distribution of alternating substrings triangular run lengths of binary strings",
+        "Web: \"degree distribution\" \"Type-A confusable\" graph deletion"
+      ]
+    },
+    "exact_database_or_table": {
+      "evidence": [
+        "The identified 2026 edge-enumeration record contains a binary total edge sequence, not a degree histogram.",
+        "A separate 2026 result on the variance of a binary two-deletion sphere concerns the number of distinct deletion outputs of one center, a different random variable and a different radius.",
+        "No exact database or table identified by the actual searches supplied the complete bivariate spectrum or the formula for graph-degree variance."
+      ],
+      "reasoning": "The comparison distinguishes graph degree (number of confusable source centers) from a deletion ball size (number of descendant outputs). Even if a known edge-count table is numerically consistent with the first moment, it does not contain the all-degree distribution.",
+      "searches": [
+        "published-finding corpus: variance of degree number of alternating substrings binary random word two deletion reads reconstruction graph",
+        "published-finding corpus: single-deletion reconstruction graph degree word alternating intervals",
+        "Web: \"two-read single-deletion\" \"degree distribution\"",
+        "Web: \"variance\" \"alternating substrings\" random binary words exact"
+      ]
+    },
+    "rationale": "The close public exact edge-enumeration result determines binary total edges \\(1+(n-2)2^{n-1}\\), hence only mean \\(n-2+2^{1-n}\\), and explicitly lists degree distribution as undetermined. The 2020 Type-A theorem and 2022 two-read graph paper provide structural adjacency and clique-cover applications, not a full degree spectrum. The new result yields the complete all-n bivariate enumerator, exact word-by-word degree, exact degree variance, and concentration; none follows from the published total-edge count alone. Searches found no equivalent complete degree law, subject to residual unindexed-priority risk.",
+    "residual_risks": [
+      "Unindexed literature on alternating-substring counts could supply an equivalent generating function under a different name; these searches and inspections do not guarantee global priority.",
+      "The 2026 q-ary higher-deletion paper was inspected at abstract level only; its main problem is different, but full-text coverage was not assessed.",
+      "The all-length proof invokes the published Type-A characterization rather than reproving the full known theorem; the finite checker independently tests its implication only at bounded lengths."
+    ],
+    "source_inspections": [
+      {
+        "assessment": "Establishes edge adjacency equivalence and a published general lemma; does not state all-length degree histograms, bivariate enumerator, or variance",
+        "evidence": [
+          "Proposition 9, Definition 8, Hamming-distance-one case and proof: https://arxiv.org/html/2001.01376v2#S3"
+        ],
+        "identifier_or_url": "https://arxiv.org/html/2001.01376v2",
+        "material_read": "Full public HTML section III, Definition 8, Proposition 9 and proof, plus sections II and V context",
+        "method": "arXiv full HTML text, navigation/search through proposition and proof",
+        "title": "Coding for Sequence Reconstruction for Single Edits",
+        "trigger": "Foundational Type-A structural overlap theorem; possible coverage of the same graph statistic"
+      },
+      {
+        "assessment": "Names the same graph and derives coding bounds using clique covers; no graph degree spectrum or exact variance in examined scientific sections",
+        "evidence": [
+          "DOI 10.1109/TIT.2022.3184868, Lemma 2, Section IV G(n) definition"
+        ],
+        "identifier_or_url": "https://doi.org/10.1109/TIT.2022.3184868",
+        "material_read": "Section III Type-A Lemma 2 on printed page 7146; Section IV graph definition and clique-cover discussion on printed page 7147; introduction and problem definition",
+        "method": "Lawful author-hosted PDF text and inspected page screenshot (page index 5)",
+        "title": "Correcting Deletions With Multiple Reads",
+        "trigger": "Published graph explicitly using two-read single-deletion Type-A confusability"
+      },
+      {
+        "assessment": "Gives exact edge total for all q and mean degree, explicitly says degree distribution is not given, hence does not cover the new spectrum",
+        "evidence": [
+          "For q=2, |E|=1+(n-2)2^(n-1); average n-2+2^(1-n); limitations expressly exclude degree distribution"
+        ],
+        "identifier_or_url": "https://github.com/Resultary/2026/tree/main/2026/10/4/SCOPE-exact-edge-count-of-the-finite-alphabet-two-read-single-deletion--737fed325e91",
+        "material_read": "Complete publicly available RESULT.md, from the graph definition through proof, verification, relationship to prior work and limitations",
+        "method": "Direct read of public GitHub repository result text",
+        "title": "Exact edge count of the finite-alphabet two-read single-deletion reconstruction graph",
+        "trigger": "Closest exact public graph enumeration and potential dominating result"
+      },
+      {
+        "assessment": "Studies q>=4 and t>=2 extremal intersection sizes; not a decisive competing statement on binary t=1 local degree distribution, although this assessment does not extend beyond its abstract",
+        "evidence": [
+          "arXiv:2609.16837 abstract states t>=2 and maximum intersection study"
+        ],
+        "identifier_or_url": "https://arxiv.org/abs/2609.16837",
+        "material_read": "Full arXiv abstract and metadata only; primary paper full text not inspected",
+        "method": "ArXiv abstract source dated September 15, 2026",
+        "title": "On Sequence Reconstruction Problem for q-ary Deletion Channels",
+        "trigger": "Recent public research on sequence reconstruction and q-ary deletion intersections"
+      }
+    ],
+    "status": "PASS"
+  },
+  "review_type": "self_review",
+  "schema_version": 1,
+  "scope_run_id": "f45a4812-80b1-4f36-93fb-7bd0f81f2c6b",
+  "self_review_status": "passed",
+  "value": {
+    "rationale": "A complete graph degree spectrum is a natural and motivated exact invariant of two-read deletion reconstruction. Unlike a global edge count, it measures the distribution of each center's confusable alternatives; the all-length bivariate generating function determines all degree classes, the run formula provides per-center local ambiguity, and the exact variance \\(6n+O(1)\\) gives a sharp fluctuation scale. This is a complete infinite-family classification for a published coding graph, not an arbitrary sample length or a restatement of the mean degree.",
+    "status": "PASS"
+  }
+}
