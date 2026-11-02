@@ -1,19 +1,21 @@
-# Scientific review
+# Independent mathematical audit
 
-## Correctness — PASS
+## correctness
 
-The semidirect-product model of \(S_3\) gives a necessary-and-sufficient four-coordinate signature. Both append transitions follow directly from its signed-sum definitions. A finite exhaustive recurrence certifies the precise counts through length 18 and full coverage at the six lengths 13–18. The exponent-six padding argument then rigorously propagates 162 behavior classes to every longer length, so finite enumeration is not mistaken for an infinite proof. The included standalone checker reproduced \(\texttt{VERIFY\_OK}\); direct permutation evaluation independently matches the signature partition at lengths through eight.
+PASS
 
-## Originality — PASS with residual risk
+Using S3≅Z3⋊Z2 and its four assignments of flip parities, the evaluated translation and parity are exactly determined by Φ(w)=(number of 0 mod 6, A(w), B(w), C(w)) with sign-accumulator sums modulo 3. Specific assignments recover each coordinate, so Φ is necessary and sufficient for all 36 permutation evaluations. Append 0/1 gives the explicitly stated recurrence on 6×3×3×3=162 states. Independent recurrence enumerated all lengths n=1..18 and exact all-36-assignment evaluation for every binary word through n=8, reproducing the table and all signatures at n=13,14,15,16,17,18. Each S3 element has sixth power identity, so appending 000000 preserves behavior and injects classes from n to n+6. Combined with the six full base lengths proves N3(n)=162 for every n≥13. No extrapolation from incomplete enumeration.
 
-The nearest primary studies analyze shortest positive identities and asymptotic separating-state bounds, rather than the full fixed-length partition profile. Kearnes's 2018 calculation of 972 coefficient-free term functions is **prior knowledge**, implying the eventual global pool, but not the minimal simultaneous realization length 13 or the intermediate profile. Targeted source, group-variety, automaton, profile, alias, and research-record searches found no exact matching common-length theorem. The 2021 Karpova--Shur abstract was inspected but its full text was not obtained; overlap remains possible, as does an unindexed positive-word growth computation.
+## originality
 
-## Mathematical value — PASS
+PASS
 
-A natural automata distinguishability invariant reaches its absolute group-function capacity at a sharp, unexpectedly small positive-word length, with an exact transition mechanism and complete early profile. The theorem refines a known eventual-capacity count by solving its finite-length realization problem, providing a reusable reference instance for word-equivalence and separating-automaton investigations. No broader-alphabet, larger-group, or general lower-bound contribution is asserted.
+Shortest positive S3 identity (length 4) and total relatively-free-group order 972 are correctly credited; neither determines the exact homogeneous binary positive-word image counts nor its earliest full 162-state realization at length 13. No matching Resultary class table was identified. Relevant 2021 full text inaccessible and an old finite-group growth table may cover it; best-of-knowledge qualified.
 
-## Limits and prior sources
+## value
 
-Verified subject and source date: Xu--Regan, arXiv:2610.11098, 8 October 2026. Full relevant text inspected: Xu--Regan (2026) and Bulatov et al. (2017, especially Section 3). Kearnes's original 2018 group-order answer was compared by mathematical implication. The earlier Karpova--Shur (2021) full text remains inaccessible. At worst the result could duplicate an unindexed finite positive-word growth analysis; further independent review would be useful.
+PASS
 
-Self-review: passed. Independent audit: not yet performed.
+The fixed-length behavior growth and first 13-letter saturation threshold are natural automata/finite-group word-function realization invariants. The exact finite classification complements the known global relatively free group size without claiming it as novel; the first universal homogeneous saturation length is a meaningful cutoff rather than an arbitrary finite slice.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

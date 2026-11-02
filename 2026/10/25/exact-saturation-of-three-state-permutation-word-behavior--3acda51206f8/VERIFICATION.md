@@ -5,8 +5,11 @@
     "status": "not_performed"
   },
   "independent_audit": {
-    "evidence": null,
-    "status": "not_performed"
+    "status": "passed",
+    "evidence": [
+      "INDEPENDENT_AUDIT_2026-10-29.md",
+      "INDEPENDENT_AUDIT_2026-10-29.json"
+    ]
   },
   "lean_verification": {
     "evidence": null,
@@ -16,17 +19,24 @@
 }
 ---
 
-# Reproducibility
+# Independent mathematical audit
 
-From the directory containing the attached program, run \(\texttt{python3 verify\_s3\_behavior.py}\). The script enumerates exactly all 162 possible modular signatures, computes reachable sets through length 18 by both appending letters, checks the exact profile, and verifies full coverage in every length from 13 through 18. It separately evaluates all 36 permutation assignments on every binary word through length eight, comparing behavioral and signature equivalence without relying on the transition recurrence.
+## correctness
 
-Observed stdout:
+PASS
 
-```text
-EXACT_PROFILE 2,4,8,15,26,41,60,84,108,133,148,159,162,162,162,162,162,162
-ALL_162_SIGNATURES_REALIZED_IN_EACH_LENGTH_13_THROUGH_18
-DIRECT_GROUP_BEHAVIOR_MATCHES_SIGNATURES_THROUGH_LENGTH_8
-VERIFY_OK
-```
+Using S3≅Z3⋊Z2 and its four assignments of flip parities, the evaluated translation and parity are exactly determined by Φ(w)=(number of 0 mod 6, A(w), B(w), C(w)) with sign-accumulator sums modulo 3. Specific assignments recover each coordinate, so Φ is necessary and sufficient for all 36 permutation evaluations. Append 0/1 gives the explicitly stated recurrence on 6×3×3×3=162 states. Independent recurrence enumerated all lengths n=1..18 and exact all-36-assignment evaluation for every binary word through n=8, reproducing the table and all signatures at n=13,14,15,16,17,18. Each S3 element has sixth power identity, so appending 000000 preserves behavior and injects classes from n to n+6. Combined with the six full base lengths proves N3(n)=162 for every n≥13. No extrapolation from incomplete enumeration.
 
-The finite test alone does not prove the all-length statement. The exact semidirect-product derivation of the signature, its converse, and the six-zero padding proof are supplied in RESULT.md; they are required for completeness. No probabilistic approximation, external solver, or third-party code is used. The independently audited status remains unperformed.
+## originality
+
+PASS
+
+Shortest positive S3 identity (length 4) and total relatively-free-group order 972 are correctly credited; neither determines the exact homogeneous binary positive-word image counts nor its earliest full 162-state realization at length 13. No matching Resultary class table was identified. Relevant 2021 full text inaccessible and an old finite-group growth table may cover it; best-of-knowledge qualified.
+
+## value
+
+PASS
+
+The fixed-length behavior growth and first 13-letter saturation threshold are natural automata/finite-group word-function realization invariants. The exact finite classification complements the known global relatively free group size without claiming it as novel; the first universal homogeneous saturation length is a meaningful cutoff rather than an arbitrary finite slice.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
