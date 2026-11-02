@@ -1,9 +1,21 @@
-# Scientific review
+# Independent mathematical audit
 
-**Correctness — PASS.** The proof establishes a scale-independent, precise sufficient condition for *every* finite binary seed. The key middle-pair induction is proved using the bijection from the central two shorter blocks of \(\mu^{k+1}(cd)\) to the four ordered shorter-block pairs. The case split between factors spanning multiple inflated seed letters, factors contained in one inflated letter, and singletons is exhaustive. Explicit tests on an independent noncanonical seed and on the fourteen-letter Thue–Morse-derived seed were run. Boundary quantifiers and single-symbol cases were checked. A weaker ordinary-position attractor hypothesis was specifically not used: both adjacent positions of a marked cut must be contained in the seed occurrence.
+## correctness
 
-**Originality — PASS within inspected evidence.** The closest full text (Faro–Marino–Pavone, arXiv:2610.10950) handles the canonical finite Thue–Morse family. Banbara et al. (arXiv:2602.16152, extended version, Appendix A) supply a 720-state automaton for all four-position attractors of prefixes of a **fixed** infinite Thue–Morse word. This decisively covers many motivating special cases, but not the theorem's universal quantification over unrelated finite seeds and their independent iterations. Search comparisons did not identify a general all-seed marked-boundary theorem. Residual risk: equivalent generalized morphism lemmas may exist under different terminology.
+PASS
 
-**Value — PASS.** This is a structural transfer principle for an infinite hierarchy of words from one check on a *finite* seed. The strict marked-cut invariant is not the ordinary attractor condition; establishing its preservation requires a nontrivial internal-block/multiple-block argument. It gives uniform explicit attractors of size at most four for multiple seeds, including seeds that are not prefixes of the Thue–Morse fixed point, thus extending beyond the motivating single-word classification. It does not claim an exact minimum.
+For length-2^k Thue–Morse blocks μ^k(0), μ^k(1), every internal length≥2 factor admits an occurrence crossing the central boundary in μ^k(pq) for one of four ordered pq: induction decomposes a μ^(k+1) block into two μ^k blocks; either the factor crosses their boundary or the k-induction relocates it to some k-block pair, and all pairs occur as the central two k-blocks in μ^(k+1)(cd) because (1−c,d) ranges over {00,01,10,11}. A factor spanning >=2 inflated source letters can be copied from its minimal seed-block span to an occurrence of that seed span strictly crossing a marked cut, so it spans 2^k b. A factor inside one inflated letter is handled by the universal middle-pair property plus each marked adjacent pair type. Both singleton symbols occur among the last symbols of the left inflated marked blocks. For k=0 the internal-block case is empty. Independent exhaustive strict-cut condition and factor-attractor checks passed for seed 00110 to k=3 and for 01101001100101 B={3,6,8,11} to k=2. Finite checks alone do not establish all k.
 
-Self-review: passed. Independent audit: not yet performed.
+## originality
+
+PASS
+
+Best-of-knowledge qualified PASS for a sufficient marked-cut lifting criterion quantified over every finite binary seed and every nonnegative iteration. Banbara et al. extended primary text and its 720-state tmfa4 automaton classify four-position attractors of prefixes of one fixed Thue–Morse infinite word, and Faro–Marino–Pavone treat canonical finite Thue–Morse words with 24/16 coverage constraints. These cover motivating fixed-point examples, but not all independent arbitrary seeds. Equivalent general morphism-block lifting lemmas or constructions may exist unindexed. No exact all-seed theorem located.
+
+## value
+
+PASS
+
+A concrete structural invariant of a seed—four marked adjacent pair types and strict two-endpoint factor crossing—certifies a fixed-size attracting position set for an infinite hierarchy of iterated morphic images. It is not simply an attractor-size restatement: the strict crossing rule is essential to reuse every internal boundary, and checking the seed is finite. The theorem supplies a uniform independent-seed upper-bound mechanism, without claiming optimality.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

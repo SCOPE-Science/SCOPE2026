@@ -1,0 +1,114 @@
+{
+  "audit_date_utc": "2026-10-27",
+  "audited_at_utc": "2026-10-27T15:02:07Z",
+  "axes": {
+    "correctness": {
+      "rationale": "For length-2^k Thue–Morse blocks μ^k(0), μ^k(1), every internal length≥2 factor admits an occurrence crossing the central boundary in μ^k(pq) for one of four ordered pq: induction decomposes a μ^(k+1) block into two μ^k blocks; either the factor crosses their boundary or the k-induction relocates it to some k-block pair, and all pairs occur as the central two k-blocks in μ^(k+1)(cd) because (1−c,d) ranges over {00,01,10,11}. A factor spanning >=2 inflated source letters can be copied from its minimal seed-block span to an occurrence of that seed span strictly crossing a marked cut, so it spans 2^k b. A factor inside one inflated letter is handled by the universal middle-pair property plus each marked adjacent pair type. Both singleton symbols occur among the last symbols of the left inflated marked blocks. For k=0 the internal-block case is empty. Independent exhaustive strict-cut condition and factor-attractor checks passed for seed 00110 to k=3 and for 01101001100101 B={3,6,8,11} to k=2. Finite checks alone do not establish all k.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "The all-prefix automaton tmfa4 (720 states) recognizes four-position attractors for T_infinity prefixes, not independently chosen binary seeds."
+        ],
+        "reasoning": "All canonical dyadic examples may be covered exactly, but a fixed-sequence automaton cannot logically decide the arbitrary-seed quantified result without extra reduction.",
+        "searches": [
+          "arxiv:2602.16152 Theorem 43 and Appendix A",
+          "arxiv:2610.10950 abstract/Section 5 reference in Banbara",
+          "Schaeffer–Shallit String Attractors for Automatic Sequences"
+        ]
+      },
+      "checked_sources": [
+        "arxiv:2602.16152 full HTML §5 and Appendix A",
+        "arxiv:2610.10950 accessible abstract and cross-citation in Banbara",
+        "Resultary: exact smallest Thue–Morse attractor transition and related fixed-point records",
+        "Schaeffer–Shallit published title/abstract context"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "Prior classifications are about T_n=μ^n(0) or T_infinity prefix, while claim is ∀finite v satisfying stated two cut conditions, ∀k>=0."
+        ],
+        "reasoning": "A theorem on one orbit under μ does not dominate one on arbitrary independent seeds even when the same μ appears; full inaccessible Faro source remains an access-priority limitation.",
+        "searches": [
+          "Banbara arxiv:2602.16152 §5 Appendix A",
+          "Faro arxiv:2610.10950 abstract"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "The input condition is a strict marked-cut hitting property: every length>=2 factor can occur with both sides of some cut, and all four local pair types are marked."
+        ],
+        "reasoning": "This is a finite certificate for bounded attractors of arbitrary iterated seed images; simply being a classical attractor is weaker than strict cut-crossing.",
+        "searches": [
+          "Resultary: Thue Morse iterates string attractors morphic word constant boundary marked cut lifting",
+          "web: string attractor morphism uniform substitutions boundary positions attractor lifting theorem Thue Morse arbitrary seed"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "Published Resultary: Exact smallest-attractor transition for Thue–Morse words, 2026/10/4/SCOPE-exact-smallest-attractor-transition-for-thue-morse-words--59fd87719e91; fixed-word counts 87,40,32."
+        ],
+        "reasoning": "Those canonical counts and the fixed-point automaton do not provide an all-seed marked-cut lifting table; new theorem excludes exact minima claims.",
+        "searches": [
+          "Resultary: Thue Morse iterates string attractors morphic word constant boundary marked cut lifting",
+          "Banbara et al arxiv:2602.16152 Appendix A tmfa4"
+        ]
+      },
+      "rationale": "Best-of-knowledge qualified PASS for a sufficient marked-cut lifting criterion quantified over every finite binary seed and every nonnegative iteration. Banbara et al. extended primary text and its 720-state tmfa4 automaton classify four-position attractors of prefixes of one fixed Thue–Morse infinite word, and Faro–Marino–Pavone treat canonical finite Thue–Morse words with 24/16 coverage constraints. These cover motivating fixed-point examples, but not all independent arbitrary seeds. Equivalent general morphism-block lifting lemmas or constructions may exist unindexed. No exact all-seed theorem located.",
+      "residual_risks": [
+        "Faro–Marino–Pavone original 2026 PDF could not be fully read; claims about its full contents are based only on accessible abstract and detailed independently published comparison.",
+        "General morphic attractor lifting may be known under a different covering-string terminology.",
+        "The sufficient condition may be nonminimal and the resulting |B| need not equal the optimum; never claim exact size."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Theorem/automaton quantify over one canonical fixed-point word/prefix, not arbitrary finite v satisfying the marked-boundary hypotheses",
+          "evidence": [
+            "Definition 36; Section 5; Appendix A Figure 21 automaton applies to T_infinity[1..n]."
+          ],
+          "identifier_or_url": "arxiv:2602.16152 extended HTML",
+          "material_read": "Full arXiv HTML introduction, §5 Thue–Morse word theorems, Appendix A automaton construction and statements (including tmfa4 720 states)",
+          "method": "Primary full-text HTML reading",
+          "title": "The Smallest String Attractors of Fibonacci, Period-Doubling, and Thue–Morse Words",
+          "trigger": "Closest full characterization and automaton for same morphism"
+        },
+        {
+          "assessment": "Canonical finite Thue–Morse optimum/coverage classification, not affirmative coverage of arbitrary-seed universal lifting theorem",
+          "evidence": [
+            "Abstract: exactly 32 optimum four-position attractors for n>=6, 24/16 small certificates for the canonical family."
+          ],
+          "identifier_or_url": "arxiv:2610.10950",
+          "material_read": "Author-supplied arXiv abstract and Banbara et al. §1 detailed comparison with Faro Theorem 5.4 and Lemma 5.1; full Faro PDF not accessible in this execution",
+          "method": "Abstract and cross-citation comparison, not complete author full text",
+          "title": "Smallest String Attractors and Minimal Coverage Certificates of Thue–Morse Words",
+          "trigger": "Very recent exact result on same canonical words and coverage certificates"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "rationale": "A concrete structural invariant of a seed—four marked adjacent pair types and strict two-endpoint factor crossing—certifies a fixed-size attracting position set for an infinite hierarchy of iterated morphic images. It is not simply an attractor-size restatement: the strict crossing rule is essential to reuse every internal boundary, and checking the seed is finite. The theorem supplies a uniform independent-seed upper-bound mechanism, without claiming optimality.",
+      "status": "PASS"
+    }
+  },
+  "checked_sources": [
+    "arxiv:2602.16152 full HTML §5 and Appendix A",
+    "arxiv:2610.10950 accessible abstract and cross-citation in Banbara",
+    "Resultary: exact smallest Thue–Morse attractor transition and related fixed-point records",
+    "Schaeffer–Shallit published title/abstract context"
+  ],
+  "disposition": "passed",
+  "limitations": [
+    "Faro–Marino–Pavone original 2026 PDF could not be fully read; claims about its full contents are based only on accessible abstract and detailed independently published comparison.",
+    "General morphic attractor lifting may be known under a different covering-string terminology.",
+    "The sufficient condition may be nonminimal and the resulting |B| need not equal the optimum; never claim exact size.",
+    "Bounded arithmetic verification is not an infinite proof; no formal Lean or external expert attestation claimed.",
+    "Scientific status is not repository publication; privacy-safe metadata replacements are not ready."
+  ],
+  "residual_risks": [
+    "Faro–Marino–Pavone original 2026 PDF could not be fully read; claims about its full contents are based only on accessible abstract and detailed independently published comparison.",
+    "General morphic attractor lifting may be known under a different covering-string terminology.",
+    "The sufficient condition may be nonminimal and the resulting |B| need not equal the optimum; never claim exact size."
+  ],
+  "schema_version": 1
+}
