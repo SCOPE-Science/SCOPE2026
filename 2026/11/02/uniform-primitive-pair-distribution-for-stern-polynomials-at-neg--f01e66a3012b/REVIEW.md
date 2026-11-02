@@ -1,0 +1,11 @@
+# Self-review
+
+**Correctness — PASS.** The binary matrices follow exactly from the stated recurrence and are invertible for every odd modulus. The displayed conjugation identities were recalculated with exact arithmetic. Their two opposite unipotents generate the elementary special linear group over each prime-power component, hence act transitively on the primitive columns. The fixed point of the zero-digit generator guarantees aperiodicity; standard finite Markov convergence plus binary-cylinder decomposition gives **natural**, not merely dyadic, density. The marginal is counted directly by CRT. The standalone checker verifies independent finite instances and does not substitute for the proof.
+
+**Originality — PASS (best-knowledge, residual risk).** The full text of Ulas–Ulas (2011) was inspected for main theorem statements, sections and special-value results, and Gawron (2014) was inspected through its modular automata/density argument, root classification and subsequent sections. Deshouillers–Schinzel (2019), now inspected in the publicly available full text, proves a general invertible-automaton density theorem (Theorem 2.2), and the \(t=1\) primitive-orbit theorem (Proposition 3.2). The density mechanism is therefore acknowledged as prior; their specialized orbit result does not give the \(t=-2\) orbit whose proof via opposite shears is the new mathematical step. Direct formula, alias, automaton, primitive-vector, and published-record searches found no equivalent statement. The closest unresolved issue is an unlocated stronger orbit-generation theorem that may already subsume the specialization, so novelty is not independently certified.
+
+**Mathematical value — PASS.** The distribution of integer specializations of Stern polynomials modulo composite moduli is a natural arithmetic question. The result provides every joint and marginal density simultaneously for all odd moduli, and the hidden shear generators explain a previously unobvious uniformity mechanism. The contrast with the extensively studied \(t=1\) case and the singular even-modulus regime gives conceptual substance beyond isolated computations.
+
+**Scope and limits.** No even-modulus conclusion, rate, or claim of literature exhaustiveness is asserted. Independent validation has not been performed.
+
+Self-review: passed. Independent audit: not yet performed.
