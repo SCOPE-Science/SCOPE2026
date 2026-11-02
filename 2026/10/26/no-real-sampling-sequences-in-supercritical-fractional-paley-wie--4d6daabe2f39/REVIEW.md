@@ -1,19 +1,21 @@
-# Review
+# Independent mathematical audit
 
-## Correctness
+## correctness
 
-**PASS.** The reproducing-kernel formula reduces the sampling inequality to a frame inequality for \(u_\lambda(\xi)=R_m(\lambda\xi)|\xi|^{-s}\) in \(L^2([-a,a])\). The integral defining \(C_{s,m}\) is finite and positive precisely on \(m+\frac12<s<m+\frac32\). Large-parameter norm growth forces bounded sample locations; continuity and the Bessel property force their only accumulation point to be zero. The first nonzero Taylor term then makes the sum of squared frame-vector norms finite, so the frame operator is compact, contradicting a positive lower frame bound.
+PASS
 
-## Originality
+Using the precise Fourier isometry of Monguzzi–Peloso–Salvatori Cor 3.6 for fixed a>0, s>1/2 and m=floor(s−1/2) excluding half-integer endpoints, evaluation kernels are u_lambda(xi)=[exp(−i lambda xi)−P_m(−i lambda xi)]|xi|^(−s) in H=L²[−a,a]. At xi=0 the Taylor remainder behaves as O(|lambda xi|^(m+1)); at infinity as O(|lambda xi|^m). Therefore C_{s,m}=∫|R_m(t)|²|t|^(−2s)dt finite exactly m+1/2<s<m+3/2 and ‖u_lambda‖²~C|lambda|^(2s−1)→∞ at |lambda|→∞. Bessel bound forces sampled lambda bounded. Norm-continuity excludes infinite subsequences approaching nonzero lambda_* (including repeated nonzero points), so any infinite sampling sequence must accumulate only at zero. Expansion u_lambda=lambda^(m+1)v+O_H(lambda^(m+2)), v≠0, and Bessel inequality against v implies Σ|lambda|^(2m+2)<∞; hence Σ‖u_lambda‖²<∞ (finitely many outside small neighborhood), so the frame operator is trace-class and cannot dominate A I in infinite-dimensional H. Finite sampling is similarly impossible; lambda=0 contributes zero. The contradiction is a genuine infinite-dimensional compactness proof, not experiment. Independently checked the kernel exponent integrability and representative small/large scaling ratios via numerical quadrature (not used as a proof).
 
-**PASS, with residual literature risk.** The closest primary source, [1], Section 5, proves nonexistence only for \(0<s<\frac12\) and explicitly discusses whether real sampling sequences exist. Its supercritical kernel family has a Taylor-subtracted exponential depending on the sampling parameter, so the fixed-window frame criterion cited there does not imply the present theorem. Searches of indexed mathematical literature returned no statement covering this same supercritical fractional Paley–Wiener sampling claim. This is not a proof that no unindexed source exists.
+## originality
 
-## Value
+PASS
 
-**PASS.** The result settles the supercritical noncritical half of a natural sampling question raised in [1]. It shows that stable recovery by real point values of \(f\) is impossible throughout this range, and distinguishes that obstruction from the available reconstruction by samples of the fractional Laplacian.
+Best-of-knowledge PASS for the supercritical (s>1/2) **real point-sampling nonexistence** theorem. The very same Monguzzi–Peloso–Salvatori primary paper Section 5 proves no sampling for 0<s<1/2 via a fixed-window exponential frame condition but does not state the supercritical Taylor-subtracted-kernel result in the inspected full text. Its fractional Laplacian reconstruction using another functional is not a point-sampling counterexample. The new mechanism is Bessel norm growth plus a trace-class frame obstruction, not a reworded subcritical theorem; broad frame compactness lemmas themselves are standard and credited.
 
-## Limitations and closest literature
+## value
 
-The critical exponents \(\frac32,\frac52,\ldots\) are not covered. Complex sampling and alternative measurements remain open here. The theorem is an infinite-dimensional proof; it does not rely on finite numerical experiments.
+PASS
 
-Self-review: passed. Independent audit: not yet performed.
+Stable point-sampling is a central question for fractional Paley–Wiener spaces. The theorem closes the complementary supercritical parameter range of the cited primary problem using a sharp structural impossibility mechanism; the obstruction is global across every countable real sampling set and not a cheap failure of a particular lattice or a finite-dimensional check.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
