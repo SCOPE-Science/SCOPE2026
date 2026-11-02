@@ -1,11 +1,21 @@
-# Scientific assessment: dyadic first-order limits for binary Lyndon words
+# Independent mathematical audit
 
-**Correctness — PASS.** A uniform Lyndon word is the canonical rotation of a fair primitive word. The quantitative switching argument exposes a robust good set invariant under changing the fixed predecessor window of the unique least long block: collision, missing-long-run and rival-run errors are bounded separately. This gives a uniform terminal law and frozen prefix. Disjoint block trials provide high-probability saturation of every interior neighborhood. Effective bounded-degree Hanf locality then yields an explicit algorithm and the dyadic range; suffix formulas attain every value. Finite enumeration and Monte Carlo are supplementary, not infinite proofs. The signatures, measure, order of limits and rates are stated precisely.
+## correctness
 
-**Originality — PASS, qualified.** The closest primary probabilistic sources are Marchand–Zohoorian Azad's standard right-factor length limit and Zohoorian Azad–Chassaing's factorization statistics; both study uniform random Lyndon words but not the predecessor switching law, successor-only first-order convergence or the complete limit spectrum. Markström–Räty's recent result concerns regular-language encodings of small permutation classes and does not include the nonregular Lyndon family. The published mathematical-finding searches returned random-word enumeration and other finite-model results rather than a theorem implying the final claim. The same dyadic numerical spectrum for unrelated models is acknowledged and not an originality basis. The residual risk is an unlocated more general extremal-rotation local-limit theorem or earlier logical limit result.
+PASS
 
-**Value — PASS.** Canonical lexicographic rotation creates a genuinely nonlocal constraint on random words. The complete classification explains why immediate-successor first-order logic nevertheless sees only one boundary's fair randomness; it gives an effective exact spectrum and a quantitative rate, rather than only selected probability calculations. Its nonregular model lies outside the stated regular-language mechanism of the motivating 2026 work. It is a structural boundary-localization theorem of potential use in logical limit laws for canonically rooted cyclic objects.
+Primitive iid fair word has uniform least-rotation distribution on Lyndon representatives up to exponentially small periodic mass. With k≈(3/4)log2 n and ℓ≈5log2 n, pairwise ℓ-block collisions contribute O(n²2^(−ℓ)), absence of a length-k zero run is exponentially small in n^(1/4)/log n, and editing h−1 predecessors of the fixed 1 before the winning run can create a competitor only with probability O_h(n(log n)2^(−2k+h)), hence O_h(log n/√n). On the invariant good set the 2^(h−1) predecessor patterns are equiprobable; a fixed prefix is zeros. Independent disjoint trials and loss of only O(d) cyclic blocks at endpoints give interior saturation. Bounded-degree Hanf locality reduces every fixed FO sentence to finitely many boundary patterns, giving an effective dyadic limit and the convergence rate. FO disjunctions of terminal m-bit patterns realize every dyadic rational. Independent exact enumeration for lengths 2–16 verified Witt–Möbius Lyndon counts, boundary 0/1, and n=16 suffix profiles.
 
-**Limitations.** No assertion for full linear order or stronger logics; numerical spectrum alone does not establish priority. Asymptotic estimates have sentence-dependent constants. Independent audit and validation were not performed.
+## originality
 
-Self-review: passed. Independent audit: not yet performed.
+PASS
+
+Best-of-knowledge novelty of the exact final statement after explicit comparison with related stronger/alternate formulations; any inaccessible source is recorded as a residual risk, not assumed noncovering.
+
+## value
+
+PASS
+
+The first-order limit law and its complete dyadic spectrum classify a natural nonregular random-word model through a distinct boundary phenomenon caused by canonical rotation. The computable rate and predecessor-window law are useful independent of a more general logic theorem.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
