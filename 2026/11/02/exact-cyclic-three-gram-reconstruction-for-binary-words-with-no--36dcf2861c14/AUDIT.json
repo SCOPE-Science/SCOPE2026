@@ -1,0 +1,126 @@
+{
+  "correctness": {
+    "rationale": "The run-pair decomposition is a bijection modulo cyclic shift and correctly handles constants and the boundary v=0. Burnside fixed-point counts require divisibility of t,v,A,B; an explicit casewise ambiguity argument classifies all singleton fibers. The finite generating-function sums and noncanceled root-of-unity poles yield exact formulas and least quasiperiod 12. The assembled standalone verifier independently checked literal word-to-fiber equality through n=18 and coefficient identities through n=150.",
+    "status": "PASS"
+  },
+  "independent": false,
+  "independent_audit_status": "not_performed",
+  "originality": {
+    "broader_coverage": {
+      "evidence": [
+        "arXiv:2403.01454, Sections 2 and 4: maximum non-repeated-window tour lengths and count of run-limited necklaces",
+        "arXiv:1502.00517, Theorem 3.3: general constrained profile quasipolynomial bounds, not every rotational fiber",
+        "DOI:10.46298/dmtcs.2768: classical first-order Markov transition matrix types"
+      ],
+      "reasoning": "An asymptotic upper/lower general theorem or a distinct-window maximal tour theorem does not state the present exact finite profile count or explicit inverse-image multiplicities. A generic Euler-tour existence criterion alone also does not determine the orbit counts without further analysis.",
+      "searches": [
+        "run length limited cyclic sequence profiles constrained de Bruijn graph k-mer multiplicities exact",
+        "Chee Etzion Nguyen 2024 Maximum Length RLL Sequences de Bruijn Graph multiset profile enumeration 010",
+        "Counting Markov Types Jacquet Knessl Szpankowski cyclic empirical distribution"
+      ]
+    },
+    "checked_sources": [
+      "https://arxiv.org/abs/2403.01454",
+      "https://arxiv.org/abs/1502.00517",
+      "https://arxiv.org/abs/2208.14963",
+      "https://dmtcs.episciences.org/2768"
+    ],
+    "claim_vs_prior_implication": {
+      "evidence": [
+        "arXiv:1502.00517 Section 3 gives general asymptotic profile enumeration, with no exact rotational singleton classification in inspected relevant results",
+        "arXiv:2403.01454 Section 4 counts distinct-window run-length-limited necklaces, rather than read-multiset fibers",
+        "arXiv:2208.14963 Section II defines unordered mass compositions and a linear/reversal model"
+      ],
+      "reasoning": "The stronger-looking general coding framework does not imply the explicit 010 fiber formula simply by substitution. The published bounds have coarser conclusions; other read lengths, unrestricted sources and different forbidden patterns have non-equivalent maps and do not cover the exact theorem.",
+      "searches": [
+        "fixed weight cyclic substring multiset no isolated zeros gap compositions read reconstruction",
+        "zero error cyclic binary threegram read profile reconstruction forbidden substring",
+        "exact generating function two bit cyclic length 3 Markov profiles avoiding 010 1-isolated forbidden Cn Un reconstruction"
+      ]
+    },
+    "equivalent_formulations": {
+      "evidence": [
+        "arXiv:1502.00517, pp. 2,7-12: ordered sequence profiles described by constrained de Bruijn graphs and Ehrhart theory",
+        "arXiv:2208.14963, pp. 1-3: prefix-suffix substring compositions, not ordered cyclic triples"
+      ],
+      "reasoning": "The observation is an order-two cyclic Markov type or a directed 3-gram multiset; reversing is not a quotient. Bit complementation translates avoidance of 010 to avoidance of 101, not to the previously treated 111 constraint. No identical per-profile fiber statement was located in the compared sources.",
+      "searches": [
+        "cyclic binary 3-gram multiset profiles forbidden 010 no isolated ones exact enumeration Burnside necklace reconstruction",
+        "all cyclic necklaces with no isolated one 1-runs length at least two threegram empirical distributions exact fiber sizes",
+        "cyclic binary Markov type constrained no singleton one runs exact count necklace fibers"
+      ]
+    },
+    "exact_database_or_table": {
+      "evidence": [
+        "Direct finite enumeration from the submitted checker independently matches every profile and fiber through n=18",
+        "Targeted database and scholarly search returned neighboring two-gram coding and distinct-window problems rather than an identical all-n 010-profile table"
+      ],
+      "reasoning": "No matching exact database, published table, or equivalent generating-function formula was identified in these actual targeted comparisons. This negative evidence is not claimed as a completeness proof.",
+      "searches": [
+        "count distinct three gram profiles circular binary words avoiding isolated ones 010",
+        "no 010 3gram profile zero error code capacity uniquely reconstructible necklaces",
+        "restricted order two de Bruijn graph missing edge 010 integer circulation Eulerian necklaces orbit Burnside count"
+      ]
+    },
+    "rationale": "The compared claims use different observation channels or give only asymptotic framework results. The candidate supplies an exact full ordered cyclic 3-gram fiber classification for the specific no-010 shift, rational capacity and singleton generating functions, and the exact uniqueness boundary. Explicit equivalence and broader-coverage comparisons found no dominating theorem in the examined relevant material. Residual risk of an implicit general Markov-type specialization remains.",
+    "residual_risks": [
+      "A different constrained higher-order Markov-type enumeration or integer-flow orbit method may contain an unlocated equivalent special case.",
+      "The original first-order Markov-type full paper and all parts of the 2022 composition paper were not inspected; neither has an identical visible observation definition in the checked material."
+    ],
+    "source_inspections": [
+      {
+        "assessment": "Counts maximum length of distinct-window tours and run-limited necklace words; does not state ordered 3-gram full multiplicity reconstruction fibers in the inspected relevant material",
+        "evidence": [
+          "PDF pp. 1-7 and 18-19; no profile or reconstruct terminology in searchable text"
+        ],
+        "identifier_or_url": "https://arxiv.org/pdf/2403.01454",
+        "material_read": "Abstract, Introduction, definitions, Sections 2 and 4 (including Lemmas 4.7, 4.10 and 4.11), and reported main contributions",
+        "method": "Open-access PDF textual sections and page-image checks",
+        "title": "Maximum Length RLL Sequences in de Bruijn Graph",
+        "trigger": "2024 primary literature on run-limited cyclic de Bruijn sequences, nearest motivating constraint"
+      },
+      {
+        "assessment": "Proves general Ehrhart growth framework; not this explicit all-length no-010 profile and singleton fiber statement in those results",
+        "evidence": [
+          "PDF pp. 1-2,7-12; Theorem 3.3 and Section 4"
+        ],
+        "identifier_or_url": "https://arxiv.org/pdf/1502.00517",
+        "material_read": "Abstract, Introduction, Section 3 including Theorem 3.3, Section 4 including Theorems 4.1-4.2 and Lemma 4.5",
+        "method": "Open-access PDF textual theorem sections and page-image checks",
+        "title": "Codes for DNA Sequence Profiles",
+        "trigger": "Closest general formalism for ordered substring multisets and constrained profile enumeration"
+      },
+      {
+        "assessment": "Uses unordered compositions of linear prefix/suffix substrings and reversal equivalence, not the full ordered circular 3-gram channel; later sections not fully inspected",
+        "evidence": [
+          "PDF pp. 1-3 definition of composition multiset"
+        ],
+        "identifier_or_url": "https://arxiv.org/pdf/2208.14963",
+        "material_read": "Abstract, Sections I and II definitions, outline of the main constructions",
+        "method": "Open-access PDF textual pages and page-image check",
+        "title": "Reconstruction of a Single String from a Part of its Composition Multiset",
+        "trigger": "Plausible reconstruction title and fiber classification"
+      },
+      {
+        "assessment": "Enumerates first-order transition frequency matrices; full text not inspected, so no whole-document noncoverage claim",
+        "evidence": [
+          "DMTCS 2010 abstract: balanced frequency matrix counts pairs of symbols"
+        ],
+        "identifier_or_url": "https://dmtcs.episciences.org/2768",
+        "material_read": "Bibliographic abstract and stated first-order Markov-type scope",
+        "method": "Published open abstract and bibliographic description; full text not inspected",
+        "title": "Counting Markov Types",
+        "trigger": "Possible general earlier enumeration dominating the candidate"
+      }
+    ],
+    "status": "PASS"
+  },
+  "review_type": "self_review",
+  "schema_version": 1,
+  "scope_run_id": "36dcf286-1c14-4297-9df4-906f93e06ee4",
+  "self_review_status": "passed",
+  "value": {
+    "rationale": "The natural no-isolated-one coding constraint yields an exact all-blocklength zero-error channel capacity, a per-observation necklace reconstruction formula, and a sharp complete singleton spectrum. These quantities distinguish profile information loss from mere admissible word counts, providing a meaningful exact benchmark for constrained read reconstruction without relying on a promised downstream theorem.",
+    "status": "PASS"
+  }
+}
