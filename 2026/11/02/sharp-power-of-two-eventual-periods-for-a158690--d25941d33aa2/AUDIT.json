@@ -1,0 +1,100 @@
+{
+  "correctness": {
+    "rationale": "Exact integer Stirling expansion and divisibility of (2r)! justify finite reduction modulo 2^r. Direct binomial expansion gives all eight c_j and B_j modulo 32 and the full mod-32 table. For odd j, j^(2^s)-1 equals 2^(s-1)(j^2-1) modulo 2^(s+4), by a uniform valuation bound on higher binomial terms; the mod-32 base then gives exact half-period differences. Doubling provides a period while the nonzero even-index defect forces minimality. The packaged exact-arithmetic verifier reproduces the critical finite certificate.",
+    "status": "PASS"
+  },
+  "independent": false,
+  "independent_audit_status": "not_performed",
+  "originality": {
+    "broader_coverage": {
+      "evidence": [
+        "Kallat Theorem 2.6 applies to every integral Stirling-series transform and obtains the upper bound lambda(k).",
+        "The new base-table calculation uses the particular first eight coefficients of the A158690 transform."
+      ],
+      "reasoning": "A uniform upper bound on periods does not entail a half-sized period, an exact least period, or the parity-dependent obstruction. This sequence-specific coefficient computation is additional information absent from the general theorem.",
+      "searches": [
+        "G(e^t-1) finite field coefficient support exact minimal period eigenfrequencies p-1",
+        "A Proof of Bala Congruence Conjectures A158690 Theorem 2.6 general periodicity"
+      ]
+    },
+    "checked_sources": [
+      "https://arxiv.org/abs/2609.07238",
+      "https://oeis.org/A158690",
+      "A158690 exact least eventual period modulo 2^r equals 2^(r-3) for r at least 5, sharp halving Carmichael bound Kallat",
+      "Bala OEIS A158690 power of two modulus congruence period 2-adic 2^r reduced from Carmichael"
+    ],
+    "claim_vs_prior_implication": {
+      "evidence": [
+        "Kallat Theorem 1.1: lambda(2^r) is an eventual period, including the bound 2^(r-2) for r>=3.",
+        "OEIS: only modulo-16 preperiod and period are explicitly singled out."
+      ],
+      "reasoning": "The asserted period 2^(r-3), sharp nonperiod at 2^(r-4) and exact even-index defect are strictly stronger and not implied by the previous assertions. General power-sum tools are duly credited.",
+      "searches": [
+        "A158690 exact least eventual period modulo 2^r equals 2^(r-3) for r at least 5, sharp halving Carmichael bound Kallat",
+        "Bala OEIS A158690 power of two modulus congruence period 2-adic 2^r reduced from Carmichael"
+      ]
+    },
+    "equivalent_formulations": {
+      "evidence": [
+        "Kallat Proposition 2.1 gives an eventual period dividing the Carmichael function, with no claim of least period.",
+        "OEIS A158690 explicitly displays the modulo-16 period-two tail."
+      ],
+      "reasoning": "Replacing the least-period claim by a shift-congruence or by a half-period statement does not reduce it to the published general bound. The finite OEIS example is a strict special case and cannot prove all exponents.",
+      "searches": [
+        "A158690 exact least eventual period modulo 2^r equals 2^(r-3) for r at least 5, sharp halving Carmichael bound Kallat",
+        "Bala OEIS A158690 power of two modulus congruence period 2-adic 2^r reduced from Carmichael"
+      ]
+    },
+    "exact_database_or_table": {
+      "evidence": [
+        "OEIS A158690 records exactly the example modulo 16, not an all-level law.",
+        "Kallat Remark 2.2 mentions Bala’s modulo-16 example."
+      ],
+      "reasoning": "Known finite coefficients or a single period-two example do not determine minimal periods for arbitrarily large 2-adic moduli. The theorem gives a uniform lifted classification and exact defects.",
+      "searches": [
+        "A158690 residue values mod 32 period four a(n) 1 -1 17",
+        "OEIS A158690 Peter Bala modulo 16 period 2 preperiod 4"
+      ]
+    },
+    "rationale": "Comparison to the full relevant Kallat paper and the exact OEIS entry identifies only an eventual Carmichael upper bound and one modulo-16 example, not the all-exponent sharp classification or defect. Targeted semantic searches did not identify a covering result; this is a best-knowledge assessment with an explicit unindexed-priority risk.",
+    "residual_risks": [
+      "An unindexed earlier 2-adic classification could contain the exact period law.",
+      "No independent priority or mathematical audit has been undertaken."
+    ],
+    "source_inspections": [
+      {
+        "assessment": "General Carmichael upper bound and modulo-16 example covered, not sharp period law for all powers of two",
+        "evidence": [
+          "Theorem 2.6 asserts lambda(k) is an eventual period, not the least one.",
+          "Remark 2.2 mentions Bala’s mod-16 preperiod example."
+        ],
+        "identifier_or_url": "https://arxiv.org/abs/2609.07238",
+        "material_read": "Full accessible HTML, Sections 1–4, especially Theorem 1.1, Proposition 2.1, Theorem 2.6, Remark 2.2, Section 3 and references",
+        "method": "Read and compare theorem statements, hypotheses, implications and the only listed explicit special modulus",
+        "title": "A Proof of Bala's Congruence Conjectures for A158690",
+        "trigger": "Direct originating paper and strongest plausible period theorem"
+      },
+      {
+        "assessment": "Known period two modulo 16 only; no listed period law across all 2^r",
+        "evidence": [
+          "December 18, 2021 Bala comment gives modulo-16 preperiod 4 and period 2.",
+          "Initial sequence coefficients agree with independent expansion."
+        ],
+        "identifier_or_url": "https://oeis.org/A158690",
+        "material_read": "Complete accessible entry, including Comments, Formulas, References and the listed initial terms",
+        "method": "Compared the explicit modulo-16 example and links to the proposed all-exponent law",
+        "title": "A158690",
+        "trigger": "Exact database and published special-period example"
+      }
+    ],
+    "status": "PASS"
+  },
+  "review_type": "self_review",
+  "schema_version": 1,
+  "scope_run_id": "d25941d3-3aa2-4218-92b4-f4f30d1ee28a",
+  "self_review_status": "passed",
+  "value": {
+    "rationale": "The result supplies the complete natural sequence of least eventual periods at all 2-power moduli, sharpening the originating bound by a factor two for all r>=4, and gives an explicit parity-sensitive obstruction to any shorter period. Its all-level lifting step is structural and the invariant is the central object of the motivating published problem, not an arbitrary finite slice.",
+    "status": "PASS"
+  }
+}
