@@ -1,0 +1,170 @@
+{
+  "audit_date_utc": "2026-10-26",
+  "audited_at_utc": "2026-10-26T23:46:28Z",
+  "axes": {
+    "correctness": {
+      "rationale": "Reconstructed the quantified theorem for every measurable nonzero non-increasing W with all moments finite and every entire f,g in F_W^2. After normalizing m0=1, write s=m1>0 and T with density W. The 2026 source Proposition 6.1/Lemma 6.3 proves that nu=Law(max(T,s)) satisfies the sharp moment inequalities. For coefficient differences d_k=|a_k|^2-|b_k|^2 set x_k=(d_k)_+,y_k=(-d_k)_+ and entire X(t),Y(t). The exact source inequality X(t)<=s Y(t)/t for t>=s and source moment-duality chain sandwich sum x_k m_k and sum y_k m_k. Equality of norms makes every link equality. Because the nondegenerate T has mean s below its essential supremum and W is non-increasing, nu has positive density on some interval (s,b); thus the nonnegative middle defect sY(t)-tX(t) vanishes there and identically by the identity theorem. For every r>sqrt(s), equality in the two-sided circle estimate gives equality in the pointwise Schwarz-Pick inequality wherever g!=0, so f/g is a disk automorphism under inversion and equals (a z+eta sqrt(s))/(z+conj(a) eta sqrt(s)), |a|<1. Entire cancellation gives f=(a z+eta sqrt(s))h, g=(z+conj(a) eta sqrt(s))h; h,zh are norm-finite since they are linear combinations of f,g. Direct radial coefficient expansion yields ||g||^2-||f||^2=(1-|a|^2)sum_j |h_j|^2 (m_{j+1}-s m_j). The j=0 term vanishes and j>=1 terms are strictly positive Cov(T,T^j) by 1/2 E[(T-T')(T^j-T'^j)]>0. Therefore h is constant. Conversely the explicit linear family obeys |g|^2-|f|^2=|c|^2(1-|a|^2)(|z|^2-s) and equal norms because m1=s*m0. The unimodular case, zero pair, compactly supported monotone weights, boundary equality and arbitrary all-moment non-smooth monotone W are covered. The proof is analytic and uses no finite-experiment extrapolation.",
+      "risks": [
+        "Relies on the verified published sharp-radius/moment-duality theorem and its Schwarz-Pick estimate rather than reproving all of those published lemmas from first principles; the formulas and hypotheses were checked against the full primary proof.",
+        "F_W^2 can be noncomplete for compactly supported W, but h and zh are explicit linear combinations of the given norm-finite entire f,g, so all coefficient sums used are finite."
+      ],
+      "sources": [
+        "Assigned RESULT.md and VERIFICATION.md at source tree eca95513e2ed309b76a0713404b1e9ff5d6ab06b",
+        "Wikström arXiv:2609.39622v1 Lemma 3.1, equation (12), Proposition 6.1, Lemma 6.3, Theorem 1.1 proof"
+      ],
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "The published Resultary broader theorem (2026/10/11, id 44f533b061f9) proves the sharp radius for every radial weight, without any monotonicity, using a contractive moment-weighted backward shift; its limitations explicitly say that it supplies no classification of equality pairs.",
+          "Wikström Theorem 1.3 and Proposition 6.1 provide moment-duality admissibility for monotone W, whereas Theorem 1.1 equality is only Gaussian.",
+          "Wee-Le 2023 survey pp.99-100 (Theorems 4.5-4.6) reports upper radius bounds for standard and power Fock weights, not exact exhaustive equality classes."
+        ],
+        "reasoning": "A theorem determining an optimal radius, even for a dominating larger weight family, does not determine all pairs attaining equal norms. The universal radial radius theorem and the monotone radius theorem are stronger only along the radius/existence axis, not along extremal rigidity. The nearest boundary-tight theorem requires an additional premise that the submitted proof derives for all equality pairs.",
+        "searches": [
+          "Resultary: Korenblum constants radial weight non-increasing entire functions extremal classification equality moment quotient",
+          "Resultary/2026: Sharp Korenblum radius for every radial entire-function L^2 norm (2026/10/11/44f533b061f9)",
+          "Wikström arXiv:2609.39622v1 Sections 4-7 and Proposition 7.1",
+          "Web: \"Korenblum constants for various weighted Fock spaces\" pdf Wee Le preprint"
+        ]
+      },
+      "checked_sources": [
+        "Wikström, arXiv:2609.39622v1, full primary HTML (Theorems 1.1-1.3, Lemma 3.1, Section 5 equality proof, Proposition 6.1 and Section 7)",
+        "Published Resultary/2026, 2026/10/11/44f533b061f9, full RESULT.md all-radial sharp-radius theorem",
+        "Wee and Le, 2023 survey, full relevant open PDF sections 4-5, pp.99-100 and Table 4",
+        "Wee and Le, Complex Variables and Elliptic Equations (2023), DOI:10.1080/17476933.2022.2052862, abstract and bibliographic scope only (VPN barrier)",
+        "Efraimidis, Llinares and Vukotic, Computational Methods and Function Theory (2025), DOI:10.1007/s40315-024-00543-6, open-access article scope"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "Wikström Theorem 1.1 is the special Gaussian weight; Theorem 1.3 is sharp radius/admissibility for monotone weights; Remark 5.3 notes the Gaussian equality argument only used support of a moment measure. Section 7 Proposition 7.1 states any boundary-tight finite-Blaschke quotient has linear equality.",
+          "For every nondegenerate monotone density W, nu=Law(max(T,s)) has positive density on a nonempty open interval just above mean s, though not necessarily full support up to infinity (compactly supported W). Equality in the integrated coefficient defect therefore forces tX=sY on an interval, whence everywhere by analyticity. This supplies equality in Schwarz-Pick and excludes non-boundary-tight extremizers.",
+          "For the Möbius quotient the norm defect equals (1-|a|^2) sum_j |h_j|^2 (m_{j+1}-s*m_j), and m_{j+1}-s*m_j=Cov(T,T^j)>0 for j>=1; this rules out nonlinear multipliers for each nondegenerate weight.",
+          "The broad published radius result proves no rigidity and explicitly excludes equality classification from its scope."
+        ],
+        "reasoning": "Radius admissibility plus the existence of linear sharp pairs does not logically state uniqueness. The Gaussian rigidity argument in the source is extremely close; transferring it to compactly supported or irregular monotone weights requires verifying positive density on an interval suffices in place of full half-line support, and then strict moment covariance. These steps yield the claimed all-weight result. Because the method is close to the source, priority is qualified and the contribution is limited to complete rigidity, not radius sharpness.",
+        "searches": [
+          "arXiv:2609.39622v1 Theorems 1.1-1.3, Lemma 3.1, moment inequality (12), Remark 5.3, Proposition 6.1, Lemma 6.3 and Proposition 7.1",
+          "Resultary/2026/10/11/44f533b061f9 complete RESULT.md",
+          "Wee-Le DOI:10.1080/17476933.2022.2052862 publisher abstract and 2023 review",
+          "Efraimidis-Llinares-Vukotic DOI:10.1007/s40315-024-00543-6 open access article"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Wikström arXiv:2609.39622v1 Theorem 1.1 lists all equality pairs for W(t)=exp(-t) (radius one); Theorem 1.3 only asserts admissibility and radius for non-increasing W.",
+          "Wikström Section 7 Proposition 7.1 classifies equality when the quotient is a finite Blaschke product in R/z (in particular when boundary moduli agree), but does not establish boundary tightness for every monotone-weight equality pair.",
+          "Targeted Resultary search returned the assigned identical 2026/10/11 record itself; self-match is excluded from independent priority evidence. A separate stronger radius-only record states explicitly that it supplies no equality classification."
+        ],
+        "reasoning": "The relevant aliases are Fock Korenblum extremizers, exterior-domination equality cases, Schur/Möbius quotient rigidity, and moment-duality equality. The source covers Gaussian equality and general boundary-tight pairs, but the all-monotone-weight conclusion needs the additional implication that every norm-equality pair is boundary tight. The audited analytic-defect/interval-support argument supplies precisely that implication. The match to this same assigned item is not a prior duplicate.",
+        "searches": [
+          "Resultary: Exact equality cases at the sharp Korenblum radius for monotone radial weighted Fock Hilbert spaces, all Möbius linear extremizers and no nonlinear equality pair",
+          "Resultary: Weighted Fock space Korenblum maximum principle sharp radius universal rigidity equality pairs Schwarz Pick moment duality",
+          "Web: Korenblum weighted Fock extremal equality cases nonincreasing radial weights Wikström 2026",
+          "Web: \"Korenblum maximum principle\" \"equality\" \"weighted Fock\" extremizers 2026"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "The matched database item 2026/10/11/4bcc547017ec is the same assigned result, not independent earlier coverage.",
+          "The published Wee-Le Table 4 tabulates numerical upper/lower radius bounds; it does not tabulate or classify all norm-equality pairs.",
+          "No finite parameter table could logically settle an all-weight, all-entire-function equality classification."
+        ],
+        "reasoning": "This is an infinite-dimensional analytic equality theorem rather than a finite census. The table/database check therefore asks whether an exact published theorem, list, or table already settles all extremizers. The located table is a radius-bound table and does not imply the asserted classification; absence from searches alone is not treated as novelty proof.",
+        "searches": [
+          "Resultary semantic search: exact equality cases monotone radial weighted Fock Hilbert spaces Möbius pairs",
+          "Resultary semantic search: universal rigidity weighted Fock Korenblum radius",
+          "2023 Wee-Le survey Section 4 Table 4 (Fock radius bounds)"
+        ]
+      },
+      "rationale": "Qualified best-of-knowledge: the exact sharp radius and Gaussian equality cases are published, and the general radial-radius theorem is broader on admissibility. The missing claim is a universal ALL-equality classification for every non-increasing weight, proved via interval-support equality propagation and strict covariance. No independently earlier implication-equivalent complete classification was found in inspected texts. Proposition 7.1 already handles boundary-tight pairs but does not establish boundary tightness for arbitrary norm equality, which is the essential additional step. This is close to the published Gaussian proof and not an exhaustive historical priority certificate.",
+      "residual_risks": [
+        "Wikström Remark 5.3 makes the equality extension quite close to his proof; an explicit corollary may have been intended, or the general claim may be a routine near-corollary in an unindexed presentation.",
+        "Wee–Le 2023 journal full text could not be independently inspected after an authorized Oxford request reported vpn_disconnected; public abstract and their open 2023 survey indicate radius bounds, not equality classification.",
+        "An unindexed paper or preprint under circle-tightness, Schur-extremal, or moment-duality terminology may already state all monotone-weight extremizers.",
+        "Resultary self-match is not an independent published priority comparator; same-date publication ordering is not determined by the database."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "PARTIAL_COVERAGE: exact Gaussian class, general monotone radius and boundary-tight classification. No explicit all-monotone norm-equality statement; source argument nearly implies the classification after an interval-support analytic continuation step.",
+          "evidence": "Theorem 1.1, Theorem 1.3, Lemma 3.1 equations (6)-(11), moment chain (12), Remark 5.3, Proposition 6.1 and Proposition 7.1; arXiv HTML lines 59-95,164-201,223-256,259-305,343-367.",
+          "identifier_or_url": "https://arxiv.org/html/2609.39622v1",
+          "material_read": "Full accessible primary HTML: introduction; weight/norm definitions; Schwarz-Pick Lemma 3.1 proof; full moment-duality proof (equation 12); standard Fock equality proof; Theorem 1.3, Proposition 6.1 and Lemma 6.3 proofs; Remark 5.3; Section 7 Proposition 7.1 and its proof.",
+          "method": "Read arXiv full-text HTML, with exact mathematical equations and theorem hypotheses compared.",
+          "title": "The sharp radius in Korenblum's maximum principle for the Fock space",
+          "trigger": "Direct prior paper covering the same Fock geometry, exact monotone-weight radius, Gaussian equality, and boundary-tight cases."
+        },
+        {
+          "assessment": "BROADER_RADIUS_ONLY; explicitly no equality classification in its conclusion and limitations. Hence does not imply the universal monotone-weight rigidity asserted here.",
+          "evidence": "Finding theorem covers arbitrary radial W with R=sqrt(m1/m0); Limitations paragraph: proof supplies no classification of all equality pairs.",
+          "identifier_or_url": "https://github.com/Resultary/2026/blob/main/2026/10/11/SCOPE-sharp-korenblum-radius-for-every-radial-entire-function-l-2-norm--44f533b061f9/RESULT.md",
+          "material_read": "Complete RESULT.md including theorem, backward-shift contraction construction, quotient/Schur functional calculus, sharpness, scope and limitations.",
+          "method": "Read complete GitHub repository text through connected read-only source fetch.",
+          "title": "Sharp Korenblum radius for every radial entire-function L^2 norm",
+          "trigger": "Highly relevant published stronger all-radial radius theorem surfaced by Resultary, apparently dominating the radius parameter."
+        },
+        {
+          "assessment": "The located survey statements concern upper/lower Korenblum radius bounds and selected counterexamples, not all equality pairs for every monotone radial weight.",
+          "evidence": "Theorem 4.5 and 4.6 give probe-driven upper bounds; Table 4 lists Fock constants; p.99-100 displayed conclusions.",
+          "identifier_or_url": "https://science.thanglong.edu.vn/index.php/volc/article/download/89/58/223",
+          "material_read": "Introduction and definitions; section 4 pp.98-100 and Table 4 with Theorems 4.5, 4.6; Section 5 statements near pp.104-105; relevant PDF pages visually inspected as well as extracted text.",
+          "method": "Read open-access 30-page PDF selected mathematically relevant sections and inspected page images for pp.99-100.",
+          "title": "On Korenblum constants for some weighted function spaces",
+          "trigger": "2023 primary-authored survey by Wee and Le specifically reviewing earlier Fock-radius results and tables."
+        },
+        {
+          "assessment": "INACCESSIBLE_PRIMARY_FULL_TEXT; abstract states upper bounds from elementary probes, not an exhaustive equality theorem, but a residual priority risk remains.",
+          "evidence": "2022/2023 publisher abstract advertises explicit upper bounds with Gamma/Mellin methods; 2023 author survey Theorems 4.6,5.5 repeat those radius-upper-bound statements.",
+          "identifier_or_url": "https://doi.org/10.1080/17476933.2022.2052862",
+          "material_read": "Full publisher abstract and public bibliographic scope only. Full text not acquired: authorized institutional retrieval returned vpn_disconnected requiring manual connection; no bypass attempted.",
+          "method": "Publisher landing page, arXiv/OA search and one correctly parameterized authorized Oxford access attempt; no whole-document noncoverage assertion.",
+          "title": "Korenblum constants for various weighted Fock spaces",
+          "trigger": "Potentially closest pre-2026 primary weighted-Fock result."
+        },
+        {
+          "assessment": "DIFFERENT_DOMAIN: disk Bergman norm with annular domination, not entire-plane Fock norm with exterior domination; does not imply the claimed equality classification.",
+          "evidence": "Paper treats A_w^p(D), 1<=p<infinity; Proposition 1 shows admissible disk radius is below 1; not a weighted Fock all-equality statement.",
+          "identifier_or_url": "https://link.springer.com/article/10.1007/s40315-024-00543-6",
+          "material_read": "Open-access abstract, introduction, weighted Bergman theorem context and radius proposition relevant to comparison.",
+          "method": "Read publisher open HTML sections.",
+          "title": "Korenblum’s Principle for Bergman Spaces with Radial Weights",
+          "trigger": "Prior broad radial-weight Korenblum theorem in a related weighted analytic function space."
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "rationale": "At the known sharp Korenblum radius, classifying *every* norm-equality pair is the natural exact extremal problem for weighted Fock Hilbert spaces. The theorem gives a complete and weight-independent normalized rigidity law throughout an infinite family including stretched exponentials and compactly supported monotone weights, ruling out all nonlinear extremizers even when the moment certificate has only interval, not half-line, support. It is stronger than furnishing one probe pair or the radius value and can inform stability and perturbation work. Value credit is solely for this exact rigidity, not for the already-published sharp radius or Gaussian special case.",
+      "risks": [
+        "The mathematical contribution is tightly connected to the published moment-duality proof and does not give quantitative near-equality stability or general p norms."
+      ],
+      "sources": [
+        "Wikström Theorems 1.1 and 1.3, Section 7 Proposition 7.1",
+        "Assigned RESULT.md",
+        "Wee-Le 2023 weighted-Fock radius review"
+      ],
+      "status": "PASS"
+    }
+  },
+  "checked_sources": [
+    "Wikström, arXiv:2609.39622v1, full primary HTML (Theorems 1.1-1.3, Lemma 3.1, Section 5 equality proof, Proposition 6.1 and Section 7)",
+    "Published Resultary/2026, 2026/10/11/44f533b061f9, full RESULT.md all-radial sharp-radius theorem",
+    "Wee and Le, 2023 survey, full relevant open PDF sections 4-5, pp.99-100 and Table 4",
+    "Wee and Le, Complex Variables and Elliptic Equations (2023), DOI:10.1080/17476933.2022.2052862, abstract and bibliographic scope only (VPN barrier)",
+    "Efraimidis, Llinares and Vukotic, Computational Methods and Function Theory (2025), DOI:10.1007/s40315-024-00543-6, open-access article scope"
+  ],
+  "disposition": "passed",
+  "limitations": [
+    "Only p=2 entire-function radial norms and non-increasing weights; the source theorem does not classify equality for nonmonotone weights, finite-radius variants, or near-equality stability.",
+    "Oxford institutional access returned vpn_disconnected for a plausible earlier paper; it was neither circumvented nor falsely marked read.",
+    "The independent source snapshot matches the current blob set. The scientific judgment is complete but publication remains blocked solely by unverified public-file sanitization."
+  ],
+  "residual_risks": [
+    "Wikström Remark 5.3 makes the equality extension quite close to his proof; an explicit corollary may have been intended, or the general claim may be a routine near-corollary in an unindexed presentation.",
+    "Wee–Le 2023 journal full text could not be independently inspected after an authorized Oxford request reported vpn_disconnected; public abstract and their open 2023 survey indicate radius bounds, not equality classification.",
+    "An unindexed paper or preprint under circle-tightness, Schur-extremal, or moment-duality terminology may already state all monotone-weight extremizers.",
+    "Resultary self-match is not an independent published priority comparator; same-date publication ordering is not determined by the database."
+  ],
+  "schema_version": 1
+}

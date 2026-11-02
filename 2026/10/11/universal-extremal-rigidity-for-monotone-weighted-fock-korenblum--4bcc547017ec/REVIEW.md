@@ -1,41 +1,21 @@
-# Review of Universal extremal rigidity for monotone weighted Fock Korenblum radii
+# Independent mathematical audit
 
-## Correctness
+## correctness
 
-PASS. The source's non-increasing-weight proof uses the law of \(\max(T,m_1)\) in the moment-duality theorem. If the endpoint norms are equal, every inequality in that ordered moment chain is equality. Because the measure has positive continuous mass on an interval immediately above its mean, the nonnegative Schwarz--Pick coefficient defect vanishes on an interval. The defect is analytic after multiplication by the radius variable, so it vanishes identically.
+PASS
 
-Equality in the resulting circle estimate forces equality in Schwarz--Pick and hence a degree-one Möbius quotient. Entire cancellation gives
-\[
-g=(z+\overline a\,\eta R_W)h,
-\qquad
-f=(az+\eta R_W)h.
-\]
-The exact norm difference is
-\[
-(1-|a|^2)
-\sum_{j\ge0}|c_j|^2
-(m_{j+1}-R_W^2m_j).
-\]
-The zeroth term vanishes, while every higher term is strictly positive by
-\[
-m_{j+1}-m_1m_j
-=
-\operatorname{Cov}(T,T^j)>0.
-\]
-Thus \(h\) must be constant. The converse pair is checked by a direct pointwise identity and the defining moment relation.
+Reconstructed the quantified theorem for every measurable nonzero non-increasing W with all moments finite and every entire f,g in F_W^2. After normalizing m0=1, write s=m1>0 and T with density W. The 2026 source Proposition 6.1/Lemma 6.3 proves that nu=Law(max(T,s)) satisfies the sharp moment inequalities. For coefficient differences d_k=|a_k|^2-|b_k|^2 set x_k=(d_k)_+,y_k=(-d_k)_+ and entire X(t),Y(t). The exact source inequality X(t)<=s Y(t)/t for t>=s and source moment-duality chain sandwich sum x_k m_k and sum y_k m_k. Equality of norms makes every link equality. Because the nondegenerate T has mean s below its essential supremum and W is non-increasing, nu has positive density on some interval (s,b); thus the nonnegative middle defect sY(t)-tX(t) vanishes there and identically by the identity theorem. For every r>sqrt(s), equality in the two-sided circle estimate gives equality in the pointwise Schwarz-Pick inequality wherever g!=0, so f/g is a disk automorphism under inversion and equals (a z+eta sqrt(s))/(z+conj(a) eta sqrt(s)), |a|<1. Entire cancellation gives f=(a z+eta sqrt(s))h, g=(z+conj(a) eta sqrt(s))h; h,zh are norm-finite since they are linear combinations of f,g. Direct radial coefficient expansion yields ||g||^2-||f||^2=(1-|a|^2)sum_j |h_j|^2 (m_{j+1}-s m_j). The j=0 term vanishes and j>=1 terms are strictly positive Cov(T,T^j) by 1/2 E[(T-T')(T^j-T'^j)]>0. Therefore h is constant. Conversely the explicit linear family obeys |g|^2-|f|^2=|c|^2(1-|a|^2)(|z|^2-s) and equal norms because m1=s*m0. The unimodular case, zero pair, compactly supported monotone weights, boundary equality and arbitrary all-moment non-smooth monotone W are covered. The proof is analytic and uses no finite-experiment extrapolation.
 
-## Originality
+## originality
 
-PASS. The 2026 primary source explicitly gives all equality pairs for the standard Gaussian Fock space. Its separate theorem for every non-increasing radial weight determines the sharp radius and admissibility, but does not state a complete equality classification for those weights.
+PASS
 
-Earlier weighted-Fock papers of Wee and Le focus on upper bounds obtained from probe pairs. The source itself describes its new theorem as making those upper bounds sharp in the Hilbert case. A targeted published-finding search over equality, extremal-pair, Möbius, and weighted-Fock formulations found no implication-equivalent classification.
+Qualified best-of-knowledge: the exact sharp radius and Gaussian equality cases are published, and the general radial-radius theorem is broader on admissibility. The missing claim is a universal ALL-equality classification for every non-increasing weight, proved via interval-support equality propagation and strict covariance. No independently earlier implication-equivalent complete classification was found in inspected texts. Proposition 7.1 already handles boundary-tight pairs but does not establish boundary tightness for arbitrary norm equality, which is the essential additional step. This is close to the published Gaussian proof and not an exhaustive historical priority certificate.
 
-The principal residual risk is that the equality propagation may have been observed in an unpublished note or under a different extremal-pair terminology not surfaced by the searches.
+## value
 
-## Value
+PASS
 
-PASS. Once an optimal domination radius is known, classifying all equality pairs is the natural next extremal problem. The result shows a strong universality phenomenon: changing the entire monotone radial weight changes only the radius, not the geometry of equality.
+At the known sharp Korenblum radius, classifying *every* norm-equality pair is the natural exact extremal problem for weighted Fock Hilbert spaces. The theorem gives a complete and weight-independent normalized rigidity law throughout an infinite family including stretched exponentials and compactly supported monotone weights, ruling out all nonlinear extremizers even when the moment certificate has only interval, not half-line, support. It is stronger than furnishing one probe pair or the radius value and can inform stability and perturbation work. Value credit is solely for this exact rigidity, not for the already-published sharp radius or Gaussian special case.
 
-This is more than the existence of a sharp probe pair. It rules out every nonlinear extremizer throughout a broad family that includes stretched-exponential and decreasing gamma-type Fock weights, providing a reusable rigidity statement for later stability and perturbation questions.
-
-Same-model review: passed. Independent audit: not yet performed.
+The dated certificate retains the supplied scientific assessment, sources and limitations.
