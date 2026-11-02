@@ -1,0 +1,11 @@
+# Scientific review
+
+**Correctness: PASS.** The claim fixes the exact sampling rules, independent centered steps and finite-variance domain. Direct conditioning gives the endpoint and centroid second-moment recurrences, a square-summable martingale construction gives almost sure and \(L^2\) centroid convergence, and a generating-function singular expansion gives the exact limiting variance and logarithmic correction. The standalone checker passed 177 independent exact and numerical assertions; its finite tests are not substituted for the analytic proof. The logarithmic coefficient and analytic evaluation were separately reconstructed.
+
+**Originality: PASS, with residual priority risk.** The original 2014 walk's endpoint MSD is already known (Boyer--Solis-Salas). The 2018 Mailler--Uribe Bravo results give one-time scaling and scaled occupation-measure convergence, not the unscaled empirical centroid and its exact finite-size correction. Rafler's 2012 random-recursive-set barycenter result is an especially relevant comparison but assumes a uniform/Hoppe parent and a fixed spatial kernel at each birth, unlike the present current-parent/uniform-parent mixture with zero-increment relocation. Campos--Méndez study recurrence-time correlations. Searches for aliases (trajectory mean, center of mass, barycentre, time-average, monkey walk) found no equivalent statement, but search non-detection does not certify novelty and a broader unknown theorem might imply the result.
+
+**Value: PASS.** The natural home-range/trajectory-center observable behaves qualitatively differently from endpoint diffusion: a persistent random center coexists with diverging single-time positional variance. Its exact universal second-moment coefficient and sharp nontrivial logarithmic relaxation characterize the effect quantitatively for all exploration probabilities and any centered finite-variance increment distribution. This is not a mere relabeling of the known endpoint MSD or a finite-table computation.
+
+**Remaining limitations:** No claim is made for nonuniform memory, drift, heavy-tailed increments, or an explicit law for the limit variable. The asymptotic error is for fixed exploration probability. Independent mathematical replication and definitive historical-priority assessment remain outstanding.
+
+Self-review: passed. Independent audit: not yet performed.
