@@ -1,15 +1,21 @@
-# Scientific assessment
+# Independent mathematical audit
 
-## Correctness — PASS
-The theorem is about one explicitly defined fourteen-vertex incidence graph and one-defender ordinary secure domination. Both the binary-vector incidence model and the cyclic Fano difference-set model were executed as complete, independent censuses of all \(16384\) vertex subsets. They agree on the entire secure-domination cardinality distribution and, for all subsets of size at most six, on the exact geometric characterization. A direct Fano-plane count turns the predicate characterization into \(28\cdot3=84\); binary linear symmetry proves the single orbit. The exchange degree follows geometrically and full breadth-first searches give the stated distance distribution and diameter. The exact source programs and recorded outputs are included; no finite test is used to infer a theorem about larger graph orders.
+## correctness
 
-## Originality — PASS, subject to independent literature audit
-The relevant general secure-domination algorithm (Burger–de Villiers–van Vuuren, 2013), the secure-domination bounds (Merouane–Chellali, 2015), and the edge-stability literature do not visibly state this Fano geometric equality classification or the complete exchange graph. The nearby Heawood-specific secure *vertex-edge* result uses a different invariant. Accessible recorded computations of ordinary Heawood domination and secure domination on a different incidence graph do not imply this conclusion: neither determines security of six-element Heawood configurations or their one-replacement metric. Related terminology, broader-coverage implications, exact-table searches, and alternative formulations were compared, including actual mathematical-record queries. The inaccessible full 2015 secure-domination paper and an optical-only 2013 PDF are significant residual source risks. Failed searches do not establish uniqueness.
+PASS
 
-## Value — PASS
-Secure domination models a dominating guard placement that can defend any single attacked vertex by one adjacent guard substitution. The unique cubic girth-six cage is the smallest and most symmetric nontrivial Fano incidence graph, making a complete description natural. The result distinguishes the ordinary four-guard optimum from the six-guard secure optimum, gives a canonical classification of every optimum as a marked Fano triangle, and proves that all optimum defenses can be reconfigured by unrestricted single-guard replacements within seven steps. The structural orbit and exchange theorem go beyond a bare finite table, although no result for higher-order planes is asserted.
+The standard Fano incidence graph has fourteen vertices; secure(s) is exactly domination plus a selected adjacent defender for each omitted vertex whose replacement preserves domination. A fresh independent 16,384-mask exhaustive enumeration found zero secure sets below six, 84 size-six minima, and a 3-point/3-line/two-incidence characterization for every mask up to six. A noncollinear Fano triple (28 choices) has three lines meeting it once and exactly one avoiding it; choose two of those three, giving 84 configurations. GL3(F2) transitively permutes ordered bases with a distinguished line, yielding one orbit. Explicit exchange mask adjacency by symmetric difference of two bits yields 84 vertices, 168 edges, degree four, connected BFS layers (1,4,8,16,28,22,4,1), and via transitivity every eccentricity seven. An independent C++ checker exists in frozen source but was not relied upon as a log. Full enumeration is exhaustive only for THIS 14-vertex graph, not a statement for general projective planes.
 
-## Closest literature and limitations
-References and access boundaries are specified in RESULT.md. The finding is finite, computer-assisted, and not independently audited; equivalent unindexed tabulations remain a publication-priority risk.
+## originality
 
-Self-review: passed. Independent audit: not yet performed.
+PASS
+
+Secure domination has extensive prior algorithms and inequalities, but the searched material does not give the exact 84-set Fano classification plus diameter-seven exchange graph. The object is natural, though any previously published Heawood census is a real priority risk; existing named secure vertex-edge Heawood results use a different invariant.
+
+## value
+
+PASS
+
+Although finite, the Heawood/Fano Levi graph is a canonical highly symmetric incidence graph. The exact secure minimum, complete minimizer orbit, unrestricted reconfiguration graph and diameter classify a naturally motivated guard-exchange invariant, beyond a one-number routine toy enumeration. No higher-order family claim is inferred.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

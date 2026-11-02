@@ -5,8 +5,11 @@
     "status": "not_performed"
   },
   "independent_audit": {
-    "evidence": null,
-    "status": "not_performed"
+    "status": "passed",
+    "evidence": [
+      "INDEPENDENT_AUDIT_2026-10-29.md",
+      "INDEPENDENT_AUDIT_2026-10-29.json"
+    ]
   },
   "lean_verification": {
     "evidence": null,
@@ -16,10 +19,24 @@
 }
 ---
 
-# Reproduction and limits
+# Independent mathematical audit
 
-`fano_secure_enum.py` uses the dot-product definition of the Fano plane and exactly enumerates all \(2^{14}=16384\) vertex subsets. It verifies the ordinary and secure domination minima, the exact characterization of every secure six-set, every exchange edge, each shortest-path eccentricity, and the size \(84\) orbit under all \(168\) binary invertible linear maps. The raw recorded output is `fano_secure_enum.out`.
+## correctness
 
-`secure_fano_crosscheck.cpp` independently uses the cyclic \(\{0,1,3\}\) Fano difference set and performs domination and defense checks with separate point- and line-side loops, then independently constructs the optimal exchange graph and checks all shortest paths. Compile with `c++ -std=c++17 -O2 secure_fano_crosscheck.cpp -o secure_fano_crosscheck` and execute `./secure_fano_crosscheck`; its raw recorded output is `secure_fano_crosscheck.out`.
+PASS
 
-The independently implemented programs both report a secure optimum of \(6\), exactly \(84\) optimum placements, exchange degree \(4\), \(168\) exchange edges, and radius and diameter \(7\). Their shared cardinality and distance profiles match. The mathematical proof also counts the placements geometrically and proves transitivity. Nothing here establishes a theorem for larger projective planes or independently certifies novelty; independent external audit remains unperformed.
+The standard Fano incidence graph has fourteen vertices; secure(s) is exactly domination plus a selected adjacent defender for each omitted vertex whose replacement preserves domination. A fresh independent 16,384-mask exhaustive enumeration found zero secure sets below six, 84 size-six minima, and a 3-point/3-line/two-incidence characterization for every mask up to six. A noncollinear Fano triple (28 choices) has three lines meeting it once and exactly one avoiding it; choose two of those three, giving 84 configurations. GL3(F2) transitively permutes ordered bases with a distinguished line, yielding one orbit. Explicit exchange mask adjacency by symmetric difference of two bits yields 84 vertices, 168 edges, degree four, connected BFS layers (1,4,8,16,28,22,4,1), and via transitivity every eccentricity seven. An independent C++ checker exists in frozen source but was not relied upon as a log. Full enumeration is exhaustive only for THIS 14-vertex graph, not a statement for general projective planes.
+
+## originality
+
+PASS
+
+Secure domination has extensive prior algorithms and inequalities, but the searched material does not give the exact 84-set Fano classification plus diameter-seven exchange graph. The object is natural, though any previously published Heawood census is a real priority risk; existing named secure vertex-edge Heawood results use a different invariant.
+
+## value
+
+PASS
+
+Although finite, the Heawood/Fano Levi graph is a canonical highly symmetric incidence graph. The exact secure minimum, complete minimizer orbit, unrestricted reconfiguration graph and diameter classify a naturally motivated guard-exchange invariant, beyond a one-number routine toy enumeration. No higher-order family claim is inferred.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

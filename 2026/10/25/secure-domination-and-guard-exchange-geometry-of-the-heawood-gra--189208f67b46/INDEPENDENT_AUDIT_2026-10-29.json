@@ -1,0 +1,120 @@
+{
+  "audit_date_utc": "2026-10-29",
+  "audited_at_utc": "2026-10-29T01:51:10Z",
+  "axes": {
+    "correctness": {
+      "checked_sources": [
+        "Frozen RESULT.md, fano_secure_enum.py, two source independent check implementations identified",
+        "Independent newly coded complete enumeration of all 2^14 Fano incidence masks and exchange BFS"
+      ],
+      "rationale": "The standard Fano incidence graph has fourteen vertices; secure(s) is exactly domination plus a selected adjacent defender for each omitted vertex whose replacement preserves domination. A fresh independent 16,384-mask exhaustive enumeration found zero secure sets below six, 84 size-six minima, and a 3-point/3-line/two-incidence characterization for every mask up to six. A noncollinear Fano triple (28 choices) has three lines meeting it once and exactly one avoiding it; choose two of those three, giving 84 configurations. GL3(F2) transitively permutes ordered bases with a distinguished line, yielding one orbit. Explicit exchange mask adjacency by symmetric difference of two bits yields 84 vertices, 168 edges, degree four, connected BFS layers (1,4,8,16,28,22,4,1), and via transitivity every eccentricity seven. An independent C++ checker exists in frozen source but was not relied upon as a log. Full enumeration is exhaustive only for THIS 14-vertex graph, not a statement for general projective planes.",
+      "residual_risks": [
+        "The complete 14-vertex computation is exhaustive, but the orbit/diameter conclusion is specific to Heawood.",
+        "Publication requires privacy sanitization of metadata files."
+      ],
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Graph general bounds such as gamma_s≤n/2 give at most 7 for a 14-vertex graph, while the finding is 6 with 84 minima.",
+          "Complexity results do not state the finite exchange-graph metric."
+        ],
+        "reasoning": "Neither surveyed general upper bounds nor NP-hardness results entail the exact count/geometric orbit/distance layers.",
+        "searches": [
+          "secure domination number Heawood graph Fano incidence 84 minimum secure dominating sets exchange graph",
+          "Burger–Henning–van Vuuren Vertex covers and secure domination in graphs",
+          "Wang–Zhao–Deng The Complexity of Secure Domination Problem in Graphs"
+        ]
+      },
+      "checked_sources": [
+        "Frozen RESULT.md, fano_secure_enum.py; independently reimplemented 16,384-mask dominating/defender enumeration",
+        "Resultary query: secure domination number Heawood graph Fano incidence 84 minimum secure dominating sets exchange graph",
+        "Burger 2013 general secure-domination work and Wang et al. complexity description"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "General secure-domination enumeration algorithms could compute the 14-vertex answer but do not themselves state its exact number, Fano orbit and exchange diameter."
+        ],
+        "reasoning": "Finite enumeration is a substantive exact result because entire minimizer geometry and shortest-exchange structure are determined; algorithmic computability alone is not published coverage.",
+        "searches": [
+          "Secure graph domination general algorithm Burger de Villiers van Vuuren 2013",
+          "secure domination number Heawood graph Fano incidence 84 minimum secure dominating sets exchange graph"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "The one-defender ordinary secure-domination predicate used is the standard secure dominating set definition.",
+          "The graph is also the (7,3,1) Fano projective-plane incidence graph."
+        ],
+        "reasoning": "Translate graph and property aliases before comparison; the known general predicate is insufficient to force the finite classification.",
+        "searches": [
+          "secure domination number Heawood graph Fano incidence 84 minimum secure dominating sets exchange graph",
+          "Burger–de Villiers–van Vuuren Two Algorithms for Secure Graph Domination (2013)",
+          "Fano Levi graph Heawood secure domination guard exchange"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "Resultary hits include secure domination polynomials of multipartite and chain graphs, not the Fano Levi graph.",
+          "Complete 2^14 census independently reproduces 84 minima but is no evidence that no existing table contains it."
+        ],
+        "reasoning": "A known-table recomputation would be covered; none identified in material actually reviewed, with explicit residual risk for unindexed Heawood tables.",
+        "searches": [
+          "secure domination number Heawood graph Fano incidence 84 minimum secure dominating sets exchange graph",
+          "Resultary exact secure domination number chain graphs, multipartite graphs",
+          "Heawood secure domination number exact six configurations"
+        ]
+      },
+      "rationale": "Secure domination has extensive prior algorithms and inequalities, but the searched material does not give the exact 84-set Fano classification plus diameter-seven exchange graph. The object is natural, though any previously published Heawood census is a real priority risk; existing named secure vertex-edge Heawood results use a different invariant.",
+      "residual_risks": [
+        "An older named-graph table or appendix could contain exact secure number or counts.",
+        "Full 2013 algorithm paper and 2015 secure domination sources were not read in entirety."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "GENERAL COMPLEXITY; FULL-TEXT NONCOVERAGE NOT ASSERTED",
+          "evidence": "Scope addresses complexity, not a stated Heawood orbit or exchange-graph diameter in accessible material.",
+          "identifier_or_url": "https://arxiv.org/search/?query=The+Complexity+of+Secure+Domination+Problem+in+Graphs&searchtype=all",
+          "material_read": "Accessible abstract and bibliography, not full technical argument",
+          "method": "Primary accessible research record",
+          "title": "The Complexity of Secure Domination Problem in Graphs",
+          "trigger": "Definition and a possible general dominating theorem"
+        },
+        {
+          "assessment": "INCOMPLETE COVERAGE COMPARISON",
+          "evidence": "General algorithms might apply to the 14-vertex case; explicit table not established in accessible excerpts.",
+          "identifier_or_url": "https://combinatorialpress.com/jcmcc-articles/volume-085/two-algorithms-for-secure-graph-domination/",
+          "material_read": "Title, abstract, citation and description available; full text not independently reviewed",
+          "method": "Publisher primary descriptive material",
+          "title": "Two Algorithms for Secure Graph Domination",
+          "trigger": "Closest standard algorithmic source for exact secure-set counts"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "checked_sources": [
+        "Frozen RESULT.md, fano_secure_enum.py, two source independent check implementations identified",
+        "Independent newly coded complete enumeration of all 2^14 Fano incidence masks and exchange BFS",
+        "https://arxiv.org/search/?query=The+Complexity+of+Secure+Domination+Problem+in+Graphs&searchtype=all"
+      ],
+      "rationale": "Although finite, the Heawood/Fano Levi graph is a canonical highly symmetric incidence graph. The exact secure minimum, complete minimizer orbit, unrestricted reconfiguration graph and diameter classify a naturally motivated guard-exchange invariant, beyond a one-number routine toy enumeration. No higher-order family claim is inferred.",
+      "residual_risks": [
+        "Significance is for the exact stated setting and does not imply broader classifications."
+      ],
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "final_claim": "Heawood ordinary secure-domination number is 6; 84 minima form one Fano-geometric GL3(F2) orbit and a connected 4-regular exchange graph with diameter/radius 7 and distance layers (1,4,8,16,28,22,4,1).",
+  "limitations": [
+    "The complete 14-vertex computation is exhaustive, but the orbit/diameter conclusion is specific to Heawood.",
+    "Publication requires privacy sanitization of metadata files.",
+    "An older named-graph table or appendix could contain exact secure number or counts.",
+    "Full 2013 algorithm paper and 2015 secure domination sources were not read in entirety.",
+    "Source access and priority constraints expressly recorded under axes.originality; inaccessible articles alone not treated as C/O/V failure.",
+    "No GitHub writes or external expert/Lean attestation claimed."
+  ],
+  "schema_version": 1
+}
