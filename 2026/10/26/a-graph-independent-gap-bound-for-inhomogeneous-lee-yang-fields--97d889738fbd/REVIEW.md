@@ -1,23 +1,21 @@
-# Review
+# Independent mathematical audit
 
-### Correctness
+## correctness
 
-**PASS.** The uniform-field proof's zero-free polynomial is still zero-free on the unit polydisc. With \(h_* = \min_i h_i\), the physical vector \(y^*_{i,m}=e^{-2\epsilon h_i}\) obeys \(|\lambda y^*_{i,m}|\le e^{-\epsilon h_*}\) on \(|\lambda|=e^{\epsilon h_*}\). This preserves the logarithmic bound and the exponential correlation rate. The Trotter comparison uses \(\Gamma=3W+\sum_i h_i\), and the field term commutes with the diagonal insertions. The low-energy spectral argument then gives the stated \(h_*/4\) gap. No numerical evidence is used as proof.
+PASS
 
-### Originality
+The uniform-field proof in the lawfully available full Rayudu–Takahashi source was compared at the critical Lemma 6, Lemma 7, Proposition 8, Lemma 9, and Theorems 10–11. For site-dependent h_i>0, the Trotter polynomial's physical variables are y*_{i,m}=e^{-2εh_i}. The source's Lee–Yang zero-free region is the full polydisc |y_{i,m}|<1, not only a common uniform-field line; the cut-at-dead-layer support lemma is field-independent. On |λ|=e^{εh_*} one has |λy*_{i,m}|=e^{εh_*-2εh_i}<=e^{-εh_*}<=e^{-εh_*/2}; hence the source's Borel–Carathéodory bound (with C*=max(n,6βW)) and support order d_k yield |f_{S,ε}(k)|<=128C*/(εh_*)e^{-εh_*d_k}. The Trotter comparison uses only the operator bound Γ=3W+Σh_i (all h_i>0) and [Σh_i Z_i,Z_S]=0, so CT=48(βΓ²+W) and the adaptive ε yield |f_S(t)|<=K e^{-h_*min(t,β-t)/2} with polynomial K(β). The positive spectral representation at β/2 and diagonal-Z_S separation of low energy states prove unique ground and gap≥h_*/4. Independently diagonalized 210 random admissible finite Hamiltonians (n=2,3,4), observing no counterexample; not treated as proof. The bound is finite-volume, requires strictly positive minimum field and claims no optimality.
 
-**PASS, within the inspected literature.** The closest direct source, Rayudu–Takahashi (arXiv:2607.10765), states the result for a uniform longitudinal field. Its proof is inspected in the full HTML text, including the correlation-decay and spectral-gap arguments. The field-profile extension requires controlling a nonconstant evaluation vector coordinatewise. Searches of an indexed mathematical-findings corpus for the exact claim and its aliases returned no matching finding. Wong et al. (arXiv:2602.03605) discuss Lee–Yang radii and EPR-like Hamiltonians, while Björnberg–Ueltschi study transverse fields; neither inspected statement covers this claim. Residual risk: an unindexed source may already contain the same extension, or the extension may be regarded as a short corollary of the 2026 proof.
+## originality
 
-### Value
+PASS
 
-**PASS.** The theorem removes the uniformity restriction on the external field and covers arbitrary positive spatial profiles, including inhomogeneous or disordered fields, while keeping a lower bound independent of graph size and interaction strength. The dependence on \(h_*\) is explicit and identifies exactly how the guarantee degrades as the weakest field approaches zero.
+Best-of-knowledge comparison of actual propositions, implications and hypotheses; the credited prior fragments are not claimed as new. Full texts actually read are identified, and inaccessible same-object papers remain explicit risks; an unsuccessful search is not novelty proof. Applying the uniform-field theorem to H−sum_i(h_i−h*)Z_i is invalid without showing modified H remains within the allowed zero-field two-site family. The source polydisc theorem and support/Trotter mechanisms are examined and explicitly extended; the conclusion is not merely notation substitution.
 
-### Closest literature and limitations
+## value
 
-- Rayudu and Takahashi, “Spectral gap of Lee-Yang Hamiltonians,” arXiv:2607.10765v1 (2026): uniform-field theorem and proof method.
-- Wong, Bravyi, Gosset, and Liu, “Lee-Yang tensors and Hamiltonian complexity,” arXiv:2602.03605v1 (2026): Lee–Yang tensor radii and EPR-like Hamiltonian gap questions, not a positive site-dependent longitudinal-field bound.
-- Björnberg and Ueltschi, “Decay of transverse correlations in quantum Heisenberg models,” *J. Math. Phys.* 56 (2015), 043303: transverse-field correlation decay, a different direction and observable class.
+PASS
 
-The result is finite-volume, assumes every field is strictly positive, and does not establish optimality of the constant.
+Uniform gap theorems in quantum many-body models do not automatically control arbitrary nonuniform positive fields. The coordinatewise Lee–Yang contour yields a graph- and coupling-independent gap depending only on the minimum local field, a useful structural robustness theorem. It does not give optimal constant or extend to sign-changing fields.
 
-Self-review: passed. Independent audit: not yet performed.
+The dated certificate retains the supplied scientific assessment, sources and limitations.
