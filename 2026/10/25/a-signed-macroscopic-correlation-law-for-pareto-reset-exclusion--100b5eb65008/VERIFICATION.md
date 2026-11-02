@@ -5,8 +5,11 @@
     "status": "not_performed"
   },
   "independent_audit": {
-    "evidence": null,
-    "status": "not_performed"
+    "status": "passed",
+    "evidence": [
+      "INDEPENDENT_AUDIT_2026-10-27.md",
+      "INDEPENDENT_AUDIT_2026-10-27.json"
+    ]
   },
   "lean_verification": {
     "evidence": null,
@@ -16,10 +19,24 @@
 }
 ---
 
-# Verification and reproducibility
+# Independent mathematical audit
 
-Run `python3 check_stdlib.py` in the directory containing that file. The script uses only the Python 3 standard library; `check_output.txt` contains its actual output from a successful execution. It enumerates the fixed-particle SSEP Markov chain on four sites, evaluates one- and two-particle dual generators by uniformization, checks strict nonpositivity of finite-time conditional pair covariance, verifies the normalization of the Pareto equilibrium-age density, and evaluates the limiting covariance kernel numerically for several positive Pareto exponents and both spatial signs.
+## correctness
 
-The run passed 70 deterministic assertions. At exponent \(\alpha=3/2\), the computed kernel values are \(K_{3/2}(1,2)\approx0.0182786826692\) and \(K_{3/2}(-1,2)\approx-0.0182786826692\).
+PASS
 
-The proof of the infinite-volume limit is analytical: the discrete heat equation gives the one-point limit; the two-particle generator equation and reflected gap kernel control conditional covariances uniformly; stationary renewal mixing and dominated convergence then yield the limit; strict monotonicity supplies the signs; conditional negative covariance bounds imply the macroscopic block \(L^2\) law. Finite-state numerical checks are not treated as infinite-volume proofs. The methods do not certify publication priority or substitute for independent scientific audit.
+PASS: For alpha>1, stationary equilibrium renewal age A_R/R has normalized density (alpha-1)/alpha on (0,1) and (alpha-1)/alpha*u^(-alpha) for u>=1. Conditioned on age, SSEP one-point density solves heat equation and converges to h(y,u)=0.5 erfc(y/(2 sqrt u)). The two-point connected-correlation generator has negative adjacent-particle forcing equal to minus the square of the gradient. The reflected gap heat kernel and Duhamel bound give uniform O((1+log(1+t))/sqrt(1+t)) decay of conditional pair covariances. Dominated convergence yields Cov(h(y,U),h(z,U)). Strict monotonicity for y positive/negative gives the stated sign across or within sides; conditional negative association bounds macroscopic block-average fluctuations and proves joint L2 convergence. Independent numerical integration reproduces +/-0.0182786826692 at alpha=3/2; finite checks are corroboration, not proof of limits.
+
+## originality
+
+PASS
+
+PASS best-of-knowledge: Mishra–Basu 2022 studies exactly step-reset power-law SSEP but abstract and described results calculate density and currents rather than equal-time diffusive pair covariance. Poisson dichotomous-reset SSEP on finite rings is a different reset protocol and spatial domain; an independent-Brownian-gas common-age result identifies the known mechanism but not exclusion-specific conditional covariance vanishing. The claim uses real analytic input beyond the standard stationary renewal-mixture formula. Inaccessible full primary sources leave explicit residual priority risks rather than fabricated noncoverage.
+
+## value
+
+PASS
+
+PASS: A natural missing fluctuation invariant is classified: ordinary SSEP conditional anticorrelation washes out, while common renewal age induces macroscopic signed correlations and a random hydrodynamic front. Strict sign geography and block L2 convergence are nontrivial and not routine substitutions into a one-point density law.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
