@@ -1,15 +1,21 @@
-# Review of the four-parameter canonical tensor-generation test
+# Independent mathematical audit
 
-## Correctness (PASS)
-The fan is the smooth complete eight-ray, twelve-cone fan specified in the two source papers. The universal proof is a complete exhaustion of its eight rays and eighteen invariant walls. Four rays have permanent strict supporting hyperplanes; four reduce to explicit two-inequality feasibility problems on the open interval \((-1,1)\), exactly eliminated by a proved sign lemma. Every wall degree is computed from its two opposite generators; all eighteen are listed. Their nonvanishing, together with all ray predicates, is equivalent to the cited canonical tensor-generation criterion. A standalone exact rational checker confirms the wall relations and convex-hull classifications for 625 test quadruples. These checks are supplementary, not a substitute for the universal proof.
+## correctness
 
-## Originality (PASS, subject to stated residual risk)
-The closest primary paper (Ito–Zeng–Zeng, arXiv:2610.22279v1, Section 6, Question 6.6) explicitly asks for the unrestricted four-parameter classification and supplies a general decision criterion plus certain one-parameter families, not the eliminated arithmetic conditions. The earlier Fujino–Sato fan paper (arXiv:2412.02392v2) describes the rays and projectivity, not this canonical-bundle parameter answer. A previous classification of the restricted slice \(Z''_{13}(a,2,a+2,d)\) is implied by the new result, not conversely. An unindexed equivalent four-parameter tabulation remains a risk; absence from searches alone cannot prove global novelty.
+PASS
 
-## Mathematical value (PASS)
-This is an exact answer to an explicit all-integer parameter question, rather than a generic rephrasing of the fan criterion. In particular it gives a finite necessary band \(-|a|-1\le d\le|c|\) and a pairwise torically distinct infinite nonprojective family of canonical tensor-generating varieties. The full test handles degeneracy boundaries and gives immediate exact classification for any quadruple.
+The result explicitly fixes the eight integral rays and twelve smooth complete maximal cones, so its quantifiers are over exactly this fan family. Independently reconstructed all 18 two-dimensional wall relations from two incident maximal cones by exact symbolic linear algebra and verified their 18 anticanonical degrees match the complete displayed wall table; the six zero exclusions are exactly the nonconstant types. For the four remaining ray convex-hull tests, linear supporting functionals reduce each to two strict inequalities ut<v, wt<z for t in (-1,1). The stated E predicate is equivalent by same-sign and opposite-sign one-dimensional half-interval intersection, including zero coefficient and equality boundaries. Four other rays are permanently exposed by first-coordinate supporting functionals with perturbations. Independent linear-program primal convex-hull tests on representative integer quadruples agreed with all four arithmetic ray tests; the original checker tests a finite 625-grid, not an infinite proof. The two easy E constraints yield d>=-|a|-1 and d<=|c|. Substitution (0,m,m,0) verifies E and wall nonzero for m>=2; max absolute wall degree 2m proves toric separation. Invoking Ito–Zeng–Zeng’s published canonical ray+curve criterion is an explicitly stated external mathematical premise; this run independently verified its algebraic fan specialization but could not independently reread the complete newly posted original theorem text.
 
-## Scope and limits
-The proof concerns the specified toric threefolds in characteristic zero. The separation invariant proves nonisomorphism as toric varieties, not as arbitrary abstract schemes. The independent audit has not occurred. Searches and available primary material were compared for implications rather than title similarities; further unindexed literature could alter the originality judgment.
+## originality
 
-Self-review: passed. Independent audit: not yet performed.
+PASS
+
+PASS, carefully qualified. The newly posted general criterion and all-integer open classification question in Ito–Zeng–Zeng (arXiv:2610.22279) are acknowledged as prior. A public open-problem extract explicitly quotes their question for unrestricted Z_double_prime_13(a,b,c,d), while their paper abstract promises a broad fan criterion and special nonprojective examples, not this ten-integer-test table. Fujino–Sato arXiv:2412.02392 supplies the actual fan and projectivity but not canonical tensor generation. The arithmetized 4D parameter classification, finite band and torically distinguished infinite family were not found in the inspected material. The Ito source full text remained inaccessible despite lawful attempts, so exact coverage is a serious residual risk; no absolute novelty is claimed.
+
+## value
+
+PASS
+
+Evaluating a broad fan-level tensor-generation criterion into a complete, quantifier-free test for all four integer parameters answers an explicitly recorded concrete classification question, handles degeneracy walls, produces a useful necessary finite search band and exhibits infinitely many nonprojective, torically distinct examples. It is not merely rephrasing the pre-existing general criterion: the complete ray and wall elimination and its parameter consequences are the motivated mathematical contribution.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
