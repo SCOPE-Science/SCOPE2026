@@ -5,8 +5,11 @@
     "status": "not_performed"
   },
   "independent_audit": {
-    "evidence": null,
-    "status": "not_performed"
+    "status": "passed",
+    "evidence": [
+      "INDEPENDENT_AUDIT_2026-10-31.md",
+      "INDEPENDENT_AUDIT_2026-10-31.json"
+    ]
   },
   "lean_verification": {
     "evidence": null,
@@ -15,12 +18,25 @@
   "schema_version": 1
 }
 ---
-# Mathematical verification
 
-The analytic argument reduces the full incidence graph Laplacian to the Johnson graph, proves an explicit shell-current sign rule, and evaluates the absolute current sum through a separately checked degree-two dual potential.
+# Independent mathematical audit
 
-Run `python verify_boolean_layer_hodge.py` with SymPy installed. The observed result was:
+## correctness
 
-`BOOLEAN_ADJACENT_RANK_HODGE_OK orbit_cases=54 orbit_edge_types=872 full_cases=9 full_edges=445 symbolic_identities=PASS`
+PASS
 
-The 54 orbit solves and nine grounded whole-graph solves use exact rational arithmetic. The symbolic check expands the dual-potential Laplacian equations for arbitrary integer parameters. These checks do not constitute a computational proof over infinitely many ranks and sizes; the unrestricted assertion rests on the written analytic proof. No independent mathematical audit has been performed.
+For n>=3 and 1<=k<=n-2, the two-level inclusion graph has Laplacian Schur complement the Johnson graph Laplacian, with a zero-sum edge source. Summing Green equations over Johnson distance balls yields strictly positive radial drops Delta_r; shell-ratio monotonicity verifies the nontrivial sign of each electrical edge current, including the formerly ambiguous z-in-S/i-in-A class. The explicitly displayed quadratic vertex potential w solves Lw=D sigma, so the signed sum of every edge column of Q=D^T(DD^T)^+D equals 2k+1-2k(k+1)/n. The source effective resistance Q_ee=1/(k+1)+(1-1/binom(n,k))/(n-k) gives the complementary P norm by |(I-Q)ee|=1-Qee. Complementation k -> n-k-1 covers remaining ranks; fixed-k and proportional-k asymptotics follow. Independently built rational grounded full-graph Laplacians reproduce norm, diagonal, and P norm for 10 (n,k) cases with 3<=n<=6; polynomial dual identity in the source was reconstructed by inspecting its coefficients rather than treating VERIFY_OK as proof. The infinite family follows from the Green/dual argument, not enumeration.
+
+## originality
+
+PASS
+
+Best-of-knowledge mathematical comparison of the same object, definitions, parameter quantifiers, and implication strength. Foundation and partial coverage are credited explicitly; neither failed searches nor inaccessible full literature alone are represented as novelty proof. Cut-cycle projection and invariant projection are aliases of an orthogonal incidence-Hodge projector, but equality of graph and projector must also be shown; the inspected whole-cube formula is not an equivalent formula for the adjacency-rank graph. Neither cited formula implies the stated adjacent-rank Q and P norms solely by parameter substitution; the direct Johnson Green and sign solution add necessary work.
+
+## value
+
+PASS
+
+Natural canonical Euclidean cut and cycle projections on adjacent ranks of the Boolean lattice are common in discrete Hodge theory and electrical flows. Exact induced endpoint norms, not solely upper bounds, distinguish bounded fixed-rank and linearly growing central-rank regimes. The uniform edge column and exact resistance provide reusable sharp constants; this is not a renaming of the full Hamming cube projection.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

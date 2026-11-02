@@ -1,0 +1,128 @@
+{
+  "audit_date_utc": "2026-10-31",
+  "audited_at_utc": "2026-10-31T05:54:19.478371Z",
+  "axes": {
+    "correctness": {
+      "checked_sources": [
+        "Actual Git 2026/10/26/exact-endpoint-cut-cycle-norms-on-adjacent-boolean-lattice-ranks--c77b6badd075/RESULT.md SHA ebab2eb7c930cc5bddfa60cbbcc12fe45155e712",
+        "Independent checks: independent_checks_batch4899.py, run output BATCH4899_INDEPENDENT_BOUNDED_CHECKS_OK"
+      ],
+      "rationale": "For n>=3 and 1<=k<=n-2, the two-level inclusion graph has Laplacian Schur complement the Johnson graph Laplacian, with a zero-sum edge source. Summing Green equations over Johnson distance balls yields strictly positive radial drops Delta_r; shell-ratio monotonicity verifies the nontrivial sign of each electrical edge current, including the formerly ambiguous z-in-S/i-in-A class. The explicitly displayed quadratic vertex potential w solves Lw=D sigma, so the signed sum of every edge column of Q=D^T(DD^T)^+D equals 2k+1-2k(k+1)/n. The source effective resistance Q_ee=1/(k+1)+(1-1/binom(n,k))/(n-k) gives the complementary P norm by |(I-Q)ee|=1-Qee. Complementation k -> n-k-1 covers remaining ranks; fixed-k and proportional-k asymptotics follow. Independently built rational grounded full-graph Laplacians reproduce norm, diagonal, and P norm for 10 (n,k) cases with 3<=n<=6; polynomial dual identity in the source was reconstructed by inspecting its coefficients rather than treating VERIFY_OK as proof. The infinite family follows from the Green/dual argument, not enumeration.",
+      "residual_risks": [],
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "The 2023 paper computes the entire hypercube projection; the 2018 transportation-cost framework treats other graph families and quotient constructions.",
+          "The rank-induced bipartite graph deletes most cube levels, changing effective resistance and all currents."
+        ],
+        "reasoning": "General frameworks permit formulation of Q but do not supply the exact (n,k)-dependent norm; a broad theorem only covers this if it has an applicable exact edge-current evaluation, absent from inspected material.",
+        "searches": [
+          "arXiv:2305.12582 whole-cube invariant projections",
+          "arXiv:1807.03814 finite transportation-cost graph projections"
+        ]
+      },
+      "checked_sources": [
+        "Assigned RESULT.md at blob ebab2eb7c930cc5bddfa60cbbcc12fe45155e712",
+        "Assigned verify_boolean_layer_hodge.py at blob d2ebf479b163275e8d17c94eacec7feb2718e619",
+        "arXiv:2305.12582",
+        "arXiv:1807.03814",
+        "Resultary Orthogonal projection onto cut and cycle spaces of inclusion graphs between two adjacent levels of Boolean lattice, exact l1 l-infinity norm Johnson graph electric currents"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "Cactus suppression projection acts in different quotient/basis geometry; Hamming cube adjacency has all levels.",
+          "Orthogonal projection of a restricted graph is not a coordinate restriction of the bigger graph projector."
+        ],
+        "reasoning": "Neither cited formula implies the stated adjacent-rank Q and P norms solely by parameter substitution; the direct Johnson Green and sign solution add necessary work.",
+        "searches": [
+          "arXiv:2305.12582 Theorem on cube edge projection",
+          "Resultary cactus transportation basis projector summary"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "The entire Hamming cube has a different edge set and different cycle/cut subspace; induced edge restriction does not commute with orthogonal cut projection.",
+          "For adjacent two ranks, the source uses a Johnson distance-ball Green solution and a new degree-two electrical dual."
+        ],
+        "reasoning": "Cut-cycle projection and invariant projection are aliases of an orthogonal incidence-Hodge projector, but equality of graph and projector must also be shown; the inspected whole-cube formula is not an equivalent formula for the adjacency-rank graph.",
+        "searches": [
+          "Resultary: Orthogonal projection onto cut and cycle spaces of inclusion graphs between two adjacent levels of Boolean lattice, exact l1 l-infinity norm Johnson graph electric currents",
+          "Dilworth–Kutzarova–Ostrovskii arXiv:2305.12582 §cycle-space invariant projections"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "Resultary leading matches concern cactus edge-basis suppression projections and second-chaos Walsh projections, neither this graph or norm.",
+          "The assigned package gives exact formulas for all 1<=k<=n-2 rather than finite tabulated cases."
+        ],
+        "reasoning": "No directly covering exact table identified in actual searches; this is a bounded search result, not proof of historical novelty.",
+        "searches": [
+          "Resultary: Orthogonal projection onto cut and cycle spaces of inclusion graphs between two adjacent levels of Boolean lattice, exact l1 l-infinity norm Johnson graph electric currents",
+          "Boolean lattice Johnson incidence orthogonal cut projection norms effective resistance"
+        ]
+      },
+      "rationale": "Best-of-knowledge mathematical comparison of the same object, definitions, parameter quantifiers, and implication strength. Foundation and partial coverage are credited explicitly; neither failed searches nor inaccessible full literature alone are represented as novelty proof. Cut-cycle projection and invariant projection are aliases of an orthogonal incidence-Hodge projector, but equality of graph and projector must also be shown; the inspected whole-cube formula is not an equivalent formula for the adjacency-rank graph. Neither cited formula implies the stated adjacent-rank Q and P norms solely by parameter substitution; the direct Johnson Green and sign solution add necessary work.",
+      "residual_risks": [
+        "A differently named Johnson graph electrical-flow computation could contain the same exact norm or imply it after a substantial but known reduction.",
+        "No claim of optimal projection norm among all (nonorthogonal) projections, weighted variants, or intermediate lp norms."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "NOT_COVERING in inspected relevant theorem: graph is the entire hypercube; no same two-level induced graph current classification located.",
+          "evidence": "Dilworth–Kutzarova–Ostrovskii (2023), arXiv:2305.12582, theorem on Hamming cube invariant projection.",
+          "identifier_or_url": "https://arxiv.org/abs/2305.12582",
+          "material_read": "Accessible original PDF, title/abstract, main projection result for entire binary cube, graph and projector definitions, and relevant formulas.",
+          "method": "Primary arXiv PDF, text and page screenshot examination.",
+          "title": "Cycle spaces: invariant projections and applications to transportation cost",
+          "trigger": "Very close cut/cycle orthogonal projection object; possible stronger whole-cube coverage."
+        },
+        {
+          "assessment": "General projection framework, not an observed formula for the (n,k) induced-rank projection.",
+          "evidence": "Dilworth–Kutzarova–Ostrovskii arXiv:1807.03814; graph projection/transport framework.",
+          "identifier_or_url": "https://arxiv.org/abs/1807.03814",
+          "material_read": "Relevant quotient and projection/diamond graph discussion cited in source proof and comparison; did not establish whole-document absence.",
+          "method": "Lawful open-access arXiv material and referenced sections.",
+          "title": "Lipschitz free spaces on finite metric spaces",
+          "trigger": "Transportation-cost basis graph projections as general possible implication."
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "checked_sources": [
+        "Assigned RESULT.md at blob ebab2eb7c930cc5bddfa60cbbcc12fe45155e712",
+        "Assigned verify_boolean_layer_hodge.py at blob d2ebf479b163275e8d17c94eacec7feb2718e619",
+        "arXiv:2305.12582",
+        "arXiv:1807.03814",
+        "Resultary Orthogonal projection onto cut and cycle spaces of inclusion graphs between two adjacent levels of Boolean lattice, exact l1 l-infinity norm Johnson graph electric currents"
+      ],
+      "rationale": "Natural canonical Euclidean cut and cycle projections on adjacent ranks of the Boolean lattice are common in discrete Hodge theory and electrical flows. Exact induced endpoint norms, not solely upper bounds, distinguish bounded fixed-rank and linearly growing central-rank regimes. The uniform edge column and exact resistance provide reusable sharp constants; this is not a renaming of the full Hamming cube projection.",
+      "residual_risks": [
+        "A differently named Johnson graph electrical-flow computation could contain the same exact norm or imply it after a substantial but known reduction.",
+        "No claim of optimal projection norm among all (nonorthogonal) projections, weighted variants, or intermediate lp norms."
+      ],
+      "status": "PASS"
+    }
+  },
+  "checked_sources": [
+    "Assigned RESULT.md at blob ebab2eb7c930cc5bddfa60cbbcc12fe45155e712",
+    "Assigned verify_boolean_layer_hodge.py at blob d2ebf479b163275e8d17c94eacec7feb2718e619",
+    "arXiv:2305.12582",
+    "arXiv:1807.03814",
+    "Resultary Orthogonal projection onto cut and cycle spaces of inclusion graphs between two adjacent levels of Boolean lattice, exact l1 l-infinity norm Johnson graph electric currents"
+  ],
+  "disposition": "passed",
+  "limitations": [
+    "A differently named Johnson graph electrical-flow computation could contain the same exact norm or imply it after a substantial but known reduction.",
+    "No claim of optimal projection norm among all (nonorthogonal) projections, weighted variants, or intermediate lp norms.",
+    "All finite independent calculations corroborate only their tested domain; they do not alone prove infinite, all-real, all-parameter or asymptotic claims.",
+    "Complete publication-sanitation file changes were not prepared or exported; science assessment is complete but publication not ready."
+  ],
+  "residual_risks": [
+    "A differently named Johnson graph electrical-flow computation could contain the same exact norm or imply it after a substantial but known reduction.",
+    "No claim of optimal projection norm among all (nonorthogonal) projections, weighted variants, or intermediate lp norms."
+  ],
+  "schema_version": 1
+}
