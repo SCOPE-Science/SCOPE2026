@@ -1,15 +1,21 @@
-# Scientific review: Uniform \(5/16\) subsequence-universality density in the Rudin–Shapiro word
+# Independent mathematical audit
 
-## Correctness — PASS
-The binary-digit definition yields the four-state substitution via the two identities for even and odd indices. The arch-counting procedure computes the fixed-binary-alphabet subsequence-universality index. The complete three-input-state transfer table is directly checked at level four and propagated inductively by the four substitutions; this yields all integer levels, not an extrapolation from a finite test. An aligned dyadic partition has at most two blocks at each scale, and the block estimate holds for an arbitrary entering state. It follows that every factor has the uniform stated discrepancy. The exact dyadic formula is the `a`-block entry in the same table. The standalone checker verifies the finite bases, algebraic transfer recurrences, independent binary-digit coding, and many direct subsequence tests.
+## correctness
 
-## Originality — PASS (with residual literature uncertainty)
-The closest primary works inspected are Barker et al. (arXiv:2003.04629), Schnoebelen–Veron (arXiv:2304.11932), and Meleshko et al. (arXiv:2207.10171). Their statements concern general arch algorithms, compressed-word signatures, and pseudoperiods, respectively. None of the inspected relevant sections asserts the uniform Rudin–Shapiro factor density or computes the exact dyadic correction. Public mathematical-record comparisons also located results on Rudin–Shapiro string attractors and the distribution of universality over **all** binary words, whose statements do not imply the present deterministic sequence-specific bound. No search can exclude every unpublished or unindexed equivalent formulation.
+PASS
 
-## Mathematical value — PASS
-The result identifies a natural exact asymptotic density, \(5/16\), of universal scattered-subsequence coverage across **every** long factor of a classical automatic word, with an explicit finite-size error uniform in the factor location. It also gives a parity-sensitive exact formula at all dyadic scales. This measures a concrete deletion-robustness invariant rather than recoding a previously tabulated statistic. The substitution transfer lemma is structural and independently reusable for studying other morphic words; no new general theorem beyond the proved one is claimed.
+The binary-digit recurrence r_(2n)=r_n and r_(2n+1)=r_n xor (n mod 2) yields a uniform four-letter morphism a->ab,b->ac,c->db,d->dc, with 0 on a,b and 1 on c,d. For fixed binary alphabet, greedy shortest factors covering both letters (arches) count the maximum length of universally available scattered target subsequences. The complete three-initial-state, four-letter weighted transfer table has m=4 base and composes exactly for all higher m, with <=1 error from (5/16)2^m per aligned block and independent entering state. Every interval has at most two maximal aligned dyadic blocks per scale, giving 2(floor(log2 N)+1) error; the a-transfer gives dyadic parity term. A fresh independent transducer verified m=0..11 and all 11,830 selected factors, and direct digit coding checked; finite checks corroborate induction only.
 
-## Limitations
-The optimal size of the error term is not resolved. The result concerns the fixed binary alphabet and the classical Rudin–Shapiro word, not arbitrary automatic sequences. Exact computations support but do not replace the induction. Independent mathematical audit has not been performed.
+## originality
 
-Self-review: passed. Independent audit: not yet performed.
+PASS
+
+Best-of-knowledge new uniform all-factor 5/16 scattered-subsequence universality and parity-exact dyadic prefix law for Rudin–Shapiro; the generic arch-factorization algorithms and whole-alphabet random-word distribution are prior work and not claimed new. Explicitly compared to Rudin–Shapiro pseudoperiodicity and string-attractor work at invariant level.
+
+## value
+
+PASS
+
+The subsequence-universality index quantifies deletion robustness for every long factor of an important 2-automatic word. An exact 5/16 asymptotic, uniform logarithmic spatial discrepancy, and dyadic parity law are mathematically motivated structural findings; the transfer table is a reusable substitution-cocycle example rather than arbitrary fitted constants.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
