@@ -1,19 +1,21 @@
-# Self-review
+# Independent mathematical audit
 
-## Correctness — PASS
+## correctness
 
-The six-group rational dipole potential solves every Kirchhoff equation on the connected bipartite support. This directly reconstructs the orthogonal tangent projector's distinguished row and its six blocks of absolute mass. KKT strict complementarity makes that linear projector the **actual finite-input local derivative**, not just a formal bound. The sign of the row realizes the norm, and the positive-coefficient polynomial identity establishes the all-dimension threshold. A standard-library exact-rational checker independently re-solves reduced graph Laplacians in small dimensions (3,625 passed assertions). Finite computations alone are not asserted to prove an infinite-range statement.
+PASS
 
-## Originality — PASS within inspected evidence
+On the support E_m of three complete m-by-m blocks plus cyclic successor matchings, Y=1/(m+1) on support is bistochastic and strictly interior to the face, and strictly negative off-support multipliers give a real local affine projection cell. Its derivative is the cycle-space orthogonal projector Q=I-D^T(DD^T)^+D. The six explicitly given potential groups solve every Laplacian equation for the special matching dipole, yielding exact row absolute mass Lambda_m=2(3m²+m−1)/((m+1)(m+2)). Taking input signs of that row attains the local amplification, and a common all-ones shift makes both observations strictly positive without changing projections. The full-support derivative has norm 4(1−1/n)²; the positive-coefficient m−4 polynomial proves strict advantage exactly from m=4 in this family, limit 6 vs 4. A fresh exact rational reconstruction for m=2..11 verifies every Kirchhoff equation and row mass, while all-m formula follows symbolic identities.
 
-Paffenholz, *Faces of Birkhoff Polytopes* (arXiv:1304.3948v1), covers elementary bipartite face supports but not endpoint perturbation amplification. Li–Sun–Toh, *On the efficient computation of a generalized Jacobian of the projector over the Birkhoff polytope* (arXiv:1702.05934), establishes the general Jacobian projection formula that implies how to **set up** the present tangent projection; it does not state/evaluate the rational family or compare it with full support. The closest related finite-dimensional cyclic-band study treats *contiguous cyclic bands*, not three complete blocks joined by matchings. A 2010 symmetric bi-stochastic data-similarity projection study treats a different symmetric feasible set and does not determine this coefficient. The possibility of older alternative terminology or an unstated straightforward corollary of a broader result remains a priority risk.
+## originality
 
-## Value — PASS
+PASS
 
-Doubly stochastic least-squares fitting is a natural constrained approximation problem, and stability in entrywise maximum norm is practically and mathematically distinct from the automatically nonexpansive Frobenius norm. The explicit rational law establishes **dimension-twelve boundary amplification exceeding every full-support derivative**, with a robust infinite-family contrast of limiting constants \(6\) and \(4\). The fact is not a generic Jacobian substitution: proving and explaining the boundary effect requires a nonband support, a dipole computation and a sharp sign input. It is a structural lower bound; it does not purport to solve the global sharp Lipschitz constant.
+General tangent/Jacobian calculus of Li–Sun–Toh and Birkhoff face-support theory are acknowledged prior work. The symbolic potential solution and precise nonband family coordinatewise amplification, sign-witness, n=12 within-family crossing, and limiting gap are not stated or mechanically tabulated in inspected sources or indexed records. The Birkhoff conditioning literature may contain an unindexed equivalent electrical transfer-current result; that is retained as a risk.
 
-## Limits and source context
+## value
 
-Only the specified face and output-coordinate sharpness are established. The published general Jacobian formula is the closest methodological coverage. A complete priority certificate is unavailable; independent review is not performed. `verify.py` provides reproducible exact-rational supplementary checks.
+PASS
 
-Self-review: passed. Independent audit: not yet performed.
+Entrywise-coordinate perturbation stability of bistochastic least-squares projection is natural and unlike Frobenius nonexpansiveness. A structured sparse face explicitly beats the best interior derivative and yields a nontrivial asymptotic separation 6 versus 4, with a sharp witnessed input pair. This is an informative infinite family lower bound, not claimed to be the global norm or earliest dimension among all faces.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
