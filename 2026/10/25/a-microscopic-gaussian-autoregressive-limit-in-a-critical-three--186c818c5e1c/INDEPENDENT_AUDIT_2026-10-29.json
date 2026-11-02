@@ -1,0 +1,150 @@
+{
+  "audit_date_utc": "2026-10-29",
+  "audited_at_utc": "2026-10-29T03:52:35Z",
+  "axes": {
+    "correctness": {
+      "rationale": "Differentiating F(s)=exp((1-r)(F(s)-1)+r(s-1)) at one yields mean mutant-family size 1 and variance 1/r, with higher moments finite from the subcritical Poisson clone family. The symmetric three-type transition matrix has Perron mode 1 and contrast eigenvalue -1/2. The critical size-Doob transform h(N)=S gives exact E^up[D_next|N]=-(1+v/S)D/2 and conditional innovation variance [(v+1)(N1+N2)/4+N3]+O_r(1). Contraction of both non-Perron contrasts yields O(n) second moments and type fractions 1/3, while the total critical Q chain has S_n/n -> Gamma(2,v/2). For a fixed window the size-biased spine changes only O(1) variance, the conditional Lindeberg theorem gives innovations sqrt(W)N(0,(v+3)/6), and geometric forgetting of the remote past gives AR(-1/2); studentization cancels the same W and yields independence. The argument does not extrapolate finite rational checks to infinite n.",
+      "residual_risks": [
+        "The finite-block conditional characteristic-function argument requires uniform moment control of the marked spine, supplied here by finite high offspring moments, not proven by the finite verifier.",
+        "No statement about growing observation-window length or the unconditioned or finite-horizon survival-conditioned process."
+      ],
+      "sources": [
+        "RESULT.md @ blob 8adc22dffdf96305c7727d08ae9fc051c15ab106",
+        "verify.py @ blob 21d6c4b2f02d0ae6d504eb6d1c9fd1005766e013",
+        "independent_checks.py, eigenmodes and variance identities"
+      ],
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Baake–Cordero–Mellis–Wachtel (2025) abstract states a linearly-scaled, macroscopic functional limit for the h-transform.",
+          "Fleischmann–Vatutin 1998 abstract and introductory pages explicitly discuss single-time type-proportion deviations and cite Athreya–Ney 1974 as covering finite-variance one-time laws."
+        ],
+        "reasoning": "Neither inspected theorem concerns fixed positive lags after sqrt(size) normalization; a separate general microscopic functional CLT would cover the result, and its existence has not been conclusively excluded.",
+        "searches": [
+          "Resultary semantic query: critical multitype Galton Watson Q process transverse Gaussian autoregressive fluctuations consecutive generations negative eigenvalue mutation three alleles",
+          "arxiv:2504.21714",
+          "WIAS Preprint 455 (1998)",
+          "doi:10.1214/aop/1176996716"
+        ]
+      },
+      "checked_sources": [
+        "arxiv:2610.20896 (complete HTML relevant sections)",
+        "arxiv:2504.21714 (abstract/metadata only)",
+        "WIAS preprint 455 (abstract and initial pages, screenshots)",
+        "doi:10.1214/aop/1176996716 (citation/attribution only)",
+        "Resultary semantic query for critical multitype consecutive-generation Q fluctuations"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "The 2026 full HTML treats existence/law of mutant Q chain and size-biased spine, including P type transitions, but contains no Gaussian or fluctuation statement in its searchable main text.",
+          "The 2025 result identifies macroscopic Perron-ray h-process scaling; classical fluctuation work identifies one-time transverse limits."
+        ],
+        "reasoning": "Foundations alone do not assert the explicit joint successive-generation covariance. The new proof computes eigenmode innovations and derives the stationary temporal dependence, beyond one-point scaling. Other multitime results with different terminology remain a priority risk.",
+        "searches": [
+          "arxiv:2610.20896 Theorem 5.1 and Proposition 6.3",
+          "arxiv:2504.21714 abstract and Theorem 3.1 description",
+          "WIAS Preprint 455 abstract",
+          "Resultary semantic query: critical multitype Galton Watson Q process transverse Gaussian autoregressive fluctuations consecutive generations negative eigenvalue mutation three alleles"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Three-allele symmetric mutation contrasts are non-Perron eigenvectors with eigenvalue -1/2; the microscopic Q-window is equivalent to finite-lag stationary Gaussian AR(1) after sqrt(S_n) normalization.",
+          "Classical finite-time conditioning and the Q size-biased process differ in population weighting; the result is explicitly for the Q law."
+        ],
+        "reasoning": "A one-time transverse Gaussian mixture is weaker than a multitime stationary Gaussian process with exact signed lag correlations. A macroscopic h-transformed path limit only sees the Perron ray, not the present microscopic fluctuations.",
+        "searches": [
+          "Resultary semantic query: critical multitype Galton Watson Q process transverse Gaussian autoregressive fluctuations consecutive generations negative eigenvalue mutation three alleles",
+          "arxiv:2610.20896 Sections 4 and 6",
+          "arxiv:2504.21714 Theorem 3.1"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "No published mathematical-result hit reported the specific three-allele mutant-family finite-lag covariance or exact AR parameter.",
+          "The limiting invariant is a covariance function, not a finite sequence or tabulated census."
+        ],
+        "reasoning": "The corpus did not provide exact-table dominance; lack of hits alone is not proof of newness.",
+        "searches": [
+          "Resultary semantic query: critical multitype Galton Watson Q process transverse Gaussian autoregressive fluctuations consecutive generations negative eigenvalue mutation three alleles",
+          "Resultary search for critical multitype Q-process covariance negative half lag"
+        ]
+      },
+      "rationale": "The 2026 full arXiv HTML provides the relevant multitype mutant Q process and spine construction but no finite-consecutive-generation Gaussian covariance theorem. The 2025 macro-time functional limit rescales time and population by n and suppresses transverse sqrt(n) fluctuations. The classical 1998/2001 literature and its cited 1974 work already cover single-time transverse fluctuations; only explicit joint Q-law AR(-1/2) and its asymptotic independence from the Gamma population scale are assessed original, with residual multi-time priority risk.",
+      "residual_risks": [
+        "Athreya–Ney 1974 full text and later equivalent multi-time Gaussian process theorems have not been exhaustively inspected; they could dominate the result.",
+        "The older 1998 paper was only partially materially inspected due to extraction timeout; no whole-paper NOT_COVERING inference is made."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "MODEL_COVERED_LIMIT_NOT_STATED",
+          "evidence": "Paper supplies the size-biased spine and laws; no inspected theorem gives AR(-1/2) Gaussian finite-window limit.",
+          "identifier_or_url": "https://arxiv.org/abs/2610.20896",
+          "material_read": "Complete arXiv-rendered HTML available (PDF endpoint blocked): Sections 2–6 including model P, Q-law, Theorem 5.1 and Proposition 6.3, searchable text checked for Gaussian/fluctuation.",
+          "method": "Compared offspring/Q definitions and theorem conclusions to fixed-lag Gaussian fluctuation claim.",
+          "title": "The Q-process for the general mother-dependent multitype branching process",
+          "trigger": "Direct parent model and spine law"
+        },
+        {
+          "assessment": "MACRO_ONLY_IN_ACCESSIBLE_MATERIAL",
+          "evidence": "Abstract explicitly uses linearly-scaled h-transformed process; this cannot by itself determine fixed-generation transverse fluctuations.",
+          "identifier_or_url": "https://arxiv.org/abs/2504.21714",
+          "material_read": "Public title, authors and abstract; full paper not read in this run.",
+          "method": "Compared the stated time/population scaling and output state with the transverse n^1/2 fluctuations.",
+          "title": "Critical multitype branching: a functional limit theorem and ancestral processes",
+          "trigger": "Potential stronger functional limit"
+        },
+        {
+          "assessment": "ONETIME_FOUND_FURTHER_RISK",
+          "evidence": "Classical single-time deviation laws are credited; a possible uninspected joint-time theorem is explicitly left as risk.",
+          "identifier_or_url": "https://webdoc.sub.gwdg.de/ebook/serien/e/wias/1998/1998/wias_preprints_455.pdf",
+          "material_read": "Lawful primary 21-page PDF available; read abstract and opening definitions, verified page images 2 and 4. Further full-text extraction timed out.",
+          "method": "Compared central statements of projected deviations and finite-variance predecessor literature.",
+          "title": "Deviations from typical type proportions in critical multitype Galton-Watson processes",
+          "trigger": "Classical finite-variance stronger-coverage risk"
+        },
+        {
+          "assessment": "MATERIAL_ACCESS_PRIORITY_RISK",
+          "evidence": "Possible broader 1974 functional theorem remains an important residual risk.",
+          "identifier_or_url": "https://doi.org/10.1214/aop/1176996716",
+          "material_read": "Bibliographic citation and attribution from 1998 source; original article full text not inspected.",
+          "method": "Recorded 1998 source attribution without claiming exclusion of 1974 propositions.",
+          "title": "Functionals of critical multitype branching processes",
+          "trigger": "Early primary transverse CLT"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "rationale": "The critical Q population grows linearly with a random Gamma scale, but allele-composition noise relaxes on a single-generation time scale and alternates sign. The explicit negative-half lag correlation independent of mutation rate, plus independence after self-normalization, characterizes a natural mechanistic time-scale separation not captured by the macroscopic Perron-ray limit.",
+      "residual_risks": [
+        "Only symmetric three alleles with fixed r and fixed finite generation window are established."
+      ],
+      "sources": [
+        "arxiv:2610.20896 natural mutant Q-process family",
+        "arxiv:2504.21714 macroscopic comparison",
+        "RESULT.md explicit covariance and Gaussian normalization"
+      ],
+      "status": "PASS"
+    }
+  },
+  "checked_sources": [
+    "arxiv:2610.20896 (complete HTML relevant sections)",
+    "arxiv:2504.21714 (abstract/metadata only)",
+    "WIAS preprint 455 (abstract and initial pages, screenshots)",
+    "doi:10.1214/aop/1176996716 (citation/attribution only)",
+    "Resultary semantic query for critical multitype consecutive-generation Q fluctuations"
+  ],
+  "disposition": "passed",
+  "limitations": "Publication withheld: PUBLIC AUDIT.json and METADATA.json both contain the operational scope_run_id field. Complete guarded, confidentiality-neutral file replacements were not prepared; no public source package should be delivered or imported from this plan.",
+  "residual_risks": [
+    "The finite-block conditional characteristic-function argument requires uniform moment control of the marked spine, supplied here by finite high offspring moments, not proven by the finite verifier.",
+    "No statement about growing observation-window length or the unconditioned or finite-horizon survival-conditioned process.",
+    "Athreya–Ney 1974 full text and later equivalent multi-time Gaussian process theorems have not been exhaustively inspected; they could dominate the result.",
+    "The older 1998 paper was only partially materially inspected due to extraction timeout; no whole-paper NOT_COVERING inference is made.",
+    "Only symmetric three alleles with fixed r and fixed finite generation window are established."
+  ],
+  "schema_version": 1
+}
