@@ -1,0 +1,112 @@
+{
+  "correctness": {
+    "rationale": "Weighted-value conservation and a one-index-per-round propagation of each surviving collision are rigorously proved; an index at or above floor(log2 N) cannot contain two units. Binary convolution has coefficient zero at most one; the explicit odd-k product family proves sharpness. Exhaustive and independent integer test implementations check 1359 vectors and 65025 factor pairs; they supplement, not replace, the proof.",
+    "status": "PASS"
+  },
+  "independent": false,
+  "independent_audit_status": "not_performed",
+  "originality": {
+    "broader_coverage": {
+      "evidence": [
+        "Iizumi (2026), Lemma 1 asserts only eventual termination and Remark 6 presents the claimed logarithmic inequality as empirical.",
+        "Izsak--Pippenger (2011, DOI:10.1145/2000807.2000822) studies asymptotic random multiplicand carry-chain lengths under carry-save and final carry-propagate adders."
+      ],
+      "reasoning": "A qualitative termination lemma does not specify a depth, and a probabilistic limit law for a different sequence of addition operations does not imply a deterministic upper bound for all binary pre-carry convolution profiles. The new bound applies to arbitrary nonnegative finite coefficient vectors, a strictly broader domain than multiplication.",
+      "searches": [
+        "Universal upper bound on parallel carry depth of binary multiplication pre-carry convolution L_par(a,b) <= floor(log2 a)+floor(log2 b) from support and bit length",
+        "Proof of empirical conjecture Q3 tight bounds parallel carry depth binary factorisations all integers",
+        "Iizumi \"parallel carry\" \"upper bound\" \"Q3\" solution",
+        "Izsak Pippenger 2011 multiplication longest carry propagation chain parallel multiplication coefficient convolution"
+      ]
+    },
+    "checked_sources": [
+      "Iizumi (2026) Definitions 1 and 4, Lemma 1, Proposition 1, Remark 6 and Q3; DOI 10.1080/27684830.2026.2727395.",
+      "Izsak--Pippenger (2011) abstract, arXiv:0801.4040.",
+      "Public research-index semantic searches q1--q6 and web wording/equivalent-formulation searches.",
+      "Accessible 44 claims in the contemporaneous local research ledger, checked for parallel-carry and binary-convolution overlap."
+    ],
+    "claim_vs_prior_implication": {
+      "evidence": [
+        "Same-model source explicitly says in Remark 6 that establishing the inequality is left open, and asks in Q3 whether it can be proved.",
+        "Proposition 1 already supplies an equality family but no universal upper bound.",
+        "The surviving lemma uses a leftmost-collision lower support threshold and invariant total weighted value to force exhaustion at the binary length."
+      ],
+      "reasoning": "Existence of sharp examples plus a proposed inequality does not entail its universal validity. Neither qualitative termination nor an example demonstrates an all-pairs bound. The new support-propagation argument supplies the missing universal implication and even refines it by the first initial collision index.",
+      "searches": [
+        "Universal upper bound on parallel carry depth of binary multiplication pre-carry convolution L_par(a,b) <= floor(log2 a)+floor(log2 b) from support and bit length",
+        "Proof of empirical conjecture Q3 tight bounds parallel carry depth binary factorisations all integers",
+        "Iizumi \"parallel carry\" \"upper bound\" \"Q3\" solution",
+        "\"parallel carry depth\" \"binary convolution\" bound proof 2026 October"
+      ]
+    },
+    "equivalent_formulations": {
+      "evidence": [
+        "Iizumi (2026), Definition 4 gives the identical synchronous quotient-remainder map and Question 9.5.3 asks for its all-factor depth bound.",
+        "Publisher-indexed full-article material contains Lemma 1 qualitative termination, with no first-collision quantitative inequality.",
+        "Search results closest in the indexed research collection concerned digital-weight product classifications, not parallel carry normalization."
+      ],
+      "reasoning": "Comparing the update and quantified statement, the current theorem bounds every nonnegative coefficient vector using its leftmost collision r, then specializes to all factor pairs. The originating text reports the factor-pair inequality as empirical rather than proved. No equivalent indexed theorem was returned; absence from search is not proof of uniqueness.",
+      "searches": [
+        "Binary convolution height carry-wave bound Iizumi binary parallel carries propagation collision at each bit",
+        "\"Binary convolution height\" \"L_par\" universal",
+        "\"parallel carry depth\" \"binary convolution\" bound proof 2026 October"
+      ]
+    },
+    "exact_database_or_table": {
+      "evidence": [
+        "Iizumi (2026), Remark 6 reports 483,533 tested nontrivial factorizations through product at most 100000 and expressly distinguishes empirical evidence from proof.",
+        "Search of the accessible research index returned no matching exact carry-depth theorem or complete table of arbitrary inputs."
+      ],
+      "reasoning": "A finite verification table does not establish an infinite all-factor bound. The sharpness family is already in Iizumi Proposition 1 and is properly attributed. This theorem is not a recomputation of a known table or a statement about finite tested inputs alone.",
+      "searches": [
+        "\"parallel carry depth\" \"support\" multiplication upper bound proof",
+        "\"Binary convolution height\" \"L_par\" universal",
+        "\"carry rounds\" coefficient at index k requires original collision k-t"
+      ]
+    },
+    "rationale": "The same mathematical model primary source states the factor bound as empirically observed and explicitly asks for a proof; a first-collision theorem with a stronger product-bit consequence is not established in the inspected primary material or returned public research records. Probabilistic carry-chain literature treats a different procedure. Priority remains provisional pending independent broader review.",
+    "residual_risks": [
+      "Elementary collision-propagation bounds may have been proved implicitly in older computer-arithmetic literature without indexed matching wording.",
+      "Direct publisher HTML fetch was blocked, although the relevant exact sections were accessible through its rich public index.",
+      "Previous-period archived ledgers were not available in this environment for complete in-house historical comparison; current accessible ledger was checked.",
+      "No independent mathematical or novelty audit has been conducted."
+    ],
+    "source_inspections": [
+      {
+        "assessment": "Explicitly posed as open in the inspected same-model source; the inspected sections contain no quantitative proof. Unread material remains a priority risk.",
+        "evidence": [
+          "Definition 4 fixes the identical round recurrence.",
+          "Lemma 1 proves only termination.",
+          "Remark 6 calls the proposed bound empirical and Q3 asks for proof.",
+          "Proposition 1 proves sharpness family, which is attributed."
+        ],
+        "identifier_or_url": "https://doi.org/10.1080/27684830.2026.2727395",
+        "material_read": "Publisher-indexed HTML full-article text covering Definitions 1 and 4, Lemma 1, Section 5.1, Proposition 1, Remark 6, Q3 in Section 9.5.3, and Conclusion; direct publisher-page fetch failed.",
+        "method": "Indexed full-article HTML textual retrieval and section-by-section statement comparison; not a claim of reading the PDF.",
+        "title": "Binary convolution height: Structural invariants of integer factorisations",
+        "trigger": "Exact same synchronous update and explicit published conjecture"
+      },
+      {
+        "assessment": "Different probabilistic carry-save/addition architecture; not an established bound on same deterministic parallel coefficient update.",
+        "evidence": [
+          "The studied statistic is the asymptotic longest carry chain for random n-bit multiplicands and fixed odd multiplier.",
+          "Final carry-propagate addition follows carry-save reductions, rather than the present synchronous recurrence."
+        ],
+        "identifier_or_url": "https://arxiv.org/abs/0801.4040",
+        "material_read": "Abstract and bibliographic/algorithm description; complete article not inspected.",
+        "method": "Open-access arXiv abstract and institutional bibliography abstract comparison.",
+        "title": "Carry Propagation in Multiplication by Constants",
+        "trigger": "Closely named carry-propagation analysis cited by the primary source"
+      }
+    ],
+    "status": "PASS"
+  },
+  "review_type": "self_review",
+  "schema_version": 1,
+  "scope_run_id": "47e89f66-9eff-43ad-a22c-121a5188b2cb",
+  "self_review_status": "passed",
+  "value": {
+    "rationale": "Proves the explicit Q3 universal logarithmic carry bound posed in a September 2026 number-theory paper and sharpens it uniformly using first-collision position and product bit length, with an infinite sharp family already known from that paper. This replaces a 483533-case experiment by a general structural propagation lemma; it does not resolve the separate height-dependent part of Q3.",
+    "status": "PASS"
+  }
+}
