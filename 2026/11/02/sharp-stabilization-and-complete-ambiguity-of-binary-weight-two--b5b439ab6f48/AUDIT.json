@@ -1,0 +1,119 @@
+{
+  "correctness": {
+    "rationale": "For every k>=2,n>=3k-2, clipped three gaps determine all nonzero k-mer multiplicities; balanced directed flow at order k-1 identifies boundary strings except when equal. In the equal one-marker boundary case all k one-one-mer profiles occur exactly once, giving a unique k-1-member collision family. Count capped triples: k^3-(k-1)^3 with k-2 collapsed copies; at n=3k-2 remove only all-capped triple. Standalone full enumeration verifies 110 parameter instances, 31,240 sources, both directions of equivalence; tests are corroboration, not all-parameter proof.",
+    "status": "PASS"
+  },
+  "independent": false,
+  "independent_audit_status": "not_performed",
+  "originality": {
+    "broader_coverage": {
+      "evidence": [
+        "Kiah et al. Theorem 3.3 supplies quasipolynomial general constrained graph asymptotics, not an exact all-k formula when word composition is fixed at two ones.",
+        "Chee et al. Section 4 counts RLL words and admissible necklaces, not multiplicity-profile classes of fixed marker weight."
+      ],
+      "reasoning": "The general results are stronger in alphabet/range coverage but concern different observables or only asymptotic cardinalities. Their stated implications do not entail the saturated quadratic polynomial or each exceptional collision without a new specialization proof.",
+      "searches": [
+        "Codes for DNA Sequence Profiles Kiah Puleo Milenkovic 2015 restricted Hamming weight two",
+        "Exact distinct k-gram count profiles for linear binary words Hamming weight two arbitrary read length k",
+        "arxiv:1502.00517v1 Sections 2,3",
+        "arxiv:2403.01454v1 Sections 2,4"
+      ]
+    },
+    "checked_sources": [
+      "https://arxiv.org/html/2403.01454v1",
+      "https://arxiv.org/html/1502.00517v1",
+      "https://geodesic.mathdoc.fr/articles/10.46298/dmtcs.2768/",
+      "Published result: Exact binary two-multispectrum code size and singleton classification",
+      "Published result: Exact binary r=2 length-limited composition reconstruction",
+      "Related result: A sharp saturation law for two-marker length-limited composition decks"
+    ],
+    "claim_vs_prior_implication": {
+      "evidence": [
+        "The owned related claim observes unordered compositions of all substrings of length at most a cutoff; the new claim observes the ordered full word of each substring of one fixed length, and the two observation maps cannot be interchanged.",
+        "The older unrestricted-weight two-read count applies only to k=2 and is an aggregate over all weights; it does not classify weight-two fixed k>=3 fibers."
+      ],
+      "reasoning": "The new theorem neither restates a two-read formula nor follows as a numerical corollary of a composition-multiset count: forgetting ordering loses different data, while pooling lengths adds other data. De Bruijn flow is used to supply the extra claimed comparison.",
+      "searches": [
+        "Binary weight-two fixed k-mer spectrum / k-gram profile equivalence, two one markers, initial and terminal zero gaps, de Bruijn type, multiset reconstruction",
+        "Linear binary length-n words of weight 2 with indistinguishable k-gram multisets, exact zero-error code capacity",
+        "Related result: A sharp saturation law for two-marker length-limited composition decks",
+        "Published result: Exact binary r=2 length-limited composition reconstruction"
+      ]
+    },
+    "equivalent_formulations": {
+      "evidence": [
+        "Exact read-multiset equality can be formulated as equality of directed edge-multisets of a length-(n-k+1) de Bruijn path, but edge-balance by itself does not classify all sparse two-marker path fibers.",
+        "Kiah et al. Sections 2–3 give this edge-flow representation generally, without the explicit clipped-gap exceptional class."
+      ],
+      "reasoning": "A general graph representation is an equivalent model, not an explicit classification. Neither compared full-text statement nor the nearest listed two-read result gives the all-k, weight-two, noncyclic collision criterion or sharp stabilization.",
+      "searches": [
+        "Binary weight-two fixed k-mer spectrum / k-gram profile equivalence, two one markers, initial and terminal zero gaps, de Bruijn type, multiset reconstruction",
+        "Linear binary length-n words of weight 2 with indistinguishable k-gram multisets, exact zero-error code capacity",
+        "Published result: Exact binary two-multispectrum code size and singleton classification"
+      ]
+    },
+    "exact_database_or_table": {
+      "evidence": [
+        "The closest retrieved database record counts binary length-two read profiles of unrestricted-weight words; another counts length-limited unordered compositions; neither stores this two-marker fixed ordered-read profile law.",
+        "Finite profile counts for k=2..11 were generated afresh by the attached standalone verifier, not imported from a known table."
+      ],
+      "reasoning": "Actual record searches located no exact matching count or fiber table. The absence of a hit is only bounded-search evidence, not mathematical proof of uniqueness.",
+      "searches": [
+        "Exact count 3k^2-4k+3 distinct length-k substring frequency vectors of binary strings with exactly two ones, saturation n>=3k-1, k-mer histogram",
+        "Spectrum and saturation of contiguous length k substring multiset for words with exactly two ones",
+        "Binary weight-two fixed k-mer spectrum / k-gram profile equivalence, two one markers, initial and terminal zero gaps, de Bruijn type, multiset reconstruction"
+      ]
+    },
+    "rationale": "Direct comparisons of original 2024 RLL de Bruijn maximum sequence work and 2015 DNA profile vector asymptotics show neither explicitly derives this two-marker linear read-multiset fiber law; closest published and previously reported claims change the observable or weight restriction. An implicit equivalent subcase elsewhere remains a documented risk.",
+    "residual_risks": [
+      "Implicit specialization of older all-parameter Markov-type or sparse k-spectrum counting theory, not located with bounded source and record searches.",
+      "The full body of Jacquet et al. was not inspected; only its abstract and bibliographic description were compared."
+    ],
+    "source_inspections": [
+      {
+        "assessment": "NOT_COVERING of this exact two-marker linear k-mer multiset profile theorem in inspected relevant material; general path background overlaps.",
+        "evidence": [
+          "arXiv:2403.01454v1 header 2024-03-03; Sections 1,2,4.",
+          "Theorems 2.13 and Corollaries 4.8–4.9 enumerate maximum RLL sequences and read-window counts rather than equivalence classes under count profiles."
+        ],
+        "identifier_or_url": "https://arxiv.org/html/2403.01454v1",
+        "material_read": "arXiv first-public v1 header, abstract, Section 1 definitions and de Bruijn path model, Section 2 maximum-trail proofs, Section 4 counting admissible RLL words and necklaces.",
+        "method": "Read original full-text HTML sections and theorem statements, comparing channel/source restrictions, fiber object, and exact counts.",
+        "title": "Maximum Length RLL Sequences in de Bruijn Graph",
+        "trigger": "Newest dated dated research source with same de Bruijn graph object and substring windows."
+      },
+      {
+        "assessment": "NOT_COVERING as explicit result of the checked sections; strongest general tool is asymptotic/quasipolynomial counting, whereas the claimed two-marker fiber characterization has an exact sharp stabilization law.",
+        "evidence": [
+          "arXiv:1502.00517v1 Sections 2,3,3-A.",
+          "Theorem 3.3 counts profile vectors for strongly connected allowed k-mer graphs by asymptotic quasipolynomials."
+        ],
+        "identifier_or_url": "https://arxiv.org/html/1502.00517v1",
+        "material_read": "Original full-text HTML abstract, introduction, Section 2 definition of profile vectors, Sections 3 and 3-A enumeration and Theorems 3.3 and Corollary 3.4; proof-scope excerpts.",
+        "method": "Compare exact profile vector definition, de Bruijn edge-flow representation, restricted-graph assumptions, general asymptotic theorem and source-weight constraints.",
+        "title": "Codes for DNA Sequence Profiles",
+        "trigger": "Direct primary predecessor defining the exact observation map and de Bruijn profile enumeration."
+      },
+      {
+        "assessment": "No statement-level direct coverage observed; incomplete body access leaves meaningful residual risk.",
+        "evidence": [
+          "DOI 10.46298/dmtcs.2768 abstract describes asymptotic Markov type count and balanced matrices."
+        ],
+        "identifier_or_url": "https://geodesic.mathdoc.fr/articles/10.46298/dmtcs.2768/",
+        "material_read": "Bibliographic record and abstract only; not presented as a full-text inspection.",
+        "method": "Compare abstract level generality of Markov frequency matrix counts and asymptotic conclusion against specified finite exact sparse-source classification.",
+        "title": "Counting Markov Types",
+        "trigger": "Prior general type-counting theory might dominate a sparse exact k-mer result."
+      }
+    ],
+    "status": "PASS"
+  },
+  "review_type": "self_review",
+  "schema_version": 1,
+  "scope_run_id": "b5b439ab-6f48-4083-9bd7-e01cd7b0bc40",
+  "self_review_status": "passed",
+  "value": {
+    "rationale": "Full exact profile equivalence and sharp length stabilization for a natural sparse binary sequencing channel. Identifies a unique nontrivial exceptional fiber and exact zero-error coding capacity for all k>=2; not merely numerical checking, renaming, or an arbitrary low-length slice. The de Bruijn balance argument pinpoints why several distinct sparse sources become indistinguishable.",
+    "status": "PASS"
+  }
+}
