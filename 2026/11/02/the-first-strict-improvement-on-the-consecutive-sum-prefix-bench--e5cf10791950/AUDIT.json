@@ -1,0 +1,98 @@
+{
+  "correctness": {
+    "rationale": "Exact exhaustive enumeration of 33,554,406 unique nonzero subset masks N<=24; each admissible sequence corresponds bijectively to a mask and each interval sum to a prefix difference. Integer checker asserted per-N maxima, full-mask equality through N=23, unique maximizer mask 2^24-1-2^10, M(24)=188 versus 186; replay succeeded. Independent Boolean-array subchecks support implementation. No extrapolation beyond 24.",
+    "status": "PASS"
+  },
+  "independent": false,
+  "independent_audit_status": "not_performed",
+  "originality": {
+    "broader_coverage": {
+      "evidence": [
+        "Published bounds are order N^2 and a strict asymptotic deficit; they do not specify a unique smallest finite crossover or enumerate maximizers at N=24."
+      ],
+      "reasoning": "The cited asymptotic existence and upper bound neither imply the exact N=24 value nor uniqueness. No stronger exact finite classification identified.",
+      "searches": [
+        "maximum number distinct consecutive sums of strictly increasing sequence subset [n] exact n=20 finite extremizers Beker Erdős Graham",
+        "arxiv:2311.10087v1 Theorems 1.2–1.5",
+        "doi:10.1112/blms.13098"
+      ]
+    },
+    "checked_sources": [
+      "arxiv:2311.10087v1",
+      "doi:10.1112/blms.13098",
+      "published mathematical record similarity search for consecutive sums and finite exact maxima"
+    ],
+    "claim_vs_prior_implication": {
+      "evidence": [
+        "Beker's theorem establishes positive quadratic-scale examples, with full prefixes asymptotically suboptimal. Such general bounds do not decide which N first exceeds the full sequence or the structure of all critical optimizers."
+      ],
+      "reasoning": "Novelty is restricted to the sharply located finite first crossover plus uniqueness, not the known phenomenon of eventual suboptimality.",
+      "searches": [
+        "maximum number distinct consecutive sums of strictly increasing sequence subset [n] exact n=20 finite extremizers Beker Erdős Graham",
+        "Adrian Beker 2023 sum intervals first twenty n exact maximum",
+        "first n removing one integer improves number distinct consecutive sums 24 11",
+        "arxiv:2311.10087v1 Introduction and Section 3"
+      ]
+    },
+    "equivalent_formulations": {
+      "evidence": [
+        "Beker reduces consecutive sums to positive differences of prefix sums; no finite first-crossover formula appears in inspected text."
+      ],
+      "reasoning": "The classification can equivalently be stated as a difference-set maximization on partial-sum sets with strictly increasing gaps in [1,N]. This is tested by the same exact mask enumeration, not a separate weaker claim.",
+      "searches": [
+        "maximum number distinct consecutive sums of strictly increasing sequence subset [n] exact n=20 finite extremizers Beker Erdős Graham",
+        "Adrian Beker 2023 sum intervals first twenty n exact maximum",
+        "arxiv:2311.10087v1 section 1,3"
+      ]
+    },
+    "exact_database_or_table": {
+      "evidence": [
+        "Internet phrase searches around 24 and 188 did not locate an identical table; primary paper contains no 24/188 finite census."
+      ],
+      "reasoning": "Available table checks are not exhaustive; hidden or unindexed computations remain a substantive bibliographic risk.",
+      "searches": [
+        "maximum number distinct consecutive sums of strictly increasing sequence subset [n] exact n=20 finite extremizers Beker Erdős Graham",
+        "Adrian Beker 2023 sum intervals first twenty n exact maximum",
+        "Beker \"24\" \"188\" consecutive sums strictly increasing Erdős Graham"
+      ]
+    },
+    "rationale": "Beker's motivating 2023 first-public paper and 2024 journal version prove asymptotic bounds, not the least finite loss of full-prefix optimality. Exact first crossover N=24, complete critical maximizers, and values are not implied by those asymptotic bounds. Published-record searches did not return same finite threshold; risk of unindexed computations is noted.",
+    "residual_risks": [
+      "A pre-existing finite computational table may be unindexed or unpublished.",
+      "The result is a sharply bounded finite computation and does not strengthen established asymptotic constants."
+    ],
+    "source_inspections": [
+      {
+        "assessment": "Asymptotic existence and upper bound are established; no N=24 exact threshold or unique optimizer stated.",
+        "evidence": [
+          "arxiv:2311.10087v1; Theorem 1.2, Proposition 1.5, Section 3"
+        ],
+        "identifier_or_url": "https://arxiv.org/abs/2311.10087",
+        "material_read": "Full arXiv HTML text covering Introduction, main theorem proofs, and Section 3 concluding remarks; searched first-threshold and numerical keywords.",
+        "method": "Section-level full-text reading and targeted find",
+        "title": "On a problem of Erdős and Graham about consecutive sums in strictly increasing sequences",
+        "trigger": "Same exact extremal function and baseline"
+      },
+      {
+        "assessment": "Primary MSC verified 11B13, secondary 05D40; no distinct exact computation claimed in journal metadata.",
+        "evidence": [
+          "doi:10.1112/blms.13098; subject 11B13 primary"
+        ],
+        "identifier_or_url": "https://doi.org/10.1112/blms.13098",
+        "material_read": "Journal metadata, abstract, first-public details and author classification; full-body novelty comparison relied on accessible preprint.",
+        "method": "Journal record plus lawful preprint cross-reference",
+        "title": "On a problem of Erdős and Graham about consecutive sums in strictly increasing sequences, journal record",
+        "trigger": "Check publication equivalence, primary subject and related coverage"
+      }
+    ],
+    "status": "PASS"
+  },
+  "review_type": "self_review",
+  "schema_version": 1,
+  "scope_run_id": "e5cf1079-1950-4f1a-b956-f5d12589e41a",
+  "self_review_status": "passed",
+  "value": {
+    "rationale": "The least N where a canonical increasing-prefix benchmark from the published Erdős–Graham problem fails is a natural mathematically defined threshold, not an arbitrary slice. Proof gives the exact first crossover and uniquely identifies the optimizer, supplying an exact structural boundary missing from asymptotic theory. Gain of two is not claimed significant in isolation.",
+    "status": "PASS"
+  }
+}
