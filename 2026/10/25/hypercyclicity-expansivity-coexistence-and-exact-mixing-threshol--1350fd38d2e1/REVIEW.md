@@ -1,19 +1,21 @@
-# Self-review
+# Independent mathematical audit
 
-## Correctness — PASS
+## correctness
 
-The weighted shift and inverse are continuous on the mixed norm/product topology. Exact cancellation gives the fixed-coordinate comparison with \(P_n\); from this, metric positive expansivity is equivalent to unbounded products. The finite-support transitivity construction proves hypercyclicity for zero liminf and mixing for full convergence to zero. Norm-projection tests prove necessity. The alternating-block witness satisfies the two opposite asymptotics exactly. Every infinite-dimensional assertion is supported by an analytical argument, not finite enumeration.
+PASS
 
-## Originality — PASS (historical-priority risk remains)
+The left normed and right product summands make the weighted backward bilateral shift and its inverse continuous. Each fixed-coordinate n-step amplitude Q_{n,k} differs from P_n by bounded finitely many factors. Unbounded sup P forces every nonzero vector to exceed a fixed norm-seminorm threshold eventually; bounded P leaves arbitrarily scaled e_0 with tiny entire forward orbits. The hypercyclicity transitivity criterion uses finite support u and v with T^{n_r}u -> 0 whenever P_{n_r}->0, while T^{-n_r}v->0 coordinatewise on right. Dense-orbit visits to small norm-neighborhoods imply liminf P=0. Full-sequence versions give mixing; mixing necessity uses U near x_0=1 and V with negative-coordinate norm <eps to force P_n<2eps for all sufficiently large n. Alternating negative weights 2 and 1/2 in blocks of lengths 2,4,6,... make products oscillate between 2^{2m} and 2^{-2m}, showing coexistence without mixing. Independent finite symbolic alternating-block exponent checks corroborated endpoints; no finite test establishes the Fréchet dynamics.
 
-The focal full text of López-Martínez and Menet (arXiv:2610.19954v1), especially Section 3, proves invertible positive expansivity on \(\ell^p\oplus\omega\) but not the combined hypercyclic/mixing thresholds. Bernardes et al. (JFA 2025, Theorem 42) give a general topological-expansivity criterion and are credited for that component. The accessible 2025 arXiv treatment of other expansivity notions does not identify the coexistence phase. Relevant semantic research records and accessible prior claims supplied no dominating full statement; older general weighted-shift criteria may contain an implicit equivalent formulation and require independent priority review.
+## originality
 
-## Mathematical value — PASS
+PASS
 
-The complete exact product criterion separates three natural dynamical properties and produces a single invertible nonnormable-space shift that is both hypercyclic and positively expansive, but necessarily not mixing. This is mathematically motivated by the distinction between metric positive expansivity and the known transitivity obstruction for uniform positive expansivity.
+Best-of-knowledge original remainder after separately excluding known component formulas and narrower/other-object antecedents. Theorem 3.1 supplies existence of positive expansivity in mixed norm/product Fréchet spaces, not the simultaneous hypercyclic product oscillation and exact mixing threshold for this variable-weight family. Bernardes et al JFA 2025 Theorem 42 already gives general expansive-weighted-shift criteria and standard hypercyclicity criteria predate this work, so component equivalences alone cannot be claimed original; the scoped synthesis and coexistence example are the asserted remainder.
 
-## Limitations
+## value
 
-The result applies to these mixed Fréchet shifts with negative weights uniformly bounded above and below; no general claim is made for all Fréchet operators or the stronger uniform expansivity property. Independent audit and comprehensive historical-priority verification are not performed.
+PASS
 
-Self-review: passed. Independent audit: not yet performed.
+The simultaneous precise phase diagram separates hypercyclicity, mixing and (weak metric) positive expansivity on a canonical nonnormable Fréchet space, resolving the apparent tension between dense forward orbits and uniform separation for this natural mixed shift; no general Fréchet assertion or uniform expansivity claimed.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
