@@ -5,8 +5,11 @@
     "status": "not_performed"
   },
   "independent_audit": {
-    "evidence": null,
-    "status": "not_performed"
+    "status": "passed",
+    "evidence": [
+      "INDEPENDENT_AUDIT_2026-10-28.md",
+      "INDEPENDENT_AUDIT_2026-10-28.json"
+    ]
   },
   "lean_verification": {
     "evidence": null,
@@ -15,8 +18,25 @@
   "schema_version": 1
 }
 ---
-# Reproducible checks and limits
 
-Run `python3 verify.py` from the extracted file directory with Python 3 and no third-party packages. `verify_output.txt` contains the deterministic output from the script. It enumerates all \(96\) proper named four-color assignments of \(K_{2,2,2}\) and checks their envy directed cycles. It also enumerates all \(2940\) proper five-color assignments for \(K_{2,3,3}\) and all \(165360\) proper six-color assignments for \(K_{2,4,4}\), for the explicit amplified profiles. The script computes adjacency and preference arcs from definitions and detects directed cycles; no cached classification table is used. It checks the four cases lacking an envy two-cycle directly for a directed triangle.
+# Independent mathematical audit
 
-For the infinite claim, verification relies on the proof's quantified induction and an explicit acyclic orientation. No finite enumeration is presented as an infinite certificate. The accessible foundational arXiv paper supplies the general reachability and subgraph-monotonicity theorems; the seed has a separate internal exhaustive checker and a published triangular-prism implication. Independent audit remains not performed.
+## correctness
+
+PASS
+
+The part-directed acyclic orientation gives maximum reachable-set size m+3. A two-part augmentation lemma shows adding q vertices to each of two parts forces q additional palette colors: level-i rankings forbid every level-i vertex color <i by an envy 2-cycle, and forbid the core colors <=q. An explicit K222 seed profile exhausts all 96 proper 4-color assignments, 92 with envy 2-cycles and four with 3-cycles. Independent pure Python enumeration recovered exactly these numbers and exceptional color vectors, so the seed holds; induction and subgraph monotonicity yield all m,n.
+
+## originality
+
+PASS
+
+Koana–Oh–Yoneda defines this exact invariant, proves reachability upper bound, subgraph monotonicity and a prism obstruction implying K222>=5; published K233=6 is prior. Neither identified statement gives the two-part amplification to all m>=4. Relevant full Koana paper could not be retrieved (OA attempt and Oxford VPN disconnected), leaving a nonzero priority risk but no strong identified coverage.
+
+## value
+
+PASS
+
+An exact infinite-family preference-stable coloring threshold for complete tripartite graphs is a natural combinatorial invariant. A general lower-bound amplification lemma provides structurally reusable content beyond isolated small examples; its value is not based on 96-case enumeration alone.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
