@@ -1,0 +1,121 @@
+{
+  "audit_date_utc": "2026-10-30",
+  "audited_at_utc": "2026-10-30T09:49:32Z",
+  "axes": {
+    "correctness": {
+      "rationale": "Given source recovery lifetimes, receiver states solve q′=h(1-q)-mu q independently. Linearization q0=(lambda/m)exp(-mu t)sum_i int_0^(L_i wedge t)exp(mu s)ds has n E q0->lambda Phi(theta)exp(-x) at t=log n+loglog n+x, and variance O(1/log n) from independent source lifetimes. The difference q0-q is nonnegative and has expectation at scale n bounded O(1/log n) via the explicit two-source covariance. Conditional binomial n,q then converges to Poisson; surviving source probability ≤m exp(-t)=O(1/log n), and zero infected is absorbing, giving the Gumbel zero-atom. The detuning theta=0 follows from continuous exponential quotient. Independent finite formula computations support normalization, albeit slow convergence at finite n when theta<0.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Heinzmann demands irreducibility and simple leading eigenvalue",
+          "Windridge supplies a single exponential survival tail",
+          "SIS 2015 full text not read"
+        ],
+        "reasoning": "The strongest actually inspected general theorem is inapplicable at spectral coalescence, so it does not imply this near-resonant profile.",
+        "searches": [
+          "Heinzmann 2009 Theorem2.1",
+          "Windridge 2014 main theorem",
+          "van de Bovenkamp Van Mieghem 2015 abstract"
+        ]
+      },
+      "checked_sources": [
+        "SCOPE2026 RESULT.md, verify.py and REVIEW.md for record 2",
+        "Heinzmann 2009 full 12-page PDF, Theorem2.1 page visual check",
+        "Windridge arxiv:1408.4768 arxiv accessible text",
+        "van de Bovenkamp & Van Mieghem 2015 abstract",
+        "Resultary semantic search query 2"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "Repeated decay eigenvalue creates a t exp(-t) factor and then loglog n shift",
+          "Prior pure exponential-tail theorem yields only log n centering in its own hypotheses"
+        ],
+        "reasoning": "One-way finite-state conditional Poisson proof is required; irreducible branching result cannot be specialized at resonance.",
+        "searches": [
+          "Heinzmann 2009 §2",
+          "Windridge 2014 arxiv:1408.4768",
+          "Resultary: directed two-population epidemic extinction time log log n Gumbel nearly equal recovery rates"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "A source-receiver coupling matrix has eigenvalues -1 and -mu; equal rates coalesce at theta=0",
+          "Windridge model is genuine branching SIR rather than finite receiver SIS"
+        ],
+        "reasoning": "Compared reducible multitype-branching and finite-contact-process aliases, not merely titles.",
+        "searches": [
+          "Resultary: directed two-population epidemic extinction time log log n Gumbel nearly equal recovery rates",
+          "one-way feedforward infection Jordan block loglog Gumbel",
+          "arxiv:1408.4768"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "Resultary closest hit 2026/10/11/SCOPE-universal-extinction-crossover-at-the-pitchfork-edge-of-a-nonlin--c1921b9ff104 concerns deterministic SIRS pitchfork, not directed two-population extinction law"
+        ],
+        "reasoning": "No exact log-log Gumbel profile matched in searched records; this is qualified absence only.",
+        "searches": [
+          "Resultary: directed two-population epidemic extinction time log log n Gumbel nearly equal recovery rates"
+        ]
+      },
+      "rationale": "Heinzmann (2009) proves extinction asymptotics for irreducible subcritical multitype branching with simple leading eigenvalue; that hypothesis fails at resonance in this reducible one-way two-class model. Windridge (2014) treats exponential-tail multitype branching SIR, not receiver SIS reinfection or Jordan resonance. The new claim has an explicit log-log delay and 1/log n detuning crossover with a conditional Poisson proof. Closest 2015 general SIS article was only abstract-accessible and remains priority risk; no assertive whole-document noncoverage.",
+      "residual_risks": [
+        "A separate theorem for reducible/decomposable multitype branching with repeated eigenvalues may already imply the crossover.",
+        "Full general finite-graph SIS 2015 article not inspected, no noncoverage inference.",
+        "Only fixed theta and fixed positive finite m/n; not moment convergence or uniform detuning."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Theorem2.1 assumes irreducible matrix and simple dominant spectral mode, excluding reducible equal-recovery resonance; different particle model.",
+          "evidence": [
+            "Theorem2.1 irreducibility and simple Perron eigenvalue; model here is reducible with repeated eigenvalue."
+          ],
+          "identifier_or_url": "https://doi.org/10.1239/jap/1238592131",
+          "material_read": "full Cambridge article PDF with section2 theorem and hypothesis inspected; page3 visually checked",
+          "method": "full text extraction and one page screenshot of theorem",
+          "title": "Extinction times in multitype Markov branching processes",
+          "trigger": "Potential general dominating extinction Gumbel theorem"
+        },
+        {
+          "assessment": "Predicts Gumbel from pure exponential survival tail of a distinct branching epidemic; does not itself imply polynomial-times-exponential resonant tail.",
+          "evidence": [
+            "Abstract and §1: multitype branching related to SIR; exponential tail approximation; Gumbel corollary."
+          ],
+          "identifier_or_url": "https://arxiv.org/abs/1408.4768",
+          "material_read": "accessible arxiv full-text introductory model and extinction-tail theorem sections",
+          "method": "read accessible original HTML and compare stated results, equations, hypotheses and scope",
+          "title": "The extinction time of a subcritical branching process related to the SIR epidemic on a random graph",
+          "trigger": "Subcritical branching Gumbel asymptotic"
+        },
+        {
+          "assessment": "Cannot assess full-document coverage from abstract; retained as potential source.",
+          "evidence": [
+            "Accessible abstract studies finite-graph SIS survival times.",
+            "APS publication abstract dated 2015-09-15 studies E[T] on K_N and stars, not the joint law at near-resonant directed bipartite scaling; full article access still blocked."
+          ],
+          "identifier_or_url": "https://doi.org/10.1103/PhysRevE.92.032806",
+          "material_read": "title and abstract only; complete text not obtained",
+          "method": "bibliographic abstract inspection only",
+          "title": "Survival time of the susceptible-infected-susceptible infection process on a graph",
+          "trigger": "Plausible alternative general finite-SIS coverage"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "rationale": "Identifies a natural critical-resonance extinction scale, including explicit crossover between nearly equal recovery modes, for a finite susceptible-infected process beyond irreducible branching theory. A sharp log-log delay and whole distribution are meaningful asymptotic structure rather than a small finite example.",
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "final_claim": "For m/n->rho>0 one-way source-to-receiver epidemic, source permanent recovery rate1, receiver reinfection and recovery 1+theta/log n, extinction centered at log n+log log n converges to Gumbel with scale lambda Phi(theta), while infected receiver count converges to Poisson with that mean.",
+  "limitations": [
+    "One-way transmission and permanent source recovery, no receiver-to-source feedback; no uniform theta or finite-n error rates.",
+    "A separate theorem for reducible/decomposable multitype branching with repeated eigenvalues may already imply the crossover.",
+    "Full general finite-graph SIS 2015 article not inspected, no noncoverage inference.",
+    "Only fixed theta and fixed positive finite m/n; not moment convergence or uniform detuning."
+  ],
+  "schema_version": 1
+}

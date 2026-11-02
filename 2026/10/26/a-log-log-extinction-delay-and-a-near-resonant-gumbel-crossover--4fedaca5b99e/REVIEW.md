@@ -1,11 +1,21 @@
-# Scientific assessment
+# Independent mathematical audit
 
-**Correctness — PASS.** Conditioning on the independent source lifetimes makes receiver infections independent and yields an exact two-state forward equation. A source-sum variance bound gives concentration of the linearized receiver prevalence; the compensator inequality bounds the aggregate effect of receiver saturation by a quantity vanishing at the target scale. The conditional binomial law and vanishing probability of surviving sources then give the Poisson and Gumbel limits. The proof covers every fixed real detuning and positive population ratio, and handles the zero-detuning limit continuously. The packaged exact finite-state checker supports, but does not replace, this proof.
+## correctness
 
-**Originality — PASS relative to the specifically inspected literature and research records.** Heinzmann (J. Appl. Probab. 46, 296–307, 2009) establishes asymptotic extinction distributions for irreducible subcritical multitype branching systems with a simple leading eigenvalue (Theorem 2.1, verified in the full paper). The one-way coupling here is reducible, and coinciding decay rates create a repeated eigenvalue; hence that theorem cannot by itself cover this result. Heinzmann (J. Appl. Probab. 46, 296–307, 2009) establishes asymptotic extinction distributions for irreducible subcritical multitype branching systems with a simple leading eigenvalue (Theorem 2.1, verified in the full paper). The one-way coupling here is reducible, and coinciding decay rates create a repeated eigenvalue; hence that theorem cannot by itself cover this result. Windridge (arXiv:1408.4768) establishes a Gumbel law under exponentially decaying multitype-branching survival tails but not this finite-population, directed reinfection model, its logarithmic-logarithmic delay, or the explicit shrinking detuning window. Ménard–Singh (arXiv:1502.06982) concerns infinite-graph contact-process survival thresholds. The closely related 2015 SIS survival-time paper by van de Bovenkamp–Van Mieghem reports evaluated means on complete and star graphs, not the stated two-class limit in its available abstract. Its unavailable full text and potentially broader decomposition theorems remain genuine originality risks. Semantic record searches for one-way SIS, feedforward epidemics, Gumbel log-log survival, and repeated recovery eigenvalues did not reveal an implication covering the claim. A failed search by itself is not evidence of historical novelty.
+PASS
 
-**Mathematical value — PASS.** Epidemic fade-out time is a physically meaningful observable. The derived \(\log\log n\) shift is a sharp consequence of resonant decay rates, and the explicit universal crossover quantifies the regime in which the two recovery rates differ by only \(1/\log n\). This provides the distribution and natural parameter scale, rather than only an expected-time bound. Existing purely exponential Gumbel approximations would miss the entire centering correction.
+Given source recovery lifetimes, receiver states solve q′=h(1-q)-mu q independently. Linearization q0=(lambda/m)exp(-mu t)sum_i int_0^(L_i wedge t)exp(mu s)ds has n E q0->lambda Phi(theta)exp(-x) at t=log n+loglog n+x, and variance O(1/log n) from independent source lifetimes. The difference q0-q is nonnegative and has expectation at scale n bounded O(1/log n) via the explicit two-source covariance. Conditional binomial n,q then converges to Poisson; surviving source probability ≤m exp(-t)=O(1/log n), and zero infected is absorbing, giving the Gumbel zero-atom. The detuning theta=0 follows from continuous exponential quotient. Independent finite formula computations support normalization, albeit slow convergence at finite n when theta<0.
 
-**Scope and risks.** The theorem applies to complete directed two-class coupling, fixed infection strength, initially infected sources, and source/receiver size ratio bounded away from zero and infinity. Weak convergence does not prove moment convergence or uniform detuning. It does not cover reciprocal infection or general graphs. Inaccessible relevant literature could limit the originality assessment.
+## originality
 
-Self-review: passed. Independent audit: not yet performed.
+PASS
+
+Heinzmann (2009) proves extinction asymptotics for irreducible subcritical multitype branching with simple leading eigenvalue; that hypothesis fails at resonance in this reducible one-way two-class model. Windridge (2014) treats exponential-tail multitype branching SIR, not receiver SIS reinfection or Jordan resonance. The new claim has an explicit log-log delay and 1/log n detuning crossover with a conditional Poisson proof. Closest 2015 general SIS article was only abstract-accessible and remains priority risk; no assertive whole-document noncoverage.
+
+## value
+
+PASS
+
+Identifies a natural critical-resonance extinction scale, including explicit crossover between nearly equal recovery modes, for a finite susceptible-infected process beyond irreducible branching theory. A sharp log-log delay and whole distribution are meaningful asymptotic structure rather than a small finite example.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
