@@ -1,0 +1,116 @@
+{
+  "correctness": {
+    "rationale": "Exact OU half-steps and a symmetric random rotation individually preserve the standard Gaussian and are self-adjoint in its L2 space, hence their symmetric composition is reversible and invariant. For shared noises, the difference is D R_theta D e. Gaussian trigonometric averages yield the exact symmetric 2x2 matrix; its Perron eigenvalue is the stated closed formula. Positive entries ensure sharpness. Entrywise monotonicity in r proves the sharp lambda->0 supremum; positive-probability strict contraction of coordinate basis vectors gives rho(h,0)<1. Matrix expansion gives 3-sqrt(5), and Cauchy-Schwarz yields the uniform W2 squared bound. The independent quadrature checker passed 466 checks; finite tests are auxiliary.",
+    "status": "PASS"
+  },
+  "independent": false,
+  "independent_audit_status": "not_performed",
+  "originality": {
+    "broader_coverage": {
+      "evidence": [
+        "Louis--Pavliotis--Vilmart (2026), Theorem 2, continuous-time L2 spectral-gap bound 3-sqrt(5), not a fixed-step numerical coupling factor.",
+        "Abdulle--Pavliotis--Vilmart (2019) supplies continuous-time invariant measure and reversibility.",
+        "Duncan--Pavliotis--Zygalakis (2017) supplies nonreversible drift-splitting geometric ergodicity without this stochastic rotation matrix."
+      ],
+      "reasoning": "A general theory of composing invariant reversible substeps implies exact invariance/detailed balance, and these are acknowledged as standard ingredients; it does not in itself give the specific sharp rate, endpoint 3-sqrt(5), all-step unconditional stability, or anisotropy-uniform finite-step factor. Continuous-time spectral-gap bounds do not imply those discrete constants.",
+      "searches": [
+        "\"reversible Stratonovich perturbations\" exact splitting numerical contraction Gaussian",
+        "Nonreversible Langevin Samplers Splitting Schemes Analysis and Implementation 2017 Gaussian convergence",
+        "Reversibility covariance and coarse-graining choice multiplicative noise splitting 2511.03347"
+      ]
+    },
+    "checked_sources": [
+      "arxiv:2610.03191v1; primary PDF Sections 3.1,6.3,7",
+      "arxiv:1903.03024; continuous reversible Stratonovich results",
+      "arxiv:1701.04247; introduction and splitting framework",
+      "arxiv:2511.03347; abstract, continuous SDE geometry only"
+    ],
+    "claim_vs_prior_implication": {
+      "evidence": [
+        "Source 2026 Eq. (36) has a Stratonovich symmetric-splitting template with exact OU and RK4 numerical perturbation, whereas this result specifies exact Gaussian rotations.",
+        "Source 2026 Theorem 2 is a continuous-time gap result, not an exact discrete-time synchronous second-moment transition.",
+        "Source 2017 is a nonreversible deterministic drift split, not the reversible stochastic-rotation split."
+      ],
+      "reasoning": "The published splitting template motivates the scheme and makes target preservation unsurprising. The genuinely additional statement requires diagonalization of a specified random-angle covariance map; the sharp squared-coupling factor, uniform anisotropy endpoint, and Wasserstein bound do not follow as stated from the inspected published conclusions.",
+      "searches": [
+        "Louis Pavliotis Vilmart 2026 numerical integration exact OU RK4 perturbation Section 6.3",
+        "random skew Stratonovich noise sampler splitting stochastic rotation exact invariant measure Gaussian target square root stiffness 2026"
+      ]
+    },
+    "equivalent_formulations": {
+      "evidence": [
+        "Louis--Pavliotis--Vilmart (2026), Sec. 6.3, writes a Stratonovich symmetric splitting but evaluates the perturbation by RK4; it does not provide the Gaussian exact-subflow squared-coupling matrix.",
+        "Duncan--Pavliotis--Zygalakis (2017) treats deterministic nonreversible drift splitting instead of Gaussian random Stratonovich rotations."
+      ],
+      "reasoning": "The natural equivalents are covariance recurrences for random-angle OU splitting, sharp squared synchronous coupling, and Gaussian-invariant Strang Markov kernels. The inspected primary numerical methods and searched scientific records do not assert the displayed symmetric two-by-two Perron factor or its exact uniformity over target anisotropy. These searches are not proof of exhaustive priority.",
+      "searches": [
+        "\"random rotation\" \"Ornstein Uhlenbeck\" splitting rate Gaussian invariant",
+        "reversible Gaussian sampler exact rotation Ornstein Uhlenbeck splitting invariant distribution Wasserstein contraction (3-sqrt(5))",
+        "Strang splitting exact Ornstein Uhlenbeck random Stratonovich rotation Gaussian target sharp mean square convergence uniform anisotropy Perron eigenvalue"
+      ]
+    },
+    "exact_database_or_table": {
+      "evidence": [
+        "No specific closed-form factor identical to the one displayed was identified in the searched mathematical-record titles and summaries or inspected primary numerical paper.",
+        "The new matrix is calculated directly from E cos(2 theta)=exp(-4h), not imported from a table."
+      ],
+      "reasoning": "A matching formula under covariance, Wasserstein, or random-rotation terminology would cover this claim, and absence of a match is only negative search evidence, not certification of novelty. No exact tabulation was identified.",
+      "searches": [
+        "exact Ornstein Uhlenbeck random rotation splitting Gaussian Langevin Stratonovich invariant variance covariance contraction eigenvalues",
+        "Louis Pavliotis Vilmart 2610.03191 exact-subflow Gaussian Strang splitting spectral factor",
+        "reversible Stratonovich perturbation splitting exact invariant measure Gaussian target square root stiffness 2026"
+      ]
+    },
+    "rationale": "The exact, attained synchronous squared-coupling spectral factor for the fully exact reversible Strang scheme, including strict anisotropy-uniform contraction at every h and both sharp endpoint limits, was not found in source numerical Section 6.3 or compared older splitting analyses. Continuous-time gap and invariant-subflow facts are explicitly not claimed as new. A specialized older equivalent remains possible.",
+    "residual_risks": [
+      "An unlocated specialized earlier analysis of Gaussian random-rotation Strang splitting might express the same Perron factor under different notation.",
+      "The 2017 and 2019 references were not inspected cover-to-cover; their central setup and principal numerical claims were compared.",
+      "The result concerns a method with exact Gaussian random rotation, not the RK4 approximation implemented in the motivating paper."
+    ],
+    "source_inspections": [
+      {
+        "assessment": "Provides continuous spectral gap and symmetric splitting template, but not the exact-subflow Strang covariance factor or anisotropy-uniform squared coupling rate",
+        "evidence": [
+          "Theorem 2: continuous spectral gap >= 3-sqrt(5).",
+          "Equation (36) is a symmetric splitting and the paper specifies RK4 for its perturbation map; its conclusion lists rigorous discrete analysis as open."
+        ],
+        "identifier_or_url": "https://arxiv.org/abs/2610.03191",
+        "material_read": "Primary PDF: Section 3.1/Theorem 2 on page 8 and Section 6.3 Eq. (36) with numerical RK4 perturbation on page 37; conclusion page 38",
+        "method": "Read PDF text and examined the two relevant page images",
+        "title": "Reversible Stratonovich perturbations for accelerating convergence to equilibrium of Langevin dynamics",
+        "trigger": "Same Gaussian Stratonovich model and direct symmetric splitting template"
+      },
+      {
+        "assessment": "Continuous-time invariant-measure/reversibility theory, not a fixed-step exact stochastic rotation/OU Strang Perron factor",
+        "evidence": [
+          "2019 paper abstract identifies reversible Stratonovich sampling and improved equilibrium convergence."
+        ],
+        "identifier_or_url": "https://arxiv.org/abs/1903.03024",
+        "material_read": "Accessible arXiv metadata and primary paper introduction/model and principal results",
+        "method": "Examined relevant original text and page images",
+        "title": "Accelerated convergence to equilibrium and reduced asymptotic variance for Langevin dynamics using Stratonovich perturbations",
+        "trigger": "Original reversible Stratonovich construction"
+      },
+      {
+        "assessment": "Deterministic nonreversible drift splitting and general ergodicity/bias; no same random-rotation mean-square formula in inspected material",
+        "evidence": [
+          "Section 1 specifies splitting of a deterministic nonreversible drift and Langevin kernel and analyzes asymptotic bias and variance."
+        ],
+        "identifier_or_url": "https://arxiv.org/abs/1701.04247",
+        "material_read": "Primary author PDF abstract, introduction and splitting scheme (1.10)--(1.12), pages 1--4",
+        "method": "Read PDF text and page image of the splitting method",
+        "title": "Nonreversible Langevin Samplers: Splitting Schemes, Analysis and Implementation",
+        "trigger": "Possible broader splitting ergodicity theorem"
+      }
+    ],
+    "status": "PASS"
+  },
+  "review_type": "self_review",
+  "schema_version": 1,
+  "scope_run_id": "eef2beaa-2e84-43ea-a72e-fc6b1dea977b",
+  "self_review_status": "passed",
+  "value": {
+    "rationale": "The 2026 motivating work makes a discrete convergence analysis a specific outstanding issue and uses a symmetric numerical splitting. For its most natural anisotropic Gaussian testbed, this finding supplies an exact, stable, bias-free, reversible discretization with a sharp all-step squared-coupling rate and an explicit uniform-in-condition-number W2 bound. The exact Perron constant permits step/anisotropy comparisons and distinguishes discrete quantitative robustness from merely continuous-time acceleration; it is not just a generic invariant-subflow argument.",
+    "status": "PASS"
+  }
+}
