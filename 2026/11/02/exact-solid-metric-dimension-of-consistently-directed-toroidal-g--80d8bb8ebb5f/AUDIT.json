@@ -1,0 +1,138 @@
+{
+  "correctness": {
+    "rationale": "For all integers m,n >= 3, assume m <= n and use d(s,u) as the sum of forward modular increments. Every y-row needs a landmark from the ordered pair (i,j) against (i,j-1). For p=(a-1,j), q=(a,j-1), the possible differences d(s,q)-d(s,p) are 0,-m,n,n-m; since n>=m, only a landmark in x-column a with y!=j makes q closer than p. Thus every x-column needs two landmarks: |S| >= max(n,2m). The proved interval-expansion lemma certifies all ordered pairs using the exact modular distance-difference identity and split cases Delta+delta<=m and >m. Explicit sets of sizes n when n>=2m and 2m when m<=n<2m satisfy expansion; swapping coordinates completes all m,n. One source-free pure Python checker directly tested 83 cases; an independent MILP checker proved 10 finite optima. No finite test is used as the infinite proof.",
+    "status": "PASS"
+  },
+  "independent": false,
+  "independent_audit_status": "not_performed",
+  "originality": {
+    "broader_coverage": {
+      "evidence": [
+        "Hakanen–Pavan, arXiv:2610.35041v1, Theorem 6.4 assumes oriented-cycle factors have two sources; Remark 6.5 discusses product of a directed cycle with no sources.",
+        "Mengesha–Vetrík, DOI:10.21136/CMJ.2019.0127-17, pp. 621–623: ordinary directed Cayley metric dimension uses unequal distance representations.",
+        "Rodríguez-Velázquez et al., arXiv:1307.4722v1, first two pages: strong metric dimension is based on geodesic containment in undirected graphs."
+      ],
+      "reasoning": "The 2026 product theorem does not apply because both factors here are clockwise directed cycles without a source. An ordinary metric resolving basis need not distinguish both orders strictly, and strong geodesic resolution in undirected graphs is a different invariant. Neither published formula implies the claimed exact solid dimension.",
+      "searches": [
+        "semantic research-index query: directed strong resolving directed torus Cartesian cycle metric dimension",
+        "web: \"strong metric dimension\" \"directed torus\" cartesian product",
+        "web: \"Resolving Sets of Directed Cayley Graphs for the Direct Product of Cyclic Groups\" 2019 pdf",
+        "web: \"On the strong metric dimension of Cartesian and direct products of graphs\" arxiv 2013"
+      ]
+    },
+    "checked_sources": [
+      "arXiv:2610.35041v1, Definition 1.1, Theorem 2.1 and Section 6",
+      "DOI:10.1007/978-3-032-27732-9_23 and Crossref Crossmark first-online 2026-06-07",
+      "DOI:10.21136/CMJ.2019.0127-17, pp. 621–623",
+      "arXiv:1307.4722v1, abstract and Section 1"
+    ],
+    "claim_vs_prior_implication": {
+      "evidence": [
+        "arXiv:2610.35041v1, Theorem 6.4 and Remark 6.5, pp. 19–21: exactly excludes source-free cycle factors.",
+        "DOI:10.1007/978-3-032-27732-9_23 first online 2026-06-07 according to Crossref Crossmark; this is the earliest verified motivating publication.",
+        "2019 directed Cayley paper uses different ordinary metric dimension; 2013 Cartesian strong metric paper uses undirected shortest-path containment."
+      ],
+      "reasoning": "The new formula yields a sharp lower bound max{n,2m} from ordered pairs and achieves it via row-expanded landmark constructions. Those claims cannot be read off from the existing source-containing product theorem, whose forced-vertex machinery has zero forced vertices here. The two older product papers do not entail the directed solid predicate.",
+      "searches": [
+        "semantic research-index query: solid metric dimension of cartesian product of consistently directed cycles oriented torus C_m C_n max(n,2m) distance from sensors",
+        "semantic research-index query: directed solid resolving set clockwise cycle Cartesian product exact minimum basis",
+        "semantic research-index query: directed strong resolving directed torus Cartesian cycle metric dimension",
+        "semantic research-index query: β_S directed cycle product source-free cyclic grid 2 min max formula",
+        "web: \"Solid-Resolving Sets on Directed Graphs\" 2026 IWOCA June 2026",
+        "web: \"Resolving Sets of Directed Cayley Graphs for the Direct Product of Cyclic Groups\" 2019 pdf"
+      ]
+    },
+    "equivalent_formulations": {
+      "evidence": [
+        "arXiv:2610.35041v1, Definition 1.1 and Theorem 2.1: solid resolution is the directed ordered-pair inequality from landmarks.",
+        "arXiv:2610.35041v1, Section 6 and Remark 6.5: source-free directed cycles fall outside their product formula."
+      ],
+      "reasoning": "The same invariant may be described as directed solid resolving number, identification of a vertex against all vertex subsets, or directed 2-dimensional toroidal sensor covering. The closest retrieved cylinder/torus records concern multiset ordinary metric dimension or homological cycle counts, not the directed strict inequality for every ordered vertex pair. No stronger known result or equivalent formula was found in the searched sources.",
+      "searches": [
+        "semantic research-index query: solid metric dimension of cartesian product of consistently directed cycles oriented torus C_m C_n max(n,2m) distance from sensors",
+        "semantic research-index query: directed solid resolving set clockwise cycle Cartesian product exact minimum basis",
+        "semantic research-index query: β_S directed cycle product source-free cyclic grid 2 min max formula",
+        "web: \"solid-metric dimension\" \"Cartesian\" \"directed cycles\"",
+        "web: \"solid resolving set\" \"directed torus\" Cartesian product cycles",
+        "web: \"solid metric dimension\" \"digraph\" \"Cartesian product\" directed cycle"
+      ]
+    },
+    "exact_database_or_table": {
+      "evidence": [
+        "Web searches restricted to OEIS for exact solid directed cycle-product terminology found no pertinent sequence entry; returned general site material, not the bivariate invariant."
+      ],
+      "reasoning": "The theorem is a two-parameter graph invariant rather than a standard univariate integer sequence; no exact database/table entry for the same object and predicate was located. This check does not purport to exhaust unindexed literature or prove uniqueness.",
+      "searches": [
+        "web: site:oeis.org \"solid metric dimension\" Cartesian directed cycle",
+        "web: site:oeis.org \"solid resolving\" directed cycle",
+        "semantic research-index query: solid metric dimension of cartesian product of consistently directed cycles oriented torus C_m C_n max(n,2m) distance from sensors",
+        "semantic research-index query: β_S directed cycle product source-free cyclic grid 2 min max formula"
+      ]
+    },
+    "rationale": "The full-text product theorem in arXiv:2610.35041v1 requires source-containing cycle factors and expressly excludes source-free consistently directed cycles (Theorem 6.4, Remark 6.5). The present max{max(m,n),2min(m,n)} formula is instead proved by column/row lower obstructions and cyclic interval expansion. Older ordinary and strong metric dimensions use different predicates and do not imply the solid ordered-pair result. Four targeted mathematical-record queries and public searches using equivalent directed torus, Cartesian product, source-free, and metric terminology yielded no covering claim. This is a best-knowledge originality assessment, not a uniqueness certificate; the residual historical-priority risk is explicit.",
+    "residual_risks": [
+      "A semantically equivalent exact formula might exist in older unindexed sources under graph-identification, ordered-separation, or sensor-placement terminology.",
+      "The 2026 conference chapter was checked for publication date and abstract; full mathematical comparison uses the later expanded manuscript. The chapter full text was not separately accessed.",
+      "The non-exhaustive research-index semantic searches cannot certify global novelty or independence."
+    ],
+    "source_inspections": [
+      {
+        "assessment": "Not covering: Theorem 6.4 explicitly requires source-containing cycle factors and Remark 6.5 excludes the source-free directed-cycle product case.",
+        "evidence": [
+          "Theorem 2.1 ordered-pair criterion",
+          "Theorem 6.4 source and cycle restrictions",
+          "Remark 6.5 source-free directed-cycle exception"
+        ],
+        "identifier_or_url": "https://arxiv.org/pdf/2610.35041",
+        "material_read": "Full-text PDF pages 2–4 (Definition 1.1, Theorem 2.1), pages 17–21 (Cartesian products, Theorems 6.1 and 6.4, Remark 6.5) and conclusions; rendered screenshot of page 3 checked.",
+        "method": "Opened and read PDF extracted text for stated definitions and product restrictions, with PDF page visual inspection.",
+        "title": "Solid-Resolving Sets on Directed Graphs (expanded manuscript)",
+        "trigger": "Exact definition and closest prior Cartesian-product theorem; both factors in new graph have no sources."
+      },
+      {
+        "assessment": "Establishes 2026-06-07 first-online date and that the motivating concept and directed graph product questions were already public. Not relied upon for exhaustive not-covering inference.",
+        "evidence": [
+          "Crossref Crossmark first online 2026-06-07",
+          "IWOCA 2026 program abstract on product orientations"
+        ],
+        "identifier_or_url": "https://doi.org/10.1007/978-3-032-27732-9_23",
+        "material_read": "Crossref Crossmark first-online date and IWOCA public abstract; the detailed mathematical product comparison uses the expanded full-text arXiv version, not an unread publisher chapter.",
+        "method": "Publisher-linked Crossmark metadata and conference abstract.",
+        "title": "Solid-Resolving Sets on Directed Graphs (IWOCA proceedings chapter)",
+        "trigger": "Earliest verified public date before the UTC week anchor and original public presentation."
+      },
+      {
+        "assessment": "Different invariant: ordinary pairwise metric representations d(u,s), not ordered strict solid inequalities d(s,u)<d(s,v), and generator sets differ in its main results.",
+        "evidence": [
+          "Journal pp. 621–623, ordinary metric definition",
+          "Generator sets {(0,1),(1,0),(2,0),...} and ordinary upper bounds"
+        ],
+        "identifier_or_url": "https://www.dml.cz/bitstream/handle/10338.dmlcz/147781/CzechMathJ_69-2019-3_3.pdf",
+        "material_read": "Full-text pages 1–3, including abstract, Definition of directed metric dimension, and scope of Theorems 2.1–2.2; page 2 visually inspected.",
+        "method": "Opened and read lawful full-text PDF text plus screenshot.",
+        "title": "Resolving sets of directed Cayley graphs for the direct product of cyclic groups",
+        "trigger": "Same underlying cyclic product group and directed metric terminology."
+      },
+      {
+        "assessment": "Different undirected geodesic-containment definition, hence no direct implication for directed solid-resolution.",
+        "evidence": [
+          "arXiv:1307.4722, abstract and Section 1: undirected strong metric dimension defined by shortest-path containment"
+        ],
+        "identifier_or_url": "https://arxiv.org/pdf/1307.4722",
+        "material_read": "Full-text introduction and formal strong-resolving definition on pages 1–2; first page visually inspected.",
+        "method": "Opened full-text arXiv PDF and inspected the definitions.",
+        "title": "On the strong metric dimension of Cartesian and direct products of graphs",
+        "trigger": "Plausible similarly named product parameter and classical cycle formulas."
+      }
+    ],
+    "status": "PASS"
+  },
+  "review_type": "self_review",
+  "schema_version": 1,
+  "scope_run_id": "80d8bb8e-bb5f-48fb-bc47-732a381aece3",
+  "self_review_status": "passed",
+  "value": {
+    "rationale": "The sharp two-parameter solid dimension of source-free directed cycle products answers a natural omission explicitly highlighted by Remark 6.5 of the motivating primary paper. Neither the earlier forced-vertex product formula nor ordinary/strong metric dimension yields it. The transition between n and 2m, the local obstruction, and interval-expanding constructions are structural contributions for an infinite vertex-transitive family with no forced vertices. The exact natural graph invariant is motivated independently of computational experimentation.",
+    "status": "PASS"
+  }
+}
