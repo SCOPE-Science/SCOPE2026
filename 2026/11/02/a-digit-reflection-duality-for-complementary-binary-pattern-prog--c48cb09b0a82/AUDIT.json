@@ -1,0 +1,118 @@
+{
+  "correctness": {
+    "rationale": "For each arbitrary mixed binary word, enough zero padding preserves its overlapping occurrence count. Bitwise reflection sends it to the complemented word, with exactly one possible added leading-zero boundary occurrence depending only on the complemented pattern. Every finite common-step progression therefore reverses to a common-step progression of the complementary pattern with uniformly shifted parity, and the converse follows by exchanging patterns. This proves equality of suprema for any d; exact checker passed 229710 configurations. Finite tests do not substitute for the proof.",
+    "status": "PASS"
+  },
+  "independent": false,
+  "independent_audit_status": "not_performed",
+  "originality": {
+    "broader_coverage": {
+      "evidence": [
+        "arXiv:2304.14595v1 concerns morphic structure of block counting",
+        "arXiv:2302.12908v1 abstract concerns asymptotic growth along selected steps",
+        "arXiv:2204.05287v1, Section 7 states finite substitution calculation"
+      ],
+      "reasoning": "Automata generation, substitution lower bounds and finite step-by-step calculations do not imply an exact equality of full fixed-step progression sets across the two different complementary patterns. No dominating theorem found in inspected material.",
+      "searches": [
+        "positive binary words containing both 0 and 1 complementary pattern arithmetic progression equality",
+        "2022 Sobolewski On monochromatic arithmetic progressions in binary words associated with pattern sequences Problem 4",
+        "\"monochromatic\" \"complementary patterns\" arithmetic progressions automatic words",
+        "\"pattern\" \"complement\" \"arithmetic progressions\" \"binary\" \"monochromatic\""
+      ]
+    },
+    "checked_sources": [
+      "Sobolewski, arXiv:2204.05287v1, Section 1 and Problem 4, full accessible manuscript",
+      "Abram–Hu–Li, arXiv:2304.14595v1, manuscript main statements",
+      "Aedo–Grimm–Mañibo–Nagai–Staynova, arXiv:2302.12908v1, abstract (limited comparison)"
+    ],
+    "claim_vs_prior_implication": {
+      "evidence": [
+        "arXiv:2204.05287v1, Section 6, Problem 4 gives equality as conjectural",
+        "arXiv:2204.05287v1, Theorem 1.7 provides bounds for single patterns, not complementary equality",
+        "arXiv:2304.14595v1 gives automaticity/morphic structure rather than exact matching progression lengths"
+      ],
+      "reasoning": "Comparing mathematical statements rather than names: the precise published claim is existential/question form for all mixed patterns. Prior per-pattern inequalities and selected-difference asymptotics are not sufficient to derive equality for each d. The new fixed-length reflection gives a direct implication for every finite progression and thus settles the question.",
+      "searches": [
+        "monochromatic arithmetic progressions pattern v and bitwise complement vbar A_v(d)=A_vbar(d) Sobolewski Problem 4",
+        "Bartosz Sobolewski 2204.05287 Problem 4 A_v(d) equals A_complement_v(d) binary block occurrence all patterns proof",
+        "\"monochromatic arithmetic progressions\" \"complement\" \"pattern\" Sobolewski 2024 2025"
+      ]
+    },
+    "equivalent_formulations": {
+      "evidence": [
+        "arXiv:2204.05287v1, Sections 1 and 6, Problem 4; digit complement identity is a stronger exact-count formulation"
+      ],
+      "reasoning": "Searched parity of overlapping block counts, complement of finite binary patterns, binary reflection, fixed-step monochromatic runs, and reversals. Equality of A(d) does follow from stronger color-word reversal, but this exact-count relation was not provided in the relevant published motivating paper.",
+      "searches": [
+        "monochromatic arithmetic progressions pattern v and bitwise complement vbar A_v(d)=A_vbar(d) Sobolewski Problem 4",
+        "binary digit pattern occurrence parity complementary patterns all fixed-step monochromatic progression lengths reflection 2^L-1-n",
+        "\"A_v(d)\" \"A_bar\" monochromatic Sobolewski proof",
+        "\"A_v(d)=A\" \"complement\" \"Sobolewski\""
+      ]
+    },
+    "exact_database_or_table": {
+      "evidence": [
+        "arXiv:2204.05287v1, Section 6 Problem 4 records computation for mixed patterns of length <=3",
+        "Closest indexed mathematical note concerned length-12 binary string attractors rather than the required occurrence-parity progression invariant"
+      ],
+      "reasoning": "The motivating small-pattern computations are not an all-pattern all-step classification, and closest mathematical record IDs refer to word-attractor or unrelated Fourier invariants; no record found containing the universal asserted duality. Search absence alone is not a uniqueness proof.",
+      "searches": [
+        "2022 Sobolewski On monochromatic arithmetic progressions in binary words associated with pattern sequences Problem 4",
+        "Bartosz Sobolewski 2204.05287 Problem 4 A_v(d) equals A_complement_v(d) binary block occurrence all patterns proof",
+        "\"A_v(d)\" \"overline v\" Sobolewski progression pattern"
+      ]
+    },
+    "rationale": "The 2022 motivating paper specifically lists the statement as an unproved observed pattern in Problem 4. Full accessible manuscript and adjacent work on automata and arithmetic progression lengths were compared; no implication establishing uniform complementary-pattern equality was identified, though inaccessible later versions and unpublished work remain risks.",
+    "residual_risks": [
+      "Later publisher-hosted text of Sobolewski paper not completely material-inspected; relevant post-preprint edits could change coverage.",
+      "Other later or unindexed material could contain the same digit-reflection proof or equivalent theorem.",
+      "Aedo et al. comparison was abstract-based and therefore not a whole-paper originality exclusion."
+    ],
+    "source_inspections": [
+      {
+        "assessment": "States the sought general equality as a suspected extension of computations at lengths at most three; no proof of the universal equality in inspected manuscript. It supplies the exact leading-zero convention used here.",
+        "evidence": [
+          "Section 1: e_v and A_v(d) definitions",
+          "Section 6, Problem 4: proposed A_v(d)=A_complement(v)(d) for mixed v",
+          "Section 7: finite substitution approach"
+        ],
+        "identifier_or_url": "arXiv:2204.05287v1 / https://arxiv.org/abs/2204.05287",
+        "material_read": "Full publicly available textual manuscript: introduction definitions, Section 6 Problem 4, adjacent problems, and Section 7 finite-substitution method",
+        "method": "Direct full-text reading and comparison to precisely stated complement equality",
+        "title": "On monochromatic arithmetic progressions in binary words associated with pattern sequences",
+        "trigger": "Identical pattern-counting sequence and explicit Problem 4"
+      },
+      {
+        "assessment": "Automatic/morphic structural results do not supply equality of same-step progression lengths for complementary patterns.",
+        "evidence": [
+          "Introduction, definitions and main statements about morphic property and algorithms"
+        ],
+        "identifier_or_url": "arXiv:2304.14595v1 / https://arxiv.org/abs/2304.14595",
+        "material_read": "Accessible manuscript introduction, definitions, main morphic classification and generation descriptions",
+        "method": "Read main statements and definitions, compared implications of morphicity and generating descriptions",
+        "title": "Block-counting sequences are not purely morphic",
+        "trigger": "Same block-occurrence parity sequences, possible stronger automata theorem"
+      },
+      {
+        "assessment": "Stated results concern asymptotic subsequences and bounds for group substitutions. Full-text stronger-overlap exclusion not asserted.",
+        "evidence": [
+          "Abstract: growth rates, group substitutions, lower bounds along selected differences"
+        ],
+        "identifier_or_url": "arXiv:2302.12908v1 / https://arxiv.org/abs/2302.12908",
+        "material_read": "Author-supplied abstract and metadata only",
+        "method": "Scope and stated-result comparison from abstract, not whole-document exclusion",
+        "title": "Monochromatic arithmetic progressions in automatic sequences with group structure",
+        "trigger": "Similar term monochromatic arithmetic progressions in automatic sequences"
+      }
+    ],
+    "status": "PASS"
+  },
+  "review_type": "self_review",
+  "schema_version": 1,
+  "scope_run_id": "c48cb09b-0a82-4bbb-ba88-dd6eaad5e3ad",
+  "self_review_status": "passed",
+  "value": {
+    "rationale": "This universally answers an explicit natural published question for all mixed binary patterns and every positive progression difference. The exact reversal statement is structurally stronger than maximal-run equality, identifies the only boundary term induced by conventional leading zeros, and applies to all finite arithmetic-progression color words. The distinction from constant patterns and from progressions forced to start at zero is mathematically substantive.",
+    "status": "PASS"
+  }
+}
