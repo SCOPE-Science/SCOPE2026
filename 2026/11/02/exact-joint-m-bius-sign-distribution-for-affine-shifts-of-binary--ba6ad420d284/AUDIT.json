@@ -1,0 +1,123 @@
+{
+  "correctness": {
+    "rationale": "For every \\(q=2^m\\) and \\(u\\ne0\\), the cubic \\(f=T^3+aT^2+bT+c\\) depresses under \\(T=Y+a\\) to \\((B,C)=(b+a^2,c+ab)\\), while its affine shift depresses to \\((B+u,C+ua+v)\\). The coefficient map \\((a,b,c)\\mapsto(B,C,C+ua+v)\\) is a bijection. For the depressed cubic, \\(C=0\\) is exactly the nonsquarefree locus. Carmon (2014), Section 2, gives the Berlekamp expression \\(1+B^3/C^2\\) and the characteristic-two Pellet identity; hence \\(S(0)=\\varepsilon(q-1)\\) and \\(S(B)=-\\varepsilon\\) for \\(B\\ne0\\), with \\(\\varepsilon=(-1)^{m+1}\\). The shifted correlation \\(\\sum_B S(B)S(B+u)=-q\\) follows exactly, all marginal sign sums vanish, and expanding yields all nine joint counts including \\(q=2\\). A standalone root-and-derivative enumeration checks 352 shifts and 3,765,008 polynomial pairs over six binary fields, without using the Berlekamp formula. Finite checks corroborate rather than replace the unrestricted proof.",
+    "status": "PASS"
+  },
+  "independent": false,
+  "independent_audit_status": "not_performed",
+  "originality": {
+    "broader_coverage": {
+      "evidence": [
+        "Carmon (2014) Theorem 1.1 yields a large-field upper bound for fixed degrees and arbitrary polynomial shifts; it is not an exact evaluation.",
+        "Carmon–Rudnick (2012), arXiv:1205.1599, treats odd characteristic.",
+        "Sawin–Shusterman, Annals of Mathematics 196 (2022), concerns wider large-degree Chowla correlations, not the exact fixed-degree nine-cell table in the abstract."
+      ],
+      "reasoning": "General cancellation theorems and asymptotic estimates do not logically imply an exact signed histogram for every binary field size, including the smallest field. An unsigned pair count does not imply sign-resolved distribution.",
+      "searches": [
+        "Carmon Rudnick autocorrelation Möbius function rational function field 2012 arxiv",
+        "Möbius autocorrelation binary polynomials degree 3 exact linear shifts 2^m",
+        "arxiv:1409.3694v1 Theorem 1.1",
+        "https://annals.math.princeton.edu/2022/196-2/p01"
+      ]
+    },
+    "checked_sources": [
+      "Carmon arXiv:1409.3694v1 (primary full arXiv HTML, selected material inspected)",
+      "Carmon–Rudnick arXiv:1205.1599 (abstract, contextual comparison)",
+      "Sawin–Shusterman, Annals of Mathematics 196 (2022) (publisher abstract, contextual comparison)",
+      "Targeted scholarly discovery queries for nonconstant shifts, exact cubic Möbius correlations, joint distributions, and Berlekamp equivalences"
+    ],
+    "claim_vs_prior_implication": {
+      "evidence": [
+        "Published equation (2.6) and cubic Berlekamp formula yield individual cubic signs.",
+        "Theorem 1.1 bounds the total correlation without determining its sign or value.",
+        "The proof uses the coefficient bijection \\((a,b,c)\\mapsto(B,C,C')\\), then evaluates an exact character convolution."
+      ],
+      "reasoning": "The published Berlekamp/Pellet identity is a stated premise, not a new claim. Its general autocorrelation bound and the pre-existing unsigned squarefree count do not logically imply the nine signed entries; the new coordinate bijection and signed convolution supply that missing information.",
+      "searches": [
+        "arxiv:1409.3694v1 Section 2 and Theorem 1.1",
+        "Möbius polynomial shift correlations degree 3 exact finite field short interval characteristic two",
+        "exact Chowla two-point autocorrelation Möbius polynomials degree 3 characteristic 2 linear shift -q"
+      ]
+    },
+    "equivalent_formulations": {
+      "evidence": [
+        "Carmon (2014) Section 2.1 prints the cubic Berlekamp rational function; equation (2.6) relates its character to the polynomial Möbius function.",
+        "The sign-resolved nine-entry table combines the unsigned joint-squarefree count with balanced sign marginals and the exact signed moment \\(-q\\).",
+        "The previously available unsigned overlap \\(q(q-1)^2\\) does not determine the four nonzero-sign cells."
+      ],
+      "reasoning": "The normalized signed correlation is \\(-1/q^2\\). Neither the published character formula alone nor a generic upper bound yields this exact number without the additional coefficient bijection and character-sum convolution. Constant shifts do not admit the independent depressed-constant coordinate used here.",
+      "searches": [
+        "\"monic cubics\" \"Möbius\" \"linear\" \"correlation\" characteristic 2",
+        "Möbius autocorrelation binary polynomials degree 3 exact linear shifts 2^m",
+        "In characteristic two, for every finite field F_q and every nonconstant affine shift h(T)=uT+v, the sum over monic cubic f of mu(f) mu(f+h) is exactly -q",
+        "arxiv:1409.3694v1 Section 2 (explicit cubic discriminant)"
+      ]
+    },
+    "exact_database_or_table": {
+      "evidence": [
+        "Carmon (2014) explicit degree-three Berlekamp formula is a building block but not a tabulation of joint Möbius signs for nonconstant affine shifts.",
+        "Targeted searches returned general correlation and Berlekamp references, but no directly matching nine-cell published table.",
+        "A distinct pre-existing table counts simultaneous squarefreeness but not the \\(\\pm1\\) Möbius signs."
+      ],
+      "reasoning": "No found exact table dominates the sign-resolved claim. Search absence is not a proof of priority; a residual risk is explicitly retained.",
+      "searches": [
+        "\"Möbius\" \"cubic\" \"joint distribution\" \"finite fields\"",
+        "\"Berlekamp\" \"cubic\" \"autocorrelation\" \"-q\"",
+        "sum monic cubic polynomials mu(f) mu(f+ax+b) characteristic 2 exact",
+        "finite field polynomial Möbius function characteristic 2 degree 3 cubics exact two-shift joint signs Chowla correlation"
+      ]
+    },
+    "rationale": "Carmon (arXiv:1409.3694v1, full primary HTML inspected) supplies the cubic Berlekamp discriminant and the characteristic-two Pellet identity, as well as a broad autocorrelation bound, but not the exact sign-resolved joint nine-cell table. Its inequality does not imply the exact \\(-q\\) correlation. Carmon–Rudnick (2012) treats odd characteristic. The published abstract of Sawin–Shusterman (2022) describes broader correlations and does not establish this table; its full text was not checked. A pre-existing unsigned squarefree-pair count \\(q(q-1)^2\\) is expressly excluded from the originality claim: it cannot determine the signs. Targeted published-literature and mathematical-record searches located no equivalent complete table, but incomplete priority coverage remains an explicit risk.",
+    "residual_risks": [
+      "An unindexed or otherwise unlocated exact binary-field cubic joint-sign table may exist.",
+      "The underlying Berlekamp/Pellet sign formula is previously known; originality is limited to its nonconstant-affine-shift application and complete joint distribution.",
+      "The earlier unsigned squarefree-overlap count \\(q(q-1)^2\\) is not new. The sign-refinement alone is claimed as an original exact classification.",
+      "The 2012 and 2022 contextual comparison manuscripts were not fully read; their abstracts describe different regimes but literature coverage cannot be certified exhaustive."
+    ],
+    "source_inspections": [
+      {
+        "assessment": "Supports the nonstandard cubic Berlekamp/Pellet identity. Proves broad autocorrelation bounds, but no exact nine-cell joint-sign classification for degree-three nonconstant affine shifts was located in the inspected material.",
+        "evidence": [
+          "arXiv:1409.3694v1, dated 2014-09-12",
+          "Theorem 1.1; explicit Berlekamp discriminants at the end of Section 2.1; equation (2.6); Section 7"
+        ],
+        "identifier_or_url": "https://arxiv.org/html/1409.3694v1",
+        "material_read": "Accessible full-text HTML searched; introduction and theorem 1.1, Section 2 explicit cubic formula and equation (2.6), Section 3 reduction to character sums, Section 7 displayed computations; document sections and terms n=3, cubic, exact examined",
+        "method": "Direct primary arXiv HTML text inspection and targeted full-document searches",
+        "title": "The autocorrelation of the Möbius function and Chowla’s conjecture for the rational function field in characteristic 2",
+        "trigger": "Closest primary paper on Möbius autocorrelations in binary finite fields, same polynomials, degree-three discriminant formula"
+      },
+      {
+        "assessment": "Characteristic restriction distinguishes the prior work, which investigates the large-field limit for odd characteristic. No whole-document exclusion is claimed.",
+        "evidence": [
+          "arXiv:1205.1599 (2012-05-08); Carmon 2014 Introduction lines corresponding to prior odd-characteristic analysis"
+        ],
+        "identifier_or_url": "https://arxiv.org/abs/1205.1599",
+        "material_read": "ArXiv abstract and bibliographic description, together with Carmon (2014) Introduction describing odd-characteristic setting; full manuscript not examined",
+        "method": "ArXiv metadata and cross-reading of Carmon (2014) Introduction",
+        "title": "The autocorrelation of the Mobius function and Chowla’s conjecture for the rational function field",
+        "trigger": "Immediate predecessor cited by Carmon (2014) and relevant to equivalent correlation statements"
+      },
+      {
+        "assessment": "Broad geometric results on uniformity and large-degree correlations, rather than an exhibited fixed-degree exact sign histogram. Entire-document exclusion is not claimed.",
+        "evidence": [
+          "Annals of Mathematics 196 (2022), 457–506; publisher abstract"
+        ],
+        "identifier_or_url": "https://annals.math.princeton.edu/2022/196-2/p01",
+        "material_read": "Publisher abstract and stated scope only, not its full manuscript",
+        "method": "Published abstract comparison with fixed-degree exact question",
+        "title": "On the Chowla and twin primes conjectures over F_q[T]",
+        "trigger": "Potential later broader Chowla correlation theorem"
+      }
+    ],
+    "status": "PASS"
+  },
+  "review_type": "self_review",
+  "schema_version": 1,
+  "scope_run_id": "ba6ad420-d284-42a4-b138-5224c8226e89",
+  "self_review_status": "passed",
+  "value": {
+    "rationale": "The complete nine-cell Möbius-sign joint distribution is a natural exact fixed-degree Chowla-type invariant including nonsquarefree failures. It is uniform across every binary finite field and every nonconstant affine shift, and yields the sharp negative signed correlation \\(-q\\), far more precise than a general asymptotic cancellation bound. The sign-resolved classification is not implied by earlier unsigned squarefree counts; its number-theoretic interest does not rest on computing code or an unproved downstream conjecture.",
+    "status": "PASS"
+  }
+}
