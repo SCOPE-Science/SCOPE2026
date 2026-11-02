@@ -1,0 +1,126 @@
+{
+  "audit_date_utc": "2026-10-28",
+  "audited_at_utc": "2026-10-28T12:51:19Z",
+  "axes": {
+    "correctness": {
+      "rationale": "Coarea gives (n-1)-area sqrt(n) f_n(s) and pyramid altitude s/sqrt(n), so W_n=s f_n(s)/n. Convolution log-concavity of the Irwin–Hall density plus strict log s proves exactly one maximum for each n>=3; symmetry makes derivative positive at n/2 and vanishing endpoints enforce global uniqueness. The uniform Fourier inversion of sinc(t/2)^n with controlled differentiated remainder gives log[f_n(n/2+u)/f_n(n/2)]=-6u^2/n+18u^2/(5n^2)+O(n^-3) locally. Stationary expansion yields offset 1/6+2/(45n)+O(n^-2), optimal gain 1+1/(6n)+7/(120n^2)+O(n^-3). Independent scipy Irwin–Hall numerical optimizations at n=4,6,10,20,40,80 match the predicted coefficients and the n=4 root 3t^3-6t+1=0. Finite experiments do not prove Fourier uniformity or uniqueness.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Nikolov Proposition 3 c_n<M_n<c_(n-1), Theorem 4 gives n M_n<(n+1)M_(n+1)^0; section formulas appear in proof, but no all-n diagonal offset optimizer or 1/n² expansion. General critical moments concern different target functionals and fixed dimension."
+        ],
+        "reasoning": "General slice algorithms do not dominate a uniform n asymptotic for the size-biased section objective.",
+        "searches": [
+          "Nikolov maximal volumes pyramids unit cube arXiv:2610.14047v1",
+          "Brandenburg De Loera Luo Meroni Critical moments slices slabs cube 2603.25643",
+          "Pournin local extrema hypercube sections 2203.15054"
+        ]
+      },
+      "checked_sources": [
+        "Git RESULT.md 74d3bdf75d8c7cd6c32d2aecea372e4ca934775b",
+        "Git checker.py 393ce8feed17a4ff1f65f9beb2bc2cbf52097abc",
+        "arXiv:2610.14047v1",
+        "arXiv:2412.12835",
+        "arXiv:2603.25643",
+        "arXiv:2203.15054"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "Nikolov proves derivative W_n’(n/2)>0 and derives global upper bounds but does not locate a unique noncentral optimizer or sharp expansions."
+        ],
+        "reasoning": "A positive central derivative alone does not logically imply uniqueness or quantitative n^-2 drift; these come from strict log-concavity and differentiated Fourier asymptotics.",
+        "searches": [
+          "arXiv:2610.14047v1 full paper Propositions 1–3 and Theorem 4",
+          "arXiv:2412.12835 central Laplace-Polya integral",
+          "arXiv:2603.25643 slicing algorithms abstract"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "W_n(s)=s f_n(s)/n is exactly a size-biased Irwin–Hall mode problem; its unweighted density mode is n/2 by symmetry, different from the shifted optimum."
+        ],
+        "reasoning": "Equivalent probability language does not itself establish an exact positive 1/6 shift or its second-order correction; checked size-biased and diagonal-pyramid formulations.",
+        "searches": [
+          "maximal cube pyramid volume unique diagonal offset maximizing s Irwin Hall density asymptotic optimal shift",
+          "size-biased Irwin Hall mode cube pyramid hyperplane section",
+          "cube central Laplace Polya integral"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "Nikolov exact unrestricted n=3 M_3=(1+sqrt(2))/6 and centered c_n; audited n=4 diagonal p_n=.347321469689... not in source full text; Resultary related cube results have different extremal functionals."
+        ],
+        "reasoning": "An available finite table of central slice volumes does not encode the asymptotic optimum across dimensions.",
+        "searches": [
+          "maximal cube pyramid volume unique diagonal offset maximizing s Irwin Hall density asymptotic optimal shift",
+          "Nikolov 2026 diagonal apex cube pyramid n=4 3t^3-6t+1",
+          "Resultary cube pyramids optimizer asymptotic"
+        ]
+      },
+      "rationale": "The source Nikolov paper already supplies the diagonal slice pyramid formula and proves noncentral improvement over the midpoint. The new content is strict uniqueness along the full diagonal-offset family, the full two-term optimizing offset and gain and exact n=4 benchmark. Its full 2026 primary paper does not state those calculations. General spline/moment methods permit derivations but do not imply the precise coefficients without analysis.",
+      "residual_risks": [
+        "Potential equivalent results in older size-biased spline mode literature remain a priority risk.",
+        "Only diagonal-parallel base hyperplanes optimized; unrestricted n>=4 cube pyramid maximizers not established.",
+        "Full text of broad critical-slice paper not independently reviewed during this execution."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Prior diagonal formula and off-center improvement; inspected full text lacks the unique diagonal optimum and two-term expansions",
+          "evidence": "arXiv:2610.14047v1, Proposition 3, proof and Theorem 4",
+          "identifier_or_url": "https://arxiv.org/html/2610.14047v1",
+          "material_read": "Complete primary 3-page article HTML with theorem, propositions and proofs, including the diagonal formula and derivative argument.",
+          "method": "Full primary arXiv HTML and PDF image",
+          "title": "Maximal volumes of pyramids in the unit cube",
+          "trigger": "Same geometric object, same source central comparison"
+        },
+        {
+          "assessment": "Concerns central density and its decay; exact noncoverage of full paper not claimed",
+          "evidence": "arXiv:2412.12835 abstract; central section framing",
+          "identifier_or_url": "https://arxiv.org/abs/2412.12835",
+          "material_read": "Abstract and cited central-section theorem description, not a verified full primary reading during this execution.",
+          "method": "Search/abstract",
+          "title": "Estimates on the decay of the Laplace–Pólya integral",
+          "trigger": "High-dimensional central cardinal spline asymptotics"
+        },
+        {
+          "assessment": "Algorithms compute slice moments; possible implications from broad formulas retained as literature risk",
+          "evidence": "arXiv:2603.25643 abstract",
+          "identifier_or_url": "https://arxiv.org/abs/2603.25643",
+          "material_read": "Full publicly accessible abstract, computational scope and four-dimensional example summary; complete article not inspected in this run.",
+          "method": "Primary abstract",
+          "title": "Critical moments of slices and slabs of the cube (and other polyhedral norms)",
+          "trigger": "Potential general extrema covering diagonal family"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "rationale": "The exact best diagonal family gives a natural computable comparator for the difficult unrestricted cube-pyramid extremum. A unique noncentral mode and two-term asymptotic gain identify shape and size of a systematic high-dimensional geometric deviation; the small O(1/n) gain is motivated by a canonical extremal problem rather than an arbitrary slice.",
+      "status": "PASS"
+    }
+  },
+  "checked_sources": [
+    "Git RESULT.md 74d3bdf75d8c7cd6c32d2aecea372e4ca934775b",
+    "Git checker.py 393ce8feed17a4ff1f65f9beb2bc2cbf52097abc",
+    "arXiv:2610.14047v1",
+    "arXiv:2412.12835",
+    "arXiv:2603.25643",
+    "arXiv:2203.15054"
+  ],
+  "disposition": "passed",
+  "limitations": [
+    "Potential equivalent results in older size-biased spline mode literature remain a priority risk.",
+    "Only diagonal-parallel base hyperplanes optimized; unrestricted n>=4 cube pyramid maximizers not established.",
+    "Full text of broad critical-slice paper not independently reviewed during this execution.",
+    "The full directory tree was not independently enumerated; pinned RESULT.md and scientific checker blob identities read from assigned commit and compared to expected Git file identities.",
+    "Publication withheld for operational-provenance confidentiality and missing verified complete replacement guards."
+  ],
+  "residual_risks": [
+    "Potential equivalent results in older size-biased spline mode literature remain a priority risk.",
+    "Only diagonal-parallel base hyperplanes optimized; unrestricted n>=4 cube pyramid maximizers not established.",
+    "Full text of broad critical-slice paper not independently reviewed during this execution."
+  ],
+  "schema_version": 1
+}
