@@ -1,9 +1,21 @@
-# Scientific review
+# Independent mathematical audit
 
-**Correctness — PASS.** The exact iff test is proved in both directions: a common hyperbolic frame forces each retained line's dual frame axis into the intersection, while a surjective pairing map supplies hyperbolic pairs that split off and are extended by a Witt frame for two maximal isotropics. The matroid assertion is the column independence characterization of the pairing map; the even deletion threshold follows from the skew-symmetric graph model. Explicit rational-rank enumeration corroborates examples but does not replace the proof.
+## correctness
 
-**Originality — PASS, with priority risk.** The originating Helly-number work handles unrestricted upper bounds and gives odd-orthogonal/symplectic sharpness constructions, but no stated type-D mixed-generator compatibility matroid. The closest accessible historical line-only result classifies a different parabolic pattern and does not imply this two-generator statement. Pankov's polar-apartment work supplies classical frame-extension ideas, not the specified compatible-subset matroid or parity cutoff. Broader incidence-geometry folklore may contain an implicit equivalent.
+PASS
 
-**Value — PASS.** The type-D Helly gap is explicitly left unresolved by recent work. An exact combinatorial classification of all compatible deletions in the most direct two-generator mixed-parabolic model identifies a nontrivial structural boundary: unlike the symplectic and odd-orthogonal sharpness families, even-orthogonal generators require deleting an even positive number of line constraints. The representable-matroid description records all allowable subsets, not just a cheap negative example. It is intentionally not a solution of the unrestricted Helly problem.
+PASS: Reconstructed necessity: in a common hyperbolic frame, each retained f_i line forces its unique opposite axis into both coordinate maximal isotropics E,E', hence the pairing map from K=E∩E' is surjective. Conversely choose dual k_i in K, split off pairwise orthogonal hyperbolic planes, and complete the two residual maximal isotropic spaces simultaneously by Witt decomposition. The K×F pairing matrix has full row rank; for the alternating graph matrix A of E' over E, K=ker A and rank(A) is even. This proves the rank and sharp deletion threshold including I=empty, E=E', zero rank and m odd/even boundaries. Independent symbolic rational matrix examples reproduce several matroid profiles; they do not prove the universal frame equivalence.
 
-Self-review: passed. Independent audit: not yet performed.
+## originality
+
+PASS
+
+PASS (bounded): The precise compatible-subset matroid and even-rank deletion pattern are not stated by the inspected Helly-number abstract/descriptive source, nor by the polar-apartment abstract. The general two-maximal-subspace frame lemma is classical, but combining it with specified line constraints gives a nontrivial iff classification. Relevant primary 2026 type-D full text was inaccessible, so implicit prior equivalence is a material historical-priority risk rather than a novelty guarantee.
+
+## value
+
+PASS
+
+PASS: The mixed parabolic line-plus-two-generator configuration arises directly from the open type-D Helly gap. Describing every allowable set of retained line constraints as a representable matroid, rather than only a negative instance, determines a structural alternating-rank obstruction to transferring odd-orthogonal constructions. It does not claim to solve the unrestricted Helly number; this precise local geometric classification is a useful natural theorem.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
