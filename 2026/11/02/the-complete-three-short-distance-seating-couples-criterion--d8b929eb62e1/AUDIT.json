@@ -1,0 +1,136 @@
+{
+  "correctness": {
+    "rationale": "The theorem specifies every n>=3 and every triple a,b,c>=0 with sum n. Length-2 edges consume same-parity pairs, so parity b even is necessary. If 3|n, a single length-1 edge leaves two odd residue classes under length-3 edges, forbidding (a,b,c)=(1,0,n-1). For b>=2 even, a concatenation of explicit B/E/F blocks, D blocks, and A blocks gives all possibilities according to c modulo 3. For b=0 and a>=(c mod 3), A/C/D suffice; the only other allowed case uses the even->even+3 modulo 2n bijection, while a=1 and c mod 3=2 is exactly the forbidden residue case. All boundaries and six signatures were checked using the packaged stand-alone verify.py: 46,748 construction cases through n=80, exact definition-based profile enumeration through n=18 with 702 realizable profiles, and VERIFY_OK. Infinite correctness rests on the direct combinatorial proof.",
+    "status": "PASS"
+  },
+  "independent": false,
+  "independent_audit_status": "not_performed",
+  "originality": {
+    "broader_coverage": {
+      "evidence": [
+        "arxiv:2308.16553v1, Theorem 1.4 and Corollary 4.9",
+        "arxiv:1603.06625v1, Theorem 2.4",
+        "doi:10.1016/j.disc.2021.112486 abstract and introduction"
+      ],
+      "reasoning": "The 2023 two-length theorem covers any profile with at most two nonzero multiplicities; the consecutive-length corollary requires equal multiplicities and does not cover arbitrary triples. The 2016 modular-unit theorem cannot apply when b>0. A Hamiltonian path with a prescribed 2n-1-edge list does not imply a perfect matching with an independently prescribed n-edge list. The novel positive assertion is for genuinely three-supported multiplicity profiles.",
+      "searches": [
+        "\"seating couple problem in even case\" three lengths 1 2 3 all multiplicities",
+        "\"On a generalization of the seating couples problem\" Kohen Sadofschi theorem",
+        "\"Buratti-Horak-Rosa\" \"1,2,3\" Hamiltonian paths",
+        "\"generalized Skolem\" \"multiset\" \"1\" \"2\" \"3\" realizations"
+      ]
+    },
+    "checked_sources": [
+      "arxiv:2308.16553v1",
+      "arxiv:1603.06625v1",
+      "doi:10.1016/j.disc.2021.112486",
+      "arxiv:math/0506155"
+    ],
+    "claim_vs_prior_implication": {
+      "evidence": [
+        "arxiv:2308.16553v1, Proposition 2.4: b even necessary; Theorem 1.4: at most two lengths; Conjecture 3: open prime parity sufficiency",
+        "arxiv:1603.06625v1, Theorem 2.4: only invertible distances"
+      ],
+      "reasoning": "The new equivalence adds sufficiency for every triple with a,b,c all positive and b even, for all n>=3, plus a uniform construction. The isolated two-length exception is not novel and is expressly credited. The theorem also implies the {1,2,3}-supported part of the prime conjecture for p>=5. No prior theorem inspected has hypotheses that cover the arbitrary three-positive-multiplicity cases.",
+      "searches": [
+        "Meszka Pasotti Pellegrini 2023 even seating couples problem Conjecture 3 prime p, supports 1 2 3",
+        "perfect matching with prescribed circular lengths 1 2 3 K_{2n} arbitrary multiplicities",
+        "\"seating couple problem\" \"2025\" \"2026\" subsequent solved"
+      ]
+    },
+    "equivalent_formulations": {
+      "evidence": [
+        "arxiv:2308.16553v1, §§1–5",
+        "arxiv:math/0506155 abstract",
+        "arxiv:1603.06625v1, Thm. 2.4"
+      ],
+      "reasoning": "Equivalent descriptions are perfect 1-factors with a prescribed circular difference multiset, seating-couple lists, and bounded-difference Skolem-style pairings. The six-block construction proves all positive cases in ordinary difference form except the all-3 wrap case; the circular negative condition for 3|n has a residue-class obstruction. Inspected literature did not contain the complete unrestricted 1/2/3 multiplicity criterion.",
+      "searches": [
+        "\"seating couple\" \"three lengths\" complete solution",
+        "\"perfect matching\" \"distances 1, 2, 3\" circle prescribed multiplicities",
+        "\"Skolem sequence\" \"1^a\" \"2^b\" \"3^c\"",
+        "Skolem multisets of size n supported on three consecutive small lengths 1, 2, 3; generalized Langford perfect matching linear tiles."
+      ]
+    },
+    "exact_database_or_table": {
+      "evidence": [
+        "arxiv:2308.16553v1, Section 4 equal-multiplicity lists",
+        "arxiv:math/0506155 abstract"
+      ],
+      "reasoning": "The accessed tables and previously stated classifications apply to uniform multiplicities, prescribed distinct-value Skolem sets, or only two distances. No directly matching all-multiplicity existence table was found. A failed search alone is not proof of priority.",
+      "searches": [
+        "perfect matching circular distance multiset 1 2 3 all multiplicities solution",
+        "\"seating couple\" \"1 2 3\" matching parity table",
+        "\"Skolem sequence\" \"1^a\" \"2^b\" \"3^c\"",
+        "circular distance 1 2 3 perfect matching seating couples exact realizability with even number of twos"
+      ]
+    },
+    "rationale": "Closest fully inspected primary article arxiv:2308.16553v1 proves parity necessity, two-support classification, and selected equal-multiplicity lists, but sets out the prime parity question as an open conjecture. The complete unrestricted three-short-distance existence criterion and explicit six-block realization of every triple profile are not implications of those statements. The 2016 full preprint requires modular-unit distances, excluding the nonzero length-2 cases. Related Skolem-set and Hamiltonian-path formulations do not directly settle the circular matching problem. Indexed published mathematical records and relevant literature produced no equivalent theorem; residual risk of unindexed or unstated stronger prior work persists.",
+    "residual_risks": [
+      "Publication priority is not independently established; a three-support realization may have appeared in an unindexed or unpublished treatment.",
+      "Only abstracts/limited introductory material were accessible for the Skolem-set and Hamiltonian-path comparisons, so those sources are not asserted to lack all related intermediate lemmas.",
+      "The exceptional two-length obstruction and parity necessity are credited, not claimed as novel."
+    ],
+    "source_inspections": [
+      {
+        "assessment": "The parity necessity and one/two-support specializations are already known. The cited results cover no unrestricted arbitrary-multiplicity support {1,2,3} theorem; the paper explicitly conjectures parity sufficiency for prime n.",
+        "evidence": [
+          "arxiv:2308.16553v1, Proposition 2.4, Theorem 1.4, Corollary 4.9, Conjecture 3",
+          "https://arxiv.org/abs/2308.16553",
+          "https://www.researchgate.net/publication/373551798_The_seating_couple_problem_in_even_case"
+        ],
+        "identifier_or_url": "arxiv:2308.16553v1; https://www.researchgate.net/publication/373551798_The_seating_couple_problem_in_even_case",
+        "material_read": "Public full-text HTML transcription: Introduction and Theorem 1.4; Section 2 including parity Proposition 2.4; Section 3 complete two-length theorem; Section 4 equal-multiplicity propositions and corollaries; Section 5 Conjecture 3 and literature references.",
+        "method": "Read accessible primary preprint transcription and compared quantifiers, graph, length notion, supports, and sufficiency hypotheses.",
+        "title": "The seating couple problem in even case",
+        "trigger": "Same problem: prescribed circular lengths in a perfect matching of K_{2n}, explicit prime parity conjecture."
+      },
+      {
+        "assessment": "The theorem requires all differences coprime to 2n; a prescribed distance 2 is never a unit modulo 2n, hence mixed three-support profiles with b>0 do not follow.",
+        "evidence": [
+          "arxiv:1603.06625v1, Theorem 2.4, pp. 1-3",
+          "https://arxiv.org/abs/1603.06625",
+          "https://www.researchgate.net/publication/301838296_On_a_generalization_of_the_seating_couples_problem"
+        ],
+        "identifier_or_url": "arxiv:1603.06625v1; https://www.researchgate.net/publication/301838296_On_a_generalization_of_the_seating_couples_problem",
+        "material_read": "Complete accessible short original preprint transcription including Theorems 2.2-2.4 and their proofs.",
+        "method": "Checked assumption that every prescribed modular difference is a unit, and compared it to distance 2.",
+        "title": "On a generalization of the seating couples problem",
+        "trigger": "Potential stronger all-distances matching theorem for the identical even-seat setting."
+      },
+      {
+        "assessment": "The inspected statements concern a Hamiltonian path, not disjoint covering pairs. No extraction theorem establishing prescribed matching multiplicities was identified in inspected material; complete implication beyond this material remains a minor residual risk.",
+        "evidence": [
+          "doi:10.1016/j.disc.2021.112486, abstract and introduction",
+          "https://doi.org/10.1016/j.disc.2021.112486"
+        ],
+        "identifier_or_url": "doi:10.1016/j.disc.2021.112486",
+        "material_read": "Accessible article abstract and introduction explaining the Hamiltonian-path object and cited solved supports.",
+        "method": "Compared the required edge-count (2n-1 on a Hamiltonian path versus n in a perfect matching) and the incidence constraints.",
+        "title": "New methods to attack the Buratti-Horak-Rosa conjecture",
+        "trigger": "The same prescribed circular lengths occur in a related complete-graph Hamiltonian-path problem, including three-length supports."
+      },
+      {
+        "assessment": "The inspected formulation centers on Skolem sets and ordinary differences, not the full circular three-multiset criterion. Because the entire paper was not read, no exhaustive exclusion is asserted.",
+        "evidence": [
+          "arxiv:math/0506155 abstract",
+          "https://arxiv.org/abs/math/0506155"
+        ],
+        "identifier_or_url": "arxiv:math/0506155",
+        "material_read": "Primary abstract and published bibliographic description, not complete paper.",
+        "method": "Checked scope of Skolem sets of distinct values versus multisets with arbitrary repetitions and versus cyclic differences.",
+        "title": "Perfect Skolem sets",
+        "trigger": "Equivalent linear-pairing language could give stronger existence criteria."
+      }
+    ],
+    "status": "PASS"
+  },
+  "review_type": "self_review",
+  "schema_version": 1,
+  "scope_run_id": "d8b929eb-62e1-4498-bf29-1b96b3464a8f",
+  "self_review_status": "passed",
+  "value": {
+    "rationale": "The 2023 source explicitly motivates classification when necessary parity is sufficient and conjectures a prime-order characterization. The present theorem completely determines realizability for the first unrestricted three-length support {1,2,3}, for all n and arbitrary multiplicities, with a genuine n mod 3 boundary; it resolves the three-short-distance slice of the prime conjecture. Unlike an isolated small calculation, it supplies a uniform constructive procedure and an exact impossibility criterion for an infinite natural combinatorial family. The restriction to only three lengths is motivated by the published transition from two-length classifications to three-length unknown cases.",
+    "status": "PASS"
+  }
+}
