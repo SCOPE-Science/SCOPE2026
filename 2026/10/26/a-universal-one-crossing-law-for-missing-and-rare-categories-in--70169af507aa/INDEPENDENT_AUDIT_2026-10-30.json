@@ -1,0 +1,118 @@
+{
+  "audit_date_utc": "2026-10-30",
+  "audited_at_utc": "2026-10-30T22:44:03Z",
+  "axes": {
+    "correctness": {
+      "rationale": "For m>=3, a=alpha_i>0, b=alpha_j>0, c=T-a-b>0, n>=r>=1, direct Dirichlet-multinomial integration gives P(X_i=0)=(T-a)_n/(T)_n, P(X_j=r)=C(n,r)(b)_r(T-b)_(n-r)/(T)_n, and P(X_i=0,X_j=r)=C(n,r)(b)_r(c)_(n-r)/(T)_n. The claimed Q_n follows and the adjacent denominator minus numerator equals a(b+r)>0. Q_r=(T)_r/(T-a)_r>1, and strict convexity of log Gamma shows its gamma-ratio limit is below one. Digamma differentiation, using strict decrease of trigamma, makes the continuous interpolation strictly decreasing and yields the unique real crossing. For fixed r,alpha, the telescoping first- and second-order expansion at n=rm+u has logarithm -(alpha*u+r(alpha+1)/2)/((alpha+r)m^2)+O(m^-3), yielding rho=rm-r(alpha+1)/(2alpha)+O(m^-1); alpha=1 telescopes exactly to rho=r(m-1). Independently enumerated weak compositions with exact rational Dirichlet-multinomial probabilities over 63 nonidentical (alpha,n,r) combinations, matching the joint/marginal formulas and signs. Experiments corroborate but do not establish infinite quantifiers.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Gnedin-Hansen-Pitman (2007) studies iid boxes with fixed frequency weights and global occupancy statistics. Holmes-Harris-Quince (2012) develops a Dirichlet-multinomial mixture inference framework, not the prescribed fixed-pair sign change."
+        ],
+        "reasoning": "The deterministic-frequency occupancy and mixture-inference frameworks are broader in some sampling senses, but neither inspected result gives the labelled two-indicator covariance crossing with arbitrary positive Dirichlet shape parameters.",
+        "searches": [
+          "arXiv:math/0701718",
+          "DOI:10.1371/journal.pone.0030126",
+          "Resultary published occupancy covariance records"
+        ]
+      },
+      "checked_sources": [
+        "SCOPE Git RESULT.md, verify.py, REVIEW.md, AUDIT.json, METADATA.json at frozen commit; Git tree 44531c1d346236742b2397c1b99d018a7a88a842",
+        "Independent exact rational weak-composition enumeration 63 cases",
+        "Gnedin Hansen Pitman 2007 arXiv:math/0701718",
+        "Holmes Harris Quince 2012 DOI:10.1371/journal.pone.0030126",
+        "Resultary occupancy richness/frequency record 93dddb2be813"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "DM mass + logGamma strict convexity + trigamma monotonicity establish claim; prior sources provide the first ingredient but not the combined theorem."
+        ],
+        "reasoning": "The purported implication requires additional strict monotonicity and root asymptotic arguments absent from the inspected primary statements. Asymptotic aggregate occupancy theorems do not specialize to the fixed labelled pair without extra hypotheses.",
+        "searches": [
+          "Gnedin Hansen Pitman 2007 Sections 2-6",
+          "Holmes Harris Quince 2012 model likelihood and DM density",
+          "Resultary richness/frequency one-switch record"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Classical P(X_i=0,X_j=r) is a rising-factorial ratio; the inspected Resultary hit addresses uniform occupancy richness vs block-count covariance, not two labelled cells with random Dirichlet frequencies."
+        ],
+        "reasoning": "An algebraically equivalent form may use beta-binomial conditioning, but the published hits examined do not state the monotone-in-n sign law or continuous crossing. Algebraic computability of the mass by itself does not prove a prior theorem of the exact transition.",
+        "searches": [
+          "Resultary: Dirichlet multinomial occupancy empty box exactly r count covariance sign transition n single crossing Dirichlet prior",
+          "Dirichlet-multinomial beta-binomial conjugacy and two-category indicator covariance"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "The relevant record is a one-switch theorem across frequency r for aggregate richness under uniform fixed frequencies, not the change across sample size n for two distinct labelled cells."
+        ],
+        "reasoning": "Neither the n-dependent real Gamma root nor rho_{m,r,alpha} expansion is a database/table entry in the inspected references. These are analytical continuous-parameter quantities; a tabulation of ordinary Dirichlet probabilities does not imply the sign classification.",
+        "searches": [
+          "Resultary: one-switch covariance law for occupancy richness and frequency counts",
+          "Gnedin Hansen Pitman 2007 occupancy formulas"
+        ]
+      },
+      "rationale": "The Dirichlet-multinomial marginal and joint mass formulas are elementary prior art, and one-switch results for aggregate occupancy measures are known. The actual claim is the strictly decreasing normalized covariance ratio for a fixed distinct labelled missing/rare category pair across varying n under an arbitrarily asymmetric one-shot Dirichlet mixture, with a unique real crossing and explicit symmetric-reinforcement shift. No inspected published theorem entails all these results; this is a qualified best-of-knowledge PASS, not a statement of absolute novelty.",
+      "residual_risks": [
+        "Older beta-binomial or Dirichlet-multinomial association work could state an equivalent labelled vacancy/rare transition under another normalization.",
+        "The asymptotic expansion is for fixed r,alpha and does not cover mixtures of Dirichlet components or joint growth of r,alpha."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Different observation model: fixed deterministic box weights, aggregate statistics; no direct theorem for Dirichlet-labelled vacancy/rare crossing",
+          "evidence": "Sections 2-6 address K_n and block counts in infinite occupancy; no asserted fixed-pair varying-n Dirichlet sign classification.",
+          "identifier_or_url": "https://arxiv.org/abs/math/0701718",
+          "material_read": "Primary PDF sections on count moments, variance and fixed-frequency occupancy, plus reference list",
+          "method": "full primary text read in accessible OA PDF",
+          "title": "Notes on the occupancy problem with infinitely many boxes: general asymptotics and power laws",
+          "trigger": "same occupancy counts, possible general dominating moment identities"
+        },
+        {
+          "assessment": "Establishes classical generative model, not the submitted strict Q_n one-crossing theorem",
+          "evidence": "Dirichlet-multinomial component and mixture modelling; no n-threshold theorem in studied objectives.",
+          "identifier_or_url": "https://doi.org/10.1371/journal.pone.0030126",
+          "material_read": "Primary open-access HTML, DM mixture model construction and likelihood method",
+          "method": "read open-access full article text",
+          "title": "Dirichlet Multinomial Mixtures: Generative Models for Microbial Metagenomics",
+          "trigger": "same Dirichlet-multinomial sampling law and use of rare taxon counts"
+        },
+        {
+          "assessment": "Distinct aggregate richness vs frequency-count statistic, fixed uniform occupancy; possible conceptual analogy only",
+          "evidence": "Summary identifies switch across r, not across n for labelled i and j with Dirichlet reinforcement.",
+          "identifier_or_url": "https://github.com/Resultary/2026/tree/main/2026/10/4/SCOPE-a-one-switch-covariance-law-for-occupancy-richness-and-frequency--93dddb2be813",
+          "material_read": "Published record title and semantic-search summary",
+          "method": "read Resultary title and summary, not full research files",
+          "title": "A one-switch covariance law for occupancy richness and frequency counts",
+          "trigger": "same covariance sign-switch terminology"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "rationale": "The vacancy-versus-exactly-r cell covariance is a natural occupancy statistic for overdispersed finite categorical sampling. Determining its sign over every n, its unique transition and its reinforcement-dependent order-one shift gives an exact dependence invariant useful for sensitivity analyses and statistical sampling design; it is neither merely restating the mass formula nor an arbitrary finite experiment.",
+      "status": "PASS"
+    }
+  },
+  "checked_sources": [
+    "SCOPE Git RESULT.md, verify.py, REVIEW.md, AUDIT.json, METADATA.json at frozen commit; Git tree 44531c1d346236742b2397c1b99d018a7a88a842",
+    "Independent exact rational weak-composition enumeration 63 cases",
+    "Gnedin Hansen Pitman 2007 arXiv:math/0701718",
+    "Holmes Harris Quince 2012 DOI:10.1371/journal.pone.0030126",
+    "Resultary occupancy richness/frequency record 93dddb2be813"
+  ],
+  "disposition": "passed",
+  "limitations": [
+    "Scientific assessment is best-of-knowledge: partial/inaccessible primary sources remain as precisely stated in originality residual risks; a failed search is not an originality guarantee.",
+    "Finite independent checks are corroboration only, not a proof of infinite quantifiers.",
+    "Publication transport not ready for confidentiality/provenance reasons; no source modifications attempted."
+  ],
+  "residual_risks": [
+    "Older beta-binomial or Dirichlet-multinomial association work could state an equivalent labelled vacancy/rare transition under another normalization.",
+    "The asymptotic expansion is for fixed r,alpha and does not cover mixtures of Dirichlet components or joint growth of r,alpha."
+  ],
+  "schema_version": 1
+}
