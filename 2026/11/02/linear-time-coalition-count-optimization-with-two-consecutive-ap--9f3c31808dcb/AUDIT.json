@@ -1,0 +1,137 @@
+{
+  "correctness": {
+    "rationale": "Every agent belongs to exactly one size bucket. With a_s fixed and b_s adjacent-size approvals, the number in bucket s equals a_s+b_s-t_s+t_{s-1}, and divisibility by s is necessary and sufficient because membership is otherwise unconstrained. The transition condition is exactly t_{s-1} congruent to t_s-a_s-b_s modulo s. For fixed current t_s, minimization (respectively maximization) of cumulative groups reduces to the minimum (maximum) of s times the prior count plus predecessor t_{s-1} in one residue class. The timestamped representative array costs O(sum_s(b_s+1))=O(n), with O(n) predecessors stored and O(n) witness construction. A standalone exact-integer verifier checked 2536 complete n<=4 approval profiles, 5000 seeded n=5..8 profiles against exhaustive labeled set partitions, and 1250 additional profiles by a second flexible-allocation enumerator. This is a proof for all n, supported but not replaced by finite tests; assumes O(log n)-bit word RAM arithmetic.",
+    "status": "PASS"
+  },
+  "independent": false,
+  "independent_audit_status": "not_performed",
+  "originality": {
+    "broader_coverage": {
+      "evidence": [
+        "Constantinescu et al., arXiv:2311.02067v1, Theorem 2.5 and Section 4: O(n^5) general interval feasibility and construction; no linear size-one-width extremal group-count algorithm in the inspected sections.",
+        "Darmann et al., DOI 10.1007/s00182-017-0596-4, Theorem 4: NP-complete for a single infinitely copyable activity when each agent approves at most two arbitrary sizes; proof uses separated labels.",
+        "ICALP 2024 publisher description (DOI 10.4230/LIPIcs.ICALP.2024.48) confirms O(n^5) full-interval baseline."
+      ],
+      "reasoning": "The broader arbitrary-interval source subsumes the restricted instance family for deciding existence, but does not imply the new O(n) running time, both sharp group-count extrema, or both witnesses in O(n). The two-size hardness result covers the input class without consecutive restriction but supplies no algorithm and its reduction cannot establish hardness of the adjacent-only subclass. No stronger covering implication found in inspected statements.",
+      "searches": [
+        "web: Solving Woeginger's Hiking Problem Wonderful Partitions in Anonymous Hedonic Games arxiv 2311.02067 original algorithm O(n^5) linear time two consecutive group sizes",
+        "published-finding corpus: arxiv 2311.02067 wonderful partitions anonymous hedonic at most two consecutive allowed coalition sizes linear time minimization maximum number coalitions",
+        "published-finding corpus: arxiv 2311.02067 exact optimal group number narrow intervals length two min max linear",
+        "published-finding corpus: Woeginger's Hiking Problem group size tolerance one modular dynamic programming linear algorithm"
+      ]
+    },
+    "checked_sources": [
+      "Constantinescu et al., arXiv:2311.02067v1, source public 2023-11-03, main definitions, Theorem 2.5, Section 4 and Appendix B.",
+      "Darmann et al., DOI 10.1007/s00182-017-0596-4, first online 2017-10-14, original publisher Theorem 4 and proof.",
+      "Published ICALP 2024 proceedings DOI 10.4230/LIPIcs.ICALP.2024.48, description of O(n^5) algorithm.",
+      "published-finding corpus indexed record IDs 2026/9/17/SCOPE-prescribed-colorings-max-degree-two--9aaf81e2ad5d and 2026/10/4/SCOPE-block-size-counts-switch-covariance-sign-at-the-lambert-w-scale--8198e77842ad."
+    ],
+    "claim_vs_prior_implication": {
+      "evidence": [
+        "arXiv:2311.02067v1: general interval O(n^5) time and NP-hardness of noninterval two-value approvals; source gives no claim about input-linear optimization of number of coalitions.",
+        "Darmann et al., 2017, Theorem 4 and proof in Springer article HTML: arbitrary two nonconsecutive approved sizes produce NP-hardness.",
+        "published-finding corpus 2026/9/17/SCOPE-prescribed-colorings-max-degree-two--9aaf81e2ad5d: fixed graph-degree coloring classes not anonymous cardinality-only approvals."
+      ],
+      "reasoning": "The requested claim is a simultaneous min/max cardinality optimization with constructive linear time on consecutive pair/singleton approvals. A polynomial general decision procedure does not logically imply linear time or extremum optimization. A hardness construction using arbitrary size gaps does not apply to consecutive sizes. Graph-degree-two coloring constraints are incomparable. Thus direct implication from the named closest results was not established.",
+      "searches": [
+        "published-finding corpus: Woeginger hiking bounded interval width two linear time modular orientation path",
+        "published-finding corpus: orientation multigraph on a path indegrees divisible by vertex labels consecutive approved coalition sizes",
+        "published-finding corpus: arxiv 2311.02067 wonderful partitions anonymous hedonic at most two consecutive allowed coalition sizes linear time minimization maximum number coalitions",
+        "published-finding corpus: Woeginger's Hiking Problem group size tolerance one modular dynamic programming linear algorithm",
+        "web: Darmann Elkind Kurz Lang Schauer Woeginger group activity selection problem with approval preferences 2018 two approved sizes NP complete theorem 4"
+      ]
+    },
+    "equivalent_formulations": {
+      "evidence": [
+        "Constantinescu et al., arXiv:2311.02067v1 Appendix B: general two-size approvals as modular indegree orientation, including separate nonadjacent size labels.",
+        "published-finding corpus 2026/9/17/SCOPE-prescribed-colorings-max-degree-two--9aaf81e2ad5d: exact prescribed color-class sizes on degree-two graphs, but neither size-choice intervals nor optimizing coalition count.",
+        "published-finding corpus 2026/10/4/SCOPE-block-size-counts-switch-covariance-sign-at-the-lambert-w-scale--8198e77842ad: uniform random set partitions, not approval-constrained wonderful partitions."
+      ],
+      "reasoning": "The algebraic reformulation is a directed flow on a path of size labels: each {s,s+1} choice transfers one count from bucket s to s+1, requiring size-dependent divisibility. The new optimization is per-stage modular residue compression of a carry state, not just a renaming of the general hardness reformulation. Graph coloring with prescribed class counts and uniform set-partition block statistics do not imply optimal wonderful-partition group counts. A hidden result on congruence-constrained path orientations remains possible.",
+      "searches": [
+        "published-finding corpus: wonderful partitions anonymous hedonic interval approval attainable coalition counts gap free spectrum",
+        "published-finding corpus: Woeginger hiking problem interval approvals number of groups possible feasible sizes",
+        "published-finding corpus: anonymous hedonic group-size interval approval spectrum all counts",
+        "published-finding corpus: linear time wonderful partitions size interval length at most 2 adjacent consecutive pair approval modulo sizes algorithm",
+        "published-finding corpus: Woeginger hiking bounded interval width two linear time modular orientation path",
+        "published-finding corpus: orientation multigraph on a path indegrees divisible by vertex labels consecutive approved coalition sizes",
+        "web: Solving Woeginger's Hiking Problem Wonderful Partitions in Anonymous Hedonic Games arxiv 2311.02067 original algorithm O(n^5) linear time two consecutive group sizes"
+      ]
+    },
+    "exact_database_or_table": {
+      "evidence": [
+        "published-finding corpus 2026/10/4/SCOPE-block-size-counts-switch-covariance-sign-at-the-lambert-w-scale--8198e77842ad concerns distributions of block counts in random partitions; it is not a feasibility or optimum table for interval approvals.",
+        "published-finding corpus semantic responses to the listed queries returned no tabulation of adjacent-approval input profiles or exact optimal group counts."
+      ],
+      "reasoning": "This finding is an all-n structural algorithm, not a numerical lookup table. A finite database cannot by itself cover its all-instance O(n) bound unless it encodes an equivalent algorithm, which was not observed. Search absence by itself is not treated as a novelty proof.",
+      "searches": [
+        "published-finding corpus: wonderful partitions anonymous hedonic interval approval attainable coalition counts gap free spectrum",
+        "published-finding corpus: anonymous hedonic group-size interval approval spectrum all counts",
+        "published-finding corpus: linear time wonderful partitions size interval length at most 2 adjacent consecutive pair approval modulo sizes algorithm",
+        "published-finding corpus: arxiv 2311.02067 wonderful partitions anonymous hedonic at most two consecutive allowed coalition sizes linear time minimization maximum number coalitions",
+        "published-finding corpus: arxiv 2311.02067 exact optimal group number narrow intervals length two min max linear"
+      ]
+    },
+    "rationale": "The 2023 originating paper has an O(n^5) algorithm for all interval approvals and gives the nonconsecutive two-size modular orientation reformulation; these do not supply the stated O(n) optimizer of both group-count extrema in the consecutive-one-step subclass. The 2017 paper proves NP-completeness of general two-size approvals, but its separated-choice reduction does not apply to adjacent choices. Direct published-finding corpus searches for the source, adjacent-size aliases, modular orientations on paths, and group-count optimization returned no comparable exact statement. Thus best-knowledge originality holds, with acknowledged risk of unlocated equivalent specialized algorithms.",
+    "residual_risks": [
+      "The source paper or a separate specialized work may contain an unstated equivalent residue-DP procedure; priority requires external expert checking.",
+      "published-finding corpus is a semantic index, not an exhaustive uniqueness guarantee; only shortlisted prior claims and limited external manuscript sections were compared.",
+      "No independent audit of the proof, algorithm or complexity is claimed."
+    ],
+    "source_inspections": [
+      {
+        "assessment": "O(n^5) general interval feasibility; two-nonconsecutive-size orientation hardness. Does not supply demonstrated O(n) min/max group-count optimization in the consecutive-pair subclass.",
+        "evidence": [
+          "arXiv:2311.02067v1 posted 2023-11-03; definition of wonderful partitions; Section 4 O(n^5); Appendix B noninterval two-size NP-hardness."
+        ],
+        "identifier_or_url": "https://arxiv.org/abs/2311.02067",
+        "material_read": "Abstract and originating preprint definitions, Theorem 2.5/general interval algorithm, Section 4 algorithm discussion, Appendix B two-size modular orientation and hardness comparison.",
+        "method": "Lawfully accessible preprint textual reading with direct hypothesis/conclusion and algorithmic running-time comparison.",
+        "title": "Solving Woeginger's Hiking Problem: Wonderful Partitions in Anonymous Hedonic Games",
+        "trigger": "Same anonymous coalition-size approval model; potentially dominant general algorithm and size-pair equivalence."
+      },
+      {
+        "assessment": "Hardness uses two arbitrary nonconsecutive approved sizes, not adjacent pairs; hence no coverage of new tractable restriction.",
+        "evidence": [
+          "Springer original full text Theorem 4: single infinitely-copyable activity, each agent at most two approved sizes, NP-complete; proof uses {z(Y)-3,z(Y)} and {z(x),z(Y)} choices."
+        ],
+        "identifier_or_url": "https://doi.org/10.1007/s00182-017-0596-4",
+        "material_read": "Open-access full-article HTML, Section 4.1, Theorem 4 and its constructive hardness proof, including the nonadjacent choice labels and background model.",
+        "method": "Original publisher HTML, close reading of the theorem and reduction rather than a search snippet.",
+        "title": "Group activity selection problem with approval preferences",
+        "trigger": "Earlier two-size hardness theorem could cover restricted choice model."
+      },
+      {
+        "assessment": "Different fixed-graph coloring model, no covering implication; its full proof was not inspected.",
+        "evidence": [
+          "published-finding corpus indexed summary states degree-two graph prescribed color class sizes, maximum independent set and odd-cycle conditions."
+        ],
+        "identifier_or_url": "https://github.com/Resultary/2026/tree/main/2026/9/17/SCOPE-prescribed-colorings-max-degree-two--9aaf81e2ad5d",
+        "material_read": "Returned published search-record title and complete indexed summary only; not full manuscript.",
+        "method": "published-finding corpus semantic record comparison with graph coloring hypotheses.",
+        "title": "Exact prescribed color-class sizes for graphs of maximum degree two",
+        "trigger": "Nearest semantic research-record analogy relating capacity constrained groups and two adjacent options."
+      },
+      {
+        "assessment": "Random set partition block-size covariance unrelated to deterministic optimal wonderful partitions; not covering.",
+        "evidence": [
+          "published-finding corpus indexed summary gives covariance for count of r-blocks in a uniform set partition."
+        ],
+        "identifier_or_url": "https://github.com/Resultary/2026/tree/main/2026/10/4/SCOPE-block-size-counts-switch-covariance-sign-at-the-lambert-w-scale--8198e77842ad",
+        "material_read": "Returned research-record title and indexed summary only; not full manuscript.",
+        "method": "published-finding corpus semantic record comparison with deterministic approval constraints.",
+        "title": "Block-size counts switch covariance sign at the Lambert-W scale",
+        "trigger": "Search record mentions partition block count and optimization but in a different probabilistic setting."
+      }
+    ],
+    "status": "PASS"
+  },
+  "review_type": "self_review",
+  "schema_version": 1,
+  "scope_run_id": "9f3c3180-8dcb-4dc6-8bfa-624d1e7b1f86",
+  "self_review_status": "passed",
+  "value": {
+    "rationale": "For a natural real scheduling interpretation of Woeginger's hiking problem, each participant approves a single preferred group size and optionally the next neighboring size. This smallest nontrivial approval uncertainty retains the combinatorial divisibility challenge but admits a structural one-step carry and a sharp linear-time algorithm computing feasibility, both possible group-count extremes and actual partitions. The shift from an O(n^5) general-interval feasibility algorithm to O(n) constructive extrema is mathematical, not just coding efficiency: it identifies why path-adjacent choice labels avoid the NP-hard arbitrary-pair obstruction. No assumption or claim about all intermediate group counts or all wider intervals is made.",
+    "status": "PASS"
+  }
+}
