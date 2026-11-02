@@ -1,0 +1,136 @@
+{
+  "correctness": {
+    "rationale": "Every reachability-positive observation along the unique tree path fixes all path-edge signs. All-one and one-negative labelings force compatibility and a private edge, while flipping one distinct private edge per negative query realizes every labeling. For integer intervals, strict endpoint ordering and private middle intervals force \\(R_{i+2}\\ge R_i+d+1\\); induction gives sharp minimum span for even/odd numbers of intervals. Paired length-d intervals in disjoint (d+1)-edge blocks attain the bound, including remainder r=d. Finite replay checked 22,332 support cases and 28 interval extremal parameter pairs; only the symbolic proof supports all m,d.",
+    "status": "PASS"
+  },
+  "independent": false,
+  "independent_audit_status": "not_performed",
+  "originality": {
+    "broader_coverage": {
+      "evidence": [
+        "Janardhanan and Reyzin arXiv:2002.11541 treats hidden graphs, strongly connected components, and reconstruction of rooted almost-trees. Its output is reconstruction-query complexity, not shatterable supports.",
+        "Wang and Honorio arXiv:1606.05183 accessible abstract concerns recovering a bounded-degree rooted directed tree from path queries, with asymptotic query counts; its full text was not materially inspected.",
+        "Published finding titled \"Exact quantifier-rank threshold for finite directed paths\" concerns first-order quantifier rank on successor paths, not variable-orientation reachability concept classes."
+      ],
+      "reasoning": "Neither reconstruction lower/upper bounds nor logical equivalence thresholds give the exact all-distance VC formula, even as a parameter substitution. More general learning models can contain this concept class but do not automatically determine its VC dimension.",
+      "searches": [
+        "Published finding-index query: Graph learning path query Boolean reachability tree orientations signed paths private edge irredundant interval families",
+        "Published finding-index query: VC dimension oriented tree reachability path-query concept classes",
+        "Public literature query: learning unknown tree orientation using reachability queries 2019 2021",
+        "Public literature query: private edge path family irredundant paths VC dimension orientations"
+      ]
+    },
+    "checked_sources": [
+      "https://arxiv.org/abs/2002.11541",
+      "https://arxiv.org/abs/1606.05183",
+      "https://carleton.ca/scs/research/scs-technical-reports/technical-reports-1994/tr-255-vc-dimensions-for-graphs/",
+      "https://doi.org/10.4230/LIPIcs.ESA.2021.12",
+      "Published mathematical result: Oriented-tree general position as a Greene–Kleitman two-family (2026)",
+      "Published mathematical result: Exact quantifier-rank threshold for finite directed paths (2026)"
+    ],
+    "claim_vs_prior_implication": {
+      "evidence": [
+        "arXiv:2002.11541, initial posting date 2020-02-26: a path query tests existence of a directed u-to-v path in one unknown graph; Sections 3.1--3.2 bound query complexity in reconstruction.",
+        "1994 Carleton report TR-255 studies graph-induced set systems whose ranges are paths, stars, and connected subgraphs, rather than orientation labels on ordered-pair reachability queries.",
+        "Published finding titled \"Oriented-tree general position as a Greene–Kleitman two-family\" supplies a fixed-orientation poset parameter rather than all-orientations VC dimension."
+      ],
+      "reasoning": "Even a strong upper bound on reconstruction query complexity does not imply an exact VC dimension of a restricted query domain. The full all-m,d arithmetic formula and general signed-private-edge characterization require both-direction shattering, not just existence of a directed path.",
+      "searches": [
+        "Public literature query: On Learning a Hidden Directed Graph with Path Queries arxiv 2002.11541",
+        "Public literature query: Reconstructing a Bounded-Degree Directed Tree Using Path Queries arxiv 1606.05183",
+        "Public literature query: VC-Dimensions for Graphs TR-255 paths trees",
+        "Published finding-index query: VC dimension of reachability queries on all orientations of a tree and of a path, private-edge directed paths shattering supports"
+      ]
+    },
+    "equivalent_formulations": {
+      "evidence": [
+        "arXiv:2002.11541, Sections 2 and 3.1--3.2: definitions and graph-reconstruction query bounds; inspected HTML text contains no shattering or VC dimension statement.",
+        "Published finding titled \"Oriented-tree general position as a Greene–Kleitman two-family\": oriented-tree general position equals a Greene--Kleitman two-family invariant, not reachability-orientation VC shattering."
+      ],
+      "reasoning": "Compared hypotheses, domain, and conclusions. Orientations of a fixed skeleton as hypotheses and ordered pairs as Boolean coordinates are absent from the inspected neighboring statements. General-position numbers are not a dual equivalent of capacity under varying edge orientations.",
+      "searches": [
+        "Published finding-index query: VC dimension of reachability queries on all orientations of a tree and of a path, private-edge directed paths shattering supports",
+        "Published finding-index query: Shattering ordered-pair directed reachability queries for every orientation of a fixed undirected path; exact VC dimension distance at least d",
+        "Public literature query: VC dimension reachability relations variable orientations fixed skeleton tree",
+        "Public literature query: Vapnik Chervonenkis dimension reachability queries directed tree edge orientations distance at least d"
+      ]
+    },
+    "exact_database_or_table": {
+      "evidence": [
+        "No matching indexed mathematical finding or published exact distance-threshold table was found with these formulations.",
+        "Independent exhaustive optimizer in verify.py computes all 28 integer interval extremal cases \\(2\\le d\\le m\\le 8\\), rather than reproducing a known table."
+      ],
+      "reasoning": "Exact interval extremal formula 2q+1_{r=d} for arbitrary m,d was not in inspected tables or records. Failed searches do not prove historical absence; this is residual risk.",
+      "searches": [
+        "Published finding-index query: irredundant interval systems of length at least two, interval families private elements extremal floor two-thirds",
+        "Public literature query: irredundant interval family private element each interval minimum length d maximum number intervals length line",
+        "Public literature query: irredundant intervals minimum length each unique point maximum number on n points",
+        "Public literature query: VC dimension directed paths reachability queries orientations trees shattering paths private edge"
+      ]
+    },
+    "rationale": "Primary arXiv source arXiv:2002.11541 was inspected in available HTML, and published-index semantic searches checked statement equivalents, stronger-coverage possibilities, private-edge interval bounds and path-orientation variants. Closest known work concerns reconstructing hidden directed graphs, fixed-orientation general-position sets, or interval-as-hypothesis VC systems. None of the inspected mathematical statements implies this theorem; limited inspection of older papers and unindexed work leaves genuine priority risk.",
+    "residual_risks": [
+      "The earliest rooted-tree path-query source (2016) was only accessible as an abstract for material comparison.",
+      "Related classical irredundant-interval extremal results may exist under alternate terminology; absence from search is not proof of priority.",
+      "All indexed search matches are ranked rather than a guarantee of corpus exhaustion."
+    ],
+    "source_inspections": [
+      {
+        "assessment": "Motivates query oracle and proves reconstruction bounds; does not state all-orientations known-tree shattering criterion or sharp minimum-distance VC formula",
+        "evidence": [
+          "Section 2 Definition 1 defines Boolean directed path query",
+          "Section 3.1 theorem 3.1 O(nk) reconstruction bound",
+          "Section 3.2 studies rooted almost-trees; no VC or shatter occurrence in the accessible text"
+        ],
+        "identifier_or_url": "https://arxiv.org/abs/2002.11541",
+        "material_read": "HTML full text, introduction, definitions 1--5, Sections 3.1 and 3.2, and searches for VC/shatter/orientation in the text",
+        "method": "Read arXiv HTML full page and compared objects, parameters, stated theorems and implications",
+        "title": "On Learning a Hidden Directed Graph with Path Queries",
+        "trigger": "Exact same binary ordered-pair path-query model"
+      },
+      {
+        "assessment": "Different fixed-root directed-tree reconstruction problem; no direct equivalence identified, but full-text priority risk remains",
+        "evidence": [
+          "arXiv first public date 2016-06-16",
+          "Abstract gives O(d n log^2 n) random reconstruction bound and lower bounds, no stated shattering invariant"
+        ],
+        "identifier_or_url": "https://arxiv.org/abs/1606.05183",
+        "material_read": "Accessible arXiv abstract and its date; full technical text was not inspected",
+        "method": "Abstract-level object and conclusion comparison",
+        "title": "Reconstructing a Bounded-Degree Directed Tree Using Path Queries",
+        "trigger": "Original path-query learning paper cited by the main 2020 source"
+      },
+      {
+        "assessment": "Uses graph subobject-induced range systems, not orientations as hypotheses and reachability answers as coordinates; uncertain uninspected details",
+        "evidence": [
+          "Abstract describes ranges arising from cliques, paths, stars, trees, connected sets and neighborhoods"
+        ],
+        "identifier_or_url": "https://carleton.ca/scs/research/scs-technical-reports/technical-reports-1994/tr-255-vc-dimensions-for-graphs/",
+        "material_read": "Institutional abstract and metadata, not full report",
+        "method": "Object-definition comparison based on institutional summary",
+        "title": "VC-Dimensions for Graphs",
+        "trigger": "Potential stronger coverage under VC terminology and paths"
+      },
+      {
+        "assessment": "Dynamic maintenance of bounded out-degree orientations and edge-flip complexity, not reachability-query VC capacity",
+        "evidence": [
+          "ESA 2021 abstract studies maintaining out-degree at most 3 with bounded flips"
+        ],
+        "identifier_or_url": "https://doi.org/10.4230/LIPIcs.ESA.2021.12",
+        "material_read": "Publisher page abstract, metadata and subject classifications",
+        "method": "Model and invariant comparison",
+        "title": "Incremental Edge Orientation in Forests",
+        "trigger": "Potential alternate stronger work on edge orientations"
+      }
+    ],
+    "status": "PASS"
+  },
+  "review_type": "self_review",
+  "schema_version": 1,
+  "scope_run_id": "d54b58ed-cd55-467d-9cca-f694da57340f",
+  "self_review_status": "passed",
+  "value": {
+    "rationale": "A natural long-range oracle restriction causes a sharp and nonconstant loss of independent reachability labels. The result gives an exact dimension tradeoff for every distance threshold and path length, including optimal extremal supports, plus a general criterion for every tree. These are structural and parameter-uniform facts, not a single low-order census or a generic upper bound. The distinction between graph reconstruction query counts and static shattering is explicit.",
+    "status": "PASS"
+  }
+}
