@@ -1,0 +1,157 @@
+{
+  "audit_date_utc": "2026-10-29",
+  "audited_at_utc": "2026-10-29T00:09:39.918674Z",
+  "axes": {
+    "correctness": {
+      "checked_sources": [
+        "RESULT.md 36fbaa1611c8e570f80e53aab8e1a717b3a21201",
+        "verification.py cb98dc48d25b74ab9b36d621786b8504e5965312",
+        "verification_output.txt Git blob 07e21961d5cc1634fea56fe1f00760c4ba54fbec"
+      ],
+      "evidence": [
+        "RESULT.md blob 36fbaa1611c8e570f80e53aab8e1a717b3a21201: strict concavity, block Laplacian spectrum, quadratic sign analysis, resistance interpretation",
+        "verification.py blob cb98dc48d25b74ab9b36d621786b8504e5965312: exact rational determinant/resistance and random comparison checks inspected",
+        "Independent symbolic numerator and quadratic-root identities; direct rational determinant tests n=3,4,5,6; τc values 9/5,10/7,35/27,27/22"
+      ],
+      "rationale": "The feasible budget simplex is compact; a strictly positive conductance allocation gives a positive spanning-tree polynomial so every optimum has connected support. For a simple graph the reduced weighted Laplacian is an injective linear function of all individual weights, and logdet is strictly concave over connected supports; hence the maximizing vector is unique. The full simultaneous matching-label permutation group and side swap force only two conductance classes. Four Laplacian eigenspaces yield 0, 2d, nb with multiplicity n−1, and 2a+(n−2)b with multiplicity n−1, giving exact tree count. Under a=zb, budget substitution leaves F(z)=(z+n−1)(2z+n−2)^(n−1)/(τz+n−1)^(2n−1), whose logarithmic derivative has a quadratic numerator with unique positive root for τ<τc and is negative on z>0 for τ>=τc. The root and crown effective-resistance ratio match the stated values. A fresh independent symbolic derivative factorization agreed identically, as did exact rational Laplacian determinants for n=3..6 and representative weights. Finite checks corroborate the global strict-concavity proof, not replace it.",
+      "residual_risks": [
+        "No universal conclusion from the randomized feasible allocations; proof uses strict concavity and exact calculus.",
+        "The boundary n=2 would disconnect the crown graph and is excluded."
+      ],
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Khosoussi et al optimize edge selection/relaxation for tree count on specified graphs; the feasible families are not all independently priced K_n,n conductances.",
+          "Ghosh et al minimize sum of all effective resistances, not maximize logdet/tree weight."
+        ],
+        "reasoning": "A general concavity/KKT theorem applies as a proof technique but does not by itself supply the closed n-dependent critical price and full optimizer. Related but different objectives do not dominate the claim.",
+        "searches": [
+          "Khosoussi et al arXiv:1604.01116 primary PDF §§2–5",
+          "Ghosh Boyd Saberi 2008 DOI 10.1137/050645452",
+          "D-optimal graphs conductance optimization equal-cost spanning trees"
+        ]
+      },
+      "checked_sources": [
+        "Ge–Dong arXiv:1904.07766 full PDF",
+        "Khosoussi et al arXiv:1604.01116 full PDF",
+        "Ghosh–Boyd–Saberi 2008 SIAM Review objective",
+        "Resultary semantic query above"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "Theorems 1.3 and 1.5 of Ge–Dong contain tree enumerations but no τ or budget-dependent unrestricted optimizer.",
+          "General logdet design theory gives strict concavity/KKT, but applying it to the two-class symmetry yields a new explicit closed solution and cutoff."
+        ],
+        "reasoning": "Prior enumeration plus convex theory are close enough that a published equivalence remains possible, but the inspected statements do not directly contain or imply the entire optimal-allocation formula as a corollary without additional optimization.",
+        "searches": [
+          "arXiv:1904.07766 full PDF §§1,5",
+          "arXiv:1604.01116 full PDF §§4–5",
+          "graph Laplacian logdet cost budget matching edge support phase transition"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Weighted tree count equals any reduced weighted Laplacian determinant, not the determinant of the full singular Laplacian.",
+          "KKT marginal logdet derivatives equal effective resistances; a zero matching conductance is optimal exactly when cost-normalized leverage is below that for present edges."
+        ],
+        "reasoning": "Compared D-optimal conductance design, weighted spanning trees, logdet Laplacian budgets, missing-edge crown resistance, and matching-weight generating polynomials. The exact optimizer is not implied solely by matching containment counts without solving a constrained optimization problem.",
+        "searches": [
+          "Resultary: optimal weighted spanning tree determinant conductance budget complete bipartite matching premium cost threshold",
+          "D-optimal Laplacian design K_n,n cost normalized effective resistance leverage score",
+          "arXiv:1904.07766 matching-containing spanning tree enumeration"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "Theorem 1.3 gives a matching-containment generating coefficient formula; Theorem 1.5 computes deleted-matching tree counts.",
+          "Ge–Dong provide resistance results for nearly complete bipartite graphs and the crown case."
+        ],
+        "reasoning": "These exact unoptimized polynomials/endpoint resistances are acknowledged known; the requested invariant is the optimum over all costed individual edges, not a known-table recount. An implicit calculus specialization from known tables is a genuine novelty risk.",
+        "searches": [
+          "Ge and Dong arXiv:1904.07766 Theorems 1.3, 1.5, 5.7",
+          "crown graph two-weight spanning tree polynomial",
+          "matching edge price support threshold n(2n-3)/((n-2)(2n-1))"
+        ]
+      },
+      "rationale": "Ge–Dong 2019 supplies exact spanning-tree enumeration for matching-conditioned/deleted complete bipartite graphs, and their results can generate the unoptimized two-class tree polynomial and crown resistance; none of those ingredients is claimed new. Khosoussi et al 2016 provide general weighted tree design/convex-relaxation methods, while Ghosh–Boyd–Saberi optimize total effective resistance, a different criterion. The inspected results do not state the unique unrestricted continuous price-budget optimizer, phase transition τc(n), or exact allocation. The classification follows from known tools with nontrivial symmetry and root analysis, so proximity to known counting formulas is an important priority and mathematical-value risk.",
+      "residual_risks": [
+        "The Ge–Dong generating-polynomial results supply all coefficients, so the remaining strict-concavity and calculus could be a routine implicit consequence in another source.",
+        "Some prior crown-graph resistance papers referenced by Ge–Dong were not independently read in full.",
+        "No guarantee of exhaustive historical priority."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Strong partial coverage of weighted count and crown resistance, but lacks continuous budget/price optimizer and support threshold.",
+          "evidence": [
+            "Theorems 1.3, 1.5 and 5.7; no identification of entire exact allocation as new counting identity"
+          ],
+          "identifier_or_url": "https://arxiv.org/pdf/1904.07766",
+          "material_read": "Full available 21-page primary PDF, Theorems 1.3,1.5,5.7, matching-containment and resistance statements",
+          "method": "Read PDF text, examined primary theorem pages and screenshot",
+          "title": "Spanning trees in complete bipartite graphs and resistance distance in nearly complete bipartite graphs",
+          "trigger": "Closest exact polynomial and crown resistance source"
+        },
+        {
+          "assessment": "General weighted graph design objective, but not an all-individual-edge, two-price n-by-n allocation phase transition.",
+          "evidence": [
+            "Sections 2,4,5 and convex formulation"
+          ],
+          "identifier_or_url": "https://arxiv.org/pdf/1604.01116",
+          "material_read": "Full available primary PDF, weighted matrix-tree context, optimization constraints, sections on edge selection and relaxations",
+          "method": "Read PDF text and relevant page screenshot",
+          "title": "Maximizing the Weighted Number of Spanning Trees: Near-t-Optimal Graphs",
+          "trigger": "Closest broad network design method"
+        },
+        {
+          "assessment": "Optimizes total effective resistance, not a reduced determinant or spanning tree enumerator.",
+          "evidence": [
+            "SIAM Review 50 (2008), original objective statement"
+          ],
+          "identifier_or_url": "https://web.stanford.edu/~boyd/papers/eff_res.html",
+          "material_read": "Accessible Stanford presentation/abstract and cited SIAM Review statement",
+          "method": "Reviewed objective and feasible design language",
+          "title": "Minimizing Effective Resistance of a Graph",
+          "trigger": "Competing conductance optimization objective"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "evidence": [
+        "Global strict-concavity symmetry reduction to two conductance orbits",
+        "Sharp τc(n) and cost-normalized resistance ratio",
+        "Exact all-n optimum with all parameters B,τ positive"
+      ],
+      "rationale": "Finding the unique optimum of a natural priced network design criterion over all individually controlled conductances is practically and mathematically motivated. The exact deletion phase boundary and its resistance leverage interpretation give an n-dependent structural support transition (price premium tends to zero) not captured by the endpoint tree count alone, making the result more than re-tabulation of a polynomial.",
+      "residual_risks": [
+        "The arithmetic is elementary once the known generating polynomial and general logdet concavity are supplied; independent significance lies in complete sharp design classification."
+      ],
+      "status": "PASS"
+    }
+  },
+  "checked_sources": [
+    "RESULT.md 36fbaa1611c8e570f80e53aab8e1a717b3a21201",
+    "verification.py cb98dc48d25b74ab9b36d621786b8504e5965312",
+    "verification_output.txt Git blob 07e21961d5cc1634fea56fe1f00760c4ba54fbec",
+    "Ge–Dong arXiv:1904.07766 full PDF",
+    "Khosoussi et al arXiv:1604.01116 full PDF",
+    "Ghosh–Boyd–Saberi 2008 SIAM Review objective",
+    "Resultary semantic query above"
+  ],
+  "disposition": "passed",
+  "limitations": [
+    "n>=3 balanced K_n,n only, one matching price and one off-matching price",
+    "No per-edge bounds, unequal sides or other network objective, and no discrete edge selection."
+  ],
+  "residual_risks": [
+    "No universal conclusion from the randomized feasible allocations; proof uses strict concavity and exact calculus.",
+    "The boundary n=2 would disconnect the crown graph and is excluded.",
+    "The Ge–Dong generating-polynomial results supply all coefficients, so the remaining strict-concavity and calculus could be a routine implicit consequence in another source.",
+    "Some prior crown-graph resistance papers referenced by Ge–Dong were not independently read in full.",
+    "No guarantee of exhaustive historical priority.",
+    "The arithmetic is elementary once the known generating polynomial and general logdet concavity are supplied; independent significance lies in complete sharp design classification."
+  ],
+  "schema_version": 1
+}
