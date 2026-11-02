@@ -1,0 +1,139 @@
+{
+  "audit_date_utc": "2026-10-30",
+  "audited_at_utc": "2026-10-30T06:59:33.423317Z",
+  "axes": {
+    "correctness": {
+      "limitations": [
+        "Categorical/direct product differs from Cartesian/rook graph; p,q>=3 ensure diameter two.",
+        "No complete unimodality phase diagram over all p,q is claimed; only an explicit infinite nonunimodal family."
+      ],
+      "rationale": "For categorical K_p x K_q with p,q>=3, adjacency iff row and column both differ, so distance 2 precisely for same row/column pairs. A general-position set is exactly an induced P3-free cluster graph. Its components are exclusively an independent row/column layer, a partial/complete 2x2 rectangle (one or two edge components), or a transversal clique using distinct rows/columns. Counting disjoint types gives Ψ=1+pq z+Σ_{k>=2}(p C(q,k)+q C(p,k))z^k+2R z²+4R z³+R z⁴+Σ_{k>=3}C(p,k)C(q,k)k!z^k, R=C(p,2)C(q,2). The inclusion-maximal polynomial M=p z^q+q z^p+R z⁴+C(max,min)min! z^min follows because only full layers, full rectangles and maximum transversals resist extension. For p>=4, q=2p+4, a_{p+1}=p C(q,p+1), a_{p+2}=p C(q,p+2)>a_{p+1}, but a_p>=p! C(q,p)>a_{p+1}; a sharp strict coefficient valley follows for every p>=4. Empty/singleton and p=q=3 overlap cases were checked, with no double count of edges/rectangles/cliques.",
+      "status": "PASS",
+      "verification": [
+        "Verified nontruncated source Git tree sha 83df303a84bfa0d385f7e0e4cc3b1d95799f465c, RESULT.md blob 7697c6cf83669a01aac979009655d8c71ed0b6d8.",
+        "Independent fresh brute induced-P3 detection over every vertex subset and every single-vertex maximality extension gives total GP counts 103,212,477 and maximal counts 21,49,68 for (p,q)=(3,3),(3,4),(4,4); polynomial formulas agree in all coefficients.",
+        "Exact arithmetic at (4,12) yields consecutive coefficients a4=14268,a5=3168,a6=3696, a strict valley.",
+        "Finite exhaustive small boards establish only tested instances; the complete family rests on the structural classification and binomial inequality."
+      ]
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Di Stefano et al., Lower General Position Sets in Graphs, arXiv:2306.09965, full ar5iv HTML, section 5, Theorem 5.4 and proof lines 247-265: gp^-(K_r x K_s)=min(r,s,4), with explicit maximal layer, clique and 2x2 rectangle constructions; no polynomial coefficients given in this theorem.",
+          "Iršič et al., General Position Polynomials, arXiv:2401.05696, introduced full counting polynomial and established nonunimodality for trees, not the present categorical products in inspected paper.",
+          "Resultary 2026 GP polynomial findings for spiders, complete multipartite variants and coronas address nonisomorphic graph classes/structural counts and do not imply this formula.",
+          "A stronger earlier product-wide general-position enumeration is a residual bibliographic risk, not demonstrated by the targeted searches."
+        ],
+        "reasoning": "Stronger-coverage test compared actual object, parameters, hypotheses, and source-theorem implications, not just matching titles. The earlier direct-product theorem of Di Stefano et al. proves gp^-(K_p x K_q)=min(p,q,4) and in its proof characterizes some maximal configurations (full layers, transversal cliques and rectangles); these prior combinatorial shapes are credited. The new part is the all-set polynomial, the complete maximal-set enumerator, and an infinite nonunimodality construction. Existing general-position-polynomial works address other graph classes, and the surveyed published SCOPE examples (spiders, coronas, complete multipartite variants) do not imply this direct-product enumerator.",
+        "searches": [
+          "general position polynomial direct product complete graphs Kp times Kq nonunimodal enumerator",
+          "arXiv:2306.09965",
+          "arXiv:2401.05696",
+          "arXiv:2501.19385v5"
+        ]
+      },
+      "checked_sources": [
+        "Di Stefano et al., Lower General Position Sets in Graphs, arXiv:2306.09965, full ar5iv HTML, section 5, Theorem 5.4 and proof lines 247-265: gp^-(K_r x K_s)=min(r,s,4), with explicit maximal layer, clique and 2x2 rectangle constructions; no polynomial coefficients given in this theorem.",
+        "Iršič et al., General Position Polynomials, arXiv:2401.05696, introduced full counting polynomial and established nonunimodality for trees, not the present categorical products in inspected paper.",
+        "Resultary 2026 GP polynomial findings for spiders, complete multipartite variants and coronas address nonisomorphic graph classes/structural counts and do not imply this formula.",
+        "A stronger earlier product-wide general-position enumeration is a residual bibliographic risk, not demonstrated by the targeted searches."
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "Di Stefano et al., Lower General Position Sets in Graphs, arXiv:2306.09965, full ar5iv HTML, section 5, Theorem 5.4 and proof lines 247-265: gp^-(K_r x K_s)=min(r,s,4), with explicit maximal layer, clique and 2x2 rectangle constructions; no polynomial coefficients given in this theorem.",
+          "Iršič et al., General Position Polynomials, arXiv:2401.05696, introduced full counting polynomial and established nonunimodality for trees, not the present categorical products in inspected paper.",
+          "Resultary 2026 GP polynomial findings for spiders, complete multipartite variants and coronas address nonisomorphic graph classes/structural counts and do not imply this formula.",
+          "A stronger earlier product-wide general-position enumeration is a residual bibliographic risk, not demonstrated by the targeted searches."
+        ],
+        "reasoning": "If the old generic method implies components of the final theorem, those components are explicitly credited. The distinctive final combination is not a logical restatement of the cited prior theorem as read. The earlier direct-product theorem of Di Stefano et al. proves gp^-(K_p x K_q)=min(p,q,4) and in its proof characterizes some maximal configurations (full layers, transversal cliques and rectangles); these prior combinatorial shapes are credited. The new part is the all-set polynomial, the complete maximal-set enumerator, and an infinite nonunimodality construction. Existing general-position-polynomial works address other graph classes, and the surveyed published SCOPE examples (spiders, coronas, complete multipartite variants) do not imply this direct-product enumerator.",
+        "searches": [
+          "general position polynomial direct product complete graphs Kp times Kq nonunimodal enumerator",
+          "arXiv:2306.09965",
+          "arXiv:2401.05696",
+          "arXiv:2501.19385v5"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Di Stefano et al., Lower General Position Sets in Graphs, arXiv:2306.09965, full ar5iv HTML, section 5, Theorem 5.4 and proof lines 247-265: gp^-(K_r x K_s)=min(r,s,4), with explicit maximal layer, clique and 2x2 rectangle constructions; no polynomial coefficients given in this theorem.",
+          "Iršič et al., General Position Polynomials, arXiv:2401.05696, introduced full counting polynomial and established nonunimodality for trees, not the present categorical products in inspected paper."
+        ],
+        "reasoning": "Equivalent terminology and reductions checked using General-position polynomials of categorical products of complete graphs and an infinite nonunimodal family alongside named same mathematical model primary sources: The earlier direct-product theorem of Di Stefano et al. proves gp^-(K_p x K_q)=min(p,q,4) and in its proof characterizes some maximal configurations (full layers, transversal cliques and rectangles); these prior combinatorial shapes are credited. The new part is the all-set polynomial, the complete maximal-set enumerator, and an infinite nonunimodality construction. Existing general-position-polynomial works address other graph classes, and the surveyed published SCOPE examples (spiders, coronas, complete multipartite variants) do not imply this direct-product enumerator.",
+        "searches": [
+          "general position polynomial direct product complete graphs Kp times Kq nonunimodal enumerator",
+          "arXiv:2306.09965",
+          "arXiv:2401.05696",
+          "arXiv:2501.19385v5"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "Di Stefano et al., Lower General Position Sets in Graphs, arXiv:2306.09965, full ar5iv HTML, section 5, Theorem 5.4 and proof lines 247-265: gp^-(K_r x K_s)=min(r,s,4), with explicit maximal layer, clique and 2x2 rectangle constructions; no polynomial coefficients given in this theorem.",
+          "Iršič et al., General Position Polynomials, arXiv:2401.05696, introduced full counting polynomial and established nonunimodality for trees, not the present categorical products in inspected paper."
+        ],
+        "reasoning": "Exact database/table check: the searched prior reports contain extremal cardinalities and a few maximal shapes, not all coefficients for every p,q. This is bounded search evidence, not a claim of exhaustive absence.",
+        "searches": [
+          "general position polynomial direct product complete graphs Kp times Kq nonunimodal enumerator",
+          "general position polynomial direct product complete graphs Kp times Kq nonunimodal enumerator"
+        ]
+      },
+      "rationale": "The earlier direct-product theorem of Di Stefano et al. proves gp^-(K_p x K_q)=min(p,q,4) and in its proof characterizes some maximal configurations (full layers, transversal cliques and rectangles); these prior combinatorial shapes are credited. The new part is the all-set polynomial, the complete maximal-set enumerator, and an infinite nonunimodality construction. Existing general-position-polynomial works address other graph classes, and the surveyed published SCOPE examples (spiders, coronas, complete multipartite variants) do not imply this direct-product enumerator.",
+      "residual_risks": [
+        "Earlier maximal-set structural classification by Di Stefano et al. substantially overlaps the proof; the enumerating contribution is distinct and must not be described as entirely new shape taxonomy.",
+        "An exact formula may be an easy corollary of unindexed earlier graph enumerators; targeted searches do not exclude this."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "prior shapes and minimum cardinality are already known; no full all-set/maximal-set coefficient enumerator or valley found",
+          "evidence": "Theorem 5.4 gives min{r,s,4}; lines 256-265 prove maximality of transversal cliques, full layers, 2x2 rectangles and nonmaximality of 3-cell rectangles.",
+          "identifier_or_url": "arXiv:2306.09965",
+          "material_read": "full ar5iv HTML paper, especially section 5 including Theorem 5.4 proof and its configurations",
+          "method": "HTML full primary text",
+          "title": "Lower General Position Sets in Graphs",
+          "trigger": "exact same categorical product and maximally extendible gp sets"
+        },
+        {
+          "assessment": "defines invariant and reports nonunimodal trees, but not exact K_p x K_q polynomial in examined material",
+          "evidence": "Abstract distinguishes general-position polynomials, Kneser graphs, and trees; full paper studied multiple graph operations.",
+          "identifier_or_url": "arXiv:2401.05696",
+          "material_read": "primary full-text study and abstract, general graph classes and examples (not all possible published successors)",
+          "method": "HTML full primary paper (previously fetched) / bibliographic index",
+          "title": "General Position Polynomials",
+          "trigger": "first systematic polynomial reference and unimodality counterexamples"
+        },
+        {
+          "assessment": "coverage not established; priority risk retained",
+          "evidence": "Survey discusses extremal position numbers for categorical products and polynomial examples separately.",
+          "identifier_or_url": "arXiv:2501.19385v5",
+          "material_read": "bibliographic abstract and relevant summary, not full document",
+          "method": "arXiv bibliographic index",
+          "title": "The General Position Problem: A Survey",
+          "trigger": "risk of broader direct-product table"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "rationale": "The complete all-set/general-position polynomial and exact maximal enumerator are natural graph invariants; importantly the concrete infinite family of connected vertex-transitive diameter-two graphs gives a strict nonunimodality counterexample outside previously studied trees. The specific coefficient valley is an independently useful exact obstruction and is not merely a known-table recomputation.",
+      "status": "PASS"
+    }
+  },
+  "checked_sources": [
+    "Di Stefano et al., Lower General Position Sets in Graphs, arXiv:2306.09965, full ar5iv HTML, section 5, Theorem 5.4 and proof lines 247-265: gp^-(K_r x K_s)=min(r,s,4), with explicit maximal layer, clique and 2x2 rectangle constructions; no polynomial coefficients given in this theorem.",
+    "Iršič et al., General Position Polynomials, arXiv:2401.05696, introduced full counting polynomial and established nonunimodality for trees, not the present categorical products in inspected paper.",
+    "Resultary 2026 GP polynomial findings for spiders, complete multipartite variants and coronas address nonisomorphic graph classes/structural counts and do not imply this formula.",
+    "A stronger earlier product-wide general-position enumeration is a residual bibliographic risk, not demonstrated by the targeted searches."
+  ],
+  "disposition": "passed",
+  "limitations": [
+    "Categorical/direct product differs from Cartesian/rook graph; p,q>=3 ensure diameter two.",
+    "No complete unimodality phase diagram over all p,q is claimed; only an explicit infinite nonunimodal family.",
+    "No all-(p,q) unimodality classification or product of three or more factors is proved."
+  ],
+  "residual_risks": [
+    "Earlier maximal-set structural classification by Di Stefano et al. substantially overlaps the proof; the enumerating contribution is distinct and must not be described as entirely new shape taxonomy.",
+    "An exact formula may be an easy corollary of unindexed earlier graph enumerators; targeted searches do not exclude this.",
+    "No all-(p,q) unimodality classification or product of three or more factors is proved."
+  ],
+  "schema_version": 1
+}

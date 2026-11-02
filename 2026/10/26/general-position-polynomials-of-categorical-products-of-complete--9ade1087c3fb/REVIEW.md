@@ -1,15 +1,21 @@
-# Scientific review
+# Independent mathematical audit
 
-## Correctness — PASS
-For \(p,q\ge3\), the categorical product has diameter two, making the original geodesic exclusion equivalent to induced three-vertex-path freeness. Every such set is a disjoint union of cliques; the coordinate structure forces an independent layer, a transversal clique, or a partial/full two-by-two rectangle. Each class is counted without multiplicity. Single-vertex extensions distinguish maximal configurations. The nonunimodality claim is deduced from a strict pair of coefficient inequalities for every integer \(p\ge4\); this is an infinite proof independent of the finite verifier. Direct breadth-first shortest-path checks and exhaustive subset enumeration corroborate every polynomial and maximal-set coefficient for five small boards. The source verifier and its exact output are embedded in the package.
+## correctness
 
-## Originality — PASS, with residual priority risk
-The 2019 primary direct-product paper proves an extremal general-position **number**; the 2023 lower-general-position paper provides the lower extremal number and constructions of relevant maximal sets. These earlier results are explicitly excluded from claims of novelty. The 2024 foundational polynomial paper, later 2026 survey, and explicit-polynomial/unimodality study address other families or only extremal parameters for the present family. The present all-set polynomial together with an infinite strict nonunimodality family is not implied by the inspected statements. Targeted searches across the same objects, their coordinate-matrix and induced-cluster formulations, and known general-position-polynomial families found no dominating all-coefficient formula. Equivalent unindexed results remain a genuine priority uncertainty; there is no claim of exhaustive bibliographic uniqueness.
+PASS
 
-## Value — PASS
-All-cardinality counting turns the known extremal problem into a full enumerative description of a canonical connected, vertex-transitive, diameter-two product family. More importantly, the exact polynomial exhibits a simple infinite structural source of nonunimodality: matching-type cliques inflate one coefficient just before a declining-then-rising binomial tail. This answers a natural shape question for a graph polynomial rather than a small parameter tweak or isolated numerical counterexample.
+For categorical K_p x K_q with p,q>=3, adjacency iff row and column both differ, so distance 2 precisely for same row/column pairs. A general-position set is exactly an induced P3-free cluster graph. Its components are exclusively an independent row/column layer, a partial/complete 2x2 rectangle (one or two edge components), or a transversal clique using distinct rows/columns. Counting disjoint types gives Ψ=1+pq z+Σ_{k>=2}(p C(q,k)+q C(p,k))z^k+2R z²+4R z³+R z⁴+Σ_{k>=3}C(p,k)C(q,k)k!z^k, R=C(p,2)C(q,2). The inclusion-maximal polynomial M=p z^q+q z^p+R z⁴+C(max,min)min! z^min follows because only full layers, full rectangles and maximum transversals resist extension. For p>=4, q=2p+4, a_{p+1}=p C(q,p+1), a_{p+2}=p C(q,p+2)>a_{p+1}, but a_p>=p! C(q,p)>a_{p+1}; a sharp strict coefficient valley follows for every p>=4. Empty/singleton and p=q=3 overlap cases were checked, with no double count of edges/rectangles/cliques.
 
-## Limits
-The categorical-product hypothesis and dimensions at least three are substantive. No other product family or full classification of unimodality is proven. Exhaustive finite checks do not establish the infinite theorem; the written combinatorial proof does. Independent mathematical assessment has not been performed; bibliographic priority is not independently certified.
+## originality
 
-Self-review: passed. Independent audit: not yet performed.
+PASS
+
+The earlier direct-product theorem of Di Stefano et al. proves gp^-(K_p x K_q)=min(p,q,4) and in its proof characterizes some maximal configurations (full layers, transversal cliques and rectangles); these prior combinatorial shapes are credited. The new part is the all-set polynomial, the complete maximal-set enumerator, and an infinite nonunimodality construction. Existing general-position-polynomial works address other graph classes, and the surveyed published SCOPE examples (spiders, coronas, complete multipartite variants) do not imply this direct-product enumerator.
+
+## value
+
+PASS
+
+The complete all-set/general-position polynomial and exact maximal enumerator are natural graph invariants; importantly the concrete infinite family of connected vertex-transitive diameter-two graphs gives a strict nonunimodality counterexample outside previously studied trees. The specific coefficient valley is an independently useful exact obstruction and is not merely a known-table recomputation.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
