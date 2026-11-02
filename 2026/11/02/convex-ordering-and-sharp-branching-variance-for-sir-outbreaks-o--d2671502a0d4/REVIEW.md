@@ -1,0 +1,21 @@
+# Self-review
+
+## Correctness — PASS
+
+The stated domain is one initially infected root on a finite acyclic undirected contact graph, with independent vertex transmissibilities and conditionally independent outgoing contacts. Unique infection routes establish the exact single-site and pair-site infection probabilities. The only excess covariance over independent edges comes from two incomparable vertices whose routes split at a common source, producing the factor \(q-p^2\). Summing pairs gives the explicit all-size variance formula, while grouping by least-common ancestor gives a second independent recursion. A convex-outbreak-cost argument conditions on all but one vertex and uses nonnegative mixed discrete differences for nonnegative child-subtree sizes, establishing the final-size convex order. The structural bounds follow from counting incomparable pairs; both equality classifications use strict \(0<p<1\).
+
+Exact-rational finite-state probability-generating-function checks covered 25,428 labelled rooted-tree/transmissibility-law instances with \(2\le n\le6\), separately comparing both branching formulas. A second checker verified 117,088 stop-loss inequalities on the same tree family. Finite enumeration is corroboration, not an infinite proof. The star demonstration has exact mean \(3\), deterministic-period variance \(1\), exponential-period variance \(2\), and abstract all-or-nothing upper variance \(4\).
+
+## Originality — PASS within inspected literature; historical priority not independently certified
+
+Kenah–Robins (arXiv:q-bio/0610057; 2006) already gives the finite-population epidemic-percolation representation and explicitly explains why independent bonds fail for nonconstant infectious periods; this underlying observation is not claimed as new. Miller (arXiv:0803.0999; 2008) obtains heterogeneity extremizers for epidemic probability and *macroscopic* attack rate, not the fixed-root finite-tree variance index and convex ordering of the full count. Sharkey et al. (DOI 10.1007/s11538-013-9923-5) show exact Markovian tree moment dynamics, not distribution-free fixed-mean outbreak-size convex ordering. Wilkinson–Sharkey (arXiv:1710.05730) proves an order for reaching prescribed subsets by time \(t\), a different set-event observable; this paper does not state the final-count convex order or the exact tree branching coefficient. The checked 1993 Lefèvre–Picard abstract concerns well-mixed collective Reed–Frost epidemics and a different stochastic ordering, but the full article was inaccessible, so a possible more general implication remains a genuine priority risk. Searches also considered alternate descriptions such as coalescent path covariance, outgoing-edge mixture, common-infectious-period correlations, variance sensitivity, and star/path extremizers. No inspected source establishes or implies the complete stated result without new tree-specific argument.
+
+## Value — PASS
+
+Two SIR calibration choices can produce the same expected infection probability across every contact yet sharply different outbreak-size uncertainty. The theorem resolves this difference for *every fixed rooted tree* as an exact positive topology-weighted penalty, identifies the unique extremal tree shapes for that penalty, and strengthens moment information to an order valid for every convex cost of total cases. This gives a structurally interpretable finite-network benchmark for risk quantification and corrects the naive independent-edge variance assumption. It does not claim practical prediction accuracy, large-network outbreak probability, or epidemiological applicability without data.
+
+## Limits and closest literature
+
+The proof does not extend as stated to cycles, correlated vertex durations, heterogeneous contact rates, multiple seeds, or comparing infectious periods at fixed mean duration rather than fixed mean transmissibility. The extreme upper law \(\Theta\in\{0,1\}\) includes infinite infectious times in a Poisson-process representation; with finite times the inequality is a sharp supremum. Lefèvre–Picard (1993) was compared by title and abstract only, not full text. Broader unlocated stochastic-order or covariance identities remain possible. The review is neither an independent audit nor a historical-priority certification.
+
+Self-review: passed. Independent audit: not yet performed.

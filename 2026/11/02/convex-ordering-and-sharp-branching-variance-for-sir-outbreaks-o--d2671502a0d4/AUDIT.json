@@ -1,0 +1,164 @@
+{
+  "correctness": {
+    "rationale": "For finite rooted trees and independent conditionally Bernoulli outgoing edges with ETheta=p in (0,1), unique root-to-vertex paths give exact joint infection probabilities: two incomparable targets share one outgoing-source second moment q, while comparable targets do not. Pairwise covariance subtraction rigorously gives Var(N)=V_ind+Var(Theta)B; subtree recursion independently computes B. Every pair contribution is nonnegative, with sharp star and endpoint-rooted-path equality cases. Convexity of the conditional outbreak cost in one source transmissibility follows by nonnegative mixed finite differences, and iterated vertex replacement proves final-size convex order. Exact-rational independent PGFs confirm 25,428 finite cases and 117,088 stop-loss comparisons; these corroborate rather than replace the full proof.",
+    "status": "PASS"
+  },
+  "independent": false,
+  "independent_audit_status": "not_performed",
+  "originality": {
+    "broader_coverage": {
+      "evidence": [
+        "Miller (2008), arXiv:0803.0999, sections 3–4: extremizers for epidemic probability and large-population relative attack rate on network sequences, not the variance of eventual case count for a fixed rooted tree.",
+        "Wilkinson–Sharkey (2018), arXiv:1710.05730 / DOI 10.1103/PhysRevE.97.052403, section IV: convex-order changes in the probability of reaching any prescribed subset by time t with fixed mean transmissibility.",
+        "Sharkey et al. (2013 online), DOI 10.1007/s11538-013-9923-5: exact Markovian node-state time series on acyclic graphs."
+      ],
+      "reasoning": "A subset-hit probability order does not directly express the inequalities for all convex functions of the total number of infected individuals; the latter are weighted integer stop-loss functionals, not single prescribed-subset reach events. Macroscopic epidemic attack rate and outbreak probability are different observables from random total size of one finite-tree outbreak. Markovian node-state equations do not state distribution-free duration-mixture comparisons.",
+      "searches": [
+        "Bounding the size and probability of epidemics on networks Miller 2008",
+        "fixed mean transmissibility heterogeneity probability reaching subset epidemic convex order Wilkinson Sharkey",
+        "Bounding the Size and Probability of Epidemics on Networks arXiv 0803.0999 full",
+        "SIR rooted tree outbreak size convex order infectiousness stochastic ordering stochastic dominance"
+      ]
+    },
+    "checked_sources": [
+      "https://arxiv.org/abs/q-bio/0610057",
+      "https://pmc.ncbi.nlm.nih.gov/articles/PMC2215389/",
+      "https://arxiv.org/abs/0803.0999",
+      "https://link.springer.com/article/10.1007/s11538-013-9923-5",
+      "https://pmc.ncbi.nlm.nih.gov/articles/PMC7217532/",
+      "https://link.springer.com/article/10.1186/s13362-019-0058-7",
+      "https://doi.org/10.2307/1427496"
+    ],
+    "claim_vs_prior_implication": {
+      "evidence": [
+        "Kenah–Robins establish out-component equivalence and failure of independent edges under nondegenerate durations, but do not give the tree-index identity or full-size convex order.",
+        "Miller (2008) analyzes asymptotic epidemic probability/attack-rate extremizers; its large-population claims do not directly imply a fixed-finite-tree count convex order.",
+        "Wilkinson–Sharkey (2018), section IV, compares probabilities of ever reaching a prescribed subset, not the full finite final-count law under convex costs.",
+        "Lefèvre–Picard (1993), DOI 10.2307/1427496: abstract addresses stochastic orders of final size in a collective Reed–Frost homogeneous-mixing model; complete text not available for a decisive implication comparison."
+      ],
+      "reasoning": "The new assertion includes the exact coefficient of Var(Theta), its strict nonnegativity iff rooted branching, the sole extremizers across rooted tree topologies, and all-convex-cost comparison for the same fixed tree at fixed marginal p. General epidemic representations and different orderings may be useful inputs but do not state all these conclusions. The well-mixed 1993 result remains a recorded possible broader-theorem risk, not silently declared inapplicable on a full-text basis.",
+      "searches": [
+        "finite rooted tree stochastic SIR final outbreak size convex order under infectiousness or transmissibility heterogeneity independent infectious periods fixed mean",
+        "finite tree stochastic SIR final epidemic size variance correlated transmission infectious durations Bernoulli mixture",
+        "Bounding the size and probability of epidemics on networks Miller 2008",
+        "Lefevre Picard 1993 unusual stochastic order relation epidemic size Reed Frost",
+        "fixed mean transmissibility heterogeneity probability reaching subset epidemic convex order Wilkinson Sharkey",
+        "An unusual stochastic order relation with some applications in sampling and epidemic theory pdf"
+      ]
+    },
+    "equivalent_formulations": {
+      "evidence": [
+        "Kenah–Robins 2006 preprint / 2007 Physical Review E: finite epidemic-percolation out-components represent final infections, and node-level infectious periods induce correlated outgoing transmissions (https://pmc.ncbi.nlm.nih.gov/articles/PMC2215389/).",
+        "The explicit result compares entire total-case counts in convex order and identifies the excess variance as a single nonnegative weighted index; these statements do not appear in Kenah–Robins sections 2, 5, or its general equivalence."
+      ],
+      "reasoning": "Percolation reachability and a branching-process probability-generating function are equivalent descriptions of the epidemic object, but an exact representation of a distribution is not by itself a theorem ordering all its convex costs under distributional change. The proof of count convexity and its sharp topology coefficient supplies the additional implication.",
+      "searches": [
+        "finite rooted tree stochastic SIR final outbreak size convex order under infectiousness or transmissibility heterogeneity independent infectious periods fixed mean",
+        "rooted tree SIR outbreak variance exactly V_independent + Var(transmissibility) weighted common ancestor branching coefficient",
+        "rooted tree SIR total outbreak size convex order Bernoulli-mixture outward edge conditional transmissibility",
+        "finite rooted tree SIR outbreak variance independent-edge excess covariance common infectious period"
+      ]
+    },
+    "exact_database_or_table": {
+      "evidence": [
+        "The checked related mathematical records concern SIS extinction leading asymptotics on trees, independently open edges on a cycle, and link removal in a double-star network; these use different stochastic dynamics or observables.",
+        "No inspected published table lists a universal finite-tree coefficient depending on least-common-ancestor paths or its equality extremizers."
+      ],
+      "reasoning": "This is a parameter-uniform theorem for arbitrary finite rooted trees, not a numerical table or a small-graph census. Negative search results alone cannot establish uniqueness; priority uncertainty remains.",
+      "searches": [
+        "rooted tree SIR outbreak variance exactly V_independent + Var(transmissibility) weighted common ancestor branching coefficient",
+        "sharp star path topology extremizers variance inflation heterogeneous infectivity finite tree epidemic",
+        "epidemic final size variance affine second moment infectious period finite rooted tree outgoing edge correlations",
+        "rooted tree SIR epidemic expected outbreak size variance infectious period heterogeneity exact variance topology branching",
+        "finite rooted tree SIR total outbreak size rooted star path variance index"
+      ]
+    },
+    "rationale": "The finite fixed-root tree final-case-count convex-order statement, its exact positive branching sensitivity index, and the unique path/star coefficient extremizers are not asserted by the inspected general percolation representation (Kenah–Robins), macroscopic attack-rate bounds (Miller), finite Markovian tree equations (Sharkey et al.), or subset-reaching order (Wilkinson–Sharkey). The 1993 collective Reed–Frost order concerns a well-mixed mechanism, but full-text nonaccess leaves a concrete historical-priority risk. Searches compare statements and implication domains, not merely titles; the original percolation representation, contact heterogeneity effects, and marginal-infection facts are explicitly prior. No independent priority certification is claimed.",
+    "residual_risks": [
+      "The full 1993 Lefèvre–Picard stochastic-order article was inaccessible, leaving the possibility of a dominating implication from its general theory.",
+      "Other earlier spatial-general-epidemic covariance or stochastic-order formulas may be phrased differently and remain unlocated.",
+      "No independent historical-priority audit has been performed."
+    ],
+    "source_inspections": [
+      {
+        "assessment": "Directly establishes the underlying epidemic-percolation model and distributional independence failure, but does not assert the new finite rooted-tree variance penalty and all-convex-cost order",
+        "evidence": [
+          "Section 5 gives the conditional binomial PGF of outgoing contacts, not the coefficient B(G,r,p).",
+          "Section 7 reduces finite outcome distributions to out-components."
+        ],
+        "identifier_or_url": "https://pmc.ncbi.nlm.nih.gov/articles/PMC2215389/",
+        "material_read": "Full public HTML, especially introduction, sections 2, 5, 7, and Appendix description",
+        "method": "Read mathematical definitions, conditional outgoing PGF, statements of outbreak-size equivalence, and out-component comparison",
+        "title": "Second look at the spread of epidemics on networks",
+        "trigger": "Exact finite SIR epidemic-percolation representation and correlated outgoing contacts"
+      },
+      {
+        "assessment": "Strong related extremal results for different limiting observables, not a finite-tree total-count convex order or exact branching-index expression",
+        "evidence": [
+          "Theorem 4.15 bounds large-network epidemic probability and attack rate.",
+          "Section 2.3 explicitly works with sequences of graphs and macroscopic component observables."
+        ],
+        "identifier_or_url": "https://arxiv.org/abs/0803.0999",
+        "material_read": "Publicly rendered full preprint text, especially sections 2–4 and Theorems 3.11, 4.15",
+        "method": "Compared original outbreak event, asymptotic observables, network assumptions, and variance/convex-order claims",
+        "title": "Bounding the Size and Probability of Epidemics on Networks",
+        "trigger": "Potentially dominating all-network heterogeneity extremal bounds"
+      },
+      {
+        "assessment": "The probability of hitting prescribed subsets is ordered; the paper does not state the final-count convex order or rooted-tree variance decomposition",
+        "evidence": [
+          "Section IV defines the transmissibility variable and holds its expectation fixed.",
+          "It compares reaching sets of nodes by time t, not all convex functions of the random number eventually infected."
+        ],
+        "identifier_or_url": "https://pmc.ncbi.nlm.nih.gov/articles/PMC7217532/",
+        "material_read": "Full public HTML; focused on sections III–IV and theorem statements",
+        "method": "Compared the reached-subset event with convex functionals of total final-case count",
+        "title": "Impact of the infectious period on epidemics",
+        "trigger": "Fixed mean transmissibility and convex order of infectious-period variability on networks"
+      },
+      {
+        "assessment": "Related tree mechanism but different recovery scope and output statistics",
+        "evidence": [
+          "The main exactness theorem concerns expected infectious time series in Markovian SIR."
+        ],
+        "identifier_or_url": "https://link.springer.com/article/10.1007/s11538-013-9923-5",
+        "material_read": "Public full HTML article introduction and analytic results",
+        "method": "Compared Markovian time-series moment closure to arbitrary infectious-duration final-size count order",
+        "title": "Exact Equations for SIR Epidemics on Tree Graphs",
+        "trigger": "Exact finite-tree Markovian SIR state dynamics"
+      },
+      {
+        "assessment": "Gives monotonicity of a deterministic pairwise epidemic attack-rate quantity, not variance and count-convexity for a fixed tree",
+        "evidence": [
+          "Theorem 2 treats pairwise reproduction quantities under infectious-period convex ordering.",
+          "Discussion concerns final fraction infected in large networks."
+        ],
+        "identifier_or_url": "https://link.springer.com/article/10.1186/s13362-019-0058-7",
+        "material_read": "Public full HTML, section 5 Theorem 2 and discussion",
+        "method": "Compared pairwise reproduction number/attack rate against distribution of a single finite-tree total-case count",
+        "title": "A monotonic relationship between the variability of the infectious period and final size in pairwise epidemic modelling",
+        "trigger": "Possible stronger convex-order result involving final epidemic size"
+      },
+      {
+        "assessment": "Cannot settle a possible indirect implication from general stochastic-order theory; explicit residual priority risk",
+        "evidence": [
+          "Abstract specifies a collective Reed–Frost process, an order based on descending factorial moments, and epidemic size/severity."
+        ],
+        "identifier_or_url": "https://doi.org/10.2307/1427496",
+        "material_read": "Public title and abstract only; full text unavailable",
+        "method": "Located and compared declared collective Reed–Frost model and ordering subject to the rooted-tree model",
+        "title": "An unusual stochastic order relation with some applications in sampling and epidemic theory",
+        "trigger": "Historical stochastic-order comparisons of final epidemic size; possible broader coverage"
+      }
+    ],
+    "status": "PASS"
+  },
+  "review_type": "self_review",
+  "schema_version": 1,
+  "scope_run_id": "d2671502-a0d4-4ca2-b1c3-cf59b6966a31",
+  "self_review_status": "passed",
+  "value": {
+    "rationale": "At fixed marginal edge transmission risk and identical expected case count, heterogeneity in individual infectiousness changes uncertainty in a precisely quantified topology-dependent manner. The positive index is computable from subtree sizes, vanishes exactly for a one-chain rooted tree, and is uniquely maximal for a centered star; the convex-order theorem determines the direction of all risk-averse costs. This motivated fixed-network risk benchmark is not a textbook independence deduction: independent-bond models miss correlated sibling transmissions. It does not purport to rank raw variances across different tree topologies or to be an empirical epidemic forecast.",
+    "status": "PASS"
+  }
+}
