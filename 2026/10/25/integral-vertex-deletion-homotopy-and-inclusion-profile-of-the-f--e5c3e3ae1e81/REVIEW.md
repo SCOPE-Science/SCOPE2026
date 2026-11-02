@@ -1,15 +1,21 @@
-# Scientific review
+# Independent mathematical audit
 
-## Correctness: PASS
-The theorem names the exact 18 edges of a graph proved isomorphic to the standard Frucht graph, the induced-component definition, all twelve deletion ranks, and all twelve inclusion maps. All \(824\) faces of the full complex and each deletion face set were exhaustively enumerated. Thirteen complete element matchings were independently checked for acyclicity against every Hasse cover. The only nonzero reduced Morse boundary is an explicitly computed integral unit \((0,1)\) in the full model and deletion eight. Exact integral cycle lifts and reductions prove the zero or surjective integral inclusion image; direct mod-two chain matrices independently verify all ranks and all twelve image indicators. No finite testing is extrapolated to infinite families.
+## correctness
 
-## Originality: PASS, with residual risk
-The strongest immediately relevant existing computation establishes the full two-independence Frucht complex as a three-sphere, so that statement is explicitly excluded from the novelty claim. The accessible ordinary independence Frucht classification concerns \(\operatorname{Ind}_1\) and cannot determine \(\operatorname{Ind}_2\) deletion complexes or their third-homology inclusion maps. The full-text inspected 2025 higher-independence paper treats structural families including trees and block graphs; the inspected 2026 paper addresses trees, neither giving this asymmetric cubic graph's complete deletion profile. Semantic searches for vertex-deletion homotopy, equivalent connected-triple formulations and induced homology images found no claim with the twelve-number rank vector and exact zero/surjection pattern. Search failure is not a uniqueness proof; relevant unindexed work is a residual risk.
+PASS
 
-## Value: PASS
-Vertex deletion is the natural cofiber operation for higher-independence complexes. The theorem determines both the precise integral homotopy profiles and how deletion cycles survive globally; the latter does not follow from Betti numbers and distinguishes, for example, vertices whose deletion ranks coincide but inclusion images differ. This gives a nontrivial complete topological benchmark for an asymmetric graph and refines the known full-complex classification without merely recomputing it.
+The exact 18 Frucht edges are provided and the script checks isomorphism to the canonical 12-vertex LCF model. A face is precisely a vertex subset with internal induced degree≤1. Independent bitmask enumeration of all 2^12 subsets gives 824 nonempty faces and f-vector (12,66,190,293,209,53,1). The frozen script was inspected function-by-function: deterministic vertex matching, full directed Hasse acyclicity topological sort of every incidence, exact signed boundary reductions in degree 4→3, signed integral 3-cycle lifting and projection to full Morse generators. It yields 410 matched pairs in the full case with one critical 0-cell, two critical 3-cells and one critical 4-cell; integer differential (0,1), so K≃S³. Each deletion has only a 0-cell and b_v 3-cells except v=8 where the remaining 4-cell has integral unit boundary. Thus each deletion genuinely has a wedge-of-three-spheres homotopy model, not just Betti numbers. The signed integral projection gives zero images on v∈{0,6,8,9}, and primitive unit coefficient elsewhere. Independently reconstructed 825 total faces including the empty face, every mod-2 Betti rank and each of the twelve mod-2 inclusion images (all consistent with the integral calculation). Mod-2 evidence alone does not prove Z-surjectivity, which rests on the examined integer cycle lifts.
 
-## Limits
-The theorem does not classify an infinite graph family or the full homotopy classes of inclusions. Mathematical evidence is a fully reconstructible finite exact certificate, with independent mod-two checking but no external scientific audit. Unindexed equivalent prior analyses remain possible.
+## originality
 
-Self-review: passed. Independent audit: not yet performed.
+PASS
+
+Qualified best-of-knowledge ORIGINALITY PASS for the specific final claim, NOT a declaration that known nonequivariant calculations or general frameworks are new. Published Resultary Frucht graph independence/deletion record studies ordinary Ind_1(F), with wedge of three 2-spheres and vertex deletion ranks. This is a different face condition from Ind_2(F); its Ind_1 invariants do not imply the 12 Ind_2 deletion H3 inclusion images. The already-known full Ind_2(F)≃S³ is expressly credited rather than claimed new. Ghosh–Selvaraja, Shellability of Higher Independence Complexes of Graphs (arxiv:2505.06614), works on structural shellability families such as chordal/block graphs, whereas Frucht has cycles and is not such a block-tree instance. Sawant, On the vertex decomposability of r-independence complexes of trees (arxiv:2605.25150), proves tree results and cannot encompass the cyclic cubic Frucht graph. Residual priority risks are stated; no stronger indexed result was identified which logically implies the assessed claim.
+
+## value
+
+PASS
+
+A complete deletion-and-inclusion census for a canonical asymmetric cubic graph is a meaningful exact invariant of a natural 2-independence complex. It shows that equal deletion Betti numbers do not determine whether integral H3 generators survive under inclusion; this is an intrinsic topological classification that could be reused when studying higher-independence cofibration/deletion arguments, not a random small-parameter negative check.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
