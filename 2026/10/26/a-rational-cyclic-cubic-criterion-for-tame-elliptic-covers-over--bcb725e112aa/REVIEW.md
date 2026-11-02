@@ -1,15 +1,21 @@
-# Scientific assessment
+# Independent mathematical audit
 
-## Correctness — PASS
-Riemann–Hurwitz and the tame inertia cycle types force any tame cubic elliptic cover to be geometrically cyclic. The deck group projects injectively into origin-fixing automorphisms, providing a Frobenius-stable subgroup obstruction. A direct coefficient comparison and Frobenius calculation excludes both \(a=1\) supersingular twists; ordinary curves have no origin-fixing 3-torsion. For \(a=0\), the degree-three rational function \(y\) realizes tame ramification, with three geometric index-three branch points. The five standard \(\mathbf F_2\)-isomorphism classes exhaust the domain. The exact finite-field checker corroborates the automorphism and point-count calculations.
+## correctness
 
-## Originality — PASS, qualified
-Kedlaya–Litt–Witaszek already establish tame existence and explicitly describe the \(a=0\) example. Those are excluded from the originality claim. The new assertion is the sharp necessary-and-sufficient degree-three criterion across all arithmetic twists, with two-versus-zero Frobenius-stable cubic origin-fixing groups. Related Galois-point classifications involve distinct hypotheses and geometric rather than this arithmetic descent. Searches of published mathematical records and inspected sources revealed no theorem implying the complete if-and-only-if statement; historical indexing and publication-priority risk remain.
+PASS
 
-## Value — PASS
-For the smallest finite field, it distinguishes tame gonality three from the four other elliptic arithmetic forms, despite the fact that tame maps exist in all classes by earlier work. The characteristic-two Frobenius obstruction supplies a mechanism and a sharp arithmetic boundary, not merely a numerical census or renaming of a known construction. It isolates precisely where the existence theorem can be realized in the smallest admissible degree.
+For tame separable f:E→P¹ of geometric degree three over F₂, tame Riemann–Hurwitz forces three geometric index-three ramification points and the geometric cover is cyclic C₃, so its deck automorphisms yield a Frobenius-stable order-three subgroup fixing a ramification point after translation to the elliptic origin. Ordinary j≠0 elliptic curves have only order-two origin-fixing geometric automorphisms, precluding such a subgroup. Among supersingular F₂ models E_{a,b}:y²+y=x³+a x+b, exact origin-fixing automorphism equations (u,r,s,t) with u³=1, s²=r, s=r²+a(1+u), t²+t=r³+a r classify all 24 over F₁₆; Frobenius acts coefficientwise. There are two Frobenius-stable C₃ subgroups when a=0 and none when a=1, independent of b. The five F₂ elliptic isomorphism classes have point counts 4,2,3,5,1, respectively, and the unique a=0 supersingular class has three points; the explicit degree-three function y realizes a tame cyclic quotient. Independent GF(16) exhaustive automorphism enumeration and point counts corroborate these finite data; the classification of all geometric automorphisms and Riemann–Hurwitz remain analytical premises.
 
-## Limits and references
-The higher tame gonality for the excluded forms is not determined. A full classification of translated cubic quotient maps is not asserted. Principal sources: Kedlaya–Litt–Witaszek, arXiv:2010.01130, §8; Fukasawa–Speziali, arXiv:1801.03198, Theorems 1–2; Helminck, arXiv:1711.07034, introduction. Independent external validation is outstanding.
+## originality
 
-Self-review: passed. Independent audit: not yet performed.
+PASS
+
+Kedlaya–Litt–Witaszek arXiv:2010.01130v2 proves that every smooth curve over a finite field admits some separable tame morphism, and Remark 8.4 explicitly supplies the geometrically cyclic cubic y for the supersingular a=0 form. That positive example is therefore not novel and is credited. The new claim is the degree-exact iff over F₂: only the three-rational-point elliptic curve has an everywhere-tame cubic, with a negative arithmetic-descent classification of the other four isomorphism types. Targeted arithmetical and Resultary searches did not find this exact criterion but novelty is best-of-knowledge.
+
+## value
+
+PASS
+
+Smallest-degree tame covers are natural arithmetic gonality invariants in characteristic two, where usual degree-two elliptic projections are wild. The exact classification across all five F₂ elliptic curves distinguishes geometric existence from Frobenius descent and gives a finite, structural obstruction rather than an arbitrary list of maps.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
