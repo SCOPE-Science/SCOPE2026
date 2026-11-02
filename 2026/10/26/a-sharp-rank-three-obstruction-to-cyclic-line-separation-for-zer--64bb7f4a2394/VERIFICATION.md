@@ -5,8 +5,11 @@
     "status": "not_performed"
   },
   "independent_audit": {
-    "evidence": null,
-    "status": "not_performed"
+    "status": "passed",
+    "evidence": [
+      "INDEPENDENT_AUDIT_2026-10-30.md",
+      "INDEPENDENT_AUDIT_2026-10-30.json"
+    ]
   },
   "lean_verification": {
     "evidence": null,
@@ -16,20 +19,24 @@
 }
 ---
 
-# Reproducible verification
+# Independent mathematical audit
 
-Run the companion source from the same package with Python 3:
+## correctness
 
-```sh
-python3 verify.py
-```
+PASS
 
-Expected output:
+In F_3^r, nilpotence of the augmentation ideal at exponent 2r+1 proves the Davenport bound. A 2r-term zero-sum-free sequence on distinct lines must have nonzero external subset return to every occupied line by the quotient F_3^{r−1} Davenport bound. The explicit six-vector rank-three seed has no zero-sum subset and occupies distinct lines; adjoining two final-coordinate-one vectors preserves those properties for all higher ranks. The rank-one/two converse follows by extremal length and a rank-two case analysis. Independent subset checks verified the seed and ranks 4,5, and exhausted rank-two zero-sum-free multisets of length at most 4. The result explicitly excludes empty subsums.
 
-```
-VERIFY_OK rank3,4,5; rank2 exhaustive zero-sum-free multisequences [0, 8, 32, 72, 72]
-```
+## originality
 
-The verifier checks every nonempty indexed subset of the six-term witness in \(\mathbb F_3^3\), checks all six cyclic-line intersections, checks rank-four and rank-five extensions, and exhaustively checks the rank-two property for every unordered nonzero indexed multisequence of length one through four. The rank-two enumerator uses combinations with repetition and independently rejects sequences having nonempty zero-sum subsets. All checks use exact integers reduced modulo three; there is no probabilistic step.
+PASS
 
-The group-algebra nilpotence argument, the quotient Davenport argument and the final-coordinate induction are independent general proofs in RESULT.md. Enumeration in finitely many ranks is not a proof of the assertions for every rank.
+The higher-rank obstruction may follow from Gao–Geroldinger squarefree examples and quotient Davenport, hence is not claimed new. The rank-three seed, its proof of nonseparation, and the exhaustive r=1,2 positive boundary are not consequences of the inspected high-rank statements.
+
+## value
+
+PASS
+
+A sharp rank threshold for nonempty-subsums line separation, with extremal zero-sum-free counterexamples in all failing dimensions, is a natural structural obstruction to a published strengthening; the finite rank-three seed and positive low-rank converse are informative independent of high-rank examples.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
