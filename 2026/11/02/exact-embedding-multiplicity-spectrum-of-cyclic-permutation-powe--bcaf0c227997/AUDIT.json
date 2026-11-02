@@ -1,0 +1,108 @@
+{
+  "correctness": {
+    "rationale": "Bijection of positional embeddings with nonnegative integer weak compositions gives exact binomial count; a cut-position double count proves generalized-Eulerian coefficient formula; bounded increasing-block construction proves all possible weak descent degrees; binomial monotonicity completes histogram, with all boundaries. Literal DP and arithmetic coefficient checks independently confirmed 9,287 targets and 52,318 formal coefficient comparisons.",
+    "status": "PASS"
+  },
+  "independent": false,
+  "independent_audit_status": "not_performed",
+  "originality": {
+    "broader_coverage": {
+      "evidence": [
+        "Flaxman–Harrow–Sorkin (2004) establishes maximum distinct-subsequence counts for the same cyclic sources; source PDF Theorem 5.",
+        "Kosche–Koß–Manea–Siemer, arXiv:2108.13968, Section 3 studies SAS/MAS rather than positional embedding frequencies."
+      ],
+      "reasoning": "The older results determine the set/cardinality of available outputs, which cannot determine the multiplicity histogram: frequency information is lost when only support is retained. A generic algorithm to compute each binomial coefficient would compute instances but does not itself assert the closed spectrum. There is still possible broader P-partition coverage not located in these checks.",
+      "searches": [
+        "published-finding corpus: Number of occurrences of patterns as subsequences in words periodic powers equal stars and bars",
+        "published-finding corpus: Exact generating function for number of words with unique scattered-subsequence occurrence in periodic host",
+        "web: number of subsequences fixed word cyclic permutations powers number embeddings generalized Eulerian"
+      ]
+    },
+    "checked_sources": [
+      "Flaxman, Harrow, Sorkin (2004), EJC 11 R8, source PDF Theorem 5",
+      "Kosche, Koß, Manea, Siemer (2021), arXiv:2108.13968, source PDF Section 3",
+      "Leroy, Rigo, Stipulanti (2017), arXiv:1705.08270, available abstract/introduction",
+      "Published-database semantic searches for weak descents, binomial word coefficients, and deletion histograms; exact closest published IDs are given in the evidence arrays"
+    ],
+    "claim_vs_prior_implication": {
+      "evidence": [
+        "Flaxman–Harrow–Sorkin (2004), Section 2 distinguishes the set of distinct subsequences from the multiset of position-selected subsequences.",
+        "Kosche–Koß–Manea–Siemer (2021), Theorems 3.1–3.5 concern absent subsequences and arch factorization, not the number of positive embeddings of each present target."
+      ],
+      "reasoning": "Known distinct-subsequence and absent-subsequence identities are recovered by summing indicator(positive count), but neither the indicator nor its total implies the positive multiplicity histogram or its exact binomial staircase. The generalized Eulerian target counts themselves are classical and are not individually claimed as novel. This combination is substantially finer than supported claims, but an unlocated general identity may imply it.",
+      "searches": [
+        "published-finding corpus: Unique occurrence subsequences of a finite word, unique embedding in cyclic repeated permutation words, number of subsequence patterns with exactly one embedding, q-ary Eulerian numbers weak descents",
+        "published-finding corpus: Counting distinct subsequences of periodic strings avoiding adjacent equal letters; exact subsequence complexity spectra",
+        "Flaxman et al 2004 Theorem 5 PDF: distinct-subsequence generating function versus occurrence multiplicities"
+      ]
+    },
+    "equivalent_formulations": {
+      "evidence": [
+        "Flaxman–Harrow–Sorkin (2004), Theorem 5 counts distinct subsequences, not multiplicities.",
+        "Leroy–Rigo–Stipulanti, arXiv:1705.08270 provides a general word-binomial framework."
+      ],
+      "reasoning": "The weak-descents formulation is equivalent to the exact positional embedding coefficient and its multiset distribution, so both wording variants were queried. General binomial-word coefficients identify the object but the inspected source materials and semantic hits did not supply this specific all-parameter distribution. An equivalent classical specialization remains a residual risk.",
+      "searches": [
+        "published-finding corpus: binomial coefficients of words occurrence counts repeated alphabet cycles product of binomial weak descent number embeddings subword multiplicity",
+        "published-finding corpus: Full multiplicity histogram of scattered subsequences for cyclic permutation powers, occurrences choose(k+m-d-1,m), q Eulerian distribution",
+        "web: subsequence occurrences periodic word (012)^k exact binomial descent count"
+      ]
+    },
+    "exact_database_or_table": {
+      "evidence": [
+        "Closest published research records address binary subsequence universality and full-support insertion radius, rather than the exact distribution of positive positional embedding multiplicities.",
+        "Published closest analogues concern absence or maximum support; their statements do not classify the positive embedding multiplicities of this host."
+      ],
+      "reasoning": "Searches for actual binomial formula, aliases (Eulerian and binomial coefficients of words), and deletion-channel interpretation found no exact spectrum table or dominating published result in checked material. Database ranking and lack of a hit are not a proof of novelty; relevant uninspected literature remains a risk.",
+      "searches": [
+        "published-finding corpus: Every subsequence of (012...q-1)^k occurs binomial(k+m-1-des,m) times; complete exact embedding multiplicity spectrum",
+        "published-finding corpus: deletion-channel exact output probability spectrum cyclic permutation source q blocks",
+        "published-finding corpus: increasing block decomposition weak descent distribution number of embeddings in repeated permutation words"
+      ]
+    },
+    "rationale": "Comparison with the same cyclic hosts in Flaxman et al. (2004) shows that its published distinct-subsequence enumerator gives support but not the full index-embedding multiplicity histogram. Kosche et al. (2021) studies absent and shortest subsequences, not positive embedding weights. General binomial word frameworks and known Eulerian distributions are explicitly acknowledged; published-record searches did not reveal the all-parameter spectrum. Residual risk of an unlocated classical specialization remains.",
+    "residual_risks": [
+      "No independent external review, and a classical P-partition or word-binomial identity may encode an equivalent specialization.",
+      "The general binomial-word literature was not exhaustively inspected at full-text level; current originality conclusion reflects accessible material and explicit comparison, not a proof of uniqueness.",
+      "Finite tests do not establish the unrestricted theorem; the proof is a separate argument."
+    ],
+    "source_inspections": [
+      {
+        "assessment": "Establishes distinct-subsequence support size and optimality, but not positional embedding coefficient distribution",
+        "evidence": "Theorem 5 is a bivariate GF of distinct-subsequence counts f_d(m,n), while Remark on the multiset of all positional subsequences explicitly treats it as different.",
+        "identifier_or_url": "https://www.combinatorics.org/ojs/index.php/eljc/article/download/v11i1r8/pdf",
+        "material_read": "10-page primary PDF, especially Introduction, Section 2, Theorems 2 and 5 and generating-function proof (page 6)",
+        "method": "Full extracted source text and page-six visual screenshot",
+        "title": "Strings with maximally many distinct subsequences and substrings",
+        "trigger": "Exactly the same cyclic host and an all-length subsequence enumerator"
+      },
+      {
+        "assessment": "Studies which patterns are absent and how to enumerate SAS/MAS; does not state positive embedding-multiplicity histogram",
+        "evidence": "Section 3 addresses the sets of absent subsequences and count of SAS/MAS, not counts of index embeddings for present targets.",
+        "identifier_or_url": "https://arxiv.org/pdf/2108.13968",
+        "material_read": "Full primary PDF accessible; inspected abstract/introduction, basic definitions, Section 3 (including cycle examples and Theorems 3.1–3.5), and surveyed searches for occurrence multiplicities",
+        "method": "PDF parsed text and screenshot of page three",
+        "title": "Absent Subsequences in Words",
+        "trigger": "Middle-cohort guiding paper on absent and shortest scattered subsequences of cyclic powers"
+      },
+      {
+        "assessment": "General binomial-coefficient formalism covers the concept; no located closed histogram for cyclic permutation powers",
+        "evidence": "Authors develop generalized Pascal triangles and word-binomial coefficients; a specialization might yield the present result and is a residual risk.",
+        "identifier_or_url": "https://arxiv.org/abs/1705.08270",
+        "material_read": "Abstract and introduction text available; full combinatorial specializations not exhaustively checked",
+        "method": "Open-access abstract and introduction review",
+        "title": "Generalized Pascal triangle for binomial coefficients of words",
+        "trigger": "General occurrence-count framework potentially dominating a specialized formula"
+      }
+    ],
+    "status": "PASS"
+  },
+  "review_type": "self_review",
+  "schema_version": 1,
+  "scope_run_id": "bcaf0c22-7997-4db1-b7b1-9ee193ae64d5",
+  "self_review_status": "passed",
+  "value": {
+    "rationale": "The uniform-deletion probability spectrum of a cyclic-periodic host is a well-defined natural all-length invariant. The theorem determines each attainable positive probability and how many outputs attain it for every alphabet size, number of periods and subsequence length, strictly strengthening known support-only counts and providing exact benchmark instances.",
+    "status": "PASS"
+  }
+}
