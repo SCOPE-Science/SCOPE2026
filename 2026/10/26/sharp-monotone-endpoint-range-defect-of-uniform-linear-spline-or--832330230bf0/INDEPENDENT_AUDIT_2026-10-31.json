@@ -1,0 +1,132 @@
+{
+  "audit_date_utc": "2026-10-31",
+  "audited_at_utc": "2026-10-31T09:11:16Z",
+  "axes": {
+    "correctness": {
+      "rationale": "PASS: Tridiagonal uniform-hat Gram matrix gives alternating inverse endpoint row (-1)^j a_j with positive decreasing a_j, and r1=1/2, r_(n+1)=1/(4-r_n). Every bounded monotone f is a mixture of right-step functions plus constant. For endpoint kernel K the step response E(s)=integral_s^n K has first-cell minimum -delta_n at s=1/(1+r_n), delta_n=3/((2-r_n)(1+r_n))-1. Alternating-series bounds at later cell boundaries and their only internal critical points prove -delta_n<=E<=1 globally, treating n=1,2 separately; reflection gives right endpoint. The recurrence decreases to 2-sqrt3 and the defect increases strictly to (sqrt3-1)/2. Independent exact rational Gram inversion and every cell critical value n=1..30 reproduced the bound and the listed first three fractions (C4_OK).",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Classical unrestricted L∞ projector estimates are 2 or 3 depending setting, hence bound arbitrary bounded inputs but not this sharp monotone first-cell boundary value.",
+          "Zhang local nodal jump formulas require assumptions about mesh and far-field, not a uniform sharp first-grid endpoint classification."
+        ],
+        "reasoning": "A theorem for arbitrary monotone data at all evaluation points would dominate; none was located in examined sections. The full Oswald 2013 chapter is a plausible inaccessible candidate.",
+        "searches": [
+          "Oswald arXiv:math/0611573",
+          "Passenbrunner arXiv:1103.1950",
+          "Zhang arXiv:1907.03429",
+          "Resultary: monotone endpoint range lower bound L2 orthogonal projection uniform linear splines step function Gram matrix overshoot"
+        ]
+      },
+      "checked_sources": [
+        "Frozen RESULT.md b19891db0b4addf6fcb6de714d91153f19005005, spline_boundary_verify.py 8d6429741b3e27c70e7bf2b6d58e3e7ea637c7b7",
+        "Independent C4_OK exact inversion and all stationary values n=1..30.",
+        "Zhang arXiv:1907.03429 §3.3 full primary material; Oswald and Passenbrunner primary PDFs; Resultary search #4."
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "Zhang addresses Gibbs oscillations around discontinuities with approximate far-away boundary treatment, and does not claim the exact two-endpoint finite-interval monotone range.",
+          "Oswald higher-dimensional instability and periodic Franklin norm problems differ in quantification and boundary conditions."
+        ],
+        "reasoning": "The sharp monotone endpoint constant is not a direct case of a reported general pointwise bound; it uses a new global tail-kernel critical-point classification. Stronger exact monotone results remain a bibliographic risk.",
+        "searches": [
+          "Zhang arXiv:1907.03429 §3.3",
+          "Oswald math/0611573 d=1 discussion",
+          "Passenbrunner 1103.1950 periodic Franklin",
+          "Resultary: monotone endpoint range lower bound L2 orthogonal projection uniform linear splines step function Gram matrix overshoot"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Monotone f reduce to positive mixtures of steps, connecting the inequality with Gibbs response near the first mesh cell.",
+          "Zhang studies finite-element discontinuity overshoot, but not the exact endpoint range over every monotone input and every finite uniform n."
+        ],
+        "reasoning": "Equivalent terms include Gibbs endpoint undershoot, order-preserving defect of orthogonal projection, and signed cumulative reproducing kernel. Relevant existing computations motivate but do not state the full quantified boundary extremum.",
+        "searches": [
+          "Resultary: monotone endpoint range lower bound L2 orthogonal projection uniform linear splines step function Gram matrix overshoot",
+          "web: \"linear spline\" \"L2 projection\" monotone Gibbs endpoint step overshoot",
+          "Zhang arXiv:1907.03429 §3.3 step-data L²-projection overshoot",
+          "Passenbrunner arXiv:1103.1950"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "Prior numerical Gibbs overshoot examples report different settings and constants; no inspected table gives delta_n at all finite grids or the limit (sqrt3-1)/2 under endpoint monotonicity.",
+          "The first-three exact fractions 1/3,13/36,181/495 were independently reconstructed from exact Gram matrices."
+        ],
+        "reasoning": "Existing Gram inverse or benchmark tables contain raw materials. The all-n monotone endpoint minimization is not a preexisting table lookup in checked sources.",
+        "searches": [
+          "Resultary: monotone endpoint range lower bound L2 orthogonal projection uniform linear splines step function Gram matrix overshoot",
+          "web: \"linear spline\" \"L2 projection\" monotone Gibbs endpoint step overshoot",
+          "Zhang arXiv:1907.03429 numerical overshoot figures",
+          "Passenbrunner periodic Franklin constants"
+        ]
+      },
+      "rationale": "PASS, qualified: Oswald and Passenbrunner give unrestricted spline L∞ bounds and related Gram inverses; these do not state a sharp endpoint projection bound restricted to monotone data. Zhang explicitly analyzes step-data Gibbs overshoot for finite-element L² projection and comes closest in physical effect, but treats interior/nodal discontinuities and local asymptotic models rather than the all-n finite-interval endpoint extremizer and recurrence. Oswald 2013 projection chapter not fully accessible and could conceal equivalent boundary estimates. A broader positivity-defect theorem may directly imply the special exact constant; this risk is noted.",
+      "residual_risks": [
+        "Inaccessible Oswald 2013 chapter could contain an equivalent sharp monotone endpoint calculation.",
+        "Zhang 2019 step-projection results are closely related and may have an unexamined boundary corollary.",
+        "No statement is made about interior evaluation, nonuniform meshes or higher-degree splines."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Same projection/Gibbs mechanism, but interior discontinuity examples and approximate local models; exact all-n sharp monotone endpoint claim not in inspected material.",
+          "evidence": [
+            "§3.3 step data and computed overshoot near discontinuity."
+          ],
+          "identifier_or_url": "https://arxiv.org/pdf/1907.03429",
+          "material_read": "Full accessible primary text, §3.3 local one-dimensional step projection calculations, hypotheses about far-away values, tables/figures of Gibbs oscillations near discontinuities.",
+          "method": "Read primary arXiv PDF section, extracted formula context and screenshot of corresponding page.",
+          "title": "Battling Gibbs Phenomenon: On Finite Element Approximations of Discontinuous Solutions of PDEs",
+          "trigger": "Highly relevant original L² spline projection overshoot with step functions"
+        },
+        {
+          "assessment": "Focuses general L∞ stability/unboundedness, not sharp monotone boundary range.",
+          "evidence": [
+            "Introduction and d=1 comparison."
+          ],
+          "identifier_or_url": "https://arxiv.org/pdf/math/0611573",
+          "material_read": "Abstract, one-dimensional boundedness background, and counterexample setting in full accessible short primary PDF.",
+          "method": "Primary PDF text and page screenshot.",
+          "title": "A counterexample concerning the L2-projector onto linear spline spaces",
+          "trigger": "Canonical L² spline projection and possible global stronger bound"
+        },
+        {
+          "assessment": "Periodic Franklin and unrestricted projection constants differ from interval-endpoint monotone defect.",
+          "evidence": [
+            "Periodic spline Gram kernel and Lebesgue constant."
+          ],
+          "identifier_or_url": "https://arxiv.org/pdf/1103.1950",
+          "material_read": "Primary PDF contents, periodic Franklin projection kernel and norm formulas in relevant sections.",
+          "method": "Primary arXiv PDF text and relevant page screenshot.",
+          "title": "The Lebesgue Constant for the Periodic Franklin System",
+          "trigger": "Related Gram-inverse recurrence and sharp spline projector norms"
+        },
+        {
+          "assessment": "Priority could change if the inaccessible chapter contains monotone endpoint bounds.",
+          "evidence": [
+            "Oswald 2013 chapter title, abstract and venue."
+          ],
+          "identifier_or_url": "https://doi.org/10.1007/978-1-4614-4565-4_24",
+          "material_read": "Bibliographic abstract only; Springer 2013 chapter full text unavailable.",
+          "method": "Abstract-level evidence only; explicitly not treated as whole-document noncoverage.",
+          "title": "L-infinity Bounds for the L2-Projection onto Linear Spline Spaces",
+          "trigger": "Potentially general dominating boundary projection theorem"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "rationale": "PASS: A sharp monotone-data boundary range-preservation defect is a natural stability/shape question for canonical uniform least-squares splines. The exact step witness, all-n recurrence, and strict limiting defect distinguish it from unrestricted norm estimates or arbitrarily chosen sample numbers.",
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "limitations": [
+    "Only 1D uniform intervals, L² orthogonal linear-spline projector, monotone a.e. data and endpoint evaluation.",
+    "The exact limit is approached from below and never attained at any finite n."
+  ],
+  "schema_version": 1
+}

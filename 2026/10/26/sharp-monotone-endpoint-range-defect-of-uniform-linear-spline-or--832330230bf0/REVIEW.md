@@ -1,13 +1,21 @@
-# Scientific review
+# Independent mathematical audit
 
-**Correctness — PASS.** The proof identifies the exact endpoint Gram-inverse row for every integer number of cells, reduces monotone inputs to step functions, and exhausts all boundary and critical points of the step response. Later cells are excluded by explicit alternating-difference bounds; the one- and two-cell exceptions are evaluated separately. The rational recurrence proves strict convergence of the optimal boundary defect to the algebraic limit. The standalone exact-rational checker enumerated all candidates for 120 finite cell counts and passed; enumeration is a check, not the infinite argument.
+## correctness
 
-**Originality — PASS, with documented access risk.** Accessible primary texts on spline-projection stability establish unrestricted operator norms and periodic Franklin Lebesgue constants, not the optimal monotone-input endpoint range. The unrestricted uniform bound \(2\) implies only a weaker interval \([-1/2,3/2]\) for generic inputs in \([0,1]\), whereas the present sharp limit is \((\sqrt3-1)/2<1/2\). Previously recorded one-knot projector results give unrestricted bounds, not a monotone all-grid sequence. The related Oswald 2013 chapter remained inaccessible in full; abstract-level evidence indicates a different emphasis but cannot exclude implicit overlap. Unindexed equal statements remain possible.
+PASS
 
-**Value — PASS.** Boundary range excursions of least-squares spline projections are mathematically natural stability invariants for ordered measurements and finite-element approximation. The theorem gives a complete sharp all-grid endpoint law, explicit minimizing step locations, and an unattained universal limit, distinguishing shape-constrained risk from generic \(L^\infty\) amplification. It neither relies on nor asserts broader global shape preservation.
+PASS: Tridiagonal uniform-hat Gram matrix gives alternating inverse endpoint row (-1)^j a_j with positive decreasing a_j, and r1=1/2, r_(n+1)=1/(4-r_n). Every bounded monotone f is a mixture of right-step functions plus constant. For endpoint kernel K the step response E(s)=integral_s^n K has first-cell minimum -delta_n at s=1/(1+r_n), delta_n=3/((2-r_n)(1+r_n))-1. Alternating-series bounds at later cell boundaries and their only internal critical points prove -delta_n<=E<=1 globally, treating n=1,2 separately; reflection gives right endpoint. The recurrence decreases to 2-sqrt3 and the defect increases strictly to (sqrt3-1)/2. Independent exact rational Gram inversion and every cell critical value n=1..30 reproduced the bound and the listed first three fractions (C4_OK).
 
-**Closest literature.** Oswald, arXiv:math/0611573v1, gives the one-dimensional unrestricted bound and a higher-dimensional counterexample. Passenbrunner, arXiv:1103.1950v1, treats periodic Franklin projections and quotes the unrestricted sharp uniform-mesh constant. Oswald (2013), DOI 10.1007/978-1-4614-4565-4_24, was abstract-only.
+## originality
 
-**Limits and risks.** Full text of Oswald (2013) was not obtained. Interior values and nonuniform partitions were not treated. These caveats do not weaken the universal quantifiers of the stated endpoint theorem.
+PASS
 
-Self-review: passed. Independent audit: not yet performed.
+PASS, qualified: Oswald and Passenbrunner give unrestricted spline L∞ bounds and related Gram inverses; these do not state a sharp endpoint projection bound restricted to monotone data. Zhang explicitly analyzes step-data Gibbs overshoot for finite-element L² projection and comes closest in physical effect, but treats interior/nodal discontinuities and local asymptotic models rather than the all-n finite-interval endpoint extremizer and recurrence. Oswald 2013 projection chapter not fully accessible and could conceal equivalent boundary estimates. A broader positivity-defect theorem may directly imply the special exact constant; this risk is noted.
+
+## value
+
+PASS
+
+PASS: A sharp monotone-data boundary range-preservation defect is a natural stability/shape question for canonical uniform least-squares splines. The exact step witness, all-n recurrence, and strict limiting defect distinguish it from unrestricted norm estimates or arbitrarily chosen sample numbers.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
