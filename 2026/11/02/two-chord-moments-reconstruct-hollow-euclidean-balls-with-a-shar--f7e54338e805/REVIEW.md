@@ -1,0 +1,15 @@
+# Scientific review
+
+## Correctness
+PASS. The radial density \(d s^{d-1}/(R^d-r^d)\) gives exact second and fourth radial moments; isotropic covariance gives the pair-distance moment identity. The hyperbolic-sine substitution converts monotonicity into strict midpoint convexity of \(x\coth x\), proved by its positive second derivative. This yields exact feasible intervals and unique same-dimension inverse radii. Consecutive interval algebra gives an exact cross-dimensional overlap of length \((d-5)/(d(d+1)(d+5))\) for precisely \(d\ge6\). The endpoint expansions establish optimal inverse exponents, and a compact derivative lower bound gives global Hölder continuity. The packaged Python verifier independently tests pair sampling and exact identities; these finite checks are not presented as infinite proof.
+
+## Originality
+PASS under available-literature comparison, with residual historical uncertainty. Tu and Fischbach (arXiv:math-ph/0201046v1) provide a general *forward* distance-distribution formalism in spherical domains with arbitrary radial densities, full-ball moments, and layered-density examples. Their inspected sections do not assert this two-moment inverse theorem, sharp dimension-six collision, or optimal hole/thin-shell exponents. Hong and Hong (2014) study inertial moments, and the full paper was not accessible beyond its abstract. A separate public hollow-shell result calculates straight-segment *visibility*, not Euclidean distance moments, so its monotonicity cannot be substituted for the normalized fourth-moment claim. Existing spherical-cap and lune inverse results instead sample spherical **surfaces** in a fixed ambient dimension. No search establishes mathematical priority conclusively; an unindexed equivalent derivation remains possible.
+
+## Mathematical value
+PASS. Pairwise distance moments are intrinsic summaries of unlabelled geometric point samples. Complete determination of radius ratios, the exact cross-dimensional obstruction beginning at dimension six, the quantitative size of adjacent-dimensional ambiguity, and two different optimal degeneration exponents give an interpretable structural classification, not merely a radial-integral evaluation. The precise dimension-collision threshold is needed to decide whether moment-only shell tomography can recover the ambient dimension as well as the cavity. No general theorem for arbitrary nonuniform radial densities is claimed.
+
+## Evidence and limits
+Supporting full text: Tu--Fischbach (2002), sections on arbitrary radial density, moment formulas, and layered structures, https://arxiv.org/pdf/math-ph/0201046. Supporting abstract: Hong--Hong (2014), https://doi.org/10.1088/0143-0807/35/2/025003. Closely related but different observable: published concentric-shell visibility theorem (2026). The verifier gives 2,122 exact-rational, inverse-grid and independently simulated pair checks; its conclusions are restricted to these diagnostics. The analytical proof covers all stated dimensions and parameters.
+
+Self-review: passed. Independent audit: not yet performed.
