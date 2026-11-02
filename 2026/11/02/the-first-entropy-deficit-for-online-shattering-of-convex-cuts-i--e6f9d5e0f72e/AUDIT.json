@@ -1,0 +1,115 @@
+{
+  "correctness": {
+    "rationale": "Each proper geodesic convex tree halfspace is an oriented single-edge cut. For n=8 a depth-four complete tree must split all 16 concepts 8/8 then 4/4: querying v and then w forces distance d(v,w)=4, and a subsequent balanced query among full plus three off-path cuts forces distance two to the path. Conversely queries v,w yield four exact four-concept cells; query x on the equal-answer cells and a middle path vertex on the mixed cells to split each 2/2; distinct concepts separate on final queries. Lower rank3 for all n>=4 follows from a four-vertex subtree; n<=7 hits cardinality cap. Path formula follows balanced threshold chains. Exact labeled and shape census replayed exhaustively in embedded Python; no finite-to-infinite inference.",
+    "status": "PASS"
+  },
+  "independent": false,
+  "independent_audit_status": "not_performed",
+  "originality": {
+    "broader_coverage": {
+      "evidence": [
+        "2020 MLG paper provides generic shortest-path-cover active-query bounds.",
+        "2021 NeurIPS paper provides generic learning and VC/Radon bounds.",
+        "2022/2023 Springer preview gives near-optimal mistake bounds and describes special tree cases; full theorem text unavailable."
+      ],
+      "reasoning": "Generic performance bounds and VC/Radon implications do not by themselves imply the exact structural characterization or counts. The inaccessible 2022 source is plausible, so residual priority uncertainty is expressly retained.",
+      "searches": [
+        "https://repositum.tuwien.at/bitstream/20.500.12708/18978/1/Thiessen-2021-Active%20Learning%20of%20Convex%20Halfspaces%20on%20Graphs-am.pdf",
+        "https://link.springer.com/chapter/10.1007/978-3-031-26412-2_22",
+        "tree graph convex halfspaces exact Littlestone dimension 8 vertices depth four and distance four branch distance two"
+      ]
+    },
+    "checked_sources": [
+      "https://www.mlgworkshop.org/2020/papers/MLG2020_paper_40.pdf",
+      "https://repositum.tuwien.at/bitstream/20.500.12708/18978/1/Thiessen-2021-Active%20Learning%20of%20Convex%20Halfspaces%20on%20Graphs-am.pdf",
+      "https://link.springer.com/chapter/10.1007/978-3-031-26412-2_22",
+      "Published mathematical research-index searches using convex-cut and online-shattering aliases",
+      "Earlier mathematical statements on leaf paths, rooted clades/frontiers, reachability, and tree path concepts"
+    ],
+    "claim_vs_prior_implication": {
+      "evidence": [
+        "Full four-page 2020 article contains no Littlestone dimension or eight-vertex halfspace classification.",
+        "2021 NeurIPS text establishes active-learning bounds and a VC/Radon connection but does not state rank-four eight-tree criterion.",
+        "The preceding tree geodesic finding has leaf-to-leaf path hypotheses, not oriented edge cut hypotheses.",
+        "Springer 2022/2023 full text unavailable, so no claim about its full theorem coverage."
+      ],
+      "reasoning": "Exact object distinction prevents earlier path/clade results from implying the new classification; VC results cannot determine Littlestone rank. The unavailable online-learning full text remains a specifically named risk, not represented as NOT_COVERING.",
+      "searches": [
+        "tree graph convex halfspaces exact Littlestone dimension 8 vertices depth four and distance four branch distance two",
+        "online shattering oriented edge cuts tree convex halfspaces sixteen concepts eight vertices",
+        "https://www.mlgworkshop.org/2020/papers/MLG2020_paper_40.pdf",
+        "https://repositum.tuwien.at/bitstream/20.500.12708/18978/1/Thiessen-2021-Active%20Learning%20of%20Convex%20Halfspaces%20on%20Graphs-am.pdf"
+      ]
+    },
+    "equivalent_formulations": {
+      "evidence": [
+        "Tree geodesic halfspaces are equivalent to oriented edge cuts plus constant concepts; all 16 are used at eight vertices.",
+        "2021 NeurIPS paper studies active graph halfspaces and Radon/VC dimension, not exact online Littlestone shattering in the inspected text."
+      ],
+      "reasoning": "Searched convex cuts, graph halfspaces, online-shattering, adversarial mistake-bound, and oriented edge-cut formulations; no exact eight-vertex equivalent was found, but search incompleteness remains.",
+      "searches": [
+        "VC dimension Littlestone dimension tree halfspaces oriented edge components graph convex halfspaces exact first entropy deficit nine vertices",
+        "online learning graph halfspaces trees Littlestone depth 4 nine vertex classification",
+        "learning vertex-labelled bipartitions convex tree edge splits shattered Littlestone",
+        "\"Littlestone dimension\" \"trees\" \"halfspaces\"",
+        "\"online halfspaces tree Littlestone\""
+      ]
+    },
+    "exact_database_or_table": {
+      "evidence": [
+        "Exact new census from exhaustively executed standard-library verifier: 23 unlabeled types partition 11/12 and 262144 labeled trees partition 218400/43744.",
+        "Relevant published-finding corpus hits concern tree geometric polytopes or directed-tree general position, not a table of convex-cut online ranks."
+      ],
+      "reasoning": "No inspected exact table contains the claimed incidence data; all count assertions have a full Prüfer-sequence enumerator. A negative search is not a priority proof.",
+      "searches": [
+        "online shattering oriented edge cuts tree convex halfspaces sixteen concepts eight vertices",
+        "shattering tree geodesic convex halfspace maximal decision tree depth four eight vertex tree",
+        "eight vertex tree convex halfspace Littlestone dimension 11 12 218400 43744"
+      ]
+    },
+    "rationale": "The new claim is a sharp, explicit length-four-path/side-distance-two equivalence for full-depth online shattering on exactly eight vertices, with a census of all 23 shapes and 262144 labeled trees. The inspected 2020 full article develops active query strategies, and the 2021 article develops active query and VC bounds, not this Littlestone classification. Accessible earlier tree-path/clade findings and published-finding corpus records concern different concept objects. A 2022 online-convex-sets source remains a concrete unresolved priority risk because its full text could not be inspected; its public abstract does not state the structural threshold. O assessment is best-knowledge, not a certification of uniqueness.",
+    "residual_risks": [
+      "Full online-learning paper of Thiessen and Gärtner (ECML PKDD 2022, Springer 2023) unavailable despite public and institutional paths; its coverage remains unverified.",
+      "A general exact online-tree-split theorem under alternative binary-search, cut, phylogenetic or Littlestone terminology may exist outside searched records.",
+      "No independent scientific priority audit has been performed."
+    ],
+    "source_inspections": [
+      {
+        "assessment": "NOT_COVERING exact online Littlestone dimension and structural eight-tree cut criterion",
+        "evidence": "Its theorem bounds active identification queries by shortest-path-cover size and graph diameter; neither online mistake-tree rank nor eight-vertex motif is evaluated.",
+        "identifier_or_url": "https://www.mlgworkshop.org/2020/papers/MLG2020_paper_40.pdf",
+        "material_read": "All four paper pages, introduction, main theorem, examples, experiments, appendix and references",
+        "method": "Read original publicly accessible full-text PDF text and check its theorem and learning notion",
+        "title": "Active Learning on Graphs with Geodesically Convex Classes",
+        "trigger": "Earliest verified motivating graph-convexity source, 2020-08-24"
+      },
+      {
+        "assessment": "NOT_COVERING exact eight-tree Littlestone classification in inspected mathematical statements",
+        "evidence": "Explicit result describes active query complexity, convexity parameters and VC via Radon number; a text search for Littlestone found no occurrence.",
+        "identifier_or_url": "https://repositum.tuwien.at/bitstream/20.500.12708/18978/1/Thiessen-2021-Active%20Learning%20of%20Convex%20Halfspaces%20on%20Graphs-am.pdf",
+        "material_read": "Original OA PDF definitions and main theoretical sections, especially halfspaces, query bounds, and the Radon-based VC-dimension proposition",
+        "method": "Inspect primary PDF with searchable text; compare invariant definitions",
+        "title": "Active Learning of Convex Halfspaces on Graphs",
+        "trigger": "Directly identical geodesic halfspace objects and VC/active learning comparisons"
+      },
+      {
+        "assessment": "INACCESSIBLE_PLAUSIBLE_SOURCE; no full-document non-coverage conclusion",
+        "evidence": "Publisher abstract says tree-related online mistake bounds and Halving performance; cannot determine whether it entails an exact eight-tree classification.",
+        "identifier_or_url": "https://link.springer.com/chapter/10.1007/978-3-031-26412-2_22",
+        "material_read": "Springer publisher abstract, dates and bibliographic/reference preview only; conference PDF and institutional download unavailable",
+        "method": "Read publisher preview; public preprint and institutional full text could not be accessed",
+        "title": "Online Learning of Convex Sets on Graphs",
+        "trigger": "Direct online-learning formulation and trees; potentially stronger related theorem"
+      }
+    ],
+    "status": "PASS"
+  },
+  "review_type": "self_review",
+  "schema_version": 1,
+  "scope_run_id": "e6f9d5e0-f72e-4204-a487-98aeb8dcb04c",
+  "self_review_status": "passed",
+  "value": {
+    "rationale": "The eight-vertex boundary is the first place where the natural 2n-hypothesis information bound can be strict, and its attainability has a sharp geometric if-and-only-if classification rather than an ad hoc finite invariant. The complete 23-type census quantifies the obstruction and the all-order path formula provides an extremal reference family. This distinguishes adaptive shattering on graph convex cuts from previously studied active query complexity and VC/Radon bounds. Numerical census supports the structural theorem; no inflated general classification or novelty of elementary threshold search is claimed.",
+    "status": "PASS"
+  }
+}

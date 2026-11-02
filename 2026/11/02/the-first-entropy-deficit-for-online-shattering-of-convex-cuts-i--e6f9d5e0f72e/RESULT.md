@@ -1,0 +1,50 @@
+# The first entropy deficit for online shattering of convex cuts in finite trees
+
+## Finding
+For a finite tree \(T\), write \(\mathcal H(T)\) for its geodesically convex halfspaces, **including** \(\varnothing\) and \(V(T)\). A vertex-membership query at \(v\in V(T)\) returns whether \(v\) belongs to the unknown halfspace. Then every tree of order \(2\le n\le7\) attains the information-theoretic upper bound \(\lfloor\log_2(2n)\rfloor\) on Littlestone dimension, but at order eight the following precise criterion holds:
+
+\[
+\operatorname{Ldim}(\mathcal H(T))=4
+\quad\Longleftrightarrow\quad
+\exists v,w,x\in V(T):\ d_T(v,w)=4,\quad d_T(x,P[v,w])=2.
+\]
+
+If the criterion fails, the dimension is exactly \(3\). Among the \(23\) unlabeled eight-vertex trees the dimensions \(4\) and \(3\) occur for \(11\) and \(12\) types, respectively. Among the \(8^6=262144\) **labeled** eight-vertex trees they occur for exactly \(218400\) and \(43744\) trees, respectively. In addition, all paths satisfy
+
+\[
+\operatorname{Ldim}(\mathcal H(P_n))
+=1+\lfloor\log_2 n\rfloor
+=\lfloor\log_2(2n)\rfloor\qquad(n\ge2).
+\]
+
+The structural equivalence, rather than a finite census alone, is the principal result. It isolates the first possible failure of the hypothesis-count bound for convex-cut online shattering.
+
+## Assumptions and scope
+All graphs here are finite simple unweighted trees and all distances count edges. The path \(P[v,w]\) is the unique vertex path between \(v\) and \(w\); distance to a path is the minimum distance to its vertices. A vertex set is geodesically convex if it contains the unique connecting path of each pair of its vertices. A halfspace is a convex vertex set whose complement is convex; the empty and full sets are included. On a tree these are precisely those two constant sets and the two components of \(T-e\), for each edge \(e\). In particular, \(|\mathcal H(T)|=2n\): distinct edges give distinct oriented components. By \(\operatorname{Ldim}\) we mean the maximal depth of a complete binary decision tree with vertex queries at internal nodes and a **distinct**, consistent concept at each answer-path leaf. This is not the worst-case number of queries required to identify a concept, and it is not the VC dimension.
+
+## Proof
+**1. Halfspace structure.** Every induced connected subtree is geodesically convex. If both a nonempty proper set and its complement are connected, they have exactly one crossing edge: two crossing edges would produce a cycle using connecting paths within the two connected sides. Hence every proper halfspace is one side of a single edge cut. This proves the count \(2n\). Any complete depth-\(d\) decision tree requires at least \(2^d\) distinct concepts, giving the upper bound \(\lfloor\log_2(2n)\rfloor\).
+
+**2. Orders at most seven.** For \(n=2\) the four concepts are all vertex subsets and have Littlestone dimension two. For \(n=3\) the six concepts have Littlestone dimension two: query an endpoint to obtain two nonconstant three-concept chains, each supporting at least one more balanced query; the cardinality bound is two. For four vertices, both possible shapes attain depth three. For the path, querying an endpoint separates the eight concepts into two nested chains of four concepts, each with depth two. For the three-leaf star, query a leaf \(a\), then a different leaf \(b\) in either answer branch; each resulting branch has exactly two distinguishable concepts, giving depth three. For any tree with \(n\ge4\), select an induced connected four-vertex subtree \(S\). The restrictions to \(S\) of the edge-cut halfspaces of \(T\) include every halfspace of \(S\); therefore \(\operatorname{Ldim}(\mathcal H(T))\ge3\). For \(4\le n\le7\), the hypothesis bound is three, proving equality.
+
+**3. Necessity at eight vertices.** Suppose \(n=8\) and a depth-four tree is shattered. There are precisely sixteen concepts, so every node must split its current version space into two equally sized parts and all sixteen concepts occur at the terminal leaves. Let the first vertex query be \(v\). There are exactly eight halfspaces containing \(v\): the full set and, for each of the seven edges, the unique side of its cut containing \(v\). The second query \(w\) within the positive branch must split these eight halfspaces four against four. Among the eight containing \(v\), precisely \(d_T(v,w)\) exclude \(w\): the sides cut by edges along \(P[v,w]\). Hence \(d_T(v,w)=4\). Exactly four concepts contain both \(v\) and \(w\): the full set and three sides containing the entire path \(P[v,w]\), corresponding to the three off-path edges. For any query \(x\), precisely \(d_T(x,P[v,w])\) of these four concepts exclude \(x\). A depth-two shattered continuation in that cell requires an equal two/two split, so \(d_T(x,P[v,w])=2\).
+
+**4. Sufficiency at eight vertices.** Conversely choose \(v,w,x\) with the asserted distances. First query \(v\), and second query \(w\) in both answer branches. This creates four cells of exactly four concepts. In cell \((1,1)\), the concepts are the full set and the three off-path edge sides containing \(P[v,w]\); query \(x\) to split them two/two. Cell \((0,0)\) consists of their four complements; the same query \(x\) splits it two/two. In cells \((1,0)\) and \((0,1)\), the concepts are respectively the four oriented sides associated with the four edges along \(P[v,w]\). Query the middle vertex of \(P[v,w]\) to split each cell two/two. Every pair of distinct halfspaces differs in membership of some vertex, so each remaining two-concept cell supports one final query. These queries furnish a full depth-four tree with all sixteen concepts at its leaves. The lower bound of three from paragraph 2 proves the alternative value when the motif fails.
+
+**5. Paths of all orders.** For a path of \(n\ge2\) vertices query an endpoint. The positive and negative version spaces are each a chain, ordered by inclusion, of exactly \(n\) prefixes or suffixes. Balanced binary-search queries recursively shatter depth \(\lfloor\log_2 n\rfloor\) in each chain. The first query therefore gives dimension at least \(1+\lfloor\log_2 n\rfloor\), and the count of \(2n\) concepts proves equality. In particular the geometric criterion is realized by the eight-vertex path, while it fails for the eight-vertex star.
+
+**6. Exact order-eight enumeration.** The accompanying standard-library verifier enumerates each labeled tree exactly once through its Prüfer sequence of length six. It represents each halfspace by its incidence bitmask, computes its exact Littlestone rank using the recurrence \(L(C)=0\) for a singleton and \(L(C)=1+\max_x\min\{L(C_{x=0}),L(C_{x=1})\}\) over queries with both nonempty branches, and independently tests the path-distance motif. A canonical minimum rooted-parenthesis code groups the labeled trees by unrooted isomorphism type. The exhaustive outcome is \(11\) / \(12\) types, and \(218400\) / \(43744\) labeled trees, at dimensions four / three. The script asserts all totals and the equivalence for each isomorphism type.
+
+## Verification
+Run `python3 verify_tree_halfspaces.py` using Python 3 standard library. It checks every Prüfer-coded labeled tree for \(2\le n\le8\), including all \(262144\) labeled eight-vertex trees; every distinct unlabeled tree type is evaluated by the exact version-space recurrence. It asserts the complete eight-vertex shape and labeled-count distributions and checks the path formula independently through order fourteen. Expected final marker: `ALL_TREE_HALFSPACE_SHATTERING_CHECKS_PASS`. Exhaustive computation confirms finite counts and boundary cases, but the structural equivalence and all-order path statement follow from the preceding proofs, not finite extrapolation.
+
+## Relationship to prior work
+Thiessen and Gärtner (2020) introduced active learning for geodesically convex graph classes using shortest-path covers. Their four-page full paper gives active query upper bounds and examples, not the exact Littlestone rank of the sixteen cut-halfspaces in an eight-vertex tree. Thiessen and Gärtner (2021) study convex halfspaces, active query bounds, and VC-dimension bounds via Radon numbers, which are different invariants from the exact adversarial Littlestone shattering tree. The later conference paper *Online Learning of Convex Sets on Graphs* (2022 conference / 2023 online publication) explicitly concerns online mistake bounds and discusses trees, and is therefore a close priority risk; only its publisher abstract and bibliographic preview were accessible. Neither a failure to locate a statement nor a partitioned database search establishes uniqueness. The contribution asserted here is the precise order-eight necessity/sufficiency motif, first failure of the counting upper bound, and full shape/labeled classification; elementary chain-search and convexity facts are not claimed as novel.
+
+## Limitations
+The order-eight geometric classification does not classify all larger trees. The verified counts are exact only through eight vertices. The point-query query language and inclusion of the empty/full halfspaces are essential: removing constant concepts can change the threshold. Historical priority is not independently certified, especially regarding the unavailable full text of the 2022 conference paper. No independent mathematical audit is claimed.
+
+## References
+1. M. Thiessen and T. Gärtner, *Active Learning on Graphs with Geodesically Convex Classes*, MLG 2020 (August 24, 2020). https://www.mlgworkshop.org/2020/papers/MLG2020_paper_40.pdf
+2. M. Thiessen and T. Gärtner, *Active Learning of Convex Halfspaces on Graphs*, NeurIPS 2021. https://repositum.tuwien.at/bitstream/20.500.12708/18978/1/Thiessen-2021-Active%20Learning%20of%20Convex%20Halfspaces%20on%20Graphs-am.pdf
+3. M. Thiessen and T. Gärtner, *Online Learning of Convex Sets on Graphs*, ECML PKDD 2022, Springer first online March 17, 2023, DOI 10.1007/978-3-031-26412-2_22. https://link.springer.com/chapter/10.1007/978-3-031-26412-2_22
