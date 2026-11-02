@@ -1,0 +1,12 @@
+# Scientific review
+
+## Correctness — PASS
+The proof specializes exactly the strict pairwise receptiveness rule and the simultaneous averaging/confidence updates. With only the two extreme agents unreceptive, the endpoint difference contracts by \(1/(n-1)\) while their confidence bound contracts by \(\delta\). A direct pair of gap inequalities proves inductively that the remaining edges cannot disappear; in particular, the initial open-region hypotheses imply \(\Delta<2c_0\). The endpoint pair is restored exactly when \(((n-1)\delta)^t>\Delta/c_0\). A fixed reversible averaging chain proves asymptotic consensus without restoration, with the explicitly computed degree-weighted mean; restoration triggers one-step finite-time consensus. Exact rational tests corroborate all cases across \(3\leq n\leq12\). The infinite statement is justified by the analytic argument, not the finite checks.
+
+## Originality — PASS (best-knowledge literature comparison)
+Li–Luo–Porter prove general eventual stabilization/convergence and numerically observe unreceptive pairs with identical limit opinions, but their theorems do not imply a precise finite-time repair threshold for a family of initial configurations. They explicitly call for analytic study of mutual receptiveness in consensus states. Searches for equivalent threshold, missing-edge configurations, finite-time consensus and confidence-decay aliases in related indexed records and primary literature did not find an implying result. A record on logarithmic switching in a seven-agent proximity network does not implement the dyadic confidence recursion studied here; the Kan–Feng–Porter rewiring model likewise has different state dynamics. Searches cannot rule out an unindexed equivalent derivation.
+
+## Value — PASS
+The sharp, dimension-dependent adaptive-confidence threshold separates exact finite-time agreement from solely asymptotic agreement in a natural interaction feedback model. It produces a nonempty full-dimensional open set of analytically certified consensus states with a permanently incomplete effective graph, directly quantifying a phenomenon previously presented mainly through simulation. The exact restoration-time formula also exposes a diverging edge-repair delay at the boundary. The classification is restricted to the stipulated missing-extreme-dyad configuration and is not a general topology-independent threshold.
+
+Self-review: passed. Independent audit: not yet performed.
