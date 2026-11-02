@@ -1,11 +1,21 @@
-# Self-review
+# Independent mathematical audit
 
-**Correctness — PASS.** The proof independently derives the equivalence signature, checks all 512 possible aligned length-72 cases using a supplied executable certificate, and derives limiting pair frequencies and densities. The length-128 morphism-block cover is an exhaustive infinite-word reduction, not a sample. Every allowable index and smaller root is handled; the least possible universal bound 36 is attained already at index 19.
+## correctness
 
-**Originality — PASS against inspected sources.** Rigo–Salimov (2013) develops 2-binomial equivalence and global factor-complexity; Rao–Rigo–Salimov (2015) studies avoidance of squares and cubes using other morphisms; Lejeune–Leroy–Rigo (2020) computes the number of Thue–Morse binomial classes. These results do not give all-start least adjacent-root values or their exact position densities. Searches for equivalent first-moment/Parikh-matrix formulations, stronger global statements, and existing exact 36-root tables identified no covering result. An earlier unindexed calculation remains a historical-priority risk.
+PASS
 
-**Mathematical value — PASS.** A sharp worst-case local radius, a complete rational frequency law, and an explicit characterization of the exceptional positions are mathematically motivated refinements of square existence under subsequence equivalence. The result distinguishes global possible-root lengths from minimal local roots at every start. The required finite calculation is complete and independently reproducible. The theorem is limited to this specific morphic word; arbitrary sequences and longer roots remain outside scope.
+For equal-length binary blocks, 2-binomial equivalence is exactly equality of number of ones k and position-weighted ones sum S (since scattered 01 count is S-choose(k,2)). Every starting index has unique i=128j+r and its 72-letter window is a subword of μ^7(t_j t_{j+1}), so exactly four possible adjacent source pairs times 128 offsets cover every index; a complete 512-case enumeration is thus an infinite-word proof, not finite prefix extrapolation. Independently rebuilt all 512 templates from the morphism and scanned all 1≤m≤36 for equal (k,S); recovered source-pair histograms, all nine densities, six worst templates, and witness i=19. Weighted pair frequencies are (1/6,1/3,1/3,1/6), obtained by primitive-substitution invariance. Compared against the entire frozen templates.csv and verified code logic, which uses a separate direct scattered-subsequence counter.
 
-The attached verification code uses two distinct equivalence computations, but this does not constitute an independent scientific audit. Detailed checks, source comparisons and residual risks are in `AUDIT.json` and `VERIFICATION.md`.
+## originality
 
-Self-review: passed. Independent audit: not yet performed.
+PASS
+
+All four comparisons are grounded in actual primary or published-record searches; best-of-knowledge only. Checked possible equivalence between local least-root laws, recurrence of binomial squares, and global factor-complexity/avoidability results. Existing statements inspect different quantifiers: number of factor classes or existence of pattern-free words, not minimum root for each fixed i.
+
+## value
+
+PASS
+
+The least adjacent 2-binomial-square root at every starting position is a natural recurrence/avoidance invariant of the canonical Thue–Morse automatic word. A sharp universal radius, complete possible-root spectrum, all exact densities and precise extremizers provide a full local classification rather than a single finite test.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

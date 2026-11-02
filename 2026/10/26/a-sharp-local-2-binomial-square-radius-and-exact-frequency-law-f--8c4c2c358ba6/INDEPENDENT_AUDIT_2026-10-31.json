@@ -1,0 +1,125 @@
+{
+  "audit_date_utc": "2026-10-31",
+  "audited_at_utc": "2026-10-31T14:03:42Z",
+  "axes": {
+    "correctness": {
+      "rationale": "For equal-length binary blocks, 2-binomial equivalence is exactly equality of number of ones k and position-weighted ones sum S (since scattered 01 count is S-choose(k,2)). Every starting index has unique i=128j+r and its 72-letter window is a subword of μ^7(t_j t_{j+1}), so exactly four possible adjacent source pairs times 128 offsets cover every index; a complete 512-case enumeration is thus an infinite-word proof, not finite prefix extrapolation. Independently rebuilt all 512 templates from the morphism and scanned all 1≤m≤36 for equal (k,S); recovered source-pair histograms, all nine densities, six worst templates, and witness i=19. Weighted pair frequencies are (1/6,1/3,1/3,1/6), obtained by primitive-substitution invariance. Compared against the entire frozen templates.csv and verified code logic, which uses a separate direct scattered-subsequence counter.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Lejeune et al. compute b_{t,k}(n)=# of equivalence classes of length-n factors and remark on pattern avoidability as a separate topic.",
+          "Rigo–Salimov Section 6 poses avoidance of 2-binomial squares on larger alphabets and gives an example, not an all-index sharp bound for Thue–Morse."
+        ],
+        "reasoning": "A bounded k-binomial complexity or existence of any 2-binomial square does not imply exact first-root distribution at each position. No broader result read contained the claimed 512-template locality theorem.",
+        "searches": [
+          "Lejeune–Leroy–Rigo 2020 Theorem 6 and Sections 5–8",
+          "Rigo–Salimov 2013 Section 6",
+          "Rao–Rigo–Salimov 2015 square avoidance theorem"
+        ]
+      },
+      "checked_sources": [
+        "Rigo–Salimov 2013 full preprint PDF",
+        "Rao–Rigo–Salimov 2015 full PDF",
+        "Lejeune–Leroy–Rigo 2020 full PDF",
+        "Thue Morse local 2-binomial squares least root at every position bound 36 frequency distribution"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "Prior work gives bounded k-binomial complexity of factors and square-avoidance constructions, not a local least-matching-root law.",
+          "The independent full aligned template table demonstrates the sharper all-start property and exact density of sharp cases."
+        ],
+        "reasoning": "The claimed theorem cannot be read off from a fixed-length factor complexity function, because the latter forgets positions and adjacency. Conversely generic pattern avoidability gives no sharp all-start bound for this particular fixed word.",
+        "searches": [
+          "Lejeune–Leroy–Rigo 2020 Sections 5–8",
+          "Rao–Rigo–Salimov 2015",
+          "local 2-binomial square least root Thue Morse 36"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "The prior definition of k-binomial equivalence agrees with equal scattered-subsequence counts.",
+          "Avoidance of squares and the cardinality of equivalence classes do not determine the first square root at each index."
+        ],
+        "reasoning": "Checked possible equivalence between local least-root laws, recurrence of binomial squares, and global factor-complexity/avoidability results. Existing statements inspect different quantifiers: number of factor classes or existence of pattern-free words, not minimum root for each fixed i.",
+        "searches": [
+          "Thue Morse local 2-binomial squares least root at every position bound 36 frequency distribution",
+          "Rigo–Salimov 2013 binomial complexity and square avoidance",
+          "Rao–Rigo–Salimov 2015 avoiding 2-binomial squares and cubes"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "The 2020 full paper tabulates global binomial complexity, not the nine local least-root frequencies.",
+          "The record CSV is independently regenerated; it is new reproducibility evidence, not an established external database."
+        ],
+        "reasoning": "A matching published 512-position table would cover the result, but none was seen in three primary full-text comparisons. Unindexed historical software enumeration is a residual risk.",
+        "searches": [
+          "Thue Morse local 2-binomial squares least root at every position bound 36 frequency distribution",
+          "Rigo/Salimov source index least Thue Morse binomial square positions",
+          "Lejeune et al. 2020 exact binomial complexity tables"
+        ]
+      },
+      "rationale": "All four comparisons are grounded in actual primary or published-record searches; best-of-knowledge only. Checked possible equivalence between local least-root laws, recurrence of binomial squares, and global factor-complexity/avoidability results. Existing statements inspect different quantifiers: number of factor classes or existence of pattern-free words, not minimum root for each fixed i.",
+      "residual_risks": [
+        "An unindexed exact finite Thue–Morse local-square census could already establish these numbers.",
+        "The infinite assertion hinges on complete morphism-window coverage and exact 512-case table; an arbitrary prefix test alone would not establish it.",
+        "Natural frequencies use unique ergodicity of the substitution, not merely empirical prefixes."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Establishes foundational definitions and avoidance questions; does not present exact Thue–Morse local 36 bound or its nine densities.",
+          "evidence": [
+            "Section 6 around PDF page 11 discusses 2-binomial squares and ternary avoidance, not local Thue–Morse least-root table."
+          ],
+          "identifier_or_url": "https://orbi.uliege.be/bitstream/2268/149313/2/binomial_final_long.pdf",
+          "material_read": "24-page original full PDF, definitions and Section 6 discussing 2-binomial square avoidance and examples, with visual first-page rendering.",
+          "method": "Primary PDF textual reading and page screenshot.",
+          "title": "Another Generalization of Abelian Equivalence: Binomial Complexity of Infinite Words",
+          "trigger": "Origin of binomial equivalence and square considerations"
+        },
+        {
+          "assessment": "Different constructive avoidance objective; no every-start least-root classification of the fixed binary Thue–Morse word.",
+          "evidence": [
+            "Main result constructs avoidance words rather than tabulating Thue–Morse starting-index minima."
+          ],
+          "identifier_or_url": "https://orbi.uliege.be/bitstream/2268/178702/1/final.pdf",
+          "material_read": "Full accessible primary PDF including its statement and construction of pattern-avoiding words; first-page visual inspection.",
+          "method": "Primary PDF mathematical text and screenshot.",
+          "title": "Avoiding 2-binomial squares and cubes",
+          "trigger": "Most directly named square avoidance source"
+        },
+        {
+          "assessment": "The exact invariant is number of distinct binomial factor classes by length; it does not fix least adjacent equivalent block pair at each position.",
+          "evidence": [
+            "Definition 3 b_{x,k}(n)=#(Fac_n(x)/~_k); Theorem 6 computes this complexity."
+          ],
+          "identifier_or_url": "https://orbi.uliege.be/bitstream/2268/234006/1/binomial-TM-lastVersion.pdf",
+          "material_read": "35-page primary PDF: abstract, Introduction, Definition 3, Section 5 (k=2), Sections 7–8 and main theorem discussion.",
+          "method": "Primary PDF textual search, selected page rendering and mathematical comparison.",
+          "title": "Computing the k-binomial complexity of the Thue–Morse word",
+          "trigger": "Same word, k=2 and binomial equivalence"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "rationale": "The least adjacent 2-binomial-square root at every starting position is a natural recurrence/avoidance invariant of the canonical Thue–Morse automatic word. A sharp universal radius, complete possible-root spectrum, all exact densities and precise extremizers provide a full local classification rather than a single finite test.",
+      "status": "PASS"
+    }
+  },
+  "checked_sources": [
+    "Rigo–Salimov 2013 full preprint PDF",
+    "Rao–Rigo–Salimov 2015 full PDF",
+    "Lejeune–Leroy–Rigo 2020 full PDF",
+    "Thue Morse local 2-binomial squares least root at every position bound 36 frequency distribution"
+  ],
+  "disposition": "passed",
+  "limitations": [
+    "An unindexed exact finite Thue–Morse local-square census could already establish these numbers.",
+    "The infinite assertion hinges on complete morphism-window coverage and exact 512-case table; an arbitrary prefix test alone would not establish it.",
+    "Natural frequencies use unique ergodicity of the substitution, not merely empirical prefixes."
+  ],
+  "schema_version": 1
+}
