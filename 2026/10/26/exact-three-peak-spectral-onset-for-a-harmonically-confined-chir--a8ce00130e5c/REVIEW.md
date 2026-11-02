@@ -1,12 +1,21 @@
-# Scientific assessment
+# Independent mathematical audit
 
-## Correctness
-PASS. The stationary convolution and exact orientation covariance give the positive rational spectrum. A fully expanded cubic derivative, exact discriminant \(16t^4(1+t)(17t-108)\), positive-threshold factorization, concavity/root-sign argument and fold Taylor expansion prove the complete matched-rate mode-count transition. The central-curvature characterization for unequal relaxation follows by an exact quadratic inequality. A standalone exact-arithmetic checker passes 21 assertions. Limits: stationary, zero translational diffusion, and no boundary-surface classification away from matched relaxation.
+## correctness
 
-## Originality
-PASS with residual risk. The 2026 originating article establishes the model and exact dynamical moments but does not report the three-peak frequency-domain phase diagram. The 2023 chiral-confinement study gives the orientation autocorrelation, from which the Lorentzian power spectral *formula* follows immediately; this identity is excluded from the originality claim. The claimed advance is the full sharp matched-relaxation bifurcation, exact rational threshold and fold scale, plus a central-minimum region at unequal rates. Historical literature on circle swimmers could implicitly or explicitly cover these mode counts; the 2017 trapping article's full text could not be obtained, so no whole-document exclusion is claimed. No independent audit has been performed.
+PASS
 
-## Value
-PASS. The sharp frequency-domain transition is a natural observable for chiral active motion under confinement. It distinguishes spatial density modes from temporal oscillation frequencies and locates the first emergence of resolvable sideband extrema, including scaling near onset. The matched-relaxation section is physically motivated by the widely used equality of trapping and orientational relaxation times, and the open unequal-rate region demonstrates this is not merely a coordinate artifact. This is a complete spectral classification for the named natural case, not a routine enumeration of arbitrary parameters.
+Stationary angular covariance is 1/2 e^(−γ|u|)cos(ωu). A harmonic filter multiplies its two-Lorentzian spectrum by 1/(κ²+ν²), giving rational F_(h,t)(z)=(1+t+z)/[(h+z)(z²+2(1−t)z+(1+t)²)]. Independently differentiated and recovered P=−2z³−(5+h+t)z²+2(1+t)(2t−2−h)z−(1+t)[(1+t)²+h(1−3t)], at h=1 discriminant 16t⁴(1+t)(17t−108) and factor at t_c=108/17 −2/4913(17z−55)²(17z+215). Derivative sign yields precisely 1 peak below/at threshold, 3 peaks above, shoulders not extrema at t_c. Taylor derivatives give z_±=55/17±(2/√5)√(t−t_c)+O(t−t_c). P(0) yields the exact h>16/9 central-minimum open wedge. Finite symbolic checks corroborate the global algebra; no full unequal-rate diagram is asserted.
 
-Self-review: passed. Independent audit: not yet performed.
+## originality
+
+PASS
+
+Best-of-knowledge originality of the DELIMITED finding: In the stationary noise-free-translation harmonic chiral swimmer, at matched trap/rotational rates exactly three spectral maxima appear iff ω²/γ²>108/17, with a square-root fold and an unequal-rate central-minimum region. The prior correlation and trap dynamics imply the rational function, not automatically the roots, discriminant, fold and unequal-rate open wedge; the remaining full 2017 text could conceal an equivalent spectral classification.
+
+## value
+
+PASS
+
+The exact 1-to-3 mode transition, coalescing shoulder and fold coefficient distinguish active chiral spectral resonance from mere oscillations in time-domain moments and provide a precise benchmark for spectral observations and parameter identification within the idealized zero-translational-noise model.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
