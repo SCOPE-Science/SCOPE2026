@@ -1,15 +1,21 @@
-# Scientific review
+# Independent mathematical audit
 
-## Correctness — PASS
+## correctness
 
-The conservative-stage coefficients and Patankar denominators are reconstructed from the original equations. The stage and final solves reduce to an explicit rational scalar map, and algebraic simplification gives the complete exact error multiplier. Its denominator is strictly positive for every finite positive step and every positive normalized state. An explicit negative derivative in the squared error makes the boundary multipliers exhaustive, proving the sharp global contractivity, unique minimax step, non-crossing boundary, and exceptional cubic step. A standalone exact-rational checker tests the update identity and independent inequalities; its finite tests support, but are not substituted for, the analytic proof. Risks: only strictly positive starts and the specified conservative two-state scheme are covered.
+PASS
 
-## Originality — PASS (best-knowledge comparison)
+Re-derive the conservative stage v=(2x+t/2)/(t+2) and final scalar solve x+=(x+tw/2)/(1+t(u+w)/2) with u=x/v,w=(1-x)/(1-v). Symbolic elimination gives delta+=delta*m_t(delta^2) with positive denominator K-HD and strictly negative derivative in D. Endpoint ratios c(t)=(2-t)/(2+t), b(t)=(4-t-t²)/(t²+3t+4), so q=max(c,-b)<1 for each finite t; this proves uniform global geometric contraction. The two monotone endpoints cross at the unique positive zero of t³+2t²-2t-8, yielding optimal t. b(t)>=0 characterizes non-crossing and t=2 yields -delta³/(12-5delta²). Independently symbolic stage computation verified the map, derivative identity, endpoints and cubic equation. Positivity follows from strictly positive numerator and complement. No implication for different stage schemes or more species.
 
-The 2017 method paper already supplies the scheme, order and positivity; the 2022 stability paper already proves local stability and uses the symmetric exchange as a numerical test; and the 2023 negative-coefficient paper documents failure of global stability for other schemes. These results are not represented as new. The new statement is the *sharp global nonlinear error map and rate*, unique globally best step, universal sign-crossing threshold and exact cubic special step for conservative-stage MPRK22(1/2) with two-way symmetric exchange. The relevant full-text sections and targeted public mathematics-record searches did not identify a statement implying these four formulas. They cannot be deduced from the previously established local Jacobian criterion or from one-way decay. Risks: publication-priority uncertainty for specialized work not identified by the searched aliases, and possible overlap with uninspected non-obvious sources. Negative search results alone are not taken as proof of novelty.
+## originality
 
-## Value — PASS
+PASS
 
-Published stability analyses distinguish local from global MPRK behavior and explicitly discuss whether nonnegative Runge--Kutta coefficients should lead to global convergence. A constructive sharp global rate theorem for the canonical positive mass-conserving test problem therefore answers a motivated nonlinear numerical-stability question. The exact no-crossing frontier distinguishes positivity from monotone relaxation, the unique worst-case-optimal step is a practical benchmark, and the cubic step clarifies the tradeoff between worst-case and asymptotic rates. The theorem is deliberately limited to the symmetric two-way exchange; it does not resolve the broader conjecture.
+Compared exact statements, not shared terminology. An exact global nonlinear one-step Lipschitz contraction on the whole positive simplex is not equivalent to positivity or local spectral stability. The inspected same mathematical model primary material did not establish the sharp multiplier q(t). The proven one-way result is not a two-way symmetric nonlinear global contraction theorem; a general local Jacobian criterion does not imply global behavior. No checked exact threshold database covers the continuous all-step/all-start minimax frontier. Negative searches do not establish originality in isolation. Published local linearization and different variant counterexamples do not imply q(t), cubic cancellation t=2, or sharp no-crossing t=(sqrt17-1)/2 in the positive symmetric two-way scheme.
 
-Self-review: passed. Independent audit: not yet performed.
+## value
+
+PASS
+
+Published literature analyzes local versus global Patankar stability and the possibility of spurious fixed points. A global all-initial-state error bound, sharp optimal time step, non-overshoot frontier and exact cubic special step for the canonical conservative exchange scheme answer a motivated stability design question, distinct from mere positivity.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

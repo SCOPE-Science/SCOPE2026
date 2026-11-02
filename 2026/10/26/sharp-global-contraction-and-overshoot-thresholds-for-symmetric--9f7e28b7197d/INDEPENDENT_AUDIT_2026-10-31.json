@@ -1,0 +1,108 @@
+{
+  "audit_date_utc": "2026-10-31",
+  "audited_at_utc": "2026-10-31T23:10:04.550596Z",
+  "axes": {
+    "correctness": {
+      "rationale": "Re-derive the conservative stage v=(2x+t/2)/(t+2) and final scalar solve x+=(x+tw/2)/(1+t(u+w)/2) with u=x/v,w=(1-x)/(1-v). Symbolic elimination gives delta+=delta*m_t(delta^2) with positive denominator K-HD and strictly negative derivative in D. Endpoint ratios c(t)=(2-t)/(2+t), b(t)=(4-t-t²)/(t²+3t+4), so q=max(c,-b)<1 for each finite t; this proves uniform global geometric contraction. The two monotone endpoints cross at the unique positive zero of t³+2t²-2t-8, yielding optimal t. b(t)>=0 characterizes non-crossing and t=2 yields -delta³/(12-5delta²). Independently symbolic stage computation verified the map, derivative identity, endpoints and cubic equation. Positivity follows from strictly positive numerator and complement. No implication for different stage schemes or more species.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "The general modified Patankar schemes are conservative and positive; 2022 analysis treats local two-way stability and a globally monotone one-way special case."
+        ],
+        "reasoning": "The proven one-way result is not a two-way symmetric nonlinear global contraction theorem; a general local Jacobian criterion does not imply global behavior.",
+        "searches": [
+          "arXiv:2202.01099 Sections 3 and 4",
+          "arXiv:2309.01562 MPRK non-global stability",
+          "arXiv:1702.04589 order conditions"
+        ]
+      },
+      "checked_sources": [
+        "arXiv:1702.04589",
+        "arXiv:2202.01099",
+        "arXiv:2202.11649",
+        "arXiv:2309.01562",
+        "Resultary semantic search: MPRK22 symmetric two-way exchange optimal global contraction overshoot threshold Patankar"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "Izgin et al. 2022 distinguishes local stability and one-way global decay; 2023 negative-parameter examples exhibit different mechanisms."
+        ],
+        "reasoning": "Published local linearization and different variant counterexamples do not imply q(t), cubic cancellation t=2, or sharp no-crossing t=(sqrt17-1)/2 in the positive symmetric two-way scheme.",
+        "searches": [
+          "arXiv:2202.01099 primary full PDF Section 3.1 and Section 4",
+          "arXiv:2309.01562 negative coefficient MPRK"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Izgin, Kopecz and Meister 2022 Section 3 proves local Lyapunov stability; their Section 4 gives symmetric numerical exchange example."
+        ],
+        "reasoning": "An exact global nonlinear one-step Lipschitz contraction on the whole positive simplex is not equivalent to positivity or local spectral stability. The inspected same mathematical model primary material did not establish the sharp multiplier q(t).",
+        "searches": [
+          "Resultary: MPRK22 symmetric two-way exchange optimal global contraction overshoot threshold Patankar",
+          "web: symmetric MPRK22 alpha 1/2 exact global contraction equilibrium cubic overshoot"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "The inspected numerical stability plots are sample trajectories rather than an exact universal optimum or table of closed thresholds."
+        ],
+        "reasoning": "No checked exact threshold database covers the continuous all-step/all-start minimax frontier. Negative searches do not establish originality in isolation.",
+        "searches": [
+          "Resultary: MPRK22 symmetric two-way exchange optimal global contraction overshoot threshold Patankar",
+          "web: symmetric MPRK22 alpha 1/2 exact global contraction equilibrium cubic overshoot"
+        ]
+      },
+      "rationale": "Compared exact statements, not shared terminology. An exact global nonlinear one-step Lipschitz contraction on the whole positive simplex is not equivalent to positivity or local spectral stability. The inspected same mathematical model primary material did not establish the sharp multiplier q(t). The proven one-way result is not a two-way symmetric nonlinear global contraction theorem; a general local Jacobian criterion does not imply global behavior. No checked exact threshold database covers the continuous all-step/all-start minimax frontier. Negative searches do not establish originality in isolation. Published local linearization and different variant counterexamples do not imply q(t), cubic cancellation t=2, or sharp no-crossing t=(sqrt17-1)/2 in the positive symmetric two-way scheme.",
+      "residual_risks": [
+        "A specialized published symmetric-MPRK22 scalar-map analysis could overlap despite absence from checked indexing.",
+        "The theorem excludes negative/zero initial species, asymmetry, variable coefficients, and other Patankar variants."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Partial related coverage: local stability and numerical symmetric example, not the sharp nonlinear global operator bound in read portions",
+          "evidence": "Section 3 vs Section 4; screenshot and full PDF text checked.",
+          "identifier_or_url": "https://arxiv.org/pdf/2202.01099",
+          "material_read": "Primary PDF abstract, Section 3 local stability/one-way theorem and Section 4 symmetric exchange example including PDF page 21.",
+          "method": "Read lawful PDF text and inspected screenshots of pages 1 and 21",
+          "title": "On Lyapunov Stability of Positive and Conservative Time Integrators and Application to Second Order Modified Patankar--Runge--Kutta Schemes",
+          "trigger": "Same MPRK22 family and symmetric exchange worked example"
+        },
+        {
+          "assessment": "Original scheme/order/positivity prior, no whole-document noncoverage assertion",
+          "evidence": "Original scheme definition and second-order family.",
+          "identifier_or_url": "https://arxiv.org/abs/1702.04589",
+          "material_read": "Abstract and method descriptions, as quoted in primary secondary references and frozen package; not the original full article.",
+          "method": "Bibliographic and mathematical implication comparison",
+          "title": "On Order Conditions for modified Patankar-Runge-Kutta schemes",
+          "trigger": "Exact original conservative stage and coefficients"
+        },
+        {
+          "assessment": "Negative-parameter and spurious-fixed-point results do not immediately imply positive scheme formula",
+          "evidence": "Different Runge-Kutta parameter domain.",
+          "identifier_or_url": "https://arxiv.org/abs/2309.01562",
+          "material_read": "Accessible abstract and primary result descriptions, not entire full text.",
+          "method": "Web-based abstract and claim-level comparison",
+          "title": "On the non-global linear stability and spurious fixed points of MPRK schemes with negative RK parameters",
+          "trigger": "Potentially dominating global instability theorem"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "rationale": "Published literature analyzes local versus global Patankar stability and the possibility of spurious fixed points. A global all-initial-state error bound, sharp optimal time step, non-overshoot frontier and exact cubic special step for the canonical conservative exchange scheme answer a motivated stability design question, distinct from mere positivity.",
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "limitations": [
+    "Exact arithmetic and strictly positive two-state symmetric exchange only.",
+    "General scheme-wide global stability conjectures are neither proved nor disproved.",
+    "The finite symbolic and rational checks corroborate the analytic proof.",
+    "A specialized published symmetric-MPRK22 scalar-map analysis could overlap despite absence from checked indexing.",
+    "The theorem excludes negative/zero initial species, asymmetry, variable coefficients, and other Patankar variants."
+  ],
+  "schema_version": 1
+}
