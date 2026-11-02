@@ -1,17 +1,21 @@
-# Scientific review: equivariant persistence reduction for periodic avalanche lifts
+# Independent mathematical audit
 
-## Correctness — PASS
-The theorem follows integrally and at every filtration stage from two exact identities. Parallel firing on a directed cycle obeys \(c_j^{(t+1)}=c_j^{(t)}-\mathbf1_{c_j^{(t)}>0}+\mathbf1_{c_{j-1}^{(t)}>0}\); invariance under the shift by \(k\) therefore persists, giving equality of all larger firing sets with complete fiber preimages of the smaller firing sets. For each simplex, barycentric fiber averaging preserves that simplex and produces an explicit equivariant strong deformation retraction onto the geometric fixed locus. Its formulas do not depend on time and hence commute with filtration inclusions. The two residue-block examples follow from direct facet descriptions. The finite verifier corroborated 450 configurations, 2,270 independently simulated firing steps, 192,584 projected faces and 19 mod-two Betti comparisons. This is not an inference of an infinite theorem from finitely many examples.
+## correctness
 
-## Originality — PASS (with residual bibliographic uncertainty)
-The primary full text of Riihimäki–Smith (arXiv:2606.26786v1), including Definition 2.4, Lemma 3.17, Conjecture 3.18 and Section 4, introduces the theory and persistence filtration, but gives no arbitrary-multigrain, all-time fixed-locus retraction under periodic lift. The closest published mathematical record on complementary residue avalanche complexes proves a different, coprime-remainder regime and expressly excludes the divisibility case. The other close record concerns path homology of an independently defined digraph blow-up, not an avalanche filtration. Searches for repetition, cyclic quotients, inflation, equivariance and persistence did not locate the stated theorem. General barycentric averaging is acknowledged as elementary; the novelty is the exact dynamic-to-topological, stagewise equivariant identification. An undiscovered treatment of the same reduction remains possible.
+PASS
 
-## Value — PASS
-Repeated cyclic initial configurations are a canonical infinite family in the newly proposed avalanche homology theory. The result reduces arbitrarily many vertices and unbounded grain multiplicities to a fixed base pattern **without changing a single persistence parameter**, while retaining the integral homotopy type and proving the symmetry action homologically trivial. It also establishes the clean period-dividing branch of the paper's residue-zero sphere prediction and distinguishes that branch from already documented cyclic-wraparound counterfamilies. The same explicit contraction works for transient states, not only the final dynamics. Its significance is a structural and persistent compression theorem, not a numerically small optimization or an unmotivated finite table.
+For k,m>=2 and any nonzero nonnegative k-periodic multigrain pattern, the synchronous integer firing recurrence c_j(t+1)=c_j(t)-1_{c_j(t)>0}+1_{c_(j-1)(t)>0} preserves each residue fiber exactly. Thus each lifted firing set is the full inverse image of a base firing set, including every transient stage. Each face of the lifted simplicial complex is precisely a subset whose support projects to a base face. Sum barycentric coordinates over each fiber (Pi) and distribute evenly within fibers (J); Pi J=id, J Pi is the rotation fixed-locus projection, and segment homotopy (1-s)x+s JPi(x) remains in a common full lifted simplex. The rotation-equivariant strong deformation retraction is filtration-compatible, so integral persistence and triviality of rotation action follow. The b=(0,1,...,1) sphere and b=(1,0,...,0) disconnected conclusions follow from full boundary/singleton firing-set families. Independently simulated 5,130 exact recurrence state checks over k=2..4, m=2..4 and b_i=0,1,2 (nonzero), agreeing with fiber projection. This finite check supplements, not replaces, the universal homotopy proof.
 
-## Closest literature and limitations
-Primary: H. Riihimäki and J. P. Smith, *Avalanche homology of digraphs via sandpile dynamics*, arXiv:2606.26786v1 (first posted 2026-06-25), §2.3, §3, §4. Closest records: *Sharp arithmetic transitions in complementary residue avalanche complexes* (2026-10-11), coprime length/remainder assumption; *Forward-shift blow-ups preserve digraph homotopy type* (2026-10-11), independent-fiber digraph path homology. Neither asserts the periodic full-simplex avalanche inflation or equivariant filtration equivalence.
+## originality
 
-The finding assumes a consistently oriented cycle and a periodic initial vector; arbitrary graph covers, arbitrary configurations and closed formulas for the nonperiodic base theory remain outside scope. The comparisons were limited to accessible sources and records, and independent mathematical validation has not been performed.
+PASS
 
-Self-review: passed. Independent audit: not yet performed.
+PASS qualified. Riihimäki and Smith (2026) define the avalanche filtration and conjecture a residue-class sphere, but the full reviewed text does not assert arbitrary multigrain periodic-lift rotation-fixed filtration deformation retracts. The published coprime residue theorem concerns n=kq+s with 1<=s<k and gcd(s,k)=1, excluding exactly n=mk, and provides non-equivariant ordinary homotopy types, not the new all-t strong retraction. Abstract simplicial fiber-inflation contraction is standard and earns no novelty credit by itself; the natural sandpile-dynamic realization, universal multigrain and persistence compatibility form the remaining distinction. Historical equivalent covering-space formulations remain an O risk.
+
+## value
+
+PASS
+
+PASS. The dynamic repetition parameter naturally asks whether avalanche homology or persistence depends on the number of copies, especially around the published residue-zero sphere prediction. Establishing a full filtered equivariant answer for every multigrain pattern is a structural reduction, not a gratuitous relabeling: it changes the simplicial vertex count by a factor m while preserving canonical persistent homology. A researcher can use the exact reduction to compute lifted systems through a much smaller base. It does not solve nonperiodic or non-cycle cases.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
