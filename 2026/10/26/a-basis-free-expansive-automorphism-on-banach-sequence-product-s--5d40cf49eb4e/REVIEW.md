@@ -1,11 +1,21 @@
-# Self-review
+# Independent mathematical audit
 
-**Correctness (C): PASS.** The codimension-one isometry has an explicit left inverse; the operator and its inverse are continuous. Its exact orbit decomposition has disjoint supports, giving a max-norm identity for every forward time and all parameter values. Geometric growth gives positive expansivity when \(|\lambda|>1\); the two-sided bounded orbit of a unit-coordinate vector excludes even ordinary metric expansivity otherwise. All quantifiers and finite/infinite cardinal endpoints are covered. The separate code check confirms finite-support identities but is not used as proof.
+## correctness
 
-**Originality (O): PASS, subject to historical-priority risk.** The motivating López-Martínez–Menet theorem assumes a complemented Schauder basic sequence, excluding the canonical \(\ell_\infty\) setting; its examples explicitly cover \(\ell^p\), finite \(p\), and \(c_0\), not the complemented \(\ell_\infty\) criterion. Their product-space examples are different objects. Their stated classification problem motivates the gap. Searches of closely related operator-shift and expansivity records did not reveal the asserted basis-free criterion or its exact scalar boundary. A 2024 general framework treats different expansivity notions; an accessible abstract of Wu–Wang does not settle the infinite-dimensional summand case. This is a best-knowledge distinction, not uniqueness certification; an unindexed older construction remains possible.
+PASS
 
-**Mathematical value (V): PASS.** The new criterion handles a nonseparable Banach geometry beyond the existing complemented basic-sequence hypothesis, and settles the existence question for an entire cardinal family. The sharp parameter phase and exact orbit law distinguish the failure of two-sided expansivity from strong forward expansion without reducing the theorem to a single example. It is a focused extension, not a complete solution of the classification problem.
+For any infinite Γ select a countable ray and isometric right-shift S on ℓ∞(Γ) with a one-coordinate defect; its left inverse L obeys LS=I, SLv=v-v(γ1)e. Direct substitution reconstructs both compositions of Tλ and its inverse on E=M⊕Y and product ω. Disjoint support proves ||P_M Tλ^n(m+y,w)||=max(|λ|^n||m||, max_{1≤j≤n}|λ|^{n-j}|w_j|). For |λ|>1 every nonzero forward orbit enters the fixed Banach seminorm threshold, so positive and hence two-sided metric expansivity. For 0<|λ|≤1 the orbit of e at all positive and negative times has seminorm ≤1; arbitrarily small scalar multiples refute a uniform expansive constant. Finite Γ gives ℓ∞(Γ)⊕ω≅ω, and published nonexpansivity of ω excludes any expansive automorphism. This holds for the given family λ≠0 over R or C; finite-support tests alone do not prove infinite dimensions.
 
-**Scientific limits.** No independent audit; no arbitrary operator classification on general \(E\oplus\omega\); no shadowing or stability consequences. The closest accessible preprint supplies a coordinate-transfer philosophy, so the mathematical novelty is the basis-free sufficient condition and exact boundary, not the use of shifts per se.
+## originality
 
-Self-review: passed. Independent audit: not yet performed.
+PASS
+
+Best-of-knowledge new sufficient criterion through a complemented nonseparable ℓ∞(Γ) with an explicit coordinate-defect automorphism and exact λ phase transition. The primary 2026 paper rules out ω and constructs other expansive Fréchet examples using complemented Schauder basic sequences; that hypothesis does not immediately cover complemented ℓ∞. Its full text was not accessible, so overlap via another explicit construction remains a serious residual risk, not a claim of established first priority.
+
+## value
+
+PASS
+
+Natural structural gap: ω alone cannot support a metrically expansive automorphism, but a complemented ℓ∞ component changes existence sharply even without a complemented basic sequence. The exact infinite-vs-finite Γ boundary and norm identity furnish reusable model counterexamples for the current classification problem, substantially beyond a trivial finite normalization.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

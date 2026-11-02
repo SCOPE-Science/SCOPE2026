@@ -5,8 +5,11 @@
     "status": "not_performed"
   },
   "independent_audit": {
-    "evidence": null,
-    "status": "not_performed"
+    "status": "passed",
+    "evidence": [
+      "INDEPENDENT_AUDIT_2026-10-29.md",
+      "INDEPENDENT_AUDIT_2026-10-29.json"
+    ]
   },
   "lean_verification": {
     "evidence": null,
@@ -16,10 +19,24 @@
 }
 ---
 
-# Verification details
+# Independent mathematical audit
 
-The proof reconstructs the one-coordinate isometry, its left inverse, both compositions of the automorphism and inverse, and the disjoint-support decomposition for every positive iterate. The two-sided obstruction is an explicit nonzero vector with globally bounded compatible seminorms.
+## correctness
 
-Run `python CHECK.py` for deterministic, finite-support verification of these algebraic identities. In the review execution it reported 21,600 successful assertions over 1,200 complex input cases. These finite tests are checks, not infinite-dimensional proof or independent audit.
+PASS
 
-No numerical approximation, probabilistic inference, or external certificate is needed for the theorem. The public date refers to the initial motivating preprint, not a journal publication or subsequent revision.
+For any infinite Γ select a countable ray and isometric right-shift S on ℓ∞(Γ) with a one-coordinate defect; its left inverse L obeys LS=I, SLv=v-v(γ1)e. Direct substitution reconstructs both compositions of Tλ and its inverse on E=M⊕Y and product ω. Disjoint support proves ||P_M Tλ^n(m+y,w)||=max(|λ|^n||m||, max_{1≤j≤n}|λ|^{n-j}|w_j|). For |λ|>1 every nonzero forward orbit enters the fixed Banach seminorm threshold, so positive and hence two-sided metric expansivity. For 0<|λ|≤1 the orbit of e at all positive and negative times has seminorm ≤1; arbitrarily small scalar multiples refute a uniform expansive constant. Finite Γ gives ℓ∞(Γ)⊕ω≅ω, and published nonexpansivity of ω excludes any expansive automorphism. This holds for the given family λ≠0 over R or C; finite-support tests alone do not prove infinite dimensions.
+
+## originality
+
+PASS
+
+Best-of-knowledge new sufficient criterion through a complemented nonseparable ℓ∞(Γ) with an explicit coordinate-defect automorphism and exact λ phase transition. The primary 2026 paper rules out ω and constructs other expansive Fréchet examples using complemented Schauder basic sequences; that hypothesis does not immediately cover complemented ℓ∞. Its full text was not accessible, so overlap via another explicit construction remains a serious residual risk, not a claim of established first priority.
+
+## value
+
+PASS
+
+Natural structural gap: ω alone cannot support a metrically expansive automorphism, but a complemented ℓ∞ component changes existence sharply even without a complemented basic sequence. The exact infinite-vs-finite Γ boundary and norm identity furnish reusable model counterexamples for the current classification problem, substantially beyond a trivial finite normalization.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
