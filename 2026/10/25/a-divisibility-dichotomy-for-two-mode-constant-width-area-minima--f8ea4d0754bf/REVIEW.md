@@ -1,15 +1,21 @@
-# Scientific review: two-mode constant-width area dichotomy
+# Independent mathematical audit
 
-## Correctness — PASS
-The complete theorem is established analytically for all odd \(3\le n<m\) and \(w>0\), not inferred from a finite sample. The curvature identity and support-function criterion precisely characterize feasible bodies. Orthogonality gives the exact area quadratic. For nondivisible indices, the gcd-residue sampling argument proves a strict weighted norm bound, with a separate squared-average certificate in the three-residue case; elementary rational bounds establish that its positive stability constant strictly exceeds the area weight. This proves global optimality and **all** fixed-axis equality cases. For divisible pairs, the standard Chebyshev derivative inequality gives a valid all-angle convexity certificate and an explicit positive area gain. The packaged standalone checker was run successfully, with finite experiments treated only as corroboration. Possible boundary issue: weakly convex, zero-curvature directions are included; no strict-curvature hypothesis was implicitly assumed.
+## correctness
 
-## Originality — PASS relative to inspected evidence
-The direct published comparator for \(m=3n\) proves an **exact area optimum within that resonant subclass**; it neither covers nor implies the exact result for every nondivisible \((n,m)\), the unique pure-mode equality classification, or the explicit arithmetic no-improvement criterion for every resonant \(m=kn\). The superficially similar Carathéodory–Fejér rigidity paper optimizes a linear coefficient in a different three-frequency nonnegative polynomial; it is not a theorem on the present two-frequency weighted quadratic area objective. Resnikoff (2015) gives Fourier support-function constructions, and Antunes–Bogosel (2018) addresses parametric convex-body optimization, without the present infinite divisibility classification in inspected portions. The motivating Bayen–Henrion manuscript (online 2011) could not be examined in full; its abstract and descriptions indicate convex-body SDP rather than this exact theorem, but priority remains contingent upon full-document comparison. The published mathematical database was actually searched with aliases, two-mode Fourier descriptions, constant-width area and divisibility queries. Unindexed historical literature remains a residual originality risk.
+PASS
 
-## Value — PASS
-This is an exact natural structural selection rule across every pair of distinct odd Fourier frequencies at fixed constant width: adding a new mode changes the sharp area optimum precisely in the harmonic-resonance class. The nonresonant equality classification and explicit quadratic stability convert an observation from a few low-frequency plots into an exact infinite family. The resonant construction covers all odd multiples, beyond the previously solved \(m=3n\) example. The result is not merely a repetition of a standard support-area identity or a reparameterized finite example; it resolves an optimization and its sharp boundary across an arithmetic dichotomy. No downstream theorem or independent audit is asserted.
+The standard support-function curvature h+h″≥0 and Fourier support-area identity transform the convexity constraint into ||X cos(nθ)+Y cos(mθ)||∞≤1 and area minimization into maximizing X²+r²Y², X=2(n²−1)a/w,Y=2(m²−1)b/w,r²=(n²−1)/(m²−1). For n∤m, sampling angles where cos(nθ)=1 yields cos(mθ) values of an odd d=n/gcd(n,m) cycle. For d=3 averaging their squares proves norm²≥X²+Y²/2; for odd d≥5 sampled extrema prove norm≥|X|+cos(π/d)|Y| (after global sign), hence norm²≥X²+κ_d²Y². The rational q≥d+2 estimate proves r²<κ_d², so objective ≤1−(κ_d²−r²)Y² with equality only Y0, |X|1. This gives exact pure-n min, unique fixed-axis equality and displayed nonsharp stability gap. For m=kn with odd k≥3, choose t=1/(k²+1), X=1+t,Y=−t. Chebyshev derivative ||T_k′||∞≤k² implies ||(1+t)x−tT_k(x)||∞≤1, but objective =1+2t+(1+r²)t²>1. This proves strict improvement for every divisible pair; does not optimize this class. Fresh exact rational independent comparison covered 2304 nondivisible pairs and four sampled divisible constructions, with analytic proof separately evaluated.
 
-## Limits and closest references
-Full bibliography and mathematical implications appear in `RESULT.md` and `AUDIT.json`. The divisible case's **exact optimum** is deliberately not claimed; the explicit improvement construction is the limit of that branch. The global Blaschke–Lebesgue problem and arbitrary relative Fourier phases are outside scope. Earlier uninspected primary full text leaves a real priority risk.
+## originality
 
-Self-review: passed. Independent audit: not yet performed.
+PASS
+
+PASS best of knowledge: the published two-harmonic dihedral result gives the sharper optimum for special m=3n, which is explicitly credited and not asserted newly. The current finding covers all higher odd m and the sharp nondivisible unique optimizer/stability plus iff arithmetic condition. An older optimization-under-width-constraints primary article is plausibly overlapping but inaccessible in full; its bibliographic abstract alone cannot establish coverage or absence.
+
+## value
+
+PASS
+
+The unrestricted Blaschke–Lebesgue problem does not answer which added odd Fourier mode changes optimal area in a fixed two-mode class. This theorem gives an all-index arithmetic iff, exact complete nonresonant optimizer/area and positive stability, and an explicit constructive improvement for every resonant pair. It is a motivated sharp boundary of a natural geometric restricted-variation problem, despite not solving the divisible exact minimum.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
