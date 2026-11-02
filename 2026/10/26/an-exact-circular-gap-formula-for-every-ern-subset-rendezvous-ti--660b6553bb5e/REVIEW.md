@@ -1,19 +1,21 @@
-# Self-review
+# Independent mathematical audit
 
-## Correctness — PASS
+## correctness
 
-The proof is valid for every integer \(n\ge2\) and every nonempty subset. The displayed word rotates a chosen state to zero, uses the monotone map induced by \(ba^{n-1}\), and merges all other occupied residues at exactly the stated length. The potential \(F\) decreases by at most one under every letter, with the unique two-state-to-singleton boundary checked separately; it gives a matching global lower bound. Independent reverse-BFS calculations confirmed all \(65{,}518\) nonempty subsets for \(2\le n\le15\). The infinite result rests on the proof, not the finite evidence.
+PASS
 
-## Originality — PASS, with identified risks
+PASS. The compressed block ba^{n-1} applies max(j-1,0) to representatives. After rotating a chosen occupied x to 0, n-g(x)-1 blocks reduce all images into {0,1}, and final b merges them. The lower bound uses F(T)=n(n-1)+1-max_{x in T}(n g_T(x)-r(x)); under a all nonwrapping scores increase only by one, under b moving 0 or deleting it when 1 exists adds at most one, and the only nonsingleton-to-singleton transition {0,1}-> {1} has F=1. Thus each letter reduces F by at most one. Independent exhaustive reverse-BFS checked all 8177 nonempty subsets across n=2..12; finite check corroborative, all-n proof is potential.
 
-The 2020/2022 Behague–Johnson primary article defines the same individual-subset weight and develops size-wise extremal estimates for the Černý family; its relevant sections do not state a pointwise exact formula for every labeled subset. A prior pair-distance result is a genuine special case but does not imply all larger-subset distances. Szykuła–Zyzik develop general subset-search algorithms, not this closed form. Searches also identified closely related work on rank compression and avoidance, but no stronger statement covering all labeled subset distances. Cardoso's 2014 dissertation is a plausible source that could not be fully inspected; the residual risk is real, and a failed search is not novelty proof.
+## originality
 
-## Mathematical value — PASS
+PASS
 
-The finding supplies a structural shortest-path potential, an all-subset exact metric, and an explicit shortest-word construction in the standard slowly synchronizing family. It resolves each prescribed initial-state uncertainty set in time proportional to its ordered size, instead of just the minimum, maximum, or pair cases. These are natural synchronization invariants with direct use for deterministic reset control and benchmark computations; the result is not a routine numerical increment.
+PASS, qualified. The best related source Behague–Johnson defines individual k-set synchronizing times but concentrates on size-wise extrema, not a closed labeled-subset distance for every size and n. Previously known full-state reset and some pair distances are included but are not claimed new. Cardoso 2014 doctoral thesis is a relevant uninspected full text that might state the exact formula or an equivalent potential.
 
-## Limits
+## value
 
-Applies only to the stated Černý family, does not classify optimal-word multiplicities, and retains the source-access originality risk. Independent audit remains outstanding.
+PASS
 
-Self-review: passed. Independent audit: not yet performed.
+PASS. The prescribed-initial-subset reset time is a fundamental natural synchronization invariant. A closed exact all-subset min-over-circular-gaps formula and optimal word eliminate exponential shortest-path search for the classical extremal family, and the 1-Lipschitz potential is a reusable structural certificate beyond known full-set or pair-only numbers.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
