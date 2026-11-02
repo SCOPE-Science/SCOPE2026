@@ -1,0 +1,111 @@
+{
+  "audit_date_utc": "2026-10-31",
+  "audited_at_utc": "2026-10-31T11:13:44Z",
+  "axes": {
+    "correctness": {
+      "rationale": "The divided-difference derivative on mixed-sign spectral matrices is (1-kappa)RHR+kappa(H-QHQ), 0<kappa<1. Explicit absolute row sums bound the latter by 3/2, attained only at balanced eigenvector; RHR has strictly smaller upper norm (3+2 sqrt 2)/4. Along a segment, determinant has only finitely many roots unless identically zero; integrate the strict derivative bound, and in the identically-singular rank-one-line case use scalar positive-part clipping. The near-boundary A_delta=R-delta Q and direction H yield row response 1/2+1/(1+delta), approaching 3/2. Independent symbolic factorization, 105 exact rational sampled derivatives and the asymptotic witness passed. No finite sampling establishes the infinite assertion.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "The prior results give the PSD projection and general derivative, not in inspected material an optimized 2x2 max-entry Lipschitz modulus."
+        ],
+        "reasoning": "The broad nonexpansivity statement only applies in Frobenius/Hilbert norm, not a cross-norm bound; a general derivative theorem is insufficient without the explicit optimization. The present result is not claimed for higher dimension or correlation-matrix projection.",
+        "searches": [
+          "Resultary semantic search: \"sharp entrywise infinity norm Lipschitz positive semidefinite projection 2x2 symmetric matrix 3/2 unattained\"",
+          "Higham 1988 original abstract",
+          "Malick–Sendov 2006 primary PDF relevant generalized-Jacobian theorem",
+          "Šilhavý 2015 singular-boundary differentiability theorem"
+        ]
+      },
+      "checked_sources": [
+        "DOI:10.1007/s11228-005-0005-1",
+        "DOI:10.1016/0024-3795(88)90223-6",
+        "Šilhavý J. Convex Anal. 22 (2015)",
+        "Resultary semantic search \"sharp entrywise infinity norm Lipschitz positive semidefinite projection 2x2 symmetric matrix 3/2 unattained\""
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "One must optimize matrix-entry row sums of H-QHQ over rank-one spectral projections and integrate across spectral sign changes."
+        ],
+        "reasoning": "Higham/Malick–Sendov imply the map and local formula but do not immediately supply the 3/2 optimization nor the universally strict finite-pair bound, so the assessed exact metric statement is not a named corollary of their quoted conclusions.",
+        "searches": [
+          "Resultary semantic search: \"sharp entrywise infinity norm Lipschitz positive semidefinite projection 2x2 symmetric matrix 3/2 unattained\"",
+          "DOI:10.1007/s11228-005-0005-1",
+          "Higham 1988 PDF index/author exposition",
+          "Resultary PSD sensitivity search"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Malick–Sendov derives projection generalized Jacobians on PSD cones; Higham gives spectral positive-part as Frobenius projection.",
+          "The requested 3/2 is an induced norm between max-entry metrics, not Frobenius nonexpansivity."
+        ],
+        "reasoning": "The general semidefinite Jacobian implies the existence of derivatives, but the sharp max-entry row-sum optimization and strict global nonattainment are additional calculations. A Lorentz-cone reformulation is a plausible alias and remains a priority risk.",
+        "searches": [
+          "Resultary semantic search: \"sharp entrywise infinity norm Lipschitz positive semidefinite projection 2x2 symmetric matrix 3/2 unattained\"",
+          "DOI:10.1007/s11228-005-0005-1",
+          "DOI:10.1016/0024-3795(88)90223-6",
+          "web: positive part matrix map componentwise infinity norm Lipschitz factor three halves 2x2 nearest PSD"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "Closest retrieved Resultary facts concern Schur projection norms, Euclidean disk projection or different operator metrics."
+        ],
+        "reasoning": "No exact table with both global 3/2 and strict nonattainment was found. This is not proof of novelty; older Lorentz-cone tables may exist.",
+        "searches": [
+          "Resultary semantic search: \"sharp entrywise infinity norm Lipschitz positive semidefinite projection 2x2 symmetric matrix 3/2 unattained\"",
+          "Resultary sharp PSD projection and cross-norm queries",
+          "web: 2x2 PSD projection maximum-entry norm exact Lipschitz"
+        ]
+      },
+      "rationale": "Best-of-knowledge PASS, with actual primary statement/implication comparison and listed residual priority risks; an unsuccessful search is not historical novelty proof. The general semidefinite Jacobian implies the existence of derivatives, but the sharp max-entry row-sum optimization and strict global nonattainment are additional calculations. A Lorentz-cone reformulation is a plausible alias and remains a priority risk. The broad nonexpansivity statement only applies in Frobenius/Hilbert norm, not a cross-norm bound; a general derivative theorem is insufficient without the explicit optimization. The present result is not claimed for higher dimension or correlation-matrix projection.",
+      "residual_risks": [
+        "Full Higham 1988 original inaccessible; an older Lorentz-cone metric or coordinatewise PSD projection bound might already include the exact factor and nonattainment.",
+        "The bound is only for 2x2 real symmetric, unweighted input/output max-entry norms."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Covers derivative framework; no 2x2 max-entry optimized global modulus in inspected theorem",
+          "evidence": "Theorem on generalized Jacobian in spectral projection form.",
+          "identifier_or_url": "DOI:10.1007/s11228-005-0005-1; https://www.stats.uwo.ca/faculty/hssendov/Publications/CGJPCPSDM.pdf",
+          "material_read": "Primary PDF relevant general Jacobian theorem and differentiability discussion",
+          "method": "opened PDF text and inspected page image",
+          "title": "Clarke generalized Jacobian of the projection onto the cone of positive semidefinite matrices",
+          "trigger": "Same PSD projection and spectral derivative"
+        },
+        {
+          "assessment": "Provides canonical A_+ operation; full 1988 article not read",
+          "evidence": "Publisher abstract gives polar/spectral nearest PSD characterization.",
+          "identifier_or_url": "DOI:10.1016/0024-3795(88)90223-6",
+          "material_read": "Primary publisher abstract and university author entry (full text restricted)",
+          "method": "open bibliographic/abstract; not a whole-document noncoverage claim",
+          "title": "Computing a nearest symmetric positive semidefinite matrix",
+          "trigger": "Origin of Frobenius-nearest PSD repair"
+        },
+        {
+          "assessment": "Derivative and global strictness reconstructed from primary audited package",
+          "evidence": "RESULT.md Steps 1–4 and check.py reviewed directly.",
+          "identifier_or_url": "Git frozen record 2026/10/26/sharp-entrywise-sensitivity-of-two-by-two-positive-semidefinite--8ac4b9e16f52/RESULT.md",
+          "material_read": "Full theorem, proof, boundary cases, checker code",
+          "method": "GitHub frozen blob read",
+          "title": "Sharp entrywise sensitivity of two-by-two positive-semidefinite repair",
+          "trigger": "Claim being audited"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "rationale": "Individual entries of repaired covariance matrices are measured in the natural max-entry norm while the repair is defined by Frobenius geometry. Its sharp amplification and nonattainment are a natural stability invariant of the smallest nonpolyhedral PSD cone, requiring nontrivial eigenvector optimization and a global boundary argument, not just the standard nonexpansivity theorem.",
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "limitations": [
+    "No claim for larger PSD matrices, Hermitian matrices, correlation-matrix projection, or weighted metrics.",
+    "Asymptotic sharpness without finite-pair equality; historical priority qualified."
+  ],
+  "schema_version": 1
+}
