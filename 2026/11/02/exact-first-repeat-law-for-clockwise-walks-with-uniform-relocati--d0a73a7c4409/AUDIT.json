@@ -1,0 +1,131 @@
+{
+  "correctness": {
+    "rationale": "All t and n quantifiers are explicit. Conditioning on k uniform relocation starts turns the no-repetition event into an anchored labeled-circle packing count of k! binom(n-t-1+k,k) tuples, giving the finite formula. Strict parameter monotonicity follows from conditional survival ratios. Poisson convergence proves the finite-rate distribution including its atom at the deterministic full-lap time; binomial concentration and an O_p(K t^2/n^2) expansion establish the many-relocation Rayleigh law. Exact-rational finite dynamic programming and direct path enumeration pass 438 checks; finite tests are supporting checks, not the asymptotic proof.",
+    "status": "PASS"
+  },
+  "independent": false,
+  "independent_audit_status": "not_performed",
+  "originality": {
+    "broader_coverage": {
+      "evidence": [
+        "Benjamini–Morris, arXiv:math/0701390, Sections 1–2: bounds and an algorithm for approximate stationary sampling using birthday collisions, not this finite survival polynomial.",
+        "Riascos–Boyer–Herringer–Mateos, arXiv:1910.13568, Sections II–III and Appendix: node-specific resets on undirected graphs, stationary laws and single-target first passage."
+      ],
+      "reasoning": "The broad Markov-chain birthday sampling result supplies algorithmic order bounds; it does not specify the matrix mixture of clockwise cyclic rotation and uniform refresh, nor an exact no-repeat law. The network-reset paper does not analyze the history-dependent first-repeat event and uses a different reset kernel.",
+      "searches": [
+        "birthday paradox for Markov chains first repeat collision time random walk mixing 2019 paper",
+        "arxiv:math/0701390",
+        "arxiv:1910.13568",
+        "random walks on networks with stochastic resetting stationary first passage cycle"
+      ]
+    },
+    "checked_sources": [
+      "https://www.preprints.org/manuscript/202106.0151",
+      "https://pmc.ncbi.nlm.nih.gov/articles/PMC8303408/",
+      "https://arxiv.org/abs/1910.13568",
+      "https://arxiv.org/abs/math/0701390",
+      "https://statistics.stanford.edu/technical-reports/covering-circle-random-arcs-random-sizes"
+    ],
+    "claim_vs_prior_implication": {
+      "evidence": [
+        "The semi-deterministic resetting paper gives motion on the integers alternating deterministic steps and returns to the initial state; its exact quantities concern exit times and stationary state.",
+        "The network resetting paper explicitly assumes an undirected adjacency and resets to one fixed node; it calculates stationary and target-hitting probabilities.",
+        "The Markov-chain birthday paper concerns near-stationary sampling and birthday-collision algorithmic complexity, not first-repeat path survival for a prescribed transition kernel.",
+        "The circular-arc work makes gap counting plausible as a known component, but no checked full-text statement covers this random-reset survival distribution."
+      ],
+      "reasoning": "None of the inspected central theorems directly implies the displayed finite-time Bernoulli-mixture formula or both normalized limiting laws without building the specific circular scan decomposition. The geometric count is credited as a tool rather than characterized as a new stand-alone result.",
+      "searches": [
+        "https://pmc.ncbi.nlm.nih.gov/articles/PMC8303408/",
+        "https://arxiv.org/abs/1910.13568",
+        "https://arxiv.org/abs/math/0701390",
+        "https://statistics.stanford.edu/technical-reports/covering-circle-random-arcs-random-sizes"
+      ]
+    },
+    "equivalent_formulations": {
+      "evidence": [
+        "Villarroel–Montero–Vega, 2021, model and first passage sections, https://pmc.ncbi.nlm.nih.gov/articles/PMC8303408/: relocation is to the original site, not independent uniformly chosen sites.",
+        "The present event is no repetition anywhere in a path, rather than first arrival at one fixed site."
+      ],
+      "reasoning": "Replacing random relocation by fixed-origin resetting changes the conditional spatial occupancy: after k resets, all runs start at the same site, so the circular gap bijection with k independent uniform starts does not apply. The statement is not an equivalent rewriting of a fixed-target first-passage formula.",
+      "searches": [
+        "cyclic deterministic walk with Bernoulli uniform teleportation exact first-repeated-site distribution",
+        "\"first repeat\" \"cycle\" \"uniform\" \"teleport\" random walk",
+        "\"random walk\" \"first self-intersection\" \"teleportation\" cycle"
+      ]
+    },
+    "exact_database_or_table": {
+      "evidence": [
+        "The relevant classical arc-placement literature studies distributions for independent arc placements on circles (Siegel–Holst, technical report January 1981), providing an enumerative ingredient but not an explicitly tabulated first-repeat law of the specified stochastic scan.",
+        "Direct searches did not identify an exact table for the full Bernoulli-relocation first-repeat distribution; lack of discovery alone is not proof of priority."
+      ],
+      "reasoning": "The identity used to count k disjoint arcs is a classical-style circle-packing calculation and is not claimed alone as a new exact invariant. The asserted claim additionally averages over a random number of arcs arising from a Markov trajectory and classifies two asymptotic regimes including an endpoint atom.",
+      "searches": [
+        "first repeat time of deterministic clockwise cyclic walk with uniform teleportation or random restart, exact no-repeat survival rising factorial",
+        "independent uniformly placed arcs cyclic discrete parking exact nonoverlap law",
+        "\"random intervals\" \"circle\" \"nonoverlap\" probability lengths",
+        "\"birthday\" \"deterministic drift\" \"teleportation\" Markov"
+      ]
+    },
+    "rationale": "Inspected reset-to-origin, fixed-target network resetting, Markov birthday-sampling and random-arc-placement sources do not directly supply the complete uniform-relocation first-repeat law and crossover. Circular arc-gap enumeration is acknowledged as a classical ingredient rather than claimed new. Historical priority risk remains for potentially uncatalogued regenerative scan work.",
+    "residual_risks": [
+      "The older Siegel–Holst circle-arc report was not read in full; it may contain a comparable discrete gap-count identity, which is treated here as a building block, not as a novel final claim.",
+      "Historical sources on regenerative scans or periodic sampling with random relocation might use equivalent terminology and have escaped the searches; no independent historical-priority certification is claimed."
+    ],
+    "source_inspections": [
+      {
+        "assessment": "Resets always to initial position on the infinite integer lattice; not the independent uniform finite-cycle relocations or first visit to any earlier state.",
+        "evidence": [
+          "https://pmc.ncbi.nlm.nih.gov/articles/PMC8303408/",
+          "https://www.preprints.org/manuscript/202106.0151"
+        ],
+        "identifier_or_url": "https://pmc.ncbi.nlm.nih.gov/articles/PMC8303408/",
+        "material_read": "Full accessible HTML: abstract, preliminaries, transition rules, stationary section, first-passage/escape-time sections and discussion; verified earliest preprint posting of 7 June 2021 on publisher-independent preprint page.",
+        "method": "Line-level review of the accessible article, particularly transition kernel and first-passage definitions.",
+        "title": "A Semi-Deterministic Random Walk with Resetting",
+        "trigger": "Direct deterministic-motion and random-resetting model; potential same dynamics."
+      },
+      {
+        "assessment": "Reset to fixed node on undirected network; stationary and single-target hitting results do not determine the path-wide first-repeat law.",
+        "evidence": [
+          "https://arxiv.org/abs/1910.13568"
+        ],
+        "identifier_or_url": "https://arxiv.org/abs/1910.13568",
+        "material_read": "Accessible full arXiv HTML conversion, including general theory, ring section and Appendix stationary/first-passage derivations.",
+        "method": "Searched for visited sets, path self-intersections, coverage and first passages, then compared reset transition kernels.",
+        "title": "Random walks on networks with stochastic resetting",
+        "trigger": "Broader reset walks, including rings and first-passage methods."
+      },
+      {
+        "assessment": "Gives sampling complexity orders for generic chains but does not provide finite cyclic-refresh survival or a rate-dependent endpoint atom.",
+        "evidence": [
+          "https://arxiv.org/abs/math/0701390"
+        ],
+        "identifier_or_url": "https://arxiv.org/abs/math/0701390",
+        "material_read": "Accessible full arXiv HTML conversion, introduction and statements of the main sampling theorem and proof framework.",
+        "method": "Compared collision objects, mixing-time bounds, and required assumptions with explicit first-return-to-history statistic.",
+        "title": "The birthday problem and Markov chain Monte Carlo",
+        "trigger": "Generic Markov-chain birthday collisions might dominate the rate classification."
+      },
+      {
+        "assessment": "Potential coverage of the standard gap-placement lemma; no full-text negative priority claim made, and that lemma is not claimed independently novel.",
+        "evidence": [
+          "https://statistics.stanford.edu/technical-reports/covering-circle-random-arcs-random-sizes"
+        ],
+        "identifier_or_url": "https://statistics.stanford.edu/technical-reports/covering-circle-random-arcs-random-sizes",
+        "material_read": "Public Stanford technical-report abstract and metadata only; complete 1981 text not obtained.",
+        "method": "Compared stated coverage and gap-count scope with independent finite trajectory survival.",
+        "title": "Covering the Circle with Random Arcs of Random Sizes",
+        "trigger": "Classical circular-arc placement methods might subsume the combinatorial component."
+      }
+    ],
+    "status": "PASS"
+  },
+  "review_type": "self_review",
+  "schema_version": 1,
+  "scope_run_id": "d0a73a7c-4409-412c-8c88-74f60a43b7d7",
+  "self_review_status": "passed",
+  "value": {
+    "rationale": "The model is a natural interpolation from deterministic cyclic surveying to independent uniform sampling. The exact survival polynomial determines finite reliability, exhibits strict stochastic degradation under more relocation, and exposes a sharp order-1/n parameter window with a surviving full-lap atom; above it the first-repeat scale and collision coefficient are explicit. These are whole-process first-repeat properties not given by stationary or individual target-hitting distributions.",
+    "status": "PASS"
+  }
+}
