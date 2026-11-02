@@ -1,0 +1,92 @@
+{
+  "audit_date_utc": "2026-10-28",
+  "audited_at_utc": "2026-10-28T11:02:32Z",
+  "axes": {
+    "correctness": {
+      "rationale": "The reverse subset construction starts at F and maps each subset by the same involution sigma_a, so it remains a complete deterministic undirected automaton. Its accessible subsets are precisely G·F; transitivity of G on the original reachable state set separates any two different subsets by a word moving a point of symmetric difference to q0, proving the orbit DFA minimal. Consequently sc(L^R)=|G·F|<=binom(n,m). Three explicit involutions u(i)=-i, v(i)=1-i, w=(0 1) generate an n-cycle uv and all adjacent transpositions, hence full S_n; a suitable proper F yields a minimal witness attaining all binomial bounds. For two letters involutions s,t, <st> is cyclic normal of index <=2, and transitive G has |G|<=2n. This excludes n>=6 via central binomial>2n, n=4 via orbit divisor 6 not dividing 4 or 8, and n=5 via D5 reflection fixing any unordered pair so orbit size<=5. At n=3 two reflections generate S3; at n=2 one swap suffices. Independent construction and orbit/minimization checks n=2..8 for all accepting subset sizes confirmed these finite cases. Group argument proves all n.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "The general permutation class has reversal closure and same upper bound; this covers portions of statement without matching terminology. Its sharp two-letter witness contains an n-cycle letter, which violates DUFA involution condition for n>=3."
+        ],
+        "reasoning": "Greater model coverage does not imply sharp witness within the involutive subclass or its alphabet minimum; the subgroup argument establishes a strict additional assertion.",
+        "searches": [
+          "Hospodár–Mlynárčik Operations on Permutation Automata 2020 Lemmas 6–7 Theorems 8,11; Kutrib–Malcher–Schneider 2021 Acta Informatica Section4"
+        ]
+      },
+      "checked_sources": [
+        "https://link.springer.com/article/10.1007/s00236-021-00402-0",
+        "https://www.researchgate.net/publication/341627890_Operations_on_Permutation_Automata",
+        "Resultary semantic search on this exact mathematical subject and aliases (search data reported in each named originality check)"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "General PFA closure implies the reversed subset automaton is permutation, and because letters are involutions it is again DUFA—so this closure fact is a straightforward specialization. However sharp binary PFA witnesses need non-involutive cycles and cannot show binary DUFA max. The distinct nonattainability and ternary S_n construction fill the gap."
+        ],
+        "reasoning": "Credit closure and binomial upper bound to stronger known PFA theorem, and evaluate originality solely on exact involution-alphabet threshold and within-subclass sharpness.",
+        "searches": [
+          "Kutrib et al Acta Informatica 2021 Section 4 and conclusion; Hospodár and Mlynárčik 2020 Theorem 11"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "A complete DUFA is an automaton whose each input letter acts as an involution; thus it is a special permutation DFA. Reversal subset states correspond to F-images and to cosets of its set stabilizer."
+        ],
+        "reasoning": "Explicitly recognize permutation-automata reversal as the broader formulation. The orbit-count formula is an expected corollary; novel content claimed is achieving max with three involutions and no binary attainability from n>=4.",
+        "searches": [
+          "Resultary: undirected deterministic automata language reversal multiple final states; web: involutive permutation automata reversal state complexity dihedral alphabet threshold"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "The general binomial maximum is an existing exact result. The full n>=4 minimum of three involutive generators is the compared novel invariant, not mere repetition of a known binomial count."
+        ],
+        "reasoning": "A table of unrestricted permutation reversal complexity cannot decide minimal alphabet under an involutive-generator restriction.",
+        "searches": [
+          "Resultary search: DUFA reversal central binomial ternary alphabet; 2020 permutation automata worst-case state-complexity table"
+        ]
+      },
+      "rationale": "Hospodár–Mlynárčik (2020), Lemma7/Theorems8/11, already prove reversal closure and the central-binomial worst-case bound for arbitrary permutation automata, a larger class. The orbit/minimality formula itself is a natural specialization of their permutation reasoning and is not independently new. Their binary optimal examples involve letters that are full cycles, invalid as single-letter DUFA involutions. Kutrib–Malcher–Schneider (2021) treat DUFA and explicitly note a reversal state-complexity gap for multiple finals; the submitted subgroup constraint and exact ternary-versus-binary alphabet threshold are new compared to the inspected complete primary statements. General permutation theorems must be credited, so the original contribution is the sharp alphabet separation and within-subclass attainability.",
+      "residual_risks": [
+        "General permutation automata literature already gives orbit-minimality, reversal closure and central binomial bound. Only the involutive-generator sharpness and 1/2/3 minimal alphabet threshold should be described as original.",
+        "A different paper on involutive permutation generators or inverse automata might have proved the same ternary minimum; no full global historical guarantee.",
+        "The n>=4 exclusion assumes complete DFA with two total involutive letter maps; it does not cover nondeterministic or incomplete undirected automata."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Earlier one-final-state results but lacks the multi-final exact sharp alphabet separation",
+          "evidence": "Section4 and conclusion, reversal question",
+          "identifier_or_url": "https://link.springer.com/article/10.1007/s00236-021-00402-0",
+          "material_read": "Accessible complete article HTML, Section 4 reversal bounds and conclusion explicitly discussing multiple final states",
+          "method": "read full HTML relevant sections and theorem references",
+          "title": "Finite automata with undirected state graphs",
+          "trigger": "Directly same DUFA model and reversal open problem"
+        },
+        {
+          "assessment": "Covers general permutation reversal closure and binomial bound; binary witness uses full cycle and is not DUFA",
+          "evidence": "Lemma 7, Theorems 8 and 11",
+          "identifier_or_url": "https://www.researchgate.net/publication/341627890_Operations_on_Permutation_Automata",
+          "material_read": "Accessible full author-uploaded article text: Lemmas 6–7 and Theorems 8/11 on reversal, witness construction and alphabet dependence",
+          "method": "read full relevant primary sections",
+          "title": "Operations on Permutation Automata",
+          "trigger": "Broader class may imply submitted reversal claims"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "rationale": "DUFA is a natural constrained regular-language model. The exact minimal alphabet threshold for maximal reversal blowup separates two involutions (dihedral transition groups) from three generators (full S_n), a clear structural mechanism useful in state-complexity classifications. The orbit formula clarifies multi-final-state reversal without asserting a genuinely new general permutation automata theorem.",
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "limitations": [
+    "General permutation automata literature already gives orbit-minimality, reversal closure and central binomial bound. Only the involutive-generator sharpness and 1/2/3 minimal alphabet threshold should be described as original.",
+    "A different paper on involutive permutation generators or inverse automata might have proved the same ternary minimum; no full global historical guarantee.",
+    "The n>=4 exclusion assumes complete DFA with two total involutive letter maps; it does not cover nondeterministic or incomplete undirected automata.",
+    "Original public-file operational provenance remains; scientific acceptance is not publication authorization. No GitHub writes or dispatcher closeout occurred."
+  ],
+  "schema_version": 1
+}
