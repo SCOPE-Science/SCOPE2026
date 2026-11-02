@@ -5,8 +5,11 @@
     "status": "not_performed"
   },
   "independent_audit": {
-    "evidence": null,
-    "status": "not_performed"
+    "status": "passed",
+    "evidence": [
+      "INDEPENDENT_AUDIT_2026-10-30.md",
+      "INDEPENDENT_AUDIT_2026-10-30.json"
+    ]
   },
   "lean_verification": {
     "evidence": null,
@@ -16,10 +19,24 @@
 }
 ---
 
-# Reproducible verification and limits
+# Independent mathematical audit
 
-Run `python verification.py` after installing the three libraries listed in `requirements.txt`. The supplied program uses no downloaded datasets, network requests, or external files. It derives the Choi matrix independently by applying the time-dependent affine map to all four complex matrix units, then compares the resulting \(4\times4\) matrix to the formula in the proof. It separately computes the partial transpose, all eigenvalues, and the CP and EB inequalities over a finite multi-parameter grid, checking normalization and determinant implications indirectly through the eigenvalues.
+## correctness
 
-The program solves arrival-time equations numerically for multiple exponents and translations and checks the monotone threshold assertions on another finite grid. A high-precision mpmath bisection additionally compares the fixed-\(\alpha\) fractional-power gap and the critical \(\alpha=1+u/L\) layer against their stated asymptotic constants. A direct execution of this program passed **2,230** assertions. The example \(\alpha=3\), \(\beta=0.6\) produced \(t_{\mathrm{CP}}\simeq0.6449379916078235\), \(t_{\mathrm{EB}}\simeq0.8989625707590763\).
+PASS
 
-Ten conditional eigenvalue-sign comparisons were intentionally not asserted because the eigenvalue magnitude lay within the stated floating-point tolerance; the analytic proof covers these boundary values. All calculations are finite consistency checks, not certificates for all real parameters, continuous time, or asymptotic limits. The proof in `RESULT.md` provides those analytic arguments. No independent external validation was performed.
+For α>0, |β|<1 write p=e^(−αt), q=e^(−t), c=β(1−q), s=√(1−β²). Reconstructed normalized 4×4 Choi matrix has two 2×2 blocks with determinant difference 4q(1−p)≥0, so CP iff |p−q|≤s(1−q). Partial transpose swaps off-diagonal blocks; PPT=EB for two qubits, and EB iff p+q≤s(1−q). Rα(t)=|p−q|/(1−q) strictly falls from |α−1| to0 by comparison of exponential-weighted interval means; (p+q)/(1−q) strictly falls from infinity to0. This proves unique arrival and strict CP-before-EB. Fixed α≠1, slower decay m=min(α,1) gives tCP,tEB~log(1/s)/m and gap (2/m)s^{|α−1|/m}; critical α=1+u/log(1/s), fixed u≠0 yields log coth(|u|/2). Degenerate β=±1, α=0, α=1 endpoints are explicitly distinguished. Independent 250 Choi/PPT eigenvalue comparisons agreed (5 parameter pairs ×25 times ×2).
+
+## originality
+
+PASS
+
+Full original source Eq.(41), Section 4.3 and Appendices C-D establish generator GKSL/positivity phase diagram, but do not derive finite-time Choi/PPT arrival or the singular gap. Szczygielski–Chruściński full online 2024 text defines eventual EB and studies general examples; qualitative eventual EB is already known. Same-semigroup precise two-threshold and crossover are not implied by that qualitative theorem. Choi/PPT tools are standard.
+
+## value
+
+PASS
+
+Non-GKSL qubit evolution can enter CP at finite elapsed time and become EB strictly later, which are distinct physically meaningful regimes. Exact two-parameter thresholds and a nonuniform pure-state limit determine how the entanglement-preserving time window collapses, beyond merely verifying the Choi determinant at a sample time.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
