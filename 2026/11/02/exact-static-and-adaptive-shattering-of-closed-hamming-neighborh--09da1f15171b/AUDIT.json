@@ -1,0 +1,114 @@
+{
+  "correctness": {
+    "rationale": "For distinct centers at distances one, two and at least three, closed-ball intersections are respectively a coordinate line, two recombinations and empty. On a coordinate line any ball restricts to the full line, one center or none. Four static queries would force their four triple-positive subsets into a single line, contradicting the required two-positive trace. Every first-positive adaptive version space is one ball and cannot shatter depth three, giving Ldim<=3. H(3,2) and H(2,4) provide three-query static seeds; H(2,3) has VC=2 by the row-column corner obstruction and Ldim=3 by the explicit depth-three tree. Degenerate cases follow directly. The embedded finite checker verified nine parameter examples and all eight tree paths; its enumeration is not used as an infinite proof.",
+    "status": "PASS"
+  },
+  "independent": false,
+  "independent_audit_status": "not_performed",
+  "originality": {
+    "broader_coverage": {
+      "evidence": [
+        "arXiv:2007.16042, Theorems 4.6-4.8 gives open-neighborhood results and a general bound for closed neighborhoods, not exact closed parameter values.",
+        "arXiv:2505.14641, abstract, introduction, Theorems 1.1-1.8 studies open neighborhoods on induced subsets and exact-distance variants; full-text searches for closed and Littlestone produced no matches.",
+        "arXiv:1702.03956 introduces thicket density as general adaptive-shattering theory."
+      ],
+      "reasoning": "Broad VC boundedness, open-neighborhood VC classifications, and general learning-theoretic dimension definitions do not imply the exact closed-neighborhood parameter table or the ternary adaptive tree. No inspected stronger result subsumes the combined statement.",
+      "searches": [
+        "\"closed\" \"Hamming\" \"neighborhoods\" \"VC-dimension\" \"Littlestone\"",
+        "2025 VC dimension subsets Hamming graphs closed versus open",
+        "Johnson Hamming graph closed neighborhood Littlestone VC gap"
+      ]
+    },
+    "checked_sources": [
+      "arXiv:2007.16042 (2020-07-31), Section 4 and Theorem 1.1",
+      "arXiv:2505.14641 (2025-05-20), abstract/introduction and stated results",
+      "arXiv:1702.03956 (2017-02-13), abstract",
+      "Published semantic research record search for the closed Hamming radius-one parameters",
+      "Accessible previous claims on open Hamming neighborhoods, closed Johnson neighborhoods and triangle/square-free closed graph neighborhoods (deduplication comparison)"
+    ],
+    "claim_vs_prior_implication": {
+      "evidence": [
+        "The 2020 open-edge theorem gives VC(H(3,2))=2; here a direct 3-query fixed support proves the closed VC(H(3,2))=3.",
+        "The 2020 paper bounds closed VC by a nonexact logical reduction but does not determine the closed static/adaptive dimensions or their exceptional cases.",
+        "The 2025 paper explicitly defines its family as open neighborhoods n(V), with no Littlestone calculation."
+      ],
+      "reasoning": "Published open results do not imply the closed classification by equality or corollary; the concrete H(3,2) mismatch prevents such a reduction. General thicket and arbitrary-concept complexity theorems do not specialize to this finite graph family without new local analysis.",
+      "searches": [
+        "arxiv:2007.16042 Theorem 4.7 Hamming open neighborhoods",
+        "arxiv:2505.14641 Theorem 1.3 induced Hamming graph VC",
+        "closed neighborhoods Hamming graphs H(d,q) exact VC dimension Littlestone dimension exceptional H(2,3) radius-one balls"
+      ]
+    },
+    "equivalent_formulations": {
+      "evidence": [
+        "The closed graph neighborhood at c is exactly the inclusive distance-one Hamming ball centered at c. The open neighborhood is the sphere at exact distance one.",
+        "arXiv:2007.16042, page 1 abstract, Theorems 1.1 and 4.6-4.8, concerns open edge-relation concepts and mentions only boundedness for closed neighborhoods."
+      ],
+      "reasoning": "The equivalent formulations radius-one balls, closed neighborhoods, looped adjacency, and row-column crosses were checked. A published theorem for open neighborhoods is not equivalent: in the binary three-cube the open VC dimension is two, whereas the explicit closed shattering support yields three.",
+      "searches": [
+        "closed neighborhoods Hamming graphs H(d,q) exact VC dimension Littlestone dimension exceptional H(2,3) radius-one balls",
+        "closed Hamming balls VC dimension 3 ternary grid singleton self loops Littlestone dimension",
+        "\"closed neighbourhoods\" \"Hamming graphs\" \"VC dimension\""
+      ]
+    },
+    "exact_database_or_table": {
+      "evidence": [
+        "Semantic public-record searches primarily returned Rips and neighborhood-complex invariants of Hamming graphs; those are not VC/Littlestone tables.",
+        "arXiv:2007.16042 Table 1 contains explicit open-neighborhood shattering witnesses for H(2,4), H(3,3), H(4,2), not the claimed closed-ball table.",
+        "The newly provided checker independently computes the closed-neighborhood dimension pairs for nine small parameter values, but these are not a prior database."
+      ],
+      "reasoning": "No previously published exact closed-radius-one Hamming dimensions table was located in inspected records or relevant primary sources. Absence of an indexed match is not evidence of universal novelty; undiscovered equivalent tables remain a risk.",
+      "searches": [
+        "Exact VC and Littlestone dimensions for closed radius-one Hamming neighborhoods: VC 3 except H(2,3), H(2,2) and dimension one; Littlestone three including ternary rook graph",
+        "Closed balls of Hamming graph, rook graph, dual neighborhood hypergraph, adaptive shattering, Littlestone",
+        "Binary three-cube closed neighborhood VC dimension 3 versus open neighborhood dimension 2",
+        "\"closed neighborhoods\" \"Hamming graphs\" \"VC-dimension\" exact"
+      ]
+    },
+    "rationale": "The earliest motivating primary paper is arXiv:2007.16042 (2020-07-31). Its Hamming section is about open neighborhoods, and the paper gives only general boundedness for closed ones. Exact closed neighborhoods and the static/adaptive parameter gap are a different claim; at H(3,2) the open and closed static dimensions disagree. A later 2025 paper also treats open-neighborhood VC on induced subsets; general thicket theory supplies definitions, not these formulas. Available semantic-record and local-claim comparison did not find dominating coverage. Residual priority risk remains.",
+    "residual_risks": [
+      "Exact equivalent results under identifying-code or Hamming-ball teaching terminology may exist outside the inspected publications and semantic index.",
+      "The general thicket-theory source was consulted at the abstract level rather than read exhaustively.",
+      "The checker covers nine finite parameter examples; its results are not a substitute for the all-parameter argument.",
+      "Independent mathematical validation and comprehensive historical-priority verification have not been performed."
+    ],
+    "source_inspections": [
+      {
+        "assessment": "OPEN_NEIGHBORHOOD_EXACT_ONLY; CLOSED_EXACT_NOT_IN_INSPECTED_THEOREMS",
+        "evidence": "Section 4 states intersections of open neighborhoods; Theorem 4.7 gives exact open VC threshold, and abstract mentions closed-neighborhood boundedness, not exact closed/Littlestone dimensions.",
+        "identifier_or_url": "https://arxiv.org/pdf/2007.16042",
+        "material_read": "Abstract, introduction and theorem statements, Hamming section Lemmas 4.1-4.5 and Theorems 4.6-4.8, with PDF-page visual inspection of Theorem 1.1",
+        "method": "Public PDF parsed text, source theorem-line inspection and screenshot",
+        "title": "Vapnik-Chervonenkis Dimension and Density on Johnson and Hamming Graphs",
+        "trigger": "Direct Hamming-neighborhood VC dimension results and mentioned closed-neighborhood boundedness"
+      },
+      {
+        "assessment": "OPEN_INDUCED_SUBSET_PROBLEM_NOT_THE_CLOSED_ADAPTIVE_TABLE",
+        "evidence": "The introduction defines n(V) as open neighborhoods; no matching use of closed or Littlestone in PDF text search.",
+        "identifier_or_url": "https://arxiv.org/pdf/2505.14641",
+        "material_read": "Abstract, introduction, Theorems 1.1-1.8 and definitions, and full-PDF term searches for closed and Littlestone, plus visual PDF inspection of page 2",
+        "method": "Public PDF parsed text and relevant-page screenshot and term search",
+        "title": "VC-dimension of subsets of Hamming graphs",
+        "trigger": "Later paper on Hamming neighborhood VC behavior potentially stronger than the 2020 result"
+      },
+      {
+        "assessment": "GENERAL_THEORY_ONLY; NO_WHOLE_DOCUMENT_NONCOVERAGE_CLAIM",
+        "evidence": "Abstract describes generalized shatter growth and Shelah rank, not graph-specific Hamming results.",
+        "identifier_or_url": "https://arxiv.org/abs/1702.03956",
+        "material_read": "Public abstract and bibliographic record only",
+        "method": "Public abstract read",
+        "title": "Thicket Density",
+        "trigger": "General finite adaptive-shattering dimension definition"
+      }
+    ],
+    "status": "PASS"
+  },
+  "review_type": "self_review",
+  "schema_version": 1,
+  "scope_run_id": "09da1f15-171b-457f-a8c5-5de6cf624cc9",
+  "self_review_status": "passed",
+  "value": {
+    "rationale": "A natural two-parameter family of distance-transitive graphs receives a complete exact classification of both static and adaptive shattering, including the sole strict gap. The proof isolates a reusable coordinate-line intersection obstruction, establishes the optimal realizable online mistake budget and gives a universal hereditary upper bound. This exact infinite-family answer is more than a small numerical improvement, and the open/closed contrast at H(3,2) is structurally informative.",
+    "status": "PASS"
+  }
+}
