@@ -1,0 +1,122 @@
+{
+  "correctness": {
+    "rationale": "The sixteen-state condition checks precisely every absent central vertex against its two horizontal and one vertical neighbors (zero dummy neighbors at open ends). Each selected subset has one weighted path. Symbolic inverse and exact characteristic identity in verify.py prove the stated N/D generating function for all rung counts. A unique simple pole, strictly dominant at z=1, with nonzero residue yields the analytic quasi-powers expansion; implicit derivatives give mu, sigma^2>0 and the nonzero beta. Distinct-weight loops on the primitive communicating component rule out degeneracy. Independent graph-based exhaustion checks all subsets for n=1..8, while finite tests are not substituted for the infinite proof.",
+    "status": "PASS"
+  },
+  "independent": false,
+  "independent_audit_status": "not_performed",
+  "originality": {
+    "broader_coverage": {
+      "evidence": [
+        "Dourado et al. prove general complexity statements and counting algorithms for trees and threshold graphs but no explicit open two-row ladder bivariate generating function or Gaussian boundary law.",
+        "An earlier related exact circular-ladder cardinality enumerator is accessible in the earlier mathematical statements and already determines the bulk quintic denominator D. Its cyclic trace is a distinct invariant from the open boundary bilinear form u T^n v.",
+        "The scalar OEIS count does not record cardinality weights and the circular trace does not fix the boundary transfer numerator."
+      ],
+      "reasoning": "The broad general algorithm may calculate individual unweighted counts, and cyclic-transfer machinery explains the common denominator, but neither yields the displayed exact weighted endpoint numerator or nonzero mean boundary correction without new derivation. General finite-state limit theory is standard; the contribution is the exact algebraic application to the open boundary law.",
+      "searches": [
+        "https://arxiv.org/html/2603.04706v1 full sections 2 through 4",
+        "2-neighbour bootstrap percolation stable sets square lattice strips 2 x n weight enumerator and central limit theorem density 0.514909291",
+        "P3-convex circular prism proper convex complements rectangular 4-cycles",
+        "bootstrap percolation ladder fixed points generating function"
+      ]
+    },
+    "checked_sources": [
+      "arXiv:2603.04706v1 (full HTML)",
+      "OEIS A231376 (full entry)",
+      "OEIS A231382 (rectangular scalar table)",
+      "prior related circular-ladder mathematical statement comparisons",
+      "semantic research-record searches on aliases, cardinality polynomial, transfer denominator and majority constraint"
+    ],
+    "claim_vs_prior_implication": {
+      "evidence": [
+        "A trace-based cyclic enumerator and the new open-end transfer share the bulk factor D but have distinct boundary contractions; trace(T^n) does not algebraically specify uT^n v.",
+        "OEIS provides only F_n(1) for n>=2, and its scalar GF can be recovered by setting z=1.",
+        "An exact symbolic elimination establishes the new numerator N(t,z); its analytic residue yields a nonzero endpoint correction beta about 0.5210897336."
+      ],
+      "reasoning": "No checked prior claim implies the new full open-boundary bivariate distribution and beta through simple specialization. The cyclic result implies characteristic roots and hence the exponential growth scale but not the boundary spectral projection. The extra calculation is explicit rather than relabeling a prior scalar sequence; the closeness of transfer approaches is retained as priority/value risk.",
+      "searches": [
+        "Exact cardinality polynomial F_n(z) for P3-convex sets in width-two ladders P_n square K_2 rational generating function 1-(1+z+z^2)t",
+        "P3-convex full cardinality polynomial circular ladder C_n cartesian K_2 q_2 q_5 determinant exact formal series",
+        "A231376 weight generating function",
+        "https://arxiv.org/html/2603.04706v1"
+      ]
+    },
+    "equivalent_formulations": {
+      "evidence": [
+        "Ordinary P3-convexity means each omitted vertex has at most one included neighbor: Dourado et al. arXiv:2603.04706v1 section 1.",
+        "OEIS A231376 describes two-row 0/1 arrays obeying a strict-majority condition. For two or more rungs, all ladder degrees are 2 or 3, so this is exactly the same forbidden local event. For one rung (degree 1) the conventions diverge.",
+        "OEIS reports only a scalar sequence and scalar recurrence/GF. Neither enumerates sizes or determines the endpoint constant."
+      ],
+      "reasoning": "The binary-array formulation is mathematically equivalent to ordinary P3-convexity on n-rung ladders for n>=2, including for counting when z=1. In the weighted version, z records number of ones, a statistic absent from the known scalar source. n=1 is handled separately and is not falsely equated with the OEIS first term.",
+      "searches": [
+        "P3-convex vertex subsets of ladder graph P_n Cartesian K_2 exact size generating polynomial rational generating function",
+        "Hardin OEIS A231376 n by 2 binary strict majority horizontal vertical neighbors bivariate weight enumerator",
+        "binary grid no element less than strict majority weighted polynomial generating function",
+        "https://oeis.org/A231376"
+      ]
+    },
+    "exact_database_or_table": {
+      "evidence": [
+        "OEIS A231376, R. H. Hardin 2013, lists counts 10,21,48,113,261,601,1390 for n=2 through 8, and records an empirical scalar recurrence and GF due to Colin Barker (2018).",
+        "The present weighted polynomials at z=1 give exactly those n>=2 counts; n=1 is 4 under P3-convexity, versus OEIS 2 under strict majority at degree one.",
+        "No cardinality-refined coefficient table, algebraic mean boundary correction, or Gaussian variance was displayed in inspected OEIS material."
+      ],
+      "reasoning": "The scalar sequence and its denominator at z=1 are covered, so they are not novel findings. The unweighted counts cannot determine coefficients by set size, and do not determine derivative-dependent boundary corrections.",
+      "searches": [
+        "OEIS:A231376 https://oeis.org/A231376",
+        "OEIS:A231382 https://oeis.org/A231382",
+        "Hardin OEIS A231376 n by 2 binary strict majority horizontal vertical neighbors bivariate weight enumerator"
+      ]
+    },
+    "rationale": "The known OEIS scalar counts and scalar rational GF for n>=2 are credited, as is the directly related circular-prism cardinality enumerator in accessible historical material. Neither the scalar evaluation F_n(1) nor cyclic traces uniquely determine the open-end bivariate numerator or the nonzero boundary correction. The initiating 2026 primary work studies general counting and special tree/threshold classes, but gives no such open-ladder formula. Targeted published-record and primary literature searches found no exact match; the close relation to earlier transfers and alternative terminology remain explicit risks.",
+    "residual_risks": [
+      "An older weight-enumerator or statistical-mechanics treatment of two-row majority-stable binary arrays might give the bivariate formula under different terminology.",
+      "The earlier related cyclic-prism transfer shares the denominator and makes the open-boundary calculation technically close, reducing the distinction if a stronger unpublished transfer theorem supplies arbitrary boundary vectors.",
+      "The self-review analytic audit is not independent proof or exhaustive bibliographic priority certification."
+    ],
+    "source_inspections": [
+      {
+        "assessment": "Covers definition/general counting algorithms; no open-ladder weighted rational polynomial or boundary distribution in inspected text.",
+        "evidence": [
+          "arXiv:2603.04706v1, dated 2026-03-05; Definition 1 in Section 2 and Sections 3-4"
+        ],
+        "identifier_or_url": "https://arxiv.org/html/2603.04706v1",
+        "material_read": "Full HTML including abstract, Introduction and definition 1, tree and threshold counting results, general exponential algorithms and references; searched for ladder, prism and Cartesian.",
+        "method": "Primary HTML full-text reading with section navigation and text searches",
+        "title": "Counting P3-convex sets in graphs",
+        "trigger": "Recent primary research defining and counting ordinary P3-convex sets"
+      },
+      {
+        "assessment": "Already covers unweighted numbers for n>=2 and scalar rational denominator; does not display size refinement, boundary term or Gaussian fluctuations. n=1 degree-one convention differs.",
+        "evidence": [
+          "OEIS A231376, R.H. Hardin 2013; empirical GF contributed by Colin Barker 2018"
+        ],
+        "identifier_or_url": "https://oeis.org/A231376",
+        "material_read": "Full OEIS entry, including initial counts, empirical recurrence/GF, array examples, references, authorship and entry date.",
+        "method": "Primary database-entry inspection and algebraic comparison at z=1",
+        "title": "OEIS A231376: 2-row binary arrays without strict-majority deficits",
+        "trigger": "Direct equivalence of its majority constraint with n>=2 ladder P3-convexity"
+      },
+      {
+        "assessment": "Contains scalar array totals for all rectangular widths, but the displayed table is not a size-refined open-ladder formula.",
+        "evidence": [
+          "OEIS A231382 scalar array table"
+        ],
+        "identifier_or_url": "https://oeis.org/A231382",
+        "material_read": "Database entry header and rectangular count table, including width-two column and surrounding widths.",
+        "method": "Source-page reading and width-two cross-comparison",
+        "title": "OEIS A231382: rectangular strict-majority binary arrays",
+        "trigger": "Broader rectangular array table includes the width-two column"
+      }
+    ],
+    "status": "PASS"
+  },
+  "review_type": "self_review",
+  "schema_version": 1,
+  "scope_run_id": "ca08ef3d-a5e9-4617-a3f6-c7c5d647f0c2",
+  "self_review_status": "passed",
+  "value": {
+    "rationale": "A full cardinality enumerator supplies previously unstated coefficients for every member of a natural infinite family whose scalar totals were of sufficient interest to be tabulated since 2013. The exact finite-boundary correction and nondegenerate Gaussian law add interpretable size statistics unavailable from scalar totals and isolate a genuine endpoint effect. The result is not a mere recomputation of the OEIS sequence or of the cyclic-prism case; the object and invariant and necessary boundary contraction are explicit. The limited width and closely related transfer literature restrict but do not negate this value.",
+    "status": "PASS"
+  }
+}
