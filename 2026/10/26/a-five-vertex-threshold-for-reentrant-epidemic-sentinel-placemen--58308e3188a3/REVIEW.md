@@ -1,19 +1,21 @@
-# Scientific review
+# Independent mathematical audit
 
-## Correctness (PASS)
+## correctness
 
-The unique-path transmission identity gives \(F_j(p)=\sum_i\pi_i p^{|i-j|}\). The six explicit four-vertex pair differences show that a positive winner cannot lose and regain its sign against a rival as \(p\) increases: five gaps factor into monotone or linear residuals, and the sixth has a strictly monotone reciprocal normalization. The five-vertex rational witness has three everywhere-positive gaps and one quadratic gap with exactly two zeros inside \((0,1)\). A continuity extension handles every longer path. All hypotheses, strictness and the optimizer quantifiers are stated in RESULT.md; the exact symbolic/rational verifier supports the identities and witness, not the universal quantification.
+PASS
 
-## Originality (PASS, with risk)
+Read actual RESULT.md blob 4eda4d6d72cd258edb7d1a11b81b58d1d3fb322c, verify.py blob fdaecde505a72430578ac46011a710498c2a46e3, and certificate metadata. The unique path forces F_j(p)=Σπ_i p^{|i−j|}. For n=4, six independent algebraic gap factorizations reduce to five monotone/linear residues and one monotonic equation 1/p+1+p (strictly decreasing for 0<p<1); no pair can switch from positive to negative back to positive. For n<4 pad zero source weights only within this proof. For five vertices, independent symbolic expansion verifies all four displayed F2−Fj factorizations; the first three stay positive and only F2−F1 changes twice at (5±√5)/10. Exact rational calculations verify unique winners at p=1/5,1/2,4/5 as 2,1,2. On longer paths, new zero-mass vertices score p^{j−4}F4<F4 at those three probabilities, and sufficiently small positive perturbations preserve all strict finite gaps. Thus all quantified cases follow analytically, not by finite path enumeration.
 
-Prior epidemic sensor-placement literature treats the general coverage objective; unweighted decay-centrality papers already establish path ranking stability, and tree-based epidemic formulas are known. The new claim is a sharp reentrance threshold **under heterogeneous source probabilities**. The complete full-text comparisons to the foundational percolation paper, the general sensor-placement technical report, Tsakas's decay-centrality preprint, the Hurajová–Gago–Madaras graph paper (including its path-stability proposition), and Holme's small-graph epidemiology paper did not supply this statement or a stronger implication. The closest result, unweighted-path decay stability, has an essential equal-weight assumption. Broader weighted-centrality literature might contain an equivalent sharp minimality result; this residual bibliographic risk is not evidence of coverage. Independent validation remains outstanding.
+## originality
 
-## Mathematical value (PASS)
+PASS
 
-Sentinel positions chosen under uncertain transmission intensity can change and then return even on the simplest nonbranching network; heterogeneity in source risk is the mechanism. Identifying five as the sharp minimum and giving a complete two-crossover exact witness provides a structural boundary between the familiar unweighted path-stability regime and heterogeneous surveillance, rather than merely computing arbitrary sample scores. The theorem does not assert general sensor-design algorithms or broad epidemic control efficacy.
+Qualified PASS: this is weighted decay centrality with source-specific vertex masses, not the unweighted decay centrality for which path rankings are stable in Hurajová–Gago–Madaras. Leskovec et al. study general outbreak sensor optimization and Holme a distinct temporal SIR detection metric, while the inspected scope of Tsakas is general decay centrality without this sharp weighted minimal reentrance threshold. A hidden weighted path-ranking theorem remains possible.
 
-## Scientific limitations
+## value
 
-One outbreak source, no recovery clock, homogeneous independent edge transmission, positive fixed source distribution, eventual detection only, and paths. The general proof is analytic; 240 enumerated edge/source configurations form evidence for the five-vertex example only. Possible equivalent earlier weighted-distance rankings have not been exhaustively excluded.
+PASS
 
-Self-review: passed. Independent audit: not yet performed.
+The smallest path order allowing return of a previously uniquely optimal detector as transmission increases is a natural sharp qualitative boundary for epidemic sensing/weighted decay centrality. A complete no-reentry theorem below five and an exact double-crossover witness above establish a meaningful new failure mode for ranking stability; no general network or multiple-monitor claim.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
