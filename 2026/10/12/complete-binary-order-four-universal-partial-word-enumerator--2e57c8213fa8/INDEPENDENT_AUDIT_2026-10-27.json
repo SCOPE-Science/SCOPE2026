@@ -1,0 +1,152 @@
+{
+  "audit_date_utc": "2026-10-27",
+  "audited_at_utc": "2026-10-27T03:55:49Z",
+  "axes": {
+    "correctness": {
+      "rationale": "The finite recurrence is logically exhaustive: each linear ternary word has one three-symbol starting prefix, and each next length-4 window covers a nonempty subset of the 16 four-bit factors. A valid exact-once word has pairwise disjoint new coverage sets at every step; thus no valid path is pruned. Conversely, a terminal union of all 16 factors is a disjoint partition and therefore exactly one hit per factor. Nonempty sets force at most 16 appended windows, hence length at most 19. The implementation uses exact 16-bit masks; a separately written set-based enumerator independently visited 15,840 states, found 385 strings and exactly the 10 coefficient pairs (4,4):1,(8,3):4,(11,2):4,(11,3):16,(14,2):8,(15,1):16,(16,1):8,(17,1):8,(18,1):64,(19,0):256. Each string was independently rechecked against all 16 binary factors and multiplicities; the generated complete witness list and 32 orbit representatives have exact pinned Git blob hashes 77e7067bdd9d98b8c3110e0e47db88bb63f969eb and 3daef4c501807e19acb73b5b44e765c886625326. Under reversal and complement the orbit sizes are exactly {1:1,4:96}, with 32 nontrivial orbits. All 10 pinned source file blobs, both pinned and current tree, and reconstructed tree SHA b52db21856a79c03545c47e938cd0a704469b49b agree. Finite exhaustion proves only binary, factor length four, linear windows; no infinite factor-order claim.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Goeckner et al., Universal partial words over non-binary alphabets, TCS 713 (2018), Question 6.5 asks for number of upwords at fixed alphabet/order; nearby theorems concern constructions/nonbinary settings.",
+          "Fillmore et al., The existence and structure of universal partial cycles, Designs Codes Cryptography (2026), Example 8.5 and cyclic uniqueness: identifies one cyclic n=4 upcycle orbit, not all 385 linear n=4 words.",
+          "Classical binary de Bruijn enumeration implies only the 256 no-wildcard strings of length 19."
+        ],
+        "reasoning": "No stronger theorem of the inspected sources covers all linear n4 strings. Cyclic universality differs because windows wrap around, and the unique cyclic orbit result cannot yield the rich noncyclic enumeration. Nonbinary existence/construction results and ordinary de Bruijn counts cover neither the 128 nontrivial strings nor their length distribution.",
+        "searches": [
+          "arXiv:1611.03928 universal partial words nonbinary Question 6.5 enumeration",
+          "The existence and structure of universal partial cycles 2026 binary order four classification",
+          "universal partial cycles order four unique upcycle linear upword distinction"
+        ]
+      },
+      "checked_sources": [
+        "Chen–Kitaev–Mütze–Sun, On universal partial words, DMTCS 19:1 (2017), DOI:10.23638/DMTCS-19-1-16",
+        "Chen et al., On universal partial words, Electronic Notes in Discrete Mathematics 61 (2017), OA author manuscript",
+        "Goeckner et al., Universal partial words over non-binary alphabets, Theoretical Computer Science 713 (2018), DOI:10.1016/j.tcs.2017.12.022",
+        "Fillmore et al., The existence and structure of universal partial cycles (2026), DOI:10.1007/s10623-026-01841-x",
+        "wcarey-gmu/universal-partial-words public research repository, code and data directory",
+        "Resultary semantic queries exact count; nearest findings concern subsequences/string attractors rather than substring partial covers",
+        "Classical binary de Bruijn sequence enumeration for 256 no-wildcard strings"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "Specific 1-, 2-, and 3-wildcard n=4 witnesses and structural obstructions are weaker than a complete bivariate coefficient table.",
+          "Existing ordinary de Bruijn theory accounts for N_{19,0}=256 exactly, but not the other nine terms.",
+          "The 2026 cyclic upcycle n4 uniqueness result is not a statement about exact-once linearly sliding windows with unrestricted endpoints."
+        ],
+        "reasoning": "An existence theorem implies at least one word in a profile; it does not determine that profile’s coefficient, the absence of other profiles, or symmetry-orbit counts. The submitted complete table implies the cited examples and known ordinary subcase, but not conversely. Direct primary-source comparison found no theorem whose hypotheses imply the ten coefficients and 32 nontrivial orbits.",
+        "searches": [
+          "Chen Kitaev Mutze Sun Theorem 8 9 10 12 upword n4 diamond count examples",
+          "Goeckner et al Question 6.5 number of upwords",
+          "binary de Bruijn sequence count 2^4 factor order four 256 linear"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Chen–Kitaev–Mütze–Sun, On universal partial words, DMTCS 19:1 (2017), Tables 1–3 and Section 6: individual order-four examples and a call for complete classification; not a full polynomial.",
+          "Chen et al., Electronic Notes in Discrete Mathematics 61 (2017), author manuscript pp. 3–4, Tables 1–2: witness lists and theorems, not exact joint counts.",
+          "The exact ten-term multivariate generating function or a complete 385-word table would be equivalent to the submitted enumeration, but neither was found in the inspected publications."
+        ],
+        "reasoning": "An equivalent formulation could count disjoint exact covers by overlapping ternary masks, or supply a complete listing classified by word length and wildcard count. Inspected primary examples and existence criteria cannot recover exact multiplicities. No independent exact 385/128 count was found; author-hosted datasets remain an explicit risk.",
+        "searches": [
+          "Complete enumeration of all linear binary universal partial words of order four, exact count 385, 128 wildcard partial words, 32 reversal/complement orbits, length wildcard generating function",
+          "Universal partial words with wildcard in binary alphabet order 4 enumeration count exact number length distribution",
+          "\"universal partial words\" \"n=4\" enumeration 385 128",
+          "Chen Kitaev Mutze Sun universal partial words order four tables"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "The DMTCS 2017 Tables 1–3 label examples and position restrictions, not a complete 385-row census or ten coefficients.",
+          "The 2017 conference manuscript Table 1,2 explicitly says further examples are on third author website.",
+          "An inspected public universal-partial-words computational repository (wcarey-gmu/universal-partial-words) provides an order-eight split data file and code, not an order-four coefficient table."
+        ],
+        "reasoning": "No matching explicit database/table was identified in bounded search, but the original authors refer to external historical computation and an archived/unindexed list could overlap. That unresolved bibliographic possibility is recorded, not assumed absent.",
+        "searches": [
+          "\"binary universal partial words\" \"385\"",
+          "\"upwords\" \"128\" \"n=4\"",
+          "\"universal partial words\" exact enumeration count four bit wildcard",
+          "Torsten Mütze universal partial words computations upwords database"
+        ]
+      },
+      "rationale": "Primary-source statement/implication comparison supports a best-of-knowledge novel finite exact length-by-wildcard enumerator and complete orbit census for LINEAR binary order-four universal partial words. Chen–Kitaev–Mütze–Sun give individual n=4 witnesses, construction/obstruction theorems, and explicitly call for classification, but not the ten-term joint polynomial. Goeckner et al. explicitly pose how many universal partial words exist for fixed alphabet and order, without establishing this exact binary n=4 result in the material read. A 2026 later paper settles a CYCLIC n=4 equivalence problem, not the much larger linear enumerator. The ordinary no-wildcard 256 term is classical and credited. Searches of published related findings returned distinct invariants and no equivalent covering result; failed indexing alone is not proof of novelty. Prior unpublished author-hosted n=4 computations and unindexed tables remain priority risks.",
+      "residual_risks": [
+        "The original authors reference a computational website with more universal partial-word examples; an unindexed/archived complete n4 count could overlap.",
+        "Historical unpublished small-order enumerations or unretrieved supplementary tables may contain the ten coefficients.",
+        "Complete paginated Goeckner et al. PDF was unavailable; source assessment is restricted to material actually accessed.",
+        "Resultary ranking/ordinary web search absence does not certify novelty; independently established later alternate formulation might exist."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Contains order-four partial-word examples and nonexistence/construction results but no complete ten-coefficient length-by-wildcard enumeration in the inspected full article. Referred author-hosted data outside article remain a risk.",
+          "evidence": [
+            "Chen–Kitaev–Mütze–Sun, DMTCS 19:1 (2017), Tables 1–3 and Section 6 outlook; example-only tables and explicit classification direction."
+          ],
+          "identifier_or_url": "https://doi.org/10.23638/DMTCS-19-1-16 / https://arxiv.org/abs/1601.06456",
+          "material_read": "Full open-access article as available in the nineteen-page PDF, including order-four Tables 1–3, Sections 2–6 (especially classification outlook), and references.",
+          "method": "Read text and visually inspected the pages containing example tables and outlook.",
+          "title": "On universal partial words",
+          "trigger": "Original primary paper about binary order-four partial universal words; exact potential overlap."
+        },
+        {
+          "assessment": "Documents a subset of witnesses and statements for exact diamond placements, not the full linear order-four generating polynomial.",
+          "evidence": [
+            "Table 1 shows one-wildcard examples by position; Table 2 shows two-wildcard examples. Page 4 explicitly states complete classification is of interest and points to author web data."
+          ],
+          "identifier_or_url": "https://strathprints.strath.ac.uk/60593/1/Chen_etal_ENDM_2017_On_universal_partial_words.pdf",
+          "material_read": "All five pages of openly available author manuscript, particularly pp. 3–4 Tables 1–2, Theorems 8–12 and future research discussion.",
+          "method": "Read PDF text and visually inspected printed pages 3–4.",
+          "title": "On universal partial words (conference paper)",
+          "trigger": "Shorter separate original account could contain complete order-four lists."
+        },
+        {
+          "assessment": "Question 6.5 asks for the number of upwords at fixed n and alphabet; inspected material provides no full binary linear n4 count. Inaccessible paginated material and equation-rendering issues retain a modest residual risk.",
+          "evidence": [
+            "Goeckner et al., Theoretical Computer Science 713 (2018), Question 6.5 on enumerating upwords."
+          ],
+          "identifier_or_url": "https://arxiv.org/abs/1611.03928 / https://doi.org/10.1016/j.tcs.2017.12.022",
+          "material_read": "Available HTML-extracted abstract, definitions, construction discussions and final Section 6 including Question 6.5; the paginated complete PDF was not obtained.",
+          "method": "Inspected lawful full-text HTML rendition and arXiv bibliographic record; no assertion of full PDF coverage.",
+          "title": "Universal partial words over non-binary alphabets",
+          "trigger": "Direct follow-on paper and potential general coverage of enumerative problem."
+        },
+        {
+          "assessment": "Results on cyclic upcycles, including binary n4 uniqueness modulo symmetries, are not logically a full enumeration of linear upwords with arbitrary endpoints.",
+          "evidence": [
+            "Fillmore et al., Designs Codes Cryptography (2026), Example 8.5 and discussion of cyclic versus linear upwords."
+          ],
+          "identifier_or_url": "https://doi.org/10.1007/s10623-026-01841-x",
+          "material_read": "Accessible complete HTML article with introduction, structural results, Section 8 and Example 8.5.",
+          "method": "Read full article HTML and compared cyclic and linear exact-once factors.",
+          "title": "The existence and structure of universal partial cycles",
+          "trigger": "2026 recent related full text potentially dominating small order-four classification."
+        },
+        {
+          "assessment": "Observed published data covers partial enumeration at n8 and general code, not a public order-four complete joint enumerator in inspected directory; no claim about all code branches.",
+          "evidence": [
+            "Repository data directory lists upwords-n8-split.txt (65 MB), no n4 table in root data listing."
+          ],
+          "identifier_or_url": "https://github.com/wcarey-gmu/universal-partial-words",
+          "material_read": "Repository README and top-level code/data directory filenames, including code/upword-memoized.py and data/upwords-n8-split.txt; large data file not read.",
+          "method": "Inspected GitHub contents metadata and filenames read-only.",
+          "title": "Universal partial words computational repository",
+          "trigger": "Public computational data could predate and subsume the finite complete census."
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "rationale": "The number and length distribution of universal partial words at fixed alphabet/order is a natural object posed directly in Goeckner et al. Question 6.5 and motivated by Chen et al. Section 6 classification programme. Binary order four admits nontrivial 1-,2-,3-wildcard families: a complete joint length/diamond count shows exactly which compression lengths occur and all multiplicities. The 32 symmetry orbit types and full witness list are independently useful finite data for construction and benchmarking higher-order counting methods; prior papers provide existence examples and obstruction patterns rather than this complete census. The classical de Bruijn 256 case is not claimed new. No paper-sized generalization is required for this motivated unknown exact complete finite classification. Scope excludes cycles, larger orders and nonbinary alphabets.",
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "limitations": [
+    "Finite exact binary linear n4 only; no larger order or cyclic/nonbinary claim.",
+    "Scientific acceptance is best-of-knowledge and subject to historical unindexed enumeration risk.",
+    "Due to unresolved privacy sanitization, no publishable material or ready plan is asserted.",
+    "The independent finite program checks only finite order four, though the recursion itself is exhaustive for precisely that parameter."
+  ],
+  "schema_version": 1
+}
