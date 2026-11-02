@@ -5,8 +5,11 @@
     "status": "not_performed"
   },
   "independent_audit": {
-    "evidence": null,
-    "status": "not_performed"
+    "status": "passed",
+    "evidence": [
+      "INDEPENDENT_AUDIT_2026-10-29.md",
+      "INDEPENDENT_AUDIT_2026-10-29.json"
+    ]
   },
   "lean_verification": {
     "evidence": null,
@@ -16,8 +19,24 @@
 }
 ---
 
-# Reproduction and verification
+# Independent mathematical audit
 
-Run `python verify.py` with the accompanying `verify.py`, requiring Python 3 and no third-party packages. It enumerates all rooted labeled trees of sizes two through six with root label zero, totaling 1,441 Prüfer-coded trees. For each tree it exactly computes full final-size distributions with rational coefficients for constant transmissibility one-half and for a two-point transmissibility distribution with mass one-half each at one-quarter and three-quarters. Assertions test normalization, the shared exact mean, the lowest-common-ancestor variance increment, the sharp branching-index bound, and all stop-loss inequalities at integer thresholds. Three extra assertions verify the four-vertex center-rooted-star example. The program reports `PASS: 1441 rooted labeled trees, 15684 exact rational checks`.
+## correctness
 
-The finite enumeration cannot prove the results for all rooted trees or arbitrary infectious-period laws; those rely on the analytic arguments in `RESULT.md`. This package contains no empirical estimate, no claim of computer-assisted infinite certification, and no independently performed scientific audit.
+PASS
+
+Unique rooted infection paths and conditional common-source Bernoulli trials imply E I_v=q^depth. Condition on non-root edges; convexity of E phi(c+sum_j A_j Bernoulli(p)) follows from nonnegative mixed second differences. For incomparable pair (u,v), their two path edges leaving LCA contribute E P² instead of q²; other sources each contribute q. The resulting exact variance-index identity, q exponent, convex-order dominance and star/path bounds follow. Independently exact checked 3-leaf star P in {1/4,3/4} against q=1/2: variances 9/8 vs 3/4, all discrete stop losses. Analytical argument, not this check, covers arbitrary trees.
+
+## originality
+
+PASS
+
+Qualified best-of-knowledge originality: Previously known infectious-period dependence and marginal infection order do not logically yield total-final-size convex order or topology extremal index without conditioning and joint infection calculus. Still possible older general convex-order theorem could specialize. Prior formulation/implication comparisons are documented; search nonhits are not proof of priority.
+
+## value
+
+PASS
+
+Gives a whole-distribution stochastic order under individual infectiousness heterogeneity plus an exact efficiently computable LCA variance sensitivity index and sharp topology extremizers. It addresses risk independent of mean final size and carefully states supremum not attained by finite periods.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
