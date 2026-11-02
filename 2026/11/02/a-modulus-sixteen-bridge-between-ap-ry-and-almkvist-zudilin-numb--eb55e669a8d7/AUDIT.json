@@ -1,0 +1,150 @@
+{
+  "correctness": {
+    "rationale": "The exact Chan–Zudilin AZ binomial expansion is checked against original definitions and has term valuation \\(3s_2(k)\\). Only \\(k=0\\) and powers of two remain mod16; Lucas converts each to a binary digit. Independent valuation filtering of the Apéry sum gives the previously known \\(1+4\\beta(n)\\) formula. The derived Boolean identity \\(2H(n)\\equiv n+\\beta(n)\\pmod4\\) proves \\(B(n)-A(n)\\equiv8n\\pmod{16}\\), including n=0. The arbitrary-period contradiction uses separated binary blocks at an even multiple of a proposed period. The standalone code checks exact integer sums for \\(0\\le n\\le256\\), the Boolean identity on 100000 indices, and 512 period witnesses; no finite check substitutes for infinite proof.",
+    "status": "PASS"
+  },
+  "independent": false,
+  "independent_audit_status": "not_performed",
+  "originality": {
+    "broader_coverage": {
+      "evidence": [
+        "Chan–Zudilin Theorem 2.2 presents an exact nonlinear change-of-variable relation among generating series, stronger analytically but not a statement about coefficientwise same-index values mod sixteen.",
+        "Corollary 4.3 gives exact binomial terms; filtering their 2-adic valuations and summing binary carries is necessary to exhibit the new arithmetic law."
+      ],
+      "reasoning": "General exact representations imply, in principle, every congruence of these values; this is not direct coverage of the explicit uniform same-index mod-sixteen identity or digital classification. The result credits these representations as premises and claims only the new explicit extraction.",
+      "searches": [
+        "Chan–Zudilin (2010) Theorem 2.2, Corollary 4.3 full text",
+        "Sun (2013) equation (5.2) full text",
+        "Almkvist Zudilin Apéry numbers mod16 congruence (-1)^n Apéry + 8n"
+      ]
+    },
+    "checked_sources": [
+      "https://mrc.sdu.edu.cn/ziliao/60.pdf",
+      "https://arxiv.org/pdf/1302.1715",
+      "https://arxiv.org/abs/1310.8635",
+      "https://arxiv.org/abs/1508.00297",
+      "https://arxiv.org/abs/2406.18059"
+    ],
+    "claim_vs_prior_implication": {
+      "evidence": [
+        "Theorem 3.28 implies \\(A(n)\\equiv1+4\\beta(n)\\pmod{16}\\) but says nothing about B(n).",
+        "Theorem 5.3 implies \\(B(n)\\equiv A(n)\\pmod8\\), but this does not determine the next bit.",
+        "Liu (2024) determines a maximal modulus for each sequence to agree with an exponential-power model, which is a different quantifier and does not compare two sequences at the same index modulo sixteen.",
+        "Chan–Zudilin Corollary 4.3 is a necessary exact expansion, not the explicit reduction of its sum modulo sixteen."
+      ],
+      "reasoning": "The first two premises alone do not determine whether B-A is zero or eight modulo sixteen. The all-index bridge, the explicit AZ digital formula, and AZ nonperiodicity therefore add a genuine quantified statement; the underlying exact representations and Apéry digital formula remain credited prior work.",
+      "searches": [
+        "arXiv:1310.8635 Theorems 3.28–3.29",
+        "arXiv:1508.00297 Theorem 5.3",
+        "Chan–Zudilin (2010) Theorem 2.2 and Corollary 4.3",
+        "arXiv:2406.18059 Sections 1 and 4",
+        "\"Almkvist-Zudilin\" \"modulo 16\" \"Apéry\""
+      ]
+    },
+    "equivalent_formulations": {
+      "evidence": [
+        "The exact coefficientwise claim is equivalent to the generating-function congruence \\(F_B(x)-F_A(x)\\equiv8x/(1-x)^2\\pmod{16}\\), and to \\(B(n)\\equiv1+4\\beta(n)+8n\\pmod{16}\\).",
+        "Rowland–Yassawi Theorem 3.28 supplies only F_A mod sixteen; Malik–Straub Theorem 5.3 supplies the AZ residues modulo eight."
+      ],
+      "reasoning": "Neither published statement asserts a same-index mod-sixteen comparison, and direct reduction from mod-eight results cannot recover the parity of the next binary digit; the missing carry identity is proved here.",
+      "searches": [
+        "Almkvist Zudilin sequence modulo 16 exact residue formulas period nonperiodicity 2-adic digit",
+        "exact mod sixteen congruence for Almkvist-Zudilin b_n and Apery A_n using base two run blocks",
+        "mod16 (-1)^n Z(n) - A(n) congruent 8n; digit run transfer",
+        "Almkvist Zudilin sequence modulo 16 is non eventually periodic; explicit binary digits parity",
+        "arXiv:1310.8635 §3.6; arXiv:1508.00297 §5"
+      ]
+    },
+    "exact_database_or_table": {
+      "evidence": [
+        "Sun identifies the AZ numbers with OEIS A125143 and lists initial integer values; a finite table does not establish the all-index congruence.",
+        "The complete all-index congruence is proved symbolically; independent finite checks through \\(n=256\\) are corroboration only."
+      ],
+      "reasoning": "No inspected database or numerical table was found asserting this full cross-sequence congruence or the binary-run formula. This search is not proof of absence; potential OEIS annotations or specialized compilations are a residual risk.",
+      "searches": [
+        "Apéry-like numbers modulo 8 16 parity and Lucas congruences",
+        "Almkvist Zudilin Apéry identical modulo 16 shift 8 odd index",
+        "Almkvist Zudilin congruence modulo 16 block runs Apéry numbers relation",
+        "A125143 modulo 16 binary runs Almkvist Zudilin",
+        "OEIS A125143 AZ identification in Sun (2013) introduction"
+      ]
+    },
+    "rationale": "Full-text comparison identifies Chan–Zudilin Cor. 4.3 and Thm. 2.2 as exact binomial/transformation premises, Sun (2013) as reproduction of the same AZ binomial identity, Rowland–Yassawi Thms. 3.28–3.29 as prior Apéry mod16 and nonperiodicity, and Malik–Straub Thm. 5.3 as prior AZ mod8. The explicit coefficientwise same-index bridge \\(B(n)-A(n)\\equiv8n\\pmod{16}\\) and the AZ binary formula are not present in the inspected theorems and are not obtained from mod8 information alone. Actual semantic record searches yield no equivalent, although incomplete historical priority is acknowledged.",
+    "residual_risks": [
+      "An explicit equivalent modulo-sixteen AZ block formula could be recorded in an unlocated specialized paper, note, or database annotation.",
+      "Chan–Zudilin give stronger exact generating-function transformations; their precise mod-sixteen consequences are not stated as the same-index congruence.",
+      "Bibliographic and own-record searches are not exhaustive proofs of priority; no independent mathematical review is represented."
+    ],
+    "source_inspections": [
+      {
+        "assessment": "Establishes the underlying exact representations and transformations; does not give the claimed same-index residue difference or binary mod-sixteen classification.",
+        "evidence": [
+          "Theorem 2.2, displayed transformation (2.11), PDF p. 3.",
+          "Corollary 4.3 and Theorem 4.2, PDF p. 7, source of the exact second binomial expansion."
+        ],
+        "identifier_or_url": "https://mrc.sdu.edu.cn/ziliao/60.pdf",
+        "material_read": "Full-text Sections 1–2 and Section 4, especially Theorem 2.2 and Corollary 4.3 (PDF pages 1–3 and 6–7), plus neighboring statements.",
+        "method": "Full-text mathematical comparison of coefficients versus a transformed generating-series identity.",
+        "title": "New representations for Apéry-like sequences",
+        "trigger": "Original source of the alternate binomial representation and strongest underlying generating-series connection."
+      },
+      {
+        "assessment": "Credits Chan–Zudilin for the exact identity and studies odd-prime sums, not the coefficientwise mod-sixteen bridge.",
+        "evidence": [
+          "Equation (1.3), PDF p. 2, signed sequence definition.",
+          "Equation (5.2), PDF p. 12, alternate binomial expansion."
+        ],
+        "identifier_or_url": "https://arxiv.org/pdf/1302.1715",
+        "material_read": "The introduction and Section 5 (especially equation (5.2), Theorem 5.1, and its proof), and references.",
+        "method": "Full-text reading and direct normalization check against both binomial definitions.",
+        "title": "Congruences for Domb and Almkvist-Zudilin numbers",
+        "trigger": "Same sequence, exact binomial identity and number-theoretic MSC provenance."
+      },
+      {
+        "assessment": "Provides the Apéry half of this claim, already known; its theorems do not identify the AZ values or cross-sequence difference.",
+        "evidence": [
+          "Theorem 3.28: Apéry residues are one plus four times binary-block number.",
+          "Theorem 3.29: Apéry residues modulo sixteen not eventually periodic."
+        ],
+        "identifier_or_url": "https://arxiv.org/abs/1310.8635",
+        "material_read": "Full Section 3.6 concerning Apéry numbers and Theorems 3.28–3.29, together with method overview.",
+        "method": "Exact theorem and implication comparison including binary block convention.",
+        "title": "Automatic congruences for diagonals of rational functions",
+        "trigger": "Closest prior explicit binary formula for Apéry numbers modulo sixteen, and prior nonperiodicity."
+      },
+      {
+        "assessment": "Proves periodicity modulo eight and notes the relation of the AZ and Apéry mod-eight automata; does not derive mod-sixteen values.",
+        "evidence": [
+          "Theorem 5.3: the alternate normalization Z(n) is 1 or 3 modulo eight according to parity.",
+          "Section 5: remarks on small powers of two and periodicity."
+        ],
+        "identifier_or_url": "https://arxiv.org/abs/1508.00297",
+        "material_read": "Introduction and Section 5, particularly Theorem 5.3 and the discussion following it.",
+        "method": "Comparison of normalization, mod-eight conditions, and the claimed modulus-sixteen refinement.",
+        "title": "Divisibility properties of sporadic Apéry-like numbers",
+        "trigger": "Most relevant published periodicity classification of AZ values at powers of two."
+      },
+      {
+        "assessment": "Classifies individual-sequence exponential congruences, not the same-index AZ-to-Apéry modulus-sixteen bridge.",
+        "evidence": [
+          "The main result determines maximal moduli for each individual sequence to equal a power of its initial value.",
+          "Tables 1–2 cover both named sequences without claiming their same-index modulus-sixteen difference."
+        ],
+        "identifier_or_url": "https://arxiv.org/abs/2406.18059",
+        "material_read": "Introduction, Tables 1–2, statements of the main congruences in Sections 1–2, and relevant parts of the Section 4 proof.",
+        "method": "Comparison of full available article text, quantified main theorems and sequence normalizations.",
+        "title": "On the binomial transforms of Apéry-like sequences",
+        "trigger": "Later comparison across all fifteen sporadic Apéry-like sequences and their congruences."
+      }
+    ],
+    "status": "PASS"
+  },
+  "review_type": "self_review",
+  "schema_version": 1,
+  "scope_run_id": "eb55e669-a8d7-4374-8acf-8b1bbbe8551e",
+  "self_review_status": "passed",
+  "value": {
+    "rationale": "The result gives a complete all-index exact residue formula for a classical Apéry-like sequence at the first 2-power modulus where the known mod8 periodicity breaks, and links it to a different distinguished sequence by the unexpectedly sparse correction 8n. It is a nontrivial natural infinite-family congruence, carries a sharp periodicity transition, and provides an efficient digital evaluation rule; neither an isolated arbitrary invariant nor a numerical table.",
+    "status": "PASS"
+  }
+}
