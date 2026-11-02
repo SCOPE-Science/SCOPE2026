@@ -5,8 +5,11 @@
     "status": "not_performed"
   },
   "independent_audit": {
-    "evidence": null,
-    "status": "not_performed"
+    "status": "passed",
+    "evidence": [
+      "INDEPENDENT_AUDIT_2026-10-28.md",
+      "INDEPENDENT_AUDIT_2026-10-28.json"
+    ]
   },
   "lean_verification": {
     "evidence": null,
@@ -16,12 +19,24 @@
 }
 ---
 
-# Verification
+# Independent mathematical audit
 
-The mathematical proof uses a primitive fixed lattice of the geometric Picard pairing; this is important because the rational fixed space alone does not capture trace-lattice indices. Running `python3 verify_degree5.py` from the same directory, with `requirements.txt` installed, gave the seven expected rows and ended in the exact assertion:
+## correctness
 
-`VERIFY_OK: all 120 Weyl group elements; seven Frobenius types, primitive Picard lattices, Gram SNF, full trace indices, exact effective and nef cone rays`
+PASS
 
-The script enumerates every one of the 120 elements of the \(A_4\) Weyl group, tests invariance of the lattice pairing and the ten geometric exceptional curve classes, computes primitive fixed lattices by exact unimodular elimination, and evaluates Smith normal forms, integer index minors, and rational primal/dual cone extremality. The seven Frobenius conjugacy classes have sizes 1, 10, 15, 20, 20, 30, 24. Every representative within each class reproduces its designated table row. This finite computation is exhaustive over the Weyl group, but it assumes the published geometric classification of all smooth degree-five del Pezzo surfaces, the standard geometric cone theorem, and finite-field descent.
+Over Fq, Br(Fq)=0 and Pic(S)=Pic(Sbar)^F integrally; geometric degree-five del Pezzo has Picard lattice diag(1,−1,−1,−1,−1) and ten (-1)-curve classes. Frobenius acts through W(A4)≅S5. For each of the seven permutation cycle types, the primitive integer kernel of F−I gives arithmetic intersection matrices; Smith diagonals, determinant signs, gcd of maximal minors of exceptional-curve orbit sums, and exact cone inequalities recover every row of the table. In particular (3,1,1) has orbit-trace index 3 and (4,1) index 2; other five indices 1. An independent SymPy checker rebuilt 120 W(A4) actions with all 7 orbit type counts, all seven Gram Smith signatures, trace indices, Mori and nef ray counts (10/10,7/7,4/4,4/4,2/2,2/2,1/1). Realizability over every finite field follows from Trepalin Proposition 3.1, not finite sampling; the cone generators follow by averaging effective exceptional rays under Frobenius.
 
-Limits: no independent external validation was performed; the scientific priority comparison remains qualified, especially against equivalent Weyl-group descriptions. No claims are made about singular surfaces or integral effectivity of arbitrary cone lattice points.
+## originality
+
+PASS
+
+Qualified best-of-knowledge assessment after independent statement-level comparisons of the cited specific results, published index and accessible primary texts; inaccessible full texts remain explicitly stated risks, not proof of noncoverage.
+
+## value
+
+PASS
+
+Exact complete arithmetic Picard invariant and rational cone classification over every finite field of a canonical surface family, with integral trace sublattice failures of indices 3 and 2 invisible to known Picard ranks. Lattice saturation, discriminant group and cone-ray counts have natural potential use in arithmetic geometry; this is a motivated full seven-type classification, not arbitrary finite slicing.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
