@@ -1,15 +1,21 @@
-# Self-review
+# Independent mathematical audit
 
-## Correctness — PASS
-The statement uses the open-neighborhood complex and the induced-support filtration exactly as defined in `RESULT.md`. The finite enumeration covers all \(\binom{12}{4}\) and \(\binom{12}{5}\) candidate subsets. An integral coordinate-map check (using an invertible minor with determinant \(+1\)) verifies every local cycle's ambient homology class without relying on field-only detection. Both nonzero six-vertex witnesses are explicit signed eight-triangle spheres. Degree-two and degree-three boundary ranks and the two unimodular minors prove rank, freeness, primitivity and the exact free quotient, not merely rational spanning. The independent graph-automorphism enumeration gives order \(120\) and transitivity on the sixty supports. The executable verifier has been run on the exact certificate.
+## correctness
 
-## Originality — PASS, subject to stated bibliography risks
-Queries for aliases including `Hom(K2,I)`, icosahedral open neighborhood, vertex-minimal sphere carriers, integral support filtration and geometric generation found prior work on the twenty-three-sphere homotopy type and rational symmetry character, but no matching support-lattice statement. The earlier same-complex results are treated as background rather than discoveries here. Kozlov's 2005 theorems identify simple-homotopy equivalences, Kahle's 2005 theorems treat random-graph connectivity and sphere retractions, and Csorba–Lutz's inspected Hom-complex manuscript treats different reference families. None of the inspected statements implies the exact sixty-support classification or free rank-two quotient. Linked earlier mathematical-record files were in part available only as indexed summaries; inaccessible full material and unindexed equivalents remain acknowledged residual risks.
+PASS
 
-## Value — PASS
-The fixed icosahedral graph has canonical symmetry and a previously studied second-homology group, making the vertex-supported geometric generators natural rather than a post-hoc parameter slice. The sharp contrast between first nonzero support \(5\) and integral group generation threshold \(6\) is a structural distinction not visible in homotopy or rational-character data. The \(\mathbb Z^2\) quotient and transitive primitive shortest-sphere orbit describe an integral filtration useful for understanding geometric localization of the known homology. This is a narrow exact invariant, not claimed to be a general theorem.
+Using the exact open-neighborhood definition on the ordinary 12-vertex icosahedral graph, independently reconstructed all 264 nonempty simplices with face vector (12,60,120,60,12) and integer signed boundary matrices. Independent modular ranks of ∂2,∂3,∂4 were 49,48,12. Exhaustive local-support calculation found no four-vertex nonzero H_2 classes and exactly sixty five-vertex bipyramid spheres. Independently generated the 60 oriented sphere cycles and the two explicit six-vertex octahedral witnesses, formed the full integer chain matrices A5 and A6, selected independent columns/rows modulo 101 and computed the decisive EXACT integer square determinants: det(A5[69 selected rows,69 cols])=+1, det(A6[71 selected rows,71 cols])=+1. Thus the boundaries-plus-five-sphere lattice is primitive of rank 69 and the full cycle lattice primitive of rank 71, giving L5=Z^21, H_2=Z^23, quotient Z², and L6=H2. Independent graph-isomorphism enumeration counted 120 automorphisms and the 60-element orbit. This is integral evidence beyond a mod-p rank log.
 
-## Verification and residual limits
-See `RESULT.md`, `VERIFICATION.md`, `certificate.json` and `verify_icosahedral.py`. The proofs use exact integer determinants and a complete finite support enumeration. The computation was not formally certified by an external proof assistant. The comparison with earlier indexed same-complex documents does not amount to inspection of every unpublished or unindexed source.
+## originality
 
-Self-review: passed. Independent audit: not yet performed.
+PASS
+
+Known wedge decomposition N(I)~=∨^23 S² and full rational A5×C2 homology character are credited. They determine group rank and representations, but do not determine induced-vertex support filtration or primitive integral sphere-carrier lattice. Full prior research RESULT.md texts were actually compared. No equivalent shortest-carrier classification was identified; residual finite-computation priority risk.
+
+## value
+
+PASS
+
+Minimum vertex supports of integral homology generators are a motivated geometric invariant of a canonical icosahedral neighborhood complex. The theorem distinguishes the existence threshold (five vertices) from full integral lattice generation (six), with explicit symmetry orbit and rank-two obstruction invisible to ordinary Betti numbers.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
