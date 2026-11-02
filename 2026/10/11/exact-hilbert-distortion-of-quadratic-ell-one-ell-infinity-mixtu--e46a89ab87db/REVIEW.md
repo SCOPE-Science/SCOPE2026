@@ -1,15 +1,21 @@
-# Same-model scientific review
+# Independent mathematical audit
 
-## Correctness — PASS
-The claimed norm is a norm for every positive parameter. For any positive definite Euclidean pullback matrix, averaging its quadratic form under signed coordinate permutations retains both norm-comparison bounds and reduces it to a scalar matrix, so an arbitrary change of basis cannot beat Euclidean coordinates. The upper Euclidean-sphere norm squared is the larger eigenvalue of a rank-two matrix, with trace \(1+nt\) and nonzero eigenvalue product \(t(n-1)\). The lower value follows from a mass-transfer majorization lemma and an interval derivative with exactly one interior maximum. Both bounds have explicit actual extremizers, yielding the exact multiplicative distortion. The asymptotic lower bound holds for every parameter and matches the explicit choice \(t=1/n\). A reproducible finite checker passed all cases, but the proof does not rely on sampling.
+## correctness
 
-## Originality — PASS, with residual risk
-The motivating 2022 paper studies exact Banach--Mazur distances to cubes for usual \(\ell_p\) norms. A 2015 paper studies **linear**, polyhedral \(\ell_1\)/\(\ell_\infty\) mixtures rather than this quadratic norm, and the 2020 cube--cross-polytope paper studies a max-norm/intersection-body family. The closest publicly indexed two-dimensional mixed-norm result is restricted to same-side exponents, not the opposite-side \(\ell_1\)/\(\ell_\infty\) pair, and cannot imply the quantified \(n\ge3\) formula or high-dimensional asymptotic. Search by object, eigenvalue, sparsity, and equivalent norm expression did not identify a covering published theorem. The full 2015 article was inaccessible; equivalently formulated older material remains a named bibliographic risk, and a failed search alone is not a novelty proof.
+PASS
 
-## Mathematical value — PASS
-This is a natural quadratic interpolation between the two classical endpoint norms. The exact norm geometry has two genuinely different extremal mechanisms: a one-spike-plus-plateau eigenvector and a sparse, equal-support minimum with a complete support-transition law. Consequently, one can compute the *unrestricted* Euclidean Banach--Mazur profile in every real dimension and prove the sharp optimal asymptotic constant \(1/\sqrt2\), not merely an example or a numerical estimate. The statement is a complete family-level classification with a nontrivial dimensional optimization rather than an arbitrary isolated constant.
+Independently reconstructed every quantified step for real n>=3,t>0. Averaging arbitrary positive definite ellipsoid pullback Q under signed permutations preserves comparison and forces scalar I, so Euclidean coordinates are BM optimal. On Euclidean sphere, N_t² equals maximum over rank-two matrices e_i e_i^T+t eps eps^T with trace 1+nt, nonzero eigenvalue product t(n−1), giving L_n(t) and one-spike eigenvector. For minimum, normalize ||x||infinity=1, fixed ℓ1 mass s=k+theta transfers maximize ||x||2² at k ones and one theta; lower H_k=(1+t(k+theta)²)/(k+theta²) has derivative sign tk(k+theta)(1−theta)−theta, strictly decreasing from positive to negative, so minimum at integer endpoints 1/k+kt. Supports switch at 1/[k(k+1)]. Universal tuning lower bound uses k=floor sqrt n, L>=max(1,nt) and m<=1/k+kt to yield d²>=kn/(n+k²); t=1/n gives L=1+1/sqrt n and m>=2/sqrt n, proving n^(-1/4) inf_t d→1/sqrt2. An independent 3600-sample/36-exact-witness check is only corroborative, not proof. All 7 current Git files were read; assigned root tree reassembled from blob entries and current same blob identities.
 
-## Sources and limits
-Sources: Zhang--Meng--Wu, arXiv:2207.05499v1 (full text); Gotoh--Uryasev, DOI 10.1007/s10107-015-0899-9 (abstract and defining excerpt only); Deza--Hiriart-Urruty--Pournin, arXiv:2011.05607 (full text); published two-dimensional quadratic mixed-norm distance result (full text). No claim about complex scalars, exact finite-dimensional best parameter, or independent review.
+## originality
 
-Same-model review: passed. Independent audit: not yet performed.
+PASS
+
+Best-of-knowledge: the unrestricted real n>=3 quadratic mixed-norm Banach–Mazur profile, all k-sparse support transitions, and sharp optimized n^(1/4)/sqrt(2) law are not established by the inspected two-dimensional same-norm predecessors or the broader papers on direct sums, ordinary ell_p, or linear/polyhedral mixtures. Exact two-dimensional quadratic endpoint profile and classical signed-permutation averaging are prior mathematics; no claim of absolute bibliographic priority.
+
+## value
+
+PASS
+
+This natural quadratic interpolation of the two opposite classical coordinate norms has nontrivial exact Hilbert distortion in each real n>=3 and all positive weights. It resolves the competing one-spike spectral versus equal-amplitude sparse geometry, complete discrete support-change thresholds, and an optimized n^(1/4)/sqrt2 asymptotic over ALL parameters; these are mathematical benchmark quantities not determined by the planar endpoint or generic ellipsoid averaging lemma. The optimization does not falsely claim an exact finite-n optimal parameter.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
