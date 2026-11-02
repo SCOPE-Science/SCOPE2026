@@ -1,19 +1,21 @@
-# Self-review
+# Independent mathematical audit
 
-## Correctness — PASS
+## correctness
 
-The barycentric orbit-complex construction correctly models geometric fixed points, not merely vertexwise fixed sets or invariant homology. The weight-three obstruction is necessary. All binary linear subspaces whose nonzero words have weight at most two are classified: rank-one generators of weight one/two, rank-two coordinate planes or parity planes supported on three coordinates. The explicitly calculated orbit edges are respectively the hypercube graph and the empty graph; the general proof covers all dimensions \(n\ge3\). The executable finite test independently reconstructed all admissible subgroup orbit complexes for \(2\le n\le6\) and passed 125 instances. There are no missing boundary cases in the stated range.
+PASS
 
-## Originality — PASS, qualified
+Let H<=F_2^n be nontrivial. A fixed point in the geometric realization has barycentric coefficients constant on each H-orbit; its support is a union of cosets x+H, giving the orbit-simplex PL model. If any h∈H has Hamming weight >=3, every coset contains a forbidden pair and the fixed set is empty. Classifying binary subspaces with maximum nonzero weight <=2 gives rank at most two: weight-one lines, weight-two lines, coordinate two-planes, and even-weight two-planes on triples. A weight-one line gives coset graph Q_{n-1} by deletion of one coordinate; a weight-two line gives the same graph after a parity linear relabeling. Neither admissible rank-two type has compatible distinct cosets, leaving exactly 2^(n-2) discrete points. The cube has 2^(n-1) vertices and (n-1)2^(n-2) edges, giving reduced H1 rank 1+(n-3)2^(n-2). Independent coset and edge enumeration tested all admissible nonzero subgroups at n=3..6, counts 10,20,35,56, with exact graph compatibility; uniform classification comes from proof, not finite experiments.
 
-Adamaszek–Adams [1] establishes the nonequivariant wedge-of-three-spheres classification, and Galetto–Montaño–Wellner [2] establishes the full characteristic-zero homology **representation**. Neither inspected theorem states or implies the complete geometric fixed-space homotopy classification; representation characters determine single-element Lefschetz numbers, not fixed-space dimensions and attaching data, nor common fixed-point topology for rank-two subgroups. Closest database hits concerned homology representations of scale-two Čech complexes rather than Rips fixed spaces. Earlier scientific records giving translation characters for this Rips complex were treated as covering the character/Euler data, **not** as fresh novelty. Unindexed equivalent work remains possible, and the full text of the potentially related quotient-thickening study [3] was not accessible.
+## originality
 
-## Value — PASS
+PASS
 
-A complete infinite-parameter geometric fixed-point classification under every subgroup of the natural translation group is a structural equivariant homotopy invariant: it distinguishes empty sets, graphs with exponentially growing integral first homology, and finite point sets. For \(n\ge4\), the ambient complex has no reduced degree-one homology, yet every weight-one or weight-two translation has a fixed graph with nontrivial degree-one homology. The rank-two case probes simultaneous stabilizers unavailable from elementwise homology characters. This is not a reformulation of a Betti number or a prescribed finite-parameter slice.
+Adamaszek–Adams prove the underlying scale-two hypercube Rips wedge of three-spheres, while Galetto–Montaño–Wellner 2026 Theorem 5.4 proves its complete rational full-group homology representation. Neither determines geometric fixed subspaces |K_n|^H: traces yield Lefschetz/Euler characteristics for single elements, not homotopy types or simultaneous fixed sets of rank-two groups. The paper Metric thickenings and group actions studies quotients and thickenings generally; its accessible abstract does not establish this exact fixed-space classification, full primary text inaccessible and retained as risk. A same-parameter Rips/Čech query identified only a Čech homology result, a different complex. This exact geometric classification is not a corollary of prior representation theory and passes best-of-knowledge originality.
 
-## References and limits
+## value
 
-[1] Adamaszek–Adams, arXiv:2103.01040, Theorem 1. [2] Galetto–Montaño–Wellner, arXiv:2606.20784, Section 5. [3] Adams–Heim–Peterson, arXiv:1911.00732 (abstract only). Proof and finite checks are reproducible in the accompanying files; independent external validation has not occurred.
+PASS
 
-Self-review: passed. Independent audit: not yet performed.
+Geometric subgroup fixed spaces of an actual high-symmetry Rips complex are intrinsic equivariant-homotopy data, not interchangeable with homology-invariant subspaces. The theorem classifies every nontrivial translation subgroup uniformly and exhibits a sharp empty/cubical graph/discrete-set trichotomy with explicit integral homology; the rank-two phenomenon is not recoverable from an elementwise character table. This is a natural complete equivariant topology classification and useful for testing equivariant models.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

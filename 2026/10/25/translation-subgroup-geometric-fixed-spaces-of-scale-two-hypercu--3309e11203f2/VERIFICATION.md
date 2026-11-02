@@ -5,8 +5,11 @@
     "status": "not_performed"
   },
   "independent_audit": {
-    "evidence": null,
-    "status": "not_performed"
+    "status": "passed",
+    "evidence": [
+      "INDEPENDENT_AUDIT_2026-10-28.md",
+      "INDEPENDENT_AUDIT_2026-10-28.json"
+    ]
   },
   "lean_verification": {
     "evidence": null,
@@ -16,19 +19,24 @@
 }
 ---
 
-# Verification notes
+# Independent mathematical audit
 
-The standalone Python 3 file `verify_translation_fixed_scale2.py` is complete and requires no third-party packages. Run it with `python3 verify_translation_fixed_scale2.py` from the same directory as this document. It directly reconstructs every orbit as a coset and independently evaluates maximum pairwise Hamming distances to determine the entire compatibility graph. It checks every nontrivial admissible binary translation subgroup in dimensions \(2,3,4,5,6\) (respectively \(4,10,20,35,56\) subgroups), for 125 total; it uses explicit coordinates to check rank-one isomorphisms with the appropriate cube and rejects all rank-two edges.
+## correctness
 
-Actual completion output:
+PASS
 
-```
-n= 2 short_subgroups= 4
-n= 3 short_subgroups= 10
-n= 4 short_subgroups= 20
-n= 5 short_subgroups= 35
-n= 6 short_subgroups= 56
-TRANSLATION_FIXED_RIPS2_VERIFIED 125 nontrivial_subgroups {'rank1_weight2': 35, 'rank1_weight1': 20, 'rank2': 70}
-```
+Let H<=F_2^n be nontrivial. A fixed point in the geometric realization has barycentric coefficients constant on each H-orbit; its support is a union of cosets x+H, giving the orbit-simplex PL model. If any h∈H has Hamming weight >=3, every coset contains a forbidden pair and the fixed set is empty. Classifying binary subspaces with maximum nonzero weight <=2 gives rank at most two: weight-one lines, weight-two lines, coordinate two-planes, and even-weight two-planes on triples. A weight-one line gives coset graph Q_{n-1} by deletion of one coordinate; a weight-two line gives the same graph after a parity linear relabeling. Neither admissible rank-two type has compatible distinct cosets, leaving exactly 2^(n-2) discrete points. The cube has 2^(n-1) vertices and (n-1)2^(n-2) edges, giving reduced H1 rank 1+(n-3)2^(n-2). Independent coset and edge enumeration tested all admissible nonzero subgroups at n=3..6, counts 10,20,35,56, with exact graph compatibility; uniform classification comes from proof, not finite experiments.
 
-The checker also verifies directly that every orbit of any weight-at-least-three translation contains two vertices at forbidden distance. It does not constitute an exhaustive verification over all dimensions, nor does it independently reproduce a global literature search. The mathematical proof is the orbit-simplex lemma, rank-two classification and exact coset-distance calculations given in `RESULT.md`. The abstract-only 2019 reference is an acknowledged originality risk; independent scientific validation has not been performed.
+## originality
+
+PASS
+
+Adamaszek–Adams prove the underlying scale-two hypercube Rips wedge of three-spheres, while Galetto–Montaño–Wellner 2026 Theorem 5.4 proves its complete rational full-group homology representation. Neither determines geometric fixed subspaces |K_n|^H: traces yield Lefschetz/Euler characteristics for single elements, not homotopy types or simultaneous fixed sets of rank-two groups. The paper Metric thickenings and group actions studies quotients and thickenings generally; its accessible abstract does not establish this exact fixed-space classification, full primary text inaccessible and retained as risk. A same-parameter Rips/Čech query identified only a Čech homology result, a different complex. This exact geometric classification is not a corollary of prior representation theory and passes best-of-knowledge originality.
+
+## value
+
+PASS
+
+Geometric subgroup fixed spaces of an actual high-symmetry Rips complex are intrinsic equivariant-homotopy data, not interchangeable with homology-invariant subspaces. The theorem classifies every nontrivial translation subgroup uniformly and exhibits a sharp empty/cubical graph/discrete-set trichotomy with explicit integral homology; the rank-two phenomenon is not recoverable from an elementwise character table. This is a natural complete equivariant topology classification and useful for testing equivariant models.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
