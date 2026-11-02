@@ -1,0 +1,135 @@
+{
+  "correctness": {
+    "rationale": "For every b≥2,t≥1, folding N modulo b^t-1 decreases N and weakly decreases digit sum until the unique positive representative M<b^t is reached. The residue class forces multiples of b-1. Explicit witnesses W_r=(b^t-1)(b^t+b^r+1) have digit sum (t+r)(b-1), and separated copies of M realize all larger admissible sums. For N<b^(2t), the two-block reduction A+B∈{M,2M} proves that only t(b-1) or 2t(b-1) can occur, while W_r achieves each intermediate weight in exactly 2t+1 digits. Arithmetic and boundary cases were directly reconstructed; `verify.py` tests 1728 constructions, 25200 lower-bound samples and 16 exhaustive small two-block cases. Experiments are not used as proof.",
+    "status": "PASS"
+  },
+  "independent": false,
+  "independent_audit_status": "not_performed",
+  "originality": {
+    "broader_coverage": {
+      "evidence": [
+        "Phunphayap–Noppakaew–Pongsriiam, Theorems 2.1 and 2.4, give the divisibility restriction and all multiples of the original digit sum. For M=b^t-1, this covers only t(b-1),2t(b-1),3t(b-1), ... rather than intermediate (t+r)(b-1).",
+        "Toumi 2025, Theorem 1.2, concerns averaged distribution in modular residue classes under (digit-modulus,q-1)=1, not exact finite integer sum support under a fixed divisibility requirement.",
+        "Dartyge–Luca–Stănică 2009, Theorem 1, is about at least one nontrivial multiple preserving the original digit sum, rather than all prescribed higher sums."
+      ],
+      "reasoning": "An asymptotic distribution of digit-sum residue classes cannot establish the exact minimum, all admissible individual integer weights, and minimal finite base-b length. The broad 2023 directed-arc framework explicitly leaves exact outgoing sets open in general, and neither its stated inclusion nor its construction entails the new intermediate witnesses or short-length rigidity.",
+      "searches": [
+        "\"On digit sums of multiples of an integer\" Dartyge Luca Stanica 2009",
+        "arXiv:2303.13017 Theorem 2.1 2.4 Question 3.2 digit sums multiples",
+        "arXiv:2504.02784 Theorem 1.2 sum-of-digits arithmetic progressions",
+        "\"b^k-1\" \"digit sums\" multiples all values"
+      ]
+    },
+    "checked_sources": [
+      "arXiv:2504.02784 (Toumi 2025, PDF main theorems)",
+      "arXiv:2303.13017 (Phunphayap et al., earliest preprint March 2023, publisher complete text)",
+      "doi:10.1017/S000497271600023X (Elsholtz 2016, binary lower bound)",
+      "doi:10.1016/j.jnt.2009.04.003 (Dartyge–Luca–Stănică 2009)",
+      "OEIS A000120 (binary minimum note)",
+      "Mathematics Stack Exchange question 873650 (decimal 99 minimum)"
+    ],
+    "claim_vs_prior_implication": {
+      "evidence": [
+        "ArXiv 2303.13017, preprint March 23 2023, journal 2025: Theorem 2.4 includes multiples of s_b(M)=t(b-1) and Theorem 2.1 excludes digit sums not divisible by b-1; together these do not fix intermediate sums.",
+        "Elsholtz 2016 quotes an earlier binary minimum (a necessary inequality), with no attained all-weight classification.",
+        "Toumi 2025 Theorems 1.2 and 1.4 concern distribution in residue classes, different from exact support."
+      ],
+      "reasoning": "The previous congruence inclusion plus lower bound does not logically imply attainment of each residue-compatible value above the lower bound. For instance the first intermediate digital weight requires the explicit W_r construction; its shortest length uses a new finite two-block exhaustion. The current proof thus adds information not entailed by the inspected prior statements.",
+      "searches": [
+        "Directed graphs integers sum digits Out(s_b,b^t-1), spectrum and Frobenius cutoff",
+        "Digit sums of multiples arithmetic progressions sharp length threshold for b^t - 1",
+        "\"Directed graphs of integers with arcs determined by an arithmetic function\" 2023 arxiv 2303.13017",
+        "\"The level of distribution of the sum-of-digits function in arithmetic progressions\" 2504.02784",
+        "\"Almost all primes have a multiple of small Hamming weight\" 2016"
+      ]
+    },
+    "equivalent_formulations": {
+      "evidence": [
+        "Elsholtz, Bull. Aust. Math. Soc. 94 (2016), Theorem 3.9 proof on p.232 states preexisting binary minimum weight n but not full exact spectrum or sharp 2n+1 witness length.",
+        "OEIS A000120 records 2020 note s_2(m(2^n-1))≥n but not all attainable weights.",
+        "Specific 2014 Mathematics Stack Exchange question 873650 proves the lower bound for decimal multiples of 99, not its full spectrum."
+      ],
+      "reasoning": "The digital-weight/Hamming-weight formulation is an exact alias in base two. All visible lower bounds are necessary conditions only. They do not imply existence of every weight above n, nor the sharp initial intermediate shortest length. No equivalent complete theorem was found; a failed search is not itself proof of novelty.",
+      "searches": [
+        "\"b^t-1\" \"digit sum\" multiples exact weights first t(b-1) lower bound, shortest length 2t+1",
+        "Every multiple of 2^n-1 has Hamming weight at least n; every weight n+r is possible with shortest binary length 2n+1",
+        "\"multiples of 2^n-1\" \"2n+1\" hamming weight n+1",
+        "\"b^n-1\" \"2n+1\" \"digit sum\"",
+        "OEIS A000120 binary Mersenne multiples lower bound"
+      ]
+    },
+    "exact_database_or_table": {
+      "evidence": [
+        "OEIS A000120 includes the known lower bound, but no indicated all-weight spectrum or exact intermediate shortest-length table.",
+        "The 2014 discussion of decimal 99 proves only impossibility of digit sum 9; it provides no all-base or all-exponent classification."
+      ],
+      "reasoning": "The closest small-invariant entries list preexisting minimum digit sums. The theorem gives an infinite two-parameter exact spectrum and a length rigidity statement not implied by those entries. An exhaustive database priority check is not claimed.",
+      "searches": [
+        "OEIS A000120 base-2 population count Mersenne multiples",
+        "\"multiples of 99\" \"sum of digits\" 18 27",
+        "\"2^k-1\" \"Hamming weight\" \"multiples\" \"every\""
+      ]
+    },
+    "rationale": "A universal exact support formula and sharp intermediate shortest-length rigidity were not entailed by the closest published results. The 2016 binary lower bound and 2023 arc-set congruence and concatenation theorems are expressly credited; these do not prove the missing intermediate weights, which are constructed here. Primary 2025 arithmetic-progression paper studies asymptotic residue distribution and first-hitting issues (Remark 1.1), but not the exact intermediate first-hitting lengths or support in this family; targeted published-finding corpus and historical-claim comparisons returned no covering counterpart. Residual independent priority uncertainty is acknowledged.",
+    "residual_risks": [
+      "Equivalent exact spectra might be folklore, a competition exercise, or formulated in digital-sum literature under different terminology.",
+      "Priority comparisons were limited to accessible primary papers, searchable literature and previous accessible claims, not an exhaustive universal search.",
+      "The direct arc-set predecessor was first public in March 2023; its later 2025 journal publication has not been treated as the first public date."
+    ],
+    "source_inspections": [
+      {
+        "assessment": "NOT_COVERING: averaged asymptotic residue-class distribution, not fixed integer digit-sum support or shortest witnesses.",
+        "evidence": [
+          "arXiv:2504.02784v1, pp. 1-8, first-hitting Remark 1.1 (p. 2) and Theorem 1.2 (p. 6)."
+        ],
+        "identifier_or_url": "https://arxiv.org/pdf/2504.02784",
+        "material_read": "Full table of contents, introductory first-hitting Remark 1.1, hypotheses and main Theorems 1.2 and 1.4 (PDF pages 1-8), plus text find for maximal-digit repdigit moduli.",
+        "method": "Direct publisher-equivalent arXiv PDF text and rendered screenshots of title and main theorem page.",
+        "title": "The level of distribution of the sum-of-digits function in arithmetic progressions",
+        "trigger": "Recent primary study of digit sums on arithmetic progressions; possible distribution theorem subsuming an exact-support statement."
+      },
+      {
+        "assessment": "NOT_COVERING for the exact family: only a congruence obstruction and inclusion of original digit-sum multiples, with relevant exact-spectrum questions open.",
+        "evidence": [
+          "arXiv:2303.13017v1, 2023-03-23; 2025 published version Theorems 2.1, 2.4 and Questions 3.2–3.4."
+        ],
+        "identifier_or_url": "https://arxiv.org/abs/2303.13017; https://doi.org/10.61091/um124-06",
+        "material_read": "Full-text published article (sections 1-3, especially Theorems 2.1, 2.4, Examples 2.7-2.8, Questions 3.1-3.4), and preprint date checked.",
+        "method": "Publisher open full text and PDF page inspection, matched to earliest arXiv version.",
+        "title": "Directed graphs of integers with arcs determined by an arithmetic function",
+        "trigger": "Direct predecessor introducing Out(s_b,n) and asking for complete spectra; same paper first public in 2023 despite 2025 journal date."
+      },
+      {
+        "assessment": "PARTIAL_COVERAGE: known binary lower bound, not complete attainable weights or shortest intermediate witness length.",
+        "evidence": [
+          "Elsholtz 2016, proof of Theorem 3.9, p.232 quotes minimum weight n for multiples of 2^n-1."
+        ],
+        "identifier_or_url": "https://doi.org/10.1017/S000497271600023X",
+        "material_read": "Full introductory statements, Theorem 3.9 and its proof at printed page 232, with exact PDF screenshot.",
+        "method": "Open publisher full-text PDF, inspected proof and screenshot page 9 (zero-index 8).",
+        "title": "Almost all primes have a multiple of small Hamming weight",
+        "trigger": "Plausibly stronger binary Mersenne Hamming-weight coverage."
+      },
+      {
+        "assessment": "NOT_COVERING: equality of original digit sum for a nontrivial multiple and density of sturdy numbers, not full support or length cutoff.",
+        "evidence": [
+          "Dartyge–Luca–Stănică, JNT 129 (2009), pp.2820-2823, Theorem 1 and its proof."
+        ],
+        "identifier_or_url": "https://faculty.nps.edu/pstanica/research/2009JNT_digit-sums-multiple.pdf",
+        "material_read": "Abstract, introduction, stated Theorems 1, 2 and 4, and proof of Theorem 1, with rendered first-page screenshot.",
+        "method": "Authorized author-hosted lawful full PDF, searched relevant theorem statements and inspected proof.",
+        "title": "On digit sums of multiples of an integer",
+        "trigger": "Broad earlier paper on arbitrary digit sums of multiples could imply special case."
+      }
+    ],
+    "status": "PASS"
+  },
+  "review_type": "self_review",
+  "schema_version": 1,
+  "scope_run_id": "d321d110-8c05-40de-bacc-e00dbcc50b4f",
+  "self_review_status": "passed",
+  "value": {
+    "rationale": "The complete all-base, all-exponent digital-weight spectrum of the natural moduli b^t-1 is a motivated exact arithmetic invariant, and its first intermediate weights have a sharp attained least digit length 2t+1. This resolves a natural special family of exact support questions left undetermined by congruence restrictions, and supplies more than a cheap normalization or numerical list. It does not give general modulus spectra or optimal lengths beyond the first gap.",
+    "status": "PASS"
+  }
+}
