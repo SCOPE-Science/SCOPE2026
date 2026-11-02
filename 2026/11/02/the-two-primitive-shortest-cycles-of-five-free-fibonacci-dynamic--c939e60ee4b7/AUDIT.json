@@ -1,0 +1,108 @@
+{
+  "correctness": {
+    "rationale": "For any positive period-six orbit, the six linear equations with coefficients 5 raised to nonnegative integer exponents have a nontrivial kernel. An exact Leibniz expansion gives the weighted six-cycle independent-set determinant. Modulo five, only 12 division supports survive; the no-division and all-division cases are separately excluded. The normalized independent-set sum is strictly decreasing in each divided coefficient and is already one at exponent one, so all positive exponents must equal one. Two cyclic support classes each have a one-dimensional rational kernel, with explicit primitive generators and direct valid valuations. The parity recurrence excludes nonmultiples of three; a maximum-entry argument excludes period three. The standalone standard-library verifier replayed exact determinant coefficients, 12 supports, matrix ranks and both trajectories. No finite data are treated as proof of an unbounded statement.",
+    "status": "PASS"
+  },
+  "independent": false,
+  "independent_audit_status": "not_performed",
+  "originality": {
+    "broader_coverage": {
+      "evidence": [
+        "Avila--Khovanova, 2014, Lemma 28: odd-base cycle length divisible by three",
+        "Avila--Khovanova, 2014, Section 9: two primitive cycles exhibited, further cycles not classified"
+      ],
+      "reasoning": "Odd-base divisibility by three is necessary but not sufficient to enumerate period-six orbits. The broad statements inspected concern existence, parity restrictions, and conjectural longer-term behavior, not a complete period-six census. No dominating theorem was identified.",
+      "searches": [
+        "\"Free Fibonacci Sequences\" cycles theorem five",
+        "five-free Fibonacci arbitrary starting pairs periodic cycles complete theorem",
+        "Avila Khovanova n-free Fibonacci cycles period six"
+      ]
+    },
+    "checked_sources": [
+      "https://arxiv.org/html/1403.4614",
+      "https://arxiv.org/abs/1403.4614",
+      "https://cs.uwaterloo.ca/journals/JIS/VOL17/Avila/avila4.pdf",
+      "https://oeis.org/A214684"
+    ],
+    "claim_vs_prior_implication": {
+      "evidence": [
+        "Journal of Integer Sequences 17 (2014), Article 14.8.5, page 14: both examples followed by discussion of possible additional cycles",
+        "Journal of Integer Sequences 17 (2014), Article 14.8.5, page 15: any odd-base cycle has period divisible by three"
+      ],
+      "reasoning": "Both printed examples are precisely the present representatives, hence their existence cannot be called novel. The paper explicitly discusses unknown further cycles, so its statements do not logically imply that there are exactly two primitive least-period-six orbits. The new determinant-plus-modular-support argument supplies this nonimplication gap. Its scope is strictly least period six and does not claim to settle longer cycles.",
+      "searches": [
+        "2014 free Fibonacci six-cycle all primitive classifications",
+        "\"Though we did not find any more cycles\" Fibonacci",
+        "\"All the primitive cycles\" \"5-free\""
+      ]
+    },
+    "equivalent_formulations": {
+      "evidence": [
+        "Avila--Khovanova, arXiv:1403.4614v1, Sections 2 and 9",
+        "Avila--Khovanova, Journal of Integer Sequences 17 (2014), Article 14.8.5, pp. 14–15"
+      ],
+      "reasoning": "Checked the recurrence formulation, the companion map (a,b) to (b,(a+b)/highest power of five), primitive orbit representatives up to cyclic rotation, and periodic versus exact-period-six wording. Both previously printed trajectories match the present two outputs, but neither source establishes there cannot be a third positive primitive six-cycle.",
+      "searches": [
+        "\"5-free Fibonacci\" \"cycles\" \"only\" six",
+        "\"5-free Fibonacci\" \"period 6\" \"4 3 7 2 9 11\"",
+        "\"free Fibonacci sequences\" cycle classification period 6",
+        "positive periodic points of five-free Fibonacci map least period 6"
+      ]
+    },
+    "exact_database_or_table": {
+      "evidence": [
+        "OEIS A214684 gives the initial pair (1,1) and its six-period output",
+        "Avila--Khovanova (2014), Section 9 explicitly prints both primitive cycles"
+      ],
+      "reasoning": "The database and original paper already cover the two explicit sequences as examples. A list of these examples does not prove completeness among arbitrary positive initial pairs; the new mathematical claim is the missing universal exclusion.",
+      "searches": [
+        "OEIS A214684 five-free Fibonacci",
+        "OEIS five-free Fibonacci cycles 4 3 7 2 9 11",
+        "\"5-free Fibonacci\" \"period 6\""
+      ]
+    },
+    "rationale": "Avila--Khovanova (2014), Section 9, exhibits the same two primitive cycles and explicitly leaves whether more exist unresolved. Its Lemma 28 provides only the period-divisibility condition, not exhaustion at period six. The new theorem does not claim discovery of those cycles, but classifies every positive six-cycle for unbounded seeds and valuation exponents. OEIS A214684 records only the first seeded cycle. Targeted equivalent, broader, and table searches found no decisive complete classification; this is not asserted to establish global uniqueness across all literature.",
+    "residual_risks": [
+      "An unlocated later work or a general cyclic-division recurrence theorem might establish the same period-six completeness indirectly.",
+      "The result does not resolve whether primitive five-free cycles of least period greater than six exist."
+    ],
+    "source_inspections": [
+      {
+        "assessment": "Covers the two examples and a necessary period-divisibility fact; does not print or prove that these exhaust period six.",
+        "evidence": "arXiv:1403.4614v1, Sections 2 and 9",
+        "identifier_or_url": "https://arxiv.org/html/1403.4614",
+        "material_read": "Abstract, introduction, recurrence in Section 2, cycle discussion in Sections 4 and 7–9, and parity-cycle lemma in Section 9.",
+        "method": "Read arXiv full-text HTML with attention to theorem statements and the exact two primitive cycles.",
+        "title": "Free Fibonacci Sequences (original preprint)",
+        "trigger": "Source defining and investigating five-free Fibonacci dynamics and its shortest observed cycles"
+      },
+      {
+        "assessment": "Explicitly displays both cycles, indicates further cycles may exist, and states the multiple-of-three bound; no period-six exhaustion.",
+        "evidence": "J. Integer Seq. 17 (2014), 14.8.5, printed pp. 14–15",
+        "identifier_or_url": "https://cs.uwaterloo.ca/journals/JIS/VOL17/Avila/avila4.pdf",
+        "material_read": "Journal PDF recurrence definition on p. 2 and Section 9 on pp. 14–15, including the paragraph following the second primitive cycle and Lemma 28; both relevant page images were inspected.",
+        "method": "Publisher full PDF text and direct rendered-page inspection of the closest material.",
+        "title": "Free Fibonacci Sequences (journal version)",
+        "trigger": "Journal version could strengthen or alter the pertinent preprint statement"
+      },
+      {
+        "assessment": "Contains only the orbit from initial pair (1,1), not a classification over arbitrary seeds.",
+        "evidence": "OEIS A214684: originally by John W. Layman, Jul 25 2012",
+        "identifier_or_url": "https://oeis.org/A214684",
+        "material_read": "Definition, initial-seed data, period comment, cited paper, and author-date field.",
+        "method": "Direct database page inspection.",
+        "title": "OEIS A214684",
+        "trigger": "Exact table/database for one of the primitive cycles and earliest identified public object date"
+      }
+    ],
+    "status": "PASS"
+  },
+  "review_type": "self_review",
+  "schema_version": 1,
+  "scope_run_id": "c939e60e-e4b7-424a-817e-8acb799eafb5",
+  "self_review_status": "passed",
+  "value": {
+    "rationale": "The smallest base known to support both division-free infinite growth and positive recurrent cycles has two explicit primitive six-cycles known since 2014, but their uniqueness at the shortest possible period was not established in the inspected source. The theorem completely resolves that natural first-period classification over all unbounded positive seeds and arbitrarily large potential valuations. The determinant/independence-polynomial obstruction explains structural exhaustion rather than merely extending a computational table. No claim is made about all longer cycles.",
+    "status": "PASS"
+  }
+}
