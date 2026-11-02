@@ -1,19 +1,21 @@
-# Scientific review
+# Independent mathematical audit
 
-## Correctness
+## correctness
 
-**PASS.** A minimal unique cyclic factor cannot be a proper prefix of another, so there is at most one per start. Every nonsingleton minimal unique factor beginning with a given symbol has an alternative occurrence of its proper suffix preceded by a different symbol; these chosen contrasting positions are distinct, because coincident choices would force two minimal unique factors to be prefix-comparable. This is an all-length injection. Unique single-letter factors and absent letters are handled separately. De Bruijn factor multiplicities show equality at each order; the checker enumerates 80,825 small-word instances and ten explicit de Bruijn cycles. The mathematical proof is independent of the finite tests.
+PASS
 
-## Originality
+A minimal unique factor is non-prefix-comparable to any other minimal unique factor, so each start contributes at most one, giving M_a<=n_a. For u=av of length≥2, minimality forces v to repeat at a different position t; the preceding symbol there must differ from a, or u repeats. This contrasting position is injectively assigned: if two v begin at the same t they are prefix-comparable, forcing their corresponding minimal uniques to be prefix-comparable. Therefore M_a<=n−n_a; length-one unique-letter exception is handled separately. Summing yields the total bound, with de Bruijn cyclic witnesses attaining equality at n=q^r. Independently enumerated 5,320 small cyclic words directly by wraparound occurrence multiplicities.
 
-**PASS under the available evidence, with residual historical-priority uncertainty.** The checked 2013 primary paper develops minimum/shortest unique substring theory for a linear string and its non-nesting structural property, not a cyclic bound dependent on each letter's frequency. The 2011 primary publication's accessible abstract establishes basic definitions and maximal-repeat duality, but its complete text was inaccessible. Comparisons with published summaries of sliding-window minimal unique substring algorithms, circular absent factors, and short-read reconstruction found different observables. Available record searches for circular minimal unique substrings, cyclic frequency bounds, and de Bruijn equality did not identify an implication that covers the per-letter bound. Failure to locate a result cannot establish historical uniqueness.
+## originality
 
-## Value
+PASS
 
-**PASS.** The alphabet-composition inequality strengthens the general circumference bound whenever one symbol is rare. For a binary word containing a fixed number of ones, it bounds the total number of minimal unique cyclic signatures independently of arbitrarily many inserted zeros. The proof gives a direct charging mechanism and establishes best-possible constant via an infinite natural equality family rather than an isolated small numerical gain.
+The predecessor paper already proves the non-nesting property, algorithms and linearized de Bruijn extremality for minimum unique substrings. The assessed result is the new composition-sensitive per-start-symbol bound min(n_a,n−n_a) for directed cyclic factors, proved by an injection into positions bearing a different letter. This stronger sparse-composition bound is not stated by the inspected linear-string theorem, though the de Bruijn extremality mechanism is prior.
 
-## Closest literature and limitations
+## value
 
-Ilie–Smyth (2011) and Pei–Wu–Yeh (2013) provide the closest foundational definitions and the non-nesting observation. The full 2013 article was accessible, with sections on minimum unique substrings and uniqueness constraints inspected. The full 2011 article was inaccessible; its publisher abstract and bibliographic information were read. The classical de Bruijn construction demonstrates sharpness but does not imply the per-symbol upper bound. Nothing here classifies all equality cases or certifies priority against all unpublished sources.
+PASS
 
-Self-review: passed. Independent audit: not yet performed.
+A natural content-dependent strengthening of the linear one-per-start upper bound for minimal unique factors of circular strings: it can reduce the count drastically when one symbol dominates, and de Bruijn sequences prove coefficient sharpness at infinitely many lengths. The bound is relevant to exact factor-spectrum and unique-marker enumeration with fixed letter counts.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

@@ -1,0 +1,129 @@
+{
+  "audit_date_utc": "2026-10-31",
+  "audited_at_utc": "2026-10-31T02:53:17.882985Z",
+  "axes": {
+    "correctness": {
+      "checked_sources": [
+        "Frozen Git RESULT.md, cyclic_mus_verify.py, tree SHA 5598328b0f7931048cbbd4d199b670d351666747",
+        "Independent direct substring-frequency enumeration over 5,320 words",
+        "Ilie and Smyth (2011) linear minimal unique definitions"
+      ],
+      "rationale": "A minimal unique factor is non-prefix-comparable to any other minimal unique factor, so each start contributes at most one, giving M_a<=n_a. For u=av of length≥2, minimality forces v to repeat at a different position t; the preceding symbol there must differ from a, or u repeats. This contrasting position is injectively assigned: if two v begin at the same t they are prefix-comparable, forcing their corresponding minimal uniques to be prefix-comparable. Therefore M_a<=n−n_a; length-one unique-letter exception is handled separately. Summing yields the total bound, with de Bruijn cyclic witnesses attaining equality at n=q^r. Independently enumerated 5,320 small cyclic words directly by wraparound occurrence multiplicities.",
+      "residual_risks": [
+        "Finite checks do not prove arbitrary word length; the injection is the unrestricted proof. Equality for every fixed composition is not claimed."
+      ],
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Ilie and Smyth, Minimum Unique Substrings and Maximum Repeats, Fundamenta Informaticae 110 (2011), DOI 10.3233/FI-2011-536 Theorem 3 identifies de Bruijn strings as extremizers for linear words of length q^r+r−1, giving q^r minimal unique substrings.",
+          "Resultary 2026/10/4/SCOPE-complete-length-12-binary-string-attractor-census-28-size-four-w--7d9ddd4b7925 studies string attractor size, not composition-sensitive minimal-unique counts."
+        ],
+        "reasoning": "The prior de Bruijn sharpness conclusion overlaps and is credited. It does not bound the number starting with one symbol by n−n_a in arbitrary cyclic words. General string-attractor census likewise does not imply the claimed per-letter injection.",
+        "searches": [
+          "composition-sensitive number of minimal unique cyclic substrings bounding by minimum per-symbol frequency n_a and n-n_a injectivity de Bruijn sharp",
+          "minimal unique substring maximal repeats de Bruijn extremal occurrence composition"
+        ]
+      },
+      "checked_sources": [
+        "Ilie and Smyth, Minimum Unique Substrings and Maximum Repeats, Fundamenta Informaticae 110 (2011), DOI 10.3233/FI-2011-536",
+        "Pei, Wu and Yeh, On Shortest Unique Substring Queries, ICDE (2013)",
+        "Resultary query: composition-sensitive number of minimal unique cyclic substrings bounding by minimum per-symbol frequency n_a and n-n_a injectivity de Bruijn sharp"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "Ilie and Smyth, Minimum Unique Substrings and Maximum Repeats, Fundamenta Informaticae 110 (2011), DOI 10.3233/FI-2011-536 Sections 3-6 give linear minimal unique substrings, non-nesting, and de Bruijn characterization.",
+          "Pei, Wu and Yeh, On Shortest Unique Substring Queries, ICDE (2013) addresses query problem and endpoints, not a cyclic fixed-content bound."
+        ],
+        "reasoning": "The old general bound ≤n_a for each letter alone allows all n_a starts to be minimal unique even when a dominates the word. The new contrasting-position injection forces M_a ≤ n−n_a and hence a stronger binary O(min(k,n−k)) bound. The inherited de Bruijn witnesses show optimality only along balanced compositions.",
+        "searches": [
+          "composition-sensitive number of minimal unique cyclic substrings bounding by minimum per-symbol frequency n_a and n-n_a injectivity de Bruijn sharp",
+          "Ilie Smyth 2011 theorem 3 de Bruijn minimum unique substrings"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Ilie and Smyth, Minimum Unique Substrings and Maximum Repeats, Fundamenta Informaticae 110 (2011), DOI 10.3233/FI-2011-536 defines minimum unique substrings on finite linear strings and obtains a general one-per-start bound.",
+          "Pei, Wu and Yeh, On Shortest Unique Substring Queries, ICDE (2013) addresses shortest unique substring queries, which are not necessarily minimal on both ends."
+        ],
+        "reasoning": "Cyclic occurrence multiplicity with wrapping is different from linear substrings with sentinels or boundary ends. Switching from minimal unique factors to their unique starting positions is legitimate, but the contrasting-letter injection adds a frequency bound absent from the linear one-per-position counting fact.",
+        "searches": [
+          "composition-sensitive number of minimal unique cyclic substrings bounding by minimum per-symbol frequency n_a and n-n_a injectivity de Bruijn sharp",
+          "minimum unique substrings maximum repeats cyclic necklaces color frequency bound"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "Independent exhaustive 5,320 binary and ternary cyclic words across q=2,n=2..10 and q=3,n=2..7 verify all per-letter and total bounds.",
+          "Ilie and Smyth, Minimum Unique Substrings and Maximum Repeats, Fundamenta Informaticae 110 (2011), DOI 10.3233/FI-2011-536 de Bruijn examples and Theorem 3 cover the established sharp unconditioned count, not fixed-composition inequality."
+        ],
+        "reasoning": "The finite census checks boundary cases and is not an exhaustive all-n proof. No identified table of the same fixed-content per-letter invariant dominates the injection theorem.",
+        "searches": [
+          "composition-sensitive number of minimal unique cyclic substrings bounding by minimum per-symbol frequency n_a and n-n_a injectivity de Bruijn sharp",
+          "cyclic minimal unique substrings count fixed binary content composition n ones"
+        ]
+      },
+      "rationale": "The predecessor paper already proves the non-nesting property, algorithms and linearized de Bruijn extremality for minimum unique substrings. The assessed result is the new composition-sensitive per-start-symbol bound min(n_a,n−n_a) for directed cyclic factors, proved by an injection into positions bearing a different letter. This stronger sparse-composition bound is not stated by the inspected linear-string theorem, though the de Bruijn extremality mechanism is prior.",
+      "residual_risks": [
+        "Cyclic stringology literature under other terms may contain a similar contrasting-symbol injection.",
+        "The claim establishes a sharp uniform coefficient along de Bruijn lengths; it does not characterize equality for every prescribed composition."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "General linear-string upper bound and de Bruijn extremizers are prior; no cyclic per-symbol min(n_a,n−n_a) theorem located.",
+          "evidence": [
+            "Ilie and Smyth, Minimum Unique Substrings and Maximum Repeats, Fundamenta Informaticae 110 (2011), DOI 10.3233/FI-2011-536",
+            "Section 6 Theorem 3: q^r minimal unique substrings for a linearized de Bruijn string"
+          ],
+          "identifier_or_url": "https://www.cas.mcmaster.ca/~bill/best/algorithms/11MinUnique.pdf",
+          "material_read": "Complete author-hosted primary article PDF including definitions, non-nesting, Theorem 1, algorithms, Section 6 and Theorem 3 on linear de Bruijn strings; inspected p4 image",
+          "method": "Read primary PDF text and page image; compared cyclic count convention, symbol-dependent bounds and known extremal examples",
+          "title": "Minimum Unique Substrings and Maximum Repeats",
+          "trigger": "Identical minimal unique substring invariant and de Bruijn extremizers"
+        },
+        {
+          "assessment": "No evidence that this different query algorithm determines the claimed cyclic composition-sensitive bound.",
+          "evidence": [
+            "Pei–Wu–Yeh 2013, Section II, Definition 1 (minimal unique substring) and shortest unique substring query distinct from cyclic fixed-composition factor counting."
+          ],
+          "identifier_or_url": "https://www.cs.sfu.ca/~jpei/publications/Shortest%20Unique%20Substring%20Queries%20ICDE13.pdf",
+          "material_read": "Public 12-page author-hosted full PDF: abstract, introduction, Section II definitions of minimal unique substrings, problem formulation and related algorithmic sections.",
+          "method": "Read actual full-text PDF with primary definitions and paper structure; compared query-centred shortest uniqueness and cyclic minimality.",
+          "title": "On Shortest Unique Substring Queries",
+          "trigger": "Related non-nesting and shortest unique substrings, possible stronger bound"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "checked_sources": [
+        "Ilie and Smyth, Minimum Unique Substrings and Maximum Repeats, Fundamenta Informaticae 110 (2011), DOI 10.3233/FI-2011-536",
+        "Cyclic injection proof and de Bruijn witness"
+      ],
+      "rationale": "A natural content-dependent strengthening of the linear one-per-start upper bound for minimal unique factors of circular strings: it can reduce the count drastically when one symbol dominates, and de Bruijn sequences prove coefficient sharpness at infinitely many lengths. The bound is relevant to exact factor-spectrum and unique-marker enumeration with fixed letter counts.",
+      "residual_risks": [
+        "The de Bruijn examples and general non-nesting are classical; novelty is restricted to per-letter contrasting-position bound."
+      ],
+      "status": "PASS"
+    }
+  },
+  "checked_sources": [
+    "Frozen Git RESULT.md, cyclic_mus_verify.py, tree SHA 5598328b0f7931048cbbd4d199b670d351666747",
+    "Independent direct substring-frequency enumeration over 5,320 words",
+    "Ilie and Smyth (2011) linear minimal unique definitions",
+    "Ilie and Smyth, Minimum Unique Substrings and Maximum Repeats, Fundamenta Informaticae 110 (2011), DOI 10.3233/FI-2011-536",
+    "Pei, Wu and Yeh, On Shortest Unique Substring Queries, ICDE (2013)",
+    "Resultary query: composition-sensitive number of minimal unique cyclic substrings bounding by minimum per-symbol frequency n_a and n-n_a injectivity de Bruijn sharp",
+    "Cyclic injection proof and de Bruijn witness"
+  ],
+  "disposition": "passed",
+  "limitations": "Scientific conclusion is best-of-knowledge and not an external certificate. Independent finite checks only establish the explicitly described finite instances; analytically proved bounds apply to the quantified scope. Publication remains withheld for unsanitized provenance.",
+  "residual_risks": [
+    "Finite checks do not prove arbitrary word length; the injection is the unrestricted proof. Equality for every fixed composition is not claimed.",
+    "Cyclic stringology literature under other terms may contain a similar contrasting-symbol injection.",
+    "The claim establishes a sharp uniform coefficient along de Bruijn lengths; it does not characterize equality for every prescribed composition.",
+    "The de Bruijn examples and general non-nesting are classical; novelty is restricted to per-letter contrasting-position bound."
+  ],
+  "schema_version": 1
+}

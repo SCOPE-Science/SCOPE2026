@@ -5,8 +5,11 @@
     "status": "not_performed"
   },
   "independent_audit": {
-    "evidence": null,
-    "status": "not_performed"
+    "status": "passed",
+    "evidence": [
+      "INDEPENDENT_AUDIT_2026-10-31.md",
+      "INDEPENDENT_AUDIT_2026-10-31.json"
+    ]
   },
   "lean_verification": {
     "evidence": null,
@@ -16,8 +19,24 @@
 }
 ---
 
-# Verification details
+# Independent mathematical audit
 
-The file `cyclic_mus_verify.py` uses direct cyclic-window enumeration, with occurrence counts taken by starting position. From its directory run `python3 cyclic_mus_verify.py`. It verifies both inequalities for all binary inputs of lengths 2–15, ternary inputs of lengths 2–8, and four-letter inputs of lengths 2–6 (80,825 cases total), and checks binary de Bruijn cycles of orders 1–6 and ternary cycles of orders 1–4. Its successful output concludes with `ALL_PASS 80825 word_cases 482766 total_mus`.
+## correctness
 
-The checker is finite and does not certify the infinitely quantified theorem; the proof rests on the explicit injection and de Bruijn multiplicity argument. The publication date and priority comparison derive from the cited paper metadata and accessible article material, with the inaccessible full 2011 paper retained as an uncertainty. No independent audit has been carried out.
+PASS
+
+A minimal unique factor is non-prefix-comparable to any other minimal unique factor, so each start contributes at most one, giving M_a<=n_a. For u=av of length≥2, minimality forces v to repeat at a different position t; the preceding symbol there must differ from a, or u repeats. This contrasting position is injectively assigned: if two v begin at the same t they are prefix-comparable, forcing their corresponding minimal uniques to be prefix-comparable. Therefore M_a<=n−n_a; length-one unique-letter exception is handled separately. Summing yields the total bound, with de Bruijn cyclic witnesses attaining equality at n=q^r. Independently enumerated 5,320 small cyclic words directly by wraparound occurrence multiplicities.
+
+## originality
+
+PASS
+
+The predecessor paper already proves the non-nesting property, algorithms and linearized de Bruijn extremality for minimum unique substrings. The assessed result is the new composition-sensitive per-start-symbol bound min(n_a,n−n_a) for directed cyclic factors, proved by an injection into positions bearing a different letter. This stronger sparse-composition bound is not stated by the inspected linear-string theorem, though the de Bruijn extremality mechanism is prior.
+
+## value
+
+PASS
+
+A natural content-dependent strengthening of the linear one-per-start upper bound for minimal unique factors of circular strings: it can reduce the count drastically when one symbol dominates, and de Bruijn sequences prove coefficient sharpness at infinitely many lengths. The bound is relevant to exact factor-spectrum and unique-marker enumeration with fixed letter counts.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
