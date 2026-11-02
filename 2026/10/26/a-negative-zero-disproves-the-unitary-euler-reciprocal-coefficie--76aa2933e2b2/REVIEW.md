@@ -1,19 +1,21 @@
-# Scientific review
+# Independent mathematical audit
 
-## Correctness — PASS
+## correctness
 
-The geometric-series rearrangement \(1/(2^n-1)=\sum_{j\ge1}2^{-jn}\) is absolutely justified in \(|z|<2\). On the negative real segment it gives a continuous strictly decreasing function whose endpoint signs follow from \(\sum_{j\ge1}(2^j+1)^{-1}<1\) and the exact six-term rational inequality \(65011734/64203755>1\). The derivative series is convergent and strictly positive at the root, making it simple. A pole within radius \(3/2\) forces \(\limsup|b_n|^{1/n}>2/3\), contradicting \(O(2^{-n})\). Exact rational arithmetic confirms the critical finite inequality and the stated initial inverse coefficients. No finite experiment substitutes for the analytic uniqueness or convergence-radius argument.
+PASS
 
-## Originality — PASS (subject to residual priority risk)
+For |z|<2, S(z)=1+sum_{n≥1}z^n/(2^n−1)=1+sum_{j≥1}z/(2^j−z), by absolute double-series convergence. Thus S(−x)=1−F(x), F(x)=sum_j x/(2^j+x), strictly increasing and continuous for 0<x<2. F(1)<sum_j2^(−j)=1. An independent fractions.Fraction evaluation of the six terms at x=3/2 returns 65011734/64203755=1+807979/64203755, strictly exceeding 1. Therefore the unique α∈(1,3/2) with S(−α)=0 is simple since S′(−α)=sum_j 2^j/(2^j+α)^2>0. The pole of the analytic reciprocal 1/S at −α forces Taylor radius R≤α<3/2, contradicting b_n=O(2^(−n)), which would imply R≥2 by Cauchy–Hadamard. Independent root computation places α≈1.4285065080 but is not a proof of uniqueness; monotonicity is. No claim about nonreal zeros, leading coefficient asymptotics or improving the arithmetic alternating-sum remainder.
 
-The same defining series and the asserted \(2^{-n}\) bound appear verbatim as Open Problem 41 of arXiv:1608.00795v1 and Open Problem 44 of the published 2017 version. Those inspected primary documents state the bound as conjectural, not established. Zurita (2020), Section 4.5, covers the **direct** Bell series of the unitary Euler function, plus a separate prospective reciprocal alternating-sum result; neither supplies the negative zero or contradicts the proposed inverse-coefficient decay. The nearby problem numbered 41 solved there is a sum-of-unitary-divisors problem, not Tóth's unitary Euler inverse-coefficient problem. OEIS A065442 treats the value of the related sum at \(z=1\), not zeros at negative \(z\). Targeted literature searches, semantic mathematical-record searches, and published mathematical records disclosed no covering zero-location result. As with any literature search, unindexed earlier analysis may remain undiscovered.
+## originality
 
-## Value — PASS
+PASS
 
-This establishes a rigorous negative answer to a named, published conjecture on coefficients required in an arithmetic asymptotic method. It does more than exhibit a numerical anomaly: a six-term rational certificate identifies an unavoidable simple pole and forces the uniform asymptotic obstruction \(\limsup|b_n|^{1/n}>2/3\). The result identifies which proposed route to a sharper error term fails, while properly leaving the error term itself undecided.
+The original 2017 Tóth primary article explicitly labels the 1/φ* reciprocal Bell-series coefficient estimate b_n≪2^(−n) as Open Problem 44 (and the 2016 preprint labels it Problem 41). Its listed coefficients agree with exact formal inversion. The inspected 2020 Zurita JIS paper §4.5 addresses direct unitary-Euler Bell series, not the negative zero of S_{1/φ*}; its statement about solving a problem numbered 41 earlier in the text concerns a different arithmetic function/problem. Neither inspected primary work states the simple negative zero or the radius obstruction. A previous unindexed analysis of this Lambert-series zero remains an explicit priority risk.
 
-## Scope and remaining risks
+## value
 
-The claim does not characterize nonreal zeros, identify the nearest complex singularity, or prove a full reciprocal coefficient asymptotic. The precise historical novelty remains contingent on uncatalogued Lambert-series literature. The proof and checker have been evaluated here, not independently audited.
+PASS
 
-Self-review: passed. Independent audit: not yet performed.
+A short exact analytic obstruction resolves a precisely stated conjecture from a published open-problem list, and identifies a true pole that rules out the proposed exponential coefficient bound. It also separates the false coefficient heuristic from the still-open possibility of a better arithmetic-sum error estimate by a different method. The mathematical value is the decisive counterexample to a named coefficient conjecture, not merely a numerical root.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
