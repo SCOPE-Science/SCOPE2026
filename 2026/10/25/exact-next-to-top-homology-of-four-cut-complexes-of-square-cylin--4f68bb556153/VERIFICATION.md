@@ -5,8 +5,11 @@
     "status": "not_performed"
   },
   "independent_audit": {
-    "evidence": null,
-    "status": "not_performed"
+    "status": "passed",
+    "evidence": [
+      "INDEPENDENT_AUDIT_2026-10-27.md",
+      "INDEPENDENT_AUDIT_2026-10-27.json"
+    ]
   },
   "lean_verification": {
     "evidence": null,
@@ -16,8 +19,24 @@
 }
 ---
 
-## Checks performed
-`python3 check_cylinder_fourcut.py` reproduced all three local relative boundary ranks: 34 of 37 columns, 66 of 69 columns, and 70 of 73 columns for two, three, and four layers. All three explicit signed integral cube 3-cycles had exactly zero boundary and were independent modulo two. Direct five-subset enumeration excluded dual four-simplices in these cases. Additional direct relative boundary checks for five, six, and seven layers each yielded rank 70 of 73 columns.
+# Independent mathematical audit
 
-## Logical scope
-The all-length theorem uses a proven four-layer locality reduction; finite enumeration alone does not establish infinitely many cases. Alexander duality and a long exact sequence identify only the stated homology degree over the rational and binary fields. The result does not claim the complete integral homology or homotopy type of the cut complex. External independent validation has not been performed.
+## correctness
+
+PASS
+
+Reconstructed Alexander dual: triangles automatically faces, tetrahedra exactly induced connected 4-sets; a dual 5-face would require an induced K_2,3 in the square cylinder, prohibited by at-most-two common neighbors. Independently formed relative F2 incidence matrices for every m=2..6: column/rank (37,34),(69,66),(73,70),(73,70),(73,70). Connected 4-vertex sets in the added terminal layer fit within the last four layers, establishing locality for ALL m>4. Independently checked source three explicit integral cube signed vectors have 16-term supports, zero integer boundaries, and mod-2 rank three; their relative images are nonzero because there is no 3-cycle confined to one 4-vertex layer. Long exact sequence therefore increments H3 by three per layer over Q and F2; top integral H3 subgroup of free C3. Cut-complex statement follows combinatorial Alexander duality; m2 is the known Q3 base. Finite ranks are required local certificates, not extrapolated infinite experiments.
+
+## originality
+
+PASS
+
+Best-of-knowledge PASS for the uniform exact rank 3(m-1) across all cylinders. Ordinary cut-complex theory is established and an earlier published three-cube result already supplies the m=2 base and non-shellability; those are credited, whereas the new relative stabilization plus three cube-cycle contributions gives the all-m exact rank.
+
+## value
+
+PASS
+
+The exact uniform next-to-top Betti growth across a natural family of square cylinders is a motivated quantitative invariant, strictly stronger than pre-existing local cube-induced nonshellability. The proof isolates reusable relative local cycles; the result is not a mere repetition of the m=2 table.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

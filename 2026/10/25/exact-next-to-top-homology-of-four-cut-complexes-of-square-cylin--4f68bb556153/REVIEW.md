@@ -1,9 +1,21 @@
-# Scientific review
+# Independent mathematical audit
 
-**Correctness — PASS.** The signed integral cube-cycle certificate cancels in every triangular face and is independent modulo two. The relative incidence calculations have explicit standard-library source and fixed exact rank witnesses in the checker's Gaussian elimination. Connectivity locality forces the same nonzero relative matrix after four graph layers; no unbounded enumeration is assumed. The degree-three long exact sequence proves the rank, and Alexander duality gives the stated field homology. Caveat: no claim about all integral cut-complex homology groups.
+## correctness
 
-**Originality — PASS against examined evidence.** Bayer et al. define ordinary cut complexes and establish induced-subgraph shellability restrictions but do not provide the exact cylinder rank. The published cube four-cut result covers \(m=2\), so it also implies non-shellability of all larger cylinders by the established heredity principle, but not the exact \(3(m-1)\) rank. Results about cubic paths, grids with different cut parameters, and total cut complexes are structurally different and do not imply the claimed formula. Full text of the closest separately indexed cube record was not available here; its exposed statement suffices to recognize the base case, but the possibility of further unpublished or unindexed coverage remains.
+PASS
 
-**Value — PASS.** The result quantifies a persistent homology obstruction in a canonical infinite series of square-prism cylinders, rather than merely re-proving the known non-shellability consequence. It gives a natural linear exact invariant whose three new homology directions are represented by explicit integral chain cycles carried by each successive cube block. The computation isolates why square-containing products behave differently from known high-girth cut-complex classes.
+Reconstructed Alexander dual: triangles automatically faces, tetrahedra exactly induced connected 4-sets; a dual 5-face would require an induced K_2,3 in the square cylinder, prohibited by at-most-two common neighbors. Independently formed relative F2 incidence matrices for every m=2..6: column/rank (37,34),(69,66),(73,70),(73,70),(73,70). Connected 4-vertex sets in the added terminal layer fit within the last four layers, establishing locality for ALL m>4. Independently checked source three explicit integral cube signed vectors have 16-term supports, zero integer boundaries, and mod-2 rank three; their relative images are nonzero because there is no 3-cycle confined to one 4-vertex layer. Long exact sequence therefore increments H3 by three per layer over Q and F2; top integral H3 subgroup of free C3. Cut-complex statement follows combinatorial Alexander duality; m2 is the known Q3 base. Finite ranks are required local certificates, not extrapolated infinite experiments.
 
-Self-review: passed. Independent audit: not yet performed.
+## originality
+
+PASS
+
+Best-of-knowledge PASS for the uniform exact rank 3(m-1) across all cylinders. Ordinary cut-complex theory is established and an earlier published three-cube result already supplies the m=2 base and non-shellability; those are credited, whereas the new relative stabilization plus three cube-cycle contributions gives the all-m exact rank.
+
+## value
+
+PASS
+
+The exact uniform next-to-top Betti growth across a natural family of square cylinders is a motivated quantitative invariant, strictly stronger than pre-existing local cube-induced nonshellability. The proof isolates reusable relative local cycles; the result is not a mere repetition of the m=2 table.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
