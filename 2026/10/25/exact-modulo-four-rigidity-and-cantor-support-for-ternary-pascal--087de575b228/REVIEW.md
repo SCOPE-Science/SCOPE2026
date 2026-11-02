@@ -1,15 +1,21 @@
-# Mathematical review
+# Independent mathematical audit
 
-## Correctness — PASS
+## correctness
 
-The statement uses least nonnegative modulo-three binomial residues and standard ternary digits, including \(n=0\). Lucas's theorem makes both signed transforms multiplicative over ternary digits. Their local factors are independently calculable as \((1,0,1)\) and \((1,0,3)\). The exact signed-sum identity and the congruence modulo four follow without a limiting argument. Counting the even-weight ternary words proves the exact dyadic-analogue count and its power growth. The executable checks directly reconstruct finite rows rather than trusting the digit formula. Limitations: finite checking is not an infinite proof; no higher two-adic congruence is proved.
+PASS
 
-## Originality — PASS within inspected evidence
+Lucas digit factorization for residues c_j=C(n,j) mod3 and parity (-1)^j factors the signed nonzero-indicator U and quadratic character V over ternary digits. Digit values 0,1,2 contribute local (U,V) factors (1,1),(0,0),(1,3). Therefore alternating sum A=(3U−V)/2 equals 0 if any 1 digit and (3−3^r)/2 otherwise, with r number of digit twos. Since 3^j≡(−1)^j mod4, T(n)≡A mod4, equal 1 iff only digits 0,2 and r even; never 2 or 3. Even parity words count 2^(k−1) on 0<=n<3^k; product generating series and Θ(X^log_3 2) follow. Independent checks: Independently generated and tested 1100 Pascal rows modulo 3 using a recurrence and compared signed sums with Lucas factorization and T(n) modulo 4; all matched. Inspected actual verifier.py Git blob 4624099d52b889870ba68b2eb2f976f0cf41ee80. Verified separately why division by 2 must occur before reducing mod4 (uses 3^r mod8); finite tests do not prove arbitrary n.
 
-The 2022 primary source supplies the prime-base Pascal-row definitions and Lucas recursion; its inspected relevant sections do not state the precise modulo-four residue dichotomy, signed-residue identity, or the even-parity Cantor support. The OEIS entry A173019 lists values, including examples of odd terms, but no complete digit criterion or power-law enumeration was found there. Searches for synonymous ternary-row digit classifications and published mathematical records found no exact covering claim. Remaining risk: the compact Lucas-character calculation may have appeared in unindexed notes or follow indirectly from an uninspected theorem. No priority certification is asserted.
+## originality
 
-## Mathematical value — PASS
+PASS
 
-This is the exact congruence spectrum modulo four of a specifically studied natural sequence, rather than a property of arbitrarily selected integers. The forbidden residues are global, the exceptional residue-one set is explicitly classified and sparse, and its exact counts on all triadic intervals imply a nonintegral growth exponent. The signed-sum identity explains why a modulo-three coefficient array exhibits a modulus-four rigidity. These answers address the natural invariant signaled by the sequence database's examples of rare odd values. The theorem is elementary but gives an exact structural classification absent from the inspected definitions and tabulations.
+Mathonet–Rigo–Stipulanti–Zénaïdi arXiv:2201.06636 defines identical base-3 Pascal-row number and develops Lucas digit recurrences; inspected 24-page lawful institutional/open PDF, especially defining introduction and Lucas/digital sections, and found no statement of exact modulo-4 digit-parity criterion. OEIS A173019 explicitly already records the weaker implication 2|a(n)=>4|a(n), so absence of residues 2 must NOT be claimed fully new on its own; the exact residue-one digit classification and fractal count are the surviving original result. Residual limits explicitly listed in originality.residual_risks.
 
-Self-review: passed. Independent audit: not yet performed.
+## value
+
+PASS
+
+Determines every parity/residue-four outcome in a canonical studied digital sequence, identifying its precise Cantor-language support and exponent log_3 2. The digit classification strengthens a recorded parity observation by classifying all rows and counting their rare residue-one indices.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
