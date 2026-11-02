@@ -1,0 +1,138 @@
+{
+  "correctness": {
+    "rationale": "For every n and j>=2, condition on final descendant count: arrivals to that subtree choose the parent uniformly within it, giving the exact conditional Bernoulli sum for degree. The independent beta-binomial/Pólya formula gives a strong upper size tail. Exponential Markov bounds imply that, among labels at most n^(mu+delta), a child count at least (c-eta) log n forces subtree size >n^(c/2-epsilon) whp, because the explicit rate I(c,c/2)=mu and increases under a smaller subtree. Published maximum-degree and all-maximizers label asymptotics complete the two-sided proof. Exact exhaustive computations checked all 210 joint probabilities on every RRT of orders 2 through 8. No finite computation is offered as proof of the n->infinity statement.",
+    "status": "PASS"
+  },
+  "independent": false,
+  "independent_audit_status": "not_performed",
+  "originality": {
+    "broader_coverage": {
+      "evidence": [
+        "Lodewijks location theorem gives n^(mu+o(1)) labels of all maximizing vertices but not their subtree progeny",
+        "Lodewijks 2022 abstract concerns degree, depth, labels and distances, not descendant subtree size",
+        "Eslava López Ortiz 2022 Section 4 expressly leaves cut-tree size open"
+      ],
+      "reasoning": "No inspected prior theorem controls the joint large-deviation event of atypically high root child count and atypically small fringe size. The label exponent is necessary but insufficient to conclude the size exponent for an extremal selected vertex.",
+      "searches": [
+        "random recursive tree targeted first cut size highest degree vertex fringe subtree asymptotic",
+        "random recursive trees maximal degree vertex label size descendant subtree joint distribution",
+        "\"targeted cutting\" \"first cut\" \"subtree\" degree vertices 2025 2026",
+        "\"highest degree\" \"fringe subtree\" \"recursive tree\"",
+        "arxiv:2110.00522 Theorem 2.1 Remark 2.2",
+        "arxiv:2204.09032 joint properties high-degree vertices"
+      ]
+    },
+    "checked_sources": [
+      "arxiv:2212.00183v1 HTML sections 1 and 4",
+      "arxiv:2110.00522 / Cambridge theorem 2.1 and remark 2.2",
+      "Cambridge 2024 published first-cut open statement",
+      "arxiv:2204.09032 abstract"
+    ],
+    "claim_vs_prior_implication": {
+      "evidence": [
+        "Known maximizer label scaling exponent mu=1-c/2",
+        "New exact conditional degree-given-fringe law and Cramér rate threshold I(c,c/2)=mu",
+        "First-cut-size explicitly open in source",
+        "A fixed-label-2 subtree/leaf statistic is not a joint law for maximum child count and selected subtree size."
+      ],
+      "reasoning": "The new claim is not a formal corollary of label scaling, since conditioning on maximal child degree can bias the descendant size. A uniform joint tail at the sharp rate is supplied here. The existing fixed-vertex fringe/leaf identity does not provide that joint extreme-degree tail.",
+      "searches": [
+        "arxiv:2110.00522 Theorem 2.1 and Remark 2.2",
+        "arxiv:2212.00183 Section 4"
+      ]
+    },
+    "equivalent_formulations": {
+      "evidence": [
+        "arxiv:2212.00183v1 Section 4: first cut subtree size stated open",
+        "2024 Journal of Applied Probability version: first deleted subtree size distribution unknown",
+        "Lodewijks Theorem 2.1 and Remark 2.2: only label of maximizer, not fringe size"
+      ],
+      "reasoning": "A first deleted cut-tree size, a fringe subtree at a maximum-child-count vertex, and descendant progeny of a maximum-degree hub are equivalent objects for this cutting algorithm. The inspected primary paper poses this as open and the location theorem does not cover it.",
+      "searches": [
+        "fringe subtree size of maximum in-degree vertex in random recursive tree n exponent 1/(2 log 2)",
+        "first targeted deletion subtree maximum-degree vertex recursive trees size exponent",
+        "conditional root outdegree given descendant fringe subtree size independent of birth label randomized tree Stirling numbers",
+        "highest degree hub random recursive tree descendant mass order n to power 1/(2 log 2)",
+        "arxiv:2212.00183 Section 4",
+        "Cambridge journal 2024 root-deletion first cut subtree"
+      ]
+    },
+    "exact_database_or_table": {
+      "evidence": [
+        "Closest available mathematical records addressed root attachment and path-length covariance, root degree and leaves, and fixed-label-2 subtree/leaf statistics, not degree-maximizer subtree size.",
+        "arxiv:2212.00183 Section 4 identifies the observable as an open question."
+      ],
+      "reasoning": "Searches of relevant scholarly literature and a mathematical-result index returned no exact table or stronger theorem determining the exponent. Results concerning root attachment and path-length, root degree and leaves, and fixed-label-2 subtree size do not determine the fringe size of the degree maximizer.",
+      "searches": [
+        "fringe subtree size of maximum in-degree vertex in random recursive tree n exponent 1/(2 log 2)",
+        "first targeted deletion subtree maximum-degree vertex recursive trees size exponent",
+        "conditional root outdegree given descendant fringe subtree size independent of birth label randomized tree Stirling numbers",
+        "highest degree hub random recursive tree descendant mass order n to power 1/(2 log 2)",
+        "a public mathematical research index search: random recursive tree maximum-degree fringe subtree"
+      ]
+    },
+    "rationale": "The 2022 motivating primary paper explicitly identifies the first removed subtree size as open; the 2024 journal version still says its distribution is unknown. The 2021 maximal-degree location theorem supplies vertex-label asymptotics but no size information; extreme-degree selection forbids an automatic substitution of the typical fixed-label subtree size. The present degree-conditioned large deviation, paired with the sharp critical exponent, provides the missing implication. a public mathematical research index and prior research records comparisons found no dominating claim. Definitive exhaustive priority not claimed.",
+    "residual_risks": [
+      "Lodewijks 2021 was directly inspected at its main theorem and all-maximizers remark and searchable PDF text; not every page was read. Lodewijks 2022 joint-properties paper was inspected by abstract only.",
+      "Historical priority not exhaustively certified; a later obscure paper could contain the same exponent.",
+      "The new claim concerns a logarithmic exponent, not the unresolved full finite law or second-order limit."
+    ],
+    "source_inspections": [
+      {
+        "assessment": "NOT_COVERING: establishes only number-of-cuts bounds; explicitly asks about first-cut subtree size",
+        "evidence": [
+          "Section 1.3 model first chooses highest child count and removes subtree",
+          "Section 4: even number of vertices in first cut tree remains an open question"
+        ],
+        "identifier_or_url": "https://arxiv.org/html/2212.00183v1",
+        "material_read": "Full HTML main theorem/definitions, relevant model setup in Section 1, Section 4 open-problems discussion and references",
+        "method": "Open-access full HTML text inspected",
+        "title": "Targeted cutting of random recursive trees",
+        "trigger": "Direct statement of the first-cut-size open problem"
+      },
+      {
+        "assessment": "NOT_COVERING at examined relevant passage: explicitly says distribution remains unknown",
+        "evidence": [
+          "Introduction: to best knowledge distribution of size of subtree rooted at first highest-degree vertex remains unknown"
+        ],
+        "identifier_or_url": "https://www.cambridge.org/core/journals/journal-of-applied-probability/article/quenched-worstcase-scenario-for-root-deletion-in-targeted-cutting-of-random-recursive-trees/67AD3B9A74E836628FA23229D25AA358",
+        "material_read": "Accessible publisher HTML introduction and model description, including statement about distribution of first deleted subtree size",
+        "method": "Publisher search-indexed text inspected",
+        "title": "Quenched worst-case scenario for root deletion in targeted cutting of random recursive trees",
+        "trigger": "Later published version could close earlier open problem"
+      },
+      {
+        "assessment": "NOT_COVERING: verified labels of all degree maximizers only; no fringe or descendant result in searchable full PDF; the relevant theorem is read directly",
+        "evidence": [
+          "Theorem 2.1: log I_n / log n -> mu",
+          "Remark 2.2: highest and lowest label maximizing degree share exponent mu"
+        ],
+        "identifier_or_url": "https://www.cambridge.org/core/journals/advances-in-applied-probability/article/location-of-highdegree-vertices-in-weighted-recursive-graphs-with-bounded-random-weights/3D398DDDA00010338C15B9A3F8C6A6FE",
+        "material_read": "Open-access full PDF retrieved: abstract, introduction, model definitions, Section 2 Theorem 2.1 and Remark 2.2 inspected directly with a page screenshot; full PDF text searched for fringe and descendant (no matches). All other proof portions not read line by line.",
+        "method": "Publisher 59-page open-access PDF, text plus screenshot of page containing Theorem 2.1 and Remark 2.2",
+        "title": "The location of high-degree vertices in weighted recursive graphs with bounded random weights",
+        "trigger": "Potential stronger theorem could imply selected fringe size from labels"
+      },
+      {
+        "assessment": "No directly covering subtree-size assertion in accessible abstract; residual risk explicitly retained",
+        "evidence": [
+          "Abstract lists degree, depth, label, graph distance, not fringe subtree size"
+        ],
+        "identifier_or_url": "https://arxiv.org/abs/2204.09032",
+        "material_read": "Open-access abstract describing joint degree, depth, label and distance; full text not reviewed",
+        "method": "ArXiv abstract inspected",
+        "title": "On joint properties of vertices with a given degree or label in the random recursive tree",
+        "trigger": "Title could cover joint degree and selected subtree statistics"
+      }
+    ],
+    "status": "PASS"
+  },
+  "review_type": "self_review",
+  "schema_version": 1,
+  "scope_run_id": "ab4347fa-9444-416c-aeb0-91a52ccd0973",
+  "self_review_status": "passed",
+  "value": {
+    "rationale": "Eslava López Ortiz explicitly ask about the number of vertices removed in the first maximum-degree-targeted cut; the exact logarithmic exponent is a natural nontrivial leading-order answer for network resilience. The coupling of extreme child-count selection with descendant mass is a genuine joint extreme-value question, not an automatic fixed-label tree identity. It rigorously quantifies initial removal size while leaving full distributions and later deletions open.",
+    "status": "PASS"
+  }
+}
