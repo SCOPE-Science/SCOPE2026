@@ -1,19 +1,21 @@
-# Review
+# Independent mathematical audit
 
-## Correctness
+## correctness
 
-The stated market has exactly three stable matchings. Each of its six five-agent submarkets has a unique stable matching, and the last terminal agent's entry produces only the men-optimal or women-optimal matching. The explicit temporary-woman history reaches the middle matching, and her later exit leaves it unchanged. The proof is stated in full in `RESULT.md`; `verification/check_history.py` reproduces the finite checks.
+PASS
 
-## Originality
+PASS: The explicit strict 3-by-3 complete market has exactly the three perfect stable matchings A, middle 0 and B; independent stability enumeration confirmed that each of the six five-agent submarkets has a unique stable matching, and the final missing entrant leads only to A (man) or B (woman). Considering the first full-market occurrence proves nonreachability of the middle target for every finite history of original agents, even with repeated exits and entries. Independently traced the eight-step rejection/acceptance chain after one woman a enters µ_B: a→m1 accept, w3→m1 reject, w3→m2 accept, w1→m2 reject, w1→m3 accept, w2→m3 reject, w2→m1 accept, a→m1 reject; the target µ0 is stable and a exits unmatched. Preferences preserve the original strict order and acceptability. Therefore the minimum temporary population for this exact market-target pair is 1, not a general bound.
 
-The primary paper proves a terminal-agent obstruction and gives a larger general augmentation, but explicitly leaves minimization of temporary-agent counts open. The closest earlier random-order mechanism uses entry-only histories; auxiliary agents in its complexity construction remain in the terminal instance. The exact one-temporary-agent history is not implied by those results. Semantic database searches are supporting evidence only, not proof of novelty.
+## originality
 
-## Value
+PASS
 
-This resolves the primary paper's quantitative question for its canonical cyclic \(3\times3\) obstruction: the sharp minimum is \(1\). It is a meaningful, exact case-specific bound, not a general minimum-augmentation theorem.
+The exact source cyclic market, its three stable matchings and nonreachability with zero temporary agents are already Yang Example 1/Theorem 1. Yang Theorem 2 gives target-dependent augmentation with larger temporary scaffolds, and §6.3 explicitly says minimization is not done. The specific one-auxiliary-woman constructive upper bound, hence sharp minimum 1, is a genuine additional statement; do not count the nonreachability example itself as original.
 
-## Closest literature and limitations
+## value
 
-Yang, *Stable Matchings and Their Histories: Historical Reachability under Population Shocks*, arXiv:2609.20176v1, §§3–4 and §6.3. Cheng, *On the Stable Matchings That Can Be Reached When the Agents Go Marching in One By One*, DOI 10.1137/140996690. Ma, *On randomized matching mechanisms*, DOI 10.1007/BF01211824 (abstract checked; full text not obtained). The result is limited to the stated complete strict \(3\times3\) market and target. The primary preprint page's displayed date string conflicts with the identifier month; either interpretation remains in the recent two-year window.
+PASS
 
-Self-review: passed. Independent audit: not yet performed.
+PASS: The exact minimum historical augmentation for the canonical smallest known obstruction is a natural quantitative strengthening of a new reachability theorem that expressly leaves agent minimization open. A one-agent constructive witness is nontrivial because each event must end in a stable matching while preserving all original preference orders.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
