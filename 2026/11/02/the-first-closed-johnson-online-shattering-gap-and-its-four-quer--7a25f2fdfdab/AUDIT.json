@@ -1,0 +1,99 @@
+{
+  "correctness": {
+    "rationale": "All 4,845 unordered four-query supports of J(6,3) are partitioned into 21 explicitly certified label-permutation orbits, with disjointness/coverage and per-orbit trace counts; a second, unreduced enumeration independently gives the histogram 4:45, 8:1680, 14:3120. A three-query support realizes eight traces, proving VC=3. A full depth-four, 15-internal-node decision tree has 16 distinct path-consistent center witnesses. Twenty hypotheses exclude adaptive depth five. A four-query open-neighborhood support gives all 16 traces and 20 hypotheses give the upper bound. All lower-order non-complete Johnson graphs are covered by independent finite dimension calculations and the binomial-order argument. verify.py reconstructs and checks both JSON certificates from exactly their packaged paths. The result is a finite exhaustive proof, not an extrapolation to arbitrary parameters.",
+    "status": "PASS"
+  },
+  "independent": false,
+  "independent_audit_status": "not_performed",
+  "originality": {
+    "broader_coverage": {
+      "evidence": [
+        "https://arxiv.org/abs/2007.16042",
+        "https://arxiv.org/abs/2007.03668"
+      ],
+      "reasoning": "The open-neighborhood uniform VC bound does not cover adding the diagonal; the Littlestone closure bounds give asymptotic general estimates rather than exact 20-hypothesis parameters. A broader general theorem would need to imply both the 21 orbit classes and precise histogram; no inspected source does.",
+      "searches": [
+        "\"Johnson graph\" \"closed neighborhood\" \"VC dimension\"",
+        "\"J(6,3)\" \"Littlestone\" \"neighborhood\"",
+        "\"Johnson\" \"45\" \"1680\" \"3120\" \"neighborhood\" traces"
+      ]
+    },
+    "checked_sources": [
+      "https://arxiv.org/abs/2007.16042",
+      "https://arxiv.org/abs/2007.03668",
+      "Related previously published open-Johnson, triangular-graph, and rank-two Kneser shattering results were compared by their predicates and implications."
+    ],
+    "claim_vs_prior_implication": {
+      "evidence": [
+        "https://arxiv.org/abs/2007.16042",
+        "https://arxiv.org/abs/2007.03668"
+      ],
+      "reasoning": "Published open Johnson VC=4 includes the same J(6,3) graph but a different relation (strict adjacency), and so does not entail the closed VC=3, closed Ldim=4 or trace histogram. The general aggregation-bound inequalities have no identified specialization that yields these exact equalities. Smaller-rank closed instances and the rank2 Kneser relation are mathematically distinct rather than corollaries dominating the rank3 instance.",
+      "searches": [
+        "arxiv:2007.16042",
+        "arxiv:2007.03668"
+      ]
+    },
+    "equivalent_formulations": {
+      "evidence": [
+        "https://arxiv.org/abs/2007.16042",
+        "https://arxiv.org/abs/2007.03668"
+      ],
+      "reasoning": "Checked closed radius-one Johnson balls, equality-augmented adjacency, Boolean incidence traces and online mistake trees. These are equivalent ways to express the same 20-by-20 incidence problem; the inspected primary literature states exact results for OPEN adjacency, whereas this claim quantifies CLOSED adjacency and its four-query trace spectrum.",
+      "searches": [
+        "\"J(6,3)\" \"VC-dimension\" \"closed\"",
+        "\"J(6,3)\" \"Littlestone\" \"neighborhood\"",
+        "\"Johnson graph\" \"closed neighborhood\" \"VC dimension\""
+      ]
+    },
+    "exact_database_or_table": {
+      "evidence": [
+        "The local full 21-orbit table and all 4,845 supports are reconstructed from elementary definitions in orbits.json and verify.py."
+      ],
+      "reasoning": "No exact external table containing the (45,1680,3120) closed-neighborhood four-trace spectrum was identified in targeted searches. The internal finite enumeration and public program supply the numbers but do not themselves prove novelty.",
+      "searches": [
+        "\"J(6,3)\" \"14\" traces \"closed neighborhoods\"",
+        "\"Johnson graph J(6,3)\" \"closed neighborhoods\" VC Littlestone"
+      ]
+    },
+    "rationale": "The closest primary paper establishes the open-neighborhood VC bound 4, while only inferring boundedness for closed neighborhoods in general. The open-neighborhood theorem cannot imply the closed-neighborhood VC=3 nor a four-trace histogram or Littlestone=4 because adjoining diagonal incidences can change shattering. General Littlestone closure bounds do not give these exact parameters. Targeted alternate-formulation queries and comparisons with related published findings did not identify a stronger result. This is a self-review, best-knowledge comparison, not a historical priority certificate.",
+    "residual_risks": [
+      "Historical priority might exist under diagonal-augmented Johnson adjacency, fixed-weight Boolean incidence, or association-scheme terminology.",
+      "External literature search coverage is incomplete; failure to find an equivalent exact table is not proof of novelty.",
+      "The 21-orbit finite certificate has not received independent external validation."
+    ],
+    "source_inspections": [
+      {
+        "assessment": "NOT_COVERING the closed J(6,3) 4-query spectrum or closed Littlestone dimension. It proves exact OPEN-neighborhood VC=4 and infers generic boundedness for CLOSED-neighborhood VC.",
+        "evidence": [
+          "arXiv:2007.16042 abstract distinguishes open from closed neighborhoods; Section 3 treats open adjacency and an explicit 4-query witness."
+        ],
+        "identifier_or_url": "https://arxiv.org/abs/2007.16042",
+        "material_read": "ArXiv full text; abstract, Johnson-neighborhood proofs around Section 3 including Theorems 3.6–3.7, and discussion of closed neighborhoods",
+        "method": "Primary full-text inspection and comparison of graph relation definitions, hypotheses, quantifiers and theorem implications",
+        "title": "Vapnik–Chervonenkis Dimension and Density on Johnson and Hamming Graphs",
+        "trigger": "Exact same graph class and almost identical neighborhood predicate"
+      },
+      {
+        "assessment": "NOT_COVERING the exact closed-Johnson case or its 21-orbit four-query spectrum. General closure estimates do not give these exact finite values.",
+        "evidence": [
+          "arXiv:2007.03668 introduction and Sections 2–3 state general binary-aggregation dimension bounds."
+        ],
+        "identifier_or_url": "https://arxiv.org/abs/2007.03668",
+        "material_read": "Full open-access text, main theorem and proof framework on arbitrary aggregations of binary hypothesis classes",
+        "method": "Primary open-access inspection and implication comparison for a fixed 20-concept graph incidence system",
+        "title": "Near-tight Closure Bounds for the Littlestone and Threshold Dimensions",
+        "trigger": "Potential stronger general theorem implying the online dimension"
+      }
+    ],
+    "status": "PASS"
+  },
+  "review_type": "self_review",
+  "schema_version": 1,
+  "scope_run_id": "7a25f2fd-fdab-4101-bdbb-6798faeb4e76",
+  "self_review_status": "passed",
+  "value": {
+    "rationale": "The first smallest-size obstruction for a canonical distance-transitive graph family distinguishes static from adaptive learnability under addition of reflexive incidence. The exact three-valued distribution of all four-query traces, including 21 symmetry orbits, is a stronger reproducible structural classification than simply giving a counterexample. It is motivated by the precise open-versus-closed gap left by published Johnson graph shattering work; no all-parameter classification is claimed.",
+    "status": "PASS"
+  }
+}
