@@ -1,0 +1,128 @@
+{
+  "audit_date_utc": "2026-10-28",
+  "audited_at_utc": "2026-10-28T00:48:18.290203Z",
+  "axes": {
+    "correctness": {
+      "checked_sources": [
+        "Actual snapshot RESULT.md Git blob 5af1e1d5eeae3bdfdc69992b2cdb64a8786f64fe",
+        "Actual graph-width checker Git blob 87bb66ea4029e244b8aff779cd6813be187fcba4, read completely",
+        "Resultary full published graphical-zonotope first/second width moment theorem, compared at formula level",
+        "Standard dependency-graph cumulant CLT and Gaussian radial delta method"
+      ],
+      "rationale": "Support-function additivity yields W_n(U)=Σ_edges|U_i−U_j|, with exact coupling U=(X−Xbar 1)/R from iid standard normals and R²=Σ(X_i−Xbar)². For unnormalised S_n=Σ|X_i−X_j|, define A=S_n−μm, Q=Σ(X_i²−1), μ=2/√π. Disjoint edges are independent and incident edges have Gaussian correlation absolute 1/2. Exact bivariate absolute-normal covariance κ=1/3+(2√3−4)/π yields Var(A)=m v+2t κ (v=2−4/π); direct Gaussian decomposition of each edge gives Cov(A,Q)=μm and Var(Q)=2n. Every aA+bQ is a bounded-degree dependency-graph sum with O(n) summands, bounded moments and O(n) connected r-tuples, so cumulants of scaled order r≥3 vanish and joint Gaussian limit follows. Taylor expanding 1/R=(1/√n)(1−Q/(2n)+O_P(n^-1)) gives W−μm/√n=A/√n−μα Q/(2√n)+o_P(1), hence variance αv+2τκ−2α²/π. Degree-square Cauchy–Schwarz implies τ≥2α²−α, α≥1, and positive coefficients v−2κ and 4κ−2/π imply s²>0. Independent numeric evaluations checked path/cycle s²≈0.415643842, 3-regular≈0.634255672, 4-regular≈0.860060774; independent incidence support/Minkowski formula was separately inspected in code. No finite experiment substitutes for the joint CLT.",
+      "residual_risks": [
+        "The cumulant argument requires fixed maximum graph degree and bounded moments (both explicitly assumed) plus convergence of α,τ; not a CLT for growing-degree hubs.",
+        "The independent numeric variance substitutions and source checker finite sampling are corroboration only, not independent formal proof of normality."
+      ],
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Padrol–Pilaud–Poullot 2021/22: deformed graphical zonotope fans and deformation cones, not random width CLT.",
+          "Generic dependency-graph CLTs cover the Gaussian edge-sum once one checks dependency-degree, moments and variance; Cramér–Wold and delta normalization additionally handle the sphere."
+        ],
+        "reasoning": "A general stochastic theorem supplies an important method but no exact α,τ random-spherical-width statement. Its combination with the published second moment greatly narrows originality; risk explicitly retained.",
+        "searches": [
+          "https://arxiv.org/abs/2111.12422",
+          "https://arxiv.org/abs/2209.12053",
+          "bounded degree graphical zonotopes random width Gaussian central limit edge wedge counts asymptotic variance"
+        ]
+      },
+      "checked_sources": [
+        "https://github.com/Resultary/2026/tree/main/2026/10/11/SCOPE-sharp-width-variance-extremizers-among-tree-graphical-zonotopes--482983ab9269",
+        "https://arxiv.org/abs/2111.12422",
+        "https://arxiv.org/abs/2209.12053",
+        "Resultary semantic query: bounded degree graphical zonotopes random width Gaussian central limit edge wedge counts asymptotic variance",
+        "Web query: \"graph total variation\" Gaussian bounded degree central limit theorem absolute differences sum"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "Known moments do NOT imply a CLT: same mean/variance sequences can have nonnormal limits.",
+          "Standard graph-dependence methods give a CLT for the unnormalized sum, but the spherical width has a correlated random denominator; the cross-covariance of A and Q produces a non-negligible −2α²/π term."
+        ],
+        "reasoning": "The explicit spherical statement is not obtained simply by citing the exact moment formula; a joint dependency-graph CLT and correlated delta method are needed. A sufficiently general preexisting theorem packaged with those operations could still dominate, so originality is qualified.",
+        "searches": [
+          "https://github.com/Resultary/2026/tree/main/2026/10/11/SCOPE-sharp-width-variance-extremizers-among-tree-graphical-zonotopes--482983ab9269",
+          "https://arxiv.org/abs/2111.12422",
+          "bounded degree graphical zonotopes random width Gaussian central limit edge wedge counts asymptotic variance"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "The width random variable is precisely Gaussian graph total variation Σ_e|X_i−X_j| normalized by the centered Gaussian radius.",
+          "The published Resultary width-moment result gives exact angular first and second moments in this same normalization."
+        ],
+        "reasoning": "Unlike merely matching a graphical-zonotope title, searched the equivalent Gaussian graph-total-variation statistic; a generic local-sum CLT does not by itself give the SPHERICAL ratio limit or the stated radius covariance correction without a joint limit.",
+        "searches": [
+          "bounded degree graphical zonotopes random width Gaussian central limit edge wedge counts asymptotic variance",
+          "https://github.com/Resultary/2026/tree/main/2026/10/11/SCOPE-sharp-width-variance-extremizers-among-tree-graphical-zonotopes--482983ab9269"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "Resultary exact moments and path/star variance tables are prior; the present path limit variance agrees with their asymptotic 2+2κ−6/π≈0.415643842.",
+          "Resultary search returned no bounded-degree universal distributional theorem at the identified mean and variance."
+        ],
+        "reasoning": "Exact first/second moment databases are covered; the proposed new contribution is the normal limiting law and positive-variance universality, not the tabulated variance.",
+        "searches": [
+          "bounded degree graphical zonotopes random width Gaussian central limit edge wedge counts asymptotic variance",
+          "https://github.com/Resultary/2026/tree/main/2026/10/11/SCOPE-sharp-width-variance-extremizers-among-tree-graphical-zonotopes--482983ab9269"
+        ]
+      },
+      "rationale": "The published exact graphical-zonotope moment result already gives E[W] and Var(W) in terms of edge and wedge counts; those first and second moments are explicitly NOT original here. Standard dependency-graph CLTs already imply asymptotic normality for unnormalised edge-gradient Gaussian sums with bounded degrees, but the claimed centered SPHERICAL width also requires joint convergence with Gaussian radius and cross-covariance μm. The package makes that nontrivial connection and gives an explicit positive universal variance classification depending only on α,τ. Primary Padrol–Pilaud–Poullot and Pešović–Stojadinović study graphical zonotope deformation/normal-fan combinatorics rather than random-width CLT. This is a qualified best-knowledge PASS, with significant risk that general Gaussian-graph-TV delta-method literature already treats the result.",
+      "residual_risks": [
+        "Most serious: the Gaussian graph-total-variation central limit theorem may be a direct known corollary of a broad preexisting dependency-graph + smooth-normalization theorem; the exact spherical variance correction may already appear under statistical terminology.",
+        "Earlier exact mean/variance and tree path asymptotics are already prior Resultary results and are not counted as new."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Provides exact first and second moments, NOT Gaussian distributional convergence for all bounded-degree graph sequences.",
+          "evidence": "Equation (1) has E W=m√2 c_d and E W²=[2m+8/π binom(m,2)+2κ t]/d; no CLT.",
+          "identifier_or_url": "https://github.com/Resultary/2026/tree/main/2026/10/11/SCOPE-sharp-width-variance-extremizers-among-tree-graphical-zonotopes--482983ab9269",
+          "material_read": "Complete published RESULT.md including Gaussian spherical reduction, exact edge covariance, formula (1), sharp tree extremizers, asymptotic variances, proof and limitations.",
+          "method": "Full GitHub repository primary-result text read.",
+          "title": "Sharp width-variance extremizers among tree graphical zonotopes",
+          "trigger": "Same exact convex body and random-direction width, potential dominating first/second moment theorem"
+        },
+        {
+          "assessment": "Structural zonotope fan results do not state the bounded-degree angular width CLT.",
+          "evidence": "Graphical-zonotope deformation cone and combinatorial invariants, not Gaussian random-direction limit.",
+          "identifier_or_url": "https://arxiv.org/abs/2111.12422",
+          "material_read": "Complete accessible arXiv manuscript, combinatorial deformation-cone and fan analysis.",
+          "method": "Full arXiv PDF text read with page inspection.",
+          "title": "Deformed graphical zonotopes",
+          "trigger": "Same graphical-zonotope geometric family, potential broader coverage"
+        },
+        {
+          "assessment": "Confirms graph-TV alias Σ|θ_i−θ_j|, without any checked distributional noncoverage assertion.",
+          "evidence": "The sum is the edge-gradient L1 seminorm.",
+          "identifier_or_url": "https://www.cambridge.org/core/elements/prolegomenon-to-differential-equations-and-variational-methods-on-graphs/63BBE86225E30BBF1ED5C6D0612EC1AA",
+          "material_read": "Accessible webpage definition of graph TV only, not whole source.",
+          "method": "Targeted online source reading.",
+          "title": "A Prolegomenon to Differential Equations and Variational Methods on Graphs",
+          "trigger": "Equivalent graph total variation functional"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "checked_sources": [
+        "https://github.com/Resultary/2026/tree/main/2026/10/11/SCOPE-sharp-width-variance-extremizers-among-tree-graphical-zonotopes--482983ab9269",
+        "https://arxiv.org/abs/2111.12422"
+      ],
+      "rationale": "An exact positive CLT variance for the geometrically canonical Haar-width statistic on every bounded-degree graph sequence with two convergent local densities gives a natural universality classification. This identifies that triangles/higher motifs do not enter the leading fluctuations, despite their appearance in higher finite moments. It is a stronger usable probabilistic asymptotic than known exact first/second moments and supplies normal-limit calibration for random zonotope widths. Though dependency-graph methods are standard, the spherical normalization and universal graph-parameter formula are mathematically motivated rather than arbitrary substitutions.",
+      "residual_risks": [
+        "The proof combines standard probabilistic tools and could be deemed a straightforward corollary of sufficiently tailored existing Gaussian graph-statistics literature."
+      ],
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "final_claim": "For deterministic connected simple graph sequences with uniformly bounded maximum degree and m_n/n→α, wedge t_n/n→τ, random Haar width of centered graphical zonotope satisfies W_n−(2/√π)m_n/√n ⇒ N(0,α(2−4/π)+2τ[1/3+(2√3−4)/π]−2α²/π), a strictly positive variance; exact spherical centering is equivalent.",
+  "limitations": [
+    "Graphs deterministic connected unweighted, simple, uniformly degree-bounded; α and τ must converge.",
+    "No quantitative normal rate, no hub/unbounded-degree universality."
+  ],
+  "schema_version": 1
+}
