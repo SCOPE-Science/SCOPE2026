@@ -5,8 +5,11 @@
     "status": "not_performed"
   },
   "independent_audit": {
-    "evidence": null,
-    "status": "not_performed"
+    "status": "passed",
+    "evidence": [
+      "INDEPENDENT_AUDIT_2026-10-28.md",
+      "INDEPENDENT_AUDIT_2026-10-28.json"
+    ]
   },
   "lean_verification": {
     "evidence": null,
@@ -16,14 +19,24 @@
 }
 ---
 
-# Exact reproducibility
+# Independent mathematical audit
 
-Run `python3 verify_tietze.py` with Python 3. No third-party package, network connection, or external dataset is needed.
+## correctness
 
-The script constructs the labeled Tietze graph by replacing a vertex of the standard Petersen graph with a triangle. It checks all cubical boundary compositions, the 108-dimensional second-boundary image over \(\mathbb F_{101}\), all 27 disjoint simple-cycle product tori, a signed nine-by-nine determinant of \(-1\), the rational rank-four cutoff for total length at most ten, and the index-two obstruction via the gcd of all ten maximal integer minors. It also checks an explicit mod-two detecting functional and the rank increase for each triangle–pentagon torus.
+PASS
 
-The resulting proof is integral: the unimodular minor shows a rank-nine primitive cycle sublattice, and the boundary-rank bound identifies it with the entire second-homology lattice. Modular ranks by themselves are not treated as proof of integral generation or of the index.
+Reconstructed ordinary UConf_2 of the specific 12-vertex Tietze graph via the Prue–Scrimshaw n=2 subdivision criterion (essential paths at least one edge; cycles at least 3). Explicit cubical chains have (66,180,117) cells; all signed ∂₁∂₂ compositions vanish. Independent modular rank of ∂₂ is 108; nine actual product two-cycles give a signed 9×9 unimodular coordinate minor −1, so ker ∂₂ is precisely Z⁹. All disjoint cycle pairs are exhaustively enumerated: 27 in six length families. Their length ≤10 subset has rank four, while nine integral basis tori have length ≤11. For the ten (3,6)+(5,6) tori, gcd of all ten maximal integer minors is 2 and each (3,5) torus has nonzero mod-two parity, establishing exact index-two obstruction and sharp cutoff. No assertion about arbitrary singular cycle length is made.
 
-# Limits
+## originality
 
-The claims are restricted to the ordinary two-point unordered configuration of the specified twelve-vertex graph and to product tori of vertex-disjoint simple cycles. The verifier proves neither a general triangle-expansion theorem nor absence of equivalent statements in unavailable literature. Independent audit is not performed.
+PASS
+
+Qualified PASS: ordered two-particle homology/intersection theory, general discrete configuration-space models and planar torus generators precede the claim; their statements do not supply this specific nonplanar Tietze unordered integral lattice, sharp total-length 11, or its index-two parity. Directly inspected the relevant original 2010 Durham thesis rather than relying on abstract. Best-of-knowledge only.
+
+## value
+
+PASS
+
+PASS: the Tietze graph is a classical minimal nonplanar cubic Petersen-variant; determining a primitive integral torus basis with a sharp geometric length filtration and a parity obstruction is an intrinsically natural and reusable test of integral graph-configuration topology, not a mere rank recomputation.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
