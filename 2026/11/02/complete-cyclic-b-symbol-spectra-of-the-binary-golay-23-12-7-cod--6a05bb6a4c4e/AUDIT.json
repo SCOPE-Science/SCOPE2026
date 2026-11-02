@@ -1,0 +1,178 @@
+{
+  "correctness": {
+    "rationale": "The specified polynomial g divides x^23+1 and its twelve degree-separated message shifts form an injective enumeration of all 4096 binary Golay words. The zero-run identity computes cyclic b-read weights exactly and all 81 run classes yield each of 23 complete spectra. A separately implemented direct-window polynomial-division verifier checked every coefficient, all 4096 words, exact minima/multiplicities, the single minimizer orbit for b=3..11, and the classical Hamming spectrum. Stabilization for b>=12 follows additionally from the constant term of g forcing all message coefficients to vanish if 12 consecutive zeros occur. Finite full exhaustion is sufficient for this exact length-23 theorem, not a claim about other lengths.",
+    "status": "PASS"
+  },
+  "independent": false,
+  "independent_audit_status": "not_performed",
+  "originality": {
+    "broader_coverage": {
+      "evidence": [
+        "Guan et al. Example 4 expressly publishes Golay b-read minima (7,11,13,15,16,17,18,19,20,21,22) at b=1,...,11: https://arxiv.org/pdf/2511.15207",
+        "Shi–Özbudak–Solé 2021 establishes that the b-symbol enumerator of a cyclic [n,k] code stabilizes for k<=b<=n-1: https://doi.org/10.1109/TIT.2021.3069772",
+        "Yaakobi–Bruck–Siegel 2016 general cyclic pair bound covers the lower bound 11: https://cmrr-star.ucsd.edu/static/pubs/Constructions_TI.pdf",
+        "Vega 2023 one-/two-weight irreducible enumerator theorem does not satisfy the Golay check-polynomial hypotheses: https://link.springer.com/article/10.1007/s10623-023-01193-w"
+      ],
+      "reasoning": "Most conspicuous stronger coverage was found and explicitly credited: all numeric minimum distances through width 11 are already known, and stability from width 12 is general. The new classification is deliberately the complete coefficients at nontrivial widths 2 through 11 and an exact minimizing-set orbit/multiplicity refinement; the prior theorems do not assert those coefficients and have no direct formula that supplies these specific tables without a separate complete code census.",
+      "searches": [
+        "Generalized Repetition Codes Application HARQ Guan Luo binary Golay 23 SBDH distance hierarchy 7 11 13 15 16 17 18 19 20 21 22",
+        "Shi Ozbudak Sole cyclic code b symbol spectrum stability b>=k binary Golay 23"
+      ]
+    },
+    "checked_sources": [
+      "https://web.mit.edu/sage/export/guava-3.5/htm/chap5.html",
+      "https://arxiv.org/abs/1211.1728",
+      "https://cmrr-star.ucsd.edu/static/pubs/Constructions_TI.pdf",
+      "https://link.springer.com/article/10.1007/s10623-023-01193-w",
+      "https://open.metu.edu.tr/handle/11511/97258",
+      "https://arxiv.org/pdf/2511.15207",
+      "https://doi.org/10.1109/TIT.2021.3069772",
+      "https://doi.org/10.17654/0972087126158"
+    ],
+    "claim_vs_prior_implication": {
+      "evidence": [
+        "Guan et al. 2025 Example 4 gives the exact Golay distance vector, thus covering every d_b value at b=1..11, but not the number of words at each weight or the common minimizing orbit.",
+        "Shi–Özbudak–Solé 2021 covers the stabilization portion of the table when b>=12, but not the varied b=2..11 rows.",
+        "Panraksa 2026 performs analogous zero-run orbit analysis for ternary [11,6,5] Golay, not the binary [23,12,7] code: https://doi.org/10.17654/0972087126158",
+        "A separate length-24 extended-Golay pair-distance coordinate-order optimization has different domain and quantifiers."
+      ],
+      "reasoning": "Prior work implies all minimum *values*, high-width stabilization, and the general counting identity, which are therefore presented solely as consistency/context. It does not imply the new exact multiplicities for all weights at b=2..11 or that the unique 23 rotations of the generator attain the minima for all nine widths b=3..11. The joint finite classification thus retains nonroutine new content despite covered substatements.",
+      "searches": [
+        "perfect Golay code b-read weight enumerators unique minimizer cyclic orbit",
+        "Golay cyclic code symbol pair weight distribution seven weight 11",
+        "Panraksa ternary Golay 11 cyclic zero-run orbit b-symbol distances and binary Golay 23 enumerator"
+      ]
+    },
+    "equivalent_formulations": {
+      "evidence": [
+        "Panraksa 2026 proves a zero-run identity and cyclic support orbit census only for the ternary length-11 Golay code: https://doi.org/10.17654/0972087126158",
+        "The 2025 Guan et al. reciprocal generator encodes the same length-23 binary code under reversal, which preserves every cyclic b-read weight: https://arxiv.org/abs/2511.15207"
+      ],
+      "reasoning": "The reverse-generator equivalence is directly accounted for, rather than treated as a separate code: it implies identical spectrum arrays to those that would arise from the 2025 paper’s binary Golay code, but that paper reports only minimum values and no all-coefficient table. The run/gap identity is prior art, not the novel component. The 81-class multiplicity table and common minimizer orbit at widths 3–11 are the exact claimed refinement.",
+      "searches": [
+        "complete zero-run partition multiplicities b-symbol spectra binary Golay 23 [23,12,7]",
+        "Panraksa ternary Golay 11 cyclic zero-run orbit b-symbol distances and binary Golay 23 enumerator"
+      ]
+    },
+    "exact_database_or_table": {
+      "evidence": [
+        "The published 2025 binary Golay Example 4 displays a minimum-distance vector, not weight-enumerator arrays: https://arxiv.org/pdf/2511.15207",
+        "Classical GUAVA source lists the standard generator and Hamming parameters only: https://web.mit.edu/sage/export/guava-3.5/htm/chap5.html",
+        "The indexed short-length binary pair-code classification stops at length 15 and hence cannot imply an exact length-23 Golay coefficient table."
+      ],
+      "reasoning": "No indexed table identical to the 81 complete run partitions or the full ten nontrivial b=2..11 read-weight distributions was identified. Search absence alone is not a novelty proof; these real sources were inspected to distinguish known minima from unknown multiplicities.",
+      "searches": [
+        "Golay cyclic code [23,12,7] b-symbol complete enumerator",
+        "binary Golay code length 23 cyclic symbol-pair b-symbol weight distribution complete read-window spectrum",
+        "complete zero-run partition multiplicities b-symbol spectra binary Golay 23 [23,12,7]"
+      ]
+    },
+    "rationale": "The known distance values at widths 1 through 11 are fully covered by Guan et al. (2025), the b>=12 stabilization is covered by Shi–Özbudak–Solé (2021), the general pair bound is covered by Yaakobi–Bruck–Siegel (2016), and the elementary run identity is prior art (also used for ternary Golay in 2026). These facts are expressly not claimed novel. The new claim is the binary Golay code’s complete nontrivial width-2-through-11 coefficient multiplicities, 81-class joint zero-run census, and 23-word common minimizing orbit for widths 3 through 11, which the inspected papers do not give. Direct source implication checks plus targeted exact-table and alias searches did not identify coverage of those data. Residual risk remains from unindexed historical tables.",
+    "residual_risks": [
+      "The indexed literature and abstract checks do not exclude an unindexed historical Golay zero-run table or full b-symbol spectrum; definitive priority is not certified.",
+      "The Zhu–Shi–Özbudak adjacent irreducible-code paper was not examined in its entirety; the stated irreducibility premise is an inapplicable but not complete full-text exclusion.",
+      "Independent scientific review beyond the author-side finite certificate and its separately implemented checker has not been performed.",
+      "Original HAL source of the 2021 general stability paper was access-restricted; its scope was inspected through author-posted full text and verified abstracts, but not a complete direct HAL PDF."
+    ],
+    "source_inspections": [
+      {
+        "assessment": "Establishes standard generator polynomial and parameters; does not report cyclic b-symbol enumerators.",
+        "evidence": [
+          "Section 5.4-1 explicitly gives g(x)=1+x^2+x^4+x^5+x^6+x^10+x^11 and [23,12,7]."
+        ],
+        "identifier_or_url": "https://web.mit.edu/sage/export/guava-3.5/htm/chap5.html",
+        "material_read": "Section 5.4-1 BinaryGolayCode and adjacent extended-code section",
+        "method": "Direct primary documentation text inspection",
+        "title": "Generating Codes, §5.4 BinaryGolayCode (GUAVA/GAP documentation)",
+        "trigger": "Generator polynomial, standard cyclic Golay identity, ordinary parameters"
+      },
+      {
+        "assessment": "Singleton-type pair-code theory and optimal code existence, not a Golay complete multiwidth weight enumerator.",
+        "evidence": [
+          "Initial arXiv public timestamp 2012-11-07; stated objective is MDS symbol-pair code existence and length bounds."
+        ],
+        "identifier_or_url": "https://arxiv.org/abs/1211.1728",
+        "material_read": "ArXiv version record, main definitions and MDS existence/bound statements; full manuscript sections concerning MDS symbol-pair codes checked",
+        "method": "Public arXiv abstract and lawful PDF sections inspected",
+        "title": "Maximum Distance Separable Codes for Symbol-Pair Read Channels",
+        "trigger": "Could cover pair distances and code size bounds for the studied parameters"
+      },
+      {
+        "assessment": "Its general cyclic-code pair bound covers d_2>=11; its applications do not tabulate all 23 Golay spectra or their minimizing orbits.",
+        "evidence": [
+          "Abstract and Introduction state d_pair >= d_H+ceil(d_H/2) for linear cyclic codes, and describe applications to Hamming rather than Golay codes."
+        ],
+        "identifier_or_url": "https://cmrr-star.ucsd.edu/static/pubs/Constructions_TI.pdf",
+        "material_read": "Abstract, Introduction, cyclic pair lower-bound statement, b-symbol sections and conclusions of the 11-page primary PDF",
+        "method": "Lawful full-text PDF examination, section comparisons and internal keyword check",
+        "title": "Constructions and Decoding of Cyclic Codes over b-Symbol Read Channels",
+        "trigger": "Strong prior general cyclic pair bounds and b-symbol constructions possibly implying the Golay spectrum"
+      },
+      {
+        "assessment": "Hypotheses concern irreducible one-/two-weight semiprimitive cyclic codes; they do not hold for binary Golay [23,12,7].",
+        "evidence": [
+          "Introduction defines irreducibility through irreducible parity-check polynomial; abstract specifies one-/two-weight irreducible families."
+        ],
+        "identifier_or_url": "https://link.springer.com/article/10.1007/s10623-023-01193-w",
+        "material_read": "Open-access primary HTML: Introduction, irreducible-code definition, main theorem, examples and scope",
+        "method": "Direct full-text article section inspection and hypothesis comparison",
+        "title": "The b-symbol weight distributions of all semiprimitive irreducible cyclic codes",
+        "trigger": "Potential complete b-symbol spectrum formula dominating this exact census"
+      },
+      {
+        "assessment": "Irreducible cyclic code theory; not evidence for full-document absence of Golay tables. Any inaccessible uninspected details remain a residual risk.",
+        "evidence": [
+          "The publication title and abstract specify irreducible cyclic codes."
+        ],
+        "identifier_or_url": "https://open.metu.edu.tr/handle/11511/97258",
+        "material_read": "Repository landing page and published abstract (not full primary article)",
+        "method": "Abstract-level scope check only",
+        "title": "Complete b-symbol weight distribution of some irreducible cyclic codes",
+        "trigger": "Adjacent enumerator literature with potentially dominating spectrum theorem"
+      },
+      {
+        "assessment": "Decisively covers the entire 11-entry binary Golay minimum-distance vector, but reports neither complete width-dependent coefficient arrays nor counts/classifies all minimizing codewords.",
+        "evidence": [
+          "Example 4 lists the Golay SBDH (7,11,13,15,16,17,18,19,20,21,22).",
+          "Example 1 lists the same code via reciprocal generator x^11+x^9+x^7+x^6+x^5+x+1 and SBDH (7,11,13,15) for four reads."
+        ],
+        "identifier_or_url": "https://arxiv.org/pdf/2511.15207",
+        "material_read": "15-page public arXiv primary PDF: abstract, introduction, Example 1, Example 4, Theorem 3 and the code constructions and table sections",
+        "method": "Lawful open-access PDF full-text material and direct theorem/parameter comparison; checked generator reciprocal equivalence",
+        "title": "Generalized Repetition Codes and Their Application to HARQ",
+        "trigger": "Direct exact Golay symbol-read distance profile, plausibly covering the claim"
+      },
+      {
+        "assessment": "Stability theorem applies at widths b>=12 to this dimension-12 code, covering the high-width constancy. It does not provide the explicit nontrivial-width 2–11 coefficient table.",
+        "evidence": [
+          "Authors state b-symbol weight enumerator is same as k-symbol enumerator when k<=b<=n-1."
+        ],
+        "identifier_or_url": "https://doi.org/10.1109/TIT.2021.3069772",
+        "material_read": "Author-posted full text excerpt and abstract: stability theorem, general bounds, definitions and application scope. Original HAL repository access denied.",
+        "method": "Public author-uploaded text inspection; full article repository alternative attempted, inaccessible",
+        "title": "Geometric Approach to b-Symbol Hamming Weights of Cyclic Codes",
+        "trigger": "General theorem might imply complete b-symbol spectra for high b and dominate this Golay table"
+      },
+      {
+        "assessment": "Proves the elementary run identity and an orbit decomposition for the ternary length-11 Golay code, not the binary length-23 complete spectra. Run identity is acknowledged as prior.",
+        "evidence": [
+          "The paper treats q=3 and n=11, 132 minimum-weight words and 12 codeword orbits; not the 4096 binary codeword census."
+        ],
+        "identifier_or_url": "https://doi.org/10.17654/0972087126158",
+        "material_read": "Open-access paper publicly available text: abstract, Lemmas 2.1–2.2, orbit classification, main theorems and distance proof; original publisher DOI landing inaccessible",
+        "method": "Read the author-published accessible full text as returned by research index; compared field, length and enumerative assertions",
+        "title": "On the Cyclic Symbol-Pair and b-Symbol Distance of the Ternary [11,6,5] Golay Code",
+        "trigger": "Closest Golay-specific zero-run and minimum orbit theory, potentially subsuming the run method"
+      }
+    ],
+    "status": "PASS"
+  },
+  "review_type": "self_review",
+  "schema_version": 1,
+  "scope_run_id": "6a05bb6a-4c4e-4fa0-a4b7-0f4fcebe1667",
+  "self_review_status": "passed",
+  "value": {
+    "rationale": "The natural full b-symbol spectrum is needed for precise error-weight multiplicities of a canonical cyclic perfect code. Previously published Golay results give only the 11-entry minimum-distance hierarchy, and a general stability theorem covers trivial large widths; neither resolves all coefficient multiplicities at the genuinely variable widths 2 through 11. This exact 81-class zero-run and 23-by-24 coefficient classification, including the common 23-word minimizing orbit over nine widths, provides substantial reproducible structural information beyond all covered old distance results, rather than rebranding a known minimum or an arbitrary finite calculation.",
+    "status": "PASS"
+  }
+}
