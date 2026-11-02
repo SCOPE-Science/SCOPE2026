@@ -5,8 +5,11 @@
     "status": "not_performed"
   },
   "independent_audit": {
-    "evidence": null,
-    "status": "not_performed"
+    "status": "passed",
+    "evidence": [
+      "INDEPENDENT_AUDIT_2026-10-28.md",
+      "INDEPENDENT_AUDIT_2026-10-28.json"
+    ]
   },
   "lean_verification": {
     "evidence": null,
@@ -16,10 +19,24 @@
 }
 ---
 
-# Reproducibility and proof checkpoints
+# Independent mathematical audit
 
-Run `python3 verify.py` with Python 3.10 or later; no external packages are used. Successful execution ends with `VERIFY_OK two-local classifications, exact binary enumeration, ternary pair-witness tests`.
+## correctness
 
-The script enumerates all ordinary derivations (64) and ordinary automorphisms (24) of the three-dimensional Heisenberg Lie algebra over \(\mathbb F_2\), then checks all pairs of the eight algebra elements for each of all \(8192\) maps specified by the derivation classification and all \(48\) maps specified by the automorphism classification. It independently counts which classified maps are additive (128 and 24) and ordinary (64 and 24). For \(\mathbb F_3\), it enumerates all 729 ordinary derivation and all 432 ordinary automorphism witnesses and checks every element pair of each of 150 deterministically sampled classified maps per family. It also checks the displayed finite-field cardinalities arithmetically.
+PASS
 
-The infinite-family classification is justified by three separate mathematical steps: (1) classify all genuine linear witnesses from the Lie bracket; (2) derive homogeneity and, for automorphisms, projective and vertical-injectivity constraints from the pairwise condition; (3) explicitly interpolate arbitrary pairs using two-dimensional matrices with prescribed trace or nonzero determinant. Homogeneous-map and projective-permutation counts then produce the formulas. Checks over small fields cannot rule out untested exceptions or establish the all-field theorem without this argument.
+For every finite field F_q including characteristic 2, derivations have D(v+cz)=Av+(ell(v)+tr(A)c)z and automorphisms T(v+cz)=Av+(ell(v)+det(A)c)z with A invertible. Pairwise interpolation forces field-homogeneous quotient map f, homogeneous central map g; for automorphisms f induces a projective permutation and nonzero images, g has nonzero central multiplier and permutation on every nonzero quotient vertical fibre. Conversely, independently selected witnesses interpolate each pair: independent quotient vectors determine A and allow arbitrary ell, while dependent quotients with independent whole elements prescribe a trace or nonzero determinant via (g(tv,d)-t*g(v,c))/(d-tc). This establishes the all-q iff classification, including q=2. Homogeneous-map enumeration yields q^(q^2+3q+3) derivations, and (q+1)!(q-1)^(q+2)(q!)^(q+1) automorphisms. Independently constructed every ordinary F2 witness (64 derivations, 24 automorphisms) and checked every pair for ALL 8192 homogeneous two-local derivation candidates and ALL 48 classified automorphism candidates. These tests confirm finite cases; pair-witness proof supports arbitrary finite q.
+
+## originality
+
+PASS
+
+Ayupov–Kudaybergenov 2016 full text Theorem 3.1 constructs nonordinary two-local automorphisms on broad nilpotent Lie algebras from homogeneous central functions. Ayupov/Kudaybergenov/Rakhimov 2015 already construct nonordinary two-local derivations, and Sheng/Liu/Miao 2025 explicitly study LINEAR two-local automorphisms of Heisenberg algebras. Thus existence and linear subcases are known. The full arbitrary-map finite-field iff classification, projective quotient permutations, vertical-fibre permutations and exact q-dependent cardinalities were not found in these sources. Full 2025 Heisenberg paper unavailable; prior coverage remains a residual risk.
+
+## value
+
+PASS
+
+Classifying *all* nonlinear two-local derivations and automorphisms over every finite field, with explicit q-dependent counts, gives a complete natural local-to-global obstruction census in the smallest nonabelian nilpotent Lie algebra. It quantifies genuinely nonlinear examples far beyond existence constructions and includes the characteristic-two boundary. This is a structural classification, not just known isolated examples.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
