@@ -1,0 +1,144 @@
+{
+  "audit_date_utc": "2026-10-31",
+  "audited_at_utc": "2026-10-31T14:45:12Z",
+  "axes": {
+    "correctness": {
+      "checked_sources": [
+        "Assigned RESULT.md exact factorization/sign/resultant proof at frozen blob 2f834359a970685b35a501623675e33d933f586f",
+        "check_threshold.py at frozen blob b09db17624693905150bbeb1d38ecb8067b58bd6, inspected but not used as sole proof",
+        "Independent fresh script independent_checks.py and results: exact 8×8 polynomial, discriminant, all sign identities, elimination resultant, zero-field factorization; 24 numeric threshold-side spectra",
+        "The assignment Git tree SHA e3c856199c436d4bdb848455d1ce4d83fdfc5b13 reconstructed from seven actual blob identities"
+      ],
+      "rationale": "Reconstructed all eight-spin-spectrum eigenvalues from H/J with outer-exchange reflection: odd sector contributes ±q/2 and even sector det=(F(λ²;u,z)/64). Fresh independent SymPy construction of the 8×8 Pauli Hamiltonian checked this characteristic identity; the cubic-y discriminant equals 65536 D(u,z). For every z>0, exact identities D(0,z)>0, D(z,z)=z(1+4z)^3>0, D(z+1/4,z)<0 and u-leading coefficient +16, together with Descartes, give exactly two simple positive u roots and z<u_-<z+1/4<u_+. At u=0 the matrix is Hermitian and F roots nonnegative; for u>0, F(0)<0 prevents crossing y=0. Therefore y-roots remain positive until u_-, with an endpoint double positive root. For u_-<u<u_+ a nonreal pair appears; for u>u_+ continuity from large u, positive sum of roots and negative second symmetric sum force two negative y-roots, so not all λ are real. At z=0 direct factorization F=4y[(4y-1)^2-4u] gives p_c=1/2. The exact resultant Res_u(D,D_z) factors with only one positive field candidate, root of 3072z³+876z²+52z-3; initial negative slope and eventual growth force it to be the unique global minimum. Direct numerical spectra at six q values and four interior/exterior defect values independently corroborate, but are not used as a proof of the all-parameter conclusion.",
+      "residual_risks": [
+        "Endpoint assertion concerns real eigenvalues counted algebraically, not diagonalizability/Jordan block classification.",
+        "Finite sampling cannot establish all-parameter reality; the proof uses analytic polynomial identities, continuity, Descartes and resultant arguments.",
+        "In the u=0 Hermitian case at z=1/3 one squared-energy root is zero; the u>0 no-zero condition requires the separate zero-field boundary argument."
+      ],
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Muldoon and Joglekar, arXiv:2304.10064v2, https://arxiv.org/pdf/2304.10064: Sec. III reduction to a local 2x2 model assumes h_z=0; finite h_z described by numerical full-matrix diagonalization.",
+          "Starkov, Fistul and Eremin, arXiv:2302.14672v1, https://arxiv.org/html/2302.14672v1: Sec. IV.1 eq. (19) uses even N and staggered imaginary longitudinal fields, not a central σ+ Jordan perturbation.",
+          "Barnett and Joglekar, arXiv:2302.13204v1, https://arxiv.org/html/2302.13204v1: Sec. 2 eq. (5) is a tridiagonal one-particle gain/loss matrix on C^n, not three interacting spin-1/2 sites on C^8."
+        ],
+        "reasoning": "General pseudo-Hermitian EP selection rules and exact spectra of detuned tridiagonal chains do not imply the eight-dimensional central-raising spin threshold, because the Hamiltonians and their parameterized characteristic polynomials differ. The closest same-model paper is restricted to numerical finite-field pictures and a zero-field analytic argument.",
+        "searches": [
+          "Muldoon and Joglekar, arXiv:2304.10064v2, https://arxiv.org/pdf/2304.10064",
+          "Starkov, Fistul and Eremin, arXiv:2302.14672v1, https://arxiv.org/html/2302.14672v1",
+          "Barnett and Joglekar, arXiv:2302.13204v1, https://arxiv.org/html/2302.13204v1",
+          "many-body phase transitions non-Hermitian Ising chain imaginary longitudinal field 2023",
+          "Resultary query: exact real eigenvalues spectral reality phase boundary localized exceptional non-Hermiticity three-spin"
+        ]
+      },
+      "checked_sources": [
+        "Muldoon and Joglekar, arXiv:2304.10064v2, https://arxiv.org/pdf/2304.10064",
+        "Starkov, Fistul and Eremin, arXiv:2302.14672v1, https://arxiv.org/html/2302.14672v1",
+        "Barnett and Joglekar, arXiv:2302.13204v1, https://arxiv.org/html/2302.13204v1",
+        "Resultary published-finding semantic queries: non-Hermitian three-spin Ising chain central raising operator PT symmetry real spectrum transverse field exceptional threshold; Ising trimer central sigma plus non-Hermitian exact discriminant exceptional points optimal transverse field; exact real eigenvalues spectral reality phase boundary localized exceptional non-Hermiticity three-spin",
+        "Web public literature queries: \"0.3770577597\" Ising trimer non-Hermitian; \"3072\" \"876\" \"52\" non Hermitian Ising threshold; three spin raising transverse real spectrum threshold Ising exceptional"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "Muldoon and Joglekar, arXiv:2304.10064v2, https://arxiv.org/pdf/2304.10064: Eq. (9) contains the h=0 gamma/J=1/2 bulk endpoint, which the theorem recovers exactly.",
+          "Muldoon and Joglekar, arXiv:2304.10064v2, https://arxiv.org/pdf/2304.10064: Fig. 6(b) presents nonmonotone/field-sensitive thresholds for an N=7 bulk impurity rather than a sharp all-h optimized threshold for N=3.",
+          "Starkov, Fistul and Eremin, arXiv:2302.14672v1, https://arxiv.org/html/2302.14672v1: Z2 parity selection gives qualitative rules for EP formation in a different field-coupling model."
+        ],
+        "reasoning": "The prior zero-field limit is included, not novel. A qualitative claim that transverse field can weaken or strengthen PT-symmetric phases does not logically imply the trimer-specific discriminant, the inequality q²<u_-(q²)<q²+1/4, the global minimizer cubic or its nonzero absolute floor. Neither a broader many-body plot nor a different single-particle analytic model dominates the claim.",
+        "searches": [
+          "Muldoon and Joglekar, arXiv:2304.10064v2, https://arxiv.org/pdf/2304.10064",
+          "Starkov, Fistul and Eremin, arXiv:2302.14672v1, https://arxiv.org/html/2302.14672v1",
+          "Barnett and Joglekar, arXiv:2302.13204v1, https://arxiv.org/html/2302.13204v1",
+          "PT symmetry breaking quantum spin chains Muldoon Joglekar Fig 6 single site weak transverse field"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Muldoon and Joglekar, arXiv:2304.10064v2, https://arxiv.org/pdf/2304.10064: eqs. (1),(8),(9),(10) specify transverse Ising with one raising term and γ_PT=J/2 when h_z=0 for a bulk site; sec. II D/fig. 6 plot finite-field behavior for N=7; sec. III explicitly develops an analytic approach for h_z=0.",
+          "New derivation applies reflection-even/odd decomposition for N=3 and gives a cubic in squared energy, discriminant D(u,z), exact entire real-spectrum boundary and global minimizer, not supplied by those inspected source formulas."
+        ],
+        "reasoning": "Equivalent statements could use a polynomial discriminant, Routh/Sturm root positivity, an 8x8 eigenvalue phase diagram or an optimized EP threshold. The original paper supplies only the h=0 endpoint and numerical field behavior for larger N. The exact model-specific all-field curve and unique optimization do not follow from a title match or generic reality-of-spectrum theorem.",
+        "searches": [
+          "non-Hermitian three-spin Ising chain central raising operator PT symmetry real spectrum transverse field exceptional threshold",
+          "Ising trimer central sigma plus non-Hermitian exact discriminant exceptional points optimal transverse field",
+          "Muldoon Joglekar 2023 PT symmetry breaking quantum spin chains exceptional non-Hermiticities three spin central site transverse field characteristic cubic discriminant exact",
+          "Muldoon and Joglekar, arXiv:2304.10064v2, https://arxiv.org/pdf/2304.10064",
+          "Resultary query: non-Hermitian three-spin Ising chain central raising operator PT symmetry real spectrum transverse field exceptional threshold"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "Specific numeric and polynomial-coefficient searches did not retrieve a published table of the N=3 critical point.",
+          "Muldoon and Joglekar, arXiv:2304.10064v2, https://arxiv.org/pdf/2304.10064: plotted transverse-field thresholds (fig. 6) refer to N=7 and are not a table or formula for the N=3 exact optimized critical curve.",
+          "Resultary semantic searches returned nearest unrelated XXX spin rings, qutrit inequalities, matrix spectral questions, and tight-binding-related problems; no matched exact central-raising trimer claim was found in retrieved results."
+        ],
+        "reasoning": "No inspected table contained the pair (0.18654891982879, 0.37705775971022) or the characteristic cubic. A failed indexed search cannot exclude unknown or unpublished tables; explicit residual priority risk retained.",
+        "searches": [
+          "\"0.3770577597\" Ising trimer non-Hermitian",
+          "\"3072\" \"876\" \"52\" non Hermitian Ising threshold",
+          "exact Ising trimer central raising gamma 0.3770577597 transverse field optimal",
+          "Resultary query: Ising trimer central sigma plus non-Hermitian exact discriminant exceptional points optimal transverse field"
+        ]
+      },
+      "rationale": "Qualified best-of-knowledge novelty: the 2023 Muldoon–Joglekar primary paper defines the exact central-raising Ising model and the J/2 zero-field bulk threshold, and plots N=7 transverse-field single-defect thresholds. Its fully inspected main text confines the analytic derivation to h_z=0 and does not give the complete N=3 finite-field discriminant, all-real inequality or unique optimizing field. Generic cubic discriminant theory and EP machinery are old, but do not by themselves evaluate this 8-by-8 Hamiltonian. Two other closely named EP papers use non-equivalent perturbations. Targeted published-finding semantic searches and public literature search did not identify a stronger or equivalent statement; that search absence is not a priority certificate.",
+      "residual_risks": [
+        "An unindexed exact N=3 all-field calculation or supplemental numerical table of the same Hamiltonian may contain equivalent optimization, despite no match in bounded searches.",
+        "The original longer-chain field-dependence is numerical and differs in small-field behavior from N=3; no longer-chain or thermodynamic claim is warranted.",
+        "Full exhaustive historical priority verification and independent external expert attestation are not claimed."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Defines the source model and h_z=0 bulk threshold, and reports numerical finite-field behavior, but inspected main text supplies no N=3 all-field discriminant or unique minimum",
+          "evidence": "Eq. (9) bulk γ_PT=J/2 at zero field; Sec. II D describes fig.6 N=7 field-dependent phase diagrams; Sec. III explicitly says analytical solution for h_z=0; Sec. IV summarizes field variability.",
+          "identifier_or_url": "https://arxiv.org/pdf/2304.10064",
+          "material_read": "Full main-text pages 1–7 (PDF indices 0–6), especially Sec. II A–D, Sec. III, Sec. IV, eqs. (1),(8),(9),(10), figs. 2,3,6; rendered PDF pages 4,5,7 inspected visually",
+          "method": "Direct lawful arXiv v2 full PDF parsed text, with three rendered page screenshots",
+          "title": "PT-Symmetry breaking in quantum spin chains with exceptional non-Hermiticities",
+          "trigger": "Exact same central Jordan raising perturbation in a transverse-field Ising chain; decisive original source"
+        },
+        {
+          "assessment": "Different Hamiltonian: even-length chain with alternating imaginary longitudinal gain/loss, not one center σ+; parity-index rule is not the proposed exact threshold",
+          "evidence": "Sec. IV.1 eq. (19) explicitly sums (-1)^{n-1}iγσ_n^z on all sites.",
+          "identifier_or_url": "https://arxiv.org/html/2302.14672v1",
+          "material_read": "Accessible arXiv HTML, abstract, Introduction, Sec. II and Sec. IV.1 model definition, with discussion of Z2 rule",
+          "method": "Primary arXiv full-text HTML, relevant identified sections",
+          "title": "Formation of Exceptional Points in pseudo-Hermitian Systems",
+          "trigger": "General EP selection rules in transverse-field Ising chains; possible broader-coverage concern"
+        },
+        {
+          "assessment": "Tridiagonal one-particle model with paired gain/loss and Hermitian detuning, rather than the interacting 3-spin local raising model",
+          "evidence": "Secs. 1–2 use H acting on C^n with tridiagonal structure in Eq. (5), in contrast to an 8-dimensional three-spin Pauli product.",
+          "identifier_or_url": "https://arxiv.org/html/2302.13204v1",
+          "material_read": "Accessible arXiv HTML abstract, introductory Hamiltonian and Sec. 2 model, Sec. 2.1 and 3.4 exact threshold context",
+          "method": "Primary arXiv full-text HTML, relevant model/threshold sections",
+          "title": "Effects of detuning on PT-symmetric, tridiagonal, tight-binding models",
+          "trigger": "Exact EP curves and thresholds in neighboring non-Hermitian finite-matrix literature"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "checked_sources": [
+        "Muldoon–Joglekar 2023 eq. (9) and fig. 6 establish the source physical model and open finite-field question",
+        "Exact D(u,z) root geometry, optimized cubic and q→0/∞ asymptotics in assigned RESULT.md"
+      ],
+      "rationale": "The open three-spin Ising chain is the smallest chain with a genuine interior local nilpotent perturbation, a canonical finite test of localized non-Hermitian spectral control. Exact all-field real-spectrum boundaries answer a model-specific sharp question not answered by known numerical N=7 phase plots; unique optimizing transverse field and a strictly positive all-field defect floor distinguish it from a routine eigenvalue list or a zero-field parameter substitution. The joint polynomial sign/root and resultant classification is mathematically motivated and provides a reproducible exact small-system benchmark; no claim of a thermodynamic transition or paper-sized general theorem is required.",
+      "residual_risks": [
+        "Result concerns precisely N=3, central raising defect and real nonnegative J,h,γ; extrapolation to longer chains is unwarranted.",
+        "A general physical control or measurement protocol and experimental implementation are not proved."
+      ],
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "final_claim": "For J>0, h,γ>=0, the open 3-site spin-1/2 Hamiltonian H=-(J/4)(X1X2+X2X3)-(h/2)(Z1+Z2+Z3)+γ σ_2^+ has all eight complex eigenvalues real iff γ²/J²<=u_-(h²/J²), where for z>0 u_- is the smaller of exactly two positive u-roots of D(u,z)=16u³-(8+208z+944z²)u²+(1+20z+224z²+800z³-2048z⁴)u+16z³+208z⁴+2048z⁵ and z<u_-<z+1/4; at h=0 threshold γ/J=1/2. The critical γ/J curve has a unique global minimum 0.37705775971022... at h/J=0.18654891982879..., with z* unique positive root of 3072z³+876z²+52z-3; no claim for longer chains or EP Jordan forms.",
+  "limitations": [
+    "Strictly 3-site open chain, J>0, h,γ>=0, central σ^+; no claim of a universal N-independent γ floor.",
+    "All-real spectrum includes algebraic exceptional degeneracies but does not imply diagonalizability.",
+    "Numerical scans support but do not prove global statements; exact polynomial/root proof is decisive.",
+    "Published same-model source has only numerical finite-field analysis for larger N; unrelated-model source scope carefully distinguished."
+  ],
+  "schema_version": 1
+}
