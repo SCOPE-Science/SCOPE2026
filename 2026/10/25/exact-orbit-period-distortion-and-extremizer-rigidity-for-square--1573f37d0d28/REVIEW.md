@@ -1,15 +1,21 @@
-# Scientific review
+# Independent mathematical audit
 
-## Correctness
-**PASS.** The two-sided universal bounds follow by Jensen's inequality and the pointwise \(\ell^1\)-to-\(\ell^2\) comparison. Exact finite-period constants use grouping by residues and measurable orbit cross-sections. A countable-cylinder positive-measure marker lemma gives the full upper constant on aperiodic or unbounded-period components. Strict positive weights imply strict nonattainment; explicit pairwise deficit bounds prove the entire near-extremizer equivalence. Each argument uses the stipulated standard Borel invertibility and actual measure preservation, with no numerical limit substituted for proof.
+## correctness
 
-## Originality
-**PASS (best-knowledge; priority risks remain).** The full text of Dantas–Kaasik–Perreau, arXiv:2609.12562v1, Section 3.1, states the comparison upper bound but not its sharp orbit-period classification or attainment. Doucha, arXiv:2508.16182v1, Sections 3 and 5, concerns invariant renorming existence rather than this square function. The closest indexed published result, *Finite orbit truncations destroy rotundity in an ergodic Daugavet renorming*, was inspected in full as a statement and proof: it treats finite coordinate truncations of irrational-rotation orbit norms, not the infinite-coordinate distortion constant. Searches for the weighted square-function formula, periods, attainment and overlap conditions located no dominating theorem; this is evidence of noncoverage of inspected results, not a proof of global uniqueness.
+PASS
 
-## Mathematical value
-**PASS.** The 2026 norm construction provides an explicit comparison bound with no orbit-dependent sharpness analysis. The new result converts that inequality into a complete dynamical classification, including a sharp distinction between finite uniformly bounded periods and long/aperiodic orbits, an exact attainment dichotomy and a necessary-and-sufficient characterization of near-extremal behavior. The constants measure a natural isomorphic invariant of the constructed Banach norms, rather than an arbitrary finite test statistic.
+Weighted RMS-AM yields N_T(f)>=||f||_1, and pointwise ℓ2<=ℓ1 yields upper S||f||_1. On period-m invariant component, residue aggregation gives b_mr, and a Borel selector E_m of one representative per finite orbit attains Σ_r sqrt(b_mr) by one-marker disjointness. If long orbits exist in positive measure for every L, a countable-cylinder separation of successive orbit points produces positive-measure marker E whose shifts are disjoint on any fixed finite window; their coordinate contributions give lower bound Σ_{k∈F}√a_k, tending to S. Strict positivity ensures S_m<S because each congruence class has several weights and sqrt is strictly subadditive. Equality with S would force all shifted positive-measure supports pairwise disjoint, impossible in a probability space. Pairwise ℓ1−ℓ2 deficit obeys (2−√2)∫min(c_k,c_l)≤S||f||1−N_T(f) and a finite-window upper bound by Σpairs∫min + ||f||1 Σk∉F√a_k; these establish the iff near-extremizer criterion for normalized f. Independent cyclic numerical checks of a_k=(3/5)4^(-|k|) confirmed S=3sqrt(3/5), S1=1, S2=(sqrt(17)+sqrt8)/5, and S_m<S for 1<=m<=19. These are illustrative, not a substitute for orbit-marker proof.
 
-## Scope and residual risk
-The result is restricted to standard Borel probability-preserving invertible actions and strictly positive square-root-summable weights. The broad ergodic-operator literature could contain an independently formulated equivalent criterion not located by the searches. No independent scientific audit has occurred.
+## originality
 
-Self-review: passed. Independent audit: not yet performed.
+PASS
+
+Dantas–Kaasik–Perreau introduced this exact orbit square norm and established general ||f||1<=N_T(f)<=S||f||1; the audited claim does not claim that construction. The inspected abstracts and related finite-truncation SCOPE result do not state the optimal constant as a function of period spectrum, equality classification, or full pairwise-extremizer equivalence. Complete original Dantas preprint body was inaccessible in this execution; unverified chance of an implicit sharpness lemma remains. Qualified best-of-knowledge PASS.
+
+## value
+
+PASS
+
+The sharp comparison constant is a canonical geometric Banach-space invariant for this explicitly constructed family of L1 norms. The result identifies a genuine dynamical distinction between uniformly bounded finite orbit length and aperiodic/unbounded lengths, plus complete extremizer attainment and near-extremizer rigidity. It answers a natural quantitative gap left by a nonsharp construction bound without claiming new Daugavet or convexity theory.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
