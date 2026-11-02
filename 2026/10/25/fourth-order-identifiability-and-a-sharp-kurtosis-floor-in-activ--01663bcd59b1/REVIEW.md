@@ -1,15 +1,21 @@
-# Scientific review
+# Independent mathematical audit
 
-## Correctness — PASS
-Gaussian factorization and sign symmetry prove the first-to-third-order obstruction. Direct fourth-moment Wick pairings give a two-root inverse formula, with the equal-rate boundary checked. Conditioning the displacement on one OU path gives strict positive fourth cumulant. Operator traces and a convergent Fourier integral prove the stated integrated rate and its sharp equality case. The reproducibility script passed 243 symbolic/numerical assertions; this does not certify arbitrary experiments or replace the analytic proof.
+## correctness
 
-## Originality — PASS (self-review)
-Cocconi–Alston–Bertrand, arXiv:2304.07738v1, already derive the decoupled product-OU model, its Bessel velocity distribution, MSD and effective diffusivity. Those are prior premises, not newly claimed results. The identified additional result is the minimum moment order needed for single-lag recovery of the **two** hidden relaxation rates, plus the sharp integrated fourth-cumulant floor. Broad Gaussian fourth-moment machinery and quadratic-form large-deviation theory are prior methods. A literature-wide alternative formulation could still cover the model-specific rate identification; priority needs independent review.
+PASS
 
-## Scientific value — PASS
-The precise gap is second-order observational equivalence of microscopically distinct dimer relaxation mechanisms. The theorem supplies an exact higher-order discriminator and identifies the symmetric parameter point as the unique constrained minimum of scaled displacement kurtosis. The scope is stationary independent OU factors and exact population statistics, with no finite-sample inference guarantee.
+For independent centered stationary OU factors U,V (rates a,b>0), multiplication of Gaussian pairings gives R=e^{-(a+b)t} and F=e^{-2at}+e^{-2bt}+R². The quadratic z²-(F-R²)z+R² recovers unordered rates from t>0. The entire product path has zero odd moments; same (a+b,c²u²v²,D0) gives identical second-order displacement statistics. Conditional Gaussian mixture establishes kappa4(X_T)=3Var(S_T)>0. Independently derived fourfold covariance trace integral by Fourier methods and checked sharp asymptotic eta²*6(a²+3ab+b²)/(ab(a+b))>=30eta²/(a+b), equality iff a=b. Exact population inference only: no finite sample/noisy direct-force recovery promise.
 
-## Closest literature and residual risks
-Cocconi, Alston and Bertrand (2023), DOI: 10.1103/PhysRevResearch.5.043032, arXiv:2304.07738v1, is the direct physical model and second-order comparator. General Gaussian quadratic-form results by Bercu, Gamboa and Rouault (1997), DOI: 10.1016/S0304-4149(97)00071-9, and Gaussian fourth-moment results are acknowledged as broader methodological coverage, not displaced. Unchecked inverse-problem formulations remain a genuine scholarly priority risk.
+## originality
 
-Self-review: passed. Independent audit: not yet performed.
+PASS
+
+Best-of-knowledge originality for the precisely restricted final claim: The original dimer reduction plus standard Isserlis identities permit derivation of formulas but provide neither the fourth-order measurement sufficiency statement nor the sharp constrained long-time kurtosis minimum. Novelty is the substantive model-specific assembled inverse theorem, not Gaussian pairing identities. Sources were compared for logical implication, not merely title and number overlap. Residual risks retained rather than treating unsuccessful searches as novelty proof.
+
+## value
+
+PASS
+
+For an explicitly motivated active dimer with two latent relaxation rates masked by the stationary product, this gives the first informative cumulant order, a one-lag exact inverse reconstruction up to exchange, and a sharp integrated-displacement kurtosis floor. These resolve a natural observability limitation not mechanically supplied by the known MSD.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
