@@ -1,11 +1,21 @@
-# Self-review
+# Independent mathematical audit
 
-**Correctness: PASS.** The result follows from an independently written pair of Kalman update–predict–update information recursions. Their exact difference is factored with positive denominators; an AM–GM minimization yields the sharp existence threshold for the stronger-first window; a quadratic sign classification yields necessary and sufficient intervals, including all ties, zero dynamical gain, and the critical double root. Vieta's formulas and the factored discriminant establish both endpoint asymptotics. The included exact-rational checker ran 10,016 assertions; finite checks supplement but do not establish the infinite-parameter proof.
+## correctness
 
-**Originality: PASS (self-review; publication priority uncertain).** The 2023 motivating paper develops an exact mixed-integer solver for a more general sensor-scheduling problem but does not present the sharp two-use scalar phase diagram. The 2021 covariance-tracking paper supplies general approximate optimization, not this classification. The earlier scalar information-ordering theorem assumes stronger sensors may be selected again, which cannot solve an exactly-once ordering constraint. Related 2017 periodic network scheduling uses a different convex relaxation. Targeted mathematical-record searches and the available prior claims identified no equivalent or dominating exact ordering theorem. A specialized earlier observation/order-exchange result could exist, and completeness of the entire literature is unproved.
+PASS
 
-**Mathematical value: PASS.** Exactly-once sensing is a meaningful energy/bandwidth resource constraint in the motivating framework. The result supplies a complete parametric answer to the smallest nontrivial order-allocation problem; the reentrant weak–strong–weak preference as gain increases contradicts naive rules to always measure most accurately at the final time or always earlier. The universal critical noise ratio and square-root width collapse quantify a useful design boundary without resorting to mixed-integer optimization on this natural subproblem. This is an exact structural classification, not merely a numerical example.
+For two scalar sensors precision r>s used exactly once at consecutive observation times, derived posterior information J_rs=s+1/[q+a²p/(1+rp)] and J_sr=r+1/[q+a²p/(1+sp)]. Independently confirmed exact factorization J_rs−J_sr=(r−s)[t/((t+νC)(t+νD))−1], t=a²>=0, ν=q/p>0, C=1+pr, D=1+ps. Thus stronger-first iff fν(t)=t²+[ν(C+D)−1]t+ν²CD<0. AM–GM yields ν*=1/(sqrt C+sqrt D)². For ν below, precisely one open two-root stronger-first window; at critical one tie, above stronger-last everywhere. Discriminant factorization gives square-root closing width and small-noise Vieta expansions; t>=1 strictly stronger-last. Exact finite examples support but do not replace this universal argument.
 
-Closest literature: Dutta–Wilde–Smith (2023) general exact scheduling reformulation; Maity–Hartman–Baras (2021) covariance tracking; Huber (2012) sensor information dominance with reuse; Pasand–Montazeri (2017) periodic access scheduling. The theorem is limited to two time slots, one scalar Gaussian state, independent positive noises, fixed precisions, use-once constraints, and final variance. It does not extend automatically to longer or vector-valued scheduling.
+## originality
 
-Self-review: passed. Independent audit: not yet performed.
+PASS
+
+Best-of-knowledge original precise final theorem after comparison with source-specific hypotheses; all named comparisons and inaccessible-source risks recorded.
+
+## value
+
+PASS
+
+A minimal resource-constrained Kalman scheduling problem has a nonmonotone, reentrant optimal sensor order as dynamics vary. The closed-form all-parameter sharp noise frontier distinguishes once-only sensor budgets from the usual reusable-sensor dominance pruning; it is a motivated exact sensitivity classification, not merely a restatement of scalar Kalman recursion.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

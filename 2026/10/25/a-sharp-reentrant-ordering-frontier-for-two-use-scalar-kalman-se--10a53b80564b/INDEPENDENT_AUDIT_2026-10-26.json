@@ -1,0 +1,145 @@
+{
+  "audit_date_utc": "2026-10-26",
+  "audited_at_utc": "2026-10-26T01:06:02.253784Z",
+  "axes": {
+    "correctness": {
+      "rationale": "For two scalar sensors precision r>s used exactly once at consecutive observation times, derived posterior information J_rs=s+1/[q+a²p/(1+rp)] and J_sr=r+1/[q+a²p/(1+sp)]. Independently confirmed exact factorization J_rs−J_sr=(r−s)[t/((t+νC)(t+νD))−1], t=a²>=0, ν=q/p>0, C=1+pr, D=1+ps. Thus stronger-first iff fν(t)=t²+[ν(C+D)−1]t+ν²CD<0. AM–GM yields ν*=1/(sqrt C+sqrt D)². For ν below, precisely one open two-root stronger-first window; at critical one tie, above stronger-last everywhere. Discriminant factorization gives square-root closing width and small-noise Vieta expansions; t>=1 strictly stronger-last. Exact finite examples support but do not replace this universal argument.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "A Unified Approach to Optimally Solving Sensor Scheduling and Sensor Selection Problems in Kalman Filtering: General mixed-integer convex quadratic resource formulations have no explicit ν* or t± reentrant regime.",
+          "Optimal Pruning for Multi-Step Sensor Scheduling: One-use scheduling prohibits choosing the same stronger sensor at both stages.",
+          "Frozen RESULT.md exact theorem and proof compared with same object and parameter hypotheses."
+        ],
+        "reasoning": "Dutta–Wilde–Smith formulate broader sensor scheduling/selection by MIQP but do not provide the closed-form scalar once-only two-use nonmonotone frontier. Huber stronger-information pruning applies with sensor reuse, so cannot choose strong sensor twice under one-use constraints. General Kalman variance recursion implies exchange identity but not prior published algebraic classification.",
+        "searches": [
+          "Resultary: two scalar sensors once each Kalman filtering optimal order process noise reentrant sensor scheduling",
+          "arXiv:2304.02692",
+          "DOI:10.1109/TAC.2011.2175070"
+        ]
+      },
+      "checked_sources": [
+        "frozen Git source tree a6bf3e10d784a61007c14351192a76ee07cf5028 (untruncated); RESULT.md Git blob 0e378a6773ff522b4b68684b24468440ce14648d",
+        "Resultary: two scalar sensors once each Kalman filtering optimal order process noise reentrant sensor scheduling",
+        "arXiv:2304.02692",
+        "DOI:10.1109/TAC.2011.2175070",
+        "arXiv:2304.02692",
+        "DOI:10.1109/TAC.2011.2175070"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "A Unified Approach to Optimally Solving Sensor Scheduling and Sensor Selection Problems in Kalman Filtering: General mixed-integer convex quadratic resource formulations have no explicit ν* or t± reentrant regime.",
+          "Optimal Pruning for Multi-Step Sensor Scheduling: One-use scheduling prohibits choosing the same stronger sensor at both stages.",
+          "Frozen RESULT.md exact theorem and proof compared with same object and parameter hypotheses."
+        ],
+        "reasoning": "Broad finite-horizon optimizers can numerically choose an order at fixed parameters. Their existence does not give the analytic process-noise bifurcation and square-root window law; the claimed equalities follow from explicit constrained quadratic optimization.",
+        "searches": [
+          "Resultary: two scalar sensors once each Kalman filtering optimal order process noise reentrant sensor scheduling",
+          "arXiv:2304.02692",
+          "DOI:10.1109/TAC.2011.2175070"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "A Unified Approach to Optimally Solving Sensor Scheduling and Sensor Selection Problems in Kalman Filtering: General mixed-integer convex quadratic resource formulations have no explicit ν* or t± reentrant regime.",
+          "Optimal Pruning for Multi-Step Sensor Scheduling: One-use scheduling prohibits choosing the same stronger sensor at both stages.",
+          "Frozen RESULT.md exact theorem and proof compared with same object and parameter hypotheses."
+        ],
+        "reasoning": "The exchange can be expressed by posterior variance, posterior precision, or a quadratic inequality in dynamical gain t=a². Once-only stronger/weak sensor order differs from unrestricted sensor reuse and from minimizing summed intermediate covariances.",
+        "searches": [
+          "Resultary: two scalar sensors once each Kalman filtering optimal order process noise reentrant sensor scheduling",
+          "arXiv:2304.02692",
+          "DOI:10.1109/TAC.2011.2175070"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "A Unified Approach to Optimally Solving Sensor Scheduling and Sensor Selection Problems in Kalman Filtering: General mixed-integer convex quadratic resource formulations have no explicit ν* or t± reentrant regime.",
+          "Optimal Pruning for Multi-Step Sensor Scheduling: One-use scheduling prohibits choosing the same stronger sensor at both stages.",
+          "Frozen RESULT.md exact theorem and proof compared with same object and parameter hypotheses."
+        ],
+        "reasoning": "Resultary semantic query for two scalar once-only Kalman sensor ordering/process noise returned other sensing/frame/covariance results, no matching noise threshold or reentrant window table. Exact rational scalar recursions alone do not establish prior coverage of the full strict/tie cases.",
+        "searches": [
+          "Resultary: two scalar sensors once each Kalman filtering optimal order process noise reentrant sensor scheduling",
+          "arXiv:2304.02692",
+          "DOI:10.1109/TAC.2011.2175070"
+        ]
+      },
+      "rationale": "Best-of-knowledge original precise final theorem after comparison with source-specific hypotheses; all named comparisons and inaccessible-source risks recorded.",
+      "residual_risks": [
+        "A classical two-measurement scalar resource-constrained scheduling example could have the same quadratic exchange inequality without searchable reentrant terminology.",
+        "Result does not extend to multiple times, correlated noises or vector states."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "COVERS broad scheduling formulation, NOT_COVERING stated analytic once-only threshold",
+          "evidence": [
+            "General mixed-integer convex quadratic resource formulations have no explicit ν* or t± reentrant regime."
+          ],
+          "identifier_or_url": "arXiv:2304.02692",
+          "material_read": "Full 8-page primary PDF accessed and inspected methods, objective, case treatment and lack of two-use scalar algebraic formula",
+          "method": "Primary PDF text and page screenshot",
+          "title": "A Unified Approach to Optimally Solving Sensor Scheduling and Sensor Selection Problems in Kalman Filtering",
+          "trigger": "Same one-use sensor scheduling framework potentially implies closed form"
+        },
+        {
+          "assessment": "Reusable-sensor stronger information dominance is inapplicable to both sensors once-only",
+          "evidence": [
+            "One-use scheduling prohibits choosing the same stronger sensor at both stages."
+          ],
+          "identifier_or_url": "DOI:10.1109/TAC.2011.2175070",
+          "material_read": "Published result metadata and comparative description inspected, not full primary article",
+          "method": "Bibliographic and theorem-assumption comparison",
+          "title": "Optimal Pruning for Multi-Step Sensor Scheduling",
+          "trigger": "Sensor information dominance could preclude reentrant optimum"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "rationale": "A minimal resource-constrained Kalman scheduling problem has a nonmonotone, reentrant optimal sensor order as dynamics vary. The closed-form all-parameter sharp noise frontier distinguishes once-only sensor budgets from the usual reusable-sensor dominance pruning; it is a motivated exact sensitivity classification, not merely a restatement of scalar Kalman recursion.",
+      "status": "PASS"
+    }
+  },
+  "checked_sources": [
+    "frozen Git source tree a6bf3e10d784a61007c14351192a76ee07cf5028 (untruncated); RESULT.md Git blob 0e378a6773ff522b4b68684b24468440ce14648d",
+    "Resultary: two scalar sensors once each Kalman filtering optimal order process noise reentrant sensor scheduling",
+    "arXiv:2304.02692",
+    "DOI:10.1109/TAC.2011.2175070",
+    "arXiv:2304.02692",
+    "DOI:10.1109/TAC.2011.2175070"
+  ],
+  "disposition": "passed",
+  "limitations": "A classical two-measurement scalar resource-constrained scheduling example could have the same quadratic exchange inequality without searchable reentrant terminology. Publication not_ready is a transport/privacy blocker and not scientific rejection.",
+  "residual_risks": [
+    "A classical two-measurement scalar resource-constrained scheduling example could have the same quadratic exchange inequality without searchable reentrant terminology.",
+    "Result does not extend to multiple times, correlated noises or vector states."
+  ],
+  "schema_version": 1,
+  "source_inspections": [
+    {
+      "assessment": "COVERS broad scheduling formulation, NOT_COVERING stated analytic once-only threshold",
+      "evidence": [
+        "General mixed-integer convex quadratic resource formulations have no explicit ν* or t± reentrant regime."
+      ],
+      "identifier_or_url": "arXiv:2304.02692",
+      "material_read": "Full 8-page primary PDF accessed and inspected methods, objective, case treatment and lack of two-use scalar algebraic formula",
+      "method": "Primary PDF text and page screenshot",
+      "title": "A Unified Approach to Optimally Solving Sensor Scheduling and Sensor Selection Problems in Kalman Filtering",
+      "trigger": "Same one-use sensor scheduling framework potentially implies closed form"
+    },
+    {
+      "assessment": "Reusable-sensor stronger information dominance is inapplicable to both sensors once-only",
+      "evidence": [
+        "One-use scheduling prohibits choosing the same stronger sensor at both stages."
+      ],
+      "identifier_or_url": "DOI:10.1109/TAC.2011.2175070",
+      "material_read": "Published result metadata and comparative description inspected, not full primary article",
+      "method": "Bibliographic and theorem-assumption comparison",
+      "title": "Optimal Pruning for Multi-Step Sensor Scheduling",
+      "trigger": "Sensor information dominance could preclude reentrant optimum"
+    }
+  ]
+}
