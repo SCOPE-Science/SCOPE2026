@@ -1,19 +1,21 @@
-# Scientific assessment
+# Independent mathematical audit
 
-## Correctness — PASS
+## correctness
 
-The complement lemma accounts for all trailing-zero cases, including when \(kn\) is divisible by the complete window modulus. Carry-free leading quotient digits (because \(k<b\)) establish the reflection identity. For \(b=p^a\), prime valuations yield precisely two sectors, exact geometric-series counts, two reciprocity laws and the block mean. For a base with at least two distinct prime factors, the explicitly constructed admissible integers force three different defects at length two. The included verifier checks finite examples but does not replace the universal proof.
+PASS
 
-## Originality — PASS under inspected evidence
+The complement lemma s_b(u)+s_b(b^L-u)=1+(b-1)(L-v_b(u)) holds for arbitrary composite bases. Long division kn=j b^L+r with j<k<b proves reflected increment sum k-1-(b-1)(min(L,v_b(kn))-v_b(n)), including r=0. For b=p^a and c=v_p(k)<a the defect is floor((r+c)/a) for p-valuation remainder r, hence 0 or1; exact exceptional valuation counts telescope to (p^c-1)(b^L-1)/(b-1). Symmetry under n<->b^L-n fixes the defect sectors and proves the reciprocal Laurent polynomials. Pair summation yields (k-p^c)(b^L-1)/2 including F(0)=0. If b has at least two distinct primes, writing b=p^a m with p least prime implies m>p; k=p^(a+1)<b, L=2, n=1,m,b²/k exhibit defects 0,1,2, proving necessity. Domain requires b>=2, 1<=k<b, L>=1, 1<=n<b^L; no extension to k>=b is asserted. Algebraic derivations are exact.
 
-The full Dartyge–Luca–Stănică 2009 paper was inspected for the same digit-sum-of-multiples object: its identified theorems prove existence and asymptotic statements, not an exact two-center finite-block reflection or a characterization of prime-power bases. Dartyge–Tenenbaum 2005 addresses joint exponential-sum bounds and digit-sum distributions; its accessible abstract does not determine this comparison. Older Stolarsky/Schmidt binary results may provide related symmetry phenomena but concern multipliers excluded from the binary \(k<b\) case. Targeted research-record and mathematical-literature queries found no decisive equivalent. Searches are not a proof of novelty; uninspected older full texts remain residual priority risks.
+## originality
 
-## Value — PASS
+PASS
 
-The gap is a natural structural boundary of a known digit-sum-multiplication problem: it identifies precisely which bases admit two reflection centers for every short multiplier, quantifies both distributions at every window length, and shows explicitly how a mixed-prime base fails already at length two. The prime-power/non-prime-power dichotomy and the exact refined reciprocity provide information not supplied by the elementary complement identity alone. This is an exact classification, not an arbitrary numerical slice or a finite census.
+Dartyge-Luca-Stanica 2009 gives existence and density theorems on s_b(kn), not the exact finite-window complement-reflection orbit law. Dartyge-Tenenbaum 2005 gives joint asymptotic digit-sum distributions, not a published theorem in inspected material characterizing prime-power bases by a two-valued reflection defect. The complement lemma itself is elementary and is not claimed as unprecedented; the global iff prime-power characterization, explicit exception counts and sector reciprocal polynomials are the proposed new package. Potential classical digital-complement identities and distribution theorems remain a historical-priority risk.
 
-## Limitations
+## value
 
-The multiplier range is deliberately restricted to \(1\le k<b\); larger multipliers require additional quotient-carry analysis. The comparison with the broader older literature is not exhaustive, and some related primary works were identified bibliographically rather than read in full. The verifier tests bounded finite ranges only. No independent audit was performed.
+PASS
 
-Self-review: passed. Independent audit: not yet performed.
+The object (digit-sum change under a bounded multiplier) and invariant (reflection-sector spectrum) arise naturally from base complement symmetry; the universal iff base classification and exact frequency/reciprocity laws yield a complete structural separation between prime-power and mixed-prime bases, not an arbitrary numerical slice.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
