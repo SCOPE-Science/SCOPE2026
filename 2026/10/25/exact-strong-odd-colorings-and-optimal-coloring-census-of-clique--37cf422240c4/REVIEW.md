@@ -1,11 +1,21 @@
-# Self-review
+# Independent mathematical audit
 
-**Correctness — PASS.** The hub/neighborhood reduction is exact; the sharp even-row parity lower bound is attained by a Gale–Ryser binary-matrix construction. The signed projection computes all-and-only optimal named-color colorings. Independent exact-integer dynamic programming and limited direct enumeration agree with the formula. The analytic proof covers all stated parameters; finite tests are supplementary.
+## correctness
 
-**Originality — PASS with material uncertainty.** Earlier work [Kwon–Park 2024; Caro et al. 2024] introduces and studies strong odd coloring but does not establish the exact clique-windmill census in inspected sections. A later block-graph algorithm [Pradhan–Sharma–Verma 2026] already computes optimal colorings for this family pointwise; its available abstract does not establish all-parameter optimal-coloring counts, but its complete full text was not obtained. Identical-object dissociation results concern a different invariant and cannot determine this census.
+PASS
 
-**Value — PASS.** The theorem classifies a natural two-parameter graph family, exhibits a parity-driven chromatic threshold and determines the exact number of optimal colorings across all parameters. The result complements broader general algorithms with explicit structure and enumeration.
+Read RESULT.md and verifier. Properness gives distinct colours within each s-clique blade and excludes hub colour; every blade vertex automatically has odd multiplicity one for all neighbour colours. Hub parity is exactly a binary m-by-q incidence matrix of row weight s and each column with positive odd weight. If m odd q=s attained by repeating same s colours; for even m, odd col sums <=m-1 and q even imply q >= 2ceil(ms/(2(m-1))). At equality choose positive odd col sums totaling ms, possible as even increments up to m-1; Gale-Ryser inequalities hold since min(k,d)>=kd/m for 0<=d<=m and uniform row degrees s, proving attainability. Fourier signs on parity masks produce full named-palette count with (s!)^m hub assignment factors. Special m odd, m2, s2 even formulas follow exactly. Independent parity-mask dynamic programming vs Fourier sum passed 32 parameter pairs, smaller palette exclusions; no infinite extrapolation.
 
-**Limitations and closest literature.** The 2026 block-graph paper is a priority-risk source because the full text was inaccessible. General sparse-graph bounds and selected planar/unicyclic theorems do not themselves imply this exact formula. Unindexed work may overlap. No independent validation was performed.
+## originality
 
-Self-review: passed. Independent audit: not yet performed.
+PASS
+
+Qualified PASS for explicit two-parameter windmill formula and especially every optimal named-palette colouring count. Fundamental definition and general bounds are known. 2026 Pradhan/Sharma/Verma supply linear-time algorithms on all block graphs (a stronger algorithmic coverage of computing chi_so), so claiming basic computability as novel would be false; but an abstract does not imply the detailed labelled count. The fully relevant 2026 manuscript could not be read and is priority risk.
+
+## value
+
+PASS
+
+The all-parameter sharp invariant of a natural family of block graphs together with a complete named-color optimal census gives exact structural and enumerative data useful for parity-constrained graph colourings. The enumeration distinguishes palettes, not graph automorphism orbits; nontrivial Gale-Ryser realization and parity character sums motivate the formula.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
