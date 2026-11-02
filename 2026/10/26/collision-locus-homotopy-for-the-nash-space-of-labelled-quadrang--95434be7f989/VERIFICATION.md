@@ -5,8 +5,11 @@
     "status": "not_performed"
   },
   "independent_audit": {
-    "evidence": null,
-    "status": "not_performed"
+    "status": "passed",
+    "evidence": [
+      "INDEPENDENT_AUDIT_2026-10-31.md",
+      "INDEPENDENT_AUDIT_2026-10-31.json"
+    ]
   },
   "lean_verification": {
     "evidence": null,
@@ -16,16 +19,24 @@
 }
 ---
 
-## Mathematical verification
+# Independent mathematical audit
 
-1. The original definition requires at least three pair-lines to form a nondegenerate triangle, which excludes three coincident vertices.
-2. In the quotient chart with \(v_1=v_2=0\), \(v_3=1\), the parameters \((r,\beta,\alpha)\) reconstruct every allowed configuration uniquely. The exceptional conditions at \(r=0\) are exactly \(\alpha=0\) or \(\alpha=\beta\).
-3. The explicitly defined circle homeomorphisms \(h_\beta\) turn the chart into \((0,\pi)\times(\mathbb C\setminus\{0,1,-1\})\), proving a three-circle wedge model for each single-pair collision locus.
-4. Two disjoint pair collisions give the intersection \(\{(\alpha,\beta):0<\alpha,\beta<\pi,\alpha\ne\beta\}\), exactly two contractible components. The intersection is a closed collared hypersurface in either single-pair locus, permitting the homotopy pushout.
-5. Gluing two three-circle wedges across two contractible components introduces one extra circle, yielding seven per pairing. There are exactly three pairings.
+## correctness
 
-The Euler-characteristic cross-check is \((-2)+(-2)-2=-6=1-7\). It is corroborative, not a substitute for the homotopy-equivalence proof. No computer experiment or unproved finite-to-infinite extrapolation is involved.
+PASS
 
-## Limits
+By the original quadrangle incidence condition, no three labels can collide. The collision locus decomposes into three disjoint clopen pieces indexed by disjoint pairings. For E12, normalize its two distinct vertices to 0 and 1 by a unique oriented similarity; the free line directions and fourth vertex give parameters (r,β,α), excluding α=0,β exactly when r=0. A continuous β-dependent angular homeomorphism identifies E12 with (0,π)×(C\{0,1,-1}), a three-circle wedge. E12∩E34 has two contractible chambers α<β and β<α, collared in each piece. The homotopy pushout of two connected three-circle wedges along two contractible components adds one circle, giving wedge^7 per pairing, H0=Z³ and H1=Z²¹. Euler characteristic per component (-2)+(-2)-2=-6 matches 1-7; it corroborates, not replaces, the full gluing proof.
 
-This is a self-review only; no independent audit or external validation is claimed. The statement does not concern the full moduli space, the unordered quotient, or manifolds of all degenerate configurations that have no collided vertices.
+## originality
+
+PASS
+
+Qualified best-of-knowledge finding after an actual Resultary query, targeted primary-literature comparison, and an implication-level review of the submitted theorem. Specific same-object access restrictions and broader historical-priority risks remain in source_inspections and residual_risks. No failed search alone is treated as proof of novelty.
+
+## value
+
+PASS
+
+The collision-locus topology of a natural labelled four-point incidence moduli space is a meaningful complete geometric invariant. Explicitly resolving the real oriented-similarity quotient, its components, and fundamental groups gives information not supplied by manifold existence or a mere list of degeneracy types.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
