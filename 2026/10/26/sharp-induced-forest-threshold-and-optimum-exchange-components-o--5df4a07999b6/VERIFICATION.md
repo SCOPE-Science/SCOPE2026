@@ -5,8 +5,11 @@
     "status": "not_performed"
   },
   "independent_audit": {
-    "evidence": null,
-    "status": "not_performed"
+    "status": "passed",
+    "evidence": [
+      "INDEPENDENT_AUDIT_2026-10-30.md",
+      "INDEPENDENT_AUDIT_2026-10-30.json"
+    ]
   },
   "lean_verification": {
     "evidence": null,
@@ -16,22 +19,24 @@
 }
 ---
 
-# Reproducibility
+# Independent mathematical audit
 
-Build and execute the standalone source `verify_kneser_forest.cpp` with a C++17 compiler:
+## correctness
 
-```
-c++ -O2 -std=c++17 verify_kneser_forest.cpp -o verify
-./verify
-```
+PASS
 
-Observed output from the packaged verifier:
+Reconstructed correspondence between vertices of KG(n,2) and auxiliary K_n edges. A forest is bipartite, hence splits into two intersecting edge families; by the star-or-triangle lemma each part is a star or a triangle. Four-cycle obstructions in the two-star/triangle cases yield |F|<=max(7,n) and equality exactly the K4+pendant C families or full-star+off-edge S families. Explicit induced-disjointness graphs are forests; intersection counts between distinct extremal families yield the claimed disjoint clique exchange components. Independent exact Python subset enumerations for n=5,6,7 found, respectively, 20,120,525 optimum families and clique-component profiles 5 K4,15 K8,35 K12 +7 K15; all best+1 subsets were checked nonforest. Original C++ verifier was inspected, not merely trusted. For n>=8, all-order classification relies on the proof.
 
-```
-n=5 optimum=7 sets=20 components=5 edges=30 VERIFY_OK
-n=6 optimum=7 sets=120 components=15 edges=420 VERIFY_OK
-n=7 optimum=7 sets=525 components=42 edges=3045 VERIFY_OK
-n=8 optimum=8 sets=168 components=8 edges=1680 VERIFY_OK
-```
+## originality
 
-The program independently builds Kneser adjacency; tests all subsets of size \(f(G_n)\) and \(f(G_n)+1\) for each listed parameter; tests detected forests using a second DFS method; generates extremizers from both prescribed constructions; and constructs all optimum exchanges and connected components. This finite coverage does not verify every parameter and is not a replacement for the structural proof of the infinite family.
+PASS
+
+Large-n star-plus-one-edge extremality follows from a stronger 2018 K_{2,2}-free Kneser theorem and is explicitly prior. New portion is the sharp first threshold, all low-n equality cases and full one-swap optimum-exchange clique decomposition.
+
+## value
+
+PASS
+
+Maximum induced forest/minimum feedback vertex set of the natural Kneser KG(n,2), including the sharp crossover n=7/8, exceptional geometry and connected components under optimal one-element replacement, is a motivated complete extremal and reconfiguration classification. The eventual large-n star shape alone is prior work, not counted as new value.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
