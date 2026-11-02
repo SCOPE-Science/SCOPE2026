@@ -1,0 +1,138 @@
+{
+  "correctness": {
+    "rationale": "The p-adic zero branch is a bijective rescaling; every nonzero branch for p>=5 has a rigorously bijective square-root coordinate with exact quadratic leading term; the p=3 exceptional branches are unions of Hensel image cylinders. Exact square-count and limit follow algebraically. Finite verification independently checks small levels.",
+    "status": "PASS"
+  },
+  "independent": false,
+  "independent_audit_status": "not_performed",
+  "originality": {
+    "broader_coverage": {
+      "evidence": [
+        "Bremser–Gomez-Calderon 1991 abstract announces estimates of Dickson value-set cardinalities and some preimage counts, but not the complete text.",
+        "Shang 2023 arXiv:2310.20226v1 Section 1 Theorem 1.1 and Section 3 concern the maximal value-set size over all nonpermutation polynomials."
+      ],
+      "reasoning": "A uniform upper bound over polynomials does not imply a specified polynomial image. The 1991 Dickson analysis is plausibly relevant to p=3; its uninspected full results could cover that isolated subcase, but no stronger result has been demonstrated for the non-Dickson p≥5 family.",
+      "searches": [
+        "Value sets of Dickson polynomials over Galois rings Bremser Gomez Calderon 1991",
+        "Value sets of non-permutation polynomials over residue class rings of integers Shang 2023",
+        "\"x^p - p x\" polynomial mod p^n"
+      ]
+    },
+    "checked_sources": [
+      "arXiv:1503.07487v1 (2015-03-25)",
+      "arXiv:2310.20226v1 (2023-10-31)",
+      "doi:10.1016/0022-314X(91)90087-R (1991)",
+      "doi:10.1112/S0025579300011487 (1995)",
+      "doi:10.1016/0022-314X(88)90006-6 (1988)"
+    ],
+    "claim_vs_prior_implication": {
+      "evidence": [
+        "2015 field-rank theorem gives |f(F_q)| for a polynomial over F_q, which in this case only gives R_{p,1}=p.",
+        "2023 global maximum theorem provides no exact f-specific count or local critical-branch decomposition.",
+        "1991 abstract describes Dickson polynomials, a class containing the p=3 polynomial but not the p≥5 polynomial."
+      ],
+      "reasoning": "The current result is not a restatement or numerical specialization of the inspected field-rank or general upper-bound theorems. It also includes the p≥5 non-Dickson family and a full p-adic normal form, so likely coverage of a ternary special case would not dominate the whole claim.",
+      "searches": [
+        "arXiv 1503.07487 polynomial image rank finite fields",
+        "arXiv 2310.20226 nonpermutation value set upper bounds",
+        "Bremser Gomez Calderon 1991 Dickson polynomial Galois rings"
+      ]
+    },
+    "equivalent_formulations": {
+      "evidence": [
+        "Direct substitution gives the special identity f_3(X)=D_3(X,1), but for p≥5 f_p is not the degree-p Dickson polynomial.",
+        "The full 2015 arXiv:1503.07487v1 text proves a finite-field matrix-rank identity, which does not determine images modulo p^k."
+      ],
+      "reasoning": "The exact same-image question can be formulated as a p-adic image decomposition into square cylinders, or as a modular value-set count. No checked document contains that prime-uniform decomposition. The ternary coincidence with Dickson D3 is flagged separately.",
+      "searches": [
+        "exact value set image cardinality for polynomial x^p - px modulo p^k, critical Teichmuller residue classes square map, exceptional p=3",
+        "\"x^p - p x\" \"value set\" modulo powers",
+        "\"x^p-px\" \"p-adic\" derivative critical"
+      ]
+    },
+    "exact_database_or_table": {
+      "evidence": [
+        "Independent direct enumeration for p=3,5,7,11,13 at finite exponents agrees with the proposed formula; this experiment is a reproduction, not evidence of historical priority.",
+        "Retrieved mathematical-record nearest hits concern finite-ring Fourier spectra or other polynomial families, not the present value-set claim."
+      ],
+      "reasoning": "No exact table covering all p,k was identified. OEIS and other compilations may still contain isolated instances. Matching small numerical values alone would not imply an infinite-dimensional square-cylinder statement.",
+      "searches": [
+        "\"x^3 - 3x\" \"81\" residues",
+        "\"x^p - p x\" \"value set\"",
+        "exact prime-power image cardinality x^p-px 13/81"
+      ]
+    },
+    "rationale": "Novelty assessed as the complete p-uniform prime-power image classification, not general Hensel methods. Closest 2015 finite-field matrix-rank theorem and 2023 generic upper-bound theorem do not imply exact specified images. The 1991 Dickson Galois-ring work plausibly covers the isolated p=3 specialization; its full text was inaccessible and historical priority remains uncertain.",
+    "residual_risks": [
+      "The full 1991 Dickson-over-Galois-rings source was not accessible; it may already give the ternary special case.",
+      "Earlier general local polynomial-value-set sources could contain an equivalent prime-uniform family; search absence does not establish priority.",
+      "A future independent review should verify analytic square-root and all metadata source dates."
+    ],
+    "source_inspections": [
+      {
+        "assessment": "NOT_COVERING: rank theorem applies to finite fields only, not integer rings modulo higher prime powers",
+        "evidence": [
+          "Corollary 2: |V_f|=rank A(f) for f in F_q[X], theorem text."
+        ],
+        "identifier_or_url": "https://arxiv.org/abs/1503.07487",
+        "material_read": "Full accessible arXiv HTML text: abstract, section 1, section 2 and corollary on value-set rank",
+        "method": "Read HTML document sections and compared ring and field domain",
+        "title": "On coefficients of powers of polynomials and their compositions over finite fields",
+        "trigger": "Archive-dated polynomial value-set theory, possible broader rank formula"
+      },
+      {
+        "assessment": "NOT_COVERING: upper bounds and maximum over nonpermutation polynomials, no exact formula for f_p",
+        "evidence": [
+          "Introduction states M(p^r) is the maximum value-set cardinality; Theorem 1.1 concerns M(p^r)."
+        ],
+        "identifier_or_url": "https://arxiv.org/abs/2310.20226",
+        "material_read": "Accessible full HTML sections 1–3 including Theorem 1.1 and its lifting preliminaries",
+        "method": "Read main statements and compare exact named family versus maximum across polynomials",
+        "title": "Value sets of non-permutation polynomials over the residue class rings of integers",
+        "trigger": "Directly relevant broader ring value-set treatment"
+      },
+      {
+        "assessment": "UNCERTAIN for p=3 only; cannot assert full-text noncoverage, p>=5 lies outside degree-p Dickson family",
+        "evidence": [
+          "Publisher abstract describes image cardinality estimates and some preimage cardinalities of Dickson polynomials over Galois rings."
+        ],
+        "identifier_or_url": "https://doi.org/10.1016/0022-314X(91)90087-R",
+        "material_read": "Publisher abstract and bibliographic record; full text unavailable under current access",
+        "method": "Searched arXiv and lawfully available open-access copies; assessed publisher abstract only",
+        "title": "Value sets of Dickson polynomials over Galois rings",
+        "trigger": "f_3=D_3 and p-adic ring image cardinalities"
+      },
+      {
+        "assessment": "ABSTRACT_ONLY: inequality provides no demonstrated exact x^p-px image",
+        "evidence": [
+          "Abstract states an inequality relating value-set cardinality to additive orders of differences."
+        ],
+        "identifier_or_url": "https://doi.org/10.1112/S0025579300011487",
+        "material_read": "Abstract and bibliography",
+        "method": "Compared cited inequality with exact full image classification",
+        "title": "The value set of polynomials over Z_m and the combinatorics of sequences",
+        "trigger": "General polynomial value set over finite residue rings"
+      },
+      {
+        "assessment": "NOT_COVERING from stated scope: finite fields only",
+        "evidence": [
+          "Abstract explicitly treats Dickson value sets over finite fields."
+        ],
+        "identifier_or_url": "https://doi.org/10.1016/0022-314X(88)90006-6",
+        "material_read": "Bibliographic record and abstract",
+        "method": "Compared finite-field domain with prime-power integer rings",
+        "title": "Value sets of Dickson polynomials over finite fields",
+        "trigger": "Finite-field predecessor and p=3 Dickson connection"
+      }
+    ],
+    "status": "PASS"
+  },
+  "review_type": "self_review",
+  "schema_version": 1,
+  "scope_run_id": "8ac73add-d4cb-42a5-905f-6a992027ba2b",
+  "self_review_status": "passed",
+  "value": {
+    "rationale": "Prime-power value sets of integral polynomials are a natural number-theoretic invariant. The polynomial x^p-px is a canonical Frobenius-minus-linear deformation whose reduction permutes F_p but whose derivative vanishes modulo p. The infinite exact classification, explicit critical square cylinders, exceptional cubic stabilization and different rational densities reveal structural behavior inaccessible from only mod-p data or global estimates.",
+    "status": "PASS"
+  }
+}
