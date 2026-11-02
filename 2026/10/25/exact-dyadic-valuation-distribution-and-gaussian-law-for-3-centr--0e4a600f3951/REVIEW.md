@@ -1,11 +1,21 @@
-# Self-review
+# Independent mathematical audit
 
-**Correctness — PASS.** A direct prime-power divisor count independently derives the binary-carry valuation identity from the defining integral coefficients. All four binary-digit-pair transitions were checked, including final carries at position \(2L\) and the empty block \(L=0\). Exact matrix inversion establishes the bivariate generating function. Differentiation of the resulting second-order polynomial recurrence gives the stated mean and variance, while a simple dominant eigenvalue \(4\) with subdominant eigenvalue \(1\) proves the central limit theorem. The standard-library verifier independently reproduces coefficients and moments for eight complete blocks; this finite evidence does not replace the universal arguments.
+## correctness
 
-**Originality — PASS under the inspected evidence.** The closest source is Straub–Moll–Amdeberhan (arXiv:0811.2028v1), whose Theorem 3.7 counts the carries of an **individual** coefficient and whose Corollary 3.4 isolates the odd coefficients. Those facts motivate, but do not explicitly supply, the weighted pair-state enumerator, the closed two-variable generating function, all block distributions, exact second moments, or the Gaussian fluctuation law with its constant. Search comparisons using both mathematical aliases and the exact derived expressions found no equivalent published table or stronger theorem covering this particular distribution. OEIS A004987 was examined and lists the coefficient sequence but not this exact block distribution. The original result is acknowledged, not rebranded. A prior unpublished or unindexed statistical treatment remains a residual priority risk; search absence alone cannot establish uniqueness.
+PASS
 
-**Value — PASS.** The first nonclassical parameter of the generalized central-binomial family arose from a named divisibility problem. Going from a zero-valuation digit criterion to the **entire** valuation histogram for arbitrarily large dyadic blocks is a motivated exact arithmetic-statistics classification. The Gaussian limit with explicit variance \(4L/3\) describes the typical valuation, complementing the thin odd-coefficient set; the full rational distribution and precise finite-length moments are useful without any wider theorem.
+PASS: Reconstructed product c_n=3^n/n! product_{h=0}^{n-1}(3h+1) and the 2-adic carry count from the -2/3 binary expansion 0101... . For n<4^L no carry survives past the 2L input bits; direct four-choice two-bit transition counting gives exact 2x2 matrix, including L=0. Its trace 2+z+2z^2 and determinant 4z^2 give the rational generating function. Differentiating the recurrence gives the exact stated mean and variance; the dominant analytic eigenvalue at z=1 is 4, with derivatives 4 and 16/3, the other eigenvalue 1, so quasi-power characteristic functions give the CLT. Independently enumerated valuations via the coefficient ratio for all 21845 samples in blocks L=0..7 and matched complete histogram and rational moments to the transfer, using /mnt/data/independent_math_checks_scope05.py. This finite sample is not the CLT proof.
 
-**Sources and limitations.** The originating 2008 full preprint and published bibliographic record were inspected; the exact prior implication is documented in AUDIT.json. Related work on classical binomial and Stirling valuations concerns different sequences. The asymptotic statement does not cover arbitrary initial intervals or other parameters. No independent proof audit has been performed.
+## originality
 
-Self-review: passed. Independent audit: not yet performed.
+PASS
+
+PASS best-of-knowledge: Straub, Moll and Amdeberhan (2008, 2009) already obtain 2-adic coefficient integrality, the underlying carry representation and a criterion for odd coefficients. They do not state the complete dyadic-block histogram, bivariate rational distribution generating function, finite variance or Gaussian fluctuation theorem in the inspected full preprint. New contribution is transfer-operator enumerative synthesis and limit law, not the underlying carry identity; unindexed statistical presentations remain a risk.
+
+## value
+
+PASS
+
+PASS: The known thin set of odd 3-central binomial coefficients makes the full valuation distribution a motivated natural arithmetic statistic. Exact full-block histograms, finite-size variance and Gaussian typical scale are substantive distributional information, not a pointwise rewriting of the carry formula. The scope is precise complete 4^L blocks, not arbitrary truncations.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
