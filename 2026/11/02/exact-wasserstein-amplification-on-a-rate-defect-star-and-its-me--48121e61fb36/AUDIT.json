@@ -1,0 +1,127 @@
+{
+  "correctness": {
+    "rationale": "The fixed metric is the unit-edge star metric and the finite Markov generator has symmetric rates. Kantorovich duality reduces the global W1 coefficient to the infinity norm of the gradient heat operator. The exact gradient ODE, its two eigenvalues and row coefficients are derived in RESULT.md. In both sign cases for the fast-row offdiagonal coefficient, the slow row is no smaller, using Delta<=r+1 and lambda_minus<=1. The slow-edge potential gives equality, so the result holds for all times and rates. A unique derivative zero gives the exact peak; explicit expansions give the logarithmic small-rate law. The packaged independent vertex-generator checker passed 693 numerical assertions. These tests are not used as an infinite proof; the conclusion does not extend beyond the stated graph and parameter ranges.",
+    "status": "PASS"
+  },
+  "independent": false,
+  "independent_audit_status": "not_performed",
+  "originality": {
+    "broader_coverage": {
+      "evidence": [
+        "arXiv:2010.01802, Section 5.2, Theorem 5 treats convergence of edge lengths under nonlinear normalized Ricci flow on weighted stars.",
+        "arXiv:1712.00875v1, Theorem 3.8 is a curvature/heat-gradient equivalence, not an explicit optimum.",
+        "Previously accessible slow-bond path result item 6c0e1922-e2d1-4e06-ace7-03e9eed09091 concerns a two-block path, not a star."
+      ],
+      "reasoning": "The Ricci-flow paper evolves the metric rather than holding the geometry fixed and the generator rates constant. The general curvature bound implies some norm inequalities, not the exact peak. A path with one internal bottleneck does not contain the claimed all-rate star theorem as a graph subcase.",
+      "searches": [
+        "graph Laplacian Ollivier Ricci curvature star heat flow weighted star contraction and Wasserstein one norm",
+        "Lipschitz contraction continuous-time Markov semigroup uniform star graph r leaves one exceptional edge rate",
+        "\"weighted star\" \"Wasserstein\" \"heat semigroup\" \"amplification\""
+      ]
+    },
+    "checked_sources": [
+      "arXiv:1712.00875v1, preprint first public 2017-12-04; Theorem 3.8 and proof.",
+      "arXiv:2010.01802, preprint first public 2020-10-05; available later PDF revision, Section 5.2 Theorem 5.",
+      "arXiv:1202.0420v1, preprint first public 2012-02-02; Theorem 9.",
+      "Available prior exact unit-rate star claim item 25dfaec5-7151-4b10-903a-6c54e57db5af (claim read for implication).",
+      "Available prior slow-bond path claim item 6c0e1922-e2d1-4e06-ace7-03e9eed09091 (claim read for implication).",
+      "published-finding corpus semantic results for actual queries stored in the private finding record; no exact dominating star result identified.",
+      "Searches also tested Dobrushin coefficient, continuous-time star semigroup, heat, W1, and slow-edge aliases."
+    ],
+    "claim_vs_prior_implication": {
+      "evidence": [
+        "At epsilon=1 the new two-exponential expression reduces algebraically to the earlier unit-rate star formula with r+1 leaves.",
+        "At 0<epsilon<1 the fixed generator has eigenvalues (r+1+2epsilon +/- sqrt((r+1)^2-4epsilon(1-epsilon)))/2, not those of the uniform generator.",
+        "The prior slow-bond path law contains only asymptotics on path graphs of at least four vertices and does not establish exceptional-star edge dominance for all times."
+      ],
+      "reasoning": "Prior general results provide duality and semigroup contraction criteria. In the present parameter range the slow-gradient operator is nonnormal, and dominance requires a two-case absolute row-sum comparison not supplied by those general results. The all-rate exact expression is not an algebraic corollary of the earlier equal-rate formula or path asymptotics.",
+      "searches": [
+        "one defect weighted star graph edge rates epsilon and one semigroup Lipschitz constant exact maximum",
+        "symmetric finite star graph continuous-time Markov chain one edge has rate epsilon other edges rate one exact Wasserstein-one amplification norm e^{-tλminus} e^{-tλplus} maximal time",
+        "arXiv:1712.00875v1 Theorem 3.8",
+        "arXiv:2010.01802 Section 5.2",
+        "arXiv:1202.0420v1 Theorem 9"
+      ]
+    },
+    "equivalent_formulations": {
+      "evidence": [
+        "arXiv:1712.00875v1, Theorem 3.8 gives Lipschitz/Wasserstein heat-flow equivalence without evaluating this star semigroup norm.",
+        "arXiv:1202.0420v1, Theorem 9 gives global exponential bounds from curvature; no exact defect-star all-time profile.",
+        "Available earlier equal-rate star statement: item 25dfaec5-7151-4b10-903a-6c54e57db5af, with the formula at epsilon=1."
+      ],
+      "reasoning": "Equivalent language includes Dobrushin Wasserstein coefficient, induced Lipschitz seminorm and edge-gradient infinity norm. These are mathematically equivalent formulations of the present invariant, and were included in searches. The cited general semigroup theorems reduce the norm to a finite operator computation but do not state the computed profile or its timewise optimizing edge. The equal-rate record is a proper boundary case.",
+      "searches": [
+        "sharp Wasserstein one heat semigroup amplification for star graph with one slow weighted edge and r equal fast leaves exact all-time profile logarithmic metastable peak",
+        "one defect weighted star graph edge rates epsilon and one semigroup Lipschitz constant exact maximum",
+        "symmetric finite star graph continuous-time Markov chain one edge has rate epsilon other edges rate one exact Wasserstein-one amplification norm e^{-tλminus} e^{-tλplus} maximal time",
+        "\"star graph\" \"Wasserstein\" \"Markov semigroup\" amplification"
+      ]
+    },
+    "exact_database_or_table": {
+      "evidence": [
+        "Targeted web literature and mathematical-record searches returned no direct one-rate-defect star formula; closest mathematical records concern general weighted stars, discrete Ricci flow, and other Markov graph families.",
+        "Directly inspected primary equations in arXiv:1712.00875v1, arXiv:2010.01802 and arXiv:1202.0420v1 did not contain this exact parameterization."
+      ],
+      "reasoning": "The checked search results and primary source sections did not provide an exact table entry for the finite-rate coefficient or peak. A failed search is not a uniqueness proof; historically equivalent records could remain outside the searched index.",
+      "searches": [
+        "sharp Wasserstein one heat semigroup amplification for star graph with one slow weighted edge and r equal fast leaves exact all-time profile logarithmic metastable peak",
+        "symmetric finite star graph continuous-time Markov chain one edge has rate epsilon other edges rate one exact Wasserstein-one amplification norm e^{-tλminus} e^{-tλplus} maximal time",
+        "transient Wasserstein one heat semigroup amplification weighted star graph slow bond weighted vertex pair",
+        "\"star graph\" \"Lipschitz amplification\" \"slow edge\""
+      ]
+    },
+    "rationale": "A targeted statement-level search and inspection of three primary open preprints found general Wasserstein/gradient-curvature bounds, but not this exact two-exponential all-rate star heat-semigroup norm, its slow-edge maximizer, exact peak or logarithmic correction. The prior equal-rate star formula is precisely the epsilon=1 subcase; a previously derived slow-bond path expansion concerns a distinct family and does not imply the all-time star result. Unindexed historical equivalence remains a real risk.",
+    "residual_risks": [
+      "An older or nonindexed exact formula for a weighted-star Dobrushin/Wasserstein coefficient might exist under another terminology.",
+      "Some relevant records surfaced only as abstract/snippet and were not relied upon for whole-document noncoverage.",
+      "The result has not undergone independent external priority or proof audit."
+    ],
+    "source_inspections": [
+      {
+        "assessment": "GENERAL_BACKGROUND_NOT_DIRECT_COVERAGE",
+        "evidence": [
+          "Theorem 3.8 identifies Lipschitz heat-flow decay with curvature lower bounds.",
+          "No defect-star two-rate matrix, exact all-time norm, or weak-rate peak is stated in inspected material."
+        ],
+        "identifier_or_url": "https://arxiv.org/pdf/1712.00875",
+        "material_read": "Preprint abstract, introduction and Section 3.3 (Theorem 3.8 and its adjacent proof on original PDF page 19), with rendered page inspection.",
+        "method": "Open full-text arXiv PDF; read extracted equation context and inspect the theorem page image.",
+        "title": "Ollivier Ricci curvature for general graph Laplacians: Heat equation, Laplacian comparison, non-explosion and diameter bounds",
+        "trigger": "Highly relevant general theorem equating graph curvature, Lipschitz semigroup bounds and Wasserstein contraction."
+      },
+      {
+        "assessment": "DIFFERENT_FLOW_NO_DIRECT_COVERAGE",
+        "evidence": [
+          "Theorem 5 proves convergence of edge lengths under normalized Ricci flow to constant edge weights.",
+          "Here the metric is fixed at unit edge lengths and the linear heat generator has a constant exceptional jump rate; the all-time amplification norm is not the Ricci-flow limit."
+        ],
+        "identifier_or_url": "https://arxiv.org/pdf/2010.01802",
+        "material_read": "Abstract, introduction, weight-versus-distance definitions, and Section 5.2 (Theorem 5 and adjacent proof), with rendered pages 18-19 checked. Available PDF is a later revision; first public date checked separately.",
+        "method": "Open available lawful full-text arXiv PDF, inspect PDF pages and the star theorem/ODE definitions.",
+        "title": "Ollivier Ricci-flow on weighted graphs",
+        "trigger": "Names weighted finite star graphs as a central object and might have hidden overlap."
+      },
+      {
+        "assessment": "GENERAL_BOUND_NOT_EXACT_PROFILE",
+        "evidence": [
+          "Theorem 9 derives W1 exponential bounds from a uniform curvature lower bound.",
+          "No exact two-rate star semigroup coefficient, exceptional-edge maximizer, or logarithmic peak correction is given by that theorem."
+        ],
+        "identifier_or_url": "https://arxiv.org/pdf/1202.0420",
+        "material_read": "Abstract, definitions of Wasserstein and coarse curvature, and Section 2 Theorem 9 on PDF page 5, inspected as a rendered page.",
+        "method": "Open full-text preprint and compare Theorem 9 with the exact star claim.",
+        "title": "Coarse Ricci curvature for continuous-time Markov processes",
+        "trigger": "Earlier general continuous-time Markov Wasserstein-contraction framework may dominate the exact claim."
+      }
+    ],
+    "status": "PASS"
+  },
+  "review_type": "self_review",
+  "schema_version": 1,
+  "scope_run_id": "48121e61-fb36-4cf7-a369-a3f49b9c1cd4",
+  "self_review_status": "passed",
+  "value": {
+    "rationale": "The exact all-time transport coefficient and globally maximizing Dirac pair are nontrivial for an inhomogeneous, nonnormal gradient semigroup on a branching graph: ordinary-edge gradient coefficients change sign with time. The work quantifies metastable transport buildup under one conductance defect, determines a global peak at all positive rates, and derives an explicit logarithmic weak-rate correction and peak-time scale. The one-defect star is a natural finite comparison model for kinetic rates decoupled from geometric distance. The all-rate slow-edge optimality is not supplied by the equal-rate star or path-bottleneck formulas.",
+    "status": "PASS"
+  }
+}
