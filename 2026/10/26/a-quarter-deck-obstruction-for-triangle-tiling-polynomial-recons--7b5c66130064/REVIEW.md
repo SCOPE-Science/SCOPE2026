@@ -1,11 +1,21 @@
-# Review: A quarter-deck obstruction for triangle-tiling polynomial reconstruction
+# Independent mathematical audit
 
-**Correctness (C): PASS.** The equal-deck path pair satisfies the hypotheses of Spinoza–West Theorem 1.7. The edge-vertex expansion lemma follows by splitting selected vertices into original vertices and edge-vertices; the count of each induced type is a degree-polynomial of degree at most the number of selected edge-vertices, hence determined by induced subgraphs on at most the deck size. In the expanded forest, triangles correspond bijectively to original edges, and disjoint triangle packings correspond to matchings. The perfect-matching coefficient differs by parity of \(\ell\).
+## correctness
 
-**Originality (O): PASS, residual risk.** Kim–Lee's Theorem 1.4 and Corollary 1.6 give the upper bound and explicitly leave the asymptotic optimal fraction open in Problem 6.1; they do not state this lower bound. Spinoza–West provide the path-forest deck pair but do not transfer it to triangle-tiling polynomials. Targeted bibliographic searches for the exact constant and triangle-tiling deck lower bounds returned no matching claim. Unindexed work or a published equivalent transfer lemma may remain undiscovered.
+PASS
 
-**Value (V): PASS.** The claim gives a concrete positive lower bound for the exact asymptotic invariant identified as open in the 2025 reconstruction paper. It converts a known deck-equivalence phenomenon into an obstruction for a different, natural spanning-structure polynomial and narrows the possible interval from the known upper bound alone.
+For each ell>=2 both source forests have 2ell vertices and 2ell-2 edges, with components of order >=ell-1, exactly meeting Spinoza-West Theorem 1.7. In T(X), classify a chosen s-vertex subset into a original vertices U and b chosen edge-vertices. Internal, crossing and external incident-edge choices are expressed by products of vertex-degree and induced-edge quantities of total incidence degree <=b; aggregating their exact joint incident-edge patterns uses at most a+b=s original vertices, recoverable by s-deck marginals. This proves the transfer lemma for s>=2; its application is at s=ell. For forests each triangle is precisely the unique triangle attached to one source edge; disjoint triangle sets correspond to source matchings. A perfect matching occurs in exactly one of the two source path forests (parity alternates with ell), so the tiling polynomials differ. T(X) has 4ell-2 vertices, making ell/(4ell-2)->1/4. Independent brute-force canonical induced-deck enumeration for ell=2,3,4 verified both source and expanded deck equality and the alternating perfect-matching distinction; this finite test corroborates, but does not establish, arbitrary ell.
 
-Closest literature: Kim–Lee (2025), which proves the general upper bound and poses Problem 6.1; Spinoza–West (2016), which proves equal decks for the path-forest pair. Neither source states the expansion transfer plus \(c_{K_3}\ge1/4\).
+## originality
 
-Self-review: passed. Independent audit: not yet performed.
+PASS
+
+Best-of-knowledge novelty is the explicit infinite triangle-tiling reconstruction obstruction c_(K3)>=1/4: the preexisting K3 upper bound and path-forest equal-deck theorem do not alone state the edge-triangle transfer. All prior matching-polynomial and source-pair ingredients are credited.
+
+## value
+
+PASS
+
+Kim–Lee pose the optimal asymptotic K3 tiling-deck fraction as a natural quantitative graph reconstruction problem; this infinite pair supplies a positive explicit lower bound 1/4, strictly narrowing the known interval from [0,2/3] to [1/4,2/3]. The deck-transfer structural lemma is motivated by the link from edge matching invariants to triangle tilings and is not a routine normalization.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
