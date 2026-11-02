@@ -1,0 +1,169 @@
+{
+  "audit_date_utc": "2026-10-29",
+  "audited_at_utc": "2026-10-29T00:48:41.904130Z",
+  "axes": {
+    "correctness": {
+      "rationale": "Fix prime power q and d≥2. Unique monic U=gcd(A,C), V=A/U, W=C/U, X=B/W=D/V forces deg V=deg W=b and deg U=deg X=a=d-b. Gcd(V,W)=1 and squarefreeness of UV,UW,VX,WX are equivalent to each of U,V,W,X squarefree plus coprimality edges UV,UW,VW,VX,WX; the U-X overlap is allowed. Each of d+1 degree strata starts from q^{2d}. With a and b positive, five distinct edge collisions cost 5/q; each individual degree≥2 variable has a square-linear-factor event costing 1/q. At b=0 only U,X squarefreeness contributes 2/q, at b=d two V,W squarefree plus their mutual coprimality contribute 3/q. In each fixed-d stratum, non-linear irreducibles and pair intersections of distinct linear bad events are O_d(q^-2) uniformly over prime powers, because deg-k prime counts ≤q^k, two independent divisibilities cost q^{-2k}, and two linear bad events impose ≥3 same-prime or ≥4 distinct-prime linear constraints. Summing 2+3+5(d−1)+4(d−2)=9d−8 proves the two-term asymptotic with uniform characteristic error. Exact d=2 strata are (q²−q)², q(q−1)(q−2)² and q(q−1)³; their sum is 3q⁴−10q³+12q²−5q. The d=1 boundary 2q²−q is stated separately. Six local irreducible states (absent; U,X,V,W alone; U and X) yield the exact finite coefficient product. An independently written field-arithmetic checker reproduces direct energy and the parametric strata in 20 cases including GF(4), with all checks passing. Computations corroborate, not prove, the general result.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Graph coprimality prior work is of a different n→∞, fixed-q regime and excludes vertex squarefreeness from its theorem hypotheses.",
+          "Sawin concerns squarefree arithmetic-progression MODULI, not products of four individually squarefree fixed-degree factors.",
+          "Keating et al study short-interval/progression moment variances; available full-text excerpts are insufficient to exclude a hidden reduction."
+        ],
+        "reasoning": "Prior general graph sieves supply a technique but not the stated exact-degree, large-q squarefree correction as a stated corollary. A sufficiently general multivariate factorization-function theorem might dominate, but none was established from read material; this is preserved as a priority risk.",
+        "searches": [
+          "Resultary: polynomial ring squarefree divisor function second moment products of squarefree degree d equal products asymptotic q grows (28 ranked hits)",
+          "Resultary: multivariate generating functions coprimality squarefree polynomial tuples forbidden edges graph exact counting function fields (29 ranked hits)",
+          "Resultary: finite field polynomial gcd graph restricted divisor second moment (7 hits)",
+          "Web: squarefree monic polynomial divisors second moment finite field q degree fixed energy (Oct 29 2026)",
+          "Web: multivariate polynomial tuples over finite fields squarefree pairwise coprime graph (Oct 29 2026)",
+          "Arias de Reyna–Heyman Thm 1.1 / Lemma 3.5 (2018)",
+          "Sawin arXiv:2102.09730v2 Thms 1.1–1.3 (2022)",
+          "Keating et al arXiv:1504.07804 author excerpt"
+        ]
+      },
+      "checked_sources": [
+        "Arias de Reyna & Heyman, arXiv:1706.01181v2, Thm 1.1 / Lemma 3.5 and proof, pp.1–3, 6–9",
+        "Afifurrahman, arXiv:2610.11240v1, 2026-10-08, abstract only in THIS run; unrestricted exact expression independently derived",
+        "Sawin arXiv:2102.09730v2, first three theorem statements and inspected PDF p.3",
+        "Keating et al, arXiv:1504.07804, bibliographic and snippet material only",
+        "Resultary semantic searches in nine query variants with source identifiers and reviewed ranked summaries",
+        "Public scholarly search for squarefree equal-product identities and graph coprimality"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "In the canonical gcd strata, unrestricted counts are q^{2d} for b=0 and q^{2d}(1-1/q) for each 1≤b≤d, totaling (d+1)q^{2d}-dq^{2d-1}.",
+          "Under squarefreeness, the forbidden root incidences per stratum are 2 at b=0, 3 at b=d, and 5+2[1≤b≤d-1 with a≥2]+2[1≤b≤d-1 with b≥2] in interiors; total 9d-8.",
+          "Arias de Reyna–Heyman’s graph-polynomial Q_G governs distinct-variable edge coprimality, not repeated irreducible factors within each variable or the exact-degree sieve."
+        ],
+        "reasoning": "An unrestricted total cannot determine an individually squarefree subensemble by coefficient substitution. The 2018 graph approach supplies the nontrivial prior method, but its stated theorem does not already count the four squarefree factors. The computed correction needs the diagonal root-square events as well as edges; the mathematical distinction persists for all fixed d≥2.",
+        "searches": [
+          "Resultary: squarefree multiplicative energy monic polynomials finite fields equal-product four degree d gcd coprimality first correction (23 ranked hits)",
+          "Resultary: (d+1) q^{2d} squarefree polynomial energy coefficient (9d-8) (6 hits)",
+          "Resultary: A B = C D in F_q[t] with each A B C D squarefree monic degree d (7 hits)",
+          "Afifurrahman arXiv:2610.11240v1 stated unrestricted formula",
+          "Arias de Reyna–Heyman arXiv:1706.01181v2, (1.2), (1.3), (3.2)"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "The target is the squared L^2 norm of the two-squarefree-factor divisor count on monic degree-2d products, equivalently #AB=CD with all A,B,C,D individually squarefree, each degree d.",
+          "Arias de Reyna–Heyman count unrestricted monic polynomial tuples with coprimality graph edges as degree cap n increases; their auxiliary Möbius edge labels are squarefree but tuple components are not.",
+          "The exact unrestricted monic factor energy has a different first coefficient -d."
+        ],
+        "reasoning": "An equality of products with four individually squarefree factors is not the same as squarefree modulus, squarefree common product, or solely pairwise-coprime parameters. The original result requires four diagonal squarefree constraints and five pairwise edges, leaving the U-X pair allowed; no inspected statement is logically identical.",
+        "searches": [
+          "Resultary: squarefree multiplicative energy monic polynomials finite fields equal-product four degree d gcd coprimality first correction (23 ranked hits)",
+          "Resultary: polynomial ring squarefree divisor function second moment products of squarefree degree d equal products asymptotic q grows (28 ranked hits)",
+          "Resultary: (d+1) q^{2d} squarefree polynomial energy coefficient (9d-8) (6 hits)",
+          "Resultary: A B = C D in F_q[t] with each A B C D squarefree monic degree d (7 hits)",
+          "Web: squarefree multiplicative energy polynomials finite fields AB=CD (Oct 29 2026)",
+          "Arias de Reyna–Heyman arXiv:1706.01181v2 (2018), Theorem 1.1 and Lemma 3.5",
+          "Afifurrahman arXiv:2610.11240v1 (2026) abstract and attributed unrestricted formula"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "Independent direct finite-field enumeration yields degree-two exact values q=2:6, q=3:66, q=4:300, q=5:900, q=7:4326, q=11:32010.",
+          "Resultary exact-coefficient query returned six unrelated summaries, no matching published record; this negative search is not proof of priority."
+        ],
+        "reasoning": "These finite counts were reconstructed rather than taken from a table. Neither a controlling exact database nor a prior table with the all-d coefficient was located, and hidden tables or implicit generating-function evaluations remain possible.",
+        "searches": [
+          "Resultary: (d+1) q^{2d} squarefree polynomial energy coefficient (9d-8) (6 hits)",
+          "Resultary: A B = C D in F_q[t] with each A B C D squarefree monic degree d (7 hits)",
+          "Web: squarefree multiplicative energy polynomials finite fields AB=CD (Oct 29 2026)",
+          "Web: squarefree monic polynomial multiplicative energy equal degree q exact polynomial",
+          "Independent GF(q) direct enumeration for q=2,3,4,5,7,11 in degree 2"
+        ]
+      },
+      "rationale": "Best-of-knowledge originality survives targeted same-object searches and direct implication checks. The squarefree four-factor second coefficient and six-state prime factor are not delivered by the inspected unrestricted equal-product statement or the 2018 coprimality-graph theorem. This is qualified: complete current full text of the closest 2026 paper was unavailable, and a general Euler-product identity could implicitly contain the coefficient.",
+      "residual_risks": [
+        "The arXiv full text of Afifurrahman (2026) was unavailable through this run’s reading routes; authorized institutional retrieval reported vpn_disconnected; full article could contain a more general relevant theorem.",
+        "Possible implicit exact local Euler-product coverage in graph-coprimality / restricted divisor-function literature not surfaced by ranked searches.",
+        "Keating et al full-text retrieval returned an access/transport failure; no global noncoverage conclusion was drawn from excerpts."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "RELATED_GRAPH_SIEVE_NOT_COVERING_THIS_CLAIM",
+          "evidence": [
+            "Theorem 1.1 counts monic tuples of degree at most n with coprimality on graph edges as n grows and q remains fixed; it does not require the tuple polynomials to be squarefree.",
+            "Definition of graph edges excludes loops; only auxiliary edge labels N_e are squarefree. Lemma 3.5 (3.2) sums unrestricted monic vertex polynomials, not four individually squarefree factors.",
+            "The source supplies a general inclusion-exclusion technique and relevant prior graph viewpoint; extending it to fixed exact degrees and vertex squarefreeness requires extra local restrictions."
+          ],
+          "identifier_or_url": "Juan Arias de Reyna and Randell Heyman, Finite Fields Appl. 53 (2018), 36–63; arXiv:1706.01181v2; https://arxiv.org/pdf/1706.01181.pdf",
+          "material_read": "Full 26-page source searchable; substantively inspected pp.1–3, definitions/Thm 1.1, pp.6–9 Lemma 3.5 and local inclusion-exclusion construction. Visually inspected PDF p.2.",
+          "method": "Full primary PDF retrieved; read relevant theorem statements, hypotheses, proof mechanism and equations (1.2), (1.3), (3.2).",
+          "title": "Tuples of polynomials over finite fields with pairwise coprimality conditions",
+          "trigger": "Same four-variable graph of forbidden coprime pairs; plausible stronger graph enumeration."
+        },
+        {
+          "assessment": "FULL_TEXT_ACCESS_LIMITATION_WITH_QUALIFIED_COMPARISON",
+          "evidence": [
+            "Accessible abstract discusses exact and asymptotic restricted divisor function statistics but does not disclose all theorem statements.",
+            "Unrestricted all-monic energy identity (d+1)q^{2d}-dq^{2d-1} is independently derivable from gcd strata and coprime monic V,W counts; this is not a squarefree-factor identity.",
+            "Because the complete 2026 article was not read in THIS audit, it is not characterized as wholly noncovering; potential other results/appendices are residual risks."
+          ],
+          "identifier_or_url": "Muhammad Afifurrahman, arXiv:2610.11240v1 (2026-10-08), https://arxiv.org/abs/2610.11240",
+          "material_read": "Current run: arXiv bibliographic title, date, authors and abstract only; full article PDF not obtained. The package gives an attributed Theorem 2.2 formula, which was independently derived algebraically, not independently re-read from this paper.",
+          "method": "arXiv abstract page, attempted arXiv and open-access full-text variants, then authorized institutional retrieval reported vpn_disconnected; no bypass or retry.",
+          "title": "Statistics of divisor functions over function fields",
+          "trigger": "Closest exact-degree equal-product energy count; source cited in package as baseline."
+        },
+        {
+          "assessment": "DIFFERENT_MODULUS_AND_AVERAGING_PROBLEM",
+          "evidence": [
+            "Theorems 1.1–1.3 estimate Möbius, von Mangoldt and divisor sums in arithmetic progressions with squarefree moduli g, varying n and m.",
+            "Those statements do not impose squarefreeness on all four factors in AB=CD with their degree fixed."
+          ],
+          "identifier_or_url": "Will Sawin, arXiv:2102.09730v2 (2022), https://arxiv.org/pdf/2102.09730",
+          "material_read": "PDF abstract and Introduction pp.1–3 including Theorems 1.1–1.3, visually inspected p.3; unexamined later portions of 109-page paper not characterized as noncovering.",
+          "method": "Read primary PDF theorem statements/hypotheses and inspected page screenshot.",
+          "title": "Square-root cancellation for sums of factorization functions over squarefree progressions in Fq[t]",
+          "trigger": "Same polynomial ring with squarefree terminology; potential reduction to restricted divisor averages."
+        },
+        {
+          "assessment": "DIFFERENT_AGGREGATION_SHOWN_BUT_FULL_TEXT_UNCHECKED",
+          "evidence": [
+            "Available summaries describe divisor-function variances in short intervals/arithmetic progressions and matrix integrals, not the fixed-degree four-factor squarefree energy.",
+            "Without full paper, possible equivalent expansions cannot be ruled out."
+          ],
+          "identifier_or_url": "Keating, Rodgers, Roditty-Gershon, Rudnick, Math. Z. 288 (2018), 167–198; arXiv:1504.07804; https://portal.mardi4nfdi.de/wiki/Publication:1706085",
+          "material_read": "Bibliographic record and searchable author-site excerpts about variances in short intervals and progressions; full PDF request resulted in 502, not read.",
+          "method": "Read publication summary and theorem-context snippets; did not infer whole-text noncoverage.",
+          "title": "Sums of divisor functions in Fq[t] and matrix integrals",
+          "trigger": "Potential broader divisor-function second-moment result in same function field."
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "rationale": "Fixed-degree divisor energy of monic polynomials is a natural object in arithmetic statistics. Restricting each factor to the large squarefree subensemble is mathematically motivated, not an arbitrary q-slice: it exposes the explicit 8(d−1) first-order collision penalty invisible in the unrestricted total. The six-state local Euler product characterizes the exact model and the polynomial identity in degree two provides a useful independent benchmark. The result is modest and first-order, with a classical sieve proof, but its precise previously-unestablished natural restricted invariant and its boundary behavior are sufficiently substantive without a claimed deep downstream theorem.",
+      "status": "PASS"
+    }
+  },
+  "checked_sources": [
+    "Arias de Reyna & Heyman, arXiv:1706.01181v2, Thm 1.1 / Lemma 3.5 and proof, pp.1–3, 6–9",
+    "Afifurrahman, arXiv:2610.11240v1, 2026-10-08, abstract only in THIS run; unrestricted exact expression independently derived",
+    "Sawin arXiv:2102.09730v2, first three theorem statements and inspected PDF p.3",
+    "Keating et al, arXiv:1504.07804, bibliographic and snippet material only",
+    "Resultary semantic searches in nine query variants with source identifiers and reviewed ranked summaries",
+    "Public scholarly search for squarefree equal-product identities and graph coprimality"
+  ],
+  "disposition": "passed",
+  "limitations": [
+    "The theorem fixes d≥2 and takes prime-power q→∞, with O_d constant independent of characteristic; it does not cover growing d.",
+    "Original full Afifurrahman manuscript could not be read due access/transport; the cited unrestricted formula was independently rederived, but no whole-paper noncoverage judgment was made.",
+    "Arias de Reyna–Heyman provides a closely related graph sieve; potential earlier implicit coverage of this exact coefficient remains a qualified priority risk.",
+    "Independent computations are bounded to d≤4, q≤11 and do not certify infinite asymptotics.",
+    "Staged metadata sanitizations are not GitHub writes or external audit certifications."
+  ],
+  "residual_risks": [
+    "The arXiv full text of Afifurrahman (2026) was unavailable through this run’s reading routes; authorized institutional retrieval reported vpn_disconnected; full article could contain a more general relevant theorem.",
+    "Possible implicit exact local Euler-product coverage in graph-coprimality / restricted divisor-function literature not surfaced by ranked searches.",
+    "Keating et al full-text retrieval returned an access/transport failure; no global noncoverage conclusion was drawn from excerpts."
+  ],
+  "schema_version": 1
+}

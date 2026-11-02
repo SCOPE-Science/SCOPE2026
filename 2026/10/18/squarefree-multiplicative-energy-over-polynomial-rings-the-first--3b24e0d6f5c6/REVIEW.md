@@ -1,15 +1,21 @@
-# Review — squarefree fixed-degree multiplicative energy
+# Independent mathematical audit
 
-## Correctness
-**PASS.** Unique gcd factorization turns every ordered product equality into exactly one degree stratum. The squarefreeness condition is equivalent to squarefreeness of four parameters and coprimality on a five-edge graph, with exactly one allowed shared-factor pair. The fixed-degree first-order sieve has uniform error \(O_d(q^{-2})\): double events at one linear factor require at least three divisibility conditions; distinct linear factors require four; higher-degree factors contribute only \(O_d(q^{-2})\). The stratum counts sum to \(9d-8\), and an independent exact quadratic computation yields \(3q^4-10q^3+12q^2-5q\). The submitted exact-arithmetic checks compare the direct energy with the parameterized count for twelve prime-field cases. They are not the proof of the universal claim.
+## correctness
 
-## Originality
-**PASS, with residual risk.** Afifurrahman's Theorem 2.2 gives the exact unrestricted same-degree energy \((d+1)q^{2d}-dq^{2d-1}\), but it neither restricts all four factors to squarefree polynomials nor controls the associated five pairwise exclusion edges. Sawin's squarefree-progressions theorems address distribution of arithmetic functions in residue classes with squarefree *moduli*, not a squarefree product-energy count. Keating et al.'s divisor-function mean-square/matrix-integral study addresses a different averaging problem. Searches by equal-product formulation, squarefree energy, and restricted divisor-moment aliases found no covering statement. An earlier treatment via multivariate Euler products might implicitly imply the new coefficient; searches cannot rule this out.
+PASS
 
-## Mathematical value
-**PASS.** The squarefree model is a natural multiplicative subensemble of the newly studied fixed-degree divisor energy. Its subleading coefficient differs by the nonzero, degree-dependent \(8(d-1)\), revealing a graph of forbidden prime collisions that unrestricted energy cannot see. The exact degree-two polynomial and finite Euler-product formula provide independently reproducible benchmark data beyond a mere restatement of the unrestricted theorem.
+Fix prime power q and d≥2. Unique monic U=gcd(A,C), V=A/U, W=C/U, X=B/W=D/V forces deg V=deg W=b and deg U=deg X=a=d-b. Gcd(V,W)=1 and squarefreeness of UV,UW,VX,WX are equivalent to each of U,V,W,X squarefree plus coprimality edges UV,UW,VW,VX,WX; the U-X overlap is allowed. Each of d+1 degree strata starts from q^{2d}. With a and b positive, five distinct edge collisions cost 5/q; each individual degree≥2 variable has a square-linear-factor event costing 1/q. At b=0 only U,X squarefreeness contributes 2/q, at b=d two V,W squarefree plus their mutual coprimality contribute 3/q. In each fixed-d stratum, non-linear irreducibles and pair intersections of distinct linear bad events are O_d(q^-2) uniformly over prime powers, because deg-k prime counts ≤q^k, two independent divisibilities cost q^{-2k}, and two linear bad events impose ≥3 same-prime or ≥4 distinct-prime linear constraints. Summing 2+3+5(d−1)+4(d−2)=9d−8 proves the two-term asymptotic with uniform characteristic error. Exact d=2 strata are (q²−q)², q(q−1)(q−2)² and q(q−1)³; their sum is 3q⁴−10q³+12q²−5q. The d=1 boundary 2q²−q is stated separately. Six local irreducible states (absent; U,X,V,W alone; U and X) yield the exact finite coefficient product. An independently written field-arithmetic checker reproduces direct energy and the parametric strata in 20 cases including GF(4), with all checks passing. Computations corroborate, not prove, the general result.
 
-## Closest sources and limitations
-Afifurrahman (arXiv:2610.11240v1, 2026), Section 2.1/Theorem 2.2 and Section 5, is the closest starting point. Sawin (arXiv:2102.09730, 2022) is adjacent because it studies squarefree conditions in polynomial arithmetic progressions; its first three stated theorems concern moduli rather than factorwise squarefreeness. The new asymptotic assumes fixed degree and growing field size; no uniformity in growing degree or independent validation is asserted.
+## originality
 
-Self-review: passed. Independent audit: not yet performed.
+PASS
+
+Best-of-knowledge originality survives targeted same-object searches and direct implication checks. The squarefree four-factor second coefficient and six-state prime factor are not delivered by the inspected unrestricted equal-product statement or the 2018 coprimality-graph theorem. This is qualified: complete current full text of the closest 2026 paper was unavailable, and a general Euler-product identity could implicitly contain the coefficient.
+
+## value
+
+PASS
+
+Fixed-degree divisor energy of monic polynomials is a natural object in arithmetic statistics. Restricting each factor to the large squarefree subensemble is mathematically motivated, not an arbitrary q-slice: it exposes the explicit 8(d−1) first-order collision penalty invisible in the unrestricted total. The six-state local Euler product characterizes the exact model and the polynomial identity in degree two provides a useful independent benchmark. The result is modest and first-order, with a classical sieve proof, but its precise previously-unestablished natural restricted invariant and its boundary behavior are sufficiently substantive without a claimed deep downstream theorem.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
