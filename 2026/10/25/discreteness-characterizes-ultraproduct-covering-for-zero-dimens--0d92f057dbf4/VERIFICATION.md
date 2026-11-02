@@ -5,8 +5,11 @@
     "status": "not_performed"
   },
   "independent_audit": {
-    "evidence": null,
-    "status": "not_performed"
+    "status": "passed",
+    "evidence": [
+      "INDEPENDENT_AUDIT_2026-10-27.md",
+      "INDEPENDENT_AUDIT_2026-10-27.json"
+    ]
   },
   "lean_verification": {
     "evidence": null,
@@ -16,17 +19,24 @@
 }
 ---
 
-# Verification of the sheaf ultraproduct-covering theorem
+# Independent mathematical audit
 
-The proof has no numerical certificates or computational dependencies. It was checked algebraically at each step:
+## correctness
 
-- The reverse-inclusion tail sets on the clopen neighbourhood basis have the finite-intersection property, so the ultrafilter lemma produces an ultrafilter containing every tail.
-- For every ultrafilter-large index subset \(J\), point separation by clopens gives \(\bigcap_{U\in J}U=\{x\}\). This step does not need a countable basis.
-- The canonical binary comparison has source \(1\amalg1\), since each ultraproduct of terminal objects is terminal. Its target has a global section represented by the product of clopen characteristic sections.
-- Filtered colimits commute with stalks. Equality of two product-sheaf germs requires one open neighbourhood on which all coordinate sections agree, which is stronger than coordinatewise equality in the individual stalks.
-- A constant-zero germ is excluded because every clopen characteristic section is \(1\) at \(x\). A constant-one germ would force an open neighbourhood into the singleton \(\{x\}\), impossible at a nonisolated point.
-- On discrete \(X\), every sheaf operation is pointwise; the ultrafilter two-tag partition principle proves both comparison arrows are pointwise isomorphisms.
+PASS
 
-Logical scope: the result concerns ultraproduct covering with the epi–mono factorisation. It makes no assertion that all sheaf categories in the statement satisfy further enrichment-base stability hypotheses. The full compact Stone negative case is present in earlier work, and a possibly stronger localic priority result is not excluded.
+The discrete case uses pointwise Sh(X)=Set^X: an ultrafilter selects one label in any finite partition, making binary-coproduct comparison bijective and initial comparison an isomorphism. For nonisolated x in clopen Hausdorff X, take clopen-neighbourhood index set I and ultrafilter extending all tails T_V={U subseteq V}. For each large J, intersection_{U in J}U={x}, since every y≠x is excluded by some V and J intersects T_V. Characteristic functions 1_U are global sections of 1+1, assembling to a global section of the product and hence ultraproduct. Its stalk at x cannot equal either constant coproduct-image germ: 0 fails at x, 1 would require one common neighbourhood W contained in intersection J={x}, contradicting nonisolation. Filtered-colimit and stalk equality are applied in the correct order; no invalid interchange of infinite product and stalk. Empty and infinite discrete cases follow.
 
-Independent audit and external validation were not performed.
+## originality
+
+PASS
+
+Kamsma--Tendas already define the property and show a Cantor-space failure. Kanalas gives a stronger prior two-point/global-sections obstruction on Stone spaces of arbitrary infinite Boolean algebras. The surviving new contribution is the complete iff boundary for every zero-dimensional Hausdorff space, not restricted to compact Stone, and an obstruction at each nonisolated point without countability or compactness. An unknown more general localic/topos criterion may subsume it.
+
+## value
+
+PASS
+
+The exact positive/negative criterion for a categorical property used in enriched ultraproduct logic separates all discrete bases from every nondiscrete clopen Hausdorff base, including noncompact and nonmetrizable spaces. The constant-input stalk witness is sharp and reusable.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
