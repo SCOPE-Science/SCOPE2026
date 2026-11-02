@@ -1,0 +1,129 @@
+{
+  "correctness": {
+    "rationale": "For every n>=4, a maximal independent set has cyclic gaps 2 or 3; a legal exchange must insert adjacent to the removed vertex because it must dominate that vertex. Such slides interchange adjacent unlike gaps. Every boundary contributes a distinct edge, yielding degree 2r for r circular runs of each symbol. Counting positive run compositions, marked run starts and distinguished chosen vertices gives exact multiplicity n/r*C(a-1,r-1)*C(b-1,r-1). Vandermonde yields edge count. Sorting nonwrap gaps while fixing an anchor and exchanging boundary gaps at the anchor proves mixed-sector connectivity. Pure sectors are 2 or 3 isolated configurations. Direct exhaustive all-jump implementation passed n=4..18; independent cyclic-gap C++ verifier passed n=4..22; finite evidence supplements but does not replace the proof.",
+    "status": "PASS"
+  },
+  "independent": false,
+  "independent_audit_status": "not_performed",
+  "originality": {
+    "broader_coverage": {
+      "evidence": [
+        "arxiv:1403.0359 claw-free reachability with nonmaximal states",
+        "arxiv:2203.16861 TS_k graph of all independent k-sets",
+        "arxiv:2303.08190 restriction to i(G)-sets"
+      ],
+      "reasoning": "Broader source graph classes or move models do not imply the exact induced maximal-only subgraph degree histogram; covering entire independent set graph is insufficient for subgraph reachability.",
+      "searches": [
+        "Reconfiguration graph of independent dominating sets on cycles; local swap of vertices preserving independence and maximality",
+        "Dominating induced matchings cycle, maximal matchings token sliding connectivity",
+        "Reconfiguration graphs of all inclusion-maximal independent sets of cycles, maximal matchings cycle graph, fixed-cardinality k degree distribution and connectivity"
+      ]
+    },
+    "checked_sources": [
+      "arxiv:math/0207100 (2002-07-11)",
+      "arxiv:1403.0359 (2014-03-03)",
+      "arxiv:2203.16861 (2022-03-31)",
+      "arxiv:2303.08190 (2023-03-14)",
+      "Published finding 2c55298c97bc: dissociation polynomial on generalized windmills (different graph family and invariant)",
+      "Published finding ac8bd54efbfc: cyclomatic matching-induced matching gap (different invariant)",
+      "Published finding c6b28ad6d93d: binary run transition covariance, not maximal independent-set reconfiguration graph"
+    ],
+    "claim_vs_prior_implication": {
+      "evidence": [
+        "arxiv:2303.08190 Theorem 3.7 minimum cycle sectors",
+        "arxiv:1403.0359 independent-set reachability only",
+        "arxiv:2203.16861 TS_k on all independent sets",
+        "arxiv:math/0207100 extremal independent set counts",
+        "Published finding 30764919deff on sequence b-spectrum of crown graphs, not cycle exchange degrees"
+      ],
+      "reasoning": "New degree formulas include arbitrary k>ceil(n/3), connectivity of every mixed nonminimum sector, component formula across all k, and unbounded degree classes. None is a stated consequence of the inspected prior theorems without additional substantive restriction arguments. Min-sector special cases are fully covered and not claimed as independently novel.",
+      "searches": [
+        "Maximal independent sets of cycle graphs under token sliding and token jumping, reconfiguration components and distances, cyclic gaps 2 3",
+        "Reconfiguration graph of independent dominating sets on cycles; local swap of vertices preserving independence and maximality",
+        "Dominating induced matchings cycle, maximal matchings token sliding connectivity",
+        "Independent dominating sets of cycles C_n with arbitrary cardinality k, token-slide flip graph components and exact vertex degrees. Short gaps and long gaps 2/3, counts n/r binomial run distribution.",
+        "Reconfiguration graphs of all inclusion-maximal independent sets of cycles, maximal matchings cycle graph, fixed-cardinality k degree distribution and connectivity",
+        "Perrin maximal independent sets cyclic binary strings 100 and 101 periodic run dynamics, count exchange graph edges n times Padovan numbers",
+        "Cycle C_n all inclusion-maximal independent sets independent dominating sets under one token exchange same cardinality: connected for 2- and 3-gap mixtures, isolated pure gaps, degree 2r according to cyclic runs, multiplicity (n/r) binomial(a-1,r-1) binomial(b-1,r-1)"
+      ]
+    },
+    "equivalent_formulations": {
+      "evidence": [
+        "arxiv:2303.08190 cycle i-graph minimum-sector definitions",
+        "arxiv:1403.0359 two token-move conventions",
+        "arxiv:2203.16861 all-k independent sets"
+      ],
+      "reasoning": "Checked token-jump versus token-slide models and independent-domination (maximal independent set) alias. Proven TJ=TS only when maximality is enforced; minimum-only i-graphs cover k=ceil(n/3), not other cardinalities.",
+      "searches": [
+        "Maximal independent sets of cycle graphs under token sliding and token jumping, reconfiguration components and distances, cyclic gaps 2 3",
+        "Reconfiguration graph of independent dominating sets on cycles; local swap of vertices preserving independence and maximality",
+        "Reconfiguration graphs of all inclusion-maximal independent sets of cycles, maximal matchings cycle graph, fixed-cardinality k degree distribution and connectivity"
+      ]
+    },
+    "exact_database_or_table": {
+      "evidence": [
+        "Published record c6b28ad6d93d, *Exact dependence phases of fixed-composition run transitions*",
+        "Published record ac8bd54efbfc, *Cyclomatic matching-induced-matching gaps*",
+        "arxiv:math/0207100 on extremal maximal independent set counts"
+      ],
+      "reasoning": "Closest research-record hits have fixed-composition transition covariances or matching bounds, not configuration-graph component/degree data. No exact table for this invariant identified. Classical circular runs enumeration is not itself the full graph theorem.",
+      "searches": [
+        "Independent dominating sets of cycles C_n with arbitrary cardinality k, token-slide flip graph components and exact vertex degrees. Short gaps and long gaps 2/3, counts n/r binomial run distribution.",
+        "Perrin maximal independent sets cyclic binary strings 100 and 101 periodic run dynamics, count exchange graph edges n times Padovan numbers"
+      ]
+    },
+    "rationale": "Closest accessible primary classification arxiv:2303.08190 covers only minimum independent dominating sets; the present complete all-cardinality component and degree laws, in particular unbounded degrees on connected nonminimum sectors, do not follow from that result. arxiv:1403.0359 and arxiv:2203.16861 permit nonmaximal intermediate independent sets and their structure does not directly imply that of the induced maximal-only subgraph. arxiv:math/0207100 concerns extremal counts, not moves. Six actual published-finding corpus semantic queries for aliases, gap words, domination, cycle reconfiguration, matchings and degree distribution found no containing implication, only unrelated nearest records. Circular runs enumeration is classical and explicitly credited. Unindexed equivalent results remain possible.",
+    "residual_risks": [
+      "An unindexed theorem about reconfiguration of maximal independent sets or cyclic binary words may be equivalent.",
+      "Classical circular-run distributions yield the coefficients; degree distribution may be recognized as a familiar reformulation, even though sector connectivity and all-cardinality synthesis are not in the checked sources.",
+      "Research-record semantic similarity search is not exhaustive; incomplete older archives were not treated as uniqueness certificates."
+    ],
+    "source_inspections": [
+      {
+        "assessment": "It gives the minimum-cardinality sector only, so nonminimum sector connectivity and unbounded-degree histograms are not covered. Minimum-sector consequences here are credited, not novel.",
+        "evidence": "Its graph is defined on i(C_n)-sets of size i(C_n)=ceil(n/3); this excludes k>ceil(n/3).",
+        "identifier_or_url": "arxiv:2303.08190; https://arxiv.org/abs/2303.08190",
+        "material_read": "Full text of the cycle construction, definitions and Theorem 3.7 in the 19-page PDF, including the minimum-cardinality restriction.",
+        "method": "Primary arXiv paper full-text reading and cycle-theorem implication comparison.",
+        "title": "The i-Graphs of Paths and Cycles",
+        "trigger": "Same cycle family; one-vertex exchange with independent domination, potentially decisive covering source."
+      },
+      {
+        "assessment": "Its states need only remain independent, not inclusion-maximal independent. Its reachability cannot establish reachability in the strictly smaller, maximal-only state graph; no exact restricted-degree distribution is established.",
+        "evidence": "The abstract defines every intermediate state as an independent set and considers both token jumping and sliding.",
+        "identifier_or_url": "arxiv:1403.0359; https://arxiv.org/abs/1403.0359",
+        "material_read": "The 22-page primary arXiv PDF sections containing independent-set reachability algorithms and token-move models.",
+        "method": "Primary arXiv PDF read and direct comparison of allowed intermediates.",
+        "title": "Reconfiguring Independent Sets in Claw-Free Graphs",
+        "trigger": "Cycle is claw-free; broader reconfiguration theorem might dominate connectivity."
+      },
+      {
+        "assessment": "It includes all independent k-sets regardless of maximality, so its graph has many extra states/transitions; in particular its degree counts cannot be substituted for those of the induced maximal-only subgraph.",
+        "evidence": "TS_k explicitly comprises all independent sets of size k; the present configuration space requires every vertex to be dominated.",
+        "identifier_or_url": "arxiv:2203.16861; https://arxiv.org/abs/2203.16861",
+        "material_read": "Full-text HTML, including TS_k definition, its cycle analysis, and Proposition 14 on girth.",
+        "method": "Primary arXiv HTML reading and hypotheses comparison.",
+        "title": "On Reconfiguration Graphs of Independent Sets under Token Sliding",
+        "trigger": "Token sliding on cycles and structural properties of fixed-cardinality graphs."
+      },
+      {
+        "assessment": "It studies extremal numbers of maximal independent sets among graph families with bounded cycle rank, not legal exchanges or degree distributions on a fixed cycle.",
+        "evidence": "The abstract identifies extremal graph-family counts rather than configuration moves.",
+        "identifier_or_url": "arxiv:math/0207100; https://arxiv.org/abs/math/0207100",
+        "material_read": "Primary 31-page PDF introduction, extremal counting statements, and closing discussion.",
+        "method": "Primary arXiv PDF sections read with comparison to reconfiguration operations.",
+        "title": "Maximal Independent Sets In Graphs With At Most r Cycles",
+        "trigger": "Earliest verified archive source about maximal independent sets and graphs involving cycles."
+      }
+    ],
+    "status": "PASS"
+  },
+  "review_type": "self_review",
+  "schema_version": 1,
+  "scope_run_id": "a5fcb188-f118-4802-aeaa-ce9e7bfa0ee0",
+  "self_review_status": "passed",
+  "value": {
+    "rationale": "A complete, mathematically natural infinite-family classification rather than isolated data or an arbitrary slice: all maximal independent dominating configurations on labelled cycles, all equal-cardinality legal exchanges, every connected component and degree multiplicity, edge count and explicit frozen sectors. Nonminimum connected sectors of cycles C_(5m) with k=2m have every even degree from 2 to 2m, giving arbitrarily high local mobility, a qualitative distinction from minimum-only i-graphs. The exact result can inform move counting, constrained stochastic chains and the comparison of independent set and dominating set reconfiguration.",
+    "status": "PASS"
+  }
+}
