@@ -1,0 +1,209 @@
+{
+  "audit_date_utc": "2026-10-27",
+  "audited_at_utc": "2026-10-27T06:42:26Z",
+  "axes": {
+    "correctness": {
+      "rationale": "For k,m>=2, omitted two same-blade vertices are true twins with identical distances to all landmarks, establishing necessity. Conversely each blade supplies >=m-1>=1 selected vertex, and at least two blades are present. Every same-blade pair has different distance differences from a selected endpoint and another blade; a cross-blade pair is separated by one selected vertex from each blade with opposite-sign differences; center–blade pairs are separated using the blade and a different blade. The center may be chosen or omitted. Independent multiplication of m choices of omission or full blade and optional center gives (1+z)(m*z^(m-1)+z^m)^k, min degree k(m-1), and m^k minimum sets. Excluded k=1 and m=1 boundaries do have counterexamples. An independent BFS-based program exhaustively checked 9 parameter pairs, 20768 vertex subsets, every polynomial coefficient, and both excluded boundary counterexamples. These finite checks corroborate, not prove, unbounded k,m.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Nie–Xu (2024) Lemma 5.1(ii): a doubly resolving set of a noncomplete block graph omits at most one non-cut vertex per nontrivial block; Lemma 5.3 constructs a doubly resolving set by deleting one arbitrarily chosen non-cut vertex per nontrivial block; Theorem 5.4 states psi(G)=leaves(G)+zeta(G)-q(G). The source proof in Section 5 verifies the construction.",
+          "Theorem 5.4 covers ALL noncomplete block graphs; generalized windmills with k,m>=2 are one subfamily. Lemma 5.3 supplies actual all-choices minimum sets, not just a numerical minimum."
+        ],
+        "reasoning": "W_{k,m} is a noncomplete block graph with k nontrivial blocks K_{m+1}, all sharing only the cut vertex c, km non-cut vertices, no leaves, and q=k. Lemma 5.1(ii) forces at most one omission from each peripheral clique. For any choices of one omitted vertex per clique, Lemma 5.3 constructs the exactly corresponding doubly resolving set; every superset stays doubly resolving. Consequently the full iff statement is a direct specialization, not a new converse. Theorem 5.4 gives psi=km-k. Counting each blade (m choices of exactly m-1 vertices or all m vertices) and the optional center yields (1+z)(m z^{m-1}+z^m)^k and m^k minimum sets. Therefore the entire proposed polynomial and basis classification are mechanically implied by the 2024 work, despite not being written there in that exact notation.",
+        "searches": [
+          "doubly resolving set of block graphs or clique trees twin classes exact characterization",
+          "\"The doubly metric dimensions of cactus graphs and block graphs\" block graphs doubly resolving sets 2024",
+          "Nie Xu block graph minimum doubly resolving sets constructions"
+        ]
+      },
+      "checked_sources": [
+        "Nie and Xu, The doubly metric dimensions of cactus graphs and block graphs, Journal of Combinatorial Optimization 47, article 67 (2024), DOI:10.1007/s10878-024-01168-0; author full-text: https://www.researchgate.net/publication/379779635_The_doubly_metric_dimensions_of_cactus_graphs_and_block_graphs",
+        "Cáceres et al., arXiv:math/0507527",
+        "Jannesari, arXiv:2106.03080",
+        "Nie and Xu, Filomat 2023 DOI:10.2298/FIL2313375N",
+        "Resultary:2026/10/4/SCOPE-doubly-resolving-sets-of-2-thick-chain-graphs--238d77156fde",
+        "Resultary:2026/9/30/SCOPE-doubly-resolving-sets-of-complete-multipartite-graphs--3d968bf6d9b9",
+        "Resultary:2026/9/30/SCOPE-unimodality-of-general-position-polynomials-for-generalized-wind--f09137092e5f"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "Nie–Xu (2024) Lemma 5.1(ii): a doubly resolving set of a noncomplete block graph omits at most one non-cut vertex per nontrivial block; Lemma 5.3 constructs a doubly resolving set by deleting one arbitrarily chosen non-cut vertex per nontrivial block; Theorem 5.4 states psi(G)=leaves(G)+zeta(G)-q(G). The source proof in Section 5 verifies the construction.",
+          "For this graph, leaves=0, zeta=km, q=k, hence prior formula psi=km-k.",
+          "The arbitrary deletion from each block in Lemma 5.3 and monotonicity imply the exact iff characterization; binomial multiplication produces the full enumerator and m^k minimum sets."
+        ],
+        "reasoning": "W_{k,m} is a noncomplete block graph with k nontrivial blocks K_{m+1}, all sharing only the cut vertex c, km non-cut vertices, no leaves, and q=k. Lemma 5.1(ii) forces at most one omission from each peripheral clique. For any choices of one omitted vertex per clique, Lemma 5.3 constructs the exactly corresponding doubly resolving set; every superset stays doubly resolving. Consequently the full iff statement is a direct specialization, not a new converse. Theorem 5.4 gives psi=km-k. Counting each blade (m choices of exactly m-1 vertices or all m vertices) and the optional center yields (1+z)(m z^{m-1}+z^m)^k and m^k minimum sets. Therefore the entire proposed polynomial and basis classification are mechanically implied by the 2024 work, despite not being written there in that exact notation.",
+        "searches": [
+          "doubly resolving set of block graphs or clique trees twin classes exact characterization",
+          "Nie Xu 2024 doubly metric dimensions of block graphs lemma 5.1 5.3 theorem 5.4"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Nie–Xu (2024) Lemma 5.1(ii): a doubly resolving set of a noncomplete block graph omits at most one non-cut vertex per nontrivial block; Lemma 5.3 constructs a doubly resolving set by deleting one arbitrarily chosen non-cut vertex per nontrivial block; Theorem 5.4 states psi(G)=leaves(G)+zeta(G)-q(G). The source proof in Section 5 verifies the construction.",
+          "Equivalent characterization: S is doubly resolving iff its complement contains no pair of non-cut vertices from the same nontrivial clique block; this is the specialized Lemmas 5.1 and 5.3 plus upward closure."
+        ],
+        "reasoning": "The published block-graph characterization implies all windmill all-set criteria by an explicit two-way implication, even though the prior title and formula use different objects/notation.",
+        "searches": [
+          "doubly resolving sets double metric dimension of friendship windmill graphs generalized windmill bouquet of cliques center cardinality polynomial",
+          "doubly resolving set of block graphs or clique trees twin classes exact characterization",
+          "doubly metric dimension of Dutch windmill graph generalized friendship graph",
+          "\"doubly metric dimensions of cactus graphs and block graphs\" \"Lemma 5.3\" \"Theorem 5.4\"",
+          "\"windmill graph\" \"doubly resolving\" \"block graph\""
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "Resultary finding 2026/9/30/SCOPE-doubly-resolving-sets-of-complete-multipartite-graphs--3d968bf6d9b9 concerns a different graph family.",
+          "Resultary finding 2026/10/4/SCOPE-doubly-resolving-sets-of-2-thick-chain-graphs--238d77156fde concerns chain graphs, not windmills.",
+          "The 2024 block-graph construction selects one of m omitted non-cut vertices in each of k blocks; the exact table m^k and generating product follow without extra graph theory."
+        ],
+        "reasoning": "No exact prior published table was required to establish coverage: a stronger constructive theorem already specifies the complete family of inclusion-minimal resolving sets, and its independent per-block selection count immediately determines all polynomial coefficients. Exact matching numbers or wording are not necessary for a prior implication.",
+        "searches": [
+          "doubly resolving sets double metric dimension of friendship windmill graphs generalized windmill bouquet of cliques center cardinality polynomial",
+          "doubly metric dimension of Dutch windmill graph generalized friendship graph",
+          "friendship graph doubly resolving polynomial number of minimum sets",
+          "site:github.com/Resultary/2026 \"doubly resolving\" \"windmill\""
+        ]
+      },
+      "rationale": "FAIL: The claim is already a direct special case/corollary of Nie and Xu (2024), Lemmas 5.1(ii), 5.3, Theorem 5.4 on ALL noncomplete block graphs. W_{k,m} is a block graph with exactly k nontrivial clique blocks, km non-cut vertices and no leaves. Theorem 5.4 yields psi=k(m-1). Lemma 5.1 gives necessary <=1 omission per blade; the construction and its proof in Lemma 5.3 allow any omitted vertex per block, giving sufficiency; upward closure gives ALL permitted S. The whole polynomial and m^k minimum count are then a routine independent product count. Prior coverage is decisive even though exact generating polynomial is not printed in the prior paper.",
+      "residual_risks": [
+        "No meaningful originality residual can overcome the direct 2024 theorem/lemma implication; exact prior enumerator typography was not located but is unnecessary.",
+        "Local validation independently checked finite k,m only; all-parameter correctness rests on explicit analytic case split.",
+        "Complete original Git blob bytes were fetched as connector text and Git blob IDs compared; independent local byte-level blob SHA-1 was not performed. Git tree SHA-1 WAS independently reconstructed from exact fetched Git tree identities.",
+        "Relocating the unmodified package would make operational provenance already present in source metadata/review accessible; package preservation conflicts with sanitizing a failed original, so publication is withheld."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "DECISIVELY_COVERS_ALL_CLAIMS_BY_SPECIALIZATION",
+          "evidence": [
+            "Nie–Xu (2024) Lemma 5.1(ii): a doubly resolving set of a noncomplete block graph omits at most one non-cut vertex per nontrivial block; Lemma 5.3 constructs a doubly resolving set by deleting one arbitrarily chosen non-cut vertex per nontrivial block; Theorem 5.4 states psi(G)=leaves(G)+zeta(G)-q(G). The source proof in Section 5 verifies the construction.",
+            "W_{k,m} is a noncomplete block graph with k nontrivial blocks K_{m+1}, all sharing only the cut vertex c, km non-cut vertices, no leaves, and q=k. Lemma 5.1(ii) forces at most one omission from each peripheral clique. For any choices of one omitted vertex per clique, Lemma 5.3 constructs the exactly corresponding doubly resolving set; every superset stays doubly resolving. Consequently the full iff statement is a direct specialization, not a new converse. Theorem 5.4 gives psi=km-k. Counting each blade (m choices of exactly m-1 vertices or all m vertices) and the optional center yields (1+z)(m z^{m-1}+z^m)^k and m^k minimum sets. Therefore the entire proposed polynomial and basis classification are mechanically implied by the 2024 work, despite not being written there in that exact notation."
+          ],
+          "identifier_or_url": "DOI:10.1007/s10878-024-01168-0; https://www.researchgate.net/publication/379779635_The_doubly_metric_dimensions_of_cactus_graphs_and_block_graphs",
+          "material_read": "Complete author-uploaded 19-page primary manuscript available as webpage text, including graph/parameter definitions, Section 5 pp. 14–16, Lemma 5.1(ii), Corollary 5.2, construction and case-by-case proof in Lemma 5.3, Theorem 5.4, and the accompanying introduction/reference context.",
+          "method": "Read original author full-text reproduction and directly compared block graph hypotheses, arbitrary per-block omission, monotonicity, and resulting formula.",
+          "title": "The doubly metric dimensions of cactus graphs and block graphs",
+          "trigger": "Direct stronger published coverage for precisely the class of block graphs containing generalized windmills."
+        },
+        {
+          "assessment": "FOUNDATIONAL_DEFINITION_NOT_THE_DECISIVE_COVERAGE",
+          "evidence": [
+            "Defines doubly resolving sets and gives product bounds; does not provide the specific windmill classification. The later Nie–Xu block-graph results supply decisive coverage."
+          ],
+          "identifier_or_url": "Cáceres et al., arXiv:math/0507527; DOI:10.1137/050641867",
+          "material_read": "Original open-access PDF definition and Section 4 doubly resolving sets, basic families, and Cartesian-product inequalities.",
+          "method": "Read relevant primary PDF sections and rendered page.",
+          "title": "On the Metric Dimension of Cartesian Products of Graphs",
+          "trigger": "Foundational definition and possible generic covering statements."
+        },
+        {
+          "assessment": "PARTIAL_NECESSITY_ONLY; LATER_BLOCK_GRAPH_RESULT_COVERS",
+          "evidence": [
+            "General twin-vertex obstruction anticipates necessity; neither its twin bound nor this source alone is the principal all-sets prior implication."
+          ],
+          "identifier_or_url": "Jannesari, arXiv:2106.03080",
+          "material_read": "Accessible original arXiv PDF, including its twin-vertex Proposition 2.2 and related resolving statements.",
+          "method": "Full-text opening plus focused proposition and page-image inspection.",
+          "title": "On doubly resolving sets in graphs",
+          "trigger": "Prior general twin-vertex necessity and adjacent terminology."
+        },
+        {
+          "assessment": "PARTIAL_NECESSITY_ONLY; DOES_NOT_DISPLACE_2024_PRIOR_THEOREM",
+          "evidence": [
+            "Lemma 2.4 gives a twin-class lower bound. The 2024 same-authors block-graph Lemma 5.3 and Theorem 5.4 provide strictly stronger coverage."
+          ],
+          "identifier_or_url": "Nie and Xu, Filomat 37(13) (2023), DOI:10.2298/FIL2313375N",
+          "material_read": "Original open-access paper pages 1–3, especially Lemmas 2.1–2.4 and twin lower bound.",
+          "method": "Primary full-text relevant lemmas and page-image inspection.",
+          "title": "The doubly metric dimension of corona product graphs",
+          "trigger": "Strongest paper cited in source package for twin-set lower bound."
+        }
+      ],
+      "status": "FAIL"
+    },
+    "value": {
+      "rationale": "FAIL: Generalized windmills and doubly resolving sets are natural, but here the entire exact set classification is already implicit constructively in a stronger theorem for the natural encompassing class of all block graphs. The remaining generating polynomial is direct bookkeeping of independent options once Lemma 5.3 is specialized. There is no non-implied invariant, new structural distinction, nonroutine boundary, or precise new fact that could independently motivate a research result. The self-contained elementary case proof and reproducibility do not confer independent research value on already covered content.",
+      "status": "FAIL"
+    }
+  },
+  "checked_sources": [
+    "Nie and Xu, The doubly metric dimensions of cactus graphs and block graphs, Journal of Combinatorial Optimization 47, article 67 (2024), DOI:10.1007/s10878-024-01168-0; author full-text: https://www.researchgate.net/publication/379779635_The_doubly_metric_dimensions_of_cactus_graphs_and_block_graphs",
+    "Cáceres et al., arXiv:math/0507527",
+    "Jannesari, arXiv:2106.03080",
+    "Nie and Xu, Filomat 2023 DOI:10.2298/FIL2313375N",
+    "Resultary:2026/10/4/SCOPE-doubly-resolving-sets-of-2-thick-chain-graphs--238d77156fde",
+    "Resultary:2026/9/30/SCOPE-doubly-resolving-sets-of-complete-multipartite-graphs--3d968bf6d9b9",
+    "Resultary:2026/9/30/SCOPE-unimodality-of-general-position-polynomials-for-generalized-wind--f09137092e5f"
+  ],
+  "disposition": "failed",
+  "final_claim": {
+    "basis_count": "m^k",
+    "cardinality_polynomial": "z^(k(m-1))*(1+z)*(m+z)^k",
+    "characterization": "S is doubly resolving iff at most one vertex is omitted from each peripheral K_m",
+    "domain": "all integers k,m>=2; finite connected simple unweighted graph K_1 join kK_m",
+    "minimum": "psi=k(m-1)"
+  },
+  "limitations": [
+    "Source Git tree reconstructed exactly from GitHub tree/blob identities, original source blob bytes not independently Git-SHA-rehashed in local runtime.",
+    "The local finite regression does not prove the infinite claim; actual proof reconstructed analytically.",
+    "Prior primary 2024 manuscript was read in accessible author full-text reproduction; exact published-publisher PDF pagination may differ.",
+    "Publication withheld for confidentiality while original failed evidence remains intact."
+  ],
+  "residual_risks": [
+    "No meaningful originality residual can overcome the direct 2024 theorem/lemma implication; exact prior enumerator typography was not located but is unnecessary.",
+    "Local validation independently checked finite k,m only; all-parameter correctness rests on explicit analytic case split.",
+    "Complete original Git blob bytes were fetched as connector text and Git blob IDs compared; independent local byte-level blob SHA-1 was not performed. Git tree SHA-1 WAS independently reconstructed from exact fetched Git tree identities.",
+    "Relocating the unmodified package would make operational provenance already present in source metadata/review accessible; package preservation conflicts with sanitizing a failed original, so publication is withheld."
+  ],
+  "schema_version": 1,
+  "source_inspections": [
+    {
+      "assessment": "DECISIVELY_COVERS_ALL_CLAIMS_BY_SPECIALIZATION",
+      "evidence": [
+        "Nie–Xu (2024) Lemma 5.1(ii): a doubly resolving set of a noncomplete block graph omits at most one non-cut vertex per nontrivial block; Lemma 5.3 constructs a doubly resolving set by deleting one arbitrarily chosen non-cut vertex per nontrivial block; Theorem 5.4 states psi(G)=leaves(G)+zeta(G)-q(G). The source proof in Section 5 verifies the construction.",
+        "W_{k,m} is a noncomplete block graph with k nontrivial blocks K_{m+1}, all sharing only the cut vertex c, km non-cut vertices, no leaves, and q=k. Lemma 5.1(ii) forces at most one omission from each peripheral clique. For any choices of one omitted vertex per clique, Lemma 5.3 constructs the exactly corresponding doubly resolving set; every superset stays doubly resolving. Consequently the full iff statement is a direct specialization, not a new converse. Theorem 5.4 gives psi=km-k. Counting each blade (m choices of exactly m-1 vertices or all m vertices) and the optional center yields (1+z)(m z^{m-1}+z^m)^k and m^k minimum sets. Therefore the entire proposed polynomial and basis classification are mechanically implied by the 2024 work, despite not being written there in that exact notation."
+      ],
+      "identifier_or_url": "DOI:10.1007/s10878-024-01168-0; https://www.researchgate.net/publication/379779635_The_doubly_metric_dimensions_of_cactus_graphs_and_block_graphs",
+      "material_read": "Complete author-uploaded 19-page primary manuscript available as webpage text, including graph/parameter definitions, Section 5 pp. 14–16, Lemma 5.1(ii), Corollary 5.2, construction and case-by-case proof in Lemma 5.3, Theorem 5.4, and the accompanying introduction/reference context.",
+      "method": "Read original author full-text reproduction and directly compared block graph hypotheses, arbitrary per-block omission, monotonicity, and resulting formula.",
+      "title": "The doubly metric dimensions of cactus graphs and block graphs",
+      "trigger": "Direct stronger published coverage for precisely the class of block graphs containing generalized windmills."
+    },
+    {
+      "assessment": "FOUNDATIONAL_DEFINITION_NOT_THE_DECISIVE_COVERAGE",
+      "evidence": [
+        "Defines doubly resolving sets and gives product bounds; does not provide the specific windmill classification. The later Nie–Xu block-graph results supply decisive coverage."
+      ],
+      "identifier_or_url": "Cáceres et al., arXiv:math/0507527; DOI:10.1137/050641867",
+      "material_read": "Original open-access PDF definition and Section 4 doubly resolving sets, basic families, and Cartesian-product inequalities.",
+      "method": "Read relevant primary PDF sections and rendered page.",
+      "title": "On the Metric Dimension of Cartesian Products of Graphs",
+      "trigger": "Foundational definition and possible generic covering statements."
+    },
+    {
+      "assessment": "PARTIAL_NECESSITY_ONLY; LATER_BLOCK_GRAPH_RESULT_COVERS",
+      "evidence": [
+        "General twin-vertex obstruction anticipates necessity; neither its twin bound nor this source alone is the principal all-sets prior implication."
+      ],
+      "identifier_or_url": "Jannesari, arXiv:2106.03080",
+      "material_read": "Accessible original arXiv PDF, including its twin-vertex Proposition 2.2 and related resolving statements.",
+      "method": "Full-text opening plus focused proposition and page-image inspection.",
+      "title": "On doubly resolving sets in graphs",
+      "trigger": "Prior general twin-vertex necessity and adjacent terminology."
+    },
+    {
+      "assessment": "PARTIAL_NECESSITY_ONLY; DOES_NOT_DISPLACE_2024_PRIOR_THEOREM",
+      "evidence": [
+        "Lemma 2.4 gives a twin-class lower bound. The 2024 same-authors block-graph Lemma 5.3 and Theorem 5.4 provide strictly stronger coverage."
+      ],
+      "identifier_or_url": "Nie and Xu, Filomat 37(13) (2023), DOI:10.2298/FIL2313375N",
+      "material_read": "Original open-access paper pages 1–3, especially Lemmas 2.1–2.4 and twin lower bound.",
+      "method": "Primary full-text relevant lemmas and page-image inspection.",
+      "title": "The doubly metric dimension of corona product graphs",
+      "trigger": "Strongest paper cited in source package for twin-set lower bound."
+    }
+  ]
+}
