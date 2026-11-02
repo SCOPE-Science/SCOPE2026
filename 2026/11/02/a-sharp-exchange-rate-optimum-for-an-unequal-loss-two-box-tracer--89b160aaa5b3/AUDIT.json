@@ -1,0 +1,158 @@
+{
+  "correctness": {
+    "rationale": "Complete matrix-exponential solution; logarithmic derivative D has a positive-to-negative crossing and every possible zero has strictly negative curvature given by an exact rational identity. An entire positive-coefficient power series forces D_r<0. Endpoint, zero-contrast and limiting cases are proved. Standalone checker independently matches the exact algebra and 100 matrix exponentials, passing 1,444 assertions. Numerical sampling is supplementary; all-parameter conclusions are analytical.",
+    "status": "PASS"
+  },
+  "independent": false,
+  "independent_audit_status": "not_performed",
+  "originality": {
+    "broader_coverage": {
+      "evidence": [
+        "https://doi.org/10.1061/(ASCE)0733-9372(1984)110:1(42): 1984 published abstract addresses multiple-box discretization, inherent dispersion and calibration, not a receiver impulse-response maximum.",
+        "https://digital.library.unt.edu/ark:/67531/metadc703765/: published 2000 report abstract analyzes late-time tracer breakthrough curves and mass-transfer-rate distributions.",
+        "https://dceasy.org/ROCKETSHIP/reference/models/two-compartment-exchange/: two-compartment biexponential impulse-response parameter fitting, not the claimed global unimodality over symmetric exchange with unequal losses.",
+        "https://www.imagwiki.nibib.nih.gov/sites/default/files/Comp2Exchange_0.pdf: complete two-page guide gives the no-loss concentration and time-to-equilibrium examples, but no unequal-loss rate optimum."
+      ],
+      "reasoning": "General multibox transport models and two-compartment impulse-response formulae are stronger at the modeling level, but the accessible stated conclusions do not furnish the quantified optimization theorem or imply its strict contrast dependence. The full 1984 journal article and full 2000 report were not read; broad implicit coverage remains a residual risk.",
+      "searches": [
+        "two compartment mixing k unequal decay target concentration at time T nonmonotonic unique optimum exchange rate",
+        "two state killed Markov chain optimal switching rate occupancy at fixed time unequal killing",
+        "two compartment reaction exchange parameter maximum transient second compartment concentration",
+        "\"Transport in Lake Water Quality Modeling\" Shanahan Harleman 1984",
+        "\"On the late-time behavior of tracer test breakthrough curves\" Haggerty McKenna Meigs 2000"
+      ]
+    },
+    "checked_sources": [
+      "https://www.imagwiki.nibib.nih.gov/sites/default/files/Comp2ExchangeReaction_0.mod",
+      "https://www.imagwiki.nibib.nih.gov/sites/default/files/Comp2Exchange_0.mod",
+      "https://doi.org/10.1061/(ASCE)0733-9372(1984)110:1(42)",
+      "https://digital.library.unt.edu/ark:/67531/metadc703765/",
+      "https://dceasy.org/ROCKETSHIP/reference/models/two-compartment-exchange/",
+      "https://www.imagwiki.nibib.nih.gov/physiome/jsim/models/webmodel/NSR/comp2exchangereaction",
+      "https://www.imagwiki.nibib.nih.gov/sites/default/files/Comp2ExchangeReaction_0.pdf",
+      "https://www.imagwiki.nibib.nih.gov/sites/default/files/Comp2Exchange_0.pdf"
+    ],
+    "claim_vs_prior_implication": {
+      "evidence": [
+        "https://www.imagwiki.nibib.nih.gov/sites/default/files/Comp2ExchangeReaction_0.mod: the reaction equations and equilibrium mass-balance formula are fully inspected; rate optimization is not stated in the complete code.",
+        "https://doi.org/10.1061/(ASCE)0733-9372(1984)110:1(42): accessible abstract identifies the calibration issue but does not give the quantified fixed-time receiver objective.",
+        "Published claim on exponential fading consensus: optimal coupling of network relaxation modes is a different dynamical system and objective and does not imply the present matrix-entry claim."
+      ],
+      "reasoning": "The candidate is a global matrix-exponential entry optimization, not a reformulation of the source stationary solution or a corollary of a numerical fitting formula. Earlier two-box expressions could make the theorem derivable but are not themselves a prior explicit proof. A previously proved general killed-chain or positive-semigroup optimization result could dominate; this remains the principal priority risk.",
+      "searches": [
+        "Transient two-patch Markov chain with site-dependent killing rates: optimal migration rate maximizes probability of reaching opposite patch alive at fixed time; unique optimum when killing rates unequal; symmetric rates monotone",
+        "Off-diagonal 2 by 2 matrix exponential with diagonal unequal killing and symmetric jump rate maximum at single positive jump rate, monotone optimizer in killing contrast",
+        "\"Comp2ExchangeReaction\" \"exchange\" \"reaction\" \"optimum\"",
+        "\"matrix exponential\" \"two compartments\" \"rate\" \"maximum\""
+      ]
+    },
+    "equivalent_formulations": {
+      "evidence": [
+        "https://www.imagwiki.nibib.nih.gov/sites/default/files/Comp2ExchangeReaction_0.mod: the complete model source equations A1:t=(PSa/V1)(A2-A1)-(G1/V1)A1 and A2:t=(PSa/V2)(A1-A2)-(G2/V2)A2 specialize to the candidate ODE for equal volumes.",
+        "https://www.imagwiki.nibib.nih.gov/sites/default/files/Comp2Exchange_0.mod: complete source supplies exact no-loss exchange solution and no optimization in an unequal-loss setting.",
+        "https://www.imagwiki.nibib.nih.gov/sites/default/files/Comp2ExchangeReaction_0.pdf: complete four-page instructional PDF has the matching equations and exercises about reaction locations and equilibrium, without optimum rate tuning."
+      ],
+      "reasoning": "The known two-box reaction/transport ODE is exactly equivalent to the candidate dynamics under equal volumes and tracer conversion treated as loss; that *model* is prior art. The new claim is the global finite-horizon maximum as the symmetric exchange coefficient varies, its uniqueness, location, and contrast monotonicity; those assertions are not supplied in the inspected full model code.",
+      "searches": [
+        "Two equal-volume environmental compartments with symmetric exchange rate k and unequal first order removal losses: target-compartment concentration after initial tracer pulse has a unique finite optimum k, sharp contrast threshold and nondimensional bounds kt>1",
+        "Transient two-patch Markov chain with site-dependent killing rates: optimal migration rate maximizes probability of reaching opposite patch alive at fixed time; unique optimum when killing rates unequal; symmetric rates monotone",
+        "Two-compartment tracer concentration off diagonal matrix exponential asymmetric decay optimal mixing exchange nonmonotone unimodal maximum loss swap invariance",
+        "\"two state killed Markov chain optimal switching rate occupancy at fixed time unequal killing\""
+      ]
+    },
+    "exact_database_or_table": {
+      "evidence": [
+        "https://www.imagwiki.nibib.nih.gov/sites/default/files/Comp2Exchange_0.mod: analytic no-loss response is explicit, whereas the candidate concerns the unequal-loss optimum.",
+        "https://www.imagwiki.nibib.nih.gov/sites/default/files/Comp2ExchangeReaction_0.mod: the reaction model gives complete governing equations but no optimum table or graph establishing the unique finite rate.",
+        "Published-result comparison: the closest record on a two-component reaction-diffusion coefficient concerns asymptotic dimension scaling, not first-order tracer exchange."
+      ],
+      "reasoning": "No inspected source contains an exact database/table of optimal rates or an already tabulated universal uniqueness/contrast theorem. A failed search alone is not a novelty proof, and uninspected sources could contain special cases.",
+      "searches": [
+        "Two equal-volume environmental compartments with symmetric exchange rate k and unequal first order removal losses: target-compartment concentration after initial tracer pulse has a unique finite optimum k, sharp contrast threshold and nondimensional bounds kt>1",
+        "Fixed-time receiver concentration in two communicating tanks with symmetric exchange and unequal first-order degradation has unique optimal rate; optimum exchange time decreases strictly with decay contrast",
+        "\"two compartment reaction exchange parameter maximum transient second compartment concentration\""
+      ]
+    },
+    "rationale": "The full primary code for the two-box exchange-reaction model proves the equations are prior art, but contains no quantified global finite-time exchange optimum or strict contrast dependence. The published lake-water modeling abstract and late-time tracer report address different objectives; other matched mathematical claims do not state or dominate the current optimization theorem. Historical priority remains provisional due to restricted full technical sources. The complete four-page exchange-reaction tutorial and two-page exchange-only tutorial were inspected page by page; neither gives the finite rate-optimum theorem.",
+    "residual_risks": [
+      "The original full 1984 lake-transport paper was access restricted: its available abstract cannot exclude unexamined special-case optima.",
+      "The complete 2000 48-page tracer-transport report was not inspected; accessible repository scope is late-time behavior rather than fixed-time exchange tuning.",
+      "The explicit two-state model is classical. An unlocated general killed-Markov-chain or positive-semigroup maximization theorem might imply the present result.",
+      "No independent mathematical or historical-priority audit has been performed."
+    ],
+    "source_inspections": [
+      {
+        "assessment": "Same governing model in an equal-volume special case is unambiguously established prior art; no rate-optimized receiver snapshot or strict uniqueness theorem stated in this complete source",
+        "evidence": "A1:t=(PSa/V1)(A2-A1)-(G1/V1)A1; A2:t=(PSa/V2)(A1-A2)-(G2/V2)A2; the section only supplies the forward equations and a combined equilibrium quantity.",
+        "identifier_or_url": "https://www.imagwiki.nibib.nih.gov/sites/default/files/Comp2ExchangeReaction_0.mod",
+        "material_read": "Entire 85-line published source, including all initial conditions, four differential equations, and description",
+        "method": "Read complete plain-text primary model implementation and compare the A-species subsystem to the proposed ODE",
+        "title": "Comp2ExchangeReaction: model no. 0246 (full MML source)",
+        "trigger": "Exactly matching bidirectional exchange plus distinct first-order local reactions"
+      },
+      {
+        "assessment": "The source provides the exchange-only linear solution, but not the unequal-loss finite optimum",
+        "evidence": "C1:t=(PS/V1)(C2-C1); C2:t=-(PS/V2)(C2-C1) and analytic concentrations with a single exponential.",
+        "identifier_or_url": "https://www.imagwiki.nibib.nih.gov/sites/default/files/Comp2Exchange_0.mod",
+        "material_read": "Entire 84-line primary model source including ODE and analytic solution",
+        "method": "Read full published source; compare the no-loss specialization to the r=0 boundary",
+        "title": "Comp2Exchange: model no. 0245 (full MML source)",
+        "trigger": "Exact loss-free boundary of proposed theorem"
+      },
+      {
+        "assessment": "No exact finite-horizon shared-exchange optimum apparent in accessible abstract; full text not assessed",
+        "evidence": "1984 abstract describes implicit dispersion in discrete multibox models and recommends calibration of exchange parameters.",
+        "identifier_or_url": "https://doi.org/10.1061/(ASCE)0733-9372(1984)110:1(42)",
+        "material_read": "Published abstract, bibliographic date, and listed topic metadata; publisher full text inaccessible (HTTP 403)",
+        "method": "Read indexed publisher abstract and identify the scope and the unresolved full-text coverage",
+        "title": "Transport in Lake Water Quality Modeling",
+        "trigger": "Foundational multiple-box lake modeling and exchange calibration"
+      },
+      {
+        "assessment": "Addresses late-time breakthrough curves and multirate density, rather than equal-volume loss-contrast exchange optimization; cannot rule out full-text implications",
+        "evidence": "Publication date June 12, 2000; report SAND99-3120J; describes asymptotic c(t), residence-time distributions and tracer tests.",
+        "identifier_or_url": "https://digital.library.unt.edu/ark:/67531/metadc703765/",
+        "material_read": "Full repository descriptive page, report identifiers and substantive abstract; 48-page report full body not read",
+        "method": "Read official UNT description, study motivation, date and scope",
+        "title": "On the late-time behavior of tracer test breakthrough curves",
+        "trigger": "Rate-limited mass transfer and tracer breakthrough in environmental systems"
+      },
+      {
+        "assessment": "Describes perfusion/exchange parameter estimation, not the fixed-time two-box contrast theorem",
+        "evidence": "Formulas for two-compartment response H(t), exchange PS and flow/permeability characterization.",
+        "identifier_or_url": "https://dceasy.org/ROCKETSHIP/reference/models/two-compartment-exchange/",
+        "material_read": "Accessible online primary model description and equations for biexponential response",
+        "method": "Read model equations, parameters and stated estimation objective",
+        "title": "Two-Compartment Exchange Model",
+        "trigger": "Broader biexponential two-compartment tracer impulse response"
+      },
+      {
+        "assessment": "The full document derives/describes the exchange-reaction dynamics and changes the site of reaction in an illustrative parameter comparison, but does not optimize the receiving-compartment tracer snapshot over the symmetric exchange rate, prove uniqueness, or analyze increasing decay contrast",
+        "evidence": "Pages 1–4 discuss the equations, example reaction locations, terminal transformed mass balance and figures; no fixed-time rate optimum.",
+        "identifier_or_url": "https://www.imagwiki.nibib.nih.gov/sites/default/files/Comp2ExchangeReaction_0.pdf",
+        "material_read": "All 4 pages, 0–3, including formula page, plotted reaction curves, exercises and answers",
+        "method": "Read parsed text and inspect full-page rendered screenshots of every page",
+        "title": "Understanding the Comp2ExchangeReaction Model (complete four-page guide)",
+        "trigger": "Full tutorial for the exact primary exchange-and-reaction equations"
+      },
+      {
+        "assessment": "Exactly treats the passive exchange-only model and its time/volume sensitivity, not the unequal-loss maximum as a function of exchange",
+        "evidence": "Pages 1–2 present analytic concentration curves with no separate loss rates; exercise concerns time to equilibrium and relative volume.",
+        "identifier_or_url": "https://www.imagwiki.nibib.nih.gov/sites/default/files/Comp2Exchange_0.pdf",
+        "material_read": "All 2 pages, including the forward equations, exact analytic solution, exercises and steady-state figure",
+        "method": "Read parsed PDF and inspect full-page screenshots of both pages",
+        "title": "Understanding the Comp2Exchange Model (complete two-page guide)",
+        "trigger": "The equal-loss/no-loss specialization and a source where an optimization implication might appear"
+      }
+    ],
+    "status": "PASS"
+  },
+  "review_type": "self_review",
+  "schema_version": 1,
+  "scope_run_id": "89b160aa-a5b3-4298-8cd5-184355e03495",
+  "self_review_status": "passed",
+  "value": {
+    "rationale": "The fixed-time receiver concentration is a natural, directly interpretable tracer monitoring quantity. The exact result shows the counterintuitive finite optimum for every unequal local loss pair, classifies the equal-loss boundary and the entire monotone optimum vs contrast, and gives a universal lower bound kT>1. It informs interpretation of two-box water-quality exchanges without asserting nonlinear, spatial, or field-level validity.",
+    "status": "PASS"
+  }
+}
