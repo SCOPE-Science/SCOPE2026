@@ -1,0 +1,116 @@
+{
+  "audit_date_utc": "2026-10-28",
+  "audited_at_utc": "2026-10-28T18:55:57Z",
+  "axes": {
+    "correctness": {
+      "rationale": "For n>=3 equally spaced sites, distinct traps a<b, 0<q<1 and independent detections q^distance, exact per-site union probability is q^{|i-a|}+q^{|i-b|}−q^{|i-a|+|i-b|}; summing gives exact deficit D=2(1+q)/(1−q)−F = q(1+q^s)(q^a+q^r)/(1−q)+q^s[s+1+q²(2−q^{2a}−q^{2r})/(1−q²)], s=b−a,r=n−1−b. For fixed s, dependence on a,r is H_s(a)+H_s(r), H_s(x)=alpha q^x−beta q^{2x}, and alpha>4 beta gives strict convexity, yielding exactly centered gap placements. For fixed q and n→∞, a balanced triple of gaps makes D<=C_q(n+1)q^{floor((n−1)/3)}; the nonnegative terms lower bound D>=q^{min(a+1,r+1,s)}, implying each gap n/3+O_q(log n) and limits (1/3,2/3). For q↑1 first, missed probability equals (1−q)²Σ_i |i−a||i−b|+O_n((1−q)^3), and normalized Riemann sums uniformly converge to I(c,d)=c²−c+1/3+(8/3)d³−d² with unique minimizer c=1/2,d=1/4, hence quarter sites. Enumerated n=3..12 using independent exact rational score, checked closed form, fixed-gap centering, and the symbolic factor F7(1,5)-F7(1,4)=q²(1−q)²(q³+2q−1), giving first q-dependent n=7 change (root 0.4533976515...). Finite checks corroborate general algebra only; no simulation of the infinite limits used as proof.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Existing coverage and capture–recapture frameworks treat more sensors, two-dimensional grids, sitewise coverage or inference accuracy."
+        ],
+        "reasoning": "General models do not automatically imply exact optimizers of this one-dimensional fixed-two independent geometric kernel; no inspected full text proved a stronger parameter-general formula subsuming it.",
+        "searches": [
+          "two traps exponential distance detection q^distance uniform path average coverage optimal separation 1/3 vs 1/4 limit noncommute",
+          "Dhillon et al FUSION 2002",
+          "Sun et al PLOS ONE 2014 e88025",
+          "Frasca et al 1404.7711"
+        ]
+      },
+      "checked_sources": [
+        "Dhillon–Chakrabarty–Iyengar FUSION 2002 full author manuscript DOI 10.1109/ICIF.2002.1021005",
+        "Frasca et al arXiv:1404.7711 full PDF",
+        "Sun–Fuller–Royle PLOS ONE 2014 e88025 full HTML",
+        "Assigned RESULT.md SHA d08a60f3c1e94372aa61dc63000ed802d021571a, verify.py SHA d09335f63e500b7e54d3ada143c35d8000094e94 and checked certificate blob 7a968c4bdb6688979bcf6db922b05a9d994cddd3"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "Prior detection kernels and landscape placement concept are acknowledged; new objective F=sum_i P(any trap detects at site i) with exactly 2 sensors leads to strict convexity in boundary gaps and balancing defects."
+        ],
+        "reasoning": "Sitewise coverage constraints do not imply maximization of sum of probabilities, and minimizing maximum nearest-sensor distance after sensor failures does not imply the geometric union detection objective or noncommuting q and n limits.",
+        "searches": [
+          "two traps exponential distance detection q^distance uniform path average coverage optimal separation 1/3 vs 1/4 limit noncommute",
+          "Dhillon et al model and algorithm",
+          "Frasca et al objective formulas",
+          "Sun et al simulation tables"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Dhillon et al use exponential distance-imprecise independent sensor detection, but decision variable is sensor count subject to per-site probability threshold. Frasca model has outright sensor failures and expected maximal nearest functioning sensor distance."
+        ],
+        "reasoning": "Same q^distance ingredient does not mean the constrained sensor-count or nearest-survivor objectives equal the expected union probability for exactly two traps; neither yields its unique 1/3↔1/4 iterated-limit split.",
+        "searches": [
+          "two traps exponential distance detection q^distance uniform path average coverage optimal separation 1/3 vs 1/4 limit noncommute",
+          "Dhillon et al DOI 10.1109/ICIF.2002.1021005",
+          "Frasca et al arXiv:1404.7711"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "Claim gives all n exact centering, every fixed-q asymptotic, and first n=7 parameter phase transition; prior papers provide heuristics/simulations for distinct objectives."
+        ],
+        "reasoning": "A small finite table of placements could not establish the infinite two-limits theorem; independent n<=12 enumeration supports only finite cutoff and strict phase factors.",
+        "searches": [
+          "two traps exponential distance detection q^distance uniform path average coverage optimal separation 1/3 vs 1/4 limit noncommute",
+          "Dhillon et al tables/algorithm",
+          "Sun et al trap configuration numerical results"
+        ]
+      },
+      "rationale": "Best-of-knowledge PASS for the optimal **two-fixed-trap average detection** placement theorem, all-separation centering, two noncommuting limiting site fractions and minimal seven-site crossover. Earlier sensor-placement research uses the identical exponential detection probability but optimizes sitewise coverage constraints / number of sensors rather than an exactly-two-trap mean union probability. Another prior randomized-sensor model uses independent outright failures and expected worst distance, not the present sitewise probability. Ecological capture-recapture trap configuration studies focus on parameter-estimation precision with half-normal kernels rather than this exact combinatorial objective. Thus prior model similarity is credited without treating unrelated objectives as dominating claims.",
+      "residual_risks": [
+        "Equivalent two-facility geometric independent detection average-coverage results may occur under facility-location/operations-research terminology not indexed by the inspected sensor literature.",
+        "Detection equals 1 at a trap site and population is uniform; ecological applicability outside this simplified kernel and estimator accuracy not asserted."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "MODEL_KERNEL_RELATED_BUT_OBJECTIVE_DIFFERENT",
+          "evidence": "Optimizes how many sensors ensure a detection-probability threshold at each site; does not determine fixed-two average probability or iterated limits.",
+          "identifier_or_url": "doi:10.1109/ICIF.2002.1021005 (Dhillon, Chakrabarty, Iyengar, FUSION 2002)",
+          "material_read": "Author-uploaded public full article material, especially sensor model, probability threshold formulation, algorithm and numerical examples.",
+          "method": "Lawful open author-hosted full text, model and objective sections read.",
+          "title": "Sensor Placement for Grid Coverage under Imprecise Detections",
+          "trigger": "Same exponential distance-dependent independent detection probability"
+        },
+        {
+          "assessment": "DIFFERENT_OBJECTIVE_AND_RANDOMNESS",
+          "evidence": "Independent outright sensor failures; minimizes expected largest nearest-active-sensor distance, not geometric per-distance Bernoulli detection union.",
+          "identifier_or_url": "arXiv:1404.7711 (Frasca et al.)",
+          "material_read": "Open full primary PDF, setup and objective statement plus analytical optimization construction.",
+          "method": "Open PDF text and page inspection.",
+          "title": "Optimal One-Dimensional Coverage by Unreliable Sensors",
+          "trigger": "Potential domination by exact sensor location theorem in one-dimensional line"
+        },
+        {
+          "assessment": "STATISTICAL_INFERENCE_NOT_IDENTICAL_OPTIMIZATION",
+          "evidence": "Half-normal spatial capture–recapture likelihood and estimator precision; lacks an exact two-geometric-trap average site coverage classification.",
+          "identifier_or_url": "doi:10.1371/journal.pone.0088025 (Sun, Fuller, Royle, 2014)",
+          "material_read": "Full open PLOS ONE primary HTML, introduction, modeling, simulations and performance measures.",
+          "method": "Open HTML full-text section inspection.",
+          "title": "Trap Configuration and Spacing Influences Parameter Estimates in Spatial Capture-Recapture Models",
+          "trigger": "Same domain ecological trap placement potentially stronger applied analysis"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "rationale": "The decision to place traps depends qualitatively on the order of the landscape-size and detection-range limits: thirds versus quarters. The theorem makes this effect exact and supplies universal centering at fixed separation plus first seven-site parameter transition, useful to prevent conflating short- and long-range sensor designs. The object and probability objective are natural enough that the exact closed-form frontier is a meaningful structural fact, not an arbitrary small-instance calculation.",
+      "status": "PASS"
+    }
+  },
+  "checked_sources": [
+    "Dhillon–Chakrabarty–Iyengar FUSION 2002 full author manuscript DOI 10.1109/ICIF.2002.1021005",
+    "Frasca et al arXiv:1404.7711 full PDF",
+    "Sun–Fuller–Royle PLOS ONE 2014 e88025 full HTML",
+    "Assigned RESULT.md SHA d08a60f3c1e94372aa61dc63000ed802d021571a, verify.py SHA d09335f63e500b7e54d3ada143c35d8000094e94 and checked certificate blob 7a968c4bdb6688979bcf6db922b05a9d994cddd3"
+  ],
+  "disposition": "passed",
+  "limitations": "Exactly two fixed distinct traps on a uniform 1D path, independent geometric distance detection with perfect local detection. Other kernels, unequal costs, animal nonuniformity, correlation and inferential efficiency not addressed.",
+  "residual_risks": [
+    "Equivalent two-facility geometric independent detection average-coverage results may occur under facility-location/operations-research terminology not indexed by the inspected sensor literature.",
+    "Detection equals 1 at a trap site and population is uniform; ecological applicability outside this simplified kernel and estimator accuracy not asserted."
+  ],
+  "schema_version": 1
+}
