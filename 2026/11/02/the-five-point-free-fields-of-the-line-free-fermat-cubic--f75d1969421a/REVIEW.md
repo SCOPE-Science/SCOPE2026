@@ -1,0 +1,11 @@
+# Mathematical assessment
+
+**Correctness — PASS.** The counting theorem follows from the complete classical list of twenty-seven lines, the two surface cardinalities, an exact descent argument when cube roots of unity are absent, and the integral Eisenstein pair and triple determinant tests. The latter control all characteristics outside two and three. The characteristic-two incidence is independently established over \(\mathbb F_4\) and is stable under extensions. The four rational zeta functions have independently checked coefficients through twelve extension degrees. See the standalone verifier for the actual complete computation.
+
+**Originality — PASS, qualified.** The explicit twenty-seven-line parametrization, whole-surface rational-point formulas, and elementary Hermitian geometry are **not** claimed as new. The assessed theorem is the complete arithmetic of the *reduced open line complement*: four cardinality polynomials, four rational zeta functions, and exactly five finite base fields where it is empty. Comparison with the complete inspected §5.2 of Polo-Blanco–Top, Cooley's 2013 paper, Debarre's cubic notes, and Massarenti's 2026 §8 found no exact equivalent open-locus theorem. The nearest recorded Fermat cubic result concerns sixer intersections, a different invariant. A strong residual historical-priority risk remains: classical incidence information combined with a known whole-surface count could imply the present formulas without an identical title or table.
+
+**Mathematical value — PASS.** The existence of a rational point outside the union of exceptional curves is a canonical question about an open cubic surface. The exact cutoff \(\{2,4,7,13,16\}\) and a genuine characteristic-two change are meaningful, and the full extension-field zeta data refine mere small-field examples. This is a self-contained arithmetic classification; no claim of a large new geometric structure or general cubic-surface theorem is made.
+
+**Limitations.** Characteristic three and non-Fermat cubics are excluded. General counts are derived using standard geometry plus exact specialized incidence data; the finite verifications alone would not establish infinite-characteristic claims. Historical priority and scientific validity have not received independent assessment.
+
+Self-review: passed. Independent audit: not yet performed.
