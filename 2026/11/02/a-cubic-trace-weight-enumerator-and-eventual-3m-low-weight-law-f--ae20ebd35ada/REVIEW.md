@@ -1,0 +1,15 @@
+# Self-review
+
+## Correctness — PASS
+For a binary vector \(s\), the additive graph-code weight is the support size of \(s\vee\Gamma s\). An explicit hub/rim split, parity projection, and three four-state transfer traces establish the enumerator for every integer rim length \(m\ge3\). Determinant identities reduce the traces to the printed cubic recurrence; exact logarithmic differentiation and coefficient extraction prove the complete four low-weight laws and their infinite \(3m\) tail. The field self-duality and normalization were independently checked. Replaying `verify.py` enumerates every codeword up to fifteen vertices, checks every coefficient, and tests the low-weight laws through rim size 110. Finite checks support, but do not replace, the symbolic infinite proof.
+
+## Originality — PASS with priority risk
+The nearest 2026 arXiv works prove broad generating-function rationality for graph-state sector lengths and black-white polynomials, with worked graph families other than the present wheel. They do not give this three-cubic closed form or the full coefficient stabilization law. The 2022 graph-state SLD article establishes general definitions and examples. The isolated six-qubit wheel AME observation appears in a 2024 article and is explicitly **prior**, not claimed as a discovery. A 2019 bordered-circulant additive-code article is plausibly relevant; its publicly visible abstract and tables treat finite optimal-code classifications and selected distributions, but its full text was inaccessible. This leaves residual publication-priority uncertainty rather than a verified equivalence. Searches of published mathematical findings and accessible previous claims found no equivalent or stronger all-family wheel formula; negative search alone is not proof of novelty.
+
+## Value — PASS
+Complete Hamming/sector-length enumerators are natural error-correction and multipartite-correlation invariants; the explicit family is neither an arbitrary parameter choice nor a table recomputation. The low-weight law isolates every exceptional wheel and proves that the number of weight-four stabilizers grows exactly linearly beyond a finite threshold. It also provides an all-size three-uniform classification, beyond the known isolated six-qubit case. The three-cubic simplification is a concrete all-parameter result not supplied by generic rationality, while being independently reproducible through the displayed transfer matrices and standalone checker.
+
+## Closest literature, limitations, and risk
+Primary comparisons: arXiv:2604.09766 (rational graph-state generating functions), arXiv:2604.10719 (black-white polynomials), arXiv:2207.07665 (graph-state SLD), arXiv:2408.16914 Appendix K (known six-qubit wheel), and DOI:10.3934/amc.2019014 (finite bordered-circulant additive codes; full text unavailable). Further equivalent results in unindexed work cannot be excluded. This theorem asserts neither optimal quantum error-correction parameters nor full noise-performance statistics. Verification is internal mathematical checking, not independent validation.
+
+Self-review: passed. Independent audit: not yet performed.
