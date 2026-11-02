@@ -1,22 +1,21 @@
-# Review
+# Independent mathematical audit
 
-## Correctness — PASS
+## correctness
 
-The graph has \(|V|=7\), \(|E|=14\), and cycle rank \(8\). The finite cubical model has cell counts \((42,140,82)\). The included exact verifier checks the product-boundary formula, confirms \(\partial_1\partial_2=0\), and computes ranks \(41\) and \(77\), yielding rational first Betti number \(22\). The established surjectivity of \(H_1(F(G,2))\to H_1(G\times G)\) gives target rank \(16\) and kernel dimension \(6\).
+PASS
 
-## Originality — PASS
+The graph consists of K5 on {u,v,a,b,c} plus x,y adjacent to both u,v; it has 7 vertices,14 edges and beta1=8. The ordered deleted-product CW model for F(G,2) was independently built with 42 zero-,140 one-,82 two-cells; exact rational boundary ranks 41 and77, and d1*d2=0 in every column. Thus H1 dimension=140-41-77=22. For finite connected G not homeomorphic to a circle, Barnett–Farber Proposition 1.3/2.3 gives surjectivity of inclusion-induced H1 into H1(GxG) of rank 2 beta1=16, hence kernel dimension 6. Removing uv and deleting endpoints leaves components K3, {x}, {y}; Farber–Hanbury Theorem14 yields a lower bound of 2*3-2=4 for the same kernel, so 6 is strictly greater. Computation is exact over Q (no modular inference) and has a complete cell list; no claim about Z torsion.
 
-The closest primary source defines maturity, proves qualitative non-maturity for double wedges, and supplies a rank-\(4\) lower bound in the relevant two-cut setting. The exact rank \(6\) for the graph specified here is not stated in the inspected passages. Searches for the graph family, maturity, equivalent formulations, and exact kernel rank returned no matching claim; nearby configuration-space records concern different graphs or different coefficients. This supports, but does not by itself prove, originality.
+## originality
 
-## Value — PASS
+PASS
 
-The result gives an exact quantitative test of a natural two-cut obstruction in graph configuration spaces. It shows that the general rank-\(4\) guarantee is not exact even in a small, simple, 2-connected nonplanar example, and provides a reproducible benchmark for any proposed formula for the hidden first-homology kernel.
+Best-of-knowledge comparison on actual final mathematical statement for Six-dimensional inclusion H1 kernel for a natural nonplanar two-vertex-cut graph. Four distinct implications were checked, including known covering numeric/special-case portions that are explicitly excluded from the originality claim. Sources and access limits are detailed below.
 
-## Closest literature and limitations
+## value
 
-- Barnett–Farber, arXiv:0903.2180: finite cubical model, surjectivity, and the exact-sequence description of first homology.
-- Farber–Hanbury, arXiv:1005.2300: maturity, double-wedge non-maturity, and the general two-cut lower bound.
-- A 2010 Durham thesis abstract reports an algorithm for second Betti numbers of arbitrary graph configuration spaces; its full text was not inspected here, so it remains a residual coverage risk.
-- The claim is limited to rational first homology of the graph explicitly defined in `RESULT.md`; it does not classify the full family or address integral torsion.
+PASS
 
-Self-review: passed. Independent audit: not yet performed.
+A canonical nonplanar 2-cut stress test (a K5 block with two twin length-two attachments at the same pair) demonstrates that the standard two-cut lower bound of 4 need not be exact: the actual kernel dimension is 6. This supplies a reproducible, integral-chain-defined rational test case for refining intersection-form rank estimates, not an arbitrary floating-point number or rebranding of the published lower bound. It is deliberately a narrow but nontrivial structural benchmark, not a general classification.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

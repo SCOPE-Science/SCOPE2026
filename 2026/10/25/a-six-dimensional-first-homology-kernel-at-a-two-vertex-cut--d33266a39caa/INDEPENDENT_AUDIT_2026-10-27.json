@@ -1,0 +1,137 @@
+{
+  "audit_date_utc": "2026-10-27",
+  "audited_at_utc": "2026-10-27T22:06:06Z",
+  "axes": {
+    "correctness": {
+      "checked_sources": [
+        "2026/10/25/a-six-dimensional-first-homology-kernel-at-a-two-vertex-cut--d33266a39caa/RESULT.md",
+        "2026/10/25/a-six-dimensional-first-homology-kernel-at-a-two-vertex-cut--d33266a39caa/VERIFICATION.md",
+        "2026/10/25/a-six-dimensional-first-homology-kernel-at-a-two-vertex-cut--d33266a39caa/AUDIT.json",
+        "2026/10/25/a-six-dimensional-first-homology-kernel-at-a-two-vertex-cut--d33266a39caa/METADATA.json",
+        "2026/10/25/a-six-dimensional-first-homology-kernel-at-a-two-vertex-cut--d33266a39caa/REVIEW.md",
+        "2026/10/25/a-six-dimensional-first-homology-kernel-at-a-two-vertex-cut--d33266a39caa/SLOGAN.txt",
+        "2026/10/25/a-six-dimensional-first-homology-kernel-at-a-two-vertex-cut--d33266a39caa/verify_graph_configuration.py",
+        "/mnt/data/scope_worker_08_20261027T2154_work/independent_checks.json"
+      ],
+      "rationale": "The graph consists of K5 on {u,v,a,b,c} plus x,y adjacent to both u,v; it has 7 vertices,14 edges and beta1=8. The ordered deleted-product CW model for F(G,2) was independently built with 42 zero-,140 one-,82 two-cells; exact rational boundary ranks 41 and77, and d1*d2=0 in every column. Thus H1 dimension=140-41-77=22. For finite connected G not homeomorphic to a circle, Barnett–Farber Proposition 1.3/2.3 gives surjectivity of inclusion-induced H1 into H1(GxG) of rank 2 beta1=16, hence kernel dimension 6. Removing uv and deleting endpoints leaves components K3, {x}, {y}; Farber–Hanbury Theorem14 yields a lower bound of 2*3-2=4 for the same kernel, so 6 is strictly greater. Computation is exact over Q (no modular inference) and has a complete cell list; no claim about Z torsion.",
+      "residual_risks": [
+        "Correctness of dimension6 relies on published surjectivity of inclusion on H1 for connected noncircle graphs; that theorem is applicable here. No integral torsion or general 2-cut formula is asserted."
+      ],
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Theorem14 supplies a free subgroup of rank 4 after adding the uv edge across three components, not equality. General mature graph results ensure certain kernels vanish, inapplicable here because there is a two-cut."
+        ],
+        "reasoning": "The actual 6-dimensional exact kernel strictly exceeds the 4 lower bound, so that bound does not imply the result. Complete/bipartite graph formulae apply to K5 or K_{m,n}, not to the present hybrid graph; no covering explicit family theorem was identified.",
+        "searches": [
+          "Resultary: graph two particle configuration space two vertex cut kernel H1 inclusion into graph product exact rank",
+          "Farber–Hanbury 2010 Theorem14, Prop19",
+          "Barnett thesis 2010 repository abstract"
+        ]
+      },
+      "checked_sources": [
+        "Assigned RESULT.md and verify_graph_configuration.py at actual Git blob SHA",
+        "independent_checks.py exact rational ranks [41,77] and cell counts [42,140,82], chain condition",
+        "Barnett–Farber arXiv:0903.2180; Farber–Hanbury arXiv:1005.2300; Barnett thesis 2010",
+        "Resultary: Resultary: graph two particle configuration space two vertex cut kernel H1 inclusion into graph product exact rank"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "Farber–Hanbury two-cut result guarantees at least 4 dimensions, which is consistent with 6 but cannot force exact 6. A homology intersection-form algorithm does not by itself state the evaluated rank for this graph."
+        ],
+        "reasoning": "The new narrow exact invariant is not merely a restatement of an existing rank formula with parameters: its nontrivial exact boundary rank 77 witnesses excess 2 over the published structural bound. It does not invalidate that lower bound.",
+        "searches": [
+          "Resultary: graph two particle configuration space two vertex cut kernel H1 inclusion into graph product exact rank",
+          "Barnett–Farber arXiv:0903.2180",
+          "Farber–Hanbury arXiv:1005.2300"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Kernel of H1(F(G,2))->H1(GxG) can be represented as the cokernel of the intersection form; the ordered deleted product is the finite CW model."
+        ],
+        "reasoning": "Compared the same ordered rather than unordered configuration object, rational field and map kernel. The general intersection-form presentation is a method of computation, not an explicitly evaluated kernel dimension for the indicated K5-plus-two-twins graph.",
+        "searches": [
+          "Resultary: graph two particle configuration space two vertex cut kernel H1 inclusion into graph product exact rank",
+          "Barnett–Farber 2009 intersection-form exact sequence, §2–3",
+          "Farber–Hanbury 2010 two-vertex-cut linking form"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "The graph is neither complete nor complete bipartite, and the source comparison found no exact Betti/kernel table for this particular seven-vertex example."
+        ],
+        "reasoning": "The exact finite 42/140/82 cell and 41/77 boundary-rank data were independently recomputed, not copied from a known table. Search absence alone does not prove novelty.",
+        "searches": [
+          "Resultary: graph two particle configuration space two vertex cut kernel H1 inclusion into graph product exact rank",
+          "Barnett 2010 thesis abstract, exact formulae for complete and complete bipartite graphs"
+        ]
+      },
+      "rationale": "Best-of-knowledge comparison on actual final mathematical statement for Six-dimensional inclusion H1 kernel for a natural nonplanar two-vertex-cut graph. Four distinct implications were checked, including known covering numeric/special-case portions that are explicitly excluded from the originality claim. Sources and access limits are detailed below.",
+      "residual_risks": [
+        "Barnett thesis full PDF unavailable; an unindexed worked table or direct specialization to this hybrid graph is not excluded.",
+        "The full exact kernel is an individually computed graph invariant, not a classification of arbitrary two-cuts."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Supports exact finite model and surjective map, not numerical 6 for this graph",
+          "evidence": [
+            "Lemma1.1; Proposition1.3 and Proposition2.3"
+          ],
+          "identifier_or_url": "https://arxiv.org/pdf/0903.2180",
+          "material_read": "ArXiv primary full-text PDF, §1 deleted-product retraction and first-homology inclusion and intersection-form results",
+          "method": "PDF text extraction and page screenshot",
+          "title": "Topology of configuration space of two particles on a graph, I",
+          "trigger": "Provides cubical model and surjectivity required by rank-nullity"
+        },
+        {
+          "assessment": "Proves rank>=4 in stated edge-addition scenario; does not provide exact kernel 6 for this K5 construction",
+          "evidence": [
+            "Theorem14 Z^{2b0-2} for b0=3; Prop19"
+          ],
+          "identifier_or_url": "https://arxiv.org/pdf/1005.2300",
+          "material_read": "ArXiv primary full PDF, theorem14 edge addition and Proposition19 double wedge, adjacent technical hypotheses",
+          "method": "PDF text plus screenshots of p.1 and p.14",
+          "title": "Topology of configuration space of two particles on a graph, II",
+          "trigger": "Direct two-vertex-cut lower bound and mature-graph comparison"
+        },
+        {
+          "assessment": "Describes algorithms and explicit families K_n,K_{m,n}, not known to cover the hybrid graph; full thesis remains potential priority risk",
+          "evidence": [
+            "Abstract and repository description"
+          ],
+          "identifier_or_url": "https://etheses.durham.ac.uk/id/eprint/293/",
+          "material_read": "Repository thesis abstract inspected; full PDF fetch was blocked; not represented as read",
+          "method": "Durham thesis repository page",
+          "title": "The Configuration Space of Two Particles Moving on a Graph (thesis)",
+          "trigger": "Potential source for exact finite graph Betti enumerations"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "checked_sources": [
+        "2026/10/25/a-six-dimensional-first-homology-kernel-at-a-two-vertex-cut--d33266a39caa/RESULT.md",
+        "Assigned RESULT.md and verify_graph_configuration.py at actual Git blob SHA",
+        "independent_checks.py exact rational ranks [41,77] and cell counts [42,140,82], chain condition",
+        "Barnett–Farber arXiv:0903.2180; Farber–Hanbury arXiv:1005.2300; Barnett thesis 2010",
+        "Resultary: Resultary: graph two particle configuration space two vertex cut kernel H1 inclusion into graph product exact rank"
+      ],
+      "rationale": "A canonical nonplanar 2-cut stress test (a K5 block with two twin length-two attachments at the same pair) demonstrates that the standard two-cut lower bound of 4 need not be exact: the actual kernel dimension is 6. This supplies a reproducible, integral-chain-defined rational test case for refining intersection-form rank estimates, not an arbitrary floating-point number or rebranding of the published lower bound. It is deliberately a narrow but nontrivial structural benchmark, not a general classification.",
+      "residual_risks": [
+        "Barnett thesis full PDF unavailable; an unindexed worked table or direct specialization to this hybrid graph is not excluded.",
+        "The full exact kernel is an individually computed graph invariant, not a classification of arbitrary two-cuts."
+      ],
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "limitations": [
+    "One seven-vertex graph, rational coefficients, ordered two-particle configurations and inclusion H1 kernel; not an integral-torsion or general graph classification.",
+    "Barnett thesis full PDF unavailable; an unindexed worked table or direct specialization to this hybrid graph is not excluded.",
+    "The full exact kernel is an individually computed graph invariant, not a classification of arbitrary two-cuts."
+  ],
+  "schema_version": 1
+}
