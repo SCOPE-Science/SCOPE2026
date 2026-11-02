@@ -1,11 +1,21 @@
-# Same-model scientific review
+# Independent mathematical audit
 
-**Correctness — PASS.** The proof derives and proves a necessary-and-sufficient three-symbol characterization directly from acyclic vertex orientations, applies signed fixed-simplex traces, and evaluates cyclic words by a transfer matrix and reflective words by a path recurrence. Burnside averaging over rational chains completes both quotient formulas. The independent vertex-order enumerator exactly agrees through eight vertices and the final packaged verifier executes all 66 signed group-action comparisons. General validity is supplied by the proof, not finite enumeration.
+## correctness
 
-**Originality — PASS, with limitations.** The most relevant primary 29-page preprint, Knudson--Owens--White arXiv:2609.06844v1, was inspected in its cycle section, its homology computations and its other sections; it treats nonequivariant cycle homology and the pure subcomplex, with no dihedral character or the displayed quotients. The older ordinary Morse-complex work studies a different simplicial complex. Related published results give the full strong cycle's ordinary face polynomial and the pure strong cycle's rotation character, neither of which determines the new full complex's reflection action or its quotient Euler invariants. Searches for equivalent or dominating results found none; unindexed equivalents remain possible.
+PASS
 
-**Value — PASS.** In the full strong cycle case the source computes homology only through 21 edges; the new all-parameter character and quotient Euler invariants give unconditional symmetry constraints beyond that range. The two quotient actions produce arithmetically distinct explicit values and can obstruct proposed equivariant homology or quotient decompositions. This is more than restating known nonequivariant Betti numbers.
+For every n>=3, each selected incidence constrains two adjacent oriented cycle edges to a common sign. Nonconstant cyclic orientations are acyclic and admit a total vertex order. Thus a marked 0,+,- word is a face precisely when adjacent nonzeros never disagree and a single-sign word has an adjacent zero pair. For a fixed simplex the augmented signed trace is -(-1)^c where c is the number of permutation cycles on selected incidences. For rotations of period d=gcd(n,a), weighted signed words give -tr[T(-1)^d]+2tr[U(-1)^d]=-1+6[3|d]-4[4|d], with d=1,2 addressed directly. Reflections swap the sign and force boundary sites/pairs zero; the j free mirrored pairs give Z_0=1,Z_1=-1,Z_{j+2}=-Z_j and the three stated parity cases. Finite-group transfer on barycentric subdivisions then yields the two quotient reduced Euler averages and mod-24 periodicity. Independent enumeration from acyclic edge orientations (not the submitted verifier) reconstructed all faces and 84 dihedral signed actions for n=3..9, agreeing exactly. The symbolic orientation/transfer proof, not finite tests, establishes all n.
 
-**Scientific limitations.** Rational alternating traces cannot recover separate Betti numbers or integer torsion; no equivariant homotopy splitting is asserted. The verification range is finite, and literature indexing is not exhaustive.
+## originality
 
-Same-model review: passed. Independent audit: not yet performed.
+PASS
+
+The submitted all-n virtual D_n homology character of the FULL strong cycle matching complex, especially the signed reflection fixed-face trace and mod-24 cyclic/dihedral quotient Euler values, was not implied by the directly read source paper, the published pure-strong cycle rotation result, or the full-strong path reversal result. Actual Resultary and literature searches included equivalent Lefschetz/Burnside formulations; the exact indexed duplicate was excluded as independent priority. Historical priority is best-of-knowledge and cannot rule out unindexed work.
+
+## value
+
+PASS
+
+The full strong cycle matching complex is a natural recently defined combinatorial-topological family with unknown individual full-complex homology beyond an enumerated finite range. The invariant is the complete virtual D_n-action and its two natural quotient reduced Euler characteristics for every n, supplying nonidentity rotation and reflection symmetry information unavailable from ordinary face counts or the known pure-subcomplex character. The 24-periodic quotient formulas constrain proposed equivariant decompositions even without a full Betti census. This is a motivated all-parameter structural result, not an arbitrary narrow numerical recomputation.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
