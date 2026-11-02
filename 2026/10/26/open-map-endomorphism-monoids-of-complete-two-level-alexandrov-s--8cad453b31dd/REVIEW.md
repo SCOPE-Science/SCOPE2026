@@ -1,11 +1,21 @@
-# Scientific review
+# Independent mathematical audit
 
-**Correctness: PASS.** The proof separates the case where a lower point moves to the upper level from the case where all lower points remain lower. The principal-upset characterization of open continuous maps forces respectively an upper constant map or an upper permutation, with free lower transformation. At \(q=1\), all maps fixing the unique top work. The multiplication law and exact idempotent counts follow directly; the supplied program checks nine small parameter pairs by full enumeration.
+## correctness
 
-**Originality: PASS against the inspected evidence.** The 2026 primary paper of Vooijs and Fernández-Duque provides finite Alexandrov dynamics and the monotonicity framework but not the exact open-endomorphism monoid census. A related 2026 report on mapping spaces of the same complete height-two family concerns all continuous maps and their homotopy types, not the stricter open-map submonoid. The closest result remains a priority risk because its complete proof was not available for an equivalence check. A general order/topology identity for open maps is classical and is not presented as new.
+PASS
 
-**Value: PASS.** The result gives an all-parameter algebraic decomposition of a natural finite family of modal/topological selfmaps, an explicit counting law with a real \(q=1\) phase boundary, and idempotent counts relevant to iterated discrete dynamics. It distinguishes openness from bare continuity on the simplest non-chain height-two spaces; it is not merely a finite computation at selected sizes.
+The open-image condition f(up x)=up f(x) together with isotonicity is equivalent to being continuous and open in the upset topology. Images of maximal points are maximal. For q>=2, any lower-to-upper image v forces all upper images equal v; then openness at any lower-to-lower point would require q different upper images, impossible; hence the map is the upper constant c_v. Otherwise every lower image remains lower and openness at any lower forces the upper restriction to permute all q maxima, while the lower restriction is arbitrary. When q=1 the top is fixed and each lower can map to any point. Composition of T_p x S_q with q constants and counts p^p q!+q, (p+1)^p follow; idempotents from choosing fixed subsets. Independent exhaustive all-function checks for 1<=p,q<=3 separately evaluated order and openness and idempotent counts.
 
-**Limitations.** The restriction to complete bipartite two-level specialization orders is essential. The result is not a general characterization of open continuous endomorphisms of finite posets, and priority against earlier semigroup classifications requires independent assessment.
+## originality
 
-Self-review: passed. Independent audit: not yet performed.
+PASS
+
+Best-of-knowledge PASS for the exact open+continuous monoid, not the classical finite-Alexandrov or general monotone-map characterization. The inspected full published mapping-space RESULT on the identical two-level family counts all order-preserving maps and homotopy components, including many maps that are not open, and cannot directly supply its open submonoid composition or idempotent formulas. Vooijs and Fernández-Duque address Alexandrov dynamics and surjective p-morphisms; no open-endomorphism monoid census was seen. Earlier bounded-endomorphism semigroup theory remains a named nontrivial priority risk.
+
+## value
+
+PASS
+
+The exact two-parameter decomposition is a natural structural invariant of a minimal non-chain finite T0 space; the q=1 top boundary genuinely changes the algebra from lower transformations times upper permutations plus constants to the pointed full transformation monoid. The non-surjective open maps, ideal law and idempotent enumerators are useful for finite modal/topological dynamics and cannot be read from a generic openness definition or numerical table.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
