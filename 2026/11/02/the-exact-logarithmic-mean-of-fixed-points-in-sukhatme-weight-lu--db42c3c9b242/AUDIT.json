@@ -1,0 +1,148 @@
+{
+  "correctness": {
+    "rationale": "Exact exponential-race conditioning yields (1); two-index Bernoulli identity yields endpoint bounds. For t→0 and nt→∞, m∼1/t, v∼1/(2t); Fourier inversion supplies a uniform O(1/v) adjacent-mass estimate, establishing near-total local mass at k≈m. Uniform convergence of t k e^{-kt} to 1/e on the mass window, a Chebyshev tail bound, and dominated logarithmic integration prove the limit. A standalone checker passes 39 deterministic checks by two independent exact finite implementations. No limiting law is inferred from tests.",
+    "status": "PASS"
+  },
+  "independent": false,
+  "independent_audit_status": "not_performed",
+  "originality": {
+    "broader_coverage": {
+      "evidence": [
+        "Mukherjee, arXiv:1509.04552v3, Definition 1.3 and Theorems 1.1,1.3: strictly positive continuous compact-square density with uniform local control; finite Poisson mean integral.",
+        "Paguyo, arXiv:2112.07728v2, Theorem 1.1: uniform permutations in fixed double cosets and fixed-block/bounded-mean limit assumptions, not the Luce law.",
+        "Borga--Chatterjee--Diaconis, arXiv:2509.07729v3, Section 5.2, explicitly distinguishes the singular case from the finite diagonal integral."
+      ],
+      "reasoning": "Neither a smooth-density fixed-point Poisson theorem nor conditional uniform double-coset statistics imply the divergent-mean logarithmic coefficient for Sukhatme Luce weights. The general permuton limit is too coarse at the singular boundary. The 2026 LIS results concern another statistic.",
+      "searches": [
+        "fixed points size biased random permutations Sukhatme weights log n",
+        "Luce model Borga Diaconis fixed point expectation 2026",
+        "arXiv:1509.04552v3 Theorems 1.1 and 1.3",
+        "arXiv:2112.07728v2 Theorem 1.1"
+      ]
+    },
+    "checked_sources": [
+      {
+        "title": "Permuton and local limits for the Luce model",
+        "url": "https://arxiv.org/html/2509.07729v3"
+      },
+      {
+        "title": "Fixed points and cycle structure of random permutations",
+        "url": "https://arxiv.org/html/1509.04552v3"
+      },
+      {
+        "title": "Fixed points, descents, and inversions in parabolic double cosets of the symmetric group",
+        "url": "https://arxiv.org/html/2112.07728v2"
+      },
+      {
+        "title": "The longest increasing subsequences of Luce permutations and permutons",
+        "url": "https://arxiv.org/abs/2610.30382"
+      }
+    ],
+    "claim_vs_prior_implication": {
+      "evidence": [
+        "The motivating paper explicitly raises fixed-point number for Sukhatme weights with infinite diagonal integral.",
+        "Mukherjee proves finite-parameter Poisson limits assuming a continuous limiting density, contrary to the divergent Sukhatme diagonal.",
+        "Borga--Dubach, arXiv:2610.30382v1, abstract: longest increasing subsequences and variational constants, not fixed-point means."
+      ],
+      "reasoning": "The new conclusion is an exact leading asymptotic for the expectation. None of the checked statements has assumptions that apply and a conclusion implying this coefficient: smooth-kernel models have finite limiting means, double-coset uniform laws differ, and LIS asymptotics do not bound the number of fixed points at the required logarithmic resolution.",
+      "searches": [
+        "arXiv:2509.07729v3 Section 5.2",
+        "arXiv:1509.04552v3 Theorem 1.3",
+        "arXiv:2112.07728v2 Theorem 1.1",
+        "arXiv:2610.30382v1 abstract",
+        "Borga Chatterjee Diaconis Luce fixed-point open problem Sukhatme weights theta_i=n-i+1 log expectation",
+        "Sukhatme size-biased permutation fixed points logarithmic mean e inverse"
+      ]
+    },
+    "equivalent_formulations": {
+      "evidence": [
+        "Borga--Chatterjee--Diaconis, arXiv:2509.07729v3, Section 5.2: describes an unbounded Sukhatme diagonal integral and asks about fixed-point growth/distribution.",
+        "Exponential-clock ordering is a representation of Luce rank statistics, not a separate model; the theorem is formulated in the same draw-rank convention."
+      ],
+      "reasoning": "Checked equivalent descriptions as exponential races, size-biased permutations, weighted without-replacement ranks, and the Sukhatme scheme. The motivating source proposes growth but does not give its logarithmic coefficient. No retrieved equivalent statement gives the new limit.",
+      "searches": [
+        "Luce model Sukhatme weights theta_i=n-i+1 number of fixed points expected count grows e^-1 log n exponential race rank agreement",
+        "Borga Chatterjee Diaconis fixed points of Luce permutations Poisson distribution Sukhatme weights diverging count 2025 2026",
+        "Sukhatme permutation fixed points asymptotic logarithmic 1/e",
+        "arXiv:2509.07729v3 Section 5.2"
+      ]
+    },
+    "exact_database_or_table": {
+      "evidence": [
+        "Closest published-finding corpus hit 2026/10/4/SCOPE-boundary-localization-of-fixed-point-descent-dependence-in-a-uni--6e228e1e9495 is restricted to the uniform permutation distribution.",
+        "Borga--Chatterjee--Diaconis, arXiv:2509.07729v3, Figure 6 reports numerical fixed-point means at three sizes but no exact coefficient."
+      ],
+      "reasoning": "No indexed exact sequence/table or database result among actual searches implies the all-n limit. Finite simulation means and a singular permuton diagonal alone are not an exact asymptotic theorem; lack of a match is not an independent novelty certificate.",
+      "searches": [
+        "fixed point count of weighted size biased permutation with linear weights expected order log n",
+        "Sukhatme Luce random permutation expected fixed points asymptotic (1/e) log n exponential racing",
+        "Borga Chatterjee Diaconis Luce fixed-point open problem Sukhatme weights theta_i=n-i+1 log expectation",
+        "Sukhatme size-biased permutation fixed points logarithmic mean e inverse",
+        "Sukhatme fixed points log n Luce expected 2026",
+        "Sukhatme Luce permutation expected fixed points logarithmic asymptotic e inverse 2026"
+      ]
+    },
+    "rationale": "The motivating arXiv:2509.07729v3 explicitly highlights the Sukhatme fixed-point growth as unresolved; its permuton density has an infinite diagonal integral. Inspected Mukherjee, Paguyo and related LIS results do not imply the exact logarithmic expectation coefficient. A related Luce LIS result for exponential weights concerns a distinct observable and does not imply the present fixed-point mean claim. Novelty is best knowledge after searches, subject to unindexed classical identities.",
+    "residual_risks": [
+      "Older size-biased-ordering identities or non-arXiv references could contain the coefficient implicitly.",
+      "The 2026 Borga--Dubach paper was checked at abstract level only; its stated focus is LIS.",
+      "Search coverage is finite; no claim of certified novelty or independent review."
+    ],
+    "source_inspections": [
+      {
+        "assessment": "NOT_COVERING: poses growth and distribution as open, offers numerical means but no logarithmic coefficient",
+        "evidence": [
+          "Equation (2) and sampling clarification: σ(i) is the draw rank of label i.",
+          "Section 5.2 and Figure 6: singular diagonal and reported means 2.76, 3.64, 4.33 at three increasing sizes."
+        ],
+        "identifier_or_url": "https://arxiv.org/html/2509.07729v3",
+        "material_read": "Public HTML model definition, main theorem statements in Sections 2-3, Section 5.2 and Figure 6 description",
+        "method": "Read public arXiv full-text HTML; compared fixed-point statement with Section 5.2 and model convention",
+        "title": "Permuton and local limits for the Luce model",
+        "trigger": "Defines same sampling model and explicitly discusses Sukhatme fixed points"
+      },
+      {
+        "assessment": "NOT_COVERING: requires a positive continuous compact-square density and uniform local estimate, incompatible with the singular Sukhatme regime",
+        "evidence": [
+          "Definition 1.3, Theorem 1.3 and Remark 1.1; the fixed-point limit parameter is a finite diagonal density integral."
+        ],
+        "identifier_or_url": "https://arxiv.org/html/1509.04552v3",
+        "material_read": "Public HTML Introduction, Definition 1.3, Theorems 1.1 and 1.3, relevant Remarks and applications",
+        "method": "Checked actual regularity hypotheses and fixed-point mean conclusion",
+        "title": "Fixed points and cycle structure of random permutations",
+        "trigger": "General fixed-point Poisson theorem potentially dominating the proposed expectation result"
+      },
+      {
+        "assessment": "NOT_COVERING: conditional uniform double-coset law, not Luce sampling with descending linear weights",
+        "evidence": [
+          "Theorem 1.1 assumes fixed parabolic double-coset uniform sampling; bounded Poisson mean and growing block sizes for its limit."
+        ],
+        "identifier_or_url": "https://arxiv.org/html/2112.07728v2",
+        "material_read": "Public HTML abstract, model definitions, Section 1.1 and Theorem 1.1 including hypotheses",
+        "method": "Compared probability law, block-size hypotheses, and asymptotic mean regime",
+        "title": "Fixed points, descents, and inversions in parabolic double cosets of the symmetric group",
+        "trigger": "Other general fixed-point law for nonuniform permutation families"
+      },
+      {
+        "assessment": "NO APPARENT COVERAGE from abstract: concerns LIS, not fixed-point expectation; full-text priority uncertainty retained",
+        "evidence": [
+          "Abstract states Sukhatme LIS grows on a square-root scale and describes variational LIS limits."
+        ],
+        "identifier_or_url": "https://arxiv.org/abs/2610.30382",
+        "material_read": "ArXiv abstract and submission metadata; not full text",
+        "method": "Checked reported theorem subject and stated parameter family; limited abstract comparison",
+        "title": "The longest increasing subsequences of Luce permutations and permutons",
+        "trigger": "Most recent related Sukhatme Luce result and overlap with an accessible own result"
+      }
+    ],
+    "status": "PASS"
+  },
+  "review_type": "self_review",
+  "schema_version": 1,
+  "scope_run_id": "db42c3c9-b242-4ffb-81b2-f4d0fedf0dcd",
+  "self_review_status": "passed",
+  "value": {
+    "rationale": "The motivating paper gives a concrete unresolved natural fixed-point question in a singular Luce law. The theorem determines the leading scale and sharp coefficient of its expected count, required before assessing any distributional conjecture, with an explanatory Bernoulli mass-localization mechanism. It is not a routine finite table or arbitrary parameter slice; the Sukhatme weights are a named canonical regime and the divergent diagonal density obstructs regular fixed-point arguments.",
+    "status": "PASS"
+  }
+}
