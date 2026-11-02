@@ -5,8 +5,11 @@
     "status": "not_performed"
   },
   "independent_audit": {
-    "evidence": null,
-    "status": "not_performed"
+    "status": "passed",
+    "evidence": [
+      "INDEPENDENT_AUDIT_2026-10-28.md",
+      "INDEPENDENT_AUDIT_2026-10-28.json"
+    ]
   },
   "lean_verification": {
     "evidence": null,
@@ -16,6 +19,24 @@
 }
 ---
 
-The analytical verification proceeds in four steps: (1) express each edge-active region as a strip using orthogonal projection onto its supporting line; (2) use parity to determine whether the intersection has \(2n\) or \(n\) sides; (3) prove its circumradius is no greater than the inradius of the original polygon for all admissible \(n\); (4) compute both areas exactly and divide. The strict interior of the strip intersection gives one distinct normal from every edge and every vertex. Conversely, \(2n\) distinct face-based normals force every edge projection to lie in its segment.
+# Independent mathematical audit
 
-The exact formulas were evaluated in algebraically equivalent forms for \(n=5,6,7,8,9,10,11,21\). Agreement is a numerical sanity check, not a proof. The infinite statement is supported by the analytic derivation above. Boundary points where a strip inequality is an equality form a finite union of line segments and have area zero. No external checker, independent validator, or independent audit is claimed.
+## correctness
+
+PASS
+
+For regular n>=5 polygon circumradius R and edge unit tangents t_j, perpendicular projection onto edge j lies in the segment precisely when |y·t_j|<=s=R sin(pi/n). Strict satisfaction yields a normal from each of n edges and each of n vertices; no face can give >1 normal by base point, so maximal generic count 2n. The closed simultaneous strip intersection S_n is contained in P_n because its circumradius is R sin x/cos(x/2) (odd) or R tan x (even), each <= R cos x for stipulated ranges. Directions mod sign yield regular 2n-gon (odd) or n-gon (even), with inradius s. Computing area (perimeter*inradius/2) yields 2 tan x tan(x/2) or tan² x, with Taylor coefficients 5/12 and 2/3 at x^4. Independently reconstructed clipping intersections and area ratios for 12 orders 5..30. Chamber boundaries measure zero and are not claimed to have exactly 2n distinct normals.
+
+## originality
+
+PASS
+
+Best-of-knowledge comparison of the mathematically precise additional claim, not of a matching title, with the inspected primary papers and published research. The result is an elementary but motivated geometric derivation from known active-region technology. It is not a formal substitution in existing average-normal formula, because mean and maximal-chamber area do not determine each other.
+
+## value
+
+PASS
+
+Measures the size of the natural region attaining the sharp face-based count 2n, complementing the established average number of normals. The exact polygonal geometry and odd/even fourth-order asymptotic split are invariant data not determined by face count alone; though elementary after projection-strip reduction, this is a motivated whole-family geometric classification.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
