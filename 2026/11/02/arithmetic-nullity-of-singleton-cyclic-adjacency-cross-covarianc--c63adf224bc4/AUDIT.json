@@ -1,0 +1,110 @@
+{
+  "correctness": {
+    "rationale": "Two exact partition reductions prove every mixed indicator moment; the covariance matrix is a rank-one constant part minus two permutation incidences. Fourier diagonalization and the verified Bell ratio inequality prove the exact gcd-based kernel and negative global covariance for every n>=3 and 1<=d<n. The standard-library checker corroborated with 4358 exact assertions through n=9 and Bell ratios through n=99; no finite enumeration is used to infer the universal result.",
+    "status": "PASS"
+  },
+  "independent": false,
+  "independent_audit_status": "not_performed",
+  "originality": {
+    "broader_coverage": {
+      "evidence": [
+        "Munagi 2016 Section 1 provides a bijection for individual adjacency counts and Section 2 treats noncrossing partitions",
+        "Asai–Kubo–Kuo 2001 provides Bell inequalities but no set-partition local dependence theorem"
+      ],
+      "reasoning": "The published displacement count theorem is broader in its first-moment range but weaker in dependence information. Noncrossing partition restrictions and Bell sequence inequalities do not dominate the stated uniform unrestricted cross-covariance theorem. General association-scheme or exchangeability coverage remains possible but was not identified.",
+      "searches": [
+        "random Bell set partitions cyclic adjacency singleton covariance negative local positive remote spectral",
+        "fixed displacement equal-block indicators singleton blocks circulant cross covariance Bell numbers",
+        "set partitions singleton adjacency joint generating function covariance second moments circular"
+      ]
+    },
+    "checked_sources": [
+      "arXiv:math/0508052 (Callan 2005), open full text",
+      "doi:10.1216/RMJ-2016-46-1-301 (Munagi 2016), accessible author-posted full text",
+      "arXiv:math/0104137 (Asai–Kubo–Kuo 2001), abstract with explicit all-n ratio theorem"
+    ],
+    "claim_vs_prior_implication": {
+      "evidence": [
+        "Callan 2005 only interchanges aggregate counts under a bijection",
+        "Munagi 2016 Theorem 1.1 states total d-adjacency count equals nB_(n-1)",
+        "Asai–Kubo–Kuo 2001 ratio inequality is a premise for negativity"
+      ],
+      "reasoning": "The earlier bijections can recover single-event expectations and motivate the problem, but they are not sufficient to infer joint singleton/pair probabilities for incident versus disjoint sites or a Fourier spectral rank law. Combining newly proved two-event counting and spectral analysis gives the present statement. No broader directly implying primary theorem was located.",
+      "searches": [
+        "On singletons and adjacencies of set partitions Munagi Callan Bell numbers second moments",
+        "Callan conjugate set partition singleton adjacency joint distribution covariance correlation"
+      ]
+    },
+    "equivalent_formulations": {
+      "evidence": [
+        "Callan 2005 Theorem 1: equidistribution of total singleton counts and total cyclic 1-adjacency counts",
+        "Munagi 2016 Theorem 1.1: total numbers of d-adjacencies over all partitions independent of d"
+      ],
+      "reasoning": "Equidistribution of two marginal totals does not determine their joint covariance matrix. The all-displacement marginal count specifies expectations but not which site/edge pairs have positive/negative mixed covariance or the gcd-controlled Fourier nullspace.",
+      "searches": [
+        "uniform random set partition covariance matrix singleton indicators cyclic d-adjacency indicators Fourier spectrum gcd rank",
+        "On singletons and adjacencies of set partitions Munagi Callan Bell numbers second moments",
+        "singleton indicator cyclic d adjacency same block Bell covariance Fourier singular value gcd set partitions"
+      ]
+    },
+    "exact_database_or_table": {
+      "evidence": [
+        "The examined source material contains Bell counts and marginal enumeration rather than a tabulated n-by-n cross-covariance spectrum or gcd-based rank formula"
+      ],
+      "reasoning": "The finite ranks (5,6,3) at n=6 are illustrations of the all-n exact law; the claim is not a recomputation of a specific finite database/table. No matching exact table of all-n cross-covariance ranks was located.",
+      "searches": [
+        "uniform random set partition covariance matrix singleton indicators cyclic d-adjacency indicators Fourier spectrum gcd rank",
+        "singleton indicator cyclic d adjacency same block Bell covariance Fourier singular value gcd set partitions"
+      ]
+    },
+    "rationale": "The direct Callan and Munagi texts were inspected, and their aggregate equidistribution and marginal all-displacement enumerations were compared at the statement/implication level. Those statements do not supply the complete mixed local covariance matrix or its Fourier singular spectrum and arithmetic rank defect. The possibility of an implicit general theorem is retained as a residual priority risk.",
+    "residual_risks": [
+      "Historical priority cannot be established conclusively by literature search; a broader theorem on exchangeable random partitions or association-scheme incidences might imply the covariance matrix.",
+      "Only the named directly relevant primary papers were materially inspected; exhaustive historical literature coverage is not claimed."
+    ],
+    "source_inspections": [
+      {
+        "assessment": "ESTABLISHES the aggregate equidistribution; NOT the position-indexed cross-covariance matrix or its displacement-sensitive rank classification",
+        "evidence": [
+          "arXiv:math/0508052v3, lines in sections 1–2: cyclic adjacency and Theorem 1 (singleton/adjacency count swapping)"
+        ],
+        "identifier_or_url": "https://arxiv.org/html/math/0508052v3",
+        "material_read": "Abstract, Theorem 1 and proof describing a bijection interchanging total singleton and adjacency counts; cyclic adjacency defined in section 1",
+        "method": "Read lawful open-access full-text HTML and compared the quantified aggregate theorem against the present local pairwise covariance and Fourier-rank claim",
+        "title": "On Conjugates for Set Partitions and Integer Compositions",
+        "trigger": "Most direct original singleton–cyclic nearest-neighbor adjacency equidistribution theorem"
+      },
+      {
+        "assessment": "ESTABLISHES that the count of d-adjacencies over all partitions equals n times the previous Bell number; no mixed singleton/d-adjacency covariance spectrum found in inspected full text",
+        "evidence": [
+          "Munagi, Rocky Mountain J. Math. 46 (2016), 301–307, Theorem 1.1 and Lemmas 1.2–1.3"
+        ],
+        "identifier_or_url": "https://www.researchgate.net/publication/306144937_On_singletons_and_adjacencies_of_set_partitions",
+        "material_read": "Abstract; section 1 definitions and Theorem 1.1 with Lemmas 1.2–1.3 and their counting arguments; distinction between unrestricted and noncrossing results in section 2",
+        "method": "Read author-posted full text and checked that the paper counts marginal d-adjacencies instead of cross-covariance with singleton indicators",
+        "title": "On Singletons and Adjacencies of Set Partitions",
+        "trigger": "Direct full-text paper defining circular d-adjacencies for uniform set partitions"
+      },
+      {
+        "assessment": "PROVES the exact all-n Bell ratio inequality used to ensure the constant eigenvalue is strictly negative, without making a set-partition cross-covariance claim",
+        "evidence": [
+          "Asai–Kubo–Kuo, arXiv:math/0104137 abstract: 1 <= B_n B_(n-2)/B_(n-1)^2 <= n/(n-1) for n>=2 (after index shift)"
+        ],
+        "identifier_or_url": "https://arxiv.org/abs/math/0104137",
+        "material_read": "Full abstract and displayed pair of inequalities for ordinary and higher-order Bell numbers; inequality index shifted to present notation",
+        "method": "Checked arXiv abstract statement and all-n quantifier, then algebraically specialized the ratio at indices n-2,n-1,n",
+        "title": "Bell Numbers, Log-Concavity, and Log-Convexity",
+        "trigger": "Need exact published Bell-number ratio upper bound for strict negativity of the constant spectral mode"
+      }
+    ],
+    "status": "PASS"
+  },
+  "review_type": "self_review",
+  "schema_version": 1,
+  "scope_run_id": "c63adf22-4bc4-4bfc-9a16-662ed960f0fa",
+  "self_review_status": "passed",
+  "value": {
+    "rationale": "A natural equality of expected singleton and displacement-adjacency counts conceals an exact arithmetic rank transition and local/global sign reversal. The theorem gives a complete n,d classification and canonical nullspace basis, useful for understanding which linear contrasts of adjacency counts are uncorrelated with every singleton indicator, not just a table or arbitrary numerical example.",
+    "status": "PASS"
+  }
+}
