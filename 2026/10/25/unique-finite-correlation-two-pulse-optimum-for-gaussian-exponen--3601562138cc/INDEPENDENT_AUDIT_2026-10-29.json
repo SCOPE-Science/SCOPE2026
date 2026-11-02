@@ -1,0 +1,114 @@
+{
+  "audit_date_utc": "2026-10-29",
+  "audited_at_utc": "2026-10-29T22:46:07Z",
+  "axes": {
+    "correctness": {
+      "rationale": "Gaussianity makes coherence exp[−sigma²tau² Q/2] with Q the nonnegative kernel double integral of the three-sign modulation. Partitioning the integral gives Q=2L−10+4(e^(−a)+e^(−c))+8e^(−b)−4(e^(−a−b)+e^(−b−c))+2e^(−L), corroborated by an independent interval-state integral recursion for 1000 test triples. For fixed middle length b and a+c=L−b, dQ/da=4(1−e^(−b))(e^(−c)−e^(−a)), negative for a<c and positive for a>c; uniquely minimizes at a=c. Along this locus dQ/db=4e^(−a)(1+e^(−b))−8e^(−b); its sign equals sign[2b+2log cosh(b/2)−L]. This continuous strictly increasing scalar from −L to positive at b=L has a unique interior root; both boundary schedules lose. Bounds 0<log cosh(b/2)<b/2 force 1/4<a/L<1/3. Strict convexity of log cosh ensures monotonic ratio as L varies. Small-L root b=L/2−L²/32+O(L³) and gain Q_CPMG−Q_opt=L^4/256+O(L^5) are consistent; independent mpmath high-precision small-L expansion and thousands of unrestricted numerical competitors corroborate. The proof, not the sample search, establishes the universal unique minimum.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Ji–Zhao uses same OU Gaussian covariance and Nelder–Mead numerical search for multi-pulse sequences under zero-average constraints; different feasible set.",
+          "Other pulse studies use different power-law or Gaussian spectral densities, so timings do not dominate this statement."
+        ],
+        "reasoning": "General filter-function optimal-control formulations cover the model, but a numerical constrained optimum does not establish a unique unconstrained fixed-two-pulse analytic root. No stronger exact two-pulse covering theorem found in inspected primary material.",
+        "searches": [
+          "Ji–Zhao arXiv:2601.00884 full HTML numerical optimization",
+          "Pan–Xi–Cui arXiv:1001.2960 Ohmic optimal pulse",
+          "Ajoy–Álvarez–Suter arXiv:1011.6243 Gaussian-frequency spin bath"
+        ]
+      },
+      "checked_sources": [
+        "Ji–Zhao arXiv:2601.00884 complete HTML",
+        "Cywiński et al. arXiv:0712.2225 limited indexed material",
+        "Pan–Xi–Cui arXiv:1001.2960 indexed abstract",
+        "Ajoy–Álvarez–Suter arXiv:1011.6243 indexed abstract",
+        "Resultary search: two pulse Ornstein Uhlenbeck exponential Gaussian dephasing globally optimal switching times log cosh",
+        "SCOPE repository search: Gaussian exponential dephasing pulse"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "Existing Gaussian coherence functional reduces the physics to a kernel integral.",
+          "The submitted derivative sign and scalar monotonicity prove the special global optimum and strict difference from standard quarter-pulse timing."
+        ],
+        "reasoning": "Known filter-function formulas do not alone imply the optimizing pair; it requires an analytic optimization for this kernel, pulse count and admissible timing set. Restricted zero-average numerical controls cannot imply the unconstrained global minimum.",
+        "searches": [
+          "Ji–Zhao arXiv:2601.00884",
+          "Cywiński et al. arXiv:0712.2225",
+          "Pan–Xi–Cui arXiv:1001.2960"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Gaussian exponential kernel corresponds to Ornstein–Uhlenbeck classical frequency fluctuations, not generic random telegraph noise with same two-point covariance.",
+          "Exact root L=2b+2log cosh(b/2) uniquely fixes two pulse locations without a zero-area restriction."
+        ],
+        "reasoning": "Checked aliases include OU filter function, dynamical-decoupling timing, dephasing kernel energy and CP/CPMG intervals. None of the inspected comparisons establishes the same two-pulse timing root for this exact Gaussian covariance and free area.",
+        "searches": [
+          "Ji and Zhao arXiv:2601.00884",
+          "Cywiński et al. arXiv:0712.2225",
+          "Resultary: two pulse Ornstein Uhlenbeck exponential Gaussian dephasing globally optimal switching times log cosh"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "No inspected source provides a table of the exact function b*(L) or sharp endpoint bounds.",
+          "Finite timing comparisons are diagnostics, not an exact database for all continuous L>0."
+        ],
+        "reasoning": "A continuous global optimizer for every positive L is not a pre-existing finite parameter table. Negative keyword search cannot certify absolute priority.",
+        "searches": [
+          "Resultary: two pulse Ornstein Uhlenbeck exponential Gaussian dephasing globally optimal switching times log cosh",
+          "SCOPE repository search: Gaussian exponential dephasing pulse"
+        ]
+      },
+      "rationale": "Qualified best-of-knowledge PASS for this exact fixed-two-pulse unconstrained Gaussian-OU global optimum. The Gaussian filter-function reduction is established and not claimed novel. Ji–Zhao same exponential Gaussian kernel uses numerical multi-pulse designs with a zero-average constraint, not this exact unique unconstrained two-switch root in its inspected full HTML. Earlier Ohmic and Gaussian-frequency spin-bath pulse optimizations have different spectral kernels. Specialized decoupling literature could contain a mathematically equivalent variational result, retained as risk.",
+      "residual_risks": [
+        "Equivalent two-switch OU optimal filter may occur in specialized earlier dynamical-decoupling or optimal-design literature under other vocabulary.",
+        "Only ideal instantaneous pulses, no zero-area constraint or calibration limitations; outside that scope the physical optimum can differ.",
+        "The root is an exact implicit closed form, not an elementary expression."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Same covariance but numerical multiple-pulse design (e.g. N=8 and zero-average restriction), no identified exact unique two-pulse root",
+          "evidence": "Multi-pulse Nelder–Mead and zero-average passages in main text",
+          "identifier_or_url": "https://arxiv.org/abs/2601.00884",
+          "material_read": "Full accessible 289-line arXiv HTML, including methods and multi-pulse numerical design passages",
+          "method": "Open-access arXiv full HTML",
+          "title": "Entanglement dynamics of multi-fluxonium-qubits under Non-Markovian TLS noise",
+          "trigger": "Same OU Gaussian exponential kernel and numerical pulse placement"
+        },
+        {
+          "assessment": "Gaussian noise/filter-function setup established; a matching OU-specific exact two-pulse global theorem not verified",
+          "evidence": "Gaussian dephasing filter functions, comparative control protocols",
+          "identifier_or_url": "https://arxiv.org/abs/0712.2225",
+          "material_read": "Accessible abstract and indexed statements only, not full text in this run",
+          "method": "ArXiv metadata/abstract and indexed literature",
+          "title": "How to Enhance Dephasing Time in Superconducting Qubits",
+          "trigger": "Foundational Gaussian filter function and CP/Uhrig pulse techniques"
+        },
+        {
+          "assessment": "Optimization performed for Ohmic cutoff spectral density, not the same stationary Gaussian exponential covariance kernel",
+          "evidence": "Ohmic spectral-objective classification",
+          "identifier_or_url": "https://arxiv.org/abs/1001.2960",
+          "material_read": "Accessible title/abstract and characterization of Ohmic cutoff objective, not complete source",
+          "method": "ArXiv abstract/indexed metadata",
+          "title": "Optimal Dynamical Decoupling Sequence for Ohmic Spectrum",
+          "trigger": "Optimal timing could be general enough to subsume kernel case"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "rationale": "Exactly two-pulse timing is a natural constrained control optimization for Gaussian Ornstein–Uhlenbeck dephasing. The theorem solves a continuous two-variable global problem in closed implicit form, proves uniqueness and sharp geometry, and separates the true finite-correlation coherence optimum from the commonly imposed zero-static-area Carr–Purcell schedule. A model-specific optimal control law is useful without asserting a new general control theorem or experimental superiority.",
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "final_claim": "For stationary centered Gaussian exponential-covariance pure-dephasing noise, exactly two unconstrained ideal sign-inverting pulses over L=T/tau have a unique global coherence-maximizing timing a=c=(L−b)/2, with b>0 the unique root L=2b+2log cosh(b/2). The first pulse fraction increases strictly from 1/4 toward 1/3, making symmetric quarter–three-quarter timing strictly suboptimal for all finite L>0.",
+  "limitations": [
+    "Stationary centered Gaussian (not generic telegraph) exponential covariance, exactly two ideal instantaneous pulses.",
+    "No optimization over pulse count, finite pulse widths, correlation-parameter uncertainty or experimental hardware cost."
+  ],
+  "schema_version": 1
+}
