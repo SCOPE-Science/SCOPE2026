@@ -5,8 +5,11 @@
     "status": "not_performed"
   },
   "independent_audit": {
-    "evidence": null,
-    "status": "not_performed"
+    "status": "passed",
+    "evidence": [
+      "INDEPENDENT_AUDIT_2026-10-30.md",
+      "INDEPENDENT_AUDIT_2026-10-30.json"
+    ]
   },
   "lean_verification": {
     "evidence": null,
@@ -16,12 +19,24 @@
 }
 ---
 
-# Exact mathematical checks
+# Independent mathematical audit
 
-Both executables use only Python standard-library arbitrary-precision integers. With the scripts extracted into a directory, execute `python3 check_singularity.py`, then `python3 verify.py`.
+## correctness
 
-`check_singularity.py` normalizes \(s=X+Y+Z=1\) and constructs the ideal \((x^9-3,y^9-3,(1-x-y)^9-3)\) in \(\mathbb F_{11}[x,y]\). It processes all Buchberger S-pairs, checks its reduced zero is \((4,4)\), and checks the original generators vanish there. Its exact result is `GEOMETRY_OK` with 26 generators and 325 S-pairs; the complement \(s=0\) has no projective gradient zero. The local tangent cone has discriminant 8, which is nonsquare over \(\mathbb F_{11}\).
+PASS
 
-`verify.py` calculates \(F^{10}\) using sparse polynomial powering and separately evaluates the required coefficients via a multinomial expansion of the four summands. All entries of the \(36\times36\) Cartier coefficient matrix agree. The matrix has rank 35 and constant column sum 10. Restriction to the adjoint hyperplane of coefficient sum zero gives a \(35\times35\) matrix whose rank and square's rank both equal 34, so the normalized Jacobian has \(11\)-rank 34 and \(a\)-number 1. A top-left \(35\times35\) minor has determinant 10 mod 11; full-matrix left/right null vectors have pairing 8 mod 11. The exact list of basis exponents, minor indices, rank witnesses, and serialized matrix checksum are retained in `CERTIFICATE.json`.
+Asgarli–Ghioca geometry and explicit Groebner calculation yield unique ordinary nonsplit node [1:1:1], discriminant 8 mod11, genus 36−1=35. The adjoint degree-seven forms vanishing at node form a 35-dimensional Cartier invariant hyperplane. Independently computed coefficients of F^10 in F_11 give 36×36 Cartier matrix of rank35, regular 35×35 restriction rank34 and square rank34. Thus a-number1 and stable Cartier p-rank34. The height70 principally polarized p-divisible group has slopes 0^34,(1/2)^2,1^34 by symmetry. Independent modular computation checked rank triple; standard Cartier/adjunction formulas remain mathematical premises.
 
-The computer checks are complete for the finite matrix and local ideal, not experimental inference over different field sizes. A full zeta-function numerator and independent mathematical audit are not supplied. The conversion from Cartier stable rank to \(p\)-rank and from Newton symmetry to slopes invokes standard theorems.
+## originality
+
+PASS
+
+Qualified PASS: Asgarli–Ghioca provide the same tangent-filling curve, irreducibility and node, but not the p-rank/a-number/Newton polygon in inspected full text. Kudo–Harashita provide general Cartier–Manin algorithms for singular plane curves but not the evaluated canonical q=11 normalization. The computed arithmetic invariants could reside in an unindexed database; no database uniqueness claim.
+
+## value
+
+PASS
+
+The q=11 member is the first prime-field example allowed by the tangent-filling construction. Exact near-ordinarity (p-rank 34 of genus 35), a-number 1 and explicit Newton slopes are natural important arithmetic invariants, not implied by its degree or unique node; a motivated finite exact case.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

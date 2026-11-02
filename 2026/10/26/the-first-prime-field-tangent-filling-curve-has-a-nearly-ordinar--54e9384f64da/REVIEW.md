@@ -1,11 +1,21 @@
-# Scientific review
+# Independent mathematical audit
 
-**Correctness — PASS.** The defining polynomial is exactly the first prime-field degree-ten tangent-filling curve of Asgarli–Ghioca. The complete singularity ideal in the normalized coordinate chart has one zero, an ordinary double point. Adjunction gives a genus-35 regular differential space. Coefficient extraction and 11-adic finite-field elimination calculate Cartier ranks 34 (first and second powers) on that space; stable rank and standard Newton symmetry give the claimed arithmetic profile. The accompanying finite-field programs can be run independently and include exhaustive matrix-entry comparisons.
+## correctness
 
-**Originality — PASS, with residual risk.** The motivating preprint proves tangent-filling geometry and gives the nodal singularity, but does not compute the normalized Jacobian's p-rank, a-number or Newton polygon. Kudo–Harashita supplies a general Cartier method, not the evaluated example. Relevant literature, mathematical result records, and accessible prior claim summaries revealed no equivalent result; an unindexed computational table remains a risk.
+PASS
 
-**Value — PASS.** The exact p-rank and a-number characterize the first allowed prime-field example as nearly ordinary, sharpening the arithmetic understanding of a natural tangent-filling construction. These invariants are not automatic from the genus or the existence of a node.
+Asgarli–Ghioca geometry and explicit Groebner calculation yield unique ordinary nonsplit node [1:1:1], discriminant 8 mod11, genus 36−1=35. The adjoint degree-seven forms vanishing at node form a 35-dimensional Cartier invariant hyperplane. Independently computed coefficients of F^10 in F_11 give 36×36 Cartier matrix of rank35, regular 35×35 restriction rank34 and square rank34. Thus a-number1 and stable Cartier p-rank34. The height70 principally polarized p-divisible group has slopes 0^34,(1/2)^2,1^34 by symmetry. Independent modular computation checked rank triple; standard Cartier/adjunction formulas remain mathematical premises.
 
-The result covers only the stated characteristic-eleven curve. The numerical exact arithmetic has replayable finite-field witnesses, while classical adjunction and Cartier comparison are mathematical inputs. Independent mathematical audit has not been performed.
+## originality
 
-Self-review: passed. Independent audit: not yet performed.
+PASS
+
+Qualified PASS: Asgarli–Ghioca provide the same tangent-filling curve, irreducibility and node, but not the p-rank/a-number/Newton polygon in inspected full text. Kudo–Harashita provide general Cartier–Manin algorithms for singular plane curves but not the evaluated canonical q=11 normalization. The computed arithmetic invariants could reside in an unindexed database; no database uniqueness claim.
+
+## value
+
+PASS
+
+The q=11 member is the first prime-field example allowed by the tangent-filling construction. Exact near-ordinarity (p-rank 34 of genus 35), a-number 1 and explicit Newton slopes are natural important arithmetic invariants, not implied by its degree or unique node; a motivated finite exact case.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
