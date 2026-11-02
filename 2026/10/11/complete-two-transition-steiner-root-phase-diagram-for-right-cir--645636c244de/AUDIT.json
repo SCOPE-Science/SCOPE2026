@@ -1,113 +1,164 @@
 {
+  "assessed_at_utc": "2026-10-25T19:06:28.498744Z",
   "correctness": {
-    "rationale": "The published cone quermassintegrals reduce the root classification to two explicit scalar functions. Their derivatives admit exact positive-square factorizations, so each transition is unique. Exact rational interval arithmetic proves the required endpoint signs, and the published sign characterization of the three-dimensional Steiner polynomial then gives all five regimes. The checker replays every nonstandard algebraic and interval certificate from the packaged source.",
+    "checked_sources": [
+      "Pinned seven-file Git tree 523b672c94d973773ddd3e08015862a929ddc0c2 and the explicit RESULT.md/VERIFICATION.md formulas",
+      "2007 Hernández Cifre–Saorín, Theorem 1 sign partition",
+      "Independent exact-rational interval reimplementation and symbolic square completion in local checker"
+    ],
+    "rationale": "For unit-base right circular cones use V=πt/3, S=π(1+√(1+t²)), M=π(π+t−arctan t), with m=M/π, s=S/π, q=√(m²−4s)>0 (strict 3D Minkowski equality applies only to balls). The cited 2007 Theorem 1 translates its φ± to Ψ±=m³−6ms+8t±q³. With x=t/√(1+t²), m′=x², s′=x and q′=x(mx−2)/q, direct symbolic algebra yields the all-t identities Ψ±′=2+(3/2)[x(m±q)−2]²>0. Independently implemented exact rational interval arithmetic (Fractions, integer-isqrt enclosures, with 333/106<π<355/113) proved Ψ+(1)<0<Ψ+(√3) and Ψ−(tan(2π/5))<0<Ψ−(tan(5π/12)). Thus exactly one zero t2 of Ψ+ occurs in (1,√3) and exactly one zero t1 of Ψ− occurs in (tan(2π/5),tan(5π/12)), with t2<t1. The 2007 published sign theorem then yields Type 2 complex, Type 2 double, three simple real, Type 1 double, Type 1 complex in that order. Independent high-precision numerical root solutions t2≈1.1523939523482100792 and t1≈3.3710843620880922306 have negligible residuals but do not prove uniqueness. The exact symbolic derivative and interval sign certificates, not sampling, establish the claim.",
+    "residual_risks": [
+      "The package RESULT.md contains one literal form-feed in the displayed TeX derivative formula; the complete mathematical identity is unambiguous and correctly printed in VERIFICATION.md and was reconstructed independently. Editorial issue, not a proof gap.",
+      "No formal Lean verification or external expert attestation; arithmetic checks are not independent human certification.",
+      "The theorem does not concern oblique or truncated cones, exact individual polynomial roots, or degenerate height/base-radius zero."
+    ],
     "status": "PASS"
   },
-  "independent": false,
-  "independent_audit_status": "not_performed",
+  "expert_attestation_claimed": false,
+  "formal_verification_claimed": false,
+  "independent": true,
+  "independent_audit_status": "passed",
+  "independent_validation": true,
   "originality": {
     "broader_coverage": {
       "evidence": [
-        "The 2007 full text proves the general three-dimensional sign theorem and gives a full cylinder phase classification, but its explicit-family section contains no circular-cone classification.",
-        "Later root-location papers found by title and abstract address the global root cone and stability questions rather than an aspect-ratio phase theorem for right circular cones."
+        "Hernández Cifre and Saorín, On the roots of the Steiner polynomial of a 3-dimensional convex body, Adv. Geom. 7 (2007) 275–294, DOI:10.1515/ADVGEOM.2007.016: Theorem 1 gives the entire general 3D sign partition; the detailed family examples on pp.287–288 list cap bodies, Platonic solids, constant-width bodies, spherical slices and cylinders, with no circular-cone phase theorem.",
+        "Saorín, On Hadwiger’s problem on inner parallel bodies, Banach Center Publ. 84 (2009) 121–129, DOI:10.4064/bc84-0-8: Its Theorem 5 restates the general partition, Example 2 supplies a qualitative cone picture, not the two unique aspect-ratio crossings.",
+        "The later global Steiner-root location papers found by title and abstract address global root regions; their abstracts alone cannot establish whole-document noncoverage."
       ],
-      "reasoning": "General root-location theorems do not imply where a specific one-parameter cone curve crosses the two root-type boundaries; that requires the new monotonicity computation.",
+      "reasoning": "Prior general statements classify roots given the coefficients or global conditions but do not imply the exact cone crossing count, unique lower threshold, or strict Ψ± monotonicity without the exhibited derivative identity; accessible full primary contents were checked where decisive.",
       "searches": [
-        "DOI:10.1515/ADVGEOM.2007.016 cone cylinder Steiner roots",
-        "On the location of roots of Steiner polynomials circular cone",
-        "Steiner polynomials via ultra-logconcave sequences cone roots"
+        "Hernández Cifre and Saorín, On the roots of the Steiner polynomial of a 3-dimensional convex body, Adv. Geom. 7 (2007) 275–294, DOI:10.1515/ADVGEOM.2007.016",
+        "Saorín, On Hadwiger’s problem on inner parallel bodies, Banach Center Publ. 84 (2009) 121–129, DOI:10.4064/bc84-0-8",
+        "On the location of roots of Steiner polynomials convex body 2011 cone global roots",
+        "Steiner roots convex cone Blaschke diagram cone 1.152393 root crossing monotone"
       ]
     },
     "checked_sources": [
-      "https://webs.um.es/beca/Investigacion/SaorinGomez.pdf",
-      "DOI:10.4064/bc84-0-8",
-      "DOI:10.1515/ADVGEOM.2007.016",
+      "Hernández Cifre and Saorín, On the roots of the Steiner polynomial of a 3-dimensional convex body, Adv. Geom. 7 (2007) 275–294, DOI:10.1515/ADVGEOM.2007.016",
+      "Saorín, On Hadwiger’s problem on inner parallel bodies, Banach Center Publ. 84 (2009) 121–129, DOI:10.4064/bc84-0-8",
+      "Saorín Gómez, On inner parallel bodies. From the Steiner polynomial to Poincaré inequality, Murcia thesis (2008), https://webs.um.es/beca/Investigacion/SaorinGomez.pdf",
       "DOI:10.1007/s00574-011-0008-5",
-      "DOI:10.1142/S021919971250040X"
+      "Published matching Resultary entry 2026/10/11/SCOPE-complete-two-transition-steiner-root-phase-diagram-for-right-cir--645636c244de (same record, not independent priority evidence)",
+      "Three actual Resultary semantic searches and targeted web alias/numerical fingerprint searches"
     ],
     "claim_vs_prior_implication": {
       "evidence": [
-        "The 2009 source explicitly stops at a qualitative three-regime statement plus the upper threshold used for Hadwiger-class exclusion.",
-        "The thesis page containing Figure 2.3 likewise records the upper threshold but contains no occurrence of the new lower value.",
-        "The 2007 general theorem supplies only the criterion in terms of phi-plus and phi-minus; it does not evaluate their monotonicity on cones."
+        "Hernández Cifre and Saorín, On the roots of the Steiner polynomial of a 3-dimensional convex body, Adv. Geom. 7 (2007) 275–294, DOI:10.1515/ADVGEOM.2007.016: φ+=0/φ−=0 characterize the root-type boundaries, but Theorem 1 says nothing about zeros of Ψ± as functions of cone ratio.",
+        "Saorín, On Hadwiger’s problem on inner parallel bodies, Banach Center Publ. 84 (2009) 121–129, DOI:10.4064/bc84-0-8: The cone case shows possible regimes and one upper approximate boundary, without a proof of two strictly monotone transition functionals.",
+        "Independent derivative algebra gives Ψ±′=2+(3/2)[x(m±q)−2]²>0 for all positive ratios and rational interval signs at explicit bracketing points."
       ],
-      "reasoning": "The new theorem is not a corollary of the displayed source statements without a substantive one-parameter analysis. The square derivative identity is the missing implication that proves exactly one crossing of each boundary.",
+      "reasoning": "Computing φ± after inserting known cone magnitudes does not trivially imply that each has exactly one zero. The positive-square derivative identities and two certified sign brackets supply a substantive missing exact classification, unless an inaccessible prior work contains that same step.",
       "searches": [
-        "DOI:10.4064/bc84-0-8 Example 2 cones roots",
-        "2008 Saorin thesis cone Figure 2.3 3.37108",
-        "DOI:10.1515/ADVGEOM.2007.016 Example 5 cylinders",
-        "right circular cone Steiner polynomial phi plus phi minus monotone"
+        "Hernández Cifre and Saorín, On the roots of the Steiner polynomial of a 3-dimensional convex body, Adv. Geom. 7 (2007) 275–294, DOI:10.1515/ADVGEOM.2007.016, Theorem 1; explicit-family Examples 1–5",
+        "Saorín, On Hadwiger’s problem on inner parallel bodies, Banach Center Publ. 84 (2009) 121–129, DOI:10.4064/bc84-0-8, Theorem 5 and Example 2",
+        "\"complete two-transition\" \"Steiner\" cones"
       ]
     },
     "equivalent_formulations": {
       "evidence": [
-        "The thesis cone example says all three regimes occur and plots the family, but does not state the lower transition or the five exact parameter intervals.",
-        "The 2009 paper gives the cone coefficients and records only that non-Type-1 cones occur through a height approximately 3.37108."
+        "Saorín, On Hadwiger’s problem on inner parallel bodies, Banach Center Publ. 84 (2009) 121–129, DOI:10.4064/bc84-0-8: Example 2 gives the cone coefficient formulas, all three possible root regimes and an approximate Type 1 endpoint h≈3.37108; it does not derive the lower Type 2 endpoint.",
+        "Hernández Cifre and Saorín, On the roots of the Steiner polynomial of a 3-dimensional convex body, Adv. Geom. 7 (2007) 275–294, DOI:10.1515/ADVGEOM.2007.016: Theorem 1 is a general φ± sign criterion, without specialization to a two-transition cone classification.",
+        "Published matching Resultary entry 2026/10/11/SCOPE-complete-two-transition-steiner-root-phase-diagram-for-right-cir--645636c244de (same record, not independent priority evidence): matched title and exact numbers but is the same record under assessment, excluded as independent prior art."
       ],
-      "reasoning": "The search covered the source terminology and equivalent phase-transition wording. The located sources give a qualitative diagram and one endpoint, not the complete two-zero monotonic classification.",
+      "reasoning": "Equivalent phase-diagram/Blaschke-curve/root-discriminant formulations were compared at the level of both critical aspect ratios and interval implications. An existing general classifier plus cone formulas needs a nontrivial one-parameter proof to show both transitions are unique. The 2008 thesis may bear on priority but could not be fully inspected now.",
       "searches": [
-        "\"Steiner polynomial\" circular cone \"Type 2\" \"Type 1\"",
-        "\"circular cone\" \"complex roots of Type 2\" Steiner",
-        "\"circular cone\" \"double real roots\" Steiner polynomial",
-        "right circular cone root transition Steiner polynomial"
+        "Steiner polynomial right circular cones two transition thresholds Type 2 real Type 1 1.15239 3.37108",
+        "Steiner roots convex cone Blaschke diagram cone 1.152393 root crossing monotone",
+        "\"Steiner polynomial\" \"circular cone\" roots Type1 Type2",
+        "Saorín, On Hadwiger’s problem on inner parallel bodies, Banach Center Publ. 84 (2009) 121–129, DOI:10.4064/bc84-0-8",
+        "Saorín Gómez, On inner parallel bodies. From the Steiner polynomial to Poincaré inequality, Murcia thesis (2008), https://webs.um.es/beca/Investigacion/SaorinGomez.pdf"
       ]
     },
     "exact_database_or_table": {
       "evidence": [
-        "The exact lower transition decimal produced no matching mathematical source.",
-        "The upper decimal points back to the thesis/2009 cone example, which uses it only as the onset of Type 1 complex roots and does not supply the lower transition."
+        "Saorín, On Hadwiger’s problem on inner parallel bodies, Banach Center Publ. 84 (2009) 121–129, DOI:10.4064/bc84-0-8: Only upper Type 1 transition around 3.37108 is recorded in its cone example, not the lower 1.152393952… value.",
+        "Published matching Resultary entry 2026/10/11/SCOPE-complete-two-transition-steiner-root-phase-diagram-for-right-cir--645636c244de (same record, not independent priority evidence): The exact numeric search matches the source record being audited, therefore does not establish independent earlier coverage."
       ],
-      "reasoning": "Both numerical fingerprints and the exact root-type labels were searched. No table, database record, or published statement with both transitions was located.",
+      "reasoning": "There is no natural finite database for this continuous-parameter theorem; the exact two numerical fingerprints and root-type labels were nevertheless compared with indexed mathematical sources. No independently prior table with both critical ratios was verified; non-detection is not historical proof.",
       "searches": [
-        "\"1.152393952348\" cone Steiner",
-        "\"3.371084362088\" cone Steiner",
-        "Steiner polynomial cone double root Type 2 1.152393952",
-        "cone height 3.371084 Steiner polynomial Type 1"
+        "\"1.152393\" \"cone\" Steiner roots",
+        "\"3.37108\" \"steiner\" \"cone\"",
+        "Steiner polynomial right circular cones two transition thresholds Type 2 real Type 1 1.15239 3.37108",
+        "Saorín Gómez, On inner parallel bodies. From the Steiner polynomial to Poincaré inequality, Murcia thesis (2008), https://webs.um.es/beca/Investigacion/SaorinGomez.pdf"
       ]
     },
-    "rationale": "The 2008 thesis and 2009 paper state that right circular cones exhibit real, Type 1 complex, and Type 2 complex roots and quote only the upper Type 1 threshold near 3.37108. The 2007 full text classifies the general sign regimes and explicitly treats cylinders, not cones. Searches by the missing lower threshold, both decimals, the cone object, root-type aliases, and the transition functionals found no complete cone phase theorem.",
+    "rationale": "Best-of-knowledge originality for the two-transition all-aspect-ratio right-circular-cone classification, not for the pre-existing cone quermassintegrals or general 3D root-type theorem. The complete 2007 original source proves the φ± sign classifier and explicitly treats cylinders (single threshold ≈1.71065), not this cone phase diagram. The complete 2009 cone treatment supplies V/S/M, qualitative presence of all three regimes and the upper Type 1 threshold ≈3.37108, but not the uniquely determined lower Type 2 threshold, monotone-square identity or exact real-root window. Fresh Resultary queries returned this same record, excluded as independent priority evidence, and unrelated geometries; searched aliases and numerical thresholds supplied no stronger covering theorem. The 2008 thesis full text could not be obtained in this run, so possible earlier complete treatment is a concrete residual risk. Search absence is not novelty proof.",
     "residual_risks": [
-      "An equivalent one-parameter cone classification may exist under different terminology in unindexed literature.",
-      "The later general root-location papers were compared primarily at title/abstract level rather than used as whole-document negative evidence.",
-      "No claim is made about oblique or truncated cones."
+      "The 2008 Saorín Gómez thesis is highly relevant; full-text retrieval was blocked by access and may contain a mathematically equivalent complete cone transition classification.",
+      "A broader 2011 root-location paper was not fully read; abstract-based observations do not establish whole-document noncoverage.",
+      "An unindexed prior phase treatment under alternate names for φ± or cone Blaschke curves might predate this record.",
+      "This is a best-of-knowledge finding, not a priority guarantee; the matching Resultary entry is the same record and gives no independent priority evidence."
     ],
     "source_inspections": [
       {
-        "assessment": "MOTIVATING_NOT_COVERING: gives all cone coefficients, says all three regimes occur, and records the upper transition, but does not state the lower Type 2 transition or a complete parameter classification.",
-        "evidence": "The cone example gives V, S, and M, says real/Type 1/Type 2 roots all occur, and uses h approximately 3.37108 as the non-Type-1 endpoint.",
-        "identifier_or_url": "https://webs.um.es/beca/Investigacion/SaorinGomez.pdf",
-        "material_read": "The root-type definitions and sign theorem, the Blaschke-diagram discussion, and the cone example around Figure 2.3, including the quoted height approximately 3.37108.",
-        "method": "Public full-text PDF and page-image inspection.",
-        "title": "On inner parallel bodies. From the Steiner polynomial to Poincaré inequality",
-        "trigger": "Earliest located full-text source containing the right circular cone family and its Blaschke-diagram root behavior."
-      },
-      {
-        "assessment": "MOTIVATING_NOT_COVERING: reproduces the sign classification and cone coefficients, but gives only the qualitative regimes and upper threshold.",
-        "evidence": "Example 2 states that cones can have real, Type 1 complex, or Type 2 complex roots and that h up to approximately 3.37108 is not Type 1.",
-        "identifier_or_url": "DOI:10.4064/bc84-0-8",
-        "material_read": "Full ten-page paper, especially Theorem 5 and Example 2 on pages 127--128; the example page was visually inspected.",
-        "method": "Public full-text PDF and page-image inspection.",
-        "title": "On Hadwiger's problem on inner parallel bodies",
-        "trigger": "Published primary paper containing the same cone family and the upper threshold."
-      },
-      {
-        "assessment": "FRAMEWORK_NOT_COVERING: proves the general root classifier and classifies cylinders, but contains no right-circular-cone phase theorem.",
-        "evidence": "Example 5 gives the cylinder threshold approximately 1.71065; the surrounding explicit-family section has no cone example.",
+        "assessment": "FRAMEWORK_NOT_FULLY_COVERING: proves Type 1/Type 2 inequalities, with cylinder one-transition example, no cone all-aspect-ratio classification.",
+        "evidence": "Theorem 1 φ± sign characterizations, Example 5 cylinder threshold h0≈1.71065; explicit examples section has no right circular cone.",
         "identifier_or_url": "DOI:10.1515/ADVGEOM.2007.016",
-        "material_read": "All twenty pages, including Theorems 1--3 and the complete explicit-family subsection containing Examples 1--5.",
-        "method": "Institutional full-text inspection after open-access and preprint searches did not expose a complete copy.",
+        "material_read": "Complete 20-page authorized full text, pages 1–20; especially Theorem 1 (pp.280–281), Blaschke diagram sections, explicit-family Examples 1–5 on pp.287–288 and remaining conclusion/references.",
+        "method": "After unsuccessful arXiv and lawful open-access full-text attempts, authorized institutional paper text retrieved in two page ranges 1–12 and 13–20.",
         "title": "On the roots of the Steiner polynomial of a 3-dimensional convex body",
-        "trigger": "Foundational source for the phi-plus/phi-minus classification and the most plausible place for an earlier explicit-family phase theorem."
+        "trigger": "Foundational three-dimensional root-type classification and plausible earlier explicit-family result."
+      },
+      {
+        "assessment": "MOTIVATING_PARTIAL_PRIOR: already gives three possible cone root types and the upper Type 1 threshold; does not state a unique lower Type 2 crossing or complete five-regime interval theorem.",
+        "evidence": "Example 2: right circular cones V=πh/3, S=π(1+√(1+h²)), M=π(π+h−arctan h); all three regimes, and non-Type-1 range h≤≈3.37108.",
+        "identifier_or_url": "DOI:10.4064/bc84-0-8",
+        "material_read": "Complete 10-page publicly accessible PDF, including Theorem 5 and Example 2 on pp.127–128 and the cone discussion/figure (page images checked).",
+        "method": "Publicly available full-text PDF and visual page checks.",
+        "title": "On Hadwiger’s problem on inner parallel bodies",
+        "trigger": "Earliest accessible primary paper expressly discussing the exact right circular cone coefficient family and its upper critical ratio."
+      },
+      {
+        "assessment": "ACCESS_LIMITED_PLAUSIBLE: cannot assert the thesis omits a complete lower-bound/phase classification; record a specific residual priority risk, not automatic scientific failure.",
+        "evidence": "Title and thesis cone discussion are established by bibliographic and 2009 follow-up evidence, but actual complete thesis content was inaccessible.",
+        "identifier_or_url": "https://webs.um.es/beca/Investigacion/SaorinGomez.pdf",
+        "material_read": "Only bibliographic metadata, cited descriptions from the 2009 cone paper and earlier scientific assessment; the complete thesis was not available to read in this execution.",
+        "method": "Open-access PDF retrieval failed; subsequent authorized institutional request returned vpn_disconnected and was not bypassed.",
+        "title": "On inner parallel bodies. From the Steiner polynomial to Poincaré inequality",
+        "trigger": "2008 thesis with apparently the same cone family, Blaschke plot, and quoted upper endpoint; potentially decisive priority source."
+      },
+      {
+        "assessment": "ACCESS_LIMITED_BROAD: root-location subject is related but no claim of whole-document noncoverage is made.",
+        "evidence": "Available abstract describes general root-location problems; neither threshold is evidenced in the material read.",
+        "identifier_or_url": "DOI:10.1007/s00574-011-0008-5",
+        "material_read": "Accessible title, abstract and bibliographic description only; a complete version was not obtained.",
+        "method": "Public index/abstract search, no full document read.",
+        "title": "On the location of roots of Steiner polynomials",
+        "trigger": "Potentially broader global root-location theorem that could imply cone transitions."
       }
     ],
     "status": "PASS"
   },
-  "review_type": "same_model_review",
-  "same_model_review_status": "passed",
+  "previously_published_pending_reaudit": false,
+  "prior_scientific_assessment": {
+    "correctness": {
+      "rationale": "Earlier mathematical assessment used known cone quermassintegrals, exact square-completion identities for both Ψ± derivatives, strict rational interval signs, and the 2007 3D Steiner-root sign classification.",
+      "status": "PASS"
+    },
+    "originality": {
+      "rationale": "Earlier scientific evidence credits the 2007 general classifier and 2008/2009 cone coefficients plus upper transition, identifying the newly claimed unique lower boundary and complete ratio partition; residual indexing and thesis-priority risk retained.",
+      "status": "PASS"
+    },
+    "value": {
+      "rationale": "Previously recognized the canonical cone family and its motivated complete root-type classification as a useful exact convex-geometric invariant.",
+      "status": "PASS"
+    }
+  },
+  "review_type": "independent_audit",
   "schema_version": 1,
-  "scope_run_id": "645636c2-44de-49fb-8334-4de12196b9ab",
+  "scientific_disposition": "passed",
+  "scope_limitation": "Only Euclidean three-dimensional right circular cones of strictly positive base radius and height; no global generalization to other cones. Previously known cone coefficients, generic root-type classifier, and qualitative/upper transition observations are credited.",
   "value": {
-    "rationale": "The right circular cone is a canonical family used explicitly in the motivating Hadwiger/Steiner-root literature. A natural complete classification is mathematically useful here because the family traverses all three non-ball regions of the Blaschke root diagram. The theorem identifies the previously unstated lower boundary, proves both crossings are unique by a structural square identity, and gives the exact real-root window rather than a routine recomputation at selected parameters.",
+    "checked_sources": [
+      "Saorín, On Hadwiger’s problem on inner parallel bodies, Banach Center Publ. 84 (2009) 121–129, DOI:10.4064/bc84-0-8: explicit cone family and motivation",
+      "Hernández Cifre and Saorín, On the roots of the Steiner polynomial of a 3-dimensional convex body, Adv. Geom. 7 (2007) 275–294, DOI:10.1515/ADVGEOM.2007.016: general sign theorem and different one-parameter cylinder example"
+    ],
+    "rationale": "The right circular cone is a standard, naturally one-parameter family in three-dimensional convex geometry, and the 2009 Hadwiger/Steiner literature explicitly uses it to exhibit contrasting root regimes. A complete exact classification of that family is mathematically motivated: it establishes both unique root-type crossings, rigorously identifies the previously unstated lower Type 2 boundary, and completely describes the intermediate three-real-roots window. The fact that both complicated transition functionals have a universal positive-square derivative is a structural certificate rather than a routine evaluation or an arbitrarily sampled numerical table. The result is a useful self-contained exact family theorem without pretending to settle global Steiner-root geometry or all cones.",
+    "residual_risks": [
+      "The classification is restricted to the canonical circular cone family; future use does not automatically imply extension to general cones or other geometric invariants.",
+      "The upper threshold was previously approximately known; incremental value is the lower threshold, two uniqueness proofs, and complete parameter partition."
+    ],
     "status": "PASS"
   }
 }
