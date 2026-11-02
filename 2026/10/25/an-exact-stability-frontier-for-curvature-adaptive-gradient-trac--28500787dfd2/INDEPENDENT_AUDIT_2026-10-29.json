@@ -1,0 +1,119 @@
+{
+  "audit_date_utc": "2026-10-29",
+  "audited_at_utc": "2026-10-29T05:53:34Z",
+  "axes": {
+    "correctness": {
+      "rationale": "For two scalar positive-curvature quadratics and complete averaging W=(11^T)/2, the local gradient secant equals h_i whenever defined; initialized adaptive alpha_i=q/h_i remains constant under the specified local-gradient step rule. The tracking invariant sum y_i=sum grad_i and primal consensus after the first averaging step give error recurrence e_(k+1)=(1-q)e_k-q*xi*e_(k-1), xi=(h1-h2)^2/(4*h1*h2). Its characteristic polynomial r²+(q-1)r+qxi is strictly Schur stable iff qxi<1 and q(1-xi)<2; the active bound changes at xi=1/3: qcrit=2/(1-xi) below and 1/xi above. The full 4x4 state has factors r(r-1) times this quadratic; r=1 is excluded on the legitimate gradient-tracking invariant subspace. Independently reconstructed symbolic 4x4 update characteristic polynomial and tested eight rational stable/unstable parameter cases spanning both branches; exactly reproduced source algebra, not relying on standalone verifier status. Unit roots on the boundary are not asymptotically stable.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "AdGT paper supplies generic sufficient stability stepsize conditions and a local adaptive rule.",
+          "Qu–Li treats fixed common steps; published homogeneous exact tuning assumes common local curvature."
+        ],
+        "reasoning": "Generic convergence theorems on broad classes can guarantee stability under stricter sufficient conditions without entailing this sharp necessary-and-sufficient specialization. Primary full text was unavailable so an uninspected theorem/appendix remains a live risk.",
+        "searches": [
+          "adaptive decentralized gradient tracking two agents reciprocal local curvature quadratic exact Schur stability threshold heterogeneous learning rates",
+          "AdGT original arxiv:2504.15196",
+          "Qu Li arxiv:1605.07112"
+        ]
+      },
+      "checked_sources": [
+        "https://arxiv.org/abs/2504.15196",
+        "https://arxiv.org/abs/1605.07112",
+        "https://github.com/Resultary/2026/tree/main/2026/10/4/SCOPE-exact-sign-aware-graph-specific-tuning-for-homogeneous-distribut--4bef30512fd6",
+        "Resultary semantic search: adaptive decentralized gradient tracking two agents reciprocal local curvature quadratic exact Schur stability threshold heterogeneous learning rates"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "Algorithm specialization yields the novel two-step recurrence and the exact spectral Schur test.",
+          "Earlier general sufficient guarantees lack the necessary condition at the unit-circle/flip boundary."
+        ],
+        "reasoning": "A sufficient convergence guarantee does not imply a necessary-and-sufficient frontier, and the common-step matrices do not reduce to inverse-local-curvature heterogeneous dynamics absent new calculation.",
+        "searches": [
+          "arxiv:2504.15196",
+          "arxiv:1605.07112",
+          "adaptive decentralized gradient tracking two agents reciprocal local curvature quadratic exact Schur stability threshold heterogeneous learning rates"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "The assessed recurrence is equivalent to the 2x2 Schur/Jury root criterion qxi<1 and q(1-xi)<2.",
+          "Published homogeneous fixed-step tuning analyzes different transition matrices."
+        ],
+        "reasoning": "Equivalent polynomial roots/stability inequalities were searched conceptually; known Schur conditions are standard, but an AdGT-specific recurrence with heterogeneous inverse-curvature steps was not identified.",
+        "searches": [
+          "adaptive decentralized gradient tracking two agents reciprocal local curvature quadratic exact Schur stability threshold heterogeneous learning rates",
+          "arxiv:2504.15196",
+          "distributed gradient tracking two agent Schur quadratic reciprocal Hessian"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "No exact retrieved table classifies qcrit as a function of xi=(h1-h2)^2/(4h1h2) for reciprocal local steps.",
+          "The source RESULT supplies a piecewise analytic curve, not a finite fitted table."
+        ],
+        "reasoning": "Numerical finite parameter checks are verification only. The relevant published homogeneous graph-tuning record is not a prior lookup table for the heterogeneous AdGT recurrence.",
+        "searches": [
+          "adaptive decentralized gradient tracking two agents reciprocal local curvature quadratic exact Schur stability threshold heterogeneous learning rates",
+          "homogeneous graph tuning SCOPE-exact-sign-aware-graph-specific-tuning"
+        ]
+      },
+      "rationale": "The original AdGT work develops the adaptive local-gradient update and proves sufficient global-network convergence conditions. Qu–Li classical gradient tracking uses homogeneous fixed common steps, and the nearest published exact graph-tuning record addresses homogeneous scalar quadratics. These do not directly entail a heterogeneous reciprocal-curvature two-agent necessary-and-sufficient Schur boundary. The most relevant AdGT full article could not be obtained: OA preprint/PDF links were blocked in this run and authorized Oxford retrieval attempt was stopped by a safety check; only its available abstract and metadata were read. This is a material best-of-knowledge priority risk, not automatic scientific rejection.",
+      "residual_risks": [
+        "High relevance original AdGT full text unavailable; cannot rule out an appendix containing this exact specialization. arXiv/OA access failed and Oxford tool call was blocked by safety checks; no retry/bypass was made.",
+        "An unindexed equivalent local-Jury/Schur stability study of heterogeneous gradient tracking might cover the claim.",
+        "Invariant subspace is essential; full state has a unit eigenvalue and cannot simply be declared globally Schur stable."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Published abstract gives sufficient generic rates; cannot exclude an exact two-agent calculation hidden in inaccessible full article or appendix",
+          "evidence": "Ghaderyan and Werner, arxiv:2504.15196; preprint v5 2026-09-14; Oxford attempt blocked by safety checks",
+          "identifier_or_url": "https://arxiv.org/abs/2504.15196",
+          "material_read": "Accessible metadata/abstract including general convergence statement and per-agent update description. Full source PDF was inaccessible.",
+          "method": "Primary-source abstract inspection; attempted arXiv/open-access retrieval before authorized Oxford",
+          "title": "AdGT: Decentralized Gradient Tracking With Adaptive Per-Agent Stepsizes",
+          "trigger": "Exact source of algorithm and adaptive rule being specialized"
+        },
+        {
+          "assessment": "Different common-step algorithm, not proof of same heterogeneous adaptive frontier",
+          "evidence": "Qu and Li (2018), common-step gradient tracking",
+          "identifier_or_url": "https://arxiv.org/abs/1605.07112",
+          "material_read": "Available abstract and stated common fixed-stepsize network convergence guarantees; whole document not read",
+          "method": "Primary abstract and model comparison",
+          "title": "Harnessing Smoothness to Accelerate Distributed Optimization",
+          "trigger": "General classical gradient-tracking comparator"
+        },
+        {
+          "assessment": "Does not imply heterogeneous reciprocal-curvature 2-agent AdGT formula",
+          "evidence": "Homogeneous quadratic assumptions, fixed graph tuning",
+          "identifier_or_url": "https://github.com/Resultary/2026/tree/main/2026/10/4/SCOPE-exact-sign-aware-graph-specific-tuning-for-homogeneous-distribut--4bef30512fd6",
+          "material_read": "Published Resultary title, abstract and homogeneous-curvature common-step result statement",
+          "method": "Published result semantic comparison (full paper not inspected)",
+          "title": "Exact sign-aware graph-specific tuning for homogeneous distributed gradient tracking",
+          "trigger": "Closest published exact graph-tuning formula"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "rationale": "The two-agent complete-averaging quadratic specialization is the minimal nontrivial model of curvature heterogeneity for adaptive gradient tracking. Its exact stability frontier and flip-versus-unit-circle transition show how reciprocal-curvature steps can fail despite scalar local smoothness control, sharpening conservative general network tuning without pretending to be a general theorem.",
+      "status": "PASS"
+    }
+  },
+  "checked_sources": [
+    "https://arxiv.org/abs/2504.15196",
+    "https://arxiv.org/abs/1605.07112",
+    "https://github.com/Resultary/2026/tree/main/2026/10/4/SCOPE-exact-sign-aware-graph-specific-tuning-for-homogeneous-distribut--4bef30512fd6",
+    "Resultary semantic search: adaptive decentralized gradient tracking two agents reciprocal local curvature quadratic exact Schur stability threshold heterogeneous learning rates"
+  ],
+  "disposition": "passed",
+  "limitations": "Only two scalar quadratics, positive curvatures, exact complete averaging, specified initialization and local-gradient adaptive rule; no general networks or nonlinear objectives.",
+  "residual_risks": [
+    "High relevance original AdGT full text unavailable; cannot rule out an appendix containing this exact specialization. arXiv/OA access failed and Oxford tool call was blocked by safety checks; no retry/bypass was made.",
+    "An unindexed equivalent local-Jury/Schur stability study of heterogeneous gradient tracking might cover the claim.",
+    "Invariant subspace is essential; full state has a unit eigenvalue and cannot simply be declared globally Schur stable."
+  ],
+  "schema_version": 1
+}
