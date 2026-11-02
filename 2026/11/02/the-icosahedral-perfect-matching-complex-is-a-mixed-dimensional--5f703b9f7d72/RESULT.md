@@ -1,0 +1,55 @@
+# The icosahedral perfect-matching complex is a mixed-dimensional sphere wedge
+
+## Finding
+Let \(I\) be the icosahedral graph and \(\operatorname{PM}(I)\) its **perfect-matching complex**, defined using only edge-disjoint subsets that extend to a perfect matching. Then
+\[
+\boxed{\operatorname{PM}(I)\simeq\bigvee^{43}S^2\vee\bigvee^{19}S^3.}
+\]
+In particular, the only nonzero reduced integral homology groups are \(\widetilde H_2\cong\mathbb Z^{43}\) and \(\widetilde H_3\cong\mathbb Z^{19}\). This is a pure five-dimensional complex with nonzero homology below degree five and hence is **not shellable**. This is the *extendability-restricted* matching complex, not the ordinary matching complex of all disjoint edge sets.
+
+## Assumptions and scope
+Index graph vertices by \(\{0,11\}\cup\{u_i=1+i,v_i=6+i:i\in\mathbb Z/5\mathbb Z\}\). Its thirty edges are
+\[
+\{\{0,u_i\},\{11,v_i\},\{u_i,u_{i+1}\},\{v_i,v_{i+1}\},\{u_i,v_i\},\{u_i,v_{i-1}\}:i\in\mathbb Z/5\mathbb Z\}.
+\]
+Here subscripts are modulo five. Every vertex has degree five, the twenty graph triangles form a closed triangulated two-sphere, and every graph edge lies in precisely two triangles, giving the standard icosahedral graph. Sort the thirty edges lexicographically, indexing them from zero. A perfect matching is a collection of six mutually endpoint-disjoint graph edges covering all twelve graph vertices. A nonempty simplex is a subset of such a perfect matching; the empty face participates in the augmented matching verification but not the unaugmented geometric realization. All claims concern this finite simplicial complex, without extra graph assumptions.
+
+## Proof
+**Complete graph and face construction.** Recursively take the smallest uncovered graph vertex and pair it with every still-uncovered neighbor. This exhausts all perfect matchings without omissions and yields exactly \(125\) distinct perfect matchings. Taking every subset of every perfect matching yields the nonempty face counts by dimensions zero through five:
+\[
+(f_0,f_1,f_2,f_3,f_4,f_5)=(30,315,1260,1575,750,125).
+\]
+There are \(4055\) nonempty simplices; adding the empty face yields \(4056\). All facets have six vertices (dimension five), proving purity.
+
+**A finite acyclic matching.** Represent every face by a bit mask on the thirty sorted graph edges. At each stage, among all graph-edge indices choose the index \(j\) with the largest number of available pairs \((\sigma,\sigma\cup\{j\})\), breaking ties toward the smallest \(j\); remove every such pair and repeat until no pair is available. The resulting selected-index sequence, in order, is
+`[0,13,29,8,6,5,12,7,17,16,22,9,14,21,15,1,3,10,20,23,4,11,25,28,18,24,26]`.
+The matching has exactly \(1975\) pairs, including the augmented empty face, leaving \(65\) critical two-simplices and \(41\) critical three-simplices. Independently orient each of the \(15240\) codimension-one incidences upward if matched and downward otherwise. An exhaustive topological sort visits all \(4056\) faces, proving acyclicity. By the acyclic-matching theorem this gives an unaugmented CW model with one base vertex, \(65\) two-cells, \(41\) three-cells, and no other positive-dimensional cells.
+
+**Exact integral attaching degrees.** Orient a simplex by increasing lexicographic graph-edge indices and use the signed simplicial boundary. For a matched lower simplex \(a\) paired with upper simplex \(b\), define its reduction by eliminating it from the oriented boundary of \(b\), including the incidence sign \([b:a]=\pm1\). Define reduction of matched uppers to be zero and of critical faces to be themselves. Acyclicity makes this recursive algebraic Morse reduction well-founded. Reducing signed boundaries of the \(41\) critical three-cells in the critical two-cell basis yields an exact integer matrix \(B\) of size \(65\times41\), with \(243\) nonzero entries, all \(\pm1\).
+
+Repeated exact **unit-pivot** row/column Schur elimination yields precisely \(22\) pivots and an identically zero remaining matrix, proving \(\operatorname{rank}_{\mathbb Q}B=22\). Crucially, the corresponding maximal \(22\times22\) subdeterminant is **\(-1\)**, calculated independently by fraction-free Bareiss elimination. The selected zero-based row indices are
+`[0,1,2,3,4,5,6,7,8,10,11,12,13,16,17,18,22,24,25,37,38,39]`
+and selected column indices are
+`[6,4,9,0,11,31,1,8,19,13,23,14,36,22,12,35,7,25,28,15,18,27]`.
+Since every nonzero Smith invariant factor divides the product of the first \(22\) factors, and their product divides every nonzero maximal minor, the exhibited unit minor forces *all* \(22\) nonzero Smith factors to be one. Thus
+\[
+\widetilde H_2\cong\mathbb Z^{65-22}=\mathbb Z^{43},\qquad
+\widetilde H_3\cong\mathbb Z^{41-22}=\mathbb Z^{19},
+\]
+with no torsion, and all other reduced homology zero.
+
+**From the boundary matrix to the full homotopy type.** The Morse CW two-skeleton is \(\bigvee^{65}S^2\). By the Hurewicz theorem its degree-two homotopy group is freely generated by those spheres, and three-cell attaching maps are completely determined up to homotopy by their integral degree vectors. Integral unimodular changes of basis in the source and target wedges realize the Smith reduction of \(B\) by homotopy equivalences. The \(22\) unit-degree pairs cancel homotopically, leaving \(43\) unattached two-spheres and \(19\) unattached three-cells. This proves the asserted integral homotopy equivalence. Finally, a pure shellable complex has reduced homology only in its top dimension (when nonempty and pure); the degree-two homology here rules out shellability.
+
+## Verification
+Run `python3 verify_icosahedral_perfect_matching.py` using Python 3 standard library only. It reconstructs all graph edges, all \(125\) perfect matchings and all faces, checks purity, builds every matching pair, verifies all \(15240\) directed Hasse incidences and global acyclicity, computes the exact signed Morse matrix and its full rank, verifies a unit maximal minor with an **independent fraction-free determinant algorithm**, and independently computes the original simplicial mod-two boundary ranks \((29,286,931,625,125)\). Those ranks give the same reduced Betti numbers \(43\) and \(19\). The program ends with `ICOSAHEDRAL_PERFECT_MATCHING_43S2_19S3_EXACT_OK`. All finite counts and determinant results are reproduced rather than assumed from recorded logs.
+
+## Relationship to prior work
+Bayer, Jelić Milutinović, and Vega (2022) introduce the perfect-matching complex and determine homotopy types for honeycomb graph families; these results do not include the icosahedral graph. Chandrakar and Singh (2024) classify perfect-matching complexes of specific polygonal-line tilings, not the closed icosahedron. A separate published research finding already determines the **ordinary** matching complex of the icosahedron, with \(\mathbb Z/3\)-torsion and a Moore-space homotopy summand; its faces include every set of endpoint-disjoint edges, regardless of extendability to a perfect matching. The current perfect-matching subcomplex is genuinely different; neither the ordinary complex's wedge decomposition nor its torsion determines this subcomplex's homotopy type. In particular, the current result highlights that the extendability restriction can remove integral torsion and yield a mixed-dimensional sphere wedge. The value is an exact benchmark for matching extension topology on a canonical symmetric planar graph rather than a general theorem about all planar graphs.
+
+## Limitations
+The result is only for the specifically displayed icosahedral graph and its perfect-matching complex. It does not compute the map induced on homology by inclusion into the ordinary matching complex, the action of graph automorphisms, or analogous complexes of arbitrary planar graphs. These claims rely on an exhaustive finite calculation implemented in the included verifier and on standard discrete-Morse and Hurewicz theorems, not independent formal certification. An unindexed equivalent calculation could exist. No claim of a first example or minimal graph order is made.
+
+## References
+1. M. Bayer, M. Jelić Milutinović and J. Vega, *Perfect Matching Complexes of Honeycomb Graphs*, arXiv:2209.02803v1 (first publicly posted 2022-09-06), https://arxiv.org/abs/2209.02803 .
+2. H. Chandrakar and A. Singh, *Perfect Matching Complexes of Polygonal Line Tilings*, arXiv:2407.05809v1 (first posted 2024-07-08), https://arxiv.org/abs/2407.05809 .
+3. *Three-torsion in the icosahedral matching complex: a planar counterexample*, 2026, public research record, https://github.com/Resultary/2026/tree/main/2026/10/11/SCOPE-three-torsion-in-the-icosahedral-matching-complex-a-planar-count--28565ad1ea1a .
