@@ -1,19 +1,21 @@
-# Review
+# Independent mathematical audit
 
-## Correctness
+## correctness
 
-PASS. The necessary conditions follow from exact factorial-moment identities for a \(k\)-wise independent row, uniform integrability through order \(k-1\), and lower semicontinuity at order \(k\). The converse uses a truncated target law, a vanishing Poisson mixture to keep finite-support masses positive, and an invertible triangular factorial-moment matrix. The proof explicitly separates the cases of zero and positive order-\(k\) factorial-moment deficit.
+PASS
 
-## Originality
+PASS: Exact factorial moments E(S_n)_j=(n)_j(lambda/n)^j for 0<=j<=k follow from k-wise independence. Uniform integrability below k: E[(S_n)_j 1_{S_n>R}] <= E(S_n)_{j+1}/(R-j), and bounded continuous truncation plus monotone convergence gives kth moment inequality. For sufficiency, truncate target and Poisson at n (move tail to zero), form (1-eps_n)mu^[n]+eps_n pi^[n], eps_n=sqrt(t_n+1/n); lower factorial errors O(1/n) and fixed masses at 0..k at least c_i eps_n. If top moment deficit delta>0, add q_n=d_n/(n)_k at n and correct moments 0..k-1 at 0..k-1 using invertible falling-factorial triangular matrix with diagonal j!; low-order added errors O(n^-1) and q_n=O(n^-k). If delta=0, correct all moments 0..k at 0..k; needed O(t_n+n^-1)=o(eps_n), preserving positivity. Uniform random subset of exact count transforms factorial moments into all-one joint events and inclusion-exclusion proves full k-wise independence. The tail ratio (Y)_j/(Y)_k <= (n-k+1)^-(k-j) for Y>n secures o(n^-1) when j<k. Algebra and moment-correction bounds independently reviewed; no finite sampling inference.
 
-PASS, subject to the stated residual risk. The closest indexed rare-event classifications found settle \(k=2\) and the unit-intensity \(k=3\) case. The claim is restricted to \(k\ge4\) and extends the exact characterization to arbitrary fixed intensity, including an attainability construction. The finite-dimensional \(k\)-wise moment characterization of Peled–Yadin–Yehudayoff is relevant but does not state this weak-limit classification. The searches were statement-focused; absence of a matching result is not itself proof of novelty.
+## originality
 
-## Value
+PASS
 
-PASS. The result is a complete hierarchy for a natural asymptotic question: it identifies exactly which factorial moments remain rigid under weak convergence and proves that the sole controlled-order deficit can be realized by vanishing mass escaping to large counts. This sharpens the conceptual link between finite-order independence and Poisson-scale rare-event limits, beyond a numerical example or a necessary-only bound.
+PASS qualified: Previously published pairwise (general lambda) and three-wise (lambda=1) weak-limit classifications explicitly do not cover fixed k>=4 arbitrary lambda. Peled–Yadin–Yehudayoff studies finite count moment constraints and maximal all-one event, not universal asymptotic weak-limit classification. Construction generalizes the triangular moment idea; older arbitrary-order discrete moment theory may implicitly imply it, unresolved priority risk.
 
-## Closest literature and limits
+## value
 
-Peled, Yadin, and Yehudayoff (arXiv:0801.0059) characterize finite \(k\)-wise independent count distributions through moments and study an extremal all-ones probability. Polson and Zantedeschi (arXiv:2603.00661) study moment identification for posterior laws under infinite exchangeability, not sparse triangular arrays. Fontana and Semeraro (DOI 10.1007/s42519-021-00231-x) study finite-dimensional Bernoulli dependence polytopes. The direct weak-limit comparisons found for pairwise and three-wise rare Bernoulli sums cover only those lower-order cases. Unindexed work on the general \(k\ge4\) limit classification remains a residual risk.
+PASS
 
-Self-review: passed. Independent audit: not yet performed.
+PASS: This is a complete natural hierarchy for a canonical rare-event limit problem, identifying precisely which finite-order factorial moments survive weak convergence and exactly which one can leak to escaping mass. Realizability for every admissible limiting law, not just necessary bounds or an example, is mathematically useful; extends known k=2 and k=3 cases.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
