@@ -1,0 +1,131 @@
+{
+  "audit_date_utc": "2026-10-29",
+  "audited_at_utc": "2026-10-29T19:45:13.174611Z",
+  "axes": {
+    "correctness": {
+      "evidence": [
+        "RESULT.md at source Git blob 0f798a7937465789a0396342ef11ba356a964759, proof sections 1-6",
+        "Independent fresh exhaustive ring-image test: 66 parameter/ring/time comparisons (2<=r<=5, ring length<=10, 1<=n<=3), all matched forbidden-word prediction.",
+        "Inspected verify.py source: periodized local transition and predicted run-gap conditions; finite checker does not certify bi-infinite dynamics."
+      ],
+      "limitations": [
+        "The all-Z theorem is proved by the run dynamics/inverse, not by the finite periodic samples. The r=1 family is excluded."
+      ],
+      "rationale": "Reconstructed exact synchronous local rule: one zero is erased at the finite right end of each maximal zero run of length >=r; runs never disappear for r>=2, including left-infinite and right-infinite cases. A run still active after n steps forces the following finite ones gap to have length >=n+1; conversely extend each currently active output run by n zeros into that gap simultaneously without merging, yielding a bi-infinite preimage. Periodic 0^r1^(n+1) proves every descent strict; finite recognizer states Z_0..Z_r,P forbid all 0^r1^j0, while arbitrarily long minimal excluded patterns refute finite type. The step configuration separates Omega from Fix.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "This example has strict image descent for every n, therefore stable-CA theorems do not apply. ECA process graphs might encode r=2, but their accessible statements have not been shown to imply every r and n."
+        ],
+        "reasoning": "Separated stable versus nonstable dynamics and fixed radius versus arbitrary r. The potentially dominating historical ECA sources were only partly accessible; retained as residual priority risk.",
+        "searches": [
+          "Ballier arXiv:1301.3790 limit sets of stable CA",
+          "Ruivo–de Oliveira 2017 DOI:10.1142/S0218127417300282",
+          "Kassardjian–de Oliveira–Ruivo 2025 DOI:10.1007/978-3-031-78757-7_4"
+        ]
+      },
+      "checked_sources": [
+        "https://arxiv.org/html/2411.03601v3",
+        "https://arxiv.org/abs/1301.3790",
+        "https://doi.org/10.1142/S0218127417300282",
+        "https://doi.org/10.1007/978-3-031-78757-7_4",
+        "Resultary: published semantic query on unique active transition image filtration"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "Known dichotomy and fixed points do not determine n-th images; stable limit-set results require eventual stabilization contradicted by strict descent."
+        ],
+        "reasoning": "Target implies a sharper dynamic structure than the cited prior statements, but overlap with inaccessible r=2 process-graph full text cannot be excluded.",
+        "searches": [
+          "arXiv:2411.03601v3 theorem 1 and example 2",
+          "Ballier arXiv:1301.3790"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "An inverse-image language of finite preimage depth is equivalent to exclusion of short following-one gaps; arXiv 2411.03601 discusses unique active transition 001 but states fixed-point characterization and dichotomy, not the exact all-n language."
+        ],
+        "reasoning": "Compared n-th images, Garden-of-Eden gaps, and local process-graph formulations; no equivalent statement found in accessible full text.",
+        "searches": [
+          "Resultary: one-dimensional cellular automaton unique active transition 0^r1 exact iterate image subshift limit set sofic non finite type zero erosion",
+          "Castillo-Ramirez et al. arXiv:2411.03601v3"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "Returned Resultary cellular automata findings treat distinct Rule 54/18 phase automata, rule 128 etc.; none lists this radius-dependent forbidden-language filtration."
+        ],
+        "reasoning": "No known matching sequence/table applies to the infinite all-n language. Absence in a semantic database is weak evidence, not novelty proof.",
+        "searches": [
+          "Resultary semantic published-finding query on zero-erosion image filtration",
+          "Published Resultary record: 2026/10/11/SCOPE-an-irreversible-rule-54-rule-18-phase-filtration-in-a-normalized--ac12be561c8d"
+        ]
+      },
+      "rationale": "The target is the complete all-radius and all-time image language, backward-depth law, and proper sofic limit, not the known fixed-point subshift or idempotence/equicontinuity dichotomy. Primary full arXiv paper contains the r=2 rule 001 and general dichotomy but not this explicit image filtration; other ECA process-graph works leave historical priority risk for r=2.",
+      "residual_risks": [
+        "The 2017 and 2025 elementary automata process-graph papers were not read in complete full text; priority for r=2 may be partially covered.",
+        "No extension to r=1, larger alphabets, or nonsynchronous lattices."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "FOUNDATIONAL_NOT_COVERING_SPECIFIC_FILTRATION",
+          "evidence": "Theorem 1 distinguishes idempotent/almost equicontinuous; Example 2 has 001; neither supplies images for every iterate.",
+          "identifier_or_url": "https://arxiv.org/html/2411.03601v3",
+          "material_read": "HTML full text: statement of principal dichotomy, fixed-point description, Example 2 (001), and neighboring result sections",
+          "method": "Full open-access arXiv HTML, checked theorem statements and examples",
+          "title": "One-dimensional cellular automata with a unique active transition",
+          "trigger": "Same unique-active local rule, r=2 instance"
+        },
+        {
+          "assessment": "NOT_RESOLVED_FULL_TEXT",
+          "evidence": "Could contain an equivalent ECA 001 limit-language result; no full-document noncoverage finding.",
+          "identifier_or_url": "https://doi.org/10.1142/S0218127417300282",
+          "material_read": "Abstract/available preview only, not complete proof or appendices",
+          "method": "Abstract and bibliographic inspection",
+          "title": "Inferring the Limit Behavior of Some Elementary Cellular Automata",
+          "trigger": "Historically related process-graph classification, may address r=2"
+        },
+        {
+          "assessment": "NOT_RESOLVED_FULL_TEXT",
+          "evidence": "Methods and limit cases described; full results not inspected.",
+          "identifier_or_url": "https://doi.org/10.1007/978-3-031-78757-7_4",
+          "material_read": "Accessible abstract/bibliographic preview only",
+          "method": "Bibliographic and abstract comparison",
+          "title": "Extensions on the Analysis of Elementary Cellular Automata with Process Graphs",
+          "trigger": "Contemporary analysis of ECA process graphs"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "evidence": [
+        "For every integer r>=2 on the full binary bi-infinite shift, image T_r^n avoids exactly 0^r 1^j 0 for 1<=j<=n; each finite image is SFT with strict descent, and the intersection is properly sofic non-SFT and strictly includes fixed points; backward depth is the minimum forbidden exponent minus one.",
+        "Mathematical motivation and prior-scoped comparison in RESULT.md and this independent review."
+      ],
+      "limitations": [
+        "The all-Z theorem is proved by the run dynamics/inverse, not by the finite periodic samples. The r=1 family is excluded."
+      ],
+      "rationale": "Exact images and backward reachability depth are natural dynamical invariants. An infinite family exhibits sharp SFT-at-each-time versus non-SFT limit behavior, genuine strict descent, and a nontrivial limit set beyond fixed points; these are not routine consequences of the earlier one-active-transition dichotomy.",
+      "status": "PASS"
+    }
+  },
+  "checked_sources": [
+    "https://arxiv.org/html/2411.03601v3",
+    "https://arxiv.org/abs/1301.3790",
+    "https://doi.org/10.1142/S0218127417300282",
+    "https://doi.org/10.1007/978-3-031-78757-7_4",
+    "Resultary: published semantic query on unique active transition image filtration"
+  ],
+  "disposition": "passed",
+  "final_claim": "For every integer r>=2 on the full binary bi-infinite shift, image T_r^n avoids exactly 0^r 1^j 0 for 1<=j<=n; each finite image is SFT with strict descent, and the intersection is properly sofic non-SFT and strictly includes fixed points; backward depth is the minimum forbidden exponent minus one.",
+  "limitations": [
+    "The all-Z theorem is proved by the run dynamics/inverse, not by the finite periodic samples. The r=1 family is excluded."
+  ],
+  "residual_risks": [
+    "The 2017 and 2025 elementary automata process-graph papers were not read in complete full text; priority for r=2 may be partially covered.",
+    "No extension to r=1, larger alphabets, or nonsynchronous lattices."
+  ],
+  "schema_version": 1
+}

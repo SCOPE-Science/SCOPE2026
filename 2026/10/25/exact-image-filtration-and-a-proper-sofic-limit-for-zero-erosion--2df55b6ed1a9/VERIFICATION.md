@@ -5,8 +5,11 @@
     "status": "not_performed"
   },
   "independent_audit": {
-    "evidence": null,
-    "status": "not_performed"
+    "status": "passed",
+    "evidence": [
+      "INDEPENDENT_AUDIT_2026-10-29.md",
+      "INDEPENDENT_AUDIT_2026-10-29.json"
+    ]
   },
   "lean_verification": {
     "evidence": null,
@@ -16,8 +19,24 @@
 }
 ---
 
-# Computational verification and scope
+# Independent mathematical audit
 
-Run `python3 verify.py` with Python 3 and only its standard library. The code independently enumerates the finite cyclic images for every \(r\in\{2,3,4,5\}\), every checked ring length from \(r+2\) through \(12\), and time steps \(n=1,2,3,4\). It checks equality against the predicted restrictions on finite cyclic zero and one runs, including constant configurations. It also compares the finite-state recognizer against direct forbidden-subword detection and checks explicit strict-descent witnesses for \(2\le r\le7\) and \(0\le n\le10\).
+## correctness
 
-The complete nonperiodic infinite-lattice theorem is not established by exhaustive periodic-ring tests. It follows from the zero-run bijection and explicit inverse in `RESULT.md`. The comparison with historical literature is evidence-bound, not an independent novelty certification.
+PASS
+
+Reconstructed exact synchronous local rule: one zero is erased at the finite right end of each maximal zero run of length >=r; runs never disappear for r>=2, including left-infinite and right-infinite cases. A run still active after n steps forces the following finite ones gap to have length >=n+1; conversely extend each currently active output run by n zeros into that gap simultaneously without merging, yielding a bi-infinite preimage. Periodic 0^r1^(n+1) proves every descent strict; finite recognizer states Z_0..Z_r,P forbid all 0^r1^j0, while arbitrarily long minimal excluded patterns refute finite type. The step configuration separates Omega from Fix.
+
+## originality
+
+PASS
+
+The target is the complete all-radius and all-time image language, backward-depth law, and proper sofic limit, not the known fixed-point subshift or idempotence/equicontinuity dichotomy. Primary full arXiv paper contains the r=2 rule 001 and general dichotomy but not this explicit image filtration; other ECA process-graph works leave historical priority risk for r=2.
+
+## value
+
+PASS
+
+Exact images and backward reachability depth are natural dynamical invariants. An infinite family exhibits sharp SFT-at-each-time versus non-SFT limit behavior, genuine strict descent, and a nontrivial limit set beyond fixed points; these are not routine consequences of the earlier one-active-transition dichotomy.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

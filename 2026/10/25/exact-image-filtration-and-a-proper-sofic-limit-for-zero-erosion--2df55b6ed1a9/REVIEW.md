@@ -1,11 +1,21 @@
-# Self-review
+# Independent mathematical audit
 
-**Correctness (PASS).** A zero run of length at least \(r\ge2\) loses precisely one zero at its finite right edge per update; smaller runs are stationary. All zero runs survive and do not merge. The forward necessity of the constraints \(0^r1^j0\), \(j\le n\), follows by tracing the right endpoint of every surviving active run back through \(n\) updates. The converse is constructive: extend each active output zero run \(n\) positions into its trailing ones, which is possible simultaneously exactly when no forbidden short one gap occurs. This proves the complete bi-infinite \(n\)-step image formula, including infinite runs. Explicit periodic witnesses prove each strict inclusion. A finite automaton gives soficity; arbitrarily long minimal excluded words prove failure of SFT. The attached verifier tests only finite cases.
+## correctness
 
-**Originality (PASS within checked evidence).** The primary 2024 paper establishes an idempotence/equicontinuity dichotomy and the fixed-point subshift, but does not state the closed forbidden-word \(n\)-image formula, sharp backward-depth profile or proper sofic limit for all \(r\ge2\). The inspected 2015–2016 process-graph paper supplies computational methods and other elementary examples, without the claimed formula. The results for stable cellular automata do not dominate a strictly descending image sequence. Related 2017 and 2025 process-graph sources were accessible only partially, so historical priority remains uncertain, especially in the \(r=2\) elementary special case. No claim of exhaustive literature coverage is made.
+PASS
 
-**Value (PASS).** Exact global finite-time image languages for every duration and every run threshold are a natural missing invariant in the motivating classification. The theorem exposes a structurally sharp SFT-to-strictly-sofic limit transition, proves images never stabilize, and identifies exact backward reachability depth, none of which follows from the earlier idempotence dichotomy. The family is infinite and covers all configurations, not an arbitrary finite enumeration.
+Reconstructed exact synchronous local rule: one zero is erased at the finite right end of each maximal zero run of length >=r; runs never disappear for r>=2, including left-infinite and right-infinite cases. A run still active after n steps forces the following finite ones gap to have length >=n+1; conversely extend each currently active output run by n zeros into that gap simultaneously without merging, yielding a bi-infinite preimage. Periodic 0^r1^(n+1) proves every descent strict; finite recognizer states Z_0..Z_r,P forbid all 0^r1^j0, while arbitrarily long minimal excluded patterns refute finite type. The step configuration separates Omega from Fix.
 
-**Limits.** Only the synchronous binary \(0^r1\) family with \(r\ge2\) is covered. Finite tests are not proof of infinite claims. Historical priority requires independent specialist review.
+## originality
 
-Self-review: passed. Independent audit: not yet performed.
+PASS
+
+The target is the complete all-radius and all-time image language, backward-depth law, and proper sofic limit, not the known fixed-point subshift or idempotence/equicontinuity dichotomy. Primary full arXiv paper contains the r=2 rule 001 and general dichotomy but not this explicit image filtration; other ECA process-graph works leave historical priority risk for r=2.
+
+## value
+
+PASS
+
+Exact images and backward reachability depth are natural dynamical invariants. An infinite family exhibits sharp SFT-at-each-time versus non-SFT limit behavior, genuine strict descent, and a nontrivial limit set beyond fixed points; these are not routine consequences of the earlier one-active-transition dichotomy.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
