@@ -1,0 +1,11 @@
+# Scientific review
+
+**Correctness — PASS.** The two-pebble extension lemma exhausts all multiplication atoms on a pair together with the named identity; its nine pointed categories yield both directions of the EF equivalence. The alternating-root parity criterion, even involution criterion in a centralizer of 3-cycles, and explicit stable witnesses establish every entry of the all-parameter category table. The infinite mod-eight claim is proved symbolically. Independent direct atomic calculations for degrees 5–8, an independently compressed direct enumeration through 9, and even-cycle partition checks through 40 agree with the theorem. These are limited supporting computations rather than an unbounded numerical proof.
+
+**Originality — PASS, with priority risk.** The closest checked works concern finite abelian-group logical complexity (Gomaa 2010), adjoining square roots to groups (Baranov–Klyachko 2011), and solutions to selected alternating-group power equations (Mahmood–Rajah 2011 issue). The first does not cover nonabelian alternating groups, the second does not classify bounded-rank theories, and the inspected material from the third has restrictions on conjugacy types not encompassing the rank-two theorem. Result-index searches for alternating-group EF equivalence, involution square roots, residue-eight alternation, and relational multiplication found no covering result. Nevertheless, some full text and unindexed literature remain unchecked; no assertion of absolute priority is made.
+
+**Mathematical value — PASS.** This is a complete classification for a canonical infinite family of finite nonabelian simple groups, not an arbitrary numerical parameter slice. It gives a sharp seven-class list with a nonconsecutive coincidence at degrees 7 and 9 and an unexpected *infinite failure of rank-two stabilization*: parity of alternating square roots makes a degree-mod-eight property first-order visible at depth two. The distinction persists in unbounded degree despite a fixed quantifier budget.
+
+The conclusion does not extend to the functional group language. Priority and third-party validation remain open.
+
+Self-review: passed. Independent audit: not yet performed.
