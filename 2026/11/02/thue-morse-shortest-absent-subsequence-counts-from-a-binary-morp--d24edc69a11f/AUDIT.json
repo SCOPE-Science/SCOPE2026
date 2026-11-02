@@ -1,0 +1,134 @@
+{
+  "correctness": {
+    "rationale": "Direct greedy matching in each binary complementary block gives an iff forbidden-adjacency condition and shortest length m+1. Counting allowed endpoints yields the same two-component recurrence as ordinary distinct-subsequence counts after translation by +1 in each component. Complement-conjugacy of unimodular 2x2 transfer matrices and Cayley–Hamilton produce exact t0=1,t1=2,t(k+2)=t(k+1)(t(k)^2+2) and s(k+1)=a(k)+t(k), with a0=2,a(k)=t(k-1)^2+2. The log recurrence is explicitly solved and its bounded positive error term yields the convergent series for the exponential base. The delivered checker independently enumerates every binary preimage of lengths 1..8 (510 total) and replays direct match-DP, avoidance patterns, distinct-subsequence recurrence and matrix counts through Thue–Morse input length 256. Tests are not used as a substitute for the unrestricted proof.",
+    "status": "PASS"
+  },
+  "independent": false,
+  "independent_audit_status": "not_performed",
+  "originality": {
+    "broader_coverage": {
+      "evidence": [
+        "arXiv:2108.13968 Theorem 3.5 and Proposition 3.21: generic structural characterization and upper-bound extremizers under alphabet permuting, no source-word distinct-subsequence identity.",
+        "doi:10.37236/1761 Theorem 2: extremal distinct-subsequence maxima for fixed length; no exact profile for all Thue–Morse iterates.",
+        "A published binary subsequence-universality count distribution concerns the distribution over all words of fixed length, not the SAS count for one substitution family."
+      ],
+      "reasoning": "Generic polynomial-time enumeration of SAS or a general recurrence for counting distinct subsequences does not by itself state the exact duality nor give the nonlinear dyadic growth constant. No inspected theorem supplies the same all-level invariant or stronger applicable exact formula.",
+      "searches": [
+        "universality index and shortest absent subsequence count for morphic image of any binary word 0 to 01 1 to 10",
+        "binary length-doubling uniform morphism 0->01 1->10 subsequence anti dictionary cardinality equals distinct subsequences source",
+        "Thue Morse finite words subsequence avoidance transfer SL2 integer matrix determinant minus one Cayley Hamilton"
+      ]
+    },
+    "checked_sources": [
+      "Flaxman–Harrow–Sorkin (2004), doi:10.37236/1761; Section 2.",
+      "Collins (2013), arxiv:1310.7288; abstract and introduction.",
+      "Kosche–Koß–Manea–Siemer (2021), arxiv:2108.13968; Theorems 3.1, 3.5; Lemma 3.16; Proposition 3.21.",
+      "Leroy–Rigo–Stipulanti (2017), PDF URL https://orbi.uliege.be/bitstream/2268/205077/1/postprint%20auteur.pdf; §§1, 7–8.",
+      "Publicly indexed scientific assertions about Fibonacci extrema for binary shortest absent subsequences and binary subsequence universality (comparison by claim/implication)."
+    ],
+    "claim_vs_prior_implication": {
+      "evidence": [
+        "arXiv:2108.13968 Lemma 3.16 permits decomposing SAS of complete permutation arches, thereby implying the adjacent-pair avoidance description. It does not explicitly yield the source distinct-subsequence equality or solve the Thue–Morse infinite hierarchy.",
+        "Flaxman–Harrow–Sorkin 2004 maximizes D(w) over words of a fixed length; distinct-subsequence maximizers need not be Thue–Morse, and the theorem cannot imply the particular dyadic recurrence.",
+        "Previously indexed Fibonacci extremal shortest-absent-subsequence results address a maximum over all words of a given length, not the count for a specified finite Thue–Morse word."
+      ],
+      "reasoning": "The composite claim adds a cross-invariant, word-by-word equality and a nonlinear substitution-specific evaluation. The generic SAS characterization gives a route to re-derive an ingredient but no examined source states or directly dominates the complete exact combined claim.",
+      "searches": [
+        "binary Thue Morse morphism image w shortest absent subsequences exactly number of distinct scattered subsequences of w plus one",
+        "Thue Morse iterates shortest absent subsequences counts 3 5 12 74 2666 and recurrence t(n+2)=t(n+1)(t(n)^2+2)",
+        "binary length-doubling uniform morphism 0->01 1->10 subsequence anti dictionary cardinality equals distinct subsequences source",
+        "Thue Morse shortest absent subsequences 3 5 12 74 2666 sequence"
+      ]
+    },
+    "equivalent_formulations": {
+      "evidence": [
+        "Kosche–Koß–Manea–Siemer arXiv:2108.13968 Theorem 3.5 and Lemma 3.16: SAS characterized by arch positions; two-letter binary arches make local forbidden patterns foreseeable.",
+        "Flaxman–Harrow–Sorkin 2004 §2 counts distinct subsequences of arbitrary words and their extremizers, but does not assert a shortest-absence duality.",
+        "Leroy–Rigo–Stipulanti 2017 §1,§§7–8 use generalized Pascal triangles for scattered subwords of numeral representations, not the same morphic word count."
+      ],
+      "reasoning": "SAS, MAS, scattered subwords, subsequence universality, piecewise/subsequence automata and complementary block morphism aliases were searched; general arch characterization covers local constraints but not the assessed exact numerical bridge and dyadic recurrence.",
+      "searches": [
+        "binary Thue Morse morphism image w shortest absent subsequences exactly number of distinct scattered subsequences of w plus one",
+        "permutation 2-block words shortest absent subsequences count distinct subsequences orientation word",
+        "shortest absent scattered factors of 01 10 block words subsequences correspondence",
+        "universality index and shortest absent subsequence count for morphic image of any binary word 0 to 01 1 to 10"
+      ]
+    },
+    "exact_database_or_table": {
+      "evidence": [
+        "Searches of available scholarly records using the initial integer values 3, 5, 12, 74, 2666 and the nonlinear recurrence identified no matching published numeric table.",
+        "The closest relevant published assertions include binary Fibonacci extremal SAS counts and arbitrary-word subsequence-universality count distributions; neither determines the specified Thue–Morse values."
+      ],
+      "reasoning": "The sequence and growth constant were compared in actual research-index searches; no known table subsumes them. Absence of a hit is only negative search evidence.",
+      "searches": [
+        "Thue Morse iterates shortest absent subsequences counts 3 5 12 74 2666 and recurrence t(n+2)=t(n+1)(t(n)^2+2)",
+        "distinct subsequences counts for finite Thue Morse words 2 4 11 73 2665 relation absent subsequences"
+      ]
+    },
+    "rationale": "The closest known 2021 general SAS theorem supplies arch-local admissibility and hence subsumes only the elementary avoidance condition, explicitly not claimed alone. The exact equality between the number of shortest absent subsequences of the binary complementary-pair image and distinct subsequences of the original word, together with the nonlinear all-level Thue–Morse recurrence and rigorously convergent limiting base, was not stated or entailed as an evaluated exact formula in the materially inspected sources. The 2004/2013 works count distinct subsequences but concern maxima or random words. This is a qualified best-knowledge originality assessment, not a proof of unique priority.",
+    "residual_risks": [
+      "A previously published automata or scattered-subword formulation could contain the same source-image identity or the nonlinear Thue–Morse recurrence under different names.",
+      "Generic arch decomposition covers the local characterization; originality does not rest on that elementary corollary alone.",
+      "The consulted literature and public-index record are not exhaustive; independent historical priority and mathematical audit remain open."
+    ],
+    "source_inspections": [
+      {
+        "assessment": "NOT_COVERING complete claim; optimizes fixed-length distinct-subsequence count, does not give SAS duality or Thue–Morse dyadic count.",
+        "evidence": [
+          "2004 EJC 11 R8, published January 5, 2004, abstract and Section 2",
+          "https://www.combinatorics.org/ojs/index.php/eljc/article/download/v11i1r8/pdf"
+        ],
+        "identifier_or_url": "https://www.combinatorics.org/ojs/index.php/eljc/article/download/v11i1r8/pdf",
+        "material_read": "Abstract, introduction, Section 2 theorem and proof on distinct-subsequence count extremizers; title page with publication 2004-01-05 and primary 68R15.",
+        "method": "Full original open PDF text and page image inspection",
+        "title": "Strings with maximally many distinct subsequences and substrings",
+        "trigger": "Closest pre-2016 theoretical source on distinct-subsequence counts and primary 68R15"
+      },
+      {
+        "assessment": "NOT_COVERING complete claim; random-string expectations differ from deterministic morphic source-image duality.",
+        "evidence": [
+          "arXiv:1310.7288, 2013-10-28"
+        ],
+        "identifier_or_url": "https://arxiv.org/abs/1310.7288",
+        "material_read": "Original arXiv abstract and introductory methodology on expected distinct-subsequence counts",
+        "method": "Primary arXiv article text",
+        "title": "The Number of Distinct Subsequences of a Random Binary String",
+        "trigger": "Probabilistic source on the same D invariant"
+      },
+      {
+        "assessment": "PARTIALLY_COVERING: the local admissibility/concatenation criterion is covered in general; the cross-invariant numerical equality, Thue–Morse matrix recurrence and limit are not stated in the inspected relevant sections.",
+        "evidence": [
+          "arXiv:2108.13968 Theorem 3.5",
+          "arXiv:2108.13968 Lemma 3.16",
+          "arXiv:2108.13968 Proposition 3.21"
+        ],
+        "identifier_or_url": "https://arxiv.org/abs/2108.13968",
+        "material_read": "Definitions and arch factorization in Section 2, Theorem 3.1, Theorem 3.5 and its proof, Lemma 3.16 and Proposition 3.21 with surrounding argument in Section 3",
+        "method": "Accessible primary arXiv full HTML",
+        "title": "Absent Subsequences in Words",
+        "trigger": "Most relevant general SAS characterization and exact potential implicit overlap"
+      },
+      {
+        "assessment": "NOT_COVERING complete claim; counts scattered subwords of positional digit representations and uses binary kernel matrices, but does not state the source-image SAS identity or count these Thue–Morse iterates.",
+        "evidence": [
+          "Leroy–Rigo–Stipulanti 2017 §§1, 7–8, Corollary 22",
+          "https://orbi.uliege.be/bitstream/2268/205077/1/postprint%20auteur.pdf"
+        ],
+        "identifier_or_url": "https://orbi.uliege.be/bitstream/2268/205077/1/postprint%20auteur.pdf",
+        "material_read": "Original PDF abstract and introduction, sections concerning binary representation, 2-regular matrix products and numerical-base extensions, reference comparison with Thue–Morse factor complexity",
+        "method": "Full-text extracted PDF, inspected first-page image and relevant pages 11–14",
+        "title": "Counting the number of non-zero coefficients in rows of generalized Pascal triangles",
+        "trigger": "Plausible stronger counting technique with 2x2 matrix methods for scattered subwords"
+      }
+    ],
+    "status": "PASS"
+  },
+  "review_type": "self_review",
+  "schema_version": 1,
+  "scope_run_id": "d24edc69-a11f-4406-8885-c56e16b74532",
+  "self_review_status": "passed",
+  "value": {
+    "rationale": "Subsequence universality and distinct subsequence complexity are natural invariants; equality between a source count and the shortest-absence count of its canonical substitution image is a structurally informative duality, not a relabeling or isolated enumeration. Thue–Morse is a canonical automatic word. Its all-level shortest-absence dictionary cardinality becomes an explicit integer recurrence, with a nontrivial asymptotic exponential base derived from substitution dynamics. This provides a benchmark for compressed absence computations and quantifies extreme reconstruction obstructions at exponentially long source lengths.",
+    "status": "PASS"
+  }
+}
