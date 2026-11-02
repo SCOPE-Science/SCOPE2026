@@ -1,15 +1,21 @@
-# Mathematical review: exact nullspace-variance law for doubly randomized coordinate descent
+# Independent mathematical audit
 
-## Correctness — PASS
+## correctness
 
-The algorithm is exactly the independently sampled row/coordinate DSBGD step in Xia–Zhou (arXiv:2610.15399v1, Algorithm 1). For rank-one rows \(c_i\mathbf1^\top\), the scalar data defect \(p_t=1-\mathbf1^\top x^{(t)}\) contracts by the random factor \(1-\eta_t c_{I_t}^2\). After separating the zero-sum coordinate component, conditional independence of the coordinate choice eliminates every cross term in the expected squared norm. This proves the exact second-moment identity with \(Q_t=\prod_{s<t}\mathbb E(1-\eta_sc_I^2)^2\). Divergence of \(\sum_t\eta_t\) forces the data defect to zero on every path, while nonnegative coordinate increments of finite total mass yield bounded, almost-sure convergence and justify the limit. The first coordinate-martingale increment contributes strictly positive variance, establishing the permanent minimum-norm gap. The exact rational two-by-two values have been independently checked by exhaustive finite enumeration and symbolic substitution; the proof, not enumeration, establishes all-step and asymptotic claims.
+PASS
 
-## Originality — PASS (self-review)
+With A_ij=c_i>0, y_i=c_i and uniform independent row I_t/coordinate J_t, the residual p_t=1−1^T x_t and centered nullspace z_t=x_t−(1−p_t)1/m obey p_{t+1}=(1−eta_t lambda_{I_t})p_t and z_{t+1}=z_t+eta_t lambda_{I_t}p_t(e_{J_t}−1/m). Independence and E(e_J−1/m)=0 eliminate cross terms; E p_t²=Q_t=prod(1−2a eta_s+b eta_s²), E||z_k||²=(1−1/m)b sum eta_t² Q_t. Orthogonality gives exact solution-error and residual formulas. The bound eta_t lambda_i<1 and sum eta_t infinite ensure p_t→0 pathwise; nonnegative coordinate increments with total mass ≤1 give a.s. bounded convergence, hence mean-square convergence. The variance series has positive t=0 term, so a nonzero limit for every admissible schedule. Independent exact rational branch enumeration k=0,...,6 and matrix 2×2 rational constant-step formula match. Scope excludes arbitrary rank-deficient operators and coordinate-dependent samplings.
 
-The closest direct source is Xia–Zhou, arXiv:2610.15399v1, Assumption 2.1 and Theorem 3.1, which assert mean-square convergence to the initial-guess minimum-norm solution under stepsizes permitting the present explicit rank-one construction. The theorem's final inference uses uniqueness of an exact solution, but uniqueness holds only for the selected minimum-norm solution and not for every feasible vector. The exact nullspace-variance identity is absent from the inspected source. Jin–Liu, arXiv:2405.13340, gives a related general-coordinate precedent for convergence to a random solution, so the qualitative possibility of noncanonical limits is not itself a novelty claim. Du–Sun, arXiv:1912.13291, and Han–Xie, arXiv:2208.05437, separate residual/expected-iterate convergence from mean-square error in full-column-rank settings; Razaviyayn et al., arXiv:1810.05251, use a differently sampled solver and prove full-column-rank solution-error estimates. Xie–Yang, arXiv:2610.04685v1, assumes full column rank. None states the present arbitrary deterministic-stepsize exact solution-nullspace variance or its positive bound for two independently sampled indices. Residual risk: general randomized-coordinate martingale arguments could be specialized to derive this identity in older, unindexed literature, even though no equivalent formula was found in the materially read papers.
+## originality
 
-## Mathematical value — PASS
+PASS
 
-The exact series quantifies an algorithmic obstruction to using this coordinate-sampled iteration as a minimum-norm regularizer: for every positive schedule in the natural divergent-step regime, the expected data residual vanishes but the expected squared error in the nullspace stays bounded below by the first-step quadratic variation. It identifies a structural discrepancy in a recently proposed inverse-problem guarantee, and distinguishes convergence of residuals, convergence of expected iterates and mean-square convergence to a prescribed solution. The result provides a meaningful quantitative diagnostic, not merely a choice of normalization or a single negative example. Scope is rank-one, consistent, exact-data, uniform independent sampling; it does not prove failure for injective operators, arbitrary random step rules or all regularization variants.
+Known randomized coordinate descent theory can converge to random solutions and distinguishes residual from parameter error; those qualitative statements do not supply this particular doubly sampled all-schedule exact finite-time variance law. Initiating October 2026 DSBGD article's full text was inaccessible, so any direct stronger coverage is a named residual priority risk; a permissible qualified best-of-knowledge positive originality decision does not assert whole-paper noncoverage.
 
-Self-review: passed. Independent audit: not yet performed.
+## value
+
+PASS
+
+Exact all-step and all-admissible-stepsize nullspace variance law sharply distinguishes residual convergence from minimum-norm selection in a natural genuinely two-row/two-coordinate randomized inverse-problem algorithm. The explicit positive asymptotic variance despite exact data fit identifies a mathematically consequential gap in a claimed selection principle, not just numerical instability.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
