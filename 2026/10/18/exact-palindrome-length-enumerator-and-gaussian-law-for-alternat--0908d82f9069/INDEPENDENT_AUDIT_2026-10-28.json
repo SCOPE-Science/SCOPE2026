@@ -1,0 +1,139 @@
+{
+  "audit_date_utc": "2026-10-28",
+  "audited_at_utc": "2026-10-28T18:52:38Z",
+  "axes": {
+    "correctness": {
+      "rationale": "For a binary word u, earliest greedy matching into W_n=0101... has exact final position C(u)=|u|+[u_1=1]+sum_{i}[u_i=u_{i+1}], and greedy matching is optimal by induction. Each palindrome is uniquely one of the two singletons, even vv^R, or odd vcv^R. For nonempty v with length r, initial bit b and e equal-adjacent transitions, there are binom(r-1,e) such half-words and the endpoints are 2r+b+2e+1 and 2r+1+b+2e+2[c=v_r]. Summing these disjoint classes by z^C(u)t^|u|, then multiplying by 1/(1-z), gives exactly tz(1+z)(1+tz²)/((1-z)(1-t²z²(1+z²))). At n=0 the polynomial vanishes; n=1 gives t, and all words are counted once independently of embedding multiplicity. For n=2k or 2k+1, substitution v=z² gives rational series with isolated simple positive pole R(t), where t²R(t)(1+R(t))=1 and R(1)=(sqrt5-1)/2; the negative quadratic pole and pole v=1 have strictly larger modulus near t=1, while numerator amplitudes are nonzero analytic. Uniform simple-pole asymptotics of the moment generating functions show the analytic log quasi-power with h(s)=-(1/2)log(R(e^s)/R(1)), h'(0)=(1+1/sqrt5)/2 and h''(0)=2/(5sqrt5)>0. Differentiation gives the two O(1) moment errors and characteristic-function Taylor expansion proves the Gaussian weak limit. Independent exhaustive enumeration of distinct palindrome WORDS for n=1..16 and a separate formal generating-function coefficient expansion through n=100 reproduced every coefficient; symbolic differentiation reproduced alpha and beta. Finite checks are corroboration, not an infinite proof.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Mahalingam–Pandoh Theorem 4.2 and the q-ary length-specific inequalities of section 4 address broader input words but weaker bounds, not an exact alternating-family distribution.",
+          "Müllner–Ryzhikov Conjecture 15 and the paragraph around section 4 p. 5 concern longest palindromic subsequences and do not provide a count by each attainable length.",
+          "Flaxman–Harrow–Sorkin 2004 addresses maximizing distinct general subsequences, per abstract; its uninspected full text is an explicit residual risk rather than a basis for asserting whole-document noncoverage."
+        ],
+        "reasoning": "General formulas for all distinct subsequences do not isolate palindromic words without additional palindrome-specific restrictions; broad inequalities SP_t≤something likewise cannot logically provide exact equality at all t. A stronger unpublished or uninspected theorem remains possible.",
+        "searches": [
+          "scattered palindromic subwords alternating word 01 Gaussian asymptotic normal length (Resultary semantic search, 20 results)",
+          "\"distinct palindromic subsequences\" \"alternating\" generating function (web literature search)",
+          "arXiv:1901.07502 Palindromic Subsequences in Finite Words, full PDF",
+          "Flaxman Harrow Sorkin Strings with Maximally Many Distinct Subsequences and Substrings (2004, abstract and metadata)"
+        ]
+      },
+      "checked_sources": [
+        "Mahalingam and Pandoh, Counting scattered palindromes in a finite word, arXiv:2108.02729v1 (2021), full 19-page primary PDF, https://arxiv.org/pdf/2108.02729",
+        "Müllner and Ryzhikov, Palindromic Subsequences in Finite Words, arXiv:1901.07502 (2019), full seven-page PDF, https://arxiv.org/pdf/1901.07502",
+        "Flaxman, Harrow and Sorkin, Strings with Maximally Many Distinct Subsequences and Substrings, EJC 11(1) R8 (2004), abstract only",
+        "Resultary queries on scattered-palindrome length marked distribution and Gaussian law; related published SCOPE binary subsequence universality and shortest absent subsequence summaries",
+        "Flajolet and Sedgewick, Analytic Combinatorics (2009), general analytic transfer, not an exact case-specific enumeration"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "The claimed bivariate series specializes at t=1 to the Fibonacci-type total-number sequence but no uniqueness of coefficients follows from that specialization.",
+          "Its pole R(t) is determined by t²R(t)(1+R(t))=1; derivatives of R(e^s) at s=0 yield alpha=(1+1/sqrt(5))/2 and beta=2/(5sqrt(5)). The prior scalar count does not specify these derivatives.",
+          "Related published SCOPE record SCOPE-closed-form-law-for-binary-subsequence-universality concerns the different subsequence-universality index of arbitrary binary words, not a uniformly selected palindromic subsequence of an alternating word."
+        ],
+        "reasoning": "Earlier length inequalities and longest-palindrome estimates are weaker statements or different statistics. The exact marked generating function implies the scalar total counts, whereas these earlier statements do not imply the marked generating function or its Gaussian fluctuations.",
+        "searches": [
+          "arXiv:2108.02729 Theorem 4.2, Lemmas 4.3 and 4.5, Propositions 4.15-4.17 (full PDF)",
+          "arXiv:1901.07502 section 4, Conjectures 15-17 and alternating word observation (full PDF)",
+          "Resultary 2026/10/4/SCOPE-closed-form-law-for-binary-subsequence-universality--e77c4e8d9f37",
+          "Resultary 2026/10/4/SCOPE-fibonacci-extremals-for-shortest-absent-subsequences-of-binary-w--1a6556f14d28"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "In Mahalingam–Pandoh (arXiv:2108.02729), Theorem 4.2 bounds total SP(w); Lemma 4.3 counts all abstract q-ary palindromes of length t; Lemma 4.5 and subsequent propositions bound SP_t(w). They do not provide the exact all-t counts for W_n=0101... as a bivariate rational series or a uniform-palindrome normal limit in inspected full text.",
+          "The proposed specialization t=1 yields Fibonacci-type total counts, but equal totals do not determine the coefficient vector P_n(t).",
+          "The Müller–Ryzhikov (arXiv:1901.07502) section 4 note on alternating binary words concerns existence of a subsequence of maximum length n−1, not the distribution among all distinct palindromic words."
+        ],
+        "reasoning": "Synonyms scattered palindromes, distinct palindromic subsequence words and length spectrum were compared; scalar count, length upper bounds, and longest-subsequence statements do not imply a complete exact length enumerator or Gaussian law. No equivalent statement identified in inspected primary full text or relevant Resultary hits.",
+        "searches": [
+          "exact generating polynomial for distinct palindromic scattered subsequences in alternating binary 0101 word length CLT gaussian (Resultary semantic search, 20 results)",
+          "palindromic subsequences alternating word Fibonacci by length enumerate polynomial q analog (Resultary semantic search, 19 results)",
+          "\"alternating word\" \"scattered palindromes\" \"length\" counting (web primary-literature search)",
+          "arXiv:2108.02729v1 Counting scattered palindromes in a finite word, full PDF"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "Mahalingam–Pandoh tables 1–3 give extremal total counts for small n and alphabet sizes and comparisons of bounds; section 4 also treats SP_t inequalities. No complete polynomial coefficient table for the alternating family or its CLT was found in the inspected results.",
+          "Independent exhaustive unique-word enumeration for 1≤n≤16 and exact rational generating-series coefficient comparison through n=100 gave exact agreement with the package formula.",
+          "Resultary semantic searches found related published subsequence-universality and shortest-absent-subsequence results, not a table of P_n(t) for scattered palindromic words."
+        ],
+        "reasoning": "Agreement with a small scalar Fibonacci table would not establish the full polynomial sequence; the new full coefficients were checked independently. Absence from indexed tables is not a novelty certificate, and an unindexed table remains possible.",
+        "searches": [
+          "count distinct palindromic subsequences by length alternating word 010101 (literature search)",
+          "palindromic subsequences alternating word Fibonacci by length enumerate polynomial q analog (Resultary semantic search)",
+          "Mahalingam Pandoh arXiv:2108.02729 tables 1-4 and statements of SP_t (full PDF)"
+        ]
+      },
+      "rationale": "Best-of-knowledge originality: the complete two-variable generating function enumerates every length of a distinct scattered palindrome in the fixed alternating binary word, and its analytic dominant pole gives new explicit Gaussian length statistics. Mahalingam–Pandoh (2021) treats the SAME scattered palindrome objects, bounds SP_t and total counts, and lists short extremal words; its inspected full mathematical sections do not give the exact marked generating function or Gaussian law for this alternating family. Müllner–Ryzhikov (2019) discusses longest palindromic subsequence bounds, including alternating words of maximum length n−1, but not counts of all distinct palindrome words by length. The Flaxman–Harrow–Sorkin (2004) abstract treats distinct subsequences without palindrome restriction. Current Resultary searches find related binary subsequence work but no equivalent statement. Failure to find coverage is not proof of absolute novelty; residual risk of an unindexed earlier exact length formula or a stronger theorem persists.",
+      "residual_risks": [
+        "An unindexed earlier palindrome-specific bivariate coefficient formula or asymptotic length law for alternating words may exist.",
+        "The general distinct-subsequence enumeration paper by Flaxman–Harrow–Sorkin (2004) was inspected at abstract level only, so a concealed palindrome specialization cannot be categorically excluded.",
+        "Related indexed Resultary records were checked by their returned mathematical summaries rather than complete Git package texts; these differences are clear but their complete source contents were not examined."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Establishes scalar and length-specific bounds and short finite tables; no same rational exact P_n(t) or normal limit was found in inspected complete paper.",
+          "evidence": [
+            "PDF p. 4 Theorem 4.2 gives total Fibonacci upper bound; p. 5 Lemma 4.3 and Remark 4.4 and Lemma 4.5 give inequalities for SP_t; p. 11 Propositions 4.16–4.17 give aggregate upper bounds; tables show only finite comparisons."
+          ],
+          "identifier_or_url": "https://arxiv.org/pdf/2108.02729",
+          "material_read": "Full 19-page primary PDF: definitions, Theorem 4.2, Lemmas 4.3 and 4.5, propositions and bounds in section 4, tables 1–3, section 5, conclusion.",
+          "method": "Full PDF text and screenshot read; compared statements and proof implications for exact all-length equality and Gaussian limit.",
+          "title": "Counting scattered palindromes in a finite word",
+          "trigger": "Closest primary result: distinct scattered palindromic subsequences, binary alternating extremizers, and length-specific counts/bounds."
+        },
+        {
+          "assessment": "Longest subsequence problem, not exact enumerator or Gaussian length distribution of distinct palindromic words.",
+          "evidence": [
+            "PDF p. 5, lines 619–620: alternating zeros and ones admit a palindromic subsequence of length n−1; Conjectures 15–17 are lower bounds for longest-subsequence lengths."
+          ],
+          "identifier_or_url": "https://arxiv.org/pdf/1901.07502",
+          "material_read": "Full seven-page PDF, including statements, section 4 conjectures, alternating word observations and further work.",
+          "method": "Inspected PDF text and first page screenshot; compared longest-length statistic with marked counts over all distinct palindromes.",
+          "title": "Palindromic Subsequences in Finite Words",
+          "trigger": "Potential broader literature on palindrome subsequences of the exact alternating binary object."
+        },
+        {
+          "assessment": "Counts all distinct subsequences; palindromic filtering and distributional asymptotics might require additional work. Uninspected full text remains a priority risk.",
+          "evidence": [
+            "Abstract advertises maximum distinct subsequence/substrings and generating function for a canonical extremal word, not a full palindrome-restricted length distribution."
+          ],
+          "identifier_or_url": "https://www.combinatorics.org/ojs/index.php/eljc/article/view/v11i1r8",
+          "material_read": "Indexed abstract and bibliographic/result summary only; full text not materially inspected.",
+          "method": "Search and abstract-level comparison; not a whole-document noncoverage assessment.",
+          "title": "Strings with Maximally Many Distinct Subsequences and Substrings",
+          "trigger": "Potential broader enumeration of all distinct subsequences for alternating or cyclic binary words."
+        },
+        {
+          "assessment": "These results count universality indices or shortest absent subsequences, not palindrome-word multiplicities in alternating binary prefixes.",
+          "evidence": [
+            "Resultary result SCOPE-closed-form-law-for-binary-subsequence-universality has GF (1+z)/(1-z-2uz²) for a different statistic; SCOPE-fibonacci-extremals-for-shortest-absent-subsequences-of-binary-w counts absent subsequences."
+          ],
+          "identifier_or_url": "https://github.com/Resultary/2026/tree/main/2026/10/4/SCOPE-closed-form-law-for-binary-subsequence-universality--e77c4e8d9f37",
+          "material_read": "Returned indexed titles, summaries and source links, not full original source packages.",
+          "method": "Three separate Resultary semantic queries and comparison of returned mathematical claims; no whole-source noncoverage asserted.",
+          "title": "Published Resultary binary subsequence universality and shortest absent subsequence records",
+          "trigger": "Related published SCOPE findings involving exact bivariate enumerators for binary subsequence statistics."
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "rationale": "The infinite alternating binary word is a classical canonical comparator for distinct scattered palindrome enumeration, not an arbitrary length slice. Known total counts and inequalities on length profiles do not determine the full distribution. The exact marked rational series determines every attainable length coefficient for all prefixes, while the nontrivial positive linear variance and Gaussian weak limit quantify the typical length of a uniformly sampled DISTINCT palindromic subsequence. These are natural unknown structural invariants that a future researcher can use as an exact benchmark for broader words, counts versus occurrences, or refinement questions. It is not merely a renaming of a Fibonacci scalar total or a finite table.",
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "limitations": [
+    "Binary alternating prefixes only: this does not enumerate arbitrary binary word palindromes, contiguous factors, or embedding occurrences.",
+    "Weak central limit theorem and O(1) moment errors only; no local limit theorem, exact large-deviation rate or arbitrary-input generalization is asserted.",
+    "No independent expert/Lean attestation was performed; this is a mathematical audit with independent bounded checks.",
+    "Access/transport blocker affects publication only; it is not a scientific failure and does not reverse the completed C/O/V assessment."
+  ],
+  "schema_version": 1
+}
