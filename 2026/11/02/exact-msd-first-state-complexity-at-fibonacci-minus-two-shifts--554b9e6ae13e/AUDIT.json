@@ -1,0 +1,107 @@
+{
+  "correctness": {
+    "rationale": "The k-state upper bound follows by explicitly counting the k distinct endpoints in the cited MSD interval construction. For the lower bound, the exact Fibonacci rotation identity yields the parity-split single-Fibonacci perturbation table. Each of k-2 standard prefixes has a different last unary-zero output deviation; the exceptional prefix 4 or 6 differs from F_2 only at unary depth zero; zero has no deviation. All k residuals are distinct. The proof checks k>=5 and both parity boundaries. Standalone integer and Decimal computations independently corroborate the finite cases k=5..100 and 5..70.",
+    "status": "PASS"
+  },
+  "independent": false,
+  "independent_audit_status": "not_performed",
+  "originality": {
+    "broader_coverage": {
+      "evidence": [
+        "General-shift theorem provides O(log c) only for MSD.",
+        "LSD-first exact state formula is not an MSD exact statement.",
+        "Indexed base-k subsequence paper has a different domain."
+      ],
+      "reasoning": "Neither an MSD O(log c) existential construction nor an LSD lower bound dominates the exact MSD count; no stronger theorem located.",
+      "searches": [
+        "exact minimal msd-first automata Fibonacci word shift c Zeckendorf state complexity formula",
+        "arXiv:2603.18858v1 Theorems 2–3",
+        "arXiv:2512.10017v1 abstract"
+      ]
+    },
+    "checked_sources": [
+      "arXiv:2603.18858v1, pp. 1–12 and Appendix B relevant sections",
+      "arXiv:2512.10017v1 abstract/scope",
+      "2026/10/11/SCOPE-a-fibonacci-entropy-staircase-and-its-full-scaled-accumulation-i--be7c0c99809f",
+      "2026/10/4/SCOPE-exact-first-two-nontrivial-fibonacci-antipower-radii--fbbdef91020e",
+      "2026/10/4/SCOPE-exact-initial-rank-compression-thresholds-of-the-bactrian-automa--951d475335ba"
+    ],
+    "claim_vs_prior_implication": {
+      "evidence": [
+        "Source endpoint construction gives k-state candidate, not that fewer states are impossible.",
+        "Closest Fibonacci entropy record concerns a subshift invariant, not Zeckendorf DFAO residuals."
+      ],
+      "reasoning": "The original upper bound is a strict logical ingredient; the new matching lower bound is necessary and is supplied by unary distinguishing suffixes. Other near matches do not imply it.",
+      "searches": [
+        "Myhill Nerode lower bound state complexity shifts of Fibonacci word golden ratio rotation",
+        "arXiv:2603.18858v1 Theorem 3, Definition 3, Lemma 5",
+        "2026/10/11/SCOPE-a-fibonacci-entropy-staircase-and-its-full-scaled-accumulation-i--be7c0c99809f"
+      ]
+    },
+    "equivalent_formulations": {
+      "evidence": [
+        "MSD interval-partition cardinality at c=F_k-2 is an upper bound; no equivalence is provided there between construction size and minimum state count.",
+        "published-finding corpus near-match Fibonacci entropy and antipower results address other invariants."
+      ],
+      "reasoning": "A Myhill--Nerode residual-class formulation is equivalent to minimal DFAO count; the source does not prove the k-way residual separation supplied here.",
+      "searches": [
+        "For c=F_k-2, exact k-state minimal most-significant-digit Zeckendorf automata generating shifted Fibonacci word",
+        "Fibonacci word shift by Fibonacci number minus two exact state complexity k minimal msd-first",
+        "arXiv:2603.18858v1; §4 and Appendix B"
+      ]
+    },
+    "exact_database_or_table": {
+      "evidence": [
+        "No exact sequence-of-shifts MSD minimization table or family theorem appeared in returned summaries.",
+        "The principal original paper contains an example c=10, but not the family c=F_k-2 or its minimality."
+      ],
+      "reasoning": "The exact k-value is not a reported table lookup; finite experiments are corroborations and do not replace the infinite lower bound.",
+      "searches": [
+        "For c=F_k-2, exact k-state minimal most-significant-digit Zeckendorf automata generating shifted Fibonacci word",
+        "Fibonacci word shift by Fibonacci number minus two exact state complexity k minimal msd-first",
+        "published-finding corpus semantic search: Fibonacci word shift by Fibonacci number minus two exact state complexity k minimal msd-first"
+      ]
+    },
+    "rationale": "The closest arXiv:2603.18858v1 explicitly gives only an MSD O(log c) construction for arbitrary c and an exact LSD-first formula, while the present theorem proves the missing MSD minimality for every shift F_k-2. Actual published-finding corpus semantic queries and local claim/title comparisons found no covering result. Priority cannot be certified exhaustively.",
+    "residual_risks": [
+      "Potential unindexed prior minimal-state result under a different numeration or Sturmian rotation terminology.",
+      "The main source uses Walnut-derived auxiliary lemmas for the general interval-consistency construction; this proof relies on its published theorem, not on independent rerunning Walnut.",
+      "No independent mathematical referee audit."
+    ],
+    "source_inspections": [
+      {
+        "assessment": "Covers an O(log c) MSD construction and an exact LSD theorem. Specialization of its MSD construction to c=F_k-2 gives k states, but a minimality lower bound for this family is not stated.",
+        "evidence": [
+          "Theorem 3 (§4) is existential O(log c); Theorem 2 (§3) is minimal in LSD-first direction.",
+          "Definition 3, Lemma 5, proof of Theorem 3 give the combined negative-endpoint partition used here.",
+          "Appendix B gives the flipping/drop lemmas and proves interval consistency."
+        ],
+        "identifier_or_url": "https://arxiv.org/pdf/2603.18858",
+        "material_read": "Definitions and statements in §§1–4, Theorem 2 (LSD), Theorem 3 (MSD), the endpoint construction in §4, the full interval-consistency proof flow in Appendix B §§B.1–B.2, and the MSD example/figure.",
+        "method": "Opened the 23-page primary arXiv PDF, read text for cited sections and the nonstandard endpoint argument, and inspected its diagram on page 8.",
+        "title": "State Complexity of Shifts of the Fibonacci Word",
+        "trigger": "Exactly the same shifted Fibonacci word and MSD-first Zeckendorf automata."
+      },
+      {
+        "assessment": "The abstract addresses indexed subsequences h(ni+c) and automaton operations in base k, not an exact Fibonacci Zeckendorf shift count.",
+        "evidence": [
+          "Primary arXiv abstract lists k-automatic operations and linear subsequences, rather than this MSD Fibonacci state count."
+        ],
+        "identifier_or_url": "https://arxiv.org/abs/2512.10017",
+        "material_read": "arXiv abstract, scope, and submission history.",
+        "method": "Opened primary arXiv abstract record; did not inspect full text, because the object is base-k indexed linear subsequences, not the special Fibonacci-automatic MSD shift family.",
+        "title": "Complexity of Linear Subsequences of k-Automatic Sequences",
+        "trigger": "Related state complexity under input transformations, cited in the main source."
+      }
+    ],
+    "status": "PASS"
+  },
+  "review_type": "self_review",
+  "schema_version": 1,
+  "scope_run_id": "554b9e6a-e13e-4c89-9edf-694eede22589",
+  "self_review_status": "passed",
+  "value": {
+    "rationale": "Determines the exact minimum descriptional complexity along the canonical growing shift family F_k-2, turning a logarithmic upper bound into sharp equality. The witnesses explain structurally why the k interval states cannot be merged, making this a motivated infinite, nontrivial refinement of an explicitly studied complexity question, not an arbitrary finite table or routine numeric increment.",
+    "status": "PASS"
+  }
+}
