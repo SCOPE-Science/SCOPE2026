@@ -1,0 +1,125 @@
+{
+  "audit_date_utc": "2026-10-26",
+  "audited_at_utc": "2026-10-26T16:51:12Z",
+  "axes": {
+    "correctness": {
+      "rationale": "The arithmetic-mean absolute-deviation BMOd seminorm has denominator 1/2 on every jump e^(m) (bounded range and interval [1,2m]). For Ce^(2), starts s>=4 have range at most 1/2, hence oscillation <=1/4. Starts s=1,2,3 with t>=128 have oscillation <=4H_t/(t-2)<4/21<1/4. Exhaustive exact rational calculation on the remaining 3x127 short blocks yields maxima 3371/13440 at [1,8], 76/375 at [2,6], 1663/13440 at [3,10]. For m=1, the [1,3] ratio is 14/27. For m>=3, interval [1,4m] and k=floor(5m/3) give L_m=1+H_k-H_m - (k/(4m))(1+H_4m-H_m). For 3<=m<=199 exact rational enumeration gives min L_3=167723/332640>3371/6720. For m>=200, harmonic integral comparisons and verified rational bounds log(997/600)>507/1000, log4<1387/1000 give L_m>6089/12000>3371/6720. Thus m=2 uniquely minimizes over all positive integers, with no infinite inference from finite computations alone.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Caldera Proposition 5.1 gives only ||Ca||_BMOd >= alpha_0/8 ||a||_BMOd for nonnegative decreasing sequences.",
+          "Caldera Theorem 4.2 computes the sharp continuous BMO constant alpha_0, not the discrete alpha_d.",
+          "Ben Said, Boza, Soria (2025) Theorem 2.4 treats the l^p operator norm of C-I on nonnegative sequences. The 2026 paper treats Hardy/Copson-minus-identity L^p norms."
+        ],
+        "reasoning": "An exact universal discrete reverse BMO inequality could imply the benchmark bound if it established equality for a jump, but the inspected universal statements give neither the exact value nor the unique index. Operator differences in l^p and their sharp constants do not mechanically give intervalwise BMO mean absolute deviations.",
+        "searches": [
+          "Caldera arXiv:2608.08093 Theorem 4.2 Proposition 5.1 Conjecture 1",
+          "Ben Said Boza Soria 2025 UCM PDF Theorem 2.4",
+          "Ben Said Boza Soria 2026 reverse Hardy-type inequalities oscillation operators abstract",
+          "Resultary reverse Hardy BMO decreasing sequences one jump"
+        ]
+      },
+      "checked_sources": [
+        "https://arxiv.org/pdf/2608.08093",
+        "https://www.ucm.es/garf/file/ben-said-boza-soria?ver=",
+        "https://doi.org/10.1007/s12215-026-01455-1",
+        "https://upcommons.upc.edu/entities/publication/689333fd-5d4c-41a3-a413-6d89d7fd79f5",
+        "https://github.com/Resultary/2026"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "Caldera alpha_d is precisely the one-jump ratio infimum; its Proposition 5.1 yields only the much smaller alpha_0/8 estimate.",
+          "The continuous sharp alpha_0 is about 0.521236 and depends on dilation symmetry not shared by the discrete jump lengths.",
+          "The l^p C-I and Copson-I theorems estimate different norm/operator pairs."
+        ],
+        "reasoning": "The submitted all-m exact rational minimization is not a consequence of the weaker inequality or the continuous theorem, and conversely it does not imply the universal discrete conjecture.",
+        "searches": [
+          "arXiv 2608.08093 Section 5.1 Proposition 5.1 Conjecture 1",
+          "Ben Said Boza Soria The norm of Hardy-type oscillation operators, UCM PDF §§2–4",
+          "Resultary exact discrete Hardy BMO one jump comparison"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Caldera §5.1 writes alpha_d=inf_m ||Ce^(m)||_BMOd/||e^(m)||_BMOd and proposes its universal validity as Conjecture 1, without evaluating the infimum.",
+          "The exact ratio here is 3371/6720 and the unique minimizer is m=2; the same-invariant database result is the finding under assessment and not external priority evidence."
+        ],
+        "reasoning": "The target is exactly the alpha_d parameter already defined in Caldera, not a redefinition of its conjectured universal inequality. The source defines alpha_d without evaluating it or selecting a minimizing jump length.",
+        "searches": [
+          "Published research-record search: discrete reverse Hardy inequality BMO one-jump alpha_d minimizing m 2 3371/6720 Cesaro",
+          "Scientific literature search: exact fraction 3371/6720 BMO Cesaro",
+          "Caldera, arXiv:2608.08093v1, §5.1"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "The nearest Resultary hit reproduces this submitted finding and is not independent priority evidence.",
+          "Caldera §5.1 contains a symbolic infimum and no numerical table evaluating the jump lengths."
+        ],
+        "reasoning": "Neither a separate exact-value table nor a published independent computation of this fraction was found. Absence from these bounded searches does not establish absolute novelty.",
+        "searches": [
+          "Published research-record search: discrete reverse Hardy BMO exact alpha_d 3371/6720",
+          "Scientific literature search: 3371/6720 BMO Hardy",
+          "Scientific literature search: 3371 6720 Cesaro BMO"
+        ]
+      },
+      "rationale": "The precise one-jump BMOd infimum alpha_d is introduced but not evaluated in Caldera (2026), §5.1, equations (74)-(75), where the universal inequality for decreasing sequences remains a conjecture. The sharp continuous inequality is distinct from the discrete benchmark. Full primary source comparison of Cesaro-minus-identity l^p operators does not cover the BMOd seminorm of Ce^(m). Available searches found no independently published exact alpha_d evaluation. This is a best-of-knowledge assessment, with residual bibliographic risks.",
+      "residual_risks": [
+        "An equivalent exact computation may appear in unindexed or unpublished work; absence from searched sources is not a novelty proof.",
+        "The full published 2026 reverse oscillation article could not be inspected line by line; its abstract points to a different norm but may omit related observations."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "The source defines alpha_d but leaves it unevaluated. It proves alpha_0/8 over nonnegative decreasing sequences and a sharp continuous theorem, neither implying the submitted exact rational alpha_d.",
+          "evidence": [
+            "§5.1 (PDF pp. 12–13): discrete BMOd mean absolute deviation and Cesaro definitions; Proposition 5.1 alpha_0/8; definition of alpha_d and Conjecture 1.",
+            "§4 Theorem 4.2: continuous nonincreasing Hardy-BMO sharp inequality."
+          ],
+          "identifier_or_url": "https://arxiv.org/pdf/2608.08093",
+          "material_read": "Complete 14-page primary PDF as indexed; primary statements and proofs including Introduction, Theorem 4.2, §5.1 Proposition 5.1, one-jump infimum and Conjecture 1, §5.2 and references; inspected page images 12–13.",
+          "method": "Compared actual discrete definitions, theorems, proof and implication with the candidate ratio.",
+          "title": "The sharp reverse Hardy inequality in BMO for nonincreasing functions",
+          "trigger": "Defines the identical alpha_d one-jump benchmark and associated discrete conjecture."
+        },
+        {
+          "assessment": "Sharp norms of C-I and related operators on l^p/L^p cones, not the discrete BMOd seminorm of Ce^(m), so the inspected theorems do not cover alpha_d.",
+          "evidence": [
+            "Theorem 2.4 gives ||C-I||_{l^p_+}=1 for p>=2.",
+            "Introduction and §§2–4 identify l^p/L^p norms of C-I, C*-I and H*-I as objects."
+          ],
+          "identifier_or_url": "https://www.ucm.es/garf/file/ben-said-boza-soria?ver=",
+          "material_read": "25-page primary PDF abstract and introduction, inspected Theorems 2.4, 3.3 and 3.8, and introductory section 4 synopsis; page 3 screenshot inspected.",
+          "method": "Compared exact operator norms, domains, and hypotheses.",
+          "title": "The norm of Hardy-Type oscillation operators in the discrete and continuous settings",
+          "trigger": "Similar title and the same Cesaro operator; potential dominating theorem."
+        },
+        {
+          "assessment": "The accessible material describes sharp lower L^p bounds of H-I, rather than the exact BMOd alpha_d; a hidden related result in inaccessible details remains possible.",
+          "evidence": [
+            "Published abstract specifies difference of Hardy operator and identity on L^p(R+) cones for 1<p<infinity."
+          ],
+          "identifier_or_url": "https://doi.org/10.1007/s12215-026-01455-1",
+          "material_read": "Published abstract and UCM PDF index/snippet; full publisher manuscript not accessible during this assessment.",
+          "method": "Compared stated L^p Hardy-minus-identity operator with BMOd Ce^(m) and recorded material-access limit.",
+          "title": "On sharp reverse Hardy-type inequalities for oscillation operators in the discrete and continuous settings",
+          "trigger": "Near-title and sharp reverse Hardy oscillation language; plausible competing work."
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "rationale": "The constant alpha_d is explicitly singled out in a primary research conjecture as the precise one-jump benchmark/necessary ceiling for any universal discrete reverse Hardy–BMO constant. Its exact evaluation over all jump lengths is a naturally motivated invariant, and the discrete optimizer m=2 differs from scale-invariant continuous one-jump extremizers. The result neither proves nor claims the universal conjecture for arbitrary decreasing sequences.",
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "limitations": [
+    "No universal reverse inequality for arbitrary nonincreasing sequences is proved.",
+    "The nearby published 2026 Hardy-minus-identity Lp paper was not examined in full; a hidden overlapping observation is possible.",
+    "Originality is a best-of-knowledge assessment, not a declaration of historical priority or external certification.",
+    "The proposed science-neutral public updates were staged and verified locally; no repository writes or certificate issuance occurred."
+  ],
+  "schema_version": 1
+}
