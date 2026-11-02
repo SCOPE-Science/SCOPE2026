@@ -1,0 +1,151 @@
+{
+  "correctness": {
+    "rationale": "For every odd n >= 3, parity-reindexing gives a bijection between source states and cyclic edge-AND assignments. Forced boundary bits and independent-set enumeration give the exact Fibonacci factor per maximal zero run, while the two constant outputs yield Lucas(n) and one predecessor. The antitone-Galois argument proves F^3=F for all graph sizes. A Fibonacci addition inequality bounds every nonconstant fiber and proves strict uniqueness of the Lucas-plus-one basin. Direct exhaustive Python and separately implemented C++ tests compared every source and output state through n=19 and n=21, respectively. The uniform claim rests on the proof rather than finite tests.",
+    "status": "PASS"
+  },
+  "independent": false,
+  "independent_audit_status": "not_performed",
+  "originality": {
+    "broader_coverage": {
+      "evidence": [
+        "Jen 1988 DOI 10.1007/BF01221109 abstract explicitly offers matrices for number of fixed points and strings in periodic orbits, including complete attractor structure for all two-neighbor rules.",
+        "Jen 1989 full PDF pp. 421–456 (sections 2,3,5 and Appendix A) covers arbitrary finite *blocks* on infinite lattices; it gives general predecessor recurrences.",
+        "Fukś 2003 full PDF pp. 29–43 tabulates preimages of eight basic radius-one blocks through iterates."
+      ],
+      "reasoning": "Jen 1988 likely covers the recurrent-point census and must be credited for it; the abstract does not claim exact attraction-basin sizes, but its full inaccessible text leaves a genuine specific historical risk. Jen 1989 general formulae allow recursive calculation of one-step preimages for spatial blocks; the claim here evaluates periodic-closure fibers for all full circular words in a closed product and proves the strict global basin extremum.",
+      "searches": [
+        "\"Cylindrical cellular automata\" \"Rule 5\" preimages 1988",
+        "\"Cylindrical cellular automata\" \"Jen\" \"Rule 5\" \"basin\"",
+        "\"Enumeration of Preimages in Cellular Automata\" \"rule 5\" Jen 1989 PDF",
+        "Erica Jen 1988 cylindrical cellular automata NOR Rule 5 odd cycle basin predecessor counts"
+      ]
+    },
+    "checked_sources": [
+      "doi:10.1007/BF01221109 (abstract only)",
+      "Jen, Complex Systems 3 (1989) 421-456, full PDF",
+      "Fukś, Complex Systems 14 (2003) 29-43, full PDF",
+      "https://lie.ac.brocku.ca/~hfuks/solvableca.html",
+      "https://oeis.org/A109377",
+      "arxiv:1503.07397, HTML contents",
+      "Previously published open-NOR results on graph joins, paths, rook graphs, and other graph families"
+    ],
+    "claim_vs_prior_implication": {
+      "evidence": [
+        "Prior public Rule-5 identities imply period at most 2 after one step, and Jen 1988 and OEIS cover recurrence/census; these facts are treated solely as background.",
+        "The new cyclic-AND reduction and run factorization directly prove every predecessor fiber; Lucas-versus-Fibonacci comparison then proves a unique largest full basin."
+      ],
+      "reasoning": "Existing period and image-size claims do not imply numerical individual fiber sizes: multiple maps can have identical periodic point counts and different basin profiles. A generic transfer-matrix preimage method can be specialized in principle, but no inspected primary source evaluates this odd-ring all-word product or its sharp unique basin extremum. The original conclusion is confined to these evaluated invariants.",
+      "searches": [
+        "Parallel NOR cellular automata cycle graph attractor basin Lucas Fibonacci zero runs",
+        "Rule 5 CA odd ring Fibonacci zero run basin unique maximal two-cycle",
+        "open neighborhood NOR synchronous dynamics on odd cycles: forbidden 101 binary words modulo step-two permutation, Perrin fixed points Fibonacci preimage fibers Lucas largest basin"
+      ]
+    },
+    "equivalent_formulations": {
+      "evidence": [
+        "Fukś Rule-5 formula (https://lie.ac.brocku.ca/~hfuks/solvableca.html) explicitly identifies the NOR nearest-neighbor rule and its two-time oscillation.",
+        "Jen 1989, https://content.wolfram.com/sites/13/2018/02/03-5-2.pdf, section 2 derives generic preimage recurrences for one-dimensional rules on an infinite lattice, and section 3 lists Rule 5 as type D."
+      ],
+      "reasoning": "The ECA Rule-5 name is exact dynamical equivalence, not a different problem. The public Rule-5 iteration identity yields F³=F, but not the evaluated product over cyclic runs of the entire n-bit output or the sharp comparison of complete basins. Infinite-lattice finite-block preimages cannot be substituted for periodic-boundary full-state preimages without a separate cyclic closure argument.",
+      "searches": [
+        "\"Rule 5\" \"preimage\" \"Fibonacci\" cyclic configurations",
+        "\"rule 5\" \"attractor\" \"basin\" \"Lucas\" cellular automata",
+        "Rule 5 elementary cellular automaton odd periodic boundary all inverse fibers Fibonacci products zero-run lengths, largest attraction basin Lucas(n)+1"
+      ]
+    },
+    "exact_database_or_table": {
+      "evidence": [
+        "https://oeis.org/A109377 explicitly tabulates cyclic words avoiding isolated symbols, giving precisely the known image-size sequence at odd ring lengths.",
+        "Fukś 2003 table of eight basic block preimage counts includes Rule 5 but not all circular output-state basin volumes."
+      ],
+      "reasoning": "The total recurrent-state sequence agrees with OEIS A109377 (after a shift), and therefore is not presented as a new invariant. The exact input-to-attractor basin size for each individual periodic state and its unique maximum is a different object from that integer sequence and the eight block-preimage tables.",
+      "searches": [
+        "OEIS A109377 cyclic binary strings no isolated symbols",
+        "\"rule 5\" \"preimages\" \"Fibonacci\" \"periodic\""
+      ]
+    },
+    "rationale": "The final evaluated result is the full individual odd-ring periodic-boundary fiber product and the sharp unique largest complete attraction basin. Known Rule-5 temporal formula, Jen general finite-cylinder recurrent census, Jen general infinite-word preimage recurrences, and the OEIS isolated-symbol count are explicitly excluded from the novelty claim. No checked source establishes the evaluated all-target periodic cyclic run product or unique basin ranking; Jen 1988 full text is unavailable and remains a named priority risk.",
+    "residual_risks": [
+      "Jen (1988) Cylindrical cellular automata full paper could contain an unlocated exact cycle-basin computation; only abstract accessible despite bounded attempts.",
+      "Jen (1989) generic predecessor recurrences and the 1988 unpublished full table of elementary-rule preimage formulae may be specialized to an equivalent explicit statement in material not inspected.",
+      "Other unindexed Rule-5 periodic-boundary prior art could present the same Fibonacci-run product. Unsuccessful bibliographic and mathematical database searches are not proofs of novelty."
+    ],
+    "source_inspections": [
+      {
+        "assessment": "Covers the F³=F / period-two stabilization implication, not target-by-target cyclic predecessor counts or attractor basins.",
+        "evidence": [
+          "Rule 5 row writes the two time-parity formulas as expressions in x at offsets 1 and 2."
+        ],
+        "identifier_or_url": "https://lie.ac.brocku.ca/~hfuks/solvableca.html",
+        "material_read": "Complete brief HTML page including the full displayed Rule 5 formula",
+        "method": "Direct HTML inspection of explicit time-parity update formula",
+        "title": "Deterministic solution formulae for elementary CA rules",
+        "trigger": "Exact local Rule-5 alias and prior period law"
+      },
+      {
+        "assessment": "Its Rule-5 counts concern eight basic finite blocks under iterated rules, not every full cyclic output or attractor basin.",
+        "evidence": [
+          "PDF first page defines n-step block preimages; section 2 and Appendix enumerate eight basic blocks; rule 5 occurs explicitly."
+        ],
+        "identifier_or_url": "https://arxiv.org/abs/1305.6533; https://wpmedia.wolfram.com/uploads/sites/13/2018/02/14-1-2.pdf",
+        "material_read": "Full PDF text of sections 1–4, Rule-5 entries in Appendix and density table; visual inspection of pages 29,33,38",
+        "method": "Full-text PDF search, section reading and page-image confirmation",
+        "title": "Sequences of Preimages in Elementary Cellular Automata",
+        "trigger": "Direct Rule-5 preimage table and possible dominating exact result"
+      },
+      {
+        "assessment": "Gives strong general recurrence-based prior art on infinite-lattice finite blocks; does not directly print periodic odd-ring all-output run-product formula or full attractor-basin ranking.",
+        "evidence": [
+          "The introduction and summary explicitly scope finite spatial sequences on infinite lattices; Rule 5 is listed as type D; section 5.4 considers maximum probability for certain other rules."
+        ],
+        "identifier_or_url": "https://content.wolfram.com/sites/13/2018/02/03-5-2.pdf",
+        "material_read": "Full 36-page PDF text including introduction, general recurrences section 2, rule taxonomy section 3, 5.4 maximum probabilities, summary, Appendix A; visual inspection pages 421 and 428",
+        "method": "Full-text PDF search with cross-section comparisons and page-image confirmation",
+        "title": "Enumeration of Preimages in Cellular Automata",
+        "trigger": "Potential exact arbitrary-target one-step predecessor theorem"
+      },
+      {
+        "assessment": "Likely covers periodic orbit counts in this paper and is cited as such; the decisive novel basin-profile issue cannot be checked against its full text, recorded as residual priority risk.",
+        "evidence": [
+          "Abstract explicitly says its method counts fixed points and strings of any fixed period for arbitrary cylinder sizes; no basin counts appear in the accessible abstract."
+        ],
+        "identifier_or_url": "https://doi.org/10.1007/BF01221109; https://scixplorer.org/abs/1988CMaPh.118..569J/abstract",
+        "material_read": "Bibliographic abstract and publication details only; full paper was not accessible",
+        "method": "arXiv/legitimate OA web searching and publisher abstract examination; lawful full text was not available",
+        "title": "Cylindrical cellular automata",
+        "trigger": "Most plausible complete coverage of periodic-rule-5 ring attractors"
+      },
+      {
+        "assessment": "Covers the old count of periodic states, so that count is excluded from novelty.",
+        "evidence": [
+          "Cyclic no-isolated-symbol words and sequence values 5,17,51,158... after the appropriate length shift."
+        ],
+        "identifier_or_url": "https://oeis.org/A109377",
+        "material_read": "Complete current OEIS entry with recurrence, cyclic-word description, author date and link to revision history",
+        "method": "Direct HTML inspection and independent transfer-matrix calculation",
+        "title": "OEIS A109377",
+        "trigger": "Exact numerical-table equivalence for cyclic no-isolated-bit state counts"
+      },
+      {
+        "assessment": "Graph maxterm/minterm background uses self-including neighborhood in major theorems and does not state the precise cyclic Rule-5 individual-basin product.",
+        "evidence": [
+          "Background fixed-point relationships and differing local update conventions."
+        ],
+        "identifier_or_url": "https://arxiv.org/abs/1503.07397",
+        "material_read": "HTML full-text sections on maxterm/minterm and parallel graph dynamics",
+        "method": "Direct publication reading and comparison of closed versus open neighborhoods",
+        "title": "Parallel Dynamical Systems over Graphs and Related Topics",
+        "trigger": "Graph Boolean NOR definitions and known fixed point correspondences"
+      }
+    ],
+    "status": "PASS"
+  },
+  "review_type": "self_review",
+  "schema_version": 1,
+  "scope_run_id": "9b825fd6-faf8-41dc-9fe8-e78981932f17",
+  "self_review_status": "passed",
+  "value": {
+    "rationale": "The odd ring is the minimal natural nonbipartite family excluded from previously counted bipartite open-NOR cases. Complete individual-basin information is a natural phase-space invariant not determined by recurrent-state counts. The cyclic Fibonacci factorization computes each labelled attractor basin directly from its zero-run geometry and proves a sharp unique largest attractor with asymptotically vanishing attraction probability. The result answers a motivated all-size classification question, not an arbitrary small parameter slice.",
+    "status": "PASS"
+  }
+}
