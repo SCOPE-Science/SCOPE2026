@@ -1,0 +1,11 @@
+# Scientific assessment
+
+**Correctness — PASS.** An exact geometric-circuit resolvent identity is reconstructed from the directed generator. Off-diagonals of the completed step are positive, and a strict inequality for products of numbers in the unit interval proves monotonicity of every diagonal resolvent without invoking reversibility. The maximum-rate ordering and unique root give both directions of the sharp positivity threshold. The uniform-rate asymptotic follows from an exponential bound and the root identity. The standalone exact-rational checker covers 6,020 finite cases; these are corroboration, not a substitute for the general argument.
+
+**Originality — PASS, with limitations.** The general diagonal-resolvent criterion is explicitly prior work. The most directly relevant published general result establishes one-interval thresholds under reversibility and expressly does not classify nonreversible windows. The present cyclic geometric factorization and inequality establish the missing nonreversible monotonicity and identify the departure-rate extremum. The 2001 SSP study and a full 2023 study on symmetric Dirichlet heat grids do not state this all-rate directed-cycle result. Searching its key aliases returned no dominating theorem. Residual risk is specialized older research on unidirectional transport loops or Cayley transforms not exposed by those searches.
+
+**Mathematical value — PASS.** Nonreversible transport rings are a natural discretization/Markov family in which a method stable in the usual scalar sense can nevertheless produce negative concentrations. The exact admissible range for arbitrary inhomogeneous rates, the surprising maximum-rate bottleneck, and the exponentially precise homogeneous-size law provide usable, structurally motivated design information. The theorem does not merely substitute an eigenvalue in the reversible formula; it proves a new strict crossing property without reversible spectral positivity.
+
+Closest source: *A resolvent-return law for Crank–Nicolson positivity on reversible Markov chains*, published research record (2026), together with Gottlieb–Shu–Tadmor (2001) and Higueras–Roldán (2023).
+
+Self-review: passed. Independent audit: not yet performed.
