@@ -1,0 +1,135 @@
+{
+  "correctness": {
+    "rationale": "A fully explicit KKT description gives a piecewise-affine projector. On a strict face of k free cells, the zero-sum tangent Jacobian has exact supnorm 1+min(N-k,k-2)/k; the proof gives both sign-configuration maximizers and the all-face maximum. Generic-segment integration supplies a global bound; all interior masses admit a strict-face equality witness. Fraction-based tests exhaust tangent cube vertices for N<=10, test 90 mass-specific exact witnesses, and replay floating-point projected pairs. The proof, not finite checks, covers all dimensions. N=2 is handled by the identity on feasible interior pairs.",
+    "status": "PASS"
+  },
+  "independent": false,
+  "independent_audit_status": "not_performed",
+  "originality": {
+    "broader_coverage": {
+      "evidence": [
+        "Lee–Lee–Liu 2026, Section 3, Theorem 6: L2 nonexpansiveness of the full cell-average postprocessor.",
+        "Wang–Lu 2015 gives the optimization algorithm and KKT system rather than a sharp l-infinity Lipschitz theorem.",
+        "Published cross-polytope projection finding 5177ec842d41 concerns a different constraint body and ambient ell_p geometry."
+      ],
+      "reasoning": "Hilbert-space 1-Lipschitz control is not a sharp l-infinity bound. A generic unrestricted-input projection Jacobian bound 2-2/N does not imply the sharper mass-restricted formula 2-2/(floor(N/2)+1) or its equality constructions. Published cross-polytope projection estimates do not logically dominate the equal-mass capped-simplex calculation.",
+      "searches": [
+        "published-finding corpus: projection onto hyperplane intersect cube restricted to hyperplane l_infty Lipschitz constant active set floor(n/2)+1",
+        "published-finding corpus: sharp fixed-mass infinity-norm Lipschitz constant cell-average conservative limiter capped simplex 2-2/(floor(n/2)+1)",
+        "arXiv:2610.33449v1",
+        "arXiv:1503.01002v1"
+      ]
+    },
+    "checked_sources": [
+      "https://arxiv.org/html/2610.33449v1",
+      "https://arxiv.org/html/1503.01002v1",
+      "https://arxiv.org/html/2602.23336v1",
+      "https://github.com/Resultary/2026/tree/main/2026/10/11/SCOPE-exponent-invariant-cross-polytope-projection-and-its-sharp-lipsc--5177ec842d41",
+      "https://arxiv.org/html/1906.08707v3"
+    ],
+    "claim_vs_prior_implication": {
+      "evidence": [
+        "2026 numerical-PDE primary source proves nonexpansiveness exclusively in the Hilbert L2 metric, not maximum norm for two infeasible states.",
+        "2015 projection algorithm establishes the clipping rule, which is a premise of the current proof, not the optimized restricted operator-norm statement.",
+        "2026 classification paper derives a Euclidean 1/tau Lipschitz guarantee; the sharp mass-constrained l-infinity constant is neither stated nor implied by that metric estimate alone.",
+        "2019 limited multi-label projection solves an entropy-regularized problem, so its Jacobian and Lipschitz properties do not immediately characterize the Euclidean capped-simplex projector."
+      ],
+      "reasoning": "The new conclusion is a strict supnorm amplification bound with an all-dimension equality witness, beyond the published norm used in the motivating PDE theorem. The current proof genuinely adds the constrained tangent-cube norm computation and mass-uniform realization. It is not a new projection algorithm or a claim that a single feasible-reference PDE error is amplified.",
+      "searches": [
+        "arXiv:2610.33449v1 Section 3 metric projection, stability, nonexpansiveness",
+        "arXiv:1503.01002v1 Section 3 KKT proof",
+        "arXiv:2602.23336v1 Proposition 1",
+        "published-finding corpus: differentiable zero-one loss hypersimplex projection Lipschitz norm on affine mass hyperplane"
+      ]
+    },
+    "equivalent_formulations": {
+      "evidence": [
+        "Wang–Lu 2015, Sections 1–3: min Euclidean distance with box and prescribed sum; active coordinates are shifted by a common threshold, not a computed fixed-sum maximum-norm modulus.",
+        "Gomez–Wang–Tang 2026, Sections 4.3–4.4 and Proposition 1: hypersimplex and Euclidean Lipschitz bound, not the sharp fixed-mass supnorm modulus.",
+        "Amos–Koltun–Kolter 2019, Section 3 uses the same cube slice but an entropy-regularized nonlinear projection, not the Euclidean closest-point map."
+      ],
+      "reasoning": "The finite-volume limiter on equal-volume cells is identical to capped-simplex projection after common-bound affine normalization; its tangent Jacobian depends crucially on both the free coordinates and the zero-sum restriction. The known KKT formula gives the starting map but does not itself state the optimized constant, the dimension-four threshold, or sharp constructions for every mass.",
+      "searches": [
+        "published-finding corpus: capped simplex Euclidean projection mass conserving finite-volume cell average sharp sup norm Lipschitz stability fixed mass ℓ∞",
+        "Web: \"capped simplex\" \"Lipschitz\" \"infinity\" projection",
+        "arXiv:1503.01002v1",
+        "arXiv:2602.23336v1",
+        "arXiv:1906.08707v3 Sections 2–3"
+      ]
+    },
+    "exact_database_or_table": {
+      "evidence": [
+        "Closest matched published-finding corpus IDs: 2026/10/11/SCOPE-exponent-invariant-cross-polytope-projection-and-its-sharp-lipsc--5177ec842d41; 2026/10/11/SCOPE-exact-lipschitz-stability-and-contractivity-threshold-for-weight--c92b6dad1bd0; 2026/10/4/SCOPE-exact-positivity-defect-and-max-norm-of-the-affine-least-squares--99c2b9dd9b34.",
+        "Published 2015 capped-simplex algorithm supplies no table of fixed-mass l-infinity moduli; 2026 limiter paper tabulates numerical L2 convergence, not these constants."
+      ],
+      "reasoning": "No exact constant sequence or first-expansion dimension for this same map and fixed-mass domain appeared in the searched records. Database coverage is incomplete; absence of a match is supporting evidence only, not novelty proof.",
+      "searches": [
+        "published-finding corpus: zero sum input perturbations simplex projection high dimension sharp max norm amplification 4/3 for 4 variables",
+        "published-finding corpus: projection onto a capped simplex with fixed-sum inputs 4/3 amplification first four cells and approaches 2",
+        "Web: \"fixed sum\" \"box projection\" \"infinity norm\" Lipschitz"
+      ]
+    },
+    "rationale": "An exact new fixed-mass supnorm stability classification is derived by maximizing the active-face Jacobian on the sum-zero tangent cube; the full 2026 cell-average primary source proves only L2 nonexpansiveness, the full 2015 capped-simplex source supplies KKT projection without this norm threshold, and the 2026 hypersimplex paper gives Euclidean Lipschitz control, and the 2019 limited multi-label paper uses a different entropy metric. Searches of published mathematical records and mathematical literature found no equivalent or dominating statement. This is a best-knowledge priority judgment, not proof of uniqueness; general projection-sensitivity literature is a residual risk.",
+    "residual_risks": [
+      "An older general polyhedral-projection sensitivity theorem or unindexed capped-simplex analysis may entail the sharp constant without using the same terminology.",
+      "The published cross-polytope record was compared by indexed abstract/summary only because repository full text was unavailable.",
+      "The new estimate treats two possibly infeasible fixed-mass inputs; it cannot be extended unqualified to different mass budgets or unequal cell volumes."
+    ],
+    "source_inspections": [
+      {
+        "assessment": "Defines same equal-volume special-case projection; proves Hilbert L2 nonexpansiveness and total-variation decline; does not give sharp fixed-mass pairwise supnorm modulus",
+        "evidence": "arXiv:2610.33449v1 (2026-10-24), Section 3 equations (14)–(16), Theorem 6, text around lines 194–216 and 341–355",
+        "identifier_or_url": "https://arxiv.org/html/2610.33449v1",
+        "material_read": "Accessible arXiv HTML abstract, Sections 2–4 (particularly limiter equations (14)–(16), Lemma 1, and Theorems 3–6), and Appendix A checked for related claims",
+        "method": "Read arXiv v1 HTML and compared definitions and theorem statements",
+        "title": "Optimization-based Cell Average Limiters as Metric Projections: Constrained Evolution and Convergence Analysis for Convection-diffusion Equations",
+        "trigger": "Identical numerical cell-average limiter and its strongest reported stability norm"
+      },
+      {
+        "assessment": "Publishes the projection formula and computational algorithm; does not state the restricted maximum-norm sharp factor or all-mass equality construction",
+        "evidence": "arXiv:1503.01002v1 (2015-03-03), equations (1), (2), (3)–(7) and Algorithm 1",
+        "identifier_or_url": "https://arxiv.org/html/1503.01002v1",
+        "material_read": "Accessible arXiv HTML Sections 1–3 including the projection algorithm, complete KKT conditions and derivation",
+        "method": "Read arXiv v1 HTML; followed the clipping and active-set equations",
+        "title": "Projection onto the capped simplex",
+        "trigger": "Identical convex feasible set and strongest direct antecedent"
+      },
+      {
+        "assessment": "Uses the same projection body and Euclidean 1/tau Lipschitz property for a scaled input; no sharp fixed-total-mass supnorm perturbation theorem",
+        "evidence": "arXiv:2602.23336v1, Sections 4.3–4.4, Proposition 1",
+        "identifier_or_url": "https://arxiv.org/html/2602.23336v1",
+        "material_read": "Accessible arXiv HTML Sections 2–4, particularly the Euclidean projection and Propositions 1–2, with Appendix checked for related claims",
+        "method": "Read primary arXiv HTML and checked bound metric and assumptions",
+        "title": "Differentiable Zero-One Loss via Hypersimplex Projections",
+        "trigger": "Same box-and-sum feasible set, Lipschitz analysis in another application"
+      },
+      {
+        "assessment": "Cross-polytope and ambient ell_p projection, not capped-simplex projection restricted to fixed-mass hyperplane; full implication comparison limited by inaccessible repository text",
+        "evidence": "published-finding corpus ID 2026/10/11/SCOPE-exponent-invariant-cross-polytope-projection-and-its-sharp-lipsc--5177ec842d41",
+        "identifier_or_url": "https://github.com/Resultary/2026/tree/main/2026/10/11/SCOPE-exponent-invariant-cross-polytope-projection-and-its-sharp-lipsc--5177ec842d41",
+        "material_read": "published-finding corpus published title, summary, query match metadata; full repository text not accessible",
+        "method": "Compared the indexed theorem statement/domain and attempted public URL retrieval",
+        "title": "Exponent-invariant cross-polytope projection and its sharp Lipschitz threshold",
+        "trigger": "Published exact Lipschitz projection constants might dominate the new conclusion"
+      },
+      {
+        "assessment": "Although its feasible set is the same cube slice for integer mass, it uses an entropy-regularized projection with logistic response rather than the Euclidean limiter; its sensitivity analysis does not imply the proposed sharp constant.",
+        "evidence": "arXiv:1906.08707v3, Sections 2.1 and 3, equations (1), (3), (5)–(7)",
+        "identifier_or_url": "https://arxiv.org/html/1906.08707v3",
+        "material_read": "Accessible arXiv HTML Sections 2–3, especially optimization problem (1), KKT-derived sigmoid formula and backpropagation equations (5)–(7), and appendix topic headings",
+        "method": "Read source arXiv v3 HTML and contrasted entropy versus Euclidean projection objectives",
+        "title": "The Limited Multi-Label Projection Layer",
+        "trigger": "Exact same capped cube-slice feasible set and derivative through a constrained projection"
+      }
+    ],
+    "status": "PASS"
+  },
+  "review_type": "self_review",
+  "schema_version": 1,
+  "scope_run_id": "60ccb490-d89d-4a5e-930d-176c7e71a834",
+  "self_review_status": "passed",
+  "value": {
+    "rationale": "The motivating numerical-PDE limiter preserves mass and bounds with proved L2 stability, but does not quantify the maximum-norm response to two equally conservative approximate cell-average vectors. The sharp factor pinpoints the first amplification at four cells and grows toward two, supplying an exact perturbation budget for comparing solver outputs, iterative inaccuracies, or stage-to-stage perturbations. The complete dimension/mass classification and explicit witnesses are more informative than a routine norm equivalence; no claim is made about one-sided error to an admissible exact state or a complete DG PDE timestep.",
+    "status": "PASS"
+  }
+}
