@@ -1,0 +1,112 @@
+{
+  "correctness": {
+    "rationale": "In a uniform pairing the probability of any prescribed loop is 1/(M-1); a prescribed pair of cross edges has probability 1/((M-1)(M-3)). Conditional on a marked loop, the remaining pairing is uniform and the corresponding a_i decreases by 2d_i-3. This derives E[L], E[P], E[LP] and the covariance formula. The D/2 expansion into pair, triple and degree-one terms is explicitly verified algebraically. The six-term AM–GM inequality makes each triple nonnegative with equality only at degrees (2,2,2); each negative (2,2) pair is outweighed by its distinct triple using a fixed degree-at-least-3 vertex. Parity handles degree-one vertices. The standalone verifier independently enumerated 63 small degree profiles and checked 4023 decomposition/sign profiles and 344 regular specializations; those finite checks are not treated as proof of the infinite range.",
+    "status": "PASS"
+  },
+  "independent": false,
+  "independent_audit_status": "not_performed",
+  "originality": {
+    "broader_coverage": {
+      "evidence": [
+        "Angel et al. 2016 Section 4 proves asymptotic independent-Poisson limits for joint defect counts under moment hypotheses.",
+        "Janson 2006 Section 7 proves a Poisson approximation for total defects under asymptotic degree assumptions."
+      ],
+      "reasoning": "An asymptotic independent-Poisson law does not establish the exact finite sign; an indicator-level representation can derive the covariance formula, but classifying its sign over every irregular degree sequence requires the additional positive triple decomposition and parity argument given here. This possibility of deduction from published indicator formulas is a residual priority risk.",
+      "searches": [
+        "\"joint distribution\" \"self loops\" \"multiple edges\" configuration model",
+        "\"independent Poisson\" configuration pairing model Janson Angel Wormald",
+        "arXiv:1603.07172 Sections 3–4 exact indicator couplings"
+      ]
+    },
+    "checked_sources": [
+      "arXiv:math/0609802",
+      "arXiv:1603.07172",
+      "Wormald, Models of Random Regular Graphs (1999), bibliographic abstract only"
+    ],
+    "claim_vs_prior_implication": {
+      "evidence": [
+        "Janson Section 7 equation (7.1) already defines the same summed defect random variable and derives Poisson approximation.",
+        "Angel et al. equations (1.2), (1.6), (3.9) concern the same ingredients and exact indicator corrections."
+      ],
+      "reasoning": "Existing exact one- and two-indicator probabilities are sufficiently general to recover the mixed moment by summation, so that computation alone is not treated as originality. No inspected theorem states or immediately subsumes the sharp sign classification for every even degree sequence. The nontrivial sign proof partitions degrees into 2–2 pairs, triples, and leaves; its parity compensation is essential and not present in inspected claims.",
+      "searches": [
+        "Janson arXiv:math/0609802 Section 7 the total number of loops and parallel edge pairs",
+        "Angel van der Hofstad Holmgren arXiv:1603.07172 equation (3.9) indicator covariance summands",
+        "\"configuration model\" self-loop double-edge covariance arbitrary degree sequence sign"
+      ]
+    },
+    "equivalent_formulations": {
+      "evidence": [
+        "arXiv:1603.07172 equations (1.2),(1.6) use identical loop and unordered parallel-pair variables; Section 3 equation (3.9) treats overlapping indicator events.",
+        "arXiv:math/0609802 Section 7 uses the sum of the same two defects for Poisson approximation."
+      ],
+      "reasoning": "The alternative names self-loop count / loop defect and pair-of-parallel-edges / multiple-edge-pair count refer to precisely these variables. Their marginal and asymptotic laws are not the claimed finite sign trichotomy.",
+      "searches": [
+        "\"self loops\" \"multiple edges\" \"covariance\" configuration model",
+        "\"loop\" \"double edges\" correlation random pairing",
+        "Angel van der Hofstad Holmgren arXiv:1603.07172 sections 1 and 3"
+      ]
+    },
+    "exact_database_or_table": {
+      "evidence": [
+        "The inspected primary papers tabulate marginal means and asymptotic limits; no finite all-degree covariance sign table or exceptional two-regular-only classification was identified in relevant sections."
+      ],
+      "reasoning": "Finite examples such as degree sequences (2,2,2), (2,2,1,1) and (3,3) cannot decide the general sign. No exact published table covering this all-degree classification was found; search absence is not a uniqueness proof.",
+      "searches": [
+        "\"configuration model\" \"Cov\" \"self-loops\" \"multiple edges\" exact",
+        "\"degree two\" \"parallel edges\" \"self loops\" positive covariance",
+        "\"regular pairing\" loops double-edge covariance finite tables"
+      ]
+    },
+    "rationale": "The claimed new mathematical statement is the complete finite-size sign classification, not the standard model, indicators, marginal moments or asymptotic independent-Poisson property. Angel–van der Hofstad–Holmgren (2016) explicitly study the same L and P and compute their separate expectations (1.2),(1.6); their §3, especially (3.9), provides detailed signed-indicator overlap machinery used for asymptotic Poisson approximation, but no stated all-degree sign theorem. Janson (2006) §7 studies the sum of defects and Poisson convergence, not this sign classification. No direct statement or stronger theorem that yields the complete sign characterization without additional nontrivial inequality work was located in the inspected relevant portions. The ability to obtain the mixed moment by summing known elementary indicator probabilities is acknowledged; independent priority search remains prudent.",
+    "residual_risks": [
+      "Earlier factorial-moment or indicator formulas might be used to deduce the same exact covariance, but no inspected result supplied its all-degree sign theorem.",
+      "Wormald 1999 survey was not accessible in full for direct priority comparison.",
+      "Searches cannot certify mathematical originality; independent expert priority review has not occurred."
+    ],
+    "source_inspections": [
+      {
+        "assessment": "Defines and approximates combined defects but does not state a universal finite covariance sign classification in inspected material.",
+        "evidence": [
+          "arXiv:math/0609802 initial arXiv date 2006-09-28; PDF pp.1–3 pairing model; PDF p.20 Section 7 equations (7.1)–(7.3)."
+        ],
+        "identifier_or_url": "https://arxiv.org/pdf/math/0609802",
+        "material_read": "Primary full-text PDF, introductory pairing definitions and results in pages 1–3, related mixed-moment proof sections, and Section 7 on Poisson approximation and total defects.",
+        "method": "Textual inspection of source PDF plus page image of its Section 7 formula (7.1).",
+        "title": "The Probability That a Random Multigraph is Simple",
+        "trigger": "Standard configuration model with the same loop and parallel-pair defect variables and possible stronger Poisson theorem"
+      },
+      {
+        "assessment": "Marginal moments and many indicator-level corrections preexist; the inspected theorems give asymptotic independence rather than finite sign trichotomy. The published indicator calculations could potentially imply the mixed covariance formula.",
+        "evidence": [
+          "arXiv:1603.07172 submitted 2016-03-23; PDF p.2 formulas (1.2),(1.6); PDF pp.12–13 equation (3.9); PDF p.16 joint Poisson limit."
+        ],
+        "identifier_or_url": "https://arxiv.org/pdf/1603.07172",
+        "material_read": "Primary full-text PDF introductory definitions/equations (1.2),(1.6); Section 3 pages 10–14 including exact indicator overlap equation (3.9); Section 4 independent-Poisson proofs and conclusions.",
+        "method": "Textual and page-image inspection of primary PDF and comparison of objects, formulas and stated theorems.",
+        "title": "Limit laws for self-loops and multiple edges in the configuration model",
+        "trigger": "Exact same two defect random variables and most plausible prior coverage"
+      },
+      {
+        "assessment": "Historical source remains a specific priority risk; no claim of whole-document noncoverage is made.",
+        "evidence": [
+          "Wormald 1999 survey, 239–298, bibliographic abstract; complete body not inspected."
+        ],
+        "identifier_or_url": "https://doi.org/10.1017/CBO9780511721335.010",
+        "material_read": "Publisher and institutional bibliographic abstracts only; complete chapter not available for material inspection.",
+        "method": "Checked catalogued chapter metadata and abstract, not full primary text.",
+        "title": "Models of Random Regular Graphs",
+        "trigger": "Early survey with plausible short-cycle and pairing defect discussions"
+      }
+    ],
+    "status": "PASS"
+  },
+  "review_type": "self_review",
+  "schema_version": 1,
+  "scope_run_id": "8c1abf7c-fe56-4502-a686-aec8957c098d",
+  "self_review_status": "passed",
+  "value": {
+    "rationale": "Self-loops and multiple-edge pairs are the canonical two defects of multigraph simplicity. Joint asymptotic Poisson approximation does not distinguish finite-size covariance signs. The universal irregular-degree classification isolates an exceptional positive two-regular phase, proves all other nondegenerate profiles negative, excludes accidental zeros, and supplies a proof certificate via degree-triple positivity. The regular limit exposes different orders of decay at degrees 2 and at least 3. This is a natural structural refinement, not a finite catalogue or parameter substitution.",
+    "status": "PASS"
+  }
+}
