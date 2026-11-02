@@ -1,11 +1,21 @@
-# Mathematical review
+# Independent mathematical audit
 
-**Correctness — PASS.** The source's log half-Cauchy transform is checked, and the renewal transform is re-derived from Tonelli and an explicit half-line integration. A zero-free vertical strip exists from strict nonlattice decay on the imaginary axis and exponential decay at high frequencies. The second-order residue is calculated with the full second moment, not just variance. The first-passage CLT includes overshoot negligibility, and a uniform finite-mean bound on later returns handles nonmonotone paths. Exact finite-level Fourier evaluations were checked separately; they are not proof of the asymptotic statements.
+## correctness
 
-**Originality — PASS, qualified.** The full Kulkarni arXiv text (arXiv:2610.21136v1, especially Sections 2–4) proves a log-coordinate CLT and gives an exact series for expected effective dimension, but not the threshold-to-zero asymptotic, correction constant, exponential remainder, or occupation-count CLT. Daley's 1980 abstract provides a generic, nonvanishing uniform bound around the same general second-moment center; it is neither a convergent expansion nor this exponential bound. Searches for renewal occupation counts and half-Cauchy effective dimension found no direct covering statement. General analytic renewal theorems and renewal-reward CLTs may subsume parts after nontrivial specialization; independent priority checking is a residual risk.
+PASS
 
-**Value — PASS.** Effective dimension is an interpretable calibration target in overcomplete latent-factor priors. The exact constant quantifies systematic small-threshold bias beyond the median-decay heuristic, the exponential remainder specifies a rate for the fixed hyperparameter, and the full-count Gaussian variance quantifies fluctuations despite nonmonotone rebounds. These do not follow from a marginal coordinate CLT alone. The contribution is specifically quantitative for this natural model, not a claimed general renewal principle.
+Write X=d-log U, so X has positive drift d, variance v=pi²/4, bilateral transform M(s)=e^(-ds)/cos(pi*s/2) and finite exponential moments for |Re s|<1. N=sum_{n>=0}1{S_n<L}. For G(L)=sum_{n>=1}P(S_n<L), Laplace transform is M(s)/[s(1-M(s))] on small positive real line, absolutely integrable vertically due to hyperbolic-cosine decay. Its only pole in a thin strip around the imaginary axis is double at zero, with principal part 1/(d s²)+[(d²+v)/(2d²)-1]/s; contour shift yields G=L/d+(d²+v)/(2d²)-1+O(e^-delta L), then add n=0. First-passage tau_L has centered Gaussian fluctuations from random-index CLT, positive drift and negligible overshoot. The post-first-passage revisit count is dominated by an independent sum V=sum_{j>=1}1{S_j<0} with E V<=M(s)/(1-M(s))<infinity, making N-tau tight and preserving the Gaussian limit. Independent symbolic M first/second derivative checks passed. The exponential error is only fixed zeta; no incorrect monotone count assumption.
 
-**Closest literature and scientific limits.** Kulkarni (2026) arXiv:2610.21136v1, Sections 2–4 and Eq. (19); Daley (1980), DOI 10.1214/aop/1176994732. All claims fix \(0<\zeta<1\); the constants do not cover critical shrinkage \(\zeta=1\). The Daley full publisher text was not available during this assessment, so comparison with that work is limited to its detailed abstract and stated inequality.
+## originality
 
-Self-review: passed. Independent audit: not yet performed.
+PASS
+
+PASS qualified and with elevated priority risk: Kulkarni 2026 already gives log random-walk representation, a.s. finite threshold count and exact sum for E N; Daley 1980 already studies the general signed-walk renewal function and its second-order center with second moment (the constant here is not individually novel). Iksanov–Meiners 2010 explicitly studies N(x)=number of visits below a moving level with exponential-moment asymptotics. Its full paper was inaccessible, so coverage by a general theorem for the CLT or exponential remainder cannot be excluded. The combination specialized to half-Cauchy, explicit constant, exponential remainder and Gaussian fluctuations is a best-of-knowledge surviving claim based on the material read, not proof of priority.
+
+## value
+
+PASS
+
+The effective number of nonnegligible factors is the natural dimension notion for multiplicative half-Cauchy shrinkage. It is neither monotone across coordinates nor the first-crossing time; the theorem gives an exact next-order expectation and fluctuation variance for this actual total count, relevant to prior calibration and small-threshold selection. Novelty of generic renewal ingredients is not asserted; value comes from precise stochastic-process specialization and rebound accounting.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

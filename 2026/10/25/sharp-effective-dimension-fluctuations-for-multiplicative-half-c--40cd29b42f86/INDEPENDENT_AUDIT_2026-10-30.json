@@ -1,0 +1,132 @@
+{
+  "audit_date_utc": "2026-10-30",
+  "audited_at_utc": "2026-10-30T04:51:03Z",
+  "axes": {
+    "correctness": {
+      "rationale": "Write X=d-log U, so X has positive drift d, variance v=pi²/4, bilateral transform M(s)=e^(-ds)/cos(pi*s/2) and finite exponential moments for |Re s|<1. N=sum_{n>=0}1{S_n<L}. For G(L)=sum_{n>=1}P(S_n<L), Laplace transform is M(s)/[s(1-M(s))] on small positive real line, absolutely integrable vertically due to hyperbolic-cosine decay. Its only pole in a thin strip around the imaginary axis is double at zero, with principal part 1/(d s²)+[(d²+v)/(2d²)-1]/s; contour shift yields G=L/d+(d²+v)/(2d²)-1+O(e^-delta L), then add n=0. First-passage tau_L has centered Gaussian fluctuations from random-index CLT, positive drift and negligible overshoot. The post-first-passage revisit count is dominated by an independent sum V=sum_{j>=1}1{S_j<0} with E V<=M(s)/(1-M(s))<infinity, making N-tau tight and preserving the Gaussian limit. Independent symbolic M first/second derivative checks passed. The exponential error is only fixed zeta; no incorrect monotone count assumption.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Daley general signed-walk renewal centering y/mean+E[X²]/(2mean²), with tight error bound",
+          "Iksanov-Meiners abstract asserts asymptotic behavior of exponential moments of number of visits below moving level"
+        ],
+        "reasoning": "The Daley center matches the claimed constant after inserting d and pi²/4, so this part is classical generic background. Its tight bound alone does not prove exponentially decaying remainder. Iksanov may imply the CLT and stronger count distribution; complete theorem inaccessible, hence this is an explicit strong priority risk.",
+        "searches": [
+          "Daley 1980 Tight Bounds for Renewal Function of Random Walk",
+          "Iksanov Meiners 2010 exponential moments for signed random-walk visits",
+          "Feller Vol II renewal theory"
+        ]
+      },
+      "checked_sources": [
+        "Kulkarni 2026 arxiv:2610.21136 abstract (full unavailable)",
+        "Daley 1980 DOI:10.1214/aop/1176994732 abstract",
+        "Iksanov Meiners 2010 DOI:10.1214/ECP.v15-1569 original journal abstract",
+        "Resultary semantic search MHCP threshold dimension and renewal laws 2026-10-30",
+        "Iksanov 2014 original author slides pages 5,8,11–14 of 29, https://www2.mathematik.tu-darmstadt.de/~stochastik/persistence2014/talks/iksanov.pdf"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "Daley 1980 abstract general renewal function moment center and bounds",
+          "Kulkarni 2026 abstract states shrinkage and effective dimension, source finding attributes exact expectation series",
+          "Iksanov-Meiners 2010 journal abstract states asymptotics of E exp(t N(x)) in signed walk"
+        ],
+        "reasoning": "The arithmetic second-order constant is a direct substitution into a known general centering term, hence no independent priority. The asserted exponentially small remainder and Gaussian total-visit law are not explicit in material actually read; stronger full results might imply them, and this risk is material but cannot be resolved from abstracts alone.",
+        "searches": [
+          "Daley 1980 second order U(x)",
+          "Kulkarni 2026 arxiv:2610.21136",
+          "Iksanov Meiners 2010 DOI:10.1214/ECP.v15-1569"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "N_epsilon equals the occupation variable N(L)=sum 1{S_n<L} of signed positive-drift log random walk",
+          "Iksanov-Meiners 2010 abstract names exactly N(x) for number of visits to (-infinity,x]"
+        ],
+        "reasoning": "This random-walk occupation-time equivalence is exact; it creates a substantial potential prior-coverage path. Kulkarni provides the sum but no accessible statement of the exponential second-order expansion; Iksanov full text was not accessible and may contain dominating general limit statements.",
+        "searches": [
+          "Kulkarni MHCP effective dimension Eq (19) 2026",
+          "Iksanov Meiners Exponential Moments of First Passage Times and Related Quantities for Random Walks 2010"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "Kulkarni 2026 Eq (19) is an exact infinite expectation series, not a finite tabular classification",
+          "Resultary nearest hits concern unrelated Gaussian effective rank/other distributions"
+        ],
+        "reasoning": "No separate exact table or database with the specified asymptotic constant, exponential rate and Gaussian variance was located. Generic renewal theory is more relevant than numerical tables for this infinite-level statement.",
+        "searches": [
+          "Resultary half Cauchy effective dimension threshold count asymptotic",
+          "MHCP effective dimension exact integer small threshold numerical table"
+        ]
+      },
+      "rationale": "PASS qualified and with elevated priority risk: Kulkarni 2026 already gives log random-walk representation, a.s. finite threshold count and exact sum for E N; Daley 1980 already studies the general signed-walk renewal function and its second-order center with second moment (the constant here is not individually novel). Iksanov–Meiners 2010 explicitly studies N(x)=number of visits below a moving level with exponential-moment asymptotics. Its full paper was inaccessible, so coverage by a general theorem for the CLT or exponential remainder cannot be excluded. The combination specialized to half-Cauchy, explicit constant, exponential remainder and Gaussian fluctuations is a best-of-knowledge surviving claim based on the material read, not proof of priority.",
+      "residual_risks": [
+        "High priority: Iksanov–Meiners 2010 general exponential moments for signed-walk visit counts may imply a stronger CLT/mean result when specialized; full text inaccessible after OA and authorized institution attempts",
+        "Daley second-order center is established prior art and must not be presented as a newly discovered generic renewal constant",
+        "Fixed-zeta exponential rate is not uniform near the critical zeta=1 boundary and δ_zeta was not made explicit."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "PARTIAL_PREEXISTING_PROCESS_THEORY_FULL_TEXT_UNAVAILABLE",
+          "evidence": [
+            "Abstract: log-scale random-walk process, local rebounds and effective dimension; exact expectation series attributed in assigned source, but not independently re-read full paper"
+          ],
+          "identifier_or_url": "https://arxiv.org/abs/2610.21136",
+          "material_read": "Primary arXiv abstract, external catalog summary; full arXiv HTML inaccessible, institutional tool returned vpn_disconnected",
+          "method": "Web original abstract + OA search + authorized access attempt",
+          "title": "Pathwise Shrinkage and Probabilistic Calibration of the Multiplicative Half-Cauchy Process",
+          "trigger": "same product process and effective count"
+        },
+        {
+          "assessment": "COVERS_GENERAL_SECOND_ORDER_CENTER_AS_PRIOR",
+          "evidence": [
+            "Signed positive-drift walk renewal potential centered by x/E X+E[X²]/(2(E X)²); does not advertise exponential remainder in summary"
+          ],
+          "identifier_or_url": "https://doi.org/10.1214/aop/1176994732",
+          "material_read": "1980 bibliographic and primary abstract-level summary; complete paper not read",
+          "method": "Web publication abstract/search",
+          "title": "Tight Bounds for the Renewal Function of a Random Walk",
+          "trigger": "signed random-walk occupation function and second moment centering"
+        },
+        {
+          "assessment": "STRONG_RELEVANT_FULL_TEXT_INACCESSIBLE",
+          "evidence": [
+            "Defines N(x) as number of visits below x; states asymptotic behavior of exponential moments, potentially stronger than some assigned limits"
+          ],
+          "identifier_or_url": "https://doi.org/10.1214/ECP.v15-1569",
+          "material_read": "Original journal abstract, citation context, and 2010 arXiv abstract; PDF request returned HTTP 502; arXiv HTML disabled; Oxford vpn_disconnected",
+          "method": "Primary journal page and authorized access attempts",
+          "title": "Exponential Moments of First Passage Times and Related Quantities for Random Walks",
+          "trigger": "exact N(x) number of visits below moving level"
+        },
+        {
+          "assessment": "GENERAL_OCCUPATION_N_EXPLICIT_PRIOR_BUT_NO_DISPLAYED_HALF_CAUCHY_EXP_REMAINDER",
+          "evidence": [
+            "Slide 5/29 exactly defines N(x)=#{n>=1:S_n<=x}; slide 8/29 gives exponential-moment finiteness criteria for N; slides 11–12/29 discuss asymptotics for tau and rho at positive exponent, not the assigned fixed-process mean with exponentially small error."
+          ],
+          "identifier_or_url": "https://www2.mathematik.tu-darmstadt.de/~stochastik/persistence2014/talks/iksanov.pdf",
+          "material_read": "Original 2014 59-page slide PDF; primary author slides 5/29, 8/29, 11/29, 12/29 and 14/29 inspected with web screenshots of pages 11,27",
+          "method": "Web open PDF, find relevant theorem, screenshot pages 11 and 27",
+          "title": "Moments of first passage times and related quantities for ordinary and perturbed random walks",
+          "trigger": "author presentation of Iksanov–Meiners 2010 and related general N(x) theorems"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "rationale": "The effective number of nonnegligible factors is the natural dimension notion for multiplicative half-Cauchy shrinkage. It is neither monotone across coordinates nor the first-crossing time; the theorem gives an exact next-order expectation and fluctuation variance for this actual total count, relevant to prior calibration and small-threshold selection. Novelty of generic renewal ingredients is not asserted; value comes from precise stochastic-process specialization and rebound accounting.",
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "final_claim": "For fixed 0<zeta<1, d=-log zeta, L=log(1/epsilon), the total (including rebounds) number N_epsilon of product scales >epsilon has E N=L/d+1/2+pi²/(8d²)+O_zeta(exp(-delta_zeta L)) and (N-L/d)/sqrt(L)=>Normal(0,pi²/(4d³)).",
+  "limitations": [
+    "High priority: Iksanov–Meiners 2010 general exponential moments for signed-walk visit counts may imply a stronger CLT/mean result when specialized; full text inaccessible after OA and authorized institution attempts",
+    "Daley second-order center is established prior art and must not be presented as a newly discovered generic renewal constant",
+    "Fixed-zeta exponential rate is not uniform near the critical zeta=1 boundary and δ_zeta was not made explicit.",
+    "Public-facing AUDIT.json and METADATA.json include scope_run_id provenance; no guarded sanitizing replacement was staged, so publication is not ready."
+  ],
+  "schema_version": 1
+}
