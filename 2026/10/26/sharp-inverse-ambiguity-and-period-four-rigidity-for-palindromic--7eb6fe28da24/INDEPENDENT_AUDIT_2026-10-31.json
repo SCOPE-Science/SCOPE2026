@@ -1,0 +1,115 @@
+{
+  "audit_date_utc": "2026-10-31",
+  "audited_at_utc": "2026-10-31T11:05:38.322135Z",
+  "axes": {
+    "correctness": {
+      "rationale": "One length-k palindromic duplication corresponds bijectively to an inverse start where a 2k block is a palindrome. Two consecutive valid starts enforce a constant 2k+1-symbol overlap, and both deletion histories give the same parent; every consecutive run of valid starts therefore contributes at most one parent and gives upper bound ceil(m/2), m=n−k+1. For k≥3 with 4∤k, explicit period-four words (aabb)^ω when k odd or (abba)^ω when k≡2 mod4 have precisely the even valid starts and pairwise distinct inverse parents, attaining the bound for all n≥k. When m odd≥3, equality forces alternating valid starts 101...01, and composition of palindrome reflections at start separation 2 enforces global period four, leaving exactly q(q−1) distinct maximizing received words (a≠b). For 4|k and n=k+2, starts 0 and 2 force period four but deletion offsets k are period multiples, giving identical parents; adjacent valid starts also collide, hence maximum one. Independent full brute-force enumeration of all binary received words for k=3..7 and n through k+4 under length≤17 reproduced the maximum and odd-m maximizers; no finite check substitutes for the all-n proof.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Lenz et al. 2017 Appendix A Lemma 15 bounds inverse sphere by runs but does not assert the all-k sharp count and m-odd period-four equality classification.",
+          "Zabokritskiy 2026 Section 6 bounds inverse starts by n−k+1, and its stronger main estimates concern forward two-error spheres."
+        ],
+        "reasoning": "General coding bounds do not yield exact maximizer words, the q(q−1) count or special k divisible 4 obstruction without the period-four reflection argument.",
+        "searches": [
+          "https://arxiv.org/pdf/1712.09345",
+          "https://arxiv.org/abs/2609.00779",
+          "https://arxiv.org/abs/2602.01151"
+        ]
+      },
+      "checked_sources": [
+        "https://arxiv.org/pdf/1712.09345",
+        "https://arxiv.org/abs/2609.00779",
+        "https://arxiv.org/abs/2602.01151",
+        "Resultary semantic search: palindromic duplication exact inverse ambiguity"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "A generic run upper bound does imply ceil(m/2), but cannot by itself show attainability for all k outside 4Z or force period-four equality cases.",
+          "The prior length-two example with abba does not directly imply odd-k aabb or all n and all alphabets."
+        ],
+        "reasoning": "The construction and rigidity require additional four-period reflection and distinct-deletion arguments beyond cited general sphere bounds; no directly dominating prior theorem was found in inspected material.",
+        "searches": [
+          "https://arxiv.org/pdf/1712.09345",
+          "https://arxiv.org/abs/2609.00779",
+          "https://arxiv.org/abs/2602.01151"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Valid inverse starts correspond to length-2k palindromic windows; distinct parents are inverse ball elements, not duplication histories.",
+          "The 2017 source already counts runs of inverse palindrome placements and gives a general upper bound."
+        ],
+        "reasoning": "Compared palindromic deletion spheres, insertion predecessors, duplication channels and reverse-confusability lists; the exact universal all-k extremal words are a further statement beyond known upper bounds.",
+        "searches": [
+          "https://arxiv.org/pdf/1712.09345",
+          "https://arxiv.org/abs/2609.00779",
+          "Resultary semantic query: palindromic duplication inverse parent list size period four extremal receiving word coding DNA"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "The earlier exact length-two abba cases are a different block-length slice, explicitly credited.",
+          "Independent full binary enumeration k=3..7, n−k+1≤5, found exact predicted maximum and q=2 odd-m maximizing word count two when m≥3 and 4∤k."
+        ],
+        "reasoning": "No known all-length 4∤k inverse-list table was identified. Finite counts support only the explicitly enumerated short instances, not the unrestricted theorem.",
+        "searches": [
+          "https://arxiv.org/pdf/1712.09345",
+          "Resultary semantic query: palindromic duplication inverse parent list size period four extremal receiving word coding DNA"
+        ]
+      },
+      "rationale": "Lenz–Wachter-Zeh–Yaakobi (2017) Appendix A already gives collision/run-based inverse palindrome sphere bounds; the generic upper bound mechanism is not novel. Their same-length-two case also has related abba behavior. Zabokritskiy (2026) counts potential inverse starts and handles forward multiple-duplication problems; it is not shown to classify the sharp all-k inverse parent count. The assessed remainder is simultaneous all-alphabet sharpness for every k≥3 with 4∤k, rigidity and exact maximizer enumeration when m odd, and the first 4|k obstruction. A less-indexed coding lemma could cover this and remains a priority risk.",
+      "residual_risks": [
+        "A less-indexed palindromic deletion code lemma might establish the period-four extremizer classification.",
+        "The 2026 Zabokritskiy primary article was not read in full; cannot assert document-level noncoverage from indexed descriptions.",
+        "The result intentionally omits the full 4|k, larger n and even-m optimizer classifications."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Gives general inverse-position/run bounds and special k=2 family; no statement of universal exact k≥3,4∤k max or q(q−1) periodic maximizers in inspected appendices.",
+          "evidence": [
+            "arXiv:1712.09345, Appendix A Lemma 15 and following length-two discussion."
+          ],
+          "identifier_or_url": "https://arxiv.org/pdf/1712.09345",
+          "material_read": "Full lawful arXiv 1712.09345 PDF, particularly Appendix A Lemmas 14–15 and Appendix B, screenshots of pp.21–22 discussing runs and palindromic deletion spheres.",
+          "method": "Lawful arXiv full PDF parsed text and page screenshot",
+          "title": "Duplication-Correcting Codes",
+          "trigger": "Same palindromic duplication channel and a possible exact inverse-parent counting lemma"
+        },
+        {
+          "assessment": "The accessible Section 6 description provides an n−k+1 potential-position count and broader multiple-error sphere framework; inaccessible full text remains priority risk, not proof of noncoverage.",
+          "evidence": [
+            "arXiv:2609.00779, indexed Section 6 Lemma 6.1 as reported in source package; independent full-text comparison not completed."
+          ],
+          "identifier_or_url": "https://arxiv.org/abs/2609.00779",
+          "material_read": "arXiv index/abstract and indexed Section 5–6 result descriptions, not the complete article text.",
+          "method": "Lawful arXiv indexing and cited theorem-level metadata, no whole-document text access",
+          "title": "Coding for Multiple Reverse-Complement and Palindromic Duplications",
+          "trigger": "2026 same-channel stronger possible inverse parent theorem"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "rationale": "The inverse list size controls worst-case ambiguity of a natural DNA palindromic-duplication channel. Its exact maximum, all-symbol period-four extremal rigidity and the true divisibility-by-four threshold answer a motivated finite-alphabet extremal problem; not a mere enumeration of small words.",
+      "status": "PASS"
+    }
+  },
+  "checked_sources": [
+    "https://arxiv.org/pdf/1712.09345",
+    "https://arxiv.org/abs/2609.00779",
+    "https://arxiv.org/abs/2602.01151",
+    "Resultary semantic search: palindromic duplication exact inverse ambiguity"
+  ],
+  "disposition": "passed",
+  "limitations": [
+    "A less-indexed palindromic deletion code lemma might establish the period-four extremizer classification.",
+    "The 2026 Zabokritskiy primary article was not read in full; cannot assert document-level noncoverage from indexed descriptions.",
+    "The result intentionally omits the full 4|k, larger n and even-m optimizer classifications.",
+    "Read at frozen source commit; individual GitHub file blob SHAs obtained. The complete Git tree was not independently reconstructed; the assigned tree SHA is server-supplied rather than independently attested.",
+    "No publication or repository mutation; publication plan is not_ready due to source metadata confidentiality."
+  ],
+  "schema_version": 1
+}
