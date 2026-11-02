@@ -1,0 +1,139 @@
+{
+  "correctness": {
+    "rationale": "Direct decomposition into iid triangle excursions proves the per-leaf 3/(4n) and per-pair 1/n selection hazards. Exact inclusion-exclusion and an independent finite-state Markov recurrence match in 96 cases. Poisson splitting yields the exact product CDF; Taylor expansion yields a nonzero n^(-1/3) term. De-Poissonization and geometric-excursion maximal concentration have o(n^(-1/3)) distributional errors. Uniform tail domination justifies expectation integration and the n^(2/3) coefficient. The stopped-excursion identity is checked against full random-walk Markov linear systems at n=1,2,3. The packaged checker passed 137 comparisons. Finite experiments are not claimed as an infinite proof.",
+    "status": "PASS"
+  },
+  "independent": false,
+  "independent_audit_status": "not_performed",
+  "originality": {
+    "broader_coverage": {
+      "evidence": [
+        "Zlatanov–Kocarev 2009 Sec. II.C proves generic inclusion-exclusion for arbitrary graph cover-time distributions; it thereby covers generic exact CDF existence.",
+        "Ferrante–Frigo 2012 provide expectation methods for group arrivals.",
+        "Xu–Zhang 2023 prove order N log N for other sparse models rather than second-order law for the friendship graph."
+      ],
+      "reasoning": "Earlier broader exact formulas are credited and not treated as novel. Obtaining a nonzero n^(-1/3) coefficient and integrating it to n^(2/3) requires an additional uniform asymptotic analysis not supplied by the referenced general formulas.",
+      "searches": [
+        "doi:10.1103/PhysRevE.80.041102",
+        "Poissonized batch coupon collector pairs singly and jointly exponential rates second order asymptotic",
+        "coupon collector packets of one or two coupons grouped into disjoint pairs triangle cover time first correction",
+        "arxiv:2302.06372"
+      ]
+    },
+    "checked_sources": [
+      "arxiv:2302.06372 (v1 2023-02-13)",
+      "doi:10.1103/PhysRevE.80.041102",
+      "arxiv:1209.2667",
+      "arxiv:1709.04500"
+    ],
+    "claim_vs_prior_implication": {
+      "evidence": [
+        "First-order O(N log N) conclusions allow arbitrarily many n^(2/3) corrections and do not fix either claimed coefficient.",
+        "General exact CDF identities reduce finite computations but do not directly imply the asymptotic term without showing its domination over Poisson and excursion fluctuations.",
+        "Non-backtracking petals enforce deterministic cycle traversal instead of geometric backtracking excursions."
+      ],
+      "reasoning": "The claimed asymptotic corrections are strictly stronger than leading-order scale or generic exact representation for this model. They are not a corollary of the cited non-backtracking result or of a single-coupon Gumbel limit. Generic exact distribution theory is not claimed original.",
+      "searches": [
+        "arxiv:2302.06372",
+        "doi:10.1103/PhysRevE.80.041102",
+        "arxiv:1209.2667",
+        "arxiv:1709.04500",
+        "nonbacktracking bouquet cycles cover time friendship graphs cover time simple walk returning to center"
+      ]
+    },
+    "equivalent_formulations": {
+      "evidence": [
+        "A hub return yields a one-or-two-leaf packet; the fully unentered pair creates a u^(4/3)n^(-1/3) term in the Poissonized maximum.",
+        "arxiv:1709.04500 samples one coupon per trial and has no same paired packet dependency.",
+        "A non-backtracking walk traverses each petal without the geometric excursion repetitions present here."
+      ],
+      "reasoning": "Rewriting the walk as an excursion coupon process is equivalent and is used to prove the claim. The papers and comparative non-backtracking model compared have different packet dependence or motion rules; no equivalent sharp fractional term was identified.",
+      "searches": [
+        "second order fractional power n to minus one third Gumbel correction cover time random walk windmill friendship graph n triangles",
+        "friendship graph hub simple random walk cover time expected n to two thirds correction from unvisited triangle pairs",
+        "nonbacktracking bouquet cycles cover time friendship graphs cover time simple walk returning to center",
+        "arxiv:1209.2667",
+        "arxiv:1709.04500"
+      ]
+    },
+    "exact_database_or_table": {
+      "evidence": [
+        "A published study of nonuniform-reset coupon collection concerns reset-success probabilities, not simultaneous one-or-two-leaf packets.",
+        "A published study of lazy walks on balanced spider graphs gives mixing/concentration results, not windmill cover-time asymptotics.",
+        "No covering exact coefficient table was identified in the inspected academic papers and targeted record search."
+      ],
+      "reasoning": "Search outcomes do not establish uniqueness. No inspected exact database, coefficient table, or semantically covering theorem supplies the two stated second-order coefficients.",
+      "searches": [
+        "second order fractional power n to minus one third Gumbel correction cover time random walk windmill friendship graph n triangles",
+        "friendship graph hub simple random walk cover time expected n to two thirds correction from unvisited triangle pairs",
+        "cover time random walk on windmill graph with common hub and disjoint triangles"
+      ]
+    },
+    "rationale": "The sharp pointwise positive n^(-1/3) CDF correction and negative explicit n^(2/3) mean term for backtracking cover times on friendship graphs were not found in relevant primary literature, public research indexing or compared mathematical statements. Exact finite-graph inclusion-exclusion, generalized batch coupon expectation, generic Gumbel limits, and first-order n log n network cover times are earlier and are expressly not asserted as novel. Non-backtracking motion on petal cycles concerns a different transition law. Historical priority is best-knowledge, not independently certified.",
+    "residual_risks": [
+      "The broad historical literature on random walks on joined cliques and nonuniform group coupon-collector asymptotics cannot be exhaustively ruled out.",
+      "Negative semantic search results are not proof of priority.",
+      "No independent external mathematical audit has been performed."
+    ],
+    "source_inspections": [
+      {
+        "assessment": "The paper treats optimal first-order cover-time scaling for different scale-free networks and does not analyze the friendship graph excursion process, fractional second-order CDF correction or n^(2/3) mean term.",
+        "evidence": [
+          "arXiv v1 submitted 2023-02-13 UTC",
+          "https://arxiv.org/html/2302.06372"
+        ],
+        "identifier_or_url": "https://arxiv.org/abs/2302.06372",
+        "material_read": "arXiv history, experimental HTML full text, model networks, main scaling arguments and conclusions",
+        "method": "read HTML sections 1, 5 and 6 and the submission record, and compared model graph families and theorem order",
+        "title": "Optimal Scale-Free Small-World Graphs with Minimum Scaling of Cover Time",
+        "trigger": "First-public 2023 graph-cover-time reference for sparse, hub-containing networks and first-order N log N scaling."
+      },
+      {
+        "assessment": "Generic exact finite-graph CDF coverage is real and explicitly credited. The work does not state second-order n^(-1/3) friendship-walk CDF expansion or n^(2/3) mean correction; its illustrative closed formulas are for complete graphs, paths and cycles.",
+        "evidence": [
+          "Physical Review E 80, 041102 (2009), Section II.C equation (3)",
+          "Section II.E lists complete/path/cycle specialized graphs",
+          "DOI 10.1103/PhysRevE.80.041102"
+        ],
+        "identifier_or_url": "https://manmade.maths.qmul.ac.uk/publications/CUmulativeTimeDistr_PRE.pdf",
+        "material_read": "8-page full-text PDF, in particular pages 1–5 for section II.C inclusion-exclusion, examples for complete/path/cycle graphs, and approximation discussion",
+        "method": "inspected page images and parsed text around section II.C and section II.E, compared formula (3) with the generic graph theorem",
+        "title": "Random walks on networks: Cumulative distribution of cover time",
+        "trigger": "A closely relevant generic theorem for exact cover-time laws on any graph, a potential dominating earlier result."
+      },
+      {
+        "assessment": "Earlier finite expected waiting-time formulas are broader in aspects of sampling and should be credited; their stated results do not give the graph-specific n^(-1/3) distribution or n^(2/3) mean coefficients.",
+        "evidence": [
+          "arXiv:1209.2667, Sections 1–3",
+          "first public September 12, 2012"
+        ],
+        "identifier_or_url": "https://arxiv.org/abs/1209.2667",
+        "material_read": "arXiv full text including the introduction and expectation formula for random group draws",
+        "method": "compared packet sampling and theorem outputs with one-or-two-leaf excursions and asymptotic claims",
+        "title": "A note on the coupon-collector’s problem with multiple arrivals and the random sampling",
+        "trigger": "Full general multiple-arrival coupon collecting may imply finite mean expressions for paired coupon packets."
+      },
+      {
+        "assessment": "The paper samples a single coupon per trial and supplies mixture-group asymptotics. It does not assert the correlated one-or-two-coupon packet correction from the friendship graph.",
+        "evidence": [
+          "arXiv:1709.04500, Section 1 and principal two-group results",
+          "paper lists AMS 60J10 and 60C05"
+        ],
+        "identifier_or_url": "https://arxiv.org/abs/1709.04500",
+        "material_read": "full available HTML, Introduction and asymptotic theorems for one coupon at a time from heterogeneous groups",
+        "method": "compared coupon draw dependence, number of distinct simultaneous coupons and second-order statements",
+        "title": "Sampling from a mixture of different groups of coupons",
+        "trigger": "Gumbel cover-time asymptotics for multigroup coupon models may dominate a graph-specific Gumbel limit."
+      }
+    ],
+    "status": "PASS"
+  },
+  "review_type": "self_review",
+  "schema_version": 1,
+  "scope_run_id": "f75e5093-54af-4a3e-b643-29337d7c9416",
+  "self_review_status": "passed",
+  "value": {
+    "rationale": "The graph is a canonical sparse triangle windmill, and the first-order n log n cover scale hides distinct rare modes of unfinished exploration. The second-order law quantifies the unentered-triangle obstruction, yields an explicit order n^(2/3) expected-cover-time correction, and provides a mathematically motivated benchmark for excursion-based cover-process asymptotics. The precise coefficient is not a routine fixed-n statistic or a known-table recomputation.",
+    "status": "PASS"
+  }
+}
