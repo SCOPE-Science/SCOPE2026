@@ -1,9 +1,21 @@
-# Scientific review
+# Independent mathematical audit
 
-**Correctness: PASS.** An exact Poisson race calculation gives the full three-atom deficit distribution. A symbolic exact-rational computation supplies a homogeneous degree-16 positive-coefficient numerator for the gap to \(7/12\); the supplied 140-row certificate is independently reproducible and proves strictness outside the uniform vector. An independent state-space recursion checks seven nontrivial rational examples, but those finite checks are not treated as proof of the continuum claim.
+## correctness
 
-**Originality: PASS, with historical risk.** Doumas–Spektor (arXiv:2606.21591) and Long (arXiv:2606.29635) establish expectation extremality. Long's later arXiv:2606.31391 establishes stronger probability-generating-function and binomial-moment orders; those results actually imply some three-type tail comparisons, which are not claimed here as new. PGF order alone does not imply variance order, as shown by an explicit pair of distributions. Long's arXiv:2604.25108 proves a variance inequality for the *stopping time*, not this deficit. Relevant research-index searches did not identify the precise variance inequality. A full-text comparison to arXiv:2606.31391 remained unavailable; this limits priority certainty.
+PASS
 
-**Mathematical value: PASS.** Variance is the natural dispersion statistic of the sibling's missing-type count, and uniform extremality of its mean or PGF cannot determine its variance. Three types is the first non-Bernoulli deficit case. This exact sharp finite-size classification resolves a motivated comparison problem rather than an arbitrary numerical slice.
+For positive coupon weights a+b+c=1, at principal full-collection stop let U count types still missing from the duplicate-only second collection. U is in {1,2,3}, Pr(U=3)=6abc. Poissonizing first arrivals yields Pr(U=1)=2+6abc-M, Pr(U=2)=M-1-12abc, where M=a^2+b^2+c^2+2ab/(a+b)^2+2ac/(a+c)^2+2bc/(b+c)^2. Thus Var(U)=3M-2+12abc-M^2. On sorted a>=b>=c, use a=(z+x+y)/S,b=(z+y)/S,c=z/S with x,y>=0,z>0. Independently expanded the exact rational gap 7/12-Var(U): degree-16 numerator has exactly 140 nonzero monomials, all positive integers, each with x or y; exact denominator matches 12(y+2z)^4(x+y+2z)^4(x+2y+2z)^4(x+2y+3z)^4. This proves unique equality x=y=0, hence uniform law. An independently coded exact finite-state recurrence checked three positive rational triples including uniform distribution (7,7,4)/18. The supplied complete 140-row certificate and source verifier were examined; these exact algebraic identities, not finite examples, establish the continuum bound.
 
-Self-review: passed. Independent audit: not yet performed.
+## originality
+
+PASS
+
+Earlier 2026 results establish uniform maximality of the sibling deficit mean and, in Long arXiv:2606.31391, a radial generating-function/binomial moment order. Such order does not imply variance order: an explicitly checked artificial distribution (79/100,0,21/100) has smaller mean and factorial moments yet greater variance 1659/2500>7/12. The new theorem is the sharp strict variance extremum WITHIN the natural family of three-type coupon probabilities. However the full strongest radial-transform paper could not be inspected: arXiv and OA routes did not provide full text, authorized Oxford access returned vpn_disconnected. This remains an explicit high-priority comparison risk and is not treated as automatic failure.
+
+## value
+
+PASS
+
+This is the smallest coupon alphabet whose second-collector missing-type deficit takes three different values and has nontrivial variance extremality. A sharp global bound with unique extremizer addresses a natural fluctuation question not resolved by mean order or generic generating-function order; an exact positive-coefficient certificate makes the claim independently checkable.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

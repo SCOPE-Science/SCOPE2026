@@ -1,0 +1,135 @@
+{
+  "audit_date_utc": "2026-10-29",
+  "audited_at_utc": "2026-10-29T07:59:15Z",
+  "axes": {
+    "correctness": {
+      "rationale": "For positive coupon weights a+b+c=1, at principal full-collection stop let U count types still missing from the duplicate-only second collection. U is in {1,2,3}, Pr(U=3)=6abc. Poissonizing first arrivals yields Pr(U=1)=2+6abc-M, Pr(U=2)=M-1-12abc, where M=a^2+b^2+c^2+2ab/(a+b)^2+2ac/(a+c)^2+2bc/(b+c)^2. Thus Var(U)=3M-2+12abc-M^2. On sorted a>=b>=c, use a=(z+x+y)/S,b=(z+y)/S,c=z/S with x,y>=0,z>0. Independently expanded the exact rational gap 7/12-Var(U): degree-16 numerator has exactly 140 nonzero monomials, all positive integers, each with x or y; exact denominator matches 12(y+2z)^4(x+y+2z)^4(x+2y+2z)^4(x+2y+3z)^4. This proves unique equality x=y=0, hence uniform law. An independently coded exact finite-state recurrence checked three positive rational triples including uniform distribution (7,7,4)/18. The supplied complete 140-row certificate and source verifier were examined; these exact algebraic identities, not finite examples, establish the continuum bound.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Long radial-transform theorem orders PGFs and binomial moments, a priori stronger than mean order.",
+          "Example Q=(79/100,0,21/100) has lower first two binomial moments than uniform but Var(Q)=1659/2500>7/12; thus transform order does not by itself impose variance order.",
+          "Long April variance theorem concerns collection completion TIME rather than sibling deficit."
+        ],
+        "reasoning": "A general stochastic/convex order strong enough to imply variance would cover the claim; no such implication is established from the checked transform statements. Full Long source was inaccessible and remains a priority risk.",
+        "searches": [
+          "https://arxiv.org/abs/2606.31391",
+          "https://arxiv.org/abs/2606.21591",
+          "https://arxiv.org/abs/2606.29635",
+          "https://arxiv.org/abs/2604.25108"
+        ]
+      },
+      "checked_sources": [
+        "https://arxiv.org/abs/2606.31391",
+        "https://arxiv.org/abs/2606.21591",
+        "https://arxiv.org/abs/2606.29635",
+        "https://arxiv.org/abs/2604.25108"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "Known uniform binomial-moment dominance provides first and second moment inequalities individually; variance subtracts (EU)^2, so separate inequalities do not give the sign.",
+          "Explicit non-coupon artificial Q demonstrates a counterexample to the missing implication, while the new proof uses positivity restricted to feasible coupon triples."
+        ],
+        "reasoning": "Comparison distinguishes the precise statistic and admissible distributions from broader transform results; inability to read full strongest paper is recorded rather than asserting whole-document novelty.",
+        "searches": [
+          "https://arxiv.org/abs/2606.31391",
+          "https://arxiv.org/abs/2606.21591",
+          "https://arxiv.org/abs/2606.29635"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Mean extremality of duplicate-only sibling deficits is known.",
+          "The claimed variance is E(U^2)-(EU)^2 and depends on a difference of two separately varying moments."
+        ],
+        "reasoning": "Checked deficit, occupancy, double-Dixie-cup and sibling collector aliases. No inspected abstract asserts the exact three-type Var(U)<=7/12 unique maximizer, but Long 2026 is a serious overlap risk.",
+        "searches": [
+          "Resultary query: Three coupon siblings deficit variance uniform probability maximizes three types coupon collector",
+          "https://arxiv.org/abs/2606.31391",
+          "https://arxiv.org/abs/2606.21591",
+          "https://arxiv.org/abs/2606.29635"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "The package contains a complete positive-coefficient polynomial identity; this was reconstructed independently rather than accepted from a log.",
+          "The cited papers address statistical orders, not a known finite variance table."
+        ],
+        "reasoning": "The result is a strict global continuous parameter inequality rather than an isolated numeric table. A previously published special-case symbolic identity is still possible.",
+        "searches": [
+          "Resultary coupon variance query",
+          "https://arxiv.org/abs/2606.31391",
+          "Git checked CERTIFICATE.txt, 140 degree-16 coefficients"
+        ]
+      },
+      "rationale": "Earlier 2026 results establish uniform maximality of the sibling deficit mean and, in Long arXiv:2606.31391, a radial generating-function/binomial moment order. Such order does not imply variance order: an explicitly checked artificial distribution (79/100,0,21/100) has smaller mean and factorial moments yet greater variance 1659/2500>7/12. The new theorem is the sharp strict variance extremum WITHIN the natural family of three-type coupon probabilities. However the full strongest radial-transform paper could not be inspected: arXiv and OA routes did not provide full text, authorized Oxford access returned vpn_disconnected. This remains an explicit high-priority comparison risk and is not treated as automatic failure.",
+      "residual_risks": [
+        "Full primary arXiv 2606.31391 inaccessible; authorized institutional access returned vpn_disconnected. Possible explicit variance special case or appendix cannot be ruled out.",
+        "Any stronger fluctuation comparison restricted to feasible coupon distributions might imply the theorem even though generic PGF order does not.",
+        "No extension claimed to 4+ coupon types or later siblings; source certificate covers exactly the three-type case."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Material available does not establish strict three-type variance extremality; cannot exclude a theorem or appendix in inaccessible full text",
+          "evidence": "Reported abstract concerns radial PGF/binomial-moment order, not an explicitly identified sibling-deficit variance bound.",
+          "identifier_or_url": "https://arxiv.org/abs/2606.31391",
+          "material_read": "ArXiv abstract, title and available description of PGF/binomial-moment extremality; full primary text unavailable",
+          "method": "Tried arXiv/preprint and lawful OA then authorized Oxford; Oxford returned vpn_disconnected requiring human reconnection",
+          "title": "Radial Transform Extremality for the Siblings of the Coupon Collector",
+          "trigger": "Strongest plausible earlier theorem on same sibling deficit distributions"
+        },
+        {
+          "assessment": "Proves first moment, which does not logically force variance optimum",
+          "evidence": "Doumas and Spektor 2026, title and statement of uniform expected deficit extremality.",
+          "identifier_or_url": "https://arxiv.org/abs/2606.21591",
+          "material_read": "Published arXiv abstract/search summary and result statement on expected sibling deficit; not full paper",
+          "method": "ArXiv search",
+          "title": "Equal probabilities maximize the expected deficit in the siblings of the coupon collector",
+          "trigger": "Same experiment and uniform extremizer but different statistic"
+        },
+        {
+          "assessment": "Known expectation extremality and asymptotic results; no full-document noncoverage claim",
+          "evidence": "Long 2026, arXiv 2606.29635.",
+          "identifier_or_url": "https://arxiv.org/abs/2606.29635",
+          "material_read": "ArXiv abstract and result summary, not full text",
+          "method": "Open literature search",
+          "title": "Extremality and Limit Laws for the Siblings of the Coupon Collector",
+          "trigger": "Same sibling model and possible moment implications"
+        },
+        {
+          "assessment": "Variance there concerns collection completion time, not secondary album deficit",
+          "evidence": "Long 2026 arXiv 2604.25108, theorem concerns different random variable.",
+          "identifier_or_url": "https://arxiv.org/abs/2604.25108",
+          "material_read": "Bibliographic title, abstract and stated object; not full paper",
+          "method": "Primary arXiv search",
+          "title": "Terminal Defects, Growing Multiplicity, and Variance Extremality in the Double Dixie Cup Problem",
+          "trigger": "Potentially identical variance term"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "rationale": "This is the smallest coupon alphabet whose second-collector missing-type deficit takes three different values and has nontrivial variance extremality. A sharp global bound with unique extremizer addresses a natural fluctuation question not resolved by mean order or generic generating-function order; an exact positive-coefficient certificate makes the claim independently checkable.",
+      "status": "PASS"
+    }
+  },
+  "checked_sources": [
+    "https://arxiv.org/abs/2606.31391",
+    "https://arxiv.org/abs/2606.21591",
+    "https://arxiv.org/abs/2606.29635",
+    "https://arxiv.org/abs/2604.25108"
+  ],
+  "disposition": "passed",
+  "limitations": [
+    "Exactly three strictly positive probabilities and the first sibling only.",
+    "The 140-term identity was reconstructed exactly; finite-state examples alone are not a continuum proof."
+  ],
+  "residual_risks": [
+    "Full primary arXiv 2606.31391 inaccessible; authorized institutional access returned vpn_disconnected. Possible explicit variance special case or appendix cannot be ruled out.",
+    "Any stronger fluctuation comparison restricted to feasible coupon distributions might imply the theorem even though generic PGF order does not.",
+    "No extension claimed to 4+ coupon types or later siblings; source certificate covers exactly the three-type case."
+  ],
+  "schema_version": 1
+}
