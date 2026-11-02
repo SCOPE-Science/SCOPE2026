@@ -5,8 +5,11 @@
     "status": "not_performed"
   },
   "independent_audit": {
-    "evidence": null,
-    "status": "not_performed"
+    "status": "passed",
+    "evidence": [
+      "INDEPENDENT_AUDIT_2026-10-31.md",
+      "INDEPENDENT_AUDIT_2026-10-31.json"
+    ]
   },
   "lean_verification": {
     "evidence": null,
@@ -16,14 +19,24 @@
 }
 ---
 
-# Verification record
+# Independent mathematical audit
 
-The mathematical proof uses an exact change of variables for projected circle measures, cosine/sine-to-Chebyshev diagonalization, elementary finite-dimensional spectral theory, and the classical Dirichlet simultaneous approximation theorem. It establishes every integer-frequency inequality and infinite subsequence argument analytically.
+## correctness
 
-## Reproducible finite checks
+PASS
 
-Run `python checker.py` in an environment with NumPy (`requirements.txt`). The program enumerates three unrelated angular view configurations and 150 harmonic degrees each, directly calculates matrix eigenvalues and compares them with the phasor formula, verifies both analytic torus-gap bounds, integrates a finite Fourier density by 16384-point arcsine-angle midpoint quadrature independently of the Gram formula, and tests five exact rational-direction rank defects. `CHECKER_OUTPUT.txt` holds the saved output. These checks cannot certify the universal spectrum, simultaneous approximation bounds, or absence of covering results.
+For f∈L²(S¹) and arcsine-normalized output, the two-preimage cosine change of variables gives q_phi(cos t)=(f(phi+t)+f(phi−t))/2. In orthonormal real Fourier degree n basis the k-view observation is the k×2 matrix B_n whose rows are (cos nphi_j,sin nphi_j), while the constant mode has squared singular value k. Its real Gram spectrum is exactly λ±(n)=(k±|Σ_j exp(2inphi_j)|)/2. The identity k²−|Σ exp(2inphi_j)|²=4Σ_{i<j}sin²(n(phi_i−phi_j)) and elementary sin-distance bounds give (4/k)δ_n²<=λ−(n)<=4π²(k−1)δ_n² for δ_n=max_{j>=2}dist(n(phi_j−phi_1)/π,Z). Parseval proves injectivity iff at least one difference irrational and the complete H^{−τ} observability iff inf_n n^τ δ_n>0. Simultaneous Dirichlet approximation excludes τ<1/(k−1) for injective configurations; badly approximable vectors attain the borderline. Fourier interpolation gives observed-data exponent s(k−1)/(1+s(k−1)), sharp along the unbounded Dirichlet subsequence of least eigenvectors. Condition number including constants is k/min_{1<=n<=N}λ−(n). Fresh numerical Gram and distance checks tested 280 k,n pairs; no finite numerical test certifies Dirichlet or sharp all-frequency results.
 
-## Review limitations
+## originality
 
-Only the stated input Hilbert norm, arcsine-weighted projected output norm, and integer-degree Sobolev scale are covered. The original circle-specific 2011 papers were not available in full text; novelty requires independent priority scrutiny. The review is a self-review, not an independent audit.
+PASS
+
+Best-of-knowledge statement-level primary-literature comparison: the identified antecedents cover qualitative mechanisms, methods or partial counts but no inspected theorem implies the precise assessed evaluated claim; limitations and possible older equivalents remain explicit. The two-line determinant detects qualitative noninjectivity and small divisors for a related operator. The claim instead uses complete arcsine-normalized projected density measurements and evaluates the entire k×2 Fourier Gram spectrum with exact norms and all-τ stability.
+
+## value
+
+PASS
+
+Finite-view tomography of circle-supported densities has a motivated ill-posed inverse problem. The exact singular spectrum and necessary/sufficient Diophantine Sobolev loss give a complete quantitative answer for any number of views, while the sharp Hölder exponent directly describes optimal conditional reconstruction. The result is more than qualitative uniqueness or a textbook orthogonality calculation because the multiview arithmetic threshold and attainable loss are evaluated.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
