@@ -1,0 +1,137 @@
+{
+  "audit_date_utc": "2026-10-29",
+  "audited_at_utc": "2026-10-29T03:52:35Z",
+  "axes": {
+    "correctness": {
+      "rationale": "Renewal at a fixed reset point makes final-success mark/time law proportional to e^{-Dq^2t}f_x(t)S_y(t) and its swapped counterpart. Subtracting the unconstrained one-axis Laplace weight e^{-qx} gives positive corner deficit; Gaussian first-passage density plus exact Mills representation m(u)=int_0^infty exp(-w-w^2/(4u^2))dw supplies 0<=1-m<=1/(2u^2). Two positive Bessel integral identities yield the global K0/K1 inequality with exact constants. R_q=sqrt(2)a+O(q^-2) and K0 asymptotics give the sharp normalized corner coefficient, while the normalized inverse-Gaussian tilt has mean d/(2Dq), variance d/(4D^2q^3), and Gaussian characteristic-function limit; omitted-opposite-axis mass is exponentially small. This establishes the joint Bernoulli(logistic(z))-Gaussian limit for fixed a,D,z and the final *successful excursion* only.",
+      "residual_risks": [
+        "At fixed z=0 the leading corner correction vanishes exactly by symmetry; there is no claim that a nonzero next coefficient was found there.",
+        "The asymptotic is restricted to x,y in the interior and the specified moving bisector window."
+      ],
+      "sources": [
+        "RESULT.md @ blob ace9e6dc7d8040a9e4453143013c6ecc4980d0e4",
+        "verify.py @ blob 500e18f8da4501f541cf0727129e528b4e28b8c2",
+        "independent_checks.py, positive quadrature and normalized front checks"
+      ],
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Chupeau–Bénichou–Majumdar (2015) studies free Brownian wedge survival and short-time behavior without resets.",
+          "Pal and collaborators (2025) study selective outcomes under stochastic resetting and conditional mean-based criteria, not this joint high-rate marked limit in the inspected material."
+        ],
+        "reasoning": "The broader first-passage literature contains reusable first-passage and Laplace tools but neither inspected statement directly gives the claimed two-scale uniform bound plus marked Gaussian limit. Unread sections or alternate probabilistic formulations remain priority risks.",
+        "searches": [
+          "Resultary semantic query: stochastic resetting Brownian planar quadrant wedge splitting probability near bisector logistic transition sharp K0 Bessel corner correction Gaussian final excursion duration",
+          "DOI:10.1103/PhysRevE.91.032106",
+          "arXiv:2502.09127"
+        ]
+      },
+      "checked_sources": [
+        "arxiv:2505.04208 (primary PDF pertinent text and figures)",
+        "doi:10.1103/3bc4-nlkt (journal counterpart)",
+        "doi:10.1103/PhysRevE.91.032106 (metadata scope)",
+        "arxiv:2502.09127 (abstract scope)",
+        "Resultary published mathematical findings query for sharp Bessel quadrant exit"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "Najeeb–Pal–Prasad: high reset rates select the nearer side with probability tending to one for a fixed nonbisector location, and exact equality holds at the bisector.",
+          "Current finding: moving offsets of size q^-1 yield nontrivial logistic outcome with a first K0-controlled exponentially small correction, and final successful flight durations have independent standardized Gaussian limit."
+        ],
+        "reasoning": "A fixed-geometry near-certain side limit does not imply the moving-geometry logistic limit. Exact prior current formulas contain enough raw distributional information for further analysis, so implicit coverage remains a real risk; no claim is made that previous finite-rate splitting laws are original.",
+        "searches": [
+          "arXiv:2505.04208 Section V pages 6–8",
+          "Resultary semantic query: stochastic resetting Brownian planar quadrant wedge splitting probability near bisector logistic transition sharp K0 Bessel corner correction Gaussian final excursion duration"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "For angle pi/2, the wedge may be represented as two independent one-dimensional hitting times; finite-rate boundary-current integrals and tilted competing-hitting probabilities encode the same splitting law.",
+          "The final successful excursion differs from total first-passage time including failed resets."
+        ],
+        "reasoning": "The exact renewal representation is known at finite parameters, but the accepted theorem asserts quantified all-rate remainder inequalities and scaled joint **last-excursion** distributions, not just a reparametrized finite-q splitting formula.",
+        "searches": [
+          "Resultary semantic query: stochastic resetting Brownian planar quadrant wedge splitting probability near bisector logistic transition sharp K0 Bessel corner correction Gaussian final excursion duration",
+          "arXiv:2505.04208 Section V.2 and V.3",
+          "DOI:10.1103/3bc4-nlkt"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "Figure 6 displays finite-rate splitting probabilities; Eq. (33) integrates currents.",
+          "The accepted theorem has continuous parameters x,y,D,q and exact inequalities, not a finite tabulated invariant."
+        ],
+        "reasoning": "The existing plots and finite-rate integral formula are credited; they do not list or demonstrate the global corner bound or its sharp coefficient. Numerical agreement alone does not establish novelty.",
+        "searches": [
+          "Resultary semantic query: stochastic resetting Brownian planar quadrant wedge splitting probability near bisector logistic transition sharp K0 Bessel corner correction Gaussian final excursion duration",
+          "arXiv:2505.04208 Figures 5–6, Eq. (33)"
+        ]
+      },
+      "rationale": "The direct wedge-reset paper derives finite-rate boundary currents and splitting probabilities, including qualitative high-reset side bias and bisector symmetry; these are explicitly prior. The new scope is the all-parameter quantified Bessel enclosure and first sharp correction together with a coupled marked final-success excursion Gaussian limit. Mere specialization of the old currents does not state these bounds or the final-success excursion time law; possible derivability from their complete kernels is recorded as a genuine implication risk.",
+      "residual_risks": [
+        "The earlier exact current formula may imply the sharp asymptotic under a nontrivial but straightforward computation; direct novelty is in quantified bound and joint marked front, not finite-rate formula.",
+        "Unindexed general Laplace-tilt/Bessel asymptotic theorems may imply components, though inspected sources do not state the full result."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "KNOWN_KERNELS_NOT_QUANTIFIED_FRONT",
+          "evidence": "Earlier work derives boundary currents and total conditional exit-time quantities, qualitative high-rate side choice, and bisector 1/2 symmetry; no displayed all-rate K0/K1 enclosure or joint final-success excursion CLT in inspected material.",
+          "identifier_or_url": "https://arxiv.org/pdf/2505.04208",
+          "material_read": "Full lawful 20-page PDF available; inspected Sections IV–V, equations 28–33, figures 4–6 and discussion of high-rate asymmetry, with original page-image checks on pages 7–8.",
+          "method": "Read boundary-current formulas and conditional exit/splitting sections; compared exact q-formula and asymptotic claims.",
+          "title": "Diffusion in a wedge geometry: First-Passage Statistics under Stochastic Resetting",
+          "trigger": "Closest same-geometry same-reset published model"
+        },
+        {
+          "assessment": "RELATED_FOUNDATIONAL",
+          "evidence": "Free-diffusion wedge survival and short-time asymptotics are inputs, not this Poisson resetting marked limit.",
+          "identifier_or_url": "https://doi.org/10.1103/PhysRevE.91.032106",
+          "material_read": "Citation, title and abstract-level scope; not a whole-paper exclusion.",
+          "method": "Compared absence of resetting in the described model.",
+          "title": "Survival probability of a Brownian motion in a planar wedge of arbitrary angle",
+          "trigger": "Older unrestricted-wedge survival coverage"
+        },
+        {
+          "assessment": "PLAUSIBLE_GENERAL_TOOL_RISK",
+          "evidence": "May contain general relations useful in an alternate derivation; exact claimed constants not confirmed from accessible portions.",
+          "identifier_or_url": "https://arxiv.org/abs/2502.09127",
+          "material_read": "Public abstract and relevant cited scope; full text not read.",
+          "method": "Compared optimization of conditional mean first passages versus scaled final-success mark/time law.",
+          "title": "Universal criterion for selective outcomes under stochastic resetting",
+          "trigger": "Broad resetting/selective-outcomes alternative"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "rationale": "The high-reset competition between two absorbing sides has a concrete unresolved observation scale: offsets q^-1 yield neither side certain. Explicit switching width, logistic profile, first globally bounded corner-screening error, and the final-success duration CLT are natural measurable boundary-layer features, not arbitrary finite samples.",
+      "residual_risks": [
+        "Only a right-angle wedge with independent coordinates and complete deterministic Poisson resets is analyzed."
+      ],
+      "sources": [
+        "arxiv:2505.04208 finite-rate splitting equations and Figure 6",
+        "RESULT.md explicit K0/K1 bound and marked weak limit"
+      ],
+      "status": "PASS"
+    }
+  },
+  "checked_sources": [
+    "arxiv:2505.04208 (primary PDF pertinent text and figures)",
+    "doi:10.1103/3bc4-nlkt (journal counterpart)",
+    "doi:10.1103/PhysRevE.91.032106 (metadata scope)",
+    "arxiv:2502.09127 (abstract scope)",
+    "Resultary published mathematical findings query for sharp Bessel quadrant exit"
+  ],
+  "disposition": "passed",
+  "limitations": "Publication withheld: PUBLIC AUDIT.json and METADATA.json both contain the operational scope_run_id field. Complete guarded, confidentiality-neutral file replacements were not prepared; no public source package should be delivered or imported from this plan.",
+  "residual_risks": [
+    "At fixed z=0 the leading corner correction vanishes exactly by symmetry; there is no claim that a nonzero next coefficient was found there.",
+    "The asymptotic is restricted to x,y in the interior and the specified moving bisector window.",
+    "The earlier exact current formula may imply the sharp asymptotic under a nontrivial but straightforward computation; direct novelty is in quantified bound and joint marked front, not finite-rate formula.",
+    "Unindexed general Laplace-tilt/Bessel asymptotic theorems may imply components, though inspected sources do not state the full result.",
+    "Only a right-angle wedge with independent coordinates and complete deterministic Poisson resets is analyzed."
+  ],
+  "schema_version": 1
+}

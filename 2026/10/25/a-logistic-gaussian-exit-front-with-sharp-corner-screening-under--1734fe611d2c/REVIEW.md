@@ -1,15 +1,21 @@
-# Scientific review
+# Independent mathematical audit
 
-## Correctness — PASS
-The two coordinate hitting times are independent with explicit inverse-Gaussian first-passage densities. Renewal decomposition gives the final successful excursion's marked defective measures. The complementary-error-function integral admits a positive-kernel representation with a global pointwise remainder inequality. Evaluation of two integrals gives the exact \(K_0/K_1\) envelope; uniform Bessel asymptotics give the sharp correction. A characteristic-function expansion of the exponential-tilted first-passage distribution and total-variation control establish the independent logistic–Gaussian front. The standalone quadrature program passed 816 finite checks, used as corroboration and not as an infinite proof.
+## correctness
 
-## Originality — PASS, with explicit residual risk
-The closest work is Najeeb–Pal–Prasad, arXiv:2505.04208 and its 2026 *Physical Review E* version. It supplies exact renewal kernels and splitting probabilities, qualitative high-rate selection and bisector symmetry. The new claim is restricted to the **sharp** jointly rescaled marked-excursion law and the all-rate quantified \(K_0/K_1\) corner estimate, not the known finite-rate formula. The 2015 wedge-survival paper and 2025 universal selective-resetting criterion give related tools but do not state these joint, sharp laws in inspected material. Since the originating work's general flux formula contains the data from which the present asymptotics could be extracted, implicit coverage is the main risk, and independent originality review remains outstanding.
+PASS
 
-## Value — PASS
-Existing qualitative side selection leaves unresolved how finely the initial position must be controlled to maintain two competing exit outcomes and what the accompanying successful-flight durations look like. The theorem gives the exact geometric crossover width, the logistic selection profile, asymptotically independent duration fluctuations, and a **global analytic error enclosure** quantifying corner interference. These distinguish finite-rate accuracy from limiting selection and are motivated observables for two-outcome first-passage experiments, rather than an arbitrary numerical case.
+Renewal at a fixed reset point makes final-success mark/time law proportional to e^{-Dq^2t}f_x(t)S_y(t) and its swapped counterpart. Subtracting the unconstrained one-axis Laplace weight e^{-qx} gives positive corner deficit; Gaussian first-passage density plus exact Mills representation m(u)=int_0^infty exp(-w-w^2/(4u^2))dw supplies 0<=1-m<=1/(2u^2). Two positive Bessel integral identities yield the global K0/K1 inequality with exact constants. R_q=sqrt(2)a+O(q^-2) and K0 asymptotics give the sharp normalized corner coefficient, while the normalized inverse-Gaussian tilt has mean d/(2Dq), variance d/(4D^2q^3), and Gaussian characteristic-function limit; omitted-opposite-axis mass is exponentially small. This establishes the joint Bernoulli(logistic(z))-Gaussian limit for fixed a,D,z and the final *successful excursion* only.
 
-## Closest literature and limits
-The results apply to one right-angle wedge, independent coordinate Brownian motions, and full Poisson resets to one interior point. The limit concerns the final successful excursion rather than the total first-passage time. General wedge angles and other reset protocols remain open. No independent validation has been performed.
+## originality
 
-Self-review: passed. Independent audit: not yet performed.
+PASS
+
+The direct wedge-reset paper derives finite-rate boundary currents and splitting probabilities, including qualitative high-reset side bias and bisector symmetry; these are explicitly prior. The new scope is the all-parameter quantified Bessel enclosure and first sharp correction together with a coupled marked final-success excursion Gaussian limit. Mere specialization of the old currents does not state these bounds or the final-success excursion time law; possible derivability from their complete kernels is recorded as a genuine implication risk.
+
+## value
+
+PASS
+
+The high-reset competition between two absorbing sides has a concrete unresolved observation scale: offsets q^-1 yield neither side certain. Explicit switching width, logistic profile, first globally bounded corner-screening error, and the final-success duration CLT are natural measurable boundary-layer features, not arbitrary finite samples.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
