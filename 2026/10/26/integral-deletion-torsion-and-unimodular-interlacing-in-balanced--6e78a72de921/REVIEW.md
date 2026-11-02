@@ -1,11 +1,21 @@
-# Mathematical review: integral multiset deletion and interlacing
+# Independent mathematical audit
 
-**Correctness: PASS.** The proof makes two explicit integer certificates. The interlacing matrix contains a unit lower-triangular maximal minor using the columns obtained by appending the largest alphabet symbol to every row. The deletion map is the derivation \(\sum_i\partial/\partial x_i\) on the integral symmetric algebra. An invertible integer change of variables makes this \(\partial/\partial y_0\), giving the claimed cyclic cokernel multiplicities and all prime-field ranks, including the one-symbol boundary. Direct finite-field and exact Smith computations corroborate these deductions; they are not used as infinite proof.
+## correctness
 
-**Originality: PASS, qualified.** The principal source, Higgins, arXiv:2610.01912v1, §§2–3, was inspected in full and specifies the two matrices, balanced margins, and permutation matching, but not the two integral invariants. A previous real singular-spectrum result for the weighted matrix gives no Smith factors or modular-rank implications. The Young-lattice \(DU\) Smith theorem of Cai–Stanley has a different operator and domain; general subset-incidence results also differ. Actual title/object/operator/equivalence searches found no exact coverage. The proof employs elementary integral algebra, so a prior implicit formulation in broader symmetric-power or homological literature remains possible.
+PASS
 
-**Mathematical value: PASS.** The integer cokernel and every modular rank are natural, complete arithmetic invariants of the exact weighting that makes Higgins's finite-semigroup construction work. The theorem reveals a sharp and uniform small-characteristic rank-loss phase absent from its binary transversal counterpart, despite both being associated with the same interlacing data. This is not derivable from the earlier real spectrum or the constant-margin identity and provides an all-rank integral classification, not a finite numerical sample. It does not itself strengthen the existence of permutation matchings.
+Let m=n-r+1 and rows M_{r−1}, columns M_r. For each row s the interlacing binary matrix R admits column t(s)=(s_1,...,s_{r−1},m−1); lexicographic ordering makes the selected square minor unit triangular, proving a Z-right inverse. For weighted deletion, represent each multiset by a monomial; E is D=sum_i partial/partial x_i on homogeneous degree r. The integer unimodular substitution y_0=x_0, y_i=x_i−x_0 turns D into partial/partial y_0 in every degree. Thus its integral diagonal coefficients are j with multiplicity binom(n−j−1,r−j), j=1..r when r<n. This proves the stated cokernel cyclic summands (not necessarily ordered Smith factors) and the characteristic-p rank formula sum_{p∤j}binom(n−j−1,r−j), full iff p>r. At r=n, E=[n],R=[1], including the degenerate single-symbol boundary. Independent direct multiset enumeration, modular ranks and Smith comparisons verified all 21 n,r pairs 1<=r<=n<=6, but only the integral argument proves the universal classification.
 
-**Limits and priority risk.** Historical priority is qualified by possible unindexed results on polynomial derivations and integral symmetric powers. The binary matrix is interlacing, not merely the support of deletion; the cyclic factors are not individually in Smith divisibility order. Higher-degree deletion and arbitrary balanced weightings are not covered.
+## originality
 
-Self-review: passed. Independent audit: not yet performed.
+PASS
+
+The directly relevant Higgins 2026 paper identifies the same deletion multiplicities, interlacing relation and balanced row/column sums but its inspected Sections 2–3 do not provide the integer cokernel, characteristic-p ranks or a unimodular maximal minor. Cai–Stanley's Young lattice DU Smith theorem concerns a different graded operator. Search also considered symmetric-power differentiation and subset-incidence Smith identities; a classical implicit polynomial-derivation computation may cover the new formula and remains a real risk, but no stronger examined statement forces it.
+
+## value
+
+PASS
+
+Integral cokernels and all-characteristic ranks are natural invariants of the exact balanced multiset weighting. The sharp disagreement between weighted deletion and unimodular binary interlacing identifies a substantive arithmetic obstruction invisible from balanced margins and real singular values; the proof is an all-parameter structural classification.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

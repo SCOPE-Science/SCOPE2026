@@ -5,8 +5,11 @@
     "status": "not_performed"
   },
   "independent_audit": {
-    "evidence": null,
-    "status": "not_performed"
+    "status": "passed",
+    "evidence": [
+      "INDEPENDENT_AUDIT_2026-10-29.md",
+      "INDEPENDENT_AUDIT_2026-10-29.json"
+    ]
   },
   "lean_verification": {
     "evidence": null,
@@ -16,16 +19,24 @@
 }
 ---
 
-# Reproducibility checks and boundaries
+# Independent mathematical audit
 
-Run `python3 verify.py` in a Python 3 environment with SymPy installed. Output on the checked copy was:
+## correctness
 
-```
-VERIFY_OK cases=45 integer_snf=28 prime_rank_comparisons=180
-```
+PASS
 
-The program constructs all multiset-deletion multiplicity matrices and interlacing binary matrices directly for \(1\leq r\leq n\leq9\), checks balanced integer margins and the specified unit-triangular binary minor, and computes row ranks over \(\mathbb F_2,\mathbb F_3,\mathbb F_5,\mathbb F_7\). For \(n\leq7\), it computes true integer Smith normal forms with SymPy and compares prime-power-combined invariant factors to the proposed diagonal decomposition.
+Let m=n-r+1 and rows M_{r−1}, columns M_r. For each row s the interlacing binary matrix R admits column t(s)=(s_1,...,s_{r−1},m−1); lexicographic ordering makes the selected square minor unit triangular, proving a Z-right inverse. For weighted deletion, represent each multiset by a monomial; E is D=sum_i partial/partial x_i on homogeneous degree r. The integer unimodular substitution y_0=x_0, y_i=x_i−x_0 turns D into partial/partial y_0 in every degree. Thus its integral diagonal coefficients are j with multiplicity binom(n−j−1,r−j), j=1..r when r<n. This proves the stated cokernel cyclic summands (not necessarily ordered Smith factors) and the characteristic-p rank formula sum_{p∤j}binom(n−j−1,r−j), full iff p>r. At r=n, E=[n],R=[1], including the degenerate single-symbol boundary. Independent direct multiset enumeration, modular ranks and Smith comparisons verified all 21 n,r pairs 1<=r<=n<=6, but only the integral argument proves the universal classification.
 
-Finite computations do not prove the infinite theorem. The general proof uses two exact integral transformations, whose correctness can be checked without executing code: (1) a lexicographically unit-triangular maximal minor for the binary relation; (2) an invertible integral linear coordinate change on every homogeneous polynomial degree turning the deletion derivation into one coordinate derivative. At \(r=n\), the direct one-by-one matrices are \([n]\) and \([1]\); at \(r=1\), all empty-multiset and maximum-symbol conventions are included.
+## originality
 
-An independent mathematical audit has not been performed. The claim does not extend to arbitrary balanced weightings, and priority cannot be certified solely by absence of search matches.
+PASS
+
+The directly relevant Higgins 2026 paper identifies the same deletion multiplicities, interlacing relation and balanced row/column sums but its inspected Sections 2–3 do not provide the integer cokernel, characteristic-p ranks or a unimodular maximal minor. Cai–Stanley's Young lattice DU Smith theorem concerns a different graded operator. Search also considered symmetric-power differentiation and subset-incidence Smith identities; a classical implicit polynomial-derivation computation may cover the new formula and remains a real risk, but no stronger examined statement forces it.
+
+## value
+
+PASS
+
+Integral cokernels and all-characteristic ranks are natural invariants of the exact balanced multiset weighting. The sharp disagreement between weighted deletion and unimodular binary interlacing identifies a substantive arithmetic obstruction invisible from balanced margins and real singular values; the proof is an all-parameter structural classification.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
