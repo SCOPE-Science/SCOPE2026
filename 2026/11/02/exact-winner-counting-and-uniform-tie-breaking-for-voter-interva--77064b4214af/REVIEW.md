@@ -1,0 +1,11 @@
+# Research review
+
+**Correctness — PASS.** A unique path of maximal elected intervals and first-container assignment gives a bijection from labeled committees to polynomially countable decorated paths. The max-plus multiplicity recurrence counts only optimal committees, and unbiased weighted backtracking samples each such committee equally. The standalone verifier passed 1,167,656 exhaustive small-instance comparisons, 5,000 weighted randomized comparisons and 7,000 validity checks of sampled committees; finite tests supplement, not replace, the proof.
+
+**Originality — PASS, subject to residual priority uncertainty.** Cohen–Gonen (2019) solve maximum-weight *optimization* by pruning contained intervals, a step which invalidates direct counting of all labeled tied committees. Janeczko–Faliszewski (2023) study exactly this counting/tie-breaking objective in general and establish hardness, not a voter-interval algorithm. Manurangsi–Sornat (2026) and Avramidis et al. (2026) solve Thiele winner determination on voter-interval domains; Li et al. (2020) provide an offline interval-coverage optimization DP. Full texts and relevant proofs/algorithms were compared at the statement/implication level. No directly equivalent count-and-uniform-sampling result was identified in the accessible literature or the mathematical record searches, but unindexed or overlooked equivalents remain possible.
+
+**Value — PASS.** Tied outcomes are a recognized substantive issue for committee elections. Moving from one winning committee to the exact number and a provably unbiased tie-breaking lottery is not achieved by an optimization oracle alone. The decomposition handles labeled candidates whose approval sets are nested, repeated, empty or score-redundant, precisely the cases in which simple optimization-state counting would lose solutions.
+
+**Scientific limitations.** This is a weighted-coverage (Chamberlin–Courant) result only, not a general arbitrary-Thiele counting algorithm. It assumes explicit voter intervals, exact rational scores and unbiased discrete sampling. It does not settle priority against inaccessible/unindexed research.
+
+Self-review: passed. Independent audit: not yet performed.
