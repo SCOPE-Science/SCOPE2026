@@ -1,0 +1,118 @@
+{
+  "audit_date_utc": "2026-10-28",
+  "audited_at_utc": "2026-10-28T11:40:02Z",
+  "axes": {
+    "correctness": {
+      "checked_sources": [
+        "Complete assigned RESULT.md section 1 exact slices, section 2 integrations, section 3 coefficients, section 4 monotonicity: https://github.com/SCOPE-Science/SCOPE2026/blob/1f8e0be379eb81eef2fb9793610c55b58e95c7d6/2026/10/25/exact-reflected-mixed-volumes-of-homothetic-frusta-with-symmetri--e2258ca0df47/RESULT.md",
+        "Independent convex hull polytope checks in dimensions 3–4 CHECK4_PASS"
+      ],
+      "rationale": "For lambda>=0 the horizontal z-section of F_a(B)+lambda(-F_a(B)) is a union of centered homothetic copies indexed by u−lambda v=z, u,v in [0,1]. Because -B=B, their scale is 1+lambda−(1−a)(u+lambda v), maximized at u+lambda v=|z|; the copies are nested, so the exact section is (1+lambda−(1−a)|z|)B for -lambda<=z<=1. Integrating its (d−1)-volume gives the polynomial ratio [2(1+lambda)^d−(a+lambda)^d−(1+a lambda)^d]/(1−a^d), normalized by vol(F_a(B)); at a=1 F_1(B) is a centrally symmetric prism modulo translation, yielding (1+lambda)^d. Comparing coefficients with binomial mixed-volume convention gives R_dk=(2−a^k−a^(d−k))/(1−a^d)=1+(1−a^k)(1−a^(d−k))/(1−a^d); k=0,d each 1. A direct derivative of (1−u)(1−v)/(1−uv), u=a^k,v=a^(d−k), proves strict decreasing with a for 0<a<1. Difference R_{k+1}−R_k=(1−a)(a^k−a^(d-k-1))/(1−a^d) establishes symmetric strict unimodality and central tie when d odd. Independent convex-hull Minkowski-sum computations for d=3,4, a=0,.2,.6,1 and lambda=.2,.8,1.4 agree. The nested-section argument, not the finite hull sample, proves arbitrary B and d.",
+      "residual_risks": [
+        "The central-symmetry and homothetic-section hypotheses are necessary for the nested centered section simplification; arbitrary asymmetric bases are not covered. Finite convex hull checks do not establish nonpolyhedral B."
+      ],
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Higher-order Godbersen gives universal inequalities and simplex equality cases, not the values R_dk(a) on all central-base frusta."
+        ],
+        "reasoning": "Broader body class with only an inequality is not broader coverage of the equality/profile theorem. The normalized exact coefficients contain information absent from the prior bound.",
+        "searches": [
+          "https://arxiv.org/abs/2610.06806",
+          "Resultary semantic query: Godbersen reflected mixed volumes convex symmetric base frustum difference body homothetic slices"
+        ]
+      },
+      "checked_sources": [
+        "https://github.com/Resultary/2026/tree/main/2026/10/11/SCOPE-exact-godbersen-mixed-volume-profile-for-one-vertex-simplex-trun--dda979276949",
+        "https://github.com/Resultary/2026/tree/main/2026/10/11/SCOPE-universal-santal-and-volume-product-laws-for-homothetic-frusta--3dbfdaf0b359",
+        "https://arxiv.org/abs/2610.06806",
+        "Resultary semantic query: Godbersen reflected mixed volumes convex symmetric base frustum difference body homothetic slices"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "Truncated simplex d>=3 has nonsymmetric section, while Santaló result integrates polar sections. Present theorem integrates centered reflected Minkowski sections and extracts all mixed coefficients."
+        ],
+        "reasoning": "The overlapping planar trapezoid case is explicitly excluded from claimed novelty. Neither prior theorem, even in combination, determines the all-dimensional symmetric-base profile.",
+        "searches": [
+          "https://github.com/Resultary/2026/tree/main/2026/10/11/SCOPE-exact-godbersen-mixed-volume-profile-for-one-vertex-simplex-trun--dda979276949",
+          "https://github.com/Resultary/2026/tree/main/2026/10/11/SCOPE-universal-santal-and-volume-product-laws-for-homothetic-frusta--3dbfdaf0b359"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "The same F_a(B) appears in a volume-product theorem, but mixed coefficients are polarizations of vol(F_a+lambda(-F_a)), not Santaló polar volumes."
+        ],
+        "reasoning": "Shape independence of one functional does not equate the Santaló/Mahler result to the reflected Minkowski polynomial; different operations and coefficients are involved.",
+        "searches": [
+          "Resultary semantic query: Godbersen reflected mixed volumes convex symmetric base frustum difference body homothetic slices",
+          "https://github.com/Resultary/2026/tree/main/2026/10/11/SCOPE-universal-santal-and-volume-product-laws-for-homothetic-frusta--3dbfdaf0b359"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "Specific known simplex-truncation formula with a different base is acknowledged, including the planar special boundary. No indexed table for all centrally symmetric B gives 1+(1−a^k)(1−a^(d−k))/(1−a^d)."
+        ],
+        "reasoning": "Batched semantic matches were compared by hypotheses, not only title; negative exact-table search cannot rule out a classical frustum slicing identity under an older alias.",
+        "searches": [
+          "Resultary semantic query: Godbersen reflected mixed volumes convex symmetric base frustum difference body homothetic slices",
+          "https://github.com/Resultary/2026/tree/main/2026/10/11/SCOPE-exact-godbersen-mixed-volume-profile-for-one-vertex-simplex-trun--dda979276949"
+        ]
+      },
+      "rationale": "The universal Godbersen inequality is known, and prior work computes mixed volumes for a truncated simplex and Santaló/Mahler functionals for homothetic frusta. Here the full reflected polynomial for every centrally symmetric (not necessarily polygonal) base, including all coefficients and exact monotone profile, is not a consequence of either inspected result.",
+      "residual_risks": [
+        "An elementary classical Rogers–Shephard frustum difference-body calculation might encode the same closed form without modern keywords; accessible searches are not a completeness certificate."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "OVERLAP_IN_PLANAR_TRAPEZOID_ONLY; DOES_NOT_COVER_SYMMETRIC_BASE_FAMILY",
+          "evidence": "The source truncated simplex has a noncentrally symmetric simplex base in d>=3, a different body; its d=2 triangle/trapezoid is outside the new d>=3 claim. Full current formula for centrally symmetric arbitrary B cannot be specialized from its theorem.",
+          "identifier_or_url": "https://github.com/Resultary/2026/tree/main/2026/10/11/SCOPE-exact-godbersen-mixed-volume-profile-for-one-vertex-simplex-trun--dda979276949",
+          "material_read": "Public RESULT.md theorem, definitions and orthant-integration proof through coefficient extraction",
+          "method": "Read accessible primary RESULT.md or full-text HTML mathematical statements and proof",
+          "title": "Exact Godbersen mixed-volume profile for one-vertex simplex truncations",
+          "trigger": "Very similar reflected mixed-volume coefficient function and frustum parameter"
+        },
+        {
+          "assessment": "SAME_GEOMETRIC_FAMILY_DIFFERENT_FUNCTIONAL",
+          "evidence": "Polar-volume/Santaló coordinates and Mahler volume product are not the reflected Minkowski sum with -F_a or its mixed-volume coefficients; its shape independence does not imply this polynomial.",
+          "identifier_or_url": "https://github.com/Resultary/2026/tree/main/2026/10/11/SCOPE-universal-santal-and-volume-product-laws-for-homothetic-frusta--3dbfdaf0b359",
+          "material_read": "Read public RESULT.md finding, general assumptions, polar slicing proof, centroid and volume-product formulas",
+          "method": "Read accessible primary RESULT.md or full-text HTML mathematical statements and proof",
+          "title": "Universal Santaló and volume-product laws for homothetic frusta",
+          "trigger": "Exact same F_a(K) geometry with different convex functionals"
+        },
+        {
+          "assessment": "GENERAL_UPPER_BOUND_CREDITED; NO_WHOLE_DOCUMENT_NONCOVERAGE",
+          "evidence": "Global upper bounds and simplex extremizers do not mathematically fix these individual values on centrally symmetric-base frusta.",
+          "identifier_or_url": "https://arxiv.org/abs/2610.06806",
+          "material_read": "ArXiv abstract/general Godbersen inequality and equality classification; complete text not inspected in this execution",
+          "method": "Read arXiv scholarly abstract and metadata",
+          "title": "Higher-order Godbersen inequality and a characterization of simplices via the face lattice (Fryš et al., 2026)",
+          "trigger": "Potential general stronger inequality covering all reflected mixed volumes"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "checked_sources": [
+        "Exact nested-section theorem and all-index coefficients in assigned RESULT.md",
+        "General Godbersen framework, arXiv:2610.06806",
+        "Prior one-vertex simplex-truncation formula for meaningful comparison."
+      ],
+      "rationale": "An exact closed-form all-index mixed-volume law for a natural cone-to-prism family is independently useful in convex geometry, especially because its normalized values are independent of arbitrary base shape and interpolate sharp extremal endpoints; this does not require claiming a new universal inequality.",
+      "residual_risks": [
+        "Novelty, correctness and reproducibility alone do not establish value; here the mathematical purpose and natural invariant are separately articulated."
+      ],
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "final_claim": "For d>=3, centrally symmetric convex (d−1)-base B and 0<=a<=1, the normalized reflected Minkowski polynomial of F_a(B)=conv(B×{0},aB×{1}) equals [2(1+λ)^d−(a+λ)^d−(1+aλ)^d]/(1−a^d) for a<1; all interior normalized mixed volumes are 1+(1−a^k)(1−a^(d−k))/(1−a^d), with shape independence and sharp endpoint/index monotonicities.",
+  "limitations": [
+    "The base B is centrally symmetric and top/bottom are coaxially homothetic up to affine shear; no claim for arbitrary prismatoids.",
+    "No original universal Godbersen inequality is asserted; publication not ready because public operational metadata remains."
+  ],
+  "schema_version": 1
+}
