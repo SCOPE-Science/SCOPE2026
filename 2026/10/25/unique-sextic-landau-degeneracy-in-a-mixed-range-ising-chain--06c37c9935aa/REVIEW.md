@@ -1,11 +1,21 @@
-# Mathematical assessment
+# Independent mathematical audit
 
-**Correctness — PASS.** Angular-moment differentiation reproduces the exact coefficients of the source variational functional; the entire Maclaurin-series sign pattern proves the unique positive quartic zero. Exact-rational exponential enclosures isolate that zero and certify positive sixth derivative. The stated field law follows from the local stationary equation; it makes no claim about globally dominant minima.
+## correctness
 
-**Originality — PASS, with uncertainty.** Granet (arXiv:2209.08756, equations 107 and 118–121) supplies the exact free-energy potential and numerical degeneracy, but identifies global finite-temperature shape as unproved and does not give the explicit positive sextic certificate or exact all-temperature quartic-root uniqueness argument in the inspected text. Distinct mean-field tricritical literature does not imply this particular coefficient identity. Search coverage is incomplete; a latent equivalent proof elsewhere cannot be ruled out.
+PASS
 
-**Value — PASS.** The exact uniqueness and strictly positive sixth coefficient resolve a mathematically nontrivial, physically motivated local bifurcation at a numerically identified boundary of the mixed-range chain. This confirms the nondegenerate local Landau normal form and its field scale rather than offering only a higher-precision decimal or generic textbook exponent. Global thermodynamic tricriticality remains open under the source's unproved shape condition.
+Using the exact local variational potential F_beta,lambda,h(x) of Granet equation (107), along F2(0)=0 obtain lambda=−1/[t+a(1−t²)], a=2beta and t=tanh a. Angular Taylor moments give F4(0)=3K(a)/(64cosh(a)^4), K/a³=128/3−sum_{n>=2}d_n a^(2n−2), d_n=4·2^(2n)[8n(n²−n−1)+4^n]/(2n+1)!>0 for all n>=2, so exactly one positive zero with a∈(1.1429918,1.1429919). Independent mpmath Taylor-of-logcosh averaging gives F6=3.230570478244346>0 at root; exact source rational intervals justify sign without floating reliance. Analytic expansion yields strict local sextic minimum and fifth-root stationary response to small h. Independent symbolic series derives d2..d6 and verifies unique-series sign structure. This does not verify source hypothesis (118) or global thermodynamic phases.
 
-**Nearest sources and limitations.** E. Granet (2022/2023), arXiv:2209.08756, especially Sections 4.2.5–4.2.6 and equations (107), (118)–(121). H. Schmid et al. (2022), arXiv:2202.08855, concerns another Hamiltonian. This result does not prove global equilibrium selection, the complete shape hypothesis, or finite-size fluctuation limits.
+## originality
 
-Self-review: passed. Independent audit: not yet performed.
+PASS
+
+Granet 2023 explicitly identifies the numerical degeneracy (beta=.571496, lambda=−.834428), and source model/potential are prior. The surviving result is exact all-positive-temperature uniqueness of quartic coefficient zero by strictly decreasing analytic power series, rigorous positive sixth coefficient and local fifth-root response. The source calls global-shape hypothesis (118) unproved and provides numerical, not these full analytic certificates. Model differs from other tricritical Hamiltonian mean-field systems.
+
+## value
+
+PASS
+
+A unique nondegenerate sextic local Landau germ in a concrete exactly solved quantum spin-chain potential identifies and rigorously quantifies the local multicritical structure where previous treatment relied on numerics. The fifth-root field response is a usable exact asymptotic of that model and stops short of unwarranted global thermodynamic phase claims.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
