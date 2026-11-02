@@ -1,11 +1,21 @@
-# Scientific review
+# Independent mathematical audit
 
-**Correctness (PASS).** Each perfect matching containing a rung decomposes uniquely into rung columns and even horizontal runs, yielding an independent matching of the \(n\)-cycle; the two no-rung alternating boundary matchings are fully classified by parity. All local square switches correspond exactly to one-bit changes in the resulting Lucas word. The distance, vertex and edge counts follow by explicit bijection and elementary counting, with both separate checkers verifying \(4\le n\le16\). This is an infinite symbolic argument, not extrapolation from finite trials.
+## correctness
 
-**Originality (PASS, with risk).** The Lucas cube and its order, edge count and metric properties are established literature, and the 2026 perfect-matching-complex study already identifies two exceptional odd-width perfect matchings. Those prior results are credited. The distinct contribution is the natural four-cycle-switch graph isomorphism, complete component classification and matching switch metric for the Möbius ladder family. Targeted mathematical-record queries and primary source comparisons located no prior result containing the switch-preserving isomorphism. Unindexed papers or work under resonance-graph terminology are a residual risk, not proof of priority.
+PASS
 
-**Mathematical value (PASS).** This determines the entire configuration-space geometry under a natural local physical/combinatorial move for a canonical nonorientable cubic graph family. It connects graph-dimer moves with a classical median partial-cube structure; the parity-specific frozen states exhibit exactly where local reconfiguration fails despite the presence of perfect matchings. The theorem provides exact distances and counts for every width, not a single numerical example.
+Represent M_{2n} as twisted n-column two-rail ladder. For n≥4 all four-cycles are the n canonical rung/horizontal faces. Every perfect matching with at least one rung splits into even-length rung-free runs tiled uniquely by horizontal pairs, corresponding bijectively to an independent set of the cyclic n-edge index graph. The only rung-free matchings alternate along the 2n boundary; for even n they are the two maximal alternating independent sets, for odd n they are two extra frozen matchings with no completed square. Four-cycle switches precisely insert or delete a legal independent-set coordinate. Deleting S\T then adding T\S proves switch distance |S△T|; maximal distance 2⌊n/2⌋. Independence-set enumeration gives Lucas L_n vertices and nF_(n−1) edges. Independently built exact 2n-vertex graph, brute-enumerated all perfect matchings and four-cycles for n=4..10, found components [Λ_n] if even and [1,1,Λ_n] if odd, and reproduced edge counts. The all-n theorem uses the forced tiling proof, not finite enumeration.
 
-The closest sources are Ashrafi et al., arXiv:1407.4962, and Codara–D'Antona, arXiv:1410.4080, for Lucas-cube combinatorics; Agarwal–Basak, arXiv:2608.30601, for the distinct Möbius-ladder perfect-matching simplicial complex; and Dyer–Müller (2018) for general switch-chain context. The topological homotopy analysis does not assert four-cycle flip connectivity or metric distances. A resonance-graph reformulation in less indexed tiling literature cannot be excluded.
+## originality
 
-Self-review: passed. Independent audit: not yet performed.
+PASS
+
+Targeted statement/implication comparison against related published Resultary research records and primary sources; best-of-knowledge originality with explicit risks. For every Möbius ladder M_{2n}, n≥4, its local four-cycle perfect-matching flip graph is Lucas cube Λ_n for even n and Λ_n plus two isolated vertices for odd n, with exact distance, matchings, edge counts.
+
+## value
+
+PASS
+
+The four-cycle switch graph is the natural local dynamics of matchings/dimer configurations. An exact all-width graph isomorphism to the Lucas cube yields exact reachability, Hamming distances and a parity-driven frozen sector, none of which follows from the previously known scalar matching count alone. This is a natural structural classification rather than arbitrary numerical recomputation.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
