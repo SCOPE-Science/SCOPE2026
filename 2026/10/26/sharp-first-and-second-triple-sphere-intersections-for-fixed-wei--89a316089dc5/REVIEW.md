@@ -1,11 +1,21 @@
-# Self-review
+# Independent mathematical audit
 
-**Correctness: PASS.** The argument handles odd-center distances, pair distances at least six via strict binomial ratios, all five possible overlap sizes relative to a distance-four pair, and both equality geometries. It derives the sharp three-candidate threshold from the extremal intersection. Integer-exact coordinate-profile enumeration corroborates 20 complete finite parameter grids and direct word enumeration in 15 tests. These checks do not replace the infinite proof.
+## correctness
 
-**Originality: PASS (best-knowledge, with explicit residual risk).** The recent fixed-weight paper establishes unique reconstruction, not the sharp top two triple-shell intersections. Prior up-to-radius ball formulas include sufficient raw numerical information to derive each fixed-shell triple count by inclusion–exclusion, so individual counts are *not* claimed as new; the proposed advance is the global two-level optimization, rigid extremizer classification, and list-two threshold. Comparable list-two ball-channel results have different radii and/or asymptotic hypotheses. No identical result appeared in the inspected primary texts or the searched research records. It remains possible that this optimization occurs implicitly in older intersection literature; no independent priority audit has been carried out.
+PASS
 
-**Value: PASS.** The second-list question is explicitly motivated by worst-case sequence reconstruction: determining whether three source words can share \(N\) distinct outputs is a natural extension of the published unique-decoding threshold. The exact second-largest overlap and characterizations of equality give additional structural information beyond the threshold itself. The result is an all-parameter theorem for \(n\ge4t\), not a routine numerical table.
+Pairwise intersection F_d=C(2d,d)C(n-2d,t-d) strictly decreases under n>=4t for 1<=d<=t, so any pair distance >=6 yields <M2. If one pair distance is four, six inside choices Q and outside W determine the third condition. Split by intersection size j of third support with the four coordinates: j=1,3 at most three; j=2 at most four with equality only third support entirely inside; j=0,4 give <3 by hypergeometric bound p_h<=p_1<1/2. For all pair distances two, the representative (empty,{1,2},{1,3}) gives C(n-3,t-1)+C(n-3,t-2)=M1. Parity kills odd distances. Strict separation and list size follow. Independent exact coordinate-profile enumeration checked 5,805 cases over 9 parameter grids; not a substitute for all n,t.
 
-**Limits.** This is binary, exact-\(t\), unencoded source reconstruction. The range \(n\ge4t\) is not claimed optimal; neither decoding complexity nor statistical sampling rates are controlled. Literature priority may need independent verification, particularly against implicit optimization of general three-ball formulas.
+## originality
 
-Self-review: passed. Independent audit: not yet performed.
+PASS
+
+Best-of-knowledge PASS, with actual primary statement/implication comparison and listed residual priority risks; an unsuccessful search is not historical novelty proof. The same word universe does not equate exact shells and balls. Inclusion-exclusion may compute individual shell intersections from general ball tables but does not directly optimize over all triples and classify rigid equality cases. General up-to-radius results contain useful counting ingredients but no inspected dominating theorem for exact-radius top two intersections on n>=4t and all distinct triples. The analogous asymptotic ball model cannot supply finite exact equality cases.
+
+## value
+
+PASS
+
+Three-center ambiguity is the exact obstacle to list size two in the published fixed-weight substitution model. Optimizing the first and second overlap levels, with equality geometry and a sharp distinct-observation threshold, is a natural substantive extension of the two-source unique reconstruction result, beyond simply plugging parameters into a sphere-count formula.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
