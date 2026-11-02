@@ -1,0 +1,118 @@
+{
+  "correctness": {
+    "rationale": "For orthonormal-row J and nonzero c, Gaussian invariance reduces to J=[I_r,0]. The independent Gaussian blocks of S produce x_coeff=(c,BG^†c), giving chi-square numerator d-r and Schur-complement denominator ell-r+1; a Gaussian nullspace representation produces x_geom=(c,-H2^†H1c) with numerator d-ell and the same denominator degrees. Both calculations follow from standard inverse-Wishart Schur complements. Gamma integration proves all finite-moment cases, nonintegrable boundaries and sharp tails. The ell=d zero-error exception, positivity and normalizations were separately checked. A local NumPy verifier reproduced 7214 finite algebraic/special-case identities from verify.py; no finite experiment serves as the proof of an infinite assertion.",
+    "status": "PASS"
+  },
+  "independent": false,
+  "independent_audit_status": "not_performed",
+  "originality": {
+    "broader_coverage": {
+      "evidence": [
+        "Cartis–Fowkes–Shao analyze safeguarded random subspace steps in general nonlinear least squares.",
+        "LeJeune et al. study asymptotic sketched pseudoinverse properties rather than the specified exact finite-sample physical vs coefficient tie-breaking comparison.",
+        "Pes–Rodriguez motivate the physical minimum-norm selection but do not establish the random sketch excess-error distributions."
+      ],
+      "reasoning": "General convergence guarantees do not imply the exact separate marginal laws; asymptotic pseudoinverse results do not automatically yield the exact finite-dimension chi-squared degrees or critical moment boundary. No inspected stronger theorem was shown to subsume both claims.",
+      "searches": [
+        "arXiv:2211.05727 randomized subspace Gauss-Newton numerical least squares reduced Jacobian model",
+        "DOI:10.1137/22M1530264 asymptotics sketched pseudoinverse orthogonal sketch",
+        "arXiv:2101.07560 minimal norm Gauss Newton underdetermined"
+      ]
+    },
+    "checked_sources": [
+      "arXiv:2101.07560",
+      "arXiv:2211.05727",
+      "DOI:10.1137/22M1530264"
+    ],
+    "claim_vs_prior_implication": {
+      "evidence": [
+        "Sketched Gauss–Newton literature includes trust-region safeguards, while the new claim is unsafeguarded exact completion of one linear step.",
+        "Physical minimum-norm Gauss–Newton gives a selection criterion but not this Gaussian distribution.",
+        "Classical Wishart Schur complements recover denominator degrees only after specifying and distinguishing the two linear-algebraic maps."
+      ],
+      "reasoning": "The new findings do not contradict and are not automatically implied by published convergence and approximation guarantees. The algebraic probability lemma is known; what is claimed is the pairing, exact error thresholds, and full-span discrepancy for the algorithmically natural tie-breaking rules.",
+      "searches": [
+        "arXiv:2211.05727 reduced Jacobian subspace Gauss Newton",
+        "arXiv:2101.07560 physical minimum norm",
+        "DOI:10.1137/22M1530264 sketched pseudoinverse"
+      ]
+    },
+    "equivalent_formulations": {
+      "evidence": [
+        "The coefficient error is the squared norm of a Gaussian vector multiplied by the reciprocal Wishart quadratic form.",
+        "Geometric completion is equivalently the minimum-norm solution of a Gaussian nullspace constraint.",
+        "Gaussian reciprocal-Wishart laws are standard, but no inspected work gives both formulas and their algorithmic tie-breaking comparison."
+      ],
+      "reasoning": "Aliases involving pseudoinverse, inverse-Wishart, Student ratios and minimum-norm interpolation were considered. Standard ratio identities alone imply each marginal after the specific two model reductions, so novelty is limited to this numerical-method classification and not the probability law itself.",
+      "searches": [
+        "Gaussian reduced least-squares coefficient pseudoinverse vs orthonormal-basis subspace norm exact chi-square ratios",
+        "sketched minimum norm underdetermined regression Gaussian sketch Cauchy tails degree freedom",
+        "arXiv:2101.07560",
+        "DOI:10.1137/22M1530264"
+      ]
+    },
+    "exact_database_or_table": {
+      "evidence": [
+        "The exact degrees d−r and d−ell with shared ell−r+1 denominator arise from different random subspace constraints.",
+        "No exact table with the pair of error laws or sharp finite-MSE threshold was located in inspected primary materials."
+      ],
+      "reasoning": "An exact finite-dimensional Wishart ratio can appear in general probability references; searches and primary comparisons did not find a table giving the same two computational observables. Absence from search results is not proof of uniqueness.",
+      "searches": [
+        "randomized Gauss Newton rank deficient Jacobian Gaussian sketch minimum norm heavy tails",
+        "Gaussian pseudoinverse chi square degrees of freedom coefficient norm sketch linear inverse problem",
+        "arXiv:2101.07560",
+        "arXiv:2211.05727"
+      ]
+    },
+    "rationale": "Compared the new *two* finite-dimensional excess-error distributions and their moments with stochastic variable-subspace Gauss–Newton, underdetermined minimum-norm Gauss–Newton and sketched pseudoinverse asymptotics. Those works provide algorithmic or asymptotic frameworks, rather than this exact paired coefficient-metric versus physical-metric finite-sample law. The inverse-Wishart and chi-square identities underlying the argument are classical; the combined application and full-span consequence were not found in the examined texts. Prior appearance in obscure specialized numerical inverse-problem literature remains possible.",
+    "residual_risks": [
+      "The chi-square/inverse-Wishart reductions are classical, and a prior applied calculation may explicitly give the same finite-dimensional expressions.",
+      "The result does not claim the novel construction of Gaussian probability identities, a theorem about global nonlinear subspace GN convergence, or a joint coupling of the two marginal laws.",
+      "Independent priority review and external validation have not been performed."
+    ],
+    "source_inspections": [
+      {
+        "assessment": "Motivates selection of minimum norm in physical variables, but no matching Gaussian random subspace paired finite-sample ratio theorem located",
+        "evidence": [
+          "Introduces minimum-norm GN for underdetermined nonlinear least squares; new claim is a Gaussian one-step linear reduced completion."
+        ],
+        "identifier_or_url": "https://arxiv.org/abs/2101.07560",
+        "material_read": "Open-access HTML introduction and method formulation, including minimum-norm motivation",
+        "method": "Read primary open-access article presentation and compared algorithmic assumptions and claimed statements",
+        "title": "A doubly relaxed minimal-norm Gauss–Newton method for underdetermined nonlinear least-squares problems",
+        "trigger": "Under-determined physical minimum-norm tie breaking"
+      },
+      {
+        "assessment": "Motivates random variable-space models, but trust-region safeguarded algorithm is not asserted to suffer this unsafeguarded coefficient-law pathology",
+        "evidence": [
+          "Published method globalizes local reduced steps using trust-region and regularization procedures, unlike the exact unsafeguarded single linear solution studied here."
+        ],
+        "identifier_or_url": "https://arxiv.org/abs/2211.05727",
+        "material_read": "Open-access full-text HTML, introduction and reduced-model/trust-region algorithm section",
+        "method": "Read reduced-model specification and compared safeguards and formal convergence claims",
+        "title": "A Randomised Subspace Gauss-Newton Method for Nonlinear Least-Squares",
+        "trigger": "Direct reduced Jacobian subspace algorithm"
+      },
+      {
+        "assessment": "Broad sketched-pseudoinverse asymptotics but no identified exact pair of coefficient-metric/physical-metric marginal chi-squared laws",
+        "evidence": [
+          "Treats asymptotic sketched pseudoinverse behavior and sketch structure rather than the specified finite-sample rank-deficient reduced-solver choice."
+        ],
+        "identifier_or_url": "https://doi.org/10.1137/22M1530264",
+        "material_read": "Accessible primary full-text HTML, summary, setup and asymptotic analysis of sketched pseudoinverse",
+        "method": "Read primary article text and compared observables, dimension regimes and conclusions",
+        "title": "Asymptotics of the Sketched Pseudoinverse",
+        "trigger": "Closest plausible broader pseudoinverse theorem"
+      }
+    ],
+    "status": "PASS"
+  },
+  "review_type": "self_review",
+  "schema_version": 1,
+  "scope_run_id": "94943c58-6d73-4fae-beed-1a999a10d22c",
+  "self_review_status": "passed",
+  "value": {
+    "rationale": "Randomized subspace GN and rank-deficient linear model solvers need a concrete rule to choose one of many feasible updates. The coefficient minimum-norm rule depends on the random subspace basis, even when it spans the whole ambient space, unlike the physical norm rule. Exact error moments give a sharp oversampling threshold for a meaningful reliability metric, and quantify an otherwise hidden basis choice in a natural, reproducible finite model. The result is not merely a normalization check and does not claim a general nonlinear convergence theorem.",
+    "status": "PASS"
+  }
+}
