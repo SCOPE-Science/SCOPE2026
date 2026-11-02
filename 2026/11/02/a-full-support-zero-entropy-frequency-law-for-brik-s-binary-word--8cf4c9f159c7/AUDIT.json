@@ -1,0 +1,117 @@
+{
+  "correctness": {
+    "rationale": "For each nonempty length-m factor, the exact internal count recursion \\(N_{i+1}=2N_i-D_i+J_i\\) with \\(0\\le D_i\\le i\\) and \\(0\\le J_i\\le m-1\\) proves convergence and an explicit \\(O(i+m)\\) recursive-length error. The prefix comparison \\(F(\\ell_i+t)=F(\\ell_i)+F(i+t)-F(i)+O(m)\\) has a shrinking argument (at most 3/4 of N), giving \\(O((\\log N)^2)\\) discrepancy. Recurrence from the checked primary source permits an occurrence starting arbitrarily far right, whose descendants double up to its starting index; the resulting count exceeds the entire future removal budget, proving positive frequency. The exact deletion embedding of B_I in B_j^{2^{I-j}} has \\(L=2^{I-j}(j+1)-I-1\\) removals, so at most \\(mL\\) windows depart from the periodic template; the entropy bound tends to zero along \\(m=2^{\\lfloor j/2\\rfloor}\\). The verifier rechecked finite recurrences and embedding lengths without treating experiments as infinite proofs.",
+    "status": "PASS"
+  },
+  "independent": false,
+  "independent_audit_status": "not_performed",
+  "originality": {
+    "broader_coverage": {
+      "evidence": [
+        "Gao and Ziegler (2019) study rank-one subshift mixing properties and equicontinuous factors, not this recursion or its cylinder frequencies.",
+        "The finite-symbolic-rank zero-topological-entropy framework concerns a different restriction: the orbit closure here is the positive-entropy golden-mean shift."
+      ],
+      "reasoning": "General entropy results for low-rank processes suggest a technique but are not verified to cover the prefix-deletion recursion or the nontrivial full-support cylinder positivity. The proof gives the exact subsequence-embedding defect for this word and a self-contained entropy bound.",
+      "searches": [
+        "rank one symbolic dynamical systems zero entropy full support invariant measure factor frequency",
+        "symbolic rank one systems full support measure zero entropy positive topological entropy",
+        "https://doi.org/10.1112/tlm3.12016"
+      ]
+    },
+    "checked_sources": [
+      "https://arxiv.org/html/2605.07542",
+      "https://arxiv.org/abs/2605.07542",
+      "https://doi.org/10.1112/tlm3.12016",
+      "https://www.cambridge.org/core/journals/ergodic-theory-and-dynamical-systems/article/subshifts-of-finite-symbolic-rank/A976BBAFB7DC7722EDF2864E766F43EC"
+    ],
+    "claim_vs_prior_implication": {
+      "evidence": [
+        "Theorem 10 in Shallit establishes only a marginal letter density; Theorem 7 gives a language with Fibonacci growth; Theorem 3 gives recurrence without frequency bounds.",
+        "The proposed result also shows \\(h_\\mu=0\\) whereas the already known language has positive topological entropy \\(\\log_2\\varphi\\)."
+      ],
+      "reasoning": "Neither the marginal density nor full language nor recurrence logically implies all cylinder limits, their strict positivity, or the zero entropy of the selected invariant measure. A specific direct comparison of mathematical implications was made.",
+      "searches": [
+        "Brik recursive word cylinders all factors positive frequency",
+        "Brik Shallit 2026 entropy of frequency measure supported on golden mean shift",
+        "https://arxiv.org/html/2605.07542"
+      ]
+    },
+    "equivalent_formulations": {
+      "evidence": [
+        "Shallit arXiv:2605.07542v1, Proposition 1 and Theorems 3, 7, 10: the same recursion and factor language are studied, but only the one-symbol density is established; Theorem 12 establishes its transcendence.",
+        "The primary text's sections 2--4 contain no general cylinder-frequency convergence, strict positivity, or entropy-of-the-frequency-measure theorem."
+      ],
+      "reasoning": "The source provides recurrence and full support of the language, not positive limiting frequencies for all words: recurrence alone does not force positive density, and a language with exponential growth does not fix a generic measure's entropy. The claimed positivity and zero-entropy measure require the new recurrence amplification and deletion-template arguments.",
+      "searches": [
+        "Brik's sequence factor frequencies",
+        "Brik Shallit 2026 entropy of frequency measure supported on golden mean shift",
+        "https://arxiv.org/html/2605.07542"
+      ]
+    },
+    "exact_database_or_table": {
+      "evidence": [
+        "Shallit (2026) gives factor language and density of ones, not a table of all cylinder frequencies.",
+        "The indexed related results concern distinct objects (for example, Fibonacci finite-type cover entropy and marker correlations in a three-letter coded shift)."
+      ],
+      "reasoning": "No searched exact database/table identified the complete positive cylinder-frequency property or entropy zero for the Brik word. Search absence is not a proof of novelty.",
+      "searches": [
+        "Brik's sequence factor frequencies",
+        "\"Brik's sequence\" \"factor frequencies\"",
+        "\"Brik's sequence\" \"entropy\" Shallit"
+      ]
+    },
+    "rationale": "The directly relevant 2026 primary paper proves recurrence, full factor language and the frequency of ones, not convergence/strict positivity for every factor or entropy zero of its fully supported measure. Related rank-one symbolic literature does not identify this prefix-deletion recursion. Targeted indexed-record and open-literature searches found no stronger prior implication; there remains risk from unindexed or derived general results.",
+    "residual_risks": [
+      "Unindexed work, unpublished analyses, or a broad general theorem about this specific prefix-deletion construction may imply part or all of the claim.",
+      "The finite-symbolic-rank comparison could not be read in full, so it is not characterized as conclusively not covering the claim.",
+      "The primary paper is recent; independent priority review is still needed."
+    ],
+    "source_inspections": [
+      {
+        "assessment": "Does not state or imply the new full cylinder-frequency, positivity and metric-entropy conclusions",
+        "evidence": [
+          "Proposition 1, exact length \\(2^{i-1}+i+1\\)",
+          "Theorem 3 recurrence",
+          "Theorem 7 no-00 language",
+          "Theorem 10 only letter-one density"
+        ],
+        "identifier_or_url": "https://arxiv.org/html/2605.07542",
+        "material_read": "Complete research body through density and transcendence theorems, especially definitions, Proposition 1, Theorems 3, 7, 10, 12; not just abstract",
+        "method": "Direct HTML full-text reading and theorem-by-theorem implication comparison",
+        "title": "Brik's sequence: a strange recursion",
+        "trigger": "Same recursively defined binary word and marginal frequency theorem"
+      },
+      {
+        "assessment": "Studies rank-one mixing/equicontinuity, does not provide the same-object cylinder law in material read",
+        "evidence": [
+          "2019 abstract identifies mixing properties and finite equicontinuous factors, not Brik recursion"
+        ],
+        "identifier_or_url": "https://doi.org/10.1112/tlm3.12016",
+        "material_read": "Accessible abstract, introduction and definitions; not entire article",
+        "method": "Full-text accessible webpage contextual inspection",
+        "title": "Topological mixing properties of rank-one subshifts",
+        "trigger": "Potentially broader symbolic-dynamics theorem"
+      },
+      {
+        "assessment": "General zero-topological-entropy framework cannot directly subsume the positive-entropy golden-mean orbit closure; remaining source-inspection limitation noted",
+        "evidence": [
+          "Indexed description says finite symbolic-rank subshifts have zero topological entropy"
+        ],
+        "identifier_or_url": "https://www.cambridge.org/core/journals/ergodic-theory-and-dynamical-systems/article/subshifts-of-finite-symbolic-rank/A976BBAFB7DC7722EDF2864E766F43EC",
+        "material_read": "Search-indexed abstract/description; full page access limited",
+        "method": "Abstract/description comparison only, not a whole-document exclusion",
+        "title": "Subshifts of finite symbolic rank",
+        "trigger": "Possible generic zero-entropy theorem"
+      }
+    ],
+    "status": "PASS"
+  },
+  "review_type": "self_review",
+  "schema_version": 1,
+  "scope_run_id": "8cf4c9f1-59c7-49f7-9e30-af9ef7c098bd",
+  "self_review_status": "passed",
+  "value": {
+    "rationale": "The source's exponential Fibonacci language growth and its established marginal symbol frequency leave the measure-theoretic distribution largely undetermined. This result identifies a well-defined, fully supported invariant measure even though the word is not uniformly recurrent, proves effective factor-frequency convergence, and shows a concrete separation between strictly positive topological entropy \\(\\log_2\\varphi\\) and zero measure entropy. The zero-entropy mechanism is a structural vanishing-deletion-density estimate, not a mere isolated number or textbook rephrasing.",
+    "status": "PASS"
+  }
+}
