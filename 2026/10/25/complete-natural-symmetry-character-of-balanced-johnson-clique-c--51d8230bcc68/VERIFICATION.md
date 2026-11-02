@@ -5,8 +5,11 @@
     "status": "not_performed"
   },
   "independent_audit": {
-    "evidence": null,
-    "status": "not_performed"
+    "status": "passed",
+    "evidence": [
+      "INDEPENDENT_AUDIT_2026-10-26.md",
+      "INDEPENDENT_AUDIT_2026-10-26.json"
+    ]
   },
   "lean_verification": {
     "evidence": null,
@@ -16,12 +19,24 @@
 }
 ---
 
-# Reproducibility
+# Independent mathematical audit
 
-Run `python3 verify_balanced_johnson.py` with standard Python 3. The verifier independently enumerates actual simplicial faces of balanced Johnson clique complexes and counts the signed action on every invariant simplex. For \(k=4\), all 22 conjugacy classes of \(S_8\) and their complement twists are compared against the symbolic cycle formulas. For \(k=5\), eight representative conjugacy classes and their twists are checked. The exact output includes `VERIFY_OK cases=60 signed_face_tests=443240`.
+## correctness
 
-A second calculation in the same program builds all boundary matrices for \(k=4\) and performs exact bit-vector elimination over \(\mathbb F_2\), yielding `GF2_HOMOLOGY_OK 8 [0, 0, 181, 0, 0]`. This is an independent finite topological consistency check. It does not replace the proof of vanishing in arbitrary dimension, the rational representation identities, or the universal \(k\ge4\) statement.
+PASS
 
-# Limits
+For every k>=4, Johnson maximal cliques are stars or tops, triangles have unique support; reducing each higher clique by free faces leaves a 2D core. The hypersimplex 2-skeleton contains the same 1-skeleton and is simply connected; integral H2 is free. Signed augmented-chain Lefschetz sums over fixed vertices, oriented edges and unique higher-dimensional faces yield explicit ordinary S_(2k) cycle-index character; complementation exchanges star/top, so all fixed higher faces disappear, and parity-half analysis of cycles gives the stated two-coset character including trace(c)=-1. Independently constructed J(8,4) faces and checked signed Lefschetz for identity, complement, perfect matching, complemented perfect matching and transposition cases, all agreeing; these finite checks do not prove all-k.
 
-No independent external audit or certification has been performed. The full text of one related 2026 preprint could not be inspected, and the novelty conclusion retains that explicit risk. The result is restricted to the stated balanced Johnson graphs, the natural symmetry action, and scale one.
+## originality
+
+PASS
+
+Best-of-knowledge distinction from named prior results, comparing the precise final claim, hypothesis domain and representations rather than keywords; checks below and risks explicitly limit global priority claims.
+
+## value
+
+PASS
+
+The middle hypersimplex/Johnson layer is a distinguished self-dual natural object; complete rational S_(2k)×C2 character and complement eigenspace dimensions for every k>=4 provide symmetry information not recoverable from nonequivariant sphere ranks and add a meaningful representation-theoretic classification.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

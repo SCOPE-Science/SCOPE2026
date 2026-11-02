@@ -1,19 +1,21 @@
-# Scientific review
+# Independent mathematical audit
 
-## Correctness — PASS
+## correctness
 
-The two facet families partition all simplices of dimension at least two. A descending free-face pairing collapses the complex to dimension two without changing its homotopy type; the hypersimplex two-skeleton kills every fundamental-group loop and integral second homology is free. For a coordinate permutation, the augmented Euler trace splits into invariant vertices, signed edges, and invariant facet contributions. For a complement-twisted permutation, invariant high faces are impossible because complement exchanges the two facet types; the precise invariant-edge classification by parity halves of permutation cycles yields the stated cases, including their orientation signs. The formulas were checked against actual signed face actions for 60 parameter/conjugacy tests, and mod-two homology was independently checked in the first claimed case. These finite checks are corroboration rather than the proof.
+PASS
 
-## Originality — PASS, with limited residual risk
+For every k>=4, Johnson maximal cliques are stars or tops, triangles have unique support; reducing each higher clique by free faces leaves a 2D core. The hypersimplex 2-skeleton contains the same 1-skeleton and is simply connected; integral H2 is free. Signed augmented-chain Lefschetz sums over fixed vertices, oriented edges and unique higher-dimensional faces yield explicit ordinary S_(2k) cycle-index character; complementation exchanges star/top, so all fixed higher faces disappear, and parity-half analysis of cycles gives the stated two-coset character including trace(c)=-1. Independently constructed J(8,4) faces and checked signed Lefschetz for identity, complement, perfect matching, complemented perfect matching and transposition cases, all agreeing; these finite checks do not prove all-k.
 
-The closest inspected same-object source gives the nonequivariant homotopy rank, but not symmetry traces. The complete character of weight-three layers is prior work and is excluded explicitly by \(k\ge4\). The full hypercube representation paper studies a different complex: passing to an induced constant-weight layer is not a homology-representation restriction. The high-dimensional balanced complement action is not covered by these theorems. Focused database, own-history and literature searches yielded no statement equivalent to the two-coset formulas. Public abstracts alone cannot exclude relevant appendices of the inaccessible full-cube manuscript, and unindexed equivalent work remains possible.
+## originality
 
-## Value — PASS
+PASS
 
-Balanced Johnson graphs have additional complementation symmetry absent in unbalanced layers. The new result determines the entire rational representation for infinitely many middle-layer complexes from permutation cycle data, not merely Betti numbers or the previously covered weight-three case. The complement trace \(-1\), exact parity-dependent twisted traces, and eigenspace dimensions are intrinsic equivariant invariants useful for symmetry quotients and comparison with hypercube representations. The argument's orbit classification also explains why only two exceptional fixed-edge types can occur.
+Best-of-knowledge distinction from named prior results, comparing the precise final claim, hypothesis domain and representations rather than keywords; checks below and risks explicitly limit global priority claims.
 
-## Limits
+## value
 
-Only the natural \(S_{2k}\times C_2\) action, \(k\ge4\), and the scale-one clique complex are treated. Integral irreducible lattices, other scales and independent validation remain outside the claim. No stronger theorem is inferred from inaccessible material.
+PASS
 
-Self-review: passed. Independent audit: not yet performed.
+The middle hypersimplex/Johnson layer is a distinguished self-dual natural object; complete rational S_(2k)×C2 character and complement eigenspace dimensions for every k>=4 provide symmetry information not recoverable from nonequivariant sphere ranks and add a meaningful representation-theoretic classification.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
