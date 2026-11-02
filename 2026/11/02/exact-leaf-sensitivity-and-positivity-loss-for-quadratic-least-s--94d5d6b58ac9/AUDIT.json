@@ -1,0 +1,139 @@
+{
+  "correctness": {
+    "rationale": "For each positive integer branch count, the basis consisting of edge-supported x and x² and the shared hub lift q=1-4x+(10/3)x² is orthogonal, with per-edge q²-integral 1/9. Inverting the 2x2 monomial Gram block gives the exact reproducing kernel K0 plus 9q(x)q(y)/k. At a leaf the same-edge kernel is an explicit upward quadratic with two interior roots and discriminant 24(t²+2t+6); other edges have kernel 3tq. The exact L1 integral produces E_k and, by sign data, is an attained evaluation norm. The derivative factor (t-1)(t+6) proves monotonicity; symbolic limits establish both saturation constants; exact radical comparison proves the threshold k>=3. Reproduction of the constant one gives negative kernel mass (E_k-1)/2 and its 0<=f<=1 extremizer. The delivered Python/SymPy checker rederives exact identities and 291 independent Gram/kernel/root checks. No full global projector norm is claimed.",
+    "status": "PASS"
+  },
+  "independent": false,
+  "independent_audit_status": "not_performed",
+  "originality": {
+    "broader_coverage": {
+      "evidence": [
+        "Shadrin, manuscript pp.3-4 Theorem I: mesh-independent upper constant for each spline order, not the exact norm of leaf evaluation on a metric star.",
+        "Shadrin, manuscript pp.53-54 §4.1.2: general finite-element stability conditions and counterexamples, not an exact star quadratic reproducing kernel.",
+        "Arioli and Benzi, IMA J. Numer. Anal. 38 (2018), §§3–5 and §9: piecewise-linear finite elements for quantum-graph PDEs, mass matrix conditioning.",
+        "Earlier accessible finding e72b2b6a-5e15-4f6e-a00f-53ffb1c31737: universal bound for degree-one metric graph splines, not degree two."
+      ],
+      "reasoning": "The qualitative boundedness and finite-element mass-matrix literature neither gives the algebraic arm-count law nor implies this exact positivity defect. Degree-one graph projector results cannot be substituted into a degree-two space; even the Gram blocks and reproducing kernels differ.",
+      "searches": [
+        "exact metric graph L2 linear spline projection universal three hypercube k arms",
+        "sharp operator norm metric graph L2 projection quadratic polynomial piecewise continuous",
+        "metric graph L2 projection quadratic edgewise polynomials common vertices finite element mass matrices",
+        "Shadrin spline projector theorem multiple knots finite element L infinity"
+      ]
+    },
+    "checked_sources": [
+      "https://www.damtp.cam.ac.uk/user/na/people/Alexei/papers/spn0.pdf",
+      "https://arxiv.org/abs/math/0408418",
+      "https://doi.org/10.1093/imanum/drx029",
+      "2026/10/4/SCOPE-exact-positivity-defect-and-max-norm-of-the-affine-least-squares--99c2b9dd9b34",
+      "2026/10/11/SCOPE-exact-endpoint-norm-of-the-second-johnson-spherical-projector--f9735429621e",
+      "accessible current-week degree-one metric graph claims with IDs 15fe1440-28e2-4fcf-8223-1261a5d1c3dd and e72b2b6a-5e15-4f6e-a00f-53ffb1c31737"
+    ],
+    "claim_vs_prior_implication": {
+      "evidence": [
+        "The prior affine metric-graph claim is restricted to continuous functions affine on each edge; the new space consists of independent degree-two polynomials on each arm with a common value at the hub.",
+        "The interval theorem of Shadrin yields a finite upper bound in its scope, not the exact quadratic-star leaf evaluation norm or its positivity-loss identity.",
+        "The 2017/2018 Arioli–Benzi work constructs linear finite elements for equations on quantum graphs rather than the operator norm of the L2 least-squares projection onto quadratic graph polynomials."
+      ],
+      "reasoning": "A previously published stronger universal upper bound would not by itself imply the exact parameter-dependent formula, sign extremizers, 5/2 transition or saturation rate. The space and functional are different, so none of the inspected results subsumes the final claim.",
+      "searches": [
+        "sharp quadratic star graph spline orthogonal L2 projection endpoint kernel norm positivity defect",
+        "piecewise quadratic metric tree projection with continuous value at star hub",
+        "exact metric graph L2 linear spline projection universal three hypercube k arms",
+        "least squares projection onto quadratic metric star Lebesgue constant branch k"
+      ]
+    },
+    "equivalent_formulations": {
+      "evidence": [
+        "Shadrin, Acta Mathematica 187 (2001), Theorem I and comments §4.1: univariate spline L2 projector bounded uniformly, including multiple knots, but no k-armed star exact boundary profile.",
+        "Kayumov, arXiv:math/0408418, introduction §§1.1–1.3: order-two differential-operator L-splines are distinct from degree-two polynomials on edges.",
+        "Published affine-simplex positivity-defect record 99c2b9dd9b34: different polynomial degree and domain."
+      ],
+      "reasoning": "Searched under Lebesgue function, boundary evaluation functional, least-squares orthoprojector, quadratic splines and common-hub metric-star parameterizations. The only interval-equivalent case is k=2, covered qualitatively by classic spline boundedness, not by an exact parameter-dependent leaf formula. The k>=3 stars cannot be represented as intervals by knot-multiplicity relabeling.",
+      "searches": [
+        "sharp quadratic star graph spline orthogonal L2 projection endpoint kernel norm positivity defect",
+        "piecewise quadratic metric tree projection with continuous value at star hub",
+        "Lebesgue function at leaf of metric star graph least squares quadratic polynomial L infinity",
+        "orthogonal projector piecewise quadratic splines star metric graph Lebesgue function endpoint sharp norm"
+      ]
+    },
+    "exact_database_or_table": {
+      "evidence": [
+        "Specific math-record searches returned nearby affine-simplex, finite-metric-free-space, and discrete Johnson-scheme projection constants rather than any matching k-armed quadratic metric-star leaf table.",
+        "Own accessible current-week records contained linear metric-graph spline norms (e.g., IDs 15fe1440-28e2-4fcf-8223-1261a5d1c3dd and e72b2b6a-5e15-4f6e-a00f-53ffb1c31737), but no matching quadratic-star endpoint entries."
+      ],
+      "reasoning": "No exact numerical table or claimed closed form with these degree-two star objects, endpoints and branch counts was identified. A failed index query alone would not establish novelty; this is combined with direct object and implication comparisons.",
+      "searches": [
+        "quadratic orthogonal polynomial projection onto metric graph spline exact norm branching parameter",
+        "quadratic spline star arm count sharp negative L2 projection boundary tip",
+        "positive defect least squares projector on quadratic polynomials on star graph",
+        "exact norm orthogonal projection quadratic splines star graph tip",
+        "sharp endpoint norm quadratic projection graph positivity"
+      ]
+    },
+    "rationale": "The exact quadratic star leaf-sensitivity function, its increasing degree dependence, positivity defect, threshold and rate are not implied by the closest inspected qualitative univariate spline projection theorem, order-two L-spline work, or metric-graph linear finite-element matrix work. The nearest accessible published records treat affine polynomial spaces or distinct discrete projection geometries. Exact priority remains subject to inspection of older niche branching-spline sources not found in the search.",
+    "residual_risks": [
+      "An unindexed earlier computation in specialized metric-graph or junction spline literature could give an equivalent formula.",
+      "Only explicitly relevant accessible sections of some primary texts were inspected; Kayumov dissertation later sections were not available in the accessible excerpt.",
+      "The scope is exact leaf functional sensitivity, not the global projection norm; this is intentionally a narrower claim."
+    ],
+    "source_inspections": [
+      {
+        "assessment": "Gives qualitative interval (including repeated knot) spline projection uniform boundedness; does not state metric-star quadratic leaf exact values or branch dependence.",
+        "evidence": [
+          "Theorem I explicitly considers a knot partition of one interval and a mesh-independent c_k.",
+          "Section 4.1.2 treats broader finite element stability, not this exact polynomial-star kernel."
+        ],
+        "identifier_or_url": "https://www.damtp.cam.ac.uk/user/na/people/Alexei/papers/spn0.pdf",
+        "material_read": "Author-hosted PDF introduction and Theorem I at PDF pages 4–5; related-results table and finite-element discussion at PDF pages 54–55. Also inspected screenshots of pages 4 and 54.",
+        "method": "Full-text PDF specific theorem/related-work section review and rendered page inspection",
+        "title": "The L∞-norm of the L2-spline projector is bounded independently of the knot sequence: A proof of de Boor’s conjecture",
+        "trigger": "Highly relevant classic sharp spline projector stability literature"
+      },
+      {
+        "assessment": "Second-order L-splines use differential operator D²-type nullspaces on one interval, and specialize toward linear splines, not degree-two polynomials joined on multiple edges.",
+        "evidence": [
+          "ArXiv first submission dated 2004-08-30.",
+          "Definitions in §§1.1–1.3 explicitly specify second-order differential operators and interval partitions."
+        ],
+        "identifier_or_url": "https://arxiv.org/abs/math/0408418",
+        "material_read": "ArXiv textual thesis abstract, introduction, §§1.1–1.3 and theorem descriptions, not a complete inspection of the dissertation beyond its exposed text.",
+        "method": "ArXiv public full-text excerpt and detailed theorem descriptions",
+        "title": "Least-squares approximation by second-order L-splines",
+        "trigger": "Precisely dated archive-era L-spline projection source, earliest qualifying public date"
+      },
+      {
+        "assessment": "Analyzes piecewise-linear finite elements for elliptic/parabolic equations and associated mass matrices; no sharp quadratic least-squares leaf sensitivity.",
+        "evidence": [
+          "§5 explicitly states piecewise-linear continuous finite-element approximation.",
+          "§9 concerns graph PDE solution methods and matrix properties."
+        ],
+        "identifier_or_url": "https://doi.org/10.1093/imanum/drx029",
+        "material_read": "Author-uploaded full-text article as HTML, abstract and scope, §3–5 construction and mass matrix conditioning, and §9 conclusion.",
+        "method": "Author-uploaded primary manuscript text and journal metadata",
+        "title": "A finite element method for quantum graphs",
+        "trigger": "Closest metric-graph finite-element mass matrix setting"
+      },
+      {
+        "assessment": "Different affine polynomial degree and simplex domain; summary does not establish a matching quadratic graph-star endpoint result.",
+        "evidence": [
+          "Record reports local affine-simplex positivity formula depending on simplex dimension, not a star branch parameter."
+        ],
+        "identifier_or_url": "2026/10/4/SCOPE-exact-positivity-defect-and-max-norm-of-the-affine-least-squares--99c2b9dd9b34",
+        "material_read": "Ranked record title and mathematical summary only; full article content was not fetched.",
+        "method": "Published mathematical record search",
+        "title": "Exact positivity defect and max norm of the affine least-squares projector on a simplex",
+        "trigger": "Nearest published positivity-defect claim found in mathematical record search"
+      }
+    ],
+    "status": "PASS"
+  },
+  "review_type": "self_review",
+  "schema_version": 1,
+  "scope_run_id": "94d5d6b5-8ac9-470d-a48e-3f069962a0e3",
+  "self_review_status": "passed",
+  "value": {
+    "rationale": "The sharp boundary evaluation functional is a natural invariant of least-squares reconstruction on branching metric domains, while its negative kernel mass gives an exact and attained positivity-loss phenomenon. The formula covers every arm count, proves strict amplification with branching, determines the first crossing of 5/2 at three arms, and computes both the limiting strength and first-order saturation rate. These structural changes cannot be inferred from interval general boundedness or linear-degree graph estimates and are useful for choosing approximation spaces at branch junctions.",
+    "status": "PASS"
+  }
+}
