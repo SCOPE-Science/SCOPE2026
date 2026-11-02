@@ -1,0 +1,124 @@
+{
+  "audit_date_utc": "2026-10-27",
+  "audited_at_utc": "2026-10-27T12:51:55.973368Z",
+  "axes": {
+    "correctness": {
+      "rationale": "For every integer r>=29, t>0, the cut projection Q_t=W^(1/2) D^T(DWD^T)^+ DW^(1/2) is the Euclidean orthogonal projector on edge coordinates; cycle P=I-Q. The uniform kernel is Q_0[(i,j),(a,b)]=[i=a]/r+[j=b]/r-1/r^2, with exceptional column h=(2r-1)/r^2, sum other absolute values S=3(r-1)^2/r^2. Sherman–Morrison on mean-zero vertex subspace gives exact Q_t entries and denominator H=1+(t-1)h>0. Exceptional column norms equal c_Q=(t+3k sqrt(t))/(t+k), c_P=(k+3k sqrt(t))/(t+k) with k=(r-1)^2/(2r-1). Optimize 2x2 Rayleigh quotients: shared sharp maximum L=(1+sqrt(1+9k))/2, unique weights t_Q=((1+sqrt(1+9k))/3)^2 and t_P=((sqrt(1+9k)-1)/3)^2, product k^2. For every OTHER column and t>0, source triangle bounds give Q norm<5 and P<6, whereas L>6 for r>=29; this proves global rather than exceptional-only optimization and unique column. At t=1 the exact uniform norms are 3-4/r+2/r^2 and 4-8/r+4/r^2; L~(3/(2sqrt2))sqrt r+1/2. Independently calculated exact-rational grounded weighted Laplacian inverses for r=3,4,5,6 and four test t values; exceptional column formulas agreed. Bounds r>=29 are sufficient not optimal.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Weighted-flow localization bounds are spectral-norm estimates for entrywise-absolute transfer-current matrices.",
+          "Dilworth–Kutzarova–Ostrovskii focuses on invariant/unweighted graph projections and different graph families."
+        ],
+        "reasoning": "General upper bounds are not sharp exact endpoint column-sum optimizations; norm mismatch prevents automatic implication. Any broad theorem with identical induced l1 optimization would cover it, but none was located in inspected materials.",
+        "searches": [
+          "Schild Rao Srivastava Localization of Electrical Flows Theorem 1.5",
+          "Gurel-Gurevich Nachmias Sachdeva A Tight Bound on Localization of Electrical Flows Theorem 1.3",
+          "arxiv:2305.12582 cycle space invariant projections"
+        ]
+      },
+      "checked_sources": [
+        "Schild–Rao–Srivastava arxiv:1708.01632, weighted transfer impedance and spectral localization",
+        "Gurel-Gurevich–Nachmias–Sachdeva arxiv:2605.24130, tight weighted spectral localization",
+        "Dilworth–Kutzarova–Ostrovskii arxiv:2305.12582, cycle projection theory",
+        "Resultary endpoint Hodge / biclique projection searches; closest prior structurally different"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "Sherman–Morrison determines each Q_t entry; deriving a sharp maximum over all conductances and all r^2 columns still requires a family-specific absolute-sign count and dominance inequality.",
+          "The old parallel-path example demonstrates large l1 currents on another, unweighted network, not sharp one-edge dense-biclique amplification."
+        ],
+        "reasoning": "Existing linear-algebra ingredients are not the final globally sharp theorem without an extra nontrivial maximizer/column proof. The theorem adds a concrete extremal boundary and square-root amplification for dense networks.",
+        "searches": [
+          "rank-one weighted edge Laplacian pseudoinverse projector Schur complement Krr",
+          "weighted complete bipartite edge current l1 amplification",
+          "arxiv:1708.01632"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Electrical transfer-current projection written with W^(1/2)B^T L^+ BW^(1/2) is the same matrix Q, with cycle complement I-Q.",
+          "General literature estimates spectral operator norm of |Q|, while this theorem optimizes induced l1 norm = maximum ABSOLUTE COLUMN SUM of Q and P."
+        ],
+        "reasoning": "Equivalent matrix representations are credited, but different operator norms have different optimization and no known equality theorem here. No asserted novelty for Sherman–Morrison itself.",
+        "searches": [
+          "one weighted edge K_{r,r} cut cycle orthogonal projection l1 column norm conductance amplification optimal",
+          "arxiv:1708.01632 weighted transfer impedance matrix",
+          "arxiv:2605.24130 electrical localization norm"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "Constant t=1 projection norms already have elementary Krr expressions; explicitly acknowledged in source.",
+          "Earlier unweighted biclique projector calculations concern fixed conductance, and deleting one edge is another limiting operation."
+        ],
+        "reasoning": "Neither finite unweighted tabulation nor t->0 deletion includes the positive real weight optimization with distinct cut/cycle optimizers. No exact database entry for these continuous extrema was found.",
+        "searches": [
+          "five zone biclique projection norm law edge Hodge K_{m,n} cut cycle projection l1",
+          "K_{r,r} unweighted endpoint projection norm complete bipartite",
+          "single edge conductance Krr transfer current exact tabulation"
+        ]
+      },
+      "rationale": "Symmetrized transfer impedance/cut projector is classical and rank-one conductance updates are standard, but the objective here is induced edge-coordinate l1 maximal absolute column sum after optimizing ONE edge weight on Krr. The closest weighted electrical-flow papers bound spectral norm of ENTRYWISE ABS matrix, a different norm and not sharp in this family; unweighted constant-norm biclique results do not imply unbounded sqrt(r) weighted amplification. No inspected equivalent maximum-column theorem or optimal-conductance statement was found. Priority is qualified by standard projector/electrical network literature.",
+      "residual_risks": [
+        "A specialized weighted transfer-current paper using induced l1 or maximum electrical-flow column mass might encode the result under alternate terminology.",
+        "The bound r>=29 is only a provable sufficient cutoff, not the smallest r."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Theorem 1.5 discussed for spectral norm of |Pi|; object Q matches but objective differs",
+          "evidence": "Stated localization problem and graph-flow spectral norm.",
+          "identifier_or_url": "https://arxiv.org/abs/1708.01632",
+          "material_read": "Public indexed abstract and theorem-level descriptions; primary full text could not be loaded in the available arXiv HTML route; mathematical norm comparison extracted from source primary citations",
+          "method": "OA abstract and mathematical comparison, no full-document negative conclusion",
+          "title": "Localization of Electrical Flows",
+          "trigger": "same weighted transfer-impedance orthogonal projector"
+        },
+        {
+          "assessment": "Sharp general spectral localization does not directly give induced l1 optimization or conductance locations",
+          "evidence": "Theorem 1.3 is an entrywise absolute spectral operator-norm bound.",
+          "identifier_or_url": "https://arxiv.org/abs/2605.24130",
+          "material_read": "Abstract/theorem descriptions, not full-text examination",
+          "method": "arXiv bibliographic result and theorem scope comparison",
+          "title": "A Tight Bound on Localization of Electrical Flows",
+          "trigger": "potentially sharper weighted all-graph statement"
+        },
+        {
+          "assessment": "Unweighted invariant projection theory is not this conductance-varying orthogonal edge-space projector maximum",
+          "evidence": "Sections 1–2 concentrate on projection/cycle space geometry on unweighted graph families.",
+          "identifier_or_url": "https://arxiv.org/abs/2305.12582",
+          "material_read": "Bibliographic/section summaries and cited primary scope, not complete article",
+          "method": "primary descriptive material; no full-document noncoverage claim",
+          "title": "Cycle Spaces: Invariant Projections and Applications to Transportation Cost",
+          "trigger": "related exact cycle projection norms"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "rationale": "One-edge conductance variation in a dense Krr graph produces unexpectedly unbounded endpoint projection norms even though the uniform network norms stay bounded. The sharp order-sqrt(r) amplification, two exact distinct optimizing conductances and product duality are meaningful extremal statements about electrical cut/cycle decompositions; optimization over all columns is essential. The object and coordinate norm are explicit; no claim extends to arbitrary projections, multiple varying edges or minimal possible order r.",
+      "status": "PASS"
+    }
+  },
+  "checked_sources": [
+    "Schild–Rao–Srivastava arxiv:1708.01632, weighted transfer impedance and spectral localization",
+    "Gurel-Gurevich–Nachmias–Sachdeva arxiv:2605.24130, tight weighted spectral localization",
+    "Dilworth–Kutzarova–Ostrovskii arxiv:2305.12582, cycle projection theory",
+    "Resultary endpoint Hodge / biclique projection searches; closest prior structurally different",
+    "Assigned RESULT.md at https://github.com/SCOPE-Science/SCOPE2026/tree/6d974dcfb14703498a75fe00efd3c648426a494c/2026/10/25/sharp-one-edge-conductance-amplification-of-the-endpoint-hodge-n--100837ac2e20",
+    "Source verifier at exact checked Git blob: weighted_edge_checker.py"
+  ],
+  "disposition": "passed",
+  "limitations": [
+    "One weighted edge and exact Euclidean orthogonal cut/cycle projections, ordinary l1 coordinates; r>=29 only.",
+    "Historical priority under alternate transfer-current terminology not exhaustively certified.",
+    "The current-main directory and frozen assignment Git blob sets matched; external formal/expert verification not inferred."
+  ],
+  "residual_risks": [
+    "A specialized weighted transfer-current paper using induced l1 or maximum electrical-flow column mass might encode the result under alternate terminology.",
+    "The bound r>=29 is only a provable sufficient cutoff, not the smallest r."
+  ],
+  "schema_version": 1
+}

@@ -1,19 +1,21 @@
-# Scientific review: sharp one-edge conductance amplification
+# Independent mathematical audit
 
-## Correctness — PASS
+## correctness
 
-The proof fixes a precise Euclidean-orthogonal weighted-incidence projector on ordinary edge-coordinate \(\ell_1\). The unweighted complete-bipartite projection has the explicit row-plus-column kernel; the weighted Laplacian differs by a rank-one form on the mean-zero vertex space. The displayed inverse update is valid for every positive conductance, and the signs and multiplicities of the affected column are exact. The two exceptional column norm functions are optimized analytically by a two-dimensional Rayleigh quotient (or differentiation). Uniform bounds strictly below \(5\) for ordinary cut columns and \(6\) for ordinary cycle columns, combined with the exact inequality \(L_r>6\) when \(r\ge29\), establish that no other column can overtake the exceptional one at any conductance. The same analysis gives unique maximizing weights and the sharp asymptotic constant. Independent exact-rational incidence-matrix reconstruction was performed for 38,124 entries; these computations corroborate rather than replace the proof.
+PASS
 
-## Originality — PASS, subject to bibliographic uncertainty
+For every integer r>=29, t>0, the cut projection Q_t=W^(1/2) D^T(DWD^T)^+ DW^(1/2) is the Euclidean orthogonal projector on edge coordinates; cycle P=I-Q. The uniform kernel is Q_0[(i,j),(a,b)]=[i=a]/r+[j=b]/r-1/r^2, with exceptional column h=(2r-1)/r^2, sum other absolute values S=3(r-1)^2/r^2. Sherman–Morrison on mean-zero vertex subspace gives exact Q_t entries and denominator H=1+(t-1)h>0. Exceptional column norms equal c_Q=(t+3k sqrt(t))/(t+k), c_P=(k+3k sqrt(t))/(t+k) with k=(r-1)^2/(2r-1). Optimize 2x2 Rayleigh quotients: shared sharp maximum L=(1+sqrt(1+9k))/2, unique weights t_Q=((1+sqrt(1+9k))/3)^2 and t_P=((sqrt(1+9k)-1)/3)^2, product k^2. For every OTHER column and t>0, source triangle bounds give Q norm<5 and P<6, whereas L>6 for r>=29; this proves global rather than exceptional-only optimization and unique column. At t=1 the exact uniform norms are 3-4/r+2/r^2 and 4-8/r+4/r^2; L~(3/(2sqrt2))sqrt r+1/2. Independently calculated exact-rational grounded weighted Laplacian inverses for r=3,4,5,6 and four test t values; exceptional column formulas agreed. Bounds r>=29 are sufficient not optimal.
 
-The closest sources are Schild–Rao–Srivastava (2017), arXiv:1708.01632, which bounds spectral norms of entrywise absolute weighted transfer-current operators and gives a distinct parallel-path lower-bound example; Dilworth–Kutzarova–Ostrovskii (2023), arXiv:2305.12582, which develops mainly unweighted invariant/minimal cycle projections on tori and Hamming graphs; and Gurel-Gurevich–Nachmias–Sachdeva (2026), arXiv:2605.24130, which establishes an improved spectral-norm localization estimate for the absolute symmetrized transfer-current matrix. The spectral norm of that nonnegative matrix differs from the maximum absolute column sum optimized here. Unweighted complete-bipartite projection formulas and a single-edge deletion formula concern static or zero-conductance cases and do not establish the conductance-optimized sharp \(\sqrt r\) law. The rank-one inverse identity is known; no novelty is asserted for it. Public research-record searches and available same-subject claims identified no dominating exact weighted-endpoint theorem, but incomplete indexing and equivalent representations in electrical-network literature remain risks.
+## originality
 
-## Mathematical value — PASS
+PASS
 
-The phenomenon is a sharp, unbounded endpoint-norm amplification caused by changing a single conductance in an otherwise dense, regular graph whose uniform-weight norms stay below \(4\). The exact optimization distinguishes cut and cycle: their optimal weights differ but obey a nontrivial product identity, even though the maximum values agree. This separates individual column localization from spectral localization in a natural family and gives explicit examples with sharp leading \(\sqrt r\) growth. The sufficient threshold \(r\ge29\) is not claimed optimal, nor are all nonorthogonal projections classified.
+Symmetrized transfer impedance/cut projector is classical and rank-one conductance updates are standard, but the objective here is induced edge-coordinate l1 maximal absolute column sum after optimizing ONE edge weight on Krr. The closest weighted electrical-flow papers bound spectral norm of ENTRYWISE ABS matrix, a different norm and not sharp in this family; unweighted constant-norm biclique results do not imply unbounded sqrt(r) weighted amplification. No inspected equivalent maximum-column theorem or optimal-conductance statement was found. Priority is qualified by standard projector/electrical network literature.
 
-## Limitations and residual risks
+## value
 
-The theorem addresses only one tunable conductance on balanced complete bipartite networks, ordinary edge-coordinate endpoint norms, and canonical Euclidean-orthogonal projections. The cited electrical localization papers do not state the precise claim in the portions examined, but a less-indexed source could use an equivalent electrical or matrix-norm formulation. No human mathematical audit has been performed.
+PASS
 
-Self-review: passed. Independent audit: not yet performed.
+One-edge conductance variation in a dense Krr graph produces unexpectedly unbounded endpoint projection norms even though the uniform network norms stay bounded. The sharp order-sqrt(r) amplification, two exact distinct optimizing conductances and product duality are meaningful extremal statements about electrical cut/cycle decompositions; optimization over all columns is essential. The object and coordinate norm are explicit; no claim extends to arbitrary projections, multiple varying edges or minimal possible order r.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
