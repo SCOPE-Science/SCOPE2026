@@ -1,0 +1,11 @@
+# Scientific review
+
+**Correctness — PASS.** The proof isolates the analytic tilted-generator eigenvalue using the positive off-diagonal decoherence gap, evaluates exact resolvents through fourth order, and reduces the full sign problem to a quadratic in the squared coherent hopping strength. The discriminant, zero-jump endpoint, equality field, and weak-field unique-positive-root argument are all treated analytically. A completely separate finite-matrix Taylor eigenvector recursion and finite-chain Lindblad propagation passed 251 checks. Physical finite-chain experiments are supporting evidence, not the proof of the asymptotic theorem.
+
+**Originality — PASS, with residual priority risk.** Avnit and Cohen, arXiv:2308.08419, equations (24)–(32), provide the minimal q-block model and exact zero-energy-gradient dispersion; therefore the zero-gradient specialization of the fourth cumulant is **known as a derivative of prior work**. What was evaluated here is the nonzero-field fourth-order coefficient and its global sign phase diagram. Shapira and Cohen, arXiv:1907.01993, use different dissipators and focus on current, diffusion and relaxation. Esposito and Gaspard's zero-gradient quantum-diffusion spectral theory likewise lacks this finite-gradient classification. Actual semantic-record and keyword/alias searches did not locate directly equivalent evaluated coverage; a broader general continued-fraction or full-counting-statistics theorem could still subsume the statement.
+
+**Mathematical value — PASS.** The complete field-to-decoherence threshold answers a motivated transport question that second-order diffusivity cannot resolve: when can coherence force a negative long-time positional fourth cumulant, and when does a static field prevent it regardless of hopping strength? The exact unique crossing and its divergent scale at the threshold provide quantitatively meaningful boundaries. The result is a statement about symmetric-jump Markov Lindbladians, not finite-temperature detailed balance, entropy production, finite-time sign, or finite-sample inference.
+
+Source comparison is limited to the cited, materially inspected work and available semantic records; it is not a publication-priority guarantee. Independent verification remains outstanding.
+
+Self-review: passed. Independent audit: not yet performed.
