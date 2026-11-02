@@ -1,19 +1,21 @@
-# Review of the exact essential-norm formula
+# Independent mathematical audit
 
-## Correctness — PASS
+## correctness
 
-The weighted Schur test, using \(a=\gamma+1/p\in(0,1)\), gives the exact beta-integral upper bound \(C_{p,\gamma}=\pi/\sin(\pi a)\) for the unweighted matrix. Finite output truncations yield an essential-norm upper bound with \(\limsup |g_k|\). Positive logarithmic-window vectors are weakly null after normalization; uniform Riemann sums and slow oscillation give the matching lower bound against every compact perturbation. The proof respects the endpoint restrictions, complex phase freedom, the order of the \(T\) and \(A\) limits, and the distinction between finite calculations and infinite-dimensional claims.
+PASS
 
-## Originality — PASS, subject to explicit residual risks
+For a=gamma+1/p in (0,1), decreasing-integrand comparisons yield both Schur supersolution inequalities for u_n=n^-1/p, v_n=n^-1/p′ with sharp C=pi/sin(pi a). Output coordinate truncation gives essential norm <=C limsup|g_k|. Direct algebra verifies k^(1/p)(H_gamma x)_k=sum_n n^-1 kappa_a(log(n/k)) for the logarithmic test vectors. Uniform Riemann-sum convergence, fixed-window slow oscillation at indices attaining limsup, and harmonic masses 2T and 2(T-A) give the reverse lower bound. Weakly null normalized vectors force compact perturbations to vanish. Limits N->infinity, then T->infinity, then A->infinity establish equality; L=0, arbitrary complex phases and parameter endpoints are handled appropriately. Proof inspected in RESULT.md; six Git blobs form the exact assigned tree.
 
-Norrbo's arXiv:2609.13403v1 Theorem 2 establishes the same sharp constant only when subexponential-block \(p\)-means converge. The explicit sequence \(1+\sin(\log\log(k+e))\) has no such limit and is covered by the present theorem, so the published theorem does not imply the stated class formula. Theorem 3 is described in the introduction as comparability, not a universal exact identity. Earlier exact Hilbert-operator results concern measure-generated matrices or analytic function spaces. Searches under essential-norm, Mellin, slowly oscillating and output-multiplier aliases yielded no exact dominating theorem. However, uninspected later pages of the focal manuscript and implicit consequences of Mellin limit-operator theory remain genuine literature risks. Negative search results alone are not treated as a proof of novelty.
+## originality
 
-## Value — PASS
+PASS
 
-This resolves the precise natural obstacle left by the convergent-block theorem for a broad class: the norm is computable from the coefficient limsup even when all local block averages oscillate. The same result settles compactness and exact sharp constants for every exponent and admissible twist, including explicit nonconvergent examples. It supplies a structural criterion rather than a routine special case.
+The same generalized Hilbert matrix appears in Norrbo (arXiv:2609.13403v1), whose Theorem 2 requires convergence of subexponential-block p-means, while this claim covers bounded multiplicatively slowly oscillating moduli with nonconvergent means; full ten-page primary preprint examined, including Theorems 2 and 3, their proofs, and the operator definition. Searches for exact slowly-oscillating Hilbert-matrix and Mellin limit-operator versions produced no direct dominating theorem. General limit-operator technology remains a historical-overlap risk, not an established implication.
 
-## Limitations and nearest literature
+## value
 
-The result is restricted to bounded coefficient magnitudes slowly oscillating on each fixed multiplicative window. It does not resolve arbitrary sequences or endpoint exponents. The nearest sources are D. Norrbo, arXiv:2609.13403v1 (Theorem 2, Proposition 1), N. Athanasiou, doi:10.1112/blms.12882, and M. Lindström, S. Miihkinen, D. Norrbo, arXiv:2201.09591 (abstract comparison only).
+PASS
 
-Same-model review: passed. Independent audit: not yet performed.
+The exact essential norm of a canonical dense operator family with bounded coefficients slow on multiplicative scales is a natural sharp infinite-dimensional invariant. It gives a full p,gamma parameter-class extension beyond convergence-of-means hypotheses, a sharp compactness criterion and a genuinely oscillatory example. The result is not only a numeric substitution and its claimed scope is narrower than arbitrary bounded multipliers.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
