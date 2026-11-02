@@ -1,19 +1,21 @@
-# Scientific assessment: marked de Bruijn shift-graph refinement
+# Independent mathematical audit
 
-## Correctness — PASS
+## correctness
 
-The result is an all-alphabet/all-length theorem with explicitly fixed graph orientation, loop treatment, initial colours, quantifiers, and edge-counting conventions. The proof has two independent directions: collapsed-alphabet word patterns are stable under incoming and outgoing edge counts, and the exact adjacency-operator identity forces every occurrence of a letter named by a marker to be visible in every coordinate within \(3k-3\) refinement rounds. Combining them yields equality of partitions rather than an unproved claim based on examples. The stabilizer group and Stirling-number orbit formulas then follow from the known automorphism-group theorem and direct equality-pattern enumeration. Three standalone finite programs check 925 rooted instances, 1,899 arbitrary-marker instances, and 3,423 operator identities respectively. The mathematical proof, not finite sampling, supplies the universal conclusion.
+PASS
 
-## Originality — PASS, with residual priority risk
+PASS — For every q,k≥1 and each marked set M (including empty), collapsing all unused letters to * gives an equitable in/out-degree counting partition, so stable color cannot be finer than the coordinate pattern. Directly expanded F and B shift adjacency to establish B^(k−j)F^(k−1)B^(i−1)e_r=q^(i−1+k−j) 1_{v_j=r_i}. Since marked singleton indicators are present initially and F,B each advance one refinement round, all named-letter coordinate tests are visible by round ≤3k−3, forcing the reverse partition inclusion. Aut of directed de Bruijn graph acts by simultaneous S_q letter permutations; its marker stabilizer is S_u, and equality patterns of h unused positions give Σ_b Stirling(h,b) orbits per cell. Exactness iff k=1 or u≤1; q=1,k=1, M=∅ and loops covered. Independently enumerated 20 marked refinements and compared induced partitions, plus direct symbolic operator argument; finite checks do not prove all q,k.
 
-The closest primary source is Boutin–Goliber–Pelto's *Identifying Codes on Directed De Bruijn Graphs* (arXiv:1412.5842), especially its known automorphism-group and determining-set theorems. Those results do not imply a formula for all stable counting-refinement classes or a universal refinement-depth bound. The independently inspected general color-refinement works of Kiefer–Schweitzer–Selman (arXiv:1503.08792) and Berkholz–Bonsma–Grohe (DOI 10.1007/s00224-016-9686-0) supply broad context but no de Bruijn coordinate-collapse theorem. Targeted literature and research-index searches for the equivalent shift-register, equitable-partition, counting-refinement, marked-word, and stabilizer formulations did not identify prior exact coverage. Searches cannot prove absolute priority; less-visible specialised work remains a risk. The known de Bruijn automorphism theorem is expressly cited as background.
+## originality
 
-## Value — PASS
+PASS
 
-The theorem closes a natural mathematical gap between determining sets (a purely group-theoretic property), the coarsest stable directed counting partition, and actual automorphism orbits on symbolic shift networks. It provides an exact answer for every alphabet size, word length and arbitrarily labelled marker set, a length-linear refinement bound independent of alphabet size, class sizes, a complete Stirling orbit census, and a sharp condition for orbit exactness. Its clean obstruction—equality among unused alphabet letters—is intrinsic to the shift relation rather than an arbitrary finite parameter slice. This is a substantive structural classification, not a rephrasing of the pre-existing determining-number formula.
+PASS, qualified — Boutin–Goliber–Pelto Theorem 4.12 gives Aut(D(q,k))=S_q and determining number, which this result cites as known. General two-variable counting/colour-refinement frameworks of Kiefer–Schweitzer–Selman and Berkholz–Bonsma–Grohe do not in their inspected conclusions supply the complete individually marked coordinate-collapse partition and Stirling orbit census. The operator word-coordinate recovery theorem is an explicit structural refinement beyond a determining-set group statement. Full counting type with loop predicate is deliberately outside scope. Undiscovered symbolic-dynamics exact refinements remain possible.
 
-## Limitations and closest comparisons
+## value
 
-The refinement here is specified operationally with directed neighbour-counts and no added initial loop-status attribute. It is not claimed to equal full \(C^2\) equivalence in a signature that can test \(R(x,x)\), nor is the general \(3k-3\) bound claimed optimal. Independent verification and publication-priority assessment remain outstanding.
+PASS
 
-Self-review: passed. Independent audit: not yet performed.
+PASS — Relates intrinsically natural group orbits, determining sets, and coarsest stable in/out counting partitions for all directed de Bruijn shift graphs and marker sets. Complete formula, depth bound and explicit unused-letter equality obstruction explain exactly when color refinement captures automorphism orbits, not a mere restatement of determining-number theorem.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

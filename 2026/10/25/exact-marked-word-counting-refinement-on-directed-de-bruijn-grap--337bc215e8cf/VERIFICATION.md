@@ -5,8 +5,11 @@
     "status": "not_performed"
   },
   "independent_audit": {
-    "evidence": null,
-    "status": "not_performed"
+    "status": "passed",
+    "evidence": [
+      "INDEPENDENT_AUDIT_2026-10-28.md",
+      "INDEPENDENT_AUDIT_2026-10-28.json"
+    ]
   },
   "lean_verification": {
     "evidence": null,
@@ -16,10 +19,24 @@
 }
 ---
 
-The standalone programs `verify_refinement.py`, `verify_markers.py` and `verify_operator.py` run using Python 3 and the standard library only, without network access, third-party packages, or input data. Invoke `python verify_refinement.py`, `python verify_markers.py` and `python verify_operator.py` in any directory containing these files. The corresponding `refinement_log.txt`, `markers_log.txt` and `operator_log.txt` record successful, exact integer checks. All checks were executed directly from the files embedded in this package before release.
+# Independent mathematical audit
 
-- The single-root comparison covers 925 configurations and 153,977 evaluated graph vertices; it computes stable refinement from separate incoming and outgoing adjacency lists, checks the closed colour count, and compares with independently canonicalized stabilizer equality patterns.
-- The arbitrary-marker comparison covers 1,899 marker sets and 143,895 vertices, including empty sets, all marker subsets when the graph has at most nine vertices, and deterministic seeded samples at larger sizes.
-- The operator test checks 3,423 exact coordinate-recovery identities on 271 configurations by literal adjacency-vector multiplication, including all coordinate choices for each instance.
+## correctness
 
-The verification constitutes finite regression evidence, not an exhaustive check of all alphabet sizes or word lengths. The all-parameter theorem follows from the symbolic adjacency-operator identity and the stable-partition argument in `RESULT.md`. The scientific literature comparison is not an independent priority certification. Independent mathematical audit has not been performed.
+PASS
+
+PASS — For every q,k≥1 and each marked set M (including empty), collapsing all unused letters to * gives an equitable in/out-degree counting partition, so stable color cannot be finer than the coordinate pattern. Directly expanded F and B shift adjacency to establish B^(k−j)F^(k−1)B^(i−1)e_r=q^(i−1+k−j) 1_{v_j=r_i}. Since marked singleton indicators are present initially and F,B each advance one refinement round, all named-letter coordinate tests are visible by round ≤3k−3, forcing the reverse partition inclusion. Aut of directed de Bruijn graph acts by simultaneous S_q letter permutations; its marker stabilizer is S_u, and equality patterns of h unused positions give Σ_b Stirling(h,b) orbits per cell. Exactness iff k=1 or u≤1; q=1,k=1, M=∅ and loops covered. Independently enumerated 20 marked refinements and compared induced partitions, plus direct symbolic operator argument; finite checks do not prove all q,k.
+
+## originality
+
+PASS
+
+PASS, qualified — Boutin–Goliber–Pelto Theorem 4.12 gives Aut(D(q,k))=S_q and determining number, which this result cites as known. General two-variable counting/colour-refinement frameworks of Kiefer–Schweitzer–Selman and Berkholz–Bonsma–Grohe do not in their inspected conclusions supply the complete individually marked coordinate-collapse partition and Stirling orbit census. The operator word-coordinate recovery theorem is an explicit structural refinement beyond a determining-set group statement. Full counting type with loop predicate is deliberately outside scope. Undiscovered symbolic-dynamics exact refinements remain possible.
+
+## value
+
+PASS
+
+PASS — Relates intrinsically natural group orbits, determining sets, and coarsest stable in/out counting partitions for all directed de Bruijn shift graphs and marker sets. Complete formula, depth bound and explicit unused-letter equality obstruction explain exactly when color refinement captures automorphism orbits, not a mere restatement of determining-number theorem.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
