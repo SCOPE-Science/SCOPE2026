@@ -1,0 +1,11 @@
+# Self-review
+
+**Correctness — PASS.** The orientation criterion gives necessary and sufficient inequalities for target indegree intervals, with the upper and lower cut bounds checked analytically for all graph orders through six and all seven-vertex graphs with at most thirteen edges. For seven vertices and fourteen edges, capacity-two Hall inequalities reduce exactly to minimum degree at least two. The pendant-core classification and labeled counts follow by elementary counting. The standalone exhaustive integer checker confirms all \(26704\) connected six-vertex graphs and all \(116175\) connected seven-vertex, fourteen-edge graphs; no extrapolation from a partial search is used.
+
+**Originality — PASS (qualified).** Sun, Wang, and Li (arXiv:2602.18098, Section 4, including Proposition 4.2, inspected) give heterogeneous-weight nonexistence and general complexity statements, not the sharp connected uniform-unit threshold. Frank--Gyárfás already provide the complete degree-bounded orientation condition, so the orientation feasibility criterion itself is prior art. The distinct mathematical assertion being evaluated is the extremal first obstruction, its if-and-only-if structural characterization, and exact first-layer count. Targeted published-record searches found no equivalent statement. Risk: a less indexed graph-theoretic study may have derived this minimal cut-off as a corollary.
+
+**Value — PASS.** Fair orientation papers show that EQ1 may fail but the weight and relevance restrictions matter. Identifying the smallest connected market in which the failure persists when *every* relevant good is worth exactly one, and classifying all minimal-edge failures with an exact incidence, settles a natural parameter-boundary question. The result is not proposed as a new flow algorithm or an improvement to the general orientation theorem.
+
+**Scientific limitations.** The graphs are connected, simple and uniformly valued at endpoints; no claim applies to heterogeneous weights, disconnected graphs or multigraphs. Counted instances are labeled. The general cut theorem is credited; priority beyond the inspected literature is not certified.
+
+Self-review: passed. Independent audit: not yet performed.
