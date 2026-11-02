@@ -1,19 +1,21 @@
-# Review
+# Independent mathematical audit
 
-## Correctness
+## correctness
 
-PASS. The finite-height rank function partitions each member into finitely many antichains. Maximality transfers because any infinite antichain is off-branch, and an infinite intersection with a finite union has an infinite intersection with at least one layer. Pairwise almost-disjointness is preserved by taking subsets. The cardinal bound uses only that the original maximal family is infinite.
+PASS
 
-## Originality
+For every off-branch A of finite (member-dependent) chain height, r_A(x)=the maximum length of a chain ending at x is defined; if x is a proper prefix of y then r_A(x)<r_A(y). Thus the finitely many rank levels partition A into antichains. Keeping all infinite levels preserves pairwise almost-disjointness. For any infinite antichain C, C is off-branch, so maximality of O supplies an A with |C∩A| infinite; finite rank pigeonhole gives a level with infinite C-intersection, proving the new antichain family maximal. Each A contributes finitely many levels, and |O| is infinite by the known lower bound for the off-branch invariant; |B|<=|O| follows. Contraposition proves that if o<bar{o}, every o-sized maximal family contains at least one member with chains of arbitrarily large finite length. This does not show any infinite branch contained in a member, nor resolve the consistency problem.
 
-PASS, with scoped-search limitations. The inspected primary source defines the two invariants and records the possible strict separation, but the finite-height reduction is not stated in the inspected sections. Searches for the exact off-branch and finite-height formulation did not locate a direct equivalent. This is not a claim that the consistency question has been solved.
+## originality
 
-## Value
+PASS
 
-PASS. Any strict gap \(\mathfrak{o}<\bar{\mathfrak{o}}\) would require a member of unbounded finite chain height in every smallest maximal off-branch family. This excludes the full memberwise finite-height case and provides a concrete structural constraint for future constructions.
+Qualified best-of-knowledge: the conditional finite-height rank-layer reduction is not stated in the inspected sections of the foundational off-branch paper or in the relevant indexed comparison results; it is not the previously known inequality o<=bar{o}. Its short combinatorial proof and possible folklore status remain priority risks.
 
-## Closest literature and limitations
+## value
 
-Thomas E. Leathrum, “A Special Class of Almost Disjoint Families,” arXiv:math/9403201v1, Sections 3–4 and 8. The paper defines the invariants and raises the consistency question; the present lemma neither proves nor refutes that consistency statement. The literature search was scoped, and the reduction may be folklore.
+PASS
 
-Self-review: passed. Independent audit: not yet performed.
+A genuinely motivated structural necessary condition for the open o<bar{o} separation question: any cardinal-minimal maximal off-branch witness must escape all finite-chain-height subfamilies, even without a uniform height bound. This is an elementary but precise nontrivial constraint on where a forcing or construction argument must look; not asserted to be a major breakthrough.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
