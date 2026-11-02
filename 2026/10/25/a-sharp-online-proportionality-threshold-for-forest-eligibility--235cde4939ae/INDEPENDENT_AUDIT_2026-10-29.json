@@ -1,0 +1,131 @@
+{
+  "audit_date_utc": "2026-10-29",
+  "audited_at_utc": "2026-10-29T01:02:29.195647Z",
+  "axes": {
+    "correctness": {
+      "rationale": "For greedy assignment to the larger prearrival deficit, proved by induction that every vertex with signed deficit B_v=r>0 belongs to a current tree component of size >=2^r: the newly losing endpoint has pre-deficit r-1, while the distinct receiving component has endpoint deficit >=r-1, and their union doubles the bound. Every forest component at prefix s has at most s+1 vertices, proving floor(log2(s+1)) for all prefixes. Opposite lower bound is an adaptive binary merge of two independently constructed 2^(r-1)-vertex trees whose marked vertices both have deficit r-1: the loser of one joining good receives deficit r; no cycle, and padding to exactly t edges preserves earlier prefix witness. At r=3 the construction needs 8 agents and 7 edges, and Prop1 is exactly B<=2 (eligibility-aware unit share). Independent minimax enumeration for all n<=5 and admissible t agreed, but the induction is the infinite proof.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Biburger general instances yield approximate Prop1 under online eligibility but the cited result does not assert exact guarantee for forests.",
+          "Bender forest no-flip logarithmic outdegree upper bound is one-sided sufficient bound, not matching deficit lower bound; Gupta uses edge reversals."
+        ],
+        "reasoning": "General-instance guarantees under weaker objective or recourse do not logically imply the sharp forest-constrained exact minimax identity.",
+        "searches": [
+          "Biburger–Megow–Shahkarami arXiv:2610.08064",
+          "Bender et al arXiv:2107.02318",
+          "Gupta et al arXiv:2111.06308"
+        ]
+      },
+      "checked_sources": [
+        "Frozen Git RESULT.md a9a470b16868fd3ca8e10819716b922f474623e0",
+        "Frozen checker.py a96f087f7b64439f1f52aee011e63b9bf19a7389",
+        "Bender et al arXiv:2107.02318 full PDF forest section",
+        "Biburger et al arXiv:2610.08064 abstract",
+        "Gupta et al arXiv:2111.06308",
+        "Independent finite minimax n<=5"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "Bender does not supply an adversarial lower bound for signed deficit or the Prop1 cutoff; its outdegree result cannot determine exact minimax.",
+          "With recourse a formerly oriented edge can be flipped, which the claimed process forbids."
+        ],
+        "reasoning": "The complete matching upper/lower bound requires the explicit adaptive binary lower construction; neither a general approximate fair division theorem nor a recourse bound implies it.",
+        "searches": [
+          "Biburger arXiv:2610.08064, eligibility-aware fairness definitions",
+          "Bender arXiv:2107.02318, no-flip online forest orientation warmup",
+          "Gupta arXiv:2111.06308, recourse discrepancy"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Signed deficit is outdegree minus indegree (with loser-directed edge convention), unlike absolute discrepancy or maximum outdegree.",
+          "Prop1 for unit pair eligibility is equivalent to B_v<=2, not to every fairness notion."
+        ],
+        "reasoning": "Examined graph-orientation and discrepancy aliases; the exact one-sided prefix adaptive minimax is not identical to orientation outdegree or recourse models.",
+        "searches": [
+          "Resultary search: online irrevocable edge orientation forest signed deficit outdegree indegree adaptive minimax logarithm prop1 eligibility goods",
+          "Bender et al arXiv:2107.02318, forest online orientations"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "The independent exact small-n values match floor(log2(t+1)), but the published forest result gives asymptotic orientation degree bounds rather than this full signed-deficit table."
+        ],
+        "reasoning": "Finite enumeration supplies only corroboration. Search did not identify an existing exact forest-Prop1 seven/eight table; absence is not proof.",
+        "searches": [
+          "Resultary search: online irrevocable edge orientation forest signed deficit outdegree indegree adaptive minimax logarithm prop1 eligibility goods",
+          "Bender et al 2021 section on forests",
+          "independent exact finite forest minimax game n<=5"
+        ]
+      },
+      "rationale": "Best-knowledge PASS for the exact sharp signed-deficit prefix minimax and the seven/eight eligibility-aware Prop1 boundary, not for a generic logarithmic forest-orientation upper bound. Bender et al previously use a doubling argument for logarithmic maximum outdegree, which is a related upper bound and is expressly credited. Biburger et al define the relevant 2026 fair-division model and study approximate Prop1 for unrestricted eligibility, not a forest exact cutoff. Gupta et al allow recourse, which fundamentally changes the online problem; offline orientation existence is also not the prefix game.",
+      "residual_risks": [
+        "An older combinatorial online forest discrepancy folklore result might already imply the exact signed objective.",
+        "Biburger relevant preprint full text was not accessible in this execution; abstract does not establish noncoverage.",
+        "Adaptive adversary observes allocations, so lower bound does not apply to an oblivious adversary by assertion."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Known logarithmic orientation upper precedent, but different potential and no claimed exact signed-deficit adaptive identity",
+          "evidence": [
+            "Forest online orientation warmup; maximum outdegree and recourse tradeoffs"
+          ],
+          "identifier_or_url": "https://arxiv.org/pdf/2107.02318",
+          "material_read": "Full available primary PDF; opening sections, forest no-flip warmup, outdegree/reorientation statement, relevant pages including screenshot",
+          "method": "Primary PDF read and relevant page screenshot",
+          "title": "Incremental Edge Orientation in Forests",
+          "trigger": "Same incremental forest model and doubling upper bounds"
+        },
+        {
+          "assessment": "Cannot infer full-text noncoverage from abstract; qualified best-knowledge comparison only",
+          "evidence": [
+            "Studies approximate online Prop1 and general eligibility constraints"
+          ],
+          "identifier_or_url": "https://arxiv.org/abs/2610.08064",
+          "material_read": "Accessible abstract and bibliographic result; full arXiv PDF retrieval failed during audit",
+          "method": "Primary abstract, relevant source package claim crosscheck",
+          "title": "Online Fair Division under Eligibility Constraints",
+          "trigger": "Same eligibility-aware proportionality definition and 2026 preprint"
+        },
+        {
+          "assessment": "Recourse permits prior edge reversals; no dominance over irreversible all-prefix game",
+          "evidence": [
+            "Model difference: irrevocable versus recourse"
+          ],
+          "identifier_or_url": "https://arxiv.org/abs/2111.06308",
+          "material_read": "Accessible bibliographic/abstract-level evidence and source package Section 5.4 description; full primary text not claimed read",
+          "method": "Primary search metadata and statement-level comparison",
+          "title": "Online Discrepancy with Recourse for Vectors and Graphs",
+          "trigger": "Potential stronger forest discrepancy"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "rationale": "A sharp, fully parameterized online fairness guarantee on the natural acyclic pair-eligibility family, with an explicit first unavoidable adaptive obstruction at 8 agents, gives a meaningful finite cutoff and universal all-n minimax theorem. It isolates the cost of irrevocability from offline or recourse-based solutions, useful for designing sequential allocations.",
+      "status": "PASS"
+    }
+  },
+  "checked_sources": [
+    "Frozen Git RESULT.md a9a470b16868fd3ca8e10819716b922f474623e0",
+    "Frozen checker.py a96f087f7b64439f1f52aee011e63b9bf19a7389",
+    "Bender et al arXiv:2107.02318 full PDF forest section",
+    "Biburger et al arXiv:2610.08064 abstract",
+    "Gupta et al arXiv:2111.06308",
+    "Independent finite minimax n<=5"
+  ],
+  "disposition": "passed",
+  "limitations": [
+    "Unit goods, two eligible endpoints, simple growing forest, immediate irrevocable assignments, adaptive adversary, one-sided signed deficits.",
+    "No extension to cycles, unequal goods, hyperedges or absolute discrepancy."
+  ],
+  "residual_risks": [
+    "An older combinatorial online forest discrepancy folklore result might already imply the exact signed objective.",
+    "Biburger relevant preprint full text was not accessible in this execution; abstract does not establish noncoverage.",
+    "Adaptive adversary observes allocations, so lower bound does not apply to an oblivious adversary by assertion."
+  ],
+  "schema_version": 1
+}
