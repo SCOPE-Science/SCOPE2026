@@ -1,0 +1,131 @@
+{
+  "correctness": {
+    "rationale": "A real interval of length 2T meets at most floor(2T)+1 consecutive integers, and any full integer block at that width is achievable. Fixing a column containing a coordinate whose entire block has absolute value >= width makes its determinant-one complementary column unique, by the integer multiple description of Bezout solutions; this bounds such remote boxes by width squared. The finite verifier enumerates every remaining 4-tuple of block starts for widths 2,3,4,5 and returns exact maxima 6,20,36,60, all larger than width squared. All eight maximizing five-block patterns are checked, and every coordinate boundary value is used, forcing exact integral real centres for radius two; the 60 versus 52 counts are directly checked. The proof has exact quantifiers, closed-endpoint cases, and no inferred infinite conclusion.",
+    "status": "PASS"
+  },
+  "independent": false,
+  "independent_audit_status": "not_performed",
+  "originality": {
+    "broader_coverage": {
+      "evidence": [
+        "Wurzinger, arXiv:2610.29794v1, Theorem 1.1 gives an upper bound with unspecified constant for all T >= 1 and all real centres, with Theorem 1.2 giving origin-centred asymptotics.",
+        "Shparlinski, DOI:10.1016/j.laa.2009.07.036, accessible abstract states upper bounds for integer matrices of given determinant in arbitrarily located boxes; Wurzinger reports the O(T^(n*n-n) log T) estimate."
+      ],
+      "reasoning": "An asymptotic order bound with unspecified constants, even uniform for all box centres or higher matrix dimension, cannot determine a sharp finite value, all equality centres or the 60-versus-52 discrepancy at radius two. No checked stronger theorem supplied a finite uniform-centre extremum.",
+      "searches": [
+        "Integer symplectic matrices in expanding boxes Lena Wurzinger m=1 exact maximum 60 for centered radius 2 arbitrary center 52 at zero translated 2 by 2 determinant one integer matrices",
+        "Some counting questions for matrices with restricted entries Shparlinski fixed determinant arbitrary location exact extremal finite small boxes",
+        "\"unimodular matrices\" \"translated\" boxes \"exact\" counting",
+        "\"Some counting questions for matrices with restricted entries\" pdf Shparlinski"
+      ]
+    },
+    "checked_sources": [
+      "Wurzinger, arXiv:2610.29794v1, Theorems 1.1 and 1.2 and Introduction (uniform estimates, origin asymptotics)",
+      "Shparlinski, DOI:10.1016/j.laa.2009.07.036, abstract and the bound quoted by Wurzinger (fixed-determinant arbitrary boxes)",
+      "Krieg, Counting modular matrices with specified maximum norm, Linear Algebra Appl. 196 (1994), cited for origin centred counts",
+      "OEIS:A171503, determinant-one 2x2 entries from {0,...,n}, no arbitrary 4-coordinate translation",
+      "Published four-level Fourier-frame spectrum on determinant-one matrices over finite fields (2026-10-11), a different object"
+    ],
+    "claim_vs_prior_implication": {
+      "evidence": [
+        "arXiv:2610.29794v1, The inspected Introduction and relevant Section 5 materials discuss uniform large-box estimates and centred asymptotics; no enumeration of translated radius-two boxes is stated in those inspected sections.",
+        "2010 paper abstract and the quotation of its main bound in Wurzinger concern order-of-growth upper bounds; the entire 2010 paper was not accessible."
+      ],
+      "reasoning": "The new theorem is not a corollary or special case yielding a numeric value from the displayed older statements: their implied upper-bound constants are unspecified and their lower bounds do not localize the eight maximizers. A finite exact classification with a proved global localization step is additional data. The inaccessible older full text remains an explicit priority risk, not treated as a proof of absence.",
+      "searches": [
+        "Integer symplectic matrices in expanding boxes Lena Wurzinger m=1 exact maximum 60 for centered radius 2 arbitrary center 52 at zero translated 2 by 2 determinant one integer matrices",
+        "SL_2(Z) determinant-one integer 2-by-2 matrices four coordinate intervals of 2 3 4 5 consecutive integers exact maxima 6 20 36 60",
+        "Some counting questions for matrices with restricted entries Shparlinski fixed determinant arbitrary location exact extremal finite small boxes",
+        "https://arxiv.org/html/2610.29794v1",
+        "https://researchers.mq.edu.au/en/publications/some-counting-questions-for-matrices-with-restricted-entries/"
+      ]
+    },
+    "equivalent_formulations": {
+      "evidence": [
+        "arXiv:2610.29794v1, Introduction lines identifying the rank-one symplectic group with determinant-one 2x2 integer matrices.",
+        "Closest published record the published finite-field four-level Fourier-frame result dated 2026-10-11 concerns additive Fourier characters over finite fields, not lattice points in real entrywise boxes."
+      ],
+      "reasoning": "The exact equivalent forms are small translated SL_2(Z) boxes, rank-one integer symplectic boxes, and determinant-one integer matrices in four independent equal-length consecutive-integer blocks. The published finite-field Fourier problem concerns another object and cannot imply a uniform box count. Sign changes connecting determinants plus and minus one were considered as equivalent formulations, but no exact shared-box maximum was located.",
+      "searches": [
+        "SL_2(Z) determinant-one integer 2-by-2 matrices four coordinate intervals of 2 3 4 5 consecutive integers exact maxima 6 20 36 60",
+        "unimodular 2x2 integer matrices maximum count in translated cube five consecutive integers 60 matrices radius two versus origin 52",
+        "uniform center-free small box lattice count symplectic matrices Sp_1(Z) SL_2(Z) off-center extremizers",
+        "arXiv:2610.29794v1, Introduction, m=1 equivalence Sp_1(Z)=SL_2(Z)"
+      ]
+    },
+    "exact_database_or_table": {
+      "evidence": [
+        "OEIS A171503 enumerates matrices with all entries 0,...,n; its values for n=0,...,4 are 0,3,7,15,23.",
+        "Wurzinger cites Krieg for the number 32 phi(N) of SL_2(Z) matrices with max norm N for N>=2, which counts origin-centred shells."
+      ],
+      "reasoning": "Neither the single nonnegative-coordinate cube table nor the origin-centred maximum-norm shell table records a maximum over independent translations of four coordinate intervals. In particular the centred 52 count does not determine the translated 60 count, nor the eight optimizer centres.",
+      "searches": [
+        "https://oeis.org/A171503",
+        "sharp uniform number of SL2(Z) determinant one 2 by 2 integer matrices inside entrywise boxes of side 2T arbitrary centers for T=1/2 1 3/2 2 count 6 20 36 60",
+        "2 x 2 integral determinant 1 translated box maximum 60 radius 2",
+        "Krieg Counting modular matrices with specified maximum norm"
+      ]
+    },
+    "rationale": "The closest inspected new primary paper proves large-box asymptotic upper bounds uniform over centre, rather than sharp small-box constants and equality centres. The classical fixed-determinant arbitrary-box work cited in that paper supplies general upper bounds, and a standard sequence gives only a single fixed nonnegative-coordinate cube. The claim that radius two has maximum 60, eight exact real maximizing centres and a smaller origin count of 52 is not an implication of those results. Actual title/alias/parameter and published-record queries did not identify equal or stronger local classifications. Residual historical priority is explicitly acknowledged.",
+    "residual_risks": [
+      "A previously unpublished or unindexed exact enumeration of small translated boxes could have the same classification.",
+      "The full text of Shparlinski (2010) was not accessible; its available abstract and cited estimate were compared, but a hidden finite special case cannot be ruled out.",
+      "Search and record-index coverage does not certify absolute historical uniqueness."
+    ],
+    "source_inspections": [
+      {
+        "assessment": "No exact radius-two uniform maximum or eight-centre equality classification in the material inspected. Its displayed bounds are asymptotic or with unspecified constants.",
+        "evidence": [
+          "arXiv:2610.29794v1, Introduction Theorems 1.1–1.2; Section 5 and references to Krieg and Shparlinski."
+        ],
+        "identifier_or_url": "https://arxiv.org/html/2610.29794v1",
+        "material_read": "Full-text HTML Introduction with Theorems 1.1–1.2, the rank-one identification and proof strategy; Section 5 statement/discussion of origin-centred asymptotics and the cited Section 4 uniform-bound conclusion. Not a cover-to-cover reading of unrelated lemmas.",
+        "method": "Compared objects, parameter ranges, actual quantified statements and type of bound to the claimed finite extremum and complete equality classification.",
+        "title": "Integer symplectic matrices in expanding boxes",
+        "trigger": "Exact same objects and arbitrary-real-centre boxes; primary motivating article and primary MSC assignment."
+      },
+      {
+        "assessment": "Available result does not imply the new exact finite values; complete text not inspected, residual risk recorded.",
+        "evidence": [
+          "Macquarie University institutional record, 2010, and Wurzinger arXiv:2610.29794v1, Introduction equation (1.3)."
+        ],
+        "identifier_or_url": "https://doi.org/10.1016/j.laa.2009.07.036",
+        "material_read": "Publisher/institutional abstract and the stated estimate (1.3) quoted in Wurzinger Introduction, not the article full text.",
+        "method": "Compared the available explicit uniform asymptotic bound to finite exact maxima and location classification.",
+        "title": "Some counting questions for matrices with restricted entries",
+        "trigger": "Older arbitrary-centre fixed-determinant matrix count, a plausible dominating result."
+      },
+      {
+        "assessment": "Counts a different constrained domain, not maximization over translated boxes.",
+        "evidence": [
+          "OEIS:A171503 definition and initial values 0,3,7,15,23."
+        ],
+        "identifier_or_url": "https://oeis.org/A171503",
+        "material_read": "Sequence definition, initial values, references and formula.",
+        "method": "Compared fixed nonnegative cube domain to arbitrary separately translated entry intervals.",
+        "title": "A171503: determinant-one 2x2 matrices in a nonnegative cube",
+        "trigger": "Potential exact sequence table subsuming initial finite values."
+      },
+      {
+        "assessment": "Finite-field Fourier frame spectrum; cannot determine translated integer lattice-point box counts.",
+        "evidence": [
+          "Published summary for the four-level Fourier-frame result over finite fields, dated 2026-10-11."
+        ],
+        "identifier_or_url": "https://github.com/Resultary/2026",
+        "material_read": "Published title and abstract-level summary only.",
+        "method": "Compared mathematical objects and their implications.",
+        "title": "Four-level Fourier frame spectrum on determinant-one matrices over finite fields",
+        "trigger": "Closest published database title with determinant-one matrices."
+      }
+    ],
+    "status": "PASS"
+  },
+  "review_type": "self_review",
+  "schema_version": 1,
+  "scope_run_id": "f7d082bc-c3fa-48c8-aa53-4174c17a41e7",
+  "self_review_status": "passed",
+  "value": {
+    "rationale": "The new uniform arbitrary-centre asymptotic counting problem naturally raises a finite-scale extremal question at the first complete integer radii. The theorem gives the entire initial transition profile, an exact complete equality-centre classification at the first radius with a centre shift advantage, and a concrete failure of extrapolating origin-centred extremality from centred counting formulae (60 versus 52). These are intrinsic quantities for integer symplectic/SL2 boxes and useful benchmarks for sharp constant studies, not a parameter-renaming or an arbitrary unmotivated slice. No larger-radius theorem is claimed.",
+    "status": "PASS"
+  }
+}
