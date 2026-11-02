@@ -1,15 +1,21 @@
-# Scientific review: trigonal genus-five Weil spectra
+# Independent mathematical audit
 
-## Correctness — PASS
-The result specifies the smooth normalization of a geometrically integral degree-five plane curve, all admissible primes, all nonzero diagonal coefficients, and a precise fifteenth-power residue parameter. Riemann--Hurwitz verifies genus five. Kudo's theorem supplies the maximal untwisted Frobenius scalar, while the complete tame differential-character computation produces the exact twist eigencharacters. Cyclotomic multiplication establishes all four degree-ten polynomials without interpolation. Exact tests reproduce the character product for every residue and direct rational-point counts over \(\mathbf F_{121}\), \(\mathbf F_{841}\), and \(\mathbf F_{11^4}\) for the indicated coefficient types. The tests provide consistency evidence; the universal and degree-five-extension statements follow from the algebraic proof, not finite sampling. Reliance on standard tame comparison, semisimplicity, and Kudo's published maximality theorem is explicit.
+## correctness
 
-## Originality — PASS (subject to priority uncertainty)
-The closest inspected source is Kudo's 2018 *A note on certain superspecial and maximal curves of genus 5* (arXiv:1807.04394, Theorems 1.1--1.3). It covers the coefficient family and maximality of the untwisted curve, but does not state the four Weil polynomials or the fifth-extension separation. Kudo--Harashita (arXiv:1804.11277, Theorem B and Section 5) classify curves over \(\mathbf F_{11}\) and record some \(\mathbf F_{121}\) point counts; that base-field coefficient restriction only reaches fifteenth-power exponents divisible by three over \(\mathbf F_{121}\), unlike the full fifteen-class statement. Meagher--Top (2010, *Twists of genus three curves over finite fields*) supplies the general Galois-cohomological technique for twists, not this genus-five character calculation or its Weil polynomial census. No inspected work gave an equivalent full specialization. A direct earlier table obtained from classical Jacobi sums, or an unindexed computation, remains a genuine priority risk; a negative search is not proof of uniqueness.
+PASS
 
-## Value — PASS
-The naturally defined family already appears in the superspecial genus-five literature. Complete Weil polynomials, rather than only maximality or the first point count, distinguish its Jacobian isogeny types. The fact that twelve coefficient classes show exactly \(q^n+1\) points for each \(1\le n\le4\), yet split into two distinct isogeny spectra first visible over the fifth extension, identifies a genuine arithmetic limitation of short point-count samples. The exact distribution among all diagonal coefficients is a complete intrinsic arithmetic classification within the stated natural family, not a chosen small numerical slice.
+For p≥11 prime p≡11 or14 mod15, q=p² and nonzero a,b∈Fq, the smooth normalization is a connected degree-three cyclic cover v³=-t²(a+bt⁵) with seven distinct branch points, so 2g-2=-6+14 and g=5. Kudo Theorem 1.2 establishes the untwisted model's q-maximality: all ten eigenvalues equal -p. Verified exact local valuations at t=0, nonzero branch points and infinity give precisely five independent regular differentials, of order-15 weights {1,2,4,5,8}, and conjugate H¹ weights E={1,2,4,5,7,8,10,11,13,14}. The substitution σ¹⁵=a⁴b, ρ=a/σ³, t=ρT, w=σW gives a descent cocycle g^(-r) and twist eigenvalues -pζ^(rk) up to simultaneous inversion. The cyclotomic product for all r mod15 gives exactly the four claimed normalized degree-ten L-polynomials; independent symbolic coefficient/character enumeration confirmed each gcd orbit and its size 1,8,4,2. Independent Fp² point counting by a separate cubic-root histogram verified every residue class at p=11 and29. Newton identities yield equality of power sums for n=1..4 and distinct n=5 counts; Weil polynomials distinguish q-isogeny classes. The general-prime result is proved symbolically using the cited Kudo maximality theorem, not by extrapolating the finite tests.
 
-## Boundaries
-The result makes no claim about non-diagonal forms, all geometric twists, curve-isomorphism classes, or other prime residues. The relevant prior theory is credited rather than repackaged as new. Independent mathematical verification has not been performed.
+## originality
 
-Self-review: passed. Independent audit: not yet performed.
+PASS
+
+Best-of-knowledge originality is the evaluated all-parameter four-polynomial/15-coset classification and the earliest fifth-degree separation, not Kudo's earlier maximality, Hodge-character methodology, or general twist formalism. Full relevant primary source sections were read and compared by logical implication, not just title. No inspected source proves the exact full specialization; searched published mathematical records and local repository have no covering hit. Unindexed explicit Jacobi-sum or automorphism-character calculations may predate this result; negative searches do not establish novelty.
+
+## value
+
+PASS
+
+Determining full zeta/Weil polynomials and precise frequencies for the natural genus-five superspecial diagonal family is an intrinsic arithmetic classification, significantly stronger than knowing superspeciality or the untwisted maximal point bound. Two naturally occurring twisting regimes have matching q^n counts for every n≤4 but distinct q-isogeny types first distinguished at n=5; this gives a sharp, well-motivated demonstration of the limits of short extension-count samples. It is not a contrived finite numerical slice: formulas apply uniformly to every admissible prime and every nonzero diagonal coefficient pair. The scope excludes general K-forms, other prime residue classes and non-diagonal deformations.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

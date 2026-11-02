@@ -5,8 +5,11 @@
     "status": "not_performed"
   },
   "independent_audit": {
-    "evidence": null,
-    "status": "not_performed"
+    "status": "passed",
+    "evidence": [
+      "INDEPENDENT_AUDIT_2026-10-28.md",
+      "INDEPENDENT_AUDIT_2026-10-28.json"
+    ]
   },
   "lean_verification": {
     "evidence": null,
@@ -16,21 +19,24 @@
 }
 ---
 
-# Exact verification and reproducibility
+# Independent mathematical audit
 
-Run the following commands with Python 3 and a C++17 compiler:
+## correctness
 
-```sh
-python3 verify_characters.py
-python3 verify_counts.py
-g++ -O2 -std=c++17 verify_extensions.cpp -o verify_extensions
-./verify_extensions
-```
+PASS
 
-The first program enumerates all regular-differential pairs from the valuation inequalities, obtains the five one-form characters and the ten first-cohomology characters, and multiplies ten cyclotomic factors in the exact integer ring \(\mathbf Z[\xi]/(\Phi_{15}(\xi))\). Each coefficient of each of the fifteen degree-ten products is compared to its claimed integer formula.
+For p≥11 prime p≡11 or14 mod15, q=p² and nonzero a,b∈Fq, the smooth normalization is a connected degree-three cyclic cover v³=-t²(a+bt⁵) with seven distinct branch points, so 2g-2=-6+14 and g=5. Kudo Theorem 1.2 establishes the untwisted model's q-maximality: all ten eigenvalues equal -p. Verified exact local valuations at t=0, nonzero branch points and infinity give precisely five independent regular differentials, of order-15 weights {1,2,4,5,8}, and conjugate H¹ weights E={1,2,4,5,7,8,10,11,13,14}. The substitution σ¹⁵=a⁴b, ρ=a/σ³, t=ρT, w=σW gives a descent cocycle g^(-r) and twist eigenvalues -pζ^(rk) up to simultaneous inversion. The cyclotomic product for all r mod15 gives exactly the four claimed normalized degree-ten L-polynomials; independent symbolic coefficient/character enumeration confirmed each gcd orbit and its size 1,8,4,2. Independent Fp² point counting by a separate cubic-root histogram verified every residue class at p=11 and29. Newton identities yield equality of power sums for n=1..4 and distinct n=5 counts; Weil polynomials distinguish q-isogeny classes. The general-prime result is proved symbolically using the cited Kudo maximality theorem, not by extrapolating the finite tests.
 
-The second enumerates cubes and affine parameters directly in the quadratic finite fields defined by adjoining a square root of two to \(\mathbf F_{11}\) and \(\mathbf F_{29}\). It verifies all fifteen first-degree point counts, including the two rational ramification points over zero and infinity. The normalized curves have respective counts \(232\), \(122\), \(67\) for the three point-count categories over \(\mathbf F_{121}\), and \(1132\), \(842\), \(697\) over \(\mathbf F_{841}\).
+## originality
 
-The C++ program independently certifies that \(X^4+X+2\) is irreducible over \(\mathbf F_{11}\), constructs \(\mathbf F_{11^4}\), and counts cube roots of \(-t^2(a+bt^5)\) for all fifteen coefficient cosets from the quadratic subfield. It verifies second-extension counts \(13432\), \(14642\), and \(15247\), according to the corresponding first-degree category. In each computation the number of ramified points is established by the geometric cover description; it is not inferred from the singular plane model.
+PASS
 
-All three programs completed successfully and reproduced `CHECKS.txt`. The integer polynomial product is exact, but the numerical point computations test only two primes and the first two extension degrees in those examples. The proof in `RESULT.md`, not an experiment or an unrun long extension-field enumeration, supports all-prime classification and fifth-extension consequences. No external independent audit or certification is asserted.
+Best-of-knowledge originality is the evaluated all-parameter four-polynomial/15-coset classification and the earliest fifth-degree separation, not Kudo's earlier maximality, Hodge-character methodology, or general twist formalism. Full relevant primary source sections were read and compared by logical implication, not just title. No inspected source proves the exact full specialization; searched published mathematical records and local repository have no covering hit. Unindexed explicit Jacobi-sum or automorphism-character calculations may predate this result; negative searches do not establish novelty.
+
+## value
+
+PASS
+
+Determining full zeta/Weil polynomials and precise frequencies for the natural genus-five superspecial diagonal family is an intrinsic arithmetic classification, significantly stronger than knowing superspeciality or the untwisted maximal point bound. Two naturally occurring twisting regimes have matching q^n counts for every n≤4 but distinct q-isogeny types first distinguished at n=5; this gives a sharp, well-motivated demonstration of the limits of short extension-count samples. It is not a contrived finite numerical slice: formulas apply uniformly to every admissible prime and every nonzero diagonal coefficient pair. The scope excludes general K-forms, other prime residue classes and non-diagonal deformations.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
