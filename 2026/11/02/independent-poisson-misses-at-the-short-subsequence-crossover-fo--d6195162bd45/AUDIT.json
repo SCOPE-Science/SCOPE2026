@@ -1,0 +1,131 @@
+{
+  "correctness": {
+    "rationale": "The iid greedy advance indicators give exact one-pattern avoidance; distinct patterns have a joint greedy automaton with at most r-1 loop states, yielding a polynomial degree r-2 joint-avoidance bound; a finite-dimensional pgf expansion proves independent Poisson limits. Length r-1 and r+1 bounds then give the exact two-point LCS limit. Exact standalone programs use independent state and brute-force checks.",
+    "status": "PASS"
+  },
+  "independent": false,
+  "independent_audit_status": "not_performed",
+  "originality": {
+    "broader_coverage": {
+      "evidence": [
+        "Li–Ren–Wen Theorems 1.1 and 1.2 bound normalized constants in the fixed-number regime",
+        "Heineman et al. finite computations target generalized constants"
+      ],
+      "reasoning": "The normalized-constant theorems concern a length-proportional LCS and do not dominate a bounded-length critical transition under exponentially increasing sample size.",
+      "searches": [
+        "random strings many sequences longest common subsequence threshold log d log log d subsequence avoidance independent Poisson occupancy",
+        "longest common subsequence multiple random sequences Poisson limit when number of strings exponential in length",
+        "arxiv:2504.10425",
+        "arxiv:2407.10925"
+      ]
+    },
+    "checked_sources": [
+      "arxiv:2504.10425",
+      "arxiv:2407.10925",
+      "2026/10/4/SCOPE-closed-form-law-for-binary-subsequence-universality--e77c4e8d9f37",
+      "2026/10/4/SCOPE-fibonacci-extremals-for-shortest-absent-subsequences-of-binary-w--1a6556f14d28",
+      "2026/9/18/SCOPE-distinct-substring-complexity-concentration--a122573a5d02"
+    ],
+    "claim_vs_prior_implication": {
+      "evidence": [
+        "The former paper proves gamma_{2,d}=1/2+Theta(1/sqrt(d)) after length normalization; the latter improves its fixed-number numerical bounds",
+        "The one-word generating function counts the index of full subsequence universality, not absence correlations across a growing collection of words"
+      ],
+      "reasoning": "Neither a fixed-d normalized LCS bound nor one-word universality count supplies the pairwise rare-event disjointness needed for the proposed joint Poisson limit. The new product-automaton lemma is an independent ingredient.",
+      "searches": [
+        "arxiv:2504.10425",
+        "arxiv:2407.10925",
+        "2026/10/4/SCOPE-closed-form-law-for-binary-subsequence-universality--e77c4e8d9f37",
+        "2026/10/4/SCOPE-fibonacci-extremals-for-shortest-absent-subsequences-of-binary-w--1a6556f14d28"
+      ]
+    },
+    "equivalent_formulations": {
+      "evidence": [
+        "Li–Ren–Wen arxiv:2504.10425 Sections 1–4",
+        "Direct read of public one-word universality and shortest-absent results: 2026/10/4/SCOPE-closed-form-law-for-binary-subsequence-universality--e77c4e8d9f37 and 2026/10/4/SCOPE-fibonacci-extremals-for-shortest-absent-subsequences-of-binary-w--1a6556f14d28"
+      ],
+      "reasoning": "The formulation as a multiword intersection of random scattered-subsequence languages is equivalent to counting rare absent patterns in independent words. Both examined one-word laws fix one source word and do not characterize multivariate misses over exponentially many independent sources.",
+      "searches": [
+        "Poisson crossover common subsequences of d independent random binary strings length n, d growing as 2^n/n^{r-1}, asymptotic Binomial count of universally common patterns",
+        "For d independent uniform binary strings length n and fixed r, d*binom(n,r-1)/2^n -> lambda, vector counts of strings avoiding each length-r subsequence becomes independent Poisson; number of length-r common subsequences tends Binomial(2^r,exp(-lambda)), LCS takes values r-1 or r.",
+        "2026/10/4/SCOPE-closed-form-law-for-binary-subsequence-universality--e77c4e8d9f37",
+        "2026/10/4/SCOPE-fibonacci-extremals-for-shortest-absent-subsequences-of-binary-w--1a6556f14d28"
+      ]
+    },
+    "exact_database_or_table": {
+      "evidence": [
+        "The directly inspected relevant published findings describe one-word subsequence universality, shortest-absent extrema, or distinct substrings rather than this joint multiword Poisson table."
+      ],
+      "reasoning": "No exact table or named recorded limit corresponding to the joint independent-Poisson short-pattern crossover was identified; absent matching records is not proof of priority.",
+      "searches": [
+        "Poisson crossover common subsequences of d independent random binary strings length n, d growing as 2^n/n^{r-1}, asymptotic Binomial count of universally common patterns",
+        "longest common subsequence multiple random sequences Poisson limit when number of strings exponential in length",
+        "2026/9/18/SCOPE-distinct-substring-complexity-concentration--a122573a5d02"
+      ]
+    },
+    "rationale": "The comparison concerns the same fixed-pattern random-subsequence intersection law, not merely keywords. The nearest primary many-string LCS work treats fixed-d length-normalized constants, while examined one-word universality work treats a different quantifier order. No dominating or equivalent simultaneous exponential-sample distribution was located; residual possibility of an unseen older equivalence remains.",
+    "residual_risks": [
+      "Uninspected classical probabilistic-language or occupancy literature might contain an equivalent limiting theorem under different notation.",
+      "Only documented published primary and accessible relevant mathematical-record sources were compared; no exhaustive universal priority proof or external independent review."
+    ],
+    "source_inspections": [
+      {
+        "assessment": "NOT_COVERING: fixed-d normalized constants then d asymptotics, not simultaneous fixed-pattern rare-event window",
+        "evidence": [
+          "Theorem 1.1 gamma_{2,d}=1/2+Theta(1/sqrt(d))",
+          "Theorem 1.2 general alphabet bounds; Section 4.2 union bound for length proportional to n"
+        ],
+        "identifier_or_url": "https://www.cambridge.org/core/journals/bulletin-of-the-australian-mathematical-society/article/expected-length-of-the-longest-common-subsequence-of-multiple-strings/077D00A1FEC7C9CA23F40657FDCCEE93",
+        "material_read": "Full accessible article text including introduction, Theorems 1.1–1.2, proof overview, main proofs and appendices",
+        "method": "Read online full HTML mathematical content and compared quantified statements/limit orders",
+        "title": "Expected Length of the Longest Common Subsequence of Multiple Strings",
+        "trigger": "Same random multi-string LCS setting and verified primary MSC 68R15"
+      },
+      {
+        "assessment": "NOT_COVERING: lower bounds on Chvátal–Sankoff constants; no short-pattern Poisson crossover",
+        "evidence": [
+          "Introduction Definition 1.1 and Section 2.1 Kiwi–Soto algorithm",
+          "Sections 3–4 numerical lower-bound improvements"
+        ],
+        "identifier_or_url": "https://arxiv.org/html/2407.10925v1",
+        "material_read": "Accessible full HTML including Introduction, Background, Algorithm, Results, Conclusion, appendices",
+        "method": "Read original authors’ theorem goals and methods; compared fixed d and normalized n setting",
+        "title": "Improved Lower Bounds on the Expected Length of Longest Common Subsequences",
+        "trigger": "Closest computational work on multiple random sequences"
+      },
+      {
+        "assessment": "NOT_COVERING: full subsequence-universality index of one word; not joint missed-pattern counts over many independent words",
+        "evidence": [
+          "One-word rational generating function (1+z)/(1-z-2uz^2)",
+          "Exact distribution and moments of one-word universality index"
+        ],
+        "identifier_or_url": "https://github.com/Resultary/2026/blob/main/2026/10/4/SCOPE-closed-form-law-for-binary-subsequence-universality--e77c4e8d9f37/RESULT.md",
+        "material_read": "Entire RESULT.md including formula, proof, relationship and references",
+        "method": "Read repository file using read-only GitHub content retrieval",
+        "title": "Closed-form law for binary subsequence universality",
+        "trigger": "Closest scattered-subsequence universality distribution in published mathematical records"
+      },
+      {
+        "assessment": "NOT_COVERING: deterministic maximum SAS cardinality for one word, not multiword random fixed-r law",
+        "evidence": [
+          "Parity-split Fibonacci extremal formula",
+          "Optimization at fixed source word length"
+        ],
+        "identifier_or_url": "https://github.com/Resultary/2026/blob/main/2026/10/4/SCOPE-fibonacci-extremals-for-shortest-absent-subsequences-of-binary-w--1a6556f14d28/RESULT.md",
+        "material_read": "Entire displayed mathematical statement and proof plus verification/relationship material",
+        "method": "Read repository file using read-only GitHub content retrieval",
+        "title": "Fibonacci extremals for shortest absent subsequences of binary words",
+        "trigger": "Closest study of absent subsequences on binary words"
+      }
+    ],
+    "status": "PASS"
+  },
+  "review_type": "self_review",
+  "schema_version": 1,
+  "scope_run_id": "d6195162-bd45-47f8-a614-1715beb05328",
+  "self_review_status": "passed",
+  "value": {
+    "rationale": "Determines a sharp finite-size phase transition and its full distribution for a natural multi-string LCS problem, addressing a regime inaccessible to fixed-sample normalized LCS asymptotics. Pairwise avoidance rigidity drives asymptotic independence of all 2^r pattern-missing counts, a stronger structural law than an expected-length bound.",
+    "status": "PASS"
+  }
+}
