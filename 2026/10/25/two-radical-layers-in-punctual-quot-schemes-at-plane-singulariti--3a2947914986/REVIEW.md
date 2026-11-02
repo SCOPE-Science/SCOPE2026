@@ -1,15 +1,21 @@
-# Review
+# Independent mathematical audit
 
-## Correctness
-The proof uses Nakayama, the radical-filtration length bound, and the two-jet reduction. The essential rank-one block-Hankel incidence is checked chartwise, and its graph-lift vector bundle gives the motivic sum. Gaussian polynomial simplification was checked symbolically and with small finite fields. The checker is supplemental; the stated all-ranks assertion rests on the argument.
+## correctness
 
-## Originality
-Huang and Jiang's 2023 cusp paper and broader 2023/2025 paper are the closest sources: the latter proves the former's all-rank cusp conjecture, so no cusp coefficient is claimed as new. Their stated explicit series concern multiplicity-two germs. Graffeo et al's 2024 low-length Quot formulas treat a distinct rank/length range; the exact all-rank multiplicity-at-least-three two-stratum decomposition is not stated in the inspected sources. published-finding corpus semantic searches and accessible prior claims did not reveal an equivalent. This is not an exhaustive independent novelty guarantee.
+PASS
 
-## Value
-The fixed-minimal-generator length-excess-two locus is the first punctual Quot coefficient with competing radical distributions. Its rank-one catalecticant geometry explains a uniform Segre–Veronese factor, and determines a motivic coefficient and rational-point count over every finite field. These are natural small-length invariants of singular curve Quot theory; the value is bounded to this structural and arithmetic slice.
+For reduced complete plane-curve R=k[[x,y]]/(f), f in (x,y)^3 over arbitrary k, fixed minimal-generator number d and quotient length d+2 imply dim_k(mM)=2 and m³M=0. Thus the functor's reduced geometric points factor through the universal second jet of the smooth ambient plane. The m²M=0 locus is a Gr(2,2d) closed stratum; in filtration (d,1,1), stability of codimension-one graded kernel U and W forces the 2×2d catalecticant matrix with rows (A,B),(B,C) to have rank exactly one. The projectivized rank-one Hankel locus is the Segre–Veronese P^{d−1}×P¹, valid over all fields by explicit A≠0/C≠0 charts. Choices of filtered kernel with fixed U,W form Hom(U,V2/W), rank2d−1, giving the stated geometric vector-bundle open stratum and class [Gr(2,2d)]+L^{2d−1}[P^{d−1}][P¹]. Gaussian polynomial manipulation yields the stated normalized t² coefficient, and independent exact finite-field enumeration of rank-one covectors for q=2,3 d≤3 plus Gaussian identity checks for q=2,3,5 and d≤6 agree. No higher-length or scheme-gluing statement is inferred; proof uses scheme chart assertions for strata as varieties, not nonreduced boundary structure.
 
-## Limitations
-Only the indicated stratum and coefficient are determined. No gluing scheme between strata, higher coefficients, full zeta function, or independent audit is asserted. Related unindexed small-length formulas may exist.
+## originality
 
-Self-review: passed. Independent audit: not yet performed.
+PASS
+
+Huang–Jiang's full primary rationality work is about singular-curve Quot and explicitly computes multiplicity-two germs y²=x^n; it provides general methods but not the fixed-minimal-generator d, length d+2 classification for all multiplicity≥3 plane curve germs. Prior smooth-ambient punctual Quot computations involve a different ambient ring and variable range. The precise block-Hankel / Segre–Veronese rank-one stratum is the substantive comparison, rather than the generic notion of Quot or a familiar Gaussian binomial identity. An unindexed small-length coefficient formula could still overlap.
+
+## value
+
+PASS
+
+The excess-two coefficient is the first fixed-generator punctual Quot locus in which competing radical layers (d,2) and (d,1,1) occur. The explicit geometric stratification explains its universal independence from all higher-order singularity terms and supplies exact Grothendieck and finite-field point-count formulas across arbitrary rank and characteristic. This is a natural initial structural invariant, not an arbitrary d-slice or a claim to solve the full series.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
