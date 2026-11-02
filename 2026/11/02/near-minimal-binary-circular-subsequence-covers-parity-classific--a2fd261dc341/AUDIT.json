@@ -1,0 +1,140 @@
+{
+  "correctness": {
+    "rationale": "The proof reduces circular universality on a 2k+1 cycle exactly to a matching of size k in the unequal-edge graph, then to a unique even-length path after equal-edge deletion. The multinomial/stars-and-bars count preserves marked-edge multiplicities, all colorings satisfy cyclic parity, coprime symbol contents prove primitive rotations, and fixed-reflection edge choices give the bracelet count. Boundary k=1 is explicit. Independently written exhaustive tests compare 174760 binary words with greedy arch recognition, 680 with direct subsequence enumeration, and verify orbit counts for k=1..8; experiments support but do not prove the infinite result.",
+    "status": "PASS"
+  },
+  "independent": false,
+  "independent_audit_status": "not_performed",
+  "originality": {
+    "broader_coverage": {
+      "evidence": [
+        "Schnoebelen–Veron (2023) computes the circular index of a supplied word.",
+        "Barker et al. (2020) provide algorithms for individual word universality or cyclic powers."
+      ],
+      "reasoning": "A general single-word circular-index algorithm and linear index generating function do not directly provide the exact 2k+1 cyclic structural criterion, labeled count and dihedral orbit distribution. A published general enumerator specializing to these formulas is an acknowledged residual possibility.",
+      "searches": [
+        "https://arxiv.org/abs/2304.11932",
+        "circular k universal words shortest length qk number of distinct conjugacy classes"
+      ]
+    },
+    "checked_sources": [
+      "arxiv:2003.04629",
+      "arxiv:2104.09063",
+      "arxiv:2304.11932",
+      "arxiv:1904.09125",
+      "https://oeis.org/A014480"
+    ],
+    "claim_vs_prior_implication": {
+      "evidence": [
+        "Day et al. (2019) analyze binary words with length 2k or 2k-c, not the 2k+1 circular full-spectrum fiber.",
+        "Barker et al. (2020) and Fleischmann et al. (2021) define circular universality and derive index behavior, but not the exact cyclic path-classification and orbit counts in their inspected statements."
+      ],
+      "reasoning": "The decision to test universality can be applied to each word but does not imply a closed form without additional cycle-matching reduction, stars-and-bars enumeration, primitive-period argument and reflection fixed-point count. The result is not merely a restatement of the cited theorems; equivalence in as-yet-unlocated literature is still possible.",
+      "searches": [
+        "minimal circular subsequence universal binary words reversal and bit complement orbit count",
+        "https://arxiv.org/abs/1904.09125",
+        "https://arxiv.org/abs/2003.04629",
+        "https://arxiv.org/abs/2104.09063"
+      ]
+    },
+    "equivalent_formulations": {
+      "evidence": [
+        "The 2020 and 2021 articles define the circular subsequence-universality index and study algorithms or powers, rather than giving this three-part exact enumeration.",
+        "The 2023 article computes circular universality indexes for supplied words; its stated results do not address the whole 2k+1 counting fiber."
+      ],
+      "reasoning": "Aliases considered: circular k-universality, cyclic subsequence universality, arch-factorization, necklace/bracelet orbit counts, and heterochromatic near-perfect cycle matching. Inspected primary articles treat the general index or different spectra; a stronger equivalent in unlocated literature remains possible.",
+      "searches": [
+        "Exact enumeration of binary circularly k-universal words at length 2k+1: labeled (2k+1)2^k, necklaces 2^k, bracelets 2^(k-1)+2^floor(k/2)",
+        "Binary cyclic words with a near-perfect matching of unequal adjacent letters; one odd-order transition path; circular subsequence universality",
+        "Classify minimal-plus-one binary circular scattered factor universal words primitive rotation and reflection",
+        "https://arxiv.org/abs/2003.04629",
+        "https://arxiv.org/abs/2104.09063"
+      ]
+    },
+    "exact_database_or_table": {
+      "evidence": [
+        "OEIS A014480 explicitly lists a(k)=(2k+1)2^k under binary-tree and determinant interpretations; the numerical values are known.",
+        "The inspected primary papers do not list an exact circular-universality table with the specified length and orbit conventions."
+      ],
+      "reasoning": "The naked labeled integer sequence is known and not asserted original. The new subject-specific criterion and the primitive necklace and reversal bracelet counts are a mathematically stronger, different package of conclusions. Sequence match cannot by itself establish coverage or novelty.",
+      "searches": [
+        "https://oeis.org/A014480",
+        "(2k+1)2^k binary circular universal necklaces",
+        "2^k circularly universal necklaces length 2k+1",
+        "circular scattered factor universality enumeration exact binary balanced necklace"
+      ]
+    },
+    "rationale": "The structural matching/parity characterization and the joint labeled, primitive-necklace and reversal-bracelet formulas are not stated in the inspected directly relevant primary sources or any compared published result. Preexisting OEIS A014480 counts are explicitly credited as preexisting numerical data. Generic arch-index algorithms decide individual instances but do not, without further structural argument, yield this particular exact orbit enumeration. Novelty remains provisional against unlocated equivalences.",
+    "residual_risks": [
+      "The same cyclic edge criterion may appear under graph-theoretic near-perfect matching or binary colorings of odd cycles.",
+      "A stronger unpublished or differently indexed enumeration may subsume the result.",
+      "A known numeric sequence alone cannot certify a new combinatorial interpretation."
+    ],
+    "source_inspections": [
+      {
+        "assessment": "Establishes notion of circular universality and algorithms, but no matching-based length-2k+1 classification or three precise enumeration identities located",
+        "evidence": [
+          "arxiv:2003.04629, 2020-03-10, abstract and circular universality section"
+        ],
+        "identifier_or_url": "https://arxiv.org/abs/2003.04629",
+        "material_read": "Accessible full HTML, abstract, introduction, circular universality and algorithmic/theorem portions; full-text search for enumeration",
+        "method": "Inspected public preprint full-text HTML, definitions and theorem/algorithm passages; compared claim statements",
+        "title": "Scattered Factor-Universality of Words",
+        "trigger": "Foundational definition and properties of circular scattered-subsequence universality"
+      },
+      {
+        "assessment": "Results concern powers, arch remainder growth, and circular universality indices, rather than this near-minimal binary circular counting fiber; no dominating explicit enumeration found in inspected material",
+        "evidence": [
+          "arxiv:2104.09063, 2021-04-19, definition 2 and growth/remainder sections"
+        ],
+        "identifier_or_url": "https://arxiv.org/abs/2104.09063",
+        "material_read": "Accessible full HTML, definitions and detailed growth/remainder theorem sections; searched complete article text for enumerative terminology and parameter regime",
+        "method": "Read definition 2 and selected theorems/propositions across sections; full-text find for enumerat, 2k+1, cyclic",
+        "title": "Scattered Factor Universality — The Power of the Remainder",
+        "trigger": "Direct circular-universality paper with same definition"
+      },
+      {
+        "assessment": "Can compute circular index of a given word; does not explicitly derive the exact labeled, necklace and bracelet counts on the specified fiber",
+        "evidence": [
+          "arxiv:2304.11932, 2023-04-24, section 2 and algorithms"
+        ],
+        "identifier_or_url": "https://arxiv.org/abs/2304.11932",
+        "material_read": "Accessible full HTML, definitions and algorithm sections, with text search for counting",
+        "method": "Reviewed abstract, sections on subword universality and circular-index algorithms; compared scope of algorithmic results",
+        "title": "On arch factorization and subword universality for words and compressed words",
+        "trigger": "Relevant improved circular index algorithms may subsume a recognition criterion"
+      },
+      {
+        "assessment": "Main exact spectrum results concern length 2k and length 2k-c; not the circular full-spectrum fiber at length 2k+1",
+        "evidence": [
+          "arxiv:1904.09125, 2019-04-19, abstract and section 3"
+        ],
+        "identifier_or_url": "https://arxiv.org/abs/1904.09125",
+        "material_read": "Accessible full HTML, abstract, definitions and cardinality/classification theorem sections",
+        "method": "Compared fixed-length and balance assumptions and conclusions",
+        "title": "k-Spectra of weakly-c-Balanced Words",
+        "trigger": "Potential stronger coverage through fixed-balance k-spectrum structure"
+      },
+      {
+        "assessment": "Identical numeric values (2k+1)2^k preexist, so not claimed as new integers; listed tree/matrix interpretations do not establish the cyclic universality classification or necklace and bracelet formulas",
+        "evidence": [
+          "OEIS A014480 formula and comments, entries 1,6,20,56,144"
+        ],
+        "identifier_or_url": "https://oeis.org/A014480",
+        "material_read": "Sequence values, formula, comments, and interpretations",
+        "method": "Compared exact numeric sequence and listed combinatorial interpretations",
+        "title": "OEIS A014480",
+        "trigger": "The proposed labeled counts matched a catalogued integer sequence"
+      }
+    ],
+    "status": "PASS"
+  },
+  "review_type": "self_review",
+  "schema_version": 1,
+  "scope_run_id": "a2fd261d-c341-450c-a1cb-57dea1d1edb8",
+  "self_review_status": "passed",
+  "value": {
+    "rationale": "At the first nonminimal length of binary circular subsequence universality, the theorem identifies every feasible cyclic word via a locally checkable parity criterion and gives exact design-space counts under labeled, rotational and dihedral equivalence for all k. The structural cycle-matching reduction and explicit reflection count address natural information-compression symmetries, not a chosen arbitrary finite slice. Existing tools for deciding universality do not automatically supply these enumeration and rigidity statements.",
+    "status": "PASS"
+  }
+}
