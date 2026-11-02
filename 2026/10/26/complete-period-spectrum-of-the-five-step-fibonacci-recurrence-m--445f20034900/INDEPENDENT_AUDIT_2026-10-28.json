@@ -1,0 +1,126 @@
+{
+  "audit_date_utc": "2026-10-28",
+  "audited_at_utc": "2026-10-28T15:57:33Z",
+  "axes": {
+    "correctness": {
+      "rationale": "The final claim concerns all five-coordinate initial vectors modulo 2^k, every k>=1, and counts least-period cycles, not just primitive starting states. Directly rebuilt the 5x5 companion matrix and independently computed exact integer Smith normal forms: M-I valuations (0,0,0,0,2), M^3-I (0,0,1,1,2), (M^6-I)/2 and (M^12-I)/4 each (0,0,0,0,2). Exhaustively enumerated all 2^(5k) states for k=1,2,3: cycle histograms respectively {1:2,3:2,6:4}, {1:4,3:4,6:8,12:80}, and {1:4,2:2,3:4,6:18,12:160,24:1280}. The proof supplies the missing infinite step: Hensel lifting gives unique 2-adic eigenvalue alpha congruent 1 modulo 2 and v2(alpha-1)=2; the other rank-four factor has unit 2-power differences; scaling U_j=(M^(3*2^j)-I)/2^j has U_(j+1)=U_j(I+2^(j-1)U_j), hence Smith invariants stabilize from j>=2. Fixed-point inclusion/exclusion gives the exact least periods and the claimed C(k)=(257*16^k+960*k+1408)/720 for k>=2. The finite checks confirm finite Smith bases, not by themselves the all-k theorem.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Waddill 1996 Springer chapter abstract says it studies general modular higher-order recurrence matrix methods; full theorem not accessed."
+        ],
+        "reasoning": "A general matrix-recurrence theorem could dominate the special five-step result; no verified such implication was identified. Group-generator restrictions in Karaduman do not quantify all vectors in (Z/2^k)^5.",
+        "searches": [
+          "Resultary semantic: five step Fibonacci recurrence modulo powers of 2 exact least period cycle multiplicities orbit counts Smith normal form",
+          "Waddill 1996 properties of a k-order linear recursive sequence modulo m",
+          "Karaduman 2009 k-nacci finite triangle groups"
+        ]
+      },
+      "checked_sources": [
+        "GitHub frozen RESULT.md and artifacts/verify.py, commit 68645bf4619cec1151436ccc53f5d66aab9d4541",
+        "Independent SymPy Smith-base calculation and exhaustive small-modulus state census /mnt/data/scope_checks_1546.py",
+        "https://oeis.org/A106287",
+        "https://oeis.org/A106290",
+        "https://doi.org/10.1007/978-94-009-0223-7_41"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "The all-k matrix Smith valuations and least-period c_(3*2^j)(k) formula are not given by the inspected OEIS descriptions; Waddill chapter was abstract-only."
+        ],
+        "reasoning": "Earlier finite data do not imply a quantified all-k formula. Potential earlier general theorems remain unresolved priority material, not evidence of coverage or a proof of novelty.",
+        "searches": [
+          "OEIS A106287; A106290",
+          "DOI 10.1007/978-94-009-0223-7_41",
+          "Resultary query Resultary semantic: five step Fibonacci recurrence modulo powers of 2 exact least period cycle multiplicities orbit counts Smith normal form"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "OEIS A106287 counts total 5-step recurrence orbits for each n; A106290 gives NUMBER of distinct orbit lengths, not full length-by-length cycle multiplicities."
+        ],
+        "reasoning": "Sequence-orbit language, conjugate companion matrices and fixed-point kernel counts represent the same dynamical object. The published sequences match finite outputs but do not state or prove a uniform all-k multiplicity formula.",
+        "searches": [
+          "Resultary semantic: five step Fibonacci recurrence modulo powers of 2 exact least period cycle multiplicities orbit counts Smith normal form",
+          "OEIS A106287; A106290; 2-adic matrix Smith periods search"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "A106287 has values 8,96,1468,23400,374292 at n=2,4,8,16,32. A106290 lists 6 distinct periods for n=8: 1,2,3,6,12,24."
+        ],
+        "reasoning": "Known table entries and number-of-lengths counts cannot give all-k multiplicities by themselves. New theorem credits those rows and its value does not rest on merely reproducing them.",
+        "searches": [
+          "OEIS A106287 number of orbits five-step recursion mod n",
+          "OEIS A106290 number different orbit lengths"
+        ]
+      },
+      "rationale": "The exact finite orbit totals 8,96,1468,23400,374292 are already tabulated in Noe 2005 OEIS A106287, and A106290 already lists the distinct orbit lengths, including six for modulus eight; none is newly discovered. The final claim is the complete multiplicity law at all 2-power levels and its all-k proof. Waddill 1996 broadly addresses higher-order recurrences modulo m, but only chapter abstract available; cannot assert it lacks equivalent multiplicity consequences. Searches of Resultary and primary sequences yielded no verified dominating published identity; best-of-knowledge originality is qualified by that priority risk.",
+      "residual_risks": [
+        "Waddill 1996 complete chapter was inaccessible (institutional VPN disconnected); it may contain a general equivalent or dominating 2-adic orbit law.",
+        "An unindexed pentanacci orbit decomposition may predate this formula.",
+        "Covers powers of 2 only and one fixed five-step recurrence."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "EXACT FINITE TOTALS COVERED; all-k length multiplicities not supplied",
+          "evidence": [
+            "entry attributed T. D. Noe, May 02 2005; n=2,4,8,16,32 counts match"
+          ],
+          "identifier_or_url": "https://oeis.org/A106287",
+          "material_read": "Full OEIS sequence description, displayed values, cross-references and comments",
+          "method": "webpage read",
+          "title": "Number of orbits of the 5-step recursion mod n",
+          "trigger": "exact object and known totals"
+        },
+        {
+          "assessment": "SOME SUPPORT SIZES COVERED; number of distinct periods, not their multiplicities",
+          "evidence": [
+            "n=8 lengths 1,2,3,6,12,24 reported explicitly"
+          ],
+          "identifier_or_url": "https://oeis.org/A106290",
+          "material_read": "Full sequence description, n=8 orbit lengths, code and cross-references",
+          "method": "webpage read",
+          "title": "Number of different orbit lengths of the 5-step recursion mod n",
+          "trigger": "complete least-period spectrum comparison"
+        },
+        {
+          "assessment": "INACCESSIBLE FULL COMPARISON; no whole-paper NOT_COVERING conclusion",
+          "evidence": [
+            "1996 chapter by M. E. Waddill pp.505–519, general modular recurrence and matrix methods"
+          ],
+          "identifier_or_url": "https://doi.org/10.1007/978-94-009-0223-7_41",
+          "material_read": "Bibliographic abstract only; full chapter not accessible",
+          "method": "EconPapers/Springer abstract search, arXiv/OA attempts, authorized institutional access returned vpn_disconnected",
+          "title": "Properties of a k-Order Linear Recursive Sequence Modulo m",
+          "trigger": "general recurrence theorem may dominate"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "rationale": "The natural full 2-adic orbit decomposition of a fixed canonical higher-order Fibonacci permutation is a useful exact dynamical invariant: it distinguishes individual cycle lengths and multiplicities rather than listing totals or extending a few table rows. The valuation/Smith mechanism controls every level uniformly. This would be an independently reusable all-k classification, not an arbitrary finite recomputation; significance is bounded to this specific recurrence and 2-power moduli.",
+      "status": "PASS"
+    }
+  },
+  "checked_sources": [
+    "GitHub frozen RESULT.md and artifacts/verify.py, commit 68645bf4619cec1151436ccc53f5d66aab9d4541",
+    "Independent SymPy Smith-base calculation and exhaustive small-modulus state census /mnt/data/scope_checks_1546.py",
+    "https://oeis.org/A106287",
+    "https://oeis.org/A106290",
+    "https://doi.org/10.1007/978-94-009-0223-7_41"
+  ],
+  "disposition": "passed",
+  "limitations": [
+    "No proof for arbitrary moduli or other recurrence orders.",
+    "The first five total counts and observed n=8 periods were known.",
+    "Independent finite experiments establish only the base computations, while the analytic induction handles arbitrary k."
+  ],
+  "residual_risks": [
+    "Waddill 1996 complete chapter was inaccessible (institutional VPN disconnected); it may contain a general equivalent or dominating 2-adic orbit law.",
+    "An unindexed pentanacci orbit decomposition may predate this formula.",
+    "Covers powers of 2 only and one fixed five-step recurrence."
+  ],
+  "schema_version": 1
+}
