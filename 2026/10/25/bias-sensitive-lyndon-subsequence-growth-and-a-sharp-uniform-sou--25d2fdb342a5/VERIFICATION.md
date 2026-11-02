@@ -5,8 +5,11 @@
     "status": "not_performed"
   },
   "independent_audit": {
-    "evidence": null,
-    "status": "not_performed"
+    "status": "passed",
+    "evidence": [
+      "INDEPENDENT_AUDIT_2026-10-29.md",
+      "INDEPENDENT_AUDIT_2026-10-29.json"
+    ]
   },
   "lean_verification": {
     "evidence": null,
@@ -16,10 +19,24 @@
 }
 ---
 
-# Reproduction and limits
+# Independent mathematical audit
 
-Run `python3 verify.py` with Python 3 and its standard library. The checker enumerates every word over the relevant alphabet in each of four finite length ranges, independently builds distinct subsequences by iterative set expansion, tests the Lyndon rotation predicate, and weights source words by exact rational probabilities. It independently computes coefficients of the Möbius–geometric generating function using exact rational polynomial multiplication; all comparisons are exact.
+## correctness
 
-Test cases: binary uniform through length 11 (4,095 source words), binary with probabilities (1/3,2/3) through length 10 (2,047), ternary uniform through length 8 (9,841), ternary (1/2,1/3,1/6) through length 8 (9,841): total 25,824 words. The checker additionally confirms published uniform finite-n values against nine asymptotic predictions (three alphabet sizes, three lengths) and evaluates three independent majorization examples. The success marker is `VERIFY_OK exhaustive_source_words=25824 bias_vectors=4 length_ranges=11,10,8,8 uniform_asymptotic_cases=9 strict_majorization_examples=3`.
+PASS
 
-Finite tests do not establish the full analytic singularity argument, monotonicity for all probability vectors, or originality. Those are separately proved/assessed in the result and scientific review. No independent audit or certification has been performed.
+PASS: For each distinct target word, left-to-right greedy matching gives independent geometric waiting times with factor g_a(z)=p_a*z/(1-(1-p_a)*z). Weighted Möbius inversion of primitive word rotation orbits gives the Lyndon multivariate Witt logarithm. With all p_a positive, S1(r)=1 has unique r in (0,1), d>=2 necklace terms are analytic beyond r, and positivity and strict triangle inequality isolate a unique dominant log singularity. This gives the coefficient prefactor 1/((1-r)n); summing arbitrary patterns gives the simple-pole comparison and ratio r*S1prime(r)/n. Strict concavity in p of g_a(z) yields Schur-concavity and unique uniform max. Independent exact direct random-word enumeration versus greedy target-pattern summation agreed for two binary distributions n<=8 and one ternary n<=6. Boundary p_a=0 expressly excluded.
+
+## originality
+
+PASS
+
+PASS, qualified: Hirakawa et al 2021 already prove the exact uniform expectation for distinct Lyndon subsequences, while Biers-Ariel et al address biased all-subsequence counts. The combination of arbitrary positive bias, exact weighted Lyndon OGF, sharp biased prefactor, and Schur-concave optimizer was not present in the inspected abstracts and comparative references. Classical Witt formula is not new; an implicit weighted theorem remains a risk.
+
+## value
+
+PASS
+
+PASS: The mean distinct Lyndon-subsequence complexity is a natural combinatoric probability quantity. A source-sensitive exact OGF and strict majorization optimizer characterize the effect of bias and quantify a precise 1/n sparsity relative to all distinct subsequences, beyond known uniform formulas.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
