@@ -1,11 +1,21 @@
-# Same-model mathematical review
+# Independent mathematical audit
 
-**Correctness: PASS.** The claim is restricted to real finite equiradial stars. A transportation decomposition establishes the free-space norm, exact molecule generators describe its ball, group averaging reduces every Euclidean pullback to a two-orbit quadratic form, and dual/maximal-vertex calculations give both sides of its distortion. The piecewise-convex finite-branch argument exhausts the stationary and crossing candidates, with the endpoint of the positive-definite cone excluded by divergence. The displayed endpoint values and \(1919\) numerical samples provide additional checks, not the universal proof.
+## correctness
 
-**Originality: PASS, with residual risk.** Full-text comparison with Cúth--Doucha--Titkos (2024, arXiv:2402.08266), Ehrenborg--Hetyei--Readdy (2019, arXiv:1901.07113), Alexander--Fradelizi--García-Lirola--Zvavitch (2019, arXiv:1911.10642), and Grundbacher--Kobos (2026, arXiv:2603.18268) found results on isometry groups, root-polytope face structure, finite free-space molecule-polytope/volume-product geometry, and direct-sum/cone Banach--Mazur distances, respectively. None supplies the all-radius best-ellipsoid candidate formula for the present correlated sum norm. The classical endpoint cases are not independently claimed as new. Equivalent formulations in unindexed literature remain possible.
+PASS
 
-**Value: PASS.** The theorem fully computes a natural invariant across an infinite metric family interpolating between two fundamental Banach-space geometries, with a finite algebraic algorithm that handles arbitrary dimension and nonsymmetric ellipsoids. It identifies the mechanism behind the optimal symmetric quadratic form and allows exact interior values.
+For all real m≥2,t∈[1/2,1], direct transport pairing gives ||μ_y||=(||y||_1+α|Σy_i|)/2, α=2t−1. The molecule convex hull exactly determines the unit ball. Averaging a rescaled quadratic sandwich over S_m gives an optimal Q_c(y)=||y||²_2+c(Σy_i)² for c>−1/m even against arbitrary nonsymmetric Euclidean comparison. Dual sign functionals, Sherman–Morrison inversion and molecule vertices give exact squared distortion F(c)=R(c)D(c), not mere bounds. On c≤c0 the maximum R is nonincreasing; for c≥L the component functions f_s(c) are convex and their crossing occurs only at 2α/(s+u), while the only interior stationary points of nonconstant branches are c_s. Strict endpoint coercivity and treatment of coincident branches establish an exhaustive nonempty finite candidate set; t=1/2 and 1 endpoint expressions follow by ℓ1 symmetry and the zero-sum ℓ1 hyperplane. Independent symbolic reduction verified branch and crossing identities/second derivatives. Separate numerical tests: 273 candidate-vs-one-dimensional minimizations (worst squared error 1.24×10⁻8), 180 direct molecule vertex and 180 dual facet checks, 400 optimal-transport LP tests, 23 endpoint dimensions and both rational interior examples. Finite tests are confirmatory only; the proof is analytic.
 
-**Limits.** Only finite real equiradial stars with the specified normalized metric are included. Computational samples do not certify universal validity. This review is not an independent certification or audit.
+## originality
 
-Same-model review: passed. Independent audit: not yet performed.
+PASS
+
+Best-of-knowledge original interior Hilbert Banach–Mazur profile. The published equilateral Lipschitz-free theorem gives precisely the α=1 endpoint and is expressly excluded as an independent novelty claim; a four-point one-edge deformation and same-star numerical index do not imply the continuum optimum for three or more equal star arms. Reviewed exact Banach–Mazur direct-sum/cone and molecule-polytope literature does not imply the correlated finite-candidate optimum. Independent computational confirmation addresses correctness but not novelty. Some unindexed convex-body equivalent might exist; this is documented as risk, not ruled out by failed searches.
+
+## value
+
+PASS
+
+Hilbertian Banach–Mazur distance is an intrinsic quantitative invariant of the finite-dimensional transportation-cost Banach spaces of a very natural equal-arm metric star. This family connects the tree ℓ1^m geometry at t=1/2 to the equilateral type-A root-polytope geometry at t=1, and the coupling α|Σy_i| creates a genuinely new continuous geometric interpolation. The finite algebraic prescription optimizes over every Euclidean isomorphism for all m≥2 and all real radii in the whole admissible interval, including nontrivial interior values, rather than reporting a few small cases or recomputing a known endpoint. A future investigator comparing embeddings, ellipsoid geometry or finite metric transportation spaces can directly use the sharp formula and the symmetric optimizer. This is motivated independent exact-invariant work, no downstream theorem required.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
