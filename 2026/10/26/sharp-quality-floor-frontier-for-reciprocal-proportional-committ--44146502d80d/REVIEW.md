@@ -1,17 +1,21 @@
-# Review of the quality-floor frontier
+# Independent mathematical audit
 
-## Correctness — PASS
-The statement's quantifiers range over all finite approval elections, all valid committee sizes, and a fixed real lower quality floor. The common-candidate reduction preserves reciprocal affordability, the quality-greedy completion and optimality; its zero-size boundary is treated separately. In the disjoint case, the lower bounds from the quality floor and Cauchy–Schwarz combine to produce the exact two-branch one-variable envelope. Its minimum is evaluated analytically. Matching party-list families force every private candidate by reciprocal JR and approach that envelope, including at irrational floors by rational approximation. The existence and completion theorem for the three stronger axioms is independently identifiable in the cited 2026 primary paper. The included exact-rational checks corroborate but do not replace the proof.
+## correctness
 
-## Originality — PASS, with residual priority risk
-The closest primary source [1] proves the unconditional three-quarter retention bound and its tightness, but the inspected Section 5 and Appendix G do not state or imply a sharp lower-quality-floor formula. Its Appendix H discusses a different voter-welfare objective. The new claim adds the exact floor-dependent optimum, the transition at one-half, and an asymptotically optimal multiparty witness. Nearby power-index, apportionment and unrelated extremal-math research records do not dominate the result. Semantic searches are not an exhaustive novelty proof, so an unlocated prior conditional refinement remains possible.
+PASS
 
-## Mathematical value — PASS
-The quality floor is a natural requirement when every shortlisted candidate or project meets a baseline reliability or merit standard. The theorem gives the exact frontier between guaranteed quality and reciprocal proportionality, simultaneously for four fairness axioms, with a sharp phase transition and matching constructions. Unlike a routine special case of the unconstrained bound, the new formula is strictly stronger throughout the interval above one-half and identifies the extremal configuration asymptotically.
+For finite k-committees with candidate qualities h_c in [q,1], reciprocal affordability sum_{c in X}1/h_c<=k implies t=|X|<=k and B=h(X)>=max(qt,t²/k) by the floor and Cauchy–Schwarz. After factoring common optimal and affordable members, quality-greedy completion of X has ratio >=1-z+max(qz,z²), z=t/k. Direct piecewise minimization gives inf 3/4 for q<=1/2 and 1-q+q² for q>=1/2. In matching party-list instances with n=rk<k voters, n-1 private voters force quality-r singleton candidates by reciprocal JR while a remaining voter supports k quality-one public candidates; optimum constrained retention tends to 1-r+r². Rational r approximates irrational q, and q=1 is equality. The proof imports from Boehmer et al. the nontrivial axiom-satisfying greedy completion existence for reciprocal EJR, threshold-PJR+ and value-EJR, which was not independently re-proved; the analytical envelope and rational witnesses were independently checked across a rational grid. This conditional reliance is stated, not disguised as a self-contained proof.
 
-## Limitations
-The result concerns maximum quality among fair committees, not arbitrary fair rules, and relies on prior constructions for existence of fair greedy completions. The infima generally require growing instance size, and the sharpness witnesses use fewer voters than seats, as permitted by the unrestricted model. The corresponding restricted problem with at least as many voters as seats is not solved here. No independent scientific audit or historical-priority certification has been performed.
+## originality
 
-[1] Boehmer, Dong, Kreisel and Utke, *Approval-Based Multiwinner Voting with Candidate Qualities* (2026), https://arxiv.org/abs/2609.08830, Sections 5 and Appendix G.
+PASS
 
-Self-review: passed. Independent audit: not yet performed.
+The originating Boehmer–Dong–Kreisel–Utke paper gives the unconstrained sharp 3/4 price and affordable greedy completion constructions for reciprocal axioms, and its welfare appendix has a different objective. The additional quality-floor parameter q changes the worst-case domain and yields strictly improved sharp 1−q+q² for q>1/2, beyond the unconditional theorem. The full primary text could not be fetched this run; a detailed independent reviewer synopsis of its Theorem 5.5 and Appendix G was materially read; prior Resultary floor-frontier search found no exact statement. Priority remains qualified.
+
+## value
+
+PASS
+
+The formula is an exact conditional price of proportional representation under a natural exogenous quality floor, revealing a genuine plateau-to-curved frontier at q=1/2. Exact finite-instance infimum and matching extremal families quantify an important fairness/quality tradeoff across four axioms; the improvement for q>1/2 is not a textbook restatement of the known global 3/4.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

@@ -1,0 +1,107 @@
+{
+  "audit_date_utc": "2026-10-28",
+  "audited_at_utc": "2026-10-28T16:58:01Z",
+  "axes": {
+    "correctness": {
+      "rationale": "For finite k-committees with candidate qualities h_c in [q,1], reciprocal affordability sum_{c in X}1/h_c<=k implies t=|X|<=k and B=h(X)>=max(qt,t²/k) by the floor and Cauchy–Schwarz. After factoring common optimal and affordable members, quality-greedy completion of X has ratio >=1-z+max(qz,z²), z=t/k. Direct piecewise minimization gives inf 3/4 for q<=1/2 and 1-q+q² for q>=1/2. In matching party-list instances with n=rk<k voters, n-1 private voters force quality-r singleton candidates by reciprocal JR while a remaining voter supports k quality-one public candidates; optimum constrained retention tends to 1-r+r². Rational r approximates irrational q, and q=1 is equality. The proof imports from Boehmer et al. the nontrivial axiom-satisfying greedy completion existence for reciprocal EJR, threshold-PJR+ and value-EJR, which was not independently re-proved; the analytical envelope and rational witnesses were independently checked across a rational grid. This conditional reliance is stated, not disguised as a self-contained proof.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Theorem 5.5: 3/4 unconditional; Appendix G: fairness-preserving greedy completions."
+        ],
+        "reasoning": "The known unconditional guarantee proves no floor-specific 1−q+q² lower bound or sharpness for each q; these are additional inequalities and matching examples, though full source audit is limited.",
+        "searches": [
+          "approval based multiwinner candidate qualities reciprocal proportional JR EJR sharp quality floor q quality price frontier",
+          "arxiv:2609.08830 Theorem 5.5 Appendix G"
+        ]
+      },
+      "checked_sources": [
+        "arxiv:2609.08830 original abstract; full text inaccessible",
+        "https://pith.science/paper/2609.08830 detailed secondhand summary",
+        "Resultary targeted reciprocal quality floor query",
+        "Frozen Git RESULT.md and check_quality_floor.py"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "The source 3/4 is recovered at q<=1/2; when q=3/4 the asserted optimal floor retention is 13/16, strictly larger."
+        ],
+        "reasoning": "Neither a universal 3/4 statement nor existence of fair greedy completions implies the sharp conditional q-dependent frontier without the added max(qz,z²) optimization and forcing construction.",
+        "searches": [
+          "arxiv:2609.08830 Theorem 5.5 Appendix G",
+          "secondary https://pith.science/paper/2609.08830"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "The 2026 source defines reciprocal JR, EJR, threshold-PJR+, value-EJR and unconditional 3/4 quality price."
+        ],
+        "reasoning": "The exogenous floor q restricts feasible instances; for q>1/2 new retention >3/4 is strictly stronger and not equivalent to reparametrizing unconditional quality.",
+        "searches": [
+          "approval based multiwinner candidate qualities reciprocal proportional JR EJR sharp quality floor q quality price frontier",
+          "arxiv:2609.08830",
+          "quality floor q quality-price 1/(1-q+q²) reciprocal JR EJR"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "Semantic results about other voting rules, apportionment or quality tradeoffs; no published formula conditional on h_c>=q was identified."
+        ],
+        "reasoning": "Absence in sampled index is not proof of novelty; possible older optimization of the original source envelope is retained as risk.",
+        "searches": [
+          "approval based multiwinner candidate qualities reciprocal proportional JR EJR sharp quality floor q quality price frontier",
+          "Resultary_Search first 15 quality-floor reciprocal-voting matches"
+        ]
+      },
+      "rationale": "The originating Boehmer–Dong–Kreisel–Utke paper gives the unconstrained sharp 3/4 price and affordable greedy completion constructions for reciprocal axioms, and its welfare appendix has a different objective. The additional quality-floor parameter q changes the worst-case domain and yields strictly improved sharp 1−q+q² for q>1/2, beyond the unconditional theorem. The full primary text could not be fetched this run; a detailed independent reviewer synopsis of its Theorem 5.5 and Appendix G was materially read; prior Resultary floor-frontier search found no exact statement. Priority remains qualified.",
+      "residual_risks": [
+        "Original Boehmer et al. full paper including appendices inaccessible in this execution, so an equivalent constrained frontier may be implicit.",
+        "The proof relies on imported axiom-satisfying completion existence; independent proof not supplied.",
+        "Worst-case witnesses rely on model permitting fewer voters than seats, n<k, and do not imply the result under n>=k."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Existing 3/4 bound and axiom-completion lemma are explicitly prior; original full-text noncoverage not certified",
+          "evidence": "Original arXiv abstract; detailed reviewer synopsis https://pith.science/paper/2609.08830",
+          "identifier_or_url": "arxiv:2609.08830",
+          "material_read": "Original abstract and metadata, plus detailed independent referee account of Theorem 5.5, Appendix G and H; original PDF/HTML not accessible",
+          "method": "Tried arXiv and lawful OA, then authorized Oxford (vpn_disconnected); read detailed public reviewer report",
+          "title": "Approval-Based Multiwinner Voting with Candidate Qualities",
+          "trigger": "Identical four reciprocal representation axioms and quality price"
+        },
+        {
+          "assessment": "Supports credit for unconditional 3/4 and fair-completion premise; not a whole-original-document priority check",
+          "evidence": "Referee account Theorem 5.5 and Appendix G",
+          "identifier_or_url": "https://pith.science/paper/2609.08830",
+          "material_read": "Review sections discussing 3/4 retention theorem, reciprocal axioms and Appendix G greedy constructions",
+          "method": "Read accessible public review text, distinguished secondary from original",
+          "title": "Independent analysis of Approval-Based Multiwinner Voting with Candidate Qualities",
+          "trigger": "Accessible secondary check of full-source theorem numbering and appendix subjects"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "rationale": "The formula is an exact conditional price of proportional representation under a natural exogenous quality floor, revealing a genuine plateau-to-curved frontier at q=1/2. Exact finite-instance infimum and matching extremal families quantify an important fairness/quality tradeoff across four axioms; the improvement for q>1/2 is not a textbook restatement of the known global 3/4.",
+      "status": "PASS"
+    }
+  },
+  "checked_sources": [
+    "arxiv:2609.08830 original abstract; full text inaccessible",
+    "https://pith.science/paper/2609.08830 detailed secondhand summary",
+    "Resultary targeted reciprocal quality floor query",
+    "Frozen Git RESULT.md and check_quality_floor.py"
+  ],
+  "disposition": "passed",
+  "limitations": [
+    "Optimally chosen axiom-satisfying committee, not arbitrary committees; candidate quality h∈[q,1].",
+    "The sharp infimum for q<1 may be approached only by growing finite instances and needs n<k."
+  ],
+  "residual_risks": [
+    "Original Boehmer et al. full paper including appendices inaccessible in this execution, so an equivalent constrained frontier may be implicit.",
+    "The proof relies on imported axiom-satisfying completion existence; independent proof not supplied.",
+    "Worst-case witnesses rely on model permitting fewer voters than seats, n<k, and do not imply the result under n>=k."
+  ],
+  "schema_version": 1
+}
