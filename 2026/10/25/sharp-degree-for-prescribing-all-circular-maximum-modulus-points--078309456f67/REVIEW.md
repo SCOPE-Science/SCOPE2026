@@ -1,11 +1,21 @@
-# Scientific review
+# Independent mathematical audit
 
-**Correctness: PASS.** Let \(Q\) have prescribed unit-circle roots. The proof explicitly verifies the strict bound \(|h_2|<h_0\), so one of the two positive angular weights has nonzero first Fourier coefficient. Its positive complement has a zero-free outer Fejér–Riesz polynomial factor of exact degree \(N+1\). The logarithmic boundary coefficient expansion guarantees \(p'(0)\ne0\) for sufficiently large complement level. For the regular polygon, \(N\) double-contact points saturate the trigonometric-polynomial degree, forcing a binomial outer factor with zero first derivative. All quantifiers and endpoint cases \(N=2\), \(|z|=1\), and strictly positive spectral factors are covered. Numerical tests are supplementary.
+## correctness
 
-**Originality: PASS, qualified.** The closest primary 2026 work exhibits regular-polygon exceptional circles with entire functions; it does not prove arbitrary angular interpolation with sharp polynomial degree. The full published 2021/2022 polynomial paper instead prescribes features at distinct radii; the 2026 interpolation theorem requires pairwise distinct moduli. Classical Fejér–Riesz factorization is used openly as a known lemma, not claimed as new. None of the inspected claims implies both the universal sharp degree and regular-polygon obstruction in the zero-free, first-order class. The accessible evidence does not settle all historical priority, notably the extract-only 2025 note on unit-circle maximum modulus.
+PASS
 
-**Value: PASS.** Exceptional-radius multiplicity is a motivated boundary phenomenon for the first Taylor-gap bound in complex function theory. The theorem controls exactly which angular configurations can realize any fixed exceptional multiplicity, with a uniform optimal polynomial degree and a nonzero linear coefficient. The regular-polygon obstruction shows that the degree increment is not merely an artifact of the construction. This is a sharp geometric interpolation classification, rather than an isolated finite calculation.
+PASS. Given arbitrary N>=2 boundary points, Q(z)=prod(z-xi) has nonzero endpoints and |h2|<h0 by strict Cauchy–Schwarz. Choose eps=+/-1/4 to guarantee the first Fourier coefficient of H=(1+eps(z+z^-1))|Q|^2 is nonzero while its zeros are exactly E and trigonometric degree N+1. Positive T=M-H admits an outer Fejer–Riesz factor p with no roots in the closed disk; top Fourier coefficient forces exact degree N+1. Analytic logarithm gives p1/p0=-H1/M+O(M^-2), so nonzero for sufficiently large M. All boundary maxima lie exactly at E. For the rotated regular N-gon, double contacts in S=M-|p|^2 force d>=N; at d=N the unique nonnegative trigonometric contact polynomial is C|z^N-omega|^2 and outer rigidity forces p a scalar multiple of a binomial a+b conj(omega) z^N, with p1=0. Thus N+1 is uniformly sharp, including N=2. Independent Fourier positivity/nonzero coefficients checked for four angular configurations; not a universal proof.
 
-**Scientific limitations.** No claim is made about off-circle geometry, pointwise minimum degrees for all configurations, or independent validation. The spectral-factor numerical checker tests only four finite instances.
+## originality
 
-Self-review: passed. Independent audit: not yet performed.
+PASS
+
+PASS on directly inspected primary literature: previous Li exceptional-circle example gives special regular patterns and 2021/2022/2026 Pardo–Simón–Sixsmith interpolation uses distinct radii, while the current result prescribes arbitrary points on one radius with optimal degree N+1. Classical Fejér–Riesz is credited; Jameson 2025 extract-only remains a priority risk.
+
+## value
+
+PASS
+
+PASS. Prescribing exact angular maxima on a fixed circle is a natural exceptional-radius question in complex function theory. The theorem gives a constructive any-configuration interpolation of sharp uniform degree under a zero-free and nonzero-linear condition; the regular polygon obstruction proves the extra degree is necessary, not arbitrary. No off-circle or pointwise degree classification is asserted.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
