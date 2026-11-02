@@ -1,11 +1,21 @@
-# Scientific review
+# Independent mathematical audit
 
-**Correctness — PASS.** Exact accepted-edge transition rates establish the terminal population identity. An upper bound on the rare minority–minority transition probability, composition-fraction martingale control, and a deterministic Bernoulli coupling prove the total-variation Poisson law at bounded intensity; compensator concentration proves the diverging-intensity law of large numbers. A standard-library exact-rational verification program checks 112 finite graph families, as well as simulated critical-scale behavior. These finite checks are corroborative and are not used as the proof of infinite asymptotics.
+## correctness
 
-**Originality — PASS, best knowledge only.** The inspected Haji-Akbari–Haji-Akbari–Ziff paper treats dimer coverings and percolation on two-dimensional lattices, while the inspected Turban paper treats homogeneous complete-graph k-mer arrival attempts and their covering-time statistics. Neither inspected text states the joint imbalanced tripartite limit or the minority–minority successful-matching count. Query comparisons of random greedy matching, multipartite deposition and well-mixed three-color pair annihilation did not reveal an equivalent indexed result. A broader random matching theorem might imply the finding, so completeness of historical search is not established.
+PASS
 
-**Mathematical value — PASS.** The minority–minority matching count is a natural rare reaction observable in a three-class irreversible adsorption model, and it exactly determines the excess uncovered particles. The threshold \(M\asymp n^2\), finite Poisson crossover, and divergent law of large numbers classify its basic asymptotic regimes and are not arbitrary finite enumerations.
+Accepted edges are sampled uniformly from vacant edges, so while a,b,c remain, the rare-event chance is bc/[a(b+c)+bc]. Each accepted majority/minority edge lowers s=b+c by one; B-C lowers s by two and increments J, leaving exactly M−S+2J unpaired A. Since a>=M−S and bc<=(b+c)^2/4, each minority-minority event has p<=s/[4(M−S)]; the expected number is O(S²/M)=o(S) and J/S→0. Conditional B fraction has drift only on B-C events, equal p(b−c)/[s(s−2)], and the rest is a bounded-difference martingale, establishing uniform bulk composition. Coupling to Bernoulli intensities (BC/S²)(S−k)/M has total-error o(S²/M); these sum to BC/(2M)(1+O(1/S)). Le Cam proves finite-λ Poisson convergence, while compensator variance and martingale variance O(λ) give the diverging-λ law. An independently coded exact recursive finite-state absorption law was normalized/symmetric in 54 small triples; at (M,B,C)=(100,10,10), E J=0.49767 near the critical prediction 0.5.
 
-Scientific limits include complete tripartite substrates, equal edge attempt rates, superlinear dominant-class growth, and no distributional assertion for diverging intensities. Independent confirmation of originality and proof is not supplied.
+## originality
 
-Self-review: passed. Independent audit: not yet performed.
+PASS
+
+Closest exact RSA full-text result (Turban 2019) analyzes the Poissonian terminal count of rejected trials on a homogeneous fully connected graph, a different observable from accepted B-C matches on a highly imbalanced tripartite graph. Broader random greedy matching asymptotics do not automatically yield the critical Poisson law with explicit rate BC/(2M) for the specific dominant-class depletion process. Searches did not locate an exact equivalent; possible implicit generalized density-dependent Markov-chain theorem remains a material priority risk.
+
+## value
+
+PASS
+
+The Poisson-to-law-of-large-numbers transition for rare successful minority–minority pairings identifies a natural sharp n² majority-size crossover, and the exact vacancy relation interprets the defect count as the jamming correction. This is a motivated stochastic phase phenomenon, not an artificial finite-parameter count.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

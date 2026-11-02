@@ -1,0 +1,121 @@
+{
+  "audit_date_utc": "2026-10-30",
+  "audited_at_utc": "2026-10-30T10:49:04Z",
+  "axes": {
+    "correctness": {
+      "checked_sources": [
+        "Git source 2026/10/26/poisson-jamming-defects-in-dominant-class-tripartite-dimer-adsor--557016a407ad/RESULT.md blob 6e196b2d5a8948c508069788701566c2103704a9",
+        "Git frozen source proof and verification code blob c560c8a57c042a78f7a19081915a5b2b49897d96",
+        "Independent exact checks: GH54/3434 states, tripartite54 laws, partitions352 events, split49 symbolic+four full graphs, cube12 fractional columns/Sturm; run /mnt/data/scope_worker-06_20261030T103400Z/independent_checks.py"
+      ],
+      "rationale": "Accepted edges are sampled uniformly from vacant edges, so while a,b,c remain, the rare-event chance is bc/[a(b+c)+bc]. Each accepted majority/minority edge lowers s=b+c by one; B-C lowers s by two and increments J, leaving exactly M−S+2J unpaired A. Since a>=M−S and bc<=(b+c)^2/4, each minority-minority event has p<=s/[4(M−S)]; the expected number is O(S²/M)=o(S) and J/S→0. Conditional B fraction has drift only on B-C events, equal p(b−c)/[s(s−2)], and the rest is a bounded-difference martingale, establishing uniform bulk composition. Coupling to Bernoulli intensities (BC/S²)(S−k)/M has total-error o(S²/M); these sum to BC/(2M)(1+O(1/S)). Le Cam proves finite-λ Poisson convergence, while compensator variance and martingale variance O(λ) give the diverging-λ law. An independently coded exact recursive finite-state absorption law was normalized/symmetric in 54 small triples; at (M,B,C)=(100,10,10), E J=0.49767 near the critical prediction 0.5.",
+      "residual_risks": [
+        "The finite exact-law tests corroborate the model but do not establish total-variation limits; the martingale/coupling bounds are the actual large-scale argument.",
+        "Hypotheses require both minority sizes of order n and M/n→∞; neither balance at fixed M/n nor other adsorption protocols is covered."
+      ],
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Turban, Random sequential adsorption on fully connected lattices (2019), Poisson terminal rejected attempts",
+          "Classical Le Cam rare-events bounds and density-dependent Markov chain theory"
+        ],
+        "reasoning": "Le Cam and martingale bounds provide tools, but need the nontrivial stochastic minority-composition control; homogeneous rejected-attempt limits do not imply the minority B-C successful-edge count.",
+        "searches": [
+          "random sequential adsorption dimers complete tripartite unequal classes Poisson minority-minority successful matches jamming n squared",
+          "Poisson random greedy matching imbalanced tripartite complete graph jamming dimers"
+        ]
+      },
+      "checked_sources": [
+        "Turban, Random sequential adsorption on fully connected lattices (2019), Poisson terminal rejected attempts",
+        "Classical Le Cam rare-events bounds and density-dependent Markov chain theory",
+        "https://arxiv.org/abs/1908.00940",
+        "https://doi.org/10.1137/0402034",
+        "Resultary semantic queries: random sequential adsorption dimers complete tripartite unequal classes Poisson minority-minority successful matches jamming n squared"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "Turban 2019 Theorem 4.14 Poisson law for unaccepted attempts in fully connected single-species jamming",
+          "Claim counts successful minority–minority B-C matches and explicitly predicts BC/(2M)"
+        ],
+        "reasoning": "Different event types, graph class, and rate parameter block the prior theorem from directly implying this Poisson process; generic Le Cam conditions are not a worked-out count for this model.",
+        "searches": [
+          "random sequential adsorption dimers complete tripartite unequal classes Poisson minority-minority successful matches jamming n squared",
+          "Poisson random greedy matching imbalanced tripartite complete graph jamming dimers",
+          "random sequential adsorption fully connected lattice Turban Poisson jamming 2019"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Random greedy matching on complete tripartite graphs",
+          "Density-dependent birth–death / depletion process with rare B-C pairings"
+        ],
+        "reasoning": "The edge-attempt process is exactly a uniform-random available-edge matching chain; viewing it as a random greedy matching is an equivalent formulation, not evidence that its rare-event asymptotics have already been derived.",
+        "searches": [
+          "random sequential adsorption dimers complete tripartite unequal classes Poisson minority-minority successful matches jamming n squared",
+          "Poisson random greedy matching imbalanced tripartite complete graph jamming dimers"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "Resultary query random sequential adsorption dimers complete tripartite unequal classes Poisson minority-minority successful matches jamming n squared",
+          "Resultary hit 2026/9/19/SCOPE-random-greedy-mis-variance-complete-multipartite--9cd73ef8690f (greedy vertices rather than dimer edges)"
+        ],
+        "reasoning": "Greedy maximal independent sets are vertex occupancy, not dimer packing; no matching tabulated full rare-edge distribution was returned.",
+        "searches": [
+          "random sequential adsorption dimers complete tripartite unequal classes Poisson minority-minority successful matches jamming n squared",
+          "Resultary published-SCOPE semantic records search"
+        ]
+      },
+      "rationale": "Closest exact RSA full-text result (Turban 2019) analyzes the Poissonian terminal count of rejected trials on a homogeneous fully connected graph, a different observable from accepted B-C matches on a highly imbalanced tripartite graph. Broader random greedy matching asymptotics do not automatically yield the critical Poisson law with explicit rate BC/(2M) for the specific dominant-class depletion process. Searches did not locate an exact equivalent; possible implicit generalized density-dependent Markov-chain theorem remains a material priority risk.",
+      "residual_risks": [
+        "Historical unindexed or uninspected literature may contain an equivalent or stronger statement; a failed search alone does not prove novelty.",
+        "The abstract concerns occupied vertices in locally tree-like regular graphs, not edge dimers on tripartite dense graph; avoid full-text noncoverage claim.",
+        "A general density-dependent Markov-chain Poisson-approximation result may already imply the special rate after a nontrivial reduction."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "NOT_COVERING_THE_CLAIM",
+          "evidence": "Poisson count is of failed/rejected trials on homogeneous complete graph; new observable is successful B-C dimers on tripartite imbalanced graph.",
+          "identifier_or_url": "https://arxiv.org/abs/1908.00940",
+          "material_read": "Full arXiv manuscript, late-stage Poisson Section 4 and counting formulas",
+          "method": "Read primary sections and PDF page image",
+          "title": "Loïc Turban, Random sequential adsorption on fully connected lattices",
+          "trigger": "Poisson law at jamming for an exactly solvable RSA process"
+        },
+        {
+          "assessment": "INACCESSIBLE_PLAUSIBLE_BACKGROUND",
+          "evidence": "The abstract concerns occupied vertices in locally tree-like regular graphs, not edge dimers on tripartite dense graph; avoid full-text noncoverage claim.",
+          "identifier_or_url": "https://doi.org/10.1137/0402034",
+          "material_read": "Publisher abstract and accessible bibliographic material",
+          "method": "Read abstract; full text was not available in the accessed source",
+          "title": "Nicholas Pippenger, Random Sequential Adsorption on Graphs",
+          "trigger": "General RSA graph theory potentially dominating specialized result"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "checked_sources": [
+        "2026/10/26/poisson-jamming-defects-in-dominant-class-tripartite-dimer-adsor--557016a407ad/RESULT.md",
+        "Turban, Random sequential adsorption on fully connected lattices (2019), Poisson terminal rejected attempts",
+        "Classical Le Cam rare-events bounds and density-dependent Markov chain theory"
+      ],
+      "rationale": "The Poisson-to-law-of-large-numbers transition for rare successful minority–minority pairings identifies a natural sharp n² majority-size crossover, and the exact vacancy relation interprets the defect count as the jamming correction. This is a motivated stochastic phase phenomenon, not an artificial finite-parameter count.",
+      "residual_risks": [
+        "Poisson approximation requires M scaling at least quadratically to keep λ finite; there is no claim for weakly dominant class or nonuniform edge attempt rates."
+      ],
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "final_claim": "For random greedy dimer adsorption on K_{M,B,C} with M/n→∞, B/n→α>0, C/n→β>0, the number J of successful minority–minority B-C dimers is asymptotically Poisson when BC/(2M)→λ finite and satisfies J/(BC/(2M))→1 in probability when the parameter diverges; final majority vacancies are M−(B+C)+2J.",
+  "limitations": [
+    "The finite exact-law tests corroborate the model but do not establish total-variation limits; the martingale/coupling bounds are the actual large-scale argument.",
+    "Hypotheses require both minority sizes of order n and M/n→∞; neither balance at fixed M/n nor other adsorption protocols is covered.",
+    "Poisson approximation requires M scaling at least quadratically to keep λ finite; there is no claim for weakly dominant class or nonuniform edge attempt rates.",
+    "A general density-dependent Markov-chain Poisson-approximation result may already imply the special rate after a nontrivial reduction."
+  ],
+  "schema_version": 1
+}
