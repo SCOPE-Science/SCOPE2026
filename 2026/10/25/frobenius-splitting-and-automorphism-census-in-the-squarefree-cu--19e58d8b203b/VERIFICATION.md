@@ -5,8 +5,11 @@
     "status": "not_performed"
   },
   "independent_audit": {
-    "evidence": null,
-    "status": "not_performed"
+    "status": "passed",
+    "evidence": [
+      "INDEPENDENT_AUDIT_2026-10-29.md",
+      "INDEPENDENT_AUDIT_2026-10-29.json"
+    ]
   },
   "lean_verification": {
     "evidence": null,
@@ -16,10 +19,24 @@
 }
 ---
 
-# Verification record
+# Independent mathematical audit
 
-Reproduce with `python3 verify.py`, using Python 3's standard library only. The checker enumerates every invertible \(2\times2\) matrix over each of the three prime fields \(\mathbb F_5\), \(\mathbb F_7\), \(\mathbb F_{11}\), constructs representatives of all three Frobenius splitting types, computes all their determinant-twisted cubic orbits, and checks that these orbits are disjoint and exhaustive among squarefree cubic forms. For each representative, it enumerates all \(q^3\) symmetric scalar forms, partitions them by the exact cubic stabilizer, and counts the full-algebra stabilizer orders \(1,2,3,6\). It also checks directly on basis pairs the covariance of the traceless multiplication under each invertible change of basis.
+## correctness
 
-Observed class-count totals: \(155\) for \(q=5\), \(399\) for \(q=7\), and \(1463\) for \(q=11\). Observed automorphism-size distributions in the order \((1,2,3,6)\) are \((100,45,5,5)\), \((294,91,7,7)\), and \((1210,231,11,11)\). Each agrees with the symbolic theorem, and execution terminates with `VERIFY_OK`.
+PASS
 
-These are complete **finite** verifications for the selected prime fields. The proof's Frobenius descent and representation-theoretic fixed-space arguments, not extrapolation from these checks, establish the infinite family covering all prime powers of characteristic greater than three. No computer algebra system, independent reviewer, or external validation is asserted.
+Every unital commutative algebra of dimension three over a field of characteristic >3 has canonical W=ker(tr L), a 2-plane complementary to 1, because tr(L_1)=3. Its multiplication is equivalent to a traceless symmetric W-valued bilinear map mu plus arbitrary symmetric scalar form phi. The symplectic trace identity identifies mu with a binary cubic under the determinant-twisted GL2 action, invertible by division by 3. For nonzero discriminant, the three Frobenius cycle types on the unordered root triple give exactly three rational twisted-GL2 cubic orbits, with stabilizers S3,C2,C3. PGL2 sharp 3-transitivity and determinant-scaling remove extra scalar forms. On B=Sym^2(W*), transpositions fix a 2-space and 3-cycles a line; the S3 line sits inside all three transposition planes, so the stated stabilizer-orbit formulas yield q^2(q-1), 2q^2-q, q, q. Independent exhaustive p=5 twisted-cubic orbit enumeration covers all 480 nondegenerate cubics and B-form stabilizers, giving counts (100,45,5,5); the all-prime-power conclusion is from descent and fixed-space proof, not extrapolation.
+
+## originality
+
+PASS
+
+Qualified best-of-knowledge PASS: complex trace-cubic normal forms are prior work, but rational form descent over all F_q, Frobenius splitting types and exact automorphism census are distinct mathematical data not mechanically determined by complex isomorphism labels. Related finite-field GL2 polynomial actions address the cubic, not simultaneous symmetric-form orbits. Because the exact full October 2026 primary manuscript could not be read, priority uncertainty is significant but not, by itself, evidence of coverage; no strong contrary implication was found.
+
+## value
+
+PASS
+
+The squarefree trace cubic is the open dense, natural generic stratum of unital commutative 3D algebra moduli; obtaining finite-field forms and their full automorphism groups is a natural and exact mathematical classification. The arithmetic Frobenius split/mixed/irreducible strata and uniform q-polynomial counts go beyond a single small computation and provide reusable orbit data; a genuine unindexed classification remains a priority risk.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

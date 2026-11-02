@@ -1,15 +1,21 @@
-# Self-review
+# Independent mathematical audit
 
-## Correctness — PASS
-The trace-kernel construction is canonical because the unit has multiplication trace \(3\ne0\). Every commutative unital multiplication becomes an exactly defined traceless binary multiplication and arbitrary symmetric scalar form. The binary cubic correspondence is invertible for characteristic greater than three, with an explicit coefficient reconstruction. The Frobenius root triples admit exactly the three stated rational orbits; determinant-twisted scaling removes any additional scalar obstruction. Their exact stabilizer groups and the fixed dimensions \(3,2,1\) on symmetric forms yield a complete Burnside/stabilizer enumeration and the stated class counts. The included finite-field checker independently validates \(p=5,7,11\), including the actual cubic/multiplication covariance. These finite tests do not establish the infinite-field-family theorem; the proof does.
+## correctness
 
-## Originality — PASS within the inspected literature
-The most relevant primary source, Eraliyeva–Kaygorodov arXiv:2610.18689v1, develops trace kernels and gives the complex-field orbit classification, including a three-parameter squarefree-kernel family. The present result is not that framework: it enumerates rational forms over each finite field by Frobenius type and supplies the complete **finite-field** automorphism-group distribution. The 2025 Glizburg–Pchelintsev primary paper concerns simple algebras and isotopy over algebraically closed fields. Reis's study of finite-field polynomial actions addresses a component of the cubic calculation, not the simultaneous classification of the symmetric-form parameter. Searched research records and the accessible historical claims contained no equivalent theorem. A historical-result partition or failed searches cannot certify worldwide uniqueness; unindexed results remain a residual bibliographic risk.
+PASS
 
-## Value — PASS
-The discriminant-nonzero locus is the natural geometrically open dense stratum in the canonical trace-cubic parameter space of the three-dimensional unital commutative classification. A complex normal-form list does not enumerate its finite-field descents. The theorem supplies all three rational forms of that geometric stratum and an exact simple polynomial class census, not merely a special parameter substitution. It additionally resolves the full automorphism-group distribution, identifying the precise exceptional counts and showing almost all classes are rigid as field size grows. This makes the finite-field geometry and symmetry of a major family explicit.
+Every unital commutative algebra of dimension three over a field of characteristic >3 has canonical W=ker(tr L), a 2-plane complementary to 1, because tr(L_1)=3. Its multiplication is equivalent to a traceless symmetric W-valued bilinear map mu plus arbitrary symmetric scalar form phi. The symplectic trace identity identifies mu with a binary cubic under the determinant-twisted GL2 action, invertible by division by 3. For nonzero discriminant, the three Frobenius cycle types on the unordered root triple give exactly three rational twisted-GL2 cubic orbits, with stabilizers S3,C2,C3. PGL2 sharp 3-transitivity and determinant-scaling remove extra scalar forms. On B=Sym^2(W*), transpositions fix a 2-space and 3-cycles a line; the S3 line sits inside all three transposition planes, so the stated stabilizer-orbit formulas yield q^2(q-1), 2q^2-q, q, q. Independent exhaustive p=5 twisted-cubic orbit enumeration covers all 480 nondegenerate cubics and B-form stabilizers, giving counts (100,45,5,5); the all-prime-power conclusion is from descent and fixed-space proof, not extrapolation.
 
-## Limits and closest coverage
-The conclusion excludes characteristics two and three, the zero-discriminant boundary, and semilinear equivalences. Originality may require a separate expert literature review, particularly of unpublished finite-field descent classifications. No independent mathematical audit has been performed.
+## originality
 
-Self-review: passed. Independent audit: not yet performed.
+PASS
+
+Qualified best-of-knowledge PASS: complex trace-cubic normal forms are prior work, but rational form descent over all F_q, Frobenius splitting types and exact automorphism census are distinct mathematical data not mechanically determined by complex isomorphism labels. Related finite-field GL2 polynomial actions address the cubic, not simultaneous symmetric-form orbits. Because the exact full October 2026 primary manuscript could not be read, priority uncertainty is significant but not, by itself, evidence of coverage; no strong contrary implication was found.
+
+## value
+
+PASS
+
+The squarefree trace cubic is the open dense, natural generic stratum of unital commutative 3D algebra moduli; obtaining finite-field forms and their full automorphism groups is a natural and exact mathematical classification. The arithmetic Frobenius split/mixed/irreducible strata and uniform q-polynomial counts go beyond a single small computation and provide reusable orbit data; a genuine unindexed classification remains a priority risk.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
