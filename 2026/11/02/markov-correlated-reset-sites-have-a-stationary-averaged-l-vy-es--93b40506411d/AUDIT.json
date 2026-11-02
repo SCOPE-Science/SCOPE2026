@@ -1,0 +1,124 @@
+{
+  "correctness": {
+    "rationale": "The proof fixes all parameters and state transitions, imports a published marked stable small-time exit theorem with the correct Levy-measure normalization, derives an exact finite matrix renewal identity, proves the stationary projection for any finite irreducible K including periodic K, and gives a uniform exponential moment bound for all moments. The 30-assertion executable checks finite-state algebra, not infinite stable convergence.",
+    "status": "PASS"
+  },
+  "independent": false,
+  "independent_audit_status": "not_performed",
+  "originality": {
+    "broader_coverage": {
+      "evidence": [
+        "Żbik–Palmowski Eq. (4) concerns one prescribed x0 and large-L mean; González–Riascos–Boyer concerns finite-network multisite resetting with destination probabilities independent of the previous reset site."
+      ],
+      "reasoning": "General Markov-renewal rare-event theorems are plausible broader tools, but the inspected works did not state the explicit expanding continuous stable-interval theorem with correlated destination labels and directional marks.",
+      "searches": [
+        "arxiv:2610.20410 section III.1",
+        "arxiv:2104.00727 sections I-II",
+        "published-finding corpus: Markov switching resetting locations stable processes exit interval scaling L^alpha mean first passage distribution exponential"
+      ]
+    },
+    "checked_sources": [
+      "arxiv:2610.20410",
+      "arxiv:1203.2355",
+      "arxiv:2104.00727",
+      "arxiv:2311.16014",
+      "published-finding corpus semantic comparison queries"
+    ],
+    "claim_vs_prior_implication": {
+      "evidence": [
+        "Single-site asymptotic rates supply each kappa_i, but do not by themselves establish Markov-chain averaging, preservation of directional marks, or independence from reset-site temporal correlations.",
+        "The small-time exit theorem supplies the local hazard input only; the finite-memory renewal resolvent is a separate step."
+      ],
+      "reasoning": "The claim is not a direct corollary of any single inspected statement because it adds a finite-state destination memory process; combining the known stable exit asymptotic with a separate Markov renewal analysis is essential. Broad renewal theory may provide an alternate proof and remains a residual priority risk.",
+      "searches": [
+        "arxiv:2610.20410 equations (3)-(7)",
+        "arxiv:1203.2355 Theorem 2.1",
+        "arxiv:2104.00727 multiple-node resetting",
+        "published-finding corpus: Markov switching resetting locations stable processes exit interval scaling L^alpha mean first passage distribution exponential"
+      ]
+    },
+    "equivalent_formulations": {
+      "evidence": [
+        "González–Riascos–Boyer uses memoryless multiple-node resetting, whereas the present row-indexed kernel K retains the last destination."
+      ],
+      "reasoning": "A state-independent reset distribution is rank-one K, but general nonreversible or periodic K is not equivalent to that scalar setting. The scalar single-site reset formula cannot encode the correlated reset-site state.",
+      "searches": [
+        "published-finding corpus: Markov-correlated multiple reset sites for symmetric stable Levy flights in expanding bounded interval exponential exit time stationary weighted jump hazard independent resetting rate",
+        "Web: Markov modulated resetting Lévy first passage",
+        "arxiv:2104.00727"
+      ]
+    },
+    "exact_database_or_table": {
+      "evidence": [
+        "The closest published-finding corpus hits concerned fixed-protocol resetting and unrelated Lévy models, not the stationary-averaged marked limit."
+      ],
+      "reasoning": "No matching exact formula or numerical table was found; the negative search is supporting evidence only, not a uniqueness certificate.",
+      "searches": [
+        "published-finding corpus: multisite stochastic resetting Levy stable jump exit rate arithmetic stationary average of position-dependent Levy measure",
+        "published-finding corpus: Markov-correlated multiple reset sites for symmetric stable Levy flights in expanding bounded interval exponential exit time stationary weighted jump hazard independent resetting rate",
+        "Web: multiple reset points Lévy flights Poisson absorbing"
+      ]
+    },
+    "rationale": "No inspected source or accessible prior claim states the marked expanding-domain stable exit law under correlated finite-state destination labels. Fixed-site renewal theorems and memoryless multisite network spectral formulas do not directly imply the retained-state Markov renewal limit. Known general rare-event theory is a priority risk, not treated as evidence of uniqueness.",
+    "residual_risks": [
+      "Generic finite-state Markov-renewal rare-event theorems may logically imply this limit when combined with stable jump exit rates; no claim of foundational uniqueness.",
+      "Full detailed proof of Figueroa-López–Tankov's imported theorem was not reproduced; its stated small-time result is used as an established lemma.",
+      "Publication-priority assessment is best-knowledge only; independent survey and review not performed."
+    ],
+    "source_inspections": [
+      {
+        "assessment": "Covers fixed-location mean and small-time input, not correlated destinations or marked joint limit",
+        "evidence": [
+          "Eq. (4) uses a single x0; Eq. (6) gives mean at large L; discussion notes one-large-jump mechanism."
+        ],
+        "identifier_or_url": "https://arxiv.org/abs/2610.20410",
+        "material_read": "Full open-access HTML sections II–IV, equations (3)–(8), references and asymptotic discussion",
+        "method": "Read theorem hypotheses and equations; compare scalar renewal against destination-indexed renewal",
+        "title": "Asymptotic behaviour for escaping an interval by Lévy flights under stochastic resetting",
+        "trigger": "Same stable exit interval and Poisson resetting, but fixed destination"
+      },
+      {
+        "assessment": "Supplies the marked local exit rate; not a correlated-reset limit",
+        "evidence": [
+          "Authors establish first-order small-time exit probability and overshoot behavior for Lévy intervals."
+        ],
+        "identifier_or_url": "https://arxiv.org/abs/1203.2355",
+        "material_read": "Abstract, theorem identification and its use as Theorem 2.1 in the 2026 source",
+        "method": "Matched theorem's small-time first-exit probability to the Lévy measure integral",
+        "title": "Small-time asymptotics of stopped Lévy bridges and simulation schemes with controlled bias",
+        "trigger": "Short-time marked interval exit theorem"
+      },
+      {
+        "assessment": "Resetting nodes sampled by predetermined probabilities; no retained previous-site Markov label and no continuous stable-domain marked limit",
+        "evidence": [
+          "Figure 1 and Section I describe two reset nodes with weights a1,a2; all reset jumps use state-independent destination weights."
+        ],
+        "identifier_or_url": "https://arxiv.org/abs/2104.00727",
+        "material_read": "Full accessible HTML introduction, model exposition and multiple-node renewal description",
+        "method": "Compared destination transition structure and target event against the proposed continuous expanding-domain statement",
+        "title": "Diffusive transport on networks with stochastic resetting to multiple nodes",
+        "trigger": "Multiple resetting nodes and Lévy-like network walks could dominate multisite result"
+      },
+      {
+        "assessment": "Does not cover correlated multisite reset destinations or explicit stationary averaged directional hazard",
+        "evidence": [
+          "Studies bounded-interval escape and comparison with Lévy walks under standard resetting."
+        ],
+        "identifier_or_url": "https://arxiv.org/abs/2311.16014",
+        "material_read": "Full accessible HTML abstract, introduction and model overview",
+        "method": "Checked fixed initial reset-position model and observables",
+        "title": "Lévy flights and Lévy walks under stochastic resetting",
+        "trigger": "Previous stable exit-with-resetting study"
+      }
+    ],
+    "status": "PASS"
+  },
+  "review_type": "self_review",
+  "schema_version": 1,
+  "scope_run_id": "93b40506-411d-4f5d-8dee-faca97d8a8b6",
+  "self_review_status": "passed",
+  "value": {
+    "rationale": "Correlated reset-site selection is physically meaningful and introduces finite-state memory absent from scalar renewal calculations. The result shows that the leading rate and exit-side bias depend exactly on stationary weighted one-jump hazards, and that reset frequency, nonreversibility and higher temporal correlations disappear at leading order. Full law and moment convergence make this a usable transport-design characterization.",
+    "status": "PASS"
+  }
+}
