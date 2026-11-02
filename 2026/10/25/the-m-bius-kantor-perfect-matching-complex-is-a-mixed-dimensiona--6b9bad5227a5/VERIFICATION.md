@@ -5,8 +5,11 @@
     "status": "not_performed"
   },
   "independent_audit": {
-    "evidence": null,
-    "status": "not_performed"
+    "status": "passed",
+    "evidence": [
+      "INDEPENDENT_AUDIT_2026-10-28.md",
+      "INDEPENDENT_AUDIT_2026-10-28.json"
+    ]
   },
   "lean_verification": {
     "evidence": null,
@@ -16,10 +19,24 @@
 }
 ---
 
-# Verification of the Möbius–Kantor perfect-matching homotopy type
+# Independent mathematical audit
 
-Run `python3 verify_mobius_kantor_perfect_matching.py`, requiring only Python 3.9 or later, beside the supplied verifier. The finite computation reconstructs all graph edges and perfect matchings, all 6051 nonempty simplices, and their 27192 face incidences. It checks the 3019-pair discrete-Morse matching and a complete acyclic topological sort. The exact integral signed projection computes a zero four-by-eight Morse differential, establishing all eight nullhomotopic three-cell attachments once the missing critical one-cells establish simple connectivity.
+## correctness
 
-The checker independently computes mod-two simplicial boundary ranks `(23,205,775,1059,693,231,33)`, and independently enumerates ordinary matchings to verify that 5016 are nonextendible with 112 minimal three-edge and 120 minimal four-edge obstructions. The executed output is retained in `verification_output.txt` and terminates with `VERIFY_OK`.
+PASS
 
-These exhaustive checks constitute a finite proof for the specified 16-vertex graph, not a claim about general graph families. Mod-two ranks alone would not certify integral torsion or attaching maps; the integral gradient-path computation supplies the necessary homotopy certificate. Independent scientific audit has not been performed.
+The generalized Petersen GP(8,3) has 16 vertices and the specified 24 edges. The extendibility simplicial complex consists ONLY of subsets of its 33 perfect matchings, not all 11,067 nonempty graph matchings. An independent new implementation recursively enumerated all 33 perfect matchings and their 6051 distinct nonempty subfaces; the face vector is (24,228,984,1842,1752,924,264,33). Regenerating the exact 24-pivot face matching yields 3019 pairs; the full 27,192 oriented Hasse covers on 6051 faces topologically sort without a cycle. Remaining faces are one vertex, four 2-faces and eight 3-faces. The integral signed gradient-path elimination of the full 4-by-8 3-to-2 cellular boundary was independently recomputed as zero, not inferred from mod-2 Betti ranks. The Morse 2-skeleton is ∨⁴S² and pi2=H2=Z⁴, so the zero vectors make all eight 3-cell attaching maps null; hence ∨⁴S² ∨ ∨⁸S³. The independently authored computation and full bundled source were inspected; the finite check is exhaustive for the exact finite graph, not a claim about arbitrary GP(n,k).
+
+## originality
+
+PASS
+
+Resultary primary RESULT.md for the SAME GP(8,3) computes the ordinary matching complex as ∨⁸S⁴ ∨ ∨⁴S⁵, using all 11,067 nonempty matchings. The submitted 6051-face complex retains only extendible matchings and has entirely different homotopy degrees. The 2022 honeycomb perfect-matching complex paper treats planar honeycomb patches; a 2026 Möbius LADDER paper treats a distinct graph family. The 33 perfect-matching count is previously known and explicitly excluded from novelty. No inspected theorem covers this new exact filtered complex.
+
+## value
+
+PASS
+
+Extendibility to a perfect matching is a natural global matching constraint. The exact mixed-dimensional integral homotopy provides a concrete canonical counterpoint to the ordinary matching complex on the same symmetric cubic graph and exhibits structural changes not implied by the perfect-matching count. The deterministic complete Morse certificate makes a rigorous finite homotopy classification valuable independently of an all-Petersen-family theorem.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

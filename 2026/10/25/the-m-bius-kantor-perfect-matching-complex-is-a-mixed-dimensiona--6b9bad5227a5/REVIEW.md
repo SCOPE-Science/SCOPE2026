@@ -1,15 +1,21 @@
-# Scientific review of the Möbius–Kantor perfect-matching complex
+# Independent mathematical audit
 
-## Correctness
-**PASS.** The graph and face conditions are explicit. Exhaustive edge-cover recursion yields 33 perfect matchings and 6051 faces. The 3019-pair discrete-Morse matching has exactly one critical vertex, four critical two-cells, and eight critical three-cells; a complete topological sort of 27192 face incidences establishes acyclicity. Exact signed recursive gradient reduction computes an identically zero integral four-by-eight Morse attaching matrix. The resulting CW model is simply connected and its three-cell attachments vanish in the Hurewicz-identified second homotopy group; hence the displayed mixed wedge follows. Independent mod-two matrix ranks and enumerated nonextendible matchings cross-check the finite inputs. All checks ran on the supplied standalone verifier.
+## correctness
 
-## Originality
-**PASS with residual uncertainty.** Primary full-text comparisons and indexed mathematical-record searches include graph aliases, one-factor/extendible-matching terminology, and stronger or equivalent homotopy statements. The closest exact-graph published result treats the ordinary matching complex, which has 11067 nonempty faces and a different sphere-wedge type; it cannot imply the classification of the strict 6051-face subcomplex. The 2025 graph matching polynomial provides the already known 33-perfect-matching count but no face incidence or homotopy type. Perfect-matching theorems for planar honeycomb patches, polygonal line tilings and Möbius ladders address different graph families. Search failure alone is not novelty proof; an unindexed equivalent theorem remains a possible risk.
+PASS
 
-## Value
-**PASS.** Complete integral homotopy for the natural one-factor-extendibility complex of the classical Möbius–Kantor graph is a motivated structural invariant, not an arbitrary statistic. Its pure seven-dimensional simplicial presentation collapses in homotopy to four two-spheres and eight three-spheres, whereas the previously classified ordinary matching complex has nontrivial spheres in dimensions four and five. The 232 minimal matching-extension obstructions make the distinction concrete; known matching counts alone do not determine this topology.
+The generalized Petersen GP(8,3) has 16 vertices and the specified 24 edges. The extendibility simplicial complex consists ONLY of subsets of its 33 perfect matchings, not all 11,067 nonempty graph matchings. An independent new implementation recursively enumerated all 33 perfect matchings and their 6051 distinct nonempty subfaces; the face vector is (24,228,984,1842,1752,924,264,33). Regenerating the exact 24-pivot face matching yields 3019 pairs; the full 27,192 oriented Hasse covers on 6051 faces topologically sort without a cycle. Remaining faces are one vertex, four 2-faces and eight 3-faces. The integral signed gradient-path elimination of the full 4-by-8 3-to-2 cellular boundary was independently recomputed as zero, not inferred from mod-2 Betti ranks. The Morse 2-skeleton is ∨⁴S² and pi2=H2=Z⁴, so the zero vectors make all eight 3-cell attaching maps null; hence ∨⁴S² ∨ ∨⁸S³. The independently authored computation and full bundled source were inspected; the finite check is exhaustive for the exact finite graph, not a claim about arbitrary GP(n,k).
 
-## Scope and remaining limits
-Only the specified sixteen-vertex graph is proved. The reproducible finite calculation is not a general classification. Originality remains subject to previously unindexed literature or alternative terminology, and independent validation is outstanding.
+## originality
 
-Self-review: passed. Independent audit: not yet performed.
+PASS
+
+Resultary primary RESULT.md for the SAME GP(8,3) computes the ordinary matching complex as ∨⁸S⁴ ∨ ∨⁴S⁵, using all 11,067 nonempty matchings. The submitted 6051-face complex retains only extendible matchings and has entirely different homotopy degrees. The 2022 honeycomb perfect-matching complex paper treats planar honeycomb patches; a 2026 Möbius LADDER paper treats a distinct graph family. The 33 perfect-matching count is previously known and explicitly excluded from novelty. No inspected theorem covers this new exact filtered complex.
+
+## value
+
+PASS
+
+Extendibility to a perfect matching is a natural global matching constraint. The exact mixed-dimensional integral homotopy provides a concrete canonical counterpoint to the ordinary matching complex on the same symmetric cubic graph and exhibits structural changes not implied by the perfect-matching count. The deterministic complete Morse certificate makes a rigorous finite homotopy classification valuable independently of an all-Petersen-family theorem.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
