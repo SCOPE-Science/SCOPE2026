@@ -1,15 +1,21 @@
-# Mathematical review of the universal Hausdorff Bloch norm theorem
+# Independent mathematical audit
 
-## Correctness — PASS
-The proof starts from the exact classical Bloch norm, derives pointwise radial value/derivative bounds and checks that the hyperbolic arctangent saturates them simultaneously for all positive radial parameters. The constant coefficient is bounded by the reciprocal moment, and Fatou's lemma shows that the derivative coefficient dominates it. The norming-vector identity for the whole positive measure cone follows without finite-atomic approximation. The direct rational change of variables, interior strict logarithmic excess, scalar uniform convergence and semigroup identity prove the atomic consequences. The calculation is analytic; the optional decimal is not a proof.
+## correctness
 
-## Originality — PASS (best available evidence)
-The closest primary full text is Galanopoulos–Mahillo–Oliva-Maza–Siskakis, arXiv:2610.22554v1, which gives the exact same Hausdorff operator representation, a reciprocal-moment boundedness test and spectral/Fredholm results, not this operator norm identity. A same-family previously available mathematical claim establishes geometric-atomic spectra, not a norm and a universal norming function. Liu–Li, arXiv:1511.06200v1, proves two-sided estimates for general weighted compositions rather than this sharp positive-family equality. Targeted alias, parameter, hyperbolic-arctangent and norm-gap searches were made against mathematical records and literature; no dominating statement was found. This is not a claim of certified priority. Missing other specialized formulas remain a residual risk.
+PASS
 
-## Mathematical value — PASS
-For every positive measure with a finite reciprocal moment, the theorem replaces an intractable optimization over all Bloch functions by a single shared test function and a one-dimensional integral supremum. The atomic norm strictly exceeds the spectral radius and has a sharp, non-unit asymptotic ratio; this quantifies nonnormality that spectral sets alone cannot measure. This is an exact structural operator-norm result, not a numerical bound or trivial parameter substitution.
+The source defines the classical Bloch norm |f(0)|+sup(1-|z|²)|f′(z)|, positivity and I_mu=integral t^-1dmu<infinity. The radial value/derivative inequalities bound the operator by I_mu |f(0)| + (sup_r integral K_t(r)dmu) beta(f). Direct maximization of A_t=(1-t)(1-r²)/[1-(1-t)r]² gives mass+sup A<=I_mu, and Fatou applied to lim_{r->1}K_t(r)=1/t gives sup integral K>=I_mu. The single g(z)=atanh(z) has beta=1 and attains all derivative inequalities at each positive real radius, proving equality for any positive mu, including zero measure. The atomic substitution y=tr/[1-(1-t)r] gives tK_t=G_t(y); the boundary logarithmic correction shows strict N(t)>1/t when 0<t<1; the weighted composition semigroup H_sH_t=H_st yields r(H_delta_t)=1/t. Uniform t->0 convergence gives C_*. Independent 30 high-precision atomic kernel identities agree to <9e-44 and C_*=1.1176848411921331; no extrapolation from numbers.
 
-## Boundaries and outstanding checks
-Positivity, reciprocal-moment integrability and the classical Bloch norm normalization are essential hypotheses of the statement. The strict norm-to-radius inequality is proved for one-atom operators, not claimed for every positive mixture. No uniqueness of maximizers is asserted. The bibliographic search is broad but not an independent proof of priority.
+## originality
 
-Self-review: passed. Independent audit: not yet performed.
+PASS
+
+No found primary statement or published research record determines the same exact norm identity using one common Bloch extremizer for all positive measures or the strict atomic norm-vs-spectral-radius gap. The closest 2026 Hausdorff paper explicitly advertises spectral and Fredholm essential spectra rather than this norm. Its full 20-page text was not obtained, which leaves a substantial explicit priority risk, not automatic non-originality. The 2015 weighted-composition study gives operator norm estimates at a broader structural level, but not this sharp family-specific expression.
+
+## value
+
+PASS
+
+A universal norming vector for an entire cone of nontrivial lower-triangular Hausdorff operators is a natural and useful operator-theoretic structural fact. It gives an exact measure-kernel norm, a sharp one-atom maximization and a nontrivial strict norm/spectral-radius separation. The result is not a mere restatement of the previously studied spectrum and has meaningful possible applications to Bloch operator analysis.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

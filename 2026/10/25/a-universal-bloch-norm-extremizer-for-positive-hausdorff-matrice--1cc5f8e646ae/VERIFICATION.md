@@ -5,8 +5,11 @@
     "status": "not_performed"
   },
   "independent_audit": {
-    "evidence": null,
-    "status": "not_performed"
+    "status": "passed",
+    "evidence": [
+      "INDEPENDENT_AUDIT_2026-10-27.md",
+      "INDEPENDENT_AUDIT_2026-10-27.json"
+    ]
   },
   "lean_verification": {
     "evidence": null,
@@ -16,13 +19,24 @@
 }
 ---
 
-# Verification
-The statements below describe direct mathematical and computational checks, not an external certification.
+# Independent mathematical audit
 
-The classical Bloch radial upper bound is attained on positive radii by \(\operatorname{arctanh}z\); \(\beta(\operatorname{arctanh})=1\). The derivative of the rational weighted composition separates into two positive terms at a positive real argument. The constant-vector branch cannot exceed \(\int t^{-1}d\mu\), while the hyperbolic-arctangent branch has radial limit exactly that value. Fatou's lemma and the explicitly shown bound \(K_t(r)\le3/t\) close the argument for general positive measures, not just finite sums of atoms.
+## correctness
 
-Symbolic algebra checked \(r=y/[t+(1-t)y]\), the two coefficient substitutions and the maximum \(\max_r A_t(r)=(1-t)/[t(2-t)]\). The scalar boundary expansion gives a positive \(\varepsilon\log(1/\varepsilon)\) excess at each \(0<t<1\); the semigroup calculation gives \(r(\mathcal H_{\delta_t})=1/t\). Uniform convergence of the continuous scalar profile proves the small-parameter limit without an extrapolation from finitely many samples.
+PASS
 
-Independent numerical optimizations of the exact one-variable expression, for illustration only, produced \(N(1/2)\approx2.1223931485\), \(N(1/10)\approx11.0673957791\), and \(C_*\approx1.1176848412\). Those decimals are not certified interval bounds and do not support the infinite-dimensional theorem by themselves.
+The source defines the classical Bloch norm |f(0)|+sup(1-|z|²)|f′(z)|, positivity and I_mu=integral t^-1dmu<infinity. The radial value/derivative inequalities bound the operator by I_mu |f(0)| + (sup_r integral K_t(r)dmu) beta(f). Direct maximization of A_t=(1-t)(1-r²)/[1-(1-t)r]² gives mass+sup A<=I_mu, and Fatou applied to lim_{r->1}K_t(r)=1/t gives sup integral K>=I_mu. The single g(z)=atanh(z) has beta=1 and attains all derivative inequalities at each positive real radius, proving equality for any positive mu, including zero measure. The atomic substitution y=tr/[1-(1-t)r] gives tK_t=G_t(y); the boundary logarithmic correction shows strict N(t)>1/t when 0<t<1; the weighted composition semigroup H_sH_t=H_st yields r(H_delta_t)=1/t. Uniform t->0 convergence gives C_*. Independent 30 high-precision atomic kernel identities agree to <9e-44 and C_*=1.1176848411921331; no extrapolation from numbers.
 
-No assertion is made about signed measures, alternate norm conventions, a strict spectral gap for arbitrary positive mixtures or independent bibliographic certification.
+## originality
+
+PASS
+
+No found primary statement or published research record determines the same exact norm identity using one common Bloch extremizer for all positive measures or the strict atomic norm-vs-spectral-radius gap. The closest 2026 Hausdorff paper explicitly advertises spectral and Fredholm essential spectra rather than this norm. Its full 20-page text was not obtained, which leaves a substantial explicit priority risk, not automatic non-originality. The 2015 weighted-composition study gives operator norm estimates at a broader structural level, but not this sharp family-specific expression.
+
+## value
+
+PASS
+
+A universal norming vector for an entire cone of nontrivial lower-triangular Hausdorff operators is a natural and useful operator-theoretic structural fact. It gives an exact measure-kernel norm, a sharp one-atom maximization and a nontrivial strict norm/spectral-radius separation. The result is not a mere restatement of the previously studied spectrum and has meaningful possible applications to Bloch operator analysis.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
