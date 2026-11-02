@@ -1,0 +1,11 @@
+# Scientific review
+
+**Correctness — PASS.** The unperturbed spectrum is exactly \([0,8]\), finite pins are finite rank, the staggered resolvent gives a strictly decreasing positive Birman--Schwinger matrix, and the two-dimensional common Green divergence leaves one infinite branch and the finite compression governed by square-grid effective resistances. Explicit congruence with the zero-sum space proves the strict inertia formula. At equality, strict monotonicity excludes the threshold branch from \((8,\infty)\). Independent Fourier and finite-torus calculations passed 23 comparisons; they do not prove the infinite statement.
+
+**Originality — PASS on examined evidence, provisional.** Cserti (1999) supplies the effective resistances, not a complete finite-pinning spectral count. Lipkin--Mannheim (2005) gives impurity localization bounds. Kutsenko (2013) formulates defective lattice spectral equations for other perturbations. Hiroshima--Muminov--Kuljanov (2018) treats an origin-plus-neighbours two-parameter delta family; published follow-up exact constants for this special model also do not give general distinct-site positive-foundation-pinning inertia. Thomas et al. (2025/2026) establishes sufficient localized-phonon existence for mass changes, not full mode multiplicities. The claim is the exact arbitrary finite-pinning mode count and the sharp three-corner staircase. A general multi-point index theorem in different notation might subsume the result and remains a priority risk, not an excluded possibility.
+
+**Mathematical value — PASS.** The theorem gives an exact, computable design rule for how many trapped phonon modes finitely many foundation pins create, for nonuniform strengths and arbitrary planar positions. The exact two-pin distances and three-pin corner thresholds distinguish unconditional trapping from geometry-dependent appearance of extra modes and treat critical equality sharply. This answers a natural spectral multiplicity problem rather than a mere computed test case.
+
+**Scientific limitations.** Scalar equal-mass square lattice, positive finite on-site foundation springs, and strictly above-band eigenmodes only. Edge resonances, unequal masses, and lattice-bond defects are not classified. Priority not independently verified.
+
+Self-review: passed. Independent audit: not yet performed.
