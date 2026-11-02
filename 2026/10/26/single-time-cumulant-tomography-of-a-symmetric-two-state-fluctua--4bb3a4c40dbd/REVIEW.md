@@ -1,19 +1,21 @@
-# Scientific review
+# Independent mathematical audit
 
-## Correctness — PASS
+## correctness
 
-Conditional Gaussianity reduces the displacement cumulants to integrated stationary telegraph cumulants. The two-point and connected four-point spin identities, their ordered-time integrations, and the inverse Laplace transform establish the precise \(24\), \(80640\), and \(140\) normalization constants. Strict monotonicity follows from an entire-series sign proof; the sufficiency direction additionally verifies strict positivity of the smaller diffusivity. Symbolic and independent matrix-exponential computations support the algebra, but the proof, not those finite checks, supports the universal quantifiers. The degenerate equal-diffusivity case and unknown observation times are excluded.
+PASS
 
-## Originality — PASS, with residual priority risk
+Conditioning on the stationary telegraph trajectory makes X_t a centered Gaussian with random variance 2(mu t+a integral S), yielding kappa_{2m}(X_t)=(2m)!/m! kappa_m(A_t) and odd integrated-spin cumulants zero. Integrated pair correlation e^{-2k|s-u|} yields kappa4=24a^2 f(x)/(2k)^2. The time-ordered connected 4-spin correlation is -2 exp[-2k(gap1+2gap2+gap3)], so kappa8=-80640a^4 I(x)/(2k)^4; coefficient normalization checked independently using a 2x2 tilted generator. Differentiation gives P(x)=2e^{2x}(I'f-2If')=(4-x)e^{2x}-(2x^2+8)e^x+(x+4); its first six series coefficients vanish and for all n>=6 the coefficient [2^{n-1}(8-n)-2n(n-1)-8]/n!<0 (verify n=6,7 then n>=8). Thus Q decreases strictly, with endpoints from f~x^2/2, I~x^4/24 and large x. Algebraic inverse x, k=x/(2t), mu=V/(2t), a=x sqrt(C/(24f))/t proves necessity/sufficiency including strict a<mu. Independent symbolic Laplace identity and three tilted-generator checks passed. Population cumulants only; no statistical estimation claim.
 
-The general finite-time forward even-moment theorem of Guéneau, Majumdar and Schehr (2025, arXiv:2501.13754) is stronger than the forward-cumulant component here. A special-case calculation can therefore recover those cumulants, so they are *not* claimed as new on their own. The distinctive theorem establishes strict monotonicity of the one-time eighth-to-fourth cumulant ratio and its complete range, then proves an exact inverse-realizability criterion with positivity and unique rate reconstruction. Inspected relevant primary material did not identify that inverse theorem. The earlier two-state renewal analysis of Miyaguchi et al. (2016, arXiv:1605.00106) treats non-Gaussian parameters but does not state this single-time inverse classification. The 2014 foundational model does not state it either. A relevant historical formulation outside the inspected set may exist; lack of a database hit is not uniqueness proof.
+## originality
 
-## Mathematical value — PASS
+PASS
 
-Fourth-order non-Gaussianity at one time generally mixes diffusivity contrast with switching speed and therefore does not identify them. The strictly monotone eighth-to-fourth cumulant invariant resolves this physical inverse ambiguity with a sharp global image, while the final inequality prevents unphysical negative diffusivities. The result supplies a nontrivial structural inverse classification useful for interpreting switching-diffusion observables; it is not presented as a method for stable finite-sample estimation.
+Guéneau–Majumdar–Schehr 2025, Supplement Section IV (Eq. 53), already gives exact finite-time two-state characteristic/moment generating function, which implies all forward cumulants here. Those are credited. The surviving theorem is the monotone one-time inverse mapping from only three prescribed cumulants with exact image and strict-positive diffusivity admissibility boundary. Inspected original Section IV/A and Eq.53–68 describe forward fluctuations and asymptotics, not the analytic Q-bijection or inverse parameter test. Residual risk of earlier inverse telegraph identifiability formulation retained.
 
-## Scientific limitations
+## value
 
-Symmetric stationary Markov switching only; known observation time, strictly positive diffusivities, exact population cumulants. General distributions, asymmetric switching, and empirical estimation are not classified. Later literature provides the forward moments, and broader specialized priority review remains a risk. No external audit is claimed.
+PASS
 
-Self-review: passed. Independent audit: not yet performed.
+Provides a complete, sharp population identifiability and feasibility test for a natural stochastic-diffusivity model using measurements at one fixed time, resolving intrinsic parameter ambiguity without multi-time trajectories. The positivity inequality and sharp ratio image matter physically. It is a mathematically motivated inverse theorem, not merely recomputation of known forward cumulants.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
