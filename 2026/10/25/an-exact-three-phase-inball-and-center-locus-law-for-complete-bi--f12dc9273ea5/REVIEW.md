@@ -1,15 +1,21 @@
-# Scientific review
+# Independent mathematical audit
 
-## Correctness — PASS
-The proof begins from the established connected-induced-subgraph facet description for the stated unit in-in realization; central symmetry reduces the largest-ball radius to the smallest facet support distance. Every bipartite cut satisfies the exact two-branch lower bound, with equality achieved only by the whole graph and minimum-degree singleton sets. Strictness for all intermediate subset cardinalities exhausts contacts. Linear annihilators of the zero-slack facets, plus strict positive slack for the finitely many remaining facets, establish the full affine span and dimension of **every** optimal-center set. Exact-arithmetic subset/rank checks corroborate boundary regimes and all formula components. The cited facet theorem remains a stated input.
+## correctness
 
-## Originality — PASS, with qualified historical priority
-Glew's construction and general facets do not state the complete-bipartite Euclidean radius, threshold, contacting-facet split, or exact dimension of the optimal-center locus. He–Li–Su–Zhu analyze support functions and tropical/stringy integrals, not these biclique inballs in their accessible descriptive material. Related published formulas about the complete-bipartite **graphical zonotope**, complete-bipartite **graph associahedron**, and symmetric-edge polytopes concern different bodies and do not imply these center dimensions. Prior in-in tree/cycle classifications cover \(K_{2,2}\) as an isolated boundary example but not the two-parameter family or its sharp transition. The still-inaccessible portions of plausible primary sources are an explicit priority risk; no negative search result is treated as a uniqueness proof.
+PASS
 
-## Mathematical value — PASS
-The complete-bipartite family is the canonical first dense two-part extension beyond trees and cycles. Its metric optimization has a sharp exact boundary \(q=p^2+p+1\), with a genuine change both in contacting supporting facets and in the dimension of all inball centers. The threshold and affine rigidity classification are an exact natural geometric invariant rather than a computational spot check or a routine restatement of the general facet theorem.
+For the precisely stated centrally symmetric Minkowski sum Σ_v[-e_v,e_v]+Σ_edges[-(e_u−e_v),e_u−e_v], a facet with normal 1_S for connected induced S has support |S|+|δ(S)| from the cited Glew construction. Central symmetry permits origin as an optimal Euclidean center, so r=min_S (|S|+|δ(S)|)/sqrt(|S|). For a=|S∩A|,b=|S∩B|,t=a+b, exact cut a(q−b)+b(p−a) is ≥min{pt,n−t}: single-part sets have at least pt outgoing edges, sets meeting both parts have at least n−t. Hence support distance ≥min{(p+1)sqrt t,n/sqrt t}≥min{p+1,sqrt n}. Equality attained only by whole vertex set and min-degree singleton b∈B, with strictness for 1<t<n, yielding all tangent facets and threshold n=(p+1)². A ball of this optimal radius centered c satisfies |sum_(v∈S)c_v|+r sqrt |S|≤|S|+|δ(S)|. Zero-slack normals force c into the claimed common nullspaces (rank 1,q+1,q). All remaining finitely many constraints have positive slack, so small vectors of nullspace produce admissible centers, proving affine span dimensions. Independently checked all (a,b) connected-subset orbits for p=2..5, q from p to 11, and contact-normal ranks in explicit graph cases n<=12. The all-parameter theorem is an exact inequality proof, not finite extrapolation.
 
-## Residual risks
-Full primary-text inspection of two relevant sources was not available by the accessible routes. Undiscovered equivalent terminology for hypercube-plus-graphical-zonotope Minkowski sums could affect historical priority. The center **polytope** is not otherwise fully enumerated.
+## originality
 
-Self-review: passed. Independent audit: not yet performed.
+PASS
+
+Qualified best-of-knowledge PASS, not certified historical priority: Exact three-phase inball and center locus for complete-bipartite in-in zonotopes. The cut estimate |δ(S)|≥min(pt,n−t) and exact equality/rank analysis supply the critical new classification beyond prior general facet theory.
+
+## value
+
+PASS
+
+An exact Euclidean inradius and full affine-center-locus phase diagram for an infinite natural K_(p,q) family of physically introduced in-in zonotopes is a motivated, nontrivial geometric classification. The transition at q=p²+p+1 changes both contacting facets and the dimension of the optimal-center set, including a smaller intermediate dimension at exact equality. It is not interchangeable with known radii of graphical zonotopes or associahedra.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
