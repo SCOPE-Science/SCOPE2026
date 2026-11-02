@@ -1,19 +1,21 @@
-# Scientific review
+# Independent mathematical audit
 
-## Correctness — PASS
+## correctness
 
-The proof starts from the degree-two endpoint neighborhoods, which force four different colors on the first two rungs. At every interior rung a neighborhood of size three already has two distinct colors; the third cannot repeat either without creating an even multiplicity. Induction yields precisely the distance-two inequalities defining the square graph. Conversely square colorings satisfy every parity condition. The constant transition factor follows by subtracting the \(k-4\) overlap colors from the \((k-3)^2\) candidate pairs. This proves the polynomial for every integer palette size, including \(k<4\), and proves the sharp four-color count. The independent brute-force and transfer tests confirm the stated cases but are not substitutes for the proof.
+PASS
 
-## Originality — PASS (provisional scientific comparison)
+The degree-two endpoint neighbor-parity condition forces all four vertices of the first two rungs to have distinct colors. At an interior degree-three vertex, two already distinct neighbor colors prohibit a third repetition (the only legal positive degree-three multiplicities are 1+1+1 or 3), forcing pairwise distinct neighbors and propagating four distinct colors at each successive pair of rungs. Thus exactly the distance-two constraints of L_n^2 hold. For four distinct previous colors, a new rung E,F has (k-3)^2 candidate pairs minus k-4 equal pairs, a constant k^2-7k+13 factor. k<4 vanishes because of the initial K4, while at k=4 each extension is forced and 24 initial assignments persist. Independent direct predicate enumeration and transfer cases corroborate, not replace, the induction.
 
-The full accessible texts of Kwon–Park, arXiv:2401.11653v1, and Caro–Petruševski–Škrekovski–Tuza, arXiv:2410.02336v1, were inspected for the objects, scope and implications of their square-coloring and product theorems. The former gives a claw-free equality of chromatic numbers, which cannot cover clawed ladders with at least three rungs. The latter gives broad product bounds, not equality of coloring sets or a labeled-palette enumerator. The standard ordinary ladder chromatic polynomial concerns a weaker constraint. Searches of mathematical research records found graph-product and odd-coloring results on other families, but no result implying the stated exact ladder polynomial. Uninspected or unindexed equivalents remain possible, particularly in subsequent studies of strong odd coloring.
+## originality
 
-## Value — PASS
+PASS
 
-Strong odd coloring relaxes distance-two coloring on graphs with degree-three vertices, making equality of their coloring sets nonautomatic. The theorem identifies a natural infinite family containing induced claws where the relaxation has no effect, sharpens the general Cartesian-product bound for all lengths and completely enumerates all palette colorings. The unique four-color pattern up to color permutation reveals optimal-coloring rigidity not captured by a scalar chromatic number.
+The defining strong-odd literature establishes the square-coloring upper comparison, claw-free equality of chromatic numbers, and general Cartesian-product bounds. Ladders with at least three rungs are clawed, so those propositions do not imply equality of every palette coloring set. No inspected source provides the exact formula; a later exact square-ladder chromatic polynomial may overlap enumeration.
 
-## Limits
+## value
 
-Only open two-row ladders and labeled palettes are covered. The source comparison is not exhaustive; related material unavailable in full text can bear on priority. There has been no independent validation.
+PASS
 
-Self-review: passed. Independent audit: not yet performed.
+Strong odd coloring generally permits three equal colors around a degree-three vertex, so equality with square-coloring sets is a nontrivial rigidity property even for this clawed natural family. The exact labeled-palette polynomial, stable chromatic number, and unique four-coloring orbit provide complete meaningful combinatorial information.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

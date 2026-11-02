@@ -5,8 +5,11 @@
     "status": "not_performed"
   },
   "independent_audit": {
-    "evidence": null,
-    "status": "not_performed"
+    "status": "passed",
+    "evidence": [
+      "INDEPENDENT_AUDIT_2026-10-30.md",
+      "INDEPENDENT_AUDIT_2026-10-30.json"
+    ]
   },
   "lean_verification": {
     "evidence": null,
@@ -16,14 +19,24 @@
 }
 ---
 
-# Reproducibility and verification
+# Independent mathematical audit
 
-Run `python verify.py` with Python 3 standard library; compare its stdout with `verification_output.txt`.
+## correctness
 
-The verifier constructs each ladder directly from its rungs and rails, exhaustively tests the open-neighborhood odd-occurrence rule and, independently, the adjacency constraints of the graph square. For nineteen finite graph/palette pairs it checks every one of \(1{,}647{,}568\) assignments. A second recurrence checks odd-neighborhood validity directly on a column-by-column construction, without assuming the theorem's square-coloring classification. It agrees with the polynomial for \(105\) pairs with \(2\le n\le16\) and \(2\le k\le8\).
+PASS
 
-Expected output:
+The degree-two endpoint neighbor-parity condition forces all four vertices of the first two rungs to have distinct colors. At an interior degree-three vertex, two already distinct neighbor colors prohibit a third repetition (the only legal positive degree-three multiplicities are 1+1+1 or 3), forcing pairwise distinct neighbors and propagating four distinct colors at each successive pair of rungs. Thus exactly the distance-two constraints of L_n^2 hold. For four distinct previous colors, a new rung E,F has (k-3)^2 candidate pairs minus k-4 equal pairs, a constant k^2-7k+13 factor. k<4 vanishes because of the initial K4, while at k=4 each extension is forced and 24 initial assignments persist. Independent direct predicate enumeration and transfer cases corroborate, not replace, the induction.
 
-`VERIFICATION_OK brute_cases=19 raw_assignments=1647568 transfer_cases=105 test_lengths=2..16 palettes=2..8`
+## originality
 
-No random seeds, network calls or nonstandard modules are needed. Finite checks do not establish correctness for all lengths and palette sizes; the formal induction and combinatorial transition proof in `RESULT.md` supply that conclusion.
+PASS
+
+The defining strong-odd literature establishes the square-coloring upper comparison, claw-free equality of chromatic numbers, and general Cartesian-product bounds. Ladders with at least three rungs are clawed, so those propositions do not imply equality of every palette coloring set. No inspected source provides the exact formula; a later exact square-ladder chromatic polynomial may overlap enumeration.
+
+## value
+
+PASS
+
+Strong odd coloring generally permits three equal colors around a degree-three vertex, so equality with square-coloring sets is a nontrivial rigidity property even for this clawed natural family. The exact labeled-palette polynomial, stable chromatic number, and unique four-coloring orbit provide complete meaningful combinatorial information.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
