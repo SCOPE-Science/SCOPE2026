@@ -1,19 +1,21 @@
-# Scientific review
+# Independent mathematical audit
 
-## Correctness — PASS
+## correctness
 
-The claim is finite for the single-cycle classification. The two independently written hypothesis enumerators agree at every order from three to sixteen. The standard finite-version-space Littlestone recursion is proved by induction and computed both by bitsets and by independent immutable-set splitting; the complete depth-five and depth-six certificates include every leaf witness and are replayed from the supplied file. Static trace shattering is checked exhaustively. Disjoint-union additivity is proved, not extrapolated from finite tests. The theorem asserts no larger-cycle classification.
+PASS
 
-## Originality — PASS with residual risk
+For each n=3,...,16, independently enumerated the cyclic binary strings avoiding both 11 and 000, checked all candidate shattered fixed vertex subsets, and solved the complete finite Littlestone minimax recurrence over version-space bitsets. Reproduced all 14 rows, counts 39 and 90 at n=13,16, VC values 4 and 5 and adaptive values 5 and 6. The recurrence strictly descends on smaller nonempty hypothesis sets, proving termination and exhaustive upper/lower bounds. Product maximal-independent-set families on disjoint components give additive VC; standard optimal-online-mistake characterization gives additive Ldim. No inference for connected n>16.
 
-The closest earlier cycle-context result determines the static VC dimension, not Littlestone ranks; its all-order VC statement is not claimed as new here. The known path maximal-matching results pass through path line graphs, not cyclic maximal-independent-set concepts. The inspected primary literature addresses MIS streaming, abstract explicit-class dimension hardness, and a VC upper bound for MIS hypergraphs; none of the inspected statements entails this first cyclic adaptive gap or the dimension-six reappearance. Search and source-access limitations leave absolute historical priority uncertain.
+## originality
 
-## Value — PASS
+PASS
 
-For a canonical non-monotone graph solution class, the result locates the first connected degree-two example where adaptive information capacity exceeds fixed-query capacity; the gap does not merely grow monotonically, but vanishes and reappears. Finite cutoffs are natural because they are the first transition and first recurrence of this phenomenon. Disjoint-union additivity shows the strict effect can grow unboundedly among two-regular graphs, without claiming a stronger connected construction.
+The compared work on explicit-class Ldim/VC hardness, cycle maximal-independent-set counting and maximal-independent-set hypergraph static VC does not state the exact cycle adaptive ranks. The particular C13 first separation and C16 recurrence are not a title or parameter alias of an identified earlier theorem. Absence of exact published tables remains a priority risk.
 
-## Limits
+## value
 
-Scientific priority is not independently certified; one pertinent older counting paper was accessible only at abstract level and has residual coverage risk. The exact cycle table ends at order sixteen. The output is a self-review, not independent validation.
+PASS
 
-Self-review: passed. Independent audit: not yet performed.
+Natural first finite transition between static and adaptive shattering for canonical graph-solution memberships: C13 is the smallest cycle with gap, gap disappears at C14/C15 then returns C16. Disjoint 2-regular graph unions force an unbounded separation, so the sharp finite boundary is mathematically motivated and not just a convenience table.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

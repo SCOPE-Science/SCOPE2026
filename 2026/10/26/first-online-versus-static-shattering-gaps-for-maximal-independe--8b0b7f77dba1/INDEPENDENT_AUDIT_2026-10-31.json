@@ -1,0 +1,121 @@
+{
+  "audit_date_utc": "2026-10-31",
+  "audited_at_utc": "2026-10-31T07:41:37Z",
+  "axes": {
+    "correctness": {
+      "checked_sources": [
+        "https://github.com/SCOPE-Science/SCOPE2026/tree/fff5beeb9405ab46c6767460bb1a093bf2f107ab/2026/10/26/first-online-versus-static-shattering-gaps-for-maximal-independe--8b0b7f77dba1/RESULT.md",
+        "https://github.com/SCOPE-Science/SCOPE2026/tree/fff5beeb9405ab46c6767460bb1a093bf2f107ab/2026/10/26/first-online-versus-static-shattering-gaps-for-maximal-independe--8b0b7f77dba1/verify.py",
+        "/mnt/data/scope_worker-06_20261031T073315Z/independent_checks.py"
+      ],
+      "rationale": "For each n=3,...,16, independently enumerated the cyclic binary strings avoiding both 11 and 000, checked all candidate shattered fixed vertex subsets, and solved the complete finite Littlestone minimax recurrence over version-space bitsets. Reproduced all 14 rows, counts 39 and 90 at n=13,16, VC values 4 and 5 and adaptive values 5 and 6. The recurrence strictly descends on smaller nonempty hypothesis sets, proving termination and exhaustive upper/lower bounds. Product maximal-independent-set families on disjoint components give additive VC; standard optimal-online-mistake characterization gives additive Ldim. No inference for connected n>16.",
+      "residual_risks": [
+        "The finite exhaustive calculation applies to precisely 3<=n<=16; the product consequence relies on an independently explained Ldim additivity theorem rather than computing arbitrarily many components."
+      ],
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Manurangsi (2023) studies hardness of approximation for explicitly represented concept classes, not individual cycle parameters; an MIS hypergraph VC upper bound is static and supplies no Ldim lower witnesses."
+        ],
+        "reasoning": "General hardness or a static VC inequality does not imply the exact cyclic adaptive dimension or disjoint C13 gap.",
+        "searches": [
+          "Pasin Manurangsi improved inapproximability VC Littlestone via biclique ITCS 2023",
+          "Liu Shangguan Skokan Xu maximal independent set hypergraph VC dimension 2024"
+        ]
+      },
+      "checked_sources": [
+        "https://doi.org/10.4230/LIPIcs.ITCS.2023.85",
+        "https://doi.org/10.1002/jgt.20186",
+        "https://github.com/SCOPE-Science/SCOPE2026/tree/fff5beeb9405ab46c6767460bb1a093bf2f107ab/2026/10/26/first-online-versus-static-shattering-gaps-for-maximal-independe--8b0b7f77dba1/RESULT.md"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "The number of hypotheses 39/90 alone only bounds Ldim by floor(log2 |H|)=5/6. Exact adaptive lower trees, not hypothesis counts or static VC, establish the strict gaps."
+        ],
+        "reasoning": "Earlier hypothesis counts and generic upper bounds do not imply the asserted strict separation; the full adaptive minimax evaluation supplies the missing implication.",
+        "searches": [
+          "count maximal independent sets cycle C13 C16 online dimension",
+          "Manurangsi 2023 explicit concept dimension"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Cyclic maximal independent sets are precisely independent dominating sets, encoded as binary strings forbidding adjacent ones and undominated triples; matching this concept class to counting maximum independent sets or path-line-graph maximal matchings would be false."
+        ],
+        "reasoning": "Searched concept class aliases (independent dominating sets, stable dominating sets, online membership dimension) and neighboring path matching models. The comparison shows the exact cyclic wraparound online task is distinct.",
+        "searches": [
+          "Littlestone dimension maximal independent sets cycle C13 C16 VC online shattering",
+          "cycle maximal independent sets VC dimension Littlestone online membership"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "The Resultary semantic hits concerned unrelated graph cover-free numbers and random-greedy MIS sizes; none reported the C13 4/5 or C16 5/6 dimension pairs."
+        ],
+        "reasoning": "No exact pre-existing cycle adaptive-rank table was located in the checked searches; this is not evidence of absolute nonexistence.",
+        "searches": [
+          "Resultary: Littlestone dimension maximal independent sets cycle C13 C16 VC online shattering",
+          "VC dimension maximal independent sets on paths cycles exact"
+        ]
+      },
+      "rationale": "The compared work on explicit-class Ldim/VC hardness, cycle maximal-independent-set counting and maximal-independent-set hypergraph static VC does not state the exact cycle adaptive ranks. The particular C13 first separation and C16 recurrence are not a title or parameter alias of an identified earlier theorem. Absence of exact published tables remains a priority risk.",
+      "residual_risks": [
+        "Unindexed pre-existing finite cycle dimension tables or an unpublished all-cycle online-rank formula could anticipate this profile.",
+        "Only abstracts were accessible/read for some closest graph-theory papers; no whole-document noncoverage assertion is made."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Its explicit-class computational-hardness statements do not furnish the C13/C16 dimension values",
+          "evidence": "Abstract explicitly describes reductions from maximum biclique to approximating both dimensions.",
+          "identifier_or_url": "https://doi.org/10.4230/LIPIcs.ITCS.2023.85",
+          "material_read": "Journal abstract, problem statement and publication overview (not entire article)",
+          "method": "publisher HTML metadata/abstract",
+          "title": "Improved Inapproximability of VC Dimension and Littlestone’s Dimension via (Unbalanced) Biclique",
+          "trigger": "Same two dimensions; possible general complexity coverage"
+        },
+        {
+          "assessment": "Counts extremal independent-set families over graph classes rather than Littlestone dimension for C13",
+          "evidence": "Publisher abstract gives optimization of number of MIS across graphs.",
+          "identifier_or_url": "https://doi.org/10.1002/jgt.20186",
+          "material_read": "Publisher abstract and listed theorem scope, not full article",
+          "method": "publisher HTML abstract",
+          "title": "Maximal and maximum independent sets in graphs with at most r cycles",
+          "trigger": "Same maximal independent sets on cyclish graphs"
+        },
+        {
+          "assessment": "No matching adaptive ranks returned; no claim to comprehensive database coverage",
+          "evidence": "Representative hits are cover-free family numbers and random-greedy MIS variance rather than online membership trees.",
+          "identifier_or_url": "Resultary semantic query: Littlestone dimension maximal independent sets cycle C13 C16 VC online shattering",
+          "material_read": "Result titles/summaries including cover-free paths/cycles and MIS variance",
+          "method": "Resultary semantic search",
+          "title": "Published mathematical record search for maximal-independent-set dimensions",
+          "trigger": "Search for exact or stronger published dimension values"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "checked_sources": [
+        "https://doi.org/10.4230/LIPIcs.ITCS.2023.85",
+        "https://doi.org/10.1002/jgt.20186",
+        "https://github.com/SCOPE-Science/SCOPE2026/tree/fff5beeb9405ab46c6767460bb1a093bf2f107ab/2026/10/26/first-online-versus-static-shattering-gaps-for-maximal-independe--8b0b7f77dba1/RESULT.md"
+      ],
+      "rationale": "Natural first finite transition between static and adaptive shattering for canonical graph-solution memberships: C13 is the smallest cycle with gap, gap disappears at C14/C15 then returns C16. Disjoint 2-regular graph unions force an unbounded separation, so the sharp finite boundary is mathematically motivated and not just a convenience table.",
+      "residual_risks": [
+        "The finite table is not an all-cycle classification; the unbounded family is disconnected."
+      ],
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "final_claim": "For maximal-independent-set membership on ordinary C_n, exact VC and Littlestone values are given for 3<=n<=16; their first strict gap is (4,5) at n=13, recurs (5,6) at n=16, and disjoint copies of C13 give dimensions 4s and 5s.",
+  "limitations": [
+    "The finite exhaustive calculation applies to precisely 3<=n<=16; the product consequence relies on an independently explained Ldim additivity theorem rather than computing arbitrarily many components.",
+    "Unindexed pre-existing finite cycle dimension tables or an unpublished all-cycle online-rank formula could anticipate this profile.",
+    "Only abstracts were accessible/read for some closest graph-theory papers; no whole-document noncoverage assertion is made.",
+    "The finite table is not an all-cycle classification; the unbounded family is disconnected."
+  ],
+  "schema_version": 1
+}
