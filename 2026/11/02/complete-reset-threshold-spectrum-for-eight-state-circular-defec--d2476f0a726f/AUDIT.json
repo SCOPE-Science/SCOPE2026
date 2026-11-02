@@ -1,0 +1,150 @@
+{
+  "correctness": {
+    "rationale": "The fixed-cycle normalization bijects all rotation classes to exactly 7*C(8,2)*6!=141120 complete rank-seven maps. An exhaustive 255-nonempty-state power-automaton BFS computes exact shortest reset distances for every map. A separately written enumeration over 8^8 transformations with independent state-by-state transition processing reproduces the entire histogram, and the modular congruence formula independently accounts for exactly all 1856 nonsynchronizing cases. The two full tables were coefficientwise compared with the included CSV. No infinite theorem is inferred.",
+    "status": "PASS"
+  },
+  "independent": false,
+  "independent_audit_status": "not_performed",
+  "originality": {
+    "broader_coverage": {
+      "evidence": [
+        "Volkov, arXiv:2306.13317, Section 2, shows primitive automata with a defect-one letter synchronize.",
+        "Don, arXiv:1507.06070, Sections 3–4, gives structural sufficient conditions for circular and 1-contracting automata.",
+        "de Bondt–Don–Zantema, arXiv:1609.06853, Sections 4–5, give small-state distributions and Černý critical extensions."
+      ],
+      "reasoning": "Volkov implies the absence of nontrivial congruences is sufficient for synchronization in this family, and cyclic congruences with induced permutations obstruct it. Thus the structural zero-class criterion is prior-covered and expressly excluded from new novelty. Neither this iff nor the general upper bound gives exact counts for any positive reset threshold. Structural synchronization coverage is not the same as the complete finite threshold spectrum.",
+      "searches": [
+        "primitive rank n minus one circular DFA synchronization congruence mod 2 mod 4 classification",
+        "synchronizing circular automata full cycle one rank n-1 map eight-state histogram"
+      ]
+    },
+    "checked_sources": [
+      "https://arxiv.org/abs/0709.1197",
+      "https://arxiv.org/abs/1507.06070",
+      "https://arxiv.org/abs/1607.04025",
+      "https://arxiv.org/abs/1609.06853",
+      "https://arxiv.org/abs/2306.13317",
+      "https://doi.org/10.1007/s10878-013-9682-0"
+    ],
+    "claim_vs_prior_implication": {
+      "evidence": [
+        "Trahtman, arXiv:0709.1197, reports extremal length 49 and next-highest 44, but not the exact 32-class spectrum.",
+        "Volkov, arXiv:2306.13317, gives iff synchronization from primitivity with defect one, but no shortest-word-length distribution.",
+        "Resulting exact census includes 31 positive threshold values and their 141120-class multiplicities, replayed in both included programs."
+      ],
+      "reasoning": "The implication from prior work is weaker: the longest possible length and its absence gaps constrain support but cannot determine multiplicities for every positive threshold. The known congruence theorem determines which cases are nonsynchronizing but is silent about conditional reset distances. The stated new claim is therefore not a corollary of the inspected prior results.",
+      "searches": [
+        "n=8 circulant cyclic perm transformation rank 7 threshold 43 44 49 automata",
+        "Trahtman 2006 Cerny automaton circular enumeration eight state all reset lengths tables"
+      ]
+    },
+    "equivalent_formulations": {
+      "evidence": [
+        "Trahtman, arXiv:0709.1197, experimental small-automaton thresholds and a largest noncritical eight-state value of 44",
+        "Kisielewicz–Kowalski–Szykuła, doi:10.1007/s10878-013-9682-0, published reset-length computation and random distributions"
+      ],
+      "reasoning": "The same object may be described as rank-one-defect second-letter circular DFA, a cyclic permutation plus one arbitrary rank-seven transformation, or an eight-state almost-group automaton. The exhaustive conditional coefficient table is not the unconditional distribution of all binary automata, and published length-existence results do not imply coefficient multiplicities. The eight normalized rotations are precisely identified; multiplying the histogram by eight converts it to fixed labeled cycle counts.",
+      "searches": [
+        "eight state circular automata rank n-1 letter exact enumeration reset thresholds 141120",
+        "eight-state Černý automaton cyclic letter defect-one all mappings quotient orbits reset threshold complete table",
+        "rank seven transformations 8 state circular automata reset length distribution enumerated histogram"
+      ]
+    },
+    "exact_database_or_table": {
+      "evidence": [
+        "de Bondt–Don–Zantema, arXiv:1609.06853, Section 4 tabulates 3–6-state cases but not the eight-state conditional class.",
+        "Kisielewicz–Kowalski–Szykuła, doi:10.1007/s10878-013-9682-0, Section 7 reports exact unconditional data only through seven states and samples at eight and above.",
+        "Kisielewicz–Kowalski–Szykuła, arXiv:1607.04025, Section 3 provides very-long-reset enumerations but not this full histogram."
+      ],
+      "reasoning": "The known general small-automaton experiments searched for extremal cases or report selected ranges. No exact full 141120-class table was identified in the inspected published material. The existence of undocumented historical software outputs or unpublished files is explicitly retained as a material residual risk; an index search alone is not taken as proof of priority.",
+      "searches": [
+        "8 states binary circular automata rank 7 reset threshold frequency exact distribution",
+        "experimental distribution reset thresholds eight state binary automata frequencies table circular",
+        "eight state circular automata reset thresholds 32 34 37 43 44 49 singleton"
+      ]
+    },
+    "rationale": "The assessable claim is the complete 32-coefficient conditional histogram over all rank-seven maps accompanying a fixed 8-cycle. Trahtman covers 8-state critical and near-critical thresholds, the 2016 small-automaton census covers at most 6 states, published general power-automaton algorithms give no corresponding evaluated distribution, and Volkov covers the primitive-defect-one synchronizability implication but does not determine reset-length multiplicities. The novelty assertion explicitly excludes the known 49-step extremum and the known congruence criterion. Multiple targeted exact-number and equivalent-formulation searches did not find the full table, subject to the residual unindexed-table risk.",
+    "residual_risks": [
+      "The exact conditional 8-state table could exist in unpublished small-automaton archives, unindexed code repositories, or raw computational records from earlier broad censuses.",
+      "Small-automaton complete-search software might be sufficient to regenerate the table; mere computability of coefficients is not an equivalent published table, but could affect an assessment of historical priority.",
+      "Independent external proof and literature-priority review have not been performed."
+    ],
+    "source_inspections": [
+      {
+        "assessment": "PRIOR PARTIAL COVERAGE: threshold extrema and selected gaps known; complete fixed-cycle rank-seven multiplicity spectrum not stated.",
+        "evidence": [
+          "Introduction and experimental data: n=8 q=2 largest noncritical 44, critical 49; no per-length complete fixed-cycle map counts."
+        ],
+        "identifier_or_url": "https://arxiv.org/abs/0709.1197",
+        "material_read": "Sections Introduction/experimental data, algorithms and high-threshold table; in particular n=8 bound 49 and largest noncritical 44",
+        "method": "Open full arXiv text and inspect the target numbers and experimental scope",
+        "title": "An efficient algorithm finds noticeable trends and examples concerning the Černý conjecture",
+        "trigger": "Direct earlier census of eight-state critical and near-critical binary automata"
+      },
+      {
+        "assessment": "PRIOR PARTIAL COVERAGE: all-state-size tables through six states; n8 critical known, no comprehensive conditional rank-seven eight-cycle histogram.",
+        "evidence": [
+          "Abstract and Section 4 restrict reported enumerated threshold-frequency tables to at most six states; critical n8 cases discussed in context."
+        ],
+        "identifier_or_url": "https://arxiv.org/abs/1609.06853",
+        "material_read": "Sections 1, 4.2–4.4 (tables of small automata), 5 (extension of the Cerny automata)",
+        "method": "Read full arXiv HTML text including numerical tables and textual scope restrictions",
+        "title": "Slowly synchronizing automata with fixed alphabet size",
+        "trigger": "Published complete high-threshold tables and Cerny critical comparisons"
+      },
+      {
+        "assessment": "BACKGROUND METHODS: reset-word subset BFS and sufficient structural criteria; the exact complete eight-state spectrum is not stated.",
+        "evidence": [
+          "Sections 2.1 and 4: power-automaton characterization and the aperiodic 1-contracting sufficient conditions."
+        ],
+        "identifier_or_url": "https://arxiv.org/abs/1507.06070",
+        "material_read": "Sections 2.1, 3, and 4, including power automaton and circular sufficient conditions",
+        "method": "Read arXiv full text sections and compare sufficient hypotheses to unrestricted arbitrary second letter",
+        "title": "The Černý conjecture and 1-contracting automata",
+        "trigger": "Archive-age direct structural results for circular automata with defect-one maps"
+      },
+      {
+        "assessment": "DECISIVE PRIOR COVERAGE for the primitive/defect-one criterion; does not imply positive reset-length histogram.",
+        "evidence": [
+          "Section 2 confirms primitive automaton with defect-one letter synchronizes, resolving only yes/no synchronization."
+        ],
+        "identifier_or_url": "https://arxiv.org/abs/2306.13317",
+        "material_read": "Introduction and Section 2, especially criterion for an automaton with a defect-one letter",
+        "method": "Read full arXiv text and compare theorem implication to zero and positive threshold counts",
+        "title": "Synchronization of primitive automata",
+        "trigger": "Possible dominating theorem on synchronization of rank-seven maps"
+      },
+      {
+        "assessment": "METHODS AND DIFFERENT STATISTICS: exact all-binary automata census at most seven states and sampling at n=8, not a full eight-state rank-seven circular enumeration.",
+        "evidence": [
+          "Section 7.1: exact distributions reported for n<=7; for 8<=n<=100 one million random samples."
+        ],
+        "identifier_or_url": "https://doi.org/10.1007/s10878-013-9682-0",
+        "material_read": "Algorithm sections and Section 7.1/7.6 on exact-versus-sampled distributions",
+        "method": "Read open-access article HTML full text including experiments",
+        "title": "Computing the shortest reset words of synchronizing automata",
+        "trigger": "Potential full random-automaton numerical threshold table"
+      },
+      {
+        "assessment": "PRIOR PARTIAL COVERAGE: small-automaton conjecture/existence and n12 high-reset lists, not the complete n8 fixed-cycle rank-seven class.",
+        "evidence": [
+          "Section 3 reports Černý bound checked through 12 binary states and selected high-reset families, not the conditional all-threshold distribution."
+        ],
+        "identifier_or_url": "https://arxiv.org/abs/1607.04025",
+        "material_read": "Complete arXiv experimental HTML paper, especially Sections 2 and 3, and the high-threshold tables",
+        "method": "Read experimental HTML and inspect exact scope of tabulated counts",
+        "title": "Experiments with Synchronizing Automata",
+        "trigger": "Potential small-automaton histogram or stronger finite enumeration"
+      }
+    ],
+    "status": "PASS"
+  },
+  "review_type": "self_review",
+  "schema_version": 1,
+  "scope_run_id": "d2476f0a-726f-4392-b783-2300870242d3",
+  "self_review_status": "passed",
+  "value": {
+    "rationale": "This is a motivated natural complete finite classification for all circular eight-state DFAs with exactly one defect-one letter, where the cycle fixes an essential class structure. It fills the conditional reset-threshold distribution rather than just a known maximal threshold; 31 attained positive lengths, rare tail multiplicities, and the 1856 zero stratum quantitatively distinguish extremely slow maps from typical ones. The result is a standalone benchmark for reset algorithms and comparative study of circular synchronization; it is not a routine substitution into a previously supplied numerical table. The priority risk of unindexed historical data is explicitly reported.",
+    "status": "PASS"
+  }
+}
