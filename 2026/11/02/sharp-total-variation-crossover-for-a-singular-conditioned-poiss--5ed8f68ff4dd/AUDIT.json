@@ -1,0 +1,114 @@
+{
+  "correctness": {
+    "rationale": "The conditional PMF is computed exactly from four Poisson masses; real-rooted Legendre generating polynomial yields independent-Bernoulli representation and a variance bound. Exact score identity yields 0<=nmu/(n+mu)-E_Q K<=1. Bessel mgf yields the reference CLT and exponential-moment control; the explicit monotone likelihood ratio produces a Gaussian tilt at mu^(3/2)/n=O(1), and its TV is the stated normal-shift profile. In the larger regime the two means differ by mu^2/n >> sqrt(mu), while both variances are O(mu), proving TV ->1. The standard-library checker passed 243 finite exact/numerical assertions; finite checks are supplemental.",
+    "status": "PASS"
+  },
+  "independent": false,
+  "independent_audit_status": "not_performed",
+  "originality": {
+    "broader_coverage": {
+      "evidence": [
+        "Duan–Lyu–Powell (2026), Assumption A explicitly requires uniformly converging bounded cost and Assumption B requires both table dimensions to diverge.",
+        "Section 8.5 of that paper treats cloned margins with a fixed strictly positive reference matrix, not an \\(n\\)-dependent odds ratio vanishing to zero.",
+        "Retrieved published-finding corpus item 2026/9/20/SCOPE-poisson-binomial-cumulant-effective-trial-hierarchy--c64930932dda concerns cumulant bounds for independent Bernoulli sums, not the TV approximation of this Fisher law by a Bessel law."
+      ],
+      "reasoning": "The general conditioned-Poisson CLTs and cloned-margin fluctuation theorem do not entail the fixed-dimension singular-cost Bessel reference or its \\(n^{4/3}\\) total-variation cutoff. Classical Legendre real-rootedness, Bernoulli variance bounds and Bessel CLT are used as ingredients and not presented as new statements.",
+      "searches": [
+        "Full-text arXiv:2610.14616 Sections 2.1, 2.4, 8.5, Proposition 8.7",
+        "published-finding corpus query: conditional independent Poisson two by two margins n vanishing odds ratio sharp Bessel approximation total variation",
+        "Web: \"squared binomial coefficients\" \"Bessel distribution\" approximation",
+        "Web: \"Fisher noncentral hypergeometric\" \"Bessel\" approximation asymptotic",
+        "Web: \"2x2\" \"Bessel\" \"total variation\" contingency"
+      ]
+    },
+    "checked_sources": [
+      "Duan–Lyu–Powell (2026), arXiv:2610.14616, full text",
+      "Relevant published-finding corpus hit 2026/9/18/SCOPE-hypergeometric-gaussian-hellinger-noncontiguity--40af82dd69ac, title/summary",
+      "Relevant published-finding corpus hit 2026/9/8/SCOPE057, title/summary",
+      "Relevant published-finding corpus hit 2026/10/11/SCOPE-cofinite-zero-geometry-on-the-balanced-hypergeometric-critical-p--4819a9f69919, title/summary",
+      "Fog (2008), bibliographic context only"
+    ],
+    "claim_vs_prior_implication": {
+      "evidence": [
+        "Duan–Lyu–Powell (2026) establish a general Poisson-table/permutation coupling, large-dimensional Schrödinger-bridge limit and CLT under specific assumptions; their formulas permit the \\(2\\times2\\) specialization but do not state the singular TV profile.",
+        "Fisher noncentral hypergeometric mass and the Bessel generating function explain both exact distributions but do not alone give asymptotics when the Bessel parameter diverges jointly with the margin.",
+        "The present proof additionally uses a triangular likelihood-ratio CLT and a separate sharp mean-separation argument to establish the full phase profile."
+      ],
+      "reasoning": "The new assertion is neither a corollary of the source CLT hypotheses (which fail here) nor the classical fixed-z Bessel coefficient limit. A more general existing asymptotic theorem on Fisher laws with \\(n\\)-dependent odds may nevertheless imply it; that is the principal unresolved historical risk.",
+      "searches": [
+        "https://arxiv.org/abs/2610.14616; full text, Sections 1, 2.1, 2.4 and 8.5",
+        "published-finding corpus query: Poisson contingency tables conditioned margins 2x2 noncentral hypergeometric Bessel critical odds ratio boundary distribution",
+        "published-finding corpus query: symmetric Fisher noncentral hypergeometric odds z divided by n squared Bessel I0 total variation cutoff n four thirds Gaussian shift",
+        "published-finding corpus query: conditional independent Poisson two by two margins n vanishing odds ratio sharp Bessel approximation total variation",
+        "published-finding corpus query: squared binomial coefficients Bessel distribution total variation asymptotic critical crossover",
+        "Web: \"Fisher noncentral hypergeometric\" \"Bessel\" limit",
+        "Web: \"noncentral hypergeometric\" \"Bessel distribution\" odds ratio",
+        "Web: \"squared binomial coefficients\" \"Bessel distribution\" approximation",
+        "Web: \"Fisher noncentral hypergeometric\" \"Bessel\" approximation asymptotic",
+        "Web: \"2x2\" \"Bessel\" \"total variation\" contingency"
+      ]
+    },
+    "equivalent_formulations": {
+      "evidence": [
+        "The conditional table diagonal is exactly Fisher noncentral hypergeometric with equal margins and odds z/n^2.",
+        "The Bessel normalizer I_0(2sqrt(z)) is the conventional zero-order discrete Bessel distribution normalizer.",
+        "published-finding corpus leading retrieved 2026/9/18/SCOPE-hypergeometric-gaussian-hellinger-noncontiguity--40af82dd69ac concerns a continuous beta-precision hypergeometric family and Hellinger Gaussian boundary, not conditional \\(2\\times2\\) Poisson tables."
+      ],
+      "reasoning": "Aliases tested include noncentral Fisher hypergeometric, conditioned Poisson cells, squared-binomial distribution, Bessel-zero distribution, and Gaussian shift. Recognized exact conditional law is pre-existing; this finding is instead the limit of TV between two changing laws. None of the retrieved mathematical statements specifies that \\(n^{4/3}\\) transition or its exact Gaussian-shift profile.",
+      "searches": [
+        "published-finding corpus query: Poisson contingency tables conditioned margins 2x2 noncentral hypergeometric Bessel critical odds ratio boundary distribution",
+        "published-finding corpus query: symmetric Fisher noncentral hypergeometric odds z divided by n squared Bessel I0 total variation cutoff n four thirds Gaussian shift",
+        "published-finding corpus query: conditional independent Poisson two by two margins n vanishing odds ratio sharp Bessel approximation total variation",
+        "published-finding corpus query: squared binomial coefficients Bessel distribution total variation asymptotic critical crossover",
+        "Web: \"Fisher noncentral hypergeometric\" \"Bessel\" limit",
+        "Web: \"noncentral hypergeometric\" \"Bessel distribution\" odds ratio"
+      ]
+    },
+    "exact_database_or_table": {
+      "evidence": [
+        "published-finding corpus search returned distinct titles/IDs, including 2026/9/8/SCOPE057 (finite fiber diameters), 2026/9/18/SCOPE-hypergeometric-gaussian-hellinger-noncontiguity--40af82dd69ac, and 2026/10/11/SCOPE-cofinite-zero-geometry-on-the-balanced-hypergeometric-critical-p--4819a9f69919 (special-function zeros)."
+      ],
+      "reasoning": "No exact table, same changing pair of probability laws, or identical phase profile was found in those indexed searches and primary literature. A search failure is not uniqueness proof,  cannot be ruled out.",
+      "searches": [
+        "published-finding corpus query: Poisson contingency tables conditioned margins 2x2 noncentral hypergeometric Bessel critical odds ratio boundary distribution",
+        "published-finding corpus query: symmetric Fisher noncentral hypergeometric odds z divided by n squared Bessel I0 total variation cutoff n four thirds Gaussian shift",
+        "published-finding corpus query: squared binomial coefficients Bessel distribution total variation asymptotic critical crossover"
+      ]
+    },
+    "rationale": "The checked full-text 2026 conditioned-Poisson paper treats positive bounded-cost, large-dimensional or fixed-prior cloned-margin regimes; none directly yields the singular fixed-2x2 Bessel total-variation transition. Classic finite Fisher and Bessel identities are explicitly excluded from the novelty claim. Targeted published-finding corpus and literature searches found no dominating theorem. Historical incompleteness and possible broad hypergeometric saddlepoint results remain a stated risk.",
+    "residual_risks": [
+      "General results on Poisson/Bessel approximation for Fisher noncentral hypergeometric distributions under moving odds ratios might imply the complete profile; an exhaustive historical review has not been performed.",
+      "Fog (2008) and other older Fisher-hypergeometric references were not inspected in full.",
+      "Search/index coverage is incomplete, especially for inaccessible older literature and research archives."
+    ],
+    "source_inspections": [
+      {
+        "assessment": "General source does not state or imply the singular n^(4/3) Fisher-to-Bessel TV crossover from its asserted hypotheses",
+        "evidence": "2026-10-10 public arXiv primary 60F05, Assumption A bounds cost and B sends row/column number to infinity; 8.5 fixes reference prior while cloning margins.",
+        "identifier_or_url": "arXiv:2610.14616; https://arxiv.org/abs/2610.14616",
+        "material_read": "Full HTML text, introduction/conditional law, Sections 2.1 and 2.4 theorems and assumptions, and Section 8.5 cloned-margin proposition/proof",
+        "method": "Read exact assumptions, conclusion and alternate cloned regime, compared dimensions, positivity and odds with proposed theorem",
+        "title": "Poisson contingency tables, Gibbs permutations, and entropic optimal transport",
+        "trigger": "Identical conditioned independent-Poisson table object and newest motivating research"
+      },
+      {
+        "assessment": "Not enough material to rule out all asymptotic comparisons; keep priority risk",
+        "evidence": "Title identifies sampling methods for Fisher and Wallenius distributions; exact sharp critical asymptotic not visible in accessible material.",
+        "identifier_or_url": "A. Fog (2008), Communications in Statistics—Simulation and Computation; bibliographic entry surfaced in web search",
+        "material_read": "Bibliographic/title and search summary only; not full article",
+        "method": "Compared advertised numerical/sampling scope with triangular TV theorem; no whole-document exclusion asserted",
+        "title": "Sampling Methods for Wallenius’ and Fisher’s Noncentral Hypergeometric Distributions",
+        "trigger": "Same finite conditional 2x2 Fisher distribution"
+      }
+    ],
+    "status": "PASS"
+  },
+  "review_type": "self_review",
+  "schema_version": 1,
+  "scope_run_id": "5ed8f68f-f4dd-45e0-a568-1c03a68a7472",
+  "self_review_status": "passed",
+  "value": {
+    "rationale": "The motivating conditional-Poisson fluctuation theory does not quantify singular-cost approximation. Determining exactly when an apparently natural Bessel approximation fails in the strong total-variation metric, including the \\(n^{4/3}\\) transition and nontrivial limiting profile, supplies a natural precise boundary for inferential approximation on a canonical small-margin contingency table. It is not a rephrased fixed-parameter Bessel weak limit or a purely numerical invariant.",
+    "status": "PASS"
+  }
+}
