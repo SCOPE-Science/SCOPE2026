@@ -1,0 +1,129 @@
+{
+  "correctness": {
+    "rationale": "All hypotheses and quantifiers are fixed: n=3k+1, k>=2, every labelled minimum maximal matching. The established bracelet graph admits invertible scaling to two separated particles. Three exhaustive cyclic-order cases give the uniform floor(n/2) upper bound. A pair-dependent explicit target has unrestricted circle-assignment lower bound floor(n/2); because every legal move shifts one particle by one circle edge, this is also a legal-path lower bound. Both actual standalone implementations were run and passed, checking each finite configuration and every eccentricity, plus an exhaustive isomorphism to the direct cycle matching graph. Infinite conclusion relies on the proof, not extrapolation.",
+    "status": "PASS"
+  },
+  "independent": false,
+  "independent_audit_status": "not_performed",
+  "originality": {
+    "broader_coverage": {
+      "evidence": [
+        "Kamiński--Medvedev--Milanič, arXiv:1008.4563, Sections 1 and 3: general independent-set reconfiguration and token models.",
+        "Suzuki--Mouawad--Nishimura, arXiv:1401.5714: diameter results for dominating-set addition/removal graphs, not minimum independent dominating sets with cardinality-preserving moves.",
+        "Brewster--Mynhardt--Teshima 2023: structural characterization of exact cycle graphs; no uniform radius or eccentricity theorem in inspected relevant sections."
+      ],
+      "reasoning": "General domination/independent-set reconfiguration papers differ in permitted intermediate configurations or supply only connectivity/complexity bounds. The known all-parameter bracelet graph characterization is a stronger structural description of the family but does not itself supply the sharp closed eccentricity formula without the new geometric path and witness arguments.",
+      "searches": [
+        "minimum maximal matchings cycles shortest token jumping transformations",
+        "two hard-core tokens cycle 3h-2 separation at least h isometric assignment diameter",
+        "Reconfiguration of Dominating Sets 2014 diameter"
+      ]
+    },
+    "checked_sources": [
+      "arxiv:1008.4563",
+      "arxiv:1401.5714",
+      "hdl:1828/14602",
+      "arxiv:2303.08190"
+    ],
+    "claim_vs_prior_implication": {
+      "evidence": [
+        "Teshima thesis Theorem 4.12 identifies I(C_(3k+1))=B_k; adjacent coordinates described Lemma 4.11.",
+        "Accessible previous same-topic claim on all inclusion-maximal independent-set sectors supplies connectivity and degree distributions, not exact distance or eccentricity."
+      ],
+      "reasoning": "The earlier bracelet construction fixes the graph and therefore implicitly determines its metric computationally; however, it neither states the universal equality ecc=floor(n/2) nor provides the two-particle upper construction and all-vertices lower witnesses. The prior connectivity and degree facts do not imply that formula as their stated consequence. No already-stated stronger metric result was found.",
+      "searches": [
+        "i-graph cycles eccentricity diameter shortest token slides minimum independent dominating set",
+        "bracelet graph B_k diameter radius eccentricity independence domination cycle 3k+1"
+      ]
+    },
+    "equivalent_formulations": {
+      "evidence": [
+        "Brewster--Mynhardt--Teshima 2023, arXiv:2303.08190, cycle Section 3: i-graph of C_(3k+1) is the bracelet graph B_k with coordinate +/-3 updates.",
+        "Teshima 2022 thesis, hdl:1828/14602, Chapter 4 Sections 4.4--4.5: identical bracelet presentation and Hamiltonicity results."
+      ],
+      "reasoning": "Minimum maximal matchings on a cycle are minimum independent dominating sets of its line graph, which is the same cycle. The bracelet graph therefore already describes the full adjacency. The independently proved invariant here is the exact common eccentricity for every bracelet vertex. It is not listed in the full-text metric/bracelet statements inspected.",
+      "searches": [
+        "bracelet graph B_k diameter radius eccentricity independence domination cycle 3k+1",
+        "i-graph cycles eccentricity diameter shortest token slides minimum independent dominating set",
+        "minimum edge dominating sets cycle reconfiguration gap compositions exchange",
+        "\"bracelet graph\" diameter eccentricity \"i-graph\""
+      ]
+    },
+    "exact_database_or_table": {
+      "evidence": [
+        "No exact eccentricity table identified in the relevant 2022 thesis Section 4.4--4.5 or 2023 article Section 3.",
+        "The cited older paper classifies bracelet degrees, vertices and Hamiltonicity but not distance shells or uniform eccentricity."
+      ],
+      "reasoning": "The claim is an infinite closed formula, not merely a new small-n table. Exhaustive state-by-state checks for n up to 61 corroborate it but provide no independent novelty assertion.",
+      "searches": [
+        "bracelet graph B_k diameter radius eccentricity independence domination cycle 3k+1",
+        "minimum maximal matching reconfiguration cycle, exact diameter, gap defects, token sliding two hard core particles",
+        "\"B_k\" \"bracelet graph\" diameter domination cycles"
+      ]
+    },
+    "rationale": "2010 independent-set reconfiguration and 2014 domination reconfiguration introduce related questions, not the cycle metric. The 2022 thesis and March 2023 article give the exact bracelet adjacency and counts; their relevant full-text cycle sections and Hamiltonicity sections were inspected. They do not state or prove the exact common eccentricity formula. The new theorem concerns the non-immediate all-vertex metric of this known family, not a new graph identification. Actual mathematical-record searches and accessible older mathematical claims were compared by implication. Possible alternative terminology remains a residual risk.",
+    "residual_risks": [
+      "The known full bracelet adjacency determines its metric in principle; an earlier derived closed diameter/eccentricity theorem indexed under other terminology may exist.",
+      "No independent scholarly audit has been performed."
+    ],
+    "source_inspections": [
+      {
+        "assessment": "BACKGROUND_NOT_COVERING",
+        "evidence": [
+          "first arXiv submission August 26, 2010",
+          "Token slide is defined; not the minimum maximal-matching cycle graph or its all-vertex eccentricity."
+        ],
+        "identifier_or_url": "https://arxiv.org/pdf/1008.4563",
+        "material_read": "Introduction and independent-set model/complexity discussion, with inspected PDF pages and text",
+        "method": "Direct open-access PDF examination",
+        "title": "Shortest paths between shortest paths and independent sets",
+        "trigger": "Early token-sliding/independent-set reconfiguration source and archive date anchor"
+      },
+      {
+        "assessment": "BACKGROUND_NOT_COVERING",
+        "evidence": [
+          "first arXiv submission January 22, 2014",
+          "Uses token addition/removal for dominating sets, distinct from cardinality-preserving minimum maximal-matching exchange."
+        ],
+        "identifier_or_url": "https://arxiv.org/abs/1401.5714",
+        "material_read": "Public abstract and substantive introduction and diameter framework",
+        "method": "Public arXiv full-text HTML reading",
+        "title": "Reconfiguration of Dominating Sets",
+        "trigger": "Historical graph reconfiguration diameter source"
+      },
+      {
+        "assessment": "UNDERLYING_BRACELET_COVERED_EXACT_METRIC_NOT_IDENTIFIED",
+        "evidence": [
+          "Theorem 4.12 determines bracelet graph, and Section 4.5 Hamiltonicity; neither includes all-vertex eccentricity formula.",
+          "Public repository date 2023-01-03."
+        ],
+        "identifier_or_url": "https://dspace.library.uvic.ca/bitstreams/629149d6-8ad6-4692-aa43-8fa12718ee55/download",
+        "material_read": "Chapter 4 cycle i-graphs, especially pages 59--74 and Theorems 4.12--4.13, including relevant figures",
+        "method": "University repository open PDF, textual examination and page screenshots",
+        "title": "The i-Graph and Other Variations on the gamma-Graph",
+        "trigger": "Full original thesis treatment of bracelet graphs could cover metric"
+      },
+      {
+        "assessment": "BRACELET_STRUCTURE_COVERED_EXACT_ECCENTRICITY_NOT_IDENTIFIED",
+        "evidence": [
+          "Defines n=3k+1 bracelet graph and its +/-3 coordinate neighbors, degree classes and Hamiltonicity.",
+          "Public arXiv first posted 2023-03-14."
+        ],
+        "identifier_or_url": "https://arxiv.org/pdf/2303.08190",
+        "material_read": "Complete relevant cycle structural and bracelet sections and Hamiltonicity treatment",
+        "method": "arXiv open-access PDF text and screenshot examination",
+        "title": "The i-Graphs of Paths and Cycles",
+        "trigger": "Closest full literature treatment of the exact cycle reconfiguration graph"
+      }
+    ],
+    "status": "PASS"
+  },
+  "review_type": "self_review",
+  "schema_version": 1,
+  "scope_run_id": "9e512596-be10-4d67-b428-2d37aa9ea528",
+  "self_review_status": "passed",
+  "value": {
+    "rationale": "Shortest replacement paths are the natural quantitative measure of moving among optimal edge-dominating matching configurations. A complete family of nonregular reconfiguration graphs is proved self-centered with a sharp, uniformly attained linear radius/diameter and an explicit farthest target from every state. Counts, degrees, connectivity and Hamiltonicity alone do not supply these metric facts; the result has natural all-parameter scope and is not a purely arbitrary finite statistic.",
+    "status": "PASS"
+  }
+}
