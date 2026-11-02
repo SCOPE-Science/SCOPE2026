@@ -1,0 +1,129 @@
+{
+  "correctness": {
+    "rationale": "The mathematical condition is exactly a clique condition in a finite graph. Each output ball is built with exact deletion and at-most-one flip and crosschecked by an independently written string procedure for all 480 nontrivial inputs. At lengths five through eight the checked cliques have sizes 18, 26, 26, 24. The self-contained exhaustive search properly colors all residual candidate graphs, explores every unpruned clique branch, and completes with no larger clique. Its source is CHECKER.cpp, and OUTPUT.txt records successful replay and precise search-node totals. At lengths one through four all output intersections are below nine by the total output-domain size. No infinite extrapolation is made.",
+    "status": "PASS"
+  },
+  "independent": false,
+  "independent_audit_status": "not_performed",
+  "originality": {
+    "broader_coverage": {
+      "evidence": [
+        "https://arxiv.org/abs/2604.25294, Section IV-C Theorem IV.4 gives a nine-read construction assuming length at least ten and an asymptotic redundancy estimate; it does not compute the unrestricted finite optimum at lengths five through eight.",
+        "https://arxiv.org/abs/2505.04232, introduction and Section IV-E provide general pairwise upper bounds and constructions for 7 and 31 reads, not this maximum codebook size.",
+        "https://arxiv.org/abs/2501.03833, introduction and problem description bound intersections for inputs with Hamming-distance restrictions, not the exact unrestricted nine-read capacity profile."
+      ],
+      "reasoning": "The main 2026 paper is the most plausible broader source because it treats nine reads directly. Its explicit theorem begins at length ten and gives existence/redundancy, whereas this finding is an exact extremal statement on shorter lengths. Neither stronger general pairwise intersection bounds nor a construction at a different threshold determines the maximum clique sizes shown here.",
+      "searches": [
+        "Exact nine read N=9 single deletion single substitution reconstruction code capacity A_9(n) length 5 6 7 8 18 26 26 24",
+        "Li Sun Ge 2604.25294 exact optimal finite size nine read code 8 256 maximum independent set",
+        "small blocklength optimum nine read binary reconstruction 2026 Li Sun Ge single deletion substitution compared to 5-read",
+        "\"Binary reconstruction codes for correcting one deletion and one substitution\" 2025",
+        "\"Sequence reconstruction for the single-deletion single-substitution channel\" 2025"
+      ]
+    },
+    "checked_sources": [
+      "arxiv:2604.25294",
+      "arxiv:2505.04232",
+      "arxiv:2501.03833",
+      "2026/10/4/SCOPE-exact-binary-one-deletion-one-substitution-codes-at-lengths-seve--49b7ae777343",
+      "2026/10/4/SCOPE-exact-preasymptotic-profile-for-n-n-3-3-in-binary-deletion-recon--6fda50f1a93d"
+    ],
+    "claim_vs_prior_implication": {
+      "evidence": [
+        "https://arxiv.org/abs/2604.25294 Theorem IV.4 establishes nine-read existence for lengths at least ten; its premise does not apply at the lengths asserted here.",
+        "https://arxiv.org/abs/2505.04232 Theorem IV.8 establishes a seven-read code construction, not the largest nine-read codebook.",
+        "An accessible own finite-capacity claim covers five reads with capacities at lengths three through nine; its admissible families are strictly smaller than or equal to the nine-read admissible families, so it gives only lower bounds.",
+        "Indexed 2026/10/4/SCOPE-exact-preasymptotic-profile-for-n-n-3-3-in-binary-deletion-recon--6fda50f1a93d concerns pure three-deletion read ambiguity, not deletion plus substitution."
+      ],
+      "reasoning": "For a fixed length, the threshold-five conflict graph contains the threshold-nine conflict graph, so its independence number is at most the present capacity; equality is not implied. The reported threshold-five capacities are strictly smaller at lengths five through eight. The 2026 long-block construction provides no short-block maximum. Therefore no checked prior theorem logically implies 18, 26, 26, 24 or the decline.",
+      "searches": [
+        "Li Sun Ge 2604.25294 exact optimal finite size nine read code 8 256 maximum independent set",
+        "small blocklength optimum nine read binary reconstruction 2026 Li Sun Ge single deletion substitution compared to 5-read",
+        "2026/10/4/SCOPE-exact-preasymptotic-profile-for-n-n-3-3-in-binary-deletion-recon--6fda50f1a93d",
+        "2026 arxiv nine reads deletion substitution codebook exact finite cardinality"
+      ]
+    },
+    "equivalent_formulations": {
+      "evidence": [
+        "The model is equivalent to maximum clique in the graph of pairs whose distinct output-ball intersection has fewer than nine members. This is a mathematical reduction performed here, not a separate published theorem.",
+        "https://arxiv.org/abs/2505.04232, Sections II and IV-E discuss deletion/substitution balls, but the cited finite code result is for other read thresholds.",
+        "Indexed closest result 2026/10/4/SCOPE-exact-binary-one-deletion-one-substitution-codes-at-lengths-seve--49b7ae777343 concerns one-read mixed-error correction at lengths seven and eight, not nine-read reconstruction."
+      ],
+      "reasoning": "A source stating a maximum-clique value for this exact overlap graph, or a stronger code bound at a dominating read parameter, would cover the result. No such implication was found. Deletion-only reconstruction and ordinary mixed-error correction use different compatibility graphs, and lower-threshold feasible codes do not set the nine-read optimum.",
+      "searches": [
+        "nine read mixed edit reconstruction incompatibility graph maximum clique 256 vertices length eight 24 codewords",
+        "deletion then Hamming distance at most one ball graph independence number 9 read, n=7 and n=8 capacity",
+        "\"single-deletion single-substitution\" \"(n,9\" \"exact\" codebook",
+        "2026/10/4/SCOPE-exact-binary-one-deletion-one-substitution-codes-at-lengths-seve--49b7ae777343"
+      ]
+    },
+    "exact_database_or_table": {
+      "evidence": [
+        "The indexed published-finding corpus returns closest other-channel and one-read finite-capacity findings rather than these values.",
+        "https://arxiv.org/abs/2604.25294, surveyed Sections I, III, IV-C and the main claims; no exact capacity table for lengths five through eight appears in the checked material.",
+        "https://arxiv.org/abs/2505.04232 and https://arxiv.org/abs/2501.03833, checked main theorems and constructions lack this table."
+      ],
+      "reasoning": "An exact table or reproducible enumeration in an unindexed database would defeat priority even if its title differed. The actual web/index searches did not identify one, but failed search is not proof of absence; this is retained as a residual risk.",
+      "searches": [
+        "Exact nine read N=9 single deletion single substitution reconstruction code capacity A_9(n) length 5 6 7 8 18 26 26 24",
+        "Codebook nonmonotonic length eight nine reads deletion substitution reconstruction 26 24",
+        "\"nine-read\" \"single deletion\" \"substitution\" exact \"8\" code",
+        "\"single-deletion single-substitution\" \"(n,9\" \"exact\" codebook",
+        "deletion then Hamming distance at most one ball graph independence number 9 read, n=7 and n=8 capacity"
+      ]
+    },
+    "rationale": "The directly relevant 2026 paper studies nine-read codes but its explicit theorem starts at length ten and is not an exact short-block optimum. Earlier primary papers study bounds and other read thresholds. Published indexed results and accessible historical claims were searched using precise graph, read-count, threshold, capacity and length aliases; the closest results do not imply these exact capacities. Residual priority risk for unindexed tables is retained.",
+    "residual_risks": [
+      "The accessible indexes may omit exact finite-size code tables or unpublished computations.",
+      "The previous five-read finite profile is related but does not determine the nine-read optimum; further independent priority checking is advisable.",
+      "A finer structural proof or an alternative finite certificate may exist without being indexed."
+    ],
+    "source_inspections": [
+      {
+        "assessment": "Defines the same ball and proves a nine-read construction for length at least ten, with no exact unrestricted length-five-through-eight capacity statement located in the inspected material.",
+        "evidence": [
+          "https://arxiv.org/abs/2604.25294, abstract and Introduction",
+          "https://arxiv.org/abs/2604.25294, Section II-A and Theorem IV.4 (n at least 10)"
+        ],
+        "identifier_or_url": "https://arxiv.org/abs/2604.25294",
+        "material_read": "arXiv full-text HTML/text: abstract, Introduction, Section II-A definition, Section III key conclusions, and Section IV-C nine-read theorem and construction; also targeted searches for finite length eight.",
+        "method": "Read parsed full-text sections and cross-compare the precise quantifiers, read count, length ranges and capacity versus construction distinctions.",
+        "title": "Correcting One Deletion and One Substitution with a Constant Number of Reads",
+        "trigger": "Direct recent source on the same nine-read error-ball model and the strongest plausible coverage."
+      },
+      {
+        "assessment": "The accessible theorems cover different read counts and sufficient code constructions; no exact nine-read short-block maxima were identified.",
+        "evidence": [
+          "https://arxiv.org/abs/2505.04232, Introduction",
+          "https://arxiv.org/abs/2505.04232, Theorems IV.7 and IV.8"
+        ],
+        "identifier_or_url": "https://arxiv.org/abs/2505.04232",
+        "material_read": "arXiv full text: introduction and summary, channel and code definitions, the relevant Section IV-E constant-read construction theorems, and targeted finite-size searches.",
+        "method": "Compare thresholds and theorem types: general upper bounds and achievable redundancy versus unrestricted exact codebook maximum.",
+        "title": "Binary Reconstruction Codes for Correcting One Deletion and One Substitution",
+        "trigger": "Earlier same-channel reconstruction-code paper from the authors of the new nine-read source."
+      },
+      {
+        "assessment": "The pairwise bounds do not give the exact unrestricted nine-read codebook capacities at lengths five through eight.",
+        "evidence": [
+          "https://arxiv.org/abs/2501.03833, Introduction and problem description",
+          "https://arxiv.org/abs/2501.03833, Section II-C and pairwise-intersection methodology"
+        ],
+        "identifier_or_url": "https://arxiv.org/abs/2501.03833",
+        "material_read": "arXiv full text: abstract, Introduction, problem description, method statements, and relevant examples/claims on pairwise intersections.",
+        "method": "Compare bounds under Hamming-distance hypotheses to the exact maximum-cardinality codebook question, and distinguish pair read coverage from optimal code size.",
+        "title": "Sequence Reconstruction for the Single-Deletion Single-Substitution Channel",
+        "trigger": "Independent primary analysis of the same mixed-error output balls and plausible stronger intersection results."
+      }
+    ],
+    "status": "PASS"
+  },
+  "review_type": "self_review",
+  "schema_version": 1,
+  "scope_run_id": "5b44e968-4cd4-4d9f-b937-c8d75842f5ce",
+  "self_review_status": "passed",
+  "value": {
+    "rationale": "The nine-read threshold is explicitly motivated by a recent mixed-error reconstruction construction. Its exact initial finite capacities are operationally relevant upper bounds under the formal code definition. The first strict decline as source length grows, from 26 to 24, exposes a natural nonmonotonic boundary missed by asymptotic redundancy constructions. This is not a routine one-length increment of an existing nine-read finite table; the entire initial profile through the first decline is determined with explicit witnesses and a complete upper-bound computation.",
+    "status": "PASS"
+  }
+}
