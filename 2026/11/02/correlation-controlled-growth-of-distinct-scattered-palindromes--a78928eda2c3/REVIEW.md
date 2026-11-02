@@ -1,0 +1,11 @@
+# Scientific review
+
+**Correctness — PASS.** Greedy first-completion times have explicitly derived same-letter and opposite-letter waiting-time generating functions; strong Markov independence yields the product weight. Palindrome adjacency indicators are paired, giving the exact rational generating function. The dominant root is unique for strictly interior transition probabilities and aperiodic because the kernel has positive degree-two and degree-three coefficients. Convexity at the level-one crossing gives a strict negative derivative of that root with respect to transition probability. Exhaustive actual-subsequence checks and an independent interval dynamic program support the calculations, but are not substituted for the proof.
+
+**Originality — PASS, residual risks disclosed.** The inspected Markov analysis of Biers-Ariel–Godbole–Kelley counts unrestricted distinct subsequences, not palindromic scattered patterns. The inspected Rubinchik–Shur treatment concerns contiguous palindromic factors. Existing i.i.d. and deterministic alternating scattered-palindrome identities imply the two stated boundary cases only; they do not imply the rational interpolation, strict interior rate law or its leading constant. Meaning-based research searches did not return a corresponding result. An undiscovered general weighted Markov-language formula remains the main risk.
+
+**Mathematical value — PASS.** Correlation changes the set of scattered palindrome patterns, not merely the number of their embeddings. The result gives an exact infinite-family expectation, a bias-dependent leading constant and a sharp extremal characterization across a natural continuum of correlated sources with unchanged single-letter marginals. The qualitative rate increase is nontrivial: deterministic constancy gives base one, an independent fair source gives \((1+\sqrt2)/2\), and perfect alternation gives \(\sqrt{(1+\sqrt5)/2}\).
+
+The theorem is specific to stationary symmetric two-state chains; the endpoint \(t=1\) has parity-dependent asymptotics, so the single-pole constant is not asserted there. No independent validation or independent scientific audit has been performed.
+
+Self-review: passed. Independent audit: not yet performed.
