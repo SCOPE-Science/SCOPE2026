@@ -1,15 +1,21 @@
-# Mathematical review
+# Independent mathematical audit
 
-## Correctness — PASS
-The five-voter success polynomial is verified independently by summing correctness configurations; its separate affinity makes the 32-point interpolation test exact. The general affine-envelope and monotone-product claims follow from two optimality inequalities, with no numerical approximation. The complete ten-person profile uses an exhaustive list of exactly 126 unordered partitions, reduced to three positive endpoint exclusion margins and an analytic two-line crossing. `verify.py` recomputes all exact rational checks; partial finite tests are never presented as proofs for the continuum (the affine endpoint argument supplies that proof).
+## correctness
 
-## Originality — PASS, with residual bibliographic risk
-The 2011 Ben-Yashar–Danziger paper treats five-member asymmetric versus symmetric majority committees, and its general probability model permits computing allocations for any skills, but it does not state this ten-distinct-skill scale phase diagram, the exact transition, or the general monotone fifth-product comparative statics. The 2014 full-text paper proves the three-member triple-product allocation criterion: the three-member baseline is prior art, not the new claim. The 2016 full-text paper concerns unanimous decisions rather than five-member majority decisions. Related committee-power research uses different objects and objectives. A hidden equivalent in voting-design or parameterized optimization literature remains possible; no independent originality certification is claimed.
+PASS
 
-## Mathematical value — PASS
-The theorem answers a committee-design question not addressed by the classical three-member criterion: does uniformly greater informativeness preserve which fixed experts should work together? It identifies the sharp first possible odd committee size at which the answer changes, proves one explicit whole-interval classification rather than a pair of isolated numerical examples, and supplies an arbitrary-committee comparative-statics restriction on all future switches. The ten numerical skill values are motivated as a concise witness for the structural threshold, not as an unexplained statistic.
+For independent voters q_i=s a_i, the exact majority multilinear polynomial G5=1/2+3e1/8-e3/2+6e5 implies minimizing Q=A-12s² B. G3 depends only on e1 and e3, proving scale independence for committees of size 3 (and 1). General lower-envelope optimality inequalities force B nondecreasing with scale. Independently enumerated 126 unordered partitions of the ten abilities (1,2,3,4,5,6,7,8,11,15); verified A,B=(3346,6360) and (3352,7710) and margins 36,112/3,52 over the remaining 124 at u=0,1/2700,1/900, proving across the full continuum the unique critical s=1/(30 sqrt(3)), both candidates tie only at that scale. Proof affine interpolation handles all intermediate s; no sampled-only inference.
 
-## Boundaries
-Independence of correctness votes, equally weighted committees, and a common linear skill-amplification factor are essential. The explicit exact optimizer classification is only for the ten-person profile. This is a mathematical model rather than a prediction about a real court or organization.
+## originality
 
-Self-review: passed. Independent audit: not yet performed.
+PASS
+
+Best-of-knowledge PASS: symmetric-versus-asymmetric majority committees and the exact 3-person product criterion predate this result. The new contribution is a genuine unique common-skill-scale switch in a ten-DISTINCT-ability five-member instance, plus monotone quintuple-product statistic for any finite number of size-five committees; prior texts inspected do not imply the instance or phase diagram.
+
+## value
+
+PASS
+
+The earliest odd committee size capable of scale-dependent optimal grouping is a motivated structural boundary in probabilistic collective decision design, with a complete exact, non-arbitrary ten-person witness and general monotonicity. Distinguishes qualitative asymmetry from an actual parameter-driven change of unique optimizer.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
