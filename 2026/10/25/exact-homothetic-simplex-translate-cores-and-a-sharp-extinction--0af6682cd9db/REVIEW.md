@@ -1,15 +1,21 @@
-# Scientific review
+# Independent mathematical audit
 
-## Correctness
-PASS. Every translate of a homothetic simplex is uniquely parametrized by a barycentric facet-threshold vector whose entries sum to the dilation defect. The intersection's exact relative volume is the positive part of one minus the sum of positive thresholds, raised to the dimension. Its overlap superlevel is a simplex-constrained positive-part budget; the maximum possible individual threshold is exactly the budget and has an explicit feasible witness for every facet, even at the maximal-overlap endpoint. Taking the intersection of all translated facet inequalities proves the complete formula. The centroid extinction threshold follows from the sum of all barycentric coordinates, and the volume is the determinant of the explicit homothety. The symbolic inequalities are dimension-independent. The included separate linear programming check passed 700 cases in dimensions 2–6.
+## correctness
 
-## Originality
-PASS with residual risk. The earliest motivating paper, Schütt–Werner–Yalikun (arXiv:2504.15488v1, 2025-04-21), defines the relevant high-overlap translate intersections for ball-convex bodies and derives relative-affine-surface-area asymptotics; the inspected Introduction/Results/Proofs do not give the all-level simplex formula or the transition beyond the ball-convex regime. Molchanov–Nagy (arXiv:2610.26108v1, 2026-10-19), inspected in its definitions and uniform-measure sections, gives broad general structure for translation-depth regions and cross covariograms but does not calculate these arbitrary-dimensional homothetic-simplex cores. Published indexed results on Bang homothetic erosion, difference-body distance and three-slice Tukey depth use different optimization families and cannot imply the formula without a new translation/positive-part calculation. Search did not identify a preexisting identical exact phase diagram, but unindexed classical convexity literature and unpublished notes remain a residual risk.
+PASS
 
-## Value
-PASS. The floating-intersection construction is natural for quantifying what all high-overlap translates of a test body must share. This theorem gives its entire range for arbitrary simplices and scales, sharp nonemptiness/extinction thresholds, a complete center/volume profile and a dimension-dependent collapse of the common intersection despite all admissible tests meeting the simplex in maximal mass. The latter distinguishes the small-test regime from the ball-convex regime in the motivating theory. These are structural exact classifications, not arbitrary test parameters or a renamed known bound.
+For every d>=2, nondegenerate simplex S, s>0 and 0<beta<=min(s,1)^d, each translate of sS has unique affine facet thresholds a_i summing to 1-s, with relative overlap (1-sum_i max(a_i,0))_+^d. The overlap constraint is sum positive parts <=h=1-beta^(1/d). For each j, a_j<=h and equality is achievable by setting a_j=h and distributing the sum 1-s-h<=0 over the other facets. Thus intersection over all admissible translates is exactly {lambda_i>=h}, independent of scale beyond admissible beta. Barycentric sum=1 proves the empty/centroid/homothetic simplex trichotomy at beta_c=(d/(d+1))^d and scale threshold s=d/(d+1); volume ratio ((d+1)beta^(1/d)-d)^d. The independent sample verifies positive-part budget and overlap including admissible endpoints, whereas the analytic facet supremum proves all dimensions and continuous parameters.
 
-## Scope and uncertainty
-The main statement requires positively homothetic aligned simplices and positive overlap. Classical sources on cross-covariograms could contain an equivalent special computation. The later general paper is not a source for the first-public-date assignment; its publication occurred after the motivating 2025 paper. Numerical checks corroborate but do not certify the infinite-dimensional parameter quantifiers.
+## originality
 
-Self-review: passed. Independent audit: not yet performed.
+PASS
+
+Best-of-knowledge PASS: the full barycentric closed form, all-scale feasibility and sharp extinction were not mathematically provided by the primary general-depth results examined. The method is elementary but extracting exact apex-facet extrema and the global scale diagram adds a concrete sharp computation for this canonical body.
+
+## value
+
+PASS
+
+An exact translation-depth/floating-core profile for ALL dimensions, dilation scales, and overlap fractions of the natural homothetic simplex test body. The sharp extinction scale distinguishes the ball-convexity-compatible regime and its extension, making a mathematically motivated boundary rather than an arbitrary example.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
