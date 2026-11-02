@@ -5,8 +5,11 @@
     "status": "not_performed"
   },
   "independent_audit": {
-    "evidence": null,
-    "status": "not_performed"
+    "status": "passed",
+    "evidence": [
+      "INDEPENDENT_AUDIT_2026-10-30.md",
+      "INDEPENDENT_AUDIT_2026-10-30.json"
+    ]
   },
   "lean_verification": {
     "evidence": null,
@@ -16,10 +19,24 @@
 }
 ---
 
-# Verification record
+# Independent mathematical audit
 
-The proof uses: (1) positive-definite Dirichlet extension and reversible harmonic measure; (2) exact two-by-two inverse identity; (3) weighted Cauchy–Schwarz with its equality case; (4) the unique positive stationary point of a rational one-variable quotient; (5) explicit bipartite conductance graphs attaining equality; and (6) the strong graph maximum principle for the support criterion. All quantifiers and endpoint conditions are specified in RESULT.md.
+## correctness
 
-The included \(\texttt{verify.py}\) is standalone Python 3 code with no third-party packages. Run \(\texttt{python3 verify.py}\) after extracting all embedded files. It performs exact \(\texttt{fractions.Fraction}\) checks of Type A and B matrices, reversibility-aware harmonic moments, projector conservation/idempotence, sign criteria, and the proposed bound on a deterministic suite of small connected weighted graphs; it also checks exact extremizing uniform-star networks. These finite tests do not prove the theorem's universal cases, establish coverage of all papers, or constitute an independent audit.
+PASS
 
-The source paper arXiv:2312.05470v1 (first public 2023-12-09) provides the existing algorithm's definitions and qualitative positivity limitation. The theorem's quantitative maximum and asymptotic have been derived directly and are confined to the raw two-terminal Type B projection. Independent audit status remains unperformed.
+Reconstructed the Type B reversibility normalization K column-stochastic generator, conductances w_ij=K_ij*pi_j, terminal masses alpha,beta and eliminated mass mu. For harmonic absorption probabilities p_s, the extension has C_sa=pi_s*p_s/alpha and C_sb=pi_s*(1-p_s)/beta. Its weighted Gram inversion yields -V_ab=alpha(z-q)/[alpha(beta+mu)-2alpha*z+q-z^2], z=sum pi_s*p_s and q=sum pi_s*p_s^2>=z^2/mu. At fixed z increasing q reduces the ratio; setting z=mu*r and optimizing v=r/(1-r) gives the claimed universal sharp bound and unique hitting probability ratio, attained by connected two-terminal stars. Strong maximum principle gives exact sign criterion for eliminated components touching both terminals. Uniform mass gives (n-2)/(2n) and beta->0 asymptotic is unbounded. Independent exact-rational matrices for twelve 3-state mass/edge combinations verified Gram relation, idempotence and coefficient inequalities. Finite samples do not prove all graphs.
+
+## originality
+
+PASS
+
+Original Iwata–Oki–Sakaue Type B projector and qualitative nonpositivity are prior. The best-of-knowledge contribution is sharp all-connected-network two-terminal fixed-mass extremal bound, attainment, and degeneration; general orthogonal projection theory may conceal an equivalent formula.
+
+## value
+
+PASS
+
+A sharp attained fixed-stationary-mass negative projector coefficient quantifies the failure of positivity in a natural reversible rate-constant contraction method. The rare-terminal square-root divergence and equality networks supply meaningful conditioning and design information beyond the known qualitative example of negative entries.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
