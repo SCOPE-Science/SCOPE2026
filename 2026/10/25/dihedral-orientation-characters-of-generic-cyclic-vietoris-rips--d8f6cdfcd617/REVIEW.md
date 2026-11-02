@@ -1,9 +1,21 @@
-# Self-review
+# Independent mathematical audit
 
-**Correctness — PASS.** The domain is the strict generic winding region, and the argument invokes the precise cyclic-homomorphism homotopy-equivalence theorem, not just the known sphere rank. Two reflection-equivariant embeddings into a common fine regular cycle identify the integral orientation degree. The canonical cross-polytope reflection is a signed coordinate permutation with determinant \((-1)^{\ell+1}\). Contiguity at one higher integer radius plus homology-equivalence of the inclusion proves all rotations act trivially. Rational transfer applies only after barycentric subdivision and only to rational quotient homology. A 441-test signed Lefschetz computation corroborates the degrees; it is not used as an infinite proof.
+## correctness
 
-**Originality — PASS, with limits.** The original cycle-power theorem determines the homotopy type but no dihedral character. The close 2014 paper computes the character on circular-arc **nerve complexes**; its Theorem 8.5 map from cycle-power clique complexes to a differently indexed nerve is not equivariant for the respective standard dihedral actions, so its Proposition 7.3 cannot alone be transferred. The 2015 cyclic-map theorem enables the missing equivariant comparison. No directly covering cycle-power Rips character was located among inspected literature or indexed summaries. A previously unindexed equivariant refinement of the 2014 map is a residual risk.
+PASS
 
-**Mathematical value — PASS.** The result supplies the full integral symmetry module and rational top-homology quotient dichotomy simultaneously across every generic higher-dimensional persistence stage. This goes beyond the known homotopy types and distinguishes reflection-invariant versus reflection-anti-invariant stages, a nontrivial part of equivariant persistent topology.
+For all integers n>=4, 1<=k<n/2 in a strict generic winding band ell/(2ell+1)<k/n<(ell+1)/(2ell+3), the known clique complex sphere has rank-one integral H_(2ell+1). Canonical n0=4ell+4,k0=2ell+1 gives a join of 2ell+2 copies of S^0; signed coordinate reflection has degree (-1)^(ell+1). Common large-cycle inclusions preserve reflection and, by Adamaszek–Adams Prop 4.9, are homotopy equivalences within the band. One-step rotation is contiguous to identity after inclusion K_(N,K)->K_(N,K+1), whose induced homology map is an isomorphism, so all rotations have degree +1. Rational homology of finite-group quotients equals invariants after barycentric subdivision: full dihedral quotient top Q exactly for odd ell. Independently enumerated fixed simplices with permutation signs for 93 action/cycle pairs across n=4..14, two reflection axes and one rotation per valid pair, all agreeing with claimed sign. Enumeration is corroboration, not infinite proof.
 
-Self-review: passed. Independent audit: not yet performed.
+## originality
+
+PASS
+
+Best-of-knowledge original full dihedral integral character in every strict generic cyclic-Rips sphere stage, although the nonequivariant classification, cyclic-map theorem, circular-arc-nerve sign and k=1 special case are prior work.
+
+## value
+
+PASS
+
+Complete natural integral orientation character of every generic sphere stage in a Vietoris–Rips filtration on cyclic metric spaces, with exact rational orbit-space homology and a clear reflection parity transition. It answers an equivariant property not implied by ranks of homology and has computational/topological use; it is not mere renaming of the known sphere theorem.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
