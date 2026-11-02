@@ -1,19 +1,21 @@
-# Scientific review of the six-branch Humbert–Edge arithmetic result
+# Independent mathematical audit
 
-## Correctness (PASS)
+## correctness
 
-The exact smooth complete intersection is a tame connected degree-\(32\) radical cover branched at six points, so Riemann–Hurwitz proves genus \(17\). Prime-to-seven character decomposition gives fifteen elliptic quotient factors and one genus-two factor. Exact point counts over \(\mathbf F_7\) and \(\mathbf F_{49}\) determine the quotient Frobenius polynomials. The \(32\) marked twists have an independent direct fiber census and projective-coordinate census, both agreeing with character traces. The projectors have \(2\)-power denominators, ensuring the asserted \(7\)-rank and \(a\)-number survive the Jacobian isogeny. The supplied verifier ran with `VERIFY_OK`.
+PASS
 
-## Originality (PASS; qualified)
+For each epsilon in {0,1}^5 the square classes d_i(t-i) are independent over algebraic closure by valuations at their distinct simple zeros. The extension has degree 32 and six tame index-two branch places; Riemann-Hurwitz gives genus 17. Four diagonal quadrics define the smooth complete intersection. Character-idempotent decomposition yields fifteen elliptic quotients from 3/4-element subsets and one genus-two quotient, and no genus from smaller characters. Independent F7 square-root counts give elliptic trace histogram 9 zero, 4 minus four, 2 plus four. Genus-two quotient counts 8 over F7, 46 over F49 imply L=1-2T²+49T⁴, one each trace plus/minus four. All 32 coefficient twists were independently enumerated over F7 with point histogram {0:18,16:12,32:2}; their quotient traces give m. Direct fresh F49 extension-field fiber enumeration found exactly 160 points for every twist; this agrees with eigenvalue-squared trace. The isogeny decomposition has 2-power kernel, prime to seven, so it induces an isomorphism of 7-divisible groups; nine trace-zero supersingular elliptic factors give a-number 9 and eight ordinary factors give p-rank 8, with specified slopes. No claim that 32 labels are distinct abstract isomorphism classes.
 
-The known literature determines geometric properties of the general type-five family (Castorena–Frías-Medina), the general Jacobian decomposition (Auffarth–Lucchini Arteche–Rojas), and more general group decompositions (Martínez-Núñez). These do not state or imply the particular three zeta numerators with multiplicity \(18,12,2\) for the specified \(32\) marked descents over \(\mathbf F_7\) without new explicit finite-field arithmetic. A related prior arithmetic result applies to a different base field and different branch configuration. The surviving risk is unindexed arithmetic tabulation of this precise model.
+## originality
 
-## Mathematical value (PASS)
+PASS
 
-Over \(\mathbf F_7\), a six-rational-point branch locus is canonically a complement of two points in a projective line of eight points; all such loci are projectively equivalent. The full marked arithmetic descent set is therefore a naturally constrained test case for Humbert–Edge arithmetic, not an arbitrary coefficient slice. The theorem gives a complete Frobenius stratification, exact rational-point spectrum (including pointless examples), uniform second-extension count, and nonordinary but mixed-slope Jacobians. It does not rely on a downstream theorem or an unsupported claim of general classification.
+Best-of-knowledge PASS for the complete explicit arithmetic F7 32-marked-descents zeta spectrum. Castorena–Frias-Medina provide geometry/moduli over algebraically closed fields, and Auffarth–Lucchini Arteche–Rojas provide the general Jacobian quotient decomposition and kernel. Those general theories are prior and are needed here; they do not themselves evaluate exact F7 branch-dependent twists or their point distributions. A special arithmetic table for this curve could exist, so priority is qualified.
 
-## Literature and remaining limitations
+## value
 
-Primary sources read: arXiv:2106.00813, arXiv:1905.12690, and arXiv:2303.18056. The source geometry/decomposition theorems are explicitly acknowledged. The exact labels are coefficient markings, not distinct geometric isomorphism classes; the result is restricted to the specified rational branch configuration in characteristic seven. An unindexed table could partially overlap.
+PASS
 
-Self-review: passed. Independent audit: not yet performed.
+Exact full Frobenius eigenvalue and p-divisible-type classification for a canonical six rational branch configuration resolves a nontrivial natural arithmetic invariant across all 32 marked descents, and computes point counts at every extension degree, not merely 32 isolated finite checks. This is mathematically motivated by moduli and quotient decomposition rather than arbitrary sampling.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

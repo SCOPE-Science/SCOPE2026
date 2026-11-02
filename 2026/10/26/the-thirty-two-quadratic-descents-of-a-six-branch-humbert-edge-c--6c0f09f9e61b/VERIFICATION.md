@@ -5,8 +5,11 @@
     "status": "not_performed"
   },
   "independent_audit": {
-    "evidence": null,
-    "status": "not_performed"
+    "status": "passed",
+    "evidence": [
+      "INDEPENDENT_AUDIT_2026-10-30.md",
+      "INDEPENDENT_AUDIT_2026-10-30.json"
+    ]
   },
   "lean_verification": {
     "evidence": null,
@@ -16,10 +19,24 @@
 }
 ---
 
-# Verification evidence and limits
+# Independent mathematical audit
 
-Run `python3 verify.py` with a standard Python 3 interpreter. It completed locally with `VERIFY_OK`.
+## correctness
 
-The exact checker performs independent projective-fiber and character-trace counts for all \(32\) quadratic-twist labels over \(\mathbf F_7\), direct enumerations over \(\mathbf F_{49}\), and untwisted elliptic/genus-two quotient point counts. A third check enumerates the actual homogeneous complete intersection over \(\mathbf F_7\) for all \(32\) labels, independently of the base-line parameter. It verifies the genus-two numerator using its first two extension counts and checks that every elliptic quotient has trace in \(\{0,4,-4\}\) with the prescribed multiplicities.
+PASS
 
-The reusable verification code has no network dependencies or imported scientific packages. The infinite-extension zeta identity, geometric integrality, smoothness, tame ramification, and compatibility of the \(7\)-divisible group with prime-to-\(7\) isogenies require the explicit mathematical proof in RESULT.md; finite enumeration is not a substitute. Independent audit has not been performed.
+For each epsilon in {0,1}^5 the square classes d_i(t-i) are independent over algebraic closure by valuations at their distinct simple zeros. The extension has degree 32 and six tame index-two branch places; Riemann-Hurwitz gives genus 17. Four diagonal quadrics define the smooth complete intersection. Character-idempotent decomposition yields fifteen elliptic quotients from 3/4-element subsets and one genus-two quotient, and no genus from smaller characters. Independent F7 square-root counts give elliptic trace histogram 9 zero, 4 minus four, 2 plus four. Genus-two quotient counts 8 over F7, 46 over F49 imply L=1-2T²+49T⁴, one each trace plus/minus four. All 32 coefficient twists were independently enumerated over F7 with point histogram {0:18,16:12,32:2}; their quotient traces give m. Direct fresh F49 extension-field fiber enumeration found exactly 160 points for every twist; this agrees with eigenvalue-squared trace. The isogeny decomposition has 2-power kernel, prime to seven, so it induces an isomorphism of 7-divisible groups; nine trace-zero supersingular elliptic factors give a-number 9 and eight ordinary factors give p-rank 8, with specified slopes. No claim that 32 labels are distinct abstract isomorphism classes.
+
+## originality
+
+PASS
+
+Best-of-knowledge PASS for the complete explicit arithmetic F7 32-marked-descents zeta spectrum. Castorena–Frias-Medina provide geometry/moduli over algebraically closed fields, and Auffarth–Lucchini Arteche–Rojas provide the general Jacobian quotient decomposition and kernel. Those general theories are prior and are needed here; they do not themselves evaluate exact F7 branch-dependent twists or their point distributions. A special arithmetic table for this curve could exist, so priority is qualified.
+
+## value
+
+PASS
+
+Exact full Frobenius eigenvalue and p-divisible-type classification for a canonical six rational branch configuration resolves a nontrivial natural arithmetic invariant across all 32 marked descents, and computes point counts at every extension degree, not merely 32 isolated finite checks. This is mathematically motivated by moduli and quotient decomposition rather than arbitrary sampling.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
