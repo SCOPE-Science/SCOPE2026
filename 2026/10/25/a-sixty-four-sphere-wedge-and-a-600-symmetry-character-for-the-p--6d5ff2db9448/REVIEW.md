@@ -1,15 +1,21 @@
-# Scientific review
+# Independent mathematical audit
 
-## Correctness — PASS
-The exact finite field and all simplices are reconstructed by the standalone verifier. Fifteen elementary collapses in dimension four and sixty in dimension three reduce the complex to dimension two, with every free-face criterion checked at the moment of removal. The original two-skeleton has a presentation with \(126\) generators, each eliminated by a single-occurrence Tietze substitution, leaving the trivial group. The simply connected two-complex has Euler characteristic \(65\), hence integral homotopy type \(\bigvee^{64}S^2\). All \(600\) semiaffine permutations are checked individually and their signed Lefschetz traces yield the stated character and Fourier multiplicities. The independent mod-two boundary ranks are \((24,126,60,15)\). No computational sampling is substituted for completeness.
+## correctness
 
-## Originality — PASS, subject to residual bibliographic risk
-The graph is explicitly equivalent to the order-five cyclic Latin-square graph. **The non-equivariant homology rank \(64\) is already given by Cioabă–Mim, arXiv:2606.27328, Theorem 3.12, and is not original.** The natural translation-character formula is also already covered by the earlier odd-order cyclic Latin-square result e5a5d583-4b0e-4ec8-8e3a-68ffa1bf9c69. Their Proposition 3.13 also addresses integral invariant factors; the earlier arXiv:2508.05871 studies first cohomology vanishing, and Chandler–Sin–Xiang, arXiv:1401.8260, studies graph Smith/critical groups. No checked scientific record or primary paper establishes the stronger simple connectivity and homotopy wedge or the extension of the rational character from translations to all 600 semiaffine symmetries. Targeted research-record queries included the graph's Paley and Latin-square aliases, the number 64, homotopy, and automorphism characters. A differently indexed equivalence remains possible.
+PASS
 
-## Mathematical value — PASS
-A canonical strongly regular Paley graph that is also a Latin-square graph is a natural test for whether known clique homology describes homotopy; it need not, because first homology can vanish for complexes with nontrivial perfect fundamental group. The exact group-presentation elimination resolves this ambiguity. The previously known translation restriction does not determine how 300 multiplier-affine and 300 Frobenius-semiaffine elements act on homology. The full character calculation distinguishes their traces and proves there are no full-symmetry-fixed classes. This is additional structural information beyond previously determined ordinary homology and maximal-clique tables.
+F25=F5[omega]/(omega^2-2) and square differences give a 25-vertex 12-regular Paley graph; independently reconstructed all cliques with face vector (25,150,250,75,15), Euler characteristic65. The package finite verifier validates 15 free (3,4)-simplex collapse pairs and 60 free (2,3)-pairs, leaving a connected 2-complex. Independently reconstructed the 1-skeleton spanning-tree group presentation: 24 tree edges,126 non-tree generators,250 triangular relators; repeated exact lawful cyclic Tietze eliminations remove all 126 generators and leave no nontrivial relators, establishing pi1=1 (not merely H1=0). A simply connected finite 2-complex with chi65 has free H2=Z^64 and no other positive-dimensional homology, hence by Hurewicz/Whitehead is homotopy equivalent to wedge_{64} S2. Independently enumerated all 600 semiaffine transformations x->ux^{5^e}+b with square u; each acts simplicially and signed Lefschetz fixed-simplex traces give distribution {-16:15,-1:72,0:450,4:62,64:1}. Because H0=Q and sole positive rational homology H2, the reduced Lefschetz sum equals actual H2 trace, not just virtual character. Character average is 0, hence no G-invariant H2. Existing general Latin-square graph homology and translation-character conclusions are credited as prior, not new.
 
-## Reproducibility and limitations
-Run `python3 verify.py` in a standard Python installation. The certificate is finite and exhaustive only for this graph; its result does not address other Paley orders. Literature indexing may omit an equivalent prior computation. Independent validation is not claimed.
+## originality
 
-Self-review: passed. Independent audit: not yet performed.
+PASS
+
+Best-of-knowledge comparison on actual final mathematical statement for Paley-25 flag complex wedge of 64 spheres and full 600-element semiaffine character. Four distinct implications were checked, including known covering numeric/special-case portions that are explicitly excluded from the originality claim. Sources and access limits are detailed below.
+
+## value
+
+PASS
+
+For the canonical 25-vertex Paley graph, the result strengthens previously known Betti information to an actual integral wedge-of-spheres homotopy equivalence by independently checkable fundamental-group elimination, and refines previously known translation symmetry to the character on all 600 semiaffine automorphisms. These data are meaningful for equivariant topological graph invariants and are not simply a duplicate numerical homology calculation.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

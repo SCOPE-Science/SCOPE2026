@@ -1,19 +1,21 @@
-# Scientific review: critical collision–leakage dimension law
+# Independent mathematical audit
 
-## Correctness — PASS
+## correctness
 
-The exact dimension formula is supported by a rank-one weighted-adjacency calculation and two independent dimension bounds: a positive bounded eigenvector controls all infinite-alphabet cylinder sums above the root, and finite strongly separated graph-directed subsystems furnish the lower bound. The singular asymptotic proof independently checks the root locations, uniform zeta-derivative scale, and the separate pressure defects of geometric gaps and forbidden repeated symbols. The analytic argument proves both infinite limits; the finite checker is supplementary. Principal risk is application of the standard finite graph-directed Hausdorff-dimension theorem, which is invoked only for finite, strongly separated affine systems with strictly positive contractions.
+PASS
 
-## Originality — PASS under examined evidence
+For s>1/q the unrestricted cylinder partition sum is U_q(s)^n, and strongly separated finite alphabets exhaust the infinite root from below. For no-repeat itinerary the weighted adjacency B_ij=w_j 1_{i!=j} with w_j=r_j^s has positive bounded eigenvector v_i=(lambda+w_i)^(-1) and eigenvalue lambda precisely when sum_j w_j/(lambda+w_j)=1. This identity bounds infinite cylinder partition functions for s>d; finite irreducible graph-directed subsystems produce dimension lower bounds for s<d. Both dimensions lie (1/q,1). As delta=q-1->0, for each b>0, U(1-b delta)->1/(1-b)>1 and U-V=O(delta^2) there, so d,t=1-o(delta) uniformly along every eta(q)->0; on [d,1], -U_prime and -V_prime are uniformly ~1/delta by zeta pole and the O(delta^2 log 1/delta) derivative defect. Mean-value comparison at s=1 gives 1-t~delta eta; at s=t the collision defect U-V~zeta(2q)/zeta(q)^2 produces t-d~delta S2. With S2~zeta(2)delta^2, cubic limit holds even eta dominates. Independent high-precision roots at delta=.10,.05,.02 and exact rational eigenvector examples corroborate, not replace, asymptotic proof. The proof is for symbolic limit sets, not their closures.
 
-The closest general source is Cunha–Novaes–Ponce, arXiv:2608.00398: its results describe full countable-branch invariant sets and their conformal dimension, rather than a no-repeat Markov survivor or its critical collision–leakage law. Ghenciu–Pavlov, arXiv:2308.15189, develops shift-generated conformal constructions and their dimension spectra, including nearest-neighbor restrictions, but does not give this Zipf-weighted rank-one equation or singular asymptotic. van Golden–Kalle–Kombrink–Samuel, arXiv:2404.10749, analyzes digit-subalphabet restrictions in signed Lüroth expansions, not adjacent equality bans or the additive critical limit. A published study of Zipf-normalized finite-alphabet cutoffs concerns a different restriction (truncation, not immediate repeats). A broader perturbative pressure theorem might subsume the argument; full priority beyond inspected literature is not certified.
+## originality
 
-## Value — PASS
+PASS
 
-Immediate-repeat exclusion is the simplest nontrivial nearest-neighbor symbolic restriction. The result quantifies its previously unspecified Hausdorff-dimension cost in a singular countable-alphabet limit and separates that cost from genuine geometric escape holes. The finding is the universality of the cubic collision coefficient for *every* vanishing leakage profile, even when leakage dominates the total deficit; the crossover scale is a natural second-moment statistic rather than a fitted numerical threshold. The theorem is narrower than a general theory for all graph-directed systems, but establishes a precise structural phenomenon and reproducible quantitative benchmark.
+Best-of-knowledge PASS: finite-alphabet Bowen/pressure formula and general countable conformal IFS are established; neither their main statements nor generic restricted-digit formulations directly yield the exact infinite Zipf no-repeat root and uniform singular cubic penalty for all vanishing leakage profiles. Resultary identified a close Zipf finite-alphabet exponential-cutoff result, but its restriction is a prefix alphabet rather than adjacent-repeat avoidance; only its abstract/index summary could be read, so whole-document noncoverage is not asserted. A broad countable Markov pressure perturbation theorem could yield the coefficient by specialization; residual priority risk remains.
 
-## Boundaries and closest literature
+## value
 
-The maps are affine, have isolated branches with polynomial inverse lengths, and require \(q\downarrow1\) and \(\eta(q)\downarrow0\). The assertion concerns symbolic limit sets, not closures, arbitrary non-affine perturbations, or any finite simulation as proof. Independent scrutiny of proof and priority remains necessary.
+PASS
 
-Self-review: passed. Independent audit: not yet performed.
+Forbidding adjacent duplicate symbols is the canonical nearest-neighbor symbolic constraint. Its dimension penalty is measured by the natural second-moment collision mass S2(q), not fitted data, and its cubic law is independent of arbitrary simultaneously vanishing hole profiles. The crossover eta~(q-1)^2 compares two mathematically distinct loss mechanisms and is useful as an exact asymptotic benchmark.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

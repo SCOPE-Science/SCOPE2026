@@ -1,13 +1,21 @@
-## Correctness
+# Independent mathematical audit
 
-The count is reduced to \(\frac12\sum \mu^2(n)r(n-2)r(n+2)\) in the fixed progression. The proof identifies the progression's local factor at 5 as positive, extends the shifted-convolution estimate by the Chinese remainder theorem, preserves the level-of-distribution exponent, and applies the same Richert weighted sieve. The result is a lower bound for representations only.
+## correctness
 
-## Originality
+PASS
 
-The closest primary result is Sedunova's unconditional lower bound for the unrestricted square-free determinant-one count with at most seven distinct prime factors. The published theorem does not state a lower bound in the individual class \(11\pmod{20}\). published-finding corpus semantic searches for that progression-specific claim returned no direct match. The fixed-modulus extension is a genuine refinement of the sieve argument, although the possibility of an unindexed or implicit equivalent remains a residual risk.
+For odd n congruent 3 mod4, the determinant-one representation count equals (1/2)r(n-2)r(n+2), so the n=11 mod20 restriction is a positive-weight subsequence of the shifted two-square convolution. Sedunova's actual level-of-distribution input has x^(1/6-epsilon), sufficient for Richert's seven-factor sieve. On the fixed 11 mod20 class, n,n-2,n+2 are coprime to 5, k|n-2 is coprime to every squarefree sieve divisor d|n with (d,10)=1; the CRT retains a unique progression modulo the fixed factor 20 times dk. The fixed prime 5 is excluded from sieving, with positive two-square local factor 1-chi4(5)/5=4/5. The new fixed-modulus progression estimate has the same exponent and summed error up to constants; Richert's positive weights and the unrestricted squarefree error estimate then give >=c x/log x of REPRESENTATIONS with omega<=7. Small exact checks for n=11,31,51,71 independently confirm representation reduction but cannot verify the analytic lower bound. Residual technical risk: the fixed-modulus uniform error and weighted-sieve constants are compressed in the package rather than reproduced line-by-line from the original analytic sieve.
 
-## Value
+## originality
 
-A congruence-resolved lower bound for almost-prime square-free norms is a natural local refinement of the hyperbolic counting problem. The fixed progression is explicitly admissible, and the result gives infinitely many representations in that class with the same order-of-magnitude lower bound. It does not claim an unweighted lower bound for distinct norms or improve the prime-factor cutoff.
+PASS
 
-Self-review: passed. Independent audit: not yet performed.
+Sedunova's Theorem 2 establishes an unrestricted >=x/log x lower bound for squarefree seven-almost-prime norms. This unrestricted sum could be concentrated in the other admissible mod20 classes, so does not logically imply the restricted 11 mod20 statement. Her analytic Lemma 2 and Richert argument are directly reused and must be credited: originality is limited to the positive fixed-class local factor/CRT argument, not a new sieve level, prime-factor bound or unique norm count.
+
+## value
+
+PASS
+
+The class n=11 mod20 is an explicit positive local congruence class for squarefree almost-prime hyperbolic orbit representatives; proving a lower bound inside a single prescribed class is not a formal consequence of the unrestricted sieve and makes a concrete arithmetic-distribution refinement. No prime-factor improvement or general equidistribution among all classes is claimed. Value is modest and specific; extension to arbitrary admissible progressions remains open in this package.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

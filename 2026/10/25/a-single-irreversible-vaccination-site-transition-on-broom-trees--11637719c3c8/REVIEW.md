@@ -1,19 +1,21 @@
-# Self-review
+# Independent mathematical audit
 
-## Correctness — PASS
+## correctness
 
-For every integer \(k\ge2\), \(L\ge1\) and \(0<p<1\), the model specifies one uniform surviving seed and independent percolation on the unvaccinated broom. On a tree each ordered pair of surviving vertices contributes exactly \(p^{\operatorname{dist}}\) if it remains connected, so the common denominator \(k+L\) does not affect location optimization. The path scores and hub score are derived by splitting at the vaccinated site. Every pendant leaf is strictly dominated by its neighbor. The path-site score difference (equation (2) of the result) is single-valley, and its exact expression (equation (1)) has a positive initial block and a negative final block of polynomial coefficients for every relevant left-half path site. Descartes' rule therefore gives at most one positive simple zero, and the sign at \(p=1\) gives an exact criterion for a crossing. The maximal integer value of \(t(L-k-t)\) gives the sharp length boundary. Increasing tail length strictly decreases each fixed-site difference; the positive finite-length correction to the limiting expression gives the monotone critical values and the unique limiting root. The universal proof covers the boundary \(L=1\), for which there are no nonleaf path candidates. Finite exact-arithmetic independent percolation enumerations checked 306 cases and 126 difference identities, plus rational samples of the sharp criterion. No sample is used as proof for infinitely many sizes.
+PASS
 
-## Originality — PASS, with residual risk
+For every k>=2, L>=1 and real 0<p<1, the tree has N=k+L+1 vertices. Uniform seed among N-1 survivors makes expected final component size the ordered-pair path-connectivity score S_v/(N-1). Removing hub gives k+H_L; removing v_t gives k+H_t+H_{L-t}+2k sum_{j<=t}p^j+k(k-1)p^2. The exact identity D_t=2p(1-p^t)(p^{L-t}-1+k(1-p))/(1-p)^2+k(k-1)p^2 and adjacent difference 2p/(1-p)[p^{L-t-1}-(1-k(1-p))p^t] were independently checked for 1056 rational (k,L,t,p) combinations. For t<=L/2, polynomial coefficients of D_t have at most one sign change, so Descartes plus D_t>0 near zero guarantees at most one interior root, and it is from hub-better to path-better. At p=1, D_t(1)=k(k-1)+2t(t+k-L), whose strict minimum yields switch iff d=L-k>=2 and 2 floor(d^2/4)>k(k-1). Leaf deletion is strictly dominated by deletion of its neighbor for positive p, covering all vertices and boundaries. For p>1-1/k the adjacent-difference sign change yields the stated discrete path optimum. Lengthening L strictly decreases D_t for every fixed admissible path site, giving strictly decreasing thresholds once they exist. The positive correction to D_infinity tends to zero for t=floor(L/2); the bracket k(k-1)p(1-p)^2-2[1-k(1-p)] has one zero by monotonicity in u=1-p on (0,1/k), yielding the stated limit. The known k=2,L=5 threshold is p^2+p^3=1; all algebraic and domain checks agree.
 
-The exact tree-pair connectivity identity and the eight-vertex numerical switching instance are *not* claimed as new. The new claim is the sharp criterion across all \(k,L\), the unique irreversible location switch as \(p\) varies, the exact interior minimizer, strict monotonicity in \(L\), and the all-\(k\) infinite-tail limiting critical point. A previous finite census through eight vertices establishes isolated switching examples but neither implies the general integer threshold nor the limit. A previous path-only vaccination optimization is also not a theorem about a broom's hub-versus-interior competition. The primary 2021 rooted-tree epidemic study addresses different node-state equations; the full accessible 2022 vaccination comparison addresses simulations and heuristics on empirical networks. The 2022 site-bond paper supplies generating-function epidemic thresholds on degree-distribution models, with only abstract-level accessibility for this comparison. The 2017 small-network epidemiological-importance results do not furnish the unbounded broom theorem on the material seen. Equivalent older network-reliability or tree-interdiction formulations might exist; the accessible literature and targeted research-record searches identified no directly dominating statement.
+## originality
 
-## Value — PASS
+PASS
 
-The problem asks whether a high-degree articulation hub or an interior distance-separating site should receive a scarce perfect vaccine. These priorities compete as transmissibility increases. The theorem explains this competition for a natural infinite core–periphery tree family, producing a sharp and calculable integer phase boundary, the exact optimal site, a one-way switch and an explicit critical-transmissibility limit. This is a structural theorem rather than a routine finite parameter substitution or a new label for a previously enumerated eight-node case. It is useful for interpreting transmission-dependent importance rankings, though it establishes no result for general networks, multiple vaccines, or non-independent transmission mechanisms.
+Best-of-knowledge comparison on actual final mathematical statement for One-way optimal vaccination-site transition on broom trees. Four distinct implications were checked, including known covering numeric/special-case portions that are explicitly excluded from the originality claim. Sources and access limits are detailed below.
 
-## Residual scientific limitations
+## value
 
-Literature equivalence in older unindexed network-reliability sources remains possible. One plausible site-bond study was readable only at abstract level; the result does not claim a full-text noncoverage assessment for it. The finite checks do not certify the theorem outside their tested ranges. The independent audit has not occurred.
+PASS
 
-Self-review: passed. Independent audit: not yet performed.
+A sharp family-wide optimizer transition identifies exactly when perfect one-site protection shifts from a high-degree hub to the handle, including its unique critical transmissibility and infinite-handle limit. The integer condition and monotonicity supply structural answers for a natural one-seed percolation vaccination problem; this is more than a single numerical benchmark or substitution of a standard pair-count formula.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

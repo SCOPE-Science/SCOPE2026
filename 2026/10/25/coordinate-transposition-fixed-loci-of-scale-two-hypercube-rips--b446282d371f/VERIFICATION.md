@@ -5,8 +5,11 @@
     "status": "not_performed"
   },
   "independent_audit": {
-    "evidence": null,
-    "status": "not_performed"
+    "status": "passed",
+    "evidence": [
+      "INDEPENDENT_AUDIT_2026-10-28.md",
+      "INDEPENDENT_AUDIT_2026-10-28.json"
+    ]
   },
   "lean_verification": {
     "evidence": null,
@@ -16,12 +19,24 @@
 }
 ---
 
-# Reproducible checks and their limits
+# Independent mathematical audit
 
-The standalone `verify.py` uses only Python's standard library. Execute `python3 verify.py` from this extracted directory and compare against `verify_output.txt`. All file contents are embedded with this result.
+## correctness
 
-For each \(m=1,2,3,4\), the program independently builds all orbits of the coordinate swap on \(Q_{m+2}\), checks actual binary Hamming distances against the explicit orbit adjacency formula, enumerates every resulting simplex, and computes reduced mod-two Betti numbers from boundary matrices. It checks the predicted multiplicities separately for dimensions two and three and the vanishing of every other reduced Betti number. The expected vectors are \((\beta_2,\beta_3)=(1,0),(5,0),(17,2),(49,18)\).
+PASS
 
-For \(m=1,2,3\) it independently enumerates ambient Rips faces and computes the signed trace of the transposition on each simplicial chain degree. The alternating Lefschetz sums are respectively \(2,6,16\), as required by the fixed-space Euler characteristics. The total counted orbit faces are 2,468, and the output terminates in `VERIFY_OK`.
+The actual orbit-union complex K_m is homeomorphic to the genuine geometric fixed set: an invariant face contributes one orbit-barycenter vertex for each whole orbit in its support, and fixed barycentric weights give the inverse. Direct maximum-Hamming-distance casework shows the orbit graph consists of two VR(Q_m;2) copies joined by 2^m matching A/B bridges, and independent C_z cone vertices, each with link two contractible m-simplices plus m+1 bridge edges, hence m circles. These links attach along difference loops x_w x_z^{-1}. As the lower-cube complexes are simply connected (the published wedge-of-3-spheres theorem, with small m simplices), maps of graph links are determined by these words. Homotopy cofiber reduction and spanning-tree cancellation eliminate the 2^m-1 bridge generators integrally, leaving m 2^m-(2^m-1) 2-spheres and the two existing 3-sphere wedges. Checked small m=1..4 by separately constructing Hamming orbit unions and mod-two boundaries; finite tests do not prove integral homotopy but agree on ranks. No theorem for arbitrary permutations/other radii.
 
-These tests are finite and mod-two (except for the signed integer Lefschetz sums). They cannot by themselves rule out integral torsion or higher attaching maps; those are resolved by the cone-link and spanning-tree cancellation proof in `RESULT.md`. No independent audit has been performed.
+## originality
+
+PASS
+
+Best-of-knowledge PASS: the relevant ambient homotopy theorem supplies c_m but not geometric fixed points. The 2026 hyperoctahedral representation theorem gives rational ambient character, which can determine a Lefschetz number but not the integral fixed-space homotopy type; the 2026 Cambridge paper studies ambient connectivity and Tor/cohomology. Neither the latter nor the scale-three paper states the orbit barycenter/cone-link theorem. A coordinate flip has a different orbit structure. Exact and alias Resultary/web queries yielded no dominating geometric transposition-fixed homotopy theorem; this absence alone is not novelty proof. Full text of the representation paper was unavailable in this run, a material priority risk.
+
+## value
+
+PASS
+
+A coordinate transposition is an elementary natural hypercube symmetry. The complete all-n integral geometric fixed-space homotopy classification distinguishes exponentially many S^2 summands from the ambient scale-two Rips space, with genuinely mixed S^2/S^3 wedges starting n=5. Its explicit orbit model and integral attaching-word reduction are structural, reusable mathematical information, not a numerical sample.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

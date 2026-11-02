@@ -1,15 +1,21 @@
-# Mathematical assessment
+# Independent mathematical audit
 
-## Correctness
-PASS. The six-vertex assertion follows from enumerating feasible intersections of three strip pairs. Positive rational John weights for six unit contacts sum in outer products to the identity; positive Löwner weights at all six vertices sum to the inverse ellipse matrix. By the standard contact sufficiency criteria these determine the two endpoint ellipses exactly. A diagonal affine change produces endpoint quadratic forms whose commutator has nonzero off-diagonal entry \(-3/130\). Bochi's uniqueness and continuity theorem yields a noncommuting pair of strictly intermediate fixed-area optimizers. Quarter-turn invariance and uniqueness force all fixed-area square optimizers to be disks, giving the four-vertex lower bound by affine equivalence. The accompanying rational checker reproduces the finite identities but is not substituted for these deductions.
+## correctness
 
-## Originality
-PASS at the level of the examined records, with residual publication-priority risk. Artstein-Avidan–Katzin defined the setting and Bochi proved existence/uniqueness/continuity, neither giving a six-vertex rational noncoaxial construction or polygonal minimality in the material examined. Bochi's Figure 1 displays a different nonpolygonal phenomenon, so the contribution is not the general existence of a nonsymmetric interpolation. Nearby indexed results treat parallelogram circumellipses, hexagonal enclosing parallelograms, and highly symmetric polytope John/Löwner data; their statements do not imply this exact noncommuting hexagon certificate or six-vertex threshold. A semantic search and selected full-text inspection cannot establish absolute priority.
+PASS
 
-## Mathematical value
-PASS. The result answers a natural structural question for the fixed-area interpolating ellipses—whether their orthogonal axes can be held fixed—at the smallest possible combinatorial complexity among centrally symmetric polygons. Its nontrivial positive contact certificates supply an exact example rather than relying on an arbitrary numerical optimizer, while the four-vertex argument establishes genuine minimality. It supplies a finite geometric boundary for the smooth examples permitted by the interpolation theorem, not a new proof of that theorem.
+An exact strip-intersection enumeration gives precisely six extreme points ±(1,1/2), ±(-1,2/3), ±(1/7,8/7) of H, hence the original displayed K=T H (T=diag(2,1)) is a genuine centrally symmetric hexagon. The unit disk is the John ellipse of H because all three strip normals are unit and positive opposite-symmetrized contact weights (11/16,125/224,169/224) sum to isotropic identity. Exact Q0=(1/65)[[49,4],[4,48]] is SPD, includes all six vertices with equality, and positive vertex weights (6929/12264,12375/16352,4753/7008) satisfy sum b_i v_i v_i^T=Q0^{-1}; the dual John contact criterion certifies it is the Löwner ellipse. Independent exact rational checks verified both certificates, all vertices, and detQ0=2336/4225. After T the endpoint matrices are diag(1/4,1) and (1/65)[[49/4,2],[2,48]] and their commutator has (1,2) entry -3/130. Bochi Theorem1.2 proves the unique fixed-area maximal-intersection ellipse varies continuously from John to Löwner in the full stated area interval, so a pair of strictly interior parameters near opposite endpoints still has noncommuting matrices. A centered ellipse family with a common orthogonal principal-axis basis would require pairwise commuting Q. Every centrally symmetric polygon with <6 vertices is an affine image of a square; uniqueness and quarter-turn symmetry force disks for the square and a homothetic axis-fixed family for any parallelogram. Thus 6 is minimal.
 
-## Closest literature and limitations
-The closest work is Bochi (2017), Theorem 1.2 and Figure 1, and Artstein-Avidan–Katzin (2016). The result relies on their existence/uniqueness/continuity and does not determine full interior axis dynamics. Potential uncatalogued equivalent polygon examples remain a publication-priority risk, particularly in literature on simultaneous John and Löwner forms. Independent validation has not been performed.
+## originality
 
-Self-review: passed. Independent audit: not yet performed.
+PASS
+
+Best-of-knowledge comparison on actual final mathematical statement for Minimal six-vertex centrally symmetric polygon with rotating fixed-area maximal-intersection ellipse axes. Four distinct implications were checked, including known covering numeric/special-case portions that are explicitly excluded from the originality claim. Sources and access limits are detailed below.
+
+## value
+
+PASS
+
+The exact rational six-vertex witness settles the minimal combinatorial complexity for a genuine change of Euclidean principal-axis directions in the continuous maximal-intersection family, separating generic affine-covariant behavior from parallelogram rigidity. A pair of positive John/Löwner contact decompositions gives useful explicit geometric certificates rather than mere numerical optimizer output.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

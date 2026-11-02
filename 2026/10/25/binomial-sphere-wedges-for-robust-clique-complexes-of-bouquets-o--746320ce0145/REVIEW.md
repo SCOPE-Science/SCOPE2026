@@ -1,12 +1,21 @@
-# Self-review
+# Independent mathematical audit
 
-## Correctness — PASS
-The central-vertex link is characterized by the number of distal vertices. Every face outside it has exactly \(k-1\) distal vertices and lies in the interior of a uniquely indexed closed simplicial ball \(\Delta^{k-2}*(S^0)^{*(k-1)}\). All intersections of distinct balls are in the link, and the link contains the complete boundary of each ball. The cofiber quotient is exactly the indicated wedge; this verifies integer-coefficient homotopy, all quantifiers, the zero-binomial case, and the full range \(k\ge4\). An independent finite checker reconstructs all faces for ten parameter pairs, including mod-two homology for five of them.
+## correctness
 
-## Originality — PASS, subject to residual bibliographic uncertainty
-Primary full material inspected: Filakovský, arXiv:2602.11365, especially Definition 2.3, Theorem 1.2, Corollary 1.3 and Conjecture 1.5, which require gluing along one or two edges, whereas this family glues only at a single vertex. Kim–Lew, arXiv:1912.12605, discusses collapsibility/Leray bounds rather than the asserted homotopy classification. The closest indexed 2026 general bipartite-graph theorem concerns only the threshold \(k=3\). Indexed scientific-record searches for naming variants, formulas, and stronger theorems found no covering result for \(k\ge4\). The proof and parameter scope are not implied by those statements, though an unindexed or inaccessible work may overlap.
+PASS
 
-## Mathematical value — PASS
-The theorem determines the complete integral homotopy type for an unbounded two-parameter family of high-threshold bounded-independence complexes on a natural square-cactus graph with a cut vertex. Unlike previously solved edge-gluing sequences, it handles vertex-only gluing and produces a closed binomial multiplicity and exact contractibility boundary. It gives a clean, reusable central-vertex cofiber mechanism for higher robust-clique questions, without purporting to resolve arbitrary cactus graphs.
+Delete center c to obtain X, let L be its simplicial link. The independent-set dichotomy gives α(S∪{c})=max(α(S),1+# distal selected), so non-link faces contain precisely k−1 distal d_i; any outside-branch vertex violates independence cap. For each I of size k−1, the closed star of distal face is simplicially Δ^{k−2}*(S⁰)^{*(k−1)}, a (2k−3)-ball; its intersection with L is its whole sphere boundary, and different interiors intersect only in L. Geometric pushout X∪(c*L) is homotopy cofiber X/L; collapsing L gives exactly binom(m,k−1) spheres with integral homotopy type. If m<k−1, X=L so whole complex is a cone. Independently enumerated exact faces and nonlink stars for m=1..4, k∈{4,5}; this is corroboration of universal topological proof.
 
-Self-review: passed. Independent audit: not yet performed.
+## originality
+
+PASS
+
+An integral cofiber decomposition proves an all-k≥4 formula for vertex-only square bouquets, outside Filakovský’s edge-or-two-edge intersection hypotheses; Kim–Lew give collapsibility/Leray estimates, and a related general connected-bipartite result only handles k=3. No inspected stronger statement subsumes this two-parameter classification.
+
+## value
+
+PASS
+
+The family is the simplest high-k robust-clique square cactus outside edge-glued sequences, giving full integral homotopy types and a sharp contractibility boundary for unbounded m,k. The explicit disjoint relative-ball/link decomposition is a potentially reusable structural lemma, not merely an Euler count.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

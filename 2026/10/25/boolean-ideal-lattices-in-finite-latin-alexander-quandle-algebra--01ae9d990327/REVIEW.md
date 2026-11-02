@@ -1,19 +1,21 @@
-# Mathematical review
+# Independent mathematical audit
 
-## Correctness — PASS
+## correctness
 
-The required Fourier transform is invertible over the specified splitting field. Formula (1) follows from the affine quandle multiplication. For any nonzero Fourier coefficient of an ideal element, a coordinate right multiplier isolates one basis vector. Further appropriate left and right multipliers generate the full orbit of the two dual automorphisms. This proves that every ideal is a union of orbit blocks, rather than relying on an assumed coordinate-support normal form. The converse multiplication checks establish simplicity, mutual annihilation, and the Boolean lattice. The checker verifies cyclic and noncyclic cases, including exhaustive classification of 116 subspaces of \(\mathbb F_7[R_3]\).
+PASS
 
-## Originality — PASS, with literature risk
+Finite abelian Fourier transform is invertible because char K∤|A| and K contains all exponent(A)-roots. The convolution transform formula gives F(u*v)(χ)=F(u)(Φχ)F(v)(Ψχ). If f in a two-sided ideal has nonzero coordinate α, choose right factor δ_{ΨΦ^{-1}α} to extract f(α)δ_{Φ^{-1}α}. Multiplying coordinate vectors on right and on left yields δ_{Φ^{-1}β} and δ_{Ψ^{-1}β}; finite-order permutations propagate to the whole H orbit. Thus arbitrary ideal subspaces are coordinate-orbit sums, not assumed diagonally decomposed. Conversely H-orbit spans are two-sided ideals; distinct orbits annihilate, δ_{Φχ}*δ_{Ψχ}=δ_χ shows each block square generates itself, and any nonzero subideal contains an entire block. For Rp, dual nonzero indices are cosets of <-1,2> and zero singleton; p31 gives h=10. Independent exact prime-orbit tests p=3,5,7,11,13,17,19,23,31 confirm dimensions; general proof not inferred from examples.
 
-The critical Fourier identity is explicitly known from Elhamdadi–Ta–Virgin (2026, Theorem 3.2) and Ta (2026, Proposition 5.1), and is credited. Elhamdadi–Fernando–Tsvelikhovskiy (2018, Proposition 4.18) and Kaur–Singh (2023/2024) decompose quandle algebras into right-simple modules, not two-sided simple algebra ideals. For \(R_7\), the right decomposition has nontrivial dimension-two pieces, whereas the nontrivial **two-sided** component here has dimension six; these cannot be directly equated. Bardakov–Elhamdadi (2026) studies augmentation-ideal powers and idempotents rather than listing all ideals. Searches of published mathematical records using two-sided-ideal, dual-orbit, Fourier and lattice reformulations did not identify a statement already giving the full classification. A possible indirect implication through broader nonassociative ideal theory remains a priority risk; no inference of worldwide uniqueness is made from search alone.
+## originality
 
-## Value — PASS
+PASS
 
-The result determines the entire two-sided ideal lattice, all simple constituents, their dimensions, and their pairwise products across an infinite natural class, over every eligible splitting field. The dihedral-prime formula \(2^{1+(p-1)/h_p}\), where \(h_p=|\langle -1,2\rangle|\), makes a meaningful invariant computable and explains why one-sided representation factors may combine into a larger two-sided block.
+The Fourier multiplication identity is previously established, as are substantial one-sided module decompositions and augmentation/commutator ideal facts. The submitted new step is a complete two-sided-ideal classification: arbitrary ideal vectors are forced to contain individual Fourier coordinates, then both dual automorphisms propagate to whole orbits; these orbit blocks are simple and mutually annihilate. The argument is not a re-labeling of right-simple constituents. Full literature priority remains qualified because the newest Ta preprint was inaccessible beyond summary and institutional storage was exhausted.
 
-## Scientific limitations
+## value
 
-The classification does not address characteristic dividing \(|A|\), nonsplitting fields, nonlatin Alexander quandles, or one-sided ideals. Finite enumerations validate instances but do not substitute for the general proof. Residual originality uncertainty remains about implicit derivations in older representation-theoretic or nonassociative-algebra literature. The references in RESULT.md and scientific comparisons in AUDIT.json identify the inspected material.
+PASS
 
-Self-review: passed. Independent audit: not yet performed.
+A complete classification of all two-sided ideals and simple nonassociative blocks in a natural infinite class of finite latin Alexander quandle algebras supplies an algebraic structural theorem, a Boolean lattice formula and exact arithmetic ideal counts. Explains why right-simple representation constituents do not directly classify two-sided ideals; likely useful for future quandle-ring simplicity and augmentation studies.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

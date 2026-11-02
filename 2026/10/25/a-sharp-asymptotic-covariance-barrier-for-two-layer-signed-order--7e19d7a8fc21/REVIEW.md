@@ -1,12 +1,21 @@
-# Scientific review
+# Independent mathematical audit
 
-## Correctness — PASS
-The signed-root realization is consistent by a strict interior witness. A disjoint signed-clique sector decomposition gives exact moments, the fibre integral gives the beta law, and conditional covariance gives all eigenspaces. In the large-parameter regime the longitudinal block is a positive rank-one perturbation of the two transverse scales; its explicit trace, determinant, and Rayleigh quotient prove the sharp condition-number bound and the uniqueness of the balanced ratio. The independently written rational-moment checker reproduced all formulas for 440 integer parameter pairs and checked positive definiteness. Finite computations are corroborative, not the basis for the infinite theorem.
+## correctness
 
-## Originality — PASS (self-review)
-The originating 2023 signed-poset paper treats the polytope construction, signed filters, triangulations, Ehrhart data, and Gorenstein properties but not a covariance condition-number formula for this signed clique--antichain construction. The 2016 fractional-stable-set paper covers the bottom clique factor as an object, which is credited, not presented as new. Closest published records include a general signed-order inradius theorem (different metric statistic), a two-level signed-chain volume theorem (different object and statistic), and John ellipsoids of classical height-two order polytopes (different body and uniform-volume moment). The searched records do not imply the stated coupled covariance spectrum or its optimal limiting condition number. Residual risk: equivalent moment calculations in less-indexed signed-order or probabilistic fibre literature, and incomplete examination of the older fractional-stable-set full text.
+PASS
 
-## Mathematical value — PASS
-A natural type-B signed-order construction gives an infinite two-parameter polytope family. Its two transverse representation blocks and coupled longitudinal block exhibit a sharp, dimension-independent asymptotic covariance condition-number threshold with a uniquely balanced extremizing parameter ratio; the boundary regimes diverge. This exact structural classification is not just a numerical invariant of one arbitrarily selected dimension or a routine restatement of the volume.
+The base signed clique sector decomposition B_p=positive unit cube plus p disjoint one-negative sectors has volume 2, and independently integrated beta moments reproduce μ,c_perp,c_parallel. Fiber at T=min Y is T B_p; T has Beta(p+1,q), giving volume 2p!q!/n! and conditional covariance decomposition into transverse eigenspaces and 2x2 longitudinal M_pq. Independent exact rational computations matched 121 parameter pairs. In proportional scaling the longitudinal matrix G=diag(a²,b²)+3ab vv^T has trace 1+ab, det 4a²b², largest eigenvalue Λ_+(ab)≥v^TGv=1; smallest whole-covariance eigenvalue is min(a²,b²)/12. Hence limiting ratio ≥4, equality iff a=b=1/2. A transverse eigenvalue collapses in either extreme regime, proving divergence and the iff sequence claim by compactness. The assertion is coordinate-Euclidean asymptotic, not affine invariant or finite-n ≥4.
 
-Self-review: passed. Independent audit: not yet performed.
+## originality
+
+PASS
+
+Beck–Hlavacek define the signed-poset class, and the bottom B_p is affine-equivalent to a known complete-graph fractional stable-set polytope (Hamano et al.). Both are credited. A separate two-level signed-chain volume finding concerns volume rather than covariance. No source inspected directly determines the two-layer covariance block spectrum or sharp asymptotic 4 barrier in the specified coordinate metric; residual alias/general conditional-beta literature may exist.
+
+## value
+
+PASS
+
+The complete Euclidean covariance spectrum and sharp balancing criterion identify a natural isotropy barrier for a two-level signed-order family. The exact beta-fiber decomposition makes the high-dimensional statistic reproducible; this is more than deriving a volume already in the literature, while remaining metric-normalization-dependent.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

@@ -1,11 +1,21 @@
-# Self-review
+# Independent mathematical audit
 
-**Correctness — PASS.** The geometric conditional two-point event is integrated exactly. The proof gives a global three-zero ceiling using the logarithmic derivative of a weighted ratio, a three-crossing witness for every population of at least 21, and exact Sturm root counts for 4 through 20. The included standalone Python checker has been executed with exact arithmetic. The result does not rest on finite sampling for an infinite assertion.
+## correctness
 
-**Originality — PASS, with a documented priority risk.** Full-text comparison: Decreusefond–Ferraz (2010) concern Poisson cluster counts; Wilsher–Dettmann–Ganesh (2020) derive Poisson soft-connection isolated-node second moments. Neither inspected work states the sharp fixed-size 21-point sign-phase theorem. Penrose's 2003 monograph provides relevant broad foundations, but the closest chapters were accessible only by abstract and contents and may contain stronger coverage. Previously recorded occupancy singleton correlations concern a different random model.
+PASS
 
-**Mathematical value — PASS.** The result identifies a sharp first sample size where isolation indicators alternate dependence sign four times as a geometric connection radius varies, and gives the sparse-scale limiting equation. Such a phase classification is useful for interpreting variance and second-moment behavior of isolated nodes, without asserting new global connectivity limit theory.
+Integrating over the distance between two designated sample points (density 2) and the forbidden union arcs yields the exact displayed C_n formula on 0<r<1/4. The derivative ratio H and quadratic sign polynomial force at most three interior roots for n≥4. At n≥21 strict alternating signs at 0+,1/n,1/6,1/4 give three, hence they are simple; n=4..20 exact rational Sturm counts of P_n(r)/r independently recomputed as one, and n=2,3 as none after strictly excluding r=1/4. Uniform c/n expansion yields nC_n(c/n)→2e^−4c(e^c−1−2c²); analytic root count bounds identify the two finite scaled limits. Finite Sturm checks do not establish the n≥21 all-size result without the analytic derivative proof.
 
-**Limitations.** Uniform points, a one-dimensional torus, common hard connection radius below one-quarter, and ordinary covariance. Higher dimension, anisotropic points, soft connections and the other radius regime remain unproved. Prior-publication priority has not been independently established.
+## originality
 
-Self-review: passed. Independent audit: not yet performed.
+PASS
+
+Exact moment integration is elementary and random geometric isolation moments are well studied. Novelty is the full hard-threshold binomial-circle sign-root classification, sharp onset n=21, and root asymptotics; Poisson component and Poisson soft-edge sources do not imply those zero counts. Penrose's monograph is a plausible uninspected general source, so conclusion is best-of-knowledge, not historical certainty.
+
+## value
+
+PASS
+
+An exact 21-point threshold for a switch from two to four dependence-sign phases in a natural binomial circle random geometric graph is a meaningful finite-size transition. The full all-population sign diagram and sparse-scale roots make the invariant interpretable beyond a stand-alone decimal computation.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

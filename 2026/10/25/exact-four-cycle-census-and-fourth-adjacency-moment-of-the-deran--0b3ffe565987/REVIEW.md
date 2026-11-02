@@ -1,11 +1,21 @@
-# Self-review
+# Independent mathematical audit
 
-**Correctness: PASS.** The proof partitions all four-cycles by the product of two transpositions at opposite corners, then counts the complete three-support \(K_{3,3}\) cosets by restricted diagonal avoidance and the four-support commuting squares by a two-block forbidden-board rook polynomial. No unverified finite-to-infinite inference occurs. The graph's known degree relation and exact selected-two-cycle enumeration yield the fourth spectral moment via the elementary closed-four-walk identity. Both standalone codes were run from the package and independently match the exact formula for all exhaustively tested small orders.
+## correctness
 
-**Originality: PASS, with stated residual risk.** Jain (2021) is directly on the same state graph and already proves degrees, spanning walks and connectedness and constructs local four-cycle bypasses, which are excluded from novelty claims. Baril--Vajnovszki (2004) study Gray codes; Dyer--Jerrum--Müller (2015) study perfect-matching switch chains. Direct inspection did not reveal the global two-support square census or fourth adjacency moment in these sources. Searches of accessible prior findings and semantic mathematical records did not show a covering theorem, although indexed search cannot prove priority.
+PASS
 
-**Mathematical value: PASS.** A square is the first nontrivial closed cycle in this bipartite switching graph, measuring ambiguity between two-step matching transformations. Separating the braid-type and commuting-type squares resolves two intrinsically different local mechanisms across the entire infinite family, and the exact fourth adjacency moment is a natural spectral random-walk return statistic not fixed by the degree range or connectivity. It is a substantive exact enumerative invariant, rather than merely a renaming of an existing parameter.
+PASS. For opposite corners of a simple four-cycle in the ambient transposition Cayley graph, their two-step difference is either a three-cycle or a product of disjoint transpositions. The first forms a K_(3,3) parity-coset on a unique set of three positions; retaining derangements yields precisely 9 squares when zero positions intersect the image set, 1 when one intersects, and none when at least two intersect. The outside partial permutation count is the explicitly specified diagonal-avoidance B0/B1. Two commuting disjoint transpositions produce a unique square on four positions; all four corners avoid the diagonal exactly when the matching permutation avoids a pair of 2x2 forbidden rook boards with polynomial (1+4x+2x²)²(1+x)^(n-4). Each such square has four possible starting corners, establishing the factor 1/4. The degree identity deg(pi)=binom(n,2)-n+c2(pi), exact one- and two-selected 2-cycle sums and elementary closed-four-walk partition prove the fourth moment. Independent code reconstructed the graph directly and computed all square types and tr(A^4) for n=4,5,6; results (Q3,Q4,trA4)=(0,3,144),(60,60,3360),(1800,1305,70560) agree. Finite enumeration is corroboration, not the proof for n>6.
 
-**Residual limitations.** No complete adjacency spectrum, mixing bound, or independent novelty check is claimed. An unindexed identical enumeration would supersede priority. The finite checker ranges are corroboration, while the symbolic rook/coset arguments carry the unrestricted proof.
+## originality
 
-Self-review: passed. Independent audit: not yet performed.
+PASS
+
+PASS, best-of-knowledge with known state graph and degree/bypass results excluded. A transposition Cayley subgraph of derangements is mathematically identical to the crown-graph perfect-matching switch graph; Jain already studied this precise alpha(n), including degree and local alternative routes, but its stated theorems do not supply the complete two-class 4-cycle census or tr(A^4). General perfect-matching switch-chain and Gray-code papers are broader algorithmically, not exact square counts. No retrieved published finding matched the asserted two-support formula. A hidden exact rook-board count or rephrased count of alternating length-eight matching transformations could cover it.
+
+## value
+
+PASS
+
+PASS. The minimum nonbacktracking cycle structure is a natural invariant of the switch-state graph governing local ambiguity of two matching switches; the three-position and commuting four-position contributions distinguish two mechanisms. The exact fourth adjacency moment is a natural spectral statistic derived from a complete infinite-family census, not a single artificial finite example, and provides a natural baseline for subsequent walk/spectral studies. No mixing-time or full spectrum improvement is claimed.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

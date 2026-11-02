@@ -5,8 +5,11 @@
     "status": "not_performed"
   },
   "independent_audit": {
-    "evidence": null,
-    "status": "not_performed"
+    "status": "passed",
+    "evidence": [
+      "INDEPENDENT_AUDIT_2026-10-28.md",
+      "INDEPENDENT_AUDIT_2026-10-28.json"
+    ]
   },
   "lean_verification": {
     "evidence": null,
@@ -16,8 +19,24 @@
 }
 ---
 
-# Mathematical and numerical verification
+# Independent mathematical audit
 
-The exact pre-aeration solution is \(g(t)=aL_0(e^{-at}-e^{-bt})/(b-a)\). Across a reset at \(s\), the downstream solution is \(g(t)-(1-q)g(s)e^{-b(t-s)}\). A strictly increasing upstream maximum and a strictly decreasing downstream maximum determine the unique optimum; hence finite computational grids are not used to claim global optimality. Differentiation gives the post-reset critical point \(h(s)\) and its curvature \(-abm(s)\); expansion of the balancing equation at \((s_\infty,T_c)\) verifies the second-order saturation coefficient.
+## correctness
 
-Run `python3 CHECK.py` with a standard Python 3 installation. Expected output: `PASS: 200 randomized 101-point placement scans, exact example, endpoint checks`. The script verifies the exact parameter example \(a=1\), \(b=2\), \(q=1/2\), \(L_0=1\), computes critical threshold and limiting coefficient, checks short-length limits, and compares the analytic optimum with 101 grid placements for each of 200 reproducibly seeded random parameter draws. This is finite cross-checking and not an exhaustive proof of the theorem. No full-text validation of the inaccessible Koivo–Phillips (1975) source or independent scientific audit has been performed.
+PASS
+
+Solving D′=aL0e^(−at)−bD before and after an instantaneous multiplication by q gives g(t)=C(e^(−at)−e^(−bt)) and post D_s(t)=C[e^(−at)−A(s)e^(−bt)] for t≥s, A=q+(1−q)e^((b−a)s). The upstream maximum g(s) strictly increases for s<t0; the downstream constrained maximum Q_T(s), at t=min(T,h(s)), strictly decreases with s there because moving the aerator later makes post deficit pointwise lower for t≥later position. Their unique crossing gives global minimax and excludes endpoint/late placements. The unconstrained post peak m(s) decreases, so the unique g(s∞)=m(s∞) defines T_c=h(s∞); for T≥T_c the downstream peak is present and the site stays fixed. Below T_c the balance occurs at the reach endpoint and implicit differentiation gives increasing s_T. Taylor at h(s) where D_s″(h)=−ab m(s), plus J=g′−m′>0, yields the quadratic cutoff law; short reach Taylor yields 1/(2−q). Independent numerical scans over 125 random parameter instances were consistent and exact a=1,b=2,q=.5 matches s∞ and Tc, but scans are not a universal proof.
+
+## originality
+
+PASS
+
+The exact all-horizon fixed-fraction minimax location and quadratic reach saturation are not stated in the inspected older cost/standard control results. Best-of-knowledge originality passes with unresolved direct Koivo–Phillips 1975 priority risk, not automatic failure.
+
+## value
+
+PASS
+
+A sharp reach-length phase change and quadratic placement sensitivity for the canonical analytical water-quality model provide a natural optimal-control benchmark. This is a narrow but motivated complete classification of the one-device fixed-fraction problem, distinct from general cost-driven multi-aerator engineering design.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

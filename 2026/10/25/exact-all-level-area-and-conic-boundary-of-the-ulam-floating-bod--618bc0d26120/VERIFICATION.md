@@ -5,8 +5,11 @@
     "status": "not_performed"
   },
   "independent_audit": {
-    "evidence": null,
-    "status": "not_performed"
+    "status": "passed",
+    "evidence": [
+      "INDEPENDENT_AUDIT_2026-10-28.md",
+      "INDEPENDENT_AUDIT_2026-10-28.json"
+    ]
   },
   "lean_verification": {
     "evidence": null,
@@ -16,10 +19,24 @@
 }
 ---
 
-# Verification of the triangle Ulam-body area formula
+# Independent mathematical audit
 
-The general theorem is proved analytically in `RESULT.md`. The accompanying standard-library-only `verify.py` tests the independent construction of cap centroids by polygon clipping and bisection, area by the shoelace formula, and the resulting Ulam-body boundary area at 12 parameter/triangle choices. Three tests use an invertible affine image of the standard triangle. Further tests substitute into the two conic equations at 156 sample positions, compare the centroid-complement area identity at 99 values, and verify the exact half-cap formula numerically.
+## correctness
 
-Run `python verify.py` from this directory. Expected successful output begins `VERIFY_OK triangle Ulam normalized area`; the program exits with an exception on a discrepancy. The numerical area tolerance is \(2.5\times10^{-5}\) in area-ratio units, and conic residual tolerance is \(10^{-13}\). The calculations do not assert that a finite mesh exhaustively verifies a continuum of cap directions. In particular, numeric agreement is not the proof of the closed formula; the exact cap parametrizations, Green integrals, and moment complement identity are the proof.
+PASS
 
-The supporting scientific references are the foundational Ulam-body theorem, the original metronoid treatment, and the average-quantile geometric formulation, listed in `RESULT.md`. The exact area claim has not been independently audited.
+The body is normalized affinely to the simplex (0,0),(1,0),(0,1). For normals (1,t), the centroid of a triangular cap yields C1(r)=(1-(r+q/r)/3,r/3) for sqrt(q)<=r<=1, and the complement triangle yields C2(r)=((1-p²/r)/(3q),(1-pr)/(3q)) for r decreasing 1 to sqrt(p). Cap switch t=p and all six ordered-normal sectors cover the circle. The first arc obeys lambda0*lambda2=q/9 and the second (1-3qx)(1-3qy)=p^3; Green integration gives J1=(p+q log q)/9 and J2=p²(q+p log p)/(9q²), hence F=6(J1+J2). Independent direct quadrature of both arc integrands agreed at six levels, including tiny q and q=1/2; series expansion gave F(q)=1+(2/3)q log q-(11/9)q+q²/6+O(q³). The complement scaling follows the general first moment identity q(Cq-G)+p(Cp(-u)-G)=0, already known. The algorithmic cap-clipping verifier checks other numerical levels but does not replace exact integration.
+
+## originality
+
+PASS
+
+General Ulam body support and moment complement are prior theorems of Huang–Slomka–Werner. Their complete accessible paper does not give the all-level triangle area or conic-sector parametrization. Exact published square Ulam and classical convex floating triangle formulas were read in full and are nonimplicative, because the first body has a different polygon and the second uses a different construction.
+
+## value
+
+PASS
+
+An all-cap-level shape-independent area formula and complete conic-arc boundary for the elementary yet geometrically important simplex under the Ulam floating operation; it is not merely the known classical halfspace-depth floating-body calculation. Natural benchmark for metronoids/trimmed regions and cap-centroid geometry, including half-level and endpoint asymptotics.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

@@ -1,0 +1,105 @@
+{
+  "audit_date_utc": "2026-10-28",
+  "audited_at_utc": "2026-10-28T02:07:58.033203Z",
+  "axes": {
+    "correctness": {
+      "rationale": "The full probability space comprises 3^3 side-label patterns, with single-side degeneracy 1/9, two-side mass 2/3 and three-side mass 2/9. In the two-side case, ordered endpoints x<y on AB and t on AC are acute exactly when x<t/2<y and (t/2-x)(y-t/2)<3t²/4; integrate the product-of-gaps region on t∈(0,1/2) and (1/2,1). This yields f(t)=(3/2)t²[1+log((2-t)/(3t))] and t(1-t/2), giving 4log(4/3)-5/6. A distinct three-side obtuse-angle integration yields (27/2)log(4/3)-7/2. Strict right-angle and vertex cases have measure zero. All mixtures and normalizations were checked independently via numerical quadrature, symbolic identities and 1.2 million direct randomly placed sample triples; no simulation is used as proof.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Random tangent-line triangles and affine ellipse acute triangle models sample different geometric objects."
+        ],
+        "reasoning": "No established stronger theorem inspected applies verbatim to independent whole-perimeter sampling; independence and the same-side degeneracy are essential.",
+        "searches": [
+          "arXiv:1101.3931; Finch Three Random Tangents to a Circle",
+          "exact acute triangle probability three independent points uniformly on equilateral triangle perimeter two sides 17/3 log(4/3) - 4/3"
+        ]
+      },
+      "checked_sources": [
+        "assigned RESULT.md / verify_boundary.py at pinned commit",
+        "https://puzzling.stackexchange.com/questions/128400/three-points-on-the-sides-of-an-equilateral-triangle",
+        "https://oeis.org/A394836",
+        "https://arxiv.org/abs/1101.3931"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "The 2024 source gives an unevaluated triple integral and a numerical approximation, not closed-form equality. A394836 fixes distinct sides."
+        ],
+        "reasoning": "Neither source supplies the two-side conditional integral value; the full formula requires that independent nontrivial integration. Possible earlier worked solutions are a residual risk.",
+        "searches": [
+          "puzzling.stackexchange.com/questions/128400",
+          "OEIS A394836"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "2024 question specifies three independent uniform perimeter points and presents a triple-integral representation (~0.27), not an exact solution. OEIS A394836 specifies one sample from each side, a conditional distribution, not the unrestricted side-occupancy experiment."
+        ],
+        "reasoning": "The full law is a three-component mixture; one-per-side conditional data are not logically equal to the desired law without an exact two-side conditional evaluation. We derived and compared the exact conditional values.",
+        "searches": [
+          "exact acute triangle probability three independent points uniformly on equilateral triangle perimeter two sides 17/3 log(4/3) - 4/3",
+          "puzzling.stackexchange.com/questions/128400",
+          "OEIS A394836"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "A394836 tabulates (27/2)log(4/3)-7/2 for exactly three distinct sides, the existing subcomponent. No returned exact table supplied (17/3)log(4/3)-4/3 or 4log(4/3)-5/6."
+        ],
+        "reasoning": "Credit the exact known subcase and do not turn absence of a whole-perimeter table into novelty proof; originality rests on mathematical nonimplication of its one conditional value.",
+        "searches": [
+          "OEIS A394836",
+          "Seitz 1878 Mathematical Visitor vol.1 no.2 pp.40-41",
+          "exact acute triangle probability three independent points uniformly on equilateral triangle perimeter two sides 17/3 log(4/3) - 4/3"
+        ]
+      },
+      "rationale": "PASS for exact unconditional perimeter probability and two-occupied-side conditional value only. Exclude known one-per-side law (OEIS A394836), old original Seitz 1878, and the 2024 triple-integral question. Full priority remains qualified because an elementary integration might exist in unindexed recreational or geometric-probability literature.",
+      "residual_risks": [
+        "Unindexed older published solution or linked answer might already evaluate this elementary full-perimeter integral.",
+        "The 1878 Seitz attribution is bibliographic at year level; priority for the full unrestricted problem is not established."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "SAME_QUESTION_UNEVALUATED",
+          "evidence": "Posted Sep 17 2024; formula presented in integral form; no matching exact closed evaluation in inspected body.",
+          "identifier_or_url": "https://puzzling.stackexchange.com/questions/128400/three-points-on-the-sides-of-an-equilateral-triangle",
+          "material_read": "Question and displayed probabilistic integral/approximation; not asserted entire follow-up comment ecosystem inspected",
+          "method": "web page read",
+          "title": "Three points on the sides of an equilateral triangle",
+          "trigger": "Exact sampling model, old posed question"
+        },
+        {
+          "assessment": "KNOWN_SUBCOMPONENT",
+          "evidence": "Lists (27/2)log(4/3)-7/2 conditioned on one point from each side; no unrestricted-side mixture.",
+          "identifier_or_url": "https://oeis.org/A394836",
+          "material_read": "Entry title, exact constant and historical attribution",
+          "method": "web page read",
+          "title": "OEIS A394836",
+          "trigger": "Published matching conditional one-side-each answer"
+        },
+        {
+          "assessment": "DIFFERENT_RANDOM_MODEL",
+          "evidence": "A random tangent-line triangle is not three independent arclength-uniform points on the edges of an equilateral triangle.",
+          "identifier_or_url": "https://arxiv.org/abs/1101.3931",
+          "material_read": "Abstract and sampling construction; no claim of full PDF inspection",
+          "method": "abstract/metadata read",
+          "title": "Three Random Tangents to a Circle",
+          "trigger": "Potential adjacent triangle-angle probability literature"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "rationale": "A classical natural geometric probability question with a published unsolved full-perimeter integral receives an explicit closed form and exact decomposition; the previously tabulated one-point-on-each-side result is not treated as new. The exact two-side value is a reusable analytic benchmark for random inscribed-triangle models; despite elementary calculus, it fills a precise motivated finite-shape probability gap.",
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "limitations": [
+    "Equilateral triangles only; arclength uniform independent samples with replacement; all-one-side collinear cases included as nonacute.",
+    "No general arbitrary-polygon or alternative triangle-angle distribution theorem."
+  ],
+  "schema_version": 1
+}

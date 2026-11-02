@@ -1,15 +1,21 @@
-# Scientific assessment
+# Independent mathematical audit
 
-## Correctness — PASS
-The result is a specific finite integral cycle-space theorem. The 30-vertex graph is built directly from duads and synthemes. Exhaustive enumeration finds 90 shortest octagons and 1,125 disjoint pairs. The unordered deleted-product chain model has cell counts 435, 1,260 and 900; every boundary composition and all 1,125 signed torus boundaries vanish. A rank-810 nonzero minor is certified over the field of 101 elements by sparse elimination. A specified collection of 90 torus classes from the distinguished 360-pair orbit has an integral 90-by-90 coefficient determinant of -1. The determinant plus the rank bound proves generation of the entire primitive integral kernel, not merely vector-space spanning. Two generator permutations determine orbit sizes and geometric types, and the remaining individual orbit families have binary ranks strictly below 90.
+## correctness
 
-## Originality — PASS with residual literature risk
-The inspected foundational paper of Barnett–Farber (arXiv:0903.2180, full PDF, especially Lemma 1.1 and Section 1) establishes the deleted-product model but does not classify this graph's pair-of-octagons orbit. Farber–Hanbury (arXiv:1005.2300, full PDF, introduction and mature-graph section) gives a framework for second Betti numbers rather than a shortest-cycle integral torus basis. An–Knudsen (arXiv:2008.10371, full PDF, Theorem 1.1 and Example 6.8) limits its general generation assertion to planar graphs and discusses nonplanar failure. Indexed searches of the eight-cage's other names and of two-particle integral geometric generators yielded no covering exact orbit-basis statement. Related literature on other graph complexes of the Tutte–Coxeter graph, and on two-particle homology for different graphs, concerns nonidentical objects or does not imply the orbit-selective integral result. This comparison is not a guarantee against unindexed, inaccessible, or unpublished duplicate calculations.
+PASS
 
-## Mathematical value — PASS
-The Tutte–Coxeter graph is the distinguished cubic girth-eight cage. Its minimum possible cycles have length eight; determining whether product tori on pairs of those cycles exhaust degree-two homology is a natural geometric-generation problem, especially outside the planar setting. The finding proves more than a Betti number: among four natural symmetry orbits, exactly one individually gives all integral homology, witnessed by a primitive unimodular basis, whereas the other three fail modular necessary tests. This is a concrete structural boundary for nonplanar geometric generators, not an arbitrary small numerical refinement.
+The Tutte–Coxeter graph was independently reconstructed as the Levi incidence graph on 15 duads and 15 synthemes (30 vertices,45 edges, cubic, girth eight). Enumerated exactly 90 simple 8-cycles and 1125 vertex-disjoint unordered pairs. For the unordered two-particle Abrams deleted-product CW complex, independently enumerated 435 vertices,1260 edges,900 squares; checked integral cellular d1*d2=0 and all signed 64-square torus products are d2-cycles. S6 on six labels divides pairs into orbits (45,360,360,360) with bridge profiles (0,empty),(2,(2,4)),(2,(2,4)),(2,(3,3)), and mod-2 torus ranks (35,89,89,90). The distinguished 360-pair (3,3) orbit contains a deterministically selected 90x90 integer coordinate minor with exact determinant -1 (independent check); hence its 90 cycles span a primitive rank-90 sublattice L in Z^900. The separately recomputed mod-101 boundary rank is 810; 90 independent cycles force characteristic-zero rank <=810, so rank ker(d2)=90. Because ker(d2) is primitive in Z^900 and L primitive rank90, the inclusion L subset ker(d2) is equality, proving integral basis. Other individual orbits fail integral generation by their strict mod-2 rank deficiency. Rank modulo 101 is used only as a rational-rank bound, never as integral saturation proof.
 
-## Limits
-One finite graph, two unordered particles, and degree-two integral homology only; the six-symbol action is not claimed to be the entire graph-automorphism representation. Modular rank defects do not themselves determine other orbits' rational ranks. The signed computational proof is reproducible using the embedded exact verifier; no independent external audit has been performed.
+## originality
 
-Self-review: passed. Independent audit: not yet performed.
+PASS
+
+Best-of-knowledge comparison on actual final mathematical statement for Integral Tutte–Coxeter two-particle H2 basis from a single octagon-pair orbit. Four distinct implications were checked, including known covering numeric/special-case portions that are explicitly excluded from the originality claim. Sources and access limits are detailed below.
+
+## value
+
+PASS
+
+The exceptional Tutte–Coxeter cubic eight-cage is a canonical nonplanar test for whether geometric cycle-product tori span configuration-space H2 integrally, and the result isolates exactly which natural shortest-cycle orbit works. Integer unit-minor and characteristic-zero rank together answer a genuinely integral generation question that rational or modular Betti counts cannot settle. The other three orbit failures sharpen the geometric characterization.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

@@ -5,8 +5,11 @@
     "status": "not_performed"
   },
   "independent_audit": {
-    "evidence": null,
-    "status": "not_performed"
+    "status": "passed",
+    "evidence": [
+      "INDEPENDENT_AUDIT_2026-10-27.md",
+      "INDEPENDENT_AUDIT_2026-10-27.json"
+    ]
   },
   "lean_verification": {
     "evidence": null,
@@ -16,8 +19,24 @@
 }
 ---
 
-The standard-library checker `checker.py` enumerates the seven line-complement tetrahedra, all simplices, and the free translation orbits. It confirms the explicit quotient attaching words, signed integer cellular matrices, chain identity, determinantal divisors \(1,1,7\), and the free face used in the equivariant collapse. It is run with `python3 checker.py`.
+# Independent mathematical audit
 
-The homotopy equivalence is proved by the explicit cellular cancellation of two generator–relator pairs in `RESULT.md`. Matrix ranks alone do not certify an attaching-map homotopy type; the cell argument supplies that step. The integral covering module is derived from the universal-cover chain complex, not inferred from a rational trace.
+## correctness
 
-Independent audit has not been performed.
+PASS
+
+The actual Fano line complement complex has seven tetrahedra and f-vector (7,21,28,7), confirmed by independent subset enumeration. Nonidentity Singer translations cannot stabilize any ≤4-vertex face and the seven free 2–3 face pairs collapse equivariantly. Quotient CW relators are a^2 b^−1, a c^−1 b, b^2 c; legitimate generator/2-cell cancellations give b=a^2,c=a^3 and a^7. Hence quotient is the Moore 2-complex M(Z/7,1), not merely a group presentation with abelianization Z/7. The free regular sevenfold cover has cellular differentials t−1 and N=Σt^j, giving integral H_2=ker ε=augmentation ideal, H_1=0; the simply connected 2-complex is homotopy equivalent to wedge six S². No conclusion for higher projective planes.
+
+## originality
+
+PASS
+
+The Fano geometry and Singer difference set are classical, and Heawood independence has a related rational C7 character. These do not determine the quotient 2-cell attaching degree and integral cap complex deck module. Superdock treats different Fano-derived torus models, not the seven-tetrahedron cap complex. No full equivalent was found; obscure combinatorial-topology work could still cover it.
+
+## value
+
+PASS
+
+The cyclic quotient of a natural Fano cap complex yields actual order-seven first homology and an integral deck representation, not merely numerical Betti numbers. The Moore-space cellular model is an exact substantive topological classification motivating further finite-geometry symmetry studies.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

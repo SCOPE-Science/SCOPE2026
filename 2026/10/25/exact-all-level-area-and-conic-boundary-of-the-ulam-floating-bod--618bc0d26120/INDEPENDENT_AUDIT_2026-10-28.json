@@ -1,0 +1,114 @@
+{
+  "audit_date_utc": "2026-10-28",
+  "audited_at_utc": "2026-10-28T02:07:58.033268Z",
+  "axes": {
+    "correctness": {
+      "rationale": "The body is normalized affinely to the simplex (0,0),(1,0),(0,1). For normals (1,t), the centroid of a triangular cap yields C1(r)=(1-(r+q/r)/3,r/3) for sqrt(q)<=r<=1, and the complement triangle yields C2(r)=((1-p²/r)/(3q),(1-pr)/(3q)) for r decreasing 1 to sqrt(p). Cap switch t=p and all six ordered-normal sectors cover the circle. The first arc obeys lambda0*lambda2=q/9 and the second (1-3qx)(1-3qy)=p^3; Green integration gives J1=(p+q log q)/9 and J2=p²(q+p log p)/(9q²), hence F=6(J1+J2). Independent direct quadrature of both arc integrands agreed at six levels, including tiny q and q=1/2; series expansion gave F(q)=1+(2/3)q log q-(11/9)q+q²/6+O(q³). The complement scaling follows the general first moment identity q(Cq-G)+p(Cp(-u)-G)=0, already known. The algorithmic cap-clipping verifier checks other numerical levels but does not replace exact integration.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Proposition 2.1 is cap barycenter; Proposition 2.2 is complement identity. Both apply in all dimensions, but provide no evaluated triangle area."
+        ],
+        "reasoning": "The stronger geometric generality of the support characterization does not imply the logarithmic exact area without computing its triangle cap-centroid locus.",
+        "searches": [
+          "arXiv:1803.08224 Proposition 2.1/2.2",
+          "arXiv:1706.07112",
+          "Ulam floating body triangle cap centroid area formula all levels metronoid zonoid trimmed"
+        ]
+      },
+      "checked_sources": [
+        "assigned RESULT.md / verify.py pinned SHA",
+        "https://arxiv.org/abs/1803.08224",
+        "https://github.com/Resultary/2026/tree/main/2026/10/4/SCOPE-exact-ulam-floating-body-of-the-square--acefdad229b3",
+        "https://github.com/Resultary/2026/tree/main/2026/10/11/SCOPE-exact-area-profile-of-the-convex-floating-body-of-every-triangle--34558385f85d"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "Read the full published triangle depth-body RESULT: constraints alpha beta>=tau/4, etc. Its depth region differs from Ulam cap-centroid body. Both have log area laws but different definitions/critical levels."
+        ],
+        "reasoning": "A formula for a classical convex floating body does not imply a cap-centroid Ulam formula, notwithstanding identical polygon objects and the word floating.",
+        "searches": [
+          "Resultary 2026/10/11/SCOPE-exact-area-profile-of-the-convex-floating-body-of-every-triangle--34558385f85d",
+          "arXiv:1803.08224"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Ulam floating body equals the uniform-measure metronoid / average-quantile region, not the classical convex floating depth contour. Published general support theorem and complement scaling are known premises."
+        ],
+        "reasoning": "Explicitly checked metronoid, zonoid trimming and average-quantile aliases; the exact two-conic triangle area profile was not found in inspected accessible original source.",
+        "searches": [
+          "Ulam floating body triangle cap centroid area formula all levels metronoid zonoid trimmed",
+          "arXiv:1803.08224",
+          "arXiv:2006.02186 Ulam average-quantile regions"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "Published square formula is 4-44δ/27+(8δ/9)log(δ/2), with parabolic and hyperbolic arcs. Triangle area is different and not affine-equivalent to a parallelogram."
+        ],
+        "reasoning": "The all-level square computation cannot be transplanted by an affine transformation to a triangle; no exact triangle profile appeared in returned mathematical records.",
+        "searches": [
+          "Resultary 2026/10/4/SCOPE-exact-ulam-floating-body-of-the-square--acefdad229b3",
+          "Ulam floating body triangle cap centroid area formula all levels metronoid zonoid trimmed"
+        ]
+      },
+      "rationale": "General Ulam body support and moment complement are prior theorems of Huang–Slomka–Werner. Their complete accessible paper does not give the all-level triangle area or conic-sector parametrization. Exact published square Ulam and classical convex floating triangle formulas were read in full and are nonimplicative, because the first body has a different polygon and the second uses a different construction.",
+      "residual_risks": [
+        "An unindexed statistical-depth / zonoid-trimming triangle area derivation may contain the same formula under different vocabulary.",
+        "The general cap-centroid theorem and complement identity are prior knowledge, explicitly excluded from originality."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "GENERAL_PREMISES_NOT_EXACT_TRIANGLE",
+          "evidence": "Support points and the complement law are known; no triangle-specific two-conic arc area evaluation in the full source.",
+          "identifier_or_url": "https://arxiv.org/abs/1803.08224",
+          "material_read": "Complete accessible HTML with abstract, definitions, Proposition 2.1 cap barycenter and Proposition 2.2 complement, subsequent main results and examples",
+          "method": "primary full-text HTML read",
+          "title": "Ulam Floating Body",
+          "trigger": "Same Ulam construction and support theorem"
+        },
+        {
+          "assessment": "DIFFERENT_POLYGON",
+          "evidence": "Square is non-affinely-equivalent to triangle, and has a parabola and hyperbola in one octant; not a triangle formula.",
+          "identifier_or_url": "https://github.com/Resultary/2026/tree/main/2026/10/4/SCOPE-exact-ulam-floating-body-of-the-square--acefdad229b3",
+          "material_read": "Full RESULT.md at pinned published finding including formulas, proofs, sections, references",
+          "method": "GitHub full scientific source file read",
+          "title": "Exact Ulam floating body of the square",
+          "trigger": "Closest explicit all-level Ulam area by another polygon"
+        },
+        {
+          "assessment": "DIFFERENT_CONSTRUCTION",
+          "evidence": "Classical floating depth region uses min barycentric products and endpoint tau=4/9; Ulam area uses cap-centroid exposed points.",
+          "identifier_or_url": "https://github.com/Resultary/2026/tree/main/2026/10/11/SCOPE-exact-area-profile-of-the-convex-floating-body-of-every-triangle--34558385f85d",
+          "material_read": "Full RESULT.md including barycentric depth region and area proof",
+          "method": "GitHub full scientific source file read",
+          "title": "Exact area profile of the convex floating body of every triangle",
+          "trigger": "Same triangle, competing definition of floating body"
+        },
+        {
+          "assessment": "ALIAS_RISK_NOT_DECISIVE",
+          "evidence": "General average-quantile formalism can restate Ulam, but no exact triangle formula was established from material read.",
+          "identifier_or_url": "https://arxiv.org/abs/2006.02186",
+          "material_read": "Abstract and known generalized construction; full text not asserted inspected",
+          "method": "arXiv bibliographic and abstract comparison",
+          "title": "Convex bodies generated by sublinear expectations of random vectors",
+          "trigger": "Average-quantile alias for Ulam floating body"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "rationale": "An all-cap-level shape-independent area formula and complete conic-arc boundary for the elementary yet geometrically important simplex under the Ulam floating operation; it is not merely the known classical halfspace-depth floating-body calculation. Natural benchmark for metronoids/trimmed regions and cap-centroid geometry, including half-level and endpoint asymptotics.",
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "limitations": [
+    "Only uniform area on planar triangles; no arbitrary polygons or high-dimensional exact formula.",
+    "The construction is Ulam floating, not the Schuett-Werner convex floating body."
+  ],
+  "schema_version": 1
+}

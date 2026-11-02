@@ -1,0 +1,104 @@
+{
+  "audit_date_utc": "2026-10-28",
+  "audited_at_utc": "2026-10-28T02:07:58.033275Z",
+  "axes": {
+    "correctness": {
+      "rationale": "Cyclically ordered sampled points generate the polygon hull perimeter as sum of adjacent chords, including collinear cases under the twofold segment-length convention. For any vertex, the nearest enclosing cyclic sample gap (A,B) has joint density N(N-1)/L² (1-(A+B)/L)^(N-2). Let S=A+B and T=A/S: T is independent uniform[0,1], E S=2L/(N+1). The virtual corner loss g_beta(A,B)=S-sqrt(A²+B²+2ABcos(beta)) has exact expectation Lh(beta)/(N+1) using ∫sqrt(c²+s²u²)du. On G=all m edges sampled, the actual chord deficit equals sum of g_beta; on the complement each nonnegative term is at most L, while P(G^c)<=sum_i(1-ell_i/L)^N<=m rho^N. Therefore the stated explicit bound follows, including the rare all-collinear cases. Independently checked angular integral for several beta and a square 10k-repetition Monte Carlo at N=50; observed estimate agrees within its sampling error and must not be mistaken for an exact verification of the exponentially small error term. The all-N proof is the analytic gap argument.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Full primary paper gives expected facets and expected volume-type deficits for higher-dimensional simple polytopes; its displayed statements do not supply this perimeter observable. Schneider addresses smooth boundaries in accessible source."
+        ],
+        "reasoning": "A more general random hull model does not imply an explicit h(beta) for fixed corners unless it contains a V1 theorem with that evaluated coefficient; none was evidenced.",
+        "searches": [
+          "arXiv:1911.05917 Theorems 1.1 and 1.2",
+          "Schneider Random approximation of convex sets 1988",
+          "expected perimeter deficit convex polygon independent uniform boundary samples angular coefficient exponent arctanh"
+        ]
+      },
+      "checked_sources": [
+        "assigned RESULT.md / verify_boundary_perimeter.py pinned SHA",
+        "https://arxiv.org/abs/1911.05917",
+        "https://doi.org/10.1111/j.1365-2818.1988.tb04682.x"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "Volume deficit asymptotics for boundary-sampled polytopes concern a different intrinsic volume and different small-gap geometry; planar angle profile is not present in stated results."
+        ],
+        "reasoning": "The theorem requires a cyclic-gap argument and explicit angular integral, not a mere relabeling of an existing volume-deficit formula.",
+        "searches": [
+          "arXiv:1911.05917v3 Theorem 1.1/Theorem 1.2",
+          "expected perimeter deficit convex polygon independent uniform boundary samples angular coefficient exponent arctanh"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Equivalent statistic is the sum of (boundary gap length minus sampled chord length), or mean intrinsic-volume V1 deficit. The all-edge event makes it additive over turning-angle vertices."
+        ],
+        "reasoning": "Inspected equivalent Crofton/intrinsic-volume terminology rather than only polygon perimeter phrase; inspected prior boundary convex-hull theorems do not contain this explicit constant.",
+        "searches": [
+          "expected perimeter deficit convex polygon independent uniform boundary samples angular coefficient exponent arctanh",
+          "arXiv:1911.05917",
+          "Schneider 1988 Random approximation of convex sets"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "Related Resultary result treats Hausdorff error Gumbel distribution of random inscribed regular polygons, not expected perimeter deficit."
+        ],
+        "reasoning": "Neither a Hausdorff table nor a pair-distance coefficient is a formula for sum_i h(beta_i); no exact matching table was retrieved.",
+        "searches": [
+          "expected perimeter deficit convex polygon independent uniform boundary samples angular coefficient exponent arctanh",
+          "Resultary 2026/10/11/SCOPE-gumbel-transition-and-second-order-hausdorff-error-for-randomly--3fe000dbc9a1"
+        ]
+      },
+      "rationale": "Prior random-polytope boundary results calculate facet numbers, volumes or smooth-body perimeter approximation, not this all-convex-polygon angular arctanh coefficient and uniform exponential finite-sample remainder. The full Reitzner–Schuett–Werner paper was read in HTML to compare Theorems 1.1 and 1.2; full Schneider 1988 was unavailable and is a narrow historical risk, but its accessible description concerns smooth-body sampling.",
+      "residual_risks": [
+        "An older curvature-measure or intrinsic-volume theorem might subsume the perimeter first-order constant under alternative terminology.",
+        "The finite N exponential bound is broad but conservative; no optimality of the error prefactor is claimed."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "OTHER_OBSERVABLES",
+          "evidence": "Establishes facet and expected volume results, not the stated perimeter coefficient and finite-N exponential bound.",
+          "identifier_or_url": "https://arxiv.org/abs/1911.05917",
+          "material_read": "Accessible complete arXiv HTML, especially theorem statements 1.1 and 1.2 and proof scope",
+          "method": "primary full-text HTML read",
+          "title": "The convex hull of random points on the boundary of a simple polytope",
+          "trigger": "Same boundary sampling law and convex hull"
+        },
+        {
+          "assessment": "UNRESOLVED_HISTORICAL_RISK",
+          "evidence": "Smooth convex body approximation; cannot exclude a buried polygonal perimeter theorem without full access.",
+          "identifier_or_url": "https://doi.org/10.1111/j.1365-2818.1988.tb04682.x",
+          "material_read": "Accessible abstract and bibliographic description; full text not obtained",
+          "method": "abstract and metadata read",
+          "title": "Random approximation of convex sets",
+          "trigger": "Possible general random boundary perimeter convergence theorem"
+        },
+        {
+          "assessment": "DIFFERENT_STATISTIC",
+          "evidence": "Hausdorff loss distribution in regular polygon regimes does not provide the expected perimeter angular coefficient.",
+          "identifier_or_url": "https://github.com/Resultary/2026/tree/main/2026/10/11/SCOPE-gumbel-transition-and-second-order-hausdorff-error-for-randomly--3fe000dbc9a1",
+          "material_read": "Title and ranked scientific summary only",
+          "method": "Resultary result snippet read",
+          "title": "Gumbel transition and second-order Hausdorff error for randomly inscribed regular polygons",
+          "trigger": "Related boundary-sampled random polygon observable"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "rationale": "A motivated first-order quantitative approximation of fixed polygon perimeter by boundary-random inscribed hulls, with explicit corner-angle coefficient and an exponentially small uniform-in-N remainder. Unlike volume/area deficit, perimeter has inverse-linear rather than inverse-square scale. The edge-missing correction is mathematically material: ignoring it would falsely claim an exact finite-N identity.",
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "limitations": [
+    "Requires fixed convex polygon with strictly positive edge lengths and genuine corners; not uniform in families of degenerating edges.",
+    "Does not assert variance, limit distribution or smooth-boundary asymptotics."
+  ],
+  "schema_version": 1
+}

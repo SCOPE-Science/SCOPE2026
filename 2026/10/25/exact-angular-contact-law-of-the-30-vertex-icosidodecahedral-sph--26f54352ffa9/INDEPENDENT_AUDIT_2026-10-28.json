@@ -1,0 +1,105 @@
+{
+  "audit_date_utc": "2026-10-28",
+  "audited_at_utc": "2026-10-28T02:07:58.033295Z",
+  "axes": {
+    "correctness": {
+      "rationale": "The 30 sites are normalized midpoints of icosahedron edges, with rectified hull having 20 triangular and 12 pentagonal faces; each site has spherical nearest-site Voronoi cell dual to 4 incident face-normal directions. Gnomonic projection at a site sends this cell to |x|/phi^-2+|y|/phi^-1<=1. Four congruent first-quadrant sectors and 30 sites give F(r)=30Q(r)/pi, where Q integrates 1-cos(min(r,alpha(theta))) over theta in [0,pi/2]. The gnomonic radial boundary tan(alpha)=tan(pi/10)/cos(theta-psi) produces an elementary antiderivative arcsin(cos rho sin(theta-psi)), clipping endpoints at atan(phi^-2) and atan(phi^-1). Local quadratic curvature near the first active interval produces the (r-rho)^(3/2) coefficient (40/pi)sqrt(2tan rho); triangular corner area produces the final quadratic coefficient 15a sqrt(1+b²)/(pi b). Independently reconstructed all sites and hull face counts and numerically integrated the direct gnomonic surface density at radii on all sides of thresholds; checked the local coefficient limits. These finite geometric and numeric checks support the exact analytical area and local expansions, not a theorem by sample extrapolation.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "The first source is a general spherical diagram construction, not an exact CDF of a particular 30-site code. Wang–Lee studies related icosahedral grids; its complete results could not be inspected."
+        ],
+        "reasoning": "A general duality algorithm is not the complete elementary closed distribution or sharp endpoint constants. Inaccessible plausible grid work is a residual priority risk but no stronger covering theorem was evidenced.",
+        "searches": [
+          "Na Lee Cheong 2001 spherical Voronoi",
+          "Wang Lee Geometric Properties of the Icosahedral-Hexagonal Grid on the Two-Sphere",
+          "spherical Voronoi icosidodecahedron 30 sites nearest angular distance distribution exact covering"
+        ]
+      },
+      "checked_sources": [
+        "assigned RESULT.md / verify_icosidodecahedral_cover.py pinned SHA",
+        "https://ics-archive.science.uu.nl/research/techreps/repo/CS-2001/2001-47.pdf",
+        "https://doi.org/10.1137/090761355"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "Spherical Voronoi duality implies a cell decomposition, not the spherical-area integral with explicitly evaluated thresholds and contact exponents; a detailed specialized grid study could potentially have relevant metric formulas."
+        ],
+        "reasoning": "Exact 30-site law requires using this specific rectified-icosahedron gnomonic diamond geometry, integrating and analyzing endpoint singularities; these were not established by inspected prior statements.",
+        "searches": [
+          "Na Lee Cheong technical report CS-2001-47",
+          "Wang Lee DOI:10.1137/090761355",
+          "spherical Voronoi icosidodecahedron 30 sites nearest angular distance distribution exact covering"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "The nearest-site angular CDF is the area of spherical caps intersected with a spherical Voronoi cell, also a spherical coverage-area or quantization-distance law."
+        ],
+        "reasoning": "General spherical Voronoi duality supplies the cell but not the evaluated distribution; checked matching sites versus more common 12-vertex ico code.",
+        "searches": [
+          "spherical Voronoi icosidodecahedron 30 sites nearest angular distance distribution exact covering",
+          "Voronoi Diagrams on the Sphere 2001",
+          "Wang Lee 2011 icosahedral-hexagonal grid DOI:10.1137/090761355"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "Related exact Haar law counts decagonal/dodecagonal central sections of the icosahedron, not distances to 30 edge-midpoint spherical sites."
+        ],
+        "reasoning": "The section polygon-type probability is a different orientation statistic; no directly matching CDF or tabulated thresholds in the returned search.",
+        "searches": [
+          "spherical Voronoi icosidodecahedron 30 sites nearest angular distance distribution exact covering",
+          "Resultary 2026/10/11/SCOPE-exact-haar-polygon-type-law-for-central-icosahedron-sections--65970a533c4f"
+        ]
+      },
+      "rationale": "Spherical Voronoi/convex hull duality and icosidodecahedral face combinatorics are classical and explicitly prior. The accessible Na–Lee–Cheong full PDF covers general spherical Voronoi algorithms but not this 30-site nearest-angle CDF. The plausible 2011 Wang–Lee icosahedral-hexagonal grid paper was located and its abstract read, but arXiv/OA full text unavailable; authorized Oxford retrieval stopped with vpn_disconnected. This source is flagged as historical-priority risk, not an automatic failure.",
+      "residual_risks": [
+        "Potential same-object material in Wang–Lee (2011) was not available in full text; authorized institutional request returned vpn_disconnected.",
+        "An equivalent distance or covering-area formula may appear in old spherical grids, crystallography, or quantization literature under different vocabulary."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "GENERAL_METHOD_ONLY",
+          "evidence": "Sphere Voronoi geometry is developed but the specific 30 normalized edge-midpoints and nearest-site CDF are not tabulated.",
+          "identifier_or_url": "https://ics-archive.science.uu.nl/research/techreps/repo/CS-2001/2001-47.pdf",
+          "material_read": "Full accessible 2001 12-page PDF via PDF page text, pages 1 and 2 also visually inspected",
+          "method": "primary full-text PDF read plus page screenshots",
+          "title": "Voronoi Diagrams on the Sphere",
+          "trigger": "Foundational spherical site-Voronoi to hull duality"
+        },
+        {
+          "assessment": "ACCESS_LIMITATION_RISK",
+          "evidence": "A related 2011 grid paper might contain metric distances, but no full-text basis to claim it does or does not contain the CDF.",
+          "identifier_or_url": "https://doi.org/10.1137/090761355",
+          "material_read": "Accessible publisher abstract and bibliographic details; complete primary paper unavailable",
+          "method": "arXiv/OA attempts, then authorized Oxford request returned vpn_disconnected; stopped without bypass",
+          "title": "Geometric Properties of the Icosahedral-Hexagonal Grid on the Two-Sphere",
+          "trigger": "Closest title and polyhedron/metric context for 30-site code"
+        },
+        {
+          "assessment": "DIFFERENT_OBSERVABLE",
+          "evidence": "Law counts central-plane section polygon types, not nearest spherical angular distance to rectified vertices.",
+          "identifier_or_url": "https://github.com/Resultary/2026/tree/main/2026/10/11/SCOPE-exact-haar-polygon-type-law-for-central-icosahedron-sections--65970a533c4f",
+          "material_read": "Ranked title and finding summary",
+          "method": "Resultary snippet read",
+          "title": "Exact Haar polygon-type law for central icosahedron sections",
+          "trigger": "Related icosahedral Haar geometry"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "rationale": "A complete orientation-dependent covering-radius distribution for a canonical 30-point symmetric spherical code, including all thresholds and contact exponents. The exact formula can benchmark spherical quantization/covering errors and distinguishes edge-midpoint sites from original 12 icosahedral vertices or polygonal section observables.",
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "limitations": [
+    "Only 30 normalized edge-midpoints, unit-sphere geodesic angle and Haar-uniform normal directions.",
+    "No general site-number asymptotics or perturbation theorem."
+  ],
+  "schema_version": 1
+}

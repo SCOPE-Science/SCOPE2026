@@ -1,0 +1,118 @@
+{
+  "audit_date_utc": "2026-10-28",
+  "audited_at_utc": "2026-10-28T00:07:40Z",
+  "axes": {
+    "correctness": {
+      "rationale": "Anchor hub values to 0 and t and project to 1-perp (Jacobian 1/sqrt(m+2)). Hub edge gives |t|≤1 and m conditional leaf intervals of length 2−|t| centered at t/2. Integrating gives volume density (2−|t|)^m, normalized second moment Et²=T_m and conditional independent zero-mean leaf noises of common variance B_m. The Euclidean S_m decomposition of 1-perp into hub difference, leaf contrasts and hub-leaf mode gives precisely the stated eigenvalues. Rational identity for sign of T_m/2−2B_m/(m+2) is −[2^(m+1)(4m−20)+3m²+20m+41]/[6(m+1)(m+3)D_m(m+2)] after positive normalization, zero only at m3 and sign m2 versus m≥4. Exponential scaling m|t|/2→Exp(1) with uniform moments gives T~8/m² and B→1/3, hence condition number and determinant/volume isotropic constant asymptotics. Exact rational independent checks m2..60 of sign identity, threshold and eigenvalues; finite is corroborative.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Gordon–Petrov study face combinatorics of finite metric Lipschitz balls; D’Alì–Delucchi–Michałek study symmetric-edge polytope combinatorics/Ehrhart. A nearby indexed book-graph theorem studies primal Löwner edge invisibility, not polar covariance eigenvalues."
+        ],
+        "reasoning": "General object definitions and facet results do not imply explicit uniform second moments; a different ellipsoid optimality criterion does not dominate covariance.",
+        "searches": [
+          "J. Gordon and F. Petrov, Combinatorics of the Lipschitz polytope, arXiv:1608.06848",
+          "A. D’Alì, E. Delucchi, M. Michałek, Many faces of symmetric edge polytopes, arXiv:1910.05193",
+          "Lipschitz polytope book graph covariance eigenvalues inertia isotropic constant symmetric edge polytope polar",
+          "Resultary 2026/10/11/SCOPE-a-sharp-l-wner-ellipsoid-edge-invisibility-threshold-for-book-gr--87e035ae5886"
+        ]
+      },
+      "checked_sources": [
+        "J. Gordon and F. Petrov, Combinatorics of the Lipschitz polytope, arXiv:1608.06848",
+        "A. D’Alì, E. Delucchi, M. Michałek, Many faces of symmetric edge polytopes, arXiv:1910.05193",
+        "Resultary 2026/10/11/SCOPE-a-sharp-l-wner-ellipsoid-edge-invisibility-threshold-for-book-gr--87e035ae5886",
+        "Resultary search: Lipschitz polytope book graph covariance eigenvalues inertia isotropic constant symmetric edge polytope polar"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "The one-edge addition truncates K2,m hub-gap interval from [−2,2] to [−1,1]. Current covariance follows from moment weight (2−|t|)^m, orthogonal modes and exact crossing-sign factorization."
+        ],
+        "reasoning": "Earlier graph/polar framework alone cannot supply a quantitative mode ordering threshold; conditional slice integration and exact rational comparison constitute independent mathematical calculation.",
+        "searches": [
+          "A. D’Alì, E. Delucchi, M. Michałek, Many faces of symmetric edge polytopes, arXiv:1910.05193",
+          "J. Gordon and F. Petrov, Combinatorics of the Lipschitz polytope, arXiv:1608.06848",
+          "Resultary 2026/10/11/SCOPE-a-sharp-l-wner-ellipsoid-edge-invisibility-threshold-for-book-gr--87e035ae5886",
+          "Lipschitz polytope book graph covariance eigenvalues inertia isotropic constant symmetric edge polytope polar"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Qm is the zero-sum Lipschitz ball dual to the symmetric edge polytope of K2∨independent_m; volume covariance is not a John/Löwner ellipsoid of its primal."
+        ],
+        "reasoning": "Used metric and polytope duality alias; a polar covariance ellipsoid is not equivalent to a minimum-volume enclosing primal ellipsoid.",
+        "searches": [
+          "Lipschitz polytope book graph covariance eigenvalues inertia isotropic constant symmetric edge polytope polar",
+          "book graph K2 join edgeless m metric Lipschitz ball polar symmetric edge polytope covariance",
+          "A. D’Alì, E. Delucchi, M. Michałek, Many faces of symmetric edge polytopes, arXiv:1910.05193",
+          "J. Gordon and F. Petrov, Combinatorics of the Lipschitz polytope, arXiv:1608.06848"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "No indexed exact book-polar covariance spectral table or sharp m=3 crossing was identified. Independent rational evaluation confirms for every m=2..60."
+        ],
+        "reasoning": "The rational small-m checks test an all-m formula rather than import a known table; no found exact table determines this family.",
+        "searches": [
+          "Lipschitz polytope book graph covariance eigenvalues inertia isotropic constant symmetric edge polytope polar",
+          "book graph Lipschitz polytope exact covariance m=3 eigenvalue table",
+          "Resultary 2026/10/11/SCOPE-a-sharp-l-wner-ellipsoid-edge-invisibility-threshold-for-book-gr--87e035ae5886"
+        ]
+      },
+      "rationale": "Known graph Lipschitz-polar constructions and primal symmetric edge polytopes are fully acknowledged. The explicit continuous uniform-volume covariance spectrum of book polar Qm, its m=3 eigenvalue crossing, and its isotropic asymptotics were not found in the inspected published sources; a related book-graph result concerns Löwner enclosing ellipsoids of the primal, mathematically a different invariant. General slice-integral formulations remain a plausible priority risk.",
+      "residual_risks": [
+        "Full text of the nearest published book-graph primal ellipsoid record unavailable; although different invariant, hidden polar comparison is possible.",
+        "Generic convex-body slice-moment identities might implicitly cover the rational formulas.",
+        "Asymptotic uses unweighted book graph m≥2, Euclidean intrinsic measure; no arbitrary graph claim."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Defines general polytope geometry; no inspected uniform covariance theorem",
+          "evidence": [
+            "Theorems on faces and admissible graph structure, not volume distribution covariance."
+          ],
+          "identifier_or_url": "https://arxiv.org/abs/1608.06848",
+          "material_read": "Original full-text introduction and face-structure theorem sections",
+          "method": "Compared metric-ball definition, facet combinatorics and measured invariant",
+          "title": "Combinatorics of the Lipschitz polytope",
+          "trigger": "Potential general metric-polytope result"
+        },
+        {
+          "assessment": "Source framework covers object, but no located volume-uniform second-moment book-graph formula",
+          "evidence": [
+            "Main sections on face/Ehrhart questions, not covariance."
+          ],
+          "identifier_or_url": "https://arxiv.org/abs/1910.05193",
+          "material_read": "Relevant original article introductory duality, combinatorial and integer point discussions",
+          "method": "Compared polar metric constraints and spectral covariance invariant",
+          "title": "Many faces of symmetric edge polytopes",
+          "trigger": "Foundational primal-polar object"
+        },
+        {
+          "assessment": "Not an interchangeable invariant; full-text exclusion cannot be claimed",
+          "evidence": [
+            "Indexed published description gives primal Löwner contact/invisibility rather than polar moment spectrum."
+          ],
+          "identifier_or_url": "Resultary 2026/10/11/SCOPE-a-sharp-l-wner-ellipsoid-edge-invisibility-threshold-for-book-gr--87e035ae5886",
+          "material_read": "Indexed title/summary only; source full text not accessed",
+          "method": "Compared primal Löwner optimization with polar uniform covariance",
+          "title": "A sharp Löwner ellipsoid edge-invisibility threshold for book-graph symmetric edge polytopes",
+          "trigger": "Same book graph family, potentially dominating spectral theorem"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "rationale": "Exact covariance tensor, sharp three-page inertia crossing, quadratic Euclidean anisotropy and simultaneous affine isotropic cube limit are structurally meaningful for a standard overlapping-triangle graph family. Distinguishes an intrinsic-volume invariant from both primal enclosing ellipsoids and mere facet/volume counts; useful benchmark for spectral geometric behavior of graph Lipschitz balls.",
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "limitations": [
+    "Unweighted books with m≥2, Euclidean intrinsic volume, not discrete vertices/lattice normalized covariance.",
+    "Check.py hull volume examples and independent rational m≤60 are finite; all-m proof is analytic.",
+    "Primal Löwner ellipsoid literature not a direct substitute for covariance."
+  ],
+  "schema_version": 1
+}

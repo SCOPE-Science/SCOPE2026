@@ -1,19 +1,21 @@
-# Scientific review
+# Independent mathematical audit
 
-## Correctness
+## correctness
 
-PASS. The proof separates a finite, exhaustive incidence classification from the field-independent algebraic deduction. The two five-clique orbits have certified counts \(420\) and \(630\). Five conditions in the second orbit are inconsistent in characteristic \(3\); the first orbit forces the irreducible quadratic \(\(z^2-z-1=0\)\), giving seven distinct \(\mathbb F_9\)-rational points and exactly five harmonic subsets. The character decomposition of the genus-\(49\) Jacobian uses degree-\(32\) pullback/pushforward identities, preserving its \(3\)-divisible group. The ordinary genus-two determinant and all claimed Newton slopes are checked algebraically. The embedded verifier ran successfully.
+PASS
 
-## Originality
+For seven distinct projective points in characteristic 3, harmonic completion is unique for any triple, so distinct harmonic foursets share at most two points. The actual finite 35-fourset compatibility graph was independently exhaustively enumerated: 1,050 compatible five-cliques, two S7 orbits of 420 and 630. The displayed normalized harmonic equations eliminate the 630 orbit and force z^2-z-1=0 in the 420 orbit, yielding F9 equality. Finite enumeration certifies the incidence step, and algebraic elimination supplies the arbitrary algebraically closed field conclusion. Degree-32 character-quotient pullback isogeny preserves 3-divisible groups; each six-point genus-two quotient has Hasse-Witt determinant −(u−v)^2 in characteristic 3 and is ordinary. The 5 supersingular elliptic plus 30 ordinary elliptic and seven ordinary genus-two factors give p-rank 44, a-number 5, slopes 0^44,(1/2)^10,1^44. Verified the determinant independently symbolically. No statement about all curves in the genus-49 family is inferred.
 
-PASS, subject to historical priority uncertainty. Classical accounts describe the \(30\) harmonic tetrads in \(\operatorname{PG}(1,9)\) and the generalized Fermat Jacobian's isogenous factors. Neither is represented as new. The stronger exclusion of any six harmonic quadruples among arbitrary seven points of \(\mathbb P^1\) in characteristic \(3\), together with rigidity of equality and its genus-\(49\) consequence, is not a statement found in the inspected source portions or targeted searches. It could be implicit in another classical incidence theorem; absence of a matching source is not conclusive proof of priority.
+## originality
 
-## Mathematical value
+PASS
 
-PASS. The theorem gives the sharp extremal count and unique geometric maximizer of supersingular elliptic quotient factors in a natural genus-\(49\) family. It also identifies a rigid zero-dimensional extremal branch stratum inside a four-dimensional configuration space, yielding exact Jacobian slopes. The bound is not a routine small numerical census: the finite incidence obstruction and its algebraic realizability are both necessary.
+Known character-quotient and finite PG(1,9) harmonic tetrad facts are explicitly prior; direct claim requires global cap h(B)≤5 for arbitrary algebraically closed char-3 points, a unique equality orbit, and arithmetic consequences. Incidence-algebra proof not seen in inspected Carvacho et al. preprint. Hirschfeld 1998 might classify an equivalent classical seven-point harmonic design; that plausible but inaccessible material is a substantial priority risk, not automatic scientific failure. Search results from Resultary lacked a dominating theorem.
 
-## Closest literature and scope
+## value
 
-Carvacho–Hidalgo–Quispe (2015) gives the decomposition into elliptic and genus-two factors, but not this seven-point characteristic-three extremum. Hirschfeld (1998), Sections 6.4 and 14.7, treats harmonic tetrads inside the finite line \(\operatorname{PG}(1,9)\), not the asserted universal exclusion of larger seven-point arrangements over an arbitrary algebraically closed characteristic-three field. The proof does not classify other Newton strata or finite-field descent.
+PASS
 
-Self-review: passed. Independent audit: not yet performed.
+The extremal incidence rigidity of harmonic tetrads on seven points of P^1 in characteristic 3 is a motivated finite/projective-geometric classification, and the explicit extremal genus-49 Jacobian slopes are meaningful arithmetic invariants of a canonical cover. Even with known quotient decomposition, the sharp bound and equality orbit are nontrivial and independently useful.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

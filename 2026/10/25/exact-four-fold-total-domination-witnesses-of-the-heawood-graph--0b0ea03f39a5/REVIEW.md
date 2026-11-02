@@ -1,11 +1,21 @@
-# Self-review
+# Independent mathematical audit
 
-**Correctness — PASS.** The incidence graph separates into two independent Fano coverage problems. Every one-sided labeling repeats a label by pigeonhole; the repeated pair's line forces the complement. The remaining four vertices form a square with diagonal lines. Incidence lower bounds for all four color names use exactly the eight available incidences, forcing complementary diagonals and precisely eight valid completions. The repeated pair is unique, so \(\binom72\cdot6\cdot8=1008\) counts each assignment once. Independence squares this count; all six pairs occur on each side, so quotienting by the free name-permutation action gives the unlabelled count. The group-order and orbit argument supplies a complete symmetry classification. An independent exhaustive script checked all \(279{,}936\) one-side assignments and the claimed orbit; it is corroboration, not a substitute for the proof.
+## correctness
 
-**Originality — PASS, with explicit literature risk.** The closely related October 2026 Kwon–Park–Sano theorem guarantees existence of the four-set witnesses for cubic graphs; its accessible introduction and Fano lemmas construct examples rather than give the full Heawood witness count. The 2017/2018 Goddard–Henning framework and subsequent discussion of the Fano neighborhood hypergraph provide existence/fractional invariants, not an exact witness classification in the accessible material. Targeted terminology, source, equivalence and full-count searches did not locate the claimed \(1008\) or \(1{,}016{,}064\) census; related research-record hits concern different Heawood invariants. An inaccessible portion of the original literature and possible unindexed counts remain residual novelty risks; negative searches are not a uniqueness proof.
+PASS
 
-**Mathematical value — PASS.** The Heawood graph is the canonical small cubic example with total domatic number one and is singled out in the recent proof of the all-cubic four-set existence theorem. The exact abundance and structural classification of its four-set witnesses test the strength of that existence theorem at its canonical obstruction; the proof reveals a unique repeated-label geometry, a regular eight-element completion action and a complete single-orbit description on the Fano side. These are natural exact invariants and a complete classification, not a reformulation of a known minimum or an arbitrary parameter slice. The conclusion is local to the Heawood graph, and no broader implication is asserted.
+PASS. The Heawood graph is bipartite between seven Fano points and seven Fano lines, so each class faces exactly the Fano line-cover condition on the opposite class; the two sides are independent. A 2-subset-of-four labeling of 7 points repeats a label on a unique point pair after the local proof: if p,q repeat A, their third collinear point r must carry A-complement. The four remaining Fano points form a 4-cycle under four lines through p,q, with two r-lines pairing diagonals. Incidence requirements force each of the four color names to occur at least twice among four off-line pair labels; the total exactly eight incidences forces all lower bounds to equality, complementary name pairs occupy distinct cycle diagonals, and there are exactly 2·2·2=8 completions per repeated-point-pair and repeated-color-label. All six labels then appear exactly once except repeated A. Hence 21·6·8=1008 independent possibilities per side. Four named sets are always distinct, so the S4 action is free and quotienting by 24 yields 42,336. The pair-stabilizer subgroup in GL3(F2) has order 8; its action on four distinct off-line labels is free and hence transitive. Independent exhaustive enumeration checked all 6^7=279936 seven-point colorings and found 1008 valid, evenly 8 per each of 126 duplicate-pair-label choices. This is a complete finite proof as well as a finite cross-check.
 
-Closest primary works: Kwon–Park–Sano, arXiv:2610.19450 (2026); Goddard–Henning, *Thoroughly dispersed colorings*, DOI:10.1002/jgt.22204 (2017/2018). Independent validation and full inspection of some inaccessible primary sections remain outstanding.
+## originality
 
-Self-review: passed. Independent audit: not yet performed.
+PASS
+
+PASS with access risk. Kwon–Park–Sano, posted October 14 2026, proves the four-total-dominating-set existence conjecture for cubic graphs with each vertex covered at most twice; their stated theorem is not a count or exactly-two Heawood classification. The older Goddard–Henning dispersed coloring framework treats existence and fractional parameters; inspected abstracts and Fano discussion do not present 1,016,064 named witnesses, orbit structure or count 42,336. Because full highly relevant papers were unavailable, the novelty judgment is best-of-knowledge rather than a decisive whole-literature claim.
+
+## value
+
+PASS
+
+PASS. The Heawood graph is the canonical 3-regular Fano incidence graph and a natural obstruction/test case in total domatic theory. The exact witness count, unique repetition pattern, and complete orbit classification quantify a distinguished existence theorem at its sharp incidence configuration. The structural eight-completion lemma is reusable for other Fano label enumeration questions. It is not a routine division by 24: deriving the 1008 one-side count and proving freeness are substantive.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

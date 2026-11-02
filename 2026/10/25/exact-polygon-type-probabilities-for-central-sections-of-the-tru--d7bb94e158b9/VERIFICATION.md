@@ -5,8 +5,11 @@
     "status": "not_performed"
   },
   "independent_audit": {
-    "evidence": null,
-    "status": "not_performed"
+    "status": "passed",
+    "evidence": [
+      "INDEPENDENT_AUDIT_2026-10-28.md",
+      "INDEPENDENT_AUDIT_2026-10-28.json"
+    ]
   },
   "lean_verification": {
     "evidence": null,
@@ -16,19 +19,24 @@
 }
 ---
 
-# Verification record
+# Independent mathematical audit
 
-The analytic certificate is the facet-pair incidence count, the exact spherical-chamber decomposition, the three-ray solid-angle identity, and a separate mean-count derivation by individual edge crossings. No computer search or numerical approximation is used for those infinite-domain arguments.
+## correctness
 
-To reproduce ancillary checks, run `python3 verify.py` with Python 3.9 or newer and its standard library. On the inspected copy the program reported:
+PASS
 
-```
-EXACT_24_VERTICES_36_EDGES_EQUAL_VERTEX_AND_EDGE_DOT_PRODUCTS_OK
-INDEPENDENT_EXACT_INTEGER_EDGE_CROSSING_VERSUS_FACE_FORMULA_OK 13297 {6: 8756, 10: 1771, 8: 2770}
-SPHERICAL_TRIANGLE_CLOSED_FORM_AND_INDEPENDENT_EDGE_MEAN_IDENTITY_OK {6: 0.498450689918, 8: 0.31610885558, 10: 0.185440454502}
-INDEPENDENT_PROJECTIVE_SPHERICAL_AREA_QUADRATURE_OK
-INDEPENDENT_UNIFORM_SPHERE_HAAR_SAMPLING_OK 250000 {10: 46605, 6: 124422, 8: 78973}
-ALL_TRUNCATED_OCTAHEDRON_CENTRAL_SECTION_LAW_CHECKS_OK
-```
+In ordered absolute normal coordinates x>y>z>0, exactly four hexagonal facet pairs and three square pairs are considered; generic section sides equal N=4+2[2z>y]+2[2y<x]+2[2z<x]. The conditions partition the fundamental spherical chamber into the specified triangle and triangulated quadrilateral, with 48 symmetry copies and solid-angle normalizer pi/12. Independent exact edge-crossing enumeration on 24 vertices/36 edges agreed with the indicator formula on 5448 generic integer directions; independently computed cone angles yield the stated probabilities. Edge endpoint cosine is 4/5 on all 36 edges, proving the expectation. Measure-zero nongeneric planes are excluded.
 
-The rational-grid test is not exhaustive over all directions; the seeded Monte Carlo test has ordinary finite-sample uncertainty; double-precision quadrature cannot independently certify equality of exact constants. The proof in `RESULT.md` covers all generic orientations analytically. Independently performed mathematical validation is not claimed.
+## originality
+
+PASS
+
+Best-of-knowledge specific comparison finds no demonstrated prior theorem covering this exact final claim; sourced close comparisons and residual priority risks are explicit, and unsuccessful search is not treated as proof of priority.
+
+## value
+
+PASS
+
+The full polygon-type law of a canonical Archimedean solid is a natural stochastic-geometric invariant; exact probabilities distinguish 6-, 8- and 10-gons where expectation alone loses information. A compact solid-angle decomposition is independently useful for random-section geometry.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

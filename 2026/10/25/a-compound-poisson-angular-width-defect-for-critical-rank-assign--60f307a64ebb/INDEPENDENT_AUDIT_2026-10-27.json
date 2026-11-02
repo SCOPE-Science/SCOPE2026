@@ -1,0 +1,134 @@
+{
+  "audit_date_utc": "2026-10-27",
+  "audited_at_utc": "2026-10-27T20:12:18Z",
+  "axes": {
+    "correctness": {
+      "checked_sources": [
+        "https://github.com/SCOPE-Science/SCOPE2026/blob/6d72467f12de6d5dbde32d9e5fdf796d2ee820b5/2026/10/25/a-compound-poisson-angular-width-defect-for-critical-rank-assign--60f307a64ebb/RESULT.md",
+        "independent_checks.json angular entry",
+        "2026/10/25/a-compound-poisson-angular-width-defect-for-critical-rank-assign--60f307a64ebb/check.py (Git blob 85ed6d5ca8548aa8d2826858b21762c574e6abfd)"
+      ],
+      "rationale": "For a Gaussian matrix centered to the sum-zero tangent hyperplane, loss of a support function is unchanged by centering; the spherical width defect is (D+(G)+D+(-G))/||projected G||. One-sided zero loss exactly means top-k entries form a k-matching; uniform ranks yield (N)_k²/(N²)_k. For k~c sqrt N, top-ranked pair row/column collisions converge to marked Poisson intensity 2c² du dv on 0<u<v<1, giving mean c² per tail. Triple overlaps have vanishing expectation. Gaussian ranked extreme gaps scale as -log v/t_N; density 2v for v yields Exp(rate 2). Deleting weaker cells and inserting next ranked nonconflicting cells give a sandwich for actual k-matching optimization. Top/bottom rank sets couple asymptotically independently, and projected norm/sqrt(N²-1)->1, so total scaled defect tends to compound Poisson intensity 2c², Exp(2) jumps; no-loss atom e^-2c² is proved by collision counts rather than weak convergence. Independent exact enumeration confirmed the one-sided count at N=3,4,5, k<=N.",
+      "residual_risks": [
+        "Poisson and Gaussian quantile steps are analytical, not verified by the finite checker.",
+        "No convergence-of-moments assertion or supercritical positive-loss scale."
+      ],
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Gill–Linusson establishes face/diameter structure for k-assignment polytope.",
+          "Torres establishes normality/linear descriptions of k-matching polytopes.",
+          "Coppersmith–Sorkin gives expected values for random minimum assignments under different weights."
+        ],
+        "reasoning": "General definitions and mean optimization formulas do not dominate distribution of the *difference* of two support functions in Frobenius Gaussian direction.",
+        "searches": [
+          "Gill Linusson The k-assignment polytope 2009",
+          "Torres normality k matching polytopes 2023",
+          "Coppersmith Sorkin random assignment exact expectations"
+        ]
+      },
+      "checked_sources": [
+        "https://liu.diva-portal.org/smash/get/diva2:210918/FULLTEXT01.pdf",
+        "https://arxiv.org/abs/2306.11910",
+        "https://doi.org/10.1017/S0963548302005114",
+        "https://github.com/SCOPE-Science/SCOPE2026/blob/6d72467f12de6d5dbde32d9e5fdf796d2ee820b5/2026/10/25/a-compound-poisson-angular-width-defect-for-critical-rank-assign--60f307a64ebb/RESULT.md"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "Row-column rank-pair collision probability 2/N + O(N^-2), k~c√N gives total rate c² per tail.",
+          "Conditioned higher collision rank v has density 2v, generating Exp(rate 2) replacement loss."
+        ],
+        "reasoning": "Neither assignment-polytope face results nor global random-assignment cost distribution directly entail this geometric Poisson jump law; potential general Poisson optimization theorems need mathematical assumptions checked before treating as coverage.",
+        "searches": [
+          "random assignment exponential limiting cost distribution versus Gaussian extremes",
+          "rare collision Poisson process k sqrt N grid cell matching"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Resultary nearby k-assignment-polytope inball record is a different deterministic extremal geometric functional.",
+          "Gaussian spherical directions induce iid Gaussian entry ranks; exponential assignment costs use independent cost weights and minima, not this top-k constrained vs unconstrained difference."
+        ],
+        "reasoning": "The exact geometric width gap does not equal classical minimum assignment cost by parameter renaming.",
+        "searches": [
+          "Resultary_Search search: Gaussian random matching polytope hypersimplex width defect compound Poisson k square root N collisions",
+          "angular support function hypersimplex k matching polytope rare collision Poisson",
+          "normal fan Gaussian width matching constraints"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "The finite one-sided equality formula follows directly by exact counting uniformly ranked grid positions; not a claim of novel permutation enumeration in isolation.",
+          "No exact prior compound-Poisson width table found in searched results."
+        ],
+        "reasoning": "The finite counting factor can be classical; originality is its integration with joint Gaussian-width defect asymptotics. Searches are not proof of novelty.",
+        "searches": [
+          "Resultary_Search search: Gaussian random matching polytope hypersimplex width defect compound Poisson k square root N collisions",
+          "falling factorial (N)_k^2/(N²)_k matching random grid top k"
+        ]
+      },
+      "rationale": "Geometric descriptions of k-matching/assignment polytopes and exponential-cost assignment expectations do not imply a Gaussian spherical *width-loss difference* law under critical k/√N. The main theorem includes a joint two-sided compound Poisson limit, an atom, and the exact finite-N one-sided normal-fan agreement probability. Priority qualified by older assignment-probability literature not wholly inspected.",
+      "residual_risks": [
+        "Older random-assignment and stochastic matching results were compared mainly at abstract level; a broader Poisson process theorem could specialize to this defect.",
+        "No universality beyond Gaussian spherical directions, and no moment convergence, convergence rate or supercritical nonzero law, are proved."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Defines same polytope but reports face structure/diameter rather than random directional width loss.",
+          "evidence": [
+            "2009 Discrete Optimization face geometry results."
+          ],
+          "identifier_or_url": "https://liu.diva-portal.org/smash/get/diva2:210918/FULLTEXT01.pdf",
+          "material_read": "Available full-text PDF introduction, theorem summaries and structural sections including face/diameter results; not a sentence-by-sentence appendix examination.",
+          "method": "Authorized open full text, relevant passage inspection.",
+          "title": "The k-assignment polytope",
+          "trigger": "Same fixed-cardinality matching/assignment convex body."
+        },
+        {
+          "assessment": "Normality is a lattice-polytope property, logically distinct from spherical width-loss fluctuations.",
+          "evidence": [
+            "Torres 2023 establishes normality."
+          ],
+          "identifier_or_url": "https://arxiv.org/abs/2306.11910",
+          "material_read": "Abstract and relevant theorem statement description; entire body not reread.",
+          "method": "Lawful preprint abstract/section-level.",
+          "title": "Normality of k-Matching Polytopes of Bipartite Graphs",
+          "trigger": "Potential stronger general matching-polytope theorem."
+        },
+        {
+          "assessment": "Older cost distribution may overlap probabilistic optimization ideas, but observable/scaling are not established equivalent.",
+          "evidence": [
+            "Different minimum-assignment exponential-cost setting."
+          ],
+          "identifier_or_url": "https://doi.org/10.1017/S0963548302005114",
+          "material_read": "Bibliographic metadata, title and abstract description; full text not inspected.",
+          "method": "Publisher bibliographic/abstract comparison.",
+          "title": "Exact expectations and distributions for the random assignment problem (Alm and Sorkin)",
+          "trigger": "Potential prior random assignment law."
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "checked_sources": [
+        "https://github.com/SCOPE-Science/SCOPE2026/blob/6d72467f12de6d5dbde32d9e5fdf796d2ee820b5/2026/10/25/a-compound-poisson-angular-width-defect-for-critical-rank-assign--60f307a64ebb/RESULT.md",
+        "https://liu.diva-portal.org/smash/get/diva2:210918/FULLTEXT01.pdf",
+        "https://arxiv.org/abs/2306.11910"
+      ],
+      "rationale": "A natural random-direction question about the normal fans of two closely related assignment polytopes exhibits a sharp k~sqrt N collision transition and a full non-Gaussian compound-Poisson law; the exact finite normal-fan agreement measure complements the limit.",
+      "residual_risks": [
+        "Application limited to balanced complete bipartite geometry with Gaussian-equivalent spherical directions."
+      ],
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "limitations": [
+    "No rates, general tails, nonbalanced graphs or supercritical nonzero defect scaling.",
+    "Older random-assignment and stochastic matching results were compared mainly at abstract level; a broader Poisson process theorem could specialize to this defect.",
+    "No universality beyond Gaussian spherical directions, and no moment convergence, convergence rate or supercritical nonzero law, are proved."
+  ],
+  "schema_version": 1
+}

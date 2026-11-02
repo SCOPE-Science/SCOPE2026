@@ -1,19 +1,21 @@
-# Review
+# Independent mathematical audit
 
-## Correctness
+## correctness
 
-**PASS.** The proof counts all nonempty right quotients at every prefix length. At internal even depths the count is three; at the first odd depth it is two; at internal odd depths before the last one it is five; at the last odd depth it is three. The sum is \(8d-6\), and the single empty quotient gives \(8d-5\) states. The symbolic distinction arguments apply to every \(d\ge2\). The script independently checks the profile for \(2\le d\le8\) but is not used as the universal proof.
+PASS
 
-## Originality
+For A^d every valid fixed-depth prefix has one right residual; B^d has one at even and two at odd depths. The union has nonempty quotient widths 1,2,3 at internal even depths, 5 at nonterminal middle odd depths, 3 at the final odd depth, 1 at the end. Different depths have disjoint residual word lengths. Sum=8d−6 plus one shared dead state gives 8d−5. At depth 1 at most two prefixes, against product-rank allowance 5, loses 3; penultimate rank has at most three nonempty one-letter residuals, losing 2; all other ranks saturate. Check d=2 endpoint non-overlap and infinite d≥2 with Myhill–Nerode. Independent exact enumerator d2..6 confirms but does not prove all d.
 
-**PASS, bounded claim.** The closest inspected source gives the rank-width upper bound and a ternary witness, while noting an obstruction at a binary endpoint rank. The binary two-bit encoding is motivated by that witness; the new content is the exact binary quotient profile and the exact additive-five extremal gap within the stated operand profile. published-finding corpus searches for the exact profile and the explicit block sets returned no matching result. Search absence does not prove novelty, and unindexed prior work remains a risk.
+## originality
 
-## Value
+PASS
 
-**PASS.** The result quantifies precisely how close a binary family can come to the rank-width upper bound under a natural, explicitly specified pair of operand profiles. It separates the endpoint restrictions forced by a binary alphabet from all interior ranks, providing a reproducible benchmark for further work on binary block-language unions.
+The published block-language union bound and a ternary tightness witness are acknowledged. The additional exact binary rank-by-rank quotient profile, family sc=8d−5 and sharp loss of precisely five within this specific width profile are derived directly. This is a modest special-profile result, not a global binary optimum. An encoding of the ternary witness makes indirect prior implication the principal priority risk.
 
-## Closest literature and limits
+## value
 
-Duarte et al., “Operational State Complexity of Block Languages,” arXiv:2409.06970, prove the general rank-width upper bound and tightness for alphabets of size at least three. The author's thesis version contains the same result and points to future work on state-count bounds. The current claim does not solve the global binary-alphabet extremal problem.
+PASS
 
-Self-review: passed. Independent audit: not yet performed.
+The exact binary rank-width endpoint obstruction and a sharp unbounded witness family give a meaningful finite-alphabet boundary case for known block-language union complexity bounds. The exact five-state loss for the specified width profile, not merely an encoding of a known witness, is the narrow independently useful invariant and benchmark; this is not a general binary upper-bound classification.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

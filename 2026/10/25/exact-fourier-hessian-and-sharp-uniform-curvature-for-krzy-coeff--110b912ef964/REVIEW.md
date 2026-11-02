@@ -1,11 +1,21 @@
-# Scientific review
+# Independent mathematical audit
 
-**Correctness — PASS.** The coefficient series follows from the Herglotz representation. Expanding its exact moments through order two gives the claimed quadratic form, independently confirmed by the coefficient recurrence in `checker.py`. Each Fourier-block determinant is algebraically \(1\), its trace is \(3-2t(1-t)\), and the all-degree gap follows by elementary eigenvalue calculus and Parseval. Conjugate frequency modes preserve the real-tangent constraint. The cubic remainder is for each fixed \(n\), not uniform in \(n\).
+## correctness
 
-**Originality — PASS (priority caveat).** The 1977 Hummel–Scheinberg–Zalcman strict local maximum is explicitly acknowledged and **not** part of the new priority claim. The 2019 Agler–McCarthy full manuscript establishes general critical-point characterizations but not the all-degree Fourier-block determinant-one Hessian or sharp common constant. Wikström's October 2026 full text provides the global \(n=6\) coefficient theorem and mentions numerical Hessian checking in Section 7.3, not the stated analytic all-degree spectrum. Lei–Zhang's entropy result concerns a different functional. Targeted indexed comparisons show no equivalent reported formula. Original 1977 text was unavailable, so overlap risk remains.
+PASS
 
-**Value — PASS.** The exact all-degree condition numbers and sharp curvature constant supply quantitative conditioning information at the canonical candidate, applicable to local certified optimization and stability estimates. Unlike a routine restatement of the known strict-local theorem, the complete frequency-resolved quadratic form and optimal uniform constant are new mathematical invariants of the natural full-mass-and-angle perturbation family.
+PASS. For atomic measure mass 1+u, write moments m_k=Σw_j exp(-ikθ_j). The Herglotz exponential is e^(-(1+u)) exp(-2Σm_k z^k), with first variations δm_k=e^(-πik/n)(W_k - i(k/n)E_k) for k<n. Direct expansion of m_n through second order, the z^n exponential recurrence (including products δm_k δm_{n-k}), and modulus expansion cancel the linear u term and isolate u² plus the claimed real Fourier quadratic. Reality pairs W_{n-k}=conj W_k and E analogously; the even-n Nyquist mode is real. Block matrix [[2,i(1-2t)],[-i(1-2t),1-2t(1-t)]] has det=1 and trace=3-2t(1-t), hence lambda_min(t)>(3-sqrt5)/2 for 0<t<1. Unnormalized Fourier Parseval gives n||η||²+n||ε-mean ε||², with common angle shift neutral. Fixed-n Taylor remainder O_n(δ³) is absorbed in some n-dependent neighborhood; first Fourier frequencies k=1,n-1 show optimality only across all degrees, not equality at fixed n. Independent high precision exponential-recurrence finite differences for n=2,3,5,9 gave relative errors 2.5e-8 to 7.6e-8 from the predicted second variation. Symbolic determinant trace and eigenvalue limit prove the all-degree claim, not the finite numeric checks.
 
-**Limits.** Local within exactly \(n\) atoms; no global result for higher coefficients, no degree-uniform perturbation radius, no independent priority review.
+## originality
 
-Self-review: passed. Independent audit: not yet performed.
+PASS
+
+PASS, qualified. Strict local maximality of the regular Krzyż candidate was proved in the 1977 Hummel–Scheinberg–Zalcman work, acknowledged as prior and excluded. Agler–McCarthy (full manuscript inspected) and Lei–Zhang study critical-point and entropy reductions; Wikström (full 2026 HTML inspected) proves degree 6 and discusses numerical Hessian testing. They do not directly state the all-n determinant-one Fourier-block formula and universal optimal c* in the inspected portions. The complete 1977 original could not be accessed because protected institutional connection returned VPN-disconnected status; a second-order calculation there is a substantial novelty risk.
+
+## value
+
+PASS
+
+PASS. The exact all-degree Hessian is a natural quantitative refinement at the standard extremal candidate, separating mass, weight, angular and rotational directions and supplying a sharp spectral conditioning constant. This can guide local numerical certification and perturbative proofs without claiming a breakthrough on the global Krzyż conjecture. This is not merely a tiny numerical gain: the spectrum and optimal uniform-in-degree gap are structural analytic facts for an established conjectural extremizer.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

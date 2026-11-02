@@ -1,0 +1,96 @@
+{
+  "audit_date_utc": "2026-10-28",
+  "audited_at_utc": "2026-10-28T03:06:30.378986Z",
+  "axes": {
+    "correctness": {
+      "rationale": "PASS. For opposite corners of a simple four-cycle in the ambient transposition Cayley graph, their two-step difference is either a three-cycle or a product of disjoint transpositions. The first forms a K_(3,3) parity-coset on a unique set of three positions; retaining derangements yields precisely 9 squares when zero positions intersect the image set, 1 when one intersects, and none when at least two intersect. The outside partial permutation count is the explicitly specified diagonal-avoidance B0/B1. Two commuting disjoint transpositions produce a unique square on four positions; all four corners avoid the diagonal exactly when the matching permutation avoids a pair of 2x2 forbidden rook boards with polynomial (1+4x+2x²)²(1+x)^(n-4). Each such square has four possible starting corners, establishing the factor 1/4. The degree identity deg(pi)=binom(n,2)-n+c2(pi), exact one- and two-selected 2-cycle sums and elementary closed-four-walk partition prove the fourth moment. Independent code reconstructed the graph directly and computed all square types and tr(A^4) for n=4,5,6; results (Q3,Q4,trA4)=(0,3,144),(60,60,3360),(1800,1305,70560) agree. Finite enumeration is corroboration, not the proof for n>6.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Dyer–Jerrum–Müller develop general switch-chain properties in bipartite graphs; Jain proves connectivity, degree and existence of local routes in alpha(n)."
+        ],
+        "reasoning": "Their general setting includes the graph, but the inspected statements and available comparisons do not give the exact two-support cycle enumeration or exact fourth moment; general mixing arguments alone do not determine these numbers.",
+        "searches": [
+          "Resultary semantic search: derangement transposition graph four cycles 4-walks adjacency moment permutation switch graph",
+          "Primary literature comparison: Dyer Jerrum Muller On the switch Markov chain for perfect matchings arxiv:1501.07725; Jain 2021"
+        ]
+      },
+      "checked_sources": [
+        "Pranjal Jain, Transpositions in Derangements (2021) — https://www.researchgate.net/publication/354533290_Transpositions_in_Derangements",
+        "Dyer, Jerrum, Müller, On the switch Markov chain for perfect matchings — https://arxiv.org/abs/1501.07725",
+        "Resultary published mathematical findings (15 ranked candidates) for query: derangement transposition graph four cycles 4-walks adjacency moment permutation switch graph"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "The known degree relation deg(pi)=binom(n,2)-n+c2(pi) supplies one premise for tr(A^4), but a graph degree sequence cannot determine the 4-cycle term.",
+          "The new formulas additionally count admissible commuting/overlapping transposition squares via forbidden rook placements."
+        ],
+        "reasoning": "The fourth moment is not implied by the known degree result alone: the independent 8Q term must be computed. Conversely the original graph definition and degree claim are not asserted original.",
+        "searches": [
+          "Resultary semantic search: derangement transposition graph four cycles 4-walks adjacency moment permutation switch graph",
+          "Primary literature comparison: Jain 2021 Theorems 5–7 degrees connectivity local bypass versus exact global census"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Jain 2021 defines alpha(n) by derangement/transposition adjacency; crown graph matching switches represent the same forbidden-diagonal permutation moves.",
+          "A simple four-cycle in the switch graph corresponds to an alternating sequence of four valid 2-edge swaps; tr(A^4) also counts all 4-step closed walks."
+        ],
+        "reasoning": "These aliases were used to test possible prior implication; changing language does not change the object or prove novelty.",
+        "searches": [
+          "Resultary semantic search: derangement transposition graph four cycles 4-walks adjacency moment permutation switch graph",
+          "Primary literature comparison: alpha(n) transpositions in derangements, crown bipartite perfect-matching switch graph, length-four closed walks"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "Independent exhaustive small-n values are (0,3),(60,60),(1800,1305); the source gives (31500,24150) at n=7 and (500640,426930) at n=8."
+        ],
+        "reasoning": "The sample values are direct exact graph invariants, not evidence of an established published table. No matching earlier comprehensive table appeared in the targeted search; absence from a search cannot prove priority.",
+        "searches": [
+          "Resultary semantic search: derangement transposition graph four cycles 4-walks adjacency moment permutation switch graph",
+          "Primary literature comparison: derangement graph 4 cycles 3 support 4 support 0 3 60 60 1800 1305 500640 426930"
+        ]
+      },
+      "rationale": "PASS, best-of-knowledge with known state graph and degree/bypass results excluded. A transposition Cayley subgraph of derangements is mathematically identical to the crown-graph perfect-matching switch graph; Jain already studied this precise alpha(n), including degree and local alternative routes, but its stated theorems do not supply the complete two-class 4-cycle census or tr(A^4). General perfect-matching switch-chain and Gray-code papers are broader algorithmically, not exact square counts. No retrieved published finding matched the asserted two-support formula. A hidden exact rook-board count or rephrased count of alternating length-eight matching transformations could cover it.",
+      "residual_risks": [
+        "The 2004 Baril–Vajnovszki derangement Gray-code article and complete general switch-chain appendices were not independently re-read in full this execution.",
+        "An unindexed enumeration under interchange graph, crown-graph switch chain or transposition-subgraph terminology may dominate the count."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Covers same graph and degree/bypass premises; no displayed global two-class simple-4-cycle census or fourth spectral moment.",
+          "evidence": "DOI 10.13140/RG.2.2.35817.42088; graph alpha(n); see definition/degree and connectivity theorems.",
+          "identifier_or_url": "https://www.researchgate.net/publication/354533290_Transpositions_in_Derangements",
+          "material_read": "Public article text: model definition, degrees, connectivity, construction of alternative routes, and reported theorems.",
+          "method": "Read public full-text transcription and inspect relevant sections.",
+          "title": "Pranjal Jain, Transpositions in Derangements (2021)",
+          "trigger": "same alpha(n) graph and local 4-cycle routes"
+        },
+        {
+          "assessment": "Potential general method; available material does not show precise derangement census; do not infer whole-paper NOT_COVERING.",
+          "evidence": "General switch chains and mixing rather than stated exact Q3,Q4 numbers.",
+          "identifier_or_url": "https://arxiv.org/abs/1501.07725",
+          "material_read": "Article abstract and matching-switch-chain problem framing; not entire primary text.",
+          "method": "Public indexed arXiv abstract/background.",
+          "title": "Dyer, Jerrum, Müller, On the switch Markov chain for perfect matchings",
+          "trigger": "stronger full bipartite matching switch-chain setting"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "rationale": "PASS. The minimum nonbacktracking cycle structure is a natural invariant of the switch-state graph governing local ambiguity of two matching switches; the three-position and commuting four-position contributions distinguish two mechanisms. The exact fourth adjacency moment is a natural spectral statistic derived from a complete infinite-family census, not a single artificial finite example, and provides a natural baseline for subsequent walk/spectral studies. No mixing-time or full spectrum improvement is claimed.",
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "limitations": [
+    "Only all derangements n>=4 with edges any allowed transposition of positions and labeled vertices.",
+    "Fourth moment only; no full adjacency spectrum, spectral gap or mixing theorem.",
+    "Finite graph enumerations n<=6 are not an infinite proof."
+  ],
+  "schema_version": 1
+}

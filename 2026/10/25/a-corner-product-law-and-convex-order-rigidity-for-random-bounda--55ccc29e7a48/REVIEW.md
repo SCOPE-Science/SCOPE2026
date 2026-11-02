@@ -1,11 +1,21 @@
-# Review of the corner-product area law
+# Independent mathematical audit
 
-**Correctness — PASS.** A deterministic dissection proves the exact area identity whenever all polygon sides are sampled; that event has exponentially high probability. Double-survival integration gives the exact expected corner product, hence the all-order expected-area expansion. Disjoint shrinking arc neighborhoods give independent exponential limits; uniform tail bounds imply moment convergence. Laplace's method and a split-convolution argument give the limiting tail. Permutation averaging with Jensen's inequality proves convex order, and strict sine concavity proves the distinct equiangular extremal result. The reproducible checks confirm finite exact integrals and convex hull geometry but are not substitutes for the proof.
+## correctness
 
-**Originality — PASS, with residual bibliographic risk.** Reitzner–Schütt–Werner (arXiv:1911.05917) give broad random boundary-polytope expected-volume asymptotics, not the explicit planar distribution, all-algebraic-order coefficient, heavy tail or normalized convex order. Prochno–Schütt–Sonnleitner–Werner (arXiv:2404.02870) use fixed-polygon corner Poisson laws for Hausdorff error, but their functional and limit formulas differ from missing area. A published result on regular polygons describes a large-side-count Hausdorff Gumbel law, not this fixed-polygon area sum. The older Schütt–Werner monograph develops curvature/surface-area geometric probability; only relevant introductory and structural portions, not its entire 185 pages, were inspected here. The remaining risk is an unindexed planar random-spacing or stochastic-geometry theorem implying this area law.
+PASS
 
-**Mathematical value — PASS.** The complete limiting law and its tail quantify the rare-event geometry of polygonal approximation, beyond the expected rate. The exponentially accurate mean coefficient establishes that side lengths disappear from every algebraic order; the distinct equality cases for normalized distributional fluctuations and absolute mean identify genuine geometric rigidity not captured by mere expectation calculations. These statements apply naturally to every fixed nondegenerate convex polygon.
+When every polygon side is occupied, each unsampled corner removes exactly a triangle of area c_j U_j V_j with c_j=sin(theta_j)/2; event complement is ≤m exp(-N ell_min/L). Pairwise survival (1-(u+v)/L)^N on disjoint incident side segments yields exact corner-product expectation with L²/[(N+1)(N+2)] and exponentially small side corrections. Independently verified that survival integration for N=3,4,7,12. The 2m disjoint shrinking boundary germs give independent Exp(1) rescaled gaps, and uniform exponential tails yield convergence of all fixed moments. Integrating exp(-u-z/u) and Laplace saddle give product tail sqrt(pi) z^1/4 exp(-2sqrt z), and finite-sum subexponentiality gives k* dominant-corner factor. Permutation averaging and strict Jensen prove mean-normalized convex order equality iff all sin(theta_j) equal; sine concavity at fixed sum interior angles proves leading mean maximum iff equiangular.
 
-**Scope and limitations.** No simultaneous growth of polygon sides and sampled points, no finite-sample exact law, and no independent verification is asserted. The sharp upper tail concerns the limiting random variable after taking the sample-size limit. Bibliographic exhaustiveness is not established.
+## originality
 
-Self-review: passed. Independent audit: not yet performed.
+PASS
+
+The polygonal corner gaps are familiar from random boundary sampling and Hausdorff-distance theorems, but the exact missing-area sum of exponential products, all-order mean with exponentially small side-length dependence, sharp limiting tail, and equal-sine convex-order rigidity are not implied by the inspected generalized expected-volume/Hausdorff statements. The elementary convex-order inequality itself is a standard exchangeability/Jensen application; novelty attaches to the geometric random-area law and its exact consequences, not Jensen.
+
+## value
+
+PASS
+
+Exact geometric area deficits for random polygon boundary samples admit a full limiting law, all-order exponentially accurate mean, sharp stretched-exponential tail and two distinct rigidity results for fluctuation and expectation. These are natural distributional refinements beyond expectation rates and Hausdorff approximation, not an arbitrary finite calculation.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

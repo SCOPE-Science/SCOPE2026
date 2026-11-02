@@ -5,8 +5,11 @@
     "status": "not_performed"
   },
   "independent_audit": {
-    "evidence": null,
-    "status": "not_performed"
+    "status": "passed",
+    "evidence": [
+      "INDEPENDENT_AUDIT_2026-10-28.md",
+      "INDEPENDENT_AUDIT_2026-10-28.json"
+    ]
   },
   "lean_verification": {
     "evidence": null,
@@ -16,10 +19,24 @@
 }
 ---
 
-# Verification record
+# Independent mathematical audit
 
-The theorem has been checked at the level of the complete analytic proof: distributional curvature bounds, moment-neutral perturbation, support-function reconstruction, Fourier strict concavity, and existence by fixed-perimeter compactness. The only nonstandard construction needed is a bounded nonzero function orthogonal to two real moments on a positive-measure set; it is obtained from the nullspace of two equations on three disjoint pieces. Nothing relies on an unbounded enumeration or an external proof certificate.
+## correctness
 
-The script `verify_k3_example.py` numerically examines only the explicit \(k=3\), \(c=1\) two-arc lens. It checks that each of the three rotated curvature densities sums to one, that the first Fourier coefficient is approximately zero, and that the Fourier area converges to the exact circular-segment value \(\pi/3-\sqrt3/2\). Finite-resolution agreement cannot certify the infinite-dimensional theorem.
+PASS
 
-Scientific limitations: the shape and exact area of the global minimizer are not determined; possible earlier specialist coverage remains to be checked independently, particularly DOI 10.1007/s13366-015-0252-8. No independent audit is represented as completed.
+From the distributional support constraint, Σ_j R_j μ=c dθ and μ≥0 imply μ absolutely continuous, 0≤ρ≤c, S_kρ=c. First Fourier moments vanish for curvature measures of closed curves and ensure solvability of h+h″=ρ modulo translations. If an orbit has two coordinates ≥δ on a measurable set, a nonzero bounded perturbation supported on three subsets solves both first-moment conditions and swaps curvature between two orbit entries without violating positivity; hence such a body is not extreme. A 0/c-valued curvature field is extreme pointwise. Fourier support-area identity is strictly concave on fixed mean and zero-first-moment fields, so every area minimizer is extreme; fixed-perimeter Blaschke selection establishes existence. The k3 lens orbit sum and exact segment area were independently checked, but not used to establish the universal theorem.
+
+## originality
+
+PASS
+
+The all-k extreme-point iff criterion and mandatory two-valued structure of minimizers have a complete closure-preserving proof. Older k2 theorem and Ou–Pan definitions are credited; inaccessible closest Zhang article leaves bounded best-of-knowledge priority risk.
+
+## value
+
+PASS
+
+A natural and broadly motivated extension of ordinary constant-width extremality to all higher-order rotational support constraints, including nonsmooth bodies. This reduces an open higher-order least-area search to bang-bang curvature fields without pretending to solve the area minimization itself.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

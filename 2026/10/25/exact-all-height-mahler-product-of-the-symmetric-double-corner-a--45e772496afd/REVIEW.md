@@ -1,11 +1,21 @@
-# Self-review
+# Independent mathematical audit
 
-**Correctness — PASS.** The claim is one full-height, exact two-branch Mahler-product formula with strict lower bound, for the four-dimensional body explicitly defined in RESULT.md. The complete primal vertex candidates and polar halfspaces are elementary. Independent exact symbolic determinant sums and inequality sign checks yield primal and polar volume formulas on both parameter regimes; the two agree at the shared transition. Positive-coefficient transformed polynomials prove strict positivity on each entire interval, including all large heights. The supporting-facet and orientation checks in the standalone symbolic script distinguish exact symbolic interval certificates from merely sampling t-values. Limitations: this is an explicit family, not a universal Mahler proof.
+## correctness
 
-**Originality — PASS with residual priority risk.** Shen–Dubovski arXiv:2610.11014v1 Corollary 4 (full text inspected) proves strictness only for \(0<t\le12/7\), using a sufficient estimate. It does not state the exact polar volume, the two piecewise product branches, the transition at \(t=2\), or the unbounded-height extension. Relevant mathematical-record searches using the same family and its volume-product aliases did not return a claim covering this exact full-height classification. Previously published explicit Mahler products for other cube-derived polytopes are not implicationally equivalent. Related earlier cube-apex literature may nonetheless contain an unnoticed derivation; this is not a certified global-priority claim.
+PASS
 
-**Value — PASS.** The motivating paper singles out the family and proves a nontrivial restricted interval. Passing from that partial bound to a complete exact all-height evaluation answers the natural remaining concrete-family question, reveals a true combinatorial transition at \(t=2\), and proves the four-dimensional sharp Mahler bound along the full deformation despite the sufficient polar-cap bound becoming ineffective. The dimension-four Mahler setting makes a complete nontrivial continuous family a motivated test case. The result is more than a routine special case of the source theorem, whose constraints do not cover all these heights.
+The polar is the intersection of 20 explicit halfspaces from cube vertices and four apex candidates. The supplied determinant-based algorithm identifies active quadruples, symbolic rational feasible vertices and facets on both intervals (0,2) and (2,infinity), then computes oriented 4-volume sums over full boundary simplices. We examined these finite symbolic certificate operations and independently enumerated polar vertices and primal/dual convex-hull volumes at 7 heights across the break, matching both rational formulas and polar vertex counts 20,18,24. Strictness reduces to -A(t)>0 on (0,2] and B(t)>0 on [2,infinity); independent substitution generated positive-coefficient polynomials 10432u^6+55040u^5+110656u^4+111872u³+60864u²+17024u+1920 and u^7+33u^6+418u^5+2668u^4+9216u³+16888u²+14848u+5216. Endpoint consistency t=2 and limiting 32/3 follows from formulas. Finite hull samples only cross-check; universal statement relies on the intervalwise exact symbolic inequalities and determinant checks.
 
-Only the specified polytope family is considered. The exact combinatorial certificate is algorithmic and public; external independent audit has not been performed. Possible historical overlap with obscure polyhedral-volume literature remains.
+## originality
 
-Self-review: passed. Independent audit: not yet performed.
+PASS
+
+The original Shen–Dubovski Corollary 4 introduces this exact 4D apex pair but proves the 32/3 comparison only for 0<t<=12/7 via a sufficient estimate; the exact all-height formulas and t=2 transition are not stated in its inspected full text. Other 4D Mahler computations in Resultary concern different cube/cross-polytope/symmetric families, not a general theorem dominating this exact P_t.
+
+## value
+
+PASS
+
+Closes a natural all-height variation of a published sharp symmetric Mahler model, with exact primal and polar volumes and a genuine combinatorial transition at t=2. This is a motivated one-parameter extremal certificate in an open four-dimensional subject, not a claim of the universal symmetric Mahler conjecture.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

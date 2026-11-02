@@ -1,0 +1,162 @@
+{
+  "audit_date_utc": "2026-10-28",
+  "audited_at_utc": "2026-10-28T05:07:12Z",
+  "axes": {
+    "correctness": {
+      "checked_sources": [
+        "Assigned RESULT.md §§1–4 and CHECK.py",
+        "Rinaldi–Soncini-Sessa (1977), Optimal Allocation of Artificial In-Stream Aeration, RR-77-007 pp.7–17",
+        "Gourishankar–Lawson 1975 abstract on multicost stream pollution control",
+        "Resultary search: Streeter Phelps one aerator fixed fractional deficit optimal position minimax finite river length",
+        "independent_checks.py: 125 randomized 120-grid minimax comparisons and exact parametric cutoff"
+      ],
+      "rationale": "Solving D′=aL0e^(−at)−bD before and after an instantaneous multiplication by q gives g(t)=C(e^(−at)−e^(−bt)) and post D_s(t)=C[e^(−at)−A(s)e^(−bt)] for t≥s, A=q+(1−q)e^((b−a)s). The upstream maximum g(s) strictly increases for s<t0; the downstream constrained maximum Q_T(s), at t=min(T,h(s)), strictly decreases with s there because moving the aerator later makes post deficit pointwise lower for t≥later position. Their unique crossing gives global minimax and excludes endpoint/late placements. The unconstrained post peak m(s) decreases, so the unique g(s∞)=m(s∞) defines T_c=h(s∞); for T≥T_c the downstream peak is present and the site stays fixed. Below T_c the balance occurs at the reach endpoint and implicit differentiation gives increasing s_T. Taylor at h(s) where D_s″(h)=−ab m(s), plus J=g′−m′>0, yields the quadratic cutoff law; short reach Taylor yields 1/(2−q). Independent numerical scans over 125 random parameter instances were consistent and exact a=1,b=2,q=.5 matches s∞ and Tc, but scans are not a universal proof.",
+      "residual_risks": [
+        "The argument that a site s∞ can be compared below T_c must be read only when T≥s∞; when T<s∞ the s_T<s∞ conclusion is immediate from feasibility, so this is expository imprecision not a false theorem.",
+        "The model treats only one fixed-fraction impulse and constant coefficients."
+      ],
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "The 1977 full report states cost minimization with a prescribed lower DO standard and free device positions, size and number; Property A locates devices when the constraint binds.",
+          "The 1975 Gourishankar–Lawson abstract uses multicost controlled effluent and aeration.",
+          "The full 1975 Koivo–Phillips close-title source is inaccessible, so no full-text noncoverage claim is made."
+        ],
+        "reasoning": "Broader decision-variable sets do not automatically dominate a fixed-q finite-T L∞ location classification. The closest old same-device original remains a bounded unresolved priority risk.",
+        "searches": [
+          "Streeter Phelps one aerator fixed fractional deficit optimal position minimax finite river length",
+          "Koivo Phillips 1975 Optimization Dissolved Oxygen Concentration Polluted Streams Instream Aeration",
+          "https://pure.iiasa.ac.at/708/1/RR-77-007.pdf",
+          "https://www.sciencedirect.com/science/article/pii/S1474667017675906"
+        ]
+      },
+      "checked_sources": [
+        "Assigned RESULT.md §§1–4 and CHECK.py",
+        "Rinaldi–Soncini-Sessa (1977), Optimal Allocation of Artificial In-Stream Aeration, RR-77-007 pp.7–17",
+        "Gourishankar–Lawson 1975 abstract on multicost stream pollution control",
+        "Resultary search: Streeter Phelps one aerator fixed fractional deficit optimal position minimax finite river length",
+        "https://pure.iiasa.ac.at/708/1/RR-77-007.pdf",
+        "https://www.sciencedirect.com/science/article/pii/S1474667017675906",
+        "https://doi.org/10.1080/00207727508941809",
+        "https://doi.org/10.1061/JSEDAI.0001175"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "The Streeter–Phelps two-exponential sag g(t) is classical and excluded from novelty.",
+          "The 1977 cost-optimal location rule concerns optimal cost under a DO standard, not fixed-q minimization of the largest deficit on a finite reach.",
+          "The submitted monotone balance and expansion at the unconstrained downstream peak produce exact T_c and the new (T_c−T)² site approach."
+        ],
+        "reasoning": "A prior generic minimax balance is not sufficient to determine this sharp finite-horizon phase change and curvature coefficient without solving this model. The unavailable 1975 source might nevertheless already specialize it.",
+        "searches": [
+          "Streeter Phelps one aerator fixed fractional deficit optimal position minimax finite river length",
+          "Koivo Phillips 1975 Optimization Dissolved Oxygen Concentration Polluted Streams Instream Aeration",
+          "https://pure.iiasa.ac.at/708/1/RR-77-007.pdf",
+          "https://www.sciencedirect.com/science/article/pii/S1474667017675906"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "The problem is a single-impulse L∞ control of the two-rate oxygen sag with fixed proportional deficit reduction.",
+          "Rinaldi–Soncini-Sessa 1977 allows point DO increments and optimization of aerator number/cost against a minimum DO standard, a different objective despite common ODE."
+        ],
+        "reasoning": "Equivalent names oxygen sag minimax and fixed-q impulse placement were compared to older cost-optimal aeration and equal-level principles. The old qualitative rule is not claimed as new.",
+        "searches": [
+          "Streeter Phelps one aerator fixed fractional deficit optimal position minimax finite river length",
+          "Koivo Phillips 1975 Optimization Dissolved Oxygen Concentration Polluted Streams Instream Aeration",
+          "https://pure.iiasa.ac.at/708/1/RR-77-007.pdf",
+          "https://www.sciencedirect.com/science/article/pii/S1474667017675906"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "The numerical example a=1,b=2,q=.5 has exact stable s∞=ln√2 and Tc=ln(1+√2), but a single calibration table cannot establish all-parameter uniqueness and quadratic cutoff.",
+          "No Resultary exact-match aeration finding appeared; returned results involved unrelated allocation, water, convexity and control."
+        ],
+        "reasoning": "The invariant is an analytic optimizer function on a continuous parameter domain, not a finite known table; absence of a database hit is not novelty proof.",
+        "searches": [
+          "Streeter Phelps one aerator fixed fractional deficit optimal position minimax finite river length",
+          "Koivo Phillips 1975 Optimization Dissolved Oxygen Concentration Polluted Streams Instream Aeration",
+          "https://pure.iiasa.ac.at/708/1/RR-77-007.pdf",
+          "https://www.sciencedirect.com/science/article/pii/S1474667017675906"
+        ]
+      },
+      "rationale": "The exact all-horizon fixed-fraction minimax location and quadratic reach saturation are not stated in the inspected older cost/standard control results. Best-of-knowledge originality passes with unresolved direct Koivo–Phillips 1975 priority risk, not automatic failure.",
+      "residual_risks": [
+        "The directly relevant 1975 Koivo–Phillips IFAC original on optimization of instream aeration could not be read (bibliographic citations only; authorized institution VPN disconnected). It could contain a specialized exact cutoff under another model notation.",
+        "A broader minimax impulse-control result could imply the simple two-rate placement law; available searches and inspected 1977 cost-minimization results do not decide all old literature.",
+        "The solution assumes a fixed multiplicative deficit reset q∈(0,1), without device cost, variable efficiency, additional feedback or multiple aerators."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "The optimization is minimum cost subject to fixed DO standard; may share equal-level intuition but does not state fixed fractional single-device reach-length cutoff in inspected passages.",
+          "evidence": [
+            "RR-77-007 p.7 decision N, location, power; p.11 Property A and p.16 discretized dynamic programming."
+          ],
+          "identifier_or_url": "https://pure.iiasa.ac.at/708/1/RR-77-007.pdf",
+          "material_read": "Original 24-page report parsed text pp.7–17, especially pp.7–12 formulation and Property A, pp.13–17 allocation/dynamic programming. PDF visual screenshot attempt returned access-denied rendering, so conclusions are based on parsed text only.",
+          "method": "Read primary PDF parsed text, equations, constraints and Property A proof; attempted page screenshot.",
+          "title": "Optimal Allocation of Artificial In-Stream Aeration",
+          "trigger": "Closest comprehensive published model with in-stream impulses and optimal location"
+        },
+        {
+          "assessment": "Plausible dominating source remains unverified, explicitly not ruled out.",
+          "evidence": [
+            "RR-77-007 cites Koivo–Phillips in aerator-placement discretization."
+          ],
+          "identifier_or_url": "https://www.sciencedirect.com/science/article/pii/S1474667017675906",
+          "material_read": "Title/bibliographic record and 1977 report references only; no original theorem body accessed.",
+          "method": "Searched lawful sources, attempted authorized institutional access; VPN disconnected.",
+          "title": "Optimization of Dissolved Oxygen Concentration in Polluted Streams Using Instream Aeration",
+          "trigger": "Close original 1975 aeration optimization cited directly by 1977 report"
+        },
+        {
+          "assessment": "General multi-cost control with aeration and pollutant discharge, no exact single-impulse result in abstract.",
+          "evidence": [
+            "1975 article abstract states multicost control of biochemical oxygen demand and dissolved oxygen."
+          ],
+          "identifier_or_url": "https://doi.org/10.1080/00207727508941809",
+          "material_read": "Publisher abstract and problem description only, not full text.",
+          "method": "Read bibliographic abstract.",
+          "title": "Optimal control of water pollution in a river stream",
+          "trigger": "Broader historical controlled DO/BOD optimization"
+        },
+        {
+          "assessment": "Field tests, oxygen transfer rates and cost effectiveness; a different, empirical engineering claim.",
+          "evidence": [
+            "Whipple, Coughlan and Yu (1970) field data and economic analysis."
+          ],
+          "identifier_or_url": "https://doi.org/10.1061/JSEDAI.0001175",
+          "material_read": "Publisher abstract and summary only.",
+          "method": "Read accessible publisher abstract.",
+          "title": "Instream Aerators for Polluted Rivers",
+          "trigger": "Original field equipment and model objective prior"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "checked_sources": [
+        "Assigned RESULT.md §§1–4 and CHECK.py",
+        "Rinaldi–Soncini-Sessa (1977), Optimal Allocation of Artificial In-Stream Aeration, RR-77-007 pp.7–17",
+        "Gourishankar–Lawson 1975 abstract on multicost stream pollution control",
+        "Resultary search: Streeter Phelps one aerator fixed fractional deficit optimal position minimax finite river length"
+      ],
+      "rationale": "A sharp reach-length phase change and quadratic placement sensitivity for the canonical analytical water-quality model provide a natural optimal-control benchmark. This is a narrow but motivated complete classification of the one-device fixed-fraction problem, distinct from general cost-driven multi-aerator engineering design.",
+      "residual_risks": [
+        "The directly relevant 1975 Koivo–Phillips IFAC original on optimization of instream aeration could not be read (bibliographic citations only; authorized institution VPN disconnected). It could contain a specialized exact cutoff under another model notation.",
+        "A broader minimax impulse-control result could imply the simple two-rate placement law; available searches and inspected 1977 cost-minimization results do not decide all old literature.",
+        "The solution assumes a fixed multiplicative deficit reset q∈(0,1), without device cost, variable efficiency, additional feedback or multiple aerators."
+      ],
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "limitations": [
+    "The directly relevant 1975 Koivo–Phillips IFAC original on optimization of instream aeration could not be read (bibliographic citations only; authorized institution VPN disconnected). It could contain a specialized exact cutoff under another model notation.",
+    "A broader minimax impulse-control result could imply the simple two-rate placement law; available searches and inspected 1977 cost-minimization results do not decide all old literature.",
+    "The solution assumes a fixed multiplicative deficit reset q∈(0,1), without device cost, variable efficiency, additional feedback or multiple aerators."
+  ],
+  "schema_version": 1
+}

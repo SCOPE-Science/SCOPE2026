@@ -1,15 +1,21 @@
-# Scientific review: alternating spherical depth of regular polygons
+# Independent mathematical audit
 
-## Correctness — PASS
+## correctness
 
-The theorem specifies an integer side count, independent uniform-area sampling, a fixed center, and the closed-diameter-disk event. The angular marginal is derived directly from the radial function of each side sector. The finite cyclic count is valid for every odd side count including three, and exact symmetries handle even side counts. The strict sign follows from an outward-mixture representation and a four-case proof of the universal central-rectangle strip inequality. Polynomial integration gives the coefficient \(-5/96\), and a uniform angular-density expansion with exactly vanishing linear terms yields the stated \(n^{-5}\) limit and \(O(n^{-7})\) error. The elementary expression has the correct logarithmic limit at \(n=3\). The supplied script verifies critical exact algebra and independent numerical integrations; no finite experiment is used in place of an infinite proof.
+PASS
 
-## Originality — PASS, with disclosed limits
+For even regular n-gons central symmetry forces half the uniform-area directions to be obtuse to any fixed direction. For odd n, radial area integration gives conditional angular density sec^2(t)/(2 tan(pi/n)) over each side-normal sector. Exact cyclic counting crosses at angular offsets alpha/2 and 3alpha/2, yielding D_n=1/2+epsilon(1-4J)/(2n). The claimed strict bound J<1/4 is supported by a genuine inequality: any even increasing density is a mixture of central/uniform and outer-interval uniform laws; the strip area formula K(s,t)=[(s+t-1/2)_+^2-(|s-t|-1/2)_+^2-(s+t-3/2)_+^2]/2 <=st, strictly for positive interior s,t. Explicit rational polynomial double integration independently verifies I=-5/96, which cancels the second-order density perturbation and yields the sharp 5pi^4/(192 n^5) coefficient. Independent angular quadrature agrees at n=3,5,7,...; all-order sign follows from the analytic outer-mixture inequality, not the finite checks.
 
-Rabinowitz, *The Probability That the Incenter of a Triangle Lies in a Random Diameter Disk* (arXiv:2608.27491v1), supplies the general directional transfer and the triangular formula, including the \(n=3\) instance. Those statements do not determine the regular-polygon sign pattern, nor do they imply the fourth-order cancellation inside a sector or the resulting fifth-order side-count asymptotic. Bremner–Shahsavarifar (arXiv:1702.07399) concerns computational spherical-depth algorithms; only its abstract was available for inspection, so no whole-paper novelty assertion is made about it. Relevant indexed records on random center-passing chords, directional perimeter cuts, and normal-count deficits treat distinct observables. These are implication comparisons, not merely title comparisons. Priority uncertainty remains for older or unindexed analytic point-pair geometry and uninspected portions of the motivating paper.
+## originality
 
-## Value — PASS
+PASS
 
-The 2026 triangular incenter problem has a natural extension to regular tangential polygons. Central symmetry makes all even orders exactly one half, but the noncentrally-symmetric odd orders require analysis. The result is a complete strict classification by side-count residue modulo four, an elementary exact formula for every odd count, and a sharp fifth-order limiting law. The main anti-concentration lemma explains the geometry behind the sign instead of relying on an isolated numerical calculation. The known equilateral case and trivial centrally symmetric case are identified as background, not presented as new.
+Rabinowitz's 2026 Theorem on spherical depth gives a full formula for the incenter of an arbitrary TRIANGLE and in particular the equilateral n=3 value, and the general tangential polygon directional cone-measure transfer. It does not state the exact profile for all odd regular polygons n>=5, the sign alternation modulo four, or the fifth-order n^-5 coefficient; these require the new phase count and anti-concentration lemma. Bremner–Shahsavarifar gives computational spherical-depth algorithms, not this polygon law.
 
-Self-review: passed. Independent audit: not yet performed.
+## value
+
+PASS
+
+The theorem completely classifies the center spherical-depth parity phenomenon for regular polygons, with an exact odd-order probability, a strict sign for every odd number of sides, and a sharp unexpectedly fifth-order approach to half-depth. The generalized outer-uniform strip lemma explains structural cancellation; it is not a numerical table or trivial reformulation of the n=3 case.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

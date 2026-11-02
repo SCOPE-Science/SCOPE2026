@@ -1,15 +1,21 @@
-# Self-review
+# Independent mathematical audit
 
-## Correctness
-PASS. Direct integration over the common hub difference yields a bounded one-dimensional beta-type weight and independent conditional leaf noises. The three representation spaces are orthogonal; the covariance eigenvalues follow by exact projection. The rational sign factorization proves the unique three-page crossing, and exponential gap scaling proves the large-size laws. Independent hull-volume computations in dimensions 3–4, rational sign tests and numerical quadrature corroborate without replacing the proof.
+## correctness
 
-## Originality
-PASS, qualified. The primary mathematical literature gives the Lipschitz-polar objects and facet/Ehrhart formulas but no located result for the volume-uniform book polar's full covariance spectrum. The closest earlier complete-bipartite polar result does not include the additional hub-edge constraint; the nearest book-graph published mathematical record concerns a primal minimum-volume enclosing ellipsoid, which does not imply the polar covariance eigenvalues or threshold. Complete absence of equivalent older slice-moment calculations cannot be certified, and the join-graph facet paper was seen only as an abstract.
+PASS
 
-## Mathematical value
-PASS. A canonical graph family crosses from a cactus-like single triangle to overlapping cycles; a one-edge graph change creates a strict finite-dimensional eigenvalue interchange at three pages. The sharp difference between quadratic Euclidean anisotropy and convergence of an affine-invariant isotropic parameter is a concrete geometric structural phenomenon, rather than only a volume integral or routine numerical invariant.
+Anchor hub values to 0 and t and project to 1-perp (Jacobian 1/sqrt(m+2)). Hub edge gives |t|≤1 and m conditional leaf intervals of length 2−|t| centered at t/2. Integrating gives volume density (2−|t|)^m, normalized second moment Et²=T_m and conditional independent zero-mean leaf noises of common variance B_m. The Euclidean S_m decomposition of 1-perp into hub difference, leaf contrasts and hub-leaf mode gives precisely the stated eigenvalues. Rational identity for sign of T_m/2−2B_m/(m+2) is −[2^(m+1)(4m−20)+3m²+20m+41]/[6(m+1)(m+3)D_m(m+2)] after positive normalization, zero only at m3 and sign m2 versus m≥4. Exponential scaling m|t|/2→Exp(1) with uniform moments gives T~8/m² and B→1/3, hence condition number and determinant/volume isotropic constant asymptotics. Exact rational independent checks m2..60 of sign identity, threshold and eigenvalues; finite is corroborative.
 
-## Remaining risk
-Possible equivalent formulas in general convex-body slicing or unindexed metric-ball literature. Some closest book-graph record full text could not be read. The exact claim is restricted to book graphs and has no external validation.
+## originality
 
-Self-review: passed. Independent audit: not yet performed.
+PASS
+
+Known graph Lipschitz-polar constructions and primal symmetric edge polytopes are fully acknowledged. The explicit continuous uniform-volume covariance spectrum of book polar Qm, its m=3 eigenvalue crossing, and its isotropic asymptotics were not found in the inspected published sources; a related book-graph result concerns Löwner enclosing ellipsoids of the primal, mathematically a different invariant. General slice-integral formulations remain a plausible priority risk.
+
+## value
+
+PASS
+
+Exact covariance tensor, sharp three-page inertia crossing, quadratic Euclidean anisotropy and simultaneous affine isotropic cube limit are structurally meaningful for a standard overlapping-triangle graph family. Distinguishes an intrinsic-volume invariant from both primal enclosing ellipsoids and mere facet/volume counts; useful benchmark for spectral geometric behavior of graph Lipschitz balls.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
