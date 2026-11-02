@@ -1,11 +1,21 @@
-# Scientific review
+# Independent mathematical audit
 
-**Correctness (PASS).** Every graph edge and matching simplex is specified constructively. The exact acyclic matching on 383 augmented component faces has 190 incidence pairs and critical dimensions 2,3,3. The signed Morse boundary is zero and hence the component homotopy type follows. Rational boundary computations on both eigenspaces of the component-preserving half-turn, together with graded join interchanges, reconstruct every character. A separate signed Lefschetz enumeration on 146689 augmented faces corroborates the derived characters. Neither a numerical rank experiment nor an alternating trace alone is used as a substitute for the homotopy or representation argument.
+## correctness
 
-**Originality (PASS, qualified).** Gupta–Sarkar–Sawant–Shukla (arXiv:2403.15298, Sections 1 and 4) already establish the general nonequivariant wedge-of-spheres property and provide reductions from which finite nonequivariant multiplicities can be extracted. Those facts are credited. No full rational reflection-character calculation for the specified graph was found in targeted published-finding corpus, related published source searches, or the inspected primary sections. Unlike the previously indexed six-rung Cartesian ladder, the present graph is a categorical product; unlike the indexed \(P_6\times P_6\) case, both the underlying graph and the group-action statement differ. The possibility of an unindexed equivalent equivariant calculation is a residual risk.
+PASS
 
-**Value (PASS).** The previously available nonequivariant homotopy description does not determine the action of either path reversal. For a natural mixed-dimensional finite case, the complete character distinguishes the three invariant top-dimensional rational classes from the noninvariant fifth- and sixth-degree classes and computes the rational homology of the full symmetry quotient. This is a motivated symmetry invariant, not an arbitrary small parameter increment or a restatement of known Betti numbers.
+The categorical P4×P6 graph splits by parity into two 12-vertex, 15-edge components. Independently reconstructed 383 augmented matching faces per component with counts by edge-set size (1,15,75,150,115,26,1). The package gives a complete 190-pair acyclic Morse matching, one 2-cell and two 3-cells, and zero integral Morse differential, yielding component homotopy S²∨2S³ (the degree-zero attaching obstruction vanishes because pi_2(S²)=Z). Their join gives S5∨4S6∨4S7. Component-preserving half-turn on H2 is -1 and on H3 is +1 by exact rational chain eigenspace ranks in the inspected program; graded tensor interchange then gives characters degree5 (1,-1,-1,1), degree6 (4,0,0,-4), degree7 (4,2,2,4), invariant quotient H7 rank3. Independently enumerated signed invariant augmented matching sums (1,1,1,9), hence reduced Lefschetz totals (-1,-1,-1,-9), consistent with full character; this check corroborates traces, not independently all boundary ranks.
 
-**Scientific limitations.** The classification is of the specified Klein-four action over rational coefficients; it is not an integral equivariant lattice classification or an infinite family. The other graph-matching source was examined only at abstract level, not claimed to have been eliminated by full-text reading. A self-review cannot replace an independent scientific audit.
+## originality
 
-Self-review: passed. Independent audit: not yet performed.
+PASS
+
+The closely related Gupta et al. P4×P6 work gives existence of a sphere wedge and nonequivariant recurrences, credited. The new precise invariant is the complete graded rational V4-module and quotient H7 dimension three. Resultary published six-rung ladder V4 character concerns a Cartesian graph, the other P_l×P3 character from this assignment concerns a graph with a different factor length, and P6×P6 concerns different categorical parameters. None determines this degreewise reflection action. Qualified PASS with bounded literature risk.
+
+## value
+
+PASS
+
+A complete integral homotopy type plus all rational reflection characters of a natural 24-vertex categorical path product fills a concrete equivariant gap left by known nonequivariant results. Distinguishing nontrivial V4 actions with equal Betti numbers and computing quotient invariants has mathematically motivated use, although finite-case only.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
