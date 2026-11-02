@@ -5,8 +5,11 @@
     "status": "not_performed"
   },
   "independent_audit": {
-    "evidence": null,
-    "status": "not_performed"
+    "status": "passed",
+    "evidence": [
+      "INDEPENDENT_AUDIT_2026-10-30.md",
+      "INDEPENDENT_AUDIT_2026-10-30.json"
+    ]
   },
   "lean_verification": {
     "evidence": null,
@@ -16,10 +19,24 @@
 }
 ---
 
-# Verification of the mathematical assertions
+# Independent mathematical audit
 
-The infinite-dimensional proof is contained in `RESULT.md`. All coordinate products are well-defined by \(\ell^2\cdot\ell^2\subseteq\ell^1\); the complete unitary change-of-basis argument applies to countably infinite columns because each cross-product coefficient vector is in \(\ell^1\). The formula for the bounded right inverse establishes onto-ness in \(\ell^2\), not just density. Factorization of each \(\ell^1\) element establishes the exact product span.
+## correctness
 
-The exact arithmetic standalone check `artifacts/verify.py` constructs the first \(n\) output coordinates and the first \(m+n-1\) source coordinates for \(m=2,3,4,5,6\), checks rank \(n\) and nullity \(m-1\), builds a rational Householder orthogonal matrix on the first \(m\) indices, and checks that all finite-window cross-products vanish. Execution command: `python artifacts/verify.py`. Observed terminal line: `VERIFY_OK`.
+PASS
 
-Finite-window rank and cross-product checks do **not** prove statements about all Hilbert vectors or all orthonormal natural bases; those are proved analytically. The assertion is neither independently audited nor formally certified. The open-literature comparison is bounded, with an acknowledged residual possibility of an unindexed equivalent result.
+The multiplication xy=T_m(x⊙y) is bounded because l²·l²⊂l¹; T_m has the displayed isometric right inverse, operator norm sqrt(m), and exact head-sum-zero kernel. Every l¹ vector factors as a product via its l¹ right-inverse preimage. For a second orthonormal natural basis, all pairwise coefficient products belong to l¹∩ker T_m. The tail rows each have one unit coefficient in distinct columns, leaving m head columns; their unitary matrix Q has Q^tQ diagonal, and after unimodular square-root diagonal removal becomes a real orthogonal matrix. Conversely every O(m) head rotation works. Injective T|l¹ forces any basis change monomial. Checked exact rational Householder head rotations m=2..7 and finite-window rank equations independently. The infinite conclusion follows from the explicit analytic proof, not finite windows.
+
+## originality
+
+PASS
+
+No located exact or dominating covering result after primary-paper and Resultary comparisons; all four named comparison checks and residual priority risks are separately documented.
+
+## value
+
+PASS
+
+A concrete negative resolution of an explicit infinite-dimensional density/rigidity problem, with the smallest possible nonzero kernel and exact positive-dimensional natural-basis moduli, supplies a reusable structural boundary and a one-way general injectivity criterion; not merely a renamed example.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
