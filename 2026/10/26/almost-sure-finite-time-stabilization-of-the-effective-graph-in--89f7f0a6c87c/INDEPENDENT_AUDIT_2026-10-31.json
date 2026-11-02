@@ -1,0 +1,108 @@
+{
+  "audit_date_utc": "2026-10-31",
+  "audited_at_utc": "2026-10-31T10:08:33Z",
+  "axes": {
+    "correctness": {
+      "rationale": "PASS: The source Li–Luo–Porter Theorem 5 really establishes a.s. c_e→0 or 1 and convergence of opinions, with c_e→1 implying equal endpoint limiting opinions by contraposition. At each time pre-draw receptive A_e(t) is measurable with respect to the past and the independent next draw selects e with probability 1/|E|. Conditional Borel–Cantelli ensures infinitely many receptive times imply infinitely many SELECTED receptive times almost surely, even if receptive episodes are short. If c_e→0, each such selected event would reset c_e(t+1)>=γ>0, impossible infinitely often. Hence a confidence-zero edge has finitely many receptive times. If c_e→1, opinion gap→0 and confidence→1, so eventually |gap|<c_e permanently. Taking a maximum across finite E proves exactly constant graph a.s. with surviving edges c∞=1. Independent C2_OK rational reset and decay checks verify update algebra but are not a proof of conditional Borel–Cantelli.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Theorem 5 gives 0/1 confidence limits; Theorem 6 gives cross-cluster eventual exclusion, which is strictly weaker than exact eventual graph constancy.",
+          "The general network Borel–Cantelli method supports the sampling lemma but does not specialize to confidence-zero reset contradiction in this model."
+        ],
+        "reasoning": "The source has no broader theorem granting graph stabilization in the adaptive-DW case; its §6.2 explicitly identifies remaining graph behavior as open. The present proof combines established 0/1 limit with an additional predictable-events argument.",
+        "searches": [
+          "Resultary search: Random effective interaction graph almost sure finite-time stabilization bounded confidence dynamics",
+          "Li–Luo–Porter Theorem 5, Theorem 6, Section 6.2, Appendix A.2",
+          "General network Borel–Cantelli results of Shi–Anderson–Johansson (2015)"
+        ]
+      },
+      "checked_sources": [
+        "Actual RESULT.md blob fedfa36d24a7baaeb0c9e80321f7bfb3ee628b48 and local C2_OK tests.",
+        "Li–Luo–Porter, arXiv:2303.07563v3, full HTML original Theorem 5/6 and Appendix A.2.",
+        "Resultary seven-agent switching finding; Thompsky et al. arXiv:2605.20418."
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "Published Theorem 5 does not logically by itself exclude infinitely many unselected receptive times; conditional Borel–Cantelli is needed.",
+          "Theorem 6 only excludes different opinion-limit clusters, not same-limit zero-confidence edges.",
+          "Fixed-confidence adaptive edge selection results have another model."
+        ],
+        "reasoning": "The new a.s. constancy follows rigorously from the stated published premises and selection independence, rather than being asserted as direct corollary of convergence of the opinions.",
+        "searches": [
+          "arXiv:2303.07563v3 Theorems 5–7, Appendix A.2, Section 6.2",
+          "Resultary search: Random effective interaction graph almost sure finite-time stabilization bounded confidence dynamics",
+          "arXiv:2605.20418v1 §§III–IV"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "The published source defines effective graph via strict pre-draw |x_i-x_j|<c_ij, uniform edge draws and asymmetric confident-update process.",
+          "A distinct 2026 paper studies adaptive sampling probabilities with fixed confidence radii, not this process."
+        ],
+        "reasoning": "The exact equivalent issue is elimination of infinitely recurrent fleeting receptive edges that escape sampling. Conditional Borel–Cantelli controls predictable observations, unlike convergence of c_e alone. The superficially same effective-graph topic under weighted sampling is a different model.",
+        "searches": [
+          "Resultary search: Random effective interaction graph almost sure finite-time stabilization bounded confidence dynamics",
+          "Web search: adaptive confidence DW effective graph eventually constant Li Luo Porter Appendix A.2",
+          "Li–Luo–Porter arXiv:2303.07563v3 §3.2 and Appendix A.2",
+          "Thompsky–Wu–Porter–Luo arXiv:2605.20418v1"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "A related public finding concerns another bounded-confidence system with arbitrarily delayed switching, not the uniform adaptive-DW effective graph.",
+          "No table of terminal graph states is necessary; the theorem is a.s. over all finite graphs, not a finite census."
+        ],
+        "reasoning": "The database comparison is structurally inapplicable to numerical tables; precise generalized process theorems are the meaningful potential prior. The related Resultary example is not same transition rule.",
+        "searches": [
+          "Resultary search: Random effective interaction graph almost sure finite-time stabilization bounded confidence dynamics",
+          "Web search: adaptive confidence DW effective graph eventually constant Li Luo Porter Appendix A.2",
+          "Resultary: exact logarithmic switching lifetime near a nonfreezing seven-agent confidence system"
+        ]
+      },
+      "rationale": "PASS, qualified: Li–Luo–Porter (2303.07563v3) explicitly prove only that eventually receptive adaptive-DW edges belong to common opinion-limit clusters, leaving actual eventual graph constancy unproved; this finding fills that particular gap by predictable-time sampling. The newer Thompsky–Wu–Porter–Luo 2605.20418 model adapts selection weights under a fixed radius, not this uniform-selection adaptive-confidence process. Generic stochastic-gossip stopping-time results remain a possible mathematically equivalent source.",
+      "residual_risks": [
+        "An already-known conditional sampling theorem in stochastic gossip may state the same conclusion under other terminology.",
+        "The theorem gives no deterministic uniform stabilization time or expected-time estimate.",
+        "The fixed selection probability is essential; vanishing adaptive selection weights could invalidate it."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Theorem 5 supplies required dichotomy; Theorem 6 has weaker eventual same-cluster implication; Appendix leaves actual effective graph constancy unresolved.",
+          "evidence": [
+            "Theorem 5 at HTML lines 338–342; Theorem 6 at 351–356; Appendix A.2 at 635–666."
+          ],
+          "identifier_or_url": "https://arxiv.org/html/2303.07563v3",
+          "material_read": "Complete HTML article searched; read Sections 2.4, 3.2, 6.2, Theorems 5–7 and Appendix A.2 proof of Theorem 6.",
+          "method": "Read original arXiv v3 HTML and internal theorem references.",
+          "title": "Bounded-Confidence Models of Opinion Dynamics with Adaptive Confidence Bounds",
+          "trigger": "Same exact dynamics; possible direct prior proof of effective-graph stabilization"
+        },
+        {
+          "assessment": "Selection probabilities adapt but confidence radii are fixed, so does not imply present uniform-selection varying-confidence theorem.",
+          "evidence": [
+            "Different adaptive variable is edge selection weight rather than confidence bound."
+          ],
+          "identifier_or_url": "https://arxiv.org/abs/2605.20418",
+          "material_read": "Abstract and source-identified model update/assumptions contrasted; no claim to have exhaustively read all appendices.",
+          "method": "ArXiv record and mathematical model comparison.",
+          "title": "A Bounded-Confidence Model of Opinion Dynamics with Adaptive Interaction Probabilities",
+          "trigger": "Closest newer adaptive interaction result involving same named authors"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "rationale": "PASS: Establishes a nearly model-defining a.s. structural limit which the originating primary authors explicitly left open; distinguishes identical limiting opinions with permanently dead edges from live edges. This supports rigorous interpretation of eventual random interaction networks, not merely finite simulations.",
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "limitations": [
+    "No claim that zero-confidence edges have distinct opinion limits, or that the final opinion is global consensus.",
+    "Requires finite edges, γ>0 and uniform independent selection; no expected time bound."
+  ],
+  "schema_version": 1
+}
