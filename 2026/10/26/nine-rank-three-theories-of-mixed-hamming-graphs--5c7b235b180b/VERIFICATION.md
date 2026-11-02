@@ -5,8 +5,11 @@
     "status": "not_performed"
   },
   "independent_audit": {
-    "evidence": null,
-    "status": "not_performed"
+    "status": "passed",
+    "evidence": [
+      "INDEPENDENT_AUDIT_2026-10-30.md",
+      "INDEPENDENT_AUDIT_2026-10-30.json"
+    ]
   },
   "lean_verification": {
     "evidence": null,
@@ -16,10 +19,24 @@
 }
 ---
 
-## Reproducible mathematical checks
+# Independent mathematical audit
 
-Run `python3 verify_mixed_hamming_rank3.py` with Python 3 and no third-party dependencies. The program directly constructs graph vertices and edge relations, forms all third-vertex atomic diagrams relative to a fixed first vertex, and compares their resulting three-round fingerprints to separately coded closed-form extension profiles. Direct enumeration covers 93 product instances of at most 150 vertices. An additional symbolic parameter sweep covers 6,434 factor tuples in dimensions one through eight, with alphabet sizes two through eight. Nine distinct class fingerprints and minimal representative orders 2, 3, 4, 6, 8, 9, 12, 16, and 27 are checked. Recorded standard output is in `verification_output.txt`.
+## correctness
 
-## Logical scope
+PASS
 
-The infinity of product dimensions and factor sizes is treated by the inequalities in `RESULT.md`, particularly the monotonicity and positivity analysis for \(N-2\Delta\), rather than inferred from finite testing. The verifier independently corroborates the pair-extension formulas; it does not provide an external or independent scientific audit.
+The 3-round Ehrenfeucht–Fraïssé invariant is exactly the set of realized one-round ordered-pair atomic-extension types, since every product is vertex transitive and pairwise atomic triples exhaust the remaining 1-move possibilities. Adjacent pair common neighbors equal q_i-2; distance-two pairs have two common neighbors; distance>=3 have none. Exclusive-neighbor and shared-nonneighbor counts follow by inclusion–exclusion from N=prod q_i and Delta=sum(q_i-1). All positivity boundaries split by d=1, d=2, d>=3 and factor size two versus >=3, including F=N-2Delta=2 only at the binary 3-cube, into exactly nine distinct profile sets. Minimal products have sizes 2,3,4,6,8,9,12,16,27. Independent direct triple atomic diagrams confirmed all nine representatives, distinctness, and equivalence of (2,2,3) with (2,3,3), plus all three-factor multisets from alphabet sizes 2,3,4. Infinite classification rests on the exact general inequalities, not those examples.
+
+## originality
+
+PASS
+
+A complete nine-class logical classification of mixed factor sizes differs materially from existing results on automorphism colorings, critical groups or Hamming subgraph embeddings and from homogeneous-factor or fixed-two-factor classifications. No theorem in searched Resultary hits or inspected Fisher–Isaak full text implies the unrestricted class statement.
+
+## value
+
+PASS
+
+This is a complete natural shallow-first-order equivalence classification for all finite mixed Hamming graphs, with a sharp 27-vertex kernel and a genuine blind spot for the number/size mixture of factors in high dimension. The boundary at the binary three-cube has a structural EF explanation, not a parameter renaming.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

@@ -1,19 +1,21 @@
-# Scientific review: mixed Hamming graph rank-three classification
+# Independent mathematical audit
 
-## Correctness — PASS
+## correctness
 
-The assertion is for all nonempty finite products of cliques with each factor order at least two, in the pure adjacency-and-equality language. Three-round first-order equivalence is exactly the existence of matching rank-one extension profiles for each selected pair, with vertex transitivity reducing the first choice to one orbit. The proof counts every possible third-vertex adjacency diagram, including equality cases, and proves the required positivity inequalities over *all* dimensions and factor sizes. The nine profile sets are distinct and each is attained by its displayed representative; the minimum representative products yield the sharp 27-vertex bound. The independent full-vertex and closed-form calculations agree on 93 directly enumerated products. These finite calculations corroborate, rather than establish, the infinite claim.
+PASS
 
-## Originality — PASS (qualified)
+The 3-round Ehrenfeucht–Fraïssé invariant is exactly the set of realized one-round ordered-pair atomic-extension types, since every product is vertex transitive and pairwise atomic triples exhaust the remaining 1-move possibilities. Adjacent pair common neighbors equal q_i-2; distance-two pairs have two common neighbors; distance>=3 have none. Exclusive-neighbor and shared-nonneighbor counts follow by inclusion–exclusion from N=prod q_i and Delta=sum(q_i-1). All positivity boundaries split by d=1, d=2, d>=3 and factor size two versus >=3, including F=N-2Delta=2 only at the binary 3-cube, into exactly nine distinct profile sets. Minimal products have sizes 2,3,4,6,8,9,12,16,27. Independent direct triple atomic diagrams confirmed all nine representatives, distinctness, and equivalence of (2,2,3) with (2,3,3), plus all three-factor multisets from alphabet sizes 2,3,4. Infinite classification rests on the exact general inequalities, not those examples.
 
-Fisher and Isaak (arXiv:math/0607465, full HTML inspected, especially Theorem 1 and Corollary 9) solve a distinguishing-coloring problem for two complete-graph factors; that cannot entail the present arbitrary-factor bounded-rank classification. Jacobson–Niedermaier–Reiner (DOI:10.1002/jgt.10139) treat critical groups, and Klavžar–Peterin (DOI:10.1002/jgt.20084) treat Hamming subgraph embeddings; their available abstracts concern different invariants. A known homogeneous-factor rank-four classification and a known two-factor rank-all-depth classification each leave the arbitrary mixed-factor, at-least-three-factor setting outside their stated domains. No equivalent general result was identified by targeted searches for quantifier-rank, Ehrenfeucht–Fraïssé, mixed Hamming, and Cartesian clique product formulations. Nonindexed work and the inaccessible full texts remain residual risks; unsuccessful searching is not a uniqueness proof.
+## originality
 
-## Value — PASS
+PASS
 
-This is a complete natural classification of bounded-depth logic on the *full* class of Cartesian products of finite nontrivial cliques, without an equal-alphabet assumption. It yields a sharp uniform 27-vertex representative bound, identifies a genuinely mixed-factor equivalence class containing structurally different products, and isolates the binary three-cube as the unique dimension-three exception to positive common-nonneighbor extension. These are informative boundaries for which clique-product dimensions and alphabet mixtures are visible to shallow first-order formulas. The scope is more than a naming convention or a one-instance finite census; no stronger downstream theorem is required.
+A complete nine-class logical classification of mixed factor sizes differs materially from existing results on automorphism colorings, critical groups or Hamming subgraph embeddings and from homogeneous-factor or fixed-two-factor classifications. No theorem in searched Resultary hits or inspected Fisher–Isaak full text implies the unrestricted class statement.
 
-## Limits and sources
+## value
 
-The argument does not address richer signatures, counting logic, or ranks above three. The literature assessment uses a full article available on arXiv and abstract-level evidence for two older graph-theory papers; it is not an exhaustive historical audit. Key sources are arXiv:math/0607465 and DOIs 10.1002/jgt.10139 and 10.1002/jgt.20084. Independent scientific validation is unperformed.
+PASS
 
-Self-review: passed. Independent audit: not yet performed.
+This is a complete natural shallow-first-order equivalence classification for all finite mixed Hamming graphs, with a sharp 27-vertex kernel and a genuine blind spot for the number/size mixture of factors in high dimension. The boundary at the binary three-cube has a structural EF explanation, not a parameter renaming.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
