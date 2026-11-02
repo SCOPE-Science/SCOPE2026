@@ -1,12 +1,21 @@
-# Scientific review
+# Independent mathematical audit
 
-## Correctness — PASS
-The three-step recurrence has been re-derived in dimensionless variables, with no omitted parasitoid survival term or extra release. Differentiation of the explicit third-generation host expression yields \(G_{R,W}(Y)\), whose strict concavity controls the number of release-dose turning points. The one-variable threshold function has exactly one minimizer because the derivative's cubic numerator is strictly increasing beyond its lower boundary. All equality and boundary cases, including \(R\leq1\), \(W=W_c(R)\), and starting exposure \(Y_0\) at a root, are described. An exact counterexample proves strict third-generation rebound while the first two generations are suppressed. The independent verification code compared the original recurrence to the formula and derivative over 5,000 admissible cases and checked 48 threshold settings; finite tests are supplementary.
+## correctness
 
-## Originality — PASS, with explicit residual risk
-The nearest fully inspected source is Tang, Xiao and Cheke (DOI 10.1016/j.tpb.2007.12.001, 2007 public online), which supplies the Nicholson–Bailey recurrence, parasitoid interventions, and periodic host-eradication and multistability theory. Its sections 2–4 do not furnish this finite-three-generation, single-initial-additive-release dose-response threshold or two-turning-point classification. Hassell's ecological review (DOI 10.1046/j.1365-2656.2000.00445.x) supplies the underlying survival model and delayed feedback but not the intervention calculation. Wang, Qin and Tang (DOI 10.1155/2019/9365293) study nonlinear resource-limited repeated interventions and stability of host-free periodic solutions, not this precise functional. Published mathematical-finding searches found closest related commensal rescue and predator-release frequency thresholds, which are neither identical models nor dominating claims. Barclay's 1982 study was accessible only through an abstract and may contain broader biological-control analysis; its reported object is equilibria of a two-stage model rather than the present third-generation threshold. A sufficiently general release-sensitivity theorem might still imply this result; historical priority has not been established.
+PASS
 
-## Mathematical value — PASS
-The finding identifies the earliest observation horizon at which a single parasitoid introduction can perversely increase pest abundance, despite inevitable suppression at generations one and two. It provides a sharp, model-wide host-production threshold and exhaustive one-/two-turning-point classification rather than an isolated parameter example. These facts speak directly to the meaning of short-term efficacy measures in biological control and explain why a release-dose relationship need not be monotone even without nonlinear resource constraints. The model's ecological idealizations and finite-horizon scope are explicit.
+For one initial additive parasitoid pulse q, direct recurrence gives H3=R^3H0 exp[-a(P0+q)-W+(1-R)Y+R Y exp(Y-W)] with W=acH0 and Y=W exp[-a(P0+q)]. H1 and H2 strictly decrease with q. The logarithmic H3 derivative divided by a equals G=-1+(R-1)Y-RY(1+Y)exp(Y-W), with G double-prime=-R exp(Y-W)(4+5Y+Y^2)<0. For R>1, positive G iff W>F_R(y)=y+log(Ry(1+y)/((R-1)y-1)); F_R has a unique global minimizer from the cubic derivative, giving the exact W_c and at most two positive stationary doses. Root order and decreasing Y(q) give the three starting-exposure cases, including tangencies. R<=1 gives negative derivative. Direct symbolic differentiation independently verified the H3 formula and dose derivative; exact R=3,H0=6,P0=log3,q=log2 demonstrates third-generation reversal.
 
-Self-review: passed. Independent audit: not yet performed.
+## originality
+
+PASS
+
+The classical model is not new and Tang–Xiao–Cheke 2008 treats augmented host-parasitoid models and periodic pest management. Inspection of its primary 17-page open-access paper shows intergenerational parasitoid survival and periodic IPM dynamics rather than the single initial pulse and complete third-generation dose phase diagram. Resultary pest release papers treat asymptotic thresholds/basins or different systems. Barclay 1982 source is plausibly relevant but full text was inaccessible after OA and authorized Oxford attempts, with risk retained.
+
+## value
+
+PASS
+
+The mathematically natural earliest delayed-response horizon has a sharp parameter-uniform critical release-dose threshold, two-turning-point classification, and exact counterintuitive witness; this is more than an arbitrary short simulation. The specific unregulated model and single finite pulse limit biological scope.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
