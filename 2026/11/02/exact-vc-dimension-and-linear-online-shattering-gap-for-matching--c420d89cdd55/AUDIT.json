@@ -1,0 +1,118 @@
+{
+  "correctness": {
+    "rationale": "Cut parity forces both horizontal edges at a cut together; this gives a bijection with monomer/dimer column tilings. Disjoint horizontal pairs shatter floor(n/2) queries. For an arbitrary shattered support, the all-ones matching fixes h disjoint dimers and v disjoint rungs; two complementary parity assignments match v selected rung columns injectively to distinct unqueried columns, forcing 2v<=n-2h. The exact Ldim at n=11 is sandwiched between a fully checked 127-query, 128-leaf depth-seven witness against 144 actual graph matchings and the counting upper bound floor(log2 144)=7. Repeating the depth-seven tree on independent 11-column blocks within ordinary ladders yields Ldim>=7m. Explicit scripts verified against the embedded actual witness; no general-width online equality is inferred.",
+    "status": "PASS"
+  },
+  "independent": false,
+  "independent_audit_status": "not_performed",
+  "originality": {
+    "broader_coverage": {
+      "evidence": [
+        "Ghazi et al. arxiv:2007.03668: general Boolean aggregation upper bounds, inspected full text.",
+        "Manurangsi doi:10.4230/LIPIcs.ITCS.2023.85: general computational inapproximability, inspected full text.",
+        "2026/10/4/SCOPE-perfect-matching-trichotomy-for-perfect-grid-states--7ed1871c3028: perfect-matching existence and uniqueness, not shattering dimension"
+      ],
+      "reasoning": "General upper bounds and complexity reductions do not determine exact matching incidence VC/Littlestone dimensions or construct a seven-round tree on the ladder. Existing construction with forbidden bridges does not imply absence-of-bridges conclusion.",
+      "searches": [
+        "perfect matching concept classes connected matching-covered subcubic planar ladders Littlestone dimension static online separation",
+        "\"VC dimension\" \"perfect matchings\" graph",
+        "\"Littlestone dimension\" \"domino tilings\""
+      ]
+    },
+    "checked_sources": [
+      "arxiv:2007.03668, first submitted 2020-07-07",
+      "doi:10.4230/LIPIcs.ITCS.2023.85, published 2023-02-01",
+      "arxiv:1710.00761 (2017-10-02), primary full-text HTML and all main theorem statements inspected",
+      "Search records with identifiers listed above",
+      "Prior accessible matching-forbidden-bridge claim ID 94247ccc-912f-48e4-8c40-2e7f5cec45fb"
+    ],
+    "claim_vs_prior_implication": {
+      "evidence": [
+        "Accessible preceding claim 94247ccc-912f-48e4-8c40-2e7f5cec45fb: concatenated five-column blocks joined by matching-forbidden bridges; exact dimensions 2m and 3m.",
+        "Accessible preceding claim dd07b0e7-52eb-4882-ad70-9b28dffd5818: matroid basis concept classes have equal VC and Littlestone dimensions; standard perfect-matchings system on a ladder is not the basis family of a matroid.",
+        "Published Ghazi 2020 and Manurangsi 2023 full text on distinct generic operations and hardness"
+      ],
+      "reasoning": "The prior bridged example has cut edges that cannot participate in any matching; the new graph is a single ordinary ladder with a spanning cycle, every connecting edge matchable, and newly proved exact VC for every width. Restriction to blockwise matchings supplies a new lower bound, but the exact VC on the full larger class cannot be inferred from the bridged graph. The matroid theorem cannot dominate because perfect matching families in these ladders do not satisfy general matroid basis exchange.",
+      "searches": [
+        "VC dimension of perfect matchings of the 2 by n ladder graph equals floor(n/2); Littlestone dimension of their edge incidence",
+        "perfect matching concept classes connected matching-covered subcubic planar ladders Littlestone dimension static online separation",
+        "94247ccc-912f-48e4-8c40-2e7f5cec45fb",
+        "dd07b0e7-52eb-4882-ad70-9b28dffd5818"
+      ]
+    },
+    "equivalent_formulations": {
+      "evidence": [
+        "Horizontal edge is equivalent in all hypotheses to the opposite-row edge at the same cut; actual query concept is one-dimensional monomer/dimer tiling of a path.",
+        "2026/9/7/SCOPE018: two-monomer Kasteleyn census on 6-by-N rectangles, enumeration rather than edge-query VC/Littlestone"
+      ],
+      "reasoning": "Checked horizontal-pair equivalence, dimer tiling and domino vocabulary. The closest tiling census counts matchings but does not assert shattering dimensions, and equivalence of two horizontal edges is used, not mistaken for a new result.",
+      "searches": [
+        "VC dimension of perfect matchings of the 2 by n ladder graph equals floor(n/2); Littlestone dimension of their edge incidence",
+        "domino tilings of 2-by-11 grid adaptive edge membership mistake trees and shattering depth seven",
+        "Littlestone VC dimension perfect matchings full ladder graph two rows n columns domino tilings"
+      ]
+    },
+    "exact_database_or_table": {
+      "evidence": [
+        "2026/9/7/SCOPE018: two-monomer Kasteleyn census on 6-by-N rectangles, enumeration rather than edge-query VC/Littlestone",
+        "2026/10/11/SCOPE-the-antipodal-half-turn-representation-on-m-bius-ladder-perfect--317e26dcb314: homological representation of different matching complex"
+      ],
+      "reasoning": "No exact database or online shattering table for ordinary 2-by-11 matching classes was identified in the checked results. An absence of returned entries is not positive proof of novelty.",
+      "searches": [
+        "domino tilings of 2-by-11 grid adaptive edge membership mistake trees and shattering depth seven",
+        "perfect matching concept classes connected matching-covered subcubic planar ladders Littlestone dimension static online separation",
+        "perfect matchings ladder graphs exact Littlestone dimension Fibonacci tiling membership queries"
+      ]
+    },
+    "rationale": "Full original generic complexity and Boolean aggregation papers were inspected. Searches of published research records, accessible prior claims and literature terms did not find an implication covering the all-n exact VC dimension or matching-covered 11-block linear separation. A prior connected graph construction joins 5-column ladders with perfect-matching-forbidden bridges, unlike the two-vertex-connected full ladder here. Historical priority remains uncertain. The 2017 resonance-graph full text establishes distributive-lattice and cubical embedding results for different graph objects but no queried-edge online depth assertion.",
+    "residual_risks": [
+      "Search indexing is not exhaustive and different terminology such as adaptive query shattering of domino tilings may obscure earlier equivalent results.",
+      "Resonance-graph source proves a general distributive-lattice/Clar polynomial structure; possible indirect corollaries to edge-query shattering may exist but no same statement or dominating implication was located.",
+      "Independent mathematical review and historical priority verification have not been performed."
+    ],
+    "source_inspections": [
+      {
+        "assessment": "Not covering: establishes upper bounds for Boolean aggregations of arbitrary concept classes, no exact ladder edge-query VC theorem or depth-seven witness.",
+        "evidence": [
+          "arxiv:2007.03668, submitted 2020-07-07; PDF and first theorem pages inspected"
+        ],
+        "identifier_or_url": "https://arxiv.org/abs/2007.03668",
+        "material_read": "Primary full-text PDF introduction, definitions and aggregation/closure theorem and its quantitative scope, with page-image inspection.",
+        "method": "Read original paper (arXiv v1), compare closure statement against exact ladder incidence hypotheses.",
+        "title": "Near-tight closure bounds for Littlestone and threshold dimensions",
+        "trigger": "Generic closure bounds could imply product online lower bounds or an upper bound for matching tilings."
+      },
+      {
+        "assessment": "Not covering: complexity and inapproximability for generic explicit concept classes, not exact invariants for perfect matchings of rectangular ladders.",
+        "evidence": [
+          "ITCS 2023, publication 2023-02-01, DOI 10.4230/LIPIcs.ITCS.2023.85"
+        ],
+        "identifier_or_url": "https://doi.org/10.4230/LIPIcs.ITCS.2023.85",
+        "material_read": "Primary open-access 18-page PDF: abstract, problem definitions, complexity reductions and theorem statements, including first pages as images.",
+        "method": "Direct published PDF inspection and text search for matching-related terminology.",
+        "title": "Improved Inapproximability of VC Dimension and Littlestone's Dimension via (Unbalanced) Biclique",
+        "trigger": "Could provide an equivalent instance of exact dimensions for edge-incidence concepts."
+      },
+      {
+        "assessment": "Not covering the stated invariant: the resonance graph is built on perfect-matchings as vertices with flip adjacencies, and its median/distributive-lattice and cubical-embedding theorems do not assert VC/Littlestone dimensions for querying original graph-edge membership. Nonetheless its general framework may supply indirect structural tools and is credited as background.",
+        "evidence": [
+          "arxiv:1710.00761 (2017-10-02), complete primary HTML text, Theorem 1.1 concerning lattice covers and Theorems 1.2 and 1.3 concerning hypercube/Clar polynomials; full-text search for shattering terms produced no matches."
+        ],
+        "identifier_or_url": "https://arxiv.org/abs/1710.00761",
+        "material_read": "Primary full text available in arXiv HTML: introduction, definitions, Theorems 1.1–1.3 and 3.5, proof context on cube embeddings, and Section 5 concluding remarks.",
+        "method": "Read original full-text mathematical sections and all main theorem statements; searched full text for Littlestone, VC-dimension and shattering terminology.",
+        "title": "Resonance Graphs and Perfect Matchings of Graphs on Surfaces",
+        "trigger": "Perfect-matching ladder tilings may be encoded as resonant face flips or cube systems."
+      }
+    ],
+    "status": "PASS"
+  },
+  "review_type": "self_review",
+  "schema_version": 1,
+  "scope_run_id": "c420d89c-dd55-45d4-b560-921ddcdf2014",
+  "self_review_status": "passed",
+  "value": {
+    "rationale": "The all-order exact VC formula is a natural invariant for full perfect-matching classes on grid ladders. A complete finite 11-column adaptive witness proves two-round excess and yields a gap growing at least ceil(3m/2) on ordinary two-vertex-connected planar bipartite subcubic graphs, each edge being matching-feasible. This removes the structurally degenerate forbidden-bridge mechanism of known connected examples; no unsupported exact online formula for other widths is claimed.",
+    "status": "PASS"
+  }
+}

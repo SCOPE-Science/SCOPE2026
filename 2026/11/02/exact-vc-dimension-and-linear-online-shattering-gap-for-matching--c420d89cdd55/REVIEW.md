@@ -1,0 +1,12 @@
+# Scientific review
+
+## Correctness — PASS
+The matching-to-monomer/dimer bijection follows from cut parity in a perfect matching. The VC lower bound is a disjoint-pair construction. The upper bound uses both complementary parity labelings on the residual rung queries to inject all selected rung columns into unqueried residual columns, proving the exact bound. The complete depth-seven tree for eleven columns was reconstructed and checked edge-by-edge against all \(144\\) perfect matchings of the actual ladder; its \(128\) terminal witnesses are distinct. Counting gives the upper bound of seven. An independent version-space recurrence corroborates eleven-column depth. Concatenating the finite tree inside consecutive eleven-column blocks gives the claimed unbounded lower bound without deleting any physical ladder edges.
+
+## Originality — PASS under available comparison
+The closest related generic literature on Littlestone closure and VC/Littlestone computational hardness does not cover the two-row ladder edge-incidence family. Related resonance-graph literature establishes a distributive-lattice structure and Clar-polynomial identities for matching flip graphs, but not the exact incidence-query tree depth studied here; this classical structural fact is credited. A known earlier example concatenates five-column ladders using bridges absent from every perfect matching; it does not imply the exact VC dimension of a continuous ladder, its eleven-column certificate, or its strict gap on a two-vertex-connected all-edges-allowed graph. Searches included alternative terms such as domino tilings, monomer-dimer encodings, matching-covered graphs, edge-query mistake trees, and online shattering. Unindexed or differently titled literature remains a priority risk; absence from search results is not uniqueness evidence.
+
+## Mathematical value — PASS
+The all-size exact VC formula concerns a standard infinite graph family. The finite depth-seven certificate exposes a two-round adaptive/static separation at a concrete natural width. Combining it with the structural proof gives an unbounded, quantitatively linear gap inside ordinary planar, bipartite, two-vertex-connected, subcubic graphs in which each edge participates in some perfect matching. This removes the excluded-edge bridge mechanism of earlier examples; it is a nontrivial structural strengthening. No conjecture about exact large-width online dimension is made.
+
+Self-review: passed. Independent audit: not yet performed.
