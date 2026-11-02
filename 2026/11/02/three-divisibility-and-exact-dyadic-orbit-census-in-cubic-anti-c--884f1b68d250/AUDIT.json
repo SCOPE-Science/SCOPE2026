@@ -1,0 +1,141 @@
+{
+  "correctness": {
+    "rationale": "Derive the exact neighbor-XOR rule and conjugate the two cyclic rows to a 2x2 Jordan block with f=(z^2+z+1)/z. q=z^2+z+1 has roots of order three, giving the iff reversibility threshold. When 3 divides the circumference, CRT isolates a 2t-dimensional q-primary factor per row, J nilpotent of sharp index max(2,t), giving 2^(2n-4t) periodic states and sharp transient bound. For dyadic n, Frobenius powers reduce fixed vectors to shift-invariant rows and F0 to shift-4 invariants; differences of exact fixed counts yield all primitive cycle numbers. Recomputed exact Gaussian ranks for n=3..36 and dyadic n=4..64; exhausted all 256 and 65,536 configurations for n=4,8. Finite tests are supporting evidence only; unrestricted result follows from proof.",
+    "status": "PASS"
+  },
+  "independent": false,
+  "independent_audit_status": "not_performed",
+  "originality": {
+    "broader_coverage": {
+      "evidence": [
+        "Behrens, Hudcová and Zdeborová (arxiv:2310.15894v1), accessible main text §§I–III and conclusions: random-regular asymptotic cavity analyses and numerical attractor classes, no full cubic-prism all-state spectrum.",
+        "Marr and Hütt (arxiv:0812.2408v1) describe general outer-totalistic graph dynamics rather than an exact arithmetic prism orbit classification.",
+        "The published odd-ring quadratic five-site cellular-automaton theorem classifies reversible nonlinear local rules, not a fixed XOR rule coupled over a two-layer prism."
+      ],
+      "reasoning": "General models contain cubic prisms as allowable graphs only as a broad definition, not as a proved complete classification. Generic finite-field linear systems can in principle derive the formulas after performing the new graph-specific module decomposition, but none of the inspected sources provides an implication giving all three claims. An uninspected 2005 general finite-systems paper remains priority risk.",
+      "searches": [
+        "Behrens Hudcova Zdeborova Dynamical Phase Transitions in Graph Cellular Automata 2310.15894 conforming anti conformist 0101 period",
+        "graph dynamical system rule 150 on cubic prisms 4 8 16 cycles attractors period",
+        "2026/10/11/SCOPE-exact-odd-ring-and-twice-odd-bijectivity-for-quadratic-five-site--8948cda228be",
+        "arxiv:2310.15894v1",
+        "arxiv:0812.2408v1"
+      ]
+    },
+    "checked_sources": [
+      "arxiv:2310.15894v1 (accessible full HTML main text)",
+      "arxiv:0812.2408v1 (accessible complete short HTML text)",
+      "2026/10/11/SCOPE-a-mod-four-orbit-census-for-parity-automata-on-distance-two-bool--f288ef2fe8b4 (full RESULT.md)",
+      "2026/10/11/SCOPE-sharp-period-four-census-for-complete-multipartite-parity-automa--acea41c73be7 (full RESULT.md)",
+      "2026/10/11/SCOPE-exact-odd-ring-and-twice-odd-bijectivity-for-quadratic-five-site--8948cda228be (published-finding corpus abstract)",
+      "2026/9/19/SCOPE-boundary-parity-reduction-modular-laplacian--329faea3aeba (published-finding corpus abstract)"
+    ],
+    "claim_vs_prior_implication": {
+      "evidence": [
+        "Prior random-regular results concern typical initial states and ensemble limits; this claim quantifies *every* state of a deterministic prism.",
+        "Published Hamming-cube parity evolution has periods at most two, and complete-multipartite parity periods at most four. Both are graph-family-specific and do not dominate arbitrary dyadic-prism periods.",
+        "The restricted diagonal u=v subsystem gives only a one-row equation, and cannot give the periodic count of all 2^{2n} asymmetric configurations."
+      ],
+      "reasoning": "At the statement level, neither the hypotheses (graph families, ensemble assumptions) nor conclusions (complete orbit counts for all configurations and sharp nilpotent transient depth) imply the present result. Known general theory could facilitate its derivation, which is why originality is confined to the explicit exact prism classification rather than the Jordan/CRT method.",
+      "searches": [
+        "arxiv:2310.15894v1",
+        "arxiv:0812.2408v1",
+        "2026/10/11/SCOPE-a-mod-four-orbit-census-for-parity-automata-on-distance-two-bool--f288ef2fe8b4",
+        "2026/10/11/SCOPE-sharp-period-four-census-for-complete-multipartite-parity-automa--acea41c73be7",
+        "synchronous XOR parity neighborhood update on cubic prism graph C_n Cartesian K_2 reversible iff 3 divides n",
+        "circular ladder graph parity cellular automata GF(2) exact fixed point counts dyadic rings 2^k"
+      ]
+    },
+    "equivalent_formulations": {
+      "evidence": [
+        "The two-layer transformation (u,v) -> (u,u+v) converts the cubic prism update to the Jordan operator [[f,1],[0,f]], f=1+z+z^{-1}, which exposes the mathematical equivalent searched.",
+        "Published cube parity result is about distance-two Hamming adjacency over a different vertex set, with square-zero or involution dynamics.",
+        "Published complete-multipartite parity result has all primitive periods at most four, versus the prism family with attained period n/2 for unbounded dyadic n."
+      ],
+      "reasoning": "Search targeted parity XOR neighborhood, Rule 150, Jordan polynomial, cubic/circular ladders and dyadic ring cycles rather than only title wording. Cubic-prism states are two independent cyclic rows, not solely the diagonal (u=v) Rule-150 subsystem; the off-diagonal Jordan extension affects full-space cycles and nilpotent depths. Neither inspected published orbit formula applies to the prism adjacency module.",
+      "searches": [
+        "graph cellular automata conforming anticonformist 0101 cubic prism rule 150 parity long cycles unbounded period",
+        "cubic graph synchronous parity automata exponential period prism GF2",
+        "synchronous XOR parity neighborhood update on cubic prism graph C_n Cartesian K_2 reversible iff 3 divides n",
+        "circular ladder graph parity cellular automata GF(2) exact fixed point counts dyadic rings 2^k",
+        "2026/10/11/SCOPE-a-mod-four-orbit-census-for-parity-automata-on-distance-two-bool--f288ef2fe8b4",
+        "2026/10/11/SCOPE-sharp-period-four-census-for-complete-multipartite-parity-automa--acea41c73be7"
+      ]
+    },
+    "exact_database_or_table": {
+      "evidence": [
+        "The published cube census counts states on 2^n Hamming vertices and supplies ranks depending on cube dimension modulo four, whereas prism has 2n vertices and a circumference modulo three criterion.",
+        "The complete-multipartite census has period four at maximum, while the prism G_16 has an attained period eight, so it cannot be a table containing the new counts.",
+        "The new n=4,8 exact brute-force checks enumerate all configurations and match a general proof, not a previously published finite table."
+      ],
+      "reasoning": "Searches for exact orbit tables and parity-network enumeration yielded no entry matching the prism family, operator or numbers. A negative search is not proof of absence; the classification is primarily algebraic and holds at all sizes.",
+      "searches": [
+        "synchronous XOR parity neighborhood update on cubic prism graph C_n Cartesian K_2 reversible iff 3 divides n",
+        "circular ladder graph parity cellular automata GF(2) exact fixed point counts dyadic rings 2^k",
+        "graph dynamical system rule 150 on cubic prisms 4 8 16 cycles attractors period",
+        "2026/10/11/SCOPE-a-mod-four-orbit-census-for-parity-automata-on-distance-two-bool--f288ef2fe8b4",
+        "2026/10/11/SCOPE-sharp-period-four-census-for-complete-multipartite-parity-automa--acea41c73be7"
+      ]
+    },
+    "rationale": "The complete 2023 graph-cellular-automaton work studies conforming/non-conformist rules and random-regular-network behavior, not exact arithmetic orbit counts on cubic prisms. The complete published results for binary parity on Hamming distance-two cubes and complete multipartite networks have incompatible graph hypotheses and uniformly bounded cycle lengths; neither implies the three-divisibility reversibility criterion, the nonreversible periodic-core dimension and transient depth, or the all-state dyadic-prism cycle census. The 2008 graph-CA survey is background. Generic linear finite-dynamical-system theory and Rule-150 techniques are acknowledged and do not, in the inspected materials, state this full two-layer prism classification. Priority remains uncertain against possible earlier equivalent additive-CA/module formulations.",
+    "residual_risks": [
+      "Earlier additive one-dimensional cellular automata or finite-field linear dynamical-system literature may imply the prism formulas under alternate terms; a relevant 2005 general linear finite-systems article was not fully inspected.",
+      "Semantic searches and title scans are incomplete; they establish no uniqueness theorem or definitive priority.",
+      "The claimed value is the complete natural-graph characterization, not novelty of finite-field linear algebra or the XOR/Rule-150 method."
+    ],
+    "source_inspections": [
+      {
+        "assessment": "SOURCE_MODEL_ONLY; does not state exact algebraic prism reversibility, periodic-core size or dyadic orbit census",
+        "evidence": [
+          "Original published 2023-10-24; anti-conformist type 3 follows neighbor minority when majority lead is small; primary numerical model is random regular, notably degree five."
+        ],
+        "identifier_or_url": "https://arxiv.org/abs/2310.15894",
+        "material_read": "Accessible full HTML body, especially definition of nonconformist rules in Introduction, model and results sections, discussion of attractors, conclusion and appendix references",
+        "method": "Read arXiv HTML text directly and compared local-rule definition, graph ensemble, quantified conclusions and examples with the proposed prism theorem",
+        "title": "Dynamical Phase Transitions in Graph Cellular Automata",
+        "trigger": "Original graph-automaton opinion model and source-date anchor"
+      },
+      {
+        "assessment": "BACKGROUND_ONLY; no all-state parity operator on C_n Cartesian K_2",
+        "evidence": [
+          "Graph cellular automata formalism and graph topology effects are discussed, but no binary algebraic prism census is presented."
+        ],
+        "identifier_or_url": "https://arxiv.org/abs/0812.2408",
+        "material_read": "Entire available HTML text including model and results discussion",
+        "method": "Read public arXiv HTML text, compare graph family and type of dynamics described",
+        "title": "Outer-totalistic cellular automata on graphs",
+        "trigger": "Foundational graph automata and topology-dependent dynamics"
+      },
+      {
+        "assessment": "NOT_COVERING; Hamming distance-two cube graphs have only periods <=2, unlike prisms",
+        "evidence": [
+          "Graph is on 2^n Boolean vertices with adjacency at exact Hamming distance two; operator squares to zero or identity."
+        ],
+        "identifier_or_url": "https://github.com/Resultary/2026/blob/main/2026/10/11/SCOPE-a-mod-four-orbit-census-for-parity-automata-on-distance-two-bool--f288ef2fe8b4/RESULT.md",
+        "material_read": "Entire RESULT.md including claim, Hamming-shell graph construction, rank proof, orbit counts and scope",
+        "method": "Fetched public full result text and compared graph adjacency, algebraic structure, graph parameters and period bounds",
+        "title": "A mod-four orbit census for parity automata on distance-two Boolean cubes",
+        "trigger": "Closest published exact orbit census for binary parity graph automata"
+      },
+      {
+        "assessment": "NOT_COVERING; complete multipartite graphs have period at most four for cited rules, whereas prisms yield unbounded maximum period",
+        "evidence": [
+          "F_0 cycles at most two and self-inclusive F_1 cycles at most four, unlike dyadic prisms with period n/2."
+        ],
+        "identifier_or_url": "https://github.com/Resultary/2026/blob/main/2026/10/11/SCOPE-sharp-period-four-census-for-complete-multipartite-parity-automa--acea41c73be7/RESULT.md",
+        "material_read": "Entire RESULT.md, including the all-state fixed-point table and proof",
+        "method": "Fetched public full result and compared graph family and maximum possible period",
+        "title": "Sharp period-four census for complete multipartite parity automata",
+        "trigger": "Another closest explicit parity-dynamics classification"
+      }
+    ],
+    "status": "PASS"
+  },
+  "review_type": "self_review",
+  "schema_version": 1,
+  "scope_run_id": "884f1b68-d250-4640-9f84-a68dbef01c79",
+  "self_review_status": "passed",
+  "value": {
+    "rationale": "This is a sharp structural reversibility boundary and a complete, naturally indexed orbit count for a canonical connected cubic network. It explains how strongly structured graphs produce arbitrarily long, recurrent opinion disagreement even when random regular network studies emphasize typical short attractors. The modulo-three singularity, nilpotent entry depth, and all-state dyadic counts give mathematical information not implied by a one-row restricted Rule-150 example. The result does not assert a random-ensemble phase transition or a universal graph theorem.",
+    "status": "PASS"
+  }
+}

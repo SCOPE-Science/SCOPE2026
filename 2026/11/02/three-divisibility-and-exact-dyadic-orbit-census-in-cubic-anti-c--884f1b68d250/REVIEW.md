@@ -1,0 +1,15 @@
+# Scientific review
+
+## Correctness
+PASS. The local rule with outputs \(0,1,0,1\) is precisely neighboring XOR for degree three. The change of coordinates to an upper-triangular two-layer operator is invertible. Polynomial factorization over \(\mathbb F_2\) proves the exact reversibility criterion, and the Chinese remainder theorem separates the nilpotent and invertible primary factors. The nilpotency index and fixed-point counts follow by explicit powers; the dyadic orbit census follows from cyclic-shift kernels and the fixed-point-difference formula. An independent standard-library checker verifies exact binary ranks for circumferences three through thirty-six, dyadic operator orders up to sixty-four, and all states for circumferences four and eight. No finite experiment is substituted for the general proof.
+
+## Originality
+PASS under the inspected-literature comparison, with residual priority uncertainty. The motivating 2023 graph-automaton study is primarily a large-random-regular-network asymptotic and empirical analysis, not an exact prism census. The 2008 foundational graph-automaton paper supplies a formalism, not the arithmetic classification. Published parity automata on Boolean-cube distance-two graphs and complete multipartite networks admit different, bounded-period formulas. Classical additive cellular-automaton theory and linear finite dynamical systems may contain a differently phrased implication, and the 2005 general treatment could not be fully inspected; this uncertainty remains material but no identified theorem covers the exact entire cubic-prism classification. The dyadic calculation explicitly includes asymmetric row configurations and is not merely the standard symmetric Rule-150 subsystem.
+
+## Mathematical value
+PASS. The sharp divisibility boundary separates globally reversible and transient-loss dynamics for the same natural connected cubic social network, and gives a closed periodic-core size and sharp transient depth in the singular cases. The full dyadic cycle census quantifies exceptional persistent multi-opinion oscillations with unbounded periods, clarifying why numerical predominance of short cycles on random regular graphs should not be interpreted as a universal period bound. The exact natural invariant is the complete functional-graph orbit structure on a canonical family of regular networks, rather than an arbitrarily selected configuration.
+
+## Related literature and limitations
+Most relevant are Behrens, Hudcová and Zdeborová (arXiv:2310.15894, full accessible text examined), Marr and Hütt (arXiv:0812.2408, full accessible text examined), and the published complete-multipartite and distance-two Boolean-cube parity automaton classifications (full result texts examined). No claim is made about typical random cubic networks, other weak-agreement thresholds, arbitrary graph families or exact primitive periods at every non-dyadic circumference. Earlier linear-algebraic formulations remain a priority risk. Independent validation is not asserted.
+
+Self-review: passed. Independent audit: not yet performed.
