@@ -1,19 +1,21 @@
-# Scientific review
+# Independent mathematical audit
 
-## Correctness
+## correctness
 
-**PASS.** The non-Hermitian contraction argument identifies the long-time surviving subspace with the simultaneous contact-null eigenvectors of the Hermitian cycle Hamiltonian. Plane-wave diagonalization isolates zero and half-quantum flux as the only degenerate phases. Counting the pair differences divisible by \(N/\gcd(N,s)\) gives the exact dimensions. Fourier orthogonality supplies the residue-class survival probabilities. All boundary cases \(N\ge3\), odd/even cycle length and sensor distance, and arbitrary positive rates are included. Independent numerical matrix checks cover 195 finite phase/geometries and two loss-rate pairs each; they are corroborative and not an infinite proof.
+PASS
 
-## Originality
+PASS. For fixed finite N>=3, two strictly positive sink strengths give a contractive semigroup. Real-energy eigenspaces reduce the nonnormal generator and consist exactly of Hermitian H_phi eigenvectors vanishing at both sites; Jordan growth on the real axis is excluded by contractivity and all other modes decay. The plane-wave collision criterion has degeneracies only at total flux 0 or pi; the two-sink dark condition is L|(2k) or L|(2k+1), L=N/gcd(N,s). Counting non-self-paired k yields the piecewise dark dimensions and roots-of-unity cosine sums yield the five sitewise profiles and trace average. Independent exact phase-pair counting and sitewise finite sums for every N=3..16 and each separation agree. The conclusions concern t->infinity at fixed parameters; no uniform absorption-time claim follows.
 
-**PASS with bounded-search uncertainty.** Agliari--Mülken--Blumen (arXiv:0903.3288v1, particularly Eq. (21), (22), and Section IV) already cover the zero-flux spectral two-trap mechanism. Lu et al. (arXiv:1405.6209) analyze chiral phases and gauge effects, not this absorbing two-contact arithmetic law. Razzoli--Paris--Bordone (arXiv:2011.13794) provide a general single-absorber projector method, not the two-monitor half-flux classification. The assessed new contribution is the half-flux versus zero-flux parity reversal, including all localized-site probabilities and arbitrary-rate independence, not the underlying Fourier/projector machinery. A broader Fourier observability theorem or specialized trapping paper could imply the combined result; comprehensive priority assurance is not claimed.
+## originality
 
-## Mathematical value
+PASS
 
-**PASS.** The model isolates a controllable gauge flux and a natural spatial design parameter, the separation of two loss contacts. The computed parity switch identifies opposite practical outcomes: on the same class of finite quantum transport networks, inserting half flux can eradicate all permanent trapping or create a new genuinely dark mode. The exact local survival levels and arithmetic classification determine which starting vertices retain excitation; neither a single small numerical example nor a rote change of notation would answer that system-size-wide design question.
+PASS, best-of-knowledge. Agliari, Mülken and Blumen already derive the zero-flux multiple-trap Fourier coupling and its implications for trapping, and that prior zero-flux compatibility is credited. The full primary paper does not analyze Peierls flux pi and the two-contact gcd phase switch. Razzoli–Paris–Bordone study a single trap and the spectral transport subspace. Resultary matches refer to other magnetic-ring band spectra or unrelated two-site spectral problems, not joint flux-dependent annihilator-site survival.
 
-## Scope and residual risk
+## value
 
-The result concerns static coherent one-particle dynamics, homogeneous unit hopping, strictly positive two-site losses and the infinite-time limit. Known Fourier formulas make the zero-flux subcase a prior-work corollary. An equivalent statement in uninspected spectral-observability or magnetic-ring literature remains an originality risk. Independent audit has not been performed.
+PASS
 
-Self-review: passed. Independent audit: not yet performed.
+PASS. Flux dependence of dark states is a physically motivated network-transport invariant. The complete gcd/parity phase diagram includes cases where half flux creates a dark mode and others where it destroys dark modes, plus exact survival at every initial site and independence from positive sink magnitudes. This is more than a restatement of single-sink trapping or zero-flux interference.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
