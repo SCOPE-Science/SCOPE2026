@@ -1,0 +1,155 @@
+{
+  "correctness": {
+    "rationale": "The unique greedy embedding gives a bijection between descendants and canonical deletion pairs, yielding the identity with rainbow triples. Given the binary adjacent-change pattern, each consecutive-change rainbow flag has independent success probability (q-2)/(q-1). Block enumeration gives both generating-polynomial forms. A centered Bernoulli expansion establishes the exact variance. Direct exhaustive enumeration reproduces 27 parameter cases and a separate greedy counter cross-check passes. The proof explicitly handles n=2 and q=2, so finite tests are not used as an infinite certificate.",
+    "status": "PASS"
+  },
+  "independent": false,
+  "independent_audit_status": "not_performed",
+  "originality": {
+    "broader_coverage": {
+      "evidence": [
+        "Liron–Langberg (2012), introduction and main bounds treat binary run-extremal deletion counts.",
+        "Cullina–Kiyavash (2013), introduction and upper-bound arguments treat asymptotic deletion-code packing, not individual-ball histograms.",
+        "Li–Wang–Fu (2026), introduction and section on main contributions concern run-constrained extremizers and bounds."
+      ],
+      "reasoning": "Neither extremal bounds nor code packing bounds determine coefficient multiplicities or the second moment for every alphabet size. The relevant known q-ary formula algorithms for single centers do not provide the all-input distribution explicitly.",
+      "searches": [
+        "q-ary two deletion ball variance formula second moment deletion channel",
+        "exact q-ary double deletion ball variance unconditional all alphabet sizes n polynomial",
+        "arXiv:1202.1644v1",
+        "arXiv:1302.6562v1",
+        "arXiv:2601.06493v1"
+      ]
+    },
+    "checked_sources": [
+      "doi:10.1109/TIT.2002.806155",
+      "doi:10.1109/TIT.2008.924730 (abstract only)",
+      "arXiv:1202.1644v1",
+      "arXiv:1302.6562v1",
+      "arXiv:2601.06493v2 (full text)",
+      "Public research record, “Exact variance of binary two-deletion sphere size” (2026)"
+    ],
+    "claim_vs_prior_implication": {
+      "evidence": [
+        "Published 2008 work gives fixed-word nonbinary counting formulas for small deletion numbers, a potentially relevant calculational ancestor.",
+        "Published binary variance agrees exactly with the \\(q=2\\) substitution and hence is already covered.",
+        "Recent q-ary extremal work does not display a law over all words."
+      ],
+      "reasoning": "An earlier explicit per-word count is not the same statement as a closed all-word histogram and cannot imply the claimed expression without summation over overlapping triple correlations; these correlations are computed here by a conditional binomial law. The binary variance is a corollary of the present formula but is not asserted original. No stronger published histogram theorem was found among checked materials.",
+      "searches": [
+        "q-ary random word number of distinct two-deletion descendants exact variance alphabet q",
+        "q-ary two deletion ball variance formula second moment deletion channel",
+        "q-ary double deletion sphere full histogram distribution generating polynomial binomial rainbow triples",
+        "exact q-ary double deletion ball variance unconditional all alphabet sizes n polynomial",
+        "doi:10.1109/TIT.2008.924730",
+        "arXiv:2601.06493v1"
+      ]
+    },
+    "equivalent_formulations": {
+      "evidence": [
+        "Swart–Ferreira (2003), Proposition 3.1 is explicitly binary and counts a fixed word.",
+        "Li–Wang–Fu (arXiv:2601.06493v2), introduction and main contributions address extrema at fixed run count.",
+        "Mercier–Khabbazian–Bhargava (2008) bibliographic abstract describes per-word formulas for nonbinary alphabets, not distributions over all words."
+      ],
+      "reasoning": "Our object is the histogram \\(\\sum_{w\\in\\Sigma_q^n}z^{|D_2(w)|}\\); the cited objects are sizes of one specified word or extremal values. The binary-specialized variance is equivalent to a known record and is excluded from new content. A per-word formula offers an algorithm for eventual aggregation but does not explicitly imply the displayed closed binomial generating polynomial without new counting.",
+      "searches": [
+        "q-ary random word number of distinct two-deletion descendants exact variance alphabet q",
+        "ternary two-deletion sphere size formula rainbow triple q-ary run structure",
+        "q-ary double deletion sphere full histogram distribution generating polynomial binomial rainbow triples",
+        "arXiv:2601.06493v1",
+        "doi:10.1109/TIT.2008.924730"
+      ]
+    },
+    "exact_database_or_table": {
+      "evidence": [
+        "Closest public record: “Exact variance of binary two-deletion sphere size” (2026); its statement gives only the binary variance.",
+        "Searches did not surface a table or rational q-ary variance law of the new histogram type."
+      ],
+      "reasoning": "No matching complete q-ary distribution or parametrized table was identified. Absence from a database is not a uniqueness proof; unindexed or inaccessible tables remain a risk.",
+      "searches": [
+        "binary two-deletion sphere size distribution over all binary words length n alternating runs binomial enumerator",
+        "variance of number of distinct length n-2 deletion descendants uniformly random binary strings",
+        "deletion ball cardinality histogram two-deletion sphere weight enumerator run lengths",
+        "exact q-ary double deletion ball variance unconditional all alphabet sizes n polynomial",
+        "published-finding corpus indexed semantic retrieval on double deletion sphere variance"
+      ]
+    },
+    "rationale": "The explicit \\(q\\)-ary full two-deletion-ball degree distribution and its nonbinary exact variance are absent from inspected primary statements and closest indexed records. Previously known binary variance is excluded from novelty. The 2008 nonbinary fixed-word enumeration is relevant but does not by itself state an aggregated coefficient formula; unreadable full text is a genuine historical-priority risk.",
+    "residual_risks": [
+      "Full primary text of Mercier–Khabbazian–Bhargava (2008) was inaccessible; indexed abstracts alone cannot exclude unstated additional formulas.",
+      "An unindexed full histogram, table or equivalent closed form may exist; negative searches are not proof of priority.",
+      "The exact binary-variance specialization is previously known and is deliberately not claimed as original."
+    ],
+    "source_inspections": [
+      {
+        "assessment": "Binary fixed-word treatment, not full all-q distribution",
+        "evidence": [
+          "Section II states run-length representation for binary sequences.",
+          "Proposition 3.1 explicitly states binary input word."
+        ],
+        "identifier_or_url": "https://www.researchgate.net/publication/3084624_A_note_on_double_insertiondeletion_correcting_codes",
+        "material_read": "Author-contributed text of introduction, run representation and Proposition 3.1 plus proof (pages 269–271); mathematical display degraded in text extraction",
+        "method": "Accessible complete prose and nearby formulas inspected",
+        "title": "A note on double insertion/deletion correcting codes",
+        "trigger": "Two deletion fixed-word formula potentially covers central structural lemma"
+      },
+      {
+        "assessment": "Relevant and plausible; claims explicit formulas per source word but no accessible full passage to exclude an aggregated histogram definitively",
+        "evidence": [
+          "Abstract explicitly describes nonbinary per-string closed formulas and efficient algorithms.",
+          "No explicit all-input distribution or variance claim in available abstract."
+        ],
+        "identifier_or_url": "https://doi.org/10.1109/TIT.2008.924730",
+        "material_read": "Bibliographic abstracts and descriptions from multiple sources; full text could not be inspected",
+        "method": "arXiv and lawful open full-text searches; available abstracts compared with requested theorem",
+        "title": "On the Number of Subsequences When Deleting Symbols From a String",
+        "trigger": "First nonbinary fixed-word formulas under small deletion count"
+      },
+      {
+        "assessment": "Binary run-count extremal bounds, not the all-q histogram",
+        "evidence": [
+          "2012-02-08 initial public posting.",
+          "Main theorems compare balanced/unbalanced binary words."
+        ],
+        "identifier_or_url": "https://arxiv.org/abs/1202.1644",
+        "material_read": "Complete public arXiv HTML including introduction, main stated results and sections on run-extremal words",
+        "method": "Read arXiv complete article HTML and main theorems",
+        "title": "A characterization of the number of subsequences obtained via the deletion channel",
+        "trigger": "Verified date and classical exact counting motivation"
+      },
+      {
+        "assessment": "q-ary code packing bounds, not complete degree histogram",
+        "evidence": [
+          "Introduction explains average deletion degrees and packing inequalities.",
+          "Specifically refers to Swart–Ferreira single-word two-deletion count."
+        ],
+        "identifier_or_url": "https://arxiv.org/abs/1302.6562",
+        "material_read": "Public full arXiv text, introduction and asymptotic bounds; first PDF page inspected",
+        "method": "Read article statement and model, checked distinction from distribution counting",
+        "title": "An Improvement to Levenshtein's Upper Bound on the Cardinality of Deletion Correcting Codes",
+        "trigger": "q-ary deletion counting and potential implication via packing"
+      },
+      {
+        "assessment": "Run-constrained lower and upper extremal bounds; no full distribution over all words",
+        "evidence": [
+          "2026-01-10 first posting.",
+          "Main contributions derive extrema for prescribed numbers of runs."
+        ],
+        "identifier_or_url": "https://arxiv.org/abs/2601.06493",
+        "material_read": "Public full HTML and PDF, abstract, introduction, main contributions and early proof sections including page 2",
+        "method": "Read arXiv text and inspected page 2 image",
+        "title": "On the Number of Subsequences in the Nonbinary Deletion Channel",
+        "trigger": "Closest contemporary q-ary deletion-ball study"
+      }
+    ],
+    "status": "PASS"
+  },
+  "review_type": "self_review",
+  "schema_version": 1,
+  "scope_run_id": "8b747a2d-08d5-4938-8331-ac462626c0ef",
+  "self_review_status": "passed",
+  "value": {
+    "rationale": "This is a complete and natural finite-block distribution, not an arbitrary slice. The polynomial supplies exact tails and arbitrary moments for every integer alphabet size and length, exposes an essential nonbinary triple-distinct correction, and provides precise deletion-channel degree heterogeneity that extremal counts and binary variance do not determine. Its interest does not depend on a speculative downstream theorem.",
+    "status": "PASS"
+  }
+}
