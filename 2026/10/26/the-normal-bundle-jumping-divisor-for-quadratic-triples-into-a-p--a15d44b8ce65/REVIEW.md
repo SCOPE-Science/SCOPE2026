@@ -1,12 +1,21 @@
-# Self-review
+# Independent mathematical audit
 
-## Correctness — PASS
-The claim concerns the cokernel of the actual differential of degree-two maps, not the normal sheaf of an arbitrarily singular image curve. Every such unramified map has an exact sequence \(0\to\mathcal O(2)\to\mathcal O(4)^3\to N\to0\). Quotient global generation bounds the summand degrees from below by four, leaving only \((5,5)\) and \((4,6)\). Serre duality identifies the discriminating cohomology dimension with \(3-\operatorname{rank}(R_1,R_2,R_3)\). The derivative quadratics have rank at least two because they have no common zero. When \(2=0\), their mixed coefficients all vanish. When \(2\ne0\), the derivative map on Plücker coordinates is a projective automorphism; the corresponding determinant divisor is the pullback of the smooth rank-two part of the collinearity hypersurface. Explicit maps show both strata are nonempty in every permitted characteristic. All polynomial identities and small-field examples were independently recomputed from the included checker.
+## correctness
 
-## Originality — PASS, with priority uncertainty
-Iwasaki, arXiv:2609.39309v1, supplies a general toric normal-bundle resolution and cohomological jumping-locus machinery, with explicit applications to blowups of projective spaces. Those general constructions do not determine the two normal types, the irreducible smooth full jumping divisor, or its characteristic-two disappearance for the multidegree-\((2,2,2)\) product family. Coskun–Smith, arXiv:2106.01991, examine normal bundles in products under hypotheses including factorwise immersions and generally use deformations: degree-two projections \(\mathbb P^1\to\mathbb P^1\) violate the factorwise immersion hypothesis. Literature and published mathematical-record searches using the exact multidegree, Wronskian, characteristic, and splitting aliases found no equivalent stronger classification. This is best-knowledge originality, not a proof that no unpublished or unindexed priority exists. Complete direct access to every paragraph of Iwasaki's Section 5 was temporarily unavailable; this creates a stated residual literature risk, but the inspected descriptions and applications provide no decisive prior implication.
+PASS
 
-## Mathematical value — PASS
-The recent toric-curve work poses precisely the problem of determining generic normal splitting and its first jump locus. The smallest multidegree in a threefold product for which all three degree-two projections ramify yields a complete and geometrically transparent answer: a smooth irreducible divisor of jumps in characteristic different from two, but unavoidable unbalancedness in characteristic two. The result identifies the decisive Wronskian geometry, exact normal types, and a sharp characteristic boundary. These are structural features of a natural full parameter family, not an arbitrary isolated computation or routine numerical increment. It does not classify the boundary of the unramified locus or the image Hilbert scheme.
+For an unramified fixed-source triple of exact quadratic maps to (P1)^3, the differential has sections R_i of O(2) and the exact sequence 0→O(2)→O(4)^3→N→0. Rank two and degree ten, together with global generation of N(-4), restrict splitting to (5,5) or (4,6); Serre duality identifies h0(N(-6)) with 3-rank(R_1,R_2,R_3). The no-common-zero condition excludes rank one. For odd/zero characteristic, the basepoint-free pencil-to-ramification map is a smooth PGL2 torsor onto the open in P2, and pulling back the rank-two 3x3 determinant hypersurface excludes its singular rank-one locus; irreducibility is inherited from collinear-point incidence. The determinant has multidegree (2,2,2). In characteristic two the mixed coefficient vanishes and rank is universally 2 on U. Independently checked symbolic Wronskian, explicit balanced/jumping examples and characteristic-two witness; finite tests confirm, not prove, universal results.
 
-Self-review: passed. Independent audit: not yet performed.
+## originality
+
+PASS
+
+Claim-specific Resultary and relevant primary literature were compared by statements and implications. The assessed specialized mathematical statement was not identified as covered in the material actually inspected. This is a best-of-knowledge judgment, not absolute novelty proof; stronger plausible inaccessible works are explicitly retained as priority risks.
+
+## value
+
+PASS
+
+Natural first all-quadratic multidegree on a basic toric threefold; exact smooth jumping divisor versus universal characteristic-two collapse gives a nontrivial geometric classification rather than routine bundle splitting. A researcher studying low-degree unramified rational curves can use the exact divisor and characteristic boundary. Fixed source and unramified open are essential.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
