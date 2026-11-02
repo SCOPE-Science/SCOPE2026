@@ -1,0 +1,137 @@
+{
+  "correctness": {
+    "rationale": "For the explicit deterministic-order-two tableau b1=1-b, b2=b, a21=1/(2b), the exact scalar multiplier is R=1-z[(1-b)Y1+bY2]+z^2Y1Y2/2. Independence yields Q_b=1-2z+[1+a-2(a-1)b(1-b)]z^2-az^3+a^2z^4/4. Subtracting b=1/2 gives 2(a-1)(b-1/2)^2z^2. Orthogonal diagonalization and iteration independence prove the arbitrary SPD and finite-horizon moments. The cubic after factoring Q_b-1 by z/4 has derivative minimum 4C-16/3>=8/3, hence a unique positive stability boundary. Midpoint factors at 2/a; implicit differentiation of the Heun root gives a strictly increasing normalized horizon and high-noise ratio 2. Reusing Y at both stages creates a degree-four polynomial, proving the fourth-moment obstruction; a scaled Pareto(3) distribution verifies the strict separation. The actual packaged standalone standard-library verifier was run successfully on 162 rational two-stage samples, 162 exact gap identities, 108 rotated-SPD tests, 63 frontier cases, and the Pareto witness. Numerical checks are supplementary to the proof.",
+    "status": "PASS"
+  },
+  "independent": false,
+  "independent_audit_status": "not_performed",
+  "originality": {
+    "broader_coverage": {
+      "evidence": [
+        "Stillfjord and Williamson (2022), section 2 Theorem 2.6, prove a general decreasing-step stochastic RK convergence guarantee under same-iteration random data; section 3.4 describes deterministic linear stability as an informative heuristic.",
+        "Mulayoff and Michaeli (2023), arXiv:2306.07850, Theorem 5 identifies the sharp minibatch SGD stability threshold, without RK2 tableau parameters.",
+        "A two-stage Chebyshev calculation uses a first-order Chebyshev polynomial 1-z+z^2/8 rather than the order-two polynomial 1-z+z^2/2."
+      ],
+      "reasoning": "A general convergence theorem using diminishing step sizes does not supply the sharp fixed-step tableau minimization or a statement with stage-independent fourth-moment avoidance. The stochastic Chebyshev example is a different order/stability family, not a broader coverage theorem. SGD is one stage, so its sharp general covariance bound cannot imply the two-stage coefficient identity.",
+      "searches": [
+        "On scalar random-curvature quadratic, stochastic Heun has exact mean-square stability cubic and strict larger admissible step than SGD and midpoint, factor two as noise grows",
+        "Stochastic Runge Kutta Chebyshev descent 2201.12782 stage-resampled versus shared-batch second-order Heun midpoint coefficient weights mean-square frontier",
+        "two-stage Runge Kutta Chebyshev method stochastic gradient multiplicative noise exact mean-square stability region stage independent noise",
+        "stochastic Heun gradient descent independent minibatches two stages optimal mean-square stability parameter 2021 2022 2023",
+        "arXiv:2201.12782v1",
+        "arXiv:2306.07850v3"
+      ]
+    },
+    "checked_sources": [
+      "https://arxiv.org/pdf/2201.12782 (v1 posted 2022-01-30)",
+      "https://arxiv.org/pdf/2306.07850 (first posted 2023-06-13)",
+      "https://doi.org/10.11540/jsiamt.21.1_125",
+      "Published mathematical-record comparison: sharp two-client Loopless SVRG stability frontier",
+      "Published mathematical-record comparison: constant-template STORM stationary covariance",
+      "Published mathematical-record comparison: stagewise-safe Richardson frontier"
+    ],
+    "claim_vs_prior_implication": {
+      "evidence": [
+        "The motivating SRKCD implementation fixes the same batch over all stages (arXiv:2201.12782v1 p.16), whereas the theorem requires fresh independent batches across stages.",
+        "The exact SGD paper establishes a first-order mean-square ceiling; in the scalar multiplicative case it reduces to 2/a and supplies only the comparison point.",
+        "The 2011 SDE paper uses a Brownian increment in an equation that already contains stochastic diffusion and therefore has a different algebraic test multiplier.",
+        "The two-stage Chebyshev stability polynomial is first-order and differs from the RK2 polynomial, so its coefficient-specific stability calculation cannot imply this theorem."
+      ],
+      "reasoning": "None of these earlier claims entails the identity Q_b-Q_Heun=2(a-1)(b-1/2)^2z^2 for every b, the uniquely optimal Heun step, or the shared-versus-independent exact moment order under only a finite second oracle moment. Same-topic labels, noise parameters, and partial corollaries were checked at the implication level.",
+      "searches": [
+        "Two-stage order-two explicit Runge Kutta stochastic gradient descent independent fresh minibatch each stage equal-weight Heun optimal mean square amplification over Butcher tableaux",
+        "Stochastic Runge Kutta Chebyshev descent 2201.12782 stage-resampled versus shared-batch second-order Heun midpoint coefficient weights mean-square frontier",
+        "arXiv:2201.12782v1",
+        "arXiv:2306.07850v3",
+        "doi:10.11540/jsiamt.21.1_125"
+      ]
+    },
+    "equivalent_formulations": {
+      "evidence": [
+        "All classical explicit RK2 tableaux share the deterministic scalar stability multiplier 1-z+z^2/2; independently sampled stages yield a tableau-dependent expected squared multiplier.",
+        "Stillfjord and Williamson, arXiv:2201.12782v1, pp.2,5,16 use the same random batch within an iteration.",
+        "Saito (2011), DOI 10.11540/jsiamt.21.1_125, pp.126-127 applies Heun to a Stratonovich SDE with one Wiener increment rather than two independent random curvature draws."
+      ],
+      "reasoning": "A deterministic stability-polynomial equality and a similarly named stochastic Heun integrator are not scientific equivalences to this independently resampled gradient-tableau moment theorem. The stochastic sampling protocols and update polynomials differ.",
+      "searches": [
+        "Two-stage order-two explicit Runge Kutta stochastic gradient descent independent fresh minibatch each stage equal-weight Heun optimal mean square amplification over Butcher tableaux",
+        "Shared mini-batch versus independent stage samples RK2 deterministic polynomial invariance broken, Heun optimal variance",
+        "Expected squared amplification of two-stage explicit RK2 with independently sampled multiplicative gradients, coefficient penalty variance times (b2-1/2)^2",
+        "stochastic optimization Runge Kutta independent mini-batches each stage Heun variance optimal coefficients",
+        "arXiv:2201.12782v1",
+        "doi:10.11540/jsiamt.21.1_125"
+      ]
+    },
+    "exact_database_or_table": {
+      "evidence": [
+        "A related mean-square result on two-client Loopless SVRG concerns its random-reference recurrence rather than an explicit Runge–Kutta tableau.",
+        "A related stationary-covariance result for STORM concerns estimator memory and additive noise.",
+        "A related stagewise-safe Richardson analysis studies deterministic norm constraints, not randomly resampled gradients.",
+        "A curvature-feedback analysis of stochastic gradient steps supplies benchmark stability conditions but no universal RK2 coefficient minimizer."
+      ],
+      "reasoning": "No exact stored invariant, formula table, or matching moment-cubic statement was identified among the returned records. Record search is not complete enumeration; unindexed or inaccessible publications may change the priority assessment.",
+      "searches": [
+        "Two-stage order-two explicit Runge Kutta stochastic gradient descent independent fresh minibatch each stage equal-weight Heun optimal mean square amplification over Butcher tableaux",
+        "Expected squared amplification of two-stage explicit RK2 with independently sampled multiplicative gradients, coefficient penalty variance times (b2-1/2)^2",
+        "On scalar random-curvature quadratic, stochastic Heun has exact mean-square stability cubic and strict larger admissible step than SGD and midpoint, factor two as noise grows",
+        "Shared mini-batch versus independent stage samples RK2 deterministic polynomial invariance broken, Heun optimal variance",
+        "Stochastic Runge Kutta Chebyshev descent 2201.12782 stage-resampled versus shared-batch second-order Heun midpoint coefficient weights mean-square frontier"
+      ]
+    },
+    "rationale": "The 2022 stochastic Runge–Kutta–Chebyshev primary preprint uses a common sampled batch at its internal stages and supplies general convergence and deterministic RKC stability discussion, not the stated independently sampled two-stage order-two tableau optimum. The 2023 exact SGD stability paper concerns one gradient query per iteration. Earlier stochastic-Heun SDE literature uses Stratonovich Brownian increments rather than stage-resampled empirical gradient multipliers. The closest mathematical records cover other algorithms and do not imply the exact tableau-wide noise penalty, universal cubic, or second-versus-fourth moment distinction. No covering statement was identified, though specialist publication priority remains unverified.",
+    "residual_risks": [
+      "An older or poorly indexed investigation of independently resampled Runge–Kutta gradient stages may have derived an equivalent tableau identity.",
+      "The 2011 Japanese-language Heun SDE work was inspected at method-defining pages but not translated in full; its different model is clear from the displayed stochastic equation.",
+      "No claim is made that search coverage certifies publication priority; independent specialist verification has not been performed."
+    ],
+    "source_inspections": [
+      {
+        "assessment": "Shared-batch per iteration, global decreasing-step analyses and RKC deterministic stability; no identified fresh-stage RK2 coefficient minimization.",
+        "evidence": [
+          "p.2 explicit RK scheme uses xi_k at every stage",
+          "p.5 Assumption 5, same xi_k in every gradient",
+          "p.16 explicitly says same batch across consecutive stages",
+          "p.15 discusses deterministic eigenvalue stability, not independent-stage moments"
+        ],
+        "identifier_or_url": "arXiv:2201.12782v1; https://arxiv.org/pdf/2201.12782",
+        "material_read": "Title and abstract; printed pp.2, 4–5, 7–9, 15–16: stage definitions, assumptions, convergence-bound excerpts, linear stability and batch reuse; full-text searches for Heun and midpoint.",
+        "method": "Primary open-access PDF text plus page-image inspection, comparing the actual stage data choice and claimed stability results.",
+        "title": "SRKCD: A stabilized Runge–Kutta method for stochastic optimization",
+        "trigger": "Direct motivating work on stochastic Runge–Kutta optimization, possible covering tableau analysis."
+      },
+      {
+        "assessment": "First-order minibatch SGD stability, no two-stage Runge–Kutta tableau in the mathematical model.",
+        "evidence": [
+          "pp.3–5 state the one-query SGD recurrence and exact mean-square threshold",
+          "full-text search found no terms Runge, Heun, midpoint"
+        ],
+        "identifier_or_url": "arXiv:2306.07850v3; https://arxiv.org/pdf/2306.07850",
+        "material_read": "Abstract, introduction, model definition and Theorem 5 with its stability operator; full-text checks for Runge, Heun and midpoint.",
+        "method": "Primary open-access PDF text and page-image inspection of sections 1–3.",
+        "title": "Exact Mean Square Linear Stability Analysis for SGD",
+        "trigger": "Potentially stronger mean-square stability characterization on random-curvature quadratics."
+      },
+      {
+        "assessment": "SDE integrator based on Wiener increments, not stage-resampled stochastic gradient oracle; full article not translated.",
+        "evidence": [
+          "p.126 defines an SDE driven by dW and a shared Gaussian Wiener increment",
+          "p.127 analyzes the scalar Stratonovich test equation"
+        ],
+        "identifier_or_url": "doi:10.11540/jsiamt.21.1_125; https://www.jstage.jst.go.jp/article/jsiamt/21/1/21_KJ00007143951/_pdf/-char/en",
+        "material_read": "Original article pp.125–127, especially the method formula and scalar Stratonovich equation.",
+        "method": "Free primary PDF page images and mathematical formula comparison; Japanese body with English abstract.",
+        "title": "Mean-square and Asymptotic Stability of the Stochastic Heun Method",
+        "trigger": "Potential classical Heun stability result with stochastic input."
+      }
+    ],
+    "status": "PASS"
+  },
+  "review_type": "self_review",
+  "schema_version": 1,
+  "scope_run_id": "c680ebbc-44fb-4c00-b45f-7f60971ba99b",
+  "self_review_status": "passed",
+  "value": {
+    "rationale": "Deterministic RK2 stability on a linear quadratic cannot distinguish tableau coefficients, yet independent stage noise selects the equal-weight tableau uniquely over every SPD matrix and every horizon. The exact stability ceiling gives a parameter- and noise-aware step guarantee; its improvement over the midpoint/SGD ceiling rises strictly to a factor two. A Pareto(3) oracle makes the seemingly innocuous choice of reusing a batch change a contracting finite mean-square iteration into infinite one-step variance. Together these are structural design distinctions for stochastic multi-stage gradient evaluations, not a generic textbook stability-polynomial calculation. The claim is confined to a motivating interpolation quadratic and does not assert cost-normalized superiority.",
+    "status": "PASS"
+  }
+}
