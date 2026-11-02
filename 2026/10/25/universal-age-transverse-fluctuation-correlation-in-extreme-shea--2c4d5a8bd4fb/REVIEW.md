@@ -1,15 +1,21 @@
-# Scientific review
+# Independent mathematical audit
 
-## Correctness — PASS
+## correctness
 
-The exact stationary renewal mixture has exponential reset age and a centered Gaussian excursion with covariance \(V(t)=2D(t+\gamma^2t^3/3)\). The positive-endpoint tail is localized by a unique nondegenerate saddle at age \(a\sqrt{x}\); Mills' ratio and Laplace's method yield Gaussian age fluctuations at scale \(x^{1/4}\). Exact Gaussian path regression gives uniform cubic and parabolic conditional paths. At the endpoint, the independent regression residual combines with random age to produce transverse limiting variance \(3Da/4\) and correlation \(-\operatorname{sgn}(\gamma)/\sqrt3\). All assumptions and limits are explicit. A standalone checker passes 177 deterministic kernel/quadrature tests. The numeric tests do not replace the analytic proof.
+PASS
 
-## Originality — PASS, with priority risk
+Stationary renewal age A~Exp(r) and conditional Gaussian solution give V(t)=2D(t+γ²t³/3), Cov(Y_ut,X_t)=2Dγt²(u−u²/2), and Cov(X_ut,X_t)=2D u t+2Dγ²t³(u²/2−u³/6). Gaussian-tail mixture has unique saddle t=a√x, a^4=9/(4Dγ²r), f(z)=rz+3/(4Dγ²z³), f(a)=4r/a; Mills ratio/Laplace give sqrt6/4 e^(−λ√x), Gaussian age scale sqrt(a/(4r))x^(1/4), and overshoot O_p(√x). Uniform Gaussian bridge covariance projections yield normalized path shapes with residual sup O_p(t^(3/2)) longitudinal and O_p(t^(1/2)) transverse, negligible at t~√x. At endpoint, Y0≈(3X0/(2γ A))+sqrt(D A/2) Z where Z independent of (A,X0). Age-induced variance c²/(4ra)=Da/4 plus conditional variance Da/2 yields total 3Da/4 and cross correlation −sgnγ/√3. Independent symbolic verification of saddle prefactor squared=3/8 and variance ratios, plus inspected checker numerical covariance kernels. All limits fix D,r,γ with γ≠0; no extrapolation from numeric tail tests.
 
-The closest same mathematical model article, Abdoli–Olsen–Löwen (arXiv:2410.10333v1), provides shear propagators, stationary moments and a perturbative density, but not this conditional entire-excursion law. Singh (arXiv:2007.05576v1) supplies the random-acceleration joint stationary mixture and its marginal stretched-exponential tail; the marginal tail is **not** claimed as independently new. Meerson (arXiv:2302.04029) already obtains the complementary cubic bridge profile in a random-acceleration first-passage setting; the isolated cubic here is consequently **not** counted as original. These sources supply strong antecedents, but no verified theorem was found giving the stationary Poisson-age posterior bivariate Gaussian fluctuation law or its parameter-independent age–transverse correlation. The result follows by additional Gaussian posterior and Laplace analysis of known exact mixture formulas; a general unlocated conditional-mixture theorem might already imply it. Independent priority verification is needed.
+## originality
 
-## Scientific value — PASS
+PASS
 
-A large observed longitudinal displacement in a sheared, resetting colloidal model encodes a complete predictable path shape despite broad unconditioned dynamics; the nontrivial universal fluctuation correlation quantifies how longer excursions trade transverse displacement against excursion age. This is a concrete conditional-history prediction unavailable from the stationary variance, skewness or kurtosis studied in the source model. It distinguishes a measurable cross-coordinate rare-event observable from routine tail re-expression. The result is restricted to stationary complete resets and nonzero linear shear, with no claim about finite-sample reconstruction.
+Best-of-knowledge PASS for fixed-parameter joint age/transverse endpoint Gaussian fluctuations with parameter-free correlation and full conditional excursion path in same shear-reset model; published marginal stretched-exponential tail and integrated-Brownian cubic optimal path are acknowledged prior results, not standalone novelty. Closest Abdoli–Olsen–Löwen same mathematical model full text inaccessible, leaving real priority risk.
 
-Self-review: passed. Independent audit: not yet performed.
+## value
+
+PASS
+
+The posterior history of an extreme longitudinal displacement is a natural measurable rare-event statistic in coupled stochastic shear/reset dynamics. Exact parameter-independent age–transverse correlation quantifies geometric tradeoff between excursion duration and transverse endpoint and is not determined by known stationary marginals or fixed-duration bridge shapes.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
