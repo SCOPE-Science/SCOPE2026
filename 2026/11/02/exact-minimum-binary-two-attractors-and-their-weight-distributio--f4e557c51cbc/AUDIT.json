@@ -1,0 +1,130 @@
+{
+  "correctness": {
+    "rationale": "For nonconstant binary words, one position cannot cover both singleton letter types. When fewer than four binary digram types appear, two positions suffice by explicit run/boundary cases. When all four appear, two positions must use one of two disjoint adjacent-digram pairings: witnessed respectively by both 001 and 110, or by both 100 and 011. Avoiding each pairing while retaining all digrams forces exactly two complementary alternating-interior families, each admitting a three-position construction. Direct composition counting proves the bivariate rational generating function. The standalone incidence-mask verifier independently checks every nonempty binary word of lengths 1–15 (65,534 total) and the closed coefficient formula through 299; finite tests are not treated as infinite proof.",
+    "status": "PASS"
+  },
+  "independent": false,
+  "independent_audit_status": "not_performed",
+  "originality": {
+    "broader_coverage": {
+      "evidence": [
+        "Fuchs–Whittington Theorem 9 (arXiv:2304.06523, §§4–5) constructs growing alphabets of clause, literal and variable symbols; its NP-completeness does not imply a fixed-binary exact structural classification.",
+        "Kempa et al. (arXiv:1803.01695, §4 and appendix) provide generic algorithmic reductions, not the two exceptional binary regular families and their composition distribution.",
+        "Mantaci et al., A Combinatorial View on String Attractors (2021), §§3–5 and conclusion, study full-length attractors and selected infinite families, not the minimum length-two attractor for every binary word."
+      ],
+      "reasoning": "A generic exact algorithm or hardness theorem could compute each instance but does not state or directly imply the all-length closed language classification or its bivariate count. Unrestricted full attractors may require four or more positions while the present length-two invariant is at most three; these claims are not comparable by direct substitution.",
+      "searches": [
+        "Fuchs Whittington 2023 2-attractor NP complete restricted binary alphabet combinatorial characterization",
+        "\"k-attractor\" \"binary\" 2 three positions characterization",
+        "\"2-attractor\" \"binary\" \"001\" \"110\"",
+        "arxiv:2304.06523 Theorem 9 and arxiv:1803.01695 Theorem 35"
+      ]
+    },
+    "checked_sources": [
+      {
+        "finding": "Hardness over unrestricted alphabets, not binary exact classification.",
+        "title": "The 2-Attractor Problem Is NP-Complete",
+        "url": "https://arxiv.org/abs/2304.06523"
+      },
+      {
+        "finding": "General algorithms and sharp-two result, different statement.",
+        "title": "String Attractors: Verification and Optimization",
+        "url": "https://arxiv.org/abs/1803.01695"
+      },
+      {
+        "finding": "Unrestricted full-attractor combinatorics, not the classified cutoff-two statistic.",
+        "title": "A Combinatorial View on String Attractors",
+        "url": "https://pages.di.unipi.it/rosone/Papers/MRRRS_TCS2021.pdf"
+      }
+    ],
+    "claim_vs_prior_implication": {
+      "evidence": [
+        "Theorem 35 of arXiv:1803.01695 solves the sharp-two problem by edge cover, which omits singleton factor requirements present here.",
+        "Theorem 9 of arXiv:2304.06523 proves hardness of a different, unbounded-alphabet domain, without enumerating fixed-binary exceptions.",
+        "The 2021 combinatorial paper asks about full-length attractor size and investigates Sturmian/de Bruijn/Thue–Morse families rather than all binary words at cutoff two."
+      ],
+      "reasoning": "Neither a sharper or dominating bound nor an enumerative classification in the primary sources implies the claimed exceptional language. In particular the inferred trichotomy needs the two possible complementary perfect matchings among the four binary digram types, followed by a nontrivial forbidden-triple classification and composition count.",
+      "searches": [
+        "arxiv:2304.06523 2-attractor theorem proof fixed alphabet",
+        "arxiv:1803.01695 2-sharp-attractor edge cover theorem",
+        "\"A combinatorial view on string attractors\" k-attractor",
+        "sharp 2-attractor versus ordinary 2-attractor pair coverage 001 110 100 011 words"
+      ]
+    },
+    "equivalent_formulations": {
+      "evidence": [
+        "Fuchs–Whittington, arXiv:2304.06523, Definition 1 and Theorem 9: the ordinary non-sharp coverage problem and complexity of unbounded-alphabet instances.",
+        "Kempa–Policriti–Prezza–Rotenberg, arXiv:1803.01695, Definition 1 and Theorem 35: ordinary attractor definition and the distinct sharp two-attractor edge-cover reduction."
+      ],
+      "reasoning": "The ordinary, linear two-attractor is exactly the invariant being classified. Published sharp-two and full-attractor results refer to different coverage requirements. No equivalent binary exceptional-language or fixed-weight distribution was located in the inspected primary texts or searchable records; absence from a search is not a proof of novelty.",
+      "searches": [
+        "\"binary 2-attractor\" \"exact\" classification",
+        "\"2-attractor\" \"binary word\" formula",
+        "\"binary\" \"2-attractor\" \"three\" positions",
+        "two-attractor binary word complete classification all words 0^a(10)^b1^c 1^a(01)^b0^c minimum 3 positions"
+      ]
+    },
+    "exact_database_or_table": {
+      "evidence": [
+        "Targeted sequence, exact-formula, example-word, and fixed-weight queries returned no identified database entry/tabulation of the two-attractor distribution.",
+        "The direct independent enumerator checks exact counts for every binary word of lengths one through fifteen; these are newly computed comparison data, not literature evidence of uniqueness."
+      ],
+      "reasoning": "No exact database or table covering the two-family fixed-weight count was identified. The count is assessed with its proved language characterization, not claimed original solely because its numerical sequence was not found.",
+      "searches": [
+        "\"2, 4, 8, 12, 18, 24, 32, 40, 50, 60\" \"attractor\" binary",
+        "\"2 floor((n-4)^2/4)\" binary words attractor",
+        "\"001011\" \"2-attractor\"",
+        "minimum 2-attractor binary alphabet all words exact weight enumeration generating rational function"
+      ]
+    },
+    "rationale": "Primary exact-definitions/algorithm literature (2018), unbounded-alphabet hardness (2023), and combinatorial full-attractor studies (2021) do not state or imply the exact structural classification for ordinary binary two-attractors or its weight-refined enumeration. Targeted record and formula searches located no equivalent. This is qualified best-knowledge originality with residual priority risk.",
+    "residual_risks": [
+      "An unindexed treatment of fixed-binary two-attractor languages or exact fixed-weight counts may predate this argument.",
+      "The structural result is elementary once the matching of four binary digrams is recognized; priority should be verified independently before public attribution."
+    ],
+    "source_inspections": [
+      {
+        "assessment": "No statement of the exact binary regular exceptional language or its length-and-weight enumerator; the hardness reduction requires a growing alphabet.",
+        "evidence": [
+          "arXiv:2304.06523, pp. 1–4 and 8–11; Theorem 9, reduction alphabet and conclusion."
+        ],
+        "identifier_or_url": "https://arxiv.org/pdf/2304.06523",
+        "material_read": "Full-text relevant contents: abstract, introduction and Definition 1, §2 variants, Theorem 9 and its reduction, §5 approximation, §6 conclusion and citations.",
+        "method": "Direct primary PDF text and page-image inspection, keyword searches for binary and alphabet, followed by theorem/definition implication comparison.",
+        "title": "The 2-Attractor Problem Is NP-Complete",
+        "trigger": "Same non-sharp two-attractor optimization and earliest guiding source."
+      },
+      {
+        "assessment": "Generic optimization and edge-cover reduction for sharp-two do not give the ordinary binary fixed-content classification.",
+        "evidence": [
+          "arXiv:1803.01695, Definitions 1–3, Theorem 5, Theorem 35 and appendix."
+        ],
+        "identifier_or_url": "https://arxiv.org/pdf/1803.01695",
+        "material_read": "Full-text relevant contents: abstract, §1 definitions and contributions, §2–3 algorithmic reductions, §4 sharp-attractor distinctions and Theorem 35, appendix material on reductions.",
+        "method": "Direct PDF text and page-image inspection, searched terms 2-attractor, fixed and binary and inspected results and proof surroundings.",
+        "title": "String Attractors: Verification and Optimization",
+        "trigger": "Original definitions, small-alphabet tractability and potentially dominating sharp-two result."
+      },
+      {
+        "assessment": "It addresses full attractors and family-specific properties; its closing discussion explicitly distinguishes k-attractors as a further variant, with no exact binary two-attractor distribution.",
+        "evidence": [
+          "Author postprint, introduction, §3 and closing discussion on p. 25."
+        ],
+        "identifier_or_url": "https://pages.di.unipi.it/rosone/Papers/MRRRS_TCS2021.pdf",
+        "material_read": "Abstract and introduction, definitions, treatment of full attractors, family-specific discussion and conclusion mentioning the length-cutoff variants.",
+        "method": "Inspected lawful author-postprint PDF including page image and searched the term k-attractor.",
+        "title": "A Combinatorial View on String Attractors",
+        "trigger": "Plausibly covers binary words and characterizations of small attractors."
+      }
+    ],
+    "status": "PASS"
+  },
+  "review_type": "self_review",
+  "schema_version": 1,
+  "scope_run_id": "f4e557c5-1cbc-4de8-a6a3-caba8a063afd",
+  "self_review_status": "passed",
+  "value": {
+    "rationale": "The natural two-attractor optimization problem is known NP-complete over unrestricted alphabets, motivating the smallest nontrivial fixed-alphabet boundary. The claim resolves every binary instance structurally, not merely numerically: it characterizes the entire exceptional language, yields a uniform size bound three, determines exact length/weight enumerators and proves that three-mark instances have exponentially vanishing density. These are all-length, composition-sensitive structural consequences not implied by a generic decision algorithm or the distinct sharp-two edge-cover reduction.",
+    "status": "PASS"
+  }
+}
