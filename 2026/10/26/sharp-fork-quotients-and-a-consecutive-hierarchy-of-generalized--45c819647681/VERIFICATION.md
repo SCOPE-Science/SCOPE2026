@@ -5,8 +5,11 @@
     "status": "not_performed"
   },
   "independent_audit": {
-    "evidence": null,
-    "status": "not_performed"
+    "status": "passed",
+    "evidence": [
+      "INDEPENDENT_AUDIT_2026-10-30.md",
+      "INDEPENDENT_AUDIT_2026-10-30.json"
+    ]
   },
   "lean_verification": {
     "evidence": null,
@@ -15,10 +18,25 @@
   "schema_version": 1
 }
 ---
-# Verification
 
-The standalone checker `verify_fan.py` uses only the Python 3 standard library. Run `python3 verify_fan.py` from the directory containing this file. Its success signal is `FAN_PRODUCT_CAPACITY_CHECK_OK`.
+# Independent mathematical audit
 
-The checker constructs every point and maximal extension of \(P_{b,m}\) for \(1\le b\le3\) and \(1\le m\le3\), and enumerates all maximal-point colourings relevant to fork targets up to the proposed capacity plus one. Each accepted colouring induces a candidate map; the program checks monotonicity and back-lifting directly on the entire generated upset. Five small cases are cross-checked by a separate enumeration of every function from all source worlds to the target fork, independent of the maximal-colour parametrization. Results include exact generated-subframe capacities \(0,2,2\) for \(b=1\), across \(m=1,2,3\), and capacity \(b\) for \(b=2,3\) across all three tested powers. A capacity of zero denotes no obtainable fork of arity at least two.
+## correctness
 
-The mathematical proof is essential beyond these finite sizes: no finite census certifies the universal product/p-morphism statements or uniqueness against earlier literature. The published Jankov--de Jongh theorem is used for the characteristic-formula separation, and Xiao’s distributive-lattice theorem for the initial equality. Independent audit and independent validation have not been performed.
+PASS
+
+Maximal-point coloring criterion: onto p-morphism to a k-fork exists iff the color set above every world is either singleton or all k colors and some world sees all k. If x has >=2 active non-top coordinates in P_bm, for each pair of maximal extensions from distinct coordinate groups a witness w>=x with exactly those two maxima forces their colors equal when k>=3. Consequently all maxima above x monochromatic. If x has one active coordinate, at most b maxima above it, prohibiting a k-root for k>max(b,2). The root preimage in any generated subframe has principal upset included, and its image still surjects by back lifting. Sharpness: P_b,1=H_b for b>=2; P_1,2 onto H_2. Coordinatewise surjections D_c→D_b preserving unique preimage of top induce p-morphisms P_c,m→P_b,m, giving inclusion; characteristic formulas chi(H_c) establish strictness. We independently enumerated maximal-color configurations in principal generated upsets of P_b,m for 1<=b,m<=3 and k<=4; these tests include generated subframes rather than just whole P_b,m, a necessary distinction, and agreed with all cutoffs.
+
+## originality
+
+PASS
+
+Best-of-knowledge PASS: same-family prior chain demonstrably uses exponentially separated widths. Exact cardinal obstruction to all larger forks and every adjacent strict logical inclusion are not implied by inspected coarse branching result.
+
+## value
+
+PASS
+
+The exact capacity supplies a sharp structural invariant and settles every consecutive inclusion in a natural one-parameter family. This is stronger resolution than an earlier sparse chain and is a motivated intermediate-logic classification, not arbitrary small-case checking.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
