@@ -5,8 +5,11 @@
     "status": "not_performed"
   },
   "independent_audit": {
-    "evidence": null,
-    "status": "not_performed"
+    "status": "passed",
+    "evidence": [
+      "INDEPENDENT_AUDIT_2026-10-30.md",
+      "INDEPENDENT_AUDIT_2026-10-30.json"
+    ]
   },
   "lean_verification": {
     "evidence": null,
@@ -16,13 +19,24 @@
 }
 ---
 
-# Verification and scope
+# Independent mathematical audit
 
-Run `python3 quiver_matroid_verify.py` from the directory containing this file. The saved output `quiver_matroid_verify_output.txt` is produced by that program; its principal success markers are:
+## correctness
 
-```
-STAR_QUIVER_PROJECTIVE_SUPPORT_CHECKS_PASSED cases=3 subsets=41088
-INDEPENDENT_ENDOMORPHISM_IDEMPOTENT_CHECK_PASSED supports=128 bad=92 idempotent_eigensupports=28
-```
+PASS
 
-It performs complete projective-support enumeration in the listed \((q,r)\) prime-field cases and counts matrices/tested idempotent eigensupports independently over \(\mathbb F_2\). It computes finite probabilities using independent surjection/Stirling counts. It does not enumerate arbitrary-length quiver representations, all finite fields, or prove any infinite limiting statement; these follow from the displayed proof's finite-cover argument. The direct count of distinct maximal line–hyperplane supports is \(Dq^{r-1}\), with maximal size \(H+1\). The formula requires fixed \(r\ge3\), nonzero arrows and source labeling. Scientific claims have received self-review only; external independent audit is not performed.
+An endomorphism idempotent splits the sink into complementary zero/one eigenspaces, forcing each nonzero arrow line into one summand; conversely any such complementary-subspace union gives idempotent. Maximum projective-cover size M=H+1 follows convexity of q^a+q^(r-a), attained only for line+complementary hyperplane. K=D q^(r-1) maximizers are distinct: two distinct hyperplanes differ by q^(r-2)>=2 projective points. All other covers and pairwise maximal intersections have <=H points, so inclusion-exclusion gives exact leading K(M/D)^n plus O((H/D)^n). Full occupancy inside one maximum cover occurs with relative probability 1-O((H/M)^n) and forces a unique two-part indecomposable splitting. On its event the line allocation is exactly Bin(n,1/M). Independent q=2,r=3 projective enumeration found 28 distinct size-four maximizing covers, each with one fully contained hyperplane; the original projective-support and idempotent verification script was inspected.
+
+## originality
+
+PASS
+
+Kinser–Weist studies indecomposable normal forms and n-subspace quiver, primarily dimension-two sink specializations; Kelly–Oxley proves random matroid connectivity in growing-rank regime r->infinity (Section 4 inspected), with zero columns allowed; no retrieved statement specifies the fixed-r sharp finite-field rarity constant or conditional line-leaf binomial law.
+
+## value
+
+PASS
+
+The exact rare-event exponential base and leading combinatorial constant, together with dominant unique decomposition and conditional Gaussian fluctuations, give a complete natural fixed-r quiver random-representation phase law, not merely a routine connectivity probability.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
