@@ -1,11 +1,21 @@
-# Scientific review
+# Independent mathematical audit
 
-**Correctness — PASS.** On the event that each polygon edge contains a sample, the hull boundary is the alternating sequence of original edge segments and corner-crossing chords; the cosine law gives an exact additive perimeter-deficit identity. The two directed gaps around a fixed corner have an exact joint binomial-empty-arc density, yielding a uniform gap ratio, mean \(2L/(N+1)\), and the closed integral \(\Phi(\alpha)\). The missing-edge union bound yields the stated exponential error. Independent local arc void limits and uniform exponential tails prove joint weak convergence and all integer moments; a beta–gamma decomposition evaluates the limiting first two moments. Finite arithmetic experiments are supplementary, not substitutes for these arguments.
+## correctness
 
-**Originality — PASS, with residual scholarly-priority risk.** The nearest directly relevant full text by Prochno–Schütt–Sonnleitner–Werner, arXiv:2404.02870, studies expected Hausdorff distance and supplies independent local Poisson corner behavior, which can lead to the distributional component. The main new assertion assessed here is instead the closed angular coefficient of **expected perimeter loss** with a uniform, explicit **exponentially small finite-sample remainder**. Reitzner–Schütt–Werner, arXiv:1911.05917, concerns face counts and lost volume. The semantic database queries and primary-source comparisons identified no mathematically dominating or equivalent explicit finite-size perimeter statement. An older equivalent result or an unstated formula within additional literature remains possible.
+PASS
 
-**Mathematical value — PASS.** The closed angular law shows a striking all-algebraic-orders universality: changing a polygon's side-length data while preserving total perimeter and its angle multiset changes the expected perimeter loss only exponentially. This distinguishes corner-driven perimeter approximation from both Hausdorff maxima and missing-area behavior, gives a natural non-Gaussian fluctuation benchmark, and makes the exact leading bias and variance accessible for arbitrary fixed polygons.
+Verified the full-edge hull decomposition into unchanged edge segments and corner chords; by the cosine law the exact corner loss is F_alpha(a,b)=a+b-sqrt(a^2+b^2-2ab cos(alpha)). For a fixed corner the two directed distances to the nearest sampled points have density N(N-1)L^-2(1-(a+b)/L)^(N-2) on a,b>0, a+b<L. Their sum has mean 2L/(N+1) and their ratio is uniform, yielding the stated Phi(alpha)=1-(1-c^2)atanh(c)/c, c=cos(alpha/2). On an empty-edge event the global loss-minus-corner sum is bounded by (m+1)L and the union bound yields precisely the claimed exponential error. Local disjoint arc void probabilities imply 2m independent mean-one exponential limits; uniform exponential gap tails plus exponentially unlikely empty edges yield moment convergence, not only a weak limit. Gamma(2,1)-uniform factorization yields mean sum Phi and variance sum(6Phi-4c^2-Phi^2); Z is nondegenerate nonnegative, hence non-Gaussian. Independently recalculated angular mean/variance by direct midpoint integration at five angles to <1e-7.
 
-**Scientific limitations.** This does not improve or claim originality for the general local Poisson limit already available in related work; it makes the perimeter functional explicit and proves a finite-sample exponentially accurate mean formula. Relative error estimates may not be sharp, and independent verification has not been performed.
+## originality
 
-Self-review: passed. Independent audit: not yet performed.
+PASS
+
+PASS best-of-knowledge for the exact finite-sample angular mean and exponential edge-memory bound; local independent Poisson corner processes, whose limiting law may imply the weak part, are credited and not portrayed as newly originated.
+
+## value
+
+PASS
+
+Expected perimeter loss is a basic intrinsic-volume error for boundary-sampled polygons. Its sharp all-algebraic-orders angle universality, finite-N 1/(N+1) normalization and exponentially small residual dependence on side lengths provide a natural useful exact benchmark distinct from max-Hausdorff approximation and missing area; the explicit non-Gaussian corner sum adds quantitative interpretation.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

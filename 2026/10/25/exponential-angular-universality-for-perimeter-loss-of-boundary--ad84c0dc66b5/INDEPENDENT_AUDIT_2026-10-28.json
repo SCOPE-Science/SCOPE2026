@@ -1,0 +1,114 @@
+{
+  "audit_date_utc": "2026-10-28",
+  "audited_at_utc": "2026-10-28T00:49:10Z",
+  "axes": {
+    "correctness": {
+      "rationale": "Verified the full-edge hull decomposition into unchanged edge segments and corner chords; by the cosine law the exact corner loss is F_alpha(a,b)=a+b-sqrt(a^2+b^2-2ab cos(alpha)). For a fixed corner the two directed distances to the nearest sampled points have density N(N-1)L^-2(1-(a+b)/L)^(N-2) on a,b>0, a+b<L. Their sum has mean 2L/(N+1) and their ratio is uniform, yielding the stated Phi(alpha)=1-(1-c^2)atanh(c)/c, c=cos(alpha/2). On an empty-edge event the global loss-minus-corner sum is bounded by (m+1)L and the union bound yields precisely the claimed exponential error. Local disjoint arc void probabilities imply 2m independent mean-one exponential limits; uniform exponential gap tails plus exponentially unlikely empty edges yield moment convergence, not only a weak limit. Gamma(2,1)-uniform factorization yields mean sum Phi and variance sum(6Phi-4c^2-Phi^2); Z is nondegenerate nonnegative, hence non-Gaussian. Independently recalculated angular mean/variance by direct midpoint integration at five angles to <1e-7.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Turchi–Wespi assumes smooth convex boundary, excluding polygons with nonzero corner turning",
+          "Prochno et al. same sampling regime but Hausdorff metric, not perimeter"
+        ],
+        "reasoning": "Smooth-body intrinsic volume CLTs do not apply to polygonal corners; strong Poisson point-process convergence alone does not determine finite-N means with an exact empty-edge correction. The finite-size result survives the stronger related process tools.",
+        "searches": [
+          "boundary sampled random polytope expected perimeter difference corners universal 1/N law",
+          "arXiv:1706.02944 smooth-body intrinsic-volume limit theorems",
+          "arXiv:2404.02870 independent corner point processes"
+        ]
+      },
+      "checked_sources": [
+        "arXiv:2404.02870 Theorem 1, Sections 2 and moment remark (primary PDF)",
+        "arXiv:1911.05917; open Springer journal introduction/principal statements",
+        "arXiv:1706.02944 abstract and assumptions",
+        "Resultary semantic searches on polygon perimeter deficit/angular remainder"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "The paper on Hausdorff approximation proves vertexwise gap asymptotics (its local process statement can support distributional convergence)",
+          "The paper on simple polytope boundary hulls states expected volume/face formulas, not the finite polygon perimeter mean"
+        ],
+        "reasoning": "The earlier point-process machinery may yield the limit by continuous mapping; the corner-gap Dirichlet expectation calculation and exponentially accurate finite formula are additional independent mathematical implications not forced by those statements.",
+        "searches": [
+          "arXiv:2404.02870 vertex Poisson proof and higher moments",
+          "arXiv:1911.05917 volume asymptotics",
+          "finite sample expected perimeter loss polygon sampled boundary exact angle artanh coefficient 1/(n+1) exponentially small remainder"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Prochno et al. Theorem 1: Hausdorff maximum statistic; Section 2: local independent corner processes",
+          "Reitzner et al. journal introduction and principal theorems: face-count and missing-volume asymptotics"
+        ],
+        "reasoning": "A maximum over local corner distances is not an additive chord-deficit perimeter functional. The process limit can imply the weak distributional component once the functional is identified, but cannot by itself imply the exact finite-N expectation or uniform exponential remainder; face/volume formulas do not either.",
+        "searches": [
+          "random polygon boundary sample convex hull expected perimeter deficit angular coefficient finite sample exponential remainder arclength",
+          "arXiv:2404.02870 Theorem 1 and Section 2",
+          "arXiv:1911.05917 Theorems 1.1 and 1.2"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "The two closest indexed summaries respectively give boundary Hausdorff extremes and short-pair distance angular coefficients, not the finite expected perimeter formula"
+        ],
+        "reasoning": "No indexed exact table or formula with the same perimeter statistic was identified; database matches were only inspected as search summaries, never classified as whole-document noncoverage. Search absence is not novelty proof.",
+        "searches": [
+          "Resultary: random polygon boundary sample convex hull expected perimeter deficit angular coefficient finite sample exponential remainder arclength",
+          "Resultary hit 2026/10/11/SCOPE-gumbel-transition-and-second-order-hausdorff-error-for-randomly--3fe000dbc9a1",
+          "Resultary hit 2026/10/11/SCOPE-sharp-uniform-angular-stability-for-the-short-pair-distance-coef--24e8bcd8655b"
+        ]
+      },
+      "rationale": "PASS best-of-knowledge for the exact finite-sample angular mean and exponential edge-memory bound; local independent Poisson corner processes, whose limiting law may imply the weak part, are credited and not portrayed as newly originated.",
+      "residual_risks": [
+        "Existing local Poisson limit could already make weak convergence a corollary; originality is mainly the exact finite-N formula.",
+        "Older Efron-type boundary-sampling perimeter integrals may contain an equivalent closed expectation not indexed by these searches.",
+        "The Turchi–Wespi full proof was not needed to distinguish its smooth-body assumptions and was not wholly read."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Same local process but different Hausdorff maximum statistic; does not present exact finite perimeter angular coefficient",
+          "evidence": [
+            "Theorem 1 and Section 2; page 10 exponential gap construction"
+          ],
+          "identifier_or_url": "arXiv:2404.02870",
+          "material_read": "Full arXiv PDF abstract, Theorem 1 pp. 2–4, local independent Poisson argument pp. 7–11, moment remark on p. 6",
+          "method": "arXiv PDF text plus page images",
+          "title": "Random approximation of convex bodies in Hausdorff metric",
+          "trigger": "Same polygon-boundary sampling and corner scales"
+        },
+        {
+          "assessment": "Different observables; no implication of finite perimeter formula",
+          "evidence": [
+            "Journal introduction and principal results explicitly specify expected face counts and volume loss"
+          ],
+          "identifier_or_url": "arXiv:1911.05917; DOI:10.1007/s00454-022-00460-2",
+          "material_read": "Open journal article introduction, main theorem descriptions on face counts and volume loss, corresponding preprint abstract",
+          "method": "Springer open journal full HTML and arXiv abstract",
+          "title": "The convex hull of random points on the boundary of a simple polytope",
+          "trigger": "Same sampling on polygonal/polytope boundaries"
+        },
+        {
+          "assessment": "Smooth-body assumptions exclude polygon corners; no whole-document novelty claim based on this limited read",
+          "evidence": [
+            "ArXiv abstract: boundary of smooth convex body, intrinsic-volume Gaussian limit theory"
+          ],
+          "identifier_or_url": "arXiv:1706.02944; DOI:10.1017/apr.2018.58",
+          "material_read": "Primary abstract and smooth-boundary hypotheses from arXiv and journal summary",
+          "method": "ArXiv abstract and publisher abstract",
+          "title": "Limit theorems for random polytopes with vertices on convex surfaces",
+          "trigger": "Possible more general limit theorem for intrinsic volumes"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "rationale": "Expected perimeter loss is a basic intrinsic-volume error for boundary-sampled polygons. Its sharp all-algebraic-orders angle universality, finite-N 1/(N+1) normalization and exponentially small residual dependence on side lengths provide a natural useful exact benchmark distinct from max-Hausdorff approximation and missing area; the explicit non-Gaussian corner sum adds quantitative interpretation.",
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "limitations": "Fixed polygon and nondegenerate side lengths/angles; no uniformity in degenerating polygons; hull edge-omission event is explicitly controlled, not zero; finite numerical quadrature verifies only five angles.",
+  "schema_version": 1
+}
