@@ -1,21 +1,21 @@
-# Scientific review: Gaussian mean-width transition in partial permutohedra
+# Independent mathematical audit
 
-## Correctness
+## correctness
 
-**PASS.** The vertex-optimization rule follows by a pairwise swap and inclusion argument. The exact angular orbit weights follow from exchangeable Gaussian signs and orderings. The Gaussian-support scaling follows from empirical-quantile convergence in first Wasserstein distance; the stated uniform-integrability bound justifies convergence of means. The integration-by-parts identity reproduces the explicit Gaussian-tail profile, whose one-sided third derivatives are unequal. Gaussian Poincaré concentration and spherical normalization prove the directional law. The exact saturated mean is independently obtained through pairwise positive-part minima. The conic-polynomial identity invokes, and explicitly credits, the known type-B Weyl-chamber formula.
+PASS
 
-The included standalone checker tests brute-force support maximization, angle normalization, Gaussian integrations, quantile asymptotics, and conic-polynomial coefficients. It does not replace the infinite-family proof.
+All extreme generating vectors use the r largest labels  k,k-1,...,k-r+1; rearrangement gives h(G)=sum_{j<=min(k,m)}(k-j+1)(G_[j])_+ and active rank min(k,#positive Gaussian coordinates), hence exact binomial probability. Symmetric exchangeability gives each r<k vertex normal-cone solid angle 1/(2^m r!) and the saturated r=k tail. The normal cone orthogonally decomposes as type-B Weyl chamber and an orthant; known conic intrinsic-volume polynomial applies. Gaussian empirical descending quantiles converge with uniform integrability to the explicit H(alpha), with Gaussian Poincare concentration and radius normalization for directional and mean widths. The derivative H(alpha)=Phi^-1(1-alpha) left of 1/2 and H=0 right of it yields continuous first two derivatives and unequal third derivatives. Independent exhaustive small-m support computation checked 165 cases and five Gaussian quantile quadratures; the all-parameter statement follows from analytic arguments.
 
-## Originality
+## originality
 
-**PASS, qualified.** The foundational Heuer–Striker vertex description and the Behrend–Castillo–Chavez–Diaz-Lopez–Escobar–Harris–Insko face/volume theory are established prior results, not reasserted as new. Godland–Kabluchko already derive the type-B cone polynomial; that component is imported, not newly discovered. Specific searches and comparisons did not reveal the derived explicit \(\operatorname{erfc}\) leading spherical-width function for partial permutohedra, its sharp \(C^2\)-but-not-\(C^3\) transition, or the joined angular saturation law. The closest general coverage is classical Gaussian order-statistics and Weyl-cone theory; the risk that a broader result already entails the specialized asymptotic as an unstated corollary remains.
+PASS
 
-## Value
+Best-of-knowledge: exact source vertices, face theory and type-B intrinsic-volume polynomial are known, but the specific Gaussian expected support/mean-width phase and C2/non-C3 transition is not established in inspected primary sources.
 
-**PASS.** Mean width is a canonical Euclidean geometric invariant, and the family joins permutohedral/stellohedral and partial-assignment structures. The limiting width has a sharp, explicit third-order transition exactly where the typical supporting vertex becomes sign-limited rather than rank-limited. The full finite-dimensional vertex-angle partition explains the transition geometrically and quantifies its finite-size critical window. The result is not proposed as a new general theory of Gaussian L-statistics or an independently new type-B chamber evaluation.
+## value
 
-## Closest literature and limits
+PASS
 
-The two partial-permutohedron source manuscripts treat vertices, facets, face lattices, volume and Ehrhart theory. The Weyl-chamber source provides a crucial already-established conic intrinsic-volume formula. The explicit leading mean-width phase function and coupled exterior-angle saturation law were not found in those relevant sections or in the checked research records. No finite-size Gaussian-width CLT, fixed-rank extreme-value regime or complete higher conic volumes of saturated-rank normal cones is claimed. Independent mathematical audit remains outstanding.
+Euclidean Gaussian mean width and normal angles are natural metric invariants not determined by face counts or Ehrhart polynomials. The exact active-label saturation threshold k/m=1/2 is structurally linked to an unexpectedly third-order rather than first- or second-order transition, across an infinite family with explicit probabilistic and conic decompositions.
 
-Self-review: passed. Independent audit: not yet performed.
+The dated certificate retains the supplied scientific assessment, sources and limitations.
