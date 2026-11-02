@@ -1,0 +1,119 @@
+{
+  "audit_date_utc": "2026-10-28",
+  "audited_at_utc": "2026-10-28T08:50:43.476447Z",
+  "axes": {
+    "correctness": {
+      "rationale": "Rotation invariance diagonalizes the polynomial norm: ||z^n||^2=kappa+M_n with M_0=1, M_n decreasing to 0 for measures supported strictly in D. Thus K(t)=sum_{n>=0}t^n/(kappa+M_n) and (1-t)K(t)=a0+sum_{n>=1}c_n t^n with c_n>=0, a0=1/(1+kappa), sum c_n=1/[kappa(1+kappa)]. Triangle inequality gives |(1-t)K(t)|>=(kappa-|t|)/[kappa(1+kappa)] for |t|<min(kappa,1). For delta_0, K=(kappa+t)/[kappa(1+kappa)(1-t)], achieving bound at negative real t and realizing zero -kappa for kappa<1. Smooth beta radial densities tend locally uniformly to delta_0 by moment convergence, so Rouche yields a unique nearby real simple zero. M_1=1/(alpha+2), M_n<=M_2=O(alpha^-2) for n>=2 give t_alpha=-kappa-(1+kappa)^2/(alpha+2)+O(alpha^-2). Exact Fraction sums with rigorous geometric tails independently certify alpha=3,kappa=1/6 signs at -9/10 and -24/25. This demonstrates a true smooth interior zero. The proof, not the finite certificate, establishes the universal radius.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Zeytuncu Theorem 1.5: some comparable radial weights have zeros; proof uses (1-t)^2 K and Rouché; no asserted boundary-mass theorem in inspected full text ()."
+        ],
+        "reasoning": "Existing radial kernel zero constructions and interpolation theory do not impose a uniform positive-increment threshold for a boundary Hardy term. The class here allows atomic or smooth interior probability measures.",
+        "searches": [
+          "Zeytuncu 2010 radial Bergman kernel zeros full text",
+          "Seip 2011 Hardy/Bergman interpolation abstract",
+          "Mitkovski Wick 2012 reproducing kernel thesis abstract"
+        ]
+      },
+      "checked_sources": [
+        "SCOPE2026 pinned RESULT.md a6b4d71261d251be58eaefa976348a75fc03da30",
+        "SCOPE2026 checker.py 08bdb702ff606f0c5a6d3ded16f499c98dad9fba",
+        "Zeytuncu arXiv:1009.2806v1 author-uploaded primary full text",
+        "Seip arXiv:1106.3847 abstract/bibliography",
+        "Mitkovski Wick arXiv:1212.0507 bibliography",
+        "Resultary Hardy boundary Bergman kernel semantic query"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "Known pure Hardy kernel is zero-free, pure beta weighted Bergman kernel is zero-free, and Zeytuncu proves zeros in other radial weighted Bergman spaces."
+        ],
+        "reasoning": "Neither zero-free component nor known standalone Bergman zero examples implies that adding the two squared norms generates a zero or the exact kappa=1 universal threshold. The new conclusion uses the positivity/telescoping of reciprocal moment increments.",
+        "searches": [
+          "Zeytuncu 2010 Theorem 1.5 and Dirac-mass remark",
+          "Hardy kernel K_H(t)=1/(1-t)",
+          "Mixed kernel coefficient factorization"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Zeytuncu provides monomial orthogonal-series form for radial interior area weights and constructs zero-producing examples; §2 remarks on additive point-mass interior weight ( lines 127-155, 230-405)."
+        ],
+        "reasoning": "Interior weighted Bergman kernel zero examples are not equivalent to a Hardy-boundary-plus-interior probability norm. This theorem analyzes kappa with fixed total interior normalization and uniform over all such measures.",
+        "searches": [
+          "Zeytuncu arXiv:1009.2806 Sections 1-2 and 2010 remark on Dirac mass",
+          "Seip arXiv:1106.3847 small Bergman spaces",
+          "Resultary Hardy boundary regularized radial Bergman kernel semantic query"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "Prior papers use coefficient formulas but no identified table for the universal radius R_kappa=min(kappa,1) or the alpha-dependent root displacement."
+        ],
+        "reasoning": "This is a theorem for a continuum of weights rather than a published finite numerical table; lack of search match is not a guarantee of priority.",
+        "searches": [
+          "Zeytuncu 2010 Section 2 numerical coefficients",
+          "Resultary radial Hardy Bergman zero-free threshold",
+          "web search Hardy boundary regularized radial Bergman kernel zeros"
+        ]
+      },
+      "rationale": "QUALIFIED PASS: The standard weighted Bergman kernel moment expansion and interior-radial zero examples are prior work (Zeytuncu 2010, including his Dirac-mass remark), but his full text does not add a fixed positive Hardy boundary norm and does not prove the uniform mixed-norm zero-free radius min(kappa,1), sharp equality, or smooth beta limiting displacement. Seip treats interpolation/sampling and Mitkovski-Wick kernel operator estimates, not this mixed-kernel zero threshold in inspected accessible material. Closely related norm-mixture zeros may be studied elsewhere; search absence is not novelty proof.",
+      "residual_risks": [
+        "Other Hardy-Bergman mixed Hilbert norms or kernel interpolation papers may establish an equivalent positive-increment zero-free lemma not surfaced by bounded search.",
+        "Seip and Mitkovski-Wick full primary texts were not read; no blanket noncoverage claim for them.",
+        "Nonradial measures and individual kernel zero sets for kappa<1 are outside the theorem."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "COVERS radial kernel coefficient methods and known zeros, not the audited Hardy mass universal radius theorem",
+          "evidence": [
+            " lines 127-200, 230-405"
+          ],
+          "identifier_or_url": "https://www.researchgate.net/publication/46585115_Weighted_Bergman_Projections_and_Kernels_Lp_Regularity_and_Zeros",
+          "material_read": "Author-uploaded full text represented on web page: Sections 1 and 2, theorem 1.5, explicit radial example, Dirac-mass remark and equations",
+          "method": "Read parsed full primary text (arXiv:1009.2806v1) and distinguish interior weighted Bergman norm from mixed Hardy boundary norm",
+          "title": "Weighted Bergman Projections and Kernels: Lp Regularity and Zeros",
+          "trigger": "Closest radial kernel zeros and point-mass perturbation antecedent"
+        },
+        {
+          "assessment": "Cannot assert full-text noncoverage; no same sharp zero radius found in accessible descriptions",
+          "evidence": [
+            "arXiv:1106.3847 bibliographic information"
+          ],
+          "identifier_or_url": "https://arxiv.org/abs/1106.3847",
+          "material_read": "Title and accessible abstract/assigned reference description, no complete source text",
+          "method": "Statement/object comparison",
+          "title": "Interpolation and sampling in small Bergman spaces",
+          "trigger": "Potential Hardy/Bergman boundary interpolation context"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "rationale": "Adding Hardy boundary energy is a canonical Hilbert-norm interpolation/regularization of radial Bergman weights; determining exactly when it prevents Lu Qi-Keng zeros for every radial measure is a natural structural threshold. The sharp worst-case measure and smooth counterexamples show the uniform boundary between guaranteed nonvanishing and possible zeros, with quantitative approach to criticality. The finding also distinguishes a sum of norms from a sum of reproducing kernels.",
+      "status": "PASS"
+    }
+  },
+  "checked_sources": [
+    "SCOPE2026 pinned RESULT.md a6b4d71261d251be58eaefa976348a75fc03da30",
+    "SCOPE2026 checker.py 08bdb702ff606f0c5a6d3ded16f499c98dad9fba",
+    "Zeytuncu arXiv:1009.2806v1 author-uploaded primary full text",
+    "Seip arXiv:1106.3847 abstract/bibliography",
+    "Mitkovski Wick arXiv:1212.0507 bibliography",
+    "Resultary Hardy boundary Bergman kernel semantic query"
+  ],
+  "disposition": "passed",
+  "limitations": [
+    "Verification was bounded to the actual audited statement and source trees; finite checks supplement full proofs.",
+    "Publication withheld: existing public METADATA.json contains scope_run_id and requires confidentiality-neutral exact-guard replacement before importer ingestion.",
+    "No public research files or GitHub state changed."
+  ],
+  "residual_risks": [
+    "Other Hardy-Bergman mixed Hilbert norms or kernel interpolation papers may establish an equivalent positive-increment zero-free lemma not surfaced by bounded search.",
+    "Seip and Mitkovski-Wick full primary texts were not read; no blanket noncoverage claim for them.",
+    "Nonradial measures and individual kernel zero sets for kappa<1 are outside the theorem."
+  ],
+  "schema_version": 1
+}
