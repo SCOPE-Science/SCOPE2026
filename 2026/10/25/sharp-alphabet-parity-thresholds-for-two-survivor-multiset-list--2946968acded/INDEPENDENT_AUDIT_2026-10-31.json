@@ -1,0 +1,133 @@
+{
+  "audit_date_utc": "2026-10-31",
+  "audited_at_utc": "2026-10-31T13:42:04.370491Z",
+  "axes": {
+    "correctness": {
+      "rationale": "Every multiset of size n>=q+1 has a coordinate of multiplicity at least two. Writing S for singly-heavy and T for multi-heavy codewords gives S+2T<=qL by monochromatic received pairs; the complete singly-heavy family has qK words, K=2^(q-1), hence |C|<=floor(qL/2)+qK/2. Direct counting gives E=(q+2)k singly-heavy parents for each mixed received pair, k=2^(q-3). If equality holds, the integral deficit from all singly-heavy words is at most the parity p in q(L+K); mixed-pair headroom yields the even/odd L0 barriers. Round-robin one-factors (even q) and Walecki Hamilton cycles plus a matching (odd q) realize degree/multiplicity-constrained multigraphs used for new exactly-two-heavy source words. For odd q at L0-1, omitting the fully supported singly-heavy source and removing a near-perfect matching from kK_q gives exactly the floor-bound size. At L0 saturated mixed pair headroom forces all extra words supported on one heavy pair and exactly k per pair, producing the binomial optimizer count. Own direct multiset receive-list tally gives (q,n,L,size)=(4,5,14,44),(5,7,31,117), with no list overload. Infinite statements follow from combinatorial counting and factorization, not those two tests.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Theorem 10 / Corollary 11 in arXiv:2601.05636v2 and Kovačević--Tan multiset code bounds"
+        ],
+        "reasoning": "Prior lower/upper bounds for correction of n-2 deletions (unique decoder) do not furnish high-list optimizer classifications or their parity dependence.",
+        "searches": [
+          "Resultary: unordered multiset deletion two survivor list decoding maximal code capacity q alphabet two symbols high L unique decoding",
+          "\"multiset deletion codes\" \"list decoding\" \"two surviving\" alphabet",
+          "https://arxiv.org/pdf/2601.05636",
+          "https://arxiv.org/abs/2603.18322",
+          "Resultary full-claim semantic search 2026-10-31"
+        ]
+      },
+      "checked_sources": [
+        "https://arxiv.org/pdf/2601.05636",
+        "https://arxiv.org/abs/2603.18322",
+        "Resultary full-claim semantic search 2026-10-31",
+        "Frozen RESULT.md and checks/verification.py"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "arXiv:2601.05636v2 Section 4.3 Theorem 10/Corollary 11"
+        ],
+        "reasoning": "When L=1, capacity q for n>=q+1 is a different regime. The upper incidence bound and the sharp parity equality thresholds here are not corollaries of pairwise disjointness results.",
+        "searches": [
+          "Resultary: unordered multiset deletion two survivor list decoding maximal code capacity q alphabet two symbols high L unique decoding",
+          "\"multiset deletion codes\" \"list decoding\" \"two surviving\" alphabet",
+          "https://arxiv.org/pdf/2601.05636",
+          "https://arxiv.org/abs/2603.18322"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Equivalent formulation as a 0-1 incidence packing between size-n multiplicity vectors and the q(q+1)/2 two-token receive types with maximum column load L."
+        ],
+        "reasoning": "The prior deletion-distance minimum > n-2 (unique decoding L=1) enforces pairwise disjoint receive sets, unlike bounded multiplicity L>1; its capacity q cannot give B_q(L).",
+        "searches": [
+          "Resultary: unordered multiset deletion two survivor list decoding maximal code capacity q alphabet two symbols high L unique decoding",
+          "\"multiset deletion codes\" \"list decoding\" \"two surviving\" alphabet",
+          "https://arxiv.org/pdf/2601.05636",
+          "https://arxiv.org/abs/2603.18322"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "The 2026 source has low alphabet unique-decoding tables; independent direct q=4,n=5 and q=5,n=7 constructions verify 44 and 117, not a broad exhaustive table of L-list maxima."
+        ],
+        "reasoning": "No known exact table was found for these high-L equality cases; a finite witness does not prove global optimality, which follows from incidence counting.",
+        "searches": [
+          "Resultary: unordered multiset deletion two survivor list decoding maximal code capacity q alphabet two symbols high L unique decoding",
+          "\"multiset deletion codes\" \"list decoding\" \"two surviving\" alphabet",
+          "https://arxiv.org/pdf/2601.05636"
+        ]
+      },
+      "rationale": "Kreindel--Essayag--Zabokritskiy, Multiset Deletion Codes (arXiv:2601.05636v2), Theorem 10 and Corollary 11, prove size q for UNIQUE DECODING with two survivors when n>=q+1. The present two-survivor L-list setting is a different incidence packing, with sharp high-L parity boundaries and all-optimizer enumeration. The accessible primary preprint explicitly focuses on one-list decoding and general code bounds, without implying the new high-list formulas. No matching published table or stronger theorem was located; risk of independent list-decoding formulation remains.",
+      "residual_risks": [
+        "An unindexed list-decoding extension of multiset deletion codes could contain similar high-L incidence thresholds.",
+        "Complete finite integer-program optima at neighboring budgets were not independently re-solved here; they are illustrative, not necessary for the proved theorem."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "PRIOR UNIQUE DECODING, not high-L list capacity",
+          "evidence": "Theorem 10 gives S_q(n,n-2)=q+I(q,n); Corollary 11 sets q when n>=q+1. Conditions require zero shared received words, not at most L parents.",
+          "identifier_or_url": "https://arxiv.org/pdf/2601.05636",
+          "material_read": "Full-text PDF available; read abstract/contribution inventory, definitions in section 2, section 4.3 Theorem 10 and Corollary 11, their proof and neighboring section 4.4",
+          "method": "arXiv PDF text and visual page inspection at Sections 2 and 4",
+          "title": "Multiset Deletion Codes: Cyclic Constructions, Bounds, and Exact Results",
+          "trigger": "Same multiset deletion objects and two surviving symbols"
+        },
+        {
+          "assessment": "Possible nearby coding geometry; no verified list-threshold statement",
+          "evidence": "Cited scope is deletion-ball geometry and constructions; retain as priority risk rather than whole-document NOT_COVERING.",
+          "identifier_or_url": "https://arxiv.org/abs/2603.18322",
+          "material_read": "Accessible abstract/overview, not a complete full-text comparison",
+          "method": "arXiv metadata and abstract",
+          "title": "Polynomial constructions and deletion-ball geometry for multiset codes",
+          "trigger": "A later same-object potential dominating result"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "rationale": "Exact high-list cardinalities, sharp onset differences between even and odd alphabets, constructions, and the complete family of extremizers for a natural deletion channel are meaningful finite-alphabet coding invariants. A gap in achievable list budget and an exact optimizer enumeration are not routine known unique-decoding conclusions.",
+      "status": "PASS"
+    }
+  },
+  "checked_sources": [
+    "https://arxiv.org/pdf/2601.05636",
+    "https://arxiv.org/abs/2603.18322",
+    "Resultary full-claim semantic search 2026-10-31",
+    "Frozen RESULT.md and checks/verification.py"
+  ],
+  "disposition": "passed",
+  "final_claim": "For q>=4,n>=q+1 the two-survivor list-code capacity is <=B_q(L)=floor(qL/2)+q2^(q-2). Equality first becomes possible at L0=(q+3)2^(q-3) for even q, one allowance earlier for odd q; large-n constructions meet the bound and at L0 every optimizer is classified, with binom(n-3,2^(q-3))^binom(q,2) labeled codebooks.",
+  "limitations": [
+    "q>=4, n>=q+1; full capacity not stated for all subthreshold L or small source lengths.",
+    "The source-length bound for high-L attainment is sufficient, not proven sharp for every L."
+  ],
+  "residual_risks": [
+    "An unindexed list-decoding extension of multiset deletion codes could contain similar high-L incidence thresholds.",
+    "Complete finite integer-program optima at neighboring budgets were not independently re-solved here; they are illustrative, not necessary for the proved theorem."
+  ],
+  "schema_version": 1,
+  "source_inspections": [
+    {
+      "assessment": "PRIOR UNIQUE DECODING, not high-L list capacity",
+      "evidence": "Theorem 10 gives S_q(n,n-2)=q+I(q,n); Corollary 11 sets q when n>=q+1. Conditions require zero shared received words, not at most L parents.",
+      "identifier_or_url": "https://arxiv.org/pdf/2601.05636",
+      "material_read": "Full-text PDF available; read abstract/contribution inventory, definitions in section 2, section 4.3 Theorem 10 and Corollary 11, their proof and neighboring section 4.4",
+      "method": "arXiv PDF text and visual page inspection at Sections 2 and 4",
+      "title": "Multiset Deletion Codes: Cyclic Constructions, Bounds, and Exact Results",
+      "trigger": "Same multiset deletion objects and two surviving symbols"
+    },
+    {
+      "assessment": "Possible nearby coding geometry; no verified list-threshold statement",
+      "evidence": "Cited scope is deletion-ball geometry and constructions; retain as priority risk rather than whole-document NOT_COVERING.",
+      "identifier_or_url": "https://arxiv.org/abs/2603.18322",
+      "material_read": "Accessible abstract/overview, not a complete full-text comparison",
+      "method": "arXiv metadata and abstract",
+      "title": "Polynomial constructions and deletion-ball geometry for multiset codes",
+      "trigger": "A later same-object potential dominating result"
+    }
+  ]
+}

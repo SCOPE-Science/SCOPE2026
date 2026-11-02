@@ -1,9 +1,21 @@
-# Scientific review
+# Independent mathematical audit
 
-**Correctness — PASS.** The heavy-coordinate partition supplies an exact universal loop-incidence upper bound. Equality forces all but at most one of the singly-heavy words; mixed-pair incidence then gives the parity-dependent sharpness threshold. The construction uses full one-heavy coverage and regular multigraph factorizations, or a deleted matching and one removed word for the odd-alphabet exceptional threshold. Equality at the even-parity boundary forces independent pair-support choices. Direct list-counting constructions and the finite length-five integer program corroborate these arguments. Risks: factorization must retain the displayed degree and multiplicity bounds for all sizes (checked algebraically and via the included program); finite enumeration alone is not an infinite proof.
+## correctness
 
-**Originality — PASS on available evidence.** The 2026 multiset deletion results of Kreindel, Essayag, and Zabokritskiy address unique decoding, including the two-survivor case, but their pairwise-disjointness condition does not imply the optimal capacities for unrestricted higher output-list allowances. The follow-up study develops deletion-ball geometry and syndrome constructions, not the critical allowance or complete boundary optimizer family. Kovačević and Tan provide the earlier unique-correction multiset model, not these list thresholds. No directly equivalent or dominating result was found among inspected full-text sources and targeted mathematical searches. Risks include differently named list-decoding formulations, unindexed publications, and unpublished computations.
+PASS
 
-**Mathematical value — PASS.** The incidence bound, its precise alphabet-parity onset, and the full family of extremizers at the boundary resolve a natural question about the high-deletion regime and list decoding for every alphabet size at least four. The parity one-step jump distinguishes genuinely different alphabet families; the exact labeled-optimum count is a structural classification beyond merely providing a code construction. No significance is claimed for unproved low-allowance capacities or for sharper finite-length thresholds beyond the stated domain.
+Every multiset of size n>=q+1 has a coordinate of multiplicity at least two. Writing S for singly-heavy and T for multi-heavy codewords gives S+2T<=qL by monochromatic received pairs; the complete singly-heavy family has qK words, K=2^(q-1), hence |C|<=floor(qL/2)+qK/2. Direct counting gives E=(q+2)k singly-heavy parents for each mixed received pair, k=2^(q-3). If equality holds, the integral deficit from all singly-heavy words is at most the parity p in q(L+K); mixed-pair headroom yields the even/odd L0 barriers. Round-robin one-factors (even q) and Walecki Hamilton cycles plus a matching (odd q) realize degree/multiplicity-constrained multigraphs used for new exactly-two-heavy source words. For odd q at L0-1, omitting the fully supported singly-heavy source and removing a near-perfect matching from kK_q gives exactly the floor-bound size. At L0 saturated mixed pair headroom forces all extra words supported on one heavy pair and exactly k per pair, producing the binomial optimizer count. Own direct multiset receive-list tally gives (q,n,L,size)=(4,5,14,44),(5,7,31,117), with no list overload. Infinite statements follow from combinatorial counting and factorization, not those two tests.
 
-Self-review: passed. Independent audit: not yet performed.
+## originality
+
+PASS
+
+Kreindel--Essayag--Zabokritskiy, Multiset Deletion Codes (arXiv:2601.05636v2), Theorem 10 and Corollary 11, prove size q for UNIQUE DECODING with two survivors when n>=q+1. The present two-survivor L-list setting is a different incidence packing, with sharp high-L parity boundaries and all-optimizer enumeration. The accessible primary preprint explicitly focuses on one-list decoding and general code bounds, without implying the new high-list formulas. No matching published table or stronger theorem was located; risk of independent list-decoding formulation remains.
+
+## value
+
+PASS
+
+Exact high-list cardinalities, sharp onset differences between even and odd alphabets, constructions, and the complete family of extremizers for a natural deletion channel are meaningful finite-alphabet coding invariants. A gap in achievable list budget and an exact optimizer enumeration are not routine known unique-decoding conclusions.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

@@ -1,19 +1,21 @@
-# Self-review
+# Independent mathematical audit
 
-## Correctness — PASS
+## correctness
 
-The claim is restricted to the positive-temperature deterministic mean-field drift with positive aspiration normalizers. The proof clears strictly positive logistic denominators, applies a self-contained multiplicity-sensitive real-exponential-polynomial zero bound, and obtains the three-attractor ceiling by one-dimensional sign alternation. In the symmetric payoff family the left-half drift decreases strictly with inverse temperature at each state below one-third; the pointwise crossing curve tends to infinity at both ends. This creates an attained threshold. Multiplicity counting forces a unique nondegenerate double left root and its reflected partner at equality; on either side it forces one or five simple equilibria. The central equilibrium remains hyperbolically attracting by an explicit global exponential inequality. A rational Taylor-series certificate proves that five roots actually occur at positive temperature \(\theta=1/6\). The standalone numerical checks are supportive only and are not substituted for the proof.
+PASS
 
-## Originality — PASS, with residual priority risk
+Clearing the two strictly positive logistic denominators gives the real exponential polynomial G(x)=(1-2x)+(1-x)e^{a(x)}-x e^{b(x)} with a,b affine; exponent multiplicity budget <=6, so the extended Chebyshev zero theorem bounds real zeros by five with multiplicity. G(0)>0 and G(1)<0, and separate stable fixed points need intervening unstable zeros, bounding attractors by three. For symmetric payoffs, G_L is antisymmetric about x=1/2, its center derivative -2+(3L-2)e^(-L/2)<0 by the strict inequality 3z<1+e^z. On (0,1/3), each G_L(x) decreases strictly from positive at L=0 to -infinity, defining a unique crossing L_c(x). It diverges at endpoints; its interior minimum exists and the global five-zero budget forces the critical fold at a unique x and to have exactly double multiplicity. For L above the minimum, two left zeros and two reflected right zeros saturate the five-zero bound and alternate stable/unstable types. Rational exponential Taylor bounds imply G_3(1/6)<0, so the upper limit is sharp, attained at positive temperature. Independent symbolic antisymmetry check and high precision numerical diagnostics found L*=2.8034861721, with 1 and 5 sign-changing zeros on representative sides. Numerics never substitute for the all-parameter proof.
 
-The source paper arXiv:2308.00860 explicitly reports a five-root regime and two saddle-node collisions at roughly \(\theta=0.18\). Those observations are acknowledged as prior work. Classical extended-Chebyshev theory supplies the general principle behind the five-zero *upper-bound step*. The claimed new combination is a sharp all-payoff capacity plus an exhaustive, exact, parameter-global bifurcation theorem for the source's symmetric game: existence and uniqueness of one inverse-temperature threshold, exact multiplicities at the boundary, analytic absence of extra equilibria, and nondegenerate folds. The source's plotted values do not themselves imply these statements. The companion arXiv:2502.03109 extends to networks, not this proved temperature diagram; arXiv:2210.01710 instead uses imitation. Searches of available published mathematical records and an accessible claim ledger recovered no logically stronger directly covering statement. Absolute publication priority is not certified; independent inspection of all relevant literature is not claimed.
+## originality
 
-## Value — PASS
+PASS
 
-The finite maximal number of attracting cooperation states is a natural intrinsic invariant for noisy aspiration dynamics, especially when different initial cooperation levels lead to distinct long-run outcomes. The exact bifurcation threshold turns a numerically observed multistability collapse into a sharp theorem with an analytic decision rule valid at every positive temperature of a physically interpretable symmetric coordination game. The double-root classification identifies semistable critical states and complete initial-condition basins; these are not consequences of just locating a numerical fold.
+Aguilar-Janita et al. (arXiv:2308.00860, Phys Rev E 2024) already display the coexistence and the two saddle-node transitions around theta~0.18 in their Fig. 5. The existence and qualitative bifurcation are prior and not claimed as novel. Their inspected analytic/numerical exposition does not establish the universal <=5 root multiplicity bound for all payoff matrices or uniqueness/nondegeneracy of a single simultaneous fold in the symmetric family. The extended Chebyshev root bound is also old; originality concerns its sharp application plus the complete exact phase diagram, not a new approximation-theory theorem.
 
-## Closest coverage and limitations
+## value
 
-The strongest directly relevant source is Aguilar-Janita et al., arXiv:2308.00860, equations (21)–(22), Section IV, and Figure 5. Its approximate fold temperature and multiple state observations predate this proof. General Chebyshev zero bounds are established mathematics, not a new mathematical principle. The later network paper arXiv:2502.03109 and earlier imitation paper arXiv:2210.01710 were inspected for possible domination and found to address different global questions. The work is mean-field, not finite-population ergodic theory; it excludes zero temperature and heterogeneous network/aspiration effects. The decimal fold location is illustrative rather than interval-certified. Potential overlooked publications remain a risk.
+PASS
 
-Self-review: passed. Independent audit: not yet performed.
+A sharp parameter-independent upper bound on equilibrium and stable-state capacity, combined with an exhaustive exact symmetric rationality transition, addresses a natural nonlinear dynamical-system question beyond a numerical phase diagram. The exact fold uniqueness/multiplicity and global ceiling are independently useful.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
