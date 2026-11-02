@@ -1,0 +1,121 @@
+{
+  "correctness": {
+    "rationale": "The full source form reduces exactly to a quadratic in the boundary trace and derivative coefficients. Symbolically inverted positive energy Gram matrices give exact thresholds; the quadratic positive-polynomial P/Q certificate proves strict all-cut upper bound. Vanishing-cut limits establish necessity, and the checker independently recomputes matrices/inversions from integrals and tests 40 rational points.",
+    "status": "PASS"
+  },
+  "independent": false,
+  "independent_audit_status": "not_performed",
+  "originality": {
+    "broader_coverage": {
+      "evidence": [
+        "Published cut-uniform coercivity bounds hold for broader geometries with nonsharp constants",
+        "No inspected theorem asserts the exact minimal ghost weight for the same one-face, derivative-jump normalization and all cut fractions"
+      ],
+      "reasoning": "Broader qualitative coercivity does not imply the sharp parameter boundary with exact coefficient. The original source states the matching upper bound open; general coefficient-free estimates cannot dominate it.",
+      "searches": [
+        "\"ghost penalty\" \"two-cell\" \"P2\" \"Nitsche\" \"coercivity\" sharp threshold",
+        "\"cut fraction\" \"ghost penalty\" \"quadratic\" \"threshold\" \"uniform\" Nitsche",
+        "\"two-cell\" \"ghost-weight\" \"threshold\" polynomial degree CutFEM positivity",
+        "de Prenter et al. 2022 review §4.4 ghost stabilization",
+        "Burman et al. 2014/2015 full text §3"
+      ]
+    },
+    "checked_sources": [
+      "https://arxiv.org/abs/2609.04067",
+      "https://doi.org/10.1002/nme.4823",
+      "https://doi.org/10.21203/rs.3.rs-1970859/v1"
+    ],
+    "claim_vs_prior_implication": {
+      "evidence": [
+        "Proposition 5: gamma>=1/(delta-p²) at kappa=0 and necessity for uniform positivity",
+        "Source explicitly leaves the converse unproved; its numerical evidence does not establish it",
+        "Present symbolic N/Q calculation establishes the converse for p=1,2"
+      ],
+      "reasoning": "The new theorem strengthens the previously known limit-only bound for p=1,2 to a continuum all-cut iff and gives individual-cut thresholds. It does not claim p>=3, general assembled coercivity, or broader multigrid convergence.",
+      "searches": [
+        "arxiv:2609.04067v1 Proposition 5 plus statement following it",
+        "de Prenter et al. 2022 §4.4 and Eq (4.7)-(4.13)",
+        "Burman et al. 2014 Section 3"
+      ]
+    },
+    "equivalent_formulations": {
+      "evidence": [
+        "Identified the positivity question with bounded endpoint derivative evaluation in the ghost-energy Hilbert norm",
+        "Prior Appendix B supplies only vanishing-cut limit, not all-cuts comparison"
+      ],
+      "reasoning": "Any exact generalized eigenvalue condition, Schur complement, or Riesz-norm statement would be equivalent; compared the full source appendix and both foundational ghost-penalty treatments. Algebraic matrix inversion is classical, but the explicit strict all-cut inequality for P1/P2 is not stated in inspected sources.",
+      "searches": [
+        "sharp uniform ghost penalty threshold all cut fractions piecewise linear Q1 two-cell Nitsche form CutFEM versus vanishing cut",
+        "cut finite element Poisson one dimensional two cell ghost penalty Nitsche coercivity exact cut fraction affine finite elements",
+        "threshold gamma >= 1/(gamma_D-1) for p=1 uniform all cut fractions ghost penalty model",
+        "arxiv:2609.04067v1 Appendix B (Schur complement of trace evaluation)"
+      ]
+    },
+    "exact_database_or_table": {
+      "evidence": [
+        "Source Table 6 only reports sampled cut fractions",
+        "New statement is for all real 0<kappa<1, no finite table can prove it"
+      ],
+      "reasoning": "The original table is not an exact continuous classification. Search results from these searches were about unrelated parameter thresholds and do not contain this result; negative search is not a novelty proof.",
+      "searches": [
+        "arxiv:2609.04067v1 Table 6 numerical thresholds and Appendix B",
+        "Research-record query: sharp uniform ghost penalty threshold all cut fractions piecewise linear Q1 two-cell Nitsche form CutFEM versus vanishing cut",
+        "Research-record query: cut finite element Poisson one dimensional two cell ghost penalty Nitsche coercivity exact cut fraction affine finite elements"
+      ]
+    },
+    "rationale": "The motivating paper expressly leaves the matching upper bound for all cuts open; this proves it for degrees P1 and P2. Related readable full texts give nonsharp robust-coercivity bounds but not the same exact all-cut coefficient. The novelty is qualified by incomplete historical priority, not claimed as global uniqueness.",
+    "residual_risks": [
+      "Older specialist ghost-penalty literature may contain an equivalent result after changed parameter normalization",
+      "Current result concerns only two lowest polynomial degrees, not the originally open all-degree problem",
+      "No independent mathematical validation"
+    ],
+    "source_inspections": [
+      {
+        "assessment": "Gives vanishing-cut sharp lower bound and numerical cuts; explicitly leaves uniform equality unproved",
+        "evidence": [
+          "Eq. (60) defines the exact polynomial and jump normalization",
+          "Appendix B states matching upper bound open for all degrees",
+          "Proposition 5 proves only limit at vanishing cut"
+        ],
+        "identifier_or_url": "https://arxiv.org/abs/2609.04067",
+        "material_read": "Sections 1 and 6.3 and complete Appendix B, especially equation (60), Proposition 5, and closing paragraph",
+        "method": "Readable full-text arXiv HTML and searches within source",
+        "title": "A Multigrid Method for CutFEM and its Convergence",
+        "trigger": "Identical one-face two-cell form and explicit open matching-upper-bound problem"
+      },
+      {
+        "assessment": "General cut-independent coercivity via ghost penalty, no exact aligned two-cell P1/P2 fixed-cut threshold detected",
+        "evidence": [
+          "Section 3 ghost-stabilized coercivity derives inequalities using trace and extension estimates",
+          "No stated sharp threshold for the specific one-face model of the 2026 source"
+        ],
+        "identifier_or_url": "https://doi.org/10.1002/nme.4823",
+        "material_read": "Full readable article with focus on sections treating Nitsche stabilization, ghost penalty and coercivity",
+        "method": "Publisher open-access full text",
+        "title": "CutFEM: Discretizing geometry and partial differential equations",
+        "trigger": "Foundational ghost penalty and cut-uniform coercivity"
+      },
+      {
+        "assessment": "Contains P1 ghost estimates and qualitative parameter trade-offs, but no source-specific exact all-cut rational threshold",
+        "evidence": [
+          "Eq. (4.7)-(4.13) give up-to-constant ghost extension bounds",
+          "Discussion says parameters must be suitably chosen, without a sharp two-cell parameter formula"
+        ],
+        "identifier_or_url": "https://doi.org/10.21203/rs.3.rs-1970859/v1",
+        "material_read": "Readable full-text review especially §4.4, pp. 33–36, including P1 extension inequalities and normal derivative ghost penalties",
+        "method": "Public preprint text",
+        "title": "Stability and conditioning of immersed finite element methods: analysis and remedies",
+        "trigger": "Survey potentially subsuming low-degree CutFEM stabilization"
+      }
+    ],
+    "status": "PASS"
+  },
+  "review_type": "self_review",
+  "schema_version": 1,
+  "scope_run_id": "761b5835-d11b-4a0e-92f7-96b6b131524b",
+  "self_review_status": "passed",
+  "value": {
+    "rationale": "Resolves the explicitly motivated matching-upper-bound question for standard affine and quadratic CutFEM spaces, replacing finitely sampled cut fractions by an exact uniform parameter condition; gives sharp fixed-cut calibration and shows vanishing cuts are the worst case in these degrees. This does not imply assembled-matrix stability.",
+    "status": "PASS"
+  }
+}

@@ -1,0 +1,11 @@
+# Mathematical review
+
+**Correctness: PASS.** The exact derivative-energy matrices for degrees one and two follow directly from the motivating paper's Eq. (60). Minimization in the trace value reduces semidefiniteness to a finite-dimensional dual norm. The degree-one formula is elementary. For degree two, the independently reconstructed matrix inversion yields an explicit strictly positive polynomial certificate for every real positive cut fraction and ghost weight. The limit at a vanishing cut proves necessity. Exact rational replay passes; the proof, not numerical sampling, certifies continuous cut fractions.
+
+**Originality: PASS (best knowledge; historical-priority risk acknowledged).** The full relevant appendix of Wichrowski (arXiv:2609.04067v1, 2026) explicitly states that the *cut-uniform upper bound is open*, having proved only the vanishing-cut limit and numerically sampled positive cuts. This theorem proves the missing implication at polynomial degrees one and two, and adds the full cut-specific threshold functions. Full readable coverage in Burman et al. (2014/2015) and pertinent §§4.1–4.4 in de Prenter et al. (2022) gives general cut-independent stabilization inequalities rather than the same sharp two-cell classification. Existing generic matrix-Schur-complement theory implies a computational method, but does not by itself state the source-specific all-cut comparison. The unrestricted degree problem remains unresolved. Exhaustive historical searches are not possible.
+
+**Value: PASS.** The paper singles out the exact cut-uniform threshold as a genuine unresolved parameter-selection question. P1 and P2 are standard low-order CutFEM approximation degrees, and the result turns empirical cut-fraction sampling into an exact continuous-range safety criterion in those degrees. The nontrivial quadratic polynomial-positivity certificate identifies the worst cut as an unattained vanishing-cut limit. This is a model benchmark, not a claim for fully assembled discretizations.
+
+**Risks and limitations.** Classical ghost penalty theory could contain an equivalent specialized two-element calculation under different normalization. No independent audit or assembled-mesh test is provided. Scientific relevance is the exact threshold for the paper's model only.
+
+Self-review: passed. Independent audit: not yet performed.
