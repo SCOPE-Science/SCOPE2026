@@ -1,0 +1,121 @@
+{
+  "correctness": {
+    "rationale": "The proof computes the two exact invariant Laplacian spectral branches, solves their affine budget tradeoff, and proves unrestricted equality rigidity via the averaged Fiedler eigenspace, radial spoke constraints, and complex cycle-edge flux. The critical-price boundary and asymptotics are algebraic consequences. Reproduced 827 finite checker assertions plus independent finite nonsymmetric numerical challenges; those tests supplement, not replace, the infinite proof.",
+    "status": "PASS"
+  },
+  "independent": false,
+  "independent_audit_status": "not_performed",
+  "originality": {
+    "broader_coverage": {
+      "evidence": [
+        "Sun et al. 2006, 19-page public full text, §1.2 and §3.3: arbitrary-graph SDP and cost constraint, no wheel calculation.",
+        "Boyd et al. 2007, §5.3.3: wheel FMMC uses row-stochastic constraints and absolute transition eigenvalues rather than a total conductance budget and Laplacian second eigenvalue."
+      ],
+      "reasoning": "Generic convex-program solvability is not an explicit answer to this infinite priced-wheel family. The discrete-time wheel formula does not bound or imply the distinct continuous-time priced allocation. The present proof addresses strict-side uniqueness absent from the orbit-reduced wheel formulas.",
+      "searches": [
+        "https://stanford.edu/~boyd/papers/pdf/fmmp.pdf",
+        "wheel graph fastest mixing Markov process spokes only optimal for n at least 7 algebraic connectivity",
+        "optimal algebraic connectivity weighted wheel graph resource budget edge prices spoke rim"
+      ]
+    },
+    "checked_sources": [
+      "https://stanford.edu/~boyd/papers/pdf/fmmp.pdf",
+      "https://arxiv.org/pdf/0709.0955",
+      "https://www.researchgate.net/publication/224367365_On_the_structure_of_graph_edge_designs_that_optimize_the_algebraic_connectivity",
+      "https://epubs.siam.org/doi/abs/10.1137/S0036144504443821"
+    ],
+    "claim_vs_prior_implication": {
+      "evidence": [
+        "Boyd et al. 2007, §5.3.3, p. 29, derive a discrete-time SLEM optimal wheel rate; no direct equation for total-cost constrained continuous-time Laplacian gap is given.",
+        "Wan et al. 2008, Theorem 7 concerns non-repeated Fiedler eigenvalues; in both strict regimes of the present theorem the optimal Fiedler eigenvalue is repeated (radial/cycle modes or the full rim-difference subspace).",
+        "Fiedler 1989 foundational source was not accessible as full text; comparison is explicitly incomplete."
+      ],
+      "reasoning": "Neither the discrete-time stochastic result nor the non-repeated-eigenvalue structural theorem implies the priced-wheel optimum or repeated-eigenspace rigidity. The general SDP can encode the target but does not itself evaluate it; a specific uninspected specialized older formula remains possible.",
+      "searches": [
+        "wheel graph K1 join C_n maximizing algebraic connectivity under total weighted edge cost; exact rim-to-spoke price ratio 2-2cos(2pi/n) and unique unrestricted optimum",
+        "absolute algebraic connectivity wheel edge conductance unique optimization vs star, Fiedler repeated eigenspace",
+        "https://arxiv.org/pdf/0709.0955",
+        "https://www.researchgate.net/publication/224367365_On_the_structure_of_graph_edge_designs_that_optimize_the_algebraic_connectivity"
+      ]
+    },
+    "equivalent_formulations": {
+      "evidence": [
+        "Sun et al. 2006, §1.2 and §3.3, establish continuous-time algebraic-connectivity optimization in full generality.",
+        "Wan et al. 2008, §IV, establish general eigenspace/edge-utilization conditions; wheel is not a named case in the inspected text."
+      ],
+      "reasoning": "The equivalent convex-semidefinite formulation is known, but neither the wheel-specific sharp cost ratio nor the all-independent-weights uniqueness/size transition is stated or recovered by a cited closed-form theorem in the inspected material.",
+      "searches": [
+        "wheel graph K1 join C_n maximizing algebraic connectivity under total weighted edge cost; exact rim-to-spoke price ratio 2-2cos(2pi/n) and unique unrestricted optimum",
+        "absolute algebraic connectivity wheel edge conductance unique optimization vs star, Fiedler repeated eigenspace",
+        "https://www.researchgate.net/publication/224367365_On_the_structure_of_graph_edge_designs_that_optimize_the_algebraic_connectivity",
+        "https://stanford.edu/~boyd/papers/pdf/fmmp.pdf"
+      ]
+    },
+    "exact_database_or_table": {
+      "evidence": [
+        "Semantic mathematical-record results returned a wheel symmetric-edge-polytope Löwner ellipsoid theorem with a different geometric objective, and no matching price-threshold table.",
+        "The 2007 discrete-time wheel formula is an actual nearby exact table, but its objective and constraints differ."
+      ],
+      "reasoning": "No located exact numerical or symbolic table covers the priced wheel second Laplacian eigenvalue design or its all-optimizer rigidity. This absence is qualified and not used as proof of absolute novelty.",
+      "searches": [
+        "wheel graph K1 join C_n maximizing algebraic connectivity under total weighted edge cost; exact rim-to-spoke price ratio 2-2cos(2pi/n) and unique unrestricted optimum",
+        "equal cost wheel graph optimum continuous-time mixing spectral gap deletes all rim edges for n at least seven, six-vertex transition",
+        "weighted wheel graph maximize Fiedler value algebraic connectivity under cost budget spoke and perimeter edges optimal support transition",
+        "fastest mixing Markov process on wheel graph weighted spoke price rim price, unique optimal weights under unrestricted edge allocation"
+      ]
+    },
+    "rationale": "A full continuous-time priced-wheel optimum with strict-side unrestricted uniqueness and the six-to-seven unit-price support transition was not found in the inspected primary literature or published mathematical records. The general SDP formulation, discrete-time wheel solution, and graph edge design structural results are explicitly distinguished by statement and implication; residual specialized historical risk is recorded.",
+    "residual_risks": [
+      "Fiedler 1989 full text inaccessible; specialized absolute-algebraic-connectivity results may include wheel-specific designs.",
+      "Semantic and ordinary bibliographic searches cannot establish historical uniqueness.",
+      "The theorem does not exhaust the nonsymmetric optimizer set at the price equality."
+    ],
+    "source_inspections": [
+      {
+        "assessment": "COVERS_GENERAL_FORMULATION_NOT_SPECIFIC_WHEEL_THEOREM",
+        "evidence": "§1.2 states arbitrary weighted sums of edge rates and λ2 optimization; §3.3 gives SDP; no wheel graph example was located in the text.",
+        "identifier_or_url": "https://stanford.edu/~boyd/papers/pdf/fmmp.pdf",
+        "material_read": "Pages 1–3: definition, positive budget and circuit interpretation; pages 5–11: SDP and primal/dual optimality structure; searched full 19-page text for wheel and star",
+        "method": "Public full-text PDF inspected through extracted text and rendered first page",
+        "title": "The Fastest Mixing Markov Process on a Graph and a Connection to a Maximum Variance Unfolding Problem",
+        "trigger": "Exact general objective and cost domain; potential direct domination"
+      },
+      {
+        "assessment": "DIFFERENT_DISCRETE_TIME_OBJECTIVE",
+        "evidence": "Equation (28) and the following displayed p*, q* solve a discrete-time uniform-stationary Markov chain SLEM problem, not priced continuous-time Laplacian gap.",
+        "identifier_or_url": "https://arxiv.org/pdf/0709.0955",
+        "material_read": "Abstract and introductory optimization definition; §3 Cartesian product discussion; §5.3.3 wheel Fourier block and explicit SLEM solution, pages 28–29 of 39",
+        "method": "Open arXiv full text, extracted source text and rendered first page",
+        "title": "Fastest Mixing Markov Chain on Graphs with Symmetries",
+        "trigger": "Exact wheel closed form might dominate the claim"
+      },
+      {
+        "assessment": "GENERAL_STRUCTURE_DOES_NOT_STATE_PRICED_WHEEL_RESULT",
+        "evidence": "Theorem 7 treats non-repeated Fiedler eigenvalues; the present optimum has repeated Fiedler eigenvalues away from the cost boundary; no named wheel theorem found.",
+        "identifier_or_url": "https://www.researchgate.net/publication/224367365_On_the_structure_of_graph_edge_designs_that_optimize_the_algebraic_connectivity",
+        "material_read": "Author-posted public HTML full-text transcription, abstract, tree classification, §IV.A Theorems 7–9 and surrounding proofs; searched entire transcription for wheel",
+        "method": "Read publicly accessible primary-paper full text in HTML",
+        "title": "On the Structure of Graph Edge Designs That Optimize the Algebraic Connectivity",
+        "trigger": "Structural theorem about uniqueness and Laplacian edge support might subsume rigidity"
+      },
+      {
+        "assessment": "UNRESOLVED_SPECIALIZED_HISTORICAL_COVERAGE",
+        "evidence": "Sun et al. 2006 explicitly cite Fiedler as introducing the absolute-algebraic-connectivity objective; no wheel-specific theorem could be assessed from the inaccessible text.",
+        "identifier_or_url": "https://pldml.icm.edu.pl/pldml/element/bwmeta1.element.zamlynska-edcb2a23-d1dd-4cf0-9758-88e7498fc81e/c/bcp_25_1_06.pdf",
+        "material_read": "Bibliographic metadata and citations only; PDF inaccessible (HTTP 403)",
+        "method": "Attempted open primary full text, unavailable; no negative whole-document inference",
+        "title": "Laplacian of Graphs and Algebraic Connectivity",
+        "trigger": "Foundational absolute-algebraic-connectivity results could cover special graphs"
+      }
+    ],
+    "status": "PASS"
+  },
+  "review_type": "self_review",
+  "schema_version": 1,
+  "scope_run_id": "8f7750df-3822-4a1c-8367-b0845cc3fac4",
+  "self_review_status": "passed",
+  "value": {
+    "rationale": "The natural conductance-budget optimization has an exact unexpected support transition: with equal prices the unique optimum uses wheel rim edges for 3–5 peripheral vertices, has nonunique choices at six, and necessarily deletes all rim edges for seven or more. Strict-side unrestricted rigidity and an \\(n^{-2}\\) price sensitivity law extend beyond an orbit-restricted numerical calculation and give usable network-design thresholds.",
+    "status": "PASS"
+  }
+}
