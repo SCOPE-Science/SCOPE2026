@@ -1,0 +1,127 @@
+{
+  "correctness": {
+    "rationale": "An exact, inductively correct bitset recurrence encodes exactly j distinct positive divisors, with descending-cardinality update preventing reuse. Whole range 0..n! enumerated for each n <= 12; at n=12 the 792 genuine divisors cover 479001601 sums at cardinality <=8 but leave exactly 175 positive targets uncovered at <=7. The complete list of 175 target integers is recomputed and compared byte-independent of its source data. The same argument determines h(1!), ..., h(11!). C++ uses a separate word-array representation for n=8..11. These are finite calculations supported by a proof of exhaustiveness; nothing is asserted for n>=13.",
+    "status": "PASS"
+  },
+  "independent": false,
+  "independent_audit_status": "not_performed",
+  "originality": {
+    "broader_coverage": {
+      "evidence": [
+        "Hughes (2026), Theorem 1: h(n!) <= (2 log 2 + o(1)) n/log n, an asymptotic upper bound without a matching small-n exact threshold.",
+        "Tenenbaum-Yokota (1990) concerns lengths and denominators of Egyptian fractions; Yokota (1995) catalog record establishes earlier knapsack work but its full text was not available."
+      ],
+      "reasoning": "The general asymptotic estimate does not imply exact h(12!)=8 or the set of all 175 maximally difficult targets. Earlier constructive work could contain numerical examples; without the full 1995 article we cannot rule this out.",
+      "searches": [
+        "Sums of distinct divisors of factorials Scott D Hughes 2026 h(n!) theorem",
+        "Tenenbaum Yokota Journal of Number Theory 35 1990 factorial divisors",
+        "On a Knapsack Problem involving Divisors of n! Yokota 1995"
+      ]
+    },
+    "checked_sources": [
+      "https://arxiv.org/abs/2609.10902",
+      "https://www.erdosproblems.com/18",
+      "https://jglobal.jst.go.jp/detail?JGLOBAL_ID=200902179472007507",
+      "https://doi.org/10.1016/0022-314X(90)90109-5"
+    ],
+    "claim_vs_prior_implication": {
+      "evidence": [
+        "Hughes and Erdős address the same invariant but asymptotic/general inequalities only.",
+        "Two-prime complete-or-injective subset sums concern unrestricted cardinality, not the minimum k for all targets of a multi-prime factorial.",
+        "Jordan-Pólya normal forms concern products of factorials rather than sums of distinct factorial divisors."
+      ],
+      "reasoning": "Neither the stated asymptotic inequality nor unrestricted representability determines the cardinality-restricted 175 exceptional targets. Multiplicative factorial decompositions use a different operation. The exact finite table would be subsumed by an unknown stronger small-n census; none identified in accessible checked material.",
+      "searches": [
+        "h(12!)=8 h(11!)=7 exactly 175 integers require 8 distinct factorial divisors",
+        "divisor subset-sum practical threshold complete-or-injective 2^a p^b",
+        "prime factorial normal forms Jordan Polya low support"
+      ]
+    },
+    "equivalent_formulations": {
+      "evidence": [
+        "Hughes arXiv:2609.10902v1 defines h(N) as minimum universal representation cardinality.",
+        "No exact table or 175-target cardinality spectrum occurs in the inspected relevant portions of that paper."
+      ],
+      "reasoning": "The formulation as max over targets of minimum number of distinct divisors is definitionally identical to the cardinality subset-sum coverage threshold. Searches for this dual formulation and its exact fingerprint did not locate the claimed 12! first crossing; absence of a hit is not uniqueness proof.",
+      "searches": [
+        "h(12!) h(11!) exactly 175 factorial distinct divisors",
+        "minimum number distinct divisors sums every integer 12 factorial knapsack 8",
+        "h(n!) least number of distinct divisors needed to represent every integer up to n factorial exact h(10!) h(11!)"
+      ]
+    },
+    "exact_database_or_table": {
+      "evidence": [
+        "Target numbers, profile, and total were searched verbatim without a matching published table.",
+        "The 175 target values are supplied as a complete machine-checkable dataset rather than claimed to be catalogued elsewhere."
+      ],
+      "reasoning": "No matching database table was located by these exact fingerprint searches. This is an access-limited bibliographic observation, not a proof of nonexistence.",
+      "searches": [
+        "site:oeis.org \"1, 1, 2, 3, 4, 5, 5, 6, 7\" practical divisors",
+        "site:oeis.org \"1,1,2,3,4,5,5,6,7,7,7,8\" factorial divisors",
+        "\"479001600\" \"175\" sums divisors",
+        "\"475785157\" factorial divisors"
+      ]
+    },
+    "rationale": "Checked definitions and main results of Hughes arXiv:2609.10902v1, which gives asymptotic bounds but no inspected exact first-eight threshold or complete 175-member extremal set. Searched precise numeral, alternate formulation, OEIS and literature. Erdős Problem 18 gives general growth questions. A 1995 Yokota knapsack source was only found in catalog records, and could conceal small numerical data; this is stated as residual priority uncertainty. Relevant public records about two-prime subset-sum coverage, factorial products, and refactorability do not state or imply the bounded-cardinality factorial census.",
+    "residual_risks": [
+      "Yokota (1995) is problem-specific, bibliographically confirmed and inaccessible in full: it might contain an earlier exact finite table.",
+      "Indexing or unpublished computations might contain the same first-eight threshold and exceptional target count.",
+      "Large exact computation is checked by reproducible recurrence and replay, not independent peer review or formal proof assistant."
+    ],
+    "source_inspections": [
+      {
+        "assessment": "Asymptotic upper bound, does not state the exact small-n census or 175-target set in material inspected.",
+        "evidence": [
+          "arXiv:2609.10902v1 (2026-09-09); abstract: h(n!) <= (2 log 2+o(1))n/log n."
+        ],
+        "identifier_or_url": "https://arxiv.org/abs/2609.10902",
+        "material_read": "ArXiv v1 full-text HTML sections: definition, statements of main bounds, proof strategy and remarks; bibliographic record checked for Sep 9, 2026 first public date.",
+        "method": "Read lawful arXiv HTML and abstract metadata; compare exact target and quantified scope.",
+        "title": "Sums of distinct divisors of factorials",
+        "trigger": "Primary recent paper defining the same invariant and motivating its growth."
+      },
+      {
+        "assessment": "Cannot declare this source noncovering; risk recorded rather than treating a snippet as a full paper.",
+        "evidence": [
+          "J-GLOBAL 200902179472007507: H. Yokota, 1995, Research Bulletin 29, pp.25-28."
+        ],
+        "identifier_or_url": "https://jglobal.jst.go.jp/detail?JGLOBAL_ID=200902179472007507",
+        "material_read": "Bibliographic title, author, year 1995, pages 25-28 only; full paper unavailable.",
+        "method": "Open bibliographic record and search for open-access full text.",
+        "title": "On a Knapsack Problem involving Divisors of n!",
+        "trigger": "Earlier paper with most plausible problem-specific coverage."
+      },
+      {
+        "assessment": "Formulates the invariant and broader growth questions; no matching 12! exact classification in material read.",
+        "evidence": [
+          "Erdős Problem #18 defines h(m) as the number of distinct divisors that always suffice for a practical integer m."
+        ],
+        "identifier_or_url": "https://www.erdosproblems.com/18",
+        "material_read": "Problem statement and references and known general bounds.",
+        "method": "Read public problem statement and compare its quantified asymptotic questions to a finite cardinality census.",
+        "title": "Erdős Problem 18",
+        "trigger": "Original named factorial distinct-divisor-sum complexity."
+      },
+      {
+        "assessment": "General Egyptian fraction lengths, no inspected matching factorial census; full-text priority risk remains.",
+        "evidence": [
+          "G. Tenenbaum and H. Yokota, JNT 35(2) (1990), 150-156."
+        ],
+        "identifier_or_url": "https://doi.org/10.1016/0022-314X(90)90109-5",
+        "material_read": "Publication metadata and abstract; not its full text.",
+        "method": "Consult official publication bibliographic abstract and the later author citation.",
+        "title": "Length and denominators of Egyptian fractions, III",
+        "trigger": "Classical Tenenbaum-Yokota precursor cited by the recent paper."
+      }
+    ],
+    "status": "PASS"
+  },
+  "review_type": "self_review",
+  "schema_version": 1,
+  "scope_run_id": "e02366fe-1aba-455e-99b5-a4df4243058c",
+  "self_review_status": "passed",
+  "value": {
+    "rationale": "The natural extremal invariant h(n!) appears explicitly in Erdős Problem 18 and recent work. The first exact 8-term threshold is a meaningful finite classification of its initial growth, accompanied by a complete exceptional set of only 175 out of 479001600 positive targets and oddness/upper-tail structure. This resolves a complete concrete finite boundary, not an arbitrary modular restriction. The dataset and exact replay provide useful small-n benchmarks; no downstream/asymptotic theorem is invented or required.",
+    "status": "PASS"
+  }
+}
