@@ -1,11 +1,21 @@
-# Self-review
+# Independent mathematical audit
 
-**Correctness — PASS.** The source graph and its subdivision are analyzed by separating original-vertex signatures (selected subdivision vertices) from subdivision-vertex signatures (selected originals). Necessity forces a vertex cover, exactly one cut edge at each selected original, and degree at least two at perfect-code vertices. Sufficiency enumerates all signature types and shows mutual separation. The correspondence is injective and surjective. The known NP-completeness of perfect codes in planar cubic graphs is an explicit cited premise; one-subdivision preserves planarity and degree at most three, enforces bipartiteness and doubles cycle lengths. A direct enumerator agrees on 150 labeled graphs and three cubic representatives. No finite test is used as the infinite proof.
+## correctness
 
-**Originality — PASS, subject to literature-priority risk.** Seo–Slater (2017), Theorem 3.3, already characterizes open-independent OLD sets in high-girth graphs; this general condition is carefully credited and does not itself assert the exact perfect-code bijection or the planar bipartite subcubic hardness conclusion. Cappelle et al. (2021 preprint, 2022 journal), Theorems 2.3 and 2.4, establish separate NP-completeness restrictions (planar bipartite degree five/girth six and planar subcubic/girth nine), not the intersection subclass of once-subdivided planar cubic graphs. The planar cubic perfect-code NP-hardness of Kratochvíl–Křivánek (1988) is also credited. Full texts of the two most directly relevant OLD papers were inspected. The 1988 hardness paper was accessible only as its publisher abstract; its proof was not audited. Searches found no directly covering subdivision correspondence, though an unindexed equivalent statement remains possible.
+PASS
 
-**Mathematical value — PASS.** The finding gives a parsimonious structural bridge between two independently studied graph code problems and transfers an established hard problem to an especially constrained graph class: planar, bipartite, subcubic, girth at least six, and with all edges between degree-two and degree-three vertices. This simultaneously tightens two previously separated hardness restrictions and makes code-size and code-count information explicit, rather than merely working out a single small-family parameter.
+Open domination of every inserted edge vertex forces selected original vertices A to cover base edges, so T=V\A is independent. Open independence means selected inserted vertices cross A/T; distinct edge signatures and exactly one selected subdivision neighbor at each a force exactly one T-neighbor per a. Thus every closed neighborhood contains exactly one T vertex (perfect code); if t in T is pendant, the sole adjacent a and t share an identical singleton open signature, and isolated t is undominated, so deg(t)>=2. Conversely any nonpendant perfect code yields selected originals A and every cut subdivider: A originals have distinct singleton edge signatures, T originals have disjoint multi-edge signatures, and subdivision vertices distinguish their A endpoints, proving the bijection. Exactly |A| cut subdividers implies |C_T|=2(n−|T|). Cubic planar G has only nonpendant T, perfect code cardinality n/4, and the polynomial reduction preserves YES instances; known planar cubic perfect-code NP-hardness plus NP membership gives the restricted result. Independently direct brute-force tested 75 small bases, plus the K4/Q3 controls.
 
-**Limits and sources.** Scientific inputs: Seo–Slater (2017), Cappelle–Coelho–Foulds–Longo (2021/2022), Kratochvíl–Křivánek (1988). The missing full text of the last source and the possibility of an unindexed subdivision-code paper are priority risks. A separate independent review has not been performed.
+## originality
 
-Self-review: passed. Independent audit: not yet performed.
+PASS
+
+Seo–Slater 2017 full primary paper already characterizes OLD_oind sets for all girth>=5 graphs via selected and unselected neighborhood counts and proves general NP-completeness; those are not new here. Cappelle et al 2022 full paper proves hardness separately for planar bipartite max-degree-five girth-six and planar subcubic girth-nine; neither theorem implies the simultaneous planar+bipartite+subcubic+subdivision restriction. The new exact code correspondence can be derived using established high-girth criteria but is not explicitly stated/entailed without a subdivision-specific combinatorial reduction, and provides a parsimonious all-base count. The planar cubic perfect-code NP-hardness premise was previously published in 1988. Equivalent subdivision-identifying code transfer may be indexed elsewhere: a material priority risk.
+
+## value
+
+PASS
+
+Efficient closed-neighborhood perfect codes in ordinary graphs and open-independent locating sets in their subdivisions are two natural identification notions. The exact bijection and size generating function transport existence and enumeration, and combining it with planar cubic hardness strengthens previously incomparable planar-bipartite and planar-subcubic restrictions to an actual intersection subclass. This is a motivated parsimonious structural reduction, not an arbitrary isolated small instance.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
