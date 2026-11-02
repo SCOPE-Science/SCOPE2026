@@ -1,0 +1,136 @@
+{
+  "audit_date_utc": "2026-10-28",
+  "audited_at_utc": "2026-10-28T06:02:59.319644Z",
+  "axes": {
+    "correctness": {
+      "checked_sources": [
+        "Git frozen RESULT.md 96950dffd71b8f3db0b772d0d4f9ef3177654721",
+        "Git frozen MATCHING.csv 86ffd547d6b447ea4989116f712971b235a54bcd",
+        "Git frozen verify.py f3dfd7de9ffea41272718191d28956eaa125883c"
+      ],
+      "rationale": "The finite field F4 with t²+t+1=0 defines 16 points and 20 affine lines. Both affine line listing and determinant condition identify the same 80 forbidden collinear triples, so the cap complex has exactly 1792 nonempty faces with f=(16,120,480,840,288,48). An independent implementation rebuilt the deterministic 16-stage lower/upper face matching from the definition, obtaining exactly 783 pairs; its freshly serialized CSV matched the actual Git MATCHING.csv blob byte for byte (8243 bytes). Every one of the 6768 Hasse cover incidences was oriented downward unless matched, and a complete topological sort reached all 1792 faces, proving acyclicity. Exactly one critical vertex and 225 critical 3-simplices remain, with no cells of any other positive dimension. By discrete Morse theory the resulting CW complex has one 0-cell and 225 3-cells attaching to a point; it is therefore a genuine wedge of 225 S³ over Z, not merely a homology computation. Verification exhausts the finite complex rather than sampling it.",
+      "residual_risks": [
+        "The theorem treats only the Desarguesian affine plane AG(2,4), not arbitrary plane orders.",
+        "Acyclic matching was independently reconstructed, including complete Hasse topological sorting; no extension to larger q is inferred."
+      ],
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Forman’s general acyclic matching theorem converts a verified matching into a homotopy-equivalent CW complex, but supplies no matching for this cap hypergraph.",
+          "General spectral gaps and homological vanishing do not establish attaching maps or a concrete sphere-wedge decomposition."
+        ],
+        "reasoning": "Known machinery gives the proof method, not this 783-edge finite certificate and homotopy classification.",
+        "searches": [
+          "Alan Lew spectral gaps generalized flag complexes thesis",
+          "Forman discrete Morse theory general CW theorem",
+          "Resultary finite geometric independence complexes"
+        ]
+      },
+      "checked_sources": [
+        "https://www.math.cmu.edu/users/alanlew/files/theses/msc%20thesis.pdf",
+        "https://arxiv.org/abs/1706.00358",
+        "https://doi.org/10.1006/aima.1997.1650"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "Lew supplies cohomology groups and Laplacian eigenvalues; e.g. a simply connected nonpure 5-complex can have additional unstable homotopy/attaching data despite the homology table.",
+          "Complete oriented Hasse acyclicity and critical-cell dimensions form the new direct homotopy proof."
+        ],
+        "reasoning": "The prior numerical cohomology is a consequence of the new wedge statement but does not logically establish it; the explicit acyclic matching closes this implication gap.",
+        "searches": [
+          "Lew thesis Chapter 6 §6.2 Figure 6.4 and concluding chapter",
+          "arXiv:1706.00358 Lew spectral gaps",
+          "Resultary matching complex wedge searches"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Cap sets are independent sets of the 80 collinear-triple 3-uniform hypergraph.",
+          "Lew computes the exact same complex and integral H3=Z^225, but not the homotopy type."
+        ],
+        "reasoning": "The hypergraph-independence alias and exact finite object were compared; homology is an important covered consequence, but does not imply the stated homotopy wedge.",
+        "searches": [
+          "Resultary: AG(2,4) cap complex homotopy wedge of 225 3 spheres",
+          "Alan Lew MSc thesis §6.2 figure 6.4 cap complex Ca(2,4)",
+          "independence complex of 3-uniform collinearity hypergraph F4 affine plane"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "Lew Figure 6.4 exact f vector (16,120,480,840,288,48), reduced integral H3=Z^225, others zero.",
+          "The submitted MATCHING.csv has 783 pairs and exactly 225 3-dimensional critical cells, a different certificate than rank tables."
+        ],
+        "reasoning": "The face vector and Betti numbers are decisively prior-covered. The only surviving novelty is integral homotopy and explicit simple-homotopy collapse, which the table alone cannot imply.",
+        "searches": [
+          "Lew 2017 MSc thesis Figure 6.4",
+          "Resultary: cap complex F4 225 homology table",
+          "Crnkovic et al affine plane order four designs"
+        ]
+      },
+      "rationale": "Alan Lew’s primary MSc thesis Section 6.2 and Figure 6.4 compute precisely the same AG(2,4) cap complex face vector and integral homology Z^225 in degree 3; both are explicitly credited and NOT novel. Lew does not give its homotopy decomposition or the 783-pair complete acyclic matching. Since a nonpure 5-dimensional simplicial complex with concentrated integral H3 is not automatically a sphere wedge, the submitted exact CW collapse is a stronger homotopy assertion. Resultary general matching/independence-complex records treat different complexes. No earlier equal homotopy statement found in materially inspected sources; residual historical priority risk remains.",
+      "residual_risks": [
+        "An unindexed finite-geometry or hypergraph complex computation might have independently produced the same wedge; search is not a novelty proof.",
+        "The full face-vector and H3 rank were published in Lew, and are excluded from the originality claim."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "DIRECT numerical PRIOR COVERAGE: full face-vector and integral homology, but no homotopy wedge or acyclic matching stated in relevant material.",
+          "evidence": "Figure 6.4 Ca(2,4): f=(16,120,480,840,288,48), H~3=Z^225 and all other H~k=0.",
+          "identifier_or_url": "https://www.math.cmu.edu/users/alanlew/files/theses/msc%20thesis.pdf",
+          "material_read": "Entire relevant Chapter 6 §6.2 and Figure 6.4, inspected PDF text and page 71 screenshot; surrounding statements and conclusion",
+          "method": "primary full-text PDF section and visual table inspection",
+          "title": "Spectral gaps of generalized flag complexes",
+          "trigger": "Same AG(2,4) 16-point cap complex; strongest exact-database prior"
+        },
+        {
+          "assessment": "General vanishing/spectral results not an explicit homotopy certificate for AG(2,4).",
+          "evidence": "Lew 2017 generalized missing-face spectral gaps.",
+          "identifier_or_url": "https://arxiv.org/abs/1706.00358",
+          "material_read": "Abstract and bibliographic relation to thesis, not full manuscript",
+          "method": "arXiv related-work comparison",
+          "title": "Spectral gaps of simplicial complexes without large missing faces",
+          "trigger": "General spectral complex theory by same author"
+        },
+        {
+          "assessment": "Acyclic matching yields CW type with one cell per critical face, which here forces the wedge.",
+          "evidence": "Forman 1998, Adv. Math. 134 (1998), 90–145.",
+          "identifier_or_url": "https://doi.org/10.1006/aima.1997.1650",
+          "material_read": "Established theorem and standard acyclic matching result; original full paper not independently reread",
+          "method": "classical theorem statement used with explicitly checked matching",
+          "title": "Morse theory for cell complexes",
+          "trigger": "General theorem needed for discrete Morse CW conclusion"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "checked_sources": [
+        "https://www.math.cmu.edu/users/alanlew/files/theses/msc%20thesis.pdf",
+        "https://arxiv.org/abs/1706.00358",
+        "https://doi.org/10.1006/aima.1997.1650"
+      ],
+      "rationale": "This is a naturally defined nonpure cap complex of a canonical finite affine plane, with maximal faces of cardinalities four and six. Its previously known torsion-free homology cannot by itself settle homotopy type. The fully explicit acyclic Morse matching resolves the precise integral wedge decomposition and annihilates possible higher-dimensional attaching behavior. A complete finite classification of this motivated complex has standalone value without a general q theorem.",
+      "residual_risks": [
+        "No claim for all affine planes, projective planes, or natural automorphism representations."
+      ],
+      "status": "PASS"
+    }
+  },
+  "checked_sources": [
+    "https://www.math.cmu.edu/users/alanlew/files/theses/msc%20thesis.pdf",
+    "https://arxiv.org/abs/1706.00358",
+    "https://doi.org/10.1006/aima.1997.1650",
+    "Git frozen RESULT.md 96950dffd71b8f3db0b772d0d4f9ef3177654721",
+    "Git frozen MATCHING.csv 86ffd547d6b447ea4989116f712971b235a54bcd",
+    "Git frozen verify.py f3dfd7de9ffea41272718191d28956eaa125883c"
+  ],
+  "disposition": "passed",
+  "limitations": [
+    "Only Desarguesian AG(2,F4); no claim for larger q or different cap complexes.",
+    "Face vector and integral H3 table previously published, only integral homotopy refinement new.",
+    "Exact certificate regenerated and all 6768 oriented incidences independently checked."
+  ],
+  "schema_version": 1
+}

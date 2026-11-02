@@ -1,15 +1,21 @@
-# Scientific assessment: cap complex of the affine plane of order four
+# Independent mathematical audit
 
-## Correctness — PASS
-The model uses the irreducible field relation \(t^2+t+1=0\) over \(\mathbb F_2\). The line-based and determinant-based collinearity tests agree on all eighty triples. Exhaustive face enumeration gives \((16,120,480,840,288,48)\) and exactly 1792 nonempty faces. The embedded 783-pair discrete-Morse certificate is reconstructed deterministically and checked for face-disjointness, complete 6768-incidence acyclicity and critical cells consisting exactly of one vertex and 225 three-simplices. Forman's CW theorem then gives the full homotopy equivalence; no inference from Betti numbers alone is used.
+## correctness
 
-## Originality — PASS, with residual risk
-Lew's 2018 MSc thesis, Section 6.2, Figure 6.4, **already states exactly the face vector and integral homology rank 225** for the same cap complex. The specific novelty asserted here is its integral homotopy type together with an explicit finite acyclic matching reducing it to one zero-cell and 225 three-cells. The inspected thesis section does not assert a homotopy decomposition. The complete 2013 paper on affine-plane blocking sets and the accessible full text of the 2016 maximal-arc paper likewise do not classify this cap complex. Indexed searches under cap complex, affine arc complex, general-position hypergraph and no-three-collinear formulations found no implication covering the asserted homotopy type. An unindexed equivalent argument remains possible; search silence alone is not proof of uniqueness.
+PASS
 
-## Value — PASS
-The exact five-dimensional, nonpure cap complex is a natural topological object in finite geometry: its facets have sizes four and six. A previously published homology table does not settle its homotopy groups or attaching maps. This result supplies the complete homotopy type for the order-four affine case, strengthening a cited calculation for the first nonprime-field affine plane and giving an explicit reproducible combinatorial certificate. It is not presented as a general theorem for all field orders or as a new Betti-number calculation.
+The finite field F4 with t²+t+1=0 defines 16 points and 20 affine lines. Both affine line listing and determinant condition identify the same 80 forbidden collinear triples, so the cap complex has exactly 1792 nonempty faces with f=(16,120,480,840,288,48). An independent implementation rebuilt the deterministic 16-stage lower/upper face matching from the definition, obtaining exactly 783 pairs; its freshly serialized CSV matched the actual Git MATCHING.csv blob byte for byte (8243 bytes). Every one of the 6768 Hasse cover incidences was oriented downward unless matched, and a complete topological sort reached all 1792 faces, proving acyclicity. Exactly one critical vertex and 225 critical 3-simplices remain, with no cells of any other positive dimension. By discrete Morse theory the resulting CW complex has one 0-cell and 225 3-cells attaching to a point; it is therefore a genuine wedge of 225 S³ over Z, not merely a homology computation. Verification exhausts the finite complex rather than sampling it.
 
-## Closest literature and limitations
-The closest exact-object source is Lew's 2018 thesis, Figure 6.4, which covers the numerical homology but not the sphere wedge; the 2013 Innamorati–Tondini and 2016 Crnković et al. papers concern different incidence-geometric invariants. The abstract and accessible full text of Lew's 2017 spectral-gap preprint concern cohomological vanishing, not a complete homotopy classification of this case. An unpublished or unindexed earlier homotopy calculation remains a residual risk. The finite certificate proves no larger-order family statement and has not received an independent audit.
+## originality
 
-Self-review: passed. Independent audit: not yet performed.
+PASS
+
+Alan Lew’s primary MSc thesis Section 6.2 and Figure 6.4 compute precisely the same AG(2,4) cap complex face vector and integral homology Z^225 in degree 3; both are explicitly credited and NOT novel. Lew does not give its homotopy decomposition or the 783-pair complete acyclic matching. Since a nonpure 5-dimensional simplicial complex with concentrated integral H3 is not automatically a sphere wedge, the submitted exact CW collapse is a stronger homotopy assertion. Resultary general matching/independence-complex records treat different complexes. No earlier equal homotopy statement found in materially inspected sources; residual historical priority risk remains.
+
+## value
+
+PASS
+
+This is a naturally defined nonpure cap complex of a canonical finite affine plane, with maximal faces of cardinalities four and six. Its previously known torsion-free homology cannot by itself settle homotopy type. The fully explicit acyclic Morse matching resolves the precise integral wedge decomposition and annihilates possible higher-dimensional attaching behavior. A complete finite classification of this motivated complex has standalone value without a general q theorem.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
