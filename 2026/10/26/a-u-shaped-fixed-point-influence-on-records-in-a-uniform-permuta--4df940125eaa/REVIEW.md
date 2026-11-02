@@ -1,15 +1,21 @@
-# Review: U-shaped fixed-point influence on records
+# Independent mathematical audit
 
-## Correctness
-**PASS.** One-position conditioning is exact because the remaining permutation is uniform over the remaining values. The three disjoint cases of a specified fixed position lying before, at, or after a candidate record yield the complete cross-covariance kernel. Summation gives the conditional-mean identity. Binomial unimodality yields the complete sign classification for all sizes, and the boundary terms determine the aggregate asymptotic. The independently enumerated permutations through size eight agree with all formulas. The finite experiments supplement, but do not replace, the all-size counting argument.
+## correctness
 
-## Originality
-**PASS on inspected evidence, subject to priority uncertainty.** Dubach, *A geometric approach to conjugation-invariant random permutations* (arXiv:2402.10116), develops asymptotic record laws in permutation classes where the fixed-point count matters; the inspected records sections do not state the present finite-size conditioning on a fixed point at a specified position or the resulting U-shaped sign law. Grübel, *Ranks, copulas, and permutons* (2023), treats ranks and cycles and recalls Foata's distributional correspondence, without this same-permutation cross-covariance. The published fixed-point/descent covariance formula and published cycle-count/inversion law apply to different statistic pairs and do not imply the fixed-point/record calculation. An older implicit first-moment identity remains possible.
+PASS
 
-## Value
-**PASS.** The fixed-point and record statistics are intrinsic and separately classical, but their joint dependence is not determined by the marginals or by Foata's correspondence. The result identifies a sharp all-size U-shaped influence profile: conditioning on a fixed point in the middle suppresses records whereas a fixed point near either edge enhances them. Exact cancellation leaves an aggregate positive covariance of order \(n^{-2}\). This makes precise a finite-location contrast complementary to prior work on large numbers of fixed points and record-count phase transitions.
+For uniform π∈Sn, condition on π(j)=j. If j>i, the first i positions retain uniform relative order and P(R_i|I_j)=1/i. If j<i, the remaining i−1 prefix entries necessarily include an entry >j, so the last among these is the prefix maximum with probability 1/(i−1). At i=j≥2, record status requires the preceding i−1 values to be exactly {1,...,i−1}, with probability binom(n−1,i−1)^−1. R_1 is certain. These cases give the full cross-covariance kernel, whose telescoping i-sum yields E[R|I_j]−H_n=binom(n−1,j−1)^−1−1/n. Binomial coefficient monotonicity proves positive signs at exactly first/second and last/two-end positions for n≥5, negative center, and U-shape. Summing over j gives Cov(F,R)=n^−1 sum_{k=1}^{n−1}binom(n−1,k)^−1=2/n²+O(n^−3). Independently enumerated all 5912 permutations across n=2..7, verifying every n×n exact rational cross covariance. Boundaries n2..4 and conditioning on exactly one specified fixed point are explicit; no independence claim.
 
-## Remaining scientific boundaries
-This is a statement about first mixed moments of a uniform permutation, not higher dependence, not conditioning on the complete fixed-point set, and not a full joint distribution. The derivation is elementary once the conditioning is recognized, so historical originality remains the main residual risk.
+## originality
 
-Self-review: passed. Independent audit: not yet performed.
+PASS
+
+Best-of-knowledge PASS for the finite-position conditional record-law and exact sign-changing cross-covariance matrix, not the known marginal harmonic expectation or fixed-point/record asymptotic phase. Dubach 2025/2026 treats global record asymptotics in conjugation-invariant random permutations classified by fixed-point count, not conditioning on one marked position. A relevant published Resultary record treats fixed-point versus adjacent descents; its conditional exchangeability is analogous but descents and records are different statistics with opposite support/covariance behavior. Historical exact first-moment identities for rencontres statistics may have an equivalent formulation, recorded as risk.
+
+## value
+
+PASS
+
+Joint behavior of two classical permutation statistics—positional fixed points and left-to-right records—is a natural combinatorial question not settled by their separate marginal means. The exact location-resolved cross-covariance reveals a nontrivial U-shaped sign reversal: the fixed-point count has positive aggregate covariance although most interior positions are negatively correlated with total records. The full indicator kernel and telescoping structure give more than a routine aggregate first moment.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

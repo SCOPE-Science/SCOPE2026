@@ -1,0 +1,117 @@
+{
+  "audit_date_utc": "2026-10-28",
+  "audited_at_utc": "2026-10-28T17:59:25Z",
+  "axes": {
+    "correctness": {
+      "rationale": "For uniform π∈Sn, condition on π(j)=j. If j>i, the first i positions retain uniform relative order and P(R_i|I_j)=1/i. If j<i, the remaining i−1 prefix entries necessarily include an entry >j, so the last among these is the prefix maximum with probability 1/(i−1). At i=j≥2, record status requires the preceding i−1 values to be exactly {1,...,i−1}, with probability binom(n−1,i−1)^−1. R_1 is certain. These cases give the full cross-covariance kernel, whose telescoping i-sum yields E[R|I_j]−H_n=binom(n−1,j−1)^−1−1/n. Binomial coefficient monotonicity proves positive signs at exactly first/second and last/two-end positions for n≥5, negative center, and U-shape. Summing over j gives Cov(F,R)=n^−1 sum_{k=1}^{n−1}binom(n−1,k)^−1=2/n²+O(n^−3). Independently enumerated all 5912 permutations across n=2..7, verifying every n×n exact rational cross covariance. Boundaries n2..4 and conditioning on exactly one specified fixed point are explicit; no independence claim.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Dubach Theorem 2.10 gives asymptotic Gaussian/Gamma fluctuation as fixed-point count grows, not an exact n,j kernel."
+        ],
+        "reasoning": "A result for broader conjugation-invariant laws but only asymptotic aggregate statistics does not dominate a finite-n location-resolved formula; the quantifiers and conditioning differ.",
+        "searches": [
+          "Dubach 2026 Theorem 2.10 and Section 6 high records",
+          "Grübel 2024 Ranks, copulas, and permutons overview"
+        ]
+      },
+      "checked_sources": [
+        "Frozen RESULT.md SHA 3e918e997b4a70c38a20088f6a675d1bbf4a8094; verify.py SHA e40cba9e86710da02e862512985ad0b60c0f4959",
+        "Dubach 2026 full-text Sections 2.3 and 6.1",
+        "Published Resultary fixed-point–descent full RESULT.md SHA 0ae651d6bb3c8122620d10a1af67522f951170bc",
+        "uniform random permutations fixed point position influence left-to-right records covariance",
+        "Independent full n=2..7 permutation cross covariance census"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "New formula gives exact n,j conditional E[R] and sign reversal, while prior work gives fixed-point count-conditioned limit laws or a different adjacent descent indicator."
+        ],
+        "reasoning": "Neither earlier theorem implies the stated finite first-moment conditional kernel without a separate order-statistic argument; the formula cannot be obtained by replacing descents with records in the prior local law.",
+        "searches": [
+          "Dubach 2026 Theorem 2.10 and proof §6",
+          "Resultary 2026 fixed-point–descent local kernel"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Dubach studies asymptotic record count conditional on entire cycle-type sequence; separate Resultary theorem gives sparse covariance with adjacent descents, not running maxima."
+        ],
+        "reasoning": "Fixed point–descent exchangeability cannot substitute for a record event involving the whole previous prefix. A global fixed-point count distribution does not determine the positional U-shaped conditional first moment.",
+        "searches": [
+          "uniform random permutations fixed point position influence left-to-right records covariance",
+          "arxiv:2402.10116; Dubach 2026 §2.3",
+          "Resultary/2026 fixed-point–descent record 6e228e1e9495"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "Read full Resultary fixed-point–descent RESULT.md: supports only j/i adjacent, Cov(F,descent count)=−1/n. New record covariance is generally nonlocal and positive in aggregate."
+        ],
+        "reasoning": "No exact matching record-binomial table found. The named similar published result uses a different statistic and is expressly not an equivalent table.",
+        "searches": [
+          "uniform random permutations fixed point position influence left-to-right records covariance",
+          "Resultary search uniform permutation fixed point record covariance",
+          "published Resultary 2026/10/4 fixed-point descent result 6e228e1e9495"
+        ]
+      },
+      "rationale": "Best-of-knowledge PASS for the finite-position conditional record-law and exact sign-changing cross-covariance matrix, not the known marginal harmonic expectation or fixed-point/record asymptotic phase. Dubach 2025/2026 treats global record asymptotics in conjugation-invariant random permutations classified by fixed-point count, not conditioning on one marked position. A relevant published Resultary record treats fixed-point versus adjacent descents; its conditional exchangeability is analogous but descents and records are different statistics with opposite support/covariance behavior. Historical exact first-moment identities for rencontres statistics may have an equivalent formulation, recorded as risk.",
+      "residual_risks": [
+        "Older refined enumerations of permutation records with marked fixed positions could encode the same finite first-moment kernel.",
+        "Aggregate covariance asymptotic is not a full joint distribution or independence theorem."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "ASYMPTOTIC_COUNT_CLASSIFICATION_NOT_FINITE_POSITION_KERNEL",
+          "evidence": "Theorem 2.10 concerns fixed cycle-type sequences and a log n record limit; no per-position conditional binomial covariance is in inspected sections.",
+          "identifier_or_url": "arxiv:2402.10116; doi:10.1007/s00440-025-01449-7; https://link.springer.com/article/10.1007/s00440-025-01449-7",
+          "material_read": "Full open-access HTML: introduction, Section 2.3 including Theorems 2.9–2.11, and Section 6.1 proof of record limit",
+          "method": "Read original full-text relevant statements and proof sections",
+          "title": "A geometric approach to conjugation-invariant random permutations",
+          "trigger": "Same fixed-point and records statistics"
+        },
+        {
+          "assessment": "DIFFERENT_COMPARISON_INDICATOR",
+          "evidence": "Descent is adjacent comparison and yields support only for adjacent fixed positions and negative aggregate; record is prefix maximum and yields nonlocal U-shaped sign law.",
+          "identifier_or_url": "Resultary/2026:2026/10/4/SCOPE-boundary-localization-of-fixed-point-descent-dependence-in-a-uni--6e228e1e9495; RESULT.md SHA 0ae651d6bb3c8122620d10a1af67522f951170bc",
+          "material_read": "Complete public RESULT.md including all local covariance formulas, proof, and references",
+          "method": "Fetched primary published Git blob and read entire scientific result",
+          "title": "Boundary localization of fixed-point–descent dependence in a uniform permutation",
+          "trigger": "Strong nearby published fixed-point/covariance theorem"
+        },
+        {
+          "assessment": "GENERAL_OVERVIEW",
+          "evidence": "No examined exact positional fixed-point/record covariance theorem; unindexed earlier result possible.",
+          "identifier_or_url": "doi:10.1007/s00184-023-00908-2",
+          "material_read": "Bibliographic/public abstract and overview only",
+          "method": "Compared objects and theorem scope",
+          "title": "Ranks, copulas, and permutons",
+          "trigger": "Potential broad rank-position prior"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "rationale": "Joint behavior of two classical permutation statistics—positional fixed points and left-to-right records—is a natural combinatorial question not settled by their separate marginal means. The exact location-resolved cross-covariance reveals a nontrivial U-shaped sign reversal: the fixed-point count has positive aggregate covariance although most interior positions are negatively correlated with total records. The full indicator kernel and telescoping structure give more than a routine aggregate first moment.",
+      "status": "PASS"
+    }
+  },
+  "checked_sources": [
+    "Frozen RESULT.md SHA 3e918e997b4a70c38a20088f6a675d1bbf4a8094; verify.py SHA e40cba9e86710da02e862512985ad0b60c0f4959",
+    "Dubach 2026 full-text Sections 2.3 and 6.1",
+    "Published Resultary fixed-point–descent full RESULT.md SHA 0ae651d6bb3c8122620d10a1af67522f951170bc",
+    "uniform random permutations fixed point position influence left-to-right records covariance",
+    "Independent full n=2..7 permutation cross covariance census"
+  ],
+  "disposition": "passed",
+  "limitations": [
+    "Uniform permutations only, exact specified fixed point I_j=1; no conditioning on a fixed total F or bias of permutation.",
+    "The equalities concern expectations/covariances only, not higher joint moments or independence."
+  ],
+  "residual_risks": [
+    "Older refined enumerations of permutation records with marked fixed positions could encode the same finite first-moment kernel.",
+    "Aggregate covariance asymptotic is not a full joint distribution or independence theorem."
+  ],
+  "schema_version": 1
+}
