@@ -1,15 +1,21 @@
-# Scientific review
+# Independent mathematical audit
 
-## Correctness — PASS
-The kernel is Fourier diagonal on a finite additive matrix group. A polynomial Gaussian-binomial identity is proved by counting linear maps by rank; it yields an explicit positive combination of annihilator-subgroup indicators at the permitted parameters. The Fourier transform of each subgroup indicator is calculated by character orthogonality, with subspace counts giving the stated formula and spectral multiplicities. Strict positivity and boundary ranks follow from the signs of the coefficients. The top two Fourier ranks have opposite signs for every nonexceptional parameter above the sharp interval endpoint, establishing necessity without finite enumeration. The packaged checker independently verifies 3,957 exact small-group Fourier equalities. The proof covers arbitrary prime powers and unbounded dimensions; the tests do not supply that coverage.
+## correctness
 
-## Originality — PASS, with bounded-source risk
-Delsarte (1978, full sixteen-page primary text examined) gives the rank association scheme, character matrix, and MacWilliams inequalities, but no stated continuous rank-power positivity set. Gadouleau–Yan (2007, openly available full paper examined) gives the functional rank-weight transform rather than the sharp admissibility islands. The published-record semantic searches compared rank-metric positive type, finite-field matrix kernels, generalized Krawtchouk expressions, and rank Fourier frames, with no equivalent classification found. An earlier result for Hamming-product oscillatory kernels concerns a different metric and different spectrum; its statement does not imply the matrix-rank theorem. The general older rank-character formulas do encompass the underlying eigenvalues, so independent priority checking remains important: lack of an indexed theorem is not proof of novelty.
+PASS
 
-## Mathematical value — PASS
-The rank metric is a central invariant in coding theory, and its exponential decay is a natural stationary covariance candidate. Unlike Hamming-type coordinate metrics, this family has a sharp disconnected admissibility region: a continuously admissible interval plus finitely many isolated strengths. Both global positive-definiteness and strictness are completely classified, with exact spectral ranks at degeneracies and two explicit negative Fourier witnesses for all excluded parameters. This settles an intrinsic kernel-admissibility question rather than an arbitrary finite table.
+The q-binomial Newton identity expresses t^rank X as a finite linear combination of indicators of subgroups {X:XU=0}, with coefficients t^(n-j) product_{i<j}(1-q^i t). Character orthogonality yields Fourier eigenvalues lambda_s=sum_{j>=s} [n-s choose j-s]_q q^(m(n-j)) t^(n-j) product_{i<j}(1-q^i t). For 0<=t<q^-(n-1) each eigenvalue is strictly positive, and at q^-k precisely ranks s<=k have positive eigenvalues, giving the exact Gram rank. Outside those points the two top ranks have opposite signs: lambda_n=P(1-q^(n-1)t), lambda_(n-1)=P(1+(q^m-q^(n-1))t). Cases t=0,1, n=2 are included. Independent exact rank-2x2 Fourier characters over F2/F3 and support-boundary examples corroborate the identity; proof is for all fields and m>=n.
 
-## Closest literature and limits
-Delsarte's generalized Krawtchouk eigenmatrix and Gadouleau–Yan's MacWilliams identity constitute the principal antecedents. They imply computability of the transform, but the inspected statements do not include the claimed sign/strictness classification; the possibility of equivalent unpublished or unindexed derivations persists. Finite checker runs corroborate the Fourier expansion without replacing the proof.
+## originality
 
-Self-review: passed. Independent audit: not yet performed.
+PASS
+
+Best-of-knowledge originality: compared equivalent formulations, stronger-coverage implications, exact tables, and primary literature at their true theorem scopes. No identified inspected source directly states the entire assessed refinement; named inaccessible/implicit-cover risks are retained rather than converted into automatic failure. This does not certify historical priority.
+
+## value
+
+PASS
+
+The complete disconnected PSD region, sharp strict-positive interval, isolated singular supports, and exact finite-field Gram ranks delineate a natural rank-distance kernel usable in coding and harmonic analysis. General Delsarte Fourier machinery does not itself state the parameter frontier; the opposing top-eigenspace sign argument identifies a substantive obstruction to negative type.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

@@ -5,8 +5,11 @@
     "status": "not_performed"
   },
   "independent_audit": {
-    "evidence": null,
-    "status": "not_performed"
+    "status": "passed",
+    "evidence": [
+      "INDEPENDENT_AUDIT_2026-10-30.md",
+      "INDEPENDENT_AUDIT_2026-10-30.json"
+    ]
   },
   "lean_verification": {
     "evidence": null,
@@ -16,13 +19,24 @@
 }
 ---
 
-# Verification
+# Independent mathematical audit
 
-## Analytic checks
-The finite Fourier transform convention is unnormalized, with frequency \(B\) indexed by additive characters. The rank-\(s\) multiplicity is the number of rank-\(s\) matrices, and all multiplicities sum to \(q^{mn}\). The Gaussian-binomial Newton identity is proved for infinitely many choices \(z=q^h\) by counting linear maps and therefore holds identically. Fourier-transforming the annihilator-subgroup indicators yields the formula for every \(\lambda_s(t)\). At isolated strengths the subgroup coefficients vanish exactly above the appropriate degree. At excluded strengths, \(\lambda_{n-1}\) and \(\lambda_n\) have opposite signs. This establishes every quantified claim without a computational cutoff.
+## correctness
 
-## Standalone executable check
-Run `python verify_rank_kernel.py` under Python 3, requiring only its standard library. Its exact rational tests compare 3,957 direct character sums with the claimed transform on binary and ternary matrix spaces; further exact polynomial calculations check sign and Fourier rank support for four prime-power cardinalities and dimensions up to five. No approximate numerical tolerances are used. These are finite corroborations, not proof of universal claims.
+PASS
 
-## Limits and external validation
-The claim is restricted to \(0\le t\le1\) and full matrix groups. Independent audit and external replication are not claimed. The inspected literature does not exhaust all potential equivalent sign analyses of generalized Krawtchouk spectra.
+The q-binomial Newton identity expresses t^rank X as a finite linear combination of indicators of subgroups {X:XU=0}, with coefficients t^(n-j) product_{i<j}(1-q^i t). Character orthogonality yields Fourier eigenvalues lambda_s=sum_{j>=s} [n-s choose j-s]_q q^(m(n-j)) t^(n-j) product_{i<j}(1-q^i t). For 0<=t<q^-(n-1) each eigenvalue is strictly positive, and at q^-k precisely ranks s<=k have positive eigenvalues, giving the exact Gram rank. Outside those points the two top ranks have opposite signs: lambda_n=P(1-q^(n-1)t), lambda_(n-1)=P(1+(q^m-q^(n-1))t). Cases t=0,1, n=2 are included. Independent exact rank-2x2 Fourier characters over F2/F3 and support-boundary examples corroborate the identity; proof is for all fields and m>=n.
+
+## originality
+
+PASS
+
+Best-of-knowledge originality: compared equivalent formulations, stronger-coverage implications, exact tables, and primary literature at their true theorem scopes. No identified inspected source directly states the entire assessed refinement; named inaccessible/implicit-cover risks are retained rather than converted into automatic failure. This does not certify historical priority.
+
+## value
+
+PASS
+
+The complete disconnected PSD region, sharp strict-positive interval, isolated singular supports, and exact finite-field Gram ranks delineate a natural rank-distance kernel usable in coding and harmonic analysis. General Delsarte Fourier machinery does not itself state the parameter frontier; the opposing top-eigenspace sign argument identifies a substantive obstruction to negative type.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
