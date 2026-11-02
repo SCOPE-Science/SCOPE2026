@@ -1,12 +1,21 @@
-# Scientific review
+# Independent mathematical audit
 
-## Correctness — PASS
-The valuation argument forces precisely the prime-square summands indexed by squared factors of the reduced denominator; the resulting congruence test is necessary and sufficient for the residual denominator to be squarefree. The final existence step explicitly invokes Li's published squarefree-target theorem rather than substituting finite computations. Positivity, equality, all squarefree cases, the CRT frequency, and the sharpness family have been separately reconstructed. Exact arithmetic checks appear in `verify.py`; the full source manuscript was inaccessible, so reliance on the published theorem statement is a disclosed limitation.
+## correctness
 
-## Originality — PASS
-The September 2026 source uses only denominators with two *different* prime factors and assumes a squarefree reduced target denominator. The present result classifies precisely the previously excluded prime-square summands and all rational denominators, with an optimal prime-zeta obstruction and a fixed-denominator density. Relevant indexed literature on short three-term prime-reciprocal representations and fixed-prime-support Egyptian fractions does not state or imply the combined criterion as retrieved. The reduction depends essentially on Li's deep theorem and may be a discoverable elementary corollary; complete-priority review remains open, particularly because the original paper's full text was unavailable.
+PASS
 
-## Mathematical value — PASS
-The unconditional set of all finite distinct unrestricted-semiprime reciprocal sums is a natural complete representation spectrum. The result resolves *which rational targets*, rather than *how many terms*, without an arbitrary numerator or denominator cutoff. The exact prime-power obstructions, best global positivity threshold \(\mathsf P_2\), and local numerator-density factors exhibit structural phenomena absent from the squarefree-only case. The extension is logically short once Li's theorem is accepted, a limitation of depth but not of the natural completeness or sharp obstruction.
+The p-adic valuation -2 is forced by the unique term 1/p^2, so denominator exponents <=2 and the mandatory square support is exactly S(b). Congruences a≡b/p² (mod p) reduce the positive residue x−Q(b) to squarefree denominator; Li arXiv:2609.32140 Theorem 1.1 supplies distinct p<q summands. Equality x=Q is exactly squares. Primorial Q_k−1/R_k attains sharp prime-zeta obstruction and the CRT gives the fixed-b numerator density. Independent checks confirmed the necessary criterion for all 32767 nonempty subsets on first five primes, not Li infinite existence theorem.
 
-Self-review: passed. Independent audit: not yet performed.
+## originality
+
+PASS
+
+Qualified PASS: The September 2026 Li theorem treats only target rationals with squarefree reduced denominators and only distinct-prime denominator terms. The exact forced-prime-square congruences, positivity obstruction, sharp prime-zeta boundary and density form an extension to every rational target, but are elementary consequences once Li is admitted. An unexamined corollary in Li or related papers could overlap; broad literature coverage remains qualified.
+
+## value
+
+PASS
+
+A complete characterization of which positive rationals are representable by distinct unrestricted-semiprime reciprocals is a natural arithmetic spectrum. Sharp local obstructions and optimal global threshold with denominator-stratified density are mathematically motivated, even though the reduction from Li theorem is short.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

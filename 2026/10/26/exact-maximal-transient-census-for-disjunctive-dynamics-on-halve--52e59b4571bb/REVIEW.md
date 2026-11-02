@@ -1,15 +1,21 @@
-# Scientific review: maximal-transient census on halved Boolean cubes
+# Independent mathematical audit
 
-## Correctness — PASS
-The statement fixes a loopless distance-two graph, simultaneous OR updates, labelled configurations, and the first time at which a state is periodic. The exact-walk lemma is proved for every length at least two by short weight-two decompositions plus two-step padding; the exceptional zero-weight case uses two- and three-step closed walks. At \(\lfloor n/2\rfloor\) iterations the reachable shell covers the entire parity component; at the preceding iteration precisely the farthest shell is missing. Even dimensions have one farthest vertex and hence only singleton slow supports. Odd dimensions have ordinary Hamming-neighborhood farthest shells, with all qualifying singletons counted once, qualifying pairs counted once after correcting their two centers, and larger subsets each having a unique center. Inclusion–exclusion combines the two components. The executable verifier agrees on 36 walk-shell checks, 246494 first-entry checks and independently generated bad-subset counts for dimensions seven and nine. The tests do not replace the all-dimension proof.
+## correctness
 
-## Originality — PASS under inspected evidence
-The strongest general predecessor is Goles–Hernández (2000), whose primitive-network argument and OR-net basin characterization are applicable qualitatively, and Jarrah–Laubenbacher–Veliz-Cuba (2008), whose exponent/height lemma subsumes generic height computations. Neither relevant inspected material gives a closed count of *maximal-depth initial states* on halved cubes. Aledo et al. (2015) survey general OR-system fixed-point and diameter bounds; these do not count the farthest-shell support union. The same distance-two graph with XOR/parity update has been studied separately, but XOR and OR are different dynamical operators and its rank formulas do not imply the present maximal-depth census. The exact count \(E_n\), rather than the existence of an OR fixed-point attractor or the graph exponent alone, is the assessed contribution. Historical priority outside inspected sources remains uncertain; an independent literature audit is needed.
+PASS
 
-## Mathematical value — PASS
-The first-entry maximal-depth stratum is a natural quantitative basin invariant for finite disjunctive networks. A generic bound on transient time leaves completely undetermined how many labelled states attain it. Here the full count is closed for every dimension \(n\ge6\), and the structural extremizers exhibit an unusually sharp parity distinction: one seed on an even-dimensional parity component versus all nonempty subsets of a Hamming-neighborhood in odd dimension. This supplies an exact extremal census for an infinite, highly symmetric network family, not an arbitrary finite table or a restatement of known fixed-point counts.
+OR dynamics propagates seed support along exactly-t graph walks. For t>=2, weight-two generators reach exactly even differences of weight <=2t: disjoint pair decomposition supplies minimal steps, replacing two pairs by three generators adds one step, repeated generators add two, and zero difference has 2/3-step closed circuits. Thus at T=floor(n/2) every occupied parity component fills, but at T-1 only its farthest shell can be missing. When n even the farthest parity-matched vertex has a unique antipode, yielding A=N singleton seed sets. When n odd the farthest shell is an ordinary cube-neighborhood; singleton supports counted once, pair supports have exactly two centers, >=3 supports have unique center, yielding A=N(2^n-n-C(n,2)/2). Components independent, inclusion-exclusion yields 2A 2^N-A^2. Direct shell, odd-subset counting n6..10 and finite first-entry checks passed; all-n claims rest on constructions.
 
-## Sources and limitations
-Primary material examined: Goles–Hernández (2000), relevant OR-net basin and Lyapunov sections; Jarrah–Laubenbacher–Veliz-Cuba (2008), introduction and section on graph loop number, exponent and height; and Aledo et al. (2015), survey discussion of OR dynamics and transient bounds. Graph terminology was cross-checked against the halved-cube description. The new count remains conditional on its explicitly stated synchronous loopless update, distance-two adjacency, and \(n\ge6\). Intermediate transient strata, other Hamming layers and noise are not addressed. A separate expert priority and proof assessment has not been conducted.
+## originality
 
-Self-review: passed. Independent audit: not yet performed.
+PASS
+
+General OR-network connectivity and exponent/height facts already follow from Jarrah et al 2008 and Goles--Hernández 2000. Those statements do not give the *number of maximal-depth starting configurations* in the halved cube. Resultary 2026 parity/XOR automata on the same distance-two graph have different addition law and periodic structure, so their rank formulas do not imply OR seed-support census. Earlier special halved-cube graph census may remain undiscovered.
+
+## value
+
+PASS
+
+The exact number of extremal transient states is a natural quantitative dynamical invariant beyond knowing eventual fixed points or max height. Opposite parity dimension cases have qualitatively different seed geometry: singletons in even dimension, arbitrary nonempty subsets of antipodal Hamming-neighborhoods in odd dimension. The fully labeled census makes both effects explicit for an infinite graph family.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

@@ -1,15 +1,21 @@
-# Scientific review of the wheel-majority census
+# Independent mathematical audit
 
-## Correctness
-PASS. The local majority rule reduces to AND of rim neighbors when the hub is zero and OR when it is one. Two-step composition proves both the fixed-hub classification and the no-isolated-one step-two condition for hub-reversing cycles. The two hub-majority inequalities select exactly the relevant states. A marked-run composition argument derives every coefficient of the binomial generating polynomial. The symmetric-threshold energy has strict descent unless a two-step return occurs, ruling out longer terminal periods. The explicit `110`/`1100` family proves the exponential lower bound without statistical extrapolation. The standalone direct-update checker and independent run enumerators passed 262112 complete wheel configurations (rim 4–16), plus word enumerations (length 2–14). No finite test is substituted for an infinite proof.
+## correctness
 
-## Originality
-PASS under the accessible published-record and primary-source comparisons, with recorded residual uncertainty. Turau (arXiv:2202.01580v1) classifies tree threshold dynamics, not wheels. Zehmakan (arXiv:2302.06760v1) counts stable cycle configurations and studies random-majority behavior, not the deterministic wheel period-two census. Nakar–Ron (arXiv:2205.08972v1) study fixed-radius one-dimensional automata rather than a universal hub whose update depends on all rim votes. Earlier accessible research results contain cycle-majority and friendship-graph claims but no wheel-census implication; published research-record searches returned no directly covering claim. The classical symmetric-threshold period bound and cyclic-run enumeration methods are not claimed as new. Unindexed results could still coincide with the particular wheel theorem.
+PASS
 
-## Mathematical value
-PASS. The result completely classifies recurrent colorings of an infinite, socially interpretable network family, not just a finite graph or an arbitrary coefficient. A universal hub collapses the many stable configurations known for bare cycles to two, while an explicitly counted exponentially large collection of two-cycles survives; the hub may itself keep flipping. This separates equilibrium-profile suppression from oscillatory persistence in a highly centralized social graph. The theorem gives exact labeled orbit counts rather than a computational sample. It does not predict attraction-basin masses.
+The symmetric adjacency matrix with one added hub self-weight when n is even gives strictly nonzero odd local fields, and the integer Lyapunov -s(t+1)^T W s(t) decreases strictly unless s(t+2)=s(t); hence eventual period at most two. With constant hub 0, the rim follows AND then AND; the identity A(A(x))_i=x_(i-2)x_i x_(i+2) forces constant values along each step-two cycle, and hub majority leaves precisely the two unanimous fixed states and two fixed-hub genuine two-cycle orbits when n even (accounting also for complements). With flipping hub, the rim returns iff no isolated 1 along each step-two cycle, with exact strict inequalities 2a>n and 2b<n. Cyclic runs of 1 length >=2, separated by zero-runs, have coefficient (ell/r) C(a-r-1,r-1) C(ell-a-1,r-1); the n odd/even G_n/G_(n/2)^2 polynomial counts labeled states without rotation quotient. Every orbit has one hub-zero state, so B_n counts orbits, not twice the number. For n>=96 the injective concatenations of 110 and 1100 on the step-two cycles give at least 2^(n/12) flipping cycles. Independent direct update enumeration for n=4..13 and independent run count agreed exactly; finite tests do not prove all n.
 
-## Evidence and limitations
-Closest primary sources: Turau 2022, Zehmakan 2023, Nakar–Ron 2022 (see RESULT.md). Verification: `verify_wheel.py`. The exact domain is an unweighted wheel with synchronous open-neighborhood majority and hub-tie retention; no general-graph or stochastic extension is claimed. Unindexed literature remains the principal originality risk. Independent audit is pending.
+## originality
 
-Self-review: passed. Independent audit: not yet performed.
+PASS
+
+Classical symmetric threshold-network period-at-most-two and majority dynamics on trees/cycles are prior. The wheel with universal hub is neither a tree nor a local-radius cycle automaton, and prior accessible full articles do not give this exact hub-flip generating polynomial or exponential count. Resultary parity-automata studies use XOR, not majority. Equivalent wheel threshold-network calculations remain possible.
+
+## value
+
+PASS
+
+The coexistence of exactly two fixed points with exponentially many distinct two-cycle attractors is a substantial structural distinction for synchronous consensus/majority models. The explicit finite generating polynomial gives exact labeled counts for every graph size and rigorously distinguishes reversing-hub from fixed-hub oscillators; none is mere code enumeration.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

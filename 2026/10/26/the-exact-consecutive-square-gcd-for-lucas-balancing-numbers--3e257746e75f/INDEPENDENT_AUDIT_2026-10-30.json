@@ -1,0 +1,134 @@
+{
+  "audit_date_utc": "2026-10-30",
+  "audited_at_utc": "2026-10-30T08:14:11Z",
+  "axes": {
+    "correctness": {
+      "rationale": "The Binet pair for u=3+2sqrt2 yields the exact identity 2S_n(k)=k+B_k C_(2n+k+1). Consecutive differences equal 8B_k B_(2n+k+2). The stride-two subsequence has gcd 1 (k odd) or 6 (k even), by the order-two unimodular recurrence and parity residues. Thus the infinite GCD reduces to gcd(S_0,8B_k) or gcd(S_0,48B_k). For odd k, S0 and Bk odd and the identity gives gcd(k,Bk). For even k, odd primes not 3 follow from 2S0 congruent k mod Bk; prime 3 uses v3(Bk)>=v3(k)+1 and C_(k+1)=0 mod3, while prime 2 uses the doubling formula and mod4 congruences to obtain v2(S0)=v2(Bk)=v2(k). These complete prime valuation comparisons establish equality for every positive k, not just tested windows. Independently, 24 consecutive start positions for each k=1..110, exact sum identities and Python integer gcds all match; finite tests alone do not prove the infinite gcd.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Mbirika--Spilker 2022 assumes generalized Fibonacci X_(n+2)=X_(n+1)+X_n, which does not include B/C recurrence X_(n+2)=6X_(n+1)-X_n.",
+          "The 2023 primary paper gives explicit unsquared term GCDs and only partial information for squared-term GCDs, as Question 30 confirms."
+        ],
+        "reasoning": "Neither identified broad result directly implies the equality for Lucas-balancing squares. A general Lucas sequence p-adic valuation theorem might provide tools, but no covering full parameterized window-GCD result was found in materially inspected primary sources.",
+        "searches": [
+          "Lucas balancing numbers gcd k consecutive squares C_n Pell companion sequence Question 30 gcd(k,B_k) [Resultary semantic, 35]",
+          "GCD of consecutive squares Lucas balancing numbers gcd k B_k later published formula 2024 2025 2026",
+          "\"Lucas-balancing\" \"GCD\" \"squares\" \"k\"",
+          "https://arxiv.org/pdf/2301.05758",
+          "https://arxiv.org/pdf/2204.12626",
+          "OEIS A001109 A001541",
+          "2026/10/4/SCOPE-even-even-period-equality-for-lucas-pairs-with-q-1--c698969a6a49",
+          "2026/10/4/SCOPE-all-local-prime-parts-are-dold-for-split-companion-lucas-sequenc--82bcde83c42e"
+        ]
+      },
+      "checked_sources": [
+        "Mbirika--Schrader--Spilker 2023 arxiv:2301.05758v3, printed p.22 Questions 30 and 31 (full primary PDF)",
+        "Mbirika--Spilker 2022 arxiv:2204.12626 (main recurrence and square-GCD theorem)",
+        "Komatsu--Panda 2016 arxiv:1608.05918 (abstract/relevant thematic context)",
+        "OEIS A001109 and A001541 indexed recurrences",
+        "Resultary published mathematical findings search on Lucas-balancing square sums, relevant nearest Lucas period/Dold records"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "The 2023 paper Question 30 identifies the target as missing; Question 31 warns that gcd(S_k,k) may not count as a fully simplified closed form.",
+          "The current proof derives 2S_n=k+B_k*C_(2n+k+1), then uses stride-two gcd and p-adic analysis to show gcd(k,Bk), which is absent from the earlier stated theorems."
+        ],
+        "reasoning": "Known unsquared GCDs or square formulas for Fibonacci recurrence cannot be applied by renaming to the balancing pair; the exact identity is a distinct all-k assertion. The \"closed form\" wording is qualified to an exact reduction rather than an independent solution of Question 31.",
+        "searches": [
+          "https://arxiv.org/pdf/2301.05758",
+          "https://arxiv.org/pdf/2204.12626",
+          "Lucas balancing numbers gcd k consecutive squares C_n Pell companion sequence Question 30 gcd(k,B_k) [Resultary semantic, 35]"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Mbirika--Schrader--Spilker Question 30 concerns precisely C^2(k), gcd over n of k consecutive Lucas-balancing squares.",
+          "The new expression gcd(k,Bk) is an exact arithmetic reduction, not the already known unsquared Lucas-balancing window GCD."
+        ],
+        "reasoning": "Compared Pell/Pell-Lucas aliases, balancing companion Lucas sequences, squared GCD and shifted sums; same recurrence and square operation are essential. Closest indexed formula remains a different invariant.",
+        "searches": [
+          "Lucas balancing numbers gcd k consecutive squares C_n Pell companion sequence Question 30 gcd(k,B_k) [Resultary semantic, 35]",
+          "GCD of consecutive squares Lucas balancing numbers gcd k B_k later published formula 2024 2025 2026",
+          "\"Lucas-balancing\" \"GCD\" \"squares\" \"k\"",
+          "https://arxiv.org/pdf/2301.05758",
+          "https://arxiv.org/pdf/2204.12626",
+          "OEIS A001109 A001541",
+          "2026/10/4/SCOPE-even-even-period-equality-for-lucas-pairs-with-q-1--c698969a6a49",
+          "2026/10/4/SCOPE-all-local-prime-parts-are-dold-for-split-companion-lucas-sequenc--82bcde83c42e"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "OEIS A001109 and A001541 provide B and C terms, but not a proof of the window-square GCD identity.",
+          "The 2023 paper reports Mathematica observations connecting B^2(k),C^2(k) and c^2(k), not gcd(k,Bk).",
+          "Independent integer checks verify k=1..110 and 24 starts per k but are not a universal table proof."
+        ],
+        "reasoning": "Even if finite computed GCD values match a known sequence, this theorem explains all k by prime valuations, including the exceptional p=2,3 cases; numeric data alone do not cover it.",
+        "searches": [
+          "Lucas balancing numbers gcd k consecutive squares C_n Pell companion sequence Question 30 gcd(k,B_k) [Resultary semantic, 35]",
+          "OEIS A001109 A001541",
+          "https://arxiv.org/pdf/2301.05758"
+        ]
+      },
+      "rationale": "The strongest same-object primary source Mbirika--Schrader--Spilker (2023), Question 30, explicitly asks for the Lucas-balancing square GCD rather than giving the formula. Its earlier unsquared GCD formulas do not imply the square result. The generalized-Fibonacci square theorem has a different characteristic recurrence. Resultary and indexed sequence searches found no stronger theorem in this precise family. An important precision is that gcd(k,Bk) remains a gcd of a sequence term with its index, and the same source Question 31 warns such forms need not be a completely simplified closed form; originality attaches to the equality/reduction, not an unstated gcd-free factorization. Later/unindexed dominating results remain possible.",
+      "residual_risks": [
+        "The answer gcd(k,Bk) remains a computational gcd and does not solve the separate prime-factor/rank-of-apparition simplification problem in Question 31; do not overstate the result as gcd-free closed form.",
+        "The underlying sum and difference identities are elementary consequences of Binet formulas; an unindexed general Lucas square-GCD theorem could cover the equality.",
+        "The 2023 paper gives related squared-GCD observations, so only the all-k exact new equivalence is credited."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Question 30 explicitly leaves C^2(k) without the claimed reduction; Question 31 cautions that expressions gcd(S_k,k) may not be a closed form in the same sense. Hence the present equality is a useful exact reduction, but not a gcd-free evaluation, and its slogan of full closed form requires this qualification.",
+          "evidence": "Printed p.22 Question 30 seeks nice closed forms for B^2,C^2,b^2,c^2; immediately following Question 31 observes gcd(S_k,k) is not fully simplified.",
+          "identifier_or_url": "https://arxiv.org/pdf/2301.05758",
+          "material_read": "Complete 24-page public PDF material read, especially sequence notation, section 6.1 (partial square GCDs), PDF page index 21 with Questions 30 and 31; visually inspected page index 21",
+          "method": "Full primary PDF text, direct equation comparisons and screenshot of Question 30/31",
+          "title": "Pell and Associated Pell Braid Sequences as GCDs of Sums of k Consecutive Pell, Balancing, and Related Numbers",
+          "trigger": "Precisely same Lucas-balancing sequence and squared-window GCD invariant"
+        },
+        {
+          "assessment": "Applies to generalized Fibonacci X_{n+2}=X_{n+1}+X_n, distinct from Lucas-balancing X_{n+2}=6X_{n+1}-X_n; no direct substitution covers the claim.",
+          "evidence": "Theorem hypotheses use characteristic polynomial x^2-x-1, while this companion has x^2-6x+1.",
+          "identifier_or_url": "https://arxiv.org/pdf/2204.12626",
+          "material_read": "Public full-text mathematical statement/recurrence assumptions and main results materially inspected; visual PDF page 1",
+          "method": "Primary preprint PDF and screenshot of main recurrence hypothesis",
+          "title": "GCD of sums of k consecutive squares of generalized Fibonacci numbers",
+          "trigger": "Potential broader all-sequence consecutive square-GCD theorem"
+        },
+        {
+          "assessment": "Prior balancing sum identities are relevant building blocks, but no verified theorem equating all-shift Lucas-balancing squared-sum GCD to gcd(k,Bk) in inspected material.",
+          "evidence": "Komatsu--Panda 2016 balancing-number sum identities; different stated functional.",
+          "identifier_or_url": "https://arxiv.org/abs/1608.05918",
+          "material_read": "Abstract and available description of balancing identities and summations; no claim to have fully inspected all pages in this execution",
+          "method": "Public abstract and theorem-level context search",
+          "title": "On several kinds of sums of balancing numbers",
+          "trigger": "Exact balancing sequence, possible prior identity for sums"
+        },
+        {
+          "assessment": "Records B_n and C_n as sequences; no evidence that it already lists the infinite consecutive-square GCD invariant.",
+          "evidence": "A001109 and A001541 are the B and C recurrences, not the complete all-k gcd theorem.",
+          "identifier_or_url": "https://oeis.org/A001541",
+          "material_read": "OEIS sequence metadata, initial values, recurrences and associated identifiers",
+          "method": "Exact-sequence index and recurrence comparison",
+          "title": "OEIS A001109 and A001541",
+          "trigger": "Exact balancing/Lucas-balancing sequence table identification"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "rationale": "The squared-sum Lucas-balancing GCD is singled out as an unsolved natural parameter family in Mbirika--Schrader--Spilker (2023) Question 30. A uniform exact reduction to gcd(k,Bk) replaces an infinite sliding-window GCD and isolates nontrivial 2-adic and 3-adic cancellations. The invariant is intrinsically natural and useful for later entry-point analysis even though the resulting gcd(k,Bk) is not itself a completely simplified prime-factor closed form (as their Question 31 explicitly notes). This mathematical usefulness does not require resolving all other Q30 families.",
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "limitations": [
+    "Only the squared-window Lucas-balancing C sequence; other three Question 30 square-GCD families remain open in this finding.",
+    "The right side gcd(k,Bk) is exact but not a gcd-free explicit formula, in light of the motivating paper Question 31.",
+    "Possible implicit/general Lucas recurrence formula remains a historical-priority risk."
+  ],
+  "schema_version": 1
+}

@@ -1,12 +1,21 @@
-# Scientific assessment
+# Independent mathematical audit
 
-## Correctness
-**PASS.** The result proves a finite-graph stationary renewal resolvent, the uniform-ensemble weak-reset covariance, and the two-hop high-reset motif coefficient. A three-state exact chain for \(K_{2,m}\) proves the unique threshold at \(m=3\) for every positive integer size of its right partition. The algebra and limits were corroborated with **251 passing checks** from an independently implemented full-state exclusion generator and symbolic three-state and four-cycle calculations. Numerical experiments are not used as proof for all graph sizes.
+## correctness
 
-## Originality
-**PASS (self-review).** The original Poisson-reset exclusion study of Basu, Kundu and Pal (2019) provides the renewal and density/current setting. Sadekar and Basu (2020) analyze spatial correlations under *dichotomous* resets to two complementary configurations, not fixed-single-target covariance on general graphs. Mishra and Basu (2022) use power-law reset clocks. Mendonça (2012) treats bipartite ordinary exclusion spectra, without resetting. The assessed new mathematical claim is the high-reset local-neighbor coefficient and exact \(K_{2,m}\) phase diagram, not the generic renewal formula. Direct semantic searches did not identify a covering prior result, but general Markov-chain resolvent/correlation theorems and unlocated articles remain plausible priority risks. See AUDIT.json for actual scientific comparisons.
+PASS
 
-## Value
-**PASS.** The sharp signed covariance crossover is a qualitative non-equilibrium effect: equilibrium particle-number conservation forces negative covariance, whereas rapid common resetting can create *positive* covariance through geometrically separate empty destinations. The \(K_{2,m}\) family has an exact topology-controlled all-rate classification and the cycle corollary applies to a standard exclusion geometry. Neither the zero leading coefficient nor general-graph uniqueness of zeros is claimed.
+Stationary resetting resolvent π_r(f)=r∫exp(-rt)(P_t f)(S)dt follows from memoryless independent reset and irreducibility. r→0 yields uniform k-subset moments and C= -k(n-k)/(n²(n-1)). At high r use U=1-η_x,V=1-η_y. Their first departure derivatives are d_x,d_y; exactly two jumps to distinct initial empty neighbors give second Taylor coefficient d_x d_y-c and no other two-jump routes end with both x,y vacant. Exponential-age integrals multiply by 2!, giving r² Cov(U,V)=d_xd_y-2c. Explicit three-state generator on K_(2,m) has rates 0->1:4, 1->0:m-1, 1->2:1, 2->1:2m and reset 0,1->2:r. Solving π gives C=m((m-2)r-4)/((m+r+2)^2(2m+r+2)), yielding exactly one positive root r=4/(m-2) iff m>=3. Four-cycle specialization and even-block boundary coefficient follow. Independent symbolic rational generator calculation reproduced the K_(2,m) formula; limit claims fixed graph.
 
-Self-review: passed. Independent audit: not yet performed.
+## originality
+
+PASS
+
+Basu–Kundu–Pal 2019 establish symmetric exclusion with stochastic resetting and renewal; their inspected full article treats densities/integrated currents. Sadekar–Basu 2020 correlations concern dichotomous rather than single-configuration resets; ordinary bipartite spectrum without resetting does not imply the exact signed covariance threshold. General Markov resolvent formulas are common, so genuinely new portion is the two-hop geometry and all-m bipartite phase.
+
+## value
+
+PASS
+
+Non-equilibrium stationary covariance changes sign despite equilibrium exclusion anticorrelation; the local combinatorial obstruction predicts reversal, and K_(2,m) demonstrates an exact, sharp vacancy coordination threshold with unique sign crossing. This informs finite-network exclusion correlations without requiring a thermodynamic limit.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

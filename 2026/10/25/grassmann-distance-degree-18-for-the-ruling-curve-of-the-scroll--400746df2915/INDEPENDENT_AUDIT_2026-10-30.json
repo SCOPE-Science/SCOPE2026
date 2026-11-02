@@ -1,0 +1,104 @@
+{
+  "audit_date_utc": "2026-10-30",
+  "audited_at_utc": "2026-10-30T05:14:49Z",
+  "axes": {
+    "correctness": {
+      "rationale": "Projection matrices on the two orthogonal coordinate blocks give F_Q(t)=f1(t)/s1(t)+f2(t)/s2(t)=G(t)/(s1*s2) with s1=1+t^2+t^4 and s2=1+t^2+t^4+t^6, coprime, product L degree10. For any Q the derivative numerator H=G_prime*L-G*L_prime has degree at most 18 after the highest terms cancel. The explicit data Q0=diag(aa^T/14,bb^T/30), a=(1,2,3), b=(1,2,3,4), are genuine rank-one block idempotents and jointly rank2. Independent exact SymPy rational arithmetic confirmed H degree18, leading coefficient -58/35, gcd(G,L)=gcd(H,L)=gcd(H,H_prime)=gcd(H,p1*p2)=1. Thus there are 18 simple finite nonpole critical roots; the last gcd excludes the algebraic cut locus via rank(QP)=2 iff p1*p2 nonzero for this witness, and degree18 excludes criticality at infinity. Nonvanishing coefficient/resultant/discriminant conditions define a nonempty Zariski open subset of the irreducible projection Grassmannian, so generic constrained Q realizes 18. The known ED upper bound is attained, establishing GDdeg=EDdeg=18.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Friedman–Hoşten–Rosana arXiv:2610.02018 Theorem 2.2 gives formula 2deg lcm(s1,s2)-2=18 for ED; Theorem 4.4 discusses expected ED=GD agreement for low-dimensional settings, not a proved all-scroll equality."
+        ],
+        "reasoning": "A conjectural/expected agreement is not a dominating proof. The concrete Q0 witness enforces both projection constraint and cut-locus exclusion, which an unrestricted ED theorem does not provide.",
+        "searches": [
+          "rank two projection Grassmann distance degree scroll S(2,3) GDdeg 18 EDdeg",
+          "Euclidean Distance Optimization Within the Grassmannian Theorem 2.2 Definition 4.2 Theorem 4.4"
+        ]
+      },
+      "checked_sources": [
+        "Euclidean Distance Optimization Within the Grassmannian: https://arxiv.org/html/2610.02018v2 (Primary full HTML article with focused reading of Introduction, Example 2.1, Theorem 2.2 and proof, Definition 4.2 and Theorem 4.4; document text searches for the scroll case.)",
+        "Distance Optimization in the Grassmannian of Lines: https://arxiv.org/abs/2601.22843 (Original arXiv abstract and initial overview; not full technical paper.)",
+        "Base-plane flat limits behind the line-distortion degree drops: https://github.com/Resultary/2026/tree/main/2026/10/4/SCOPE-base-plane-flat-limits-behind-the-line-distortion-degree-drops--c466980abacd (Published research record title and supplied summary; source full text not read.)"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "Friedman–Hoşten–Rosana Example 2.1/Theorem 2.2 already covers ED=18. Their Definition 4.2 and Theorem 4.4 distinguish GD and state only a general expected equality in relevant cases. Friedman–Rosana–Sturmfels earlier provides general GD framework."
+        ],
+        "reasoning": "A generic unrestricted symmetric-matrix optimum is not guaranteed for rank-two idempotent Q, and critical points may lie in the excluded cut locus. The new explicit exact witness provides the missing implication for this curve.",
+        "searches": [
+          "rank two projection Grassmann distance degree scroll S(2,3) GDdeg 18 EDdeg",
+          "Euclidean Distance Optimization Within the Grassmannian Theorem 2.2 Definition 4.2 Theorem 4.4",
+          "Distance Optimization in the Grassmannian of Lines Friedman Rosana Sturmfels scroll"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Projection Grassmannian pGr(2,7) embeds lines by symmetric idempotents; chordal squared distance equals 4-2tr(PQ), so critical equations agree. Friedman–Hoşten–Rosana define GD as restriction to projection data outside cut locus."
+        ],
+        "reasoning": "The existing unrestricted EDdeg=18 is not logically identical to rank-two-data GDdeg=18; restricting general Q can lower attainable critical count. The explicit genuine projection Q0 and gcd cut-locus condition settle this extra requirement.",
+        "searches": [
+          "Grassmann distance degree ruling curves rational normal scroll S(2,3) rank two projection matrix",
+          "rank two projection Grassmann distance degree scroll S(2,3) GDdeg 18 EDdeg"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "Resultary published record on S(2,3) base-plane flat limits analyzes Hilbert flat limits of scroll surfaces, not Grassmannian constrained-distance critical-point counts."
+        ],
+        "reasoning": "Compared same scroll object but distinct invariant: degree/flat limits of varieties versus generic count of stationary projection-distance rulings. No exact GD table was found; this alone is not priority proof.",
+        "searches": [
+          "Grassmann distance degree ruling curves rational normal scroll S(2,3) rank two projection matrix",
+          "rank two projection Grassmann distance degree scroll S(2,3) GDdeg 18 EDdeg"
+        ]
+      },
+      "rationale": "Friedman–Hoşten–Rosana arXiv:2610.02018 explicitly proves ED degree 18 for scroll ruling curves and defines GD degree for projection-constrained data, but its broad expected low-dimensional ED/GD equality is not a proved universal scroll theorem and does not itself certify an admissible Q with 18 off-cut-locus roots. The assessed added rank-two witness proves this special GD degree. Qualified PASS, acknowledging the known ED number and general framework.",
+      "residual_risks": [
+        "Earlier unpublished/general GD theorem for all ruling curves could subsume this case.",
+        "The count is complex generic for algebraic chordal metric; no generic real count, intrinsic geodesic count or all-scroll classification is asserted."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "ED=18 is established prior; the paper does not prove the exact GD=18 for this scroll via projection witness in inspected statements.",
+          "evidence": "Friedman, Hoşten, Rosana (2026), theorems 2.2, 4.4 and definition 4.2.",
+          "identifier_or_url": "https://arxiv.org/html/2610.02018v2",
+          "material_read": "Primary full HTML article with focused reading of Introduction, Example 2.1, Theorem 2.2 and proof, Definition 4.2 and Theorem 4.4; document text searches for the scroll case.",
+          "method": "Read source theorem statements and hypotheses and compared ED/GD and cut-locus requirements.",
+          "title": "Euclidean Distance Optimization Within the Grassmannian",
+          "trigger": "Direct ED degree 18, GD definition and possible dominating general equality theorem."
+        },
+        {
+          "assessment": "Provides Grassmann distance framework for lines; no observed statement of S(2,3) GD critical count, with unread details as residual risk.",
+          "evidence": "Friedman, Rosana, Sturmfels, arXiv:2601.22843.",
+          "identifier_or_url": "https://arxiv.org/abs/2601.22843",
+          "material_read": "Original arXiv abstract and initial overview; not full technical paper.",
+          "method": "Compared scope and definitions from public source.",
+          "title": "Distance Optimization in the Grassmannian of Lines",
+          "trigger": "Foundational GD degree treatment and candidate broader classification."
+        },
+        {
+          "assessment": "Studies flat limits/degree drops and base-plane components, not constrained projection distance critical points.",
+          "evidence": "Resultary published summary names S(2,3), S(1,3), S(1,2) as flat-limit scroll strata.",
+          "identifier_or_url": "https://github.com/Resultary/2026/tree/main/2026/10/4/SCOPE-base-plane-flat-limits-behind-the-line-distortion-degree-drops--c466980abacd",
+          "material_read": "Published research record title and supplied summary; source full text not read.",
+          "method": "Resultary semantic search; compared actually described invariant.",
+          "title": "Base-plane flat limits behind the line-distortion degree drops",
+          "trigger": "Same named scroll, possible precomputed invariant."
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "rationale": "GD degree is a natural stationary-fitting invariant when both query and target are lines; it differs from unrestricted symmetric-matrix ED degree in known examples. The first asymmetric rational normal scroll S(2,3) is a nonarbitrary baseline, and an exact cut-locus-safe rank-two witness resolves whether constrained data loses complex critical points.",
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "limitations": [
+    "Earlier unpublished/general GD theorem for all ruling curves could subsume this case.",
+    "The count is complex generic for algebraic chordal metric; no generic real count, intrinsic geodesic count or all-scroll classification is asserted.",
+    "No GitHub writes were performed; all public-file modifications withheld for privacy-safe staging."
+  ],
+  "schema_version": 1
+}

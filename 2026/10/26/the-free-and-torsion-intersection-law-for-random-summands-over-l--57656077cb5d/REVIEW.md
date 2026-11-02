@@ -1,11 +1,21 @@
-# Self-review
+# Independent mathematical audit
 
-**Correctness — PASS.** The lift torsor, ordinary Grassmann intersection count, surjective obstruction map, and Smith-type identification form a complete finite proof. Conditional on residue intersection dimension, the torsion multiplicity is exactly the rank of a uniform field matrix. The Euler-product Gaussian limit and a summable tail bound establish total-variation convergence. Exhaustive ring-linear tests in dual-number and \(\mathbb Z/4\mathbb Z\) examples corroborate, but do not establish, the infinite statements.
+## correctness
 
-**Originality — PASS against inspected sources for the stated critical-window joint limit.** Byrne et al. enumerate individual module types and densities, not intersections of two free summands. The closely relevant Cao general-linear orbit theory classifies framed pairs with full orbit sizes and could recover pieces of the finite formula through aggregation: finite parameter-count priority is not asserted. The inspected 2026 Hjelmslev EKR treatment establishes extremal family results, not this probabilistic total-variation limit. Direct semantic overlap searches under Smith type, chain-ring Grassmannian, dual numbers, \(\mathbb Z/4\mathbb Z\), and random code intersections yielded no explicitly matching limit. Association-scheme literature outside inspected sources is the remaining priority risk.
+PASS
 
-**Value — PASS.** Intersections of two free summands may contain both free and torsion cyclic constituents, unlike intersections of vector spaces. The theorem gives all joint multiplicities over arbitrary length-two finite commutative chain rings and an explicit phase window with positive torsion-only limiting mass; this is a natural module invariant with uses in the geometry of finite-chain-ring codes.
+For fixed residue ℓ-plane L, free summand lifts form q^{ℓ(n−ℓ)} graph torsor. Grassmann intersection L∩H has dimension d with Gaussian count. The canonical obstruction δ:S→F_q^n/(H+L) is surjective-uniform across lifts, of dimension c×d; its rank b gives torsion multiplicity, kernel dimension a=d−b the free rank. Multiplication yields the explicit Gaussian coefficient and GL_b count, normalized by q^{ℓ(n−ℓ)}[n ℓ]_q. In critical window, Gaussian asymptotics give residue mass Φ∞q^{-d(d+s)}/(Φ_dΦ_{d+s}); conditional b is matrix rank. A uniform summable q^{-d(d+s)} tail proves total-variation convergence. Independent Gaussian normalization and Z4 small free-submodule enumeration passed.
 
-The hypotheses exclude length-three rings, nonfree selected modules, and simultaneous field-size growth. These limits are part of the theorem's actual scope. No independent validation has been undertaken.
+## originality
 
-Self-review: passed. Independent audit: not yet performed.
+PASS
+
+Qualified PASS: Byrne et al describe free module counts and density, not pairwise random intersection Smith types. Cao 2011 orbital association scheme results on framed matrix pairs could subsume finite enumerative formula upon orbit-summing, a substantial priority caveat; they do not explicitly provide the joint torsion/free critical-window limit in inspected sections. Landjev et al 2026 treat extremal intersecting families, not random summand law. The defended novelty is joint probability limit and explicit obstruction disintegration, not general framed-orbit counting.
+
+## value
+
+PASS
+
+Finite chain-ring direct summands naturally intersect in mixed free/torsion modules unlike vector spaces. This gives the full exact joint intersection-type law for both equal/mixed characteristic rings and meaningful critical-window limiting torsion-only mass; a reusable invariant for code/Grassmannian geometry.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

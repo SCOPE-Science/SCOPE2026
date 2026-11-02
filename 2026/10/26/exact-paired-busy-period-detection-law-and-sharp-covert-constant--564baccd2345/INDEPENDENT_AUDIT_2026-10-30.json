@@ -1,0 +1,102 @@
+{
+  "audit_date_utc": "2026-10-30",
+  "audited_at_utc": "2026-10-30T13:18:13.215225Z",
+  "axes": {
+    "correctness": {
+      "rationale": "Each busy trajectory with N=j has j-1 arrivals, j departures, and 2j-1 exponential waiting times of rate lambda+mu. Its Catalan path density is theta^(j-1)mu^j t^(2j-2)e^-(theta+mu)t/[j!(j-1)!]. Therefore T|N=j is Gamma(2j-1,theta+mu); conditional jump ordering and waiting-time simplex given the pair are parameter independent, giving Blackwell equivalence to full unmarked within-busy paths. Log likelihood is S log((lambda+eta)/lambda)-eta U, so exact gamma/ballot weights and the Gamma CDF at q S give both NP errors. Conditional likelihood changes sign under either marginal observation, making paired TV strictly larger. E[S]=lambda/(mu-lambda), E[U]=1/(mu-lambda) give exact KL pair and positive count-only information gap; score variance is 1/[lambda(mu-lambda)], giving LAN Gaussian total error. Small-eta expansion plus the pooled-Poisson initiating-customer source mark yields Kpair=mu sqrt(2/[lambda(mu-lambda)]). Fresh independently generated ballot-Gamma sums at (lambda,mu,eta,k)=(1,3,0.25,2) give alpha 0.286581758460309, beta 0.632887806741184, plus KL and Fisher comparisons. Analytic arguments justify infinite sums, strict inequalities and limits.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Takács 1961 and Prabhu work provide classical busy-period joint laws.",
+          "Clarke 1957 general stopped-path count-and-exposure sufficiency is broader in model but lacks the specific paired covert test."
+        ],
+        "reasoning": "A classical trajectory estimation theorem is broad, but not a stated finite paired-testing/strict power/covert asymptotic classification; it could facilitate a later derivation.",
+        "searches": [
+          "M/M/1 busy period joint number of customers duration detection covert relative entropy"
+        ]
+      },
+      "checked_sources": [
+        "Sahithi–Yardi–Ravi arXiv:2610.13911v1 full primary text",
+        "Asanjarani–Nazarathy–Taylor arXiv:2012.14614 §3.1",
+        "Takács 1961 DOI:10.1287/opre.9.3.402 abstract",
+        "Chaudhry–Goswami 2019 DOI:10.1155/2019/7398658",
+        "Yardi–Bodas DOI:10.1109/LCOMM.2020.3038191 abstract"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "The established joint density and general Neyman–Pearson principle are acknowledged ingredients; the strict two-marginal inequality and exact operational Kpair are not stated in compared primary.",
+          "Sahithi–Yardi–Ravi §IV parameter-independent conditional duration assumption differs from Gamma(2j-1,lambda+mu); at j=1 it must be Exp(lambda+mu)."
+        ],
+        "reasoning": "The full paired inference uses information absent from either marginal, and conditional T|N=j depends on arrival rate; this is an actual mathematical separation, not merely wording.",
+        "searches": [
+          "M/M/1 busy period joint number of customers duration detection covert relative entropy"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Sahithi–Yardi–Ravi arXiv:2610.13911v1 §§II–V analyze N-only and T-only monitoring, not simultaneous N,T.",
+          "Asanjarani–Nazarathy–Taylor arXiv:2012.14614 §3.1 credits Clarke 1957 stopped M/M/1 path likelihood sufficient statistics."
+        ],
+        "reasoning": "General likelihood sufficiency and joint count-duration density were specifically recognized as prior mathematical aliases, and not presented as novelty.",
+        "searches": [
+          "M/M/1 busy period joint number of customers duration detection covert relative entropy"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "Sahithi–Yardi–Ravi tables/figures give marginal square-ROOT constants and curves, not finite paired Gamma-CDF optimal error series.",
+          "Chaudhry–Goswami 2019 count tables do not tabulate two-channel NP risk."
+        ],
+        "reasoning": "Neither reported count-only/duration-only numeric comparison nor marginal table yields the paired likelihood-ratio risk coefficients.",
+        "searches": [
+          "M/M/1 busy period joint number of customers duration detection covert relative entropy"
+        ]
+      },
+      "rationale": "Qualified PASS: The 2026 Sahithi–Yardi–Ravi primary article presents alternative count-only and duration-only monitors, not their paired simultaneous observation theorem. Classical count/duration joint busy-period laws (Takács/Prabhu) and M/M/1 stopped-path sufficiency (Clarke, surveyed by Asanjarani et al.) are prior and explicitly not claimed new. The target contribution is the paired Gamma–ballot NP risk, strict simultaneous-report detection superiority, information gain and local covert coefficient. Full historical Takács and earlier covert queue paper not verified, so priority risk remains.",
+      "residual_risks": [
+        "Full 1961 Takács and 2020 Yardi–Bodas primary texts not read; might include equivalent paired inference.",
+        "Covert additional-job count assumes the initiating customer is marked by Poisson source mixture; do not extrapolate to an arbitrary deterministic unmarked initiator.",
+        "No idle-period observations, unknown service rates or non-Poisson arrivals."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "TWO_SEPARATE_MONITORS: not the paired finite optimal test. Its claimed parameter-independent T|N is not valid for the standard within-busy wall-clock duration.",
+          "evidence": [
+            "§II two options N-only or T-only; §IV conditional-duration Erlang(k,mu) statement; exact j=1 countercomparison T|N=1 ~ Exp(lambda+mu)."
+          ],
+          "identifier_or_url": "https://arxiv.org/html/2610.13911v1",
+          "material_read": "Full original 2026 HTML Sections I–V, relevant formulas and appendices; Section IV conditional-duration passage also inspected in PDF screenshot.",
+          "method": "Read complete primary arXiv content and visually checked Section IV page.",
+          "title": "Fundamental Limits of Covert queueing under Busy-Period Observations",
+          "trigger": "Closest 2026 same queue and disclosure model"
+        },
+        {
+          "assessment": "PATH_SUFFICIENCY_PRIOR: count/exposure parameters are known, not new paired covert decision law.",
+          "evidence": [
+            "Asanjarani–Nazarathy–Taylor 2020/2021 §3.1 credits Clarke 1957 full-path inference."
+          ],
+          "identifier_or_url": "https://arxiv.org/abs/2012.14614",
+          "material_read": "Relevant full-text §3.1 survey synopsis of Clarke (1957) stopped M/M/1 trajectory likelihood; material was compared, earlier original Clarke not read.",
+          "method": "Compared stopped-path sufficient-statistic statement to target and excluded it from originality.",
+          "title": "A Survey of Parameter and State Estimation in Queues",
+          "trigger": "Potentially dominating generic likelihood sufficiency"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "rationale": "PASS: A paired count-duration release is the natural information-larger observation model in a specific 2026 covert monitoring problem. It yields quantitative finite optimal detection and sharp square-ROOT insertion constant not available by treating marginals separately. Correct Gamma conditional dependence also exposes a scientifically important distinction from a parameter-free conditional-duration assertion in the source; generic exponential-family sufficiency alone is not assigned value.",
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "limitations": [
+    "Full 1961 Takács and 2020 Yardi–Bodas primary texts not read; might include equivalent paired inference.",
+    "Covert additional-job count assumes the initiating customer is marked by Poisson source mixture; do not extrapolate to an arbitrary deterministic unmarked initiator.",
+    "No idle-period observations, unknown service rates or non-Poisson arrivals.",
+    "No claim of external peer review, independent formal verification, or publisher validation; mathematical priority is best-of-knowledge and remains contingent on residual risks."
+  ],
+  "schema_version": 1
+}

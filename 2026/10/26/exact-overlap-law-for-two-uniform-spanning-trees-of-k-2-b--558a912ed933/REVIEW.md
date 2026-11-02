@@ -1,15 +1,21 @@
-# Review
+# Independent mathematical audit
 
-## Correctness
-PASS. The complete-spoke characterization of each spanning tree is a bijection for every \(b\ge2\). Conditioned on equal versus distinct double-attachment spokes, the shared-edge counts are two explicit shifted binomials. Their mixture gives the independent Bernoulli correction, and unimodality gives the exact total-variation distance. The exact checker enumerates \(b=2,\ldots,6\), independently of the general proof.
+## correctness
 
-## Originality
-PASS, with stated residual risks. Bóna–Wagner's accessible full 2025 text gives limiting laws in Section 4 and remarks on a fixed-small-part binomial approximation in Section 5, not the exact all-parameter law and distance. Dedicated searches of nearby graph and spanning-tree results disclosed no matching law. A 2026 version's abstract was reviewed, but its full text was inaccessible, and older specialized treatments may exist; absence of search matches is not novelty proof.
+PASS
 
-## Value
-PASS. The closed law rigorously resolves a natural fixed-side boundary of the studied overlap distribution and isolates its rare common-bridge collision correction. The exact distance is sharper than an asymptotic approximation and remains meaningful for every finite \(b\ge2\).
+Any tree has precisely one size-b-part spoke with two edges (otherwise disconnected if none, four-cycle if at least two); the remaining b-1 spokes choose one of two attachments independently. This is a bijection giving b2^(b-1) trees. For independent trees equal bridge spokes have probability 1/b, with intersection 2+Bin(b-1,1/2); unequal bridges yield 2+Bin(b-2,1/2). Thus X=law 2+Bin(b-2,1/2)+Bern(1/(2b)) independently, support [2,b+1], mean (b+1)²/(2b), variance (b-1)(b²-b+1)/(4b²). Binomial unimodality and the convolution difference give exact total variation p*binom(b-2,floor((b-2)/2))/2^(b-2) with p=1/(2b). Fresh all-pairs exact rational enumeration b=2..6 agreed. The bridge-spoke bijection proves arbitrary b.
 
-## Limitations
-No analogous assertion for larger fixed part sizes. The exhaustive tests do not replace the all-integer proof. Full latest revision and priority assessments await separate checking.
+## originality
 
-Self-review: passed. Independent audit: not yet performed.
+PASS
+
+Qualified PASS: Read current 17-page Sept 2026 Bóna–Burghart–Wagner revision in full; §4 balanced-multipartite asymptotic Poisson and §5 fixed-k bipartite approximate binomial do not imply the precise finite all-b correction. General fixed-forest containment formulas of Li–Chen–Yan may yield a route to derive it, but the exact independent factorization and finite TV were not located. A historical K2,b specialized overlap formula remains possible.
+
+## value
+
+PASS
+
+PASS: A natural known random-spanning-tree intersection problem has a particularly meaningful exactly solvable smallest fixed-side boundary. The Bernoulli bridge-collision term and sharp finite total-variation discrepancy refine existing approximate fixed-k binomial results, independently valuable without a general k extension.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

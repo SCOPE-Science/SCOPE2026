@@ -1,11 +1,21 @@
-# Self-review
+# Independent mathematical audit
 
-**Correctness — PASS.** The renewal characteristic-function product follows directly from the Markov generator and is an established stationary representation. Fourier decay gives smoothness, differentiation of the pantograph stationary equation produces the exact \(q^{-n^2}\) derivative law, a partial-fraction residue series gives analyticity away from the fixed point, and an elementary product split plus Poisson summation yields the spectral phase with a quantitative remainder. All differentiations and inverse transforms are justified by integrable decay. The included checker passes 104 deterministic independent numerical assertions. Finite testing is not a substitute for the proof.
+## correctness
 
-**Originality — PASS (same mathematical model literature comparison).** Pierce's full proportional-resetting paper gives the stationary master equation and series, and Tal-Friedman–Roichman–Reuveni give the characteristic product and Laplace convolution. Di Bello and colleagues treat time-dependent partial resetting; Grzywny and colleagues explicitly establish smooth stationary densities in a broader stable-process setting. None of the materially inspected treatments formulates the exact derivative growth and strictly nonconstant sharp high-frequency phase as the paired result here. General q-Pochhammer/theta asymptotics could independently imply the periodic component, and unknown later literature remains an explicit residual priority risk. No claim is made that known smoothness or product identities are original.
+PASS
 
-**Scientific value — PASS.** The stationary law is conventionally characterized by variance/kurtosis and an interpolation toward Gaussian form; the result instead identifies two structural contraction signatures outside all finite Gevrey classes and in a sharp, nonvanishing logarithmic spectral modulation. These give mathematically motivated diagnostics of the discrete-reset mechanism invisible to finite moment truncations. The exact phase and its error control distinguish this from a routine numerical density evaluation; no finite-noise detectability is asserted.
+From stationary generator obtain phi(k)=prod_{j>=0}(1+q^{2j}k²/alpha²)^-1, alpha=sqrt(r/D). Arbitrarily many factors yield rapid polynomial Fourier decay and C-infinity density. Differentiating D f-rf+(r/q)f(x/q)=0 at x=0 gives f^(2n+2)(0)=-alpha² q^-(2n+1)(1-q^(2n+1))f^(2n)(0), yielding exact alternating derivatives proportional to q^-n² times positive odd q-product. This dominates every finite factorial Gevrey order; normal convergence of residue exponential series gives analyticity off origin. Splitting log phi at N=floor(log(k/alpha)/log(1/q)) yields -t²/a-t-P({t/a})+R with 0<R<=q²e^-2t/(1-q²). Fourier transforming translated logistic sech² gives coefficient -1/[ell sinh(pi²ell/a)] for each ell>=1, so P is nonconstant. Fresh 65-digit checks verified remainder/phase coefficients and derivative identities; all-order proof is analytic.
 
-The primary arguments require a deterministic contraction and no drift. Independent scholarly verification and priority assessment have not been performed.
+## originality
 
-Self-review: passed. Independent audit: not yet performed.
+PASS
+
+Qualified PASS: The stationary product, independent Laplace representation, master equation and smoothness already appear in 2022–2024 prior work and are excluded from novelty. The full Tal-Friedman primary article supplies product/low moments but not, in examined sections, all-orders non-Gevrey growth and explicit nonconstant log-frequency correction. These are plausible special cases of classical q-Pochhammer/theta asymptotic technology, a significant priority risk; no claim to originality of the q-identities.
+
+## value
+
+PASS
+
+PASS: The intrinsic exact derivative growth and scale-periodic high-frequency spectral signature are mathematically motivated structural indicators of deterministic contraction, going beyond variance, Gaussian approximations or known C-infinity regularity. Precise nonvanishing harmonic and remainder justify value despite potentially tiny amplitudes near q=1.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

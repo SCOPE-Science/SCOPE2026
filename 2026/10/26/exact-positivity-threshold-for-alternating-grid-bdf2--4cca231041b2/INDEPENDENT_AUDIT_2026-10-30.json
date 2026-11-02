@@ -1,0 +1,106 @@
+{
+  "audit_date_utc": "2026-10-30",
+  "audited_at_utc": "2026-10-30T09:14:00.338994Z",
+  "axes": {
+    "correctness": {
+      "rationale": "The variable-step BDF2 recurrence is (1+2r_n+(1+r_n)z_n)y_n=(1+r_n)^2 y_(n-1)-r_n^2 y_(n-2). Ratios q_n=y_n/y_(n-1) obey alternating Möbius maps. The long-to-long map F(q)=c_H-d_H/(c_L-d_L/q) has positive fixed points controlled by p(q)=c_L q^2-(c_H c_L-d_H+d_L)q+c_H d_L, whose discriminant factors by (r-1)^2 z^2-4(r+1)z+4. The first real-root-loss boundary is z_-=2/(sqrt(r)+1)^2. Below and at it B>2d_L, the largest fixed point q_+ lies in q>d_L/c_L and exact startup algebra gives q1>=q_+, so monotone iteration preserves every long/short ratio strictly positive, including repeated-root equality. Above it p(q)>0 throughout positive domain (either discriminant negative or B<0 after the second root), forcing long-step ratios to decrease and ultimately cross the short-step positivity boundary; hence some iterate is nonpositive. Independent SymPy discriminant check and rational time-stepping r=1,4,9,16 both sides passed; finite tests alone are not infinite necessity proof.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "The Allen--Cahn discrete maximum principle requires a mesh ratio/step sufficient condition; parabolic BDF2 stability estimates are not scalar exact positivity for a prescribed two-periodic mesh."
+        ],
+        "reasoning": "General PDE sufficient schemes and stability results do not logically yield a necessary-and-sufficient positivity boundary for all finite indices.",
+        "searches": [
+          "variable step BDF2 alternating step sizes positivity scalar decay exact threshold backward Euler startup [Resultary semantic, 10]",
+          "Liao Tang Zhou arxiv:2003.00421",
+          "Wang Mao Wang arxiv:2003.03534"
+        ]
+      },
+      "checked_sources": [
+        "Liao--Tang--Zhou arxiv:2003.00421 full PDF",
+        "Wang--Mao--Wang arxiv:2003.03534 full PDF",
+        "Resultary constant-step BDF2 positivity record",
+        "Resultary q4"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "A sufficient maximum principle or consistency/stability estimate does not imply failure beyond z_-, nor strict positivity at the repeated discriminant root. Known r=1 formula is recovered by specialization."
+        ],
+        "reasoning": "Prior results cover the general method and one parameter endpoint, not the full theorem as stated.",
+        "searches": [
+          "arxiv:2003.00421",
+          "arxiv:2003.03534",
+          "Resultary 2026/10/4/SCOPE-exact-delayed-sign-loss-just-beyond-bdf2-s-positivity-boundary--cf66315c5a14"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Same scalar decay and backward Euler startup at r=1 gives known threshold z=1/2; alternating r>1 has distinct two-step monodromy and parameter-dependent boundary."
+        ],
+        "reasoning": "The constant-grid case is a covered specialization and is not claimed novel by itself; the full alternating-grid continuum r>=1 is different.",
+        "searches": [
+          "variable step BDF2 alternating step sizes positivity scalar decay exact threshold backward Euler startup [Resultary semantic, 10]",
+          "Resultary 2026/10/4/SCOPE-exact-delayed-sign-loss-just-beyond-bdf2-s-positivity-boundary--cf66315c5a14"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "A published constant-step threshold and delay law is identified and credited as the r=1 case."
+        ],
+        "reasoning": "No same alternating-grid exact table or formula was retrieved; failure to find one does not exclude unindexed equivalent recurrences.",
+        "searches": [
+          "variable step BDF2 alternating step sizes positivity scalar decay exact threshold backward Euler startup [Resultary semantic, 10]",
+          "Resultary BDF2 positivity constant step threshold"
+        ]
+      },
+      "rationale": "The r=1 constant-step threshold 1/2 is prior, including published Resultary delayed-sign-loss treatment. Earlier full primary studies of variable-step BDF2 establish stability/error bounds or Allen--Cahn maximum-principle sufficient conditions, not the all-index necessary-and-sufficient scalar alternating-grid threshold for each r>=1. The method of Floquet/two-step recurrences is standard, but the exact sharp boundary and its repeated-root inclusion supply a new precise numerical-analysis fact.",
+      "residual_risks": [
+        "General two-periodic linear multistep positivity results under alternate terminology may contain same discriminant.",
+        "The r=1 endpoint was already known; originality excludes isolated r=1 formula."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "NOT_COVERING_EXACT_SCALAR_ALTERNATING",
+          "evidence": "Nonlinear spatial model and step-ratio restrictions provide sufficient conditions only.",
+          "identifier_or_url": "https://arxiv.org/abs/2003.00421",
+          "material_read": "Full 2020 primary PDF, variable-ratio hypotheses and sufficient step-size condition",
+          "method": "Read actual primary full text from lawful public PDF, with page screenshot inspection of the PDF; compared its methods, theorem hypotheses and conclusion with the reviewed claim.",
+          "title": "On energy stable, maximum-principle preserving, second order BDF scheme with variable steps for the Allen-Cahn equation",
+          "trigger": "Same method, potential stronger discrete maximum principle"
+        },
+        {
+          "assessment": "NOT_COVERING_SIGN_THRESHOLD",
+          "evidence": "Error/stability estimates do not classify all-index positivity or exact two-step discriminant threshold.",
+          "identifier_or_url": "https://arxiv.org/abs/2003.03534",
+          "material_read": "Full 2020 primary PDF, stability and error theorems",
+          "method": "Read actual primary full text from lawful public PDF, with page screenshot inspection of the PDF; compared its methods, theorem hypotheses and conclusion with the reviewed claim.",
+          "title": "Stability and error estimates for the variable step-size BDF2 method for linear and semilinear parabolic equations",
+          "trigger": "Potential general stability-to-positivity implication"
+        },
+        {
+          "assessment": "COVERS_SPECIAL_CASE_ONLY",
+          "evidence": "Fixed-step r=1 result is prior, not r>1 variable alternating grid.",
+          "identifier_or_url": "https://github.com/Resultary/2026/tree/main/2026/10/4/SCOPE-exact-delayed-sign-loss-just-beyond-bdf2-s-positivity-boundary--cf66315c5a14",
+          "material_read": "Published Resultary mathematical finding and summary: r=1 threshold 1/2 and sign-loss index law",
+          "method": "Read Resultary search record title and substantive summary; not falsely claimed full RESULT.md read.",
+          "title": "Exact delayed sign loss just beyond BDF2 positivity boundary",
+          "trigger": "Same method and scalar ODE constant-grid case"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "rationale": "Positivity preservation is an independent, physically significant criterion for numerical decay schemes that conventional stability bounds do not determine. The sharp long/short tradeoff and exact equality case prevent unsupported safe-step claims and show how larger isolated long steps become possible; the parameter family is motivated rather than an arbitrary slice.",
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "limitations": [
+    "Scalar linear decay only; exact alternating H,h pattern, backward-Euler long-step startup, and exact arithmetic.",
+    "No arbitrary adaptive mesh, PDE/nonlinear or floating point guarantee.",
+    "Known constant-step r=1 result is credited, not claimed original."
+  ],
+  "schema_version": 1
+}

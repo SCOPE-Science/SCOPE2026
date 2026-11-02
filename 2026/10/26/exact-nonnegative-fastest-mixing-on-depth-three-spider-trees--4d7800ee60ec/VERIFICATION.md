@@ -5,8 +5,11 @@
     "status": "not_performed"
   },
   "independent_audit": {
-    "evidence": null,
-    "status": "not_performed"
+    "status": "passed",
+    "evidence": [
+      "INDEPENDENT_AUDIT_2026-10-30.md",
+      "INDEPENDENT_AUDIT_2026-10-30.json"
+    ]
   },
   "lean_verification": {
     "evidence": null,
@@ -16,10 +19,24 @@
 }
 ---
 
-# Reproducibility of the depth-three spider theorem
+# Independent mathematical audit
 
-Run `python verify.py` with a Python 3 interpreter and installed packages specified in `requirements.txt`. A successful run prints `VERIFY_OK symbolic_identities=5 reduced_spectra=28 full_laplacians=12 feasibility_trials=2800`, followed by numerical examples; the complete output is stored in `verification_output.txt`.
+## correctness
 
-Exact SymPy calculations verify five displayed algebraic identities: the positive-contrast eigenvector relation, tridiagonal determinant factorization, the quadratic evaluation at \(2-\gamma\), the characteristic determinant at \(\gamma\), and the Rayleigh upper-bound identity. Floating-point spectral tests then independently construct all \(3k+1\) vertices for \(k=3,\ldots,14\), compare reduced spectra for \(k=3,\ldots,30\), and test 2,800 feasible randomized probability triples. These test instances check implementation consistency but do not constitute a global numerical search, proof of uniqueness outside symmetric matrices, or proof for infinitely many graph orders.
+PASS
 
-The analytic proof in `RESULT.md` is the mathematical justification for the universal statement. It uses a positive eigenvector certificate, monotonicity of a Rayleigh quotient, and an exact radial spectral factorization. The statement excludes the unconstrained symmetric averaging problem with potentially negative diagonals.
+The convex spectral-norm objective is nonincreasing under averaging by all arm permutations, so optimizing the invariant family gives the unrestricted global minimum. Its Laplacian decomposes into a four-dimensional radial block R and k-1 copies of three-dimensional contrast block B; interlacing bounds the gap by min(B). Put gamma=2/(3k+5+sqrt((3k+5)^2-24k)) and a=(1-5gamma)/(3gamma)>0. The positive contrast vector (a,a+1,a+2) obeys B*v=gamma*v at x=1/k,y=(2-gamma)/3,z=(1+gamma)/3. For any feasible weights, its Rayleigh quotient is (x*a^2+y+z)/norm(v)^2<=gamma because x<=1/k and y+z<=1. Equality forces x=1/k,y+z=1 and the final eigenvector equation uniquely gives z, y. The radial characteristic factors as t(t-1-gamma)[t^2-(2+1/k-gamma)t+(3+1/k)(2-gamma)/9]; checking q(2-gamma)=(2-gamma)(3k-8)/(9k)>0 and the vertex ensures max radial and contrast eigenvalues <2-gamma. Hence SLEM exactly 1-gamma and all boundaries/loops are feasible. Independent eigenspectrum reconstruction for k=3..22 passed. Nonsymmetric uniqueness is not claimed.
+
+## originality
+
+PASS
+
+Boyd et al supply general convex FMMC formulation rather than this exact constrained spider optimum; the closest same-topology symmetric-star consensus solution permits negative root holding, and the 2020/2025 reversible formula assumes a stationary-mass inequality that fails here under uniform mass. Resultary balanced-spider mixing law addresses a fixed lazy walk, not optimization. Historical specific formulas remain possible.
+
+## value
+
+PASS
+
+The family is a natural mixing-design optimization under the physically essential nonnegative stochasticity and uniform stationary law. The exact optimum and unique invariant edge weights identify which holding constraints bind (root and depth two zero) and quantify spectral-gap asymptotics, sharply separating feasible Markov-chain design from earlier unconstrained consensus weights.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

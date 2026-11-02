@@ -1,19 +1,21 @@
-# Scientific review
+# Independent mathematical audit
 
-## Correctness — PASS
+## correctness
 
-A positive diagonal similarity reduces the reversible movement operator to a symmetric one without modifying reproduction diagonals. The cycle monodromy is similar to a matrix of the form \(A(d)^\mathsf{T}A(d)\), with \(A(d)\) affine in \(d\); operator-norm convexity establishes the universal two-season endpoint bound. A column-substochastic norm bound establishes the one-season case. Exact two-site matrices prove the strict three-season counterexample and a migration-mortality switch with strictly suboptimal interior rates at the equality threshold. The bundled exact-arithmetic checker independently reproduces illustrative identities; it does not replace the general argument.
+PASS
 
-## Originality — PASS, subject to residual literature uncertainty
+For one season, column substochasticity bounds spectral radius by max diagonal reproduction at d=0. In two seasons, the positive diagonal symmetrizer Q commutes with D_t and replaces C by symmetric B; A(d)=D2^{1/2}((1-d)I+dB)D1^{1/2} yields sqrt(rho(M(d)D2M(d)D1))=||A(d)||_2, and convexity gives endpoint dominance for all dimension and all positive D_t. For two patches with opposite environments, endpoint radii ab and c²a² switch at c=sqrt(b/a); strict inequality for interior d follows from unequal endpoint norms or the noncollinear singular-vector image at the tied endpoints. At three seasons, the exact swap example yields endpoint rho 4, interior rho 25/4. Independent exact symbolic monodromy calculations and symmetric stochastic 3x3 norm-convexity checks passed. This is asymptotic linear growth, not an ESS theorem.
 
-Schreiber and Li's period-two dispersal work treats evolutionary stability, with a closely related reversible movement hypothesis, but does not give the stated endpoint bound under arbitrary seasonal reproduction and migrant mortality. Altenberg's spectral-radius comparison provides related spectral machinery under different product and spectral-sign hypotheses, without covering both this general two-season inequality and the minimal three-season counterexample. The basic operator-norm triangle inequality is known and not claimed as new. The uninspected full text of older ecology/dispersal studies and alternative matrix-product formulations remain publication-priority risks.
+## originality
 
-## Value — PASS
+PASS
 
-The exact two-season versus three-season boundary tells which seasonal structure can create a strictly beneficial intermediate dispersal strategy under homogeneous unconditional movement. The theorem handles arbitrary numbers of habitats, unequal seasonal growth, reversible transition kernels, and dispersal mortality; the first possible failure has a concrete exact two-patch witness. The special mortality threshold makes the two-season optimization decision explicit. This is a mathematically motivated structural classification, not a restatement of convexity without application.
+The linear algebra norm convexity is elementary prior mathematics and the unconditional dispersal literature already investigates periodic environments, but the cited primary ecological study concerns evolutionarily stable migration strategies in a different, density-dependent model. The assessed finding is the precise arbitrary-patch two-season linear spectral-radius inequality plus shortest three-season interior counterexample. The original Schreiber–Li text was unavailable beyond its abstract in this run, so exact overlap cannot be excluded; this qualifies best-of-knowledge originality.
 
-## Scientific limitations
+## value
 
-The model is finite, linear, spatially discrete, and deterministic. The same unconditional migration rate and reversible transition kernel must be applied in each season. Strong conclusions about nonreversible movement, evolving densities, or actual extinction risks do not follow. Historical priority is not independently certified.
+PASS
 
-Self-review: passed. Independent audit: not yet performed.
+The two-versus-three seasonal boundary is a natural structural answer to when an intermediate constant dispersal fraction can outperform both extremes. It holds for arbitrary habitat number and reversible mortality-bearing movement and supplies both a strict example and an exact cost threshold, not merely numerical parameter tuning.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

@@ -1,0 +1,117 @@
+{
+  "audit_date_utc": "2026-10-30",
+  "audited_at_utc": "2026-10-30T15:17:11Z",
+  "axes": {
+    "correctness": {
+      "rationale": "Concatenation N01(uv)=N01(u)+|u|_0|v|_1+N01(v) reduces residual to deficit t and zero count q. Cases are initial, accepting 0*, dead, one-future-one R_d=0^d1 0* (0≤d<k/2), and multiple-one Q_{q,t} with 1≤q≤floor(t/2), t≤k. Explicit 0 1^{k−t}0^{q−1} prefixes reach all pairs; 0^d1 and 1 0^{t−2q}1 distinguish all residuals. Count is floor(k²/4)+ceil(k/2)+3. Independently minimized reachable complete saturated-counter DFAs for each k=1..22; result matches with rejecting sink. Universal result relies on distinguishability proof.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "General constructions imply finite recognizability of bounded pattern counts.",
+          "Word-binomial algebra frameworks address the count statistic, but the reviewed statements do not supply the explicit Myhill–Nerode quotient."
+        ],
+        "reasoning": "General finite-automaton construction covers existence, but neither the quotient formula nor residual distinguishability without further minimization.",
+        "searches": [
+          "Mansour Rastegar Roitershtein 2019 finite automata occurrence enumeration",
+          "Renard Rigo Whiteland 2024 q-Parikh matrices"
+        ]
+      },
+      "checked_sources": [
+        "arXiv:1905.05646 §2.2",
+        "arXiv:1705.08270",
+        "arXiv:2402.05657",
+        "arXiv:2402.05838",
+        "Resultary and web minimal DFA searches",
+        "Exact frozen RESULT.md and REVIEW.md"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "The earlier equivalence distinguishes continuation-count vectors for multiple target counts.",
+          "The assessed Q_{q,t} and R_d quotient merges wrong-count continuations and yields strictly fewer states."
+        ],
+        "reasoning": "Construction of any finite automaton is not the exact minimum-state theorem. It might be mechanically minimized in principle, but the closed universal quotient is not an explicit consequence quoted in the examined sections.",
+        "searches": [
+          "Mansour et al arXiv:1905.05646 equation (4), Section 2.2"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "The 2019 paper studies occurrence-count automata with all counts up to r retained, not the coarser exactly-k acceptance relation.",
+          "The generalized Pascal triangle paper treats word-binomial coefficients rather than minimal DFA quotients."
+        ],
+        "reasoning": "The exact-count quotient merges distinct counted states that an all-counts construction distinguishes; a stronger-equivalent statement would have to characterize this coarsening and count its states.",
+        "searches": [
+          "scattered subword 01 exactly k occurrences minimal deterministic automaton state complexity quotient",
+          "arXiv:1905.05646 §2.2",
+          "arXiv:1705.08270"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "Retrieved related automaton state/rank records concern different languages.",
+          "Explicit independent k≤22 DFA minimization is a check, not an exact published sequence table."
+        ],
+        "reasoning": "No exact database/table listing the full k-family appeared; this does not establish priority.",
+        "searches": [
+          "scattered subword 01 exactly k occurrences minimal deterministic automaton state complexity quotient",
+          "Resultary exact-count scattered 01 automata search",
+          "web exact 01 occurrences minimal DFA state complexity query"
+        ]
+      },
+      "rationale": "Qualified PASS for exact minimal complete DFA size and full quotient types, not the generic fact of regularity or pattern counting. Mansour–Rastegar–Roitershtein 2019 §2.2 constructs automata preserving all continuation occurrence counts up to a bound; this is a finer equivalence than the exact-k Myhill–Nerode relation, so its displayed automata are not an explicit minimal quotient. Equivalent specializations through a general minimization framework remain a genuine risk.",
+      "residual_risks": [
+        "Other published DFA-minimization schemes could yield an equivalent closed-form quotient.",
+        "Finite verification k≤22 cannot certify all k."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "The constructed count-equivalence is finer than the exact-k language quotient; no exact-k minimal formula asserted in the material read.",
+          "evidence": [
+            "§2.2 equivalence (4) tracks all low continuation counts, not one exact target."
+          ],
+          "identifier_or_url": "https://arxiv.org/abs/1905.05646",
+          "material_read": "Full primary PDF, focusing on §2.2, equation (4), continuation equivalence and associated constructions",
+          "method": "lawful arXiv PDF with text and relevant page screenshots",
+          "title": "Finite automata, probabilistic method, and occurrence enumeration of a pattern in words and permutations",
+          "trigger": "Closest same-pattern count automata"
+        },
+        {
+          "assessment": "Provides counting context, not verified as a matching minimal-DFA state theorem.",
+          "evidence": [
+            "Scattered occurrence counts not automaton minimization in inspected portion."
+          ],
+          "identifier_or_url": "https://arxiv.org/abs/1705.08270",
+          "material_read": "Abstract and cited approach; no full-body comparison claimed",
+          "method": "arXiv bibliographic/abstract",
+          "title": "Generalized Pascal triangle for binomial coefficients of words",
+          "trigger": "Underlying scattered word-binomial statistic"
+        },
+        {
+          "assessment": "q-deformation not shown to cover exact ordinary 01 DFA quotient; full text not inspected.",
+          "evidence": [
+            "Residual indirect-implication risk."
+          ],
+          "identifier_or_url": "https://arxiv.org/abs/2402.05657",
+          "material_read": "Title, abstract and bibliography-level topic comparison",
+          "method": "arXiv metadata",
+          "title": "q-Parikh Matrices and q-deformed binomial coefficients of words",
+          "trigger": "Potential more general scattered-pattern framework"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "rationale": "The exact-frequency scattered-subword family is a standard natural formal-language object. Complete residual classification, reachability and separating continuations explain the unexpected linear correction to quadratic state growth, rather than just giving a computed small table.",
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "limitations": [
+    "Only binary alphabet, scattered 01 pattern, exactly positive k; completeness includes a rejecting sink.",
+    "Other published DFA-minimization schemes could yield an equivalent closed-form quotient.",
+    "Finite verification k≤22 cannot certify all k."
+  ],
+  "schema_version": 1
+}

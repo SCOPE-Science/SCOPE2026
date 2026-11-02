@@ -1,19 +1,21 @@
-# Scientific assessment
+# Independent mathematical audit
 
-## Correctness — PASS
+## correctness
 
-The claim is an infinite-family theorem on labelled graphs \(C_n\square K_2\) for every integer \(n\ge6\). The proof derives a size-four lower bound from the impossibility of continuing from a connected three-vertex path, exhausts all induced connected four-vertex shapes using the triangle-free cubic structure, proves each surviving four-vertex path and square propagates to the whole graph, and enumerates every possible one-vertex exchange by retaining three vertices. The table of \(6,6,8,6\) degrees across the four symmetry classes gives the edge count, and specified cross-class links prove connectivity. Both independent programs reproduce the expected counts, degrees and connectivity; no finite enumeration replaces the all-order arguments.
+PASS
 
-## Originality — PASS, with residual risk
+In a triangle-free cubic prism a connected seed of three vertices forms a path, whose first forced neighbor creates a claw and then stalls; seeds of size <=2 also stall. Every connected induced four-vertex subgraph is a path, square or claw; claws cannot force. For n>=6 the only squares are rung squares and all induced 4-paths fall into three disjoint types counted 2n,4n,2n. The four representative forcing sequences complete both rims, proving all 9n seeds. Enumerating local replacements of each retained triple yields degree 6 for path types A,B,D and degree 8 for the square type C; handshake yields 28n. A-type translates connect each rim and B/C/D moves join all types and both rims. Independent direct exhaustive four-subset forcing and exchange graph BFS for n=6..12 agreed with vertex counts, edge counts, degrees and connectivity. The unrestricted n statement follows the local classification, not finite tests.
 
-The 2020 circular-ladder result of Premodkumar–Dominic–Chacko (Proposition 22) determines the already-known *number* \(Z_c=4\) and gives one connected forcing seed, but does not enumerate the minimum seeds, characterize their induced forms, or compute their exchange graph. The 2016 foundational connected-forcing work of Brimkov–Davila does not state an exact prism exchange theorem in the inspected material. The 2020 Geneson–Haas–Hogben token-exchange work treats unrestricted minimum zero forcing, a different configuration space, and its inspected introductory examples cover paths, cycles and complete graphs, not the present connected prism classification. Targeted searches and accessible mathematical research records did not produce an implication covering this theorem. Risk: an equivalent characterization could be present under alternate terminology in unindexed or uninspected literature.
+## originality
 
-## Mathematical value — PASS
+PASS
 
-The source literature establishes the optimum cardinality for connected zero forcing on circular ladders, but says nothing about how many optimal connected seed sets exist or whether they are mutually reachable while keeping the connected-forcing constraint. Classifying precisely all \(9n\) optimum seeds and exhibiting a single connected exchange graph with an exact degree distribution and \(28n\) edges resolves these distinct, naturally arising structural questions for every long circular ladder. The four orbit types yield a transparent geometric reason for connectivity. This is more than a routine recomputation of a known minimum cardinality.
+Qualified PASS: known minimum size and general reconfiguration concepts are credited; complete characterization, orbit census, degree distribution and connectedness are new to the checked primary statements.
 
-## Scope, source and limitations
+## value
 
-The theorem excludes small rim sizes \(n\in\{3,4,5\}\), unrestricted zero forcing, and further exchange-graph invariants such as diameter. All included verification programs and output records are reproducibility aids, not external certification. References and comparisons are in RESULT.md and AUDIT.json; originality is best-knowledge, not a universal priority guarantee.
+PASS
 
-Self-review: passed. Independent audit: not yet performed.
+The connected minimum zero-forcing configuration space is a natural reconfiguration object. Its complete classification and exact connected exchange graph parameters refine the known scalar forcing number in a way relevant to robustness and reconfiguration, not a routine counting of unrelated subsets.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

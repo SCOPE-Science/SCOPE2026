@@ -1,0 +1,99 @@
+{
+  "audit_date_utc": "2026-10-30",
+  "audited_at_utc": "2026-10-30T13:18:13.215221Z",
+  "axes": {
+    "correctness": {
+      "rationale": "Any tree has precisely one size-b-part spoke with two edges (otherwise disconnected if none, four-cycle if at least two); the remaining b-1 spokes choose one of two attachments independently. This is a bijection giving b2^(b-1) trees. For independent trees equal bridge spokes have probability 1/b, with intersection 2+Bin(b-1,1/2); unequal bridges yield 2+Bin(b-2,1/2). Thus X=law 2+Bin(b-2,1/2)+Bern(1/(2b)) independently, support [2,b+1], mean (b+1)²/(2b), variance (b-1)(b²-b+1)/(4b²). Binomial unimodality and the convolution difference give exact total variation p*binom(b-2,floor((b-2)/2))/2^(b-2) with p=1/(2b). Fresh all-pairs exact rational enumeration b=2..6 agreed. The bridge-spoke bijection proves arbitrary b.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Bóna–Burghart–Wagner §4 Theorem 9 assumes all limiting complete multipartite proportions positive, unlike fixed size two.",
+          "Li–Chen–Yan 2023 forest-containing spanning tree enumeration is a broad input, not an explicit all-b common-edge law."
+        ],
+        "reasoning": "Theorem 9 is inapplicable to fixed size two and the general forest count requires an additional all-forest sum, not an immediate formula.",
+        "searches": [
+          "uniform spanning tree pair intersection K_2,n exact overlap binomial"
+        ]
+      },
+      "checked_sources": [
+        "Bóna–Burghart–Wagner arXiv:2501.18570 revised 2026 full text",
+        "Li–Chen–Yan J Graph Theory 104 (2023) general fixed-forest enumeration",
+        "Resultary fixed-side complete bipartite spanning-tree type result"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "A limit-law approximation cannot imply the correction probability 1/(2b) or exact total variation.",
+          "The bridge-spoke same-index event is a finite combinatorial event of probability 1/b requiring a separate case split."
+        ],
+        "reasoning": "Neither a Poisson asymptotic nor approximate fixed-side binomial yields the exact independent Bernoulli correction or TV distance.",
+        "searches": [
+          "uniform spanning tree pair intersection K_2,n exact overlap binomial"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Bóna–Burghart–Wagner 2026 revised preprint §5 describes approximately Bin(n-k,1/k) for fixed k, not exact 2+Bin+Bern."
+        ],
+        "reasoning": "The tree-overlap PGF and exact law were compared with the primary same-problem asymptotic statement, not only title keywords.",
+        "searches": [
+          "uniform spanning tree pair intersection K_2,n exact overlap binomial"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "Closest revised primary Section 5 has no exact K2,b common-edge probability generating function table.",
+          "Resultary fixed-side spanning-tree type quasipolynomial result counts isomorphism types, a different enumerand."
+        ],
+        "reasoning": "No full all-b table appears in the inspected latest primary; the Resultary closest title is mathematically different.",
+        "searches": [
+          "uniform spanning tree pair intersection K_2,n exact overlap binomial"
+        ]
+      },
+      "rationale": "Qualified PASS: Read current 17-page Sept 2026 Bóna–Burghart–Wagner revision in full; §4 balanced-multipartite asymptotic Poisson and §5 fixed-k bipartite approximate binomial do not imply the precise finite all-b correction. General fixed-forest containment formulas of Li–Chen–Yan may yield a route to derive it, but the exact independent factorization and finite TV were not located. A historical K2,b specialized overlap formula remains possible.",
+      "residual_risks": [
+        "Older specialized K2,b random tree overlap may yield identical finite law.",
+        "General forest-containing formula may indirectly specialize to the same factorization; not fully read.",
+        "Does not classify K_(k,b) for k>=3."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "ASYMPTOTIC_ONLY in fixed k regime: §5 gives approximate Bin(n-k,1/k), no exact K2,b correction.",
+          "evidence": [
+            "§5 p16: fixed k complete bipartite overlap approximately binomial; §4 Theorem 9 for positive limiting proportions."
+          ],
+          "identifier_or_url": "https://arxiv.org/pdf/2501.18570",
+          "material_read": "Latest version 2026-09-09 17-page complete PDF; §§1–5 especially §4 Theorem 9 and §5 p16, page 16 screenshot.",
+          "method": "Read full searchable PDF and inspected relevant page image.",
+          "title": "On the intersection of pairs of trees",
+          "trigger": "Closest same-object 2026 expanded primary article"
+        },
+        {
+          "assessment": "Cannot claim NOT_COVERING because full primary not inspected; remains potential broader source.",
+          "evidence": [
+            "Li–Chen–Yan J Graph Theory 104 (2023), 160–170 cited as reference 10 in primary."
+          ],
+          "identifier_or_url": "https://doi.org/10.1002/jgt.22954",
+          "material_read": "Cited bibliographic result in full latest tree-overlap paper; original paper not independently read.",
+          "method": "Recorded genuine related theorem scope and reading limitation.",
+          "title": "Enumeration of spanning trees of complete multipartite graphs containing a fixed spanning forest",
+          "trigger": "General fixed-forest theorem plausibly supporting a derived exact law"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "rationale": "PASS: A natural known random-spanning-tree intersection problem has a particularly meaningful exactly solvable smallest fixed-side boundary. The Bernoulli bridge-collision term and sharp finite total-variation discrepancy refine existing approximate fixed-k binomial results, independently valuable without a general k extension.",
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "limitations": [
+    "Older specialized K2,b random tree overlap may yield identical finite law.",
+    "General forest-containing formula may indirectly specialize to the same factorization; not fully read.",
+    "Does not classify K_(k,b) for k>=3.",
+    "No claim of external peer review, independent formal verification, or publisher validation; mathematical priority is best-of-knowledge and remains contingent on residual risks."
+  ],
+  "schema_version": 1
+}

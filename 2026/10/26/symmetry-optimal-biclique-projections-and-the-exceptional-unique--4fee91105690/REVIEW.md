@@ -1,15 +1,21 @@
-# Scientific review
+# Independent mathematical audit
 
-## Correctness
-PASS for the stated universal graph and norm theorem. The signed incidence constraints identify cycle flows with zero-row/zero-column matrices. The four orbit types of pairs of matrix cells span the entire permutation commutant; they yield exactly one commuting projection onto each complementary subspace. Averaging arbitrary projections over the permutation group gives the global norm lower bound for every invariant ambient norm. Exact absolute column sums give both endpoint values, and rank-one test matrices prove the full entrywise \(\ell_p\) tensorization. For \(K_{2,2}\), equality in the rank-one projector norm forces a unique dual functional. For every larger biclique, an alternating square flow and a disjoint column/row summation functional give a nonzero rank-one perturbation whose columnwise \(\ell_1\) derivatives vanish, with signs preserved for a stated interval of perturbation parameters. A standard-library rational checker reproduces the identities over 64 finite parameter pairs. No finite computation is used as the proof of the infinite result.
+## correctness
 
-## Originality
-PASS on presently inspected mathematical evidence, with residual risk. The 2023 cycle-spaces paper supplies prior averaging and representation-theoretic uniqueness methods, but its inspected sections on Hamming graphs and tori do not state this biclique-specific two-range optimum or the universal row-column-invariant norm conclusion. Previously available general complete-multipartite Hodge endpoint values concern the named Euclidean-orthogonal projectors and therefore do not, by themselves, establish minimum norm among arbitrary linear projections. The concrete global-minimality theorem, its endpoint dominance classification, and especially the sharp uniqueness/nonuniqueness dichotomy among **all** cycle-projection minimizers are the asserted additions. A short derivation from more general published symmetry theory or an unindexed matrix-centering result remains possible.
+PASS
 
-## Mathematical value
-PASS for a natural complete classification of projection-minimization invariants, not just recomputation of canonical matrices. Both graph subspaces are optimized over every linear projection at once, under an unusually broad and precisely stated norm symmetry hypothesis. The sharp boundary \((m-2)(n-2)=2\) distinguishes which *optimally complemented* subspace has the larger constant. The tensorization identity also determines the optimal cycle projector for every entrywise \(\ell_p\) exponent from two one-dimensional centering norms. The exceptional unique minimum on the square versus continuous nonunique minimizers on every larger biclique identifies a qualitative rigidity transition not determined by the pointwise norm values. The result does not assert generality beyond bicliques or row-column symmetric norms.
+For the oriented K_mn incidence matrix, zero row/column sums give Z and P_Z(X)=H_m X H_n; four ordered-cell orbits identify the entire S_m x S_n commutant. Averaging any Z- or B-projection over the isometric finite group is still a projection and yields P_Z or P_B, proving universal minimax, not just a candidate. Entrywise l1 column sums give 4(m-1)(n-1)/(mn) and 3-2/m-2/n+2/(mn), and symmetric matrices give l∞. At m=n=2 Hölder equality makes the line projection unique. Else an alternating 2x2 flow times unused column/row sum is a nilpotent rank-one perturbation: small nonzero real t preserves each absolute column sum, providing genuinely distinct optimal projections, also valid over C. Rank-one test matrices plus column/row operator bounds prove l_p tensorization. Independent exact rational checks for all 2<=m,n<=7 corroborated both constants and perturbations; no bounded enumeration is used to prove the arbitrary-norm assertion.
 
-## Closest literature and limitations
-S. J. Dilworth, D. Kutzarova, M. I. Ostrovskii, arXiv:2305.12582 (Theorem 5 and Hamming graph analysis); their arXiv:1807.03814 for earlier symmetry-based projection methods. Related canonical projection norm computations on complete multipartite graphs yield the endpoint numbers upon specialization; only global optimality under every invariant norm and the rigidity boundary among all minimizers are proposed as new here. Bibliographic incompleteness remains possible, and independent validation has not occurred.
+## originality
 
-Self-review: passed. Independent audit: not yet performed.
+PASS
+
+Qualified PASS: exact biclique minimal cut/cycle constants, comparison and non-equivariant l1 optimizer rigidity remain distinct from the acknowledged general invariant-projection framework; strong general coverage is credited and older biclique formulas may overlap.
+
+## value
+
+PASS
+
+The minimum over all projections is a natural intrinsic Banach-space invariant; exact cycle/cut minimax gap and exceptional uniqueness at K2,2 distinguish norm choice and optimizer geometry, not just routine evaluation of a single matrix norm. The all-p centering tensorization is useful for other p even without a closed elementary formula.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

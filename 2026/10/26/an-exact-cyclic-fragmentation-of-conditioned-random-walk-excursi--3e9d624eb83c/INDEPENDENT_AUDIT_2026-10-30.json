@@ -1,0 +1,129 @@
+{
+  "audit_date_utc": "2026-10-30",
+  "audited_at_utc": "2026-10-30T08:14:11Z",
+  "axes": {
+    "correctness": {
+      "rationale": "For each n>=2 the bridge excursion half-lengths conditioned on K=k are weighted positive compositions with Catalan weights w_j=C_(j-1). Lagrange inversion yields Z(n,k)=k/(2n-k)*choose(2n-k,n-k). The select-weight (ell_i-1)/(n-k) and ordered Catalan convolution w_a w_b/w_j are normalized exactly; each target cyclic adjacent pair gives k oriented parents, so the total coefficient is k(2n-k-1)/[(k+1)(n-k)Z(n,k)]=1/Z(n,k+1). The kernel therefore preserves the required exact marginal law at every k. Each one-coordinate positive split preserves sum and decreases every sorted top-r sum; it drops sum of squares by 2ab>=2. Equality of the expectation drop occurs only at k=n-1, since at earlier k a component >=3 occurs with positive mass and strictly larger drop. Independent rational enumeration checked every composition n=2..9, all k, including 502 target probabilities and the sharp-drop condition; this is a finite check and the unrestricted proof is the combinatorial argument.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Pitman--Winkel 2005, Theorem 1 is a binary forest composition rule for varying lambda,mu,theta and exponential branch lengths.",
+          "Lindell--Holst 2007, section 3 proves longest-excursion distribution/generating functions in tied-down walks."
+        ],
+        "reasoning": "Neither inspected theorem directly identifies a deterministic-time fixed-n, fixed-K one-coordinate splitting law. A deeper theorem about conditioned Galton--Watson plane trees could in principle specialize, which remains a residual risk.",
+        "searches": [
+          "conditioned simple random walk bridge number of excursions Catalan composition cyclic splitting fragmentation majorization excursion lengths return counts [Resultary semantic, 35]",
+          "random plane forest conditioned n vertices k trees split one tree into two size biased Catalan weights cyclic random composition Markov chain",
+          "Pitman Winkel growth of Brownian forest 2005 Catalan compositions splitting conditioned Galton Watson forest number of components random",
+          "size biased fragmentation composition Catalan convolution split each block into two cyclic rotation Gibbs partitions",
+          "https://lmbp.uca.fr/~serlet/rwfew.pdf",
+          "https://www.stats.ox.ac.uk/~winkel/winkel6.pdf"
+        ]
+      },
+      "checked_sources": [
+        "Serlet 2014, author PDF https://lmbp.uca.fr/~serlet/rwfew.pdf pp.2-5 (5)-(8)",
+        "Lindell--Holst 2007 doi:10.1239/jap/1197908824, sections 2-4",
+        "Pitman--Winkel 2005 doi:10.1214/009117905000000422, Theorem 1 and sections 1-2",
+        "Csáki--Hu 2003 doi:10.46298/dmtcs.3337 bibliographic and limited primary material",
+        "Resultary published finding semantic query on conditioned bridge Catalan excursion fragmentation"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "Serlet 2014 fixes K and proves product weights; its asymptotic few-zero theorem does not construct the successive-K joint process.",
+          "A coupling by one split implies all symmetric Schur-convex orderings, including maximum-excursion stochastic ordering, stronger than any one scalar rank generating function."
+        ],
+        "reasoning": "The construction is not mathematically entailed just by displaying separate marginal distributions without a transport argument. Pitman--Winkel establishes distinct forest growth, not an immediate implication of this exact cyclic composition transition.",
+        "searches": [
+          "conditioned simple random walk bridge number of excursions Catalan composition cyclic splitting fragmentation majorization excursion lengths return counts [Resultary semantic, 35]",
+          "https://lmbp.uca.fr/~serlet/rwfew.pdf",
+          "https://www.stats.ox.ac.uk/~winkel/winkel6.pdf",
+          "doi:10.1239/jap/1197908824"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Serlet 2014 equations (5)-(8) determine fixed-k Catalan weighted compositions of n.",
+          "The exact proposed kernel gives a coupling of *two different* fixed-k conditionals by a single coordinate split and a uniform cyclic rotation; Marginal probabilities alone do not assert that specified transition."
+        ],
+        "reasoning": "Considered bridge local time, Catalan plane forests, Gibbs compositions and majorization; the displayed coupling is additional constructive structure, rather than a rewording of a fixed-K ranked excursion formula.",
+        "searches": [
+          "conditioned simple random walk bridge number of excursions Catalan composition cyclic splitting fragmentation majorization excursion lengths return counts [Resultary semantic, 35]",
+          "random plane forest conditioned n vertices k trees split one tree into two size biased Catalan weights cyclic random composition Markov chain",
+          "Pitman Winkel growth of Brownian forest 2005 Catalan compositions splitting conditioned Galton Watson forest number of components random",
+          "size biased fragmentation composition Catalan convolution split each block into two cyclic rotation Gibbs partitions",
+          "https://lmbp.uca.fr/~serlet/rwfew.pdf",
+          "https://www.stats.ox.ac.uk/~winkel/winkel6.pdf"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "Catalan coefficients and fixed-K point probabilities are known from Serlet; independent exact all-composition checks n=2..9 reproduce the newly stated transport kernel, not just known table entries."
+        ],
+        "reasoning": "No claim of a new Catalan sequence/table; the new object is a universal stochastic transport across return counts, so known marginal enumerations are not themselves the result.",
+        "searches": [
+          "conditioned simple random walk bridge number of excursions Catalan composition cyclic splitting fragmentation majorization excursion lengths return counts [Resultary semantic, 35]",
+          "https://lmbp.uca.fr/~serlet/rwfew.pdf",
+          "Csáki--Hu 2003, doi:10.46298/dmtcs.3337"
+        ]
+      },
+      "rationale": "The exact conditioned composition law is explicitly prior (Serlet 2014); published tied-down excursion rank laws (Lindell--Holst 2007) are also prior. The final claim is the explicit k-to-k+1 size-biased Catalan single-coordinate split followed by uniform cyclic rotation, its exact simultaneous all-k construction, almost-sure vector majorization, and sharp quadratic expectation drop. A separate Resultary semantic search and broader Galton--Watson/forest literature checks found no dominant statement; the potentially related Pitman--Winkel forest composition theorem was materially inspected and its state space/operation differs. Priority against unexamined general forest fragmentations remains qualified, not certified.",
+      "residual_risks": [
+        "The general Galton--Watson fragmentation and tree-coalescence literature has many possible equivalent parametrizations; one could imply this kernel after conditioning.",
+        "Serlet supplies the entire conditional Catalan marginal law and any purely marginal enumeration is not new.",
+        "The Csáki--Hu material read for this run was not a full primary-text inspection; limitations are explicitly recorded."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Explicit fixed-K Catalan excursion-composition law is prior; no formula for successive-K one-block refinement found in the inspected source",
+          "evidence": "PDF p.4, equations (5)-(8): product of Catalan weights for excursion lengths and known generating function.",
+          "identifier_or_url": "https://lmbp.uca.fr/~serlet/rwfew.pdf",
+          "material_read": "Complete 12-page author-accessible manuscript inspected; especially pp.2-5, displayed (5)-(8), and conditional forest interpretation",
+          "method": "Read full-text PDF with visual inspection of PDF page index 3",
+          "title": "Invariance principle for the random walk conditioned to have few zeros",
+          "trigger": "Precisely the same simple bridge and conditioning on number of zero visits"
+        },
+        {
+          "assessment": "Establishes ranked excursions and generating functions, not the specified pathwise Markov coupling between K and K+1 in the inspected sections",
+          "evidence": "Lindell--Holst 2007 section 3 generating functions and rank laws; no successive-return-count coupling theorem identified.",
+          "identifier_or_url": "https://doi.org/10.1239/jap/1197908824",
+          "material_read": "Complete accessible 12-page paper and relevant pp.3-9, rank distribution and generating function development",
+          "method": "Public primary full-text PDF and visual inspection of ranked-excursion distribution pages",
+          "title": "Distributions of the Longest Excursions in a Tied Down Simple Random Walk and in a Brownian Bridge",
+          "trigger": "Exact same tied-down random walk and ordered longest-excursion functionals"
+        },
+        {
+          "assessment": "Forest-valued process composes binary Galton--Watson forests with continuously varying exponential branch lengths; different from fixed-size n, exactly k primitive simple-walk excursions and one-coordinate cyclic split. Broader undiscovered specialization remains possible.",
+          "evidence": "Theorem 1: binary(lambda,mu) composed with binary(mu,theta) has binary(lambda,theta) law; not a fixed-n Catalan-composition edge-split kernel.",
+          "identifier_or_url": "https://www.stats.ox.ac.uk/~winkel/winkel6.pdf",
+          "material_read": "Author-hosted complete 24-page primary PDF available; introduction and sections 1-2 including Theorem 1, Lemmas 1-3 and Proposition 1 materially read",
+          "method": "PDF full text sections 1-2 and visual inspection of first theorem on PDF page index 2",
+          "title": "Growth of the Brownian forest",
+          "trigger": "Potential general forest composition/dominating fragmentation statement"
+        },
+        {
+          "assessment": "Foundational ranked-excursion distributions, but no verified explicit cyclic refinement from this limited material",
+          "evidence": "Csáki--Hu (2003): ranked lengths and heights, reflection/renewal method; limited reading is a residual risk.",
+          "identifier_or_url": "https://doi.org/10.46298/dmtcs.3337",
+          "material_read": "Public bibliographic record and abstract, plus relevant result-level descriptions; not a claimed complete full-text inspection this run",
+          "method": "Bibliographic/abstract and theorem-context comparison",
+          "title": "Lengths and heights of random walk excursions",
+          "trigger": "Prior ranked excursion-length statistics"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "rationale": "The number of returns is a natural path conditioning and the whole ordered vector, not just one scalar rank, admits one explicit simultaneous Markovian refinement. The all-level coupling gives new samplewise majorization and an exact sharp universal quadratic decrement; it is a motivated structural bridge-pinning fact rather than a Catalan table recomputation.",
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "limitations": [
+    "Only one-dimensional simple symmetric nearest-neighbor bridges conditioned on an even-length return; no full path/sign/height coupling or continuum extension.",
+    "Old Catalan composition weights and fixed-K ranked excursion distributions are prior; only the cross-K refinement is under review.",
+    "General conditioned random-tree fragmentation may contain an equivalent transition; this is a best-of-knowledge originality judgment."
+  ],
+  "schema_version": 1
+}

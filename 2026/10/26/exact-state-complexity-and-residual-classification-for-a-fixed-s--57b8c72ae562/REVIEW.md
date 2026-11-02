@@ -1,19 +1,21 @@
-# Review of exact-count scattered-pair automata
+# Independent mathematical audit
 
-## Correctness
+## correctness
 
-**PASS.** The concatenation identity separates prefix, suffix, and cross-boundary occurrences. The proof explicitly handles the empty prefix, already-accepted prefixes, over-counted prefixes, impossible deficits, and each reachable positive-deficit pair. A one-one suffix distinguishes different deficits; a two-one suffix distinguishes every remaining pair of active types. Consequently the \(\lfloor k^2/4\rfloor+\lceil k/2\rceil+3\) listed reachable residuals are pairwise inequivalent and exhaustive. A separately minimized saturated-counter DFA and direct word tests confirm small parameter instances. Finite computations are corroboration, not proof for all \(k\).
+PASS
 
-## Originality
+Concatenation N01(uv)=N01(u)+|u|_0|v|_1+N01(v) reduces residual to deficit t and zero count q. Cases are initial, accepting 0*, dead, one-future-one R_d=0^d1 0* (0≤d<k/2), and multiple-one Q_{q,t} with 1≤q≤floor(t/2), t≤k. Explicit 0 1^{k−t}0^{q−1} prefixes reach all pairs; 0^d1 and 1 0^{t−2q}1 distinguish all residuals. Count is floor(k²/4)+ceil(k/2)+3. Independently minimized reachable complete saturated-counter DFAs for each k=1..22; result matches with rejecting sink. Universal result relies on distinguishability proof.
 
-**PASS, subject to residual literature risk.** The closest inspected paper is Mansour–Rastegar–Roitershtein (2019), Section 2.2: its continuation equivalence preserves all low occurrence counts rather than only exact-\(k\) membership, and the inspected constructions do not identify the minimal exact-count quotient, its collapsing one-future-one classes, or its quadratic-plus-linear state formula. Leroy–Rigo–Stipulanti (2017) and Renard–Rigo–Whiteland (2024) study underlying binomial coefficients but not this automaton-minimization question in the inspected materials. An equivalence potentially implicit in unindexed work or general minimization theory remains a risk. Distinguishing a published method from a published consequence is essential; the complete description of the quotient, not the existence of a finite automaton, is the claim.
+## originality
 
-## Value
+PASS
 
-**PASS.** Exact-frequency pattern languages are natural finite-state counting objects. The family here is infinite in its occurrence threshold; the result gives not only a state count but every Myhill–Nerode residual and an explicit distinguishing continuation. The transition between one-future-one and multiple-one residuals produces a nontrivial linear correction to quadratic growth. It does not purport to resolve arbitrary patterns or prove new generic state complexity bounds.
+Qualified PASS for exact minimal complete DFA size and full quotient types, not the generic fact of regularity or pattern counting. Mansour–Rastegar–Roitershtein 2019 §2.2 constructs automata preserving all continuation occurrence counts up to a bound; this is a finer equivalence than the exact-k Myhill–Nerode relation, so its displayed automata are not an explicit minimal quotient. Equivalent specializations through a general minimization framework remain a genuine risk.
 
-## Checks and limitations
+## value
 
-Independent implementation confirms 60 small-to-medium thresholds with a partition-refinement algorithm and validates the canonical residual map. The infinite claim rests on the case-split and distinguishability proof. Literature comparison was concentrated on cited preprints, so an alternative specialization outside these sources remains possible.
+PASS
 
-Self-review: passed. Independent audit: not yet performed.
+The exact-frequency scattered-subword family is a standard natural formal-language object. Complete residual classification, reachability and separating continuations explain the unexpected linear correction to quadratic state growth, rather than just giving a computed small table.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

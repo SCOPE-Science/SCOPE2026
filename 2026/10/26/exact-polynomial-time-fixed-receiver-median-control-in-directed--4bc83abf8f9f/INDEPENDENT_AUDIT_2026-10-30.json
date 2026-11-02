@@ -1,0 +1,106 @@
+{
+  "audit_date_utc": "2026-10-30",
+  "audited_at_utc": "2026-10-30T09:14:00.338994Z",
+  "axes": {
+    "correctness": {
+      "rationale": "Strict substochasticity gives nonnegative G=(I-Lambda W)^(-1), h=G e_i>=0, and h_i=max_v h_v>=1 by the maximum principle. A changed row is rank one, hence z(S)=z+alpha(S)h. Resolvent substitution gives alpha=lambda_i sum_{j in S}(z_j-b_i)/(d_i+|S|h_i-lambda_i sum_{j in S}h_j) with denominator >=d_i+|S|(1-lambda_i)h_i>0. Thus one optimal alpha yields coordinatewise domination of every other feasible outcome, making every nondecreasing aggregate objective optimal simultaneously, without claiming identical sets of *all* optimizers. At each fixed k, fractional-programming optimality at t=r makes maximizers of sum_{j in S}(z_j+t h_j) attain the optimal ratio; these top k selections change only at O(m^2) pairwise affine-score crossings. Including crossing points, intervals, k=1..K and empty set returns the exact optimum in polynomial bit/arithmetic time. The 4-node rational example reverses the raw opinion ordering (gain 27/1450>1251/82550). Independent exact matrix inversions and enumeration of all eligible subsets of this example passed.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Motivating NP-hardness construction uses multiple receivers; influencer social-power link additions and leader/follower link recommendation have different objectives/edge constraints."
+        ],
+        "reasoning": "Unrestricted hardness does not imply special-case hardness; a general resolvent sensitivity formula alone does not supply globally optimal discrete edge subsets.",
+        "searches": [
+          "Friedkin Johnsen model adding edges one fixed receiver optimize median exact polynomial algorithm [Resultary semantic, 10]",
+          "Zhu Zhang Opinion Maximization link recommendation Theoretical Computer Science 1033 (2025)",
+          "Wang et al adding links wisely arxiv:2506.12463"
+        ]
+      },
+      "checked_sources": [
+        "Biondi et al 2026 arxiv:2610.21933 full primary paper",
+        "Wang et al arxiv:2506.12463",
+        "Zhu--Zhang TCS 1033 (2025) DOI 10.1016/j.tcs.2025.115090 (abstract only)",
+        "Resultary q3"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "The same FJ model is present in Biondi et al; their hardness reduction and heuristics do not solve one designated receiver. Other checked edge-addition studies use different recipients or objective functions."
+        ],
+        "reasoning": "Known perturbation identity is a necessary ingredient but does not itself imply the finite exact breakpoint algorithm for all monotone statistics.",
+        "searches": [
+          "Biondi Boldrini Passarella Conti arxiv:2610.21933",
+          "Wang Xing Yi Cao Johansson arxiv:2506.12463",
+          "Zhu Zhang DOI:10.1016/j.tcs.2025.115090"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Both works use row-normalized directed Friedkin--Johnsen equilibria and adding directed follows; present feasible sets restrict every new edge to the same given row."
+        ],
+        "reasoning": "A fixed-receiver restriction changes combinatorial complexity and is not equivalent to the unrestricted multiple-tail problem.",
+        "searches": [
+          "Friedkin Johnsen model adding edges one fixed receiver optimize median exact polynomial algorithm [Resultary semantic, 10]",
+          "Biondi et al Rewiring the Majority arxiv:2610.21933"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "Resultary semantic search returned unrelated graph/optimization invariants; no same feasible-edge-set exact median optimum table."
+        ],
+        "reasoning": "No exact database or combinatorial lookup matches the fixed-receiver claim; lack of results is not a proof of priority.",
+        "searches": [
+          "Friedkin Johnsen model adding edges one fixed receiver optimize median exact polynomial algorithm [Resultary semantic, 10]",
+          "Resultary 2026/9/30/SCOPE-fragile-pmu-optimal-complete-multipartite-placement--23cbdb64e7b4"
+        ]
+      },
+      "rationale": "The motivating Biondi--Boldrini--Passarella--Conti October 2026 article establishes hardness for unrestricted multi-receiver structural median intervention and proposes heuristic methods. Its primary full paper was inspected and does not state a fixed-single-tail exact polynomial algorithm. General rank-one resolvent and fractional subset optimization are prior tools, not claimed as novel; the new consequence is a common optimum for every monotone statistic under a natural fixed-receiver constraint. Closest full text of Zhu--Zhang 2025 remains a literature risk.",
+      "residual_risks": [
+        "An unexamined broad fixed-tail influence theorem may imply the same algorithm.",
+        "The complete Zhu--Zhang primary paper was not independently read."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "NOT_COVERING_FIXED_RECEIVER_ALGORITHM",
+          "evidence": "Multiple receiver tails are permitted in general hardness reduction; studied practical algorithms are heuristic, not this exact polynomial one-tail solution.",
+          "identifier_or_url": "https://arxiv.org/abs/2610.21933",
+          "material_read": "Complete 11-page October 2026 primary manuscript, problem model and hardness/algorithm sections",
+          "method": "Read actual primary full text from lawful public PDF, with page screenshot inspection of the PDF; compared its methods, theorem hypotheses and conclusion with the reviewed claim.",
+          "title": "Rewiring the Majority: Structural Median Opinion Control in the Friedkin-Johnsen Model",
+          "trigger": "Same FJ structural median intervention and possible stronger optimization theorem"
+        },
+        {
+          "assessment": "DIFFERENT_OBJECTIVE_AS_READ",
+          "evidence": "Optimizes influencer social power over other recipient selection rules, not a designated receiver median criterion.",
+          "identifier_or_url": "https://arxiv.org/abs/2506.12463",
+          "material_read": "Accessible research description and model/objective portions; not treated as full proof noncoverage",
+          "method": "Compared accessible abstract/model description to exact edge-action and objective.",
+          "title": "Adding links wisely: how an influencer seeks for leadership in opinion dynamics?",
+          "trigger": "Possible equivalent edge-augmentation theorem"
+        },
+        {
+          "assessment": "ACCESS_RISK",
+          "evidence": "Leader/follower total-opinion recommendation and submodularity approximation are described; full general theorem could imply a special-case optimization.",
+          "identifier_or_url": "https://doi.org/10.1016/j.tcs.2025.115090",
+          "material_read": "Bibliographic and abstract material only; complete article not independently inspected",
+          "method": "Reviewed accessible abstract/bibliography; did not claim whole-paper noncoverage.",
+          "title": "Opinion Maximization in Social Networks via Link Recommendation",
+          "trigger": "Potential broader link recommendation algorithm"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "rationale": "The directed-FJ structural median optimization is hard when receiver tails vary. A practical natural one-receiver intervention class admits a surprising universal exact order on whole equilibria and an executable polynomial-time discrete optimizer for every quantile, mean and threshold, plus an exact counterexample to naive highest-baseline-donor ranking.",
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "limitations": [
+    "One prescribed receiver only, uniformly normalized new and old row edges, strict 0<lambda_v<1, no self loops and nonempty neighborhoods.",
+    "Real-world adoption of edges is outside the mathematical intervention model.",
+    "Does not classify all optimal sets for each monotone statistic, merely supplies one universally dominating optimizer."
+  ],
+  "schema_version": 1
+}

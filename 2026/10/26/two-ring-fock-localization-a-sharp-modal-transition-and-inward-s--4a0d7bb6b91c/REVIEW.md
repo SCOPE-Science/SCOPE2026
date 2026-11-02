@@ -1,11 +1,21 @@
-# Self-review
+# Independent mathematical audit
 
-**Correctness — PASS.** Radial diagonalization yields an exact gamma-density eigenvalue sequence. Its first differences are four-term exponential polynomials with at most three real zeros, closing the global modal-count argument without relying on finite sampling. A differentiated Stirling expansion proves the Gaussian transition and the first-order odd correction; substitution at the two critical points yields the strictly positive inward height gap. The standalone tests exercise finite instances, not the infinite quantifiers.
+## correctness
 
-**Originality — PASS, best-knowledge assessment.** The relevant Daubechies–Knutsen Hermite diagonalization and one-ring norm asymptotic, Galbis's radial norm bound, and Dewage–Ólafsson's radial spectral algebra were materially compared with the actual theorem. None of their inspected statements implies the precise two-ring eventual modal bifurcation together with the signed asymmetry coefficient. A generic symmetric-Gaussian mixture explains only the leading-order transition; it cannot select between equal leading-order peaks. A prior version in Gaussian-mixture or gamma-density asymptotic literature remains a genuine bibliographic risk; originality is not certified independently.
+PASS
 
-**Value — PASS.** Separate thin radial sampling windows create competing Gaussian phase-space concentration modes. The result identifies exactly when a second local mode emerges and proves which one is globally optimal after the symmetry of the leading Gaussian approximation is broken. The explicit spectral gap is relevant to mode selection and robustness near multiple localization regions; it is not merely a numerical optimization of an arbitrary finite slice.
+Radial Toeplitz diagonalization yields exact gamma-density integrals. The adjacent difference is a signed four-exponential polynomial with no more than three zeros; outside the two annuli the difference has fixed sign. Stirling/Edgeworth expansion uniformly with derivatives at index n=T+s sqrt(T) gives symmetric Gaussian mixture G_delta and first odd correction J_delta. The derivative roots of G_delta are one for 0<delta<1, three for delta>1 with a unique positive r satisfying r=delta tanh(delta r). Zero counting upgrades local root persistence to global modal-count classification. Evaluating J_delta(±r) yields positive inward-vs-outward height gap C_delta/T+O(T^-3/2); optimizing the primary peak gives stated norm. Independent gamma-integral sampling at T=5000, delta=.6 and 1.5 confirms one and two maxima and inward dominance; finite sampling does not establish large-T quantifiers.
 
-**Scope.** Fixed separation parameter \(\delta\in(0,1)\cup(1,\infty)\), large squared radius \(T\), unit widths in squared-radius coordinates, one-complex-dimensional Gaussian Bargmann–Fock space. The critical case and uniform double scaling are excluded. Independent specialist inspection and an exhaustive priority search remain outstanding.
+## originality
 
-Self-review: passed. Independent audit: not yet performed.
+PASS
+
+Daubechies/Knutsen provide radial eigenvalue gamma integrals and one-ring localization, Dewage–Ólafsson establish general quasi-radial spectral algebra, and the symmetric Gaussian-mixture phase transition is classical. The specifically signed first correction to two competing integer eigenvalue peaks and its global modal census do not follow from these statements without further analysis. Unindexed gamma-mixture asymptotics may contain an equivalent result; Knutsen full source inaccessible in this run.
+
+## value
+
+PASS
+
+Competing thin Fock localization rings form a natural multi-region spectral problem. The theorem distinguishes the emergence of an extra local maximum from global selection, and computes a positive order-T^-1 asymmetry invisible at Gaussian leading order; useful for localization-operator norm estimates.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

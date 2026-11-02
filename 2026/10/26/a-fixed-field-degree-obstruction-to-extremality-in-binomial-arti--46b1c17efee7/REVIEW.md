@@ -1,11 +1,21 @@
-# Mathematical review
+# Independent mathematical audit
 
-**Correctness — PASS.** The trace-polar radical is exactly a second-order Frobenius recurrence, and the fixed-field linear-dimension lemma bounds it by two. Quadratic Gauss sums give the claimed point-count bound for all coefficients. The extreme-degree exclusions are independently proved, including the boundary at \(n=h\). Finite-field tests of ranks and point counts agree with the general proof but are not substitutes for it.
+## correctness
 
-**Originality — PASS, with residual risk.** Almeida Filho–Tafazolian–Vieira establish a general Cartier bound \(n\ge h+1\); the new mixed-binomial conclusion \(h\mid2n\) is a distinct congruence restriction and therefore does not follow from the published bound alone. Anbar–Meidl treat important quadratic-form and prime-field special cases. Chen and Ito–Tatematsu–Tsushima present broader quadratic and L-polynomial frameworks that may contain implicit derivations; their full papers were not retrieved in this review, and historical priority is not certified. The new result is not presented as a new Gauss-sum formula.
+PASS
 
-**Mathematical value — PASS.** The proof gives a coefficient-uniform arithmetic cutoff for a natural sparse subfamily of a current maximal-curve problem, excluding previously permitted extension-degree intervals. It is an infinite structural restriction, not a finite census or a claim of existence.
+The trace quadratic form Q(x)=Tr(ax^(p^h+1)+bx^2) has polar radical cut out by a x^(p^h)+a^(p^(2n-h))x^(p^(2n-h))+2bx=0 for n>=h; applying Frobenius yields an order-two semilinear recurrence over fixed field F_(p^d), d=gcd(h,2n), with invertible companion matrix. The fixed-vector lemma (minimal K-dependence of k-independent semilinear solutions) bounds radical dimension r<=2d over F_p, and each nonzero scalar quadratic Gauss sum has modulus p^(n+r/2). Triangle inequality gives the uniform bound; Hasse extremal deviation (p-1)p^(n+h) implies d=h. For n<h the Hasse value exceeds point-count constraints; n=h,b!=0 cannot have full polar radical because nontrivial Frobenius and identity maps are independent. Independent direct F9 trace and point count for nine (a,b) nonzero pairs corroborates boundary; the proof is symbolic for arbitrary p,n,h.
 
-The point-count upper bound may be nonsharp. No maximality construction or classification beyond this necessary condition is claimed. A separate independent literature audit would be appropriate before publication.
+## originality
 
-Self-review: passed. Independent audit: not yet performed.
+PASS
+
+Fixed-field divisibility h|2n is not stated in the accessed most relevant Cartesian-specialized results. The 2014 quadratic-form framework and 2024 Chen Dickson-matrix classification could subsume it through a nontrivial specialization; this remains substantive priority risk, with primary text comparison distinguishing their hypotheses and explicit implications.
+
+## value
+
+PASS
+
+A coefficient-uniform necessary arithmetic obstruction for a naturally sparse two-term Artin–Schreier family, filtering entire extension-degree families not excluded by the general lower degree n>=h+1 bound. It is a structural semilinear rank theorem and useful arithmetic search cutoff, not mere computation and not an existence classification.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

@@ -1,0 +1,130 @@
+{
+  "audit_date_utc": "2026-10-30",
+  "audited_at_utc": "2026-10-30T12:12:05.913871Z",
+  "axes": {
+    "correctness": {
+      "rationale": "Indicator linearity gives s_n=n sum_i p_i(1-p_i)^(n-1). Group equal values q_j and extend to S(t)=t sum_j c_jq_j/(1-q_j) e^{t log(1-q_j)}. S’ is an exponential polynomial with L distinct real rates and polynomial multipliers of degree at most 1. Repeated Rolle differentiation proves at most 2L-1 real zeros counting multiplicity, so k strict integer maxima force at least 2k-1 derivative zeros and k<=L. For sharpness use p_j=eps^{2^{j-2}} (j>=2), p_1=1-sum p_j: initial n=1 peak, and L-1 separated scales n~1/p_j where a single species contributes e^-1, with vanishing intermediate valleys. Choosing sufficiently small transcendental eps avoids all adjacent ties because s_{n+1}-s_n is a nonzero polynomial for each integer n. Independent arbitrary-precision exact integer sign checks verified all neighboring inequalities of the explicit vector (9899,100,1)/10000 at n=1,102,9999; the all-L statement relies on the analytical construction.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Heck et al. compute richness rarefaction and variance; Mao–Colwell study Poisson/binomial mixtures and rare undetected species; Mao–Colwell–Chang study expected detected-species accumulation curves."
+        ],
+        "reasoning": "Total detected-species accumulation is monotone and is not the singleton-frequency curve. General mixture estimation does not by itself specify sharp count of its strict integer local maxima or attainable separation of L scales; full text of the closest 2005 mixture article was not read and remains a risk.",
+        "searches": [
+          "Resultary semantic search: expected singleton species richness n sum p_i(1-p_i)^(n-1) sharp number local maxima distinct probabilities",
+          "Web search: species abundance singleton expectation number of maxima sampling size n sum p (1-p)^n local maxima multimodal species rarefaction",
+          "Web search: expected singleton frequencies as function of sample size number of modes occupancy exponential sums",
+          "Mao–Colwell 2005 DOI 10.1890/04-1078",
+          "Mao–Colwell–Chang 2005 DOI 10.1111/j.1541-0420.2005.00316.x"
+        ]
+      },
+      "checked_sources": [
+        "Heck et al. Ecology 1975 DOI 10.2307/1934716",
+        "Mao–Colwell Ecology 2005 DOI 10.1890/04-1078",
+        "Mao–Colwell–Chang Biometrics 2005 DOI 10.1111/j.1541-0420.2005.00316.x",
+        "Chao–Jost Ecology 2012 DOI 10.1890/11-1952.1",
+        "Resultary query above",
+        "Frozen RESULT.md and certificate.json"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "The classical Chebyshev zero count for sum (a_j+b_j t)e^{lambda_j t} gives at most 2L-1 derivative zeros. A strict integer peak gives an interior maximum; k maxima force 2k-1 derivative zeros."
+        ],
+        "reasoning": "The upper bound is a specialized consequence of known exponential-system theory rather than a new general zero theorem; the sharp construction of L separable species abundance scales and the natural occupancy interpretation are the distinctive claim.",
+        "searches": [
+          "Resultary semantic search: expected singleton species richness n sum p_i(1-p_i)^(n-1) sharp number local maxima distinct probabilities",
+          "Web search: species abundance singleton expectation number of maxima sampling size n sum p (1-p)^n local maxima multimodal species rarefaction",
+          "Web search: expected singleton frequencies as function of sample size number of modes occupancy exponential sums",
+          "Mao–Colwell 2005 DOI 10.1890/04-1078",
+          "Mao–Colwell–Chang 2005 DOI 10.1111/j.1541-0420.2005.00316.x"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "The expectation s_n=n sum_i p_i(1-p_i)^{n-1} is the expected occupancy frequency-of-frequency f1(n), not the mode of the empirical species abundance histogram. Grouped probabilities are a positive finite exponential mixture with L distinct decay rates."
+        ],
+        "reasoning": "The finite-mixture generalized exponential polynomial Chebyshev zero-bound controls the shape of the entire effort curve; known root bounds may imply the upper bound after this identification, and the mathematical root lemma itself is prior mathematics.",
+        "searches": [
+          "Resultary semantic search: expected singleton species richness n sum p_i(1-p_i)^(n-1) sharp number local maxima distinct probabilities",
+          "Web search: species abundance singleton expectation number of maxima sampling size n sum p (1-p)^n local maxima multimodal species rarefaction",
+          "Web search: expected singleton frequencies as function of sample size number of modes occupancy exponential sums",
+          "Mao–Colwell 2005 DOI 10.1890/04-1078",
+          "Mao–Colwell–Chang 2005 DOI 10.1111/j.1541-0420.2005.00316.x"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "The three-species vector (9899,100,1)/10000 was checked at n=1,102,9999 using exact arithmetic; bibliographic and semantic searches for an occupancy singleton strict peak count found no exact table."
+        ],
+        "reasoning": "An ecological table of abundance classes or one-sample singletons is not an exact all-effort peak census. Lack of a search hit is not priority evidence on its own.",
+        "searches": [
+          "Resultary semantic search: expected singleton species richness n sum p_i(1-p_i)^(n-1) sharp number local maxima distinct probabilities",
+          "Web search: species abundance singleton expectation number of maxima sampling size n sum p (1-p)^n local maxima multimodal species rarefaction",
+          "Web search: expected singleton frequencies as function of sample size number of modes occupancy exponential sums",
+          "Mao–Colwell 2005 DOI 10.1890/04-1078",
+          "Mao–Colwell–Chang 2005 DOI 10.1111/j.1541-0420.2005.00316.x"
+        ]
+      },
+      "rationale": "Qualified PASS: the Chebyshev zero-bound and sampling expectation are established tools; the sharp abundance-level strict-peak count and L-scale realizability are a natural, apparently uncovered specialization, with full-text risk for nearby mixture literature.",
+      "residual_risks": [
+        "The uninspected full 2005 Poisson-mixture paper or a general total-positivity/variation-diminishing theorem may explicitly contain this singleton peak bound as a corollary.",
+        "The sharp examples require increasingly extreme abundance separation as L grows; ecological prevalence is not established."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "PRIOR_RICHNESS_RATHER_THAN_SINGLETON_PEAKS_WITH_READ_LIMIT",
+          "evidence": "Computes total distinct species richness and variance from a sample, rather than the maximum number of strict peaks of expected species observed exactly once.",
+          "identifier_or_url": "https://doi.org/10.2307/1934716",
+          "material_read": "Publisher abstract, model and bibliographic details read; complete paper not available through this access",
+          "method": "Publisher HTML abstract and metadata",
+          "title": "Explicit Calculation of the Rarefaction Diversity Measurement and the Determination of Sufficient Sample Size",
+          "trigger": "Classical expected richness versus sample size"
+        },
+        {
+          "assessment": "PLAUSIBLE_MIXTURE_SOURCE_NOT_FULLY_READ",
+          "evidence": "Treats estimating richness with Poisson/binomial mixtures and rare species, could contain general frequency-count shape results; no whole-document NOT_COVERING claim.",
+          "identifier_or_url": "https://doi.org/10.1890/04-1078",
+          "material_read": "Publisher abstract, keywords and detailed cited literature read; full primary body not accessed",
+          "method": "Publisher HTML/metadata, OA searches",
+          "title": "Estimation of Species Richness: Mixture Models, the Role of Rare Species, and Inferential Challenges",
+          "trigger": "Closest rare-species and mixture-model primary paper"
+        },
+        {
+          "assessment": "PRIOR_TOTAL_ACCUMULATION_NOT_IDENTICAL_WITH_READ_LIMIT",
+          "evidence": "The estimated curve is expected number of all detected species; singleton frequency curve is its n-weighted discovery derivative in iid fixed distributions, so implicit formula coverage is possible but exact strict peak count is not in available statements.",
+          "identifier_or_url": "https://doi.org/10.1111/j.1541-0420.2005.00316.x",
+          "material_read": "Publisher abstract and method summary read, full primary body not accessed",
+          "method": "Publisher HTML/abstract and PubMed",
+          "title": "Estimating the Species Accumulation Curve Using Mixtures",
+          "trigger": "Same class of species abundance mixture and effort curves"
+        },
+        {
+          "assessment": "BACKGROUND_WITH_ACCESS_LIMIT",
+          "evidence": "Defines singleton sample frequency but not enough readable text to assess all stronger consequences.",
+          "identifier_or_url": "https://doi.org/10.1093/JPE/RTR044",
+          "material_read": "Search-indexed text about f_k inspected; full page redirect returned non-retryable error",
+          "method": "Indexed source passages only",
+          "title": "Models and estimators linking individual-based and sample-based rarefaction, extrapolation and comparison of assemblages",
+          "trigger": "Defines f_k frequency-of-frequencies and expected rarefaction quantities"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "rationale": "Expected observed-once species count is a standard sampling diagnostic. A sharp bound on how often its expectation can reverse with sampling effort, controlled by the number of abundance levels rather than number of species, answers a natural shape question and gives explicit extreme examples useful in sampling design and interpretation.",
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "limitations": [
+    "Only finite fixed positive iid with-replacement sampling; no inference for empirical prevalence, temporal shifts or without-replacement designs.",
+    "The exponential-polynomial zero-count is classical; independent contribution is application and sharp realization.",
+    "The uninspected full 2005 Poisson-mixture paper or a general total-positivity/variation-diminishing theorem may explicitly contain this singleton peak bound as a corollary.",
+    "The sharp examples require increasingly extreme abundance separation as L grows; ecological prevalence is not established.",
+    "Scientific PASS records are not independently certified by Lean or an expert; positive code evidence does not establish originality or universal quantifiers.",
+    "Publication not_ready because existing metadata needs truthful confidentiality sanitization; this is transport not scientific failure."
+  ],
+  "schema_version": 1
+}

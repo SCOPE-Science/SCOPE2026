@@ -1,0 +1,123 @@
+{
+  "audit_date_utc": "2026-10-30",
+  "audited_at_utc": "2026-10-30T06:15:30Z",
+  "axes": {
+    "correctness": {
+      "rationale": "Static coordinate shattering iff F is independent in M and its dual: all-ones and all-zeros give necessity; given basis B0 disjoint F and independent subpattern I, augmentation extends I inside B0∪I to a full basis, realizing exactly I. Edmonds matroid intersection theorem gives ν(M)=m-R+min_A φ(A), φ=2r(A)-|A|. For e neither loop nor coloop, applying dual rank to M\\e and M/e separately gives ν_del=m-R-1+min_{A:e∉A}φ(A) and ν_contr=m-R-1+min_{A:e∈A}φ(A). Their minimum is exactly ν(M)-1, since domains partition 2^E. Induction on the first query bounds Littlestone depth by ν; fixed VC-shattered F gives lower bound, hence equality including all edge cases. Graphic dual independence equivalent to G\\F connected. Independent direct version-space recursion matched VC and Ldim for uniform and partition matroids of size up to seven; no extrapolation from finite tests is used.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Edmonds minmax supplies static intersection size only",
+          "Guingona et al. equality holds for a different linear zero-set class",
+          "General Littlestone branching is standard; precise minor rank identity supplies missing hypothesis"
+        ],
+        "reasoning": "Published general theorems have different class hypotheses; for arbitrary nonrepresentable M, linear-zero-set theorem is not a direct implication. The supplied proof gives universal matroid-specific equality.",
+        "searches": [
+          "Edmonds matroid intersection min max rank oracle bound",
+          "Chase Freitag Reyzin 2023 Littlestone dimension query learning compression",
+          "Guingona Kolesnikov Nierwinski Soucy 2021 Littlestone VC zero sets"
+        ]
+      },
+      "checked_sources": [
+        "Frozen RESULT.md d974ea9c4a808d157e03615848a20b0cc315bb4c",
+        "Edmonds matroid intersection minmax (classical)",
+        "Chakrabarty et al. arXiv:1911.10765v1 introduction",
+        "Guingona et al. arXiv:2109.04805 abstract",
+        "Chase et al. arXiv:2310.04812 abstract",
+        "Resultary semantic query online shattering matroid bases"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "Edmonds rank minimum and deletion/contraction identities are inputs not originality claims",
+          "Matroid Gray code basis listing does not determine adversarial adaptive shattering depth"
+        ],
+        "reasoning": "Static matroid intersection alone does not prove Ldim=VC for an arbitrary concept class; the exact rank-minimizer partition and induction are a distinct derived theorem. Could be a known folk implication of general rank submodularity, hence priority qualified.",
+        "searches": [
+          "Chakrabarty Lee Sidford Singla Wong Faster Matroid Intersection theorem rank formula",
+          "Merino Mutze Williams 2022 listing bases Gray code",
+          "Chase Freitag Reyzin query learning dimension bounds"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Matroid basis indicator concepts correspond to uniform-rank feasible set systems; VC shattering iff primal and dual independent",
+          "Deleting/contracting after label gives exact version-space minor"
+        ],
+        "reasoning": "The claim was compared under online mistake bound, tree shattering dimension, spanning-tree membership query, and dual matroid intersection formulations. Resultary top matches matroid geometry, not online shattering, which is not a novelty proof.",
+        "searches": [
+          "Littlestone dimension matroid bases incidence class VC online learning dual independent",
+          "Resultary: Littlestone dimension VC dimension basis indicator class matroids matroid intersection dual independence rank minimum"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "Finite verifier enumerated 498 small labeled matroids in package; independent uniform and partition direct checks performed",
+          "Uniform small families alone cannot prove unrestricted arbitrary matroid theorem"
+        ],
+        "reasoning": "The claim is an all-finite-matroid theorem, not a finite classification or database readout; prior tables of small matroids would not settle it.",
+        "searches": [
+          "matroid basis concept class online mistake bound tabulated matroids five points",
+          "VC dimension spanning trees forest connected complement matroid intersection"
+        ]
+      },
+      "rationale": "Matroid intersection min-max and general Ldim branching are classical; the proposed connection is that all basis-incidence concept classes, even nonrepresentable, have equality of static and adaptive shattering, and a stronger exactly-one-decrement minor dichotomy. Compared general learning and matroid-basis enumeration works do not state this in inspected passages. Priority risk remains for unindexed general theorem about greedoids or matroid concept classes.",
+      "residual_risks": [
+        "Possible unnamed general VC=Littlestone equality theorem for matroidal/hereditary basis classes could cover this result.",
+        "Several related primary papers were inspected via abstracts/introductions rather than all appendices.",
+        "Online bound assumes realizable deterministic element-membership queries and independence/rank oracles."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Edmonds minmax known; no online shattering consequence in inspected passages",
+          "evidence": "Chakrabarty–Lee–Sidford–Singla–Wong (2019).",
+          "identifier_or_url": "https://arxiv.org/html/1911.10765v1",
+          "material_read": "Abstract, introduction and rank-oracle theorem description; entire paper not independently read",
+          "method": "Read accessible primary sections and theorem statement",
+          "title": "Faster Matroid Intersection",
+          "trigger": "Exact rank min–max and possible learning specializations"
+        },
+        {
+          "assessment": "Greedy Gray-code enumeration differs from adaptive membership-query shattering",
+          "evidence": "Merino–Mütze–Williams (2022), FUN 2022.",
+          "identifier_or_url": "https://doi.org/10.4230/LIPIcs.FUN.2022.22",
+          "material_read": "Abstract and accessible paper overview; full proof text not read",
+          "method": "Compare formal problems and outputs",
+          "title": "All Your bases Are Belong to Us: Listing All Bases of a Matroid by Greedy Exchanges",
+          "trigger": "Same matroid-basis object"
+        },
+        {
+          "assessment": "Linear combination zero sets are not arbitrary nonrepresentable matroid basis-indicator classes",
+          "evidence": "Guingona et al. (2021), arXiv:2109.04805.",
+          "identifier_or_url": "https://arxiv.org/abs/2109.04805",
+          "material_read": "Abstract and theorem synopsis; full text not read",
+          "method": "Compare concept class hypotheses",
+          "title": "Littlestone and VC-dimension of families of zero sets",
+          "trigger": "Potential general equality theorem"
+        },
+        {
+          "assessment": "General compression and online learning; no matroid-basis specialization in inspected material",
+          "evidence": "Chase–Freitag–Reyzin (2023), arXiv:2310.04812.",
+          "identifier_or_url": "https://arxiv.org/abs/2310.04812",
+          "material_read": "Abstract and paper introduction; full text not read",
+          "method": "Read introductory theorem scope",
+          "title": "Applications of Littlestone dimension to query learning and to compression",
+          "trigger": "General online dimension might dominate theorem"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "rationale": "A natural rich class of concepts where adaptivity unexpectedly cannot increase shattering complexity, with an exact primal/dual rank minimization and polynomial oracle algorithm for optimum online mistake bound. Graphic specialization yields a meaningful forest-with-connected-complement invariant rather than a one-off example.",
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "limitations": [
+    "Possible unnamed general VC=Littlestone equality theorem for matroidal/hereditary basis classes could cover this result.",
+    "Several related primary papers were inspected via abstracts/introductions rather than all appendices.",
+    "Online bound assumes realizable deterministic element-membership queries and independence/rank oracles."
+  ],
+  "schema_version": 1
+}

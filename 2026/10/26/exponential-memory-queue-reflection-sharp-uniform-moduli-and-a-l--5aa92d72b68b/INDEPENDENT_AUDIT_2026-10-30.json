@@ -1,0 +1,118 @@
+{
+  "audit_date_utc": "2026-10-30",
+  "audited_at_utc": "2026-10-30T15:17:11Z",
+  "axes": {
+    "correctness": {
+      "rationale": "Integrating-factor conjugacy z(t)=e^{βt}m(t) transforms the upper Volterra obstacle into ordinary reflection z(t)=sup_{s≤t}[e^{βs}(ρ(s)−1)]_+. Consequently y=ρ−m and η=m+β∫m; complementary Stieltjes measure gives uniqueness. Weighted supremum is 1-Lipschitz uniformly; sharp constants are 2 for occupancy and 1+βT for η (endpoint attained as pulse start approaches zero). For time changes λ, memory difference is bounded by δ+2βBε and integration-by-parts/BV bounds yield local J1 Lipschitz constants. Shifted high pulses create unbounded terminal occupancy difference while J1 input distance≤h; duration-stretched pulses create terminal regulator difference βHh. For β=0 time-change equivariance restores global bounds. Independent step-input tests verified the sharp constants and pulse obstructions; general claims follow the analytic argument.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "General Volterra theory covers existence and unspecified sup norm bounds for kernels including exponentials.",
+          "Classical Skorokhod maps commute with time changes, while exponential memory introduces an amplitude-dependent clock effect."
+        ],
+        "reasoning": "The broad existing theory does not state these sharp exponential constants or local J1 bound/global counterexamples; a different general drift stability formulation remains a caveat.",
+        "searches": [
+          "arXiv:2610.22607 Theorem 3.5 Propositions 3.10/3.13 Remark 3.11",
+          "Reed Ward Zhan 2013 Theorem 2.1",
+          "Kruk et al arXiv:0710.2977"
+        ]
+      },
+      "checked_sources": [
+        "Wang–Chakraborty 2026 full HTML, Remark 3.11",
+        "Reed–Ward–Zhan 2013 Theorem 2.1 PDF",
+        "Kruk et al arXiv:0710.2977 abstract",
+        "Resultary and web exact J1/Volterra searches",
+        "Exact frozen RESULT.md and REVIEW.md"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "Remark 3.11 explicitly identifies J1 regularity as outside the earlier theorem.",
+          "A sup-representation supplies a framework but does not by itself bound the time-change disturbance of an integrated regulator."
+        ],
+        "reasoning": "New bounded-variation control and separate rectangular-pulse obstructions are needed to derive both positive and negative J1 conclusions.",
+        "searches": [
+          "Wang–Chakraborty 2026 Remark 3.11",
+          "Reed–Ward–Zhan 2013 Theorem 2.1"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Exponential Volterra reflection conjugates to one-sided Skorokhod reflection of an exponentially weighted obstacle.",
+          "Generalized drift sup representation is mathematically closely related, not an independent new supremum construction."
+        ],
+        "reasoning": "The nontrivial assessed remainder is exact sharp norms and J1 limits, not generic existence of a Skorokhod reflection.",
+        "searches": [
+          "Volterra Skorokhod exponential kernel reflection time change J1 Lipschitz queue",
+          "Wang–Chakraborty arXiv:2610.22607 §3",
+          "Reed–Ward–Zhan 2013 Theorem 2.1"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "No source/table of exact two-output operator moduli appeared among the returned semantic hits.",
+          "The problem concerns infinite-dimensional path-map norms, not a conventional finite numeric database."
+        ],
+        "reasoning": "An exact coefficient table search is inapplicable beyond theorem comparisons; no-match is not novelty proof.",
+        "searches": [
+          "Volterra Skorokhod exponential kernel reflection time change J1 Lipschitz queue",
+          "Resultary Volterra Skorokhod exponential memory J1 search"
+        ]
+      },
+      "rationale": "Qualified PASS for exponential-memory-specific sharp constants and local-versus-global J1 phase. Wang–Chakraborty 2026 Theorem 3.5 and Propositions 3.10/3.13 supply the general well-posedness and unspecified uniform Lipschitz bounds, and Remark 3.11 explicitly leaves J1 regularity open. Reed–Ward–Zhan 2013 supplies generalized drift Skorokhod suprema, a known ingredient but not the stated two sharp moduli or both J1 obstructions. Other linear-drift stability theorems could imply part of the result.",
+      "residual_risks": [
+        "The conjugacy to ordinary reflection is standard and not an originality claim; a preexisting general drift theorem might imply some sharp estimates.",
+        "The general nonexponential-kernel J1 question remains open."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Earlier results give existence and unspecific uniform constants; Remark 3.11 leaves J1 behavior open.",
+          "evidence": [
+            "Remark 3.11 explicitly asks about J1 continuity; Propositions 3.10/3.13 bound different outputs without the sharp constants."
+          ],
+          "identifier_or_url": "https://arxiv.org/abs/2610.22607",
+          "material_read": "Accessible full article text, especially Definition 3.2, Theorem 3.5, Propositions 3.10/3.13 and Remark 3.11",
+          "method": "lawful open full HTML",
+          "title": "Volterra-Skorokhod Reflection and Fluid Limits of Loss Queues",
+          "trigger": "Same reflected queue equation and explicit J1 question"
+        },
+        {
+          "assessment": "Supremum representation is prior work; inspected theorem not the full two-output sharp J1 statement.",
+          "evidence": [
+            "Theorem 2.1 represents generalized drift via unrestricted integral-equation supremum."
+          ],
+          "identifier_or_url": "https://discovery.ucl.ac.uk/1575577/1/Reed_Ward_Zhan_2013.pdf",
+          "material_read": "Lawful PDF introduction and Theorem 2.1 representation, relevant page images",
+          "method": "UCL open manuscript PDF with screenshots",
+          "title": "On the generalized drift Skorokhod problem in one dimension",
+          "trigger": "Possible broader reflected-linear-drift theorem"
+        },
+        {
+          "assessment": "Instantaneous-kernel reflection is distinguishable; cannot claim complete paper noncoverage.",
+          "evidence": [
+            "Time-change-equivariant classical reflection is a different kernel regime."
+          ],
+          "identifier_or_url": "https://arxiv.org/abs/0710.2977",
+          "material_read": "Abstract/bibliographic comparison only, full body not asserted read",
+          "method": "arXiv metadata",
+          "title": "An explicit formula for the Skorokhod map on [0,a]",
+          "trigger": "Classical two-sided instantaneous reflection"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "rationale": "The exponential survival kernel is a natural queueing service law; exact optimal uniform constants plus a quantitative bounded-class J1 estimate settle a concrete case of a published open regularity issue, and distinguish functional continuity from absence of a global Lipschitz constant.",
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "limitations": [
+    "Local J1 Lipschitz is bounded-amplitude, not global; global failure only for β>0.",
+    "No general service kernels or stochastic weak-limit theorem are concluded.",
+    "The conjugacy to ordinary reflection is standard and not an originality claim; a preexisting general drift theorem might imply some sharp estimates.",
+    "The general nonexponential-kernel J1 question remains open."
+  ],
+  "schema_version": 1
+}

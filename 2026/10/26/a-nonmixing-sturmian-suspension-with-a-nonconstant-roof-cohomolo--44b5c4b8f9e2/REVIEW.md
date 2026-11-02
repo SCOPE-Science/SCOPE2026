@@ -1,15 +1,21 @@
-# Scientific review: nonmixing Sturmian suspension roof
+# Independent mathematical audit
 
-## Correctness
-**PASS.** The stated roof is positive and continuously differentiable through its circle factor. Its factorial-denominator rational approximants give an explicit uniform bound on the Birkhoff-return discrepancy. The proof separately establishes that every continuous symbolic coboundary transfer would descend through the Sturmian factor, where a divergent Fourier coefficient lower bound makes such a transfer impossible. The nonmixing obstruction is a genuine topological factor obstruction witnessed by disjoint open flow boxes at arbitrarily late prescribed times. The accompanying verifier checks finite exact arithmetic only; the proof supplies every infinite claim.
+## correctness
 
-## Originality
-**PASS under inspected evidence, with bibliographic priority risk.** Day's 2025 article asks the precise minimal-shift question and does not provide the presented counterexample. Katok's interval-exchange result and Fayad--Windsor's Fourier-cohomology analysis concern rotation special flows, not this assertion about a continuous roof on a two-sided minimal symbolic shift. Existing Sturmian transfer-regularity results analyze continuous transfers *when they exist*, not this explicit no-transfer suspension construction. Published-record searches using the exact question, analogous Sturmian words, cohomology, rotation factor and factorial resonances did not identify a covering result. The construction uses classical ingredients; earlier unindexed symbolic applications remain possible.
+PASS
 
-## Mathematical value
-**PASS.** The example answers an explicit open-ended classification question for the boundary between nonmixing suspensions and roof coboundaries over minimal symbolic systems. It additionally gives a quantitative uniform return law while cohomology remains nontrivial, demonstrating that arbitrarily accurate almost-periodic return sums do not force an exact continuous transfer.
+Q_k=10^(k!), p_k=sum_{j<=k}Q_k/Q_j integral, δ_k=Q_kα-p_k between Q_k/Q_(k+1) and twice that, giving irrationality and near-returns. Since ∑Q_k^-2 and derivative ∑Q_k^-1 converge, ρ=2+f is positive C¹. Fourier term-by-term geometric-sum control distinguishes j<k and j>=k frequencies to bound ||S_(Q_k)ρ-2Q_k||∞<3/Q_k. If f=v∘R_α-v, its frequency-Q_k Fourier coefficient must have modulus > Q_(k+1)/(8π Q_k³), unbounded, impossible for continuous v. Any symbolic transfer U for r-2 is equal on all two-point Sturmian fibers because fiber points become forward asymptotic and r factors; hence U descends to forbidden continuous circle v. Suspension over Sturmian factors onto circle suspension; disjoint flow boxes remain disjoint at arbitrarily large almost-return times 2Q_k, proving its factor and thus original flow not topologically mixing. Independent rational approximation bounds and finite Q₂=100 Birkhoff sums checked; rigorous infinitely many returns follow from proof.
 
-## Scope and risk
-The result only concerns continuous additive cohomology, a particular Liouville slope, and a factor-induced roof. It does not classify general minimal suspensions, nor claim a result about measurable transfer regularity. No independent audit has been performed.
+## originality
 
-Self-review: passed. Independent audit: not yet performed.
+PASS
+
+Day (2025) Question 3.15 explicitly poses whether every nonmixing suspension over a minimal shift has roof cohomologous to a constant. In the accessed full text Day proves certain cases for synchronizing or finite-type shifts but does not provide a Sturmian counterexample. Rotation special-flow nonmixing and Fourier small-divisor obstructions are classical ingredients; the novelty assessed is this explicit two-sided minimal symbolic counterexample and descent argument. Possible existing near-one-to-one factor examples remain priority risk.
+
+## value
+
+PASS
+
+Direct concrete negative answer to a published explicit minimal-shift classification question, with quantitative almost-periodic return times that do not force any continuous additive transfer. The obstruction and descent elucidate the gap between dynamical nonmixing, return rigidity and cohomological triviality.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

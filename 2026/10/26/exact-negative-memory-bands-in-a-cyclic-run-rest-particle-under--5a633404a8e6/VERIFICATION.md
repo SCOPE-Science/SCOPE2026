@@ -5,8 +5,11 @@
     "status": "not_performed"
   },
   "independent_audit": {
-    "evidence": null,
-    "status": "not_performed"
+    "status": "passed",
+    "evidence": [
+      "INDEPENDENT_AUDIT_2026-10-30.md",
+      "INDEPENDENT_AUDIT_2026-10-30.json"
+    ]
   },
   "lean_verification": {
     "evidence": null,
@@ -16,8 +19,24 @@
 }
 ---
 
-# Reproducibility
+# Independent mathematical audit
 
-Run `python verify_covariance.py` with NumPy and SciPy. The program constructs the four-state clockwise Markov generator, solves stationary mixed-position moments, and propagates a separate five-variable mixed-moment linear system. Its output is compared against the analytical scalar covariance for 26 independent confinement ratios and 30 lags (780 comparisons). It also checks numerical onset bracketing, representative negative-band counts, critical lobe signs and the predicted asymptotic count. This independent numerical route agrees to at most \(1.34\times10^{-15}\) absolute error at the tested points.
+## correctness
 
-The proof of the infinite-time and continuum-parameter classification is analytic and depends on the explicit Green-kernel convolution and exact kernel-composition identity; no finite computational experiment is interpreted as proof of uniqueness or of infinitely many sign changes. Independent scientific validation has not been conducted.
+PASS
+
+The directed chain has stationary motility correlation (1/2)e^{-r|t|}cos(rt). The Green-filter ODE gives the exact displayed covariance and its h=1 limit. For 0<h<1 the normalized sign is A+B e^{-(1−h)u}cos(u−φ), with one trough in each negative cosine sector. Strict inequalities at troughs give N=ceil[log(M/A)/(2π(1−h))], with tangencies excluded. A positive Laplace-kernel convolution nesting gives uniqueness of h*=0.8914223658803029… and nonnegativity at equality. Oscillatory dominance proves infinite bands for h≥1 and N~log5/[4π(1−h)] near 1. Independently solved 8-dimensional generator/mixed-moment ODE and checked exact formula at 64 (h,u) pairs; checked onset and lobe counts. Finite checks do not replace the analysis.
+
+## originality
+
+PASS
+
+Best-of-knowledge qualified PASS for the complete directed cyclic-trap sign-set classification, not for Fourier decomposition or linear-filtering. Sun–Ye–Podgornik uses independent run-direction resampling after rests, rather than deterministic alternating reversal; Datta–Beta–Großmann develops intermittent unconfined transport and memory, not this confined sign-band onset/count. The exact stronger prior-work implication remains unproven; a broad positive-kernel variation theorem may cover components.
+
+## value
+
+PASS
+
+Temporal negative memory without inertia is a natural observable; the strict critical confinement ratio, exact number of negative intervals, tangency case, and infinite-band divergence form a nontrivial complete phase classification rather than a numerical plot.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

@@ -5,8 +5,11 @@
     "status": "not_performed"
   },
   "independent_audit": {
-    "evidence": null,
-    "status": "not_performed"
+    "status": "passed",
+    "evidence": [
+      "INDEPENDENT_AUDIT_2026-10-30.md",
+      "INDEPENDENT_AUDIT_2026-10-30.json"
+    ]
   },
   "lean_verification": {
     "evidence": null,
@@ -16,8 +19,24 @@
 }
 ---
 
-# Reproducibility
+# Independent mathematical audit
 
-Run `python verify.py` from this package with Python 3, NumPy and SymPy. The checker reconstructs the two-particle full-state exclusion generator independently, solves the reset-resolvent linear system, compares exact \(K_{2,m}\) covariance for positive integer \(m\le7\) across eight rates, solves the lumped three-state probabilities symbolically for \(1\le m\le9\), and verifies the six-state four-cycle closed formula. It passed 251 symbolic and numerical checks.
+## correctness
 
-The general finite-graph high-rate coefficient rests on the analytical two-jump enumeration in RESULT.md, not on exhaustive graph enumeration. The all-\(m\) threshold is a symbolic rational identity and sign check; enumerated sizes corroborate but do not establish it. The full-state computations use column generator convention and rate-one exchanges on undirected occupied-vacant edges. The no-reset stationary covariance and \(r\to\infty\) limits use fixed finite graph size. All scholarly-priority comparisons are provisional, not independent audits.
+PASS
+
+Stationary resetting resolvent π_r(f)=r∫exp(-rt)(P_t f)(S)dt follows from memoryless independent reset and irreducibility. r→0 yields uniform k-subset moments and C= -k(n-k)/(n²(n-1)). At high r use U=1-η_x,V=1-η_y. Their first departure derivatives are d_x,d_y; exactly two jumps to distinct initial empty neighbors give second Taylor coefficient d_x d_y-c and no other two-jump routes end with both x,y vacant. Exponential-age integrals multiply by 2!, giving r² Cov(U,V)=d_xd_y-2c. Explicit three-state generator on K_(2,m) has rates 0->1:4, 1->0:m-1, 1->2:1, 2->1:2m and reset 0,1->2:r. Solving π gives C=m((m-2)r-4)/((m+r+2)^2(2m+r+2)), yielding exactly one positive root r=4/(m-2) iff m>=3. Four-cycle specialization and even-block boundary coefficient follow. Independent symbolic rational generator calculation reproduced the K_(2,m) formula; limit claims fixed graph.
+
+## originality
+
+PASS
+
+Basu–Kundu–Pal 2019 establish symmetric exclusion with stochastic resetting and renewal; their inspected full article treats densities/integrated currents. Sadekar–Basu 2020 correlations concern dichotomous rather than single-configuration resets; ordinary bipartite spectrum without resetting does not imply the exact signed covariance threshold. General Markov resolvent formulas are common, so genuinely new portion is the two-hop geometry and all-m bipartite phase.
+
+## value
+
+PASS
+
+Non-equilibrium stationary covariance changes sign despite equilibrium exclusion anticorrelation; the local combinatorial obstruction predicts reversal, and K_(2,m) demonstrates an exact, sharp vacancy coordination threshold with unique sign crossing. This informs finite-network exclusion correlations without requiring a thermodynamic limit.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
