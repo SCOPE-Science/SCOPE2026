@@ -1,19 +1,21 @@
-# Scientific assessment: unrestricted two-colour wild spectrum
+# Independent mathematical audit
 
-## Correctness — PASS
+## correctness
 
-The two-colour component identity reduces the invariant to sums of two graphic ranks. Applying Edmonds' union-rank formula to two graphic matroids gives the minimum; comparison of edge subsets and vertex partitions proves exact equality to the stated deficiency. Binary cycle-space projection proves that the maximum \(n-1\) is attained exactly by colourings constant on every edge block, producing the exact multiplicity; in the one-block case a single-edge colouring proves the upper bound \(n-2\). The surjective-colouring reconfiguration graph and one-edge rank changes prove interval support. The two-edge boundary case is separately handled. All connected labelled graphs through five vertices and five six-vertex examples pass complete finite spectrum and multiplicity comparisons, which remain corroboration rather than infinite proof.
+PASS
 
-## Originality — PASS, with bounded bibliographic uncertainty
+Anders et al established the two-color identity wld=κ(R)+κ(B)-2=2(n-1)-r(R)-r(B). Maximizing r(R)+r(B) over surjective colourings gives the rank r_2(E) of two-union graphic matroid: choose two disjoint maximal forests, then color any extra edges freely without reducing ranks; even if one forest initially empty two independent edges ensure surjectivity. Edmonds matroid union yields min wld=max_(A subset E)[2(κ(A)-1)-|E\A|], equal to D(G) by both directions using component partitions and edge sets internal to a vertex partition. The binary cycle-space identity lambda(S)=dim Z(E)-dim Z(S)-dim Z(E\S) forces lambda=0 iff every simple cycle is monochromatic, equivalent to constant color per cycle-edge-block; the count is 2^b-2 and if b=1 one-edge-red achieves n-2. Surjective hypercube edge subsets are connected by one toggle for m>=3; each toggle changes wld by at most 1, so the set of attainable integers has no gaps. m=2 is the 3-vertex path with value 2. Independent exhaustive checks of connected labelled graphs n=3,4,5 and representative n=6 graphs agreed.
 
-Anders et al., arXiv:2508.06711, establish the component identity, and Dawkins et al., arXiv:2610.22142, prove unrestricted two-colour spectra for complete graphs and give special results for bipartite complete graphs. Matroid union directly implies the minimum deficiency once the component identity is known; neither this classical implication nor the zero threshold is claimed as original. The full all-connected-graph interval theorem, edge-block upper dichotomy, and exact number of upper-extremal colourings are not stated in these inspected sources and are not implied by the earlier complete-graph or complete-bipartite special cases. Matroid-connectivity literature may contain an equivalent formulation of the combined theorem; this is a live priority risk.
+## originality
 
-## Value — PASS
+PASS
 
-The wild number measures the number of shared edge upgrades needed to support a monochromatic spanning tree for both communications systems. The result classifies **every attainable upgrade budget** on an arbitrary connected network, identifies a partition bottleneck for the lowest one, and explains exactly how the block decomposition controls the largest one and its multiplicity. This is a complete, natural infinite-class classification, beyond a one-off numerical substitution. It is specifically motivated by the recent systematic study of colouring-dependent wild numbers. Its principal tools are classical; their individual reuse is not, by itself, the valuable contribution.
+Earlier wild-number work supplies the fixed-coloring identity, and complete/bipartite-graph specialists give restricted spectra. Matroid union supplies the lower endpoint mechanically but not the cycle-block upper endpoint, the exact extremal count or gap-free interpolation over arbitrary connected graphs. The combination is assessed as qualified original mathematics.
 
-## Closest literature and limitations
+## value
 
-The 2025 foundational arXiv article (Theorem 6.4(2), Sections 2, 3, 7) and the 2026 complete/complete-bipartite arXiv article (Theorem 3.3, Sections 4–6) were inspected in full text. Edmonds' matroid-union theorem supplies the lower endpoint as a known general optimization result. The theorem applies only to **two** surjective colours and makes no claims about proper, equitable, or multicolour spectra. Verification at small orders does not certify arbitrary orders. The breadth of matroid literature leaves a plausible equivalent-formulation risk.
+PASS
 
-Self-review: passed. Independent audit: not yet performed.
+Classifying the entire value spectrum, the cycle-block dichotomy of its maximum and the exact multiplicity of extreme colorings for every connected graph constitutes a useful structural invariant and sharp all-graphs extension of prior special families. Minimum deficiency and its tree-packing corollary are acknowledged classical.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

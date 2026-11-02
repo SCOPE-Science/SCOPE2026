@@ -1,0 +1,121 @@
+{
+  "audit_date_utc": "2026-10-31",
+  "audited_at_utc": "2026-10-31T01:13:49Z",
+  "axes": {
+    "correctness": {
+      "checked_sources": [
+        "frozen RESULT.md, original verify source, exact frozen Git tree/blob IDs",
+        "independent_checks.py groups and current independent Git reconstruction"
+      ],
+      "rationale": "Anders et al established the two-color identity wld=κ(R)+κ(B)-2=2(n-1)-r(R)-r(B). Maximizing r(R)+r(B) over surjective colourings gives the rank r_2(E) of two-union graphic matroid: choose two disjoint maximal forests, then color any extra edges freely without reducing ranks; even if one forest initially empty two independent edges ensure surjectivity. Edmonds matroid union yields min wld=max_(A subset E)[2(κ(A)-1)-|E\\A|], equal to D(G) by both directions using component partitions and edge sets internal to a vertex partition. The binary cycle-space identity lambda(S)=dim Z(E)-dim Z(S)-dim Z(E\\S) forces lambda=0 iff every simple cycle is monochromatic, equivalent to constant color per cycle-edge-block; the count is 2^b-2 and if b=1 one-edge-red achieves n-2. Surjective hypercube edge subsets are connected by one toggle for m>=3; each toggle changes wld by at most 1, so the set of attainable integers has no gaps. m=2 is the 3-vertex path with value 2. Independent exhaustive checks of connected labelled graphs n=3,4,5 and representative n=6 graphs agreed.",
+      "residual_risks": [
+        "The finite graph must have at least 2 edges; the 2-edge path is a needed boundary exception for the connectivity-of-recolorings argument.",
+        "The minimum D uses the established rank-of-union theorem as a credited input, not an invented combinatorial proof."
+      ],
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Matroid union yields exact minimum D, and spanning-tree packing yields D=0; Dawkins et al give special complete and complete-bipartite cases."
+        ],
+        "reasoning": "The broad standard theorem covers the lower endpoint and zero test, hence those are explicitly not independently novel. The full range over all connected graphs is strictly additional.",
+        "searches": [
+          "Edmonds Matroid Partition 1968 matroid union rank formula",
+          "Nash-Williams 1961 two spanning trees",
+          "Dawkins Nappo Tong Zimbizi arXiv:2610.22142"
+        ]
+      },
+      "checked_sources": [
+        "arXiv:2508.06711v1 full PDF",
+        "arXiv:2610.22142v1 abstract and lawful detailed rendering; arXiv full PDF disabled and Oxford retrieval vpn_disconnected",
+        "Edmonds 1968 matroid union theorem accessible statement",
+        "Nash-Williams 1961 spanning-tree packing criterion",
+        "Resultary two-colour wild spectrum semantic search"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "Theorem 6.4(2) explicitly states wld=κ(R)+κ(B)-2 for fixed coloring; the complete-graph theorem covers K_n, and graphic union yields D only."
+        ],
+        "reasoning": "None of these statements alone implies edge-block maximum counting or integer interpolation; those require additional cycle-space and recoloring arguments.",
+        "searches": [
+          "Anders Foster-Greenwood Garcia Krawzik arXiv:2508.06711 Theorem 6.4(2)",
+          "Dawkins et al arXiv:2610.22142 Theorem 3.3",
+          "Edmonds rank union theorem"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "The wild number is n-1-lambda_G(S), with lambda_G the graphic matroid connectivity function. The edge-block decomposition is precisely direct-sum decomposition into cycle-connected matroid components."
+        ],
+        "reasoning": "This exposes a potentially stronger matroid connectivity-spectrum formulation; general rank-submodularity alone does not state the exact labeled coloring count or graphic-specific lower endpoint.",
+        "searches": [
+          "Resultary: two-color edge-coloured graph wild number complete spectrum matroid connectivity edge blocks",
+          "matroid connectivity lambda(S) all values cycle blocks graphic matroid"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "Complete-graph colorings have prior tabulated interval; the current formula is graph-structural with arbitrary connectivity, not a recomputation of a complete-graph table."
+        ],
+        "reasoning": "No exhaustive database covering arbitrary finite connected graphs found; such a database could not by itself prove the all-n theorem.",
+        "searches": [
+          "Resultary wild number complete spectrum matroid connectivity search",
+          "Dawkins et al arXiv:2610.22142 Theorem 3.3"
+        ]
+      },
+      "rationale": "Earlier wild-number work supplies the fixed-coloring identity, and complete/bipartite-graph specialists give restricted spectra. Matroid union supplies the lower endpoint mechanically but not the cycle-block upper endpoint, the exact extremal count or gap-free interpolation over arbitrary connected graphs. The combination is assessed as qualified original mathematics.",
+      "residual_risks": [
+        "A general matroid-connectivity theorem classifying possible lambda(S) and exact zero-connectivity coloring count may subsume this entire result under different terminology.",
+        "The full Dawkins et al 2026 primary text was not read (arXiv disabled; authorized Oxford returned vpn_disconnected and requires manual VPN connection); a stronger general remark might change priority."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Fixed-coloring component equality is prior; full all-connected-graph two-color spectrum not in inspected statements",
+          "evidence": "Theorem 6.4(2) supplies the starting formula, not optimization over all colorings.",
+          "identifier_or_url": "arXiv:2508.06711v1",
+          "material_read": "Full 22-page PDF, especially Theorem 6.4(2) and its neighboring family results",
+          "method": "open primary arXiv PDF with page screenshot",
+          "title": "The wild number of an edge-colored graph",
+          "trigger": "Exact same wild-number invariant and crucial component identity"
+        },
+        {
+          "assessment": "Complete-graph theorem overlaps special case; whole-document noncoverage not asserted",
+          "evidence": "Specialized host graph families in title and stated theorem; full primary remains priority risk.",
+          "identifier_or_url": "arXiv:2610.22142v1",
+          "material_read": "Accessible arXiv abstract and detailed lawful secondary rendering of Theorem 3.3; complete primary PDF not read",
+          "method": "arXiv PDF and HTML attempts failed, lawful OA secondary inspected; authorized institutional full-text request returned vpn_disconnected",
+          "title": "Wild number for spanning trees in complete and complete bipartite graphs",
+          "trigger": "Closest newer unrestricted color spectrum"
+        },
+        {
+          "assessment": "The minimum D follows immediately but full spectrum and block multiplicity do not automatically follow from this rank formula",
+          "evidence": "r_2(E)=min_A |E\\A|+2r(A).",
+          "identifier_or_url": "J. Edmonds, AMS Lectures in Applied Mathematics 11 (1968), 335–345",
+          "material_read": "Accessible matroid-union rank theorem statement and proof framework, not full historic original article",
+          "method": "open theorem reproduction",
+          "title": "Matroid Partition",
+          "trigger": "Potential dominating general rank optimization"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "checked_sources": [
+        "actual RESULT.md finding, precise domain and proof",
+        "originality comparisons and the motivated object/invariant"
+      ],
+      "rationale": "Classifying the entire value spectrum, the cycle-block dichotomy of its maximum and the exact multiplicity of extreme colorings for every connected graph constitutes a useful structural invariant and sharp all-graphs extension of prior special families. Minimum deficiency and its tree-packing corollary are acknowledged classical.",
+      "residual_risks": [
+        "Exactly two surjective colors, without properness/equitability; no more-color classification."
+      ],
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "limitations": [
+    "Finite connected simple n>=3 only; the all-graph theorem is analytic, not inferred from enumeration.",
+    "Public metadata contain run provenance and misleading first-public dates, so no publications were staged."
+  ],
+  "schema_version": 1
+}
