@@ -1,0 +1,123 @@
+{
+  "correctness": {
+    "rationale": "For n<=floor(1/phi)+1 all nodes remain one-exposure vulnerable after insertion, so connectivity forces full adoption both ways. For phi>1/2 a single seed only activates immediate degree-one neighbors, and one edge changes at most two of these statuses; a leaf-to-leaf tie in a star attains loss two. For phi<=1/2 a tree with gateway degree k=floor(1/phi) and trailing degree-two path fully adopts, while closing one chord from gateway to path endpoint raises gateway degree to k+1 and permanently prevents every additional adopter; loss n-1 is absolute maximum. Endpoint inequalities 1/(k+1)<phi<=1/k and phi<=1/2 are exact. Verification executable uses Fraction arithmetic for 128360 upper-bound checks and 64 construction checks. This computation is supplementary to proof.",
+    "status": "PASS"
+  },
+  "independent": false,
+  "independent_audit_status": "not_performed",
+  "originality": {
+    "broader_coverage": {
+      "evidence": [
+        "Watts 2002 degree cutoff; Easley–Kleinberg chapter 19 section 19.3 general fixed-graph cascade criterion; Whitney 2010 finite random-graph calculations."
+      ],
+      "reasoning": "The cluster theorem can decide whether a specified augmented network completely adopts, but not its exact final size difference maximized jointly over all graphs and added edges. Applying its quantifiers does not produce either sharp extremal construction or the high-threshold two-adopter cap without new arguments. Whitney models random graph averages rather than adversarial insertion.",
+      "searches": [
+        "Search: Watts 2002 a simple model of global cascades full text",
+        "Search: Easley Kleinberg chapter 19 cascading clusters dense cluster obstruction",
+        "Search: Whitney 2010 dynamic theory finite clustered random networks threshold full text"
+      ]
+    },
+    "checked_sources": [
+      "Watts (2002), DOI 10.1073/pnas.082090499, full HTML",
+      "Whitney (2010), DOI 10.1103/PhysRevE.82.066110, lawful full text",
+      "Singh et al. (2013), DOI 10.1038/srep02330, full HTML",
+      "Easley & Kleinberg (2010), Networks Crowds and Markets chapter 19 section 19.3, full relevant theorem/proof"
+    ],
+    "claim_vs_prior_implication": {
+      "evidence": [
+        "Watts vulnerability k<=floor(1/phi) explains why added degree can impede adoption; Whitney and Singh address graph-distribution mechanisms, not the maximized single-edge loss.",
+        "The full dense-cluster theorem is an obstacle criterion, not the one-edge extremal difference formula."
+      ],
+      "reasoning": "The present classification gives exact L(n,phi) for all n and phi, plus attainability from a full original cascade. None of the inspected primary statements logically supplies this closed-form extremum via direct specialization. The comparison is based on statements and proof scopes, not merely titles or missing query results.",
+      "searches": [
+        "Search: Watts threshold cascade minimal nodes edge addition inhibits cascade floor reciprocal threshold sharp",
+        "Search: linear threshold model addition of edge can reduce influence diffusion maximum loss network",
+        "Search: adding an edge hurts information diffusion uniform fractional threshold two leaf wedge critical threshold"
+      ]
+    },
+    "equivalent_formulations": {
+      "evidence": [
+        "Watts (2002) states the one-exposure vulnerability criterion degree ≤ floor(1/threshold).",
+        "Singh et al. (2013) uses the same homogeneous fractional threshold adoption rule; the fixed-graph model also appears in Easley–Kleinberg (2010)."
+      ],
+      "reasoning": "Equivalent terms include degree dilution, harmful tie insertion, graph densification paradox and worst-case influence loss. Known vulnerability criteria specify a local activation condition but not the graph-order extremum or all-order maximal loss.",
+      "searches": [
+        "Search: Watts fractional threshold complex contagion edge addition completely stops cascade sharp minimum number vertices floor reciprocal confidence threshold",
+        "Search: complex contagion paradox adding edge reduces cascade size single link social reinforcement normalized threshold exact smallest graph"
+      ]
+    },
+    "exact_database_or_table": {
+      "evidence": [
+        "The mathematical result 'Edge addition can increase the optimal 2-burning source number without bound' treats a fixed absolute-two adoption rule with scheduled exogenous ignition, not the homogeneous fractional-threshold process.",
+        "Watts (2002), Whitney (2010), Singh et al. (2013), and Easley–Kleinberg (2010), as inspected, do not tabulate or state the one-edge extremal difference as a function of order and threshold."
+      ],
+      "reasoning": "No exact value table for this network sensitivity invariant was located. The closest mathematically related burning result prescribes exogenous timed sources and uses an absolute neighbor count, while the present quantity uses one initial seed and a fraction of incident neighbors. These differences prevent direct implication. Lack of a located match is not a proof of priority.",
+      "searches": [
+        "Query: edge addition reduces Watts cascade size for single seed degree dilution path closure n minimum",
+        "Query: single added undirected tie stops all Watts fraction threshold adoption cascade all except initial seed exact minimum order floor(1/phi)+2 and worst-case loss two above phi one-half",
+        "Query: influence cascade threshold fraction addition of edge paradox maximum loss exact graph classification"
+      ]
+    },
+    "rationale": "The universal finite-network tie-insertion loss classification, including the sharp smallest order and two-versus-unbounded half-threshold boundary, is not stated by the inspected Watts, Whitney, Singh or Easley–Kleinberg accounts. Searches for precise graph-pair extremal formulas, equivalent degree-dilution terminology and stronger coverage identified no directly dominating theorem. Local one-neighbor vulnerability and dense-cluster cascade criteria are acknowledged pre-existing ingredients, not claimed as discoveries. Broader previously published graph-extremal findings remain an unresolved historical-priority risk.",
+    "residual_risks": [
+      "A graph-extremal theorem on harmful edge insertion may exist outside the inspected indexed literature.",
+      "The dense-cluster and vulnerable-degree criteria predate this result; priority claimed only for the optimized graph-order/loss classification, and historical independence is not certified.",
+      "Other social diffusion models normalize ties differently; claims for them are not made."
+    ],
+    "source_inspections": [
+      {
+        "assessment": "Establishes the model and one-exposure vulnerable-degree cutoff, but the stated results target random-graph cascade probabilities, not adversarial one-edge worst-case loss on all finite graphs.",
+        "evidence": [
+          "Watts 2002 model specification: one neighbor suffices at degree <= floor(1/phi); generating-function global cascade theory on random networks."
+        ],
+        "identifier_or_url": "https://www.pnas.org/doi/10.1073/pnas.082090499",
+        "material_read": "Original full HTML article, model specification, vulnerable-degree analysis, main theorems and surrounding discussion",
+        "method": "full-text HTML inspection",
+        "title": "A simple model of global cascades on random networks",
+        "trigger": "Original Watts fractional-neighbor adoption model and vulnerable-degree cutoff"
+      },
+      {
+        "assessment": "Analyzes dynamics and clustering of finite random networks and initiator size, not extremal difference when one fixed graph gains one fixed edge.",
+        "evidence": [
+          "Whitney 2010 defines degree vulnerability, gives finite random-network state transition analysis and appendix on clustering; no graph-pair minimax threshold identified."
+        ],
+        "identifier_or_url": "https://dspace.mit.edu/entities/publication/f456b08e-afff-4900-9fd7-e896e6043c34",
+        "material_read": "Complete original published article text in lawful accessible MIT version, including the introduction, degree-vulnerability classes, analysis, simulations, appendix",
+        "method": "MIT repository version and accessible full text at https://studylib.net/doc/12741234/dynamic-theory-of-cascades-on-finite-clustered-random-ple...",
+        "title": "Dynamic theory of cascades on finite clustered random networks with a threshold rule",
+        "trigger": "Finite-graph and clustering treatment that could dominate the result"
+      },
+      {
+        "assessment": "Studies initiator fraction, rewiring under degree-preservation and cluster effects on empirical/random networks. Does not provide the all-graph one-edge insertion loss formula.",
+        "evidence": [
+          "Singh et al. 2013 model section and single/multiple initiator cascade results."
+        ],
+        "identifier_or_url": "https://www.nature.com/articles/srep02330",
+        "material_read": "Full open-access Nature HTML article including model, results and discussion",
+        "method": "full HTML article inspection",
+        "title": "Threshold-limited spreading in social networks with multiple initiators",
+        "trigger": "Same constant-fraction threshold model and complete cascades"
+      },
+      {
+        "assessment": "Gives exact completeness criterion for one specified graph and seed set; it does not optimize losses jointly over an original graph and its one-edge augmentation or yield a global sharp order/loss formula by substitution alone.",
+        "evidence": [
+          "Chapter 19, section 19.3: cascade fails exactly when remaining vertices contain a cluster of density greater than 1-phi."
+        ],
+        "identifier_or_url": "https://www.cs.cornell.edu/home/kleinber/networks-book/networks-book-ch19.pdf",
+        "material_read": "Section 19.3, pages 575–577, including full cluster if-and-only-if statement and proof, with page image inspected",
+        "method": "public PDF extracted text and page screenshot",
+        "title": "Networks, Crowds, and Markets, Chapter 19: Cascading Behavior in Networks",
+        "trigger": "General dense-cluster obstruction theorem may dominate the fixed-graph cascade question"
+      }
+    ],
+    "status": "PASS"
+  },
+  "review_type": "self_review",
+  "schema_version": 1,
+  "scope_run_id": "879616ed-8476-465b-93ce-047f5ef61ebf",
+  "self_review_status": "passed",
+  "value": {
+    "rationale": "The worst-case loss of adoption under adding one tie is an intrinsic, directly motivated social-network robustness invariant. The classification has a sharp minimum network order and a true discontinuity of extremal behavior at one-half: bounded loss of two above it versus arbitrarily many lost adopters below, even when the original network fully adopts. It resolves an all-graph all-threshold sensitivity question rather than a hand-picked small case. Model-specific idealizations and typical-case irrelevance are expressly limited.",
+    "status": "PASS"
+  }
+}
