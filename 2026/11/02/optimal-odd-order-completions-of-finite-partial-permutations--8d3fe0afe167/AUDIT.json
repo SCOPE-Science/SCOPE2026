@@ -1,0 +1,113 @@
+{
+  "correctness": {
+    "rationale": "All possible completions on the old carrier are exactly permutations of labelled directed path components. A cycle has odd vertex length iff it contains an odd number of odd-size components; even blocks can be deleted and reinserted into a and then a+1 etc gaps, giving the exact multiplicity. Original closed cycles persist. A single new singleton path makes the all-even-path case feasible with exactly b! completions, proving optimality. Standalone checker exhaustively tests all 1546 partial maps on size five and all relevant one-new-vertex instances on size four.",
+    "status": "PASS"
+  },
+  "independent": false,
+  "independent_audit_status": "not_performed",
+  "originality": {
+    "broader_coverage": {
+      "evidence": [
+        "Etedadialiabad--Gao prove general prime-restricted existence for one map but do not give min-one bound or counts on prescribed labels.",
+        "Adin--Hegedűs--Roichman study refined odd/even cycle permutations by descents, not extensions of an arbitrary partial map."
+      ],
+      "reasoning": "More general odd-EP existence does not entail optimal size or exact number of extensions; all-odd-cycle enumeration implies only the unprescribed-arrow b=0 baseline. The current claim relies on a new path-concatenation and insertion reduction. No stronger explicit theorem located.",
+      "searches": [
+        "arXiv:2610.04870v1 Section 3.5, Lemma 3.12",
+        "arXiv:2502.03507v1 Sections 1, 3, 6",
+        "web: partial permutation number of permutation extensions with cycles in set A fixed ground set paths",
+        "web: partial mapping odd cycle permutation extension counting fixed arcs"
+      ]
+    },
+    "checked_sources": [
+      "arXiv:2610.04870v1",
+      "arXiv:2502.03507v1",
+      "arXiv:1005.2216v1",
+      "Published result abstracts and relevant public search hits in odd-cycle permutation counting"
+    ],
+    "claim_vs_prior_implication": {
+      "evidence": [
+        "The 2026 lemma explicitly closes each path after adding vertices if necessary, without allowing or counting path-merging solutions.",
+        "The 2025 corollary includes known c_a but no combinatorial bijection from partial-map completions to odd-cycle component permutations with even-block insertions."
+      ],
+      "reasoning": "Knowing that some odd-order extension exists is strictly weaker than knowing its minimal added-ground-set size and exact number of distinct extensions on fixed labels. Knowing c_a for unrestricted odd-cycle permutations does not by itself state the forced-arrow a,b count. However the new count follows by an elementary but structural labelled-component insertion argument; a classical combinatorial restatement may exist.",
+      "searches": [
+        "arXiv:2610.04870v1 Lemma 3.12",
+        "arXiv:2502.03507v1 Corollary 1.5",
+        "published mathematical finding query: odd-order completion of partial bijection path components odd even count formula double factorial"
+      ]
+    },
+    "equivalent_formulations": {
+      "evidence": [
+        "Full source arXiv:2610.04870v1, Section 3.5, models partial bijections as directed paths/cycles; no identified parity-profile enumeration in inspected material.",
+        "arXiv:2502.03507v1 Section 1 explicitly provides all-odd-cycle permutations on an unconstrained set."
+      ],
+      "reasoning": "Searches included synonyms partial injections/partial bijections, odd-order permutation extensions, prescribed arcs, forced paths and exact multiplicities. Classical unrestricted odd-cycle count corresponds to the a-only special case but does not state the extension-fiber formula; no exact equivalent found. Historical priority cannot be guaranteed by search.",
+      "searches": [
+        "partial permutation number of odd order permutation extensions to same finite set path components parity lengths generating function",
+        "minimum points odd order extension partial bijection directed paths odd length cycle 0 or 1",
+        "enumeration odd order permutation completions partial injections cycle component parity square root exponential",
+        "web: partial permutations odd cycles extensions enumeration number of completions prescribed cycle lengths",
+        "web: partial injections completions with odd cycles parity cycle decomposition exponential generating function",
+        "web: enumerating odd permutations extending partial injections path parity cycle"
+      ]
+    },
+    "exact_database_or_table": {
+      "evidence": [
+        "The base sequence c_a has published tabulation as all-odd-cycle permutations.",
+        "No inspected table assigns exact odd-order completion counts to arbitrary parity profiles (a,b) with prescribed paths."
+      ],
+      "reasoning": "The claim explicitly treats the classical c_a as prior, and establishes a two-parameter fibre formula and sharp minimal-point counts for arbitrary partial maps. No database/table subsumes those statements in inspected material.",
+      "searches": [
+        "web: partial permutations odd cycles extensions enumeration number of completions prescribed cycle lengths",
+        "web: odd cycle permutations with red blue elements odd number red each cycle generating function",
+        "web: \"partial permutation\" \"odd cycles\" \"extensions\"",
+        "arXiv:2502.03507v1 OEIS A001818 all-odd-cycle counts"
+      ]
+    },
+    "rationale": "Known 2026 one-generator extension lemma proves existence, not minimal number of points or the exact class-by-class count. Known 2025 all-odd-cycle formula is acknowledged as classical and is strictly the special case b=0. Searches for equivalent completion profiles, cycle-index and forced-path descriptions yielded no covering statement. Strong historical-priority caveat remains.",
+    "residual_risks": [
+      "A classical prescribed-arcs/cycle-index formula may imply the new exact fibre count without using the wording odd-order extension.",
+      "The double-factorial c_a baseline is previously known; originality is restricted to its structural lift to arbitrary partial bijections and optimal extension multiplicities.",
+      "Search coverage of older books and unindexed papers is not exhaustive."
+    ],
+    "source_inspections": [
+      {
+        "assessment": "Establishes one-generator extension existence via path closure, but inspected relevant material supplies neither optimal one-vertex result nor labelled fibre counts.",
+        "evidence": "Lemma 3.12 closes each directed path into an allowed cycle after adjoining enough vertices; Theorem 3.13 addresses two partial generators.",
+        "identifier_or_url": "arXiv:2610.04870v1; https://arxiv.org/html/2610.04870v1",
+        "material_read": "Abstract and introduction lines 103-147; definitions lines 416-446; all Section 3.5 surrounding Lemma 3.12 lines 656-709",
+        "method": "Accessible full-text HTML, targeted material read beyond abstract",
+        "title": "Extension Properties for Partial Permutations",
+        "trigger": "Same partial permutation object, odd-order extension problem, strong plausible prior coverage"
+      },
+      {
+        "assessment": "Explicitly counts odd-cycle permutations and refines by descent sets, a classical component of the result. Does not assert forced-edge fibre counts for partial injections.",
+        "evidence": "Equation for even size (n-1)!! squared; Corollary 1.5 gives both parity cases.",
+        "identifier_or_url": "arXiv:2502.03507v1; https://arxiv.org/html/2502.03507v1",
+        "material_read": "Full HTML introduction and Section 1 statement lines 68-125; relevant structure and Section headings reviewed",
+        "method": "Accessible primary full HTML, targeted theorem/abstract comparison",
+        "title": "Descent set distribution for permutations with cycles of only odd or only even lengths",
+        "trigger": "Known odd-cycle total potentially dominates completion count special case"
+      },
+      {
+        "assessment": "Different partial-permutation convention and pattern-avoidance focus; not deemed a decisive competing source from abstract only.",
+        "evidence": "Abstract defines length-n word using n-k symbols and k holes, unlike a partial injective self-map on the same finite carrier.",
+        "identifier_or_url": "arXiv:1005.2216v1; https://arxiv.org/abs/1005.2216",
+        "material_read": "Primary arXiv abstract and definition of partial permutation as a word with holes (not full article)",
+        "method": "Primary abstract inspected to disambiguate definition; no whole-document NOT_COVERING claim",
+        "title": "Pattern avoidance in partial permutations",
+        "trigger": "Shared title phrase partial permutations in older enumerative literature"
+      }
+    ],
+    "status": "PASS"
+  },
+  "review_type": "self_review",
+  "schema_version": 1,
+  "scope_run_id": "8d3fe0af-e167-4d51-a80e-06c15327af84",
+  "self_review_status": "passed",
+  "value": {
+    "rationale": "The exact minimum and fibre cardinality are intrinsic questions for the finite partial automorphism extension framework. They yield a complete classification for every labelled one-map instance and identify a parity-profile structural invariant, sharply improving an unspecified-size existence construction. This is not an arbitrary selected small case.",
+    "status": "PASS"
+  }
+}
