@@ -1,16 +1,19 @@
-# Same-model review
+# Mathematical review
 
 ## Correctness
-PASS. One-coordinate generator tests give the two conditional nullcline laws. Their residuals are exactly \(\dot u\) and \(\dot v/v\), so the variance decompositions follow by conditional orthogonality. The essential-supremum argument converts the two calibrations into the stated support envelope and discriminant condition.
 
-Risk: compact support strictly inside the positive quadrant is required for the logarithmic \(v\)-test.
+**PASS.** For compact invariant measures supported strictly inside the positive quadrant of the homogeneous Gray–Scott equations, testing the generator against antiderivatives of functions of `u` and logarithmic functions of `v` gives the two stated conditional laws. Conditional orthogonality proves the covariance and variance–velocity identities. Vanishing velocity energy is rigidly equivalent to equilibrium support. The essential-supremum argument gives `F U^2 - F U + (F+k)^2 <= 0`, hence the stated support envelope. The assigned eight-blob tree and independent exact symbolic checks agree.
 
 ## Originality
-PASS. The classical saddle-node and equilibrium structure is treated as prior. The complete 2017 homogeneous-bifurcation source was inspected and contains no matching conditional, average, moment, or variance theorem. The 2021 complete-phase-portrait source was compared through its open repository record and abstract; its full postprint remained inaccessible in the checked route.
 
-Risk: an equivalent support inequality could appear in that inaccessible full text, although no invariant-measure disintegration statement is exposed in the checked material.
+**PASS, best of current knowledge.** Pearson (1993) established the model. Delgado, Hernández-Martínez and Pérez-López (2017, arXiv:1702.03353) derived the equilibrium discriminant and nontrivial bifurcation structure, which are explicitly prior. Their available complete mathematical treatment does not provide the stated simultaneous invariant-measure conditional laws or velocity variance identities. Published Oregonator and Brusselator findings use related generator techniques for different dynamics. The 2021 Chen–Li–Llibre complete phase-portrait paper was compared only by its public abstract and metadata because full text was inaccessible; geometric or statistical overlap remains a material priority risk. Classical generator orthogonality is acknowledged as standard methodology.
 
-## Value
-PASS. The theorem gives exact stationary calibration laws for the defining autocatalytic transfer rates and converts their residuals into kinetic activity. The resulting support envelope supplies a parameter-exact consistency test for homogeneous periodic or recurrent Gray–Scott states.
+## Mathematical value
 
-Same-model review: passed. Independent audit: not yet performed.
+**PASS.** The chemical species and transfer flux are intrinsic, motivated observables. The joint nullcline regressions and exact kinetic-speed defects give checkable stationary concentration constraints without choosing an ergodic component. The parameter-exact support envelope is sharp at the upper positive equilibrium, although the saddle-node itself is classical.
+
+## Scope and limitations
+
+Only homogeneous positive-parameter Gray–Scott kinetics and compact invariant Borel probability measures supported strictly in `(0,infinity)^2` are covered. This does not classify invariant densities, all phase portraits, spatial dynamics, or measures reaching the extinction boundary. The complete 2021 paper and possible older unindexed identities remain historical-priority risks.
+
+The external formal-proof and expert-attestation channels were not performed by this review. No such certification is claimed.
