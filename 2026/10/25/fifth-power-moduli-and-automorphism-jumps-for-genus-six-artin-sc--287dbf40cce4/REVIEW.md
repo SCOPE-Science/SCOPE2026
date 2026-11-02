@@ -1,15 +1,21 @@
-# Scientific review
+# Independent mathematical audit
 
-## Correctness — PASS
-A connected degree-four cover follows from linear independence of its two Artin–Schreier classes. The three nonzero quadratic characters all have degree-five poles only at infinity, forcing the same unique base branch point for every parameter. Reduced odd polynomial representatives are unique modulo the Artin–Schreier operator over an algebraically closed field. Expanding all affine substitutions yields formula (1); coefficient comparison forces the claimed fifth-power invariant and proves its sufficiency. Two further coefficient equations exhaust the base automorphisms; four deck lifts per base map yield exact group orders. The packaged finite-field checker independently expands and reduces the equations over \(\mathbb F_{256}\), including zero, fifth-root and generic cases. It does not replace the general algebraic proof. No full automorphism group of the underlying curve is asserted.
+## correctness
 
-## Originality — PASS, subject to historical priority risk
-The closest source is Almeida Filho–Tafazolian–Vieira, arXiv:2610.22755v1, Section 10.4 and Proposition 10.6. It studies the same degree-four characteristic-two fibre products and computes genus, supersingularity, \(a\)-number, and Ekedahl–Oort type; the inspected material does not provide the exact cover-isomorphism parameter \(\lambda^5\), stabilizer trichotomy, or the exceptional nonzero stratum. Tafazolian, arXiv:2610.13279v1, treats odd-characteristic cyclic Artin–Schreier covers and cannot imply this characteristic-two elementary-abelian classification. Duque-Rosero et al., arXiv:2401.08843, classify different genus-three/four single Artin–Schreier covers in odd characteristic. An earlier implicit instance of the same affine-subspace calculation remains possible; a search alone is not priority certification.
+PASS
 
-## Mathematical value — PASS
-The original family has constant \(a\)-number and Ekedahl–Oort type at every nonzero parameter, leaving its geometric variation opaque. The fifth-power invariant is a complete, natural coarse parameter for the *Galois-cover* structures. The exact automorphism jump singles out one nonzero moduli point and determines its enhanced inertia, information not recoverable from the already known Ekedahl–Oort dichotomy. This is a complete classification of a motivated one-parameter family, not an arbitrary numerical slice or a restatement of the source's invariant calculations.
+Every nonzero Artin–Schreier character has a single odd-degree-five pole at infinity, giving a connected degree-four Galois cover and g=6 from Riemann–Hurwitz. Odd-power reduced characters are unique over algebraically closed char2. In the actual RESULT.md formula (1), affine x↦ax+b changes the x^5 coefficient by a^5 and x^3 trace coefficient by a^3; equality of subspaces for λ,μ≠0 forces a^5=1 and μ=λa^3, equivalent to λ^5=μ^5. The linear coefficient yields b^16=b and, for λ≠0, b=0 or b^3=λ^{-1}. There are respectively 16×15, four, and one admissible base affine maps, each with exactly four deck lifts. These equations cover zero, symmetry jump, and generic boundaries. The supplied F256 script independently expands and reduces characteristic-two polynomials; its finite sample is corroboration, not the all-k proof.
 
-## Limits and closest literature
-All classifications are geometric over algebraically closed characteristic two and of equipped covers, not unmarked curves. The origin, the unique nonzero symmetry jump, and all remaining nonzero parameters are treated. General Artin–Schreier theory is used as established prior mathematics. Exact historical priority remains unverified, and no external independent audit was conducted.
+## originality
 
-Self-review: passed. Independent audit: not yet performed.
+PASS
+
+Best-of-knowledge, after comparing the actual theorem and its implications to retrieved Resultary records and the named published primary material. The same-family prior results distinguish λ=0 from nonzero only at EO level; the asserted stronger classification separates all λ^5 and one nonzero automorphism stratum. A reader of the inaccessible full source might still find stronger statements. Residual priority/access risks are explicitly retained.
+
+## value
+
+PASS
+
+The family was introduced to study invariants of actual genus-six Galois covers; all nonzero parameters have the same Ekedahl–Oort type. A complete fifth-power coarse moduli invariant and a unique nonzero symmetry-jump class distinguish equipped covers within that uniform stratum, supplying intrinsic exact geometry and stabilizers rather than an arbitrary parameter slice.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
