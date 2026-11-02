@@ -1,0 +1,128 @@
+{
+  "correctness": {
+    "rationale": "Exact all-size proof: count every ideal, show VC=width via antichains, prove additive rank of disjoint-query products via splitting recurrence, then induction on two-step arms using exact branches. The positive lower-arm branch has rank t+s, the negative branch is the smaller class. For s>=1 it has rank t+s-1; for s=0 it has rank t. Other query types have deficient branches. Independent exhaustive implementations agree on all 20 tested parameter pairs (finite corroboration only).",
+    "status": "PASS"
+  },
+  "independent": false,
+  "independent_audit_status": "not_performed",
+  "originality": {
+    "broader_coverage": {
+      "evidence": [
+        "Previously recorded result 735eed3f: general bounds width<=Ldim<=width*floor(log2(height+1)); only disjoint chains attain the upper bound at power-of-two height thresholds.",
+        "Bhaskar, Thicket Density (2017): general tree dimension and bounds; Walker (2022): general leaf-tree theorems."
+      ],
+      "reasoning": "The new family has height three, width t+s, and Ldim exactly t+s or t+s+1. Neither general previous bound fixes that value, nor does the equality-for-disjoint-chains characterization encompass this connected rooted tree. No stronger general theorem with exact value for the family was located.",
+      "searches": [
+        "published-finding corpus: online shattering ideals of finite posets, product of chains plus global bottom element, rooted star poset",
+        "Web: Littlestone dimension of order ideals of finite posets rooted tree ideal classes adaptive shattering formula",
+        "Web: online shattering monotone Boolean valuations precedence constraints order ideals exact VC Littlestone"
+      ]
+    },
+    "checked_sources": [
+      "https://arxiv.org/abs/1702.03956",
+      "https://arxiv.org/abs/2203.12211",
+      "https://arxiv.org/pdf/2203.12211",
+      "accessible prior claim 735eed3f",
+      "published-finding corpus record published-finding corpus published scientific record 7fe56a124cd9"
+    ],
+    "claim_vs_prior_implication": {
+      "evidence": [
+        "For t=2,s=0 and t=2,s=1 the dimension pairs are respectively (VC,Ldim)=(2,3) and (3,3).",
+        "Generic prior height-three bounds permit both cases and cannot distinguish them.",
+        "The complete first-query recurrence and product additivity are generic tools, but the exact branch geometry is not a stated earlier consequence for these posets."
+      ],
+      "reasoning": "A general recursive algorithm would compute each finite instance, but the all-parameter closed classification and sharp one-leaf discontinuity are not statements implied by the named bounds without the new structural induction. The earlier VC=width result is credited rather than claimed.",
+      "searches": [
+        "published-finding corpus: Littlestone dimension VC dimension connected height three posets order ideals rooted binary arms",
+        "Prior accessible claim 735eed3f on ideals and height-width bounds",
+        "https://arxiv.org/pdf/2203.12211 exact definitions and general growth bounds",
+        "https://arxiv.org/abs/1702.03956 thicket dimension rank recursion"
+      ]
+    },
+    "equivalent_formulations": {
+      "evidence": [
+        "The source class is equivalently all 0/1 assignments satisfying implications b_i=>a_i=>r and c_j=>r.",
+        "General thicket results in Bhaskar 2017 and Walker 2022 do not specialize to this two-parameter order-ideal class in their stated theorems."
+      ],
+      "reasoning": "The exact claim may be phrased as mistake-tree rank for rooted implication-only Horn models or thicket rank of a product of nested three-state and two-state factors augmented by an exceptional all-zero model. These equivalents were considered; none of the inspected sources provided a dominating formula. The equivalence itself is used for the independent checker.",
+      "searches": [
+        "published-finding corpus: Littlestone dimension of order ideal families of rooted trees, posets formed by one minimum below disjoint chains; exact online learning depth versus widths and chain lengths",
+        "Web: \"Littlestone dimension\" \"order ideals\"",
+        "Web: \"thicket dimension\" \"poset\" \"ideals\"",
+        "Web: Littlestone dimension monotone Boolean vectors implication graph concepts satisfying order constraints"
+      ]
+    },
+    "exact_database_or_table": {
+      "evidence": [
+        "No ranked record reported a count or dimension table for this same family; both independent finite checkers produced fresh small-parameter tables directly from definitions."
+      ],
+      "reasoning": "Neither matching parameter tuples nor an equivalent table were observed in inspected primary materials or retrieved exact-result snippets. This negative search is not treated as a uniqueness proof; a hidden specialized source remains a residual risk.",
+      "searches": [
+        "published-finding corpus: Exact Littlestone dimension of all order ideals of a finite poset consisting of a common least element under several disjoint two-element chains and isolated leaves; adaptivity gap one or zero",
+        "Web: \"Littlestone dimension\" \"downsets\"",
+        "Web: \"Littlestone\" \"ideals\" \"posets\""
+      ]
+    },
+    "rationale": "Specific exact t,s classification was not implied by the accessible prior theorem on all ideal classes (which only gives width and height-width bounds), by the inspected 2017/2022 thicket-tree theory (general definitions and growth results), or by the nearest semantically retrieved published records on different poset invariants. This is a best-knowledge assessment rather than a proof of absolute novelty.",
+    "residual_risks": [
+      "Unlocated result on online learning of implication-only Horn assignment systems might subsume the rooted-arm classification.",
+      "published-finding corpus semantic similarity returns ranked records, not an exhaustive source-level uniqueness guarantee.",
+      "The later general literature may contain specialized online-rank computations not retrieved by title/abstract terms."
+    ],
+    "source_inspections": [
+      {
+        "assessment": "Covers general notion and rank bounds, not the specific rooted height-three ideal family.",
+        "evidence": [
+          "Definitions 2.3--2.5, Lemma 2.9 and Theorem 2.7; no occurrences of order ideal, downset or poset in accessible text"
+        ],
+        "identifier_or_url": "https://arxiv.org/abs/1702.03956",
+        "material_read": "Definitions 2.1--2.5, dimension recursion and Sauer--Shelah arguments from accessible full HTML; full-text searches for poset, order ideal, downset, chains",
+        "method": "direct full-text inspection and targeted term search",
+        "title": "Thicket Density",
+        "trigger": "Origin of the complete mistake-tree/thicket dimension used in the claim"
+      },
+      {
+        "assessment": "Proves abstract tree-set growth and structural embeddings, but does not compute order-ideal dimensions of any rooted-arm poset.",
+        "evidence": [
+          "Definition 1.9 and Corollary 1.10 provide generic definitions/bounds; no poset/ideal/chain family present"
+        ],
+        "identifier_or_url": "https://arxiv.org/pdf/2203.12211",
+        "material_read": "Entire nine-page PDF parsed text, including definitions 1.4--1.9, Theorem 1.3, Corollary 1.10, normalization results, higher-arity section and references; page 3 also visually checked",
+        "method": "complete text reading, full-text search for poset, ideal, chain, and PDF page screenshot",
+        "title": "Tree Dimension and the Sauer--Shelah Dichotomy",
+        "trigger": "2022 primary development of Littlestone tree dimension and sharp growth analogues"
+      },
+      {
+        "assessment": "Establishes VC=width and height-width upper bound, with extremal disjoint-chain characterization; its bounds do not force the rooted-arm exact formula.",
+        "evidence": [
+          "At height three and width w it gives w<=Ldim<=2w, whereas the new theorem yields w or w+1, distinguished by the existence of a direct root leaf."
+        ],
+        "identifier_or_url": "accessible private prior finding 735eed3f",
+        "material_read": "Recoverable claim only, for deduplication",
+        "method": "claim and implication comparison, without revisiting historical validation",
+        "title": "Previously recorded result on all ideals of a finite poset",
+        "trigger": "Closest prior structural formula in the same concept class"
+      },
+      {
+        "assessment": "Concerns homological global dimension of a different algebra; not a stronger implication for membership-query Littlestone rank.",
+        "evidence": [
+          "The reported invariant is interval-endomorphism global dimension, with weak-order levels; the concept class of all ideals and adaptive queries is absent from its summary."
+        ],
+        "identifier_or_url": "published-finding corpus published scientific record 7fe56a124cd9",
+        "material_read": "Ranked title and summary only",
+        "method": "semantic published-record search",
+        "title": "Ranked published record on exact interval-endomorphism dimensions for weak orders",
+        "trigger": "Closest published-finding corpus semantic hit to poset-order and dimension terminology"
+      }
+    ],
+    "status": "PASS"
+  },
+  "review_type": "self_review",
+  "schema_version": 1,
+  "scope_run_id": "e81fb312-8ebc-4c40-8c9a-5ba142fc1e7e",
+  "self_review_status": "passed",
+  "value": {
+    "rationale": "Determines the exact adaptive dimension for an infinite two-parameter natural family of connected height-three posets of arbitrary width; characterizes a one-leaf boundary where a strict online/static separation disappears despite expansion of the concept domain. This exact structural effect is not forced by width or generic counting bounds, and gives explicit families with and without online excess at identical height.",
+    "status": "PASS"
+  }
+}
