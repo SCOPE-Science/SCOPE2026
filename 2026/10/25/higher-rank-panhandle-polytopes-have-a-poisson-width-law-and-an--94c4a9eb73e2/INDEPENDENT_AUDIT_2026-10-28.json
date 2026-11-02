@@ -1,0 +1,150 @@
+{
+  "audit_date_utc": "2026-10-28",
+  "audited_at_utc": "2026-10-28T05:37:21Z",
+  "axes": {
+    "correctness": {
+      "rationale": "For an independent standard Gaussian score vector, constrained bases use r X-coordinates or r-1 X and one Y, giving exact support h_P=sum_{j<=r-1}X_(j)+max(X_(r),Y_(1)), while h_Delta is top r pooled. The support deficit is an integral of binomial exceedance probabilities, strictly positive for q>=2. Gaussian extreme value point processes give joint independent upper/lower order-statistics, with X arrival variables -log Gamma_j, Y max log rho-log E*. Orthogonal projection subtracts a common coordinate mean from both support values; random spherical normalization sqrt(d)/||G_E|| tends to 1 with negligible order a_p correction because log(p)/sqrt(p)->0. Fixed-order normal maxima have uniformly integrable centered tails, so expectation limits follow; the gamma-exponential integral E[log(rho Gamma_r/E*)]_+ has exact expression log(1+rho)+sum[1-(1+rho)^(-j)]/j. The hypersimplex Poisson shift is r log(1+rho), yielding D_r and derivative. Independent exhaustive finite greedy maximization over 150 random problems and 16 numerical gamma-integral identities agreed with formulas. No finite check substitutes for the limit law or uniform-integrability argument.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Hanely et al investigate Ehrhart theory of panhandle/paving matroids.",
+          "Deligeorgaki et al investigate Ehrhart positivity and chain forests; indexed neighboring width results concern different objects or fixed rank two."
+        ],
+        "reasoning": "Known panhandle polytope geometry and generic Gaussian extremes do not automatically imply the exact competition between the top r-1 X and max of the rth X and the Y maximum, or the closed D_r(rho).",
+        "searches": [
+          "arxiv:2201.12442",
+          "arxiv:2311.01640",
+          "Resultary:panhandle matroid polytope Gaussian mean width Poisson extreme order statistics rank r hypersimplex"
+        ]
+      },
+      "checked_sources": [
+        "https://arxiv.org/abs/2201.12442",
+        "https://arxiv.org/abs/2311.01640",
+        "https://github.com/Resultary/2026/tree/main/2026/10/11/SCOPE-minkowski-asymmetry-and-all-centers-of-rank-two-matroid-base-pol--a659b650d983"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "The defining panhandle matroid bases do imply the exact greedy support formula.",
+          "The extremal Gaussian process, radial correction, uniform integrability and gamma integral are needed to derive angular mean width and its coefficient."
+        ],
+        "reasoning": "The claimed higher-rank D_r law is not an elementary corollary of Ehrhart theory or rank-two scalar formulas without these additional asymptotic and analytic calculations.",
+        "searches": [
+          "arxiv:2201.12442",
+          "arxiv:2311.01640",
+          "rank two Schubert matroid base polytope Gaussian mean width Poisson order statistics hypersimplex"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Panhandle matroid base polytope may be described via Schubert matroid bases with at least r-1 A coordinates.",
+          "Matroid greedy algorithm specifies support values but not Gaussian extremal limiting laws or expectation correction."
+        ],
+        "reasoning": "Base feasibility and support formula are known-style inputs; the Poisson width law is a new probabilistic consequence not supplied by a mere renaming of Ehrhart/Schubert objects.",
+        "searches": [
+          "panhandle matroid polytope Gaussian mean width Poisson extreme order statistics rank r hypersimplex",
+          "rank two Schubert matroid base polytope Gaussian mean width Poisson order statistics hypersimplex",
+          "arxiv:2201.12442"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "Prior panhandle enumerations concern lattice points and Ehrhart coefficients, not mean directional width tables.",
+          "Indexed neighboring matroid geometric constants do not tabulate the specified fixed-rank rho-dependent deficit."
+        ],
+        "reasoning": "There is no finite known-table recomputation; it is an unbounded limit function and a full distribution, with standard Poisson-process inputs credited.",
+        "searches": [
+          "Resultary:panhandle matroid polytope Gaussian mean width Poisson extreme order statistics rank r hypersimplex",
+          "Resultary:rank two Schubert matroid base polytope Gaussian mean width Poisson order statistics hypersimplex",
+          "arxiv:2311.01640"
+        ]
+      },
+      "rationale": "Best-of-knowledge: the submitted full statement was compared by actual implication to the specific prior primary statements and published mathematical index. COVERS_OBJECT_NOT_WIDTH_LIMIT: Defines panhandle bases and enumerates Ehrhart geometry, not directly this Gaussian width theorem in inspected materials. ; DIFFERENT_INVARIANT: Ehrhart lattice counts are not the Gaussian order-statistic width distribution. ; INAPPLICABLE_INVARIANT: Minkowski asymmetry is different from uniform-sphere directional width; fixed rank two further limits scope.. An inaccessible plausible source alone was not treated as failure; meaningful risks remain listed below.",
+      "residual_risks": [
+        "Unindexed higher-rank Gaussian support/extreme-value literature could subsume the same D_r coefficient.",
+        "Primary full texts of both panhandle Ehrhart papers were not entirely reread this run; accessible high-level descriptions do not prove whole-document noncoverage."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "COVERS_OBJECT_NOT_WIDTH_LIMIT",
+          "evidence": "Defines panhandle bases and enumerates Ehrhart geometry, not directly this Gaussian width theorem in inspected materials.",
+          "identifier_or_url": "https://arxiv.org/abs/2201.12442",
+          "material_read": "Original authors, abstract and known Ehrhart/paving setup from accessible primary bibliographic text; complete PDF not reread.",
+          "method": "lawful arXiv discovery and claim comparison",
+          "title": "Ehrhart Theory of Paving and Panhandle Matroids",
+          "trigger": "Primary definition and known geometry of exactly this matroid family"
+        },
+        {
+          "assessment": "DIFFERENT_INVARIANT",
+          "evidence": "Ehrhart lattice counts are not the Gaussian order-statistic width distribution.",
+          "identifier_or_url": "https://arxiv.org/abs/2311.01640",
+          "material_read": "Accessible abstract and indexed focus on Ehrhart positivity/chain forests; full primary article not read in this execution.",
+          "method": "arXiv/SIAM primary article summary and mathematical invariant comparison",
+          "title": "Ehrhart Bounds for Panhandle and Paving Matroids Through Enumeration of Chain Forests",
+          "trigger": "Same polytope family and potentially dominating theorem"
+        },
+        {
+          "assessment": "INAPPLICABLE_INVARIANT",
+          "evidence": "Minkowski asymmetry is different from uniform-sphere directional width; fixed rank two further limits scope.",
+          "identifier_or_url": "https://github.com/Resultary/2026/tree/main/2026/10/11/SCOPE-minkowski-asymmetry-and-all-centers-of-rank-two-matroid-base-pol--a659b650d983",
+          "material_read": "Semantic index abstract on Minkowski asymmetry and all centers; no source proof read.",
+          "method": "Resultary search",
+          "title": "Published mathematical findings involving rank-two matroid polytopes",
+          "trigger": "Possible broader polytope invariant coverage"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "rationale": "Mean width is an intrinsic Euclidean geometric invariant; the complete distribution and positive second-order deficit quantify a meaningful loss under the panhandle matroid basis restriction. A fixed-rank family with explicit rho dependence generalizes beyond rank-two exceptional cases and supplies a reproducible extreme-value interpretation.",
+      "status": "PASS"
+    }
+  },
+  "checked_sources": [
+    "https://arxiv.org/abs/2201.12442",
+    "https://arxiv.org/abs/2311.01640",
+    "https://github.com/Resultary/2026/tree/main/2026/10/11/SCOPE-minkowski-asymmetry-and-all-centers-of-rank-two-matroid-base-pol--a659b650d983"
+  ],
+  "disposition": "passed",
+  "final_claim": "For fixed rank r>=3, p>=r, q>=2 with p->infty and q/p->rho in (0,infty), the spherical directional width of panhandle base polytope centered at 2r u_p and scaled a_p/sqrt(p+q-1) converges to a sum of two independent Poisson-order-statistic random variables. The scaled mean width deficit relative to uniform hypersimplex is D_r(rho)=(r-1)log(1+rho)-sum_{j=1}^{r-1}[1-(1+rho)^(-j)]/j, positive, monotone and with quadratic onset r(r-1)rho²/4.",
+  "limitations": [
+    "Exact original tree hashes independently reconstructed from all Git tree entries, and key GitHub file connector SHA values matched the entries. Raw original Git blob byte streams were not all locally rehashed.",
+    "Some cited highly relevant original texts were only partially accessible, as identified by genuine source inspections; originality is best-of-knowledge, not proof of priority.",
+    "All five current record packages have metadata fields containing internal operational provenance; public publication plan explicitly not_ready."
+  ],
+  "residual_risks": [
+    "Unindexed higher-rank Gaussian support/extreme-value literature could subsume the same D_r coefficient.",
+    "Primary full texts of both panhandle Ehrhart papers were not entirely reread this run; accessible high-level descriptions do not prove whole-document noncoverage."
+  ],
+  "schema_version": 1,
+  "source_inspections": [
+    {
+      "assessment": "COVERS_OBJECT_NOT_WIDTH_LIMIT",
+      "evidence": "Defines panhandle bases and enumerates Ehrhart geometry, not directly this Gaussian width theorem in inspected materials.",
+      "identifier_or_url": "https://arxiv.org/abs/2201.12442",
+      "material_read": "Original authors, abstract and known Ehrhart/paving setup from accessible primary bibliographic text; complete PDF not reread.",
+      "method": "lawful arXiv discovery and claim comparison",
+      "title": "Ehrhart Theory of Paving and Panhandle Matroids",
+      "trigger": "Primary definition and known geometry of exactly this matroid family"
+    },
+    {
+      "assessment": "DIFFERENT_INVARIANT",
+      "evidence": "Ehrhart lattice counts are not the Gaussian order-statistic width distribution.",
+      "identifier_or_url": "https://arxiv.org/abs/2311.01640",
+      "material_read": "Accessible abstract and indexed focus on Ehrhart positivity/chain forests; full primary article not read in this execution.",
+      "method": "arXiv/SIAM primary article summary and mathematical invariant comparison",
+      "title": "Ehrhart Bounds for Panhandle and Paving Matroids Through Enumeration of Chain Forests",
+      "trigger": "Same polytope family and potentially dominating theorem"
+    },
+    {
+      "assessment": "INAPPLICABLE_INVARIANT",
+      "evidence": "Minkowski asymmetry is different from uniform-sphere directional width; fixed rank two further limits scope.",
+      "identifier_or_url": "https://github.com/Resultary/2026/tree/main/2026/10/11/SCOPE-minkowski-asymmetry-and-all-centers-of-rank-two-matroid-base-pol--a659b650d983",
+      "material_read": "Semantic index abstract on Minkowski asymmetry and all centers; no source proof read.",
+      "method": "Resultary search",
+      "title": "Published mathematical findings involving rank-two matroid polytopes",
+      "trigger": "Possible broader polytope invariant coverage"
+    }
+  ]
+}

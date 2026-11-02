@@ -1,19 +1,21 @@
-# Self-review
+# Independent mathematical audit
 
-## Correctness — PASS
+## correctness
 
-The three-state minimum-cost/count recurrence is derived from disjoint child subtrees and the exactly-one-or-more-selected-child condition for a dominated, unselected root. The base profiles and the three-phase induction establish the optimum numbers and enumerate all minimizers. The bottom support-vertex replacement lemma proves the all-pattern pruning invariance; a two-to-one exchange with the unique surviving leaf establishes the sharp one-group doubling. The `verify.py` script checks 25 full-tree cost/count values, 75 simultaneous retention-pattern prunings, 25 sharp one-group deletions, and 18 exhaustive small-instance minimality and exact-count cases, including nine explicit all-optimum-set classification cases. Computation is supporting evidence, not the proof.
+PASS
 
-## Originality — PASS (historical-priority caveat)
+Independently reconstructed three rooted boundary states A/B/C, base cases h=1,2,3 and period-three cost/count induction. The full-level sets have the predicted size and by exact optimum counts exhaust minimizers. A bottom support vertex with >=2 pendant children is forced into every minimum set; pruning preserves the internal domination constraints. With one surviving child at one bottom parent, the original optimum-to-pruned optimum mapping is exactly 2-to-1 (including h=1). An independent brute-force tree enumerator checked 6 (d,h) regimes, their explicit optimal sets, representative simultaneous prunings, and each single-group sharp case. These finite checks do not establish arbitrary heights.
 
-Allagan et al., arXiv:2601.03485v1 (January 7, 2026), already establish the binary-tree phase law, binary one-leaf doubling, and a general three-state algorithm. Those are prior work. Oyewumi, Roux and Wagner (2025) count all dominating sets in d-ary trees, a different quantity. The new contribution is a higher-branching closed optimum census, complete optimum classification, and the exact all-sibling retention threshold with a sharp one-group transition. Semantic record searches, own accessible historical claim comparisons, and targeted published-literature searches identified no statement covering those stronger specific assertions. Generic algorithms and elementary local exchange steps are not independently claimed. A potentially unindexed historical formulation remains a residual risk.
+## originality
 
-## Value — PASS
+PASS
 
-The number and structure of minimum dominating sets measure placement flexibility, while deletion of terminal leaves models changes in boundary coverage constraints. The theorem shows a sharp difference between binary trees and higher-branching trees: simultaneous removal of up to \((d-2)d^{h-1}\) leaves leaves the entire optimum family untouched, but one group reduced to a lone leaf creates exactly one new choice for every optimum. This quantitative rigidity law holds across an infinite, natural two-parameter graph family and answers a motivated question beyond minimum cardinality alone.
+The exact higher-degree branching census and simultaneous terminal pruning law are not implications of the binary-tree period-three theorem. The common three-state algorithm gives a method but not the proved all-parameter expressions or the sharp all-pattern family identity. The local support exchange fact is elementary prior knowledge, not claimed new. Best-of-knowledge priority only.
 
-## Scope and limits
+## value
 
-Perfect uniformly branching rooted trees of positive height; terminal leaf deletions only. Results do not classify multiple simultaneously exceptional sibling groups, arbitrary nonuniform branching, or internal vertex deletions. The binary special case is already established in prior work. Independent review and further historical-priority verification remain outstanding.
+PASS
 
-Self-review: passed. Independent audit: not yet performed.
+Minimum optimal-set counts measure placement rigidity in a canonical two-parameter tree family. The sharp change from retaining two pendant leaves to retaining one gives a meaningful, explicit resilience threshold; it is not merely the classical binary case or generic dynamic programming.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

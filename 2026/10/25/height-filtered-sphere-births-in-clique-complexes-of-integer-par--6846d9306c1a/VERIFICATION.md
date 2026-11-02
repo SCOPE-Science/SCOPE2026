@@ -5,8 +5,11 @@
     "status": "not_performed"
   },
   "independent_audit": {
-    "evidence": null,
-    "status": "not_performed"
+    "status": "passed",
+    "evidence": [
+      "INDEPENDENT_AUDIT_2026-10-28.md",
+      "INDEPENDENT_AUDIT_2026-10-28.json"
+    ]
   },
   "lean_verification": {
     "evidence": null,
@@ -15,10 +18,25 @@
   "schema_version": 1
 }
 ---
-# Verification and limits
 
-The embedded `verify_partition_births.py` runs on Python 3 with only the standard library. Execute it in the same directory as this document. It generates integer partitions, constructs transfer edges independently from partition multisets, constructs the donor-recipient upper-link graph and verifies the exact line-graph adjacency for every upper-neighbor pair. It also checks the cycle-rank formula and, separately, all clique counts and Euler characteristics on sizes 1–22. The support-based formula and its series are compared with published first 25 numerical coefficients and expanded through size 60.
+# Independent mathematical audit
 
-The checker successfully examined 4,507 partitions with sizes 1–22 and printed PASS. Exact computations are independent finite consistency checks, not a proof of the all-integer theorem. The proof's decisive infinite steps are the transfer classification, graph-nerve equivalence, null cone-attachment maps, and integral long exact sequence with graph-cycle quotients.
+## correctness
 
-The documented numerical series may follow from a previously published exact face-vector series; uniqueness or numerical novelty is not asserted. The new claim is the local height-resolved integral birth and survival theorem. No external or independent scientific audit has been performed.
+PASS
+
+The donor/recipient strict upper transfers are bijective to the edges of B_lambda. Two distinct upper neighbors are adjacent precisely when their donors or recipients agree. This is the line graph of a connected bipartite graph: its star simplices form a good cover whose nerve is B_lambda. Since same-height partitions are nonadjacent, simultaneous attachments are cones on connected graph-like links. The old stage is simply connected by induction from the one-point top-height stage; every map from a connected graph to it is null. Cofiber splitting gives wedges of S2, while the integral pair LES gives canonical injections and H1(B_lambda) quotients. The cycle rank is sum_b(k_b-1)=w(lambda), and marking M,a,b gives the positive partition generating series. Independent direct transfer/neighbor check over 194 partitions for n<=11 verified the strict upper-link line graph and cycle rank; no finite check is presented as proof of the all-n statement.
+
+## originality
+
+PASS
+
+Best-of-knowledge: the submitted full statement was compared by actual implication to the specific prior primary statements and published mathematical index. COVERS_GLOBAL_NOT_FILTRATION: Global K_n wedge theorem, chi(K_n)-1, and existing height function are prior. ; PARTIAL_PRIOR_INPUT: Full line graph neighborhood does not by itself yield strict upper filtration or integral birth maps. ; NUMERICAL_COVERAGE: Euler/rank count is prior/numerically implied; not the new claimed integral filtration.. An inaccessible plausible source alone was not treated as failure; meaningful risks remain listed below.
+
+## value
+
+PASS
+
+This identifies precisely when primitive integral homology classes are born and proves their survival under a canonical height filtration. These persistence/associated-graded data are not specified by the known global wedge type or alternating face-vector sum, and provide a motivated partition-theoretic homology interpretation.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

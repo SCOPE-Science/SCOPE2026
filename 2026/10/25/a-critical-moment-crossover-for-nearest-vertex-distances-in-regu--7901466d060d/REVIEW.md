@@ -1,15 +1,21 @@
-# Review of the critical nearest-vertex moment crossover
+# Independent mathematical audit
 
-## Correctness
-PASS. The equal-radius site geometry makes nearest-vertex Voronoi cells radial sectors. Each sector splits into two congruent right triangles; vertex-centered polar integration gives an exact moment identity. Differentiating the stated trigonometric primitive directly checks the key integration-by-parts step. The asymptotic proof treats the integrable, logarithmic, and nonintegrable endpoint cases separately; the moving-exponent calculation gives a compact-uniform remainder. The finite numerical checks were executed from the accompanying standalone script; they corroborate rather than replace the proof. No unproved global or distributional assertion is used.
+## correctness
 
-## Originality
-PASS relative to the inspected sources, with an explicit residual risk. Bäsel (arXiv:1204.2707) and Khalid–Durrani (arXiv:1207.5857) treat different random-distance objects. Li–Qiu (DOI 10.1155/2016/8371750) supplies a stronger general **finite-triangle moment** methodology: the finite-order exact identity here is thus not, on its own, an original general-method claim. Its Sections 2–5 do not state the asymptotic phase transition in the polygon vertex number or the compact-uniform moving-exponent critical function. Pan (2025, preprints.org/202505.1270) evaluates a single geometric exclusion threshold, not the moment crossover. Relevant published-claims searches did not reveal an equivalent critical-window statement. An unindexed paper obtaining the same asymptotics remains possible, so historical priority is not certified.
+PASS
 
-## Mathematical value
-PASS. The object measures the mean power-cost of transporting an area-uniform demand point to the nearest vertex site, a canonical geometric quantization statistic. A complete and **nontrivial** dependence on the cost exponent emerges: subquadratic powers in the \(0<p<1\) regime feel a boundary layer, the critical first moment has a logarithmic anomaly, and all \(p>1\) powers have quadratic corrections. The uniform scaling function proves how these incompatible fixed-exponent laws join when the exponent moves with polygon order. That critical transition is not supplied just by computing isolated special-case moments.
+The exact nearest-vertex cell is the angular sector of a regular polygon centered on each radius; it splits into 2n congruent right triangles with vertex V as nearest site. Vertex-polar radial integration gives the stated integral with sin(a)^(p+1)/cos(a), and differentiating cos(t)/sin(t)^(p+1) proves the integration-by-parts moment identity. Beta-integral convergence for p<1, J_1(a)=log cot(a/2), and a local power singularity for p>1 yield the sharp constants. For p=1+λ/L, uniform bounded-λ control of sin(t)^(−p)−t^(−p) gives J_p=L(e^λ−1)/λ+O_B(1); multiplying by a^(p+1) cancels e^λ to give (1−e^(−λ))/(3λ), uniformly on compact λ. Twenty independently integrated formula comparisons, second-moment reduction, and five finite crossover cases corroborated the exact computation; the slower O(1/L) finite crossover convergence is not a theorem failure. Every n≥3, p>0 is included, no irregular geometry is claimed.
 
-## Scope and risks
-The result is specific to unit-circumradius regular polygons, their vertex sites, and area-uniform interior points. Exact finite moments are encompassed in principle by general triangle-moment techniques and should not be treated as the novelty. Source coverage cannot establish absolute worldwide priority. The checker is finite and no independent mathematical audit has been completed.
+## originality
 
-Self-review: passed. Independent audit: not yet performed.
+PASS
+
+Best-of-knowledge, not absolute priority: For a point area-uniform in a unit-circumradius regular n-gon, the pth moment of its nearest-vertex distance has an exact Voronoi-triangle integral and excess above the limiting disc moment with regimes a^(p+1) for 0<p<1, a²log(1/a) at p=1, a² for p>1, and uniform critical-window scaling (1−e^(−λ))/(3λ) for p=1+λ/log(1/a), a=π/n. The inspected primary sources contribute prerequisite constructions or related weaker/different statements, without identifying a prior theorem that logically entails the distinctive final statement. Inaccessible/unindexed historical overlap remains an explicit risk.
+
+## value
+
+PASS
+
+The nearest-vertex power cost is a canonical geometric quantization statistic. An intrinsic singular-integral transition at the first moment p=1 separates boundary-layer dominated from quadratic corrections. Establishing all three exact rates and a uniform exponent-moving crossover provides mathematically useful asymptotic information beyond tabulating isolated polygon moments; no downstream general theorem is needed for its value.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

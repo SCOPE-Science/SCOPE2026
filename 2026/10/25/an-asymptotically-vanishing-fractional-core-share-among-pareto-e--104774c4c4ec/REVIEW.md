@@ -1,9 +1,21 @@
-# Self-review
+# Independent mathematical audit
 
-**Correctness — PASS.** For the precisely specified Hare-quota approval election, the proof handles all size-\(k\) committees and blocking coalitions, including the guardian case. The ordinary core is characterized by the number of represented private groups; the fractional core+ classification follows from an explicit strict payment certificate for winners containing the common candidate and a Cauchy--Schwarz obstruction otherwise. The binomial counts are disjoint-case counts, the Pareto argument checks both kinds of committee, and the asymptotic follows from fixed-degree polynomial leading terms. Independently enumerating \(296\) committees across six small parameter cases agrees with every classification, including exact integral deviations and separately solved fractional payment LPs.
+## correctness
 
-**Originality — PASS (best knowledge, residual risk).** The qualitative fact that ordinary core need not imply priceability is established in Berker et al. (2025), and the fractional core+ payment characterization and existence are established by Becker, Greger, and Peters (2026). Gölz and Yaghoubizade (2026) develop related frugal Lindahl conditions. None of the specifically inspected primary results states or implies the exact counts or the vanishing fraction **restricted to a profile in which all committees are Pareto efficient**. A known one-private-candidate special case also lacks the growing-\(r\) enumeration and limiting frequency. Mathematical-results and web searches found no dominating census; nonindexed clone-family observations remain an originality risk.
+PASS
 
-**Value — PASS.** An existence theorem does not show how selective the stronger axiom is among stable outcomes. The exact classification exhibits a severe, asymptotically complete elimination of otherwise core-stable outcomes while ruling out Pareto-dominance as an explanation, addressing a natural axiom-comparison question. The structured election and fixed-seat asymptotic are limitations, not general-market prevalence claims.
+Under Hare quota q=(k+1)/k, a committee containing common candidate c is core stable; private-only committees are stable exactly if they represent at least k-1 distinct ordinary voter groups. A blocking proposal must serve all members of any coalition with quota constraints, and the guardian cases are accounted for. Core+ is not assumed equivalent to integral core: apply Theorem 3.3 of Becker–Greger–Peters, the exact strict payment/reserve characterization. With c in W, construct an explicit payment certificate with strictly sub-quota losing-candidate reserves; without c, each ordinary voter must retain enough reserve to protect common candidate c, and Cauchy–Schwarz yields a lower bound >=k/2>(k+1)/k for k>=3, so no certificate. Combinatorial disjoint types give C(kr,k-1) for c-committees and r^k+k(k-1)C(r,2)r^(k-2) private-only stable committees. A direct utility-sum argument shows no size-k committee is strictly Pareto dominated. For fixed k, private-only count has degree k in r vs core+ count degree k-1. I independently enumerated 170 complete committees across four small profiles, all affordable integral proposals, Pareto comparisons and independent SciPy LP payment feasibility; agreement holds. The polynomial classification is analytic and does not follow from finite LP tolerance.
 
-Self-review: passed. Independent audit: not yet performed.
+## originality
+
+PASS
+
+The existence of at least one core+ committee, its Farkas payment certificate, and qualitative separation of core from Lindahl-style priceability are prior (Becker–Greger–Peters 2026; Berker et al. 2025; Gölz–Yaghoubizade 2026). The inspected primary 20-page Becker paper contains a universal existence theorem, not an exact labeled-committee census for a universal/private/guardian approval instance. An older one-private-per-voter example addresses r=1 only, and a degree-capped coincidence result has incompatible supporter-count assumptions. What is assessed is complete fixed-k, growing-r enumeration and the vanishing core+-among-core share, even while every committee is Pareto efficient. This new implication is not entailed by existential core+ or known qualitative gap.
+
+## value
+
+PASS
+
+A natural quantitative question left open by an existence theorem is whether the stronger fractional core criterion is common among ordinary-core outcomes. The structured clone family provides an exact classification and demonstrates the strongest possible limiting separation (fraction tending to zero) while controlling Pareto efficiency. It is an exact self-contained combinatorial result with clear elections-theory relevance, not a generic claim about random elections or arbitrary profiles.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

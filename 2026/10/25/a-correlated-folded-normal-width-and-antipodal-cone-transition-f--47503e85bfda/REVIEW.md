@@ -1,19 +1,21 @@
-# Mathematical review
+# Independent mathematical audit
 
-## Correctness
+## correctness
 
-**PASS.** The exact Gaussian support identity follows from disjoint unions of stable-set indicators, with no optimization relaxation. Centered two-block positive/negative Gaussian sums have variance \(n(\pi-1)/(2\pi)\), covariance \(-n/(2\pi)\), and mean \((p-q)/\sqrt{2\pi}\). The joint multivariate central limit theorem and radial delta method give the asserted independent Gaussian plus correlated folded-normal limit. Normal-fan class events agree almost surely with signs of two support differences, up to two exponentially rare all-one-sign orthants. The bivariate orthant formula gives the displayed exact arcsine constant. A separate Chebyshev argument handles diverging imbalance; the proof does not illegitimately extend the finite-imbalance width formula to that regime. The standalone finite enumerations and simulations are independent corroboration only.
+PASS
 
-## Originality
+From actual RESULT.md and code: the polytope is the convex hull of within-part indicator sets. Maximizing over each part gives exactly W(U)=(sum|G_i|+|D_+|+|D_-|)/(2||G||), including p,q>=1. The mean of D_± is μ(p−q), variance n(1/2−1/(2π)), covariance −n/(2π). A multivariate CLT including sum|G_i| and sum G_i², with cross-covariance order (p−q)/n→0, followed by the delta method, proves joint convergence and independence of Y of variance (1−3/π)/4. Portmanteau and Gaussian quadrant geometry imply F(t) and balanced arcsine value; derivative >0 at t>0 and Chebyshev handles divergent imbalance only for same-level probability. Cramér decomposition establishes genuinely non-Gaussian width at every finite t. Independently reconstructed 120 sample support enumerations, exact width identity and balanced arcsine constant; these finite checks do not prove asymptotic quantifiers. The exceptional all-one-sign directions have probability 2^(1−n).
 
-**PASS, with bibliographic risk.** The combinatorial and graph-theoretic definitions are classical and the two-level chain-polytope family is treated in Ahmad–Fourier–Joswig (arXiv:2309.01626) and Aliniaeifard et al. (arXiv:1804.00360). Kabluchko–Litvak–Zaporozhets (arXiv:1511.08479) give the regular-cube width fluctuation. Known two-block **mean widths** give only expectations, not the joint directional-width law and normal-fan antipodal pairing. Available related sources concern face counts, regular cube limits, inballs, enclosing balls, covariance of uniform-volume points or ellipsoids. Relevant selected primary sections and published-record statements were compared without finding a dominating theorem. Search incompleteness remains: an unindexed equivalent Gaussian order-statistic calculation cannot be excluded.
+## originality
 
-## Mathematical value
+PASS
 
-**PASS.** Opposite exposed-vertex level coincidence is a natural spherical normal-cone intersection invariant for a two-orbit polytope. At balance its limiting value is strictly below one half, and the entire distribution exhibits a non-Gaussian square-root imbalance crossover. This is a qualitative geometric classification beyond the previously known first moment and beyond the cube's ordinary Gaussian width CLT. Both the exact constant and the joint law are reproducible and motivated by the canonical family, not by an arbitrary fitted finite invariant.
+Best-of-knowledge, not absolute priority: For canonical Euclidean two-level chain/stable-set polytopes of K_{p,q}, the centered spherical width and both antipodal exposed-level labels converge jointly at (p−q)/sqrt(n)→t to an independent Gaussian plus two negatively correlated folded normals; balanced same-level probability equals 1/2−arcsin(1/(π−1))/π and the imbalance transition is at sqrt(n). The inspected primary sources contribute prerequisite constructions or related weaker/different statements, without identifying a prior theorem that logically entails the distinctive final statement. Inaccessible/unindexed historical overlap remains an explicit risk.
 
-## Scope and limits
+## value
 
-The result concerns the canonical, full-dimensional Euclidean realization, with Haar-uniform directions and a finite limiting square-root class imbalance for the full width-and-label law. The diverging-imbalance assertion is only an angular limit. Computational experiments are not an infinite proof. Residual bibliographic overlap cannot be eliminated by database coverage alone, and no independent review has been performed.
+PASS
 
-Self-review: passed. Independent audit: not yet performed.
+The standard chain polytope of a two-level poset is a canonical non-smooth full-dimensional object. Its opposite exposed-vertex classes are a natural normal-fan intersection statistic: the balanced antipodal class coincidence is strictly below one half, and the full directional width has a non-Gaussian square-root imbalance transition, despite the ordinary cube Gaussian CLT. The joint law, covariance and strict phase behavior are not recovered from the previously known mean width; mathematical scope stays tied to the standard Euclidean embedding and isotropic directions.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

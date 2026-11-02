@@ -5,8 +5,11 @@
     "status": "not_performed"
   },
   "independent_audit": {
-    "evidence": null,
-    "status": "not_performed"
+    "status": "passed",
+    "evidence": [
+      "INDEPENDENT_AUDIT_2026-10-27.md",
+      "INDEPENDENT_AUDIT_2026-10-27.json"
+    ]
   },
   "lean_verification": {
     "evidence": null,
@@ -16,31 +19,24 @@
 }
 ---
 
-# Computational checks and verification limits
+# Independent mathematical audit
 
-The complete analytic argument is in `RESULT.md`. The supplied `verify_trilobe.py` is a standalone companion sanity-check program requiring Python 3, NumPy and SciPy. It computes the area of triangles directly from their three Cartesian vertices, derives numerical second derivatives independently from the closed Hessian, and uses deterministic low-discrepancy integration to compare finite rare-event probabilities with each leading asymptotic formula.
+## correctness
 
-Actual observed output:
+PASS
 
-```text
-HESSIAN_SPECTRAL_IDENTITY_OK 0.01 [0.03936094 0.7019353  0.70193534]
-FIXED_LOBE_TAIL_IMPORTANCE_SAMPLING_OK 0.01 0.001 1.00414 68586
-FIXED_LOBE_TAIL_IMPORTANCE_SAMPLING_OK 0.01 0.0002 1.00173 68586
-HESSIAN_SPECTRAL_IDENTITY_OK 0.05 [0.20459854 0.92069318 0.92069326]
-FIXED_LOBE_TAIL_IMPORTANCE_SAMPLING_OK 0.05 0.001 1.00218 68586
-FIXED_LOBE_TAIL_IMPORTANCE_SAMPLING_OK 0.05 0.0002 1.00131 68586
-HESSIAN_SPECTRAL_IDENTITY_OK 0.09 [0.382307   1.15400047 1.15400075]
-FIXED_LOBE_TAIL_IMPORTANCE_SAMPLING_OK 0.09 0.001 1.0021 68586
-FIXED_LOBE_TAIL_IMPORTANCE_SAMPLING_OK 0.09 0.0002 1.00131 68586
-JOINT_SMALL_SHAPE_CROSSOVER_OK 0 1.00012 0.00021221
-JOINT_SMALL_SHAPE_CROSSOVER_OK 0.25 0.99993 0.00015915
-JOINT_SMALL_SHAPE_CROSSOVER_OK 0.5 0.99968 0.0001061
-JOINT_SMALL_SHAPE_CROSSOVER_OK 0.75 0.99946 8.003e-05
-JOINT_SMALL_SHAPE_CROSSOVER_OK 2.0 0.99832 4.626e-05
-JOINT_SMALL_SHAPE_CROSSOVER_OK 5.0 0.99529 2.877e-05
-CUSP_PROFILE_COEFFICIENT_OK
-CRITICAL_PROFILE_AND_MATCHED_COEFFICIENT_OK
-ALL_TRILOBE_GEOMETRY_CHECKS_OK
-```
+The oval curvature numerator (1+eta cos3theta)(1+10eta cos3theta)+18eta^2 sin²3theta is positive for eta<1/10. Radius-(1+eta) disk bounds the triangle maximum, attained at exactly six labeled maxima for eta>0. The exact deficit Hessian has two transverse eigenvalues a_eta=(3sqrt3/8)(1+eta)(1+7eta) and longitudinal b_eta=(9sqrt3/4)eta(1+eta); local ellipsoid volume at six points with sampling density (1+eta)/L_eta gives C_eta. When eta=O(eps), localization to two equilateral-circle orbit components and Jacobian sqrt3 yields phase integral mean positive part of 1-s(1-cos3phi), hence F(s). Both asymptotic matches and cusp follow from elementary expansion. Independent SymPy Hessian diagonalization and direct quadrature of F(s) for a grid of phases corroborated identities (max numerical quadrature discrepancy 1.22e-10), not universality.
 
-The finite experiments do not prove the global extremum, the infinity-limit probability coefficient, a uniform convergence rate, or originality. Those require the stated geometric and analytic proof and comparison with the primary literature. No independent audit or external certification is asserted.
+## originality
+
+PASS
+
+Best-of-knowledge originality: For three arclength-uniform boundary samples from r_eta(theta)=1+eta cos(3theta), fixed positive eta has area-max upper-tail order eps^(3/2), whereas joint eta/eps->lambda yields eps times an explicit arccosine phase profile F((3sqrt3/2)lambda), nonanalytic at phase cutoff. The materially compared earlier results cover only credited subclaims or different mathematical objects; no decisive prior implication was found. Priority is not exhaustively certified. A specialist local Laplace expansion for weakly broken rotational symmetry could already give the same universal F(s) under other language.
+
+## value
+
+PASS
+
+A symmetry-breaking perturbation of the maximal random inscribed triangle is a natural geometric-probability model. It produces a sharp change in rare-event exponent and a nontrivial exactly calculated joint shape/deficit scaling function with a singular rotational cutoff. The exact phase transition can be reused in perturbative extremal-geometry models; limitations to this oval and exactly 3 points acknowledged.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

@@ -1,19 +1,21 @@
-# Scientific review
+# Independent mathematical audit
 
-## Correctness — PASS
+## correctness
 
-The explicit weighted Laplacian has three positive nonzero eigenspaces for every integer \(n\ge3\) and real \(t\ge0\). Their exact squared projection weights yield every resistance and biharmonic expression. A two-grounding Schur complement proves the coherence score. The computed pair-orbit gap identities have positive denominators, the same-part score strictly exceeds the unmatched-cross score, and the displayed cubic has positive nonconstant coefficients and opposite signs at \(0\) and \(1/2\). Its comparison with the resistance quadratic follows from an exact polynomial remainder. Direct exact matrix inverses were compared with the formula on \(1470\) tested pairs; these checks supplement rather than replace the infinite-family proof. The main uncertainty is not a missing logical step but independent external validation, which has not occurred.
+PASS
 
-## Originality — PASS, with disclosed risk
+The weighted Laplacian decomposes into restricted symmetric, restricted antisymmetric and bipartition-sign eigenspaces of eigenvalues n, p=n−2+2t and q=2(n−1+t), positive for n≥3,t≥0. Exact orbit projection weights give R_{same/matched/cross} and B_{same/matched/cross} with denominators p,n,q and squares. A grounded Green matrix followed by Schur complement proves C=2tr L^+−B/R−(N/4)R with N=2n, so maximizing Φ=B/R+nR/2 orders all pairs. The matched-minus-same difference is −P_n(t) divided by a positive denominator; same-minus-unmatched-cross is strictly positive. Positive cubic derivative coefficients, P_n(0)<0 and P_n(1/2)=n−1>0 give unique c_n and all tie counts. Resistance quadratic root r_n is smaller because P_n(r_n)=−n(n−2)/2<0. Mean-value control on P_n′ and the explicit radical prove n(c_n−r_n)→1/4. Direct exact rational n=3,t=2/5 example yields resistance 1/108 and coherence 5/342 of opposing signs. Independent SymPy simplification confirmed cubic orbit score identity; 27 exact direct inverses of follower matrices for n=3..5/t=0,2/5,1 and three pair-orbits confirmed formula. Finite matrices corroborate, not replace, the all-n polynomial proof.
 
-Published mathematical records were searched using matching-weighted biclique, two-leader coherence, grounded-inverse, cubic phase-transition, and resistance/biharmonic aliases. Accessible historical claims were consulted solely to exclude overlapping statements; the closest was a different six-vertex weighted-circulant disagreement interval, which does not imply an all-order matching-weighted biclique phase diagram. Full primary PDFs by Fitch–Leonard (arXiv:1407.1569) and Patterson–Yi–Zhang (arXiv:1708.06873) were inspected for their general formulas, original graph families and relevant special-case/appendix material. Those sources provide general tools but do not state the cubic threshold, its exhaustive optimization classification, or its asymptotic disagreement width. Searches cannot establish absolute novelty. A specialized or weakly indexed follow-up could cover part of the result, and independent literature review remains a residual risk.
+## originality
 
-## Value — PASS
+PASS
 
-The two-leader noisy-consensus model is motivated by sensor-placement and multiagent-tracking problems. The continuous parameter \(t\) interpolates naturally from a crown graph (missing matching) to the uniformly coupled biclique and then stronger matching links. The solution gives an exact transition parameter, every optimal leader pair and its multiplicity, and an infinite family where a plausible resistance-only placement heuristic disagrees with the actual coherence optimum. The disagreement interval has a sharp nonzero first-order width constant \(1/4\) after scaling by the network half-size. These are structural classifications rather than a routine parameter substitution or isolated computed example.
+Best-of-knowledge, not absolute priority: On K_{n,n}, n≥3, with cross-part conductances t on a perfect matching and 1 elsewhere, the optimum two noise-free leaders for tr(L_FF^−1) switch at unique c_n∈(0,1/2), root of explicit cubic P_n(t), from matched cross-part pairs to same-part pairs (both at equality), and never unmatched cross pairs. Effective-resistance pair ranking switches earlier at r_n<c_n and n(c_n−r_n)→1/4, with rational n=3,t=2/5 disagreement. The inspected primary sources contribute prerequisite constructions or related weaker/different statements, without identifying a prior theorem that logically entails the distinctive final statement. Inaccessible/unindexed historical overlap remains an explicit risk.
 
-## Relationship and limitations
+## value
 
-The 2014 joint-centrality theorem and 2017 resistance-based framework remain the principal foundations. Their full general expressions do not imply the required orbit inequalities without new analysis. The scope is exactly two noise-free leaders on the matching-weighted biclique family; no broader universality, heterogeneous matching, or independent validation is claimed.
+PASS
 
-Self-review: passed. Independent audit: not yet performed.
+Exactly two pinned leaders are a natural noisy-consensus/control placement problem. Varying the matching conductance t continuously deforms crown graphs to the full biclique and beyond, yielding a complete all-n optimal-pair classification. The sharp mismatch interval shows a mathematically consequential limitation of resistance-only heuristics despite transitive equal-information-centrality vertices; no claim about general weighted graphs or three leaders is made.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

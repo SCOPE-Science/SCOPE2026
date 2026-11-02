@@ -5,8 +5,11 @@
     "status": "not_performed"
   },
   "independent_audit": {
-    "evidence": null,
-    "status": "not_performed"
+    "status": "passed",
+    "evidence": [
+      "INDEPENDENT_AUDIT_2026-10-27.md",
+      "INDEPENDENT_AUDIT_2026-10-27.json"
+    ]
   },
   "lean_verification": {
     "evidence": null,
@@ -16,10 +19,24 @@
 }
 ---
 
-# Verification and reproducibility
+# Independent mathematical audit
 
-Run `python verify_geometry.py` in an environment with Python 3, NumPy and SciPy. This standalone program uses only the explicit vertex definition and elementary Gaussian formulas. On the present evaluation it printed `VERIFY_OK`, including `FINITE_SUPPORT_AND_SOLID_ANGLE_PARTITION_OK 700`, `GAUSSIAN_MINIMUM_INTEGRAL_OK`, `QUANTILE_INTEGRAL_OK`, `EXACT_SATURATED_MEAN_MONTECARLO_OK`, and `TYPE_B_PRODUCT_POLYNOMIAL_OK`.
+## correctness
 
-The checker enumerates all relevant generating vertices for dimensions 2–5 and label caps 1–5. It uses 700 independent Gaussian objective comparisons against exact brute-force linear maximization, checks angular-orbit normalization, numerically integrates the Gaussian-minimum identity and phase function, and compares finite-dimensional simulations to the asymptotic formula in dimensions 50, 200 and 800. Finally, it checks the Weyl-product polynomial coefficients in dimensions through 9. All random tests use a fixed seed.
+PASS
 
-The analytic proof is recorded in `RESULT.md`; finite computations cannot prove general asymptotics, infinite-dimensional statements or novelty. The cited type-B conic intrinsic-volume formula is a known external theorem, not independently proved by this checker. The numerical integration and simulations use floating point, with explicit tolerances visible in the code. No independent mathematical validation has yet been carried out.
+All extreme generating vectors use the r largest labels  k,k-1,...,k-r+1; rearrangement gives h(G)=sum_{j<=min(k,m)}(k-j+1)(G_[j])_+ and active rank min(k,#positive Gaussian coordinates), hence exact binomial probability. Symmetric exchangeability gives each r<k vertex normal-cone solid angle 1/(2^m r!) and the saturated r=k tail. The normal cone orthogonally decomposes as type-B Weyl chamber and an orthant; known conic intrinsic-volume polynomial applies. Gaussian empirical descending quantiles converge with uniform integrability to the explicit H(alpha), with Gaussian Poincare concentration and radius normalization for directional and mean widths. The derivative H(alpha)=Phi^-1(1-alpha) left of 1/2 and H=0 right of it yields continuous first two derivatives and unequal third derivatives. Independent exhaustive small-m support computation checked 165 cases and five Gaussian quantile quadratures; the all-parameter statement follows from analytic arguments.
+
+## originality
+
+PASS
+
+Best-of-knowledge: exact source vertices, face theory and type-B intrinsic-volume polynomial are known, but the specific Gaussian expected support/mean-width phase and C2/non-C3 transition is not established in inspected primary sources.
+
+## value
+
+PASS
+
+Euclidean Gaussian mean width and normal angles are natural metric invariants not determined by face counts or Ehrhart polynomials. The exact active-label saturation threshold k/m=1/2 is structurally linked to an unexpectedly third-order rather than first- or second-order transition, across an infinite family with explicit probabilistic and conic decompositions.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

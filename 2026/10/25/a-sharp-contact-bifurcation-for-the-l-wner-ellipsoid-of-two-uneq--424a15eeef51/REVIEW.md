@@ -1,15 +1,21 @@
-# Scientific review
+# Independent mathematical audit
 
-## Correctness — PASS
-The statement specifies all parameters, the nested threshold, the sharp screening threshold, and the unique scalar root for the double-contact phase. An exact nonnegative-square containment identity proves the first exterior phase; a tangent-line inequality gives necessity and sufficiency for the smaller ball to be enclosed. In the second exterior phase, explicit support minimization proves both containment conditions. Each case carries a complete isotropic contact measure. The trace–determinant certificate establishes global minimum volume and uniqueness against arbitrary ellipsoid competitors; there is no assumption that competitors are rotationally symmetric. The scalar root is unique because its defining map is strictly increasing from the threshold to infinity. `verify.py` passed 200 sampled parameter cases with 1001 support normals each, plus boundary continuity tests. Finite numeric checks are diagnostic only.
+## correctness
 
-## Originality — PASS, with residual uncertainty
-The precise claimed contribution is the all-dimension unequal-radius ball-hull formula, including the sharp screened-tip-to-two-latitudes transition at \(L_c=d(1-q^2)/((d-1)q)\). General optimality certificates for ellipsoids are old. The full Güler–Gürtuna arXiv PDF was accessed; its general optimality theory and its explicit Section 8 were inspected, along with its introduction describing Sections 5–7. Its computed bodies are ball slabs, truncated cones, and cylinders, not a convex hull of two translated balls of unequal radius. Yıldırım's earlier paper directly concerns convex hulls of general ellipsoids, but its accessible abstract develops approximation algorithms, not this exact specialization. Its complete article was not accessible, so a hidden special case cannot be conclusively excluded. The equal-ball capsule and exterior-point limiting cases do not by themselves logically imply the unequal-radius contact threshold. The literature search found no verified dominating published formula; lack of search hits is not a proof of priority.
+PASS
 
-## Mathematical value — PASS
-Two unequal balls form a canonical rotational convex hull in computational geometry. This result does more than re-label the general uniqueness theorem: it provides the exact globally optimal ellipsoid for a continuum of radii and center separations, a sharp active-contact bifurcation with dimension-dependent threshold, unique scalar reconstruction, and an explicit two-orbit proof certificate. It interpolates two geometrically distinct limiting problems without assuming continuity of contact combinatorics. The contact structure supplies a useful test case for enclosing-ellipsoid methods and sensitivity analysis.
+The support h_K(t)=max{1,Lt+q} reduces containment to two scalar inequalities for rotational E(c,a,b). For nested L<=1-q, unit ball is exactly minimal. For 1-q<L<=L_c, an exact nonnegative square identity shows big-ball containment and one latitude; the tip H=L+q contacts, and the small-ball inequality is equivalent to q<=b²/a=d r. The displayed r solves dr²+(d-1)(L+q)r=1 giving L_c at r=q/d. For L>L_c, b↦L(b) increases from L_c to infinity, so unique root, with both tangent latitudes. Their normalized axial values y1 y2=-1/d yield an isotropic contact probability measure. A trace/determinant certificate forces unique globally minimum volume among all ellipsoids (not merely symmetric ones). Independently implemented 112 representative support inequalities and continuity checks; sampled directions cannot replace proof.
 
-## Boundaries and sources
-The theorem concerns Euclidean balls only and makes no claims for arbitrary ellipsoids. Its second nonnested phase uses a unique monotone scalar root, not a universal radicals expression. Sources: E. Alper Yıldırım (2006), DOI 10.1137/050622560, publicly available online 2006-09-15 (abstract and publication record inspected); O. Güler and F. Gürtuna (2007), arXiv:0709.0707v1 (full text, in particular Theorems 2.2 and 2.7 and Section 8 inspected). The original full-text Yıldırım comparison remains a material bibliographic risk. Independent scientific evaluation has not occurred.
+## originality
 
-Self-review: passed. Independent audit: not yet performed.
+PASS
+
+Best-of-knowledge originality: For d>=2, hull of unit ball and radius-q (0<q<1) ball shifted L, exact three regimes with tip screening threshold L_c=d(1-q²)/((d-1)q) and unique two-latitude root/contacts for larger L. The materially compared earlier results cover only credited subclaims or different mathematical objects; no decisive prior implication was found. Priority is not exhaustively certified. Yıldırım 2006 complete paper, a directly applicable same-objects source, was inaccessible because institutional VPN disconnected; it may contain relevant special-case exact analysis.
+
+## value
+
+PASS
+
+Minimum-volume ellipsoid of the natural convex hull of two unequal balls is a classical but useful contact problem. The sharp screened tip to dual latitude bifurcation with explicit dimension-dependent boundary and one monotone root supplies exact geometric structure beyond standard general ellipsoid certificates or numerical approximations. Meaningfully motivated across arbitrary d,q,L.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

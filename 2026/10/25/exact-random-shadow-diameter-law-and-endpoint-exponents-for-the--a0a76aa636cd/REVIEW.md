@@ -1,15 +1,21 @@
-# Scientific assessment
+# Independent mathematical audit
 
-## Correctness
-**PASS.** Projecting the six unit-length edges produces the exact \(\sqrt{1-m^2/2}\) reduction, where \(m\) is the smaller adjacent gap between sorted absolute normal coordinates. A sphere measure calculation in the signed-permutation chamber gives the exact CDF. Equality conditions establish the support and optimal normals. At the full-diameter endpoint, six distinct great-circle bands give the \(6\sqrt2\) square-root coefficient after inclusion-exclusion. At the minimum-diameter endpoint, a uniform Taylor expansion of the angular interval gives the \(150\sqrt5/\pi\) quadratic coefficient. An independent direct-edge checker reproduces the formulas numerically; numerical samples alone are not the proof.
+## correctness
 
-## Originality
-**PASS within the inspected corpus, with residual historical priority risk.** The closest primary texts are Finch (2011), analyzing caliper width (one-dimensional line shadows) of the tetrahedron, and Finch (2012), analyzing area, perimeter, and silhouette vertex count for two-dimensional shadows. Neither establishes the present two-dimensional shadow *diameter* distribution or endpoint coefficients. Closest retrieved mathematical records on octahedral central-section diameter and tetrahedral shadow-area moments likewise use non-equivalent objects or observables. Available summaries of some records did not permit whole-document negative coverage claims; hidden equivalent formulas remain a residual risk.
+PASS
 
-## Value
-**PASS.** The planar shadow diameter is a natural intrinsic geometric descriptor, and the exact distribution supplies an invariant absent from known area/perimeter/width summaries. Its minimizers are isolated non-obvious normal directions with a sharp quadratic near-minimum probability, whereas the maximum occurs along great circles with a square-root boundary exponent. These different codimensions explain a structural geometric phenomenon and give directly usable probability estimates.
+The convex projected diameter is attained by projected original vertices, so one maximizes six projected unit edge lengths. Those edges have directions (0,1,±1)/sqrt2 and permutations. Thus D/ell=sqrt(1-(min(x-y,y-z))²/2) for sorted absolute normal coordinates x>=y>=z. The bound 1=x²+y²+z² >= 5m² gives m<=1/sqrt5 with equality only at signed permutations of (2,1,0)/sqrt5. A signed/permutation fundamental spherical chamber has normalized area density 12/pi in (z,phi); imposing x-y>=r and y-z>=r yields the stated elementary angular integral up to z*=sqrt((1-2r²)/3)-r. Six great-circle small bands give upper tail 6sqrt2 sqrt(eps); uniform bivariate Taylor expansion of the shrinking chamber gives lower tail 150sqrt5/pi delta². Independent projected-vertex comparisons matched coordinate-gap formula for 2000 random directions. The unbounded exact CDF and endpoint limits follow from analytic geometry, not Monte Carlo.
 
-## Limits and related results
-The result is confined to orthographic shadows of regular tetrahedra under uniform plane orientation. No extension to arbitrary tetrahedra or independent validation is claimed. See Finch, arXiv:1110.0671 and arXiv:1203.2464, and the related published results on central octahedral sections and tetrahedron area-weighted silhouettes.
+## originality
 
-Self-review: passed. Independent audit: not yet performed.
+PASS
+
+Best-of-knowledge PASS for random PLANAR SHADOW diameter rather than tetrahedral line-caliper width, planar projected area/perimeter, or silhouette vertex count. Finch’s relevant primary texts analyze those distinct observables, and a complete Resultary tetrahedron shadow-area record covers conditional area moments, not the maximum projected edge. A separate published octahedral central-section diameter concerns another body and operation. No materially inspected prior primary source gives the tetrahedral diameter CDF plus both endpoint constants. Residual risk includes unindexed shadow-diameter/stochastic-geometry sources and the more recent general random-diameters work with incomplete access.
+
+## value
+
+PASS
+
+Euclidean diameter is a basic geometric functional of an orthogonal shadow; its complete law and exact minimizers distinguish a discrete 12-plane minimum set from a great-circle maximum set, generating different quadratic and square-root endpoint exponents. This is a natural full geometric-probability distribution, with independently meaningful sharp endpoint behavior, rather than a generic numerical moment.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

@@ -1,0 +1,172 @@
+{
+  "audit_date_utc": "2026-10-28",
+  "audited_at_utc": "2026-10-28T03:38:04.635185Z",
+  "axes": {
+    "correctness": {
+      "rationale": "A centrally symmetric projected hull conv{±P_E e_i} has diameter twice its largest vertex norm, giving D=2sqrt(1-m²), m=min|U_i|. The event m>=t in each of eight octants is the spherical patch u_i>=t; its Gauss–Bonnet area is 3α(t)-pi-3tβ(t), with α=arccos(t²/(1-t²)), β=pi/2-2arcsin(t/sqrt(1-t²)). Eight patches give Q(t)=2 area/pi and the stated complete CDF; differentiation α’=tβ’ yields exact positive density. At small t, f_m(t)=3-12t/pi+O(t³) gives the upper 3sqrt(eps)-6eps/pi tail. Near (1,1,1)/sqrt3, the rescaled spherical patch tends to the equilateral triangle sum(w)=0,w_i>=-1 with normalized area, giving lower coefficient 9sqrt3/(2pi), Dirichlet(1,1,1) and independent equally likely eight sign patterns. Symmetry gives uniform minimum-coordinate index and uniform scaled defect at the upper endpoint. Independently verified 2000 projected six-vertex configurations; analytic curvature and local-chart arguments prove the continuum law.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Projected octahedral inradius is polar to cube-section circumradius, whereas projected diameter is controlled by the nearest-to-coordinate-plane component.",
+          "Central-section octahedron diameter is a ratio of minimum to maximum normal coordinates with support [sqrt2,2], distinct from projected diameter support [2sqrt(2/3),2].",
+          "Random shadow face-count laws determine combinatorics, not metric diameter."
+        ],
+        "reasoning": "The closest same-body results and general width/face-number results are not logically stronger exact diameter theorems.",
+        "searches": [
+          "Böröczky–Henk Random Projections of Regular Polytopes 1997",
+          "Resultary exact inradius random planar octahedron projection",
+          "Resultary exact Haar central section octahedron diameter",
+          "Finch Width Distributions for Convex Regular Polyhedra"
+        ]
+      },
+      "checked_sources": [
+        "https://arxiv.org/abs/1110.0671",
+        "https://github.com/Resultary/2026/blob/main/2026/10/11/SCOPE-exact-inradius-law-for-random-planar-projections-of-the-regular--5fbcddcea5e5/RESULT.md",
+        "https://github.com/Resultary/2026/blob/main/2026/10/11/SCOPE-exact-haar-diameter-law-for-central-sections-of-the-regular-octa--4948185eba2f/RESULT.md",
+        "https://page.math.tu-berlin.de/~henk/preprints/boeroeczky%20henk%26random%20projections%20of%20regular%20polytopes.pdf"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "For fixed E, polar of P_E O is E∩[-1,1]^3; projected inradius is inverse cube-section radius, while projected diameter is determined by projected generating vertices.",
+          "Section O∩E is not projection P_E O; their supports and normal-coordinate dependencies differ."
+        ],
+        "reasoning": "Known exact geometric dualities do not turn these earlier formulas into the present diameter CDF, and their conditional laws concern other observables.",
+        "searches": [
+          "Resultary inradius full theorem and proof",
+          "Resultary central section diameter theorem and proof",
+          "Finch 2011 and Böröczky–Henk projection results"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "For O=conv(±e_i), diam(P_EO)=2max_i||P_E e_i||=2sqrt(1-min|U_i|²).",
+          "The law is equivalently the distribution of the minimum absolute coordinate of U uniform on S², a natural spherical order statistic."
+        ],
+        "reasoning": "The spherical minimum-coordinate alias was explicitly searched. Known max-coordinate directional widths, sectional diameter ratios, and polar inradii are not this statistic.",
+        "searches": [
+          "Resultary search: regular octahedron random 2D projection diameter distribution minimum spherical coordinate",
+          "Search: min |U_i| spherical normal three coordinates projection diameter",
+          "Finch random width crosspolytope 3D"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "The retrieved projected-inradius full RESULT has a two-cone arctangent law, while the target CDF has the Gauss–Bonnet small-circle patch expression.",
+          "The retrieved section-diameter full RESULT has support [sqrt2,2] and depends on ratio a/c, not min absolute coordinate."
+        ],
+        "reasoning": "No checked exact database entry lists the complete claimed projected diameter distribution and conditional endpoint laws; unnamed historical equivalent remains possible.",
+        "searches": [
+          "Resultary exact inradius law for random planar projections of regular octahedron",
+          "Resultary exact Haar diameter law for central sections of regular octahedron",
+          "Resultary exact width distribution of unit-edge regular octahedron",
+          "Search: projection octahedron 9sqrt3/(2pi) diameter"
+        ]
+      },
+      "rationale": "Best-of-knowledge PASS for the projected-octahedron *diameter* and its conditional endpoint orientation laws. The strongest same-body primary records actually read compute projected inradius (polar cube-section circumradius), central-section diameter (different operation), one-dimensional width, and silhouette vertex counts; their formulas are not the distribution of 2sqrt(1-min|U_i|²). General spherical order statistics could reproduce part of the CDF, but no materially read result covers the complete stated law and both conditional endpoint limits. Retain the risk of classical minimum spherical-coordinate aliases.",
+      "residual_risks": [
+        "The spherical minimum-absolute-coordinate CDF could have been published under an order-statistic name outside polytope projection literature.",
+        "Some classical random-projection primary full texts were not exhaustively searched for appendices; no whole-document noncoverage is claimed for those inaccessible portions."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "NOT_COVERING projected diameter",
+          "evidence": "Inradius has support [1/sqrt3,1/sqrt2], derived from two cube-section regimes rather than largest projected generator norm.",
+          "identifier_or_url": "https://github.com/Resultary/2026/blob/main/2026/10/11/SCOPE-exact-inradius-law-for-random-planar-projections-of-the-regular--5fbcddcea5e5/RESULT.md",
+          "material_read": "Full RESULT.md theorem, polar-cube-section derivation, conic decomposition, limitations and references read.",
+          "method": "Compared support range and deterministic reduction with minimum-coordinate formula.",
+          "title": "Exact inradius law for random planar projections of the regular octahedron",
+          "trigger": "Same solid and same Haar plane distribution, closest competing exact measure"
+        },
+        {
+          "assessment": "NOT_COVERING projected shadow diameter",
+          "evidence": "Section law uses D=2sqrt(a²+c²)/(a+c) and support [sqrt2,2], not target D=2sqrt(1-m²).",
+          "identifier_or_url": "https://github.com/Resultary/2026/blob/main/2026/10/11/SCOPE-exact-haar-diameter-law-for-central-sections-of-the-regular-octa--4948185eba2f/RESULT.md",
+          "material_read": "Full RESULT.md deterministic section-radius computation and spherical solid-angle CDF read.",
+          "method": "Compared section O∩E versus projection P_E O, support and normal coordinate ratio.",
+          "title": "Exact Haar diameter law for central sections of the regular octahedron",
+          "trigger": "Same solid and diameter measurement but different operation"
+        },
+        {
+          "assessment": "NOT_COVERING in inspected sections",
+          "evidence": "Width of octahedron tracks max coordinate, while present diameter tracks min coordinate.",
+          "identifier_or_url": "https://arxiv.org/abs/1110.0671",
+          "material_read": "Primary PDF relevant regular polyhedron width formulas read and inspected via page image.",
+          "method": "Contrasted 1D directional width and 2D projection diameter.",
+          "title": "Width Distributions for Convex Regular Polyhedra",
+          "trigger": "Potential width/diameter alias"
+        },
+        {
+          "assessment": "NO_FULL_TEXT_NEGATIVE_ASSERTION",
+          "evidence": "Face-number results are a different combinatorial observable; possible specialized metric appendix remains a risk.",
+          "identifier_or_url": "https://page.math.tu-berlin.de/~henk/preprints/boeroeczky%20henk%26random%20projections%20of%20regular%20polytopes.pdf",
+          "material_read": "Relevant published theorem descriptions of projected face numbers examined; the complete primary PDF was not independently reread in this execution.",
+          "method": "Separated face count from Euclidean diameter.",
+          "title": "Random Projections of Regular Polytopes",
+          "trigger": "Same solid, random plane and silhouette"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "rationale": "The projected diameter is an intrinsic and easily interpreted size observable of a classical regular polytope. Its full elementary law, sharp two-endpoint asymptotics, and conditional Dirichlet tangent geometry distinguish geometry at body-diagonal normals from coordinate-plane normals. These provide a natural exact reference distribution and a meaningful endpoint shape classification not implied by first moments or by a differently defined inradius.",
+      "status": "PASS"
+    }
+  },
+  "checked_sources": [
+    "https://arxiv.org/abs/1110.0671",
+    "https://github.com/Resultary/2026/blob/main/2026/10/11/SCOPE-exact-inradius-law-for-random-planar-projections-of-the-regular--5fbcddcea5e5/RESULT.md",
+    "https://github.com/Resultary/2026/blob/main/2026/10/11/SCOPE-exact-haar-diameter-law-for-central-sections-of-the-regular-octa--4948185eba2f/RESULT.md",
+    "https://page.math.tu-berlin.de/~henk/preprints/boeroeczky%20henk%26random%20projections%20of%20regular%20polytopes.pdf"
+  ],
+  "disposition": "passed",
+  "final_claim": "For the regular unit coordinate octahedron, the random Haar planar-shadow diameter is D=2sqrt(1-min_i|U_i|²); its complete elementary spherical-patch CDF and density, sharp lower/upper endpoint expansions, and conditional lower Dirichlet(1,1,1) orientation / upper uniform minimum-coordinate defect laws are determined.",
+  "limitations": [
+    "Only unit regular octahedron, Haar-random orthogonal planes in three dimensions.",
+    "Conditional laws are weak limits as epsilon tends to zero, not exact finite-threshold conditional densities."
+  ],
+  "residual_risks": [
+    "The spherical minimum-absolute-coordinate CDF could have been published under an order-statistic name outside polytope projection literature.",
+    "Some classical random-projection primary full texts were not exhaustively searched for appendices; no whole-document noncoverage is claimed for those inaccessible portions."
+  ],
+  "schema_version": 1,
+  "source_inspections": [
+    {
+      "assessment": "NOT_COVERING projected diameter",
+      "evidence": "Inradius has support [1/sqrt3,1/sqrt2], derived from two cube-section regimes rather than largest projected generator norm.",
+      "identifier_or_url": "https://github.com/Resultary/2026/blob/main/2026/10/11/SCOPE-exact-inradius-law-for-random-planar-projections-of-the-regular--5fbcddcea5e5/RESULT.md",
+      "material_read": "Full RESULT.md theorem, polar-cube-section derivation, conic decomposition, limitations and references read.",
+      "method": "Compared support range and deterministic reduction with minimum-coordinate formula.",
+      "title": "Exact inradius law for random planar projections of the regular octahedron",
+      "trigger": "Same solid and same Haar plane distribution, closest competing exact measure"
+    },
+    {
+      "assessment": "NOT_COVERING projected shadow diameter",
+      "evidence": "Section law uses D=2sqrt(a²+c²)/(a+c) and support [sqrt2,2], not target D=2sqrt(1-m²).",
+      "identifier_or_url": "https://github.com/Resultary/2026/blob/main/2026/10/11/SCOPE-exact-haar-diameter-law-for-central-sections-of-the-regular-octa--4948185eba2f/RESULT.md",
+      "material_read": "Full RESULT.md deterministic section-radius computation and spherical solid-angle CDF read.",
+      "method": "Compared section O∩E versus projection P_E O, support and normal coordinate ratio.",
+      "title": "Exact Haar diameter law for central sections of the regular octahedron",
+      "trigger": "Same solid and diameter measurement but different operation"
+    },
+    {
+      "assessment": "NOT_COVERING in inspected sections",
+      "evidence": "Width of octahedron tracks max coordinate, while present diameter tracks min coordinate.",
+      "identifier_or_url": "https://arxiv.org/abs/1110.0671",
+      "material_read": "Primary PDF relevant regular polyhedron width formulas read and inspected via page image.",
+      "method": "Contrasted 1D directional width and 2D projection diameter.",
+      "title": "Width Distributions for Convex Regular Polyhedra",
+      "trigger": "Potential width/diameter alias"
+    },
+    {
+      "assessment": "NO_FULL_TEXT_NEGATIVE_ASSERTION",
+      "evidence": "Face-number results are a different combinatorial observable; possible specialized metric appendix remains a risk.",
+      "identifier_or_url": "https://page.math.tu-berlin.de/~henk/preprints/boeroeczky%20henk%26random%20projections%20of%20regular%20polytopes.pdf",
+      "material_read": "Relevant published theorem descriptions of projected face numbers examined; the complete primary PDF was not independently reread in this execution.",
+      "method": "Separated face count from Euclidean diameter.",
+      "title": "Random Projections of Regular Polytopes",
+      "trigger": "Same solid, random plane and silhouette"
+    }
+  ]
+}

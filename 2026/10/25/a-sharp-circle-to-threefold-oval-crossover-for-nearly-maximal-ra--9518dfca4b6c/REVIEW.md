@@ -1,15 +1,21 @@
-# Scientific review — a threefold-oval triangle-area crossover
+# Independent mathematical audit
 
-## Correctness
-**PASS.** The global maximum follows from containment in a disk; the threefold oval touches that disk at only three bulges. The fixed-positive-deformation tail comes from six isolated nondegenerate quadratic maxima. The simultaneous scaling is a dimension-two tubular integration around the two components of the circular equilateral-configuration manifold. The curvature condition, exact Hessian coefficients, Jacobian and positive-part phase integral are established in `RESULT.md`. The bundled checker independently tests eigenvalues, local area integrals and the cutoff function. Residual mathematical risk: the finite tests cannot certify an infinite limit; the analytical localization and dominated-convergence argument are controlling.
+## correctness
 
-## Originality
-**PASS relative to inspected sources.** Koroleva and Nikitin (arXiv:1301.1360) already prove the circular coefficient and this is credited. Nikitin and Simarova (arXiv:2010.04460) prove a more general fixed **rotation-invariant** circle-kernel result; assumption A1 and Example 5.2 were inspected, not bypassed. The present positive-deformation area kernel depends on absolute orientation, while the simultaneous limit varies the kernel with the threshold. Neither inspected text states the explicit crossover or the sharp rotation-phase cutoff. Related recorded results on small circumradii and triangle moments have different events and sampling spaces. Priority risk remains for less accessible literature; the original method of Gaussian neighborhood volume is not itself claimed new.
+PASS
 
-## Mathematical value
-**PASS.** The third angular harmonic is the lowest-order perturbation matching the three maximizer directions of an equilateral triangle. It naturally resolves the rotational zero mode of the circular geometry. Exact analysis reveals a change of rare-event exponent and a nonanalytic, quantitative crossover between two geometric regimes. The formula can calibrate the near-maximal area statistics of nearly circular convex ovals. It makes no unsupported claim about general curves or maximum-area statistics from growing point samples.
+The oval curvature numerator (1+eta cos3theta)(1+10eta cos3theta)+18eta^2 sin²3theta is positive for eta<1/10. Radius-(1+eta) disk bounds the triangle maximum, attained at exactly six labeled maxima for eta>0. The exact deficit Hessian has two transverse eigenvalues a_eta=(3sqrt3/8)(1+eta)(1+7eta) and longitudinal b_eta=(9sqrt3/4)eta(1+eta); local ellipsoid volume at six points with sampling density (1+eta)/L_eta gives C_eta. When eta=O(eps), localization to two equilateral-circle orbit components and Jacobian sqrt3 yields phase integral mean positive part of 1-s(1-cos3phi), hence F(s). Both asymptotic matches and cusp follow from elementary expansion. Independent SymPy Hessian diagonalization and direct quadrature of F(s) for a grid of phases corroborated identities (max numerical quadrature discrepancy 1.22e-10), not universality.
 
-## Limits and evidence
-Reproducibility checks: `python verify_trilobe.py` with Python 3, NumPy, SciPy. The scripts confirm finite-difference Hessians for three positive deformations, direct local rare-event integrals at two thresholds each, and the crossover at six phase parameters. The proof is self-contained for the specified family. The 2008 foundational reference could be inspected only via accessible publisher excerpts and is not used to infer full-document noncoverage. Independent external audit has not been performed.
+## originality
 
-Self-review: passed. Independent audit: not yet performed.
+PASS
+
+Best-of-knowledge originality: For three arclength-uniform boundary samples from r_eta(theta)=1+eta cos(3theta), fixed positive eta has area-max upper-tail order eps^(3/2), whereas joint eta/eps->lambda yields eps times an explicit arccosine phase profile F((3sqrt3/2)lambda), nonanalytic at phase cutoff. The materially compared earlier results cover only credited subclaims or different mathematical objects; no decisive prior implication was found. Priority is not exhaustively certified. A specialist local Laplace expansion for weakly broken rotational symmetry could already give the same universal F(s) under other language.
+
+## value
+
+PASS
+
+A symmetry-breaking perturbation of the maximal random inscribed triangle is a natural geometric-probability model. It produces a sharp change in rare-event exponent and a nontrivial exactly calculated joint shape/deficit scaling function with a singular rotational cutoff. The exact phase transition can be reused in perturbative extremal-geometry models; limitations to this oval and exactly 3 points acknowledged.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

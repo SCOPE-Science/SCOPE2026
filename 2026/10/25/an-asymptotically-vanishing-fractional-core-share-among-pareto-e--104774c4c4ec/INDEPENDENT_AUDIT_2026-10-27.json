@@ -1,0 +1,148 @@
+{
+  "audit_date_utc": "2026-10-27",
+  "audited_at_utc": "2026-10-27T21:45:33.188622Z",
+  "axes": {
+    "correctness": {
+      "rationale": "Under Hare quota q=(k+1)/k, a committee containing common candidate c is core stable; private-only committees are stable exactly if they represent at least k-1 distinct ordinary voter groups. A blocking proposal must serve all members of any coalition with quota constraints, and the guardian cases are accounted for. Core+ is not assumed equivalent to integral core: apply Theorem 3.3 of Becker–Greger–Peters, the exact strict payment/reserve characterization. With c in W, construct an explicit payment certificate with strictly sub-quota losing-candidate reserves; without c, each ordinary voter must retain enough reserve to protect common candidate c, and Cauchy–Schwarz yields a lower bound >=k/2>(k+1)/k for k>=3, so no certificate. Combinatorial disjoint types give C(kr,k-1) for c-committees and r^k+k(k-1)C(r,2)r^(k-2) private-only stable committees. A direct utility-sum argument shows no size-k committee is strictly Pareto dominated. For fixed k, private-only count has degree k in r vs core+ count degree k-1. I independently enumerated 170 complete committees across four small profiles, all affordable integral proposals, Pareto comparisons and independent SciPy LP payment feasibility; agreement holds. The polynomial classification is analytic and does not follow from finite LP tolerance.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Becker et al. Theorem 6.1 ensures existence in arbitrary elections, a strictly weaker quantitative conclusion.",
+          "Berker 2025 supplies prior qualitative non-implication."
+        ],
+        "reasoning": "An existence theorem cannot establish how many committees satisfy core+ within an instance; a single counterexample does not establish a limiting proportion in a Pareto-efficient family.",
+        "searches": [
+          "arXiv:2609.11912 existence core+ all approval elections",
+          "frugal Lindahl priceability core stability clone groups"
+        ]
+      },
+      "checked_sources": [
+        "https://arxiv.org/pdf/2609.11912",
+        "https://arxiv.org/abs/2512.16895",
+        "https://arxiv.org/abs/2608.27605"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "Prior supports core+=>core, existence, and an r=1 separation example.",
+          "A separate all-committee structural classification proves the extra growing-r fraction."
+        ],
+        "reasoning": "The r=1 special case and any general existence theorem do not imply the leading-degree ratio O(1/r). The latter requires checking all committees and a new count. All Pareto-efficient is an additional controlled property.",
+        "searches": [
+          "core+ implies core but not conversely 2026",
+          "approval committee common candidate guardian core stable Pareto efficiency"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Becker et al. Theorem 3.3 and Remark 3.4 identify the certificate and priceability alias."
+        ],
+        "reasoning": "The claim concerns exact enumeration under the stronger fractional core/frugal Lindahl constraint, not a renamed property. The property equivalence is prior and explicitly credited.",
+        "searches": [
+          "approval elections core plus fractional core guardian common candidate disjoint private groups Pareto efficient committees asymptotic share",
+          "frugal Lindahl priceability equivalent core+",
+          "core+ payment criterion theorem 3.3"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "Resultary search returned unrelated voting census records, not this exact approval profile.",
+          "Full Becker primary PDF does not tabulate the stated C(kr,k-1) and r^k private-only counts."
+        ],
+        "reasoning": "No inspected table matched the exact polynomial family counts, but negative search is not historical novelty proof; the direct theorem comparison is the substantive evidence.",
+        "searches": [
+          "approval elections core plus fractional core guardian common candidate disjoint private groups Pareto efficient committees asymptotic share",
+          "guardian one common candidate r private per voter core+ exact enumeration binomial committee"
+        ]
+      },
+      "rationale": "The existence of at least one core+ committee, its Farkas payment certificate, and qualitative separation of core from Lindahl-style priceability are prior (Becker–Greger–Peters 2026; Berker et al. 2025; Gölz–Yaghoubizade 2026). The inspected primary 20-page Becker paper contains a universal existence theorem, not an exact labeled-committee census for a universal/private/guardian approval instance. An older one-private-per-voter example addresses r=1 only, and a degree-capped coincidence result has incompatible supporter-count assumptions. What is assessed is complete fixed-k, growing-r enumeration and the vanishing core+-among-core share, even while every committee is Pareto efficient. This new implication is not entailed by existential core+ or known qualitative gap.",
+      "residual_risks": [
+        "Berker et al. 2025 full primary PDF Section 6 and Appendix E.4 were inspected for qualitative priceability counterexamples; broader hidden clone examples elsewhere in the article or unindexed literature remain a nonzero priority risk. Gölz–Yaghoubizade 2026 full PDF was not retrieved; equivalent clone-count constructions might appear there.",
+        "The fraction is among labeled committees of one deterministic profile, not an election distribution.",
+        "Finite LP checks have tolerance and are not used to certify the all-parameter proof."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "COVERS general core+ existence/payment equivalence; does not directly yield the exact number or asymptotic fraction in this guardian/private election",
+          "evidence": "Theorem 3.3 iff payment system with p_ic<=r_i and losing-support reserves <q; Theorem 6.1 existence, pp.4 and 15.",
+          "identifier_or_url": "https://arxiv.org/pdf/2609.11912",
+          "material_read": "Full 20-page primary PDF, especially Section 3 Definition 3.1, Theorem 3.3, proof, Section 6 theorem and comparison remarks",
+          "method": "Opened source PDF, read exact characterization and proof, visually inspected PDF p.4",
+          "title": "Becker, Greger and Peters, Existence of the Core in Approval-Based Committee Elections",
+          "trigger": "Defines fractional core+ exact dual certificate and general existence, a possible dominating result"
+        },
+        {
+          "assessment": "COVERS qualitative strict core versus Lindahl priceability and explicit five-candidate/three-seat and four-candidate/two-seat witnesses, but no exact all-committee r-clone guardian-family enumeration in inspected material",
+          "evidence": "Section 6, Theorem 6: a Droop core-stable committee that fails Lindahl priceability; Corollary 12 strict hierarchy; Appendix E.4 proves example.",
+          "identifier_or_url": "https://arxiv.org/abs/2512.16895",
+          "material_read": "Sections 6 (Theorem 6 and Corollary 12) and Appendix E.4 read from the accessible 29-page primary arXiv PDF",
+          "method": "Opened complete primary PDF, read the stated core and priceability comparison and its counterexample proof, visually inspected p.12",
+          "title": "Berker et al., core-stable but not Lindahl-priceable approval committees",
+          "trigger": "Potential earlier qualitative counterexamples and core+ non-implication"
+        },
+        {
+          "assessment": "Core+ has an alias in priceability literature; no inspected exact count for the same structured instance",
+          "evidence": "Becker et al. PDF p.5 Remark 3.4 explicitly equates core+ with frugal Lindahl priceability.",
+          "identifier_or_url": "https://arxiv.org/abs/2608.27605",
+          "material_read": "Accessible bibliographic/abstract scope and Becker primary Remark 3.4 identifying equivalence",
+          "method": "Cross-reference checked against the full Becker PDF and indexed summary",
+          "title": "Gölz and Yaghoubizade, Frugal Lindahl Priceability",
+          "trigger": "Equivalent nomenclature for core+ and possible broader theorem"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "rationale": "A natural quantitative question left open by an existence theorem is whether the stronger fractional core criterion is common among ordinary-core outcomes. The structured clone family provides an exact classification and demonstrates the strongest possible limiting separation (fraction tending to zero) while controlling Pareto efficiency. It is an exact self-contained combinatorial result with clear elections-theory relevance, not a generic claim about random elections or arbitrary profiles.",
+      "status": "PASS"
+    }
+  },
+  "checked_sources": [
+    "https://arxiv.org/pdf/2609.11912",
+    "https://arxiv.org/abs/2512.16895",
+    "https://arxiv.org/abs/2608.27605"
+  ],
+  "disposition": "passed",
+  "final_claim": "For fixed k>=3 and r>=1, with k ordinary voters approving one common candidate and r private candidates each plus one guardian approving all private candidates, every size-k committee is Pareto efficient; ordinary-core count is C(kr,k-1)+r^k+k(k-1)C(r,2)r^(k-2), fractional core+ count is C(kr,k-1), so the core+ share of ordinary-core committees is O(1/r) and tends to zero.",
+  "limitations": [
+    "No original Git raw blob content streams were separately SHA-1 rehashed locally: the actual directory inventories and SHA-1 Git tree serializations were reconstructed from authenticated per-file Git blob identities.",
+    "Independent finite calculations are corroboration and do not replace general analytic proofs.",
+    "No repository writes or dispatcher closeout performed."
+  ],
+  "residual_risks": [
+    "Berker et al. 2025 full primary PDF Section 6 and Appendix E.4 were inspected for qualitative priceability counterexamples; broader hidden clone examples elsewhere in the article or unindexed literature remain a nonzero priority risk. Gölz–Yaghoubizade 2026 full PDF was not retrieved; equivalent clone-count constructions might appear there.",
+    "The fraction is among labeled committees of one deterministic profile, not an election distribution.",
+    "Finite LP checks have tolerance and are not used to certify the all-parameter proof."
+  ],
+  "schema_version": 1,
+  "source_inspections": [
+    {
+      "assessment": "COVERS general core+ existence/payment equivalence; does not directly yield the exact number or asymptotic fraction in this guardian/private election",
+      "evidence": "Theorem 3.3 iff payment system with p_ic<=r_i and losing-support reserves <q; Theorem 6.1 existence, pp.4 and 15.",
+      "identifier_or_url": "https://arxiv.org/pdf/2609.11912",
+      "material_read": "Full 20-page primary PDF, especially Section 3 Definition 3.1, Theorem 3.3, proof, Section 6 theorem and comparison remarks",
+      "method": "Opened source PDF, read exact characterization and proof, visually inspected PDF p.4",
+      "title": "Becker, Greger and Peters, Existence of the Core in Approval-Based Committee Elections",
+      "trigger": "Defines fractional core+ exact dual certificate and general existence, a possible dominating result"
+    },
+    {
+      "assessment": "COVERS qualitative strict core versus Lindahl priceability and explicit five-candidate/three-seat and four-candidate/two-seat witnesses, but no exact all-committee r-clone guardian-family enumeration in inspected material",
+      "evidence": "Section 6, Theorem 6: a Droop core-stable committee that fails Lindahl priceability; Corollary 12 strict hierarchy; Appendix E.4 proves example.",
+      "identifier_or_url": "https://arxiv.org/abs/2512.16895",
+      "material_read": "Sections 6 (Theorem 6 and Corollary 12) and Appendix E.4 read from the accessible 29-page primary arXiv PDF",
+      "method": "Opened complete primary PDF, read the stated core and priceability comparison and its counterexample proof, visually inspected p.12",
+      "title": "Berker et al., core-stable but not Lindahl-priceable approval committees",
+      "trigger": "Potential earlier qualitative counterexamples and core+ non-implication"
+    },
+    {
+      "assessment": "Core+ has an alias in priceability literature; no inspected exact count for the same structured instance",
+      "evidence": "Becker et al. PDF p.5 Remark 3.4 explicitly equates core+ with frugal Lindahl priceability.",
+      "identifier_or_url": "https://arxiv.org/abs/2608.27605",
+      "material_read": "Accessible bibliographic/abstract scope and Becker primary Remark 3.4 identifying equivalence",
+      "method": "Cross-reference checked against the full Becker PDF and indexed summary",
+      "title": "Gölz and Yaghoubizade, Frugal Lindahl Priceability",
+      "trigger": "Equivalent nomenclature for core+ and possible broader theorem"
+    }
+  ]
+}

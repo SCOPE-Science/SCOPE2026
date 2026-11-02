@@ -5,8 +5,11 @@
     "status": "not_performed"
   },
   "independent_audit": {
-    "evidence": null,
-    "status": "not_performed"
+    "status": "passed",
+    "evidence": [
+      "INDEPENDENT_AUDIT_2026-10-28.md",
+      "INDEPENDENT_AUDIT_2026-10-28.json"
+    ]
   },
   "lean_verification": {
     "evidence": null,
@@ -16,10 +19,24 @@
 }
 ---
 
-# Reproducibility and evidence
+# Independent mathematical audit
 
-Run `python3 verify_higher_independence.py` from a directory containing the two attached files `verify_higher_independence.py` and `verification_output.txt`. No external modules, downloads, or inputs are required. A standard Python 3.10+ interpreter is recommended because the program uses `int.bit_count`.
+## correctness
 
-The script verifies every vertex subset of both 16-vertex graphs, both face predicates, strongly regular parameters, all four complete face vectors, maximal-face dimensions, a deterministic Morse matching with a common vertex-pivot order, all oriented codimension-one incidences, directed acyclicity by full topological sort, and the number and dimensions of the critical cells. It explicitly asserts all expected counts and ends with `VERIFY_OK` only if they hold. Its actual output, reproduced in `verification_output.txt`, reports **4,960** and **4,224** directed incidences for the two new degree-two complexes and respectively **57** and **105** critical three-cells after each single critical vertex.
+PASS
 
-The mathematical deduction from these checks uses the standard discrete-Morse CW theorem: one critical vertex and critical cells only in dimension three force a wedge of three-spheres. Unlike homology-only computations, no unresolved attaching map remains in this CW model. This finite certificate proves exactly the two displayed finite homotopy statements. It does not constitute an independent audit, a symbolic general-family proof, or an assertion of unique publication priority.
+Represent vertices of Z4xZ4 by 0..15; define the r=2 faces exactly by induced maximum degree <=1, forbidding any selected center with two selected neighbors (triangles also prohibited). Exhaustively enumerate all 65536 masks per graph, yielding Shrikhande face numbers [1,16,120,384,544,240,32], rook [1,16,120,384,528,144]. For common pivot order (9,2,13,7,12,6,15,14,8,3,0,10,4,1,11,5), independent full Hasse-graph construction finds 639 and 543 matched pairs, 4960 and 4224 directed incidences, and verifies acyclicity by complete topological sort. Critical cells are a single 0-cell and 57 vs 105 3-cells. Forman discrete Morse theory produces a CW complex with those cell counts; every 3-cell attaches to the one-point 2-skeleton, hence a wedge of S3 integrally. This is a complete finite proof certificate over all faces, not inference from partial enumeration or modular Betti numbers.
+
+## originality
+
+PASS
+
+Best-of-knowledge: the submitted full statement was compared by actual implication to the specific prior primary statements and published mathematical index. NOT_APPLICABLE_TO_THIS_PAIR: No theorem in materially inspected relevant classifications contains the two nonchordal (16,6,2,2) graphs. ; CHORDAL_CONDITION_NOT_MET: Both target graphs contain induced 4-cycles. ; COVERS_R1_ONLY: 23 versus 15 ordinary sphere counts are correctly credited; they cannot imply r=2 exact wedges.. An inaccessible plausible source alone was not treated as failure; meaningful risks remain listed below.
+
+## value
+
+PASS
+
+These two cospectral nonisomorphic strongly regular graphs are a canonical test pair. The reverse strict inequality between ordinary and two-independence sphere multiplicities is a motivated homotopy-level distinction not given by SRG parameters or the ordinary independence calculation. A finite exact homotopy computation is itself a useful invariant.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

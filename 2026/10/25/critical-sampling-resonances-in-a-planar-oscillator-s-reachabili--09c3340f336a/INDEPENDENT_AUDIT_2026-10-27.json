@@ -1,0 +1,171 @@
+{
+  "audit_date_utc": "2026-10-27",
+  "audited_at_utc": "2026-10-27T23:38:07.233617Z",
+  "axes": {
+    "correctness": {
+      "rationale": "Direct integration yields Bh=(sin(theta),1-cos(theta))/omega, Ah a rotation by theta=omega*h. The exact Gram matrix is r^2[[1,cos(theta)],[cos(theta),1]], r=2|sin(theta/2)|/omega. Diagonalizing gives both exact singular values and det(W)=4sin^2(theta/2)sin(theta)/omega^2; Taylor expansion at every positive m*pi proves the parity-specific asymptotics. Independent NumPy SVD tests checked 15 nonresonant instances and 36 detuning ratios (maximum singular-value deviation 8.9e-16). These numerical tests are corroborative, not the proof.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Classical sampling criteria can imply the singular sampling set for a planar rotation.",
+          "The earlier complete relevant quantitative singular-value theorem was not identified in materials accessible this run."
+        ],
+        "reasoning": "General sampled-controllability characterizations could dominate the binary loss statement, but as inspected they do not establish the displayed sharp norm blow-up constants; possible hidden coverage remains a named risk.",
+        "searches": [
+          "Resultary exact semantic query: Sampled-data controllability resonance planar harmonic oscillator zero-order hold reachability singular values parity odd even order of zero",
+          "arXiv:2207.03235",
+          "DOI:10.1109/TAC.1972.1100045",
+          "DOI:10.1137/090765304"
+        ]
+      },
+      "checked_sources": [
+        "arXiv:2207.03235 primary full text §2, §4.1",
+        "DOI:10.1016/j.automatica.2023.111118 abstract and metadata",
+        "DOI:10.1109/TAC.1972.1100045 abstract",
+        "DOI:10.1137/090765304 bibliographic metadata",
+        "Resultary semantic search: Sampled-data controllability resonance planar harmonic oscillator zero-order hold reachability singular values parity odd even order of zero"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "Primary source asserts unconditional inference from (A,B) controllable to (Ah,Bh) controllable at eq.20.",
+          "The oscillator has det[B,AB]=omega !=0, yet detW=0 at h=m*pi/omega."
+        ],
+        "reasoning": "The rank-loss counterexample checks the exact literal algebraic implication. The authors separately use nilpotent-plant assumptions for specialized controller theorems, so scientific scope is limited to this matrix assertion and its quantitative sensitivity.",
+        "searches": [
+          "Resultary exact semantic query: Sampled-data controllability resonance planar harmonic oscillator zero-order hold reachability singular values parity odd even order of zero",
+          "arXiv:2207.03235",
+          "DOI:10.1109/TAC.1972.1100045",
+          "DOI:10.1137/090765304"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "The sampled 2x2 controllability Gramian has eigenvalues r^2(1+cos theta) and r^2(1-cos theta).",
+          "Hautus sampled-controllability treatments describe resonance/aliasing in general."
+        ],
+        "reasoning": "The same result may be formulated as local singular-value or smallest-Gramian-eigenvalue asymptotics. General rank-loss criteria are equivalent only to zeros, not to the two distinct exact vanishing orders and constants.",
+        "searches": [
+          "Resultary exact semantic query: Sampled-data controllability resonance planar harmonic oscillator zero-order hold reachability singular values parity odd even order of zero",
+          "arXiv:2207.03235",
+          "DOI:10.1109/TAC.1972.1100045",
+          "DOI:10.1137/090765304"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "Resultary returned Fourier/minor/sampled bang-switch work but no same oscillator two-step reachability matrix law.",
+          "Exact 2-by-2 norm is computed analytically from Gram eigenvalues rather than numerical lookups."
+        ],
+        "reasoning": "No relevant exact sampled-oscillator singular-value table was identified; this is not a claim that tables cannot exist.",
+        "searches": [
+          "Resultary exact semantic query: Sampled-data controllability resonance planar harmonic oscillator zero-order hold reachability singular values parity odd even order of zero",
+          "arXiv:2207.03235",
+          "DOI:10.1109/TAC.1972.1100045",
+          "DOI:10.1137/090765304"
+        ]
+      },
+      "rationale": "Best-of-knowledge comparison of actual final mathematical implications with primary sources and relevant published semantic records. Relevant predecessor results were credited; no inspected full-theorem statement covers the final claim, with explicit residual priority risks.",
+      "residual_risks": [
+        "Classical sampled-data controllability literature may already include the same two-by-two oscillator condition-number and parity constants; Hautus 1972 and Yamé full texts were not obtained.",
+        "The source paper develops a separate theorem under a nilpotent-plant hypothesis. The oscillator does NOT refute conclusions restricted to that hypothesis; the criticized algebraic claim is the literal unrestricted implication in Section 4.1, equations (19)-(21).",
+        "An exact worst-case inverse norm does not show that every particular tracking trajectory is ill-conditioned or unstable."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "The Section 4.1 statement literally asserts continuous controllability implies discrete controllability without an explicit h restriction; oscillator contradicts that unrestricted intermediate assertion, not the nilpotent theorem.",
+          "evidence": [
+            "Section 4.1 equations 18-21; web:;;"
+          ],
+          "identifier_or_url": "arXiv:2207.03235",
+          "material_read": "Full primary HTML, Introduction/Assumptions 1-2 and Section 4.1 equations (18)-(21), including stated nilpotence context",
+          "method": "Web full-text reading",
+          "title": "Consistent discretization of finite/fixed-time controllers",
+          "trigger": "Same equation Wh and asserted sampled invertibility"
+        },
+        {
+          "assessment": "Prior general sampled-data controllability conditions are acknowledged; cannot assert absence of exact parity norms from unread paper.",
+          "evidence": [
+            "web:"
+          ],
+          "identifier_or_url": "DOI:10.1109/TAC.1972.1100045",
+          "material_read": "Title and abstract/bibliographic metadata only; full paper unavailable",
+          "method": "Web bibliographic reading",
+          "title": "Controllability and stabilizability of sampled systems",
+          "trigger": "Classical resonance/loss predecessor"
+        },
+        {
+          "assessment": "Abstract alone does not settle the exact oscillator norm expansion; retained priority risk.",
+          "evidence": [
+            "DOI:10.1137/090765304"
+          ],
+          "identifier_or_url": "DOI:10.1137/090765304",
+          "material_read": "Bibliographic metadata and accessible abstract only",
+          "method": "Web search and metadata",
+          "title": "Some Remarks on the Controllability of Sampled-Data Systems",
+          "trigger": "Potential stronger classical sampling criterion"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "rationale": "The precise, parity-dependent inverse gain of the actual two-step zero-order-hold reachability matrix quantifies a meaningful sampling-design obstruction and distinguishes rank-one resonances from zero-input resonances. It is a motivated exact local conditioning result tied to an explicitly used tracking inverse, not a generic assertion that sampled controllability can fail.",
+      "status": "PASS"
+    }
+  },
+  "checked_sources": [
+    "arXiv:2207.03235 primary full text §2, §4.1",
+    "DOI:10.1016/j.automatica.2023.111118 abstract and metadata",
+    "DOI:10.1109/TAC.1972.1100045 abstract",
+    "DOI:10.1137/090765304 bibliographic metadata",
+    "Resultary semantic search: Sampled-data controllability resonance planar harmonic oscillator zero-order hold reachability singular values parity odd even order of zero"
+  ],
+  "disposition": "passed",
+  "final_claim": "For the exact zero-order-hold planar oscillator with A=omega[[0,-1],[1,0]], B=e1 and omega>0, the reachability matrix [Bh,AhBh] loses rank precisely at h=m*pi/omega (positive m). Its least singular value has sharp linear zeros at odd m and quadratic zeros at even m, with constants sqrt(2) and omega/sqrt(2) in h-detuning.",
+  "limitations": [
+    "Fixed omega>0, two state dimensions, one held input, exact zero-order-hold and positive sampling periods; not arbitrary plants.",
+    "The nilpotent static-feedback result is not challenged."
+  ],
+  "residual_risks": [
+    "Classical sampled-data controllability literature may already include the same two-by-two oscillator condition-number and parity constants; Hautus 1972 and Yamé full texts were not obtained.",
+    "The source paper develops a separate theorem under a nilpotent-plant hypothesis. The oscillator does NOT refute conclusions restricted to that hypothesis; the criticized algebraic claim is the literal unrestricted implication in Section 4.1, equations (19)-(21).",
+    "An exact worst-case inverse norm does not show that every particular tracking trajectory is ill-conditioned or unstable."
+  ],
+  "schema_version": 1,
+  "source_inspections": [
+    {
+      "assessment": "The Section 4.1 statement literally asserts continuous controllability implies discrete controllability without an explicit h restriction; oscillator contradicts that unrestricted intermediate assertion, not the nilpotent theorem.",
+      "evidence": [
+        "Section 4.1 equations 18-21; web:;;"
+      ],
+      "identifier_or_url": "arXiv:2207.03235",
+      "material_read": "Full primary HTML, Introduction/Assumptions 1-2 and Section 4.1 equations (18)-(21), including stated nilpotence context",
+      "method": "Web full-text reading",
+      "title": "Consistent discretization of finite/fixed-time controllers",
+      "trigger": "Same equation Wh and asserted sampled invertibility"
+    },
+    {
+      "assessment": "Prior general sampled-data controllability conditions are acknowledged; cannot assert absence of exact parity norms from unread paper.",
+      "evidence": [
+        "web:"
+      ],
+      "identifier_or_url": "DOI:10.1109/TAC.1972.1100045",
+      "material_read": "Title and abstract/bibliographic metadata only; full paper unavailable",
+      "method": "Web bibliographic reading",
+      "title": "Controllability and stabilizability of sampled systems",
+      "trigger": "Classical resonance/loss predecessor"
+    },
+    {
+      "assessment": "Abstract alone does not settle the exact oscillator norm expansion; retained priority risk.",
+      "evidence": [
+        "DOI:10.1137/090765304"
+      ],
+      "identifier_or_url": "DOI:10.1137/090765304",
+      "material_read": "Bibliographic metadata and accessible abstract only",
+      "method": "Web search and metadata",
+      "title": "Some Remarks on the Controllability of Sampled-Data Systems",
+      "trigger": "Potential stronger classical sampling criterion"
+    }
+  ]
+}

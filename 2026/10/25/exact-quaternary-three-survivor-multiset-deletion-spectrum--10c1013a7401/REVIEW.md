@@ -1,11 +1,21 @@
-# Scientific review: quaternary three-survivor multiset deletion codes
+# Independent mathematical audit
 
-**Correctness (PASS).** The channel equivalence is exact: a common three-token output exists precisely when the multiset intersection has at least three elements. Four heavy symbols can support at most four heavy codewords, because distinct words cannot have a common coordinate of multiplicity three or more. Light vectors vanish at length nine, pairwise conflict at lengths six to eight by the inequality \(I(x,y)\ge2n-8\), and have independence number two at length five by the complete patterns \((0,1,2,2)\) and \((2,1,1,1)\). Witnesses of sizes six, five, and four match the upper bounds. The standalone standard-library verifier examines all light vectors through length nine and all three-token outputs of witnesses through length twenty. Its finite checks supplement rather than replace the infinite proof.
+## correctness
 
-**Originality (PASS, subject to residual literature risk).** The January 2026 source arXiv:2601.05636 explicitly studies \(n-3\) deletions but proves general bounds, not this four-symbol exact profile; its displayed Theorem 9 starts at \(n\ge q+2\). The March 2026 companion arXiv:2603.18322 and the Kovačević–Tan multiset framework supply other general methods rather than this complete spectrum. The closest published three-survivor exact classification treats three, not four, symbols; its proof covers at most one light vector in its exceptional case, whereas the present \(n=5\) case admits exactly two mutually compatible light vectors. Checked alternative terminology includes simplex packing and constant-sum integer \(\ell_1\) codes. An unindexed equivalent remains possible; lack of a matching search result is not itself proof of novelty.
+PASS
 
-**Mathematical value (PASS).** The invariant is a natural exact code size in the recently studied high-deletion regime, and the theorem closes the first nonbinary-alphabet extension beyond the ternary profile across **all** relevant lengths. The nontrivial exceptional six-word size and phase transition \(6\to5\to4\) are explained structurally by the geometry of light compositions, rather than merely reported from a small computation. No additional general theorem or unseen application is asserted.
+A common length-3 deletion output exists iff the intersection sum_i min(x_i,y_i) is >=3. Distinct valid codewords cannot share a coordinate of multiplicity >=3, hence at most four heavy codewords. Light multiplicities <=2 total at most 8: none for n>=9. Two light vectors of length n>=6 have intersection >=2n-8>=4, so at most one joins the heavy words. At n=5, the only light profiles are permutations of (0,1,2,2) and (2,1,1,1); the latter has no light neighbors, while any light A word has precisely two mutually incompatible light neighbors. Thus <=2 light words. Explicit four constant-vector codes plus the designated two or one light vectors reach all upper bounds. Independent enumeration finds light counts 16,10,4,1,0 and compatible-light pairs 12,0,0,0,0 for n=5..9; the all-length proof is symbolic, not an inference from those enumerations.
 
-**Limits and risk.** The result is specific to alphabet size four and three surviving symbols, does not enumerate all optimal code families, and has not been independently audited. A priority risk remains from older equivalent integer-simplex packing tables.
+## originality
 
-Self-review: passed. Independent audit: not yet performed.
+PASS
+
+Best-of-knowledge PASS for the exact four-symbol, three-survivor staircase. The relevant January 2026 preprint treats the same multiset channel and high-deletion parameter but supplies an upper bound, not this tight staircase; its q=4 exact example concerns a different one-deletion setting. A March 2026 companion addresses deletion balls and asymptotic bounds. The closest materially read exact 3-survivor Resultary record solves q=3, with a distinct light-vector compatibility graph; q=3 does not imply the q=4 result. Residual priority risk of an older short-distance discrete-simplex packing table remains.
+
+## value
+
+PASS
+
+The natural next alphabet after the exact ternary three-survivor problem has a genuinely different exceptional compatibility graph, allowing exactly two light words at n=5; the theorem gives a sharp all-length classification of maximum code size including two finite thresholds. The intrinsic deletion-correction capacity and its nontrivial small-alphabet transition are independently useful, not a renamed bound or a mere finite table.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

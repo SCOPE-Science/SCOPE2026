@@ -1,11 +1,21 @@
-# Mathematical review
+# Independent mathematical audit
 
-**Correctness — PASS.** The matrix recurrences, centering identity and scalar Green maximization reconstruct the finite-dimensional sharp constant. The exact derivative of the length interpolation parameter proves strict growth, while the small-resolvent-parameter expansion gives the four displayed asymptotic terms. A standalone script independently checked direct tridiagonal solves and cosine eigen-expansions on finite examples. The general proof does not rely on finite enumeration.
+## correctness
 
-**Originality — PASS, subject to residual literature risk.** The closest archival source is Ilyin–Laptev–Zelik (arXiv:1407.0675v1), which gives sharp lattice inequalities and the resolvent variational method, not the finite Neumann path with global zero mean. The closest indexed half-line result addresses Dirichlet boundary evaluation and a logarithmic distance defect, rather than the finite path length defect. Beveridge (arXiv:1505.06989v1) concerns Green pseudoinverses and hitting times. No directly equivalent sharp length law was identified. The latter two sources were not both inspected in full, so implicit historical coverage remains possible.
+PASS
 
-**Mathematical value — PASS.** This is a sharp all-length stability invariant for discrete one-dimensional Neumann geometries, not simply another unspecified bound: it provides all sharp point locations, extremizers, strict length monotonicity, and a quantified square-root boundary loss with two further correction coefficients.
+Finite path Laplacian L has kernel 1; projection to 1^perp gives sharp dual Green diagonal 2x[(L+x²I)^-1_jj-1/(Nx²)] via Cauchy-Schwarz and optimally balanced AM-GM. The endpoint closed hyperbolic Green product and its strictly decreasing distance-to-endpoint ordering establish precisely the maximizing sites, while the length comparison H_x(N) and reflection term prove K_N strictly increasing and below 2. The maximizing spectral scale is Θ(N^-1/2); substituting its expansion into endpoint resolvent yields the quoted terms, with far-end reflection exponentially small. Independently solved the finite tridiagonal matrix at N=2,3,4,7,12,24,48 and optimized the exact projected Green expression; observed K_2=1/(2sqrt2), strict rise and K_N<2. These finite instances are not the universal proof.
 
-**Scientific limitations.** The result applies to uniform edge weights, an unnormalized nearest-neighbor difference and a global mean-zero constraint. It does not assert general graph, weighted, higher-difference, or Dirichlet results. Exact parameter uniqueness is proved eventually, not for all finite lengths.
+## originality
 
-Self-review: passed. Independent audit: not yet performed.
+PASS
+
+Best-of-knowledge: unrestricted whole-lattice and half-line Dirichlet sharp interpolation formulas do not imply finite centered Neumann-path sharp constants or their distinct boundary correction.
+
+## value
+
+PASS
+
+The finite meanzero path is the canonical Neumann analogue of discrete Sobolev interpolation. The exact length dependence, strict endpoint extremizer selection and N^-1/2 deficit resolve a natural finite-size boundary question. This is not simply quoting an infinite lattice sharp constant, which differs in normalization and limit.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

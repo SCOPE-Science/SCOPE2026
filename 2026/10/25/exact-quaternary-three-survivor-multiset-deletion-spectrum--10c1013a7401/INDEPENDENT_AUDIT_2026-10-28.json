@@ -1,0 +1,149 @@
+{
+  "audit_date_utc": "2026-10-28",
+  "audited_at_utc": "2026-10-28T03:38:04.635083Z",
+  "axes": {
+    "correctness": {
+      "rationale": "A common length-3 deletion output exists iff the intersection sum_i min(x_i,y_i) is >=3. Distinct valid codewords cannot share a coordinate of multiplicity >=3, hence at most four heavy codewords. Light multiplicities <=2 total at most 8: none for n>=9. Two light vectors of length n>=6 have intersection >=2n-8>=4, so at most one joins the heavy words. At n=5, the only light profiles are permutations of (0,1,2,2) and (2,1,1,1); the latter has no light neighbors, while any light A word has precisely two mutually incompatible light neighbors. Thus <=2 light words. Explicit four constant-vector codes plus the designated two or one light vectors reach all upper bounds. Independent enumeration finds light counts 16,10,4,1,0 and compatible-light pairs 12,0,0,0,0 for n=5..9; the all-length proof is symbolic, not an inference from those enumerations.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Theorem 9 in 2601.05636 develops a q+binomial(q,2) type general certificate bound for the three-survivor regime, less sharp than 6,5,4 at q=4 and not applicable to n=5 under n>=q+2.",
+          "The 2603.18322 main focus includes deletion-ball sizes and general packing bounds; no covering exact four-symbol three-survivor profile in the materially inspected sections."
+        ],
+        "reasoning": "Explicit q-general bounding statements do not dominate the claimed sharp q=4 cardinalities; the papers provide the same model but not a stronger exact implication.",
+        "searches": [
+          "arXiv:2601.05636 high-deletion Theorem 9",
+          "arXiv:2603.18322 polynomial constructions deletion ball geometry"
+        ]
+      },
+      "checked_sources": [
+        "https://arxiv.org/abs/2601.05636",
+        "https://arxiv.org/abs/2603.18322",
+        "https://arxiv.org/abs/1612.08837",
+        "https://github.com/Resultary/2026/blob/main/2026/10/4/SCOPE-exact-ternary-multiset-deletion-codes-when-three-multiset-elemen--d3a62a71c505/RESULT.md"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "The three-symbol proof permits at most one light codeword; the four-symbol n=5 proof permits two compatible light codewords but excludes three.",
+          "The general published q4 upper bound does not imply its own sharpness or the exact 6,5,4 staircase."
+        ],
+        "reasoning": "Neither the ternary classification nor the q-general upper bounds, alone or combined, imply all q4 exact maxima and witnesses.",
+        "searches": [
+          "arXiv:2601.05636 Section 3 high deletions",
+          "Resultary full ternary three-survivor RESULT.md"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "For fixed coordinate sum n, sum_i min(x_i,y_i)=n-(1/2)||x-y||_1; the code is equivalently a constant-sum integer L1 packing of distance >=2(n-2).",
+          "The closely indexed exact Resultary table is for ternary, not quaternary, three-survivor vectors."
+        ],
+        "reasoning": "Alias/reduction searches included discrete-simplex, constant-sum L1 packing, and multiset intersection. General distance-code frameworks do not by themselves give the optimum 6,5,4 for q=4.",
+        "searches": [
+          "Resultary query: quaternary multiset deletion three survivor exact optimal code length 5 6 7 8 9",
+          "Kovačević–Tan arXiv:1612.08837 discrete simplex packing",
+          "Kreindel–Essayag–Zabokritskiy arXiv:2601.05636"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "Published Resultary ternary result: S_3(n,n-3)=4 for n=5,6 and 3 afterward, verified from full RESULT.md.",
+          "Quaternary symbol-weight/Hamming-distance record is a distinct ordered-word metric, not an unordered-multiset table."
+        ],
+        "reasoning": "The checked exact table concerns different alphabet size or metric; it does not contain the present q4 sequence. Search incompleteness remains a priority risk.",
+        "searches": [
+          "Resultary: Exact ternary multiset deletion codes when three multiset elements survive",
+          "Resultary: Exact quaternary length-five symbol-weight code at distance four",
+          "Search: S_4(n,n-3) multiset deletion three survivors 6 5 4"
+        ]
+      },
+      "rationale": "Best-of-knowledge PASS for the exact four-symbol, three-survivor staircase. The relevant January 2026 preprint treats the same multiset channel and high-deletion parameter but supplies an upper bound, not this tight staircase; its q=4 exact example concerns a different one-deletion setting. A March 2026 companion addresses deletion balls and asymptotic bounds. The closest materially read exact 3-survivor Resultary record solves q=3, with a distinct light-vector compatibility graph; q=3 does not imply the q=4 result. Residual priority risk of an older short-distance discrete-simplex packing table remains.",
+      "residual_risks": [
+        "A legacy unindexed discrete-simplex L1-packing or small-alphabet multiset table might contain the exact q4 staircase.",
+        "Only targeted relevant text, not a certified exhaustive full-text priority check, was available for the companion deletion-ball study."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Related model/general bounds, not direct coverage",
+          "evidence": "High-deletion Theorem 9 requires n>=q+2 and yields a coarser upper bound; exact q4 examples in different deletion parameter.",
+          "identifier_or_url": "https://arxiv.org/abs/2601.05636",
+          "material_read": "Lawful primary PDF; relevant Sections 3.5–3.6 bounds and Section 5 exact examples read, including theorem restrictions and parameter definitions.",
+          "method": "Compared q=4,n>=5 hypotheses and stated bounds with all three cardinalities.",
+          "title": "Multiset Deletion-Correcting Codes: Bounds and Constructions",
+          "trigger": "Exact same unordered multiset channel and high-deletion n-3 regime"
+        },
+        {
+          "assessment": "No direct four-symbol n-3 exact optimum found in material read; incomplete full-text priority exclusion",
+          "evidence": "Provides general deletion-ball and packing bounds, not a materially verified exact q4 staircase.",
+          "identifier_or_url": "https://arxiv.org/abs/2603.18322",
+          "material_read": "Primary PDF opening/abstract and available relevant description of ball geometry inspected; full page-by-page negative result not asserted.",
+          "method": "Compared declared t<q construction focus, extremal balls, and q=2,3 closed forms.",
+          "title": "Polynomial Constructions and Deletion-Ball Geometry for Multiset Deletion Codes",
+          "trigger": "Same model with alternative geometric ball machinery"
+        },
+        {
+          "assessment": "NOT_COVERING q4; exact q3 only",
+          "evidence": "S_3=4 at n=5,6 and 3 for n>=7; only one light word fits q3.",
+          "identifier_or_url": "https://github.com/Resultary/2026/blob/main/2026/10/4/SCOPE-exact-ternary-multiset-deletion-codes-when-three-multiset-elemen--d3a62a71c505/RESULT.md",
+          "material_read": "Complete RESULT.md theorem, proof, limitations and prior-work comparison read via GitHub.",
+          "method": "Compared heavy/light structure and alphabet parameter.",
+          "title": "Exact ternary multiset deletion codes when three multiset elements survive",
+          "trigger": "Closest published exact same-survivor model"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "rationale": "The natural next alphabet after the exact ternary three-survivor problem has a genuinely different exceptional compatibility graph, allowing exactly two light words at n=5; the theorem gives a sharp all-length classification of maximum code size including two finite thresholds. The intrinsic deletion-correction capacity and its nontrivial small-alphabet transition are independently useful, not a renamed bound or a mere finite table.",
+      "status": "PASS"
+    }
+  },
+  "checked_sources": [
+    "https://arxiv.org/abs/2601.05636",
+    "https://arxiv.org/abs/2603.18322",
+    "https://arxiv.org/abs/1612.08837",
+    "https://github.com/Resultary/2026/blob/main/2026/10/4/SCOPE-exact-ternary-multiset-deletion-codes-when-three-multiset-elemen--d3a62a71c505/RESULT.md"
+  ],
+  "disposition": "passed",
+  "final_claim": "For every n>=5, the largest 4-symbol unordered multiset code correcting n-3 deletions has size 6 at n=5, 5 at n=6..8, and 4 at n>=9.",
+  "limitations": [
+    "Only unordered multisets over four symbols, three remaining symbols, and n>=5; no full isomorphism classification of optimal codes.",
+    "Finite enumerations corroborate but do not prove unbounded n result."
+  ],
+  "residual_risks": [
+    "A legacy unindexed discrete-simplex L1-packing or small-alphabet multiset table might contain the exact q4 staircase.",
+    "Only targeted relevant text, not a certified exhaustive full-text priority check, was available for the companion deletion-ball study."
+  ],
+  "schema_version": 1,
+  "source_inspections": [
+    {
+      "assessment": "Related model/general bounds, not direct coverage",
+      "evidence": "High-deletion Theorem 9 requires n>=q+2 and yields a coarser upper bound; exact q4 examples in different deletion parameter.",
+      "identifier_or_url": "https://arxiv.org/abs/2601.05636",
+      "material_read": "Lawful primary PDF; relevant Sections 3.5–3.6 bounds and Section 5 exact examples read, including theorem restrictions and parameter definitions.",
+      "method": "Compared q=4,n>=5 hypotheses and stated bounds with all three cardinalities.",
+      "title": "Multiset Deletion-Correcting Codes: Bounds and Constructions",
+      "trigger": "Exact same unordered multiset channel and high-deletion n-3 regime"
+    },
+    {
+      "assessment": "No direct four-symbol n-3 exact optimum found in material read; incomplete full-text priority exclusion",
+      "evidence": "Provides general deletion-ball and packing bounds, not a materially verified exact q4 staircase.",
+      "identifier_or_url": "https://arxiv.org/abs/2603.18322",
+      "material_read": "Primary PDF opening/abstract and available relevant description of ball geometry inspected; full page-by-page negative result not asserted.",
+      "method": "Compared declared t<q construction focus, extremal balls, and q=2,3 closed forms.",
+      "title": "Polynomial Constructions and Deletion-Ball Geometry for Multiset Deletion Codes",
+      "trigger": "Same model with alternative geometric ball machinery"
+    },
+    {
+      "assessment": "NOT_COVERING q4; exact q3 only",
+      "evidence": "S_3=4 at n=5,6 and 3 for n>=7; only one light word fits q3.",
+      "identifier_or_url": "https://github.com/Resultary/2026/blob/main/2026/10/4/SCOPE-exact-ternary-multiset-deletion-codes-when-three-multiset-elemen--d3a62a71c505/RESULT.md",
+      "material_read": "Complete RESULT.md theorem, proof, limitations and prior-work comparison read via GitHub.",
+      "method": "Compared heavy/light structure and alphabet parameter.",
+      "title": "Exact ternary multiset deletion codes when three multiset elements survive",
+      "trigger": "Closest published exact same-survivor model"
+    }
+  ]
+}

@@ -1,21 +1,21 @@
-# Scientific review of regular-polygon crossing-angle transversality
+# Independent mathematical audit
 
-## Correctness — PASS
+## correctness
 
-The final theorem has a fully specified finite probability space: a uniformly selected four-subset of distinct vertices, alternately connected so the chords cross, with different crossing pairs counted separately even at coincident spatial intersections. The angle is exactly the smaller of the two opposite cyclic gap sums times \(\pi/n\). Double-counted marked cyclic compositions yield the complete mass function with an explicit half-weight correction at the even midpoint. The limiting CDF follows from Riemann sums, and the three moment regimes are proved by uniform small-angle bounds, harmonic-sum comparison, and dominated convergence. Neither an approximation experiment nor a special-case output is used as an infinite proof.
+PASS
 
-Independent Euclidean chord-angle enumeration for every \(4\le n\le24\) agrees exactly in integer arithmetic with the mass function. Numerical integration and increasing-size tests corroborate the continuous density, the logarithmic coefficient and the zeta constants. Relevant residual mathematical risk is limited to ordinary unrecognized proof errors; the displayed derivations include the endpoint and parity cases.
+For positive cyclic gaps a+b+c+d=n, the chord-direction difference is pi(a+c)/n. Counting (a,c) and (b,d) positive compositions with marked starting points gives n(s-1)(n-s-1) and correct factors 2/4; each sampled quartet is counted once. The finite law normalizes. Riemann sums give the folded beta density; the near-zero mass <=Ck/n^2 and sin(pi*k/n)>=2k/n give uniform integrability for q<2; harmonic sum yields log coefficient at q=2 and dominated convergence by C k^(1-q) yields the zeta constant for q>2. Independently computed 15,504 Euclidean 4-vertex tests for n=4..19 and 72 integer bins, plus numerical fixed-q limit checks.
 
-## Originality — PASS, relative to inspected evidence
+## originality
 
-Poonen–Rubinstein (arXiv:math/9508209) analyze coincidence classes and total numbers of spatial crossing points. Arikushi–Tóth (DOI:10.7155/jgaa.00329, Observation 2) already identify the angular **support** \(k\pi/n\), which is not claimed as new. Bortolotto–Souza (arXiv:2504.12866) derive radial intersection-location laws. Barahona Torres–Manrique-Mirón–Treviño-Aguilar (arXiv:1911.05576) prove an angular sine law for a different model with interior-uniform endpoints and a horizontal uniform-offset chord. Exact source/claim/alias searches in the published mathematical index, the accessible same-category record and the open scientific literature did not reveal the four-vertex angular probabilities **with the critical inverse-sine moment spectrum**. These other statements do not imply the crossing-angle weights or the critical zeta asymptotics. An unindexed earlier derivation is possible; novelty is a qualified judgment rather than certification.
+PASS
 
-## Value — PASS
+Best-of-knowledge comparison of actual final mathematical implications with primary sources and relevant published semantic records. Relevant predecessor results were credited; no inspected full-theorem statement covers the final claim, with explicit residual priority risks.
 
-The inverse sine of the intersection angle measures determinant-based loss of transversality when solving for a crossing point of two lines. The critical order at which moments cease to remain bounded is consequently a natural geometric-conditioning question. The exact finite polygon law is a complete natural classification of this statistic and shows a finite-mesh cutoff for the heavy tail in the circle limit. The logarithmic threshold and the supercritical zeta constants describe the effect of nearly parallel crossing diagonals quantitatively, beyond a simple support count or an unweighted crossing probability. The continuum density and every fixed-order moment regime are given together, rather than an arbitrary isolated finite table entry.
+## value
 
-## Scope and remaining risks
+PASS
 
-Fixed \(q\) only; the discrete polygon must be regular and crossings are sampled with pair multiplicity. The literature comparison includes the closest mathematical statements and their different statistical observables, but historical completeness cannot be guaranteed. No outside independent mathematical assessment has occurred.
+The reciprocal sine of a crossing angle is the determinant conditioning for two unit line directions. The exact all-n pair-weighted law and sharp moment cutoff quantify natural degeneracy in a canonical geometric model and provide finite/continuum constants; not simply a set of possible angles.
 
-Self-review: passed. Independent audit: not yet performed.
+The dated certificate retains the supplied scientific assessment, sources and limitations.

@@ -1,0 +1,169 @@
+{
+  "audit_date_utc": "2026-10-28",
+  "audited_at_utc": "2026-10-28T04:39:25.356997Z",
+  "axes": {
+    "correctness": {
+      "rationale": "The k-fold signed-vertex sum set is exactly {z in Z^5: ||z||_1<=k and ||z||_1 ≡ k mod 2}: constructive proof adds cancelling signed unit pairs after generating coordinate masses. Reflect to nonnegative orthant, write each y_i=floor(y_i)+fraction f_i, set integer slack t=k-sum floor(y_i), satisfying sum f_i<=t. Rounding up r largest fractions, for 0<=r<=min(5,t) with r≡t mod2, produces feasible sites with squared error E_r=sum f_i^2+r-2 sum_top_r f_i. Cases t=0,1,2 yield max squared error<=1 by explicit bounding E1 and min(E0,E2). For t>=4, Boolean parity-constrained rounding gives error<=5/4 (flipping minimum bias cost 2delta_min bounded by total squared-distance deficit), with all needed parity weights admissible. For t=3, if the full Boolean-parity minimizer is of forbidden weight5, optimality implies f_(4)+f_(5)>=1, and the split u∈[1/2,3/5] or [3/5,2/3] bounds admissible E3<=5/4; otherwise the minimizer itself is admissible. Explicit sites show equality: y=0 for k1, y=e1 for k2, half-integer five-vector for k>=3. Independently enumerated 12890 feasible quarter-grid cases and six full parity-lattice sharp witnesses; proof holds beyond finite tests.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Van Hintum gives general compact-set convexification results and lifted-simplex test configurations; inspected manuscript segment does not give the precise clipped 5-cross-polytope vertex set and all-k formula.",
+          "Classical full-space D5 covering radius is sqrt5/2, matching only the eventual constant.",
+          "D5+ diagonal packing-covering ray studies a different infinite periodic set and anisotropic metric."
+        ],
+        "reasoning": "Unbounded D5 covering guarantees a site within distance sqrt5/2 somewhere, not a site inside ||z||1<=k with required parity; clipping could enlarge the radius. The submitted finite boundary argument is additional.",
+        "searches": [
+          "Peter van Hintum arXiv:2606.10815 general Hausdorff convexification threshold",
+          "Conway–Sloane Sphere Packings Lattices and Groups D5 covering radius",
+          "Resultary 2026/10/4/SCOPE-exact-optimizer-on-the-d-5-diagonal-packing-covering-ray--cad41b90f045"
+        ]
+      },
+      "checked_sources": [
+        "https://arxiv.org/abs/2606.10815",
+        "Conway and Sloane, third edition (1999), D5 covering radius",
+        "https://github.com/Resultary/2026/tree/main/2026/10/11/SCOPE-exact-deep-hole-spectrum-of-regular-simplex-minkowski-vertex-ave--a5282e569b3d"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "Full-space D5 gives a lower-bound candidate deep hole, not admissibility of every nearest point after clipping.",
+          "Simplex barycentric A-type mesh is not the parity-constrained D5 mesh."
+        ],
+        "reasoning": "Known infinite-lattice constants and generic decay estimates neither force exact first threshold k=3 nor exceptional k=1,2 coefficients. The bound requires explicit small-slack rounding, which is the new mathematical part.",
+        "searches": [
+          "van Hintum 2606.10815 general convexification theorem",
+          "classical D5 infinite-lattice covering radius",
+          "Resultary regular-simplex average theorem"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "The vertex averages correspond to integer D5 parity sites clipped to k times the cross-polytope.",
+          "Resultary regular-simplex Minkowski vertex averages concern A-type composition grids, not this signed parity mesh."
+        ],
+        "reasoning": "Any equivalent form must preserve five-dimensional l1 clipping and parity; the regular-simplex lattice has six vertices rather than ten and different site constraints, so neither identification nor duality makes that result cover this one.",
+        "searches": [
+          "Resultary query: five dimensional cross polytope vertex Minkowski averages parity lattice D5 covering radius Hausdorff k3",
+          "web: finite D5 checkerboard parity lattice l1-ball bounded covering radius threshold"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "Existing numerical D5 covering radius sqrt5/2 is explicitly credited.",
+          "No returned indexed record determined the finite k=1,2,3 transition in the five-cross-polytope domain."
+        ],
+        "reasoning": "A lattice-quantization table could contain the finite clipped invariant; no such exact table was encountered. Absent a matching table, the all-k constructive proof supports correctness but search nonhits alone do not prove novelty.",
+        "searches": [
+          "Resultary semantic search D5 parity clipped finite covering thresholds",
+          "Resultary 2026/10/11 regular-simplex finite vertex-average deep-hole spectrum",
+          "Conway–Sloane D5 classical covering radius"
+        ]
+      },
+      "rationale": "Compared equivalent mathematical formulations, stronger coverage, exact-data overlap, and logical prior implication using primary material and actual Resultary searches. No materially inspected theorem was found to imply the complete final claim; this is a best-of-knowledge, not an exhaustive novelty certificate. All unread relevant material and other risks are recorded.",
+      "residual_risks": [
+        "An unindexed bounded-checkerboard quantization calculation might already identify the k=3 clipping threshold.",
+        "Conway–Sloane full discussion and possibly specialized appendices of van Hintum were not read in full, so a hidden example cannot be categorically ruled out.",
+        "The large-resolution numeric branch is classical and not independently novel; value rests on the finite boundary threshold."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Does not explicitly determine the exact 5-cross-polytope all-k finite radius in materially inspected portion; residual general-theorem implications retained.",
+          "evidence": [
+            "General convexification threshold and lifted simplex examples, not a cited finite D5 clipped parity-site formula."
+          ],
+          "identifier_or_url": "https://arxiv.org/abs/2606.10815",
+          "material_read": "Accessible full manuscript text on lawful ResearchGate rendering including its general theorem discussion, compact-set examples and lifted-simplex construction (not every appendix independently checked).",
+          "method": "Compared arbitrary compact-set hypotheses, its threshold claims and exhibited test bodies with the specific signed-five-vertex parity mesh.",
+          "title": "The sharp threshold for Hausdorff convexification under Minkowski addition",
+          "trigger": "Closest contemporary general theorem on Minkowski-average convexification"
+        },
+        {
+          "assessment": "The value sqrt5/2 for full D5 is prior mathematics, but the boundary-constrained k-threshold is not established by that alone.",
+          "evidence": [
+            "D5 full-lattice covering radius squared 5/4."
+          ],
+          "identifier_or_url": "Conway and Sloane, third edition (1999), D5 covering radius",
+          "material_read": "Classical cited D5 covering-radius statement in authoritative summaries; complete book text not obtained for this run.",
+          "method": "Compared infinite lattice domain against bounded l1-clipped set.",
+          "title": "Sphere Packings, Lattices and Groups",
+          "trigger": "Potential decisive earlier full-space numerical result"
+        },
+        {
+          "assessment": "Different simplex rather than cross-polytope site lattice; not a direct corollary.",
+          "evidence": [
+            "Nonnegative A-type barycentric compositions vs signed D5 parity sites."
+          ],
+          "identifier_or_url": "https://github.com/Resultary/2026/tree/main/2026/10/11/SCOPE-exact-deep-hole-spectrum-of-regular-simplex-minkowski-vertex-ave--a5282e569b3d",
+          "material_read": "Resultary indexed title and related result description; prior summary says A-type composition grid; full proof not newly retrieved in this run.",
+          "method": "Compared site lattice, number of vertices and clipping geometry.",
+          "title": "Exact deep-hole spectrum of regular-simplex Minkowski vertex averages",
+          "trigger": "Closest published finite vertex-average analogy"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "rationale": "The first finite clipping threshold in a canonical root-lattice approximation problem is a natural precise geometric invariant for Minkowski convexification of a regular cross-polytope. The D5 infinite-space covering constant is old, but it does not determine that the bounded parity site set attains that constant already at k=3 or the two exceptional resolutions. The boundary-aware rounding argument adds nontrivial structure to the classical covering result.",
+      "status": "PASS"
+    }
+  },
+  "checked_sources": [
+    "https://arxiv.org/abs/2606.10815",
+    "Conway and Sloane, third edition (1999), D5 covering radius",
+    "https://github.com/Resultary/2026/tree/main/2026/10/11/SCOPE-exact-deep-hole-spectrum-of-regular-simplex-minkowski-vertex-ave--a5282e569b3d",
+    "Resultary semantic search for First parity deep-hole transition for five-dimensional cross-polytope vertex averages",
+    "Git tree and all blob contents at 68b91e5f3c20312fa46e1d1a72629d1735b95ff0"
+  ],
+  "disposition": "passed",
+  "final_claim": "For all positive integers k, the Hausdorff distance from averages of k signed coordinate unit vertices in R^5 to their l1-unit-ball convex hull is exactly 1/k for k=1,2 and sqrt(5)/(2k) for every k>=3.",
+  "limitations": [
+    "An unindexed bounded-checkerboard quantization calculation might already identify the k=3 clipping threshold.",
+    "Conway–Sloane full discussion and possibly specialized appendices of van Hintum were not read in full, so a hidden example cannot be categorically ruled out.",
+    "The large-resolution numeric branch is classical and not independently novel; value rests on the finite boundary threshold.",
+    "Checks of finitely many instances do not imply universal claims; universal proofs were reconstructed from actual RESULT.md and required scientific lemmas.",
+    "Historical originality assessed to the best of available primary reading; unavailable sources are not declared definitively noncovering.",
+    "All original public source metadata retain operational provenance; publication must be withheld until private metadata are sanitized with exact verified guards."
+  ],
+  "residual_risks": [
+    "An unindexed bounded-checkerboard quantization calculation might already identify the k=3 clipping threshold.",
+    "Conway–Sloane full discussion and possibly specialized appendices of van Hintum were not read in full, so a hidden example cannot be categorically ruled out.",
+    "The large-resolution numeric branch is classical and not independently novel; value rests on the finite boundary threshold."
+  ],
+  "schema_version": 1,
+  "source_inspections": [
+    {
+      "assessment": "Does not explicitly determine the exact 5-cross-polytope all-k finite radius in materially inspected portion; residual general-theorem implications retained.",
+      "evidence": [
+        "General convexification threshold and lifted simplex examples, not a cited finite D5 clipped parity-site formula."
+      ],
+      "identifier_or_url": "https://arxiv.org/abs/2606.10815",
+      "material_read": "Accessible full manuscript text on lawful ResearchGate rendering including its general theorem discussion, compact-set examples and lifted-simplex construction (not every appendix independently checked).",
+      "method": "Compared arbitrary compact-set hypotheses, its threshold claims and exhibited test bodies with the specific signed-five-vertex parity mesh.",
+      "title": "The sharp threshold for Hausdorff convexification under Minkowski addition",
+      "trigger": "Closest contemporary general theorem on Minkowski-average convexification"
+    },
+    {
+      "assessment": "The value sqrt5/2 for full D5 is prior mathematics, but the boundary-constrained k-threshold is not established by that alone.",
+      "evidence": [
+        "D5 full-lattice covering radius squared 5/4."
+      ],
+      "identifier_or_url": "Conway and Sloane, third edition (1999), D5 covering radius",
+      "material_read": "Classical cited D5 covering-radius statement in authoritative summaries; complete book text not obtained for this run.",
+      "method": "Compared infinite lattice domain against bounded l1-clipped set.",
+      "title": "Sphere Packings, Lattices and Groups",
+      "trigger": "Potential decisive earlier full-space numerical result"
+    },
+    {
+      "assessment": "Different simplex rather than cross-polytope site lattice; not a direct corollary.",
+      "evidence": [
+        "Nonnegative A-type barycentric compositions vs signed D5 parity sites."
+      ],
+      "identifier_or_url": "https://github.com/Resultary/2026/tree/main/2026/10/11/SCOPE-exact-deep-hole-spectrum-of-regular-simplex-minkowski-vertex-ave--a5282e569b3d",
+      "material_read": "Resultary indexed title and related result description; prior summary says A-type composition grid; full proof not newly retrieved in this run.",
+      "method": "Compared site lattice, number of vertices and clipping geometry.",
+      "title": "Exact deep-hole spectrum of regular-simplex Minkowski vertex averages",
+      "trigger": "Closest published finite vertex-average analogy"
+    }
+  ]
+}

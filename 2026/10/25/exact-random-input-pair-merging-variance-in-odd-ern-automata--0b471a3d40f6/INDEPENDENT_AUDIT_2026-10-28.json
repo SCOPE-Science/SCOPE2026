@@ -1,0 +1,151 @@
+{
+  "audit_date_utc": "2026-10-28",
+  "audited_at_utc": "2026-10-28T03:38:04.635166Z",
+  "axes": {
+    "correctness": {
+      "rationale": "On unordered pair states the rotation and collision letter define a finite absorbing Markov chain with unique finite first and second hitting-time solutions. Starting from the specified pair, the first-step equations are (I-P)e=1 and (I-P)s=2e-1. The source splits ordinary self-loop stretches from four exceptional transitions, verifies Gusev’s first moment, and reduces second moments to 2X_l-X_(l-1)-X_(l+1)=D_l with X_0=0 and reflection boundary X_m-X_(m-1)=H_m. Summation yields X_m=mH_m+sum_{l=1}^{m-1}lD_l and subtraction of E² gives the claimed polynomial. Independent exact rational solves of the ORIGINAL unordered-pair system for n=3,5,7,9 agree with both formulas. An independent symbolic summation proves the terminal polynomial identity for arbitrary m (unlike merely checking sample cases). These checks substantiate computations; the global pair-state recurrence and absorbing-chain argument provide the all-odd-n proof.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "The random-automaton literature randomizes the transition function, not iid letters fed into this fixed automaton.",
+          "Optimized rendezvous probability and shortest deterministic reset words are different statistics from fair-input pair absorption-time variance."
+        ],
+        "reasoning": "No checked stronger result mathematically supplies the specified odd-n variance polynomial or its coefficient of variation.",
+        "searches": [
+          "Gonze–Jungers synchronizing probability function triple rendezvous time 2016",
+          "Nicaud Fast Synchronization of Random Automata 2016",
+          "Kisielewicz Kowalski Szykula shortest reset words 2015"
+        ]
+      },
+      "checked_sources": [
+        "https://arxiv.org/abs/1404.6731",
+        "https://doi.org/10.1137/15M101956X",
+        "https://doi.org/10.4230/LIPIcs.APPROX-RANDOM.2016.43",
+        "https://doi.org/10.1007/s10878-013-9682-0"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "Gusev derives E T from a Poisson equation forced by 1; the variance requires another equation forced by 2E-1 and boundary sums.",
+          "Distinct hitting time distributions can have equal means but different second moments."
+        ],
+        "reasoning": "The prior exact mean and deterministic synchronization estimates cannot imply the new exact variance without the additional second-moment recurrence.",
+        "searches": [
+          "Gusev 2014 Section 3 pair-state expectation",
+          "Gonze Jungers 2016 probability/rendezvous",
+          "Cerny reset word literature"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "The claimed variance is the second moment solution of the absorbing unordered-pair Markov transition matrix (I-P)^(-1), not a deterministic reset threshold.",
+          "The original Gusev pair automaton studies the same process, so no illusory reparametrization of its expectation is treated as new."
+        ],
+        "reasoning": "Any Markov reward-chain formulation is an equivalent route; Gusev’s first-moment data do not determine (I-P)^(-1)(2e-1) or its exact polynomial.",
+        "searches": [
+          "Resultary search: Cerny automata random input merging pair variance second moment hitting time odd n",
+          "Search: absorbing pair automaton second moment hitting time fair Bernoulli letters",
+          "Gusev arXiv:1404.6731"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "No checked Resultary finding reports the exact target polynomial; closest records involve deterministic rank compression or other randomness.",
+          "The recovered mean from Gusev is n-order-three and cannot uniquely fix a variance of n-order-six."
+        ],
+        "reasoning": "Searched exact and alias formulations; no relevant published variance table found, with explicit risk of incompletely indexed automata literature.",
+        "searches": [
+          "Resultary: exact random-input Cerny pair-merging variance second moment",
+          "Resultary: Cerny automata odd-state pair random input merging variance",
+          "Search: 4 n^4 - 8 n^3 +3 n^2 +7 n -14 Cerny"
+        ]
+      },
+      "rationale": "Best-of-knowledge PASS for the second merger-time moment. The strongest primary antecedent is Gusev (2014), which analyzes the same random-input fixed Černý pair and derives the cubic expected time, but its read proof does not calculate the second moment. An expectation, deterministic reset threshold, and optimized synchronization probability do not imply the variance of a fair input hitting time. Searches for the exact polynomial, odd-pair variance and absorbing-chain second moment found no covering public record. Earlier equivalent Markov-chain variance calculation could exist under alternative notation, and search failure does not prove priority.",
+      "residual_risks": [
+        "An unpublished or unindexed second-moment formula for the same absorbing pair chain may exist.",
+        "Not every specialized automata article was inspected in full; a full-text absence claim is limited to the materially read primary derivation."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "COVERS_MEAN_NOT_VARIANCE",
+          "evidence": "Gusev proves cubic expectation and pair merging but does not give this Var T_n in the materially read derivation.",
+          "identifier_or_url": "https://arxiv.org/abs/1404.6731",
+          "material_read": "Original primary PDF and Section 3 pair-state expectation derivation inspected, including the odd-state critical pair.",
+          "method": "Compared recurrence, target pair, normalization and presence/absence of second-moment calculation.",
+          "title": "Synchronizing automata with random inputs",
+          "trigger": "Exact same pair automaton and fair-input model, strongest predecessor"
+        },
+        {
+          "assessment": "DIFFERENT_OBSERVABLE; full-text noncoverage not asserted",
+          "evidence": "Its stated synchronization probability and triple rendezvous concepts are not the same as an odd Černý specified-pair second moment.",
+          "identifier_or_url": "https://doi.org/10.1137/15M101956X",
+          "material_read": "Journal publication/abstract-level information inspected; complete primary proof not read.",
+          "method": "Compared optimal rendezvous and synchronization probabilities to iid input first-passage variance.",
+          "title": "On the synchronizing probability function and the triple rendezvous time for synchronizing automata",
+          "trigger": "Possible competing synchronization-time statistic"
+        },
+        {
+          "assessment": "DIFFERENT_RANDOMNESS_MODEL",
+          "evidence": "Studies minimal reset-word length of randomly sampled deterministic automata, not Var(T_n) of fixed Černý automaton.",
+          "identifier_or_url": "https://doi.org/10.4230/LIPIcs.APPROX-RANDOM.2016.43",
+          "material_read": "Open publisher page and complete abstract inspected; paper body not examined.",
+          "method": "Checked randomness is over automata rather than letters of one fixed automaton.",
+          "title": "Fast Synchronization of Random Automata",
+          "trigger": "Potential stronger random synchronization theorem"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "rationale": "Random-input synchronization is a canonical probabilistic probe of a slowly synchronizing automaton. The exact variance and nonvanishing limiting coefficient of variation determine the actual dispersion scale, which is not inferable from the previously known expectation or deterministic reset-word bounds. This is a mathematically motivated infinite-family exact invariant, rather than a routine tiny-instance calculation.",
+      "status": "PASS"
+    }
+  },
+  "checked_sources": [
+    "https://arxiv.org/abs/1404.6731",
+    "https://doi.org/10.1137/15M101956X",
+    "https://doi.org/10.4230/LIPIcs.APPROX-RANDOM.2016.43",
+    "https://doi.org/10.1007/s10878-013-9682-0"
+  ],
+  "disposition": "passed",
+  "final_claim": "For odd n=2m+1, the first merger time T_n of the opposing pair in the fixed n-state Černý automaton under iid fair letters has E T_n=2m²(4m+3) and Var T_n=2m(2m+1)(32m^4+32m^3+6m²+5m-4)/3; Var~2n^6/3 and coefficient of variation tends to sqrt(2/3).",
+  "limitations": [
+    "Odd n>=3, one opposing state pair, fair independent two-letter inputs only; no full automaton reset-time law.",
+    "Finite chain computations alone do not establish all odd sizes."
+  ],
+  "residual_risks": [
+    "An unpublished or unindexed second-moment formula for the same absorbing pair chain may exist.",
+    "Not every specialized automata article was inspected in full; a full-text absence claim is limited to the materially read primary derivation."
+  ],
+  "schema_version": 1,
+  "source_inspections": [
+    {
+      "assessment": "COVERS_MEAN_NOT_VARIANCE",
+      "evidence": "Gusev proves cubic expectation and pair merging but does not give this Var T_n in the materially read derivation.",
+      "identifier_or_url": "https://arxiv.org/abs/1404.6731",
+      "material_read": "Original primary PDF and Section 3 pair-state expectation derivation inspected, including the odd-state critical pair.",
+      "method": "Compared recurrence, target pair, normalization and presence/absence of second-moment calculation.",
+      "title": "Synchronizing automata with random inputs",
+      "trigger": "Exact same pair automaton and fair-input model, strongest predecessor"
+    },
+    {
+      "assessment": "DIFFERENT_OBSERVABLE; full-text noncoverage not asserted",
+      "evidence": "Its stated synchronization probability and triple rendezvous concepts are not the same as an odd Černý specified-pair second moment.",
+      "identifier_or_url": "https://doi.org/10.1137/15M101956X",
+      "material_read": "Journal publication/abstract-level information inspected; complete primary proof not read.",
+      "method": "Compared optimal rendezvous and synchronization probabilities to iid input first-passage variance.",
+      "title": "On the synchronizing probability function and the triple rendezvous time for synchronizing automata",
+      "trigger": "Possible competing synchronization-time statistic"
+    },
+    {
+      "assessment": "DIFFERENT_RANDOMNESS_MODEL",
+      "evidence": "Studies minimal reset-word length of randomly sampled deterministic automata, not Var(T_n) of fixed Černý automaton.",
+      "identifier_or_url": "https://doi.org/10.4230/LIPIcs.APPROX-RANDOM.2016.43",
+      "material_read": "Open publisher page and complete abstract inspected; paper body not examined.",
+      "method": "Checked randomness is over automata rather than letters of one fixed automaton.",
+      "title": "Fast Synchronization of Random Automata",
+      "trigger": "Potential stronger random synchronization theorem"
+    }
+  ]
+}

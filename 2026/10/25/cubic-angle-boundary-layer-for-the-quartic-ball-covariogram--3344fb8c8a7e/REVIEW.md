@@ -1,15 +1,21 @@
-# Scientific assessment
+# Independent mathematical audit
 
-## Correctness
-PASS. Exact chord slicing yields \(2ht-D(t)=2\int_0^t(h-z_s)\,ds\). Local rescaling at the flat upper support reduces the endpoint equality to a strictly monotone cubic, and compactness gives the uniform coefficient limit. The root identity verifies the closed integral; differentiation gives strict growth; expansion of the root gives the large-parameter coefficient. Independent numerical chord computation supports the asymptotic but is not relied upon as an infinite proof.
+## correctness
 
-## Originality
-PASS under the checked literature, with a remaining unindexed-prior-result risk. Ramesh–Weiss [1] compute overlap volumes at fixed quartic-ball translations via period differential equations; no angular boundary-layer asymptotic is provided by their inspected introduction and Examples 4.2–4.5. Haddad–Jiménez–Resende Guedes [2] use a smooth radial replacement with a different limit. Classical positive-curvature results have hypotheses that fail at the quartic-axis support points. Exact parameter and implication checks were made against published mathematical records and accessible earlier claims; no equivalent crossover profile was identified. This is evidence from bounded searches, not a uniqueness proof.
+PASS
 
-## Value
-PASS. The correction to the first projection-width term is a natural geometric invariant of overlap volume and vanishes unusually quickly at a flat support point. The exact angular scale and monotone profile quantitatively bridge two otherwise incompatible small-translation expansions, giving a reproducible shape-specific benchmark for nonuniform covariogram asymptotics.
+For centrally symmetric convex K, the exact chord formula w*t-area_loss = 2 int_0^t (h-z_s) ds uses short-chord level sets. At theta=lambda*t^3, the upper support graph rescales to f_lambda(u)=u^4/4+lambda*u and its minimum is -3|lambda|^(4/3)/4. Equal-height endpoints spaced by r give the unique cubic midpoint m^3+(r^2/4)m+lambda=0. Uniform strict-convex localization supports integration of the rescaled support deficit and produces the F integral. The implicit-derivative positivity proves strict monotonicity; expansion of the cubic solution gives -7/480, and axial slicing F(0)=1/160. Independently implemented actual two-dimensional overlap quadrature with all thin endpoint intervals separated agreed with F at lambda=0,0.2,1 as t decreased, and checked F(1)=0.236019362175881.
 
-## Literature and limitations
-[1] arXiv:2602.04707, examples 4.2 and 4.4; [2] arXiv:2610.11700, theorem statements and setting; [3] Bianchi–Segala–Volčič (2002), inverse-covariogram context from accessible abstract/preview only. No extension is asserted for other norms or for arbitrary simultaneous scaling outside bounded crossover parameters. A closely phrased unindexed calculation might exist and would require further human literature investigation.
+## originality
 
-Self-review: passed. Independent audit: not yet performed.
+PASS
+
+Best-of-knowledge comparison of actual final mathematical implications with primary sources and relevant published semantic records. Relevant predecessor results were credited; no inspected full-theorem statement covers the final claim, with explicit residual priority risks.
+
+## value
+
+PASS
+
+The quartic norm ball is a canonical convex body with zero curvature at coordinate supports. The cubic-angle scaling and explicit monotone fifth-order profile quantify a singular transition that fixed nonzero-curvature t^3 overlap formulas fail to describe uniformly; the exact coefficient is a meaningful covariogram boundary-layer invariant.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

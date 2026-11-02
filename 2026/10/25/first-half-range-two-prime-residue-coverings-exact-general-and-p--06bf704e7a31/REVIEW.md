@@ -1,15 +1,21 @@
-# Review: first half-range two-prime residue coverings
+# Independent mathematical audit
 
-## Correctness — PASS
-The conclusion is a fully specified finite minimization statement. The provided certificates enumerate every admissible smaller modulus and prime-power modulus, not an informal search sample. Each lower bound is supported by an explicit missing unit independently checked by modular inverse and direct product enumeration. Upper bounds provide all \(32\) and \(128\) residue witnesses. Primality and coprimality are tested exactly, including repeated primes, boundary cutoff, and \(q=2\). The sharp cutoffs follow by checking the adjacent primes and absent classes, not by assuming monotonicity in the modulus. No infinite statement follows from finite testing.
+## correctness
 
-## Originality — PASS, with literature risk
-The full HTML of Banks–Shparlinski (2026, arXiv:2610.19597v1) was inspected, including Theorems 1.1–1.4, their explicit restriction to the classical \(X=q\) case, and proofs based on character-sum bounds. It does not furnish the two first half-range thresholds or their precise prime bounds. Szabó (2024) was inspected in full-text HTML at its introduction and principal theorems; it treats asymptotic large-modulus representation results. The Banks 2026 random-model paper addresses an altered stochastic problem. Multiple searches for equivalent least-modulus, residue-covering and exact-table formulations and searches of the available earlier claims found no direct cover. The original 1987 Erdős–Odlyzko–Sárközy paper was identified but its full text was inaccessible; it remains a residual risk. Absence from search results is not presented as a proof of novelty.
+PASS
 
-## Value — PASS
-The minimal modulus and minimal prime-power modulus are canonical extremal quantities for a direct quantitative strengthening of the binary Erdős–Odlyzko–Sárközy covering question: cut each prime-factor range from \(q\) to \(q/2\). The result exactly identifies the first successes, contrasts a composite and prime-power modulus, determines all prime-factor thresholds, and supplies complete small-modulus obstruction data and transparent reusable prime-product witnesses. It can calibrate experimental and analytic work on shorter prime ranges. Its importance is an exact natural finite benchmark, not a claimed solution of the large-modulus conjecture or an unsupported improvement in asymptotic bounds.
+The definition reduces E2(q;t) to a finite multiplication table of primes coprime to q. Submitted coverings.json lists a valid prime pair for each of 32 unit classes at 96 and 128 unit classes at 256; obstructions.json gives missing unit classes for each q<96 and each prime power q<256 (129 distinct lower candidates), plus failure at q=96 with max prime43 and q=256 with max prime113. Source verify.py checks each upper witness by primality and modular product, and independently tests all missing residues with modular inverses and complete pair-product enumeration. I separately implemented a sieve-and-image enumerator for every modulus q=2,...,256; its first success is 96, first prime-power success 256, it confirmed 129 distinct excluded candidates, and the exact upper images have cardinalities 30/32 at bound43, 32/32 at47, 127/128 at113 (missing81), and 128/128 at127. Prime gaps make the two bounds minimal. The result is purely finite; the computations are exhaustive over precisely the claimed range, not a sample from an unbounded statement.
 
-## Closest work and limits
-Most directly related are Banks–Shparlinski (2026), Szabó (2024), and the original 1987 conjecture. The present claim is finite and covers \(X=q/2\); the inspected sources study predominantly \(X=q\), the large-modulus regime, or more than two prime factors. Earlier undocumented tables could contain the same small data; the complete 1987 source was not inspected. No independent mathematical audit has been conducted.
+## originality
 
-Self-review: passed. Independent audit: not yet performed.
+PASS
+
+Compared equivalent mathematical formulations, stronger coverage, exact-data overlap, and logical prior implication using primary material and actual Resultary searches. No materially inspected theorem was found to imply the complete final claim; this is a best-of-knowledge, not an exhaustive novelty certificate. All unread relevant material and other risks are recorded.
+
+## value
+
+PASS
+
+A two-prime product set covering all reduced residues is a central finite benchmark for the Erdős–Odlyzko–Sárközy problem. The simple stronger half-modulus factor bound makes first success and the difference between unrestricted moduli and prime powers well-motivated exact invariants. Explicit minimal moduli, least prime cutoffs, and full reusable witness/obstruction certificates provide a complete natural initial classification even without a general asymptotic theorem; not a claimed solution of the infinite conjecture.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

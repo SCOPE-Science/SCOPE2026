@@ -1,0 +1,190 @@
+{
+  "audit_date_utc": "2026-10-28",
+  "audited_at_utc": "2026-10-28T04:39:25.356979Z",
+  "axes": {
+    "correctness": {
+      "rationale": "For each received word y, form its exact set of source subsequences (insertions) or supersequences (deletions). A code C is list-two admissible exactly when the intersection with every received-word incidence set has size at most 2, equivalent to avoiding all three-codeword forbidden triples. The supplied source has a complete constant-popcount enumeration at the optimum k and next k+1 over every binary codebook at n=2..5; the second source implementation independently computes three-word common shortest supersequence / longest common subsequence rather than incidence masks. Crucially, downward closure turns absence at k+1 into impossibility of all larger codes. I independently implemented a third C++ forbidden-hypergraph enumerator and checked each of eight optima/next-level counts exactly, obtaining the stated labeled-optimum vectors. A separate independent group-action calculation of the 185 insertion optima yields 41 orbits size four, ten size two, and one singleton. For n=5 all 32 codewords, 128 insertion outputs, and 8 deletion outputs are covered; there is no infinite-length inference.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "First paper computes asymptotic capacity, not small n exhaustive optimum.",
+          "Second paper gives general budget-transformation bounds with different parameters.",
+          "Third paper averages list size over specific VT codes, unlike worst-case all binary codebooks."
+        ],
+        "reasoning": "A general rate inequality or conversion need not be tight at length five and cannot determine the 185 labeled optima. The new finite census is not a parameter-renaming of those results.",
+        "searches": [
+          "Con–Doron–Ribeiro arXiv:2607.03989 asymptotic insertion list capacity",
+          "Kiah–Wei–Zeng arXiv:2609.21395 Proposition 3 and general bounds",
+          "Banerjee–Con–Wachter-Zeh–Yaakobi arXiv:2610.15767 VT average-list study"
+        ]
+      },
+      "checked_sources": [
+        "https://arxiv.org/abs/2607.03989",
+        "https://arxiv.org/abs/2609.21395",
+        "https://arxiv.org/abs/2610.15767",
+        "https://github.com/Resultary/2026/tree/main/2026/10/4/SCOPE-exact-length-six-binary-two-list-two-deletion-code-size--9d20b24dd814"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "General list conversion is at changed parameters.",
+          "Length-six deletion optimum alone does not fix either length-five optimum or the orbit enumeration."
+        ],
+        "reasoning": "Even combining known bounds with a nearby length-six deletion result leaves the n5 insertion extremizers and precise 185 multiplicity unknown; full finite enumeration closes this gap.",
+        "searches": [
+          "arXiv:2609.21395 list budget equivalences",
+          "arXiv:2607.03989 capacity bounds",
+          "Resultary length-six deletion optimum record"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "The codebook condition is equivalently 3-uniform hypergraph independence: a forbidden triple has a common length<=n+2 supersequence or length>=n-2 subsequence.",
+          "Kiah–Wei–Zeng arXiv:2609.21395 converts insertion/deletion list-decoding parameters, not exactly these finite all-codebook values."
+        ],
+        "reasoning": "Both the received-word hypergraph and triple-SCS/LCS representations were checked. No inspected general equivalence yields the exact 185 maximal insertion codebooks, 52 orbits, or first same-budget separation without this complete census.",
+        "searches": [
+          "Resultary query: binary insertion deletion codes list size two exactly two errors optimal code size length five finite enumeration",
+          "web: shortest common supersequence longest common subsequence forbidden triples binary list two n5"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "Published record yields length-six two-deletion optimum 7, neither length-five insertion maximum nor joint table.",
+          "Other returned exact tables concern single deletion, substring edits or restricted code families."
+        ],
+        "reasoning": "This is indeed a finite exact table, so previously unindexed code catalogues are priority risks. Checked closest indexed tables have different lengths/channels and do not imply the first same-budget split.",
+        "searches": [
+          "Resultary result 2026/10/4/SCOPE-exact-length-six-binary-two-list-two-deletion-code-size--9d20b24dd814",
+          "Resultary search: binary two insertion two deletion list size 2 length 5 185 optima 52 orbits",
+          "web: exact small binary list decoding two deletions insertions"
+        ]
+      },
+      "rationale": "Compared equivalent mathematical formulations, stronger coverage, exact-data overlap, and logical prior implication using primary material and actual Resultary searches. No materially inspected theorem was found to imply the complete final claim; this is a best-of-knowledge, not an exhaustive novelty certificate. All unread relevant material and other risks are recorded.",
+      "residual_risks": [
+        "Older unindexed list-code exhaustive tables could contain same (n=5,k=2,2-errors) optima or orbit counts.",
+        "Full Kiah–Wei–Zeng and Banerjee et al. appendices were not materially read end-to-end; possible embedded small-n tables remain a named risk."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Asymptotic bound does not imply eight exact optima or extremizer multiplicities.",
+          "evidence": [
+            "Main theorems concern asymptotic list capacity, not a finite exhaustive n=5 table."
+          ],
+          "identifier_or_url": "https://arxiv.org/abs/2607.03989",
+          "material_read": "Accessible complete primary manuscript text on ResearchGate, including introduction, capacity statements and parts of proof of general bounds.",
+          "method": "Compared asymptotic hypotheses and quantified blocklength to exact n<=5.",
+          "title": "The Insertion List-Decoding Capacity and an Improved Bound on the Deletion List-Decoding Capacity",
+          "trigger": "Direct list-decoding capacity literature"
+        },
+        {
+          "assessment": "Related transfer is not an exact same-budget length-five extremizer census.",
+          "evidence": [
+            "Proposition 3 changes budget/parameters; asymptotic bounds not the exact eight small lengths."
+          ],
+          "identifier_or_url": "https://arxiv.org/abs/2609.21395",
+          "material_read": "Primary abstract/main result descriptions and available statement of Proposition 3; complete article not materially read in this run.",
+          "method": "Matched exact error budgets and decoder definitions.",
+          "title": "Constant-List Insertion–Deletion Codes: New Bounds and an Improvement of Levenshtein’s Lower Bound",
+          "trigger": "List-size and insertion/deletion budget conversion"
+        },
+        {
+          "assessment": "Not a covering claim.",
+          "evidence": [
+            "Average VT list size is different from maximum size of arbitrary list-two codes."
+          ],
+          "identifier_or_url": "https://arxiv.org/abs/2610.15767",
+          "material_read": "Primary abstract and available introductory problem descriptions; not complete paper.",
+          "method": "Compared average over a restricted VT family with worst-case over all codebooks.",
+          "title": "On the Average List Size of VT Codes under Two Insertions or Two Deletions",
+          "trigger": "Same error count but average list criteria"
+        },
+        {
+          "assessment": "Different parameter; no complete-document noncoverage inferred.",
+          "evidence": [
+            "Seven-word deletion optimum at n6, not both n5 channels or its 185 optima."
+          ],
+          "identifier_or_url": "https://github.com/Resultary/2026/tree/main/2026/10/4/SCOPE-exact-length-six-binary-two-list-two-deletion-code-size--9d20b24dd814",
+          "material_read": "Resultary published title and full result summary returned in semantic search (not full repository proof).",
+          "method": "Compared n and channel and observed tight seven-word bound at n6.",
+          "title": "Exact length-six binary two-list two-deletion code size",
+          "trigger": "Closest relevant exact published record"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "rationale": "This is the first natural finite separation of equal-error-budget insertion and deletion list-two code capacities, together with a complete extremizer census rather than a lone witness. Exact small-blocklength examples are relevant test cases for emerging list-decoding conversion/capacity results; the 52 orbit types expose structure not captured by asymptotic rates. Its finite nature is deliberate and not a weakness by itself.",
+      "status": "PASS"
+    }
+  },
+  "checked_sources": [
+    "https://arxiv.org/abs/2607.03989",
+    "https://arxiv.org/abs/2609.21395",
+    "https://arxiv.org/abs/2610.15767",
+    "https://github.com/Resultary/2026/tree/main/2026/10/4/SCOPE-exact-length-six-binary-two-list-two-deletion-code-size--9d20b24dd814",
+    "Resultary semantic search for First finite two-list insertion-deletion separation for binary two-error codes",
+    "Git tree and all blob contents at de0363099ce4c8b996d245cd2724204a48ea8ada"
+  ],
+  "disposition": "passed",
+  "final_claim": "For binary words length n=2,3,4,5 with list bound 2 after exactly two insertions or exactly two deletions, optimal code sizes are D=(2,3,4,4) and I=(2,3,4,6). Numbers of labeled optima are deletion (6,6,33,3089), insertion (6,6,43,185). At n=5 the insertion 185 optima occupy 52 reversal-and-complement orbits of sizes 4 x41, 2 x10, 1 x1; n=5 is first same-budget separation.",
+  "limitations": [
+    "Older unindexed list-code exhaustive tables could contain same (n=5,k=2,2-errors) optima or orbit counts.",
+    "Full Kiah–Wei–Zeng and Banerjee et al. appendices were not materially read end-to-end; possible embedded small-n tables remain a named risk.",
+    "Checks of finitely many instances do not imply universal claims; universal proofs were reconstructed from actual RESULT.md and required scientific lemmas.",
+    "Historical originality assessed to the best of available primary reading; unavailable sources are not declared definitively noncovering.",
+    "All original public source metadata retain operational provenance; publication must be withheld until private metadata are sanitized with exact verified guards."
+  ],
+  "residual_risks": [
+    "Older unindexed list-code exhaustive tables could contain same (n=5,k=2,2-errors) optima or orbit counts.",
+    "Full Kiah–Wei–Zeng and Banerjee et al. appendices were not materially read end-to-end; possible embedded small-n tables remain a named risk."
+  ],
+  "schema_version": 1,
+  "source_inspections": [
+    {
+      "assessment": "Asymptotic bound does not imply eight exact optima or extremizer multiplicities.",
+      "evidence": [
+        "Main theorems concern asymptotic list capacity, not a finite exhaustive n=5 table."
+      ],
+      "identifier_or_url": "https://arxiv.org/abs/2607.03989",
+      "material_read": "Accessible complete primary manuscript text on ResearchGate, including introduction, capacity statements and parts of proof of general bounds.",
+      "method": "Compared asymptotic hypotheses and quantified blocklength to exact n<=5.",
+      "title": "The Insertion List-Decoding Capacity and an Improved Bound on the Deletion List-Decoding Capacity",
+      "trigger": "Direct list-decoding capacity literature"
+    },
+    {
+      "assessment": "Related transfer is not an exact same-budget length-five extremizer census.",
+      "evidence": [
+        "Proposition 3 changes budget/parameters; asymptotic bounds not the exact eight small lengths."
+      ],
+      "identifier_or_url": "https://arxiv.org/abs/2609.21395",
+      "material_read": "Primary abstract/main result descriptions and available statement of Proposition 3; complete article not materially read in this run.",
+      "method": "Matched exact error budgets and decoder definitions.",
+      "title": "Constant-List Insertion–Deletion Codes: New Bounds and an Improvement of Levenshtein’s Lower Bound",
+      "trigger": "List-size and insertion/deletion budget conversion"
+    },
+    {
+      "assessment": "Not a covering claim.",
+      "evidence": [
+        "Average VT list size is different from maximum size of arbitrary list-two codes."
+      ],
+      "identifier_or_url": "https://arxiv.org/abs/2610.15767",
+      "material_read": "Primary abstract and available introductory problem descriptions; not complete paper.",
+      "method": "Compared average over a restricted VT family with worst-case over all codebooks.",
+      "title": "On the Average List Size of VT Codes under Two Insertions or Two Deletions",
+      "trigger": "Same error count but average list criteria"
+    },
+    {
+      "assessment": "Different parameter; no complete-document noncoverage inferred.",
+      "evidence": [
+        "Seven-word deletion optimum at n6, not both n5 channels or its 185 optima."
+      ],
+      "identifier_or_url": "https://github.com/Resultary/2026/tree/main/2026/10/4/SCOPE-exact-length-six-binary-two-list-two-deletion-code-size--9d20b24dd814",
+      "material_read": "Resultary published title and full result summary returned in semantic search (not full repository proof).",
+      "method": "Compared n and channel and observed tight seven-word bound at n6.",
+      "title": "Exact length-six binary two-list two-deletion code size",
+      "trigger": "Closest relevant exact published record"
+    }
+  ]
+}

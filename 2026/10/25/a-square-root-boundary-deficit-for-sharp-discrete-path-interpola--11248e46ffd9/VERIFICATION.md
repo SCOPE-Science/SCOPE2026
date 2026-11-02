@@ -5,8 +5,11 @@
     "status": "not_performed"
   },
   "independent_audit": {
-    "evidence": null,
-    "status": "not_performed"
+    "status": "passed",
+    "evidence": [
+      "INDEPENDENT_AUDIT_2026-10-27.md",
+      "INDEPENDENT_AUDIT_2026-10-27.json"
+    ]
   },
   "lean_verification": {
     "evidence": null,
@@ -16,8 +19,24 @@
 }
 ---
 
-# Verification record
+# Independent mathematical audit
 
-The included `check.py` uses only the standard library. On integer path sizes 2 through 12 and four positive resolvent parameters, it compares the closed hyperbolic diagonal with a direct independent tridiagonal linear solve and with the discrete-cosine spectral expansion, checking every vertex. It also checks endpoint dominance, sampled all-length monotonicity, the exact two-vertex value, and the asymptotic prediction at lengths 100, 1000 and 10000. Execute with `python3 check.py`.
+## correctness
 
-These are finite calculations and do not establish universal claims. The proof of the full-domain sharp constant, strict monotonicity and boundary asymptotic is contained in RESULT.md. The originality analysis is a literature comparison subject to explicitly listed access risks; no independent mathematical audit has occurred.
+PASS
+
+Finite path Laplacian L has kernel 1; projection to 1^perp gives sharp dual Green diagonal 2x[(L+x²I)^-1_jj-1/(Nx²)] via Cauchy-Schwarz and optimally balanced AM-GM. The endpoint closed hyperbolic Green product and its strictly decreasing distance-to-endpoint ordering establish precisely the maximizing sites, while the length comparison H_x(N) and reflection term prove K_N strictly increasing and below 2. The maximizing spectral scale is Θ(N^-1/2); substituting its expansion into endpoint resolvent yields the quoted terms, with far-end reflection exponentially small. Independently solved the finite tridiagonal matrix at N=2,3,4,7,12,24,48 and optimized the exact projected Green expression; observed K_2=1/(2sqrt2), strict rise and K_N<2. These finite instances are not the universal proof.
+
+## originality
+
+PASS
+
+Best-of-knowledge: unrestricted whole-lattice and half-line Dirichlet sharp interpolation formulas do not imply finite centered Neumann-path sharp constants or their distinct boundary correction.
+
+## value
+
+PASS
+
+The finite meanzero path is the canonical Neumann analogue of discrete Sobolev interpolation. The exact length dependence, strict endpoint extremizer selection and N^-1/2 deficit resolve a natural finite-size boundary question. This is not simply quoting an infinite lattice sharp constant, which differs in normalization and limit.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

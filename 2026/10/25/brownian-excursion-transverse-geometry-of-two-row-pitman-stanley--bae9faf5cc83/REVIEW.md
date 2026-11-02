@@ -1,19 +1,21 @@
-# Self-review
+# Independent mathematical audit
 
-## Correctness
+## correctness
 
-**PASS.** The exact triangular coordinate transformation identifies a two-row rectangular order polytope without metric substitution. Each uniform-volume chamber contributes equally, producing a uniform Catalan/Dyck word and independent uniform order statistics. The rank-gap identity \(d_j=H_{r_{A,j}}+H_{r_{B,j}}\) and exponential-spacing concentration yield the functional \(\sqrt2\)-excursion limit in the correct Euclidean normalization. Beta spacing moments and Dyck maximum bounds justify all positive moments. The three-Brownian-bridge spectral product yields the stated Laplace law and cumulants. Finite checks are supplementary, not a proof of the limit.
+PASS
 
-## Originality
+The x to (a,b=a+x2) triangular map has determinant one and identifies the rectangular two-row order polytope. Stanley chambers are equally likely and are counted by Catalan Dyck words; independent uniform order statistics generate volume. The rank gap d_j is the sum of up/down Dyck heights at their ranks. Tight Dyck maximum and exponential-spacing uniform concentration give the exact sqrt(m) coordinate limit with sqrt(2) factor. Beta conditional moments and Dyck maximum moment bounds provide uniform integrability. Excursion as 3-dimensional Brownian-bridge radius and KL eigenvalues produce the claimed Laplace product; differentiating verifies mean 1 and variance 4/15. Independent exact Dyck/Beta enumeration gives finite E[Q_m] for m=1..8; these approach but do not prove the limit.
 
-**PASS with bibliographic qualification.** The most pertinent source, Dugan–Hegarty–Morales–Raymond, defines exactly this family, but the inspected vertex/face material and its companion volume study do not give volume-uniform transverse Euclidean distance laws. Stanley's uniform extension triangulation and the classical Dyck invariance principle supply components, but neither individually states the assembled face-distance law, normalization, and Laplace transform for this polytope. Related indexed inradius work treats a different boundary vector and extremal inscribed balls, not random interior points. The possibility of an equivalent less-indexed probabilistic formulation remains.
+## originality
 
-## Value
+PASS
 
-**PASS.** A natural Euclidean face-distance observable remains order one even though individual second-row entries vanish. Its complete nondegenerate law, the \(\sqrt2\) process scaling, and moment formulas distinguish concentration toward a face coordinatewise from concentration in ambient Euclidean distance. This provides a useful geometric measure-theoretic characterization for a published family, beyond reproducing its volume.
+Dugan–Hegarty–Morales–Raymond give the relevant generalized Pitman–Stanley definition, face/volume structure. Stanley gives order-polytope triangulation; Dyck excursion convergence and Bessel bridge integrals are classical. Their combination does not appear as an explicitly established canonical Euclidean face-distance law in the inspected primary source. Equivalent random monotone-array literature remains a real risk.
 
-## Limitations
+## value
 
-The proof applies only to the stated two-row family and canonical Euclidean coordinates. The closest general probability ingredients are old and potentially reusable; no claim of priority for Brownian excursion convergence or the Bessel-bridge Laplace product is made. Independent assessment has not been conducted.
+PASS
 
-Self-review: passed. Independent audit: not yet performed.
+The distance to a natural fixed face has a nondegenerate order-one limit despite individual second-row coordinates shrinking. The full law and moment convergence give new metric-probabilistic geometry for a meaningful family, not merely a volume recomputation or familiar excursion assertion alone.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

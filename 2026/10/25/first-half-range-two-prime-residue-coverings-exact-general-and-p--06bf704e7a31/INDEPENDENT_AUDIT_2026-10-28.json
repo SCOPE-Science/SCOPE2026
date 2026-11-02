@@ -1,0 +1,193 @@
+{
+  "audit_date_utc": "2026-10-28",
+  "audited_at_utc": "2026-10-28T04:39:25.356987Z",
+  "axes": {
+    "correctness": {
+      "rationale": "The definition reduces E2(q;t) to a finite multiplication table of primes coprime to q. Submitted coverings.json lists a valid prime pair for each of 32 unit classes at 96 and 128 unit classes at 256; obstructions.json gives missing unit classes for each q<96 and each prime power q<256 (129 distinct lower candidates), plus failure at q=96 with max prime43 and q=256 with max prime113. Source verify.py checks each upper witness by primality and modular product, and independently tests all missing residues with modular inverses and complete pair-product enumeration. I separately implemented a sieve-and-image enumerator for every modulus q=2,...,256; its first success is 96, first prime-power success 256, it confirmed 129 distinct excluded candidates, and the exact upper images have cardinalities 30/32 at bound43, 32/32 at47, 127/128 at113 (missing81), and 128/128 at127. Prime gaps make the two bounds minimal. The result is purely finite; the computations are exhaustive over precisely the claimed range, not a sample from an unbounded statement.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Banks–Shparlinski studies large-modulus/asymptotic many-class bounds using prime cutoff q; no exact all-unit guarantee at q/2 for 256 appears in accessible declarations.",
+          "Szabó develops asymptotic lower bounds and six-prime full coverage for large prime moduli, not the exact two-prime half-range threshold.",
+          "Original 1987 paper full text not retrieved."
+        ],
+        "reasoning": "Coverage at X=q or for 3/6 prime factors cannot logically imply full coverage at X=q/2 with exactly two factors for small q, nor lower-modulus exclusions. The inaccessible original remains a concrete source risk, not a basis for whole-paper negative claims.",
+        "searches": [
+          "Banks–Shparlinski arXiv:2610.19597 October 2026 prime-power theorem statements",
+          "Szabó doi:10.1112/blms.12990 main theorems on products of primes in progressions",
+          "Erdős–Odlyzko–Sárközy doi:10.1007/BF01848086"
+        ]
+      },
+      "checked_sources": [
+        "https://arxiv.org/abs/2610.19597",
+        "https://doi.org/10.1112/blms.12990",
+        "https://doi.org/10.1007/BF01848086",
+        "https://arxiv.org/abs/2609.37434"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "Even proving EOS_2(q;q)=U(q) at every large q would not show EOS_2(96;48)=U(96) or EOS_2(256;128)=U(256).",
+          "No asymptotic bound forces all 129 exact negative lower instances."
+        ],
+        "reasoning": "The proposed two early finite thresholds and complete exclusion certificates are not corollaries of known asymptotic results; the different cutoff and explicit minimum quantifier are essential.",
+        "searches": [
+          "arXiv:2610.19597 Theorems 1.1–1.4",
+          "Szabó 2024 Theorems 1–2",
+          "classical EOS conjecture with X=q"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "The set E2(q;X) equals the multiplicative square of the reduced-residue set of primes<=X.",
+          "Banks–Shparlinski arXiv:2610.19597 uses equivalent EOS_2 notation but focuses on other bounds."
+        ],
+        "reasoning": "Alias search included multiplicative squares of prime residue sets, EOS_2 notation and least complete prime cutoff; no accessed exact q96 and q256 table established the requested first-success threshold.",
+        "searches": [
+          "Resultary query: primes products two primes q/2 modulus 96 256 residue full covering least cutoff",
+          "web: EOS_2(q;X) first complete modulus 96 47 256 127"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "The work is an exact finite initial table, supported by 160 success witnesses and 131 negative/threshold certificates.",
+          "No retrieved indexed published table directly gives both first-modulus and sharp-bound entries."
+        ],
+        "reasoning": "An older exhaustive computation could preempt an exact numerical claim; unlike search absence, independently checked complete certificates establish correctness but not historical priority. Explicitly preserve this residual risk.",
+        "searches": [
+          "web exact numbers q=96 47 q=256 127 product of two primes residual classes",
+          "Resultary semantic search modular two-prime half-range coverings",
+          "Banks–Shparlinski reference searches for small modulus tables"
+        ]
+      },
+      "rationale": "Compared equivalent mathematical formulations, stronger coverage, exact-data overlap, and logical prior implication using primary material and actual Resultary searches. No materially inspected theorem was found to imply the complete final claim; this is a best-of-knowledge, not an exhaustive novelty certificate. All unread relevant material and other risks are recorded.",
+      "residual_risks": [
+        "Full original Erdős–Odlyzko–Sárközy (1987) paper was not obtained; it could include small-modulus data despite asymptotic descriptions.",
+        "Unindexed or offline computational tables could contain first-success values or sharp cutoffs.",
+        "Authorized institutional retrieval returned storage-limit error after arXiv/OA attempts; never equated inaccessibility with noncoverage."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Accessible results do not imply two finite first-success thresholds, but unread portions may include tables.",
+          "evidence": [
+            "Large-modulus prime-power theorems with cutoff q, not identified exact half-cutoff finite table."
+          ],
+          "identifier_or_url": "https://arxiv.org/abs/2610.19597",
+          "material_read": "Primary arXiv abstract and accessible descriptions of the main results/theorem ranges; full primary article inaccessible in this run.",
+          "method": "Compared prime-power asymptotic hypotheses and factor bound X=q to finite half bound q/2.",
+          "title": "On the Erdős–Odlyzko–Sárközy conjecture for prime-power moduli",
+          "trigger": "Same two-prime-product residue object"
+        },
+        {
+          "assessment": "Theorem of six-prime full coverage at sufficiently large primes does not imply two-prime small exact half-range.",
+          "evidence": [
+            "General estimates; six-prime, sufficiently large q result, not q96/256 two-prime table."
+          ],
+          "identifier_or_url": "https://doi.org/10.1112/blms.12990",
+          "material_read": "Accessible Wiley open full-text HTML, introduction and Theorems 1–2 with their exact prime factor counts and asymptotic hypotheses.",
+          "method": "Compared number of factors, modulus range and cutoffs.",
+          "title": "On the existence of products of primes in arithmetic progressions",
+          "trigger": "Potential stronger multi-prime covering theorem"
+        },
+        {
+          "assessment": "Unknown, materially unread; potentially relevant historical priority.",
+          "evidence": [
+            "Same invariant family, unverified whether original paper contains exhaustive small-modulus tables."
+          ],
+          "identifier_or_url": "https://doi.org/10.1007/BF01848086",
+          "material_read": "Bibliographic record and reference context only; no complete article text obtained.",
+          "method": "Open-access and preprint sought first; authorized institutional download then failed with storage-capacity limit; no circumvention.",
+          "title": "On the residues of products of prime numbers",
+          "trigger": "Original 1987 two-prime residue literature could contain numerical tables"
+        },
+        {
+          "assessment": "Not directly an exact deterministic small-modulus classification.",
+          "evidence": [
+            "Different probabilistic prime surrogate model."
+          ],
+          "identifier_or_url": "https://arxiv.org/abs/2609.37434",
+          "material_read": "Abstract only, no complete text.",
+          "method": "Compared model: random model versus actual arithmetic primes.",
+          "title": "Products of two elements of Granville’s random model in residue classes",
+          "trigger": "Potential stronger two-prime residue conclusion"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "rationale": "A two-prime product set covering all reduced residues is a central finite benchmark for the Erdős–Odlyzko–Sárközy problem. The simple stronger half-modulus factor bound makes first success and the difference between unrestricted moduli and prime powers well-motivated exact invariants. Explicit minimal moduli, least prime cutoffs, and full reusable witness/obstruction certificates provide a complete natural initial classification even without a general asymptotic theorem; not a claimed solution of the infinite conjecture.",
+      "status": "PASS"
+    }
+  },
+  "checked_sources": [
+    "https://arxiv.org/abs/2610.19597",
+    "https://doi.org/10.1112/blms.12990",
+    "https://doi.org/10.1007/BF01848086",
+    "https://arxiv.org/abs/2609.37434",
+    "Resultary semantic search for First half-range two-prime residue coverings and exact cutoffs",
+    "Git tree and all blob contents at b9ae16bdc053c09aace1fccbe915aae35188e0b6"
+  ],
+  "disposition": "passed",
+  "final_claim": "With E2(q;X) the set of reduced residues represented by products of two primes each <=X, the least modulus with E2(q;q/2)=U(q) is 96, least prime-power such modulus is 256, and the sharp successful prime cutoffs are B(96)=47 and B(256)=127.",
+  "limitations": [
+    "Full original Erdős–Odlyzko–Sárközy (1987) paper was not obtained; it could include small-modulus data despite asymptotic descriptions.",
+    "Unindexed or offline computational tables could contain first-success values or sharp cutoffs.",
+    "Authorized institutional retrieval returned storage-limit error after arXiv/OA attempts; never equated inaccessibility with noncoverage.",
+    "Checks of finitely many instances do not imply universal claims; universal proofs were reconstructed from actual RESULT.md and required scientific lemmas.",
+    "Historical originality assessed to the best of available primary reading; unavailable sources are not declared definitively noncovering.",
+    "All original public source metadata retain operational provenance; publication must be withheld until private metadata are sanitized with exact verified guards."
+  ],
+  "residual_risks": [
+    "Full original Erdős–Odlyzko–Sárközy (1987) paper was not obtained; it could include small-modulus data despite asymptotic descriptions.",
+    "Unindexed or offline computational tables could contain first-success values or sharp cutoffs.",
+    "Authorized institutional retrieval returned storage-limit error after arXiv/OA attempts; never equated inaccessibility with noncoverage."
+  ],
+  "schema_version": 1,
+  "source_inspections": [
+    {
+      "assessment": "Accessible results do not imply two finite first-success thresholds, but unread portions may include tables.",
+      "evidence": [
+        "Large-modulus prime-power theorems with cutoff q, not identified exact half-cutoff finite table."
+      ],
+      "identifier_or_url": "https://arxiv.org/abs/2610.19597",
+      "material_read": "Primary arXiv abstract and accessible descriptions of the main results/theorem ranges; full primary article inaccessible in this run.",
+      "method": "Compared prime-power asymptotic hypotheses and factor bound X=q to finite half bound q/2.",
+      "title": "On the Erdős–Odlyzko–Sárközy conjecture for prime-power moduli",
+      "trigger": "Same two-prime-product residue object"
+    },
+    {
+      "assessment": "Theorem of six-prime full coverage at sufficiently large primes does not imply two-prime small exact half-range.",
+      "evidence": [
+        "General estimates; six-prime, sufficiently large q result, not q96/256 two-prime table."
+      ],
+      "identifier_or_url": "https://doi.org/10.1112/blms.12990",
+      "material_read": "Accessible Wiley open full-text HTML, introduction and Theorems 1–2 with their exact prime factor counts and asymptotic hypotheses.",
+      "method": "Compared number of factors, modulus range and cutoffs.",
+      "title": "On the existence of products of primes in arithmetic progressions",
+      "trigger": "Potential stronger multi-prime covering theorem"
+    },
+    {
+      "assessment": "Unknown, materially unread; potentially relevant historical priority.",
+      "evidence": [
+        "Same invariant family, unverified whether original paper contains exhaustive small-modulus tables."
+      ],
+      "identifier_or_url": "https://doi.org/10.1007/BF01848086",
+      "material_read": "Bibliographic record and reference context only; no complete article text obtained.",
+      "method": "Open-access and preprint sought first; authorized institutional download then failed with storage-capacity limit; no circumvention.",
+      "title": "On the residues of products of prime numbers",
+      "trigger": "Original 1987 two-prime residue literature could contain numerical tables"
+    },
+    {
+      "assessment": "Not directly an exact deterministic small-modulus classification.",
+      "evidence": [
+        "Different probabilistic prime surrogate model."
+      ],
+      "identifier_or_url": "https://arxiv.org/abs/2609.37434",
+      "material_read": "Abstract only, no complete text.",
+      "method": "Compared model: random model versus actual arithmetic primes.",
+      "title": "Products of two elements of Granville’s random model in residue classes",
+      "trigger": "Potential stronger two-prime residue conclusion"
+    }
+  ]
+}

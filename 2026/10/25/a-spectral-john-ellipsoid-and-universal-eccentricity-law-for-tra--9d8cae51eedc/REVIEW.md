@@ -1,15 +1,21 @@
-# Scientific review of the spectral John ellipsoid theorem
+# Independent mathematical audit
 
-## Correctness — PASS
-The exact domain is connected, finite, simple, bipartite, vertex- and edge-transitive graphs of degree at least three. The bipartite unsigned incidence matrix yields the full stable-set facet description. The signless Laplacian is positive semidefinite and has spectrum inside \([0,2d]\). Monotonicity of the scalar trace expression and a chord/Jensen comparison produce the unique parameter. Graph symmetry reduces facet support checks to two scalar traces; both equalities follow from the defining equation. An explicit strictly positive John contact decomposition proves global optimality and uniqueness, without assuming the optimal ellipsoid has the proposed symmetry. The two spectral endpoints establish the exact condition number, and the second spectral moment yields the high-degree limit. Direct matrix checks on thirteen examples corroborate all tangencies and contact identities. Remaining risk is ordinary independent proof checking, not a known missing lemma.
+## correctness
 
-## Originality — PASS, qualified
-The most directly overlapping mathematical records calculate the John ellipsoid of complete height-two **chain** polytopes, balanced complete multipartite stable-set polytopes, and transitive **fractional matching** polytopes. The complete-bipartite specialization is already covered and is explicitly not the novelty claim. Matching polytopes live in edge coordinates and generally have a different dimension; the even-cycle case is likewise not treated as new because cycles are line graphs of cycles. Connected bipartite graphs of minimum degree three have induced claws and cannot themselves be line graphs, so that particular identification cannot cover the stated noncomplete graph family. The two accessible primary full texts are about stable-set combinatorics, perfect-graph inequalities, and reflexive structure, not maximum-volume inscribed ellipsoids. Searches disclosed no directly covering result for all vertex/edge-transitive bipartite stable-set polytopes of degree at least three, the contact decomposition and universal eccentricity limit. Some close published-record full texts were unavailable; the risk of a general incidence-duality theorem is retained.
+PASS
 
-## Value — PASS
-The main contribution is one uniform spectral and optimization certificate across an infinite geometric family including crown graphs and growing-dimensional hypercubes, rather than an isolated finite numerical invariant. It specifies the center, complete John quadratic form, all tangent facets, ellipsoid volume, universal sharp eccentricity bracket, and a dimension-independent high-degree limit. It extends beyond complete bicliques and beyond matching-polytope geometry, giving a tractable Euclidean invariant for naturally symmetric graph polytopes.
+The bipartite stable-set inequalities are all facet-defining by total unimodularity and degree>=3. The scalar trace root is unique by spectral monotonicity with 0 and 2d eigenvalues and Jensen/chord bounds. Vertex/edge transitivity makes two facet-support norms constant; the root forces every slack equal to its corresponding ellipsoid radius. Explicit positive weights 2/(r+2) per coordinate and 2r/[d(r+2)] per edge satisfy the exact John centroid/covariance identities, proving global maximality and uniqueness. The H spectrum and second trace moment tr[(H/d-I)^2]/N=1/d yield the strict semiaxis bracket and universal large-degree limit. Newly constructed 3-cube verifies Q_ii=a², each edge norm=b² and John matrix equality to 3.6e-15; finite check is corroboration only.
 
-## Literature and limitations
-Primary sources: Aliniaeifard–Benedetti–Bergeron–Li–Saliola, *Stable set polytopes and their 1-skeleta*, arXiv:1804.00360 (first posted 2018-04-02); Kohl–Olsen–Sanyal, *Unconditional Reflexive Polytopes*, DOI:10.1007/s00454-020-00199-8. Closest public mathematical records, assessed from accessible summaries only, include *Exact John ellipsoid of unbalanced two-layer chain and order polytopes*, *The John ellipsoid and full contact structure of balanced complete-multipartite stable-set polytopes*, and *Spectral John ellipsoids of vertex-and-edge-transitive fractional matching polytopes*. An equivalence under incidence-matrix transposition has not been exhaustively excluded. The claim does not cover irregular graphs and independent validation is outstanding.
+## originality
 
-Self-review: passed. Independent audit: not yet performed.
+PASS
+
+Best-of-knowledge: two full closest John-ellipsoid primary results use related transitive incidence spectra but different ambient polytopes/facets; neither established the vertex-space all-contact theorem and universal eccentricity limit.
+
+## value
+
+PASS
+
+The explicit metric maximum-volume inscribed ellipsoid on stable-set polytopes of a natural infinite symmetry family is not just an optimized example. A universal signless-Laplacian prescription, exact all-facet contacts, and an unusual graph-independent high-degree limiting eccentricity reveal structural geometry with plausible use for further graph-polytope metric questions.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

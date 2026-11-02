@@ -5,8 +5,11 @@
     "status": "not_performed"
   },
   "independent_audit": {
-    "evidence": null,
-    "status": "not_performed"
+    "status": "passed",
+    "evidence": [
+      "INDEPENDENT_AUDIT_2026-10-28.md",
+      "INDEPENDENT_AUDIT_2026-10-28.json"
+    ]
   },
   "lean_verification": {
     "evidence": null,
@@ -16,20 +19,24 @@
 }
 ---
 
-# Exact computations and limits
+# Independent mathematical audit
 
-Run `python3 verify.py` from this directory; no packages other than Python 3's standard library are required. The verifier reports:
+## correctness
 
-```
-VERIFY_OK formula_n=1..6 paired_partitions_n=1..5 raw_semigroup_n=2,3
-n=1 ranks=(0, 1) total=1
-n=2 ranks=(1, 4, 2) total=7
-n=3 ranks=(1, 9, 90, 6) total=106
-n=4 ranks=(1, 16, 3672, 2112, 24) total=5825
-n=5 ranks=(1, 25, 141800, 157800, 59400, 120) total=359146
-n=6 ranks=(1, 36, 6202350, 10245600, 7635600, 2034720, 720) total=26119027
-```
+PASS
 
-The first method evaluates the symbolic finite sum with exact integers. The second, logically different finite method enumerates paired set partitions and block bijections, using a local polynomial to count matching marked-point pairs. The third directly constructs all generator partial maps on \(T_n\) and closes under composition for \(n=2,3\); it finds 7 distinct generators at \(n=2\), and 88 distinct generators closing to 106 elements at \(n=3\). The corank-one formula is additionally checked for \(3\leq n\leq6\).
+Theorem 5.7/5.9 of Araújo et al classifies admissible pairs of partial bijections alpha:I->Iprime and partition-block bijections beta, with special k<=1 quotient. For k>=2 choose binom(n,k)^2 k! partial alpha; choose marked source partition R on k points with q blocks in S(k,q) ways; extend each source/target marked partition with t extra unmarked blocks by U_m(q,t) each, and permute these t free blocks t! ways. Subtract B_k m! cases all m unmarked points are singleton blocks, forbidden by Theorem 5.9, then add the exactly n! full-domain units. For m=1, sum_q q^2 S(k,q)=B_(k+2)-2B_(k+1). Independently computed exact all-rank formula n=2..6 and an unrelated pair-of-partitions enumeration n<=4 (orders 7,106,5825). The structural theorem itself is a published input, not independently reproved for unbounded n.
 
-Finite computation cannot establish the formula for arbitrary \(n\). Its infinite proof uses the structural classification in arXiv:2605.00041, Theorem 5.9, and the counting proof in RESULT.md. The older antecedent manuscript arXiv:2301.04252 was not exhaustively compared at every historical version. No independent audit is claimed.
+## originality
+
+PASS
+
+Best-of-knowledge comparison of the exact mathematical statement and hypotheses with accessible primary text and Resultary; no materially inspected prior statement logically supplies the complete final claim. Inaccessible relevant texts are identified as residual risks, not automatically classified noncovering.
+
+## value
+
+PASS
+
+The complete base-rank distribution and near-top Bell difference are natural enumerative invariants of a recently classified inverse monoid, distinguished from ordinary partial bijections by compatible partitions and quotient classes. Explicit all-rank counts supply exact reusable data for finite semigroup structure, not merely mechanical reprinting of a known count.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

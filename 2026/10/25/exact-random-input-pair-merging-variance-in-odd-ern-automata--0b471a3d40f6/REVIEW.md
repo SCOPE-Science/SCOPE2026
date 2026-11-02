@@ -1,15 +1,21 @@
-# Scientific review of the odd-state random-input Černý pair variance
+# Independent mathematical audit
 
-## Correctness — PASS
-The claimed observable is a first merger time for one designated pair under independent fair letters. The unordered-pair automaton has precisely \(n(n-1)/2\) transient states in the odd case. Its transitions are stated explicitly, and the first-step moment equations are uniquely solvable because a fixed finite word merges any designated pair. The displayed mean solution satisfies all ordinary and boundary transitions. Summation of the second-moment differences leads to a scalar discrete Poisson equation with an upper reflecting boundary; solving it gives the variance polynomial. The independent rational-arithmetic checker solves the original pair-chain linear equations for odd \(n\le11\), and a finite degree-bound algebra certificate checks the final polynomial identity. These finite computations do not replace the general proof.
+## correctness
 
-## Originality — PASS, with priority uncertainty
-Gusev (2014, arXiv:1404.6731) supplies the pair-automaton method and the cubic expected time. Inspection of its relevant full-text derivation finds an expectation calculation, not the second moment or limiting coefficient of variation. General deterministic reset-threshold and random-transition-function studies concern different observables. Related publicly indexed work on exact Černý deficiency thresholds concerns shortest deterministic words, not fair-input hitting-time variance. Searches for alternative variance, hitting-time, and random-input terminology identified no covering statement. The result is not proven historically unique; overlooked earlier second-moment analysis remains a risk.
+PASS
 
-## Value — PASS
-The variance has the same order as the square of the known cubic mean, with the explicit nonzero relative dispersion limit \(\sqrt{2/3}\). This distinguishes typical reliability under stochastic input from the previously calculated expectation and supplies an exact infinite-family stochastic statistic in a canonical extremal automaton.
+On unordered pair states the rotation and collision letter define a finite absorbing Markov chain with unique finite first and second hitting-time solutions. Starting from the specified pair, the first-step equations are (I-P)e=1 and (I-P)s=2e-1. The source splits ordinary self-loop stretches from four exceptional transitions, verifies Gusev’s first moment, and reduces second moments to 2X_l-X_(l-1)-X_(l+1)=D_l with X_0=0 and reflection boundary X_m-X_(m-1)=H_m. Summation yields X_m=mH_m+sum_{l=1}^{m-1}lD_l and subtraction of E² gives the claimed polynomial. Independent exact rational solves of the ORIGINAL unordered-pair system for n=3,5,7,9 agree with both formulas. An independent symbolic summation proves the terminal polynomial identity for arbitrary m (unlike merely checking sample cases). These checks substantiate computations; the global pair-state recurrence and absorbing-chain argument provide the all-odd-n proof.
 
-## Limits and closest work
-The closest source is Gusev's 2014 expected-time theorem; the new conclusion is strictly stronger in a different moment, not a restatement of the expectation. Only odd state counts, the opposite pair, and fair independent inputs are proved. The even case, arbitrary pairs, and full merging-time law are not covered. A prior equivalent variance calculation cannot be ruled out purely by failed searches. All checks are internal to the present analysis.
+## originality
 
-Self-review: passed. Independent audit: not yet performed.
+PASS
+
+Best-of-knowledge PASS for the second merger-time moment. The strongest primary antecedent is Gusev (2014), which analyzes the same random-input fixed Černý pair and derives the cubic expected time, but its read proof does not calculate the second moment. An expectation, deterministic reset threshold, and optimized synchronization probability do not imply the variance of a fair input hitting time. Searches for the exact polynomial, odd-pair variance and absorbing-chain second moment found no covering public record. Earlier equivalent Markov-chain variance calculation could exist under alternative notation, and search failure does not prove priority.
+
+## value
+
+PASS
+
+Random-input synchronization is a canonical probabilistic probe of a slowly synchronizing automaton. The exact variance and nonvanishing limiting coefficient of variation determine the actual dispersion scale, which is not inferable from the previously known expectation or deterministic reset-word bounds. This is a mathematically motivated infinite-family exact invariant, rather than a routine tiny-instance calculation.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

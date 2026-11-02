@@ -1,19 +1,21 @@
-# Scientific review
+# Independent mathematical audit
 
-## Correctness: PASS
+## correctness
 
-The claim is for two independent lateral-area-uniform points on a cone with positive height and base radius; the base disk is expressly excluded. The shorter unfolded angular separation is uniform on \([0,\pi b/L]\), and its upper bound is strictly below \(\pi\). The global shortest intrinsic path therefore has the cosine-distance representation used in the proof. Strict convexity reduces diameter maximization to three radial corner types. The subcritical apex--rim boundary layer has two ordered contributions with coefficient \(4\tan\alpha/(3\alpha)\); the supercritical rim--rim layer is a three-variable simplex of coefficient \(2/[3\alpha\sin^2(\alpha/2)\cos(\alpha/2)]\). At \(\alpha=\pi/3\), both disjoint types contribute, producing \(28/(\pi\sqrt3)\). Limits and normalizations have been checked analytically and against the actual quadrature output. No conclusion concerns the flat-base disk or moving-parameter asymptotics.
+PASS
 
-## Originality: PASS, with residual risk
+Unrolling the lateral Euclidean cone yields independent normalized slant radii R,S with density 2r and folded angular separation Delta uniform [0,alpha], alpha=pi*kappa<pi; D^2/L^2=R^2+S^2-2RS cosDelta. Increasing in Delta and strict convexity in (R,S) place maximum at radial corners: two apex-rim ordered contacts for alpha<pi/3, one rim-rim contact for alpha>pi/3, all three at equality. Radial-angle rescalings give a 2D triangular integral 4tan(alpha)/(3alpha) below, 3D simplex integral 2/(3alpha sin^2(alpha/2)cos(alpha/2)) above; at alpha=pi/3 they add to 28/(pi*sqrt3). Almost-sure monotone coupling in kappa yields stochastic order, and mean R=2/3, mean R^2=1/2 give the exact second moment. Independently integrated conditional survival with Gauss quadrature for eight cases across all regimes; observed tail ratios approached the analytic constants (largest finite epsilon relative error ~12%, reducing epsilon improved all).
 
-Bacher--Sturm's general metric-cone cosine law and radial measure are recognized as prior art, not presented as new. Their inspected paper examines curvature-dimension and metric-cone transport, rather than the leading upper tail of two-point lateral-surface distances. A broad published mathematical-record search returned work on cone Steiner roots, cone projection widths and polyhedral distance distributions, but did not identify the three-branch cubic tail coefficient or the critical additive contribution. Searches for finite cone surface random geodesic-distance distributions did not produce directly covering primary work. A general metric formula supplies the starting point, so an unindexed or inaccessible earlier asymptotic analysis remains a serious bibliographic risk. The searches cannot certify global uniqueness.
+## originality
 
-## Mathematical value: PASS
+PASS
 
-Rare nearly-diametral pairs probe a sharp change in the geometry of a natural compact singular surface: a continuous family of apex--rim contacts is replaced by an opposite-rim contact. The exact cubic law remains valid across the transition, but the amplitude changes discontinuously in the sequential small-tail limit, and at the critical geometry it is the sum of contributions of different codimension. This is a geometric boundary phenomenon, not merely evaluation of an arbitrary fixed parameter or normalization. The same law controls near-diameter extreme-event probabilities for independent sampled pairs.
+Best-of-knowledge comparison of actual final mathematical implications with primary sources and relevant published semantic records. Relevant predecessor results were credited; no inspected full-theorem statement covers the final claim, with explicit residual priority risks.
 
-## Closest literature and limitations
+## value
 
-K. Bacher and K.-T. Sturm, arXiv:1003.2114 (2010), and revised arXiv:1103.0197 (2011), furnish the exact cone metric and area measure. R. Pure et al., DOI 10.1002/mma.7951 (first online 2021), study Euclidean distances of random points in planar polygons, not intrinsic conical-surface distances. The new upper-tail coefficient is not claimed as an independently validated priority result. The source comparison and the finite numerical tests may miss an earlier specialist derivation; independent literature audit remains outstanding.
+PASS
 
-Self-review: passed. Independent audit: not yet performed.
+A classical singular metric cone has a natural intrinsic random-distance diameter; its near-maximal rare-event probability undergoes a geometric transition between apex-rim and rim-rim contact modes. The exact cubic constants and additive critical amplitude are genuinely motivated endpoint invariants, useful in extremes of intrinsic distances and not the routine cone cosine law alone.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
