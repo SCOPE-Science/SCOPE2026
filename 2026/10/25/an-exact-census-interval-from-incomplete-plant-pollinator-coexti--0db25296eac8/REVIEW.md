@@ -1,15 +1,21 @@
-# Scientific review
+# Independent mathematical audit
 
-## Correctness — PASS
+## correctness
 
-The exact OR extinction law gives a coverage function in integer units of the known log-extinction rate. Subset-Möbius inversion maps the sole unknown highest-order extinction exponent to the alternating parity vector \((-1)^{|T|+1}\). Nonnegativity is equivalent to the explicit lower and upper census bounds, and each integer census in the interval is realized by the reconstructed incidence multiplicities. A matching-census pair of even/odd incidence collections proves strict failure for observations of order at most \(m-2\); the construction works for every \(m\ge3\). Exact independent small-system arithmetic in `verification_certificate.json` confirms the formulas without being presented as an infinite proof. Scope presumes exact probabilities, known common \(q\), no pollinator of empty neighborhood and passive single-stage extinction.
+PASS
 
-## Originality — PASS, subject to independent checking
+Under independent homogeneous q and nonempty latent neighborhoods, proper-subset extinction exponents are exact integer set-union coverages. Write F_N(A)=N−u(P\A), F_N(∅)=0. Möbius inversion yields x_T=b_T+(−1)^{|T|+1}N for every nonempty neighborhood type. Its nonnegativity is equivalent to L≤N≤U, every integer realizes a network with that exact observation law, and fixed N determines the multiset. Even/odd parity neighborhoods anchored at plant m have identical census and every coextinction marginal through order m−2 but differ at order m−1. m=3 gives N=6,7,8. Independently exhaustively tested every incidence vector x_T∈{0,1,2} on m=2,3, including candidate boundaries, not as proof for general m.
 
-Nguyen and Zheng (2010, arXiv:1007.0528) **already prove complete-joint-law OR-mixture identifiability**, so that cannot be counted as a new contribution. The assessed claim is narrower in observed data but more explicit about all feasible network completions: the one-dimensional integer **interval** of census sizes, exhaustive incidence multiplicity formulas across the interval, a concrete three-census ambiguity, and the sharp loss of identifiability below order \(m-1\) even when census is known. Their inspected Sections III and IV do not state this incomplete-marginal fiber or exact-order sharpness. Burgos et al. (2006, arXiv:q-bio/0609005) concern forward robustness; Hyttinen et al. (2012, arXiv:1202.3735) concern a different causal noisy-OR identification problem. Broad contingency-table marginal theory or less easily discoverable OR-mixture literature might subsume the specific parity fiber; this is a substantive residual bibliographic risk, not a claim of exhaustive uniqueness.
+## originality
 
-## Mathematical value — PASS
+PASS
 
-A complete sharp identification-and-compatibility theorem is useful when observations measure joint extinction frequencies for every proper plant group but not the full-group event, while the true number of pollinator species is unknown. The theorem tells exactly how many distinct networks could explain the observations, supplies every compatible network with no gaps, and isolates which additional datum removes ambiguity. The three-plant example with precisely three feasible census sizes and the general parity obstruction show information loss is real and quantify the minimum necessary observation order. This is a motivated inverse ecological question and a full classification rather than an arbitrary special-parameter calculation. It does not claim estimation guarantees, cascade dynamics, or new full-joint OR identifiability.
+Best-of-knowledge qualified PASS: classical subset Möbius inversion and complete-law Boolean OR-mixture identifiability are prior. The new assessed statement is the sharp integer interval of all incomplete proper-marginal completions, exact realizability of every census in it and matched-census parity obstruction for order ≤m−2; inspected cited OR/causal/ecological sources do not entail that full incomplete-data classification without additional work. Residual risk is a general marginal polytope/parity theorem.
 
-Self-review: passed. Independent audit: not yet performed.
+## value
+
+PASS
+
+PASS: recovering a latent ecological incidence network from missing full-group extinction events is a natural inverse-identifiability question. A sharp complete integer compatibility interval, an explicit construction for every possible census, and matching-census m−2 parity counterexamples determine what observations are indispensable. Classical inclusion–exclusion is a tool, not the result.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
