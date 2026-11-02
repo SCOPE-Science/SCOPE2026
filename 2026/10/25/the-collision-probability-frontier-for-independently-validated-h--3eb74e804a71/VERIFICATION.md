@@ -5,8 +5,11 @@
     "status": "not_performed"
   },
   "independent_audit": {
-    "evidence": null,
-    "status": "not_performed"
+    "status": "passed",
+    "evidence": [
+      "INDEPENDENT_AUDIT_2026-10-30.md",
+      "INDEPENDENT_AUDIT_2026-10-30.json"
+    ]
   },
   "lean_verification": {
     "evidence": null,
@@ -16,8 +19,24 @@
 }
 ---
 
-# Reproducibility and limits
+# Independent mathematical audit
 
-The standalone `verify.py` requires Python 3 standard library only. Run `python3 verify.py` in the extracted file directory. It uses `Fraction` arithmetic to evaluate all ordered update/validation index pairs, compare the exact stochastic hypergradient expectation to the collision-polynomial formula, and check one-step raw and safeguarded squared-error multipliers. The seeded cases cover dimensions two through six and additional simplex-floor grids through dimension fourteen. It also explicitly enumerates exact validation-gated state distributions through four steps for the four-equally-sampled-component example. No numerical tolerance is used.
+## correctness
 
-The complete infinite-dimensional-parameter claim is proved algebraically in `RESULT.md`. Finite verification does not establish asymptotic or all-parameter statements by itself. The acceptance review is self-review only; the independent audit status is not performed. The online-learned scalar step trajectory is not simulated or certified: the result applies only to a step frozen at the population feedback minimizer.
+PASS
+
+On each pair of independent update/validation indices, the normalized feedback is zero off the diagonal and equals -alpha+h alpha²/(2p_i) when xi=zeta=i, hence E H=-c alpha+(h/2)alpha², uniquely minimized at c/h. Frozen coordinate multiplier is 1-c/p_i. If c<2 min p_i each coordinate contracts on infinitely many independent matched events (prob p_i²), yielding a.s. convergence for all tie policies. If c>=2p_i, any accepted move fails to decrease |x_i|, giving pathwise necessity, including equality and any initial nonzero bad coordinate. Exact collision convexity over simplex p_i>=m gives worst-case vertex (1-(d-1)m,m,...,m) and threshold 1/(sqrt d(sqrt d+1)). Independent Fraction computations verified the expectation, raw/gated one-step factors and d=2 threshold on rational test grids; p=(1/4,3/4) yields unguarded factor 21/16, gate-with-ties-accepted 79/64. Only frozen population-optimal scalar steps are proved, not online step learning. Individual f_i have nonunique hyperplane minimizers but share the unique *common* zero point, clarifying an imprecise phrase in the package.
+
+## originality
+
+PASS
+
+Zhang–Gao–Ye–Udell introduce exactly the motivating independent out-of-sample normalized feedback and conditional convergence for the online algorithm, but not the present sparse coordinate collision threshold or every tie-policy failure. Qu–Richtárik arbitrary-sampling coordinate methods and published scalar-feedback curvature results treat other rules/models. Search compared mathematical implications, not merely coincident hypergradient words.
+
+## value
+
+PASS
+
+The collision probability c is intrinsic to two independent sample indices; its exact comparison to twice the least coordinate probability gives a sharp design/instability frontier. The all-tie-policy failure shows a concrete blind spot of independent validation even with globally strongly convex interpolating objective; a four-component uniformly sampled example is realizable. No false assertion about failure of the full adaptive algorithm is needed.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

@@ -1,15 +1,21 @@
-# Scientific review: collision-probability frontier
+# Independent mathematical audit
 
-## Correctness (C): PASS
-The sampled loss and independent-sample normalization were substituted directly into the source formula. Conditioning on the update/validation pair gives the exact expected feedback \(h\alpha^2/2-c\alpha\). Exact multipliers then give a pathwise converse for *any* validation tie resolution and, in the strictly contracting case, a Borel–Cantelli sufficiency argument using the matched-sample events of probability \(p_i^2\). Convexity of the simplex collision mass yields the dimension-dependent universal threshold. Exact rational tests reproduce the detailed factors. This proves frozen-step dynamics only, not a stochastic step-learning recursion.
+## correctness
 
-## Originality (O): PASS, subject to priority risk
-The principal May 2026 source full text (Sections 2 and 3 and the relevant appendix) specifies the independent out-of-sample feedback and null step, while proving conditional stochastic convergence. It does not classify the collision-biased feedback optimum, its simultaneous all-state convergence, the validation tie-policy obstruction, or the simplex probability-floor threshold. Qu–Richtárik's 2015 arbitrary-sampling analysis concerns a different coordinate descent method and no independent normalized validation gate. Rodomanov–Kropotov's volume-sampling work and Dereziński–Dong's greedy-step quadratic SGD concern different step-selection mechanisms (their publicly accessible abstracts/metadata were inspected). Published mathematical-research searches included the same-source scalar stochastic-curvature feedback result; that result has scalar random Hessians, not coordinate-disjoint validations or all-tie-policy behavior, so its statement does not imply this finding. Equivalent presentations could still exist in the broad coordinate-descent and adaptive-step literature. Search absence alone is not proof of uniqueness.
+PASS
 
-## Mathematical value (V): PASS
-The collision probability \(\sum_i p_i^2\) is a natural observable of independently sampled update/validation pairs; the exact comparison to \(2p_{\min}\) is an interpretable design criterion, not an arbitrary numerical slice. The all-tie-policy result shows that independent validation can be blind to destructive updates when the observation support misses the updated coordinate, notwithstanding global strong convexity and interpolation of all component losses. The closed-form uniform lower-mass frontier gives a natural distribution-robust criterion, and a four-component uniform empirical-risk example demonstrates practical representability. The statement does not assert that the source's full adaptive algorithm fails or that its convergence theorem is false.
+On each pair of independent update/validation indices, the normalized feedback is zero off the diagonal and equals -alpha+h alpha²/(2p_i) when xi=zeta=i, hence E H=-c alpha+(h/2)alpha², uniquely minimized at c/h. Frozen coordinate multiplier is 1-c/p_i. If c<2 min p_i each coordinate contracts on infinitely many independent matched events (prob p_i²), yielding a.s. convergence for all tie policies. If c>=2p_i, any accepted move fails to decrease |x_i|, giving pathwise necessity, including equality and any initial nonzero bad coordinate. Exact collision convexity over simplex p_i>=m gives worst-case vertex (1-(d-1)m,m,...,m) and threshold 1/(sqrt d(sqrt d+1)). Independent Fraction computations verified the expectation, raw/gated one-step factors and d=2 threshold on rational test grids; p=(1/4,3/4) yields unguarded factor 21/16, gate-with-ties-accepted 79/64. Only frozen population-optimal scalar steps are proved, not online step learning. Individual f_i have nonunique hyperplane minimizers but share the unique *common* zero point, clarifying an imprecise phrase in the package.
 
-## Closest literature and limitations
-The most relevant direct primary text is Zhang et al., *Stochastic Gradient Methods with Online Scaling* (2026), equation (4), Algorithm 2, and Theorem 3.3. The closest published record concerns the distinct scalar stochastic-curvature feedback targets and is not strong enough to cover this rank-one, independent-validation construction. Major limits: frozen population-optimal scalar step, special coordinate-sparse model, nonzero gradients for feedback formation, and no independent external priority audit.
+## originality
 
-Self-review: passed. Independent audit: not yet performed.
+PASS
+
+Zhang–Gao–Ye–Udell introduce exactly the motivating independent out-of-sample normalized feedback and conditional convergence for the online algorithm, but not the present sparse coordinate collision threshold or every tie-policy failure. Qu–Richtárik arbitrary-sampling coordinate methods and published scalar-feedback curvature results treat other rules/models. Search compared mathematical implications, not merely coincident hypergradient words.
+
+## value
+
+PASS
+
+The collision probability c is intrinsic to two independent sample indices; its exact comparison to twice the least coordinate probability gives a sharp design/instability frontier. The all-tie-policy failure shows a concrete blind spot of independent validation even with globally strongly convex interpolating objective; a four-component uniformly sampled example is realizable. No false assertion about failure of the full adaptive algorithm is needed.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

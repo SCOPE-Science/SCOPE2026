@@ -1,0 +1,112 @@
+{
+  "audit_date_utc": "2026-10-30",
+  "audited_at_utc": "2026-10-30T02:49:34.239393Z",
+  "axes": {
+    "correctness": {
+      "rationale": "On each pair of independent update/validation indices, the normalized feedback is zero off the diagonal and equals -alpha+h alpha²/(2p_i) when xi=zeta=i, hence E H=-c alpha+(h/2)alpha², uniquely minimized at c/h. Frozen coordinate multiplier is 1-c/p_i. If c<2 min p_i each coordinate contracts on infinitely many independent matched events (prob p_i²), yielding a.s. convergence for all tie policies. If c>=2p_i, any accepted move fails to decrease |x_i|, giving pathwise necessity, including equality and any initial nonzero bad coordinate. Exact collision convexity over simplex p_i>=m gives worst-case vertex (1-(d-1)m,m,...,m) and threshold 1/(sqrt d(sqrt d+1)). Independent Fraction computations verified the expectation, raw/gated one-step factors and d=2 threshold on rational test grids; p=(1/4,3/4) yields unguarded factor 21/16, gate-with-ties-accepted 79/64. Only frozen population-optimal scalar steps are proved, not online step learning. Individual f_i have nonunique hyperplane minimizers but share the unique *common* zero point, clarifying an imprecise phrase in the package.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Stochastic Gradient Methods with Online Scaling (arXiv:2609.11751; Optimization Online 2026-05-28): Defines online scaling and null-step but does not state sharp c<2p_min for a frozen population optimizer, nor all tie-policy sparse-coordinate obstruction.",
+          "Coordinate Descent with Arbitrary Sampling I: Algorithms and Complexity (arXiv:1412.8060): No independent evaluation index and no same normalized hypergradient population-step selection."
+        ],
+        "reasoning": "The online-scaling source has general conditional convergence bounds but does not override this theorem: its hypotheses need not hold at these sparse-coordinate noise levels. Arbitrary sampling descent guarantees use properly sampled coordinate-specific steps and do not force the population optimizer here.",
+        "searches": [
+          "independent validation out of sample hypergradient stochastic coordinate sparse collisions step size stability",
+          "2026/9/20/SCOPE-sosgm-feedback-curvature-stability--021cc30589a6",
+          "https://arxiv.org/abs/2609.11751",
+          "https://arxiv.org/abs/1412.8060"
+        ]
+      },
+      "checked_sources": [
+        "arXiv:2609.11751; Optimization Online 2026-05-28",
+        "arXiv:1412.8060",
+        "independent validation out of sample hypergradient stochastic coordinate sparse collisions step size stability",
+        "2026/9/20/SCOPE-sosgm-feedback-curvature-stability--021cc30589a6",
+        "https://arxiv.org/abs/2609.11751",
+        "https://arxiv.org/abs/1412.8060"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "Stochastic Gradient Methods with Online Scaling (arXiv:2609.11751; Optimization Online 2026-05-28): Defines online scaling and null-step but does not state sharp c<2p_min for a frozen population optimizer, nor all tie-policy sparse-coordinate obstruction.",
+          "Coordinate Descent with Arbitrary Sampling I: Algorithms and Complexity (arXiv:1412.8060): No independent evaluation index and no same normalized hypergradient population-step selection."
+        ],
+        "reasoning": "Zhang et al supply H definition, not the equality-feedback population minimizer c/h under coordinate-support disjointness nor the necessary/sufficient all-tie-policy pathwise criterion. Both require the diagonal collision calculation.",
+        "searches": [
+          "independent validation out of sample hypergradient stochastic coordinate sparse collisions step size stability",
+          "2026/9/20/SCOPE-sosgm-feedback-curvature-stability--021cc30589a6",
+          "https://arxiv.org/abs/2609.11751",
+          "https://arxiv.org/abs/1412.8060"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Stochastic Gradient Methods with Online Scaling (arXiv:2609.11751; Optimization Online 2026-05-28): Defines online scaling and null-step but does not state sharp c<2p_min for a frozen population optimizer, nor all tie-policy sparse-coordinate obstruction.",
+          "Coordinate Descent with Arbitrary Sampling I: Algorithms and Complexity (arXiv:1412.8060): No independent evaluation index and no same normalized hypergradient population-step selection."
+        ],
+        "reasoning": "Normalize the hypergradient by squared sampled gradient, not by objective loss; the pair collision law c=Pr(xi=zeta). Explicitly checked the same estimator in Zhang et al and Resultary scalar-OSGM feedback analysis. The latter uses scalar random curvature, unlike disjoint coordinate observations.",
+        "searches": [
+          "independent validation out of sample hypergradient stochastic coordinate sparse collisions step size stability",
+          "2026/9/20/SCOPE-sosgm-feedback-curvature-stability--021cc30589a6",
+          "https://arxiv.org/abs/2609.11751",
+          "https://arxiv.org/abs/1412.8060"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "Stochastic Gradient Methods with Online Scaling (arXiv:2609.11751; Optimization Online 2026-05-28): Defines online scaling and null-step but does not state sharp c<2p_min for a frozen population optimizer, nor all tie-policy sparse-coordinate obstruction.",
+          "Coordinate Descent with Arbitrary Sampling I: Algorithms and Complexity (arXiv:1412.8060): No independent evaluation index and no same normalized hypergradient population-step selection."
+        ],
+        "reasoning": "Not a finite database or lookup invariant; exact infinite-simplex boundary for c and p_min. Searched Resultary feedback and sampling stability records; the nearest scalar random-curvature frontier is not the same coordinate loss.",
+        "searches": [
+          "independent validation out of sample hypergradient stochastic coordinate sparse collisions step size stability",
+          "2026/9/20/SCOPE-sosgm-feedback-curvature-stability--021cc30589a6",
+          "https://arxiv.org/abs/2609.11751",
+          "https://arxiv.org/abs/1412.8060"
+        ]
+      },
+      "rationale": "Zhang–Gao–Ye–Udell introduce exactly the motivating independent out-of-sample normalized feedback and conditional convergence for the online algorithm, but not the present sparse coordinate collision threshold or every tie-policy failure. Qu–Richtárik arbitrary-sampling coordinate methods and published scalar-feedback curvature results treat other rules/models. Search compared mathematical implications, not merely coincident hypergradient words.",
+      "residual_risks": [
+        "Broad coordinate-descent/learned-stepsize literature may contain an equivalent special-case instability criterion.",
+        "The individual losses have many minimizers (hyperplanes) but the common minimizer of all losses is uniquely zero; do not conflate these.",
+        "Feedback itself undefined for zero sampled gradient; theorem is about the well-defined frozen-step dynamics, not full online hyperparameter learning."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Defines online scaling and null-step but does not state sharp c<2p_min for a frozen population optimizer, nor all tie-policy sparse-coordinate obstruction.",
+          "evidence": "The paper requires stochastic-gradient/oracle assumptions and studies online step dynamics, not the submitted frozen scalar model.",
+          "identifier_or_url": "arXiv:2609.11751; Optimization Online 2026-05-28",
+          "material_read": "Accessible primary full-text equation (4), Section 3.1, Algorithm 2 and convergence theorem/conditions.",
+          "method": "Read PDF text and page image; compared exact feedback definitions, theorem assumptions and model.",
+          "title": "Stochastic Gradient Methods with Online Scaling",
+          "trigger": "This is the motivating same feedback estimator and validation rule."
+        },
+        {
+          "assessment": "No independent evaluation index and no same normalized hypergradient population-step selection.",
+          "evidence": "Different step choices and acceptance rule; a general descent guarantee does not force the exact chosen frozen scalar threshold.",
+          "identifier_or_url": "arXiv:1412.8060",
+          "material_read": "Accessible primary article theorem/algorithm statements as retrieved for comparison.",
+          "method": "Compared objective, sampling rules and coordinatewise steps against independent-validation feedback.",
+          "title": "Coordinate Descent with Arbitrary Sampling I: Algorithms and Complexity",
+          "trigger": "Potential broader theorem on arbitrary positive coordinate sampling."
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "rationale": "The collision probability c is intrinsic to two independent sample indices; its exact comparison to twice the least coordinate probability gives a sharp design/instability frontier. The all-tie-policy failure shows a concrete blind spot of independent validation even with globally strongly convex interpolating objective; a four-component uniformly sampled example is realizable. No false assertion about failure of the full adaptive algorithm is needed.",
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "final_claim": "For coordinate-sparse quadratic component losses f_i=h*x_i²/(2p_i), independent normalized out-of-sample hypergradient feedback has frozen population-optimal scalar step c/h, c=sum p_i², and raw and every validation-tie-policy iteration converges from every initial point iff c<2 min_i p_i; exact d=2 and all-d sampling-floor thresholds follow.",
+  "limitations": [
+    "Broad coordinate-descent/learned-stepsize literature may contain an equivalent special-case instability criterion.",
+    "The individual losses have many minimizers (hyperplanes) but the common minimizer of all losses is uniquely zero; do not conflate these.",
+    "Feedback itself undefined for zero sampled gradient; theorem is about the well-defined frozen-step dynamics, not full online hyperparameter learning.",
+    "Scientific review does not imply external attestation; verification code checks bounded examples and identities only. Publication plan is not executable as submitted."
+  ],
+  "schema_version": 1
+}
