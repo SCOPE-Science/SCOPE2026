@@ -1,15 +1,21 @@
-# Scientific review
+# Independent mathematical audit
 
-## Correctness — PASS
-The proof uniquely encodes each nonempty order-preserving partial isometry by an integer translation and a nonempty eligible source subset. It derives the exact common-source length for two shifts, uses the four possible membership pairs on each eligible point, and collapses the two-shift sum by an exhaustive sign partition. The redundant copies of the zero map affect only rank zero and are corrected with the precise multiplicity. The asymptotic argument proves an exact conditional binomial law, a quantitative coupling bound, and a mean-bias constant from a fully evaluated two-sided-geometric convolution. A standalone independent finite enumeration directly verifies every coefficient through size seven, with separate arithmetic checks through size forty. Risk: finite checks alone would not prove the universal theorem; its proof is combinatorial and analytic.
+## correctness
 
-## Originality — PASS, with residual historical-priority risk
-Kehinde–Umar, arXiv:1101.0049v1 (30 December 2010), Sections 2–3 establish structure, Green relations and marginal enumerations, not the rank of a product of two elements. Al-Kharousi–Kehinde–Umar, *Australasian Journal of Combinatorics* 58(3) (2014), Sections 2–3 provide individual rank/fix and class counts, not the convolution. Relevant recorded results about commuting partial involutions and commuting square-zero pairs impose restrictions not present here and do not imply the independent unrestricted partial-translation product law. Targeted claim, formula and alias searches did not locate a covering result; this is a best-knowledge comparison, not a proof of global novelty. Residual risk: uninspected historical papers or a general result explicitly enumerating products in partial translation inverse monoids could imply the formula.
+PASS
 
-## Value — PASS
-Product rank is a basic invariant of multiplication in a finite inverse semigroup, distinct from the rank distribution of a single element. The theorem determines the full ordered-product rank spectrum for all degrees with a one-dimensional explicit sum, gives sharp top-rank multiplicities, identifies a universal binomial limit in total variation, and computes a nonzero constant-order mean correction. These linked exact and asymptotic facts quantify how the translation constraint shapes multiplication; the result is not merely a table, reparametrization, or routine single-element enumeration.
+Every nonempty order-preserving isometry is a unique partial translation by shift a. Temporarily distinguishing 2n-1 empty maps gives a labeled shift family of 3*2^n-4 objects. For shifts a,b, surviving source positions form an interval of length L=max(0,n-w(a,b)) with w=max(0,a,a+b)-min(0,a,a+b); each common position has independent membership choices with generating factor 3+t and the remaining positions have 2-power multiplicity. Summing shifts by sign and displacement and correcting precisely 2n-2 extra empty-map labels yields the displayed all-n polynomial, including n=1. Independent direct multiplication of every ordered pair of actual partial translations through n=7 matched all coefficients (profiles recorded). Conditional on the labeled shifts the rank is exactly Bin(L,1/4). Exponentially decaying two-sided geometric shifts yield E(n-L)->64/27 and uniformly bounded fluctuations; a binomial coupling yields total variation O(n^-1/2), zero-label correction O(n2^-n), and the mean -16/27. The asymptotic proof is analytic, not inferred from finite enumeration.
 
-## Scope and limitations
-The theorem is restricted to the order-preserving partial-isometry inverse monoid of a linearly ordered finite metric chain. It does not determine arbitrary output fibers or the corresponding distribution for order-reversing partial isometries. Primary source comparisons and index searches cannot exclude every historical equivalent. No independent mathematical validation has been performed.
+## originality
 
-Self-review: passed. Independent audit: not yet performed.
+PASS
+
+Kehinde–Umar and Al-Kharousi–Kehinde–Umar count and classify individual partial isometries of finite chains (including some order-reversing variants), but the inspected statements do not give a two-independent-factor rank convolution. OEIS A183158 tabulates single-element fixed points, not rank of a composition. No Resultary or web hit claimed the exact all-n product-rank formula and limit.
+
+## value
+
+PASS
+
+The monoid is a canonical finite-chain inverse semigroup whose single-element cardinalities and Green relations are studied. The full multiplication rank of two independent elements and its universal binomial approximation are new natural probabilistic/algebraic observables, and the nonzero constant mean correction records boundary geometry. The precise all-n generating polynomial is useful beyond routine single-map enumeration.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
