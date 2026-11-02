@@ -5,8 +5,11 @@
     "status": "not_performed"
   },
   "independent_audit": {
-    "evidence": null,
-    "status": "not_performed"
+    "status": "passed",
+    "evidence": [
+      "INDEPENDENT_AUDIT_2026-10-30.md",
+      "INDEPENDENT_AUDIT_2026-10-30.json"
+    ]
   },
   "lean_verification": {
     "evidence": null,
@@ -16,8 +19,24 @@
 }
 ---
 
-# Exact checker and limits
+# Independent mathematical audit
 
-Execute `python3 verify.py` from this package. The standalone checker independently constructs the double-star edge set, visits every partial map including the everywhere-undefined map, tests exact idempotence and the full vertex/edge inverse-preimage conditions, and compares each rank coefficient against the symbolic formula. Tested pairs are `(1,1), (1,2), (2,2), (1,3), (2,3)`; the script prints `VERIFY_OK` only after all tests pass. The exhaustive range is finite and does not itself prove the formula for larger branching sizes; that follows from the fixed-target fiber lemma and exhaustive four-case proof in RESULT.md.
+## correctness
 
-No formal proof assistant or independent external audit was used.
+PASS
+
+Reconstructed idempotent fiber lemma: image fixed vertices, each optional external preimage is a distinct adjacent vertex sent to an isolated fixed vertex; full inverse-simplex conditions force injectivity/isolated targets and suffice. Four exhaustive cases by fixed-hub set give polynomial factors F_s=(1+t)^s and H_s=(1+t)^s+st(1+t)^(s−1). Independently enumerated all partial maps (including undefined) and tested all simplex preimages for five (a,b) pairs, matching every polynomial coefficient.
+
+## originality
+
+PASS
+
+Best-of-knowledge comparison of the precise final mathematical statement against relevant published frameworks and Resultary findings; priority remains qualified, not asserted conclusively. PRIORITY RISK: NOT assessed as whole-document NOT_COVERING. Accessible material does not establish the exact double-star rank formula; no strong coverage evidence identified.
+
+## value
+
+PASS
+
+A complete all-parameter idempotent rank distribution for natural first tree with two branching hubs extends path/star cases by a genuine central-edge interaction, with a meaningful bridge-assignment correction. This is a motivated semigroup enumeration invariant.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
