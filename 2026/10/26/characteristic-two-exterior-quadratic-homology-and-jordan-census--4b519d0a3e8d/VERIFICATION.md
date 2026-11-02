@@ -5,8 +5,11 @@
     "status": "not_performed"
   },
   "independent_audit": {
-    "evidence": null,
-    "status": "not_performed"
+    "status": "passed",
+    "evidence": [
+      "INDEPENDENT_AUDIT_2026-10-30.md",
+      "INDEPENDENT_AUDIT_2026-10-30.json"
+    ]
   },
   "lean_verification": {
     "evidence": null,
@@ -16,8 +19,24 @@
 }
 ---
 
-# Verification
+# Independent mathematical audit
 
-The standalone checker `verify_exterior_quadratic.py` was run directly from the package input. It exhaustively enumerated all homogeneous quadratic forms in dimensions 2..5 over \(\mathbb F_2\) and dimensions 2..4 over \(\mathbb F_4\). The checker also used explicit rank representatives in dimensions 6 and 7 over \(\mathbb F_2\). It constructed both coefficient matrices and full wedge-multiplication matrices, compared their ranks with the theorem, and independently tested all fiber sizes against Gaussian-symplectic factors. The run ended with `ALL_EXTERIOR_QUADRATIC_CHECKS_PASSED 5270`.
+## correctness
 
-This finite validation does not prove the infinite result; the normal-form and tensor-complex proof supplies the general argument. No independent audit has been performed.
+PASS
+
+In char 2 the square of any degree-2 omega vanishes because diagonal wedges square to zero and commuting cross terms cancel. Alternating normal form gives omega=sum_i e_i wedge f_i. In one 2-dimensional pair, multiplication maps degree0 1 to degree2 e_i f_i and leaves two degree1 classes, local homology polynomial 2t (not t); tensor-field Kunneth yields (2t)^r(1+t)^(n-2r). Total kernel/image quotient dimension 2^(n-r) and rank (2^n-2^(n-r))/2 determines Jordan blocks. Alternating rank-2r forms counted by radical Grassmannian times GL(2r,q)/Sp(2r,q), giving formula. Independently exhaustive GF(2) homology for n=3,4,5 and n4 counts [1,35,28] for r=0,1,2, 1096 finite checks; general proof is algebraic.
+
+## originality
+
+PASS
+
+Classical symplectic normal forms, field Kunneth and GL/Sp counts are prior inputs and not new. Korhonen 2021 studies induced nilpotent operators on exterior-square modules rather than left multiplication by arbitrary bivectors on the full exterior algebra. The complete graded homology plus all finite-field Jordan fiber distribution was not found in inspected results. Risk: elementary symplectic complex/Koszul accounts may already imply the polynomial.
+
+## value
+
+PASS
+
+Left multiplication by a quadratic element is a canonical family of square-zero endomorphisms of the full exterior algebra. The exact all-rank graded homology and Jordan parameter-fiber counts are natural structural invariants in finite-field exterior algebra beyond a single small-case table.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
