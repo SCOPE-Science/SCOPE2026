@@ -1,0 +1,148 @@
+{
+  "audit_date_utc": "2026-10-27",
+  "audited_at_utc": "2026-10-27T14:50:31Z",
+  "axes": {
+    "correctness": {
+      "rationale": "The complete root-polytope volume follows from the positive/negative coordinate-mass orthant decomposition and Vandermonde. An oriented deleted-root cap is a lattice-height-one pyramid over a crosspolytope of determinant 1/2, giving 2^(n-3); disjoint deleted-edge caps cannot overlap in positive-volume interiors, so losses add. An independent check of the previously published full h*-numerator at 1 recovers the same formula for 3<=n<=18, and the stronger exact published identity gives all n. No invalid extrapolation is used.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "The general Ehrhart numerator determines all lattice-volume and Ehrhart coefficients for every n,r in the claim. The decomposability classification covers the n>=5 graph-family corollary."
+        ],
+        "reasoning": "Both parts of the scientific claim are consequences of stronger published theorems.",
+        "searches": [
+          "Ziegler Lemma 2.1 gauge and Lemma 2.2 full Ehrhart polynomial",
+          "Higashitani and Mori arXiv:2608.02445 classification 2026-08-03"
+        ]
+      },
+      "checked_sources": [
+        "Ziegler (2026-10-08), DOI:10.5281/zenodo.23235571, Lemma 2.2 (2.1)",
+        "Higashitani and Mori, arXiv:2608.02445",
+        "D’Alì et al, doi:10.37236/10387",
+        "Resultary semantic search 2026-10-27: normalized lattice volume symmetric edge polytopes complete graph minus matching deleted disjoint edges root polytopes"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "Set d=n-1 in Ziegler equation (2.1); H(1)=sum binom(d,j)^2-2r*2^(d-2)=binom(2d,d)-r2^(d-1)."
+        ],
+        "reasoning": "This algebraic evaluation yields the complete submitted equality for every allowed n,r. Higashitani--Mori gives n>=5 indecomposability. There is no residual independently original theorem to repair.",
+        "searches": [
+          "Ziegler 2026-10-08 full primary text lines 654-724, 816-958",
+          "Higashitani--Mori arXiv:2608.02445 theorem"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Ziegler gives an exact h*-polynomial H_{d,r}(t) for exactly the same graph family and root lattice; normalized volume equals H(1)."
+        ],
+        "reasoning": "Ehrhart h*-numerator evaluation at 1 is mathematically equivalent to the normalized volume; this covers even when the prior title discusses off-line roots rather than volumes.",
+        "searches": [
+          "Resultary semantic search 2026-10-27: normalized lattice volume symmetric edge polytopes complete graph minus matching deleted disjoint edges root polytopes",
+          "Ziegler 2026-10-08 full text Lemma 2.2, h*-polynomial for K_(d+1) minus r matching"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "A full exact polynomial, not just a numerical table, is available for all parameters; at t=1 it yields the volume."
+        ],
+        "reasoning": "The previously published exact formula dominates any finite data and the claimed volume census.",
+        "searches": [
+          "Ziegler Lemma 2.2 equation (2.1); d>=2 and 0<=r<=floor((d+1)/2)",
+          "Resultary root-polytope and matching-deletion semantic search 2026-10-27"
+        ]
+      },
+      "rationale": "FAIL: Aran S. Ziegler, Off-line Ehrhart roots for complete multipartite symmetric edge polytopes, version 1 dated 2026-10-08, Lemma 2.2 equation (2.1), determines the full Ehrhart h*-numerator H_{d,r}(t)=sum_{j=0}^d binom(d,j)^2*t^j -2r*t*(1+t)^(d-2) for precisely K_(d+1) with r disjoint edges deleted. For any dimension-d integral lattice polytope normalized volume is H(1), hence H_{d,r}(1)=binom(2d,d)-r*2^(d-1), exactly the audited claim for d=n-1. This is a stronger prior implication, not a title match; Higashitani--Mori independently already cover the decomposability corollary.",
+      "residual_risks": [
+        "The author-uploaded text identifies version 1 dated 2026-10-08, earlier than record dated 2026-10-25; any uncertainty about journal refereeing does not change publicly available prior mathematical coverage.",
+        "Local algebra checks corroborate equality, not an independent universal proof.",
+        "Nonmatching edge-deletion interactions are outside the submitted theorem."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "DEFINITIVELY_COVERING",
+          "evidence": "Lemma 2.2 H_{d,r}=sum binom(d,j)^2 t^j-2r t(1+t)^(d-2); at 1 exactly volume of source claim.",
+          "identifier_or_url": "https://www.researchgate.net/publication/415394406_Off-line_Ehrhart_roots_for_complete_multipartite_symmetric_edge_polytopes ; DOI:10.5281/zenodo.23235571",
+          "material_read": "Primary full author-uploaded text, abstract, version 2026-10-08, Section 2 Lemmas 2.1 and 2.2, equations (2.1) and (2.2), proof of matching-deletion counting",
+          "method": "Read complete relevant primary text and evaluated published polynomial at t=1",
+          "title": "Off-line Ehrhart roots for complete multipartite symmetric edge polytopes",
+          "trigger": "Exact same graph K_n minus a matching and potentially dominating Ehrhart polynomial"
+        },
+        {
+          "assessment": "COVERING_QUALITATIVE_COROLLARY",
+          "evidence": "Decomposable graphs exactly K_n,K_(2,n-2),K_(1,1,n-2); the matching deletion graph is outside these n>=5.",
+          "identifier_or_url": "arXiv:2608.02445",
+          "material_read": "Published theorem and primary abstract; complete proof not re-read during this run",
+          "method": "Compared general graph-family criterion to K_n minus a nonempty matching for n>=5",
+          "title": "Minkowski decomposability of symmetric edge polytopes",
+          "trigger": "Exact same polytopes, qualitative decomposition clause"
+        },
+        {
+          "assessment": "BACKGROUND",
+          "evidence": "Previously known symmetric-edge model; not needed for decisive coverage.",
+          "identifier_or_url": "doi:10.37236/10387",
+          "material_read": "Reference metadata and submission relationship only, not complete source re-read",
+          "method": "Used only as background, made no full-text noncoverage claim",
+          "title": "Many faces of symmetric edge polytopes",
+          "trigger": "Root-polytope model and background volume methods"
+        }
+      ],
+      "status": "FAIL"
+    },
+    "value": {
+      "rationale": "FAIL: The proposed additive matching-deletion lattice volume and its complete parameter range are direct specialization H(1) of an already published, stronger h*-polynomial identity. The qualitative indecomposability comparison is covered separately by the 2026 full graph classification. The geometry is valid as exposition but supplies no independently unknown exact invariant or structural theorem after these two priority comparisons.",
+      "status": "FAIL"
+    }
+  },
+  "checked_sources": [
+    "Ziegler (2026-10-08), DOI:10.5281/zenodo.23235571, Lemma 2.2 (2.1)",
+    "Higashitani and Mori, arXiv:2608.02445",
+    "D’Alì et al, doi:10.37236/10387",
+    "Resultary semantic search 2026-10-27: normalized lattice volume symmetric edge polytopes complete graph minus matching deleted disjoint edges root polytopes"
+  ],
+  "disposition": "failed",
+  "final_claim": "For n>=3 and any matching of r edges deleted from K_n, the root-lattice normalized symmetric edge polytope volume is binom(2n-2,n-1)-r*2^(n-2); oriented caps have volume 2^(n-3); n>=5 nonempty matching deletion is Minkowski indecomposable.",
+  "limitations": [
+    "The author-uploaded text identifies version 1 dated 2026-10-08, earlier than record dated 2026-10-25; any uncertainty about journal refereeing does not change publicly available prior mathematical coverage.",
+    "Local algebra checks corroborate equality, not an independent universal proof.",
+    "Nonmatching edge-deletion interactions are outside the submitted theorem.",
+    "GitHub original blobs were inspected at frozen repository commit and their SHA identities independently reassembled into exact matching tree SHA; original raw blob byte streams were not locally rehashed.",
+    "Original public METADATA.json and AUDIT.json contain operational scope_run_id keys; full sanitizing replacements were not verified; publication transport withheld without altering the historical scientific package."
+  ],
+  "residual_risks": [
+    "The author-uploaded text identifies version 1 dated 2026-10-08, earlier than record dated 2026-10-25; any uncertainty about journal refereeing does not change publicly available prior mathematical coverage.",
+    "Local algebra checks corroborate equality, not an independent universal proof.",
+    "Nonmatching edge-deletion interactions are outside the submitted theorem."
+  ],
+  "schema_version": 1,
+  "source_inspections": [
+    {
+      "assessment": "DEFINITIVELY_COVERING",
+      "evidence": "Lemma 2.2 H_{d,r}=sum binom(d,j)^2 t^j-2r t(1+t)^(d-2); at 1 exactly volume of source claim.",
+      "identifier_or_url": "https://www.researchgate.net/publication/415394406_Off-line_Ehrhart_roots_for_complete_multipartite_symmetric_edge_polytopes ; DOI:10.5281/zenodo.23235571",
+      "material_read": "Primary full author-uploaded text, abstract, version 2026-10-08, Section 2 Lemmas 2.1 and 2.2, equations (2.1) and (2.2), proof of matching-deletion counting",
+      "method": "Read complete relevant primary text and evaluated published polynomial at t=1",
+      "title": "Off-line Ehrhart roots for complete multipartite symmetric edge polytopes",
+      "trigger": "Exact same graph K_n minus a matching and potentially dominating Ehrhart polynomial"
+    },
+    {
+      "assessment": "COVERING_QUALITATIVE_COROLLARY",
+      "evidence": "Decomposable graphs exactly K_n,K_(2,n-2),K_(1,1,n-2); the matching deletion graph is outside these n>=5.",
+      "identifier_or_url": "arXiv:2608.02445",
+      "material_read": "Published theorem and primary abstract; complete proof not re-read during this run",
+      "method": "Compared general graph-family criterion to K_n minus a nonempty matching for n>=5",
+      "title": "Minkowski decomposability of symmetric edge polytopes",
+      "trigger": "Exact same polytopes, qualitative decomposition clause"
+    },
+    {
+      "assessment": "BACKGROUND",
+      "evidence": "Previously known symmetric-edge model; not needed for decisive coverage.",
+      "identifier_or_url": "doi:10.37236/10387",
+      "material_read": "Reference metadata and submission relationship only, not complete source re-read",
+      "method": "Used only as background, made no full-text noncoverage claim",
+      "title": "Many faces of symmetric edge polytopes",
+      "trigger": "Root-polytope model and background volume methods"
+    }
+  ]
+}
