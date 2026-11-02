@@ -1,0 +1,110 @@
+{
+  "correctness": {
+    "rationale": "The Schur norm is exactly a maximum of weighted nuclear norms by duality. Joint concavity of matrix fidelity makes averaging over the defect stabilizer valid and permits \\(p=q\\) by symmetry. The reduced Gram spectrum consists of N with multiplicity \\(N-2\\) plus an explicitly computed \\(2\\times2\\) block. Its trace norm has a unique analytic maximizing parameter and yields the stated closed form and asymptotic. A standalone standard-library checker passes 560 finite assertions, which are supplementary only.",
+    "status": "PASS"
+  },
+  "independent": false,
+  "independent_audit_status": "not_performed",
+  "originality": {
+    "broader_coverage": {
+      "evidence": [
+        "Holbrook–Johnston–Schoch prove the general upper bound \\(\\sqrt N\\) and equality iff Hadamard; this bounds but does not determine the strict defect loss.",
+        "Davidson–Donsig exact symmetry theorem assumes transitive group action, while defect-preserving action has two distinct orbits (zero and nonzero).",
+        "Christensen 2026 Theorem 2.2 characterizes all self-adjoint Schur norms as an implicit positive-matrix optimization; it contains no closed-form Walsh one-defect specialization or dimension asymptotic."
+      ],
+      "reasoning": "The Hadamard upper bound has broader matrix scope but cannot imply the exact strict deficit and its optimizer. The transitive Schur norm formula does not subsume the two-orbit defect calculation without the new concavity reduction. A general abstract SDP representation does not give the closed form. Christensen's general self-adjoint semidefinite representation supplies a different implicit optimization but no exact evaluation for the specified matrix family.",
+      "searches": [
+        "Single sign-flip perturbation of Sylvester Hadamard matrix exact Schur multiplier norm sqrt n near extremal defect one entry",
+        "Holbrook Johnston Schoch arxiv:2206.02863v1 full PDF, theorem 2 and section 4",
+        "Davidson Donsig arxiv:math/0506073v1 full text sections 4 and 5",
+        "arxiv:2505.24670v2, Theorem 2.2, general self-adjoint Schur multiplier variational norm"
+      ]
+    },
+    "checked_sources": [
+      "arxiv:2206.02863v1",
+      "arxiv:math/0506073v1",
+      "Published mathematical-finding index searches documented in the four checks",
+      "arxiv:2505.24670v2 (supporting general self-adjoint variational framework)"
+    ],
+    "claim_vs_prior_implication": {
+      "evidence": [
+        "The 2022 equality theorem implies the one-defect norm is below \\(\\sqrt N\\) but does not supply its value.",
+        "The 2005 symmetry method applies directly only for transitive actions, not the present two-orbit pattern; the new proof explicitly handles non-transitivity.",
+        "Christensen 2026: the implicit self-adjoint characterization holds for the symmetric defective Walsh matrix but does not itself report the closed form or its optimizer."
+      ],
+      "reasoning": "Known strictly non-Hadamard behavior is a qualitative corollary of the sharp sign-matrix bound. The exact universal expression, optimizing weights, and leading \\(N^{-3/2}\\) loss are quantitatively stronger and are not obtained by simple parameter substitution from the inspected statements.",
+      "searches": [
+        "arxiv:2206.02863v1: Hadamard equality case and examples",
+        "arxiv:math/0506073v1: transitive group symmetry and Schur norm computation",
+        "Hadamard sign-flip defect and the Schur norm gap n to infinity"
+      ]
+    },
+    "equivalent_formulations": {
+      "evidence": [
+        "arxiv:2206.02863v1, sec. 4: norm classes of sign matrices of order four, including the special value; does not state an all-dyadic formula.",
+        "arxiv:math/0506073v1: equivalent operator-theoretic Schur multiplier norms but no one-sign-defect Walsh calculation in its large-symmetry examples."
+      ],
+      "reasoning": "The same quantity can be described as a gamma-2 factorization norm or a max weighted nuclear norm. Searches included these aliases and the single-defect/reversed-sign formulation. The order-four special case is expressly excluded from the novelty claim. No prior statement implying the all-dyadic formula and its explicit optimizer was found, but equivalence in older factorization literature remains possible.",
+      "searches": [
+        "punctured Walsh Hadamard matrix sign defect exact Schur multiplier norm dyadic order 2^d",
+        "one-bit error Sylvester Hadamard matrix norm gamma2 factorization Haagerup exact",
+        "Schur multiplier Hadamard single entry sign changed norm dyadic Walsh matrix exact"
+      ]
+    },
+    "exact_database_or_table": {
+      "evidence": [
+        "The published four-by-four sign-matrix spectrum contains (2+3 sqrt(6))/5, matching the one-defect order-four value.",
+        "No indexed public mathematical finding reported an all-dyadic one-defect Schur norm table or formula."
+      ],
+      "reasoning": "Finite order-four and order-two cases are acknowledged as known or elementary; a catalogued value in one fixed small order does not determine the claimed infinite family. Search failures alone are not proof of novelty.",
+      "searches": [
+        "Holbrook Johnston Schoch arxiv:2206.02863v1 section 4.2 small sign matrices",
+        "Hadamard matrix one entry changed ±1 Schur norm exact value operator norm robustness",
+        "Exact Schur multiplier norms of sign matrices constant diagonal off diagonal finite matrix numerical operator norm circulant Fourier"
+      ]
+    },
+    "rationale": "Full relevant text of the 2022 sharp real sign-matrix Schur norm paper and 2005 symmetry foundations, and the 2026 revision of a general self-adjoint variational representation, were compared by implication. The known order-four value and general \\(\\sqrt N\\) Hadamard equality case are credited; none of the inspected theorems supplies the all-dyadic sharp one-defect formula, weight optimizer or \\(N^{-3/2}\\) stability law. Indexed mathematical-finding alias searches found no equivalent record; unindexed prior derivations remain possible.",
+    "residual_risks": [
+      "An equivalent one-sign-defect Walsh/Schur norm identity may appear in earlier nearly-Hadamard, factorization, matrix-balancing or operator-space literature not indexed by the available sources.",
+      "The uniqueness of the optimizer is established only inside the symmetry-reduced family; arbitrary non-symmetric optimizers are not classified."
+    ],
+    "source_inspections": [
+      {
+        "assessment": "Relevant universal upper bound and known small case, but no all-dyadic one-sign defect closed form or maximizer identified",
+        "evidence": "arxiv:2206.02863v1, original posting 2022-06-06; theorem 2 and section 4.2.",
+        "identifier_or_url": "https://arxiv.org/pdf/2206.02863",
+        "material_read": "Theorem giving \\(\\sqrt N\\) upper bound and Hadamard equality; full relevant small-order classification and worked examples in section 4 including order-four spectrum",
+        "method": "Read text of primary accessible preprint and visually inspected relevant PDF pages",
+        "title": "Real Schur norms and Hadamard matrices",
+        "trigger": "Exact sharp sign-matrix Schur-norm literature and closest one-defect special cases"
+      },
+      {
+        "assessment": "Provides general foundational representation and transitive action theory; does not identify the two-orbit defective Walsh result",
+        "evidence": "arxiv:math/0506073v1, sections 4 and 5.",
+        "identifier_or_url": "https://arxiv.org/abs/math/0506073",
+        "material_read": "Introduction and transitive-symmetry sections 4–5, including hypotheses and application to Kneser graph multipliers",
+        "method": "Read accessible full arXiv HTML text and relevant PDF material",
+        "title": "Norms of Schur Multipliers",
+        "trigger": "General exact Schur norms by group symmetry and factorization methods"
+      },
+      {
+        "assessment": "General self-adjoint positive-matrix variational characterization; no one-defect Walsh exact evaluation or asymptotic identified",
+        "evidence": "arxiv:2505.24670v2, Theorem 2.2; Example 5.1 is a block rank-one construction rather than defective Walsh.",
+        "identifier_or_url": "https://arxiv.org/pdf/2505.24670",
+        "material_read": "Introduction; Theorem 2.2 and its proof in section 2; relevant example and Walter-inequality discussion in section 5",
+        "method": "Inspected accessible primary PDF text and first-page screenshot; searched PDF for Walsh and sign-defect terms",
+        "title": "The Schur multiplier norm and its dual norm",
+        "trigger": "Potentially dominating self-adjoint Schur norm formula for symmetric defective Walsh matrices"
+      }
+    ],
+    "status": "PASS"
+  },
+  "review_type": "self_review",
+  "schema_version": 1,
+  "scope_run_id": "e51d2d78-1123-43a8-9084-964a70c58322",
+  "self_review_status": "passed",
+  "value": {
+    "rationale": "The sharp Hadamard Schur norm is an extremal benchmark. One flipped sign is the simplest meaningful perturbation of this benchmark; the result measures its exact effect throughout an infinite family and shows a nontrivial \\(N^{-3/2}\\) deficit with explicitly optimized adversarial weight distributions. The result is not merely a numerical recomputation of a fixed small order.",
+    "status": "PASS"
+  }
+}
