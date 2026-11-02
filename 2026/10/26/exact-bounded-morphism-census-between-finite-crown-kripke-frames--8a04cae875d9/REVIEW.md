@@ -1,15 +1,21 @@
-# Review: exact bounded-morphism census between finite crown Kripke frames
+# Independent mathematical audit
 
-## Correctness — PASS
-For target \(m\ge3\), an image of any source maximum must be maximal. At a source minimum, the equality of principal upper sets forces either the same maximal image or the unique target minimum below a pair of adjacent maxima. This establishes a genuine bijection with cyclic lazy closed walks on a simple target cycle and identifies onto maps with edge-surjective walks. Matrix inclusion–exclusion counts these; the lifted integer range proves the first zero-winding threshold and the coefficient formula. The exceptional \(m=2\) case uses two independent choices at each binary transition and a binomial count. The independent brute-force verifier checks actual frame-forth-and-back equalities and agrees in every tested instance. No infinite assertion is inferred from finite enumeration.
+## correctness
 
-## Originality — PASS, with explicit priority risk
-Four families were compared by the actual logical statements, not merely matching titles: unrestricted order-preserving maps (Farley), cycle graph Hom-complexes (Čukić–Kozlov), vertex-covering circular walks (Georgiadis–Callan–Hou), and published crown finite-space homotopy classifications. None inspected source proves the globally onto bounded-morphism count. The \(n=m\) full-winding boundary value is also familiar from the homotopy framework and is not taken as a standalone innovation. Farley's full journal paper was not accessible, leaving uneliminated specialist overlap risk; priority is not independently certified.
+PASS
 
-## Value — PASS
-The exact p-morphism census connects modal-logic frame quotients with edge-covering closed walks and separates the exceptional four-point crown. It gives a sharp quotient-existence condition, exact transfer matrices, short-length trinomial counts, and the first appearance of zero-winding surjections. This is a natural general theorem for all finite crown sizes, not a small isolated computation.
+The p-morphism equality f(up(x))=up(f(x)) forces each source maximum to a target maximum; for m>=3, a source minimum maps uniquely to the target maximum when consecutive maximal images agree, or to the unique target minimum under the adjacent pair otherwise. Target-minimum surjectivity is precisely coverage of every target cycle edge. Matrix traces count closed walks on allowed edge subsets; inclusion-exclusion enforces all-edge coverage. Lifted increments classify nonzero windings and show any zero-winding edge-covering length is >=2m; at 2m there are 2m*m such walks. For m=2 the two target minima with identical upper pair give 2 choices at each binary transition; even-binomial summation gives the separate formula. Fresh brute enumeration independently checked seven small actual bounded-morphism cases including n=m=2 and compared m>=3 to edge-surjective walks. Critical limits: source and target n,m>=2, indexed actual functions, all reflexive posets; finite enumeration is not the all-parameter argument.
 
-## Scope and limitations
-Counts indexed globally onto bounded morphisms of finite reflexive crowns, not homotopy classes or arbitrary finite orders. Prior work may have uninspected specialized cases; checks do not establish publication priority. Finite verification is corroborative. Independent audit has not been performed.
+## originality
 
-Self-review: passed. Independent audit: not yet performed.
+PASS
+
+Different notions of maps must not be conflated: order-preserving, homotopy classes, and Kripke p-morphisms are distinct. Farley 1995 enumerates ALL order-preserving maps between crowns, not specifically the back-lifting constrained, globally onto subfamily; reading his Section 7 did not show this count. Resultary homotopy records identify winding classes, not these indexed p-morphisms. The all-n,m edge-covering formula, four-point exception and zero-winding threshold are a coherent new exact enumeration on the inspected evidence; priority qualified.
+
+## value
+
+PASS
+
+Bounded morphisms are the natural truth-preserving maps for finite reflexive Kripke frames. The crown family is a minimal graph-theoretic model of a circle; a complete indexed epimorphism census with an explicit exceptional four-point case and threshold is a usable structural invariant, more than the trivial n=m automorphism number. No claim of a general classification for arbitrary frames or maps modulo automorphisms.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
