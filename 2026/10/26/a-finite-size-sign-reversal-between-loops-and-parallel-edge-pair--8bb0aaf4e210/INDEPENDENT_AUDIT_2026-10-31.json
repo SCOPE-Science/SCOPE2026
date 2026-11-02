@@ -1,0 +1,119 @@
+{
+  "audit_date_utc": "2026-10-31",
+  "audited_at_utc": "2026-10-31T06:38:49Z",
+  "axes": {
+    "correctness": {
+      "checked_sources": [
+        "https://github.com/SCOPE-Science/SCOPE2026/tree/fff5beeb9405ab46c6767460bb1a093bf2f107ab/2026/10/26/a-finite-size-sign-reversal-between-loops-and-parallel-edge-pair--8bb0aaf4e210?path=RESULT.md",
+        "independent_checks.py",
+        "verify_trees.py"
+      ],
+      "rationale": "For prescribed k disjoint pairing edges, probability is 1/[(q−1)(q−3)…(q−2k+1)]. Internal two-stub choices give EL=S/(q−1). Ordered cross-pair pairings on four stubs between i,j contribute 2 a_i a_j, yielding EP=B/[(q−1)(q−3)]. A loop compatible with such a double edge must avoid the four occupied stubs; its count is S−(2d_i−3)−(2d_j−3), yielding ELP=(BS−T)/[(q−1)(q−3)(q−5)]. Subtracting moments gives the exact covariance. For d_i=r, substitute S=va, B=v(v−1)a², T=2v(v−1)a²(2r−3), factor the sign vr(2−r)+(2r−3); r=2 is positive and r≥3 negative. The q=4 (v,r)=(2,2) perfect matchings give −4/9 directly, while asymptotics follow by powers of v. Independent enumeration of all labeled pairings across 701 weak degree profiles q=6,8,10 checked exact rational EL, EP, ELP, and covariance (2804 assertions) and 167 regular sign cases; these bounded checks supplement unrestricted counting.",
+      "residual_risks": [],
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Wormald survey, Janson arXiv:math/0609802, and Angel et al. Theorem 1.4 establish asymptotic independent Poisson defect counts; Angel Section 3 analyzes local indicator covariance."
+        ],
+        "reasoning": "An asymptotic independence statement permits both positive and negative covariances tending to zero and does not imply the all-degree finite rational formula/sign split. Aliases: asymptotic independence of loops and parallel edges; exact covariance in configuration model.",
+        "searches": [
+          "Resultary semantic search: configuration random graph loops multiple edges exact finite covariance sign degree 2",
+          "Primary-source comparison: O. Angel, R. van der Hofstad, C. Holmgren, Limit laws for self-loops and multiple edges in the configuration model, arXiv:1603.07172"
+        ]
+      },
+      "checked_sources": [
+        "O. Angel, R. van der Hofstad, C. Holmgren, Limit laws for self-loops and multiple edges in the configuration model, arXiv:1603.07172",
+        "S. Janson, The probability that a random multigraph is simple, arXiv:math/0609802",
+        "N. C. Wormald, Models of Random Regular Graphs, Surveys in Combinatorics 1999"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "Angel et al. Section 3 and Lemma 3.1 calculate local indicators and asymptotic approximation, but do not state the signed v,r regular covariance formula in the inspected primary text."
+        ],
+        "reasoning": "Deriving exact ELP and retaining finite-size corrections is a separate calculation; prior tools motivate but do not directly state the result. Such implicit derivability limits priority confidence. Aliases: Angel et al. compatible indicator covariance vs full mixed moment/sign classification.",
+        "searches": [
+          "Resultary semantic search: configuration random graph loops multiple edges exact finite covariance sign degree 2",
+          "Primary-source comparison: O. Angel, R. van der Hofstad, C. Holmgren, Limit laws for self-loops and multiple edges in the configuration model, arXiv:1603.07172"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Angel–van der Hofstad–Holmgren arXiv:1603.07172 full paper uses indicator sums for loops and parallel pairs and derives compatible/incompatible contributions in Section 3."
+        ],
+        "reasoning": "The sample space and defect variables are equivalent, but the inspected results emphasize distributional approximation rather than this explicitly signed finite covariance identity. Aliases: configuration model self loops; multiple edge pairs; short defect cycle covariance; pairings of stubs.",
+        "searches": [
+          "Resultary semantic search: configuration random graph loops multiple edges exact finite covariance sign degree 2",
+          "Primary-source comparison: O. Angel, R. van der Hofstad, C. Holmgren, Limit laws for self-loops and multiple edges in the configuration model, arXiv:1603.07172"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "The exact formula was checked by full pairing enumeration at q=6,8,10 and a bounded search of published SCOPE/Resultary and primary text; no identical sign table identified."
+        ],
+        "reasoning": "A finite table alone does not prove the symbolic identity for every profile; the matching-witness proof supplies the missing unrestricted quantifier. A hidden older table remains possible. Aliases: degree r=2 versus r≥3 covariance sign and q=4 exception; configuration model defect moment tables.",
+        "searches": [
+          "Resultary semantic search: configuration random graph loops multiple edges exact finite covariance sign degree 2",
+          "Primary-source comparison: O. Angel, R. van der Hofstad, C. Holmgren, Limit laws for self-loops and multiple edges in the configuration model, arXiv:1603.07172"
+        ]
+      },
+      "rationale": "Best-of-knowledge PASS. Wormald, Janson, and Angel–van der Hofstad–Holmgren give asymptotic independent-Poisson limits and compatible-indicator covariance tools for loops/multiple edges. A limiting zero covariance does not determine the sign of a finite nonzero covariance or the exact all-profile rational identity. The full accessible Angel paper does not state this exact regular r=2 versus r≥3 finite sign boundary; it could follow by additional arithmetic from general witness methods, so implicit coverage is a residual risk.",
+      "residual_risks": [
+        "The witness-based mixed moment is short and related to classical indicator covariance technology; an older exact identity may already imply the sign after substitution.",
+        "The formula is for labeled uniform pairings and not for uniformly sampled multigraphs or graphs conditioned simple."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "SAME_MODEL_METHOD_NOT_EXACT_SIGN_CLAIM",
+          "evidence": "The inspected results describe Poisson approximations and local witness covariances, not the complete signed finite covariance identity in this review.",
+          "identifier_or_url": "https://arxiv.org/abs/1603.07172",
+          "material_read": "Full 19-page primary PDF, Theorem 1.4, Section 3 covariance-indicator methods and local lemmas",
+          "method": "Opened full PDF, searched covariance and inspected formula pages",
+          "title": "Limit laws for self-loops and multiple edges in the configuration model",
+          "trigger": "Same labeled pairing model, same two defect statistics, potentially dominating prior proof"
+        },
+        {
+          "assessment": "LIMIT_LAW_CONTEXT_ONLY",
+          "evidence": "Provides asymptotic distributions, not a verified finite signed covariance formula in material actually inspected; no whole-document noncoverage assertion.",
+          "identifier_or_url": "https://arxiv.org/abs/math/0609802",
+          "material_read": "Accessible article abstract/source summary and its cited asymptotic Section 7 results; not a newly completed full read",
+          "method": "arXiv search and relevant source summaries",
+          "title": "The probability that a random multigraph is simple",
+          "trigger": "Classic prescribed-degree configuration model Poisson limit"
+        },
+        {
+          "assessment": "ASYMPTOTIC_CONTEXT_ONLY",
+          "evidence": "Theorem 2.6 cited for independent Poisson limits; a full-survey noncoverage assertion is not made.",
+          "identifier_or_url": "https://users.monash.edu.au/~nwormald/papers/regsurvey.pdf",
+          "material_read": "Survey theorem citation and surrounding reported content from source context, not independently inspected complete PDF this run",
+          "method": "Bibliographic and source-result inspection",
+          "title": "Models of Random Regular Graphs",
+          "trigger": "Classical limit theorem for loops and parallel pairs"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "checked_sources": [
+        "O. Angel, R. van der Hofstad, C. Holmgren, Limit laws for self-loops and multiple edges in the configuration model, arXiv:1603.07172",
+        "S. Janson, The probability that a random multigraph is simple, arXiv:math/0609802",
+        "N. C. Wormald, Models of Random Regular Graphs, Surveys in Combinatorics 1999"
+      ],
+      "rationale": "A finite-size positive/negative dependence reversal at the natural degree-two boundary is a mathematically meaningful correction to the heuristic that asymptotically independent defect counts should have no signed dependence. The all-profile closed formula and the different O(v^−2) versus O(v^−1) decay scales can inform finite configuration-model approximations and are not merely restating Poisson limits.",
+      "residual_risks": [
+        "The witness-based mixed moment is short and related to classical indicator covariance technology; an older exact identity may already imply the sign after substitution.",
+        "The formula is for labeled uniform pairings and not for uniformly sampled multigraphs or graphs conditioned simple."
+      ],
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "final_claim": "For uniformly paired labeled half-edges of any nonnegative degree profile with even total q≥6, Cov(loop count, parallel-edge-pair count)=[4BS−(q−1)T]/[(q−1)²(q−3)(q−5)] for the specified witness sums; regular degree two yields positive covariance for at least three vertices, whereas every regular degree at least three yields negative covariance, with the q=4 exception −4/9.",
+  "limitations": [
+    "The witness-based mixed moment is short and related to classical indicator covariance technology; an older exact identity may already imply the sign after substitution.",
+    "The formula is for labeled uniform pairings and not for uniformly sampled multigraphs or graphs conditioned simple.",
+    "Finite computations establish only their explicitly bounded cases; universal results rely on reconstructed analytic arguments."
+  ],
+  "schema_version": 1
+}

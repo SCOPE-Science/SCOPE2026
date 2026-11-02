@@ -1,19 +1,21 @@
-# Scientific review
+# Independent mathematical audit
 
-## Correctness — PASS
+## correctness
 
-For a uniform perfect matching of \(q\) labeled half-edges, any \(k\) prescribed disjoint pairing edges appear with probability \(1/[(q-1)(q-3)\cdots(q-2k+1)]\). The proof counts single internal edges, two-edge cross-group witnesses, and the compatible three-edge unions. It derives \(\mathbb E L=S/(q-1)\), \(\mathbb E P=B/[(q-1)(q-3)]\), and \(\mathbb E LP=(BS-T)/[(q-1)(q-3)(q-5)]\), hence the exact covariance. Substitution of regular degrees gives its factorized sign law. The four-half-edge boundary case is enumerated separately. A standalone exact-arithmetic program checks 2,223 independent moment/formula/sign identities, including all 701 weak group-size profiles at total half-edge counts 6, 8, and 10. The unrestricted proof is combinatorial rather than experimental.
+PASS
 
-## Originality — PASS, provisional
+For prescribed k disjoint pairing edges, probability is 1/[(q−1)(q−3)…(q−2k+1)]. Internal two-stub choices give EL=S/(q−1). Ordered cross-pair pairings on four stubs between i,j contribute 2 a_i a_j, yielding EP=B/[(q−1)(q−3)]. A loop compatible with such a double edge must avoid the four occupied stubs; its count is S−(2d_i−3)−(2d_j−3), yielding ELP=(BS−T)/[(q−1)(q−3)(q−5)]. Subtracting moments gives the exact covariance. For d_i=r, substitute S=va, B=v(v−1)a², T=2v(v−1)a²(2r−3), factor the sign vr(2−r)+(2r−3); r=2 is positive and r≥3 negative. The q=4 (v,r)=(2,2) perfect matchings give −4/9 directly, while asymptotics follow by powers of v. Independent enumeration of all labeled pairings across 701 weak degree profiles q=6,8,10 checked exact rational EL, EP, ELP, and covariance (2804 assertions) and 167 regular sign cases; these bounded checks supplement unrestricted counting.
 
-Wormald's survey (Theorem 2.6), Janson (2006, Section 7), and Angel–van der Hofstad–Holmgren (2016, Theorem 1.4 and Section 3) treat self-loops and multiple-edge pairs through Poisson approximation and, in the last paper, indicator-pair covariance bounds. The inspected texts do not state the precise signed finite covariance or the degree-two versus higher-degree reversal. The exact formula does not follow solely from asymptotic independence. A residual priority risk remains because prior indicator expansions might implicitly recover the result after unsupplied algebra; source material has not been exhaustively surveyed over all historical literature.
+## originality
 
-## Mathematical value — PASS
+PASS
 
-The configuration model is a standard random-graph comparison object. Although loop and parallel-pair counts become asymptotically independent in fixed-degree models, their finite covariances have a structurally opposite sign depending on degree, with a sharp boundary and distinct decay rates. The classification explains two natural regimes of interaction invisible to limiting independence; it holds for every admissible regular parameter, and the irregular-profile identity provides a tool for degree-heterogeneous applications. This is a distributional distinction about standard graph defects, not a numerically isolated curiosity.
+Best-of-knowledge PASS. Wormald, Janson, and Angel–van der Hofstad–Holmgren give asymptotic independent-Poisson limits and compatible-indicator covariance tools for loops/multiple edges. A limiting zero covariance does not determine the sign of a finite nonzero covariance or the exact all-profile rational identity. The full accessible Angel paper does not state this exact regular r=2 versus r≥3 finite sign boundary; it could follow by additional arithmetic from general witness methods, so implicit coverage is a residual risk.
 
-## Scope and limitations
+## value
 
-No claims concern simple graphs, connected graphs, or uniform unlabeled multigraphs. For irregular profiles the formula is exact but its signs are not classified. The analytical proof handles the entire specified parameter domain. No independent audit or guaranteed historical-priority certification has been carried out.
+PASS
 
-Self-review: passed. Independent audit: not yet performed.
+A finite-size positive/negative dependence reversal at the natural degree-two boundary is a mathematically meaningful correction to the heuristic that asymptotically independent defect counts should have no signed dependence. The all-profile closed formula and the different O(v^−2) versus O(v^−1) decay scales can inform finite configuration-model approximations and are not merely restating Poisson limits.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
