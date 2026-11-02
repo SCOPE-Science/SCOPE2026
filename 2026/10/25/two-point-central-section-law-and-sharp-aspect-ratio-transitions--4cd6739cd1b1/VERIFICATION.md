@@ -5,8 +5,11 @@
     "status": "not_performed"
   },
   "independent_audit": {
-    "evidence": null,
-    "status": "not_performed"
+    "status": "passed",
+    "evidence": [
+      "INDEPENDENT_AUDIT_2026-10-28.md",
+      "INDEPENDENT_AUDIT_2026-10-28.json"
+    ]
   },
   "lean_verification": {
     "evidence": null,
@@ -16,10 +19,24 @@
 }
 ---
 
-# Verification record
+# Independent mathematical audit
 
-The analytical arguments appear in `RESULT.md`. The single executable file is `verify.py`, which requires Python 3 and the standard library only. Execute `python verify.py` from the directory containing the extracted files; no network access or external data are needed.
+## correctness
 
-Checks performed on the exact file included in the package: independent convex-hull edge reconstruction by supporting planes at four heights; independent intersection-point and planar-convex-hull construction for 3,600 sampled plane normals at three heights; exact threshold-side-count correspondence; agreement between the spherical area integral, a separate edge-angle expectation calculation, and a midpoint angular quadrature at seven heights; equal-edge regularity calculation; sharp thin/tall constants; and three seeded isotropic-normal experiments using 180,000, 120,000 and 120,000 normals. These computations all passed.
+PASS
 
-The numerical studies test implementation consistency but cannot certify statements for all real heights or an infinite set of orientations. The sign-threshold table and analytic spherical integral in `RESULT.md` are the proof for the complete domain. Historical novelty is not certified by a finite literature search. Independent mathematical review has not been performed.
+A generic central plane cuts one polygon vertex from each sign-changing original edge. Enumerated the eight position vectors and actual 16 antiprism edges, reduced normals via dihedral symmetry to azimuth phi in [0,pi/4] and c=h U_z/sqrt(U_x^2+U_y^2). Recomputed all ordering chambers for sin(phi), cos(phi+pi/4), and other vertex thresholds; every chamber yields N=6 or 8 with N=8 iff c>max(sin(phi),cos(phi+pi/4)). Conditional upper-hemisphere normal U_z is uniform on [0,1], giving the two integrals and exact arcsine formula. Independent edge-crossing probability arccos(v dot w/|v||w|)/pi gives an independent equivalent formula, confirming normalization. Expansion and equal-edge condition h=2^(-3/4) give sharp asymptotics and regular probability; independently checked all symbolic chambers, numerical quadrature and equality of both formulas. Null orientations explicitly excluded.
+
+## originality
+
+PASS
+
+Grunbaum (2004) describes antiprism geometry, but does not state Haar-random central plane section probabilities; Lonke (1998) treats cube random sections. Related Resultary findings give exact Haar sections of orthotopes and icosahedra or other polyhedral projections, which cannot be substituted for this non-centrally symmetric square antiprism. Broadie (1985) studies polarity, and Aravind (1996) examines other antiprism families; incomplete access is recorded as risk. The all-h two-point law survives best-of-knowledge claim-level comparison.
+
+## value
+
+PASS
+
+The exact distribution for a natural regular solid and its aspect-ratio deformation includes an unexpected two-point section-size support, explicit transition function, monotonicity and asymptotics. It is a useful benchmark for random polytope sections, not a table-only or trivial type calculation.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
