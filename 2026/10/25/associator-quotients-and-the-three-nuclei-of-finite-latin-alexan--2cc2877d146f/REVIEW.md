@@ -1,12 +1,21 @@
-# Mathematical review
+# Independent mathematical audit
 
-## Correctness — PASS
-The transported group-ring product in Zhang, Proposition 2.1, is reproduced from basis definitions. Expanding both bracketings gives the explicit associator in equation (1), and the triple \((e_x,e_x,e_{x+d})\) realizes all subgroup-difference relations. The quotient map is checked multiplicatively and has associative left-zero basis multiplication. For Latin quandles, both defining endomorphisms are permutation automorphisms; the ordinary augmentation-annihilator lemma uses only exact equality of coefficients and no division. Substitution of the ordinary group-ring identity in each of the three nucleus identities forces the element into the span of the full basis sum. Conversely that span satisfies all three identities. The argument includes singleton groups, modular coefficients and zero-divisor rings. The provided checker confirms 58 cyclic parameter cases (33 Latin) and two noncyclic vector-group cases. Risks: finite enumeration has finite scope and does not substitute for this symbolic argument; no additional unstated coefficient-ring assumptions are used.
+## correctness
 
-## Originality — PASS, qualified
-Sangare–Ta (2026) Proposition 4.7 already establishes the left nucleus as the basis-sum line for odd dihedral quandle algebras over arbitrary commutative rings; that subcase is acknowledged and is NOT part of the originality claim. The assessed extension establishes all three nuclei for every finite abelian Latin Alexander quandle and classifies universal associative quotients even when non-Latin. Other close primary work supplies the group-ring transport and related *augmentation powers* and *commutator* ideals; neither determines the associator-generated ideal or gives all three nuclei. A second contemporary paper establishes zero-divisor/idempotent results and the basis sum identity, not the nuclei classification. Earlier quandle-ring papers discuss nonassociativity and augmented subalgebras but their inspected sections do not yield the joint theorem. Closest available research-record hits concern idempotents of the three-element dihedral quandle and classifications of different quandle operations, not these universal invariants. There remains a genuine possibility that a generic quasigroup-ring theorem in older literature implies part or all of the result; full historical priority and absence of undiscovered equivalences are not certified.
+PASS
 
-## Mathematical value — PASS
-The associator ideal is the universal obstruction to admitting an associative quotient, so its exact structure is a natural nonassociative-algebra invariant. Determining three separate nuclei exhaustively over *arbitrary* commutative coefficient rings is more than a low-order enumeration and shows an explicit characteristic-dependent nilpotent/idempotent transition of the nuclear element. The theorem handles all finite abelian groups and Alexander automorphisms, and for the associative quotient removes even the Latin assumption. Limits: this does not classify non-Latin nuclei or all finite quasigroup algebras.
+Transport the quandle product to the ordinary commutative group ring B=R[G] as u⋆v=α(u)β(v), where α(X^g)=X^{Tg}, β(X^g)=X^{(1-T)g}; direct expansion yields [u,v,w]=αβ(v)(α²(u)β(w)-α(u)β²(w)). Each basis associator is an H=(1-T)G difference. The particular associator [e_x,e_x,e_{x+d}] gives e_{x+(1-T)d}-e_{x+(1-T)²d}, whose shift T(1-T)d ranges over H; translating x realizes all subgroup differences. Thus the entire R-span equals ker(R[G]→R[G/H]), which is a ⋆-ideal because the quotient has left-zero multiplication. For Latin β, the augmentation ideal I has annihilator RΩ by coefficient shift equalities independent of zero divisors. Substituting 1_B into the associator in all three placements forces each nucleus into RΩ, while Ω⋆x=x⋆Ω=ε(x)Ω proves the converse, Ω²=|G|Ω. Verified independent cyclic small-case structure and original checker source, not treating finite tests as universal proof.
 
-Self-review: passed. Independent audit: not yet performed.
+## originality
+
+PASS
+
+Odd-dihedral left-nucleus case explicitly appears in Sangare–Ta Proposition 4.7 and is prior. Zhang Proposition 2.1 gives the same group-ring transport, and Ta discusses Ω and augmentation; these ingredients are also prior. Distinct claimed remainder is universal associative quotient for all finite abelian Alexander quandles and all three Latin nuclei over any commutative unital ring. The inspected primary passages and relevant published records give no stronger complete theorem, but older quasigroup algebra terminology remains a nontrivial priority risk; inaccessible Zhang/Ta sections are not asserted noncovering.
+
+## value
+
+PASS
+
+The associator ideal is the precise obstruction to an associative quotient, and nuclei are canonical nonassociative invariants. Exact formulas over arbitrary finite abelian Alexander data and arbitrary commutative coefficient rings capture modular nilpotent/idempotent Ω behavior and are meaningful structural classifications rather than a small-example computation.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

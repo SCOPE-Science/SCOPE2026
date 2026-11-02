@@ -1,0 +1,103 @@
+{
+  "audit_date_utc": "2026-10-30",
+  "audited_at_utc": "2026-10-30T01:13:40Z",
+  "axes": {
+    "correctness": {
+      "rationale": "A uniform balanced b-partition has (n/b)_r ordered r-block selections, all fully contained in a k-set with probability (k)_(br)/(n)_(br). Finite binomial inversion gives the exact Markov transition kernel. Conditional covariance between different retained-block indicators is nonpositive, so Var(K_s|K_{s-1}=k)<=b E[K_s|k]. At scaling n p^(b^t)->lambda with fixed p,b, prior mean a_(t-1) ~n^(1-1/b) diverges; uniform product expansion, Chebyshev and t=O(loglog n) give K_(t-1)/a_(t-1)->1. Conditional fixed-order factorial moments at final step ->(lambda/b)^r, hence Poisson(lambda/b). Independently enumerated all 15 balanced pairings of n=6,b=2, verifying all factorial moments from k=4. Exact integer-depth subsequence restriction is essential.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Martins et al define down-complete sublattices and □ via down-interpretation, but no balanced random-block iteration / count chain in inspected sections.",
+          "Pawlak gives deterministic equivalence-class lower approximation."
+        ],
+        "reasoning": "The paper on many-logic modal structures is broader logically but not a stochastic limit theorem; classical rough-set approximation does not imply the Poisson law without random combinatorial and growing-depth analysis.",
+        "searches": [
+          "Martins-Rodrigues-Coniglio-Freire 2026 arXiv:2605.07898",
+          "Freire-Martins 2022 arXiv:2203.00673",
+          "Pawlak 1982 rough sets"
+        ]
+      },
+      "checked_sources": [
+        "Actual RESULT.md and checker.py assigned SHA and tree",
+        "Independent exact 15-partition factorial-moment enumeration n=6,b=2",
+        "Primary arXiv:2605.07898 PDF pages 3,5 and Resultary semantic search",
+        "Pawlak 1982 rough-set historical definition"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "Down-interpretation maps x to join of sublattice elements <=x; one-successor modal necessity is meet of its down-interpreted successor value.",
+          "Neither cited definition enforces random independent partitions or Poisson scaling."
+        ],
+        "reasoning": "Logical semantics exactly supports the claimed interpretation, while the nontrivial stochastic theorem requires uniform partition occupancy factorial moments and a precritical concentration argument; no identified prior result derives that specific law.",
+        "searches": [
+          "arXiv:2605.07898 Def. 2.2/2.6 full primary PDF pages 3 and 5",
+          "Pawlak Rough sets 1982"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Individual lower approximation π_P(A)=union of fully contained equivalence blocks is classical; iterating independently sampled partitions yields a distinct stochastic process."
+        ],
+        "reasoning": "The semantic operator is acknowledged as known. The equivalence to a uniform balanced-partition thinning Markov chain explains, but is not itself a previously tabulated iterated Poisson depth result.",
+        "searches": [
+          "Resultary semantic query 2026-10-30: random balanced partitions iterated Poisson modal down interpretation",
+          "Pawlak Rough sets 1982",
+          "Martins et al arXiv:2605.07898 Definitions 2.2/2.6"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "Resultary matched unrelated rare-event/Poisson limit records, not this balanced-partition transition matrix.",
+          "Small finite examples 13/16 and 77/80 do not by themselves prove an all-depth limit."
+        ],
+        "reasoning": "No exact online table of the full transition kernel was located; there is no finite published database that can by itself cover all n and t; unsuccessful search is only evidence of bounded investigation.",
+        "searches": [
+          "Resultary semantic query 2026-10-30: nested balanced random partitions Poisson window",
+          "web query: random balanced partition iteration Poisson window lower approximation rough sets"
+        ]
+      },
+      "rationale": "Qualified PASS: down-interpretation and equivalence-class lower approximation are explicitly prior (Martins et al and Pawlak). The new part is a uniform random balanced-partition multi-stage Markov kernel and Poisson critical depth, not the modal semantics alone. No same iterated stochastic law appeared in checked Resultary and published primary statements, although older random-partition/rough-set studies remain a plausible overlap risk.",
+      "residual_risks": [
+        "Uniform fixed b, fixed Bernoulli p and integer-depth sequences satisfying exact scaling only; no arbitrary fractional phase uniformity.",
+        "No broad search can rule out synonymous older stochastic rough-set convergence results; selected older probability literature not inspected in full."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "COVERED_SEMANTICS_ONLY, not Poisson transition",
+          "evidence": [
+            "Definition 2.2 gives join of lower sublattice values; Def 2.6 gives meet of successor down-interpreted valuations."
+          ],
+          "identifier_or_url": "arXiv:2605.07898, Definitions 2.2 and 2.6",
+          "material_read": "Full-text sections on dc-sublattice/down-interpretation (PDF page 3) and box semantic clause (PDF page 5), both visually inspected",
+          "method": "arXiv primary PDF text and page screenshots",
+          "title": "On Many-logic modal structures and information-based logics",
+          "trigger": "Primary same down-interpretation modal semantics"
+        },
+        {
+          "assessment": "OPERATOR_PREEXISTS",
+          "evidence": [
+            "Individual block-lower approximation is classical; the stochastic iterated law remains a separate claim."
+          ],
+          "identifier_or_url": "Pawlak 1982, DOI:10.1007/BF01001956",
+          "material_read": "Bibliographic description and cited definition; full historical paper not read this run",
+          "method": "Publisher/bibliographic comparison",
+          "title": "Rough sets",
+          "trigger": "Classical equivalence-block lower approximation"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "rationale": "Provides an exact finite transition law and a sharp rare-survival Poisson window for a naturally defined repeated information-loss operator, relating balanced partitions, factorial moments and modal paths. The growing-depth law is an independently useful structural classification of a finite-state stochastic dynamical system.",
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "limitations": [
+    "No statement for variable b, other partition laws, random accessibility, or arbitrary fractional-depth phases.",
+    "Classical rough-set operator and modal semantics are not novel."
+  ],
+  "schema_version": 1
+}

@@ -5,8 +5,11 @@
     "status": "not_performed"
   },
   "independent_audit": {
-    "evidence": null,
-    "status": "not_performed"
+    "status": "passed",
+    "evidence": [
+      "INDEPENDENT_AUDIT_2026-10-30.md",
+      "INDEPENDENT_AUDIT_2026-10-30.json"
+    ]
   },
   "lean_verification": {
     "evidence": null,
@@ -16,12 +19,24 @@
 }
 ---
 
-# Verification of finite-state chiral fourth-cumulant law
+# Independent mathematical audit
 
-A fresh execution of the embedded `CHECKER.py` in a Python environment with SymPy prints exactly:
+## correctness
 
-`PASS: 236 exact algebraic and independent Poisson-recursion checks`
+PASS
 
-The checker evaluates the radial fourth-cumulant contraction, its strictly negative symbolic factorization, axial–diagonal agreement, and the exact turning-rate threshold. Independently, for six unequal/equal positive integer rate pairs and three planar projection vectors, it constructs the genuine four-by-four Markov generator and solves the centered eigenvector Poisson equations to fourth degree; the results are compared with the symbolic global formula as exact rational identities. It checks representative angular-sign regions but no finite parameter grid is claimed to prove the universal signs.
+Reconstructed four-by-four tilted characteristic determinant z(z+2s)((z+s)²+d²)−(kv)²(z+s)²+(kv)⁴cos²θ sin²θ; zero eigenvalue simple, remaining −2s and −s±id. Taylor expansion gives λ₂=v²s/(2R), λ₄=(v⁴/8)[s(3d²−s²)/R³−sin²(2θ)/(sR)]. Fourth derivative gives exact angular threshold |d/s|>1/√3, diagonal always negative, and radial contraction −4v⁴(1−χ²)(3−χ²)/(s³(1+χ²)³). Independent SymPy reconstruction of characteristic polynomial, coefficients and radial tensor contraction at generic rational rates passed. Analytic eigenvalue perturbation, not finite grid, proves all positive rates.
 
-For a complete reproducible proof, reconstruct \(Q\), calculate the explicit tilted characteristic polynomial in `RESULT.md`, differentiate the analytic Perron branch (zero simple and other roots in the open left half-plane), and use exact elementary inequalities \(0<|a-b|<a+b\). The radial contraction follows by taking the fourth derivatives of the full bivariate branch and the exact fourfold-rotation covariance symmetry. The stationary initial heading ensures exact fourfold distributional invariance at every finite time. A long-time theorem does not imply finite-time sign classification at or near the critical direction. No independent audit or externally certified proof has occurred.
+## originality
+
+PASS
+
+Best-of-knowledge accepted after statement-level primary-literature and published mathematical-record comparisons; no decisive antecedent implication was identified. Source-reading limits and plausible unindexed-priority risks are explicit; a failed keyword search is not treated as novelty proof.
+
+## value
+
+PASS
+
+The mismatch between isotropic diffusion and opposite lab-direction fourth-cumulant signs is a physically interpretable, sharply quantified non-Gaussian anisotropy. The exact chiral threshold and angular sectors are natural transport invariants, not simply a renamed second-moment result.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

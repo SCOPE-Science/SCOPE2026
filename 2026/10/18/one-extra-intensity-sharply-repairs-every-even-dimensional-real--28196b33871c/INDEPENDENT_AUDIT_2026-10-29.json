@@ -1,0 +1,204 @@
+{
+  "audit_date_utc": "2026-10-29",
+  "audited_at_utc": "2026-10-29T16:13:53Z",
+  "axes": {
+    "correctness": {
+      "rationale": "Directly reconstructed the finite two-branch geometric sum A_g(ell,k) = r^{-ell}(1-r^N)(r^{2ell}omega^{kell}+r^N)/(1-r²omega^k), proving only even half-shift/odd-modulation zeros. Fourier diagonalization gives exactly m Weyl matrix null modes and Hermitian skew-antipodal blocks. Disjoint 2x2 blocks have rank 2s, hence every nonzero rank<=2 ambiguity has support on one pair. A new rank-one projector separates that pair iff its imaginary antipodal coefficient is nonzero; spectral decomposition of any unseparated traceless block constructs two inequivalent signals with equal all intensities. This proves both directions globally for all even N>=2 and every r in (0,1), with odd full-rank boundary. Independent numerical Gabor/projector SVD and explicit witnesses were checked for N=2..12 at r=.3,.5,.8 (33 parameter combinations). Finite checks are corroboration, not an infinite proof.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Goldberger–Kang–Okoudjou diagonalize Gabor projector Gram matrices by Weyl ambiguity coefficients; their general operator-span theorem yields the nullity when the zeros are computed but not an iff supplementary non-Gabor probe.",
+          "Bartusel’s real-window obstruction is Gabor-only and so cannot rule out or establish external one-scalar completion.",
+          "Zhu–Wang (2026 abstract) concerns stable informationally complete Weyl–Heisenberg measurement designs rather than the rank-deficient yet globally phase-retrieving augmented family considered here.",
+          "Zhu–Wang 2026 Proposition 6/Appendix E provide broader complex-alpha coverage and explicitly include the real alpha=r special case. Thus the ambiguity zero set, Gram eigenvalue count and original linear rank are fully covered; no originality is claimed for them."
+        ],
+        "reasoning": "Zhu–Wang supplies the same geometric-window ambiguity zero set and N/2 Gram-kernel deficiency for the real-alpha case as a special case of a more general complex-alpha theorem. This prior result dominates the linear zero-pattern part, which is NOT a novel contribution. What survives is the mathematically different nonlinear all-vector phase-retrieval completion by one arbitrary non-Gabor scalar measurement, with sharp iff imaginary pair conditions and a rank-two-block proof; the inspected text has no such result.",
+        "searches": [
+          "Resultary search: Goldberger Kang Okoudjou incomplete Gabor POVM and Bartusel even real window phase retrieval",
+          "Resultary search: geometric cyclic Gabor positive exponential real window antipodal half period even dimension augmentation single extra intensity",
+          "arXiv:2106.01509 Goldberger–Kang–Okoudjou Gabor POVM Gram rank",
+          "arXiv:2608.11850 Zhu–Wang minimal Weyl–Heisenberg tomography"
+        ]
+      },
+      "checked_sources": [
+        "arXiv:2106.01509, Goldberger–Kang–Okoudjou, selected primary PDF sections",
+        "arXiv:1503.05800, Bojarovska–Flinth, §§1–2 primary PDF",
+        "arXiv:2206.06729, Bartusel, Springer 2023 primary HTML §§2,4",
+        "arXiv:2605.31507, Bartusel, abstract only, full text inaccessible",
+        "arXiv:2608.11850, Zhu–Wang, primary full arXiv HTML Proposition 6, §III.2 and Appendix E",
+        "Resultary 2026/10/4 quadratic-exponent Gabor parity complete RESULT.md",
+        "Resultary 2026/10/11 one-coordinate Gabor rank discriminant complete RESULT.md",
+        "Resultary 2026/10/4 two-point STFT nonvanishing fibers complete RESULT.md"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "Bojarovska–Flinth provides the general rank-two Hermitian-kernel test; neither their criterion alone nor the number m of missing directions determines that every minimum-rank kernel element lies in a single antipodal block.",
+          "Goldberger–Kang–Okoudjou supply Weyl diagonalization, which proves rank N²−m only after the geometric ambiguity zeros are independently derived.",
+          "A published two-point-window exact fiber classification assumes full-support signals and a two-sparse window, unlike the present full-support real geometric window and all signals.",
+          "Zhu–Wang 2026 exact geometric zeros imply the original nullity m, so claiming originality for those zeros would be incorrect. The precise all-signal rank-two Hermitian kernel and probe pairing with every antipodal block are additional deductions not given by the linear rank count alone."
+        ],
+        "reasoning": "The main claim is decomposed honestly: geometric ambiguity zeros and matrix deficiency are covered by Zhu–Wang; Goldberger supplies the operator diagonalization; Bojarovska–Flinth supplies the general rank-two-kernel test. Their combination does not explicitly assert that a single arbitrary non-Gabor scalar repairs every even-order geometric Gabor orbit iff Im(conj(w_j)w_(j+N/2))≠0 for each j, even for sparse signals. Establishing the exact skew-antipodal kernel rank geometry and turning it into this sharp iff universal completion is the surviving mathematical assertion. It may be considered an accessible corollary by experts, and overlapping unindexed frame-completion work remains a risk.",
+        "searches": [
+          "Resultary search: Gabor phase retrieval one additional rank-one measurement antipodal ambiguity Hermitian kernel",
+          "Resultary search: Goldberger Kang Okoudjou incomplete Gabor POVM and Bartusel even real window phase retrieval",
+          "Resultary search: geometric cyclic Gabor positive exponential real window antipodal half period even dimension augmentation single extra intensity",
+          "arXiv:1503.05800 Bojarovska–Flinth Theorem 2.1 rank-two obstruction",
+          "Resultary published 2026/10/4 exact nonvanishing phase-retrieval fibers for an even two-point cyclic STFT window"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "A pure-state intensity frame is injective iff its Hermitian lifting kernel avoids nonzero rank-at-most-two differences of rank-one projectors, the framework explicitly treated by Bojarovska–Flinth (2015).",
+          "For this geometric g, the full Gabor kernel is a direct sum of m skew-antipodal rank-two Hermitian blocks. A single new projector annihilates all rank≤2 ambiguities precisely when every imaginary antipodal product of its vector is nonzero.",
+          "Bartusel (2023) addresses even-real-window obstructions for the unaugmented STFT; the added noncovariant probe is outside those sufficient or negative statements.",
+          "Zhu–Wang 2026, Proposition 6 and Appendix E treat the EXACT same geometric cyclic family alpha^j, and already prove the same even-dimension half-translation/odd-modulation zeros and N/2 operator nullity. These ingredients are prior art; the one-added-probe iff condition is absent from the inspected text."
+        ],
+        "reasoning": "The pure-state rank-two Hermitian-kernel avoidance criterion is standard (Bojarovska–Flinth), and the complete geometric-window zero labels and operator rank already appear in Zhu–Wang Proposition 6/Appendix E. The assessable remainder is the exact skew-antipodal rank-two stratum and arbitrary single additional intensity iff criterion, which is not stated in the inspected earlier material.",
+        "searches": [
+          "Resultary search: single intensity measurement completing even-dimensional real cyclic Gabor phase retrieval geometric window",
+          "Resultary search: Gabor phase retrieval one additional rank-one measurement antipodal ambiguity Hermitian kernel",
+          "Bojarovska–Flinth arXiv:1503.05800, §2 and Theorem 2.1",
+          "Bartusel arXiv:2206.06729, published §4.1–4.2",
+          "arXiv:2608.11850 Zhu–Wang full HTML Proposition 6 and Appendix E"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "Resultary published one-coordinate window rank classification concerns a different near-flat window and operator-span rank without an appended scalar.",
+          "Resultary Malikiosis quadratic-exponent real window result identifies parity ambiguity zeros for another seed and explicitly distinguishes zero-pattern failure from global phase-retrieval obstruction.",
+          "The assigned analytical statement holds for unbounded even N and all 0<r<1; the numerical N=2..12 source table checks only finitely many cases.",
+          "The exact all-order geometric Gram rank N²−N/2 for positive real alpha is ALREADY in Zhu–Wang 2026 Proposition 6, not a new computed table or independent rank discovery."
+        ],
+        "reasoning": "Exact operator rank and zero frequency data are prior published theorem-level results (Zhu–Wang), not an independent new database contribution. The present exact scalar-probe iff classification over all N, r and w is not a known table entry from material inspected. Finite ranks in verification only corroborate it.",
+        "searches": [
+          "Resultary search: single intensity measurement completing even-dimensional real cyclic Gabor phase retrieval geometric window",
+          "Resultary search: Gabor phase retrieval one additional rank-one measurement antipodal ambiguity Hermitian kernel",
+          "Resultary published 2026/10/11 exact rank discriminant for one-coordinate cyclic Gabor measurements",
+          "Resultary published 2026/10/4 Malikiosis quadratic-exponent Gabor parity"
+        ]
+      },
+      "rationale": "Qualified best-of-knowledge PASS for the precise sharp all-vector one-external-intensity phase-retrieval completion iff condition on the geometric real window. IMPORTANT PRIOR COVERAGE: Zhu–Wang 2026 Proposition 6 and Appendix E ALREADY establish the exact same all-order geometric ambiguity zeros and matrix nullity; these are NOT original. GKO provides Weyl Gram diagonalization and Bojarovska–Flinth provides the general rank-two test. The surviving exact rank-two skew-antipodal kernel geometry and necessity/sufficiency of Im(conj(w_j)w_(j+N/2))!=0 for every one of the m pairs are not stated by these inspected primary results or by three related fully read Resultary records. Their combination is a motivated structural extension, with the potential of an unindexed earlier formulation and inaccessible Bartusel 2026 full text recorded as residual risks.",
+      "residual_risks": [
+        "Some broad frame-completion or rank-two-nullspace results may imply an identical added-probe criterion under unfamiliar terminology; no checked source established this implication, but exhaustive priority certification is not claimed.",
+        "Bartusel 2026 arXiv:2605.31507 is related and its complete text was inaccessible after arXiv/OA attempts; authorized Oxford route returned vpn_disconnected. No bypass, no whole-document noncoverage assertion.",
+        "The earlier self-review referenced a Bartusel theorem number that differs across preprint/published editions; this review uses the published sections and avoids relying on the possibly mismatched number.",
+        "No stability constant, erasure-resilient recovery, or universal claim about every even real window is established. N=2..12 finite checks cannot certify an unbounded theorem by themselves.",
+        "The geometric ambiguity zero set, Gram rank N²−m and odd-order informational completeness are already covered by Zhu–Wang 2026 Proposition 6/Appendix E. The novel part must be framed only as the all-signal arbitrary one-probe nonlinear completion and iff design rule; expert evaluation could regard this a comparatively short corollary of known criteria."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Establishes foundational N|A_g|² eigenvalue and rank formalism, but no one-external-intensity completion theorem found in inspected portions.",
+          "evidence": [
+            "arXiv:2106.01509, Weyl ambiguity coefficients and Gram eigenvalues",
+            "Source PDF ()"
+          ],
+          "identifier_or_url": "https://arxiv.org/abs/2106.01509",
+          "material_read": "Primary PDF abstract, introduction, Gabor Gram diagonalization and related characterization in opening sections; selected pages visually inspected. Not an assertion of every page/appendix.",
+          "method": "Open-access arXiv PDF text and page screenshots",
+          "title": "Towards a classification of incomplete Gabor POVMs in C^d",
+          "trigger": "Same Weyl-orbit projectors, exact Gram spectrum and linear operator-span nullity"
+        },
+        {
+          "assessment": "The general rank-two test is prior art; no all-even geometric-window single additional arbitrary-probe iff criterion was seen in material read.",
+          "evidence": [
+            "arXiv:1503.05800 Theorem 2.1",
+            "Source PDF ()"
+          ],
+          "identifier_or_url": "https://arxiv.org/abs/1503.05800",
+          "material_read": "Primary PDF introductory definitions, §§2 and Theorem 2.1; page screenshots used for decisive theorem material. No claim to full-document noncoverage.",
+          "method": "Open-access arXiv PDF text and screenshots",
+          "title": "Phase Retrieval from Gabor Measurements",
+          "trigger": "Primary phase-retrieval rank-two Hermitian kernel criterion for Gabor measurements"
+        },
+        {
+          "assessment": "Discusses Gabor-only even-real-window obstruction and incomplete ambiguity support; inspected results do not introduce a separate arbitrary non-Gabor scalar intensity. Avoid claiming anything from unexamined appendices.",
+          "evidence": [
+            "Published 2023 paper §4.1–4.2"
+          ],
+          "identifier_or_url": "https://arxiv.org/abs/2206.06729",
+          "material_read": "Published open-access full HTML, including introductory setup, sections 2 and 4.1–4.2, and conclusion; preprint/published numbering may differ.",
+          "method": "Open-access Springer primary full-text HTML",
+          "title": "Injectivity Conditions for STFT Phase Retrieval on Z, Z_d and R^d",
+          "trigger": "Closest even-dimensional real-window noninjectivity theorem"
+        },
+        {
+          "assessment": "Full manuscript inaccessible; no whole-text noncoverage judgment. Material historical-priority uncertainty remains.",
+          "evidence": [
+            "arXiv:2605.31507 abstract ()",
+            "Inspected abstract describes additional-window Fourier strategy; external scalar add-on not verified absent"
+          ],
+          "identifier_or_url": "https://arxiv.org/abs/2605.31507",
+          "material_read": "Accessible arXiv abstract only; arXiv and lawful alternate full-text routes did not yield the manuscript.",
+          "method": "ArXiv abstract and attempted lawful OA retrieval, then authorized institutional route; the latter reported vpn_disconnected",
+          "title": "Uncertainty Principles as a Tool for STFT Phase Retrieval",
+          "trigger": "Recent relevant general STFT phase retrieval and multi-window criteria, potential stronger coverage"
+        },
+        {
+          "assessment": "Different quadratic-exponent window, no external single-probe criterion; its even zero set alone does not establish failure of phase retrieval.",
+          "evidence": [
+            "Resultary source full RESULT.md: explicitly only zero-free-ambiguity certificate fails in even dimensions"
+          ],
+          "identifier_or_url": "https://github.com/Resultary/2026/blob/main/2026/10/4/SCOPE-a-parity-dichotomy-for-malikiosis-s-quadratic-exponent-gabor-win--8ac7d311b287/RESULT.md",
+          "material_read": "Complete RESULT.md claim, assumptions, proof, comparison and limitations, fetched from actual Git blob c9d0008dd9ac2b80e52f4c201557b0c49d041ca8.",
+          "method": "Read primary published repository record via GitHub connector",
+          "title": "A parity dichotomy for Malikiosis’s quadratic-exponent Gabor window",
+          "trigger": "Published result on even-Gabor ambiguity zeros for another full-support real window"
+        },
+        {
+          "assessment": "Different one-coordinate near-flat window and linear matrix tomography, no single-probe completion for geometric g.",
+          "evidence": [
+            "Resultary source full RESULT.md: exact rank formula for g=(z,1,...,1)"
+          ],
+          "identifier_or_url": "https://github.com/Resultary/2026/blob/main/2026/10/11/SCOPE-exact-rank-discriminant-for-one-coordinate-cyclic-gabor-measurem--4ad1eba7465a/RESULT.md",
+          "material_read": "Complete RESULT.md including all-parameter rank formula and finite verification scope, fetched from Git blob 06296751ebcb95e4d96743713f816da973247413.",
+          "method": "Read primary published repository record via GitHub connector",
+          "title": "Exact rank discriminant for one-coordinate cyclic Gabor measurements",
+          "trigger": "Potentially dominating exact Gabor rank classification"
+        },
+        {
+          "assessment": "Only 2-site window, even step order and full-support signals; different from full-support g and all-signal single-probe completion.",
+          "evidence": [
+            "Resultary full RESULT.md explicitly excludes signals containing zeros"
+          ],
+          "identifier_or_url": "https://github.com/Resultary/2026/blob/main/2026/10/4/SCOPE-exact-nonvanishing-phase-retrieval-fibers-for-an-even-two-point--29afd3fc909d/RESULT.md",
+          "material_read": "Complete RESULT.md from blob 46d46fda2cade8c140a27680c1e01d6905cd6aeb.",
+          "method": "Read primary published repository record via GitHub connector",
+          "title": "Exact nonvanishing phase-retrieval fibers for an even two-point cyclic STFT window",
+          "trigger": "Possible complete STFT fiber theorem that could dominate geometric-window phase retrieval"
+        },
+        {
+          "assessment": "Decisively PREEMPTS the exact geometric ambiguity zero set and N/2 matrix rank defect for real positive alpha=r, as a special case of complex alpha. No single extra arbitrary non-Gabor scalar intensity iff global pure-state phase-retrieval completion occurs in inspected theorem/appendix. Qualified novelty survives only for the nonlinear one-probe criterion.",
+          "evidence": [
+            "arXiv:2608.11850 Proposition 6: zero labels a=d/2 and parity b with d/2 zeros for real alpha; lines 290–311 in arxiv HTML",
+            "Appendix E equations (140)–(144): explicit geometric-window ambiguity sum and uniqueness of half-shift zeros; lines 760–786 in arxiv HTML",
+            "Published Aug 12 2026, earlier than assessed Oct 18 2026 result and "
+          ],
+          "identifier_or_url": "https://arxiv.org/abs/2608.11850",
+          "material_read": "Complete relevant primary full HTML sections I–III, especially Proposition 6 in §III.2, Appendix E equations (140)–(146), discussion of weak spectral floor and citations; did not rely on title or abstract alone.",
+          "method": "Open-access arXiv HTML full-text reading, including exact geometric classification and appendix proof",
+          "title": "Uniformly Stable Minimal Weyl–Heisenberg Measurements Approaching the SIC Benchmark",
+          "trigger": "EXACT same geometric full-support family (truncated geometric fiducial alpha^j) and potentially dominating all-order zero-count theorem"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "rationale": "The full-support positive cyclic geometric Gabor window is a motivated canonical example of a real even-order obstruction. The result gives an exact all-order, necessary-and-sufficient single-vector rescue criterion for recovery of arbitrary sparse or dense complex signals. Although Zhu–Wang 2026 already give the exact geometric-window linear rank and zero set, the all-vector one-scalar completion theorem and exact iff probe design constitute the surviving structural contribution. One added intensity works despite N/2 missing matrix directions, a sharp nonlinear versus linear tomography separation; the result is not a routine fixed-order rank table, parameter renaming, or mere verification log. It makes no unsupported claim of stability or of completion for arbitrary real windows.",
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "limitations": [
+    "Some broad frame-completion or rank-two-nullspace results may imply an identical added-probe criterion under unfamiliar terminology; no checked source established this implication, but exhaustive priority certification is not claimed.",
+    "Bartusel 2026 arXiv:2605.31507 is related and its complete text was inaccessible after arXiv/OA attempts; authorized Oxford route returned vpn_disconnected. No bypass, no whole-document noncoverage assertion.",
+    "The earlier self-review referenced a Bartusel theorem number that differs across preprint/published editions; this review uses the published sections and avoids relying on the possibly mismatched number.",
+    "No stability constant, erasure-resilient recovery, or universal claim about every even real window is established. N=2..12 finite checks cannot certify an unbounded theorem by themselves.",
+    "The geometric ambiguity zero set, Gram rank N²−m and odd-order informational completeness are already covered by Zhu–Wang 2026 Proposition 6/Appendix E. The novel part must be framed only as the all-signal arbitrary one-probe nonlinear completion and iff design rule; expert evaluation could regard this a comparatively short corollary of known criteria.",
+    "Scientific assessment is PASS with qualified priority; this is not independent external professional certification or proof of historical priority.",
+    "The publication change-set is staged and guarded; no GitHub edit or publication occurred. Full sanitized AUDIT.json and METADATA.json replacement bytes remove an operational run identifier and an inherited first-publication date; all other scientific/public files remain unmodified. Status/independent certificates are to be derived by authorized server postprocessing.",
+    "External Lean and expert-attestation channels remain not_performed and have not been modified."
+  ],
+  "schema_version": 1
+}

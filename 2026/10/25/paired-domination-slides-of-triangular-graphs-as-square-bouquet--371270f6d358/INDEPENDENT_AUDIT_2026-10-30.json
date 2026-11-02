@@ -1,0 +1,114 @@
+{
+  "audit_date_utc": "2026-10-30",
+  "audited_at_utc": "2026-10-30T01:13:40Z",
+  "axes": {
+    "correctness": {
+      "rationale": "Translate line-graph domination to at most one uncovered K_n label. Each matched pair of selected incident edges covers three original labels, forcing 2k chosen edges at n=3k+1; equality forces k disjoint P3 stars with one hole. Count =n!/(2^k k!), and remove/insert classification gives exactly four moves per star. The bouquet-square token-swap quotient is connected via edge transpositions, and symmetric labeling yields transitivity, degree 4k, edges 2kN and triangles 2kN/3. Independently constructed canonical star forests and BFS all 12, 630, 75600 states: distance histograms exactly match claimed diameters 3,6,10, but only for k<=3; no larger diameter claimed.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Haynes–Slater contains general bounds and complexity; Suzuki et al. uses addition/removal dominating sets; Claverol et al. treat planar triangulations, not triangular Johnson graphs."
+        ],
+        "reasoning": "These broader domination/reconfiguration results do not imply the exact optimum fixed-cardinality paired-domination slide graph because they do not simultaneously constrain paired matching and preserve cardinality at every slide.",
+        "searches": [
+          "Haynes Slater 1998 Networks 32 abstract",
+          "arXiv:1401.5714 Reconfiguration of Dominating Sets",
+          "arXiv:2207.10925 Paired and semipaired domination in triangulations"
+        ]
+      },
+      "checked_sources": [
+        "Actual assigned RESULT.md and verification_direct.py, independent finite BFS n=4,7,10",
+        "Haynes-Slater 1998 Wiley/ETSU abstract (full unavailable)",
+        "Suzuki et al arXiv:1401.5714",
+        "Resultary paired domination search, OEIS A290716"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "Ordinary connected-graph token swapping proves the quotient connected *after* proving the nontrivial bijection and move restrictions.",
+          "Minimum paired-domination number is sharper than general gamma_pr bounds and not a corollary of addition/removal reachability."
+        ],
+        "reasoning": "Universal token swapping reachability is a used lemma, not the new mathematical content. The exact saturation, stars, counts, all-order degree/triangles, and finite-diameter classification are not implied by these general references.",
+        "searches": [
+          "Haynes-Slater 1998 general inequality",
+          "Suzuki-Mouawad-Nishimura arXiv:1401.5714",
+          "Yamanaka et al 2018 colored token swapping"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "T_n is L(K_n)=J(n,2), not a planar triangulation; each paired matched edge-pair in T_n corresponds to a three-label P3."
+        ],
+        "reasoning": "Identifying a paired-dominating family as a square-bouquet token-swapping quotient is a genuine equivalence derived from the complete local-move classification; existing definitions do not already give the quotient.",
+        "searches": [
+          "Resultary semantic query 2026-10-30: paired domination triangular graph token slides",
+          "Haynes-Slater 1998 definition paired domination"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "OEIS A290716 counts all minimal dominating sets in J(n,2), not minimum paired-dominating star forests.",
+          "The present N_k counts different objects."
+        ],
+        "reasoning": "A known related table does not dominate a distinct paired constraint, and fixed k=1,2,3 diameter figures were independently fully enumerated; no matching exact table was found.",
+        "searches": [
+          "Resultary semantic query 2026-10-30: paired domination polynomial chain graphs",
+          "OEIS A290716 minimal dominating sets triangular graph"
+        ]
+      },
+      "rationale": "Qualified PASS: Haynes–Slater introduces paired domination and general inequalities, but the accessible abstract has no exact saturated triangular-graph optimal solution reconfiguration; relevant triangulation paper concerns planar graphs, whereas T_n is the Johnson graph J(n,2). Exact bouquet quotient and finite diameters were not identified as prior classifications. Foundational original full text unavailable, recorded as a risk.",
+      "residual_risks": [
+        "Haynes–Slater full primary text was not retrieved; authorized institutional connection returned vpn_disconnected.",
+        "Possible unindexed classifications of paired domination in triangular graphs or colored-token bouquet quotient remain unexcluded.",
+        "All-order diameter for k>=4 is not claimed; finite exhaustive distances end at k=3."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "INACCESSIBLE_PRIORITY_RISK, not classified as full-document noncoverage",
+          "evidence": [
+            "Accessible abstract states definition, NP-completeness, general inequalities, and parameter triples; institutional service reported vpn_disconnected."
+          ],
+          "identifier_or_url": "Haynes and Slater (1998), Networks 32, DOI:10.1002/(SICI)1097-0037(199810)32:3<199::AID-NET4>3.0.CO;2-F",
+          "material_read": "Publisher and ETSU full abstracts, metadata; full eight-page primary article could not be retrieved through OA/preprint or authorized institutional access.",
+          "method": "Wiley publisher page, ETSU faculty archive, Oxford lawful retrieval",
+          "title": "Paired-domination in graphs",
+          "trigger": "Foundational exact same parameter, potential broader coverage"
+        },
+        {
+          "assessment": "NOT_SAME_GRAPH_FAMILY",
+          "evidence": [
+            "Planar near-triangulation not the triangular Johnson/line-complete graph J(n,2)."
+          ],
+          "identifier_or_url": "arXiv:2207.10925",
+          "material_read": "Abstract and statement of near-triangulation theorem",
+          "method": "arXiv abstract",
+          "title": "Paired and semipaired domination in triangulations",
+          "trigger": "Plausible title alias but possibly different graph family"
+        },
+        {
+          "assessment": "DIFFERENT_RECONFIGURATION_MODEL",
+          "evidence": [
+            "Addition/removal allowed with size slack; optimal fixed-size matched sliding requires different state graph."
+          ],
+          "identifier_or_url": "arXiv:1401.5714",
+          "material_read": "Title, abstract and move-definition summary",
+          "method": "arXiv bibliographic abstract",
+          "title": "Reconfiguration of Dominating Sets",
+          "trigger": "Possible domination reconfiguration implication"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "rationale": "The natural saturated family n=3k+1 has a complete optimal paired-dominating-set classification and a structured token-swap reconfiguration graph; connectedness, counts and small exact diameter cutoffs are mathematically meaningful even without a general diameter formula.",
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "limitations": [
+    "Full 1998 foundational paper inaccessible due vpn_disconnected, source cannot be classified as a whole.",
+    "Exact diameter statements concern only k<=3, no all-k diameter formula."
+  ],
+  "schema_version": 1
+}

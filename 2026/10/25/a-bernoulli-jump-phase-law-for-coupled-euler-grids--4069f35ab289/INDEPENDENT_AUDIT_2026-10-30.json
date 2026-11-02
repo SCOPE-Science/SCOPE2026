@@ -1,0 +1,108 @@
+{
+  "audit_date_utc": "2026-10-30",
+  "audited_at_utc": "2026-10-30T04:14:02Z",
+  "axes": {
+    "correctness": {
+      "rationale": "PASS: Starting from the exact fixed-grid iteration Xhat_m=x0(1+a/m)^m+sum_j H_j(1+a/m)^(m-1-floor(m*T_j)), uniform first-order logarithmic expansion gives Q_m=(a^2*x0*exp(a))/2+sum_j H_j exp(a(1-T_j))[a(1-{mT_j})+a^2(1-T_j)/2]+o(1). Conditionally on jump count, Poisson event-time vectors have densities; Fourier/Riemann-Lebesgue equidistribution gives stable independent uniform phases, but the fine phase is the SAME uniform doubled modulo 1, not an independent uniform. The pointwise dyadic identity (1-u)-(1-{2u})/2=1_{u<1/2}/2 gives iid conditional Bernoulli marks and Var(D|J)=(a^2/16) sum H_j^2 exp(2a(1-T_j)). Finite jump count and a.s. finite marks justify the pathwise finite sum without moment assumptions. Independent deterministic Euler grid expansion and phase identity were checked; finite test is not proof of stable convergence.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Ben Alaya and Kebaier (2015) explicitly concerns coupled consecutive Euler levels; its abstract raises a serious potential general-coverage issue, but its complete jump-driver hypotheses and explicit joint conditional limits were not read.",
+          "Hirokane 2026 explicitly discusses single-level additive semimartingale stable limits."
+        ],
+        "reasoning": "A general multilevel stable convergence theorem could imply the simple compound-Poisson limit via specialization. Abstract coverage alone does not establish that the 2015 theorem includes compound-Poisson jump forcing, the same non-jump-adapted scheme and the explicit conditional Bernoulli law. Priority remains materially qualified.",
+        "searches": [
+          "joint stable convergence multilevel Euler discretization of compound Poisson Lévy jumps dyadic two grids Bernoulli phase marks conditional variance",
+          "Ben Alaya and Kebaier, Central limit theorem for the multilevel Monte Carlo Euler method (2015)",
+          "Hirokane, arXiv:2610.20225v1"
+        ]
+      },
+      "checked_sources": [
+        "Git frozen RESULT.md c1b4f26dcd789593d29f5611d213c90f2c56d48e",
+        "Independent checker: EULER_PHASE_CHECK_OK",
+        "arXiv:2610.20225v1",
+        "arXiv:1501.06365",
+        "Resultary search: joint stable convergence multilevel Euler discretization of compound Poisson Lévy jumps dyadic two grids Bernoulli phase marks conditional variance"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "Hirokane has one-level jump-phase marks and shared marks across simultaneous coordinates, not the same-jump two-grid phase map.",
+          "The 2015 multilevel theorem could be dominating but the precise compound-Poisson hypotheses were not verified in its full text."
+        ],
+        "reasoning": "Neither a single-grid stable convergence theorem nor an independent coupling of its limit marks implies the true joint law; a properly general multilevel theorem might imply it. This is a best-of-knowledge PASS with a substantive verification risk, not an assertion of historical priority.",
+        "searches": [
+          "joint stable convergence multilevel Euler discretization of compound Poisson Lévy jumps dyadic two grids Bernoulli phase marks conditional variance",
+          "arXiv:2610.20225v1 Introduction and single-resolution results",
+          "Ben Alaya and Kebaier 2015 multilevel Euler stable convergence"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Hirokane (2026) gives one-grid uniform jump-phase marks; the audited pair E(U),E({2U}) retains deterministic dyadic dependence.",
+          "Dyadic differencing produces Bernoulli 1_{U<1/2} and a conditional variance not specified by a marginal."
+        ],
+        "reasoning": "The proposed one-grid equivalence fails: two marginal distributions do not fix the dependence between resolutions or the Bernoulli correction. Shared coordinate marks within one resolution are different from two coupled grids.",
+        "searches": [
+          "joint stable convergence multilevel Euler discretization of compound Poisson Lévy jumps dyadic two grids Bernoulli phase marks conditional variance",
+          "Hirokane arXiv:2610.20225v1 theorem one-grid uniform marks"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "Closest returned Resultary deterministic Richardson time-stepping work does not concern stochastic jumps or coupled stable limits."
+        ],
+        "reasoning": "This is an asymptotic law for a random process rather than a finite parameter table. No exact table or known value was found giving the dyadic joint limit; absence does not certify novelty.",
+        "searches": [
+          "joint stable convergence multilevel Euler discretization of compound Poisson Lévy jumps dyadic two grids Bernoulli phase marks conditional variance",
+          "Resultary 2026/10/4/SCOPE-richardson-acceleration-creates-a-sharp-positivity-barrier-for-b--c9c2b9f6d7e1"
+        ]
+      },
+      "rationale": "PASS (best-of-knowledge): The proposed one-grid equivalence fails: two marginal distributions do not fix the dependence between resolutions or the Bernoulli correction. Shared coordinate marks within one resolution are different from two coupled grids. A general multilevel stable convergence theorem could imply the simple compound-Poisson limit via specialization. Abstract coverage alone does not establish that the 2015 theorem includes compound-Poisson jump forcing, the same non-jump-adapted scheme and the explicit conditional Bernoulli law. Priority remains materially qualified. Neither a single-grid stable convergence theorem nor an independent coupling of its limit marks implies the true joint law; a properly general multilevel theorem might imply it. This is a best-of-knowledge PASS with a substantive verification risk, not an assertion of historical priority. Specific priority and access qualifications are recorded below.",
+      "residual_risks": [
+        "Potentially dominating general multilevel two-level Euler stable limit in Ben Alaya–Kebaier 2015 was not read in full; jump hypotheses and implication remain uncertain.",
+        "The asserted convergence is in distribution, not finite-mesh unconditional variance convergence without mark moments.",
+        "No general nonlinear SDE or non-dyadic coupling theorem is established."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Single-grid statements do not by themselves determine the two-grid dependence, but do provide the underlying uniform phase law",
+          "evidence": [
+            "arXiv:2610.20225v1; first posted 2026-10-14"
+          ],
+          "identifier_or_url": "https://arxiv.org/html/2610.20225v1",
+          "material_read": "Abstract, introduction, summary of one-grid theorem and shared-coordinate example; full PDF not separately read in this run",
+          "method": "Public arXiv scholarly record, accessible text passages and comparison of displayed scope",
+          "title": "Asymptotic Error Distributions for Euler–Maruyama Schemes with Additive Semimartingale Noise",
+          "trigger": "Same additive-noise Euler class, latest single-grid limit"
+        },
+        {
+          "assessment": "PRIORITY RISK: two-level convergence may have implications; not classified as noncovering on abstract evidence",
+          "evidence": [
+            "arXiv:1501.06365",
+            "Ann. Appl. Probab. 25 (2015)"
+          ],
+          "identifier_or_url": "arXiv:1501.06365; Annals of Applied Probability 25 (2015)",
+          "material_read": "Abstract and bibliographic statement mentioning coupled levels; full proof not read",
+          "method": "Open scholarly abstract and citation-context comparison",
+          "title": "Central limit theorem for the multilevel Monte Carlo Euler method",
+          "trigger": "Potential prior stronger theorem for exactly two consecutive Euler levels"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "rationale": "PASS: Two-grid shared-noise differences are the primitive input in multilevel approximation. Their conditional variance cannot be inferred from one-grid marginals or independent simulated uniform phases. This exact compound-Poisson benchmark resolves the nontrivial dyadic coupling and provides a check for multilevel error laws, without claiming a broad MLMC central limit theorem.",
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "limitations": [
+    "Potentially dominating general multilevel two-level Euler stable limit in Ben Alaya–Kebaier 2015 was not read in full; jump hypotheses and implication remain uncertain.",
+    "The asserted convergence is in distribution, not finite-mesh unconditional variance convergence without mark moments.",
+    "No general nonlinear SDE or non-dyadic coupling theorem is established.",
+    "All current publication actions withheld due confidentiality-safe content replacement blocker."
+  ],
+  "schema_version": 1
+}

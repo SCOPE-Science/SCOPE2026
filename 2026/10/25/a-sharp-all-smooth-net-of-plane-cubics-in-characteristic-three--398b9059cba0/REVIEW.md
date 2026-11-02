@@ -1,19 +1,21 @@
-# Scientific assessment
+# Independent mathematical audit
 
-## Correctness — PASS
+## correctness
 
-Linear independence is immediate from three distinguishing monomials. Thirty-nine exact characteristic-three Jacobian chart Gröbner-basis calculations establish geometric smoothness of all thirteen projective rational members; three further chart calculations exclude the geometric base locus. Independently, characteristic-three finite-extension arithmetic checks the complete possible degree-one, -two, and -three loci of singular points of plane cubics. A one-jet rank argument proves the global dimension bound. Outputs and both stand-alone programs are provided.
+PASS
 
-## Originality — PASS (qualified)
+Distinct monomials make F,G,H independent. I reconstructed characteristic-three Jacobian ideals on each of three affine charts for each of 13 rational projective members; independently executed exact GF(3) Gröbner computation: all 39 ideals unit, plus all three generator common-base ideals unit. Nullstellensatz excludes singularities and base points even over algebraic closure. For any F3 rational point, the 3-dimensional first-jet value/derivative target gives a nonzero singular member whenever input dimension is at least four; sharp maximum therefore equals three. Finite rational-parameter enumeration is exhaustive precisely for 13 rational projective directions, not for coefficients after scalar extension.
 
-The exact plane-cubic characteristic-three case lies outside the stated sufficient characteristic hypothesis of Asgarli–Ghioca–Reichstein, arXiv:2207.00918, Theorem 2(2). The later Asgarli–Ghioca 2024 discussion, arXiv:2407.18104, Theorem 2, again restricts the all-smooth plane-cubic existence assertion to characteristics other than three; its principal results about geometric irreducibility do not establish smoothness. Earlier smooth-pencil results have vector dimension two, not three. No equivalent result was identified in targeted literature or mathematical-record searches, but absence from those searches cannot establish absolute priority.
+## originality
 
-## Value — PASS
+PASS
 
-The case is a natural sharpness question explicitly left outside a leading general existence theorem's hypothesis: cubic degree and plane dimension are both divisible by the characteristic. The result gives a single reproducible explicit system achieving the universal upper bound over the smallest field of characteristic three. This is not an arbitrary numerical census or a restatement of the known first-jet obstruction.
+The missing characteristic-three, degree-three plane case in the general existence theorem is supplied by the concrete smooth rational net. No inspected result states the exact instance; priority is best of knowledge.
 
-## Limits and relevant literature
+## value
 
-The theorem asserts smoothness only for the thirteen rational projective members. No classification, behavior of all extension-field members, or independent validation is asserted. Principal references: arXiv:2207.00918, arXiv:2203.07169, arXiv:2407.18104, arXiv:2310.10361. Unindexed earlier examples are a residual originality risk.
+PASS
 
-Self-review: passed. Independent audit: not yet performed.
+A natural and genuine sharpness gap lies in a central theorem whose construction explicitly excludes the smallest characteristic-dividing example. The exact 13-member basepoint-free smooth net attains a rigorous universal first-jet bound and is a usable explicit algebraic-geometric witness, not an arbitrary census.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

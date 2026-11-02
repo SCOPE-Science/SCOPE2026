@@ -5,8 +5,11 @@
     "status": "not_performed"
   },
   "independent_audit": {
-    "evidence": null,
-    "status": "not_performed"
+    "status": "passed",
+    "evidence": [
+      "INDEPENDENT_AUDIT_2026-10-29.md",
+      "INDEPENDENT_AUDIT_2026-10-29.json"
+    ]
   },
   "lean_verification": {
     "evidence": null,
@@ -16,17 +19,24 @@
 }
 ---
 
-## Verification protocol
+# Independent mathematical audit
 
-Run `python3 verify.py` with the standard Python library. The program constructs every group by its defining multiplication and obtains complete two-variable atomic diagrams including the named identity. It independently compares direct full-vertex and orbit-reduced two-round signatures, the reduced four-bit case analysis, and the proposed complete index classification. The console output is captured in `verification_output.txt`.
+## correctness
 
-## Observed results
+PASS
 
-- Full-vertex and automorphism-orbit atomic signatures agree for all indices from 2 through 18.
-- The eight pointed-pattern templates reproduce all actual local signatures for indices from 2 through 40.
-- All seven representative theories are distinct and all indices from 2 through 100 map to the predicted theory.
-- The largest least representative order is 48 elements.
+The two-round Ehrenfeucht–Fraïssé game reduces to the set of pointed one-round atomic diagrams on (e,x,y). The proof checks x=e, the unique involution z=a^n, and order-three/four/large elements with their square-root types. The order-three existence 3|n, rootable order-four existence 4|n, and large square-order existence n>=5 yield seven spectra and representatives 2,3,4,5,6,8,12. Independently enumerated all atomic diagrams n=2..18, recovered exactly the predicted seven signatures. Finite enumeration corroborates, but the uniform congruence analysis proves infinitely many n.
 
-## Limits
+## originality
 
-These are finite checks, not a proof for every index. The all-index conclusion follows from the group presentation, the equations for two-variable atomic diagrams, and the eight-row pointed-type table in `RESULT.md`. Independent scientific audit has not been performed.
+PASS
+
+A complete rank-two logical classification for finite dicyclic groups in the deliberately weak relational language is not implied by the inspected finite-abelian/dihedral depth results or by noncyclic-graph reconstruction. No same statement surfaced in the tested search sources; historical-priority uncertainty remains.
+
+## value
+
+PASS
+
+Natural full classification for a nonsplit index-two family at fixed first-order quantifier rank, including sharp stabilization and least representative order 48; square-root profiles give a reusable mechanism.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

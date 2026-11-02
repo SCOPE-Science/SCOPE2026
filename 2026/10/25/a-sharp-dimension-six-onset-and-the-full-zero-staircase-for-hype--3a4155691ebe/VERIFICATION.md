@@ -5,8 +5,11 @@
     "status": "not_performed"
   },
   "independent_audit": {
-    "evidence": null,
-    "status": "not_performed"
+    "status": "passed",
+    "evidence": [
+      "INDEPENDENT_AUDIT_2026-10-30.md",
+      "INDEPENDENT_AUDIT_2026-10-30.json"
+    ]
   },
   "lean_verification": {
     "evidence": null,
@@ -16,12 +19,24 @@
 }
 ---
 
-# Mathematical verification
+# Independent mathematical audit
 
-The analytic identity can be reproduced by expanding the base weighted-ball kernel \(C_{d,\alpha}(1-u-t)^{-s}\) in orthogonal monomials and retaining exactly terms of positive \(t\)-degree. Dividing by \(t\) implements the isometry \(f\mapsto z_1f\). The limiting value at \(t=0\) is \(C_{d,\alpha}s(1-u)^{-s-1}\), which is nonzero.
+## correctness
 
-For every pair of interior points, Cauchy–Schwarz ensures \(|u|+|t|<1\) and hence \(|q|<1\). Every scalar disk point can be realized with both points on the first coordinate axis. In the principal logarithm strip, \((1-q)^{-s}=1\) yields \(q_j=1-e^{2\pi ij/s}\) with \(|j|<s/4\). These satisfy \(|q_j|<1\) exactly for \(0<6|j|<s\). The case \(j=0\) is excluded because the continued quotient equals \(s\).
+PASS
 
-Endpoint replay: \(s=6\) has no interior root; \(s=7\) has \(j=\pm1\) with \(|q|=2\sin(\pi/7)<1\); \(s=12\) has only \(j=\pm1\); \(s=13\) has \(j=\pm1,\pm2\). These checks illustrate the strict count; the complete proof covers every real \(s>1\) arising from the hypotheses.
+Multiplication by z1 is an isometric identification with the radial Bergman subspace divisible by z1; monomial orthogonality subtracts the kernel independent of z1 and divides difference by t=z1̄w1. This gives C[(1-u-t)^(-s)-(1-u)^(-s)]/t, s=d+α+1, with nonzero t=0 continuation. Cauchy–Schwarz gives |u|+|t|<1 and |q|<1, while axis points attain every |q|<1. Principal logarithm of 1-q lies in right-half-plane strip, zeros require q=1-e^(2πij/s), j≠0. Strict |q|=2sin(π|j|/s)<1 iff 0<6|j|<s; derivative of numerator nonzero gives scalar simplicity and staircase 2(ceil(s/6)-1). Cases s=6,7,12,13 separately checked. Full proof infinite in d and α, not numerical extrapolation.
 
-No numerical plot, finite enumeration, external assistant, or uninspected code is offered as certification. The originality comparison is bounded to the identified literature; no independent audit or validation has been performed.
+## originality
+
+PASS
+
+The characteristic hyperplane-divisibility kernel identity uses classical Bergman projection ideas. The full complex-ball anisotropic dimension/real-weight Lu Qi-Keng zero phase diagram and all scalar roots were not located in materially inspected literature, distinct from radial Euclidean boundary-distance and punctured-disk results.
+
+## value
+
+PASS
+
+This is a natural complete Lu Qi-Keng classification for a canonical divisor-weighted Bergman space: exact onset in complex dimension six, continuous radial-weight thresholds, scalar zero locations and simple-root multiplicities. It distinguishes regular entire-ball holomorphic functions from meromorphic punctured conventions.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

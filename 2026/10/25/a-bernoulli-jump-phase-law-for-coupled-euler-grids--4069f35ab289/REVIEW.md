@@ -1,9 +1,21 @@
-# Mathematical review
+# Independent mathematical audit
 
-**Correctness — PASS.** Exact Euler iteration and a uniform first-order logarithmic expansion reduce both grid errors to fractional jump times. Poisson arrival times have joint densities; torus Fourier averaging establishes their stable equidistribution independently of the original process. Their dyadic fractional parts are deterministic functions of the *same* independent limiting uniforms. The piecewise-affine phase identity produces the independent conditional Bernoulli marks and the stated variance. The included checker tests representative nontrivial boundary cases but does not replace the analytical proof.
+## correctness
 
-**Originality — PASS, with residual priority risk.** The primary recent paper arXiv:2610.20225v1, read through its introduction and Section 3.3, proves single-level errors with common jump marks across vector coordinates and explicitly does not state a two-grid joint theorem. This work instead gives the exact dependence across two nested mesh sizes, yielding a discrete Bernoulli conditional limit. Targeted published-finding corpus searches for coupled Euler errors, compound-Poisson drivers, dyadic fractional phases and related terminology returned no covering finding. General multilevel Euler limit literature might subsume this specialization; the formula's distinct scope is stated and a priority risk retained.
+PASS
 
-**Value — PASS.** A two-level, common-noise correction is the primitive random quantity for multilevel simulation. Its distribution cannot be computed from either marginal single-grid limit alone. The exact cancellation from a shared continuous uniform phase to a Bernoulli mark gives a nontrivial, interpretable jump-driven conditional variance and a benchmark for checking coupled simulation methods; this does not claim a whole MLMC complexity theorem.
+PASS: Starting from the exact fixed-grid iteration Xhat_m=x0(1+a/m)^m+sum_j H_j(1+a/m)^(m-1-floor(m*T_j)), uniform first-order logarithmic expansion gives Q_m=(a^2*x0*exp(a))/2+sum_j H_j exp(a(1-T_j))[a(1-{mT_j})+a^2(1-T_j)/2]+o(1). Conditionally on jump count, Poisson event-time vectors have densities; Fourier/Riemann-Lebesgue equidistribution gives stable independent uniform phases, but the fine phase is the SAME uniform doubled modulo 1, not an independent uniform. The pointwise dyadic identity (1-u)-(1-{2u})/2=1_{u<1/2}/2 gives iid conditional Bernoulli marks and Var(D|J)=(a^2/16) sum H_j^2 exp(2a(1-T_j)). Finite jump count and a.s. finite marks justify the pathwise finite sum without moment assumptions. Independent deterministic Euler grid expansion and phase identity were checked; finite test is not proof of stable convergence.
 
-Self-review: passed. Independent audit: not yet performed.
+## originality
+
+PASS
+
+PASS (best-of-knowledge): The proposed one-grid equivalence fails: two marginal distributions do not fix the dependence between resolutions or the Bernoulli correction. Shared coordinate marks within one resolution are different from two coupled grids. A general multilevel stable convergence theorem could imply the simple compound-Poisson limit via specialization. Abstract coverage alone does not establish that the 2015 theorem includes compound-Poisson jump forcing, the same non-jump-adapted scheme and the explicit conditional Bernoulli law. Priority remains materially qualified. Neither a single-grid stable convergence theorem nor an independent coupling of its limit marks implies the true joint law; a properly general multilevel theorem might imply it. This is a best-of-knowledge PASS with a substantive verification risk, not an assertion of historical priority. Specific priority and access qualifications are recorded below.
+
+## value
+
+PASS
+
+PASS: Two-grid shared-noise differences are the primitive input in multilevel approximation. Their conditional variance cannot be inferred from one-grid marginals or independent simulated uniform phases. This exact compound-Poisson benchmark resolves the nontrivial dyadic coupling and provides a check for multilevel error laws, without claiming a broad MLMC central limit theorem.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

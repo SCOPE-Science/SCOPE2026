@@ -1,19 +1,21 @@
-# Scientific review: length-23 substring-composition census
+# Independent mathematical audit
 
-## Correctness (PASS)
+## correctness
 
-The exact domain is the 8,388,608 binary linear words of length 23. The source enumerates every source once; equal complete histogram arrays necessarily have equal deterministic additive keys. Every nonsingleton key bucket is recomputed using the full histogram and an independent prefix-sum algorithm and aborts on any unequal histogram. Therefore the reported key buckets equal the true observation fibers, even if a nominal hash collision occurs. An independent classical interleaving enumeration is complete by the integer length-product equation. The checker compares all 160 full four-word classes with `quadruple_classes.csv`; all eight exceptions survive a complete generation test. Actual replay returned CHECK_OK. A finite theorem is certified by exhaustive computation, not an infinite extrapolation.
+PASS
 
-## Originality (PASS; residual priority risk)
+The defining observation is H_w(k,j)=#{i: sum_{h=i}^{i+k-1}w_h=j}. Inspected C++17 source enumerates exactly all integers 0≤w<2²³ as words, computes an additive deterministic 64-bit key K from complete H; H_w=H_v implies K_w=K_v with certainty. It sorts all keys and independently recomputes the complete prefix-sum H for EVERY member of any nonsingleton key bucket, rejecting a bucket containing different histograms. Therefore hash collisions cannot yield false equivalences, and singleton buckets cannot hide any equal observations in other keys. Independent complete C++ exhaustive enumeration processed all 8,388,608 words and reproduced 4096 singleton, 4,191,936 doubleton, and 160 four-word classes (4,196,192 observations), with 152 classical reversible interleaving families and eight noninterleaved. Independent interleaving construction enumerated all factor length pairs satisfying (m+1)(k+1)=24 and all nonpalindromic factors, confirming exactly 152 matched quadruples. The original source additionally checks all 160 CSV witnesses against computed classes; source table Git blob was verified in tree. This is an exhaustive *finite* certificate only for length 23. The sum 4096+2·4191936+4·160=8388608 is a consistency check, not the sole proof.
 
-The 2010 Acharya--Das--Milenkovic--Orlitsky--Pan ISIT article and the arXiv:1403.2439 full preprint were materially inspected. These works define precisely the same full composition multiset, supply the classical interleaving operation, and expressly report the first noninterleaved confusion at length 23. They establish the previously known existence of such examples, **not** the 4,096/4,191,936/160 complete class histogram, the 4,196,192 possible observations, or the exact 152/8 partition with all exceptional classes. Semantic literature and published-result searches for the exact full census, alternative equicomposability wording, interleaving, and integer totals returned closest records on restricted length-2 observations, ordered adjacent-pair spectra, and unrelated invariants. Such searches are not uniqueness proofs; an earlier unindexed full census remains a residual risk.
+## originality
 
-## Value (PASS)
+PASS
 
-This is the smallest length at which the foundational literature exhibits confusion not accounted for by the standard interleaving mechanism. Resolving its entire ambiguity spectrum and identifying all exceptional classes is a natural, exhaustive boundary classification, not an arbitrary subfamily. The exact maximum ambiguity and observation count simultaneously supply sharp finite-length zero-error coding/reconstruction limits for the complete substring-composition channel. The result is self-contained and reproducible, without asserting an unproved downstream algorithm or general theorem.
+Acharya–Das–Milenkovic–Orlitsky–Pan 2010 and arXiv:1403.2439 already prove the observation/polynomial and classical interleaving mechanism and specifically identify length 23 as the first noninterleaved ambiguity example. This known phenomenon is NOT original. Their materially read primary papers do not list the entire n=23 class-size histogram, the exact observation count or all eight exceptional quadruple fibers. Indexed related records treat restricted read length 2 or distinct multispectra, not the full multiset of all substring compositions. An obscure earlier full census or appendix not identified remains a residual priority risk.
 
-## Limitations and closest primary literature
+## value
 
-The noninterleaved length-23 example and the underlying polynomial/interleaving theorems belong to Acharya et al. The outcome only asserts that their examined publications did not include this complete census. Its own correctness is computationally certified by a complete executable finite enumeration; independent external mathematical auditing has not occurred. Different profile definitions and lengths are not covered. Unindexed earlier equivalent tabulations cannot be ruled out.
+PASS
 
-Self-review: passed. Independent audit: not yet performed.
+Length 23 is the natural first exceptional length for the canonical full-substring-composition reconstruction channel, not an arbitrary cut. An exhaustive ambiguity class spectrum, exact zero-error code cardinality and explicit complete division of nonclassical exceptions are concrete reusable finite classification facts. The finite result does not claim an all-length theory or improved reconstruction algorithm.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

@@ -1,0 +1,109 @@
+{
+  "audit_date_utc": "2026-10-30",
+  "audited_at_utc": "2026-10-30T04:14:02Z",
+  "axes": {
+    "correctness": {
+      "rationale": "PASS: Partition every palindromic scattered subsequence by j=0,1,2,3 copies of the symbol 1. Zero-only contributes m+1; one-one contributes h+1 via union of three initial length intervals; two-one words 0^i 1 0^j 1 0^i form three down-closed rectangles whose union is a base (x+1)(b+c+1) plus exactly E excess lattice points. Three-one words 0^i1 0^j1 0^j1 0^i contribute (x+1)(y+1). The resulting formula m+2+h+(x+1)(b+c+1)+(x+1)(y+1)+E covers all zero gaps. Symmetric case a=d=u,b=c=v reduces to 3uv+5u+6v+4, strictly concave in integer u at fixed s=u+v, uniquely maximized by u=floor(s/2). Independently enumerated all distinct subsequence strings for 495 gap tuples (up to 8 zeros) and checked the symmetric extremum through s=79. Finite tests are corroboration; case partition proves unrestricted zero-gap identity.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Elzinga–Rahmann–Wang 2008 addresses generic subsequence enumeration and algorithmic frameworks; the full paper was unavailable in this audit.",
+          "Guo–Shallit–Shur 2015 studies predominantly contiguous-factor combinatorics and different word classes."
+        ],
+        "reasoning": "A general count algorithm applies to this family but is not mathematically the same closed expression or extremal classification. Unread appendices of the 2008 work remain a priority risk.",
+        "searches": [
+          "distinct palindromic subsequences binary words with exactly three ones four gaps formula palindromic source maximizer",
+          "doi:10.1016/j.tcs.2008.08.035",
+          "arXiv:1503.09112"
+        ]
+      },
+      "checked_sources": [
+        "Git frozen RESULT.md 45474d2ce9d3312c782fd49bbe1dee0fba9d30c9",
+        "Independent checker: PAL_SUBSEQ_OK",
+        "arXiv:1503.09112",
+        "doi:10.1016/j.tcs.2008.08.035",
+        "Resultary search: distinct palindromic subsequences binary words with exactly three ones four gaps formula palindromic source maximizer"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "Counting all distinct scattered subsequences need not determine the palindromic subcount: gap vectors (0,0,3,2) and (0,4,0,1) share full count 48 but have palindrome counts 14 and 15.",
+          "A contiguous palindromic factor theorem has a different embedding constraint."
+        ],
+        "reasoning": "No inspected prior conclusion implies the all-parameter sparse-word palindrome count or symmetric unique optimum. Stronger uninspected exact subsequence theorems could remain.",
+        "searches": [
+          "distinct palindromic subsequences binary words with exactly three ones four gaps formula palindromic source maximizer",
+          "doi:10.1016/j.tcs.2008.08.035",
+          "arXiv:1503.09112"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "A palindrome as a contiguous factor is not a palindrome as a scattered subsequence; the 2015 primary work concerns palindromic pairs, rich words and antipalindromes, not this four-gap count."
+        ],
+        "reasoning": "No equivalent fixed-content scattered-palindrome formula was identified. General palindrome-string algorithms may compute instances but do not supply the stated four-variable identity and unique symmetric optimizer.",
+        "searches": [
+          "distinct palindromic subsequences binary words with exactly three ones four gaps formula palindromic source maximizer",
+          "arXiv:1503.09112"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "Resultary closest finding concerns shortest ABSENT subsequences, not counting distinct present palindromic scattered subsequences.",
+          "Other finding counts closed contiguous factors, not scattered palindromic words."
+        ],
+        "reasoning": "An all-parameter analytic identity is not a table lookup; no matching database was found by targeted searches, which cannot establish historical novelty.",
+        "searches": [
+          "distinct palindromic subsequences binary words with exactly three ones four gaps formula palindromic source maximizer",
+          "Resultary 2026/10/4/SCOPE-fibonacci-extremals-for-shortest-absent-subsequences-of-binary-w--1a6556f14d28",
+          "Resultary 2026/10/4/SCOPE-exact-binary-closed-rich-maxima-at-lengths-25-27--86328d0d91d6"
+        ]
+      },
+      "rationale": "PASS (best-of-knowledge): No equivalent fixed-content scattered-palindrome formula was identified. General palindrome-string algorithms may compute instances but do not supply the stated four-variable identity and unique symmetric optimizer. A general count algorithm applies to this family but is not mathematically the same closed expression or extremal classification. Unread appendices of the 2008 work remain a priority risk. No inspected prior conclusion implies the all-parameter sparse-word palindrome count or symmetric unique optimum. Stronger uninspected exact subsequence theorems could remain. Specific priority and access qualifications are recorded below.",
+      "residual_risks": [
+        "Full Elzinga–Rahmann–Wang 2008 source/appendices not examined; a stronger sparse-word theorem may exist.",
+        "The optimum is only for reversal-symmetric source words, not all weight-three words or arbitrary weight.",
+        "Unindexed fixed-content palindromic subsequence results might be equivalent."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Available passages cover contiguous palindromic factors and pairs, not a proved implication to scattered-subsequence counts; remaining text not declared noncovering",
+          "evidence": [
+            "arXiv:1503.09112; 2015"
+          ],
+          "identifier_or_url": "https://arxiv.org/abs/1503.09112",
+          "material_read": "Abstract and accessible thematic section descriptions; full mathematical article not independently read in this run",
+          "method": "Open arXiv scholarly text description and section-level scope comparison",
+          "title": "On the Combinatorics of Palindromes and Antipalindromes",
+          "trigger": "Potential exact palindrome word combinatorics"
+        },
+        {
+          "assessment": "GENERAL ENUMERATION ALGORITHM; unread primary detail retained as priority risk",
+          "evidence": [
+            "Theoretical Computer Science 409(3), 2008",
+            "https://www.rahmannlab.de/research/subseqcomb.html"
+          ],
+          "identifier_or_url": "doi:10.1016/j.tcs.2008.08.035",
+          "material_read": "Publisher/author overview and bibliographic abstract; primary full paper not obtained",
+          "method": "OA author overview and bibliographic comparison",
+          "title": "Algorithms for Subsequence Combinatorics",
+          "trigger": "General algorithm potentially covering special enumeration"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "rationale": "PASS: Exact distinct palindromic-scattered-subsequence counts for a natural fixed-weight word family and a full equality classification within symmetric source words give a non-tabular structural result. Rectangular lattice-union decomposition isolates asymmetric zero gaps and avoids full-word dynamic programming. No unproved unrestricted optimum is claimed.",
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "limitations": [
+    "Full Elzinga–Rahmann–Wang 2008 source/appendices not examined; a stronger sparse-word theorem may exist.",
+    "The optimum is only for reversal-symmetric source words, not all weight-three words or arbitrary weight.",
+    "Unindexed fixed-content palindromic subsequence results might be equivalent.",
+    "All current publication actions withheld due confidentiality-safe content replacement blocker."
+  ],
+  "schema_version": 1
+}

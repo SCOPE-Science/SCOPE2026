@@ -1,0 +1,94 @@
+{
+  "audit_date_utc": "2026-10-30",
+  "audited_at_utc": "2026-10-30T05:14:49Z",
+  "axes": {
+    "correctness": {
+      "rationale": "For a colored vertex of color c in a row, local majority reduces exactly to 2(a_{r,c}+eta)>=s_r+epsilon. Summation forces any row with three distinct colors to have precisely three singleton colors and partner vertices in the other row with the same colors, precluding a fourth global color. Four global colors therefore require two disjoint color palettes across the rows, equal multiplicities within each row, even nonzero row supports and no overlapping selected columns; conversely these conditions give equality in every local inequality. Separate n=2 and n=3 constructions/obstructions give psi_sq(R_n)=min(n,4). Choosing disjoint 2a and 2b column sets and splitting each into two unlabeled equal classes gives Q_n=n!/4 sum 1/(a!^2 b!^2 (n-2a-2b)!) and EGF e^t/4(sum_{a>=1}t^{2a}/(a!)^2)^2. Independent exhaustive restricted-growth support/partition enumeration for n=2..5 inspected respectively 52, 877, 21,147, and 678,570 assignments, confirming maxima 2,3,4,4 and Q4=6,Q5=30. The general formula follows from the structural argument rather than extrapolation.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Ma–Sahbi–Zhang 2026 studies general degree bounds, complete multipartite graphs, Cartesian products of paths, hypercubes and other families; its family statements do not give equality for two matched complete graphs."
+        ],
+        "reasoning": "A generic upper bound that allows order growing with n does not imply the constant plateau, optimizer rigidity or EGF. Complete multipartite families have a different adjacency structure from K_2 square K_n.",
+        "searches": [
+          "quorum coloring matched cliques prism Cartesian product K_2 square K_n partial coloring",
+          "sub-quorum colorings of graphs Ma Sahbi Zhang 2609.25128 two row rook graph"
+        ]
+      },
+      "checked_sources": [
+        "Sub-quorum colorings of graphs: https://arxiv.org/html/2609.25128v4 (Accessible full HTML: Definition 2.2, local lemmas, general bounds and the family sections on grids made from paths, complete multipartite graphs, hypercubes and related classes.)",
+        "Quorum colorings of graphs: https://repub.eur.nl/pub/37620/EI2012-20.pdf (Public bibliographic abstract/excerpt only, full PDF not inspected.)"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "Ma–Sahbi–Zhang arXiv:2609.25128v4 supplies the exact definition and general results; the inspected path Cartesian-product and complete multipartite claims do not imply the matched-clique theorem. Hedetniemi et al 2013 introduces related total quorum colorings and poses sub-quorum variants."
+        ],
+        "reasoning": "The graph is neither a Cartesian product of two paths nor a complete multipartite graph, and this is a structural all-optima theorem, not a renamed general inequality. The 2013 full text and older alternative names may contain a broader result.",
+        "searches": [
+          "quorum coloring matched cliques prism Cartesian product K_2 square K_n partial coloring",
+          "sub-quorum colorings of graphs Ma Sahbi Zhang 2609.25128 two row rook graph",
+          "complete graph prism partial majority coalition sub quorum partitions"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "K_2 square K_n is also the 2-by-n rook graph, complete-graph prism, or two n-cliques with matching cross edges. The source Ma–Sahbi–Zhang arXiv:2609.25128 defines the same partial majority condition."
+        ],
+        "reasoning": "Equivalent graph descriptions and unlabeled color partitions were compared. These graph aliases are not path grids P_2 square P_n, and their clique degrees differ; a path-grid bound does not imply the dense matched-clique classification.",
+        "searches": [
+          "sub quorum colorings K2 Cartesian Kn matched cliques four colors exact census",
+          "quorum coloring matched cliques prism Cartesian product K_2 square K_n partial coloring"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "Resultary searches for sub-quorum matched cliques/prisms returned different coloring invariants (majority C-colorings, proper conflict-free and crown graphs), not this sub-quorum optimum table."
+        ],
+        "reasoning": "Checked invariant definition, actual neighborhood, family alias and the optimizing-color count; no exact database/table implication was found, but searches are not exhaustive.",
+        "searches": [
+          "sub quorum colorings K2 Cartesian Kn matched cliques four colors exact census",
+          "quorum coloring matched cliques prism Cartesian product K_2 square K_n partial coloring"
+        ]
+      },
+      "rationale": "The available defining paper treats general quorum bounds, multipartite graphs and path-grid strips; no inspected theorem specializes to the matched pair of dense cliques, its rigidity or exact unlabeled-optimum census. Qualified PASS with priority risk under alternative coloring terminology and incomplete older primary source.",
+      "residual_risks": [
+        "The foundational 2013 article was not fully read; older nomenclature could contain a similar enumeration.",
+        "The four-color characterization depends on an onto partial coloring and identifying global color-name permutations."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Covers the invariant but not the two matched clique family or its complete four-color census.",
+          "evidence": "The path grids considered are P_m square P_n rather than K_2 square K_n; the complete multipartite graphs lack these row cliques.",
+          "identifier_or_url": "https://arxiv.org/html/2609.25128v4",
+          "material_read": "Accessible full HTML: Definition 2.2, local lemmas, general bounds and the family sections on grids made from paths, complete multipartite graphs, hypercubes and related classes.",
+          "method": "Read primary open HTML and compare definitions, hypotheses and graph adjacency.",
+          "title": "Sub-quorum colorings of graphs",
+          "trigger": "Same graph invariant and potentially dominating family theorems."
+        },
+        {
+          "assessment": "Older total-coloring framework; exact partial matched-clique theorem not established by material read.",
+          "evidence": "Hedetniemi et al., AKCE Int. J. Graphs Combin. 10 (2013).",
+          "identifier_or_url": "https://repub.eur.nl/pub/37620/EI2012-20.pdf",
+          "material_read": "Public bibliographic abstract/excerpt only, full PDF not inspected.",
+          "method": "Bibliographic/definition comparison, no negative claim about unread pages.",
+          "title": "Quorum colorings of graphs",
+          "trigger": "Original majority-coloring definitions and possible sub-quorum coverage."
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "rationale": "The two-row rook graph is a natural sparse coupling of two dense cliques, and a constant four-color ceiling sharply contrasts with generic degree-dependent upper bounds. The complete characterization of every maximizing support and its factorial EGF are independently useful structural data, not just a small example.",
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "limitations": [
+    "The foundational 2013 article was not fully read; older nomenclature could contain a similar enumeration.",
+    "The four-color characterization depends on an onto partial coloring and identifying global color-name permutations.",
+    "No GitHub writes were performed; all public-file modifications withheld for privacy-safe staging."
+  ],
+  "schema_version": 1
+}

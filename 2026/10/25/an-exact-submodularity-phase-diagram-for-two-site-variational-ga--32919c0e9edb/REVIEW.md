@@ -1,19 +1,21 @@
-# Review of the two-site variational free-energy submodularity classification
+# Independent mathematical audit
 
-## Correctness — PASS
+## correctness
 
-The fully specified Titsias objective yields exact two-by-two Nyström matrices for each of four inducing sets. The difference of their inverse quadratic forms diagonalizes in the symmetric/antisymmetric basis. A derivative factorization proves strict positivity of the scalar baseline, and elementary positivity proves both response coefficients. This gives an *if and only if* two-site characterization. A Schur-complement argument proves set monotonicity independently, while the rational special case has rigorously negative logarithmic defect. A Python standard-library checker independently reconstructs 1,343 direct-matrix cases. Finite cases are corroboration, not the universal proof.
+PASS
 
-## Originality — PASS, with qualified historical-priority risk
+I independently formed the four Nyström matrices and symbolic inverse-matrix combination M=I+(I+K)^−1−(I+Q1)^−1−(I+Q2)^−1. Its normalized symmetric/antisymmetric eigenvalues simplify exactly to 2A_+ and −2A_- as stated. Symbolic differentiation reproduces dC/dtau=r²*tau*((1−r^4)*tau²+(r²+3)*tau+(r²+1))/(H+ H- D)>0 and C(0)=0. Positive semidefinite nested Nyström increments and logdet(I+X)<=tr(X) show monotonicity for all responses. The independent exact counterexample gives Gamma=1/36+(1/2)log(20/27)=−0.1222745184; weak-r expansion follows from coefficients.
 
-The 2026 pivot-selection source proves positive variational gains, not the data-dependent submodularity criterion. The older Cao–Brubaker–Fleet–Hertzmann selection framework gives related variational objectives, but inspected sections do not show the exact two-site quadratic region. Titsias defines the underlying objective. Krause–Singh–Guestrin's Gaussian mutual-information submodularity is a different set function. Published-record searches and semantic research-record searches used aliases including inducing subset, Nyström VFE, diminishing returns and correlated responses; no stronger implication or equivalent was identified. Older specialized literature or hidden formulations remain a residual risk, so priority is not independently certified.
+## originality
 
-## Value — PASS
+PASS
 
-Diminishing returns is the hypothesis behind standard submodular greedy guarantees. The exact phase diagram determines when that hypothesis is valid or invalid for the smallest nontrivial variational inducing-set problem. The weak-correlation limit demonstrates a robust failure mechanism despite nearly independent kernels. This supplies a mathematically motivated boundary and explicit counterexample, not simply a generic logdet identity.
+Best-of-knowledge claim is not established by the sources actually recovered: An exact singleton gain and monotonicity do not determine the sign of Gamma=F({1})+F({2})−F(empty)−F({1,2}); this exact quadratic sign classification is therefore not a renamed consequence of mutual information submodularity. Priority is qualified by incomplete full-text access.
 
-## Scope and risks
+## value
 
-The theorem is limited to two equal-variance candidates, positive correlations and the standard homoscedastic sparse-GP variational objective. No general multivariate characterization or greedy approximation ratio is claimed. Priority needs independent historical review.
+PASS
 
-Self-review: passed. Independent audit: not yet performed.
+Diminishing returns is a precise condition for greedy guarantees; the exact smallest nontrivial response-dependent phase diagram and robust opposite-sign weak-correlation counterexamples distinguish this objective from Gaussian mutual information. Natural motivated structural counterexample, not a claimed general large-kernel classification.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

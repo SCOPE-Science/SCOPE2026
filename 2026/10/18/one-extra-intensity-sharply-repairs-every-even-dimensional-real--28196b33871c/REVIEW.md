@@ -1,11 +1,21 @@
-# Scientific review
+# Independent mathematical audit
 
-**Correctness — PASS.** The two-block geometric-sum formula isolates all ambiguity zeros at the half-translation and odd modulations for even order, with none for odd order. Weyl Fourier diagonalization then identifies precisely the antipodal skew-Hermitian matrix modes; Hermitian restriction yields independent rank-two blocks. A rank-one-projector difference can have rank at most two, so one additional probe removes every ambiguity if and only if its imaginary antipodal products are all nonzero. The converse is witnessed by the spectral decomposition of an unseen traceless rank-two block. Explicit finite checks of orders 2 through 12 support, but do not substitute for, the all-order algebraic proof.
+## correctness
 
-**Originality — PASS, best knowledge.** The closest full-text antecedents are Goldberger–Kang–Okoudjou (arXiv:2106.01509), which diagonalizes Gabor-projector spans, and Bartusel (arXiv:2206.06729), which proves a general even-order obstruction for real Gabor windows. Neither states the complete one-probe repair criterion. Related cyclic Gabor rank and multi-window results do not imply the exact augmented rank-two nullspace criterion for this window without additional work. An unindexed general frame-completion result could overlap and remains a specific bibliographic risk.
+PASS
 
-**Mathematical value — PASS.** The sharp repair requires only one extra intensity even though \(N/2\) independent *linear* matrix directions are missing. The result gives a closed-form necessary-and-sufficient design test, an explicit probe in every even order, and universal injectivity even for sparse input vectors. It exhibits a genuine nonlinear-versus-linear tomography separation and a minimal practical remedy for the real-window parity obstruction.
+Directly reconstructed the finite two-branch geometric sum A_g(ell,k) = r^{-ell}(1-r^N)(r^{2ell}omega^{kell}+r^N)/(1-r²omega^k), proving only even half-shift/odd-modulation zeros. Fourier diagonalization gives exactly m Weyl matrix null modes and Hermitian skew-antipodal blocks. Disjoint 2x2 blocks have rank 2s, hence every nonzero rank<=2 ambiguity has support on one pair. A new rank-one projector separates that pair iff its imaginary antipodal coefficient is nonzero; spectral decomposition of any unseparated traceless block constructs two inequivalent signals with equal all intensities. This proves both directions globally for all even N>=2 and every r in (0,1), with odd full-rank boundary. Independent numerical Gabor/projector SVD and explicit witnesses were checked for N=2..12 at r=.3,.5,.8 (33 parameter combinations). Finite checks are corroboration, not an infinite proof.
 
-**Scientific limits.** Exact noiseless result for geometric full-support real windows; no stability bound, erasure guarantee, or universal statement for all real windows. The comparison is best-knowledge rather than exhaustive external certification.
+## originality
 
-Self-review: passed. Independent audit: not yet performed.
+PASS
+
+Qualified best-of-knowledge PASS for the precise sharp all-vector one-external-intensity phase-retrieval completion iff condition on the geometric real window. IMPORTANT PRIOR COVERAGE: Zhu–Wang 2026 Proposition 6 and Appendix E ALREADY establish the exact same all-order geometric ambiguity zeros and matrix nullity; these are NOT original. GKO provides Weyl Gram diagonalization and Bojarovska–Flinth provides the general rank-two test. The surviving exact rank-two skew-antipodal kernel geometry and necessity/sufficiency of Im(conj(w_j)w_(j+N/2))!=0 for every one of the m pairs are not stated by these inspected primary results or by three related fully read Resultary records. Their combination is a motivated structural extension, with the potential of an unindexed earlier formulation and inaccessible Bartusel 2026 full text recorded as residual risks.
+
+## value
+
+PASS
+
+The full-support positive cyclic geometric Gabor window is a motivated canonical example of a real even-order obstruction. The result gives an exact all-order, necessary-and-sufficient single-vector rescue criterion for recovery of arbitrary sparse or dense complex signals. Although Zhu–Wang 2026 already give the exact geometric-window linear rank and zero set, the all-vector one-scalar completion theorem and exact iff probe design constitute the surviving structural contribution. One added intensity works despite N/2 missing matrix directions, a sharp nonlinear versus linear tomography separation; the result is not a routine fixed-order rank table, parameter renaming, or mere verification log. It makes no unsupported claim of stability or of completion for arbitrary real windows.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

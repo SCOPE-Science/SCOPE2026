@@ -1,0 +1,109 @@
+{
+  "audit_date_utc": "2026-10-29",
+  "audited_at_utc": "2026-10-29T23:19:51Z",
+  "axes": {
+    "correctness": {
+      "rationale": "Gap G=M-X has geometric invariant distribution with λ=t(q+pλ²), t=1-r, for 0<r<1. Positive recurrence, ergodic frontier occupation, and martingale strong law give speed tp(1-λ); no-reset endpoint is max(2p-1,0), r=1 is zero. Reparameterizing by λ makes derivative sign q(1-2λ)-pλ², giving interior optimizer iff p<3/4 and critical boundary otherwise, with quadratic gain onset. Independent rational cases and 501-point reset grids checked. Uniform proof follows chain/derivative analysis, not sampled grids.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "At G=0, reset is a no-op of probability r, whereas original 2015 frontier has only symmetric left/right moves.",
+          "The stationary equation λ=t(q+pλ²) and derivative q(1-2λ)-pλ² yield a unique optimizer and sharp threshold p=3/4."
+        ],
+        "reasoning": "Original 2015 maximum-reset model is conditioned on walker lying below frontier (its Section II update rules), and 2021 sequel retains this; broader restart renewal theory supplies methods but no established exact 3/4 threshold for the specified unconditional clock.",
+        "searches": [
+          "random walk reset to running maximum biased walk independent reset at frontier speed threshold",
+          "https://arxiv.org/abs/1509.04516",
+          "https://math.ac.vn/uploads/files/IMH20210205.pdf"
+        ]
+      },
+      "checked_sources": [
+        "https://arxiv.org/abs/1509.04516",
+        "https://math.ac.vn/uploads/files/IMH20210205.pdf",
+        "https://arxiv.org/abs/2102.00895"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "At G=0, reset is a no-op of probability r, whereas original 2015 frontier has only symmetric left/right moves.",
+          "The stationary equation λ=t(q+pλ²) and derivative q(1-2λ)-pλ² yield a unique optimizer and sharp threshold p=3/4."
+        ],
+        "reasoning": "Setting p=1/2 in a frontier-conditioned model does not recover unconditional frontier no-op behavior; generic renewal identities need a new protocol-specific derivation and optimization.",
+        "searches": [
+          "random walk reset to running maximum biased walk independent reset at frontier speed threshold",
+          "https://arxiv.org/abs/1509.04516",
+          "https://math.ac.vn/uploads/files/IMH20210205.pdf"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "At G=0, reset is a no-op of probability r, whereas original 2015 frontier has only symmetric left/right moves.",
+          "The stationary equation λ=t(q+pλ²) and derivative q(1-2λ)-pλ² yield a unique optimizer and sharp threshold p=3/4."
+        ],
+        "reasoning": "Compared maximum-restarting random walks, gap Markov chains, biased first-passage restart, reset-at-record even when G=0 and frontier-conditioned reset.",
+        "searches": [
+          "random walk reset to running maximum biased walk independent reset at frontier speed threshold",
+          "https://arxiv.org/abs/2102.00895"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "At G=0, reset is a no-op of probability r, whereas original 2015 frontier has only symmetric left/right moves.",
+          "The stationary equation λ=t(q+pλ²) and derivative q(1-2λ)-pλ² yield a unique optimizer and sharp threshold p=3/4."
+        ],
+        "reasoning": "No covering exact global optimum table for the p-biased all-step reset-at-record protocol located. Verified exact p=3/4 transition and several rational regimes independently.",
+        "searches": [
+          "random walk reset to running maximum biased walk independent reset at frontier speed threshold",
+          "https://arxiv.org/abs/2102.00895"
+        ]
+      },
+      "rationale": "Majumdar–Sabhapandit–Schehr 2015 foundational paper explicitly uses symmetric jumps and prohibits no-op resets at the frontier; this changes its gap kernel. Other examined works preserve that conditioned reset or treat first passage, not this exact independent-clock optimized bias law. Existing generic renewal methods could yield this after specialization, acknowledged.",
+      "residual_risks": [
+        "Generic renewal/restart theorem may have a worked biased resetting-to-record variant not indexed by exact phrase.",
+        "No fluctuation or finite-time speed optimality claim."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Symmetric and frontier-conditioned; does not establish unconditional biased clock result",
+          "evidence": "At x=m paper attempts nearest-neighbor move without a reset coin.",
+          "identifier_or_url": "https://arxiv.org/abs/1509.04516",
+          "material_read": "Primary arXiv full text Section II equations (2)-(3), including distinct transition law at x=m",
+          "method": "arXiv primary manuscript full text",
+          "title": "Random walk with random resetting to the maximum",
+          "trigger": "Exact record-reset process in seminal source"
+        },
+        {
+          "assessment": "Related limit laws, not independent all-step bias optimization",
+          "evidence": "Original frontier convention maintained.",
+          "identifier_or_url": "https://math.ac.vn/uploads/files/IMH20210205.pdf",
+          "material_read": "Abstract and Sections 1-2 on symmetric original frontier-conditioned reset",
+          "method": "Lawful manuscript inspection",
+          "title": "Limit Theorems for the One-Dimensional Random Walk with Random Resetting to the Maximum",
+          "trigger": "Potential strong law for same process"
+        },
+        {
+          "assessment": "Generic first-passage renewal scheme, not located particular record-clock optimum",
+          "evidence": "A possible alternate derivation, not known prior special-case result.",
+          "identifier_or_url": "https://arxiv.org/abs/2102.00895",
+          "material_read": "Title, abstract, and related first-passage approach",
+          "method": "arXiv accessible summary",
+          "title": "First passage under restart for discrete space and time",
+          "trigger": "Generic renewal result could imply speed by specialization"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "rationale": "Sharp global optimization and drift phase transition for a mathematically natural alternative resetting protocol with a continuous quadratic onset; avoids conflating different frontier rules.",
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "limitations": [
+    "Generic renewal/restart theorem may have a worked biased resetting-to-record variant not indexed by exact phrase.",
+    "No fluctuation or finite-time speed optimality claim.",
+    "Nearest-neighbor biased discrete walk 0<p<1; independent reset to running record drawn at every step including at the frontier; constant r in [0,1]; a.s. asymptotic record speed."
+  ],
+  "schema_version": 1
+}

@@ -1,23 +1,21 @@
-# Scientific review
+# Independent mathematical audit
 
-## Correctness — PASS
+## correctness
 
-The claim is an all-complex-parameter statement for zero-free polynomials of degree at most three, with the standard normalized Hardy \(H^2\) coefficient norm. Every polynomial in the domain has a factorization \(p(z)=a_0\prod_{j=1}^3(1+x_jz)\) with \(|x_j|\le1\), allowing zero parameters. The original inequality is algebraically equivalent to \(7(1+|e_2|^2+|e_3|^2)-3|e_1|^2\ge0\). Phase expansion and the triangle bound reduce it to a real cube inequality.
+PASS
 
-Four exhaustive sign regions of the factors \(7r_j^2-3\) are checked. Three admit strictly positive rational tensor Bernstein coefficients of degree four on rational boxes containing the respective regions. The fourth admits a positive leading quadratic coefficient and a nonnegative discriminant complement with a degree-eight rational Bernstein certificate. Precisely one Bernstein coefficient vanishes, forcing the unique radius triple \((1,1,1/4)\) up to permutation. Restoring phases forces the unit factors to agree and the short factor to oppose them. The extremizing polynomial gives ratio \(7/10\) exactly. The included `verify.py` ran successfully and checked all certificate coefficients using exact fractions. No continuum-wide conclusion is inferred from a sample grid.
+Factorization p=a0 product(1+x_j z), |x_j|<=1, reduces to F=7(1+|e2|²+|e3|²)-3|e1|². Phase lower bound has three positive rational degree-four tensor Bernstein certificates on enlarged sign boxes, with minima 247/81,344/729,2. For two-high region F_* is positive quadratic in last radius, with discriminant complement D=AC-B² having 81 nonnegative degree-eight rational Bernstein coefficients on [0,7/20]^2, only one corner zero. Independent exact rational polynomial construction reproduced all these certificates and unique equality radius triple (1,1,1/4). Phase restoration yields (η,η,-η/4), normalized ratio 7/10. Coefficient nonnegativity proves continuum claim, not finite sampling.
 
-## Originality — PASS, subject to historical-priority risk
+## originality
 
-The most directly relevant source is S. L. Krushkal, *A General Theorem on Sharp Evaluation of Polynomial Coefficients*, **Axioms** 15 (2026), 699 (DOI `10.3390/axioms15090699`), particularly Theorems 1–2 and Section 5. It discusses coefficient extremals for nonvanishing polynomials, but explicitly sets the new general degree range at \(n\ge5\) and leaves smaller degrees for further analysis. Its structural reduction to maximizing the first coefficient does not supply the numerical cubic Hardy constant or classify the maximizing roots. Related July 2026 and earlier Hardy-function papers supply the framework and degree-unrestricted bounds but do not establish this exact finite-degree equality classification on the material inspected.
+PASS
 
-Targeted searches for the constant \(\sqrt{7/10}\), zero-free cubics, Hardy \(H^2\) coefficients, rotated two-boundary-root extremizers, equivalent root-factor inequalities, and general results dominating degree three identified no equivalent result. The stronger general Hardy coefficient estimate \(\sqrt{2/e}\) is numerically weaker than the cubic value. Some older full texts and the complete July 2026 preprint could not be inspected; negative searches alone are not proof of historical novelty.
+September 2026 Krushkal coefficient paper discusses general coefficient problem in n>=5 and does not state cubic 7/10 equality in inspected relevant sections. October 2026 newer preprint has a broad binomial-extremal assertion whose apparent H2 first-coefficient specialization would conflict with explicit cubic witness 7/10 versus binomial 1/2; hence it cannot be treated as a demonstrated valid dominating implication without resolving exact hypotheses. Classical unrestricted H2 bound 2/e is weaker than 7/10. Best-of-knowledge originality qualified.
 
-## Mathematical value — PASS
+## value
 
-A finite-degree sharp constant is a natural invariant of the zero-free polynomial subspace of a Hardy coefficient ball. The cubic case identifies a non-binomial extremizer with two coincident boundary roots and a third strictly external root at a specific distance. Thus it records genuinely new geometric behavior at the first small degree beyond the elementary quadratic benchmark. The exact extremizer can serve as a concrete finite-dimensional comparison for broader polynomial-coefficient conjectures; no downstream theorem is needed to motivate its precise value.
+PASS
 
-## Scope and risks
+Natural sharp finite-degree zero-free Hardy coefficient invariant, with distinctive nonbinomial extremizer: two boundary roots and an opposite exterior root; precise equality structure is independently useful.
 
-The theorem is limited to one coefficient, degree at most three, and normalized \(H^2\). Its extremizer is permitted because the disk is open, not closed. Earlier literature on coefficient extrema is extensive, and complete historical priority cannot be certified from the accessible sources. The algebraic checker tests an exact identity and finitely many exact Bernstein coefficient inequalities, which together prove global positivity; it does not provide external or independent certification.
-
-Self-review: passed. Independent audit: not yet performed.
+The dated certificate retains the supplied scientific assessment, sources and limitations.

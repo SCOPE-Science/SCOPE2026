@@ -1,15 +1,21 @@
-# Self-review
+# Independent mathematical audit
 
-## Correctness: PASS
-The theorem is a universal necessary coefficient estimate for actual analytic inverse germs. The coefficient-square ceiling \(2/3\), the exact fifth-order inverse residual, the two Schur transforms, the Wiener bounds on their second Taylor coefficients, and the rational discrepancy estimate supply a complete contradiction for every \(|a_2|^2\in[191/288,2/3]\). The exact uniform margin is verified in `verify_gap.py`. The numerical cutoff is not asserted optimal.
+## correctness
 
-## Originality: PASS, qualified by source-access risk
-The motivating paper's public abstract explicitly states a strict but unquantified gap for the exponential example and an open exact supremum. The present bound quantifies that missing gap. Searches included the motivating paper's exact title, its DOI, exponential bi-univalent coefficient bounds, fifth-order residual aliases, the specific fraction, and semantic mathematical-record searches. No directly implying quantitative theorem was recovered. The complete source article could not be inspected, leaving a documented priority risk.
+PASS
 
-## Value: PASS
-The cited literature identifies a natural coefficient extremal problem and a qualitative separation argument based on compactness. An effective, elementary rational gap is nontrivial quantitative information about how fifth-order inverse compatibility repels the second-order equality orbit. The certificate exposes a reusable near-equality method, without claiming to solve the sharp extremal problem.
+Independent symbolic inverse-series composition through z^5 and logarithm extraction checked fifth-order compatibility Δ=8u^4/3−8u²v+4uw+2v²−x−y=0. Schwarz-Pick gives s=r−v, |v|,|s|<=1−r and r<=2/3; near r=2/3 each second coefficient is forced within explicit radius of 1/3. Disk-map coefficient bounds and two Schur transforms give |Δ+46/27|<=830093/518400, strictly less than 46/27 by 53107/518400, excluding r>=191/288. The independent exact-rational calculation checked all constants. The proof is an inequality only and no exact supremum is claimed.
 
-## Sources, comparison, limitations
-Mahmood–Rasheed–Mihsin–Atshan, *AIMS Mathematics* 11 (2026), DOI 10.3934/math.20261285, published 2026-10-10, primary MSC 30C45 (official abstract inspected). Relevant classical bi-univalent coefficient references on the same article page and an accessible review of inverse-coefficient techniques were checked. Additional mathematical-record results concerned different exponential starlike, pre-Schwarzian, or harmonic inverse questions. No claim of exhaustive priority is made, particularly without complete access to the motivating article's proofs.
+## originality
 
-Self-review: passed. Independent audit: not yet performed.
+PASS
+
+Best-of-knowledge claim is not established by the sources actually recovered: Prior theorem: strict unquantified inequality. Current: one explicit rational upper bound from a quantitative fifth-order neighborhood. The qualitative inequality does not logically force any specified positive rational gap. Priority is qualified by incomplete full-text access.
+
+## value
+
+PASS
+
+An explicit computable coefficient separation is a legitimate natural extremal invariant even though the nonsharp gap is numerically small: it quantitatively controls the fifth-order obstruction near the known joint-second-order equality orbit. This is stronger than compactness-only existence, though no sharp extremal value or applications are claimed.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

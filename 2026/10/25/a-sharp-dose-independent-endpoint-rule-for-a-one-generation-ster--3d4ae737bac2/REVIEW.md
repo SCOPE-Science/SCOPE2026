@@ -1,11 +1,21 @@
-# Scientific review: one-generation sterile-insect release timing
+# Independent mathematical audit
 
-**Correctness — PASS.** Direct inversion gives an affine untreated recurrence plus one quadratic pulse in the reciprocal state. The exact terminal formula holds for every permitted date. The continuous extension of the timing weight is strictly convex, including the unit-growth case, excluding any optimal interior date. A strictly positive discrete difference handles growth at most one; an exact endpoint difference gives the unique positive threshold and both tie/boundary directions for growth above one. The proof handles arbitrary positive real parameters and all integer horizons of at least two updates. A Python 3 standard-library exact-rational checker independently verifies representative computations but does not replace the all-parameter proof.
+## correctness
 
-**Originality — PASS, with documented limitations.** Relevant full texts by Gordillo (2014), White et al. (2010), Ramirez and Gordillo (2016), and Li and Li (2019) were inspected for their equations and results; they model a different suppression/density coupling, multiple releases, stage structure, or spatial release policies. The present proof is for one precise product-form Beverton–Holt mating pulse and a terminal target with a dose-independent exact threshold. Source and mathematical-claim searches did not surface an equivalent theorem or a directly dominating parameter-general statement. Berryman (1967) and Xue, Tang and Liang (2012) could be broader prior results, but their full texts were unavailable; only abstract/bibliographic material could be checked. Therefore priority risk remains and broad uniqueness is not asserted.
+PASS
 
-**Mathematical value — PASS.** The theorem supplies the global optimum among all release dates, a sharp and biologically interpretable initial-population transition, and the minimal dose needed for any prescribed terminal suppression target, not a routine re-expression of the equilibrium map. It is a nontrivial scheduling result whose existence and dose independence are not obvious from the untreated recurrence.
+The reciprocal change z=1/x converts unforced updates to f(z)=(z+1)/R and pulse to f(z)+(s/R)z(z+1). The exact final reciprocal f^n(z0)+(s/R^n)H_t, H_t=R^t z_t(z_t+1), decouples dose. For R≠1, H_t=R/(R-1)^2 R^t+(2/(R-1)+1)(z0-1/(R-1))+(z0-1/(R-1))² R^(-t), strictly convex in real t; for R=1, H_t=(z0+t)(z0+t+1) is strictly convex. For R≤1 discrete differences >0 imply last unique. For R>1 exact H_(n-1)-H_0 factors with one attainable positive threshold xcrit=(R-1)/(1+R^(n/2)); first below, last above, endpoint tie at equality, interior strictly excluded. Independent exact Fraction test of terminal vs formula and both sides of switch passed; it does not prove all real cases.
 
-**Model and proof limitations.** Valid only for one breeding generation of sterile-male suppression with density regulation factored as stated, deterministic nonoverlapping generations, and terminal wild adult abundance as the objective. No conclusions are drawn about stochastic elimination, stages, multiple pulses, alternative mating functions, or persistence into later seasons. No independent validation has been performed.
+## originality
 
-Self-review: passed. Independent audit: not yet performed.
+PASS
+
+The exact global terminal scheduling rule under a single product-form sterile mating pulse is not an immediate consequence of inspected multiple-release, stage-structured and proportional-harvesting studies. Closely titled optimal timing work remains a meaningful full-text priority risk.
+
+## value
+
+PASS
+
+A biologically motivated scheduling problem is solved for all finite horizons and parameters: no intermediate optimum, exact switch from early to late intervention and dose-independent threshold, with a closed dose-to-target corollary. These are natural exact mathematical decisions that are not merely a tabulation of a few release dates.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

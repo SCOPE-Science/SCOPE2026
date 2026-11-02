@@ -5,8 +5,11 @@
     "status": "not_performed"
   },
   "independent_audit": {
-    "evidence": null,
-    "status": "not_performed"
+    "status": "passed",
+    "evidence": [
+      "INDEPENDENT_AUDIT_2026-10-30.md",
+      "INDEPENDENT_AUDIT_2026-10-30.json"
+    ]
   },
   "lean_verification": {
     "evidence": null,
@@ -16,8 +19,24 @@
 }
 ---
 
-# Reproduction and limits
+# Independent mathematical audit
 
-Run `python3 artifacts/verify_modular_rook_laplacian.py` with Python 3.10 or newer; only the standard library is required. It independently constructs literal degree-minus-adjacency Laplacian columns and a row/column aggregate update, verifies their agreement on every basis state, and performs finite-field Gaussian elimination. It then checks first-four-power ranks for 147 cases across three odd primes, fixed-space dimensions of 136 independent iterates, and compares the complete eventual period and entry-depth histograms of 30,080 explicitly enumerated labelled initial configurations. The expected final line is `MODULAR_LAPLACIAN_VERIFY_OK`, and the bundled `artifacts/verification_output.txt` contains the recorded output.
+## correctness
 
-The verification code checks finitely many parameter values; it is not an exhaustive check of the infinite family. The full proof for all odd primes and all dimensions is algebraic, using the displayed tensor operator identity, Jordan-block ranks, and finite-field direct-sum decomposition. A separate independent audit has not been performed.
+PASS
+
+Reconstructed L=(a+b)I-(J_m tensor I)-(I tensor J_n) over F_p with P^2=aP,Q^2=bQ. For a,b nonzero tensor constants and sum-zero spaces give eigenvalues 0,a,b,a+b with dimensions 1,m-1,n-1,(m-1)(n-1). For one zero residue, nilpotent J has one length-two block on the zero component and length-two blocks on nonzero component; for both zero, L^2=2J_m tensor J_n !=0, L^3=0, rank L=m+n-2. Fitting decomposition gives C_s=p^(mn-r_s) and H_sQ_t, Möbius inversion supplies primitive periods; binomial Jordan powers give p multiplier. Eight independently assembled finite-field matrices match all ranks through t=3, including p|m,n. These finite matrices corroborate the unrestricted proof.
+
+## originality
+
+PASS
+
+Qualified PASS: complete rectangular odd-prime state-depth/primitive-period classification was not found in compared literature; Peeters 2002 already implies a divisible equal-size Hamming-graph power-rank subcase. Elementary tensor-algebra ingredients alone do not present the entire period/depth census. Similarity classification could be implicit in older modular-rook work.
+
+## value
+
+PASS
+
+The simultaneous exact orbit census, nilpotent-depth transition and nonzero-Jordan period multipliers form a natural full classification of a canonical graph cellular automaton, useful beyond a single rank statistic; it isolates sharp phase regimes depending on m,n modulo p.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

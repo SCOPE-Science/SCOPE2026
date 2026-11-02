@@ -1,11 +1,21 @@
-# Self-review
+# Independent mathematical audit
 
-**Correctness — PASS.** The argument computes an exact common null kernel as the annihilator of all mixed monomials. The positive exponential moment at \(m=1\) is sufficient for Fourier uniqueness; thus the boundary case is included. The subcritical oscillatory phase is \(\pi(2d+n)/2\) and cancels exactly according to angular parity; all monomial pairs are covered, not just diagonal entries. The angular map is quantitatively bounded below, so its range is closed. The finite checker is corroborative only.
+## correctness
 
-**Originality — PASS, subject to residual priority risk.** Tian's power-weight Berezin-product theorem distinguishes ordered parameters and commutativity, not symbol injectivity. Bommier-Hato supplies Lipschitz estimates for operator symbols; Grudsky–Vasilevski's Gaussian nonzero zero-operator symbols are not bounded and their bounded uniqueness result is consistent with the present threshold. Bdarneh's general radial-weight spectral formulas do not yield this sharp classification. Classical Stieltjes moment perturbations anticipate the radial sine identity, so that identity alone is not claimed as new. The surviving contribution is the exact all-dimensional \(L^\infty\) symbol-map threshold and a *closed nonradial infinite-dimensional kernel*. No exhaustive historical-priority claim is made, especially for abstract moment-density formulations.
+PASS
 
-**Mathematical value — PASS.** The new theorem identifies the precise exponent at which Berezin/Toeplitz quantization loses observability of bounded symbols, in the same functional-calculus family where the recent product-rigidity problem is studied. The construction shows maximal practical information loss even within strictly positive bounded symbols, and its closed angular family goes far beyond one oscillatory example. The result does not require an unrelated downstream application to be meaningful.
+Holomorphic monomials form a complete orthogonal basis; T_f matrix entries equal positive-normalization times all mixed moments ∫f w^γ bar(w)^δ dμ. Polarized real-analytic expansion of Q_f(z)=K(z,z) Bf(z) recovers those moments, establishing common kernel. For m≥1, |f|dμ has some positive exponential moment; its directional Fourier transform is analytic in a strip with all derivatives zero, forcing f=0. For 0<m<1, β=αtan(πm/2), exact complex Gamma integral phase (2d+n)π/2 annihilates sin moments for even n and cos for odd; antipodal even/odd angular decomposition cancels every mixed moment, not just radial ones. Norm bounds ||Ja||∞≥(1/2)||a||∞ and ≤2||a||∞ give closed L∞(sphere) embedding. Positive 1±εsin(βr^m) symbols have identical Toeplitz I and Berezin 1. Independent parity calculations corroborated exact phase, not infinity proof.
 
-**Limitations and sources.** See `RESULT.md` References 1–6. General moment-problem technology is a genuine potential route to an older covering statement. No smoothness classification or complete nullspace theorem is asserted. Accessible original articles were inspected to distinguish exact implications, while the Lin–Lu–Zu item was accessible in abstract form only.
+## originality
 
-Self-review: passed. Independent audit: not yet performed.
+PASS
+
+The sharp bounded-symbol m=1 threshold and a closed nonradial L∞ sphere null subspace are not established by the inspected studies of Berezin products, Gaussian unbounded symbols, or radial Toeplitz spectra. Classical Stieltjes moment-indeterminacy trigonometric perturbation itself is not claimed novel.
+
+## value
+
+PASS
+
+Faithfulness of Toeplitz/Berezin quantization for bounded symbols is a basic observability property of the same power-weight Fock scale. The exact m=1 boundary, a closed nonradial copy of L∞ in the kernel, and failure even among distinct positive symbols provide a substantial qualitative phase change beyond classical radial oscillation.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

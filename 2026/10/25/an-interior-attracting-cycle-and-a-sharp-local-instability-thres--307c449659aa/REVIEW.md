@@ -1,19 +1,21 @@
-# Scientific review
+# Independent mathematical audit
 
-## Correctness — PASS
+## correctness
 
-The best-response functions follow from differentiating strictly concave individual utilities against strictly positive opposing effort. Their composition preserves \((0,1)\) throughout the claimed interval because the maximum response equals \(1/(2\sqrt c)-1/4<1\). Mutual first-order conditions give the sole interior equilibrium and the multiplier \(-(1-c)^2/(4c)\). The intermediate-value proof creates genuine prime-two points from the signs of \(F_c^2(y)-y\). At \(c=1/6\), an exact-rational square-root interval program proves endpoint crossing, disjoint cycle locations, and multiplier in \((0.17,0.18)\). The latter is a local attraction proof, not a simulation-based inference.
+PASS
 
-## Originality — PASS, subject to independent bibliographic assessment
+Differentiating individual concave payoffs gives b(y)=sqrt(y)−y and F_c(y)=sqrt(b(y)/c)−b(y), valid for positive rival efforts. For c>4/25, F maps (0,1) into itself. Unique Nash y*=1/(1+c)^2 has F'(y*)=−(1−c)^2/(4c), yielding exact local threshold 3−2sqrt(2). F²−id is positive near 0, negative immediately left of the repelling Nash, positive immediately right, and negative near 1, so IVT gives interior genuine two-cycle. Independent Fraction/isqrt outward interval arithmetic verified for c=1/6, J=[0.26299,0.26300], F(J) in (0.97447,0.97455), opposite endpoint signs and (F²)'(J) in (0.17,0.18), rigorously establishing attraction. No global attractor classification.
 
-Ghosh and Goldberg (arXiv:2305.10881, section 3) construct cycles through a zero-opponent-output response and report exploratory convergence for costs above \(4/25\), while leaving near-homogeneous costs uncharacterized. This result gives an entirely interior four-move cycle on a nonempty interval above \(4/25\), a sharp local multiplier threshold and a certified attracting example. Ghosh (arXiv:2310.03528, Appendix A) gives a positive-effort cycle for **strictly convex** costs with a very different cost ratio. Elkind, Ghosh and Goldberg (arXiv:2402.08541, sections 3--5) investigate continuous-time or damped learning, not the same undamped alternating map. Ewerhart (2017) studies potential structure for a different homogeneous contest. Published results on unrelated map period-doubling do not imply these contest-specific bounds without a proven reduction. A potentially equivalent asymmetric Cournot formulation remains a bibliographic risk.
+## originality
 
-## Value — PASS
+PASS
 
-This closes a concrete part of an explicitly identified convergence question: nonconvergence is not restricted to extreme cost asymmetry or resets at zero output. The result isolates a sharp analytically determined loss of Nash stability and verifies a genuine nearby periodic attractor for an exact low-denominator parameter. Both the open interval and exact stable witness matter for interpreting equilibrium predictions under undamped economic learning.
+Best-of-knowledge claim is not established by the sources actually recovered: Old reset or different strictly convex-cost cycle does not entail smooth strictly positive linear-cost 4-move cycle, and continuous/damped learning theorems do not control undamped alternating exact replies. Priority is qualified by incomplete full-text access.
 
-## Scope and risks
+## value
 
-No global orbit classification, unique-attractor claim, or classification of the critical multiplier \(-1\) is made. Only the rational witness has certified attraction, while period-two existence across the entire claimed interval is analytic. No independent audit has been conducted.
+PASS
 
-Self-review: passed. Independent audit: not yet performed.
+A concrete unresolved behavioral boundary in undamped lottery-contest learning: nonconvergence can occur without opponent-zero resets even just beyond earlier 4/25 examples, and Nash loses local stability at an exact cost threshold. A certified nontrivial attracting orbit is meaningful dynamics evidence and mathematical structure.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

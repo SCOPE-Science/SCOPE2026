@@ -5,8 +5,11 @@
     "status": "not_performed"
   },
   "independent_audit": {
-    "evidence": null,
-    "status": "not_performed"
+    "status": "passed",
+    "evidence": [
+      "INDEPENDENT_AUDIT_2026-10-29.md",
+      "INDEPENDENT_AUDIT_2026-10-29.json"
+    ]
   },
   "lean_verification": {
     "evidence": null,
@@ -16,8 +19,24 @@
 }
 ---
 
-# Verification and scope
+# Independent mathematical audit
 
-The mathematical certificate is the exact pairwise transposition identity, the boundedness of its integrands, and the weighted covariance reduction in `RESULT.md`. The strict extremal statements follow from termwise signs, while the power-iteration bound follows from log-convexity of spectral power sums and an exact pairwise expansion.
+## correctness
 
-Run `python3 verify.py` with Python 3. The standalone test program passed 6,969 deterministic rational checks of symmetrized gap formulas, direct/inverse monotonicity, spectral-power formulas and the factor-two approximation bound, plus planar algebra. The tests are finite and do not substitute for the provided proofs. No external certificate, independent audit, or unrestricted general-matrix guarantee is asserted.
+PASS
+
+Derived exact energy capture (sum_i s_i c_i T_i)/D with c_i=s_i h_i^2. Exchangeability transpositions imply f_i-f_j=-(c_i-c_j)/2 E[(T_i-T_j)^2/(D Dswap)]. Inserting this into weighted covariance identity yields claimed 1/(2C) sum pairwise error gap, uniformly bounded integrands with no moment condition. Monotonic s versus c gives flat-sign minimum, inverse c=s^{-1} gives reversal, power c=s^(2q+1) gives min and sharp factor-two; rational symmetrized examples independently checked and q=0 factor-two algebra reviewed. Finite checks are corroborative, not proof.
+
+## originality
+
+PASS
+
+Main randomized low-rank primary source gives probabilistic/non-Gaussian bounds and sample-size estimates, not exact single-column exchangeability ordering or inverse-filter reversal. Generic weighted-ratio rearrangement could imply this as a corollary, unresolved priority risk.
+
+## value
+
+PASS
+
+Identifies a distribution-free design criterion for a natural fixed-cost, basis-aligned randomized rank-one sketch; sharp comparison with optimal rank one and spectral-filter order reversal are actionable structural results.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

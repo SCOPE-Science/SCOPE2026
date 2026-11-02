@@ -1,19 +1,21 @@
-# Scientific review
+# Independent mathematical audit
 
-## Correctness — PASS
+## correctness
 
-The proof exhausts the only two local active-neighbor cases when an endpoint has degree at most two, using only the triangle inequality, and supplies an explicit degree-three-and-higher witness for the converse. For fully active cycles, expansion of the exact local quadratic energy and the cycle's explicit first nonzero Laplacian eigenvalue prove the displayed conditional decay factor; a small-amplitude first Fourier mode proves the factor cannot be reduced uniformly. Conditional expectation and Markov's inequality prove the tail bound. The executable uses exact rational updates and independent numerical spectral comparisons, with their limits stated explicitly.
+PASS
 
-## Originality — PASS, with residual bibliographic risk
+At a selected endpoint v of an active edge uv, with at most one other active neighbor w, triangle inequality gives ||(x_v+x_u+x_w)/3-x_u||≤(ε+2ε)/3=ε; with only uv it halves. Other vertex updates cannot alter uv. Conversely a degree-k≥3 star with neighbor opinions (-ε,ε,...,ε) and center 0 moves center to (k-2)ε/(k+1), breaking negative edge immediately. Expanding squared-graph energy under a one-site update gives (d_v+2)/(d_v+1)^2||(Lx)_v||² exactly. For C_n this is 4/9, averaged over uniform site gives decrease 4/(9n)||Lx||² and λ_2(C_n)=4sin²(π/n), so q_n=1-16sin²(π/n)/(9n); first Fourier mode scaled to all-active state attains. Markov on energy gives stated hitting-time tail; finite local rational checks separately reproduced formula.
 
-The closest primary source, Berenbrink et al. (2022), arXiv:2201.12923, Section 3/Theorem 5, assumes the influence graph stays fixed and gives an equidistant path example; it does not establish the all-initial-state graph characterization or the exact cycle multiplier. Parasnis et al. (2019), arXiv:1909.03485, concern synchronous updates, while Li et al. (2023), arXiv:2303.07563, use adaptive confidence and different update schedules. The new degree threshold is a statement about universal survival of individual contacts, not merely an existence theorem for convergence. Search coverage does not exclude older, nonindexed or differently phrased equivalents, and Fourier analysis is a standard ingredient.
+## originality
 
-## Value — PASS
+PASS
 
-Whether an initially receptive interpersonal link can ever be lost is a structural model question that directly governs fragmentation. The result gives a sharp all-graphs classification separating nonbranching social networks from degree-three networks, a deterministic upper bound on topology changes, and a quantitatively optimal finite-size one-step stability coefficient and probabilistic tolerance time for cycles. This is more than a change of notation or a narrow numerical example; it identifies the exact topology at which irreversible-contact behavior fails.
+Closest same-protocol literature assumes fixed influence for one convergence theorem; it does not classify when all active ties must persist under every possible state and activation, nor give the sharp cycle energy multiplier. Standard spectral calculation is credited.
 
-## Limitations and closest work
+## value
 
-The conclusions assume fixed symmetric confidence, self-inclusive averaging, and one-vertex asynchronous updates. The exact spectral rate is only one-step optimal and assumes all cycle edges are initially active. Related work includes arXiv:2201.12923 (conditional fixed-influence theorem), arXiv:1909.03485 (synchronous process), and arXiv:2303.07563 (adaptive thresholds). No independent scientific validation is asserted.
+PASS
 
-Self-review: passed. Independent audit: not yet performed.
+The answer gives the exact global graph boundary between irrevocable and breakable interpersonal contacts; this topology criterion directly affects fragmentation and number of topology changes. The optimal finite-size cycle contraction and geometric consensus tail are quantitatively useful nontrivial consequences.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

@@ -5,8 +5,11 @@
     "status": "not_performed"
   },
   "independent_audit": {
-    "evidence": null,
-    "status": "not_performed"
+    "status": "passed",
+    "evidence": [
+      "INDEPENDENT_AUDIT_2026-10-29.md",
+      "INDEPENDENT_AUDIT_2026-10-29.json"
+    ]
   },
   "lean_verification": {
     "evidence": null,
@@ -16,10 +19,24 @@
 }
 ---
 
-# Reproduction and boundaries
+# Independent mathematical audit
 
-Run `python VERIFY.py` with Python 3.10+ and `mpmath` available (`python -m pip install mpmath` if necessary). The verification script prints `PASS 272 independent exact/numerical checks` when successful; its checks include exact rational equality of the two scalar updates, transformed-density normalization, inverse CDF, finite-difference agreement with the analytic moment derivative, the first/second moment closed forms, and numerical roots with strict order tests.
+## correctness
 
-Exact statements for all real \(p>0\) are proved by the symbolic derivations and limiting arguments in RESULT.md. Numerical root finding at a finite selection of exponents and near asymptotic regimes does not certify the infinite assertions. In particular, the logarithmic-tail expansion uses an analytic uniform-integrability estimate, not an empirical fit.
+PASS
 
-The older second-moment threshold is a reference consistency check and not a newly claimed priority result. The proof assumes scalar autonomous decay, uniform iid stage fractions, exact implicit stage solutions, and exact arithmetic. No independent scientific assessment has been performed.
+Eliminating both randomized stage equations gives R_s(u)=1-s/(1+su). The push-forward density (1-r)^-2 on [1-s,1/(1+s)] integrates to 1. Its moving-endpoint differentiation gives Fp'= (|1-s|^p-(1+s)^(-p))/s^2 with unique minimizer sqrt(2). The p<1 large-s beta integral is pi*p/sin(pi*p)>1; for p>=1 Fatou gives divergence, yielding a unique >2 crossing. Strict Lyapunov/power-mean ordering gives s_p decreasing. Uniform log-moment expansion at small p and endpoint Laplace at large p yield the stated asymptotics; independently computed thresholds for p=.5,1,2,4: 11.22032689545,6.21826223760,4.03361046936,3.03345683307. Finite quadrature corroborates, not proves, all-p statements.
+
+## originality
+
+PASS
+
+Best-of-knowledge claim is not established by the sources actually recovered: The established p=2 scalar stability computation and general moment-stability frameworks do not algebraically imply the quantified all-p cutoff ordering and two endpoint equivalents without the additional density and asymptotic argument. Priority is qualified by incomplete full-text access.
+
+## value
+
+PASS
+
+Complete moment-order decay phase diagram for the actual scalar stability test, rather than the older mean-square single cutoff: strict nesting, universal optimal step, and both extreme-order asymptotics quantify rare large multipliers versus almost-sure stability.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

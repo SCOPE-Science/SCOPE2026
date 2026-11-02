@@ -5,8 +5,11 @@
     "status": "not_performed"
   },
   "independent_audit": {
-    "evidence": null,
-    "status": "not_performed"
+    "status": "passed",
+    "evidence": [
+      "INDEPENDENT_AUDIT_2026-10-30.md",
+      "INDEPENDENT_AUDIT_2026-10-30.json"
+    ]
   },
   "lean_verification": {
     "evidence": null,
@@ -15,8 +18,25 @@
   "schema_version": 1
 }
 ---
-# Verification
 
-The proof uses the exact integral ray/divisor matrix \(M_m\), whose determinant is identically one; the four Cox equations reduce to two affine-plane graph equations. Distinct roots of \(h_m(x)=x^m+(1-x)^m\) are counted by the substitution \(z=x/(1-x)\), which excludes exactly \(z=-1\) for odd \(m\). The four transverse nodes and compactly supported cohomology yield the integral Betti numbers. Eliminating the \(y\)-critical equation produces a polynomial of generic degree \(r_m+1\); an explicit discriminant-nonvanishing specialization proves generic simplicity.
+# Independent mathematical audit
 
-Run `python verify.py` with standard-library Python; it checks the polynomial identities, squarefreeness and forbidden-root arithmetic for each \(0\le m\le12\). Finite tests do not prove any statement for all \(m\). No independent audit or independent validation was performed.
+## correctness
+
+PASS
+
+Checked Newton Minkowski-sum fan rays (1,0),(0,1),(−1,m),(0,−1), unimodular Cox matrix, and explicit graph chart u3=1−u1, u4=1−u2[u1^m+(1−u1)^m]. Thus U_m≅A² and U_m° is complement of x(1−x)y(1−yh_m(x))=0. Roots of h_m are m distinct if m even, m−1 if odd, with m=0,1 constants; fourth divisor is A¹ with r_m punctures and four transverse nodes. Compact-support cohomology and Alexander duality give H1=Z⁴,H2=Z^{4+r_m}; Euler r_m+1. Critical y elimination yields degree-r_m+1 polynomial R_m=(a(1−x)−cx)h_m−b x(1−x)h_m', generic squarefree and disjoint from deleted divisors, with nondegenerate lifts. Independently checked degrees, squarefreeness, generic counts for m=0..12; finite checks do not extend to all m. Source cites general result as Theorem 3.9, whereas inspected primary identifies the needed construction around Theorem 3.7/Corollary 3.9; this is a citation-number imprecision, not a mathematical failure.
+
+## originality
+
+PASS
+
+Best-of-knowledge accepted after statement-level primary-literature and published mathematical-record comparisons; no decisive antecedent implication was identified. Source-reading limits and plausible unindexed-priority risks are explicit; a failed keyword search is not treated as novelty proof.
+
+## value
+
+PASS
+
+The explicit infinite toric family has ambient charts uniformly affine-plane yet unbounded very-affine Betti numbers and paired-parity scattering critical counts, a sharp and naturally geometrically motivated invariant beyond generic existence theorems.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

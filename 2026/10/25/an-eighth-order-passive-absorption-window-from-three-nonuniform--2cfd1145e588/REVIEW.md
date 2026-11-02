@@ -1,11 +1,21 @@
-# Scientific review: a passive three-loss-site fourth-order reflection zero
+# Independent mathematical audit
 
-**Correctness — PASS (self-review).** A fully specified lossy terminal continued fraction and the exact reflection formula yield four center-momentum jet equations. The zero-order equation gives a positive rational interface coupling; the other three become an explicit real rational system in positive site losses. An executable interval-contraction certificate uses an exact rational center/preconditioner, differentiates the actual rational system, bounds its Jacobian on a closed box, and proves the existence and local uniqueness of a positive zero. A separate interval bound excludes vanishing of the fourth numerator derivative. This entails precisely fourth-order amplitude cancellation and eighth-order reflection probability, not merely a finite-sample observation. Risk: numerical interpretation of a scattering experiment or nonzero detunings outside the local analytic range is not established.
+## correctness
 
-**Originality — PASS on inspected sources, subject to priority risk.** The motivating non-Hermitian lattice study treats uniform loss over three terminal sites, not a positive nonuniform design with fourth-order amplitude cancellation. Longhi (2026) gives a highly relevant general transfer-matrix formula for *arbitrary loss profiles*, which mathematically permits evaluation of any fixed-profile scattering amplitude and is therefore the closest broad coverage. His work studies algebraic dynamics and CPA, giving examples for uniform loss; the inspected article does not prove the existence of a fourth-order central zero under three independently positive losses. The new existence theorem needs simultaneous nonlinear jet solvability and a positivity/interval certificate, not substitution of a pre-existing named parameter set. High-order CPA known for exceptional points and giant-atom coupling is credited as prior mechanism, but those devices differ in objects and constraints. No published-finding corpus record or checked prior local claim with an equivalent three-loss-site existence theorem was located. Risk: broader inverse-scattering/continued-fraction interpolation theorems, or an uninspected appendix, might cover the specific positive realization. Search non-detection does not certify novelty.
+PASS
 
-**Value — PASS (self-review).** A physical restriction (strict passivity at each of three lattice sites) is retained while varying only locally programmable losses and the interface coupling. The certified fourth-order cancellation improves generic quadratic, and uniform-loss quartic, probability detuning behavior to eighth order. The result establishes a concrete constructive feasibility boundary for broadband impedance matching; it is not a mere numerical parameter table, since it proves positive feasibility and exact order.
+Reconstructed continued fraction g(E)=1/[E+ia-1/(E+ib-1/(E+ic))] and reflected amplitude r=-(t g(E)+exp(ik))/(t g(E)+exp(-ik)), E=-2 cos k. Vanishing order four at pi/2 imposes t g0=-i, 2t g1=1,4t g2=i,8t g3-2t g1=-1. Eliminating t=(abc+a+c)/(bc+1) gives three rational real F equations. Independently reconstructed symbolic derivatives and outward interval Newton contraction in the stated radius 10^-7 positive parameter box: ||I-A DF(B)||inf<0.000086365, ||A F(center)||inf<1.39e-15; hence self-map contraction and one genuine root by Banach. Independent interval evaluation shows N^(4)(0)/i in (-15.455,-15.453), excluding fifth order, and gives |r(pi/2+delta)|^2=C delta^8+o(delta^8), C≈0.10366. The central denominator is nonzero (-2i). Certified fixed-point calculation supports a rigorous finite-algebraic existence theorem; no numerical root assumptions or global claims.
 
-**Limitations.** The theorem is local in momentum, makes no global optimization or uniqueness claim, and does not cover finite-pulse time dynamics, fabrication variation, or lattice interactions. The material supports the documented result but not publication priority. No independent audit was performed.
+## originality
 
-Self-review: passed. Independent audit: not yet performed.
+PASS
+
+PASS for the exact certified strictly-passive three-independent-loss realization. Earlier uniform-loss three-site work and general arbitrary-loss transfer-matrix formulas are highly relevant, but the accessible material did not identify a proven fourfold center-zero positive solution in this geometry. General inverse-scattering and inaccessible appendices remain risks.
+
+## value
+
+PASS
+
+High-order local cancellation with all loss rates strictly positive is a motivated impedance-matching feasibility result. The explicit contraction certificate demonstrates a physical design with eighth-order reflection-power detuning, not merely evaluating a preselected parameter table.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

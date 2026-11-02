@@ -1,0 +1,115 @@
+{
+  "audit_date_utc": "2026-10-30",
+  "audited_at_utc": "2026-10-30T01:13:40Z",
+  "axes": {
+    "correctness": {
+      "rationale": "Uniform posterior on the set of 90 labeled deck words consistent with yes/no history. The unnormalized Bellman recursion F(B,t)=max_g (|H_g|+F(H_g,t+1)+F(N_g,t+1)) is exact. Componentwise lower/upper score-polynomial recursions take min/max over Bellman-optimal actions and independently optimal continuations. Equality of every component at root proves all deterministic optimal policies have the same polynomial; mixtures preserve it. Independently implemented a tuple-of-word-index recursion (not the source bit-mask representation), visited 11867 states, returned F=271 and identical coefficient vectors (0,0,33,30,21,5,1). Mean 271/90 and variance 7469/8100 follow; finite exhaustive enumeration is complete for the specified deck, not all compositions.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Published broad expected-value bounds and simple heuristics do not determine an exact law at six cards or invariance of the entire optimal-policy distribution.",
+          "The 2026 Luo work proves expectation inequalities over compositions, not distributional uniqueness in its accessible abstract."
+        ],
+        "reasoning": "General cardinality and expectation results are not logical implications of equality of all score-polynomial coefficients; explicit dynamic-program extrema are needed.",
+        "searches": [
+          "Diaconis-Graham-He-Spiro arXiv:2010.05059 partial feedback",
+          "Diaconis-Graham-Spiro arXiv:2012.04019",
+          "Luo arXiv:2609.25062 extremal expectations"
+        ]
+      },
+      "checked_sources": [
+        "Assigned RESULT.md and verify.py at actual Git tree",
+        "Independent tuple-posterior Bellman complete computation, 11867 memoized states",
+        "Diaconis et al arXiv:2012.04019 primary PDF Table 2, visually inspected",
+        "Resultary exact deck search and arXiv:2609.25062 metadata"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "The 2021 primary Table 2 lists optimal, greedy and linear expected scores for m=2,n=2..5, with n=3 score 3.0111.",
+          "Optimal expected-score computation alone does not force all equal-mean policies to have the same variance or law."
+        ],
+        "reasoning": "The target claim is strictly stronger than a value table, and the exhaustive coefficientwise lower/upper recursion proves its additional content; Bellman optimality was already known and not attributed as new.",
+        "searches": [
+          "arXiv:2012.04019v2 Table 2 PDF page index 4",
+          "arXiv:2010.05059 general partial feedback"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Existing notation S_{2,3} is the same six-card deck; optimal mean 3.0111 matches 271/90.",
+          "Score polynomial (33z^2+30z^3+21z^4+5z^5+z^6)/90 and invariance of all optimal policies are more specific than expectation."
+        ],
+        "reasoning": "The prior work covers the model and first moment; equivalent formulation of the new claim is equality of coefficientwise min and max score distributions under all optimal Bellman actions.",
+        "searches": [
+          "Resultary semantic query 2026-10-30: card guessing partial feedback 2 copies 3 labels optimal policy score distribution",
+          "Diaconis et al 2020 arXiv:2012.04019 Table 2"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "Published table gives only the rounded expected value E[S_{2,3}]=3.0111; no coefficient table was found in the inspected primary paper.",
+          "Independent complete 90-word 11867-state integer enumeration establishes the new coefficients."
+        ],
+        "reasoning": "The pre-existing mean table is exactly covered and not novel; the polynomial/risk invariance is a distinct exact finite invariant. Computational notebooks or unpublished tables remain an explicit risk.",
+        "searches": [
+          "Resultary semantic query 2026-10-30: card guessing 2 copies 3 labels distribution",
+          "Table 2 of arXiv:2012.04019",
+          "search: score distribution 33 30 21 5 1 card guessing"
+        ]
+      },
+      "rationale": "Qualified PASS: Diaconis-Graham-Spiro 2020/2021 Table 2 gives optimal expectation 3.0111 for the two-copy/three-type case, covering the mean (271/90). Their complete primary paper focuses on expected values and heuristics and does not state the coefficientwise policy-invariant score law in inspected contents. The underlying Bellman recursion is classical; same-deck optimal-law invariance remains distinctive, with risk from older implementations/technical reports.",
+      "residual_risks": [
+        "Full historical 1981 Diaconis-Graham paper and Gatto computational tables were not inspected; could contain this small-deck distribution.",
+        "Finite result only for exactly (2,2,2) deck, with yes/no feedback; no extension claimed."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "MEAN_PRIOR_COVERED; exact polynomial/invariance not shown in inspected parts",
+          "evidence": [
+            "Table 2 reports E[S_2,3]=3.0111 rounded; no coefficientwise optimal-law certification."
+          ],
+          "identifier_or_url": "arXiv:2012.04019v2",
+          "material_read": "Primary PDF introduction, Table 2 page index 4, section comparing optimal/greedy/linear strategies, full-text search for score distribution",
+          "method": "Primary PDF text and visual screenshot page 5",
+          "title": "Guessing about Guessing: Practical Strategies for Card Guessing with Feedback",
+          "trigger": "Direct same deck m=2,n=3 and optimality table"
+        },
+        {
+          "assessment": "GENERAL_EXPECTATION_ONLY in material examined",
+          "evidence": [
+            "Uniform-in-n upper bound on maximal expected score; does not specify six-card law."
+          ],
+          "identifier_or_url": "arXiv:2010.05059",
+          "material_read": "Primary abstract and scope as cited; complete primary text not separately read",
+          "method": "arXiv bibliographic abstract",
+          "title": "Card Guessing with Partial Feedback",
+          "trigger": "General theorem potentially stronger than finite score law"
+        },
+        {
+          "assessment": "PRIOR_EXPECTATIONS_ONLY",
+          "evidence": [
+            "Bound P^+_{m,n}/m < e-1 and related asymptotics, not a full score distribution theorem."
+          ],
+          "identifier_or_url": "arXiv:2609.25062",
+          "material_read": "Abstract and statement of expectation bounds",
+          "method": "arXiv listing",
+          "title": "Extremal expectations in card guessing with partial feedback",
+          "trigger": "Recent closer expectation paper"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "rationale": "A natural small repeated-label feedback game has a nontrivial universal risk distribution across every expectation-optimal policy; separating optimal expected score from invariant higher moments is an exact mathematically useful first repeated three-label case despite small finite size.",
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "limitations": [
+    "Optimal expected score 3.0111 was already tabulated; only complete policy-invariant law newly assessed.",
+    "Gatto/1981 historical computations not read in full; priority remains qualified."
+  ],
+  "schema_version": 1
+}

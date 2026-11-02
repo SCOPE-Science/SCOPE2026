@@ -1,19 +1,21 @@
-# Scientific review: accidental duality in independent instantial neighbourhoods
+# Independent mathematical audit
 
-## Correctness
+## correctness
 
-PASS. The two zero-instance clauses reduce complementary-scope agreement to equality of generated upward closures. Each generated upset has a unique minimal antichain, and every family with that closure consists of all its minimal sets and an arbitrary selection of its remaining sets. Squaring each fiber size gives the exact count. Conditioning on equal singleton-selection bits, then imposing the necessary independent constraints on pairs whose singleton bits are both zero, proves the stated upper bound. Simultaneous selection of all singleton neighbourhoods gives the matching exponential-scale lower bound. Conditioning on the independently selected empty neighbourhood yields the exact \((1+p_n)/4\) identity. Direct finite tests check both logical clauses for all scopes on up to three worlds, and a separate upset enumerator checks the finite collision counts through four worlds. These computations are finite corroboration, not a substitute for the all-\(n\) proof.
+PASS
 
-## Originality
+For every scope A the complemented diamond failure is existence of a D-neighborhood contained in A; coincidence is exactly equality of generated upsets. For each upset U, its minimal antichain is compulsory and all other U members optional, yielding 4^(|U|-|Min U|) ordered pair fibers. Equal singleton bits impose factor 4^-n; two-set agreement on the k doubly-zero singleton locations imposes independent factors 2^-C(k,2). Both-family singleton inclusion provides the lower bound and the Gaussian-completion estimate gives log p_n/n -> -2. Empty-set selection bits split into both/neither/one cases and yield (1+p_n)/4. Independent full closure enumeration for n=1..4 reproduced 2,14,1438,35572286 collision counts; exhaustive n<=3 scope checks passed. Finite counts are not the all-n proof.
 
-PASS with a qualified historical-priority assessment. The 2026 positive instantial neighbourhood paper introduces independent positive primitives, modal clauses, and representation results. The 2023 distributive-modal paper studies qualitative compatibility of box and diamond, while the 2020 instantial neighbourhood duality work concerns descriptive frames and coalgebraic representation. Their pertinent premises do not explicitly furnish the exact weighted-antichain coincidence law, the sharp \(-2\) exponential decay exponent, or the discontinuity at optional empty neighbourhoods. Published mathematical research comparisons on random hypergraph generators, monotone Boolean functions and equivalent upward closures revealed no dominating formula. There remains a risk of historical subsumption by an older random set-family collision theorem; a 2020 article was compared only to available abstract-level material.
+## originality
 
-## Value
+PASS
 
-PASS. A natural finite-sampling question for a logic with two primitive non-interdefinable modalities has a quantitatively sharp answer. The theorem separates semantic coupling achievable by chance from coupling imposed axiomatically, identifies the exponential cost of matching all zero-instance scopes, and shows that the permitted empty neighbourhood changes the limiting answer from zero to a positive constant. The exact fiber-weight formula also provides a reproducible benchmark for finite neighbourhood model generators. The claim deliberately does not extrapolate to nonzero arities or to other random sampling laws.
+Best-of-knowledge claim is not established by the sources actually recovered: Prior semantic equivalence of generated upsets does not itself calculate collision probabilities for random generating families or distinguish optional empty generators. Priority is qualified by incomplete full-text access.
 
-## Closest prior work and limits
+## value
 
-Das–Khanra–Sardar (arXiv:2606.08083) supplies the semantics; Přenosil (arXiv:2311.10017) supplies relevant qualitative compatibility questions; Bezhanishvili–Enqvist–de Groot (2020) supplies broader instantial neighbourhood duality background. Elementary antichain-upset correspondence is credited and is not claimed as new. Potential historical subsumption in the random-set-family literature is a residual originality risk, and exact subexponential asymptotics are not established.
+PASS
 
-Self-review: passed. Independent audit: not yet performed.
+Two genuinely independent positive neighborhood modalities can coincide by accident on every finite scope; quantitative collision and the dramatic empty-neighborhood boundary measure this semantic effect, beyond ordinary antichain enumeration. Natural exact finite-model sampling invariant, not a claim about internal positive-language definability or arbitrary modal arities.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

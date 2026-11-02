@@ -1,19 +1,21 @@
-# Scientific review
+# Independent mathematical audit
 
-## Correctness — PASS
+## correctness
 
-The initial active-trap state is absorbed immediately. Translation of the two alternating antipodal gates to a single relative coordinate preserves the complete continuous-time generator; independent exact-rational full-chain tests check this assertion. On nonabsorbing sites the mean hitting-time function solves the discrete Poisson equation. Stationary summation supplies the missing source term, Fourier diagonalization gives a finite root-of-unity sum, and logarithmic differentiation of \(z^k+1\) evaluates it exactly. The derivative has exactly one sign change for \(k\ge3\), giving the claimed maximum. Explicit \(k=1,2\) cases and both rate boundaries were checked. The proof is finite and covers all integer sizes; exact-rational computations corroborate but do not substitute for it.
+PASS
 
-## Originality — PASS within compared accessible literature
+The relative coordinate Y=X-kE mod 2k reduces the original 4k position/gate configurations to a 2k-site continuous-time walk jumping +1 at rate1 and +k at rate g, with site zero killed. Uniform stationary averaging of Poisson hitting-time equation Lh=-1+2k delta_0 gives Fourier mean sum. Even modes yield (k-1)/2; odd roots z^k=-1 yield k r^(k-1)/(1+r^k) by P'(r)/P(r), r=1+2g. Differentiation has sign of k-1-r^k, establishing strict decrease k=1,2, unique global max for k>=3 at g*=((k-1)^(1/k)-1)/2, and ratio limit 3/2. Checked boundary g=0, g->infty and k=1,2. Independently assembled original full 4k-state absorbing generator and solved exact rational linear systems for k=1..6, rates 0,1/3,2; 18 direct exact comparisons PASS. These are corroborative tests; the spectral proof applies for every k.
 
-Ammari et al. (DOI: 10.1137/100817103) and Bressloff–Lawley (DOI: 10.1137/15M1019258) study diffusion with switching boundary traps, not this evaluated continuous-time clockwise ring and its sharply nonmonotonic mean. The general gated-network renewal framework of Scher–Reuveni (DOI: 10.1103/PhysRevLett.127.018301) provides broad prior methodology and could potentially rederive the mean; its accessible abstract does not state the evaluated antipodal two-gate classification. Their discrete-time work (DOI: 10.1063/5.0072393) discusses a different origin for resonance. Specialized prior work is not ruled out, and the general 2021 full text could not be obtained; priority remains a residual risk. Own available historical claims and targeted mathematical-search results were compared for statement implication rather than title matches.
+## originality
 
-## Mathematical value — PASS
+PASS
 
-The mean first-passage time is a motivated kinetic observable for a finite directed transport ring with two physically competing gateways. A natural control parameter has a *unique interior maximum*, not the monotone escape response one might extrapolate from diffusive switching-window models. The onset is sharp at six sites, and a vanishing switching rate of order \((\log k)/k\) produces a macroscopic \(50\%\) delay at large size. This is a structural classification and a quantitative counterpoint to monotonic intuitions, not an arbitrary small exact evaluation.
+PASS within accessible coverage: established gated-reaction network renewal formulas and switching-boundary diffusion literature provide general methods, not an identified exact two-antipodal-target continuous-time clockwise formula or the positive-rate unique maximum. Scher–Reuveni 2021 full text inaccessible and could permit direct specialization; documented as a material risk.
 
-## Boundaries and uncertainties
+## value
 
-Uniformly random initial position and gate state, perfect antipodal gating, symmetric independent switching, unit-speed unidirectional Poisson motion. No classification for asymmetric or bidirectional models. Universal renewal formulas, and inaccessible specialist literature, may contain stronger coverage. The scientific review is not independent validation.
+PASS
 
-Self-review: passed. Independent audit: not yet performed.
+A finite directed transport graph with alternately active distinct traps is a natural first-passage control model. A sharply characterized onset at k=3, a single counterintuitive positive switching-rate maximum, and its 50% macroscopic delay at large size give a complete meaningful classification, not a routine small-graph evaluation.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

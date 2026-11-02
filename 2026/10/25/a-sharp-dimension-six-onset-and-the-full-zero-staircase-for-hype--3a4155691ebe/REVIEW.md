@@ -1,11 +1,21 @@
-# Scientific review
+# Independent mathematical audit
 
-**Correctness — PASS.** The projected monomial formula derives the full weighted kernel without a missing singular sector. The bound \(|u|+|t|<1\) identifies the exact attainable scalar disk. Principal logarithms give necessary and sufficient zero conditions, including the strict boundary \(s=6m\), and show the roots are simple. These are complete analytic arguments, not numerical extrapolations.
+## correctness
 
-**Originality — PASS under bounded inspection.** The nearest direct primary source, Jacobson (2013), supplies a planar kernel-decomposition technique, rather than the complex-ball hyperplane-weight zero staircase. Boas (2000) gives a different radial boundary-distance disk threshold. Ghiloufi and Snoun (2020) study punctured disk-type spaces with different admissible holomorphic classes. Related published results for radial weights and derivative Gram kernels do not imply the present anisotropic all-dimensional phase diagram on their stated assumptions. Unindexed equivalent older claims cannot be excluded from a finite literature search.
+PASS
 
-**Mathematical value — PASS.** The result is a complete natural classification of a classical zero-freeness invariant, with a sharp dimension-six transition at ordinary radial exponent and an explicit family of conjugate scalar zeros, rather than a numerical instance or arbitrary subcase.
+Multiplication by z1 is an isometric identification with the radial Bergman subspace divisible by z1; monomial orthogonality subtracts the kernel independent of z1 and divides difference by t=z1̄w1. This gives C[(1-u-t)^(-s)-(1-u)^(-s)]/t, s=d+α+1, with nonzero t=0 continuation. Cauchy–Schwarz gives |u|+|t|<1 and |q|<1, while axis points attain every |q|<1. Principal logarithm of 1-q lies in right-half-plane strip, zeros require q=1-e^(2πij/s), j≠0. Strict |q|=2sin(π|j|/s)<1 iff 0<6|j|<s; derivative of numerator nonzero gives scalar simplicity and staircase 2(ceil(s/6)-1). Cases s=6,7,12,13 separately checked. Full proof infinite in d and α, not numerical extrapolation.
 
-**Scope and limitations.** The single coordinate-hyperplane factor and full-ball holomorphicity are essential. The count is for scalar fibres, not irreducible components of the full zero set. No perturbation stability, arbitrary higher monomial factors, or independent validation is asserted.
+## originality
 
-Self-review: passed. Independent audit: not yet performed.
+PASS
+
+The characteristic hyperplane-divisibility kernel identity uses classical Bergman projection ideas. The full complex-ball anisotropic dimension/real-weight Lu Qi-Keng zero phase diagram and all scalar roots were not located in materially inspected literature, distinct from radial Euclidean boundary-distance and punctured-disk results.
+
+## value
+
+PASS
+
+This is a natural complete Lu Qi-Keng classification for a canonical divisor-weighted Bergman space: exact onset in complex dimension six, continuous radial-weight thresholds, scalar zero locations and simple-root multiplicities. It distinguishes regular entire-ball holomorphic functions from meromorphic punctured conventions.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
