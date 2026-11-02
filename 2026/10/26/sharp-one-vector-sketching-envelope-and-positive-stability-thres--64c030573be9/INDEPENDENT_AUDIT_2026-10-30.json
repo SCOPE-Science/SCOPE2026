@@ -1,0 +1,131 @@
+{
+  "audit_date_utc": "2026-10-30",
+  "audited_at_utc": "2026-10-30T20:12:21Z",
+  "axes": {
+    "correctness": {
+      "checked_sources": [
+        "Assigned RESULT.md metric-angle inequality and exact 2×2 generalized eigenvalue witness",
+        "independent_checks.py: SKETCH exact determinant, threshold and negative witness",
+        "Güttel–Schweitzer arXiv:2208.11447 sketched-FOM definition, equation (2.7)"
+      ],
+      "rationale": "Restrict the sketch Gram M=S^TS to U=span{b,Ab}, with 1−ε<=M<=1+ε. The spectral polynomial implies M²<=2M−(1−ε²)I. For ||b||=1, d=b^TMb, this yields ||Mb||/d<=1/sqrt(1−ε²). Writing A=αI+T, ||T||<=δ gives |h_S−α|<=δ/sqrt(1−ε²). Dimension-two A=diag(μ,L), M=[[1,−ε],[−ε,1]], B=(MA+AM)/2 give det(B−zM)=(1−ε²)(z−α)²−δ²; generalized eigenvectors attain both ends. Lower end equals zero at εcrit; explicit (μ,L,ε,b)=(1,9,4/5,(2,1)) yields h_S=−5/3, and at (1,9,3/5,(3,1)) yields zero. Independent symbolic rational pencil checks passed.",
+      "residual_risks": [
+        "Only one-vector, real SPD matrices, exact arithmetic and subspace-embedding guarantee; no multivector, complex or approximation-error bound."
+      ],
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Güttel–Schweitzer 2022 Section 2.3 establishes possible out-of-range sketched Ritz values, not the exact universal two-sided interval.",
+          "Simoncini–Wang 2025 Lemma 5.2 and Proposition 7.2 supply embedding angle and spectral-localization bounds, which can yield a positive-sign sufficient condition but not simultaneous attained endpoints.",
+          "Resultary nearest one-vector rank-one numerical-radius records have different operators/objective."
+        ],
+        "reasoning": "The cosine-preservation lemma together with an SPD acute-angle bound can imply the sufficient positivity threshold, but general Krylov localization cannot imply exact extremal values or the ε>εcrit necessity witness without further sharp optimization.",
+        "searches": [
+          "sketched Ritz value full orthogonalization symmetric positive definite subspace embedding sharp positivity threshold Kantorovich",
+          "arxiv:2208.11447 sketched Ritz spurious left half plane",
+          "DOI:10.1002/nla.70022 spectral localization randomized sketching embedding angles",
+          "Kantorovich inequality generalized Rayleigh quotient sketch"
+        ]
+      },
+      "checked_sources": [
+        "https://arxiv.org/abs/2208.11447",
+        "https://doi.org/10.1002/nla.70022",
+        "Resultary semantic search: sketched Ritz value full orthogonalization symmetric positive definite subspace embedding sharp positivity threshold Kantorovich"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "Güttel–Schweitzer 2022 Section 2.3 establishes possible out-of-range sketched Ritz values, not the exact universal two-sided interval.",
+          "Simoncini–Wang 2025 Lemma 5.2 and Proposition 7.2 supply embedding angle and spectral-localization bounds, which can yield a positive-sign sufficient condition but not simultaneous attained endpoints.",
+          "Resultary nearest one-vector rank-one numerical-radius records have different operators/objective."
+        ],
+        "reasoning": "The qualitative spurious Ritz phenomenon and adequate-embedding sufficient bounds were already known. The exact attainable interval over all admissible triples (A,b,S) and its equality witnesses are an additional implication not present in inspected prior statements.",
+        "searches": [
+          "sketched Ritz value full orthogonalization symmetric positive definite subspace embedding sharp positivity threshold Kantorovich",
+          "arxiv:2208.11447 sketched Ritz spurious left half plane",
+          "DOI:10.1002/nla.70022 spectral localization randomized sketching embedding angles",
+          "Kantorovich inequality generalized Rayleigh quotient sketch"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Güttel–Schweitzer 2022 Section 2.3 establishes possible out-of-range sketched Ritz values, not the exact universal two-sided interval.",
+          "Simoncini–Wang 2025 Lemma 5.2 and Proposition 7.2 supply embedding angle and spectral-localization bounds, which can yield a positive-sign sufficient condition but not simultaneous attained endpoints.",
+          "Resultary nearest one-vector rank-one numerical-radius records have different operators/objective."
+        ],
+        "reasoning": "The compression is a generalized Rayleigh quotient of the symmetric pencil ((MA+AM)/2,M). The universal extrema reduce to a metric-angle/Kantorovich inequality, with a two-dimensional generalized eigenvalue equality case.",
+        "searches": [
+          "sketched Ritz value full orthogonalization symmetric positive definite subspace embedding sharp positivity threshold Kantorovich",
+          "arxiv:2208.11447 sketched Ritz spurious left half plane",
+          "DOI:10.1002/nla.70022 spectral localization randomized sketching embedding angles",
+          "Kantorovich inequality generalized Rayleigh quotient sketch"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "Güttel–Schweitzer 2022 Section 2.3 establishes possible out-of-range sketched Ritz values, not the exact universal two-sided interval.",
+          "Simoncini–Wang 2025 Lemma 5.2 and Proposition 7.2 supply embedding angle and spectral-localization bounds, which can yield a positive-sign sufficient condition but not simultaneous attained endpoints.",
+          "Resultary nearest one-vector rank-one numerical-radius records have different operators/objective."
+        ],
+        "reasoning": "Resultary returned a distinct rank-one Davis–Wielandt bifurcation and related numerical-radius optimization, not a sketched SPD-FOM sharp two-sided envelope; no exact parameter table found, which alone is not priority proof.",
+        "searches": [
+          "Resultary: sketched Ritz value full orthogonalization symmetric positive definite subspace embedding sharp positivity threshold Kantorovich",
+          "arxiv:2208.11447 sketched Ritz spurious left half plane",
+          "DOI:10.1002/nla.70022 spectral localization randomized sketching embedding angles"
+        ]
+      },
+      "rationale": "Best-of-knowledge original for the restricted final claim after direct implication-based comparison; primary overlap, unavailable full text and mathematical reduction risks are explicitly documented, not treated as absence-proof.",
+      "residual_risks": [
+        "An earlier sharp generalized numerical-range/Kantorovich formulation may imply the entire optimized interval without sketch terminology.",
+        "A general condition-number sketch stability theorem may already state the equivalent equality case."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Establishes qualitative spurious Ritz issue and method, not the sharp scalar envelope",
+          "evidence": [
+            "§2.3 discusses sketched Ritz location outside numerical range and unstable exponential surrogates."
+          ],
+          "identifier_or_url": "https://arxiv.org/abs/2208.11447",
+          "material_read": "Complete accessible 23-page original PDF, especially equations (1.1), (2.3) and §2.3 (2.7)",
+          "method": "Full PDF, page screenshot, direct theorem comparison",
+          "title": "Randomized sketching for Krylov approximations of large-scale matrix functions",
+          "trigger": "Originating sketched-FOM method and known left-half-plane failure"
+        },
+        {
+          "assessment": "General angle and spectral-localization results overlap threshold sufficiency but not exact two-sided extremizers",
+          "evidence": [
+            "Lemma 5.2 cosine distortion; Proposition 7.2 general spectral localization."
+          ],
+          "identifier_or_url": "https://doi.org/10.1002/nla.70022",
+          "material_read": "Complete accessible primary Wiley HTML, Lemma 5.2 and Proposition 7.2, §§5–7",
+          "method": "Read full OA HTML and theorem statements",
+          "title": "Stabilized Krylov Subspace Recurrences via Randomized Sketching",
+          "trigger": "Potential stronger general embedding distortion theorem"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "checked_sources": [
+        "Assigned RESULT.md mathematical statement, proof and limitations",
+        "independent_checks.py: SKETCH exact determinant, threshold and negative witness",
+        "Güttel–Schweitzer arXiv:2208.11447 sketched-FOM definition, equation (2.7)"
+      ],
+      "rationale": "This is a sharp stability design constraint for sketching Krylov matrix-function surrogates: it specifies both attainable extremal Ritz values and exact failure threshold, beyond qualitative instability or a nonsharp localization bound.",
+      "residual_risks": [
+        "No guarantee on approximation accuracy or high-dimensional sketched FOM beyond scalar stability."
+      ],
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "limitations": [
+    "Only one-vector, real SPD matrices, exact arithmetic and subspace-embedding guarantee; no multivector, complex or approximation-error bound.",
+    "An earlier sharp generalized numerical-range/Kantorovich formulation may imply the entire optimized interval without sketch terminology.",
+    "A general condition-number sketch stability theorem may already state the equivalent equality case.",
+    "No guarantee on approximation accuracy or high-dimensional sketched FOM beyond scalar stability.",
+    "Publication withheld: operational metadata fields and inherited antecedent date remain unsanitized; no GitHub write."
+  ],
+  "schema_version": 1
+}

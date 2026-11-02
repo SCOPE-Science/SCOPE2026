@@ -1,13 +1,21 @@
-## Correctness
-PASS. The metric is compressed to the two-vector Krylov subspace, avoiding assumptions about its orthogonal complement. The operator inequality \(M^2\preceq2M-(1-\varepsilon^2)I\) yields the sharp metric-angle bound; Cauchy–Schwarz then proves the universal envelope. A real symmetric definite generalized eigenvalue calculation gives both attainable endpoints, and the boundary is solved algebraically. The exact-dimensional examples and standalone checks corroborate the determinant calculation. Finite tests are not treated as proof.
+# Independent mathematical audit
 
-## Originality
-PASS on the evidence inspected, subject to residual classical-literature risk. The primary Güttel–Schweitzer source already states that sketched-FOM Ritz values can enter the left half-plane and supplies a general, nonsharp localization. That qualitative instability is not claimed. The novel candidate is the exact *attainable* two-sided scalar envelope and necessary-and-sufficient robust embedding threshold, with zero and negative boundary witnesses. Relevant 2022 and 2025 primary matrix-function papers, indexed mathematical findings and published related examples did not state or imply the *complete exact attainable Ritz-value interval*. The 2025 angle-distortion lemma, together with the classical SPD angle bound, already implies a sufficient positive-sign threshold; the sufficiency observation alone is not claimed as new. The elementary Kantorovich-style metric inequality is classical and is credited as such; a preexisting numerical-range equivalence remains possible.
+## correctness
 
-## Value
-PASS. The exact tolerance identifies the maximal squared-norm sketch distortion that ensures one-step positive stability uniformly over symmetric systems of prescribed condition number. Its \(\kappa^{-1/2}\) scaling is substantively less restrictive than a coarse \(\kappa^{-1}\)-scale spectral-gap estimate, while the exact negative-extremizer explains artificial exponential growth. The full sharp parameter family and attainable boundary distinguish it from an isolated negative example.
+PASS
 
-## Scientific limitations
-Real SPD and one-vector sketched FOM in exact arithmetic only; no claims concerning higher Krylov ranks, approximation error, runtime or finite precision. The literature comparison cannot eliminate an undiscovered exact classical equivalent. Independently performed scientific validation is pending.
+Restrict the sketch Gram M=S^TS to U=span{b,Ab}, with 1−ε<=M<=1+ε. The spectral polynomial implies M²<=2M−(1−ε²)I. For ||b||=1, d=b^TMb, this yields ||Mb||/d<=1/sqrt(1−ε²). Writing A=αI+T, ||T||<=δ gives |h_S−α|<=δ/sqrt(1−ε²). Dimension-two A=diag(μ,L), M=[[1,−ε],[−ε,1]], B=(MA+AM)/2 give det(B−zM)=(1−ε²)(z−α)²−δ²; generalized eigenvectors attain both ends. Lower end equals zero at εcrit; explicit (μ,L,ε,b)=(1,9,4/5,(2,1)) yields h_S=−5/3, and at (1,9,3/5,(3,1)) yields zero. Independent symbolic rational pencil checks passed.
 
-Self-review: passed. Independent audit: not yet performed.
+## originality
+
+PASS
+
+Best-of-knowledge original for the restricted final claim after direct implication-based comparison; primary overlap, unavailable full text and mathematical reduction risks are explicitly documented, not treated as absence-proof.
+
+## value
+
+PASS
+
+This is a sharp stability design constraint for sketching Krylov matrix-function surrogates: it specifies both attainable extremal Ritz values and exact failure threshold, beyond qualitative instability or a nonsharp localization bound.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
