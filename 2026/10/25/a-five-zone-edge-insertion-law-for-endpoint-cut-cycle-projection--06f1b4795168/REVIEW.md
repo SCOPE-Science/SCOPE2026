@@ -1,19 +1,21 @@
-# Scientific review — biclique intrapart-edge insertion
+# Independent mathematical audit
 
-## Correctness — PASS
+## correctness
 
-The proof specifies all integer parameters \(m,n\ge2\), all graphs, the relevant real edge-space operator norms, and the graph orientations. The intact biclique projection matrix is explicitly derived. The added edge is a Laplacian eigenvector, so a rank-one inverse identity determines **every entry** of the perturbed cut projector. Complementation and absolute column sums produce exactly three symmetry types, covering all edges. The signed entries are handled separately on either side of \(m=n+2\). The sharp maxima are established by algebraic orbit comparisons including \(m=2\), \(m=3\), and \(n=2,3,4\). The five-zone threshold follows from inequalities valid for every integer \(n\ge5\), not from finite extrapolation. A distinct, exact-rational direct-Laplacian checker verifies 1,858 columns in 58 parameter cases.
+PASS
 
-## Originality — PASS, qualified
+For all m,n>=2, the canonical Euclidean cut projection on K_{m,n} has entry delta_{i,k}/n+delta_{j,l}/m-1/(mn). The new intrapart edge incidence b=e_{x0}-e_{x1} is a Laplacian eigenvector with eigenvalue n and effective resistance 2/n. Sherman–Morrison on the zero-sum subspace yields L^+=L0^+-bb^T/[n(n+2)], with new-edge coupling s_i/(n+2) and diagonal 2/(n+2). Three complete column types (far, touched, new) give touched cut q0+d, touched cycle p0+d+2/[n(n+2)], and new norms 2(n+1)/(n+2), 3n/(n+2). Direct sign checking across m=n+2 and orbit maxima gives exact two-parameter formulas, including m=2,3 and n=2,3,4. For n>=5 this yields five consecutive zones (m=2 Q↓P↑; m=3 Q unchanged and P↑; 4<=m<=2n-2 both unchanged; 2n-1<=m<=2n+1 Q unchanged P↑; m>=2n+2 both ↑). Independently recomputed all projector entries from grounded incidence/Laplacian inverses with exact rationals for 36 (m,n) pairs, including m=11..14,n=5,6 threshold boundaries, and matched the closed formulas without using the rank-one update in the verifier. Arbitrary integers follow from the analytic matrix identities and inequalities, not finite enumeration.
 
-The most relevant finite-graph Lipschitz-free-space framework is Dilworth–Kutzarova–Ostrovskii (2018), arXiv:1807.03814; its accessible sections concern general edge-space quotients, recursive graphs, and invariant projections, not biclique insertion. Their 2020 arXiv:2007.07949 paper analyzes Laakso and diamond projections. Basso (2021), arXiv:2104.14238, studies extension/projection constants with a different invariant and scope. Existing complete-biclique formulas, one-cross-edge deletion results, and finite edge-insertion monotonicity examples do not imply the simultaneous closed-form five-zone law. Targeted records and full-text bibliographic searches uncovered no implication that covers the claim. Remaining risk: older/unindexed electrical-network calculations or inaccessible specialized results could contain the same column-sum phase diagram; search is not proof of novelty.
+## originality
 
-## Value — PASS
+PASS
 
-The construction is a natural one-edge perturbation of a canonical edge-space Banach operator, rather than a selected small graph. Its full two-parameter classification shows strictly decreasing cut norm, unchanged cut and cycle norms over a long integer interval, cycle-only growth, and eventually growth of both. The exact onset indices differ by three. This gives a concrete infinite-family structure theorem about sparse-edge sensitivity, with sharp natural boundaries and explicit norm formulas useful for further perturbation comparisons; correctness or reproducibility alone was not used to justify value.
+The general literature establishes Lipschitz-free graph spaces, transportation cycle projections and rank-one Laplacian formulas; these ingredients do not assert the exact induced edge-l1 cut/cycle norm change for the two-parameter graph H_{m,n}. Related small insertion and cross-edge deletion records have different families/quantifiers. The full five-zone asymmetric insertion phase diagram is a specific new classification to best of knowledge, qualified by possible obscure electrical-network norm tables.
 
-## Limitations
+## value
 
-Only real, unweighted simple bicliques with one intrapart edge and their canonical Euclidean-orthogonal projections are covered. No minimum-norm claim for arbitrary projections or extrapolation to weighted perturbations is made. Independent mathematical validation is still needed.
+PASS
 
-Self-review: passed. Independent audit: not yet performed.
+Canonical graph cut/cycle orthogonal projections arise naturally in graph transportation, Lipschitz-free spaces, and electrical networks. An elementary-seeming single-edge operation changes their endpoint norms nonmonotonically, with exact sharp thresholds and distinct onsets for cut versus cycle. The complete all-m,n classification and boundary exceptions expose an informative structural sensitivity not apparent from generic rank-one formulas alone.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

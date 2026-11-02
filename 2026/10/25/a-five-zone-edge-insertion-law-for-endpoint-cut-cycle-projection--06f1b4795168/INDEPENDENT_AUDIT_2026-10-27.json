@@ -1,0 +1,133 @@
+{
+  "audit_date_utc": "2026-10-27",
+  "audited_at_utc": "2026-10-27T09:48:43.220963Z",
+  "axes": {
+    "correctness": {
+      "rationale": "For all m,n>=2, the canonical Euclidean cut projection on K_{m,n} has entry delta_{i,k}/n+delta_{j,l}/m-1/(mn). The new intrapart edge incidence b=e_{x0}-e_{x1} is a Laplacian eigenvector with eigenvalue n and effective resistance 2/n. Sherman–Morrison on the zero-sum subspace yields L^+=L0^+-bb^T/[n(n+2)], with new-edge coupling s_i/(n+2) and diagonal 2/(n+2). Three complete column types (far, touched, new) give touched cut q0+d, touched cycle p0+d+2/[n(n+2)], and new norms 2(n+1)/(n+2), 3n/(n+2). Direct sign checking across m=n+2 and orbit maxima gives exact two-parameter formulas, including m=2,3 and n=2,3,4. For n>=5 this yields five consecutive zones (m=2 Q↓P↑; m=3 Q unchanged and P↑; 4<=m<=2n-2 both unchanged; 2n-1<=m<=2n+1 Q unchanged P↑; m>=2n+2 both ↑). Independently recomputed all projector entries from grounded incidence/Laplacian inverses with exact rationals for 36 (m,n) pairs, including m=11..14,n=5,6 threshold boundaries, and matched the closed formulas without using the rank-one update in the verifier. Arbitrary integers follow from the analytic matrix identities and inequalities, not finite enumeration.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Earlier papers set up finite graph Lipschitz-free and cut/cycle projection methods for broad graph classes, emphasizing diamond and Laakso constructions.",
+          "A generic rank-one inverse identity computes new matrix entries but requires nontrivial absolute-sign and orbit maxima to yield the exact five-zone l1 norms."
+        ],
+        "reasoning": "General projection machinery is an input, not a stated or immediate theorem controlling this specific all-parameter insertion phenomenon. A dominating closed formula for arbitrary single-edge graph updates was not established in inspected material.",
+        "searches": [
+          "Resultary: cut cycle orthogonal projection L1 norm K_mn one internal edge addition five zone",
+          "arXiv:1807.03814 §§4–6",
+          "arXiv:2007.07949 graph projection",
+          "Basso arxiv:2104.14238"
+        ]
+      },
+      "checked_sources": [
+        "https://arxiv.org/abs/1807.03814",
+        "https://arxiv.org/abs/2007.07949",
+        "https://arxiv.org/abs/2104.14238",
+        "https://github.com/Resultary/2026/tree/main/2026/10/11/SCOPE-sharp-coordinate-projection-norms-for-edge-bases-of-cactus-trans--b98930fbc1cd",
+        "Resultary: cut cycle orthogonal projection L1 norm K_mn one internal edge addition five zone"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "Standard pseudoinverse update gives an exact entry formula for any added edge; absolute column sums change sign when m passes n+2 and other boundaries.",
+          "The sharp five-zone outcomes require explicit ordering of far/touched/new column types and integer thresholds m=2n-1 and 2n+2."
+        ],
+        "reasoning": "The general Laplacian lemma is an algorithmic route to prove the new formulas, but known prior projection results do not already state the resulting simultaneous endpoint-norm classification as a theorem.",
+        "searches": [
+          "Resultary: cut cycle orthogonal projection L1 norm K_mn one internal edge addition five zone",
+          "arXiv:1807.03814",
+          "arXiv:2007.07949",
+          "rank-one graph Laplacian perturbation lemma"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Cut projection Q=B^T L^+ B and cycle projection I-Q are standard; their induced l1 norm equals maximum absolute column sum.",
+          "Here a single edge is added INSIDE one part of K_{m,n}; multiple m,n regimes must be compared exactly."
+        ],
+        "reasoning": "The transport-space quotient language is equivalent to cycle cut decomposition, but generic norm minimization on diamond/Laakso graphs is not an exact canonical orthogonal projection norm for this augmented biclique.",
+        "searches": [
+          "Resultary: cut cycle orthogonal projection L1 norm K_mn one internal edge addition five zone",
+          "Dilworth–Kutzarova–Ostrovskii arXiv:1807.03814",
+          "arXiv:2007.07949 Laakso transportation projections"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "Related Resultary work covers small edge-insertion counts and removal of a cross edge from K_mn; neither parameterizes an intrapart added edge for all m,n.",
+          "The direct rational checker confirms 36 cases, but the universality depends on the rank-one proof."
+        ],
+        "reasoning": "No exact table with the same two-parameter five-zone distinction was found. Finite tables may contain isolated examples, not the general law; absence from databases alone is insufficient for novelty.",
+        "searches": [
+          "Resultary: cut cycle orthogonal projection L1 norm K_mn one internal edge addition five zone",
+          "Resultary cut cycle orthogonal projection L1 norm K_mn one internal edge addition five zone",
+          "Resultary edge insertion norm six vertex and biclique cross-edge deletion"
+        ]
+      },
+      "rationale": "The general literature establishes Lipschitz-free graph spaces, transportation cycle projections and rank-one Laplacian formulas; these ingredients do not assert the exact induced edge-l1 cut/cycle norm change for the two-parameter graph H_{m,n}. Related small insertion and cross-edge deletion records have different families/quantifiers. The full five-zone asymmetric insertion phase diagram is a specific new classification to best of knowledge, qualified by possible obscure electrical-network norm tables.",
+      "residual_risks": [
+        "An unindexed biclique electrical-transfer-resistance or endpoint-projection norm calculation could subsume these exact formulas.",
+        "The formulas are for canonical orthogonal projections, not minima over nonorthogonal complements; confusing these would overclaim applicability."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Sets general cut/cycle framework and focuses on different graph families, not an explicit augmented-biclique five-zone norm theorem.",
+          "evidence": [
+            "Graph-metric transportation cost spaces and cycle subspace projections are explicitly introduced."
+          ],
+          "identifier_or_url": "https://arxiv.org/abs/1807.03814",
+          "material_read": "Original primary arXiv manuscript; introduction and sections discussing cycle-space quotients and graph projections, with rendered PDF pages inspected.",
+          "method": "Primary arXiv PDF, relevant mathematical sections read",
+          "title": "Lipschitz free spaces on finite metric spaces",
+          "trigger": "Foundational cut/cycle projection and graph transport norms"
+        },
+        {
+          "assessment": "Projection calculations for recursively built graph families do not assert augmented K_mn intrapart norm classification.",
+          "evidence": [
+            "Laakso/diamond cycle-space projections instead of biclique-plus-one-edge family."
+          ],
+          "identifier_or_url": "https://arxiv.org/abs/2007.07949",
+          "material_read": "Available original preprint, abstract/introduction and relevant Laakso/diamond projection statements; did not infer noncoverage from title alone.",
+          "method": "Primary open preprint relevant sections read",
+          "title": "Analysis on Laakso graphs with application to the structure of transportation cost spaces",
+          "trigger": "Potential broader exact projector norm results"
+        },
+        {
+          "assessment": "Distinguishes minimum constants over projections from the fixed canonical Euclidean cut/cycle projections in the claim; no whole-document negative assertion based on snippets.",
+          "evidence": [
+            "Different optimization over projections; exact canonical H_mn cut/cycle expressions not established by these inspected statements."
+          ],
+          "identifier_or_url": "https://arxiv.org/abs/2104.14238",
+          "material_read": "Accessible abstract and selected setup relating extension constants to relative projection constants.",
+          "method": "Public preprint overview and relevant definitions",
+          "title": "Absolute Lipschitz extendability and linear projection constants",
+          "trigger": "General projection constants could dominate exact canonical norm"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "rationale": "Canonical graph cut/cycle orthogonal projections arise naturally in graph transportation, Lipschitz-free spaces, and electrical networks. An elementary-seeming single-edge operation changes their endpoint norms nonmonotonically, with exact sharp thresholds and distinct onsets for cut versus cycle. The complete all-m,n classification and boundary exceptions expose an informative structural sensitivity not apparent from generic rank-one formulas alone.",
+      "status": "PASS"
+    }
+  },
+  "checked_sources": [
+    "https://arxiv.org/abs/1807.03814",
+    "https://arxiv.org/abs/2007.07949",
+    "https://arxiv.org/abs/2104.14238",
+    "https://github.com/Resultary/2026/tree/main/2026/10/11/SCOPE-sharp-coordinate-projection-norms-for-edge-bases-of-cactus-trans--b98930fbc1cd",
+    "Resultary: cut cycle orthogonal projection L1 norm K_mn one internal edge addition five zone"
+  ],
+  "disposition": "passed",
+  "limitations": [
+    "Only real edge-coordinate Euclidean-orthogonal projectors on unweighted H_{m,n}, m,n>=2.",
+    "Not minimal norms over arbitrary nonorthogonal projections, not arbitrary weighted graphs or multi-edge modifications.",
+    "Thirty-six exact-rational finite cases corroborate the symbolic all-integer proof.",
+    "Publication package contains operational provenance; research no_accepted_row until a privacy-safe publication path is genuinely verified."
+  ],
+  "residual_risks": [
+    "An unindexed biclique electrical-transfer-resistance or endpoint-projection norm calculation could subsume these exact formulas.",
+    "The formulas are for canonical orthogonal projections, not minima over nonorthogonal complements; confusing these would overclaim applicability."
+  ],
+  "schema_version": 1
+}
