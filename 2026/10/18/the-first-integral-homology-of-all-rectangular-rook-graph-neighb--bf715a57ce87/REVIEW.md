@@ -1,15 +1,21 @@
-# Scientific review: first homology of rook neighborhoods
+# Independent mathematical audit
 
-## Correctness — PASS
-The result concerns the open neighborhood complex for every pair of integers \(m,n\ge3\), with no finite-range extrapolation. A complete 1-skeleton gives a unique normalization of each 1-cocycle by a coboundary. The proof exhausts the root, row, column, and mixed triangle types, thereby bounding normalized cocycles by parameters \(t_{ij}\), \(p_{j\ell}\), and \(q_{ik}\), with a crucial relation between opposite corners. Explicit cocycles realize all permitted parameters for **arbitrary abelian coefficients**, distinguishing the free cases from order-two torsion. The universal coefficient theorem then identifies integral homology. The executable checks explicit generators and first mod-prime Betti numbers on seven finite boards; exact integer Smith calculations on three boards offer additional consistency evidence. The all-parameter statement is proved symbolically, not inferred from computations.
+## correctness
 
-## Originality — PASS, with residual risk
-The closest full-text results are the exact four-by-four calculation, which supplies one previously known special case, and an all-parameter rook-neighborhood result proving higher homology and the row-column cofiber but explicitly **not** first homology. Neither supplies the new low-width/free-versus-torsion threshold; the higher-homology statement alone does not determine the integral connecting maps needed for \(H_1\). The literature on small-degree graphs excludes the general rook family, and generic fundamental-group correspondences do not compute its explicit first homology. The different width-two family is outside the hypotheses, while closed-neighborhood, three-cut, clique, and independence complexes have different face conditions. Searches included rook/Hamming/line-graph aliases and integrality/torsion variations. An unindexed equivalent result remains possible.
+PASS
 
-## Mathematical value — PASS
-A complete integral first-homology classification is a natural invariant of the Lovász neighborhood complex for the entire rectangular rook-graph family. The sharp parameter-dependent transition \(\mathbb Z^2\to\mathbb Z\to\mathbb Z/2\mathbb Z\) separates free cycles from genuine torsion, is not implied by the previously determined high-degree homology, and offers a reusable cohomological method rather than a one-board computation. The four-by-four case is explicitly credited as prior work.
+Reconstructed complete 1-skeleton from common neighbors; normalized 1-cocycles at o=(1,1); verified all row, column, mixed triangle identities (equations (1)–(3)) and sufficiency of explicit cocycles over arbitrary abelian coefficient groups. When m,n>=4, all mixed parameters coincide and opposite corners impose 2t=0; coordinate-difference indicator realizes every 2-torsion t. With exactly 3 rows the remaining parameter is free and the explicit integer generator realizes it; at 3x3 two independent integer generators do. Natural H¹(-;A)=Hom(H1(-;Z),A) for all A and finite generation recover the exact integral groups, not just field ranks. Independent construction of all 2-faces and exact sparse elimination gave H1 dimensions over F2,F3,F5,F7 for (3,3),(3,4),(3,5),(3,7),(4,4),(4,5),(5,5). Independent integer Smith reductions found (3,3) free rank 2, (3,4) free rank 1 and (4,4) one invariant factor 2; independent explicit integer cocycle generators checked against every triangle for (3,3),(3,4),(3,5),(3,6),(3,8), and parity generators for larger boards. These are finite corroborations, not the infinite proof.
 
-## Scope and integrity
-No claim is made about \(\pi_1\), complete homotopy type, higher integral homology, or width-one/two rook graphs. Finite checks are not a substitute for the algebraic argument. The finding has undergone self-review only; no independent mathematical validation or audit has occurred.
+## originality
 
-Self-review: passed. Independent audit: not yet performed.
+PASS
+
+Qualified best-of-knowledge original all-parameter integral H1 trichotomy: genuine same-object all-parameter cofiber paper expressly leaves H1 open, known/claimed 4x4 is a credited special case, and full-text comparison distinguishes closed rook-Čech homology and general fundamental-group results. No dominating prior implication was identified; unindexed equivalent formula and inaccessible 4x4 primary are recorded as residual risks.
+
+## value
+
+PASS
+
+H1 is a fundamental integral invariant of a natural all-parameter family of Lovasz open-neighborhood complexes, with a sharp geometrically meaningful transition from two free cycles to one free cycle to genuine Z/2 torsion. A related published all-parameter cofiber theorem explicitly left H1 open; the arbitrary-coefficient corner-cocycle classification provides reusable structure. Beyond the credited 4x4 instance and outside-width-two work, the answer is a natural complete classification, not an arbitrary one-off computation.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
