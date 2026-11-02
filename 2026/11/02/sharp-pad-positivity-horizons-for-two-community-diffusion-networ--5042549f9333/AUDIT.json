@@ -1,0 +1,115 @@
+{
+  "correctness": {
+    "rationale": "The four orthogonal projectors for two equal-weight communities diagonalize the full Laplacian. The scalar Padé multiplier has strictly positive numerator and denominator at all finite nonnegative arguments, ensuring positive definite stochastic updates. Exact entry formulas reduce the only possible negative entries to two explicit quadratics with positive linear coefficient. Each either stays strictly positive or has exactly one positive root. Their minimum is the global positivity horizon. Rational identities, edge cases a=c=0 and exact critical ratios, root sign, 1/h² critical decay and 1/epsilon horizon divergence were checked. The packaged verify.py independently constructs full matrices and verifies 2,352 dense cases, 1,458 horizon brackets, four symbolic algebra/limit identities, and 18 divergence cases. Those computations are corroboration; the projector/quadratic proof is valid for all p,q≥2 and parameters.",
+    "status": "PASS"
+  },
+  "independent": false,
+  "independent_audit_status": "not_performed",
+  "originality": {
+    "broader_coverage": {
+      "evidence": [
+        "Zappavigna et al. 2010 Theorems 2–3 provide sufficient small-step positivity bounds for generic Hurwitz Metzler matrices and discuss gaps: https://mural.maynoothuniversity.ie/id/eprint/2195/1/SK-pade_MTNS10_long.pdf",
+        "Zappavigna et al. 2012 Section 4, Theorem 3 gives a general sufficient bound and directed counterexample, not an exact two-community spectrum-based necessity/sufficiency theorem: https://www.hamilton.ie/skirkland/pade_paper_final_end.pdf",
+        "A published Crank–Nicolson resolvent-return criterion concerns a different rational integrator and has no direct implication for [2/2] Padé: https://github.com/Resultary/2026/tree/main/2026/10/4/SCOPE-a-resolvent-return-law-for-crank-nicolson-positivity-on-reversib--d475df91cd2a"
+      ],
+      "reasoning": "The two inspected primary texts establish a general Padé theory, but their sufficient bounds do not dominate exact all-timestep community weight inequalities. Their nonsymmetric examples cannot imply the necessary thresholds here. Standard spectral functional calculus supplies a tool, not a pre-existing explicit two-parameter classification, although deeper specialized prior work remains possible.",
+      "searches": [
+        "unconditional positivity of rational approximations matrix exponentials graph Laplacians complete multipartite split graphs",
+        "exact unconditional [2/2] Pade positivity threshold two-community complete weighted graph internal weights a c cross b, p q vertices, 2 parameter phase diagram",
+        "fourth order implicit Gauss Legendre stochastic two block graph positivity support threshold and finite timestep horizon",
+        "Zappavigna Colaneri Kirkland Shorten 2012 positivity preservation Padé methods paper 2012 full text"
+      ]
+    },
+    "checked_sources": [
+      "https://mural.maynoothuniversity.ie/id/eprint/2195/1/SK-pade_MTNS10_long.pdf",
+      "https://www.hamilton.ie/skirkland/pade_paper_final_end.pdf",
+      "https://github.com/Resultary/2026/tree/main/2026/9/20/SCOPE-eight-state-pade-markov-positivity-barrier--4aad2a3f58ab",
+      "https://github.com/Resultary/2026/tree/main/2026/10/4/SCOPE-a-resolvent-return-law-for-crank-nicolson-positivity-on-reversib--d475df91cd2a",
+      "Accessible earlier work in same general problem area: two-community fastest mixing, weighted three-spoke-star and uniform path/cycle [2/2] Padé classifications."
+    ],
+    "claim_vs_prior_implication": {
+      "evidence": [
+        "MTNS 2010 (Section III.B and III.D) supplies a sufficient short-step inequality and numerical sign-gap examples; neither gives iff constraints or the exact finite horizon for these two-block Laplacians.",
+        "The 2012 paper (Section 4, Lemma 4, Theorem 3) again gives a sufficient criterion, and its eight-node directed example is logically compatible with the present different family.",
+        "The published eight-state barrier identifies a smallest dimension for initial-time negativity in directed generators; here positivity always holds for sufficiently small positive time and can fail only after one of two exact horizons."
+      ],
+      "reasoning": "Neither a quoted theorem nor a matched special-case statement yields both (a/b≤(p+2q)/q and c/b≤(q+2p)/p), the exact quadratic local horizons, or the inverse-distance blow-up. The known uniform-cycle and weighted-star Padé results cover different graph parameterizations; overlap exists only on simpler nested special cases, which do not dominate the all-weight statement.",
+      "searches": [
+        "Padé Gauss Legendre 2 stage positivity threshold weighted graph Laplacian complete split graphs clique join independent vertices",
+        "Padé diffusion step graph Laplacian positivity all time steps weighted complete split and two cliques",
+        "fourth order implicit Gauss Legendre stochastic two block graph positivity support threshold and finite timestep horizon",
+        "\"complete split graph\" \"Padé\" positivity"
+      ]
+    },
+    "equivalent_formulations": {
+      "evidence": [
+        "The exact [2/2] Padé rational function is already in the MTNS 2010 article, Section III.B, Eq. (9); this formula is acknowledged.",
+        "The published eight-state [2/2] Padé barrier concerns a directed nilpotent pure-birth Markov chain and intermediate positive-time windows, not reversible two-block diffusion: https://github.com/Resultary/2026/tree/main/2026/9/20/SCOPE-eight-state-pade-markov-positivity-barrier--4aad2a3f58ab",
+        "Accessible earlier local claims involve [2/2] Padé on a weighted three-spoke star and uniform paths/cycles, neither with two arbitrary positive community sizes and two independent internal-to-cross weights."
+      ],
+      "reasoning": "Equivalent method names (fourth-order [2/2] diagonal Padé, two-stage Gauss–Legendre stability function, fourth-order graph heat end-step) were searched. Equality of a scalar rational function does not supply the claimed exact two-community nonnegativity region and competing timestep roots. The directed eight-state barrier and earlier star/path/cycle support statements do not imply these two simultaneous inequalities or decoupled local horizons.",
+      "searches": [
+        "Unconditional entrywise positivity of fourth order [2/2] Padé time step on complete split graph K_p join independent set Kbar_q with weighted clique and cross-edge conductances; sharp ratio threshold (p+2q)/q",
+        "Padé Gauss Legendre 2 stage positivity threshold weighted graph Laplacian complete split graphs clique join independent vertices",
+        "Padé diffusion step graph Laplacian positivity all time steps weighted complete split and two cliques",
+        "\"complete split graph\" \"Padé\" positivity",
+        "\"split graph\" \"Gauss-Legendre\" positivity graph Laplacian"
+      ]
+    },
+    "exact_database_or_table": {
+      "evidence": [
+        "No exact graph-family table or database entry containing the two simultaneous ratios, finite horizons, and boundary asymptotic constants appeared in these actual searches.",
+        "Earlier accessible two-community optimization findings deal with D-optimal graph conductances or fastest-mixing Markov chains, not fourth-order Padé nonnegativity."
+      ],
+      "reasoning": "The answer applies to a continuum of weights and every pair of community sizes, not a fixed finite numerical census; searches for a published table did not locate the same formula. This absence does not establish universal priority.",
+      "searches": [
+        "\"positive\" \"[2/2] Padé\" \"join graph\" Laplacian",
+        "\"graph Laplacians\" \"Padé\" \"positivity\" \"complete split\"",
+        "Unconditional entrywise positivity of fourth order [2/2] Padé time step on complete split graph K_p join independent set Kbar_q with weighted clique and cross-edge conductances; sharp ratio threshold (p+2q)/q"
+      ]
+    },
+    "rationale": "Actual comparison to published primary full-text Padé theorems and a meaning-indexed published-record search found no equal or stronger two-community weight-ratio iff rule. The 2010/2012 results provide general sufficient bounds, and related directed-chain, weighted-star, uniform path/cycle, and CN statements do not imply both independent community thresholds or exact horizons. This is a qualified self-review originality assessment, not proof of publication priority.",
+    "residual_risks": [
+      "Specialized work on positivity of rational functions of two-block graph Laplacians may exist under another terminology or outside indexed records.",
+      "Some semigroup and structure-preserving discretization literature was assessed at abstracts/record level, not by exhaustive full-text inspection.",
+      "The meaning-indexed records have limited retrieval recall and do not constitute a proof of uniqueness."
+    ],
+    "source_inspections": [
+      {
+        "assessment": "Provides generic sufficient bounds and a two-state special case, but no graph Laplacian two-community necessary-and-sufficient phase diagram.",
+        "evidence": [
+          "Section III.B Eq. (9) Padé [2/2] map; Theorem 2 sufficient h≤6 min_{i,j} a_ij/|b_ij|.",
+          "Section III.D Example 3 explicitly allows noninterval positivity windows in nonsymmetric systems, unlike the proven interval here.",
+          "Section III.E Theorem 4 focuses on 2×2 Hurwitz Metzler matrices."
+        ],
+        "identifier_or_url": "https://mural.maynoothuniversity.ie/id/eprint/2195/1/SK-pade_MTNS10_long.pdf",
+        "material_read": "Eight-page publicly accessible paper; text in Sections I–V, especially Section III.B Theorems 2–3, III.D counterexamples, Section III.E special two-state case, and final conclusions. The relevant formulas/pages were also visually inspected.",
+        "method": "Inspected full-text web PDF and rendered pages 3–4; compared theorem hypotheses, quantifiers, graph types and implications.",
+        "title": "On the preservation of co-positive Lyapunov functions under Padé discretization for positive systems",
+        "trigger": "Foundational primary Padé positivity criterion with the identical rational approximant; plausible broader coverage."
+      },
+      {
+        "assessment": "Addresses generic Hurwitz Metzler generators and a directed chain, not exact spectral positivity horizons for symmetric two-community weighted Laplacians.",
+        "evidence": [
+          "Section 4, Lemma 4, Eq. (23) and Theorem 3, Eqs. (25)–(27), are sufficient inequalities.",
+          "Section 4 Example 3 develops an eight-state nilpotent directed-chain counterexample.",
+          "Section 5 proposes a separate modified approximation."
+        ],
+        "identifier_or_url": "https://www.hamilton.ie/skirkland/pade_paper_final_end.pdf",
+        "material_read": "Public full-text 23-page preprint: abstract/introduction and Sections 3–5, particularly Section 4 Example 3, Lemma 4, Theorem 3 and concluding alternative time discretization. Relevant mathematical pages 16–17 visually inspected.",
+        "method": "Reviewed PDF full-text statements, formulas, hypotheses, and methods; compared exact graph object and all-step quantifiers.",
+        "title": "Essentially Negative News About Positive Systems",
+        "trigger": "More complete related primary study of Padé positivity, counterexamples, and sufficient sampling criteria."
+      }
+    ],
+    "status": "PASS"
+  },
+  "review_type": "self_review",
+  "schema_version": 1,
+  "scope_run_id": "5042549f-9333-4178-9451-5c34df14f517",
+  "self_review_status": "passed",
+  "value": {
+    "rationale": "A-stable, symmetric row-stochastic, positive-definite Padé updates can still generate negative transition weights. The two-community model is a natural dense-network diffusion discretization with physical internal and cross coupling. The result is a complete if-and-only-if two-parameter phase diagram for every size, an explicit optimal safe step boundary whenever unconditional positivity fails, and a universal critical divergence with distinct h^-2 boundary decay. It supplies a reproducible timestep rule not obtained from generic small-step sufficient conditions; no arbitrary fixed parameter sample is singled out.",
+    "status": "PASS"
+  }
+}
