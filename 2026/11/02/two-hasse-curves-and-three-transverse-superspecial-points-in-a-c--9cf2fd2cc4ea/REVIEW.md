@@ -1,0 +1,11 @@
+# Scientific review
+
+**Correctness — PASS.** On the smooth coefficient domain defined by the cubic discriminant, direct Cartier coefficient extraction gives diagonal entries \(H_a,H_b\). Their Frobenius-semilinear stable rank is the number of nonzero entries. Both Hasse curves are graphs over \(\mathbb G_m\). The intersection scheme is completely resolved by the three cube-root-of-unity lines, each with one simple and one double root. Discriminant substitutions and gradient determinants establish exactly which intersections are smooth transverse points. Finally, the discriminant's repeated-root parametrization proves the count for every finite extension. Both independent exact programs passed from their packaged paths.
+
+**Originality — PASS, with residual priority risk.** The closest inspected literature treats the full genus-two moduli space (Zobernig), construction of supersingular genus-two curves (Pieper), and general fixed-elliptic-cover rank strata (Chang and collaborators). None of the inspected relevant text gives the simultaneous two-component Hasse intersection scheme for the present varying-elliptic-quotient family, its doubled singular-boundary points, or its exact coefficient-marked finite-extension counts. The standard Cartier matrix and generic existence or dimension results are not claimed as new. An unindexed equivalent calculation remains possible; priority is not independently certified.
+
+**Mathematical value — PASS.** The (2,2)-split genus-two locus is naturally motivated by its two elliptic involution quotients. Locating the collision of their Hasse degenerations is a structural incidence question. The result identifies a three-point transverse superspecial scheme and explains its scheme-theoretic ninefold affine intersection using boundary multiplicities, while providing exact ranks and arithmetic counts over all finite extensions. The statement concerns coefficient-marked fibers, not distinct moduli points.
+
+The proof does not classify isomorphism redundancies or stable reduction at singular fibers. Sources: Zobernig (arXiv:2111.07270), Pieper (arXiv:2105.13752), Chang et al. (arXiv:2502.09540).
+
+Self-review: passed. Independent audit: not yet performed.
