@@ -1,0 +1,125 @@
+{
+  "audit_date_utc": "2026-10-30",
+  "audited_at_utc": "2026-10-30T14:08:36Z",
+  "axes": {
+    "correctness": {
+      "rationale": "PASS: Directly verified U_n=(b^n-(-1)^n)/(b+1), U4=m, and the generator-reduction identity U4+U4+t=bU_t(U4+U3)+(1+(-1)^t)U4. Coin exchange gives greedy optimality for 1,c,d, including the c=1 degenerate case; key shift inequality α(x+m)≥α(x)+c and Apéry representative minimality (other residues need x+tm) were reconstructed. Taking the Apéry maximum gives F, summing all α(x) gives the closed genus, and testing maximal Apéry residues under adding generators yields precisely two pseudo-Frobenius gaps (boundary x=cd-1 and x=m-1), including b=2. Fresh independent Dijkstra shortest paths for all 5,500 residues over b=2..12 corroborate exact Apéry, genus, F and PF; infinite b proof comes from exchange and residue arguments.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "General r-Fibonacci shift theorem assumes ordered recurrence coefficients r1≥r2, but present r1=b-1<r2=b.",
+          "Generalized Fibonacci/Jacobsthal triple Frobenius results do not give the infinite shifted 4-generator Apéry/PF census."
+        ],
+        "reasoning": "The closest general-looking theorem explicitly excludes the parameter side needed here, so no broader implication from it.",
+        "searches": [
+          "López-Medel et al full article 2025 (Springer Open text) section identifying r1<r2 future research",
+          "Komatsu–Laishram–Punyani arXiv:2304.00443"
+        ]
+      },
+      "checked_sources": [
+        "Actual source RESULT.md and verify.py",
+        "DOI:10.1007/s40065-025-00513-3 full accessible HTML",
+        "arXiv:2210.00816",
+        "arXiv:2304.00443",
+        "Resultary query: shifted generalized Jacobsthal semigroup"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "A theorem with r1≥r2 cannot specialize to r1=b-1<r2=b, while Fibonacci U_n has distinct root structure.",
+          "Triple-generator results omit the infinite index set and the exact maximal Apéry-residue analysis."
+        ],
+        "reasoning": "The cited prior theorems do not mathematically imply the claimed type and PF formulas for this excluded regime.",
+        "searches": [
+          "López-Medel et al DOI:10.1007/s40065-025-00513-3, condition on recurrence parameters",
+          "Robles-Pérez–Rosales arXiv:2210.00816"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Shifted Fibonacci and generalized r-Fibonacci semigroup constructions are nearest analogues; the new recurrence has roots b and -1 rather than Fibonacci roots.",
+          "The claim includes all nonnegative generating indices and shift 4, an important normalization difference from triple-generator Frobenius results."
+        ],
+        "reasoning": "Compared generating sets and recurrence coefficient inequalities rather than using a title match; existing analyzed general-r recurrence does not include (b-1,b).",
+        "searches": [
+          "Robles-Pérez–Rosales arXiv:2210.00816 on shifted Fibonacci semigroups",
+          "López-Medel et al DOI:10.1007/s40065-025-00513-3",
+          "Resultary Jacobsthal/Frobenius search"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "No same shifted base-b family and exact genus/type-two Apéry table returned by the semantic query.",
+          "Explicit finite b checks are newly computed from the formula and are not prior literature tables."
+        ],
+        "reasoning": "No covering exact database located; cannot rule out an unindexed independent derivation.",
+        "searches": [
+          "Resultary Jacobsthal shifted numerical semigroup query",
+          "Robles-Pérez–Rosales Apéry tables for other recurrence"
+        ]
+      },
+      "rationale": "Best-of-knowledge PASS on the particular final statement after comparing objects, hypotheses, quantifiers, dominating statements and actual inspected materials; accessible primary evidence does not imply this exact result. No search failure constitutes a novelty proof. Specific same-source risks are retained; any inaccessible literature remains explicitly qualified.",
+      "residual_risks": [
+        "Older numerical-semigroup work under alternative Jacobsthal–Lucas normalization may contain an equivalent family not indexed by direct queries.",
+        "Dijkstra checks cover b≤12 only; all-b depends on the greedy exchange and shift inequality, checked separately."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Does not cover r1=b-1<r2=b; article identifies this reverse inequality regime as open/future",
+          "evidence": [
+            "Definition/hypotheses r1≥r2; final discussion of r1<r2"
+          ],
+          "identifier_or_url": "DOI:10.1007/s40065-025-00513-3; https://link.springer.com/article/10.1007/s40065-025-00513-3",
+          "material_read": "Full accessible article, particularly hypotheses and final section on opposite parameter ordering",
+          "method": "publisher full HTML",
+          "title": "The extended Frobenius problem for r-Fibonacci sequences shifted by r-Fibonacci numbers",
+          "trigger": "general theorem possibly dominating all 2nd-order recurrence semigroups"
+        },
+        {
+          "assessment": "Fibonacci recurrence not the characteristic polynomial (z-b)(z+1) here",
+          "evidence": [
+            "Fibonacci shift setting and recurrence"
+          ],
+          "identifier_or_url": "arXiv:2210.00816; https://link.springer.com/article/10.1007/s00009-023-02428-9",
+          "material_read": "abstract and accessible description of Fibonacci shift Apéry/frobenius results",
+          "method": "publisher HTML/abstract",
+          "title": "The extended Frobenius problem for Fibonacci sequences incremented by a Fibonacci number",
+          "trigger": "direct shifted semigroup antecedent"
+        },
+        {
+          "assessment": "Finite triple-generated objects; no apparent all-index shifted semigroup PF formula",
+          "evidence": [
+            "Title and described generalized triple setting"
+          ],
+          "identifier_or_url": "arXiv:2304.00443",
+          "material_read": "abstract and source scope of finite triples",
+          "method": "indexed primary source",
+          "title": "p-Numerical Semigroup of Generalized Fibonacci Triples",
+          "trigger": "generalized Jacobsthal/Fibonacci same parameters"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "rationale": "PASS: The infinite generating set collapses to four minimal generators (three for b=2) and all standard numerical-semigroup arithmetic invariants are explicitly determined uniformly in b. This is an exact natural family in the recurrence regime excluded by existing generalized Fibonacci-shift results, not a table recomputation for a few bases.",
+      "status": "PASS"
+    }
+  },
+  "checked_sources": [
+    "Actual source RESULT.md and verify.py",
+    "DOI:10.1007/s40065-025-00513-3 full accessible HTML",
+    "arXiv:2210.00816",
+    "arXiv:2304.00443",
+    "Resultary query: shifted generalized Jacobsthal semigroup"
+  ],
+  "disposition": "passed",
+  "final_claim": "For b≥2, c=b-1, d=c²+c+1, m=c(c²+2c+2), the semigroup generated by U4+Un (n≥0, U_{n+2}=(b-1)U_{n+1}+bUn) equals ⟨m,m+1,m+c,m+d⟩; its Apéry set is {α(x)m+x:0≤x<m} for the 1,c,d greedy coin count α, F=(3c-1)m-1, explicit genus formula in RESULT.md and PF={(2c-1)m+cd-1,(3c-1)m-1}; type is two.",
+  "limitations": [
+    "Only shift index U4 and generator indices n≥0, no claims for arbitrary shift index.",
+    "For b=2 the generator presentation has a duplicate and embedding dimension three, handled explicitly.",
+    "Older numerical-semigroup work under alternative Jacobsthal–Lucas normalization may contain an equivalent family not indexed by direct queries.",
+    "Dijkstra checks cover b≤12 only; all-b depends on the greedy exchange and shift inequality, checked separately."
+  ],
+  "schema_version": 1
+}
