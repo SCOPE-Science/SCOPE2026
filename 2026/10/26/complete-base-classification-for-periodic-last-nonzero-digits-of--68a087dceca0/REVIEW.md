@@ -1,11 +1,21 @@
-# Self-review
+# Independent mathematical audit
 
-**Correctness: PASS.** The constructive lemma handles each integer base with at least two distinct prime divisors and quantifies over *all* proposed periods and all eventual starting thresholds. The proof checks the congruence of the two indices, computes the exact exponent of the full base in each self-power, and uses two distinct primes to distinguish the final digits. The remaining prime-power classification, including the affirmative periods, is the previously proved Theorem 7/Proposition 10 of Grau and Oller-Marcén. The standalone verifier checks concrete CRT witness construction and positive cases without pretending to prove infinite assertions by computation.
+## correctness
 
-**Originality: PASS within inspected evidence.** The initiating 2012 paper states the full claim as Conjecture 11, but its theorem covers prime powers and its negative composite proof covers even squarefree bases; there is no all-mixed-prime nonsquarefree theorem to subsume the lemma. Sobolewski's 2023 full article studies analytic-function last-digit sequences, without claiming variable-exponent self-power periodicity in every base. OEIS A260031 stores values for base 12, not a universal theorem. Six semantic queries of mathematical research records and recovered earlier claims yielded no implying result. These checks do not prove global novelty; an unknown earlier equivalence remains a priority risk.
+PASS
 
-**Value: PASS.** Completion of an explicitly published global conjecture is a natural, useful arithmetic classification. The CRT construction produces contradictory residue pairs for every proposed period in any mixed-prime base, a stronger statement than any fixed-base table. Its simplicity does not make it an unmotivated slice.
+For b with distinct primes p,q and arbitrary proposed period T, split T into support-on-b T_parallel and coprime T_perp, choose k with T_parallel|b^k and b^k>=N, and CRT u>1 with u=0 mod p, u=1 mod q and T_perp. n=b^k and m=b^k u are congruent mod T; n^n has final nonzero digit 1, while b does not divide u^m (q|b and u=1 mod q), so exactly km base-b factors are removed from m^m and F_b(m)=u^m mod b is divisible by p. This proves mixed-prime nonperiodicity for every period, not via finite search. Grau–Oller-Marcen Theorem 7 supplies all prime-power cases and Proposition 10 positive period. Independent bounded CRT witnesses confirmed 20 bases and 14 periods.
 
-The proof uses the prior prime-power theorem, whose correctness is taken from its actual published hypotheses and statement rather than independently certifying its proof. No least positive periods beyond a known period, higher trailing nonzero blocks, or other exponent sequences are determined. The 2014 journal version and the inspected 2012 preprint concern the same work; a version-to-version full-text collation was not made. Unknown prior publications remain possible.
+## originality
 
-Self-review: passed. Independent audit: not yet performed.
+PASS
+
+Best-of-knowledge original on the stated restricted theorem after comparison of exact implications; no exhaustive priority claim and specified inspection limits remain.
+
+## value
+
+PASS
+
+A constructive universal CRT obstruction closes the explicit mixed-prime gap in the published conjecture. Despite elementary proof tools, an all-base if-and-only-if classification of a natural last-nonzero-digit sequence is mathematically significant.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
