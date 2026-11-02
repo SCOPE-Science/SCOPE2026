@@ -1,0 +1,112 @@
+{
+  "correctness": {
+    "evidence": [
+      "RESULT.md, Proof steps 1–5 (algebraic argument)",
+      "johnson_adaptive_trees.json (46 internal nodes and 48 complete leaf witnesses)",
+      "verify_johnson_online.py and verification_output.txt (successful replay and 20-case exact finite grid)"
+    ],
+    "rationale": "Unrestricted proof: after two distinct positive queries, common centers have distance >=3 empty, distance 2 four elements, or distance 1 two blocks A and B. Exact query-trace classification on A union B forces Ldim <=3, and <=2 for min(k,n-k)=3, n<=9, or (10,5). Two positive steps give global upper 5 or 4. The two explicitly encoded complete trees for J(6,3) and J(10,4) have 16 and 32 distinct leaf witnesses; the independently run checker validates all path answers, and induced embeddings propagate lower bounds across every asserted parameter.",
+    "status": "PASS"
+  },
+  "independent": false,
+  "independent_audit_status": "not_performed",
+  "originality": {
+    "broader_coverage": {
+      "evidence": [
+        "Adler–Benediktsson–Macpherson arxiv:2007.16042, Theorem 1.1, proves static VC dimension at most four for all Johnson graphs; Theorem 3.7 gives its exact attainment.",
+        "Their Theorem 3.7 implies Ldim at least four but does not bound adaptive depth by four or five, nor give a depth-five adaptive certificate."
+      ],
+      "reasoning": "Static VC dimension does not upper-bound Littlestone dimension in general. The previously known four-dimensional static bound therefore does not subsume the adaptive five bound or exact boundary; no stronger online rank statement was identified.",
+      "searches": [
+        "\"Littlestone dimension\" Johnson graph neighborhood graph VC dimension J(n,k) (web search)",
+        "\"Johnson graph\" \"online\" \"VC dimension\" neighborhoods (web search)",
+        "published-finding corpus: \"VC dimension 4 Johnson graphs online dimension five neighborhoods model theoretic ladder dimension\""
+      ]
+    },
+    "checked_sources": [
+      "https://arxiv.org/abs/2007.16042 (full rendered primary Johnson section)",
+      "https://doi.org/10.1016/j.dam.2021.09.017 (published version index and abstract)",
+      "https://arxiv.org/abs/1711.11414 (abstract-level ancillary comparison)",
+      "published published-finding corpus search hits on Johnson-slice concentration and Johnson-graph Rips complexes"
+    ],
+    "claim_vs_prior_implication": {
+      "evidence": [
+        "The primary theorem determines only VC-dimension and VC-density; its common-neighbor geometry is used as a mathematical input to the new trace analysis.",
+        "A complete depth-five adaptive witness on J(10,4) is not a corollary of static VC=4, and the sharp upper bound for all 3<=k<=n-3 requires an additional trace lemma.",
+        "The earlier J(n,2) online computation can embed as a lower bound in larger Johnson graphs but does not imply the five-dimensional upper bound or the J(10,5) exception."
+      ],
+      "reasoning": "Implication comparison: prior VC=4 gives Ldim>=4, but cannot decide whether Ldim=4 or 5. Earlier rank-two dimension information is a lower-bound special case only. Neither dominates the new statement for interior ranks.",
+      "searches": [
+        "arxiv:2007.16042 Theorems 1.1 and 3.7, Lemmas 3.2–3.4 (full text inspected)",
+        "published-finding corpus: \"online shattering Johnson graphs open neighborhoods VC dimension 2020\"",
+        "Earlier triangular-graph J(n,2) open-neighborhood online-dimension theorem (rank-two specialization)"
+      ]
+    },
+    "equivalent_formulations": {
+      "evidence": [
+        "No direct formula in inspected paper arxiv:2007.16042, whose full text uses static VC and VC-density terminology.",
+        "Related published-finding corpus record 2026/10/11/SCOPE-sphere-wedge-collapse-of-scale-one-johnson-graph-rips-complexes--c10287ed1518 concerns clique complexes, not online shattering."
+      ],
+      "reasoning": "Littlestone dimension is also called online shattering or thicket dimension, and is related to the binary-tree form of Shelah rank. Neither exact searched alias nor close returned mathematical statements provided the claimed rank thresholds. Absence of search results is not evidence of uniqueness.",
+      "searches": [
+        "\"Johnson graphs\" \"Littlestone dimension\" \"neighborhoods\" (web search)",
+        "\"Johnson graphs\" \"Shelah 2-rank\" edge relation (web search)",
+        "\"Johnson graph\" \"thicket dimension\" adjacency (web search)",
+        "published-finding corpus: \"exact Littlestone dimension open neighborhoods Johnson graphs all ranks 4 5\""
+      ]
+    },
+    "exact_database_or_table": {
+      "evidence": [
+        "Closest topical returned result 2026/10/11/SCOPE-exact-two-coordinate-face-concentration-spectrum-on-johnson-slic--d102febb3be1 computes harmonic face concentration, not binary online-neighborhood queries.",
+        "Closest returned result 2026/10/11/SCOPE-sphere-wedge-collapse-of-scale-one-johnson-graph-rips-complexes--c10287ed1518 computes Rips homotopy, not a Littlestone table.",
+        "Earlier rank-two triangular-graph online dimension claims concern only J(n,2) and do not include the higher-rank classification."
+      ],
+      "reasoning": "The returned databases and accessible history do not exhibit an exact table for the same family and invariant. No claim of complete search coverage is made.",
+      "searches": [
+        "published-finding corpus: \"Littlestone dimension of open neighborhood concept classes of Johnson graphs J(n,3) and k-subset intersection graphs\"",
+        "published-finding corpus: \"adaptive shattering Johnson graph J(10,4) depth five open neighborhood\"",
+        "published-finding corpus: \"Littlestone dimension of graph-distance-1 Johnson graph k subsets\""
+      ]
+    },
+    "rationale": "The full-text arXiv:2007.16042 gives static VC-dimension four and pairwise common-neighborhood geometry, not the all-rank exact Littlestone classification. Independent searches of online/shattering/model-theoretic aliases and published mathematical-result records did not locate a theorem implying the trace-based uniform five bound or J(10,4) depth-five witness. Previous triangular-graph rank-two calculations and Johnson Rips/harmonic results do not imply the interior-rank result; historical priority under unseen literature is a residual risk.",
+    "residual_risks": [
+      "Unindexed work might express the same result as stability rank or a Littlestone rank of distance-regular adjacency relations.",
+      "Abstract-only ancillary source was not verified in full, though its stated invariant is different.",
+      "No independent mathematical priority examination or independent audit has been performed."
+    ],
+    "source_inspections": [
+      {
+        "assessment": "COVERS_STATIC_VC_AND_PAIR_GEOMETRY; DOES_NOT_GIVE_CLAIMED_ONLINE_CLASSIFICATION",
+        "evidence": [
+          "Theorem 1.1: VC dimension of Johnson open neighborhoods at most four.",
+          "Theorem 3.7: exact condition for VC dimension four; no adaptive tree formula or five-threshold found in the relevant complete section."
+        ],
+        "identifier_or_url": "https://arxiv.org/abs/2007.16042",
+        "material_read": "Accessible complete full-text rendering, particularly introduction and Johnson-graph section through Theorems 3.6–3.9, including pairwise neighborhood Lemmas 3.2–3.4.",
+        "method": "Read rendered arXiv primary text, inspected its adjacent-neighborhood formulas and final theorems, searched full text for “Littlestone” and “online”.",
+        "title": "Vapnik-Chervonenkis Dimension and Density on Johnson and Hamming Graphs",
+        "trigger": "Exactly the same Johnson open-neighborhood concept system and known VC result"
+      },
+      {
+        "assessment": "DIFFERENT_INVARIANT_AT_ABSTRACT_LEVEL; COMPLETE_DOCUMENT_NOT_ASSERTED_CLEARED",
+        "evidence": [
+          "Abstract describes edge density of 1,2-inclusion graphs measured by clique-VC dimension, not the online dimension of adjacency neighborhoods in an entire Johnson graph."
+        ],
+        "identifier_or_url": "https://arxiv.org/abs/1711.11414",
+        "material_read": "Abstract and indexed summary, not complete full text.",
+        "method": "Read indexed abstract and compare the defined invariant with vertex-neighborhood online dimensions.",
+        "title": "On density of subgraphs of halved cubes",
+        "trigger": "Overlap in the words Johnson graphs, VC dimension and binary cubes"
+      }
+    ],
+    "status": "PASS"
+  },
+  "review_type": "self_review",
+  "schema_version": 1,
+  "scope_run_id": "b63c5b7f-82b8-49fc-a8ac-76321182e61b",
+  "self_review_status": "passed",
+  "value": {
+    "rationale": "A complete exact online dimension classification for natural distance-regular Johnson graphs at every interior rank, a sharp uniform inherited bound for induced subgraphs, and the first rank-sensitive adaptive/static gap at J(10,4). The result uses a structural positive-trace lemma and natural graph-family embeddings rather than arbitrary finite parameter selection.",
+    "status": "PASS"
+  }
+}
