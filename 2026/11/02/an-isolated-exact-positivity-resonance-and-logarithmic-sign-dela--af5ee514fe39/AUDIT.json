@@ -1,0 +1,132 @@
+{
+  "correctness": {
+    "rationale": "The exact Table 1 coefficients yield the characteristic polynomial and its algebraically verified backward-Euler-mode coincidence at r=sqrt(5); a factored quartic and four certified disjoint Rouche disks separate the dominant nonreal pair from all remaining eigenvalues. The Vandermonde coefficient of that pair has a simple zero in detuning, producing a uniform four-step phase sign argument, infinite sign reversals, and a first-negative index log(1/|r-sqrt(5)|)/log(rho0/t0)+O(1). verify.py checks exact symbolic identities and rational enclosures; 170-digit finite recurrence tests are additional checks, not replacements for the analytic proof.",
+    "status": "PASS"
+  },
+  "independent": false,
+  "independent_audit_status": "not_performed",
+  "originality": {
+    "broader_coverage": {
+      "evidence": [
+        "General SSP multistep work treats explicit methods and monotonicity step-size constraints, not the new implicit five-step BDFL plus backward-Euler starter",
+        "General step-size-boundedness papers concern necessary/sufficient monotonicity conditions over broader histories, not necessarily this initialized exceptional trajectory"
+      ],
+      "reasoning": "The source already establishes A- and L-stability, which governs decay of modes but does not imply positivity of their signed superpositions. General SSP or root-condition results may give templates, but neither a stronger known theorem nor an explicit equivalent five-step threshold was identified in the material actually read. Some source comparisons were abstract-only and cannot exclude full-text coverage.",
+      "searches": [
+        "linear multistep exact starter mode cancellation isolated step size complex dominant roots sign asymptotic",
+        "five step A-stable L-stable second-order linear multistep BDFL5 positivity oscillations scalar recurrence starting values",
+        "starting procedure annihilate parasitic roots of linear multistep method scalar decay special step resonance delayed sign change",
+        "arXiv:1504.04107",
+        "arXiv:1609.07858"
+      ]
+    },
+    "checked_sources": [
+      "arXiv:2610.22685v1 primary HTML, sections 1–3 and 5–6",
+      "Fundamentals of Numerical Computation zero-stability chapter",
+      "arXiv:1504.04107 abstract only",
+      "arXiv:1609.07858 abstract only",
+      "Related published mathematical records on BDF2 delayed sign loss and Richardson positivity, compared by statements"
+    ],
+    "claim_vs_prior_implication": {
+      "evidence": [
+        "Section 3.3 establishes coefficients/stability and near-optimal local error, not initialized positivity",
+        "Section 5 states TR-BDF2 startup and observes transient oscillations, without a BE-start resonance/detuning law",
+        "The classical root-condition principle provides the linear recurrence decomposition used in the proof"
+      ],
+      "reasoning": "The source stability theorem guarantees all roots inside the unit disk on scalar decay, not nonnegativity; its numerical tests cannot quantify a BE-start sign-delay. The new algebraic identity r=sqrt(5), certified dominant complex pair and coefficient derivative are additional premises, yielding logarithmic delay by a nontrivial mode-balance argument. Exact historical equivalence remains a residual risk.",
+      "searches": [
+        "BDFL5 five-step L-stable geometric starting data positivity sign loss logarithmic delay",
+        "linear multistep exact starter mode cancellation isolated step size complex dominant roots sign asymptotic",
+        "arXiv:2610.22685v1 Sections 2,3,5,6",
+        "Driscoll and Braun zero-stability chapter"
+      ]
+    },
+    "equivalent_formulations": {
+      "evidence": [
+        "Exact five-step BDFL coefficients and different TR-BDF2 startup from the primary paper",
+        "Classical root-condition exposition at fncbook.github.io/v1.0/ivp/zerostability.html"
+      ],
+      "reasoning": "The statement can be rewritten as exact starter-mode annihilation of all four parasitic roots at r=sqrt(5), or as an exceptional positive trajectory despite a dominant complex pair. Neither equivalent presentation was found for this recurrence in the inspected material; the general spectral decomposition alone does not specify the resonance or logarithmic delay.",
+      "searches": [
+        "Jensen Ketcheson Lóczi BDFL5 backward Euler initialization sqrt5 resonance sign alternating complex parasitic root",
+        "BDFL5 five-step L-stable geometric starting data positivity sign loss logarithmic delay",
+        "arXiv:2610.22685v1 (Table 1, Sections 3.3,5)"
+      ]
+    },
+    "exact_database_or_table": {
+      "evidence": [
+        "The table lists method coefficients and error constants, not backward-Euler-initialized scalar sign sequences",
+        "The searched mathematical-record hits include a BDF2 delayed-sign theorem and a Richardson positivity barrier, different recurrences and scalings"
+      ],
+      "reasoning": "The method coefficients are copied as known data, not claimed novel; the new eigenmode coincidence, quartic spectral ordering and first-negative delay are derived. A published three-step BDFL causal impulse result concerns a different method and forcing problem and does not directly imply the five-step starter-specific result.",
+      "searches": [
+        "Jensen Ketcheson Lóczi BDFL5 backward Euler initialization sqrt5 resonance sign alternating complex parasitic root",
+        "2610.22685v1 new five-step BDFL5 stiff damping positivity numerical analysis",
+        "arXiv:2610.22685v1 Table 1"
+      ]
+    },
+    "rationale": "The 2026 primary paper introduces the exact five-step L-stable coefficients, but studies stability/error and uses TR-BDF2 starting values, whereas this claim fixes four backward-Euler starting steps and identifies a unique coefficient-forced geometric coincidence with dominant complex modes, infinite detuned sign reversals, and an exact logarithmic delay constant. Classical root analysis supplies general ingredients but the inspected sources and relevant mathematical records did not establish this explicit five-step statement. Some broader literature might independently cover it.",
+    "residual_risks": [
+      "General multistep perturbation/SCB theory may contain an equivalent specialization not discovered by current searches.",
+      "Some classical methodological sources were compared from abstracts rather than exhaustive full texts.",
+      "The epsilon neighborhood is proved to exist, not numerically optimized, and does not describe all positive step sizes."
+    ],
+    "source_inspections": [
+      {
+        "assessment": "METHOD_KNOWN_CLAIM_NOT_STATED",
+        "evidence": [
+          "Table 1 five-step coefficients and error constant, Section 3.3",
+          "Section 5 explicitly uses TR-BDF2 to generate k-1 initial values",
+          "Section 6 uses separate variable-step formulation"
+        ],
+        "identifier_or_url": "https://arxiv.org/abs/2610.22685",
+        "material_read": "Full accessible HTML, including background/definitions Sections 1–2; five-step construction Sections 3.2–3.3, especially Table 1; Section 5 starter and results; Section 6 variable-step setup; abstract/metadata",
+        "method": "Read relevant primary full text and compared printed numerical schemes, initializers, scope and stated results",
+        "title": "Optimized linear multistep methods for stiff problems",
+        "trigger": "Exact new five-step method and potential stronger treatment of transient oscillations and starting values"
+      },
+      {
+        "assessment": "GENERAL_TOOL_NOT_EXACT_CLAIM",
+        "evidence": [
+          "Root condition distinguishes bounded/repeated characteristic modes without specifying BDFL5 coefficients or the BE-start detuning law"
+        ],
+        "identifier_or_url": "https://fncbook.github.io/v1.0/ivp/zerostability.html",
+        "material_read": "Root-condition discussion and mode growth material",
+        "method": "Read accessible conceptual explanation, compared with explicit algebraic cancellation and root certificates",
+        "title": "Fundamentals of Numerical Computation: Zero-stability",
+        "trigger": "Classical root-decomposition potentially implying the sign dynamics"
+      },
+      {
+        "assessment": "NOT_DECISIVE_ABSTRACT_ONLY",
+        "evidence": [
+          "Deals with explicit SSP methods and variable-step constraints rather than this A-stable implicit five-step formula"
+        ],
+        "identifier_or_url": "https://arxiv.org/abs/1504.04107",
+        "material_read": "Abstract and bibliographic metadata only",
+        "method": "Compared scope from abstract; did not inspect full text",
+        "title": "Strong stability preserving explicit linear multistep methods with variable step size",
+        "trigger": "Broader SSP theory may establish a positivity constraint"
+      },
+      {
+        "assessment": "UNRESOLVED_GENERAL_PRIORITY_RISK",
+        "evidence": [
+          "Abstract studies multistep monotonicity/boundedness step-size coefficients; no claim of inspected full-text exclusion"
+        ],
+        "identifier_or_url": "https://arxiv.org/abs/1609.07858",
+        "material_read": "Abstract and bibliographic metadata only",
+        "method": "Scope comparison, no full-text NOT_COVERING claim",
+        "title": "Exact optimal values of step-size coefficients for boundedness of linear multistep methods",
+        "trigger": "Possible general SCM/SCB domination"
+      }
+    ],
+    "status": "PASS"
+  },
+  "review_type": "self_review",
+  "schema_version": 1,
+  "scope_run_id": "af5ee514-fe39-4637-ae79-b8abb40fddb8",
+  "self_review_status": "passed",
+  "value": {
+    "rationale": "The new implicit five-step A/L-stable integrator creates an unusually clean test separating asymptotic stability from sign preservation of a physically motivated scalar decay trajectory. Exact cancellation at a single r and logarithmic delayed sign-loss on detuning are a structurally significant benchmark for how short positivity tests can mislead. This is not merely another parameter table or routine numerical threshold; it derives a complete local qualitative dichotomy and sharp asymptotic delay. Applicability is restricted to this precisely stated starter.",
+    "status": "PASS"
+  }
+}
