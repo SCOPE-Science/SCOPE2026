@@ -1,19 +1,21 @@
-# Mathematical review: finite-field dihedral quandle idempotents
+# Independent mathematical audit
 
-## Correctness
+## correctness
 
-PASS. Finite Fourier inversion is legal precisely because the characteristic is coprime to the odd order \(n\). Expanding the specified multiplication yields \(A_k=A_{-k}A_{2k}\). Support is a union of \(\Gamma\)-orbits; cancellation on any active orbit gives \(A_{-k}=A_k^{-1}\) and \(A_{2k}=A_k^2\), leading to the two explicit root-exponent cases. Frobenius descent across cyclically permuted \(\Gamma\)-orbits imposes exactly the three root conditions counted by \(g_D\). The inverse transform returns all and only the base-field idempotents. Direct exhaustive enumeration and independent inverse-transform constructions agree in the documented finite examples.
+PASS
 
-## Originality
+For odd n with characteristic prime to n, n is invertible and the DFT over F_{q^ord_n(q)} is bijective. Directly multiplying e_i e_j=e_{2j-i} gives A_k=A_{-k} A_{2k}; the q-Frobenius fixed-point condition exactly characterizes original F_q coefficients. On any active Gamma=<-1,2> orbit, nonzero support propagates both directions. Comparing k and -k and using doubling-bijectivity gives A_k A_{-k}=1, hence A_{-k}=A_k^{-1} and A_{2k}=A_k^2. When -1 lies in <2> mod d, cyclic compatibility imposes u^(2^(t/2)+1)=1; otherwise u^(2^t-1)=1. Every Delta=<-1,2,q> orbit consists of q-cycled Gamma orbits; at the first return q^a k=epsilon 2^b k, Frob closure is u^(q^a-epsilon 2^b)=1. The seed belongs to F_{q^s}, requiring u^(q^s-1)=1. Cyclic multiplicative-group intersections therefore contain exactly gcd(M_D,q^s-1,abs(q^a-epsilon 2^b)) nonzero roots; the inactive assignment is unique. Gamma/Delta blocks and A_0 in {0,1} are independent, proving the asserted bijection and 2*product_D(1+g_D), not merely an empirically tested count. The Gamma representation ambiguity changes seed exponents only modulo M_D. Independent checker reconstructed arithmetic factors and their choices for every odd n=3..99 and q in {2,3,4,5,7,8,9,11,13,16,17,19} whenever coprime, plus direct native coefficient multiplication for feasible prime-field and explicit GF(4), GF(8), GF(9) cases. In particular, direct exhaustive F_2[R_11] and F_3[R_11] yield 68 and 24; no finite test is used to prove the universal theorem.
 
-PASS within inspected coverage, subject to stated residual risk. The basic Fourier equation is not new: Elhamdadi–Ta–Virgin, arXiv:2609.03799, use this recurrence over the complex numbers. Elhamdadi–Nunez–Singh–Swain, arXiv:2204.11288, address quandle algebra idempotents and coverings, not this complete nonmodular finite-field orbit census. Small-order integral and finite-field examples are also known. The assessed claim is the exact arithmetic classification for arbitrary odd \(n\), every finite field of characteristic prime to \(n\), and the additional Frobenius conditions when the field does not split the \(n\)-th roots. The known Fourier recurrence strongly motivates the proof and leaves a possibility that the finite-field extension occurs elsewhere; no priority beyond the searches and material inspected is certified.
+## originality
 
-## Value
+PASS
 
-PASS. Idempotent sets are basic invariants of a nonassociative algebra, while general counting was unavailable in the compared finite-field setting. The theorem classifies the entire set rather than a sample or one tiny algebra and separates split and nonsplit field behavior by a precise Galois-orbit mechanism. Arithmetic sensitivity occurs already for the same eleven-element quandle over different finite fields, with both the count and actual idempotents explicitly obtainable.
+The nonmodular all-odd-n finite-field arithmetic orbit/census and nonsplit Frobenius descent are distinct from known Fourier recurrences, integral special cases and R3 exact tables; qualified best-of-knowledge pending inaccessible plausible full-text comparisons.
 
-## Literature limits
+## value
 
-The 2026 Fourier analysis provides a precursor recurrence. Earlier R3 and R5 calculations are special cases, not independent results claimed here. Some older quandle-ring articles and a thesis were available only in part; an equivalent older characterization cannot be ruled out. The characteristic-dividing-order case is excluded, and finite calculations supplement rather than replace proof.
+PASS
 
-Self-review: passed. Independent audit: not yet performed.
+The complete set of idempotents of a finite-dimensional nonassociative quandle algebra is a natural basic invariant; before the arithmetic computation the exact all-odd-n, all-nonmodular finite-field census is not mechanically implied by existence of an averaging idempotent or the complex Fourier recurrence. The orbit formula yields explicit individual idempotents and a genuinely field-sensitive exact arithmetic classification, including the same R_11 with 24 over F_23 but 68 over F_67, as well as nonsplit fields. That algebraically motivated invariant is independently useful for comparing quandle algebras and as input to later automorphism/idempotent questions, without claiming a universal downstream theorem.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

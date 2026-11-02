@@ -1,0 +1,205 @@
+{
+  "audit_date_utc": "2026-10-27",
+  "audited_at_utc": "2026-10-27T07:01:48Z",
+  "axes": {
+    "correctness": {
+      "checked_sources": [
+        "https://github.com/SCOPE-Science/SCOPE2026/blob/cbd61aab71e4f01d305014a9520f769db8108742/2026/10/18/frobenius-orbit-census-of-idempotents-in-finite-dihedral-quandle--4a113244be17/RESULT.md",
+        "https://github.com/SCOPE-Science/SCOPE2026/blob/cbd61aab71e4f01d305014a9520f769db8108742/2026/10/18/frobenius-orbit-census-of-idempotents-in-finite-dihedral-quandle--4a113244be17/verify.py",
+        "independent_check.py own bounded tests at /mnt/data/scope_worker04_work_20261027T0646Z/independent_check.py"
+      ],
+      "rationale": "For odd n with characteristic prime to n, n is invertible and the DFT over F_{q^ord_n(q)} is bijective. Directly multiplying e_i e_j=e_{2j-i} gives A_k=A_{-k} A_{2k}; the q-Frobenius fixed-point condition exactly characterizes original F_q coefficients. On any active Gamma=<-1,2> orbit, nonzero support propagates both directions. Comparing k and -k and using doubling-bijectivity gives A_k A_{-k}=1, hence A_{-k}=A_k^{-1} and A_{2k}=A_k^2. When -1 lies in <2> mod d, cyclic compatibility imposes u^(2^(t/2)+1)=1; otherwise u^(2^t-1)=1. Every Delta=<-1,2,q> orbit consists of q-cycled Gamma orbits; at the first return q^a k=epsilon 2^b k, Frob closure is u^(q^a-epsilon 2^b)=1. The seed belongs to F_{q^s}, requiring u^(q^s-1)=1. Cyclic multiplicative-group intersections therefore contain exactly gcd(M_D,q^s-1,abs(q^a-epsilon 2^b)) nonzero roots; the inactive assignment is unique. Gamma/Delta blocks and A_0 in {0,1} are independent, proving the asserted bijection and 2*product_D(1+g_D), not merely an empirically tested count. The Gamma representation ambiguity changes seed exponents only modulo M_D. Independent checker reconstructed arithmetic factors and their choices for every odd n=3..99 and q in {2,3,4,5,7,8,9,11,13,16,17,19} whenever coprime, plus direct native coefficient multiplication for feasible prime-field and explicit GF(4), GF(8), GF(9) cases. In particular, direct exhaustive F_2[R_11] and F_3[R_11] yield 68 and 24; no finite test is used to prove the universal theorem.",
+      "residual_risks": [
+        "The argument excludes characteristic dividing n, as required for DFT inversion; finite tests alone are not an infinite proof.",
+        "An independent formal Lean proof/expert attestation was not performed."
+      ],
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "arxiv:2204.11288 Theorem 4.3 assumes noninvertible quandle size in the relevant covering theorem; excluded by gcd(n,q)=1.",
+          "arxiv:2608.01550 Proposition 3.3 constructs an averaging idempotent rather than all idempotents.",
+          "Known Fourier recurrence alone does not impose root availability and Galois closure of the coefficient field."
+        ],
+        "reasoning": "Compared by implication, not title: general idempotent existence or covering results and integral equations do not provide this complete labelled finite-field enumeration. The uninspected full 2026 Fourier paper is a qualified risk and no unsupported entire-text noncoverage is asserted.",
+        "searches": [
+          "quandle algebra dihedral idempotents Fourier analysis arbitrary finite fields characteristic coprime odd n",
+          "arxiv:2204.11288 idempotents quandle coverings",
+          "arxiv:2608.01550 idempotents automorphism groups commutator widths",
+          "arxiv:2609.03799"
+        ]
+      },
+      "checked_sources": [
+        "arxiv:2609.03799 (abstract/public synopsis; full text inaccessible)",
+        "arxiv:2204.11288 (full relevant primary mathematical sections)",
+        "arxiv:2608.01550 (full relevant primary sections and propositions)",
+        "arxiv:2206.10386 (full relevant R5 integral argument)",
+        "Resultary/2026 2026/10/4 R3 result (entire RESULT.md)",
+        "Z. Wu 2025 thesis institutional record (description only; PDF 403)",
+        "Resultary semantic searches q1/q2/q3 logged above"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "Known A_k=A_{-k}A_{2k} is a starting equivalence, not a root count in finite fields.",
+          "Integral R5 and field R3 classifications imply only special cases; they do not determine factors g_D for all odd n.",
+          "Direct independent nonsplit F2,R11 and F3,R11 exhaustive counts of 68 versus 24 demonstrate substantive q-sensitive effects."
+        ],
+        "reasoning": "Finite-field cyclic-group root counts and Frobenius constraints are genuine additional conclusions not supplied by the inspected prior lemmas. Originality PASS is best-of-knowledge, explicitly qualified by incompletely accessible plausible primary sources.",
+        "searches": [
+          "finite dihedral quandle algebras idempotents finite fields Frobenius Fourier orbit enumeration count R_n",
+          "arxiv:2609.03799",
+          "arxiv:2206.10386",
+          "Resultary R3 exact idempotents",
+          "arxiv:2608.01550"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "arxiv:2609.03799 provides the known Fourier equation A_k=A_{-k}A_{2k}; R3 published Resultary gives a special-field classification.",
+          "Original package Fourier transform imposes additionally A_{qk}=A_k^q for base-field descent."
+        ],
+        "reasoning": "Fourier equivalence to idempotence is prior art, not a complete arithmetic count. The submitted nonzero -1/2-orbit seed equation, root constraints and Frobenius cycle closure give a bijection to all actual F_q coefficients. The 2026 precursor could conceal a full equivalent theorem: abstract-only read explicitly recorded as residual risk.",
+        "searches": [
+          "finite dihedral quandle algebras idempotents finite fields Frobenius Fourier orbit enumeration count R_n",
+          "quandle algebra dihedral idempotents Fourier analysis arbitrary finite fields characteristic coprime odd n",
+          "arxiv:2609.03799 Fourier idempotence recurrence finite field",
+          "Resultary search: dihedral quandle rings field F_q orbit count"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "Published R3 table/count (eight when characteristic does not divide 3) is fully covered as a nonnovel specialization.",
+          "The 2025 thesis description advertises finite-field idempotent calculations but its complete PDF could not be accessed.",
+          "Current formula provides a symbolic all-odd-n answer with nonsplit q-dependence; not merely recomputing known low-order tables."
+        ],
+        "reasoning": "No retrieved exact all-n/all-coprime-q table or closed formula dominated this theorem; search absence alone is NOT novelty proof. The inaccessible thesis is a specific unresolved table-overlap risk.",
+        "searches": [
+          "idempotents dihedral quandle rings field F_q orbit count",
+          "Resultary exact R3 field quandle idempotents",
+          "Z. Wu 2025 finite field quandle idempotent tables",
+          "finite field dihedral quandle R11 24 68 arithmetic gcd formula"
+        ]
+      },
+      "rationale": "The nonmodular all-odd-n finite-field arithmetic orbit/census and nonsplit Frobenius descent are distinct from known Fourier recurrences, integral special cases and R3 exact tables; qualified best-of-knowledge pending inaccessible plausible full-text comparisons.",
+      "residual_risks": [
+        "Full mathematical text of closest 2026 Fourier paper arxiv:2609.03799 was not obtained despite direct lawful OA attempts; authorized Oxford retrieval returned vpn_disconnected. A stronger statement inside could change priority assessment.",
+        "2025 Z. Wu thesis complete 98-page PDF refused with HTTP 403, potentially containing equivalent general finite-field results; accessible description/excerpts do not resolve that possibility.",
+        "Some older quandle-ring literature remains incompletely indexed. Failed search cannot independently prove priority.",
+        "Characteristic dividing n is excluded, so no modular-algebra conclusion; examples R3 and R5 are already known."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Same Fourier reduction A_k=A_{-k}A_{2k} is acknowledged prior art. No claim of whole-document noncoverage: its uninspected full text leaves a meaningful historical-priority risk.",
+          "evidence": [
+            "Public abstract concerns Fourier approach and integral idempotent theorems; audited proof explicitly derives a new finite-field Galois-descent root count from the recurrence."
+          ],
+          "identifier_or_url": "https://arxiv.org/abs/2609.03799",
+          "material_read": "Public abstract and source-package quotations of the recurrence; full mathematical sections NOT obtained or read.",
+          "method": "arXiv and lawful open-access HTML/PDF access attempts failed; Oxford authorized access returned vpn_disconnected (job f39fd1c3f56468bf115910514f466eea), not bypassed.",
+          "title": "Fourier Analysis and Idempotents in Quandle Algebras",
+          "trigger": "The exact Fourier idempotence recurrence is the principal precursor, plausibly capable of implying the submitted formula."
+        },
+        {
+          "assessment": "Relevant covering theorem uses quandle-size noninvertibility assumptions and does not imply the arbitrary odd-order, size-invertible finite-field all-idempotent Frobenius enumeration.",
+          "evidence": [
+            "Theorem 4.3 hypotheses in the inspected text require noninvertible quandle size, whereas gcd(q,n)=1 here makes n a unit in F_q."
+          ],
+          "identifier_or_url": "https://arxiv.org/abs/2204.11288",
+          "material_read": "Accessible primary mathematical exposition, introduction and hypotheses, main idempotents/coverings sections including Theorem 4.3.",
+          "method": "Lawful open-access full HTML via ResearchGate textual rendering, mathematical hypothesis and theorem comparison.",
+          "title": "Idempotents, free products and quandle coverings",
+          "trigger": "Directly named idempotent/quandle-algebra study potentially containing a stronger classification."
+        },
+        {
+          "assessment": "Uniform averaging idempotents in size-invertible characteristic and special commutative quandle cases do not classify all R_n idempotents or give the finite-field orbit count.",
+          "evidence": [
+            "Proposition 3.3 constructs an averaging idempotent rather than enumerating all such elements; later sections address different invariants."
+          ],
+          "identifier_or_url": "https://arxiv.org/abs/2608.01550",
+          "material_read": "Lawful mathematical full-text rendering, relevant portions of Sections 3–5 including Proposition 3.3, Proposition 3.11 and automorphism/commutator results.",
+          "method": "Primary paper mathematical-text inspection.",
+          "title": "Idempotents, automorphism groups, and commutator widths of quandle algebras",
+          "trigger": "Same algebraic objects with possibly dominating idempotent results."
+        },
+        {
+          "assessment": "Integral-coefficient results for R5 do not imply finite-field formulas over all odd composite n or Frobenius nonsplit-field factors.",
+          "evidence": [
+            "The compared primary theorem concerns the integral ring and R5, not F_q[R_n] for general n."
+          ],
+          "identifier_or_url": "https://arxiv.org/abs/2206.10386",
+          "material_read": "Primary full-text mathematical presentation and pertinent idempotent results including its R5 special case.",
+          "method": "Lawful open-access ResearchGate mathematical HTML rendering, read the relevant theorem/argument.",
+          "title": "Idempotents in integral ring of dihedral quandle",
+          "trigger": "Same dihedral quandle type with a potentially stronger integer-coefficient result."
+        },
+        {
+          "assessment": "Establishes exactly eight idempotents in F_q[R3] when char !=3, which is already included as an explicitly unclaimed specialization. It excludes all n>3.",
+          "evidence": [
+            "The theorem restricts the quandle to R3 and treats char3 separately, whereas the submitted new formula covers every odd n and nonmodular finite field."
+          ],
+          "identifier_or_url": "https://github.com/Resultary/2026/blob/main/2026/10/4/SCOPE-a-characteristic-three-idempotent-line-in-the-quandle-algebra-of--06aa9c19e539/RESULT.md",
+          "material_read": "Entire RESULT.md including proof, all-field R3 classification, limitations and literature discussion.",
+          "method": "Read exact repository primary mathematical file through connected GitHub source.",
+          "title": "A characteristic-three idempotent line in the quandle algebra of R_3",
+          "trigger": "Published closely related exact field-valued idempotent census; checked for general implication."
+        },
+        {
+          "assessment": "Potential finite small-case tables and unindexed stronger results remain an originality risk; no unsupported negative conclusion about entire thesis.",
+          "evidence": [
+            "Institutional abstract discusses finite-field quandle idempotents but accessible text did not establish the full orbit formula."
+          ],
+          "identifier_or_url": "Z. Wu, 2025 thesis, institutional repository entry",
+          "material_read": "Institutional description and indexed excerpts; complete 98-page thesis NOT read because authorized PDF retrieval was refused (HTTP 403).",
+          "method": "Institutional catalogue and lawful full-text attempt; source not treated as whole-document noncoverage.",
+          "title": "A Study of Knots and Quandles",
+          "trigger": "Thesis index mentions finite-field quandle idempotents, making it a plausible table/equivalent-formula overlap."
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "checked_sources": [
+        "https://github.com/SCOPE-Science/SCOPE2026/blob/cbd61aab71e4f01d305014a9520f769db8108742/2026/10/18/frobenius-orbit-census-of-idempotents-in-finite-dihedral-quandle--4a113244be17/RESULT.md",
+        "arxiv:2204.11288",
+        "arxiv:2608.01550",
+        "Resultary/2026 R3 exact classification"
+      ],
+      "rationale": "The complete set of idempotents of a finite-dimensional nonassociative quandle algebra is a natural basic invariant; before the arithmetic computation the exact all-odd-n, all-nonmodular finite-field census is not mechanically implied by existence of an averaging idempotent or the complex Fourier recurrence. The orbit formula yields explicit individual idempotents and a genuinely field-sensitive exact arithmetic classification, including the same R_11 with 24 over F_23 but 68 over F_67, as well as nonsplit fields. That algebraically motivated invariant is independently useful for comparing quandle algebras and as input to later automorphism/idempotent questions, without claiming a universal downstream theorem.",
+      "residual_risks": [
+        "No claim of modular-characteristic coverage or classification modulo automorphisms; these are separate open domains."
+      ],
+      "status": "PASS"
+    }
+  },
+  "checked_sources": [
+    "https://github.com/SCOPE-Science/SCOPE2026/blob/cbd61aab71e4f01d305014a9520f769db8108742/2026/10/18/frobenius-orbit-census-of-idempotents-in-finite-dihedral-quandle--4a113244be17/RESULT.md",
+    "https://github.com/SCOPE-Science/SCOPE2026/blob/cbd61aab71e4f01d305014a9520f769db8108742/2026/10/18/frobenius-orbit-census-of-idempotents-in-finite-dihedral-quandle--4a113244be17/REVIEW.md",
+    "https://github.com/SCOPE-Science/SCOPE2026/blob/cbd61aab71e4f01d305014a9520f769db8108742/2026/10/18/frobenius-orbit-census-of-idempotents-in-finite-dihedral-quandle--4a113244be17/AUDIT.json",
+    "https://github.com/SCOPE-Science/SCOPE2026/blob/cbd61aab71e4f01d305014a9520f769db8108742/2026/10/18/frobenius-orbit-census-of-idempotents-in-finite-dihedral-quandle--4a113244be17/SLOGAN.txt",
+    "https://github.com/SCOPE-Science/SCOPE2026/blob/cbd61aab71e4f01d305014a9520f769db8108742/2026/10/18/frobenius-orbit-census-of-idempotents-in-finite-dihedral-quandle--4a113244be17/VERIFICATION.md",
+    "https://github.com/SCOPE-Science/SCOPE2026/blob/cbd61aab71e4f01d305014a9520f769db8108742/2026/10/18/frobenius-orbit-census-of-idempotents-in-finite-dihedral-quandle--4a113244be17/METADATA.json",
+    "https://github.com/SCOPE-Science/SCOPE2026/blob/cbd61aab71e4f01d305014a9520f769db8108742/2026/10/18/frobenius-orbit-census-of-idempotents-in-finite-dihedral-quandle--4a113244be17/verify.py",
+    "https://arxiv.org/abs/2609.03799",
+    "https://arxiv.org/abs/2204.11288",
+    "https://arxiv.org/abs/2608.01550",
+    "https://arxiv.org/abs/2206.10386",
+    "https://github.com/Resultary/2026/blob/main/2026/10/4/SCOPE-a-characteristic-three-idempotent-line-in-the-quandle-algebra-of--06aa9c19e539/RESULT.md",
+    "Z. Wu, 2025 thesis, institutional repository entry"
+  ],
+  "disposition": "passed",
+  "limitations": [
+    "Nonmodular setting only: n odd >=3, q prime power and gcd(q,n)=1.",
+    "Enumerates labelled algebra elements and includes augmentation zero but does not quotient by automorphisms.",
+    "Full primary mathematical text of arxiv:2609.03799 and Z. Wu 2025 thesis not read; qualified priority risk preserved.",
+    "Finite experiments do not establish universal quantifiers.",
+    "No external expert or formal Lean attestation is claimed."
+  ],
+  "residual_risks": [
+    "Full mathematical text of closest 2026 Fourier paper arxiv:2609.03799 was not obtained despite direct lawful OA attempts; authorized Oxford retrieval returned vpn_disconnected. A stronger statement inside could change priority assessment.",
+    "2025 Z. Wu thesis complete 98-page PDF refused with HTTP 403, potentially containing equivalent general finite-field results; accessible description/excerpts do not resolve that possibility.",
+    "Some older quandle-ring literature remains incompletely indexed. Failed search cannot independently prove priority.",
+    "Characteristic dividing n is excluded, so no modular-algebra conclusion; examples R3 and R5 are already known."
+  ],
+  "schema_version": 1
+}
