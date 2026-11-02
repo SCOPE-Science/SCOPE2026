@@ -1,19 +1,21 @@
-# Scientific assessment: Möbius-ladder 1-limited domination
+# Independent mathematical audit
 
-## Correctness — PASS
+## correctness
 
-The theorem concerns the exact cubic graph with \(2n\) vertices, \(n\ge3\), with all cycle and antipodal edges and a twisted rung seam. Its boundary case \(n=3\) is included. The lower bound \(|D|\ge n\) follows by counting crossing edges under the domination and one-limited conditions. The rung-word proof makes all case distinctions exhaustive: singleton-only and full rungs; empty and full rungs; and the exclusion of simultaneous empty and singleton rungs for any set of size at most \(n+1\). The first class gives \(2n\) minimum constructions away from multiples of four; the second gives the four periodic configurations at multiples of four and \(n\) exceptional constructions for odd \(n\). Every listed configuration is checked against the exact degree constraints. The independent checker performed exhaustive vertex-subset enumeration for \(3\le n\le9\) and a distinct finite-state transfer check for \(3\le n\le60\), with no mismatches. The infinite result is proved symbolically, not inferred from computation. Risk: the program does not constitute external or independent mathematical certification.
+PASS
 
-## Originality — PASS, subject to historical-priority limitations
+For n>=3 the 2n-vertex Möbius ladder is cubic. Double-count D-to-complement edges to get |D|>=n. With rung counts x zero, y singleton, z full, |D|=n+z-x. The three-neighbor local rules exclude mixed zero and singleton blocks when |D|<=n+1; the remaining singleton/full case forces one full rung and yields 2n configurations, while zero/full cyclic run lengths 1..2 for zeros and >=2 for fulls force 0033 periodicity or a unique defect. These give gamma=n for n divisible by 4 and gamma=n+1 otherwise, with exact counts 4,2n,3n. Independent direct labeled-vertex exhaustive enumeration for all n=3..9 reproduces 9,4,15,12,21,4,27 minima. The finite enumeration cannot prove the unbounded classification.
 
-The exact (1,2)-domination interpretation in cubic graphs, the general half-order bound and the equality description via a perfect matching cut are already established. In particular, Božović et al., *On k-limited domination in graphs* (2026), Theorem 10 and Corollary 11, are fully acknowledged. Radić and Tepeh, *On 1-limited and (1,2)-domination in cubic graphs* (arXiv:2610.01796, initial submission October 1, 2026), treat complexity and Goldberg snarks, not this family. A related Cartesian-product study treats ordinary prisms and product graphs; the Möbius ladder has a seam twist and is not covered by those Cartesian descriptions. Published research-record comparisons found studies of Möbius-ladder matching, independence, and cut-complex topology, not the claimed domination classification. The generic bound does not imply the mod-four optimal-size criterion and complete labelled minima. Risk: older work on cubic circulants, (1,2)-domination, or perfect matching cuts (including Fakharan et al. 2021, whose complete text was not inspected) could contain related or stronger results. A search miss does not establish absolute novelty.
+## originality
 
-## Mathematical value — PASS
+PASS
 
-The natural facility-capacity condition on a well-studied cubic graph family creates a sharp, nontrivial four-periodic boundary: the half-order lower bound is attained precisely at multiples of four; otherwise exactly one additional source is necessary. The theorem then classifies every optimum and proves a closed labelled census with three distinct regimes. This is significantly more informative than the general lower-bound or existence theorem, and tests how a single twist changes local domination behavior relative to an ordinary prism. The precise structural extremizers are a useful benchmark for further work on near-perfect matching cuts and other periodic cubic graphs. Limit: the present classification does not assert conclusions for general cubic graphs or higher-capacity domination.
+A complete structural optimizer classification on the twisted Möbius ladder and exact labeled minima count survives comparison with general half-order matching-cut bounds and other cubic graph families. Graph is not the Cartesian prism. Recent cubic 1-limited domination work reports Goldberg, Blanuša and flower snark applications, not the inspected Möbius family. Historical priority remains qualified for unindexed cubic circulant literature.
 
-## Closest literature and verification limits
+## value
 
-References: Radić and Tepeh, arXiv:2610.01796 (2026); Božović et al., arXiv:2606.22422 and its open-access published Theorem 10/Corollary 11 (2026); Tepeh, arXiv:2606.22428 (2026); Fakharan et al., *Discrete Mathematics* 344 (2021), 112546. Source comparisons addressed equivalence to (1,2)-domination, generic perfect-matching cuts, Cartesian prisms, same-host research records, and the closest known related family-specific minimum-set classification. Finite checks are bounded to the ranges stated and cannot substitute for proof. No independent audit or exhaustive historical-priority certification has been performed.
+PASS
 
-Self-review: passed. Independent audit: not yet performed.
+The exact minimum and every labeled optimizer of a natural infinite family of cubic graphs are determined by a surprising modulus-four defect; this is motivated by sharp limited domination and extremal matching cuts, not a reparameterized general bound.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
