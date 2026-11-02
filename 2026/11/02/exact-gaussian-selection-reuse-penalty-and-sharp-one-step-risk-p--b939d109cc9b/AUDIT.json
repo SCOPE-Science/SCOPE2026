@@ -1,0 +1,146 @@
+{
+  "correctness": {
+    "rationale": "The proof is exact for independent equal-variance Gaussian row readings and an unrelaxed one-step identity-system update. Rotate the two residuals to independent Gaussian sums and differences; the greedy selection event is their sign product. Its probability yields the split risk. The squared-noise difference factors into independent Gaussian truncated moments, giving the exact isotropic reuse penalty. Strict logarithmic concavity of a positive erf-weight factor proves the unique sharp angular maximizer; the scalar crossover is unique by monotonicity. The extracted independent conditional quadrature and deterministic checks corroborate every boundary and equality case, without being treated as an infinite proof.",
+    "status": "PASS"
+  },
+  "independent": false,
+  "independent_audit_status": "not_performed",
+  "originality": {
+    "broader_coverage": {
+      "evidence": [
+        "arXiv:1912.03544: exact-data sampled greedy convergence bounds.",
+        "arXiv:2101.04807 Theorem 4.4 assumes a fixed perturbation bounded in norm.",
+        "arXiv:2603.29372 analyzes Gaussian-like doubly-noisy general instances and averaging, without a universal one-step two-row identity in inspected material."
+      ],
+      "reasoning": "A convergence/error-floor upper bound under different noise dependence does not entail the exact pointwise risk comparison of shared versus fresh observations, or its sharp maximizers and minimizers. The general algorithmic ideas are acknowledged as prior work.",
+      "searches": [
+        "arXiv:1912.03544 Theorem 1 generalized SKM",
+        "arXiv:2101.04807 Theorem 4.4 noisy case",
+        "arXiv:2603.29372 signal averaging convergence",
+        "noisy greedy Kaczmarz max residual selection bias error floor"
+      ]
+    },
+    "checked_sources": [
+      "arXiv:2209.06082",
+      "arXiv:1912.03544",
+      "arXiv:2101.04807",
+      "arXiv:2603.29372",
+      "arXiv:2308.07987",
+      "SIAM DOI:10.1137/17M1137747 (bibliographic abstract and MSC, not full text)",
+      "2014 exact MSE Kaczmarz work of Agaskar-Wang-Lu (bibliographic abstract only)"
+    ],
+    "claim_vs_prior_implication": {
+      "evidence": [
+        "For exact residuals, the greedy one-step gain is determined by true residual magnitude and contains no selected-noise squared-moment term.",
+        "A fixed noisy right-hand-side bound is compatible with many sharp conditional risk values and cannot force the displayed \\(2\\sigma^2/\\pi\\) penalty.",
+        "Independent update remeasurement is a distinct oracle/algorithmic variant not evaluated by the inspected broader theorems."
+      ],
+      "reasoning": "The new claim distinguishes three specified one-step procedures and proves exact equality and unique extremizers; these are not corollaries of the cited convergence-rate comparisons without additional Gaussian conditional calculations. The proof uses those calculations explicitly.",
+      "searches": [
+        "arXiv:2209.06082 Section 3.1 maximum residual",
+        "arXiv:2101.04807 noisy fixed observation",
+        "arXiv:2603.29372 doubly noisy RGRK",
+        "arXiv:1912.03544 Theorem 1 consistent SKM"
+      ]
+    },
+    "equivalent_formulations": {
+      "evidence": [
+        "The claimed law uses the same Gaussian observation for argmax and projection, with an explicit comparison to an independently redrawn observation.",
+        "arXiv:2209.06082 uses deterministic residuals; arXiv:2603.29372 considers noisy systems and averaging, not this conditional one-step risk."
+      ],
+      "reasoning": "Ordinary maximum-residual selection and independent fixed-probability row choice do not imply the conditional selected-noise second moment. The identity \\(\\mathbb E\\varepsilon_I^2-\\sigma^2=(2\\sigma^2/\\pi)e^{-\\|x\\|^2/(2\\sigma^2)}\\) is the distinctive statement; none of the inspected algorithms supplies it as an equivalent formulation.",
+      "searches": [
+        "greedy Kaczmarz Gaussian noise error function exact risk",
+        "noisy Kaczmarz residual selection independent sample risk",
+        "arXiv:2209.06082 Eq. (6) maximum residual rule",
+        "arXiv:2603.29372 Gaussian noise selection residual"
+      ]
+    },
+    "exact_database_or_table": {
+      "evidence": [
+        "Inspected sources give abstract rates, general guarantees, or numerical data rather than a table with the claimed error-function threshold.",
+        "The exact scalar threshold is defined by a unique crossing of two explicit monotone functions, not by a known catalogued matrix constant."
+      ],
+      "reasoning": "No exact two-row shared-noise-versus-independent-update entry was located in the sources examined; lack of a matching database entry is only supporting search evidence and never by itself a uniqueness proof.",
+      "searches": [
+        "Gaussian noisy residual greedy Kaczmarz threshold signal noise ratio exact error",
+        "greedy Kaczmarz Gaussian noise error function exact risk",
+        "arXiv:2308.07987 two-row Gaussian maximum residual"
+      ]
+    },
+    "rationale": "A comparison of accessible primary Kaczmarz literature distinguishes deterministic maximum-residual selection, fixed corrupted data, and generic noise/averaging bounds from the exact one-step identity for independently resampled Gaussian selection noise reused as an update. No inspected result explicitly covers or directly implies the isotropic risk penalty, its unique all-start SNR crossover and sharp fixed-radius orientation envelope. This is a qualified specialized best-knowledge originality assessment, not publication-priority certification.",
+    "residual_risks": [
+      "Generic Gaussian winner-selection bias identities might imply components of the formula even though no direct Kaczmarz equivalence was found.",
+      "Specialized publications not surfaced or fully accessible may already contain an equivalent two-row theorem.",
+      "The general 2014 exact MSE work was seen via its abstract, not compared in full; its fixed-probability model differs from adaptive noisy selection.",
+      "No claim of novelty for maximum-residual Kaczmarz, sample splitting in general or Gaussian integration techniques is made."
+    ],
+    "source_inspections": [
+      {
+        "assessment": "Explicitly defines deterministic maximum residual, including the linear special case; no fresh independent Gaussian residual selection or same-measurement update-noise risk identity was found.",
+        "evidence": [
+          "arXiv:2209.06082, Section 3.1, equations (5)-(8) and Section 3.2",
+          "arXiv:2209.06082, introductory assumptions on f(x)=0"
+        ],
+        "identifier_or_url": "https://arxiv.org/abs/2209.06082",
+        "material_read": "Full accessible arXiv text: Sections 1 and 3 (including Eq. (5), Eq. (6), Eq. (8), Algorithm 2) and the stated convergence analysis; searched for noise assumptions.",
+        "method": "Read public full-text HTML with attention to selection rule, observation assumptions and conclusion.",
+        "title": "Greedy randomized sampling nonlinear Kaczmarz methods",
+        "trigger": "Source motivating maximum-residual and maximum-distance selection for linearized row projection."
+      },
+      {
+        "assessment": "Provides improvement-rate bounds for row sampling based on exact residuals; the stated hypotheses do not model the correlation between Gaussian selection noise and projection noise.",
+        "evidence": [
+          "arXiv:1912.03544, Theorem 1 and sampling definitions"
+        ],
+        "identifier_or_url": "https://arxiv.org/html/1912.03544v2",
+        "material_read": "Public full-text HTML introduction, sampling construction and Theorem 1 on expected error in consistent systems.",
+        "method": "Read theorem hypotheses and compare fixed data/residual sampling with fresh-noise use and reuse rules.",
+        "title": "Greed Works: An Improved Analysis of Sampling Kaczmarz-Motzkin",
+        "trigger": "General partly greedy row-selection method that might imply the one-step classification."
+      },
+      {
+        "assessment": "Noisy case assumes a fixed perturbation b^delta with bounded error, not an independent Gaussian residual oracle at each decision; no exact one-step reuse-versus-split identity.",
+        "evidence": [
+          "arXiv:2101.04807, Theorem 4.4 (Noisy case) and its bound"
+        ],
+        "identifier_or_url": "https://arxiv.org/abs/2101.04807",
+        "material_read": "Full arXiv text Section 3 and Section 4, especially Theorem 4.4 on a deterministic noisy observed vector.",
+        "method": "Read noisy-theorem assumptions and update formula; compared fixed perturbation with independently redrawn Gaussian residual noise.",
+        "title": "Sparse Sampling Kaczmarz-Motzkin Method with Linear Convergence",
+        "trigger": "Potentially broader coverage of noisy greedily selected Kaczmarz."
+      },
+      {
+        "assessment": "Signal averaging and general double-noise convergence are conceptually related, but no two-row Gaussian error-function law, direction-independent reuse penalty or sharp angular boundary appears in material inspected.",
+        "evidence": [
+          "arXiv:2603.29372, Sections 1 and 3-5"
+        ],
+        "identifier_or_url": "https://arxiv.org/abs/2603.29372",
+        "material_read": "Full arXiv text Sections 1, 3-5 and reported experiments on doubly-noisy data; inspected original and signal-averaged update models.",
+        "method": "Read public full text, compare noisy matrix/right-hand side setting and general convergence claims with exact identity-system one-step conditional risk.",
+        "title": "Relaxed Greedy Randomized Kaczmarz with Signal Averaging for Solving Doubly-Noisy Linear Systems",
+        "trigger": "Most direct general noisy greedy-Kaczmarz paper; might already express an averaging or selection-noise correction."
+      },
+      {
+        "assessment": "Concerned with avoiding deterministic sparse corruptions and selecting low-residual rows; does not provide a Gaussian max-residual reuse/split risk identity.",
+        "evidence": [
+          "arXiv:2308.07987, Algorithm 1 and Theorem 1"
+        ],
+        "identifier_or_url": "https://arxiv.org/abs/2308.07987",
+        "material_read": "Full accessible arXiv text Sections II-IV including Algorithm 1 and Theorem 1.",
+        "method": "Read setup (sparse fixed corruptions), quantile acceptance and convergence guarantee.",
+        "title": "On Subsampled Quantile Randomized Kaczmarz",
+        "trigger": "Alternative noisy/corrupted residual-based selection that might dominate comparison."
+      }
+    ],
+    "status": "PASS"
+  },
+  "review_type": "self_review",
+  "schema_version": 1,
+  "scope_run_id": "b939d109-cc9b-4a1c-95fc-16a6d88c2078",
+  "self_review_status": "passed",
+  "value": {
+    "rationale": "Residual ranking and projection often reuse the same noisy observation; the theorem isolates its exact nonzero error tax from the benefit of selecting a more informative row. The sharp 1.240125... noise-normalized boundary classifies when maximal-residual greed loses to uniform sampling for every start, while the split implementation removes that reversal. The complete fixed-radius orientation envelope identifies exactly the worst and best starting directions, providing a natural robustness benchmark for noisy row-action methods. The scope is intentionally one-step and two-row, not advertised as general algorithm complexity.",
+    "status": "PASS"
+  }
+}
