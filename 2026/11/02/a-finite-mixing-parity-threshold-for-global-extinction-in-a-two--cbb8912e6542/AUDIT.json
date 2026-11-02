@@ -1,0 +1,141 @@
+{
+  "correctness": {
+    "rationale": "Exact P^k decomposition gives signed residual eigenvalue s=(-mu)^k, Perron trace rbar(1+s), determinant (r1*r2)s, and a strictly increasing Perron root with unique crossing s=-tau. In the subcritical case iterate domination by M^t implies extinction; at equality the positive left Perron vector yields a strict Lyapunov decrease and global extinction. In the supercritical case a Perron-vector subsolution, invariant all-ones supersolution, strong order preservation and strict subhomogeneity prove one globally attracting positive equilibrium. The exact-rational checker at verification/check_parity.py passed 68 migration power and trace/determinant cases, with numerical confirmation of a mixed source-sink witness. No finite computation is used as an infinite proof.",
+    "status": "PASS"
+  },
+  "independent": false,
+  "independent_audit_status": "not_performed",
+  "originality": {
+    "broader_coverage": {
+      "evidence": [
+        "Bravo de la Parra and Sanz-Lorenzo (2021), full Springer HTML, Theorem 6 and Corollary 9: sufficiently large migration-round behavior in a distinct four-compartment model",
+        "Grumbach et al. (2023), full open Springer HTML, model and theorems: one dispersal step, both local multipliers above unity",
+        "the published two-patch E/I-transfer counterexample: coupled SEIR two-patch differing exposed/infected movement counterexample; no scalar rational repeated-swap parity global classification"
+      ],
+      "reasoning": "Existing broad fast-slow reduction covers k tending to infinity and not the finite parity extinction window. Existing two-patch Beverton--Holt source--source results cannot imply the present mixed source--sink theorem because r_1 r_2<1 and one multiplier is below 1, and the sequential update and arbitrary k are different. General order-preserving map results supply proof techniques but not the explicit family phase diagram in the literature examined.",
+      "searches": [
+        "Published mathematics index query: two patch SEIRS epidemic migration mobility fast slow mixing reproduction number exact threshold",
+        "Published mathematics index query: two patch dispersal diagonal growth positive matrix products Perron spectral radius monotonic mixing second eigenvalue negative oscillating parity global extinction endemic phase diagram",
+        "Web: discrete epidemic models two time scales repeated migrations rational incidence Beverton Holt disease free global stability"
+      ]
+    },
+    "checked_sources": [
+      "https://doi.org/10.1186/s13662-021-03633-0",
+      "https://doi.org/10.1007/s00285-023-01984-8",
+      "https://doi.org/10.3934/dcdsb.2006.6.185",
+      "https://arxiv.org/abs/1503.08881",
+      "https://doi.org/10.1137/23M1579522",
+      "the published two-patch E/I-transfer counterexample",
+      "Prior scientific claims, for deduplication only"
+    ],
+    "claim_vs_prior_implication": {
+      "evidence": [
+        "Source 2021 SEIRS limiting theorem applies for sufficiently large k; a finite odd k can be subcritical in the new map even though the limit is supercritical",
+        "Source 2023 population study assumes each isolated patch is a source, whereas here their product is <1 and the mean >1",
+        "Spectral 2x2 identity yields unique s*=-tau; strict Lyapunov and subhomogeneity upgrade local threshold into global extinction or attraction"
+      ],
+      "reasoning": "The explicit finite cutoff cannot be inferred from an infinite-mixing limit because s_k alternates in sign, and source--source source theorems are inapplicable to the mixed source--sink domain. The current result itself invokes acknowledged standard Perron/monotone machinery, but its exact parity-sensitive nonlinear global classification is not established in the specific inspected sources.",
+      "searches": [
+        "Compare Bravo de la Parra and Sanz-Lorenzo (2021) Theorem 6/Corollary 9 to the two-dimensional finite-k statement",
+        "Compare Grumbach et al. (2023) positive multiplier hypothesis and update order to the mixed source--sink arbitrary k statement",
+        "Published mathematics index query: odd-even parity reversal in two patch discrete SIS epidemics under repeated strongly swapping migration rounds; sharp global extinction versus endemic persistence despite supercritical infinite mixing"
+      ]
+    },
+    "equivalent_formulations": {
+      "evidence": [
+        "Bravo de la Parra and Sanz-Lorenzo (2021), DOI 10.1186/s13662-021-03633-0, Sections 3--5: repeated fast movement and slow SEIRS limiting reduction",
+        "Grumbach et al. (2023), DOI 10.1007/s00285-023-01984-8: two-patch Beverton--Holt dispersal and equilibrium totals for source--source settings"
+      ],
+      "reasoning": "A negative residual eigenvalue of a strongly swapping discrete migration matrix alternates under repeated migration, unlike exponential continuous-time mixing. The exact equivalence searched was a finite-round parity-dependent global source--sink extinction/endemic statement. Neither read primary paper states it; a classical concave-map spectral criterion is acknowledged as known, not independently original.",
+      "searches": [
+        "Published mathematics index query: odd-even parity reversal in two patch discrete SIS epidemics under repeated strongly swapping migration rounds; sharp global extinction versus endemic persistence despite supercritical infinite mixing",
+        "Web: two patches alternating migration odd even iterations epidemic persistence extinction threshold",
+        "Web: metapopulation epidemic migration parity effect odd even movement rounds disease threshold spectral radius"
+      ]
+    },
+    "exact_database_or_table": {
+      "evidence": [
+        "the published two-patch E/I-transfer counterexample (two-patch SEIR E/I-churn) compares nonidentical compartment transfer matrices",
+        "Closest prior mathematical claim 512fe1e1-d255-42d5-a4f8-b0d4e300da4b (two-patch Allee-flow extinction crossover), not the present discrete migration parity result",
+        "Prior mathematical claim 567a29ac-68ce-4f15-a694-e4779d38b837 concerns unrelated network virus dynamics"
+      ],
+      "reasoning": "There is no known exact table or database to which these infinitely many globally convergent state-space assertions reduce. Earlier scientific statements were checked for implication; the closest source--sink and virus themes do not imply the current exact migration-round statement.",
+      "searches": [
+        "Published mathematics index query: discrete-time epidemic travel migration Perron eigenvalue negative second eigenvalue finite iterations parity",
+        "Prior claim corpus query: two-patch migration mixing extinction parity (equivalent and alias comparison)"
+      ]
+    },
+    "rationale": "Motivating 2021 full-text SEIRS paper proves a large-k reduction, not the exact mixed-source/sink finite-k odd/even saturation map. Closest 2023 two-patch Beverton--Holt study assumes both patch multipliers exceed one and a single dispersal step. Published published mathematical index search, previously recorded mathematical claims, and alternative-language web searches found no theorem implying the full finite-k global dichotomy; this is positive evidence only within inspected material, not proof of global literature absence.",
+    "residual_risks": [
+      "An equivalent form could exist in discrete matrix-product source--sink epidemic literature not indexed by the inspected searches.",
+      "The 2015 virtual dispersal and 2024 SIAM human mobility works were compared at abstract level, not read throughout; their continuous-time formulations are materially different.",
+      "General two-dimensional Beverton--Holt/concave map theory may contain implicit special cases; the explicit parity all-integer phase classification was not located."
+    ],
+    "source_inspections": [
+      {
+        "assessment": "It proves limiting behavior for a four-compartment SEIRS map; no explicit same-law two-patch rational saturation global odd-even k phase diagram observed",
+        "evidence": [
+          "Springer open HTML full source; publication 2021-10-30; Theorem 6 and Corollary 9 regarding high-k reduction"
+        ],
+        "identifier_or_url": "https://doi.org/10.1186/s13662-021-03633-0",
+        "material_read": "Full open-access Springer HTML, including model equations, Sections 3--5, Theorem 6, Corollary 9 and model discussion; original PDF page image additionally inspected",
+        "method": "Read full accessible source and inspected relevant definitions and theorems",
+        "title": "Discrete epidemic models with two time scales",
+        "trigger": "Motivating sequential fast-migration/slow-epidemic framework and large-k comparison"
+      },
+      {
+        "assessment": "Local growth-before-one-dispersal map analyzed for both patch growth multipliers greater than unity; its equilibrium population rankings do not cover repeated movement source--sink odd-even global extinction",
+        "evidence": [
+          "Published Journal of Mathematical Biology 87, article 60 (2023); source-source hypotheses and one-step dispersal"
+        ],
+        "identifier_or_url": "https://doi.org/10.1007/s00285-023-01984-8",
+        "material_read": "Full open Springer HTML model, hypotheses, statement of main equilibria results, over-exchange discussion",
+        "method": "Read relevant full-text paragraphs, definitions and theorems",
+        "title": "The effect of dispersal on asymptotic total population size in discrete- and continuous-time two-patch models",
+        "trigger": "Two-patch Beverton-Holt rational saturating dynamics with exchange above one-half"
+      },
+      {
+        "assessment": "Continuous-time patchy transmission, not an explicit finite discrete-round negative migration eigenvalue theorem",
+        "evidence": [
+          "2006 Discrete and Continuous Dynamical Systems B article abstract"
+        ],
+        "identifier_or_url": "https://doi.org/10.3934/dcdsb.2006.6.185",
+        "material_read": "Abstract and bibliographic page only",
+        "method": "Compared publicly accessible abstract with update structure",
+        "title": "A model for disease transmission in a patchy environment",
+        "trigger": "Classical two-patch epidemic transmission and dispersal threshold"
+      },
+      {
+        "assessment": "Virtual dispersal in flow models; no direct evidence of the parity theorem from abstract",
+        "evidence": [
+          "2015 arXiv abstract: residence-time mobility"
+        ],
+        "identifier_or_url": "https://arxiv.org/abs/1503.08881",
+        "material_read": "Publicly available abstract and paper metadata only",
+        "method": "Compared abstract to discrete repeated sequential update",
+        "title": "SIS and SIR epidemic models under virtual dispersal",
+        "trigger": "Potential broader mobility invasion-threshold domination"
+      },
+      {
+        "assessment": "Inaccessible full proof leaves a small residual possibility of a disguised analogous result, but a finite discrete movement parity argument is not apparent from the abstract",
+        "evidence": [
+          "2024 SIAM Journal of Applied Dynamical Systems abstract"
+        ],
+        "identifier_or_url": "https://doi.org/10.1137/23M1579522",
+        "material_read": "Abstract and bibliographic materials only",
+        "method": "Checked stated subject and continuous-time scope",
+        "title": "Epidemic Thresholds and Disease Dynamics in Metapopulations: The Role of Network Structure and Human Mobility",
+        "trigger": "Metapopulation disease threshold with mobility"
+      }
+    ],
+    "status": "PASS"
+  },
+  "review_type": "self_review",
+  "schema_version": 1,
+  "scope_run_id": "cbb8912e-6542-4549-9398-dd99a0e1bcda",
+  "self_review_status": "passed",
+  "value": {
+    "rationale": "The infinite-fast-mixing disease growth rate is greater than one while a strict initial sequence of odd migration counts can globally eliminate infection; every even movement count remains endemic. The sharp cutoff includes the critical case and holds for arbitrary admissible saturation strengths, resolving finite-k behavior not addressed by asymptotic separation results. It gives a motivated new qualitative disease-control boundary rather than a single numerical curiosity.",
+    "status": "PASS"
+  }
+}
