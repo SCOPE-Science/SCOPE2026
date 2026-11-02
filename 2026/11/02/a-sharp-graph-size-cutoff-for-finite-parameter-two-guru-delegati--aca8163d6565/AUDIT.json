@@ -1,0 +1,108 @@
+{
+  "correctness": {
+    "rationale": "The first-step finite-epsilon Markov equations are exactly a graph Laplacian with positive sink conductances \\(\\alpha=\\varepsilon\\) and \\(\\beta=\\varepsilon^2\\). Solving through the unit-current voltage g gives \\(h=(1+\\varepsilon^2g)/(1+\\varepsilon+\\varepsilon^2R)\\), with \\(0\\leq g\\leq R\\). Effective resistance \\(R\\leq\\operatorname{dist}(u,v)\\leq N-1\\), attained on path endpoints, proves the global error envelope and \\(N\\varepsilon^2\\) iff criterion. For the broom, sum g=L(L+1)/2 and R=L; direct algebra gives the strict caster-majority criterion and \\(2/5\\) versus \\(\\(3/5\\)\\) limit. An independent exact-rational solver checks 840 graphs and parameters plus paths and broom examples. These checks support but do not substitute for the all-graph proof.",
+    "status": "PASS"
+  },
+  "independent": false,
+  "independent_audit_status": "not_performed",
+  "originality": {
+    "broader_coverage": {
+      "evidence": [
+        "Fita Sanmartín et al. 2021 Theorem 4.1 supplies general directed absorbing-probability linear systems; Figure 1 already exhibits differing min-forest versus finite-temperature labels.",
+        "Utke and Schmidt-Kraepelin 2023 explicitly identify their limit with the minimum-cost branching selection."
+      ],
+      "reasoning": "General absorption and Gibbs-forest theorems dominate the pointwise computation and the qualitative fact of a different finite-temperature preference; these are prior contributions. No comparable graph-size supremum, epsilon sqrt(N) crossover, or strict 2/5-to-3/5 aggregate caste-weight coupled limit was located in the full text. A general linear-system formula without the network optimization or coupled-limit evaluation does not itself state those stronger quantitative conclusions.",
+      "searches": [
+        "https://papers.neurips.cc/paper_files/paper/2021/file/a73d9b34d6f7c322fa3e34c633b1297d-Paper.pdf Theorems 3.5 and 4.1, Figure 1",
+        "https://arxiv.org/abs/2307.01174 Section 4 related-work comparison",
+        "uniform approximation zero temperature absorbing random walks finite graph length resistance finite network size power watershed",
+        "liquid democracy Markov random walk epsilon rank costs uniform limit finite size ranking"
+      ]
+    },
+    "checked_sources": [
+      "https://arxiv.org/abs/2307.01174",
+      "https://papers.neurips.cc/paper_files/paper/2021/file/a73d9b34d6f7c322fa3e34c633b1297d-Paper.pdf"
+    ],
+    "claim_vs_prior_implication": {
+      "evidence": [
+        "The 2023 paper proves epsilon-to-zero allocation via minimum-cost branchings for fixed graphs, but contains no network-uniform rate theorem in its inspected full text.",
+        "The 2021 predecessor proves general absorption equations and a qualitative min-cost/fractional-label mismatch, but the graph-family and sharp N-dependent asymptotic statements require additional optimization."
+      ],
+      "reasoning": "For every fixed connected delegate graph the relevant allocation tends to A, matching prior limiting theory. Our statement says this approximation is uniformly valid over N-vertex graphs if and only if N epsilon^2 goes to zero and proves a countervailing asymptotic B-weight majority along an explicit size-varying family. A pointwise fixed-graph convergence theorem does not imply a uniform rate over growing domains, nor does a single finite-temperature assignment reversal imply a 3/5 versus 2/5 vanishing-parameter limit. General linear algebra provides tools for, but not a stated proof of, this extremal distinction.",
+      "searches": [
+        "https://arxiv.org/abs/2307.01174 Eq. (1) and Section 4",
+        "https://papers.neurips.cc/paper_files/paper/2021/file/a73d9b34d6f7c322fa3e34c633b1297d-Paper.pdf Theorems 3.5 and 4.1, Figure 1",
+        "uniform approximation zero temperature absorbing random walks finite graph length resistance finite network size power watershed",
+        "liquid democracy Markov random walk epsilon rank costs uniform limit finite size ranking"
+      ]
+    },
+    "equivalent_formulations": {
+      "evidence": [
+        "Utke–Schmidt-Kraepelin (2023) Section 3 defines epsilon^cost Markov walks and the zero-epsilon fractional allocation.",
+        "Fita Sanmartín et al. (2021), Sections 2.3, 3.2, 4: Dirichlet/Laplacian absorption probabilities and Gibbs-forest equivalence, which imply pointwise harmonic formulas after model specialization."
+      ],
+      "reasoning": "Equivalent descriptions include finite-temperature Gibbs forests, absorbing Markov chains, electrical potentials, and regularized ranked-cost delegations. They already establish how to compute pointwise probabilities and are not claimed new. The asserted additional all-graph optimum and size-dependent nonuniform limit require a sharp extremal resistance argument plus an aggregate broom construction, and are not implied merely by substituting a fixed graph into the general Laplacian formula.",
+      "searches": [
+        "uniform approximation zero temperature absorbing random walks finite graph length resistance finite network size power watershed",
+        "liquid democracy Markov random walk epsilon rank costs uniform limit finite size ranking",
+        "https://arxiv.org/abs/2307.01174 Sections 3, 4, 6",
+        "https://papers.neurips.cc/paper_files/paper/2021/file/a73d9b34d6f7c322fa3e34c633b1297d-Paper.pdf Sections 2-5"
+      ]
+    },
+    "exact_database_or_table": {
+      "evidence": [
+        "The 2021 Figure 1 displays a numerical directed graph with differing finite-temperature and minimum-cost seed assignments, but not a network-size parameterized exact resistance/weight table.",
+        "The 2023 paper develops symbolic algorithms for the limit rule; its inspected worked examples do not report a two-exit uniform N-envelope or diverging-broom 3/5 limit."
+      ],
+      "reasoning": "The claim is an all-integer graph-size extremal law and a proven infinite family of aggregate voting weights, not an entry in a finite enumerative database. A reported small numerical labeling reversal cannot determine the sharp uniform envelope and asymptotic coupled-limit effect.",
+      "searches": [
+        "uniform approximation zero temperature absorbing random walks finite graph length resistance finite network size power watershed",
+        "liquid democracy Markov random walk epsilon rank costs uniform limit finite size ranking",
+        "https://papers.neurips.cc/paper_files/paper/2021/file/a73d9b34d6f7c322fa3e34c633b1297d-Paper.pdf Figure 1, Tables and examples",
+        "https://arxiv.org/abs/2307.01174 examples and algorithm sections"
+      ]
+    },
+    "rationale": "The source 2023 paper establishes the ranked-cost absorbing-walk model and its vanishing-parameter branchings; the 2021 predecessor establishes general finite-parameter absorbing-walk and Gibbs-forest equivalence, the Laplacian solution, and even an example of a different finite-temperature preferred seed. Those are deliberately excluded from novelty. The assessed theorem instead optimizes the residual error over every connected N-vertex unit-conductance network, obtains an attained rational envelope and sharp \\(\\varepsilon\\sqrt N\\) crossover, and constructs a growing family where a more costly caster asymptotically holds \\(3/5\\) of voting weight even with \\(\\varepsilon\\downarrow0\\). These specialized optimization and coupled-limit conclusions were not found in material inspected, although independent priority work is still needed.",
+    "residual_risks": [
+      "The harmonic and electrical tools are classical, and a specialized study may already optimize this two-exit configuration; literature searches cannot establish absolute novelty.",
+      "The claim does not extend to arbitrary directed inner graphs, nonunit internal costs, three or more casters, individual pivotal power, or actual election outcomes.",
+      "The previous 2021 paper already shows qualitative finite-temperature winner reversal; no such priority is asserted for the present work.",
+      "The separate supplemental material to the 2021 paper was not read; if it contains additional two-exit extremal analysis, publication priority requires rechecking."
+    ],
+    "source_inspections": [
+      {
+        "assessment": "Covers the regularized rule, limit allocation and branchings, not located the sharp uniform epsilon sqrt(N) envelope or diverging-broom aggregate 3/5 limit",
+        "evidence": [
+          "Section 3 cost function and finite epsilon transition, arXiv:2307.01174",
+          "Section 4 explicitly credits Fita Sanmartín et al. for finite-temperature and zero-temperature equivalence"
+        ],
+        "identifier_or_url": "https://arxiv.org/abs/2307.01174",
+        "material_read": "Open full HTML text, especially introduction, definitions and Markov-chain rule in Section 3, algorithm and equivalence Sections 4–6, and related-work coverage in Section 4",
+        "method": "Inspected primary arXiv full text with linked section locations and checked definitions, claims and relation to prior Gibbs-forest work",
+        "title": "Anonymous and Copy-Robust Delegations for Liquid Democracy",
+        "trigger": "Direct motivating model for positive-integer arc costs and epsilon-rank weighted random walks"
+      },
+      {
+        "assessment": "General graph-absorption and min-cost versus finite-temperature preference mismatch already covered; no explicit sharp connected N-vertex two-exit error, crossover, or growing broom voting-weight construction located",
+        "evidence": [
+          "Figure 1 explicitly shows a finite-temperature assignment different from the minimum-cost forest",
+          "Theorems 3.5 and 4.1 supply general finite-temperature probabilities via Laplacian systems"
+        ],
+        "identifier_or_url": "https://papers.neurips.cc/paper_files/paper/2021/file/a73d9b34d6f7c322fa3e34c633b1297d-Paper.pdf",
+        "material_read": "Primary 13-page PDF full text accessed; material read: the abstract, Sections 2–5 and their formal results and Figure 1, conclusion, and relevant bibliography; separate supplemental material was not read",
+        "method": "Read the primary full-text PDF, inspected section text for equations and theorems, and rendered pages 2 and 5 for the earlier finite-temperature seed reversal and Gibbs-forest formulas",
+        "title": "Directed Probabilistic Watershed",
+        "trigger": "Direct predecessor with potentially dominating general finite-temperature absorbing-probability formulas and minimal-cost forest comparisons"
+      }
+    ],
+    "status": "PASS"
+  },
+  "review_type": "self_review",
+  "schema_version": 1,
+  "scope_run_id": "aca8163d-6565-412c-a8dd-3cec74fdc898",
+  "self_review_status": "passed",
+  "value": {
+    "rationale": "Finite-parameter implementation of a minimum-cost ranked-delegation limit requires understanding the regularization parameter relative to network size. The exact attained uniform error bound provides a sharp scaling rule instead of an uncontrolled pointwise limit. The constructed two-caster broom demonstrates a robust macroscopic reversal of fractional voting weight with the worse-ranked caster holding \\(3/5\\) in a regime where the fixed-graph limit gives that caster zero delegated votes. This exposes a structural noncommutation of limits relevant to network-size scaling, not an arbitrary graph slice or a mere small numerical improvement.",
+    "status": "PASS"
+  }
+}
