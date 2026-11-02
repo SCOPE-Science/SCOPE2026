@@ -1,19 +1,21 @@
-# Review
+# Independent mathematical audit
 
-## Correctness
+## correctness
 
-**PASS.** The assignments satisfy the presentation relation. The induced map on quotients is injective by the reduced-word normal form in \(C_{pq}*C_s\); the remaining kernel lies in the central cyclic subgroup and is trivial because its generator maps to an infinite-order element. The center-quotient invariant proves nonisomorphism.
+PASS
 
-## Originality
+For coprime integers p,q>1 and s>1 coprime with pq, map a to x^q and b to y*x^p*y^{-1} from <a,b|a^p=b^q> to <x,y|x^{pq}=y^s>. The relation is respected because both pth and qth images equal k=x^{pq}, which is central. Quotient by central powers gives C_p*C_q to C_{pq}*C_s. Images x^q and y*x^p*y^{-1} have exact orders p,q and lie in distinct conjugates of the C_{pq} factor; alternating nonidentity syllables remain reduced when y words are inserted, so the quotient map is injective. Any kernel is therefore contained in the central <a^p>; its generator maps to k, which has infinite order under homomorphism x→s,y→pq to Z. Hence injective. Both full centers are these infinite cyclic powers, because quotient free products have trivial centers; a finite-order element of C_p*C_q has order dividing p or q, so cannot have order pq, while C_{pq}*C_s does have one. Thus groups are nonisomorphic. Example (p,q,s)=(2,3,5) gives G_{2,3}↪G_{6,5}. This proves sufficiency, not classification of all embeddings.
 
-**PASS, narrowly scoped.** The closest inspected result is Myers's Lemma 4.1, which states the embedding-rigidity conclusion only when all four parameters are prime. The explicit family here uses a composite target exponent \(pq\) and conjugate cyclic subgroups inside \(C_{pq}\), and is not asserted as a classification. Search coverage is bounded; see the residual risks in the structured audit.
+## originality
 
-## Value
+PASS
 
-**PASS.** The family gives a concrete, infinite boundary example showing why the prime-parameter hypothesis cannot simply be omitted from an embedding-rigidity lemma used to distinguish knot-complement groups. The formula is explicit and applies to every coprime pair \(p,q>1\) and every \(s>1\) coprime to \(pq\).
+The cited Myers prime-parameter lemma concerns embeddings when each exponent is prime; the current explicit composite target pq and conjugation construction is outside it. The normal-form argument is elementary, but the infinite three-parameter counterfamily to naïve extension of prime rigidity is not printed or implied by the inspected prime-only lemma. General torus-knot subgroup classification remains an important priority risk.
 
-## Closest literature and limits
+## value
 
-Myers, arXiv:math/9901106, Section 4, Lemma 4.1, is the closest direct comparison. The current result proves a sufficient family only; it leaves the general embedding problem open.
+PASS
 
-Self-review: passed. Independent audit: not yet performed.
+Testing whether Myers-style prime-exponent embedding rigidity extends to arbitrary torus-knot groups is a motivated group-theoretic boundary question. An infinite concrete coprime composite-target family with explicit injective maps and nonisomorphism witnesses resolves a genuine necessary-hypothesis boundary, not a randomly chosen finite example. The proof is elementary and makes no claim to a general embedding classification.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
