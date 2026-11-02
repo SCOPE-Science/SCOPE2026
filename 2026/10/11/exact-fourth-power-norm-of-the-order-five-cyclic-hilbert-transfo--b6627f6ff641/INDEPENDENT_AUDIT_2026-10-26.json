@@ -1,0 +1,225 @@
+{
+  "audit_date_utc": "2026-10-26",
+  "audited_at_utc": "2026-10-26T09:52:02.347744Z",
+  "axes": {
+    "correctness": {
+      "checked_sources": [
+        "Frozen source tree: RESULT.md at blob 6322bcce5380332be025a20a9e590a314ccfe8ae",
+        "Frozen source tree: VERIFICATION.md and verify.py at their exact Git blobs",
+        "Independent SymPy cyclic-convolution and resultant factorization script /mnt/data/independent_check_20261026.py (private audit computation)"
+      ],
+      "rationale": "Reconstructed normalized Fourier inversion and real-conjugate pairing on C5. Independently computed the five Fourier coefficients of f² by cyclic convolution and confirmed ∥f∥4^4=6r^4+24r²s²+6s^4+8r³s cos(3α+β)+8rs³ cos(α−3β), with the latter rs³ term changing sign for Hf. The phase map (α,β)↦(3α+β,α−3β) has determinant −10 and is surjective on the two-torus, so both cosine variables can attain −1 independently; direct quotient partial derivatives then prove the global phase maximum. For t=s/r, exact symbolic differentiation independently yields R′(t)=−8t²(3t⁴−12t²+8t−9)/D(t)²; g is strictly negative on (0,1] and strictly convex on [1,∞), with g(1)<0 and g→∞, giving one positive stationary root t*=1.853258098625306… and global maximum X*=2.089689004569992… (∥H∥4≈1.202320949439024). Independently confirmed exact polynomial elimination 3185X⁴−17948X³+42750X²−47500X+15625, factor divisible by g(t)², and all ten phase solutions modulo 2π; the ten are one orbit under sign and five translations, so all real extremizers as stated. Cases r=0 or s=0 give quotient 1, below X*. The special C3 zero-mean fourth-moment identity also follows algebraically. This is an analytic proof, not an extrapolation from finite tests.",
+      "residual_risks": [
+        "No external Lean or expert attestation is claimed; finite numerical checks are corroborative only.",
+        "Norm and extremizer classification are for real zero-mean C5 under the explicitly stated multiplier; no complex-input or arbitrary-N conclusion is proved."
+      ],
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Bañuelos–Kwaśnicki Theorem 1.1 settles the norm of the infinite-lattice transform on ℓp(Z), which is a different infinite-domain operator and not an exact finite C5 quotient norm.",
+          "The cyclic endpoint theorem and Riesz parity-block theorem explicitly restrict sharp norms to p=1 or p=∞, and so do not determine the p=4 operator norm here.",
+          "The four-state cyclic convolution theorem is uniformly in real C4 and does not dominate C5.",
+          "The finite-abelian co-singleton Λ(4) result gives an L2→L4 sharp synthesis norm, not the ratio between L4 norms before and after this sign multiplier."
+        ],
+        "reasoning": "Tested infinite-lattice bounds and finite cyclic all-order endpoint formulas for specialization, interpolation, duality or reduction. Endpoint Riesz–Thorin or convexity yields inequalities only, not the exact C5 norm and complete extremizer orbit; no inspected stronger parameter theorem dominates this claim.",
+        "searches": [
+          "source:De Carli and Samad, One-parameter groups of operators and discrete Hilbert transforms, arXiv:1506.03362 (2015/2016), https://arxiv.org/pdf/1506.03362",
+          "source:Bañuelos and Kwaśnicki, On the ℓp-norm of the discrete Hilbert transform, arXiv:1709.07427 (2017/2019), https://arxiv.org/pdf/1709.07427",
+          "source:Resultary: Exact endpoint norm and dyadic parity law for the cyclic Hilbert transform, 2026/10/11/SCOPE-exact-endpoint-norm-and-dyadic-parity-law-for-the-cyclic-hilbert--5a7ab3055d8e, RESULT.md, Git blob 3d4f266fe934b6b71acae252a4070412ea028c9a",
+          "source:Resultary: Cycle Riesz transforms as parity blocks of doubled cyclic Hilbert transforms, 2026/10/11/SCOPE-cycle-riesz-transforms-as-parity-blocks-of-doubled-cyclic-hilber--241f167596e5, RESULT.md, Git blob 36c4070bb7cc8226183a32f6380c5157f96fb23b",
+          "source:Resultary: Exact real ℓ4 contraction factors for every four-state cyclic convolution, 2026/10/11/SCOPE-exact-real-ell-4-contraction-factors-for-every-four-state-cyclic--4bb94785b883, RESULT.md, Git blob 778a279a4bb063ebd7a8ec8fe039a8bf280e63d4",
+          "source:Resultary: Sharp Λ(4) constant for the co-singleton spectrum of a finite abelian group, 2026/10/11/SCOPE-sharp-lambda-4-constant-for-the-co-singleton-spectrum-of-a-finit--dba95505302c, complete RESULT.md"
+        ]
+      },
+      "checked_sources": [
+        "De Carli and Samad, One-parameter groups of operators and discrete Hilbert transforms, arXiv:1506.03362 (2015/2016), https://arxiv.org/pdf/1506.03362",
+        "Bañuelos and Kwaśnicki, On the ℓp-norm of the discrete Hilbert transform, arXiv:1709.07427 (2017/2019), https://arxiv.org/pdf/1709.07427",
+        "Gold, Oppenheim and Rader, Theory and Implementation of the Discrete Hilbert Transform (1969), scanned original full PDF at MIT/DSpace",
+        "TheoremDB P2730, Sharp fourth-power norm of the cyclic Hilbert transform at order 31, public full problem and method notes (reviewed 2026-08-01)",
+        "Resultary: Exact endpoint norm and dyadic parity law for the cyclic Hilbert transform, 2026/10/11/SCOPE-exact-endpoint-norm-and-dyadic-parity-law-for-the-cyclic-hilbert--5a7ab3055d8e, RESULT.md, Git blob 3d4f266fe934b6b71acae252a4070412ea028c9a",
+        "Resultary: Cycle Riesz transforms as parity blocks of doubled cyclic Hilbert transforms, 2026/10/11/SCOPE-cycle-riesz-transforms-as-parity-blocks-of-doubled-cyclic-hilber--241f167596e5, RESULT.md, Git blob 36c4070bb7cc8226183a32f6380c5157f96fb23b",
+        "Resultary: Exact real ℓ4 contraction factors for every four-state cyclic convolution, 2026/10/11/SCOPE-exact-real-ell-4-contraction-factors-for-every-four-state-cyclic--4bb94785b883, RESULT.md, Git blob 778a279a4bb063ebd7a8ec8fe039a8bf280e63d4",
+        "Resultary: Complete extremizer classification for the four-character extreme set in Z5, 2026/10/4/SCOPE-complete-extremizer-classification-for-the-four-character-extrem--7f4bd3507e5d, RESULT.md, Git blob 2d829f9bc055209a5aadfc9820ee9f1ac7ff66ec",
+        "Resultary: Sharp Λ(4) constant for the co-singleton spectrum of a finite abelian group, 2026/10/11/SCOPE-sharp-lambda-4-constant-for-the-co-singleton-spectrum-of-a-finit--dba95505302c, complete RESULT.md",
+        "Resultary search: order-five cyclic Hilbert L4 and numerical/algebraic fingerprint"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "The finite cyclic endpoint norm identifies ∥H_5∥∞→∞ as a kernel ℓ1 average, not the L4-to-L4 norm 1.2023209494 or its equality class.",
+          "The generic co-singleton Λ(4) constant for C5 is K4^4=5-2+1/4=13/4, involving a different L2 input norm; an L2/L4 norm comparison is not a sharp implication.",
+          "The exact cyclic Riesz/Hilbert parity decomposition is on doubled cycles 2N and establishes sharp p=1,∞; it does not transfer p=4 optimization on odd C5.",
+          "The original infinite-lattice sharp p4 theorem has a different operator and norm and does not specialize to the finite C5 phase rotation."
+        ],
+        "reasoning": "Checked each plausible implication, including parity block transfer, Fourier conjugacy, interpolation and co-singleton synthesis inequalities. None supplies the algebraic ratio and unique real extremizer from the inspected results. The focal claim is mathematically beyond these premises, subject to expressly named bibliographic residual risks.",
+        "searches": [
+          "full theorem comparison:Resultary: Exact endpoint norm and dyadic parity law for the cyclic Hilbert transform, 2026/10/11/SCOPE-exact-endpoint-norm-and-dyadic-parity-law-for-the-cyclic-hilbert--5a7ab3055d8e, RESULT.md, Git blob 3d4f266fe934b6b71acae252a4070412ea028c9a",
+          "full theorem comparison:Resultary: Cycle Riesz transforms as parity blocks of doubled cyclic Hilbert transforms, 2026/10/11/SCOPE-cycle-riesz-transforms-as-parity-blocks-of-doubled-cyclic-hilber--241f167596e5, RESULT.md, Git blob 36c4070bb7cc8226183a32f6380c5157f96fb23b",
+          "full theorem comparison:Resultary: Sharp Λ(4) constant for the co-singleton spectrum of a finite abelian group, 2026/10/11/SCOPE-sharp-lambda-4-constant-for-the-co-singleton-spectrum-of-a-finit--dba95505302c, complete RESULT.md",
+          "full theorem comparison:Resultary: Exact real ℓ4 contraction factors for every four-state cyclic convolution, 2026/10/11/SCOPE-exact-real-ell-4-contraction-factors-for-every-four-state-cyclic--4bb94785b883, RESULT.md, Git blob 778a279a4bb063ebd7a8ec8fe039a8bf280e63d4",
+          "source:Bañuelos and Kwaśnicki, On the ℓp-norm of the discrete Hilbert transform, arXiv:1709.07427 (2017/2019), https://arxiv.org/pdf/1709.07427",
+          "source:TheoremDB P2730, Sharp fourth-power norm of the cyclic Hilbert transform at order 31, public full problem and method notes (reviewed 2026-08-01)"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "The operator is the real mean-zero Fourier sign-phase rotation H on C5; it is not the co-singleton Λ(4) synthesis norm, a Sidon extremal-measure problem, or an endpoint ℓ1/ℓ∞ convolution norm.",
+          "TheoremDB P2730 formulates the same sharp fourth-power cyclic Hilbert problem but specifically for order 31 and records only a bracket.",
+          "The inspected Z5 four-character Sidon extremizer paper concerns measures with flat Fourier magnitude rather than the operator quotient ∥Hf∥4/∥f∥4."
+        ],
+        "reasoning": "Compared finite conjugate functions, sign multipliers, L4 operator norms, trigonometric phase quotients, four-mode synthesis, and equality-orbit formulations. The inspected algebraic/operator statements do not imply this precise order-five real mean-zero L4-to-L4 sharp constant. Matching Z5 or four-character support alone is insufficient.",
+        "searches": [
+          "Resultary semantic: cyclic group order five real mean zero Hilbert transform sharp L4 norm and extremizers",
+          "Resultary semantic: discrete periodic conjugate function L4 operator norm five point finite Fourier sign multiplier",
+          "web original finite-length Hilbert transform Fourier sign multiplier five point L4",
+          "source:Resultary: Complete extremizer classification for the four-character extreme set in Z5, 2026/10/4/SCOPE-complete-extremizer-classification-for-the-four-character-extrem--7f4bd3507e5d, RESULT.md, Git blob 2d829f9bc055209a5aadfc9820ee9f1ac7ff66ec",
+          "source:TheoremDB P2730, Sharp fourth-power norm of the cyclic Hilbert transform at order 31, public full problem and method notes (reviewed 2026-08-01)"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "The exact algebraic numeric fingerprint appears in the focal record; the inspected independent nearby Resultary records provide endpoint norms, different cyclic orders, or different functionals.",
+          "The public order-31 entry remains a bounded open sharp-constant problem, not a table including the order-five exact constant.",
+          "The 1969 original finite DFT treatment establishes frequency-domain construction and kernels, without an exact five-point quartic-operator norm found in the inspected relevant pages."
+        ],
+        "reasoning": "Checked numerical, algebraic and tabular aliases; absence of indexed coincidences is only limited search evidence, not proof of novelty. An unindexed small-N norm calculation remains a residual risk.",
+        "searches": [
+          "Resultary semantic and keyword searches for C5 cyclic Hilbert ∥H∥4, exact critical quartic 3t^4-12t^2+8t-9 and X=2.0896890045699924",
+          "web search of exact polynomial 3185X^4-17948X^3+42750X^2-47500X+15625",
+          "source:TheoremDB P2730, Sharp fourth-power norm of the cyclic Hilbert transform at order 31, public full problem and method notes (reviewed 2026-08-01)",
+          "source:Gold, Oppenheim and Rader, Theory and Implementation of the Discrete Hilbert Transform (1969), scanned original full PDF at MIT/DSpace"
+        ]
+      },
+      "rationale": "Best-of-knowledge originality. Multiple semantic and exact-fingerprint searches of published Resultary findings, direct full-text comparisons of the closest cyclic Hilbert endpoint/parity and finite Fourier/L4 findings, and materially read original discrete Hilbert/finite-DFT sources found no prior claim that implies the exact real C5 L4→L4 norm and unique equality orbit. The finite-cyclic p=1,∞ theorem covers the same operator but a different exponent; the sharp infinite-lattice ℓp result is not a finite-C5 quotient; and the same-group co-singleton Λ(4) theorem optimizes another ratio. This remains bibliographic best-of-knowledge, not a novelty certificate.",
+      "residual_risks": [
+        "Older finite-signal or discrete harmonic analysis studies may tabulate the same five-point L4 operator norm using another transform convention or terminology; no such equivalence was located in inspected sources.",
+        "The 1969 original scan had unread pages and no reliable textual search; inspected relevant construction and kernel pages yielded no claim of this exact norm.",
+        "The recently indexed arXiv:2610.10158 sharp Schatten/Hilbert transform paper was inspected at abstract-level only after full-text retrieval returned a block; its advertised domain is distinct, and it is not treated as an exhaustive negative source.",
+        "Some search hits were available only as short summaries; their titles/abstracts alone do not justify a whole-document NOT_COVERING finding."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "NOT_COVERING",
+          "evidence": "Studies transforms on infinite integer lattice/continuous multipliers, not the exact finite cyclic Fourier sign multiplier on real C5 with sharp p=4 norm and equality class.",
+          "identifier_or_url": "arXiv:1506.03362, https://arxiv.org/pdf/1506.03362",
+          "material_read": "Original PDF introduction, definitions, Theorem 1.1 and relevant Section 2.1 operator/multiplier discussion; not every section claimed.",
+          "method": "Lawful arXiv PDF text and page-image inspection",
+          "title": "One-parameter groups of operators and discrete Hilbert transforms",
+          "trigger": "Primary discrete Hilbert transform multiplier paper, plausible broader norm coverage"
+        },
+        {
+          "assessment": "NOT_COVERING",
+          "evidence": "Sharp operator is defined on ℓp(Z); finite order C5 is not a parameter specialization, and an infinite-lattice p4 estimate does not determine this algebraic finite norm.",
+          "identifier_or_url": "arXiv:1709.07427, https://arxiv.org/pdf/1709.07427",
+          "material_read": "Original PDF introduction and exact Theorem 1.1, operator definition and relevant proof context; not all 25 pages.",
+          "method": "Lawful arXiv full PDF with text and representative page screenshot",
+          "title": "On the ℓp-norm of the discrete Hilbert transform",
+          "trigger": "Sharp p-norm theorem for discrete Hilbert transform"
+        },
+        {
+          "assessment": "RELEVANT_FOUNDATION_NOT_SHOWN_COVERING",
+          "evidence": "Sets out finite DFT phase-shift Hilbert transform and convolution implementation; no exact order-five real L4 operator-norm polynomial or all extremizers in the inspected pages. Unread pages remain a stated risk.",
+          "identifier_or_url": "Gold–Oppenheim–Rader (1969), original MIT repository scan",
+          "material_read": "Scanned original pages 0 and 2–10 and 13 viewed individually, including finite-frequency convention and finite cotangent kernel passages; no complete readable text search.",
+          "method": "Lawful public original PDF, page-image visual inspection",
+          "title": "Theory and Implementation of the Discrete Hilbert Transform",
+          "trigger": "Foundational finite DFT Hilbert multiplier and circular-convolution construction; plausible hidden five-point table"
+        },
+        {
+          "assessment": "NOT_COVERING",
+          "evidence": "N=31 sharp constant remains bracketed and unproved; no implication to the order-five algebraic extremum.",
+          "identifier_or_url": "TheoremDB:P2730, public original problem",
+          "material_read": "Full public problem statement, conventions, norm bracket, method notes and source references.",
+          "method": "Public TheoremDB page textual reading",
+          "title": "Sharp fourth-power norm of the cyclic Hilbert transform at order 31",
+          "trigger": "Same sign multiplier and p=4 optimization at another odd order"
+        },
+        {
+          "assessment": "NOT_COVERING",
+          "evidence": "Its sharp constants concern ℓ1/ℓ∞ for all N, not the p4 norm, and interpolation does not give the submitted sharp equality constant.",
+          "identifier_or_url": "Resultary: Exact endpoint norm and dyadic parity law for the cyclic Hilbert transform, 2026/10/11/SCOPE-exact-endpoint-norm-and-dyadic-parity-law-for-the-cyclic-hilbert--5a7ab3055d8e, RESULT.md, Git blob 3d4f266fe934b6b71acae252a4070412ea028c9a",
+          "material_read": "Complete published RESULT.md, including assumptions, full proof, explicit scope limitation.",
+          "method": "Public GitHub frozen-file read",
+          "title": "Exact endpoint norm and dyadic parity law for the cyclic Hilbert transform",
+          "trigger": "Same Fourier sign multiplier and every cyclic order"
+        },
+        {
+          "assessment": "NOT_COVERING",
+          "evidence": "Parity-block identity relates doubled H2N and RN; theorem only proves sharp endpoint norms and disclaims sharp interior ℓp.",
+          "identifier_or_url": "Resultary: Cycle Riesz transforms as parity blocks of doubled cyclic Hilbert transforms, 2026/10/11/SCOPE-cycle-riesz-transforms-as-parity-blocks-of-doubled-cyclic-hilber--241f167596e5, RESULT.md, Git blob 36c4070bb7cc8226183a32f6380c5157f96fb23b",
+          "material_read": "Complete published RESULT.md, including definitions, proof, scope and limitations.",
+          "method": "Public GitHub frozen-file read",
+          "title": "Cycle Riesz transforms as parity blocks of doubled cyclic Hilbert transforms",
+          "trigger": "Finite Hilbert/Riesz reduction may imply sharp interior norms"
+        },
+        {
+          "assessment": "NOT_COVERING",
+          "evidence": "Exact all-kernel p4 theorem is for zero-mean C4, not C5 sign multiplier.",
+          "identifier_or_url": "Resultary: Exact real ℓ4 contraction factors for every four-state cyclic convolution, 2026/10/11/SCOPE-exact-real-ell-4-contraction-factors-for-every-four-state-cyclic--4bb94785b883, RESULT.md, Git blob 778a279a4bb063ebd7a8ec8fe039a8bf280e63d4",
+          "material_read": "Complete published RESULT.md including complete formula, proof and domain restrictions.",
+          "method": "Public GitHub frozen-file read",
+          "title": "Exact real ℓ4 contraction factors for every four-state cyclic convolution",
+          "trigger": "Nearest all-real-circulant sharp ℓ4 theorem"
+        },
+        {
+          "assessment": "NOT_COVERING",
+          "evidence": "Sidon measure equalities (flat Fourier amplitudes) differ from the Hilbert L4 operator quotient and do not establish its norm.",
+          "identifier_or_url": "Resultary: Complete extremizer classification for the four-character extreme set in Z5, 2026/10/4/SCOPE-complete-extremizer-classification-for-the-four-character-extrem--7f4bd3507e5d, RESULT.md, Git blob 2d829f9bc055209a5aadfc9820ee9f1ac7ff66ec",
+          "material_read": "Complete published RESULT.md including extremal-measure criterion and classification.",
+          "method": "Public GitHub frozen-file read",
+          "title": "Complete extremizer classification for the four-character extreme set in Z5",
+          "trigger": "Same finite group and four nontrivial Fourier characters"
+        },
+        {
+          "assessment": "NOT_COVERING",
+          "evidence": "Proves L2→L4 synthesis sharp constant and point-defect equality cases, not the L4→L4 norm of a fixed sign Fourier multiplier.",
+          "identifier_or_url": "Resultary: Sharp Λ(4) constant for the co-singleton spectrum of a finite abelian group, 2026/10/11/SCOPE-sharp-lambda-4-constant-for-the-co-singleton-spectrum-of-a-finit--dba95505302c, complete RESULT.md",
+          "material_read": "Complete published RESULT.md, proof and equality cases.",
+          "method": "Public GitHub frozen-file read",
+          "title": "Sharp Λ(4) constant for the co-singleton spectrum of a finite abelian group",
+          "trigger": "Broader theorem on the entire mean-zero C5 space may imply 4th-power operator norm"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "checked_sources": [
+        "Frozen RESULT.md proof and limitations",
+        "Independent exact cyclic-moment and optimizer calculations",
+        "TheoremDB P2730, Sharp fourth-power norm of the cyclic Hilbert transform at order 31, public full problem and method notes (reviewed 2026-08-01)",
+        "Resultary: Exact endpoint norm and dyadic parity law for the cyclic Hilbert transform, 2026/10/11/SCOPE-exact-endpoint-norm-and-dyadic-parity-law-for-the-cyclic-hilbert--5a7ab3055d8e, RESULT.md, Git blob 3d4f266fe934b6b71acae252a4070412ea028c9a",
+        "Bañuelos and Kwaśnicki, On the ℓp-norm of the discrete Hilbert transform, arXiv:1709.07427 (2017/2019), https://arxiv.org/pdf/1709.07427"
+      ],
+      "rationale": "The real cyclic Hilbert sign-multiplier p4 operator norm is a natural finite version of a classical harmonic-analysis sharp-constant problem, not an arbitrary polynomial slice. The three-point zero-mean case is L4-isometric, making order five the first nontrivial odd cycle; the exact order-five algebraic constant and exhaustive extremizer orbit establish a sharp benchmark and a two-phase reduction potentially reusable for studying larger odd cycles, including the independently documented order-31 open problem. This is a worthwhile self-contained exact natural invariant without claiming general-N resolution.",
+      "residual_risks": [
+        "No all-odd-order monotonicity, generic-dimensional bound, complex-input norm, or universal consequence is established.",
+        "Value concerns a motivated exact first nontrivial finite cyclic case, not a general classification."
+      ],
+      "status": "PASS"
+    }
+  },
+  "checked_sources": [
+    "De Carli and Samad, One-parameter groups of operators and discrete Hilbert transforms, arXiv:1506.03362 (2015/2016), https://arxiv.org/pdf/1506.03362",
+    "Bañuelos and Kwaśnicki, On the ℓp-norm of the discrete Hilbert transform, arXiv:1709.07427 (2017/2019), https://arxiv.org/pdf/1709.07427",
+    "Gold, Oppenheim and Rader, Theory and Implementation of the Discrete Hilbert Transform (1969), scanned original full PDF at MIT/DSpace",
+    "TheoremDB P2730, Sharp fourth-power norm of the cyclic Hilbert transform at order 31, public full problem and method notes (reviewed 2026-08-01)",
+    "Resultary: Exact endpoint norm and dyadic parity law for the cyclic Hilbert transform, 2026/10/11/SCOPE-exact-endpoint-norm-and-dyadic-parity-law-for-the-cyclic-hilbert--5a7ab3055d8e, RESULT.md, Git blob 3d4f266fe934b6b71acae252a4070412ea028c9a",
+    "Resultary: Cycle Riesz transforms as parity blocks of doubled cyclic Hilbert transforms, 2026/10/11/SCOPE-cycle-riesz-transforms-as-parity-blocks-of-doubled-cyclic-hilber--241f167596e5, RESULT.md, Git blob 36c4070bb7cc8226183a32f6380c5157f96fb23b",
+    "Resultary: Exact real ℓ4 contraction factors for every four-state cyclic convolution, 2026/10/11/SCOPE-exact-real-ell-4-contraction-factors-for-every-four-state-cyclic--4bb94785b883, RESULT.md, Git blob 778a279a4bb063ebd7a8ec8fe039a8bf280e63d4",
+    "Resultary: Complete extremizer classification for the four-character extreme set in Z5, 2026/10/4/SCOPE-complete-extremizer-classification-for-the-four-character-extrem--7f4bd3507e5d, RESULT.md, Git blob 2d829f9bc055209a5aadfc9820ee9f1ac7ff66ec",
+    "Resultary: Sharp Λ(4) constant for the co-singleton spectrum of a finite abelian group, 2026/10/11/SCOPE-sharp-lambda-4-constant-for-the-co-singleton-spectrum-of-a-finit--dba95505302c, complete RESULT.md",
+    "Resultary search: order-five cyclic Hilbert L4 and numerical/algebraic fingerprint",
+    "Frozen source tree: RESULT.md at blob 6322bcce5380332be025a20a9e590a314ccfe8ae",
+    "Frozen source tree: VERIFICATION.md and verify.py at their exact Git blobs",
+    "Independent SymPy cyclic-convolution and resultant factorization script /mnt/data/independent_check_20261026.py (private audit computation)"
+  ],
+  "disposition": "passed",
+  "schema_version": 1,
+  "scientific_limitations": [
+    "Only real-valued zero-mean functions on C5 with stated Fourier convention are covered; no complex scalar-field or larger-order theorem is claimed.",
+    "Source inspections list actual material read, distinguishing full Resultary result texts from selected relevant pages of original PDFs. Historical novelty cannot be certified exhaustively.",
+    "Independent algebraic verification does not constitute external formal proof or expert attestation.",
+    "Scientific PASS is separate from publication plan not_ready, which is solely confidentiality/public-file handling."
+  ]
+}
