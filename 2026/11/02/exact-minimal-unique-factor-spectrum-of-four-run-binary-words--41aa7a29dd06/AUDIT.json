@@ -1,0 +1,142 @@
+{
+  "correctness": {
+    "rationale": "Every factor either contains the unique 10 or avoids it. The second class is only unary or 0^i1^j; explicit occurrence counts and shorter-prefix/suffix tests exhaust all cases and produce exactly the five families. Three disjoint length-pair classes give an exact factorized rational generating function. A standard-library program independently checks 2,401 quadruples and 95 joint coefficients, but the all-parameter proof is analytic.",
+    "status": "PASS"
+  },
+  "independent": false,
+  "independent_audit_status": "not_performed",
+  "originality": {
+    "broader_coverage": {
+      "evidence": [
+        "MFCS 2016 Lemma 7: at most 2r-1 MUSs for r runs; Lemma 8: a uniquely longest character run is a MUS.",
+        "arXiv:1905.12854v4: compact data structures enumerate MUSs and support shortest-unique-substring queries for generic inputs.",
+        "arXiv:2004.01493: characteristic substring enumeration from run-length BWT."
+      ],
+      "reasoning": "Generic algorithms can compute each individual four-run input but do not state or immediately supply the closed bivariate family census. The prior all-RLE upper bound seven does not imply the sharp five for binary four-run words; the unary-run lemma is acknowledged as covering the two pure-power cases. No inspected theorem dominates the combined exact classification and generating function.",
+      "searches": [
+        "arxiv:1909.02804 minimal unique substrings sliding window",
+        "doi:10.4230/LIPIcs.MFCS.2016.69 RLE minimal unique substrings bound 2r-1 Lemma 7 and unique maximal run Lemma 8",
+        "arxiv:1905.12854 space-efficient algorithms for computing minimal unique substrings"
+      ]
+    },
+    "checked_sources": [
+      "https://arxiv.org/abs/1909.02804",
+      "https://doi.org/10.4230/LIPIcs.MFCS.2016.69",
+      "https://link.springer.com/article/10.1007/s00453-021-00864-1",
+      "https://arxiv.org/html/1905.12854v4",
+      "https://arxiv.org/abs/2004.01493"
+    ],
+    "claim_vs_prior_implication": {
+      "evidence": [
+        "MFCS 2016, Sections 4.1–4.2, characterizes algorithmically separable MUS types without evaluating two repeated 01 transitions for all positive run lengths.",
+        "Algorithmica 2021, introduction and Section 2.2, defines MUSs and proves bounded update changes for sliding windows; its main theorem concerns maintenance complexity."
+      ],
+      "reasoning": "Published RLE bounds and algorithms cover the object, not this symbolic joint parameter distribution. The pure powers are implied by MFCS 2016 Lemma 8, but the surviving single integrated claim is the complete five-family characterization together with the rational all-length distribution. It is neither just the bound 2r-1 with r=4 nor a trivial substitution into a published numerical formula.",
+      "searches": [
+        "Minimal unique substring enumeration run-length encoded binary strings rational generating function 4 runs",
+        "\"four-run\" \"minimal unique\" substrings",
+        "doi:10.1007/s00453-021-00864-1 Computing Minimal Unique Substrings for a Sliding Window"
+      ]
+    },
+    "equivalent_formulations": {
+      "evidence": [
+        "MFCS 2016 DOI:10.4230/LIPIcs.MFCS.2016.69 §§4.1–4.2 gives general RLE categorization, not the two-boundary binary phase formula.",
+        "2019 arXiv:1909.02804 and Algorithmica 2021 DOI:10.1007/s00453-021-00864-1 address sliding-window enumeration, not a four-run bivariate counting function."
+      ],
+      "reasoning": "Minimal unique substring, minimal unique factor and smallest unique subword are compared by the common occurrence-one/proper-factor-repeats condition. The run-gap classification is a uniform symbolic result, not merely a renamed shortest-unique-substring query or the known pure-run criterion.",
+      "searches": [
+        "\"minimal unique substrings\" \"four runs\" binary word",
+        "\"minimal unique\" \"alternating runs\" binary word formula",
+        "Minimal unique substrings four alternating binary runs closed classification sharp five maximum and generating functions"
+      ]
+    },
+    "exact_database_or_table": {
+      "evidence": [
+        "No exact run-gap classification or length/count table was identified in the actual database queries and inspected primary texts.",
+        "The earlier generic theorem gives bounds rather than the claimed coefficients."
+      ],
+      "reasoning": "Search failure alone is not novelty proof; the positive comparison with generic theorems and a direct all-length proof establish what is added. No known finite table is being recomputed.",
+      "searches": [
+        "Exact five minimal unique substrings in four-run binary words 0^a1^b0^c1^d with two occurrences of 01, run length gaps and a rational enumeration",
+        "RLE size four binary string minimal unique substring exact maximum five, both occurrences 01 10 one, counting length",
+        "\"minimal unique substrings\" \"0^a\" \"1^b\""
+      ]
+    },
+    "rationale": "An exact four-run binary MUS factor classification, its bivariate word-length/count generating function, and the sharp length-specific maximum were not present in the inspected generic sliding-window MUS and run-length-encoding literature. The strongest nearby exact prior theorem gives a 2r-1 generic bound (seven at four runs), whereas five is the new sharp binary bound; the generic unary-run lemma covers only a portion. Mathematical comparison is substantive and non-exhaustive, with clear residual risk of an unlocated specialization.",
+    "residual_risks": [
+      "The generic RLE algorithms can instantiate this family; an existing source may have already specialized them symbolically without appearing in indexed searches.",
+      "No broad cross-database uniqueness conclusion is justified; exact novelty awaits independent literature review."
+    ],
+    "source_inspections": [
+      {
+        "assessment": "Relevant baseline and algorithms; no inspected statement gives exact four-run binary run-gap census",
+        "evidence": [
+          "2019 preprint §2 identifies one occurrence and repeating proper factors; §§3–5 concern sliding-window changes and algorithms"
+        ],
+        "identifier_or_url": "https://arxiv.org/abs/1909.02804",
+        "material_read": "Accessible arXiv full-text rendering: introduction, definitions, sliding-window combinatorial and algorithmic contributions, and bibliography/appendix organization",
+        "method": "Open full-text HTML, inspect claim formulations and terminology",
+        "title": "Minimal Unique Substrings and Minimal Absent Words in a Sliding Window",
+        "trigger": "Guiding middle-cohort preprint defining MUSs and studying window updates"
+      },
+      {
+        "assessment": "Known seven upper bound for four runs, pure-run characterization and general algorithm; does not state the sharp five/bivariate formula",
+        "evidence": [
+          "Page 7 Lemma 7 at most 2m-1 MUSs",
+          "Page 7–8 Lemma 8 uniquely longest run criterion",
+          "Page 8 §4.2.2–4.2.3 algorithmic types"
+        ],
+        "identifier_or_url": "https://doi.org/10.4230/LIPIcs.MFCS.2016.69",
+        "material_read": "Lawful eleven-page PDF: pages 2, 3, 7, and 8 including the bound and proof material for Lemmas 7–8; section 4.2 computation categories",
+        "method": "Parsed text plus actual page-image inspection",
+        "title": "Shortest Unique Substring Queries on Run-Length Encoded Strings",
+        "trigger": "Plausible dominating general run theorem for all minimal unique substrings"
+      },
+      {
+        "assessment": "General maintenance algorithm and O(1) changes per slide, no symbolic four-run length distribution",
+        "evidence": [
+          "Section 1.3 lists bounded changes and maintenance algorithm",
+          "Theorem 3 gives overall running time",
+          "Section 5 summarizes the general sliding-window result"
+        ],
+        "identifier_or_url": "https://link.springer.com/article/10.1007/s00453-021-00864-1",
+        "material_read": "Full open HTML introduction, §2 definitions, §3 and §4 combinatorial/algorithmic results, §5 conclusions",
+        "method": "Primary publisher full text inspection",
+        "title": "Computing Minimal Unique Substrings for a Sliding Window",
+        "trigger": "Complete published follow-up to the guiding 2019 MUS preprint"
+      },
+      {
+        "assessment": "Compact representation and query algorithms for arbitrary inputs; no exact four-run enumerator",
+        "evidence": [
+          "§1 considers interval and point shortest-unique-substring data structures",
+          "§2 defines general minimal unique substrings"
+        ],
+        "identifier_or_url": "https://arxiv.org/html/1905.12854v4",
+        "material_read": "Primary experimental full-text HTML abstract, §1 contribution and §2 definitions, algorithmic discussion",
+        "method": "Read HTML full-text sections",
+        "title": "Space-Efficient Algorithms for Computing Minimal/Shortest Unique Substrings",
+        "trigger": "Possible generic compact theorem that could cover exact binary family"
+      },
+      {
+        "assessment": "Algorithmic enumeration of characteristic substrings, not an all-parameter rational generating function for binary four-run texts",
+        "evidence": [
+          "Introduction and main contribution concern working space and time for general characteristic-substring enumeration"
+        ],
+        "identifier_or_url": "https://arxiv.org/abs/2004.01493",
+        "material_read": "Primary arXiv HTML full-text introduction, scope and algorithm overview",
+        "method": "Read open-access primary text",
+        "title": "R-enum: Enumeration of Characteristic Substrings in BWT-runs Bounded Space",
+        "trigger": "Potential general enumeration theorem"
+      }
+    ],
+    "status": "PASS"
+  },
+  "review_type": "self_review",
+  "schema_version": 1,
+  "scope_run_id": "41aa7a29-dd06-4062-a8fe-a3f7a3d9aebb",
+  "self_review_status": "passed",
+  "value": {
+    "rationale": "Minimal unique substrings underpin unique-substring queries. Four binary runs are the first alternating pattern with two 01 occurrences and a unique 10 boundary. The exact five-family phase diagram, sharp maximum five (versus the general RLE upper bound seven), all-length bivariate distribution, first extremal length eight, and asymptotic dominance of extremizers form a complete natural classification, not a handpicked finite table. The claim makes no unproved general-algorithm improvement.",
+    "status": "PASS"
+  }
+}
