@@ -1,0 +1,120 @@
+{
+  "audit_date_utc": "2026-10-29",
+  "audited_at_utc": "2026-10-29T14:57:46.475994Z",
+  "axes": {
+    "correctness": {
+      "rationale": "The CRT representation n=au+bv+ab t with 0<=u<b, 0<=v<a, t>=-1 is unique; for t>=0 the exact triple denumerant is sum_{j=0}^t(1+min(u+bj,v+a(t-j))). At t=0, the exact multiplicity is 1+min(u,v); t=1 gives 2+u+v in its low-multiplicity triangle; t>=2 yields at least a+3. Counting rectangle levels and triangle diagonals gives N_k=a+b-k (1<=k<=a), N_{a+1}=a and the stated G_k. Taking weighted maxima among t=0 and t=1 yields g_k=ab-a-b+bk and g_{a+1}=b(2a-1), hence the first increment change b to a. Zero case follows Sylvester genus. Independently implemented integer generating-function DP for 52 coprime (a,b) pairs and checked all levels through a+1. The mathematical proof, not the bounded DP, handles all coprime 2<=a<b.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Komatsu–Ying (Symmetry 2023, 15,1328) treats arithmetic progression denominations, whereas (a,b,a+b) with coprime a>=2 cannot be arithmetic progression because b would equal 2a.",
+          "Aldrich–Gulbrandsen–Keddy arXiv:2610.20899 discusses broad three-denomination bounds/existence; full theorem text could not be read."
+        ],
+        "reasoning": "The investigated parameter families are disjoint or offer more general computation without a demonstrated theorem implying the specific formulas. This is a best-knowledge comparison, not a logical guarantee of priority.",
+        "searches": [
+          "semigroup generators a b a+b denumerant low representation multiplicity first k Frobenius number g_k"
+        ]
+      },
+      "checked_sources": [
+        "https://arxiv.org/abs/2610.20899",
+        "https://www.mdpi.com/2073-8994/15/7/1328",
+        "https://github.com/Resultary/2026"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "Sylvester genus handles N_0 and standard two-denomination Frobenius g_0 only; neither fixes N_k,g_k for positive multiplicity when denomination a+b is separately labeled."
+        ],
+        "reasoning": "The uniform exact initial representation spectrum and first slope kink for the special labeled (a,b,a+b) family were not established by inspected prior statements. The general three-coin quasipolynomial bounds of Aldrich et al., generalized Frobenius algorithms, and Komatsu arithmetic-progression/Fibonacci triple results provide context or disjoint parameter coverage. Broad denumerant methods may still imply the displayed formulas, and the relevant 2026 full text was inaccessible; therefore priority is qualified.",
+        "searches": [
+          "semigroup generators a b a+b denumerant low representation multiplicity first k Frobenius number g_k",
+          "https://arxiv.org/abs/2610.20899",
+          "https://www.mdpi.com/2073-8994/15/7/1328"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Standard p-Frobenius numbers count arguments with at most p representations, equivalent after aligning whether indexing starts at p=0 or 1; G_k and g_k are exact level-set counts and maxima, not ordinary semigroup membership.",
+          "The identity R(n)=sum_{j=0}^t(1+min(...)) specializes the 3-generator denumerant to the co-generated family."
+        ],
+        "reasoning": "Broad vector-partition quasipolynomial methods represent the same denumerant but their generic formulas do not directly state the joint all-coprime low multiplicity phase or exact kink; no title-only novelty argument is used.",
+        "searches": [
+          "semigroup generators a b a+b denumerant low representation multiplicity first k Frobenius number g_k"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "No exact per-multiplicity table for the full infinite coprime (a,b,a+b) family identified in the Resultary search; finite coefficient lists would not alone imply the uniform breakpoint."
+        ],
+        "reasoning": "The checked source statements and accessible indexes do not disclose the complete further exact classification as stated; lack of search results is not proof of historical absence.",
+        "searches": [
+          "semigroup generators a b a+b denumerant low representation multiplicity first k Frobenius number g_k"
+        ]
+      },
+      "rationale": "The uniform exact initial representation spectrum and first slope kink for the special labeled (a,b,a+b) family were not established by inspected prior statements. The general three-coin quasipolynomial bounds of Aldrich et al., generalized Frobenius algorithms, and Komatsu arithmetic-progression/Fibonacci triple results provide context or disjoint parameter coverage. Broad denumerant methods may still imply the displayed formulas, and the relevant 2026 full text was inaccessible; therefore priority is qualified.",
+      "residual_risks": [
+        "The 2026 Aldrich–Gulbrandsen–Keddy full text could not be inspected; general quasipolynomial tools may implicitly encode the formulas.",
+        "Earlier generalized Frobenius tables not indexed by the co-generated triple naming might overlap."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "No whole-document noncoverage asserted; earlier exact uniform co-generated formulas remain possible.",
+          "evidence": [
+            "arXiv:2610.20899, abstract and Theorem C description; full text inaccessible."
+          ],
+          "identifier_or_url": "https://arxiv.org/abs/2610.20899",
+          "material_read": "Abstract and available search-level theorem descriptions; full article could not be obtained.",
+          "method": "ArXiv and lawful OA checked; authorized institutional full-text attempt returned VPN disconnected.",
+          "title": "Enumerating Integral Points on Triangles in R^3",
+          "trigger": "General three-generator denumerants and bounds; closest recent context"
+        },
+        {
+          "assessment": "Parameter family excludes coprime 2<=a<b with third denomination a+b.",
+          "evidence": [
+            "Komatsu and Ying, Symmetry 15 (2023), 1328; arithmetic progression triples."
+          ],
+          "identifier_or_url": "https://www.mdpi.com/2073-8994/15/7/1328",
+          "material_read": "Article scope and stated arithmetic-progression parameterization in accessible record.",
+          "method": "Primary publisher description and mathematical parameter comparison.",
+          "title": "The p-Numerical Semigroup of the Triple of Arithmetic Progressions",
+          "trigger": "Closed generalized Frobenius formulas for 3-denomination family"
+        },
+        {
+          "assessment": "No direct coverage in inspected hit summaries; search absence does not establish novelty.",
+          "evidence": [
+            "Query: semigroup generators a b a+b denumerant low representation multiplicity first k Frobenius number g_k."
+          ],
+          "identifier_or_url": "https://github.com/Resultary/2026",
+          "material_read": "Top 12 semantic results with returned summaries/IDs; no relevant same formula.",
+          "method": "Resultary semantic search of the quoted denumerant query.",
+          "title": "Published Resultary records on generalized Frobenius/denumerant multiplicities",
+          "trigger": "Possible prior equivalent published result"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "rationale": "The redundant third generator does not change the ordinary Frobenius semigroup but changes the exact multiplicity distribution. A complete first phase and sharp first kink for all coprime pairs are natural generalized Frobenius invariants with a mechanism that distinguishes membership from representations; this is not an arbitrary fixed small numerical slice.",
+      "status": "PASS"
+    }
+  },
+  "checked_sources": [
+    "https://arxiv.org/abs/2610.20899",
+    "https://www.mdpi.com/2073-8994/15/7/1328",
+    "https://github.com/Resultary/2026",
+    "GitHub assigned source RESULT.md and verifier at exact inventory commit"
+  ],
+  "disposition": "passed",
+  "limitations": [
+    "Requires 2<=a<b coprime, labeled triple representations and exactly the levels 0<=k<=a+1; no later spectrum claimed.",
+    "Independent finite check covers 52 cases, not a universal proof.",
+    "All primary sources that could not be inspected in full have been identified; best-knowledge originality is not a certification.",
+    "Publication withheld due to confidential provenance and unsupported first-disclosure chronology in public metadata."
+  ],
+  "residual_risks": [
+    "The 2026 Aldrich–Gulbrandsen–Keddy full text could not be inspected; general quasipolynomial tools may implicitly encode the formulas.",
+    "Earlier generalized Frobenius tables not indexed by the co-generated triple naming might overlap."
+  ],
+  "schema_version": 1
+}

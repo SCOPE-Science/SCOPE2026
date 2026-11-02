@@ -5,8 +5,11 @@
     "status": "not_performed"
   },
   "independent_audit": {
-    "evidence": null,
-    "status": "not_performed"
+    "status": "passed",
+    "evidence": [
+      "INDEPENDENT_AUDIT_2026-10-29.md",
+      "INDEPENDENT_AUDIT_2026-10-29.json"
+    ]
   },
   "lean_verification": {
     "evidence": null,
@@ -16,14 +19,24 @@
 }
 ---
 
-# Reproducible arithmetic checks
+# Independent mathematical audit
 
-Run `python3 verify.py` with Python 3.8 or newer; no additional packages are needed. The script constructs the generating-function coefficients by dynamic programming separately for the three denominations, and independently computes the fundamental-rectangle layer sum for every integer in its finite test window.
+## correctness
 
-For every coprime pair \(2\le a\le40\), \(a<b\le45\), it checks the complete equality of two denumerant calculations and the formulas for zero representations and all multiplicities up to \(k=a+1\), including each exact level count, cumulative count, and last integer below the threshold. The tested window through \(3ab+a+b\) exceeds every potential low-multiplicity layer under the theorem's proof.
+PASS
 
-Actual result:
+The CRT representation n=au+bv+ab t with 0<=u<b, 0<=v<a, t>=-1 is unique; for t>=0 the exact triple denumerant is sum_{j=0}^t(1+min(u+bj,v+a(t-j))). At t=0, the exact multiplicity is 1+min(u,v); t=1 gives 2+u+v in its low-multiplicity triangle; t>=2 yields at least a+3. Counting rectangle levels and triangle diagonals gives N_k=a+b-k (1<=k<=a), N_{a+1}=a and the stated G_k. Taking weighted maxima among t=0 and t=1 yields g_k=ab-a-b+bk and g_{a+1}=b(2a-1), hence the first increment change b to a. Zero case follows Sylvester genus. Independently implemented integer generating-function DP for 52 coprime (a,b) pairs and checked all levels through a+1. The mathematical proof, not the bounded DP, handles all coprime 2<=a<b.
 
-`CERTIFICATE_OK pairs=575 exact_denumerant_values=952360`
+## originality
 
-These are finite corroborations. The theorem for all coprime pairs depends on the explicit fundamental rectangle, layer-exclusion proof, and exact maximum comparisons, not on computational extrapolation. There has been no independent mathematical audit.
+PASS
+
+The uniform exact initial representation spectrum and first slope kink for the special labeled (a,b,a+b) family were not established by inspected prior statements. The general three-coin quasipolynomial bounds of Aldrich et al., generalized Frobenius algorithms, and Komatsu arithmetic-progression/Fibonacci triple results provide context or disjoint parameter coverage. Broad denumerant methods may still imply the displayed formulas, and the relevant 2026 full text was inaccessible; therefore priority is qualified.
+
+## value
+
+PASS
+
+The redundant third generator does not change the ordinary Frobenius semigroup but changes the exact multiplicity distribution. A complete first phase and sharp first kink for all coprime pairs are natural generalized Frobenius invariants with a mechanism that distinguishes membership from representations; this is not an arbitrary fixed small numerical slice.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
