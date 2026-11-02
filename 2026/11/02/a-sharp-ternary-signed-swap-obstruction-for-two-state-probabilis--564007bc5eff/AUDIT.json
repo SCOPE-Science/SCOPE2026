@@ -1,0 +1,121 @@
+{
+  "correctness": {
+    "rationale": "Exact scalar-affine reduction for two-state PFAs; identity/zero-slope exceptions explicitly excluded. The commutator identity forces one strict partial order compatible with suffix-slope signs. Six inequalities contradict one another for 0120102, independently of prefix and alphabet extension. Exhaustive bounded 3-letter enumeration visits every word, all eight signings and all six strict orders; independent rank and graph implementations agree on all 2538 surjective words. The published all-alphabet upper bound of three states completes the exact complexity conclusion. Limits: the obstruction is not sufficient for state count two and the finite census proves only the cutoff of this obstruction.",
+    "status": "PASS"
+  },
+  "independent": false,
+  "independent_audit_status": "not_performed",
+  "originality": {
+    "broader_coverage": {
+      "evidence": [
+        "Kjos-Hanssen (2026) Theorem 1.2 and Proposition 4.1 construct three-state witnesses for every finite-alphabet word.",
+        "Gill (2024) section 4.4 extends binary witnesses to larger alphabets but states no classification of genuinely ternary words."
+      ],
+      "reasoning": "The general bound proves only complexity at most three, not which genuinely ternary words actually require three. The binary classification cannot cover words with three distinct letters. The new lower certificate is complementary rather than subsumed.",
+      "searches": [
+        "arxiv:2607.26275v1 all-alphabet three-state bound",
+        "probabilistic automatic complexity alphabet more than two classification two states Gill",
+        "probabilistic automatic complexity two state automata ternary words exact classification language"
+      ]
+    },
+    "checked_sources": [
+      "https://arxiv.org/abs/2402.13376",
+      "https://arxiv.org/abs/2607.26275",
+      "https://arxiv.org/html/2607.26275",
+      "20bad1c0-432f-40ea-8ba5-756e99be5850"
+    ],
+    "claim_vs_prior_implication": {
+      "evidence": [
+        "Gill proves the binary two-state classification and fixed-point equivalences for a pair of maps.",
+        "Kjos-Hanssen proves universal A_P <= 3 and quotes only the binary two-state classification.",
+        "The four-letter record classifies q-ary length-four words, no q=3 length-seven list."
+      ],
+      "reasoning": "Combine the published upper bound with the new signed-order lower bound to conclude A_P=3 for the stated suffix language. This conclusion is not entailed by the upper bound alone, by a binary-word result, or by a length-four exact table.",
+      "searches": [
+        "arxiv:2402.13376 section 4.2 Lemma 4.3 and section 4.4",
+        "arxiv:2607.26275v1 Theorem 1.2, Proposition 4.1, Corollary 5.2",
+        "prior mathematical result 20bad1c0-432f-40ea-8ba5-756e99be5850"
+      ]
+    },
+    "equivalent_formulations": {
+      "evidence": [
+        "Gill (2024) Lemma 4.3(b)-(d) compares pairwise fixed points and composition order for binary maps; does not supply a three-letter sign-order graph or length-seven census.",
+        "Indexed research-record search on signed adjacent-swap fixed points returned no matching ternary PFA theorem among the inspected ranked titles/abstracts."
+      ],
+      "reasoning": "A commutation identity for one pair is background and algebraically contributes to our argument. The multi-letter incompatible-cycle consequence and complete sharp q=3 obstruction census are not equivalent to its binary classification; a mere search miss is not a novelty proof.",
+      "searches": [
+        "signed adjacent swap obstruction for two state probabilistic automata finite words over three letter alphabet; fixed point ordering and sign of suffix",
+        "two state probabilistic finite automata most probable word adjacent transposition directed graph acyclicity",
+        "probabilistic automatic complexity \"adjacent\" \"swap\" fixed point 2 states",
+        "arxiv:2402.13376 Lemma 4.3"
+      ]
+    },
+    "exact_database_or_table": {
+      "evidence": [
+        "A previously documented mathematical claim 20bad1c0-432f-40ea-8ba5-756e99be5850 gives exact length-four arbitrary-alphabet classification; no seven-letter 48-suffix spectrum.",
+        "Exact table produced in this package: surjective q=3 length 3,4,5,6,7; failed graph tests 0,0,0,0,48; eight canonical representatives.",
+        "Closest retrieved indexed research records concerned deterministic synchronization and other finite-state problems, not this signed PFA test."
+      ],
+      "reasoning": "The finite eight-class enumeration is a different invariant and parameter from the length-four exact state complexity table. Neither known table yields the signed-orientation failure classes; this package includes an independent finite certificate.",
+      "searches": [
+        "ternary word 0120102 probabilistic automatic complexity exactly three",
+        "three-letter probabilistic finite automata unique most probable word two states",
+        "two state probabilistic finite automata most probable word adjacent transposition directed graph acyclicity",
+        "four-letter A_P q-ary claim ID 20bad1c0-432f-40ea-8ba5-756e99be5850"
+      ]
+    },
+    "rationale": "The 2024 primary source proves pairwise commutation and classifies binary two-state winners; its pairwise identity is explicitly credited. The July 2026 source gives a universal three-state upper bound but does not classify ternary two-state obstructions. An earlier four-letter classification concerns q-ary words of length four only. The signed multi-letter graph test, eight-class first ternary obstruction census and resulting positive-density maximal-complexity suffix language were not found in the cited accessible primary text or targeted indexed searches. Unindexed priority remains a residual risk.",
+    "residual_risks": [
+      "The pairwise affine commutator was already known in Gill (2024); only its signed multiletter graph consequence and sharp enumeration are claimed as new.",
+      "Earlier unindexed or independently developed ternary PFA obstructions could affect priority.",
+      "The necessary condition may miss shorter genuinely ternary three-state words; no claim about their shortest length.",
+      "Finite census was checked by two implementations sharing mathematical definitions; no independent external audit."
+    ],
+    "source_inspections": [
+      {
+        "assessment": "PAIRWISE COMMUTATION COVERED; new ternary graph/census not identified in read material.",
+        "evidence": [
+          "2024 source Lemma 4.3(b): equal fixed points iff binary maps commute.",
+          "2024 source section 4.4: binary complexity-two words extend to larger alphabets; classification only binary."
+        ],
+        "identifier_or_url": "https://arxiv.org/abs/2402.13376",
+        "material_read": "Introduction and definitions; section 4.1 scalar affine representation; Lemma 4.3 statement and proof, and section 4.4 discussion and corollary on binary witness languages.",
+        "method": "Opened and inspected publicly accessible arXiv full-text rendering (abstract page with embedded sections).",
+        "title": "Probabilistic automatic complexity of finite strings",
+        "trigger": "Introduces invariant and gives closest two-state/binary structure and fixed-point commutation."
+      },
+      {
+        "assessment": "COVERS THE THREE-STATE UPPER BOUND, not the signed-swap lower obstruction or exact ternary suffix census.",
+        "evidence": [
+          "2026 Theorem 1.2: A_P(w)<=3 for every finite-alphabet word.",
+          "2026 Proposition 4.1: all-alphabet construction; Corollary 5.2: binary criterion."
+        ],
+        "identifier_or_url": "https://arxiv.org/html/2607.26275",
+        "material_read": "Abstract, sections 1-4 (definitions and universal construction), and section 5 corollaries concerning binary classification.",
+        "method": "Opened arXiv HTML full text and inspected theorem, proof construction, and corollary statements.",
+        "title": "Every string has probabilistic automatic complexity at most three",
+        "trigger": "Provides necessary all-alphabet upper bound and discusses prior binary classification."
+      },
+      {
+        "assessment": "DOES NOT COVER seven-letter signed-swap test or genuinely ternary forbidden suffix class.",
+        "evidence": [
+          "Scope is length four over arbitrary alphabets; its hard words use two letters, unlike present 3-symbol suffixes."
+        ],
+        "identifier_or_url": "20bad1c0-432f-40ea-8ba5-756e99be5850",
+        "material_read": "Recoverable theorem statement and scope: only four-letter words; 3 states exactly for abaa with a != b.",
+        "method": "Compared the recoverable theorem statement and hypotheses for mathematical implication.",
+        "title": "Four-letter probabilistic automatic complexity over arbitrary finite alphabets",
+        "trigger": "Closest accessible prior scientific claim of q-ary exact A_P at small length."
+      }
+    ],
+    "status": "PASS"
+  },
+  "review_type": "self_review",
+  "schema_version": 1,
+  "scope_run_id": "564007bc-5eff-4587-bf6b-be16de8fbe2d",
+  "self_review_status": "passed",
+  "value": {
+    "rationale": "A natural gap remains between the published all-alphabet three-state upper bound and the binary-only two-state classification. The signed graph converts a continuous-parameter lower-bound problem into a small sign/order test on any input word. Its first genuinely ternary failure is fully classified (eight orbits, 48 labeled length-seven suffixes), yielding an explicit regular language of words of maximal state complexity with positive density for any fixed alphabet of at least three symbols. The test is not mere renaming of the binary theorem, and the full cutoff census is mathematical evidence rather than an arbitrary isolated counterexample. The density bound and obstruction are meaningful but not asserted sharp for all hard words.",
+    "status": "PASS"
+  }
+}
