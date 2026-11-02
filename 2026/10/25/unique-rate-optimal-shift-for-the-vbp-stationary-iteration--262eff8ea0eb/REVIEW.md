@@ -1,19 +1,21 @@
-# Scientific review
+# Independent mathematical audit
 
-## Correctness — PASS
+## correctness
 
-The claimed stationary iteration, its preconditioner and its error matrix are explicitly defined. Exact right-block multiplication and similarity give the spectral reduction to the real generalized eigenvalues of \((\alpha I-WT^{-1}W,T+\alpha I)\), independently of the off-diagonal parameter \(\gamma\). Every associated Rayleigh quotient has strictly positive derivative for every nonzero direction, since \(T+WT^{-1}W\) is SPD. Uniform compactness establishes strict monotonicity of *both* spectral extrema, including multiple-eigenvalue cases. Opposite endpoint signs and strict monotonicity produce exactly one balancing root. The exact stability boundary and two-dimensional closed form follow by direct quadratic-form and trace identities. All quantified hypotheses and strict boundary inequalities are retained. The included checker tests the full block matrix, the noncommuting example, the nilpotent example, and 80 additional finite systems, but the analytic proof supplies the all-dimension conclusion.
+PASS
 
-## Originality — PASS (qualified)
+For T SPD and W symmetric indefinite, direct multiplication of the specified two-factor P_{alpha,gamma} produces n zero error eigenvalues and the n real generalized eigenvalues of (alpha I-WT^{-1}W,T+alpha I); this block calculation was independently checked on a noncommuting instance at five gamma values. The Rayleigh quotient has strictly positive alpha derivative because T+WT^{-1}W is SPD; compactness yields uniform strict increase of BOTH extrema, including eigenvalue multiplicities. At alpha down to zero the extrema are nonpositive with a strictly negative minimum; as alpha tends to infinity both approach 1. The sum crosses zero once, making max(-ell_min,ell_max) strictly decrease then strictly increase; the extremal balance is the unique global minimum. The upper extreme is always <1 and the lower >-1 exactly when 2alpha>lambda_max(WT^{-1}W-T); no claim that alpha=0 is admissible. For n=2, vanishing trace in a T eigenbasis yields the stated positive quadratic root and explains b12 independence. Numerical recomputation (noncommuting T=diag(1,4), W=[[-2,1],[1,3]]) supports the exact formula but is not an infinite proof.
 
-Makhdomi and Khojasteh Salkuyeh, arXiv:2608.29985, Sections 2–4, provide the VBP factorization, quotient structure and sufficient convergence tests, and their Section 4 selects the shift by Frobenius-distance matching. They do not give the global unique exact asymptotic stationary spectral-radius minimizer, the universal balancing rule without commutativity, or the sharp noncommuting two-dimensional formula. Huang–Chen (2018) analyze a different relaxed block-splitting factorization and cannot imply this result by direct specialization. published-finding corpus searches on VBP, extreme generalized eigenvalues, shift balancing and analogous preconditioners returned other algorithms, not this claim. The classical minimax balancing idea is acknowledged rather than claimed as a novel abstract principle. A 2024 PMBP optimal-parameter article could not be inspected beyond the abstract, leaving a residual cross-family equivalence risk; its known family is different and there is no evidence of dominating coverage. A failed search is not a uniqueness proof.
+## originality
 
-## Value — PASS
+PASS
 
-The theorem supplies the previously unspecified rate-optimal VBP shift for all SPD–indefinite symmetric matrix pairs, including noncommuting cases, by one monotone scalar equation requiring only extreme symmetric generalized eigenvalues. It also gives the exact global stationary stability boundary and a coupling-insensitive two-dimensional optimizer. This matters because the source's Frobenius-distance choice, when used for the stationary iteration, can yield spectral radius approximately \(15.999728\) while the exact optimal shift makes the error nilpotent; no such assertion is made against the source's outer FGMRES experiments. This is a substantive global algorithmic tuning result, not an arbitrary tabular computation or unmotivated parameter slice.
+Best-of-knowledge original as an exact spectral-radius optimization of this PARTICULAR VBP stationary splitting, not as the generalized quotient, spectral analysis, or Chebyshev/equioscillation principle. The initiating 2026 arXiv work was located, but only metadata/abstract could be read through lawful sources; the accessible paper itself was not obtained, and authorized institutional access returned vpn_disconnected. Accordingly no whole-paper noncoverage claim is made. Huang-Chen 2018 full relevant sections give a DIFFERENT P2 block preconditioner and eigenvalues, not this family or optimal shift. Published related SCOPE/Resultary spectral records concern different iterative algorithms. Potential implicit overlap in the inaccessible source remains an explicit priority risk.
 
-## Closest literature and limitations
+## value
 
-The primary VBP source arXiv:2608.29985 was materially read in its theoretical sections and parameter-selection section; Huang and Chen (2018), DOI 10.1515/math-2018-0051, was also compared by block formula and convergence analysis. Zhang–Dai (2017), DOI 10.1007/s11075-016-0175-y, was available through abstract and citations. Xie et al. (2024), DOI 10.1007/s40314-024-02643-4, remains a partial-access originality risk, not an asserted negative full-text finding. Finite simulations cannot establish mathematical novelty or prove the theorem; the proof is analytic. No independent audit or validation has been conducted.
+PASS
 
-Self-review: passed. Independent audit: not yet performed.
+For a natural noncommuting symmetric-indefinite block system, a unique constructive globally fastest stationary shift and exact convergence threshold distinguish rate optimality from Frobenius-distance tuning; a two-dimensional coupling-invariant location is a substantive structural consequence. It is not asserted to improve flexible GMRES or transient Euclidean amplification.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

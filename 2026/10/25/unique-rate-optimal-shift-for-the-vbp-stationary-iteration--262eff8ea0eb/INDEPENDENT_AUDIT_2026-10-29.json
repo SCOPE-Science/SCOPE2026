@@ -1,0 +1,126 @@
+{
+  "audit_date_utc": "2026-10-29",
+  "audited_at_utc": "2026-10-29T09:52:55.490803Z",
+  "axes": {
+    "correctness": {
+      "rationale": "For T SPD and W symmetric indefinite, direct multiplication of the specified two-factor P_{alpha,gamma} produces n zero error eigenvalues and the n real generalized eigenvalues of (alpha I-WT^{-1}W,T+alpha I); this block calculation was independently checked on a noncommuting instance at five gamma values. The Rayleigh quotient has strictly positive alpha derivative because T+WT^{-1}W is SPD; compactness yields uniform strict increase of BOTH extrema, including eigenvalue multiplicities. At alpha down to zero the extrema are nonpositive with a strictly negative minimum; as alpha tends to infinity both approach 1. The sum crosses zero once, making max(-ell_min,ell_max) strictly decrease then strictly increase; the extremal balance is the unique global minimum. The upper extreme is always <1 and the lower >-1 exactly when 2alpha>lambda_max(WT^{-1}W-T); no claim that alpha=0 is admissible. For n=2, vanishing trace in a T eigenbasis yields the stated positive quadratic root and explains b12 independence. Numerical recomputation (noncommuting T=diag(1,4), W=[[-2,1],[1,3]]) supports the exact formula but is not an infinite proof.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Initiating 2026 preprint accessible abstract concerns eigenvalue distributions and a block preconditioner for FGMRES; no complete text available for a stronger-theorem test.",
+          "2018 Huang-Chen Theorem 3.2 explicitly analyzes a different P2 preconditioner."
+        ],
+        "reasoning": "A general extremal-eigenvalue balancing argument could dominate once specialized to the identical error operator, but the published primary texts actually inspected do not exhibit that same VBP stationary family. The inaccessible initiating full text is a genuine residual coverage risk, not negative evidence.",
+        "searches": [
+          "A variant of the block preconditioner for indefinite complex symmetric linear systems arxiv:2608.29985",
+          "PMBP iteration Xie Huang Cui Li 2024 10.1007/s40314-024-02643-4",
+          "Resultary: spectral-width is the sharp second-iterate positivity threshold for good Broyden"
+        ]
+      },
+      "checked_sources": [
+        "arXiv:2608.29985 (abstract only)",
+        "Huang & Chen 2018 DOI:10.1515/math-2018-0051 (full text sections 2–3)",
+        "Xie et al. 2024 DOI:10.1007/s40314-024-02643-4 (metadata)",
+        "Resultary query for VBP optimization (9 relevant/nearby hits, no direct match)"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "Huang-Chen P2 has a different product P2=alpha^{-1}[[alpha I,-W],[W,T]] diag(T,alpha I).",
+          "VBP matrices and the global noncommuting minmax proof are explicitly present in the assigned RESULT.md."
+        ],
+        "reasoning": "The older preconditioner spectral theorem is not algebraically the same iteration. The motivating VBP spectral formula is acknowledged as prior, but obtaining the optimum requires strict monotonicity of the two generalized extrema and balancing; a full comparison with its initiating paper could not be completed due access limitations.",
+        "searches": [
+          "Huang Chen 2018 Eq. (7) Theorem 3.2",
+          "Makhdomi Khojasteh Salkuyeh arxiv:2608.29985 abstract and accessible metadata"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Huang and Chen, Open Math. 16 (2018), Eq. (7) preconditioner P2 and Theorem 3.2, eigenvalues alpha*T^{-1}(alpha I+WT^{-1}W)^{-1}(T+WT^{-1}W); VBP source uses (alpha I-B,T+alpha I).",
+          "Source RESULT.md block product and generalized Rayleigh quotient were independently reconstructed."
+        ],
+        "reasoning": "Generalized eigenvalue/Rayleigh balance is an equivalent expression of spectral-radius minimization for this one splitting. The older relaxed-block P2 has a distinct block structure and generalized eigenvalue map, so a parameter-optimality claim for P2 would not automatically imply the asserted VBP optimizer.",
+        "searches": [
+          "Resultary: VBP stationary iteration block preconditioner gamma optimal alpha spectral radius generalized eigenvalues Makhdomi Salkuyeh 2026",
+          "Huang Chen 2018 Open Mathematics DOI 10.1515/math-2018-0051"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "Resultary returned other spectral iterative records but no exact-alpha VBP table.",
+          "The two-dimensional root formula depends on the diagonal entries of B in the T eigenbasis, not off-diagonal b12."
+        ],
+        "reasoning": "No exact tabulation or database of the VBP alpha* was found. This is a theorem for all dimensions and admissible matrices rather than a finite database entry, so a numerical preconditioner table without a matching theorem could not imply global uniqueness.",
+        "searches": [
+          "arxiv:2608.29985 spectral radius alpha optimum",
+          "Resultary search VBP stationary shift optimization gamma"
+        ]
+      },
+      "rationale": "Best-of-knowledge original as an exact spectral-radius optimization of this PARTICULAR VBP stationary splitting, not as the generalized quotient, spectral analysis, or Chebyshev/equioscillation principle. The initiating 2026 arXiv work was located, but only metadata/abstract could be read through lawful sources; the accessible paper itself was not obtained, and authorized institutional access returned vpn_disconnected. Accordingly no whole-paper noncoverage claim is made. Huang-Chen 2018 full relevant sections give a DIFFERENT P2 block preconditioner and eigenvalues, not this family or optimal shift. Published related SCOPE/Resultary spectral records concern different iterative algorithms. Potential implicit overlap in the inaccessible source remains an explicit priority risk.",
+      "residual_risks": [
+        "Initiating Makhdomi–Khojasteh Salkuyeh (2026) full text was unavailable; no conclusive whole-document novelty check.",
+        "Equioscillation-style minmax balancing is a standard principle, so only the VBP-specific application/closed formula is assessed as novel.",
+        "A different algebraically equivalent VBP parameterization might occur in unindexed block-splitting literature."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "UNRESOLVED_FULL_TEXT: abstracts do not establish whether its sections already prove the same optimizer",
+          "evidence": [
+            "Authors Makhdomi and Khojasteh Salkuyeh; arXiv:2608.29985, posted 2026-08-30; abstract discusses spectral properties, convergence and FGMRES; complete 28-page source inaccessible."
+          ],
+          "identifier_or_url": "https://arxiv.org/abs/2608.29985",
+          "material_read": "Bibliographic metadata, abstract, arXiv availability and abstract on OA mirrors; full paper was not read",
+          "method": "Open-access/arXiv attempts, then authorized institutional retrieval which reported vpn_disconnected",
+          "title": "A variant of the block preconditioner for indefinite complex symmetric linear systems",
+          "trigger": "Same VBP preconditioner and parameter; highest-priority overlap"
+        },
+        {
+          "assessment": "RELATED_NOT_COVERING: different P2 splitting and spectrum",
+          "evidence": [
+            "Section 2 displays P2 as distinct relaxed splitting; Theorem 3.2 reports remaining eigenvalues of alpha*T^{-1}(alpha I+U)^{-1}(T+U)."
+          ],
+          "identifier_or_url": "https://doi.org/10.1515/math-2018-0051",
+          "material_read": "Accessible full article text, Introduction, §2 Eq. (7), §3 Lemma 3.1 and Theorem 3.2",
+          "method": "Open Mathematics article full text on ResearchGate publisher mirror",
+          "title": "A relaxed block splitting preconditioner for complex symmetric indefinite linear systems",
+          "trigger": "Potential preceding preconditioner spectral/optimal parameter result"
+        },
+        {
+          "assessment": "ACCESS_LIMITED: not sufficient to claim whole-paper noncoverage",
+          "evidence": [
+            "Xie, Huang, Cui and Li (2024) analyze PMBP rather than the specified VBP product."
+          ],
+          "identifier_or_url": "https://doi.org/10.1007/s40314-024-02643-4",
+          "material_read": "Title, authors and accessible bibliographic/abstract material only",
+          "method": "Public scholarly discovery",
+          "title": "A preconditioned version of the MBP iteration method for a class of complex symmetric linear systems",
+          "trigger": "Potential parameter-optimizing family in same matrix class"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "rationale": "For a natural noncommuting symmetric-indefinite block system, a unique constructive globally fastest stationary shift and exact convergence threshold distinguish rate optimality from Frobenius-distance tuning; a two-dimensional coupling-invariant location is a substantive structural consequence. It is not asserted to improve flexible GMRES or transient Euclidean amplification.",
+      "status": "PASS"
+    }
+  },
+  "checked_sources": [
+    "arXiv:2608.29985 (abstract only)",
+    "Huang & Chen 2018 DOI:10.1515/math-2018-0051 (full text sections 2–3)",
+    "Xie et al. 2024 DOI:10.1007/s40314-024-02643-4 (metadata)",
+    "Resultary query for VBP optimization (9 relevant/nearby hits, no direct match)"
+  ],
+  "disposition": "passed",
+  "limitations": [
+    "Exact T SPD, W real symmetric indefinite and gamma>0, alpha>0; stationary iteration asymptotic spectral radius only; no robustness to inexact solves or finite-step norms.",
+    "Independent finite tests do not establish the universal theorem."
+  ],
+  "residual_risks": [
+    "Initiating Makhdomi–Khojasteh Salkuyeh (2026) full text was unavailable; no conclusive whole-document novelty check.",
+    "Equioscillation-style minmax balancing is a standard principle, so only the VBP-specific application/closed formula is assessed as novel.",
+    "A different algebraically equivalent VBP parameterization might occur in unindexed block-splitting literature."
+  ],
+  "schema_version": 1
+}
