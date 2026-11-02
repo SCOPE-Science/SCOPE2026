@@ -1,11 +1,21 @@
-# Review: exact dynamics of the binary \((1,3,4)\)-pseudoperiod shift
+# Independent mathematical audit
 
-**Correctness (PASS).** The four forbidden length-five words are derived directly from the literal pseudoperiod definition, without relying on a finite sample. Their order-four de Bruijn graph has exactly sixteen vertices and twenty-eight edges. The identity \(P_n=\operatorname{tr}(M^n)\) is a bijection between bi-infinite period-dividing-\(n\) sequences and length-\(n\) closed walks. Newton's identities with integer traces verify the exact degree-sixteen characteristic polynomial; the determinant--zeta identity then gives the infinite sequence of periodic counts. Exact strongly connected decomposition and a strictly positive eighth power of the unique large component justify the Perron entropy and uniqueness assertions. Residual scientific risk is confined chiefly to unnoticed alternative conventions on periodic points; the stated convention and direct small-period checks mitigate this.
+## correctness
 
-**Originality (PASS, with explicit limits).** Meleshko--Ochem--Shallit--Shan (arXiv:2207.10171, §§1, 4.6) prove that \((1,3,4)\) is a pseudoperiod of every paperfolding sequence; they do not give a finite-type classification of *all* bi-infinite binary sequences with this triple, their zeta function, their component structure, or entropy. The original source was inspected at the exact triple and at its complexity/critical-exponent sections. Actual literature and published-result searches for the triple, forbidden list, periodic-point counts, zeta and entropy did not expose an equivalent formula. A generic finite-type adjacency construction is pre-existing mathematical machinery, and an equivalently described four-forbidden-block shift could remain in unindexed work; the novelty is the exact special-parameter dynamical profile, not the matrix method.
+PASS
 
-**Value (PASS).** This triple is mathematically distinguished because it works for all paperfolding sequences, yet the full binary language admitting the same offsets has strictly positive golden-ratio entropy. The rational zeta function gives every indexed periodic-point count and every primitive-orbit count, while the four-component classification and unique maximal-entropy measure expose the population of sequences behind the established pseudoperiod observation. Together these provide an exact structural contrast, not a mere finite word count.
+The shift condition x_i in {x_{i+1},x_{i+3},x_{i+4}} forbids exactly 01011,01111,10000,10100 as length-five blocks. The overlap matrix of all sixteen four-block states has 28 edges and produces a bijection between cyclic words and closed walks, P_n=trace(M^n). Fresh independent exact SymPy determinant agrees with lambda^4(lambda-1)^3(lambda+1)(lambda^2-lambda-1)(lambda^2+lambda+1)(lambda^4+lambda^2-1); determinant identity gives the claimed rational Artin-Mazur zeta at all lengths, not just checked periods. Four strongly connected classes include one primitive twelve-state core, whose Perron root is phi; other classes have spectral radius one, establishing entropy log phi and a unique maximal-entropy measure. Complement symmetry forces binary marginal 1/2. Fresh brute enumeration of all cyclic binary words at n=1..12 agreed with the traces, and graph strongly connected partition was checked independently. Scope is two-sided binary sequences for this exact triple only.
 
-Limits: No claim is made for other shift triples, and no independent mathematical review has been obtained. A directly applicable, previously unlocated four-block entropy computation would supersede originality.
+## originality
 
-Self-review: passed. Independent audit: not yet performed.
+PASS
+
+The source introducing the fixed pseudoperiod (1,3,4) proves paperfolding-sequence membership, not the entropy and periodic orbit law of the entire binary finite-type shift defined by the triple. General SFT transfer-matrix and zeta methods are background; the explicitly factored determinant, four SCCs and golden-ratio Perron root require a specific computation. No equivalent known forbidden-block shift was identified, with obvious residual alias risk.
+
+## value
+
+PASS
+
+The fixed (1,3,4) pseudoperiod is singled out by the paperfolding theorem. The finite-type shift of every binary word meeting that constraint is a natural global object; exact golden-ratio entropy, full rational zeta, four recurrent components and a unique maximal-entropy measure are meaningful exact invariants, not an arbitrary random finite automaton table.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
