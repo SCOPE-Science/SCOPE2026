@@ -1,11 +1,21 @@
-# Scientific review
+# Independent mathematical audit
 
-**Correctness: PASS.** Inner colour counts are detected up to two by explicitly guarded rank-two formulas. Distinct inner classes of a given type are detected up to two with outer guards; the resulting rank-four outer-type tests isolate every class profile. The described partial-isomorphism family on singleton and \(E_2\)-guarded pairs is back-and-forth: the only possible new choice shares zero or one remembered elements, for which the two truncated levels supply the required matching witness. This proves invariance of all guarded formulas for finite and infinite models. Canonical constructions attain the exact minimum \(\mu(S)\); summing it over all profiles yields the sharp upper bound. The independent finite checker corroborates the pair game and arithmetic.
+## correctness
 
-**Originality: PASS, with qualified historical priority.** Fiuk's general 2026 work treats nested equivalences with richer signatures and proves decidability/complexity boundaries. The 2025 Fiuk–Kieroński–Michielini result yields an exponential-model property for unguarded two-variable nested-equivalence logic, but no exact guarded spectrum. The 2015 two-variable equivalence-closure treatment develops general algorithmic methods. Neither inspected source states the explicit two-level, unary-only profile criterion, the exact spectrum of complete guarded theories, or the per-theory sharp model-size formula. Classical guarded bisimulation and the one-level colour-profile idea are known; their existence is not counted as original. Limited coverage of specialized earlier normal-form literature remains a risk.
+PASS
 
-**Value: PASS.** The result turns a recently active decidability setting into an exact complete classification for a natural hierarchical-data signature, giving effective rank collapse, a sharp formula-independent finite-model bound, and the exact minimum model cardinality of every complete theory. The second equivalence changes the invariants from a set of colour profiles to a set of capped multisets of such profiles; this is substantial structural information, not a mere substitution or a known table entry.
+An E1 class realizes a c=2^k vector of color-counts truncated at 2, excluding zero; an E2 class a vector of counts of each inner type truncated at2, excluding zero. Explicit guarded formulas L_t and D_t test >=1,>=2 color in an inner class, P_a and Q_a test >=1,>=2 distinct E1 classes of inner type a in its outer class; nesting gives quantifier ranks up to four and a class-existence defining sentence rank five. A guarded tuple contains at most two E2-related elements (or one), hence its entire guarded back-and-forth behavior is determined by these capped inner and outer multiplicities and global presence set S. This works even for infinite classes because third distinct witnesses are not retained under arity-two guarded moves. The minimum per inner profile is sum_t a_t, per outer profile sum_a b_a w(a), and one outer class of each b in S gives exact μ(S); summing all nonzero b gives sharp maximum c*3^c*3^(3^c-1). Fresh independent exact sums confirmed k=0 number theories 255, size27; k=1 size118098; inspected source independently exercises guarded fixed-point games on 7335 finite pairs (not rerun here). The all-structure statement is justified by back-and-forth, not finite tests.
 
-**Closest prior results and limitations.** Fiuk (arXiv:2605.15072v1) and Fiuk–Kieroński–Michielini (DOI:10.24963/kr.2025/31), and Kieroński–Pratt-Hartmann–Tendera (DOI:10.1093/logcom/exv075) are the principal inspected comparisons. The conclusion requires precisely unary free predicates together with equality and two nested equivalences; it does not cover unguarded two-variable logic or richer signatures. The claim of historical priority is bounded by the material actually inspected. Rank five is not claimed to be optimal.
+## originality
 
-Self-review: passed. Independent audit: not yet performed.
+PASS
+
+Fiuk 2026 arXiv:2605.15072 studies GF with nested equivalences in richer signatures, general satisfiability/complexity, and equality undecidability in an extended signature with added higher-arity guard. That does not imply the clean monadic+two-equivalence theory spectrum; Fiuk/Kieroński/Michielini 2025 treat unguarded FO2 model property in richer signatures, not this exact GF profile count. Standard guarded-bisimulation and one-level multiplicity truncation are acknowledged prior. The double nested exact profile spectrum, rank-five collapse and sharp least-model distribution appear specific to the restricted language; no direct exact prior coverage in inspected primary results.
+
+## value
+
+PASS
+
+A complete elementary classification of a natural, sharply delimited fragment of guarded logic is useful for model theory, finite-model properties and canonical representations. Exact number of theories and minimal sizes (not merely a decidability bound) are nontrivial tower expressions with direct canonical constructions. The rank-five bound is not asserted optimal; richer signatures/unguarded FO2 lie outside scope.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
