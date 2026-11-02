@@ -1,0 +1,123 @@
+{
+  "audit_date_utc": "2026-10-30",
+  "audited_at_utc": "2026-10-30T02:51:25.476039Z",
+  "axes": {
+    "correctness": {
+      "rationale": "The exact Fourier transform c_n=a(1-(-1)^n exp(-pi a))/(pi(a^2+n^2)) is positive; the cosine factor shifts by one index, so Herglotz positivity reduces exactly to b>=-min_n 2c_n/(c_{n-1}+c_{n+1}). Algebra yields R_n=h^(+/-1)F_A(n) and excludes n=0. Differentiating F_A(sqrt y) gives one positive critical y=s_A^2 and strict unimodality, proving the <=4 parity candidates. At b=-B only finitely many modes vanish; all sufficiently large consecutive modes are strictly positive, and a Vandermonde argument makes every distinct-point Gram matrix positive definite. Taylor/scale estimates justify both asymptotics and the n-asymptotic; taking s_A=n yields a polynomially separated unique minimum dominating exponentially small parity splitting. Independent Sympy identities and 11-parameter/40-index checks support, not prove, the universal claims.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Gneiting 2013, sphere strictness criterion and powered exponential",
+          "Feragen–Lauze–Hauberg arXiv:1411.0296 Theorem 4: geodesic exponential PD if appropriate metric CND",
+          "Porcu–Bevilacqua–Genton DOI 10.1080/01621459.2015.1072541 sphere-time covariance models"
+        ],
+        "reasoning": "Prior geodesic exponential positivity covers the b=0 baseline and nonnegative Fourier coefficient criterion, not signed modulation with b<0. Broader sphere dimension claims do not dominate this exact restricted two-parameter optimization.",
+        "searches": [
+          "circle geodesic exponential covariance signed cosine modulation Fourier positivity threshold active frequency",
+          "geodesic exponential Laplacian kernel sphere Feragen 2014 Porcu 2016"
+        ]
+      },
+      "checked_sources": [
+        "RESULT.md e72593145b8c0f5c39123d43a0443c69b9375ad7: Herglotz coefficients, finite-mode reduction, strictness, expansions",
+        "CHECK.py 41b68f632397af40d8ec0825d417c94e8910f9f0 inspected as supplementary",
+        "https://arxiv.org/pdf/1111.7077",
+        "https://arxiv.org/abs/1411.0296",
+        "https://doi.org/10.1080/01621459.2015.1072541",
+        "https://doi.org/10.1016/S0167-7152(98)00042-X"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "Gneiting 2013 Theorem 1 Fourier/Schoenberg criterion on circle and powered exponential positive example",
+          "The new minimum over R_n derives from c_n and has a parity-sensitive continuous minimizer"
+        ],
+        "reasoning": "The new theorem proves a parametric consequence of the known criterion, but its exact symbolic minimizer, sharp boundary strictness and infinite switching are not immediate statements of inspected sources; broad Fourier theory does not automatically imply the formula without calculation.",
+        "searches": [
+          "circle geodesic exponential covariance signed cosine modulation Fourier positivity threshold active frequency",
+          "Gneiting Strictly and non-strictly positive definite functions on spheres arxiv 1111.7077",
+          "Gneiting 1998 simple tests circle"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Gneiting 2013 Schoenberg coefficients determine PD for general zonal circle kernels",
+          "Audited neighboring-coefficient ratio for signed first harmonic is a special computed family"
+        ],
+        "reasoning": "The general Herglotz/Schoenberg equivalence is prior; it does not solve the parametric minimization, tie structure or active-mode growth. The 1998 criterion may supply an equivalent test but its full text was inaccessible; do not claim absent there.",
+        "searches": [
+          "circle geodesic exponential covariance signed cosine modulation Fourier positivity threshold active frequency",
+          "Gneiting 1998 simple tests validity correlation function models on circle"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "Published Resultary search returned sparse Carathéodory–Fejér frequency problems and finite cyclic group bounds, not the geodesic Laplace circle kernel or exact B(a)",
+          "Mode n is unbounded as a grows and B(a) varies continuously"
+        ],
+        "reasoning": "There is no finite table that could exhaust the continuous a range and all critical modes; searchable published Fourier records involve different objects. No table hit is not proof of priority.",
+        "searches": [
+          "circle geodesic exponential covariance signed cosine modulation Fourier positivity threshold active frequency",
+          "Resultary circle geodesic exponential covariance signed cosine modulation Fourier positivity threshold active frequency"
+        ]
+      },
+      "rationale": "Qualified original signed cosine-modulation cutoff and active-frequency staircase. Gneiting establishes sphere/circle Fourier criteria and unmodulated exponential classes; Feragen establishes geodesic Laplacian positivity, Porcu et al. covariance baselines. These general premises do not deliver this negative-b modulation boundary, finite candidate rule, boundary strict PD and unbounded active-mode succession. Gneiting 1998 simple-circle-tests complete text unavailable remains potential equivalent inequality risk.",
+      "residual_risks": [
+        "Gneiting 1998 historical circle tests accessible in abstract only: possible equivalent parametric inequality in unread body",
+        "No higher-dimensional sphere theorem, full tie-locus classification or arbitrary harmonic multiplier claimed",
+        "Finite symbolic/numerical tests do not independently establish large-frequency uniqueness for every n"
+      ],
+      "source_inspections": [
+        {
+          "assessment": "General criterion/baseline established; no signed harmonic parameter-boundary expression found in inspected mathematical statements",
+          "evidence": "Schoenberg circle coefficient characterization and powered exponential example",
+          "identifier_or_url": "https://arxiv.org/pdf/1111.7077",
+          "material_read": "Relevant criterion, positivity sections and powered exponential discussion",
+          "method": "Read primary arXiv PDF text and inspected page images",
+          "title": "Strictly and non-strictly positive definite functions on spheres",
+          "trigger": "Exact circle Fourier/Schoenberg test, powered-exponential baseline"
+        },
+        {
+          "assessment": "Unmodulated geodesic Laplacian PD; does not include negative first-harmonic multiplication",
+          "evidence": "Theorem 4 geodesic Laplacian PD when geodesic metric CND",
+          "identifier_or_url": "https://arxiv.org/abs/1411.0296",
+          "material_read": "Theorem 4 and abstract/model assumptions",
+          "method": "Primary arXiv theorem comparison",
+          "title": "Geodesic Exponential Kernels: When Curvature and Linearity Conflict",
+          "trigger": "Could dominate geodesic exponential kernel assertion"
+        },
+        {
+          "assessment": "Broad modeling motivation; no established implication to the exact signed two-parameter threshold",
+          "evidence": "Sphere great-circle covariance models and exponential baselines",
+          "identifier_or_url": "https://doi.org/10.1080/01621459.2015.1072541",
+          "material_read": "Abstract and named great-circle exponential construction, not a full negative harmonic cutoff proof",
+          "method": "Author preprint model/abstract comparison",
+          "title": "Spatio-Temporal Covariance and Cross-Covariance Functions of the Great Circle Distance on a Sphere",
+          "trigger": "Sphere covariance model baseline"
+        },
+        {
+          "assessment": "Priority risk: may supply an implicit Fourier test, but no claim about whole-document absence",
+          "evidence": "Abstract advertises general circle correlation validity tests",
+          "identifier_or_url": "https://doi.org/10.1016/S0167-7152(98)00042-X",
+          "material_read": "Abstract only; complete text inaccessible",
+          "method": "Bibliographic/abstract search",
+          "title": "Simple tests for the validity of correlation function models on the circle",
+          "trigger": "Historical general circle admissibility tests"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "rationale": "Exact permissible negative first-harmonic modulation is a natural covariance-model admissibility boundary; four-candidate evaluation replaces infinitely many spectral inequalities, identifies strict positive-definiteness on the boundary and a nontrivial unbounded critical-mode staircase. These are reusable spectral and statistical design facts, not textbook positivity of the exponential baseline.",
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "final_claim": "For a>0, the geodesic-circle kernel K_{a,b}=exp(-a theta)(1+b cos theta) is positive definite iff b>=-B(a), where B is a minimum of at most four parity-dependent explicit Fourier ratios; all admissible kernels including the boundary are strictly positive definite on distinct point sets; B(a)~9 pi a/40 for a down to 0 and B(a)=1-9/(16 a^2)+O(a^-4) as a grows, and all sufficiently large indices arise uniquely as critical Fourier frequencies.",
+  "limitations": [
+    "Gneiting 1998 historical circle tests accessible in abstract only: possible equivalent parametric inequality in unread body",
+    "No higher-dimensional sphere theorem, full tie-locus classification or arbitrary harmonic multiplier claimed",
+    "Finite symbolic/numerical tests do not independently establish large-frequency uniqueness for every n"
+  ],
+  "schema_version": 1
+}
