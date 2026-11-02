@@ -1,0 +1,153 @@
+{
+  "audit_date_utc": "2026-10-29",
+  "audited_at_utc": "2026-10-29T15:07:47.890456Z",
+  "axes": {
+    "correctness": {
+      "rationale": "For q>=3 each q-clique fiber has at most one positive by independence. If empty, its q zero rows must receive 2-label neighbors from only the two adjacent fibers; at most two distinct rows can be defended, contradiction. Each fiber thus has exactly one positive (row c_j, type t_j), with c_j!=c_(j+1). A type-1 fiber has q-1 zero rows and no internal defender; the two adjacent fibers can cover only two other rows, forcing q=3 and type-2 neighbors in the two complementary colors. This is both necessary and sufficient. Thus for q>=4 all n positives are 2, weight 2n and optimum count is chromatic polynomial of C_n evaluated at q. For q=3, type-1 positions S form an independent subset of C_n; weight=2n-|S| and maximal |S|=floor(n/2) is realizable. For n=2k, S is one of the two alternate sets, and coloring the k type-2 positions cyclically with three colors gives 2*(2^k+2*(-1)^k), treating k=2 as two distinct colors. For n=2k+1, there are n maximum sets and the k+1 type-2 cyclic positions have 2^(k+1)+2*(-1)^(k+1) choices, treating k=1 as two differently colored vertices. The appropriate third color at each type-1 vertex is uniquely forced. n=3,4 boundaries explicitly checked. Independent full adjacency checks for ten (q,n) combinations matched all exact counts; computations corroborate, not replace, the unrestricted proof. The reviewed package has exactly seven source blobs; reconstructed source-tree SHA-1 agrees with assigned and current Git tree.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Cabrera Martínez and Hernández Mira (2023) publisher abstract explicitly says they compute i_R on some product graphs, but does not specify which or whether optimizer classification appears; full PDF blocked by subscription and institutional VPN.",
+          "Duan et al. (2022) §1.2 and §4 address complexity and tree dynamic programming, not complete Cartesian clique-cycle optimizer counts.",
+          "Cabrera Martínez and Rueda-Vázquez (2024) concern rooted products, a different operation from Cartesian products."
+        ],
+        "reasoning": "Generic bounds and graph-family algorithms do not directly imply an exact two-parameter count; however the full inaccessible 2023 paper could prove the weight formula or cover more, so no blanket noncoverage conclusion is drawn for it.",
+        "searches": [
+          "\"Further results on the independent Roman domination number of graphs\" product graphs; \"Closed formulas for the independent (Roman) domination number of rooted product graphs\"; Resultary: product graphs optimal labelings count chromatic polynomial clique cycle",
+          "https://doi.org/10.2989/16073606.2021.2014595",
+          "https://doi.org/10.3390/sym14020404"
+        ]
+      },
+      "checked_sources": [
+        "Resultary searches: independent Roman domination Cartesian product complete graph cycle; product graphs optimal labelings count",
+        "Resultary/2026 complete multipartite IRDF full RESULT.md; Roman-{3} complete prisms summary",
+        "Duan et al. Symmetry 2022 article 404, doi:10.3390/sym14020404, HTML text §§1–5",
+        "Cabrera Martínez–Hernández Mira 2023, doi:10.2989/16073606.2021.2014595, abstract only",
+        "Abu-Khzam–Fernau–Mann, MFCS 2023 article 6, publisher OA PDF §§1–5",
+        "Gao et al. arXiv:2410.06486v1, arXiv HTML §§1–2",
+        "Cabrera Martínez–Rueda-Vázquez 2024 rooted product paper, bibliographic record only"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "Abu-Khzam–Fernau–Mann (MFCS 2023), Def. 2 and §4 Proposition 4.1 count inclusion-minimal ordinary Roman functions on paths; these can have differing weights and need not have independent positive support.",
+          "Gao et al. (2024) Theorems 2.1–2.3 concern outer-independent Roman weight minima on P_n Cartesian C_m, not these labels or family.",
+          "Duan et al. (2022) concerns generic decision complexity and trees; not exact counts on non-tree Cartesian products."
+        ],
+        "reasoning": "None of the inspected established results entails exact labeled optimal count for both q=3 parity regimes and q>=4. The proper-cycle chromatic polynomial is a standard counting tool but does not by itself force the original independent Roman domination fiber constraints.",
+        "searches": [
+          "\"Roman Census\" enumerating minimal Roman dominating functions; Duan independent Roman domination complexity trees; Gao 2410.06486 outer independent Roman domination path cycle",
+          "https://doi.org/10.4230/LIPIcs.MFCS.2023.6",
+          "https://arxiv.org/html/2410.06486v1"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "The target graph is a cycle of q-cliques joined by rowwise matchings; neither a complete multipartite graph nor a path-cycle Cartesian grid.",
+          "Resultary public RESULT for complete multipartite IRDFs gives I_R(G;x)=sum_i((x+x^2)^ni-x^ni), with optimizers concentrated in one part; its adjacency and resulting structure are different.",
+          "Gao et al. arXiv:2410.06486 explicitly require independence of V_0 (outer independence), whereas the target requires independence of V_1 union V_2."
+        ],
+        "reasoning": "A reformulation as proper cyclic coloring with 1/2 fiber types is genuinely equivalent to the asserted counts. No checked source asserts this classification; the nearest Roman variants are not equivalent and cannot imply it without additional theorems.",
+        "searches": [
+          "\"independent Roman domination\" \"Cartesian product\" \"complete\" \"cycle\"; \"independent Roman domination\" \"K_m\" \"C_n\" Cartesian product; Resultary: independent Roman domination Cartesian product complete graph cycle optimal function enumeration",
+          "https://arxiv.org/html/2410.06486v1",
+          "https://github.com/Resultary/2026/blob/main/2026/10/4/SCOPE-weight-enumerator-of-all-independent-roman-dominating-functions--aa2a5bd41b9b/RESULT.md"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "Resultary 2026/10/4 independent Roman complete-multipartite record enumerates a different graph class; another high-ranked record treats Roman-{3} domination of K_q Cartesian K_2, not independent Roman domination of K_q Cartesian C_n.",
+          "The 2023 product-graph paper records numerical values in its abstract, but no accessible optimum-label-count table.",
+          "Independent direct graph enumeration reproduces ten representative (q,n) optimum counts including (3,3)=18, (3,5)=30, (4,5)=240."
+        ],
+        "reasoning": "No equivalent optimum-function counts were located in the actually inspected sources or searchable summaries. The lack of a discovered table is bounded search evidence, not a proof that no historical table exists.",
+        "searches": [
+          "\"independent Roman dominating\" \"clique\" \"cycle\" enumerating; \"ir domination graph Cartesian product K3 Cn chromatic polynomial enumeration\"; Resultary: weight enumerator of all independent Roman functions complete multipartite graphs",
+          "Resultary semantic results: 2026/10/4/SCOPE-roman-3-domination-of-complete-prisms--879e297963d2; 2026/10/4/SCOPE-weight-enumerator-of-all-independent-roman-dominating-functions--aa2a5bd41b9b"
+        ]
+      },
+      "rationale": "The exact infinite-family optimum-label classification and labeled minimizer counts for K_q Cartesian C_n were not deduced from the actual inspected published statements. The same-parameter 2023 paper advertises numerical values for some product graphs but complete text could not be accessed; this may preempt the scalar i_R result, not demonstrated coverage of the optimizer-count theorem. The closest Resultary public record is an enumerator on complete multipartite graphs, not the Cartesian cylindrical graph. This is a best-of-knowledge priority judgment with explicit uncertainty, not a uniqueness certificate.",
+      "residual_risks": [
+        "The 2023 independent Roman domination product-graphs paper could contain an equivalent scalar optimum theorem or even an enumerative appendix; complete text could not be obtained, and its abstract cannot establish noncoverage.",
+        "An unpublished or poorly indexed transfer-matrix treatment of optimal IRDFs on clique cylinders may preempt the coloring bijection and count.",
+        "The q>=4 count uses the standard chromatic polynomial of a cycle; originality rests on its verified connection to Roman optimal labelings, not on the standard formula itself."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Does not establish clique-cycle Cartesian optimum-label counts; tree-only algorithm is not a direct numerical implication",
+          "evidence": [
+            "§1.2 says the three contributions are chordal-bipartite NP-completeness, RDF/IRDF complexity gap, and linear algorithm for trees.",
+            "§4 computes independent Roman domination number on trees via rooted dynamic states."
+          ],
+          "identifier_or_url": "https://doi.org/10.3390/sym14020404",
+          "material_read": "Full indexed HTML sections 1–5 including §1.2 stated results and §4 tree dynamic-programming formulation",
+          "method": "Read full HTML text in indexed web search, compare theorems and graph hypotheses",
+          "title": "Independent Roman Domination: The Complexity and Linear-Time Algorithm for Trees",
+          "trigger": "Exact same independent Roman label definition and potential general domination algorithm"
+        },
+        {
+          "assessment": "Indeterminate for the weight formula and optimum-count classification; not declared wholly noncovering",
+          "evidence": [
+            "Publisher abstract states new bounds and computes independent Roman domination numbers for some product graphs.",
+            "AJOL volume 46 issue 2 lists article pp. 347–357 as subscription-only."
+          ],
+          "identifier_or_url": "https://doi.org/10.2989/16073606.2021.2014595",
+          "material_read": "Publisher and AJOL abstract and subscription indication only; neither arXiv search nor open-access search yielded full text",
+          "method": "Searched title, DOI, arXiv, lawful open access; authorized Oxford institutional tool returned vpn_disconnected, no bypass",
+          "title": "Further results on the independent Roman domination number of graphs",
+          "trigger": "Highly relevant 2023 same-parameter product-graph results"
+        },
+        {
+          "assessment": "Counts minimal ordinary Roman functions on paths and gives algorithms for several graph classes; not exact minimum independent Roman functions of K_q Cartesian C_n",
+          "evidence": [
+            "Definition in §2: minimal means pointwise minimal RDF, and example gives unequal weights for minimal functions.",
+            "§4 titled Counting Minimal Roman Dominating Functions on Paths, Proposition 4.1 estimates number for P_n."
+          ],
+          "identifier_or_url": "https://doi.org/10.4230/LIPIcs.MFCS.2023.6",
+          "material_read": "Full 15-page PDF text searched by section and relevant pages 1–6 read closely; screenshot inspected page 3 (PDF zero-index 2), §2 and §4",
+          "method": "Publisher OA PDF, search within PDF, compare Def. 2, Proposition 4.1 and scope",
+          "title": "Roman Census: Enumerating and Counting Roman Dominating Functions on Graph Classes",
+          "trigger": "Potential general enumeration or counting theorem dominating target"
+        },
+        {
+          "assessment": "A different positive-vs-zero independence constraint and path-cycle factors; not an implication",
+          "evidence": [
+            "Introduction defines outer independence as V_0 independent.",
+            "Theorem 2.3 is about gamma_oiR(P_2 Cartesian C_m)."
+          ],
+          "identifier_or_url": "https://arxiv.org/html/2410.06486v1",
+          "material_read": "arXiv HTML abstract, introduction, Theorems 2.1 and 2.3 and definitions, plus section and theorem scope",
+          "method": "Opened arXiv HTML full text; compared independence requirement and product factors",
+          "title": "Outer Independent Roman Domination Number of Cartesian Product of Paths and Cycles",
+          "trigger": "Cylinder Cartesian products with Roman labels; possible alias confusion"
+        },
+        {
+          "assessment": "Not a covering family or corollary; complete multipartite positivity must occupy one part, unlike one-per-clique-fiber in Cartesian product",
+          "evidence": [
+            "I_R(K_{n1,...,nr};x)=sum_i((x+x^2)^ni-x^ni); minima depend only on smallest part.",
+            "No Cartesian clique-cycle family appears in the full RESULT.md."
+          ],
+          "identifier_or_url": "https://github.com/Resultary/2026/blob/main/2026/10/4/SCOPE-weight-enumerator-of-all-independent-roman-dominating-functions--aa2a5bd41b9b/RESULT.md",
+          "material_read": "Full RESULT.md claim, proof, verification, scope and limitations via GitHub read-only connector",
+          "method": "Compared graph edges, positive-support classification and optimization consequences",
+          "title": "Weight enumerator of all independent Roman dominating functions on complete multipartite graphs",
+          "trigger": "Highest-ranked same-parameter Resultary record"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "rationale": "The Cartesian clique-by-cycle family is a canonical unbounded two-parameter product, and minimum independent Roman domination is a standard graph invariant. Exact counts of all labeled optimal defensive configurations, not merely the easily recoverable chromatic polynomial, answer a natural multiplicity/rigidity problem: a sharp q=3 threshold permits mixed labels and cyclic ternary compatibility, while q>=4 forces all 2-labels. The complete classification and parity-dependent counts are useful for comparing robust optimal designs and for testing future enumeration results. Although the counting step is elementary once the nontrivial fiber lemma is established, this is a motivated exact infinite-family classification, not an arbitrary table or parameter renaming.",
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "limitations": [
+    "The statement does not cover q=2, n<3, symmetry-orbit counts, or the full weight enumerator.",
+    "The public 2023 product-graph paper by Cabrera Martínez and Hernández Mira was accessible only by abstract; Oxford institutional access returned vpn_disconnected; full-text priority risk is recorded rather than treated as scientific failure.",
+    "Historical other exact multiplicity tables may exist under unusual graph-family names; best-of-knowledge PASS is not priority certification.",
+    "Existing PUBLIC AUDIT.json and METADATA.json contain operational scope_run_id; inherited METADATA first_public_date 2022-02-18 predates the present record and appears to refer to a cited source. Publication must be withheld until safe, fully guarded replacements are supplied."
+  ],
+  "schema_version": 1
+}
