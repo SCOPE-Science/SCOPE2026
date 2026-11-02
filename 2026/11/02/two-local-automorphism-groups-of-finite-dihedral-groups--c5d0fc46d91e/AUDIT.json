@@ -1,0 +1,136 @@
+{
+  "correctness": {
+    "rationale": "For n>=3 the rotation subgroup is characteristic and every automorphism is (a,b) with a a unit and b a residue. Pairwise interpolation makes one rotation slope global; two reflection indices are simultaneously interpolable iff their gcd difference with n agrees, by the explicit prime-power unit-congruence lemma and CRT. Mixed pairs always interpolate with an independently chosen b. The Chinese remainder system splits reflection gcd-isometries into prime-power congruence-preserving permutations; the latter are exactly automorphisms of rooted p-ary trees, with p! choices at each of (p^e-1)/(p-1) internal nodes. The n=1,2 exceptions are proven directly. The included checker independently tests every pair for all proposed maps n=3..8 and directly tests group multiplication/locality for n=1..3.",
+    "status": "PASS"
+  },
+  "independent": false,
+  "independent_audit_status": "not_performed",
+  "originality": {
+    "broader_coverage": {
+      "evidence": [
+        "Klin–Kovács arXiv:1008.0751, Theorem 1.1 and Section 6: generalized wreath products of cyclic group block-structure automorphism groups.",
+        "Yu–Pan DOI:10.1515/math-2019-0063: 2-closures for primitive holomorph-type permutation groups."
+      ],
+      "reasoning": "Klin–Kovács strongly covers the reflection gcd-isometry factor and that factor is explicitly not claimed new; their rational-circulant/block-structure theorem does not identify the second action on dihedral rotations or derive the independent unit-multiplier factor for the full intransitive action. Yu–Pan concerns primitive actions, whereas the dihedral automorphism action on all group elements is intransitive (identity, rotations, reflections).",
+      "searches": [
+        "automorphism group gcd distance cyclic congruence block structure",
+        "arxiv:1008.0751",
+        "2-closures of primitive permutation groups of holomorph type",
+        "doi:10.1515/math-2019-0063"
+      ]
+    },
+    "checked_sources": [
+      "arxiv:2604.24299",
+      "arxiv:1008.0751",
+      "doi:10.1515/math-2019-0063",
+      "doi:10.1007/s10801-021-01060-8"
+    ],
+    "claim_vs_prior_implication": {
+      "evidence": [
+        "Molnár–Šemrl arXiv:2604.24299, Sect. 1 and results: local maps of real/complex GL,SL,U,SU groups.",
+        "Klin–Kovács arXiv:1008.0751, Sect. 6 Prop. 6.3: S-ring automorphism groups equal block-structure automorphism groups.",
+        "Grech–Kisielewicz DOI:10.1007/s10801-021-01060-8, Theorem setup: general criteria for abelian permutation groups."
+      ],
+      "reasoning": "The 2010 prior theorem gives congruence-preserving permutation structure, but not the constraints across the two distinct element families inside D_{2n}; the 2026 work has a compatible locality definition but a different group family. The combined exact direct-product classification and index follow here through an additional mixed-pair argument, rather than a cited theorem that already subsumes the statement.",
+      "searches": [
+        "arxiv:2604.24299",
+        "arxiv:1008.0751",
+        "doi:10.1007/s10801-021-01060-8"
+      ]
+    },
+    "equivalent_formulations": {
+      "evidence": [
+        "Molnár–Šemrl arXiv:2604.24299, Definition 1.1: two-point group-locality.",
+        "Grech–Kisielewicz DOI:10.1007/s10801-021-01060-8, Sect. 2: 2-closure via orbital-colored digraph."
+      ],
+      "reasoning": "Two-point interpolation by the natural action of Aut(G) on G is exactly the 2-closure preserving all ordered-pair orbits. Searches included both languages, not just matching the new terminology. No matching whole-dihedral 2-closure formula was found; a non-match alone does not prove uniqueness.",
+      "searches": [
+        "2-local automorphisms of finite dihedral groups",
+        "pair-orbit closure of Aut(D_{2n}) acting on rotations and reflections",
+        "2-closure of automorphism group acting naturally on a finite group pairwise interpolation dihedral D_n",
+        "2-local automorphisms of finite dihedral groups",
+        "\"dihedral group\" \"2-local automorphisms\" classification"
+      ]
+    },
+    "exact_database_or_table": {
+      "evidence": [
+        "Published-result comparisons: dihedral non-commuting non-generating graph calculations concern a different graph invariant; exact dihedral homology-character calculations concern representations, not two-point maps.",
+        "No matching whole-dihedral 2-local automorphism count was identified in the searched scholarly records."
+      ],
+      "reasoning": "Searches checked claim parameters, two-point interpolation and 2-closure aliases; nearest mathematical-record items have non-implicative objects. Search results cannot establish universal absence and historical archive coverage is incomplete.",
+      "searches": [
+        "2-local automorphisms maps of finite dihedral groups cyclic rotations reflection permutations gcd distance p-adic tree automorphisms",
+        "pairwise local automorphisms of dihedral group D_{2n} multiplicative units preservation of gcd on reflection indices",
+        "2-local automorphism of dihedral finite group group of all 2 local maps order phi(n) product p factorial rooted trees",
+        "2-closure of automorphism group acting naturally on a finite group pairwise interpolation dihedral D_n",
+        "pair-orbit closure of Aut(D_{2n}) acting on rotations and reflections",
+        "2-local automorphisms of finite dihedral groups"
+      ]
+    },
+    "rationale": "The exact 2-closure of the natural action Aut(D_{2n}) on all 2n group elements is not stated in the primary works examined. Molnár–Šemrl (2026) supplies the group-level two-point definition for classical matrix groups. Yu–Pan (2019) concerns primitive holomorph permutation actions. Grech–Kisielewicz (2022) concerns abelian permutation groups, while Aut(D_{2n}) is generally nonabelian. Klin–Kovács (2010) already provides broad coverage of the gcd-preserving cyclic block factor; the contribution is specifically the full dihedral mixed-orbit interpolation and uncoupled direct product with the rotation unit group, with exact order and non-globality. Equivalent earlier work on orbital configurations may still imply some or all of the combined result, which remains a priority qualification.",
+    "residual_risks": [
+      "Unsearched earlier orbital coherent-configuration or cyclotomic association-scheme results may imply the whole combined classification.",
+      "Full text of Yu–Pan (2019) was not successfully retrieved, though its primitive-action scope differs.",
+      "Symbolic proof and checker underwent self-review, not independent, scrutiny."
+    ],
+    "source_inspections": [
+      {
+        "assessment": "Motivates the group version of the question; does not assert any finite dihedral theorem.",
+        "evidence": [
+          "First public 2026-04-27 (arXiv version).",
+          "Definition 1.1, Section 1: interpolation by an automorphism at every pair.",
+          "Section 2: groups GL, SL, U, SU over real/complex fields."
+        ],
+        "identifier_or_url": "https://arxiv.org/abs/2604.24299",
+        "material_read": "Full accessible HTML introduction, Definition 1.1, description of main real/complex matrix-group results and hypotheses",
+        "method": "Full-text HTML reading and checked terminology in main theorem setting",
+        "title": "Local automorphisms of some classical groups",
+        "trigger": "Exact 2026 definition of two-point local automorphism and initial motivation"
+      },
+      {
+        "assessment": "Substantially covers block-structure isometry/wreath-product ingredient, but not the two-local automorphism group acting on the entire dihedral group. Explicitly acknowledged prior coverage of factor.",
+        "evidence": [
+          "Theorem 1.1 generalized wreath products for rational circulant automorphism groups.",
+          "Section 6 Proposition 6.3 equivalence of S-ring and orthogonal group block-structure automorphisms."
+        ],
+        "identifier_or_url": "https://arxiv.org/html/1008.0751v1",
+        "material_read": "Full HTML abstract, Theorem 1.1, Section 6 definitions and Proposition 6.3, historical discussion of rational Schur rings",
+        "method": "Accessible primary HTML inspected across theorem and relevant block-structure sections",
+        "title": "Automorphism groups of rational circulant graphs through the use of Schur rings",
+        "trigger": "Potential strong implicit prior coverage via gcd-distance/cyclic congruence block symmetries"
+      },
+      {
+        "assessment": "Known scope is primitive holomorph-simple or compound permutation groups, unlike the natural intransitive finite-dihedral automorphism action; limitation remains on uninspected details.",
+        "evidence": [
+          "Primitive holomorph type stated in article scope."
+        ],
+        "identifier_or_url": "https://doi.org/10.1515/math-2019-0063",
+        "material_read": "Accessible bibliographic metadata, title and abstract-level statements; full primary text could not be reliably fetched",
+        "method": "Published source metadata and theorem-scope comparison",
+        "title": "2-closures of primitive permutation groups of holomorph type",
+        "trigger": "General 2-closure approach may subsume the calculation"
+      },
+      {
+        "assessment": "Provides classical equivalent formulation and broad abelian-group criteria; does not state dihedral full natural-action 2-closure formula.",
+        "evidence": [
+          "Section 2 defines 2-closure as automorphism group of orbital-colored digraph.",
+          "Introduction states main characterization for abelian permutation groups."
+        ],
+        "identifier_or_url": "https://link.springer.com/article/10.1007/s10801-021-01060-8",
+        "material_read": "Accessible full HTML abstract, introduction, definitions of 2-closure and theorem scope in Sections 1–2",
+        "method": "Primary open-access HTML sections and equivalent-formulation comparison",
+        "title": "Abelian permutation groups with graphical representations",
+        "trigger": "Equivalent 2-closure formalism for intransitive permutation groups"
+      }
+    ],
+    "status": "PASS"
+  },
+  "review_type": "self_review",
+  "schema_version": 1,
+  "scope_run_id": "c5d0fc46-d91e-4c87-a4b4-95762ce4a73f",
+  "self_review_status": "passed",
+  "value": {
+    "rationale": "Two-point local automorphisms of groups are a specific recently motivated problem. This theorem completely identifies when local maps fail to be genuine automorphisms for every ordinary finite dihedral group, gives a full direct-product group structure and exact prime-factor order, and identifies the structural reason (uncoupling of rotations from reflection gcd-distance symmetries). The sharp all-n non-globality statement and index are more informative than an example of a single nonautomorphism. The result intentionally does not claim broad conjectural consequences.",
+    "status": "PASS"
+  }
+}
