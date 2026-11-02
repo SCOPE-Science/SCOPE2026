@@ -5,8 +5,11 @@
     "status": "not_performed"
   },
   "independent_audit": {
-    "evidence": null,
-    "status": "not_performed"
+    "status": "passed",
+    "evidence": [
+      "INDEPENDENT_AUDIT_2026-10-30.md",
+      "INDEPENDENT_AUDIT_2026-10-30.json"
+    ]
   },
   "lean_verification": {
     "evidence": null,
@@ -16,10 +19,24 @@
 }
 ---
 
-# Verification and limits
+# Independent mathematical audit
 
-The proof rests on: (i) the exact equivalence of model ambiguity and a nonzero supported polynomial vanishing along the orbit; (ii) an explicitly nonzero all-dimension polynomial Lie-Wronskian, certified at uncoupled positive exponential growth with binary-separated rates; (iii) Taylor's determinant leading coefficient for \(p_n\) nearby exact time samples; and (iv) the conserved product \(x_1x_2\) in the positive nonstationary three-species counterexample.
+## correctness
 
-Run `python verify.py` from the extracted package. The executed checker verified the exponent counts and rational Vandermonde determinants for \(n=3,4,5,6\), symbolically checked that an explicit \(n=3\) system with all hard triadic coefficients \(1/20\) has three nonzero row-Wronskians, and confirmed the exact invariant-surface and vector-field identities of the counterexample. The expected final output is `all checks PASS`.
+PASS
 
-These tests certify only the sampled algebraic identities. The unlimited-dimensional result is established by the binary-expansion and determinant proof in `RESULT.md`; no infinite inference is made from the test counts. The result does not quantify statistical estimation error, robustness to derivative noise, optimal experimental scheduling, state-only observation identifiability, or global solution existence for arbitrary coefficients. Independent audit has not been performed.
+For each species row, Fi is a linear combination of p_n independent monomials, and its observed g_i=dot x_i/x_i gives exact linear constraints. A nonzero allowed P_i vanishing on the orbit produces a genuinely distinct polynomial ODE with the same positive solution by uniqueness; absence makes every row injective. The Lie-jet W_i is a polynomial in coefficients; uncoupled rates 2^(j-1) create distinct exponents 0, the individual powers and permitted two-distinct-power sums, proving all determinant factors nonzero simultaneously for fixed x0>0. Multivariate determinant Taylor expansion then produces invertible p_n x p_n sample matrices for common sufficiently small positive delta, preserving all rows. In n=3 the conserved x1*x2=1 makes the genuine hard coefficient b312=1 perfectly indistinguishable from a change of r3; the positive orbit is bounded and initially nonstationary.
+
+## originality
+
+PASS
+
+Best-of-knowledge distinct result is a model-specific arbitrary-n generic finite sampling rank theorem together with an exact bounded nonstationary nonidentifiability orbit; linear regression, numerical masking, and Wronskian tools are classical.
+
+## value
+
+PASS
+
+The gap between generic identifiability under complete observation and exact masquerading by higher-order effects is central to ecological inverse dynamics. The p_n sample budget is the natural dimension of each coefficient row, and the positive bounded leaf is a meaningful counterexample not a trivial equilibrium.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
