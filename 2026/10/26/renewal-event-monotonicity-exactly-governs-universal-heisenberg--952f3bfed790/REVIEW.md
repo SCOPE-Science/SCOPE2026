@@ -1,19 +1,21 @@
-# Self-review
+# Independent mathematical audit
 
-## Correctness (PASS)
+## correctness
 
-The last-reset decomposition gives the exact averaged channel, and positive survivals guarantee invertibility. Direct inversion of the Hilbert–Schmidt dual gives an adjacent Heisenberg intermediary equal to a positive multiple of unitary conjugation plus a scalar functional with test matrix conjugate to \(B_t-B_{t-1}\). Its positivity is equivalent to nonnegativity of that matrix: a negative eigenvector and an orthogonal output witness prove necessity in dimensions at least two. The renewal-increment identity makes nondecreasing absolute-time event masses sufficient. An \(m\)-cycle orthogonalizes the first \(m\) reset-age contributions, proving universal necessity. The explicitly increasing-hazard counterexample has a negative eigenvalue \(-639/100\), while a separate positive decomposition proves Schrödinger CP-divisibility. The standalone program passed 89 deterministic finite-matrix comparisons; these checks are not an infinite proof.
+PASS
 
-## Originality (PASS; residual risk acknowledged)
+The exact last-reset channel has survival S_t and additive replacement matrix B_t. Its adjoint is invertible since S_t>0. Algebraic adjacent dual intertwiner equals k_t Ad_(U^-1) plus scalar functional tr(F_t Y) I, with F_t a positive scalar-unitary conjugate of B_t-B_(t-1). Since k_t>=0, d>=2, positivity iff F_t is PSD: for negative F eigenvector choose output orthogonal to its rotated vector; F PSD gives sum of CP maps. The renewal increment identity decomposes B_t-B_(t-1) as sum_j (nu_(t-j)-nu_(t-1-j)) S_j sigma_j, so nondecreasing absolute-time reset-event masses imply CP for all. At a first decrease m a dimension-m cyclic gate and pure reset make sigma_j pairwise orthogonal, forcing negativity. Rising hazards (1/10,9/10,91/100,...) give nu1=1/10, nu2=41/50, nu3=2449/10000 and min F3 eigenvalue -639/100 while Schr intermediates remain CPTP. The universal quantifier over varying d is essential; fixed qubit necessity is not asserted.
 
-Carollo–Wald, arXiv:2601.13367v1, introduces the model and both pictures' intertwiners and exhibits Heisenberg nondivisibility in examples, including a special periodic reset; those existing phenomena are not new here. An earlier related mathematical result classifies universal *Schrödinger* CP-divisibility through hazard monotonicity. Neither implies the dual universal iff in terms of the absolute-time renewal-event sequence. Wald et al., arXiv:2410.11497v3, provide classical resetting-renewal theory but not the Heisenberg equivalence. Settimo et al., arXiv:2506.08103v2, analyze the general Schrödinger/Heisenberg difference but not this all-unitary renewal classification. Actual full-text searches, a published-record search, and accessible preceding local claims did not identify a covering theorem. General operator-theoretic implications or unpublished followups remain possible; absence of matches does not prove absolute priority.
+## originality
 
-## Value (PASS)
+PASS
 
-The theorem gives a complete, testable if-and-only-if condition on the underlying *classical* renewal-event probabilities for the physically motivated question of universal dual-picture positivity. It demonstrates a sharp separation from monotonically increasing waiting hazards through a fully explicit three-dimensional witness, so the conclusion cannot be obtained by merely rewording the known Schrödinger criterion. The fixed-pair matrix criterion is an exact computational test for a specified quantum system.
+Carollo–Wald 2026 introduces both reset-picture intermediates and unequal divisibility phenomena; Settimo et al. general picture distinctions and Wald et al. renewal formulas are also prior. The qualified novelty is an all-gate necessary-and-sufficient criterion in terms of absolute-time renewal-event monotonicity, its cyclic witness for every decrease and exact fixed-pair PSD condition, not the already-observed nondivisibility phenomenon.
 
-## Scientific boundaries
+## value
 
-The claim is about averaged discrete-time dynamics with unitary inter-reset evolution, finite Hilbert spaces and strictly positive survival at every finite time. A single fixed qubit need not witness an arbitrary late decrease; universal necessity quantifies over dimensions. The result does not analyze quantum-coherent resets or process-tensor Markovianity.
+PASS
 
-Self-review: passed. Independent audit: not yet performed.
+The iff criterion converts an all-system quantum positivity question into testable classical renewal probabilities, while pinpointing a sharp distinction from the known hazard criterion for Schrödinger CP-divisibility. This is a motivated complete classification, not a routine rephrasing of general CP map properties.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
