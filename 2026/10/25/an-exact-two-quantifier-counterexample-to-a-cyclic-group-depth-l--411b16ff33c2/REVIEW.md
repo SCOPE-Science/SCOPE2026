@@ -1,19 +1,21 @@
-# Scientific review
+# Independent mathematical audit
 
-## Correctness — PASS
+## correctness
 
-The language and the meaning of every atomic symbol match Gomaa's explicit Definition 3.5 and journal Definition 1.1. The rank-two formula is exact. In \(C_5\), the forbidden values for \(y\) are exactly \(0,x,2x,3x,4x\); the matrix is therefore impossible. For every \(k\ge2\), the stated witnesses in \(C_{5^k}\) satisfy all six conjuncts by nonzero modular differences. Rank-one equivalence follows from equality of the zero/nonzero one-variable atomic types, and implies that two is the exact least rank. The divisor calculation gives \(f=25\) and the claimed published threshold four. Replayed finite verification covers orders 5, 25, 125, and 625; the infinite result relies on algebra, not an extrapolation.
+PASS
 
-## Originality — PASS, with residual risk
+The six-conjunct existential matrix excludes y=0,x,2x,x/2,−x for each nonzero x. In C5 those are all five residues. In C_{5^k}, x=5^{k−2} and y=3x meet all nonzero-difference tests: y−2x=x, 2y−x=5x, x+y=4x, each not 0 mod 5^k. All single-variable atomic {R,e,=} diagrams in these odd cyclic groups depend only on whether the variable equals zero, so quantifier-rank <=1 sentences agree. Least rank is 2. Smallest divisor belonging to exactly one group order is 25, and floor(log2(25))=4. Independent exhaustive truth/atomic-type checks for C5,C25,C125,C625 corroborate this infinite algebraic proof. The original thesis theorem and exact relational-language scope were examined directly.
 
-The precise primary-source propositions were read from both Gomaa's 2007 dissertation and 2010 article. They explicitly assert a lower bound contradicted by this construction, so their logical implication goes against the result rather than subsuming it. The closest published subsequent notes improve upper bounds for comparisons of **distinct prime-order cyclic groups**, whereas here one order is a nontrivial prime power. Searches covering the formula's aliases, divisor-25 parameter, two-variable nonaddition patterns and the original theorem did not locate an earlier counterexample. The independent possibility of an unindexed prior observation remains.
+## originality
 
-## Value — PASS
+PASS
 
-The result gives a uniform infinite-family witness to an erroneous numerical lower bound in a primary finite-model-theory reference; it also isolates a proof-level obstruction to restricting shortest EF winning patterns to closed binders. The exact least rank of two and its separation from the published rank four make the contradiction substantive rather than a reformulation or routine finite census. The critique is restricted to what the explicit calculation logically establishes.
+Gomaa 2007 and the corresponding 2010 theorem actually assert the opposing numerical lower bound in the same relational language, so they cannot subsume this counterexample; the new witness refutes a prior universal claim. Closely related published results on EF addition chains concern distinct prime-order groups and do not settle C5 versus prime powers. An older unindexed correction remains the genuine priority risk.
 
-## Closest literature and limitations
+## value
 
-W. Gomaa, 2007 doctoral dissertation, Chapter 3, pp. 84–85 (PDF pages 89–90); and *International Journal of Algebra and Computation* 20 (2010), Theorems 6.9 and 6.13 and Corollary 6.14, available author-uploaded full text. Independently relevant subsequent addition-chain improvements for distinct prime-order cyclic groups do not cover prime-versus-prime-power comparisons. Prior literature beyond accessible sources may contain an earlier correction. No implication for asymptotic lower bounds or other unrelated propositions is asserted.
+PASS
 
-Self-review: passed. Independent audit: not yet performed.
+A uniform two-quantifier family contradicting an explicitly published four-quantifier lower bound is a substantive counterexample in finite model theory. It isolates a flaw in the claimed shortest closed-binder EF obstruction and keeps its scope narrow: it does not establish or refute the separate asymptotic logarithmic lower bound.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

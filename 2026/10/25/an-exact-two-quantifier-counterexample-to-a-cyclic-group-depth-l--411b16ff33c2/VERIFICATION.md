@@ -5,8 +5,11 @@
     "status": "not_performed"
   },
   "independent_audit": {
-    "evidence": null,
-    "status": "not_performed"
+    "status": "passed",
+    "evidence": [
+      "INDEPENDENT_AUDIT_2026-10-30.md",
+      "INDEPENDENT_AUDIT_2026-10-30.json"
+    ]
   },
   "lean_verification": {
     "evidence": null,
@@ -16,10 +19,24 @@
 }
 ---
 
-# Verification
+# Independent mathematical audit
 
-Run `python3 verify_counterexample.py` with Python 3, without third-party dependencies. The program enumerates every possible ordered pair of elements in \(C_5\) and finite comparison groups of orders 25, 125, and 625 to evaluate the formula. It also enumerates every one-variable atomic \(L\)-diagram (all ternary relational combinations involving one variable and the constant zero), verifying that the diagrams and their realizability coincide. It asserts the algebraically specified witnesses and prints `VERIFY_OK` only if all checks pass. The exact recorded output is included in `verify_output.txt`.
+## correctness
 
-The computer enumeration is **not** a proof of the infinite statement. The published result's quantifiers, the exact divisor computation, the rank-two formula's truth values for every \(k\ge2\), and the rank-one lower bound are established symbolically in `RESULT.md`.
+PASS
 
-The result has not been independently audited; its scientific scope is the stated counterexample family and no stronger general theorem is claimed.
+The six-conjunct existential matrix excludes y=0,x,2x,x/2,−x for each nonzero x. In C5 those are all five residues. In C_{5^k}, x=5^{k−2} and y=3x meet all nonzero-difference tests: y−2x=x, 2y−x=5x, x+y=4x, each not 0 mod 5^k. All single-variable atomic {R,e,=} diagrams in these odd cyclic groups depend only on whether the variable equals zero, so quantifier-rank <=1 sentences agree. Least rank is 2. Smallest divisor belonging to exactly one group order is 25, and floor(log2(25))=4. Independent exhaustive truth/atomic-type checks for C5,C25,C125,C625 corroborate this infinite algebraic proof. The original thesis theorem and exact relational-language scope were examined directly.
+
+## originality
+
+PASS
+
+Gomaa 2007 and the corresponding 2010 theorem actually assert the opposing numerical lower bound in the same relational language, so they cannot subsume this counterexample; the new witness refutes a prior universal claim. Closely related published results on EF addition chains concern distinct prime-order groups and do not settle C5 versus prime powers. An older unindexed correction remains the genuine priority risk.
+
+## value
+
+PASS
+
+A uniform two-quantifier family contradicting an explicitly published four-quantifier lower bound is a substantive counterexample in finite model theory. It isolates a flaw in the claimed shortest closed-binder EF obstruction and keeps its scope narrow: it does not establish or refute the separate asymptotic logarithmic lower bound.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
