@@ -1,15 +1,21 @@
-# Review
+# Independent mathematical audit
 
-## Correctness
+## correctness
 
-The two best-response maps reduce pure equilibria to fixed points of \(F=R\circ C\). For \(k\ge3\), a constant \(F\) gives one sink reachable from every profile. A swap gives no pure equilibrium. An identity \(F\) gives two equilibria, and any column outside \(\{C(1),C(2)\}\) supplies a non-equilibrium profile whose only outgoing edge reaches just one of the two sinks. The exact probabilities follow from independent uniform response maps. The standalone enumeration checks small cases; the proof is not finite-experiment based.
+PASS
 
-## Originality
+A profile (i,j) is a pure Nash equilibrium precisely when j=C(i) and F(i)=R(C(i))=i. For k>=3, constant two-state F yields a single reachable equilibrium, the swap gives none, and identity F yields two distinct equilibria with a third column giving a unilateral-response trap. Thus connectivity iff F constant. The independent response map law gives Pr(constant)=(k+1)/(2k), Pr(at least one fixed point)=(3k+1)/(4k). Direct fresh directed-graph exhaustive tests for k=3,4,5,6 checked all 72,256,800,2304 response-map pairs and agree with fractions 4/5,10/13,3/4,14/19. The proof, not this finite testing, establishes all k>=3.
 
-The closest inspected work is Johnston et al. (arXiv:2601.05965), which defines the same graph connectivity but states its main many-action theorem for equal action counts. The present result fixes one player's action count at two and lets the other count grow. Wiese and Heinrich study a different property—convergence under a prescribed sequential update order—in an equal-action ensemble. published-finding corpus searches for game connectivity, asymmetric action counts, and exact two-player best-response graph frequencies returned related but no directly matching formula among the closest results. This does not establish universal novelty; a rectangular-action result outside the inspected sources remains a residual priority risk.
+## originality
 
-## Value
+PASS
 
-The theorem gives a closed finite-size formula and a nontrivial limit for an interpretable asymmetric regime. It shows that the vanishing connected fraction in the equal-action two-player regime does not carry over when one player has only two actions: the conditional fraction instead tends to \(2/3\). This distinction matters when interpreting random-game connectivity for discretized strategic models with unequal action-space sizes.
+The closest primary game-connectivity theorem explicitly fixes equal action counts for all players, whereas the present limit fixes one action count at two. The other inspected literature concerns sequential convergence or correlated payoffs, different events/ensembles. No directly dominating rectangular-action formula was found; historical exact 2 by k enumeration is the remaining priority risk.
 
-Self-review: passed. Independent audit: not yet performed.
+## value
+
+PASS
+
+The exact conditional probability and nonzero 2/3 limit expose a genuine asymptotic regime change relative to published equal-action two-player connectivity. It is an exact natural game-graph statistic for a common asymmetric action-space model, not a renaming of the equal-action parameter.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

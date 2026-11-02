@@ -5,8 +5,11 @@
     "status": "not_performed"
   },
   "independent_audit": {
-    "evidence": null,
-    "status": "not_performed"
+    "status": "passed",
+    "evidence": [
+      "INDEPENDENT_AUDIT_2026-10-30.md",
+      "INDEPENDENT_AUDIT_2026-10-30.json"
+    ]
   },
   "lean_verification": {
     "evidence": null,
@@ -16,4 +19,24 @@
 }
 ---
 
-The analytical proof verifies the finite formula for every integer \(k\ge3\). The response-map probabilities are derived directly from the independent uniform strict-ranking ensemble. The exhaustive verifier checks all response-map pairs for \(3\le k\le7\), builds the directed graph from its definition, and compares connectivity with the constant-map criterion. These finite checks are corroborative only. The result makes no claim about mixed equilibria, correlated payoffs, ties, or deterministic sequential update rules.
+# Independent mathematical audit
+
+## correctness
+
+PASS
+
+A profile (i,j) is a pure Nash equilibrium precisely when j=C(i) and F(i)=R(C(i))=i. For k>=3, constant two-state F yields a single reachable equilibrium, the swap gives none, and identity F yields two distinct equilibria with a third column giving a unilateral-response trap. Thus connectivity iff F constant. The independent response map law gives Pr(constant)=(k+1)/(2k), Pr(at least one fixed point)=(3k+1)/(4k). Direct fresh directed-graph exhaustive tests for k=3,4,5,6 checked all 72,256,800,2304 response-map pairs and agree with fractions 4/5,10/13,3/4,14/19. The proof, not this finite testing, establishes all k>=3.
+
+## originality
+
+PASS
+
+The closest primary game-connectivity theorem explicitly fixes equal action counts for all players, whereas the present limit fixes one action count at two. The other inspected literature concerns sequential convergence or correlated payoffs, different events/ensembles. No directly dominating rectangular-action formula was found; historical exact 2 by k enumeration is the remaining priority risk.
+
+## value
+
+PASS
+
+The exact conditional probability and nonzero 2/3 limit expose a genuine asymptotic regime change relative to published equal-action two-player connectivity. It is an exact natural game-graph statistic for a common asymmetric action-space model, not a renaming of the equal-action parameter.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

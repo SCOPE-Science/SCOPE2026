@@ -1,0 +1,100 @@
+{
+  "audit_date_utc": "2026-10-30",
+  "audited_at_utc": "2026-10-30T03:52:58Z",
+  "axes": {
+    "correctness": {
+      "rationale": "A profile (i,j) is a pure Nash equilibrium precisely when j=C(i) and F(i)=R(C(i))=i. For k>=3, constant two-state F yields a single reachable equilibrium, the swap gives none, and identity F yields two distinct equilibria with a third column giving a unilateral-response trap. Thus connectivity iff F constant. The independent response map law gives Pr(constant)=(k+1)/(2k), Pr(at least one fixed point)=(3k+1)/(4k). Direct fresh directed-graph exhaustive tests for k=3,4,5,6 checked all 72,256,800,2304 response-map pairs and agree with fractions 4/5,10/13,3/4,14/19. The proof, not this finite testing, establishes all k>=3.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Wiese–Heinrich, Dynamic Games and Applications 2022, prescribed sequential dynamics, abstract/method characterization.",
+          "Johnston et al. arXiv:2601.05965 §1 footnote explicitly restricts results to equal action counts."
+        ],
+        "reasoning": "A theorem about convergence under a fixed sequential update schedule or correlated-payoff random games does not dominate strict best-response graph connectivity with independent ordinal rankings. The equal-action many-action theorem has a different limiting regime.",
+        "searches": [
+          "random ordinal games two by k actions best response graph connectivity pure Nash equilibrium exact probability asymmetric actions",
+          "random ordinal games asymmetric action counts 2 times k weakly acyclic connectivity exact"
+        ]
+      },
+      "checked_sources": [
+        "Johnston et al., arXiv:2601.05965, primary model and Theorems 1–2",
+        "Wiese and Heinrich (2022), DOI:10.1007/s13235-021-00401-3, accessible model description",
+        "Assigned exact RESULT.md and independent exhaustive BR graph enumerator"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "arXiv:2601.05965 §1-§1.2 definitions, footnote equal actions; equal-actions asymptotics.",
+          "RESULT.md direct count Pr(F constant) and Pr(F swap)."
+        ],
+        "reasoning": "The equal-action n=2 probability tending to zero is not informative about fixing the first player at two while k grows. The exact finite 2(k+1)/(3k+1) denominator requires recognizing the restricted two-state fixed-point law; no stated prior theorem supplies that count.",
+        "searches": [
+          "random ordinal games two by k actions best response graph connectivity pure Nash equilibrium exact probability asymmetric actions"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Johnston–Savery–Scott–Tarbush, arXiv:2601.05965 §1 model and footnote on unequal sizes, Theorem 1.",
+          "Assigned RESULT.md classification of the two-element map F."
+        ],
+        "reasoning": "The reduction F=R∘C is exact for two-by-k profiles and provides a fixed-point/weak-graph-connectivity formulation. The 2026 main theorem instead treats k actions per player with all players equal-size, so a 2 by k statement is not parameter substitution.",
+        "searches": [
+          "random ordinal games two by k actions best response graph connectivity pure Nash equilibrium exact probability asymmetric actions",
+          "Game connectivity and adaptive dynamics in many-action games 2xk asymmetric fraction"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "Fresh independent exhaustive counts: connected/NE = 48/60,160/208,480/640,1344/1824 for k 3..6.",
+          "Resultary asymmetric-actions query returned no same formula among ranked hits."
+        ],
+        "reasoning": "The exact 2 by k count follows from the response-map law; a semantic search of published mathematical findings returned other games/voting/assignment problems, not the same event. This is a bounded search, not a novelty certificate.",
+        "searches": [
+          "random ordinal games two by k actions best response graph connectivity pure Nash equilibrium exact probability asymmetric actions"
+        ]
+      },
+      "rationale": "The closest primary game-connectivity theorem explicitly fixes equal action counts for all players, whereas the present limit fixes one action count at two. The other inspected literature concerns sequential convergence or correlated payoffs, different events/ensembles. No directly dominating rectangular-action formula was found; historical exact 2 by k enumeration is the remaining priority risk.",
+      "residual_risks": [
+        "An older rectangular-action weak-acyclicity or best-response-graph count may imply the exact 2 by k ratio.",
+        "Full 43-page Johnston appendix and Wiese–Heinrich full text were not inspected line-by-line.",
+        "One auxiliary verification file in the assigned Git directory was not discoverable via the available read interface; six main Git blobs and current RESULT.md were inspected, so full tree SHA could not be independently reconstructed."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "No displayed 2 by k exact conditional law; theorem assumes all players have k actions",
+          "evidence": "p.3 footnote: unequal action counts can be accommodated but paper restricts equal counts; Theorem 1 handles this equal-size ensemble.",
+          "identifier_or_url": "arXiv:2601.05965",
+          "material_read": "Full-text model definitions, equal-action footnote, Theorems 1 and 2, two-player discussion; selected PDF pages including pp.2–6, not entire 43-page proof",
+          "method": "Read arXiv PDF text and inspected the theorem page image",
+          "title": "Game connectivity and adaptive dynamics in many-action games",
+          "trigger": "Same best-response graph connectivity definition and random ordinal ensemble"
+        },
+        {
+          "assessment": "Prescribed sequential convergence is not the every-profile-to-every-equilibrium graph connectivity statistic",
+          "evidence": "Published model explicitly concerns convergent best-response dynamics with fixed schedules.",
+          "identifier_or_url": "DOI:10.1007/s13235-021-00401-3",
+          "material_read": "Published abstract and the statement-level description available in indexed literature, not the full paper",
+          "method": "Abstract-level examination; no full-document noncoverage claim",
+          "title": "The Frequency of Convergent Games under Best-Response Dynamics",
+          "trigger": "Possible exact two-player convergence counts"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "rationale": "The exact conditional probability and nonzero 2/3 limit expose a genuine asymptotic regime change relative to published equal-action two-player connectivity. It is an exact natural game-graph statistic for a common asymmetric action-space model, not a renaming of the equal-action parameter.",
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "final_claim": "In the independent uniform generic ordinal 2 by k two-player game ensemble (k>=3), the conditional fraction of games with at least one pure Nash equilibrium whose strict best-response graph is connected to every equilibrium from every non-equilibrium profile is 2(k+1)/(3k+1), tending to 2/3 as k tends to infinity.",
+  "limitations": [
+    "An older rectangular-action weak-acyclicity or best-response-graph count may imply the exact 2 by k ratio.",
+    "Full 43-page Johnston appendix and Wiese–Heinrich full text were not inspected line-by-line.",
+    "One auxiliary verification file in the assigned Git directory was not discoverable via the available read interface; six main Git blobs and current RESULT.md were inspected, so full tree SHA could not be independently reconstructed.",
+    "The frozen public AUDIT.json and METADATA.json contain scope_run_id, an operational provenance identifier that is forbidden in public files. Full confidentiality-neutral replacement bytes preserving their existing scientific content and blob guards have not been staged.",
+    "An auxiliary Git verifier filename was not discoverable via the allowed read interface; six directly fetched source blobs do not suffice to reconstruct this complete Git tree SHA-1."
+  ],
+  "schema_version": 1
+}
