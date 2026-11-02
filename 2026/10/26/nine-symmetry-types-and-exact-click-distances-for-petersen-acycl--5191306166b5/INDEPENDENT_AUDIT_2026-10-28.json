@@ -1,0 +1,122 @@
+{
+  "audit_date_utc": "2026-10-28",
+  "audited_at_utc": "2026-10-28T20:53:39Z",
+  "axes": {
+    "correctness": {
+      "rationale": "The labeled Petersen graph is KG(5,2), 10 vertices and 15 edges; each of 2^15=32,768 masks encodes exactly one edge orientation. Kahn's algorithm identifies precisely 16,680 acyclic masks, and a source or sink at any vertex generates exactly the legal three-bit toggles. Independently constructed the whole click adjacency graph and all 704 components, with complete size multiplicities 12:120,16:120,21:120,22:120,28:120,38:60,50:24,66:20, satisfying Σ s c_s=16,680. BFS from each state in its component gives exact diameter counts 480 diameter-5 / 224 diameter-6, 13,880 eccentricity-5 / 2,800 eccentricity-6 orientations, and unordered pair distance histogram d=1..6 (28,140,50,400,63,040,60,960,30,500,2,040), sum 235,080=Σ c_s binom(s,2). Independently built all 5!=120 S5 graph-automorphism permutations, mapped full components, found nine component orbits sizes 120,120,60,60,120,120,60,24,20 with precisely the two size-21 orbits exchanged by global arrow reversal. The five maximum independent sets of size four identify S5 as full automorphism group. All finite cases enumerated exhaustively, not sampled; source script and distinct independent reconstruction inspect all orientation masks and BFS distances.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "General click-equivalence count κ(G)=T_G(1,0) implies already-known 704 for Petersen; not a novelty claim.",
+          "General geodesic theorem derives distance between any specified same-component orientation pair, but does not enumerate Petersen pair counts, component diameters or S5 orbit classification."
+        ],
+        "reasoning": "Those results are broader than basic click connectivity and pairwise distance formulas, and those portions are covered. The remaining classification is the exact joint finite census; it is not covered by a mere implicit algorithm absent identical tabulation.",
+        "searches": [
+          "Macauley Mortveit 2007 2011 click equivalence classes Tutte polynomial general graphs",
+          "Aichholzer Cardinal Huynh Knauer Mütze Steiner Vogtenhuber 2021 vertex flip distance graphs",
+          "Resultary complete cycle anchor invariant geodesic formula graph flexes 2026/10/11"
+        ]
+      },
+      "checked_sources": [
+        "Frozen RESULT.md blob 3d912704bb22a99a56da6df681dc6a62c092e762, entire proof and full verifier code inspected.",
+        "Resultary 2026/10/11 cycle-anchor geodesic complete RESULT.md.",
+        "Macauley/Mortveit 2007/2011 arXiv/DOI source descriptions (no complete independent reread).",
+        "Cameron 2015 slides cited count 168 orientation-orbits; primary complete slides not independently reread.",
+        "Resultary semantic query as recorded.",
+        "Complete independently implemented 32,768-mask census, all pair shortest paths, S5 and reversal orbits in independent_check_output.txt."
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "The established Tutte evaluation 704 alone does not determine multiset of component sizes, diameters or orbit action.",
+          "The general geodesic formula could compute every pair distance, but must be applied exhaustively to produce the exact 235,080-pair histogram; the automorphism orbit split requires separate S5 action."
+        ],
+        "reasoning": "Explicit classification is a computational specialization with new exact numbers and symmetry structure, not a new formula for generic graphs. A pre-existing exact Petersen table would defeat O, but none was inspected.",
+        "searches": [
+          "Tutte Petersen polynomial T(1,0)=704 Macaulay Mortveit",
+          "Resultary graph flexes median potential 2026 10 11"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "The source/sink flip graph is the 1-skeleton of the flex complex restricted to acyclic orientations; the median potential metric is already proven for any graph in Resultary 2026/10/11.",
+          "The full component numerical histogram and S5 symmetry orbit partition are not given in that general flex theorem."
+        ],
+        "reasoning": "Geodesic *formula* is prior under alternative name flex/click/c-orientation; the output of exhaustive Petersen evaluation and symmetry quotient are not implied as explicit tables without finite computation.",
+        "searches": [
+          "source sink click equivalence acyclic orientations Petersen component orbit flip digraph",
+          "Resultary: Petersen graph acyclic orientations source sink click equivalence component sizes distances diameter automorphism orbits"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "Cameron 2015 gives 16,680 acyclic orientations and 168 automorphism orbits on individual orientation states, which are *not* the nine component orbits.",
+          "Independent exhaustive enumeration gives exact eight component strata and full distance distribution 28,140;50,400;63,040;60,960;30,500;2,040."
+        ],
+        "reasoning": "Existing small-Petersen data cover only coarse totals and orientation-level orbits in inspected material; same component-level table not seen. Database/thesis risk remains.",
+        "searches": [
+          "Petersen graph acyclic orientation 16680 704 component sizes 12 16 21 22 28 38 50 66",
+          "Petersen graph click graph S5 orbits nine distance histogram 28140 50400",
+          "P. J. Cameron 2015 orbital combinatorics Petersen 168 orientation orbits"
+        ]
+      },
+      "rationale": "Prior Macauley–Mortveit theory and Petersen Tutte/chromatic polynomials imply 704 click classes and 16,680 acyclic orientations: both totals are acknowledged *not novel*. Cameron computed 168 automorphism orbits on individual orientations, distinct from nine orbits on components. The published Resultary general all-graph flex theorem yields the metric median-potential formula, so general distance *principles* are also prior; however it does not contain the exact Petersen size/diameter strata, orbit split, reversal pairing or full numerical distance histogram. This is an independently complete census of a canonical graph, not a new universal flip theorem. An earlier unindexed census or table with the same strata is a residual priority risk.",
+      "residual_risks": [
+        "Some unindexed thesis/appendix or online graph dataset could already tabulate the nine S5 component orbits and distances.",
+        "The median-potential shortest path theory is prior and must not be claimed as new.",
+        "This is a finite labeled Petersen classification, not an infinite-family or higher-dimensional flex complex result."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "COVERS_GENERAL_GEODESICS_NOT_PETERSEN_TABLE",
+          "evidence": "Median integer potential formula applies to acyclic Petersen, but file gives no Petersen-specific component-size or orbit census.",
+          "identifier_or_url": "https://github.com/Resultary/2026/blob/main/2026/10/11/SCOPE-a-complete-cycle-anchor-invariant-and-geodesic-formula-for-graph--adc90e8a9935/RESULT.md",
+          "material_read": "Read complete RESULT.md (full claim, proof, scope, verification and relationship to prior work) through read-only GitHub connector.",
+          "method": "Full primary scientific GitHub source file",
+          "title": "A complete cycle-anchor invariant and geodesic formula for graph flexes",
+          "trigger": "Very closely related published general orientation flex theorem"
+        },
+        {
+          "assessment": "COVERS_TUTTE_CLASS_COUNT",
+          "evidence": "General theorem implies 704 but not size distribution.",
+          "identifier_or_url": "https://arxiv.org/abs/0711.1140",
+          "material_read": "Inspected arXiv indexed abstract/source description and statements as quoted in package; entire original article not independently reread.",
+          "method": "arXiv abstract and mathematical implication comparison",
+          "title": "On Enumeration of Conjugacy Classes of Coxeter Elements / click equivalence",
+          "trigger": "General κ(G)=T_G(1,0) theorem and click equivalence"
+        },
+        {
+          "assessment": "PRIOR_ORIENTATION_ORBITS_NOT_COMPONENT_ORBITS",
+          "evidence": "Known 168 orbits of individual orientations differ in acted-on set from nine class orbits.",
+          "identifier_or_url": "https://cameroncounts.github.io/web/talks/15/pcc.pdf",
+          "material_read": "Inspected published counts as cited in assigned package and indexed slide description; full PDF not independently reread here.",
+          "method": "Bibliography and source quoted numerical results",
+          "title": "Orbital combinatorics (Petersen orientation slides)",
+          "trigger": "Potential prior exact Petersen symmetry table"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "rationale": "The Petersen graph is a canonical symmetric nonplanar cubic graph; complete classification of the click-reconfiguration component sizes, exact distances, and nine S5-orbits is a well-motivated natural finite invariant. The reversal-paired inequivalent size-21 orbit types add substantive symmetry information beyond familiar Tutte/chromatic totals. A complete finite classification has mathematical use independent of an infinite-family generalization; it is not just recalculation of known counts.",
+      "status": "PASS"
+    }
+  },
+  "checked_sources": [
+    "Frozen RESULT.md blob 3d912704bb22a99a56da6df681dc6a62c092e762, entire proof and full verifier code inspected.",
+    "Resultary 2026/10/11 cycle-anchor geodesic complete RESULT.md.",
+    "Macauley/Mortveit 2007/2011 arXiv/DOI source descriptions (no complete independent reread).",
+    "Cameron 2015 slides cited count 168 orientation-orbits; primary complete slides not independently reread.",
+    "Resultary semantic query as recorded.",
+    "Complete independently implemented 32,768-mask census, all pair shortest paths, S5 and reversal orbits in independent_check_output.txt."
+  ],
+  "disposition": "passed",
+  "limitations": "Entire finite computation is for labeled Petersen KG(5,2), all 2^15 orientations and source/sink single-vertex flips. Symmetry orbits under full graph Aut(P)≈S5, not intrinsic abstract-component graph isomorphism. No analogous classification for generalized Kneser graphs, and generic metric theorem is earlier work.",
+  "residual_risks": [
+    "Some unindexed thesis/appendix or online graph dataset could already tabulate the nine S5 component orbits and distances.",
+    "The median-potential shortest path theory is prior and must not be claimed as new.",
+    "This is a finite labeled Petersen classification, not an infinite-family or higher-dimensional flex complex result."
+  ],
+  "schema_version": 1
+}
