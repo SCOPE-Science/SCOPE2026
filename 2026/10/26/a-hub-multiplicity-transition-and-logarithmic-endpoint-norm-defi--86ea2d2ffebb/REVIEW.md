@@ -1,11 +1,21 @@
-# Scientific review
+# Independent mathematical audit
 
-**Correctness — PASS.** The graph Laplacian separates into a hub fluctuation eigenspace, a rim mean-zero resolvent, and a constant interface. Direct potentials are exhibited for one edge from each of the three orbits. Their gradients and diagonal values give the six absolute column sums; orientation invariance, reflection symmetry, and positive monotone Green entries prove the formulas for every integer parameter. The fixed-h logarithmic asymptotic is obtained by locating the Green entries above the spoke comparison threshold, proving the count is asymptotically proportional to the logarithm of rim length, and summing the exact positive- and negative-part contributions. A separate exact-rational reconstruction of 1,205 full projector columns is supplementary evidence, not a replacement for those proofs. Risks: transcription, constants in the tail estimate, and graph-edge indexing were independently revisited; no outstanding contradiction was found.
+## correctness
 
-**Originality — PASS, with residual bibliographic uncertainty.** The closest primary studies are Dilworth–Kutzarova–Ostrovskii's projection analysis of cycle spaces, tori and Hamming graphs (2023), and Sedlák–Slavík's general effective-resistance formulas for graph joins (2025). The second is strong enough to imply the individual transfer-current entries upon a four-point polarization identity, so any claim to a new Green kernel would be covered; no such claim is made. The new work is the exact induced endpoint norm across all hub and rim sizes, the absolute sign threshold that creates a logarithmic finite-size term, and the sharp *asymptotic* maximizing-edge bifurcation between two and three or more hubs. Neither inspected study establishes those operator-norm conclusions. Related known single-hub wheel and Cartesian clique-cycle formulas are mathematically distinct; no implication covering this join family was identified. Residual risk: specialized electrical-network work may already have performed the absolute transfer-current sums, despite not being retrieved.
+PASS
 
-**Value — PASS.** The operator norms are natural invariants of canonical cut and cycle projections. The exact formulas cover an entire two-integer-parameter family, not a selected fixed numerical case, and distinguish three structural edge types. Most significantly, the cycle projection has a reciprocal-size approach to its limiting norm at two hubs but a logarithmic-over-linear approach at at least three hubs, with different maximizing edge directions; this phase is absent from the ordinary resistance-distance invariant and motivates precisely these endpoint norms. The result is self-contained and offers a reproducible benchmark for irregular join graphs.
+Verified definitions Q=D^T(DD^T)^+D, P=I-Q, h>=2,n>=4, real l1/l-infinity operator norms. The cyclic inverse of hI+L_C solves the wraparound recurrence and has total mass 1/h. For each of the three edge orbits, grounding the graph Laplacian yields the claimed entire absolute transfer-current column and the complementary diagonal correction; symmetry reduces the maximum to those three orbit sums. The Green threshold g_j>1/[h(h+n)] occupies 2 log(n)/log(1/rho)+O(1) indices, giving S=2/h-4 log(n)/(h log(1/rho)n)+O(1/n). Distinct limiting maximizers for h>=3 and the h=2 leading-order tie resolved by logarithmic correction prove all asymptotics. Independent exact-rational Laplacian computations replayed all edge columns for (h,n)=(2,4),(3,5),(4,4),(2,7), without inferring the infinite result from the finite tests.
 
-The formula concerns canonical orthogonal projections and does not establish optimal norms over arbitrary projections. Its asymptotic classifications assert existence of a cutoff, not its exact numerical location. Wider literature and independent validation remain necessary before treating novelty and correctness as externally certified.
+## originality
 
-Self-review: passed. Independent audit: not yet performed.
+PASS
+
+Newly checked all-join resistance theory gives shifted-Laplacian inverses and hence transfer-current entries by polarization; this is strong prior material. The assessed new mathematical statement evaluates the *absolute edge-current column sums*, maximizes over three edge orbits, and identifies the hub-count-dependent logarithmic versus reciprocal convergence regimes. Primary cut/cycle projection literature discusses Hamming cubes and tori. Those statements do not themselves assert this classification; possible equivalent specializations remain a residual priority risk.
+
+## value
+
+PASS
+
+K_h join C_n is a natural hub-and-ring graph family. Exact canonical projection endpoint norms quantify worst coordinate amplification, while the h=2 versus h>=3 change in maximizing edge and log(n)/n versus 1/n deficit is an unusual structural transition. Not a generic Laplacian inverse restatement.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
