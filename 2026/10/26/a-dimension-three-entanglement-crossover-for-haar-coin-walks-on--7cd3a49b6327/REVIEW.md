@@ -1,19 +1,21 @@
-# Scientific self-review
+# Independent mathematical audit
 
-## Correctness — PASS
+## correctness
 
-The claim concerns the mean of the **realized** reduced-coin purity, not the purity of the averaged density operator. The exact state after two steps is a sum over the ordered coin labels \(a,b\) at vertex \(e_a\oplus e_b\). Diagonal contributions are computed using the Haar-row Dirichlet second moment. For different final coin labels, the hypercube has exactly two matching path pairs, and independent Haar phases remove their cross term. The disjoint-entry unitary fourth moment \(1/(d^2-1)\) gives the off-diagonal contribution. The components sum to the stated rational function, with no uncontrolled limit or finite-enumeration inference. The attached code reconstructs two-step vertex amplitudes and checks 40 deterministic and stochastic assertions across eight dimensions, including 36,000 independent sampled coin pairs. The all-dimensional proof is symbolic and does not rely on the samples. The theorem explicitly excludes \(d=1\).
+PASS
 
-## Originality — PASS (self-review)
+For every d>=2, Haar U(d) invariance makes the initial coin vector complex-sphere uniform: E|u_a|^4=2/[d(d+1)], giving E P1=2/(d+1). At t=2 the diagonal reduced-coin purity contributes (d+3)/(d+1)^2, and off-diagonal two-path coincidences at the origin and e_b xor e_bprime contribute 2/(d+1)^2 via distinct Haar-row fourth moments 1/(d^2-1). Therefore E P2=(d+5)/(d+1)^2 and the difference is (3-d)/(d+1)^2; checked d=2 and d=3 boundaries and d>=4 sign. Independent state-amplitude Monte Carlo for d=2..6 (1500 pairs each) agreed within approximately two standard errors; finite samples are not proof. Checked exact normalized purity calculation independently.
 
-The primary 2026 source derives the averaged quantum channel and the hypercube walk, but its fully accessible 15-page version does not develop nonlinear single-realization reduced-coin purity. Vieira–Amorim–Rigolin (2013) and Fang *et al.* (2023) concern different random-coin ensembles or deterministic entangling protocols for one-dimensional walks. The exact dimension-three first-interference crossover does not follow from their statements without changing the object and calculating a nontrivial fourth-moment contraction. Targeted searches did not identify identical formulas; failure to find one is not proof of global novelty. Standard Haar–Weingarten moment theory can be used to derive the result, so unexamined general random-walk or random-circuit purity theorems remain a priority risk.
+## originality
 
-## Value — PASS
+PASS
 
-Coin–position purity is a physically motivated entanglement diagnostic for the model: an averaged depolarizing quantum channel erases the relevant nonlinear trajectory statistic. The two-step time is natural because it is the **first time two different coordinate-flip histories can reach the same vertex**, introducing coherent off-diagonal coin terms. The exact formula reveals a sharp dimension-dependent *direction reversal* of the mean entanglement change, plus its distance from maximally mixed coin purity. The crossover is not a parameter renaming or a routine inference from averaged transport; it separates two physically distinct finite-time regimes while making no broad later-time claims.
+Inspected the same global-Haar-coin Q_d model in Quillen 2026, including its operator and averaged-channel formula; it treats one-copy channel evolution, not the nonlinear two-copy expectation Tr(rho_C^2). Vieira 2013 and Fang 2023 study different two-state coin settings. Resultary search found dissimilar two-state walk and hypercube outcomes, not the exact d-dependent two-step crossover. Standard Haar fourth moments are prior tools, not a novel identity; general two-copy circuit methods could imply this specialized formula.
 
-## Closest literature and risks
+## value
 
-A. C. Quillen, Physical Review A 114, 042410 (2026), establishes the walk and its averaged channel; exact coincidence with this model is deliberate, and the new nonlinear observable is different. Vieira–Amorim–Rigolin (2013) and Fang *et al.* (2023) develop random-coin and optimal-coin entanglement phenomena under different protocols. Standard unitary-design moment calculus is a plausible general route to the formula; uninspected broader random-circuit literature might imply it implicitly. The evidence justifies a limited self-review originality judgment, not priority certification. Additional limits: no later-time monotonicity, no samplewise sign, no von Neumann entropy claim.
+PASS
 
-Self-review: passed. Independent audit: not yet performed.
+Exact short-time dependence of mean coin-position linear entropy on dimension is a motivated entanglement diagnostic; the d=3 sign boundary is a genuine model-specific effect lost under averaging the channel first. No longer-time or samplewise statement is claimed.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

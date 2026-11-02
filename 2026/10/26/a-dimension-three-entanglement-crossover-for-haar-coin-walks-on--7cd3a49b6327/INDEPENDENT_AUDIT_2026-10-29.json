@@ -1,0 +1,120 @@
+{
+  "audit_date_utc": "2026-10-29",
+  "audited_at_utc": "2026-10-29T14:03:23.405143Z",
+  "axes": {
+    "correctness": {
+      "rationale": "For every d>=2, Haar U(d) invariance makes the initial coin vector complex-sphere uniform: E|u_a|^4=2/[d(d+1)], giving E P1=2/(d+1). At t=2 the diagonal reduced-coin purity contributes (d+3)/(d+1)^2, and off-diagonal two-path coincidences at the origin and e_b xor e_bprime contribute 2/(d+1)^2 via distinct Haar-row fourth moments 1/(d^2-1). Therefore E P2=(d+5)/(d+1)^2 and the difference is (3-d)/(d+1)^2; checked d=2 and d=3 boundaries and d>=4 sign. Independent state-amplitude Monte Carlo for d=2..6 (1500 pairs each) agreed within approximately two standard errors; finite samples are not proof. Checked exact normalized purity calculation independently.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "General Haar fourth-moment identities apply to matrix entries; the graph-specific collision term requires a separate path analysis."
+        ],
+        "reasoning": "Possible full two-copy random-circuit formulas may subsume the calculation, but no decisive formula with this graph/coin covariance was identified.",
+        "searches": [
+          "Haar random coin discrete-time quantum walk hypercube mean reduced coin purity entanglement second step dimension three",
+          "random unitary circuits two-copy Haar Weingarten purity"
+        ]
+      },
+      "checked_sources": [
+        "Quillen 2026 DOI 10.1103/rmmp-xdqy, full PDF relevant sections",
+        "Vieira 2013 arXiv:1305.4191 (scope from abstract)",
+        "Fang 2023 arXiv:2209.01727 (scope from abstract)",
+        "Resultary 2026 query Haar random coin discrete-time quantum walk hypercube mean reduced coin purity entanglement second step dimension three"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "One-copy averaged depolarizing channel is insufficient to reconstruct the expected quadratic purity of random realizations."
+        ],
+        "reasoning": "The supplied fourth-moment and path-collision argument is not a direct implication of the inspected linear-channel conclusion; implicit broader theorem remains risk.",
+        "searches": [
+          "PhysRevA 114 042410 Eq57",
+          "arXiv:2607.04584",
+          "arXiv:2209.01727"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Linear entropy=1-Tr(rho_C^2) is equivalent to the stated purity observable; averaged channel E rho_C=I/d does not determine E Tr(rho_C^2)."
+        ],
+        "reasoning": "The 2013 random-coin line walk and its asymptotic entanglement do not entail the shared-Haar Q_d two-step moment formula.",
+        "searches": [
+          "Haar random coin discrete-time quantum walk hypercube mean reduced coin purity entanglement second step dimension three",
+          "Quillen PRA 114 042410 (2026), Eq. (57)",
+          "Vieira arXiv:1305.4191"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "Quillen 2026 hypercube analysis gives linear averaged-channel spectra rather than a table of realized-pure-state two-step purities."
+        ],
+        "reasoning": "No exact table covering all d>=2 found; search absence alone is not proof.",
+        "searches": [
+          "two step hypercube Haar coin purity (d+5)/(d+1)^2",
+          "Haar random coin discrete-time quantum walk hypercube mean reduced coin purity entanglement second step dimension three"
+        ]
+      },
+      "rationale": "Inspected the same global-Haar-coin Q_d model in Quillen 2026, including its operator and averaged-channel formula; it treats one-copy channel evolution, not the nonlinear two-copy expectation Tr(rho_C^2). Vieira 2013 and Fang 2023 study different two-state coin settings. Resultary search found dissimilar two-state walk and hypercube outcomes, not the exact d-dependent two-step crossover. Standard Haar fourth moments are prior tools, not a novel identity; general two-copy circuit methods could imply this specialized formula.",
+      "residual_risks": [
+        "General higher-moment quantum-channel frameworks could contain an equivalent specialization; no exhaustive theorem survey.",
+        "Only two time steps and a localized starting vertex, and mean linear entropy not higher-order or samplewise entanglement."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Gives averaged one-copy channel, not this nonlinear short-time expected purity.",
+          "evidence": [
+            "Phys. Rev. A 114, 042410 (2026), Sec. II and hypercube Sec. IV, Eq. 57; purity/entanglement keyword searches produced no hits."
+          ],
+          "identifier_or_url": "https://journals.aps.org/pra/pdf/10.1103/rmmp-xdqy",
+          "material_read": "Primary 15-page PDF: initial model, shift, averaged map and hypercube Eqs. (57)-(72); PDF text searched for purity and entanglement.",
+          "method": "PDF text/formula inspection and page screenshot.",
+          "title": "Quantum random walks on d-regular graphs with Haar-random coin operators",
+          "trigger": "Identical global-Haar coin model and hypercube example"
+        },
+        {
+          "assessment": "Two-state line walk differs, with full-text exclusion not newly established.",
+          "evidence": [
+            "Vieira, Amorim, Rigolin, PRL 111, 180503 (2013), two-state coin entanglement."
+          ],
+          "identifier_or_url": "https://arxiv.org/abs/1305.4191",
+          "material_read": "Article abstract/model and prior self-review discussion; full primary text not reopened in this execution.",
+          "method": "Scope/abstract comparison, no whole-document exclusion.",
+          "title": "Dynamically Disordered Quantum Walk as a Maximal Entanglement Generator",
+          "trigger": "Temporally disordered quantum coins"
+        },
+        {
+          "assessment": "Different optimized two-state setting; undiscovered implications remain possible.",
+          "evidence": [
+            "Fang et al., PRA 107, 012433 (2023)."
+          ],
+          "identifier_or_url": "https://arxiv.org/abs/2209.01727",
+          "material_read": "Article abstract/citation and source-package comparison; complete primary text not reopened in this execution.",
+          "method": "Scope comparison.",
+          "title": "Maximal coin-position entanglement generation in a quantum walk for the third step and beyond",
+          "trigger": "Finite-time entanglement and optimized coin choice"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "rationale": "Exact short-time dependence of mean coin-position linear entropy on dimension is a motivated entanglement diagnostic; the d=3 sign boundary is a genuine model-specific effect lost under averaging the channel first. No longer-time or samplewise statement is claimed.",
+      "status": "PASS"
+    }
+  },
+  "checked_sources": [
+    "Quillen 2026 DOI 10.1103/rmmp-xdqy, full PDF relevant sections",
+    "Vieira 2013 arXiv:1305.4191 (scope from abstract)",
+    "Fang 2023 arXiv:2209.01727 (scope from abstract)",
+    "Resultary 2026 query Haar random coin discrete-time quantum walk hypercube mean reduced coin purity entanglement second step dimension three"
+  ],
+  "disposition": "passed",
+  "limitations": [
+    "d>=2 only; same Haar unitary at all vertices per step; independent at distinct times; uniform coordinate-flip Q_d; no arbitrary graphs or longer time."
+  ],
+  "residual_risks": [
+    "General higher-moment quantum-channel frameworks could contain an equivalent specialization; no exhaustive theorem survey.",
+    "Only two time steps and a localized starting vertex, and mean linear entropy not higher-order or samplewise entanglement."
+  ],
+  "schema_version": 1
+}
