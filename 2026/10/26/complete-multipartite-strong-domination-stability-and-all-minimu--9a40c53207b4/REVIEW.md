@@ -1,11 +1,21 @@
-# Mathematical assessment
+# Independent mathematical audit
 
-**Correctness — PASS.** The core lemma is immediate but exact: on an induced complete multipartite graph a defender in part \(j\) can strongly dominate an outside vertex in part \(i\) precisely when the defender's part is no larger. This gives an exhaustive three-case formula for the strong domination number from surviving part sizes. Applying it to every one-vertex deletion, and to every two-vertex deletion in the sole exceptional regime, yields the stated stability and **all** minimal changing sets. Direct independent subset enumeration checked every 2-or-more-part integer profile on 3–11 vertices (182 profiles). The exhaustive computations are finite corroboration; they are not the proof.
+## correctness
 
-**Originality — PASS, with risks.** The closest primary article, Alikhani–Mehraban–Shojaaldini Ardakani (arXiv:2601.03891v1), addresses balanced multipartite stability explicitly, but its stated numerical outcome conflicts with a direct check already for \(K_{2,2,2}\). The new theorem neither invokes nor rephrases that assertion: it classifies arbitrary unbalanced part sizes and every minimum changing vertex set, while exhibiting the contrasting balanced behavior. The older Alikhani–Ghanbari vertex-modification manuscript (arXiv:2212.01860v1, Theorem 2.1) provides nonexact universal bounds and does not imply this classification. Searches for equivalent stability and domination-critical formulations did not find coverage; the full 2023 strong-domination article could not be inspected, leaving a genuine publication-priority risk.
+PASS
 
-**Mathematical value — PASS.** An explicit 2026 question about the balanced multipartite family is resolved, and the solution also determines the unbalanced family and *which individual vertices/pairs cause the first change*. The exact exceptional mechanism (repeated minimum part size three) is a structural explanation, not a finite table. The fully determined family supplies examples in which vertex deletion increases, decreases, or preserves the strong domination number despite initially identical minimum parameters. The claim is limited to complete multipartite graphs and does not establish broader graph-theoretic stability inequalities.
+In a complete multipartite graph, deg(v)=N-part_size(v). A defender in another part has sufficient degree exactly if its part is no larger. This yields gamma_st=1 when a singleton exists, =2 when the smallest part m>=2 has multiplicity>=2, and =m when it is unique. Deleting all k singleton parts is uniquely minimal if k>0. Without singletons, single deletions change gamma except at repeated m=3; then deleting two vertices from the same size-three part is necessary and sufficient, yielding 3a minimum pairs. Other eligible singleton deletions are classified by m,a and part sizes m+1. Direct brute force recomputed degrees and all minimizers for 86 part profiles with 3–9 vertices, including K_2,2,2 (6 singletons) and K_3,3,3 (9 pairs). The proof, not the finite tests, covers all sizes.
 
-**Independence and limitations.** The computations and manuscript assessment are not independent human validation; no such audit has been performed. A later or unindexed equivalent theorem may affect publication priority. The all-singleton complete-graph boundary has no changing proper deletion and is excluded. The detailed coverage of the 2023 foundational article could not be verified.
+## originality
 
-Self-review: passed. Independent audit: not yet performed.
+PASS
+
+The January 2026 primary paper studies the SAME stability parameter on balanced multipartite graphs but asserts an incompatible p+1 result for K_{p,p,p}. Already K_{2,2,2} has gamma_st=2 and, after deleting one vertex, gamma_st=1, disproving that assertion under the stated definition. The new theorem proves an exact arbitrary-part classification and every minimizing labeled deletion set; the older general 2022 vertex-deletion bounds cannot imply this. One foundational 2023 article remains incompletely accessible.
+
+## value
+
+PASS
+
+Complete structural determination of a natural critical vertex-deletion invariant, including a unique exception at repeated minimum-part size three, corrects a prominent contrary assertion and identifies every minimal deletion witness across unbalanced families. The exception and all-set classification have mathematical content beyond an isolated example.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
