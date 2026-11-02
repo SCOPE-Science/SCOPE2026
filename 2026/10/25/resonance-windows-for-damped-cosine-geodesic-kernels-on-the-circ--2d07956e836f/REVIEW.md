@@ -1,11 +1,21 @@
-# Self-review
+# Independent mathematical audit
 
-**Correctness — PASS.** The circle Schoenberg criterion is reduced by a fully displayed exact integral into two affine-in-degree-squared numerator formulas. Four and only four endpoint/slope inequalities enforce all modes. Positive higher Fourier modes prove strict definiteness even at equality, and a compact-offset argument proves the sharp resonance-window width. Randomized numerical and quadrature checks are reproducibility diagnostics, not proof substitutes.
+## correctness
 
-**Originality — PASS under bounded literature comparison.** Inspected primary references give the general circle coefficient criterion and unmodulated exponentials, but do not evaluate the damped-cosine family. Related existing circle results with \(1+b\cos\theta\) control amplitude at a fixed frequency, not the noninteger frequency landscape. Exact scientific-result searches found no matching complete four-inequality/window classification. A 2016 dissertation that mentions damped-cosine correlations remained protected and is the principal unresolved overlap risk.
+PASS
 
-**Value — PASS.** Choosing a noninteger geodesic oscillation can invalidate an otherwise legitimate circular covariance function. The theorem replaces infinitely many mode checks by four exact inequalities and shows surprising arithmetic islands of validity with quantitative \(1/k\) width. Exact strict definiteness matters for interpolation matrices. The result does not claim validity beyond \(\mathbb S^1\).
+Exact product-to-sum integration gives I_n=[X_n(R+n²)+Y_n(R−n²)]/[(a²+(omega+n)²)(a²+(omega−n)²)], denominator positive for a>0. Even numerator (E−Y)n²+(E+Y)R and odd numerator (O+Y)n²+(O−Y)R; all infinite mode signs equivalent to the two even endpoints/slope and two odd endpoints/slope. For n≥2 admissible coefficients are strictly positive; Vandermonde frequencies 2,...,N+1 give strict positive definiteness. At integer omega Y=0 and E,O>0. Uniform offset omega=k+u/k and global bound on |Y| imply limiting admissible |u|≤a(1−q)/(pi q), with compactness showing the excluded exterior. Independently evaluated 21 damp/frequency pairs, 160 modes each, and 105 numerical quadratures; not an infinite proof.
 
-**Limits.** Source coverage is bounded; protected dissertation comparison is unresolved; independent audit and independent validation are not performed.
+## originality
 
-Self-review: passed. Independent audit: not yet performed.
+PASS
+
+Best-of-knowledge exact oscillatory geodesic-circle classification and 1/k resonance law not in inspected generic Schoenberg/Pólya results. The 2016 Fiedler dissertation remains an inaccessible plausible related source, explicitly a historical-priority risk, not treated as proof of noncoverage.
+
+## value
+
+PASS
+
+Oscillatory modulation need not preserve circular positive definiteness; reducing infinitely many Fourier tests to four scalar inequalities and deriving infinite frequency islands with sharp width is a natural covariance-design/approximation-theory parameter classification. Boundary strictness ensures nonsingular interpolation, not a numerical curiosity.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
