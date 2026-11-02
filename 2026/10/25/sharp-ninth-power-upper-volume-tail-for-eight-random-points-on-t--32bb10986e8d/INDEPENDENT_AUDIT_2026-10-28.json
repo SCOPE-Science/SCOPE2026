@@ -1,0 +1,110 @@
+{
+  "audit_date_utc": "2026-10-28",
+  "audited_at_utc": "2026-10-28T04:02:01.731417Z",
+  "axes": {
+    "correctness": {
+      "rationale": "Medgyes Corollary 5.2 supplies the global maximum V=2/3 and uniqueness up to O(4) of the regular cross-polytope for eight spherical vertices. There are exactly 8!/(2^4*4!)=105 disjoint label-pair orbits, each free O(4) of dimension six in ambient (S^3)^8 dimension 24. Fixed local crosspolytope facet chamber gives exact V=(2/3)det((p_i^+-p_i^-)/2), without requiring perturbed antipodal symmetry. In tangent coordinates x=(u-v)/2,y=(u+v)/2 the quadratic determinant deficit is (1/2)sum ||y||^2+(1/2)sum_{i<j}(x_ij+x_ji)^2: six antisymmetric x modes are rotational tangents, leaving 12 y modes and 6 symmetric modes. Under product-sphere orthonormal coordinates, Delta=(1/6)||z_y||^2+(1/3)||z_s||^2+O(||z||^3), positive on the 18-dimensional normal. The ellipsoid measure is pi^9 6^6 3^3/9! epsilon^9. Each maximizing orbit has induced volume 2^6*32pi^4, while ambient volume is (2pi^2)^8; multiplication by 105 gives 2916/pi^3. Compactness and uniform tubular dominated convergence justify the limit. Independently checked the exact prefactor as rational 2916, 16 determinant-vs-SciPy hull comparisons (max error 2.3e-16), and second variation (error <5.1e-6 at tested scales). Neither these numerics nor logs replace the Morse–Bott proof or Medgyes input.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Medgyes strongest result covers all combinatorial eight-vertex types but only deterministic maximum and equality; Horváth–Lángi restricted class; random S2 work has different dimension/sample statistic."
+        ],
+        "reasoning": "General nondegenerate Morse–Bott tube principles can yield the exponent given an isolated orbit and Hessian; no searched earlier source performs this exact eight-S3 Hessian/measure evaluation. Broad techniques do not mechanically supply 2916/pi^3.",
+        "searches": [
+          "Medgyes Inscribed 4-polytopes of maximal volume with seven and eight vertices",
+          "Horváth–Lángi Maximum volume polytopes inscribed in the unit sphere",
+          "Akopyan–Edelsbrunner–Nikitenko The Beauty of Random Polytopes Inscribed in the 2-sphere"
+        ]
+      },
+      "checked_sources": [
+        "Frozen RESULT.md blob 3805e916170dc4c9bf399aa7c957b5e818192135 and check_tail.py blob 4276a0c09eaecda0977eada9c652d4ecbb316d95",
+        "Medgyes arXiv:2610.26886 full primary open text Corollary 5.2",
+        "Independent rational exact labeled-matchings/orbit/ellipsoid constant and SciPy hull-vs-determinant/Hessian tests",
+        "Resultary eight-point S3 random upper-volume-tail query",
+        "Horváth–Lángi arXiv:1402.6496 and Akopyan et al. arXiv:2007.07783 background"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "Earlier strongest implication is V<=2/3, equality only crosspolytopes; their arguments leave normal quadratic determinant and 105 labeled orbits uncomputed."
+        ],
+        "reasoning": "The probability limit uses, but strictly refines in a stochastic direction, the geometric extremal result; it is not a special case of deterministic uniqueness or of random S2 expected-volume formulas.",
+        "searches": [
+          "arXiv:2610.26886 Section 5 Theorem 5.1 and Corollary 5.2",
+          "arXiv:1402.6496 cross-polytope theorem",
+          "arXiv:2007.07783 Sections 5 and 7"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "The prior variational theorem says V<=2/3 and identifies equality polytope, whereas the claim is probability P(2/3-V<epsilon)~(2916/pi^3)epsilon^9."
+        ],
+        "reasoning": "Morse–Bott/tube localization is the equivalent measure-geometric formulation. Maximizer classification alone does not determine Hessian determinant, labeled orbit volume or an exact distributional coefficient.",
+        "searches": [
+          "arXiv:2610.26886 Corollary 5.2",
+          "arXiv:1402.6496 regular cross-polytope",
+          "Resultary: 8 random points S3 4D near maximum volume tail"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "Exact combinatorial maximum is 105 matching label classes; no known table of the near-max upper-tail coefficient was identified in the compared searches."
+        ],
+        "reasoning": "An existing tabulation of maximizer volume 2/3 does not tabulate a probability tail. Searches and inspected closest sources did not locate a formula for this exact labeled sample/dimension/epsilon regime; search failure is not priority proof.",
+        "searches": [
+          "Resultary: eight-point spherical polytope upper volume tail ninth power",
+          "Web: fixed-size random inscribed polytope upper tail regular crosspolytope epsilon^9",
+          "Medgyes 2026 appendices and certificates"
+        ]
+      },
+      "rationale": "Best-of-knowledge original exact upper-endpoint probability tail for eight iid sphere-surface points in R^4. The new global deterministic maximizer theorem of Medgyes (2026-10-12) is an essential input; Horváth–Lángi established crosspolytope maximality within that combinatorial type. Neither supplies a random labelled-orbit tube volume, normal Hessian, ninth power or coefficient. Other random-polytope works address different N/dimensions or expected global statistics.",
+      "residual_risks": [
+        "The global-maximality and equality input relies on Medgyes 2026 exact algebraic certificates that were not independently rechecked in this audit.",
+        "A broader unpublished/local Laplace–Morse–Bott random-polytope calculation could already evaluate the same constant.",
+        "Independent finite hull calculations probe local chamber only; proof requires compactness and all 105 labeled maximizer orbits."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Confirms global regular crosspolytope equality and value 2/3, but no random near-endpoint probability law; external algebraic certificates were not independently rechecked.",
+          "evidence": "Corollary 5.2 states v_4(8)=2/3 and every maximizer is regular crosspolytope; 2026-10-12.",
+          "identifier_or_url": "https://arxiv.org/abs/2610.26886",
+          "material_read": "Read full accessible primary HTML introduction, Section 3 certificate method, Section 5 Theorem 5.1 and Corollary 5.2 including the equality statement.",
+          "method": "Original full-text extremizer theorem and object/parameter comparison",
+          "title": "Inscribed 4-polytopes of maximal volume with seven and eight vertices",
+          "trigger": "Exact global maximum and equality input on eight vertices in S3"
+        },
+        {
+          "assessment": "Optimality among crosspolytope combinatorial class, not an all-types random upper-tail measure.",
+          "evidence": "Horváth–Lángi 2016 maximality among crosspolytopes, as cited by Medgyes.",
+          "identifier_or_url": "https://arxiv.org/abs/1402.6496",
+          "material_read": "Read arXiv primary abstract/introduction and relevant maximality statement as incorporated in Medgyes introduction; full earlier paper not comprehensively read.",
+          "method": "Primary-abstract plus later original-paper theorem comparison",
+          "title": "Maximum volume polytopes inscribed in the unit sphere",
+          "trigger": "Closest earlier optimal crosspolytope geometry"
+        },
+        {
+          "assessment": "Random S2 polytope expected quantities, not eight-point S3 four-dimensional maximal-volume endpoint tail.",
+          "evidence": "Akopyan–Edelsbrunner–Nikitenko 2020, Sections 5 and 7 cited in submitted package.",
+          "identifier_or_url": "https://arxiv.org/abs/2007.07783",
+          "material_read": "Inspected primary abstract and referenced scope for intrinsic volumes/deficits; entire paper not re-read in this execution.",
+          "method": "Scope and dimension/statistic comparison",
+          "title": "The Beauty of Random Polytopes Inscribed in the 2-sphere",
+          "trigger": "Potentially dominating random spherical convex hull result"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "rationale": "The fixed-N near-extreme distribution of a canonical random inscribed polytope is a natural probability-geometry invariant. The exponent nine records a nontrivial normal codimension and the coefficient captures all labeled extremizer orbits and local curvature. It is not a purely deterministic volume maximum or an arbitrary finite numerical slice.",
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "limitations": [
+    "Eight independent labeled uniform surface points on unit S3; four-dimensional volume; asymptotic only as epsilon tends to 0.",
+    "No exact finite-epsilon law, higher-order error, other sample counts or 4-ball sampling.",
+    "The 2026 global maximizer classification is an external theorem, not a new claim."
+  ],
+  "schema_version": 1
+}
