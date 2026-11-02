@@ -1,0 +1,12 @@
+# Scientific review
+
+## Correctness — PASS
+The exact domain comprises the \(65536\) subsets of a labelled sixteen-vertex hypercube. The identification test is equivalent to requiring all sixteen closed-ball response signatures to be different and nonempty. Both programs verify the absence of identifying codes below size seven and the full count \(960\). Every legal one-element exchange is generated, and all-source BFS verifies the uniform eight-shell histogram and connectivity. The independent program instead uses sensor-index response tuples and full group-orbit representatives. The independent methods agree on the entire claim; finite exhaustive testing, not finite extrapolation, proves this fixed-size result. Risk: ordinary executable certificates require a correct standard Python 3 interpreter; no independent formal proof audit.
+
+## Originality — PASS (qualified)
+The previously known optimal cardinality seven, generic abundance bounds, and general Johnson-induced-subgraph realization of optimal-code families are excluded from novelty. Honkala–Hudry–Lobstein (2015), DOI 10.1016/j.dam.2014.08.020, was read as a nine-page primary text; it studies general extremal numbers and constructions rather than this specific cube metric. Their closely relevant ensemble paper, DOI 10.1007/s12095-015-0148-3, states a general realization theorem in its accessible abstract; a Johnson-graph realization theorem for arbitrary families does not imply the actual family and exchange distances for the fixed four-cube. That full subscription text was not accessible, so a specific coincident enumeration remains possible. Focused literature queries and existing research records did not identify an equivalent four-cube enumeration. Residual risk: unindexed or inaccessible preexisting exact code-swap profiles.
+
+## Value — PASS
+An identifying code is an economical sensor layout that distinguishes all possible single-site events. The possible optimal layouts and permissible single-sensor relocations are intrinsic, natural optimization objects. The exact 960-state connected nine-regular move graph and sharp worst-case seven-step path quantify how far optimal sensors can be rearranged while never sacrificing identifiability. In addition, all states share the same full distance profile although the cube's own symmetry group has three distinct orbits; this is a concrete and nonobvious symmetry-versus-metric distinction. It is not a mere restatement of the known minimum-cardinality invariant.
+
+Self-review: passed. Independent audit: not yet performed.
