@@ -1,0 +1,123 @@
+{
+  "correctness": {
+    "rationale": "For each finite tree, the three one-step identities for leaf count L, Wiener index W, and leaf distance sum A follow by adding a new leaf and removing its parent from the leaf set when necessary. Parent averaging gives E(W-A)=-(n-1)(n-2)/4 and E L=n/2, and total covariance gives C_{m+1}=(m+1)C_m/m + E(W_m-A_m)/m. Harmonic telescoping yields C_n=nH_n-(n²+5n-2)/4, with sign determined by a nonnegative summand. Independently evaluated exact-rational exhaustive enumeration of 46,233 recursive trees for sizes 2–9, 5,912 conditional parent transitions and 198 moment-recursion steps passed. Finite tests supplement the all-n analytic proof. The correlation consequence additionally cites Neininger (2002) for the known Wiener variance asymptotic.",
+    "status": "PASS"
+  },
+  "independent": false,
+  "independent_audit_status": "not_performed",
+  "originality": {
+    "broader_coverage": {
+      "evidence": [
+        "Neininger gives E(W), Var(W), Cov(W, total path length) and a limit law for (W, total path length), but no leaf variable in his inspected eleven-page paper.",
+        "Grübel–Michailow Theorem 12 establishes almost-sure Wiener limits via subtree-size functionals, not finite-n leaf/Wiener covariance.",
+        "Related literature on terminal Wiener index discusses sums of distances between pairs of leaves, a different functional."
+      ],
+      "reasoning": "Known stronger analysis of marginal Wiener fluctuations and joint Wiener/path length does not yield E(LW) from marginals. The new argument requires E(W-A) for the sum A of leaf distance centralities. No inspected broad theorem covers this exact observable.",
+      "searches": [
+        "R. Neininger, The Wiener Index of Random Trees, DOI 10.1017/S0963548302005321, Theorem 1.2, §§1–3",
+        "R. Grübel and I. Michailow, Random Recursive Trees: A Boundary Theory Approach, arXiv:1406.7614v1, §3.3",
+        "random recursive trees joint Wiener index number of leaves correlation mixed moments"
+      ]
+    },
+    "checked_sources": [
+      "Neininger (2002) DOI 10.1017/S0963548302005321 (full primary text)",
+      "Grübel–Michailow arXiv:1406.7614v1 (full primary paper relevant sections)",
+      "Maehara (1984) leaf-count archival abstract/model",
+      "Lundblad 2025 terminal-Wiener seminar abstract (abstract only)",
+      "Published research records for root-degree/leaves, root-attachments/path length, endpoint degree/distance"
+    ],
+    "claim_vs_prior_implication": {
+      "evidence": [
+        "Neininger joint random vector (W,P) has no L component, so Cov(W,P) does not determine Cov(L,W).",
+        "Grübel–Michailow limit W/n² does not recover finite-n Cov(L,W).",
+        "Root-degree/leaf covariance involves degree of root, whereas root-attachment/path uses depth sum; no claim covers leaf/Wiener covariance.",
+        "The leaf-centrality identity E(W-A)=-(n-1)(n-2)/4 is the new intermediate relation required for the finite-n formula."
+      ],
+      "reasoning": "The candidate is not a notational restatement, numerical instance, or immediate corollary of the compared published statements. It uses an additional marked-leaf distance statistic and a new covariance closure.",
+      "searches": [
+        "Neininger Theorem 1.2 compared with E(LW)",
+        "Grübel–Michailow Theorem 12 compared with finite-n Cov(L,W)",
+        "published records ab0acf44833f and 3b3e0426b1ba compared by random variables and parameterization"
+      ]
+    },
+    "equivalent_formulations": {
+      "evidence": [
+        "Neininger (2002), Theorem 1.2 concerns the joint vector (Wiener index, internal path length), while the proposed vector is (leaf count, Wiener index).",
+        "Grübel–Michailow arXiv:1406.7614v1, §3.3 proves a Wiener limit theorem with no leaf statistic.",
+        "Closest published finding ab0acf44833f computes Cov(root degree, leaves), not Cov(leaves, Wiener index)."
+      ],
+      "reasoning": "Aliases for leaf count (endpoints, terminal vertices, outdegree zero) and Wiener index (sum of all-pairs distances) were compared. Neither a deterministic reduction from root path length nor a matching conditional statistic occurs; at size five two recursive trees with the same root path sum six have Wiener indices 18 and 20.",
+      "searches": [
+        "uniform random recursive tree covariance leaf count Wiener index total pairwise distances exact formula harmonic",
+        "random recursive trees joint Wiener index number of leaves correlation mixed moments",
+        "random recursive tree peripheral leaf distance mean Wiener index",
+        "search: leaf count; endpoint count; terminal vertices; mean leaf distance; Wiener index; total pairwise distances in random recursive trees"
+      ]
+    },
+    "exact_database_or_table": {
+      "evidence": [
+        "No exact joint leaf/Wiener numerical table or indexed covariance identity appeared in the returned published results.",
+        "Related published research records contain recursive-tree root-degree/leaf and root-attachment/path-length claims, but not the exact leaf/Wiener mixed moment."
+      ],
+      "reasoning": "A one-variable Wiener-index mean or a leaf-count distribution table is not an exact table of the cross moment E(LW). The indexed-search comparisons have finite coverage and do not prove uniqueness.",
+      "searches": [
+        "published research-record searches: covariance of number of terminal vertices and total pairwise distances in random recursive increasing tree",
+        "published research-record searches: recursive tree leaf count Wiener index average distances joint exact covariance correlation",
+        "published research-record comparison: root degree versus leaves, root attachment versus path length, and endpoint degree versus distance"
+      ]
+    },
+    "rationale": "The exact finite-size covariance between leaf count and Wiener index, including its strict sign pattern and the leaf-distance-sum closure, was not found in the actual searches or inspected closest full texts. Neininger (2002) derives joint Wiener/root-path statistics and Grübel–Michailow (2014) the Wiener asymptotic, neither including leaf counts. Different published leaf/root-degree or root-attachment/path findings do not imply the claim. This is a best-knowledge priority assessment, not a claim of mathematically proved historical uniqueness.",
+    "residual_risks": [
+      "An unlocated historical multivariate generating-function or additive-tree-functional identity might subsume the covariance even if it uses different notation.",
+      "The 2025 terminal-Wiener seminar manuscript was not available for full-text comparison; its abstract describes a different observable.",
+      "Similarity search and local source access cannot establish absolute historical priority."
+    ],
+    "source_inspections": [
+      {
+        "assessment": "Covers (W,P) with P internal root path length, E(W), Var(W), Cov(W,P); no leaf count or E(LW) identity in inspected material.",
+        "evidence": "Theorem 1.2 pp. 589–590 and §2 pp. 594–595 explicitly identify (W,P), not (W,L).",
+        "identifier_or_url": "https://doi.org/10.1017/S0963548302005321",
+        "material_read": "Full eleven-page publisher text was available; reviewed abstract, introduction, Theorem 1.2 and its Wiener/path-length mixed moment analysis, the end of the proof and remarks, and searched all pages for leaf and terminal terminology.",
+        "method": "Relevant primary full-text sections and full-document term comparison.",
+        "title": "The Wiener Index of Random Trees",
+        "trigger": "Same uniform recursive-tree ensemble and Wiener index; plausible dominating mixed-moment theorem."
+      },
+      {
+        "assessment": "Proves strong limits for Wiener index and path length, not leaf/Wiener mixed moments.",
+        "evidence": "arXiv v1 June 30 2014, §3.3 pp. 15–16, Theorem 12.",
+        "identifier_or_url": "https://arxiv.org/pdf/1406.7614",
+        "material_read": "Primary text, including §1 model, §2 growth decomposition, §3.3 Wiener index and Theorem 12, and full-document leaf-term check.",
+        "method": "Lawful open arXiv complete paper, text and relevant page visual inspection.",
+        "title": "Random Recursive Trees: A Boundary Theory Approach",
+        "trigger": "Primary 60C05 and same recursive-tree Wiener functional, theorem on limit behavior."
+      },
+      {
+        "assessment": "Concerns marginal leaf count asymptotic normality, not its covariance with all-pairs distance.",
+        "evidence": "Maehara (1984) abstract and introductory model; no whole-document exclusion is asserted.",
+        "identifier_or_url": "http://hdl.handle.net/20.500.12000/9631",
+        "material_read": "Accessible abstract and introductory description of the uniform recursive-tree model and asymptotic leaf count.",
+        "method": "Public archival text/abstract.",
+        "title": "The number of endpoints in a random recursive tree",
+        "trigger": "Historical marginal distribution of leaf count under the same recursive-tree ensemble."
+      },
+      {
+        "assessment": "Describes leaf-to-leaf terminal Wiener index and mean distances; this is not the claimed Cov(number of leaves, ordinary Wiener index). A full-text priority comparison remains unverified.",
+        "evidence": "13 March 2025 seminar description explicitly defines terminal Wiener index as pairwise distances between leaves.",
+        "identifier_or_url": "https://www.uu.se/en/department/mathematics/research/probability-theory-and-combinatorics/seminar-series-in-probability-and-combinatorics/archive/2025-03-13-pc-seminar-the-terminal-wiener-index-of-random-recursive-trees",
+        "material_read": "Public seminar abstract only; no full research manuscript recovered.",
+        "method": "Abstract-level related-work check with explicit scope limitation.",
+        "title": "The Terminal Wiener index of random recursive trees",
+        "trigger": "Possible newer coverage involving leaf-to-leaf distances."
+      }
+    ],
+    "status": "PASS"
+  },
+  "review_type": "self_review",
+  "schema_version": 1,
+  "scope_run_id": "d21fe461-406e-464b-9f10-629846ece4a6",
+  "self_review_status": "passed",
+  "value": {
+    "rationale": "Leaf abundance (a local degree count) and the Wiener index (global all-pairs distance) are foundational and naturally compared in random-tree geometry. The exact finite-size negative dependence from n=4 onward is nontrivial because the Wiener index is not determined by root path length; the proof reveals a new leaf-distance-centrality balance and separates an order-n² covariance from an order-n^-1/2 correlation. It is a motivated joint structural statistic, not an arbitrary parameter slice or mere marginal recomputation.",
+    "status": "PASS"
+  }
+}
