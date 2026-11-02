@@ -1,0 +1,102 @@
+{
+  "correctness": {
+    "rationale": "For b>=1 and r>=0, a proved zero-gap minimization formula exactly characterizes the number of deletions needed to avoid 0 1^b 0. A counting dichotomy proves the lower bound b+2+2r+min(r,b-1); three exhaustive cases for the shortest witness prove sharpness, and inversion yields the n-profile. The executable independently compares automaton and gap methods on 163835 words, tests 75 extrema, 960 constructions and 1201 explicit deletion masks. Boundary cases r=0 and b=1 are included; finite computations are not the infinite proof.",
+    "status": "PASS"
+  },
+  "independent": false,
+  "independent_audit_status": "not_performed",
+  "originality": {
+    "broader_coverage": {
+      "evidence": [
+        "Xie–Sun–Ge arXiv:2606.15379v1 Sections I and III concern insertion/deletion covering and prove a specific absence-of-robustness assertion for 0110.",
+        "Liron–Langberg arXiv:1202.1644 counts distinct descendants rather than mandating retention of a fixed pattern in every descendant."
+      ],
+      "reasoning": "A code covering all words is quantified over multiple target words, whereas the present problem fixes one target and quantifies over every adversarial deletion outcome. Neither the broad covering bounds nor the deletion-ball counting bounds supply the exact sandwich-pattern robustness threshold.",
+      "searches": [
+        "2026 arxiv combinatorial coding theory deletion correcting codes exact open problem 2026",
+        "\"subsequence\" \"resilience\" \"pattern\" \"deletion\" binary",
+        "2026 Xie Sun Ge insertion deletion covering codes forbidden subsequence 0110 extremal robust threshold"
+      ]
+    },
+    "checked_sources": [
+      "arXiv:2606.15379v1 (relevant HTML sections inspected)",
+      "arXiv:1202.1644 (abstract-level evidence only)",
+      "Published research claim descriptions returned for robust subsequence, forbidden-pattern and equivalent-parameter searches"
+    ],
+    "claim_vs_prior_implication": {
+      "evidence": [
+        "Xie–Sun–Ge Theorem III.2: each binary word of length 2r+4 admits r deletions producing a word avoiding 0110.",
+        "This establishes L_2(r)>2r+4 (r>=1), a strict lower bound, but does not establish the matching length-2r+5 witness; no statement for b>=3 or the fixed-length maximum is given."
+      ],
+      "reasoning": "The prior theorem implies only the special-case lower bound. The present gap lemma and two-interval argument together with explicit optimal witnesses establish both directions for all b,r. Earlier descendant-count and universality results have different quantifiers and do not imply this formula.",
+      "searches": [
+        "\"deletions\" \"every subsequence\" \"0110\" \"2026\"",
+        "\"fault-tolerant supersequence\" deletion",
+        "\"robust supersequence\" \"subsequence\" deletions pattern shortest"
+      ]
+    },
+    "equivalent_formulations": {
+      "evidence": [
+        "No exact matching theorem was identified in queried accessible records. arXiv:2606.15379v1 uses equivalent failure-to-avoid quantification but only the fixed 0110 lower side."
+      ],
+      "reasoning": "The statement is equivalently the minimum robust supersequence length, an extremal deletion hitting number, or the maximum length of a pattern-avoiding deletion-resistant language. Reversal and complement replace 0 1^b 0 by 1 0^b 1 without changing the new threshold; these aliases were checked. No identified result implies b+2+2r+min(r,b-1) for arbitrary b.",
+      "searches": [
+        "\"0 1^b 0\" \"subsequence\" \"deletions\" threshold",
+        "\"shortest\" \"deletions\" \"0110\" subsequence",
+        "minimum length string containing pattern as subsequence after deleting any k characters",
+        "binary words robust subsequence 0 1^b 0 for any R deletions, minimum length of word retaining specified subsequence after arbitrary deletions"
+      ]
+    },
+    "exact_database_or_table": {
+      "evidence": [
+        "The closest indexed independent scientific claims concern full-support insertion distance to universality and short-deletion code profiles; neither tabulates or determines this pattern-specific deletion threshold.",
+        "Accessible related prior claims on the same finite alphabet concern enumeration of descendants or subsequence universality, not a robust sandwich-subsequence profile."
+      ],
+      "reasoning": "No matching exact table or equivalent parameter identity was located. A missing index entry is not treated as a proof of novelty.",
+      "searches": [
+        "exact minimum word length so that all r deletion descendants contain subsequence 0 1^h 0, sandwich forbidden pattern adversarial deletion robustness phase transition",
+        "forbidden subsequence ab^h a extremal deletion tolerance threshold L=h+2+2r+min(r,h-1), all alphabet sizes",
+        "\"0 1^k 0\" \"subsequence\" \"avoid\" extremal"
+      ]
+    },
+    "rationale": "The closest 2026 primary result gives a universal avoidant deletion for the fixed forbidden subsequence 0110 at length 2r+4, but no sharp existence in length 2r+5, no variable central run b and no n-by-n deletion-resilience law. Searches of related database claims, full relevant paper sections, title and equivalent formulations revealed no implication covering the exact two-parameter theorem. Priority uncertainty from unindexed literature remains.",
+    "residual_risks": [
+      "The combination of a general exact supersequence-robustness result and a reduction not indexed by these phrases could cover the theorem.",
+      "The second paper was compared only at abstract level and cannot support a claim about the entire document.",
+      "Unindexed sources and unpublished claims cannot be excluded by any finite search."
+    ],
+    "source_inspections": [
+      {
+        "assessment": "NOT_COVERING: the proof establishes avoidability at 2r+4 only; it gives no exact robust-minimum formula for variable b and no extremal resilience profile.",
+        "evidence": [
+          "arXiv:2606.15379v1, Section III, Theorem III.2, direct proof for forbidden subsequence 0110."
+        ],
+        "identifier_or_url": "https://arxiv.org/html/2606.15379",
+        "material_read": "Introduction, definitions, known results, full Theorem III.2 and proof (through its closing paragraph), and main claims in covering/burst-deletion sections.",
+        "method": "Direct inspection of accessible original arXiv HTML and comparison of theorem quantifiers and numerical implications.",
+        "title": "New bounds for covering codes under insertions or deletions",
+        "trigger": "Exact same forbidden subsequence 0110 occurs in the proof separating two covering notions."
+      },
+      {
+        "assessment": "Not decisive as a whole-document priority exclusion; the advertised invariant counts descendants, not preservation of one designated pattern under all deletions.",
+        "evidence": [
+          "arXiv:1202.1644 abstract: bounds on number of subsequences after t deletions."
+        ],
+        "identifier_or_url": "https://arxiv.org/abs/1202.1644",
+        "material_read": "Bibliographic abstract, not the full paper.",
+        "method": "Abstract-level concept and conclusion comparison.",
+        "title": "A characterization of the number of subsequences obtained via the deletion channel",
+        "trigger": "Possible broader deletion-channel enumeration coverage."
+      }
+    ],
+    "status": "PASS"
+  },
+  "review_type": "self_review",
+  "schema_version": 1,
+  "scope_run_id": "750420b8-8be6-4473-8fe5-5514f4b49683",
+  "self_review_status": "passed",
+  "value": {
+    "rationale": "The precise threshold is motivated by the 2026 forbidden-0110 argument used to separate insertion and deletion covering notions. The theorem resolves the entire infinite sandwich-pattern family, gives all fixed-length extremal deletion thresholds, and explains the switch from a cost of three to two added symbols per extra adversarial deletion at r=b-1. The structural zero-gap proof and explicit witnesses are not finite enumeration or a cosmetic substitution.",
+    "status": "PASS"
+  }
+}
