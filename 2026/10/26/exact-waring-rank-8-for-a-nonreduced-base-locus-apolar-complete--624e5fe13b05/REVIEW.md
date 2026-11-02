@@ -1,15 +1,21 @@
-# Self-review
+# Independent mathematical audit
 
-## Correctness — PASS
-The three annihilator identities and socle normalization are exact. The eight-point radical Gröbner basis establishes the upper bound, while the case split for seven distinct projective apolar points is exhaustive. For configurations with no five on a line, degree-three point interpolation and degree-four ideal generators force the impossible inclusion of a doubled point into a reduced scheme. For five collinear points, the unique quadric and a binary restriction force an impossible double factor in the quintic defining five distinct line points. Standard-library exact checks verify the algebraic identities. The argument is over the complex numbers and uses the apolarity lemma.
+## correctness
 
-## Originality — PASS, subject to documented residual risk
-Bhat–Carlini–Masuti–Sebastian, arXiv:2610.18346v1, Example 6.1, provide only a lower bound greater than four and upper bound eight. Bhat–Sebastian, arXiv:2610.21544v1, Example 4.1, exclude complete-intersection minimal apolar point sets but do not rule out five, six or seven non-complete-intersection points. This proof supplies exactly that exclusion. Searches for equivalent apolar ideals, rank-eight decompositions and stronger coverage found no identified implication. An unindexed independently equivalent exact calculation remains possible.
+PASS
 
-## Mathematical value — PASS
-The precise complex rank of a specifically named unresolved example is the natural invariant at the center of the cited papers. It matters even without a general rank theorem or a classification of all minimal decompositions; the seven-point obstruction is structural and not a small numerical experiment.
+Three differential annihilator identities and complete-intersection socle degree 6 verify the apolar ideal. An explicit degree-eight reduced scheme has ideal J=(XY,Y(Y^2-Z^2),X^6+Z^4(Y^2-Z^2)); its generators lie in F^perp by the exact identity X^6+Z^4q_1=Xg+YZ^3q_2+(Z^4-XZ^3)q_1. Leading monomials XY,Y^3,X^6 give eight points, six (zeta,0,1) with zeta^6=1 and two (0,±1,1). For the lower bound, any hypothetical set of <=7 reduced apolar points extends to exactly seven. If no five collinear, cubics separate points by pairing six points into lines avoiding the seventh, degree-four relations force its vanishing ideal into (q_1,q_2), impossible because that base scheme has a doubled point. If five are collinear, the unique containing quadric is reducible q_1 or q_2. Restricting the quartic vanishing ideal to the off-line pair forces only the configuration Y=0, off-line P±, and a quintic separator then forces Z^2 to divide a squarefree binary quintic, contradiction. Direct independent symbolic differentiation and the apolar-generator inclusion identity and eight displayed zeros passed. Finite identities do not replace the universal seven-point geometry argument.
 
-## Limitations
-No claim is made about real rank, all rank-eight decompositions, or arbitrary complete-intersection forms. Exact polynomial verification is supporting evidence and does not substitute for the universal geometric lower-bound proof.
+## originality
 
-Self-review: passed. Independent audit: not yet performed.
+PASS
+
+Best-of-knowledge exact rank eight not stated by the inspected abstracts or the package-cited Examples 6.1 and 4.1, which report only 4<rank<=8 and non-CI minimal apolar configurations. The closest primary papers were not obtainable in full, so residual risk of stronger later material is explicitly nonzero. Do not mistake abstract-only comparison for full-document NOT_COVERING.
+
+## value
+
+PASS
+
+The exact Waring rank of a specifically cited unresolved sextic is an intrinsic and motivated invariant central to two recent papers about this complete intersection. The lower-bound obstruction for nonreduced quadratic base locus is structural and supplies the precise missing numerical endpoint; a general rank classification is unnecessary for this exact natural example to matter.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
