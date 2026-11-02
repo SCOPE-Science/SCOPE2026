@@ -1,0 +1,115 @@
+{
+  "correctness": {
+    "rationale": "For every integer n≥3 the local update can be written T(a,c,b)=a when c=b and T=b otherwise. Inductively each full sweep output y has \\(y_{n-1}\\in\\{y_1,x_n\\}\\), forcing \\(y_n=y_1\\). On this invariant hyperplane F is exactly a cyclic rotation on n−1 bits. A first-transition count derives each exact predecessor fiber; summing them over the orbit yields the triangular cyclic-run formula, and convexity gives the sharp bound. Independently implemented direct state updates exhaust all inputs for n=3..12 and 3..18, without substituting finite tests for infinite proof.",
+    "status": "PASS"
+  },
+  "independent": false,
+  "independent_audit_status": "not_performed",
+  "originality": {
+    "broader_coverage": {
+      "evidence": [
+        "Macauley–Mortveit (arxiv:0802.4412), Sections 2–4, proves cycle-equivalence for related sequential update orders but does not calculate specific transient fibers; their classification does not imply this basin distribution.",
+        "Defant (arxiv:1509.03907), introduction and main coding relation, treats complete graphs with arbitrary local functions, rather than the uniform bi-threshold cycle family."
+      ],
+      "reasoning": "Neither source implies a uniform conjugacy or basin formula for the given cycle scan; shift/reflection equivalence of update orders preserves periodic structure but does not determine the image and individual basins of this map.",
+      "searches": [
+        "\"Bi-threshold SDS cycle graph complete orbit classification primitive period d Möbius necklace\"",
+        "\"For sequential bi-threshold updates on simple cycle with thresholds 1 and 3 every state becomes periodic after one full sweep and periodic subsystem conjugate to rotation on n minus 1 bits\"",
+        "\"asynchronous Boolean network cycle graph state shift conjugacy necklace basin\""
+      ]
+    },
+    "checked_sources": [
+      "Kuhlman et al., Bifurcations in Boolean Networks, arxiv:1108.2974, 2011-08-15, especially Fig. 1, Proposition 3.6 and Section 4.",
+      "Macauley and Mortveit, Cycle Equivalence of Graph Dynamical Systems, arxiv:0802.4412, 2008-02-29.",
+      "Defant, Binary Codes and Period-2 Orbits of Sequential Dynamical Systems, arxiv:1509.03907, 2015-09-13."
+    ],
+    "claim_vs_prior_implication": {
+      "evidence": [
+        "arxiv:1108.2974 Proposition 3.6 and Example 2.1: a specific orbit plus one finite phase-space figure; general one-sweep image, periodic-point census, and fiber counts not established.",
+        "arxiv:0802.4412 shift and reflection equivalence of SDS update orders: no explicit recurrent map at these thresholds.",
+        "arxiv:1509.03907 complete-graph coding-theoretic bound: distinct object and temporal periods."
+      ],
+      "reasoning": "An explicit (n-1)-cycle or orbit-structure invariance for changing scan orders does not yield the exact number of fixed points, all divisor-length periods, or the fiber r(y). The new theorem supplies these via direct local update recurrences. Its generic counting and extremal triangular-number steps are not independently claimed as novel.",
+      "searches": [
+        "\"exact orbit counts of sequential dynamical systems on cyclic graphs with update order 1 2 ... n\"",
+        "\"Bi-threshold graph dynamical systems periodic phase space cycle Circ_n threshold up 1 down 3\"",
+        "arxiv:0802.4412; arxiv:1108.2974"
+      ]
+    },
+    "equivalent_formulations": {
+      "evidence": [
+        "Kuhlman et al. (arxiv:1108.2974), Fig. 1 and Proposition 3.6: matching graph, thresholds and scan, but a single illustrated finite example and one existence orbit rather than an arbitrary-order conjugacy and full preimage fibers.",
+        "Related rotation/necklace searches did not identify an equivalent complete phase-space classification."
+      ],
+      "reasoning": "Equivalence would require the one-sweep retraction to x_n=x_1, conjugacy to left rotation of n-1 bits for every n, and the run-length fiber identity, not merely an n-1-cycle. The primary source states only the latter in its general proposition; n=4 is explicitly covered by its figure.",
+      "searches": [
+        "\"sequential bi threshold cycle 1 3 n 1 exact cycles periodic points binary necklaces conjugate rotation\"",
+        "\"bi-threshold\" \"necklace\" \"periodic\"",
+        "\"Kuhlman Mortveit Murrugarra Kumar bi-threshold sequential cycle graph Circ_n up-threshold 1 down-threshold 3 orbit census necklace cyclic binary shift\""
+      ]
+    },
+    "exact_database_or_table": {
+      "evidence": [
+        "Kuhlman et al. Fig. 1 is an exact finite n=4 phase-space diagram: this small special case is prior coverage, not counted as an original individual case.",
+        "Kuhlman et al. Proposition 3.6 gives an n-1 orbit for all n, but no table of all primitive periods and basin sizes for arbitrary n."
+      ],
+      "reasoning": "A tabulation at one small order cannot cover the all-integer n result; the ordinary binary necklace formula is classical, so originality is asserted for the dynamical conjugacy and run-dependent basins, not for Mobius inversion itself.",
+      "searches": [
+        "\"Kuhlman Mortveit bi-threshold cycle graph phase space periodic attractor enumeration 1 3\"",
+        "arxiv:1108.2974 Figure 1 and Proposition 3.6",
+        "arxiv:1509.03907"
+      ]
+    },
+    "rationale": "The 2011 source explicitly constructs a length n−1 orbit and displays the n=4 phase space, so neither is claimed as new. The present theorem classifies all states, all periods and all individual basins for arbitrary n. Specific equivalent/stronger implications and the relevant primary full texts were compared, with residual risk of unindexed material.",
+    "residual_risks": [
+      "A nonindexed or unpublished equivalent rotation/fiber classification for exactly this threshold scan could exist.",
+      "The full scope of other historical publications on sequential bi-threshold networks is not exhaustively known."
+    ],
+    "source_inspections": [
+      {
+        "assessment": "The prior source establishes the n=4 example and at least one length n−1 orbit in general; it does not establish the all-n rotation conjugacy, complete period census or run-dependent basins.",
+        "evidence": [
+          "Example 2.1 depicts the complete n=4 phase space.",
+          "Proposition 3.6 asserts existence of an n−1 cycle for the exact model.",
+          "Section 4 combines existence constructions and explores trees."
+        ],
+        "identifier_or_url": "https://arxiv.org/pdf/1108.2974",
+        "material_read": "Full definitions in pp. 2–4; Example 2.1 and Fig. 1 on p. 4; proposition and proof on p. 8; Section 4 construction discussion on pp. 8–14.",
+        "method": "Read arXiv open-access full-text, including its diagram and the section-level statements.",
+        "title": "Bifurcations in Boolean Networks",
+        "trigger": "Exact graph, scan order and thresholds coincide with initial construction."
+      },
+      {
+        "assessment": "Provides equivalence classes of update orders but not the all-state orbit census or individual attraction basins for the threshold (1,3) cyclic scan.",
+        "evidence": [
+          "Its principal theorem concerns shifts and reflections of update permutations, not explicit preimage counts."
+        ],
+        "identifier_or_url": "https://arxiv.org/abs/0802.4412",
+        "material_read": "Abstract, introduction and stated cycle-equivalence results in Sections 2–4.",
+        "method": "Read arXiv lawful open-access HTML full text.",
+        "title": "Cycle Equivalence of Graph Dynamical Systems",
+        "trigger": "Could give a dominating orbit-classification result for sequential scan permutations."
+      },
+      {
+        "assessment": "Concerns an optimization over rules on complete graphs, so does not imply the present exact result on cycle graphs.",
+        "evidence": [
+          "Its stated problem bounds period-two orbits on complete graphs and relates them to binary codes."
+        ],
+        "identifier_or_url": "https://arxiv.org/abs/1509.03907",
+        "material_read": "Abstract, introduction, model definitions and main coding-theoretic claim.",
+        "method": "Read arXiv lawful open-access HTML full text.",
+        "title": "Binary Codes and Period-2 Orbits of Sequential Dynamical Systems",
+        "trigger": "Potential general orbit-counting theorem for sequential Boolean maps."
+      }
+    ],
+    "status": "PASS"
+  },
+  "review_type": "self_review",
+  "schema_version": 1,
+  "scope_run_id": "e79a108b-9794-44ae-848f-95e5582dc778",
+  "self_review_status": "passed",
+  "value": {
+    "rationale": "A nontrivial long-cycle existence example is upgraded to a full global phase-space conjugacy for an infinite graph family. Exact orbit multiplicities and distribution of entire attraction basins expose a structural distinction: the attractors are binary necklaces and their basin sizes depend on cyclic run shape even at equal periods. Sharp extremal basins give a natural invariant sensitive to phase-space geometry, not a routine numerical count.",
+    "status": "PASS"
+  }
+}
