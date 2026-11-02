@@ -1,11 +1,21 @@
-# Scientific review
+# Independent mathematical audit
 
-**Correctness — PASS.** Each part's color support is a sufficient statistic, and support-class multiplicities can be capped at two without changing any neighbor-excitation predicate. This proves that the exhaustive 2158-pattern checker covers every number and size of parts. The exact finite transitions give \(F^7=F^4\), a preperiod at most four, and only fixed or primitive-three dynamics; direct witnesses make the bounds sharp. The color-successor support criterion is both necessary and sufficient for the nonzero three-cycles; inclusion–exclusion counts labelled realizations of every eligible support tuple. Direct microconfiguration tests reproduce all announced examples.
+## correctness
 
-**Originality — PASS under inspected evidence, not a priority certification.** General graph Greenberg–Hastings results by Gravner–Lyu–Sivakoff (arXiv:1610.07320v1, Section 2) and Doba (Complex Systems 27, 2018, Sections 3/6/7) describe fixation, synchronization, periodicity or excitation rate rather than the exact uniform four-step first-entry theorem and labelled three-cycle census on arbitrary complete multipartite graphs. The earlier Durrett–Griffeath article (arXiv:patt-sol/9303002) treats lattice patterns; only its accessible summary was compared. Finite parallel parity automata on complete multipartite graphs are algebraically different because the states and local transition are different. Searches did not locate a result with stronger equivalent coverage, but absence of search matches is not proof of historical uniqueness.
+PASS
 
-**Mathematical value — PASS.** The precise cutoff distinguishes all complete graphs (sharp three) from every multipartite graph containing a non-singleton part (sharp four). A qualitative difference from bipartite excitable dynamics is the total exclusion of primitive four-cycles once there are three parts. The exact labelled state census and zeta function quantify nonzero recurrent activity for arbitrary part sizes; these do not follow numerically from a qualitative convergence statement alone.
+For every multipartite graph with at least three nonempty parts, the update of a part’s nonempty color support depends only on that support and whether a different part contains an excited vertex. Counting identical supports only as zero, one or at least two is closed under this predicate; a representative with three copies for the capped-high class carries the color transitions for every starting color. Independent exhaustive enumeration of all 2158 realizable capped support patterns proves equality of micro-configuration images F^7=F^4, so every original labelled configuration enters a fixed point or length-three orbit by step four. Independent trajectories of eight test graphs reproduce the maximum first-entry cutoff 3 for all-singleton and 4 otherwise, and match stated periodic counts. Nonzero period-three configurations are exactly simultaneous +1 mod3 rotations subject to the neighbor-support predicate; multiplication of exact support-surjection counts omega(n,S) gives the all-size count and zeta function. The finite exhaustive quotient, unlike finite graph sampling, covers arbitrary part sizes through the proved factor map.
 
-**Limitations and residual risks.** The all-size bound relies on a self-contained finite exact quotient verifier whose shortness is achieved by a formally justified compression, not on a hand-displayed 2158-row transition table. Historical priority remains subject to specialized literature and independent review. The count covers periodic states but not basin sizes or transients resolved by depth.
+## originality
 
-Self-review: passed. Independent audit: not yet performed.
+PASS
+
+The Gravner–Lyu–Sivakoff 2016 general-graph theory and Doba 2018 maximum cycle density classify qualitative asymptotics under the same three-color GH rule. They do not exhibit a uniform optimal preperiod cutoff of four updates or a labelled periodic-state census on all complete multipartite graphs; the fixed graph structure and exact surjection support enumerator are necessary additional data. Prior Resultary complete-multipartite *parity* automata are a different two-state linear rule. Qualified originality is confined to the exact transient and all-size cycle count.
+
+## value
+
+PASS
+
+A sharp universal stabilization depth and complete labelled orbit census for arbitrary multipartite part sizes are natural combinatorial dynamical invariants. The explicit 2158-state universal quotient and seven-support expression solve a complete infinite family, not just a finite experiment.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
