@@ -1,0 +1,95 @@
+{
+  "audit_date_utc": "2026-10-30",
+  "audited_at_utc": "2026-10-30T03:04:48Z",
+  "axes": {
+    "correctness": {
+      "rationale": "For a six-element periodic P1 heat FEM mesh with alternating edges a,b, consistent mass M has offdiagonal h/6, stiffness K offdiagonal -1/h. For tau>0, independent exact 3-mode cyclic Fourier reduction of 6x6 D=M+tau K verifies P_{0,2}=2tau(6tau-a²)(ab+b²+6tau)/H and P_{0,4}=2tau(6tau-b²)(a²+ab+6tau)/H, H=(ab+6tau)(ab+12tau)(a²+3ab+b²+6tau)>0. Hence positivity forces tau>=max(a²,b²)/6. Conversely at or above threshold offdiagonals D<=0, strict row diagonal dominance by D1=M1>0, so D inverse nonnegative M matrix and P=D^-1M>=0; tau=0 gives identity. Six independent exact rational 6x6 inversions and fully symbolic mode decomposition confirm both entries. The proof covers every a,b>0 including equal case and endpoint equality.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "https://arxiv.org/pdf/1209.5657"
+        ],
+        "reasoning": "Li–Huang supplies a sufficient mesh-dependent restriction ensuring DMP for more general diffusion/meshes, not a necessity statement for the concrete six-cycle. Sufficiency of tau>=max(a²,b²)/6 is directly classical; sharp necessity is extra.",
+        "searches": [
+          "Li Huang 2013 Theorem 3.1 discrete maximum principle consistent mass FEM lower time step",
+          "nonuniform one dimensional finite element heat equation sharp positivity necessity"
+        ]
+      },
+      "checked_sources": [
+        "Assigned RESULT.md and verify.py at tree 59e2956a075019d8fe1a2212bb2bf8c9ca6d3b9c",
+        "Li–Huang arXiv:1209.5657, Thms 3.1–3.2",
+        "Resultary search on FEM periodic alternating positivity and filtered uniform lattice",
+        "Independent exact 3-mode symbolic calculation in scope_worker_08_FEM_modes.py"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "https://arxiv.org/pdf/1209.5657"
+        ],
+        "reasoning": "The known M-matrix sufficient step criterion implies positivity on/above the stated threshold but does not imply any entry must be negative below it. The explicitly computed two nonadjacent rational entries prove the missing converse for this mesh.",
+        "searches": [
+          "1D consistent mass backward Euler DMP M matrix sufficient necessary",
+          "Li Huang lower time-step restricted mesh maximum principle 2013"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "https://arxiv.org/pdf/1209.5657",
+          "Resultary 2026/9/20/SCOPE-backward-euler-filtered-cn-lattice-positivity--1f6f56bd0eac"
+        ],
+        "reasoning": "Equivalent evolution updates P_tau=(M+tau K)^-1M considered; general nodal positivity of FEM via M matrices is prior knowledge. A uniform finite-difference lattice/CN filter is different from the consistent-mass three-repeat heterogeneous FEM mesh.",
+        "searches": [
+          "consistent mass finite element periodic six alternating elements positivity backward Euler sharp time step threshold",
+          "periodic alternating six element consistent mass P1 FEM backward Euler positivity maximum principle",
+          "1D finite element consistent mass heat semigroup nodal positivity mesh nonuniform"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "Exact rational identities P02, P04 derived independently by three Fourier modes; no indexed exact same mesh table located."
+        ],
+        "reasoning": "Finite exact matrix evaluations supplement universal symbolic factors and thus provide more than a small numerical threshold guess. Literature/database search returned no dominating same six-mesh table.",
+        "searches": [
+          "six-cell alternating a b a b a b finite elements exact positivity P02 P04",
+          "Resultary: consistent mass finite element periodic six alternating elements positivity backward Euler sharp time step threshold"
+        ]
+      },
+      "rationale": "The mesh-dependent lower-step M-matrix maximum-principle condition is classical, notably Li–Huang Theorem 3.1. The exact necessity for the six-element alternating periodic mesh is a distinct sign calculation. Inspected general theorem supplies sufficient condition only; no identified prior exact same six-cell necessity table. Best-of-knowledge PASS with risk of older specialized FEM analyses.",
+      "residual_risks": [
+        "Older spectral/total positivity analysis of cyclic alternating finite elements could contain the exact same six-element formula.",
+        "No claim for other element counts, nonlinear equations, general diffusivity or other boundary conditions."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Sufficient time-step/mesh conditions; does not state necessity of exact six alternating periodic-mesh frontier in inspected sections",
+          "evidence": [
+            "Theorem 3.1 and Theorem 3.2; https://arxiv.org/pdf/1209.5657"
+          ],
+          "identifier_or_url": "https://arxiv.org/pdf/1209.5657",
+          "material_read": "Theorem 3.1 and its proof, comparison to lumped mass Theorem 3.2, introduction and DMP setup; PDF first page and theorem page visually checked",
+          "method": "Primary 25-page arXiv PDF, relevant main theorem",
+          "title": "Maximum principle for the finite element solution of time-dependent anisotropic diffusion problems",
+          "trigger": "Same consistent-mass finite element time-stepping positive-scheme regime"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "rationale": "A sharp positivity-preservation frontier for the smallest meaningful three-period alternating mesh tests necessity of a widespread sufficient maximum-principle condition. The exact negative nonadjacent entries detect failure below the boundary for arbitrary mesh contrast and are naturally relevant to preserving physical bounds of heat discretizations. The result is narrow but a complete motivated sharp classification, not a generic textbook M-matrix sufficiency restatement.",
+      "status": "PASS"
+    }
+  },
+  "checked_sources": [
+    "Assigned RESULT.md and verify.py at tree 59e2956a075019d8fe1a2212bb2bf8c9ca6d3b9c",
+    "Li–Huang arXiv:1209.5657, Thms 3.1–3.2",
+    "Resultary search on FEM periodic alternating positivity and filtered uniform lattice",
+    "Independent exact 3-mode symbolic calculation in scope_worker_08_FEM_modes.py"
+  ],
+  "disposition": "passed",
+  "limitations": [
+    "Older spectral/total positivity analysis of cyclic alternating finite elements could contain the exact same six-element formula.",
+    "No claim for other element counts, nonlinear equations, general diffusivity or other boundary conditions."
+  ],
+  "schema_version": 1
+}
