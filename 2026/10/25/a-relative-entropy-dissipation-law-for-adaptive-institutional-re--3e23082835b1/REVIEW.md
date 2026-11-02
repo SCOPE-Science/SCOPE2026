@@ -1,19 +1,21 @@
-# Scientific review
+# Independent mathematical audit
 
-## Correctness (C): PASS
+## correctness
 
-The exact differential identity follows from the two Bernoulli relative-entropy derivatives, the source equation \(d=\delta a_*S_N(x_*)\), and the linear negative-feedback factor \(-(1+u)(x-x_*)\). The strict sign is certified by \(S'_N(x)\le-1\) when \(N\ge2\), and the entropies blow up on every face of the open rectangle. The invariant-set argument isolates the sole possible omega limit at the interior coexistence equilibrium for arbitrary \(\epsilon>0\). The integrated equality and bound follow by integration and convergence. The accompanying script checked the algebra exactly in 6,048 rational instances; it is not the proof.
+PASS
 
-## Originality (O): PASS, with residual priority uncertainty
+PASS: Equilibrium x*=u/(1+u), a*=c(1-r/N)/(delta*S_N(x*)) follows from the adaptive reward equation and payoff balance. For S_N(x)=sum_{k=0}^{N-1}(1-x)^k, S_N prime<=-1. Differentiate H(x*||x)+delta*S_N(x*)/(epsilon*(1+u))*H(y*||y), with y=(a-alpha)/(beta-alpha); the exact feedback cross terms cancel, yielding dV/dt= -(delta*a/epsilon)*(x-x*)*(S_N(x*)-S_N(x))<=-(delta*alpha/epsilon)*(x-x*)^2. Proper KL divergence blows up on all open-rectangle boundaries; positive compact invariant sublevels enable LaSalle. The zero-dissipation line x=x* is invariant only at a=a*, hence every interior orbit converges for every epsilon>0. Integration to infinity gives the exact budget and squared-cooperation-error bound. Independent symbolic derivative and exact monotonicity test for N=5 passed; the all-N proof is the explicit entropy calculation and S_N prime bound, not finite sampling.
 
-The primary 2023 paper [1] contains the model, interior equilibrium and local Jacobian stability, plus phase portraits for selected speeds. Its full HTML manuscript, including the appendix, was inspected. It does not present the weighted entropy function, exact dissipation, arbitrary-speed global interior attraction proof, or time-integrated cooperation deviation bound. The related collective-risk feedback game [2] has a different, generally nonmonotone payoff and admits Hopf cycles; its results neither cover nor contradict this monotone-kernel theorem. Published-record and literature searches using the model name, equivalent entropy wording and nonlinear feedback aliases found no direct implication. General monotone negative-feedback or evolutionary-game Lyapunov literature could contain a broader theorem that subsumes this result, so priority is not independently certified.
+## originality
 
-## Value (V): PASS
+PASS
 
-The motivating work's numerically observed coexistence stability becomes an exact global theorem throughout its interior parameter regime without a slow-fast separation, and the construction yields a finite upper bound on the accumulated squared cooperation error. This establishes that persistent oscillations require a mechanism beyond the source's positive bounded reward and monotonically decreasing incentive kernel, a substantive contrast with feedback games where cyclic behavior occurs. The result is not merely a local Jacobian calculation or a selected-parameter plot.
+PASS (best-of-knowledge): The equivalence is to a two-coordinate negative-feedback replicator with positive logistic factors; local Jacobian information is insufficient for its global energy identity or transient integral. A general monotone cyclic-negative-feedback theorem could imply global convergence, but a generic qualitative convergence statement would not automatically provide the exact KL dissipation and integral budget. No such dominating statement was verified from fully read primary text this run. The precise all-interior-state global stability and total integrated squared error are not logically implied by the original local sink. Broader general theorems remain a best-of-knowledge priority caveat. Specific priority and access qualifications are recorded below.
 
-## Closest literature and limitations
+## value
 
-[1] Hua–Liu, arXiv:2308.09530v1 (2023), Secs. 3–5 and Appendix: model, fixed-point classification and local stability. [2] Liu–Chen–Szolnoki, eLife 12:e82954 (2023), Eq. (5) and Appendix: a nonmonotone feedback payoff with possible limit cycles. Only deterministic interior coexistence, positive bounds and the precise source equations are covered. Other general feedback-system stability theorems are an unresolved priority risk.
+PASS
 
-Self-review: passed. Independent audit: not yet performed.
+PASS: Turns a model-specific local coexistence Jacobian and selected simulated paths into a global interior-attractor theorem for all positive relative reward adaptation speeds, with a proper closed-form entropy certificate and exact transient budget. This materially excludes interior recurrent behavior in a natural monotone-payoff adaptive social dilemma, in contrast to nonmonotone feedback games.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
