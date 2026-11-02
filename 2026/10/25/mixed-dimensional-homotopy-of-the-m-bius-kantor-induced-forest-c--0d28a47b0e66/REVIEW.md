@@ -1,15 +1,21 @@
-# Scientific review
+# Independent mathematical audit
 
-## Correctness — PASS
-The graph and complex are defined by full edge and induced-subgraph predicates. Two independent vertex-mask algorithms agree on all 65,536 subsets. An exhaustive matching has 25,483 pairs and 31 critical positive-dimensional faces. Directed acyclicity was checked over all 375,056 incidences. Exact orientation-aware integer Morse boundaries consist of one primitive row from dimension nine to eight and a zero differential from dimension ten to nine. Cancelling that unit pair leaves a wedge of 25 nine-spheres with four null-attached ten-cells. Independent ordinary simplicial mod-two rank computations reproduce the ranks. The mathematical conclusion is an integral homotopy type, not a claim about an infinite graph family.
+## correctness
 
-## Originality — PASS, with limitations
-The 2015 devoid-complex paper supplies the framework but its inspected graph-family theorems do not evaluate this particular induced-forest complex. The later forest-filtration paper explicitly treats vertex-induced forests, but the listed graph families and product results do not imply the noncactus cubic example. Existing indexed statements about the Möbius–Kantor independence complex, matching complex, Čech filtration and graph configuration spaces use different simplices and do not imply this claimed homotopy type. Relevant wording variants and stronger-family possibilities were searched. The remaining risk is unindexed or overlooked equivalent work; absence of a search hit is not proof of novelty.
+PASS
 
-## Value — PASS
-This is the complete integral topological invariant of a canonical sixteen-vertex cubic symmetric graph at a natural acyclicity condition. It displays two adjacent positive homotopy degrees in a graph outside the simple forest/cactus classifications and gives both sphere counts and a reproducible attaching-map argument. These facts cannot be inferred from the face count, Euler characteristic or existing results for edge-based complexes alone.
+The exact 16-vertex, 24-edge graph and induced-forest predicate were reconstructed. Independently enumerated all 65536 vertex masks: 50997 faces including empty, face vector (1,16,120,560,1820,4368,7984,11200,11792,8672,3792,672), reduced Euler -21. Reimplemented the greedy pivot match and obtained 25483 pairs, 31 critical faces (one dimension 8, 26 dimension 9, four dimension 10); independently topologically sorted all 375056 directed Hasse incidences. Exact signed gradient projection gives d9 with seven +1 entries and 19 zeros, and d10=0. The primitive unit cancels the 8-cell with a 9-cell. On the residual wedge of 25 S9 the four 10-cell attaching maps are in pi9=Z25 and vanish with their boundary coefficients, proving the claimed integral homotopy. This is exhaustive finite proof, not mere mod-two evidence.
 
-## Closest literature and scientific limitations
-D. Taylan, arXiv:1501.06754v1 (2015), Sections 3–5; A. Carnero Bravo, arXiv:2307.13271 (2023), especially Sections 3–4. The latter postdates the archival historical source, but matters for evaluating prior coverage. This is an exact one-graph result without an equivariant calculation or general-family extension. Unindexed equivalent literature remains possible; no independent audit has occurred.
+## originality
 
-Self-review: passed. Independent audit: not yet performed.
+PASS
+
+PASS best of knowledge. Mathematical statements and implication directions were compared to inspected primary literature, not merely titles or identical parameter names; residual risks explicitly retained.
+
+## value
+
+PASS
+
+The vertex-induced forest complex of a natural cubic, highly cyclic, 16-vertex symmetric graph has a nontrivial mixed-dimensional integral sphere-wedge homotopy; this determines homotopy rather than only Betti ranks and demonstrates an exact computable boundary beyond cactus families. Its finite scope is explicit and does not require a whole family theorem.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
