@@ -1,19 +1,21 @@
-# Scientific review
+# Independent mathematical audit
 
-## Correctness
+## correctness
 
-**PASS.** Bracket preservation forces the central block form and the exact equation \(A^TJA=cJ\). Combining it with the three idempotence equations leaves only the identity for \(c=1\), and isotropic-image projections with freely chosen complement and functional for \(c=0\). The isotropic Grassmannian dimension, affine-bundle fiber, finite-field isotropic-frame enumeration and discrete rank maximization are derived explicitly in `RESULT.md`. Direct exhaustive tests of the smallest finite-field cases and the dimension differences passed in `verify.py`. The computations alone do not prove the general theorem.
+PASS
 
-## Originality
+PASS: From [H,H]=kz a Lie homomorphism has F(z)=cz and F(v)=Av+ell(v)z. A^T J A=cJ, A^2=A, c^2=c and ell A+c ell=ell follow without dividing by two, so characteristic two is included. The c=1 branch is identity because A is invertible idempotent and ell=0. On c=0, im A is isotropic, A a projection along a complement, and ell descends to a functional of im A. Conversely these choices give all proper retractions. The split idempotent decomposition makes rank locally constant on the functor, so its rank strata are open-closed; complement+functional parameters form a Zariski-locally trivial affine bundle over the smooth irreducible isotropic Grassmannian. Its dimension r(2n-r)-r(r-1)/2 +r(2n-r+1) equals (8nr-5r^2+3r)/2. Isotropic frame choices divided by GL(r,q) give the stated q-Gaussian product. The finite difference d(r)-d(r-1)=4n-5r+4 proves the maximal-rank transition. Independently enumerated 3D Heisenberg projections over F2/F3 (rank profiles 1,12,1 and 1,36,1) and all 65536 4x4 binary A with admissible functionals (proper counts 1,240,960). Finite samples do not establish general scheme geometry; the displayed argument does.
 
-**PASS, with bounded priority risk.** The nearest primary sources concern automorphisms and *normal* decompositional projections [Fisher–Gray–Hydon, arXiv:1303.3376], almost-direct factors [Bergman–Nahlus, arXiv:0910.5181], and unital algebra weak augmentations [Facchini–Heidari Zadeh, arXiv:2210.08230]. These do not state the decomposition of arbitrary Heisenberg Lie retractions by isotropic image and affine complement data, nor the rank-resolved finite-field count and maximal-component transition. Relevant research-record and literature searches found no direct equivalent, but hidden or differently formulated prior classifications remain possible.
+## originality
 
-## Value
+PASS
 
-**PASS.** The image of a proper retraction must be abelian, imposing a sharp rank cutoff \(r\leq n\); the exact rank strata form smooth algebraic families rather than an ad hoc finite count. The transition from top-rank to intermediate-rank maximal components at \(n=4,5\) is a structural phenomenon with a corresponding finite-field large-\(q\) distribution. The result does not require an unproved downstream application for this classification to be useful.
+PASS, qualified: Symplectic isotropic Grassmannians and projection parameterization are standard pieces, but the inspected nearest primary papers concern automorphisms, almost-direct factors, and unital-algebra augmentations, not the exact all-characteristic idempotent Heisenberg scheme, its finite-field rank census or the dimension-maximizing-rank phase transition. Semantically compared reductions rather than matching titles; no stronger directly covering theorem located. All-geometry classification may be implicit in broader endomorphism-variety literature; priority is not certified.
 
-## Sources and limits
+## value
 
-The general algebraic facts about projections and symplectic isotropic subspaces are pre-existing. There is residual uncertainty about publication priority, especially work indexed under retracts rather than endomorphisms. The theorem is for the standard Heisenberg Lie algebra over fields, not generalized nilpotent Lie algebras or group retractions. No independent validation has been carried out.
+PASS
 
-Self-review: passed. Independent audit: not yet performed.
+PASS: Idempotent Lie endomorphisms are natural retracts; the complete component geometry and exact finite-field distribution resolve a structural enumeration for the canonical two-step nilpotent Lie algebra. The non-obvious rank-dominance switch at n>=5 supplies motivation beyond matrix substitution and routine isotropic-subspace counts. This remains a self-contained classification even without a downstream theorem.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

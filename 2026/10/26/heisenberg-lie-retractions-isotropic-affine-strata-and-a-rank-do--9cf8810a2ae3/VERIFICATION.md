@@ -5,8 +5,11 @@
     "status": "not_performed"
   },
   "independent_audit": {
-    "evidence": null,
-    "status": "not_performed"
+    "status": "passed",
+    "evidence": [
+      "INDEPENDENT_AUDIT_2026-10-31.md",
+      "INDEPENDENT_AUDIT_2026-10-31.json"
+    ]
   },
   "lean_verification": {
     "evidence": null,
@@ -16,10 +19,24 @@
 }
 ---
 
-# Verification
+# Independent mathematical audit
 
-The accompanying `verify.py` uses only the Python standard library. Execute `python3 verify.py`. It checks the direct Lie-endomorphism and idempotence equations over three small prime fields in dimension three, all \(2^{16}\) binary \(4\times4\) candidate projection matrices and their admissible functional counts in dimension five, and the dimension maximization finite-difference relation for \(1\leq n<30\). It prints `HEISENBERG_RETRACTIONS_OK` on success.
+## correctness
 
-Observed profiles: dimension three over \(\mathbb F_2\), \(\mathbb F_3\), \(\mathbb F_5\): ranks \(0,1,3\) occur \((1,12,1)\), \((1,36,1)\), \((1,150,1)\) times. Dimension five over \(\mathbb F_2\): proper ranks \(0,1,2\) occur \((1,240,960)\) times, with one additional identity. The rank-two test enumerates candidate quotient matrices exhaustively and counts all allowed central functionals via the proved \(2^r\) factor; it does not separately enumerate every full endomorphism matrix.
+PASS
 
-These computations are finite consistency tests. Scheme smoothness, irreducibility in arbitrary characteristic, and the infinite family of counting formulas rely on the human-readable proof in `RESULT.md`; they are not independently certified here.
+PASS: From [H,H]=kz a Lie homomorphism has F(z)=cz and F(v)=Av+ell(v)z. A^T J A=cJ, A^2=A, c^2=c and ell A+c ell=ell follow without dividing by two, so characteristic two is included. The c=1 branch is identity because A is invertible idempotent and ell=0. On c=0, im A is isotropic, A a projection along a complement, and ell descends to a functional of im A. Conversely these choices give all proper retractions. The split idempotent decomposition makes rank locally constant on the functor, so its rank strata are open-closed; complement+functional parameters form a Zariski-locally trivial affine bundle over the smooth irreducible isotropic Grassmannian. Its dimension r(2n-r)-r(r-1)/2 +r(2n-r+1) equals (8nr-5r^2+3r)/2. Isotropic frame choices divided by GL(r,q) give the stated q-Gaussian product. The finite difference d(r)-d(r-1)=4n-5r+4 proves the maximal-rank transition. Independently enumerated 3D Heisenberg projections over F2/F3 (rank profiles 1,12,1 and 1,36,1) and all 65536 4x4 binary A with admissible functionals (proper counts 1,240,960). Finite samples do not establish general scheme geometry; the displayed argument does.
+
+## originality
+
+PASS
+
+PASS, qualified: Symplectic isotropic Grassmannians and projection parameterization are standard pieces, but the inspected nearest primary papers concern automorphisms, almost-direct factors, and unital-algebra augmentations, not the exact all-characteristic idempotent Heisenberg scheme, its finite-field rank census or the dimension-maximizing-rank phase transition. Semantically compared reductions rather than matching titles; no stronger directly covering theorem located. All-geometry classification may be implicit in broader endomorphism-variety literature; priority is not certified.
+
+## value
+
+PASS
+
+PASS: Idempotent Lie endomorphisms are natural retracts; the complete component geometry and exact finite-field distribution resolve a structural enumeration for the canonical two-step nilpotent Lie algebra. The non-obvious rank-dominance switch at n>=5 supplies motivation beyond matrix substitution and routine isotropic-subspace counts. This remains a self-contained classification even without a downstream theorem.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
