@@ -1,0 +1,123 @@
+{
+  "correctness": {
+    "rationale": "Exact first passage change-of-measure factor rho²; gambler ruin factor rho; pathwise split for adapted stopping times; bounded differences Hoeffding exp(-(δm-1)^2/(2m)); for n>=32 chosen δ=sqrt(6 log n/n) ensures δL>=1, margin δ²/q² and error below 6/n. Verified result independently by reproducing 24,257 finite assertions from packaged code; infinite range follows from displayed analytic inequalities and Allaart threshold theorem.",
+    "status": "PASS"
+  },
+  "independent": false,
+  "independent_audit_status": "not_performed",
+  "originality": {
+    "broader_coverage": {
+      "evidence": [
+        "Allaart proves p_n<1/2 for n>=4 and exact threshold, but this gives no lower bound on p_n near 1/2.",
+        "Islas 2026 derives limit p_n=1/2 with no stated rate.",
+        "Hoeffding (1963) bounds finite sums, but has no direct conclusion about the optimal stopping threshold without the new stopping comparison."
+      ],
+      "reasoning": "The general threshold and asymptotic convergence theorems do not quantify their convergence. The quantitative bound requires uniform drift-sensitive control of optimal continuation, so cited concentration results alone do not logically imply it without additional arguments.",
+      "searches": [
+        "stopping near running maximum random walk optimal stopping p_n threshold n asymptotic Allaart Islas 2026",
+        "José Islas Allaart optimal stopping near maximum one unit p_n explicit finite horizon drift Chernoff Hoeffding n log n",
+        "optimal semi-best Bernoulli stopping threshold p_n quantitative convergence sqrt(log n/n) diffusion",
+        "Allaart, RIMS Kôkyûroku 1682 (2010)",
+        "arXiv:2610.26670"
+      ]
+    },
+    "checked_sources": [
+      "Islas, arXiv:2610.26670v1 (2026), HTML version2 content",
+      "Allaart (2010), RIMS Kôkyûroku 1682-05 author-hosted PDF",
+      "Islas, arXiv:1711.08857v1 (2017), PDF",
+      "Hoeffding (1963), classical bounded-independent-sum inequality",
+      "Published mathematical records queried using eight topic/formulation searches"
+    ],
+    "claim_vs_prior_implication": {
+      "evidence": [
+        "New proof yields explicit 0<1/2-p_n <=sqrt(3 log n/(2n)) for every integer n>=32.",
+        "Allaart 2010: p_n<1/2; Islas 2026: p_n ->1/2. Neither statement implies a particular rate."
+      ],
+      "reasoning": "A sequence may converge to zero more slowly than any prescribed sqrt(log n/n) rate. The prior statements alone therefore cannot cover the effective bound. Historical risk from potentially unlocated stronger optimal-stopping results is explicitly retained.",
+      "searches": [
+        "Bernoulli random walk stopping within one of maximum critical probability p_n convergence one half quantitative rate finite horizon",
+        "José Islas Allaart optimal stopping near maximum one unit p_n explicit finite horizon drift Chernoff Hoeffding n log n",
+        "arXiv:2610.26670v1",
+        "RIMS-Kokyuroku-1682-05"
+      ]
+    },
+    "equivalent_formulations": {
+      "evidence": [
+        "The quantity 1/2-p_n is the fair-walk threshold deficit; the proved region p <= 1/2-sqrt(3 log n/(2n)) is equivalent to its explicit upper bound.",
+        "Islas (2026), Remark 3.3, explicitly identifies quantitative rate as not obtained by that proof."
+      ],
+      "reasoning": "The equivalence of the probability-deficit statement and an effective lower bound on the stop-immediately region was checked. The earlier convergence theorem is strictly weaker because no uniform rate follows from pointwise convergence alone.",
+      "searches": [
+        "Bernoulli random walk stopping within one of maximum critical probability p_n convergence one half quantitative rate finite horizon",
+        "How to stop near the top in a random walk critical p_n rate asymptotic sqrt log n n",
+        "Convergence critical probabilities stopping near top Bernoulli random walk p_n 1/2 sqrt(3 log n / (2n)) quantitative bound",
+        "sharp near-critical probability stopping near top rate p_n one-half first passage",
+        "arXiv:2610.26670",
+        "arXiv:1711.08857"
+      ]
+    },
+    "exact_database_or_table": {
+      "evidence": [
+        "Islas (2017) provides finite-index table/oscillation results, not a theorem covering all n>=32.",
+        "The closest index hits concern unrelated binomial comparisons, Rademacher stopping bias, and e-testing."
+      ],
+      "reasoning": "A finite enumeration of critical probabilities is neither a uniform all-horizon estimate nor an equivalent symbolic certificate. No identified exact table or database entry dominates the stated inequality.",
+      "searches": [
+        "semi-best selection Bernoulli random walk finite horizon p_n bounds",
+        "Convergence critical probabilities stopping near top Bernoulli random walk p_n 1/2 sqrt(3 log n / (2n)) quantitative bound",
+        "optimal semi-best Bernoulli stopping threshold p_n quantitative convergence sqrt(log n/n) diffusion",
+        "arXiv:1711.08857"
+      ]
+    },
+    "rationale": "The full text of Islas (2026), arXiv:2610.26670, proves p_n tends to one half and explicitly states in Remark 3.3 that the proof provides no convergence rate. Allaart (2010) proves the threshold and p_n<1/2; Islas (2017) studies oscillations. None inspected source supplies the uniform all-n quantitative near-critical bound. Independent exact-horizon rate-gap literature and published-record searches did not identify a covering theorem; broader general optimal-stopping quantitative theorems remain a residual historical-priority risk.",
+    "residual_risks": [
+      "The 2024 journal version of the 2017 oscillation paper was not independently inspected in full; its arXiv original was inspected.",
+      "Other general quantitative optimal-stopping theorems not retrieved could imply an equal or stronger rate.",
+      "No independent external historical-priority audit has been performed."
+    ],
+    "source_inspections": [
+      {
+        "assessment": "Qualitative convergence but no rate stated; new explicit bound is not a literal restatement.",
+        "evidence": [
+          "Theorem 3.1 establishes convergence p_n to 1/2; Remark 3.3 says the argument does not provide a rate of convergence."
+        ],
+        "identifier_or_url": "https://arxiv.org/html/2610.26670v2",
+        "material_read": "Introduction, threshold definitions, main Theorem 3.1, Remark 3.3 on no rate, and main proof discussion",
+        "method": "Accessible full arXiv HTML, relevant theorem and proof sections inspected",
+        "title": "Convergence of the critical probabilities for stopping near the top of a random walk",
+        "trigger": "Exact same critical probability p_n and newest primary theorem"
+      },
+      {
+        "assessment": "Establishes threshold and p_n<1/2; no uniform all-n sqrt(log n/n) deficit bound found in inspected material.",
+        "evidence": [
+          "Critical optimal-stopping threshold construction and upper bound below 1/2 for n>=4."
+        ],
+        "identifier_or_url": "https://www.kurims.kyoto-u.ac.jp/~kyodo/kokyuroku/contents/pdf/1682-05.pdf",
+        "material_read": "Model definition, threshold theorem, finite calculations, and critical probability discussion on page images and extracted pages",
+        "method": "Author-hosted PDF, text and inspected page images",
+        "title": "How to stop near the top in a random walk?",
+        "trigger": "Original definition of semi-best problem and threshold"
+      },
+      {
+        "assessment": "Oscillation criteria and finite critical values, no covering uniform convergence-rate theorem identified.",
+        "evidence": [
+          "The finite table of critical probabilities and oscillation criteria do not imply the new all-index estimate."
+        ],
+        "identifier_or_url": "https://arxiv.org/pdf/1711.08857",
+        "material_read": "Preprint mathematical statement, small-index table and relevant oscillation proofs including displayed page sections",
+        "method": "Full open arXiv PDF obtained; targeted page text and images inspected",
+        "title": "Oscillation criteria for stopping near the top of a random walk",
+        "trigger": "Same probabilities; possibility that 2017 work already contained a rate"
+      }
+    ],
+    "status": "PASS"
+  },
+  "review_type": "self_review",
+  "schema_version": 1,
+  "scope_run_id": "9569c4aa-8596-4854-b0e9-039ac990df8d",
+  "self_review_status": "passed",
+  "value": {
+    "rationale": "The closest 2026 primary theorem explicitly leaves quantitative convergence open. This gives an explicit all-n effective stopping region and a near-diffusive finite-rate control without high-degree polynomial computations. It is a nontrivial uniform-drift optimal-stopping argument, beyond re-tabulation, while the logarithmic factor and coefficient are not claimed sharp.",
+    "status": "PASS"
+  }
+}
