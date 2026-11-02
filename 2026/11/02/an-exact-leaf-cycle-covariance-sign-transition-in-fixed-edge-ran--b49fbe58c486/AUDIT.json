@@ -1,0 +1,117 @@
+{
+  "correctness": {
+    "rationale": "Exact conditional hypergeometric count on the n-1 offstar vertices, injective motif embeddings, covariance linearity, and a strictly increasing closed rational sign factor establish the statement for all admissible n,m; the root for triangles lies rigorously in (n,n+1) for n≥5. Independent enumeration and rational checks passed 39,397 assertions. Finite evidence is only corroborative.",
+    "status": "PASS"
+  },
+  "independent": false,
+  "independent_audit_status": "not_performed",
+  "originality": {
+    "broader_coverage": {
+      "evidence": [
+        "Janson Theorem 4.1 gives asymptotic covariances of degree-class counts, not joint moments with triangles",
+        "Existing independent-edge degree/motif theorem controls G(n,p) rather than the exactly conditioned G(n,m) sample space",
+        "https://arxiv.org/pdf/math/0605642"
+      ],
+      "reasoning": "The probabilistic model distinction matters: conditioning on m destroys edge independence, and for fixed-edge sampling the covariance even changes sign, whereas the applicable independent-edge result stays strictly negative. Janson’s degree-profile limit does not supply this finite mixed statistic.",
+      "searches": [
+        "fixed edge random graphs covariance degree one vertices cycles subgraph count sign changes",
+        "random graphs joint fluctuations number of leaves and cycles covariance G(n,m)",
+        "Full text https://arxiv.org/pdf/math/0605642 Section 4 and Theorem 4.1"
+      ]
+    },
+    "checked_sources": [
+      "https://arxiv.org/pdf/math/0605642",
+      "https://arxiv.org/html/0906.0720v2",
+      "https://doi.org/10.1002/rsa.3240010103",
+      "Three-point connectivity exactly controls component–triangle covariance (independent percolation, not exact-edge leaf counts)",
+      "Related isolated-vertex/motif exact identity, isolated-edge-component/triangle exact sign result, and independent-edge degree/motif covariance identity (compared at statement and implication level)"
+    ],
+    "claim_vs_prior_implication": {
+      "evidence": [
+        "An isolated size-two edge-component count is a more restrictive structural variable than the total number of degree-one vertices; neither determines the other, and its threshold is near n/2 rather than n",
+        "The fixed G(n,p) degree-class theorem recovers the always-negative independent-edge comparison, which is expressly excluded from the new part",
+        "The path-orientation work studies reachability events and demonstrates different ensemble correlations without asserting this mixed graph-count identity"
+      ],
+      "reasoning": "The new claim is about a total degree-one count versus arbitrary minimum-degree-two motif occurrences under fixed-size sampling, with a universal exact normalization and sharp n+1 triangle threshold. The closest accessible results neither state nor imply that conclusion solely from their stated formulas; classical factorial moments could still conceal an implicit derivation.",
+      "searches": [
+        "Full text https://arxiv.org/html/0906.0720v2",
+        "Publisher abstract doi:10.1002/rsa.3240010103"
+      ]
+    },
+    "equivalent_formulations": {
+      "evidence": [
+        "Known related identity: isolated-vertex/motif ratio contains no factor (m-e)/m because the distinguished isolated vertex uses zero selected edges",
+        "For degree-one conditioning the residual graph has m-1 edges, introducing (m-e)/m and an exact triangle sign change at n+1",
+        "https://arxiv.org/abs/math/0605642"
+      ],
+      "reasoning": "The closest isolated-vertex identity is not an equivalent formulation: it conditions on zero incident edges, so its normalized sign is constant in m. The current leaf conditioning occupies one star edge, producing a genuinely m-dependent factor; the sharp sign switch cannot be inferred by substituting the isolated-vertex statistic.",
+      "searches": [
+        "G(n,m) leaf degree one motif count covariance triangle threshold m=n+1 fixed number edges",
+        "random graph G(n,m) \"degree one\" \"triangles\" \"covariance\""
+      ]
+    },
+    "exact_database_or_table": {
+      "evidence": [
+        "Related graph results count isolated-edge components or isolated vertices rather than degree-one vertices",
+        "A nearby published graph/triangle result concerns component count in independent percolation, not a fixed-edge leaf statistic"
+      ],
+      "reasoning": "No exact table of the leaf–triangle mixed covariance or the n+1 threshold appeared in the checked accessible claims and searches. This negative search is not, by itself, a priority proof.",
+      "searches": [
+        "G(n,m) number of degree-one vertices number of triangles exact covariance sharp m=n",
+        "exact covariance number degree one vertices triangles G(n,m) random graph 2026"
+      ]
+    },
+    "rationale": "Inspection of Janson’s full 2006/2007 fixed-edge degree profile and Alm–Janson–Linusson’s full directed reachability paper, together with matching-claim comparison of accessible historical findings and published-finding corpus searches, yielded no implication of the new degree-one versus motif G(n,m) mixed identity. Existing G(n,p) version is background, not novelty. The 1990 general subgraph-count source has only an accessible abstract; implicit historical coverage remains a named risk.",
+    "residual_risks": [
+      "Janson (1990) broad functional subgraph-count paper full text inaccessible; only its abstract was checked. It could implicitly contain related moments.",
+      "Classical graph factorial-moment formulas may permit a simpler derivation or an unlocated earlier statement; absence from searches is not proof of historical first priority."
+    ],
+    "source_inspections": [
+      {
+        "assessment": "NOT_COVERING as inspected: joint fluctuations and asymptotic degree-profile covariance, not finite degree-one versus cyclic motif count",
+        "evidence": [
+          "https://arxiv.org/abs/math/0605642",
+          "Theorem 4.1 discusses degree-count vectors in G(n,m), not a mixed triangle count"
+        ],
+        "identifier_or_url": "https://arxiv.org/pdf/math/0605642",
+        "material_read": "Full PDF, abstract, Sections 1 and 4 including Theorem 4.1 and covariance formulas (4.2)–(4.7), with PDF page visual inspection",
+        "method": "Full-text extraction, thematic formula comparison, page screenshot",
+        "title": "Monotonicity, asymptotic normality and vertex degrees in random graphs",
+        "trigger": "Fixed-edge degree-class covariance theory most likely to dominate the degree-one part"
+      },
+      {
+        "assessment": "NOT_COVERING: correlations of directed reachability events, not undirected leaf and cycle counts",
+        "evidence": [
+          "https://arxiv.org/html/0906.0720v2",
+          "Theorems 2.1 and 2.2 concern directed-path reachability"
+        ],
+        "identifier_or_url": "https://arxiv.org/html/0906.0720v2",
+        "material_read": "Open-access full HTML, abstract, introduction, main theorem and ensemble-comparison sections",
+        "method": "Full HTML source inspection and statement implication comparison",
+        "title": "Correlations for paths in random orientations of G(n,p) and G(n,m)",
+        "trigger": "Relevant correlations in both exact-edge and independent-edge graph ensembles"
+      },
+      {
+        "assessment": "UNRESOLVED historical priority: no full-text not-covering claim made",
+        "evidence": [
+          "https://doi.org/10.1002/rsa.3240010103",
+          "Abstract mentions functional limits for subgraph counts, not the specific finite mixed degree-one covariance"
+        ],
+        "identifier_or_url": "https://doi.org/10.1002/rsa.3240010103",
+        "material_read": "Bibliographic abstract only; full text not obtained",
+        "method": "Published abstract and accessible bibliographic comparison, with open-access lookup",
+        "title": "A functional limit theorem for random graphs with applications to subgraph count statistics",
+        "trigger": "Broad earlier subgraph-moment theorem may subsume aspects of the claimed covariance"
+      }
+    ],
+    "status": "PASS"
+  },
+  "review_type": "self_review",
+  "schema_version": 1,
+  "scope_run_id": "b49fbe58-c486-426b-a3c2-3f670df81e1b",
+  "self_review_status": "passed",
+  "value": {
+    "rationale": "The exact sharp sign at m=n+1 for every n≥5 in a natural leaf–triangle pair shows reversal across a sparse edge-count boundary; the larger minimum-degree-two motif class has a topology-free at-most-one-crossing law, and the sparse covariance limit is nonzero for c≠1. The result is more than separate first-moment enumeration or a small numerical improvement.",
+    "status": "PASS"
+  }
+}
