@@ -1,11 +1,21 @@
-# Scientific review
+# Independent mathematical audit
 
-**Correctness — PASS.** The rank-one Hermitian-projection embedding gives an exact real Hilbert-space Gaussian representation for every positive even power in all three fields. Necessity follows from the embedded real projective circle, a local conormal Fourier-tail calculation, and the compact-group Fourier positivity criterion. The cutoff expansion has exponent \(\alpha+\min(\alpha,2)\) strictly above \(\alpha\); the sine factor vanishes exactly at even positive integers. The odd/even alternating sign provides negative modes for every fixed positive concentration. The independent check program compares 63 quadrature/series and finite witness cases; finite tests do not substitute for the all-frequency asymptotic proof. Quaternionic real-trace and injectivity hypotheses are explicitly covered.
+## correctness
 
-**Originality — PASS under bounded comparison.** Matzke (2021), §6.2/Lemma 6.2.2, gives related projective pure-power coefficients and sign behavior, but does not identify the concentration-independent phase classification after exponentiating the power. Because infinitely many powers enter the exponential, pure-power sign failure alone does not imply failure of the full kernel; the new cusp leading-term comparison rules out cancellation at every concentration. Gneiting (2011) treats spherical zonal positive definiteness, not this powered projective affinity; Feragen–Lauze–Hauberg (2014) treat geodesic exponential kernels instead. Related unindexed results or a stronger general theorem could still cover this statement. Public sources were materially read where indicated in the structured review.
+PASS
 
-**Value — PASS.** Exponentiated projective overlap is a natural axial/orientation-invariant covariance and similarity model. The classification separates powers preserving Hilbert feature embeddings from all other powers, independently of concentration and of the three division-algebra geometries; the negative-mode asymptotic is a quantitative, infinitely repeated obstruction. It is not a mere parameter substitution: exponentiation changes all harmonic coefficients, and the proof shows why no positive concentration can repair the singularity.
+For α=2m, the real Hilbert–Schmidt pairing of rank-one Hermitian projectors P_u=uu* equals |<u,v>_F|^2, for F=R,C,H. Tensor power X_u=P_u^{⊗m} is injective on distinct projective lines, so exp(κ<X_u,X_v>) is the Euclidean Gaussian kernel times e^κ and is strictly positive definite on distinct finite sites. For every α>0 not even, restrict to embedded real projective line parameter t∈R/πZ, where kernel is e^{κ|cos(t-s)|^α}. Unique cusp at t=π/2 has local expansion 1+κ|t-π/2|^α+O_symbol(|t-π/2|^{α+min(α,2)}); Fourier asymptotic is (-1)^{n+1} κΓ(α+1)sin(πα/2)/(π2^α)n^{-α-1}+o(n^{-α-1}). Nonzero alternating leading sign forces infinitely many negative Fourier coefficients and rules out PSD by the compact abelian group positivity criterion. Independent finite Fourier integration found negative modes at α=1,3 and nonnegative α=2; this corroborates rather than proves all α,κ.
 
-**Limitations.** The theorem does not consider a general projective profile, nonpositive concentration, or infinite-dimensional settings. Literature coverage is incomplete, and source comparison is not independent certification. All numerical checks are auxiliary.
+## originality
 
-Self-review: passed. Independent audit: not yet performed.
+PASS
+
+Matzke (2021) explicitly computes Fourier signs of pure projective powers and is credited for the structural obstruction, but unexponentiated coefficient signs cannot logically rule out a positive infinite exponential series at all κ. The local cusp dominant term prevents cancellation for any κ and yields the exact exponent dichotomy simultaneously for R,C,H; no equivalent full exponentiated classification identified. Best-of-knowledge with general negative-type harmonic theorem priority risk.
+
+## value
+
+PASS
+
+Exponentiated absolute projective inner-product affinity is a natural orientation-invariant covariance kernel. Exact concentration-independent all-dimensional PSD classification distinguishes legal Gaussian feature constructions from kernels with infinitely many negative Fourier modes. This answers a structural kernel-design question, not an isolated numerical parameter check.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
