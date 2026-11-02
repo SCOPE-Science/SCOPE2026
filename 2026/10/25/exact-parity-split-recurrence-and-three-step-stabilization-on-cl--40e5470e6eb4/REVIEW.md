@@ -1,11 +1,21 @@
-# Self-review
+# Independent mathematical audit
 
-**Correctness — PASS.** Each leaf copies its own core vertex, and the core local rule reduces exactly to the displayed three-branch update for even clique order and two boundary formulas for odd order. The proof enumerates all recurrent cases, then partitions all initial states by their first periodic time. Its odd borderline binomial counts, even balanced-word counts and exceptional three-core case were recomputed independently. The finite verifier constructs graph neighbourhoods directly and checks every labelled state through clique order nine (349,504 states); this is corroboration, not an infinite proof.
+## correctness
 
-**Originality — PASS, bounded.** The 2014 Benjamini–Chan–O'Donnell–Tamuz–Tan full text gives general eventual period at most two, not the sharp three-step cutoff or exact clique-corona depth and recurrent-state populations. The open 2024 Zehmakan study treats generic graphs and especially cycles, not this matched private-leaf structure. The general 1980 Goles–Olivos theorem does not logically imply the exact counts. Existing majority classifications on complete split graphs, clique windmills, and cycle coronas refer to different adjacency structures and therefore do not cover these formulas. An indexed graph-invariant result for the same clique corona concerns general-position-set log-concavity, not any state-update map. Full-text access to the short 1980 paper was unavailable; an unindexed equivalent is a genuine residual risk.
+PASS
 
-**Mathematical value — PASS.** Attaching one private leaf to every agent in a complete voting network is a canonical way to add one-step memory without changing the dense core. The exact theorem classifies every periodic configuration and every transient depth on all graph orders. Its parity transition between polynomial and exponentially small recurrent fractions, plus a sharp asymptotic factor-two disparity in maximum-delay probabilities, is a structural dynamical distinction that generic period-two theorems cannot resolve. It is not merely a numerical census, reformulation or narrow parameter increment.
+Every private leaf copies its core state at each update. A clique vertex sees S−x_i+y_i ones out of m neighbors. For m=2k this yields three branches x′=0 if S<k, x′=y if S=k, x′=1 if S>k; paired balanced words give c² recurrent states plus 2 homogeneous states. The other first-entry classes partition by whether x is homogeneous and whether the next core is balanced, homogeneous, or intermediate, giving D1=2(2^m−1), D3=c(2^m−c−2). For m=2k+1, borderline outputs are (1−x)∧y at S=k or (1−x)∨y at S=k+1; disjointness/complement-cover forces only recurrent balanced-border pairs, 2c(k+2) plus 2 homogeneous states, and their free leaf-bit multiplicities yield D1 and D3. D2 is the nonnegative complement of the partition. Stirling's central binomial estimate gives even recurrence fraction 2/(πm) and odd 2^(−m)√(2m/π). Fresh independent direct-neighborhood orbit enumeration for m=3..7 (21,824 labelled states) matched exact formulas, including m=3 depth vector (20,32,12,0), m=5 (82,302,400,240), m=6 (402,126,2728,840), and fixed counts. All-order proof comes from the branch partition, not finite checks.
 
-**Scientific limits.** Asynchronous, probabilistic-tie, weighted and other leaf-attachment dynamics remain untreated. The verification is finite and the originality comparison is bounded by accessible sources. No external or independent validation has taken place.
+## originality
 
-Self-review: passed. Independent audit: not yet performed.
+PASS
+
+A fresh closest-prior comparison finds no accessible theorem or database record implying the final all-parameter conclusion. The exact overlap/special-case antecedents are credited and remaining literature-access or terminology risks are recorded; PASS is a best-of-knowledge judgment, not external historical certification. Exact parity-split recurrence and three-step stabilization on clique coronas: Tie-retaining synchronous binary majority on K_m∘K1 for every m≥3 has exact transient-depth counts D0..D3, fixed and primitive two-cycle counts, sharp depth ≤3 (depth ≤2 at m=3), and sharply different even/odd recurrent-state asymptotics.
+
+## value
+
+PASS
+
+A complete distribution of first entrance into periodic states, including the sharp bounded transient and a dramatic even/odd asymptotic recurrence split, is a natural dynamical invariant for a dense binary majority network with attached one-step-memory leaves. General period≤2 results alone do not give basin-depth populations. The result addresses synchronous unweighted tie-retaining majority only.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
