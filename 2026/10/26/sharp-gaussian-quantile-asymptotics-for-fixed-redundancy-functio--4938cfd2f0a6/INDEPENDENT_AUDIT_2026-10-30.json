@@ -1,0 +1,122 @@
+{
+  "audit_date_utc": "2026-10-30",
+  "audited_at_utc": "2026-10-30T07:55:31Z",
+  "axes": {
+    "correctness": {
+      "rationale": "Fix s>=1 while t tends to infinity. The imported exact Rajput–Jagatti–Rajan/Harper two-class criterion is |N_{2t}(I_M)|-M<=2^n-2^k for all class sizes M<=2^{k-1}. The balanced choice M=2^{k-1}=p_s2^n, p_s=2^{-s-1}, has binomial radius quantile j=n/2-z_s sqrt(n)/2+o(sqrt n), z_s=Phi^-1(1-p_s). The ball B_{j-1+2t} lies inside its 2t-neighborhood, violating capacity whenever n/t^2<c_s=4/z_s^2. For all M, the simplicial-initial-segment containment bounds the neighborhood increment by 2t+1 consecutive binomial layers. Uniform Berry–Esseen gives interval mass Phi(x+a)-Phi(x)+O(n^-1/2), x<=-z_s+O(n^-1/2), a=(2t+1)/(sqrt n/2), so for n>=(c_s+epsilon)t^2 one has a<2z_s and the interval mass lies strictly below 1-2^-s with uniform margin. This proves universal eventual success for ALL k above threshold and matching liminf using one balanced counterexample at each c<c_s. Verified script verify_threshold.py logic and short-cube neighborhood and integer-binomial tests; finite t checks do not establish the asymptotic. Restrictions s<=2t hold automatically for all large t with s fixed.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "The finite criterion and nonsharp quadratic upper bound are present in Rajput et al.; Harper guarantees optimally small cube neighborhoods, not the asymptotic quantile optimization by itself."
+        ],
+        "reasoning": "The source upper bound has a different coefficient and does not imply a matching lower asymptotic for all s; generic normal approximations require proving that the worst classes are controlled uniformly.",
+        "searches": [
+          "arXiv:2610.09011 Theorems 3/5",
+          "arXiv:1806.11061 Harper uniqueness",
+          "Berry–Esseen binomial Gaussian approximation"
+        ]
+      },
+      "checked_sources": [
+        "arXiv:2610.09011v1",
+        "arXiv:1806.11061",
+        "L. H. Harper, Journal of Combinatorial Theory 1 (1966), 385–393",
+        "https://github.com/SCOPE-Science/SCOPE2026/tree/956e662b534f71dcd9ea0d0637f30565daba798a/2026/10/26/sharp-gaussian-quantile-asymptotics-for-fixed-redundancy-functio--4938cfd2f0a6/RESULT.md (Git blob 2f1427a8a0356026d37922971cabed4332958f0c)",
+        "https://github.com/SCOPE-Science/SCOPE2026/tree/956e662b534f71dcd9ea0d0637f30565daba798a/2026/10/26/sharp-gaussian-quantile-asymptotics-for-fixed-redundancy-functio--4938cfd2f0a6/verify_threshold.py (Git blob 6a065572c7d01c5ab9c6520565ab2c006f4eeabe)"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "The 2026 source supplies an iff neighborhood criterion and prior upper bound; it identifies growth of κ_1 and lower bounds for s>=2 as questions."
+        ],
+        "reasoning": "Optimizing the binomial upper/lower sandwich at distance 2t yields a new matching constant. A cited finite criterion is an essential premise, not itself a proof of the new asymptotic.",
+        "searches": [
+          "arXiv:2610.09011 Theorem 3",
+          "arXiv:2610.09011 growth question",
+          "arXiv:1806.11061"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "The exact source terminology is universal threshold κ_s(t) for nonsystematic two-class function-correcting codes; the package uses that same definition and Theorem 3 criterion."
+        ],
+        "reasoning": "Equivalent phrasing as a Hamming-cube separation/isoperimetric threshold is recognized; the 2026 primary source gives a finite test, not this sharp fixed-s scaling limit.",
+        "searches": [
+          "Resultary: fixed redundancy binary function correcting codes optimal nonsystematic two-class threshold kappa_s(t) Gaussian quantile t squared",
+          "arXiv:2610.09011",
+          "Harper vertex-isoperimetric initial segments"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "Resultary matches were chiefly deletion/PIR codes with different decoding models. The 2026 primary source explicitly treats the exact feasibility criterion and finite bounds, not a table of c_s values."
+        ],
+        "reasoning": "Finite threshold tables cannot supply the all-t exact leading limit; no relevant dominating exact table identified, with normal novelty-search limitations.",
+        "searches": [
+          "Resultary fixed-redundancy two-valued function-correcting threshold",
+          "arXiv:2610.09011",
+          "κ_1(t) growth threshold coding"
+        ]
+      },
+      "rationale": "The 2026 primary Rajput–Jagatti–Rajan work states the exact finite neighborhood criterion, a quadratic upper bound, and highlights the growth-order gap; those statements are correctly imported as prerequisites rather than claimed new. The assigned theorem gives a matching lower obstruction from balanced classes and an exact sharp Gaussian-quantile constant for every fixed redundancy. Harper isoperimetry and Berry–Esseen are classical ingredients, but neither their isolated statements nor the cited finite-code paper explicitly yields the quantified all-class asymptotic without the interval optimization argument.",
+      "residual_risks": [
+        "This asymptotic is fixed s only; uniform s growing with t, finite thresholds and second-order errors remain unproved.",
+        "An older Hamming isoperimetric threshold reformulation under non-coding terminology might already imply the same Gaussian constant.",
+        "Full original Harper 1966 paper not independently read; relied on standard well-established theorem as stated and used in the primary 2026 paper."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "PRIOR for finite characterization; NOT_COVERING for exact fixed-s Gaussian constant",
+          "evidence": "The source exhibits a quadratic upper bound but no matching balanced obstruction and no c_s asymptotic.",
+          "identifier_or_url": "arXiv:2610.09011v1",
+          "material_read": "Accessible full HTML, definitions, Theorem 3 feasibility criterion, relevant bounds and discussion of open threshold growth",
+          "method": "Read primary arXiv HTML theorem and discussion",
+          "title": "On Optimal Encodings and Systematicity in Function-Correcting Codes",
+          "trigger": "same encoder model, same κ_s threshold and finite iff result"
+        },
+        {
+          "assessment": "PREREQUISITE rather than pre-existing coding threshold",
+          "evidence": "Harper controls neighborhood sizes of initial segments; it does not encode two-value cross-class distance thresholds.",
+          "identifier_or_url": "arXiv:1806.11061",
+          "material_read": "Accessible abstract and result description of Harper initial-segment extremality",
+          "method": "Read arXiv summary/theorem description",
+          "title": "Uniqueness in Harper’s vertex-isoperimetric theorem",
+          "trigger": "primary context for simplicial-order isoperimetry"
+        },
+        {
+          "assessment": "KNOWN original extremal neighborhood premise; no assessed coding asymptotic",
+          "evidence": "Source applies to cube initial segments, not universal redundant code parameter κ_s.",
+          "identifier_or_url": "L. H. Harper, Journal of Combinatorial Theory 1 (1966), 385–393",
+          "material_read": "Original theorem citation and quoted use in code paper; original 1966 full text not separately inspected",
+          "method": "Compared theorem as accurately stated and used in the 2026 source",
+          "title": "Optimal numberings and isoperimetric problems on graphs",
+          "trigger": "original Hamming-cube vertex isoperimetric theorem"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "rationale": "Determining the threshold at which EVERY two-valued function admits a short nonsystematic error-protection encoder is a natural universal coding-theory question. A sharp redundancy-dependent constant closes the prior gap for fixed s and separates balanced worst-case obstructions from unrestricted nonlinear encoders. The result is not merely a numerical recalibration of a table.",
+      "status": "PASS"
+    }
+  },
+  "checked_sources": [
+    "arXiv:2610.09011v1",
+    "arXiv:1806.11061",
+    "L. H. Harper, Journal of Combinatorial Theory 1 (1966), 385–393",
+    "https://github.com/SCOPE-Science/SCOPE2026/tree/956e662b534f71dcd9ea0d0637f30565daba798a/2026/10/26/sharp-gaussian-quantile-asymptotics-for-fixed-redundancy-functio--4938cfd2f0a6/RESULT.md (Git blob 2f1427a8a0356026d37922971cabed4332958f0c)",
+    "https://github.com/SCOPE-Science/SCOPE2026/tree/956e662b534f71dcd9ea0d0637f30565daba798a/2026/10/26/sharp-gaussian-quantile-asymptotics-for-fixed-redundancy-functio--4938cfd2f0a6/verify_threshold.py (Git blob 6a065572c7d01c5ab9c6520565ab2c006f4eeabe)"
+  ],
+  "disposition": "passed",
+  "limitations": [
+    "This asymptotic is fixed s only; uniform s growing with t, finite thresholds and second-order errors remain unproved.",
+    "An older Hamming isoperimetric threshold reformulation under non-coding terminology might already imply the same Gaussian constant.",
+    "Full original Harper 1966 paper not independently read; relied on standard well-established theorem as stated and used in the primary 2026 paper."
+  ],
+  "residual_risks": [
+    "This asymptotic is fixed s only; uniform s growing with t, finite thresholds and second-order errors remain unproved.",
+    "An older Hamming isoperimetric threshold reformulation under non-coding terminology might already imply the same Gaussian constant.",
+    "Full original Harper 1966 paper not independently read; relied on standard well-established theorem as stated and used in the primary 2026 paper."
+  ],
+  "schema_version": 1
+}
