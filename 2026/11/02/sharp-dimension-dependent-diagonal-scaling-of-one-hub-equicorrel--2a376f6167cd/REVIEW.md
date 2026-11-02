@@ -1,0 +1,15 @@
+# Scientific review: one-hub equicorrelation diagonal scaling
+
+## Correctness — PASS
+The proof treats the full positive diagonal congruence class. The equivalence between a condition-number upper bound and two diagonal semidefinite inequalities is exact; permutation averaging provides a symmetric candidate but is **not** used to infer uniqueness. The explicit plane-plus-multiplicity spectral decomposition, monotonic eigenvalue derivatives, and unique crossing of the leaf-difference eigenvalue establish the piecewise minimum. A separate saturated generalized-eigenvector certificate proves that every nonsymmetric diagonal optimum equals the symmetric one up to global scale. The checker independently compared the formula with rational identities and direct eigensolvers on 176 admissible cases, passing 2666 assertions; its sampling is not used as proof of the quantified theorem. Scientific limits: only real SPD matrices, fixed dimension \(m+1\), and positive diagonal congruence scaling.
+
+## Originality — PASS (qualified)
+Takapoui–Javadi (arXiv:1610.03871v1) and Diamond–Boyd (arXiv:1602.06621v1) supply diagonal equilibration context but no exact optimum for this family. The original Kolotilina 2004 three-dimensional theorem does cover \(m=2\), which is explicitly excluded. Shapiro (1985), Kolotilina (2002), and Braatz–Morari (1994) establish general diagonal or block-condition optimization frameworks; full texts for the first two could not be checked, and a specialization may exist. Qu et al. (2022) offer general preconditioning algorithms rather than this explicit leaf-count saturation and unrestricted rigidity, in the inspected introduction/method. No matched full-dimensional statement was found in mathematical-record queries or accessed primary material. Novelty therefore remains subject to specialized earlier coverage, especially unexamined block-scaling cases.
+
+## Mathematical value — PASS
+One-hub equicorrelation matrices are natural covariance, Hessian and dense-feature systems for which diagonal equilibration is attractive but not generally condition-number optimal. The theorem gives an explicit globally optimal diagonal preconditioner for every admissible matrix in an infinite-dimensional family, a sharp active-eigenmode transition, an exact criterion for Jacobi being optimal, and a nontrivial dimension-dependent cutoff after which the hub scale stops increasing. It goes beyond a numerical comparison or a textbook two-by-two scaling exercise. It does not claim the result yields a specific bound on an unrelated iterative method.
+
+## Closest literature and limits
+The highest-overlap substantive comparison is Kolotilina's complete three-by-three solution, not a match at dimension four or above. General block-condition methods are a material residual coverage risk. The finite checker cannot establish historical originality or substitute for the proof; no independent mathematical review has occurred.
+
+Self-review: passed. Independent audit: not yet performed.

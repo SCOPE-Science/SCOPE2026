@@ -1,0 +1,170 @@
+{
+  "correctness": {
+    "rationale": "Exact positive-definiteness assumptions and all quantifiers given. A pair of diagonal matrix inequalities makes symmetrization valid, two positive plane eigenvalues plus an m-1 fold leaf-difference eigenvalue yield exact minimax cases, and a tight generalized-eigenvector kernel proves no independently scaled nonsymmetric-leaf optimum exists. The exact rational and direct-Jacobi 2666 checker assertions were replayed from VERIFY.py and are supplementary, not infinite proof. Singular and a=0 boundaries are excluded.",
+    "status": "PASS"
+  },
+  "independent": false,
+  "independent_audit_status": "not_performed",
+  "originality": {
+    "broader_coverage": {
+      "evidence": [
+        "Shapiro 1985 abstract describes optimal block diagonal scaling and some closed-form special cases but the exact special cases were not accessible.",
+        "Kolotilina 2002 abstract gives general conditions for optimally conditioned block matrices but does not in accessible text identify this m>=3 family or explicit cutoff.",
+        "Braatz and Morari 1994 abstract addresses Euclidean condition number minimization generally.",
+        "Qu et al. arXiv:2209.00809 Sections 1–3 discuss general optimal diagonal preconditioning algorithms and semidefinite formulations."
+      ],
+      "reasoning": "General quasiconvex optimization, abstract optimality conditions or algorithms do cover the computational *problem* but are not automatically the explicitly quantified two-phase evaluation and uniqueness/saturation classification. An uninspected general special-case theorem could subsume the family; this uncertainty is recorded without asserting not-covering on snippets.",
+      "searches": [
+        "optimally conditioned block matrices Kolotilina 2002 10.1016/S0024-3795(01)00412-8",
+        "Shapiro optimal block diagonal l2 scaling matrices 1985 10.1137/0722005",
+        "Qu Gao Hinder Ye Zhou optimal diagonal preconditioning 2209.00809 compound symmetry"
+      ]
+    },
+    "checked_sources": [
+      "arxiv:1610.03871v1",
+      "arxiv:1602.06621v1",
+      "doi:10.1007/s10958-005-0488-1",
+      "doi:10.1137/0722005 (abstract only)",
+      "doi:10.1016/S0024-3795(01)00412-8 (abstract only)",
+      "doi:10.1137/S0363012992238680 (abstract only)",
+      "arxiv:2209.00809"
+    ],
+    "claim_vs_prior_implication": {
+      "evidence": [
+        "Diamond–Boyd arXiv:1602.06621 relates equilibration to an upper bound on matrix condition number; minimizing a bound does not solve exact spectral condition minimization.",
+        "Takapoui–Javadi arXiv:1610.03871 studies equilibration and diagonal preconditioning rather than the present all-dimensional exact minimizer.",
+        "Kolotilina 2004/2006 covers m=2.",
+        "The accessible Shapiro 1985 and Kolotilina 2002 abstracts do not resolve whether their general theorems include an explicit matching case."
+      ],
+      "reasoning": "The explicit minimizer and global uniqueness result is stronger than a proposed scaling heuristic, and is not a corollary of a 3 by 3 case for arbitrary m. General SDP feasibility guarantees solvability but neither directly implies the formula nor the cutoff without a new spectral/rigidity analysis. Residual older-block-scaling risk remains specific and nonzero.",
+      "searches": [
+        "Kolotilina optimally conditioned block matrices 2002 exact symmetric arrowhead n by n",
+        "Takapoui Javadi Preconditioning via Diagonal Scaling arxiv 1610.03871 exact optimal condition number",
+        "Diamond Boyd Stochastic Matrix-Free Equilibration arxiv 1602.06621 condition bound"
+      ]
+    },
+    "equivalent_formulations": {
+      "evidence": [
+        "Kolotilina 2004/2006, Corollary 3.8, explicitly handles all 3 by 3 quasireal Hermitian SPD scaling; it implies the m=2 slice only.",
+        "Takapoui and Javadi 2016, Sections 1–6, discuss diagonal equilibration and heuristics without a closed form for arbitrary m one-hub equicorrelation systems."
+      ],
+      "reasoning": "The result is formulated as a diagonal congruence spectral-condition optimization, equivalent to a pair of diagonal semidefinite inequalities. The m=2 specialization is prior art. An m>=3 unrestricted-global-uniqueness and two-regime exact formula is not derivable from a claim explicitly limited to 3 by 3 matrices merely by relabeling or substituting parameters.",
+      "searches": [
+        "optimal diagonal congruence scaling condition number SPD one-hub equicorrelation matrix",
+        "arrowhead compound-symmetry matrix minimum spectral condition number diagonal equilibration",
+        "Kolotilina optimal diagonal scaling quasireal Hermitian positive definite 3x3 Corollary 3.8 DOI 10.1007/s10958-005-0488-1"
+      ]
+    },
+    "exact_database_or_table": {
+      "evidence": [
+        "The mathematical-record similarity results returned nearby 2 by 2 weighted-Jacobi Euclidean-safety and bidirectional Gauss–Seidel preconditioning results, but no exact one-hub m>=3 condition-number scaling record.",
+        "The record on one-hub matrix diagonal preconditioning was not matched by queried parameter aliases, compound symmetry or arrowhead phrasing."
+      ],
+      "reasoning": "There is no relevant finite known table or enumerated invariant to recompute here: the claim holds for a continuous two-parameter family in every integer dimension m>=3. Failed record retrieval alone is not proof of novelty; primary mathematical implications are separately assessed.",
+      "searches": [
+        "m leaves one hub matrix off diagonal a versus b equicorrelation exact minimizing spectral condition number diagonal preconditioner threshold",
+        "condition-number optimal diagonal scaling arrowhead equicorrelation matrix one exceptional coordinate m equal leaves exact phase threshold",
+        "Jacobi preconditioner optimality for 3 by 3 symmetric positive definite matrices condition number sign of off-diagonal"
+      ]
+    },
+    "rationale": "The new full-dimensional formula, unrestricted uniqueness, Jacobi iff criterion and leaf-count saturation were not established by checked primary statements or mathematical-record comparisons. Kolotilina's three-dimensional theorem covers m=2 and is expressly excluded. General optimal block-scaling prior art may encode a broader implicit optimization characterization, and inaccessible specialized full texts are residual risks; no absence-of-search proof is asserted.",
+    "residual_risks": [
+      "Full Shapiro 1985 text was inaccessible; its closed-form block-scaling special cases may include a reduction to this matrix.",
+      "Full Kolotilina 2002 block-scaling text was inaccessible; general criteria might subsume the explicit statement.",
+      "Specialized historical diagonal scaling papers could encode an equivalent m>=3 theorem under different parameterization.",
+      "No independent mathematical validation has occurred."
+    ],
+    "source_inspections": [
+      {
+        "assessment": "Background optimization and heuristics, not the present m>=3 closed-form classification",
+        "evidence": [
+          "Submission date on arXiv October 12, 2016",
+          "Text motivates diagonal equilibration of matrices"
+        ],
+        "identifier_or_url": "https://arxiv.org/abs/1610.03871",
+        "material_read": "Full arXiv HTML text, Sections 1 through 6 and bibliography",
+        "method": "Read the definitions, algorithmic scope, condition-number discussion and cited literature",
+        "title": "Preconditioning via Diagonal Scaling",
+        "trigger": "Focal archived diagonal-equilibration source"
+      },
+      {
+        "assessment": "A bound-optimality argument does not determine the exact hub scaling",
+        "evidence": [
+          "Public arXiv version February 22, 2016",
+          "Equilibration bounds the condition number, without exact one-hub classification in inspected material"
+        ],
+        "identifier_or_url": "https://arxiv.org/abs/1602.06621",
+        "material_read": "ArXiv opening text, abstract, initial theory and upper-bound discussion",
+        "method": "Compared matrix equilibration objective with the exact spectral-condition objective",
+        "title": "Stochastic Matrix-Free Equilibration",
+        "trigger": "Relationship between balancing and conditioning"
+      },
+      {
+        "assessment": "Fully overlaps dimension three, does not prove claim for m>=3 by its stated dimensional quantifier",
+        "evidence": [
+          "The result solves 3 by 3 Hermitian SPD diagonal scaling",
+          "Our theorem starts at dimension four"
+        ],
+        "identifier_or_url": "https://doi.org/10.1007/s10958-005-0488-1",
+        "material_read": "Accessible article text, introduction and Corollary 3.8 with surrounding conditions",
+        "method": "Compared objects, dimension quantifiers and scalings; removed the prior m=2 slice",
+        "title": "Solution of the Problem of Optimal Diagonal Scaling for Quasireal Hermitian Positive-Definite 3×3 Matrices",
+        "trigger": "Directly overlapping dimension-three diagonal-scaling result"
+      },
+      {
+        "assessment": "Unresolved specific-risk source: its special cases may have a relevant broader result",
+        "evidence": [
+          "Shapiro 1985 general block diagonal l2 scaling",
+          "Abstract mentions closed-form special cases"
+        ],
+        "identifier_or_url": "https://doi.org/10.1137/0722005",
+        "material_read": "Abstract and catalog description only; full text unavailable",
+        "method": "Assessed claimed generality and special-case language, did not assume non-coverage",
+        "title": "Optimal Block Diagonal l₂-Scaling of Matrices",
+        "trigger": "Older potentially stronger general scaling theorem"
+      },
+      {
+        "assessment": "General method may implicitly cover; explicit m>=3 cutoff not verified or excluded",
+        "evidence": [
+          "Kolotilina 2002 general block-condition work"
+        ],
+        "identifier_or_url": "https://doi.org/10.1016/S0024-3795(01)00412-8",
+        "material_read": "Abstract and bibliographic summary only; full text unavailable",
+        "method": "Compared general optimization conditions with the exact stated closed-form family",
+        "title": "Optimally Conditioned Block Matrices",
+        "trigger": "Potential general block criterion"
+      },
+      {
+        "assessment": "General conditioning framework, no assessed explicit full-family theorem",
+        "evidence": [
+          "Braatz and Morari 1994 addresses Euclidean condition minimization"
+        ],
+        "identifier_or_url": "https://doi.org/10.1137/S0363012992238680",
+        "material_read": "Abstract and bibliographic information",
+        "method": "Compared general optimization formulation to exact structured classification",
+        "title": "Minimizing Euclidean Condition Number",
+        "trigger": "General earlier numerical condition optimization"
+      },
+      {
+        "assessment": "General algorithms apply to the problem but no matching exact special case found in inspected sections",
+        "evidence": [
+          "Postarchive 2022 algorithms and SDP methods for diagonal preconditioning"
+        ],
+        "identifier_or_url": "https://arxiv.org/abs/2209.00809",
+        "material_read": "ArXiv HTML abstract, introduction and main algorithm sections",
+        "method": "Looked for compound-symmetry, one-hub, equicorrelation, explicit leaf-count cases",
+        "title": "Optimal Diagonal Preconditioning",
+        "trigger": "Later algorithms potentially stronger"
+      }
+    ],
+    "status": "PASS"
+  },
+  "review_type": "self_review",
+  "schema_version": 1,
+  "scope_run_id": "2a376f61-67cd-4850-a89f-f818dd3a95ce",
+  "self_review_status": "passed",
+  "value": {
+    "rationale": "One-hub compound-symmetry covariance/Hessian matrices are an infinite natural family where equilibration heuristics do not automatically optimize condition number. The theorem yields a closed-form globally optimal diagonal preconditioner, a sharp active-eigenspace phase boundary, a necessary-and-sufficient Jacobi-optimality criterion and an exact dimension-dependent scale-saturation law. This is a structural complete classification with genuine numerical-conditioning motivation rather than a small numerical improvement or unmotivated finite slice.",
+    "status": "PASS"
+  }
+}
