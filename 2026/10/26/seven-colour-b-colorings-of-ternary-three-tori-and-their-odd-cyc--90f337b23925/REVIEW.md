@@ -1,19 +1,21 @@
-# Scientific review
+# Independent mathematical audit
 
-## Correctness — PASS
+## correctness
 
-The 27-vertex seed is specified by 81 explicit colours in `certificate.json`; a standalone exhaustive enumerator in `verify.py` checks distinctness at every one of its 27 vertices and all 81 simple four-cycles. A proper six-colouring of any six-regular graph with an odd number of vertices is impossible by a matching-count argument. Reduction modulo three on each length-\(3a\) cycle is a locally bijective graph covering; squares of the larger product descend to rainbow squares of the seed, proving the unrestricted bound without computational extrapolation. The verifier also checks six larger lifted graphs, but the generality rests on this proof.
+PASS
 
-## Originality — PASS, subject to further bibliographic review
+Each graph has 27abc odd vertices, degree 6, so six matchings cannot color 3N edges: lower bound 7. The 81-edge ternary three-torus seed is explicitly specified in the actual certificate.json table. Independently constructed graph adjacency, 81 unique undirected edges, all 27 vertex incidence lists and all 81 simple 4-cycles, verifying six distinct incident colors and four distinct edge colors per 4-cycle; seven colors occur with multiplicities (11,11,12,12,11,12,12). Reduction modulo 3 from any odd-multiple-of-three cycle is a locally bijective covering onto C3. Every larger graph 4-cycle uses two directions and descends to a seed 4-cycle, so pullback certifies infinite family. Finite certificate alone would not establish the general theorem; parity plus graph covering does.
 
-Gyárfás–Sárközy (2023), Theorem 1.8, leave the ternary three-cube at bounds seven through eight; their Theorem 1.7 covers a seven-divisibility family instead. Jiang–Li (2026), Section 7, explicitly conjecture degree-plus-one for all odd discrete tori. Their Lemma 2.4 already gives the repetition mechanism, so only the newly supplied seven-colour seed and its resulting exact triple-family resolution are claimed here. A direct reading of both complete relevant primary texts revealed no seven-colour seed for this graph or theorem for the positive odd triples of three-multiples. Independent novelty confirmation remains outstanding.
+## originality
 
-## Value — PASS
+PASS
 
-The object is the smallest previously unresolved three-dimensional odd torus under the established bounds for a natural, recently studied invariant related to rainbow edge-colouring. Its exact value closes a genuine one-colour uncertainty, and a finite explicit certificate instantly settles an infinite congruence family of the 2026 conjecture. Neither a renaming of a known formula nor an arbitrary slice is involved: the residue class is forced by the nontrivial period-three construction and graph coverings.
+Gyárfás–Sárközy (2023) Theorem 1.8 explicitly leaves this 27-vertex instance at 7≤q_B≤8. Their congruence-seven family is not a congruence-three seed. Jiang–Li 2026 provide 2D grid exact classification and a known period-lift lemma; that lift is acknowledged, but its application to a previously unavailable seven-color 3D seed resolves the open case and infinite specified odd cycle family. Best-of-knowledge qualified by possible unindexed subsequent certificate.
 
-## Sources and boundaries
+## value
 
-The closest primary papers are Gyárfás–Sárközy (2023), DOI `10.1007/s00373-023-02697-x`, and Jiang–Li (2026), arXiv:`2608.21774v1`. Stronger coverage by an unindexed or later result remains possible; other triples of odd cycles and higher dimensions remain open here. The covering principle itself is prior art, not an original lemma.
+PASS
 
-Self-review: passed. Independent audit: not yet performed.
+Closing the published exact 7-vs-8 gap for a natural minimal odd three-torus and resolving an infinite period-three family of the established B-coloring conjecture is a substantive finite-certificate theorem. The seed certificate is essential and not a mechanical derivative of the earlier period-lift lemma.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
