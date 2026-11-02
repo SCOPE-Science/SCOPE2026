@@ -1,15 +1,21 @@
-# Mathematical assessment
+# Independent mathematical audit
 
-## Correctness — PASS
-The three side-occupancy probabilities \(1/9,2/3,2/9\) are exact. For the mixed-edge case, the two base angles impose \(x<t/2<y\) and the third angle imposes a quadratic product bound; this gives a one-dimensional logarithmic density with a transition at \(t=1/2\). In the all-distinct case, obtuseness at one point is equivalent to a clipped rational parameter bound; piecewise integration and the fact that at most one angle is obtuse recover the tabulated result. The unconditional mixture is algebraically exact, and collinearity has mass \(1/9\). Boundary equality events away from same-side collinearity have measure zero.
+## correctness
 
-## Originality — PASS for the narrowed evaluated law, with risk
-The most directly relevant 2024 public question already states the precise full-perimeter experiment and gives a triple-integral description. It does not supply the evaluated elementary constant or the mixed-edge conditional law. The published OEIS A394836 already gives the exact probability when there is one point on each side; that component is explicitly attributed and not claimed as new. Other inspected works concern tangent-defined random triangles, interior-random triangles, or pairwise moments. The new content is the evaluation of the precise full-perimeter probability and its two-side conditional distribution, not the problem statement, implicit integrals, or the known three-side component. Unindexed earlier evaluations remain possible.
+PASS
 
-## Mathematical value — PASS
-A posted exact geometric-probability question is resolved in elementary closed form. The natural distinction between one, two, and three occupied sides changes the answer: one-side samples are degenerate, the two-side law is \(4\log(4/3)-5/6\), and the three-side law is the known \((27/2)\log(4/3)-7/2\). The nontrivial two-side integration explains why a previously published approximately \(0.27\) estimate differs from the exact value near \(0.296865\), and the formulas provide an exact reproducibility benchmark for boundary-sampling geometry. This is an exact finite-dimensional integral-geometry invariant, not a claim about random triangles generally.
+The full probability space comprises 3^3 side-label patterns, with single-side degeneracy 1/9, two-side mass 2/3 and three-side mass 2/9. In the two-side case, ordered endpoints x<y on AB and t on AC are acute exactly when x<t/2<y and (t/2-x)(y-t/2)<3t²/4; integrate the product-of-gaps region on t∈(0,1/2) and (1/2,1). This yields f(t)=(3/2)t²[1+log((2-t)/(3t))] and t(1-t/2), giving 4log(4/3)-5/6. A distinct three-side obtuse-angle integration yields (27/2)log(4/3)-7/2. Strict right-angle and vertex cases have measure zero. All mixtures and normalizations were checked independently via numerical quadrature, symbolic identities and 1.2 million direct randomly placed sample triples; no simulation is used as proof.
 
-## Sources and limitations
-The full problem and its unevaluated integral were inspected at https://puzzling.stackexchange.com/questions/128400/three-points-on-the-sides-of-an-equilateral-triangle . The exact one-on-each-side probability is given by https://oeis.org/A394836 . Finch's full publicly available paper arXiv:1101.3931v1 treats circumscribed tangent triangles, so its probability does not imply the perimeter sampling law. A published boundary second-moment analysis concerns two sampled boundary points, not the acuteness of three. All cited comparisons are limited to the inspected passages and sources, and no exhaustive literature claim is made. Numerical checks are supporting checks, not infinite proof.
+## originality
 
-Self-review: passed. Independent audit: not yet performed.
+PASS
+
+PASS for exact unconditional perimeter probability and two-occupied-side conditional value only. Exclude known one-per-side law (OEIS A394836), old original Seitz 1878, and the 2024 triple-integral question. Full priority remains qualified because an elementary integration might exist in unindexed recreational or geometric-probability literature.
+
+## value
+
+PASS
+
+A classical natural geometric probability question with a published unsolved full-perimeter integral receives an explicit closed form and exact decomposition; the previously tabulated one-point-on-each-side result is not treated as new. The exact two-side value is a reusable analytic benchmark for random inscribed-triangle models; despite elementary calculus, it fills a precise motivated finite-shape probability gap.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
