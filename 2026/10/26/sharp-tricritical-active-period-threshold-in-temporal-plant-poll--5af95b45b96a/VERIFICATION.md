@@ -5,8 +5,11 @@
     "status": "not_performed"
   },
   "independent_audit": {
-    "evidence": null,
-    "status": "not_performed"
+    "status": "passed",
+    "evidence": [
+      "INDEPENDENT_AUDIT_2026-10-30.md",
+      "INDEPENDENT_AUDIT_2026-10-30.json"
+    ]
   },
   "lean_verification": {
     "evidence": null,
@@ -16,10 +19,24 @@
 }
 ---
 
-# Mathematical verification
+# Independent mathematical audit
 
-The standalone file `check.py` was executed in the delivered package directory with Python 3, SymPy, and SciPy. It reported successful third-order symbolic Taylor coefficient identities for the normalized cavity map, matching the exact quadratic and cubic coefficients used by the proof. It tested the root count and fixed-point slope predictions over nine active-period parameters and seven connectivity ratios, solved the positive-fold tangency equations at mean active period \(\tau=2\), and compared computed positive roots near the continuous and tricritical thresholds with their asymptotic amplitudes.
+## correctness
 
-The numerical fold at \(\tau=2\) is \((z_{\mathrm s},q_{\mathrm s})\approx(1.9414370917955184,0.36615089428352876)\). The unique critical period and connectivity are \(\tau_{\mathrm c}\approx1.420049608669704\), \(z_{\mathrm c}\approx1.4701592197462061\). The tricritical plant-fraction amplitude is \(1.0573452291260566\).
+PASS
 
-The universal fixed-point count is established analytically from the strict monotonicity of the logarithmic-slope derivative, not from grid coverage; the script's finite grid merely stress-tests potential algebraic and branch-selection mistakes. Independent audit has not been performed. The result applies only to the specified mean-field cavity system and does not certify finite random graphs or ecological trajectories.
+Reconstructed K(s)=Lprime(s)/Lprime(1) (size-biased normalized, not the ambiguous printed denominator in original equation 13) and F(q)=1-exp(-z H(1-exp(-zq))), H(s)=s(1+lambda*s)exp(lambda*(s-1))/(1+lambda). Derivatives give Fprime(0)=z²exp(-lambda)/(1+lambda) and strictly decreasing log-derivative derivative Phi-prime(s)<0; hence Fprime single-peaked and G=F-q has at most two positive roots. At z0=sqrt((1+lambda)exp(lambda)) sign of Fsecond(0)/2 is [z0(4lambda-1)-1]/2, strictly crossing zero exactly once; monotonic F in z, small-q signs and bound for z<=1 yield unique fold >1 and all intervals. Third Taylor coefficient at critical is -(23 zc²+30 zc+23)/96, giving square-root amplitude; elsewhere linear onset. Independent symbolic derivatives checked all 3 identities and numeric lambda=0.4200496086697042. This concerns cavity fixed points only, not finite-network extinction probability.
+
+## originality
+
+PASS
+
+Clegg–Gross derive the complete generative model and report qualitative continuous/discontinuous phase transition and bistability, so phenomenon itself is old. The new mathematical claim is explicit unique threshold equation, global zero/one/two-positive-root classification, fold uniqueness and critical amplitudes for exact Poisson/shifted Poisson specialization. The inspected primary HTML discusses phase numerically but not these exact formulas.
+
+## value
+
+PASS
+
+Provides a nontrivial exact tricritical threshold and complete bifurcation census for an ecologically motivated temporal dependency model, including multiplier stability and universal onset scaling for fixed point equations.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
