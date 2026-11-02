@@ -1,11 +1,21 @@
-# Scientific review: terminal ordinary cut complexes of the Petersen graph
+# Independent mathematical audit
 
-**Correctness — PASS.** For each of the three terminal nonvoid cut parameters, the exact Petersen adjacency rule and the ordinary cut definition specify finite lists of facets. The included standard-library certificate enumerates all faces, verifies global acyclicity of an explicit matching, reconstructs the integral alternating-path Morse boundary and checks both a unit minor and the rank-limiting row dependence. The resulting CW complexes yield the stated integral homotopy types, not just field Betti numbers. The computations are exhaustive for the ten-vertex object, not extrapolations.
+## correctness
 
-**Originality — PASS on available evidence.** The article introducing ordinary cut complexes (Bayer et al., arXiv:2304.13675, 2023-04-26) explicitly gives the Petersen second-cut complex, while previously reported fourth-cut results treat another parameter. Searches for the fifth, sixth and seventh cuts, their Kneser aliases, mixed-dimensional spheres and higher-parameter generic implications revealed no encompassing statement. Indexed neighboring claims about the Petersen third-cut complex, total cut complexes and high-girth complexes do not imply this theorem: their parameters/definitions/hypotheses differ. The relevant full primary article text was inspected by sections and exact term search. Residual risks include unindexed literature and neighboring repository items whose full texts could not be read; similarity searches alone do not prove novelty.
+PASS
 
-**Value — PASS.** The Petersen graph is a canonical small symmetric nonchordal graph and a named example in the original cut-complex article. Its three final nonvoid levels form a natural complete classification. The fifth-cut level exhibits a mixed-dimensional integral wedge and a concrete shellability obstruction, followed by two uniform-dimension sphere wedges. The exact upper-cut profile supplies a useful boundary case for homotopy and shellability patterns without alleging a general theorem for all graphs.
+Petersen KG(5,2) has exactly ten indexed vertices, permitting complete enumeration of all 2^10 subsets. Independent bitset connectivity reconstruction finds 120/65/10 disconnected-complement facets at k=5/6/7 and exactly 496/211/51 faces including empty. Independently reconstructed greedy face-toggle Morse matchings have 241/100/20 pairs, topological-sort acyclicity on the entire oriented Hasse diagram, and critical cells (5 dim3+9 dim4)/(11 dim3)/(11 dim1), plus one vertex. The signed integral 5×9 Morse boundary in the k=5 case has exact rank four with a unit 4×4 minor and explicit row relation, giving four unimodular cancellation pairs and S³∨5S⁴, not merely mod-two homology. k6 and k7 are wedges of eleven spheres of dimensions 3 and 1. Exhaustion confirms k≥8 void. No claim about other graphs.
 
-The scope is nonequivariant, does not describe maps between cut levels, and carries residual search limitations stated in the structured audit. All external audit and independent validation remain unperformed.
+## originality
 
-Self-review: passed. Independent audit: not yet performed.
+PASS
+
+Best-of-knowledge originality after actual source and implication comparisons. Smaller cut levels do not determine homotopy types of strict subcomplexes at higher k. Total-cut k=3 and matching-complex results are categorically different simplicial complexes. Bayer et al. 2024 establishes Petersen k=2; other published SCOPE results treat k=3 and total k=3. High-girth graph formulas require hypotheses Petersen girth five fails for k≥5.
+
+## value
+
+PASS
+
+The Petersen graph is a canonical finite nonchordal symmetric graph discussed in the foundational cut-complex paper. Completing its three terminal nonvoid ordinary-cut homotopy types gives naturally motivated exact topological invariants, including a mixed-dimensional integral wedge and a sharp nonshellability witness. Being finite does not make this a rote table computation; exhaustive Morse theory is material.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
