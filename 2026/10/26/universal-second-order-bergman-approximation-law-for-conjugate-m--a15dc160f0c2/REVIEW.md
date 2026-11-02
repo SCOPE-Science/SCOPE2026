@@ -1,15 +1,21 @@
-# Review: Universal second-order Bergman approximation law for conjugate monomials
+# Independent mathematical audit
 
-## Correctness
-The exact normalized Beta moments diagonalize the approximation error on the analytic monomial basis. The difference of two explicit products has a uniform \(C^1\) asymptotic expansion on compact positive scaled indices. A telescoping-product inequality rules out maximizing sequences near either endpoint of the scaled half-line, and strict curvature at the unique profile maximum yields the \(O_m(1)\) optimizer localization. The second coefficient evaluates to the negative of the maximum, establishing the claimed \(1/(\alpha+1)\) correction. The standalone arithmetic checker supplies 2,175 exact assertions but is not the infinite proof.
+## correctness
 
-## Originality
-The closest accessible primary paper, Bourass–El-Fallah–Marrhich–Naqos (2021), analyzes singular values as index grows for fixed Bergman weights. Rouby–Sjöstrand–Vũ Ngọc (2018) develops general Bergman projection semiclassics. Neither inspected statement establishes the all-order conjugate-monomial profile or second-order norm cancellation under the double scaling. An unreadable 1988 classical Hankel article remains a priority risk; an independent literature audit could change the best-knowledge originality assessment.
+PASS
 
-## Mathematical value
-The theorem gives explicit optimal approximation stability in every fixed order \(m\ge3\), the correct peak degree, and a uniform-in-index spectral route from exact moments to the norm. The common second-order cancellation is more informative than the expected leading semiclassical symbol. It is limited to radial power weights and fixed orders.
+For the exact normalized beta moments M_n=n!Γ(α+2)/Γ(n+α+2), angular orthogonality of (I-P_α)(conj(z)^m z^n) diagonalizes squared Hankel singular values as M_(n+m)/M_n - 1_(n≥m) M_n/M_(n-m). For fixed m≥3, expand the two m-factor rational products in α^-1 uniformly with t=n/α on compact subsets of (0,∞). Their cancellation yields αλ=F_m(t)+α^-1 G_m(t)+O_m(α^-2), with F=m²t^(m-1)/(1+t)^(m+1), G=m² t^(m-2)[2t²-2(m+1)t+m-1]/[2(1+t)^(m+2)]. The source telescoping upper bound excludes n/α→0 or infinity, and differentiable expansions plus the unique nondegenerate maximum t_m=(m-1)/2 yield all maximizers n=αt_m+O_m(1). At the maximum G_m(t_m)=-F_m(t_m)=-K_m, K_m=4m²(m-1)^(m-1)/(m+1)^(m+1); hence C²=K_m/(α+1)+O_m(α^-3). Independently verified exact beta moments and optimizer convergence for m=3..9 at multiple integer α; this does not prove arbitrary real α or all m.
 
-## Limitations
-No exact finite-weight staircase, no uniqueness of individual maximizing index, no growing-order uniformity, and no priority certification are claimed. Only one theorem and its immediate spectral and norm consequences are assessed.
+## originality
 
-Self-review: passed. Independent audit: not yet performed.
+PASS
+
+The exact best analytic approximation constant is the norm of the big Hankel operator with the specific symbol conj(z)^m, and this must be compared to Hankel singular values and not to unrelated Bergman interpolation constants. Bourass–El-Fallah–Marrhich–Naqos 2021 studies singular value asymptotics at fixed radial weight as index grows; their inspected primary theorem is not a high-weight, optimizer-index semiclassical law with the universal second-order cancellation. Rouby–Sjöstrand–Vũ Ngọc 2018 is a general analytic Bergman semiclassical framework, without an explicit order-m beta-profile maximization theorem. The plausible classical Arazy–Fisher–Peetre 1988 source could not be read after arXiv/OA attempts; authorized Oxford attempt returned vpn_disconnected, not scientific contradiction. Distinct asymptotic parameter quantifiers and all-m correction survive checked coverage best-of-knowledge, with material priority risk.
+
+## value
+
+PASS
+
+The optimal analytic approximation error for natural anti-analytic monomial symbols is a meaningful spectral norm. Exact asymptotic stability, all-order maximizer location and cancellation of the α^-2 correction at the optimum give a precise computable benchmark that is not merely the fact that the operator is bounded or compact.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

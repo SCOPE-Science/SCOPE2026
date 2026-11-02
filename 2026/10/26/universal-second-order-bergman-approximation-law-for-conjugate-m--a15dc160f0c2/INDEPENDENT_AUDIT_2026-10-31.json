@@ -1,0 +1,123 @@
+{
+  "audit_date_utc": "2026-10-31",
+  "audited_at_utc": "2026-10-31T20:48:00Z",
+  "axes": {
+    "correctness": {
+      "finite_check_path": "independent_checks.py (private independent bounded check, 13490 total assertions across 4 subjects)",
+      "rationale": "For the exact normalized beta moments M_n=n!Γ(α+2)/Γ(n+α+2), angular orthogonality of (I-P_α)(conj(z)^m z^n) diagonalizes squared Hankel singular values as M_(n+m)/M_n - 1_(n≥m) M_n/M_(n-m). For fixed m≥3, expand the two m-factor rational products in α^-1 uniformly with t=n/α on compact subsets of (0,∞). Their cancellation yields αλ=F_m(t)+α^-1 G_m(t)+O_m(α^-2), with F=m²t^(m-1)/(1+t)^(m+1), G=m² t^(m-2)[2t²-2(m+1)t+m-1]/[2(1+t)^(m+2)]. The source telescoping upper bound excludes n/α→0 or infinity, and differentiable expansions plus the unique nondegenerate maximum t_m=(m-1)/2 yield all maximizers n=αt_m+O_m(1). At the maximum G_m(t_m)=-F_m(t_m)=-K_m, K_m=4m²(m-1)^(m-1)/(m+1)^(m+1); hence C²=K_m/(α+1)+O_m(α^-3). Independently verified exact beta moments and optimizer convergence for m=3..9 at multiple integer α; this does not prove arbitrary real α or all m.",
+      "specific_checks": [
+        "Independent Poisson/Beta-moment/resultant/rational-jet computations, limited finite samples; no infinite inference."
+      ],
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Rouby–Sjöstrand–Vũ Ngọc, arXiv:1808.00199 supplies general analytic Bergman semiclassical operator calculus",
+          "The audited F_m,G_m require exact Beta moment finite-degree spectral maximization and discrete localization at fixed m"
+        ],
+        "reasoning": "General semiclassical calculus may motivate leading symbols but is not in the inspected theorems an explicit simultaneous all-m second-order norm formula with optimizer O(1) localization.",
+        "searches": [
+          "Bergman semiclassical Toeplitz Hankel symbols conjugate monomial weight parameter alpha asymptotic",
+          "https://arxiv.org/abs/1808.00199",
+          "Published Resultary semantic search: weighted Bergman Hankel anti analytic monomial optimal L2 approximation norm high alpha asymptotic alpha inverse t=(m-1)/2 (11 returned; none with same theorem)"
+        ]
+      },
+      "checked_sources": [
+        "https://arxiv.org/abs/2102.01743",
+        "https://arxiv.org/abs/1808.00199",
+        "https://doi.org/10.2307/2374685",
+        "Published Resultary semantic search: weighted Bergman Hankel anti analytic monomial optimal L2 approximation norm high alpha asymptotic alpha inverse t=(m-1)/2 (11 returned; none with same theorem)"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "Bourass et al main singular-value asymptotic holds as index n→∞ with weight fixed; it does not authorize interchange with α→∞",
+          "Rouby–Sjöstrand–Vũ Ngọc general semiclassics lack the audited explicit finite-m spectral maximum in the inspected results"
+        ],
+        "reasoning": "The newer results do not subsume the exact two-term double-scaling law as stated. No NOT_COVERING judgment is made about the unreadable 1988 classical source.",
+        "searches": [
+          "https://arxiv.org/abs/2102.01743",
+          "https://arxiv.org/abs/1808.00199",
+          "https://doi.org/10.2307/2374685",
+          "Published Resultary semantic search: weighted Bergman Hankel anti analytic monomial optimal L2 approximation norm high alpha asymptotic alpha inverse t=(m-1)/2 (11 returned; none with same theorem)"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "M_n and the Hankel diagonal value λ(n) identify the best-analytic-approximation constant with a singular value supremum",
+          "Bourass et al arXiv:2102.01743 considers singular value n→∞ at a fixed Bergman weight"
+        ],
+        "reasoning": "Hankel/analytic-approximation aliases are equivalent, but n→∞ with fixed α is not α→∞ with n≈α(m-1)/2, and a fixed-weight sequence asymptotic does not give the claimed operator norm cancellation.",
+        "searches": [
+          "conjugate monomial weighted Bergman big Hankel operator norm high alpha semiclassical second order",
+          "Published Resultary semantic search: weighted Bergman Hankel anti analytic monomial optimal L2 approximation norm high alpha asymptotic alpha inverse t=(m-1)/2 (11 returned; none with same theorem)"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "No matching exact K_m normalized cancellation formula in retrieved published-record results",
+          "The 1988 American Journal of Mathematics source is bibliographically relevant but its full text is inaccessible to this run"
+        ],
+        "reasoning": "Existing singular-value tables or a general formula could imply the exact norm after maximization; no specific covering table was actually verified, so this is a genuine residual risk, not negative proof.",
+        "searches": [
+          "conjugate monomial Bergman Hankel norm K_m 4m²(m-1)^(m-1)/(m+1)^(m+1) large alpha",
+          "Published Resultary semantic search: weighted Bergman Hankel anti analytic monomial optimal L2 approximation norm high alpha asymptotic alpha inverse t=(m-1)/2 (11 returned; none with same theorem)",
+          "Hankel operators weighted Bergman spaces Arazy Fisher Peetre 1988"
+        ]
+      },
+      "rationale": "The exact best analytic approximation constant is the norm of the big Hankel operator with the specific symbol conj(z)^m, and this must be compared to Hankel singular values and not to unrelated Bergman interpolation constants. Bourass–El-Fallah–Marrhich–Naqos 2021 studies singular value asymptotics at fixed radial weight as index grows; their inspected primary theorem is not a high-weight, optimizer-index semiclassical law with the universal second-order cancellation. Rouby–Sjöstrand–Vũ Ngọc 2018 is a general analytic Bergman semiclassical framework, without an explicit order-m beta-profile maximization theorem. The plausible classical Arazy–Fisher–Peetre 1988 source could not be read after arXiv/OA attempts; authorized Oxford attempt returned vpn_disconnected, not scientific contradiction. Distinct asymptotic parameter quantifiers and all-m correction survive checked coverage best-of-knowledge, with material priority risk.",
+      "residual_risks": [
+        "Potential equivalent or stronger result in inaccessible Arazy–Fisher–Peetre 1988 weighted Bergman Hankel paper; no content-level negative comparison is claimed.",
+        "General semiclassical symbol calculus might imply leading profile; no source verified that also gives this sharp all-order second coefficient and O(1) optimizer index.",
+        "Restricted to fixed m≥3, radial power weights; no finite-α exact maximizer uniqueness or m-growing uniformity."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "FIXED_WEIGHT_INDEX_ASYMPTOTICS_NOT_THE_TWO_SCALE_LAW",
+          "evidence": [
+            "The weight parameter is held fixed in the compared asymptotic; optimizing n proportional to α with α→∞ is not addressed by the inspected result."
+          ],
+          "identifier_or_url": "https://arxiv.org/abs/2102.01743",
+          "material_read": "Primary arXiv PDF opening theorem and definitions, including the singular-value n→∞ fixed-weight setup (page 2 visually inspected)",
+          "method": "Read mathematical theorem text, checked PDF screenshot and compared order of limits",
+          "title": "On singular values of Hankel operators on Bergman spaces",
+          "trigger": "Same class of Hankel operators, potential stronger spectrum theorem"
+        },
+        {
+          "assessment": "GENERAL_FRAMEWORK_NOT_EXPLICIT_CONSTANT",
+          "evidence": [
+            "The exact normalized m-monomial beta moments and second-order discrete maximum are not stated in the accessible source statements."
+          ],
+          "identifier_or_url": "https://arxiv.org/abs/1808.00199",
+          "material_read": "Primary arXiv abstract and main theorem statements as available in search; no complete-document NOT_COVERING claim",
+          "method": "Compared precise theorem scope, no full primary PDF inspection claimed",
+          "title": "Analytic Bergman operators in the semiclassical limit",
+          "trigger": "General potentially stronger Bergman semiclassical operator theory"
+        },
+        {
+          "assessment": "ACCESS_BLOCKED_PRIORITY_UNRESOLVED",
+          "evidence": [
+            "The unread 1988 paper may contain an equivalent identity; its content is NOT classified as NOT_COVERING."
+          ],
+          "identifier_or_url": "https://doi.org/10.2307/2374685",
+          "material_read": "Bibliographic metadata and abstract/keyword records only; full source inaccessible after arXiv and lawful OA search",
+          "method": "Attempted authorized institutional retrieval; returned vpn_disconnected; did not bypass authentication or infer full-text absence of theorem",
+          "title": "Hankel operators on weighted Bergman spaces",
+          "trigger": "Identical weighted Bergman operator class; plausible early norm formula"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "rationale": "The optimal analytic approximation error for natural anti-analytic monomial symbols is a meaningful spectral norm. Exact asymptotic stability, all-order maximizer location and cancellation of the α^-2 correction at the optimum give a precise computable benchmark that is not merely the fact that the operator is bounded or compact.",
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "limitations": [
+    "Fixed integer m≥3 while real α→∞, standard radial beta weight only.",
+    "Does not assert exact maximizing index or uniqueness at finite α.",
+    "Full 1988 classical source access blocked by disconnected institutional VPN."
+  ],
+  "schema_version": 1
+}
