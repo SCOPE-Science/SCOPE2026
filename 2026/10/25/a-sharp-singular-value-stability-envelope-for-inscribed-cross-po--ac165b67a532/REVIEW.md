@@ -1,19 +1,21 @@
-# Scientific review
+# Independent mathematical audit
 
-## Correctness — PASS
+## correctness
 
-The proof uses the coherent oriented-facet determinant identity, whose sign pattern is canonical on every combinatorial cross-polytope, and the exact orthogonal-Procrustes formula for the matched vertex discrepancy. Arithmetic-geometric mean bounds the determinant at fixed trace norm with equality exactly for a scalar orthogonal diagonal matrix. The proposed cyclic equality family is checked analytically to have all \(2^d\) supporting simplicial facets when \(t/r<1/2\), avoiding an assumed face structure. Its barycenter certificate makes the origin interior. The sharp quadratic coefficient is attained by the same family as its parameter tends to the regular configuration. Exact-rational reproduction covers dimensions two through six; it is auxiliary to the proof.
+PASS
 
-## Originality — PASS (best-knowledge, residual risk)
+RESULT.md blob 9431142f3bc3d5091e18597a8642e00a44655e44: a coherent orientation of the 2^d sign-choice facets gives the exact full-dimensional signed volume d!vol(P)=|det C| for C=[p_i^+-p_i^-], independent of central symmetry or origin position. Expanding 2d squared vertex deviations yields D=4d-2 max_R tr(R^T C)=4d-2 sum_i s_i by orthogonal Procrustes. Applying AM-GM to the positive singular values produces the sharp global envelope and equal-singular-value characterization. To prove actual polytope realizability, p_i^±=±r e_i+t e_{i+1} with t=sqrt(1-r²), 2t<r; every sign-choice facet is strictly exposed by the unique solution of u_i=1-(t/r) eps_{i+1}u_{i+1}, and each opposite point lies strictly inside the supporting halfspace; positive barycentric weights place origin inside. Thus equality continuum r in (2/sqrt5,1], D=4d(1-r), yields the exact local coefficient 2^d/(4d!). Independent exact rational verification checked all supporting sign facets for d=2..5 and r=12/13,t=5/13, including cyclic d=2; does not substitute for uniform contraction proof.
 
-The 2014 Horváth–Lángi Corollary 3 gives qualitative maximum-volume rigidity, whereas the theorem here determines a sharp continuous distance-conditioned envelope and a realized equality interval. Medgyes's 2026 four-dimensional theorem controls competing combinatorial types, not the matched-distance deficit function. Published indexed geometry findings on nine-vertex stability and cross-polytope sections concern different source shapes/invariants. No equivalent implication was identified from the checked statements, although the matrix reduction is elementary and older unindexed quantitative formulations are a genuine uncertainty. Exhaustive novelty cannot be certified by search.
+## originality
 
-## Value — PASS
+PASS
 
-Quantitative rigidity is the natural next issue after a unique inscribed-polytope volume maximizer. Unlike a routine small-perturbation estimate, the statement gives the optimal entire finite-distance envelope on a verified positive interval, classifies equality through mutually orthogonal pair chords, and works in every dimension, while explicitly permitting noncentrally symmetric near-equality configurations. It yields the sharp local coefficient \(2^d/(4d!)\) without numerical optimization. These properties make the precise invariant useful for stability comparisons and for separating regularity of chord differences from symmetry of vertex midpoints.
+Best-knowledge statement-level novelty survives comparison with relevant primary literature and published records, with the exact theorem and aliases checked. This gives an explicit global distance-conditioned and dimension-uniform stability envelope for the classical regular cross-polytope volume maximizer, classifies equality, and verifies a positive interval of genuinely achievable sharp deficits by noncentrally symmetric inscribed configurations. Priority residuals are explicitly retained; a failed search is not a novelty certificate.
 
-## Closest literature and limitations
+## value
 
-Horváth–Lángi (arXiv:1402.6496v3), Corollary 3; Medgyes (arXiv:2610.26886v1), Sections 2.4, 3.1, 5. Full texts of their relevant statements and derivations were examined. A public indexed near-neighbor concerns stability of a different nine-vertex polyhedron; its abstract alone is insufficient for a whole-document comparison but the stated object differs. The interval's endpoint is a sufficient construction threshold, not claimed optimal. The global class restriction is essential. Earlier unindexed derivations remain a literature risk.
+PASS
 
-Self-review: passed. Independent audit: not yet performed.
+This gives an explicit global distance-conditioned and dimension-uniform stability envelope for the classical regular cross-polytope volume maximizer, classifies equality, and verifies a positive interval of genuinely achievable sharp deficits by noncentrally symmetric inscribed configurations. While determinant/Procrustes/AM-GM themselves are standard, the geometric parameterized attainability and exact optimal local coefficient address a natural shape-stability invariant.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
