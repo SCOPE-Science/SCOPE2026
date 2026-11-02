@@ -1,9 +1,21 @@
-# Mathematical review
+# Independent mathematical audit
 
-**Correctness (PASS).** The exact labelled count follows from the rooted-forest weighted matrix-tree determinant, which reduces child counts to a multinomial occupancy law; coefficient extraction produces the displayed formula. At fixed leaf count the coefficient is a polynomial in cycle/off-cycle sizes whose leading term is uniform across admissible parameters, so the Riemann-sum argument proves the beta-square limit. The saved standalone check cross-verifies integer inclusion–exclusion and exponential-coefficient counts, and independently enumerates every simple graph at small orders. Limits: no growing-leaf regime, no inference from finite testing alone.
+## correctness
 
-**Originality (PASS, provisional).** Source comparisons covered the fixed-leaf fixed-girth unicyclic class in Zhang–Zhang (2013), the unicyclic-component generating function in Noy et al. (2020), and Janson (2003), together with searched published mathematical-record claims. The first primary work studies Laplacian extremals rather than labelled enumeration; the second studies cycle counts in random graphs rather than conditioning one connected graph by leaves. Relevant unicyclic decomposition is known and not claimed new. A preexisting multivariate formula may imply this special conditional beta law, and Janson's full text was unavailable. No searched covering statement was found; this is a bounded historical assessment, not a claim of universal priority.
+PASS
 
-**Mathematical value (PASS).** The leaf-constrained cycle length is an intrinsic, non-arbitrary statistic of connected unicyclic graphs. The result identifies an exact finite uniformity at one leaf and a coherent family of nonuniform beta-square limits for every fixed leaf count, together with an all-size count valid across parameters. The joint formula can be reused to compute finite conditional probabilities, not merely approximate moments. The beta-square exponent directly quantifies how fixing more terminal vertices biases cycles toward shorter lengths. The novelty and value concern the conditional law, not standard forest or occupancy identities taken alone.
+PASS: Starting with k>=3 cycle vertices and s=n-k off-cycle vertices, the rooted forest Laplacian minor has determinant (sum of root weights)(sum of all vertex weights)^(s-1). Consequently off-cycle child counts follow the stated occupancy enumeration. Choosing r empty nonroot bins and extracting the coefficient yields exactly N_{n,k,r}=(n!/2)((s-1)_(r-1)/r!)[z^(r-1)]exp(kz)((exp(z)-1)/z)^(s-r), for 3<=k<=n-r; zero otherwise. Fixed-degree expansion log((exp z-1)/z)=z/2+O(z^2), uniform for k in the admissible lattice, gives weights proportional to (1-(k/n)^2)^(r-1), so the Riemann sum and the map y->y^2 prove Beta(1/2,r) at fixed r. The n!/2 exact r=1 and n!(s-1)(2n-s-2)/8 r=2 cases follow directly. Independently enumerated all n-edge simple labelled connected unicyclic graphs n=4,5,6 and verified every attainable (cycle length,leaf count) cell against the extracted formula. No growing-r theorem or random-graph-component equivalence follows.
 
-Self-review: passed. Independent audit: not yet performed.
+## originality
+
+PASS
+
+PASS, best of knowledge: The conditioned connected-graph leaf-count law and beta-square limit are not stated in the inspected sparse-G(n,M) cycle-component paper or leaf/girth Laplacian-extremal paper. The rooted-forest determinant, cycle decomposition and transfer of fixed-degree coefficients are classical, not claimed independently novel. Janson 2003 and possible multivariate graph EGFs create genuine historical-priority risk; an unsuccessful search cannot exclude implicit derivation.
+
+## value
+
+PASS
+
+PASS: Cycle length and leaf count are intrinsic, well-motivated invariants of connected unicyclic graphs. The exact joint finite-size count answers practical conditional enumeration questions, the precisely uniform one-leaf law is a nontrivial all-size boundary, and the Beta(1/2,r) family quantitatively shows how more terminal vertices bias the unique cycle. It is not an arbitrary numerical slice or only a standard forest identity.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
