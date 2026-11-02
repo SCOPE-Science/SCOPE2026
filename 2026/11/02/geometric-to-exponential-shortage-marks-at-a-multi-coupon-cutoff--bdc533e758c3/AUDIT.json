@@ -1,0 +1,147 @@
+{
+  "correctness": {
+    "rationale": "The positive-deficit mark law follows from the exact Poisson lower-tail factorial-ratio identity; the extreme Gamma quantile gives b_n h_n^2 asymptotic to a positive order log n and m_n h_n^2 to infinity in the large-quota regime. These bounds justify geometric domination and the uniform order-1/h_n falling-factorial approximation; hazard integration yields nQ_m(b+x/h) to exp(-x); independent Poissonized counts yield finite Poisson random measures. Monotone threshold-count bracketing transfers marks to deterministic samples because b h^2/n tends to zero. The packaged checker completed 276 deterministic exact/numerical assertions. Tests do not replace the proof. The assertion is at fixed x and under stated growth limits.",
+    "status": "PASS"
+  },
+  "independent": false,
+  "independent_audit_status": "not_performed",
+  "originality": {
+    "broader_coverage": {
+      "evidence": [
+        "Ilienko studies empty slots in fixed-index collections and joint fixed-index completion times.",
+        "Gnedin–Janson–Malinovsky explicitly keep the occupancy threshold m fixed in their stopped maximum-count theorem, notwithstanding their discussion of variable-threshold predecessors.",
+        "Neal 2008 studies general coupon probabilities and unmarked completion waiting times; the accessible abstract does not contain the claimed joint marked depth classification."
+      ],
+      "reasoning": "The closest process-level point-process papers use fixed collection indices or fixed terminal thresholds, and the general waiting-time theorem concerns zero-defect probabilities. Those quantified statements do not encompass shortage depths for m_n approximately alpha log n nor the continuous Exp scaling when m_n is much larger than log n. The possibility of a more abstract unindexed Poisson-occupancy theorem implying the marked result is retained as a residual historical risk.",
+      "searches": [
+        "Poisson occupancy rare low-count bins multiple collection completion Gumbel log n quota growing deficit distribution geometric exponential boundary",
+        "https://vmsta.org/journal/VMSTA/article/358/text",
+        "https://arxiv.org/abs/2506.20411",
+        "https://www.cambridge.org/core/journals/journal-of-applied-probability/article/generalised-coupon-collector-problem/4D5F06A32A7C98F87277BC33E49CE5AE"
+      ]
+    },
+    "checked_sources": [
+      "https://arxiv.org/html/2610.33199v1",
+      "https://arxiv.org/html/2604.25108v2",
+      "https://vmsta.org/journal/VMSTA/article/358/text",
+      "https://arxiv.org/abs/2506.20411",
+      "https://arxiv.org/abs/1904.12954",
+      "https://www.cambridge.org/core/journals/journal-of-applied-probability/article/generalised-coupon-collector-problem/4D5F06A32A7C98F87277BC33E49CE5AE"
+    ],
+    "claim_vs_prior_implication": {
+      "evidence": [
+        "Long §3.1 already proves nQ_m(b+a x) tends to exp(-x), the unmarked defect count is Binomial(n,Q), and the Gumbel completion law.",
+        "Castro–Marinho prove Gamma quantile and scale in all growth regimes.",
+        "The claimed new theorem combines explicit conditional deficit-depth ratios with mark tightness and a joint tail-count de-Poissonization argument; these extra steps are not stated by either source."
+      ],
+      "reasoning": "The scalar source claims imply Poisson number of incomplete categories, but do not by themselves imply the distributions of their missing-copy depths or of the total missing-copy workload. Their proof machinery helps establish quantile and de-Poissonization hypotheses, which are acknowledged, while the extra marked result requires a separate conditional law and asymptotic comparison. A sufficiently general marked rare-occupancy theorem might subsume this specialization; no such source was verified.",
+      "searches": [
+        "https://arxiv.org/html/2604.25108v2 §3.1 Lemma 3.1 and Theorem 3.2",
+        "https://arxiv.org/html/2610.33199v1 §4",
+        "https://arxiv.org/abs/2506.20411 §§1–2",
+        "https://vmsta.org/journal/VMSTA/article/358/text §1"
+      ]
+    },
+    "equivalent_formulations": {
+      "evidence": [
+        "Long §3.1 defines and analyzes the number of types below quota as an unmarked binomial count, not their per-type missing-copy depth.",
+        "Castro–Marinho establish Gamma-quantile cutoff and Gumbel limit, without the conditional shortfall mark laws."
+      ],
+      "reasoning": "The event that at least one type is deficient, or even the unmarked Poisson count, does not mathematically determine the mark law: a single remaining type may require one or many copies. The original marked conditional Poisson ratio (m-1) falling factorial divided by the mean to the power j-1, and its geometric/exponential regimes, refine the existing claims. Exact equivalence to a published statement was not identified.",
+      "searches": [
+        "arxiv 2610.33199 multicollection coupon collector number of deficient types deficit multiplicities geometric exponential marks poisson limit",
+        "coupon collector growing m alpha log n rare deficient coupon types geometric shortage marks independent Poisson at cutoff",
+        "https://arxiv.org/html/2604.25108v2 §3.1",
+        "https://arxiv.org/html/2610.33199v1 §4"
+      ]
+    },
+    "exact_database_or_table": {
+      "evidence": [
+        "Accessible earlier work on nonuniform coupon quotas studies completion expectations, rather than exact marked shortage depths at a growing-quota cutoff (Shank–Yang, 2013, DOI 10.37236/3348).",
+        "Gnedin–Janson–Malinovsky (arXiv:2506.20411) study maxima at fixed thresholds and not the changing-quota minimal deficit multiplicities."
+      ],
+      "reasoning": "No exact table of these geometric or exponential deficit-depth intensities was located among checked mathematical records, search results, or the inspected closest source texts. This is search evidence only, not proof of global novelty.",
+      "searches": [
+        "coupon collector growing m log n number bins missing j coupons geometric deficit distribution poisson convergence",
+        "simultaneous number of coupon types with m-j copies near Gumbel cutoff geometric multiplicity Poisson occupancy"
+      ]
+    },
+    "rationale": "The earlier unmarked Binomial terminal-defect count and completion-time Gumbel theorem are not claimed. The contribution is the explicit marked missing-copy distribution and its geometric-to-exponential phase diagram, with compound-Poisson shortage workloads. Closest accessible full text has been compared at object, parameter, and implication level; broad marked occupancy priority remains a bounded unresolved risk.",
+    "residual_risks": [
+      "Older broad occupancy-process and extreme-order-statistic results, including 1970s results of Ivchenko referenced by Gnedin et al., have not all been available in full text; a sufficiently general marked Poisson scheme might imply the specialized theorem.",
+      "The publisher full text of Neal 2008 was not inspected; its accessible abstract concerns waiting-time results.",
+      "No independent historical-priority or mathematical review has been performed."
+    ],
+    "source_inspections": [
+      {
+        "assessment": "Provides unmarked completion-time and quantile asymptotics, not shortfall-depth mark distribution",
+        "evidence": [
+          "§1 mentions a growing-quota Gumbel problem and comparison to Long",
+          "§4 characterizes upper-Gamma quantile in three quota growth regimes; no mark-depth theorem appears"
+        ],
+        "identifier_or_url": "https://arxiv.org/html/2610.33199v1",
+        "material_read": "Abstract; Introduction; §2 main theorem; §3 Poissonization; §4 all three quantile regimes and cutoff proof; references",
+        "method": "Open HTML mathematical source with its main equations and proofs",
+        "title": "Cutoff profile for the coupon collector with many collections",
+        "trigger": "Same growing-quota uniform coupon problem and exact Gamma quantile"
+      },
+      {
+        "assessment": "§3.1 gives exactly the Binomial(n,Q) count of deficient types and Gamma-tail scale but no marks by missing copies or compound-Poisson workload laws",
+        "evidence": [
+          "§3.1 equations (8)–(10) and Lemma 3.1",
+          "§3.1 Theorem 3.2 and clock fluctuation estimate (16)",
+          "Appendix A quantile uniformity"
+        ],
+        "identifier_or_url": "https://arxiv.org/html/2604.25108v2",
+        "material_read": "Abstract; §1 summary; §2 definitions; §3.1 complete Poissonized defects proof; §3.2 Gumbel statement; Appendix A Gamma-tail inputs; conclusion",
+        "method": "Open complete HTML text, compare deficit count D_n(t) to present depth D_{n,i}",
+        "title": "Terminal Defects, Growing Multiplicity, and Variance Extremality in the Double Dixie Cup Problem",
+        "trigger": "Direct earlier result with same objects and terminology terminal defects"
+      },
+      {
+        "assessment": "Infinite vector over fixed collection indices, with first-completion stopping, rather than growing m_n and deterministic near-m_n completion-time deficit depths",
+        "evidence": [
+          "§1 formulas (1)–(3) and text of Theorems 1–3 as described in introduction",
+          "The studied U_r counts empty spots in a fixed-index album"
+        ],
+        "identifier_or_url": "https://vmsta.org/journal/VMSTA/article/358/text",
+        "material_read": "Full introduction and definitions, statements of the cited fixed-index point-process and completion results",
+        "method": "Open lawful full-text HTML article",
+        "title": "Limit theorems in the extended coupon collector’s problem",
+        "trigger": "Joint occupancy and coupon deficiencies near completion"
+      },
+      {
+        "assessment": "Explores maxima at stopping with fixed deficit threshold m and ell; does not state changing-m_n minima-depth profile",
+        "evidence": [
+          "§1 expressly fixes m and ell, while noting variable thresholds elsewhere",
+          "§2 occupancy Poissonization and multiplicity counts"
+        ],
+        "identifier_or_url": "https://arxiv.org/abs/2506.20411",
+        "material_read": "Open arXiv full parsed text, §1 introduction and scope, §§2 definitions and product Poisson laws",
+        "method": "Read accessible full-text page instead of inaccessible alternate HTML endpoint",
+        "title": "Maximal Counts in the Stopped Occupancy Problem",
+        "trigger": "Poissonized point-process occupancy and extrema at stopping"
+      },
+      {
+        "assessment": "Abstract describes unmarked waiting-time and empty-type counts; insufficient to exclude a more general full-text implication",
+        "evidence": [
+          "Abstract: asymptotic Y via W(t), number of uncollected coupons; mentions extensions to K-coupon collector"
+        ],
+        "identifier_or_url": "https://www.cambridge.org/core/journals/journal-of-applied-probability/article/generalised-coupon-collector-problem/4D5F06A32A7C98F87277BC33E49CE5AE",
+        "material_read": "Publisher abstract and bibliographic summary; full text not available in accessible page",
+        "method": "Read publisher abstract only; did not infer absent theorem from full text",
+        "title": "The Generalised Coupon Collector Problem",
+        "trigger": "Broad general coupon completion Poisson limits might subsume the claim"
+      }
+    ],
+    "status": "PASS"
+  },
+  "review_type": "self_review",
+  "schema_version": 1,
+  "scope_run_id": "bdc533e7-58c3-4445-978a-d0e8c664cd82",
+  "self_review_status": "passed",
+  "value": {
+    "rationale": "At the natural multi-coupon cutoff the unmarked probability of completion does not reveal how many additional copies are needed. The theorem classifies this natural shortfall workload into Poisson, geometric compound-Poisson, and rescaled exponential compound-Poisson regimes, with a precise scale transition at m_n proportional to log n. It gives a motivated occupancy structural boundary, not merely a numerical or artificial invariant.",
+    "status": "PASS"
+  }
+}
