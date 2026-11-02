@@ -1,0 +1,136 @@
+{
+  "correctness": {
+    "rationale": "The independent-innovations factorization proves the exact Ornstein–Uhlenbeck precision quadratic form. A single adjacent gap \\(\\delta\\) produces a divergent eigenvalue \\(1/(\\gamma\\delta)+O(1)\\); the probability of multiple near-collisions is lower order after the auxiliary cutoff is removed. Independent-density convolution gives collision intensity \\(n(n-1)\\int w(x)^2\\,dx\\). Layer-cake and Stieltjes integration then give the sharp \\(q<1\\) moment boundary, the nugget logarithmic coefficient and the \\(q>1\\) coefficient \\(C_{n,w,\\gamma}/(q-1)\\). The checker tests exact rational identities and finite diagnostics; infinite claims rest on analytical proofs.",
+    "status": "PASS"
+  },
+  "independent": false,
+  "independent_audit_status": "not_performed",
+  "originality": {
+    "broader_coverage": {
+      "evidence": [
+        "Barthelmé–Usevich, arxiv:1910.14067, analyzes kernel eigenvalues when the kernel length-scale/flatness parameter varies at fixed distinct sites; collision events with fixed correlation-decay parameter and iid locations are a different limit.",
+        "Ranjan–Haynes–Karsten, Technometrics 53 (2011), studies near-singularity of GP covariance matrices and deterministic nugget selection, not a fixed-n iid-site spectral tail coefficient.",
+        "Barnett–Greengard–Rachh, arxiv:2305.11065, bounds conditioned GP linear systems with a strictly positive noise variance; this is a finite-regularization deterministic bound and does not imply the leading expectation as that regularization vanishes."
+      ],
+      "reasoning": "No inspected result has a stronger theorem implying the whole claimed Pareto coefficient, sharp inverse moments, and average nugget divergences for this iid one-dimensional exponential kernel. Classical separation estimates give orders but not the coefficient or density-design optimum; special-case deterministic or growing-dimensional eigenvalue bounds do not dominate this fixed-n random-location law.",
+      "searches": [
+        "exponential covariance matrix random times smallest eigenvalue tail near zero expected inverse Ornstein Uhlenbeck covariance random design",
+        "random covariance exponential kernel smallest eigenvalue min spacing precise asymptotic fixed n",
+        "arxiv:1910.14067",
+        "doi:10.1198/TECH.2011.09141"
+      ]
+    },
+    "checked_sources": [
+      "Barnett–Greengard–Rachh, arxiv:2305.11065v1, first public 2023-05-18, PDF introduction, conditioning Proposition 11 and later numerical conditioning sections",
+      "Barthelmé–Usevich, arxiv:1910.14067, open PDF theorem and flat-limit discussion",
+      "Rybicki–Press, doi:10.1103/PhysRevLett.74.1060, accessible publisher abstract",
+      "Ranjan–Haynes–Karsten, doi:10.1198/TECH.2011.09141, journal abstract",
+      "Huang–Liao–Chang–Hwang, doi:10.1016/j.spl.2018.12.008, indexed abstract"
+    ],
+    "claim_vs_prior_implication": {
+      "evidence": [
+        "Rybicki–Press establishes efficient exploitation of OU Markov/tridiagonal structure, a necessary lemma reused here but not an iid collision-tail probability theorem.",
+        "Barnett–Greengard–Rachh studies spectral conditioning of Gaussian-process matrices with fixed positive regularization, and reports finite-dimensional numerical behavior; a deterministic positive-nugget condition bound does not imply a sharp unregularized heavy-tail constant or logarithmic expected nugget loss.",
+        "Barthelmé–Usevich concerns a kernel-flatness parameter with already fixed distinct sites. No simultaneous distributional averaging over random near-collisions is asserted in the inspected theorem material."
+      ],
+      "reasoning": "The new statement requires probabilistic inclusion-exclusion at a random minimum gap and a uniform one-gap spectral singularity, followed by Tauberian-type integral asymptotics. None of those conclusion statements follows logically from merely knowing the classical precision identity, a fixed-node flat-limit eigenvalue order, or an upper bound for regularized deterministic conditioning.",
+      "searches": [
+        "exponential covariance matrix random times smallest eigenvalue tail near zero expected inverse Ornstein Uhlenbeck covariance random design",
+        "random covariance exponential kernel smallest eigenvalue min spacing precise asymptotic fixed n",
+        "Gaussian process random design kernel matrix ill-conditioning nearest neighbor colliding nodes asymptotic 1/t inverse",
+        "arxiv:2305.11065",
+        "arxiv:1910.14067",
+        "doi:10.1103/PhysRevLett.74.1060"
+      ]
+    },
+    "equivalent_formulations": {
+      "evidence": [
+        "The sampled OU covariance is the Matérn smoothness-one-half Gram matrix; its inverse is the tridiagonal Gaussian Markov precision described in the classical OU filtering literature.",
+        "Barnett–Greengard–Rachh, arxiv:2305.11065, Sections 5–6: their Gaussian-process conditioning estimates bound regularized systems at fixed positive nugget; they do not state the fixed-node-count random-site exact inverse spectral tail."
+      ],
+      "reasoning": "The inverse spectral norm, reciprocal smallest eigenvalue, fixed-n random exponential-kernel matrix, and nugget inverse norm are equivalent statements here; the Markov precision identity is explicitly credited as known. The complete simultaneous exact tail coefficient and moment/nugget classification was not located among examined statements. Search absence is not proof of novelty.",
+      "searches": [
+        "exponential covariance matrix random times smallest eigenvalue tail near zero expected inverse Ornstein Uhlenbeck covariance random design",
+        "Matérn 1/2 random points kernel matrix inverse spectral norm inverse moments",
+        "Gaussian process random design kernel matrix ill-conditioning nearest neighbor colliding nodes asymptotic 1/t inverse",
+        "arxiv:2305.11065",
+        "doi:10.1103/PhysRevLett.74.1060"
+      ]
+    },
+    "exact_database_or_table": {
+      "evidence": [
+        "Huang–Liao–Chang–Hwang, Statistics & Probability Letters (2019), explicitly studies a random minimum-kernel matrix and a growing-size eigenvalue asymptotic; the available abstract is not an exact coefficient for the exponential Gram matrix at fixed n.",
+        "The motivating Gaussian-process numerical-analysis paper and its conditioning discussion contain no identified numerical table of the present exact \\(C_{n,w,\\gamma}\\) coefficients or regularized expected inverse-norm asymptotics."
+      ],
+      "reasoning": "This is an analytic fixed-n continuous-design classification, not an enumeration or tabulated invariant. Inspected references did not furnish an exact database entry subsuming it. The Huang et al. full text could not be accessed, so this comparison carries a residual priority risk.",
+      "searches": [
+        "Matérn 1/2 random points kernel matrix inverse spectral norm inverse moments",
+        "Huang Liao Chang Hwang 2019 smallest eigenvalues random kernel matrices min kernel DOI full text pdf",
+        "doi:10.1016/j.spl.2018.12.008",
+        "arxiv:2305.11065"
+      ]
+    },
+    "rationale": "The exact coefficient \\(C_{n,w,\\gamma}=n(n-1)\\int w^2/\\gamma\\), the complete inverse-norm moment classification, and expected-nugget divergence constants are not implied by the inspected deterministic Gaussian-process condition bounds, classical Ornstein–Uhlenbeck precision algebra, or fixed-site flat-kernel asymptotics. Scientific novelty remains qualified by inaccessible specialized random-kernel and nugget literature; no global uniqueness proof is claimed.",
+    "residual_risks": [
+      "The original Rybicki–Press and the Huang random minimum-kernel article full texts were not available, so a related general theorem or lemma could remain unrecognized.",
+      "The 2011 nugget article full text was inaccessible; source-level comparison is limited to its abstract.",
+      "No finite set of scholarly searches or publication records proves global novelty. Independent publication-priority review is not performed."
+    ],
+    "source_inspections": [
+      {
+        "assessment": "Related motivation, not an identified implication of the exact collision-tail law.",
+        "evidence": "The paper gives kernel-approximation results and matrix conditioning bounds with positive regularization; no fixed-sample iid random-location Pareto tail coefficient or vanishing-nugget expected inverse asymptotic was located in the inspected sections.",
+        "identifier_or_url": "https://arxiv.org/abs/2305.11065",
+        "material_read": "Version-one abstract; full open-access PDF introduction, conditioning sections, Proposition 11 and numerical-condition section including figure/table material",
+        "method": "Read source PDF text and visually inspect relevant PDF pages; compare fixed-n iid random-site inverse-norm conclusion with reported fixed-noise deterministic bounds",
+        "title": "Uniform approximation of common Gaussian process kernels using equispaced Fourier grids",
+        "trigger": "First public source 2023-05-18; direct motivating Gaussian-process Matérn conditioning analysis"
+      },
+      {
+        "assessment": "The matrix limit is kernel flattening with fixed distinct nodes; it does not imply fixed-parameter random close-spacing probabilities.",
+        "evidence": "The cited theorem studies eigenvalues when a kernel parameter approaches its flat limit with fixed node geometry.",
+        "identifier_or_url": "https://arxiv.org/abs/1910.14067",
+        "material_read": "Open-access full PDF introduction, definitions, main theorem statements and spectral flat-limit sections, with relevant pages visually inspected",
+        "method": "Compare quantifiers, kernel parameter limit and whether locations vary or remain fixed",
+        "title": "Spectral properties of kernel matrices in the flat limit",
+        "trigger": "Potential broader smallest-eigenvalue asymptotics for exponential and other kernels"
+      },
+      {
+        "assessment": "Foundational Markov-precision prior art explicitly not claimed as original; full text not inspected.",
+        "evidence": "The source describes efficient linear-time filtering for irregularly sampled data and parametrized Markov-like correlation matrices.",
+        "identifier_or_url": "https://doi.org/10.1103/PhysRevLett.74.1060",
+        "material_read": "Publisher abstract and bibliographic record; arXiv full-PDF retrieval was attempted but unavailable",
+        "method": "Read accessible abstract and identify the standard precision identity independently by direct factorization",
+        "title": "A Class of Fast Methods for Processing Irregularly Sampled or Otherwise Inhomogeneous One-Dimensional Data",
+        "trigger": "Classical source for efficient OU/exponential Markov covariance inversion"
+      },
+      {
+        "assessment": "Related numerical conditioning application, no identified covering statement in accessible material; full-text uncertainty remains.",
+        "evidence": "The abstract specifically motivates nuggets for near-singular covariance matrices but gives no random-spacing spectral tail or exact expected inverse-norm asymptotic.",
+        "identifier_or_url": "https://doi.org/10.1198/TECH.2011.09141",
+        "material_read": "Journal abstract and methodological description; full article not accessible",
+        "method": "Compare supported description of deterministic numerical stabilizing nugget with stochastic fixed-n spectral inverse distribution",
+        "title": "A Computationally Stable Approach to Gaussian Process Interpolation of Deterministic Computer Simulation Data",
+        "trigger": "Near-coincident points, GP covariance singularity, regularization and nugget precedent"
+      },
+      {
+        "assessment": "Different named kernel and scaling; cannot certify absence of a covering lemma in inaccessible text.",
+        "evidence": "The accessible synopsis describes the minimum-kernel matrix and large-n smallest-eigenvalue behavior, not the present exponential fixed-n exact coefficient.",
+        "identifier_or_url": "https://doi.org/10.1016/j.spl.2018.12.008",
+        "material_read": "Indexed abstract and metadata only; author manuscript and full text not retrieved",
+        "method": "Compare named kernel (minimum kernel), scaling (growing matrix dimension), and accessible statement to fixed-size exponential covariance tail",
+        "title": "The smallest eigenvalues of random kernel matrices: Asymptotic results on the min kernel",
+        "trigger": "Potential random kernel smallest-eigenvalue exact asymptotics"
+      }
+    ],
+    "status": "PASS"
+  },
+  "review_type": "self_review",
+  "schema_version": 1,
+  "scope_run_id": "2bac4e28-0898-4100-bfdf-7b25b6fe9a16",
+  "self_review_status": "passed",
+  "value": {
+    "rationale": "Near-coincident random sample locations produce ill-conditioned Gaussian-process covariance systems. The exact \\(1/t\\) tail normalization quantifies rather than merely asserts the problem, the sampling-density functional \\(\\int w^2\\) gives a sharp design comparison, and explicit regularized expected-norm blow-ups quantify the numerical cost of removing jitter. These are motivated numerical linear-algebra facts, not arbitrary one-off computations.",
+    "status": "PASS"
+  }
+}
