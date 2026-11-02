@@ -1,0 +1,122 @@
+{
+  "correctness": {
+    "rationale": "The three-survivor intersection criterion is exact. A heavy coordinate occurs in at most one codeword. For n>=6 any two exceptional words intersect in at least 2n-8>=4, giving the five-or-four bounds; at n=5 compatible exceptional doubled-coordinate pairs must be disjoint, yielding at most two exceptions. The four constants plus exceptions attain each case. Labeled maximizers are enumerated independently by the heavy-exception combinatorial counts 12*24=288, 4*144+6*22=708, 4*4=16, and 1, with the specific 144 and 22 completions derived algebraically in RESULT.md. The S4 orbit counts 14,46,2,1 follow by Burnside from fixed counts exhaustively obtained by a complete increasing-index compatibility-mask recursion. verify.py also checks all three-element shadows independently, redoes counts from exceptional/heavy categories, and uses no floating-point optimizer. No finite computation is used to infer the infinite-n size formula.",
+    "status": "PASS"
+  },
+  "independent": false,
+  "independent_audit_status": "not_performed",
+  "originality": {
+    "broader_coverage": {
+      "evidence": [
+        "arXiv:2601.05636 Section 4.4, Proposition 12: general certificate upper bound q+binom(q,2), which is 10 for q=4 and n>=6.",
+        "arXiv:2603.18322 abstract, introduction, Sections 3 and 5 concern Sidon constructions, deletion-ball formulas and broad packing bounds rather than an exact q=4 three-survivor census.",
+        "arXiv:1612.08837 Section IV derives general construction and upper bounds without a fixed q=4, three-output extremal count."
+      ],
+      "reasoning": "General bounds and constructions for all q and t would dominate the claim only if they implied the exact capacities and counts. The cited propositions do not give the quaternary cardinalities and have no equality-codebook census. The one-deletion q=4 exact result is the different n=4 parameter, excluded from this theorem.",
+      "searches": [
+        "Quaternary multiset deletion codes when three symbols survive, exact S_4(n,n-3) for all n including transition threshold",
+        "site:arxiv.org multiset deletion codes n-3 quaternary optimal",
+        "Kovacevic Tan multiset deletion correcting codes exact high deletion regime at most three multiset intersection code q4"
+      ]
+    },
+    "checked_sources": [
+      "arXiv:2601.05636, sections 2,4.4,5 (public January 2026)",
+      "arXiv:2603.18322, sections 1-3 and bound sections (public March 2026)",
+      "arXiv:1612.08837, sections I,II,IV (public December 2016)",
+      "Targeted semantic research-record queries for fixed 3-survivor q=4 multiset codes and lattice equivalents",
+      "Targeted web literature searches for q=4 t=n-3 and exact maximizer values"
+    ],
+    "claim_vs_prior_implication": {
+      "evidence": [
+        "General upper bound at q=4,n>=6 from arXiv:2601.05636 is 10; the constructed sharp optima of 5 and 4 and their entire optimizer census are not implied.",
+        "arXiv:2603.18322 provides exact ball-size and pair-distance statistics; those aggregate invariants do not by themselves give the optimal independent-set count.",
+        "Foundational Sidon constructions and asymptotics of arXiv:1612.08837 do not characterize all finite maximizers."
+      ],
+      "reasoning": "Compared full claims as set-packing optimizations, not titles: the new exact small-alphabet profile is strictly sharper than the applicable general bound, while the labeled and orbit counts require classifying equality cases. Nothing inspected entails that classification.",
+      "searches": [
+        "Multiset Deletion Codes: Cyclic Constructions, Bounds, and Exact Results arxiv 2601.05636 section 4.4",
+        "Polynomial Constructions and Deletion-Ball Geometry for Multiset Deletion Codes arxiv 2603.18322",
+        "Codes in the Space of Multisets Coding for Permutation Channels with Impairments arxiv 1612.08837"
+      ]
+    },
+    "equivalent_formulations": {
+      "evidence": [
+        "arXiv:2601.05636 Section 2: deletion distance is half the multiset L1 distance, and Section 4.4 characterizes t=n-3 as intersection at most two.",
+        "arXiv:1612.08837 Sections II and IV connect multiset codes to discrete-simplex lattice packings.",
+        "Targeted search results included a ternary three-survivor code theorem, not a four-symbol count."
+      ],
+      "reasoning": "Equivalent metric, lattice, and intersection formulations were explicitly included in searches. The retrieved ternary case fixes a different q and cannot imply the four-symbol maximizer census. No matching four-symbol t=n-3 exact statement was found.",
+      "searches": [
+        "Four-symbol multiset intersection packing code n=5, n=6, n=7, n=8 with pairwise multiset intersection at most two; exact labeled maximizers 288 708 16 1",
+        "Equivalence of multiset t=n-3 deletion codes to tetrahedral grid clique packings and enumerations",
+        "four symbol multiset packing pairwise intersection at most two optimum n=5 n=6"
+      ]
+    },
+    "exact_database_or_table": {
+      "evidence": [
+        "The 2026 general multiset paper lists single-deletion exact q=3,4 cases and q=5 finite computations but not a q=4 three-survivor value table (arXiv:2601.05636, Sections 4.4 and 5).",
+        "Relevant semantic matches instead described the ternary three-survivor profile, other channels, or different radii and alphabet sizes."
+      ],
+      "reasoning": "Searches targeted the exact natural invariant, numerical optimizer counts, and the lattice/intersection aliases. No exact prior table covering these parameters appeared. The risk of an older or unindexed table remains and is not claimed to have been eliminated.",
+      "searches": [
+        "Exact S_4(n,n-3) multiset deletion codes q=4 three surviving symbols: sizes 6,5,4 at lengths 5,6,7,8 and >=9; number of maximizing codes",
+        "quaternary multiset deletion codes three surviving symbols 5 6 7 8 exact",
+        "three quaternary multiset deletion code optimal 288 708 16",
+        "four symbol multiset packing pairwise intersection at most two optimum n=5 n=6"
+      ]
+    },
+    "rationale": "The motivating quaternary three-survivor model is explicit in arXiv:2601.05636 Section 4.4; its Proposition 12 upper bound at q=4 is ten, not the sharp 5 or 4, and it does not count optimal labeled codebooks. Its exact q=4 single-deletion results are a different radius. arXiv:2603.18322 addresses ball geometry and general bounds, without the high-deletion quaternary classification. arXiv:1612.08837 introduces broader multiset codes and bounds but does not state these counts. Actual targeted searches did not identify a covering result, and the closest retrieved three-survivor exact finding uses only three alphabet symbols. Potential re-expression in older discrete-simplex packing tables remains a scientific risk.",
+    "residual_risks": [
+      "An older discrete-simplex, constant-composition L1 packing table may contain the same small-length code sizes under different notation.",
+      "A previously unindexed classification may include some or all of the labeled and symmetry-orbit counts.",
+      "The finite Burnside fixed-point table requires checking and rerunning the included exhaustive enumeration; independent review has not occurred."
+    ],
+    "source_inspections": [
+      {
+        "assessment": "Relevant high-deletion upper bound not sharp for the claimed q=4 cases; exact q=4 numerical result is one-deletion rather than the three-survivor regime.",
+        "evidence": [
+          "Section 4.4 Proposition 12 bounds S_q(n,n-3) by q+binom(q,2) when n>=q+2.",
+          "Section 5 treats the distinct single-deletion regime."
+        ],
+        "identifier_or_url": "https://arxiv.org/pdf/2601.05636",
+        "material_read": "Full-text PDF sections defining the metric, introduction/contributions, Section 4.4 through its propositions and discussion of q=4 single-deletion cases; page images of title and later benchmark section.",
+        "method": "Primary arXiv PDF text and page-image inspection.",
+        "title": "Multiset Deletion Codes: Cyclic Constructions, Bounds, and Exact Results",
+        "trigger": "Same channel and high-deletion regime; explicit q=4 results potentially dominating."
+      },
+      {
+        "assessment": "The inspected claims are about finite-field syndrome constructions and ball geometry. No exact fixed-q=4 three-survivor maximizer classification was identified; completeness of all possible implicit implications is not certified.",
+        "evidence": [
+          "Introduction explicitly describes the previous paper as handling the high-deletion regime.",
+          "The new contributions list exact pair and average-ball counts and global extremal ball centers, not optimal-codebook counts."
+        ],
+        "identifier_or_url": "https://arxiv.org/pdf/2603.18322",
+        "material_read": "Full-text PDF abstract, introductory contributions and section roadmap, Section 2 definitions, representative construction examples, and ball-bound sections identified by full-text searches; page image of introduction.",
+        "method": "Primary arXiv PDF text and page-image inspection, including internal section searches.",
+        "title": "Polynomial Constructions and Deletion-Ball Geometry for Multiset Deletion Codes",
+        "trigger": "Follow-up by the same authors, potentially containing stronger or exact structural enumerations."
+      },
+      {
+        "assessment": "Establishes the framework and broad optimality/scaling results, not the claimed exact three-survivor optimizer numbers.",
+        "evidence": [
+          "Section IV Theorem 17 gives general combinatorial bounds for multiset codes.",
+          "Abstract and Section IV identify fixed-radius constructions and asymptotic regimes."
+        ],
+        "identifier_or_url": "https://arxiv.org/pdf/1612.08837",
+        "material_read": "Full-text PDF introduction, Section II metric, Section IV construction and bound statements, and related references; page image of title page.",
+        "method": "Primary arXiv PDF text and page-image inspection and parameter-term searches.",
+        "title": "Codes in the Space of Multisets—Coding for Permutation Channels with Impairments",
+        "trigger": "Foundational multiset code and discrete-simplex lattice bounds may dominate a finite q=4 packing result."
+      }
+    ],
+    "status": "PASS"
+  },
+  "review_type": "self_review",
+  "schema_version": 1,
+  "scope_run_id": "e568c9b4-cd5d-4cc4-83ea-1a61ec6e59cb",
+  "self_review_status": "passed",
+  "value": {
+    "rationale": "Three-survivor multiset correction is a natural near-extremal channel analyzed explicitly in arXiv:2601.05636. At q=4 its available general numerical bound leaves a substantial gap. The theorem determines the entire optimal-cardinality function for all n>=5, its two sharp finite-length transitions, every maximum code at the four exceptional lengths, and their structural symmetry classes, including 46 distinct length-six alphabet orbits. This is a motivated natural finite/infinite classification with value beyond an incidental single arithmetic computation; no wider code-improvement claim is made.",
+    "status": "PASS"
+  }
+}
