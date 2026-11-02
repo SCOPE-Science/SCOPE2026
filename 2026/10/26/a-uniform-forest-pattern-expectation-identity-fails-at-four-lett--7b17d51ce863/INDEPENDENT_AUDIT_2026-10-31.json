@@ -1,0 +1,100 @@
+{
+  "audit_date_utc": "2026-10-31",
+  "audited_at_utc": "2026-10-31T00:40:53.466906Z",
+  "axes": {
+    "correctness": {
+      "rationale": "Janson Lemma 11 identifies tree permutations with L{L,R}^(n-2)R and characterizes inversions between marked positions by L..R with intermediary gap in L*, R* or R+L+. A finite marked-position scanner with six gap states per earlier mark gives 71 reachable states for 1243 and 45 for 1324, counting each increasing four-subsequence exactly once. Hence each total-count GF is z² times a rational 71/45-dimensional transfer expression. Its denominator degrees are <=71/45, and numerator bounds <=72/46. After multiplying the proposed difference by Q=(1-z)^2(1-2z)^3 and both denominator polynomials, the numerator has degree <=122; independent exact dynamic programming verifies all 123 coefficients 0..122 vanish except the prescribed 2 z^5 term. This establishes the all-n rational identity, not a finite extrapolation. Direct independent codeword and all-permutation enumerations independently corroborate initial coefficients. Positivity follows from the product of power series with positive coefficients and the asymptotic from the pole at 1/2.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Theorem 4 gives leading asymptotic n^d/d! for forest patterns, which does not assert finite-n equality; indeed both patterns have common leading n^3/6 while differing by order n².",
+          "The original binary-code bijection counts hosts but does not provide this exact pairwise pattern GFs."
+        ],
+        "reasoning": "General leading asymptotics and a coding construction do not dominate an all-n exact nonzero difference, so no implication from these earlier statements.",
+        "searches": [
+          "Janson 2023 Theorem 4, Theorem 29 and Problem 7",
+          "Acan–Hitczenko arXiv:1406.3958",
+          "Resultary forest pattern expectation comparison"
+        ]
+      },
+      "checked_sources": [
+        "https://www.combinatorics.org/ojs/index.php/eljc/article/download/v30i2p27/pdf/",
+        "https://arxiv.org/abs/1406.3958",
+        "https://github.com/SCOPE-Science/SCOPE2026/tree/69e5cd3aa14bc846bbbd0f413f48a6f330f1273c/2026/10/26/a-uniform-forest-pattern-expectation-identity-fails-at-four-lett--7b17d51ce863"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "Janson Problem 7 explicitly says the finite expectation extension to equal-block forest patterns was not known, while Theorem 29 is limited to tree patterns.",
+          "The claimed difference requires a marked four-position enumeration beyond the host count 2^(n-2)."
+        ],
+        "reasoning": "Prior combinatorial coding is a tool for this calculation, not a theorem implying the new difference without the transfer enumeration and all-length coefficient proof.",
+        "searches": [
+          "Svante Janson Electronic Journal of Combinatorics 30(2) P2.27 Problem 7",
+          "Acan–Hitczenko 2014 tree-permutation bijection"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Janson Theorem 29 proves exact expectation equality for two tree patterns of equal length, and Problem 7 specifically asks whether this extends to forest patterns of equal length and block count.",
+          "The patterns 1243 and 1324 have disconnected forest inversion graphs and are not covered by tree-pattern equality."
+        ],
+        "reasoning": "A counterexample to the stated extension cannot be equivalent to the existing positive theorem whose hypothesis explicitly requires tree patterns.",
+        "searches": [
+          "Janson The number of occurrences of patterns in a random tree or forest permutation Problem 7",
+          "Acan Hitczenko On random trees obtained from permutation graphs 2014",
+          "Resultary: random tree permutation forest pattern 1243 1324 expected occurrences Janson problem 7"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "The full 2023 paper explicitly records the equality extension as unknown at its publication date.",
+          "Indexed published findings did not locate an exact pairwise difference or table for the chosen forest patterns."
+        ],
+        "reasoning": "No matching earlier exact database/table was found in inspected work; search absence is not conclusive, and later unindexed solutions may exist.",
+        "searches": [
+          "Janson 2023 Problem 7 and Theorem 29",
+          "Resultary: random tree permutation forest pattern 1243 1324 expected occurrences Janson problem 7"
+        ]
+      },
+      "rationale": "Best-of-knowledge source/implication comparison: A counterexample to the stated extension cannot be equivalent to the existing positive theorem whose hypothesis explicitly requires tree patterns. General leading asymptotics and a coding construction do not dominate an all-n exact nonzero difference, so no implication from these earlier statements. All specific risks are retained; inaccessible literature alone did not determine the outcome.",
+      "residual_risks": [
+        "An independent later enumeration may have answered Janson Problem 7 since its publication; no full field-wide priority certificate is possible.",
+        "The 71/45-state transfer scanner is a nonstandard lemma: independent small-n enumeration corroborates its inversion semantics and the finite degree bound certifies the infinite identity."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Theorem 29 covers only connected tree patterns, while Problem 7 explicitly leaves forest-pattern equality unresolved.",
+          "evidence": "Problem 7 says the author does not know whether equality extends to two forest permutations with same length and block number; Theorem 29 specifies tree σ.",
+          "identifier_or_url": "https://www.combinatorics.org/ojs/index.php/eljc/article/download/v30i2p27/pdf/",
+          "material_read": "Entire accessible 35-page publication with focused reading of Problem 7 p5, Lemma 11, Theorem 29 p17 and forest-host comparisons",
+          "method": "primary full-text and page-image analysis",
+          "title": "The Number of Occurrences of Patterns in a Random Tree or Forest Permutation",
+          "trigger": "Problem 7 exactly asks the forest-pattern equality extension"
+        },
+        {
+          "assessment": "Supplies tree count/coding antecedent; full priority noncoverage is not asserted.",
+          "evidence": "Host count 2^(n-2) and code representation alone do not state the new occurrence GF.",
+          "identifier_or_url": "https://arxiv.org/abs/1406.3958",
+          "material_read": "Indexed primary abstract and source-referenced coding statement; complete text not independently reread",
+          "method": "bibliographic and source-lemma comparison",
+          "title": "On random trees obtained from permutation graphs",
+          "trigger": "Foundational uniform tree-permutation binary code"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "rationale": "Explicit all-size counterexample to Janson Problem 7 finite-n equality extension from tree to forest patterns, at the smallest natural length four, with exact positive gap and a finite-state rational certificate.",
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "final_claim": "In a uniform random tree permutation of n>=2, expected occurrences of the forest patterns 1243=1⊕1⊕21 and 1324=1⊕21⊕1 differ by Delta_n whose total-count generating function is 2 z^5/((1-z)^2(1-2z)^3); Delta_n>0 for all n>=5 despite equal length and block count.",
+  "limitations": [
+    "Uniform tree-permutation hosts, not uniform forest hosts.",
+    "Only these two forest patterns, not a complete classification; the finite automaton proof is explicit but not machine-formalized in a proof assistant."
+  ],
+  "schema_version": 1
+}

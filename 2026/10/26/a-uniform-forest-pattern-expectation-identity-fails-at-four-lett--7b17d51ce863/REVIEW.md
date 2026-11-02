@@ -1,15 +1,21 @@
-# Research review
+# Independent mathematical audit
 
-## Correctness — PASS
-The host-tree coding and inversion graph characterization follow Janson's Lemma 11. The automata record inversion conditions for all selected pairs, count only four-marked increasing position sets, and exhaust both choices of each free code symbol. The explicit denominator bound \(71+45=116\), plus mandatory endpoints, makes the coefficient check through degree 122 an **all-length** rational identity proof. Re-execution of `verify.py` establishes the two reachable state sizes, all 123 exact identities, full binary-code enumerations through size 9, and an independent brute permutation comparison through size 7. The strict positivity argument uses positive power-series factors. Risk: transfer construction is a nonstandard combinatorial lemma requiring careful inspection; the certificate and transition definitions are included.
+## correctness
 
-## Originality — PASS, with bounded priority risk
-Janson's 2022 first public preprint (Problem 7) explicitly states the finite-size equal-expectations extension to equal-length, equal-block-count forest patterns was unknown. Its established equality is for tree-pattern inputs, while the new inputs 1243 and 1324 are forest patterns. The full paper's coding and later pattern-count discussion were inspected; no formula for this pair appears in that material. Acan–Hitczenko (2014), Section 2, supplies the tree-permutation count and coding, not this pairwise expectation law in the inspected sections. Current mathematical record and external searches yielded no stronger covering result, but no search proves unique priority. Specific risk: equivalent results may be derived in broader enumeration literature.
+PASS
 
-## Value — PASS
-The theorem answers an explicit published equality question with the smallest natural four-letter examples, and strengthens a one-size counterexample to an exact all-size rational generating function and positive gap for every size at least five. The essential contrast is structural: equal block count controls the leading asymptotic but not exact finite-size expectations.
+Janson Lemma 11 identifies tree permutations with L{L,R}^(n-2)R and characterizes inversions between marked positions by L..R with intermediary gap in L*, R* or R+L+. A finite marked-position scanner with six gap states per earlier mark gives 71 reachable states for 1243 and 45 for 1324, counting each increasing four-subsequence exactly once. Hence each total-count GF is z² times a rational 71/45-dimensional transfer expression. Its denominator degrees are <=71/45, and numerator bounds <=72/46. After multiplying the proposed difference by Q=(1-z)^2(1-2z)^3 and both denominator polynomials, the numerator has degree <=122; independent exact dynamic programming verifies all 123 coefficients 0..122 vanish except the prescribed 2 z^5 term. This establishes the all-n rational identity, not a finite extrapolation. Direct independent codeword and all-permutation enumerations independently corroborate initial coefficients. Positivity follows from the product of power series with positive coefficients and the asymptotic from the pole at 1/2.
 
-## Scope of validation
-Proof and checker are internally reproducible with exact arithmetic. The result has not undergone independent assessment. Historical-priority uncertainty remains.
+## originality
 
-Self-review: passed. Independent audit: not yet performed.
+PASS
+
+Best-of-knowledge source/implication comparison: A counterexample to the stated extension cannot be equivalent to the existing positive theorem whose hypothesis explicitly requires tree patterns. General leading asymptotics and a coding construction do not dominate an all-n exact nonzero difference, so no implication from these earlier statements. All specific risks are retained; inaccessible literature alone did not determine the outcome.
+
+## value
+
+PASS
+
+Explicit all-size counterexample to Janson Problem 7 finite-n equality extension from tree to forest patterns, at the smallest natural length four, with exact positive gap and a finite-state rational certificate.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
