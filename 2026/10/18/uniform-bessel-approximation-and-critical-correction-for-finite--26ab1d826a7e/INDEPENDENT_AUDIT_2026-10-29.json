@@ -1,0 +1,181 @@
+{
+  "audit_date_utc": "2026-10-29",
+  "audited_at_utc": "2026-10-29T05:13:59Z",
+  "axes": {
+    "correctness": {
+      "checked_sources": [
+        "Frozen Git RESULT.md 8909 bytes, blob a80499f20113ab6406c23779ff1fed8df595dd8f",
+        "Frozen Git check_euler.py blob 16af5f269141da4c974c905208908eb2a04e1f0e, inspected as data",
+        "Independent check script independent_checks.py and independent_checks_output.txt: 72 uniform, 48 critical, 7 rational and 3 integral checks"
+      ],
+      "rationale": "For real N×N Euler matrix E_N(r) with indices 0≤k≤j<N, β=r(1−r)∈[0,1/4], Parseval gives each row-energy as mean_θ(1−a)^j with a=4β sin²(θ/2)∈[0,1]. Summing geometric powers gives S_N=mean_θ[1−(1−a)^N]/a. Replacing discrete powers with e^(−Na) gives H_N=∫_0^N e^(−2βt)I0(2βt)dt=N e^(−2Nβ)[I0(2Nβ)+I1(2Nβ)] by differentiation. Factoring e^(−Na)−(1−a)^N and using 0≤e^(−a)−(1−a)≤a²/2 yields an average error in [0,1/2), including a=0 by continuous extension; N≥2 bound uses Na e^(−(N−1)a)≤N/[e(N−1)]≤2/e, N=1 direct. For β=λ/N, x=λ(2−2cosθ)≤4L and N≥8L, the convergent logarithm expansion N log(1−x/N)=−x−x²/(2N)−δ with 0≤δ≤2x³/(3N²), plus t≤5x²/(6N), bounds pointwise remainder by (2x²/3+25x³/72)/N and hence by (32L²/3+200L³/9)/N; the leading angular correction is K(λ)=λe^(−2λ)(I0(2λ)−I1(2λ)). This proves both endpoint choices r=0,1 and N=1, reflection symmetry r↔1−r and both asserted asymptotic regimes. I independently evaluated direct binomial sums, Bessel series, exact center identities, angular moments and critical residuals; finite tests corroborate, not prove, all N.",
+      "residual_risks": [
+        "No claim that uniform constant 1/2 is sharp or that individual singular values are controlled; critical O(1/N) is restricted to N≥8L."
+      ],
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Roopaei 2020 Theorem 2.3 determines induced ℓp norm of an infinite Euler-type operator, not tr(E_N*E_N).",
+          "Yavuz arXiv:1610.01411 §3 proves Tauberian convergence, not Schatten-2 estimates.",
+          "Burton arXiv:2505.02973 supplies a Poissonized Bessel return kernel but not uniform depissonization error."
+        ],
+        "reasoning": "A stronger-looking infinite-dimensional operator-norm formula or probabilistic heat-kernel identity has different quantifiers/invariants; none entails the all-N absolute error or finite critical correction. The leading asymptotic also does not force its order-one term.",
+        "searches": [
+          "Euler Hausdorff operator finite sections squared Schatten 2 norm parameter reflection binomial Legendre polynomial",
+          "binomial random walk collision local time Bessel first correction discrete continuous",
+          "Frobenius norm Euler finite"
+        ]
+      },
+      "checked_sources": [
+        "M. Başarır, E. E. Kara, Ş. Konca (2014), On some new weighted Euler sequence spaces and compact operators, DOI 10.7153/mia-17-48, https://files.ele-math.com/articles/mia-17-48.pdf",
+        "E. Yavuz, Euler summability method of sequences of fuzzy numbers and a Tauberian theorem, arXiv:1610.01411, https://arxiv.org/pdf/1610.01411",
+        "J. Meng, M. Song (2017), On some binomial B^(m)-difference sequence spaces, DOI 10.1186/s13660-017-1470-4, https://link.springer.com/article/10.1186/s13660-017-1470-4",
+        "H. Roopaei (2020), Binomial Operator as a Hausdorff Operator of the Euler Type, DOI 10.33205/cma.783993, https://dergipark.org.tr/en/download/article-file/1252223",
+        "Z. Burton (2025), Poissonization-based collision threshold derivation for random walks on lattices, arXiv:2505.02973, https://arxiv.org/pdf/2505.02973",
+        "Resultary semantic queries: finite Euler binomial summability matrix Hilbert Schmidt Frobenius squared norm uniform Bessel modified I0 I1 approximation critical r(1-r) = lambda/N; binomial collision probability sum over j 0 to N-1 Brownian heat kernel Bessel critical asymptotic order one correction; Euler Hausdorff operator finite sections squared Schatten 2 norm parameter reflection binomial Legendre polynomial; Euler summability matrices Bessel Frobenius Hilbert Schmidt finite trace of squares; binomial random walk collision local time Bessel first correction discrete continuous",
+        "SCOPE-Science/SCOPE2026 code search at repository default branch: Euler summability matrix Bessel; Frobenius norm Euler finite; Hilbert-Schmidt Euler matrix (no exact match returned)"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "Başarır–Kara–Konca DOI 10.7153/mia-17-48: weighted Euler spaces, duals and compact operators.",
+          "Meng–Song DOI 10.1186/s13660-017-1470-4: binomial difference spaces.",
+          "Roopaei DOI 10.33205/cma.783993 Theorem 2.3: induced operator norm.",
+          "Burton arXiv:2505.02973: continuous-time Bessel kernel; no exact finite Euler S2 bound inspected."
+        ],
+        "reasoning": "None of the actually inspected theorems entails the pair of inequalities 0≤S_N−H_N<1/2 for all 0≤r≤1 and |S_N−H_N−K(λ)|≤C_L/N in the moving β=λ/N window. No claim to novelty of Parseval, central binomial coefficient identity, or Bessel kernel.",
+        "searches": [
+          "finite Euler binomial summability matrix Hilbert Schmidt Frobenius squared norm uniform Bessel modified I0 I1 approximation critical r(1-r) = lambda/N",
+          "Euler Hausdorff operator finite sections squared Schatten 2 norm parameter reflection binomial Legendre polynomial",
+          "Euler summability matrix Bessel",
+          "Frobenius norm Euler finite",
+          "Hilbert-Schmidt Euler matrix"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Başarır–Kara–Konca 2014, Euler matrix definition and weighted Euler spaces; M. Başarır, E. E. Kara, Ş. Konca (2014), On some new weighted Euler sequence spaces and compact operators, DOI 10.7153/mia-17-48, https://files.ele-math.com/articles/mia-17-48.pdf",
+          "Roopaei 2020 Theorem 2.3, binomial Euler/Hausdorff equivalence; H. Roopaei (2020), Binomial Operator as a Hausdorff Operator of the Euler Type, DOI 10.33205/cma.783993, https://dergipark.org.tr/en/download/article-file/1252223",
+          "Burton 2025, classical continuous-time random-walk return kernel e^(−2t)I0(2t); Z. Burton (2025), Poissonization-based collision threshold derivation for random walks on lattices, arXiv:2505.02973, https://arxiv.org/pdf/2505.02973"
+        ],
+        "reasoning": "Euler binomial transform, squared row binomial collision probability, Hausdorff binomial operator and lazy-walk return sum are genuine aliases. Prior definitions/return kernel and row generating functions are acknowledged classical; none of these inspected conclusions supplies the finite all-parameter error plus critical K(λ).",
+        "searches": [
+          "finite Euler binomial summability matrix Hilbert Schmidt Frobenius squared norm uniform Bessel modified I0 I1 approximation critical r(1-r) = lambda/N",
+          "Euler summability matrices Bessel Frobenius Hilbert Schmidt finite trace of squares",
+          "Euler summability matrix Bessel",
+          "Hilbert-Schmidt Euler matrix"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "At r=1/2, ∑_{j<N} binom(2j,j)/4^j equals (2N−1)binom(2N−2,N−1)/4^(N−1), a known exact central-binomial identity.",
+          "Resultary nearest returned records concerned nilpotent shifts, Cesàro and Rhaly spectra; no displayed exact matching finite Euler energy table."
+        ],
+        "reasoning": "The symmetric-row finite formula is classical and not counted as a new claim. A table for r=1/2 would not imply uniformity in r or the K(λ) expansion. No-hit searches are only bounded evidence, not proof of novelty.",
+        "searches": [
+          "binomial collision probability sum over j 0 to N-1 Brownian heat kernel Bessel critical asymptotic order one correction",
+          "Euler summability matrices Bessel Frobenius Hilbert Schmidt finite trace of squares",
+          "binomial random walk collision local time Bessel first correction discrete continuous"
+        ]
+      },
+      "rationale": "The same Euler/Hausdorff/binomial matrix and its row collision identities are classical. The assessed final claim instead derives a dimension- and parameter-uniform finite Frobenius-energy/Bessel error and an explicit order-one critical correction. Relevant Euler sequence-space, Tauberian and infinite ℓp operator-norm theorems do not imply these quantitative statements; probabilistic Poissonization literature contains the continuous Bessel kernel but no inspected exact correction. Actual Resultary search, repository-code search and primary full-text comparisons found no decisive coverage, subject to explicit residual priority risk.",
+      "residual_risks": [
+        "An earlier probabilistic depissonization/local-time theorem may encode the same dimension-free error or order-one correction under a different title; indexed searches cannot establish historical uniqueness.",
+        "The exact row generating function and continuous-time I0 kernel are classical ingredients; their presence in a source is not in itself novelty.",
+        "The assigned bibliography misnumbers Meng–Song (2017) as article 241; official DOI page identifies article 194; mathematical statements unaffected.",
+        "No exhaustive all-era, all-language priority certification is claimed."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Defines equivalent Euler operator but studies weighted Euler spaces, duals, compactness rather than finite Schatten-2 energy with Bessel error.",
+          "evidence": [
+            "pp.649–651 introductory Euler matrix and space definitions",
+            "Subsequent statements on duality and compactness; no corresponding quantitative finite Frobenius-energy formula in inspected material"
+          ],
+          "identifier_or_url": "https://files.ele-math.com/articles/mia-17-48.pdf",
+          "material_read": "Article abstract, PDF Euler matrix definition near pp.649–650, main theorem and compactness framework; searched PDF for Hilbert, Frobenius and trace",
+          "method": "Full-text PDF and rendered-page inspection of Euler definition and theorem setting",
+          "title": "On some new weighted Euler sequence spaces and compact operators",
+          "trigger": "Same Euler binomial row matrix; need distinguish sequence-space/operator theory from claimed finite energy"
+        },
+        {
+          "assessment": "Euler means of fuzzy sequences and Tauberian convergence do not state finite squared singular-value sums or Bessel corrections.",
+          "evidence": [
+            "Definition 3.1 defines binomial Euler summability",
+            "Theorem 3.5 concerns Tauberian convergence, not Frobenius energy"
+          ],
+          "identifier_or_url": "https://arxiv.org/pdf/1610.01411",
+          "material_read": "Full PDF introduction, Definition 3.1 and main §3 Theorems 3.2–3.5 including Tauberian proof setting",
+          "method": "Read PDF text and page image of main binomial means and theorem",
+          "title": "Euler summability method of sequences of fuzzy numbers and a Tauberian theorem",
+          "trigger": "Preprint on Euler binomial means and possible stronger summability estimates"
+        },
+        {
+          "assessment": "Sequence-space bases, duals and matrix transformations, not Bessel uniform finite-section trace comparisons.",
+          "evidence": [
+            "DOI 10.1186/s13660-017-1470-4; official journal article 194 (the assigned bibliography instead says 241, a nonmathematical citation error)"
+          ],
+          "identifier_or_url": "https://link.springer.com/article/10.1186/s13660-017-1470-4",
+          "material_read": "Open-access full-text HTML, introduction, definitions of binomial matrices, theorem/section statements and conclusion",
+          "method": "Read complete accessible HTML paper and compared its mathematical results with the current finite trace claim",
+          "title": "On some binomial B^(m)-difference sequence spaces",
+          "trigger": "Binomial-difference/Euler matrix alias; potential stronger operator estimates"
+        },
+        {
+          "assessment": "Induced infinite-dimensional norm and Euler equivalence do not imply the submitted all-r/finite-N Hilbert–Schmidt Bessel error or critical order-one correction.",
+          "evidence": [
+            "Theorem 2.3 gives an ℓp induced-operator norm; norm invariant differs from trace(E*E)"
+          ],
+          "identifier_or_url": "https://dergipark.org.tr/en/download/article-file/1252223",
+          "material_read": "Full PDF, abstract, definitions and §§1–2 including Theorem 2.3, with theorem page image and terminology search",
+          "method": "Read and compared theorem of the infinite-dimensional induced ℓp norm with finite-dimensional sum of squared singular values",
+          "title": "Binomial Operator as a Hausdorff Operator of the Euler Type",
+          "trigger": "Direct binomial–Euler equivalence and an apparently stronger operator norm theorem"
+        },
+        {
+          "assessment": "Supplies classical e^(−2t)I0(2t) continuous-time return probability, an ingredient of H_N, but not the finite binomial-row error bound or critical order-one correction.",
+          "evidence": [
+            "Explicit continuous-time return kernel e^(−2t)I0(2t) on p.4; current proof separately controls discrete-to-continuous finite-time error"
+          ],
+          "identifier_or_url": "https://arxiv.org/pdf/2505.02973",
+          "material_read": "Preprint introduction, construction of continuous-time random-walk return kernel, displayed Bessel integral on p.4 and collision asymptotic discussion",
+          "method": "Read PDF passage and rendered page that contains Bessel return kernel",
+          "title": "Poissonization-based collision threshold derivation for random walks on lattices",
+          "trigger": "Closest probabilistic alias: collision local time and Bessel heat kernel"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "checked_sources": [
+        "RESULT.md proof §§1–5 and limits",
+        "Induced Euler-operator norm comparison: Roopaei 2020 Theorem 2.3",
+        "Independent finite diagnostics and exact central-binomial regressions"
+      ],
+      "rationale": "The finite squared Hilbert–Schmidt norm is a natural aggregate singular-value invariant of an important classical summability family, distinct from already studied infinite-dimensional induced norms. A single explicit Bessel proxy with uniform bounded error controls all 0≤r≤1 and all N, identifying operator-energy behavior even as the smoothing scale moves with N. The critical λ/N formula supplies a nonzero order-one correction, distinguishing a genuine discrete-to-continuous effect that is not mechanically implied by a leading Gaussian or Bessel asymptotic. This is a motivated quantitative structural lemma, not a renamed textbook identity, arbitrary finite slice, or tiny unmotivated improvement.",
+      "residual_risks": [
+        "The absolute error <1/2 constant is conservative; no optimality or individual singular-value information proved."
+      ],
+      "status": "PASS"
+    }
+  },
+  "checked_sources": [
+    "M. Başarır, E. E. Kara, Ş. Konca (2014), On some new weighted Euler sequence spaces and compact operators, DOI 10.7153/mia-17-48, https://files.ele-math.com/articles/mia-17-48.pdf",
+    "E. Yavuz, Euler summability method of sequences of fuzzy numbers and a Tauberian theorem, arXiv:1610.01411, https://arxiv.org/pdf/1610.01411",
+    "J. Meng, M. Song (2017), On some binomial B^(m)-difference sequence spaces, DOI 10.1186/s13660-017-1470-4, https://link.springer.com/article/10.1186/s13660-017-1470-4",
+    "H. Roopaei (2020), Binomial Operator as a Hausdorff Operator of the Euler Type, DOI 10.33205/cma.783993, https://dergipark.org.tr/en/download/article-file/1252223",
+    "Z. Burton (2025), Poissonization-based collision threshold derivation for random walks on lattices, arXiv:2505.02973, https://arxiv.org/pdf/2505.02973",
+    "https://github.com/SCOPE-Science/SCOPE2026/tree/cbd61aab71e4f01d305014a9520f769db8108742/2026/10/18/uniform-bessel-approximation-and-critical-correction-for-finite--26ab1d826a7e"
+  ],
+  "disposition": "passed",
+  "limitations": [
+    "No proof that constant 1/2 is optimal; not about operator norm or other Schatten exponents.",
+    "Critical uniform correction stated only for finite λ∈[0,L] with N≥8L.",
+    "Prior-art searches and inspected primary full texts do not certify exhaustive historical uniqueness.",
+    "Minor bibliographic article-number error in assigned RESULT.md for Meng–Song (2017): official article number 194 rather than 241; not a theorem/proof defect.",
+    "The guarded publication plan is ready, but neither imported nor published; existing external verification channels retain their present states.",
+    "Historical audit ledger remains byte-for-byte untouched; its old defects and gaps are not retrospectively validated."
+  ],
+  "schema_version": 1
+}
