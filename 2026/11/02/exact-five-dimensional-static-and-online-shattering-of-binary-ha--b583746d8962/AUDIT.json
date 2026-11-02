@@ -1,0 +1,113 @@
+{
+  "correctness": {
+    "rationale": "The positive fiber of an exact-two Hamming query is the edge set of K_d; query positivity reduces exactly to two-set exclusive incidence or four-set containment. A near-star permits no depth-three tree, hence a two-star permits no depth-four tree and the full edge fiber no depth-five tree. Therefore the original class has Littlestone dimension at most five. A 32-row, seven-bit five-query witness was replayed from package files, establishing VC at least five and hence both equal five for all d>=7 by zero padding. Quantifiers and branch-size bounds were checked case by case; no finite experiment is used as an infinite upper-bound proof.",
+    "status": "PASS"
+  },
+  "independent": false,
+  "independent_audit_status": "not_performed",
+  "originality": {
+    "broader_coverage": {
+      "evidence": [
+        "Adler–Benediktsson–Macpherson Theorem 4.6 proves VC at most three for Hamming distance-one edge relation; Section 4 defines this as exactly one differing coordinate. Ghazi et al. give general aggregation upper bounds, not this sharp five."
+      ],
+      "reasoning": "A prior theorem with the same full cube and radius-one predicate is not broader coverage of exact radius two. Generic dimension closure estimates do not identify exact dimension five or furnish five-query witnesses.",
+      "searches": [
+        "arxiv:2007.16042 full accepted version pp.2-4 and 20-23",
+        "Near-tight Closure Bounds for the Littlestone and Threshold Dimensions 2021",
+        "square of Hamming cube graph neighborhoods VC dimension"
+      ]
+    },
+    "checked_sources": [
+      "arxiv:2007.16042 (first public 2020-07-31, relevant accepted full text inspected)",
+      "https://eprints.whiterose.ac.uk/id/eprint/178584/1/Adler_Benediktsson_Macpherson.pdf",
+      "https://proceedings.mlr.press/v132/ghazi21a.html",
+      "prior adjacency-neighborhood claim IDs 7cdb5eb9 and df7df7b6, consulted for scientific overlap only",
+      "published-finding corpus semantic searches listed under four originality checks, closest returned ID e912a3cb52c4"
+    ],
+    "claim_vs_prior_implication": {
+      "evidence": [
+        "The source Hamming edge relation has VC dimension at most 3, whereas the verified exact-distance-two five-query witness gives VC dimension at least 5. In the positive fiber the query types include two-set exactly-one incidence and four-set containment."
+      ],
+      "reasoning": "One cannot infer a bound of five from the source bound of three by parameter substitution: it is a different graph relation, and the new 5-shattered witness itself disproves equality of the concept classes. The Johnson open-neighborhood results restrict query/center weights to a single Johnson layer and do not subsume the extra four-set queries.",
+      "searches": [
+        "Vapnik-Chervonenkis Dimension and Density on Johnson and Hamming Graphs arxiv 2007.16042",
+        "Vapnik–Chervonenkis dimension and density on Johnson and Hamming graphs full text section 4",
+        "binary hypercube exact Hamming distance two neighborhood VC dimension Littlestone dimension"
+      ]
+    },
+    "equivalent_formulations": {
+      "evidence": [
+        "Binary cube distance-two adjacency splits into parity components (halved-cube graphs); the claim is about their combined exact-distance-two neighborhood concept family. Relevant searches yielded no direct theorem."
+      ],
+      "reasoning": "Checked exact-distance-two sphere, halved-cube adjacency, distance-two hypercube and Hamming association scheme aliases. The description under these aliases does not reduce to the standard Hamming graph H(d,2) adjacency: the latter tests distance one.",
+      "searches": [
+        "\"VC-dimension\" \"halved cube\" neighborhoods",
+        "\"Littlestone\" \"halved cube\"",
+        "\"distance-two\" \"hypercube\" \"VC\" \"dimension\"",
+        "binary hypercube exact Hamming distance two neighborhood VC dimension Littlestone dimension"
+      ]
+    },
+    "exact_database_or_table": {
+      "evidence": [
+        "Closest published-finding corpus IDs concern weight-two Hamming-shell Turán constants (published-finding corpus finding e912a3cb52c4), Hamming radius-one graph neighborhoods (prior result 7cdb5eb9), and rank-two Johnson neighborhoods (prior result df7df7b6)."
+      ],
+      "reasoning": "The relevant record/table claims optimize harmonic quantities or classify different neighborhood predicates; no same VC/Littlestone exact-two table or dominating theorem was found in checked results. Database search is not exhaustive.",
+      "searches": [
+        "binary hypercube exact Hamming distance two neighborhood VC dimension Littlestone dimension",
+        "two-bit flip graph distance-2 sphere shattering",
+        "open neighborhoods Frankl Rodl graph distance 2 hypercube",
+        "VC dimension Hamming graphs distance two relation exact-distance 2 spheres learning dimensions"
+      ]
+    },
+    "rationale": "The exact-distance-two predicate differs from distance-one adjacency and from ball membership. The highly relevant full 2020 arXiv preprint, later 2022 published, defines its Hamming edge relation as disagreement in precisely one coordinate, derives the VC ceiling three, and mentions distance-two layers only for clique-width. That theorem cannot entail a class with five shattered queries. The comparison to Johnson-neighborhood bounds also fails implication because this new positive fiber admits four-set containment queries. Search of published-finding corpus, prior research records and other web sources did not identify covering claims; negative search is not a priority guarantee.",
+    "residual_risks": [
+      "Alternative terminology for exact-distance-two neighborhoods of halved cubes or Hamming association schemes may hide historically prior equivalent results.",
+      "Some potentially related material on distance VC for metric balls was available only in excerpt form; no claim of exhaustive reading.",
+      "No independent scientific or historical-priority validation has been performed."
+    ],
+    "source_inspections": [
+      {
+        "assessment": "NOT_COVERING: edge relation is distance one; second neighborhood is discussed structurally, but not as an exact-distance-two query class.",
+        "evidence": [
+          "Section 4 explicitly defines N(v) as distance-one neighbors, Theorem 4.6 VC<=3; Corollary 4.4 mentions open 2-neighborhood for local clique-width, not a VC theorem."
+        ],
+        "identifier_or_url": "https://eprints.whiterose.ac.uk/id/eprint/178584/1/Adler_Benediktsson_Macpherson.pdf",
+        "material_read": "Accepted full paper, title/abstract and introduction pp.1–4, selected Johnson-neighborhood passages around pp.18–19, and Hamming-adjacency definitions and Theorems 4.6–4.8 around pp.20–23, including Corollary 4.4 on a distance-two layer; full text accessible and inspected in relevant sections",
+        "method": "Primary accepted full PDF and page screenshot comparison",
+        "title": "Vapnik–Chervonenkis Dimension and Density on Johnson and Hamming Graphs",
+        "trigger": "Exact same ambient graph family and direct VC dimension comparison"
+      },
+      {
+        "assessment": "No exact radius-two Hamming classification in the viewed material; broad closure theory only.",
+        "evidence": [
+          "General closure bounds for arbitrary binary aggregation rules, not sharp sphere-specific classification."
+        ],
+        "identifier_or_url": "https://proceedings.mlr.press/v132/ghazi21a.html",
+        "material_read": "Authoritative proceedings abstract and bibliography, not the full PDF",
+        "method": "Publisher proceedings HTML",
+        "title": "Near-tight Closure Bounds for the Littlestone and Threshold Dimensions",
+        "trigger": "Potential stronger generic online dimension bounds"
+      },
+      {
+        "assessment": "Different predicate (distance balls rather than exact-distance-two shells), limited inspection; retain priority risk.",
+        "evidence": [
+          "Excerpt defines distance 2VC via B-hypergraph based on balls rather than a single exact-distance-two shell."
+        ],
+        "identifier_or_url": "https://doi.org/10.1016/j.disc.2015.05.026",
+        "material_read": "Publisher visible excerpt on distance and radius-two ball neighborhoods; full text not inspected",
+        "method": "Web text preview",
+        "title": "VC-dimension and Erdős–Pósa property",
+        "trigger": "Distance-2 VC-dimension terminology might overlap"
+      }
+    ],
+    "status": "PASS"
+  },
+  "review_type": "self_review",
+  "schema_version": 1,
+  "scope_run_id": "b583746d-8962-46a4-8d53-17fc67a24fc0",
+  "self_review_status": "passed",
+  "value": {
+    "rationale": "Determines exact static and adaptive shattering for the second Hamming sphere in every binary dimension d>=7; the original 2020 Hamming adjacency literature instead treats radius one, where VC is at most three. The sharp universal ceiling despite exponentially many centers, and the two-star/near-star structural mechanism, are meaningful invariants of the Hamming association scheme. The precise value five is witnessed by five natural bit-vector queries rather than a narrow arbitrary numerical instance.",
+    "status": "PASS"
+  }
+}
