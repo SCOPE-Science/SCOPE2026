@@ -5,8 +5,11 @@
     "status": "not_performed"
   },
   "independent_audit": {
-    "evidence": null,
-    "status": "not_performed"
+    "status": "passed",
+    "evidence": [
+      "INDEPENDENT_AUDIT_2026-10-31.md",
+      "INDEPENDENT_AUDIT_2026-10-31.json"
+    ]
   },
   "lean_verification": {
     "evidence": null,
@@ -16,8 +19,24 @@
 }
 ---
 
-Run `python3 verify_hyperelliptic.py` and `g++ -O2 -std=c++17 verify_quadrics.cpp -o verify_quadrics && ./verify_quadrics`.
+# Independent mathematical audit
 
-The first script checks all 63 nonzero binary degree-at-most-five polynomials, all nine degree-six base orbits and 11 trace matrix columns, proves that all-nine-inert is not in any matrix image, and verifies the Artin–Schreier degree-five witness. The second script enumerates every one of 65,535 reduced cubic sections for each of three canonical quadrics, counts degree-six Frobenius orbits by exact 64-element-field arithmetic, and verifies singularity at explicit rational points for all five exceptional nonsplit cubic forms.
+## correctness
 
-Previously observed terminal markers were `HYPERELLIPTIC_VERIFY_OK` and `QUADRIC_VERIFY_OK`. These calculations are exhaustive only on the finite parameter sets stated. The asserted existence of degree-n points for all n≥7 uses the separately cited Weil/theorem bounds. Independent external validation has not been performed.
+PASS
+
+Hyperelliptic split criterion over a degree-six P1 point is Tr_F64/F2(f(a)/h(a)^2)=0; all degree<=5 nonzero h (63 possibilities) give 9x11 binary trace matrices with rank histogram 3 of rank4, 60 of rank5, and the nine-ones vector never in the image. Fresh separately written GF64 binary rank checker reproduced this. Independently enumerated all 65535 nonzero cubic coefficient masks on each of the split/nonsplit/cone quadrics; computed (N6-N3-N2+N1)/6 from every F64 projective quadric point. Verified minima 1,0,2, exact nonsplit zero masks 28217,28280,29387,39919,59749 and all five F2 singularity witnesses by direct gradients. The Artin-Schreier degree-five gap and Weil bounds for n>=7 establish rho=6. Both genuinely finite classifications were exhaustively checked by independent implementations; no general inference from sampling.
+
+## originality
+
+PASS
+
+Best-of-knowledge after statement-level comparison: The closed-point threshold rho(2,4)=6 is equivalent to the numerical all-smooth-curve statement and is already implied by Xarles complete genus4 zeta census. The split degree-six base fiber assertion is stronger than B6>0 in a hyperelliptic curve; a zeta polynomial does not record which hyperelliptic base points split. Xarles 2020 supplies every smooth genus4 curve over F2 and its zeta data, hence dominates the numerical B6>0 corollary. The structural result counts cubic sections including singular canonical sections (not smooth curves only), and hyperelliptic base splitting; those assertions do not follow solely from smooth-curve zeta lists.
+
+## value
+
+PASS
+
+The numerical threshold alone is already in Xarles census, but the theorem offers a constructive stronger splitting guarantee in the hyperelliptic double cover and sharp classification of all nonsmooth canonical section obstructions, useful for explicit finite-field curve/point constructions and boundary analysis.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

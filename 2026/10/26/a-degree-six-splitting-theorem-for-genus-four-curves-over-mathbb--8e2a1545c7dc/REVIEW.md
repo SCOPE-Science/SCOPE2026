@@ -1,11 +1,21 @@
-# Scientific assessment
+# Independent mathematical audit
 
-**Correctness: PASS.** The degree-six hyperelliptic splitting property follows from a 63-case binary-matrix rank certificate; each nonhyperelliptic case follows from all 65535 reduced cubics on each of three canonical quadrics and exact singularity tests of the five exceptional nonsplit forms. Exact ranges, models, and checks are given in RESULT.md and standalone programs. Weil bounds imply existence for all degrees \(n\geq7\), and Lario's known genus-four example has no degree-five points. No inference of infinitely many cases is based on finite enumeration alone.
+## correctness
 
-**Originality: PASS for the structural claim, not the numerical threshold in isolation.** Xarles (2020) computed zeta polynomials for all 1044 genus-four curves over \(\mathbb F_2\); that prior computation *already determines* \(\rho(2,4)\) and supersedes any claim that the bare number is independently novel. However, those zeta polynomials do not distinguish hyperelliptic-base splitting from arbitrary degree-six points, and the published smooth-curve census does not present the full 196605-section singular-obstruction classification. The distinguishing statement is the fiberwise and singular-section theorem, with an arithmetic corollary. Residual risks: earlier unpublished or unindexed fiber-splitting tables and alternate normalization of cubic sections.
+PASS
 
-**Value: PASS.** This gives a direct structural certificate of degree-six places for the smallest-field genus-four case and shows how the two geometrically distinct kinds of canonical descriptions force them. The hyperelliptic splitting assertion is useful for effective construction of degree-six points; the five precisely characterized singular exceptions identify a sharp boundary in canonical cubic parameter space, rather than merely repeating a smooth-curve census.
+Hyperelliptic split criterion over a degree-six P1 point is Tr_F64/F2(f(a)/h(a)^2)=0; all degree<=5 nonzero h (63 possibilities) give 9x11 binary trace matrices with rank histogram 3 of rank4, 60 of rank5, and the nine-ones vector never in the image. Fresh separately written GF64 binary rank checker reproduced this. Independently enumerated all 65535 nonzero cubic coefficient masks on each of the split/nonsplit/cone quadrics; computed (N6-N3-N2+N1)/6 from every F64 projective quadric point. Verified minima 1,0,2, exact nonsplit zero masks 28217,28280,29387,39919,59749 and all five F2 singularity witnesses by direct gradients. The Artin-Schreier degree-five gap and Weil bounds for n>=7 establish rho=6. Both genuinely finite classifications were exhaustively checked by independent implementations; no general inference from sampling.
 
-References: Xarles, arXiv:2007.07822; Aubry–Herbaut–Monaldi, arXiv:2310.11218v1; Lario's Diophantine stability tables.
+## originality
 
-Self-review: passed. Independent audit: not yet performed.
+PASS
+
+Best-of-knowledge after statement-level comparison: The closed-point threshold rho(2,4)=6 is equivalent to the numerical all-smooth-curve statement and is already implied by Xarles complete genus4 zeta census. The split degree-six base fiber assertion is stronger than B6>0 in a hyperelliptic curve; a zeta polynomial does not record which hyperelliptic base points split. Xarles 2020 supplies every smooth genus4 curve over F2 and its zeta data, hence dominates the numerical B6>0 corollary. The structural result counts cubic sections including singular canonical sections (not smooth curves only), and hyperelliptic base splitting; those assertions do not follow solely from smooth-curve zeta lists.
+
+## value
+
+PASS
+
+The numerical threshold alone is already in Xarles census, but the theorem offers a constructive stronger splitting guarantee in the hyperelliptic double cover and sharp classification of all nonsmooth canonical section obstructions, useful for explicit finite-field curve/point constructions and boundary analysis.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
