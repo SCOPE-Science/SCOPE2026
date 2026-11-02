@@ -5,8 +5,11 @@
     "status": "not_performed"
   },
   "independent_audit": {
-    "evidence": null,
-    "status": "not_performed"
+    "status": "passed",
+    "evidence": [
+      "INDEPENDENT_AUDIT_2026-10-31.md",
+      "INDEPENDENT_AUDIT_2026-10-31.json"
+    ]
   },
   "lean_verification": {
     "evidence": null,
@@ -16,12 +19,24 @@
 }
 ---
 
-# Verification
+# Independent mathematical audit
 
-Use Python 3 standard library: `python3 verify.py`.
+## correctness
 
-The checker implements the unit-group multiplication law for the radical-square-zero quiver algebra independently, computes conjugates of each unit under all other units, partitions them into true conjugacy orbits, and builds the resulting integer class-size histogram. A separate graph-support counting implementation predicts the histogram and compares coefficients exactly. Test cases span 17 quiver/field settings over the fields with 2, 3 and 4 elements, including directed cycles, four-cycles, loops, parallel arrows and disconnected vertices. Separate tests check three forest formulas and eight cycle formulas.
+PASS
 
-The saved `verify_output.txt` records all counted histograms and ends with `ALL_QUIVER_UNIT_TUTTE_CLASS_AND_SPECTRUM_CHECKS_PASSED 17 forest_3 cycle_8`.
+PASS: explicitly reconstructed units as invertible vertex-diagonal labels plus square-zero arrow coordinates. At a fixed diagonal vector, unipotent conjugation removes precisely arrows with unequal endpoint labels and contributes q^{m-|E0|} to a class size. Remaining exact nonzero support S is acted on by torus vertex rescalings; stabilizer order (q-1)^{c(S)}, orbit size (q-1)^{r(S)}, number of support orbits (q-1)^{beta(S)}. Summing over diagonal labels gives the nonnegative form, then expanding equality indicators yields the claimed two-subset polynomial. Specialization at X=Y=1 exactly gives Tutte(q,q), with rooted-forest and cycle transfer derivations. Independent direct finite unit-group conjugacy compared to a separate support formula on 7 cases including q=2,q=3, parallel and loop edges; each passed. q=2 Y-markers must be numerically collapsed; correctly stated.
 
-These are finite exact checks only. General correctness rests on the algebraic proof given in `RESULT.md`, not on extrapolation from computations. The multiplicative class-size factor degenerates at field order two and must be aggregated when reading the ordinary numerical histogram. No independent audit has been performed.
+## originality
+
+PASS
+
+Qualified best-of-knowledge originality is for the complete class-size distribution, cycle-matroid invariant and all-graph forest/cycle formulas; known general torus-by-vector conjugacy mechanisms and Tutte transformations are explicitly prior methods.
+
+## value
+
+PASS
+
+PASS: class-size statistics of natural algebra unit groups are nontrivial conjugacy invariants; a full polynomial for every quiver, its invariance under orientation/matroid changes and exact closed families provide a genuine structural classification beyond standard conjugacy definitions. The result does not claim to determine character degrees or group isomorphism.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
