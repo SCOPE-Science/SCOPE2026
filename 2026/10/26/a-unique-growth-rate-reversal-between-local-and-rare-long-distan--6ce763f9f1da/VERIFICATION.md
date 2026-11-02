@@ -5,8 +5,11 @@
     "status": "not_performed"
   },
   "independent_audit": {
-    "evidence": null,
-    "status": "not_performed"
+    "status": "passed",
+    "evidence": [
+      "INDEPENDENT_AUDIT_2026-10-31.md",
+      "INDEPENDENT_AUDIT_2026-10-31.json"
+    ]
   },
   "lean_verification": {
     "evidence": null,
@@ -15,17 +18,25 @@
   "schema_version": 1
 }
 ---
-# Verification
 
-The algebraic argument in RESULT.md is the proof. It derives the exact moment-generating functions, compares their signs, establishes a unique crossing of exponential-tilt means, differentiates the Legendre-rate difference, and treats both speed-saturation boundaries. No probabilistic finite experiment is used as a universal proof.
+# Independent mathematical audit
 
-The standalone `verify.py` uses only the Python standard library. Executed from the actual candidate source, it reported:
+## correctness
 
-```
-PASS: 2,000 MGF identities; 6,000 direct speed comparisons; boundary/threshold tests
-q_critical 0.145200330326436
-q 0.125 R_switch 2.132710411412251 speed_at_switch 1.000000000000000
-q 0.2 R_switch 1.449099457773091 speed_at_switch 0.802611100064735
-```
+PASS
 
-Finite tests do not establish the theorem or coverage of all possible previous publications. The claimed mathematical speed is the linear-determinacy functional for the stated atomic kernels; additional assumptions are needed to transfer it to a particular nonlinear ecological model. Independent audit has not been performed.
+PASS: Rebuilt both normalized MGFs M0=cosh(t), Mq=1-q+q cosh(2t), proved factorization (cosh t-1)(2q(cosh t+1)-1), and verified monotonic vq/v0=4q(1+sinh²t)/(1+2q sinh²t). For 0<q<1/4 that ratio crosses one only once, implying inverse tilts tq(v)-t0(v) change sign once, so J(v)=Iq(v)-I0(v) increases then decreases. Endpoint Legendre inversion with I0(1)=log2, Iq(2)=log(2/q) covers both finite-tilt and saturation regimes. Monotone Iq(1) determines unique qc and the cubic elimination; independently verified qc=0.1452003303264 and 56 speed-order checks. Claimed speed is only a linear-determinacy functional, not automatically nonlinear front velocity. Strict q=1/4 and q=1 are covered.
+
+## originality
+
+PASS
+
+PASS best-of-knowledge for the full two-atomic-kernel q/R order, unique reversal, and secondary post-saturation threshold, excluding known general MGF variational speed and qualitative growth-dependent ranking. Kot et al. 1996 materially inspected via the accessible full PDF at pp.2029-2031. General large-deviation ordering priority remains a risk.
+
+## value
+
+PASS
+
+PASS: local vs rare two-step dispersal is a motivated competing-kernel model; exact all-growth one-switch behavior, probability threshold 1/4, and the secondary saturation cutoff qc distinguish two mathematically different speed-reversal regimes. This goes beyond numerical curves or a routine substitution into the MGF speed formula.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
