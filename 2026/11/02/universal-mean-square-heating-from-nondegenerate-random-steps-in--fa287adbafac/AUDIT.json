@@ -1,0 +1,125 @@
+{
+  "correctness": {
+    "rationale": "The exact unit-frequency Verlet matrix has determinant one and a distinct positive invariant quadratic form at each step size in (0,2). Brouwer on trace-one positive matrices gives a positive-definite moment eigenmatrix; log-determinant strict concavity makes the eigenvalue greater than one for a nondegenerate law; the adjoint gives the exact energy identity for every nonzero initial vector. The binary determinant and small-noise coefficient follow from an explicit 3x3 lift and simple-eigenvalue perturbation; symbolic identities and finite histories were rerun from the actual standalone verifier. The claim excludes almost-sure growth and a joint small-base-step limit.",
+    "status": "PASS"
+  },
+  "independent": false,
+  "independent_audit_status": "not_performed",
+  "originality": {
+    "broader_coverage": {
+      "evidence": [
+        "The Skeel--Gear 1992 public abstract proves loss of a naive symplectic-invariant assertion for variable step selection, not an explicit iid second-moment exponent.",
+        "The standard strict log-determinant inequality implies amplification when the random symplectic maps have no common invariant positive quadratic form; this general reasoning is used transparently in the proof rather than claimed as new.",
+        "The 1993 author-hosted text explains why varying deterministic step lengths destroys the single common modified Hamiltonian, but its Kepler analysis is not a covariance transfer operator for iid binary or general random steps."
+      ],
+      "reasoning": "General random-matrix theory can plausibly subsume the qualitative Lyapunov phenomenon and is a material priority risk. It does not automatically supply the method-specific factorization det(I-T) or the strict coefficient sigma² h⁴/[2(4-h²)] without carrying out the special calculation. Full 1992 source was unavailable and this limitation is not interpreted as a negative comparison.",
+      "searches": [
+        "two stable symplectic elliptic matrices random mixtures strict spectral radius greater than 1 covariance positive matrix Lyapunov",
+        "random symplectic matrices positive-cone determinant concavity common quadratic invariant time-step",
+        "Skeel Gear 1992 Does variable step size ruin a symplectic integrator harmonic oscillator exponential growth",
+        "doi:10.1016/0167-2789(92)90247-K"
+      ]
+    },
+    "checked_sources": [
+      "https://arxiv.org/html/1801.01340v4 (Sections 7.1, 7.2, 9.7)",
+      "https://sanzserna.org/wp-content/uploads/1993/01/519_M.-P.-Calvo-JMSS-1.pdf (pages 936, 942, 945, 950)",
+      "https://collaborate.princeton.edu/en/publications/does-variable-step-size-ruin-a-symplectic-integrator/ (abstract)",
+      "2026/9/19/SCOPE-harmonic-stability-low-cost-ubu-langevin--4fc68d9c8d50 (indexed public research summary)",
+      "2026/9/19/SCOPE-harmonic-equilibrium-bias-low-cost-randomized-ulmc--160d754f339b (indexed public research summary)"
+    ],
+    "claim_vs_prior_implication": {
+      "evidence": [
+        "Abdulle--Garegnani Theorem 6, Section 7.2: steps shrink around h, time span bounded as a function of h, and numerical solution must remain near its initial condition almost surely; its implication is finite-horizon control under extra premises.",
+        "Current theorem: for every fixed nondegenerate iid step distribution supported in (0,2), expected oscillator energy grows like lambda^n for every nonzero start, with lambda>1 and an explicit local rate.",
+        "1993 deterministic variable-step text explains modified Hamiltonian changes; it neither explicitly assumes independent random step draws nor concludes a universal exponential second-moment identity."
+      ],
+      "reasoning": "The earlier finite-time conditional estimate does not imply the infinite-n exponential statement and is logically compatible with it; earlier deterministic variable-step damage does not fix its rate or sharp random-law criterion. The broad qualitative possibility is not claimed as a new idea.",
+      "searches": [
+        "random time step probabilistic methods Hamiltonian symplectic mean conservation Theorem 6 conditions",
+        "The Development of Variable-Step Symplectic Integrators with Application to the Two-Body Problem 1993",
+        "Does variable step size ruin a symplectic integrator Skeel Gear 1992 abstract",
+        "https://arxiv.org/html/1801.01340v4"
+      ]
+    },
+    "equivalent_formulations": {
+      "evidence": [
+        "Abdulle--Garegnani Section 7.1 proves single-realization symplecticity; Section 7.2 Theorem 6 assumes shrunk noise and closeness of numerical trajectory; those hypotheses are not an all-iterations second-moment bound for fixed nonzero noise.",
+        "Calvo--Sanz-Serna 1993 inspected pages 936, 942, 945 and 950 discuss deterministic variable-step Kepler integration, energy drift, and modified Hamiltonian dependence on step length.",
+        "Published result 2026/9/19/SCOPE-harmonic-stability-low-cost-ubu-langevin--4fc68d9c8d50 concerns Langevin splitting stability rather than independently random symplectic deterministic oscillator steps."
+      ],
+      "reasoning": "Equivalent renamings include random-step leapfrog, velocity Verlet, quadratic symplectic map products, and a positive second-moment transfer operator. Neither inspected source-derived results nor retrieved published summaries present the nondegenerate iid support classification jointly with the exact coefficient; the qualitative phenomenon of variable-step energy drift is credited as old.",
+      "searches": [
+        "random Störmer Verlet harmonic oscillator random step lengths instability exponential mean square energy Perron eigenvalue",
+        "random time steps symplectic integrator harmonic oscillator energy growth sharp small variance coefficient",
+        "Verlet map A(h) random iid timestep H in (0,2) quadratic oscillator second moments spectral radius greater one variable symplectic integration",
+        "https://arxiv.org/html/1801.01340v4",
+        "https://sanzserna.org/wp-content/uploads/1993/01/519_M.-P.-Calvo-JMSS-1.pdf"
+      ]
+    },
+    "exact_database_or_table": {
+      "evidence": [
+        "Targeted published-research-record results 2026/9/19/SCOPE-harmonic-equilibrium-bias-low-cost-randomized-ulmc--160d754f339b and 2026/9/19/SCOPE-fractional-midpoint-noise-ubu-configurational-bias--516bd7b79285 concern random Langevin sampling covariance, not independent Verlet random-step mean-square growth.",
+        "The original random-time-step paper gives long-time conditional error bounds with timestep-dependent random perturbation but no tabulated Perron multiplier for this oscillator."
+      ],
+      "reasoning": "No exact table with the characteristic determinant or perturbation coefficient was identified in the relevant inspected sources or returned public research records. A negative search result is not proof that no such table exists.",
+      "searches": [
+        "Hamiltonian harmonic oscillator position Verlet independent random step sizes exponential energy drift covariance matrix",
+        "randomized Störmer-Verlet energy growth exact small-noise eigenvalue",
+        "arXiv:1801.01340 Sections 7.1, 7.2, 9.7"
+      ]
+    },
+    "rationale": "The full accessible 2018 source treats pathwise symplecticity and conditional finite-horizon energy control, not the fixed-law infinite-iteration mean-square dichotomy. The author-hosted 1993 variable-step study addresses deterministic Kepler integration and does not in the inspected material calculate random harmonic-Verlet second moments. The 1992 variable-step obstruction is prior qualitative mathematics, but available abstract only; it does not verify the explicit strict random-law criterion or perturbation coefficient. Targeted published research-record searches returned related Langevin integrator covariance and oscillator results, not this precise statement. General positive-map and random-matrix arguments are standard; the claimed specificity is the complete nondegenerate-distribution criterion plus binary exact determinant and universal small-noise coefficient. Independent priority remains unverified.",
+    "residual_risks": [
+      "Full original Skeel--Gear 1992 text was not accessible; its published abstract alone cannot settle implications for random iid step lengths.",
+      "A general random-product or random transfer-operator theorem could subsume qualitative exponential growth; priority of this exact method-specific coefficient needs human verification.",
+      "Published research-record matches were checked through indexed summaries, not through all primary proofs. No claim of exhaustive literature coverage is made."
+    ],
+    "source_inspections": [
+      {
+        "assessment": "Source provides definitions, pathwise symplecticity and bounded-horizon estimates; no inspected statement of exact fixed-step iid second-moment growth constant.",
+        "evidence": "Theorem 6 requires numerical trajectory closeness and bounded time, with step-noise variance tied to the base step; Section 9.7 supplies classical Verlet substeps.",
+        "identifier_or_url": "https://arxiv.org/html/1801.01340v4",
+        "material_read": "Full HTML sections 1, 7.1, 7.2, 9.7 and bibliography; in particular Lemma 5, Theorem 6, Assumption 6, Remark 12 and formulas (128)--(129).",
+        "method": "Accessible full text",
+        "title": "Random time step probabilistic methods for uncertainty quantification in chaotic and geometric numerical integration",
+        "trigger": "Introduces the randomized-time-step method and applies randomized Störmer--Verlet to Hamiltonians."
+      },
+      {
+        "assessment": "The inspected materials concern deterministic variable step selection and Kepler integration; they motivate loss of a shared modified Hamiltonian but do not provide the exact iid harmonic-Verlet covariance result.",
+        "evidence": "Page 950 states the modified Hamiltonian changes with step length; pages 942 and 945 analyze deterministic trajectory error and Kepler.",
+        "identifier_or_url": "https://sanzserna.org/wp-content/uploads/1993/01/519_M.-P.-Calvo-JMSS-1.pdf",
+        "material_read": "Author-hosted full PDF opened; inspected pages 936, 942, 945 and 950 (page indices 0, 7, 10, 15).",
+        "method": "Full-text PDF with inspected page images",
+        "title": "The development of variable-step symplectic integrators, with application to the two-body problem",
+        "trigger": "Earlier full-text variable-step symplectic integration and long-time energy behavior."
+      },
+      {
+        "assessment": "Proves a qualitative obstruction to a naive variable-step symplectic invariant claim. Exact iid Verlet second-moment statements cannot be excluded without its full text.",
+        "evidence": "Abstract states the simplest symplectic-invariance assertion is lost under varying steps; no quantitative random-step covariance formula is in the abstract.",
+        "identifier_or_url": "https://doi.org/10.1016/0167-2789(92)90247-K",
+        "material_read": "Princeton publication record and abstract only; full text not obtained.",
+        "method": "Published abstract; limited-access risk explicitly retained",
+        "title": "Does variable step size ruin a symplectic integrator?",
+        "trigger": "Classical likely-prior objection to claims of long-time stability under variable steps."
+      },
+      {
+        "assessment": "Addresses UBU Langevin numerical stability and dissipation, not unbiased iid time perturbations of unforced velocity Verlet.",
+        "evidence": "Record states distinct Langevin step ceilings by friction and stiffness.",
+        "identifier_or_url": "2026/9/19/SCOPE-harmonic-stability-low-cost-ubu-langevin--4fc68d9c8d50",
+        "material_read": "Published title and indexed summary, not full underlying proof.",
+        "method": "Published research-record semantic search",
+        "title": "Public mathematical research records on harmonic integrator stability",
+        "trigger": "High-ranked semantic research-record match for random-step harmonic integration."
+      }
+    ],
+    "status": "PASS"
+  },
+  "review_type": "self_review",
+  "schema_version": 1,
+  "scope_run_id": "fa287adb-afac-4324-a859-2ea92c9214f4",
+  "self_review_status": "passed",
+  "value": {
+    "rationale": "Random time steps are used to retain symplectic geometry while representing integration uncertainty. The result identifies a universal distinction between pathwise symplectic steps and long-run bounded mean-square energy, with a sharp zero-randomness boundary and a computable positive leading amplification coefficient for practical randomization amplitude choices. Unlike an arbitrary finite slice, it covers every nondegenerate compact step law in the stable interval.",
+    "status": "PASS"
+  }
+}
