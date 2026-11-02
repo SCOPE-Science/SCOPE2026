@@ -1,0 +1,118 @@
+{
+  "correctness": {
+    "rationale": "Direct uniform-subset hypergeometric counting recovers both rows of the two-state transition matrix for arbitrary integers \\(1\\le c<g\\) and \\(1\\le s\\le g\\). Stationary equations, a single nonconstant eigenvalue, likelihood-ratio monotonicity, complement/overlap event identities and a geometric absorption time yield every asserted formula. The separate with-replacement proof uses independent binomial counting. The standalone verifier enumerates samples and passes 2,174 exact rational checks. All universal claims are proved symbolically, not extrapolated from finite tests.",
+    "status": "PASS"
+  },
+  "independent": false,
+  "independent_audit_status": "not_performed",
+  "originality": {
+    "broader_coverage": {
+      "evidence": [
+        "https://arxiv.org/abs/2009.08089 provides convergence theory under random-matrix conditions and full residual quantiles.",
+        "https://arxiv.org/abs/2308.07987 Theorem 1 assumes sufficient proportional sample fraction; Section V-D identifies constant-size samples as heuristic/future work.",
+        "https://arxiv.org/abs/2507.15185 Theorems 3.1 and 3.6 concern finite-horizon upper/lower sample-size orders and a distinct update-sampling mechanism."
+      ],
+      "reasoning": "A high-dimensional contraction or finite-horizon tail bound does not determine this fixed-multiplicity two-level invariant distribution, the exact unique optimal order rank, or the temporal sign switch. This model also does not imply the broader results and does not claim to.",
+      "searches": [
+        "QRK randomized Kaczmarz corrupted linear systems",
+        "Haddock Ma Rebrova subsampled quantile randomized Kaczmarz",
+        "subsampled quantile Kaczmarz finite population phase transition sample size number of corruptions exact absorption threshold",
+        "arXiv:2009.08089",
+        "arXiv:2507.15185"
+      ]
+    },
+    "checked_sources": [
+      "https://arxiv.org/abs/2308.07987",
+      "https://arxiv.org/abs/2009.08089",
+      "https://arxiv.org/abs/2507.15185",
+      "Reverse-order averaging cancels first-order underrelaxation bias in cyclic block Kaczmarz",
+      "Exact finite-horizon cost of asymptotically optimal two-row Kaczmarz overrelaxation",
+      "Sharp coherence frontier for residual spikes in maximal-distance Kaczmarz",
+      "Exact mean-square stability frontier and a signed-mean blind spot in KGSM"
+    ],
+    "claim_vs_prior_implication": {
+      "evidence": [
+        "https://arxiv.org/abs/2308.07987 explicitly remarks that a sample containing only corruptions can undo progress when small enough, but does not compute the invariant error or all-rank policy.",
+        "https://arxiv.org/abs/2507.15185 explicitly notes that selecting an update row from the entire matrix is different from selecting it from the quantile subsample.",
+        "https://arxiv.org/abs/2009.08089 does not specify a small-subset order-statistic two-state transition in its main convergence theorems."
+      ],
+      "reasoning": "The source observation that an all-corrupt batch may occur does imply a qualitative obstruction for rank one, so that observation alone is not claimed as new. The precise all-rank stationary law, strict rank ordering, median iid identity, sign of all lag correlations, hitting time, and exact finite-population/replacement contrast are additional statements not implied by the inspected bounds.",
+      "searches": [
+        "exact stationary invariant distribution of small sample quantile randomized Kaczmarz with two valued scalar corrupted rows hypergeometric order rank",
+        "small sample quantile RK 2023 no replacement sharp corruption sample cutoff absorbing finite Markov chain order statistic",
+        "quantile Kaczmarz two-state chain median sample independence autocorrelation eigenvalue sign",
+        "arXiv:2308.07987",
+        "arXiv:2507.15185"
+      ]
+    },
+    "equivalent_formulations": {
+      "evidence": [
+        "https://arxiv.org/abs/2308.07987 Section V-D has within-subset order-statistic selection and empirical comparisons of smallest/median/larger ranks.",
+        "https://arxiv.org/abs/2507.15185 Algorithm 1.1 has an independent update row and accepts/rejects against a with-replacement sampled quantile; the transitions are different.",
+        "The closest retrieved Kaczmarz papers concern cyclic underrelaxation, overrelaxation, maximal-distance residual spikes, and KGSM."
+      ],
+      "reasoning": "The natural aliases are two-state corrupt/clean order-statistic chain, hypergeometric count model, quantile-RK stationary distribution, and exact rare-batch absorption. The simple count and Markov tools are classical, but no inspected source matches the complete algorithmic stationary, rank-optimality, eigenvalue sign, and with-/without-replacement statements.",
+      "searches": [
+        "exact stationary invariant distribution of small sample quantile randomized Kaczmarz with two valued scalar corrupted rows hypergeometric order rank",
+        "quantile randomized Kaczmarz Bernoulli sample order statistic stationary lag covariance median independent",
+        "arXiv:2308.07987 Algorithm 2 Section V-D",
+        "arXiv:2507.15185 Algorithm 1.1"
+      ]
+    },
+    "exact_database_or_table": {
+      "evidence": [
+        "Semantic literature searches returned no exact-equivalent named result; nearest scientific titles are listed in checked_sources.",
+        "https://arxiv.org/abs/2308.07987 has empirical small-sample plots, not a table for the enumerated hypergeometric invariant laws."
+      ],
+      "reasoning": "Combinatorial weights and two-state eigenvalues are determined by a theorem for every integer parameter, rather than lifted from any checked finite table. Non-discovery in semantic search is not itself novelty proof; residual publication-priority risks are retained.",
+      "searches": [
+        "small sample quantile RK 2023 no replacement sharp corruption sample cutoff absorbing finite Markov chain order statistic",
+        "quantile randomized Kaczmarz hypergeometric sample all clean all corrupt optimal minimum residual rank order statistic",
+        "QRK randomized Kaczmarz corrupted linear systems"
+      ]
+    },
+    "rationale": "The 2023 motivating Algorithm 2 and its small-sample empirical Section V-D do not give these exact two-state stationary laws, the optimal-rank classification and autocorrelation sign law, or the sampling-replacement absorption distinction. The 2020 quantile-Kaczmarz analysis studies broad convergence, not exact finite-population invariant distributions. A 2025/2026 follow-up proves finite-horizon sample-size bounds for a materially different independently drawn update candidate; its general results do not contain or imply this exact classification. Accessible published same-topic mathematical literature searches did not locate an equivalent theorem. This is a qualified best-knowledge novelty assessment, not a proof of uniqueness or exhaustive database coverage.",
+    "residual_risks": [
+      "Specialized rank-selected finite-state Markov calculations or unpublished analyses could establish some or all the formulae earlier; publication priority has not been independently certified.",
+      "A title/semantic database search is non-exhaustive; equivalence and implication analysis relies on checked substantive primary materials."
+    ],
+    "source_inspections": [
+      {
+        "assessment": "NOT_COVERING complete exact two-state stationary all-rank result; explicitly recognizes small-batch rank/sample questions.",
+        "evidence": "https://arxiv.org/abs/2308.07987 Section V-D, Algorithm 2, and Conclusion.",
+        "identifier_or_url": "https://arxiv.org/abs/2308.07987",
+        "material_read": "Complete eight-page freely accessible arXiv preprint, particularly sections III, IV, V-D and conclusion, including Algorithm 2 and figures.",
+        "method": "Read arXiv text and PDF, inspected page image of Algorithm 2 and small-sample section.",
+        "title": "On Subsampled Quantile Randomized Kaczmarz",
+        "trigger": "Original Algorithm 2 has exactly the within-subset quantile-selected update in the new theorem."
+      },
+      {
+        "assessment": "NOT_COVERING the specified finite-sample rank-selected scalar stationary distribution; general randomized matrix convergence results have different assumptions and output.",
+        "evidence": "https://arxiv.org/abs/2009.08089 main QuantileRK/QuantileSGD definitions and theorems.",
+        "identifier_or_url": "https://arxiv.org/abs/2009.08089",
+        "material_read": "Open-access 29-page arXiv preprint; introduction, quantile-RK definitions, main theorem, related methods and relevant proof settings, with page-image inspection.",
+        "method": "Read full PDF source and relevant sections/figures.",
+        "title": "Quantile-based Iterative Methods for Corrupted Systems of Linear Equations",
+        "trigger": "Seminal quantile randomized Kaczmarz algorithm and possible stronger general theorem."
+      },
+      {
+        "assessment": "NOT_COVERING the exact invariant classification: accepts/rejects an independently selected row against an estimated quantile, rather than updating at within-sample order statistic, and proves high-probability horizon bounds.",
+        "evidence": "https://arxiv.org/abs/2507.15185 pp. 2–4 (Algorithm 1.1 and algorithm-comparison discussion), Section 3.",
+        "identifier_or_url": "https://arxiv.org/abs/2507.15185",
+        "material_read": "Accessible full 22-page manuscript, especially Algorithm 1.1, Introduction, Theorems 3.1 and 3.6, supporting finite-horizon analysis and conclusion; inspected page images.",
+        "method": "Read arXiv PDF text and pages specifying sampling distinctions and finite-horizon scope.",
+        "title": "On the Subsample Size of Quantile-Based Randomized Kaczmarz",
+        "trigger": "More recent potentially dominating exact sample-size theorem on same topic."
+      }
+    ],
+    "status": "PASS"
+  },
+  "review_type": "self_review",
+  "schema_version": 1,
+  "scope_run_id": "826e6a1f-5f73-4fb7-82af-04178ffe4275",
+  "self_review_status": "passed",
+  "value": {
+    "rationale": "The 2023 primary source explicitly raises the problem of choosing small-batch sample size and quantile after observing catastrophic outlier spikes. For its exact small-sample update rule, this theorem solves every rank in a natural minimal corrupted benchmark and establishes a qualitative finite-population absorption boundary, a with-replacement obstruction, a sharp optimal-order result, and a median-induced iid/negative-correlation phase. This is a complete natural structural classification and reproducible benchmark rather than an arbitrary numeric slice, while deliberately making no higher-dimensional performance claims.",
+    "status": "PASS"
+  }
+}
