@@ -1,0 +1,11 @@
+# Scientific review
+
+**Correctness: PASS.** The exact basis reduction gives an explicit error matrix. Sylvester's criterion produces the complete strict one-step safety interval; the AM–GM inequality gives a universal upper bound, and a rotated SPD diagonal family attains that bound against every positive complementary correction. The symbolic checker independently reconstructs the decisive identities, and the finite probes check the numerical interpretation. At \(\kappa=1\), the preconditioner can equal the exact inverse. Boundary cases, including the neutral threshold, are stated explicitly.
+
+**Originality: PASS (best knowledge, residual priority risk).** The motivating additive reduced-basis manuscript establishes its correction construction, nonsingularity and norm estimates, not the present sharp Euclidean minimax result. The closest published weighted-Jacobi Euclidean result already contains the same **numerical** robust undamped-Jacobi condition-number threshold. Its common-scalar relaxation does not state the optimal-complement minimax identity or the entire allowable complementary interval with the first Galerkin coordinate fixed. Demmel's block scaling addresses preconditioned condition numbers; Xu–Zhang's two-grid theory concerns energy norms. Older exact two-dimensional relaxation calculations may remain; no historical uniqueness is claimed.
+
+**Value: PASS.** The theorem supplies a complete calibration interval and exact worst-case robustness limit for a natural low-order instance of an actively proposed reduced-basis preconditioner. It quantifies \(\Theta(\sqrt\kappa)\) transient Euclidean growth even **after** optimizing the allowed correction and separates that growth from asymptotic convergence. This is a structural worst-case benchmark, not a performance claim for trained coarse spaces.
+
+**Limitations and closest literature.** The result concerns real two-dimensional SPD systems, exact arithmetic and a stationary Richardson error norm. The main nearby mathematical source is the published weighted-Jacobi Euclidean damping frontier, which already proves a related undamped threshold; classical diagonal relaxation and two-grid literature remains a residual priority risk. The proof does not extend to higher-dimensional, nonsymmetric or indefinite systems.
+
+Self-review: passed. Independent audit: not yet performed.
