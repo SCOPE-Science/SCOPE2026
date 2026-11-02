@@ -5,8 +5,11 @@
     "status": "not_performed"
   },
   "independent_audit": {
-    "evidence": null,
-    "status": "not_performed"
+    "status": "passed",
+    "evidence": [
+      "INDEPENDENT_AUDIT_2026-10-30.md",
+      "INDEPENDENT_AUDIT_2026-10-30.json"
+    ]
   },
   "lean_verification": {
     "evidence": null,
@@ -16,6 +19,24 @@
 }
 ---
 
-The analytic covariance recursion is stated in `RESULT.md`. The included `verify.py` reconstructs the three-dimensional covariance operator and verifies the determinant factorization symbolically. It also verifies the exact example polynomial, proves that the cubic factor has no positive root, and uses a Sturm sequence to certify one positive quartic root in \( (1,3/2)\). The reported decimal root is a numerical approximation only.
+# Independent mathematical audit
 
-Scope limits: the checks concern two rank-one quadratic components, nonparallel directions, constant steps, and epoch-start states. They do not establish stability for other shuffling schemes, higher-dimensional or higher-rank components, nonquadratic losses, noise, or momentum. Independent audit and external validation have not been performed.
+## correctness
+
+PASS
+
+The reverse two-step epoch matrix is M^T because individual gradient matrices are symmetric. Independent epoch permutations yield the exact PSD-preserving covariance update T(X)=1/2(MXM^T+M^TXM). Its spectral radius is the positive-cone Perron eigenvalue, so strict contraction on PSD covariances is equivalent to convergence for all deterministic starts. The small-step Lyapunov operator associated with H1+H2>0 is stable, hence the first positive det(I−T)=0 crossing gives the initial stability interval, and a PSD fixed covariance at the boundary certifies nondecay for some rank-one deterministic start. Four fresh independent exact symbolic specializations verify det(I−T)=αβη³(1−x)F1F2/4; the concrete quartic root was counted exactly by Sturm analysis. Finite symbolic specializations corroborate, not replace, the general algebra in the reviewed proof.
+
+## originality
+
+PASS
+
+Ying et al. 2018 analyze constant-step random reshuffling but supply sufficient small-step and steady-state performance guarantees. Mulayoff–Michaeli analyze exact mean-square stability for iid minibatch SGD, a different operator. No inspected theorem states the two-step reshuffling first-boundary factorization; a general random matrix-product result could have an equivalent specialization.
+
+## value
+
+PASS
+
+For a minimal but noncommuting quadratic least-squares example, this gives an exact necessary-and-sufficient initial mean-square step-size range, rather than conservative single-component or general sufficient bounds. The example demonstrates a meaningful epoch-level stability gain beyond one component active multiplier bound.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

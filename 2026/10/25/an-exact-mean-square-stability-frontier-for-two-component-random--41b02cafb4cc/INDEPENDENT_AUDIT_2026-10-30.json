@@ -1,0 +1,100 @@
+{
+  "audit_date_utc": "2026-10-30",
+  "audited_at_utc": "2026-10-30T03:52:58Z",
+  "axes": {
+    "correctness": {
+      "rationale": "The reverse two-step epoch matrix is M^T because individual gradient matrices are symmetric. Independent epoch permutations yield the exact PSD-preserving covariance update T(X)=1/2(MXM^T+M^TXM). Its spectral radius is the positive-cone Perron eigenvalue, so strict contraction on PSD covariances is equivalent to convergence for all deterministic starts. The small-step Lyapunov operator associated with H1+H2>0 is stable, hence the first positive det(I−T)=0 crossing gives the initial stability interval, and a PSD fixed covariance at the boundary certifies nondecay for some rank-one deterministic start. Four fresh independent exact symbolic specializations verify det(I−T)=αβη³(1−x)F1F2/4; the concrete quartic root was counted exactly by Sturm analysis. Finite symbolic specializations corroborate, not replace, the general algebra in the reviewed proof.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Ying et al. 2018 Theorems 1–3, sufficient stability and O(mu²) performance.",
+          "Mulayoff–Michaeli 2023/2024 exact mean-square linear stability for independently sampled batches."
+        ],
+        "reasoning": "The 2018 result has a sufficient small-step guarantee and mean-square error performance, not an exact initial global boundary in terms of this F1/F2 product. Exact iid minibatch stability is not a stronger statement for dependent within-epoch shuffling.",
+        "searches": [
+          "exact mean square stability random reshuffling two rank one quadratic component losses two orders covariance operator",
+          "exact covariance spectrum random reshuffling two Hessians noncommuting quadratic"
+        ]
+      },
+      "checked_sources": [
+        "Ying, Yuan, Vlaski, Sayed, arXiv:1803.07964, full-text primary selected sections",
+        "Mulayoff and Michaeli, arXiv:2306.07850, primary model and theorem",
+        "Ahn, Yun, Sra, arXiv:2006.06946 (background, only snippets/metadata)",
+        "Assigned seven Git blobs recompute full tree SHA, source verify.py inspected"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "Ying et al. arXiv:1803.07964, Introduction and Theorem 1 overview.",
+          "Mulayoff–Michaeli arXiv:2306.07850, model definition and stability theory."
+        ],
+        "reasoning": "A sufficient small-step theorem cannot imply the sharp first positive root beyond an individual component active-multiplier threshold. The iid formula depends on the one-step sampling model; it does not directly simplify to independent two-order per-epoch products.",
+        "searches": [
+          "exact mean square stability random reshuffling two rank one quadratic component losses two orders covariance operator"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Ying et al., arXiv:1803.07964, §I–II epoch reshuffling and Theorem 1.",
+          "Mulayoff–Michaeli, arXiv:2306.07850, iid minibatch sampling assumptions."
+        ],
+        "reasoning": "The right object is the covariance operator of a random two-step epoch product, not the expectation of state matrices. Ying et al. use the same reshuffling schedule, whereas paired-reversal averaging changes the operator and iid SGD samples independently inside epochs.",
+        "searches": [
+          "exact mean square stability random reshuffling two rank one quadratic component losses two orders covariance operator",
+          "two-component random reshuffling fixed step size rank one quadratic covariance factor polynomial"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "Resultary retrieved KGSM and two-client Loopless SVRG mean-square stability findings, different recurrences.",
+          "Four independent exact determinant specializations and one exact positive-root count."
+        ],
+        "reasoning": "Related indexed exact mean-square frontiers for two-client Loopless SVRG and KGSM are distinct algorithms; none of their stated transition matrices has the present two random epoch products. The four independent rational determinant specializations give positive checks, not exhaustive priority.",
+        "searches": [
+          "exact mean square stability random reshuffling two rank one quadratic component losses two orders covariance operator"
+        ]
+      },
+      "rationale": "Ying et al. 2018 analyze constant-step random reshuffling but supply sufficient small-step and steady-state performance guarantees. Mulayoff–Michaeli analyze exact mean-square stability for iid minibatch SGD, a different operator. No inspected theorem states the two-step reshuffling first-boundary factorization; a general random matrix-product result could have an equivalent specialization.",
+      "residual_risks": [
+        "A general matrix-product mean-square stability theorem or appendix may contain this low-dimensional specialization.",
+        "The result is only the first stability interval from zero, not a claim of instability at every larger η.",
+        "Only two nonparallel rank-one Hessians in dimension two with independent random order per epoch."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Provides stability for sufficiently small steps and MSD, not the exact two-rank-one first boundary in inspected results",
+          "evidence": "p.1 update rule reshuffles once each epoch; Introduction outlines the sufficient theorem and mean-square performance analysis.",
+          "identifier_or_url": "arXiv:1803.07964",
+          "material_read": "Full-text abstract, §I update equations (3)–(7), Theorem 1 overview and beginning of §II; relevant selected pages, not 16-page appendix in full",
+          "method": "Read primary PDF text and visually inspected first page",
+          "title": "Stochastic Learning under Random Reshuffling with Constant Step-sizes",
+          "trigger": "Same epoch-level reshuffling method"
+        },
+        {
+          "assessment": "Exact result concerns independent minibatches per iteration rather than one randomly ordered pair per epoch",
+          "evidence": "Sampling assumption is independent each iteration, contrasting the pair-per-epoch covariance product.",
+          "identifier_or_url": "arXiv:2306.07850",
+          "material_read": "Primary full-text formulation, iid minibatch sampling assumptions, leading theorem statement; relevant pages",
+          "method": "Read arXiv PDF selected sections and inspected page image",
+          "title": "Exact Mean Square Linear Stability Analysis for SGD",
+          "trigger": "Potential dominating exact mean-square threshold theorem"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "rationale": "For a minimal but noncommuting quadratic least-squares example, this gives an exact necessary-and-sufficient initial mean-square step-size range, rather than conservative single-component or general sufficient bounds. The example demonstrates a meaningful epoch-level stability gain beyond one component active multiplier bound.",
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "final_claim": "For two noiseless rank-one quadratic component losses in R² with α,β>0 and nonparallel directions x=<u1,u2>² in (0,1), independently randomizing their order each epoch, the initial interval of epoch-start mean-square convergence is exactly 0<η<η*, where η* is the first positive root of the stated cubic F1 or quartic F2. At the boundary some deterministic initial state does not decay. Example α=2,β=1,x=1/2 gives η*=1.3096734019... exceeding 2/α.",
+  "limitations": [
+    "A general matrix-product mean-square stability theorem or appendix may contain this low-dimensional specialization.",
+    "The result is only the first stability interval from zero, not a claim of instability at every larger η.",
+    "Only two nonparallel rank-one Hessians in dimension two with independent random order per epoch.",
+    "The frozen public AUDIT.json and METADATA.json contain scope_run_id, an operational provenance identifier that is forbidden in public files. Full confidentiality-neutral replacement bytes preserving their existing scientific content and blob guards have not been staged."
+  ],
+  "schema_version": 1
+}
