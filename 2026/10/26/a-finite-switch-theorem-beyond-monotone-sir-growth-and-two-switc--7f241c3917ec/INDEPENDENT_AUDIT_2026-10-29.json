@@ -1,0 +1,126 @@
+{
+  "audit_date_utc": "2026-10-29",
+  "audited_at_utc": "2026-10-29T15:59:01.272426Z",
+  "axes": {
+    "correctness": {
+      "rationale": "For a finite-time optimal first transversal hit I(T)=epsilon, Pontryagin normality follows because an abnormal extremal would give lambda_S(T)=0 and lambda_I(T)=0 from free-time Hamiltonian and nonzero terminal I-dot, contradicting nontriviality. After normalizing the running-cost multiplier to one, lambda_I(T)>0. At every zero lambda_I=0, the zero Hamiltonian forces lambda_S>0 and the adjoint gives lambda_I-dot=lambda_S S(beta+I beta_I)>0; hence lambda_I has at most one zero. With switching function psi=-S lambda_S, the positive integrating factor converts its derivative to Theta-dot=mu lambda_I S I G, and Theta(T)=0. If G(S(t),I(t)) has at most q distinct zeros on (0,T), Rolle including T gives at most q+1 interior switch zeros, and excludes singular arcs. G(T)>0 yields terminal full vaccination. For models B beta=48 exp(3I-1.5S), gamma=5+2I, and C beta=32(1+2I)(1-0.67S), gamma=5+2I, strictly decreasing S must cross the unique G=0 threshold (2/3 or 50/67) before first exit because beta(S,epsilon)S>gamma on the earlier S range. A terminal tangency would contradict the sign of I-dot just before the first hit, proving transverse exit. Therefore any unrestricted optimum has only patterns 1, 0-to-1, or 1-to-0-to-1 up to null sets. Independently verified derivative identities and endpoint inequalities (32e^-1.5>5+2e-8 and 132/25>5+2e-8). This does not find the optimal switching times.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "The motivating paper covers G>0 globally, whereas both benchmark models have G crossing from negative to positive along trajectories.",
+          "Constant-rate first-hit models have G=beta>0 automatically and so do not prove the new nonmonotone two-switch conclusion."
+        ],
+        "reasoning": "A result for a larger class could dominate the theorem if it directly includes state-dependent G with finitely many zeros and a first-hitting objective; no such directly matching prior statement was identified in inspected primary text.",
+        "searches": [
+          "arXiv:2610.23095 full primary mirror sections 3–6.5",
+          "Bolzoni et al arXiv:1706.04447",
+          "Hynd–Ikpe–Pendleton arXiv:2008.12744"
+        ]
+      },
+      "checked_sources": [
+        "Assigned frozen RESULT.md/checker.py and actual SHA",
+        "Park–Jang–Kim 2026 arXiv:2610.23095 full public HTML mirror",
+        "Bolzoni et al arXiv:1706.04447",
+        "Hynd et al arXiv:2008.12744",
+        "Grigorieva et al 2015 DOI:10.3934/proc.2015.0549 and 2016 DOI:10.1051/mmnp/201611407",
+        "Resultary query time optimal state dependent SIR vaccination finite switches"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "Park–Jang–Kim explicitly leaves open whether the numerical two-switch search is complete outside global G>0.",
+          "The new zero-count theorem plus terminal transversality establishes all unrestricted optimal control shapes for their two exact parameter examples."
+        ],
+        "reasoning": "Existing costate formulas are credited, not claimed as inventions. The restriction to at most q distinct zeros is essential, and this does not prove any numerical candidate optimal.",
+        "searches": [
+          "Park–Jang–Kim full primary text arXiv:2610.23095",
+          "Grigorieva et al 2015 DOI:10.3934/proc.2015.0549",
+          "Grigorieva et al 2016 DOI:10.1051/mmnp/201611407"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "The sign of lambda_I and integrating-factor switching function are present in the original model; the new claim counts distinct temporal zeros of G and uses Rolle to bound switching complexity.",
+          "The results differ between first-hit optimal time with state-dependent coefficients and fixed-terminal-time infection minimization."
+        ],
+        "reasoning": "Equivalence to general no-singular-arc/PMP zero-count results was considered. The precise q+1 bound and the benchmark endpoint argument were not read as established earlier; an old general theorem might imply the abstract part.",
+        "searches": [
+          "Park–Jang–Kim arXiv:2610.23095 Sections 3, 6.5",
+          "Grigorieva–Khailov–Korobeinikov 2015 2016 switch-count work",
+          "Resultary state-dependent SIR switching query"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "The motivating paper contains numerical switch-time comparisons, not a verified exhaustive structural two-switch classification.",
+          "No exact switch-pattern atlas or complete table entailing the unrestricted theorem was identified."
+        ],
+        "reasoning": "Numerical tables of candidate controls cannot prove the absence of other optimal patterns; the present proof addresses a qualitative structural question.",
+        "searches": [
+          "Resultary time optimal state dependent SIR finite switches query",
+          "arXiv:2610.23095 numerical one-versus-two switch cases"
+        ]
+      },
+      "rationale": "Park–Jang–Kim 2026 is the exactly matching SIR optimal-control model. In its inspected complete primary text the one-switch theorem assumes G>0 on the whole simplex; Section 6.5 numerically explores two switches in two cases violating that hypothesis and explicitly does not provide unrestricted structure. The new result is the finite-zero budget after an at-most-one infected-costate zero plus verified endpoint transversality, making the benchmark two-switch family structurally exhaustive. Earlier Bolzoni and Hynd constant-rate models and Grigorieva fixed-terminal-cost studies are different control questions. A general switching-zero bound in older optimal-control literature may be adaptable; it remains a priority risk.",
+      "residual_risks": [
+        "The finite-zero switching bound uses standard Rolle/Pontryagin methods; a more general preexisting optimal-control theorem could directly imply it.",
+        "The older Grigorieva switching papers were not read in full; comparison of transferable structural lemmas remains qualified."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "The original proves one-switch under global G>0, explicitly does not establish unrestricted structure in its two numerical violating cases.",
+          "evidence": "Section 3 switching/costate derivation and Section 6.5 benchmark models; their beta0 values 48 and 32 are used in the new theorem.",
+          "identifier_or_url": "https://www.paperpeel.com/paper/2610.23095 (primary arXiv:2610.23095)",
+          "material_read": "Complete publicly accessible full-paper HTML mirror, focusing on sections 2–3, 6.1 and 6.5 and the costate and numerical benchmark discussions.",
+          "method": "Read substantial complete primary text, compared stated theorem assumptions, switching identities and benchmark results.",
+          "title": "Time-optimal vaccination in state-dependent SIR models: a single switch criterion and numerical examples outside its regime",
+          "trigger": "Identical state-dependent controlled epidemic ODE and benchmark parameters"
+        },
+        {
+          "assessment": "Constant-rate models lack the state-dependent sign reversal of G.",
+          "evidence": "Constant beta implies G=beta>0.",
+          "identifier_or_url": "https://arxiv.org/abs/1706.04447",
+          "material_read": "Public primary metadata and model/objective descriptions; not a complete page-by-page reading this run.",
+          "method": "Mathematical parameter comparison.",
+          "title": "Time-optimal control strategies in SIR epidemic models",
+          "trigger": "Earlier first-hit vaccination switches"
+        },
+        {
+          "assessment": "Fixed-terminal-horizon infection objective is not directly the first-hit minimum-time theorem, but structural lemmas might transfer.",
+          "evidence": "General Pontryagin zero-count techniques are pre-existing and not claimed new.",
+          "identifier_or_url": "https://doi.org/10.1051/mmnp/201611407",
+          "material_read": "Bibliographic metadata and stated objective context; complete primary not obtained.",
+          "method": "Publication record comparison with first-hitting-time objective.",
+          "title": "Optimal Control for a SIR Epidemic Model with Nonlinear Incidence Rate",
+          "trigger": "Possible broader switching-count literature"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "rationale": "For a constrained time-optimal epidemic-control problem, reducing an infinite-dimensional measurable-control class to a finite family of switch patterns is a meaningful structural advance. The theorem handles sign-changing transmission sensitivity and proves completeness of the two-switch search space for naturally published nonmonotone examples, without falsely claiming numerical optimality or clinical effectiveness.",
+      "status": "PASS"
+    }
+  },
+  "checked_sources": [
+    "Assigned frozen RESULT.md/checker.py and actual SHA",
+    "Park–Jang–Kim 2026 arXiv:2610.23095 full public HTML mirror",
+    "Bolzoni et al arXiv:1706.04447",
+    "Hynd et al arXiv:2008.12744",
+    "Grigorieva et al 2015 DOI:10.3934/proc.2015.0549 and 2016 DOI:10.1051/mmnp/201611407",
+    "Resultary query time optimal state dependent SIR vaccination finite switches"
+  ],
+  "disposition": "passed",
+  "limitations": [
+    "Assumes existence of optimal finite-time control; general bound requires transversal first hit and finite distinct temporal zeros of G, not only sign changes.",
+    "The two listed benchmarks meet the assumptions, but the theorem does not identify best switch times or require two switches.",
+    "No public-health policy recommendation follows from the abstract ODE theorem.",
+    "Publication was withheld pending privacy-safe replacement metadata with exact guards; scientific acceptance is not downstream publication or certification."
+  ],
+  "residual_risks": [
+    "The finite-zero switching bound uses standard Rolle/Pontryagin methods; a more general preexisting optimal-control theorem could directly imply it.",
+    "The older Grigorieva switching papers were not read in full; comparison of transferable structural lemmas remains qualified."
+  ],
+  "schema_version": 1
+}

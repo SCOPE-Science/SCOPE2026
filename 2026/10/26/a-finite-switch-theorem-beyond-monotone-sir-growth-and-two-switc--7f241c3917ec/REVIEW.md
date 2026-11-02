@@ -1,9 +1,21 @@
-# Review
+# Independent mathematical audit
 
-**Correctness (PASS).** Pontryagin normality is recovered from the independently proved transversal first exit; zero crossings of the infected costate are all strictly upward because \(\beta+I\partial_I\beta>0\). Differentiating the weighted switching function gives an exact continuous product of the costate and \(G\). Rolle's theorem bounds its zeros by \(q+1\), ruling out singular arcs as well as additional switches. For the two explicit families, exact inequalities exclude a first exit above the susceptible critical threshold, a local tangency argument excludes terminal tangency, and strict decrease of the susceptible state gives exactly one \(G\) zero. The stand-alone code rechecks symbolic and arithmetic pieces, not the infinite argument.
+## correctness
 
-**Originality (PASS, with limitations).** The 2026 motivating source proves one switch only under globally positive \(G\) and expressly leaves the unrestricted optimum beyond that regime unknown, including possible singular arcs. This proof establishes a trajectory-zero switch budget and rigorously closes that particular two-switch classification for the source's violating examples. The paper's existing adjoint identities and one-zero costate argument are explicitly credited. The 2017 and 2021 constant-rate eradication-time papers do not cover variable state growth. Historical fixed-horizon nonlinear-incidence papers use zero-count tools but optimize a different objective; full copies were not accessible, leaving an implicit-equivalence risk. Mathematical record and private historical-claim comparisons found no directly covering statement, not a proof of uniqueness.
+PASS
 
-**Value (PASS).** The motivating paper explicitly states its unrestricted optimum is unresolved outside \(G>0\). The theorem excludes singular/chattering arcs and gives a finite two-switch search family for both benchmark problems without global structural positivity. This changes their status from an unconstrained infinite-dimensional optimal control problem to an exact finite-dimensional switching-class characterization, although global optimization over switch times remains to be carried out and no particular switch profile is certified.
+For a finite-time optimal first transversal hit I(T)=epsilon, Pontryagin normality follows because an abnormal extremal would give lambda_S(T)=0 and lambda_I(T)=0 from free-time Hamiltonian and nonzero terminal I-dot, contradicting nontriviality. After normalizing the running-cost multiplier to one, lambda_I(T)>0. At every zero lambda_I=0, the zero Hamiltonian forces lambda_S>0 and the adjoint gives lambda_I-dot=lambda_S S(beta+I beta_I)>0; hence lambda_I has at most one zero. With switching function psi=-S lambda_S, the positive integrating factor converts its derivative to Theta-dot=mu lambda_I S I G, and Theta(T)=0. If G(S(t),I(t)) has at most q distinct zeros on (0,T), Rolle including T gives at most q+1 interior switch zeros, and excludes singular arcs. G(T)>0 yields terminal full vaccination. For models B beta=48 exp(3I-1.5S), gamma=5+2I, and C beta=32(1+2I)(1-0.67S), gamma=5+2I, strictly decreasing S must cross the unique G=0 threshold (2/3 or 50/67) before first exit because beta(S,epsilon)S>gamma on the earlier S range. A terminal tangency would contradict the sign of I-dot just before the first hit, proving transverse exit. Therefore any unrestricted optimum has only patterns 1, 0-to-1, or 1-to-0-to-1 up to null sets. Independently verified derivative identities and endpoint inequalities (32e^-1.5>5+2e-8 and 132/25>5+2e-8). This does not find the optimal switching times.
 
-Self-review: passed. Independent audit: not yet performed.
+## originality
+
+PASS
+
+Park–Jang–Kim 2026 is the exactly matching SIR optimal-control model. In its inspected complete primary text the one-switch theorem assumes G>0 on the whole simplex; Section 6.5 numerically explores two switches in two cases violating that hypothesis and explicitly does not provide unrestricted structure. The new result is the finite-zero budget after an at-most-one infected-costate zero plus verified endpoint transversality, making the benchmark two-switch family structurally exhaustive. Earlier Bolzoni and Hynd constant-rate models and Grigorieva fixed-terminal-cost studies are different control questions. A general switching-zero bound in older optimal-control literature may be adaptable; it remains a priority risk.
+
+## value
+
+PASS
+
+For a constrained time-optimal epidemic-control problem, reducing an infinite-dimensional measurable-control class to a finite family of switch patterns is a meaningful structural advance. The theorem handles sign-changing transmission sensitivity and proves completeness of the two-switch search space for naturally published nonmonotone examples, without falsely claiming numerical optimality or clinical effectiveness.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
