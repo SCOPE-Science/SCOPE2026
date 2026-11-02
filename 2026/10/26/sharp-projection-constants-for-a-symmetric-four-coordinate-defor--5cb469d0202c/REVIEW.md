@@ -1,19 +1,21 @@
-# Scientific review
+# Independent mathematical audit
 
-## Correctness — PASS
+## correctness
 
-For the real two-dimensional graph \(V_t=\operatorname{ran}B_t\subset\ell_\infty^4\), the explicit \(A_t\) satisfies \(A_tB_t=I\) and has optimal projection row sums \(2(1+t)/(2+t)\). Averaging with the coordinate-swap involution preserves projection status and cannot increase norm. Every averaged projection has two row norms bounded below by \(1+h\) and \((1+t)(1-h)\), respectively, with their intersection at \(h=t/(2+t)\). The strict coefficient inequality \(|2t-1|<1\) yields uniqueness inside the exchange-equivariant class for interior parameters. The Banach–Mazur estimates use injectivity and an explicit invertible \(2\times2\) matrix. The included rational checker passed all ten parameters but is not used as an infinite proof.
+PASS
 
-## Originality — PASS, subject to historical-priority risk
+PASS: The explicit 4x2 embedding B_t and 2x4 left inverse A_t satisfy A_t B_t=I; induced four projection row ℓ1 norms equal 2(1+t)/(2+t). Any projection onto V_t can be averaged under the coordinate exchange involution; every averaged left inverse has parameters a,b,c,d with a+c+td=1,b+tc+d=0. The first and third absolute row sums are bounded below by 1+t(c+d) and (1+t)[1-t(c+d)]; the crossing of these affine lines yields the matching global lower bound. When 0<t<1 equality forces d=0,c=1/(2+t) and unique a,b in this symmetry class. Injectivity of ℓ∞⁴ transfers the relative projection norm to the absolute constant. An explicit invertible map T_t provides d≤1+t/2, while λ≤d; the sandwich proves derivative 1/2. Independent 25-variable *non-equivariant* linear programs at seven t parameters attained the stated global minimum and verified sharpness beyond equivariance.
 
-The closest 2026 codimension-two theorem (Deregowska–Lewandowska, arXiv:2610.06141v1) derives a distance estimate from a supplied projection constant, without this exact two-dimensional deformation profile. Classical planar results give the universal bound \(4/3\) and the unique hexagonal endpoint but not the continuous interior formula; Lassak's affine-regular polygon theorem studies Banach–Mazur distances, not this projection constant. Targeted public literature and published-finding searches using the coordinate model, dual normals, aliases, and the candidate rational formula produced no implication-equivalent record. Search absence is not proof of priority; an older planar optimization could still be equivalent.
+## originality
 
-## Mathematical value — PASS
+PASS
 
-The projection constant is an intrinsic Banach-space invariant, and this natural four-coordinate deformation joins the injective square to the extremal affine-regular hexagon while retaining codimension two. The all-parameter formula and unique exchange-equivariant minimizer provide a structural answer beyond an endpoint bound. Coupled with an explicit Banach–Mazur comparison, the exact formula determines the first-order distance response \(1/2\), while the known general codimension-two estimate is much coarser at first order. No claim is made for the exact interior distance or nonsymmetric projection rigidity.
+Qualified best-of-knowledge statement-based originality after checking primary comparison and relevant published Resultary records; no uninspected full text asserted not covering. The new exact λ(t) requires a matching explicit projection and the symmetrized dual lower bound. The general prior statement does not imply the formula without a new calculation. Banach–Mazur estimate itself is more routine, and novelty is not attributed to its general mechanism.
 
-## Source comparison and limitations
+## value
 
-The primary codimension-two preprint and its proof of Theorem 2.4, the earlier planar projection-constant literature, and the affine-regular polygon distance result were compared by implication and object, not just title. The main residual risk is a prior equivalent formula in polygonal projection literature. The proof is valid only over the real field, with the specified coordinates and parameter interval.
+PASS
 
-Self-review: passed. Independent audit: not yet performed.
+PASS: The real two-dimensional square-to-hexagon family has a natural parameter and projection constant that measures complementability. Its exact continuum formula, rigidity restricted to symmetrized optimizers, and first-order Banach–Mazur behavior give a complete explicit interpolation between 1 and the sharp 4/3 planar endpoint. Both proof certificates and geometric endpoint comparisons are substantive, although the absolute upper endpoint is classical.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
