@@ -1,0 +1,113 @@
+{
+  "correctness": {
+    "rationale": "Four orthogonal spectral projectors give exact five entry types. Strict offdiagonal sign is a positive factorization; each diagonal sign is exactly that of an explicit quartic. The scalar Radau global minimum yields positivity below 12 vertices. At 12 or more, rational witnesses at h=8/q and 8/p force the two respective diagonals negative; the positive quadratic certificate has discriminant -128(25n^2+480n-8712)<0. Descartes gives exactly two distinct positive zeros per quartic. Exact rational root isolations prove disjoint intervals on K_{2,10} and overlapping intervals on K_{5,7}. A standalone independent full-matrix rational inverter verifies 30768 finite assertions, not used as proof of infinity.",
+    "status": "PASS"
+  },
+  "independent": false,
+  "independent_audit_status": "not_performed",
+  "originality": {
+    "broader_coverage": {
+      "evidence": [
+        "Hairer–Lubich 2013 §2 proves energy results and states operator-norm damping for quadratic systems, not componentwise positivity.",
+        "Higueras–Ketcheson–Kocsis arxiv:1505.04024 derives monotonicity-preserving perturbations; no broad theorem establishing endpoint positivity on K_{p,q} was found.",
+        "published-finding corpus 2026/10/4/SCOPE-a-resolvent-return-law-for-crank-nicolson-positivity-on-reversib--d475df91cd2a studies the different Crank–Nicolson stability function."
+      ],
+      "reasoning": "A broader class of ODEs for which an integrator is energy diminishing does not imply positivity of every matrix entry; exact conditional positivity here requires the graph-specific spectral decomposition. The available generic SSP bounds and different implicit integrators are not stronger covering statements.",
+      "searches": [
+        "published-finding corpus: Radau IIA nonnegative stochastic endpoint unequal two-part graph Laplacian positivity interval two quartics",
+        "Web: Rational Runge Kutta stability Markov diffusion bipartite graph entrywise positivity time step",
+        "Web: Radau IIA endpoint matrix positivity failure positivity returns for large steps"
+      ]
+    },
+    "checked_sources": [
+      "Hairer–Lubich, Energy-diminishing integration of gradient systems, doi:10.1093/imanum/drt031; author original PDF",
+      "Higueras–Ketcheson–Kocsis, arxiv:1505.04024; author arxiv PDF",
+      "Published published-finding corpus SSP-SDIRK2 endpoint result 2026/10/4/SCOPE-two-state-immunity-and-three-state-sharpness-for-endpoint-positi--46bf11cc19c7",
+      "Published published-finding corpus [2/2] Gauss–Legendre/Padé result 2026/9/20/SCOPE-eight-state-pade-markov-positivity-barrier--4aad2a3f58ab",
+      "Published published-finding corpus Crank–Nicolson resolvent law 2026/10/4/SCOPE-a-resolvent-return-law-for-crank-nicolson-positivity-on-reversib--d475df91cd2a"
+    ],
+    "claim_vs_prior_implication": {
+      "evidence": [
+        "A previously established balanced multipartite Radau IIA theorem uses one common diagonal and equal-size parts; in its bipartite restriction it applies only to K_{s,s}, not K_{p,q} with unequal side sizes.",
+        "Earlier Radau IIA star results are for K_{1,m}, excluded by p,q>=2, and have different spectral multiplicities.",
+        "Earlier directed-cycle results have a non-symmetric generator and are incomparable with the two-part symmetric graph diffusion map.",
+        "published-finding corpus 2026/10/4/SCOPE-two-state-immunity-and-three-state-sharpness-for-endpoint-positi--46bf11cc19c7 analyzes SSP-SDIRK2, not Radau IIA."
+      ],
+      "reasoning": "The balanced result cannot imply unequal-case behavior via an induced graph because a rational function of a graph Laplacian is not generally inherited by vertex deletion; moreover the two independently moving negative diagonal intervals and three safety windows cannot occur under equal-part symmetry. Star and directed-cycle results have different domains; comparison was by matrix/rational-function implication, not keyword matching. Overlap with equal-size special case is deliberately excluded.",
+      "searches": [
+        "Comparative reading of available scientific claims: Radau IIA balanced complete multipartite endpoint positivity; Radau IIA star endpoint positivity; Radau IIA directed-cycle positivity; unequal-side reductions and equivalences",
+        "published-finding corpus: two-stage third-order Radau IIA endpoint positivity on balanced complete multipartite graph K_s,...,s critical 12 vertices one forbidden step interval",
+        "published-finding corpus: two-state immunity and three-state sharpness for endpoint positivity of SSP-SDIRK2(2)",
+        "Web: Energy-diminishing integration of gradient systems Hairer Lubich 2013"
+      ]
+    },
+    "equivalent_formulations": {
+      "evidence": [
+        "A checked prior balanced complete multipartite endpoint theorem proves a single diagonal quartic when all parts are equal; its two-part graph is K_{s,s}, not K_{p,q} for unequal p,q.",
+        "Hairer–Lubich 2013 studies energy-diminishing Radau IIA, not exact entrywise sign domains.",
+        "Arxiv:1505.04024 treats monotonicity-preserving perturbations/SSP coefficients rather than the unperturbed K_{p,q} endpoint map."
+      ],
+      "reasoning": "Unequal K_{p,q} has distinct Laplacian eigenvalues p and q and two different diagonal classes. These give two quartics with possibly disjoint negative intervals. Equal-size results have a single diagonal class and cannot yield the unequal class or three safe windows merely by substituting parameters. General norm damping/SSP guarantees are logically distinct from exact entrywise endpoint inequalities.",
+      "searches": [
+        "published-finding corpus: Radau IIA third-order endpoint positivity unequal complete bipartite K_{p,q} two diagonal quartics safety windows",
+        "Web: Radau IIA positivity complete bipartite graph unequal part sizes two stage third order",
+        "Web: Radau IIA K m n timestep interval double nonnegative diagonal"
+      ]
+    },
+    "exact_database_or_table": {
+      "evidence": [
+        "Targeted published-record searches returned no graph-size threshold plus unequal two-side quartic-root positivity table for the two-stage Radau IIA endpoint.",
+        "The same-method balanced complete multipartite result does not contain the unequal side parameters and excludes double diagonal classes.",
+        "Rational root isolation for K_{2,10} and K_{5,7} is directly independently verified by exact arithmetic in the package."
+      ],
+      "reasoning": "The exact p!=q two-quartic classification and the existence of three versus two separated nonnegative step windows were not found in the queried published claims or primary literature. A bounded search is not an exhaustive novelty certificate.",
+      "searches": [
+        "published-finding corpus: Radau IIA third-order endpoint positivity unequal complete bipartite K_{p,q} two diagonal quartics safety windows",
+        "published-finding corpus: Radau IIA K_{2,q} distinct forbidden timestep intervals and phase overlap first size twelve",
+        "published-finding corpus: Radau IIA nonnegative stochastic endpoint unequal two-part graph Laplacian positivity interval two quartics",
+        "Web: Radau IIA positivity complete bipartite graph unequal part sizes two stage third order"
+      ]
+    },
+    "rationale": "The closest accessible prior theorem treats only balanced complete multipartite graphs (equal sides for the bipartite case) and does not imply the unequal-side two-quartic case. Scientific claim comparisons and published-index searches found related star and cycle results and other integrators, not the claimed p!=q complete classification and interval topology. Hairer–Lubich and Higueras–Ketcheson–Kocsis do not provide the graph-specific implication. Incomplete indexing and full historical discovery remain residual risks.",
+    "residual_risks": [
+      "Historical specialist literature or inaccessible sources could contain an equivalent unequal-bipartite Radau theorem.",
+      "Prior balanced theorem covers p=q, deliberately excluded, and is a strong related comparison; novelty is only p!=q and the distinct two-quartic phase structure.",
+      "Independent mathematical audit has not been performed."
+    ],
+    "source_inspections": [
+      {
+        "assessment": "Establishes energy monotonicity and spectral damping, but not graph-specific entrywise positivity for unequal bipartite graphs.",
+        "evidence": [
+          "Section 2 discusses the stability-function map on quadratic potentials and operator norm, not preservation of individual matrix entries.",
+          "Publisher first-online-publication date verified as 2013-10-03."
+        ],
+        "identifier_or_url": "https://www.unige.ch/~hairer/preprints/gradientflow.pdf ; doi:10.1093/imanum/drt031",
+        "material_read": "Author nine-page PDF: abstract, introduction, section 2 including the energy theorem and the discussion of the exact stability function at printed page 5. Primary page screenshots and PDF text inspected.",
+        "method": "Read available original full text and PDF page images, used full-document search for Radau/positivity terminology and compared the theorem statements.",
+        "title": "Energy-diminishing integration of gradient systems",
+        "trigger": "Primary 2013 treatment of algebraically stable Runge–Kutta methods and Radau IIA on quadratic gradients"
+      },
+      {
+        "assessment": "No complete bipartite unequal diagonal quartic or three-safe-window statement located in the material examined.",
+        "evidence": [
+          "Original arxiv submission confirmed 2015-05-15; the accessible PDF is a later version.",
+          "The paper concerns SSP coefficients and optimal perturbations rather than the claimed fixed graph and original integrator."
+        ],
+        "identifier_or_url": "https://arxiv.org/pdf/1505.04024 ; arxiv:1505.04024",
+        "material_read": "Arxiv primary PDF, abstract, sections 1–3 relevant method definitions and comparison; read screenshots of pages 1–2 and searched the full text for graph-specific conditions.",
+        "method": "Inspected text and page images and contrasted universal perturbed-RK coefficients with the exact non-perturbed graph-specific rational end-step.",
+        "title": "Optimal monotonicity-preserving perturbations of a given Runge–Kutta method",
+        "trigger": "Related historic numerical-analysis paper on positivity, monotonicity, and RK methods with zero SSP radius"
+      }
+    ],
+    "status": "PASS"
+  },
+  "review_type": "self_review",
+  "schema_version": 1,
+  "scope_run_id": "94420f5f-de7f-4b72-bd75-313f9be3c22d",
+  "self_review_status": "passed",
+  "value": {
+    "rationale": "The exact graph-specific endpoint nonnegativity domain is a natural numerical ODE invariant relevant to diffusion/concentration preservation. Two separately rooted quartics give a complete all-parameters classification for unequal bipartite networks; isolated examples establish that the safety domain has either two or three separated components. The universal 12-vertex threshold is a sharp structural boundary but the core value beyond the prior balanced theorem is the new double-interval phase structure and its constructive exact step-size test.",
+    "status": "PASS"
+  }
+}
