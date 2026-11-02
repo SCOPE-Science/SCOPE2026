@@ -1,15 +1,21 @@
-# Scientific assessment
+# Independent mathematical audit
 
-## Correctness
-PASS. The extension argument proves the closure formula; every distinct minimal nonclosed set forces a different premise in every complete Horn basis, while the displayed basis achieves the bound in one round. The cyclic spacing and forced-domination obstruction establish the trace upper bound, and independent helper-extension witnesses attain the lower bound. Every boundary case \(n=3,4,5,8\) is stated separately. Exhaustive finite checking for \(3\le n\le15\) is corroborative, not an infinite proof.
+## correctness
 
-## Originality
-PASS, qualified. The most closely examined sources provide the equivalence of maximal independence and independent domination, a general formal-concept representation of hypergraph intersection lattices, and generic comparisons of minimum/direct implication bases. They neither state nor imply the exact family-specific implication cardinalities and all-parameter Boolean trace rank on cycle maximal-independent-set contexts. published-finding corpus searches for cycle independent domination, shattering, and Horn bases identified cover-free-family numbers and topological graph results, which concern different invariants. Residual risk: identical formulations under maximal-set trace systems or implicational hypergraph language are not ruled out by a search.
+PASS
 
-## Mathematical value
-PASS. A single natural family of logically encoded independent dominating sets admits a sharp nontrivial minimum complete basis (with a genuine exceptional equality at order eight), a one-round execution guarantee, and unbounded exactly determined Boolean trace dimension. These are distinct meaningful invariants of the formal context and give an explicit separation between small direct representation and large realized trace complexity.
+For each cycle C_n (n>=3) the intersection closure of maximal independent sets containing an independent S is S plus vertices whose two distance-2 neighbors lie in S (n>=5); any adjacent pair has empty object extension and closure V. Minimum nonclosed-premise lower bound forces all n adjacent pairs plus distinct forcing pairs (n>=6), with exactly four forcing pairs at n=8; n=3,4,5 give 3,4,5 rules, others 2n. All minimum displayed bases are one-pass because the closure lemma acts on original premises. Shattering upper bound uses cyclic spacings: two short gaps of 2 require a long gap >=4 between them through any 3-gap chain; hence n>=3k-1. Lower construction uses chosen vertices at gaps >=3 except at most one gap 2, choosing neighboring helpers to omit any selected vertex, and extends to a maximal independent set. Exact independent exhaustive script recomputed maximal independent sets, nonclosed minimal premises, one-pass closures, all traces for every subset n=3..13, reproducing B_n,D_n. This finite test is not an all-n proof.
 
-## Scope and limitations
-Global Horn-cardinality optimality assumes general multi-conclusion implications. Computation checks orders up to fifteen only. This is not an external priority certification or peer validation.
+## originality
 
-Self-review: passed. Independent audit: not yet performed.
+PASS
+
+Best-of-knowledge PASS for the exact cycle-context minimum unrestricted multi-conclusion rule count, simultaneous-direct realization, and exact vertex-membership shattering number. Prior concept-lattice studies address arbitrary closure systems and general direct bases, not the inspected cycle MIS context. Distinguish vertex traces from graph open-neighborhood VC dimension and ordinary independent-set parameters.
+
+## value
+
+PASS
+
+The maximal-independent-set incidence context is a natural finite formal context, and rule-base minimization/directness versus expressive Boolean traces are natural independent invariants. Sharp exceptions at n=8 and exact all-order linear values settle a specific motivated family, enabling reproducible test examples for implication-base algorithms. This is not just a renaming of independence number or enumeration of maximal independent sets.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
