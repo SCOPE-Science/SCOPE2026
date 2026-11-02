@@ -1,19 +1,21 @@
-# Scientific review
+# Independent mathematical audit
 
-## Correctness — PASS
+## correctness
 
-The theorem covers every dimension and finite alphabet in the specified GF(2) parity-acceptance model. Expanding the matrix-monoid Hankel kernel and separating the two endpoint-normalization cases gives the exact rank \(n^3-n^2+n\). The lower bound follows from explicit ternary matrix generators of the full monoid. A standalone exact-bit verifier checks the monomial bookkeeping through dimension eight, independently reconstructs full Hankel ranks at dimensions two and three, and certifies the binary size-six minor. The symbolic proof, not finite extrapolation, justifies the infinite quantifier.
+PASS
 
-## Originality — PASS within examined evidence
+The n-state GF(2) XNFA is a linear representation λM_wγ, and its square-root series has Hankel kernel K_m(X,Y)=e0ᵀ(XY)²e_m after splitting endpoints by λγ∈{0,1}. Expanding gives Σ_{q,p,r}X_{0p}X_{qr}Y_{pq}Y_{rm}. Square-free monomials in matrix coordinates are independent Boolean functions. For m=0, q=0 has n surviving diagonal monomials because pairs cancel in characteristic two, while q≠0 each contributes rank n². For m=1, the q=0 and q=1 blocks each contribute n(n+1)/2 and the remaining n−2 blocks contribute n². Off-block variable supports separate, hence both cases have full matrix-monoid rank n³−n²+n. Restricting to word transformations proves the upper bound via residual Hankel span. The cyclic permutation, elementary transvection and rank-(n−1) projection generate all binary n×n matrices: adjacent row transvections and commutators yield GL_n(F2), whose left/right products with diagonal corank-one projections yield every rank. The ternary source is reachable/observable with ordinary rank n, giving a sharp lower bound with n essential states. In n=1 the bound is 1 even if endpoints vanish. An explicit independent binary-alphabet 6×6 minor realizes rank6 at n=2. Independent fresh checker built on a distinct tuple representation reproduces exact square-free monomial ranks for n=1..8, full 2^(n²) matrix-kernel ranks at n=2,3 (both endpoint cases), ternary monoid closures of 16 and 512 elements, and 6×6 minor rank. These are finite checks only; the all-n result rests on the source symbolic proof.
 
-Onishchenko, arXiv:2605.02957v1, proves a sharp \(n^3\) bound for ordinary Boolean-semiring NFAs, a different path-aggregation model. Chistikov et al., arXiv:2607.00742v1, study XOR-path automata and decision complexity, without the claimed square-root state bound in examined sections. Berstel--Reutenauer, Ch. 2, supplies the classical minimal-rank machinery, not this exact monoid rank. Searches for equivalent weighted-series formulations, dominating statements, exact tables, and the characteristic-two formula found no decisive covering result. Earlier unindexed equivalent work is an acknowledged priority risk; the XNFA article appendix and the complete book chapter were not examined.
+## originality
 
-## Value — PASS
+PASS
 
-The result determines an exact complexity function for a natural regular-language operation on a whole automaton model, with witnesses over only three letters. It explains the saving from the ordinary NFA cubic cost through explicit characteristic-two cancellation and provides a binary sharp witness in dimension two. These are structural, independently motivated state-complexity facts, not routine finite census increments.
+Best-of-knowledge exact characteristic-two state-complexity formula for word-duplication inverse in XNFA. Prior sharp ordinary NFA n^3 concerns existential paths, and prior deterministic complexity concerns a different model. General GF(2)-weighted automata minimization and parity decision algorithms do not mathematically imply the submitted square-free monomial rank. Three actual Resultary queries and targeted literature searches did not return equivalent theorems. The XNFA paper is only partially inspected; unindexed rational-series literature might contain an equivalent calculation, and failed indexing is not proof of novelty.
 
-## Limitations
+## value
 
-The assertion does not extend to Boolean-semiring NFAs or to coefficient fields other than GF(2), and it does not determine whether two letters always suffice above dimension two. Historical priority has not been independently certified.
+PASS
 
-Self-review: passed. Independent audit: not yet performed.
+Determining exact worst-case state complexity for the natural operation L↦{w:ww∈L} for an entire arithmetic automaton model is a motivated structural result rather than a finite slice. Characteristic-two monomial cancellations explain the nontrivial saving n(n−1) from the ordinary NFA n³ bound. A uniform three-letter sharp construction and a distinct binary two-state witness make the result robust under small fixed alphabets. The full matrix-monoid Hankel calculation is independently useful for GF(2) weighted language transforms, and the input source is shown to have exactly n essential states.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
