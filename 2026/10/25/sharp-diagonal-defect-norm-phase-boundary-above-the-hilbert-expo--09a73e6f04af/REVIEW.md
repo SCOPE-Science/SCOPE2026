@@ -1,15 +1,21 @@
-# Self-review
+# Independent mathematical audit
 
-## Correctness
-PASS. For each strictly positive scalar tuple the half-Hessian of the squared \(\ell_p\) norm has a rank-one inverse formula. Subtracting two inverses produces a nonnegative diagonal matrix and a nonnegative rank-one matrix, yielding the sharp upper Hessian multiplier \(K=M^p/m^{p-2}\); the two-block near-axis limit attains its supremum. Convexity, monotonicity, and homogeneous gauge arguments prove normability for \(K\le1\). Above this exact boundary the squared defect has negative curvature. A zero-positive multiplier pair produces an explicit midpoint failure. Two-block restrictions make all necessities valid for arbitrary nonzero Banach blocks. Exact symbolic and deterministic numerical checks corroborate, but do not establish, the infinite parameter result.
+## correctness
 
-## Originality
-PASS. The inspected March 2026 primary paper applies a general defect criterion but does not solve the positive diagonal classification. Jana--Pal--Roy's 2024 theorem supplies the norm/dilation equivalence, not an exact parameter criterion; its diagonal example uses \(\ell_2\) sums. Two complete published notes on scalar-coordinate multipliers and band projections cover only one nonzero multiplier (a zero complementary coefficient); those statements do not imply the new all-positive region. The older positive-contraction dilation theorem allows a different embedding/compression, and its general result cannot establish squared-defect normability. Unindexed weighted-norm convexity literature remains a priority risk.
+PASS
 
-## Mathematical value
-PASS. The theorem gives a sharp, dimension-free, weight-anisotropy boundary for genuinely nonconstant positive multipliers above the Hilbert exponent, as well as the exact Hessian curvature domination constant. It resolves an intrinsic defect-norm issue motivating current dilation work: nonzero one-band multipliers fail, but sufficiently well-balanced everywhere-positive multipliers succeed. The equality boundary and complete zero-weight obstruction are intrinsic and not arbitrary slices.
+PASS. For p>2 the half-Hessian of squared l_p norm has exact inverse H_N^-1=(N^(p-2)diag(z_j^(2-p))+(p-2)zz^T/N^2)/(p-1); corresponding weighted Q inverse has diagonal d_j^-p. With m=min d_j>0, M=max d_j, subtracting H_N^-1 from K H_Q^-1 for K=M^p/m^(p-2) gives nonnegative diagonal and nonnegative rank-one terms. Invert Loewner order to obtain H_Q<=K H_N, with equality in the supremum as a coordinate carrying M tends to zero with another coordinate carrying m fixed (also uniform weights). For K<=1, G=N^2-Q^2 is convex and coordinate nondecreasing on the nonnegative orthant; its absolute even extension yields an absolute norm and via block coordinate triangle inequalities, the defect on arbitrary nonzero Banach blocks. K>1 yields negative curvature on the two-block restriction; any positive weight and a zero weight gives explicit small-epsilon midpoint failure since p>2. All zero weights recover original norm. Independent SymPy p=4 two-variable Hessian and four near-axis samples reproduced sharp ratio 0.835918367... for (.8,.7); this is a sanity check, not all-p proof.
 
-## Limitations
-The statement does not cover infinitely many bands, off-diagonal contractions, sub-Hilbert exponents, or general Andô dilations of pairs. Literature priority is bounded and no external certification is claimed.
+## originality
 
-Self-review: passed. Independent audit: not yet performed.
+PASS
+
+PASS qualified: Jana–Pal–Roy prior theorem supplies only the equivalence between single-operator dilation and normability; studied examples and later Jana–Pal work do not evaluate the all-positive unequal diagonal weighted-p phase criterion. Published scalar coordinate/band notes cover zero complementary weights, a disjoint parameter regime. Broader positive Lp dilation is a DIFFERENT construction and cannot imply the defect criterion.
+
+## value
+
+PASS
+
+PASS. A sharp non-Hilbert phase boundary and its exact Hessian distortion coefficient for a natural diagonal class answer when a Pythagorean defect is an actual norm. The theorem distinguishes every-positive anisotropic contractions from any nonzero contraction with a zero block and gives a parameter-uniform sharp curvature inequality. This is a mathematically motivated boundary in operator/dilation theory, not a renamed scalar test.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

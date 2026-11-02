@@ -1,0 +1,119 @@
+{
+  "audit_date_utc": "2026-10-27",
+  "audited_at_utc": "2026-10-27T14:49:12Z",
+  "axes": {
+    "correctness": {
+      "rationale": "PASS. For p>2 the half-Hessian of squared l_p norm has exact inverse H_N^-1=(N^(p-2)diag(z_j^(2-p))+(p-2)zz^T/N^2)/(p-1); corresponding weighted Q inverse has diagonal d_j^-p. With m=min d_j>0, M=max d_j, subtracting H_N^-1 from K H_Q^-1 for K=M^p/m^(p-2) gives nonnegative diagonal and nonnegative rank-one terms. Invert Loewner order to obtain H_Q<=K H_N, with equality in the supremum as a coordinate carrying M tends to zero with another coordinate carrying m fixed (also uniform weights). For K<=1, G=N^2-Q^2 is convex and coordinate nondecreasing on the nonnegative orthant; its absolute even extension yields an absolute norm and via block coordinate triangle inequalities, the defect on arbitrary nonzero Banach blocks. K>1 yields negative curvature on the two-block restriction; any positive weight and a zero weight gives explicit small-epsilon midpoint failure since p>2. All zero weights recover original norm. Independent SymPy p=4 two-variable Hessian and four near-axis samples reproduced sharp ratio 0.835918367... for (.8,.7); this is a sanity check, not all-p proof.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Fackler–Glück positive dilation permits nonorthogonal/JQ powers framework, not the exact Pythagorean orthogonal dilation.",
+          "One-band theorem has d_j=0 on a complementary band, and indeed p>2 norm defect fails whenever other weight nonzero."
+        ],
+        "reasoning": "Neither general positive dilation nor the one-band zero-weight statement implies the positive anisotropy inequality M^p<=m^(p-2).",
+        "searches": [
+          "Fackler Glück arxiv:1709.08547 Theorem 7.1 positive Lp contractions",
+          "Published Resultary 2026 scalar defect thresholds one-band"
+        ]
+      },
+      "checked_sources": [
+        "arxiv:2407.15112v2 full relevant primary",
+        "arxiv:2603.26321v2 full relevant primary",
+        "arxiv:1709.08547 prior dilation framework",
+        "Resultary query Banach space p-sums Pythagorean defect norm diagonal contractions sharp Hessian criterion",
+        "published scalar-band and Lp band-projection notes"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "The older equivalence does not evaluate the ratio M^p/m^(p-2) or the positive weighted two-block curvature.",
+          "Known p>2 zero-band failure agrees with present theorem but cannot yield its successful all-positive examples (.8,.7) at p=4."
+        ],
+        "reasoning": "The present positive-weight boundary is a strict additional classification, with the same prior single-operator dilation implication properly credited.",
+        "searches": [
+          "Jana Pal Roy 2407.15112 Section 7",
+          "Jana Pal 2603.26321 examples",
+          "sharp scalar defect threshold on ell-p sums"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Prior equivalence identifies norm-valued sqrt(||x||^2-||Tx||^2) with a specific orthogonal complemented single-operator dilation.",
+          "New statement computes the exact weight region for positive diagonal T in p>2, and separate sharp Hessian quotient."
+        ],
+        "reasoning": "The dilation wording alone is already covered; only computed weights and Hessian formula constitute novelty.",
+        "searches": [
+          "Banach space p-sums Pythagorean defect norm diagonal contractions sharp Hessian criterion",
+          "Jana Pal Roy arxiv:2407.15112v2 Theorem 7.13",
+          "Jana Pal arxiv:2603.26321v2"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "Closest published classification describes a scalar active coordinate with zero complementary multiplier; new result treats all nonzero d_j with differing positives."
+        ],
+        "reasoning": "No exact precomputed table for the continuous multiweight domain found; failure of matching search alone is no originality guarantee.",
+        "searches": [
+          "Banach space p-sums Pythagorean defect norm diagonal contractions sharp Hessian criterion",
+          "Resultary:2026/10/11/SCOPE-sharp-scalar-defect-thresholds-on-ell-p-sums--95939122362e",
+          "search weighted p-norm difference convexity unequal diagonal Hessian"
+        ]
+      },
+      "rationale": "PASS qualified: Jana–Pal–Roy prior theorem supplies only the equivalence between single-operator dilation and normability; studied examples and later Jana–Pal work do not evaluate the all-positive unequal diagonal weighted-p phase criterion. Published scalar coordinate/band notes cover zero complementary weights, a disjoint parameter regime. Broader positive Lp dilation is a DIFFERENT construction and cannot imply the defect criterion.",
+      "residual_risks": [
+        "Unindexed convexity-of-differences of weighted l_p squared norms could already contain equivalent Hessian bounds.",
+        "Dilation equivalence restricted to Jana–Pal–Roy notion; not arbitrary positive dilation or commuting pairs.",
+        "Finite blocks, p>2, nonnegative strict weights only."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Prior equivalence and several cases, no formula for all-positive unequal diagonal multipliers in read passages.",
+          "evidence": "Theorem7.13 is an iff equivalence, not a positive-multiplier phase diagram.",
+          "identifier_or_url": "https://arxiv.org/html/2407.15112v2",
+          "material_read": "Read primary Theorem 7.13, relevant definitions and Examples 7.18-7.20.",
+          "method": "Open arXiv HTML",
+          "title": "A dilation theoretic approach to Banach spaces",
+          "trigger": "Foundational exact operator-defect equivalence"
+        },
+        {
+          "assessment": "Uses known single-operator condition and additional pair hypotheses; not a new statement of M^p<=m^(p-2).",
+          "evidence": "Examples discuss other contractions, not exhaustive positive multiweight diagonal classification.",
+          "identifier_or_url": "https://arxiv.org/html/2603.26321v2",
+          "material_read": "Read Introduction, Theorem1.2, Examples2.6-2.7 and related setup.",
+          "method": "Open arXiv HTML",
+          "title": "On a minimal Andô dilation for a pair of strict contractions",
+          "trigger": "Recent same defect norm setting"
+        },
+        {
+          "assessment": "Only one active scalar band with a zero complementary multiplier.",
+          "evidence": "p>2 positive scalar lambda with zero complement fails, matching current zero-block obstruction.",
+          "identifier_or_url": "https://github.com/Resultary/2026/tree/main/2026/10/11/SCOPE-sharp-scalar-defect-thresholds-on-ell-p-sums--95939122362e",
+          "material_read": "Indexed Resultary statement and original package discussion read.",
+          "method": "Resultary semantic search and precise parameter comparison.",
+          "title": "Sharp scalar-defect thresholds on ell-p-sums",
+          "trigger": "Nearest published special-case classification"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "rationale": "PASS. A sharp non-Hilbert phase boundary and its exact Hessian distortion coefficient for a natural diagonal class answer when a Pythagorean defect is an actual norm. The theorem distinguishes every-positive anisotropic contractions from any nonzero contraction with a zero block and gives a parameter-uniform sharp curvature inequality. This is a mathematically motivated boundary in operator/dilation theory, not a renamed scalar test.",
+      "status": "PASS"
+    }
+  },
+  "checked_sources": [
+    "arxiv:2407.15112v2 full relevant primary",
+    "arxiv:2603.26321v2 full relevant primary",
+    "arxiv:1709.08547 prior dilation framework",
+    "Resultary query Banach space p-sums Pythagorean defect norm diagonal contractions sharp Hessian criterion",
+    "published scalar-band and Lp band-projection notes"
+  ],
+  "disposition": "passed",
+  "limitations": [
+    "The Hessian is only on finite-dimensional strictly positive block magnitudes; no smoothness assumed of Banach blocks.",
+    "No infinite sums, p<=2, negative weights, arbitrary off-diagonal contractions or Ando pair dilations.",
+    "Finite SymPy and sampling do not prove continuum statement."
+  ],
+  "schema_version": 1
+}
