@@ -1,0 +1,118 @@
+{
+  "correctness": {
+    "rationale": "Exhaustiveness is proved by a bijection between de Bruijn cycles rooted at the unique 00000 state and 32-cycle permutations induced by 16-bit truth tables. The finite loop considers all 65,536 tables, and a separately parametrized DFS enumerator yields exactly the same set of 2,048 rooted words. Direct signed cyclic dot products and independently rotated bitset XOR counts agree for every nonzero shift of every word. Exact table assertions include all 20 positive cells, the other ten zero cells, margins and known independent controls. The verifier ran and returned VERIFY_OK. Scope is strictly finite order five.",
+    "status": "PASS"
+  },
+  "independent": false,
+  "independent_audit_status": "not_performed",
+  "originality": {
+    "broader_coverage": {
+      "evidence": [
+        "Spinsante et al. examine all 2,048 order-five sequences, publish averaged correlation data and 12/784 codes at absolute sidelobe thresholds 4/8.",
+        "Fujisaki–Nabeshima prove general lower bounds for orders n≥3 and enumerate worst and second-worst characteristics for orders n≤6."
+      ],
+      "reasoning": "Coverage of all input cycles in a source is not coverage of all possible derived statistics. Neither full inspected source reports or determines all twenty nonempty joint cells. The general-order bound does not force the table multiplicities.",
+      "searches": [
+        "binary de Bruijn sequences autocorrelation n=5 all 2048 sequences complete distribution",
+        "Exact joint distribution of the minimum and maximum nonzero periodic autocorrelation sidelobes among the 2048 binary order-five de Bruijn cycles.",
+        "https://link.springer.com/article/10.1186/1687-1499-2011-4"
+      ]
+    },
+    "checked_sources": [
+      "https://doi.org/10.1186/1687-1499-2011-4",
+      "https://doi.org/10.1587/nolta.2.400",
+      "https://en.wikipedia.org/wiki/De_Bruijn_sequence"
+    ],
+    "claim_vs_prior_implication": {
+      "evidence": [
+        "The new cell (\\(m=-8,p=0\\)) has multiplicity 4; the former published aggregate thresholds do not isolate it.",
+        "The new table simultaneously gives 20 nonzero cells, ten impossible cells, and all 11 nontrivial marginal totals, whereas each inspected paper provides a small selection of these summaries."
+      ],
+      "reasoning": "The new claim implies the reported n=5 prior marginal counts, while the converse implication fails because those aggregate counts leave the joint entries undetermined. Cross-join graph and discrepancy results concern mathematically different invariants and do not imply this result.",
+      "searches": [
+        "Exact joint distribution of the minimum and maximum nonzero periodic autocorrelation sidelobes among the 2048 binary order-five de Bruijn cycles.",
+        "\"de Bruijn\" \"minimum\" \"maximum\" \"autocorrelation\" \"order five\" distribution",
+        "\"de Bruijn\" \"autocorrelation\" \"joint distribution\" \"order 5\""
+      ]
+    },
+    "equivalent_formulations": {
+      "evidence": [
+        "Spinsante et al. (2011), Binary De Bruijn sequences for DS-CDMA systems, auto- and cross-correlation section: offpeak correlation is exactly the same cyclic dot product.",
+        "Fujisaki–Nabeshima (2011), Sections 2–4: the normalized correlation is our integer R(t)/32; the r_min and rhat_max parameters are exactly \\(m/32\\) and \\(p/32\\)."
+      ],
+      "reasoning": "Alternative terminology includes out-of-phase autocorrelation, periodic peak sidelobe and cyclic Hamming distance. Their conversion is the exact identity \\(R_W(t)=32-2d_H(W,\\operatorname{rot}_t W)\\). Both close papers measure these equivalent invariants but give marginal or selected level counts, not the joint matrix.",
+      "searches": [
+        "\"de Bruijn\" \"autocorrelation\" \"joint distribution\" \"order 5\"",
+        "\"de Bruijn sequences\" \"autocorrelation\" \"2048\" \"minimum\" \"maximum\"",
+        "binary de Bruijn sequences autocorrelation spectrum Hamming distance shifts enumerating de Bruijn order 5",
+        "https://doi.org/10.1186/1687-1499-2011-4",
+        "https://doi.org/10.1587/nolta.2.400"
+      ]
+    },
+    "exact_database_or_table": {
+      "evidence": [
+        "Spinsante et al. (2011) Table 3: 12 sequences with absolute sidelobe at most 4, 784 at most 8.",
+        "Fujisaki–Nabeshima (2011) Table I: m=-24 has 12 order-five sequences; p=16 has 36; Table II: m=-20 has 88.",
+        "Classical binary de Bruijn cycle count at order five is 2,048."
+      ],
+      "reasoning": "These exact external data are independent controls recovered by aggregating the proposed full table. They are strictly coarser observations: many different 20-cell contingency matrices have the same given marginals and threshold totals.",
+      "searches": [
+        "\"de Bruijn\" \"autocorrelation sidelobe\" \"2048\" joint",
+        "all de Bruijn sequences n5 autocorrelation peak sidelobes table count -24 -20 -16 -12",
+        "OEIS A016031 de Bruijn number n=5 2048",
+        "Spinsante Andrenacci Gambi 2011 Table 3 12 784",
+        "Fujisaki Nabeshima 2011 Tables I II"
+      ]
+    },
+    "rationale": "The claim is the complete simultaneous (minimum negative, maximum positive) out-of-phase periodic-autocorrelation distribution of all 2,048 binary order-five de Bruijn cycles. Spinsante et al. (2011) give the 12- and 784-member absolute-peak subfamilies, and Fujisaki–Nabeshima (2011) report extremal and runner-up separate sidelobes at this order. Those prior results are recovered as strict aggregate controls but do not imply the joint table. The inspected full primary materials contain no complete contingency distribution; focused semantic and bibliographic searches yielded no exact equivalent. This is qualified scientific originality, not independent priority certification.",
+    "residual_risks": [
+      "An unindexed or inaccessible earlier computational table could independently give the same full joint distribution.",
+      "A search did surface a PDF describing modified de Bruijn autocorrelation catalogs, but it was not accessible for full-text comparison and its modified sequences have a different period. This is a limited historical-priority uncertainty, not evidence that the present 32-period joint distribution was published.",
+      "Independent mathematical audit and independent historical-priority validation have not been performed."
+    ],
+    "source_inspections": [
+      {
+        "assessment": "SAME OBJECT and correlation; reports 12/784 threshold counts, mean profile and coding comparisons but no full joint extrema table",
+        "evidence": [
+          "Published 2011-06-06; article section on auto- and cross-correlation states the 12-member and 784-member subsets at thresholds 4 and 8."
+        ],
+        "identifier_or_url": "https://link.springer.com/article/10.1186/1687-1499-2011-4",
+        "material_read": "Full accessible HTML: abstract, introduction, Binary De Bruijn Sequences and their Correlation Properties, Evaluation of Binary De Bruijn Sequences, Table 3 discussion, and Conclusion",
+        "method": "Read primary OA article text and compared its actual statistics and equations to each marginal and joint aspect of the new claim",
+        "title": "Binary De Bruijn sequences for DS-CDMA systems: analysis and results",
+        "trigger": "Exhaustive 2,048-cycle autocorrelation study and published coding threshold counts"
+      },
+      {
+        "assessment": "SAME INVARIANT with broader-order extremal bounds and some exact n=5 margins, but does not give the complete joint distribution",
+        "evidence": [
+          "Published 2011-10-01; Table I has order-five minimum -0.75 and peak-positive 0.5; Table II lists second-negative extreme -0.625."
+        ],
+        "identifier_or_url": "https://www.jstage.jst.go.jp/article/nolta/2/4/2_4_400/_pdf/-char/en",
+        "material_read": "Full relevant Sections 1–5, definitions, Theorem 4, experimental results and Tables I–II, Appendix A context; visually inspected PDF pages containing Tables I–II and appendix",
+        "method": "Read the primary full PDF text, inspected actual page screenshots, compared normalized m and p values and listed counts with proposed table margins",
+        "title": "On auto-correlation values of de Bruijn sequences",
+        "trigger": "General bounds and detailed order-five worst and second-worst autocorrelation tables"
+      },
+      {
+        "assessment": "Supports classical universe size only, not the joint extrema spectrum",
+        "evidence": [
+          "Binary order-five de Bruijn cycle count is 2,048."
+        ],
+        "identifier_or_url": "https://en.wikipedia.org/wiki/De_Bruijn_sequence",
+        "material_read": "Definition and binary de Bruijn enumeration formula through order five",
+        "method": "Read background reference and compared the established total 2,048 with the independent two-construction certificate",
+        "title": "Classical de Bruijn sequence enumeration",
+        "trigger": "Check total order-five cyclic count, normalization and rotation convention"
+      }
+    ],
+    "status": "PASS"
+  },
+  "review_type": "self_review",
+  "schema_version": 1,
+  "scope_run_id": "fbccdf7a-6f59-4d1d-8e6a-19b15be95c72",
+  "self_review_status": "passed",
+  "value": {
+    "rationale": "Two 2011 studies explicitly motivate sequence selection by periodic autocorrelation, while their published extremal levels and small absolute-threshold subfamilies leave the full two-sided distribution unknown from those statements. The natural joint invariant answers every simultaneous low-negative/low-positive sidelobe constraint at the first nontrivial 2,048-cycle benchmark, determines the feasible range of pair types, and identifies four cycles with no positive offpeak correlation. It is a complete exact distribution, not just a slight improvement in a known bound or an arbitrary unmotivated slice.",
+    "status": "PASS"
+  }
+}

@@ -1,0 +1,15 @@
+# Scientific review of the exact order-five joint autocorrelation spectrum
+
+## Correctness — PASS
+A de Bruijn cycle's five-bit window successor is a 32-cycle, so for each common four-bit suffix the two predecessor bits necessarily give complementary appended bits. Thus all possible cycles are covered by the 65,536 Boolean truth tables in the exact feedback representation \(T_g(bu)=u(b\oplus g(u))\), with one canonical root at the unique occurrence of `00000`. The complete code checks the 32-cycle condition and separately enumerates all cyclic words by an independent forbidden-repeat DFS. Both produce exactly 2,048 identical canonical words. Two independent exact integer autocorrelation calculations agree for each shift and every word; all 20 occupied table cells, all 10 zero cells, and all margins are asserted against the reported table. The packaged verifier was executed successfully. There is no extrapolation to unseen orders.
+
+## Originality — PASS, with historical-priority risk
+The full Springer open-access text of Spinsante–Andrenacci–Gambi (2011) establishes the order-five count, the 12 optimal-magnitude codes and the 784 threshold-eight codes, and plots the average autocorrelation profile. The full Fujisaki–Nabeshima (2011) paper supplies the worst and second-worst negative extrema and the maximum positive extrema but not the 20-cell joint matrix. These stronger-relevance primary results were compared at the level of implications: summing certain cells recovers their exact prior counts, but knowing those sums does not determine the joint matrix or the zero-cell structure. Targeted comparisons with available publications and mathematical tables found no exact predecessor to the complete joint table; this negative evidence is not a proof of historical priority. A historical report with an unindexed equivalent table may exist; independent priority checking remains necessary.
+
+## Value — PASS
+Order-five binary de Bruijn cycles are a fully enumerable benchmark for communication pseudorandomness. The earlier authors specifically motivate correlation-based sequence selection, but separate extreme levels and selected absolute-threshold counts do not reveal the two-sided tradeoff. The complete \((m,p)\) contingency distribution gives an exact count for every simultaneous negative- and positive-sidelobe constraint, reveals all possible pair types and shows precisely how many cycles have no positive sidelobes. This is a motivated complete classification of a natural joint invariant, not a routine recalculation of just the previously published 12- and 784-element subsets.
+
+## Limits and closest literature
+There is no claim of a general-order theorem or of new communications performance. The two primary papers provide partial but genuinely overlapping results and are credited explicitly. An older historical catalogue of *modified* de Bruijn autocorrelations has different period and must not be confused with the period-32 population. No independent audit has taken place.
+
+Self-review: passed. Independent audit: not yet performed.
