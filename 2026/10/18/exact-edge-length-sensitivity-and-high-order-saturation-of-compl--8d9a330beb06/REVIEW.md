@@ -1,19 +1,21 @@
-# Scientific review
+# Independent mathematical audit
 
-## Correctness — PASS
+## correctness
 
-The graph-metric assumptions ensure the selected edge is a genuine length parameter for \(1\le h<3\) and redundant at \(h=3\). A determinant-one transformation to the variable \(t\) and two labeled coordinate cubes preserves anchored volume. Differentiation of the moving slab produces equal boundary cross sections, and a beta integral evaluates them exactly for all admissible real \(h\). A separate range-density argument establishes the previously known complete-bipartite baseline. Integration supplies the theorem, sharp boundary order and fixed-size extremal statement. Exact lattice enumeration independently confirmed 33 integer-height and six rational-height instances in 39 configurations; the theorem does not rely on finite extrapolation.
+PASS
 
-## Originality — PASS, residual bibliographic risk
+For p,q≥2,d=p+q-1,h∈[1,3], the graph shortest-path metric gives cross edges 1 except a_1b_1=h, with a three-hop alternative at h=3. The determinant-one change t=f(b_1),u_i=f(a_{i+1})−t,v_j=f(b_{j+1}) reduces the entire anchored ball to coordinate cubes and |t+u_i−v_j|≤1,|t|≤h. Differentiation at ±h is justified by Fubini/slab sections and sign symmetry. For h≥1 the upper inequalities lead to min v−max u≥h−1, and integration of the u maximum gives S(h)=(p−1)!(q−1)!/(d−1)!·(3−h)^{d−1}. Thus V′(h)=2S(h). The h=1 baseline follows from range density p(p−1)r^{p−2} and beta integral, V(1)=2^d p!q!/d!. Integrating proves the displayed V(h), its strict growth, h=3 redundant-edge ratio, derivative vanishing through order d−1 and nonzero dth derivative, with fixed-n pq comparison. Independently enumerated 12 rational/integer Ehrhart cases directly from original anchored inequalities and four symbolic derivative examples. Finite tests corroborate but do not replace the all-parameter analytic proof.
 
-The undeformed complete-bipartite volume is known and is not claimed as a discovery. The all-real-weight volume profile for a **single** variable cross edge and the exact order of flatness at its redundant length are not consequences of that baseline, the known matching-deletion facet profile, full-part metric changes, or primal h-star computations. Inspected accessible full primary text in Alexander–Fradelizi–García-Lirola–Zvavitch (arXiv:1911.10642), Aliaga (arXiv:2102.01219), and relevant sections in Higashitani–Jochemko–Michałek (arXiv:1807.07678). The closest indexed signed-chain volume result was read in full and has a different graph and an extra rooted coordinate. Focused indexed mathematical-record searches found no covering result. A differently phrased or unindexed predecessor remains possible; some relevant indexed records were summaries rather than full documents.
+## originality
 
-## Mathematical value — PASS
+PASS
 
-This is a complete explicit response law for a natural finite-metric Banach dual norm ball as one edge constraint weakens and becomes redundant. The fact that the resulting volume deficit vanishes to the \(d\)-th power in dimension \(d\), while the final relative increase depends on graph class sizes only through \(pq\), is a meaningful structural geometric sensitivity result. The statement covers all sizes and real weights, not a routine enumeration of isolated examples.
+Qualified best-of-knowledge novelty: the known h=1 complete-bipartite baseline is not claimed new. Primary full-text and Resultary comparisons cover the same polar Banach object, primal symmetric-edge lattice invariants, generic Lipschitz-polytope faces, a related rooted two-level signed-chain volume, and the all-within-part snowflake facet count. None of the inspected theorems supplies or is shown to imply the explicit one-distinguished-cross-edge volume for all real h∈[1,3] and its sharp (3-h)^d saturation. Earlier synonymous weighted-polar formulas or general volume-spline theorems may exist.
 
-## Scope and independence
+## value
 
-The claim concerns ordinary anchored-coordinate Lebesgue volume; zero-sum Euclidean and primal symmetric-edge volumes use different normalization/invariants. No simultaneous multiple-edge perturbation is proved. Bibliographic coverage is non-exhaustive, and an independent scientific audit has not occurred.
+PASS
 
-Self-review: passed. Independent audit: not yet performed.
+The object and invariant are intrinsically motivated: quantitative Lebesgue-volume response of a finite-metric Lipschitz dual unit ball as a single cross-edge constraint weakens and becomes redundant. The exact all-p,q and all-real-h law determines a sharp d-th order contact at edge deletion and a nontrivial relative gain 2/(pq), distinguishing balanced from unbalanced bicliques. This is not a routine substitution into the known undeformed volume or merely a tiny finite enumeration, and serves as a precise benchmark for metric/polytope perturbation geometry.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

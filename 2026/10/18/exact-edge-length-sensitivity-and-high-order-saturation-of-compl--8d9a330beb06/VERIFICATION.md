@@ -5,8 +5,11 @@
     "status": "not_performed"
   },
   "independent_audit": {
-    "evidence": null,
-    "status": "not_performed"
+    "status": "passed",
+    "evidence": [
+      "INDEPENDENT_AUDIT_2026-10-29.md",
+      "INDEPENDENT_AUDIT_2026-10-29.json"
+    ]
   },
   "lean_verification": {
     "evidence": null,
@@ -16,12 +19,24 @@
 }
 ---
 
-# Verification
+# Independent mathematical audit
 
-The analytical argument appears in `RESULT.md` and proves the full result for every integer \(p,q\ge2\) and real \(h\in[1,3]\). The separate standard-library Python file `verify.py` enumerates integer height assignments satisfying the actual weighted graph edge constraints. Grouping integer coordinate vectors by their extreme values allows exact counts without floating-point integration.
+## correctness
 
-For integer \(h\), the \(d\)-th forward difference of Ehrhart counts at dilations \(0\) through \(d\) equals \(d!\) times the volume. The difference-constraint matrix is totally unimodular, so these are integral polytopes. For rational \(h=r/s\), first dilate the convex body by \(s\) and divide its computed volume by \(s^d\). A finite experiment cannot certify all real parameters; it is supplementary to the proof.
+PASS
 
-Executed with `python3 verify.py`: 33 integer-height configurations and six rational-height configurations passed with exact Fraction arithmetic. All rational-height tests used \(h=3/2\) or \(h=5/2\). Selected exact volume checks include \(V_{2,2}(1)=16/3\), \(V_{2,2}(2)=23/3\), \(V_{2,2}(3)=8\), \(V_{3,4}(3/2)=27943/1920\), and \(V_{3,3}(5/2)=1877/160\).
+For p,q≥2,d=p+q-1,h∈[1,3], the graph shortest-path metric gives cross edges 1 except a_1b_1=h, with a three-hop alternative at h=3. The determinant-one change t=f(b_1),u_i=f(a_{i+1})−t,v_j=f(b_{j+1}) reduces the entire anchored ball to coordinate cubes and |t+u_i−v_j|≤1,|t|≤h. Differentiation at ±h is justified by Fubini/slab sections and sign symmetry. For h≥1 the upper inequalities lead to min v−max u≥h−1, and integration of the u maximum gives S(h)=(p−1)!(q−1)!/(d−1)!·(3−h)^{d−1}. Thus V′(h)=2S(h). The h=1 baseline follows from range density p(p−1)r^{p−2} and beta integral, V(1)=2^d p!q!/d!. Integrating proves the displayed V(h), its strict growth, h=3 redundant-edge ratio, derivative vanishing through order d−1 and nonzero dth derivative, with fixed-n pq comparison. Independently enumerated 12 rational/integer Ehrhart cases directly from original anchored inequalities and four symbolic derivative examples. Finite tests corroborate but do not replace the all-parameter analytic proof.
 
-The exact formula's basis-dependent anchored volume normalization and restriction to a single varying cross edge are essential. Independent scientific audit: not performed.
+## originality
+
+PASS
+
+Qualified best-of-knowledge novelty: the known h=1 complete-bipartite baseline is not claimed new. Primary full-text and Resultary comparisons cover the same polar Banach object, primal symmetric-edge lattice invariants, generic Lipschitz-polytope faces, a related rooted two-level signed-chain volume, and the all-within-part snowflake facet count. None of the inspected theorems supplies or is shown to imply the explicit one-distinguished-cross-edge volume for all real h∈[1,3] and its sharp (3-h)^d saturation. Earlier synonymous weighted-polar formulas or general volume-spline theorems may exist.
+
+## value
+
+PASS
+
+The object and invariant are intrinsically motivated: quantitative Lebesgue-volume response of a finite-metric Lipschitz dual unit ball as a single cross-edge constraint weakens and becomes redundant. The exact all-p,q and all-real-h law determines a sharp d-th order contact at edge deletion and a nontrivial relative gain 2/(pq), distinguishing balanced from unbalanced bicliques. This is not a routine substitution into the known undeformed volume or merely a tiny finite enumeration, and serves as a precise benchmark for metric/polytope perturbation geometry.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
