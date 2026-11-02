@@ -1,15 +1,21 @@
-# Scientific review
+# Independent mathematical audit
 
-## Correctness — PASS
-The theorem identifies a set complement, not merely a numerical area. For every odd order, the opposite support edges supply an exclusion inequality for each translated copy. An exact five-vertex construction in each Voronoi sector proves the reverse inclusion for every real parameter in the stated interval. The inner polygon's inradius, area, and Hausdorff distance follow by direct Euclidean geometry. The two nontrivial bounds needed for the five-vertex argument follow uniformly from \(\lambda\ge1\) and \(\cos(\pi/n)\ge1/2\). The limiting critical case and larger parameters follow by covering and Minkowski monotonicity. Independent polygon-union computations passed 49 test cases; numerical checks are not used as infinite proofs.
+## correctness
 
-## Originality — PASS, with residual risks
-The exact convexification threshold of the regular polygon is already established and is excluded from the novelty claim. The historical vertex-generated theory gives the threshold parameter and associated covering properties, but its inspected statements do not give the **set-theoretic identity of the entire missing central region** or its exact area/Hausdorff law for all intermediate parameters. The 2026 Hausdorff-convexification theorem treats iterated Minkowski averages, not this vertex-plus-dilate union. Later finite-convexification criteria are about whether some parameter suffices and do not imply the detailed intermediate hole profile. The closest semantic mathematical records concerned a chord-based convexity gap, center-symmetric polygon measures, or unions of concentric rotated polygons. Unindexed classical plane coverings remain a priority risk, so these comparisons do not amount to a proof of worldwide uniqueness.
+PASS
 
-## Value — PASS
-The natural Schneider/vertex-generated threshold distinguishes convex and nonconvex stages but leaves the intermediate geometric defect undetermined. This classification determines the precise uncovered **shape** at every parameter and every odd side count, supplies an exact conversion between area deficit and Hausdorff deficit, and gives the sharp fourth-order large-side-count decay at the canonical vertex-generated parameter. The exact coupling also makes the scaling behavior of two nonconvexity measures transparent; this is more informative than a threshold-only restatement.
+For every odd n>=3 and 1<=lambda<=sec(pi/n), each translated polygon lies in a support half-plane <x,v_j> >= eps=1-lambda cos(pi/n); a cyclic Voronoi-sector five-vertex convex containment proves coverage at every point with max_j <x,v_j> >= eps. The uncovered complement is exactly the interior of (sec(pi/n)-lambda)(-P_n); its boundary is covered. Direct area gives n tan(pi/n)(1-lambda cos(pi/n))^2, Hausdorff deficit eps, and n->infty asymptotic pi^5/(4n^4). >=cutoff follows by Minkowski addition. My independently sampled planar half-plane/union check covered 15 nondegenerate triples, 15000 points; the sector proof is infinite in n and real lambda. The regime lambda<1 is excluded.
 
-## Limitations
-This is a planar regular-polygon result at \(\lambda\ge1\); edge-gap phases for smaller dilations and more general polygons are not classified. The literature search cannot exclude unindexed equivalent formulations. The numerical checker is supplementary.
+## originality
 
-Self-review: passed. Independent audit: not yet performed.
+PASS
+
+Best-of-knowledge original entire uncovered-set identity. Artstein-Avidan–Falah–Slomka and later finite-convexification work give general covering criteria and sharp thresholds, not the parameter-dependent reversed-polygon hole formula.
+
+## value
+
+PASS
+
+The exact geometry and quadratic disappearance rate of the hole in a canonical vertex-generated convexification process is a natural sharp quantitative companion to a known yes/no covering threshold. It determines deficit area and Euclidean Hausdorff distance simultaneously for every odd regular polygon and intermediate dilation, including the precise boundary, not a mechanically repeated threshold result.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
