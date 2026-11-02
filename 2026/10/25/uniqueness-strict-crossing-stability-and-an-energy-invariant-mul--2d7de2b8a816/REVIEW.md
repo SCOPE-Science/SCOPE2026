@@ -1,9 +1,21 @@
-# Scientific assessment
+# Independent mathematical audit
 
-**Correctness — PASS.** Sectorwise conservation and divergence are explicit. On every negative level the discontinuity is strictly transverse, both exact saltation determinants are one, and the coarea-area contraction has no interface delta term; hence a disk or annulus between cycles would violate the integrated negative divergence. Published existence makes the uniqueness assertion exact. Within-leaf strict hyperbolicity, the two neutral full-space directions and scaling follow analytically. Exact symbolic replay checks the critical crossing identities; it does not replace the global proof.
+## correctness
 
-**Originality — PASS (with priority uncertainty).** The originating 2023 paper explicitly treats the discontinuous \(q=1\) problem but proves existence, not uniqueness or the saltation-corrected transverse spectrum. The closest published uniqueness result concerns only \(q\ge2\) with a \(C^1\) vector field, and the proof cannot simply be applied at the discontinuity. The 2024 all-integer existence study's publisher preview was read but its full text was inaccessible; an unindexed covering theorem remains possible. Originality means no inspected statement implies the result, not that a database proves global uniqueness of priority.
+PASS
 
-**Value — PASS.** The 2023 existence theorem specifically isolates a genuinely discontinuous prototype. Completing its periodic-orbit multiplicity and bounded-orbit basin while determining how switching affects its stability addresses a natural spectral and geometric gap; the zero saltation defect is a substantive interface check, not a formal parameter substitution. These are exact all-energy conclusions, not a recomputation of the existence certificate. Scope excludes global boundedness and nonnegative levels.
+For q=1 vector field has first integral H=xz−y²/2+x|x|y, preserved in both x signs. H=-h<0 meets x=0 only at y=±sqrt(2h), hence switching is transverse, no sliding and unique crossing flow; gradient H≠0, coordinate w=z+|x|y shows each leaf is cylinder R×S¹. Divergence of vector field equals −|x| sectorwise; at x=0 saltation S=I±4y e_z e_x^T, determinant one and dH invariant. This gives exact coarea-area decay without surface delta. Surface divergence theorem on disk/annulus bounded by cycles yields 0=−∫|x|ω<0, proving at most one cycle; existence from Llibre–Novaes–Valls 2023 Theorem 1 yields exactly one. Periodic derivative μ=exp(−∫|x|dt) strictly in (0,1); two unit Floquet multipliers from time and first integral. Weighted scaling (a x(at),a² y(at),a³ z(at)) maps h→a^4 h and invariant integral μ; bounded omega-limit on cylinder with no equilibria tends to unique cycle by crossing-flow Poincaré–Bendixson. Independent SymPy recomputed sector conserved H, divergence, saltation det and vector mapping; global existence not proved computationally.
 
-Self-review: passed. Independent audit: not yet performed.
+## originality
+
+PASS
+
+Best-of-knowledge PASS for discontinuous q=1 uniqueness, full leafwise bounded-orbit basin and saltation-corrected Floquet multiplier, distinct from published existence and separate smooth q>=2 uniqueness result. Strong risk remains because complete 2024 same-system sequel not obtained; Oxford institutional retrieval was blocked by safety controls and was not bypassed.
+
+## value
+
+PASS
+
+The discontinuity q=1 is the natural parameter boundary omitted by existing smooth uniqueness results; a crossing-corrected coarea proof determines multiplicity, attracting dynamics and energy-invariant transverse Floquet multiplier for every negative level. This is an analytically substantive structural result beyond known existence or a routine substitution.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

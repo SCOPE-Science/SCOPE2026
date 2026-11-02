@@ -1,0 +1,139 @@
+{
+  "audit_date_utc": "2026-10-29",
+  "audited_at_utc": "2026-10-29T16:09:36.547818Z",
+  "axes": {
+    "correctness": {
+      "evidence": [
+        "Actual RESULT.md Git blob 6c41833951696087783088253e8cc9a9f45f42ef and check_chazy_discontinuous.py blob 9850025ecf5a179016c380683d34f1a6aeef9d10 at assigned tree 5f3e17bcd66763e728c1a765d21a590440742103.",
+        "Independent SymPy verification conservation/divergence both signs and saltation shear determinant and field mapping.",
+        "Primary Llibre–Novaes–Valls 2023 arXiv:2307.00087 Theorem 1 and §3.1 supplies existence only."
+      ],
+      "limitations": [
+        "No claim of boundedness for every forward trajectory or attraction between energy levels; no closed numeric μ_*; no q≠1 or nonnegative levels.",
+        "Floquet unit eigenvalues may form Jordan block; stability is leafwise only."
+      ],
+      "rationale": "For q=1 vector field has first integral H=xz−y²/2+x|x|y, preserved in both x signs. H=-h<0 meets x=0 only at y=±sqrt(2h), hence switching is transverse, no sliding and unique crossing flow; gradient H≠0, coordinate w=z+|x|y shows each leaf is cylinder R×S¹. Divergence of vector field equals −|x| sectorwise; at x=0 saltation S=I±4y e_z e_x^T, determinant one and dH invariant. This gives exact coarea-area decay without surface delta. Surface divergence theorem on disk/annulus bounded by cycles yields 0=−∫|x|ω<0, proving at most one cycle; existence from Llibre–Novaes–Valls 2023 Theorem 1 yields exactly one. Periodic derivative μ=exp(−∫|x|dt) strictly in (0,1); two unit Floquet multipliers from time and first integral. Weighted scaling (a x(at),a² y(at),a³ z(at)) maps h→a^4 h and invariant integral μ; bounded omega-limit on cylinder with no equilibria tends to unique cycle by crossing-flow Poincaré–Bendixson. Independent SymPy recomputed sector conserved H, divergence, saltation det and vector mapping; global existence not proved computationally.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "All-q existence is logically weaker than q=1 uniqueness; smooth q>=2 theorem cannot cover q=1 by parameter inclusion."
+        ],
+        "reasoning": "Full 2024 article not inspected; if it includes uniqueness alongside its abstract existence conclusion it could dominate, so the risk is explicitly documented rather than declaring whole-document noncoverage.",
+        "searches": [
+          "Llibre Novaes Valls generalized q integer cylinder existence",
+          "Zhuang Liu Luo 2024 periodic behavior for all positive q",
+          "Resultary q>=2 smooth leafwise uniqueness"
+        ]
+      },
+      "checked_sources": [
+        "Llibre–Novaes–Valls arXiv:2307.00087 Theorem 1/§3.1, full PDF read",
+        "Zhuang–Liu–Luo Chaos 34 (2024) 113106 DOI:10.1063/5.0209050, PubMed abstract only, institutional retrieval safety-blocked",
+        "Resultary published smooth q>=2 uniqueness result"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "A C¹ Liouville argument for q>=2 lacks distributional saltation validation and therefore does not directly imply q=1 result. Published q=1 existence cannot imply uniqueness or hyperbolicity."
+        ],
+        "reasoning": "Novel part is the interface flux/saltation calculation and resulting global uniqueness plus stability; period power-law itself is known from scaling and excluded from novelty.",
+        "searches": [
+          "Resultary q>=2 uniqueness and leafwise attraction source",
+          "Llibre Novaes Valls Theorem 1 existence"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "2023 source proves existence of periodic cylinder; does not state uniqueness or Floquet multiplier in inspected theorem. Published q>=2 uniqueness specifically excludes discontinuous q=1. 2024 abstract is about existence/nonexistence for k=q+1 vs k≠q+1."
+        ],
+        "reasoning": "Equating q=1 with smooth q>=2 by substitution would omit a potentially nontrivial saltation jump; this audit directly checks shear and preserved coarea area.",
+        "searches": [
+          "Llibre Novaes Valls arXiv:2307.00087 Theorem 1 §3.1",
+          "Zhuang Liu Luo 2024 DOI:10.1063/5.0209050",
+          "Resultary uniqueness and leafwise attraction q>=2 published result"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "Related Resultary result q>=2, not q=1; no exact multiplier table for discontinuous q=1 in inspected summary."
+        ],
+        "reasoning": "No finite database of Floquet multipliers is relevant to infinite h family; online statement search did not locate exact q=1 identity, not proof of absence.",
+        "searches": [
+          "Resultary search discontinuous generalized Chazy q=1 uniqueness limit cycle Floquet multiplier saltation crossings",
+          "Published existence arXiv:2307.00087"
+        ]
+      },
+      "rationale": "Best-of-knowledge PASS for discontinuous q=1 uniqueness, full leafwise bounded-orbit basin and saltation-corrected Floquet multiplier, distinct from published existence and separate smooth q>=2 uniqueness result. Strong risk remains because complete 2024 same-system sequel not obtained; Oxford institutional retrieval was blocked by safety controls and was not bypassed.",
+      "residual_risks": [
+        "Complete Zhuang–Liu–Luo 2024 same-system article unavailable; may contain overlapping uniqueness statements.",
+        "Need verify surface divergence/Poincaré–Bendixson regularity across switching for any unforeseen degenerate crossing, although transversality y≠0 on negative levels was checked."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Establishes existence; no uniqueness and Floquet result in material read.",
+          "evidence": [
+            "Theorem 1 existence and Section 3.1 special q=1 case."
+          ],
+          "identifier_or_url": "https://arxiv.org/pdf/2307.00087",
+          "material_read": "Complete 28-page primary PDF opened; Theorem 1 and §3.1 q=1 construction inspected, first-page PDF screenshot checked.",
+          "method": "arXiv PDF text and image",
+          "title": "Existence of a cylinder foliated by periodic orbits in the generalized Chazy differential equation",
+          "trigger": "Same exact discontinuous q=1,k=2 system and invariant cylinder"
+        },
+        {
+          "assessment": "Plausible source; cannot conclude its whole paper lacks q=1 uniqueness. Best-of-knowledge assessment carries explicit residual risk.",
+          "evidence": [
+            "Abstract states existence at k=q+1 and nonexistence at other k, via return maps."
+          ],
+          "identifier_or_url": "https://doi.org/10.1063/5.0209050",
+          "material_read": "PubMed scientific abstract and bibliographic preview only; no full text; arXiv/OA searches unsuccessful and Oxford institutional request blocked by safety tool; no retry or circumvention.",
+          "method": "PubMed abstract plus publisher/OpenAlex bibliographic searches; authorized institutional attempt blocked",
+          "title": "On the periodic behavior of the generalized Chazy differential equation",
+          "trigger": "Same q=1 and higher positive q, later 2024 publication"
+        },
+        {
+          "assessment": "Inapplicable q=1 by hypothesis; this is a materially different discontinuous boundary.",
+          "evidence": [
+            "Explicit range q>=2, q=1 excluded."
+          ],
+          "identifier_or_url": "https://github.com/Resultary/2026/tree/main/2026/10/11/SCOPE-uniqueness-and-leafwise-attraction-of-the-generalized-chazy-peri--027cb0928569",
+          "material_read": "Published title and Resultary summary; source scopes integers q>=2.",
+          "method": "Resultary semantic retrieval",
+          "title": "Uniqueness and leafwise attraction of the generalized Chazy periodic cylinder",
+          "trigger": "Most direct published analogous uniqueness claim"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "checked_sources": [
+        "Llibre–Novaes–Valls arXiv:2307.00087 Theorem 1/§3.1, full PDF read",
+        "Zhuang–Liu–Luo Chaos 34 (2024) 113106 DOI:10.1063/5.0209050, PubMed abstract only, institutional retrieval safety-blocked",
+        "Resultary published smooth q>=2 uniqueness result"
+      ],
+      "rationale": "The discontinuity q=1 is the natural parameter boundary omitted by existing smooth uniqueness results; a crossing-corrected coarea proof determines multiplicity, attracting dynamics and energy-invariant transverse Floquet multiplier for every negative level. This is an analytically substantive structural result beyond known existence or a routine substitution.",
+      "residual_risks": [
+        "Complete Zhuang–Liu–Luo 2024 same-system article unavailable; may contain overlapping uniqueness statements.",
+        "Need verify surface divergence/Poincaré–Bendixson regularity across switching for any unforeseen degenerate crossing, although transversality y≠0 on negative levels was checked."
+      ],
+      "status": "PASS"
+    }
+  },
+  "checked_sources": [
+    "Llibre–Novaes–Valls arXiv:2307.00087 Theorem 1/§3.1, full PDF read",
+    "Zhuang–Liu–Luo Chaos 34 (2024) 113106 DOI:10.1063/5.0209050, PubMed abstract only, institutional retrieval safety-blocked",
+    "Resultary published smooth q>=2 uniqueness result",
+    "2026/10/25/uniqueness-strict-crossing-stability-and-an-energy-invariant-mul--2d7de2b8a816/RESULT.md (frozen Git blob and full proof read)",
+    "2026/10/25/uniqueness-strict-crossing-stability-and-an-energy-invariant-mul--2d7de2b8a816/requirements.txt (frozen package file read)"
+  ],
+  "disposition": "passed",
+  "limitations": [
+    "No claim of boundedness for every forward trajectory or attraction between energy levels; no closed numeric μ_*; no q≠1 or nonnegative levels.",
+    "Floquet unit eigenvalues may form Jordan block; stability is leafwise only."
+  ],
+  "residual_risks": [
+    "Complete Zhuang–Liu–Luo 2024 same-system article unavailable; may contain overlapping uniqueness statements.",
+    "Need verify surface divergence/Poincaré–Bendixson regularity across switching for any unforeseen degenerate crossing, although transversality y≠0 on negative levels was checked."
+  ],
+  "schema_version": 1
+}
