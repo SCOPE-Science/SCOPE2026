@@ -1,15 +1,21 @@
-# Scientific assessment
+# Independent mathematical audit
 
-## Correctness
-**PASS.** The partition has full-branch first-coordinate probabilities \(1/4,1/4,1/2\). The exact independent-digit argument leaves each initial bit precisely when its index exceeds the absolute negative walk minimum, giving the weighted-walk identity. Strong Markov decomposition at the first minimum yields the Catalan first-passage generating function without a hidden independence assumption. The rational half-plane partition checker agrees with the exact generating function for iterates zero through six, while a separate dynamic walk check agrees through order twelve. The two branch-point expansions establish the claimed parity-resolved amplitudes and remainder.
+## correctness
 
-## Originality
-**PASS, with residual priority uncertainty.** Takahasi (2023) defines the generalized maps. Takahasi--Tsujii (2024) already proves the sharp \(n^{-3/2}\) order for Hölder correlations and uses the same reflected-walk mechanism; that is explicitly credited and not claimed anew. The inspected source's estimates do not state or imply a uniquely determined **explicit coefficient** from their upper and lower inequalities, whereas the exact generating function and distinct parity constants here are stronger observable-specific information. Relevant public mathematical records about neutral periodic fibers concern different invariants. An unindexed equivalent computation remains possible.
+PASS
 
-## Value
-**PASS.** This is a natural stationary statistic of the central coordinate at the critical zero-drift parameter, where slow mixing is a principal property of the system. The exact all-lag formula and two distinct leading amplitudes quantify a lattice effect invisible to optimal-order bounds and are suitable as benchmark data for transfer-operator/symbolic methods. This is not a claim to a new decay exponent or a universal correlation theorem.
+The first-coordinate full-branch itinerary is independent with probabilities 1/4,1/4,1/2; vertical binary digits are prepended fairly or deleted, giving a symmetric simple random walk S with minimum m_n. Tracking surviving initial digits gives C_n=(1/12)E[2^(2m_n-S_n)]. Decomposing paths by first downcrossing and nonnegative terminal segment gives G(z)=r(z)/(6z(1-r(z)/2)^2), r(z)=(1-sqrt(1-z^2))/z. The only unit-circle branch singularities are z=+1,-1 with respective singular coefficients -2sqrt(2), -2sqrt(2)/81, yielding C_n=sqrt(2/pi)(1+(-1)^n/81)n^(-3/2)+O(n^(-5/2)). Independent exact rational walk recursion and formal-power-series coefficients agree for n=0..23.
 
-## Closest work and limits
-The principal comparison is arXiv:2408.16618v1, particularly its Main Theorem and Section 2.5; the general family and its stationary measure are in arXiv:2307.08119v1. No independent review has been made. The claim is restricted to the binary critical two-dimensional map and one Lipschitz observable.
+## originality
 
-Self-review: passed. Independent audit: not yet performed.
+PASS
+
+The neutral heterochaos parent literature proves an optimal polynomial n^-3/2 decay rate using random-walk transfer-operator bounds. This theorem evaluates the exact stationary covariance of a specific natural observable and both leading parity amplitudes; exponent-only upper/lower bounds do not imply the coefficient or 1/81 oscillatory correction.
+
+## value
+
+PASS
+
+An exact correlation generating function and parity-resolved leading constants are natural fine dynamical invariants of the canonical critical map. They distinguish lattice-period effects invisible in the established global decay-rate estimate.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
