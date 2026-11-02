@@ -1,0 +1,113 @@
+{
+  "correctness": {
+    "rationale": "The binary hypergeometric law has only the two possibilities j-1,j with probabilities p,q; the corresponding binomial masses are equal exactly. The gamma/Stirling expansion is uniform away from endpoints. An endpoint factorial bound and a strict leading maximizer give global localization, then quartic degeneracy and the next quadratic Stirling term force O(sqrt(n)) imbalance and yield the limiting profile 4x^2/3-8x^4/3 with maxima at ±1/2 and height 1/6. Standard-library checker confirmed 357 rational/probability and high-precision finite identities; finite tests are not used to prove the infinite result.",
+    "status": "PASS"
+  },
+  "independent": false,
+  "independent_audit_status": "not_performed",
+  "originality": {
+    "broader_coverage": {
+      "evidence": [
+        "Johnson et al. Theorem 1.1 explicitly imposes sample size k<=n/2, excluding k=n-1 except at n=2.",
+        "Harremoës–Matúš (2020) Theorems 4.4–4.5 give bounds uniform in color composition and Theorem 5.1 gives leading fixed-fraction asymptotics, not a second-order maximizing composition at k=n-1."
+      ],
+      "reasoning": "The primary broad bounds do not dominate the sought location/second-order value of the supremum in the near-census regime; the exact finite form requires a separate degenerate saddle calculation.",
+      "searches": [
+        "\"Bounds on the information divergence for hypergeometric distributions\" Harremoes Matus arxiv 2020",
+        "arxiv:2404.06632 §§1.1,1.2,2 and Appendix",
+        "arxiv:2002.03002 Theorems 4.4, 4.5, 5.1"
+      ]
+    },
+    "checked_sources": [
+      "https://arxiv.org/abs/2404.06632",
+      "https://www.cambridge.org/core/journals/journal-of-applied-probability/article/relative-entropy-bounds-for-sampling-with-and-without-replacement/F482BC7F5A13776CAD70FC53B9214347",
+      "https://arxiv.org/abs/2002.03002",
+      "https://arxiv.org/abs/1001.2897"
+    ],
+    "claim_vs_prior_implication": {
+      "evidence": [
+        "Theorem 1.1 of arxiv:2404.06632 concerns k<=n/2, while Remark 3–4 compares extreme and balanced composition under k/n tending to a fixed s<1.",
+        "Theorem 5.1 of arxiv:2002.03002 provides the leading divergence at a fixed unsampled fraction r, not the r=1/n second-order maximizer."
+      ],
+      "reasoning": "Neither cited estimate locates maximizing j near n/2 at displacement sqrt(n)/2 when k=n-1 or yields the sharp excess 1/(6n^2). This is the asserted incremental claim; basic distribution formulas and Stirling expansion are standard.",
+      "searches": [
+        "Relative entropy bounds for sampling with and without replacement theorem 1.1 and remarks",
+        "Bounds on the information divergence for hypergeometric distributions theorem 5.1",
+        "hypergeometric multinomial relative entropy draw n-1 out of n composition maximum moderate deviation balance sqrt n"
+      ]
+    },
+    "equivalent_formulations": {
+      "evidence": [
+        "At sample size n-1, the two binomial masses at the only hypergeometric support points both equal binom(n,j)(j/n)^j(1-j/n)^(n-j); this yields the exact binomial-modal-mass minus binary-entropy representation.",
+        "Johnson et al., arxiv:2404.06632, §1.1 defines the divergence but §§1.2–1.3 do not optimize the near-census binary modal expression."
+      ],
+      "reasoning": "Equating the two binomial masses identifies the nearest plausible equivalent formulation. The optimized quartic degeneracy is absent from the inspected primary statements; the basic count identity is not itself claimed as a new prior-free object.",
+      "searches": [
+        "\"relative entropy\" \"sampling without replacement\" \"n-1\" \"maxim\"",
+        "negative log modal binomial probability minus binary entropy off-center maxima imbalance sqrt n asymptotic",
+        "binomial modal probability subtract Bernoulli entropy extremum sqrt n composition"
+      ]
+    },
+    "exact_database_or_table": {
+      "evidence": [
+        "No matching table or record was identified in those searches; this negative evidence is not a proof of novelty.",
+        "The proposed claim holds for every large population size and identifies an asymptotic optimizing scale rather than an isolated finite parameter entry."
+      ],
+      "reasoning": "Finite binomial-probability tables could verify examples but would not by themselves supply the uniform all-size location and 1/6 limit. Searches found no recorded exact table with stronger implied coverage.",
+      "searches": [
+        "hypergeometric multinomial relative entropy n minus 1 draws two-colour urn off-balanced maximizing composition square root n",
+        "sampling without replacement n-1 out of n two colors KL divergence maximum when color proportions half minus 1/(2 sqrt n)",
+        "KL divergence hypergeometric multinomial n-1 maximize urn composition"
+      ]
+    },
+    "rationale": "The 2024 motivating paper defines the count divergence and derives bounds, mostly for k<=n/2, but does not imply the leave-one-out optimizing composition or its square-root location and sharp 1/(6n^2) improvement. The 2020 hypergeometric-divergence bounds cover a related model but not the claim-level optimizer. Searches for the binomial modal-mass equivalent did not identify a covering theorem. Residual historical-priority uncertainty is recorded.",
+    "residual_risks": [
+      "A generic historical theorem on optimizing binomial modal probabilities minus Bernoulli entropy may imply the same near-census asymptotic without sharing terminology.",
+      "Not every older textbook, inaccessible paper, and supplementary table has been exhaustively inspected; independent historical-priority review remains necessary."
+    ],
+    "source_inspections": [
+      {
+        "assessment": "NOT_COVERING for the square-root displacement and sharp correction; exact base divergence and general bounds are prior work",
+        "evidence": [
+          "Theorem 1.1 restricts sample size to k<=n/2; Remark 3 addresses one minority ball at fixed k/n; Remark 4 discusses the fixed-fraction crossover."
+        ],
+        "identifier_or_url": "https://arxiv.org/abs/2404.06632",
+        "material_read": "Full open-access article text, including introduction §1, statements, remarks, main proof and appendix relevant to the sample-fraction restriction",
+        "method": "Read HTML text and searched within the text for near-census sample size, composition optimization and the binary extreme case",
+        "title": "Relative entropy bounds for sampling with and without replacement",
+        "trigger": "Same objects, composition parameter, and count divergence; primary motivating paper"
+      },
+      {
+        "assessment": "NOT_COVERING for the main near-census maximizer",
+        "evidence": [
+          "Theorem 1 states k<=n/2 and the displayed formulas in Remarks 3–4 address other limiting regimes."
+        ],
+        "identifier_or_url": "https://www.cambridge.org/core/journals/journal-of-applied-probability/article/relative-entropy-bounds-for-sampling-with-and-without-replacement/F482BC7F5A13776CAD70FC53B9214347",
+        "material_read": "Introduction, Theorem 1, Remark 3–4, methods and appendices including the k<=n/2 hypothesis",
+        "method": "Read public HTML article text and searched for n-1 and optimizing composition",
+        "title": "Relative entropy bounds for sampling with and without replacement (published version)",
+        "trigger": "Compare version and appendices for possible strengthening of the primary results"
+      },
+      {
+        "assessment": "NOT_COVERING for optimizing binary compositions in the leave-one-out sample, but relevant general count-divergence bounds",
+        "evidence": [
+          "Theorems 4.4–4.5 are uniform composition bounds; Theorem 5.1 gives a leading fixed-unsampled-fraction limit."
+        ],
+        "identifier_or_url": "https://arxiv.org/abs/2002.03002",
+        "material_read": "Journal open-access PDF, introduction and Sections 3–5 including Theorems 4.4, 4.5 and 5.1",
+        "method": "Read PDF text and inspected page images of the introduction and lower-bound theorem",
+        "title": "Bounds on the information divergence for hypergeometric distributions",
+        "trigger": "Earlier general bounds potentially dominating the optimization"
+      }
+    ],
+    "status": "PASS"
+  },
+  "review_type": "self_review",
+  "schema_version": 1,
+  "scope_run_id": "5c28676f-124f-4407-8f08-bbd69fac085a",
+  "self_review_status": "passed",
+  "value": {
+    "rationale": "Composition-dependent KL divergence is central to comparing replacement and without-replacement sampling. In the near-census regime, the leading balanced configuration is quartically degenerate, and the exact competition with the finite-population correction produces a nontrivial, sharp square-root shift and a universal second-order benefit. This is an infinite-family extremal characterization, not an unmotivated numerical slice.",
+    "status": "PASS"
+  }
+}
