@@ -1,0 +1,11 @@
+# Scientific review
+
+**Correctness: PASS.** The decomposition of every one- and two-party approval type into the coordinate functions is exact on the fixed-size integer simplex. Their forward differences \(a_i/(t+1)-b_i/(K-t)\) are nonincreasing. Any local maximum has all selected marginal gains at least all unselected ones, proving universal global optimality, including tied and boundary cases. An exact-rational checker tested 10,852 allocation cases and the four-party published obstruction. Finite checks are corroboration, not a universal proof.
+
+**Originality: PASS (with residual risk).** The 2026 Gölz–Yaghoubizade article was read in the relevant introduction, local-optimality theorem, Appendix B Example B.3/Proposition B.8, and its model-definition appendix. That article already proves four-party local/global separation; that negative example is properly credited as PRIOR and not claimed original. No three-party all-instance implication was found in its relevant material. The open-access full text of Brill et al. was read in the relevant model, global PAV, and local-search sections and gives a different set of results. Targeted mathematical-record and literature searches did not find an equivalent three-party theorem; unindexed statements and straightforward implicit generalizations remain risks.
+
+**Value: PASS.** This is a complete natural structural cutoff of local-search reliability in approval-based apportionment, a model currently studied for its representation and pricing properties. It identifies the entire three-party domain on which every local solution is exact and gives an explicit seat-by-seat global algorithm, with the four-party failure already documented in the motivating paper. The model-specific classification—not elementary discrete concavity itself—is the contribution.
+
+Closest literature: Gölz and Yaghoubizade (2026), Appendix B, Proposition B.8, includes the four-party counterexample; Brill et al. (2024) provide general PAV core stability and local-search guarantees. Limits: the result is restricted to at most three parties and the claimed novelty rests on accessible, relevant sources rather than exhaustive literature coverage.
+
+Self-review: passed. Independent audit: not yet performed.
