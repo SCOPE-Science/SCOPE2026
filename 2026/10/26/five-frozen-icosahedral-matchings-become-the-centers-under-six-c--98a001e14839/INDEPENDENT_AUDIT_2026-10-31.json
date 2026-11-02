@@ -1,0 +1,126 @@
+{
+  "audit_date_utc": "2026-10-31",
+  "audited_at_utc": "2026-10-31T17:44:30Z",
+  "axes": {
+    "correctness": {
+      "checked_sources": [
+        "RESULT.md blob 3deae972851b9693e906012a13038cfd0080c997",
+        "independent_checks.py: complete matching-space enumeration and direct pairwise-symmetric-difference BFS; independent_check_results.json"
+      ],
+      "rationale": "Independently constructed the specified 12-vertex, 30-edge degree-five icosahedral graph and enumerated all 125 perfect matchings recursively. For each unordered pair, symmetric difference has one connected degree-two even alternating cycle exactly when a single legal length-4 or length-6 flip occurs; this yields 300 and 580 transition edges. Exhaustive BFS on the full 125-state graphs gives R4 components (120,1,1,1,1,1), main-component radius 5 and diameter 6; R6 connected with radius 3 and diameter 4. Exactly five R4 isolated matchings are the five R6 eccentricity-3 centers, and all others have eccentricity 4. Legal cycles need not be induced/facial. Exact finite exhaustion supplies proof for this one graph.",
+      "residual_risks": [
+        "Finite graph-specific result only; does not imply analogous connectivity for all 5-regular or triangulated graphs."
+      ],
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Bonamy et al. analyze 4-cycle reachability/complexity and graph classes; Bošković analyzes cycle-length connectivity in decorated graph families."
+        ],
+        "reasoning": "Neither inspected theorem yields the detailed icosahedral length-six metric census, and the latter family assumptions do not automatically identify the icosahedron.",
+        "searches": [
+          "Bonamy et al., The Perfect Matching Reconfiguration Problem, arXiv:1904.06184, https://arxiv.org/pdf/1904.06184",
+          "V. Bošković, Flip dynamics on perfect matchings beyond bipartite and planar graphs, arXiv:2607.16101; publicly accessible full-text study"
+        ]
+      },
+      "checked_sources": [
+        "Bonamy et al., The Perfect Matching Reconfiguration Problem, arXiv:1904.06184, https://arxiv.org/pdf/1904.06184",
+        "V. Bošković, Flip dynamics on perfect matchings beyond bipartite and planar graphs, arXiv:2607.16101; publicly accessible full-text study",
+        "Resultary 2026/10/11/SCOPE-three-torsion-in-the-icosahedral-matching-complex-a-planar-count--28565ad1ea1a",
+        "Resultary search Resultary: icosahedral perfect matching reconfiguration alternating 4 6 cycles isolated radius centers"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "Generic reconfiguration definitions, lower/upper bounds and 125 matching states are prior; none alone computes all 125-by-125 transition predicates."
+        ],
+        "reasoning": "The exact center coincidence and sharp six-cycle connectivity require graph-specific enumeration not implied solely by the cited prior statements.",
+        "searches": [
+          "Bonamy et al., The Perfect Matching Reconfiguration Problem, arXiv:1904.06184, https://arxiv.org/pdf/1904.06184",
+          "V. Bošković, Flip dynamics on perfect matchings beyond bipartite and planar graphs, arXiv:2607.16101; publicly accessible full-text study",
+          "Resultary 2026/10/11/SCOPE-three-torsion-in-the-icosahedral-matching-complex-a-planar-count--28565ad1ea1a"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "General flip adjacency can also be described by symmetric difference being one alternating cycle, irrespective of chords."
+        ],
+        "reasoning": "The graph-specific diameter and center data are not a restatement of an existing general reachability or matching-count theorem.",
+        "searches": [
+          "Resultary: icosahedral perfect matching reconfiguration alternating 4 6 cycles isolated radius centers",
+          "Bonamy et al., The Perfect Matching Reconfiguration Problem, arXiv:1904.06184, https://arxiv.org/pdf/1904.06184"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "Published icosahedral matching complex supplies 125 facets corresponding to perfect matchings, with its homotopy invariant."
+        ],
+        "reasoning": "A matching-complex face count does not encode the symmetric-difference flip edges or distances, so the already-known 125 is background, while 300/580 and centers are a different table.",
+        "searches": [
+          "Resultary 2026/10/11/SCOPE-three-torsion-in-the-icosahedral-matching-complex-a-planar-count--28565ad1ea1a",
+          "Resultary: icosahedral perfect matching reconfiguration alternating 4 6 cycles isolated radius centers"
+        ]
+      },
+      "rationale": "Qualified: exact icosahedral 4/6-length reconfiguration component and eccentricity tables not supplied by the inspected general 4-cycle reconfiguration and decorated-graph flip articles. The total 125 matchings is already published and not credited as new.",
+      "residual_risks": [
+        "An unindexed dedicated icosahedral flip database could already contain identical counts.",
+        "The older 125 perfect-matchings total is not a novel result."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Defines 4-cycle transitions and general results; no icosahedral radius/diameter count identified",
+          "evidence": [
+            "https://arxiv.org/pdf/1904.06184",
+            "Introduction and results"
+          ],
+          "identifier_or_url": "arXiv:1904.06184",
+          "material_read": "Read full 22-page arXiv PDF, definitions, main complexity and tractable-class results; searched for icosahedron and six-cycle eccentricity",
+          "method": "OA PDF text and first-page screenshot",
+          "title": "The Perfect Matching Reconfiguration Problem",
+          "trigger": "Four-cycle matching reconfiguration under exactly the submitted adjacency"
+        },
+        {
+          "assessment": "Related framework but not exact icosahedral six-flip census",
+          "evidence": [
+            "https://www.researchgate.net/publication/410594667_Flip_dynamics_on_perfect_matchings_beyond_bipartite_and_planar_graphs"
+          ],
+          "identifier_or_url": "arXiv:2607.16101",
+          "material_read": "Examined publicly accessible full-text version describing decorated graphs and cycle bounds; searched for icosahedron",
+          "method": "Accessible full article text",
+          "title": "Flip dynamics on perfect matchings beyond bipartite and planar graphs",
+          "trigger": "Potential stronger cycle-length connectivity coverage"
+        },
+        {
+          "assessment": "Contains count 125 as prior background, no flip graph isomorphic or distance assertion",
+          "evidence": [
+            "https://github.com/Resultary/2026/tree/main/2026/10/11/SCOPE-three-torsion-in-the-icosahedral-matching-complex-a-planar-count--28565ad1ea1a"
+          ],
+          "identifier_or_url": "Resultary 2026/10/11/SCOPE-three-torsion-in-the-icosahedral-matching-complex-a-planar-count--28565ad1ea1a",
+          "material_read": "Read Resultary indexed full finding summary and compared objects; a homological matching complex has graph edges as complex vertices",
+          "method": "Resultary semantic result plus referenced publicly available finding",
+          "title": "Three-torsion in the icosahedral matching complex: a planar counterexample",
+          "trigger": "Same concrete icosahedral graph and matching count"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "checked_sources": [
+        "Bonamy et al., The Perfect Matching Reconfiguration Problem, arXiv:1904.06184, https://arxiv.org/pdf/1904.06184",
+        "Independently exhaustive 125-state flip graph census"
+      ],
+      "rationale": "Exactly resolves a natural finite combinatorial-state reachability problem for the highly symmetric icosahedron: length-four flips have five frozen matchings, length-six flips connect everything and make those same states optimally central. The full metric and coincidence have intrinsic structural interest beyond merely re-counting the 125 matchings.",
+      "residual_risks": [
+        "The conclusion is an exact self-contained finite finding; no broader family theorem or induced/facial-cycle result is asserted."
+      ],
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "final_claim": "For perfect matchings of the icosahedron, 4-flip graph has 300 edges and components (120,1^5); 6-flip graph has 580 edges, radius 3 and diameter 4, with the five 4-flip isolated matchings exactly the 6-flip centers.",
+  "limitations": [
+    "Chords of legal alternating cycles allowed; not facial resonance.",
+    "The 125 matching count is credited prior work."
+  ],
+  "schema_version": 1
+}

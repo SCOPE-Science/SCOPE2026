@@ -5,8 +5,11 @@
     "status": "not_performed"
   },
   "independent_audit": {
-    "evidence": null,
-    "status": "not_performed"
+    "status": "passed",
+    "evidence": [
+      "INDEPENDENT_AUDIT_2026-10-31.md",
+      "INDEPENDENT_AUDIT_2026-10-31.json"
+    ]
   },
   "lean_verification": {
     "evidence": null,
@@ -16,10 +19,24 @@
 }
 ---
 
-# Finite exact verification record
+# Independent mathematical audit
 
-The graph is the twelve-vertex two-pentagon model defined in `RESULT.md`. The two reproducible programs `verify_pairs.py` and `verify_cycles.py` use only Python 3 standard-library modules. They were executed from the package, and their compact JSON summary lines agree byte-for-byte. Their second lines are `ICOSAHEDRON_PAIRS_PASS` and `ICOSAHEDRON_CYCLES_PASS`, respectively.
+## correctness
 
-`verify_pairs.py` recursively enumerates all complete vertex pairings along graph edges, tests the symmetric difference of each pair of distinct perfect matchings for exactly one alternating cycle, and breadth-first searches the resulting flip graphs. `verify_cycles.py` instead tests every six-element subset of the thirty graph edges, generates each short simple cycle, explicitly flips alternating edge parities, and repeats component and distance computations. Both independently certify the same three canonical SHA-256 digests of the complete matching, four-flip, and six-flip edge listings stored in the package.
+PASS
 
-The exhaustive conclusions are 125 perfect matchings, 300 four-flip edges, a 120-vertex four-flip component and five isolated states, 580 six-flip edges, connected six-flip graph of radius three and diameter four, and exactly five six-flip centers equal to those five isolated four-flip states. The four-flip large component has radius five and diameter six. The fixed labeled graph and the cycle-length restrictions are essential; graph-specific enumeration does not prove a general graph-family theorem. No independent external audit is asserted.
+Independently constructed the specified 12-vertex, 30-edge degree-five icosahedral graph and enumerated all 125 perfect matchings recursively. For each unordered pair, symmetric difference has one connected degree-two even alternating cycle exactly when a single legal length-4 or length-6 flip occurs; this yields 300 and 580 transition edges. Exhaustive BFS on the full 125-state graphs gives R4 components (120,1,1,1,1,1), main-component radius 5 and diameter 6; R6 connected with radius 3 and diameter 4. Exactly five R4 isolated matchings are the five R6 eccentricity-3 centers, and all others have eccentricity 4. Legal cycles need not be induced/facial. Exact finite exhaustion supplies proof for this one graph.
+
+## originality
+
+PASS
+
+Qualified: exact icosahedral 4/6-length reconfiguration component and eccentricity tables not supplied by the inspected general 4-cycle reconfiguration and decorated-graph flip articles. The total 125 matchings is already published and not credited as new.
+
+## value
+
+PASS
+
+Exactly resolves a natural finite combinatorial-state reachability problem for the highly symmetric icosahedron: length-four flips have five frozen matchings, length-six flips connect everything and make those same states optimally central. The full metric and coincidence have intrinsic structural interest beyond merely re-counting the 125 matchings.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
