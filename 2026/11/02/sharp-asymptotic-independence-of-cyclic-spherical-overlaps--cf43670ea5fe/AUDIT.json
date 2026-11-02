@@ -1,0 +1,122 @@
+{
+  "correctness": {
+    "rationale": "Spherical-harmonic addition and projection trace give the exact all-degree mixed cycle moments. Summability of the Gegenbauer product coefficients for d>=3,m>=4 yields an L2 density; polynomial density uniquely identifies the corresponding positive measure and proves the exact chi-square formula. The degree-one leading term and an L2 bound on higher degrees produce sharp total variation. A gamma-ratio recurrence and two parity base cases prove a_d*sqrt(D2)>1 for every d>=3. The Haar-qubit Bloch substitution is bijective. Bundled finite checker replay passed 9,782 assertions, which supplement rather than replace these infinite proofs.",
+    "status": "PASS"
+  },
+  "independent": false,
+  "independent_audit_status": "not_performed",
+  "originality": {
+    "broader_coverage": {
+      "evidence": [
+        "Huang and Li, arxiv:2610.12765v1, Section 1.1: edges in any forest have the same joint indicator distribution as independent edges; Section 2.1 uses Tr(T_kappa^ell) for cycle-count expectations.",
+        "Jones and Potechin, arxiv:2107.00216, Sections 1 and 3, establish graph-structured spherical inner-product polynomial bases and moment/cycle combinatorics, but not a sharp L1 TV norm.",
+        "Exact Gegenbauer trace formula in RESULT.md supplies an explicit complete joint density and its leading L1 norm at fixed d, an additional step not supplied by those quoted graph-test statements."
+      ],
+      "reasoning": "Standard zonal kernel traces and spherical polynomials overlap the proof mechanism, and may in principle imply the spectral expansion. The comparison is at the level of full joint distributions and norm constants, not keywords. The source results inspected neither state nor analyze the long-cycle fixed-dimensional sharp total-variation coefficient; implicit broader coverage remains a stated priority risk.",
+      "searches": [
+        "random geometric graph forest edge independence cycle harmonic trace exact joint distribution fixed dimension",
+        "random spherical inner products along cycle joint density Gegenbauer polynomial cycle edge distribution independent",
+        "Jones Potechin inner product polynomials sphere cycle asymptotic orthogonal joint density",
+        "arxiv:2610.12765v1 Sections 1-2; arxiv:2107.00216 spherical polynomial setting"
+      ]
+    },
+    "checked_sources": [
+      "Zhang, arxiv:2610.25196v1, 2026-10-18, sections 6.4-6.9",
+      "Huang and Li, arxiv:2610.12765v1, 2026-10-08, sections 1-2",
+      "Jones and Potechin, arxiv:2107.00216, 2021-07-01; ITCS 2022 DOI:10.4230/LIPIcs.ITCS.2022.89, sections 1 and 3"
+    ],
+    "claim_vs_prior_implication": {
+      "evidence": [
+        "Full-text source inspection: Zhang Theorems 6.7, 6.10, 6.11 address cyclic-product moments, limiting logs and density recursion of the aggregate complex invariant.",
+        "Full-text source inspection: Huang–Li Section 2 has trace-based cycle test moments, not a joint fidelity total-variation limit as cycle length increases.",
+        "Full-text source inspection: Jones–Potechin spherical Section 3 treats polynomial bases and graphical moment formulas, rather than the explicitly reconstructed L2 density and sharp long-cycle L1 rate."
+      ],
+      "reasoning": "A general harmonic trace identity alone does not supply the identification of the full density as an L2 measure or a sharp L1 norm. The current argument completes both. Since some classical transfer spectral statements might imply these deductions under additional work, a historical-priority risk is retained rather than declaring a database-proof of uniqueness.",
+      "searches": [
+        "Almost-Orthogonal Bases for Inner Product Polynomials Jones Potechin cycles moments orthogonal edges Gegenbauer 2021",
+        "random geometric graph cycle total variation fixed dimension length",
+        "arxiv:2610.25196v1 Theorem 6.7 6.10 6.11",
+        "arxiv:2610.12765v1 Section 2 spherical kernel cycle traces"
+      ]
+    },
+    "equivalent_formulations": {
+      "evidence": [
+        "Zhang, arxiv:2610.25196v1, Theorem 6.7: E|Delta_m|^2=2^{-m}+3*6^{-m} for qubits; Theorem 6.10 is a log-modulus CLT.",
+        "RESULT.md derives the same product-fidelity moment from the joint density but additionally determines all Gegenbauer moments and sharp TV."
+      ],
+      "reasoning": "The complex cyclic Bargmann product contains one aggregate of the separate overlap factors, while the current result concerns their entire real joint law. Equality of the single checked moment or even a one-complex-variable product law cannot imply the full joint vector law or its TV distance to independent marginals.",
+      "searches": [
+        "iid Haar qubits cycle adjacent fidelity overlap magnitudes total variation to independent uniform distribution sharp 3/2^{n+1} Legendre",
+        "cyclic random Bloch vectors adjacent inner products sharp total variation independence asymptotics",
+        "random quantum state Bargmann cyclic modulus squared overlap joint density of all edge fidelities",
+        "arxiv:2610.25196v1 Sections 6.5-6.9"
+      ]
+    },
+    "exact_database_or_table": {
+      "evidence": [
+        "Zhang, arxiv:2610.25196v1, Table 3 tabulates moments and Monte Carlo estimates of a three-state Bargmann invariant; it is not a tabulation of all edge-variable joint TV.",
+        "Scientific mathematical-record searches for Gegenbauer joint cycle density and qubit-fidelity TV returned no exact theorem/table match; absence is not proof of priority."
+      ],
+      "reasoning": "The new result is a uniform-in-length exact density expression and fixed-dimensional sharp asymptotic, not a recomputation of a finite tabulated probability. A search miss is treated only as limited evidence; possible unindexed or differently described tables remain a residual risk.",
+      "searches": [
+        "qubit cyclic squared overlap fidelities independent except full cycle sharp total variation 3 over 2 power m",
+        "spherical polygon closed loop independent random directions adjacent dot products n-minus-1 wise independence Legendre density",
+        "cyclic random Bloch vectors adjacent inner products sharp total variation independence asymptotics",
+        "arxiv:2610.25196v1 Table 3 and Theorem 6.7"
+      ]
+    },
+    "rationale": "Zhang 2026 gives Bargmann cyclic product moments, a sampler, and log-modulus limit, but no joint density or sharp fixed-dimensional total-variation norm of all edge fidelities. Huang–Li 2026 study Bernoulli random-geometric graph detection as dimension varies, and Jones–Potechin 2021/2022 analyze graph-indexed spherical-polynomial bases. Their inspected results provide relevant general techniques without stating the full fixed-dimensional consecutive-edge density and sharp TV asymptotic. General transfer-operator results may make parts implicit; this residual priority risk is acknowledged.",
+    "residual_risks": [
+      "A stronger classical zonal transfer operator / spherical graph-moment theorem might already imply the full L2 density and possibly the TV leading coefficient without stating identical terms.",
+      "Searches of mathematical records do not establish novelty of an unindexed or difficult-to-access theorem.",
+      "No independent mathematical or historical-priority audit has been performed."
+    ],
+    "source_inspections": [
+      {
+        "assessment": "The product-modulus-square moment matches the proposed joint density projection, but source does not state the full edge-vector law or its sharp TV asymptotic.",
+        "evidence": [
+          "Theorem 6.7: E|Delta_m|^2=d^{-m}+(d^2-1)/(d(d+1))^m.",
+          "Section 6.7 establishes LLN and CLT for log|Delta_m|; Section 6.9 gives density recursion for Delta_m, not all edge fidelities."
+        ],
+        "identifier_or_url": "https://arxiv.org/abs/2610.25196",
+        "material_read": "Open-access complete HTML text, especially Introduction and Sections 6.4-6.9, moments and long cycles.",
+        "method": "Read searchable lawful open-access full-text HTML.",
+        "title": "Exact probability laws of random inner products: Dirichlet splines, overlaps, uncertainty, and Bargmann invariants",
+        "trigger": "Direct source for Haar cyclic Bargmann products; Theorems 6.7 and 6.10 are plausible coverage."
+      },
+      {
+        "assessment": "General kernel-cycle moments are closely related machinery, but focus on Bernoulli graph testing in varying dimension, not fixed-dimensional cycle-edge joint TV asymptotics.",
+        "evidence": [
+          "Section 1.1 explains forest independence for edge indicators.",
+          "Section 2 states Tr(T_kappa^ell) formula for signed cycle expectations and graph-testing detection."
+        ],
+        "identifier_or_url": "https://arxiv.org/abs/2610.12765",
+        "material_read": "Open-access HTML Introduction, graph-testing model, forest independence, and Section 2 signed-cycle trace calculations.",
+        "method": "Read searchable lawful open-access full-text HTML.",
+        "title": "Detecting Random Geometric Graphs with General Kernel",
+        "trigger": "Potential general domination by spherical random-geometric graph operator-trace/cycle theory."
+      },
+      {
+        "assessment": "Graph combinatorial polynomial and moments framework is related; no statement of the full cycle edge joint density or fixed-dimensional sharp TV rate in inspected portions.",
+        "evidence": [
+          "Introduction relates graph moment bases to Gegenbauer polynomials and the topology of inner-product graphs.",
+          "Section 3 Lemma 32 and subsequent lemmas develop spherical moments and polynomial bases."
+        ],
+        "identifier_or_url": "https://doi.org/10.4230/LIPIcs.ITCS.2022.89",
+        "material_read": "Open-access 21-page proceedings version, Introduction and spherical Section 3, with PDF page images of pages 1 and 5 inspected.",
+        "method": "Read searchable proceedings text and visually inspect rendered PDF pages.",
+        "title": "Almost-Orthogonal Bases for Inner Product Polynomials",
+        "trigger": "Relevant primary spherical inner-product polynomial bases and graph-indexed moment theory could dominate a cycle special case."
+      }
+    ],
+    "status": "PASS"
+  },
+  "review_type": "self_review",
+  "schema_version": 1,
+  "scope_run_id": "cf43670e-a5fe-44fe-94e0-4e027f0c596e",
+  "self_review_status": "passed",
+  "value": {
+    "rationale": "It characterizes the full global dependence left after exact independence of all proper cycle-edge subsets. The exact L2 density, chi-square spectrum, and sharp TV coefficient answer a natural random-geometric-graph and quantum-fidelity information question at fixed spatial dimension. The constant and exponential rate cannot be inferred from a one-product mean or finite-order scalar cumulant. The qubit corollary turns the structural result into an interpretable quantitative asymptotic for observable transition fidelities.",
+    "status": "PASS"
+  }
+}
