@@ -1,0 +1,118 @@
+{
+  "audit_date_utc": "2026-10-31",
+  "audited_at_utc": "2026-10-31T14:59:40.653704Z",
+  "axes": {
+    "correctness": {
+      "rationale": "For n≥3 and 0<p<1, Q(t)=pT_n(t)+(1-p)T_{n−2}(t) has Q(±1)≠0. At the n−1 Chebyshev grid the signs alternate for p≠1/2, creating n−2 distinct real roots; polynomial parity excludes more than one nonreal conjugate pair and forces it to ±i sinh(v). Strict monotonicity and endpoint values of cosh(nv)/cosh((n−2)v) (even n) and sinh(nv)/sinh((n−2)v) (odd n) give the sharp p-threshold. For odd n the derivative at 0 settles the intermediate real-root region and the triple collision; p=1/2 factors as tT_{n−1}(t). Because Q(±1)≠0, holomorphic cosine lifting preserves multiplicities and supplies exactly 2n zeros per 2π strip. Taylor expansion establishes stated square-root collision coefficients. Independent exact Sturm isolation covered 33 parameter cases n=3..13, including both parity thresholds; these bounded checks are not the proof.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Stankov arXiv:1311.2230 Theorem 1 (p4) controls roots asymptotically near characteristic-polynomial zeros as n→∞, not every n and parity.",
+          "Al Hamdani–Tran arXiv:2006.11475 concerns a different binomial Chebyshev combination and general bound on off-interval zeros."
+        ],
+        "reasoning": "A fixed-parameter asymptotic localization theorem does not imply the uniform finite-degree n-dependent threshold, exact quartet, and double/triple collisions. A sharper unlocated quasi-orthogonal-polynomial criterion might still imply them.",
+        "searches": [
+          "Resultary published findings semantic query: Exact real-zero threshold p cos(nz)+(1-p) cos((n-2)z), parity, quasi-orthogonal Chebyshev zeros imaginary quartet",
+          "web search: \"T_n\" \"T_{n-2}\" \"zeros\" \"real\" positive coefficients threshold Chebyshev",
+          "primary https://arxiv.org/pdf/1311.2230"
+        ]
+      },
+      "checked_sources": [
+        "Pinned Git RESULT.md e0d6898e4759627a9ae5c952c0cae7d0da05f90b and checker.py f01cadba7c247f4c6eea1b4e39a8108e7a77c330",
+        "Stankov 2013 arXiv:1311.2230 Theorem 1 and Example 3.1",
+        "Al Hamdani–Tran 2020 arXiv:2006.11475 abstract/description",
+        "Published Resultary exact-real-zero and Chebyshev-semantic results (query recorded)",
+        "Independent bounded checks script CHEBYSHEV_EXACT_ROOT_CASES 33"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "Stankov Example 3.1 supplies only p=1/2 exactly; Theorem 1 supplies large-degree location conditional on characteristic roots.",
+          "Current theorem also covers odd p between p_n and 1/2 and all finite n, which asymptotic statement does not resolve."
+        ],
+        "reasoning": "Only the p=1/2 slice and qualitative asymptotic root mechanisms are directly covered; residual risk of stronger uninspected real-rooted-pencil theorem retained.",
+        "searches": [
+          "Resultary published findings semantic query: Exact real-zero threshold p cos(nz)+(1-p) cos((n-2)z), parity, quasi-orthogonal Chebyshev zeros imaginary quartet",
+          "web search: \"T_n\" \"T_{n-2}\" \"zeros\" \"real\" positive coefficients threshold Chebyshev"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Chebyshev identity F(z)=Q(cos z) with Q=pT_n+(1-p)T_(n-2), so all-real Fourier zeros amounts to Q having all roots in (-1,1).",
+          "Stankov 2013 arXiv:1311.2230, Example 3.1, equal-weight Q=tT_(n-1) up to scale."
+        ],
+        "reasoning": "Compared both the original Fourier formulation and the quasi-orthogonal first-kind Chebyshev pencil. The equal-weight case is already known; finite-degree positivity threshold and off-axis quartet are not consequences of this single equal-weight identity.",
+        "searches": [
+          "Resultary published findings semantic query: Exact real-zero threshold p cos(nz)+(1-p) cos((n-2)z), parity, quasi-orthogonal Chebyshev zeros imaginary quartet",
+          "web search: \"T_n\" \"T_{n-2}\" \"zeros\" \"real\" positive coefficients threshold Chebyshev"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "Resultary published findings top matches concern discrete Fourier support, Gegenbauer zero geometry, and other Chebyshev-like pencils; none has the same pT_n+(1-p)T_(n-2) exact table."
+        ],
+        "reasoning": "No same-family threshold database/table was retrieved; lack of a hit is not a guarantee of priority.",
+        "searches": [
+          "Resultary published findings semantic query: Exact real-zero threshold p cos(nz)+(1-p) cos((n-2)z), parity, quasi-orthogonal Chebyshev zeros imaginary quartet",
+          "web search: \"T_n\" \"T_{n-2}\" \"zeros\" \"real\" positive coefficients threshold Chebyshev"
+        ]
+      },
+      "rationale": "Best-of-knowledge: primary same-object comparisons, alias/implication checks and published finding searches distinguish the assessed exact statement from covered components. Historical priority uncertainty is retained; failed search is not novelty proof.",
+      "residual_risks": [
+        "A broader classical quasi-orthogonal Chebyshev pencil theorem could imply all finite cases; not exhaustively excluded.",
+        "Al Hamdani–Tran full text not inspected; no whole-document noncoverage claim.",
+        "No assertion for asymmetric or general four-frequency measures."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Theorem 1 is asymptotic; Example 3.1 already gives equal-weight factorization; not the finite parity threshold.",
+          "evidence": [
+            "Theorem 1 p4 says for sufficiently large n roots near characteristic-polynomial roots",
+            "Example 3.1 p7 T_n+T_(n-2)=2tT_(n-1)"
+          ],
+          "identifier_or_url": "https://arxiv.org/pdf/1311.2230",
+          "material_read": "PDF pages 1–7 (definitions and Theorem 1 pp4–5; Example 3.1 p7), extracted passages and opening page screenshot",
+          "method": "Primary open-access full-text PDF, text extraction and visual page inspection",
+          "title": "On linear combinations of Chebyshev polynomials",
+          "trigger": "Exact two-term first-kind pencil, equal-weight special case"
+        },
+        {
+          "assessment": "Possible broader nonreal-root estimates; exact family and parameters not shown to cover theorem.",
+          "evidence": [
+            "Different binomial combinations, no verified all-n p-threshold"
+          ],
+          "identifier_or_url": "https://arxiv.org/abs/2006.11475",
+          "material_read": "Abstract/bibliographic description and package comparison only; full paper NOT inspected",
+          "method": "Abstract and search descriptions; no whole-document inference",
+          "title": "Zeros of a binomial combination of Chebyshev polynomials",
+          "trigger": "Other Chebyshev family with off-interval zero bounds"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "rationale": "For the natural four-atom symmetric probability law with adjacent same-parity frequencies, an explicit necessary-and-sufficient classification of all complex Fourier zeros, their number and collision multiplicities determines the zero-realness boundary and quantitative near-critical zero height. The even/odd sharp transition is mathematically structural, not an arbitrary sample or elementary restatement of equal-weight factorization.",
+      "status": "PASS"
+    }
+  },
+  "checked_sources": [
+    "Pinned Git RESULT.md e0d6898e4759627a9ae5c952c0cae7d0da05f90b and checker.py f01cadba7c247f4c6eea1b4e39a8108e7a77c330",
+    "Stankov 2013 arXiv:1311.2230 Theorem 1 and Example 3.1",
+    "Al Hamdani–Tran 2020 arXiv:2006.11475 abstract/description",
+    "Published Resultary exact-real-zero and Chebyshev-semantic results (query recorded)",
+    "Independent bounded checks script CHEBYSHEV_EXACT_ROOT_CASES 33"
+  ],
+  "disposition": "passed",
+  "limitations": [
+    "Scientific best-of-knowledge novelty with explicit inaccessible/uninspected priority risks; no external attestation.",
+    "Finite independent computations do not prove unrestricted quantifiers; analytical proof judged separately.",
+    "Potentially public provenance and earlier-literature first-public date remain unsanitized; publication withheld."
+  ],
+  "residual_risks": [
+    "A broader classical quasi-orthogonal Chebyshev pencil theorem could imply all finite cases; not exhaustively excluded.",
+    "Al Hamdani–Tran full text not inspected; no whole-document noncoverage claim.",
+    "No assertion for asymmetric or general four-frequency measures."
+  ],
+  "schema_version": 1
+}

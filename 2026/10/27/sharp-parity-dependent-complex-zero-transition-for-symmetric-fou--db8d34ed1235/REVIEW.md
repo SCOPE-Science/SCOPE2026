@@ -1,19 +1,21 @@
-# Self-review
+# Independent mathematical audit
 
-## Correctness — PASS
+## correctness
 
-For the defined four-atom positive probability measure, \(F_{n,p}(z)=Q(\cos z)\) with \(Q=pT_n+(1-p)T_{n-2}\). The \(T_{n-1}\) grid produces \(n-2\) strictly alternating-sign real roots; the residual degree-two root count, parity symmetry and a strictly increasing even/odd hyperbolic ratio force the exact imaginary pair below its threshold. The extra two real roots in the odd transition range follow from the explicit central derivative sign, while degree exhaustion proves the triple collision. The mapping \(t=\cos z\) preserves multiplicities at all roots and provides the complete four complex zeros per period. The independent checker passed the declared exact and numerical cross-checks; those finite checks are not an infinite proof.
+PASS
 
-## Originality — PASS, with historical priority risk
+For n≥3 and 0<p<1, Q(t)=pT_n(t)+(1-p)T_{n−2}(t) has Q(±1)≠0. At the n−1 Chebyshev grid the signs alternate for p≠1/2, creating n−2 distinct real roots; polynomial parity excludes more than one nonreal conjugate pair and forces it to ±i sinh(v). Strict monotonicity and endpoint values of cosh(nv)/cosh((n−2)v) (even n) and sinh(nv)/sinh((n−2)v) (odd n) give the sharp p-threshold. For odd n the derivative at 0 settles the intermediate real-root region and the triple collision; p=1/2 factors as tT_{n−1}(t). Because Q(±1)≠0, holomorphic cosine lifting preserves multiplicities and supplies exactly 2n zeros per 2π strip. Taylor expansion establishes stated square-root collision coefficients. Independent exact Sturm isolation covered 33 parameter cases n=3..13, including both parity thresholds; these bounded checks are not the proof.
 
-The closest primary source is Dragan Stankov, arXiv:1311.2230, pages 2–7: its full text covers the general Chebyshev combination, the **already known** equal-coefficient identity, and asymptotic roots of the coefficient polynomial. It does not supply the exact finite-degree odd/even threshold or the four off-real Fourier zero locations. Al Hamdani and Tran, arXiv:2006.11475, studies a different binomial family with a bounded-number-of-exceptions theorem. A specialized earlier finite-degree result or general quasi-orthogonality consequence could still imply some part; absolute historical originality has not been established.
+## originality
 
-## Mathematical value — PASS
+PASS
 
-This is a complete parameter-and-degree zero-geometry classification for the canonical symmetric two-radius four-atom Fourier transform. Its finite odd-degree real-root window, exact four-zero off-axis arrangement, and double-versus-triple collision distinguish it from the known equal-weight formula and large-degree asymptotic statement. The object arises naturally from positive discrete measures; arbitrary frequency supports and asymmetric weights are not covered.
+Best-of-knowledge: primary same-object comparisons, alias/implication checks and published finding searches distinguish the assessed exact statement from covered components. Historical priority uncertainty is retained; failed search is not novelty proof.
 
-## Scope and outstanding limitations
+## value
 
-The proof applies only to \(n\ge3\), \(0<p<1\), support \(\{\pm n,\pm(n-2)\}\), and equal masses within each sign-pair. Publication priority relative to unlocated special-function or quasi-orthogonality results remains qualified. Independent verification is not supplied.
+PASS
 
-Self-review: passed. Independent audit: not yet performed.
+For the natural four-atom symmetric probability law with adjacent same-parity frequencies, an explicit necessary-and-sufficient classification of all complex Fourier zeros, their number and collision multiplicities determines the zero-realness boundary and quantitative near-critical zero height. The even/odd sharp transition is mathematically structural, not an arbitrary sample or elementary restatement of equal-weight factorization.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
