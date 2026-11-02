@@ -1,0 +1,116 @@
+{
+  "audit_date_utc": "2026-10-31",
+  "audited_at_utc": "2026-10-31T12:00:17Z",
+  "axes": {
+    "correctness": {
+      "rationale": "For q>=2, ell>=2, n>=ell+1, deletion removes one ordered overlapping whole ell-mer, not a source symbol. A consistent received vector determines a unique length-n−1 z. Boundary reinsertion yields q left and q right parent words, with a single overlap iff z is constant. Inserting an interior ell-mer into consistent adjacency forces its length ell−1 prefix and suffix to coincide, hence it is a constant word; each strictly interior maximal constant run of length>=ell−1 contributes exactly one additional distinct parent and boundary-touching runs contribute none beyond the 2q boundary words. Therefore the consistent lists have sizes 2q−1 (constant) or 2q+J_{ell−1}(z). A single deleted read can produce inconsistency at only one adjacency, forcing the inserted read uniquely; attainable inconsistent y have one parent. Packing disjoint interior runs gives sharp max 2q+floor((n−3)/(ell−1)). Decomposing z into two boundary runs and a marked sequence of interior runs yields the stated rational F(t); counting distinct read-deletion outputs by maximal runs of identical original reads, and subtracting consistent parent incidences, proves the exact H formula for inconsistent receivers. Independent enumerations of source words/receivers for five parameter triples verified each positive parent-list size and all sample maxima. The argument specifies empty sums and n=ell+1 boundary.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Ye–Ge full text establishes deletion-correcting code constructions and a structural lemma under known end adapters.",
+          "Banerjee et al. arXiv:2401.15939 concerns Hamming-weight read vectors, which are lossy compared with full ell-mers."
+        ],
+        "reasoning": "A coding theorem for protected reads or reduced measurements is not a mathematically stronger complete inverse-image histogram for the unprotected full-read channel. The local run lemma is credited and not asserted to originate here.",
+        "searches": [
+          "one deletion overlapping ell-mer read vector inverse parent list distribution run generating function",
+          "Deletion-Correcting Codes for the ell-Symbol Read Channel Ye Ge 2026 unpadded inverse-list"
+        ]
+      },
+      "checked_sources": [
+        "Ye–Ge arXiv:2606.26434 (relevant full HTML transcription read)",
+        "Banerjee et al. arXiv:2401.15939 (abstract)",
+        "Xie–Chen arXiv:2601.21236 (abstract)",
+        "Resultary published finding 2026/10/4/SCOPE-exact-edge-count-of-the-finite-alphabet-two-read-single-deletion--737fed325e91",
+        "Resultary semantic search: one deletion overlapping ell-mer read vector inverse parent list distribution run generating function"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "Ye–Ge Lemma II.1 gives periodic substring behavior under deletion with end-adapter information.",
+          "New endpoint 2q−1/2q contributions, interior J_s factor, H singleton-incidence formula from RESULT.md §§1–6."
+        ],
+        "reasoning": "The earlier forced-restoration lemma motivates a step but does not by itself imply the exact unpadded parent census, maximum or rational generating function. An explicit change in channel model is needed to derive them.",
+        "searches": [
+          "one deletion overlapping ell-mer read vector inverse parent list distribution run generating function",
+          "Ye Ge ell-symbol read channel Lemma II.1 consistency restoration unpadded endpoints"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Ye–Ge arXiv:2606.26434 models adapter-protected ell-symbol read deletion and local periodic-run ambiguity.",
+          "Resultary indexed 2026/10/4/SCOPE-exact-edge-count-of-the-finite-alphabet-two-read-single-deletion--737fed325e91 concerns a source-symbol deletion reconstruction graph."
+        ],
+        "reasoning": "Whole-read deletion of the ordered unpadded ell-mer vector differs from deleting one source symbol, adapter-protected endpoints, composition-valued nanopore data, or transposition/duplication. The local periodicity mechanism is shared, but boundary multiplicities change with adapters.",
+        "searches": [
+          "one deletion overlapping ell-mer read vector inverse parent list distribution run generating function",
+          "single erased sliding overlapping kmer whole read ordered inverse reconstruction homopolymer run"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "Targeted Resultary semantic search returned related but different deletion/duplication inverse-degree statements, not this F_{q,ell,n} coefficient polynomial.",
+          "Fresh exhaustive receiver reconstruction for q=2/3 and ell=2/3 supports small cases."
+        ],
+        "reasoning": "No matching complete q,ell,n receiver histogram was located; this limited search cannot rule out other publications or unpublished tables.",
+        "searches": [
+          "one deletion overlapping ell-mer read vector inverse parent list distribution run generating function",
+          "maximum 2q+floor((n-3)/(ell-1)) one omitted read inverse list histogram"
+        ]
+      },
+      "rationale": "Best-of-knowledge statement-level primary-literature comparison: the identified antecedents cover qualitative mechanisms, methods or partial counts but no inspected theorem implies the precise assessed evaluated claim; limitations and possible older equivalents remain explicit. Whole-read deletion of the ordered unpadded ell-mer vector differs from deleting one source symbol, adapter-protected endpoints, composition-valued nanopore data, or transposition/duplication. The local periodicity mechanism is shared, but boundary multiplicities change with adapters.",
+      "residual_risks": [
+        "A non-adapter or differently named q-ary read-deletion preimage census may predate this result.",
+        "Only one deleted whole ordered read; not applicable to source-symbol deletion, multiple deletions, or adapters.",
+        "Finite sample enumeration is not the proof of the all-parameter generating function."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Models adapter-protected channel and redundancy; overlap mechanism but does not state examined unpadded inverse histogram.",
+          "evidence": [
+            "Section II: known end adapters; Lemma II.1 periodic run/consistency restoration."
+          ],
+          "identifier_or_url": "https://arxiv.org/abs/2606.26434",
+          "material_read": "Accessible full HTML paper transcription, especially channel definitions and Section II Lemma II.1, plus code statements",
+          "method": "Open full-text HTML transcription inspected",
+          "title": "Deletion-Correcting Codes for the ell-Symbol Read Channel",
+          "trigger": "Same overlapping read deletion mechanism"
+        },
+        {
+          "assessment": "Read signals are Hamming weights, not full symbol ell-mers; no whole-document noncoverage claim.",
+          "evidence": [
+            "Abstract describes Hamming-weight-based read vector and deletion correction."
+          ],
+          "identifier_or_url": "https://arxiv.org/abs/2401.15939",
+          "material_read": "Public abstract/summary only",
+          "method": "Public abstract inspection",
+          "title": "Correcting a Single Deletion in Reads from a Nanopore Sequencer",
+          "trigger": "Other read deletion model with possible dominance"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "rationale": "This is a complete exact inverse-list size distribution for a natural unpadded sliding-window deletion channel, including unique-decoding receivers and maximum ambiguity, not just a small experiment. The run formulation and rational generating function give directly reusable combinatorial data for channel decoding/list-size bounds. Difference from adapter-protected reads is mathematically consequential at boundary insertions.",
+      "status": "PASS"
+    }
+  },
+  "checked_sources": [
+    "Ye–Ge arXiv:2606.26434 (relevant full HTML transcription read)",
+    "Banerjee et al. arXiv:2401.15939 (abstract)",
+    "Xie–Chen arXiv:2601.21236 (abstract)",
+    "Resultary published finding 2026/10/4/SCOPE-exact-edge-count-of-the-finite-alphabet-two-read-single-deletion--737fed325e91",
+    "Resultary semantic search: one deletion overlapping ell-mer read vector inverse parent list distribution run generating function"
+  ],
+  "disposition": "passed",
+  "limitations": [
+    "n>=ell+1, ell>=2, q>=2 and one whole ordered full ell-mer deleted with unprotected ends.",
+    "All statements about parent multiplicity count distinct original words, not deletion event positions."
+  ],
+  "residual_risks": [
+    "A non-adapter or differently named q-ary read-deletion preimage census may predate this result.",
+    "Only one deleted whole ordered read; not applicable to source-symbol deletion, multiple deletions, or adapters.",
+    "Finite sample enumeration is not the proof of the all-parameter generating function."
+  ],
+  "schema_version": 1
+}
