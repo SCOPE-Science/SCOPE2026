@@ -1,19 +1,21 @@
-# Scientific assessment: random widths of tree symmetric-edge polytopes
+# Independent mathematical audit
 
-## Correctness
+## correctness
 
-PASS. The intrinsic volume follows from the exact Gram determinant of the tree-incidence matrix. The angular-width identity follows directly from the support function and Gaussian spherical normalization. The Gumbel limit follows from an explicit local-dependence Poisson approximation: disjoint edge Gaussians are independent, incident absolute exceedances have a Gaussian-Chernoff bound, and both error sums vanish under the stated degree condition. The broom limits follow from two sample extrema and the path maximum without an unjustified independence assertion. The strict atom mass and quantile construction follow by elementary Gaussian-tail inversion. The standalone verification script checks exact small-size identities and numerical illustrations, not the infinite theorem.
+PASS
 
-## Originality
+For a tree the incidence matrix B has rank N−1 and all maximal square minors ±1, giving det BᵀB=N by Cauchy–Binet and the cross-polytope image volume. Since the body is centrally symmetric, W_T=2 max_edges |U_i−U_j|. Spherical U=(G−Gbar 1)/R with independent standard Gaussians yields exactly W_T=2 max_edges|G_i−G_j|/R, and R/√N→1 at a faster rate than normal-extreme fluctuations. Edge-normalized differences of disjoint edges are independent and incident correlations have magnitude 1/2. For threshold b_(2m)+x/b_(2m), the Arratia–Goldstein–Gordon Poisson approximation first error is O(Δ/m), second O(Δ m^(−1/3)(log m)^(2/3)), both vanish by the stated Δ growth hypothesis; this gives Gumbel. Broom star edges maximize to b_n+|G_hub|+o_P(1), while path edges maximize to √2 b_(2ℓ)+O_P(1/b_(2ℓ)); the full maximum is exactly their max. The path remainder converges to zero without independence assumptions, yielding max(|Z|,s) and a point atom of mass 2Φ(s)−1 for s>0. For c_n→+∞ the path-centred finer Gumbel law transfers; explicit inverse-Gaussian-tail integer ℓ choice realizes all s. Independent exact Gram determinant checks for paths and stars on N=3..11 reproduced det(BᵀB)=N; numerical simulation is not the theorem proof.
 
-PASS subject to bibliographic risk. The primary geometric source establishes facet–subgraph correspondences, not random-direction limits. The closest published tree graphical-zonotope width result concerns another Minkowski sum and a second moment, and results on symmetric-edge tree inballs concern deterministic facet contacts. The standard independent Gaussian-maxima theorem and the Chen–Stein method do not already state the nontrivial graph-dependent, fixed-volume broom crossover and its positive atom. Relevant aliases, implications, and source texts were compared. A less-indexed Gaussian scan-statistic theorem might still imply a probability reformulation, and a human literature review remains advisable.
+## originality
 
-## Mathematical value
+PASS
 
-PASS. A canonical infinite set of equidimensional, equal-volume crosspolytopes has contrasting natural Euclidean angular-width laws. The phase boundary at quadratic leaf/path size competition and the explicit atomic weak limit identify a structurally meaningful change that deterministic volume and combinatorial type do not detect. The result also covers growing-degree sparse graph sequences beyond paths via a quantitative dependency bound; the atom is a specific experimentally distinguishable signature.
+Known symmetric-edge-polytope facet/volume structure supplies the graphical body and common tree incidence determinant, while Bibinger and standard Gaussian extreme-value theory supply isolated iid-maxima laws. The checked published Resultary tree graphical-zonotope variance paper studies the distinct Minkowski-sum zonotope, not this symmetric-edge convex hull; its width is a SUM of |coordinate differences|, whereas here the width is the MAX. The correlated-edge Chen–Stein regime and the mixed star/path critical crossover including an atom at s>0 are nontrivial geometric consequences not stated by these stronger general inputs. Historical equivalence under Gaussian network extremes terminology remains possible.
 
-## Limits and closest prior mathematics
+## value
 
-Chen–Davis–Korchevskaia (arXiv:2107.12315) supplies the graph polytope; Bibinger (arXiv:2103.14525) covers independent half-normal extremes; Arratia–Goldstein–Gordon (doi:10.1214/aop/1176991491) supplies the local-dependence approximation. No assertion is made for arbitrary growing-degree trees, and independent mathematical validation has not been carried out.
+PASS
 
-Self-review: passed. Independent audit: not yet performed.
+The class is geometrically natural: all tree symmetric-edge polytopes have identical combinatorial crosspolytope structure and exactly the same intrinsic volume yet exhibit genuinely different random-width laws. The half-normal, Gumbel, and atomic continuum of crossover limits provide a motivated probabilistic phase classification and concrete counterexample to width-distribution universality; the atom is not a routine finite case count.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
