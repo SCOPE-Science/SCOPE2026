@@ -1,15 +1,21 @@
-# Scientific review
+# Independent mathematical audit
 
-## Correctness — PASS
-For each initial line the iterates are exactly conjugated Euclidean rotations. The explicit determinant/dot product calculation establishes the quarter-turn angular profile and its period. The argument-of-vector derivative bounds the one-step detuning error, and a sharp Lipschitz Riemann-sum bound gives a uniform \((\kappa+a)|t|/N\) estimate. Even circular unimodality identifies both sliding-window extremizers, furnishing the complete width formula. The residual-period expansion proves its exact zero set and linear cusps. The computations are diagnostic only; no infinite assertion rests on sampling.
+## correctness
 
-## Originality — PASS under inspected evidence
-The 2024 Beyn–Hüls primary text (Example 2.8 and Proposition 4.7) settles fixed-matrix infinite-time spectra and conditional fixed-system finite-horizon convergence. The 2026 Beyn–Hüls primary text defines finite-horizon angular maps and numerical methods, but the inspected discussions do not cover a matrix varying with observation horizon at quarter-turn resonance. Neither theorem implies the uniform detuning-layer profile and all-detuning width by direct parameter specialization: a new coupled limit and quantitative estimate are required. Semantic and targeted literature comparisons found no direct coverage, which does not establish universal priority. More general uninspected resonant ergodic-average results could imply the analytic method or the full specialization.
+PASS
 
-## Value — PASS
-For a natural spectral diagnostic whose fixed-parameter rational/irrational discontinuity is already established, this result determines the critical finite-resolution transition. It gives a full phase diagram of widths, pinpoints infinitely many exact cancellations, and quantifies the linear reopening of the angular range. This resolves a mathematically meaningful order-of-limits and numerical-resolution question rather than evaluating a deliberately isolated parameter value.
+At P=pi/2 and a=(kappa-kappa^{-1})/2, direct conjugated-rotation line geometry gives acute principal-angle increment g_kappa(theta)=P-arctan(a|sin(2theta)|), with period P and Lipschitz constant 2a. The lift of arg(B_kappa e_theta) has derivative (kappa cos²theta+kappa^{-1}sin²theta)^{-1} <= kappa. Replacing one actual step P+t/N by P costs <= kappa|t|/N; the left Riemann sum for g(theta+tu) costs <=a|t|/N, proving the uniform (kappa+a)|t|/N and Hausdorff bounds for every N and real t. Circular unimodality places residual-window extrema at centers 0 and P/2 and yields W=(2/|t|)integral_0^{r/2}[atan(a cos2u)-atan(a sin2u)]du, r=|t| mod P; width vanishes exactly for nonzero integral quarter turns, with nonzero linear-cusp coefficient atan(a)/(|m|P). Full-period cancellation and the same uniform estimate establish the three detuning regimes for delta_N->0. Independent numerical evaluation of both principal-angle formulas and sliding-window width for kappa=1.3,2,4.5 and eight detunings, with 1001 phase samples, corroborated the formulas; the all-N/all-real proof is analytic.
 
-## Sources and limitations
-Primary sources: Beyn–Hüls (2026), CRC 1283 preprint 26018, especially Definition 1.1 and finite-time algorithms; Beyn–Hüls (2024/2025), arXiv:2404.02694, Example 2.8 and Proposition 4.7. The prior comparison covers the inspected material, not all conceivable literature. This proof applies only to the specified planar family and its discrete-time line observable; its checker is not a proof of the infinite assertions.
+## originality
 
-Self-review: passed. Independent audit: not yet performed.
+PASS
+
+Best-of-knowledge new sharp simultaneous finite-horizon/near-resonance regime, not a new definition of angular spectrum or periodic Riemann sums. The 2024/2025 Beyn–Hüls paper covers fixed elliptic matrices and fixed-system convergence; the 2026 Beyn–Hüls paper covers angular maps, including a small-flow-step limit (its Theorem 4.6), not the P+t/N boundary layer or its exact width, collapse set and cusp. Inspection of relevant primary sections found no mathematical implication recovering these statements; overlap with unindexed near-resonance theory remains possible.
+
+## value
+
+PASS
+
+This is a natural singular limit because N->infinity and parameter detuning->0 do not commute at a rational elliptic rotation. The exact complete detuning interval, finite-N uniform rate, resonance-only collapse and cusp coefficient quantify a geometrically motivated transition for the principal-angle observable rather than an arbitrary parameter slice.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

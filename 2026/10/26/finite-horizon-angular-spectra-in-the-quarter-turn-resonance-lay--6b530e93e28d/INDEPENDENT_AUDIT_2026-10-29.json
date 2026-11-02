@@ -1,0 +1,110 @@
+{
+  "audit_date_utc": "2026-10-29",
+  "audited_at_utc": "2026-10-29T06:56:13Z",
+  "axes": {
+    "correctness": {
+      "rationale": "At P=pi/2 and a=(kappa-kappa^{-1})/2, direct conjugated-rotation line geometry gives acute principal-angle increment g_kappa(theta)=P-arctan(a|sin(2theta)|), with period P and Lipschitz constant 2a. The lift of arg(B_kappa e_theta) has derivative (kappa cos²theta+kappa^{-1}sin²theta)^{-1} <= kappa. Replacing one actual step P+t/N by P costs <= kappa|t|/N; the left Riemann sum for g(theta+tu) costs <=a|t|/N, proving the uniform (kappa+a)|t|/N and Hausdorff bounds for every N and real t. Circular unimodality places residual-window extrema at centers 0 and P/2 and yields W=(2/|t|)integral_0^{r/2}[atan(a cos2u)-atan(a sin2u)]du, r=|t| mod P; width vanishes exactly for nonzero integral quarter turns, with nonzero linear-cusp coefficient atan(a)/(|m|P). Full-period cancellation and the same uniform estimate establish the three detuning regimes for delta_N->0. Independent numerical evaluation of both principal-angle formulas and sliding-window width for kappa=1.3,2,4.5 and eight detunings, with 1001 phase samples, corroborated the formulas; the all-N/all-real proof is analytic.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Proposition 4.7 is a fixed-system conditional Hausdorff convergence result; 2026 Theorem 4.6 has a flow-step h->0, not detuning t/N about a quarter-turn.",
+          "The derived bound has explicit dependence on unbounded t through |t|/N and distinguishes three t_N regimes."
+        ],
+        "reasoning": "The cited general angular machinery does not supply the exact resonant triangular-array limit by substitution; separate uniform boundary-layer work is needed.",
+        "searches": [
+          "Beyn–Hüls 2024 Proposition 4.7",
+          "Beyn–Hüls 2026 Theorem 4.6",
+          "web: near-resonant rotation angular spectrum uniform detuning finite horizon"
+        ]
+      },
+      "checked_sources": [
+        "https://arxiv.org/abs/2404.02694",
+        "https://arxiv.org/abs/2609.24753"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "Prior results control a fixed A or a small time step, whereas this proof imposes A=A_N with quarter-turn detuning t/N.",
+          "The explicit residual-window integral yields cusps even though any nonresonant fixed matrix has its own long-horizon behavior."
+        ],
+        "reasoning": "Comparing quantifiers shows no direct implication from fixed-A n->infty estimates or h->0 flow approximations to the stated uniform triangular family and exact all-t width.",
+        "searches": [
+          "arXiv:2404.02694 fixed-matrix Example 2.8 and Proposition 4.7",
+          "arXiv:2609.24753 angular maps Theorem 4.6",
+          "Resultary: finite horizon principal angular spectrum quarter turn anisotropic conjugated rotation detuning 1/N width cusp"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "2024 Example 2.8 concerns elliptic fixed-matrix angles, rational versus irrational; 2026 treats angular maps and fixed flow-step approximation.",
+          "The new variable is the joint family A_{N,t}=B R_{P+t/N}B^{-1}, with theta-uniform sliding-average and Hausdorff error."
+        ],
+        "reasoning": "A conjugated-rotation change of coordinates reduces the problem to a periodic observable, but neither compared fixed-parameter limit identifies the finite-window residual interval. No equivalent published formula for this joint scaling was established by actual comparison.",
+        "searches": [
+          "Resultary: finite horizon principal angular spectrum quarter turn anisotropic conjugated rotation detuning 1/N width cusp",
+          "Beyn–Hüls 2024 angular spectra arXiv:2404.02694 Example 2.8",
+          "Beyn–Hüls 2026 angular maps arXiv:2609.24753"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "Resultary returned adjacent but inapplicable resonance and anisotropic spectral records, not a table of this line-angle width.",
+          "Primary treatments do not list the exact singleton set t in (pi/2)Z\\{0} or cusp coefficient."
+        ],
+        "reasoning": "There is no natural finite database for continuous real detunings; the relevant exact-table question is whether a prior angular-spectrum parameter table contains the same function, and none was found in inspected sections. This is a bounded search, not proof of universal novelty.",
+        "searches": [
+          "Resultary: finite horizon principal angular spectrum quarter turn anisotropic conjugated rotation detuning 1/N width cusp",
+          "Resultary query on angular spectra quarter turn cusp and 1/N resonance"
+        ]
+      },
+      "rationale": "Best-of-knowledge new sharp simultaneous finite-horizon/near-resonance regime, not a new definition of angular spectrum or periodic Riemann sums. The 2024/2025 Beyn–Hüls paper covers fixed elliptic matrices and fixed-system convergence; the 2026 Beyn–Hüls paper covers angular maps, including a small-flow-step limit (its Theorem 4.6), not the P+t/N boundary layer or its exact width, collapse set and cusp. Inspection of relevant primary sections found no mathematical implication recovering these statements; overlap with unindexed near-resonance theory remains possible.",
+      "residual_risks": [
+        "Unindexed or broader near-resonance angular-map theorem could imply the quantitative residual-window formula.",
+        "Numerical quadrature checks are finite diagnostics, not a proof of the all-real detuning result."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Fixed-matrix and conditional convergence results; no checked joint N-dependent detuning width",
+          "evidence": "Example 2.8 treats rational/irrational elliptic rotation; Proposition 4.7 fixes the system under a uniform Cauchy condition.",
+          "identifier_or_url": "https://www.sfb1283.uni-bielefeld.de/preprints/sfb24021.pdf",
+          "material_read": "Full primary PDF opened and material sections Example 2.8 and Proposition 4.7 read, including theorem hypotheses",
+          "method": "Primary PDF text and page screenshots",
+          "title": "Angular spectra of linear dynamical systems in discrete time",
+          "trigger": "Same principal-angle spectra of elliptic discrete linear dynamics"
+        },
+        {
+          "assessment": "Small-flow-step time limit not the quarter-turn P+t/N limit",
+          "evidence": "Theorem 4.6 controls d_H for step h under continuous-time sampling; different limiting parameter.",
+          "identifier_or_url": "https://www.sfb1283.uni-bielefeld.de/preprints/sfb26018.pdf",
+          "material_read": "Primary PDF introduction, theorem and proof context near Theorems 4.3 and 4.6, including p28",
+          "method": "Primary PDF text and screenshot",
+          "title": "Angular maps for visualizing rotational dynamics",
+          "trigger": "Most recent work by the same authors on finite-horizon angular maps"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "rationale": "This is a natural singular limit because N->infinity and parameter detuning->0 do not commute at a rational elliptic rotation. The exact complete detuning interval, finite-N uniform rate, resonance-only collapse and cusp coefficient quantify a geometrically motivated transition for the principal-angle observable rather than an arbitrary parameter slice.",
+      "status": "PASS"
+    }
+  },
+  "checked_sources": [
+    "https://github.com/SCOPE-Science/SCOPE2026/tree/e1496bf04137a49f79c78b177e912de9c06e4138/2026/10/26/finite-horizon-angular-spectra-in-the-quarter-turn-resonance-lay--6b530e93e28d/RESULT.md",
+    "https://github.com/SCOPE-Science/SCOPE2026/tree/e1496bf04137a49f79c78b177e912de9c06e4138/2026/10/26/finite-horizon-angular-spectra-in-the-quarter-turn-resonance-lay--6b530e93e28d/REVIEW.md",
+    "https://github.com/SCOPE-Science/SCOPE2026/tree/e1496bf04137a49f79c78b177e912de9c06e4138/2026/10/26/finite-horizon-angular-spectra-in-the-quarter-turn-resonance-lay--6b530e93e28d/VERIFICATION.md",
+    "https://arxiv.org/abs/2404.02694",
+    "https://arxiv.org/abs/2609.24753"
+  ],
+  "disposition": "passed",
+  "limitations": [
+    "Fixed kappa>1 and real planar conjugated rotations; unoriented one-dimensional acute principal angles only.",
+    "The finite-horizon joint limit is not asserted to equal a fixed-matrix infinite-time spectrum."
+  ],
+  "residual_risks": [
+    "Unindexed or broader near-resonance angular-map theorem could imply the quantitative residual-window formula.",
+    "Numerical quadrature checks are finite diagnostics, not a proof of the all-real detuning result."
+  ],
+  "schema_version": 1
+}
