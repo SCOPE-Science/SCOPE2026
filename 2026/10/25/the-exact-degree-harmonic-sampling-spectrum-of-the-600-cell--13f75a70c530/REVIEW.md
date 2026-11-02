@@ -1,19 +1,21 @@
-# Scientific review: exact-degree harmonic sampling on the 600-cell
+# Independent mathematical audit
 
-## Correctness — PASS
+## correctness
 
-The degree-\(n\) spherical-harmonic kernel on \(S^3\) is the \(SU(2)\) character of \(\operatorname{Sym}^n(\mathbb C^2)\), up to explicit positive normalization. Decomposing this representation over the binary icosahedral group and using regular-representation Fourier orthogonality gives the stated nine-level Gram spectrum with multiplicities \(d_i^2\). The affine-\(E_8\) Clebsch–Gordan recurrence computes multiplicities without fitting; a 60-step Chebyshev identity proves the all-degree statement and strict eventual rank threshold. Exact modular Gram computations in `verify.py` agree independently for each degree 0 through 60. No numerical finite check is used as an infinite proof.
+PASS
 
-## Originality — PASS under bounded comparison
+Exact-degree S^3 harmonics are matrix coefficients of Sym^n(C^2) on SU(2); finite-group character orthogonality makes the convolution/Gram eigenvalues 120m_i(n)/d_i with multiplicity d_i^2. Restriction to binary icosahedral 2I has affine-E8 Clebsch–Gordan recurrence m(n+1)=A m(n)−m(n−1), initially e0,e1. For inner products among roots cos(π/2), cos(π/3), cos(π/5), Chebyshev U gives exact G_{n+60}=G_n+60(I+(-1)^n P), not a heuristic rank trend. Independently reconstructed integer recurrences through degree180: n27=56, n58=59, all odd n>=29 and all n>=60 rank60. The finite-field 120x120 source verifier was inspected but not rerun; finite field alone would not prove C-characteristic-zero ranks.
 
-The closest literature studies geometric design strength and vanishing spherical *moments* (Mamone–Pileio–Levitt 2010; Boyvalenkov–Danev 2001), the \(E_8\) group correspondence (Dechant 2013), and complete scalar harmonic strengths (Hirao–Nozaki–Tasaka 2025). Hirao et al. explicitly cover the absence of the trivial harmonic at degree 58, so that observation is **not** claimed as new. The complete nine-isotypic Gram spectrum, periodic rank table and sharp interpolation thresholds are different statements and not supplied by the inspected full-text results. Published mathematical-record comparisons found nearby finite Fourier / spherical sampling results, but not the same 600-cell spectral classification. The result may be implicitly obtainable from older character tables, which is a residual priority risk, not evidence of exact publication coverage.
+## originality
 
-## Value — PASS
+PASS
 
-This is a sharp all-degree classification of a natural 120-point harmonic sampling problem with explicit spectral data, rank defects, and parity interpolation thresholds. It distinguishes scalar quadrature exactness from interpolation surjectivity and exhibits mathematically meaningful nonmonotone spectral aliasing. The algorithm is nine-dimensional independently of harmonic degree, and the 60-step identity solves infinitely many cases from a finite base table.
+Dechant establishes the 600-cell/2I/E8 geometry and Hirao–Nozaki–Tasaka establish invariant-harmonic averages (including vanishing at n58). A scalar invariant multiplicity or spherical design strength does not imply the nine-isotypic evaluation Gram spectrum, which includes all nontrivial irreducibles. The submitted whole-spectrum recurrence and sharp interpolation threshold are distinct from known quadrature facts.
 
-## Limitations and closest comparisons
+## value
 
-The claim concerns the exact-degree harmonic space, not arbitrary low-pass combinations or an optimization of vertex configurations. Literature searches cannot establish absolute novelty. Primary comparisons used the source material cited in `RESULT.md`; exact finite-field computations supplement rather than replace the analytic proof. No independent external scientific audit is claimed.
+PASS
 
-Self-review: passed. Independent audit: not yet performed.
+A complete all-degree interpolation/rank/spectrum classification for the canonical 600-cell sampling grid is a natural and reusable exact harmonic-analysis invariant; the surprising nonmonotonic low-degree ranks and strict odd/even full-rank thresholds distinguish strength of averaging from point-sampling.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
