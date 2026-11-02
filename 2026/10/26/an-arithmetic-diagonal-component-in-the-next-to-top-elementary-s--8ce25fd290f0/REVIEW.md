@@ -1,15 +1,21 @@
-# Self-review
+# Independent mathematical audit
 
-## Correctness — PASS
-For algebraically closed characteristic \(p>0\), \(n\ge d\ge4\), the proof explicitly translates the derivative ideal into all complementary \(k\)-subset quadratics, rules out three values using a monic quadratic identity, rules out two nonsingleton blocks by a nonzero second finite difference, and solves both exceptional-coordinate equations. In every characteristic, the two conditions for an unconstrained exceptional coordinate are equivalent to \(Q>2\). The remaining diagonal condition is \(p\mid\binom{k}{2}\). The conclusion concerns reduced support only. The exact finite-field `VERIFY.py` checks the set formula in 24 parameter cases, but is not used to infer an infinite statement.
+## correctness
 
-## Originality — PASS, with risks
-Xie arXiv:2610.00259v1, Theorems 1.1 and 1.3, give dimensions and the already-known \(Q>2\) planes; Theorem 1.4 gives local coordinate multiplicities, and Section 7 expressly leaves smaller-dimensional components unclassified. The new scope is complete lower-dimensional reduced support, especially the conditional diagonal component, not a replacement for those published results. Orzel arXiv:2509.05009v3 concerns the different order-two zero locus. Targeted semantic searches of published mathematical records and title/parameter web searches found no exact coverage; an unindexed earlier elementary calculation remains possible. The finding is not independently audited.
+PASS
 
-## Value — PASS
-This completes the smallest nontrivial higher-derivative component problem for all \(n\ge d\ge4\) and prime characteristics, including a sharp arithmetic change in the count of irreducible components that a dimension calculation cannot see. It identifies a natural projective configuration of \(n\) or \(n+1\) points, or \(n\) concurrent lines, and isolates exactly the newly arising diagonal component.
+Every generating derivative equals e₂ on the complement of a (d−2)-index deletion. If a common zero has three distinct coordinate values, delete d−3 indices avoiding them and differentiate e_d to a symmetric cubic; each of its first partials vanishes and equals a common monic quadratic evaluated at the deleted coordinate, contradicting three distinct roots. For exactly two distinct values a,b, let j be the number of a coordinates in each k-subset. If both multiplicities are ≥2 then feasible j includes three consecutive integers, while F(j)=binom(k,2)b²+j(k−1)b(a−b)+binom(j,2)(a−b)² has nonzero second finite difference (a−b)². Thus only singleton exceptional-coordinate points occur. The 0/1 exceptional inclusion equations give b=0 (axis) or p|(k−1) and p|binom(k,2); the latter is exactly Q>2, including char2 condition 4|(k−1), yielding full 2-planes. All-equal coordinates contribute D exactly when p|binom(k,2), whose Q≤2 arithmetic is odd p|k or p=2,4|k. Exhaustion and distinct linear-space dimensions establish the irreducible components of the reduced support, not scheme nilpotents. Independently enumerated the full defining quadratics for all field vectors F₂^n n=4..7, F₃^n n=4..6, F₅^n n=4..5 and every allowed d, comparing to the union formula; no discrepancies. Finite point checks are not proof of algebraic closure result.
 
-## Scope and outstanding risks
-No claim about embedded components, global reducedness or higher-order derivative loci. General results on symmetric hypersurfaces and possible unindexed equivalent arguments remain originality risks.
+## originality
 
-Self-review: passed. Independent audit: not yet performed.
+PASS
+
+Highly relevant Xie arXiv:2610.00259v1 proves all derivative-locus dimensions and classifies extremal Q>r components (for r=2 these are already-known planes), plus generic local rings along coordinate spaces. Its §7 explicitly says smaller-dimensional components are not classified, while the present next-to-top r=2 computation supplies the full Q≤2 reduced component union and an arithmetic extra diagonal line. Theorem 1.4 of Xie identifies generic thickness but does not rule out a distinct diagonal component. Orzel arxiv:2509.05009v3 is about first derivatives/order-two zero locus, not this order-d−2 quadratic deletion intersection. The originality claim is limited to lower-dimension complete support, not the known Q>2 planes/dimension or scheme structure.
+
+## value
+
+PASS
+
+A natural next-to-top member of an actively studied family is completely classified set-theoretically across every prime characteristic. Dimension theory alone misses the arithmetic appearance of the diagonal as an additional irreducible projective point. The result closes the first missing lower-dimensional component case and separates point/support geometry from local nilpotent thickness.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
