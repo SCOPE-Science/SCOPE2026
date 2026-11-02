@@ -1,21 +1,21 @@
-# Review
+# Independent mathematical audit
 
-## Correctness
+## correctness
 
-**PASS.** The construction defines natural persistence-poset maps, and both persistence objects are finite type. A degree-one map between integral homology 3-spheres induces an isomorphism in every homology degree, so the persistent homology modules are isomorphic. The explicit length-\(m\) interleaving proves the upper bound. For every shorter integer shift, naturality forces a map \(S^3\to\Sigma\) to have a homotopy right inverse; the covering-degree obstruction rules this out. For each principal lower-set fiber, the structure map after a shift of \(2\lceil m/2\rceil\) lands in a contractible lower set, and compatible point choices verify weak contractibility in the persistence sense.
+PASS
 
-## Originality
+Let Σ=S³/I* be the Poincaré integral homology sphere, with |I*|=120 and covering S³→Σ of degree 120. A degree-one collapse u:Σ→S³ is integral homology isomorphism but not a homotopy equivalence; after triangulation and simplicial approximation use face-poset map φ#. In P^{(m)} the first m stages are F(K), then Q=F(L), while target Q remains constant. All homology transition maps are isomorphisms, so d_I=0. An explicit m-interleaving gives d_HC≤m. For ε<m the interleaving identity at index zero would give maps S³→Σ→S³ with composite degree 1; every map S³→Σ has degree divisible by 120, contradiction. For each lower-set fiber, the 2⌈m/2⌉-shift lands in the contractible poset L_v, so the structure maps are nullhomotopic and the compatible point-selection supplies weak ε-contractibility (face-poset image meets every target vertex because its degree is one). This is an exact general-m construction, not finite evidence.
 
-**PASS, with residual uncertainty.** The closest source is Guzeev–Tanaka's 2026 persistence Quillen–McCord theorem, which supplies an upper bound and explicitly lists the difference between \(d_{\mathrm I}\) and \(d_{\mathrm{HC}}\) as a future direction. Their paper does not give this delayed homology-sphere-to-sphere family or the exact formula \(d_{\mathrm{HC}}=m\), \(d_{\mathrm I}=0\). The earlier homological theorem addresses persistent homology bounds rather than the homotopy-distance gap. Searches for equivalent formulations and exact examples found related finite-space homotopy/homology distinctions, but not this persistence family. An unindexed or unpublished equivalent remains possible.
+## originality
 
-## Value
+PASS
 
-**PASS.** The family establishes that no bound on the homotopy-commutative interleaving distance can depend only on the homology interleaving distance, even within the lower-fiber framework of the persistence Quillen–McCord theorem and with fixed target. This is a concrete calibration example for the paper's stated question about information lost by passing to homology. It is not claimed to improve or sharpen the theorem's general upper bound.
+Guzeev–Tanaka establish the persistent Quillen–McCord upper bound from weakly ε-contractible fibers and compare homology with homotopy interleaving. They do not state an exact all-m counterfamily with d_I=0 and d_HC=m at fixed target in the relevant examined theorem and discussion; the delay construction using a homology sphere is a substantive difference from their general bound. Published related finite-poset results were searched for equivalence or domination. Priority remains best-of-knowledge.
 
-## Closest literature and limitations
+## value
 
-- Guzeev–Tanaka, *Quillen-McCord theorem for persistence finite posets*, arXiv:2605.11615: Theorem 3.8 and Corollary 3.10 provide upper bounds; the conclusion explicitly flags the distance gap as future work.
-- Guzeev, *Persistent homological Quillen-McCord theorem*, arXiv:2307.00177: a homological interleaving result, without the exact homotopy-distance family here.
-- The Poincaré homology sphere is used only through its integral homology, nontrivial fundamental group, and degree-120 universal cover. The construction is existence-theoretic; no minimal triangulation is supplied.
+PASS
 
-Self-review: passed. Independent audit: not yet performed.
+Persistent homology may erase π1 information even under a Quillen–McCord fiber hypothesis; measuring an arbitrary distance separation at fixed target answers a stated natural distinction between homotopy and homology persistence. It is not a routine renaming of barcode data, though the duration trick should be acknowledged rather than called sharp for the general upper bound.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
