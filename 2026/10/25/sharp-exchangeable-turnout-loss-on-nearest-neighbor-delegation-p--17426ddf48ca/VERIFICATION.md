@@ -5,8 +5,11 @@
     "status": "not_performed"
   },
   "independent_audit": {
-    "evidence": null,
-    "status": "not_performed"
+    "status": "passed",
+    "evidence": [
+      "INDEPENDENT_AUDIT_2026-10-29.md",
+      "INDEPENDENT_AUDIT_2026-10-29.json"
+    ]
   },
   "lean_verification": {
     "evidence": null,
@@ -16,8 +19,24 @@
 }
 ---
 
-The mathematical argument uses the orbit-loss identity, endpoint minimization for concave partial sums, and subadditivity of component loss. No independence assumption is used until the strictly unique-optimum specialization.
+# Independent mathematical audit
 
-Run `python3 checks/verify.py` with Python 3 and the standard library. The program verifies all local default-delegation profiles on paths of 2 through 9 vertices under every fixed-abstention-count exchangeable distribution using exact rational arithmetic. It independently enumerates actual abstention subsets for paths up to 6 vertices and checks strict optimal-profile classification under independent abstention probability \(1/2\). The computation checks finite cases; it does not certify the infinite theorem, which requires the proof.
+## correctness
 
-An independent audit has not been performed. Publication priority is not independently certified. The full text of the most directly relevant 2025/2026 model and the 2025 expected-influence paper was examined; one 2026 centrality source remained full-text inaccessible and is listed as a residual risk.
+PASS
+
+For any exchangeable nonvoter set, voter v loses weight exactly when its entire default orbit O_v abstains, giving exact E loss = Σ_v a_|O_v|. Every directed functional component of a nearest-neighbor path is an interval with one self-loop or reciprocal edge. For monotone a_s, concave partial sums move each component cycle to an endpoint; the reciprocal-pair cost h(m)=2a₂+Σ_{s=3}^m a_s is no larger than the self-loop cost. h is subadditive, hence merging components cannot worsen the optimum. One terminal pair realizes the global lower bound. For independent q in (0,1), the relevant strict inequalities force only the two endpoints. Verified all fixed-count exchangeable models for all 1456 allowed profiles at n=2..7 and the iid unique minima; finite enumeration does not substitute for the arbitrary-n proof.
+
+## originality
+
+PASS
+
+Known unrestricted cycle minimizers and Nash-equilibrium characterizations use different feasible sets and objective; published primary proceedings and Resultary search do not imply this all-n path-constrained exchangeable-turnout optimum.
+
+## value
+
+PASS
+
+The loss of represented voting weight under only immediate-neighbor trusted delegation is a natural social-network constraint, unlike unlimited long cycles. The precise worst-safe optimizer, arbitrary exchangeable turnout robustness, and exact penalty relative to unrestricted delegation give a substantive, mathematically motivated design invariant.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

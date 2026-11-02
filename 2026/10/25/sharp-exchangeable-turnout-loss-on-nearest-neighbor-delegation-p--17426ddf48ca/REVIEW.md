@@ -1,15 +1,21 @@
-# Review of nearest-neighbor delegation loss
+# Independent mathematical audit
 
-## Correctness
-**PASS.** The claimed optimum follows from an exact orbit-length identity, explicit component formulas for one- and two-vertex directed cycles on a path, endpoint minimization of sums of decreasing nonnegative terms, and subadditivity that merges all components. Every assumption is stated, including permissible self-delegation and exchangeability without independence. Separate finite computational enumeration of all delegation profiles and fixed-count exchangeable laws on paths of 2–9 voters agrees; exact turnout-subset enumeration agrees for paths of 2–6 voters. The infinite-domain result is established analytically, not by these enumerations. Strictness for i.i.d. \(0<q<1\) is from strictly decreasing orbit-failure probabilities.
+## correctness
 
-## Originality
-**PASS, subject to residual publication-priority risks.** The closest explicit predecessor is Brill et al., arXiv:2607.12610, Appendix B.4, Proposition 19, which gives an unrestricted Hamiltonian-cycle optimum for independent participation; that optimum is usually infeasible on a path. Their 2025 COMSOC paper and the expanded paper were inspected. Grossi and Nitsche, arXiv:2506.09789, analyze decay of expected influence down delegated paths but do not prove this social-path optimization or arbitrary exchangeable-turnout law. Other sources concern ranked backups, centrality, or epistemic correctness, not this exact loss-minimization problem. published-finding corpus searches and available prior claims did not reveal an equivalent or stronger theorem, but search noncoverage is not proof of priority; a related 2026 centrality paper was accessible only in summary and remains a risk.
+PASS
 
-## Value
-**PASS.** Proposition 19's all-voter cyclic optimum requires unrestricted delegation. Restricting delegation to trusted immediate neighbors on a social line is a natural, qualitatively different design constraint. The exact optimal loss, sharp placement rule, and full correlation robustness quantify the representation price of locality, including the nonzero large-electorate absolute penalty under independent participation. This informs network-design tradeoffs; it is not merely a renamed fixed numeric example.
+For any exchangeable nonvoter set, voter v loses weight exactly when its entire default orbit O_v abstains, giving exact E loss = Σ_v a_|O_v|. Every directed functional component of a nearest-neighbor path is an interval with one self-loop or reciprocal edge. For monotone a_s, concave partial sums move each component cycle to an endpoint; the reciprocal-pair cost h(m)=2a₂+Σ_{s=3}^m a_s is no larger than the self-loop cost. h is subadditive, hence merging components cannot worsen the optimum. One terminal pair realizes the global lower bound. For independent q in (0,1), the relevant strict inequalities force only the two endpoints. Verified all fixed-count exchangeable models for all 1456 allowed profiles at n=2..7 and the iid unique minima; finite enumeration does not substitute for the arbitrary-n proof.
 
-## Limits
-The finding measures unrepresented voting weight, not strategic equilibrium, proportional representation, accuracy, or concentration of influence. The order-invariant turnout hypothesis is essential to the placement theorem; heterogenous independent turnout can make an interior reciprocal pair preferable. Arbitrarily correlated **exchangeable** turnout is covered. No external independent audit has been performed.
+## originality
 
-Self-review: passed. Independent audit: not yet performed.
+PASS
+
+Known unrestricted cycle minimizers and Nash-equilibrium characterizations use different feasible sets and objective; published primary proceedings and Resultary search do not imply this all-n path-constrained exchangeable-turnout optimum.
+
+## value
+
+PASS
+
+The loss of represented voting weight under only immediate-neighbor trusted delegation is a natural social-network constraint, unlike unlimited long cycles. The precise worst-safe optimizer, arbitrary exchangeable turnout robustness, and exact penalty relative to unrestricted delegation give a substantive, mathematically motivated design invariant.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
