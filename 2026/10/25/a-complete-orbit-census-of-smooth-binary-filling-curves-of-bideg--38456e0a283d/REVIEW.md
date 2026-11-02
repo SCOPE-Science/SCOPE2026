@@ -1,15 +1,21 @@
-# Scientific review
+# Independent mathematical audit
 
-## Correctness — PASS
-The 25-dimensional coefficient space and 9 independent rational evaluations yield an exact 16-dimensional kernel. Two enumerations independently span it. Every rationally nonsingular coefficient mask is partitioned under the full 72-element surface automorphism group, and exact chartwise Jacobian unit-ideal tests decide geometric smoothness for 54 orbit representatives. A separate characteristic-two Buchberger algorithm returns the same 2,328 masks; a coefficient-level comparison and all orbit-size checks pass. Geometric integrality and genus nine follow from intersection theory and adjunction.
+## correctness
 
-## Originality — PASS, qualified
-Homma and Kim, arXiv:2203.11595, Theorem 4.1 establishes the exceptional binary minimum bidegrees (4,3) and (3,4), not an exhaustive (4,4) count. Ahammed, Campbell and Moon, arXiv:2512.02796, Section 4 computes cases for q=3 and q=5 in a different family and Theorems 1.1–1.2 assume odd q; these do not imply the present binary balanced census. Related bidegree-(3,4) floor-diagram enumerations count tropical curves rather than rational smooth filling equations. Explicit overlap searches found no stronger matching coverage. Unindexed earlier work is a residual priority risk.
+PASS
 
-## Value — PASS
-The first symmetric bidegree directly above the exceptional (3,4)/(4,3) binary minimum is a canonical finite classification target. The 2,328 count, 34 orbit decomposition, and nontrivial stabilizer spectrum supply a complete geometric-enumerative answer, not merely a single example or routine renamed special case.
+Independent exhaustive F2 linear algebra reconstructed the nine evaluation functionals, rank 9, and 16-dimensional vanishing kernel of the 25 monomials, giving exactly 65535 nonzero filling equations. A distinct polynomial-generator basis via DX and DY reproduced this kernel. Rational-point Jacobian tests leave 3648 masks. Independently constructed all 72 ((PGL2(F2))² ⋊ C2) actions and obtained 54 rationally smooth orbits: 49×72,2×36,1×24,2×12. Fresh SymPy Groebner unit-ideal tests of (f,fx,fy) on all four affine charts of every orbit representative retained precisely 34 geometric-smooth orbits (31×72,2×36,1×24), totaling 2328 masks; these tests were independent of stored outputs. Smooth ample bidegree (4,4) divisors on P1×P1 cannot decompose into disjoint components, hence are integral; adjunction gives genus 9. Exact count is of embedded curves/equations, not abstract isomorphism classes.
 
-## Scope and remaining limitations
-Embedded orbits need not coincide with abstract isomorphism classes. This finite-field theorem has no claimed uniform extension to larger fields. Independent external audit is not performed.
+## originality
 
-Self-review: passed. Independent audit: not yet performed.
+PASS
+
+For Complete F2 orbit census of smooth (4,4) filling curves on P1×P1: exact final statement and implication were compared against relevant published original mathematical statements and Resultary findings. The new exact census is not a formal restatement or specialization of either theorem; it uses full geometric smoothness and orbit-action arithmetic. Best-of-knowledge qualified by explicitly named risks.
+
+## value
+
+PASS
+
+This exhausts a natural finite algebraic-geometry classification at the first symmetric bidegree immediately above the exceptional characteristic-two filling minimum: exact smooth count, rational automorphism orbit types and stabilizers are coherent invariants not implied by mere existence. The independent full-size enumeration makes it a useful reference for finite-field filling curves.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
