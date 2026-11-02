@@ -1,0 +1,116 @@
+{
+  "correctness": {
+    "rationale": "For p>=13 the degree-twelve polynomial is squarefree precisely off A=+/-2, giving genus five. The exact coefficient extraction of (z^2+Az+1)^((p-1)/2) makes the 5x5 Cartier matrix diagonal or antidiagonal, with reciprocal paired entries. The finite-characteristic Legendre generating series gives each scalar coefficient as (-1)^d P_d(A/2). On each 1- or 2-cycle of the inverse-Frobenius-semilinear Cartier map, nonzero coefficients imply stable bijectivity, and zero coefficients force a zero cycle. Thus p-rank is precisely the weighted indicator formula (2,2,1). Legendre polynomial degrees are d<= (p-1)/2 with nonzero leading coefficient; the second-order Legendre ODE and nonvanishing P_d(+/-1) prove simple roots strictly within the smooth locus. The exact determinant factor and divisor multiplicities follow. The included stdlib verifier separately checks polynomial identities, rank/stable rank, squarefreeness and sample gcds in all 44 primes 5<=p<200; this does not substitute for the all-prime proof.",
+    "status": "PASS"
+  },
+  "independent": false,
+  "independent_audit_status": "not_performed",
+  "originality": {
+    "broader_coverage": {
+      "evidence": [
+        "Ohashi--Kudo Proposition 4.9 states an isogeny to E1 x E2 x E3 x E4^2, which controls abstract p-rank if individual elliptic factors are analyzed.",
+        "Proposition 4.11 states superspeciality, not all individual rank-drop divisor degrees or multiplicities.",
+        "Ohashi generalized Legendre-form manuscript is cited as a superspeciality tool but its full text was not verified."
+      ],
+      "reasoning": "The geometric elliptic decomposition is genuinely stronger structural context and is credited as prior. It does not directly state this explicit factorization and root separability in the A-parameter. The general elliptic Hasse formalism may imply pieces with further calculation; residual priority risk remains rather than being dismissed.",
+      "searches": [
+        "Ryo Ohashi superspecial curves generalized Legendre form Theorem 3.9 p-rank",
+        "Ohashi Kudo Proposition 4.9 elliptic isogeny Hasse invariant",
+        "Auer Top 2002 Legendre elliptic curves supersingular parameters"
+      ]
+    },
+    "checked_sources": [
+      "arXiv:2603.21569v1 (primary relevant full text inspected)",
+      "Auer--Top 2002 (reference chain, not full text)",
+      "Ohashi generalized Legendre form (bibliographic citation, inaccessible full text)"
+    ],
+    "claim_vs_prior_implication": {
+      "evidence": [
+        "The isogeny class of the Jacobian from Proposition 4.9 implies that its p-rank is the sum of the p-ranks of its elliptic factors, so an abstract rank computation is prior-accessible.",
+        "The new polynomial identity T_{m,d}=(-1)^d P_d(A/2) and root-separability calculation yields exact reduced A-divisors, with multiplicities 2,2,1 and all-prime degree formulas; those formulas are not stated by the primary source."
+      ],
+      "reasoning": "This result is not presented as discovering a new isogeny or a new Hasse--Witt principle. It explicitly resolves all rank drops in the original parameter, including intersections, and computes reduced divisor geometry. Because classical elliptic Hasse polynomials could supply a different deduction, originality is qualified and historical priority not finally settled.",
+      "searches": [
+        "Ohashi Kudo 2026 Proposition 4.9 4.11 Algorithm 3 all parameter rank vs superspecial",
+        "Ryo Ohashi generalized Legendre form superspecial genus five",
+        "\"Hasse Witt\" \"x^12\" \"x^6\" genus five"
+      ]
+    },
+    "equivalent_formulations": {
+      "evidence": [
+        "Ohashi--Kudo Section 4.3 Proposition 4.11: three truncated hypergeometric polynomials vanish simultaneously exactly at superspecial parameters.",
+        "The current p-rank theorem gives all combinations of nonzero coefficients, and specifies three reduced A-divisors with multiplicities and degrees, absent as statements from Section 4.3 and Algorithm 3."
+      ],
+      "reasoning": "Passing to delta with delta+1/delta=A^2-2 converts the superspecial polynomial conditions to another parameterization, but simultaneous vanishing alone does not determine the whole rank stratification or reduced divisors. A full prior diagonalization could nevertheless yield an equivalent statement; no such explicit one was located.",
+      "searches": [
+        "\"x^12 + a x^6 + 1\" \"p-rank\"",
+        "\"x^12+Ax^6+1\" \"Legendre polynomial\" p rank",
+        "dihedral genus five hyperelliptic Hasse-Witt matrix Legendre polynomials",
+        "arXiv:2603.21569v1 Sections 4.3 and 5.3"
+      ]
+    },
+    "exact_database_or_table": {
+      "evidence": [
+        "Ohashi--Kudo Section 6 tables count superspecial isomorphism classes for individual primes 11<p<1000, not the complete parameter-dependent p-ranks or the three reduced divisor degrees.",
+        "Exact small-prime gcd computations in the package show rank strata for p=13 and p=19; they are not inferred from a table of superspecial isomorphism classes."
+      ],
+      "reasoning": "A finite superspecial census cannot settle the full algebraic-closure parameter locus for every p. No matching exact rank-divisor table was found in the inspected material.",
+      "searches": [
+        "Ohashi Kudo 2026 Algorithm 3 Table 2 Table 3 superspecial genus five A parameter",
+        "\"x^12+Ax^6+1\" p-rank tables",
+        "genus five hyperelliptic dihedral ordinary nonordinary rank drop divisor"
+      ]
+    },
+    "rationale": "Ohashi--Kudo arXiv:2603.21569v1 Section 4.3 equation (4.13), Proposition 4.9, Proposition 4.11 and Algorithm 3 already provide the family, a decomposition into elliptic factors and tests for superspeciality. The final claim is not that decomposition nor superspeciality: it is the explicit all-parameter p-rank formula and a factorization of its determinant into three separable Legendre polynomials whose geometric roots and multiplicities are individually determined for every prime. Source text and claim-level searches found no stated equivalent or dominating geometric rank-drop divisor theorem. A generalized Legendre-form result and standard elliptic isogeny reasoning remain priority risks, explicitly acknowledged. This is a qualified best-knowledge originality assessment, not a claim that no older deduction exists.",
+    "residual_risks": [
+      "An earlier generalized Legendre or elliptic-cover theorem may imply the same rank-divisor factorization after a coordinate change; its full text was not verified.",
+      "The primary elliptic decomposition and standard Hasse invariant theory may make the p-rank formula accessible by an alternate short deduction; the claimed contribution is the explicit A-divisor geometry and all-parameter stratification.",
+      "Exact overlap patterns for the three root sets are not classified uniformly across primes, although the formula handles every parameter."
+    ],
+    "source_inspections": [
+      {
+        "assessment": "Provides the curve, elliptic decomposition and superspeciality criterion; no explicit all-parameter p-rank Legendre divisor theorem in the inspected relevant full text. Strong prior background, not disjoint subject.",
+        "evidence": [
+          "Equation (4.13) y^2=x^12+Ax^6+1; Proposition 4.9 Jac(H) isogenous to E1 x E2 x E3 x E4^2.",
+          "Proposition 4.11 tests simultaneous vanishing for superspeciality, Algorithm 3 enumerates only superspecial curves, Tables 2 and 3 superspecial counts."
+        ],
+        "identifier_or_url": "https://arxiv.org/html/2603.21569v1",
+        "material_read": "Full relevant sections 4.3 (equation 4.13, Propositions 4.9-4.12), 5.3 (Algorithm 3), introductory scope and Section 6 tables, plus source bibliography.",
+        "method": "Primary open-access HTML inspected directly; compared propositions and their implications to the final all-parameter p-rank and divisor statement.",
+        "title": "On superspecial hyperelliptic curves of genus 5 whose automorphism groups contain (Z/2Z)^3",
+        "trigger": "The precise symmetric genus-five model, same parameter and superspecial tests."
+      },
+      {
+        "assessment": "Classical elliptic supersingularity and finite-field parameter facts are prior; no justified claim of whole-paper noncoverage.",
+        "evidence": [
+          "Ohashi--Kudo Proposition 4.12 explicitly cites Auer--Top Proposition 2.2 for supersingular Legendre parameters."
+        ],
+        "identifier_or_url": "Auer and Top, Journal of Number Theory 95 (2002), 303-312",
+        "material_read": "Bibliographic and theorem references from the full Ohashi--Kudo source, especially their Proposition 4.12 and references; independent full article not verified.",
+        "method": "Reference-chain and topical search, not full text.",
+        "title": "Legendre elliptic curves over finite fields",
+        "trigger": "Potential broader covering of Legendre-Hasse zeros."
+      },
+      {
+        "assessment": "Accessible evidence establishes superspeciality relevance, not a published all-parameter rank-divisor classification; potential priority risk expressly remains.",
+        "evidence": [
+          "Ohashi--Kudo Proposition 4.11 proof cites the generalized Legendre theorem as superspeciality criterion."
+        ],
+        "identifier_or_url": "Ohashi, cited in arXiv:2603.21569v1 bibliography as forthcoming",
+        "material_read": "Reference description and the motivating article statement that its Theorem 3.9 implies Proposition 4.11; independent full text unavailable.",
+        "method": "Bibliographic and targeted title search, not source full-text inspection.",
+        "title": "Superspecial curves of generalized Legendre form",
+        "trigger": "A plausible earlier stronger generalized theorem used by the source."
+      }
+    ],
+    "status": "PASS"
+  },
+  "review_type": "self_review",
+  "schema_version": 1,
+  "scope_run_id": "e3fa6523-5dc9-4e39-b509-5e910550d3c5",
+  "self_review_status": "passed",
+  "value": {
+    "rationale": "A natural one-dimensional moduli subfamily of genus-five hyperelliptic curves with large automorphism groups was introduced for superspeciality. Its complete ordinary/nonordinary p-rank profile is a motivated invariant beyond the zero-rank slice; the three separable divisors and their exact characteristic-dependent degrees and determinant multiplicities quantify every individual rank-drop mechanism. The p=13 and p=19 cases illustrate different geometric intersection patterns. This is not an arbitrary numerical instance or finite table recomputation, and the theorem holds for all primes in scope. The full Newton polygon and universal intersection census remain open.",
+    "status": "PASS"
+  }
+}
