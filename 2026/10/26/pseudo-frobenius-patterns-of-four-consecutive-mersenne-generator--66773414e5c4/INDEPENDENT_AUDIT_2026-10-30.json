@@ -1,0 +1,119 @@
+{
+  "audit_date_utc": "2026-10-30",
+  "audited_at_utc": "2026-10-30T19:56:19Z",
+  "axes": {
+    "correctness": {
+      "rationale": "For a=2^m−1 and S=<a,2a+1,4a+3,8a+7>, the coin count C(r) for denominations {1,3,7} has exact minimal greedy form floor(r/7)+floor((r mod7)/3)+(r mod7 mod3). The weight W(r)=a(r+C(r))+r gives the full Apéry set for 0<=r<a because the normalized weight is strictly increasing; C(r+7)=C(r)+1 forces all PF residues into the final seven r values. Testing addition by all three non-a generators and modular wrap produces PF={F,F−1,F−2} if m mod3=1 and PF={F,F−4(a+1)} if m mod3=2, with the stated exact F formulas. Independently recomputed shortest-path Apéry sets and generator membership for all five exponents m=5,7,8,10,11 (m<=11,m mod3≠0); these finite cases corroborate the full all-m Apéry/last-seven-residue proof.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Theorem 6.1 of 2025 paper gives F and genus for a=7q+3,k=3,d=1, which does include the m≡2 Frobenius number.",
+          "Theorem 3.4 gives PF for a=7q, not for a=7q+1 or3."
+        ],
+        "reasoning": "A broader F/genus formula does not imply the exact PF set without the maximal-Apéry classification; the missing max-element comparison is supplied by the audited final proof.",
+        "searches": [
+          "arXiv:2306.03459 Theorem 3.4 and 6.1",
+          "arXiv:2209.13118 Table 5",
+          "Resultary: Four consecutive Mersenne number generators numerical semigroup pseudo Frobenius type modulo 3"
+        ]
+      },
+      "checked_sources": [
+        "arXiv:2209.13118",
+        "arXiv:2306.03459v4",
+        "Math. Z. 286 (2017) Rosales–Branco–Torrão"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "m≡1 corresponds to a=7q+1; m≡2 to a=7q+3; m≡0 to a=7q.",
+          "Theorem 3.4 exact PF on a=7q does not specialize to a=7q+1 or3; Theorem 6.1 at 7q+3 provides F and g only."
+        ],
+        "reasoning": "Prior Apéry structure can be used to derive PF, but the published implications inspected did not state or already prove the full pair of precise PF/type patterns without additional last-seven maxima analysis.",
+        "searches": [
+          "arXiv:2306.03459 Theorems 3.4 and 6.1",
+          "arXiv:2209.13118 Section 7",
+          "Resultary: Four consecutive Mersenne number generators numerical semigroup pseudo Frobenius type modulo 3"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "S=<a,2a+1,4a+3,8a+7> is a four-term truncation of a full Mersenne-generator family, not identical to its infinite/full series.",
+          "The 2025 paper 3.4 treats a multiple-seven first generator; here a=2^m−1 is a mod7=1 or3 for m mod3=1 or2."
+        ],
+        "reasoning": "The general family overlaps in embedding form but the already treated PF parameter branch m divisible3 is excluded; the other two PF statements are not the same theorem.",
+        "searches": [
+          "Resultary: Four consecutive Mersenne number generators numerical semigroup pseudo Frobenius type modulo 3",
+          "Komatsu arXiv:2209.13118",
+          "Liu–Xin–Ye–Yin arXiv:2306.03459"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "Komatsu Table 5 is an Apéry representation, and its associated formulas give Frobenius values.",
+          "No exact PF table for the two nondivisible-by-three Mersenne exponent branches appears in the materially read theorem statements."
+        ],
+        "reasoning": "Existing Apéry and F tables are identified as prior machinery, not mistaken for an exact PF listing; absence of a PF table is a qualified finding.",
+        "searches": [
+          "Komatsu arXiv:2209.13118 Table 5",
+          "Resultary: Four consecutive Mersenne number generators numerical semigroup pseudo Frobenius type modulo 3"
+        ]
+      },
+      "rationale": "Komatsu arXiv:2209.13118 already studies four-generator Apéry/Frobenius formulas, and Liu–Xin–Ye–Yin arXiv:2306.03459 Theorem 3.4 supplies PF for a multiple of seven (m divisible3), the explicitly excluded branch. Their Theorem 6.1 covers Frobenius and genus for a≡3 mod7, including m mod3=2, but does not state the exact two-entry PF set. The inspected full text and relevant published records did not give either remaining branch PF/type formula. This is best-of-knowledge originality restricted to exact PF patterns; the greedy Apéry foundation, Frobenius values, and excluded m divisible3 branch are prior and not claimed novel.",
+      "residual_risks": [
+        "A general prior theorem on Apéry maximal elements for the exact progression could imply these PF sets implicitly.",
+        "Not all historical Mersenne/Thabit full texts were inspectable; no absolute priority guarantee."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Apéry/Frobenius machinery already present; no inspected exact PF/type theorem for the audited branches.",
+          "evidence": "Table 5 gives the complete residue-system grid for the four-generator setting.",
+          "identifier_or_url": "arXiv:2209.13118",
+          "material_read": "Accessible original full-text paper, Section 7, Table 5 and visual screenshot of displayed table",
+          "method": "arXiv full text and screenshot",
+          "title": "The Frobenius number for shifted geometric sequences associated with the number of solutions",
+          "trigger": "Exactly four-term shifted geometric progression"
+        },
+        {
+          "assessment": "Prior PF covers a divisible by 7, while Frobenius/genus theorem covers a=7q+3; remaining PF lists not stated.",
+          "evidence": "Theorem 3.4 m(2^n−1), n=3; Theorem 6.1 a=7q+3,k=3,d=1; theorem statement explicitly F(A), g(A).",
+          "identifier_or_url": "arXiv:2306.03459v4",
+          "material_read": "Accessible full 23-page 2025 primary text, Theorems 2.10, 3.4, 6.1 and screenshots pp.11,20",
+          "method": "arXiv full text and PDF screenshots",
+          "title": "A Generalization of Mersenne and Thabit Numerical Semigroups",
+          "trigger": "Same family of generators and dominating general results"
+        },
+        {
+          "assessment": "Family differs (full generators), so no whole-document assertion of noncoverage.",
+          "evidence": "Audit family truncates to four generators even for m>4.",
+          "identifier_or_url": "Math. Z. 286 (2017) Rosales–Branco–Torrão",
+          "material_read": "Bibliographic identification and different generating-family description; complete original not materially inspected",
+          "method": "scholarly bibliographic search",
+          "title": "The Frobenius problem for Mersenne numerical semigroups",
+          "trigger": "Related named Mersenne semigroup"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "rationale": "The complete two-branch PF classification of a naturally truncated Mersenne-generator family determines its Cohen–Macaulay type 3 versus 2 and exact nonconsecutive gaps in one residue class. Such type and maximal-gap data are natural unknown invariants not supplied by published F/genus values alone, and may be reused in semigroup-ring or almost-symmetric analyses.",
+      "status": "PASS"
+    }
+  },
+  "checked_sources": [
+    "arXiv:2209.13118",
+    "arXiv:2306.03459v4",
+    "Math. Z. 286 (2017) Rosales–Branco–Torrão"
+  ],
+  "disposition": "passed",
+  "limitations": [
+    "Only m>=5, m mod3 in {1,2}; previously covered m mod3=0 is excluded.",
+    "The Frobenius and Apéry formulas are not original in isolation.",
+    "Potential algorithmic derivation from prior greedy theory remains a historical originality risk."
+  ],
+  "residual_risks": [
+    "A general prior theorem on Apéry maximal elements for the exact progression could imply these PF sets implicitly.",
+    "Not all historical Mersenne/Thabit full texts were inspectable; no absolute priority guarantee."
+  ],
+  "schema_version": 1
+}
