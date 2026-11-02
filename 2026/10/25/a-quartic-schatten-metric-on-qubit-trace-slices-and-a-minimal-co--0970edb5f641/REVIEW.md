@@ -1,19 +1,21 @@
-# Mathematical review
+# Independent mathematical audit
 
-## Correctness (PASS)
+## correctness
 
-The identity \(\|A^{1/2}B^{1/2}\|_4^4=\operatorname{Tr}ABAB\) is exact. The trace-four quantity equals \(\|(A-B)(A+B)\|_2^2\), proving nonnegativity and separation for positive inputs. Pauli multiplication yields the exact fixed-trace formula. For each triple of Bloch vectors, its affine plane has a single complex-coordinate quadratic embedding into \(\mathbb C^2\) representing all three distances. The Hilbert-space triangle inequality completes the universal proof without finite sampling. The cone obstruction has an exact integer certificate: squared distances \(240,201,1\), with \(19^2=361>201\). Scalar nonnegative inputs furnish the dimension-one positive boundary. Diagnostic tests verify the arithmetic and random instances, not the infinite claim.
+PASS
 
-## Originality (PASS, historical-risk qualified)
+For PSD matrices D4²=Tr(A^4)+Tr(B^4)-2Tr(ABAB)=||(A-B)(A+B)||_2², giving symmetry, nonnegativity and separation because A²=B² implies A=B for PSD. For fixed trace 2t>0 in Hermitian M2, Pauli A=tI+x·sigma, ||x||<=t gives exact D4²=2||x-y||²(4t²+||x+y||²). For every triple of Bloch vectors, their affine span w+V has dim <=2 with w perpendicular to V; complex coordinate ζ on V maps each point to (sqrt(4t²+4||w||²)*ζ, ζ²) in C², whose ordinary Euclidean distances equal all three d_{4t²} pairwise values; triangle inequality follows for any triple, including PSD boundary. The explicit PSD A=[[2,2],[2,2]], B=diag(2,1), C=diag(2,0) gives independent exact squared distances (240,201,1) with sqrt240>sqrt201+1, and scalar D4(a,b)=|a²-b²| establishes minimal cone-counterexample dimension two. No extension to arbitrary matrix dimension/exponent is asserted.
 
-The closest motivating preprint (Sra, arXiv:2610.15889v1, especially Theorem 1.1 and the introduction) establishes the all-dimensional metric for \(1\le p\le2\) but does not give the mixed positive/negative fourth-exponent behavior. The related independent Vuong–Osaka result identified in that introduction concerns the same lower exponent range. Published-result similarity searches identified no direct statement of the fixed-trace qubit \(p=4\) metric with the affine-plane square-map argument, and accessible prior claims do not imply it. Search absence is not novelty proof. Unindexed metric-geometry identities and further results on matrix fidelities remain historical-priority risks.
+## originality
 
-## Mathematical value (PASS)
+PASS
 
-The positive matrix distance is a natural noncommutative interpolation object in recent operator inequalities. The exact trace-one-qubit metric above the known general exponent window, together with a minimal-dimensional explicit off-slice failure, identifies a substantive and surprising boundary: normalization preserves the triangle inequality at \(p=4\) even though arbitrary normalization changes can destroy it. The three-point Hilbert realization is a structural lemma rather than a lone numerical example. No arbitrary-dimension extension is claimed.
+Best-of-knowledge PASS for the combination of fixed-positive-trace two-by-two quartic metric and dimension-two full-cone triangle failure. Sra (Oct. 11, 2026), Theorem 1.1, and Vuong–Osaka cover p in [1,2], not p=4; the full PDF inspected does not contain a qubit p=4 theorem. Resultary returns other Schatten-4 qubit/qutrit topics, not this affinity distance. General Hilbert three-point chord lemma is a structural proof not supplied by the range-1..2 prior theorem. Unindexed generalized fidelity and metric-geometry identities remain residual risk.
 
-## Limits
+## value
 
-Only \(p=4\), fixed trace in \(M_2(\mathbb C)\), and the indicated full-cone counterexample are proved. The theorem is not an all-exponent classification. Comparison with inaccessible or unindexed historical works remains imperfect. Independent audit is not yet performed.
+PASS
 
-Self-review: passed. Independent audit: not yet performed.
+The recently studied p-Bures/Wasserstein affinity distance has a natural exponent threshold. At p=4 it fails already on the smallest noncommutative PSD cone but still defines a bona fide metric on every fixed-trace qubit state space. The complete three-point Euclidean realization supplies a nontrivial structural explanation and exact sharp dimensional boundary, useful for quantum information/statistical state geometry; no general-range promise required.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
