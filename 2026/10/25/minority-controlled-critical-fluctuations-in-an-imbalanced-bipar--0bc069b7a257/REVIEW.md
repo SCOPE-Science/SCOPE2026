@@ -1,15 +1,21 @@
-# Scientific review: minority-controlled critical bipartite Ising fluctuations
+# Independent mathematical audit
 
-## Correctness — PASS
-The Gibbs law is explicitly normalized and the two sums of Ising spins have finite, fully specified support. Summation over one class yields the exact marginal without an approximation. The inequality \(0\le x^2/2-\log\cosh x\le x^4/12\) controls its Radon–Nikodym perturbation relative to the Curie–Weiss magnetization law. A Hubbard–Stratonovich representation and quartic potential bound imply uniform critical-window fourth and higher even moments, establishing a total-variation error bounded by \(C_L n/m\). Stirling expansion and uniform quartic tails prove the non-Gaussian critical-window limit. Conditional independent-spin characteristic functions prove the asymptotically independent Gaussian transverse variable; moment bounds justify the variance limits. The statement does not claim a uniform bound outside a bounded critical window. Independent finite-configuration checks and numerical critical-window comparisons passed 921 tests. They do not replace the proof.
+## correctness
 
-## Originality — PASS relative to examined works
-The closest precursor, Gallo–Contucci (arXiv:0710.0800), develops the two-population mean-field model and solves thermodynamic pressure, but not the vanishing-minority critical-window distribution or quantitative total-variation reduction. Fedele–Contucci (arXiv:1011.3216) develops multi-species limit laws assuming a positive-definite interaction matrix and fixed positive population fractions. Fedele (arXiv:1310.7615) obtains Gaussian times quartic fluctuations for positive-definite couplings. Kirsch–Toth (arXiv:1807.05020) explicitly assumes both limiting group proportions strictly positive and a positive-definite interaction matrix. The present pure-cross coupling matrix is indefinite and the smaller population fraction vanishes, so none of these published statements directly entails the assessed singular-size theorem. An unlocated general finite-size approximation or critical-spin theorem could imply the result, and literature coverage is not exhaustive. The quartic Curie–Weiss law itself is classic prior art; the evaluated contribution is the uniform effective-law reduction and minority-driven joint scaling.
+PASS
 
-## Mathematical value — PASS
-This is not simply rephrasing the ordinary Curie–Weiss critical limit: it proves a distribution-level approximation for all minority magnetizations, with a quantitative error across a family of highly unbalanced two-population systems. The smaller class fixes an unconventional temperature window and the dominant fluctuation scale of the larger class. The independent Gaussian transverse mode separates local spin noise from collective critical fluctuations. These conclusions are relevant to finite-size scaling for heterogeneous interacting populations and provide a rigorous approximation usable for other minority observables. The result is limited to a tuned pure-cross mean-field interaction and does not imply universality for general two-species couplings.
+PASS: Exact majority-spin elimination gives binomial times cosh(beta s/sqrt(mn))^m; direct independent labelled-spin sums verified this at three finite (m,n,beta) configurations. Writing h(t)=t^2/2−log cosh t, the globally valid 0<=h<=t^4/12 bounds reweighting error by beta^4 s^4/(12mn^2). The supplied Hubbard–Stratonovich proof establishes uniform critical-window fourth moments E S_B^4=O_L(n^3), yielding TV <=C_L n/m without a hidden m/n speed requirement. The Stirling entropy expansion gives exp(lambda x^2−x^4/12) at scale n^(3/4); quartic tail bound secures tightness and moments. Conditional independent majority spins give joint normal transverse fluctuations and asymptotic independence; bound on mean/tanh discrepancy is O_R(n^(3/4)/m)→0. Spin-flip symmetry and uniform moments justify variances. Boundaries beta positive for large n; m>=n, fixed lambda/ bounded windows.
 
-## Sources and residual risks
-Source pages reviewed include the model and thermodynamic analysis of Gallo–Contucci (2007), the hypotheses and general scaling theorem of Fedele–Contucci (2010), the critical theorem and proof setup of Fedele (2013), and the hypotheses, results, and references of Kirsch–Toth (2018). Broader papers and methods may remain unlocated, and independently checked priority is not claimed. The numerical checks are finite and do not independently validate the infinite-volume theorem.
+## originality
 
-Self-review: passed. Independent audit: not yet performed.
+PASS
+
+PASS best-of-knowledge: Primary full texts Fedele–Contucci 2010 and Fedele 2013 impose a positive-definite or convex interaction matrix and positive limiting class fractions. Kirsch–Toth heterogeneous 2-group papers discuss N^(3/4) critical normalization with nonvanishing class proportions, not singular n/m→0 with a purely cross-coupled indefinite matrix, nor uniform TV reduction O(n/m). Gallo–Contucci 2007 treats bipartite free energy; classical one-species quartic law acknowledged as background. No statement-level coverage identified, but a general singular multi-population approximation remains possible.
+
+## value
+
+PASS
+
+PASS: A natural non-symmetric thermodynamic regime changes critical magnetization scaling from total population size to minority size. Exact quantitative reduction of an entire distribution, not merely moments, coupled with an independent Gaussian fluctuation of the majority supplies mathematically useful sharp asymptotic behavior.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
