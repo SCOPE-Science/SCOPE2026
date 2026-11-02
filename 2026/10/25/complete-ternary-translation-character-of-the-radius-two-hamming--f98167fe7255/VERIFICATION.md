@@ -5,8 +5,11 @@
     "status": "not_performed"
   },
   "independent_audit": {
-    "evidence": null,
-    "status": "not_performed"
+    "status": "passed",
+    "evidence": [
+      "INDEPENDENT_AUDIT_2026-10-28.md",
+      "INDEPENDENT_AUDIT_2026-10-28.json"
+    ]
   },
   "lean_verification": {
     "evidence": null,
@@ -16,10 +19,24 @@
 }
 ---
 
-# Finite verification certificate
+# Independent mathematical audit
 
-Run `python3 verify.py` from the extracted package directory with Python 3 (standard library only). It generates the 27 Hamming triples, all allowed-pair adjacencies, all 5,949 faces, 2,951 staged Morse pairs, and the complete 27,189-arrow matching-orientation graph, then checks the graph is acyclic by topological sorting all 5,949 vertices. Its 47 unmatched nonempty cells are exactly one vertex and 46 tetrahedra. It separately constructs each simplicial boundary map over \(\mathbb F_2\) and computes nonzero ranks \((26,217,728,954,666,279,72,9)\), giving Betti vector \((1,0,0,46,0,0,0,0,0)\). The acyclic matching, rather than finite-field ranks alone, supplies the integral homotopy input.
+## correctness
 
-It then checks signed Lefschetz contributions face by face for each of the 27 translations, reproducing rational degree-three traces \((46,4,-2,1)\) by translation weight. Independently it reconstructs the nine translation-orbit complexes of three representatives and verifies face vectors \((9,18,6)\), \((9,9,3)\), and \((0,0,0)\). Integer polynomial arithmetic proves that the Fourier multiplicities are \((2,2,2,1)\) by character weight. The exact replay output is included in `verification_output.txt`.
+PASS
 
-This is a complete exact finite certificate for this fixed 27-point space. It does not verify other alphabets or dimensions, the integral group-ring module, or originality outside the inspected literature. Independent validation has not been performed.
+For A=(Z/3)^3 and inclusive Hamming distance <=2, enumerated all 5949 nonempty faces with f-vector (27,243,945,1728,1620,945,351,81,9), 2951 acyclic Morse pairs and 47 critical cells (one vertex and 46 dimension-3 cells), and all 27189 Hasse arcs; 5949 topological-sort visits certify acyclicity. Lefschetz signed-face counts for all 27 translations produce traces 46,4,-2,1 by weights 0,1,2,3; the orbit complexes for nonzero representative weight 1/2/3 have f-vectors (9,18,6),(9,9,3),empty. Character Fourier transform using (1-t)^k(1+2t)^(3-k) yields multiplicity 2 at character weight <=2 and 1 at weight 3; total 46 and two invariant lines. In characteristic zero, quotient homology equals invariants after barycentric subdivision.
+
+## originality
+
+PASS
+
+Exact 27-point nonequivariant homotopy and full persistence were already published. Current refinement is full translation character and rational quotient, not the 46-sphere wedge. General categorical-product homotopy results and binary hypercube group-action work do not automatically determine 27 ternary translation traces.
+
+## value
+
+PASS
+
+The entire 27-element symmetry character is a natural and complete invariant of a canonical 27-point Hamming Rips complex, distinguishing nontrivial action from the known rank and allowing exact quotient homology. The precise representation matters to equivariant topological and coding-theoretic comparisons.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
