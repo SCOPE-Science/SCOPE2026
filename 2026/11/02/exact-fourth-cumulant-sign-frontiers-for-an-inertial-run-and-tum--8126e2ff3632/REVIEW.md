@@ -1,0 +1,9 @@
+# Self-review
+
+**Correctness — PASS.** The closed stationary fourth-cumulant formulas were reconstructed from the generator through fourth order and symbolically verified against independent polynomial expressions. Strictly decreasing normalized cubic/quadratic polynomials establish exactly one simple sign change when allowed; positivity of all remaining coefficients settles the other parameter regime. Compactness of the stationary linear filter and all parameter boundaries are explicit; numerical samples are supplementary.
+
+**Originality — PASS, with residual risk.** The main 2024 paper already provides the full degree-by-degree moment recurrence and uses higher cumulants numerically; no forward moment construction is claimed new. The theorem instead classifies the exact sign of both fourth cumulants globally in the two positive parameters, establishing the \(4/3\) threshold absent from the inspected main text. Patel–Chaudhuri's nearby fourth-cumulant phase diagrams involve continuously diffusing headings with thermal forcing, not binary telegraph switching. The same mathematical model stationary covariance identifiability result concerns a different observable. The exact moment recurrence makes the algebra accessible and is an originality risk; an undiscovered stronger fourth-cumulant theorem could imply the classification.
+
+**Mathematical value — PASS.** Kurtosis sign is a natural, amplitude-independent diagnostic of departures from Gaussian steady-state fluctuations in the model studied by the cited work. The sharp all-parameter classification distinguishes the velocity's universal sign reversal from the position's threshold-dependent reversal, and it gives exact nonvanishing limiting excess kurtoses. These are structural and model-specific conclusions, not merely isolated polynomial evaluations; no new phenomenological modality transition is inferred.
+
+Self-review: passed. Independent audit: not yet performed.
