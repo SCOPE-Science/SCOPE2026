@@ -1,0 +1,116 @@
+{
+  "correctness": {
+    "rationale": "The six J-pairings are exactly M^T Omega M=Omega; the explicit 81-vector completion count is a disjoint exhaustive partition of all allowed ternary 4x4 matrices. A second algorithm traverses 81^4 ordered 2x2 block tuples and independently checks A^T C, B^T D symmetry and A^T D-C^T B=I; both produce the nine identical counts and 17312 total. Finite exhaustive proof with full standalone verifier; no infinite extrapolation.",
+    "status": "PASS"
+  },
+  "independent": false,
+  "independent_audit_status": "not_performed",
+  "originality": {
+    "broader_coverage": {
+      "evidence": [
+        "Wurzinger Theorem 1.1: uniform big-Oh upper bound in size T; Theorem 1.2: centered-box asymptotic as T tends to infinity.",
+        "Wurzinger Section 5 computes growth exponent but not finite T coefficient distributions."
+      ],
+      "reasoning": "Big-Oh and asymptotic theorems are broader in dimension and T but strictly weaker for the exact first-box trace polynomial. They do not entail its coefficients or the finite T=1 total.",
+      "searches": [
+        "\"integer symplectic\" \"max norm\" \"exact\" four by four",
+        "trace distribution bounded symplectic integer matrices 4x4 enumeration",
+        "Integer symplectic matrices in expanding boxes arxiv 2610.29794"
+      ]
+    },
+    "checked_sources": [
+      "Wurzinger arXiv:2610.29794v1 full-text relevant sections",
+      "arXiv submission metadata 2610.29794",
+      "OEIS A364771 symplectic quotient-ring cardinality",
+      "Public literature exact-count and bounded integer symplectic matrix queries"
+    ],
+    "claim_vs_prior_implication": {
+      "evidence": [
+        "Wurzinger definition (1.1), Theorems 1.1/1.2, pp.1-2, and Section 5 on centered boxes.",
+        "Wurzinger introduction quotes Krieg on SL2(Z) shell counts for radii >=2, a rank-one statement.",
+        "OEIS A364771 modular group cardinalities over Z/nZ."
+      ],
+      "reasoning": "To imply the current claim, a prior result must determine the exact integer trace distribution for the 4x4 centered unit box (or a stronger all-radius trace formula). Neither a higher-rank growth bound, an asymptotic, rank-one shell counts, nor finite-ring orders imply those nine finite coefficients.",
+      "searches": [
+        "Exact number 17312 of four by four integral symplectic matrices with entries 0 plus minus 1, trace frequency distribution 561 1000 1900 2840 4710",
+        "Sp4 Z centered box max-entry radius one lattice point count trace polynomial",
+        "integer symplectic 4x4 height one enumeration 2x2 blocks exact counts",
+        "Lena Wurzinger integer symplectic Sp_2(Z) matrices height one 4x4 first centered max norm box trace polynomial 17312 561 4710",
+        "\"integer symplectic\" \"max norm\" \"exact\" four by four"
+      ]
+    },
+    "equivalent_formulations": {
+      "evidence": [
+        "Wurzinger arXiv:2610.29794v1 pp.1-2 and Section 5 counts bounded integral symplectic matrices but only states global bounds and a centered-box asymptotic.",
+        "The integral trace profile refines the norm-one lattice-point count, while reduction modulo a finite ring loses integer trace and lift bounds."
+      ],
+      "reasoning": "Compared the norm-one trace polynomial with a fixed-radius exact lattice-point count, a shell count, and a finite-quotient symplectic count. None of the inspected statements is an equivalent presentation of the nine trace multiplicities.",
+      "searches": [
+        "symplectic 4x4 integer matrices entries -1 0 1 count 17312 trace",
+        "Lena Wurzinger integer symplectic Sp_2(Z) matrices height one 4x4 first centered max norm box trace polynomial 17312 561 4710",
+        "Sp4 Z centered box max-entry radius one lattice point count trace polynomial"
+      ]
+    },
+    "exact_database_or_table": {
+      "evidence": [
+        "OEIS A364771, https://oeis.org/A364771: cardinalities of Sp(4,Z/nZ), e.g. 720 for n=2, not bounded integral matrices.",
+        "The exact first-box counts 17312 and 561,1000,1900,2840,4710 were not identified in the queried sources."
+      ],
+      "reasoning": "A364771 cannot supply height-one integer lift multiplicities: each modular class has infinitely many integral representatives, with different heights and integer traces. A database or web-search no-hit is not proof of absence elsewhere.",
+      "searches": [
+        "\"17312\" symplectic matrix trace bound 1 - Sp4",
+        "OEIS integer symplectic matrix max norm 1 17312",
+        "OEIS symplectic integer matrices max norm n Sp4 sequence"
+      ]
+    },
+    "rationale": "Wurzinger (arXiv:2610.29794v1) covers centered boxes with bounds and asymptotics but no exact radius-one rank-two trace spectrum. OEIS A364771 covers finite quotients, not small integral lifts. Searches of exact counts, parameters and aliases in public math sources and research records identified no stronger implication. Remaining unindexed-census risk explicitly noted.",
+    "residual_risks": [
+      "An unindexed earlier exact computational table for radius one or an uninspected book appendix could coincide.",
+      "No claim of novelty for symplectic pairing formulas or the general centered-box counting problem; only the exact nine coefficient spectrum is claimed."
+    ],
+    "source_inspections": [
+      {
+        "assessment": "The stated results are uniform upper bounds and centered-box asymptotic, not finite radius-one trace polynomial. The column symplectic identity is shared setup, not the enumerative claim.",
+        "evidence": [
+          "Wurzinger equations (1.1), (4.1) context, Theorems 1.1 and 1.2, and final Section 5 conclusion."
+        ],
+        "identifier_or_url": "https://arxiv.org/pdf/2610.29794",
+        "material_read": "Introduction pp.1-3 including definitions, Theorems 1.1/1.2 and rank-one comparison; pp.15-16 including symplectic column identity; Section 5 pp.23-26 centered asymptotic; table and formula text searches for trace and 17312",
+        "method": "Original full-text PDF opened, relevant pages read and visually inspected; text searches for trace and exact count",
+        "title": "Integer symplectic matrices in expanding boxes",
+        "trigger": "Same integral symplectic group, identical centered sup norm box and primary MSC 11C20"
+      },
+      {
+        "assessment": "The object is a finite quotient ring group and its order, not bounded integer matrices or trace profile.",
+        "evidence": [
+          "OEIS A364771 definition: matrices over Z_n and order 720 when n=2."
+        ],
+        "identifier_or_url": "https://oeis.org/A364771",
+        "material_read": "Full sequence page: title, definition, formula and links",
+        "method": "Direct OEIS entry inspection",
+        "title": "Order of the symplectic group of 4 X 4 matrices over Z_n",
+        "trigger": "Plausible exact symplectic-matrix count database"
+      },
+      {
+        "assessment": "First version released 2026-10-21T14:22:45Z; math.NT source dated in recent window.",
+        "evidence": [
+          "arXiv submission history [v1] Wed 21 Oct 2026 14:22:45 UTC."
+        ],
+        "identifier_or_url": "https://arxiv.org/abs/2610.29794",
+        "material_read": "Complete abstract/submission-history metadata",
+        "method": "Original public arXiv abstract page",
+        "title": "Integer symplectic matrices in expanding boxes (submission record)",
+        "trigger": "Earliest verified public date and primary research context"
+      }
+    ],
+    "status": "PASS"
+  },
+  "review_type": "self_review",
+  "schema_version": 1,
+  "scope_run_id": "6e5d6625-d9e5-4b99-a28e-299cf90feadd",
+  "self_review_status": "passed",
+  "value": {
+    "rationale": "The radius-one centered box in the first higher-rank integral symplectic group is a canonical minimum arithmetic counting instance; the complete trace coefficient profile refines the main scalar count by a conjugacy invariant and supplies a reproducible benchmark for trace-stratified higher-rank lattice counts. This is a motivated exact natural invariant, not arbitrary parameter slicing, and the frame completion distribution adds structure. No speculative larger-radius theorem claimed.",
+    "status": "PASS"
+  }
+}
