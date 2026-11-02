@@ -1,0 +1,21 @@
+# Independent mathematical audit
+
+## correctness
+
+PASS
+
+For the thermodynamic zero-T isotropic nearest-neighbor XX chain with J>0, 0<h<J and minority-spin density nu=acos(h/J)/pi, the Jordan-Wigner Fermi sea has g_j=nu*sinc(pi*nu*j). Wick gives z_r as the exact sum over internal-subset mixed determinants and p11=nu^2-g_r^2, p00=(1-nu)^2-g_r^2; the X-state formula is C_r=2max(0,|z_r|-sqrt(p00*p11)). Normalize each m-th minor by nu^(m+1) and scale internal sites by u=nu*j. The sine kernel K has unit-norm Gram factors, hence every mixed minor has modulus <=1, and the mth normalized term is bounded by (2*nu*r)^m/m!. For nu*r->s>0 along ANY admissible integer r sequence, dominated Riemann-sum convergence proves z_r/nu->F(s) and the diagonal term tends to sqrt(1-sinc(pi*s)^2). The crucial strict sign at s0=sqrt(2)/pi was reconstructed: sinc-product curvature gives I1>=k*56sqrt(2)/(225pi), and exterior divided-difference/Vandermonde bounds give absolute m>=2 tail T<(100/99)*8/(15pi^2). Independent exact Fraction arithmetic gives F(s0)>0.7220634634>0.716>sqrt(1-k^2). Consequently C_r/(2nu) has strictly positive limit at s0. For h_prop/J=(r-1)^2/((r-1)^2+1), r*nu_r->sqrt(2)/pi, hence C_r(h_prop)>0 for all large r and by fixed-r continuity also at a strictly smaller h, disproving equality of proposed and true onset. Independent finite checker performed 18 Wick subset/block determinant identities (nu=0.052,0.137,0.319; r=2,...,7), exact rational sign/tail certificate, continuum Nyström N=40,80,160, and finite r=30,60,120 scaling consistency. Finite examples are corroboration; the unrestricted result rests on analytic domination and rigorous bounds. Boundaries: s>0, h approaches J from below, r->infinity; no r-independent finite threshold formula or s=0 statement.
+
+## originality
+
+PASS
+
+Qualified PASS for the full compound claim, specifically its analytically certified strict refutation of a proposed all-distance magnetic-entanglement onset. Do NOT treat the sine-kernel first Fredholm minor, the double-scaled transverse coherence, Jordan-Wigner string, or exact finite-separation two-qubit concurrence as new: the first minor and density scaling are classical (Lenard; Vaidya-Tracy 1979; Patu-Korepin-Averin 2008), and Ciliberti-Canosa-Rossignoli 2013 gives all-distance XX two-spin concurrence. These results together strongly anticipate, and may mathematically imply on taking the continuum limit, the displayed concurrence-profile formula. However, no inspected primary result evaluates a rigorously positive concurrence gap at the specific s0=sqrt(2)/pi corresponding to Fumani et al. proposed fraction nor proves the consequent strict long-range disagreement for all sufficiently large separations. The current strict gap is established by a separately reconstructed nontrivial sine-product curvature lower bound, exterior divided-difference determinant tail estimate, and explicit exact rational comparisons. The highly relevant 1979 full text could not be inspected, so this is best-of-knowledge priority, not absolute first discovery.
+
+## value
+
+PASS
+
+A threshold for concurrence between arbitrarily distant spins near XX saturation is a natural, physically meaningful boundary, and a published 2015/2016 paper explicitly proposed an all-distance magnetic-onset fraction from distances 2-4. The rigorous strict positivity at its limiting scaling parameter provides an infinite family of counterexamples and separates an empirical finite-distance interpolation from the true long-range entanglement boundary. The nontrivial contribution is the quantitative analytical Fredholm minor inequality and its application to concurrence, NOT the classical sine kernel, hard-core boson mapping, or rederivation of pre-existing two-spin density matrices. The result gives a reusable continuous dilute/large-distance profile and definite sign at a special physically motivated scale. It does not find exact finite-r onset fields, every zero of the profile or a new general theory of the XX chain; these limitations are explicit. The narrow correct strict boundary is scientifically useful without requiring a paper-sized downstream theorem.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

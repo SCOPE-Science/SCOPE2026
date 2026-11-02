@@ -1,0 +1,235 @@
+{
+  "audit_date_utc": "2026-10-27",
+  "audited_at_utc": "2026-10-27T02:38:48Z",
+  "axes": {
+    "correctness": {
+      "rationale": "For the thermodynamic zero-T isotropic nearest-neighbor XX chain with J>0, 0<h<J and minority-spin density nu=acos(h/J)/pi, the Jordan-Wigner Fermi sea has g_j=nu*sinc(pi*nu*j). Wick gives z_r as the exact sum over internal-subset mixed determinants and p11=nu^2-g_r^2, p00=(1-nu)^2-g_r^2; the X-state formula is C_r=2max(0,|z_r|-sqrt(p00*p11)). Normalize each m-th minor by nu^(m+1) and scale internal sites by u=nu*j. The sine kernel K has unit-norm Gram factors, hence every mixed minor has modulus <=1, and the mth normalized term is bounded by (2*nu*r)^m/m!. For nu*r->s>0 along ANY admissible integer r sequence, dominated Riemann-sum convergence proves z_r/nu->F(s) and the diagonal term tends to sqrt(1-sinc(pi*s)^2). The crucial strict sign at s0=sqrt(2)/pi was reconstructed: sinc-product curvature gives I1>=k*56sqrt(2)/(225pi), and exterior divided-difference/Vandermonde bounds give absolute m>=2 tail T<(100/99)*8/(15pi^2). Independent exact Fraction arithmetic gives F(s0)>0.7220634634>0.716>sqrt(1-k^2). Consequently C_r/(2nu) has strictly positive limit at s0. For h_prop/J=(r-1)^2/((r-1)^2+1), r*nu_r->sqrt(2)/pi, hence C_r(h_prop)>0 for all large r and by fixed-r continuity also at a strictly smaller h, disproving equality of proposed and true onset. Independent finite checker performed 18 Wick subset/block determinant identities (nu=0.052,0.137,0.319; r=2,...,7), exact rational sign/tail certificate, continuum Nyström N=40,80,160, and finite r=30,60,120 scaling consistency. Finite examples are corroboration; the unrestricted result rests on analytic domination and rigorous bounds. Boundaries: s>0, h approaches J from below, r->infinity; no r-independent finite threshold formula or s=0 statement.",
+      "risks": [
+        "No formal Lean/expert certification is claimed.",
+        "Nyström convergence and finitely many Wick identities are illustrations, not infinite-dimensional certificates.",
+        "The analysis assumes the translation-invariant quasifree Fermi-sea thermodynamic ground state and stated normalization; other phases and finite chains not covered."
+      ],
+      "sources": [
+        "Assigned RESULT.md proof Steps 1-4; assigned verify.py read without executing",
+        "Independent exact rational and finite determinant calculations (private reproduction recorded with this run)",
+        "arXiv:1507.07384 (finite spin-chain correlations)",
+        "arXiv:1304.7309 (independent exact two-site XX formula)"
+      ],
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Yano-Nishimori 2005, all four author-posted pages: Eq. (3.4) and section 3 give two-spin concurrence for arbitrary separation and discuss its growth near the saturation transition; Fig. 2 concerns nearest through third neighbors, not the quantified r*arccos(h/J) double scaling nor the proposed 2015 fraction.",
+          "Ciliberti-Canosa-Rossignoli 2013, Eq. (16) concurrence and Eqs. (21)-(24) all-distance XX thermodynamic correlators, together with appendix Wick determinant. Their fixed-B large-L discussion does not prove the particular strict onset inequality.",
+          "Ivanov-Abanov 2013 gives all-order transverse string correlations via Fisher-Hartwig/Painleve asymptotics for fixed Fermi momentum; the paper does not assert the specific two-spin concurrence inequality.",
+          "Its-Jin-Korepin arXiv:quant-ph/0409027 computes block von Neumann entropy of the XY chain rather than two-site concurrence."
+        ],
+        "reasoning": "Prior work covers the transverse observable more broadly (arbitrary separation, multiple statistics and thermodynamic field regimes) and gives an all-separation concurrence formula. This cannot be misrepresented as new first Fredholm-minor theory. Yet those general formulas do not by themselves exhibit or certify the sign at s0; positivity there requires substantive bounding of the existing function. The strict asymptotic counterexample to the particular proposed equation survives after separating the known general results.",
+        "searches": [
+          "Resultary semantic query: Yano Nishimori ground state entanglement spin systems pairwise concurrence distant XX chain critical field asymptotic",
+          "Web: Yano Nishimori Ground State Entanglement in Spin Systems full author upload",
+          "arXiv:1304.7309, Sec. III and Appendix A, thermodynamic arbitrary distance concurrence",
+          "arXiv:1309.4867, XX transverse correlation Fisher-Hartwig expansion",
+          "arXiv:quant-ph/0409027, block entropy Fredholm operators"
+        ]
+      },
+      "checked_sources": [
+        "Assigned SCOPE RESULT.md at repository snapshot 6c379935c2e469fc18959fc6c387e31328c64bcf, blob bc5118c12a7061bce6c49e2d9c45692c0589b9a1",
+        "Assigned SCOPE verify.py (read, not executed): Git blob 028657439c35eea76ebb582112b6b2e08e6ccb1c",
+        "Fumani et al., Magnetic Entanglement in Spin-1/2 XY Chains, arXiv:1507.07384v2 (2015/2016), https://arxiv.org/pdf/1507.07384",
+        "Yano and Nishimori, Ground State Entanglement in Spin Systems (2005), doi:10.1143/PTPS.157.164, author-posted four-page text https://www.researchgate.net/publication/243570439_Ground_State_Entanglement_in_Spin_Systems",
+        "Ciliberti, Canosa, Rossignoli, Discord and information deficit in the XX chain, arXiv:1304.7309 (2013), https://arxiv.org/pdf/1304.7309",
+        "Patu, Korepin, Averin, One-Dimensional Impenetrable Anyons in Thermal Equilibrium I, arXiv:0801.4397v2 (2008), https://arxiv.org/pdf/0801.4397",
+        "Ivanov and Abanov, Fisher-Hartwig expansion for transverse correlation in XX chain, arXiv:1309.4867 (2013), https://arxiv.org/pdf/1309.4867",
+        "Vaidya and Tracy, One particle reduced density matrix of impenetrable bosons in one dimension at zero temperature, J. Math. Phys. 20 (1979) 2291-2312, doi:10.1063/1.524010 (publisher abstract only; Oxford VPN disconnected)",
+        "Its, Jin, Korepin, Entanglement in XY Spin Chain, arXiv:quant-ph/0409027 (2004), https://arxiv.org/pdf/quant-ph/0409027"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "Ciliberti Eq. (16) is C=2max(0,|alpha_L|-sqrt(p_L^+p_L^-)); thermodynamic Eq. (24) gives g_L=sin(omega L)/(pi L).",
+          "Vaidya-Tracy explicitly derived dilute double-scaled transverse correlations from impenetrable-boson density matrices, while Patu et al. identify those densities with Fredholm minors.",
+          "Fumani wrote the exact expression of h_prop as a conjectural extrapolation from r<=4, with no mathematical all-distance proof.",
+          "Current proof bounds F(s0) by F(s0)>0.722063... and sqrt(1-sinc^2(pi s0))<0.716 with explicit rational inequalities; these are a strict sign theorem, not only a reformulation of the determinant."
+        ],
+        "reasoning": "Combining the classical boson/fermion mapping, Fredholm minor and known X-state concurrence can imply the scaling-profile identity, so assign no separate priority credit to that identity alone. Those premises plus the finite-distance proposed onset fraction do not establish the required inequality at s0. A strict analytic Fredholm inequality and limiting-field contradiction need a motivated additional estimate; we rechecked that estimate independently and did not find the same proposition in accessed full primary mathematics. Originality PASS applies to the complete stronger compound conclusion including strict contradiction, not to a self-standing novelty claim about the sine kernel.",
+        "searches": [
+          "Ciliberti-Canosa-Rossignoli arXiv:1304.7309 Eq. (16), Eqs. (21)-(24) and Appendix A",
+          "Vaidya-Tracy 1979 J. Math. Phys. 20 2291-2312 DOI 10.1063/1.524010 publisher abstract",
+          "Patu-Korepin-Averin arXiv:0801.4397 Eq. (4), Theorem IV.1, Eq. (50)",
+          "Fumani et al. arXiv:1507.07384 page 3 proposed relation and fixed-r concurrence"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Patu-Korepin-Averin arXiv:0801.4397, p.1 Eq. (4) and Sec. V Eq. (50), represent impenetrable-boson one-body density matrix via a first Fredholm minor of the sine/Fermi kernel; for boson statistics gamma=2/pi. This is the same operator mechanism for F(s) after density normalization.",
+          "Vaidya-Tracy 1979 publisher abstract expressly states the one-particle density matrix is obtained from a double-scaling limit of the transverse spin-1/2 XY correlation.",
+          "Ivanov-Abanov arXiv:1309.4867 Sec. II Eqs. (4)-(7) give the exact Jordan-Wigner spin-string Toeplitz determinant, with kF/pi fermion density."
+        ],
+        "reasoning": "The spin-flip coherence z_r and impenetrable-boson one-body reduced density matrix are equivalent under the Jordan-Wigner/hard-core boson mapping, so F(s) is a classical scaling function, not novel mathematical machinery. The audited theorem also contains the two-spin X-state diagonal term and a new strict comparison with an explicitly proposed field. Neither the bosonic minor formula nor the transverse two-point function by itself asserts positivity of two-spin concurrence at the specified empirical onset. Therefore the strict sign consequence is not removed merely by equivalence of the first-moment/Fredholm terms.",
+        "searches": [
+          "Resultary semantic query: XX spin chain near saturation low density long distance concurrence sine kernel Fredholm minor entanglement onset field",
+          "Resultary semantic query: impenetrable Bose gas Lenard sine kernel Fredholm minor one particle density matrix Jordan Wigner transverse correlation thermodynamic low density",
+          "Web: Vaidya Tracy 1979 one particle reduced density matrix impenetrable bosons double scaling transverse correlation XX XY spin",
+          "arXiv:0801.4397, main theorem Eq. (50) and first Fredholm minor Eq. (4)",
+          "arXiv:1309.4867, Eqs. (4)-(7), transverse XX spin correlation determinant"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "Fumani et al. 2015/2016 explicitly compute r=2,3,4 and state one may PROPOSE h_prop/J=(r-1)^2/((r-1)^2+1) for arbitrary r; this is not a rigorously verified all-distance table.",
+          "Resultary nearest semantic records address finite-temperature concurrence on three/four-spin rings and other observables, not the infinite-chain dilute long-distance onset counterexample.",
+          "Yano-Nishimori Table/Fig. 2 and Ciliberti Fig. 2 supply fixed-distance curves and general formulas, not an exact table of asymptotic onset discrepancies at all r."
+        ],
+        "reasoning": "The natural exact database analogue would be a prior table/formula fixing the first entanglement-onset field for all sufficiently large r or the sine-minor sign at s0. The actual inspected finite-distance curves and unrelated indexed records do not supply it. Search failure is only residual priority evidence, never proof of novelty.",
+        "searches": [
+          "arXiv:1507.07384, page 3 Eqs. (11)-(16), Fig. 1 and proposed h_c^E field",
+          "Web: Fumani Nemati Mahdavifar Darooneh magnetic entanglement XX critical entangled field correction long distance",
+          "Web: spin chain concurrence near saturation all distances entangled region critical field 1-const/r^2",
+          "Resultary semantic queries cited above, nearest matches finite 3-/4-qubit XX/XXX entanglement topics"
+        ]
+      },
+      "rationale": "Qualified PASS for the full compound claim, specifically its analytically certified strict refutation of a proposed all-distance magnetic-entanglement onset. Do NOT treat the sine-kernel first Fredholm minor, the double-scaled transverse coherence, Jordan-Wigner string, or exact finite-separation two-qubit concurrence as new: the first minor and density scaling are classical (Lenard; Vaidya-Tracy 1979; Patu-Korepin-Averin 2008), and Ciliberti-Canosa-Rossignoli 2013 gives all-distance XX two-spin concurrence. These results together strongly anticipate, and may mathematically imply on taking the continuum limit, the displayed concurrence-profile formula. However, no inspected primary result evaluates a rigorously positive concurrence gap at the specific s0=sqrt(2)/pi corresponding to Fumani et al. proposed fraction nor proves the consequent strict long-range disagreement for all sufficiently large separations. The current strict gap is established by a separately reconstructed nontrivial sine-product curvature lower bound, exterior divided-difference determinant tail estimate, and explicit exact rational comparisons. The highly relevant 1979 full text could not be inspected, so this is best-of-knowledge priority, not absolute first discovery.",
+      "residual_risks": [
+        "Full Vaidya-Tracy 1979 J. Math. Phys. 22-page paper unavailable due authorized institutional VPN disconnection; could give sharper first-minor inequalities not visible from abstract.",
+        "Classical spin-XY and Tonks-Girardeau literature completely predates the newly submitted first minor; claim cannot advertise that component as independent novelty.",
+        "No documented exhaustive historical search of all near-saturation concurrence thresholds; older articles indexed under other terminology may cover the strict mismatch."
+      ],
+      "risks": [
+        "The unexamined full 1979 Vaidya-Tracy J. Math. Phys. paper or 1978 Physica A XY correlation article may contain equivalent positivity estimates at s=sqrt(2)/pi, despite their abstract not discussing two-spin concurrence.",
+        "Concurrence-specific near-saturation threshold could appear in historical finite-/long-range XY literature indexed under other terms; searches cannot prove priority.",
+        "The Fredholm-minor scaling itself is substantially classical; the surviving originality depends on the new strict onset contradiction, not on rederiving that kernel."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Finite distances 2-4 and explicitly proposed extrapolation only; no proof of all-r onset.",
+          "evidence": [
+            "arXiv:1507.07384 p.3 Eq. (12)-(16) and wording \"one may propose\" beside critical-field equation."
+          ],
+          "identifier_or_url": "https://arxiv.org/pdf/1507.07384",
+          "material_read": "Six-page primary arXiv PDF: exact two-spin correlations Eqs. 11-16, page 3 displayed proposed h_c^E formula, plots, conclusion and references; page 3 image inspected.",
+          "method": "Primary full-text PDF and page image.",
+          "title": "Magnetic Entanglement in Spin-1/2 XY Chains",
+          "trigger": "Direct source of the empirical arbitrary-distance proposed threshold being disproved."
+        },
+        {
+          "assessment": "Shows that entanglement range grows near critical magnetic field; no near-saturation first Fredholm minor, no proposed 2015 formula or strict counterexample.",
+          "evidence": [
+            "Yano-Nishimori (2005) pp. 165-167, Eq. (3.4), Fig. 2 and paragraph on entanglement length near boundary B1."
+          ],
+          "identifier_or_url": "https://doi.org/10.1143/PTPS.157.164",
+          "material_read": "Full four-page article pp. 164-167 through the author-uploaded ResearchGate transcription, including Hamiltonian, concurrence Eq. (3.4), Figs 1-3, Sec. 3 and summary.",
+          "method": "Author-uploaded full article text on https://www.researchgate.net/publication/243570439_Ground_State_Entanglement_in_Spin_Systems ; read all four pages; article identifies authors.",
+          "title": "Ground State Entanglement in Spin Systems",
+          "trigger": "Earlier article explicitly treating arbitrary-distance pairwise XY entanglement; direct priority risk."
+        },
+        {
+          "assessment": "General two-spin concurrence and finite-range formulas already known; near-saturation joint scaling and rigorous positivity against Fumani proposal not stated.",
+          "evidence": [
+            "arXiv:1304.7309 Eq. (16), Eqs. (21)-(24), App. A Eqs. (A4)-(A5), pp. 9-12 large-r fixed-B asymptotic."
+          ],
+          "identifier_or_url": "https://arxiv.org/pdf/1304.7309",
+          "material_read": "Accessible 23-page full PDF, specifically Eq. (16) in Sec. II, Sec. III B thermodynamic Eqs. (21)-(24), large-separation discussion and Appendix A Wick formula; PDF page images of pp. 10 and 21 inspected.",
+          "method": "Primary arXiv PDF, targeted full-text and mathematical page-image read.",
+          "title": "Discord and information deficit in the XX chain",
+          "trigger": "Exact arbitrary-separation two-site XX reduced density matrix and concurrence could dominate scaling claim."
+        },
+        {
+          "assessment": "Substantially covers first Fredholm minor and known transverse scaling as a bosonic field correlator; does NOT establish two-spin concurrence positivity at the Fumani field.",
+          "evidence": [
+            "arXiv:0801.4397 p.1 Eq. (4), Theorem IV.1, p.9 Eqs. (49)-(50)."
+          ],
+          "identifier_or_url": "https://arxiv.org/pdf/0801.4397",
+          "material_read": "13-page arXiv PDF: abstract and introduction, Eqs. (1)-(7), Theorem IV.1 and its proof discussion, Sec. V impenetrable-free formula (50) and T=0 sine kernel (49), Appendix A Fredholm explanation.",
+          "method": "Primary lawful open-access arXiv full PDF, targeted full-text and two mathematical page images.",
+          "title": "One-Dimensional Impenetrable Anyons in Thermal Equilibrium. I. Anyonic Generalization of Lenard’s Formula",
+          "trigger": "Classical, possibly mathematically equivalent sine-kernel Fredholm minor for spin/boson coherence."
+        },
+        {
+          "assessment": "Very likely prior full coverage of the transverse first-minor part, but full paper was not inspected so its possible stronger mathematical implications are a material originality risk. No snippet-based whole-paper NOT_COVERING assessment.",
+          "evidence": [
+            "Vaidya-Tracy, J. Math. Phys. 20 (1979) 2291-2312 abstract: exact impenetrable-boson one-particle density matrix related to double-scaling transverse spin-1/2 XY correlation."
+          ],
+          "identifier_or_url": "https://doi.org/10.1063/1.524010",
+          "material_read": "Full 22-page primary paper unavailable through confirmed authorized channels. Publisher/indexed abstract and bibliographic information read. Open arXiv and lawful open-access search yielded no reliable full text; authorized institutional request returned vpn_disconnected.",
+          "method": "Publisher/INSPIRE abstract inspection and arXiv/OA search; authorized institution full text access attempted, blocked by disconnected VPN; no retry/bypass.",
+          "title": "One particle reduced density matrix of impenetrable bosons in one dimension at zero temperature",
+          "trigger": "1979 predecessor explicitly claims exact double-scaling transverse XY spin correlation (same limiting F)."
+        },
+        {
+          "assessment": "Equivalent finite spin-flip string observable with controlled fixed-Fermi-momentum large-L expansions, not the specific concurrence sign theorem.",
+          "evidence": [
+            "arXiv:1309.4867 Eqs. (4)-(7), introduction and qualifications of Fisher-Hartwig expansion."
+          ],
+          "identifier_or_url": "https://arxiv.org/pdf/1309.4867",
+          "material_read": "Seven-page arXiv PDF main equations (4)-(15), method and limitations near fixed k_F, introduction and summary; page 2 image inspected.",
+          "method": "Primary arXiv PDF with mathematical page image.",
+          "title": "Fisher-Hartwig expansion for the transverse correlation function in the XX spin-1/2 chain",
+          "trigger": "Exact transverse XX spin correlation for arbitrary Fermi wave vector and separation."
+        },
+        {
+          "assessment": "Block entropy, distinct from pairwise two-site concurrence and the proposed onset threshold.",
+          "evidence": [
+            "arXiv:quant-ph/0409027 abstract, Eq. (2) block von Neumann entropy."
+          ],
+          "identifier_or_url": "https://arxiv.org/pdf/quant-ph/0409027",
+          "material_read": "Eight-page arXiv paper, abstract, definitions of block von Neumann entropy and main Fredholm/Toeplitz determinant setup, conclusion checked.",
+          "method": "Primary arXiv PDF and targeted mathematical text inspection.",
+          "title": "Entanglement in XY Spin Chain",
+          "trigger": "Potential broader Fredholm operator asymptotics in same model."
+        }
+      ],
+      "sources": [
+        "Assigned SCOPE RESULT.md at repository snapshot 6c379935c2e469fc18959fc6c387e31328c64bcf, blob bc5118c12a7061bce6c49e2d9c45692c0589b9a1",
+        "Assigned SCOPE verify.py (read, not executed): Git blob 028657439c35eea76ebb582112b6b2e08e6ccb1c",
+        "Fumani et al., Magnetic Entanglement in Spin-1/2 XY Chains, arXiv:1507.07384v2 (2015/2016), https://arxiv.org/pdf/1507.07384",
+        "Yano and Nishimori, Ground State Entanglement in Spin Systems (2005), doi:10.1143/PTPS.157.164, author-posted four-page text https://www.researchgate.net/publication/243570439_Ground_State_Entanglement_in_Spin_Systems",
+        "Ciliberti, Canosa, Rossignoli, Discord and information deficit in the XX chain, arXiv:1304.7309 (2013), https://arxiv.org/pdf/1304.7309",
+        "Patu, Korepin, Averin, One-Dimensional Impenetrable Anyons in Thermal Equilibrium I, arXiv:0801.4397v2 (2008), https://arxiv.org/pdf/0801.4397",
+        "Ivanov and Abanov, Fisher-Hartwig expansion for transverse correlation in XX chain, arXiv:1309.4867 (2013), https://arxiv.org/pdf/1309.4867",
+        "Vaidya and Tracy, One particle reduced density matrix of impenetrable bosons in one dimension at zero temperature, J. Math. Phys. 20 (1979) 2291-2312, doi:10.1063/1.524010 (publisher abstract only; Oxford VPN disconnected)",
+        "Its, Jin, Korepin, Entanglement in XY Spin Chain, arXiv:quant-ph/0409027 (2004), https://arxiv.org/pdf/quant-ph/0409027"
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "rationale": "A threshold for concurrence between arbitrarily distant spins near XX saturation is a natural, physically meaningful boundary, and a published 2015/2016 paper explicitly proposed an all-distance magnetic-onset fraction from distances 2-4. The rigorous strict positivity at its limiting scaling parameter provides an infinite family of counterexamples and separates an empirical finite-distance interpolation from the true long-range entanglement boundary. The nontrivial contribution is the quantitative analytical Fredholm minor inequality and its application to concurrence, NOT the classical sine kernel, hard-core boson mapping, or rederivation of pre-existing two-spin density matrices. The result gives a reusable continuous dilute/large-distance profile and definite sign at a special physically motivated scale. It does not find exact finite-r onset fields, every zero of the profile or a new general theory of the XX chain; these limitations are explicit. The narrow correct strict boundary is scientifically useful without requiring a paper-sized downstream theorem.",
+      "risks": [
+        "Priority and added value are materially concentrated in the strict onset discrepancy; the Fredholm functional is classical.",
+        "The source formula was proposed empirically, not published as a theorem; the result must not be advertised as refutation of a proved theorem."
+      ],
+      "sources": [
+        "Fumani et al. arXiv:1507.07384 p.3 explicit empirical proposed formula",
+        "Assigned RESULT.md step 3 strict sign proof",
+        "Yano-Nishimori 2005 entanglement-length critical behavior",
+        "Ciliberti et al. 2013 all-r concurrence baseline"
+      ],
+      "status": "PASS"
+    }
+  },
+  "checked_sources": [
+    "Assigned SCOPE RESULT.md at repository snapshot 6c379935c2e469fc18959fc6c387e31328c64bcf, blob bc5118c12a7061bce6c49e2d9c45692c0589b9a1",
+    "Assigned SCOPE verify.py (read, not executed): Git blob 028657439c35eea76ebb582112b6b2e08e6ccb1c",
+    "Fumani et al., Magnetic Entanglement in Spin-1/2 XY Chains, arXiv:1507.07384v2 (2015/2016), https://arxiv.org/pdf/1507.07384",
+    "Yano and Nishimori, Ground State Entanglement in Spin Systems (2005), doi:10.1143/PTPS.157.164, author-posted four-page text https://www.researchgate.net/publication/243570439_Ground_State_Entanglement_in_Spin_Systems",
+    "Ciliberti, Canosa, Rossignoli, Discord and information deficit in the XX chain, arXiv:1304.7309 (2013), https://arxiv.org/pdf/1304.7309",
+    "Patu, Korepin, Averin, One-Dimensional Impenetrable Anyons in Thermal Equilibrium I, arXiv:0801.4397v2 (2008), https://arxiv.org/pdf/0801.4397",
+    "Ivanov and Abanov, Fisher-Hartwig expansion for transverse correlation in XX chain, arXiv:1309.4867 (2013), https://arxiv.org/pdf/1309.4867",
+    "Vaidya and Tracy, One particle reduced density matrix of impenetrable bosons in one dimension at zero temperature, J. Math. Phys. 20 (1979) 2291-2312, doi:10.1063/1.524010 (publisher abstract only; Oxford VPN disconnected)",
+    "Its, Jin, Korepin, Entanglement in XY Spin Chain, arXiv:quant-ph/0409027 (2004), https://arxiv.org/pdf/quant-ph/0409027"
+  ],
+  "disposition": "passed",
+  "limitations": [
+    "Ptolemy-like formal certification is not used: this is an analytic physics correlation proof verified by independent finite checks and rational interval arithmetic, not machine formalized.",
+    "Only the strict onset contradiction deserves potential first-result credit; first minor and exact two-spin correlators have strong prior coverage.",
+    "Oxford authorized access to relevant 1979 full article blocked by disconnected institutional VPN, not bypassed; that is an originality caveat, not a scientific failure.",
+    "No statement about all field values, finite-distance exact onset, anisotropic/thermal/finite chains, or all zeros of the scaling profile.",
+    "No publication performed; source package metadata and review files contain operational provenance requiring coordinated privacy-safe treatment."
+  ],
+  "residual_risks": [
+    "Full Vaidya-Tracy 1979 J. Math. Phys. 22-page paper unavailable due authorized institutional VPN disconnection; could give sharper first-minor inequalities not visible from abstract.",
+    "Classical spin-XY and Tonks-Girardeau literature completely predates the newly submitted first minor; claim cannot advertise that component as independent novelty.",
+    "No documented exhaustive historical search of all near-saturation concurrence thresholds; older articles indexed under other terminology may cover the strict mismatch."
+  ],
+  "schema_version": 1
+}
