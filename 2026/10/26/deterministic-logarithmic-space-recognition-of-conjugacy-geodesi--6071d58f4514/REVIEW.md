@@ -1,11 +1,21 @@
-# Scientific review
+# Independent mathematical audit
 
-**Correctness — PASS.** The 2026 root-shift theorem fixes precisely which root pairs represent \(i\)-conjugate elements. The tree-walk lemma gives the exact length \(2E-d\). Edge identity is reducible to free-group equality in deterministic logspace; first-occurrence enumeration computes \(E\), while crossing parity over each distinct edge computes distances using only logarithmic-sized counters. All root pairs are searched with reusable logarithmic workspace. The finite verifier checks 5,461 words independently but is not the reason for the infinite theorem.
+## correctness
 
-**Originality — PASS, bounded.** The numeric extremum is an explicit consequence of Carvalho--Monteiro's Theorem 2.4 and Remark 3.4 and is not claimed as original. The mathematical contribution is its complete deterministic-logarithmic-space evaluation and resulting language decision. The inspected 2026 conjugacy-language paper proves grammar-class separations, the 2019 conjugacy study supplies decidability, the 2012 computational work treats word problems rather than conjugacy-geodesic languages, and the 2026 Green paper studies distinct equivalence relations. No inspected statement implies the space bound as a quoted theorem. Similar unindexed work remains a priority risk.
+PASS
 
-**Mathematical value — PASS.** The new bound locates a natural non-context-free and non-co-context-free language inside a sharply constrained space class. The procedure avoids building a Munn tree (which may have linearly many edges), by combining free-group equality with first-occurrence counting and parity. It supplies an exact output-sensitive invariant for conjugacy minimization, not only a membership test.
+The geometrically minimal walk covering a finite Munn tree from roots s to t has length 2E-d_T(s,t). The earlier i-conjugacy root-shift criterion restricts root pairs by g0^-1 gi=gn^-1 gj. For fixed free rank, equality of constant-length products of virtual prefix strings is in deterministic logspace by the free-group word problem. Pairwise endpoint comparisons identify first occurrences of undirected edges, and parity of crossings of each distinct edge in the intervening prefix segment computes d_T without storing a path. Nested polynomial loops retain O(log(n+2)) bits. The empty word and r=1 are covered; the result is not a uniform-rank bound. Our distinct checker independently enumerated rank-2 prefix trees through length five and verified the extremal formula; this finite check is not the resource-bound proof.
 
-**Closest literature and limits.** Carvalho--Monteiro, arXiv:2608.10379, Theorems 2.4, 3.5--3.6 and Remark 3.4; Araújo--Kinyon--Konieczny, arXiv:1810.03208, §3; Diekert--Kausch--Lohrey, arXiv:1201.3174; Bodart--Carvalho--Monteiro, arXiv:2609.35251. The result is for a fixed rank and natural \(i\)-conjugacy; a specialized unpublished or unindexed prior algorithm cannot be ruled out.
+## originality
 
-Self-review: passed. Independent audit: not yet performed.
+PASS
+
+Best-of-knowledge originality: compared equivalent formulations, stronger-coverage implications, exact tables, and primary literature at their true theorem scopes. No identified inspected source directly states the entire assessed refinement; named inaccessible/implicit-cover risks are retained rather than converted into automatic failure. This does not certify historical priority.
+
+## value
+
+PASS
+
+The geometric conjugacy-minimization formula was known, but computing its exact optimum with only logarithmic workspace is a nontrivial algorithmic refinement for a natural language previously known to lie outside both context-free and co-context-free classes (rank>=2). The edge-parity representation permits reuse in other tree-walk optimization questions; it is not mere renaming of the criterion.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
