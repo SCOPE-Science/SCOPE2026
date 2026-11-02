@@ -1,0 +1,119 @@
+{
+  "correctness": {
+    "rationale": "Transfer matrices follow from standard interpolation BDF2; symbolic trace/determinant identities and strict Schur inequalities are verified. Exact discriminant factorization partitions all positive budgets. An implicit derivative with a strict q-independent barrier proves real-root monotonicity; complex-root modulus decreases. Boundary cases s=1,2 and nonattained zero limit checked. Embedded verifier confirms exact algebra and 135 independent direct spectral comparisons; finite checks are not the infinite proof.",
+    "status": "PASS"
+  },
+  "independent": false,
+  "independent_audit_status": "not_performed",
+  "originality": {
+    "broader_coverage": {
+      "evidence": [
+        "Li–Liao establish perturbed stability under a timestep cap involving a Lipschitz constant, not a sharp all-budget two-periodic Floquet optimum.",
+        "Söderlind–Fekete–Faragó prove zero-stability under smooth grid deformation; a wildly alternating fixed ratio is not their smooth-grid regime."
+      ],
+      "reasoning": "General variable-step stability is broader in grid class but does not imply unique minimizers, repeated-root criticality, or s=2 nonattainment; the present claim is not inferred from their broader hypotheses.",
+      "searches": [
+        "periodic backward differentiation formula BDF2 two-step monodromy spectral radius optimizing step-length ratio",
+        "variable-step backward differentiation second-order damping resonance total period two over lambda",
+        "arxiv:2201.00527v1 Theorem 2.1",
+        "doi:10.1007/s10543-018-0716-y Section 4"
+      ]
+    },
+    "checked_sources": [
+      "arxiv:2201.00527v1",
+      "arxiv:2003.03534v1",
+      "doi:10.1007/s10543-018-0716-y",
+      "Published mathematical-index record IDs including BDF2 positivity and 2-periodic recurrence stability",
+      "previously accessible mathematical results, claims for BDF3 alternating, stochastic BDF2 and AB2 alternating"
+    ],
+    "claim_vs_prior_implication": {
+      "evidence": [
+        "Prior study of alternating BDF3 concerns BDF3 at λ=0 and its parasitic spectrum; A previous AB2 result concerns explicit AB2 and has equal-step optimality; A previous BDF2–Maruyama result concerns stochastic fixed-step BDF2 autocovariances.",
+        "The derived BDF2 discriminant factorization (q+2)[(s-2)^2q-2(s^2+4s-4)] gives a new phase transition at s=1 and resonance at s=2; none of the above statements algebraically forces it."
+      ],
+      "reasoning": "The earlier BDF2 general stability and prior scalar BDF2 positivity have different quantifiers and conclusions. No stronger directly implying sharp two-periodic minimization was found, with residual risk explicitly retained.",
+      "searches": [
+        "two-periodic variable-step BDF2 optimal Floquet multiplier fixed total timestep repeated-root discriminant critical damping",
+        "alternating-grid BDF2 scalar decay exact optimum unequal consecutive step sizes phase transition at total lambda times 2",
+        "arxiv:2201.00527v1 Theorem 2.1",
+        "arxiv:2003.03534v1 introduction"
+      ]
+    },
+    "equivalent_formulations": {
+      "evidence": [
+        "The two-period monodromy is characterized by tr=[(2-s)q+6]/B, det=1/B; Li–Liao analyze DOC kernels and arbitrary-mesh error stability, rather than fixed-total-period spectral minimization.",
+        "Closest indexed mathematical finding: Exact delayed sign loss just beyond BDF2 positivity boundary is constant-step BDF2 sign oscillation."
+      ],
+      "reasoning": "Equivalent matrix companion, scalar test equation, and doubled-period phrasing compared; no observed equivalent theorem with the same optimization claim.",
+      "searches": [
+        "two-periodic variable-step BDF2 optimal Floquet multiplier fixed total timestep repeated-root discriminant critical damping",
+        "alternating-grid BDF2 scalar decay exact optimum unequal consecutive step sizes phase transition at total lambda times 2",
+        "arxiv:2201.00527v1, formulas (1.4), Theorem 2.1",
+        "arxiv:2003.03534v1, equations (1.2)-(1.3)"
+      ]
+    },
+    "exact_database_or_table": {
+      "evidence": [
+        "The mathematical index returned near items for generic two-periodic scalar recurrences, nonperiodic BDF2 positivity, and BDF3 zero-test alternating-grid damping, but no exact BDF2 fixed-budget tabulation.",
+        "Prior accessible mathematical records includes BDF3 alternating λ=0, AB2 alternating positive decay, and BDF2–Maruyama stationary correlation, all distinct recurrence/quantity."
+      ],
+      "reasoning": "No exact coverage through checked database results, prior research results, or inspected primary formulas; search absence alone is not a uniqueness proof.",
+      "searches": [
+        "two-periodic variable-step BDF2 optimal Floquet multiplier fixed total timestep repeated-root discriminant critical damping",
+        "periodic backward differentiation formula BDF2 two-step monodromy spectral radius optimizing step-length ratio",
+        "periodic BDF2 scalar two-step Floquet monodromy exact tabulated optimizer"
+      ]
+    },
+    "rationale": "Actual Published mathematical-index searches returned no finding implying the sharp fixed-budget BDF2 spectral-minimum classification; closest general results concern BDF2 variable-grid stability rather than minimizing Floquet multipliers. Direct reading of relevant primary text confirms its different scope. Novelty remains qualified by potential unindexed specialized two-periodic recurrence treatments.",
+    "residual_risks": [
+      "Equivalent closed-form scalar two-periodic BDF2 rate minimization may exist in older/unindexed Floquet or multistep-method texts.",
+      "The inspected portions establish no equivalent statement, but systematic reading of every page of all sources or independent priority audit has not been performed."
+    ],
+    "source_inspections": [
+      {
+        "assessment": "Contains the base BDF2 formula and general perturbation stability, not the exact fixed-period monodromy spectral optimizer",
+        "evidence": [
+          "arxiv:2201.00527v1 pp.1–5, especially (1.4) and Theorem 2.1",
+          "2022-01-03 initial arXiv posting metadata; primary AMS 65M06"
+        ],
+        "identifier_or_url": "https://arxiv.org/pdf/2201.00527",
+        "material_read": "PDF pages 1–5 including abstract, definitions (1.4), variable-grid scheme, stability definition and Theorem 2.1, plus searched full parsed text for periodic/spectral radius and checked BDF3 spectral discussion",
+        "method": "Open full-text arXiv PDF, visually inspect first two page screenshots, inspect source text around Theorem 2.1 and run whole-PDF phrase search",
+        "title": "Stability of variable-step BDF2 and BDF3 methods",
+        "trigger": "Primary 2022 variable-grid BDF2 stability source, its formulas might dominate a scalar periodic specialization"
+      },
+      {
+        "assessment": "Step-ratio-dependent PDE estimates, no observed fixed-budget two-period Floquet optimizer",
+        "evidence": [
+          "arxiv:2003.03534v1 pp.1–3 and introductory claim",
+          "initial arXiv posting 2020-03-07"
+        ],
+        "identifier_or_url": "https://arxiv.org/pdf/2003.03534",
+        "material_read": "PDF pages 1–3, equations (1.2)-(1.3), introduction and main claimed PDE stability/error bounds, plus full-text search for periodic",
+        "method": "Open arXiv PDF and inspect page 1–2 screenshots and parsed text through introduction; scoped full-text search",
+        "title": "Stability and error estimates for the variable step-size BDF2 method for linear and semilinear parabolic equations",
+        "trigger": "Plausible stronger BDF2 stability and error result"
+      },
+      {
+        "assessment": "The smooth-grid, asymptotic zero-stability framework does not classify nontrivial scalar-decay periodic Floquet spectra at fixed step-sum",
+        "evidence": [
+          "BIT Numer. Math. 58 (2018), Section 4 and article abstract"
+        ],
+        "identifier_or_url": "https://doi.org/10.1007/s10543-018-0716-y",
+        "material_read": "Open-access HTML abstract, introduction, full section 4 zero-stability discussion and comparison of smooth-grid assumptions",
+        "method": "Read publisher HTML and in-document BDF2 section",
+        "title": "On the zero-stability of multistep methods on smooth nonuniform grids",
+        "trigger": "Potentially covering prior on variable-grid BDF2 recurrence multipliers"
+      }
+    ],
+    "status": "PASS"
+  },
+  "review_type": "self_review",
+  "schema_version": 1,
+  "scope_run_id": "0f63ee98-7045-49c4-8902-e33a2a7f45f5",
+  "self_review_status": "passed",
+  "value": {
+    "rationale": "Fixed physical time budget with two BDF2 solves is a natural algorithmic allocation problem. The complete exact optimum, sharp s=1 transition and s=2 unattained resonance give a structurally motivated answer not implied by routine stability bounds, and warn that balanced steps can maximize rather than minimize asymptotic damping. The limitations clearly distinguish Floquet rate from error/transients.",
+    "status": "PASS"
+  }
+}
