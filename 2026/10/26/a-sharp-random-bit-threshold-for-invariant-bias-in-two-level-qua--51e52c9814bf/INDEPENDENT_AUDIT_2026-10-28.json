@@ -1,0 +1,119 @@
+{
+  "audit_date_utc": "2026-10-28",
+  "audited_at_utc": "2026-10-28T19:56:37Z",
+  "axes": {
+    "correctness": {
+      "rationale": "PASS: On grid {0,1}, exact pre-update y=(1-eta)x+eta b and floor(Ky)/K upward probability yield transition p=floor(K eta b)/K, q=ceil(K eta(1-b))/K, 0<p+q<=1 with q>0. Stationary pi1=p/(p+q) is unique and chain converges geometrically even in absorbing-zero regime. Ideal exact-probability rounding has stationary Bernoulli(b). The one-sided total-variation discrepancy b-p/(p+q) is bounded by min(1,1/(K eta)) through integer/fractional decomposition v=Keta=n+theta, vb=k+u; letting b↑1/v or b↑1 proves sharp supremum. Independent exact rational tests at K=1,4,8,16 and representative eta and 999 targets each verified all values and asymptotic approach. The bit threshold K eta→∞ follows exactly. Domain 0<eta,b<1 and K=2^r includes K=1.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Fitzgibbon–Felix primary full text studies few random bits, bias and numerical experiments; no stationary minimax phase found in inspected sections.",
+          "Li et al stationary ideal rounding with gradient noise differs from deterministic floor-biased scheme."
+        ],
+        "reasoning": "Broad finite-horizon rounding bounds do not yield exact invariant distortion at Keta<=1, nor sharp supremum for the present simplified Markov model.",
+        "searches": [
+          "El Arar et al 2026 survey stochastic rounding StochasticA arxiv:2603.06060",
+          "El Arar et al 2024 stochastic rounding finite precision arxiv:2408.03069",
+          "Li De Xu Studer Samet Goldstein 2017 training quantized nets stationary law"
+        ]
+      },
+      "checked_sources": [
+        "Full assigned RESULT.md blob 8d99e34338868f22f130ea70f8de498154c77977 and attached review/verification",
+        "Fitzgibbon–Felix 2025 arxiv:2504.20634 full PDF inspected",
+        "2026 rounding survey arxiv:2603.06060 model documentation, limited",
+        "El Arar et al arxiv:2408.03069 finite-horizon work",
+        "Li et al arxiv:1706.02379 prior ideally rounded training"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "Existing StochasticA definition gives probability floor(Ky)/K and per-step errors; this model is prior.",
+          "Repeated two-state dynamics divide relevant transition distortions by eta; precise sharp error is min(1,1/(Keta))."
+        ],
+        "reasoning": "Defining a rounding scheme or bounding one-operation expectation does not by itself prove uniform stationary fidelity iff Keta→∞. Classical Markov balance is prior input, not claimed novel.",
+        "searches": [
+          "Fitzgibbon Felix 2025 few random bits single rounding average bias theorem",
+          "El Arar Fasi Filip Mikaitis 2026 floor-probability StochasticA"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Stationary mass is floor(vb)/(floor(vb)+ceil(v(1-b))), with v=Keta; exact minimax error min(1,1/v).",
+          "The finite-bit operation is a Bernoulli probability truncation, not unbiased rounding."
+        ],
+        "reasoning": "The elementary two-state stationary formula is classical; originality is the sharp simultaneous supremum over b and eta-vs-bits phase. Older quantized-chain publications may encode equivalent formulas.",
+        "searches": [
+          "finite random bit stochastic rounding two-state Markov chain invariant distribution floor probability",
+          "Fitzgibbon Felix 2025 stochastic rounding with few random bits bias"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "Independent exact test sampled 999 target fractions for each selected K,eta; bit threshold independently calculated from kernel.",
+          "No published exact table of this two-state stationary minimax envelope identified."
+        ],
+        "reasoning": "The result is a continuum optimization, not solely computation of a small Markov matrix table; no negative search is treated as global novelty proof.",
+        "searches": [
+          "two-level quantized SGD finite random bits stationary bias table K eta",
+          "stochastic rounding integer uniform random bits floor transition two state"
+        ]
+      },
+      "rationale": "StochasticA random-threshold floor scheme and one-step finite-bit bias are established prior art, along with ideal-rounding stationary laws. The exact two-state stationary minimax formula, absorption threshold and uniform eta-vs-bit criterion are not implied by finite-horizon or single-rounding error bounds in inspected predecessors. Equivalence to a known two-state quantizer Markov-chain calculation remains possible.",
+      "residual_risks": [
+        "A specialized older quantization Markov-chain paper could state the same Keta stationary minimax bound.",
+        "Tiny two-state exact model is not a theorem for general SGD/ML, multi-point grids or nonuniform hardware rounding.",
+        "Finite parameter checks corroborate only selected instances."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "ESTABLISHES_SINGLE_ROUND_BIAS_NOT_STATIONARY_PHASE",
+          "evidence": "Single-operation rounding error and numerical experiments; no exact two-state invariant minimax derived in inspected material.",
+          "identifier_or_url": "https://arxiv.org/abs/2504.20634",
+          "material_read": "Complete primary PDF, particularly sections II–IV and bias remedies, plus visual inspection of page 2",
+          "method": "Open-access full PDF text and screenshot; term search for stationary",
+          "title": "On Stochastic Rounding with Few Random Bits",
+          "trigger": "Same random-bit truncation and bias issue"
+        },
+        {
+          "assessment": "PARTIAL_MODEL_PRIOR",
+          "evidence": "Probability floor implementation is prior; no assertion of complete-document absence of two-state phase result.",
+          "identifier_or_url": "https://arxiv.org/abs/2603.06060",
+          "material_read": "Abstract and cited model-description sections from assigned source; complete original survey not independently reread",
+          "method": "Primary arXiv abstract and package source comparison",
+          "title": "What is New in Stochastic Rounding: a Survey on Theory, Hardware, and Applications",
+          "trigger": "Documents StochasticA finite-bit model and related prior art"
+        },
+        {
+          "assessment": "DIFFERENT_IDEAL_NOISE_HYPOTHESES",
+          "evidence": "Studies ideal stochastic rounding, with gradient noise and other hypotheses; not shown to include floor-biased deterministic two-state stationary threshold.",
+          "identifier_or_url": "https://arxiv.org/abs/1706.02379",
+          "material_read": "Abstract and Theorem 5 context from the assigned scientific review; original full paper not independently reread",
+          "method": "Limited primary source and theorem comparison",
+          "title": "Training Quantized Nets: A Deeper Understanding",
+          "trigger": "Potential broader stationary invariant-law theorem"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "rationale": "Resource-constrained stochastic rounding on the smallest nontrivial quantization grid is a natural benchmark; an O(1/K) one-step bias becomes order-one invariant distortion if Keta stays bounded. The exact worst-target bit budget and absorption phase quantify an algorithmic effect even though they do not generalize automatically to neural nets.",
+      "status": "PASS"
+    }
+  },
+  "checked_sources": [
+    "Full assigned RESULT.md blob 8d99e34338868f22f130ea70f8de498154c77977 and attached review/verification",
+    "Fitzgibbon–Felix 2025 arxiv:2504.20634 full PDF inspected",
+    "2026 rounding survey arxiv:2603.06060 model documentation, limited",
+    "El Arar et al arxiv:2408.03069 finite-horizon work",
+    "Li et al arxiv:1706.02379 prior ideally rounded training"
+  ],
+  "disposition": "passed",
+  "limitations": "Noiseless one-dimensional quadratic; state grid {0,1}; exact pre-rounding arithmetic; fresh independent uniform r-bit random integer per step; floor-probability rounding; fixed 0<eta<1, K=2^r.",
+  "residual_risks": [
+    "A specialized older quantization Markov-chain paper could state the same Keta stationary minimax bound.",
+    "Tiny two-state exact model is not a theorem for general SGD/ML, multi-point grids or nonuniform hardware rounding.",
+    "Finite parameter checks corroborate only selected instances."
+  ],
+  "schema_version": 1
+}
