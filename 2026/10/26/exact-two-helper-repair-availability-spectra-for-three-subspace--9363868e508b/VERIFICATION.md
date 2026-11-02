@@ -5,8 +5,11 @@
     "status": "not_performed"
   },
   "independent_audit": {
-    "evidence": null,
-    "status": "not_performed"
+    "status": "passed",
+    "evidence": [
+      "INDEPENDENT_AUDIT_2026-10-31.md",
+      "INDEPENDENT_AUDIT_2026-10-31.json"
+    ]
   },
   "lean_verification": {
     "evidence": null,
@@ -15,8 +18,25 @@
   "schema_version": 1
 }
 ---
-# Reproducible checks
 
-Run `python verify.py` using only the Python standard library. The script constructs binary subspaces, checks pairwise-zero intersections, explicitly enumerates all surviving generator columns and the unordered sum-to-target pairs, checks disjointness of the pairs and compares coordinate histograms with the exact four-level theorem. It performs 36 complete configurations including two independent invertible ambient-coordinate transformations in each parameter case. It additionally checks the generator rank and all nonzero message weights for the two \([22,5,10]_2\) witnesses. The accompanying `verification_output.txt` records all configurations and concludes with `DISTANCE_EXAMPLES_OK` and `RECOVERY_SPECTRA_OK 36 exact tests`.
+# Independent mathematical audit
 
-The all-parameter proof is in `RESULT.md`: complement pair counting, simultaneous normal form and subtraction of the deleted columns. These finite tests cannot certify untested dimensions or historical originality. Independent audit has not been performed.
+## correctness
+
+PASS
+
+Writing deleted D as union of three disjoint-off-zero subspaces, the 2-cycle translation x↔x+v partitions helper columns into mutually disjoint pairs and gives a(v)=2^(k-1)-|D|+|D∩(v+D)|/2. For v outside D, any deleted representation uses one element from each of two different Ui, hence exactly one per pair if v∈Ui+Uj. The pair-sum tests in a normal form depend on three independent tail blocks of dimension t. Count their zero/nonzero patterns, subtract D contributions, and recover all four stated N_j; the counts sum to |S|. The normal form works also when three subspaces fail to be direct. Independently enumerated surviving columns, pair sums and full histogram in 12 distinct (k,u,rho) normal-form configurations, including both [22,5,10] examples. General proof is algebraic, not an extrapolation.
+
+## originality
+
+PASS
+
+Best-of-knowledge originality concerns the exact restricted result, not known underlying theory. Min distance, locality two, and even weight distribution do not imply the exact number of disjoint recovery pairs per coordinate. The two rho-classes share [22,5,10] but differ in helper spectrum, so the strong prior code-parameter statements cannot imply this invariant without extra incidence data. Comparison with arXiv:2605.11431v1, https://cris.bgu.ac.il/en/publications/anticode-based-locally-repairable-codes-with-high-availability-2/, DOI:10.1587/transfun.E101.A.2374 and published semantic research searches found no established equivalent in material actually read; inaccessible full texts are not treated as proof of noncoverage.
+
+## value
+
+PASS
+
+Disjoint local two-helper repair alternatives are a natural resilience statistic. The exact four-level frequency profile separates two inequivalent optimal [22,5,10] codes with identical standard length/dimension/distance and has practical meaning for parallel repair and helper failures.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
