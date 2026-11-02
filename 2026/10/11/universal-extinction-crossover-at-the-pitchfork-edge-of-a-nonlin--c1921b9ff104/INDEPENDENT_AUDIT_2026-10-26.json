@@ -1,0 +1,177 @@
+{
+  "audit_date_utc": "2026-10-26",
+  "audited_at_utc": "2026-10-26T22:06:17Z",
+  "axes": {
+    "correctness": {
+      "checked_sources": [
+        "Entire assigned 11217-byte RESULT.md, including exact system, invariance, global omega-limit, center dynamics, fast-variable estimate and singular limit at 6c379935c2e469fc18959fc6c387e31328c64bcf",
+        "Entire assigned verify.py (2010 bytes) and VERIFICATION.md (1357 bytes), read as supplementary evidence but not trusted as proof",
+        "Independent SymPy exact simplification of reduced vector field and G derivative; independent fixed-parameter SciPy integration as nonproof sanity check",
+        "Zhang and Li (2023) original Eq.2 and Theorems 3/4 in full CC BY 24-page transcription: https://www.researchgate.net/publication/372043271_Bifurcation_of_an_SIRS_Model_with_a_Modified_Nonlinear_Incidence_Rate"
+      ],
+      "rationale": "The final theorem is restricted to the positive fixed-total-population simplex N=S+I+R=N0=b/d, k1=(d+gamma)/N0, k2=k1(1+gamma/(d+nu))/N0-epsilon/N0, 0<=epsilon<k1(1+gamma/(d+nu)), with all parameters positive and a single interior initial state fixed as epsilon->0. Direct independent symbolic expansion of the original ODE yields the exact system I′=-D_epsilon(I)-B_epsilon(I)w, w′=-(rho-aB_epsilon)w+aD_epsilon, w=R-aI, D=I^2(epsilon+C_epsilon I)/(1+alpha I^2), C_epsilon=C0-(1+a)epsilon/N0, B=I(k1+k2I)/(1+alpha I^2). At equilibrium w=0, D>0 for I>0 excludes all endemic equilibria; positively invariant compact simplex, planar index/Poincare-Bendixson and local one-sided attracting zero/negative center drift imply global convergence to disease-free point (boundary omega-limits force the same equilibrium). Independent differentiation confirms G′(z)=-1/[z^2(1+z)] and dG/dtau=-I′/[I^2(epsilon+C0 I)] for z=C0 I/epsilon, tau=epsilon^2t/C0. The stable fast w equation and Gronwall/variation of constants yield |w(t)| <= transient exponential + K(epsilon I^2+I^3), uniformly close to epsilon=0; this controls fixed-epsilon limits tI=1/epsilon and, at epsilon=0, tI^2=1/(2C0). Integrating G with a uniform entrance time T_delta for fixed interior initial data and a scaled transient error O(epsilon^2/I(T_delta)^2) proves locally uniform convergence to G^{-1}(tau) on compact subintervals tau>0. Independent exact sympy calculation confirms all key algebra, and a rational parameter integration gives supplementary numerical consistency only. Infinite-time and parameter-uniform results rely on analytic estimates, not verifier output or finite sampling.",
+      "residual_risks": [
+        "Planar omega-limit proof presupposes standard Poincare-Bendixson/index exclusion and local center-manifold attraction; these textbook results were used under the compact positive simplex and strict interior assumption, not re-proved from first principles.",
+        "Endpoint scales are pointwise in epsilon for t->infinity; uniform crossover is proven only on compact positive tau intervals and fixed interior initial data, not at tau=0 or uniformly across arbitrary parameter-dependent tiny seeds.",
+        "Stochastic populations, zero-infection boundary data, negative epsilon and non-invariant initial totals fall outside the claim."
+      ],
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Original Zhang--Li Theorem 3 establishes global disease-free attraction and Theorem 4 classifies bifurcation, while its printed local cubic equation and discussions do not supply joint singular time scaling.",
+          "Amin et al. 2024 SEIRS stability source adds an exposed compartment; its equilibria/global stability theorems do not state the exact present SIRS crossover.",
+          "Lu--Huang--Ruan--Yu 2019 incidence uses a kI^2S/(1+beta I+alpha I^2) structure, unlike the present nonzero linear k1 I term, so the critical linear-reproduction/pitchfork family is not obtained as a stated specialization."
+        ],
+        "reasoning": "Strong prior qualitative dynamics and generic nonhyperbolic scaling are explicitly credited. The related works differ in vector field or theorem domain; no inspected stronger quantitative global-to-singular theorem implies the concrete G function with its parameter map and entrance hypothesis. This is bounded best-of-knowledge, not independence certification.",
+        "searches": [
+          "Resultary semantic: Sharp critical extinction law and parameter crossover for deterministic SIRS model with nonlinear incidence at reproduction number one, pitchfork degeneracy; t inverse square root and t inverse-one infection, universal logarithmic scaling (2026-10-26)",
+          "Resultary semantic: Zhang Li 2023 nonlinear SIRS model disease free pitchfork edge asymptotic decay crossover at R0=1 (2026-10-26)",
+          "Resultary semantic: universal cubic quadratic Riccati extinction crossover 1/Y minus log(1+1/Y)=tau center manifold epidemic ODE (2026-10-26)",
+          "Primary full text https://www.researchgate.net/publication/372043271_Bifurcation_of_an_SIRS_Model_with_a_Modified_Nonlinear_Incidence_Rate",
+          "https://doi.org/10.1016/j.jde.2019.03.005",
+          "https://doi.org/10.1155/jama/6253301"
+        ]
+      },
+      "checked_sources": [
+        "Zhang--Li 2023 DOI:10.3390/math11132916, full CC BY original text, particularly original Eq.2, Thm.3 and Thm.4",
+        "Amin et al. 2024 DOI:10.1155/jama/6253301 full original relevant SEIRS theorems and model",
+        "Lu--Huang--Ruan--Yu 2019 DOI:10.1016/j.jde.2019.03.005 original PDF early model/sections",
+        "Resultary (2026-10-11) Li--Ma degeneracy record 45a437e4957f full RESULT proof",
+        "Resultary (2026-10-11) Yao--Yang--Yuan predator double-tangency record 574227374316 full RESULT proof",
+        "Three fresh Resultary semantic queries for SIRS pitchfork, original 2023 paper, and inverse-log crossover (2026-10-26)",
+        "Web exact phrase searches for G(Y)=1/Y-log(1+1/Y), singular cubic/quadratic crossover and model-specific terms"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "Zhang--Li states global asymptotic stability without endemic equilibria and a pitchfork classification; the center equation gives local cubic behavior in a transformed coordinate. It gives no uniform-in-epsilon convergence theorem for physical infection I_epsilon at t=C0 tau/epsilon^2.",
+          "Normal-form balance I′=-epsilon I^2-C0 I^3 leads formally to G(Y)=tau but does not by itself control the stable recovered-compartment transient or prove global entrance from arbitrary fixed positive initial I.",
+          "The new argument uses an exact w=R-aI equation plus a quantifiable exponentially decaying memory term with vanishing integrated scaled-time contribution."
+        ],
+        "reasoning": "Qualitative source theorem plus standard local expansion implies the rough exponents but does not literally or as an immediate corollary provide the quantified two-parameter, full-basin, original-time G inverse limit. Existing separate critical-decay records concern different systems. Risk remains that a broad theorem applied through routine checking could cover it implicitly; no such direct implication was identified.",
+        "searches": [
+          "Complete original Zhang--Li (2023) Sections 2,3.1,4; Equations (2),(4),(10)-(13), Theorems 3 and 4, article text search for convergence/decay",
+          "Resultary semantic: Sharp critical extinction law and parameter crossover for deterministic SIRS model with nonlinear incidence at reproduction number one, pitchfork degeneracy; t inverse square root and t inverse-one infection, universal logarithmic scaling (2026-10-26)",
+          "Resultary semantic: Zhang Li 2023 nonlinear SIRS model disease free pitchfork edge asymptotic decay crossover at R0=1 (2026-10-26)",
+          "Resultary semantic: universal cubic quadratic Riccati extinction crossover 1/Y minus log(1+1/Y)=tau center manifold epidemic ODE (2026-10-26)"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Zhang--Li 2023 Eq.2 is exactly the same incidence function (k1 I+k2 I^2)S/(1+alpha I^2); its reproduction threshold corresponds to k1N0=lambda, and its pitchfork criterion Lambda=beta(1+q) matches epsilon=k1(1+a)-N0k2=0.",
+          "The source Theorem 3 already provides global disease-free stability where no endemic equilibrium exists, while Theorem 4 supplies local pitchfork cubic degeneracy; none of these is claimed to be new.",
+          "The submitted statement additionally quantifies tI_epsilon -> 1/epsilon, tI_0^2 -> 1/(2C0) and uniform scaled G^{-1}(tau) on 0<tau<infty with initial-state-independent entrance from infinity."
+        ],
+        "reasoning": "Normalization is explicitly converted back to physical time. Qualitative pitchfork and fixed-epsilon local polynomial rates are substantially anticipated by the source. It does not follow from those statements alone that a fixed global positive seed has the parameter-uniform crossover at times C0 tau/epsilon^2. The added statement is the full-family singular limit, not merely renaming the published pitchfork.",
+        "searches": [
+          "Resultary semantic: Sharp critical extinction law and parameter crossover for deterministic SIRS model with nonlinear incidence at reproduction number one, pitchfork degeneracy; t inverse square root and t inverse-one infection, universal logarithmic scaling (2026-10-26)",
+          "Resultary semantic: Zhang Li 2023 nonlinear SIRS model disease free pitchfork edge asymptotic decay crossover at R0=1 (2026-10-26)",
+          "Zhang Li 2023 Bifurcation of an SIRS Model with a Modified Nonlinear Incidence Rate Eq.2 Theorem 3 Theorem 4 (full CC BY article)"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "Three fresh Resultary similarity queries returned the target published record itself, the 2026 Li--Ma multiple-exposure critical-relaxation record (45a437e4957f), the 2026 Yao--Yang--Yuan predator-only cubic slowing record (574227374316), and further different-model results; none was a separate SIRS quantitative crossover table.",
+          "The complete Li--Ma result treats a different two-dimensional incidence SI vector field at one exact critical parameter and derives a quartic second term, with no family-uniform SIRS crossover.",
+          "The complete predator-prey result treats critical prey extinction only for one doubly-tangent zero-delay parameter surface, not the present SIRS time rescaling."
+        ],
+        "reasoning": "No independent exact earlier table or published record covering the precise SIRS one-parameter crossover was found. The target record itself is not independent prior art; absence of other hits cannot establish universal novelty.",
+        "searches": [
+          "Resultary semantic: Sharp critical extinction law and parameter crossover for deterministic SIRS model with nonlinear incidence at reproduction number one, pitchfork degeneracy; t inverse square root and t inverse-one infection, universal logarithmic scaling (2026-10-26)",
+          "Resultary semantic: Zhang Li 2023 nonlinear SIRS model disease free pitchfork edge asymptotic decay crossover at R0=1 (2026-10-26)",
+          "Resultary semantic: universal cubic quadratic Riccati extinction crossover 1/Y minus log(1+1/Y)=tau center manifold epidemic ODE (2026-10-26)",
+          "Published Resultary/2026/10/11 exact full RESULT.md https://github.com/Resultary/2026/blob/main/2026/10/11/SCOPE-global-attraction-and-two-term-critical-relaxation-at-the-multip--45a437e4957f/RESULT.md",
+          "Published Resultary/2026/10/11 exact full RESULT.md https://github.com/Resultary/2026/blob/main/2026/10/11/SCOPE-universal-cubic-slowing-at-a-doubly-tangent-predator-only-thresh--574227374316/RESULT.md"
+        ]
+      },
+      "rationale": "Best-of-knowledge qualified PASS for the combined, parameter-family, physical-time, globally seeded singular crossover, not for basic extinction, disease-free global stability, pitchfork bifurcation, or either elementary fixed-parameter center-decay mechanism. Original Zhang--Li 2023 model Eq.2, Theorem 3 and Theorem 4 were read in their full original 24-page CC BY manuscript and already give global extinction in the no-endemic regime and qualitative R0=1 pitchfork center degeneracy. The inspected source contains no locally-uniform epsilon->0 crossover with fixed positive initial data, physical-time C0/epsilon^2 normalization and infinite-scaled-amplitude entrance G^{-1}. The full nearby published 2026 mathematical findings concern distinct multiple-exposure S,I or predator-prey fields, not the exact SIRS family. A generic cubic-quadratic normal form suggests the limiting function, but converting it to the full global basin and nonuniform time scale needs the stated fast-variable estimates. The title/wording and lack of search hits are not novelty proofs, and an older implicit general singular-perturbation theorem is residual risk.",
+      "residual_risks": [
+        "Basic algebraic t^-1 and t^-1/2 rates are standard local consequences of Zhang--Li 2023 qualitative center dynamics; novelty is assigned only to the combined uniformly scaled full-basin original-time crossover.",
+        "A general normal-form singular-perturbation theorem for cubic/quadratic flows may implicitly imply the G inverse profile without naming this SIRS model; no decisive explicit covering theorem was identified in actual searches.",
+        "Resultary similarity searching and the inspected primary literature are finite; historical priority in inaccessible or poorly indexed older critical-slowing literature is not certified.",
+        "The source paper contains a possibly inconsistent center-coordinate stability sign in its printed jet; original physical-variable algebra was reconstructed instead of relying on that sign."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "COVERS_QUALITATIVE global disease-free attractivity and pitchfork cubic degeneracy; no submitted sharp physical-time, fixed-initial-data, locally-uniform parameter crossover in the materially inspected 24-page text.",
+          "evidence": [
+            "Eq.(2), theorem 3 around paper p.7, theorem 4 and center dynamics around pp.7-8; 2023-06-29 publication and DOI.",
+            "https://www.mdpi.com/2227-7390/11/13/2916"
+          ],
+          "identifier_or_url": "DOI:10.3390/math11132916; https://www.researchgate.net/publication/372043271_Bifurcation_of_an_SIRS_Model_with_a_Modified_Nonlinear_Incidence_Rate",
+          "material_read": "CC BY, 24-page original full-text transcription, original model Eq.(2), planar reduction Eq.(4), equilibrium criteria, Theorems 3 and 4 and proof/center-manifold jets, later bifurcation discussion and conclusions; keyword check across original article for quantitative decay and crossover. Direct publisher HTML attempted but rate-limited; lawful full text nonetheless available.",
+          "method": "Lawful publicly accessible complete original article transcription, with citation/parameter cross-check against publisher index.",
+          "title": "Bifurcation of an SIRS Model with a Modified Nonlinear Incidence Rate",
+          "trigger": "Identical original incidence law and SIRS ODE, matching pitchfork surface and global disease-free theorem."
+        },
+        {
+          "assessment": "DIFFERENT_MODEL: exposed compartment changes dynamics; no direct implication to Zhang--Li three-class singular parameter crossover.",
+          "evidence": [
+            "Four compartments S,E,I,R, disease threshold and equilibrium stability, published 2024; separate model and no same parameter-family theorem."
+          ],
+          "identifier_or_url": "DOI:10.1155/jama/6253301; https://doi.org/10.1155/jama/6253301",
+          "material_read": "Publisher full HTML pertinent introduction, explicit SEIRS four-compartment model, theorems covering global disease-free and endemic equilibrium stability, and conclusion.",
+          "method": "Public primary article HTML via indexed article text.",
+          "title": "Bifurcation and Global Stability of a SEIRS Model With a Modified Nonlinear Incidence Rate",
+          "trigger": "Shared modified nonlinear incidence and epidemic extinction/global stability topic."
+        },
+        {
+          "assessment": "DIFFERENT_INCIDENCE: its k I^2 S/(1+beta I+alpha I^2) lacks the k1 I term central to current R0=1 threshold; not a demonstrated covering implication. No claim of whole-document noncoverage.",
+          "evidence": [
+            "Source displays incidence proportional to I^2 rather than k1I+k2I^2 and uses a different threshold set."
+          ],
+          "identifier_or_url": "DOI:10.1016/j.jde.2019.03.005; https://doi.org/10.1016/j.jde.2019.03.005",
+          "material_read": "Lawful author-hosted 40-page PDF: beginning and model/early equation sections, not all theorem proofs or appendices.",
+          "method": "Public primary PDF with rendered first page inspected and relevant displayed incidence read.",
+          "title": "Bifurcation analysis of an SIRS epidemic model with a generalized nonmonotone and saturated incidence rate",
+          "trigger": "Older SIRS bifurcation primary source with nonlinear saturated incidence that might be a stronger comparison."
+        },
+        {
+          "assessment": "DIFFERENT_MODEL: Li--Ma multiple-exposure 2D S,I flow at fixed codim-two threshold, no Zhang--Li SIRS three-compartment epsilon-dependent universal crossover.",
+          "evidence": [
+            "RESULT.md uses S′=A-dS-(beta1+beta0 I)SI, I′=(beta1+beta0 I)SI-rho I; fixed critical parameter, full proof and t^-1/2/t^-1 two-term series."
+          ],
+          "identifier_or_url": "https://github.com/Resultary/2026/blob/main/2026/10/11/SCOPE-global-attraction-and-two-term-critical-relaxation-at-the-multip--45a437e4957f/RESULT.md",
+          "material_read": "Entire published RESULT.md including exact model, proof, asymptotic series, originality comparison and limits.",
+          "method": "Pinned published GitHub primary mathematics content via authorized read-only connector.",
+          "title": "Global attraction and two-term critical relaxation at the multiple-exposure disease-free degeneracy",
+          "trigger": "Closest Resultary indexed exact global t^-1/2 law for an epidemic ODE."
+        },
+        {
+          "assessment": "DIFFERENT_OBJECT: predator-prey with Holling response, no covering specialization to the Zhang--Li SIRS crossover.",
+          "evidence": [
+            "Predator-only equilibrium and polynomial exact tangency law on a fixed parameter surface, no parameter-uniform infection crossover."
+          ],
+          "identifier_or_url": "https://github.com/Resultary/2026/blob/main/2026/10/11/SCOPE-universal-cubic-slowing-at-a-doubly-tangent-predator-only-thresh--574227374316/RESULT.md",
+          "material_read": "Entire published RESULT.md with predator-prey differential equations, critical-tangency proof and asymptotics.",
+          "method": "Published GitHub primary mathematics proof fetched read-only.",
+          "title": "Universal cubic slowing at a doubly tangent predator-only threshold",
+          "trigger": "Resultary exact t^-1/2 global attractor in degenerate biological planar dynamics."
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "checked_sources": [
+        "Full submitted proof and physical-domain statement",
+        "Original Zhang--Li (2023) global/pitchfork theorems to locate the omitted quantitative gap",
+        "Full distinct-model published critical-decay comparisons Li--Ma and predator-prey"
+      ],
+      "rationale": "The codimension-two meeting of R0=1 and the source pitchfork edge is a natural dynamical boundary in an established nonlinear SIRS epidemiological model. The result quantifies a previously qualitative transition with exact original-time extinction constants, a nontrivial epsilon^-2 crossover time scale, and an initial-data-independent inverse-log scaling profile for any fixed infected interior state; it remains useful for testing asymptotic dynamics at infection prevalence O(epsilon). The difficult feature is validating the entrance from an O(1) global initial seed on times diverging as epsilon^-2 in a fast-slow three-compartment system, not elementary inversion of a scalar normal form alone. This is a specific motivated mathematical classification, not a universal epidemiological forecast; no general theorem or noise extension is claimed.",
+      "residual_risks": [
+        "Quantitative practical relevance for real epidemics is limited by deterministic fixed-population assumptions; no stochastic forecast or parameter estimation is furnished.",
+        "The crossover function is the canonical scalar cubic/quadratic normal-form integral, so value rests on concrete full-basin uniform realization and exact calibration, not a novel elementary transcendental function."
+      ],
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "limitations": [
+    "All epidemiological rates strictly positive, k1=lambda/N0, k2=k2*-epsilon/N0>0, epsilon>=0, strictly interior fixed-population simplex S+I+R=N0; initial state must be fixed as epsilon->0.",
+    "Fixed-epsilon t->infinity decay is pointwise in epsilon; singular crossover convergence is local uniform only for tau in compact subsets of (0,infinity).",
+    "No assertion for epsilon<0, I0=0, non-invariant total populations, stochastic models, time-varying parameters or epidemiological forecasting.",
+    "Existing source global attractivity and pitchfork are prior results; not credited as independently novel."
+  ],
+  "schema_version": 1
+}
