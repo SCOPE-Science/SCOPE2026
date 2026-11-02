@@ -1,0 +1,132 @@
+{
+  "audit_date_utc": "2026-10-26",
+  "audited_at_utc": "2026-10-26T17:10:26.756135Z",
+  "axes": {
+    "correctness": {
+      "rationale": "From xdot=x(1-x)-sqrt(x)y, ydot=(c sqrt(x)-s)y, the coexistence point (u²,u(1-u²)) differentiates to A=[[-z,-b],[d,0]], valid for c>0 and 0<u<1. Independent-coordinate multiplicative Itô noises yield K=[[-δ,-2b,0],[d,-z,-b],[0,2d,Q]], δ=2z-P. Direct symbolic reconstruction confirms char_K(λ)=λ³+(z+δ-Q)λ²+(4bd+zδ-(z+δ)Q)λ+[2bdδ-Q(2bd+zδ)]. Mean-square exponential decay forces A Hurwitz and z>0. Existence of positive stochastic Lyapunov H normalized by h11>0 gives δ-2dη>0, 2bη-Qζ>0, dζ=b+zη, hence 0<η<δ/(2d), η>Qb/(2bd-Qz), forcing δ>0 and Q(2bd+zδ)<2bdδ. Conversely these strict inequalities give nonempty η interval; H=[[1,η],[η,(b+zη)/d]] has det=b/d+η(z/d-η)>0 because 0<η<δ/(2d)<=z/d, and stochastic generator is strictly negative diagonal. This proves all parameter quantifiers and excludes δ=0 and Q-frontier equality; P*=2z, Q*=2bdz/(bd+z²)<P*. An independently written SymPy/NumPy verifier checks all symbolic identities, 8,800 randomized positive-region/boundary/outside configurations and 100 deterministically unstable cases. Numerical tests corroborate, never substitute for proof.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Buckwar–Kelly, SIAM J. Appl. Math. 74 (2014), §§2.3,3.2–3.3, derive the general covariance-Kronecker spectral criterion for multiplicatively perturbed predator–prey systems; their concrete Holling-II model differs.",
+          "Tan–Wang–Feng (2022), same response and equilibrium, supplies the model-specific stochastic stability matrix and spectral resilience; it dominates the proposed restatement because the spectral test already decides the same pairwise stability predicate for both noises.",
+          "Senosiain–Tocino (2023), §§1–5, covers general independent Wiener perturbations but exact displayed examples have upper-triangular repeated-eigenvalue drift, not the feedback structure A=[[-z,-b],[d,0]]."
+        ],
+        "reasoning": "Do not conflate general methodology alone with identical scientific coverage. The decisive dominating prior source is the 2022 source that both specifies the model and constructs the full stochastic spectral matrix. The broad 2014 covariance theorem supplies the established interpretation; the 2023 Jordan test systems do not directly contain the ecological drift.",
+        "searches": [
+          "Buckwar Kelly 2014 asymptotic transient mean square properties ecological stochastic systems full article",
+          "Senosiain Tocino 2023 survey mean square destabilization multidimensional linear stochastic differential non-normal drift full open access",
+          "Original article 2022 DOI 10.3390/math10214087 sections 2.2 and 4.2",
+          "Resultary semantic search: predator prey stochastic mean square stability sharp noise variance threshold 2bd(2z-P)/(2bd+z(2z-P))"
+        ]
+      },
+      "checked_sources": [
+        "DOI 10.3390/math10214087 (primary same-model source, source-visible sections 1,2,4,5; section 3 access limitation)",
+        "DOI 10.1137/120893859 (author-hosted full text §§2–3)",
+        "DOI 10.1007/s11075-022-01478-6 (full open-access HTML §§1–5)",
+        "DOI 10.1016/j.cam.2020.112950 (abstract/follow-up only; full text blocked by institutional VPN)",
+        "Resultary semantic published-record searches (three actual queries, assigned finding excluded as independent priority evidence)"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "The prior 2022 article fixes the same positive coexistence equilibrium E2=(s²/c²,s(c²-s²)/c³) and studies its mean-square resilience using a stochastic matrix S whose maximum-real-part eigenvalue supplies the exact stability decision.",
+          "For the same parameterization, the submitted K is simply the symmetric-tensor moment restriction; this K has characteristic constant term 2bd(2z-P)-Q(2bd+z(2z-P)). The submitted condition demands positivity of this scalar and 2z-P>0, with the remaining stability tests automatically satisfied by the sign/cooperative cone properties; no new model or different stability notion is involved.",
+          "The original paper already states (in the numerical study) that the predator disturbance affects stability more strongly. The strict variance ordering is the algebraic specialization Q*=2bdz/(bd+z²)<P*=2z of that same exact spectral dependence."
+        ],
+        "reasoning": "Known same mathematical model complete spectral criterion plus standard finite-dimensional Hurwitz/Lyapunov algebra yields the entire submitted iff predicate, strict boundary and single-noise ordering. This is a logical implication covering every stated parameter, not merely a similar title or a matching number. The explicit rational normalization is useful but cannot by itself establish originality of the already characterized stability region.",
+        "searches": [
+          "Tan Wang Feng 2022 full article: spectral resilience definition and coexistence stability figures 4–8",
+          "Buckwar Kelly (2014) §2.3 Eq. (2.4), §3.3 mean-square stability matrix",
+          "Tocino Senosiain (2020), DOI 10.1016/j.cam.2020.112950 abstract and 2023 follow-up description",
+          "Search phrase: two-dimensional linear multiplicative independent diagonal noise mean square stable exact covariance criterion A=[[a,-b],[d,0]]"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Tan–Wang–Feng explicitly introduce the same square-root ecological model, a linear stochastic perturbation, the general matrix S=I⊗A+A⊗I+ΣBi⊗Bi, and root-mean-square resilience -α(S)/2. They evaluate the resilience of the coexistence equilibrium as a function of noise strengths.",
+          "For the exact claimed centered linearized model, the restriction of this general S to symmetric second moments is K=[[-(2z-P),-2b,0],[d,-z,-b],[0,2d,Q]]. The criterion α(S)<0 is the exponential mean-square stability question already under study. The submitted inequalities are a closed elementary elimination of that same spectral predicate.",
+          "The 2014 Buckwar–Kelly paper §2.3, §3.2–3.3 (author-hosted full article), likewise treats a predator-prey model using the same exact moment spectral criterion, although its Holling-II nonlinear response differs."
+        ],
+        "reasoning": "The prior self-reviewed result is not merely a theorem about a different stochastic problem: its complete mean-square matrix and spectral-abscissa criterion determine the stability status of each pair of intensities for the identical equilibrium model. Reducing its characteristic/spectral test to the displayed rational two-noise curve with elementary Lyapunov or cubic Hurwitz inequalities is an equivalent parameterization, not a new stability invariant. The absence of a printed rational expression does not remove this implication. This is the decisive coverage comparison.",
+        "searches": [
+          "Resultary semantic search: mean-square stability independent multiplicative prey predator noise square-root functional response exact joint two-noise variance threshold linearized coexistence Lyapunov curve",
+          "Resultary semantic search: 2x2 linear stochastic differential equations A=[[-z,-b],[d,0]] coordinate diagonal independent noises exact mean square stability if and only if variance inequality",
+          "Web search: Tan Wang Feng 2022 Transient Dynamics Analysis Predator Prey System Square Root Functional Responses Random Perturbation mean square stability conditions Theorem 3.2 pdf",
+          "Tan, Wang & Feng (2022), DOI 10.3390/math10214087, source model and Eq. (3) spectral matrix definition"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "The claimed region is continuous in c,u,P,Q, so a finite experimental database or tabulated entry is not the relevant prior-coverage mechanism.",
+          "The 2022 model-specific spectral matrix provides a closed algebraic decision procedure for the entire region; numerical figures illustrate selected one-noise slices.",
+          "The 2023 Table 1 concerns Jordan/nonnormal test matrices with different eigenstructure and does not contain this exact model."
+        ],
+        "reasoning": "A finite discrete lookup does not cover this multidimensional continuum. No independently tabulated explicit rational frontier was located, but lack of a table is not novelty: the original source's complete exact matrix criterion already decides precisely the same parameter region.",
+        "searches": [
+          "Resultary searches above: no separate same-parameter exact table besides the assigned finding itself",
+          "Tan–Wang–Feng (2022) numerical figures 4–8 for prey- and predator-only perturbations",
+          "Senosiain–Tocino (2023) Table 1 exact stability regions for different drift matrices"
+        ]
+      },
+      "rationale": "FAIL: prior source Tan–Wang–Feng (2022) constructs the exact mean-square spectral matrix for this identical square-root coexistence/noise setting and interprets the sign of its spectral abscissa as the stability decision. Applied to the same A and Bi, this yields the three-moment K and determines the full region for arbitrary nonnegative P,Q. The submitted rational frontier is an equivalent elementary Hurwitz/Lyapunov elimination of that already complete stability criterion, rather than a new scientific statement not covered by prior work. The reported predator-versus-prey ordering specializes the original source's same sensitivity analysis. Generic Buckwar–Kelly methodology alone was NOT treated as automatic novelty defeat; it is the same mathematical model prior spectral representation that decides coverage. The middle section of the 2022 HTML could not be read end-to-end due throttling; section-number and matrix-specific provenance are therefore limited to retrieved parts; this is a residual source-verification limitation, not an invented full-text inspection.",
+      "residual_risks": [
+        "The 2022 same mathematical model original article §3 was not retrieved in full this run because its publisher returned HTTP 429; the published abstract/§2 spectral method and §4 model-specific application were read. An exact algebraic expression could already be written in that inaccessible section and was not claimed absent.",
+        "The 2020 Tocino–Senosiain full paper was not accessible; its abstract and 2023 survey indicate a different Jordan structure. Oxford authorized download reported vpn_disconnected, with no bypass.",
+        "No absolute authorship, priority or independence certification is inferred from search results. The rejection is mathematical overlap with an existing same mathematical model spectral characterization, not absence of accessible literature or a failed search."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "SAME_MODEL_EXACT_SPECTRAL_CRITERION_COVERS_STABILITY_REGION_UP_TO_STANDARD_ALGEBRA",
+          "evidence": "Defines S=I⊗A+A⊗I+ΣBi⊗Bi and resilience -α(S)/2; analyzes coexistence E2=(s²/c²,s(c²-s²)/c³), exhibits resilience/stability for σ1 and σ2 and stronger predator noise sensitivity (Figures 4–8).",
+          "identifier_or_url": "https://doi.org/10.3390/math10214087",
+          "material_read": "Publisher HTML/search-indexed article abstract, introduction, §2.1–2.2 including definition of S and spectral resilience; numerical §§4.1–4.3 with coexistence Figures 4–8; §5 conclusions. Publisher full-page open was throttled (HTTP 429), so rendered §3 equation details were not independently read end-to-end this execution.",
+          "method": "Primary open-access HTML as indexed by web search; compared exact equilibrium, matrix spectral rule, joint parameter role, and stability signs; did not claim unavailable middle-section text had been read.",
+          "title": "Transient Dynamics Analysis of a Predator-Prey System with Square Root Functional Responses and Random Perturbation",
+          "trigger": "Exact same nonlinear model, coexistence equilibrium and independent prey/predator noise; decisive previous model-specific spectral characterization."
+        },
+        {
+          "assessment": "GENERAL_CRITERION_AND_ANALOGOUS_HOLLING_II_MODEL_NOT_EXPLICIT_SQUARE_ROOT_FRONTIER",
+          "evidence": "§3.3.1 uses saturating Holling-II response, not square-root; §2.3 establishes the Kronecker covariance matrix, §3.3.2–3.3.4 use spectral resilience and graphical noise sensitivity.",
+          "identifier_or_url": "https://doi.org/10.1137/120893859",
+          "material_read": "Author-uploaded full-text transcription available via ResearchGate: mathematical preliminaries and §§2.3,3.1–3.3.4, including Eq. (2.4), community matrix (3.6) and noise model (3.8), comparison with the submitted coordinates.",
+          "method": "Primary full-text article displayed as HTML text, mathematical equation and section comparison.",
+          "title": "Asymptotic and Transient Mean-Square Properties of Stochastic Systems Arising in Ecology, Fluid Dynamics, and System Control",
+          "trigger": "General stochastic moment/spectral criterion and predator–prey noise construction, potential dominating framework."
+        },
+        {
+          "assessment": "DIFFERENT_JORDAN_DRIFT_AND_DIFFUSION_FAMILIES",
+          "evidence": "Their test drift has repeated diagonal eigenvalue λ and upper triangular coupling, while the submitted A has nonzero opposite-sign feedback and zero bottom-right entry; the tabulated conditions do not directly cover the model.",
+          "identifier_or_url": "https://doi.org/10.1007/s11075-022-01478-6",
+          "material_read": "Full open-access Springer HTML, §§1–5, in particular §3 two-dimensional Jordan test systems, theorem statements and final Table 1.",
+          "method": "Direct article HTML primary full text; compared eigenstructure, drift and diffusion matrix classes, not just titles.",
+          "title": "A survey of mean-square destabilization of multidimensional linear stochastic differential systems with non-normal drift",
+          "trigger": "Explicit prior iff mean-square regions under several independent Brownian noises."
+        },
+        {
+          "assessment": "INACCESSIBLE_PLAUSIBLE_ADDITIONAL_COVERAGE_RISK",
+          "evidence": "2020 abstract describes an exact Routh–Hurwitz classification for nonnormal 2x2 test SDEs; 2023 survey identifies their Jordan/equal-eigenvalue matrix families.",
+          "identifier_or_url": "https://doi.org/10.1016/j.cam.2020.112950",
+          "material_read": "Article abstract and 2023 survey descriptions; lawful arXiv/open-access full-text searches did not locate the paper. Authorized institutional request returned vpn_disconnected, requiring manual connection; no full text read.",
+          "method": "Abstract and 2023 primary follow-up, full text unavailable; did not assert whole-paper noncoverage.",
+          "title": "MS-Stability of nonnormal stochastic differential systems",
+          "trigger": "Earlier exact Routh–Hurwitz regions for 2x2 nonnormal drift might conceal an equivalent formula."
+        }
+      ],
+      "status": "FAIL"
+    },
+    "value": {
+      "rationale": "The exact simultaneous prey/predator noise stability set is a natural biologically motivated invariant of the specific coexistence equilibrium, not an arbitrary parameter slice. A closed rational boundary and sharp single-species thresholds can directly inform quantitative comparisons and eliminate numerical eigenvalue sweeps, while the strict ordering holds throughout a continuum of parameter choices. Mathematical usefulness is judged separately from originality: the formula is a useful explicit form even though an earlier exact spectral characterization already determines the same set. This does not claim new stochastic stability theory or nonlinear ecological conclusions.",
+      "status": "PASS"
+    }
+  },
+  "disposition": "failed",
+  "final_claim": "For c>0, 0<s<c, u=s/c, z=(3u²-1)/2, b=u, d=c(1-u²)/2, independent Itô noises of squared intensities P,Q>=0, the equilibrium-centered linearized SDE is exponentially mean-square stable iff 1/√3<u<1, P<2z, and Q<2bd(2z-P)/(2bd+z(2z-P)); strict at both boundaries; P*=2z and Q*=2bdz/(bd+z²)<P*.",
+  "limitations": [
+    "Assessment concerns solely deterministic-initial-data exponential mean-square stability of centered linear Ito system; not nonlinear stochastic equilibrium, survival, persistence or almost-sure behavior.",
+    "No Lean proof or external expert attestation asserted; existing verification channels are not altered.",
+    "Full Tan et al. (2022) §3 could not be read directly because publisher throttled access; O rejection is from the same mathematical model complete spectral characterization documented in accessible source material and the direct algebraic implication.",
+    "The source contains operational identifiers in public-facing metadata and self-review text. Publication is withheld until exact guarded sanitation is staged; no public replacement content supplied."
+  ],
+  "schema_version": 1
+}
