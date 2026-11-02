@@ -1,0 +1,11 @@
+# Review: Crown-graph occupation precision
+
+**Correctness (PASS).** The partition function, three classes of joint moments, positive-definite covariance block, and orthogonal two-mode inversion are derived from the independent-set law. Their algebraic combination yields the scalar positive-denominator expression for every matched-pair precision entry. Exact integer polynomial expansion at orders two through six, Descartes' rule, and positivity of all coefficients in the sixth-order case establish the complete asserted sign diagram. The checker independently enumerates admissible configurations and verifies matrix inverses in rational arithmetic. Boundary \(n=2\), strict nonzero cases, and uniqueness of both thresholds are accounted for.
+
+**Originality (PASS on examined evidence, with residual risk).** Efthymiou (2022) studies hard-core spectral independence and mixing bounds through influence matrices, not the inverse of ordinary occupancy covariance. Marsman et al. (2022) study canonical Ising interactions and edge-screening, again not this inverse covariance. Published mathematical results on crown-graph maximal independent sets/metrics and on monomer-dimer matching precision do not imply this crown-vertex-occupation cutoff on the record examined. The strongest unresolved risk is an implicit instance of general inverse-Hessian or independence-polynomial calculations, not a known explicitly matching theorem. A database search cannot establish worldwide priority.
+
+**Value (PASS).** In the smallest crown orders, the precision of two vertices that are nonadjacent and conditionally independent nevertheless undergoes two natural fugacity transitions, and the sixth order is the first to enforce a positive precision sign for every fugacity. This is a finite, exact, motivated boundary for the interpretation of concentration matrices under non-Gaussian graphical-model constraints, distinguished from marginal negative covariance.
+
+The exact proof is restricted to \(2\le n\le6\), uniform positive fugacity, and ordinary inverse covariance. Independent replication of the mathematical proof, and a comprehensive priority search through all independence-polynomial literature, are outstanding.
+
+Self-review: passed. Independent audit: not yet performed.
