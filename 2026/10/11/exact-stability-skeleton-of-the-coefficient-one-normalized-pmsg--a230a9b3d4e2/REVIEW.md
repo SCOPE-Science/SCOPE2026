@@ -1,14 +1,21 @@
-# Review
-## Correctness
-The proof was reconstructed from the printed vector field. The quadratic Lyapunov derivative cancels every cubic term exactly and is negative definite for \(0<b<1\); the endpoint \(b=1\) is closed by a LaSalle invariant-set argument. The nonzero equilibria are solved without numerical continuation, and their local classification follows from an exact cubic characteristic polynomial and the cubic Routh-Hurwitz criterion. The specialized Routh determinant has one positive zero because its defining cubic is strictly increasing on \(s\ge0\). The accompanying standard-library checker reproduces the exact specialization and numerical values.
+# Independent mathematical audit
 
-## Originality
-The target article gives numerical Lyapunov and bifurcation diagrams but does not state this equilibrium parameterization, the global origin theorem, or the exact local boundary. A related 2017 fractional-order PMSG paper was inspected through its full accessible text; it treats a related but differently parameterized model and does not state the combined claim. Searches by the exact target DOI, equation aliases, equilibrium language, Lyapunov-factorization language, and the decimal/algebraic threshold did not recover a covering statement. The main residual risk is the inaccessible full text of the 2015 PMSG source cited by the target article for model derivation.
+## correctness
 
-## Value
-The source's main dynamical evidence is numerical, while controller design and interpretation depend on which equilibria exist and when they are stable. The result supplies a sharp global stability statement through the nonhyperbolic creation threshold and a complete exact local stability partition for the ensuing equilibrium pair. In particular it separates the source's trajectory-level transition near \(b=5.2\) from the local equilibrium loss at \(b_H\approx5.5859\), a distinction relevant to basin coexistence and control targets.
+PASS
 
-## Closest literature and limitations
-Borah and Roy (2017) is the closest accessible analytical comparison because it studies equilibria and Hopf behavior in a related fractional PMSG model. Messadi et al. (2015) is closer genealogically because the target article cites it for the PMSG model, but only its public abstract and bibliographic material were available. No claim is made about nonlinear Hopf criticality, attraction basins of the nonzero pair, or physical-model fidelity beyond the printed ODE.
+All seven frozen source files were read and the Git tree reconstructed from their actual blob IDs as 019c30acfb81e33e1c4d8b0cd598c4939c9c9a55. Exact independent SymPy differentiation confirmed that V=(x²+(a/b)y²+(a/b-1)z²)/2 obeys Vdot=-a(x-y)²-a(1/b-1)y²-(a/b-1)z² for 0<b<1. Since a=109/20>1, this is negative definite with positive radially unbounded V, proving GAS/global forward completeness; b=1 remains semidefinite and LaSalle's largest invariant zero-derivative subset is only origin (x=y,z=0 forces zdot=x²). Solving equilibria with s=xy gives exactly the ± branch at s>0 and b=s+a/(a+s), uniquely increasing because db/ds=1-a/(a+s)²>0 for s>=0. Independent Jacobian determinant reconstruction gives q(λ)=λ³+(a+2)λ²+A2λ+A3 with A2=(a³+a²s+a²+2as²+as+s³)/(a(a+s)), A3=2s((a+s)²-a)/(a+s), all >0 for s>0. At a=109/20, (a+2)A2-A3=-(552000s³+6016800s²+394580s-228364701)/(43600(20s+109)); positive cubic derivative and opposite endpoint signs prove exactly one s_H>0. Cubic Routh-Hurwitz gives 3 stable eigenvalues below, pair imaginary with third -149/20 at equality, and 2 RHP eigenvalues beyond. Exact symbolic identity residuals were 0; computations check algebra and do not replace the unbounded-domain proof. The packaged verify.py and prior verification logs are not used as sole evidence.
 
-Same-model review: passed. Independent audit: not yet performed.
+## originality
+
+PASS
+
+Best-of-knowledge PASS, not historical-priority certification. Inspected exact 2022 published PMSG paper full PDF (source gives numerical b~5.2 only), earlier 2015 full original publisher HTML (feedback stabilization), Borah/Roy 2017 full FO treatment, Zhang/Liao/Mu 2017 full same nonsmooth coefficient family (global absorbing ellipsoids, not global equilibrium attraction), and foundational 2002 plus He/Han 2017 smooth-gap exact bifurcation work (epsilon=0 differs from target epsilon=1). Neither accessible theorem is shown to imply the combined sharp critical-origin global result and explicit coefficient-one stable-pair threshold. Crucial unresolved source Jing/Yu/Chen 2004 directly studies nonsmooth air-gap motor stability and Hopf and could already imply the local branch criterion: searched lawful OA/arXiv first and authorized institutional text route returned disconnected VPN. Its abstract and known scope are recorded positively, not dismissed as NOT_COVERING. A self-matching Resultary record is excluded from prior-art evidence. No failed-search novelty proof.
+
+## value
+
+PASS
+
+The parameter slice a=5.45 is the precise numerical sweep used in the 2022 published uncontrolled PMSG system, not an arbitrary selected number. A sharp global theorem for the full unbounded physical state space including the nonhyperbolic endpoint b=1, exact existence/uniqueness of the born equilibrium pair, and an algebraic Routh-Hurwitz stability partition distinguish equilibrium spectral changes at b≈5.5859 from trajectory Lyapunov changes near b≈5.2. This resolves a natural mathematical control/interpretation gap and exposes the possibility of coexisting basins/attractors without claiming them. Although algebraically accessible once the model is chosen, global endpoint stability and exact spectral thresholds are motivated structural facts for the cited natural system; no paper-scale generalization is demanded.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

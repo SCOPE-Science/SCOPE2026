@@ -1,0 +1,194 @@
+{
+  "audit_date_utc": "2026-10-26",
+  "audited_at_utc": "2026-10-26T16:11:10Z",
+  "axes": {
+    "correctness": {
+      "evidence": [
+        "All seven original source paths and blob IDs inspected; exact Git tree computed and matched 019c30acfb81e33e1c4d8b0cd598c4939c9c9a55.",
+        "Independent symbolic Lyapunov derivative residual zero.",
+        "Independent symbolic characteristic coefficient and cubic Hurwitz identity residual zero.",
+        "Exact Routh derivative 1656000s²+12033600s+394580>0 for all s>=0 and cubic at s=0 negative.",
+        "Source b=1 LaSalle invariant set checked, no mistaken replacement of semidefinite endpoint by strict negativity."
+      ],
+      "rationale": "All seven frozen source files were read and the Git tree reconstructed from their actual blob IDs as 019c30acfb81e33e1c4d8b0cd598c4939c9c9a55. Exact independent SymPy differentiation confirmed that V=(x²+(a/b)y²+(a/b-1)z²)/2 obeys Vdot=-a(x-y)²-a(1/b-1)y²-(a/b-1)z² for 0<b<1. Since a=109/20>1, this is negative definite with positive radially unbounded V, proving GAS/global forward completeness; b=1 remains semidefinite and LaSalle's largest invariant zero-derivative subset is only origin (x=y,z=0 forces zdot=x²). Solving equilibria with s=xy gives exactly the ± branch at s>0 and b=s+a/(a+s), uniquely increasing because db/ds=1-a/(a+s)²>0 for s>=0. Independent Jacobian determinant reconstruction gives q(λ)=λ³+(a+2)λ²+A2λ+A3 with A2=(a³+a²s+a²+2as²+as+s³)/(a(a+s)), A3=2s((a+s)²-a)/(a+s), all >0 for s>0. At a=109/20, (a+2)A2-A3=-(552000s³+6016800s²+394580s-228364701)/(43600(20s+109)); positive cubic derivative and opposite endpoint signs prove exactly one s_H>0. Cubic Routh-Hurwitz gives 3 stable eigenvalues below, pair imaginary with third -149/20 at equality, and 2 RHP eigenvalues beyond. Exact symbolic identity residuals were 0; computations check algebra and do not replace the unbounded-domain proof. The packaged verify.py and prior verification logs are not used as sole evidence.",
+      "residual_risks": [
+        "No nonlinear Hopf assertion is proved; purely spectral passage through imaginary axis does not by itself classify criticality.",
+        "Dimensional coefficient-one model need not be a physically faithful reduction for every generator: mathematics applies only to printed autonomous field."
+      ],
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "2004 Jing--Yu--Chen abstract explicitly claims nonsmooth PMSM equilibrium stability and Hopf study but is inaccessible in full: major prior-coverage risk, not a negative match.",
+          "Zhang--Liao--Mu 2017 proves ellipsoidal global attractive sets for nonsmooth coefficient family, with center generally away from origin; not a unique global equilibrium theorem.",
+          "He--Han 2017 derives Hopf and pitchfork surfaces on the epsilon=0 smooth-air-gap model, not target epsilon=1.",
+          "2002 Li et al. proves the smooth-air-gap Lorenz case."
+        ],
+        "reasoning": "The strongest accessible broader analytic full text does not logically subsume the claimed global critical origin stability or coefficient-one local threshold. The closely related 2004 nonsmooth analysis cannot be excluded and may cover local parts; absence of full text alone is not used to fail originality or to declare conclusive novelty.",
+        "searches": [
+          "Resultary: permanent magnet synchronous generator exact stability Lyapunov equilibrium Hopf bifurcation spectral threshold",
+          "Resultary: Lorenz system quadratic Lyapunov origin globally stable PMSG Routh Hurwitz 5.45",
+          "Web: Complex dynamics in a permanent-magnet synchronous motor model Jing Yu Chen pdf arxiv 2004",
+          "Web: Dynamics and Stability of Permanent-Magnet Synchronous Motor Routh Hurwitz 2017",
+          "Web: Dynamical analysis PMSM 2017 globally exponential attractive sets"
+        ]
+      },
+      "checked_sources": [
+        "doi:10.3934/math.2023285",
+        "doi:10.1088/1674-1056/24/1/010502",
+        "doi:10.1049/iet-epa.2016.0506",
+        "doi:10.1186/s13662-017-1118-1",
+        "doi:10.1155/2017/4923987",
+        "doi:10.1109/81.989176",
+        "doi:10.1016/j.chaos.2004.02.054 (bibliographic/abstract only; full text unavailable)",
+        "Resultary searches for exact PMSG normalization, stability/Hopf threshold, alternative equations and mathematical implication; same record excluded as predecessor"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "Controlled predictive feedback (Messadi) proves stabilization of a changed dynamical vector field; cannot imply uncontrolled global stability for b<=1.",
+          "Zhang et al.'s displaced absorbing ellipsoids permit nonzero recurrent sets, so they do not imply origin global convergence or exact stability transition.",
+          "Smooth ε=0 Lorenz theorems cannot be specialized to ε=1 in the extra quadratic term.",
+          "Borah/Roy's general fractional criteria and characteristic equation inform methods, but the inspected material does not establish the exact combined parameter slice theorem.",
+          "An inaccessible primary Jing et al. may establish prior local Hopf conditions; its global-origin implications cannot be decided from abstract alone."
+        ],
+        "reasoning": "The submitted conjunction goes beyond results with verified hypothesis-and-conclusion implication. The exact local branch may partially duplicate earlier non-smooth PMSM analysis; the critical-endpoint b=1 global Lyapunov/LaSalle theorem is not shown to follow from inspected predecessors. Therefore O is PASS on current best evidence, with substantial explicit residual 2004 risk rather than a false uniqueness or publication-priority guarantee.",
+        "searches": [
+          "Primary full Sambas 2022 PDF systems (3)-(4), Section 3.1",
+          "Primary full Messadi et al. 2015 Section 3 Theorem 1 feedback proof",
+          "Primary full Zhang--Liao--Mu 2017 Theorem 1 equation (5)",
+          "Primary full Borah--Roy 2017 eq(5)-(7) and Hopf Theorem 2",
+          "Primary full Li et al. 2002 Section II-III and He--Han 2017 Sec 3",
+          "Jing--Yu--Chen 2004 nonsmooth-air-gap DOI arXiv/OA/institutional full-text route"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Sambas 2022, equation (4), is exactly the target x'=a(y-x)+zy, y'=-y-xz+bx, z'=-z+xy.",
+          "Zhang--Liao--Mu 2017 equation (2) is a broader PMSM family; permute target variables (x,y,z) to (z,y,x) and set general-model (a, sigma, epsilon, gamma)=(1,109/20,1,b).",
+          "The original Li--Park--Joo--Zhang--Chen 2002 smooth-air-gap model sets epsilon=0; changing epsilon=0 to 1 is not a relabeling.",
+          "Resultary finds the same submitted record, excluded as an independent predecessor."
+        ],
+        "reasoning": "Alias/coordinate checks reveal a true broader nonsmooth PMSM family and an inequivalent smooth Lorenz specialization. Published general trapping-set bounds do not imply sharp attraction to origin at b<=1 or the submitted specialized local algebraic threshold. The record's own published copy is excluded from novelty comparison.",
+        "searches": [
+          "Resultary: coefficient one normalized PMSG exact stability skeleton extremizers",
+          "Resultary: normalized PMSG chaotic flow nonzero equilibria local stability algebraic threshold",
+          "Web: 10.3934/math.2023285 model equation exact PMSG",
+          "Web: 10.1186/s13662-017-1118-1 model equations and Lorenz equivalence",
+          "Web: 10.1109/81.989176 smooth-air-gap model"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "Source Sambas et al. (2022) Figure 4 gives numerical trajectory-level transition near b=5.2; no exact analytic local equilibrium table in inspected paper.",
+          "No matching full coefficient-one algebraic cubic or precise b_H was recovered through actual search results; no claim that failed query proves originality.",
+          "Other discovered numerical tables concern different motor smooth-gap or parameter settings."
+        ],
+        "reasoning": "The numeric source figure cannot certify the analytic spectral b_H and may coexist with stable nonzero equilibria. No exact matching table has been located, while the 2004 nonsmooth primary text remains a specific unexamined source where a symbolic threshold might be implicit.",
+        "searches": [
+          "Web: \"228364701\" \"PMSG\"",
+          "Web: \"552000\" \"6016800\" \"Hopf\"",
+          "Web: \"5.585903\" motor bifurcation",
+          "Web: PMSG a=5.45 b=5.585903740768374",
+          "Resultary: exact local equilibrium threshold 5.585903740768374 PMSG"
+        ]
+      },
+      "rationale": "Best-of-knowledge PASS, not historical-priority certification. Inspected exact 2022 published PMSG paper full PDF (source gives numerical b~5.2 only), earlier 2015 full original publisher HTML (feedback stabilization), Borah/Roy 2017 full FO treatment, Zhang/Liao/Mu 2017 full same nonsmooth coefficient family (global absorbing ellipsoids, not global equilibrium attraction), and foundational 2002 plus He/Han 2017 smooth-gap exact bifurcation work (epsilon=0 differs from target epsilon=1). Neither accessible theorem is shown to imply the combined sharp critical-origin global result and explicit coefficient-one stable-pair threshold. Crucial unresolved source Jing/Yu/Chen 2004 directly studies nonsmooth air-gap motor stability and Hopf and could already imply the local branch criterion: searched lawful OA/arXiv first and authorized institutional text route returned disconnected VPN. Its abstract and known scope are recorded positively, not dismissed as NOT_COVERING. A self-matching Resultary record is excluded from prior-art evidence. No failed-search novelty proof.",
+      "residual_risks": [
+        "Potentially substantial priority overlap: Jing, Yu, Chen (2004), DOI 10.1016/j.chaos.2004.02.054, states nonsmooth-air-gap PMSM stability and Hopf results. Full primary text could not be accessed through arXiv/OA or authorized disconnected institutional VPN. Its general local criterion could imply the specialized b_H even without matching digits; whole-document noncoverage is NOT asserted.",
+        "The 2017 Borah--Roy publisher HTML embeds crucial formulae as images. The inspected surrounding theorem text and equations identify fractional-order scope, but hidden ancillary exact ε=1 integer-order specialization cannot be categorically excluded without full graphic transcription.",
+        "Classical Lorenz global-origin criteria are not directly transferable because the target retains the extra bilinear mechanical coupling ε=1; a separate equivalence or Lyapunov argument in obscure prior control literature might exist.",
+        "Global stability for 0<b<=1 pertains to precisely the printed uncontrolled ODE and to forward trajectories, not robustness or physical fidelity. Source's numerical b~5.2 is a trajectory label and does not contradict local spectral stability to b_H.",
+        "No nonlinear Hopf bifurcation, criticality, basin boundary, or exclusion of coexisting attractors is established at b_H."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "The printed zero-input coefficient-one vector field exactly matches the claim. Figures 3-4 and Section 3.1 report numerically stable behavior through b approximately 5.2 but give no exact E±(s), global endpoint-origin theorem, or derived algebraic local stability threshold.",
+          "evidence": "Equation (4), PDF p.5674; a=5.45 and b=20 example; Section 3.1 and Figure 4, PDF p.5675: numerical b-inference stable [0,5.2], chaotic beginning about 5.2; published 2022-12-22.",
+          "identifier_or_url": "doi:10.3934/math.2023285; https://www.aimspress.com/aimspress-data/math/2023/3/PDF/math-08-03-285.pdf",
+          "material_read": "All 17 pages of accessible publisher PDF available; text and rendered pages 5674-5675 (PDF pages 5-6) inspected for system (4), figure 4 and Section 3.1; introduction/references and control framework also checked.",
+          "method": "Published open PDF, extracted text and direct visual verification of rendered equations and numerical bifurcation figures.",
+          "title": "Investigation of chaotic behavior and adaptive type-2 fuzzy controller approach for Permanent Magnet Synchronous Generator (PMSG) wind turbine system",
+          "trigger": "Exact primary source, system (4), coefficient-one state equations and a=5.45 fixed b sweep."
+        },
+        {
+          "assessment": "The theorem in Section 3 proves stabilization under a designed predictive feedback control law, not the uncontrolled coefficient-one ODE's full exact global/local phase partition. Section 4 reports controlled numerical trajectories. Nothing examined establishes the submitted polynomial threshold, although equation-image visibility limits a claim of exhaustive formula-level noncoverage.",
+          "evidence": "Section 3 Theorem 1: globally asymptotically stable under predictive feedback law; Section 4: numerical stabilization to origin using feedback gain; publication Chinese Physics B 24(1), 010502.",
+          "identifier_or_url": "doi:10.1088/1674-1056/24/1/010502; https://cpb.iphy.ac.cn/fileCPB/journal/article/cpb/html/2015/cpb_24_1_010502.html",
+          "material_read": "Complete lawful publisher article HTML, introduction, nonlinear model section, Section 3 predictive feedback theorem and calculations, Section 4 numerical experiments, Section 5 conclusions; equations represented as publisher images were individually identified but not all transcribed to searchable text.",
+          "method": "Full original publisher open HTML, mathematical theorem and model/application context inspected, comparing uncontrolled equilibrium questions to feedback stabilization.",
+          "title": "Predictive control of a chaotic permanent magnet synchronous generator in a wind turbine system",
+          "trigger": "Earlier model source explicitly cited by Sambas et al.; high-priority genealogical comparison."
+        },
+        {
+          "assessment": "Studies general fractional-order and integer-order limits, a PMSG model with additional nonlinear coefficient, fixed numerical fractional chaos parameters and fractional stability/Hopf criteria. Its accessible formula-level and theorem comparisons do not establish the precise coefficient-one a=109/20 equilibrium threshold b_H or global origin stability through b=1. Shared general Hopf machinery is credited as prior.",
+          "evidence": "Published 2017-05-01; Sections 2.2-2.4, especially equilibrium equations (5)-(7), FO-stability Theorems 1-2 and parameter-set table.",
+          "identifier_or_url": "doi:10.1049/iet-epa.2016.0506; https://ietresearch.onlinelibrary.wiley.com/doi/10.1049/iet-epa.2016.0506",
+          "material_read": "Publisher freely accessible full HTML: Section 2.2 fractional model, Sections 2.3.2-2.3.3 equilibrium and Jacobian/characteristic equation, Section 2.4.1 commensurate Hopf theorem, and conclusions. Many displayed equations rendered as image assets.",
+          "method": "Free publisher primary full article HTML, checking hypotheses and implication rather than only titles.",
+          "title": "Dynamics of the fractional-order chaotic PMSG, its stabilisation using predictive control and circuit validation",
+          "trigger": "Closest accessible prior fractional-PMSG analysis of equilibria, characteristic equation and Hopf behavior."
+        },
+        {
+          "assessment": "Its general nonsmooth model -ax+yz,-y-xz+gamma*z,sigma(y-z)+epsilon*xy transforms to the target under coordinate permutation with a=1,sigma=109/20,epsilon=1,gamma=b. Important same-family comparison. However its Theorem 1 proves attraction to displaced parameterized ellipsoidal trapping sets, not global attraction specifically to origin for 0<b<=1, and it does not derive the exact E± local threshold b_H. Its Lorenz equivalence remark is explicitly for epsilon=0, not target epsilon=1.",
+          "evidence": "Equations (2)-(4), Section 3 Theorem 1 equation (5) and proof, Remark 1; article published 2017-03-09.",
+          "identifier_or_url": "doi:10.1186/s13662-017-1118-1; https://link.springer.com/article/10.1186/s13662-017-1118-1",
+          "material_read": "Full CC BY open publisher article, all dynamical model equations (1)-(4), Theorem 1 and its differentiated Lyapunov-like expression, subsequent trapping-set results, remark identifying smooth case as Lorenz flow, and conclusions.",
+          "method": "Direct readable primary full HTML with displayed LaTeX equations.",
+          "title": "Dynamical analysis of the permanent-magnet synchronous motor chaotic system",
+          "trigger": "Same broader nonsmooth PMSM coefficient family and prior global-Lyapunov bounding arguments."
+        },
+        {
+          "assessment": "Principal analytic system assumes smooth air gap Ld=Lq (zero nonsmooth coefficient), which omits target's extra yz quadratic coupling in the first differential equation after permutation. It treats a distinct Lorenz-equivalent limit; its pitchfork at gamma=1 is shared, but its local Hopf boundary at sigma=10 is not the target b_H for nonsmooth coefficient one.",
+          "evidence": "Section 3(A) smooth-air-gap assumption and equations (3)-(10); Section 4 pitchfork gamma=1 and subcritical Hopf gamma~17.59 at sigma=10.",
+          "identifier_or_url": "doi:10.1155/2017/4923987; https://onlinelibrary.wiley.com/doi/10.1155/2017/4923987",
+          "material_read": "Full open HTML, model Section 2, Section 3(A) equilibrium/characteristic/Hopf criteria, parameter bifurcation diagram discussion Section 4, and references.",
+          "method": "Wiley open primary full HTML; hypotheses read and matched to polynomial terms.",
+          "title": "Dynamics and Stability of Permanent-Magnet Synchronous Motor",
+          "trigger": "Analytic Routh-Hurwitz and Hopf/pitchfork bifurcation treatment under overlapping parameter notation."
+        },
+        {
+          "assessment": "Explicitly restricts to smooth-air-gap Ld=Lq and removes epsilon id iq coupling in mechanical equation before applying Lorenz results. The claim's coefficient-one non-smooth branch retains this term, so smooth-air-gap equilibria/threshold do not supply submitted b_H. Base physical model and pitchfork structure are prior.",
+          "evidence": "Page 384: model (4) has epsilon id iq, but model (5) imposes Ld=Lq making epsilon=0; Section III.A identifies the resulting system with classical Lorenz.",
+          "identifier_or_url": "doi:10.1109/81.989176; https://www3.fi.mdp.edu.ar/fc3/SisDin2009/papersxx/motor.pdf",
+          "material_read": "Entire five-page lawful manuscript, model and assumptions Section II, system (4)/(5), Section III first bifurcation case, and conclusion; page 384 visually checked to verify which quadratic coupling vanishes.",
+          "method": "Open full primary PDF, text plus visual screenshot page 384.",
+          "title": "Bifurcations and Chaos in a Permanent-Magnet Synchronous Motor",
+          "trigger": "Foundational motor model, steady equilibria, exact char polynomial and Hopf criteria; plausible alias."
+        },
+        {
+          "assessment": "This is the main unresolved priority risk. Its described nonsmooth model and analytic Hopf conditions may subsume the local spectral b_H specialization. However available material does NOT demonstrate it implies the separate global attraction-to-origin theorem including the critical b=1 endpoint. No whole-document NOT_COVERING conclusion is made; possible overlapping results explicitly retained.",
+          "evidence": "Abstract says stability, numbers of equilibria, pitchfork/Hopf for nonsmooth air gap, plus approximate stable-manifold boundaries, Chaos Solitons & Fractals 22 (2004), 831-848. Full-text institutional request unable to retrieve due disconnected VPN.",
+          "identifier_or_url": "doi:10.1016/j.chaos.2004.02.054",
+          "material_read": "Bibliographic information and substantive published abstract from bibliographic aggregators, cross-referenced with 2017 He-Han and Springer 2017 citations. Full 18-page original was NOT accessed.",
+          "method": "Checked for arXiv preprint and lawful open-access full article (unsuccessful), then attempted authorized institutional PDF retrieval once; institutional service reported disconnected VPN requiring human action. No login/CAPTCHA bypass and no assertion that snippets cover the article.",
+          "title": "Complex dynamics in a permanent-magnet synchronous motor model",
+          "trigger": "Especially plausible covering primary research because it studies the nonsmooth-air-gap PMSM, stability, pitchfork and Hopf bifurcations."
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "evidence": [
+        "Primary 2022 Figure 4 and Section 3.1 motivate exactly a=5.45 and b sweep, and report b~5.2 numerical change.",
+        "Exact b=1 LaSalle argument identifies global invariant-set property beyond local Jacobian.",
+        "Routh-Hurwitz algebra distinguishes stability of E± through b_H>b_trajectory without falsely asserting attraction of the original numerical initial condition."
+      ],
+      "rationale": "The parameter slice a=5.45 is the precise numerical sweep used in the 2022 published uncontrolled PMSG system, not an arbitrary selected number. A sharp global theorem for the full unbounded physical state space including the nonhyperbolic endpoint b=1, exact existence/uniqueness of the born equilibrium pair, and an algebraic Routh-Hurwitz stability partition distinguish equilibrium spectral changes at b≈5.5859 from trajectory Lyapunov changes near b≈5.2. This resolves a natural mathematical control/interpretation gap and exposes the possibility of coexisting basins/attractors without claiming them. Although algebraically accessible once the model is chosen, global endpoint stability and exact spectral thresholds are motivated structural facts for the cited natural system; no paper-scale generalization is demanded.",
+      "residual_risks": [
+        "The algebraic local threshold may appear as a specialization of inaccessible 2004 nonsmooth motor research; novelty and value could need reassessment if that material is obtained.",
+        "Does not determine perturbative robustness, stable basin geometry, nonlinear Hopf coefficient, or complete attractor classification."
+      ],
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "limitations": [
+    "Purely global origin b<=1 and linearized E± for b>1, not global attraction to nonzero pair.",
+    "At b_H spectrum is nonhyperbolic; no first Lyapunov coefficient, Hopf nonlinearity or period claims.",
+    "At b≈5.2 the source's label is numerical trajectory behavior and need not agree with basin-independent equilibrium spectrum.",
+    "Coefficient-one and a=109/20 are printed-model assumptions, not validated physical parameter constraints.",
+    "Published 2004 nonsmooth model may overlap exact local stability; novelty verdict is best-of-knowledge, qualified."
+  ],
+  "schema_version": 1
+}
