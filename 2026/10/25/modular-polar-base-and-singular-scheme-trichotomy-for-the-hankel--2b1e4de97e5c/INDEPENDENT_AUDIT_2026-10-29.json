@@ -1,0 +1,131 @@
+{
+  "audit_date_utc": "2026-10-29",
+  "audited_at_utc": "2026-10-29T23:06:31.216085Z",
+  "axes": {
+    "correctness": {
+      "rationale": "Exact integral triangular coordinates on a=1, t=b, U=c+b², W=d+bc and V=e+U²-4b²U+5b⁴ give F=W²+UV-2t^6; reversing coordinates treats e=1. Differentiation produces (U,V,W,t^5) for p!=2,3 and (U,V,W,t^6) as intrinsic singular ideal in p=3; in p=3 gradients alone give a reduced line/C_- plus isolated reduced Q off cubic, and F restricts to -2s^6t^6 on C_- (thus 6Pa+6Pe). In p=2, global gradients are three quadrics, complete intersection (2,2,2) with local k[t,W]/W², Hilbert 8m-4, genus5. No geometric singular point with a=e=0; hypersurface is irreducible/normal by gcd and R1+S2. Independent SymPy expansion verified exact integral identity, quartic restriction and both Groebner ideal inclusions in p=2,3,5,7; finite checks cannot certify all characteristics or scheme support, which follow from proofs.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Cheltsov treats complex cubic threefold singularities, Wang smooth-cubic polar maps, Ballico–Elia different determinantal Hankel subvarieties."
+        ],
+        "reasoning": "None of these statements directly governs the polar base of this singular cubic in characteristic three where Euler cannot recover F from its derivatives; broader result risk under alternative modular normalization remains.",
+        "searches": [
+          "Cheltsov et al §5 2025",
+          "Wang 2024 polar-gradient §§2",
+          "Ballico–Elia 2014"
+        ]
+      },
+      "checked_sources": [
+        "doi:10.1112/jlms.70224 §5 (complex 2A5 cubic)",
+        "arxiv:math/0512359 (2x2 permanental ideals)",
+        "doi:10.1155/2014/970157 (Hankel determinantal context)",
+        "doi:10.1112/jlms.12975 (general polar map)"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "Polar partials are distinct from intrinsic F+partials in char3 because 3F=Σx_i F_i is trivial. The reduced quartic outside X and the isolated Q require explicit modular Jacobian calculation."
+        ],
+        "reasoning": "The char0 classification and char2 determinant geometry do not imply the char3 polar-scheme structure; these are antecedent boundary cases and the modular comparison is the surviving claim.",
+        "searches": [
+          "Cheltsov–Marquand–Tschinkel–Zhang 2025 §5",
+          "Grieco–Guerrieri–Swanson 2005",
+          "Ballico–Elia 2014"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "The polynomial is a 3x3 Hankel permanent, a catalecticant cubic in char2, and a 2A5 cubic-threefold normal-form member in char0."
+        ],
+        "reasoning": "Aliases and characteristic-dependent identifications were checked, including determinant vs permanent only at p=2; the new char3 extra polar quartic is not captured by these known normal forms.",
+        "searches": [
+          "Resultary query Hankel determinant polar map base singular scheme characteristic p",
+          "Cheltsov et al 2025 §5",
+          "Grieco et al 2005",
+          "Wang 2024 polar map"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "Known char0 2A5 and char2 ribbon boundaries are credited, but the char3 reduced C_- + Q polar base and length-six intersection are not directly in inspected tables."
+        ],
+        "reasoning": "Agreement of the known characteristic-zero normal form is not coverage of the modular trichotomy; no exact matching table of the polar base was identified.",
+        "searches": [
+          "Grieco 2005 Hankel permanent ideals",
+          "Cheltsov 2025 2A5 list",
+          "Resultary Hankel polar scheme search"
+        ]
+      },
+      "rationale": "Compared actual invariant and mathematical implications rather than names. Examined closest primary materials, cited known premises/special cases, and preserved priority risks; no decisive equivalent or dominating all-scope theorem found within checked sources.",
+      "residual_risks": [
+        "Unknown positive-characteristic cubic-threefold literature may contain the characteristic-three polar-base degeneration in an alternative catalecticant model.",
+        "Finite-field symbolic specialization does not replace scheme argument over algebraically closed fields."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Characteristic-zero member equivalent to present permanent cubic is prior; the paper does not assert the characteristic-three polar-base quartic and modular Jacobian schemes as a universal positive-characteristic classification.",
+          "evidence": [
+            "§5 complex 2A5 cubic normal form; work is in characteristic zero, not the p=2,3 polar/singular comparison."
+          ],
+          "identifier_or_url": "https://doi.org/10.1112/jlms.70224",
+          "material_read": "Accessible full primary HTML including §5 and explicit 2A5 cubic normal forms",
+          "method": "Lawful full-text publisher HTML",
+          "title": "Equivariant geometry of singular cubic threefolds, II (Cheltsov–Marquand–Tschinkel–Zhang, 2025)",
+          "trigger": "Same characteristic-zero cubic normal form, possible coverage"
+        },
+        {
+          "assessment": "Main setting ideals of 2x2 permanents, not hypersurface of 3x3 permanent.",
+          "evidence": [
+            "Difference of ideal generators and geometric object prevents direct implication of the specific polar base."
+          ],
+          "identifier_or_url": "https://arxiv.org/abs/math/0512359",
+          "material_read": "Available abstract and statements describing size-two permanental ideals; not full-text proof",
+          "method": "OA arXiv abstract",
+          "title": "Permanental ideals of Hankel matrices (Grieco–Guerrieri–Swanson, 2005)",
+          "trigger": "Hankel permanents and singular loci, close object terminology"
+        },
+        {
+          "assessment": "Treats determinantal Hankel varieties, overlapping char2 via determinant=permanent but not characteristic-three permanental polar base.",
+          "evidence": [
+            "In characteristic two determinant and permanent coincide, making char2 ribbons antecedent but not char3 result."
+          ],
+          "identifier_or_url": "https://doi.org/10.1155/2014/970157",
+          "material_read": "Available abstract and subject classification",
+          "method": "OA publisher abstract",
+          "title": "On Determinantal Varieties of Hankel Matrices (Ballico–Elia, 2014)",
+          "trigger": "Potential same Hankel cubic via determinant reduction characteristic 2"
+        },
+        {
+          "assessment": "Provides global theory of polar maps of smooth cubics, not the singular Hankel cubic modular base scheme; no full-document noncoverage claim made.",
+          "evidence": [
+            "Its §2 treats smooth characteristic-zero cubic and gradient as morphism, unlike the present singular positive-characteristic cubic."
+          ],
+          "identifier_or_url": "https://doi.org/10.1112/jlms.12975",
+          "material_read": "Full accessible HTML §§2 foundational polar map, not exact same singular cubic",
+          "method": "OA full-text HTML relevant definition",
+          "title": "Special cubic zeros and the dual variety (Wang, 2024)",
+          "trigger": "General polar-map theorem could dominate scheme classification"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "rationale": "The permanent of the smallest nontrivial Hankel 3x3 matrix is a canonical cubic threefold; polar base versus intrinsic singular scheme is geometrically fundamental exactly when characteristic divides degree. The p=3 reduced polar quartic largely outside the cubic and its length-six intersections are substantive structural degeneration and full characteristic boundary classification, not merely a textbook Jacobian calculation or arbitrary coordinate example.",
+      "status": "PASS"
+    }
+  },
+  "checked_sources": [
+    "doi:10.1112/jlms.70224 §5 (complex 2A5 cubic)",
+    "arxiv:math/0512359 (2x2 permanental ideals)",
+    "doi:10.1155/2014/970157 (Hankel determinantal context)",
+    "doi:10.1112/jlms.12975 (general polar map)"
+  ],
+  "disposition": "passed",
+  "limitations": [
+    "Unknown positive-characteristic cubic-threefold literature may contain the characteristic-three polar-base degeneration in an alternative catalecticant model.",
+    "Finite-field symbolic specialization does not replace scheme argument over algebraically closed fields."
+  ],
+  "schema_version": 1
+}
