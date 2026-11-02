@@ -5,8 +5,11 @@
     "status": "not_performed"
   },
   "independent_audit": {
-    "evidence": null,
-    "status": "not_performed"
+    "status": "passed",
+    "evidence": [
+      "INDEPENDENT_AUDIT_2026-10-28.md",
+      "INDEPENDENT_AUDIT_2026-10-28.json"
+    ]
   },
   "lean_verification": {
     "evidence": null,
@@ -16,10 +19,24 @@
 }
 ---
 
-# Verification and reproducibility
+# Independent mathematical audit
 
-Run `python3 verify.py` with Python 3.9 or later. The code uses only the standard library, makes no external requests, and uses exact integer arithmetic. Expected successful output is reproduced verbatim in `verification_output.txt`.
+## correctness
 
-The checker constructs finite triangle-free graph extensions directly from all ordered new-to-parameter adjacency bits; independently, it counts independent sets in the Cartesian product for the same parameters. It verifies equality across 263 small cases, the explicit independent-parameter formulas across 14 cases, and the one-query padding-recovery identity across 443 bipartite cases for arities 2, 3, and 4. The direct checker only tests finite examples and does not exhaust all graph orders or tuple arities. The infinite-family argument is given in `RESULT.md` and depends on the previously established homogeneous extension property, the exact graph-product bijection, and the uniform padding error bound.
+PASS
 
-No independent audit or external mathematical certification has been performed.
+Over a finite triangle-free parameter graph G in the countable homogeneous Henson H_3, an injective ordered r-tuple outside the parameters is specified by a labelled triangle-free F on r coordinates and r parameter-neighbor sets. Mixed triangles are absent exactly when these choices form an independent set of G □ F. This proves T_r(G)=Σ_F i(G□F) (r fixed >=2). For a bipartite B with b vertices, pad G=B⊔E_m with m=3(rb+binom(r,2)+2): the edgeless F contributes i(B)^r 2^(rm); all other F contribute less than 1/4 after normalization using (3/4)^m and the 2^(rb+binom(r,2)) count bound. Flooring one exact oracle output and taking its exact r-th root retrieves #independent sets of B by polynomial metric reduction. The same class lies in #P by guessing tuple incidence bits and checking K3-freeness. The E_m spectrum and second exponential rate follow from independent-set counts of F with zero, one, and ≥2 edges. Independent direct enumeration confirms 99 product, 21 edgeless-profile and 22 padding instances; finite checks are not the proof for all r,G.
+
+## originality
+
+PASS
+
+Qualified best-of-knowledge assessment after independent statement-level comparisons of the cited specific results, published index and accessible primary texts; inaccessible full texts remain explicitly stated risks, not proof of noncoverage.
+
+## value
+
+PASS
+
+A natural complete fixed-arity orbit/type-count identity in a central homogeneous graph, with an exact complexity classification uniform in every fixed tuple arity >=2 and a bipartite one-query reduction. The arity hierarchy and edgeless-parameter growth are mathematically motivated; this is not merely relabelling the known one-variable invariant.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

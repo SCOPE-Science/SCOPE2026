@@ -1,15 +1,21 @@
-# Scientific review: higher-arity Henson type counts
+# Independent mathematical audit
 
-## Correctness — PASS
-The theorem precisely restricts to ordered injective tuples outside a named finite triangle-free parameter graph, and fixes arity for the counting-complexity claim. Henson homogeneity identifies types with permitted finite induced extensions. Every possible new triangle is classified by the four placements of its vertices; the two mixed possibilities are exactly independence constraints in the Cartesian product. This gives a bijective type-count identity, not an approximation. For hardness, the edgeless labelled graph \(E_r\) is the unique maximum independent-set contributor in the finite sum. Isolated-parameter padding exponentially separates its contribution from all others, with an explicit error below \(1/4\). Taking an integer floor and integer root is therefore exact. The original program was executed from the packaged `verify.py` and confirms 263 direct-extension/product equalities, 14 specializations and 443 reductions. Finite checks corroborate the mathematical proof but do not establish it by themselves.
+## correctness
 
-## Originality — PASS, qualified
-Henson (1971) supplies the underlying homogeneous graph; Conant (arXiv:1401.1570v1, Section 3) supplies the general finite-tuple consistency criterion. The simple consistency criterion and the standard \(\#\mathrm P\)-hardness of bipartite independent-set counting are not novel. The closest publicly indexed result, *Exact finite-parameter 1-type counting in Henson graphs is #P-complete*, establishes the corresponding **one-variable** identity and hardness, and explicitly does not treat higher arities. The new claim instead gives an all-fixed-higher-arity product-independent-set sum and, crucially, a one-query metric reduction for each \(r\ge2\) even on bipartite inputs. The searched primary publications and the relevant indexed record did not state that consequence. An unindexed or differently phrased general tuple-enumeration result remains a residual risk; publication priority and independent peer verification are not claimed.
+PASS
 
-## Mathematical value — PASS
-This identifies a natural family of finite-parameter orbit invariants of an important homogeneous structure with graph-product independence partition functions, establishing exact counting complexity for every fixed tuple arity, not just the previously treated 1-type case. The padding proof separates the unique empty tuple-adjacency pattern uniformly in arbitrary fixed arity; the bipartite restriction makes the hardness statement stronger. The independent-parameter formulas expose additional exact exponential spectral information. These properties directly address the extension from 1-types to multi-types and are not a reparametrization of the earlier scalar result.
+Over a finite triangle-free parameter graph G in the countable homogeneous Henson H_3, an injective ordered r-tuple outside the parameters is specified by a labelled triangle-free F on r coordinates and r parameter-neighbor sets. Mixed triangles are absent exactly when these choices form an independent set of G □ F. This proves T_r(G)=Σ_F i(G□F) (r fixed >=2). For a bipartite B with b vertices, pad G=B⊔E_m with m=3(rb+binom(r,2)+2): the edgeless F contributes i(B)^r 2^(rm); all other F contribute less than 1/4 after normalization using (3/4)^m and the 2^(rb+binom(r,2)) count bound. Flooring one exact oracle output and taking its exact r-th root retrieves #independent sets of B by polynomial metric reduction. The same class lies in #P by guessing tuple incidence bits and checking K3-freeness. The E_m spectrum and second exponential rate follow from independent-set counts of F with zero, one, and ≥2 edges. Independent direct enumeration confirms 99 product, 21 edgeless-profile and 22 padding instances; finite checks are not the proof for all r,G.
 
-## Sources and limitations
-The direct foundational comparison is Conant (2014), especially his definitions and propositions describing finite tuple extensions; Henson's original 1971 paper supplies the extension property. The indexed 2026 1-type result provides the nearest computational comparison, and Provan–Ball (1983) provides the independent-set counting hardness input. Full-text coverage was obtained for Conant and the indexed 1-type result; Provan–Ball publisher metadata and abstract were accessible, rather than its complete paper. No approximation claim or complexity claim with variable arity is made. The exact result remains to be checked independently.
+## originality
 
-Self-review: passed. Independent audit: not yet performed.
+PASS
+
+Qualified best-of-knowledge assessment after independent statement-level comparisons of the cited specific results, published index and accessible primary texts; inaccessible full texts remain explicitly stated risks, not proof of noncoverage.
+
+## value
+
+PASS
+
+A natural complete fixed-arity orbit/type-count identity in a central homogeneous graph, with an exact complexity classification uniform in every fixed tuple arity >=2 and a bipartite one-query reduction. The arity hierarchy and edgeless-parameter growth are mathematically motivated; this is not merely relabelling the known one-variable invariant.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
