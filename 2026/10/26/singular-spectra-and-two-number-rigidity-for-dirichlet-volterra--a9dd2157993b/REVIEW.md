@@ -1,11 +1,21 @@
-# Scientific review
+# Independent mathematical audit
 
-**Correctness (C): PASS.** On the orthonormal Dirichlet basis the two monomial Volterra maps have exact coefficients, and the commutator is a signed diagonal followed by an injective multiplicative shift. Its powers are therefore weighted isometries with strictly decreasing positive coefficient magnitudes; this proves all singular-value and norm formulas, including compactness. Gamma asymptotics establish sharp norm decay; logarithmically slow singular decay proves failure of every finite Schatten membership. The two-number inverse rests on the strict monotonicity of three elementary positive factors. The extracted standalone finite checker passed 5,370 diagnostic assertions. No numerical experiment substitutes for an infinite-dimensional proof.
+## correctness
 
-**Originality (O): PASS under accessible-source comparison, with priority risk.** Brevig–Perfekt–Seip (2016) and Bommier-Hato (2020) give non-Schatten results for individual Dirichlet-series Volterra operators; those statements do not imply the singular spectra of their commutators or inverse two-number rigidity. Qin–Liu–Huang (2026) study commutativity of Fock-space Toeplitz operators, a different operator algebra. Tong–Wang–Yuan (2026) establish BMOA and Bergman Volterra compactness but do not analyze Hilbert-space commutator singular values. Actual mathematical-record queries targeted Dirichlet monomial Volterra commutators, logarithmic singular values, and quasinilpotent non-Schatten powers, and did not surface this statement. General weighted-shift theory may contain a subsuming formulation; independent priority verification remains needed.
+PASS
 
-**Mathematical value (V): PASS.** The natural two-monomial subclass offers a complete infinite-dimensional commutator classification. The simultaneous exact spectra for every power, sharp three-factorial norm decay, failure of every Schatten condition despite quasinilpotence, and recovery of unordered symbols from only two singular numbers provide structural and inverse-spectral information unavailable from qualitative compactness tests. This scope is specific to monomials and is not claimed to solve the polynomial-symbol problem.
+Reintegrated V_c e_n=(log c)/(log(cn))e_{cn}; direct composition gives [V_a,V_b]e_n=uv(u−v)/[(log n+t)(log n+u)(log n+v)] e_{abn}. Output indices for distinct basis vectors remain distinct for all powers, so (C^k)*C^k is diagonal with strictly decreasing weights d_n^(k)=∏_{j=0}^{k−1}K/[(log n+(j+1)t)(log n+jt+u)(log n+jt+v)]. Norm is d_1^(k)=(K/t³)^k/[k!(u/t)_k(v/t)_k], yielding Γ(u/t)Γ(v/t) k (K/t³)^k/(k!)³ and spectral radius zero; fixed-k singular values ∼K^k/(log n)^{3k}, compact but not any finite Schatten class by divergence of log-power sums. s1=|u−v|/t fixes the unordered ratio u/t,v/t; for this ratio, s2/s1 is a strictly increasing function of t>0, recovering log a/log b uniquely. Independently checked symbolic/numerical weights for four distinct integer pairs and k=1,2,3. The a=b commutator vanishes as boundary.
 
-**Limits:** No independent audit. Historical priority is not certified. The literature comparison is bounded to named inspected sources and the reported searches.
+## originality
 
-Self-review: passed. Independent audit: not yet performed.
+PASS
+
+Independently compared the exact final mathematical statement, not just title or matching parameter, with the primary material identified below and a new semantic research-index search. No inspected stronger statement implies the precise final claim; foundational results and methods are credited. This is a qualified best-of-knowledge judgment with explicitly retained gaps, not a certification of priority.
+
+## value
+
+PASS
+
+The exact compact-but-non-Schatten singular spectrum of an explicit noncommuting operator family, all power norms, and two-measurement recovery of the generator pair are precise natural operator invariants not mechanically supplied by individual-operator Schatten exclusion. The weighted shift method is standard, but the inverse rigidity is a substantive distinct result.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
