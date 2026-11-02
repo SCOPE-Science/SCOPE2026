@@ -1,0 +1,117 @@
+{
+  "correctness": {
+    "rationale": "Cauchy–Binet gives the exact information determinant. The derivative ratio H has monotone or unimodal shape according to b≤1 or b>1; the sign pattern rigorously yields the complete global optimum. Implicit-function expansions and pair counts give critical/large-horizon behavior and equal-endpoint replication. Exact-rational and numerical tests independently check key identities and regimes, without substituting finite evidence for the proof.",
+    "status": "PASS"
+  },
+  "independent": false,
+  "independent_audit_status": "not_performed",
+  "originality": {
+    "broader_coverage": {
+      "evidence": [
+        "Gündüz–Torsney 2023, Table 6 and Section 5: unrestricted two-support optimal designs with exponential weight.",
+        "Krauss–Lopez–Müller 2022, Sections III–IV: conditions for full-rank sample-based observability and irregular sampling.",
+        "Dette–Neugebauer 1997 abstract: Bayesian D-optimal designs for nonlinear exponential regression with one to three unknown parameters."
+      ],
+      "reasoning": "Broad weighted design and observability theorems cover mathematical ingredients and general rank questions, but the inspected statements do not dominate the pinned three-event Fisher determinant optimum, exact threshold and strong-damping ratio. A historical general exact-design theorem could conceivably specialize to this problem; that remains a residual priority risk.",
+      "searches": [
+        "D-optimal designs for weighted linear regression exponential support points 2023",
+        "general sampled-data observability and irregular sampling Jordan blocks 2022",
+        "Bayesian D-optimal designs exponential regression models 1997"
+      ]
+    },
+    "checked_sources": [
+      "arXiv:2204.06451 (technical sections of full HTML)",
+      "doi:10.3390/math11092075 (technical sections of published PDF text)",
+      "doi:10.1016/S0378-3758(96)00131-0 (abstract only)"
+    ],
+    "claim_vs_prior_implication": {
+      "evidence": [
+        "The Cauchy–Binet determinant for weighted two-parameter regression is classical and explicitly acknowledged as prior method.",
+        "The novel asserted statement fixes the endpoint events and one extra measurement; 2023 approximate-design support claims allow optimization of support and masses, a genuinely different feasible set.",
+        "The 2022 observability results only require rank, which is already full for the two distinct mandatory endpoints, hence rank alone cannot select the third observation."
+      ],
+      "reasoning": "Neither sufficient full-rank sampling nor a two-point approximate optimal-support result logically identifies which of three fixed-weight observations should be repeated or moved, nor proves a transition exactly at \\(aT=1\\). The current claim requires a complete one-variable sign analysis with fixed design constraints. No implication from the inspected prior propositions was found.",
+      "searches": [
+        "optimal time observation damped linear Jordan model fixed final time",
+        "sample-based observability of linear discrete-time systems 2022 theorem",
+        "D optimal weighted exponential regression design 2023 exact three samples"
+      ]
+    },
+    "equivalent_formulations": {
+      "evidence": [
+        "Krauss–Lopez–Müller 2022 defines sample-based observability through rank of rows \\(CA^t\\), arXiv:2204.06451, Sections II–IV.",
+        "Gündüz–Torsney 2023 develops two-support-point approximate weighted regression D-optimality with exponential weight, DOI:10.3390/math11092075, Sections 3–6."
+      ],
+      "reasoning": "The Jordan observation rows are an exponentially weighted intercept/slope regression. That transformation was explicitly considered; the inspected weighted-regression support theorem optimizes measure support and design masses, whereas the present exact-event problem fixes independent measurements at 0 and T and varies only a third point. The constraints do not follow from the unconstrained two-support formula without a further nontrivial comparison.",
+      "searches": [
+        "2022 sample-based observability Jordan continuous discrete time sampling eigenvalues",
+        "2023 weighted linear regression exponential weight D-optimal observation design",
+        "three point exact D optimal design exponentially weighted linear regression with two fixed time points"
+      ]
+    },
+    "exact_database_or_table": {
+      "evidence": [
+        "The 2023 paper tabulates exponential-weight support points for an unconstrained approximate design, not the exact 0,t,T event determinant.",
+        "The 2022 paper tabulates pathological sampling periods and rank conditions rather than determinant-optimal free times."
+      ],
+      "reasoning": "No inspected table supplies the larger stationary root or the horizon-one endpoint-to-interior classification under compulsory endpoint measurement events. This negative finding is limited to the actually inspected technical material; absence from a table alone is not novelty proof.",
+      "searches": [
+        "exact D-optimal pinned observation times exponential decay Jordan block threshold",
+        "exponentially damped linear trend 0 t T Fisher determinant optimizer",
+        "Gündüz Torsney 2023 exponential weight table support"
+      ]
+    },
+    "rationale": "Material comparisons with the relevant rank-observability paper and an unrestricted weighted D-optimal design theorem identify the fixed-three-event pinned constraint, its exact horizon-one transition and asymptotic gain as uncovered by the inspected statements. Priority remains qualified; the 1997 Bayesian source was only accessible in abstract.",
+    "residual_risks": [
+      "A historical constrained exact-design result may already imply the horizon-one transition.",
+      "The 1997 Bayesian exponential-design article was not fully inspected; its abstract is not proof of noncoverage.",
+      "The equal-endpoint repetition extension is algebraically immediate once the main determinant identity is established and is not claimed as a separate discovery."
+    ],
+    "source_inspections": [
+      {
+        "assessment": "Rank sufficiency rather than continuous-time noisy D-optimal determinant; does not cover the constrained timing phase transition",
+        "evidence": [
+          "Sections II–IV give rank conditions for sample-based observability and pathological periods",
+          "No information-determinant optimization objective or compulsory noisy initial and terminal measurements in inspected theorem statements"
+        ],
+        "identifier_or_url": "https://arxiv.org/abs/2204.06451",
+        "material_read": "Introduction, precise rank formulation, second-order and higher-order sampling theorems, appendix examples",
+        "method": "Open searchable arXiv full HTML and read technical sections",
+        "title": "Sample-based observability of linear discrete-time systems",
+        "trigger": "Same state-observability objective under selected measurement times"
+      },
+      {
+        "assessment": "Proves two-support approximate D-optimality under freely chosen support and weights, not the pinned exact three-event objective",
+        "evidence": [
+          "Table 1 includes exponential weights; Section 5 identifies exponential-weight two-support formula",
+          "No pinned three-event optimization or threshold equal to the dimensionless terminal horizon one in inspected results"
+        ],
+        "identifier_or_url": "https://eprints.gla.ac.uk/297084/1/297084.pdf",
+        "material_read": "PDF extracted text Sections 2–6, especially Table 1, Sections 3–5 and Table 6; graphical screenshots unavailable due fetch timeouts",
+        "method": "Read searchable publisher manuscript text and checked exact support-point formulas",
+        "title": "D-Optimal Designs for Binary and Weighted Linear Regression Models: One Design Variable",
+        "trigger": "Equivalent exponentially weighted regression structure"
+      },
+      {
+        "assessment": "Different Bayesian nonlinear regression objectives; priority comparison limited by unavailable full article",
+        "evidence": [
+          "Abstract describes Bayesian designs for nonlinear exponential regression with one, two or three unknown parameters"
+        ],
+        "identifier_or_url": "https://doi.org/10.1016/S0378-3758(96)00131-0",
+        "material_read": "Abstract, bibliographic data and problem description only; full technical article unavailable in this inspection",
+        "method": "Publisher bibliographic abstract search",
+        "title": "Bayesian D-optimal designs for exponential regression models",
+        "trigger": "Earlier exponential-regression experimental design"
+      }
+    ],
+    "status": "PASS"
+  },
+  "review_type": "self_review",
+  "schema_version": 1,
+  "scope_run_id": "8ad879b4-5d26-4e1b-9924-f727e8a72fe9",
+  "self_review_status": "passed",
+  "value": {
+    "rationale": "Mandatory start/end observations plus one optional event form a natural fixed-budget sensor design. The exact damping-time threshold changes the optimal event from endpoint repetition to an interior point and the cost of repeating at long horizons grows exponentially; these are information-design consequences not implied by basic rank observability. The result is deliberately limited to this motivated constrained design.",
+    "status": "PASS"
+  }
+}
