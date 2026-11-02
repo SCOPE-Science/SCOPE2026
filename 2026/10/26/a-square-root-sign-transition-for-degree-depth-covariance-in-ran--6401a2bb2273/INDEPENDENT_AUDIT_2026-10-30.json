@@ -1,0 +1,117 @@
+{
+  "audit_date_utc": "2026-10-30",
+  "audited_at_utc": "2026-10-30T16:49:18Z",
+  "axes": {
+    "correctness": {
+      "rationale": "For independent uniform parents P_t in {1,...,t−1}, the ancestor event that t lies above the last vertex has probability 1/t for t<n, independently of P_t; the mixed indicator covariance depends on 1+H_(j−1)−H_(t−1). Summing t>j and discrete summation by parts gives Cov(X_(n,j),D_n)=1/j−sum_{t=j}^{n−1}t^(−2), including j=n−1. Direct subtraction gives 1/[j²(j+1)]>0, exact endpoint signs and at most one zero. The inverse-square Euler–Maclaurin tail gives j_+(n)/sqrt(n)→1/sqrt(2), profile n C→1−1/(2c²), and lattice correction 2sqrt(2)(beta−1/6). Independent exact enumeration of all parent arrays n=3..8 rechecked all labels; finite data is not an infinite proof.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Lodewijks arXiv:2204.09032 Theorem 2.6 concerns limiting joint degree/depth of given labels, not exact terminal-depth cross-covariances; read its opening and theorem.",
+          "Devroye–Fawzi–Fraiman establish depth distribution/height properties."
+        ],
+        "reasoning": "Neither an asymptotic marginal/partial joint limit nor root-total-path-length covariance determines this n^(-1) sign profile with a second-order lattice term.",
+        "searches": [
+          "On Joint Properties of Vertices with a Given Degree or Label in the Random Recursive Tree arXiv 2204.09032 theorem 2.6",
+          "Depth Properties of Scaled Attachment Random Recursive Trees Devroye Fawzi Fraiman 10.1002/rsa.20391"
+        ]
+      },
+      "checked_sources": [
+        "https://arxiv.org/abs/2204.09032",
+        "https://doi.org/10.1002/rsa.20391",
+        "https://github.com/Resultary/2026/tree/main/2026/10/4/SCOPE-root-attachments-have-an-exact-negative-path-length-profile-in-r--3b3e0426b1ba",
+        "GitHub inspected source RESULT.md, verify_cov_profile.py"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "Full Resultary RESULT.md relates forcing P_j=1 to the total path length T_n and obtains negative stochastic comparisons; the assessed covariance can be positive for late j.",
+          "The sign opposition demonstrates the existing root-total-length statement cannot imply the sign classification by direct variable renaming."
+        ],
+        "reasoning": "Same parent construction is shared, but no established statement read supplies mixed Cov(X_(n,j),D_n) with its unique sign crossing. General method overlap is not claim coverage.",
+        "searches": [
+          "Lodewijks joint properties labelled vertices versus latest vertex depth random recursive tree",
+          "Root attachments have an exact negative path-length profile in random recursive trees RESULT.md"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Resultary published SCOPE root-attachment/path-length result measures the total path-length sum, not D_n; root-degree/leaf-count result also has a different outcome variable.",
+          "Direct ancestor-event calculation isolates a covariance with D_n."
+        ],
+        "reasoning": "The aggregate T_n=sum_v D_v covariance does not determine a single terminal D_n cross covariance, and a same-vertex degree-depth joint law is not the prescribed-j/terminal-n pair.",
+        "searches": [
+          "uniform random recursive tree vertex j outdegree covariance depth newest vertex exact sign sqrt n threshold",
+          "random recursive tree newest vertex depth degree covariance attachment"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "The strongest Resultary hit, 2026/10/4/SCOPE-root-attachments-have-an-exact-negative-path-length-profile-in-r--3b3e0426b1ba, explicitly states Cov(A_j,T_n), a different statistic."
+        ],
+        "reasoning": "No numerical table is the central prior-art comparison: the mathematical question is a uniform formula for unbounded n and j. Related closed forms indexed by different observables cannot be substituted.",
+        "searches": [
+          "Resultary search: uniform random recursive tree vertex j outdegree covariance depth newest vertex exact sign sqrt n threshold",
+          "published SCOPE root attachments exact negative path length covariance"
+        ]
+      },
+      "rationale": "Best-of-knowledge new age-dependent sign transition for the covariance of a specified vertex outdegree with newest vertex depth, not root degree versus aggregate path length. Same mathematical model degree/depth publications concern a different joint variable or scaling and do not imply the finite identity. No absolute priority guarantee.",
+      "residual_risks": [
+        "Full historical recursive-tree mixed-moment literature not exhaustively checked; a bivariate recursion may imply this exact identity.",
+        "Finite parent-array enumeration is corroboration, not proof."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "NOT_COVERING assessed target statement",
+          "evidence": "Joint limits for degree and depth of specified labels do not give exact finite covariance with terminal label n.",
+          "identifier_or_url": "https://arxiv.org/abs/2204.09032",
+          "material_read": "Primary PDF introduction and Theorem 2.6 (PDF pp.4–6); definitions and target random variables",
+          "method": "Read and compared theorem quantifiers",
+          "title": "On Joint Properties of Vertices with a Given Degree or Label in the Random Recursive Tree",
+          "trigger": "Same recursive-tree objects and degree/depth terminology"
+        },
+        {
+          "assessment": "DIFFERENT_TARGET",
+          "evidence": "Its path-length T_n aggregates all vertex depths; this theorem concerns only D_n with varying j and opposite signs.",
+          "identifier_or_url": "https://github.com/Resultary/2026/tree/main/2026/10/4/SCOPE-root-attachments-have-an-exact-negative-path-length-profile-in-r--3b3e0426b1ba",
+          "material_read": "Complete RESULT.md including theorem, proof and limitations via GitHub read",
+          "method": "Full science file inspection",
+          "title": "Root attachments have an exact negative path-length profile in random recursive trees",
+          "trigger": "Nearest published same mathematical model covariance result"
+        },
+        {
+          "assessment": "POSSIBLE_BROADER_RISK",
+          "evidence": "Known depth limits do not alone fix mixed finite covariance; complete-source exclusion is not claimed.",
+          "identifier_or_url": "https://doi.org/10.1002/rsa.20391",
+          "material_read": "Bibliographic record and stated depth scope, not independently read complete paper",
+          "method": "Citation/abstract comparison",
+          "title": "Depth Properties of Scaled Attachment Random Recursive Trees",
+          "trigger": "Standard newest-vertex depth asymptotics"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "rationale": "An exact two-statistic dependency profile on a fundamental random tree reveals a nonobvious monotone sign inversion at label sqrt(n/2) and a sharp lattice correction. This is a natural covariance invariant across all labelled vertices, not an arbitrary sampled constant; it can inform joint-degree/depth asymptotics.",
+      "status": "PASS"
+    }
+  },
+  "checked_sources": [
+    "https://arxiv.org/abs/2204.09032",
+    "https://doi.org/10.1002/rsa.20391",
+    "https://github.com/Resultary/2026/tree/main/2026/10/4/SCOPE-root-attachments-have-an-exact-negative-path-length-profile-in-r--3b3e0426b1ba",
+    "GitHub inspected source RESULT.md, verify_cov_profile.py"
+  ],
+  "disposition": "passed",
+  "limitations": [
+    "Audit restricted to the stated model and quantifiers in frozen RESULT.md; no generalization beyond source hypotheses.",
+    "Independent finite checks supplement reconstructed analytical arguments; finite numerical data is not proof of an infinite claim.",
+    "Scientific best-of-knowledge verdict distinct from publication readiness and absolute historical priority."
+  ],
+  "residual_risks": [
+    "Full historical recursive-tree mixed-moment literature not exhaustively checked; a bivariate recursion may imply this exact identity.",
+    "Finite parent-array enumeration is corroboration, not proof."
+  ],
+  "schema_version": 1
+}

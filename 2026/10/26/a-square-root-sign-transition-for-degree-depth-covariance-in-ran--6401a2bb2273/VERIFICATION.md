@@ -5,8 +5,11 @@
     "status": "not_performed"
   },
   "independent_audit": {
-    "evidence": null,
-    "status": "not_performed"
+    "status": "passed",
+    "evidence": [
+      "INDEPENDENT_AUDIT_2026-10-30.md",
+      "INDEPENDENT_AUDIT_2026-10-30.json"
+    ]
   },
   "lean_verification": {
     "evidence": null,
@@ -16,8 +19,24 @@
 }
 ---
 
-# Verification
+# Independent mathematical audit
 
-The exact rational checker `verify_cov_profile.py` was executed using Python 3 and reported `PASS exact assertions 4791 including independent exhaustive parent-array enumerations through n=9`. It independently enumerates parent arrays through nine vertices, computes mixed moments from first principles, and compares them to the claimed formula. Additional rational checks confirm positive adjacent differences and endpoint signs for a finite parameter range; floating checks of the square-root threshold are illustrative only.
+## correctness
 
-The proof of the all-size statement is the ancestor-event factorization and partial summation in RESULT.md. The asymptotic statements use the stated inverse-square tail expansion. Computation is not a proof beyond enumerated sizes. No external independent audit has been performed.
+PASS
+
+For independent uniform parents P_t in {1,...,t−1}, the ancestor event that t lies above the last vertex has probability 1/t for t<n, independently of P_t; the mixed indicator covariance depends on 1+H_(j−1)−H_(t−1). Summing t>j and discrete summation by parts gives Cov(X_(n,j),D_n)=1/j−sum_{t=j}^{n−1}t^(−2), including j=n−1. Direct subtraction gives 1/[j²(j+1)]>0, exact endpoint signs and at most one zero. The inverse-square Euler–Maclaurin tail gives j_+(n)/sqrt(n)→1/sqrt(2), profile n C→1−1/(2c²), and lattice correction 2sqrt(2)(beta−1/6). Independent exact enumeration of all parent arrays n=3..8 rechecked all labels; finite data is not an infinite proof.
+
+## originality
+
+PASS
+
+Best-of-knowledge new age-dependent sign transition for the covariance of a specified vertex outdegree with newest vertex depth, not root degree versus aggregate path length. Same mathematical model degree/depth publications concern a different joint variable or scaling and do not imply the finite identity. No absolute priority guarantee.
+
+## value
+
+PASS
+
+An exact two-statistic dependency profile on a fundamental random tree reveals a nonobvious monotone sign inversion at label sqrt(n/2) and a sharp lattice correction. This is a natural covariance invariant across all labelled vertices, not an arbitrary sampled constant; it can inform joint-degree/depth asymptotics.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
