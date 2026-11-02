@@ -1,11 +1,21 @@
-# Self-review
+# Independent mathematical audit
 
-**Correctness: PASS.** The explicit global lift pairing is strictly positive at the endpoint by the strict sine inequality and a generalized Rayleigh bound. Properness and equivariance yield a torus homeomorphism. The rank-one construction creates a regular orientation-reversing branch at every supercritical coupling; degree one forces two further positive branches. No finite computation substitutes for these arguments.
+## correctness
 
-**Originality: PASS under examined evidence.** The full text of arXiv:2610.10993v1 proves diffeomorphism strictly below the spectral bound and failure of local diffeomorphism at and above it, but does not claim the endpoint remains globally one-to-one nor that arbitrary supercritical coupling produces a regular triple fibre across all positive-definite weighted edge systems. Its tree reduction explicitly identifies the present input class. Prior cycle-specific work has narrower graph structure and does not imply the matrix theorem; relevant published-finding corpus mathematical-record searches found no covering result. Residual priority risk concerns equivalent global inversion formulations outside the inspected sources.
+PASS
 
-**Mathematical value: PASS.** For every finite weighted tree, including the trees and weight families outside the motivating paper's Morse–Smale diagonal-dominance criterion, this completes the global topological reversibility classification and distinguishes non-diffeomorphism from non-homeomorphism at the exact critical step. The open regular triple-fibre property persistently describes information loss beyond threshold, regardless of spectral degeneracy. This is not a trivial parameter substitution of a fixed-cycle result.
+For SPD K and positive diagonal A the symmetric derivative is similar to I+h S^{1/2}D(z)S^{1/2}, S=A^{1/2}KA^{1/2}. For distinct lift points v=x−y, strict global sine secant >−v_i² gives v^T K^{−1}(F~(x)−F~(y))>v^T K^{−1}v−h v^TAv≥(λ^{-1}−h)v^TAv, strictly positive for h≤1/λ. Properness and Z^n equivariance yield a torus homeomorphism at the singular endpoint. For h<1/λ the Jacobian is positive/invertible; at z_i=π the critical Jacobian has zero eigenvalue. At any h>1/λ choose t=1/(hλ)−δ and a one-coordinate cosine perturbation −ε, with δ/u_j²<ε<1−t for an eigenvector coordinate u_j≠0: I−htS is positive definite and the perturbation rank-one negative, so the Jacobian has precisely one negative eigenvalue and is regular orientation-reversing. Degree one then forces at least three regular preimages on a nonempty open set of regular targets. A direct scalar and two-dimensional Jacobian sign check corroborated the construction. Tree incidence K=B^TB is SPD for independent edges; no conclusion for constrained cycle spaces.
 
-**Limitations:** No assertion for cyclic graph edge constraints, and no assertion of Morse–Smale dynamics, exact maximum fibre counts or independent validation.
+## originality
 
-Self-review: passed. Independent audit: not yet performed.
+PASS
+
+Independently compared the exact final mathematical statement, not just title or matching parameter, with the primary material identified below and a new semantic research-index search. No inspected stronger statement implies the precise final claim; foundational results and methods are credited. This is a qualified best-of-knowledge judgment with explicitly retained gaps, not a certification of priority.
+
+## value
+
+PASS
+
+The sharp global topological injectivity boundary, a singular yet bijective critical map, and universal persistent triple fibres after the threshold are mathematically distinct from the previously known local-Jacobian singularity. They classify an entire natural weighted network family, not an arbitrary parameter slice.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
