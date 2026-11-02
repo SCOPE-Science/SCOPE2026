@@ -1,0 +1,139 @@
+{
+  "correctness": {
+    "rationale": "The exact L-smooth descent inequality is −h Σ g_i² sqrt(w_i)/(epsilon+sqrt(w_i))², strictly negative whenever the gradient is nonzero because w_i≥(1−beta)g_i². Compact strong-convex sublevel sets and bounded exponentially averaged squared gradients yield compact full trajectories; summable objective decrements and strict positivity force x_k→x*, then v_k→0. Full-state Lyapunov stability follows explicit strong-convexity and memory sup bounds. In scalar nonterminating quadratic trajectories q_k=(epsilon−sqrt(v_{k+1}))/(epsilon+sqrt(v_{k+1}))→1; the memory tracking ratio y_k=v_k/(a²|x_k|²) obeys an eventually contractive affine recursion, hence y_k→1. Consecutive reciprocal amplitudes differ by a quantity tending to 2a/epsilon, yielding the exact Cesàro limit k|x_k|→epsilon/(2a) and k²v_k→epsilon²/4. Exact rational finite-hit witness and replayed numerical checks corroborate, but finite checks are not the proof.",
+    "status": "PASS"
+  },
+  "independent": false,
+  "independent_audit_status": "not_performed",
+  "originality": {
+    "broader_coverage": {
+      "evidence": [
+        "Strict subcritical condition 0<h<2epsilon/L in arxiv:2610.30078v1 does not include equality.",
+        "Earlier global stability paper uses a strict stepsize bound.",
+        "Rate papers examined do not assert the exact deterministic uncorrected endpoint statement."
+      ],
+      "reasoning": "A stronger global smooth result would subsume the special quadratic case, but the inspected source theorem hypotheses exclude the degenerate boundary. No positive evidence for such coverage was found in inspected relevant sources; this is not a completeness proof.",
+      "searches": [
+        "arxiv:2610.30078v1 Section 4",
+        "arxiv:2603.15823 Theorem 1",
+        "arxiv:2504.19426 Section 2.5",
+        "arxiv:2608.30382 introductory setting",
+        "\"The Dynamics of RMSProp Beyond the Stability Threshold\" critical equality endpoint polynomial convergence"
+      ]
+    },
+    "checked_sources": [
+      "arxiv:2610.30078v1",
+      "arxiv:2603.15823",
+      "arxiv:2504.19426",
+      "arxiv:2608.30382",
+      "published-finding corpus semantic queries listed in four named checks",
+      "Published period-two classifications in related noncritical regimes"
+    ],
+    "claim_vs_prior_implication": {
+      "evidence": [
+        "Prior strict inequalities cannot be substituted at equality and do not control parabolic time scales.",
+        "Period-two classifications in strict supercritical ranges do not imply all initial conditions converge at the critical parameter.",
+        "The proof derives a new exact limit through v_k/(a^2x_k^2)->1 and a reciprocal increment argument."
+      ],
+      "reasoning": "Direct statement and assumption comparison rules out implication by the specific inspected theorems; a potential more general nonlinear stability theorem was not identified and is retained as residual risk.",
+      "searches": [
+        "arxiv:2610.30078v1 Theorems 4.4,4.8,5.3",
+        "arxiv:2603.15823 Theorem 1",
+        "arxiv:2610.30078v1 Theorem 5.3",
+        "epsilon outside RMSProp map threshold exactly 2 epsilon lambda max stability at equality",
+        "RMSprop global asymptotic critical stepsize algebraic decay 1/k"
+      ]
+    },
+    "equivalent_formulations": {
+      "evidence": [
+        "The critical scalar multiplier at minimizer is -1 for h=2epsilon/a, giving a parabolic/neutral two-step normal form.",
+        "The exact reciprocal increment limit 2a/epsilon establishes |x_k| asymptotic to epsilon/(2ak), rather than conventional strict geometric rate."
+      ],
+      "reasoning": "Searched and compared aliases for parabolic endpoint, -1 neutral flip, algebraic slowdown, and RMSProp memory dynamics. Equivalent local normal-form descriptions for other schemes do not imply the global full-state theorem or its RMSProp-specific constants.",
+      "searches": [
+        "RMSProp at critical learning rate h equals 2 epsilon divided by curvature, global asymptotic stability and polynomial 1/n decay",
+        "one dimensional epsilon outside RMSProp critical threshold memory asymptotics n x_n epsilon over 2 a and n squared second moment epsilon squared over four",
+        "adaptive gradient optimizer at edge stability exact critical convergence rate sublinear memory dynamics",
+        "arxiv:2610.30078v1 Theorems 4.4,4.8,5.3"
+      ]
+    },
+    "exact_database_or_table": {
+      "evidence": [
+        "published-finding corpus highest semantic near matches concern Polar-Express, Padam and other adaptive optimizers.",
+        "Published related period-two classifications do not cover the exact parabolic endpoint k|x_k| and k^2v_k limits."
+      ],
+      "reasoning": "The endpoint limits are infinite-time theorems, not finite integer-table entries. Queries found no identical indexed statement. Index incompleteness remains a risk.",
+      "searches": [
+        "one dimensional epsilon outside RMSProp critical threshold memory asymptotics n x_n epsilon over 2 a and n squared second moment epsilon squared over four",
+        "adaptive gradient optimizer at edge stability exact critical convergence rate sublinear memory dynamics",
+        "\"The Dynamics of RMSProp Beyond the Stability Threshold\" critical equality endpoint polynomial convergence",
+        "published-finding corpus 2026/10/4/SCOPE-a-sharp-flip-frontier-for-the-polar-express-surrogate-on-scalar--5f6e926df82f",
+        "published-finding corpus 2026/10/4/SCOPE-sharp-partial-adaptivity-phase-transition-in-scalar-padam--64bfa7f15a9c"
+      ]
+    },
+    "rationale": "The 21 October 2026 source provides the same map and a strict stability threshold but leaves the equality h=2epsilon/L outside its global-attraction and supercritical statements. The proof establishes both global attraction at that missing boundary and exact algebraic constants; neither follows by continuity from h<2epsilon/L, because the limiting linear factor is -1. The accessible related arXiv theorem statements, published semantic published-finding corpus records and related published mathematical records address strict regimes, other algorithms or period-two existence rather than the endpoint limits. Residual possibility of uninspected historical broader coverage is noted rather than excluded.",
+    "residual_risks": [
+      "Not every historical proof on neutral period-doubling endpoints has been surveyed; such a theorem might subsume a special rate after additional reduction.",
+      "Only relevant portions, not every page, of other optimizer-rate PDFs were inspected; a theorem with different terminology might exist.",
+      "Independent mathematical and priority audits are not performed."
+    ],
+    "source_inspections": [
+      {
+        "assessment": "As inspected, global attraction is asserted for strict h<2epsilon/L, instability for h>2epsilon/L_A on quadratics, and nonzero two-cycles above the strict threshold. The equality case with global attraction and exact k^{-1} rate is not covered by these assertions.",
+        "evidence": [
+          "Theorem 4.4 and Corollary 4.5 use strict upper stepsize inequality.",
+          "Theorem 4.8 excludes exact equality.",
+          "Theorem 5.3 addresses nontrivial period-two orbits above the frontier."
+        ],
+        "identifier_or_url": "arxiv:2610.30078v1; https://arxiv.org/pdf/2610.30078",
+        "material_read": "ArXiv PDF abstract, main theorem statements and proofs around Sections 4 and 5 (PDF pages 0,4,5,6,10,13,14,35 inspected), including Theorems 4.4 and 4.8, Corollary 4.5, and Theorem 5.3.",
+        "method": "Read PDF page renderings and extracted article statements; compared inequalities and parameter boundaries.",
+        "title": "The Dynamics of RMSProp Beyond the Stability Threshold",
+        "trigger": "Exactly the same epsilon-outside uncorrected RMSProp recursion and its stepsize threshold."
+      },
+      {
+        "assessment": "Theorem 1 is stated for a strictly subcritical learning rate and therefore cannot directly imply stability at exact equality.",
+        "evidence": [
+          "Theorem 1 requires a strict bound on its initial/constant learning rate.",
+          "Its memory parameter uses fresh-gradient weighting, which differs in naming convention but can be translated to retention beta."
+        ],
+        "identifier_or_url": "arxiv:2603.15823; https://arxiv.org/pdf/2603.15823",
+        "material_read": "Abstract and introductory/theorem pages 1–3 of open arXiv PDF, especially Theorem 1.",
+        "method": "Read source PDF relevant introductory theorem and hypothesis.",
+        "title": "Global Stability and Step Size Robustness of RMSProp",
+        "trigger": "Earlier RMSProp global Lyapunov stability statement could subsume endpoint."
+      },
+      {
+        "assessment": "The inspected geometric-rate theory assumes strict stable spectral factors; it does not yield the parabolic endpoint convergence law for this RMSProp scheme.",
+        "evidence": [
+          "Proposition 2.7 and surrounding analysis concern strict linear stability rather than a multiplier of -1."
+        ],
+        "identifier_or_url": "arxiv:2504.19426; https://arxiv.org/pdf/2504.19426",
+        "material_read": "PDF introduction and the material surrounding Section 2.5 and Proposition 2.7.",
+        "method": "Read relevant theorem hypotheses and compare stability spectrum.",
+        "title": "Sharp higher order convergence rates for the Adam optimizer",
+        "trigger": "Potential higher-order asymptotic convergence theory for adaptive methods."
+      },
+      {
+        "assessment": "This source studies stochastic/bias-corrected and controlled-parameter iterations, not the exact fixed-step deterministic uncorrected endpoint map in the new theorem.",
+        "evidence": [
+          "The setting includes controlled hyperparameters and stochastic formulation, different from one fixed h=2epsilon/L."
+        ],
+        "identifier_or_url": "arxiv:2608.30382; https://arxiv.org/pdf/2608.30382",
+        "material_read": "PDF pages 1–4 (introduction and problem/method setup).",
+        "method": "Compared algorithmic model, schedules and rate statements.",
+        "title": "Convergence rates for the RMSprop optimizer with full control of the hyperparameters",
+        "trigger": "Possible stronger RMSProp rate theorem."
+      }
+    ],
+    "status": "PASS"
+  },
+  "review_type": "self_review",
+  "schema_version": 1,
+  "scope_run_id": "875cc4e9-e43f-4dba-8916-e9347945bef1",
+  "self_review_status": "passed",
+  "value": {
+    "rationale": "The source establishes subcritical attraction and supercritical cycles but its threshold does not determine the equality case. Whether an optimizer converges or bifurcates exactly at the stability frontier is a natural structural question; the global answer also refutes treating a -1 linear multiplier as loss of convergence. The exact universal k^-1 position law, k^-2 accumulator law and real finite-hit branch quantify a qualitative change from strict-regime geometric convergence and show the memory coefficient affects transients rather than leading order. The claim is not routine a priori because global descent loses its quadratic margin at equality and the memory filter is an additional state.",
+    "status": "PASS"
+  }
+}
