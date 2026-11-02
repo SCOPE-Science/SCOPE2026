@@ -5,8 +5,11 @@
     "status": "not_performed"
   },
   "independent_audit": {
-    "evidence": null,
-    "status": "not_performed"
+    "status": "passed",
+    "evidence": [
+      "INDEPENDENT_AUDIT_2026-10-29.md",
+      "INDEPENDENT_AUDIT_2026-10-29.json"
+    ]
   },
   "lean_verification": {
     "evidence": null,
@@ -16,14 +19,24 @@
 }
 ---
 
-# Reproducibility
+# Independent mathematical audit
 
-Use `python3 verify.py` (standard Python 3, no external dependencies). Its recorded stdout is in `verify_output.txt`.
+## correctness
 
-The verifier independently constructs the regular bipartite disjointness matching by a deterministic augmenting-path algorithm for all \(4\le n\le9\), and implements the stated \(\binom n2\)-colour assignment for all \(2\le m\le n\). For each of the \(33\) parameter pairs it checks that the palette has exactly the claimed size and that no equally coloured edges are incident or opposite in a diamond (using the four cross-edge adjacency count). It also directly enumerates all four-vertex subsets of the smaller tested rook graphs, locating \(539\) configurations spanning a diamond and confirming rainbow colour sets. It verifies explicit proper colourings of the three smaller graphs and checks the four-colour obstruction for the nine-vertex case.
+PASS
 
-Recorded output:
+A diamond is two triangles sharing an edge. In a rook graph, each triangle lies in a unique row or column clique; thus every diamond lies in one line clique, where D-validity forces pairwise distinct colors for all edges of K_n when n>=4. This establishes binom(n,2) lower bound. For n>=4 the bipartite disjointness graph on unordered 2-subsets of Z/nZ is regular of degree binom(n−2,2)>0; Hall gives a bijection ψ with F∩ψ(F)=∅. Row edge colors {a+i,b+i}; column edge colors a+ψ^−1({i,j}) are injective within lines and cross-incident colors cannot coincide since the former contains a+i and the latter does not. Restriction from R_n,n covers all m≤n. For n=2,3, graph has no diamonds; C4, triangular prism explicit proper colorings, and R_3,3 lower bound 18 edges > 4×floor(9/2), plus checked 5-color certificate. Independent checker verified the R_3,3 certificate; original verifier implements larger finite cases; the infinite proof is Hall plus line-clique geometry.
 
-`VERIFY_OK small_cases=3 rook_instances=33 complete_quadruple_diamonds=539 max_column_order=9`
+## originality
 
-The computation does not enumerate all possible D-colourings or prove that an infinite family is valid. The unrestricted lower bound and upper-bound construction are proved in `RESULT.md`; Hall's theorem guarantees the disjoint-pair matching for every \(n\ge4\). No independent audit has been performed.
+PASS
+
+The indexed D-colouring originals establish general/planar bounds and the clique lower bound, not a sharp constructive rook-graph family theorem in inspected statements. The published complete-multipartite exact theorem is structurally inapplicable because rook graphs with n≥3 have an induced P4. Full primary D-colouring articles not fully accessed, so priority remains best-of-knowledge qualified.
+
+## value
+
+PASS
+
+The exact two-dimensional rook-graph D-index is a natural new graph-coloring invariant and reaches the sharp K_n clique lower bound despite horizontal-vertical incidences. Hall’s disjoint-pair construction gives a uniform combinatorial structural mechanism on all m,n, not arbitrary finite data.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

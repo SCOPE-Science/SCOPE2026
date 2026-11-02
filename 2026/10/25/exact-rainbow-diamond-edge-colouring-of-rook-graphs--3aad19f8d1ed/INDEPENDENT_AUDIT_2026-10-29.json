@@ -1,0 +1,110 @@
+{
+  "audit_date_utc": "2026-10-29",
+  "audited_at_utc": "2026-10-29T23:41:50Z",
+  "axes": {
+    "correctness": {
+      "rationale": "A diamond is two triangles sharing an edge. In a rook graph, each triangle lies in a unique row or column clique; thus every diamond lies in one line clique, where D-validity forces pairwise distinct colors for all edges of K_n when n>=4. This establishes binom(n,2) lower bound. For n>=4 the bipartite disjointness graph on unordered 2-subsets of Z/nZ is regular of degree binom(n−2,2)>0; Hall gives a bijection ψ with F∩ψ(F)=∅. Row edge colors {a+i,b+i}; column edge colors a+ψ^−1({i,j}) are injective within lines and cross-incident colors cannot coincide since the former contains a+i and the latter does not. Restriction from R_n,n covers all m≤n. For n=2,3, graph has no diamonds; C4, triangular prism explicit proper colorings, and R_3,3 lower bound 18 edges > 4×floor(9/2), plus checked 5-color certificate. Independent checker verified the R_3,3 certificate; original verifier implements larger finite cases; the infinite proof is Hall plus line-clique geometry.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Complete multipartite published result has χ′_D=Σ_{i<j}max(n_i,n_j) but rook graphs n≥3 contain induced P4, so this class does not contain them.",
+          "General or planar bounds cannot force equality to binom(n,2) across unbounded rectangular rook graphs."
+        ],
+        "reasoning": "Examined statement implication, not similar titles. The row-clique lower bound is already known in abstract form, but the matching upper construction is the crucial additional assertion.",
+        "searches": [
+          "rainbow diamond edge colouring Cartesian product complete graphs rook graph exact D chromatic index",
+          "arxiv:2607.14837",
+          "Resultary complete multipartite D-index"
+        ]
+      },
+      "checked_sources": [
+        "arxiv:2606.06831",
+        "arxiv:2607.14837",
+        "Resultary 2026/10/4 exact complete-multipartite D-index",
+        "frozen RESULT.md / verify.py and independently checked small case"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "Lower bound χ′_D≥binom(ω,2) follows from a K_n clique and is previously known.",
+          "Existing graph-family upper bounds do not produce a disjoint-pair perfect matching ψ ensuring intersecting row-column colors do not clash."
+        ],
+        "reasoning": "The new proof provides an infinite sharp attainment and an explicit design absent from the accessible existing theorem claims; the older clique bound alone cannot imply attainability.",
+        "searches": [
+          "rainbow diamond edge colouring Cartesian product complete graphs rook graph exact D chromatic index",
+          "arxiv:2606.06831",
+          "arxiv:2607.14837"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "R_{m,n} has aliases line graph of K_{m,n} and 2D Hamming graph; these were included in searches.",
+          "The same D-valid condition is proper edge coloring with rainbow copies of K4−e."
+        ],
+        "reasoning": "Matching graph aliases and diamond localization are needed for genuine equivalence; no exact matching theorem found in accessible statements.",
+        "searches": [
+          "rainbow diamond edge colouring Cartesian product complete graphs rook graph exact D chromatic index",
+          "arxiv:2606.06831",
+          "Rook graphs as L(K_m,n) / K_m □ K_n"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "Resultary closest same-invariant hit is complete multipartite graph formula, not the exact rook two-parameter table."
+        ],
+        "reasoning": "No indexed complete rook D-index table identified; this is an empirical search limitation, not proof of absolute priority.",
+        "searches": [
+          "rainbow diamond edge colouring Cartesian product complete graphs rook graph exact D chromatic index",
+          "Resultary: rainbow diamond edge colouring Cartesian product complete graphs rook graph exact D chromatic index"
+        ]
+      },
+      "rationale": "The indexed D-colouring originals establish general/planar bounds and the clique lower bound, not a sharp constructive rook-graph family theorem in inspected statements. The published complete-multipartite exact theorem is structurally inapplicable because rook graphs with n≥3 have an induced P4. Full primary D-colouring articles not fully accessed, so priority remains best-of-knowledge qualified.",
+      "residual_risks": [
+        "The original 2026 D-colouring papers were accessible only as abstract/partial primary statements; later sections might contain special cases.",
+        "A theorem phrased as edge-coloring a line graph of K_{m,n} could already prove the result under another name."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "The inspected general upper-bound statement does not supply the exact rook formula or matching construction; no full-text noncoverage assertion is made.",
+          "evidence": "Runze Wang (2026), arxiv:2606.06831; D-colouring definition and generic degree bound.",
+          "identifier_or_url": "https://arxiv.org/abs/2606.06831",
+          "material_read": "Primary arXiv abstract, title, main stated general bound and metadata; full PDF was not available in this review",
+          "method": "Compared its general degree-dependent bound to exact rook-graph claimed equality",
+          "title": "Proper edge coloring with rainbow diamonds",
+          "trigger": "Introduces exactly the D-valid colouring and degree bounds"
+        },
+        {
+          "assessment": "Known clique bound is credited; the planar result cannot directly cover the all-order rook family.",
+          "evidence": "Hu–Kong–Wang (2026), arxiv:2607.14837.",
+          "identifier_or_url": "https://arxiv.org/abs/2607.14837",
+          "material_read": "Primary arXiv abstract and statements of planar scope; complete paper not accessed",
+          "method": "Compare claimed clique lower bound and nonplanarity of large rook graphs",
+          "title": "D-coloring of planar graphs",
+          "trigger": "Later primary investigation including clique lower bounds"
+        },
+        {
+          "assessment": "Complete multipartite exact D-index result is on non-containing class: R_{m,n}, n≥3, contains induced P4. Unread full source risk retained.",
+          "evidence": "Resultary published finding summary: χ′_D(K_{n1,…,nr})=Σ max(n_i,n_j).",
+          "identifier_or_url": "https://github.com/Resultary/2026/tree/main/2026/10/4/SCOPE-exact-d-chromatic-index-of-complete-multipartite-graphs--62c5f10eb8be",
+          "material_read": "Title and indexed scientific summary only, not full repository text",
+          "method": "Compare graph-class containment via induced P4",
+          "title": "Exact D-chromatic index of complete multipartite graphs",
+          "trigger": "Closest published Resultary same invariant exact family"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "rationale": "The exact two-dimensional rook-graph D-index is a natural new graph-coloring invariant and reaches the sharp K_n clique lower bound despite horizontal-vertical incidences. Hall’s disjoint-pair construction gives a uniform combinatorial structural mechanism on all m,n, not arbitrary finite data.",
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "final_claim": "For rook graphs K_m□K_n, 2≤m≤n, the rainbow-diamond proper edge-chromatic index equals 2 for (2,2), 3 for (2,3), 5 for (3,3), and binom(n,2) for every n≥4.",
+  "limitations": [
+    "No higher-dimensional Hamming graphs or optimal-coloring census.",
+    "The small n=2,3 cases use classical proper edge coloring."
+  ],
+  "schema_version": 1
+}

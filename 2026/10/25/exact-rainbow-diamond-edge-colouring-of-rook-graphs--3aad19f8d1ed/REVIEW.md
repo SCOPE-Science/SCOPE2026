@@ -1,11 +1,21 @@
-# Self-review
+# Independent mathematical audit
 
-**Correctness — PASS.** The proof establishes an exact characterization of diamond subgraphs in rook graphs, proving the \(\binom n2\) clique lower bound for \(n\ge4\). A regular bipartite disjointness graph supplies the bijection needed for the explicit cyclic-coordinate colouring. The row, column, and crossing-edge cases have separate checks, and restricting the square construction covers all rectangular parameters. The three small cases are proved with a four-cycle, an explicit prism colouring, and a matching-size obstruction plus explicit five-colour certificate. The standalone verifier checks every constructed edge against both properness and the diamond-conflict criterion; its finite coverage does not replace the proof.
+## correctness
 
-**Originality — PASS, with residual risk.** The closest directly relevant primary sources are Wang's definition and general D-chromatic bounds (arXiv:2606.06831) and Hu–Kong–Wang's planar bounds and clique lower bound (arXiv:2607.14837). Neither inspected portion determines the exact invariant for two-dimensional Hamming/rook graphs, and neither supplies the matching-based optimal construction. A published result for complete multipartite graphs is not a stronger case of this claim: rook graphs with at least three columns contain an induced four-vertex path and are not complete multipartite. Searching alternate names, Cartesian products, line graphs of bicliques, and rainbow-diamond colourings did not identify full coverage. Unindexed and inaccessible mathematical literature remains a risk, so this is not a claim of certified publication priority.
+PASS
 
-**Value — PASS.** The result solves the natural exact-index problem over the full two-parameter rook-graph family, reaches the sharp lower bound from a complete row clique despite intersecting column cliques, and produces a polynomial-time finite construction using a perfect matching of a disjointness graph. It connects a recently introduced edge-colouring invariant to a classical matching principle. The exceptional small parameters mark a genuine chromatic-index transition rather than an arbitrary restriction.
+A diamond is two triangles sharing an edge. In a rook graph, each triangle lies in a unique row or column clique; thus every diamond lies in one line clique, where D-validity forces pairwise distinct colors for all edges of K_n when n>=4. This establishes binom(n,2) lower bound. For n>=4 the bipartite disjointness graph on unordered 2-subsets of Z/nZ is regular of degree binom(n−2,2)>0; Hall gives a bijection ψ with F∩ψ(F)=∅. Row edge colors {a+i,b+i}; column edge colors a+ψ^−1({i,j}) are injective within lines and cross-incident colors cannot coincide since the former contains a+i and the latter does not. Restriction from R_n,n covers all m≤n. For n=2,3, graph has no diamonds; C4, triangular prism explicit proper colorings, and R_3,3 lower bound 18 edges > 4×floor(9/2), plus checked 5-color certificate. Independent checker verified the R_3,3 certificate; original verifier implements larger finite cases; the infinite proof is Hall plus line-clique geometry.
 
-**Scope and closest literature.** This determines only the index, not the count of optimal colourings or higher-dimensional products. The two cited primary papers study general and planar D-colouring bounds, not this complete nonplanar family. The finite verifier ran for \(4\le n\le9\), plus all cases with \(n\le3\).
+## originality
 
-Self-review: passed. Independent audit: not yet performed.
+PASS
+
+The indexed D-colouring originals establish general/planar bounds and the clique lower bound, not a sharp constructive rook-graph family theorem in inspected statements. The published complete-multipartite exact theorem is structurally inapplicable because rook graphs with n≥3 have an induced P4. Full primary D-colouring articles not fully accessed, so priority remains best-of-knowledge qualified.
+
+## value
+
+PASS
+
+The exact two-dimensional rook-graph D-index is a natural new graph-coloring invariant and reaches the sharp K_n clique lower bound despite horizontal-vertical incidences. Hall’s disjoint-pair construction gives a uniform combinatorial structural mechanism on all m,n, not arbitrary finite data.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
