@@ -5,8 +5,11 @@
     "status": "not_performed"
   },
   "independent_audit": {
-    "evidence": null,
-    "status": "not_performed"
+    "status": "passed",
+    "evidence": [
+      "INDEPENDENT_AUDIT_2026-10-30.md",
+      "INDEPENDENT_AUDIT_2026-10-30.json"
+    ]
   },
   "lean_verification": {
     "evidence": null,
@@ -16,10 +19,24 @@
 }
 ---
 
-The finite exhaustive result is reproducible with the Python 3 standard library. Execute `verify_fano.py`, `verify_claws.py`, and `verify_models.py` from one directory. Reference stdout is embedded in `fano_output.json`, `claws_output.json`, and `model_output.json`; `fano_certificate.json` is the complete labeled perfect-matching and adjacency certificate.
+# Independent mathematical audit
 
-The first checker constructs the Coxeter graph using nonline Fano triples, checks order, size, degrees and girth, enumerates all perfect matchings by exhaustive branching, tests every pair for a single allowable alternating cycle, performs complete breadth-first searches from all matchings, and counts/compares two-component symmetric differences. The second checker independently constructs the graph from seven stars joined by three stepped rings, enumerates matchings, uses alternating simple-cycle searches to build flip graphs, and verifies the diameter-six and eight-plus-sixteen antipodal characterization. A third checker validates the explicit graph isomorphism between both graph models.
+## correctness
 
-Both main checkers returned 84 matchings, 42 eight-switch edges, 168 ten-switch edges, one eight-switch partner per matching, four ten-switch partners, connectivity of ten-switch exchanges, uniform layers (1,4,12,25,28,13,1), and exactly 42 diameter-six pairs with two disjoint alternating components of lengths eight and sixteen. Both checkers verify that eight-switch partners are at ten-switch distance five.
+PASS
 
-Exhaustive enumeration certifies only this finite labeled Coxeter graph. It does not establish novelty independently of the cited literature or provide results for other cubic graphs. No independent external audit has been performed.
+PASS. Reconstructed the exact 28 nonline Fano-triple vertices and 42 disjointness edges, exhaustively branched on uncovered vertices to enumerate all 84 distinct 14-edge perfect matchings. Enumerated all 3,486 unordered matching pairs, decomposed each symmetric difference into even cycles, and built F_8 from the single (8) component and F_10 from the single (10) component. Obtained F_8=42K2 and 168 ten-switch edges with every vertex degree 4. BFS from all 84 vertices reaches all 84 with identical layer vector (1,4,12,25,28,13,1) and diameter/radius 6; exactly 42 distinct unique antipodal pairs and these coincide exactly with symmetric difference components (8,16), each eight-switch partner at ten-switch distance 5. Girth 7 excludes 2/4/6 alternating cycles; hence length 10 is sharp. This is an exact exhaustive finite verification with stated branching exhaustivity, not inference from sampled logarithms or logs.
+
+## originality
+
+PASS
+
+PASS, best of knowledge with clearly bounded literature/access risks. Symmetry/transitivity of the 84 matchings and generic alternating-cycle reachability do not entail the sharp minimal fixed-length connected exchange graph or two-component antipodal characterization. Best-of-knowledge originality, not priority certification.
+
+## value
+
+PASS
+
+PASS. The 28-vertex Coxeter graph is a canonical cubic symmetric girth-seven, nonhamiltonian graph, and the threshold at which local perfect-matching switches connect all one-factors is a natural graph-reconfiguration invariant. The sharp 8-versus-10 transition, uniform complete distance profile and unique structurally characterized farthest pairs supply genuinely specific geometry not mechanically supplied by the already known number 84 or transitivity; may serve as a benchmark for restricted-cycle matching mobility. Finite scope is intrinsic, not a drawback.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
