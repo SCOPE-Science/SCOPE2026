@@ -1,0 +1,107 @@
+{
+  "audit_date_utc": "2026-10-31",
+  "audited_at_utc": "2026-10-31T23:40:03Z",
+  "axes": {
+    "correctness": {
+      "independent_check": "independent_checks.py hypergraph_test: new full 640 dual graph enumeration, direct independence counting and exact inclusion-exclusion; 3 independent alternating-cycle examples",
+      "rationale": "For simple 3-uniform 2-regular H on n>=9, m=2n/3 hyperedges and each 5-set contains at most three hyperedges by 3h(S)<=10. Inclusion-exclusion is exact: i5=binom(n,5)-m binom(n-3,2)+n+(n-6)p2-t, since p1+2p2=n and t counts edge-triples of union size5. Overlap-size-two pairs form a matching on m hyperedges, so p2<=m/2=n/3; t>=0 proves the sharp claimed upper bound. Equality requires p2=n/3 and t=0; the dual cubic multigraph then has perfect matching of doubled edges and the remaining single perfect matching, forcing even alternating cycles length>=4 (length2 would require forbidden triple multiplicity). The alternating family forces t=0 and attains the bound for all n divisible by3 >=9. Independently all 640 labeled admissible cubic dual graphs on six vertices verified the identity and maximum54 (120 extremizers), plus examples n=9,12,15 with counts54,540,2403.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Sarantis--Tetali--Zheng Theorem1.8 settles only the total number of independent sets for odd r,d=2; Theorem1.7 remains coefficient-wise conjectural; Prop3.3 verifies k4 for no-cross-edge cases. Prior Resultary 2026-09-30 establishes unrestricted k4 for r=3,d=2."
+        ],
+        "reasoning": "A total partition-function bound at lambda=1, or even all positive lambda, does not imply coefficient-wise ordering term by term; k4 inequality and its extremizer structure do not fix k5 without extra triple-overlap analysis.",
+        "searches": [
+          "Sarantis--Tetali--Zheng, arXiv:2609.17468v1, Conjecture 1.7, Theorem 1.8 and Proposition 3.3",
+          "Resultary 2026-09-30 Fourth-coefficient extremizers for 2-regular triple systems, RESULT.md",
+          "Balogh--Bollobas--Narayanan, arXiv:2002.09995"
+        ]
+      },
+      "checked_sources": [
+        "Resultary semantic: 2 regular 3 uniform hypergraph independent five sets coefficient extremizers alternating dual cubic graph",
+        "Sarantis--Tetali--Zheng, arXiv:2609.17468v1, Conjecture 1.7, Theorem 1.8 and Proposition 3.3",
+        "Resultary 2026-09-30 Fourth-coefficient extremizers for 2-regular triple systems, RESULT.md",
+        "Balogh--Bollobas--Narayanan, arXiv:2002.09995"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "Prior k4 exact identity is i4=binom(n,4)-m(n-3)+p2, whereas the new k5 formula is i5=binom(n,5)-m binom(n-3,2)+n+(n-6)p2-t with t>=0."
+        ],
+        "reasoning": "The old bound p2<=n/3 is reused, but the new fifth coefficient also involves t, which is not determined by i4. The extra t>=0 and equality t=0 analysis establishes a separately sharp natural coefficient result. This is an incremental extension, not wholly new extremal structures.",
+        "searches": [
+          "Sarantis--Tetali--Zheng, arXiv:2609.17468v1, Conjecture 1.7, Theorem 1.8 and Proposition 3.3",
+          "Resultary 2026-09-30 Fourth-coefficient extremizers for 2-regular triple systems, RESULT.md"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "The 2-regular 3-uniform dual is a loopless cubic multigraph; independent five-subsets are weak independent sets and complement edge-cover configurations. The earlier k4 result uses precisely the same alternating doubled-edge extremizers."
+        ],
+        "reasoning": "Exact extremizer *structures* are already known for k4, and no independent novelty is claimed for that classification alone. The fifth independent-set coefficient and its correction term involving three edges are a distinct enumerative invariant.",
+        "searches": [
+          "Resultary semantic: 2 regular 3 uniform hypergraph independent five sets coefficient extremizers alternating dual cubic graph",
+          "Sarantis--Tetali--Zheng, arXiv:2609.17468v1, Conjecture 1.7, Theorem 1.8 and Proposition 3.3"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "The closest Resultary hit is fourth-coefficient extremizers, with formula binom(n,4)-n(2n-7)/3 and same alternating cycles; no k5 table was returned."
+        ],
+        "reasoning": "The new k5 closed formula is not a recomputation of that k4 coefficient; the unknown all-order fifth coefficient is the target, with finite n9 counts only corroborative.",
+        "searches": [
+          "Resultary semantic: 2 regular 3 uniform hypergraph independent five sets coefficient extremizers alternating dual cubic graph",
+          "Search: fifth coefficient independent sets 2-regular triple systems",
+          "Resultary 2026-09-30 Fourth-coefficient extremizers for 2-regular triple systems, RESULT.md"
+        ]
+      },
+      "rationale": "The published 2026 Sarantis--Tetali--Zheng work formulates the coefficient-wise problem and resolves total weak-independent-set inequality at degree2, but their Proposition3.3 is about k=4 under a no-cross-edge restriction. The 2026-09-30 published Resultary theorem gives unrestricted k=4 extremizers, including the SAME alternating-cycle family; that prior equality classification is expressly acknowledged. The newly assessed object is the fifth coefficient and its exact all-order upper bound, which additionally needs the five-set triple-overlap correction t. Best-of-knowledge searches found no existing k=5 formula.",
+      "residual_risks": [
+        "The alternating-cycle equality structures and matching bound were already established for the fourth coefficient; novelty/value are only the fifth coefficient and extra t correction.",
+        "A stronger unindexed coefficient-wise proof or an implicit fifth-coefficient enumeration may exist; no whole-document exclusion asserted for original 2020 paper.",
+        "The result is a narrow, natural fixed coefficient, not the full independence polynomial or a general r,d coefficient theorem."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "NOT_COVERING exact k5 coefficient, significant prior k4 and total-count overlap",
+          "evidence": "Proposition3.3 is explicitly k=4 and cross-edge-free; Theorem1.8 concerns total i_r(G), not individual i3^(5).",
+          "identifier_or_url": "arXiv:2609.17468v1, 2026-09-15",
+          "material_read": "Full accessible arXiv HTML: Introduction Conjecture1.7, Theorem1.8, §3.1 Proposition3.3 and its proof, §4 dual edge-cover method; references and appendix organization",
+          "method": "arXiv primary HTML",
+          "title": "On Counting Independent Sets in Regular Hypergraphs",
+          "trigger": "same coefficient-wise conjecture and dual degree-two problem"
+        },
+        {
+          "assessment": "PRIOR exact alternating-cycle family for k4; NOT_COVERING k5",
+          "evidence": "It states i3^(4)<=binom(n,4)-n(2n-7)/3 and derives same doubled-edge support, but expressly limits to independent 4-sets.",
+          "identifier_or_url": "https://github.com/Resultary/2026/blob/main/2026/9/30/SCOPE-fourth-coefficient-extremizers-for-2-regular-triple-systems--35d21af925ab/RESULT.md",
+          "material_read": "Complete primary RESULT.md: theorem, exact k4 identity, dual matching proof, classification and limitations",
+          "method": "public source GitHub read-only primary text",
+          "title": "Fourth-coefficient extremizers for 2-regular triple systems",
+          "trigger": "previous published result about same hypergraph dual/extremizers"
+        },
+        {
+          "assessment": "PRIOR motivation and benchmark; FULL_TEXT_NOT_ASSESSED",
+          "evidence": "Total weak-independent-set extremum conjecture, not inspected for an exact k5 statement.",
+          "identifier_or_url": "arXiv:2002.09995v1",
+          "material_read": "Indexed primary abstract and publication theorem summary; full text not inspected",
+          "method": "arXiv and publisher bibliographic excerpts",
+          "title": "Counting independent sets in regular hypergraphs",
+          "trigger": "origin of candidate extremizer and total-count conjecture"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "rationale": "The fifth weak-independent-set coefficient is the next natural unsolved slice of a published coefficient-wise extremal conjecture for 3-uniform 2-regular systems. Exact inclusion-exclusion through three edges determines a new all-order sharp numerical coefficient and proves equality for the complete natural family, yielding reusable exact enumerative data; prior k4 matching/equality structure is acknowledged and not claimed as new.",
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "limitations": [
+    "Only weak-independent 5-sets, simple 3-uniform 2-regular H on n>=9; the total polynomial and other coefficients remain open.",
+    "Same dual alternating-cycle extremizers already known for k4; this adds fifth coefficient arithmetic, not new optimizer shapes."
+  ],
+  "schema_version": 1
+}
