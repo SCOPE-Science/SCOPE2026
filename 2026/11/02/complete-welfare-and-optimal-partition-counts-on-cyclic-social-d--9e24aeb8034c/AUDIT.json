@@ -1,0 +1,119 @@
+{
+  "correctness": {
+    "rationale": "For all labeled simple cycles n>=3, the proof verifies the exact normalized utility, eliminates disconnected and singleton coalitions by strict welfare-improving moves, proves every path block of size>=5 can be improved by splitting off three vertices (gap at least 1/10 at size five), optimizes the 2/3/4 block counts by the congruence t=2a+c, and compares explicit cycle grand welfare against proper partitions using a positive monotone gap after n=6. Cyclic block arrangements are counted without rotational quotient. Exact rational DP, cyclic-cut enumeration and all unrestricted partitions at small n passed; no finite test substitutes for the all-n proof.",
+    "status": "PASS"
+  },
+  "independent": false,
+  "independent_audit_status": "not_performed",
+  "originality": {
+    "broader_coverage": {
+      "evidence": [
+        "Okubo–Hanaka–Ono arXiv:1809.03392, Section 3, Theorem 3.1 and Appendix Section 7: all normalized path optima and all tree cases are previously covered.",
+        "Brânzei–Larson IJCAI 2011, Section 3, Property 5 and complete bipartite example: C3 and C4 grand optimality are already known.",
+        "Ganian et al arXiv:2307.05061, Theorem 7/Corollaries 9–10 operate with fixed scoring vectors and omit canonical coalition-size normalization."
+      ],
+      "reasoning": "The prior tree theorem dominates the path auxiliary classification, so no path result is presented as new. A cycle is not a tree and its connected grand-coalition distance profile is not a path; cutting a boundary handles only a proper partition and requires a separate grand comparison and equality analysis. Complete graph/bipartite results include C3/C4, credited. Score-based treewidth algorithms do not cover this different objective by implication.",
+      "searches": [
+        "Web: site:arxiv.org/abs/1809.03392 Okubo Hanaka Ono Optimal Partition Tree Social Distance full pdf",
+        "Web: Okubo Hanaka Ono 2018 social distance games cycles paths exact optimal welfare cycle",
+        "Web: site:arxiv.org \"Social Distance Games\" cycle welfare optimization"
+      ]
+    },
+    "checked_sources": [
+      "Brânzei and Larson, Social Distance Games, IJCAI 2011, https://ijcai.org/proceedings/2011/27",
+      "Okubo, Hanaka and Ono, Optimal Partition of a Tree with Social Distance, arXiv:1809.03392 (2018-09-10)",
+      "Ganian et al., Maximizing Social Welfare in Score-Based Social Distance Games, arXiv:2307.05061 (2023-07-11)",
+      "Published mathematical-record searches for canonical cycle MaxSWP, rings, grand-versus-fragmented threshold and path/tree reductions"
+    ],
+    "claim_vs_prior_implication": {
+      "evidence": [
+        "Okubo–Hanaka–Ono 2018 §3, Theorem 3.1 already contains all path block patterns (including the two P4 alternative).",
+        "Brânzei–Larson 2011 §3 gives two extreme graph families and a 2-approximation, but not the C_n general optimum.",
+        "Ganian et al. 2023 §1 and §4 give results for a different non-normalized utility, with a citation of the normalized-tree theorem."
+      ],
+      "reasoning": "Known path classification is necessary background, not the full cycle conclusion. The only connected induced coalition in C_n that is not a path is the grand coalition, whose exact harmonic welfare is separately evaluated. At n=6 it ties the best proper partition; at larger n it loses, allowing a complete exact cycle count. This implication and optimizer enumeration are not already stated or forced by any one inspected prior theorem. The universal claims require the new cycle argument.",
+      "searches": [
+        "Web: site:arxiv.org/abs/2307.05061 \"Maximizing Social Welfare\" score-based social distance",
+        "Web: social distance games maximum welfare partition on cycle graphs canonical utility reciprocal distance",
+        "Published mathematical-record search: social distance games original normalized Branzei Larson canonical utility welfare maximizing partition on path graphs harmonic numbers blocks size 2 3 4"
+      ]
+    },
+    "equivalent_formulations": {
+      "evidence": [
+        "Brânzei–Larson 2011, IJCAI, Section 2 specifies coalition-induced shortest paths and normalization by coalition order: https://ijcai.org/proceedings/2011/27",
+        "Ganian et al. 2023, arXiv:2307.05061, Section 1 distinguishes score-based unnormalized utility from canonical normalized utility."
+      ],
+      "reasoning": "Equivalent descriptions as welfare-maximizing coalition structures, normalized induced-distance hedonic games, ring networks and MaxSWP cycles were searched. General static-weight fractional hedonic games are not plainly equivalent because distances are recomputed in the coalition-induced graph. The inspected non-normalized score-based objectives cannot be substituted for the normalized one.",
+      "searches": [
+        "Published mathematical-record search: social distance games canonical normalized inverse-distance cycle graph exact maximum welfare partition C_n 2 3 4 blocks counting optimal partitions grand coalition",
+        "Web: optimal social welfare partition cycle graph social distance games canonical normalized utility",
+        "Web: canonical social distance game optimum cycle graph welfare maximizing partition ring"
+      ]
+    },
+    "exact_database_or_table": {
+      "evidence": [
+        "Targeted published mathematical-record results returned unrelated graph-cover-free numbers, clique partitions and general graph results; no exact C_n maximum welfare / all-maximizers record was identified.",
+        "The full arXiv:1809.03392 path theorem records specific P2/P3/P4 patterns, not a table of C_n welfare and labeled optimizer counts."
+      ],
+      "reasoning": "The precise cycle table, order-six tie and counts were compared against retrieved mathematical records and the nearest original full text. Search absence is explicitly not treated as a proof of priority; unindexed classifications remain a risk.",
+      "searches": [
+        "Published mathematical-record search: maxSWP cycle graph social welfare grand coalition optimal at six nodes versus modular path decomposition and number optimal coalitions",
+        "Published mathematical-record search: Okubo Hanaka Ono social distance games paths trees optimal partition cycles degree 2",
+        "Web: optimal partition cycles \"social distance\" welfare",
+        "Web: social distance games cycle n exact welfare maximum grand coalition 6"
+      ]
+    },
+    "rationale": "Brânzei–Larson 2011 proves only general approximation and complete/bipartite special cases (hence C3,C4 are known); Okubo–Hanaka–Ono 2018 explicitly characterizes normalized P_n optima and solves trees, all fully credited, but C_n with its grand coalition and counts is not a tree instance; Ganian et al 2023 studies unnormalized fixed-score objectives, not the canonical normalized C_n claim. The exact grand-versus-fragmented transition, labeled counts and complete cyclic classifications were not found in inspected source texts or targeted searches; priority risk persists.",
+    "residual_risks": [
+      "A specialist manuscript or indexing record not located by the inspected full-text and published mathematical-record searches might contain the equivalent cyclic classification.",
+      "The cycle result relies on the previously known tree/path theorem; it is a new exact family classification, not a claim of a new general algorithmic paradigm."
+    ],
+    "source_inspections": [
+      {
+        "assessment": "C3 complete and C4 complete bipartite are already covered; no universal cycle optimizer count or order-six transition in inspected material.",
+        "evidence": [
+          "§2.1–2.2 normalized distance-in-induced-coalition utility",
+          "§3 Properties 5–6 and §3.1 approximation theorem"
+        ],
+        "identifier_or_url": "https://ijcai.org/proceedings/2011/27",
+        "material_read": "Full-text HTML: definitions in Section 2 and welfare results in Section 3 including approximation discussion",
+        "method": "Inspected official IJCAI full-text extraction and searched for cycle coverage",
+        "title": "Social Distance Games",
+        "trigger": "Original canonical normalized model and possible complete/cyclic special cases"
+      },
+      {
+        "assessment": "Path optimization is known, so used only as a credited lemma; cycle grand comparison and all-n count are not covered by tree theorem.",
+        "evidence": [
+          "§3 Theorem 3.1 states the exact three residue cases including P4+P4",
+          "Appendix §7 establishes exclusion of P5 and singleton cases"
+        ],
+        "identifier_or_url": "https://arxiv.org/abs/1809.03392",
+        "material_read": "Full open arXiv HTML: introduction, Sections 2–4, exact Theorem 3.1, and Appendix Section 7 proof",
+        "method": "Inspected full accessible arXiv HTML, searched cycles and verified exact P2/P3/P4 theorem and proof",
+        "title": "Optimal Partition of a Tree with Social Distance",
+        "trigger": "Directly plausible stronger published exact-welfare classification for paths and trees"
+      },
+      {
+        "assessment": "Non-normalized utility differs; explicitly credits normalized-tree case, but contains no exact normalized cycle classification.",
+        "evidence": [
+          "§1 states original normalization and new unnormalized score variant",
+          "§4 Theorem 7 is for fixed score-based utilities"
+        ],
+        "identifier_or_url": "https://arxiv.org/abs/2307.05061",
+        "material_read": "Full open arXiv HTML: Section 1 original versus score-based model, Sections 3–4 and Theorems 7–8",
+        "method": "Inspected full arXiv HTML with model formula and fixed-score algorithm theorems",
+        "title": "Maximizing Social Welfare in Score-Based Social Distance Games",
+        "trigger": "Eligible 2023 motivating literature and possible dominance by bounded-treewidth algorithms"
+      }
+    ],
+    "status": "PASS"
+  },
+  "review_type": "self_review",
+  "schema_version": 1,
+  "scope_run_id": "9e24aeb8-034c-4b4b-96df-8153405c4f68",
+  "self_review_status": "passed",
+  "value": {
+    "rationale": "Cycles form the first minimal connected non-tree graph family for the canonical induced-distance coalitional game. The theorem gives an exact optimizer and counts every optimum at arbitrary order, resolves whether closing a path into a ring changes the grand-coalition incentive, and proves the sharp 6-to-7 fragmentation transition. The output is a natural complete classification with an explicit linear-time construction, not a disconnected fixed-size numerical table. The many-optima counts are relevant to choosing among socially efficient coalition organizations.",
+    "status": "PASS"
+  }
+}
