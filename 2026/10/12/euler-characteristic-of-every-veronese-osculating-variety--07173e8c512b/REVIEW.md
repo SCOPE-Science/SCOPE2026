@@ -1,28 +1,17 @@
-# Self-review
+# Scientific review
 
 ## Correctness
-PASS. The archival source identifies the \(k\)-th osculating variety with the projective forms
-\[
-[L^{d-k}F].
-\]
-A diagonal one-parameter subgroup with base-\(B\) variable weights, \(B>d\), separates all degree-\(d\) monomial coordinates.
+The formula for the ordinary complex Euler characteristic follows from the factorization model of the osculating variety, a diagonal one-parameter action separating all degree-\(d\) monomial coordinates, unique factorization of polynomial monomials, and Euler localization for algebraic \(\mathbb C^*\)-actions. The surviving fixed monomials have at least one exponent at least \(d-k\). Their exact inclusion-exclusion count produces the displayed formula. The strict stable range \(d>2k\) has no overlap among the coordinate conditions.
 
-For \(k<d\), a monomial \(M\) lies in the osculating variety exactly when \(M=L^{d-k}F\). Because \(L\) is a linear divisor of a monomial, unique factorization forces \(L\) to be a coordinate variable. Hence the fixed monomials are precisely those whose largest exponent is at least \(d-k\).
+Finite exact checks over 396 triples \(n=1,\ldots,6\), \(d=1,\ldots,11\), \(0\le k<d\) corroborate the identity and boundary cases. They are not proofs of the unrestricted theorem.
 
-Inclusion-exclusion over the \(n+1\) variables gives the displayed finite sum. Euler localization for algebraic \(\mathbb C^*\)-actions applies to singular projective varieties, so this fixed-point count equals the ordinary Euler characteristic. When \(d>2k\), two exponents cannot simultaneously reach \(d-k\), giving the one-term stable formula.
+## Originality and prior scope
+Bernardi--Catalisano--Gimigliano--Idà (arXiv:math/0403132) provide the exact factorization model and study dimensions and higher secant defectivity, rather than the present explicit Euler formula. A prior tangential formula covers \(k=1\), \(d\ge3\). Kőműves's 2018 generating-function treatment of binary coincident-root loci supplies stronger characteristic-class machinery that encompasses the \(n=1\) specialization in principle. The present contribution is the uniform all-order, arbitrary-source-dimension formula, particularly \(n\ge2\), with the overlap corrections \(d\le2k\). Generic torus localization is classical; only the target-specific fixed-point classification and enumeration are at issue.
 
-The bundled checker independently enumerates the relevant monomials and verifies the formula on a finite regression grid. Finite computation is not used as the infinite proof.
+The closely related 2003 Ballico--Fontanari paper addresses secant geometry. Its full text was not obtained; no whole-document noncoverage is claimed. A contemporary treatment of tangential Terracini loci (arXiv:2610.27625) likewise focuses on secant and identifiability questions in the accessible abstract. Prior unindexed equivariant or motivic computations may imply this Euler formula, so historical priority remains qualified.
 
-## Originality
-PASS. The inspected archival full text studies exactly these osculating varieties, their dimensions, tangent spaces, and higher secant defectivity, but contains no occurrence of “Euler,” “Poincaré,” or “topolog.”
+## Mathematical value and limitations
+Osculating Veronese varieties are natural projective varieties, and their topological Euler characteristic is a meaningful global invariant not supplied by dimension or secant defectivity. The theorem provides a uniform exact expression, a sharp stable no-overlap regime, and the finite corrections outside it. It does not determine Betti numbers, mixed Hodge structure, singularities, or higher secant invariants.
 
-Targeted semantic-database and web searches for Euler, Poincaré, motivic, monomial-fixed-point, and exact \(O_{k,n,d}\) formulations did not locate the all-parameter formula.
-
-A prior tangential-Veronese finding gives the \(k=1\), \(d\ge3\) specialization. The present statement is a meaningful extension: it treats every osculating order and includes the overlap regimes \(d\le2k\), where the exact answer requires inclusion-exclusion rather than the tangential fixed-point count.
-
-Residual risk remains because the proof is short and may be folklore.
-
-## Value
-PASS. Osculating Veronese varieties are classical objects in projective geometry and interpolation. The theorem gives a uniform global topological invariant across the full three-parameter family and exhibits a sharp stable range \(d>2k\) together with explicit overlap corrections outside it.
-
-Self-review: passed. Independent audit: not yet performed.
+## Sources
+Bernardi et al., *Osculating Varieties of Veronesean and Their Higher Secant Varieties*, arXiv:math/0403132 (2004; Canadian Journal of Mathematics, 2007). Ballico and Fontanari, *On the secant varieties to the osculating variety of a Veronese surface*, DOI:10.2478/BF02475212 (2003). Kőműves, *Motivic characteristic classes of coincident root loci*, workshop slides (2018). Torrance, *Terracini loci of tangential varieties of Veroneseans*, arXiv:2610.27625 (2026).
