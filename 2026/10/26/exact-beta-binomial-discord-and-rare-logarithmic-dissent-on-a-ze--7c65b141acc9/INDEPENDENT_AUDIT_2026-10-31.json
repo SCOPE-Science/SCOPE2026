@@ -1,0 +1,116 @@
+{
+  "audit_date_utc": "2026-10-31",
+  "audited_at_utc": "2026-10-31T04:09:27Z",
+  "axes": {
+    "correctness": {
+      "rationale": "The lumped Markov generator has transitions (0,k)→(0,k-1) at rate k and (0,k)→(1,k) at (k+1)/(m+2), and complementary (1,k) analogues. Positive hub-flip rates make the labeled chain irreducible. Zero net flux across count cuts forces (k+1)a_(k+1)=(m-k)b_k, global complement symmetry b_k=a_(m-k), giving beta-binomial recurrence with alpha=1/(m+3); Vandermonde normalizes each hub mass to 1/2. Factorial moments give E[M]=m/(m+5) and Var[M]=m(m+1)/(2(m+5))−(m/(m+5))². The product form yields uniform P(M=k)=(alpha/k)(1+O(alpha H_m)) and P(M>0)=alpha H_m(1+O(alpha H_m)), hence conditional harmonic law, uniform log M/log m and conditional mean m/log m. I independently implemented rational stationarity and factorial-moment tests m=1..8 and large-m rare-tail diagnostics; finite checks are not substituted for the analytic recursion and uniform product estimates.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Acemoglu et al. derive harmonic expectations and cross-moment characterization, not a closed full joint count law for this star.",
+          "Mobilia et al. analyze mean-field and lattice magnetization, not fixed opposite pendant leaves."
+        ],
+        "reasoning": "General model frameworks include graphs of related kinds but statements about existence, first/second moments or mean-field beta laws cannot alone yield all exact stationary probabilities and the uniform-on-log rare-event limit.",
+        "searches": [
+          "arXiv:1009.2653 stubborn-agent opinion fluctuation general graphs",
+          "arXiv:0706.2892 zealotry voter model",
+          "arXiv:1810.05643 multivariate beta voter networks"
+        ]
+      },
+      "checked_sources": [
+        "arXiv:1810.05643 full web-extracted article Appendix B",
+        "arXiv:1009.2653 description, not full text",
+        "arXiv:0706.2892 description, not full text",
+        "Resultary exact pinned-star semantic query",
+        "independent rational Markov generator m=1..8 and large-m asymptotics checks"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "The leaf/hub asymmetry prevents reduction to Mori’s complete-graph birth-death law by merely changing a parameter.",
+          "The general moment and coalescing methods do not state the full finite joint distribution or rare logarithmic limiting regime."
+        ],
+        "reasoning": "Known results are important antecedents, but the closed star-specific law plus rare-harmonic conditional asymptotic require genuinely further calculation.",
+        "searches": [
+          "Mori arXiv:1810.05643 Appendix B complete-graph beta binomial",
+          "Acemoglu arXiv:1009.2653 general network moment formulas",
+          "Mobilia arXiv:0706.2892 magnetization"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Mori et al. Appendix B states a beta-binomial distribution for a complete graph of N voters, not the hub+two-fixed-leaves star.",
+          "Acemoglu’s stubborn-agent model offers moment representations by coupled walkers but not a beta-binomial hub/count law."
+        ],
+        "reasoning": "A familiar distribution family is not a graph-specific equivalence: the star copying generator creates shape alpha=1/(m+3), and a separate uniform harmonic tail proof is required.",
+        "searches": [
+          "Resultary: voter model star two opposite stubborn zealots stationary beta-binomial hub dissent rare opinion logarithmic",
+          "Mori Hisakado Nakayama arXiv:1810.05643 Appendix B",
+          "Acemoglu et al arXiv:1009.2653 stubborn agents"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "No same star-specific alpha=1/(m+3) probability row or harmonic conditional tail was returned.",
+          "The complete-graph beta-binomial table has different transition rates."
+        ],
+        "reasoning": "No exact database entry identified; search non-detection does not certify that no prior network-model specialization exists.",
+        "searches": [
+          "Resultary star zealot beta binomial exact rare event",
+          "Web: voter model star graph two fixed opposite zealots full stationary law beta binomial",
+          "Mori arxiv:1810.05643 Appendix B"
+        ]
+      },
+      "rationale": "PASS with caveat. General stubborn-agent moment duality and classical beta-binomial distributions are known; Mori et al. Appendix B is a complete graph with different update neighborhood, not the exactly pinned heterogeneous star. The full finite-star law and harmonic conditional rare-event asymptotics are not given by inspected specific theorems.",
+      "residual_risks": [
+        "Other exact stationary distributions for pinned star voter models could exist under alternate noisy-voter terminology.",
+        "Only Mori Appendix B was materially read for a direct full-text comparison; the other primary articles were checked by title/abstract and model description.",
+        "The logarithmic limit is conditional on an event of vanishing probability and not a claim about ordinary voter elections."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Appendix beta-binomial is for complete graph, not the pendant-zealot star",
+          "evidence": "arXiv:1810.05643 Appendix B",
+          "identifier_or_url": "https://arxiv.org/abs/1810.05643",
+          "material_read": "Full web-extracted article including Section III and Appendix B entitled Voter model on complete graph and beta binomial distribution",
+          "method": "Read the appendix and main model assumptions; compared graph and generator",
+          "title": "A voter model on networks and multivariate beta distribution",
+          "trigger": "Exact beta-binomial claim and possible graph equivalence"
+        },
+        {
+          "assessment": "Important antecedent and residual general-framework priority risk",
+          "evidence": "Acemoglu et al. general stubborn-agent networks, expectations and second-moment descriptions",
+          "identifier_or_url": "https://arxiv.org/abs/1009.2653",
+          "material_read": "Abstract and original theorem descriptions of harmonic expectations and cross-products; entire full text not independently read here",
+          "method": "Inspected accessible arXiv description and scope; no whole-document exclusion",
+          "title": "Opinion fluctuations and disagreement in social networks",
+          "trigger": "General stubborn-agent network law might dominate"
+        },
+        {
+          "assessment": "Not sufficient to exclude an uninspected specialized calculation",
+          "evidence": "Mobilia, Petersen and Redner 2007",
+          "identifier_or_url": "https://arxiv.org/abs/0706.2892",
+          "material_read": "Abstract and model description (well-mixed, 1D, 2D mean-field magnetization)",
+          "method": "Compared visible primary scope only",
+          "title": "On the Role of Zealotry in the Voter Model",
+          "trigger": "Early same mechanism"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "rationale": "Rare but macroscopic bursts of follower dissent despite expected dissent approaching one and typical zero are a meaningful stochastic-network phenomenon. The complete conditional joint hub/count distribution and logarithmically uniform dissent size quantify a natural pinned-star mechanism beyond standard marginals.",
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "limitations": [
+    "Other exact stationary distributions for pinned star voter models could exist under alternate noisy-voter terminology.",
+    "Only Mori Appendix B was materially read for a direct full-text comparison; the other primary articles were checked by title/abstract and model description.",
+    "The logarithmic limit is conditional on an event of vanishing probability and not a claim about ordinary voter elections.",
+    "Frozen source-tree Git identity was reconstructed from all immediate entries and checked against current record listings; no claim of broader future branch immutability.",
+    "Scientific PASS is best-of-knowledge and is not independent formal proof or publisher certification."
+  ],
+  "schema_version": 1
+}

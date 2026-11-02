@@ -1,15 +1,21 @@
-# Scientific review
+# Independent mathematical audit
 
-## Correctness — PASS
+## correctness
 
-The finite irreducible binary voter process reduces exactly to a two-coordinate Markov chain indexed by hub opinion and number of one-followers. Its rate matrix, the cut-flux identity, hub-state balance, complement symmetry and normalization determine the claimed full stationary law. The beta-binomial factorial moments yield the mean and variance; uniform product bounds prove the rare-event probability and harmonic conditional approximation. The full infinite-size limit is analytical, not inferred from finite tests. Independently solved rational stationary systems for seven finite sizes agree exactly; see `VERIFY.py` and `certificate.json`.
+PASS
 
-## Originality — PASS (qualified bibliographic assessment)
+The lumped Markov generator has transitions (0,k)→(0,k-1) at rate k and (0,k)→(1,k) at (k+1)/(m+2), and complementary (1,k) analogues. Positive hub-flip rates make the labeled chain irreducible. Zero net flux across count cuts forces (k+1)a_(k+1)=(m-k)b_k, global complement symmetry b_k=a_(m-k), giving beta-binomial recurrence with alpha=1/(m+3); Vandermonde normalizes each hub mass to 1/2. Factorial moments give E[M]=m/(m+5) and Var[M]=m(m+1)/(2(m+5))−(m/(m+5))². The product form yields uniform P(M=k)=(alpha/k)(1+O(alpha H_m)) and P(M>0)=alpha H_m(1+O(alpha H_m)), hence conditional harmonic law, uniform log M/log m and conditional mean m/log m. I independently implemented rational stationarity and factorial-moment tests m=1..8 and large-m rare-tail diagnostics; finite checks are not substituted for the analytic recursion and uniform product estimates.
 
-Full primary-text comparison includes Mobilia–Petersen–Redner (2007), Yildiz et al. (2011), Acemoglu et al. (2010), Mori et al. (2018), and Vendeville et al. (2020). The most relevant possible overlap is Mori et al. Appendix B's beta-binomial distribution, which concerns complete-graph population counts rather than the pendant-zealot star with distinguished hub and its precise dependence on network size. General network duality and expectations in Yildiz et al. do not state the present joint stationary law or its conditional logarithmic rare-event distribution. Both literature and available mathematical research records were searched for star, stubborn, zealot, beta-binomial, and harmonic conditional equivalents. Prior absence is not proven; possible equivalent unpublished or differently termed formulas are a residual bibliographic risk. Independent verification remains needed.
+## originality
 
-## Mathematical value — PASS
+PASS
 
-The result solves an interpretable *full equilibrium distribution*, not merely an averaged opinion, in the simplest heterogeneous contact topology pinned by two opposing fixed agents. It distinguishes typically almost unanimous followers from the divergent variance caused by extremely rare mesoscopic disagreement episodes. The uniform law for the logarithm of disagreement size conditional on such an episode gives a quantitative distributional explanation unavailable from first moments alone; it can inform stochastic social-model simulations and model comparisons. The result is specific to its update convention and offers no empirical behavioral claim.
+PASS with caveat. General stubborn-agent moment duality and classical beta-binomial distributions are known; Mori et al. Appendix B is a complete graph with different update neighborhood, not the exactly pinned heterogeneous star. The full finite-star law and harmonic conditional rare-event asymptotics are not given by inspected specific theorems.
 
-Self-review: passed. Independent audit: not yet performed.
+## value
+
+PASS
+
+Rare but macroscopic bursts of follower dissent despite expected dissent approaching one and typical zero are a meaningful stochastic-network phenomenon. The complete conditional joint hub/count distribution and logarithmically uniform dissent size quantify a natural pinned-star mechanism beyond standard marginals.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
