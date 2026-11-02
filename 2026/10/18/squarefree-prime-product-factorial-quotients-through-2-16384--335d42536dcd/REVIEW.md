@@ -1,9 +1,21 @@
-# Self-review
+# Independent mathematical audit
 
-**Correctness — PASS.** Legendre's formula gives exact valuations for all primes. The necessary binary- and ternary-digit restrictions exhaust every possible squarefree index. The low-ternary-digit reduction is a provably safe filter, not a heuristic; a complete finite loop and exact prime valuations classify the \(42\) survivors. Independent small-range brute-force tests and direct prime-product tests also passed. The finite code was executed against the actual supplied content before acceptance; exact finite scope and the lack of a global last-term theorem are explicit.
+## correctness
 
-**Originality — PASS (finite census only).** Bedhouche--Farhi supplies the prime-product definition and valuations but not the bounded-range squarefree census. OEIS A363596 reports \(1055\) as the last observed squarefree index after inspecting \(n\leq20737\), explicitly raising the possibility of more. The Senge--Straus bounded-digit-sum theorem implies global *finiteness* using the elementary valuations; that implication is covered background, not novel. It supplies neither the \(2^{16384}\) cutoff nor the \(35\)-index list. Mathematical-result searches identified no equivalent exhaustive finite theorem; unindexed calculations remain a residual risk.
+PASS
 
-**Mathematical value — PASS.** Squarefreeness is a natural invariant of the established prime-product quotient and its putative last occurrence is highlighted by its sequence database. The result turns a finite observation through \(20737\) into an exhaustive exact classification over a vastly larger index range, yielding a fully replayable numerical boundary and a nontrivial finite certificate. The size of the cutoff is an explicit scientific limitation, not a claim to settle the unknown global last index.
+For m=n+1, Legendre gives v_p(Q_n)=floor((m-1)/(p-1))-(m-s_p(m))/(p-1), nonnegative by divisibility by p-1 and s_p(m)>=1. In particular v_2(Q_n)=s_2(m)-1 and v_3(Q_n)=(s_3(m)-1)/2 for odd m, (s_3(m)-2)/2 for even m. Therefore any squarefree Q_n has binary digit sum <=2, i.e. m=2^a or 2^a+2^b with a>b>=0, 0<=a<=16384, m<=2^16384. The low 24 ternary digits are a lower bound for the full ternary digit sum, so the radix-3 residue sieve discards no possible squarefree m. Parity-specific complete ternary sums reduce all 134,225,920 two-one patterns plus single powers to exactly 42 index candidates (59 retained by preliminary filter). Complete exact sieve and Legendre valuations at every prime p<=n+1 for these 42 give precisely seven p^2 obstructions and 35 survivors. Independent NumPy-vectorized residue enumeration over ALL pairs, distinct from the supplied Python verifier, reproduced the full list in 1.763 seconds; independent brute force at every n<4096 gave the same survivors. The boundary n=0 (Q_0=1), n=2^16384-1, parity, empty product, and zero valuations for p>n+1 are respected. Finite certificate supports only n<2^16384; no global final-squarefree claim.
 
-Self-review: passed. Independent audit: not yet performed.
+## originality
+
+PASS
+
+Best-of-knowledge originality is restricted to the exact finite 35-index classification over 0<=n<2^16384, not the quotient definition, Legendre-based digit restrictions, observation 1055, or qualitative finiteness (already covered by Senge--Straus). Accessible full primary Bedhouche--Farhi text and OEIS do not establish the claimed cutoff; published-search and Resultary comparisons found no stronger covering finite theorem. Residual unindexed-computation and inaccessible 1973 full-text risks remain explicit.
+
+## value
+
+PASS
+
+A363596 is a named natural prime-product factorial quotient with an explicitly discussed unknown last-squarefree occurrence. Its exact squarefree set through an enormous finite dyadic boundary is a motivated nontrivial cutoff extending the older OEIS n<=20737 observation. The proof reduces an otherwise impossible index-by-index scan to an exhaustive binary/ternary-digit classification and seven explicit square-divisor witnesses. A future researcher investigating final squarefree terms or mixed-base digit obstructions could use this exact finite negative result, even though the boundary 16384 is computationally selected and it does not settle the global problem. This significance is the mathematical obstruction/census, not code correctness or novelty alone.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

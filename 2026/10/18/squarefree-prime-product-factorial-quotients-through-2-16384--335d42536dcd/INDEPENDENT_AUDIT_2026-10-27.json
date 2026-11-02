@@ -1,0 +1,155 @@
+{
+  "audit_date_utc": "2026-10-27",
+  "audited_at_utc": "2026-10-27T09:57:26Z",
+  "axes": {
+    "correctness": {
+      "rationale": "For m=n+1, Legendre gives v_p(Q_n)=floor((m-1)/(p-1))-(m-s_p(m))/(p-1), nonnegative by divisibility by p-1 and s_p(m)>=1. In particular v_2(Q_n)=s_2(m)-1 and v_3(Q_n)=(s_3(m)-1)/2 for odd m, (s_3(m)-2)/2 for even m. Therefore any squarefree Q_n has binary digit sum <=2, i.e. m=2^a or 2^a+2^b with a>b>=0, 0<=a<=16384, m<=2^16384. The low 24 ternary digits are a lower bound for the full ternary digit sum, so the radix-3 residue sieve discards no possible squarefree m. Parity-specific complete ternary sums reduce all 134,225,920 two-one patterns plus single powers to exactly 42 index candidates (59 retained by preliminary filter). Complete exact sieve and Legendre valuations at every prime p<=n+1 for these 42 give precisely seven p^2 obstructions and 35 survivors. Independent NumPy-vectorized residue enumeration over ALL pairs, distinct from the supplied Python verifier, reproduced the full list in 1.763 seconds; independent brute force at every n<4096 gave the same survivors. The boundary n=0 (Q_0=1), n=2^16384-1, parity, empty product, and zero valuations for p>n+1 are respected. Finite certificate supports only n<2^16384; no global final-squarefree claim.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Senge--Straus (1973), as stated in OEIS A096288, proves s_2(m)+s_3(m)->infinity; combining that theorem with the p=2,3 Legendre valuation identities ALREADY implies there are only finitely many squarefree Q_n.",
+          "Stewart (1980) supplies effective lower estimates for mixed-base digit sums but the material inspected gives no explicit 2^16384 census or 35-index set.",
+          "Bedhouche--Farhi Proposition 3.2 supplies factorial divisibility; Theorem 3.4 controls valuations at large primes, but neither is a squarefree global census."
+        ],
+        "reasoning": "Qualitative global finiteness is mathematically stronger in extent than the statement that only finitely many squarefree terms exist, and is pre-existing; it is expressly excluded from the present novelty claim. It does not determine which 35 indices occur below the precise bound. The claimed finite list is not a corollary of just the published qualitative theorem or source product identities without actual exhaustive computation.",
+        "searches": [
+          "Bedhouche Farhi quotient A091137 factorial squarefree Senge Straus",
+          "Senge Straus sum digits two bases effective bounds binary ternary last finite 1973 (web search)",
+          "OEIS A096288 Senge Straus Stewart digital sum theorem",
+          "simultaneously small binary ternary digit sums powers of two plus two powers exact finite enumeration"
+        ]
+      },
+      "checked_sources": [
+        "https://ar5iv.labs.arxiv.org/html/2207.07957",
+        "https://cs.uwaterloo.ca/journals/JIS/VOL26/Farhi/farhi32.html",
+        "https://oeis.org/A363596",
+        "https://oeis.org/A096288",
+        "https://doi.org/10.1007/BF02018464",
+        "https://github.com/Resultary/2026/tree/main/2026/10/4/SCOPE-exact-3-2-3-binary-weight-product-classification--28456ef398f9",
+        "https://github.com/Resultary/2026/tree/main/2026/10/4/SCOPE-conditional-10-4000-verification-of-the-sigma-2-2-pair-squarefre--7569fcdfd017"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "Bedhouche--Farhi (2022/2023) derives the foundational sigma_n product, factorial divisibility and other p-adic formulas.",
+          "OEIS A363596 gives the exact same quotient and finite observational last squarefree index 1055.",
+          "Senge--Straus gives global finiteness once bounded binary/ternary digit sums are deduced.",
+          "This review independently verified all candidate pairs a<=16384 using a vectorized modular base-three sieve and complete prime valuations, yielding the exact new cutoff-specific census."
+        ],
+        "reasoning": "The old work implies the easy algebraic reduction and a qualitative finiteness theorem, not an exact 2^16384-bound census. The count of 42 candidates and seven explicit obstructions requires the finite all-pattern computation. The final claim explicitly states a finite boundary and disclaims global last-term priority.",
+        "searches": [
+          "squarefree values prime-product factorial quotient A363596 n 1055 exhaustive two-base digit sums",
+          "Bedhouche Farhi quotient A091137 factorial squarefree Senge Straus",
+          "https://ar5iv.labs.arxiv.org/html/2207.07957 §3 Proposition 3.2 / Theorem 3.4",
+          "OEIS A363596 squarefree 1055 20737"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "OEIS A363596 at https://oeis.org/A363596 identifies Q_n exactly as A091137(n)/(n+1)! and reports squarefree value at index 1055 only as last observed among n<=20737.",
+          "The original Bedhouche--Farhi prime-product article arXiv:2207.07957, §§1 and 3, defines sigma_n and proves divisibility but contains no complete 2^16384-bound squarefree enumeration in its relevant results."
+        ],
+        "reasoning": "An earlier theorem or table giving the same exact 35 indices for all 0<=n<2^16384 would be equivalent regardless of quotient notation, factorial normalization, or base-digit language. The available exact-sequence entry does not assert that cutoff. No covering indexed statement was identified in these actual searches; this remains a qualified best-of-knowledge comparison, not a deduction of novelty from negative search.",
+        "searches": [
+          "squarefree values prime-product factorial quotient A363596 n 1055 exhaustive two-base digit sums",
+          "\"A363596\" \"squarefree\" \"16384\" (web search)",
+          "\"A363596\" \"squarefree\" 1055 no more (web search)",
+          "GitHub code search SCOPE-Science/SCOPE2026: A363596"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "OEIS A363596 COMMENTS explicitly contextualize observations for a(0..20737), state a(1055) as last observed squarefree term and speculate about possible later -1 mod24 terms.",
+          "The exact independent 134,225,920 two-bit-pattern scan to exponent 16384 has 59 low-residue prefilter hits, 42 full base-three-eligible values, and exactly seven prime-square obstructions."
+        ],
+        "reasoning": "The OEIS table and existing 20,737-index investigation do not cover the claimed astronomically large finite range; direct reproduction from the paper/entry cannot certify no later index below 2^16384. The new exact finite verification is distinct from an unverified known-table recomputation, though an unpublished computation remains possible.",
+        "searches": [
+          "https://oeis.org/A363596 (definition, COMMENT, LINKS, code, table)",
+          "https://oeis.org/A096288 (sum of base-2 and base-3 digits)",
+          "squarefree values prime-product factorial quotient A363596 n 1055 exhaustive two-base digit sums",
+          "GitHub search SCOPE-Science/SCOPE2026: squarefree prime-product factorial quotient"
+        ]
+      },
+      "rationale": "Best-of-knowledge originality is restricted to the exact finite 35-index classification over 0<=n<2^16384, not the quotient definition, Legendre-based digit restrictions, observation 1055, or qualitative finiteness (already covered by Senge--Straus). Accessible full primary Bedhouche--Farhi text and OEIS do not establish the claimed cutoff; published-search and Resultary comparisons found no stronger covering finite theorem. Residual unindexed-computation and inaccessible 1973 full-text risks remain explicit.",
+      "residual_risks": [
+        "Bounded indexing and semantic search cannot exclude an earlier unpublished or unindexed exact 2^16384 census.",
+        "Original Senge--Straus 1973 and Stewart 1980 primary full texts not fully inspected; only their acknowledged broad qualitative/effective digit-sum implications are used.",
+        "Finite computational certification is not a claim of the global last squarefree index, of novelty of finite computability, or of formal theorem-prover certification."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Defines sigma_n, proves (n+1)! divides sigma_n and bounds large-prime valuations but does not state the finite classification of squarefree sigma_n/(n+1)! below 2^16384.",
+          "evidence": [
+            "§1 definitions sigma_n; Proposition 3.2 (n+1)!|sigma_n; Theorem 3.4 valuation of sigma_n/n! only for p>sqrt(n+1); §4 studies asymptotics and prime counts."
+          ],
+          "identifier_or_url": "https://ar5iv.labs.arxiv.org/html/2207.07957 (arXiv:2207.07957v1)",
+          "material_read": "Full accessible HTML version: introduction and definitions, §§2–3 including Proposition 3.2, Theorem 3.4 and derivations, and §4 scope/conjectures",
+          "method": "Primary full-text comparison of the exact quotient, p-adic bounds, possible coverage by larger-p theorem and proposed finite squarefree enumeration",
+          "title": "On some products taken over the prime numbers",
+          "trigger": "Originating prime product sigma_n and closest primary theorem"
+        },
+        {
+          "assessment": "Same Q_n, but not a published exhaustive classification through 2^16384; comment invites possible further terms.",
+          "evidence": [
+            "OEIS COMMENT says observations for a(0..20737), a(1055) last squarefree observed, possibly further terms congruent to -1 modulo 24."
+          ],
+          "identifier_or_url": "https://oeis.org/A363596",
+          "material_read": "Complete accessible entry including formula, observations over n=0..20737, the 1055 comment, links, program and crossreferences",
+          "method": "Direct sequence and cutoff comparison",
+          "title": "OEIS A363596",
+          "trigger": "Exact quotient sequence and most relevant existing finite table"
+        },
+        {
+          "assessment": "Supports prior global finiteness; no explicit complete cutoff table.",
+          "evidence": [
+            "OEIS COMMENT dated 2024-01-16: Senge--Straus yields s_a(m)+s_b(m)->infinity when logarithms of bases are irrationally related."
+          ],
+          "identifier_or_url": "https://oeis.org/A096288",
+          "material_read": "Definition, digital-sum comments, explicit Senge--Straus/Stewart attribution and reference list",
+          "method": "Compare qualitative implication of bounded simultaneous digit sums to finite exact cutoff",
+          "title": "OEIS A096288",
+          "trigger": "Potential dominating classical two-base digit theorem"
+        },
+        {
+          "assessment": "Known theorem already implies only finitely many squarefree Q_n; absence of explicit 2^16384 census cannot be asserted from inaccessible full article alone.",
+          "evidence": [
+            "OEIS A096288 comment and listed reference to Period. Math. Hungar. 3 (1973) 93–100."
+          ],
+          "identifier_or_url": "https://doi.org/10.1007/BF02018464 (Senge and Straus, 1973)",
+          "material_read": "Original 1973 article full text not obtained; theorem statement checked against OEIS A096288 and mathematics literature summaries",
+          "method": "Bibliographic crosscheck and named-theorem implication, not full-text negative coverage assertion",
+          "title": "PV-numbers and sets of multiplicity",
+          "trigger": "Classical theorem potentially dominating finite-squarefree occurrence"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "rationale": "A363596 is a named natural prime-product factorial quotient with an explicitly discussed unknown last-squarefree occurrence. Its exact squarefree set through an enormous finite dyadic boundary is a motivated nontrivial cutoff extending the older OEIS n<=20737 observation. The proof reduces an otherwise impossible index-by-index scan to an exhaustive binary/ternary-digit classification and seven explicit square-divisor witnesses. A future researcher investigating final squarefree terms or mixed-base digit obstructions could use this exact finite negative result, even though the boundary 16384 is computationally selected and it does not settle the global problem. This significance is the mathematical obstruction/census, not code correctness or novelty alone.",
+      "status": "PASS"
+    }
+  },
+  "checked_sources": [
+    "https://ar5iv.labs.arxiv.org/html/2207.07957",
+    "https://cs.uwaterloo.ca/journals/JIS/VOL26/Farhi/farhi32.html",
+    "https://oeis.org/A363596",
+    "https://oeis.org/A096288",
+    "https://doi.org/10.1007/BF02018464",
+    "https://github.com/Resultary/2026/tree/main/2026/10/4/SCOPE-exact-3-2-3-binary-weight-product-classification--28456ef398f9",
+    "https://github.com/Resultary/2026/tree/main/2026/10/4/SCOPE-conditional-10-4000-verification-of-the-sigma-2-2-pair-squarefre--7569fcdfd017"
+  ],
+  "disposition": "passed",
+  "limitations": [
+    "No statement for n>=2^16384; Senge--Straus supplies pre-existing qualitative finiteness but not exact final n.",
+    "Independent full-range computation was written afresh using NumPy modular-array pairs, not a formal proof assistant; exact mathematical exhaustion depends on proved digit-support and safe low-residue conditions.",
+    "Full primary 1973 Senge--Straus/1980 Stewart texts not read; this affects background historical risk, not the explicit finite computation.",
+    "Publication blocked by unremoved operational provenance in two existing public JSON files; complete validated privacy-safe replacements not staged."
+  ],
+  "residual_risks": [
+    "Bounded indexing and semantic search cannot exclude an earlier unpublished or unindexed exact 2^16384 census.",
+    "Original Senge--Straus 1973 and Stewart 1980 primary full texts not fully inspected; only their acknowledged broad qualitative/effective digit-sum implications are used.",
+    "Finite computational certification is not a claim of the global last squarefree index, of novelty of finite computability, or of formal theorem-prover certification."
+  ],
+  "schema_version": 1
+}
