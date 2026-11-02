@@ -1,15 +1,21 @@
-# Scientific review
+# Independent mathematical audit
 
-## Correctness
-**PASS.** The proof reconstructs all quantifiers and the original generating set. It uses the published optimal-greedy and Apéry-set formulas at the verified parameters, independently proves monotonicity of the weighted greedy function, identifies the high greedy digits of \(M=m2^n\) with the binary digits of \(m\), and establishes the final constant-weight plateau and its first index. The resulting unique Apéry maximizer yields the exact displayed Frobenius formula without extrapolation. The separately written shortest-path implementation verifies 161 admissible semigroups over 1,072,169 residue vertices and three examples outside the previously explicit regimes. Finite checks are not substituted for proof.
+## correctness
 
-## Originality
-**PASS in the inspected literature, with residual risk.** The 2023 Proth-number paper has an explicit special-parameter formula. Liu–Xin–Ye–Yin supply the general Apéry and genus infrastructure, but their explicitly evaluated Theorems 5.4 and 5.5 apply only when the first greedy coefficient is positive or the second is positive; their discussion explicitly leaves \(q=63\) outside them. The present formula works for all odd parameters, gives a previously absent popcount compression and exact maximizing residue, and is not implied by those two stated special-case conclusions. Searches for the complete formula, alternate binary-coin descriptions, stronger semigroup classifications and numerical tables yielded no equivalent statement. Existing full-parameter Wilf inequalities concern a different invariant. Remaining risk: an unindexed published theorem or a later treatment could contain an equivalent implication.
+PASS
 
-## Mathematical value
-**PASS.** The motivating literature formulates the arbitrary odd-parameter Frobenius problem explicitly. The result gives an exact closed-form answer for the whole family using only a tiny greedy decomposition of the binary digit count, including infinitely many parameter choices with two or more initially vanishing greedy coefficients. It upgrades a partial special-case solution to an all-parameter one and additionally locates a unique maximizing Apéry class. This is a natural invariant and a motivated outstanding case, not an arbitrary finite statistic.
+For n>=3 and odd 3<=m<2^n, setting M=m2^n, h=popcount(m), and greedily writing h in b_i=2^i-1 with coin count c and least occupied index t, the statement F=M^2+(h+c-1)M+(h+c+t-2) follows from the Liu–Xin–Ye–Yin exact Apéry minimum N_{-u}=(M+1)w(u)-u and its greedy-optimality lemma. Check of high digits: greedy high b_{n+j} digits are exactly the binary digits of m; their removal leaves h< b_n. The weighted greedy function w(u) is monotone; b_i-j has constant weight 2^i for 0<=j<i and drops 2 at j=i. Thus w(M-j)=w(M) for 0<=j<t, drops 2 at j=t, and unique maximum of (M+1)w(u)-u is at u=M-t+1. Standard Apéry formula subtracts M+1. Verification is an exact Dijkstra residue-graph calculation on 56 small parameter pairs, not the proof of the infinite theorem; the original published Apéry theorem is a mathematical input.
 
-## Boundaries and scientific integrity
-No statement is made about generalized bases, genus beyond previously available expressions, or independent priority. The proof depends on the published full-family Apéry reduction and greedy optimality theorem; these premises were inspected at their actual formulas. Independent audit has not been performed.
+## originality
 
-Self-review: passed. Independent audit: not yet performed.
+PASS
+
+Known all-parameter Apéry/greedy theorem gives an implicit maximum, but does not itself state this closed population-and-plateau formula; earlier Frobenius formula covers restricted m=2^r+1. The extra last-plateau argument is checked independently rather than taking novelty from a different name. Best-of-knowledge priority, not uniqueness certification.
+
+## value
+
+PASS
+
+A universal explicit Frobenius formula and unique extremal Apéry class for all odd Proth parameters, including the previously unevaluated zero-initial-greedy-coefficient branch (e.g., q=63), removes a genuine parameter gap. The popcount dependence compresses a semigroup arithmetic invariant into simple binary data. It is a mathematically motivated complete family calculation, not a mere table of test values.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

@@ -1,0 +1,105 @@
+{
+  "audit_date_utc": "2026-10-29",
+  "audited_at_utc": "2026-10-29T08:52:25.900996Z",
+  "axes": {
+    "correctness": {
+      "rationale": "For n>=3 and odd 3<=m<2^n, setting M=m2^n, h=popcount(m), and greedily writing h in b_i=2^i-1 with coin count c and least occupied index t, the statement F=M^2+(h+c-1)M+(h+c+t-2) follows from the Liu–Xin–Ye–Yin exact Apéry minimum N_{-u}=(M+1)w(u)-u and its greedy-optimality lemma. Check of high digits: greedy high b_{n+j} digits are exactly the binary digits of m; their removal leaves h< b_n. The weighted greedy function w(u) is monotone; b_i-j has constant weight 2^i for 0<=j<i and drops 2 at j=i. Thus w(M-j)=w(M) for 0<=j<t, drops 2 at j=t, and unique maximum of (M+1)w(u)-u is at u=M-t+1. Standard Apéry formula subtracts M+1. Verification is an exact Dijkstra residue-graph calculation on 56 small parameter pairs, not the proof of the infinite theorem; the original published Apéry theorem is a mathematical input.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "arXiv:2306.03459 all-parameter Apéry description; Theorems 5.4 and 5.5 evaluate only specified first two coefficient regimes"
+        ],
+        "reasoning": "The general Apéry statement implicitly determines a finite procedure for F but does not give the claimed uniform popcount closed formula or its unique maximal residue; it is the indispensable premise, not an independently published consequence with the same statement.",
+        "searches": [
+          "Proth numerical semigroup Frobenius number odd m binary popcount greedy Apéry formula",
+          "generalized repunit semigroup Proth full Apéry Frobenius formula"
+        ]
+      },
+      "checked_sources": [
+        "arXiv:2306.03459, Theorems 5.2, 5.4, 5.5, full mathematical sections",
+        "arXiv:2311.12462, main Frobenius theorem",
+        "Resultary semantic search: Proth numerical semigroup Frobenius number odd m binary popcount greedy Apéry formula"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "arXiv:2306.03459 Theorem 5.2 and Theorems 5.4–5.5",
+          "arXiv:2311.12462 main Frobenius theorem"
+        ],
+        "reasoning": "The restricted closed theorem cannot cover m with multiple initial zero greedy digits. The all-parameter Apéry algorithm is a prerequisite and logically determines F by optimization, but the new simple closed answer and exact extremizer require a further mathematical plateau computation.",
+        "searches": [
+          "Proth numerical semigroup Frobenius number odd m binary popcount greedy Apéry formula",
+          "Frobenius Proth n odd m 2^r+1 Liu Xin Ye Yin"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Liu–Xin–Ye–Yin, arXiv:2306.03459, Theorem 5.2, Lemma 2.6; explicit gap q=63",
+          "Srivastava–Thakkar arXiv:2311.12462, specialized odd-parameter theorem"
+        ],
+        "reasoning": "Compared Frobenius maxima as Apéry extremizers, binary carry expansions and lowest occupied coin index, not merely matching titles. No all-odd-parameter closed expression in the inspected named statements.",
+        "searches": [
+          "Proth numerical semigroup Frobenius number odd m binary popcount greedy Apéry formula",
+          "Proth semigroup 2^i-1 coin greedy weight last plateau popcount"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "arXiv:2306.03459 Table 1 q<50 and discussion of omitted q=63",
+          "Fresh exact residue-graph Dijkstra calculations at 56 admissible (n,m) pairs"
+        ],
+        "reasoning": "Existing published tabulation omits a natural branch and does not determine the claimed all-integer family. Computed finite cases corroborate but do not establish novelty or unrestricted theorem.",
+        "searches": [
+          "Proth numerical semigroup Frobenius number odd m binary popcount greedy Apéry formula",
+          "Proth q=63 Frobenius table greedy weight"
+        ]
+      },
+      "rationale": "Known all-parameter Apéry/greedy theorem gives an implicit maximum, but does not itself state this closed population-and-plateau formula; earlier Frobenius formula covers restricted m=2^r+1. The extra last-plateau argument is checked independently rather than taking novelty from a different name. Best-of-knowledge priority, not uniqueness certification.",
+      "residual_risks": [
+        "A general previously published greedy-weight plateau lemma could imply the evaluated formula without identical Proth title.",
+        "The claimed proof depends on published Apéry parametrization, not independently re-proved here."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Foundation establishes general Apéry and partial explicit Frobenius ranges but does not explicitly provide the audited uniform formula",
+          "evidence": "Theorem 5.2, Theorems 5.4–5.5; q=63 excluded case",
+          "identifier_or_url": "https://arxiv.org/pdf/2306.03459",
+          "material_read": "Full 23-page accessible manuscript, especially definitions, Lemmas 2.6/2.11, Theorems 5.2/5.4/5.5, table and q=63 passage",
+          "method": "arXiv full-text mathematical passage inspection, including displayed formulas",
+          "title": "On the Frobenius Number and Genus of a Collection of Semigroups Generalizing Repunit Numerical Semigroups",
+          "trigger": "Same Proth semigroup and published greedy Apéry theorem"
+        },
+        {
+          "assessment": "Covers restricted odd m, not arbitrary m; does not imply the new general closed formula by stated specialization",
+          "evidence": "Main Frobenius theorem restricted family",
+          "identifier_or_url": "https://arxiv.org/pdf/2311.12462",
+          "material_read": "Primary manuscript theorem statement and scope of m=2^r+1, main proof and conclusion",
+          "method": "Accessible arXiv mathematical text",
+          "title": "The Frobenius Problem for the Proth Numbers",
+          "trigger": "Earlier exact Frobenius claim on same family"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "rationale": "A universal explicit Frobenius formula and unique extremal Apéry class for all odd Proth parameters, including the previously unevaluated zero-initial-greedy-coefficient branch (e.g., q=63), removes a genuine parameter gap. The popcount dependence compresses a semigroup arithmetic invariant into simple binary data. It is a mathematically motivated complete family calculation, not a mere table of test values.",
+      "status": "PASS"
+    }
+  },
+  "checked_sources": [
+    "arXiv:2306.03459, Theorems 5.2, 5.4, 5.5, full mathematical sections",
+    "arXiv:2311.12462, main Frobenius theorem",
+    "Resultary semantic search: Proth numerical semigroup Frobenius number odd m binary popcount greedy Apéry formula"
+  ],
+  "disposition": "passed",
+  "limitations": [
+    "A general previously published greedy-weight plateau lemma could imply the evaluated formula without identical Proth title.",
+    "The claimed proof depends on published Apéry parametrization, not independently re-proved here."
+  ],
+  "residual_risks": [
+    "A general previously published greedy-weight plateau lemma could imply the evaluated formula without identical Proth title.",
+    "The claimed proof depends on published Apéry parametrization, not independently re-proved here."
+  ],
+  "schema_version": 1
+}
