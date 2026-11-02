@@ -1,0 +1,11 @@
+# Self-review
+
+**Correctness — PASS.** A centering calculation proves the universal Rayleigh bound. Equality forces the full budget away from all optional cycle edges; the leaf and hub eigen-equations then force every remaining weight uniquely. The quotient Schur-complement inertia calculation proves the candidate truly has its chosen eigenvalue as \(\lambda_2\) throughout the two-to-one interval, including the boundary via a separate singular-block analysis. Outside, leaf-transverse modes disqualify equality, and compactness proves strictness. A standard-library finite checker confirms exact vector and budget identities and finite spectra; the checker is not an infinite proof.
+
+**Originality — PASS, qualified.** The 2008 primary source states a stronger contrary claim (its Theorem 7) that uniqueness with non-repeated optimal algebraic connectivity occurs only on tree-shaped designable graphs. Our five-vertex cyclic graph and exact unique optimum are a direct counterexample, not a paraphrase. The 2006 general optimization framework does not already imply uniqueness and the 1990 source concerns trees. Previously recorded double-star tree optimization does not settle cycle-edge rigidity. Searches in relevant published mathematical records uncovered similar bridge-barbell graph *objects* but only different invariants. Residual risk: independent mathematical review or specialized historical work may change the originality determination.
+
+**Value — PASS.** The result corrects a concrete published structural assertion in spectral network design with an exact five-vertex counterexample. The broader infinite-family theorem demonstrates the mechanism—zero Fiedler differences make optional edges strictly unattractive under a budget—and identifies a sharp regime where every optimal conductance is globally rigid, rather than only symmetry-reduced. This has relevance to sparse optimal network design and interpretation of semidefinite dual certificates.
+
+**Limitations.** The high-imbalance optimum is not computed; the statement includes only a strict upper bound there. Numerical examples provide corroboration, not independent certification. No priority guarantee is claimed.
+
+Self-review: passed. Independent audit: not yet performed.

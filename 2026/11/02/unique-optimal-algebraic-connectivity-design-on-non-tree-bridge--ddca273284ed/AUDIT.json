@@ -1,0 +1,117 @@
+{
+  "correctness": {
+    "rationale": "Mean-zero witness has exact norm D/N and unit squared increments on every cut edge, zero on optional edges, yielding the global upper bound; equality uniquely forces all weights; Schur inertia gives attainment iff max(p,q)≤2 min(p,q), boundary separately; exact 5-node simple spectrum. Finite standard-library checker corroborates.",
+    "status": "PASS"
+  },
+  "independent": false,
+  "independent_audit_status": "not_performed",
+  "originality": {
+    "broader_coverage": {
+      "evidence": [
+        "Sun et al derive general semidefinite/variance-unfolding formulations without a claim of tree-only uniqueness for this graph class.",
+        "Fiedler paper explicitly studies the tree category; the present counterexample has a cycle in its designable edge set."
+      ],
+      "reasoning": "A generic variational formula or a complete optimum for double-star trees does not imply that adding arbitrary within-leaf edges preserves a unique global optimum: a zero-weight edge may otherwise admit alternative optimum perturbations. This rigidity is independently proved here.",
+      "searches": [
+        "published-finding corpus: barbell two cliques joined by a bridge maximum algebraic connectivity total edge conductance budget optimum star support clique threshold unequal p q",
+        "Web: barbell graph algebraic connectivity edge weights optimize",
+        "Sun et al 2006 DOI:10.1137/S0036144504443821",
+        "Fiedler 1990 DOI:10.1080/03081089008817967"
+      ]
+    },
+    "checked_sources": [
+      "DOI:10.1109/CDC.2008.4738734",
+      "DOI:10.1137/S0036144504443821",
+      "DOI:10.1080/03081089008817967",
+      "2026/10/4/SCOPE-zero-forcing-polynomial-of-bridge-barbells--5431b532d7f2",
+      "2026/10/11/SCOPE-laplacian-factorization-and-an-eigenspace-transition-for-rank-tw--b10901525680"
+    ],
+    "claim_vs_prior_implication": {
+      "evidence": [
+        "The 2008 theorem contradicts the exhibited example rather than implying it.",
+        "Prior double-star work is the subgraph with no within-class edges and cannot imply the stronger all-edge asymmetric uniqueness statement for cyclic supergraphs.",
+        "In the present construction every optional edge has zero potential difference, so the ordinary equality case of the universal bound precludes the perturbations invoked in Theorem 7."
+      ],
+      "reasoning": "The current claim includes a non-tree, full-simple-eigenvalue counterexample and all allowed independent weights, not merely the optimum on a spanning tree. This is an implication-level distinction.",
+      "searches": [
+        "Wan 2008 Theorem 7 lines 1279–1318 (available full text)",
+        "Sun et al 2006 SIAM Review original PDF",
+        "Own archived double-star spectral gap claims, earlier week3 record",
+        "published-finding corpus: absolute algebraic connectivity double star Fiedler bridge weighted cliques 2 ratio"
+      ]
+    },
+    "equivalent_formulations": {
+      "evidence": [
+        "Wan et al Theorem 7 says unique optimum with a non-repeated algebraic connectivity iff designable edge graph is a tree; present five-vertex cyclic design meets the hypotheses yet is unique.",
+        "Explicit spectrum of the proposed five-vertex solution is 0, 5/34, 3/17, 9/17, 39/34."
+      ],
+      "reasoning": "This is a direct counterexample to a contrary asserted theorem, rather than a renamed optimization value. The conflicting conclusion needs external verification but does not subsume the construction.",
+      "searches": [
+        "published-finding corpus: non-tree graph unique optimal edge design algebraic connectivity Fiedler simple counterexample to graph optimality theorem",
+        "Web: algebraic connectivity optimal unique if and only if tree counterexample",
+        "Wan et al 2008, Theorem 7, DOI:10.1109/CDC.2008.4738734"
+      ]
+    },
+    "exact_database_or_table": {
+      "evidence": [
+        "Closest returned bridge-barbell record 2026/10/4/SCOPE-zero-forcing-polynomial-of-bridge-barbells--5431b532d7f2 treats zero forcing rather than conductance optimization.",
+        "Closest general Laplacian result 2026/10/11/SCOPE-laplacian-factorization-and-an-eigenspace-transition-for-rank-tw--b10901525680 studies another graph family without budget-optimized conductances."
+      ],
+      "reasoning": "Neither checked record provides the claimed optimized weights or the published-Theorem-7 counterexample. Retrieval is not a completeness proof.",
+      "searches": [
+        "published-finding corpus: weighted barbell network optimized Fiedler eigenvalue unique conductances sparsification leaf clique edges",
+        "published-finding corpus: barbell two cliques joined by a bridge maximum algebraic connectivity total edge conductance budget optimum star support clique threshold unequal p q",
+        "published-finding corpus: non-tree graph unique optimal edge design algebraic connectivity Fiedler simple counterexample to graph optimality theorem"
+      ]
+    },
+    "rationale": "The cyclic five-vertex uniqueness counterexample is logically incompatible with Theorem 7 of Wan et al (2008), while the earlier double-star/tree case and generic spectral SDPs do not imply uniqueness once cyclic edges are independently admitted.",
+    "residual_risks": [
+      "Other specialized edge-design research may have already noticed or rectified this counterexample.",
+      "The older Fiedler full text was inaccessible, although it treats trees; bibliographic publication priority is not established."
+    ],
+    "source_inspections": [
+      {
+        "assessment": "Theorem 7 asserts tree-only uniqueness if an optimum has simple algebraic connectivity; directly contradicted by explicit K2/K3 bridge example.",
+        "evidence": [
+          "Theorem 7 text and perturbation reasoning in original full-text edition; section V.A."
+        ],
+        "identifier_or_url": "DOI:10.1109/CDC.2008.4738734",
+        "material_read": "Full accessible page including section V.A and Theorem 7 with proof, and neighboring Theorems 8–11",
+        "method": "Read accessible full-text HTML sections and compared stated hypotheses and claimed conclusion",
+        "title": "On the Structure of Graph Edge Designs that Optimize the Algebraic Connectivity",
+        "trigger": "Direct uniqueness theorem plausibly dominates the candidate"
+      },
+      {
+        "assessment": "General framework, not an equivalent exact non-tree optimizer or rebuttal of uniqueness claim.",
+        "evidence": [
+          "Original author-hosted PDF, first pages and optimization framework; electronic date 2006-11-02."
+        ],
+        "identifier_or_url": "DOI:10.1137/S0036144504443821",
+        "material_read": "Original publicly accessible PDF, introduction, definitions, variational dual framework and graph examples",
+        "method": "Read PDF primary text and inspected spectral optimization formulation",
+        "title": "The Fastest Mixing Markov Process on a Graph and a Connection to a Maximum Variance Unfolding Problem",
+        "trigger": "Generic Laplacian spectral optimization framework"
+      },
+      {
+        "assessment": "Tree results do not by themselves cover independent extra cyclic conductances; full text not inspected.",
+        "evidence": [
+          "Paper title and abstract explicitly limit study to trees."
+        ],
+        "identifier_or_url": "DOI:10.1080/03081089008817967",
+        "material_read": "Abstract and bibliographic record; full text not available",
+        "method": "Read accessible abstract, assessed tree-only scope",
+        "title": "Absolute algebraic connectivity of trees",
+        "trigger": "Tree-only special case of current architecture"
+      }
+    ],
+    "status": "PASS"
+  },
+  "review_type": "self_review",
+  "schema_version": 1,
+  "scope_run_id": "ddca2732-84ed-4370-a932-2f6cda4a85fb",
+  "self_review_status": "passed",
+  "value": {
+    "rationale": "Gives an exact non-tree counterexample to a claimed structural uniqueness theorem and a sharp infinite-family rigidity classification, resolving whether cycle-closing edges can be used in a globally optimal spectral design under a common budget.",
+    "status": "PASS"
+  }
+}
