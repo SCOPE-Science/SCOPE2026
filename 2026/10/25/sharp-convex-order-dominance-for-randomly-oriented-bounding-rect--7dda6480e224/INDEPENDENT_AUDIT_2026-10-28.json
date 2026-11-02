@@ -1,0 +1,126 @@
+{
+  "audit_date_utc": "2026-10-28",
+  "audited_at_utc": "2026-10-28T05:49:37Z",
+  "axes": {
+    "correctness": {
+      "checked_sources": [
+        "Frozen RESULT.md blob e4ca7af754df497af5ce65575e766403e62f82dd",
+        "Frozen verify.py blob f0e1d85fe9ee0d8b92456585413982c107b3fc2b",
+        "Independent direct squared-moment integration of cos U+sin U (2026-10-28)",
+        "Cauchy integral formula for widths and tangent-angle measures"
+      ],
+      "rationale": "By Cauchy projected-perimeter identity, w_K(theta)=1/2∫|cos(theta−phi)| ds and the normalized bounding-box perimeter is Z(theta)=∫q(theta−phi)dnu(phi) with q(t)=|cos t|+|sin t|. Uniform-rotation Jensen proves E Phi(Z)<=E Phi(q) for every convex Phi and identical mean 4/pi. The Fourier expansion q=4/pi−(8/pi)Σ_{m>=1}cos(4mt)/(16m²−1), Parseval, and |c_m|<=1 give Var Z=(32/pi²)Σ|c_m|²/(16m²−1)² and maximum 1+2/pi−16/pi². First harmonic defect gives 64/(225pi²) double integral of sin²(2(phi−psi)); equality |c1|=1 forces all arclength tangents in two perpendicular axes, so a full-dimensional convex body must be a rectangle. Strict convex Jensen equality implies the same variance equality, and trigonometric inversion yields survival 4/pi arccos(t/sqrt2) on [1,sqrt2]. Independently checked the exact rectangle mean and variance by integration.",
+      "residual_risks": [
+        "In strict convex case, equality of integrated Jensen gaps implies a.s. equality of all pairwise kernel values, hence same Fourier variance; proof supplies this detail.",
+        "Only rectangles of nonempty interior; measure-zero degenerate strips excluded."
+      ],
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Akiyama–Kamae’s one-direction width deviation can favor degenerate segments, while here rectangle maximizes every convex loss of paired widths.",
+          "Minimum width is an optimization over direction, not a random-orientation distribution."
+        ],
+        "reasoning": "The inspected published theorems do not dominate the pair-of-perpendicular-width law.",
+        "searches": [
+          "Random oriented bounding rectangle perimeter convex body convex order width sum perpendicular directions variance rectangle",
+          "Akiyama Kamae Width deviation of convex polygons arXiv:2201.06736",
+          "Audet Hansen Messine Isoperimetric Polygons of Maximum Width"
+        ]
+      },
+      "checked_sources": [
+        "Akiyama–Kamae arXiv:2201.06736v1 full relevant source",
+        "Audet–Hansen–Messine 2009 Discrete Comput Geom minimum width",
+        "Resultary query: Random oriented bounding rectangle perimeter convex body convex order width sum perpendicular directions variance rectangle",
+        "2026 published positive N-direction Cauchy quadrature record, discrete deterministic integration error"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "Akiyama–Kamae computes variation of one width w_K(theta), not 2(w_K(theta)+w_K(theta+pi/2))/P(K).",
+          "Proof needs common orientation for the perpendicular pair and kernel q periodic pi/2."
+        ],
+        "reasoning": "A prior one-width variance bound does not mathematically imply the stated all-convex-loss bound, rectangle extremality, or spectral angular defect.",
+        "searches": [
+          "Akiyama Kamae arXiv:2201.06736",
+          "Random oriented bounding rectangle perimeter convex body convex order width sum perpendicular directions variance rectangle"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "The observable is B_K/P(K)=∫q(theta−phi) dnu(phi), a convolution of the universal rectangle kernel with a tangent-direction probability.",
+          "Its convex order follows from Jensen but is stronger than any variance-only inequality."
+        ],
+        "reasoning": "Relevant aliases include random orthogonal width sum, rotated tight box perimeter, isotropic mean-width pair and convex stochastic order; no exact prior joint theorem established.",
+        "searches": [
+          "Random oriented bounding rectangle perimeter convex body convex order width sum perpendicular directions variance rectangle",
+          "random orientation minimum enclosing rectangle perimeter convex order random width sum",
+          "Cauchy width distribution harmonics"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "The law Q=cos U+sin U is elementary for rectangle but the assertion Z_K<=cx Q holds for an infinite class of arbitrary convex K.",
+          "The Fourier spectrum involves all c_m of an arbitrary boundary tangent measure, not a finite lookup table."
+        ],
+        "reasoning": "Known shape tables could contain rectangle law or individual variance values, not by themselves the universal convex-order and rigidity statement.",
+        "searches": [
+          "Random oriented bounding rectangle perimeter convex body convex order width sum perpendicular directions variance rectangle",
+          "Cauchy random orthogonal bounding box perimeter variance density table"
+        ]
+      },
+      "rationale": "Classical Cauchy widths and Jensen’s inequality provide direct proof tools, but Akiyama–Kamae optimize dispersion of a single random-direction width and Audet–Hansen–Messine optimize deterministic minimum width. Their results do not imply the complete convex-order distributional comparison for the sum of two perpendicular widths, aspect-ratio-independent rectangle law, and exact stability spectral defect. Best-knowledge originality, with explicit chance that general harmonic convolution contraction is known in another form.",
+      "residual_risks": [
+        "As an application of Jensen to rotational convolution, the qualitative convex-order inequality may be implicit in general convex-geometry probability literature.",
+        "Fourier rigidity for perpendicular directions could be known under support-measure language."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "DIFFERENT one-width random statistic",
+          "evidence": "The extremal geometry and single-width observable differ from the paired perpendicular widths in the assessed theorem.",
+          "identifier_or_url": "https://arxiv.org/abs/2201.06736",
+          "material_read": "Full relevant arXiv preprint, introduction and polygon-edge decomposition/optimization statements",
+          "method": "Primary preprint full-text material",
+          "title": "Width deviation of convex polygons",
+          "trigger": "Same directional widths for planar convex polygons"
+        },
+        {
+          "assessment": "DIFFERENT deterministic observable",
+          "evidence": "Optimizes smallest directional width of polygons; lacks uniform random frame and convex order.",
+          "identifier_or_url": "https://doi.org/10.1007/s00454-008-9103-9",
+          "material_read": "Abstract and mathematical statement of deterministic min-width optimization, not a whole-document negative claim",
+          "method": "Publisher accessible description",
+          "title": "Isoperimetric Polygons of Maximum Width",
+          "trigger": "Potential dominating planar convex width theorem"
+        },
+        {
+          "assessment": "CLASSICAL INPUT",
+          "evidence": "Provides projection/tangent formula, not specific convex-order law based on pi/2-periodic sum.",
+          "identifier_or_url": "https://doi.org/10.1017/CBO9781139003858",
+          "material_read": "Standard Cauchy width/arclength identity as cited in accessible material",
+          "method": "Reference theorem comparison",
+          "title": "The Brunn–Minkowski Theory, second expanded edition",
+          "trigger": "Classical Cauchy projection identity tool"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "checked_sources": [
+        "Actual geometric representation of K by normalized tangent arclength",
+        "Exact rectangle Q law and spectral defect formula"
+      ],
+      "rationale": "Bounding rectangles are canonical enclosing shapes. The theorem simultaneously solves all convex orientation penalties for any planar convex body, proves the unusual aspect-ratio-independent extremizer law, and gives a quantitative first-harmonic stability test. This is a natural probabilistic geometric extremal problem, beyond a single numerical variance calculation.",
+      "residual_risks": [
+        "Different observables (enclosing-box area or optimal-orientation rectangle) are outside the theorem."
+      ],
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "limitations": [
+    "Normalized tight bounding-rectangle perimeter for common uniform rotation in dimension two.",
+    "No generalization to box areas, independent rotations of axes, nonconvex bodies or higher dimensions."
+  ],
+  "schema_version": 1
+}
