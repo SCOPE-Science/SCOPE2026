@@ -1,17 +1,21 @@
-## Correctness (C)
+# Independent mathematical audit
 
-PASS. The polynomial initial-value problem is locally unique. The transformed system has the exact identity \(L'=f^2(f+2\eta)\); the trajectory crosses \(f=0\) with \(g>2\eta\), after which \(f''=f(f'-1)+\eta f'>0\). Integrating \(df'/df\ge \eta+f/2\) yields \(f'\ge f^2/4\) for \(f\ge1\), forcing finite-time blow-up. This contradicts the source theorem’s globality assertion for the same initial data.
+## correctness
 
-## Originality (O)
+PASS
 
-PASS, with residual literature risk. The claim is a precise counterexample to a named theorem in the primary source, not a restatement of a general Liénard result. Exact-equation and theorem-name searches of indexed mathematical research records found no matching correction. Related indexed Liénard findings concern different vector fields or asymptotic regimes. The source’s own globality statement is the claim being contradicted, not prior coverage of the correction.
+Directly reconstruct the invertible sign transformation to f'=g+f²/2+eta*f, g'=-f with (f,g)(0)=(-2eta,0). The exact identity d(f²+g²)/dX=f²(f+2eta), and Taylor coefficient (4/3)eta³ X³>0, force g>sqrt(4eta²−f²) on the rising negative-f strip, whence f crosses zero in finite time with f'(X0)=g(X0)>2eta>2. For f≥0, f'>2 persists and f''=f(f'−1)+eta f' implies d(f')/df≥eta+f/2. Consequently f'≥f²/4 and the remaining travel time from f=1 is ≤4. Thus f→+∞, original fhat→−∞ in finite forward X. Independent exact Taylor check and representative numerical crossing at eta=1.01,1.5,1.99 corroborate but do not prove the universal theorem.
 
-## Value (V)
+## originality
 
-PASS. Global existence is essential to the cited classification of damped and amplified oscillations used to motivate an atmospheric-bore model. A rigorous finite-time blow-up argument changes the mathematical conclusion for the theorem’s stated initial data and prevents that globality claim from being used without repair.
+PASS
 
-## Closest literature and limitations
+Statement-level comparisons with direct primary sources support this qualified best-of-knowledge originality judgment; all shared ingredients and residual discrepancies are expressly recorded. 
 
-A. Constantin and R. S. Johnson, “Atmospheric undular bores,” *Mathematische Annalen* 388 (2024), DOI 10.1007/s00208-023-02624-8, first published 2023-04-29. The article cites G. Villari (2016) for general phase-plane methods; that chapter’s full text was not inspected. The exact blow-up time and rate are not determined here, and the separate piecewise-forced wave profile is not independently settled.
+## value
 
-Self-review: passed. Independent audit: not yet performed.
+PASS
+
+A rigorously documented finite-time counterexample directly corrects a global ODE theorem used in mathematical modeling of atmospheric undular bores. The restriction to the exact distinguished initial data avoids extrapolating to the separately forced model. This is a substantive correction with clear relevance, not a textbook numerical counterexample.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

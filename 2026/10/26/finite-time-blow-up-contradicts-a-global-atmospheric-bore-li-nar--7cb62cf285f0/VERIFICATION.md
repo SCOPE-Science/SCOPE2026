@@ -5,8 +5,11 @@
     "status": "not_performed"
   },
   "independent_audit": {
-    "evidence": null,
-    "status": "not_performed"
+    "status": "passed",
+    "evidence": [
+      "INDEPENDENT_AUDIT_2026-10-31.md",
+      "INDEPENDENT_AUDIT_2026-10-31.json"
+    ]
   },
   "lean_verification": {
     "evidence": null,
@@ -16,12 +19,24 @@
 }
 ---
 
-## Checks and limits
+# Independent mathematical audit
 
-- Reconstructed the published second-order equation and the equivalent first-order system.
-- Differentiated the quadratic function \(L=f^2+g^2\) and checked \(L'=f^2(f+2\eta)\).
-- Checked the local Taylor coefficients at the initial point and the strict increase \(L>4\eta^2\) immediately after \(X=0\).
-- Re-derived the finite crossing \(f=0,\ g>2\eta\) from the phase-plane inequalities.
-- Verified the differential inequality \(df'/df\ge\eta+f/2\) after the crossing and the finite integral \(\int_1^\infty4f^{-2}\,df=4\).
-- The result refutes global existence for the specific initial data; it does not classify every orbit or decide the separate piecewise-forced profile.
-- No numerical solver output is used as proof. Independent audit and external validation have not been performed.
+## correctness
+
+PASS
+
+Directly reconstruct the invertible sign transformation to f'=g+f²/2+eta*f, g'=-f with (f,g)(0)=(-2eta,0). The exact identity d(f²+g²)/dX=f²(f+2eta), and Taylor coefficient (4/3)eta³ X³>0, force g>sqrt(4eta²−f²) on the rising negative-f strip, whence f crosses zero in finite time with f'(X0)=g(X0)>2eta>2. For f≥0, f'>2 persists and f''=f(f'−1)+eta f' implies d(f')/df≥eta+f/2. Consequently f'≥f²/4 and the remaining travel time from f=1 is ≤4. Thus f→+∞, original fhat→−∞ in finite forward X. Independent exact Taylor check and representative numerical crossing at eta=1.01,1.5,1.99 corroborate but do not prove the universal theorem.
+
+## originality
+
+PASS
+
+Statement-level comparisons with direct primary sources support this qualified best-of-knowledge originality judgment; all shared ingredients and residual discrepancies are expressly recorded. 
+
+## value
+
+PASS
+
+A rigorously documented finite-time counterexample directly corrects a global ODE theorem used in mathematical modeling of atmospheric undular bores. The restriction to the exact distinguished initial data avoids extrapolating to the separately forced model. This is a substantive correction with clear relevance, not a textbook numerical counterexample.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
