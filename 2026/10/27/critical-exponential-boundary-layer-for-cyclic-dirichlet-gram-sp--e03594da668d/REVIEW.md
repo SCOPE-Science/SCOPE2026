@@ -1,15 +1,21 @@
-# Scientific review
+# Independent mathematical audit
 
-## Correctness — PASS
-For the precisely normalized Dirichlet-type kernel and fixed positive parameters, the Fourier residue identity is exact. Strict ordering is termwise; the endpoint estimate for \(F_a(t)\) is uniform down to \(a=\tau/N\). The radial expansion and kernel diagonal produce the claimed operator-norm error, and the off-diagonal logarithm bound verifies the coherence comparison. The included reproducibility program executed 60 finite checks; the infinite statement rests on the analytical proof.
+## correctness
 
-## Originality — PASS, subject to priority limitations
-The closest full relevant source is Chalmoukis's 2021 study of Dirichlet interpolation: its normalized Gram definition and finite equispaced-arc Example 2.3 were inspected, but no full-circle exponential-scale Fourier eigenvalue asymptotics were found there. The 2019 random interpolation paper and 2023 complete Pick characterization have different quantified objects. Indexed Szegő-kernel orbit-frame conditioning is a different kernel family. Exact geometry/parameter/equivalent-formulation searches did not reveal a covering theorem; an inaccessible indexed related full text and obscure earlier work remain a priority risk.
+PASS
 
-## Value — PASS
-The sharp positive logarithmic kernel is central to point interpolation. Uniform spectral control across all Fourier modes, a compact harmonic spike operator, a sharp limiting condition number, and a vanishing pairwise-coherence/finite-frame-norm separation are useful structural data rather than an arbitrary computation.
+For fixed c,τ>0, N≥2 and ρ=1−e^(−cN), nonnegative power-series coefficients give exact Fourier modes λ_{N,j}=N/d_N sum_{k≥0}ρ^(j+kN)/(j+kN+τ), strictly decreasing in j. Integral substitution F_a(t)=∫_0^t v^(a−1)/(1−v)dv, a=(j+τ)/N and t=ρ^N, gives F_a=−log(1−t)+1/a+O(1) uniformly including a→0, while −log(1−t)=cN−log N+O(Ne^(−cN)) and d_N=cN+O(1). Division proves λ_{N,j}=1+1/[c(j+τ)]+O(log N/N) uniformly 0≤j<N; extending Fourier diagonals by ones yields the ℓ² operator-norm limit with tail O(1/N). Log-kernel growth O(log N) off diagonal versus d_N≈cN proves coherence O(log N/N), not asymptotic tightness. Fresh independent 5-,8-,12-,16-point Fourier DFT calculations exactly matched regrouped Lerch-series eigenvalues at 65-digit precision and checked strict ordering; this tests finite cases only.
 
-## Limitations
-Fixed parameters and regular-circle finite arrays only; no claim about arbitrary sets, full historical priority or independent verification. Inaccessible related full text has not been treated as evidence that it does not cover the result.
+## originality
 
-Self-review: passed. Independent audit: not yet performed.
+PASS
+
+Best-of-knowledge original versus closest accessible statements, with real Resultary and primary-source comparisons; failed search is not novelty proof and uninspected plausible literature is recorded, not declared noncovering.
+
+## value
+
+PASS
+
+The normalized logarithmic Dirichlet kernel is central to interpolation. An explicit critical radius scaling that has vanishing pairwise coherence but a nontrivial finite Gram frame-condition limit reveals a quantitatively useful distinction between two natural properties, with all Fourier outlier modes controlled uniformly, not merely a generic interpolation restatement.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
