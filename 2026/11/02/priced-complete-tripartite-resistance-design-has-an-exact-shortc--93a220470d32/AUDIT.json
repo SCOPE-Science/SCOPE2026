@@ -1,0 +1,127 @@
+{
+  "correctness": {
+    "rationale": "Global uniqueness follows from strict trace-inverse convexity and injective independent edge Laplacian entries; the exact group symmetry forces the two conductance orbits. The explicitly computed full nonzero Laplacian spectrum yields a rational Kirchhoff objective. Its one-dimensional price derivative gives the exact support threshold including equality, and an analytic Taylor expansion proves the critical 1/m scaling. Code corroborated symbolic identities, full eigenvalues, pair resistances, and full-edge numerical optimizers; infinite correctness rests on the proof.",
+    "status": "PASS"
+  },
+  "independent": false,
+  "independent_audit_status": "not_performed",
+  "originality": {
+    "broader_coverage": {
+      "evidence": [
+        "Ghosh–Boyd–Saberi §5 supplies tree, wheel and barbell analytic examples; no priced balanced tripartite allocation.",
+        "Johnson–Chertkov section III-E uses gridded networks and §IV nonlinear sparsity penalties."
+      ],
+      "reasoning": "The unrestricted strict-convexity theorem is a known general reduction, but its result is a program, not an evaluated sharp threshold for every m. The known formulas are insufficient alone to imply the present critical 1/m window without weighted spectrum and optimization.",
+      "searches": [
+        "published-finding corpus: exact minimum Kirchhoff index under priced conductance budget three balanced vertex groups; A-B B-C one price A-C another; deletion threshold ratio 24m/(15m-7)",
+        "Web: optimal Kirchhoff index allocation complete tripartite graph unequal inter-part edge weights",
+        "Web: Ghosh Boyd Saberi minimizing effective resistance analytical symmetry wheel barbell"
+      ]
+    },
+    "checked_sources": [
+      "https://stanford.edu/~boyd/papers/pdf/eff_res.pdf",
+      "https://arxiv.org/pdf/1004.2285",
+      "https://journals.msuiit.edu.ph/tmjm/article/view/26",
+      "https://doi.org/10.1016/j.orl.2023.10.002",
+      "https://mathworld.wolfram.com/KirchhoffIndex.html"
+    ],
+    "claim_vs_prior_implication": {
+      "evidence": [
+        "prior research records related but distinct item 78a63c5a: K_{2m} with priced matching links minimizes worst-pair resistance, not this three-part total resistance.",
+        "prior research records related but distinct item dc9e2b44: priced edge-subdivision K_{p,q} minimizes total resistance on a different graph.",
+        "published-finding corpus nearest hits include 2026/10/4/SCOPE-exact-klx-number-of-balanced-complete-multipartite-graphs--d7d7a1fe0f08, a DFS graph statistic rather than resistance optimization."
+      ],
+      "reasoning": "No accessible claim or published-finding corpus hit implies the threshold by specialization or substitution; the closest prior objects have different topology, objective or fixed unweighted edges. The search is not an exhaustive uniqueness proof and missing obscure specialized literature remains an explicit risk.",
+      "searches": [
+        "published-finding corpus: weighted complete tripartite electrical network minimum sum pairwise resistances: outer-link conductance zero above critical price, 8/5 large group limit",
+        "published-finding corpus: resistance distance optimization on K_{m,m,m} uniform within edge orbits with critical 1/m asymptotic price window",
+        "published-finding corpus: Balanced complete tripartite K_{m,m,m} optimal Kirchhoff index minimizing total effective resistance with edge price ratio P/Q, all A-C links deleted if and only if P/Q >= 24m/(15m-7), boundary layer 8/5 + κ/m",
+        "prior research records claims: compared 90C25 priced graphs, matching links, subdivisions, wheels, and complete-graph partition results"
+      ]
+    },
+    "equivalent_formulations": {
+      "evidence": [
+        "Ghosh–Boyd–Saberi general ERMP (2006/2008) is convex but examples involve trees, wheels, barbells.",
+        "Johnson–Chertkov arXiv:1004.2285 models heterogeneous costs, without the prescribed balanced tripartite theorem."
+      ],
+      "reasoning": "Equivalent objectives include total effective resistance, Kirchhoff index and trace pseudoinverse. Those frameworks do not themselves state the two-price optimizer or the 24m/(15m-7) support boundary. The algebraic cost reduction and critical-layer analysis are additional special-structure results.",
+      "searches": [
+        "published-finding corpus: Optimal conductance allocation minimizing total pairwise effective resistance on balanced complete tripartite K_{m,m,m}, two cheap adjacent interpart links and a priced direct outer link; exact support deletion price threshold",
+        "Web: 'weighted complete tripartite graph' Kirchhoff optimization",
+        "Web: 'complete tripartite' 'effective resistance' 'conductance' budget"
+      ]
+    },
+    "exact_database_or_table": {
+      "evidence": [
+        "Kooij–Achterberg 2023 Lemma 5 yields \\(\\mathcal K(K_{m,m,m})=(9m-5)/2\\) for unit conductances.",
+        "Gervacio 2012 abstract concerns one-ohm edge resistance distances for complete multipartite graphs."
+      ],
+      "reasoning": "The exact known unweighted table matches the new weighted formula at x=y=1, a necessary consistency test. It does not tabulate the price-optimized weights, support threshold, or shrinking critical window; this component is credited as known.",
+      "searches": [
+        "Web: 'complete tripartite' 'Kirchhoff index' weighted eigenvalues",
+        "Web: Kooij Achterberg complete tripartite Kirchhoff index Lemma 5",
+        "published-finding corpus: Kirchhoff index conductance budget weighted complete tripartite graph K_m,m,m with one costly interclass edge orbit shortcut suppression"
+      ]
+    },
+    "rationale": "Under actual public source, own-record and published-finding corpus comparisons, the fully priced K_{m,m,m} edge-deletion frontier and 1/m critical law are not implied by the known general convex framework or unweighted complete multipartite formulas. The accessible full primary papers cover other graphs or general methods. A same-object 2012 unit-resistor paper was only accessible by abstract, and specialized historic coverage remains a residual risk.",
+    "residual_risks": [
+      "Gervacio 2012 PDF redirected and its complete 19-page text was not accessible; its published abstract concerns one-ohm (unweighted) edges.",
+      "A specialized previously unindexed complete-tripartite priced-allocation theorem might exist; a failed search cannot establish universal originality."
+    ],
+    "source_inspections": [
+      {
+        "assessment": "Gives general convexity and symmetry, but not an exact two-price balanced tripartite support frontier or its large-size critical layer.",
+        "evidence": [
+          "§1 problem (2) total resistance, §§2–4 framework, §5 examples wheels/barbells; https://stanford.edu/~boyd/papers/pdf/eff_res.pdf"
+        ],
+        "identifier_or_url": "https://stanford.edu/~boyd/papers/pdf/eff_res.pdf",
+        "material_read": "30-page PDF introduction, convex formulation, and section 5 analytic examples (trees, wheels, barbell) including symmetry argument near PDF pages 21–23",
+        "method": "Web PDF extracted full text with page-image inspection (PDF page 2)",
+        "title": "Minimizing Effective Resistance of a Graph",
+        "trigger": "Closest general trace-inverse convex conductance allocation framework; plausible stronger coverage"
+      },
+      {
+        "assessment": "Different nonconvex installation-cost heuristics and grid examples; no analytic balanced tripartite Kirchhoff index minimizer.",
+        "evidence": [
+          "Sections I-C, III-E and IV plus figures 1–2, https://arxiv.org/pdf/1004.2285"
+        ],
+        "identifier_or_url": "arXiv:1004.2285",
+        "material_read": "Full eight-page text including introduction, sections II–V and section III-E grid demonstrations",
+        "method": "Open-access arXiv full text and PDF with page-image inspection (PDF page 1)",
+        "title": "A Majorization-Minimization Approach to Design of Power Transmission Networks",
+        "trigger": "Priced conductance design, strong potential overlap with support deletion"
+      },
+      {
+        "assessment": "Abstract explicitly models all edges as unit resistors; cannot be used to exclude any unseen full-text extension. Later known unweighted tripartite formula checked separately.",
+        "evidence": [
+          "Abstract: every edge has resistance one ohm, complete multipartite pair resistances; https://journals.msuiit.edu.ph/tmjm/article/view/26"
+        ],
+        "identifier_or_url": "https://journals.msuiit.edu.ph/tmjm/article/view/26",
+        "material_read": "Public journal abstract and article metadata, dated 2012-05-01; PDF link redirected to search and could not be read",
+        "method": "Journal landing-page text and attempted PDF follow link",
+        "title": "Resistance distance in complete n-partite graphs",
+        "trigger": "Same graph family; possible broader exact resistance formula"
+      },
+      {
+        "assessment": "Lemma 5 establishes only the unit-conductance Kirchhoff index; augmentation is combinatorial, not a heterogeneous continuous price budget.",
+        "evidence": [
+          "Lemma 5: \\(\\mathcal K(K_{m,m,m})=(9m-5)/2\\), https://doi.org/10.1016/j.orl.2023.10.002"
+        ],
+        "identifier_or_url": "doi:10.1016/j.orl.2023.10.002",
+        "material_read": "Open full HTML main argument and Lemma 5 for unweighted balanced tripartite resistance",
+        "method": "Published open HTML primary text",
+        "title": "Minimizing the effective graph resistance by adding links is NP-hard",
+        "trigger": "Contains an exact Kirchhoff index for the identical unweighted balanced tripartite graph"
+      }
+    ],
+    "status": "PASS"
+  },
+  "review_type": "self_review",
+  "schema_version": 1,
+  "scope_run_id": "93a22047-0d32-4be7-bb08-df1e612d476c",
+  "self_review_status": "passed",
+  "value": {
+    "rationale": "A natural three-community shortcut network admits a complete independently-variable conductance optimization theorem, a sharp price ratio for removing an entire edge class while maintaining connectivity, and an analytic 1/m scaling window with a finite-size exception. These go beyond a numerical entry or a routine restatement of convexity and give a structural network-design benchmark. Scope is honestly restricted to equal communities and linear conductance prices.",
+    "status": "PASS"
+  }
+}
