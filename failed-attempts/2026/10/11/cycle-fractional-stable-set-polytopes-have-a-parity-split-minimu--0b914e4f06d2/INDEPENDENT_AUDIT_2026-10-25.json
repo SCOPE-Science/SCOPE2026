@@ -1,0 +1,148 @@
+{
+  "audit_date_utc": "2026-10-25",
+  "audited_at_utc": "2026-10-25T21:10:09.207993Z",
+  "axes": {
+    "correctness": {
+      "checked_sources": [
+        "arXiv:1603.09613v2 (Hamano–Hibi–Ohsugi), Lemma 2.2 and Proposition 2.3",
+        "arXiv:1709.09642v1 (Kafer–Pashkovich–Sanità), Section 5",
+        "https://github.com/SCOPE-Science/SCOPE2026/tree/6c379935c2e469fc18959fc6c387e31328c64bcf/2026/10/11/cycle-fractional-stable-set-polytopes-have-a-parity-split-minimu--0b914e4f06d2/RESULT.md"
+      ],
+      "rationale": "For n≥3, Hamano–Hibi–Ohsugi Lemma 2.2 gives the exact cycle vertices: stable-set 0–1 incidence vectors for even cycles, and these plus h=(1/2)1 for odd cycles. For each stable set S of size k and uniform center s1, squared distance is ns²+k(1−2s). When n is even, the two complementary alternating stable-set vectors have distance sqrt(n) and midpoint (1/2)1; their diameter forces radius at least sqrt(n)/2, while every 0–1 vertex lies exactly that far from the midpoint. When n is odd, alpha=(n−1)/2 and the n maximum stable sets average to c=(alpha/n)1. Their common squared distance alpha−alpha²/n=(n²−1)/(4n) is a universal lower bound by the variance identity, and all smaller stable sets have squared distance (alpha²+k)/n strictly less. The extra h lies at squared distance 1/(4n), strictly below the squared radius. The barycentric variance identity gives uniqueness over all R^n centers, not just symmetric centers. All n≥3 boundaries were checked, including C3. Independent halfspace-intersection computations reproduced all vertices for 3≤n≤8; independent exact rational stable-set/radius checks were run for 3≤n≤10. These are corroborations, not infinite proofs.",
+      "residual_risks": [
+        "No formal Lean verification or expert attestation is supplied; exact mathematical argument is reconstructed directly."
+      ],
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Published SCOPE-20261011-a4388ee8bd83 full proof: for vertex-transitive H of order N and independence number a, q=(a/N)1 is the barycenter of maximum stable-set indicators, each at squared distance Q=a−a²/N.",
+          "Same full proof: all stable-set indicators of size k satisfy dist² to q = a²/N + k(1−2a/N)≤Q because 2a≤N.",
+          "For H=C_n, a=floor(n/2). arXiv:1603.09613v2 (Hamano–Hibi–Ohsugi), Lemma 2.2 and Proposition 2.3 identifies FRAC(C_n) as STAB(C_n) for even n and as its convex hull plus h for odd n."
+        ],
+        "reasoning": "The published vertex-transitive lemma has strictly broader graph coverage for the integer stable-set part. Adding the known sole odd fractional vertex to a ball in which it is strictly interior is an immediate corollary, hence the entire submitted minimum-ball and shell result is implied.",
+        "searches": [
+          "Resultary query: vertex transitive independence polytope fractional stable set vertices minimum enclosing sphere radius via symmetry contact barycenter",
+          "Resultary query: polytopes 0-1 incidence independent sets perfect graph Hansen polytope circumradius inradius squared distance",
+          "SCOPE-20261011-a4388ee8bd83 full RESULT.md"
+        ]
+      },
+      "checked_sources": [
+        "SCOPE-20261011-a4388ee8bd83 complete public RESULT.md + METADATA.json; https://github.com/Resultary/2026/blob/main/2026/10/11/SCOPE-a-sharp-apex-screening-transition-for-the-circumradius-of-graph--a4388ee8bd83/RESULT.md",
+        "arXiv:1603.09613v2 full text, Lemma 2.2 / Prop 2.3; https://arxiv.org/pdf/1603.09613",
+        "arXiv:1709.09642v1 full text, Section 5; https://arxiv.org/pdf/1709.09642",
+        "Resultary distinct SCOPE-20261011-66ee64a01479 published summary (different K_n family)",
+        "Resultary SCOPE-20261011-0b914e4f06d2 exact self-hit excluded as independent coverage",
+        "Independent exact finite halfspace-vertex enumerations 3≤n≤8 and rational contact checks 3≤n≤10"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "For any vertex-transitive H with at least one edge, source proves weighted-contact lower bound R²=a−a²/N and center a/N, and distance²=a²/N+k(1−2a/N) for stable vertices.",
+          "For C_n, a=n/2 in even order: q=1/2 and every binary stable vertex has distance²=n/4.",
+          "For odd C_n, a=(n−1)/2: Q=(n²−1)/(4n), contact exactly k=a, and h=(1/2)1 has distance²=1/(4n)<Q.",
+          "Hamano–Hibi–Ohsugi, Lemma 2.2, gives no further fractional cycle vertices, so adding h cannot alter the minimum ball."
+        ],
+        "reasoning": "These identities recover the center, squared radius, uniqueness, full contact list, radial shells and interior half-vector for all n≥3. Different graphical packaging is not a new mathematical result. Neither Kafer et al. circuit diameters nor the complete-graph FRAC result independently supplies these exact formulas, but the published transitive-rim lemma plus known vertex classification does.",
+        "searches": [
+          "SCOPE-20261011-a4388ee8bd83 complete published RESULT.md",
+          "arXiv:1603.09613v2 (Hamano–Hibi–Ohsugi), Lemma 2.2 and Proposition 2.3",
+          "arXiv:1709.09642v1 (Kafer–Pashkovich–Sanità), Section 5",
+          "Resultary query: vertex transitive independence polytope fractional stable set vertices minimum enclosing sphere radius via symmetry contact barycenter"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "The same-record Resultary hit SCOPE-20261011-0b914e4f06d2 is excluded from independent overlap evidence.",
+          "Distinct published SCOPE-20261011-a4388ee8bd83 contains the general vertex-transitive STAB(H) circumcenter/radius formula in its proof.",
+          "arXiv:1603.09613v2 (Hamano–Hibi–Ohsugi), Lemma 2.2 and Proposition 2.3 gives the only extra odd-cycle half-integral point."
+        ],
+        "reasoning": "Circumradius, minimum enclosing Euclidean ball, smallest enclosing sphere, Chebyshev center, and one-center terminology refer to the same optimization here. General stable-set cone geometry gives the identical center and radius before adding the odd FRAC vertex; the added point lies strictly inside and changes neither center nor contacts.",
+        "searches": [
+          "Resultary query: fractional stable set polytope FRAC FSTAB cycle graph minimum enclosing Euclidean ball circumradius Chebyshev center contact points parity",
+          "Resultary query: odd cycle stable set polytope circumradius minimum ball alpha/n center radial shells maximum independent sets",
+          "Resultary query: vertex transitive independence polytope fractional stable set vertices minimum enclosing sphere radius via symmetry contact barycenter",
+          "Resultary query: polytopes 0-1 incidence independent sets perfect graph Hansen polytope circumradius inradius squared distance"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "Published graph-cone theorem gives exact algebraic center q and squared radius Q for all transitive H, which yield the exact cycle numbers without a separate table.",
+          "Separate published complete-graph fractional stable-set sphere record SCOPE-20261011-66ee64a01479 concerns K_n, not C_n.",
+          "The self-match in published mathematical search was excluded."
+        ],
+        "reasoning": "Absence of a named cycle radius table is immaterial: the more general exact symbolic formula already computes every claimed center, radius and integer-vertex shell after substituting a=floor(n/2).",
+        "searches": [
+          "Resultary query: fractional stable set polytope FRAC FSTAB cycle graph minimum enclosing Euclidean ball circumradius Chebyshev center contact points parity",
+          "Resultary query: odd cycle stable set polytope circumradius minimum ball alpha/n center radial shells maximum independent sets",
+          "Resultary query: polytopes 0-1 incidence independent sets perfect graph Hansen polytope circumradius inradius squared distance",
+          "SCOPE-20261011-a4388ee8bd83 metadata/full result"
+        ]
+      },
+      "rationale": "FAIL due to decisive coverage by another published mathematical record, not merely search ambiguity. The full proof of the published graph-cone stable-set circumradius theorem SCOPE-20261011-a4388ee8bd83 already establishes the minimum-ball formula for STAB(H) for every vertex-transitive graph H with an edge: c=(a/N)1 and R²=a−a²/N; the contact criterion follows from distance²=a²/N+k(1−2a/N). Specializing H=C_n and adding the known Hamano–Hibi–Ohsugi cycle vertex classification yields every assertion of the submitted FRAC(C_n) theorem, with only the elementary inequality dist²(h,c)=1/(4n)<(n²−1)/(4n) needed in odd order. This is stronger mathematical prior coverage, even though the published theorem is presented in terms of graph cones rather than a same-title fractional-cycle result. The identical current record returned by Resultary was not counted as independent priority evidence.",
+      "residual_risks": [
+        "Both the audited record and the broader record have public metadata date 2026-10-11. The available sources do not establish human discovery or same-day publication ordering; the conclusion is objective mathematical coverage, not an authorship/chronological-priority claim.",
+        "The broad sphere formula is embedded in the proof of the graph-cone theorem rather than advertised as a standalone FRAC(C_n) theorem; the explicit reduction using the published half-integral vertex criterion is shown in the review.",
+        "Independent finite computations cannot establish the all-n statements; they were checked analytically.",
+        "No claim of exhaustive global mathematical-literature priority has been made."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "DECISIVE COVERAGE. Its full proof already supplies the general exact STAB(H) rim sphere and contact distance formula, which with known cycle fractional vertices yields all submitted conclusions.",
+          "evidence": "q=(a/N)1, Q=a−a²/N; for k-independent sets dist²=a²/N+k(1−2a/N); contact-barycenter variance lower bound; explicitly states H can be ordinary cycles.",
+          "identifier_or_url": "SCOPE-20261011-a4388ee8bd83; https://github.com/Resultary/2026/blob/main/2026/10/11/SCOPE-a-sharp-apex-screening-transition-for-the-circumradius-of-graph--a4388ee8bd83/RESULT.md",
+          "material_read": "Complete RESULT.md, including Finding, Assumptions, Uniform contact barycenter, Feasible radius, Global lower bound, Relationship to prior work, and Limitations; METADATA.json and audit status read separately.",
+          "method": "Pinned public mathematical-record full-text and metadata retrieval.",
+          "title": "A sharp apex-screening transition for the circumradius of graph-cone stable-set polytopes",
+          "trigger": "Distinct published close result whose proof centers the rim STAB(H) ball for any vertex-transitive H."
+        },
+        {
+          "assessment": "Its half-coordinate odd-cycle-support criterion exactly determines the extra odd-cycle vertex. It does not itself claim a Euclidean sphere theorem, but combines with the published broader sphere lemma to imply the submitted result.",
+          "evidence": "Definition FRAC(G), Lemma 2.2 and Proposition 2.3 at printed page 5; FRAC(G)=STAB(G) iff G is bipartite.",
+          "identifier_or_url": "arXiv:1603.09613v2; doi:10.1007/s00026-018-0392-2; https://arxiv.org/pdf/1603.09613",
+          "material_read": "Open-access full PDF introduction, definition of FRAC(G), Lemma 2.2, Proposition 2.3 and surrounding arguments; full PDF term searches for Euclidean, circumradius, minimum and radius.",
+          "method": "Open-access arXiv primary full-text inspection; relevant PDF page visually inspected.",
+          "title": "Ehrhart series of fractional stable set polytopes of finite graphs",
+          "trigger": "Earlier exact same-object primary article contains the half-integral vertex criterion needed to test the claimed FRAC cycle vertices."
+        },
+        {
+          "assessment": "The results are circuit-direction and combinatorial-distance statements. No Euclidean minimum enclosing sphere result was found; this source is not the decisive coverage.",
+          "evidence": "Section 5 defines the same fractional stable-set relaxation, then Lemmas 9–10 bound its circuit diameter.",
+          "identifier_or_url": "arXiv:1709.09642v1; doi:10.1137/17M1152115; https://arxiv.org/pdf/1709.09642",
+          "material_read": "Open-access full PDF introduction/results, Section 5 fractional stable-set circuit statements and graphical-vertex discussion; searches for Euclidean and radius.",
+          "method": "Open-access arXiv primary full-text section and PDF-page visual inspection.",
+          "title": "On the Circuit Diameter of Some Combinatorial Polytopes",
+          "trigger": "The submitted package identifies the paper as a same-object fractional stable-set geometry source."
+        },
+        {
+          "assessment": "Different graph family K_n; the available summary alone does not imply cycle geometry. Not needed for decisive originality failure.",
+          "evidence": "Published summary explicitly concerns FRAC(K_n) and its seven-dimensional fractional-vertex transition.",
+          "identifier_or_url": "SCOPE-20261011-66ee64a01479 (published mathematical-record summary)",
+          "material_read": "Title and published summary only; no full-text noncoverage conclusion is inferred.",
+          "method": "Mathematical-record semantic search result inspection.",
+          "title": "Complete-graph fractional stable-set polytopes have a sharp seven-dimensional sphere transition",
+          "trigger": "Nearby exact same-invariant FRAC finding surfaced by targeted published-result search."
+        }
+      ],
+      "status": "FAIL"
+    },
+    "value": {
+      "checked_sources": [
+        "SCOPE-20261011-a4388ee8bd83",
+        "arXiv:1603.09613v2 (Hamano–Hibi–Ohsugi), Lemma 2.2 and Proposition 2.3"
+      ],
+      "rationale": "The fractional stable-set relaxation and its even/odd cycle integrality difference are mathematically natural, and the exact sphere/contact classification is correct and clear. However, after accounting for the established general vertex-transitive stable-set minimum-ball lemma and the existing half-integral vertex theorem, the claimed new exact invariant reduces to a one-line addition of an interior half-vector. No independent unknown non-implied invariant, motivated new boundary, or structural step remains; this is a routine specialization and recomputation rather than a separately valuable mathematical finding under the stated standard.",
+      "residual_risks": [
+        "An expository example may still be pedagogically useful; that does not establish a new, independently needed mathematical invariant."
+      ],
+      "status": "FAIL"
+    }
+  },
+  "disposition": "failed",
+  "limitations": [
+    "Correctness established analytically; finite checks are corroboration, not infinite proof.",
+    "The prior general published theorem and half-integral vertex theorem logically imply the entire claim, so new originality cannot be asserted.",
+    "Publication remains a staged change-set, not a GitHub modification or external certification."
+  ],
+  "schema_version": 1
+}
