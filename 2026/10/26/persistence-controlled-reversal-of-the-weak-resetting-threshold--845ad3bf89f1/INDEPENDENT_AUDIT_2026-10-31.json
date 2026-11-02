@@ -1,0 +1,129 @@
+{
+  "audit_date_utc": "2026-10-31",
+  "audited_at_utc": "2026-10-31T06:50:17Z",
+  "axes": {
+    "correctness": {
+      "rationale": "PASS: Complete deterministic reset to (x,η) makes successive first-passage excursions i.i.d.; the renewal identity ET_r=(1−Φ(r))/(rΦ(r)) gives initial reset slope H=m1²−m2/2. For passive reflecting–absorbing BM with generator ∂xx, μ=x−x²/2 and M=2x/3−x³/3+x⁴/12; H0 has the simple interior zero c=1−1/√5 and positive derivative 1/(3√5). Differentiating the backward moment equations for the small drift εv yields (γ−∂xx)A=1−x and (γ−∂xx)B=M'(x)+2A with Dirichlet 0 and Neumann 1 boundary conditions. The displayed positive mixed-boundary Green resolvent gives S(γ)=−3√5[2μ(c)A(c)−B(c)/2]. Direct independent quadrature reproduces S(0)=4/125>0, S(0.1)=0.015585415510…, S(0.3)<0 and S(1)=−0.061343172483…; analytic interior resolvent asymptotics yield S(γ)=−1/γ+O(γ^−2). Continuity proves at least one reversal, not uniqueness; IFT gives the local root only for small ε and fixed γ. Moment differentiation is justified by small-drift Girsanov control and bounded-interval killed-process spectral gap, not numerical evidence alone.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Pal–Reuveni 2017 provides the universal resetting-renewal formula, without OU velocity Green corrections.",
+          "Baouche–Kurzthaler 2025 study ABPs near a wall in a distinct unbounded geometry.",
+          "Georgiou et al. analytic perturbation is for Gaussian velocity initialization; fixed-velocity section is simulation-only."
+        ],
+        "reasoning": "Neither broad generic restart formula nor Gaussian-reinit AOUP results imply the signed fixed-η ε-linear coefficient without computing the two moment response BVPs.",
+        "searches": [
+          "https://arxiv.org/abs/2609.21124",
+          "https://arxiv.org/abs/1607.06048",
+          "https://doi.org/10.1039/D5SM00340G",
+          "Resultary semantic query: active Ornstein Uhlenbeck stochastic resetting fixed initial velocity onset benefit first passage time persistence sign reversal"
+        ]
+      },
+      "checked_sources": [
+        "https://arxiv.org/abs/2609.21124",
+        "https://arxiv.org/abs/1607.06048",
+        "https://doi.org/10.1039/D5SM00340G",
+        "Assigned RESULT.md/verify.py; independent direct Green quadrature and asymptotic check"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "Generic renewal + ordinary passive moment threshold c are prior.",
+          "Original primary §3.4 says fixed-velocity analytical approach not immediately applicable and uses simulations only.",
+          "New coupled Green-resolvent moment derivatives prove S(0)=4/125 and S(γ)∼−1/γ."
+        ],
+        "reasoning": "One cannot infer the precise deterministic-velocity ε-linear sign reversal directly from the prior simulated curves or the Gaussian-velocity analytic expansion; the construction fills a specific analytical gap.",
+        "searches": [
+          "https://arxiv.org/abs/2609.21124",
+          "https://arxiv.org/abs/1607.06048",
+          "https://doi.org/10.1039/D5SM00340G",
+          "Resultary semantic query: active Ornstein Uhlenbeck stochastic resetting fixed initial velocity onset benefit first passage time persistence sign reversal"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Georgiou et al. §3.4: fixed velocity v0=±1 protocols handled via direct simulations; §2 theory assumes stationary Gaussian velocity.",
+          "The present claim is a first-order epsilon derivative for deterministic η with an explicit Green kernel and signed gamma limits."
+        ],
+        "reasoning": "The simulation phase diagram is related but is not an analytic theorem determining the exact response coefficient and its sign for arbitrarily strong and weak persistence; the new claim is narrower in epsilon but sharper mathematically.",
+        "searches": [
+          "https://arxiv.org/abs/2609.21124",
+          "Resultary semantic query: active Ornstein Uhlenbeck stochastic resetting fixed initial velocity onset benefit first passage time persistence sign reversal"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "Georgiou et al. Figure 9 has numerical curves and linear regressions in sqrt(Péclet) but no exact Green coefficient function S(γ) or sign-limit formula.",
+          "The present zero near γ≈0.2112213694 is explicitly numerical and NOT presented as a certified root or uniqueness result."
+        ],
+        "reasoning": "Numerical phase-diagram points are not an exact mathematical table covering all positive γ; their finite range does not imply either limiting asymptotic coefficient.",
+        "searches": [
+          "https://arxiv.org/abs/2609.21124",
+          "Resultary semantic query: active Ornstein Uhlenbeck stochastic resetting fixed initial velocity onset benefit first passage time persistence sign reversal"
+        ]
+      },
+      "rationale": "The exact same AOUP reflected-absorbed model and beneficial-resetting transition were studied by Georgiou–Bressloff–Bertrand in 2026. Their §3.4 explicitly treats fixed initial/reset velocity solely by simulations and shows shifts, not an analytic first-order coefficient nor rigorous persistence sign reversal in the weak-amplitude derivative. The passive threshold and generic restart renewal are acknowledged prior work. This Green-function coefficient and opposite persistence limits are a genuine model-specific addition, not an assertion of first discovery of resetting onset.",
+      "residual_risks": [
+        "Only local zero-resetting-rate derivative and first-order ε expansion for fixed positive γ; no global optimal-rate theorem or uniform double limit.",
+        "The numerical zero near γ≈0.2112213694 is not a uniqueness or interval-certified statement."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Fixed-velocity protocol treated via numerical simulations in §3.4, not derived via the new explicit deterministic-velocity moment Green coefficient or its signed gamma limits.",
+          "evidence": [
+            "§3.4 explicitly says Gaussian theory not immediately applicable to fixed velocity, therefore direct simulations; Fig. 9 shifted phase boundaries."
+          ],
+          "identifier_or_url": "https://arxiv.org/abs/2609.21124",
+          "material_read": "Full public arXiv HTML text, especially §2 perturbation assumptions, §3.2 onset, §3.4 fixed-velocity protocol and Figure 9, checked directly.",
+          "method": "Compare initial/reset velocity distributions and the order in weak activity, plus numerical-vs-analytical methods.",
+          "title": "Persistence, resetting, and first-passage times of an active Ornstein–Uhlenbeck particle",
+          "trigger": "Exactly the same reflected-absorbed AOUP model and fixed reset velocity"
+        },
+        {
+          "assessment": "Restart formula is prior, not the deterministic-velocity active OU Green solution.",
+          "evidence": [
+            "Phys. Rev. Lett. 118, 030603 (2017), arXiv:1607.06048."
+          ],
+          "identifier_or_url": "https://arxiv.org/abs/1607.06048",
+          "material_read": "ArXiv article abstract and standard renewal formula used in source; full article not independently checked.",
+          "method": "Separate generally known renewal formula from model-specific first-order coefficient.",
+          "title": "First Passage Under Restart",
+          "trigger": "Exact renewal identity underlying zero-reset slope"
+        },
+        {
+          "assessment": "Different active Brownian model and unbounded geometry; cannot imply this precise AOUP coefficient.",
+          "evidence": [
+            "Soft Matter 21 (2025) 5998–6011, doi:10.1039/D5SM00340G."
+          ],
+          "identifier_or_url": "https://doi.org/10.1039/D5SM00340G",
+          "material_read": "Published abstract and model summary (2-dimensional ABP, wall).",
+          "method": "Compare geometry and activity process with finite interval OU velocity.",
+          "title": "Optimal first-passage times of active Brownian particles under stochastic resetting",
+          "trigger": "Potentially broader active-search reset literature"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "rationale": "PASS: This sharp model-calibrated coefficient resolves the qualitative direction-sensitive threshold shift suggested by existing simulations and proves a persistence-controlled reversal that is not captured by stationary-Gaussian velocity perturbation. It gives a useful exact boundary of when weak resetting helps in the canonical reflected/absorbed active search setup.",
+      "status": "PASS"
+    }
+  },
+  "checked_sources": [
+    "https://arxiv.org/abs/2609.21124",
+    "https://arxiv.org/abs/1607.06048",
+    "https://doi.org/10.1039/D5SM00340G",
+    "Assigned RESULT.md/verify.py; independent direct Green quadrature and asymptotic check"
+  ],
+  "disposition": "passed",
+  "limitations": [
+    "First order in ε for fixed γ, η; not finite activity or arbitrary reset protocols.",
+    "S-zero numerical location not uniqueness certified; no uniform γ,ε double limit."
+  ],
+  "residual_risks": [
+    "Only local zero-resetting-rate derivative and first-order ε expansion for fixed positive γ; no global optimal-rate theorem or uniform double limit.",
+    "The numerical zero near γ≈0.2112213694 is not a uniqueness or interval-certified statement."
+  ],
+  "schema_version": 1
+}
