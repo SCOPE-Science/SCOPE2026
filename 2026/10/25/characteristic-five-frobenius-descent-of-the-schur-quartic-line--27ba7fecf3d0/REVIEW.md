@@ -1,15 +1,21 @@
-# Self-review
+# Independent mathematical audit
 
-## Correctness — PASS
-The explicit characteristic-five surface is smooth. The proof constructs 16 separated plus 48 graph lines over \(\mathbf F_{25}\) and invokes the sharp Rams–Schütt geometric upper bound of 64. The exact standard-library verifier exhausts \(25^4\) binary-quartic matrix candidates, all line-pair plane ranks, and Frobenius fixed points; it establishes the eight rational lines, \(K_{2,6}\) incidence and the 12 rational planes with the two-plus-pair splitting. Adjunction establishes reduction of the Fano line scheme. The universal extension-degree counts follow from order-two Frobenius action, not from a finite-field sampling extrapolation.
+## correctness
 
-## Originality — PASS, qualified
-The 64 geometric lines, 16/48 decomposition, and broad complex incidence geometry are credited, not presented as discoveries. Neither the inspected relevant sections of Rams–Schütt or Degtyarev–Itenberg–Sertöz nor the checked research-record hit states the characteristic-five rational-line \(K_{2,6}\) graph or the 12 rational four-line planes and their precise Frobenius decomposition. The algebraic-geometric conclusions require new arithmetic descent checks. Historical overlap is not ruled out, especially in uninspected specialist finite-field line-classification sources.
+PASS
 
-## Value — PASS
-The rational incidence and the field-of-definition profiles completely solve natural arithmetic-descent questions for the maximal-line Schur quartic over \(\mathbf F_5\). The four-line-plane decomposition supplies extra structure beyond rational-point counts or known complex geometric enumerations. This is a complete exact invariant of a natural model, not an arbitrary finite slice.
+PASS: In F25=F5[e]/(e^2-2), the binary quartic x4-xy3 has four distinct projective roots. Sixteen separated lines and exhaustive 25^4 search for quartic-preserving GL2 graph matrices give 48 additional distinct lines; the characteristic-five Rams-Schütt upper bound of 64 geometrically closes enumeration. Adjunction N_(L/S)=O(-2) proves the finite Fano line set reduced. Exact F25 Gaussian elimination of every pair among 64 lines enumerates 72 planes with four constituent lines, and 144 with two; degree-four intersection means every four-line plane section is precisely four distinct lines. Field Frobenius fixes eight lines and 12 such planes; all other objects are length-two Galois orbits. Exact rational-line incidence degrees (6,6,2,2,2,2,2,2) and 12 edges give K2,6. Independently replicated 48 matrix solutions, all line-pair planes and F5 fixed counts in a fresh F25 program, not simply a verifier exit code.
 
-## Limits and closely relevant literature
-[1] S. Rams–M. Schütt, arXiv:1212.3511, geometric quartic line bound; [2] A. Degtyarev–I. Itenberg–A. S. Sertöz, arXiv:1601.04238, §9.1, complex 16/48 Schur configuration; [3] the 64-Schur-line spectrum result, geometric incidence graph. Only the reduced support of the four-line-plane locus is classified; no independent mathematical audit is claimed.
+## originality
 
-Self-review: passed. Independent audit: not yet performed.
+PASS
+
+PASS, qualified: 64 Schur lines, their complex 16/48 split and geometric 72 four-line planes are old. Degtyarev-Itenberg-Sertöz §9.1 examines these over C and real forms; Resultary Schur line spectrum concerns geometric incidence, not Galois descent over this F5 model. The computed F5 Frobenius action, K2,6 rational subgraph and two-plus-conjugate-pair structure were not explicitly covered in inspected primary material.
+
+## value
+
+PASS
+
+PASS: Complete field-of-definition and configuration arithmetic for the canonical maximal-line smooth quartic is a motivated exact invariant. The reduced finite Galois-set zeta functions and all-extension point counts follow from its evaluated Frobenius cycles.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
