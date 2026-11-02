@@ -1,0 +1,146 @@
+{
+  "correctness": {
+    "rationale": "The involution orbit reduction is exact: all 256 words lie in 136 compatible internal orbits, all deletion outcomes are represented by 64-bit exact masks, and admissible strand-closed codes are exactly weighted cliques. Colored independent classes yield rigorous vertex-weight upper bounds; exhaustive include/exclude search returned max24 and 160 equality cases, and restriction to pair orbits max22 and 44 cases. Direct codeword shadow verification, complete inventory equality checks, fixed-word counts, and eight-permutation symmetry census all reproduced in bundled standard-library verify.py (VERIFY_OK, 104470/214187 and 4848/19219 states). No extrapolation.",
+    "status": "PASS"
+  },
+  "independent": false,
+  "independent_audit_status": "not_performed",
+  "originality": {
+    "broader_coverage": {
+      "evidence": [
+        "Chee–Ge–Ling (2010), https://arxiv.org/html/1008.1343v1 intro/conclusion: perfect length-three one-deletion and length-four two-deletion spectra.",
+        "Cai et al. (2019), https://arxiv.org/html/1910.06501v1 intro/§§IV–V: quaternary indel constructions, GC balance, no fixed-length four-word strand closure classification.",
+        "García-Claro (2025), https://arxiv.org/abs/2506.19170, is a linear-code module-theoretic classification under separate reversal/complement invariance, and does not impose one-symbol deletion correction."
+      ],
+      "reasoning": "Perfect q-ary two-deletion length-four results and order-optimal quaternary one-indel encoder constructions do not fix the finite optimum among reverse-complement *closed* length-four one-deletion codebooks or the 160 equality cases. The 2025 linear module enumeration does not control nonlinear reverse-complement-closed single-deletion codebooks.",
+      "searches": [
+        "DNA reverse complement invariant indel codes or deletion correcting four nucleotide length four codes",
+        "quaternary indel codes single deletion DNA reverse-complement closure",
+        "arxiv:1910.06501",
+        "arxiv:1008.1343",
+        "arxiv:2506.19170"
+      ]
+    },
+    "checked_sources": [
+      "https://arxiv.org/html/math/0207197v1",
+      "https://arxiv.org/html/math/0306197v2",
+      "https://arxiv.org/html/1008.1343v1",
+      "https://arxiv.org/html/1910.06501v1",
+      "Published indexed research records for quinary/ternary n=4 deletion codes and quaternary parent-identifying MDS codes",
+      "https://arxiv.org/abs/2506.19170"
+    ],
+    "claim_vs_prior_implication": {
+      "evidence": [
+        "Sloane (2002), https://arxiv.org/html/math/0207197v1 §§1,2,6: deletion-shadow disjointness, chiefly binary.",
+        "King (2003), https://arxiv.org/html/math/0306197v2 definitions and bounds: Hamming separation from reverse complements rather than closure.",
+        "Chee–Ge–Ling (2010), https://arxiv.org/html/1008.1343v1 intro/conclusion: perfect length-three one-deletion and length-four two-deletion spectra.",
+        "Cai et al. (2019), https://arxiv.org/html/1910.06501v1 intro/§§IV–V: quaternary indel constructions, GC balance, no fixed-length four-word strand closure classification."
+      ],
+      "reasoning": "No inspected result provides a stronger numerical upper bound and matching classification for exactly the same four-letter, single-deletion, reverse-complement-*invariant* code model. The specific same-parameter Hamming reverse-complement theory imposes a fundamentally different constraint.",
+      "searches": [
+        "Exact maximum and number of Watson-Crick reverse-complement invariant quaternary DNA single deletion correcting codebooks of blocklength four, with 24 words 160 optimal codebooks",
+        "Quaternary length 4 single deletion correcting code maximum 24 reverse complement closure 160 optimal DNA codes",
+        "DNA reverse complement invariant indel codes or deletion correcting four nucleotide length four codes",
+        "arxiv:math/0207197",
+        "arxiv:math/0306197"
+      ]
+    },
+    "equivalent_formulations": {
+      "evidence": [
+        "Sloane (2002), https://arxiv.org/html/math/0207197v1 §§1,2,6: deletion-shadow disjointness, chiefly binary.",
+        "King (2003), https://arxiv.org/html/math/0306197v2 definitions and bounds: Hamming separation from reverse complements rather than closure."
+      ],
+      "reasoning": "The problem is equivalent to maximum-weight compatible orbit packing under an involution on the length-four deletion hypergraph. Hamming-distance reverse-complement avoidance is not the same constraint; pairwise disjoint deletion descendants are the operative condition.",
+      "searches": [
+        "Exact maximum and number of Watson-Crick reverse-complement invariant quaternary DNA single deletion correcting codebooks of blocklength four, with 24 words 160 optimal codebooks",
+        "Quaternary length 4 single deletion correcting code maximum 24 reverse complement closure 160 optimal DNA codes",
+        "reverse complement, Watson-Crick involution, strand-closed single-deletion code, deletion shadows"
+      ]
+    },
+    "exact_database_or_table": {
+      "evidence": [
+        "Published indexed quinary four-letter single-deletion optimum 42 and ternary counterpart 11 concern other alphabets.",
+        "Quaternary [4,2,3] MDS identifying-parent property is a different channel, not a full strand-closed one-deletion-code census."
+      ],
+      "reasoning": "Neither a change of alphabet size nor the unrelated parent-identifying threshold implies the Watson–Crick-closed maximum 24 or the exact 160/44 counts.",
+      "searches": [
+        "Exact maximum and number of Watson-Crick reverse-complement invariant quaternary DNA single deletion correcting codebooks of blocklength four, with 24 words 160 optimal codebooks",
+        "Quaternary length 4 single deletion correcting code maximum 24 reverse complement closure 160 optimal DNA codes",
+        "reverse complement closed one deletion correcting DNA codes size 4 quaternary 24 codewords enumeration 160",
+        "published quinary length-four single-deletion optimum 42; ternary length-four optimum 11; quaternary 4x2 MDS IPP threshold 8"
+      ]
+    },
+    "rationale": "The finite Watson–Crick-closure plus one-deletion optimum and complete optimizer census are not logical corollaries of the inspected binary deletion, reverse-complement Hamming-separation, perfect different-radius or asymptotic quaternary indel results. Exact value, optimizer number and forced self-complementary minimum were compared against indexed scientific findings by parameter/statement and did not match. Historical-priority risk remains. García-Claro (2025) additionally covers linear codes invariant under reversal and complement separately and Hamming bounds, not the present nonlinear deletion graph.",
+    "residual_risks": [
+      "A small-code table or older combinatorial design result not indexed by searched terms could imply the exact 24-word bound or the complete 160-codebook census.",
+      "There is no independent historical-priority audit; absence of a hit does not prove novelty.",
+      "Only the studied four-letter Watson–Crick closure model is evaluated; biological suitability and other channels remain untested."
+    ],
+    "source_inspections": [
+      {
+        "assessment": "Uses same deletion-shadow concept, but the numerical study is binary and does not include four-nucleotide Watson–Crick-closure extremizers.",
+        "evidence": [
+          "Sloane (2002), https://arxiv.org/html/math/0207197v1 §§1,2,6: deletion-shadow disjointness, chiefly binary."
+        ],
+        "identifier_or_url": "https://arxiv.org/html/math/0207197v1",
+        "material_read": "Full online HTML, introduction, descendant graph, optimality and related-work sections",
+        "method": "Direct primary full-text read; compared deletion-shadow definition, alphabet and constraints",
+        "title": "On Single-Deletion-Correcting Codes",
+        "trigger": "General deletion-correcting codes; possible old exact finite classification"
+      },
+      {
+        "assessment": "Requires Hamming separation from reverse complements and sometimes GC balance, not inclusion of reverse complements and deletion correction.",
+        "evidence": [
+          "King (2003), https://arxiv.org/html/math/0306197v2 definitions and bounds: Hamming separation from reverse complements rather than closure."
+        ],
+        "identifier_or_url": "https://arxiv.org/html/math/0306197v2",
+        "material_read": "Full online HTML, definitions, Hamming reverse-complement bounds, halving and product constructions",
+        "method": "Primary full-text read of definitions and reverse-complement bounds",
+        "title": "Bounds for DNA codes with constant GC-content",
+        "trigger": "DNA reverse-complement constraints; possible same invariant"
+      },
+      {
+        "assessment": "Treats perfect one-deletion codes of length three and perfect two-deletion codes of length four, not this (4,1) closed problem.",
+        "evidence": [
+          "Chee–Ge–Ling (2010), https://arxiv.org/html/1008.1343v1 intro/conclusion: perfect length-three one-deletion and length-four two-deletion spectra."
+        ],
+        "identifier_or_url": "https://arxiv.org/html/1008.1343v1",
+        "material_read": "Full online HTML introduction, main parameter families, conclusions",
+        "method": "Primary full-text theorem-parameter comparison",
+        "title": "Spectrum of Sizes for Perfect Deletion-Correcting Codes",
+        "trigger": "Small q-ary deletion-code size spectra"
+      },
+      {
+        "assessment": "Addresses asymptotic/redundancy constructions and GC balance; does not establish exact one-deletion four-word strand-closed optimum or census.",
+        "evidence": [
+          "Cai et al. (2019), https://arxiv.org/html/1910.06501v1 intro/§§IV–V: quaternary indel constructions, GC balance, no fixed-length four-word strand closure classification."
+        ],
+        "identifier_or_url": "https://arxiv.org/html/1910.06501v1",
+        "material_read": "Full online HTML abstract, introductions, quaternary constructions and GC-balanced section",
+        "method": "Primary full-text read; checked design requirement and stated constructions",
+        "title": "Optimal Codes Correcting a Single Indel / Edit for DNA-Based Data Storage",
+        "trigger": "Quaternary single-deletion code constraints for DNA"
+      },
+      {
+        "assessment": "Addresses linear codes invariant under reversal and complementation separately and Hamming distance, not nonlinearly strand-closed four-letter one-deletion codes. No implication for the 160-codebook census.",
+        "evidence": [
+          "García-Claro (2025), https://arxiv.org/abs/2506.19170, §§ introduction and 1."
+        ],
+        "identifier_or_url": "https://arxiv.org/abs/2506.19170",
+        "material_read": "Online full text as rendered by arXiv abstract HTML, introduction and linear-module classification setup",
+        "method": "Primary full-text direct reading of definitions and module-theoretic problem; inspect model and metric",
+        "title": "On reversible and reversible-complementary DNA codes over the finite field of four elements",
+        "trigger": "Potentially stronger DNA reverse-complement-invariant classification"
+      }
+    ],
+    "status": "PASS"
+  },
+  "review_type": "self_review",
+  "schema_version": 1,
+  "scope_run_id": "638d51d6-3850-480a-9038-790620bfcf23",
+  "self_review_status": "passed",
+  "value": {
+    "rationale": "The exact finite optimum for accommodating both DNA orientations while correcting one deletion is a natural constrained code size, and all equality cases are enumerated. A substantive structural boundary is proved: 24-word optimal codes necessarily contain self-complementary strands, whereas their exclusion sharply lowers capacity to 22; the 160-to-28 symmetry reduction further classifies the design space.",
+    "status": "PASS"
+  }
+}
