@@ -1,0 +1,130 @@
+{
+  "correctness": {
+    "rationale": "The global-bit-complement orientation lemma proves any binary code lies in the complete unbordered 0-to-1 candidate vertex set. For each (n,d), n=2..11 and d=2..n, the pairwise compatibility relation exactly matches non-overlap plus Hamming distance, hence maximum size equals maximum clique. Greedy proper coloring bounds every clique in the remaining search graph and makes the recursive upper bounds rigorous. Exhaustive traversal computes all 55 maxima, matched by explicit valid word sets in certificates.json. Independent C++ string/bitset implementation reproduces all 55. Nothing is claimed for larger n.",
+    "status": "PASS"
+  },
+  "independent": false,
+  "independent_audit_status": "not_performed",
+  "originality": {
+    "broader_coverage": {
+      "evidence": [
+        "Chee et al. (arXiv:1209.0236), Table I: exact unconstrained maxima 24 at n=10 and 44 at n=11.",
+        "Blackburn (arXiv:1303.1026): bounds on unconstrained non-overlapping codes.",
+        "Levy and Yaakobi (arXiv:1804.05371), Section 6: for n=11 and overlap tolerance one, general upper bound 93 for Hamming distance at least two."
+      ],
+      "reasoning": "The unconstrained maxima only upper-bound the new values and do not determine those values. At n=11 a separate Dyck construction already supplies 42 words with aligned distance at least two, but is only a lower bound for that joint problem; 44 and the general upper bound 93 do not prove the claimed upper bound 42. General asymptotic error-correcting bounds do not imply exact 14 for minimum distance three.",
+      "searches": [
+        "\"maximal mutually uncorrelated codes distance 3 binary 7\"",
+        "\"AMU(11,2,2,1) 42 nonoverlapping code minimum Hamming distance 2\"",
+        "\"binary non-overlapping mutually uncorrelated Hamming-distance profile n=10 n=11\""
+      ]
+    },
+    "checked_sources": [
+      "arxiv:1209.0236 (Chee–Kiah–Purkayastha–Wang, Table I and constructions)",
+      "arxiv:1303.1026 (Blackburn, non-overlapping code theory)",
+      "arxiv:1601.08176 (Yazdi–Kiah–Milenkovic, weak MU codes)",
+      "arxiv:1804.05371 (Levy–Yaakobi, Section 6 error-correcting MU codes)",
+      "Published indexed findings concerning the exact length-five non-overlapping code census and an exact finite binary burst-channel code-size profile; neither uses the present joint Hamming and cross-bifix-free criterion."
+    ],
+    "claim_vs_prior_implication": {
+      "evidence": [
+        "Chee et al. (arXiv:1209.0236), exact d=1 cardinality and Dyck construction data, do not derive distance-three n=11 optimum 14.",
+        "Yazdi, Kiah, and Milenkovic (arXiv:1601.08176): constructions for weakly mutually uncorrelated codes, not a complete Hamming-distance-specific n<=11 classification.",
+        "Levy and Yaakobi (arXiv:1804.05371), Section 6: different covering upper bounds and constructions, not exact finite frontier.",
+        "Known deletion-channel bounds are logically different: the provided pairs show Hamming distance three does not ensure single-deletion correction."
+      ],
+      "reasoning": "For the exact binary length-11 model, prior d=1 maximum 44 implies only A(11,d)<=44; 42-word construction proves only A(11,2)>=42. Neither implies equality A(11,2)=42, nor A(11,3)=14. The verified finite clique search closes both and 53 further entries. Deletion-correcting codes do not subsume the whole statement.",
+      "searches": [
+        "\"binary non-overlapping mutually uncorrelated Hamming-distance profile n=10 n=11\"",
+        "\"error correcting cross-bifix free codes complete exact tradeoff short binary lengths\"",
+        "\"largest binary length 6 or 7 comma free non overlapping code with minimum Hamming distance 3 error correcting cross bifix free\""
+      ]
+    },
+    "equivalent_formulations": {
+      "evidence": [
+        "Strong non-overlapping, cross-bifix-free, and mutually uncorrelated with overlap mismatch tolerance one are equivalent for the finite binary code model, after requiring all proper self- and cross-overlaps to be nonzero.",
+        "Levy and Yaakobi (arXiv:1804.05371), Section 6, defines a distance-and-overlap jointly constrained MU code but provides general bounds rather than this short-length exact table."
+      ],
+      "reasoning": "Matching the synonymous exact object requires both the overlap parameter one and the pairwise Hamming-distance parameter. Neither approximate overlap definitions nor weaker comma-free constraints themselves cover the claimed maximum-size function.",
+      "searches": [
+        "\"error correcting cross-bifix free codes complete exact tradeoff short binary lengths\"",
+        "\"binary non-overlapping mutually uncorrelated Hamming-distance profile n=10 n=11\"",
+        "\"AMU(11,2,3,1) 14 non-overlapping code size distance 3\""
+      ]
+    },
+    "exact_database_or_table": {
+      "evidence": [
+        "Chee et al. (arXiv:1209.0236), numerical Table I: length-11 d=1 optimum 44 and size 42 for a Dyck-type construction, with no full d>=2 optimum table.",
+        "Indexed mathematical-record comparison returned a length-five non-overlapping-code enumeration and finite deletion/burst-distance results, none giving the same joint binary Hamming table."
+      ],
+      "reasoning": "Searches of exact parameters and aliases did not identify a published table with the claimed 55 parameter pairs. The observed number 42 alone is not a matching result: it is already a construction size, whereas the new claim proves the matching upper bound. A negative search does not establish priority.",
+      "searches": [
+        "\"AMU(11,2,3,1) 14 non-overlapping code size distance 3\"",
+        "\"AMU(11,2,2,1) 42 nonoverlapping code minimum Hamming distance 2\"",
+        "\"error correcting non-overlapping codes short lengths binary d=3 exact maximum\"",
+        "\"nonoverlapping codes forbidden prefix suffix Hamming graph clique 11\""
+      ]
+    },
+    "rationale": "The 55 exact optimum sizes jointly constrain cross-bifix-free and aligned Hamming-error-correcting binary codes, and are not implied by published unconstrained optimum tables, existing asymptotic bounds, or error-correcting constructions in the inspected relevant papers. The first strict distance-two penalty is at n=10 (24 to 23); at n=11 the sharp distance-three value is 14. Indexed searches found no exact Hamming frontier. A prior unindexed exact table remains a priority risk.",
+    "residual_risks": [
+      "An unindexed historical exact short-length table for jointly Hamming-distance-constrained non-overlapping codes might duplicate some or all results.",
+      "The scientific assessment is self-review only; independent mathematical review has not been performed.",
+      "Only relevant theorem and computational sections of each cited full text were inspected; some peripheral appendices could contain additional examples."
+    ],
+    "source_inspections": [
+      {
+        "assessment": "Covers d=1 maximum and separate construction sizes; no 55-entry minimum-Hamming-distance frontier in inspected relevant material",
+        "evidence": [
+          "Table I gives n=10 optimum 24 and n=11 optimum 44 without Hamming restriction, and construction size 42 at n=11."
+        ],
+        "identifier_or_url": "https://arxiv.org/pdf/1209.0236",
+        "material_read": "Original open-access PDF abstract, preliminaries, construction statements, Table I and computational optimum discussion, including page-three table",
+        "method": "Direct PDF text and page-image inspection",
+        "title": "Cross-Bifix-Free Codes Within a Constant Factor of Optimality",
+        "trigger": "Source original finite non-overlapping code cardinalities; possible implicit Hamming frontier"
+      },
+      {
+        "assessment": "General maximum-cardinality theory with no joint Hamming-distance table in inspected material",
+        "evidence": [
+          "The object is non-overlapping code cardinality without a prescribed pairwise aligned Hamming distance."
+        ],
+        "identifier_or_url": "https://arxiv.org/pdf/1303.1026",
+        "material_read": "Open-access PDF introduction, definitions, displayed bounds and construction discussion",
+        "method": "Direct PDF text and page-image inspection",
+        "title": "Non-overlapping codes",
+        "trigger": "Potential stronger coverage of exact finite cross-bifix-free maxima"
+      },
+      {
+        "assessment": "Asymptotic and explicit construction focus; no exact complete small binary Hamming frontier in inspected material",
+        "evidence": [
+          "Construction and code-design conditions differ from proving exact maximum codebook sizes for each n and d."
+        ],
+        "identifier_or_url": "https://arxiv.org/pdf/1601.08176",
+        "material_read": "Open-access PDF abstract, introduction, definitions, and core construction sections",
+        "method": "Direct PDF text and page-image inspection",
+        "title": "Weakly Mutually Uncorrelated Codes",
+        "trigger": "Error-correcting self-synchronizing constructions could imply minimum-distance results"
+      },
+      {
+        "assessment": "Exact same definitional class is treated but only general bounds and constructions are given; the n=11 upper bound 93 does not establish 42 or 14",
+        "evidence": [
+          "Section 6 overlap mismatch parameter one and Hamming distance at least two give upper bound floor(2^10/11)=93 at length 11."
+        ],
+        "identifier_or_url": "https://arxiv.org/pdf/1804.05371",
+        "material_read": "Open-access PDF definitions, introduction, and the Section 6 error-correcting MU-code bounds",
+        "method": "Direct PDF text and page-image inspection",
+        "title": "Mutually Uncorrelated Codes for DNA Storage",
+        "trigger": "Directly matching overlap and Hamming error-correction definition"
+      }
+    ],
+    "status": "PASS"
+  },
+  "review_type": "self_review",
+  "schema_version": 1,
+  "scope_run_id": "d6441212-a6a8-4cba-b99c-22cd65ed9d3a",
+  "self_review_status": "passed",
+  "value": {
+    "rationale": "The simultaneous design problem is natural for self-synchronizing blocks that also correct aligned substitutions. The 55 certified optima close the complete short-block tradeoff, expose a first nontrivial distance-two penalty at n=10 (24 down to 23), and determine the exact one-substitution-correcting n=11 capacity (14), beyond d=1 constructions. These are technically useful capacity benchmarks, not a small arbitrary subset of a pre-existing tabulation.",
+    "status": "PASS"
+  }
+}
