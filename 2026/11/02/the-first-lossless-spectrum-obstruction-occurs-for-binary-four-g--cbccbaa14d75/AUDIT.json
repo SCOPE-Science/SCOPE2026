@@ -1,0 +1,108 @@
+{
+  "correctness": {
+    "rationale": "Exact spectrum = directed walk edge set in the finite de Bruijn graph, and no repeated factors = an edge-simple directed trail. Exhaustive BFS over (vertex,seen-mask) states is complete even for arbitrarily long walks, since all possible state cycles are traversed through reachability closure. Two independent implementations, graph SCC condensation and mask-state BFS, agree on every one of 255 and 65535 possible nonempty masks. A second BFS with repeats forbidden determines exact lossless counts. A direct word enumeration independently confirms the 121 3-gram profiles; two four-edge obstructions have explicit words and no lossless trail. Checker replay passed.",
+    "status": "PASS"
+  },
+  "independent": false,
+  "independent_audit_status": "not_performed",
+  "originality": {
+    "broader_coverage": {
+      "evidence": [
+        "Alanko–Pérez-López gives algorithms for counting k-mers of given input graphs, not a global census of subgraphs that are path-traversable.",
+        "Chukhin et al. obtain a worst-case greedy approximation ratio for three-letter input strings and constructions at length six; these bounds do not imply exact support feasibility or lossless incidence counts."
+      ],
+      "reasoning": "Neither graph-algorithm complexity nor worst-case greedy SCS ratio controls exact incidence masks and their distinct-edge trail capability. Euler-trail criteria alone do not compute the stated finite enumerations without a complete mask analysis.",
+      "searches": [
+        "published-finding corpus: binary substring set 3-gram exact 121 realizable de Bruijn graph support count",
+        "published-finding corpus: four gram binary support non Euler four edges 0010 0101 1010 1011 minimal repetition",
+        "Source arxiv:2509.22885, complete relevant de Bruijn/graph sections",
+        "Source arxiv:2608.20018, sections 1-5 and overlap graph framework"
+      ]
+    },
+    "checked_sources": [
+      "https://arxiv.org/abs/2509.22885",
+      "https://drops.dagstuhl.de/storage/00lipics/lipics-vol369-cpm2026/html/LIPIcs.CPM.2026.3/LIPIcs.CPM.2026.3.html",
+      "https://arxiv.org/abs/2608.20018",
+      "published-finding corpus published findings index: four actual semantic queries"
+    ],
+    "claim_vs_prior_implication": {
+      "evidence": [
+        "The 2025/2026 k-mer paper studies counting distinct words in an already provided labeled graph, not counting exact supports of finite binary words.",
+        "The 2026 superstring paper uses directed trails and k-spectra for approximation ratios and does not present these finite binary spectrum classifications."
+      ],
+      "reasoning": "Known Eulerian graph theory supplies the equivalence between losslessness and trails, but not the four-gram first-obstruction classification or the 3310 count. Neither inspected primary claim implies these exact complete support counts.",
+      "searches": [
+        "Full text Alanko and Pérez-López arxiv:2509.22885, introduction/algorithms/de Bruijn section",
+        "Full text Chukhin et al arxiv:2608.20018, preliminaries/graph model/greedy ratio theorems",
+        "published-finding corpus: binary substring set 3-gram exact 121 realizable de Bruijn graph support count"
+      ]
+    },
+    "equivalent_formulations": {
+      "evidence": [
+        "Alanko–Pérez-López, arXiv:2509.22885, deals with distinct k-mers occurring along walks in labeled graphs.",
+        "Chukhin et al., arXiv:2608.20018, Section 2 defines k-spectrum as a set and represents it as a de Bruijn overlap graph."
+      ],
+      "reasoning": "A losslessly realizable exact spectrum is equivalent to an Euler trail in its edge-induced de Bruijn subgraph; general realizability is edge-covering-walk existence. The authors use related graph terminology but do not give the 121, 5921, 2611, 3310 census or the first four-gram obstruction pair.",
+      "searches": [
+        "published-finding corpus: binary length three substring presence support spectra 121 possible distinct trigram subsets Euler trail",
+        "published-finding corpus: binary three gram support 121 feasible profiles no repeated k-mer lossless Eulerian reconstruction",
+        "Web: \"121\" \"5921\" \"de Bruijn\" subgraphs",
+        "Web: \"binary\" \"trigram\" \"121\" distinct sets"
+      ]
+    },
+    "exact_database_or_table": {
+      "evidence": [
+        "The closest indexed published findings from these queries concern other substring reconstruction metrics and DNA-profile rankings, without the exact binary k-gram presence counts.",
+        "No exact table for the 121/5921/2611 split appeared in the actual bounded indexed and web queries."
+      ],
+      "reasoning": "The absence of an indexed exact table is weak negative evidence, explicitly limited to the searched sources; priority is not inferred from numbers alone.",
+      "searches": [
+        "published-finding corpus: binary length three substring presence support spectra 121 possible distinct trigram subsets Euler trail",
+        "published-finding corpus: binary three gram support 121 feasible profiles no repeated k-mer lossless Eulerian reconstruction",
+        "Web: \"5921\" \"2611\" \"k-mer\" binary",
+        "Web: \"5921\" \"fourgram\" \"spectrum\""
+      ]
+    },
+    "rationale": "The finite exact supports, their lossless/Eulerian split, sharp first failure at window four and two minimal four-element obstruction sets differ from general k-mer counting and greedy SCS ratio results. Full relevant primary sections were read. Actual indexed searches found no dominating exact table. Residual unpublished/unindexed priority risk persists.",
+    "residual_risks": [
+      "An unindexed exact count of subgraphs of the binary de Bruijn graphs could establish the same tables.",
+      "The exact census is a finite statement at two window lengths only; no arbitrary-k extrapolation is justified.",
+      "The literature comparison is self-review and not an independent priority audit."
+    ],
+    "source_inspections": [
+      {
+        "assessment": "Does not present exact support-realizability census for all nonempty subsets of binary 3- or 4-grams",
+        "evidence": [
+          "Introduction: graph k-mer counting and de Bruijn construction",
+          "Section 6: representation of k-mers in a Wheeler graph"
+        ],
+        "identifier_or_url": "https://drops.dagstuhl.de/storage/00lipics/lipics-vol369-cpm2026/html/LIPIcs.CPM.2026.3/LIPIcs.CPM.2026.3.html",
+        "material_read": "Full abstract, introduction, graph model, algorithmic contributions and relevant de Bruijn graph construction section",
+        "method": "Open-access full-text conference HTML",
+        "title": "Computing k-mers in Graphs",
+        "trigger": "Same k-mer and de Bruijn graph objects"
+      },
+      {
+        "assessment": "Same k-spectrum notion and graph model, but studies approximation ratios, not the finite exact support census or minimal nontrail supports",
+        "evidence": [
+          "Section 2: definition of spectrum and overlap graph",
+          "Sections 3–5: greedy ratio bounds and trail-cover arguments"
+        ],
+        "identifier_or_url": "https://arxiv.org/abs/2608.20018",
+        "material_read": "Open-access full-text sections 1–5, including spectrum, graph construction, ratio constructions and relevant theorems",
+        "method": "arXiv HTML full-text reading",
+        "title": "The Greedy Superstring Algorithm Achieves Ratio 2 for Strings of Length 6 Already",
+        "trigger": "Explicit k-spectrum definition, directed de Bruijn trail model and extremal short-superstring questions"
+      }
+    ],
+    "status": "PASS"
+  },
+  "review_type": "self_review",
+  "schema_version": 1,
+  "scope_run_id": "cbccbaa1-4d75-4778-ba5c-b96ceb550350",
+  "self_review_status": "passed",
+  "value": {
+    "rationale": "The exact complete 3- and 4-gram support census exposes the first sharp lossless-reconstruction boundary and 3310 unavoidable-repetition profiles, with two explicitly classified smallest obstructions. This distinguishes presence-only information from multiplicity-aware reconstruction and offers motivated complete benchmarks for k-mer reconstruction and de Bruijn graph assembly.",
+    "status": "PASS"
+  }
+}
