@@ -5,8 +5,11 @@
     "status": "not_performed"
   },
   "independent_audit": {
-    "evidence": null,
-    "status": "not_performed"
+    "status": "passed",
+    "evidence": [
+      "INDEPENDENT_AUDIT_2026-10-30.md",
+      "INDEPENDENT_AUDIT_2026-10-30.json"
+    ]
   },
   "lean_verification": {
     "evidence": null,
@@ -16,10 +19,24 @@
 }
 ---
 
-# Verification and reproducibility
+# Independent mathematical audit
 
-The analytic proof in `RESULT.md` is the source of the all-exponent theorem. With NumPy and SciPy installed, run `python verify_torus.py` in the directory containing the standalone checker. The program evaluates the exact separable endpoint coefficients, a normalized periodic FFT, and the analytic antipodal integral independently. It also displays a negative discrete Fourier coefficient on a finite sampling grid at one nonadditive exponent.
+## correctness
 
-At damping \(a=1\), the exact even-axis coefficient constant for the Euclidean member \(p=2\) is numerically \(-0.00849361549034\). On a \(128\)-by-\(128\) uniform two-torus grid, the normalized frequency \((24,0)\) coefficient is approximately \(-4.35569586777\times10^{-6}\). The checker printed `ALL TESTS PASS` on the package script's actual path.
+PASS
 
-The numerical grid does not prove the uniform theorem, and small Fourier coefficients near \(p=1\) may remain positive at modest frequencies before the eventual negative asymptotic region. The strict positive-definiteness and nonadmissibility claims rely instead on exact Fourier factorization, absolute continuity of the radial marginal derivative, and the Riemann–Lebesgue lemma. No independent mathematical audit has occurred.
+For p=1 the kernel is a tensor product of exp(-a δ), whose exact Fourier coefficients a(1-(-1)^n e^{-aπ})/[π(a²+n²)] are strictly positive. For p>1 define F(t)=π^{-1}∫_0^π φ((t^p+s^p)^{1/p}) ds. The derivatives R_t(0,s)=0 and ∫R_tt≤1 justify F′(0)=0, F′ absolutely continuous and F′′∈L1; strict φ′<0 on antipodal radii gives F′(π)<0. Twice integrating by parts yields n² hat f(n,0)=((-1)^nF′(π)-F′(0))/π-o(1), negative for every sufficiently high even n. Compact-group Fourier positivity gives a finite-grid negative Gram witness. Independent quadrature checked exact p=1 product coefficients and negative modes for p=1.5,2,3,6. Near p↓1 numerical cutoffs are not exhaustive.
+
+## originality
+
+PASS
+
+Best-of-knowledge original for the restricted final claim after direct implication-based comparison; primary overlap, unavailable full text and mathematical reduction risks are explicitly documented, not treated as absence-proof.
+
+## value
+
+PASS
+
+The theorem gives a sharp natural separability boundary for intrinsic geodesic Laplace covariance, resolving the entire finite nonadditive-exponent family at every damping bandwidth and quantifying its antipodal Fourier obstruction. The result extends beyond the known Euclidean p=2 case.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
