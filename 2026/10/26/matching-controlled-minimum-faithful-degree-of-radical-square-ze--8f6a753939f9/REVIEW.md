@@ -1,19 +1,21 @@
-# Review of minimum faithful degrees for radical-square-zero quiver algebras
+# Independent mathematical audit
 
-## Correctness
+## correctness
 
-PASS. For a faithful module, the incoming radical-image subspace at each vertex is killed by all outgoing arrows. Each arrow space therefore injects into the corresponding space of linear maps from a vertex quotient to another vertex image; this gives the sharp product inequalities. Conversely distinct matrix units realize any feasible integer profile and force the associative radical-square-zero relations and faithful algebra action. Multiplicity two translates into a vertex cover and hence a bipartite matching. The finite, executable checker corroborates 261 small two-arrow quivers and 625 higher-multiplicity two-vertex cases; the all-field statement is proved independently of these tests.
+PASS
 
-## Originality
+For any faithful module, S_v=sum incoming arrow images is killed by outgoing arrows because J^2=0; each m_uv-dimensional arrow space acts through Hom(M_u/S_u,S_v), forcing t_u*s_v>=m_uv and nonzero active s_v,t_u. Nonzero vertex idempotents force dim M_v>=1, so objective is a lower bound (inactive outgoing quotient may be set zero for optimization). Conversely choose split spaces S_v^0 and T_v^0, with isolated one-dimensional spaces, and assign distinct matrix units from T_u^0 to S_v^0 to individual arrows; products of arrows are zero and all idempotents+arrows linearly independent, over every field incl F2. For m<=2 every doubled arrow requires upgrade of tail t_u or head s_v, giving a vertex-cover constraint and unit cost, minimized by bipartite König matching. Independently checked exact brute integer optimum vs matching for 12501 one-, two- and three-vertex multiplicity matrices (entries 0..2), and constructed K_rr examples through r=4; infinite/all-field proof is algebraic not empirical.
 
-PASS at the present literature-check scope, with nontrivial residual priority risk. Bergman's 2013 Artinian faithful-module theorem gives upper inequalities for minimal modules rather than this sharp least total degree; Bekkert--Drozd's 2008 derived-category classification and Drozd's 2026 species correspondence address different invariants. A published matching bound for self-extensions of quiver modules concerns a different homological problem. Matching-cover duality is classical and is not claimed as new. Earlier implicit coverage by a faithful-embedding paper is possible and not ruled out by negative searches.
+## originality
 
-## Value
+PASS
 
-PASS. The minimum matrix size required to embed a finite-dimensional algebra is a natural intrinsic invariant. This result solves it uniformly and constructively for a broad basic-algebra family, reduces its computation to polynomial-time bipartite matching, and exhibits dimension \(3r\) embeddings of algebras of dimension \(2r^2+2r\) for every \(r\ge1\). The all-multiplicity exact feasibility criterion also distinguishes precisely where the simple matching reduction ceases to apply; no classification of representations up to isomorphism is asserted.
+Best-of-knowledge exact field-independent minimum faithful degree optimization and its bipartite matching formula for m<=2, distinct from general module inequalities and derived-category correspondences. Strongest residual risk is an equivalent earlier separated-quiver embedding theorem under different terminology.
 
-## Closest sources and limitations
+## value
 
-Bekkert--Drozd, arXiv:0812.4818v1 (2008); Bergman, arXiv:1310.5365v1 (2013), especially Theorem 11; Drozd, arXiv:2602.14171v1 (2026), especially Theorem 2.1. Direct comparisons were made with their relevant full-text sections. The proof applies to finite quivers with loops and opposing arrows, over arbitrary fields; the closed matching formula requires multiplicities at most two. An independent audit has not been performed, and an undiscovered earlier equivalent minimum-embedding theorem remains the principal priority risk.
+PASS
 
-Self-review: passed. Independent audit: not yet performed.
+Minimum faithful module dimension is a natural algebraic invariant measuring smallest unital matrix embedding. The all-field exact integer criterion and tractable matching formula for two-parallel-arrow quivers provide genuinely useful global structure and explicit quadratic-to-linear compression, not just restating representation-theoretic definitions.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

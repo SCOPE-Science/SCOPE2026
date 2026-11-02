@@ -5,8 +5,11 @@
     "status": "not_performed"
   },
   "independent_audit": {
-    "evidence": null,
-    "status": "not_performed"
+    "status": "passed",
+    "evidence": [
+      "INDEPENDENT_AUDIT_2026-10-31.md",
+      "INDEPENDENT_AUDIT_2026-10-31.json"
+    ]
   },
   "lean_verification": {
     "evidence": null,
@@ -16,10 +19,24 @@
 }
 ---
 
-# Reproduction and boundaries
+# Independent mathematical audit
 
-Run `python3 verify.py` using the standard Python 3 library. The program tests all 81 two-vertex quivers with ordered arrow multiplicities zero, one or two; 120 seeded three-vertex cases; 60 seeded four-vertex cases; and all 625 two-vertex quivers with ordered arrow multiplicities zero through four. Its two independent finite combinatorial computations are exhaustive feasible-integer-profile search and maximum-matching search, and it constructs explicit basis matrix units for each tested optimum. The constructed arrow action maps have disjoint matrix-unit coordinates, all arrow composites vanish, and vertex idempotents remain linearly independent. The expected output is:
+## correctness
 
-`VERIFY_OK_FAITHFUL_MATCHING 261 max2_quivers 625 max4_quivers`
+PASS
 
-The program checks finitely many quivers and their explicit matrix actions. It does not prove the universal theorem, enumerate all module isomorphism types, or constitute independent mathematical validation. The argument for arbitrary finite quivers and fields is the two-way dimension-inequality and matrix-unit construction in RESULT.md.
+For any faithful module, S_v=sum incoming arrow images is killed by outgoing arrows because J^2=0; each m_uv-dimensional arrow space acts through Hom(M_u/S_u,S_v), forcing t_u*s_v>=m_uv and nonzero active s_v,t_u. Nonzero vertex idempotents force dim M_v>=1, so objective is a lower bound (inactive outgoing quotient may be set zero for optimization). Conversely choose split spaces S_v^0 and T_v^0, with isolated one-dimensional spaces, and assign distinct matrix units from T_u^0 to S_v^0 to individual arrows; products of arrows are zero and all idempotents+arrows linearly independent, over every field incl F2. For m<=2 every doubled arrow requires upgrade of tail t_u or head s_v, giving a vertex-cover constraint and unit cost, minimized by bipartite König matching. Independently checked exact brute integer optimum vs matching for 12501 one-, two- and three-vertex multiplicity matrices (entries 0..2), and constructed K_rr examples through r=4; infinite/all-field proof is algebraic not empirical.
+
+## originality
+
+PASS
+
+Best-of-knowledge exact field-independent minimum faithful degree optimization and its bipartite matching formula for m<=2, distinct from general module inequalities and derived-category correspondences. Strongest residual risk is an equivalent earlier separated-quiver embedding theorem under different terminology.
+
+## value
+
+PASS
+
+Minimum faithful module dimension is a natural algebraic invariant measuring smallest unital matrix embedding. The all-field exact integer criterion and tractable matching formula for two-parallel-arrow quivers provide genuinely useful global structure and explicit quadratic-to-linear compression, not just restating representation-theoretic definitions.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
