@@ -1,11 +1,21 @@
-# Review of the star spectral-connectivity allocation theorem
+# Independent mathematical audit
 
-**Correctness (PASS).** The inverse-budget homogenization is equivalent to the original all-individual-conductance problem. The leaf-to-hub coordinate identity reduces the Rayleigh quotient to a fixed positive-definite metric. Strong semidefinite duality identifies the optimum with a polygonal vector-sum problem. Both primal constructions are feasible, meet the exact dual bound, and the equality conditions prove uniqueness. The direct exact-rational and numerical certificate is supplementary rather than a purported infinite proof.
+## correctness
 
-**Originality (PASS; residual uncertainty).** The general weighted spectral-gap SDP and embedding dual predate this result: Göring–Helmberg–Wappler (2005) and Boyd (2006) optimize with a uniform sum of weights, and classical tree structure theory is a relevant stronger-background comparison. The exact square-root heterogeneous-price star theorem is not the same as, or stated by, the inspected equal-price formulation. Previous resistance-diameter price allocation on a star and bridge-price optimization on double stars optimize different functions or different price parameters. The main risk is an unlocated earlier specialization of general SDP duality to fully priced stars; no absolute novelty claim is warranted.
+PASS
 
-**Mathematical value (PASS).** Price heterogeneity is a direct network-design consideration, and a sharp threshold separates the unexpectedly uniform optimum from a unique nonuniform design. The exact achievable diffusion/consensus spectral gap and the multiplicity transition hold for an infinite continuously parameterized family, giving a rigorous benchmark for general network-design solvers. The result is more than a numerical restatement of the SDP.
+Parametrize a zero-sum vertex vector by leaf-hub differences y_i; the Rayleigh denominator is y^T H y with H=I−11^T/(m+1), and numerator ∑w_i y_i², hence λ2>=ℓ iff diag(w)−ℓH is PSD. By positive homogeneity maximizing λ2 under the linear price budget reduces to minimizing ∑c_i v_i subject to diag(v)>=H. Strict SDP feasibility yields a dual over Z PSD with fixed diagonal c_i, maximizing tr(HZ)=C−||∑u_i||²/(m+1) for Gram vectors ||u_i||=√c_i. The minimum attainable vector sum is δ=max(0,2max s_i−∑s_i), by polygon closing or opposite collinear vectors. In the nondominant case v_i=1 meets the dual and any optimum must equal it by complementarity with positive diagonal Z and Z1=0. In the dominant case the unique complementary solution is v_j=1−δ/((m+1)s_j), v_i=1+δ/((m+1)s_i) otherwise; its PSD slack has zero Schur complement, and cost exactly C−δ²/(m+1). Thus unique positive optimum w=(B/T)v; kernel dimension of slack equals m−1 or 1, verifying Fiedler multiplicity (m=2 always 1). For one exceptional price r and m−1 unit prices, δ=0 iff √r<=m−1 for m>=3; for m=2 only r=1. The large-r ratio to uniform weights is (m+1)/m. Independent Laplacian eigenvalue calculations verified λ2=B/T and budget for seven price vectors across both regimes, including exact price threshold [9,1,1,1] and dominant [100,1,1,1]; positive optimal spokes checked.
 
-The result applies only to unnormalized star Laplacians under positive linear edge prices and nonnegative conductances. Its general semidefinite optimization framework is established prior art. Independent verification remains outstanding.
+## originality
 
-Self-review: passed. Independent audit: not yet performed.
+PASS
+
+Fiedler's unit-average absolute algebraic connectivity, Göring–Helmberg–Wappler's equal-price total-weight SDP/embedding dual and Boyd's general convex framework are preexisting. The newly assessed result is the complete heterogeneous-edge-price star solution, unique allocations and exact √price polygon/multiplicity threshold. The inaccessible Fiedler full paper leaves qualified risk but its abstract does not state this variable-price optimization.
+
+## value
+
+PASS
+
+Optimally allocating a fixed conductance budget across unequally priced spokes is a natural exact spectral-network design problem. The result gives a complete solution for all m and price vectors, a sharp √price polygon threshold at which the unique equal-weight optimum changes to an asymmetric one, and an associated Fiedler-space multiplicity transition. This is a structural infinite-family optimization classification useful for analysis of graph diffusion/consensus rates, not a mere tiny numerical improvement.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

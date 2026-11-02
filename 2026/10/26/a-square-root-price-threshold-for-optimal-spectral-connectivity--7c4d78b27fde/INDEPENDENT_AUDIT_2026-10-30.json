@@ -1,0 +1,129 @@
+{
+  "audit_date_utc": "2026-10-30",
+  "audited_at_utc": "2026-10-30T22:04:53Z",
+  "axes": {
+    "correctness": {
+      "checked_sources": [
+        "Frozen RESULT.md df181eca60c0e1a184e0ac56706ac23feeb0de99",
+        "verify_star.py blob 441e79713f0de4378b21bb0c6a76d734bc26d992 (source inspected in part; independent eigenvalue assembly done)",
+        "Göring–Helmberg–Wappler 2005 full original 29-page Optimization Online PDF",
+        "Boyd 2006 full nine-page Stanford ICM PDF",
+        "Fiedler (1990) paper abstract and 2008 indexed online metadata, no full text"
+      ],
+      "rationale": "Parametrize a zero-sum vertex vector by leaf-hub differences y_i; the Rayleigh denominator is y^T H y with H=I−11^T/(m+1), and numerator ∑w_i y_i², hence λ2>=ℓ iff diag(w)−ℓH is PSD. By positive homogeneity maximizing λ2 under the linear price budget reduces to minimizing ∑c_i v_i subject to diag(v)>=H. Strict SDP feasibility yields a dual over Z PSD with fixed diagonal c_i, maximizing tr(HZ)=C−||∑u_i||²/(m+1) for Gram vectors ||u_i||=√c_i. The minimum attainable vector sum is δ=max(0,2max s_i−∑s_i), by polygon closing or opposite collinear vectors. In the nondominant case v_i=1 meets the dual and any optimum must equal it by complementarity with positive diagonal Z and Z1=0. In the dominant case the unique complementary solution is v_j=1−δ/((m+1)s_j), v_i=1+δ/((m+1)s_i) otherwise; its PSD slack has zero Schur complement, and cost exactly C−δ²/(m+1). Thus unique positive optimum w=(B/T)v; kernel dimension of slack equals m−1 or 1, verifying Fiedler multiplicity (m=2 always 1). For one exceptional price r and m−1 unit prices, δ=0 iff √r<=m−1 for m>=3; for m=2 only r=1. The large-r ratio to uniform weights is (m+1)/m. Independent Laplacian eigenvalue calculations verified λ2=B/T and budget for seven price vectors across both regimes, including exact price threshold [9,1,1,1] and dominant [100,1,1,1]; positive optimal spokes checked.",
+      "residual_risks": [
+        "This is ordinary unnormalized combinatorial λ2, not normalized Laplacian or continuous-time chain with further constraints.",
+        "The SDP dual and polygon result are standard ingredients; the exact arbitrary positive price star classification is the assessed addition.",
+        "The full classical Fiedler 1990 'Absolute algebraic connectivity of trees' could not be inspected; its available abstract expressly fixes mean edge weight, and implicit priced-star coverage remains a priority risk."
+      ],
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Göring–Helmberg–Wappler Section 2 uses sum of edge weights <=1; Fiedler's available abstract uses fixed mean edge valuation; Boyd discusses general convex λ2 weight optimization."
+        ],
+        "reasoning": "Uniform-price results cover c_i all equal. General SDP theory applies formally to priced stars, but does not explicitly give the polygon residual δ, sharp heterogeneous threshold, uniqueness and all multiplicities as theorem-level conclusions.",
+        "searches": [
+          "Göring Helmberg Wappler Embedded in the Shadow of the Separator 2005",
+          "Boyd convex optimization graph Laplacian eigenvalues 2006",
+          "Fiedler 1990 Absolute algebraic connectivity of trees",
+          "Optimal algebraic connectivity Fiedler eigenvalue weighted star graph heterogeneous edge costs polygon inequality square root price SDP"
+        ]
+      },
+      "checked_sources": [
+        "Resultary semantic query: Optimal algebraic connectivity Fiedler eigenvalue weighted star graph heterogeneous edge costs polygon inequality square root price SDP",
+        "Göring–Helmberg–Wappler (2005) original 29-page PDF",
+        "Boyd (2006) original nine-page PDF",
+        "Fiedler (1990) publisher abstract and attempted lawful full-text retrieval",
+        "Shakeri et al arXiv:1510.06785 inter-layer weight-design model, distinct constraints"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "To derive the claimed formula from prior SDP generalities one must introduce leaf-hub H=I−11^T/(m+1), optimize a fixed-diagonal Gram residual, use polygon closure and complementary-slackness equality conditions."
+        ],
+        "reasoning": "Earlier general principles allow the optimization to be posed and numerically solved, but the exact square-root price criterion is an additional explicit mathematical solution. Any prior specialized price theorem would cover it even with different language; none surfaced in the material read.",
+        "searches": [
+          "Fiedler 1990 abstract average weights",
+          "Göring Helmberg Wappler 2005 dual embedding Section 2",
+          "Boyd 2006 general convex programs",
+          "Optimal algebraic connectivity Fiedler eigenvalue weighted star graph heterogeneous edge costs polygon inequality square root price SDP"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Laplacian λ2 maximization is equivalent to a semidefinite embedding problem with a diagonal price objective and polygon closure for vector lengths √c_i."
+        ],
+        "reasoning": "Generic SDP and embedding duality are recognized equivalent descriptions, but general optimization formulations do not provide the exact special closed-form star threshold or unique asymmetric spoke allocation without solving the dual.",
+        "searches": [
+          "Optimal algebraic connectivity Fiedler eigenvalue weighted star graph heterogeneous edge costs polygon inequality square root price SDP",
+          "fastest consensus rates weighted star heterogeneous edge costs",
+          "Fiedler absolute algebraic connectivity trees 1990 price star"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "Formula gives all positive real price vectors and m>=2, including a continuous phase transition at 2max√ci=∑√ci."
+        ],
+        "reasoning": "An exact finite database is not a relevant substitute; the result is a full continuous family and closed unique optimizer. No inspected source supplies this table/formula.",
+        "searches": [
+          "Optimal algebraic connectivity Fiedler eigenvalue weighted star graph heterogeneous edge costs polygon inequality square root price SDP",
+          "weighted star optimal Fiedler conductances formula costs c_i square root polygon"
+        ]
+      },
+      "rationale": "Fiedler's unit-average absolute algebraic connectivity, Göring–Helmberg–Wappler's equal-price total-weight SDP/embedding dual and Boyd's general convex framework are preexisting. The newly assessed result is the complete heterogeneous-edge-price star solution, unique allocations and exact √price polygon/multiplicity threshold. The inaccessible Fiedler full paper leaves qualified risk but its abstract does not state this variable-price optimization.",
+      "residual_risks": [
+        "Highly relevant Fiedler 1990 full text was not accessible; its abstract concerns a uniform average-edge constraint, but an implicit or specialized priced-star theorem cannot be ruled out solely from an abstract.",
+        "The universal SDP framework and polygon closure are prior mathematics; the exact heterogeneous star solution is assessed, not invention of those tools.",
+        "Unindexed fastest consensus/optimal priced-tree results may contain the same closed form under a different normalization."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Deals with equal-price sum-of-conductances budget, not explicit variable per-spoke prices or the √price closed form.",
+          "evidence": [
+            "Section 2, equation (1) ∑edge w <=1, embedding dual"
+          ],
+          "identifier_or_url": "https://optimization-online.org/wp-content/uploads/2005/09/1202.pdf",
+          "material_read": "Original 29-page preprint: Section 2 graph-weight SDP/embedding dual and selected tree/articulation results, including theorem discussion",
+          "method": "Read setup and dual, search/read tree and star passages, visually inspected relevant PDF pages",
+          "title": "Embedded in the Shadow of the Separator",
+          "trigger": "Core predecessor: optimal weighted Laplacian gap and embedding dual, including trees"
+        },
+        {
+          "assessment": "Provides established convex formulation, SDP, symmetry and existence of optimizers; not the arbitrary-priced star polygon criterion and unique explicit weights.",
+          "evidence": [
+            "pp. 1–3 SDP formulation; p. 8 symmetry reduction"
+          ],
+          "identifier_or_url": "https://stanford.edu/~boyd/papers/pdf/cvx_opt_graph_lapl_eigs.pdf",
+          "material_read": "Nine-page primary ICM PDF accessed; read pp. 1–3 on convex weighted Laplacian optimization and p. 8 on symmetry, plus relevant eigenvalue SDP passages.",
+          "method": "Read general λ2 convex formulation and methods for weighted graphs; compared budget assumptions with heterogeneous prices",
+          "title": "Convex Optimization of Graph Laplacian Eigenvalues",
+          "trigger": "Possible stronger general convex optimizer could subsume star result"
+        },
+        {
+          "assessment": "Abstract establishes uniform average-weight problem, whereas the new optimizer permits arbitrary c_i; because full text is inaccessible, implicit coverage remains an explicit residual risk.",
+          "evidence": [
+            "Fiedler 1990, Linear and Multilinear Algebra 26:85–106, publisher abstract"
+          ],
+          "identifier_or_url": "https://doi.org/10.1080/03081089008817967",
+          "material_read": "Publisher abstract and bibliographic description only; 1990 full text not available through lawful OA/arXiv queries or authorized access",
+          "method": "Compared abstract's fixed average edge weight and reciprocal tree-variance theorem to per-edge heterogeneous cost constraint; no whole-text noncoverage claim",
+          "title": "Absolute algebraic connectivity of trees",
+          "trigger": "Plausibly dominating tree optimization classic by Fiedler"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "rationale": "Optimally allocating a fixed conductance budget across unequally priced spokes is a natural exact spectral-network design problem. The result gives a complete solution for all m and price vectors, a sharp √price polygon threshold at which the unique equal-weight optimum changes to an asymmetric one, and an associated Fiedler-space multiplicity transition. This is a structural infinite-family optimization classification useful for analysis of graph diffusion/consensus rates, not a mere tiny numerical improvement.",
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "limitations": [
+    "No results for paths/general trees or nonlinear pricing; prices must be positive and topology fixed.",
+    "A full read of Fiedler 1990 was unavailable, retained as historical-priority risk despite qualified best-of-knowledge PASS.",
+    "Finite numerical Laplacian checks support, but do not establish, universal SDP strong-duality and uniqueness proof."
+  ],
+  "schema_version": 1
+}
