@@ -1,15 +1,21 @@
-# Scientific assessment
+# Independent mathematical audit
 
-## Correctness
-PASS. The coordinate permutation has \(\gcd(N,V_C)\) cycles of length \(\ell_C N/\gcd(N,V_C)\) for each internal permutation cycle. The automorphism accumulated along each full cycle is conjugate to the powered internal monodromy. The elementary counting identity for a weighted finite permutation proves the exact fixed-time formula, followed by Möbius inversion. The finite-set conjugacy criterion follows by matching one-step fixed counts and by an explicit gauge when holonomies vanish. Infinite-orbit gauges prove the temporal full-shift conjugacy when all drifts are nonzero. The packaged separately implemented exact checker passed 1,320 multi-parameter cases plus 11 parity cases.
+## correctness
 
-## Originality
-PASS under inspected accessible evidence. Castronuovo–Dennunzio–Margara (arXiv:2507.09761v1, Section 6, Theorem 10) prove the monomial factor structure and shift-power and entropy properties, not the complete finite-ring fixed-time count or exact finite-ring gauge obstruction. The later transitivity article (arXiv:2601.16243v1, Section 6) supplies closely related known structure, not a temporal finite-ring orbit census. Broader finite-group cellular-automaton literature concerns other dynamical invariants and is not a confirmed implication. Mathematical similarity to general weighted-permutation and voltage-graph cycle enumeration is a residual historical risk, not a source of independently verified priority.
+PASS
 
-## Mathematical value
-PASS. Finite periodic spatial rings are canonical computable approximations to cellular automata. Their entire temporal orbit distribution is a natural invariant that is not determined by entropy or existence of a pure-shift power alone. The formula closes that classification using computable internal factor cycles and group-fixed-element counts. The sharp finite-versus-infinite untwisting contrast is substantive: an outer involution of \(A_5\) leaves 6 one-step fixed configurations on every odd ring but 60 on even rings, although the infinite system is a full 60-shift.
+Given the published monomial-automorphism normal form for surjective 1D group cellular automata over S^m (S finite nonabelian simple), the finite coordinate permutation on (Z/NZ)x{0,...,m-1} splits by internal cycles C of length ell and drift V into g=gcd(N,V) cycles of length L=ell N/g. The automorphism accrued per full index cycle is conjugate to H_C^(N/g). Taking the t-th power splits each length-L cycle into d=gcd(t,L) components, each with monodromy H_C^((N/g)*(t/d)), giving independent fixed element choices and the exact product formula. Ordinary Möbius inversion recovers primitive periods. Equality of t=1 fixed counts with the untwisted index permutation forces each H_C^(N/g)=identity, as a fixed-point set of a finite group automorphism has full cardinality only for identity; conversely the identity holonomies permit a cyclic coordinate gauge. For nonzero V_C, each infinite index orbit is bi-infinite and admits a free gauge, yielding temporal conjugacy to full shift on S^(sum |V_C|); no spatial-shift-commuting conjugacy claimed. I independently counted 60 even permutations A5 and found centralizer of transposition (12) inside A5 has size 6, so odd/even ring one-step counts are 6/60, matching theorem. Finite example does not certify all groups; proof is arbitrary finite permutation-cycle combinatorics.
 
-## Limits
-The result applies to the stated surjective simple-group setting and periodic rings. The full-shift statement excludes zero drift. The proof does not establish absolute historical priority against every abstract weighted-cycle theorem. The exact checker verifies samples and does not replace the general argument.
+## originality
 
-Self-review: passed. Independent audit: not yet performed.
+PASS
+
+The cited Castronuovo-Dennunzio-Margara structural decomposition and shift-power/entropy results are prior and explicitly acknowledged. The added source-specific all-N all-t finite-ring fixed-point product and untwisting obstruction were not stated in inspected Theorem 10, Lemma 11 or the subsequent transitivity paper. General cycle-index methods for weighted permutations are classical; novelty is the application and complete finite-ring dynamics/finite-infinite contrast, with possible equivalent results elsewhere acknowledged.
+
+## value
+
+PASS
+
+Periodic spatial rings are canonical finite approximants to group cellular automata; the entire temporal fixed/primitive-orbit spectrum for all ring lengths is a natural dynamical invariant not determined by topological entropy or a statement that a power is a shift. The sharp if-and-only-if finite holonomy gauge criterion and A5 odd/even obstruction versus infinite full-shift conjugacy make a mathematically motivated finite/infinite distinction.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
