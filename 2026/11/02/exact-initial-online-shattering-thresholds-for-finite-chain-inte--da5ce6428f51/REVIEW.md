@@ -1,0 +1,9 @@
+# Scientific review
+
+**Correctness.** The positive-answer version space factors into independent threshold families on left and right endpoints; the all-negative version space is a disjoint union of full interval classes on the surviving blocks. The stated inductive rank recurrence is therefore exact. The integer dynamic program, direct independent bitmask recurrence through length 12, and explicit 1,024-leaf certificate at length 55 passed replay. The cutoff list is claimed only through dimension 10 and chain length 55.
+
+**Originality.** The closest general source is Bhaskar's 2017 thicket-dimension paper, whose general recurrence is acknowledged as preexisting. Its inspected definitions and main theorems do not supply the interval-block reduction or the displayed cutoff list. Chase–Freitag–Reyzin (2023) treat general query learning and an infinite family of pairwise disjoint intervals, not the present finite overlapping interval class. Walker (2022) proves general tree-dimension bounds. Searches of public mathematical literature and published-finding corpus did not uncover an exact covering formula, but a historical-priority risk remains; the full text of every potentially relevant older online-interval article has not been established to be accessible.
+
+**Value.** The result gives the exact first ten phase-change thresholds for deterministic online mistake complexity of the canonical VC-two interval class, including the first strict failure of the concept-count upper bound at eight points. The structural reduction replaces a potentially enormous arbitrary hypothesis-subset recursion by a reusable finite-block recurrence, while a large explicit witness demonstrates attainability at the endpoint. Exact natural thresholds are useful benchmarks for studying finite approximations to the infinite interval class. The result does not purport to resolve the all-order threshold sequence.
+
+Self-review: passed. Independent audit: not yet performed.
