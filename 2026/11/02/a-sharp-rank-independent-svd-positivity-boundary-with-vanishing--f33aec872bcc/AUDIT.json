@@ -1,0 +1,123 @@
+{
+  "correctness": {
+    "rationale": "The complete set of optimal truncations follows from the explicit spectrum and Eckart–Young–Mirsky. Since 0≤P≤I, every off-diagonal projector entry is at least −1/2, and a zero-sum projector containing (e1−e2)/sqrt(2) attains the bound for every intermediate rank. Partition projectors supply strictly positive rank-r matrices with explicit nonnegative factors and exactly the optimal Frobenius error. Adding epsilon times the attaining projector separates the spectrum, keeps all input entries positive, forces a unique negative-entry optimum, and yields the strict constrained gap by uniqueness plus a closed feasible set; a partition competitor bounds the penalty by epsilon sqrt(r−1). The dimensional proof is symbolic and exact. 36 dimension/rank rational checks and the n=3 illustration passed; these checks are supplementary.",
+    "status": "PASS"
+  },
+  "independent": false,
+  "independent_audit_status": "not_performed",
+  "originality": {
+    "broader_coverage": {
+      "evidence": [
+        "Matveev–Budzinskiy study low-rank nonnegative approximation methods and empirical SVD negativity, but not this exact sharp family-wide sign cutoff.",
+        "Song–Ng–Jiang study alternating-projection convergence, not complete optimal-truncation classifications.",
+        "Montaño–Salas–Soto give sufficient perturbation nonnegativity criteria, not the joint all-rank and vanishing-cost statement."
+      ],
+      "reasoning": "An algorithm applicable to any matrix or a sufficient nonnegativity condition does not imply the exact worst entry over all optimal SVD choices, the simultaneous existence of a strictly positive optimum with r nonnegative factors, or the fixed-sign-defect/vanishing-error-penalty perturbation. None of the inspected primary results was a statement with parameters that dominate the present claim.",
+      "searches": [
+        "best low rank approximation rank-degenerate positive matrix eigenspace arbitrary basis can yield negative entries but a positive optimizer exists",
+        "nonnegative low rank matrix approximation alternating projection SVD rank deficient repeated eigenvalues eigenvector choice sign preservation",
+        "https://arxiv.org/html/2201.11154v2",
+        "https://arxiv.org/html/2009.03998v1",
+        "https://doi.org/10.1155/2009/301582"
+      ]
+    },
+    "checked_sources": [
+      "https://arxiv.org/abs/2201.11154",
+      "https://arxiv.org/html/2201.11154v2",
+      "https://arxiv.org/abs/2009.03998",
+      "https://arxiv.org/html/2009.03998v1",
+      "https://doi.org/10.1155/2009/301582"
+    ],
+    "claim_vs_prior_implication": {
+      "evidence": [
+        "Classical Eckart–Young–Mirsky gives the optimal approximation error and spectral-subspace form, but not the sharp sign extremum or nonnegative-factorizable optimizer existence.",
+        "The singular-value preservation paper offers one-sided sufficient nonnegative conditions rather than this simultaneous sharp necessary/sufficient classification.",
+        "The perturbation argument uses a simple r-dependent spectral gap to make the negative optimum unique while preserving an O(\\(\u000barepsilon\\)) constraint gap; that stronger combined conclusion is absent from the inspected works."
+      ],
+      "reasoning": "The claim explicitly acknowledges that individual ingredients (low-rank approximation, projector order interval and nonnegative block factors) are standard. The assessed novelty is the exact uniform-rank synthesis and robustness separation. Our targeted searches and full-text primary comparisons did not show that the final theorem is implied by any named prior claim; an unlocated broader theorem remains a realistic risk.",
+      "searches": [
+        "https://arxiv.org/html/2201.11154v2",
+        "https://arxiv.org/html/2009.03998v1",
+        "https://doi.org/10.1155/2009/301582",
+        "equicorrelation positive matrix alpha I plus beta J best rank r nonnegative factorization partition projector exact negativity"
+      ]
+    },
+    "equivalent_formulations": {
+      "evidence": [
+        "The singular-value degeneracy is rephrased as all rank-\\(r-1\\) orthogonal projectors on the constant-vector-orthogonal subspace.",
+        "The Rayleigh-quotient bound \\(P_{ij}\\geq-1/2\\) and an attaining zero-sum construction give both necessity and sufficiency for all tie choices.",
+        "No checked article stated the same sharp projection extremum together with the NMF zero-penalty classification."
+      ],
+      "reasoning": "We compared the precise universal quantifier over all optimal tied SVD truncations with customary leading-eigenvector/Perron positivity statements, singular-value perturbation bounds, and nonnegative-rank feasibility. Perron positivity of the first singular vector alone neither prevents negative entries in higher-rank truncations nor implies the rank-independent cutoff.",
+      "searches": [
+        "nonnegative rank-r truncated SVD equicorrelation alpha I plus beta 11T sharp threshold all spectral projections entrywise nonnegative",
+        "equicorrelation positive matrix alpha I plus beta J best rank r nonnegative factorization partition projector exact negativity",
+        "sign of best rank r approximation of compound symmetric or constant correlation positive matrix"
+      ]
+    },
+    "exact_database_or_table": {
+      "evidence": [
+        "No direct exact-value database or table covering the continuum of \\(n,r,\u0007lpha,\beta\\) and small positive perturbations was identified.",
+        "The result is a closed-form theorem for all dimensions \\(n\\geq3\\), not a recomputation of a fixed finite table."
+      ],
+      "reasoning": "Fixed binary-matrix nonnegative-rank censuses concern another class and do not imply the continuous sharp singular-subspace threshold or perturbation cost.",
+      "searches": [
+        "nonnegative matrix approximation exact Frobenius optimum partitions uniform rank one spike repeated eigenvalues",
+        "truncated singular value decomposition degenerate eigenvalues entrywise sign rank independent threshold macroscopic negative tiny optimality gap",
+        "nonnegative rank-r truncated SVD equicorrelation alpha I plus beta 11T sharp threshold all spectral projections entrywise nonnegative"
+      ]
+    },
+    "rationale": "Targeted semantic searches compared equivalent formulations, dominating parameter statements, numeric tables, and implication relations. Relevant complete texts were inspected, particularly the 2022 randomized low-rank nonnegative approximation study, the 2020 tangent-space alternating projections study, and the 2009 singular-value nonnegativity-perturbation criteria. These study algorithms or sufficient preservation conditions and do not establish the sharp all-tie, all-intermediate-rank compound-symmetric criterion together with zero NMF cost and the vanishing-cost spectral-gap perturbation. The classical spectral and projector ingredients are acknowledged, and absence of indexed direct coverage is not regarded as proof of priority.",
+    "residual_risks": [
+      "Unlocated specialized theorems on entrywise sign of degenerate truncated SVDs or nonnegative best low-rank approximations might imply parts of the theorem.",
+      "Novelty is a combined exact structural classification with standard spectral tools; independent publication-priority assessment is outstanding."
+    ],
+    "source_inspections": [
+      {
+        "assessment": "Provides randomized alternating-projection methods and empirical performance; no sharp all-rank compound-symmetric SVD sign threshold, tie-breaking extremum, positive NMF-optimal partition, or persistent-negative/vanishing-cost perturbation classification",
+        "evidence": [
+          "arXiv:2201.11154 was first publicly submitted on 2022-01-26.",
+          "The article abstract and full article present randomized approximate alternating projections and experiments for low-rank nonnegative approximation."
+        ],
+        "identifier_or_url": "https://arxiv.org/html/2201.11154v2",
+        "material_read": "Full accessible article text, including introduction, approximation algorithms, computational experiments, and conclusions",
+        "method": "Read arXiv open-access HTML and compared the problem setup, precise claims and numerical results",
+        "title": "Sketching for low-rank nonnegative matrix approximation: Numerical study",
+        "trigger": "Direct numerical-analysis study of low-rank nonnegative matrix approximation and truncated-SVD negativity"
+      },
+      {
+        "assessment": "Establishes convergence of tangent-space alternating projections to feasible matrices sufficiently near optimal solutions, not this sharp exact spectral-projector sign envelope or vanishing constraint cost",
+        "evidence": [
+          "arXiv:2009.03998v1 was publicly posted 2020-09-02.",
+          "The abstract and theorem concern tangent-space approximations and convergence of an iterative method."
+        ],
+        "identifier_or_url": "https://arxiv.org/html/2009.03998v1",
+        "material_read": "Full accessible article, including fixed-rank manifold setup, algorithm and convergence statements and numerical applications",
+        "method": "Read open-access arXiv HTML and compared theorems with exact optimal-truncation family and perturbation claim",
+        "title": "Tangent Space Based Alternating Projections for Nonnegative Low Rank Matrix Approximation",
+        "trigger": "Foundational alternating-projections treatment for nonnegative low-rank approximation"
+      },
+      {
+        "assessment": "Contains general sufficient criteria for nonnegativity of singular-value perturbations, not a necessary-and-sufficient rank-independent threshold for all optimal intermediate-rank truncated SVDs, and no equal-error NMF constructions or spectral-gap perturbation separation",
+        "evidence": [
+          "Section 2 provides sufficient nonnegativity conditions for simple and rank-two singular-value perturbations.",
+          "Section 3 addresses mixed perturbations and singular values, not optimal rank-constrained approximation cost."
+        ],
+        "identifier_or_url": "https://doi.org/10.1155/2009/301582",
+        "material_read": "Open-access complete article; sections 1–3, including Theorem 1.1, Lemmas 2.1, 2.3, 2.5 and associated applications",
+        "method": "Read publisher open-access article HTML; checked sufficient perturbation regions and their assumptions against the sharp minimization over all subspace projectors",
+        "title": "Nonnegativity Preservation under Singular Values Perturbation",
+        "trigger": "Closely plausible prior inequalities for singular-vector perturbations preserving entries"
+      }
+    ],
+    "status": "PASS"
+  },
+  "review_type": "self_review",
+  "schema_version": 1,
+  "scope_run_id": "f33aec87-2bcc-43bd-89a8-9cae5e0a0091",
+  "self_review_status": "passed",
+  "value": {
+    "rationale": "Nonnegative low-rank approximation and the distinction between truncated SVD and nonnegative-factorizable optimization are practical numerical-analysis questions. The theorem identifies a precise dimension-scaled parameter threshold independent of truncation rank, shows that the nonnegative constraint can cost nothing even where some unconstrained minimizers are negative, and proves a robust sign-versus-objective-cost separation after arbitrarily small data perturbation. These exact structural facts offer benchmarks for tie-breaking and tolerance-sensitive numerical methods rather than an arbitrary finite example.",
+    "status": "PASS"
+  }
+}
