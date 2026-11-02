@@ -1,19 +1,21 @@
-# Scientific review
+# Independent mathematical audit
 
-## Correctness — PASS
+## correctness
 
-The theorem is proved for an increasing two-sided filtration, adapted variables bounded by one, and deterministic positive integer horizons. Interval coloring yields at most \(\Delta\) classes of disjoint windows. Within each class the centered terms are martingale differences bounded by two. Conditional Hoeffding, generalized Hölder, Cauchy–Schwarz, and Chernoff optimization give the displayed constant \(8\). The proof covers arbitrary finite \(N\); no finite experiment is used to support a universal statement.
+PASS
 
-## Originality — PASS
+The integer intervals I_n form a perfect interval-intersection graph and can be greedily colored using at most maximum point overlap Delta. For a color with ordered endpoints n_j, nonoverlap implies n_(j-1)<=n_j-K_(n_j), so the centered Z_(n_j) are bounded martingale differences for the coarse filtration; conditional Hoeffding gives E exp(lambda S_c)<=exp(2lambda² r_c) for |Z|<=2. Generalized Holder with p_c=(sum sqrt r_d)/sqrt r_c and sum 1/p_c=1 yields exp(2lambda² (sum sqrt r_c)^2). Optimizing Chernoff yields two-sided 2exp(-x²/(8 R)); Cauchy–Schwarz gives R<=Delta N. Set x=epsilon N to obtain convergence in probability if Delta_N=o(N). Independent randomized checks on 990 integer-horizon patterns confirmed interval-coloring equals max overlap and the Holder variance proxy inequality. No independence of the Y_n or random horizon assumptions are smuggled in.
 
-The closest inspected primary result is Vovk's fixed-horizon law of large numbers, which assumes a single common horizon \(K\). The present statement handles arbitrary deterministic \(K_n\) through maximum window overlap \(\Delta\). The example with one horizon equal to \(N\) and all remaining horizons equal to one shows why the maximum horizon can be an unnecessarily coarse parameter. Searches did not locate a statement-level equivalent, but they cannot prove absolute novelty.
+## originality
 
-## Value — PASS
+PASS
 
-The overlap parameter measures how many forecast windows can be active at one information time. The resulting finite-sample inequality gives a useful criterion, \(\Delta_N=o(N)\), for asymptotic unbiasedness even when the largest individual horizon is not sublinear. The theorem is a sufficient bound; no universal sharpness claim is made.
+Vovk (2025/2026) proved a common K fixed-horizon centered forecast LLN using residue classes; that theorem does not directly handle arbitrary deterministic changing K_n, especially one horizon of order N amid mostly K_n=1. Coloring actual backward information intervals and bounding by maximum simultaneous overlap is the added conditional concentration result. Ordinary interval graph perfection and Hoeffding/Hölder are classical ingredients, so general dependent-sequence inequalities remain a potential implicit-coverage risk.
 
-## Closest literature and limitations
+## value
 
-V. Vovk, “A law of large numbers for predicting several steps ahead,” arXiv:2508.17507, first posted 24 August 2025; later published in *Statistics and Probability Letters* 236 (2026), article 110785. Its theorem concerns a common horizon and does not state the variable-horizon overlap bound. A general dependent-risk aggregation paper was located through its metadata and abstract, but its full text was not accessible; it remains a residual literature risk. Random or data-adaptive horizons and unbounded variables are not covered.
+PASS
 
-Self-review: passed. Independent audit: not yet performed.
+A practically natural information-complexity parameter counts simultaneous lookback windows rather than the largest forecast horizon: Delta_N=o(N) yields a weak law even with isolated order-N lookbacks, which common-horizon bounds cannot certify. This is a motivated general inequality with substantive improved scope, not an arbitrary textbook renaming; no sharp constants claimed.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

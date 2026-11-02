@@ -1,0 +1,132 @@
+{
+  "audit_date_utc": "2026-10-30",
+  "audited_at_utc": "2026-10-30T12:09:49Z",
+  "axes": {
+    "correctness": {
+      "checked_sources": [
+        "frozen RESULT.md; actual source tree d5b2a41a1ee65b1b60e0241bcb8d75c6c170f008",
+        "independent proof reconstruction of conditional Hoeffding/Hölder arithmetic",
+        "independent_checks.py randomly sampled 990 finite integer-window patterns for chromatic bound"
+      ],
+      "rationale": "The integer intervals I_n form a perfect interval-intersection graph and can be greedily colored using at most maximum point overlap Delta. For a color with ordered endpoints n_j, nonoverlap implies n_(j-1)<=n_j-K_(n_j), so the centered Z_(n_j) are bounded martingale differences for the coarse filtration; conditional Hoeffding gives E exp(lambda S_c)<=exp(2lambda² r_c) for |Z|<=2. Generalized Holder with p_c=(sum sqrt r_d)/sqrt r_c and sum 1/p_c=1 yields exp(2lambda² (sum sqrt r_c)^2). Optimizing Chernoff yields two-sided 2exp(-x²/(8 R)); Cauchy–Schwarz gives R<=Delta N. Set x=epsilon N to obtain convergence in probability if Delta_N=o(N). Independent randomized checks on 990 integer-horizon patterns confirmed interval-coloring equals max overlap and the Holder variance proxy inequality. No independence of the Y_n or random horizon assumptions are smuggled in.",
+      "residual_risks": [
+        "All horizons deterministic and chosen independently of data; stopping-time/adaptive horizons are outside the proof.",
+        "Tail bound is sufficient, with no claimed best constant or universal reverse bound."
+      ],
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "General martingale PAC-Bayes and dependency-graph concentration inequalities treat related aggregation and coloring, but no located primary theorem establishes precisely this conditional centering/window overlap bound under merely adapted Y_n."
+        ],
+        "reasoning": "The general theorems are possible ancestors; without a demonstrated substitution of their hypotheses to these nonuniform windows they do not decisively dominate the statement.",
+        "searches": [
+          "arxiv:2508.17507",
+          "bounded differences dependency graph interval martingale difference Hoeffding overlap chromatic number nonuniform horizons",
+          "arxiv:1110.6886"
+        ]
+      },
+      "checked_sources": [
+        "arxiv:2508.17507 full primary paper",
+        "arxiv:1110.6886 abstract only",
+        "interval graph coloring classical theorem",
+        "Resultary variable prediction horizons overlapping intervals martingale difference Hoeffding concentration max overlap conditional expectation"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "Fixed-K grouping gives K residue classes; the present nonuniform interval graph can have Delta=2 with max K_n=N, which improves substantially on direct max-horizon substitution."
+        ],
+        "reasoning": "The concentration inequality follows from a fresh synthesis of classical tools but is not a direct parameter substitution into the common-K theorem. A future general martingale-coloring theorem could subsume it; that possibility remains a residual risk.",
+        "searches": [
+          "arxiv:2508.17507",
+          "interval graph perfection/chromatic equals overlap",
+          "Hoeffding conditional moment bound"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Vovk Theorem 1 assumes one common K and obtains a fixed K-dependent rate. Current theorem uses arbitrary deterministic K_n and maximum intersection multiplicity of windows I_n."
+        ],
+        "reasoning": "Setting all K_n=K recovers a known-order fixed-horizon bound, but the converse cannot be obtained by substituting max K_n where Delta is much smaller.",
+        "searches": [
+          "variable prediction horizons overlapping intervals martingale difference Hoeffding concentration max overlap conditional expectation",
+          "arxiv:2508.17507",
+          "\"variable prediction horizons overlapping intervals martingale difference Hoeffding concentration\""
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "Resultary hits concern conformal prediction, time-uniform betting and other concentration settings, none identified as the deterministic information-window overlap law."
+        ],
+        "reasoning": "No exact table is relevant to this analytic theorem; the named database check is inapplicable as an exact finite-value table question, and the searches seek published theorem equivalents instead.",
+        "searches": [
+          "variable prediction horizons overlapping intervals martingale difference Hoeffding concentration max overlap conditional expectation",
+          "Resultary variable prediction horizons overlapping intervals martingale difference Hoeffding concentration max overlap conditional expectation",
+          "variable prediction horizons overlapping intervals martingale difference Hoeffding concentration max overlap conditional expectation"
+        ]
+      },
+      "rationale": "Vovk (2025/2026) proved a common K fixed-horizon centered forecast LLN using residue classes; that theorem does not directly handle arbitrary deterministic changing K_n, especially one horizon of order N amid mostly K_n=1. Coloring actual backward information intervals and bounding by maximum simultaneous overlap is the added conditional concentration result. Ordinary interval graph perfection and Hoeffding/Hölder are classical ingredients, so general dependent-sequence inequalities remain a potential implicit-coverage risk.",
+      "residual_risks": [
+        "An existing general dependent-martingale coloring inequality may imply the current bound as a corollary, although no decisive covering theorem was identified.",
+        "The new contribution is a motivated nonuniform forecasting corollary of elementary tools, not novelty of Hoeffding, Holder or interval graph coloring."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "SPECIAL_CASE_COVERAGE: handles K_n=K, not arbitrary deterministic horizons with Delta bound",
+          "evidence": [
+            "web ; ; ; screenshot "
+          ],
+          "identifier_or_url": "arxiv:2508.17507",
+          "material_read": "full accessible nine-page arXiv PDF, Theorem 1, proof of common-K residue grouping and its fixed K dependence",
+          "method": "web primary PDF review, pages1-3 and screenshot page1",
+          "title": "A law of large numbers for predicting several steps ahead",
+          "trigger": "direct motivating forecast theorem"
+        },
+        {
+          "assessment": "PRIORITY_RISK_UNREAD: broad martingale aggregations, no proven exact interval-window implication",
+          "evidence": [
+            "web turn264162academia66"
+          ],
+          "identifier_or_url": "arxiv:1110.6886",
+          "material_read": "search-visible abstract only; full text not inspected",
+          "method": "bibliographic/abstract comparison only",
+          "title": "PAC-Bayesian Inequalities for Martingales",
+          "trigger": "plausible broader martingale concentration with dependency"
+        },
+        {
+          "assessment": "KNOWN_TOOL: coloring lemma is classical, not novelty",
+          "evidence": [
+            "web "
+          ],
+          "identifier_or_url": "classical interval graph theorem",
+          "material_read": "published reference statements on interval intersection graph clique/chromatic equality",
+          "method": "general theorem statement with separately reproduced greedy argument",
+          "title": "Interval graph perfectness and optimal coloring",
+          "trigger": "critical graph-coloring ingredient"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "checked_sources": [
+        "Vovk fixed-horizon forecasting LLN arxiv:2508.17507",
+        "interval graph overlap/chromatic structure and conditional martingale concentration"
+      ],
+      "rationale": "A practically natural information-complexity parameter counts simultaneous lookback windows rather than the largest forecast horizon: Delta_N=o(N) yields a weak law even with isolated order-N lookbacks, which common-horizon bounds cannot certify. This is a motivated general inequality with substantive improved scope, not an arbitrary textbook renaming; no sharp constants claimed.",
+      "residual_risks": [
+        "No random/adaptive horizon extension or matching universal sharpness; the proof uses standard concentration machinery."
+      ],
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "limitations": [
+    "All horizons deterministic and chosen independently of data; stopping-time/adaptive horizons are outside the proof.",
+    "Tail bound is sufficient, with no claimed best constant or universal reverse bound.",
+    "An existing general dependent-martingale coloring inequality may imply the current bound as a corollary, although no decisive covering theorem was identified.",
+    "The new contribution is a motivated nonuniform forecasting corollary of elementary tools, not novelty of Hoeffding, Holder or interval graph coloring.",
+    "No random/adaptive horizon extension or matching universal sharpness; the proof uses standard concentration machinery."
+  ],
+  "schema_version": 1
+}
