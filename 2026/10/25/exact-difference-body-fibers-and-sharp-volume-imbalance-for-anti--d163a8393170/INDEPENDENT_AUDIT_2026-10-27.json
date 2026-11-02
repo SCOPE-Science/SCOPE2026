@@ -1,0 +1,129 @@
+{
+  "audit_date_utc": "2026-10-27",
+  "audited_at_utc": "2026-10-27T23:50:31Z",
+  "axes": {
+    "correctness": {
+      "rationale": "For d>=3, a,b in [0,1], use w=x-y in [-1,1]^d and S=sum w. Necessary slab |S|<=d-a-b follows from sum constraints. Writing p=sum positive coordinates, q=sum negative absolute coordinates gives exact attainable Y=sum y range [q,d-p], and existence iff it intersects [a,d-b] and [a-S,d-b-S]. All residual inequalities follow from p,q<=d-1 when w has both signs (since max(a,b)<=1), or p or q=|S|<=d-a-b when one sign. Therefore exact set equality K-K=[-1,1]^d intersect slab. Two removed corner simplices of side lengths a,b give vol(K)=1-(a^d+b^d)/d!, and in [-1,1]^d two slabs caps each vol s^d/d!, giving vol(K-K)=2^d-2s^d/d!. At fixed s in (0,2), strict convexity of a^d+(s-a)^d yields centered 2^d minimum and asymmetric endpoint maximum. Covers a=0,1 and b=0,1 and affine transformations. Independently verified 34,875 rational interval equivalences on d=3,4,5; unrestricted proof is analytic.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Recent higher-order Godbersen work states mixed-volume inequalities for K and -K and simplex equality classes.",
+          "Brunn-Minkowski yields vol(K-K)>=2^d vol(K) but not the explicit slab or strict allocation maximizing ratio."
+        ],
+        "reasoning": "General inequality is not a dominating explicit-fiber theorem. Exact interpolation in a,b and fixed slab equality are extra claims.",
+        "searches": [
+          "arxiv:2610.06806v2 Theorem 1.2",
+          "doi:10.1112/jlms/s1-33.3.270",
+          "arxiv:1602.00967"
+        ]
+      },
+      "checked_sources": [
+        "Git RESULT.md and verify.py",
+        "34,875 independent exact rational feasibility checks",
+        "Rogers-Shephard DOI 10.1112/jlms/s1-33.3.270",
+        "arxiv:1602.00967",
+        "arxiv:2610.06806v2 relevant full primary PDF",
+        "Resultary difference body antipodally truncated cubes fixed difference body volume asymmetry"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "Sharp symmetric equality 2^d at a=b is a corollary of Brunn-Minkowski equality and is not claimed as standalone new.",
+          "Asymmetric exact volume family and fixed-difference-body identity do not follow from total-volume inequalities."
+        ],
+        "reasoning": "The surviving distinctive fact is the exact fiber law plus strict range; reusing known lower-bound equality is acknowledged.",
+        "searches": [
+          "doi:10.1112/jlms/s1-33.3.270",
+          "arxiv:2610.06806v2 Theorem 1.2",
+          "arxiv:1602.00967"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "The construction is equivalently a two-opposing-vertex truncation of a parallelotope, with affine copies giving the same ratio.",
+          "Rogers-Shephard difference-body theory studies K-K and ratio bounds, not this displayed slice family in the inspected statements."
+        ],
+        "reasoning": "Affine and support-function formulations represent the same theorem and are incorporated; known general bounds do not specify these fiber preimages.",
+        "searches": [
+          "difference body antipodally truncated cubes fixed difference body volume asymmetry",
+          "doi:10.1112/jlms/s1-33.3.270",
+          "arxiv:1602.00967"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "Resultary returned simplex Godbersen mixed volumes and Mahler products but not a matching two-corner clipped-cube fixed-difference-body table.",
+          "Exact algebraic formula valid for all d>=3 and continuum of a,b."
+        ],
+        "reasoning": "No known numerical table would substitute for the continuous exact set equality; possible historic constructions remain risk.",
+        "searches": [
+          "Resultary difference body antipodally truncated cubes fixed difference body volume asymmetry"
+        ]
+      },
+      "rationale": "Universal Rogers-Shephard and Brunn-Minkowski ratios are prior art, as are broader Godbersen mixed-volume inequalities, but these do not identify the same exact difference-body set for an asymmetric one-parameter family and its strict sharp volume profile. Fixed-difference-body fiber degeneracy is the distinctive geometric statement.",
+      "residual_risks": [
+        "A classical construction of nonunique difference-body preimages may include this clipped-cube family in another parameterization.",
+        "One recent higher-order Godbersen full text was inspected only at relevant major theorem, not exhaustively for every example."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "NOT DIRECT COVERAGE OF TWO-CORNER CUBE DIFFERENCE-BODY FIBERS",
+          "evidence": [
+            "Theorem 1.2 is a mixed-volume inequality and simplex characterization, not exact identity K-K for clipped cubes."
+          ],
+          "identifier_or_url": "https://arxiv.org/pdf/2610.06806",
+          "material_read": "Primary arXiv PDF introduction and Theorem 1.2 concerning mixed volumes and equality cases",
+          "method": "Primary PDF text with page screenshot",
+          "title": "Higher-order Godbersen inequality and a characterization of simplices via the face lattice",
+          "trigger": "Recent stronger mixed-volume inequality candidate"
+        },
+        {
+          "assessment": "GENERAL VOLUME BOUND, NO EXPLICIT FIBER EQUALITY DEMONSTRATED IN MATERIAL READ",
+          "evidence": [
+            "Rogers-Shephard bounds volume ratio for arbitrary K, does not directly give the displayed sharp fixed-s family."
+          ],
+          "identifier_or_url": "https://doi.org/10.1112/jlms/s1-33.3.270",
+          "material_read": "Available bibliographic/theorem statements of Rogers-Shephard volume bound; full text not asserted read",
+          "method": "Theorem-level published comparison",
+          "title": "Convex bodies associated with a given convex body",
+          "trigger": "Foundational same invariant difference body"
+        },
+        {
+          "assessment": "CHARACTERIZATION OF THE OPERATOR RATHER THAN THIS SPECIFIC PREIMAGE FAMILY",
+          "evidence": [
+            "Characterizes difference-body functional/operator properties, not obviously equality among two clipped-cube preimages."
+          ],
+          "identifier_or_url": "https://arxiv.org/abs/1602.00967",
+          "material_read": "Accessible abstract describing characterization of difference-body operator, not whole-text exclusion",
+          "method": "arXiv abstract/title theorem scope",
+          "title": "The role of the Rogers–Shephard inequality in the characterization of the difference body",
+          "trigger": "Potential broader uniqueness/fiber theorem"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "rationale": "Difference bodies lose translational and certain asymmetry data; identifying a continuous explicit family of distinct full-dimensional bodies sharing the exact difference body, and the sharp possible volume range within it, addresses a natural reconstruction/extremal-geometry problem. The set-valued fiber is a stronger invariant than merely confirming a universal inequality.",
+      "status": "PASS"
+    }
+  },
+  "checked_sources": [
+    "Git RESULT.md and verify.py",
+    "34,875 independent exact rational feasibility checks",
+    "Rogers-Shephard DOI 10.1112/jlms/s1-33.3.270",
+    "arxiv:1602.00967",
+    "arxiv:2610.06806v2 relevant full primary PDF",
+    "Resultary difference body antipodally truncated cubes fixed difference body volume asymmetry"
+  ],
+  "disposition": "passed",
+  "limitations": [
+    "Sharpness only within two-opposite-corner cuts with 0<=a,b<=1 and d>=3, not among all bodies with same difference body.",
+    "Affine statements require invertible maps."
+  ],
+  "residual_risks": [
+    "A classical construction of nonunique difference-body preimages may include this clipped-cube family in another parameterization.",
+    "One recent higher-order Godbersen full text was inspected only at relevant major theorem, not exhaustively for every example."
+  ],
+  "schema_version": 1
+}

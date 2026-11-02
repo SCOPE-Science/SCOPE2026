@@ -5,8 +5,11 @@
     "status": "not_performed"
   },
   "independent_audit": {
-    "evidence": null,
-    "status": "not_performed"
+    "status": "passed",
+    "evidence": [
+      "INDEPENDENT_AUDIT_2026-10-27.md",
+      "INDEPENDENT_AUDIT_2026-10-27.json"
+    ]
   },
   "lean_verification": {
     "evidence": null,
@@ -16,17 +19,24 @@
 }
 ---
 
-# Mathematical verification
+# Independent mathematical audit
 
-Execute `python verify.py` with Python 3. It uses only the standard library.
+## correctness
 
-The complete standalone checker was run, giving:
+PASS
 
-```text
-EXACT_FEASIBILITY_OK samples=34875 dimensions=3..5
-EXACT_VOLUME_RATIO_OK samples=297 dimensions=3..13
-```
+For d>=3, a,b in [0,1], use w=x-y in [-1,1]^d and S=sum w. Necessary slab |S|<=d-a-b follows from sum constraints. Writing p=sum positive coordinates, q=sum negative absolute coordinates gives exact attainable Y=sum y range [q,d-p], and existence iff it intersects [a,d-b] and [a-S,d-b-S]. All residual inequalities follow from p,q<=d-1 when w has both signs (since max(a,b)<=1), or p or q=|S|<=d-a-b when one sign. Therefore exact set equality K-K=[-1,1]^d intersect slab. Two removed corner simplices of side lengths a,b give vol(K)=1-(a^d+b^d)/d!, and in [-1,1]^d two slabs caps each vol s^d/d!, giving vol(K-K)=2^d-2s^d/d!. At fixed s in (0,2), strict convexity of a^d+(s-a)^d yields centered 2^d minimum and asymmetric endpoint maximum. Covers a=0,1 and b=0,1 and affine transformations. Independently verified 34,875 rational interval equivalences on d=3,4,5; unrestricted proof is analytic.
 
-The set-feasibility tests enumerate rational coordinate difference vectors and rational clipping parameters, compare the independently reconstructed three-interval feasibility calculation with the proposed slab predicate, and exercise boundary configurations. The ratio tests use `fractions.Fraction` to compare rational volumes and strict balancing assertions for dimensions three through thirteen. A separate convex-hull calculation in dimension three numerically checked representative polytope volumes, but is not required to replay the standalone exact checker.
+## originality
 
-These finite checks are not a proof for all dimensions, all parameter values, or all continuum directions. The RESULT.md proof provides the general interval characterization, volume integrations, and strict convexity argument. No formal proof assistant or independent human validation was used.
+PASS
+
+Universal Rogers-Shephard and Brunn-Minkowski ratios are prior art, as are broader Godbersen mixed-volume inequalities, but these do not identify the same exact difference-body set for an asymmetric one-parameter family and its strict sharp volume profile. Fixed-difference-body fiber degeneracy is the distinctive geometric statement.
+
+## value
+
+PASS
+
+Difference bodies lose translational and certain asymmetry data; identifying a continuous explicit family of distinct full-dimensional bodies sharing the exact difference body, and the sharp possible volume range within it, addresses a natural reconstruction/extremal-geometry problem. The set-valued fiber is a stronger invariant than merely confirming a universal inequality.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
