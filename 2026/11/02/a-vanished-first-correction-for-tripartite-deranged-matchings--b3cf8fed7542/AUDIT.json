@@ -1,0 +1,135 @@
+{
+  "correctness": {
+    "rationale": "The exact tripartite inclusion–exclusion sum is established for all m by choosing forbidden edges in three part-pair classes and normalizing by the balanced perfect-matching count. The R_m expansion uses the first two power sums. Uniform Taylor error through degree 2 for i,j,k <= m^(1/10), factorial-decaying tails outside the cutoff, and an absolutely summable degree-six error bound establish O(m^-3) globally. The exact formal-Poisson moment identities E[A]=0 and E[B+A^2/2]=3lambda^2/8 imply coefficient 3/128. The actual standalone verify.py reproduces direct counts for m=1..3, exact integer inclusion–exclusion through m=12, and exact sparse-rational symbolic identities; all checks passed. It makes no infinite-proof claim from numerical data.",
+    "status": "PASS"
+  },
+  "independent": false,
+  "independent_audit_status": "not_performed",
+  "originality": {
+    "broader_coverage": {
+      "evidence": [
+        "Spiro–Surya arXiv:2211.01872, Theorems 1.2–1.3: a stronger graph-class Poisson limit, but no second-order coefficient.",
+        "Granet–Joos arXiv:2301.10131, Theorem 1.2: broader robust-expander Poisson approximation with asymptotic o(1), not the exact finite-size tripartite correction.",
+        "Deng arXiv:2505.13799, Sections 4 and 6: multivariate Poisson limits and a stated future direction on rates."
+      ],
+      "reasoning": "Results covering many graphs and the entire overlap distribution at leading order do not establish this particular second-order asymptotic. Although the 2022 exact finite formula is sufficient in principle to determine all corrections, an independent uniform remainder analysis is needed for the claim; the previously proved leading limit alone does not imply the rate or constant.",
+      "searches": [
+        "Counting Deranged Matchings arxiv 2211.01872 total variation rate",
+        "Random perfect matchings in regular graphs Granet Joos quantitative error rate",
+        "Poisson correction to probability of no overlaps for random perfect matchings complete tripartite graphs",
+        "Deranged Perfect Matchings complete graph balanced r partite convergence rate 2505.13799"
+      ]
+    },
+    "checked_sources": [
+      "arxiv:2209.11319",
+      "arxiv:2211.01872",
+      "arxiv:2301.10131",
+      "arxiv:2505.13799",
+      "published-finding corpus searches on tripartite deranged-matching probability and aliases"
+    ],
+    "claim_vs_prior_implication": {
+      "evidence": [
+        "The 2022 tripartite theorem proves only the limit e^(-3/4) while giving the exact input identity.",
+        "General Poisson convergence is o(1) in total variation; neither it nor the associated expansion-free proofs gives a 3/(128m^2) coefficient.",
+        "The new calculation derives vanishing first-order moment and nonzero second-order moment, and controls an infinite alternating factorial series uniformly to O(m^-3)."
+      ],
+      "reasoning": "The new statement logically follows from the earlier exact sum together with a substantive new analytic derivation; it is not a mere specialization of a prior asymptotic error theorem or a rebranding of the known sum. The claim excludes the prior limit and exact formula from its novelty assertion. A hidden existing expansion would supersede novelty and remains a residual risk.",
+      "searches": [
+        "arxiv:2209.11319 Section 3 equation 7 Theorem 5",
+        "arxiv:2211.01872 Theorem 1.2 Sections 3.1-3.2",
+        "arxiv:2301.10131 Theorem 1.2",
+        "arxiv:2505.13799 Section 6 rate of convergence",
+        "deranged matchings rate of convergence complete tripartite graph cancellation of first order 1/m term"
+      ]
+    },
+    "equivalent_formulations": {
+      "evidence": [
+        "Johnston–Kayll–Palmer arXiv:2209.11319, Section 3: exact summation and limit, but no coefficient for the leading finite-size deviation.",
+        "Spiro–Surya arXiv:2211.01872, Theorem 1.2: total-variation convergence of edge-overlap count to Poisson(3/4), without an asymptotic expansion for the mass at zero."
+      ],
+      "reasoning": "The same probability may be called a tripartite deranged-matching fraction, the zero-overlap atom of a rencontres distribution, or a perfect-matching avoidance probability. The existing finite triple sum computes this quantity exactly; the specifically asserted analytic rate, cancellation of the first correction, and second-order constant were not stated in the inspected primary results. This is a nontrivial asymptotic extraction from that known exact identity, not a new enumeration formula.",
+      "searches": [
+        "second-order asymptotic expansion perfect matchings avoiding fixed matching in balanced complete tripartite graph K_{2m,2m,2m}, coefficient 3/128 m^-2 e^-3/4",
+        "deranged matchings rate of convergence complete tripartite graph cancellation of first order 1/m term",
+        "Poisson correction to probability of no overlaps for random perfect matchings complete tripartite graphs",
+        "\"tripartite\" \"deranged matchings\" \"rate of convergence\"",
+        "\"deranged matchings\" \"second order\" asymptotics"
+      ]
+    },
+    "exact_database_or_table": {
+      "evidence": [
+        "No indexed exact second-order coefficient identified in the searched research records or publication queries.",
+        "Johnston–Kayll–Palmer arXiv:2209.11319, equation (7), is an exact finite triple sum for all m; it is expressly credited and not presented as new.",
+        "The other closest identified literature concerns different matching statistics and does not tabulate a tripartite zero-overlap second-order coefficient."
+      ],
+      "reasoning": "An existing exact finite sum is the strongest related input and must not be mistaken for absent coverage. It supplies all finite values but does not provide the new quantified asymptotic extraction as a stated result. No database entry for the cancellation and coefficient was found; missing indexing remains a priority risk.",
+      "searches": [
+        "second-order asymptotic expansion perfect matchings avoiding fixed matching in balanced complete tripartite graph K_{2m,2m,2m}, coefficient 3/128 m^-2 e^-3/4",
+        "asymptotic expansion rencontres polynomial K_{2m,2m,2m} matching derangement probability",
+        "\"3/128\" \"tripartite\" \"matching\"",
+        "\"K_{2m,2m,2m}\" deranged matchings second order"
+      ]
+    },
+    "rationale": "Compared with the full relevant sections of the 2022 primary paper giving the exact finite sum and the e^(-3/4) limit, subsequent broad Poisson-convergence papers, and the 2025 quantitative-rate discussion. Searches of equivalents and public research records found no reported first-order cancellation and 3/128 second-order term. The prior sum determines the finite probability, so the actual novelty claimed is only the nontrivial uniform second-order extraction, not the finite sum or limit. Residual risk of an unindexed extraction is expressly retained.",
+    "residual_risks": [
+      "An earlier unindexed or differently named extraction from the known exact sum may have proved this coefficient.",
+      "The generality of broader probabilistic approximations does not automatically certify novelty of a more precise special-case asymptotic.",
+      "The current proof gives an asymptotic big-O, not a numerical finite-size threshold or uniform rate across all multipartite families."
+    ],
+    "source_inspections": [
+      {
+        "assessment": "Exact finite triple sum and the leading limit already known; no explicit second-order term in the inspected derivation.",
+        "evidence": [
+          "Theorem 5; equations (5), (7), (8); the use of Tannery convergence only."
+        ],
+        "identifier_or_url": "https://arxiv.org/abs/2209.11319",
+        "material_read": "Introduction; Section 3, Theorem 5 proof, exact equations (5)–(8), and section summary.",
+        "method": "Read full-text HTML presentation and compared exact probability, finite sum and asymptotic statements.",
+        "title": "Deranged matchings: proofs and conjectures",
+        "trigger": "Same tripartite graph and fixed forbidden matching; dominant plausible overlap."
+      },
+      {
+        "assessment": "General leading total-variation Poisson convergence, without the specific order-two tripartite correction.",
+        "evidence": [
+          "Theorem 1.2 only concludes total variation tends to zero; Lemma 3.5 ratios are 1+o(1)."
+        ],
+        "identifier_or_url": "https://arxiv.org/html/2211.01872v1",
+        "material_read": "Introduction and Theorems 1.2–1.3; Sections 2–3 including ratio bounds, use of estimates and concentration method, with searches for quantitative second-order error.",
+        "method": "Read accessible primary HTML, compared theorem quantifiers and strength with zero-overlap expansion.",
+        "title": "Counting Deranged Matchings",
+        "trigger": "General Poisson limit might dominate a rate claim."
+      },
+      {
+        "assessment": "Broader leading Poisson law but no statement of the tripartite expansion.",
+        "evidence": [
+          "Theorem 1.2 asserts o(1) total variation; an intermediate matching-ratio estimate has relative error n^(-1/7), insufficient to determine 1/m^2 coefficient."
+        ],
+        "identifier_or_url": "https://arxiv.org/abs/2301.10131",
+        "material_read": "Open-access research article introduction and statements of Theorems 1.1 and 1.2, proof strategy and quantitative switching lemma.",
+        "method": "Compared the robust-expander Poisson statement and quoted error scales to the explicit 1/m^2 coefficient.",
+        "title": "Random perfect matchings in regular graphs",
+        "trigger": "More general Poisson approximation could subsume the specialized result."
+      },
+      {
+        "assessment": "Multivariate Poisson asymptotics; Section 6 explicitly identifies rates of convergence as future research, not the claimed term.",
+        "evidence": [
+          "Section 6 notes current results establish o(1) and suggests studying rate constants."
+        ],
+        "identifier_or_url": "https://arxiv.org/abs/2505.13799",
+        "material_read": "Introduction, statements of the main theorems, Section 4 proof conclusion and Section 6 future directions.",
+        "method": "Compared explicit multivariate distribution conclusions and discussion of rates.",
+        "title": "Deranged Perfect Matchings on complete graph and balanced complete r-partite graph",
+        "trigger": "Newer overlapping multivariate matching distribution paper."
+      }
+    ],
+    "status": "PASS"
+  },
+  "review_type": "self_review",
+  "schema_version": 1,
+  "scope_run_id": "b3cf8fed-7542-415d-98f9-fa51ac9a67e3",
+  "self_review_status": "passed",
+  "value": {
+    "rationale": "Classical derangements of perfect matchings are a natural probability problem, and quantitative convergence of their multipartite generalizations is independently motivated in subsequent literature. The zero first-order term is an unexpected structural cancellation and the positive 3/128 second-order coefficient gives the first nontrivial finite-size correction; obtaining an O(m^-3) remainder is a meaningful analytic strengthening, not an arbitrary additional decimal or minor increment. The claim is explicitly restricted to the zero-overlap atom and does not pretend to solve full total-variation rates.",
+    "status": "PASS"
+  }
+}
