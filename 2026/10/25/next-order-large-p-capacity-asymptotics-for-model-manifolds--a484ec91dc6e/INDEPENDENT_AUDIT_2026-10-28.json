@@ -1,0 +1,131 @@
+{
+  "audit_date_utc": "2026-10-28",
+  "audited_at_utc": "2026-10-28T02:42:07.872800Z",
+  "axes": {
+    "correctness": {
+      "checked_sources": [
+        "Frozen Git RESULT.md blob ab684870f191f1e661c82e55fd62307c122c7a1f in tree 25a7ee632db4684f327b105378b97f18842ea582",
+        "https://arxiv.org/abs/2604.14600 (Theorem 1.9 and radial capacity discussion)",
+        "https://arxiv.org/abs/2502.13651 (hyperbolic capacity)",
+        "Independent mpmath incomplete-gamma normalization checks at p=1001"
+      ],
+      "rationale": "Set ε=1/(p−1). The radial p-harmonic equation gives Cap_p(B_R)^ε=1/I_ε with I_ε=∫_R^∞S(t)^(-ε)dt. Replacing S by C t^k e^(h t) gives C^(-ε)(hε)^(kε−1)Γ(1−kε,hεR). For t>=R the log of the multiplicative relative error O(1/t) affects hε I_ε by O(ε² log(1/ε)), genuinely smaller than the requested ε term. Γ(1−kε,hεR)=1+ε(kγ_E−hR)+o(ε), and the explicit factors give the displayed coefficient with correct h^(m−1−k) scaling. Checked both k=0 and k>0 and the fixed-radius lower-end effect. Independently numerically evaluated exact incomplete-gamma model integrals at p=1001 for multiple C,h,k,R,m examples; the limiting formula is established symbolically, not by numerical fitting.",
+      "residual_risks": [
+        "The area asymptotic is assumed, not proved for all geometries.",
+        "The coefficient is pointwise for fixed R; no uniformity for R=R(p) or nonradial comparison."
+      ],
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Jin–Yin Theorem 1.9 provides a high-p rank-sensitive log term with O(1/p) but not an explicit C-dependent limit.",
+          "Jin–Xiao concerns hyperbolic space and exact radial-capacity identities, a k=0 model special case.",
+          "A later hyperbolic p-capacity inequality paper focuses on bounds rather than this general expansion."
+        ],
+        "reasoning": "The general rank bound is not stronger at the precise next-coefficient level because it lacks relative sphere-area asymptotics; exact hyperbolic radial formulas cover a special geometry but not arbitrary C,k.",
+        "searches": [
+          "https://arxiv.org/abs/2604.14600",
+          "https://arxiv.org/abs/2502.13651",
+          "https://arxiv.org/abs/2608.17315"
+        ]
+      },
+      "checked_sources": [
+        "https://arxiv.org/abs/2604.14600",
+        "https://arxiv.org/abs/2502.13651",
+        "https://arxiv.org/abs/2608.17315",
+        "Frozen Git RESULT.md blob ab684870f191f1e661c82e55fd62307c122c7a1f in tree 25a7ee632db4684f327b105378b97f18842ea582"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "Two-sided sphere growth gives leading entropy and O(1/p) error; amplitude C is not determined by those bounds.",
+          "The stronger relative expansion produces the exact coefficient by a separately motivated gamma calculation."
+        ],
+        "reasoning": "Jin–Yin alone cannot imply the C-dependent next order; however the proof is a straightforward exact radial integral refinement once stronger assumptions are imposed, limiting novelty scope.",
+        "searches": [
+          "https://arxiv.org/abs/2604.14600",
+          "https://arxiv.org/abs/2502.13651"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "The theorem is an Abelian/Laplace asymptotic for ∫_R^∞(Cr^k e^{hr})^(−1/(p−1))dr with slowly varying amplitude.",
+          "The coefficient can also be written as a derivative of the normalized incomplete-gamma reciprocal."
+        ],
+        "reasoning": "The integral formulation is mathematically equivalent after radial reduction; its elementary ingredients are not claimed as new.",
+        "searches": [
+          "Resultary semantic query: large p capacity model manifolds sphere area Cr^k exp(hr) logarithmic next order asymptotic Gamma function",
+          "https://arxiv.org/abs/2604.14600",
+          "https://arxiv.org/abs/2502.13651",
+          "https://arxiv.org/abs/2608.17315"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "Resultary returned unrelated endpoint-gamma/high-p topics; no tabulation of this model-manifold coefficient.",
+          "The formula is a continuous-parameter asymptotic, so a finite database/table is not an apt exhaustive comparator."
+        ],
+        "reasoning": "The exact-table check is inapplicable in the usual finite-enumeration sense; targeted coefficient searches instead focused on analytic asymptotic sources.",
+        "searches": [
+          "Resultary semantic query: large p capacity model manifolds sphere area Cr^k exp(hr) logarithmic next order asymptotic Gamma function",
+          "https://arxiv.org/abs/2604.14600"
+        ]
+      },
+      "rationale": "Jin–Yin give the logarithmic high-p term and an O(1/p) remainder from coarser sphere-growth comparisons, whereas this result assumes a full relative leading asymptotic and determines the formerly unexpanded constant. The radial capacity formula and incomplete gamma evaluation are classical, not original. The specific coefficient under arbitrary C,h,k and fixed R is not in the inspected stronger general source. PASS is qualified by the possibility of an implicit general Laplace/Watson lemma making the refinement routine.",
+      "residual_risks": [
+        "The calculation is an elementary incomplete-gamma asymptotic once the strong relative sphere-area hypothesis is made; a generic Laplace/Wilson-Watson expansion could subsume it.",
+        "The hyperbolic k=0 instance may already be implicit in exact formulas and is explicitly not a new theorem by itself."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Proves logarithmic term with O(1/p) residual under weaker area bounds; does not state amplitude-sensitive constant in inspected theorem/proof.",
+          "evidence": "Theorem 1.9 and the radial integral statement are the mathematical starting points.",
+          "identifier_or_url": "https://arxiv.org/abs/2604.14600",
+          "material_read": "Accessible current arXiv PDF full text, Theorem 1.9, rank coefficient and proof discussion, with PDF pages inspected.",
+          "method": "Read original manuscript and directly compared assumptions/conclusion.",
+          "title": "New Asymptotic Geometric Quantities in Riemannian Geometry and Their Geometric and Dynamical Applications",
+          "trigger": "Closest general large-p asymptotics and geometric rank coefficient"
+        },
+        {
+          "assessment": "The exact radial capacity integral (Section 4) is present and implies the k=0 instance upon asymptotic expansion; no general variable k/C model-manifold expansion is stated in the inspected source.",
+          "evidence": "Hyperbolic area S(r)=ω_{m−1}sinh(r)^{m−1} has C=ω/2^{m−1}, h=m−1, k=0.",
+          "identifier_or_url": "https://arxiv.org/abs/2502.13651",
+          "material_read": "Original arXiv v1 PDF full text (22 pages), especially the hyperbolic ball capacity integral in Section 4, with page images inspected.",
+          "method": "Read original full primary text focusing on Section 4 exact hyperbolic ball integral and the capacity inequalities; compared the radial asymptotic scope.",
+          "title": "Sharply estimating hyperbolic capacities",
+          "trigger": "Potential exact k=0 special case"
+        },
+        {
+          "assessment": "Inequality-focused hyperbolic paper; possible implicit asymptotics not excluded.",
+          "evidence": "Abstract emphasizes quermassintegral/geodesic-ball capacity bounds, not arbitrary model sphere-area amplitudes.",
+          "identifier_or_url": "https://arxiv.org/abs/2608.17315",
+          "material_read": "Current public abstract, not full paper",
+          "method": "Publication/abstract search.",
+          "title": "Sharp p-Capacity Estimates via Quermassintegrals in Hyperbolic Space",
+          "trigger": "Recent possible dominating p-capacity results"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "checked_sources": [
+        "Frozen Git RESULT.md blob ab684870f191f1e661c82e55fd62307c122c7a1f in tree 25a7ee632db4684f327b105378b97f18842ea582",
+        "https://arxiv.org/abs/2604.14600 Theorem 1.9"
+      ],
+      "rationale": "The formerly unresolved O(1/p) term in a geometric capacity asymptotic becomes an explicit scale-invariant coefficient when first-order sphere growth is known, recovering the volume amplitude C and fixed radius R instead of merely geometric rank. This is a naturally motivated endpoint refinement of an existing open quantitative remainder, not an arbitrary parameter substitution; it gives a directly usable formula for a nontrivial infinite class of model manifolds. Its technical depth is limited to a careful radial Laplace/incomplete-gamma expansion, and no general nonradial theorem is claimed.",
+      "residual_risks": [
+        "If a standard published general regular-variation theorem explicitly yields this normalized next coefficient, the value/priority may diminish; stronger relative asymptotic is a real hypothesis."
+      ],
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "final_claim": "For complete rotationally symmetric model manifolds with S(r)=C r^k e^{h r}(1+O(r^−1)) (C,h>0,k>=0), fixed R>0 and dimension m, the normalized radial p-capacity Q_p equals 1+[k log(p-1)+log(C h^(m−1−k))+hR−k EulerGamma]/(p-1)+o(1/p).",
+  "limitations": [
+    "Requires fixed R and a relative O(r^-1) area expansion with h>0 and C>0; no family-wide validity of that hypothesis.",
+    "No nonradial capacities, moving radii or sharp uniform error rate claimed.",
+    "The calculation is an elementary incomplete-gamma asymptotic once the strong relative sphere-area hypothesis is made; a generic Laplace/Wilson-Watson expansion could subsume it.",
+    "The hyperbolic k=0 instance may already be implicit in exact formulas and is explicitly not a new theorem by itself."
+  ],
+  "schema_version": 1
+}
