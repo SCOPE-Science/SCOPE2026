@@ -1,0 +1,127 @@
+{
+  "audit_date_utc": "2026-10-26",
+  "audited_at_utc": "2026-10-26T06:01:30.039910Z",
+  "axes": {
+    "correctness": {
+      "rationale": "For C3(n)=binom(3n,n)/(2n+1), Legendre/Kummer yields v2=2s2(n)-s2(3n). The four previous-bit/incoming-carry states with final carry weight are exactly enumerated by T(u) and terminal (1,1,1,u); symbolic inverse verifies GF (1+z)(1-uz)/[1-(1+u)z-(1-u+u²)z²+(u+u²)z³]. Forbidden adjacent 1 bits yield zero-valuation Fibonacci F_(L+2); maximal carry paths give max L multiplicity F_(L-1). Differentiation gives mean L/2-2/3+(3+(-1)^L)/(6*2^L). Dominant transfer eigenvalue 2 has derivatives 1 and 4/3, giving variance 11L/12+O(1) and CLT via analytic spectral gap. I independently compared exact spectra up to L=11 and symbolically inverted T; this finite corroboration is not the CLT proof.",
+      "status": "PASS"
+    },
+    "originality": {
+      "checked_sources": [
+        "Kummer 1852 classical carry theorem",
+        "Aval arXiv:0711.0906 (sequence definitions)",
+        "Kauers–Krattenthaler–Müller, 66-page full text, Introduction and Sections 6 and 13",
+        "Luca–Young 2010 p^q-Catalan manuscript",
+        "OEIS A001764",
+        "Resultary ternary Fuss-Catalan semantic search (12 ranked records)"
+      ],
+      "rationale": "Kummer gives the individual valuations and general automata/CLTs give machinery; Aval supplies the combinatorial sequence. The fully explicit rational dyadic-histogram generating function, sharp extremal Fibonacci count, and 11/12 variance were not stated in inspected comparators, including Kauers–Krattenthaler–Müller which studies order six and 2-power orders rather than the prime-two valuation spectrum of order three.",
+      "residual_risks": [
+        "A general automatic-sequence or digital carry theorem specialized by someone else could implicitly or explicitly yield the exact histogram without identical keywords.",
+        "General Fuss-Catalan mod-2^k primary work is closely related, although its inspected target orders differ; order-three specialized appendices or later work could affect priority.",
+        "Only n in initial dyadic intervals and p=2; CLT is weak convergence without Berry–Esseen rate."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "SIMILAR_TECHNIQUE_DIFFERENT_ORDER_AND_OBSERVABLE",
+          "evidence": "Equation (6.1) F=1+zF^6 and Section 13 order 2^h, fixed modular coefficients; no stated n<2^L order-3 valuation histogram/CLT.",
+          "identifier_or_url": "https://www3.risc.jku.at/publications/download/risc_4367/modlifts.pdf",
+          "material_read": "Complete primary PDF retrieved, introduction pp1–4 and sections 6,13 (printed pp20,47–49) examined by search and screenshot; no claim to have re-read every theorem.",
+          "method": "Lawful primary full PDF, text search plus visual screenshot",
+          "title": "A Method for Determining the Mod-2^k Behaviour of Recursive Sequences, with Applications to Subgroup Counting",
+          "trigger": "Highly relevant original 66-page full-text paper on 2-adic Fuss-Catalan congruences"
+        },
+        {
+          "assessment": "COUNTING_OBJECT_PRIOR",
+          "evidence": "Counts/refines ternary trees but not two-adic dyadic valuation distribution.",
+          "identifier_or_url": "https://arxiv.org/abs/0711.0906",
+          "material_read": "Abstract and combinatorial setup; original full theorem text not re-read.",
+          "method": "arXiv abstract",
+          "title": "Multivariate Fuss-Catalan Numbers",
+          "trigger": "Same ternary-tree combinatorial sequence"
+        },
+        {
+          "assessment": "HYPOTHESIS_MISMATCH",
+          "evidence": "For p=2 it covers 2^q order, while theorem here is Fuss order three at p=2.",
+          "identifier_or_url": "https://youngp.people.charleston.edu/pq-catalan.pdf",
+          "material_read": "Title, order p^q and same-prime hypothesis, abstract/summary; complete paper not re-read.",
+          "method": "Primary manuscript summary",
+          "title": "Some p-adic congruences for p^q-Catalan numbers",
+          "trigger": "Possible stronger Fuss-Catalan p-adic theorem"
+        },
+        {
+          "assessment": "NO_EXACT_HISTOGRAM_IN_INSPECTED_ENTRY",
+          "evidence": "Provides sequence values/interpretations, not generating polynomial H_L(u) for all L.",
+          "identifier_or_url": "https://oeis.org/A001764",
+          "material_read": "Sequence description and ternary-tree interpretation from referenced entry; not a full histogram literature review.",
+          "method": "OEIS entry",
+          "title": "Ternary Fuss-Catalan numbers",
+          "trigger": "Exact-number database and aliases"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "rationale": "A complete explicit two-variable dyadic valuation spectrum, including sharp Fibonacci extremal multiplicities and a nonstandard Gaussian variance constant, is a useful arithmetic statistic of the natural ternary-tree counting sequence. General carry automata give a method but do not provide these exact coefficients for this specific object; the theorem is substantive exact enumeration plus asymptotics, not renaming an isolated identity.",
+      "status": "PASS"
+    }
+  },
+  "checked_sources": [
+    "Kummer 1852 classical carry theorem",
+    "Aval arXiv:0711.0906 (sequence definitions)",
+    "Kauers–Krattenthaler–Müller, 66-page full text, Introduction and Sections 6 and 13",
+    "Luca–Young 2010 p^q-Catalan manuscript",
+    "OEIS A001764",
+    "Resultary ternary Fuss-Catalan semantic search (12 ranked records)"
+  ],
+  "disposition": "passed",
+  "limitations": [
+    "A general automatic-sequence or digital carry theorem specialized by someone else could implicitly or explicitly yield the exact histogram without identical keywords.",
+    "General Fuss-Catalan mod-2^k primary work is closely related, although its inspected target orders differ; order-three specialized appendices or later work could affect priority.",
+    "Only n in initial dyadic intervals and p=2; CLT is weak convergence without Berry–Esseen rate."
+  ],
+  "residual_risks": [
+    "A general automatic-sequence or digital carry theorem specialized by someone else could implicitly or explicitly yield the exact histogram without identical keywords.",
+    "General Fuss-Catalan mod-2^k primary work is closely related, although its inspected target orders differ; order-three specialized appendices or later work could affect priority.",
+    "Only n in initial dyadic intervals and p=2; CLT is weak convergence without Berry–Esseen rate."
+  ],
+  "schema_version": 1,
+  "source_inspections": [
+    {
+      "assessment": "SIMILAR_TECHNIQUE_DIFFERENT_ORDER_AND_OBSERVABLE",
+      "evidence": "Equation (6.1) F=1+zF^6 and Section 13 order 2^h, fixed modular coefficients; no stated n<2^L order-3 valuation histogram/CLT.",
+      "identifier_or_url": "https://www3.risc.jku.at/publications/download/risc_4367/modlifts.pdf",
+      "material_read": "Complete primary PDF retrieved, introduction pp1–4 and sections 6,13 (printed pp20,47–49) examined by search and screenshot; no claim to have re-read every theorem.",
+      "method": "Lawful primary full PDF, text search plus visual screenshot",
+      "title": "A Method for Determining the Mod-2^k Behaviour of Recursive Sequences, with Applications to Subgroup Counting",
+      "trigger": "Highly relevant original 66-page full-text paper on 2-adic Fuss-Catalan congruences"
+    },
+    {
+      "assessment": "COUNTING_OBJECT_PRIOR",
+      "evidence": "Counts/refines ternary trees but not two-adic dyadic valuation distribution.",
+      "identifier_or_url": "https://arxiv.org/abs/0711.0906",
+      "material_read": "Abstract and combinatorial setup; original full theorem text not re-read.",
+      "method": "arXiv abstract",
+      "title": "Multivariate Fuss-Catalan Numbers",
+      "trigger": "Same ternary-tree combinatorial sequence"
+    },
+    {
+      "assessment": "HYPOTHESIS_MISMATCH",
+      "evidence": "For p=2 it covers 2^q order, while theorem here is Fuss order three at p=2.",
+      "identifier_or_url": "https://youngp.people.charleston.edu/pq-catalan.pdf",
+      "material_read": "Title, order p^q and same-prime hypothesis, abstract/summary; complete paper not re-read.",
+      "method": "Primary manuscript summary",
+      "title": "Some p-adic congruences for p^q-Catalan numbers",
+      "trigger": "Possible stronger Fuss-Catalan p-adic theorem"
+    },
+    {
+      "assessment": "NO_EXACT_HISTOGRAM_IN_INSPECTED_ENTRY",
+      "evidence": "Provides sequence values/interpretations, not generating polynomial H_L(u) for all L.",
+      "identifier_or_url": "https://oeis.org/A001764",
+      "material_read": "Sequence description and ternary-tree interpretation from referenced entry; not a full histogram literature review.",
+      "method": "OEIS entry",
+      "title": "Ternary Fuss-Catalan numbers",
+      "trigger": "Exact-number database and aliases"
+    }
+  ]
+}

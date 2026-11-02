@@ -1,19 +1,21 @@
-# Scientific review
+# Independent mathematical audit
 
-## Correctness — PASS
+## correctness
 
-For every nonnegative integer \(n\), the odd denominator \(2n+1\) allows direct application of Legendre/Kummer, yielding the exact binary-carry valuation \(2s_2(n)-s_2(3n)\). The four explicitly displayed states include both incoming and terminal carries; the matrix resolvent proves the bivariate rational identity, and coefficient comparison determines all dyadic histograms. The parity and sharp maximum arguments count the corresponding binary languages. Differentiation at \(u=1\) proves the exact mean. The characteristic cubic has simple dominant root \(2\) at \(u=1\), with first two derivatives \(1,4/3\), which yields variance coefficient \(11/12\) and a characteristic-function central limit theorem. Boundary lengths \(L=0,1\) are handled separately by the universal generating function. The standalone verifier provides independent finite numerical cross-checks of the stated range, not proof of the infinite statements.
+PASS
 
-## Originality — PASS, with residual risks
+For C3(n)=binom(3n,n)/(2n+1), Legendre/Kummer yields v2=2s2(n)-s2(3n). The four previous-bit/incoming-carry states with final carry weight are exactly enumerated by T(u) and terminal (1,1,1,u); symbolic inverse verifies GF (1+z)(1-uz)/[1-(1+u)z-(1-u+u²)z²+(u+u²)z³]. Forbidden adjacent 1 bits yield zero-valuation Fibonacci F_(L+2); maximal carry paths give max L multiplicity F_(L-1). Differentiation gives mean L/2-2/3+(3+(-1)^L)/(6*2^L). Dominant transfer eigenvalue 2 has derivatives 1 and 4/3, giving variance 11L/12+O(1) and CLT via analytic spectral gap. I independently compared exact spectra up to L=11 and symbolically inverted T; this finite corroboration is not the CLT proof.
 
-Kummer's carry theorem, Aval's ternary Fuss-Catalan sequence, OEIS A001764, and the prime-power Catalan congruences of Luca and Young are known input and are not claimed as original. The inspected Aval work treats multivariate ternary-tree enumeration; Luca and Young work at the matching prime \(p\) and order \(p^q\), while this claim treats order three at prime two. Da Conceição's multinomial Catalan quotient is a different sequence. The database table enumerates terms of \(C_3(n)\), not valuation histograms. The contribution is the fully explicit cubic-denominator valuation distribution, exact moments, sharp extremal multiplicity, and Gaussian normalization. Relevant digital-sum and general transducer theory may contain an equivalent specialization not located in the searched sources. This risk remains and is not disguised as a uniqueness proof.
+## originality
 
-## Mathematical value — PASS
+PASS
 
-Two-adic divisibility distinguishes arithmetic strata among ternary-tree counts. The exact distribution supplies every frequency at every natural dyadic scale, beyond the classical pointwise Kummer formula or parity classification; the mean, variance, asymptotic law, and sharp extremal multiplicities make the answer structural rather than an arbitrary finite table. It offers a reproducible reference profile for valuations of other Fuss-Catalan orders and for digital-carry statistics, though such extensions are not claimed here.
+Kummer gives the individual valuations and general automata/CLTs give machinery; Aval supplies the combinatorial sequence. The fully explicit rational dyadic-histogram generating function, sharp extremal Fibonacci count, and 11/12 variance were not stated in inspected comparators, including Kauers–Krattenthaler–Müller which studies order six and 2-power orders rather than the prime-two valuation spectrum of order three.
 
-## Closest literature and limitations
+## value
 
-Aval (arXiv:0711.0906v1) supplies the object, Kummer (1852) supplies the carry theorem, Luca--Young (2010) supplies adjacent prime-power-order congruences, Da Conceição (2023) supplies generalized carry context, and OEIS A001764 lists the sequence. No complete equivalence was found in the inspected material; specialized digital-carry sources remain a residual originality risk. Only the two-adic initial dyadic case is proved. Finite verification does not replace the proof or constitute independent audit.
+PASS
 
-Self-review: passed. Independent audit: not yet performed.
+A complete explicit two-variable dyadic valuation spectrum, including sharp Fibonacci extremal multiplicities and a nonstandard Gaussian variance constant, is a useful arithmetic statistic of the natural ternary-tree counting sequence. General carry automata give a method but do not provide these exact coefficients for this specific object; the theorem is substantive exact enumeration plus asymptotics, not renaming an isolated identity.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
