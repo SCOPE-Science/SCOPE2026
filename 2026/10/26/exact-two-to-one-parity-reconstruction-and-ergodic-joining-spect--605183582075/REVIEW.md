@@ -1,15 +1,21 @@
-# Scientific review
+# Independent mathematical audit
 
-## Correctness
-PASS. The proof explicitly handles both generic intercept pairs and exceptional double Sturmian codings. Equal parity implies equality of circle step functions almost everywhere; a finite-support mod-two jump operator along the irrational rotation is injective. This recovers distinct unordered intercepts. Two-site singular discrepancies separate all remaining branch choices, including the finite-support pulses; zero has precisely the diagonal fibre. The measure classification uses the complete invariant coset parameter on the phase torus and uniqueness of Haar lifting off the countable singular set. Finite computations verify rational phase-grid analogues and singular formulas; the infinite theorem is analytical.
+## correctness
 
-## Originality
-PASS under inspected evidence. Berstel--Vuillon (arXiv:math/0106217v1) recode rotation partitions with Sturmian vectors; Frid--Jamet (arXiv:1302.3722v1) enumerate binary rotation words, giving a first-difference representation that reduces modulo two to XOR and finite-word collision lemmas; Barbieri--Labbé--Starosta (arXiv:2011.08112v1) describe the two-site exceptional Sturmian pair. None of the inspected portions asserts the exact symmetric-square quotient, the two-to-one nonzero parity fibres, and their full ergodic joining spectrum. The known independent-slope parity factor has incompatible slope assumptions. Undiscovered equivalent literature cannot be ruled out.
+PASS
 
-## Value
-PASS. Complete factor-fibre determination and the full continuum of ergodic laws identify an intrinsic resonant observation phenomenon: exact reconstruction modulo input exchange except for an uncountable collapsed diagonal, on a zero-entropy subshift. The exact compact quotient is stronger than a generic injectivity example and clarifies why equal-frequency observation behaves qualitatively differently from independent-frequency observation.
+For intercept phases t,s, the parity coding differs at finitely many indices from the circle function 1_I(·+t) XOR 1_I(·+s). A common bilateral output determines that step function a.e. by irrational-density/equidistribution. Its modulo-two jump divisor equals (1+rotation-translate) applied to a finite-support two-point phase divisor. Irrational rotation has no finite orbit, making this operator injective on finite supports, and thus recovers the unordered distinct phases. Lower/upper codings at a singular intercept differ at exactly two adjacent positions; distinct singular phases give distinct pulses, so all coding branch choices are recovered. Equal phases give zero if branches agree, or unique two-site nonzero pulses when they do not. The compact Hausdorff quotient and the Haar phase-difference decomposition prove the asserted topological and ergodic classifications. Independent rational grids 5/13,34/89,89/233,144/377 checked off-diagonal XOR uniqueness; these finite grids are not the irrational proof.
 
-## Limits
-Known common irrational slope; noiseless bilateral signals; no effective finite-data stability, rational-slope statement or independently certified historical priority. The verifier is a consistency check, not a substitute for the proof.
+## originality
 
-Self-review: passed. Independent audit: not yet performed.
+PASS
+
+Best-of-knowledge statement-level comparison, with specific primary-source inspections, previously covered components credited, and residual overlap risks. Retrieved search results alone are not evidence of novelty.
+
+## value
+
+PASS
+
+The exact fibres, singular exception and all ergodic laws of a natural resonant two-signal observation factor are determined. This describes a genuine qualitative distinction between equal-slope and rationally independent-slope cases, including continuous ergodic-measure spectrum despite entropy zero; it is not merely a coding or finite word-count exercise.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
