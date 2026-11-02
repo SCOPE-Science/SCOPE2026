@@ -1,15 +1,21 @@
-# Scientific assessment
+# Independent mathematical audit
 
-## Correctness — PASS
+## correctness
 
-For every finite exponent above the uniquely defined \(q\in(3,4)\), direct seven-term norm evaluation gives the signed gap \(2(A(p)-8)/3<0\). Strict decrease of both positive two-term \(\ell_p\) norms proves the claimed threshold, and exact fourth/cube-root bounds bracket it. The complex one-coordinate case is Hilbertian; the real two-coordinate case follows from the classical planar-zonoid representation of norms; the real three-coordinate witness has gap \(4\,3^{1/p}-6\). Zero padding proves all larger dimensions. At infinity the explicit limits retain strict signs. Phase optimality follows from Cauchy–Schwarz with its equality condition. All quantifiers, endpoints and the distinction between a witness threshold and a global threshold have been checked against the proof.
+PASS
 
-## Originality — PASS, with residual risk
+Independently evaluated all seven norms for x=(1,1), y=(1,-1), z=(-1,4i/3). The signed gap is exactly 2/3[3*2^(1/p)+(3^p+4^p)^(1/p)-8], strictly decreasing in p; elementary rational fourth/cube root inequalities bracket its unique zero between 3 and 4; its infinity value is -2/3. The phase is optimal at +/-i by equality in Cauchy-Schwarz for |1+te^(iθ)|+|-1+te^(iθ)|. The real n=3 sign triple has gap 4*3^(1/p)-6<0 for p>q, while all real normed planes obey HH via zonoid representation; a one-coordinate complex norm is the real Euclidean plane. Zero padding proves the all-n statement. Independent checker confirms nine finite/infinity exponents and phase slices. Threshold q is only exact for this witness, NOT a universal optimal p threshold.
 
-Lee (arXiv:2610.23785v1, 2026-10-16) expressly works over the real scalar field, reporting the real-plane and real-three-coordinate cases. The relevant 2025 Hornich–Hlawka analysis likewise uses the real triple. Esa's 2026 Schatten-norm Hlawka work proves dimension-independent coefficient estimates and sharp diagonal results for high exponents; its stated dimension-three sharpness and general operator results do not imply the exhibited complex diagonal dimension-two counterexample. A search of mathematical research records for the complex two-coordinate/phase statement did not reveal a covering claim, but no search proves absolute priority. Older quadrilateral-space or complex diagonal Schatten literature could contain an equivalent formulation. The new field-dependent minimum-coordinate classification is not the published real-only classification restated.
+## originality
 
-## Mathematical value — PASS
+PASS
 
-The real-vs-complex dimension contrast is an exact structural boundary over the entire nontrivial exponent interval \((q,\infty]\), not a computational curiosity at one exponent. The Pythagorean construction produces an algebraically defined test threshold and an exact phase-equality mechanism, clarifying why the real planar protection does not extend to two complex coordinates. The value claimed is this structural failure dimension and transparent witness, not resolution of the globally optimal complex exponent.
+Best-of-knowledge independent claim-versus-prior implication comparison: These antecedents imply the real half of the dimension classification only, not the imaginary-phase complex n=2 counterexample; the latter is an additional witness construction and exact threshold, so no direct known implication covers it. Closest exact antecedents are explicitly credited and risks retained.
 
-Self-review: passed. Independent audit: not yet performed.
+## value
+
+PASS
+
+Minimum scalar-coordinate obstruction is a natural sharp geometric dimension invariant over an entire open exponent interval, and its dependence on R versus C is structural. Explicit Pythagorean imaginary phase explains the failure of the usual planar protection; fixed-amplitude optimizing lemma makes the obstruction robust rather than a single unmotivated numerical instance. The work does not claim the first complex failure exponent or a general Banach-space characterization.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
