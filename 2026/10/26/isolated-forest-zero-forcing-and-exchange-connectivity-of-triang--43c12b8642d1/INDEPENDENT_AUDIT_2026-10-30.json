@@ -1,0 +1,112 @@
+{
+  "audit_date_utc": "2026-10-30",
+  "audited_at_utc": "2026-10-30T07:16:47Z",
+  "axes": {
+    "correctness": {
+      "rationale": "Represent white pairs as edge graph H on base labels. For blue pair uv, its number of white neighbors equals d_H(u)+d_H(v) because uv is absent; a unique white neighbor exists exactly for an isolated endpoint and degree-one endpoint. Thus every force removes a white leaf edge. With no isolate no first force; a white cycle cannot lose its first edge under the rule, proving necessity. If H is a forest with isolate z, use blue edge uz with a leaf u to force its sole white incident edge, iterating; sufficiency is constructive. Maximum white edges n-2 gives Z=binom(n,2)-n+2 and exactly n(n-1)^{n-3} Cayley trees with isolated vertex. Labeled-forest exponential assembly with at least one singleton proves the entire polynomial. Between isolates r!=s, exchange iff deleting the unique edge incident to s and adding unique edge incident to r leaves common tree U on n-2 others; choose U and two attachment labels, giving binom(n,2)(n-2)^{n-2} cross-class edges. Within-isolate usual spanning-tree exchange connected; star-switch crosses classes. Independent line-graph forcing and forest-isolate exhaustive checks for n=3..6, plus cross-class counts, agree; universal iff rests on the local degree lemma.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "The line graph results imply the known scalar Z; general reconfiguration existence does not determine all minimum exchange edges for the triangular family."
+        ],
+        "reasoning": "A general line-graph zero-forcing iff in a wider class could dominate; inspected cited results did not exhibit the forest/isolate criterion.",
+        "searches": [
+          "Fallat Soltani 2016 line graphs zero forcing; Abiad Simoens Zeijlemaker 2023 Johnson zero forcing; Geneson Haas Hogben 2020 reconfiguration",
+          "Resultary semantic query: triangular graph J(n,2) zero forcing sets forest isolated vertex polynomial exchange reconfiguration"
+        ]
+      },
+      "checked_sources": [
+        "Fallat et al arXiv:1508.07357 Section 8 full PDF",
+        "Abiad et al arXiv:2302.07757 Corollary 9 source summary",
+        "Geneson et al arXiv:2009.00220 full PDF main results",
+        "Boyer et al arXiv:1801.08910 full PDF",
+        "Resultary triangular zero forcing forest/exchange search"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "The earlier scalar statement is recovered from forest maximality but does not imply the full iff/all-size polynomial or the exchange graph; positive forcing uses different legal moves."
+        ],
+        "reasoning": "The new proof may be elementary once line-graph local forcing is noticed, yet that recognition produces a strictly stronger classification with meaningful enumeration.",
+        "searches": [
+          "Fallat et al arxiv:1508.07357 positive forcing lemma 8.3; Abiad et al arxiv:2302.07757 ordinary scalar; Geneson et al arxiv:2009.00220",
+          "Resultary semantic query: triangular graph J(n,2) zero forcing sets forest isolated vertex polynomial exchange reconfiguration"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "The line-graph realization makes white edges in K_n and forcing at blue pairs equivalent to the degree sum d(u)+d(v)=1."
+        ],
+        "reasoning": "An earlier forest characterization of zero forcing for complete-graph line graphs would be exactly equivalent, even if described as line-graph forcing rather than Johnson-graph zero forcing.",
+        "searches": [
+          "zero forcing of line graph of complete graph; forest complement of blue edges; token jumping Cayley trees",
+          "Resultary semantic query: triangular graph J(n,2) zero forcing sets forest isolated vertex polynomial exchange reconfiguration"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "Boyer introduces general polynomial and computes other examples; Resultary nearest hits involve fan, friendship and other graph families."
+        ],
+        "reasoning": "No inspected exact Johnson/triangular polynomial table covers the general all-n expression; finite n=5 polynomial 80x^7+45x^8+10x^9+x^10 does not establish an all-n table.",
+        "searches": [
+          "Boyer 2018 zero forcing polynomial of a graph J(n,2); Resultary zero forcing polynomial triangular graphs",
+          "Resultary semantic query: triangular graph J(n,2) zero forcing sets forest isolated vertex polynomial exchange reconfiguration"
+        ]
+      },
+      "rationale": "The scalar zero forcing number is established for line/Johnson graphs and cannot count toward originality. Fallat et al 2015 compute a POSITIVE zero forcing quantity, a distinct forcing rule; Abiad et al 2023 cover ordinary scalar. Boyer et al define polynomial generally; Geneson et al study reconfiguration generally. In the inspected primary articles, no stronger theorem implies the ordinary white-forest-isolate iff, the full J(n,2) polynomial and exact cross-isolate exchanges. Prior forest and reconfiguration arguments are used but a possible unpublished triangular graph specialization remains.",
+      "residual_risks": [
+        "Older graph-specialization tables or a non-indexed thesis could contain the forest condition.",
+        "Only ordinary zero forcing, not positive semidefinite/skew forcing; graph diameter not determined."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Positive zero forcing for triangular graphs, not ordinary full forcing-set count",
+          "evidence": [
+            "Forcing rule difference is substantive, not merely terminology."
+          ],
+          "identifier_or_url": "arXiv:1508.07357",
+          "material_read": "Full 22-page PDF accessible; examined Section 8 including Lemma 8.3 and its positive-forcing rule",
+          "method": "Open primary PDF and theorem examination",
+          "title": "Fallat et al, Compressed Cliques Graphs, Clique Coverings and Positive Zero Forcing",
+          "trigger": "Same J(n,2) and zero forcing terminology"
+        },
+        {
+          "assessment": "General reconfiguration framework, no inspected J(n,2) all-minimizer tree-exchange count",
+          "evidence": [
+            "Token jumping is prior, exact cross-isolate count is new compared to inspected sections."
+          ],
+          "identifier_or_url": "arXiv:2009.00220",
+          "material_read": "Full 21-page PDF accessible; inspected definitions, structural theorems and searched triangular/line graph",
+          "method": "Open full text and targeted search",
+          "title": "Geneson, Haas and Hogben, Reconfiguration graphs of zero forcing sets",
+          "trigger": "Same reconfiguration invariant general class"
+        },
+        {
+          "assessment": "Polynomial concept prior; no inspected formula for triangular graphs",
+          "evidence": [
+            "General polynomial definitions alone cannot imply closed forest count."
+          ],
+          "identifier_or_url": "arXiv:1801.08910",
+          "material_read": "Full 23-page PDF accessible; inspected polynomial definition and enumerated families and searched line graph",
+          "method": "Open PDF thematic inspection",
+          "title": "Boyer et al, The zero forcing polynomial of a graph",
+          "trigger": "Potential polynomial family table"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "rationale": "The triangular graphs are a canonical association-scheme and line-graph family. A single structural forest-and-isolate criterion solves the natural decision problem for every initially blue set, yields a full exact enumerator beyond the known optimum, and describes how all Cayley-tree minimizers interconvert by token jumping, with explicit cross-fibre edges. These are natural structural invariants, not a restatement of the prior scalar minimum.",
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "limitations": [
+    "n>=3 triangular graphs only; not all Johnson or arbitrary line graphs.",
+    "Exhaustive finite tests to n=6 in independent checker, not infinite proof.",
+    "Older graph-specialization tables or a non-indexed thesis could contain the forest condition.",
+    "Only ordinary zero forcing, not positive semidefinite/skew forcing; graph diameter not determined."
+  ],
+  "schema_version": 1
+}

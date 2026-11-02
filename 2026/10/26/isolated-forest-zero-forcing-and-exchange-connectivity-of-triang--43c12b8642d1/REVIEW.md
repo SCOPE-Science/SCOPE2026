@@ -1,11 +1,21 @@
-# Scientific review
+# Independent mathematical audit
 
-**Correctness — PASS.** The local degree identity for every currently blue pair proves that forces are exactly deletions of leaf edges in a white forest requiring an isolated base vertex. The invariant rules out a white cycle and a no-isolate state. A constructive forcing sequence proves sufficiency. Cayley's tree count and the exponential formula prove the extremal count and entire polynomial. The unique common-tree argument gives exactly every cross-isolate exchange, and ordinary tree exchanges plus star moves establish connectivity. `verify.cpp` independently checks all forcing states for \(3\le n\le7\), with chronological-order agreement through \(n=6\); it checks polynomial coefficients and reconfiguration/cross-isolate counts in the stated ranges. These computations are finite regression checks, not the infinite proof.
+## correctness
 
-**Originality — PASS, with documented residual risk.** The known scalar \(Z(J(n,2))=\binom n2-n+2\) is fully credited to prior line-graph and Johnson-graph results. Fallat et al. 2015 Lemma 8.3 concerns positive zero forcing, another rule. Abiad et al. Corollary 9 covers the ordinary scalar, not complete all-blue-subset classification. Geneson et al. introduce minimum forcing reconfiguration, and their forest connectivity theorem does not directly apply to triangular graphs. The closest indexed research findings identified by literature searches treat other graph families. No inspected primary theorem yields the forest iff criterion, complete polynomial and exact cross-isolate exchange count. An unindexed equivalent, an older thesis, or uninspected supplementary literature remains possible. Source comparisons are limited to actually read material; no global novelty certificate is asserted.
+PASS
 
-**Value — PASS.** The result solves the natural complete enumeration problem for zero forcing sets in the canonical triangular graph family, rather than just recovering the known minimum number. The white-forest mechanism explains *why* forcing succeeds, and the optimum exchange theorem describes connectivity and counts the bridges between all families of Cayley-tree minimizers. These are structural and enumeration invariants useful when zero forcing is studied as a constrained optimization and reconfiguration problem.
+Represent white pairs as edge graph H on base labels. For blue pair uv, its number of white neighbors equals d_H(u)+d_H(v) because uv is absent; a unique white neighbor exists exactly for an isolated endpoint and degree-one endpoint. Thus every force removes a white leaf edge. With no isolate no first force; a white cycle cannot lose its first edge under the rule, proving necessity. If H is a forest with isolate z, use blue edge uz with a leaf u to force its sole white incident edge, iterating; sufficiency is constructive. Maximum white edges n-2 gives Z=binom(n,2)-n+2 and exactly n(n-1)^{n-3} Cayley trees with isolated vertex. Labeled-forest exponential assembly with at least one singleton proves the entire polynomial. Between isolates r!=s, exchange iff deleting the unique edge incident to s and adding unique edge incident to r leaves common tree U on n-2 others; choose U and two attachment labels, giving binom(n,2)(n-2)^{n-2} cross-class edges. Within-isolate usual spanning-tree exchange connected; star-switch crosses classes. Independent line-graph forcing and forest-isolate exhaustive checks for n=3..6, plus cross-class counts, agree; universal iff rests on the local degree lemma.
 
-The result is restricted to ordinary zero forcing on \(J(n,2)\) with \(n\ge3\). The full exchange-graph diameter and general Johnson analogues are not asserted; no independent review was performed.
+## originality
 
-Self-review: passed. Independent audit: not yet performed.
+PASS
+
+The scalar zero forcing number is established for line/Johnson graphs and cannot count toward originality. Fallat et al 2015 compute a POSITIVE zero forcing quantity, a distinct forcing rule; Abiad et al 2023 cover ordinary scalar. Boyer et al define polynomial generally; Geneson et al study reconfiguration generally. In the inspected primary articles, no stronger theorem implies the ordinary white-forest-isolate iff, the full J(n,2) polynomial and exact cross-isolate exchanges. Prior forest and reconfiguration arguments are used but a possible unpublished triangular graph specialization remains.
+
+## value
+
+PASS
+
+The triangular graphs are a canonical association-scheme and line-graph family. A single structural forest-and-isolate criterion solves the natural decision problem for every initially blue set, yields a full exact enumerator beyond the known optimum, and describes how all Cayley-tree minimizers interconvert by token jumping, with explicit cross-fibre edges. These are natural structural invariants, not a restatement of the prior scalar minimum.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
