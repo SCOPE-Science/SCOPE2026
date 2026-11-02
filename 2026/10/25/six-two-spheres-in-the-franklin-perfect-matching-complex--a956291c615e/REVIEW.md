@@ -1,9 +1,21 @@
-# Scientific review
+# Independent mathematical audit
 
-**Correctness — PASS.** The supplied exact source reconstructs the labeled Franklin graph, enumerates exactly 17 perfect matchings and all 761 nonempty faces of their generated complex, and verifies a 377-pair acyclic Morse matching across 2,610 face incidences. The sole critical 0-cell and six critical 2-cells imply a wedge of six 2-spheres. An independent pass over all graph matchings proves exactly 72 nonextendible three-edge matchings, and no smaller ones. The included output records successful execution.
+## correctness
 
-**Originality — PASS, with residual risk.** The closest exact-graph published theorem concerns the ordinary matching complex and its edge-deletion profiles. Planar honeycomb and polygonal-tiling results, and the circular/Möbius ladder homotopy classifications, do not cover the Franklin graph under their graph hypotheses. Source text, graph aliases, and published-result searches were compared at the level of mathematical implications. Unindexed equivalent results remain possible, and the dated Knödel survey was available only at abstract level.
+PASS
 
-**Value — PASS.** This gives a complete integral homotopy type for a canonical nonplanar cubic graph's perfect-matching complex. It captures a meaningful distinction from the previously classified ordinary matching complex even though all matchings of size at most two extend to perfect ones. The 72 minimal nonextendibility obstructions connect the combinatorics to the change of homotopy dimension.
+The graph is explicitly fixed by the twelve cycle edges and six chords. The least-unmatched-vertex recursion exhausts all 17 perfect matchings, and the downward closure has 761 nonempty faces. The label-toggle matching yields 377 incidence pairs and seven critical cells: one zero-cell and six two-cells. Reconstructed the complete oriented face-poset Hasse graph and verified a topological ordering of all 761 vertices, proving acyclicity rather than trusting a success log. Forman discrete Morse theory therefore gives a CW complex with one point and six attached two-cells, i.e. wedge^6 S² integrally. Independent edge-subset enumeration reproduced the ordinary f-vector and exactly 72 missing three-edge matchings. This is a finite proof certificate; no field-homology-only inference is used.
 
-Self-review: passed. Independent audit: not yet performed.
+## originality
+
+PASS
+
+Published work determines the ORDINARY Franklin matching complex as wedge^12 S³ and both deletion/link orbit profiles; that is a different complex on all matchings. The Heawood PERFECT-matching complex is a different incidence graph with wedge^16 S². Honeycomb/ladder perfect-matching families do not directly match the 17-perfect-matching nonplanar Franklin instance. The precise six-sphere computation adds a canonical finite example and sharp first obstruction layer, subject to residual historical priority.
+
+## value
+
+PASS
+
+Perfect-matching complexes have different topology from ordinary matching complexes even with identical one-skeleta; the Franklin graph is a standard named cubic nonplanar graph, and the complete integral homotopy type together with 72 first minimal nonextension obstructions gives a meaningful benchmark for matching-extension topology. A natural finite exact invariant need not extend to all Knödel graphs to have value.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
