@@ -1,0 +1,120 @@
+{
+  "audit_date_utc": "2026-10-28",
+  "audited_at_utc": "2026-10-28T13:45:33Z",
+  "axes": {
+    "correctness": {
+      "checked_sources": [
+        "https://github.com/SCOPE-Science/SCOPE2026/blob/61accd20e9082d7b9b235bc7f4350f083cf94bb8/2026/10/25/a-square-root-edge-completion-bound-for-consecutive-cycle-sums--11843aae75c6/RESULT.md",
+        "https://github.com/SCOPE-Science/SCOPE2026/tree/61accd20e9082d7b9b235bc7f4350f083cf94bb8/2026/10/25/a-square-root-edge-completion-bound-for-consecutive-cycle-sums--11843aae75c6",
+        "independent_checks.py"
+      ],
+      "rationale": "The base subset sums for {2,...,4} are {0,2,3,4,5,6,7,9}, and induction by adjoining m+1 shows exactly {0,T_m-1} union [2,T_m-3]. Star chords ensure every q in [3,T_m-2] is the connected sum 1+subset(2..m). For b=m+2..n the extra spoke {1,m+2} joins the cycle tail with a star subset and yields I_b=[H_b+3,H_b+T_m-2]. Consecutive I_b cover the entire middle range since n<=T_m-4; singleton vertex labels cover 1..m+4 and the full cycle or removal of r<=m+2 covers T_n-m-2..T_n. No gap remains; n>=9 gives 4<=m<=n-4 so chords are genuine and distinct. Independently enumerated all 2^n-1 vertex subsets and checked connected weights for n=9..14, matching every target integer and chord count; theorem for all n follows induction and interval bounds, not enumeration.",
+      "residual_risks": [
+        "The formula is an upper bound and leaves the exact minimum and optimal growth rate unknown.",
+        "Finite subset census n<=14 does not establish the infinite result."
+      ],
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Marotti–Needleman Section 5 raises sublinear edge-completion as unsolved and gives linear bound.",
+          "Cambie–Groenland study related connected weight-sum spectra, not an inspected stronger bound for the same fixed consecutive labeled cycles."
+        ],
+        "reasoning": "No broader prior theorem inspected entails mEC(n)=O(√n). An unindexed stronger result would matter and remains a residual risk.",
+        "searches": [
+          "https://www.paperpeel.com/paper/2610.08889",
+          "consecutive cycle sums mEC edge completion sublinear square root chords consecutive vertex weights",
+          "Cambie Groenland extremal connected subgraph sums 2026"
+        ]
+      },
+      "checked_sources": [
+        "https://github.com/SCOPE-Science/SCOPE2026/blob/61accd20e9082d7b9b235bc7f4350f083cf94bb8/2026/10/25/a-square-root-edge-completion-bound-for-consecutive-cycle-sums--11843aae75c6/RESULT.md",
+        "https://github.com/SCOPE-Science/SCOPE2026/tree/61accd20e9082d7b9b235bc7f4350f083cf94bb8/2026/10/25/a-square-root-edge-completion-bound-for-consecutive-cycle-sums--11843aae75c6",
+        "https://www.paperpeel.com/paper/2610.08889",
+        "https://doi.org/10.1007/s00373-026-03026-8",
+        "Resultary semantic search: consecutive cycle sums mEC edge completion sublinear square root chords consecutive vertex weights"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "Section 5 of original consecutive-cycle article explicitly says O(n) improvement may be possible but a base-case argument was missing.",
+          "The new inductive subset-sum plus translated interval proof supplies the missing uniform construction."
+        ],
+        "reasoning": "Prior theorem gives n/2 scale and leaves sublinear as an open problem; it cannot imply the new sqrt bound by restating the definition.",
+        "searches": [
+          "https://www.paperpeel.com/paper/2610.08889",
+          "https://arxiv.org/abs/2610.08889",
+          "Cambie Groenland Note on extremal problems about connected subgraph sums"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Both sources use exactly mEC(n) for consecutive labels 1..n; prior linear chord construction attaches from vertex 1 to many even-numbered vertices.",
+          "New construction uses O(√n) spokes concentrated on 2..m and one tail bridge, with different uniform subset-sum cover."
+        ],
+        "reasoning": "Same problem and normalization deliberately matched. New upper bound improves the exact published inequality on a quantified unbounded range.",
+        "searches": [
+          "consecutive cycle sums mEC edge completion sublinear square root chords consecutive vertex weights",
+          "https://arxiv.org/abs/2610.08889",
+          "connected vertex sum cycle edge completion star chord sublinear"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "Semantic Resultary hits were unrelated weighted-cycle problems. Prior source notes mEC(8)=1 and cycle incompleteness >=8, not a table determining the universal sublinear rate."
+        ],
+        "reasoning": "A finite computation/table of small n cannot imply the all-n constructive O(√n) bound without a separate uniform argument.",
+        "searches": [
+          "Resultary: consecutive cycle sums mEC edge completion sublinear square root chords consecutive vertex weights",
+          "mEC(n) consecutive cycle sums values edge addition table"
+        ]
+      },
+      "rationale": "Marotti–Needleman (Oct 2026) introduced the *same* fixed consecutive labels, connected-weight-set and minimum edge-completion parameter, established cycle incompleteness and a linear upper bound, and explicitly left sublinearity open. The new constructive √n upper bound positively answers that exact open question, not a renaming or unrelated graph parameter.",
+      "residual_risks": [
+        "A post-Oct-6, 2026 parallel solution may exist outside indexed sources; no universal priority proof."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "EXACT_SAME_PROBLEM_PRIOR_LINEAR_ONLY",
+          "evidence": "Section 5 defines mEC(n), gives linear upper bound and says sublinear remains for study; new m-1=O(√n) chords address that exact gap.",
+          "identifier_or_url": "https://www.paperpeel.com/paper/2610.08889",
+          "material_read": "All five rendered manuscript sections: connected arc definition, main incompleteness, Section 5 chord construction and further question",
+          "method": "Read lawful accessible primary article or research text",
+          "title": "Marotti and Needleman, Consecutive Cycle Sums",
+          "trigger": "Exact parameter and explicit antecedent open question"
+        },
+        {
+          "assessment": "PRIOR_GENERAL_TOPIC_NOT_FULLY_RESOLVED",
+          "evidence": "No inspected source statement entails consecutive fixed-label cycle completion; retains limited-access overlap risk.",
+          "identifier_or_url": "https://doi.org/10.1007/s00373-026-03026-8",
+          "material_read": "Bibliographic scope, abstract/research context, not full paper",
+          "method": "Read lawful accessible primary article or research text",
+          "title": "Cambie and Groenland, Note on extremal problems about connected subgraph sums",
+          "trigger": "Possible broader connected-weight-sum theorem"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "checked_sources": [
+        "https://github.com/SCOPE-Science/SCOPE2026/blob/61accd20e9082d7b9b235bc7f4350f083cf94bb8/2026/10/25/a-square-root-edge-completion-bound-for-consecutive-cycle-sums--11843aae75c6/RESULT.md",
+        "https://github.com/SCOPE-Science/SCOPE2026/tree/61accd20e9082d7b9b235bc7f4350f083cf94bb8/2026/10/25/a-square-root-edge-completion-bound-for-consecutive-cycle-sums--11843aae75c6",
+        "Primary literature interpretation in axes.originality.source_inspections"
+      ],
+      "rationale": "Solves the explicit sublinearity question for a natural connected-subset-sum extremal invariant with a uniform explicit construction and a nontrivial subset-sum/interval-covering method. The result is meaningful without knowing the exact optimal chord count.",
+      "residual_risks": [
+        "The upper bound may be improvable and makes no matching lower-bound assertion."
+      ],
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "final_claim": "For every n>=9, m=min{r>=4:T_r>=n+4}, adding m-1 chords {1,j} (3<=j<=m) and {1,m+2} makes every integer 1..T_n the sum of a nonempty connected induced vertex set, hence mEC(n)<=ceil((sqrt(8n+33)-1)/2)-1=√(2n)+O(1) and mEC(n)/n→0.",
+  "limitations": [
+    "The formula is an upper bound and leaves the exact minimum and optimal growth rate unknown.",
+    "Finite subset census n<=14 does not establish the infinite result.",
+    "A post-Oct-6, 2026 parallel solution may exist outside indexed sources; no universal priority proof.",
+    "The upper bound may be improvable and makes no matching lower-bound assertion."
+  ],
+  "schema_version": 1
+}
