@@ -1,15 +1,21 @@
-# Scientific review
+# Independent mathematical audit
 
-## Correctness — PASS
-The language is explicitly relational; a two-round partial isomorphism is an atomic diagram on the constants and two selected elements, not an assertion about iterated group terms. The proof identifies all possible pair diagrams, including the exceptional canonical root of order-three elements. It proves a parity-sensitive square-root criterion in alternating groups by cycle pairing, then derives each occurrence threshold and the exact nine equivalence classes. A concrete exhaustive atomic-diagram verifier checks the low-degree boundary and squares directly; a separate partition census agrees through degree forty. The proof, not those finite enumerations, establishes infinite validity.
+## correctness
 
-## Originality — PASS (best-knowledge)
-The examined dissertation on bounded-depth relational group logic treats cyclic, abelian, and dihedral families. General work on ultraproducts of alternating groups does not determine an exact rank-two partition; algorithms using stronger quantifiers and product-of-conjugacy-class results do not imply this elementary rank-two statement. Existing published results on symmetric groups and on cycle square roots do not directly imply the nine-class **alternating** classification: the mod-eight obstruction remains after the symmetric classification stabilizes. Targeted searches for equivalent and stronger formulations yielded no covering result. A potentially unindexed equivalent earlier observation remains a genuine limitation.
+PASS
 
-## Value — PASS
-This is a complete classification of a canonical infinite family under a natural finite-model-theoretic invariant, with a sharp representative size within the family and a two-quantifier witness to a permanent congruence-class oscillation. It distinguishes an actual logical phenomenon from mere computation of permutation cycle types and gives a structural reason the subgroup restriction differs from symmetric groups.
+Quantifier rank two is in the ternary RELATIONAL multiplication language with named identity, so a two-round EF partial isomorphism checks only atomic diagrams in e,x,y; no arbitrary nested product term is atomic. These diagrams reduce to nine pointed types E,I±,T±,Q±,H± distinguished by element order and the existence of alternating square roots. A permutation x has a root in A_n only when counts of even-length cycles are even and the parity of glued pairs is even or may be corrected with two equal odd-length cycles. Applying this to involutions, order-three, order-four, and higher-order elements gives exact threshold categories, one low-degree coincidence A7≡2 A9, and mod-eight infinite oscillation. The explicit rank-two rootless-involution sentence distinguishes the recurring classes. Independent full partition-type census for n=3..40 reproduced nine category signatures and reps 3,4,5,6,7,8,10,11,12. Finite checks corroborate, whereas the cycle-root criterion and complete atomic-reduction proof cover all n.
 
-## Limitations
-The statement is restricted to quantifier rank two and ternary relational multiplication, with no counting quantifiers; it does not claim results in the binary-function group language. Computations stop at degree nine for concrete groups and degree forty for symbolic partitions. Earlier logically equivalent statements in unavailable literature remain possible; independent scientific audit is not yet performed.
+## originality
 
-Self-review: passed. Independent audit: not yet performed.
+PASS
+
+The relevant prior papers concern bounded logic for cyclic/abelian/dihedral groups, full first-order pseudofinite group properties, stronger generalized-quantifier group logics, or conjugacy products. None of the inspected statements implies the exact nine ordinary relational rank-two classes of all A_n or the permanent mod-eight square-root obstruction. Earlier classical root criteria are credited, and unindexed direct EF calculations remain a priority risk.
+
+## value
+
+PASS
+
+The family of finite alternating groups is canonical in model theory; quantifier-rank two in a precisely fixed relational language is a natural logical invariant. Complete class count, sharp least representative size, and an explicit two-quantifier congruence witness show a structural infinite-family nonstabilization contrasting symmetric groups, not a rephrased isolated cycle table.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
