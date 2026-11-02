@@ -1,0 +1,9 @@
+# Scientific review
+
+**Correctness — PASS.** The result identifies precise factor sets and compares the full equality partitions of one, two, and three tortoise passes, not just cardinalities. The four-letter substitution has exactly eight allowed adjacent pairs; the corresponding two-block expansions exhaust all factors at each specified length. At lengths 14 and 18 the complete partition checks establish the finite hypotheses, and every factor contains enough ones for a proved prefix-inheritance argument extending the conclusions to all larger lengths. Explicit length-13 and length-17 pairs establish sharpness. Both independently implemented finite checkers passed. Risk: the finite checkers are not themselves infinite proofs; validity relies on the separately detailed substitution and prefix arguments.
+
+**Originality — PASS, with residual priority risk.** Defant–Kravitz provide the operator, while Campbell–Rampersad apply it to paperfolding and Thue–Morse and consider iterates, but not these two Rudin–Shapiro stabilization thresholds. An existing one-pass Rudin–Shapiro complexity statement, even if available, does not imply equality of two-pass and three-pass *partitions*. Exact-parameter and equivalent-fiber searches found no covering result. Risk: unindexed prior derivations or calculations may exist; the claim has not received independent publication-priority review.
+
+**Value — PASS.** Iteration can merge new equivalence classes even when one pass has already merged factors. The theorem identifies two sharp thresholds beyond which this process stops adding merges on a classical automatic word, giving qualitative all-length information that neither one-pass complexity nor short computations provide. The elementary inheritance principle is reusable for future iterated factor-map calculations. It does not purport to settle higher iteration depths or arbitrary automatic sequences.
+
+Self-review: passed. Independent audit: not yet performed.
