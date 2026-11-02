@@ -1,0 +1,15 @@
+# Self-review
+
+## Correctness — PASS
+The proof checks the exact three-bilinear section system on \((\mathbb P^1)^3\), its elimination polynomial, the irreducibility of the characteristic-two cubic, and the absence of boundary discriminant components using the irreducible universal Jacobian incidence. Its matrix-trace normal form gives all Jacobian equations without assumptions on matrix ranks. The rank stratification is exhaustive: invertible members force two zero matrices, and rank-at-most-one members lie in the projective-bundle image. The latter image is generically one-to-one, and the coefficient extraction in the projective-bundle push-forward gives degree \(14\). A standalone symbolic and finite-field script checks key algebra identities and the finite enumeration, but does not purport to prove the infinite geometric assertions.
+
+## Originality — PASS, with historical risk
+Emiris–Vidunas (2016), §5, already give the sextic as an integral quadratic discriminant and a \(6\times6\) determinant; reduction to a square in characteristic two is a direct deduction, not a new theorem. Abo–Portakal–Sodomaco (2025), §3.2, determine the complex degree-six locus and its singular strata; Neuhaus–Portakal–Sodomaco–Tung (2026) treat complex degrees across formats. Neither inspected article states the four reduced characteristic-two singular components, the degree-\(14\) nonlinear component, and its exact quadric attachments. General circular-complex representation-variety theory might imply parts of the rank stratification, but an exact dominating formula for this discriminant and its nonlinear component degree was not identified. Overlap searches cover the full text of the central three sources, existing accessible research findings, and relevant mathematical-record searches. Absence of a hit is not a priority certificate.
+
+## Mathematical value — PASS
+The discriminant of the minimal nontrivial three-player balanced bilinear system is a natural parameter hypersurface. In characteristic two its reduced geometry changes drastically from the classical complex sextic, and the theorem describes *all* singular strata of the reduced hypersurface, not merely a factorization: it distinguishes three linear boundary components from a nonlinear fivefold, determines the latter's exact enumerative degree, and identifies how the components meet. These are natural structural and intersection-theoretic invariants potentially useful in comparing bad reductions or extending mixed discriminants to larger formats. No numerical improvement or arbitrary parameter slice is asserted.
+
+## Sources and limitations
+Main primary sources: arXiv:1607.01496v1 §5; arXiv:2504.03456v1 §3.2; arXiv:2610.29889v1 §§2,3,5. The general circular-complex literature is a residual priority risk. The result only describes reduced singular supports in characteristic two; the Jacobian ideal may be nonradical, and independent validation has not been performed.
+
+Self-review: passed. Independent audit: not yet performed.
