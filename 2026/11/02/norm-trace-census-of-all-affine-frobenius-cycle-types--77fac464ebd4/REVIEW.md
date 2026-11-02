@@ -1,0 +1,11 @@
+# Review of the norm–trace affine Frobenius census
+
+**Correctness — PASS.** The proof is a complete exhaustive classification: multiplicative Hilbert 90 counts fixed points in the nontrivial-norm branch; multiplicative and additive Hilbert 90 classify the norm-one branch; Möbius inversion gives every cycle count. Orders distinguish all types, and surjective norm and trace maps count exactly how many coefficient pairs have each type. A separate standard-library verifier exhaustively checked 28,076 coefficient pairs in fifteen finite-field parameter cases. The general theorem is not inferred from those finite checks.
+
+**Originality — PASS, with qualification.** Mullen–Muratović-Ribić–Wang (arXiv:1503.07487, Section 3) give matrix-based period computations, not an explicit norm–trace coefficient census. Ugolini (arXiv:2008.07337, Section 4) studies the same affine maps in binary characteristic, so those cases have substantial existing treatment. Bian–Chen–Zheng (arXiv:2610.11574, Theorem 3.2) give general linearized cycle structures, which imply the affine-fixed-point cases after conjugation but do not enumerate all affine translations or explicitly treat their nonfixed branch. Gerike–Kyureghyan (DOI:10.1007/s10623-020-00721-2) examine a different trace-map family. The combined exact all-characteristic coefficient distribution and type count were not identified as prior results. Broader equivalences or old specialized work remain possible.
+
+**Value — PASS.** A complete graph-isomorphism classification of a natural two-parameter family of permutation polynomials is a useful arithmetic invariant, not an arbitrary finite slice. The formulas give exact orbit lengths, graph types, and type frequencies in coefficient space for every extension degree, and distinguish the normally overlooked no-fixed-point affine branch. This makes the output applicable to selecting semilinear permutation polynomials with prescribed cycle profiles and to enumerating their functional graphs without brute force.
+
+The result makes no claim about arbitrary linearized polynomials or conjugacy within a restricted transformation group. No independent expert validation or independent mathematical audit is asserted.
+
+Self-review: passed. Independent audit: not yet performed.
