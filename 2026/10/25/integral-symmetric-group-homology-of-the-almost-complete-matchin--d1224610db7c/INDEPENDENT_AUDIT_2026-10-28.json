@@ -1,0 +1,118 @@
+{
+  "audit_date_utc": "2026-10-28",
+  "audited_at_utc": "2026-10-28T02:57:44Z",
+  "axes": {
+    "correctness": {
+      "checked_sources": [
+        "2026/10/25/integral-symmetric-group-homology-of-the-almost-complete-matchin--d1224610db7c/RESULT.md @ 4777b8d8c3d53dce49879d72bbc5811d93c147de",
+        "2026/10/25/integral-symmetric-group-homology-of-the-almost-complete-matchin--d1224610db7c/verify.py @ 6270b2b3c27603f257d5f4f33c0d57386e8d0308",
+        "/mnt/data/scope_worker07_independent_checks_20261028.py",
+        "algebraic proof reconstruction"
+      ],
+      "rationale": "Read RESULT.md proof and verify.py. Dualizing the forbidden full stars yields a cover whose intersections are simplices when at least two ground vertices remain; nerve is the (n-3)-skeleton of the (n-1)-simplex. Integral augmented Cech chains preserve the S_n action. Its top homology is sign_n tensor (Z^n/Zdiag); integral dual is sign_n tensor the coordinate-sum kernel, not the quotient. Complementation on m=binom(n,2) edges contributes sign_E=sign_n^(n-2), so reduced H_{binom(n-1,2)-1}=sign_n^(n-1) tensor U_n and other reduced groups vanish for every n>=3. Independent exact signed Lefschetz calculations on all 15 partitions of n=3,4,5 matched the character; source verifier checks 26 classes n<=6 and mod-2 homology n<=5. The proof, not finite tests, proves the integral lattice, including n=3.",
+      "residual_risks": [
+        "Integral augmentation and quotient permutation lattices differ; their duality is essential.",
+        "The derived character alone does not imply the integral module; the actual equivariant Cech and Alexander-dual identifications were inspected."
+      ],
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "M. Wachs, Topology of matching, chessboard, and general bounded degree graph complexes (2003), §7.1, Theorem 7.1",
+          "Survey p.24 explicitly allows loops in its general bounded-degree complex; Theorem 7.1 is a rational characteristic-zero representation statement"
+        ],
+        "reasoning": "Even a strong rational character theorem for another loop-allowing complex does not identify the full integer lattice of this loopless natural S_n-module.",
+        "searches": [
+          "Reiner–Roberts representation of bounded degree complexes §7.1 Wachs 2003",
+          "equivariant Alexander dual nerve of star covers of complete graph"
+        ]
+      },
+      "checked_sources": [
+        "https://arxiv.org/abs/2006.13632",
+        "https://www.math.miami.edu/~wachs/papers/tmc.pdf"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "Anurag Singh, Higher matching complexes of complete graphs and complete bipartite graphs, arXiv:2006.13632, Theorem 1.1",
+          "M. Wachs, Topology of matching, chessboard, and general bounded degree graph complexes (2003), §7.1, Theorem 7.1",
+          "In inspected proof, the signed edge-orientation twist sign_E adds sign^(n-2)"
+        ],
+        "reasoning": "The earlier homotopy theorem does not imply a natural integral S_n lattice; standard duality plus a fresh equivariant nerve computation supplies the missing nontrivial information.",
+        "searches": [
+          "Singh Theorem 1.1 full arXiv text",
+          "Wachs 2003 Theorem 7.1 full survey"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Anurag Singh, Higher matching complexes of complete graphs and complete bipartite graphs, arXiv:2006.13632, Theorem 1.1",
+          "M. Wachs, Topology of matching, chessboard, and general bounded degree graph complexes (2003), §7.1, Theorem 7.1",
+          "The target uses simple loopless edges E(K_n), degree n-2, and integral S_n-lattice"
+        ],
+        "reasoning": "The exact object appears in Singh with nonequivariant wedge result; neither a homotopy wedge nor a rational rank uniquely determines its natural integral group action.",
+        "searches": [
+          "Singh arXiv:2006.13632 M_{n-2}(K_n) S_n representation augmentation lattice",
+          "Wachs §7.1 Reiner Roberts bounded-degree graph complexes rational representation"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "Anurag Singh, Higher matching complexes of complete graphs and complete bipartite graphs, arXiv:2006.13632, Theorem 1.1",
+          "Actual full-text Singh result gives rank n-1, not module structure"
+        ],
+        "reasoning": "Previous homology tables and matching-complex records supply ranks or other complexes, not the exact integral augmentation action; known rank is expressly credited.",
+        "searches": [
+          "Resultary integral symmetric group homology almost complete matching M_n-2 K_n",
+          "Singh 2020 higher matching homology wedge dimensions and Wachs tabulated Betti"
+        ]
+      },
+      "rationale": "Singh Theorem 1.1 proves n-1 sphere homotopy type for exactly M_{n-2}(K_n), but does not specify its S_n action or integral lattice. Wachs §7.1/Reiner–Roberts gives extensive rational representations for a bounded-degree complex that permits loops and thus has a different edge universe. No inspected source furnishes the sign-twisted integral augmentation kernel for this loopless family, despite the same Betti rank.",
+      "residual_risks": [
+        "An older loopless specialization obtained by applying equivariant Alexander duality may be unindexed or formulated as a representation of an edge-star ideal."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "NONEQUIVARIANT_ONLY",
+          "evidence": "Known M_{n-2}(K_n) ≃ wedge of n-1 spheres, no integral S_n homology-module theorem.",
+          "identifier_or_url": "https://arxiv.org/abs/2006.13632",
+          "material_read": "Full accessible arXiv text, Theorem 1.1 and Section 3 proof scope",
+          "method": "Primary arXiv HTML and PDF theorem inspection",
+          "title": "Higher matching complexes of complete graphs and complete bipartite graphs",
+          "trigger": "Exact same complex and possible stronger result"
+        },
+        {
+          "assessment": "DISTINCT_COMPLEX_AND_FIELD",
+          "evidence": "General bounded-degree complex allows loops and its theorem is over a field; exact integral loopless lattice not specified.",
+          "identifier_or_url": "https://www.math.miami.edu/~wachs/papers/tmc.pdf",
+          "material_read": "Full survey §7.1 pp.24–26 including graph-loop convention and Theorem 7.1",
+          "method": "Primary survey PDF inspected with pages 24–25 screenshots",
+          "title": "Topology of matching, chessboard, and general bounded degree graph complexes",
+          "trigger": "Relevant rational symmetric-group representation for broader bounded-degree complex"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "checked_sources": [
+        "https://arxiv.org/abs/2006.13632",
+        "https://www.math.miami.edu/~wachs/papers/tmc.pdf",
+        "2026/10/25/integral-symmetric-group-homology-of-the-almost-complete-matchin--d1224610db7c/RESULT.md"
+      ],
+      "rationale": "The family is the canonical complete-graph near-maximal matching complex with known n-1 spheres. Identifying its integral sign-twisted augmentation lattice—rather than just the rational character—determines torsion-free group action and fixed dimensions for every subgroup; quotient-versus-root lattice distinction matters under integer symmetry.",
+      "residual_risks": [
+        "The equivariant duality method is classical, but the specific integral family identification and parity behavior are concrete structural information."
+      ],
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "limitations": [
+    "Integral augmentation and quotient permutation lattices differ; their duality is essential.",
+    "The derived character alone does not imply the integral module; the actual equivariant Cech and Alexander-dual identifications were inspected.",
+    "An older loopless specialization obtained by applying equivariant Alexander duality may be unindexed or formulated as a representation of an edge-star ideal.",
+    "The equivariant duality method is classical, but the specific integral family identification and parity behavior are concrete structural information.",
+    "No GitHub write or dispatcher closeout; scientific verdict independent of publication readiness."
+  ],
+  "schema_version": 1
+}
