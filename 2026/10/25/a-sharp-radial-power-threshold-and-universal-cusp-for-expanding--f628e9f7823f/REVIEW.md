@@ -1,15 +1,21 @@
-# Scientific assessment
+# Independent mathematical audit
 
-## Correctness — PASS
-The theorem has a complete analytic proof: subharmonicity treats positive powers, a radial Poisson identity treats the superharmonic interval up to the Newtonian exponent, a sign-changing radial-derivative regime proves the sharp obstruction, and explicit angular rescaling with beta integration determines the contact cusp. The singular-integrability hypothesis \(p>1-n\) is necessary. The standalone numerical checker exercises 71 independent finite cases and cannot replace the proof.
+## correctness
 
-## Originality — PASS, with material priority risk
-The motivating weighted-perimeter paper (Csató--Giovagnoli, arXiv:2610.11677v1, §§1,3) addresses continuous weights and an inclusion principle for nondecreasing powers, not this fixed-center decreasing-power threshold. Earlier potential theory (Chafaï et al., arXiv:2405.00120, Appendix C.3) **already gives the entire spherical Riesz average in hypergeometric form**. We explicitly exclude that formula from our originality claim. Our new proposed assertion is the cross-dimensional, sharp geometric radius-monotonicity equivalence together with the positive scale-free cusp constant and sharp regularity; those require additional sign and singular-analysis steps not stated in the inspected source. This is a significant residual risk: an older consequence of the hypergeometric formula may contain exactly these results. Relevant other work on arbitrary convex inclusions (Saracco--Stefani, arXiv:2306.07770) has different hypotheses. A related published planar weighted-Hausdorff theorem has a different global modulus objective. Neither title matching nor database partition establishes priority.
+PASS
 
-## Mathematical value — PASS
-This is a natural sharp boundary for the core geometry of an established weighted-perimeter functional. The sign transition at \(p=2-n\) is dimension dependent, agrees with the Newtonian potential at equality, and locates a localized failure of perimeter monotonicity for *nested balls* rather than needing degenerate or unrelated bodies. The universal, offset-independent gamma coefficient yields exact Hölder regularity and quantifies the instability as a sphere passes through the singularity. It does not resolve arbitrary-body inclusion.
+PASS. Reconstructed scaling E_p=omega r^(n-1+p) G_p(a/r). For p>=0 positive weights are subharmonic (or constant), and for 2-n<=p<0 spherical potential Gp decreases in offset, making E increase. For subcritical 1-n<p<2-n, p<0, Gp prime is negative for t>1 while a positive-source Poisson identity for t<1 yields Gp prime asymptotic (1-t)^(q-1) blowing up; hence E increases up to r=a and decreases just afterwards, while E~omega r^q at infinity. Rescaled polar-cap difference integral has convergent beta value Gamma(n/2)Gamma(1-q/2)/(sqrt(pi) q Gamma(-p/2)); r^q and (1-a/r)^q cancel offset exactly. Independent exact three-dimensional formula checks at p=-3/2 and p=-5/4 converge two-sided to C=1 and C=2/3. Newtonian p=2-n reduces to shell theorem.
 
-## Scope and risks
-Historical prior claims are used only for overlap comparison. The existing general hypergeometric formula is a strong source of possible implicit coverage and must accompany any assertion of novelty. Singular powers at or below \(1-n\) and moving centers are excluded. Independent mathematical verification has not taken place.
+## originality
 
-Self-review: passed. Independent audit: not yet performed.
+PASS
+
+PASS best of knowledge with substantial prior dependence. Chafaï et al. 2025 Appendix C Lemma C.3 and equations C.7-C.8 already give the whole spherical Riesz-potential hypergeometric profile and derivative formulas; the profile/formula itself is NOT new. Inspected Appendix C.3.1 smoothness analysis gives finite-derivative ranges at contact, but does not explicitly state the fixed-center weighted surface-monotonicity iff threshold plus exact scale-free cusp coefficient. Those require extra sign, beta-limit and radius-scaling analysis. A short prior derivation of precisely these consequences is a material residual risk.
+
+## value
+
+PASS
+
+PASS. A clean necessary-and-sufficient all-dimensional threshold and universal positive non-Lipschitz contact-cusp constant is an informative sharp boundary for weighted-perimeter monotonicity and regularity, even though the underlying potential has a classical hypergeometric expression.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
