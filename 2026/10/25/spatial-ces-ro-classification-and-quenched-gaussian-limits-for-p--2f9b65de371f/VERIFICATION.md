@@ -5,8 +5,11 @@
     "status": "not_performed"
   },
   "independent_audit": {
-    "evidence": null,
-    "status": "not_performed"
+    "status": "passed",
+    "evidence": [
+      "INDEPENDENT_AUDIT_2026-10-29.md",
+      "INDEPENDENT_AUDIT_2026-10-29.json"
+    ]
   },
   "lean_verification": {
     "evidence": null,
@@ -16,8 +19,24 @@
 }
 ---
 
-# Reproducibility and verification
+# Independent mathematical audit
 
-Running `python verification.py` with Python 3.10 or newer yielded `PASS: 19109 finite exact or path checks`. The script verifies invertibility of the Pascal parity map through length eight, at least \(2^{w(t)-1}\) differing binomial parity bits for all \(0\le s<t<193\), exact rational pair correlations for seven independent nonidentically distributed Bernoulli coefficients, and pathwise occupation identities with a seeded random input. All checks passed in the recorded run.
+## correctness
 
-These finite computations do not prove a.s. Cesàro convergence or weak functional convergence. Those assertions are supported by the renewal strong-law argument, Lucas' theorem and summable spatial second-moment bound, and the martingale functional CLT and its necessary predictable-bracket condition. The coefficient-probability restriction, the precise count process, and the degeneration at correlations \(\pm1\) are material scope conditions. No independent audit has been performed.
+PASS
+
+For fixed f, the level holding times G_s are independent geometric(1/2), mean 2 variance 2. Kolmogorov convergence plus Kronecker imply J^-1 sum f(s)(G_s−2)→0; the final incomplete hold is o(n), and S_n/n→1/2, proving n^-1 sum f(S_j)−A_floor(n/2)(f)→0 almost surely. Predictable brackets for the bounded martingale differences (ξ_j,f(S_{j−1})ξ_j) therefore converge to [[1,ρ],[ρ,1]], giving the FCLT including ρ=±1. Necessity follows from the previously established bootstrap Brownian-bracket necessity and deterministic averages on even n. For the Pascal signs, Lucas submask differences yield |E fβ(s)fβ(t)|≤q^(2^(w(t)−1)), and entropy counting gives E A_N²=O(N^(-1/8)); Borel–Cantelli on floor(j^10) and bounded interpolation give the quenched spatial law. Independent finite Lucas-mask check covered all 32,640 pairs s<t<256. No finite check substitutes for the almost-sure or functional limit arguments.
+
+## originality
+
+PASS
+
+Full comparison against the same Pascal-sign bootstrap model in Hamza–Tournier shows its Proposition 11/Corollary 12 concern annealed convergence, with the conditional quenched limit left open. The earlier general bootstrap Brownian criterion gives necessity in terms of time brackets but does not identify spatial averages for arbitrary fixed count-dependent sceneries. The weighted geometric occupation identity provides a deterministic if-and-only-if classification and yields the Pascal quenched corollary; no inspected statement logically entails that combined theorem without additional arguments.
+
+## value
+
+PASS
+
+The complete necessary/sufficient characterization for all bounded deterministic sign sceneries is a natural stochastic limit-classification question. The independent-coordinates quenched conclusion for a canonical Pascal environment addresses a specific explicit question from the closest paper. Both statements are nontrivial beyond a standard CLT invocation because the time-dependent predictable bracket is converted to a spatial criterion with almost-sure control.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

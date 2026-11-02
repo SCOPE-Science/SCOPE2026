@@ -1,11 +1,21 @@
-# Scientific assessment
+# Independent mathematical audit
 
-**Correctness — PASS.** The theorem's complete deterministic classification follows from a rigorous weighted-geometric holding-time strong law, the bounded-jump martingale functional central limit theorem, and the established necessity of predictable-bracket convergence. The almost-sure random Pascal corollary follows from an explicit Lucas differing-mask correlation bound, binary-entropy counting, summable polynomial subsequence moments, and interpolation. A standalone checker verified 19,109 finite identities or tests. The analytic arguments, not the finite checks, establish the infinite limits. The reported functional limit includes correlations on the whole interval \([-1,1]\), including the degenerate boundary cases.
+## correctness
 
-**Originality — PASS with residual risk.** Hamza–Tournier (2026), Theorem 1 and sections 4.3, explicitly prove the same *annealed* model and call its quenched counterpart unresolved. Their source does not present an if-and-only-if criterion in terms of the Cesàro mean of a fixed spatial scenery. Collevecchio–Hamza–Shi–Williams (2020/2022) prove a much more general *temporal-bracket* criterion and are fully credited for that ingredient; the independent renewal-level reduction and Pascal spatial strong law are not the paper's stated claims. The quenched special case may also follow indirectly from a quantitative sharpening of the 2026 paper's estimates; the central originality assertion is the exact deterministic spatial criterion paired with the spatial Pascal law, not a wholly new Gaussian convergence mechanism. No independently audited uniqueness statement is made.
+PASS
 
-**Mathematical value — PASS.** The criterion is necessary and sufficient for the entire deterministic sign-scenery class, identifying when the Brownian covariance exists and what it must be. In particular, it resolves the coefficient-static one-factor Markov example flagged as open for quenched convergence in the motivating article. Its deterministic formulation also detects genuine no-Brownian-limit regimes via nonconvergent spatial averages, rather than giving only a sufficient condition.
+For fixed f, the level holding times G_s are independent geometric(1/2), mean 2 variance 2. Kolmogorov convergence plus Kronecker imply J^-1 sum f(s)(G_s−2)→0; the final incomplete hold is o(n), and S_n/n→1/2, proving n^-1 sum f(S_j)−A_floor(n/2)(f)→0 almost surely. Predictable brackets for the bounded martingale differences (ξ_j,f(S_{j−1})ξ_j) therefore converge to [[1,ρ],[ρ,1]], giving the FCLT including ρ=±1. Necessity follows from the previously established bootstrap Brownian-bracket necessity and deterministic averages on even n. For the Pascal signs, Lucas submask differences yield |E fβ(s)fβ(t)|≤q^(2^(w(t)−1)), and entropy counting gives E A_N²=O(N^(-1/8)); Borel–Cantelli on floor(j^10) and bounded interpolation give the quenched spatial law. Independent finite Lucas-mask check covered all 32,640 pairs s<t<256. No finite check substitutes for the almost-sure or functional limit arguments.
 
-**Closest literature and limitations.** The 2026 article's Proposition 11 and Corollary 12 and the 2020/2022 general martingale-limit characterization are the closest results. The statement assumes fair input signs and a monotone count state, and uses independent uniformly nondegenerate Pascal coefficients for the quenched application. Equivalent formulations in older renewal and correlated bootstrap literature remain a residual originality risk.
+## originality
 
-Self-review: passed. Independent audit: not yet performed.
+PASS
+
+Full comparison against the same Pascal-sign bootstrap model in Hamza–Tournier shows its Proposition 11/Corollary 12 concern annealed convergence, with the conditional quenched limit left open. The earlier general bootstrap Brownian criterion gives necessity in terms of time brackets but does not identify spatial averages for arbitrary fixed count-dependent sceneries. The weighted geometric occupation identity provides a deterministic if-and-only-if classification and yields the Pascal quenched corollary; no inspected statement logically entails that combined theorem without additional arguments.
+
+## value
+
+PASS
+
+The complete necessary/sufficient characterization for all bounded deterministic sign sceneries is a natural stochastic limit-classification question. The independent-coordinates quenched conclusion for a canonical Pascal environment addresses a specific explicit question from the closest paper. Both statements are nontrivial beyond a standard CLT invocation because the time-dependent predictable bracket is converted to a spatial criterion with almost-sure control.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
