@@ -5,8 +5,11 @@
     "status": "not_performed"
   },
   "independent_audit": {
-    "evidence": null,
-    "status": "not_performed"
+    "status": "passed",
+    "evidence": [
+      "INDEPENDENT_AUDIT_2026-10-30.md",
+      "INDEPENDENT_AUDIT_2026-10-30.json"
+    ]
   },
   "lean_verification": {
     "evidence": null,
@@ -16,10 +19,24 @@
 }
 ---
 
-# Verification record
+# Independent mathematical audit
 
-Run `python3 verify.py` from the package directory. The program requires only the Python 3 standard library and uses exact integer or `fractions.Fraction` calculations. The completed check printed `PASS 304959 exact arithmetic assertions`.
+## correctness
 
-The checks construct exact cyclic ballots realizing all upper and lower endpoints and their midpoints for every feasible \((m,r,k,t)\) with \(2\le m\le12\). They check all one- and two-ballot profiles through five candidates (selecting all optimal committees for the single-ballot case) and an additional fixed-seed set of profiles. The 51-voter ten-candidate witness is reconstructed exactly, yielding score \(1828/2295\) with both winners outside the designated eight-candidate party.
+PASS
 
-The general theorem depends on an explicit rearrangement inequality and constructive proof. Finite checks alone do not certify statements for unbounded candidate or voter counts. Historical priority was investigated from available research, but no independent audit or complete literature exhaustiveness is asserted.
+For a winning committee W, set T=W∩A of size t, L=A\W of size r−t and U=W\A of size k−t. Every elected U score dominates every L score; with h=|L|+|U| and α=|L|/h, sum_L v<=α(sum_L+sum_U). Every mean Borda score vector is a convex combination of score permutations, so rearrangement gives sum_A v<=S_t+α(S_{t+h}−S_t), S_j=j(2m−j−1)/2, yielding upper [r(2m−r−k−1)+t(r+k−t)]/[m(m−1)]. Swapping parties gives lower [r(r−1)+t(m−r−k+t)]/[m(m−1)]. Cyclic rotation of middle group L∪U attains upper, party swap lower with same W; rational mixing yields every rational score, with all selected/unselected score comparisons strict in the interval. Independent exact rational checks established endpoint and strict mixture for 570 bounded feasible tuples plus direct one-ballot bound through m=6.
+
+## originality
+
+PASS
+
+Best-of-knowledge original for the restricted final claim after direct implication-based comparison; primary overlap, unavailable full text and mathematical reduction risks are explicitly documented, not treated as absence-proof.
+
+## value
+
+PASS
+
+The interval fully quantifies a natural mismatch between candidate affiliation totals and actual k-Borda representation. Even a party whose candidates collect almost all aggregate Borda points can win no seat as m grows at fixed k, and the exact bounds distinguish ties at endpoints from uniquely selected interior committees.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

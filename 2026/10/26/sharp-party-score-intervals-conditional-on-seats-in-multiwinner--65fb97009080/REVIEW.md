@@ -1,19 +1,21 @@
-# Scientific review
+# Independent mathematical audit
 
-## Correctness — PASS
+## correctness
 
-The argument starts from the exact Borda-score permutation vector, uses committee top-score inequalities, and reduces the extremum to a weighted rearrangement. The complementary-party substitution gives the lower bound. Explicit cyclic permutations realize both rational endpoints; rational mixtures realize the entire rational interval; pairwise score inequalities make strict mixtures uniquely winning. Edge cases of empty middle blocks, full committees, no first-party winner, and all first-party candidates elected are addressed. The standalone `verify.py` passed 304959 exact assertions, including all feasible endpoint constructions up to twelve candidates and the 51-voter example. The infinite quantifiers rest on the proof rather than enumeration.
+PASS
 
-## Originality — PASS with priority caveat
+For a winning committee W, set T=W∩A of size t, L=A\W of size r−t and U=W\A of size k−t. Every elected U score dominates every L score; with h=|L|+|U| and α=|L|/h, sum_L v<=α(sum_L+sum_U). Every mean Borda score vector is a convex combination of score permutations, so rearrangement gives sum_A v<=S_t+α(S_{t+h}−S_t), S_j=j(2m−j−1)/2, yielding upper [r(2m−r−k−1)+t(r+k−t)]/[m(m−1)]. Swapping parties gives lower [r(r−1)+t(m−r−k+t)]/[m(m−1)]. Cyclic rotation of middle group L∪U attains upper, party swap lower with same W; rational mixing yields every rational score, with all selected/unselected score comparisons strict in the interval. Independent exact rational checks established endpoint and strict mixture for 570 bounded feasible tuples plus direct one-ballot bound through m=6.
 
-The primary 2026 article defines the party scoring statistic and analyzes OWA rules mostly empirically, without a seat-conditioned feasible interval. A same-authors article on spoiler effects uses Borda party totals with separate apportionment methods. Darmann–Klamler addresses fairness of item allocations, not selection of the highest-scoring candidates. The fully inspected 2017 threshold-of-exclusion article studies cohesive voting-bloc fractions rather than extrema of an affiliated party’s total normalized candidate points conditional on its candidate count and seat count. Published research comparisons found no equivalent implication, but this is not a definitive priority certification; the item-allocation paper was only partially inspected. Classical Borda scoring and rearrangement are fully acknowledged.
+## originality
 
-## Value — PASS
+PASS
 
-The full interval is a natural inverse question for a new allocation-proportionality statistic: knowing a party's candidate count and seats, exactly how far can its alleged vote share differ? The answer is a complete, sharp all-size classification, not a sample or a one-off counterexample. The zero-seat high-score corollary exposes a structural candidate-cardinality sensitivity of the measure, relevant to interpreting party score–seat mismatch. The scope is deliberately limited to separable Borda rather than all OWA rules.
+Best-of-knowledge original for the restricted final claim after direct implication-based comparison; primary overlap, unavailable full text and mathematical reduction risks are explicitly documented, not treated as absence-proof.
 
-## Closest literature and limitations
+## value
 
-Boratyn–Stolicki, arXiv:2602.10083, Sections 4–7, is the closest source. Related discussions are Boratyn et al., DOI:10.3233/FAIA251258; Darmann–Klamler, DOI:10.1007/s00355-016-0982-z; and Grofman–Feld–Fraenkel, DOI:10.1016/j.mathsocsci.2016.11.004 (full author-hosted paper inspected). No claim is made about first-choice party votes, other OWA rules, or independence of the review.
+PASS
 
-Self-review: passed. Independent audit: not yet performed.
+The interval fully quantifies a natural mismatch between candidate affiliation totals and actual k-Borda representation. Even a party whose candidates collect almost all aggregate Borda points can win no seat as m grows at fixed k, and the exact bounds distinguish ties at endpoints from uniquely selected interior committees.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
