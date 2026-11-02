@@ -1,0 +1,121 @@
+{
+  "correctness": {
+    "rationale": "Uniform ordered compositions have exactly binom(n-1,r-1) equiprobable r-part realizations. The bounded-composition recurrence and cut-subset enumeration agree for all n<=9, and all binom(n,k)^2 minors for k<=3 are checked with integer determinants. For n>=10, r=2,3,4 counts are explicitly enumerated by unique-max reasoning and the odd double-max correction, giving determinant -6(q^2-5q+2) for n=2q and -12(q-4)(q-1) for n=2q+1, each negative for q>=5. The actual standalone verify.py ran successfully; 10<=n<=300 checks are sanity checks, not an infinite proof.",
+    "status": "PASS"
+  },
+  "independent": false,
+  "independent_audit_status": "not_performed",
+  "originality": {
+    "broader_coverage": {
+      "evidence": [
+        "The published decorrelation result proves M conditional on number of parts is decreasing in first-order stochastic order, with a coordinate influence identity and a covariance bound.",
+        "Finch gives mixed moments/covariance rather than order-three determinant signs."
+      ],
+      "reasoning": "First-order stochastic ordering does not imply third-order total nonnegativity of the point-mass matrix. Neither source inspected contains a stronger all-minor theorem that would subsume the negative determinant threshold.",
+      "searches": [
+        "total nonnegativity order three joint matrix number of parts maximum part of integer compositions",
+        "higher order reverse sign regularity longest run conditional successes stochastic order",
+        "https://github.com/Resultary/2026/tree/main/2026/10/4/SCOPE-rigorous-decorrelation-of-part-count-and-maximum-in-uniform-comp--0ee24a72cd31",
+        "https://arxiv.org/abs/2010.06643"
+      ]
+    },
+    "checked_sources": [
+      "arxiv:1108.0337 (2011-08-01 v1)",
+      "arxiv:2010.06643 (2020-10-13 v1)",
+      "Philippou--Makri 1986 corrected author-uploaded article",
+      "https://github.com/Resultary/2026/tree/main/2026/10/4/SCOPE-rigorous-decorrelation-of-part-count-and-maximum-in-uniform-comp--0ee24a72cd31"
+    ],
+    "claim_vs_prior_implication": {
+      "evidence": [
+        "Closest published work proves stochastic decrease with each additional cut, not order-three minor signs.",
+        "Existing exact coefficient and conditional CDF formulas can be used to derive any finite counts, but do not directly supply a uniform all-n determinant sign or its first obstruction."
+      ],
+      "reasoning": "The proposed theorem is not a special case of a stated TN3 theorem. It is a structural sign classification extracted through nontrivial finite verification and two exact infinite parity families. A stronger historical result may exist and is a residual risk.",
+      "searches": [
+        "maximum part in uniform integer compositions of n into k positive parts likelihood ratio order in k",
+        "total nonnegativity order three joint matrix number of parts maximum part of integer compositions",
+        "https://github.com/Resultary/2026/tree/main/2026/10/4/SCOPE-rigorous-decorrelation-of-part-count-and-maximum-in-uniform-comp--0ee24a72cd31",
+        "https://arxiv.org/abs/1108.0337",
+        "https://arxiv.org/abs/2010.06643"
+      ]
+    },
+    "equivalent_formulations": {
+      "evidence": [
+        "Uniform positive compositions correspond bijectively to cut sets among n-1 gaps; the largest part equals one plus the longest zero run, and the part count equals one plus the cut count.",
+        "Philippou--Makri Section 3 gives conditional longest-run CDFs for Bernoulli sequences, determining the same joint distribution."
+      ],
+      "reasoning": "The change of variables reduces to a Bernoulli longest-run conditional mass kernel, but an exact conditional CDF formula is not the evaluated sign of all third-order minors. No equivalent exact threshold theorem appeared in the inspected text.",
+      "searches": [
+        "maximum part in uniform integer compositions of n into k positive parts likelihood ratio order in k",
+        "longest zero run count of ones third order total positivity 3x3 minor threshold",
+        "https://arxiv.org/abs/1108.0337",
+        "https://arxiv.org/abs/2010.06643"
+      ]
+    },
+    "exact_database_or_table": {
+      "evidence": [
+        "Malandro reports restricted-composition generating functions and tables of aggregate counts, not a TN3-by-n determinant table.",
+        "Philippou--Makri presents exact CDF sums for conditional longest runs; inspected Section 3 has no TN3 cutoff table."
+      ],
+      "reasoning": "The current finite census verifies every minor for n<=9 rather than a selection of a published table, and the all-n negative witnesses have newly evaluated determinant polynomials. Underlying mass entries are computable from earlier exact formulas; their existence is explicitly prior art.",
+      "searches": [
+        "longest run length conditional number of runs hypergeometric composition maximum distribution likelihood ratio",
+        "bounded composition maximum exactly m count with exactly r parts determinant negative",
+        "https://arxiv.org/pdf/1108.0337",
+        "https://www.researchgate.net/publication/348391755_Successes_runs_and_longest_runs"
+      ]
+    },
+    "rationale": "Exact conditional longest-run enumeration is classical and not claimed as new. Malandro, Philippou--Makri, and Finch give counts or moments, while the directly read closest public result gives first-order stochastic monotonicity. These do not explicitly state the exact order-three positivity threshold; the all-n even/odd determinant obstruction and complete small-n cutoff are separately established. Priority remains conditional on historical implicit coverage.",
+    "residual_risks": [
+      "An older paper on longest-run conditional distributions or total positivity may imply the evaluated determinant boundary without explicitly naming it.",
+      "The nonnegative part for n<=9 is established by fully exhaustive finite integer computation rather than a short closed symbolic inequality for every minor."
+    ],
+    "source_inspections": [
+      {
+        "assessment": "COUNTING_FOUNDATION_NOT_COVERING_SIGN_CLASSIFICATION",
+        "evidence": "Sections 1-3 derive recurrence and generating functions for bounded compositions and aggregate part statistics; no third-order count-kernel minor criterion.",
+        "identifier_or_url": "https://arxiv.org/pdf/1108.0337",
+        "material_read": "Abstract, introduction and theorem 1.1, recurrence section, tables and references; PDF page images 1,2,15 inspected",
+        "method": "arXiv full-text and PDF page inspection",
+        "title": "Integer compositions with part sizes not exceeding k",
+        "trigger": "same bounded-composition object and earliest primary source"
+      },
+      {
+        "assessment": "MOMENTS_NOT_ORDER_THREE_CLASSIFICATION",
+        "evidence": "Studies covariance of part count with maximum part, not the sign of third-order minors.",
+        "identifier_or_url": "https://arxiv.org/pdf/2010.06643",
+        "material_read": "Abstract, introduction, moment formulas and sketches of proofs; PDF page images 1 and 9 inspected",
+        "method": "arXiv full-text and PDF page inspection",
+        "title": "Covariance within Random Integer Compositions",
+        "trigger": "exact same pair number of parts and maximum part"
+      },
+      {
+        "assessment": "EXACT_CDF_PREDECESSOR_WITHOUT_TN3_BOUNDARY",
+        "evidence": "Gives formula for P(L_n <=k | S_n=r), alternative to Burr and Cane and Gibbons; Section 3 has no all-n determinant sign or positivity threshold.",
+        "identifier_or_url": "https://www.researchgate.net/publication/348391755_Successes_runs_and_longest_runs",
+        "material_read": "Author-uploaded article text, introduction, Section 3 Lemma 3.1 and Theorem 3.2, surrounding conclusion",
+        "method": "publicly readable author-uploaded full-text HTML",
+        "title": "Successes, runs and longest runs",
+        "trigger": "original conditional longest-run distribution precedent"
+      },
+      {
+        "assessment": "FIRST_ORDER_STOCHASTIC_ORDER_NOT_TN3",
+        "evidence": "Establishes negative regression and coordinate-influence identity, with first-order stochastic monotonicity from uniformly adding a cut, no third-order minor classification.",
+        "identifier_or_url": "https://github.com/Resultary/2026/tree/main/2026/10/4/SCOPE-rigorous-decorrelation-of-part-count-and-maximum-in-uniform-comp--0ee24a72cd31",
+        "material_read": "Full RESULT.md finding, assumptions, proof, verification, comparison and limitations",
+        "method": "public research repository exact file read",
+        "title": "Rigorous decorrelation of part count and maximum in uniform compositions",
+        "trigger": "closest semantic search match: precisely same composition random variables"
+      }
+    ],
+    "status": "PASS"
+  },
+  "review_type": "self_review",
+  "schema_version": 1,
+  "scope_run_id": "32874cd6-7dfc-478f-8728-303ee101d693",
+  "self_review_status": "passed",
+  "value": {
+    "rationale": "This is the sharp complete all-size boundary for third-order total nonnegativity of a natural conditional distribution kernel. The r=2,3,4 obstruction is not an arbitrary isolated numeric counterexample: explicit parity-dependent formulas prove it persists for every n>=10, while every smaller matrix is exhaustively certified. It distinguishes stochastic-order dependence from higher-order variation-diminishing structure relevant to run maxima and uniform compositions; no general downstream theorem is required.",
+    "status": "PASS"
+  }
+}
