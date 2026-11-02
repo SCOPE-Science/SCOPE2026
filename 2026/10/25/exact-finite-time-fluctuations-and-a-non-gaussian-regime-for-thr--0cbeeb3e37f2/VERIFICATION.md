@@ -5,8 +5,11 @@
     "status": "not_performed"
   },
   "independent_audit": {
-    "evidence": null,
-    "status": "not_performed"
+    "status": "passed",
+    "evidence": [
+      "INDEPENDENT_AUDIT_2026-10-27.md",
+      "INDEPENDENT_AUDIT_2026-10-27.json"
+    ]
   },
   "lean_verification": {
     "evidence": null,
@@ -15,10 +18,25 @@
   "schema_version": 1
 }
 ---
-# Verification
 
-Execute `python verify.py` using Python 3.9 or later (standard library only). The script enumerates every center-neighbor outcome sequence through eight updates at three rational values of confidence and three rational intrinsic-opinion configurations. For each sequence it independently calculates the synchronous FTL agent opinions and the scalar coefficient prediction, tests the exact leaf difference and opinion range, and aggregates the resulting rational mean and variance. The program completed with 13,916 assertions passed.
+# Independent mathematical audit
 
-The exact symbolic check at confidence \(\alpha=1/2\), predispositions \((0,1/2,1)\), and \(t=2\) is \(Y_2-Y_*=-3\xi_0/32-\xi_1/32\) with variance \(5/512\). The finite checker cannot certify almost-sure convergence, infinite cumulant sums, or Gaussian limits; the proof of those statements relies on gamma ratios, independent-series convergence, and the Lindeberg central limit theorem as given in `RESULT.md`.
+## correctness
 
-External independent scientific audit has not been performed.
+PASS
+
+Rebuilt synchronous FTL recurrence at t>=1 with x(0)=s on graph 1-2-3, uniform independent center sampling, alpha in (0,1) and s1!=s3. For t>=1, the leaf difference is exactly alpha(s1-s3), whereas initial difference is s1-s3; multiplying by pi=(1/4,1/2,1/4) yields E1=c ξ0 and Et=(1-alpha/t)E(t-1)+(alpha*c/t)ξ(t-1) for t>=2, c=(1-alpha)(s1-s3)/4. Gamma product solution gives the exact finite Rademacher law, variance and product characteristic function. For alpha<1/2, coefficients b_j~j^(alpha-1) are square summable, proving almost sure and L2 convergence and strictly negative -2∑weights^4 fourth cumulant. For alpha=1/2 and >1/2, harmonic/power sums with maximal normalized coefficient→0 establish Lindeberg CLTs with respective c²/4 and alpha²c²/(2alpha-1) variances. Independently recomputed all center-choice histories to t=7 for three rational alpha and three leaf/center tuples, checking exact scalar impulse equalities; finite data only corroborate analytic limits. Boundary s1=s3 is excluded to avoid zero-noise degeneracy.
+
+## originality
+
+PASS
+
+Best-of-knowledge originality of the exact network observable law and its cumulants, not of the general stochastic-approximation transition. The relevant primary full text supplies general FTL convergence rates rather than exact distributions; a matching specific scalar law was not found in bounded searches.
+
+## value
+
+PASS
+
+On the smallest connected graph with a random choice of neighbor, an explicit all-time law and three limiting regimes for an actual network observable is a natural exact benchmark. The non-Gaussian limit is certified by a strictly negative fourth cumulant, and exact variance constants sharpen earlier qualitative convergence estimates. This is not merely observing the generic half-exponent stochastic approximation transition.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
