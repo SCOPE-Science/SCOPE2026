@@ -1,0 +1,131 @@
+{
+  "correctness": {
+    "rationale": "The exact factorial moments follow from contracting prescribed adjacency edges. A known Poisson domination gives a monotone coupling with gap conditional mean 1/k and second moment at most 3/k. Geometric state occupation yields logarithmic L2 cumulative error; the idle indicator difference is pointwise bounded by the increment gap, and the remaining running time is likewise controlled. A Poisson renewal stopping-time expansion reduces the bivariate limit to an iid vector with covariance entries 1, 2exp(-1), exp(-1)+2exp(-2). A reproducible finite checker passes 159 assertions; these are not substituted for the proof.",
+    "status": "PASS"
+  },
+  "independent": false,
+  "independent_audit_status": "not_performed",
+  "originality": {
+    "broader_coverage": {
+      "evidence": [
+        "[2, Corollary 2 and Proposition 2] provide stochastic order and coupling of each decrement to a unit Poisson.",
+        "[1, Theorem 1.1] proves asymptotic normality of total rounds; its later moments also refer to that total.",
+        "[3] is an earlier completion-time paper whose abstract reports total-time distribution and moments."
+      ],
+      "reasoning": "[2] supplies a key premise and [1] proves a weaker marginal conclusion. Their proofs might suggest the approach, but a statement on the idle-count distribution and explicit cross-covariance requires the new joint error and renewal analysis. The inaccessible [3] is recorded as unresolved priority risk rather than classified from its abstract alone.",
+      "searches": [
+        "joint Gaussian idle unsuccessful catalyst additions successful shuffles card merge chemistry permutation transition positive steps Poisson renewal covariance e^-1",
+        "arXiv 2309.08841 marked renewal process idle rounds Poisson coupling Brown Pekoz Ross Chern",
+        "Chern Jiu Simonelli central limit theorem for a card shuffling problem"
+      ]
+    },
+    "checked_sources": [
+      "arXiv:2309.08841, complete available preprint",
+      "Brown, Peköz and Ross (2008), author-available full paper",
+      "Fu (1995), available article text",
+      "Rao et al. (2016), accessible abstract only"
+    ],
+    "claim_vs_prior_implication": {
+      "evidence": [
+        "[1] implies only the top-left Gaussian covariance entry.",
+        "[2] establishes a coordinatewise decrement coupling, reused here and explicitly credited.",
+        "The bivariate renewal comparison controls the idle count jointly with the total count in mean square and determines the missing covariance entries."
+      ],
+      "reasoning": "One-dimensional CLTs and pointwise stochastic domination cannot imply a bivariate CLT without an additional coupling-error estimate and joint renewal analysis. The latter supply the new content; this is not a relabeling of previously established total-time estimates.",
+      "searches": [
+        "Card shuffling merge consecutive integer blocks number of idle shuffles zero merges joint central limit theorem Gaussian covariance productive unproductive rounds Chern Jiu Simonelli",
+        "arXiv:2309.08841 theorem 1.1 asymptotic variance moments",
+        "10.1239/jap/1231340233 corollary 2 proposition 2 Poisson coupling"
+      ]
+    },
+    "equivalent_formulations": {
+      "evidence": [
+        "Chern--Jiu--Simonelli [1], full preprint, studies total reshuffle time, not the bivariate idle statistic.",
+        "Brown--Peköz--Ross [2], full available text, studies the coalescence time and unit-Poisson decrement domination.",
+        "Fu [4] studies successions within a single permutation and related insertion waiting times."
+      ],
+      "reasoning": "Reformulating idle rounds as zero-bond moves and productive rounds as the complement gives the same bivariate question. The cited one-dimensional central limit and the one-step bond Poisson approximation do not determine idle-round fluctuations, nor their asymptotic covariance with total rounds.",
+      "searches": [
+        "Card shuffling merge consecutive integer blocks number of idle shuffles zero merges joint central limit theorem Gaussian covariance productive unproductive rounds Chern Jiu Simonelli",
+        "exact limit covariance number idle and productive rounds in random permutation consecutive successor merging card-shuffling",
+        "arXiv:2309.08841"
+      ]
+    },
+    "exact_database_or_table": {
+      "evidence": [
+        "[1] publishes total-time moments only.",
+        "[2] derives exact one-step successor-count laws.",
+        "Direct finite rational recurrences independently compute mixed moments but do not provide an existing literature table of the limiting bivariate covariance."
+      ],
+      "reasoning": "Exact decrement distributions and separately tabulated completion-time moments do not contain a reported joint asymptotic matrix. No directly matching table was identified; failure of search is not a proof of uniqueness.",
+      "searches": [
+        "Card shuffle number of permutations until single block breakdown successful and failed shuffles joint Gaussian idle rounds asymptotic",
+        "Random permutation number of successions oriented adjacent ascending consecutive values Poisson approximation in total variation O(1/n) joint bivariate renewal reward process"
+      ]
+    },
+    "rationale": "The intended increment coupling is already in Brown--Peköz--Ross, and the marginal completion-time CLT is in Chern--Jiu--Simonelli. Neither identified available full text states the new joint idle/total central limit, logarithmic bivariate L2 coupling or its cross-covariance. This is a best-knowledge assessment, with the inaccessible 2016 full paper an explicitly recorded risk.",
+    "residual_risks": [
+      "Rao et al. (2016) full text was not available, leaving a specific unresolved possible earlier overlap.",
+      "Unindexed articles or alternative formulations of zero-bond occupation fluctuations could establish overlapping results.",
+      "The checked literature and research-record searches do not constitute exhaustive historical-priority certification."
+    ],
+    "source_inspections": [
+      {
+        "assessment": "Univariate completion-time results are prior; the idle-round process and bivariate covariance matrix are not stated in the inspected material.",
+        "evidence": [
+          "Theorem 1.1 centers the number of reshufflings, without marking zero-decrement rounds.",
+          "Section on higher moments is also for the total-time observable."
+        ],
+        "identifier_or_url": "https://arxiv.org/pdf/2309.08841",
+        "material_read": "Complete preprint sections on process definition, generating functions, moments and central limit theorem, including the statement of Theorem 1.1.",
+        "method": "Read publicly available arXiv full PDF, including its central theorem and proof sections.",
+        "title": "A central limit theorem for a card shuffling problem",
+        "trigger": "Same stochastic process, plausible dominating total-time theorem."
+      },
+      {
+        "assessment": "Establishes stochastic Poisson domination and a coupling for decrements. Neither the zero-decrement occupation count nor its joint CLT with stopping time is addressed.",
+        "evidence": [
+          "Corollary 2 gives the domination used in the proof.",
+          "Proposition 2 gives the earlier coupling, so that mechanism is not new.",
+          "Proposition 3 gives total waiting-time bounds."
+        ],
+        "identifier_or_url": "https://people.bu.edu/pekoz/chemistry.pdf",
+        "material_read": "All sections of the author-accessible eleven-page article, with focus on Corollary 2, Propositions 2 and 3, and the variations section.",
+        "method": "Read accessible paper text rather than inference from abstract.",
+        "title": "A Random Permutation Model Arising in Chemistry",
+        "trigger": "Original model and possible existing Poisson coupling."
+      },
+      {
+        "assessment": "Deals with single-permutation succession statistics and a different insertion stopping process, not the repeated shuffle coalescence stopping-time/idle-time vector.",
+        "evidence": [
+          "The model studied is the number of successions in one random permutation."
+        ],
+        "identifier_or_url": "https://www.ism.ac.jp/editsec/aism/pdf/047_3_0435.pdf",
+        "material_read": "Publicly accessible article text and displayed descriptions of the insertion waiting-time problem and succession distribution.",
+        "method": "Read available full-text PDF reproduction.",
+        "title": "Exact and limiting distributions of the number of successions in a random permutation",
+        "trigger": "Successions/adjacencies could hide an equivalent idle-count theorem."
+      },
+      {
+        "assessment": "The abstract discusses total shuffle count, but the article could contain a relevant joint or idle-count result; leave unresolved.",
+        "evidence": [
+          "Title and abstract concern completion-time distribution, mean and variance."
+        ],
+        "identifier_or_url": "https://doi.org/10.1080/03610926.2013.834451",
+        "material_read": "Accessible abstract and publication metadata only; full article not obtained.",
+        "method": "Located publisher and open-access descriptions; sought full text unsuccessfully.",
+        "title": "A discrete probability problem in card shuffling",
+        "trigger": "Same process and possible pre-existing stronger formula."
+      }
+    ],
+    "status": "PASS"
+  },
+  "review_type": "self_review",
+  "schema_version": 1,
+  "scope_run_id": "a7c71287-ae5b-4281-92e1-2c82539a7e5e",
+  "self_review_status": "passed",
+  "value": {
+    "rationale": "Idle rounds are the natural wasted-reshuffle count in a stochastic coalescence algorithm. The bivariate covariance determines fluctuations and dependence of wasted and total work, not inferable from marginal total-time convergence. The strong two-dimensional Poisson comparison is also structurally meaningful.",
+    "status": "PASS"
+  }
+}
