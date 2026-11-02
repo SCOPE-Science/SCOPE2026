@@ -1,15 +1,21 @@
-# Scientific review
+# Independent mathematical audit
 
-## Correctness: PASS
-The proof treats every positive graded formula by terminal-leaf reduction to a Boolean-lattice upset and shows all its root truth conditions are exactly truncated upset counts. The explicit recursive symmetric-chain partition, retaining the last \(k\) successor copies per chain, is a constructive all-size upper bound. Middle-rank valuations force disjoint \(k\)-sized collections of leaves in every logically equivalent star, proving sharpness. For two letters the six upsets yield exactly five nonzero support tests, and the three-case signature count is an exhaustive disjoint partition. The executable checker separately confirms finite count identities, chain compression and nested semantics; the proof supplies all infinite-parameter steps.
+## correctness
 
-## Originality: PASS (qualified historical priority)
-Two accessible 2026 papers by Wałęga and Cuenca Grau establish qualitative preservation for existential-positive graded modal logic and finite bounded-depth unravellings, but do not state the tight width-times-grade deletion bound or the five-test, two-letter semantic type census in the inspected material. The number sequence alone is already OEIS A005712, so **only the modal interpretation and structural compression are submitted as potentially original**. Targeted statement-level database searches did not identify a prior equivalent claim. A general description-logic normal-form or antichain argument could implicitly subsume the result; independence and complete historical priority remain unverified.
+PASS
 
-## Value: PASS
-The precise worst-case representative size reduces the naive \(k2^m\) terminal-world bound to the sharp \(k\binom{m}{\lfloor m/2\rfloor}\), with strict improvement for all \(m\ge2\). It is attained on the middle Boolean antichain, so the guarantee cannot be improved by choosing different stars. The complete two-label spectrum is a natural smallest case of positive graded interaction; the modal-type formula and explicit distinguishers make it useful for bounded-grade semantic quotient construction rather than an arbitrary table lookup.
+Reconstructed the full statement for finite nonreflexive rooted stars, m>=1 propositional letters, k>=1 integer counting grades, and constants top/bottom. Induction makes every terminal formula a monotone propositional upset; root theories are precisely root atoms and all truncated upset measures. A symmetric-chain decomposition into b_m=binom(m,floor(m/2)) chains retaining the highest k successor copies in each preserves every upset count simultaneously, giving the kb_m bound. The middle-rank antichain witnesses the matching lower bound for all equivalent stars, including arbitrary non-induced replacements. For m=2 the five nonempty upsets yield exactly five tests and a disjoint t,s signature enumeration gives N_k=C(k+3,4)+C(k+2,3)+C(k+3,3), pointed types 4N_k. Independent exact two-letter enumeration checked k=1..10, independent chain/upset compression checked m<=4,k<=4 including exhaustive small cases, and sharpness witnesses checked m=1..7. Finite tests are corroboration, not the proof of the unbounded theorem.
 
-## Sources and limits
-The related February 2026 preservation paper and June 2026 expanded paper were examined in accessible full-text form. OEIS A005712 was examined and credited explicitly. The theorem is limited to finite one-step rooted stars, existential-positive connectives with named Boolean constants, and globally bounded counting grades. No independent audit or priority certification has been performed.
+## originality
 
-Self-review: passed. Independent audit: not yet performed.
+PASS
+
+Best-of-knowledge noncoverage for the exact combination: an all-m,k sharp induced-substar bound using symmetric Boolean chains and a complete m=2 five-capped-upset type count. Classical Sperner theory, graded bisimulation and general preservation/model-pruning are prior tools, not claimed original; OEIS A005712 is explicitly known numerically. Full relevant primary source passages were compared. No exact equivalent or dominating theorem was found, while hidden description-logic coverage remains a priority risk.
+
+## value
+
+PASS
+
+Determines the exact minimal worst-case leaf representative size for a natural finite positive graded-modal fragment, improving naive k*2^m to sharp k*binom(m,floor(m/2)), and proves optimality including replacement stars. The first interacting label case m=2 is completely classified by five explicit modal tests, giving a useful finite semantic type quotient and a natural construction for bounded-grade model checking. It is a parameter-uniform structural result rather than an arbitrary table of small models; the numerical polynomial itself is correctly credited as already known.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

@@ -5,8 +5,11 @@
     "status": "not_performed"
   },
   "independent_audit": {
-    "evidence": null,
-    "status": "not_performed"
+    "status": "passed",
+    "evidence": [
+      "INDEPENDENT_AUDIT_2026-10-28.md",
+      "INDEPENDENT_AUDIT_2026-10-28.json"
+    ]
   },
   "lean_verification": {
     "evidence": null,
@@ -16,7 +19,24 @@
 }
 ---
 
-# Reproducibility and limits
-Extract all entries of the finding into one directory preserving relative paths and run `python3 artifacts/verify.py` there, using a standard Python 3 interpreter without external packages. The program tests the capped-count spectrum through grade ten, direct bounded-profile reduction, the explicit symmetric-chain decomposition and preservation of every upset for up to four letters, and randomly generated nested graded-modal truth conditions across representative finite stars.
+# Independent mathematical audit
 
-Expected terminal output ends with `POSITIVE_GRADED_STAR_CLASSIFICATION_OK`; the run performed during preparation printed 10 spectrum checks, `SPERNER_WIDTH_SHARP_COMPRESSION_OK 27860`, `SHARP_CORE_UPPER_BOUND_OK 15235`, `SHARP_CORE_LOWER_BOUND_OK 100`, and `NESTED_POSITIVE_GRADED_EQUIVALENCE_OK 600000`. The checker verifies finite instances and is not an exhaustive machine proof of the unbounded mathematical result. The infinite-parameter statements rely on the independent mathematical argument in `RESULT.md`. This verification is author-side reproducibility; independent scientific audit has not been performed.
+## correctness
+
+PASS
+
+Reconstructed the full statement for finite nonreflexive rooted stars, m>=1 propositional letters, k>=1 integer counting grades, and constants top/bottom. Induction makes every terminal formula a monotone propositional upset; root theories are precisely root atoms and all truncated upset measures. A symmetric-chain decomposition into b_m=binom(m,floor(m/2)) chains retaining the highest k successor copies in each preserves every upset count simultaneously, giving the kb_m bound. The middle-rank antichain witnesses the matching lower bound for all equivalent stars, including arbitrary non-induced replacements. For m=2 the five nonempty upsets yield exactly five tests and a disjoint t,s signature enumeration gives N_k=C(k+3,4)+C(k+2,3)+C(k+3,3), pointed types 4N_k. Independent exact two-letter enumeration checked k=1..10, independent chain/upset compression checked m<=4,k<=4 including exhaustive small cases, and sharpness witnesses checked m=1..7. Finite tests are corroboration, not the proof of the unbounded theorem.
+
+## originality
+
+PASS
+
+Best-of-knowledge noncoverage for the exact combination: an all-m,k sharp induced-substar bound using symmetric Boolean chains and a complete m=2 five-capped-upset type count. Classical Sperner theory, graded bisimulation and general preservation/model-pruning are prior tools, not claimed original; OEIS A005712 is explicitly known numerically. Full relevant primary source passages were compared. No exact equivalent or dominating theorem was found, while hidden description-logic coverage remains a priority risk.
+
+## value
+
+PASS
+
+Determines the exact minimal worst-case leaf representative size for a natural finite positive graded-modal fragment, improving naive k*2^m to sharp k*binom(m,floor(m/2)), and proves optimality including replacement stars. The first interacting label case m=2 is completely classified by five explicit modal tests, giving a useful finite semantic type quotient and a natural construction for bounded-grade model checking. It is a parameter-uniform structural result rather than an arbitrary table of small models; the numerical polynomial itself is correctly credited as already known.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
