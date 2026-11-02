@@ -1,0 +1,100 @@
+{
+  "correctness": {
+    "rationale": "The unique-long-gap count is bijective for n<=2q+1 and yields the exact polynomial. For b_s=n*C(t,s-1)/C(n,s), successive ratios are decreasing and second differences nonnegative from s=3; displayed fully factored rational differences have nonnegative numerators when q>=t. Since (1-b_s)^2-(1-b_{s-1})(1-b_{s+1}) is the sum of those two nonnegative differences, normalized coefficients are log-concave. Endpoint s<=2 and terminal s>=t+2 are handled separately. The power-cycle closed-neighborhood correspondence is exact; 63+92 exhaustive finite comparisons and 13040 exact formula checks passed.",
+    "status": "PASS"
+  },
+  "independent": false,
+  "independent_audit_status": "not_performed",
+  "originality": {
+    "broader_coverage": {
+      "evidence": [
+        "arxiv:2408.12731, Theorem 1.4: unimodality for powers of paths and cycles; Conjecture 1.8: ultra-log-concavity remains separately stated.",
+        "arxiv:2601.14494: threshold-graph ordinary logconcavity and general normalized-ratio monotonicity, not all graph-powers."
+      ],
+      "reasoning": "Ordinary unimodality, ordinary log-concavity, and nondecreasing normalized domination probability do not imply log-concavity of normalized coefficients. The compared stronger-object results are weaker in conclusion or address different graph classes.",
+      "searches": [
+        "ultra log concavity domination polynomial powers cycles Conjecture 1.8 Galvin Zhang proven 2025 2026",
+        "\"Conjecture 1.8\" \"Galvin\" \"Zhang\" proof"
+      ]
+    },
+    "checked_sources": [
+      "Galvin and Zhang, arxiv:2408.12731 (2024), public full text",
+      "Omar, arxiv:2601.14494 (2026), public full text",
+      "Targeted web searches on cycle-power ultra-log-concavity, cyclic-block transversals, and circular reliability signatures",
+      "Published mathematical record search on domination polynomials, normalized log-concavity, and cycle powers"
+    ],
+    "claim_vs_prior_implication": {
+      "evidence": [
+        "arxiv:2408.12731, Sections 1, 2.1.2, 2.3: recursion and ordinary unimodality without normalized concavity proof",
+        "arxiv:2601.14494, Sections 1-5: union-bound criteria for ordinary unimodality and logconcavity of threshold graphs."
+      ],
+      "reasoning": "Cycle power graphs are not generally threshold graphs (e.g. C4), so the latter theorem does not dominate the claim. The 2024 paper states the target as conjectural. The new fact is the simultaneous convex and logconcave structure of the failure probabilities, which is not a tautology of their coefficient recurrence.",
+      "searches": [
+        "Galvin Zhang Conjecture 1.8 ultra-log-concavity of the domination polynomial of powers of cycles for n <= 4ell+3; cyclic gap failure probability logconcavity",
+        "strong log concavity normalized domination polynomial C_n^ell for high degree powers of cycles large radius r >= n/4"
+      ]
+    },
+    "equivalent_formulations": {
+      "evidence": [
+        "arxiv:2408.12731, Conjecture 1.8 concerns normalized domination coefficients",
+        "A dominating set of a cycle power is a transversal of cyclic closed-neighborhood blocks; the statement can be rewritten as a reliability profile of circular consecutive-block systems."
+      ],
+      "reasoning": "Compared cyclic-block transversal, cyclic run avoidance, consecutive-k-out-of-n:F reliability, and normalized domination polynomial formulations; the cyclic one-long-gap logconcavity result was not identified as already proved. Counts alone are not claimed novel.",
+      "searches": [
+        "cyclic consecutive k subsets transversal counting ultra log concavity circular arcs hitting sets",
+        "\"ultra log-concave\" \"domination polynomial\" \"power\" 2026"
+      ]
+    },
+    "exact_database_or_table": {
+      "evidence": [
+        "arxiv:2408.12731, explicit n=2ell+2 polynomial, Eq. (14); own paper derives recurrence for all n",
+        "Independent exhaustive enumerations verified every small cyclic-block transversal profile but are not database novelty evidence."
+      ],
+      "reasoning": "The published boundary formula is counted as prior. The exact polynomial at a wider dense region may be derivable from existing recurrences; original claim rests on proving all normalized inequalities for unbounded n and ell, not obtaining isolated table entries.",
+      "searches": [
+        "dominating set coefficient formula (1+x)^n - 1 - n x (1+x)^{n-2ell-2} and ultra log concavity cyclic intervals"
+      ]
+    },
+    "rationale": "The closest same-object 2024 paper proves domination-sequence unimodality and explicitly labels ultra-log-concavity Conjecture 1.8. The new normalized inequalities for the entire dense cyclic-block range do not follow from that weaker result. Its special n=2ell+2 polynomial and general recurrence are acknowledged prior, as is the standard hypergraph hitting-set interpretation. The 2026 general paper proves log-concavity for threshold graphs and normalized probability monotonicity, neither implying this theorem. Targeted record and literature searches found no equivalent theorem, with unindexed overlap retained as residual risk.",
+    "residual_risks": [
+      "An older reliability-system result or unindexed cyclic transversal theorem may prove the same normalized inequalities under another terminology.",
+      "The theorem settles only the region n<=4ell+3; no conclusion for all powers or path powers.",
+      "No independent mathematical audit or priority certification has been performed."
+    ],
+    "source_inspections": [
+      {
+        "assessment": "Published result is unimodality for all powers; the stronger ultra-log-concavity statement is expressly conjectured. The special n=2ell+2 coefficient formula is prior.",
+        "evidence": [
+          "arxiv:2408.12731 pp.2-4 Theorems 1.4-1.5 and Conjecture 1.8",
+          "arxiv:2408.12731 pp.7,12-13 recurrence and unimodality arguments"
+        ],
+        "identifier_or_url": "https://arxiv.org/pdf/2408.12731",
+        "material_read": "Full-text PDF: abstract and introduction; theorem statements, Conjecture 1.8, cycle-power recurrence Section 2.1.2, proof of unimodality Section 2.3, related discussion and bibliography.",
+        "method": "Primary open-access PDF with inspected text and page image; exact theorem and claimed implication compared.",
+        "title": "The domination polynomial of powers of paths and cycles",
+        "trigger": "Same graphs and explicit ultra-log-concavity Conjecture 1.8"
+      },
+      {
+        "assessment": "Proves general monotonicity/unimodality criteria and ordinary log-concavity of threshold-graph domination polynomials, not this normalized cycle-power theorem.",
+        "evidence": [
+          "arxiv:2601.14494 pp.1-4 normalized probabilities and neighborhood hypergraphs",
+          "arxiv:2601.14494 pp.12-15 threshold-graph ordinary logconcavity"
+        ],
+        "identifier_or_url": "https://arxiv.org/pdf/2601.14494",
+        "material_read": "Full-text PDF: abstract, introduction, preliminaries on normalized probabilities and hypergraph transversals, statement of total-positivity lemma, threshold-graph application.",
+        "method": "Primary open-access PDF with text and page-image inspections of relevant sections.",
+        "title": "New Perspectives On The Unimodality Of Domination Polynomials",
+        "trigger": "Potential 2026 stronger theorem about normalized domination ratios and log-concavity"
+      }
+    ],
+    "status": "PASS"
+  },
+  "review_type": "self_review",
+  "schema_version": 1,
+  "scope_run_id": "43238c26-4b1d-4873-847e-bb9ee0c49d06",
+  "self_review_status": "passed",
+  "value": {
+    "rationale": "The result is a direct infinite two-parameter partial resolution of a published 2024 ultra-log-concavity conjecture, strictly beyond the known unimodality theorem. The threshold n<=2q+1 is a natural sharp unique-long-gap boundary, and the normalized failure-probability convexity plus logconcavity establishes structural information for every coefficient simultaneously. The explicit formula and proof apply more generally to consecutive-block transversal systems; no paper-sized or downstream claim is required.",
+    "status": "PASS"
+  }
+}
