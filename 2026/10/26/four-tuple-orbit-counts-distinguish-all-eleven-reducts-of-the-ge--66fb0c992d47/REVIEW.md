@@ -1,19 +1,21 @@
-# Scientific assessment
+# Independent mathematical audit
 
-## Correctness — PASS
+## correctness
 
-The claim concerns all eleven closed reduct groups of the countable generic digraph and ordered tuple orbits. The proof reduces each orbit calculation to its explicitly defined finite state action. The switching formulas use exact Burnside fixed-set counts, rotation uses the rank-\(n-1\) coboundary action over \(\mathbf F_3\), and graph switching uses the corresponding binary cut space with its triangle obstruction. The exceptional one- and two-vertex boundaries are handled explicitly. Independently generated finite orbits confirm all eleven formulas through five distinct tuple positions; the general theorem rests on the proofs, not solely on enumeration.
+PASS
 
-## Originality — PASS (qualified)
+Homogeneity identifies ordered injective n-tuple orbits with all assignments of 3 states to m=n(n-1)/2 labeled pairs. From Agarwal’s 11-group classification, global reversal fixes only the all-zero assignment; signed cut switching Burnside fixes 3^{C(k,2)+C(n-k,2)} for a partition k/(n-k), and reversal-times-switching fixes 3^{k(n-k)}, giving S_n and (S_n+R_n)/2. Vertex 3-state rotations act on the complete edge array by additive F3 potentials of rank n-1, giving 3^{C(n-1,2)}, and reversal divides nonzero quotient classes into opposite pairs. Binary graph complementation/switching similarly yield 2^m,2^{m-1},2^{C(n-1,2)},2^{m-n}, with n<=2 boundary exceptions via triangle parity. Independent explicit graph search on all 11 finite group actions at arities n=3 and 4 recovered the displayed n4 vector (729,365,108,76,27,14,64,32,8,4,1), and n3 collisions. The Stirling transform of equality partitions gives n4 all-tuples counts (913,464,177,139,53,34,127,64,28,18,15). The source checker for n<=5 was inspected; algebraic Burnside/vector-space proof establishes every n, not merely computed n.
 
-Agarwal’s 2014 preprint and 2016 paper classify the eleven groups and the elementary changes they induce; those are established premises. The exact numerical orbit profile of each group, their complete formula and the sharp four-tuple distinguishing threshold are the assessed contribution. McKay and Schweitzer analyze switching reconstruction rather than these group-orbit counts. Published profile studies for random bipartite graphs and random posets address different finite structures. Targeted semantic, alias and numerical searches did not reveal a covering theorem; a residual possibility of prior unindexed switching enumeration or an implicit presentation in longer sources remains.
+## originality
 
-## Mathematical value — PASS
+PASS
 
-The generic digraph reduct lattice is a standard and natural test case for how finitely many tuple orbits distinguish closed permutation groups. The result determines this invariant at every arity and shows that exactly four coordinates suffice to distinguish all eleven groups by a single number. Its binary/ternary cut-space explanation makes the statement structural rather than a list of sporadic computer counts.
+Agarwal’s classification of the eleven closed reduct groups of the generic digraph, including switching, global reversal and three-state rotation operations, is prior work and crucially assumed. The assessed exact injective/all-tuple orbit-count profile and first distinguishing arity four are not stated in the inspected primary group-classification sections; direct orbit formulas use established finite group actions plus new application of elementary Burnside/coboundary enumeration. Published Resultary profiles for random bipartite/poset reducts concern different structures and do not imply the generic digraph values. An earlier unpublished or indexed group-specific orbit census is possible.
 
-## Scope and limitations
+## value
 
-The count is for ordered, position-labelled tuples, either injective or allowing equality according to the stated formulas; it does not count unlabeled finite digraph isomorphism classes. The group lattice itself is used from Agarwal’s theorem, not reclassified here. Originality has residual literature-access uncertainty. Direct finite testing does not certify the infinite statement.
+PASS
 
-Self-review: passed. Independent audit: not yet performed.
+For a canonical eleven-element lattice of oligomorphic reducts, the least arity of a single orbit-number invariant that separates all groups is a natural exact distinguishing invariant. The complete formulas for each n and their sharp n=4 separation support further invariant comparisons; this exact fact can be useful without claiming a new general classification theorem.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
