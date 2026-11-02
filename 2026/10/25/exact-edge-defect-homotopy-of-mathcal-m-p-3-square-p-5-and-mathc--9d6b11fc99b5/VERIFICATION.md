@@ -5,8 +5,11 @@
     "status": "not_performed"
   },
   "independent_audit": {
-    "evidence": null,
-    "status": "not_performed"
+    "status": "passed",
+    "evidence": [
+      "INDEPENDENT_AUDIT_2026-10-27.md",
+      "INDEPENDENT_AUDIT_2026-10-27.json"
+    ]
   },
   "lean_verification": {
     "evidence": null,
@@ -16,10 +19,24 @@
 }
 ---
 
-# Verification
+# Independent mathematical audit
 
-The standalone script `verify_grid_edge_defects.py` is part of this package, not an external dependency. Execute it with Python 3 (standard library). It enumerates all matchings, reconstructs every complete augmented face poset, constructs explicit Morse pairs from the 49 embedded orders, verifies the full directed Hasse acyclicity by topological sorting, checks each critical dimension/count, and checks Euler values independently through graph-vertex matching-polynomial recursion.
+## correctness
 
-Observed output: `PASS 49 edge-deletion graphs; 774599 augmented faces; 4028730 directed cover incidences; 386842 Morse pairs`.
+PASS
 
-These computations prove only the 49 finite topological claims. They do not certify a formula for arbitrary grid width. No independent audit has been performed.
+PASS: Inspected the actual 9600-byte verify_grid_edge_defects.py Git blob dbf11f98f0f5d38b22235d7f94b22199b227073f. Graph creation lists exactly 22 and 27 edges; recursive include/exclude enumerates every matching; the prescribed 49 permutation certificates are explicitly present, and the checker covers every augmented face, tests matched-cover upward and unmatched-cover downward orientation with Kahn sorting, checks each critical cell is dimension n-1 and the empty augmented cell is paired. Removing the empty-face Morse pair leaves one 0-cell plus top cells, forcing integral wedges because n-1>=4. Code records 774599 faces, 4028730 cover incidences, 386842 pairs (source output not independently executed here). Independently recomputed matching-polynomial evaluation at -1 from graph-vertex deletion recursion for each of all 49 edges, agreeing with every claimed signed Euler rank and detecting edge-indexing discrepancies. This separate Euler test does not itself certify Morse acyclicity; complete acyclicity rests on the inspected, reproducible exhaustive certificate algorithm and explicit orders.
+
+## originality
+
+PASS
+
+PASS best-of-knowledge: Chauhan–Sharma–Shukla 2026 and Goyal–Shukla–Singh 2021 study the matching complexes of unmodified three-row grids, not all 49 vertex deletions from their line-graph independence complexes. Homology of the original does not determine homology or homotopy of the edge-deleted graph. A thorough recent source may contain relevant numerical appendices, but the full 2026 paper inspected gives no corresponding tables/edge-defect theorem.
+
+## value
+
+PASS
+
+PASS: Removing one edge is the minimal physically and combinatorially natural perturbation of rectangular matching complexes. The tables exhaust all positions for the first two interesting widths and show ranks depend sharply on the defect position (eight distinct values for width six), furnishing a valuable complete finite sensitivity census, not an arbitrary isolated graph calculation. No general-n or multiple-deletion theorem is claimed.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

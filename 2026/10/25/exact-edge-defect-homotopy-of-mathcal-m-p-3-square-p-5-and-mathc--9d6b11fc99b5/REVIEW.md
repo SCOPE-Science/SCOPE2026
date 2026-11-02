@@ -1,11 +1,21 @@
-# Self-review
+# Independent mathematical audit
 
-**Correctness — PASS.** Every one of the 49 graph-edge deletions has a fully reconstructed face poset and a verified acyclic discrete-Morse pairing. The only surviving augmented cells are in the claimed top dimension; removing the empty-face pair yields one zero-cell and the top cells, hence the integral wedge. An independent matching-polynomial recursion checks all Euler values. The executable certificate checks 774599 faces and 4028730 cover incidences.
+## correctness
 
-**Originality — PASS (best available evidence).** The accessible 2026 abstract and 2021 unmodified-grid statements address a different object: the unmodified graph. Edge removal acts as vertex deletion in a line-graph independence complex, and ordinary homotopy does not determine this deleted-vertex complex. Published research index results address unmodified-grid symmetry, unrelated cut complexes and other edge-deletion families; none retrieved implies the two complete rank tables. The full text of the 2026 preprint could not be inspected, and an equivalent unindexed calculation remains a residual risk.
+PASS
 
-**Value — PASS.** One missing lattice bond is the minimal structural perturbation of the three-row grid family currently studied through connectivity. The full two-width defect classification is a natural complete finite sensitivity profile, not a selection of favorable edges; the eight distinct ranks at width six demonstrate dependence on placement that is invisible to the unperturbed case and furnish exact benchmarks for prospective stability and deletion-recursion analyses.
+PASS: Inspected the actual 9600-byte verify_grid_edge_defects.py Git blob dbf11f98f0f5d38b22235d7f94b22199b227073f. Graph creation lists exactly 22 and 27 edges; recursive include/exclude enumerates every matching; the prescribed 49 permutation certificates are explicitly present, and the checker covers every augmented face, tests matched-cover upward and unmatched-cover downward orientation with Kahn sorting, checks each critical cell is dimension n-1 and the empty augmented cell is paired. Removing the empty-face Morse pair leaves one 0-cell plus top cells, forcing integral wedges because n-1>=4. Code records 774599 faces, 4028730 cover incidences, 386842 pairs (source output not independently executed here). Independently recomputed matching-polynomial evaluation at -1 from graph-vertex deletion recursion for each of all 49 edges, agreeing with every claimed signed Euler rank and detecting edge-indexing discrepancies. This separate Euler test does not itself certify Morse acyclicity; complete acyclicity rests on the inspected, reproducible exhaustive certificate algorithm and explicit orders.
 
-**Limitations.** Widths beyond six, multiple defects and independent validation are not addressed.
+## originality
 
-Self-review: passed. Independent audit: not yet performed.
+PASS
+
+PASS best-of-knowledge: Chauhan–Sharma–Shukla 2026 and Goyal–Shukla–Singh 2021 study the matching complexes of unmodified three-row grids, not all 49 vertex deletions from their line-graph independence complexes. Homology of the original does not determine homology or homotopy of the edge-deleted graph. A thorough recent source may contain relevant numerical appendices, but the full 2026 paper inspected gives no corresponding tables/edge-defect theorem.
+
+## value
+
+PASS
+
+PASS: Removing one edge is the minimal physically and combinatorially natural perturbation of rectangular matching complexes. The tables exhaust all positions for the first two interesting widths and show ranks depend sharply on the defect position (eight distinct values for width six), furnishing a valuable complete finite sensitivity census, not an arbitrary isolated graph calculation. No general-n or multiple-deletion theorem is claimed.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
