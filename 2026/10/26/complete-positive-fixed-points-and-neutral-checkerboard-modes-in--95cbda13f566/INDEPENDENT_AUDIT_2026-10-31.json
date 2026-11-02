@@ -1,0 +1,116 @@
+{
+  "audit_date_utc": "2026-10-31",
+  "audited_at_utc": "2026-10-31T22:06:53Z",
+  "axes": {
+    "correctness": {
+      "rationale": "For the exact source-type rational update with positive tau, zero reaction and coordinatewise mirrored Neumann ghosts, a fixed state satisfies the reflected five-point harmonic equation Delta_ref w=0 for w=u|G_hu|^{p−2}. Finite maximum principle on the connected reflected grid forces w constant; at a mirrored corner G_hu=0, hence w=0. With u>0 and p>2 this forces all centered differences to vanish, giving exactly four independent values on index-parity classes in 2D and two in 1D; every such state conversely has G_hu=0 and is fixed. Checkerboard edge energy counts 2N(N+1) opposite edges and equals 2(1+1/N)N^p|a−b|^p. For p>3 the map x→|x|^{p−2} has zero derivative at x=0, so DT_tau=identity at every parity-class state. An independent rational implementation verified 12 patterns and exact energy640 at N=p=4; the proof is unrestricted in grid/step/p and does not assume stability beyond Jacobian.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Original source Theorem2 asserts inclusion of constant equilibria, not uniqueness of all positive stationary states; its Equation6 is audited with additional full mirror-side ghost completion.",
+          "Reiss studies odd-even decoupling in collocated incompressible-flow schemes, not this nonlinear reaction-free map; coercive Dirichlet finite volumes impose a different operator and boundary domain."
+        ],
+        "reasoning": "Known generic parity decoupling does not by itself determine all stationary states under a nonlinear source-specific rational update; the extra harmonic maximum-principle structure matters.",
+        "searches": [
+          "Resultary: nonstandard finite difference p Laplacian degeneracy centered gradient mirror Neumann checkerboard stationary parity fixed points",
+          "arXiv:2607.00489",
+          "arXiv:1402.0998",
+          "DOI:10.1051/m2an:2004045"
+        ]
+      },
+      "checked_sources": [
+        "Zinihi, Ehrhardt, Sidi Ammi, A Nonstandard Finite Difference Scheme for a Nonlinear Parabolic Equation with p-Laplacian-Type Diffusion, arXiv:2607.00489, https://www.researchgate.net/publication/408300994_A_Nonstandard_Finite_Difference_Scheme_for_a_Nonlinear_Parabolic_Equation_with_p-Laplacian-Type_Diffusion",
+        "Reiss, A family of energy stable, skew-symmetric finite difference schemes on collocated grids, arXiv:1402.0998, https://arxiv.org/pdf/1402.0998",
+        "Andreianov, Boyer, Hubert, Finite volume schemes for the p-Laplacian on Cartesian meshes, ESAIM:M2AN 38 (2004), DOI:10.1051/m2an:2004045, different Dirichlet/coercive scheme.",
+        "Resultary query centered gradient mirror Neumann fixed points and checkerboard p-Laplacian."
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "Saying constant equilibria are preserved is one direction only; proving there are no other positive stationary states beyond four parity values requires w's reflected harmonic equation and zero-corner argument.",
+          "Known parity decoupling predicts examples but not the necessity of exactly those four classes or identity of DT for p>3 without using this coefficient's degeneracy."
+        ],
+        "reasoning": "The complete equivalence and neutral Jacobian are additional nontrivial information specific to this update. The result does not challenge the original source's positivity claim.",
+        "searches": [
+          "Resultary: nonstandard finite difference p Laplacian degeneracy centered gradient mirror Neumann checkerboard stationary parity fixed points",
+          "arXiv:2607.00489",
+          "arXiv:1402.0998",
+          "DOI:10.1051/m2an:2004045"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "The source update uses centered-gradient coefficient and neighbor weighted values, so q=0 at each parity-constant array, yielding stationarity.",
+          "Reiss' two-step odd-even supergrid decomposition is classical but treats a distinct linear Navier–Stokes pressure discretization."
+        ],
+        "reasoning": "The result is not merely 'centered gradients have checkerboard null modes': it proves the *complete* positive stationary manifold using reflecting harmonicity and corner pinning, plus the Jacobian identity and explicit p-energy.",
+        "searches": [
+          "Resultary: nonstandard finite difference p Laplacian degeneracy centered gradient mirror Neumann checkerboard stationary parity fixed points",
+          "arXiv:2607.00489",
+          "arXiv:1402.0998",
+          "DOI:10.1051/m2an:2004045"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "Resultary retrieved continuous p-Laplace Neumann problems and generic odd-even parity results, not the exact all-positive fixed-point classification of this map.",
+          "No numerical table is at issue: positive fixed states form a four-parameter continuum on every rectangular grid."
+        ],
+        "reasoning": "A database hit on a different PDE cannot dominate a finite-difference positive equilibrium classification; search misses are only supporting context.",
+        "searches": [
+          "Resultary: nonstandard finite difference p Laplacian degeneracy centered gradient mirror Neumann checkerboard stationary parity fixed points",
+          "arXiv:2607.00489",
+          "arXiv:1402.0998",
+          "DOI:10.1051/m2an:2004045"
+        ]
+      },
+      "rationale": "The primary 2026 source develops exactly the update and proves constant-equilibrium preservation (Theorem2) and positive solutions (Theorem1), but does not classify every strictly positive fixed point of its mirror-ghost specialization. Reiss 2014 explains generic centered-derivative odd-even decoupling; it is not claimed new. Here a source-specific product w=u|G_hu|^{p−2}, reflecting harmonicity and corner zero prove the entire positive stationary manifold, high edge-energy checkerboard family and identity-Jacobian regime. The full source and Reiss introduction were read; alternative boundary completions and broader centered-gradient literature remain historical risks.",
+      "residual_risks": [
+        "The reflected side-ghost realization was specified by the new theorem and not fully prescribed in source, so alternate implementations have different equilibria.",
+        "Classical checkerboard parity decoupling is known; exact source-specific necessity and Jacobian are the claimed innovations.",
+        "No nonlinear attraction/instability is implied by Jacobian identity; p<=3 differentiability conclusion not asserted."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Theorem2 proves constant equilibrium preservation only. Section2.3 supplies source update; no inspected exact positive four-parity classification. Boundary-side ghost rule in audited claim is specifically stipulated, not inferred as a universal source boundary scheme.",
+          "evidence": "Equation6 numerator weighted neighbor terms / denominator 1+4tau q; Theorem2 (Constant Equilibrium Preservation) at source HTML lines825–877.",
+          "identifier_or_url": "https://www.researchgate.net/publication/408300994_A_Nonstandard_Finite_Difference_Scheme_for_a_Nonlinear_Parabolic_Equation_with_p-Laplacian-Type_Diffusion",
+          "material_read": "Author-posted full paper available as HTML; Section2.2–2.3 Eq.5–7, Section3 Theorems1–3 and boundary ghost and coefficient discussion inspected.",
+          "method": "Lawful author-hosted full text HTML (arXiv source itself temporarily unavailable)",
+          "title": "A Nonstandard Finite Difference Scheme for a Nonlinear Parabolic Equation with p-Laplacian-Type Diffusion",
+          "trigger": "Exact source equation and qualitative theorem could cover checkerboard classification"
+        },
+        {
+          "assessment": "Explicitly establishes generic odd-even decoupling for centered gradient-divergence, but not the nonlinear source-specific fixed-point manifold or Jacobian.",
+          "evidence": "Introduction displays Gp_i=(p_{i+1}−p_{i−1})/(2h), DGp connects i−2 and i+2.",
+          "identifier_or_url": "https://arxiv.org/pdf/1402.0998",
+          "material_read": "15-page open-access original PDF introduction pp.1–2 read and page1 screenshot inspected; formulation of G and D centered stencils.",
+          "method": "arXiv full PDF selective reading and screenshot",
+          "title": "A family of energy stable, skew-symmetric finite difference schemes on collocated grids",
+          "trigger": "Potential general parity-nullspace/odd-even decoupling antecedent"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "rationale": "A positivity-preserving and constant-equilibrium-preserving diffusion scheme could still harbor high-gradient stationary artifacts. The exact classification shows every positive four-parity array is fixed at every step, and its worst checkerboard gradient energy diverges as h^(-p) while the continuum Neumann p-heat equilibrium is spatially constant. The p>3 identity Jacobian explains linear neutrality. This is a substantive discretization-fidelity and numerical-model-interpretation result for a natural scheme rather than a cheap isolated parity example.",
+      "status": "PASS"
+    }
+  },
+  "checked_sources": [
+    "Zinihi, Ehrhardt, Sidi Ammi, A Nonstandard Finite Difference Scheme for a Nonlinear Parabolic Equation with p-Laplacian-Type Diffusion, arXiv:2607.00489, https://www.researchgate.net/publication/408300994_A_Nonstandard_Finite_Difference_Scheme_for_a_Nonlinear_Parabolic_Equation_with_p-Laplacian-Type_Diffusion",
+    "Reiss, A family of energy stable, skew-symmetric finite difference schemes on collocated grids, arXiv:1402.0998, https://arxiv.org/pdf/1402.0998",
+    "Andreianov, Boyer, Hubert, Finite volume schemes for the p-Laplacian on Cartesian meshes, ESAIM:M2AN 38 (2004), DOI:10.1051/m2an:2004045, different Dirichlet/coercive scheme.",
+    "Resultary query centered gradient mirror Neumann fixed points and checkerboard p-Laplacian."
+  ],
+  "disposition": "passed",
+  "limitations": [
+    "Strictly positive data and p>2, tau>0, equal spacing, zero reaction and coordinatewise mirror Neumann completion.",
+    "Identity Jacobian only p>3; no claim of global nonlinear convergence or p<2 behavior.",
+    "The reflected side-ghost realization was specified by the new theorem and not fully prescribed in source, so alternate implementations have different equilibria.",
+    "Classical checkerboard parity decoupling is known; exact source-specific necessity and Jacobian are the claimed innovations.",
+    "No nonlinear attraction/instability is implied by Jacobian identity; p<=3 differentiability conclusion not asserted."
+  ],
+  "schema_version": 1
+}
