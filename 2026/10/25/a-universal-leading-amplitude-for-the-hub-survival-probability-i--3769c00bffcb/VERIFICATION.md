@@ -5,8 +5,11 @@
     "status": "not_performed"
   },
   "independent_audit": {
-    "evidence": null,
-    "status": "not_performed"
+    "status": "passed",
+    "evidence": [
+      "INDEPENDENT_AUDIT_2026-10-30.md",
+      "INDEPENDENT_AUDIT_2026-10-30.json"
+    ]
   },
   "lean_verification": {
     "evidence": null,
@@ -16,8 +19,24 @@
 }
 ---
 
-# Reproducible scientific checks
+# Independent mathematical audit
 
-Run `python verify_wheel.py` with Python 3; the program uses only the standard library. The algorithm independently enumerates occupied-vertex masks and available-edge transition rates, calculating exact rational absorption probabilities on rims of lengths 3 through 10 at spoke-rate ratios 1/2, 1, and 2. It compares the 24 finite graph results with the analytic positive-rate path recurrence. Separately, 108 exact-rational coefficient comparisons confirm the hypergeometric generating-function ratio through order 35. Coefficient signs and high-precision dominant-root/asymptotic checks yield 138 successful assertions. The finite enumerations, numerical root approximations, and test logs do not prove claims for arbitrary graph size or arbitrary real rates; the mathematical proof in RESULT.md addresses those quantifiers.
+## correctness
 
-The positive-rate assumption is essential. No probabilistic claim about the zero-rate boundary is included. The cited foundational general graph paper was not inspected in full, leaving the bibliographic coverage limitation described in REVIEW.md. Self-review passed; independent audit has not been performed.
+PASS
+
+Reconstructed first-event decomposition: odd cycles cannot be perfectly rim-matched; even n=2m+2 has hub probability q_m/(1+lambda), where (2(1+lambda)m-1)q_m=sum_j q_j q_(m-1-j). Substitution f=-2aU'/U in 2azf'=f-1+zf^2 yields the exact 0F1 ratio. U=1-sum positive c_j z^j has one simple positive radius-minimizing zero rho>1 and no other zero on its circle; residue gives P=2 rho^(-m-1)+ exponentially smaller error. Coefficient monotonicity in a proves increasing rho. Independently rebuilt full occupied-mask absorbing-chain probabilities for rim lengths 3..10 at rates 1/3,1,2 and compared exactly with the path recurrence (24 checks PASS). Tests corroborate, not prove, the all-n and all-positive-real-rate statement.
+
+## originality
+
+PASS
+
+PASS within compared literature for the weighted positive-spoke wheel observable and the rate-invariant asymptotic amplitude; the a=1 path formula and its pole are previously established. The 1989 generalized graph adsorption full text was unavailable and could conceivably include the evaluated wheel law.
+
+## value
+
+PASS
+
+Survival of the distinguished hub is a motivated local rare-event probability in competing-rate random adsorption; exact finite-rim rates, a hypergeometric transform, and a surprisingly rate-independent leading amplitude are nontrivial structural information beyond the established unweighted path recurrence.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
