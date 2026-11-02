@@ -1,11 +1,21 @@
-# Self-review
+# Independent mathematical audit
 
-**Correctness — PASS.** The proof determines the hypersurface gradient from the characteristic-two involution expansion, handles rank-\(n-1\) adjugates on the determinant-zero locus, and gives an exact local Schur-complement model \(uv+w^2\) with Jacobian scheme \((u,v,w^2)\). The congruence and projective twisting calculation independently identifies the nilpotent line as \(\det K\otimes\mathcal O(-1)\). Exact exhaustive finite binary-matrix checks at sizes \(4\) and \(5\) corroborate the point-support and corank-one calculations; the proof, not the finite enumeration, handles all sizes and fields.
+## correctness
 
-**Originality — PASS, with residual risk.** The closest characteristic-two primary source, Grenet–Monteil–Thomassé, proves the involution expansion but studies determinantal representation, not the universal determinant's intrinsic Jacobian thickening or the kernel-line gluing. Ilic–Landsberg study complex symmetric degeneracy loci and dual geometry; Ishitsuka–Ito analyze smooth plane curve representations. A lower-dimensional size-three square-zero case is known and is not claimed as new; the statement isolates the simultaneously uniform \(n\ge4\) stratified Jacobian-line theorem. Literature and mathematical-record searches found no covering theorem, but historical modular invariant theory may contain equivalent descriptions. Failure to locate a result is not a uniqueness proof.
+PASS
 
-**Value — PASS.** Scheme-theoretic singularities of characteristic-two symmetric determinants differ sharply from the reduced determinantal rank stratification. The intrinsic nilradical's globally defined kernel-determinant twist is a natural geometric invariant for every size and gives a reusable exact local description for degenerations or intersection calculations; the dual Gauss collapse makes the modular phenomenon geometrically visible. This is not merely a finite count or a restatement of the ordinary rank-locus description.
+In characteristic 2, involution cancellation makes every off-diagonal determinant variable occur with even exponent, so partial derivatives are exactly diagonal cofactors. On det=0 the adjugate rank-1 formula at corank one forces a nonzero diagonal cofactor, while all cofactors vanish at corank≥2; support equals the reduced corank-two locus. On a rank-(n-2) Schur chart detM=detA(uv+w²); the exact hypersurface Jacobian quotient is (u,v,w²), yielding a square-zero rank-one nilradical and generic length two. Under kernel frame G the residual w transforms by detG (char2), and projective scaling supplies O(-1), identifying detK⊗O(-1). At corank one gradients are λ(v_i²) in diagonal slots, giving the kernel-line map followed by Frobenius with image the entire diagonal P^{n-1}. Independently exhaustively checked all 1,024 symmetric binary 4×4 and 32,768 symmetric binary 5×5 matrices: support/adjugate gradient and corank-one vector identities agreed. All-n proof uses Schur algebra, not finite extrapolation.
 
-The square-zero assertion is restricted to exact corank two; deeper corank singularities remain open here. No independent mathematical validation is asserted.
+## originality
 
-Self-review: passed. Independent audit: not yet performed.
+PASS
+
+The determinant involution expansion is established; complex-characteristic symmetric degeneracy studies do not settle the characteristic-two intrinsic Jacobian nilpotent-line structure. Best-of-knowledge originality resides in global gluing of the exact corank-two square-zero thickening and cycle multiplicity two; the Frobenius Gauss collapse is classical/elementary and not independently credited as new.
+
+## value
+
+PASS
+
+Computes a canonical scheme-theoretic structure invisible to reduced rank stratification in an algebraically natural universal symmetric determinantal hypersurface. The nilpotent line and multiplicity determine a meaningful obstruction/cycle contribution, while explicitly avoiding any deeper-corank primary decomposition claim.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

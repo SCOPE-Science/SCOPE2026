@@ -1,0 +1,111 @@
+{
+  "audit_date_utc": "2026-10-29",
+  "audited_at_utc": "2026-10-29T02:02:08Z",
+  "axes": {
+    "correctness": {
+      "rationale": "In characteristic 2, involution cancellation makes every off-diagonal determinant variable occur with even exponent, so partial derivatives are exactly diagonal cofactors. On det=0 the adjugate rank-1 formula at corank one forces a nonzero diagonal cofactor, while all cofactors vanish at corank≥2; support equals the reduced corank-two locus. On a rank-(n-2) Schur chart detM=detA(uv+w²); the exact hypersurface Jacobian quotient is (u,v,w²), yielding a square-zero rank-one nilradical and generic length two. Under kernel frame G the residual w transforms by detG (char2), and projective scaling supplies O(-1), identifying detK⊗O(-1). At corank one gradients are λ(v_i²) in diagonal slots, giving the kernel-line map followed by Frobenius with image the entire diagonal P^{n-1}. Independently exhaustively checked all 1,024 symmetric binary 4×4 and 32,768 symmetric binary 5×5 matrices: support/adjugate gradient and corank-one vector identities agreed. All-n proof uses Schur algebra, not finite extrapolation.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Ilic–Landsberg treats symmetric constant rank and dual varieties in complex characteristic; Grenet et al. prove involution determinant expansion in char2 (Prop 2.1)."
+        ],
+        "reasoning": "Those works contain relevant ingredients but do not imply the glued Jacobian nilpotent line over every exact corank-two point without the Schur-complement and bundle computation.",
+        "searches": [
+          "Ilic–Landsberg alg-geom/9611025 symmetric degeneracy loci full PDF",
+          "Grenet–Monteil–Thomassé arXiv:1210.5879 full PDF"
+        ]
+      },
+      "checked_sources": [
+        "Frozen Git RESULT.md and verify.py at assigned tree, symbolic Schur chart and GL2 transition.",
+        "Independent exhaustive symmetric F2 rank/diagonal cofactor tests n=4,5: rank distributions 4x4 {0:1,1:15,2:140,3:420,4:448}; 5x5 {0:1,1:31,2:620,3:4340,4:13888,5:13888}.",
+        "Grenet–Monteil–Thomassé arXiv:1210.5879, Ilic–Landsberg alg-geom/9611025 PDFs; Resultary searches."
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "Off-diagonal derivative vanishing follows from known determinant expansion, but nilpotent square-zero transition requires local Jacobian computation and universal K gluing."
+        ],
+        "reasoning": "Source theorem implication stops at the determinant expansion; prior complex degeneracy geometry lacks this modular characteristic structure.",
+        "searches": [
+          "Grenet arXiv:1210.5879 Proposition 2.1",
+          "Ilic–Landsberg alg-geom/9611025",
+          "Ishitsuka–Ito arXiv:1412.8343"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Resultary nearby singular schemes are for quartic symmetroids, discotopes, or degree-curvature, not the universal characteristic-two Jacobian scheme."
+        ],
+        "reasoning": "The equivalent formulation would be the local Tjurina Jacobian ideal (u,v,w²) and its glued detK(-1) quotient; no identified earlier statement matches it.",
+        "searches": [
+          "Resultary: characteristic two symmetric determinant hypersurface Jacobian scheme corank 2 square-zero double determinant kernel dual Frobenius",
+          "search: universal symmetric determinant char 2 singular subscheme nilpotent thickening"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "No retrieved exact table of primary components or multiplicities for this universal scheme; finite GF2 ranks are only checks."
+        ],
+        "reasoning": "A scheme structure across all n≥4 is not an isolated numerical table result; absence of a tabulation is not independent proof of novelty.",
+        "searches": [
+          "Resultary: square zero thickening symmetric determinantal hypersurface characteristic two Jacobian corank two nilradical det kernel",
+          "search: char 2 symmetric determinantal singular scheme length 2"
+        ]
+      },
+      "rationale": "The determinant involution expansion is established; complex-characteristic symmetric degeneracy studies do not settle the characteristic-two intrinsic Jacobian nilpotent-line structure. Best-of-knowledge originality resides in global gluing of the exact corank-two square-zero thickening and cycle multiplicity two; the Frobenius Gauss collapse is classical/elementary and not independently credited as new.",
+      "residual_risks": [
+        "Unindexed modular symmetroid singular-scheme studies might contain this local double and line bundle.",
+        "Exact scheme structure asserted only on rank n-2 stratum; embedded structure of deeper corank remains open."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Ingredient covered, but universal hypersurface Jacobian double not located in inspected material",
+          "evidence": "Characteristic-two determinant involution terms explain zero off-diagonal derivatives.",
+          "identifier_or_url": "https://arxiv.org/abs/1210.5879",
+          "material_read": "Full PDF inspected including Proposition 2.1 and structural setup",
+          "method": "arXiv full-text PDF extraction and screenshot",
+          "title": "Symmetric Determinantal Representations in Characteristic 2",
+          "trigger": "Exact determinant involution expansion used by proof"
+        },
+        {
+          "assessment": "Complex/ordinary characteristic context does not supply claimed modular square-zero scheme",
+          "evidence": "Different field characteristic and principal geometric invariants.",
+          "identifier_or_url": "https://arxiv.org/abs/alg-geom/9611025",
+          "material_read": "PDF inspected for rank/dual-setting theorem context",
+          "method": "Lawful arXiv PDF and page screenshot",
+          "title": "On symmetric degeneracy loci, spaces of symmetric matrices of constant rank and dual varieties",
+          "trigger": "Plausible broader symmetric degeneracy and dual variety treatment"
+        },
+        {
+          "assessment": "Smooth plane curve representations, not obviously the universal hypersurface Jacobian scheme",
+          "evidence": "Residual possible overlap in cited appendix acknowledged.",
+          "identifier_or_url": "https://arxiv.org/abs/1412.8343",
+          "material_read": "Abstract and bibliographic description; not full paper",
+          "method": "Online abstract and source reference inspection",
+          "title": "The local-global principle for symmetric determinantal representations of smooth plane curves in characteristic two",
+          "trigger": "Same characteristic and symmetric determinants"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "rationale": "Computes a canonical scheme-theoretic structure invisible to reduced rank stratification in an algebraically natural universal symmetric determinantal hypersurface. The nilpotent line and multiplicity determine a meaningful obstruction/cycle contribution, while explicitly avoiding any deeper-corank primary decomposition claim.",
+      "status": "PASS"
+    }
+  },
+  "checked_sources": [
+    "Frozen Git RESULT.md and verify.py at assigned tree, symbolic Schur chart and GL2 transition.",
+    "Independent exhaustive symmetric F2 rank/diagonal cofactor tests n=4,5: rank distributions 4x4 {0:1,1:15,2:140,3:420,4:448}; 5x5 {0:1,1:31,2:620,3:4340,4:13888,5:13888}.",
+    "Grenet–Monteil–Thomassé arXiv:1210.5879, Ilic–Landsberg alg-geom/9611025 PDFs; Resultary searches."
+  ],
+  "disposition": "passed",
+  "limitations": [
+    "Algebraically closed characteristic-two k, n≥4, exact corank two for square-zero claim; no global primary decomposition across corank≥3."
+  ],
+  "residual_risks": [
+    "Unindexed modular symmetroid singular-scheme studies might contain this local double and line bundle.",
+    "Exact scheme structure asserted only on rank n-2 stratum; embedded structure of deeper corank remains open."
+  ],
+  "schema_version": 1
+}
