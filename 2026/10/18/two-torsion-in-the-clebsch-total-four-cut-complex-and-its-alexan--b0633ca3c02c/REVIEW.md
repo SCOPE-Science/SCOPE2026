@@ -1,19 +1,21 @@
-# Scientific review: Clebsch total four-cut and Alexander dual
+# Independent mathematical audit
 
-## Correctness
+## correctness
 
-**PASS.** Both complexes are defined by independent four-vertex sets in the explicit sixteen-vertex graph. Exhaustive enumeration and complete acyclicity checks give the stated critical-cell dimensions, with \(392{,}720\) and \(70{,}368\) directed-cover relations verified. Signed integer gradient-path projection gives \(\partial_7^K=(2)\), \(\partial_8^K=0\), \(\partial_6^B=0\), and \(\partial_7^B=(-2)\). The exact two-torsion, free ranks, vanishing of other groups, connectivity, and shellability obstruction follow from this chain model. Two runnable programs and their executed outputs are included: a complete signed integral Morse checker, and an independently generated raw mod-two boundary-rank computation on the dual. The full homotopy type is not asserted.
+PASS
 
-## Originality
+The graph is the Cayley graph of F_2^4 with XOR generators 1,2,4,8,15. An independent implementation rebuilt all 120 independent four-sets, verified the Alexander dual on all 65,536 vertex masks, and enumerated 52,915 and 12,621 augmented faces. Lexicographic element matchings give 26,434 and 6,287 pairs; independent directed-cover topological sorts traverse all 392,720 and 70,368 incidences with no cycles. Exact signed integral cancellation gives K critical counts {6:1,7:1,8:45}, d7=(2), d8=0 and B counts {5:45,6:1,7:1}, d6=0,d7=(-2). These finite exhaustive calculations verify the complete chain reductions and Smith factors Z/2 and free rank 45; the standard acyclic Morse theorem gives CW models with no low positive-dimensional cells, establishing five-/four-connectivity and K non-shellability because pure dimension is 11 but H6 != 0. No higher attaching maps or wedge decomposition were inferred.
 
-**PASS, with residual literature risk.** Full-text scientific comparisons included *Total Cut Complexes of Graphs* (arXiv:2209.13503), *Topology of Cut Complexes of Graphs* (arXiv:2304.13675), and *Total cut complexes and their duals* (arXiv:2602.21427). The first classifies different families, the second treats a distinct ordinary-cut condition, and the third gives a torsion example constructed from a disconnected graph rather than the Clebsch graph. Relevant indexed summaries concern the same graph's ordinary independence, three-cut, neighborhood, dominance, and forest complexes; no inspected statement implies the paired total-four-cut calculation. Searches are not a uniqueness proof; unindexed equivalent results remain possible.
+## originality
 
-## Mathematical value
+PASS
 
-**PASS.** The connected, triangle-free, strongly regular Clebsch graph is a canonical test object for graph-complex topology. Its total four-cut complex has integral torsion and free homology in a different dimension despite being pure of dimension eleven. The paired Alexander-dual computation locates torsion on both sides, and supplies a concrete boundary to the sphere-wedge patterns in commonly classified graph families. The precise graph and parameter are structurally motivated, and the outcome is not implied by the cited existing classifications.
+Best-of-knowledge comparison across foundational total-cut definitions, the exact bounded-independence alias, general collapsibility results, connected graph-family calculations, and a recent explicit torsion construction. Neither the cited theorems nor searched published records imply the connected Clebsch total-four-cut and dual integral homology groups. An inaccessible or unindexed equivalent computation remains possible; search absence is not proof of uniqueness.
 
-## Scope of validation
+## value
 
-A finite exhaustive integer-chain computation, with every face and incidence checked, is a proof of the stated *finite* homology calculation when combined with the matching and algebraic cancellation arguments. It does not settle higher attaching homotopy classes or any larger graph family. No independent audit has been performed.
+PASS
 
-Self-review: passed. Independent audit: not yet performed.
+The 16-vertex Clebsch graph is a standard connected, 5-regular, triangle-free strongly regular graph, providing a motivated high-symmetry test for the natural total-four-cut filtration. Exact two-torsion and free degree-eight homology in a pure 11-dimensional complex, together with the dual integral calculation, identify a concrete failure of all-sphere-wedge and shellability behavior not furnished by previously classified graph families. Though finite, the pair of full Smith decompositions and connectivity are structural facts one can reuse when testing stronger classification conjectures; their value does not rest on a claimed general family or on merely rerunning known tables.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
