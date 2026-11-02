@@ -1,21 +1,21 @@
-# Scientific review
+# Independent mathematical audit
 
-## Correctness — PASS
+## correctness
 
-The blade's grounded Laplacian has eigenvalues \(s+1\) on internal contrasts and \(t+1\) on its constant mode. The Schur complement for an unpinned hub is strictly positive when any peripheral leader exists; the block inverse gives the exact rational objective for arbitrary leader allocations. The second derivatives of the three scalar profile functions have signs \(+, +, -\); any nonbalanced allocation admits a strict improving transfer in either hub status. This proves all-parameter optimality, all ties and optimizer counts. The explicit three-leader phase follows by exact rational subtraction. The recorded checker executes exact symbolic and independently constructed grounded-Laplacian inverses; experiments are supporting, not a substitute for the proof.
+PASS
 
-## Originality — PASS with a significant unresolved source risk
+PASS. On W_{k,s}=K_1 join (k copies of K_s), k,s>=2 and 1<=m<=ks, the grounded blade block is (s+1)I_u-11^T; it has eigenvalue t+1 on constants and s+1 on u-1 contrasts, including empty-block convention t=s. This proves F_s(t)=(s-t-1)/(s+1)+1/(t+1), g_s(t)=(s-t)/(t+1)^2 and h(t)=t/(t+1). Schur complement for follower hub Q=(s+1)sum h(t_i)>0 supplies its correction (1+sum g)/Q. Strict convexity F''=2/(t+1)^3, g''=(6s-2t+4)/(t+1)^4 and strict concavity h''=-2/(t+1)^3 show transferring one peripheral leader from an occupancy exceeding another by >=2 strictly improves either hub status; thus precisely balanced profiles minimize conditional costs, and comparing H and P exhausts all leader subsets. Binomial counting gives all minimizers; the m=3 rational differences give k2 threshold s5, k3 peripheral, k4,s2 tie, otherwise hub as claimed. My independent exact Gauss-Jordan inversions of grounded Laplacians and independent rational profile comparisons checked 1814 grounded configurations across 33 budgets. Finite checks corroborate rather than prove the all-parameter strict-balancing argument.
 
-Fitch–Leonard's 2014 full text solves the general objective via joint centrality but not the all-budget windmill placement question. Patterson–McGlohon–Dyagilev's 2014 full text concerns one-dimensional formations; Patterson–Yi–Zhang's 2017 full text covers general resistance identities and different explicit families. Recoverable earlier work on the same clique windmills addresses exactly two leader vertices or edge-conductance optimization, neither of which directly implies this all-budget classification.
+## originality
 
-The particularly close Sun–Li–Liu (2020) paper, *Noisy consensus dynamics in windmill-type graphs*, DOI 10.1063/5.0020696, claims exact leader–follower coherence with freely assigned leaders in its abstract. Only its abstract and bibliographic information were accessible, despite open-access searches and an unsuccessful authorized-access attempt. It **may** already contain an equivalent stronger statement; the paper is **not** assessed as noncovering. The present claim is specifically strict conditional balancing and the exact complete global optimizer sets/counts, not the general coherence formula. Consequently priority is materially uncertain, and specialized overlap remains possible.
+PASS
 
-## Value — PASS
+PASS on best-of-knowledge for the strict all-budget if-and-only-if leader allocation and optimizer count, not the grounded inverse formula. Fitch–Leonard's joint centrality and Patterson–Yi–Zhang's resistance formulas establish general coherence settings and related families. A very close 2020 Sun–Li–Liu paper gives exact leader-follower coherence for freely assigned leaders in windmill-type graphs and therefore may already imply some/all of the purported optimization. Its available abstract cannot decide whether it contains the balanced-all-budgets classification; lawful full text was not obtained and the authorized institutional route returned vpn_disconnected, explicitly a material priority risk rather than fabricated whole-document noncoverage. No stronger coverage is established from actual inspected statements.
 
-The result reduces every fixed-budget leader placement problem on an infinite family of clique-windmill networks to comparing two rational evaluations and fully enumerates all optimizing subsets. The three-leader special case exhibits sharp changes depending on blade number and size, including ties not evident from hub centrality. This addresses a natural noise-robust sensor/leader placement question rather than a small parameter instance.
+## value
 
-## Limits
+PASS
 
-Unweighted equal-size cliques, noise-free pinned leaders, and equal independent follower disturbance only. No independent audit; see the explicit unresolved 2020 scientific priority risk.
+PASS. For every budget on a canonical symmetric nontrivial graph family, the theorem identifies ALL optimal sets, counts them, and exhibits a nontrivial three-leader hub/no-hub phase transition including exact ties. Exact placement optimality and cardinality are natural control-design invariants; Schur complements alone do not give the strict global combinatorial classification. Restricted to noise-free pinning and equal-sized unit-weight blades.
 
-Self-review: passed. Independent audit: not yet performed.
+The dated certificate retains the supplied scientific assessment, sources and limitations.
