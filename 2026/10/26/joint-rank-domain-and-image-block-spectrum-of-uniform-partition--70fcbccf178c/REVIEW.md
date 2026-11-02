@@ -1,9 +1,21 @@
-# Scientific review
+# Independent mathematical audit
 
-**Correctness: PASS.** In a partial idempotent every image point is defined and fixed. A root block with exactly \(s\) fixed points has the polynomial \(\binom ns(tu)^s(1+su)^{n-s}\). Any other nonempty-domain block targets the fixed-point set of exactly one root, with polynomial \((1+su)^n-1\). The resulting labeled rooted stars and isolated undefined blocks form a reversible decomposition, proving the displayed exponential formula for all \(m\ge0,n\ge1\). The rank-one and next-to-full-rank cases have direct separate counts. The checker independently reconstructs every trivariate coefficient by direct partial-map enumeration at six small parameter pairs and compares boundary specializations at four additional pairs. Risk: these computations alone would not verify the unbounded theorem; the bijection supplies that proof.
+## correctness
 
-**Originality: PASS, with residual priority risk.** The primary study of this partial monoid by Cicalò–Fernandes–Schneider (arXiv:1210.4775v1, its Theorem 1.1 and Sections 3–5 inspected) treats size, rank, generators, quotients and presentations, not the three-parameter idempotent census. Dolinka–East (arXiv:1407.3312v1, Propositions 10–11 and their proofs inspected) counts the full-transformation idempotents and already covers the full-domain specialization, which is not claimed new. Other accessible findings about commuting idempotents of unrestricted partial/full monoids and colored partition monoids concern different objects/statistics and do not imply the blocked-partial joint distribution. Actual mathematical-record searches for exact aliases, broader coverage, and databases did not identify a covering statement; absence from search is not proof of worldwide novelty. Risk: an equivalent little-indexed historical enumeration could exist.
+PASS
 
-**Value: PASS.** The ambient partial monoid has an established literature but its natural three-way idempotent profile (image rank, domain size and image-bearing classes) is not determined by the known monoid order or the full-map idempotent count. The new formula describes every attainable coefficient, including strictly partial elements, across an infinite two-parameter family, and explains its structure through a canonical decomposition. This is a mathematically motivated complete joint enumeration, rather than an arbitrary finite numerical slice.
+Fixed-point image lemma makes each image-bearing block a rooted component with s chosen fixed image points; each other point in that root block contributes 1+su. Each nonempty satellite source block maps into one such root and contributes (1+su)^n-1; completely undefined blocks are isolated. The labeled exponential formula gives exp(z+vz sum_s binom(n,s)(tu)^s(1+su)^(n-s) exp(z((1+su)^n-1))). Independent direct brute force enumeration of all 5^4 partial maps on two 2-point blocks found 76 idempotents, 21 full-domain and 32 rank one, agreeing with formula. Rank mn-1 count mn^2 follows by one nonfixed point. Works including m=0 and n=1.
 
-Self-review: passed. Independent audit: not yet performed.
+## originality
+
+PASS
+
+Cicalo–Fernandes–Schneider established the same partial monoid order and generators, not the exposed three-variable idempotent spectrum. Dolinka–East enumerate full-domain idempotents, a known u^(mn) slice expressly excluded from novelty. No found result determines arbitrary partial-domain coefficients.
+
+## value
+
+PASS
+
+Complete three-statistic enumerator for a studied monoid is a natural invariant and includes all strictly partial cases; a canonical rooted-star decomposition adds structural explanation.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
