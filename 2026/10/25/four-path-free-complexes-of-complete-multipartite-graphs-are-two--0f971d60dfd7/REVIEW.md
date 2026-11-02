@@ -1,15 +1,21 @@
-# Scientific review
+# Independent mathematical audit
 
-## Correctness
-PASS. The occupancy analysis establishes a complete face decomposition for an arbitrary number of nonempty multipartite parts. All intersections used by the inductive Mayer–Vietoris and van Kampen arguments are verified in the proof, and the free quotient in the integral short exact sequence ensures splitting without torsion. The full join has simply connected two-skeleton for at least three parts, and a homology Whitehead argument proves the wedge equivalence. A separately implemented exhaustive verifier confirms the face characterization and mod-two homology for 336 bounded cases; no infinite claim is based on extrapolation.
+## correctness
 
-## Originality
-PASS, subject to residual unindexed-publication risk. The July 2026 source explicitly asks in Conjecture 4.7 whether general multipartite path-free complexes are wedges of spheres, and its proved homotopy cases cover complete bipartite graphs for all parameters and complete multipartite graphs only at path size three. The current theorem covers path size four for arbitrary three-or-more-part graphs. The 2021 higher-independence classification concerns a different forbidden-subgraph complex, as shown by a four-vertex star in a part-size-three example. Focused published-finding corpus queries and public mathematical-literature searches identified no equivalent or stronger theorem. The 2026 decomposition lemma is credited as close structural background; new connectivity, integral splitting and homotopy arguments are supplied rather than simply relabeling a known theorem.
+PASS
 
-## Mathematical value
-PASS. The theorem resolves an entire natural parameter layer of a stated open homotopy conjecture, provides a uniform closed multiplicity formula, and includes nonpure, non-sequentially-Cohen–Macaulay examples. For \(K_{3,3,1}\), the exact homotopy rank is twelve in dimension two despite the known obstruction to sequential Cohen–Macaulayness. This is a structural infinite-family result, not an arbitrary finite slice or a recomputation of a known table.
+For r>=3 positive part sizes, an induced subset avoids a non-induced P4 exactly when it belongs to: a single part; two parts with the smaller occupied count one; or <=3 parts each with one vertex. This proves PF4= T union F_i with T the 2-skeleton of the join of discrete part sets and F_i=Delta(V_i)*D(V\V_i). Pairwise F_i intersections are in T. F_i is contractible and B_i=F_i cap T is K_{n_i,N-n_i}, connected graph with H1 rank (n_i-1)(N-n_i-1). The join is simply connected for r>=3, so its 2-skeleton and all attachments remain simply connected. Integral Mayer-Vietoris splits free H2 extensions and kills all other positive homology; summing ranks gives e2+e3-(r-1)(N-1). Hurewicz + simply connected homology Whitehead identifies a wedge of that many 2-spheres. New independent direct P4 search agrees with face occupancy over six representative part tuples and 792 subset tests. Infinite-family proof algebraic/topological, not based on bounded tests.
 
-## Scope and residual limitations
-The result is nonequivariant, excludes two or fewer parts from its new-contribution scope, and says nothing about path sizes at least five. Research databases and indexing can be incomplete. Finite test outputs corroborate the proof but do not replace it. No independent audit is reported.
+## originality
 
-Self-review: passed. Independent audit: not yet performed.
+PASS
+
+Qualified best-of-knowledge PASS. Deshpande–Goyal–Sawant 2607.05358 provide a general occupancy decomposition, known bipartite PF4, multipartite PF3 and a general wedge conjecture. Their full multipartite r>=3 PF4 homotopy formula was not identified in accessible material; full primary publisher text not obtained, so this is a priority risk, not automatic rejection. Deshpande–Singh higher-independence complex is different from P4-free (four-vertex star is allowed here).
+
+## value
+
+PASS
+
+Natural infinite-family exact specialization of an explicitly posed multipartite path-free sphere-wedge question, including arbitrary part sizes and integral multiplicity formula. The homotopy result is stronger than raw homology and has explicit non-shellable cases, and is not a mere restatement of the bipartite case.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
