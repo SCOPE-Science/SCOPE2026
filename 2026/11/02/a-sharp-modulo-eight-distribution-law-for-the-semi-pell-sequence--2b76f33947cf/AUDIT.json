@@ -1,0 +1,138 @@
+{
+  "correctness": {
+    "rationale": "The semi-Pell recurrence telescopes to u(2m+1)=1+2 sum_{k=1}^m u(k), and its previous modulo-four layer yields a parity count A(m) with exact binary recursions. Induction proves the Q(m) high-bit formula for all m. The two-state sign transfer has T^T T=2I and T^4=-4I, proving the displayed rational Walsh generating functions and all dyadic census formulas. Its orthogonal scaled action bounds signed sums on any aligned dyadic block by 2^(k/2); binary decomposition and the even-odd recurrence establish O(sqrt N) for every cutoff. The explicit subsequence N=2^(4a+1) yields discrepancy of size asymptotic to sqrt N for each residue separately, establishing sharpness. The standalone stdlib verifier checked 65,535 recurrence values, 32,768 Q-formulas, 16 exact dyadic censuses and the transfer identities; finite tests supplement, not replace, the proof. All variable ranges and endpoints include N=1 and r=1.",
+    "status": "PASS"
+  },
+  "independent": false,
+  "independent_audit_status": "not_performed",
+  "originality": {
+    "broader_coverage": {
+      "evidence": [
+        "The 2023 Keith--Munagi article, Power compositions and semi-Pell compositions, Theorem 6 discusses modulo-four values for semi-m-Pell composition counts, whereas the present claim computes modulo eight and a quantitative frequency law.",
+        "The 2023 Ballantine--Beck self-similar-partition framework gives partition equivalences and congruence information; inspected Section 6 does not state all-cutoff sharp residue frequencies.",
+        "Rudin--Shapiro-type quadratic binary phases admit square-root transfer bounds, but those bounds alone do not identify the semi-Pell residue formula, four exact dyadic counts, or each residue-specific sharp error."
+      ],
+      "reasoning": "Checked potential stronger covering results including general self-similar partitions, general semi-m-Pell recurrences, binary quadratic sign sums and related digital sequences. The new statement needs an explicit 2-adic identification of the given sequence; none of the inspected antecedents combines that identification with the exact dyadic census and sharp all-cutoff estimates. A more general unlocated digital theorem remains a residual risk.",
+      "searches": [
+        "semi-tribonacci sequence modular residues 4, 8 density and discrepancy, 2023 Ballantine Beck",
+        "2-adic valuations semi-Pell partition numbers modulo 8",
+        "semi-Pell valuations 2019 Keith Munagi 2023 Ballantine Beck dyadic residue counting generating functions",
+        "\"semi-Pell numbers\" \"density\" modulo",
+        "semi Pell numbers modulo 8 frequency residues 1 3 5 7",
+        "doi:10.61091/ojac-1802",
+        "arXiv:2303.11493v1"
+      ]
+    },
+    "checked_sources": [
+      "arXiv:1912.11148v1, Keith and Munagi, primary Section 1 Theorem 2 and full HTML",
+      "arXiv:2303.11493v1, Ballantine and Beck, primary Section 6 and introduction",
+      "doi:10.61091/ojac-1802, Keith and Munagi, 2023 journal full-text HTML",
+      "OEIS A129095 and A129096, sequence identity and table",
+      "published-finding corpus semantic search: six actual queries in originality named checks and prior_checks",
+      "Related prior semi-Pell coefficient-growth claims were compared solely for mathematical implication; these did not cover residue distributions."
+    ],
+    "claim_vs_prior_implication": {
+      "evidence": [
+        "2019 Theorem 2 implies u(n) modulo four from the odd part of n. The present Q(m) parity, the exact 1/(1+4t^4) generating functions and all-four optimal O(sqrt N) require additional identities and transfer analysis.",
+        "2023 self-similar-sequence papers give different combinatorial descriptions and low-modulus congruences, without an inspected theorem that would directly imply the four density laws.",
+        "An earlier same-sequence growth result proves a second-order coefficient asymptotic; this does not determine residue frequencies or the quadratic digit statistic.",
+        "Closest published mathematical-record results concern parity cancellation of a rational-partition numerator and valuations of Thue--Morse series powers. Neither concerns this semi-Pell recurrence, so no implication follows."
+      ],
+      "reasoning": "Compared implications at the level of the same recurrence, odd-part invariance, high binary digit, frequencies and sharp error. Neither modulo-four information nor growth asymptotics determines the sign of Q(m) or its signed dyadic counts; nonidentical partition and Thue--Morse examples provide no sequence identification. A search miss is not an absolute novelty certificate.",
+      "searches": [
+        "semi-Pell sequence residue distribution modulo 8, dyadic counts natural density, paperfolding sequence",
+        "semi-Pell A129095 exact residue frequencies modulo eight, 1/4 each, square-root discrepancy and dyadic imbalance",
+        "semi-Pell composition sequence modulo 8 adjacent binary ones digit sum parity formula",
+        "semi-Pell sequence 2-adic congruence mod 8 digit sum adjacent binary runs",
+        "arXiv:1912.11148v1",
+        "arXiv:2303.11493v1",
+        "doi:10.61091/ojac-1802"
+      ]
+    },
+    "equivalent_formulations": {
+      "evidence": [
+        "Keith--Munagi 2019, arXiv:1912.11148v1, Section 1 Theorem 2: the actual semi-Pell sequence satisfies u(2m+1) congruent to 2m+1 modulo 4; no mod-eight binary digit formula stated in inspected text.",
+        "Ballantine--Beck 2023, arXiv:2303.11493v1, Section 6: the same recurrence and overpartition interpretations, with lower-congruence and paperfolding discussions.",
+        "The new formula u(2^v(2m+1)) congruent to 1+2 epsilon_0+4Q(m) modulo 8 gives the high 2-adic bit not fixed by mod-four congruences."
+      ],
+      "reasoning": "Compared the original semi-Pell series under its names sp(n), A129095, binary-composition counts and odd-multiplicity overpartitions. Known modulo-four congruences specify only epsilon_0; they do not determine Q(m), the exact modulo-eight counts, or their sharp discrepancies. The previous same-sequence asymptotic finding concerns size growth rather than residue frequencies.",
+      "searches": [
+        "semi-Pell sequence residue distribution modulo 8, dyadic counts natural density, paperfolding sequence",
+        "semi-Pell A129095 exact residue frequencies modulo eight, 1/4 each, square-root discrepancy and dyadic imbalance",
+        "semi-Pell composition sequence modulo 8 adjacent binary ones digit sum parity formula",
+        "\"semi-Pell\" \"mod 8\" automatic paperfolding",
+        "\"semi-Pell\" \"binary\" \"runs\" residue",
+        "arXiv:1912.11148v1",
+        "arXiv:2303.11493v1"
+      ]
+    },
+    "exact_database_or_table": {
+      "evidence": [
+        "OEIS A129095 gives the semi-Pell sequence and initial terms; A129096 is its odd-index bisection. These entries establish identity of the underlying sequence but do not, in the inspected material, provide the rational Walsh generating series or the four count formulas.",
+        "The standalone verifier independently computes 65,535 positive terms, the four dyadic residue counts at r=1 through 16, and checks the proposed rational generating series through k=15."
+      ],
+      "reasoning": "A finite table or recurrence for A129095 is not a complete dyadic distribution law and does not prove the sharp square-root fluctuation. The supplied generating functions and all-N proof have unbounded scope and are not simply recomputation of the displayed sequence.",
+      "searches": [
+        "\"semi-Pell\" \"modulo 8\" frequency",
+        "A129095 modulo 8 adjacent pairs binary semi pell",
+        "semi-Pell A129095 exact residue frequencies modulo eight, 1/4 each, square-root discrepancy and dyadic imbalance",
+        "OEIS:A129095",
+        "OEIS:A129096"
+      ]
+    },
+    "rationale": "Keith--Munagi 2019 proves mod-four, and the 2023 follow-up establishes another mod-four treatment. Ballantine--Beck 2023 gives self-similar partition interpretations. The inspected primary material and published-finding corpus searches do not give the high-bit quadratic binary formula, exact rational dyadic imbalance series, simultaneously full four-way residue frequencies, or separately sharp all-cutoff discrepancy. Known growth-rate asymptotics for the same sequence do not imply its modular frequencies. Unindexed or more general digital results remain explicitly acknowledged risks.",
+    "residual_risks": [
+      "A general automatic-sequence or generalized Rudin--Shapiro theorem may implicitly contain the precise residue statements but has not been located; absolute novelty is not guaranteed.",
+      "An unindexed later specialization of semi-Pell modulo-eight counts might exist.",
+      "Only Section 6 and framing of Ballantine--Beck 2023 were materially inspected; unrelated unexamined sections cannot be certified noncovering.",
+      "Independent mathematical audit and priority certification have not been performed."
+    ],
+    "source_inspections": [
+      {
+        "assessment": "NOT_COVERING_WITHIN_INSPECTED_TEXT",
+        "evidence": "Section 1, Theorem 2 provides u(2m+1)=2m+1 mod 4; inspected full text does not present the new high-bit Q(m), full mod-eight frequency census or optimal all-cutoff discrepancy.",
+        "identifier_or_url": "https://arxiv.org/html/1912.11148v1",
+        "material_read": "Full arXiv HTML across Sections 1--4 including statement and proof of Theorem 2 and arithmetic discussion",
+        "method": "Read accessible HTML primary text; searched for mod-eight congruences, density, and binary digit formulas",
+        "title": "Binary Compositions and Semi-Pell Compositions",
+        "trigger": "Same sequence, earliest verified research paper and published modulo-four congruence"
+      },
+      {
+        "assessment": "NO_COVERING_RESULT_FOUND_IN_INSPECTED_SECTIONS",
+        "evidence": "The examined section supplies combinatorial interpretations and modular information, but not the displayed mod-eight digit formula or quantitative residue-frequency law. Unexamined portions remain a residual risk.",
+        "identifier_or_url": "https://arxiv.org/html/2303.11493",
+        "material_read": "Accessible arXiv HTML abstract, introduction, Section 6 on semi-Pell and its parity subsection; other sections not exhaustively read",
+        "method": "Read relevant primary HTML material and searched named sequence/low-modulus results; later repeat fetch was unavailable",
+        "title": "Partitions enumerated by self-similar sequences",
+        "trigger": "Same semi-Pell sequence with overpartition interpretation and paperfolding congruence"
+      },
+      {
+        "assessment": "NOT_COVERING_WITHIN_INSPECTED_TEXT",
+        "evidence": "Theorem 6 is a modulo-four statement; no matching modulo-eight density-and-discrepancy theorem identified.",
+        "identifier_or_url": "https://www.researchgate.net/publication/388881552_Power_compositions_and_semi-Pell_compositions",
+        "material_read": "Accessible reproduced full twelve-page journal text, with focus on Theorem 6 and arithmetic congruence material",
+        "method": "Read lawful publicly accessible full-text HTML rendition, compared Theorem 6 directly",
+        "title": "Power compositions and semi-Pell compositions",
+        "trigger": "Follow-up paper by same authors, plausibly stronger congruences"
+      },
+      {
+        "assessment": "NO_EQUIVALENT_EXACT_RESIDUE_CENSUS_LOCATED",
+        "evidence": "Identifies the same sequence and first terms, not the rational Walsh series or density estimates.",
+        "identifier_or_url": "https://oeis.org/A129095",
+        "material_read": "Sequence identification, definition, and displayed initial terms/links",
+        "method": "Read OEIS entry and compare scope of displayed tables to new assertion",
+        "title": "OEIS A129095 Semi-Pell numbers and odd-index bisection A129096",
+        "trigger": "Exact sequence aliases, tabulated values and possible source overlap"
+      }
+    ],
+    "status": "PASS"
+  },
+  "review_type": "self_review",
+  "schema_version": 1,
+  "scope_run_id": "2b76f339-47cf-4804-9273-9ff2b3e9de81",
+  "self_review_status": "passed",
+  "value": {
+    "rationale": "Modulo-four classification is a known natural arithmetic feature of this classical self-similar sequence. The theorem resolves the first genuinely nontrivial higher 2-adic layer for every index using a compact adjacent-bit statistic, determines all four exact dyadic frequency counts, proves equal natural densities for every cutoff, and shows optimal individual square-root fluctuations. The sharp transition from easy mod-four periodicity to a quadratic binary carry law is mathematically structural and motivates extension to higher moduli. This is a complete infinite classification rather than a routine finite table.",
+    "status": "PASS"
+  }
+}
