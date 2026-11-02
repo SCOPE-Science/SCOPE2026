@@ -1,0 +1,112 @@
+{
+  "correctness": {
+    "rationale": "Using square-zero matrix units, the (1,3) coefficient of the complete operator product is exactly T²/2+h²D(N)/2. The pair-order sign function is computed from the six lexicographic permutations. A four-point binary reversal block identity and pair cancellation yield D(4m+1)=D(m)-2 for all odd m, verified by direct three-case substitution, yielding D(N_k)=1-2k. No truncated series, asymptotic numerical extrapolation, or implicit stability assumptions enter. Full exact-rational matrix products at five sample sizes independently agree; the infinite proof is symbolic.",
+    "status": "PASS"
+  },
+  "independent": false,
+  "independent_audit_status": "not_performed",
+  "originality": {
+    "broader_coverage": {
+      "evidence": [
+        "Beretti (2023), Introduction and Theorem 1.3, treats geometrically shifted interval discrepancy in the van der Corput sequence, with Faure arithmetic formulas cited.",
+        "Li–Liu–Wan v2 gives an O(h² log N) upper bound for bounded linear splitting."
+      ],
+      "reasoning": "Classical interval-discrepancy theory can cover or derive component scalar counting identities; those are not claimed as novel alone. The exact lower-bound matrix-product statement for the specific newly defined direct decoder is neither stated nor obtained as an immediate special case of an inspected numerical theorem. Combining independent ingredients still requires the explicit exact product reduction and sign-block calculation shown here.",
+      "searches": [
+        "On the distribution of the van der Corput sequences Beretti 2023",
+        "van der Corput sequence imbalance interval one third logarithmic discrepancy lower bound",
+        "arxiv:2603.27654v2 error sharpness"
+      ]
+    },
+    "checked_sources": [
+      "arxiv:2603.27654v2 (direct decoder and numerical upper-bound theorem)",
+      "arxiv:2603.27654v1 (different original ordering scheme)",
+      "Beretti 2023, DOI 10.1007/s00013-022-01811-4 (discrepancy literature)"
+    ],
+    "claim_vs_prior_implication": {
+      "evidence": [
+        "Source v1 uses multi-point Fisher–Yates shuffle, while v2 defines rank floor(3!z) direct decoder. The two schemes have distinct permutation laws.",
+        "The v2 theorem controls error above, not below; Beretti addresses discrepancy, not products of noncommuting matrix exponentials."
+      ],
+      "reasoning": "A failure or bias theorem for an earlier shuffle does not dominate a sharpness theorem for the changed v2 point-to-permutation map. Upper convergence rates, even with the same exponent, do not entail their necessity. The proof furnishes the missing counterexample.",
+      "searches": [
+        "arxiv:2603.27654v1 algorithm Fisher Yates",
+        "arxiv:2603.27654v2 direct point-to-permutation algorithm",
+        "On the distribution of the van der Corput sequences 2023"
+      ]
+    },
+    "equivalent_formulations": {
+      "evidence": [
+        "Li–Liu–Wan v2, Eqns. (2.5)–(2.12), defines the exact lexicographic decoder; bounded-linear Theorem 4.1 derives the upper order.",
+        "No matching exact signed-count recursion, matrix-unit witness, or lower-bound subsequence was located in inspected source sections and appendix."
+      ],
+      "reasoning": "A published upper estimate cannot imply the exact lower-bound equality. The candidate is equivalent to a particular signed-count identity combined with a matrix-unit entry formula; neither combined numerical assertion appears in the examined primary source.",
+      "searches": [
+        "arxiv:2603.27654v2 sections 2-4",
+        "sharp quasi-random splitting rate lower bound",
+        "operator splitting Lie Trotter van der Corput sharp logarithmic lower bound order"
+      ]
+    },
+    "exact_database_or_table": {
+      "evidence": [
+        "Reviewed source numerical figures concern convergence on other examples; no table contains exact powers at N=3,13,53,... for the matrix chain."
+      ],
+      "reasoning": "This is an infinite analytical identity, not a finite benchmark recomputation. Existing numerical plots and general discrepancy tables are not a table entry for the proposed operator error.",
+      "searches": [
+        "Quasi-random splitting method for accurate and efficient multiphysics simulation Li Liu Wan 2026 sharpness logarithmic",
+        "van der Corput splitting exact discrepancy lower bound operator product"
+      ]
+    },
+    "rationale": "The examined v2 source introduces the direct three-operator decoder and supplies an O(h² log N) upper bound but no exact logarithmically sharp lower-bound example. Classical van der Corput distribution is acknowledged as relevant background, not appropriated as a new scalar discrepancy theorem. An earlier shuffle algorithm has different input parameters and a different ordering law. Semantic research-record comparisons located no exact or dominating matching numerical result. Historical-priority risk is nonzero, particularly regarding implicit consequences of older discrepancy identities and specialized splitting literature.",
+    "residual_risks": [
+      "Classical fixed-interval discrepancy formulas may reproduce the scalar counting recursion; such a fact alone was not the claimed contribution.",
+      "Additional specialized splitting or digital-sequence articles not accessible in this bounded comparison could have the precise matrix sharpness construction.",
+      "The new theorem is strictly revision-and-decoder-specific; applying it to v1 Fisher–Yates or arbitrary low-discrepancy drivers would be incorrect."
+    ],
+    "source_inspections": [
+      {
+        "assessment": "DEFINES_DECODER_AND_UPPER_BOUND; DOES_NOT_STATE_PROPOSED_LOWER_BOUND",
+        "evidence": [
+          "(2.5)–(2.12): lexicographic rank floor(p!z); (2.8): product order; Theorem 4.1: O(h² log N).",
+          "Appendix A treats two-operator Allen–Cahn local defects rather than a three-operator exact sharpness instance."
+        ],
+        "identifier_or_url": "https://arxiv.org/pdf/2603.27654 (arXiv:2603.27654v2, 2026-10-19)",
+        "material_read": "Open-access full-text parsed PDF: abstract, §§2–4 including direct decoder and general bounded-linear theorem, numerical results §§5–6, reference list and Appendix A.",
+        "method": "Section-level reading and source-text searches for sharpness and lower bounds; assessed statements, not only title.",
+        "title": "Quasi-random splitting method for accurate and efficient multiphysics simulation (revised preprint)",
+        "trigger": "Same exact direct point-to-permutation construction, ordering parameters, and numerical convergence bound."
+      },
+      {
+        "assessment": "OLDER_DISTINCT_FISHER_YATES_DECODER",
+        "evidence": [
+          "Initial method uses multiple radical-inverse inputs per step in a Fisher–Yates implementation; current claim concerns one-point lexicographic unranking."
+        ],
+        "identifier_or_url": "https://arxiv.org/abs/2603.27654 (v1, 2026-03-29)",
+        "material_read": "Original abstract, cover and early algorithm definition and comparison with later revised scheme.",
+        "method": "Version-specific reading of accessible early material.",
+        "title": "Quasi-random splitting method for accurate and efficient multiphysics simulation (initial preprint)",
+        "trigger": "Check algorithm versioning and earliest public source date."
+      },
+      {
+        "assessment": "CLASSICAL_DISCREPANCY_BACKGROUND_NOT_SAME_NUMERICAL_THEOREM",
+        "evidence": [
+          "General interval discrepancy and asymptotic L² results, reference to explicit Faure formulas; no subflow products or matrix error formula."
+        ],
+        "identifier_or_url": "https://doi.org/10.1007/s00013-022-01811-4",
+        "material_read": "Open-access journal full text: abstract, introduction, Theorem 1.3, finite-digit lemmas and proofs of Section 3.",
+        "method": "Scientific comparison of anchored and shifted interval discrepancy definitions with the claimed splitting error.",
+        "title": "On the distribution of the van der Corput sequences",
+        "trigger": "Possibility that discrepancy asymptotics imply the candidate signed count."
+      }
+    ],
+    "status": "PASS"
+  },
+  "review_type": "self_review",
+  "schema_version": 1,
+  "scope_run_id": "a54d083f-ae6f-4352-9d12-eac815c28bf7",
+  "self_review_status": "passed",
+  "value": {
+    "rationale": "The main guarantee for a recently revised low-cost three-flow splitting construction permits a logarithmic error loss. An explicit, nonzero, mutually noncommuting three-flow nilpotent chain proves that the loss is necessary with a sharp coefficient on a natural radix-recursive subsequence. This answers a concrete guarantee-versus-artifact question for the actual algorithm; it is not a mere constant or arbitrary finite slice.",
+    "status": "PASS"
+  }
+}
