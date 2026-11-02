@@ -1,11 +1,21 @@
-# Scientific review
+# Independent mathematical audit
 
-**Correctness: PASS.** The exact cross-type shortest paths imply the radius-three threshold graph is a graph join, not merely homology-equivalent to a join. The rook-graph clique complex has a row/column good cover with nerve \(K_{m,n}\); the integral join homotopy produces \(b^2\) three-spheres. For radius two, Adamaszek's full-text Theorem 5.1 and its explicit collapse identify the preexisting radius-two equivalence, including the first-homology map. The radius-four diameter is four. The standalone finite checker independently tests the pairwise distance taxonomy and edge cases, without being used as an infinite proof.
+## correctness
 
-**Originality: PASS on inspected evidence, with stated residual risk.** The strongest antecedent is Adamaszek 2011, Theorems 5.1–5.2: the all-graph subdivision square and line-graph factor are *known*. Goyal–Shukla–Singh 2020 independently identify the line-graph complex for triangle-free hosts. The new full-classification claim uses a distinct exact third-power metric join for the biclique subdivision; neither primary source states that threshold or complete persistence. The closest indexed complete-graph-subdivision case is contractible at threshold three, unlike this case. Specific published-finding corpus and external exact/alias searches were performed, but an unindexed general third-power theorem remains possible.
+PASS
 
-**Value: PASS.** An infinite, canonical two-parameter family has an exact and unusual transition from \((m-1)(n-1)\) integral circle classes to \(((m-1)(n-1))^2\) integral degree-three classes in a single filtration step. The result includes the inclusion map at threshold two and the complete persistent homology barcode; this is structural rather than an arbitrary small computation.
+Checked the exact distance taxonomy for original vertices u∈U,v∈V and subdivision vertices e_ij: original same-part distance4, opposite-part distance2; midpoints distance2 iff their edges share an endpoint, else distance4; every original-to-midpoint distance1 or3. Hence the scale3 threshold graph is EXACTLY K_{m,n} joined with the rook graph L(K_{m,n}), and its clique complex is the simplicial join. The row/column maximal-simplex cover of the rook clique complex has contractible nonempty intersections and nerve K_{m,n}, so each factor is wedge^b S1; their join is wedge^{b²} S3 integrally. At scale2 Adamaszek Theorem 5.1 and the explicit triangle-free total-graph collapse identify the subdivided 1-cycle lattice with K_{m,n}; this proves the persistence isomorphism, not just equal ranks. At scale4 all vertex distances ≤4. Independently computed all-pairs graph distances and basic ranks for (m,n)=(2,2),(2,3),(3,3),(3,4),(4,5); exact symbolic taxonomy covers all parameters.
 
-The independent audit has not taken place. The theorem is restricted to edge-subdivided complete bipartite graphs, and does not establish equivariance or a general third-power theorem for arbitrary base graphs.
+## originality
 
-Self-review: passed. Independent audit: not yet performed.
+PASS
+
+Best-of-knowledge originality after comparing implications of inspected foundational primary literature and closely related published results. Prior components are explicitly credited; the complete asserted added representation, character, filtration, or signed trace is not supplied by the checked stronger objects. This is not an absolute priority guarantee.
+
+## value
+
+PASS
+
+The natural vertex-metric graph filtration has an exact dimension jump from b persistent circles to b² three-spheres while leaving integral H1 unchanged at radius2. The all-parameter barcode and exact scale3 join are intrinsically useful in graph metric topology and persistent homology; this is not merely recomputing a known square graph.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

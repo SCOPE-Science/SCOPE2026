@@ -1,0 +1,123 @@
+{
+  "audit_date_utc": "2026-10-27",
+  "audited_at_utc": "2026-10-27T23:04:46.340911Z",
+  "axes": {
+    "correctness": {
+      "checked_sources": [
+        "Frozen Git RESULT.md blob e8942d7f48747d3ff09adaa32506c00c91e35a33",
+        "Frozen Git verifier blob 6f20a4330488ec3c0f947c7f4a45a753c13d9f73",
+        "Independent exact finite check script /mnt/data/audit_scope05_checks.py"
+      ],
+      "rationale": "Checked the exact distance taxonomy for original vertices u∈U,v∈V and subdivision vertices e_ij: original same-part distance4, opposite-part distance2; midpoints distance2 iff their edges share an endpoint, else distance4; every original-to-midpoint distance1 or3. Hence the scale3 threshold graph is EXACTLY K_{m,n} joined with the rook graph L(K_{m,n}), and its clique complex is the simplicial join. The row/column maximal-simplex cover of the rook clique complex has contractible nonempty intersections and nerve K_{m,n}, so each factor is wedge^b S1; their join is wedge^{b²} S3 integrally. At scale2 Adamaszek Theorem 5.1 and the explicit triangle-free total-graph collapse identify the subdivided 1-cycle lattice with K_{m,n}; this proves the persistence isomorphism, not just equal ranks. At scale4 all vertex distances ≤4. Independently computed all-pairs graph distances and basic ranks for (m,n)=(2,2),(2,3),(3,3),(3,4),(4,5); exact symbolic taxonomy covers all parameters.",
+      "residual_risks": [
+        "Inclusive integer thresholds and the vertex metric are essential; does not concern continuous graph realization.",
+        "The scale-two H1 map requires the specific collapse and cannot be inferred from agreement of Betti numbers alone; that collapse was checked against the cited total-graph theorem."
+      ],
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "The broader Adamaszek theorem applies to graph squares, not the third power join for S(K_mn). Other scale3 join results are for different regular graphs; the graph families and join factors differ."
+        ],
+        "reasoning": "A general formula for powers of all graph subdivisions might dominate the claim, but the inspected source restricts the operative theorems to the total graph/square and line graph, not the full third-power filtration.",
+        "searches": [
+          "subdivided complete bipartite Kmn graph Vietoris Rips 3 join rook graph persistence barcode",
+          "graph power clique complex general total graph Adamaszek 2013",
+          "Resultary scale3 Rips Tutte Coxeter graph join",
+          "Rips multipartite prism barcodes Resultary"
+        ]
+      },
+      "checked_sources": [
+        "Resultary query: subdivided complete bipartite Kmn graph Vietoris Rips 3 join rook graph persistence barcode",
+        "Resultary multipartite prism and Tutte-Coxeter graph Rips records (different families)",
+        "Repository RESULT.md and verify_bipartite.py tree/blob listing; independent BFS all-pairs check on five small m,n pairs"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "Adamaszek implies the radius2 wedge bS1; Goyal–Shukla–Singh implies the line-graph factor wedge bS1. Their conjunction still needs a NEW exact radius3 mixed-vertex adjacency theorem to identify the join and its b² spheres."
+        ],
+        "reasoning": "The claimed barcode is not a bare corollary of either published theorem alone, though the underlying factors are acknowledged and reduce its proof length.",
+        "searches": [
+          "subdivided complete bipartite Kmn graph Vietoris Rips 3 join rook graph persistence barcode",
+          "Adamaszek 1104.0433 Theorems 5.1–5.2",
+          "Goyal Shukla Singh 2009.12130 Cor 3.3"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Adamaszek gives Cl(T(G))≃Cl(G)∨triangle spheres, covering the radius-two factor when G=K_mn. The published S(K_t) Rips result has scale2 sphere wedges and contractible scale3; it does not specialize to S(K_mn)."
+        ],
+        "reasoning": "Neither a total-graph second-power result nor a differently structured complete-graph subdivision yields the scale3 exact bipartite rook join and b² degree-three persistence intervals.",
+        "searches": [
+          "subdivided complete bipartite Kmn graph Vietoris Rips 3 join rook graph persistence barcode",
+          "Adamaszek Clique complexes and graph powers 1104.0433 Theorem 5.1",
+          "Resultary Rips filtration complete graph subdivision"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "The N−1, b, b² barcode for all m,n≥2 was not found in checked tables. Goyal–Shukla–Singh already supplies the rook factor homotopy, which is acknowledged as input rather than a new result."
+        ],
+        "reasoning": "The exact table of intervals is determined by the new scale3 bipartite join plus existing factor theorems; no exact prior biclique-subdivision barcode found.",
+        "searches": [
+          "subdivided complete bipartite Kmn graph Vietoris Rips 3 join rook graph persistence barcode",
+          "published SCOPE complete-graph subdivision filtration fb5f0359b702",
+          "Goyal Shukla Singh line graph clique complex 2009.12130"
+        ]
+      },
+      "rationale": "Best-of-knowledge originality after comparing implications of inspected foundational primary literature and closely related published results. Prior components are explicitly credited; the complete asserted added representation, character, filtration, or signed trace is not supplied by the checked stronger objects. This is not an absolute priority guarantee.",
+      "residual_risks": [
+        "An older third-power theorem for incidence graphs or bipartite subdivisions indexed under clique complexes could subsume the scale-three join.",
+        "Published factors are important and credited; novelty is the exact cross-part adjacency and persistent consequences."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "RADIUS_TWO_PRIOR_RADIUS_THREE_NOT_COVERED",
+          "evidence": "Theorem 5.1 computes Cl(T(G)) as Cl(G) plus triangle spheres; K_mn triangle-free gives radius2 but not the third-power mixed adjacencies.",
+          "identifier_or_url": "https://arxiv.org/abs/1104.0433",
+          "material_read": "Full accessible arXiv PDF text, especially sections on total graphs and Theorems 5.1–5.2; inspected page image containing Theorem 5.1",
+          "method": "Primary PDF theorem and detailed proof reading",
+          "title": "Clique complexes and graph powers (Michał Adamaszek)",
+          "trigger": "Potentially dominating general graph-power theorem exactly at radius two and possibly three"
+        },
+        {
+          "assessment": "ROOK_FACTOR_COVERED_NOT_FULL_RIPS",
+          "evidence": "For triangle-free K_mn, line-graph clique complex ≃K_mn. Does not take the join with original vertices or compute Rips persistence.",
+          "identifier_or_url": "https://arxiv.org/abs/2009.12130",
+          "material_read": "Primary PDF introduction and Section 3, Corollary 3.3; inspected relevant page image",
+          "method": "Primary PDF theorem and special-case implication",
+          "title": "Topology of Clique Complexes of Line Graphs (Goyal, Shukla, Singh)",
+          "trigger": "Exact rook clique-complex factor in asserted radius-three join"
+        },
+        {
+          "assessment": "DISTINCT_BASE_GRAPH_NOT_DOMINATING",
+          "evidence": "For S(K_t), scale2 has 2-spheres and scale3 is contractible; for S(K_mn), scale3 has nontrivial 3-spheres. The two results are not substitutions.",
+          "identifier_or_url": "https://github.com/Resultary/2026/blob/main/2026/10/11/SCOPE-the-rips-filtration-of-the-complete-graph-subdivision-has-two-co--fb5f0359b702/RESULT.md",
+          "material_read": "Entire RESULT.md, scale1,2,3 homotopy proofs, references",
+          "method": "Read complete published result primary text",
+          "title": "The Rips filtration of the complete-graph subdivision has two consecutive sphere wedges",
+          "trigger": "Closest published subdivision graph Rips exact barcode"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "checked_sources": [
+        "Specific final invariant and its full proof in frozen RESULT.md blob e8942d7f48747d3ff09adaa32506c00c91e35a33",
+        "Scope and credited prior coverage in relevant cited primary results"
+      ],
+      "rationale": "The natural vertex-metric graph filtration has an exact dimension jump from b persistent circles to b² three-spheres while leaving integral H1 unchanged at radius2. The all-parameter barcode and exact scale3 join are intrinsically useful in graph metric topology and persistent homology; this is not merely recomputing a known square graph.",
+      "residual_risks": [
+        "The radius2 total-graph and line-graph factor classifications are prior mathematics and not independent contributions."
+      ],
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "limitations": [
+    "m,n≥2, each original edge subdivided once and unit graph edges; vertex shortest-path distances, inclusive thresholds.",
+    "No equivariant decomposition, no general arbitrary bipartite host graph or continuously realized metric graph result."
+  ],
+  "schema_version": 1
+}
