@@ -1,25 +1,21 @@
-# Scientific review
+# Independent mathematical audit
 
-## Correctness: PASS
+## correctness
 
-The complete three-deck is equivalent, for fixed length and exactly three ones, to the three counts of \(011\), \(110\), and \(001\). The first two restrict changes in one-positions to an integer one-parameter line. The third reduces to a quadratic with exactly one possible nonzero root, making every class at most a pair. The explicit orientation of that pair and its endpoint inequalities prove the coefficient and generating-function formula. The standalone verifier's complete enumeration through length 36 and formal-series comparison through 140 agree with the proof. This finite evidence is supportive, not the reason the infinite statement holds.
+PASS
 
-## Originality: PASS, with residual risk
+For ones at a<b<c, directly counted X_011=2a+b-1, X_110=3n-b-2c-4, X_001=C(a,2)+C(b-1,2)+C(c-2,2). These three statistics determine the other five scattered triple multiplicities using the fixed number of zeros and the first two power sums of zeros preceding each one. Equal decks imply (a,b,c) maps to (a+s,b-2s,c+s); equality of X_001 gives s(3s-(b-a-(c-b)))=0, so there is at most one nontrivial partner and it swaps the two inter-one gaps. Orient x>y to count each pair exactly once; admissible starting positions are 0<=a<=n-1-2y-4s, giving max(0,n-2y-4s) pairs. Summing the finite-at-each-coefficient geometric generating functions proves the rational all-length identity, including n<3 and n<7 boundaries. Independently enumerated all length-three decks for all weight-three words at n=3..17, checked every deck class size and exact collision count.
 
-The exact rational generating function appears **as a conjecture, not a theorem**, in Chrisnata et al. [1, Conjecture 1]. Section 5.3 of that same paper supplies the zero-vector kernel, a lower bound, and the first collision; none is claimed as new. What is newly established here is the exhaustive two-element collision classification and a proof of their complete all-length conjecture. General binomial-equivalence results [2] and newer unconstrained-deck asymptotics [4] do not imply that formula. An overlooked independent solution or terminology-equivalent statement remains possible; the evidence does not establish global uniqueness.
+## originality
 
-## Mathematical value: PASS
+PASS
 
-This resolves an explicitly formulated natural finite-word reconstruction conjecture and determines the exact codebook capacity for the fixed-weight-three, length-three scattered-read channel at every block length. The gap-swap involution gives a complete structural description, explaining each collision rather than only computing another small table.
+Chrisnata et al. Section 5.3 Conjecture 1 explicitly gives precisely the proposed rational generating function only as a conjecture, with 20 coefficients verified; the source’s Theorem 27 gives a lower bound and the first collision is known. The present quadratic collision argument proves all lengths and class sizes. General k-deck papers and unrelated deletions are not equivalent.
 
-## Sources and limitations
+## value
 
-[1] Chrisnata et al., *On the number of distinct k-decks: Enumeration and bounds*, https://doi.org/10.3934/amc.2021032 (full text, §5.3, Conjecture 1).
+PASS
 
-[2] Lejeune, Rigo, Rosenfeld, *On the binomial equivalence classes of finite words*, https://arxiv.org/abs/2001.11732 (general and two-deck context).
+This proves an explicit published enumeration conjecture for a natural scattered-subsequence reconstruction channel and gives the complete fibre classification rather than another finite census. The exact all-blocklength codebook count can be used in subsequent fixed-composition reconstruction bounds.
 
-[4] Nilforoushan, Parvaresh, *Improved upper bound on the number of distinct k-decks*, https://arxiv.org/abs/2609.23106 (unrestricted three-deck bounds).
-
-Only binary words with exactly three ones and exact scattered length-three decks are covered. Independent validation has not been performed.
-
-Self-review: passed. Independent audit: not yet performed.
+The dated certificate retains the supplied scientific assessment, sources and limitations.
