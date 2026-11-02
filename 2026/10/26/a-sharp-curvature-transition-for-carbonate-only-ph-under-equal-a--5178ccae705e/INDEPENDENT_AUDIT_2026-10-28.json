@@ -1,0 +1,116 @@
+{
+  "audit_date_utc": "2026-10-28",
+  "audited_at_utc": "2026-10-28T19:56:37Z",
+  "axes": {
+    "correctness": {
+      "rationale": "PASS: Idealized three-species carbon equilibrium has x=[H+]/K1>0, r=K2/K1>0, C/A=(x²+x+r)/(x+2r) with positive derivative onto C/A>1/2. Exact second pH derivative is a positive factor times P_r=x³+6rx²+(16r²-r)x+2r². Symbolic differentiation and exact discriminant -4r³(4r-1)²(112r-1) were recomputed independently; at r=1/112, P=(8x+1)(28x-1)²/6272, root x=1/28 maps to C/A=6/7. Cubic sign and Descartes analysis yield strict convexity for r>=1/112 (isolated zero curvature at equality), exactly two inflections and +,-,+ for r<1/112. Taylor expansion yields concentration gap 8A/3 sqrt(1/112-r)+O(A(1/112-r)). Jensen and local reverse Jensen give claimed pooling-bias signs; no universality asserted when mixing across regions.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Schulz et al publicly available complete HTML treats DIC and alkalinity perturbations; Egleston literature studies first-order sensitivities.",
+          "The target compares second derivatives at fixed carbonate alkalinity and sharp discriminant signs."
+        ],
+        "reasoning": "First-order carbonate sensitivities do not logically establish this sharp global Hessian phase; larger general Hessian literature is possible and marked residual risk.",
+        "searches": [
+          "Egleston Sabine Morel 2010 Revelle revisited buffer factors DOI:10.1029/2008GB003407",
+          "Schulz 2009 DIC versus alkalinity Biogeosciences 6 2145"
+        ]
+      },
+      "checked_sources": [
+        "Full assigned RESULT.md blob 25e5cffbf10f8abed5fe3e8289614c605ec87985, associated AUDIT, REVIEW, METADATA, SLOGAN inspected",
+        "Schulz et al 2009 Biogeosciences DOI 10.5194/bg-6-2145-2009 public full text",
+        "Egleston et al 2010 DOI 10.1029/2008GB003407 first-order buffer material",
+        "Wigley–Plummer 1976 USGS abstract, DOI 10.1016/0016-7037(76)90041-7; Oxford request VPN disconnected"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "Classical carbonate mass-action relations are explicitly prior.",
+          "Convexity and aggregation-bias reversal require global sign analysis of second derivatives; older mixing abstract is insufficient to tell whether they derived it."
+        ],
+        "reasoning": "Claim derives from prior equilibrium equations but is not known to be an already-stated corollary of first-order buffering work. Stronger hidden treatment could defeat originality.",
+        "searches": [
+          "Deffeyes 1965 carbonate equilibria algebraic approach",
+          "Wigley Plummer Mixing of carbonate waters Geochimica 1976"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Second-derivative sign reduces exactly to cubic P_r, with discriminant and universal r=1/112.",
+          "Wigley–Plummer abstract addresses carbonate mixing but does not expose derivative classification."
+        ],
+        "reasoning": "A generic diprotic buffer curvature theorem could algebraically imply the result. It has not been established by inspected material and remains explicitly at risk.",
+        "searches": [
+          "diprotic acid buffer pH vs total concentration constant alkalinity Hessian inflection",
+          "Wigley Plummer 1976 carbonate waters mixing pH convexity"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "Exact rational factor at r=1/112 verified independently; two zero-curvature points for smaller r.",
+          "No cited published table with this full parameter classification was available."
+        ],
+        "reasoning": "Not simply a tabulated physical constant: 1/112 arises from an exact cubic discriminant, but unsuccessful table search is not a novelty proof.",
+        "searches": [
+          "carbonate equilibrium pH mixing r=1/112 two inflection points analytical threshold",
+          "carbonate-only diprotic acid curvature tables pH alkalinity"
+        ]
+      },
+      "rationale": "Deffeyes carbonate mass action, Schulz et al fixed-alkalinity changes, Egleston et al buffer factors are old. The new claimed output is exact global Hessian sign phase at 1/112 and onset for the carbonate-only, fixed-A idealization. Wigley–Plummer 1976 specifically treats carbonate-water mixing but only abstract was accessible, a material historical-priority risk, not an automatic rejection.",
+      "residual_risks": [
+        "Complete 1976 Wigley–Plummer article inaccessible; earlier curvature or general diprotic-buffer theorem could dominate.",
+        "Actual seawater alkalinity contains water and borate contributions excluded here.",
+        "Finite checks cannot verify all parameter ranges; proof uses cubic sign analysis and Jensen."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "FOUND_PRIOR_MODEL_NOT_EXACT_CURVATURE",
+          "evidence": "Studies DIC/TA manipulations and buffering, no inspected theorem establishing r=1/112 curvature classification.",
+          "identifier_or_url": "https://doi.org/10.5194/bg-6-2145-2009",
+          "material_read": "Accessible complete HTML, model and manipulation discussion",
+          "method": "Open-access full-text HTML inspection",
+          "title": "CO2 perturbation experiments: similarities and differences between dissolved inorganic carbon and total alkalinity manipulations",
+          "trigger": "Exact DIC vs alkalinity adjustment at fixed carbonate equilibrium"
+        },
+        {
+          "assessment": "PARTIAL_PRIOR_FIRST_DERIVATIVES",
+          "evidence": "Six first-order sensitivities; insufficiency to prove exact second-curvature classification without further calculation.",
+          "identifier_or_url": "doi:10.1029/2008GB003407",
+          "material_read": "Abstract and available summary of the first-order buffer factors, not complete manuscript this execution",
+          "method": "Publisher/abstract literature search",
+          "title": "Revelle revisited: Buffer factors that quantify the response of ocean chemistry to changes in DIC and alkalinity",
+          "trigger": "Potential broader carbonate sensitivity theorem"
+        },
+        {
+          "assessment": "INACCESSIBLE_MATERIAL_PRIORITY_RISK",
+          "evidence": "Carbonate-water mixing modeled; complete prior second-derivative conclusions unknown, cannot claim whole-paper not covering.",
+          "identifier_or_url": "https://doi.org/10.1016/0016-7037(76)90041-7",
+          "material_read": "USGS bibliographic record and abstract only; not full article",
+          "method": "OA and bibliographic search then authorized Oxford full-text request, returned VPN disconnected",
+          "title": "Mixing of carbonate waters",
+          "trigger": "Directly relevant older mixing claim, possible equivalent pH aggregation bias"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "rationale": "Exact global curvature and sharp bifurcation distinguish physically motivated equal-alkalinity averaging regimes and both signs of bias. The complete one-variable two-inflection classification and square-root onset have use even within simplified carbonate-water models; not full seawater or environmental field inference.",
+      "status": "PASS"
+    }
+  },
+  "checked_sources": [
+    "Full assigned RESULT.md blob 25e5cffbf10f8abed5fe3e8289614c605ec87985, associated AUDIT, REVIEW, METADATA, SLOGAN inspected",
+    "Schulz et al 2009 Biogeosciences DOI 10.5194/bg-6-2145-2009 public full text",
+    "Egleston et al 2010 DOI 10.1029/2008GB003407 first-order buffer material",
+    "Wigley–Plummer 1976 USGS abstract, DOI 10.1016/0016-7037(76)90041-7; Oxford request VPN disconnected"
+  ],
+  "disposition": "passed",
+  "limitations": "Ideal three-species carbonate-only equilibrium with fixed A, K1,K2, C>A/2; common A across mixtures, closed conservative mixing; excludes water autoionization, borate, variable constants, precipitation, gas exchange and chemistry outside this model.",
+  "residual_risks": [
+    "Complete 1976 Wigley–Plummer article inaccessible; earlier curvature or general diprotic-buffer theorem could dominate.",
+    "Actual seawater alkalinity contains water and borate contributions excluded here.",
+    "Finite checks cannot verify all parameter ranges; proof uses cubic sign analysis and Jensen."
+  ],
+  "schema_version": 1
+}

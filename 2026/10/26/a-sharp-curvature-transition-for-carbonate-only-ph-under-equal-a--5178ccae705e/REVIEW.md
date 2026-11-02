@@ -1,19 +1,21 @@
-# Scientific review: carbonate-only pH curvature and mixing
+# Independent mathematical audit
 
-## Correctness — PASS
+## correctness
 
-The mass-action ratios \(x^2:x:r\), bijection of positive proton activity to \(C/A>1/2\), exact second-derivative identity, cubic discriminant, positive-root count, critical factorization, and Taylor onset coefficients have all been reconstructed. All positivity and boundary assertions are stated on open physically positive domains. Strict Jensen conclusions distinguish same-sign intervals from mixtures crossing curvature regions. The standalone checker uses exact rational identities and independent finite-difference tests, but no finite enumeration is offered as a proof of universal quantifiers.
+PASS
 
-## Originality — PASS, provisional historical priority
+PASS: Idealized three-species carbon equilibrium has x=[H+]/K1>0, r=K2/K1>0, C/A=(x²+x+r)/(x+2r) with positive derivative onto C/A>1/2. Exact second pH derivative is a positive factor times P_r=x³+6rx²+(16r²-r)x+2r². Symbolic differentiation and exact discriminant -4r³(4r-1)²(112r-1) were recomputed independently; at r=1/112, P=(8x+1)(28x-1)²/6272, root x=1/28 maps to C/A=6/7. Cubic sign and Descartes analysis yield strict convexity for r>=1/112 (isolated zero curvature at equality), exactly two inflections and +,-,+ for r<1/112. Taylor expansion yields concentration gap 8A/3 sqrt(1/112-r)+O(A(1/112-r)). Jensen and local reverse Jensen give claimed pooling-bias signs; no universality asserted when mixing across regions.
 
-Deffeyes (1965) establishes the carbonate equilibrium geometry; Schulz et al. (2009) demonstrate DIC-versus-alkalinity manipulation; Egleston et al. (2010) derive and analyze *first-order* buffering sensitivities. These are prior ingredients and are not claimed. The examined complete accessible works and targeted scientific-literature searches did not establish this specific sharp two-inflection classification or Jensen sign reversal threshold. Wigley and Plummer (1976) address carbonate-water mixing but complete text could not be inspected; equivalent or stronger diprotic-buffer results remain possible. A failed search is not proof of novelty.
+## originality
 
-## Mathematical value — PASS
+PASS
 
-The exact universal constant \(1/112\), classification of *all* positive carbon concentrations and acid-ratio parameters, and square-root opening of the concave band identify a natural boundary between guaranteed one-sided aggregation bias and possible bias reversal. Both conservative variables are physically motivated. The result does not assert a surprising first derivative, manufacture arbitrary finite parameters, or extrapolate to full seawater chemistry.
+Deffeyes carbonate mass action, Schulz et al fixed-alkalinity changes, Egleston et al buffer factors are old. The new claimed output is exact global Hessian sign phase at 1/112 and onset for the carbonate-only, fixed-A idealization. Wigley–Plummer 1976 specifically treats carbonate-water mixing but only abstract was accessible, a material historical-priority risk, not an automatic rejection.
 
-## Scope and residual risk
+## value
 
-Carbonate-only rather than total alkalinity; constant thermodynamic constants; no gas exchange, precipitation, kinetic effects, or unequal-alkalinity mixing. Missing access to the full Wigley–Plummer manuscript and possible generic implicit-buffer curvature theorems leave historical-priority risk. The result is not independently certified.
+PASS
 
-Self-review: passed. Independent audit: not yet performed.
+Exact global curvature and sharp bifurcation distinguish physically motivated equal-alkalinity averaging regimes and both signs of bias. The complete one-variable two-inflection classification and square-root onset have use even within simplified carbonate-water models; not full seawater or environmental field inference.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
