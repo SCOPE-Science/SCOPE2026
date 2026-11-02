@@ -1,0 +1,133 @@
+{
+  "correctness": {
+    "rationale": "For every q>=2 the unit vector yields H=2I+4uu^T with exactly 2 and 6. The exact BLOKS block formulas give q unequal active poles plus a common inactive eigenvalue. Rank-one secular interlacing supplies q simple active roots, Jensen gives F(eta_0)<=1-q<0 excluding a collision, and the first active coordinate of each eigenvector is nonzero; together with even e_2 this proves exact CG grades 2 versus q+1. The homogeneous block comparison is an exact eigenvalue calculation. Independently rerunnable exact SymPy checks cover q=2..7 and explicit exact PCG q=2..5. No claim is made that finite tests prove arbitrary q.",
+    "status": "PASS"
+  },
+  "independent": false,
+  "independent_audit_status": "not_performed",
+  "originality": {
+    "broader_coverage": {
+      "evidence": [
+        "Demmel (2023) studies near-optimal conditioning for general block-Jacobi methods; its inspected abstract does not state exact minimal-polynomial growth for the prescribed Nyström block sketch.",
+        "Kolotilina (2002) concerns optimally conditioned block matrices (abstract examined); its full text was not accessible, so possible stronger implication is a residual risk."
+      ],
+      "reasoning": "Condition-number minimization and block-scaling comparisons do not by themselves determine the exact number of distinct preconditioned eigenvalues nor prove full support of an explicit right-hand side. An inaccessible more general result could subsume the special construction; no affirmative such implication was found.",
+      "searches": [
+        "block diagonal preconditioner dense equicorrelated kernel Gram matrix exact preconditioned condition number equals original",
+        "preconditioned conjugate gradient exchangeable covariance rank one all-ones common mode block Jacobi spectrum",
+        "two-eigenvalue matrix becomes q+1 eigenvalues preconditioned conjugate gradient block diagonal Jacobi finitely terminating",
+        "Demmel Nearly Optimal Block-Jacobi Preconditioning 2023 DOI 10.1137/22M1504901",
+        "Kolotilina Optimally conditioned block matrices 2002 DOI 10.1016/S0024-3795(01)00412-8"
+      ]
+    },
+    "checked_sources": [
+      "arxiv:2610.13382v1 (HTML main Sections 2–4)",
+      "DOI:10.1137/22M1504901 (abstract)",
+      "DOI:10.1016/S0024-3795(01)00412-8 (abstract)",
+      "https://www.mdpi.com/1999-4893/13/4/100 (abstract)",
+      "Six mathematical published-record semantic searches; four closest topical findings considered by statement implications"
+    ],
+    "claim_vs_prior_implication": {
+      "evidence": [
+        "The motivating preprint supplies the matrix H and sketched block B; its inspected statements do not provide the q+1 level classification, Krylov-grade witness, or isospectral comparison.",
+        "General secular, projector and CG termination identities are known and transparently used as lemmas.",
+        "Demmel and Kolotilina investigate general block conditioning, with no decisive direct covering assertion visible in the material examined."
+      ],
+      "reasoning": "The construction is compatible with generic block-Jacobi theory, but such compatibility differs from a prior theorem logically establishing this particular full-landmark sketch and its exact right-hand-side iteration gap. The comparison is based on inspected content, not on titles alone; uninspected appendices/full papers remain noted risks.",
+      "searches": [
+        "arxiv:2610.13382v1",
+        "rank one kernel ridge Gram identity plus outer product block Jacobi sketched preconditioner creates q+1 distinct eigenvalues conjugate gradient",
+        "two-eigenvalue matrix becomes q+1 eigenvalues preconditioned conjugate gradient block diagonal Jacobi finitely terminating",
+        "10.1137/22M1504901",
+        "10.1016/S0024-3795(01)00412-8"
+      ]
+    },
+    "equivalent_formulations": {
+      "evidence": [
+        "The source BLOKS definition uses a full-block Nyström sketch which reduces to a diagonal preconditioner on this rank-one Gram family.",
+        "The secular equation for a diagonal-plus-rank-one active block, coupled to one inactive scalar eigenvalue, gives q+1 levels; no matching source result was located by these queries."
+      ],
+      "reasoning": "Aliases checked include block Jacobi, sketched block Nyström, low-rank-diagonal spectral splitting, Krylov grade, minimal polynomial, and PCG finite termination. The classic secular equation is a proof ingredient; a source proving that equation alone does not imply the q-dependent PCG-versus-CG separation for this fixed BLOKS formula.",
+      "searches": [
+        "sketched block Jacobi Nyström kernel ridge BLOKS equicorrelation compound symmetry matrix condition number no improvement eigenvalues",
+        "rank one kernel ridge Gram identity plus outer product block Jacobi sketched preconditioner creates q+1 distinct eigenvalues conjugate gradient",
+        "BLOKS kernel ridge method unpreconditioned two steps preconditioned more steps q blocks orientation rank-one",
+        "block jacobi preconditioner low rank plus diagonal conjugate gradient number eigenvalues increases block",
+        "arxiv:2610.13382v1"
+      ]
+    },
+    "exact_database_or_table": {
+      "evidence": [
+        "The full-data rank-one Nyström input is an exact, parameterized matrix construction rather than a tabulated invariant.",
+        "The source paper sections inspected contain block equations and numerical benchmarking, not an exact table of the claimed q+1 distinct eigenvalue count."
+      ],
+      "reasoning": "Searched for a pre-existing exact table, finite example, or named rank-one block sketch family covering the same parameterized phenomenon; no directly matching record was found. Search absence is not a proof of novelty.",
+      "searches": [
+        "sketched block Jacobi Nyström kernel ridge BLOKS equicorrelation compound symmetry matrix condition number no improvement eigenvalues",
+        "BLOKS kernel ridge method unpreconditioned two steps preconditioned more steps q blocks orientation rank-one",
+        "arxiv:2610.13382v1"
+      ]
+    },
+    "rationale": "Best-knowledge comparison of the motivating arXiv source Sections 2-4, published general block-Jacobi and low-rank preconditioning literature, six actual mathematical published-finding corpus queries and accessible prior result titles/claims located no direct theorem establishing this specified spectral-grade family and isospectral comparison. Known secular and CG grade arguments are credited as ingredients rather than separately claimed new. Incomplete appendix/full-text access remains an explicitly material historical-priority risk.",
+    "residual_risks": [
+      "The motivating paper appendix was not completely inspected after follow-up open-access retrieval failed.",
+      "Specialized Kolotilina (2002) and Demmel (2023) full texts were not obtained; a stronger unexamined statement could cover an aspect of the result.",
+      "Semantic searches and the checked records do not establish exhaustive historical priority; independent expert verification not performed."
+    ],
+    "source_inspections": [
+      {
+        "assessment": "Source defines method but inspected claims do not directly establish q+1 Krylov grade or the isospectral construction.",
+        "evidence": [
+          "H=K_nm^T K_nm+lambda*n*K_mm; per-block sketch=(nq/m0)K_j^2+lambda*nq*K_j; preconditioned CG used for solves."
+        ],
+        "identifier_or_url": "https://arxiv.org/abs/2610.13382",
+        "material_read": "Full-text HTML Sections 2–4: problem setup, normal equations, preconditioning construction, numerical experiments, and discussion; appendices not verified",
+        "method": "Original open-access arXiv HTML rendering; mathematical equations compared directly",
+        "title": "BLOKS: Scaling Kernel Solvers with Sketched Block Preconditioning",
+        "trigger": "Source of the exact sketched block formula and full-Nyström normal equations"
+      },
+      {
+        "assessment": "Relevant to block-Jacobi conditioning, not demonstrably to the exact preconditioned Krylov grade; residual full-text risk retained.",
+        "evidence": [
+          "Describes nearly optimal block-Jacobi preconditioning for SPD matrices."
+        ],
+        "identifier_or_url": "https://doi.org/10.1137/22M1504901",
+        "material_read": "Article abstract and public bibliographic record",
+        "method": "Accessible publisher/public abstract; full text not obtained",
+        "title": "Nearly Optimal Block-Jacobi Preconditioning",
+        "trigger": "Potentially broader block-Jacobi matrix condition-number result"
+      },
+      {
+        "assessment": "Possible broad block-conditioning implication remains unverified, though no directly covering Krylov iteration theorem is visible.",
+        "evidence": [
+          "Focuses on conditioning of block matrices, not an explicit full-data sketched kernel-ridge instance in the available text."
+        ],
+        "identifier_or_url": "https://doi.org/10.1016/S0024-3795(01)00412-8",
+        "material_read": "Abstract and bibliographic details only",
+        "method": "Accessible abstract; full text not obtained",
+        "title": "Optimally conditioned block matrices",
+        "trigger": "Potential stronger coverage of block diagonal congruence spectra"
+      },
+      {
+        "assessment": "Surveys broad preconditioner updates rather than proving the specific BLOKS q+1 grade obstruction.",
+        "evidence": [
+          "Discusses low-rank preconditioner updates for sequences of symmetric linear systems."
+        ],
+        "identifier_or_url": "https://www.mdpi.com/1999-4893/13/4/100",
+        "material_read": "Article abstract and public bibliographic metadata",
+        "method": "Open web abstract",
+        "title": "A Survey of Low-Rank Updates of Preconditioners for Sequences of Symmetric Linear Systems",
+        "trigger": "Background for low-rank perturbations of preconditioned systems"
+      }
+    ],
+    "status": "PASS"
+  },
+  "review_type": "self_review",
+  "schema_version": 1,
+  "scope_run_id": "1b0a634c-0def-42d6-928e-a04e89b658c8",
+  "self_review_status": "passed",
+  "value": {
+    "rationale": "The finding directly addresses a recent numerical method whose claimed benefit is iterative kernel-ridge solving. It gives a natural complete extremal statement for a rank-one full-landmark test family: exact two-step CG is changed to q+1-step PCG for a single explicit RHS despite uniformly conditioned original systems, and homogeneous isospectral blocks collapse the preconditioned spectrum to three levels. This distinguishes blockwise leverage geometry from global eigenvalues, gives a reproducible structural benchmark for sketch/preconditioner design, and has arbitrarily large parameter q; the claim deliberately excludes empirical runtime or finite-tolerance slowdown.",
+    "status": "PASS"
+  }
+}
