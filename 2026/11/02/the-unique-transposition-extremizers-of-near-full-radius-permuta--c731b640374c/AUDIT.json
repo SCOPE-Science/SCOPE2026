@@ -1,0 +1,103 @@
+{
+  "correctness": {
+    "rationale": "Equation (1) normalizes the overlap to the complement of two derangement constraints. The exactly enumerated one- and two-event counts yield the transposition formula. Bonferroni on any three moved points bounds all other cycle types strictly below it by Delta_n>0 for every n>=5. Boundary n=5,6,7 and recurrence n>=8 are checked. Distinct independent code paths enumerate all types through n=8 and restrictions through n=8.",
+    "status": "PASS"
+  },
+  "independent": false,
+  "independent_audit_status": "not_performed",
+  "originality": {
+    "broader_coverage": {
+      "evidence": [
+        "Abdollahi et al., Theorem 4.2 is a character-sum maximum over all relevant conjugacy classes; Section 3 proves transposition maximization only for r=5,6,7: https://arxiv.org/html/2601.02844v1",
+        "Wang–Fu–Konstantinova is reported in the later full primary text to establish fixed-r sufficiently-large-n cases: https://doi.org/10.1007/s10623-024-01509-4"
+      ],
+      "reasoning": "The general character sum is an evaluation procedure for each n,r, not a uniform strict comparison; the sufficiently-large-n-for-fixed-r theorem has no verified hypothesis covering the moving diagonal n=r+1. The infinite strict extremality statement is not an immediate specialization of these prior statements.",
+      "searches": [
+        "\"The Sequence Reconstruction of Permutations under Hamming Metric with Small Errors\" Theorem 4.2 Conjecture 2.1",
+        "\"The sequence reconstruction of permutations with Hamming metric\" Theorem 9 radius n-1"
+      ]
+    },
+    "checked_sources": [
+      "https://arxiv.org/html/2601.02844v1",
+      "https://doi.org/10.1007/s10623-024-01509-4",
+      "https://doi.org/10.1007/s12095-024-00717-y"
+    ],
+    "claim_vs_prior_implication": {
+      "evidence": [
+        "The primary 2026 paper still labels general optimality a conjecture; its Theorem 1.1 covers three fixed radii: https://arxiv.org/html/2601.02844v1",
+        "The 2024/2025 precursor abstract describes radius<=4 reconstruction and prescribed-distance values: https://doi.org/10.1007/s10623-024-01509-4"
+      ],
+      "reasoning": "Our strict comparison for every n>=5 with r=n-1 solves infinitely many conjectured cases, including r>=15 beyond the published finite table. A known closed expression for the transposition intersection does not imply the global maximum over all cycle types; the proof establishes this additional fact.",
+      "searches": [
+        "\"Conjecture 2.1\" \"N(n,r)\" \"I(n,2,r)\"",
+        "\"sequence reconstruction\" permutations \"n=r+1\" Hamming derangements"
+      ]
+    },
+    "equivalent_formulations": {
+      "evidence": [
+        "The sequence reconstruction problem is exactly the maximum intersection of two permutation Hamming balls: Abdollahi et al., Definition of N(n,r) and Conjecture 2.1, https://arxiv.org/html/2601.02844v1",
+        "The 2024/2025 predecessor computes fixed mutual-distance values I(n,d,r): https://doi.org/10.1007/s10623-024-01509-4"
+      ],
+      "reasoning": "The new equality N(n,n-1)=I(n,2,n-1) is precisely the infinite near-full-radius diagonal of the old transposition conjecture. Formulae for I(n,2,r) alone do not compare all other center types, and the present three-event upper bound supplies that missing global inequality.",
+      "searches": [
+        "\"permutation Hamming ball intersection N(n,n-1) maximum at transposition derangement diagonal radius n-1 proof\"",
+        "\"Levenshtein permutation sequence reconstruction r=n-1 Hamming ball intersection conjecture transposition\""
+      ]
+    },
+    "exact_database_or_table": {
+      "evidence": [
+        "Abdollahi et al., Table 2, n=9 r=8 gives 197864 and n=10 r=9 gives 2012014: https://arxiv.org/html/2601.02844v1",
+        "The new exact expression reproduces both, but is proved for every n>=5, without stopping at the table cutoff."
+      ],
+      "reasoning": "The finite tabulated instances are covered prior work, not new numerical discoveries. They do not supply a proof for n>15 or uniquely characterize all maximizers on the unbounded diagonal.",
+      "searches": [
+        "\"The Sequence Reconstruction of Permutations under Hamming Metric with Small Errors\" Table 2 N(9,8) N(10,9)",
+        "\"derangement\" \"Hamming balls\" \"n-1\" permutations maximum"
+      ]
+    },
+    "rationale": "The inspected January 2026 primary article explicitly states the transposition-maximizing conjecture, proves only the fixed radii 5,6,7, and tabulates radii 8 through 14. Its general character formula computes maxima but does not classify an infinite diagonal of unique maximizing center types. The older 2024/2025 paper supplies prescribed-center-distance formulas and large-n-for-fixed-r results, neither shown to imply the n=r+1 diagonal. Searches of mathematical research records and accessible own claims found no equivalent global diagonal theorem. Full older text access failure leaves a genuine priority risk.",
+    "residual_risks": [
+      "The 2024/2025 full predecessor paper was unavailable, so there could be a stronger implicit consequence of its fixed-center-distance calculations or sufficiently-large-n theorem.",
+      "Novelty assessment uses accessible sources and searches, not exhaustive coverage of unindexed mathematical literature.",
+      "No independent review of the proof or scientific priority has been performed."
+    ],
+    "source_inspections": [
+      {
+        "assessment": "Prescribed-radius and finite tabulated results do not include the all-length near-full-radius strict optimality theorem",
+        "evidence": "Sections 2–4, in particular Conjecture 2.1 and Table 2 at https://arxiv.org/html/2601.02844v1",
+        "identifier_or_url": "arXiv:2601.02844v1 / https://arxiv.org/html/2601.02844v1",
+        "material_read": "Complete accessible HTML article, Sections 1–4, Conjecture 2.1, Lemma 2.2, Theorems 1.1 and 4.2, Tables 1–2, and Appendix algorithm descriptions",
+        "method": "Direct reading of the primary open-access preprint",
+        "title": "The Sequence Reconstruction of Permutations under Hamming Metric with Small Errors",
+        "trigger": "Identical parameter N(n,r) and explicit optimality conjecture"
+      },
+      {
+        "assessment": "The available material documents fixed r<=4 and prescribed center distances, but cannot exclude an implicit uninspected diagonal proof",
+        "evidence": "https://doi.org/10.1007/s10623-024-01509-4",
+        "identifier_or_url": "DOI:10.1007/s10623-024-01509-4",
+        "material_read": "Accessible abstract, first-page publisher preview, bibliographic record and its role as described and cited in full by the 2026 paper; not the full paper",
+        "method": "Publisher preview and bibliographic abstract after open-access searches did not locate complete text",
+        "title": "The sequence reconstruction of permutations with Hamming metric",
+        "trigger": "Original fixed-distance formulas and conjecture"
+      },
+      {
+        "assessment": "The abstract discusses d=2r and 2r-1, rather than near-full-radius maximum with unrestricted center separation",
+        "evidence": "https://doi.org/10.1007/s12095-024-00717-y",
+        "identifier_or_url": "DOI:10.1007/s12095-024-00717-y",
+        "material_read": "Publication record, abstract and the 2026 paper reference; full body not accessible",
+        "method": "Reading accessible primary bibliographic abstract",
+        "title": "The sequence reconstruction problem for permutations with the Hamming distance",
+        "trigger": "Earlier primary work using identical metric and reconstruction vocabulary"
+      }
+    ],
+    "status": "PASS"
+  },
+  "review_type": "self_review",
+  "schema_version": 1,
+  "scope_run_id": "c731b640-374c-4b60-95e1-2d17c52dbe87",
+  "self_review_status": "passed",
+  "value": {
+    "rationale": "This is an explicit unbounded diagonal family of a natural published open extremality conjecture for permutation Hamming reconstruction, with a strict maximizer classification and exact all-length ambiguity count. It determines the precise channel threshold in a regime with growing radius; it is not just a routine evaluation of a fixed-radius table.",
+    "status": "PASS"
+  }
+}
