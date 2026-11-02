@@ -1,0 +1,124 @@
+{
+  "correctness": {
+    "rationale": "From Proposition 3.5 and Algorithm 3, the local scalar APG2 step has \\(y=x+(z-x)/(1+|x-z|)\\), \\(z^+=2(1-a)y-x\\) and \\(x^+=(x+z^+)/2\\). Its \\(C^1\\) derivative at zero is \\(M_{1-a}=\\begin{pmatrix}0&1-a\\\\-1&2(1-a)\\end{pmatrix}\\). The three-round derivative is \\(T_s=M_sM_{4/5}^2\\), with trace \\((48s-32)/25\\) and determinant \\(16s/25\\). Exact Jury factors are \\((25-16s)/25\\), \\((57-32s)/25\\), and \\((64s-7)/25\\), giving the sharp threshold. Below \\(s=7/64\\), the origin is a hyperbolic saddle, and the legal diagonal initialization is transverse to its stable eigenspace because the determinant of the initialized direction and its image is \\((4s-12)/25\\). The classical \\(C^1\\) local stable-manifold theorem then forces finite-time neighborhood exit for all sufficiently small nonzero legal starts. The state identity \\(z_k=2x_k-x_{k-1}\\) passes neighborhood exit to scalar optimization iterates. Above \\(s=7/64\\), strict Schur stability gives local exponential attraction. Ordinary proximal gradient has global three-step contraction factor \\(16s/25\\). All critical symbolic identities and the nonlinear derivative limit were checked with the standalone script; finite experiments are supplemental, not universal proofs.",
+    "status": "PASS"
+  },
+  "independent": false,
+  "independent_audit_status": "not_performed",
+  "originality": {
+    "broader_coverage": {
+      "evidence": [
+        "https://arxiv.org/abs/2610.11425: Theorem 3.7 gives a positive-variation objective-gap bound rather than local convergence to the common zero minimizer.",
+        "https://doi.org/10.1155/S1024123X04401069: published abstract describes general periodically switched linear-system stability, not the specific APG2 map.",
+        "https://arxiv.org/abs/2008.03903: abstract describes a different accelerated-gradient hybrid control algorithm."
+      ],
+      "reasoning": "A uniform positive tracking-gap upper bound does not imply attraction to zero or preclude a local hyperbolic saddle. General switched-system spectral theory supplies the method of proof, but not the stated APG2 construction and initialized-gradient comparison. Different hybrid-control algorithms and cyclic coordinate minimization do not logically imply this source-algorithm theorem. No covering stronger theorem was identified in inspected material.",
+      "searches": [
+        "state-dependent accelerated proximal gradient time-varying convex optimization oscillations two-cycle tracking periodic quadratic sensitivity compared with proximal gradient",
+        "monodromy characteristic 1+trace+det periodic accelerated proximal method contraction violation under switching strongly convex objectives",
+        "periodic time varying accelerated proximal gradient common minimizer instability Floquet switched quadratics",
+        "https://arxiv.org/abs/2610.11425 Theorem 3.7",
+        "https://doi.org/10.1155/S1024123X04401069"
+      ]
+    },
+    "checked_sources": [
+      "https://arxiv.org/abs/2610.11425",
+      "https://doi.org/10.1155/S1024123X04401069",
+      "https://arxiv.org/abs/2008.03903",
+      "Published mathematical result: Three blocks create a sharp momentum stability barrier for cyclic alternating minimization",
+      "Published mathematical result: A sharp flip frontier for the Polar-Express surrogate on scalar quadratics"
+    ],
+    "claim_vs_prior_implication": {
+      "evidence": [
+        "Published finding “Three blocks create a sharp momentum stability barrier for cyclic alternating minimization” analyzes global momentum over cyclic coordinate blocks, a different numerical map.",
+        "Published finding “A sharp flip frontier for the Polar-Express surrogate on scalar quadratics” analyzes a distinct static surrogate iteration.",
+        "https://arxiv.org/abs/2610.11425: source defines APG2 but does not conclude an initialized saddle under periodic common-minimizer curvature switching."
+      ],
+      "reasoning": "The theorem requires the exact source recurrence and its initialization, a three-round derivative, and a stable-manifold transversality statement. Neither the motivating objective-gap bound nor different-algorithm quadratic instabilities imply those conjunctions. The claim does not characterize generic momentum methods or rediscover ordinary Schur theory.",
+      "searches": [
+        "state-dependent accelerated proximal gradient time-varying convex optimization oscillations two-cycle tracking periodic quadratic sensitivity compared with proximal gradient",
+        "one-step TV-APG Kamijima Marumo Takeda 2026 3-periodic scalar quadratic APG2 Floquet condition 7/64 unstable zero stationary optimizer while proximal gradient converges",
+        "monodromy characteristic 1+trace+det periodic accelerated proximal method contraction violation under switching strongly convex objectives",
+        "https://arxiv.org/abs/2610.11425 Algorithms 2,3 and Theorem 3.7"
+      ]
+    },
+    "equivalent_formulations": {
+      "evidence": [
+        "https://arxiv.org/abs/2610.11425: APG2 exact two-coordinate update in equations (3.17)-(3.20) and Algorithm 2.",
+        "Generic Floquet/Jury stability theory applies to the derivative of a periodic map, but does not specify the nonlinear initialized map of this algorithm."
+      ],
+      "reasoning": "Checked the original formulation, its equivalent two-coordinate formulation, the prescribed first PG initialization, and periodic product identities. No inspected equivalent formulation supplies the threshold 7/64 or proves that the legal initialized scalar line crosses the local stable manifold. Standard Schur and Floquet facts are ingredients, not proposed novelty.",
+      "searches": [
+        "TV-APG APG2 state-dependent momentum beta=(1+2||x-z||/D)^-1 periodic switching three strongly convex scalar quadratics common minimizer locally unstable Floquet matrix",
+        "one-step TV-APG Kamijima Marumo Takeda 2026 3-periodic scalar quadratic APG2 Floquet condition 7/64 unstable zero stationary optimizer while proximal gradient converges",
+        "state dependent momentum APG2 z update 2(1-a)y-x local eigenvalue less than minus one periodic curvature (9/10,1/5,1/5)",
+        "periodic time varying accelerated proximal gradient common minimizer instability Floquet switched quadratics"
+      ]
+    },
+    "exact_database_or_table": {
+      "evidence": [
+        "The exact monodromy matrix, Schur inequalities and boundary were derived algebraically, with symbolic identities checked by the attached executable.",
+        "Searches exposed adjacent optimization stability counterexamples but no matching threshold table or exact APG2 recurrence result."
+      ],
+      "reasoning": "The exact rational frontier is not claimed novel merely because a search failed. Closest returned results were compared by algorithm map and proof conclusion; the available records did not contain the same method-specific threshold or a theorem subsuming it.",
+      "searches": [
+        "one-step TV-APG Kamijima Marumo Takeda 2026 3-periodic scalar quadratic APG2 Floquet condition 7/64 unstable zero stationary optimizer while proximal gradient converges",
+        "state dependent momentum APG2 z update 2(1-a)y-x local eigenvalue less than minus one periodic curvature (9/10,1/5,1/5)",
+        "\"7/64\" APG2 TV-APG Floquet instability",
+        "\"sqrt(906)\" acceleration periodic quadratic"
+      ]
+    },
+    "rationale": "The source's exact APG2 update, prescribed initialization, objective-gap theorem and pertinent appendices were inspected in full. Published neighboring mathematical claims and broader time-varying acceleration or periodic linear stability literature were compared by implication. No inspected material established this initialized algorithm's exact \\(s=7/64\\) frontier. Schur/Jury and stable-manifold theory are standard tools, not claimed as new. Searches are not exhaustive historical priority proofs.",
+    "residual_risks": [
+      "Full texts of general periodically switched system and hybrid-gradient-controller sources were not inspected; no whole-document noncoverage inference is made.",
+      "Published findings and web literature coverage are incomplete and cannot certify global novelty.",
+      "Earlier unpublished or unindexed exact APG2 counterexamples could exist."
+    ],
+    "source_inspections": [
+      {
+        "assessment": "The precise iteration and source proof are covered; the common-minimizer periodic quadratic Floquet frontier, initialized-line saddle and sharp 7/64 threshold are not established there.",
+        "evidence": [
+          "Eqs. (3.17)-(3.20) give the beta/y/z+/x+ update.",
+          "Algorithm 3 shows first PG step and n-1 preliminary APG2 steps.",
+          "Theorem 3.7 gives a function-gap upper bound with nonzero variation allowance, not convergence or stability at a shared minimizer."
+        ],
+        "identifier_or_url": "https://arxiv.org/abs/2610.11425",
+        "material_read": "Full accessible HTML: Assumption 2.1; Section 3.1 baseline PG; Section 3.2 equations (3.14)-(3.21) and Algorithms 1-2; Section 3.3 Algorithm 3 and Theorem 3.7; Appendix D.2 update-equivalence proof and pertinent appendix stability/potential passages.",
+        "method": "Read original HTML equations and algorithm steps against exact recurrence; examined objective-gap conclusions and appendix structure.",
+        "title": "Accelerated Proximal Gradient Method for Non-Strongly Convex Time-Varying Optimization",
+        "trigger": "Exact same APG2/TV-APG algorithm; must check potential direct coverage in the primary source."
+      },
+      {
+        "assessment": "Provides general spectral-stability context. Full-text priority cannot be excluded based on an abstract; no claim of whole-document noncoverage is made.",
+        "evidence": [
+          "The publisher abstract treats periodically switched linear systems and stability conditions rather than the specific nonlinear APG2 algorithm or its prescribed initialization."
+        ],
+        "identifier_or_url": "https://doi.org/10.1155/S1024123X04401069",
+        "material_read": "Publisher abstract and bibliographic information; full article not inspected.",
+        "method": "Compared general system class and announced results at abstract level only.",
+        "title": "Stability analysis of periodically switched linear systems using Floquet theory",
+        "trigger": "General periodic Floquet stability is a plausible stronger conceptual umbrella."
+      },
+      {
+        "assessment": "Different accelerated controller and switching setting, with relevant general context. Uninspected full-text residual risk remains.",
+        "evidence": [
+          "The abstract describes continuous and hybrid gradient flows for switched LTI system control with restart, not Kamijima–Marumo–Takeda Algorithm 3."
+        ],
+        "identifier_or_url": "https://arxiv.org/abs/2008.03903",
+        "material_read": "Public abstract, not full manuscript.",
+        "method": "Compared stated continuous/hybrid controller model to exact discrete APG2 recurrence.",
+        "title": "Online Optimization of Switched LTI Systems Using Continuous-Time and Hybrid Accelerated Gradient Flows",
+        "trigger": "Potentially related time-varying acceleration and switched-system stability."
+      }
+    ],
+    "status": "PASS"
+  },
+  "review_type": "self_review",
+  "schema_version": 1,
+  "scope_run_id": "ab21178c-4723-456f-b997-2f527b47f420",
+  "self_review_status": "passed",
+  "value": {
+    "rationale": "For the same sequence of strongly convex objectives with no optimizer drift, the source acceleration develops a hyperbolic saddle below \\(s=7/64\\), yet ordinary proximal gradient remains globally contractive. The sharp numerical threshold and its verification under the genuine prescribed initialization create a useful method-specific robustness benchmark without generalizing to arbitrary momentum methods or claiming global divergence.",
+    "status": "PASS"
+  }
+}
