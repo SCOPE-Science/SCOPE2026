@@ -1,0 +1,15 @@
+# Scientific review
+
+## Correctness — PASS
+The alternating edge-bracket equations are equivalent, entry by entry, to vanishing edge minors of an ordered row-basis matrix. Nonzero supported columns are forced into one projective line per induced connected component, and row rank is exactly the spanning condition on these lines. Subspace-lattice Möbius inversion, division by the free row-basis action, and elementary Gaussian-binomial counting prove the exact formulas. The support-stratum parameter space is a smooth irreducible open subset of a product of punctured vector spaces and tori with a free general-linear quotient. The inverse transform is triangular with nonzero diagonal, and distinct projective-space cardinalities permit polynomial interpolation. Direct RREF enumeration, finite-field multiplication and interpolation checks agree in 84 graph–field cases. Finite tests are corroboration, not proof.
+
+## Originality — PASS (best-knowledge assessment)
+The vertex-induced component polynomial and the graphical Lie algebra are known. The precise all-rank finite-field count, the canonical full subalgebra dimension distribution, support-stratum dimensions, and recovery equivalence were compared with the primary construction and graph polynomial papers, the relevant independence-polynomial and conjugacy-class papers, and the recoverable prior mathematical claims. A previous maximum-dimensional abelian-ideal count is explicitly excluded from novelty. None of the inspected works states or mathematically implies the complete set of claims without the additional column-line and subspace-inversion argument. The risk of an unlocated general theorem or prior re-expression of this transform remains, and independent publication-priority verification is not claimed.
+
+## Value — PASS
+The number of abelian subalgebras of each dimension is an intrinsic arithmetic invariant of a Lie algebra, unlike a random finite slice. The all-graph census replaces isolated examples by a complete structural answer and transfers known computational recurrences for the subgraph-component polynomial to all dimensions. Its converse identifies exactly the information encoded by the entire horizontal spectrum; the nonisomorphic-tree example supplies a sharp limitation of the invariant. Smooth support strata provide geometric explanation and dimensions. This is a natural unbounded-family classification rather than a table recomputation.
+
+## Prior work and limitations
+Mainkar gives the graph Lie-algebra construction and isomorphism theorem; Tittmann–Averbouch–Makowsky give the graph polynomial and Q-equivalent trees. Rossmann's conjugacy-class enumeration and Aldi et al.'s independence-polynomial/dimension-bound work do not count all abelian subalgebras. The previous maximum-dimensional ideal result is covered prior work. The new theorem does not classify arbitrary nilpotent Lie algebras or irreducible closures of support strata, and no independent audit or exhaustive worldwide priority verification has occurred.
+
+Self-review: passed. Independent audit: not yet performed.
