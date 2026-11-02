@@ -1,0 +1,135 @@
+{
+  "correctness": {
+    "rationale": "The proof derives both resultant recursions directly from the product and root-evaluation laws and the fact B_n(0)+B_{n+1}(0)=1. Positivity and a degree gap at most one follow by induction. A constructively tracked degree-tie family has leading coefficients (1,j+1) and resultant 1, from which a double odd-step produces magnitude m at N_m=(7*4^m+5)/3; a subsequent tie-preserving ray gives infinitely many occurrences. The standalone exact integer Sylvester determinant checker completed 259 pairwise checks, 16 explicit witnesses and 64 repetition tests. No heuristic inference from finite checks is used.",
+    "status": "PASS"
+  },
+  "independent": false,
+  "independent_audit_status": "not_performed",
+  "originality": {
+    "broader_coverage": {
+      "evidence": [
+        "Gawron, arXiv:1401.3553v1, abstract and degree-equality material describes degree patterns and rational roots, not integer resultant magnitudes.",
+        "Schinzel, doi:10.1007/978-3-319-28203-9_25, accessible abstract describes leading coefficients in terms of binary expansion, without a stated resultant theorem; full chapter unavailable.",
+        "Dilcher and Tomkins, Integers 18 (2018), article A29, Sections 1-2 and abstract concern factors, square classes and divisibility rather than a full consecutive resultant spectrum."
+      ],
+      "reasoning": "Degrees and leading coefficients supply ingredients to the new recurrence, but do not by themselves imply the exact Sylvester identities and explicit infinite realization for every positive integer. Inaccessible Schinzel full text is the most material residual comparison risk; neither its abstract nor the inspected stronger-context sources assert a domination.",
+      "searches": [
+        "\"The Leading Coefficients of Stern Polynomials\" theorem",
+        "Schinzel leading coefficients Stern polynomials preprint arxiv",
+        "\"A note on the arithmetic properties of Stern Polynomials\" resultant",
+        "\"Square Classes and Divisibility Properties of Stern Polynomials\" resultant"
+      ]
+    },
+    "checked_sources": [
+      "arxiv:1102.5109v1",
+      "arxiv:1401.3553v1",
+      "https://math.colgate.edu/~integers/s29/s29.pdf",
+      "doi:10.1007/978-3-319-28203-9_25 (abstract only)",
+      "published-finding corpus queries for Stern Sylvester resultants, binary recurrence, exact index family and aliases; closest retrieved unrelated identifiers documented in evidence"
+    ],
+    "claim_vs_prior_implication": {
+      "evidence": [
+        "Ulas and Ulas (2011), Theorem 2.5 and Corollary 2.6, give a polynomial difference identity and gcd equals 1, respectively.",
+        "Gawron (2014) gives equal-degree index patterns, and Schinzel (2016) is described as finding leading-coefficient formulas.",
+        "The new result proves both an all-index numerical recursion and D_{(7*4^m+5)/3}=m for all m>=1, followed by infinite repetitions."
+      ],
+      "reasoning": "The new all-positive-integer spectrum is strictly stronger than knowing that each pair is coprime over Q[t], and is not a numerical restatement of any inspected degree classification. Its derivation requires tracking exact changes in polynomial degree under both binary transformations and their consequent resultant leading-coefficient factors. This is distinct from the Schinzel leading-coefficient objective, though full-text uncertainty is acknowledged.",
+      "searches": [
+        "\"Stern polynomials\" \"resultant\" Schinzel 2016",
+        "\"Stern polynomials\" \"resultant\" coprime integers",
+        "Stern polynomials B_2n=t B_n B_2n+1=B_n+B_n+1 consecutive Sylvester resultant absolute value all positive integers"
+      ]
+    },
+    "equivalent_formulations": {
+      "evidence": [
+        "Ulas and Ulas, arXiv:1102.5109v1, Corollary 2.6, asserts polynomial coprimality; their Theorem 2.5 gives a separate product-difference identity.",
+        "The specialized text search in arXiv:1102.5109v1 found no occurrence of the word resultant; its relevant introductory and Section 2 statements concern coprimality rather than integer resultant magnitudes."
+      ],
+      "reasoning": "Coprimality over the rational polynomial ring establishes that an integer Sylvester resultant is nonzero, but leaves its size unspecified. For example the exact new calculation gives magnitude 2 at n=39. Neither an identical universal resultant recurrence nor universal attainable spectrum was identified in the relevant inspected literature and targeted searches; negative searches alone are not a novelty proof.",
+      "searches": [
+        "Stern diatomic polynomials B_n(t) B_{n+1}(t) resultants consecutive coprimality determinant",
+        "Stern polynomials discriminant resultant Res(B_n(t),B_{n+1}(t)) powers of t",
+        "Stern polynomials B_2n=t B_n B_2n+1=B_n+B_n+1 consecutive Sylvester resultant absolute value all positive integers",
+        "\"Stern polynomials\" \"resultant\" consecutive",
+        "\"resultant\" \"B_n\" \"B_{n+1}\" \"Stern\""
+      ]
+    },
+    "exact_database_or_table": {
+      "evidence": [
+        "published-finding corpus search for the exact index formula returned unrelated entries such as 2026/10/4/SCOPE-sharp-modal-threshold-at-the-repeated-root-trace-one-recurrence--3eb5020d899d.",
+        "Dilcher and Tomkins (2018), Table 2, lists a factorization of B_39 but does not report an integer resultant table or a universal realization sequence."
+      ],
+      "reasoning": "An existing factorization entry at an isolated index does not specify the absolute integer resultant against its successor or imply that every positive integer occurs infinitely often. No exact database or published table with the same theorem was located.",
+      "searches": [
+        "resultants of consecutive Stern polynomials realize every integer m at index (7*4^m+5)/3",
+        "\"Stern polynomials\" \"resultant\" \"±1\"",
+        "\"Stern polynomials\" \"consecutive\" \"resultants\""
+      ]
+    },
+    "rationale": "The inspected archival source asserts consecutive polynomial coprimality, which only makes the resultant nonzero; the current result identifies its absolute magnitude at every index recursively and gives an explicit infinite attainment construction for every positive integer. Related degree and leading-coefficient literature has been compared at the accessible level; full Schinzel chapter unavailable and equivalent specialized results cannot be excluded.",
+    "residual_risks": [
+      "Full text of Schinzel (2016) leading-coefficient chapter could not be inspected; a stronger or equivalent statement remains possible.",
+      "An unlocated specialized result may already give the resultant recursion or explicit arbitrary-value realization.",
+      "Absolute integer resultant should not be conflated with common roots modulo primes under degree drop; the theorem makes no such claim."
+    ],
+    "source_inspections": [
+      {
+        "assessment": "The inspected relevant statements cover nonzero rational gcd and an auxiliary determinant-like product identity, not the integer Sylvester resultant spectrum",
+        "evidence": [
+          "Corollary 2.6: gcd(B_n,B_{n+1})=1.",
+          "Theorem 2.5: an index-reflection product difference equals a power of t; no resultant magnitude is stated in the inspected material."
+        ],
+        "identifier_or_url": "arxiv:1102.5109v1",
+        "material_read": "PDF introduction and Section 2 including Theorem 2.5 and Corollary 2.6 (pages 1-5); document-wide text lookup for the term resultant",
+        "method": "Read original arXiv PDF text and page image; compared mathematical statements and indices",
+        "title": "On certain arithmetic properties of Stern polynomials",
+        "trigger": "Same Stern recurrence and published consecutive polynomial-coprimality theorem"
+      },
+      {
+        "assessment": "Degree equality and rational roots are studied, but the inspected passages do not state the integer resultant recursion or arbitrary-value attainment",
+        "evidence": [
+          "Abstract describes degree-equality patterns and rational-root classification.",
+          "Text search found no literal resultant statement."
+        ],
+        "identifier_or_url": "arxiv:1401.3553v1",
+        "material_read": "PDF opening and abstract, relevant degree-pattern description, and document-wide lookup for resultant",
+        "method": "Read original arXiv PDF text and first page image, checked statements identified by title and abstract",
+        "title": "A note on the arithmetic properties of Stern Polynomials",
+        "trigger": "Exact degrees of consecutive Stern polynomials could potentially imply the new degree-gap machinery"
+      },
+      {
+        "assessment": "Inspected material addresses factors, squares, and divisibility, not the full numerical resultant invariant",
+        "evidence": [
+          "Table 2 lists B_39 factorization, not the pairwise resultant with B_40.",
+          "Text search found no occurrence of resultant."
+        ],
+        "identifier_or_url": "https://math.colgate.edu/~integers/s29/s29.pdf",
+        "material_read": "PDF abstract, opening sections and Sections 1-2 including factorization table, plus document-wide lookup for resultant",
+        "method": "Read publisher-hosted open-access PDF text and relevant page image",
+        "title": "Square Classes and Divisibility Properties of Stern Polynomials",
+        "trigger": "Same polynomial sequence and divisibility properties; could dominate a narrower arithmetic claim"
+      },
+      {
+        "assessment": "Accessible abstract describes a binary-expansion formula for leading coefficients. It does not claim the consecutive Sylvester-resultant classification, but uninspected full text remains an originality risk.",
+        "evidence": [
+          "Springer chapter is listed in the 2016 volume From Arithmetic to Zeta-Functions, pp. 427-434.",
+          "Abstract describes only leading coefficient of the nth Stern polynomial expressed in terms of its binary expansion."
+        ],
+        "identifier_or_url": "doi:10.1007/978-3-319-28203-9_25",
+        "material_read": "Bibliographic description and publicly accessible abstract only; no full chapter text available",
+        "method": "Searched for arXiv and open-access same-paper versions; inspected bibliographic abstract. Institutional-access request could not be completed without additional interaction.",
+        "title": "The Leading Coefficients of Stern Polynomials",
+        "trigger": "Leading coefficients enter both exact resultant recursions; plausible broader coverage"
+      }
+    ],
+    "status": "PASS"
+  },
+  "review_type": "self_review",
+  "schema_version": 1,
+  "scope_run_id": "1aada4c0-d6d8-46f8-93bd-4ac766329117",
+  "self_review_status": "passed",
+  "value": {
+    "rationale": "The numerical Sylvester resultant is an intrinsic elimination invariant not determined by rational coprimality. Its exact binary recurrence and constructive proof that every positive integer occurs infinitely often make a complete, unbounded arithmetic classification of a natural 2-regular polynomial family. The result has a clear numerical-algebraic purpose independent of isolated computations or parameter substitutions.",
+    "status": "PASS"
+  }
+}
