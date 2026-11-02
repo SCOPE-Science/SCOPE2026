@@ -1,0 +1,125 @@
+{
+  "audit_date_utc": "2026-10-29",
+  "audited_at_utc": "2026-10-29T22:09:34.283094Z",
+  "axes": {
+    "correctness": {
+      "rationale": "The scalar impulse response g(t) has precisely one maximum at t0=log(kappa/lambda)/(kappa-lambda), with equal-rate limit t0=1/lambda. On t>d the derivative of g(t)+m g(t-d) is a difference of two positive exponentials (equal-rate: an affine times exponential), giving at most one post-input maximum. For d>t0, the pre-input maximum exists and the right derivative at d is m+g'(d)=m-Q(d): it is positive exactly in the two-peak regime. At equality the post-input profile immediately decreases, so it remains one maximum. Q=-g' is strictly increasing then decreasing with unique max at d=2t0, m*=r^{-(r+1)/(r-1)} or e^-2 for coincident rates; this gives two delay cutoffs and full reentrant intervals. I independently verified peak-time/derivative identities and exact m*=1/9 at lambda=1,kappa=3, plus both equal/unequal rate boundaries; the all-real-parameter claim follows analytically.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Grover–Benet full PMC study simulates dose intervals, accumulation and concentration fluctuations for first/second order kinetics, rather than two pulse local maxima with all strict boundaries.",
+          "Godfrey title is directly relevant to double peaks; its accessible abstract does not establish a sharp reentrant unequal-impulse threshold. Full paper inaccessible via authorized access."
+        ],
+        "reasoning": "No read general pharmacokinetic theorem has premise and conclusion jointly sufficient for the iff m>Q(d), the critical m* and the strict equality cases. A general exponential-mixture modal theorem could conceivably imply it; named as risk.",
+        "searches": [
+          "Sahin Benet operational multiple-dosing half-life 2008 DOI 10.1007/s11095-008-9787-9",
+          "Grover Benet 2011 DOI 10.1007/s10928-011-9198-0",
+          "Godfrey et al 2011 modelling double peak DOI 10.1016/j.cmpb.2010.03.007"
+        ]
+      },
+      "checked_sources": [
+        "Grover and Benet 2011 PMC3677834, relevant full HTML",
+        "Sahin and Benet 2008 DOI 10.1007/s11095-008-9787-9, referenced/abstract",
+        "Godfrey et al 2011 DOI 10.1016/j.cmpb.2010.03.007, abstract only",
+        "Resultary semantic search: unequal delayed Bateman two-peak reentrance"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "Grover–Benet 2011 deals chiefly with operational multiple-dosing half-lives and average/minimum concentration and cannot yield the number of local maxima of two instantaneous depot inputs without a fresh analysis.",
+          "Classical superposition gives C(t), but the nonmonotone Q(d), unique m* and iff delay region are the actual additional mathematical conclusions."
+        ],
+        "reasoning": "Neither established Bateman formula nor qualitative double-peak occurrence alone entails the reentrant two-to-one-to-two phase classification.",
+        "searches": [
+          "Grover Benet PMC3677834 Methods and accumulation theorems",
+          "Godfrey et al DOI 10.1016/j.cmpb.2010.03.007",
+          "two-pulse hypoexponential modality"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "The Bateman kernel is a hypoexponential two-stage impulse response or Erlang-2 response when absorption and elimination rates coincide.",
+          "The theorem concerns shifted *unequal-amplitude* copies with a delay-indexed change in number of *strict local maxima*, not repeated-dose steady-state accumulation."
+        ],
+        "reasoning": "Compared the same kernel after swapping the absorption and elimination rates and limiting to equal rates. Mechanistic double-peak studies do not automatically imply a sharp two-cutoff classification for these parameters.",
+        "searches": [
+          "delayed unequal Bateman two-pulse hypoexponential bimodality threshold",
+          "positive mixture of shifted exponential differences two modes",
+          "Godfrey et al 2011 doi 10.1016/j.cmpb.2010.03.007"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "The accessed published result records were principally unrelated delay/oscillator phase problems.",
+          "Prior clinical/model reports illustrate multiple peaks but are not an exact table of (lambda,kappa,m,d) boundaries."
+        ],
+        "reasoning": "A finite table/plot would not be a classification over the continuum; the searched records did not include the exact analytic bifurcation diagram.",
+        "searches": [
+          "Resultary semantic search two unequal delayed Bateman dose peaks exact reentrant amplitude thresholds",
+          "Godfrey et al 2011 double peak",
+          "reentrant bimodality of two delayed hypoexponential kernels"
+        ]
+      },
+      "rationale": "Comparison by actual mathematical hypotheses, conclusions and implications, including the closest primary works and structured equivalent/general/table checks; best-of-knowledge acceptance with explicit historical-priority risks.",
+      "residual_risks": [
+        "Godfrey et al. 2011 was inaccessible in full under authorized Oxford access (vpn_disconnected); it might contain a related exact two-pulse threshold.",
+        "A general theorem for shifted hypoexponential/Erlang mixture modes could imply these equations under different terminology."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Does not state two delayed unequal-impulse peak count or the exact reentrance thresholds",
+          "evidence": [
+            "Methods simulate first/second-compartment pharmacokinetics, reporting tmax, steady-state accumulation and fluctuation, not a two-pulse local-mode iff."
+          ],
+          "identifier_or_url": "https://pmc.ncbi.nlm.nih.gov/articles/PMC3677834/",
+          "material_read": "Full accessible HTML: title, abstract, introduction, Methods Monte Carlo section on first/second-order absorption, and stated accumulation/fluctuation results; relevant methods and conclusions inspected",
+          "method": "Primary lawful OA PMC HTML",
+          "title": "Intermittent Drug Dosing Intervals Guided by the Operational Multiple Dosing Half Lives for Predictable Plasma Accumulation and Fluctuation",
+          "trigger": "Primary same 1st-order absorption and elimination model"
+        },
+        {
+          "assessment": "Potential priority overlap explicitly unresolved, no whole-document noncoverage assertion",
+          "evidence": [
+            "Full article unavailable; abstract reports modeling of multiple peaks without an accessible analytic reentrant threshold."
+          ],
+          "identifier_or_url": "https://doi.org/10.1016/j.cmpb.2010.03.007",
+          "material_read": "Publication details/abstract-level descriptions only; exact full primary paper not obtained; VPN disconnected on authorized attempt",
+          "method": "Primary bibliographic abstract; authorized full-text request returned vpn_disconnected",
+          "title": "Modelling the Double Peak Phenomenon in Pharmacokinetics",
+          "trigger": "Very plausible same model or stronger peak-count criterion"
+        },
+        {
+          "assessment": "Accumulation half-life target distinct from strict two-peak classification",
+          "evidence": [
+            "2008 operational half-life addresses accumulation, not the exact two-pulse derivative criterion."
+          ],
+          "identifier_or_url": "https://doi.org/10.1007/s11095-008-9787-9",
+          "material_read": "Abstract and discussion via Grover–Benet 2011 citations; standalone full text not separately reread",
+          "method": "Primary reference title and follow-on primary literature",
+          "title": "The Operational Multiple Dosing Half-life: A Key to Defining Drug Accumulation in Patients and to Designing Extended Release Dosage Forms",
+          "trigger": "Related first-order delayed doses"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "rationale": "The exact if-and-only-if two-peak criterion for a physical two-depot first-order absorption/elimination response determines a genuinely counterintuitive reentrant window as the delay increases. The mathematical notion of local modes and its equality boundaries are naturally motivated for delayed release, and distinct from simple waveform plots. It is a model theorem, not a patient-specific dosing recommendation.",
+      "status": "PASS"
+    }
+  },
+  "checked_sources": [
+    "Grover and Benet 2011 PMC3677834, relevant full HTML",
+    "Sahin and Benet 2008 DOI 10.1007/s11095-008-9787-9, referenced/abstract",
+    "Godfrey et al 2011 DOI 10.1016/j.cmpb.2010.03.007, abstract only",
+    "Resultary semantic search: unequal delayed Bateman two-peak reentrance"
+  ],
+  "disposition": "passed",
+  "limitations": [
+    "Godfrey et al. 2011 was inaccessible in full under authorized Oxford access (vpn_disconnected); it might contain a related exact two-pulse threshold.",
+    "A general theorem for shifted hypoexponential/Erlang mixture modes could imply these equations under different terminology.",
+    "Finite verification supports but does not replace the unrestricted proof.",
+    "Original source review remains distinct from any independent external expert or formal Lean attestation."
+  ],
+  "schema_version": 1
+}
