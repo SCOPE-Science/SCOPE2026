@@ -5,8 +5,11 @@
     "status": "not_performed"
   },
   "independent_audit": {
-    "evidence": null,
-    "status": "not_performed"
+    "status": "passed",
+    "evidence": [
+      "INDEPENDENT_AUDIT_2026-10-28.md",
+      "INDEPENDENT_AUDIT_2026-10-28.json"
+    ]
   },
   "lean_verification": {
     "evidence": null,
@@ -16,10 +19,24 @@
 }
 ---
 
-# Verification of the finite classification
+# Independent mathematical audit
 
-The standalone `verify_chvatal_higher.py` defines all 24 edges, all twelve vertices, the admissible-face predicate, the deterministic pivot matching, the two specified dihedral generators, and complete finite checks. Execute it using the Python 3 standard library only.
+## correctness
 
-Actual replay of the supplied script produced `CHVATAL_HIGHER_OK`, exactly 424 nonempty simplices with face vector `(12,66,148,142,52,4)`, 211 matched pairs, critical masks `16` (dimension zero) and `232` (dimension three), 1428 directed face-cover incidences, and a topological sort visiting all 424 faces. It exhaustively found eight graph automorphisms and verified generator characters `r: -1` and `s: +1`. Separate simplicial boundary-rank computations over the prime fields of orders 2, 3 and 101 reproduced unreduced homology ranks `(1,0,0,1,0,0)`.
+PASS
 
-The acyclic matching yields an integral homotopy theorem by Forman's theorem. Finite-field ranks alone do not establish integral torsion-freeness or the homotopy type, and the numerical tests do not claim anything about larger graph families. The homology action is not an equivariant homotopy classification.
+Independent implementation from the specified 24 graph edges checked all 4095 nonempty subsets using induced maximum degree ≤1 and recovered exactly 424 admissible faces (12,66,148,142,52,4). Recreated the 12-pivot deterministic matching: exactly 211 matched cover pairs, unique critical singleton 16 and critical 4-vertex face 232. Independent complete 1428-arc Hasse gradient directed sort processed all 424 cells, hence integral Forman S³. Signed Lefschetz fixed-face traces give chi(r)=-1, chi(s)=+1 and identity +1; r,s are explicit D4 automorphisms in actual source, composition determines all eight values. This is a homology orientation character, not an equivariant homotopy classification.
+
+## originality
+
+PASS
+
+Published same-graph SCOPE records give the ordinary Ind_1(G)~S² and dihedral homology character (-1)^{a+b}, not the Ind_2(G) of larger allowed faces. Ghosh–Selvaraja treat higher-independence complexes but their shellability theorems for certain block graphs, trees and modifications do not cover this nonchordal 4-regular Chvatal graph. The new dimension and flipped reflection sign cannot be deduced from the Ind_1 ordinary character. Best-of-knowledge qualified priority.
+
+## value
+
+PASS
+
+Chvatal is a canonical 12-vertex 4-regular triangle-free four-chromatic graph linked to chromatic bounds through its ordinary independence and neighborhood complexes. Its first higher-independence enlargement is nonpure of dimension five but has integral S³ homotopy. The reversal of the known ordinary reflection orientation character is a genuinely additional equivariant fact, not merely a repeat Betti number or arbitrary graph slice.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

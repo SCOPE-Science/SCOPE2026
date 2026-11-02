@@ -1,19 +1,21 @@
-# Scientific review
+# Independent mathematical audit
 
-## Correctness — PASS
+## correctness
 
-The definition is induced component size at most two, equivalently induced maximum degree at most one. The complete Chvátal edge list determines all 424 nonempty simplices. The exact pivot matching consists of 211 disjoint cover pairs with only one dimension-zero and one dimension-three critical simplex; the directed 1428-incidence Hasse graph was checked acyclic. Therefore the Forman Morse complex has exactly one point and one three-cell, and is a three-sphere integrally. The complete adjacency-preserving permutation backtrack finds eight automorphisms; exact signed fixed-simplex traces show that the prescribed rotation and reflection have top-homology degrees minus one and plus one. Finite-field Betti checks at characteristics 2, 3 and 101 are corroboration, not replacements for the homotopy argument.
+PASS
 
-## Originality — PASS, with residual risk
+Independent implementation from the specified 24 graph edges checked all 4095 nonempty subsets using induced maximum degree ≤1 and recovered exactly 424 admissible faces (12,66,148,142,52,4). Recreated the 12-pivot deterministic matching: exactly 211 matched cover pairs, unique critical singleton 16 and critical 4-vertex face 232. Independent complete 1428-arc Hasse gradient directed sort processed all 424 cells, hence integral Forman S³. Signed Lefschetz fixed-face traces give chi(r)=-1, chi(s)=+1 and identity +1; r,s are explicit D4 automorphisms in actual source, composition determines all eight values. This is a homology orientation character, not an equivariant homotopy classification.
 
-Two materially inspected same-graph results determine the ordinary independence complex, its deletion profiles, and an equivariant collapse onto the open-neighborhood complex. These are different simplicial complexes from the higher-independence complex of all vertex subsets with induced degree at most one; they do not entail the new three-dimensional top character. The complete 2025 open-access higher-independence treatment was inspected: its general shellability criteria concern other graph classes/constructions and do not determine this nonchordal, triangle-free example. The relevant direct and alias searches are recorded in the structured review. Equivalent unindexed work is a residual risk, not a claimed proof of uniqueness.
+## originality
 
-## Value — PASS
+PASS
 
-The canonical smallest four-regular triangle-free four-chromatic graph has unusually tight ties between chromatic number, ordinary independence topology, and neighborhood topology. The first higher-independence step produces an unexpected homotopy-dimension increase from its known two-sphere to a three-sphere even though it becomes nonpure and five-dimensional combinatorially. More decisively, its full dihedral integral orientation character changes by the nontrivial reflection sign, an invariant unavailable from the ordinary Betti number or the previously studied ordinary independence sphere. This is a motivated finite boundary case, not an arbitrary numerical slice.
+Published same-graph SCOPE records give the ordinary Ind_1(G)~S² and dihedral homology character (-1)^{a+b}, not the Ind_2(G) of larger allowed faces. Ghosh–Selvaraja treat higher-independence complexes but their shellability theorems for certain block graphs, trees and modifications do not cover this nonchordal 4-regular Chvatal graph. The new dimension and flipped reflection sign cannot be deduced from the Ind_1 ordinary character. Best-of-knowledge qualified priority.
 
-## Limits and closest sources
+## value
 
-Closest literature: Ghosh–Selvaraja arXiv:2505.06614 (first public 2025-05-10); the published same-graph ordinary independence/deletion result; the published same-graph equivariant neighborhood collapse. Neither known statement covers the present higher-independence sphere and changed reflection action. No claim is made for other four-chromatic graphs or for an equivariant homotopy model. Full independent external audit has not been performed.
+PASS
 
-Self-review: passed. Independent audit: not yet performed.
+Chvatal is a canonical 12-vertex 4-regular triangle-free four-chromatic graph linked to chromatic bounds through its ordinary independence and neighborhood complexes. Its first higher-independence enlargement is nonpure of dimension five but has integral S³ homotopy. The reversal of the known ordinary reflection orientation character is a genuinely additional equivariant fact, not merely a repeat Betti number or arbitrary graph slice.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
