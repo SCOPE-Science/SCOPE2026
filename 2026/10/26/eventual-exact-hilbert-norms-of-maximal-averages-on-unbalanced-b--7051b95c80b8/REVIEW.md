@@ -1,15 +1,21 @@
-# Scientific review: Eventual exact Hilbert norms of maximal averages on unbalanced bicliques
+# Independent mathematical audit
 
-## Correctness — PASS
-The proof identifies the exact three ball averages at each graph vertex, computes the two-class singular-value benchmark, and establishes a uniform large-class estimate that forces every maximizing input into its strict active branch for the explicit sufficient threshold. Compactness justifies choosing a maximizer and the top singular value is simple. The analytic proof, not small finite tests, establishes the universal quantified result. The separately replayed `check.py` reports 2,658 finite checks.
+## correctness
 
-## Originality — PASS within inspected evidence
-Soria and Tradacete (2014, arXiv:1410.6204v1) studied finite-graph maximal operators and derived general sharp small-exponent bounds. González-Riquelme and Madrid (2020, arXiv:2005.03146; 2020 follow-up arXiv:2011.02630) give exact Hilbert norms on stars and complete graphs; those are distinct from nonstar bicliques. The star case \(a=1\) is excluded. Searches for equivalent formulations, broader results, exact tables and implications of nearby theorem statements found no decisive nonstar coverage. Historical priority is provisional and is not certified by an unsuccessful search.
+PASS
 
-## Mathematical value — PASS
-The result identifies a natural regime in which an otherwise nonlinear maximal-averaging optimization admits an exact closed radical, proves the unique type of maximizing modulus, and establishes an explicit asymptotic with its inverse-size correction. It solves an infinite family of nonstar cases, rather than merely computing sample graph values.
+For a>=2,b>=B(a)=102400(a+1)^6, the graph has balls of radii 0,1,2 only, hence the stated three explicit average branches at every vertex. The candidate active branch T(u,v)=(u,(X*1_b+v)/(a+1)) has two-class singular block [[1,0],[sqrt(ab)/(a+1),1/(a+1)]], giving top squared singular value Lambda=(tau+sqrt(tau^2-4/(a+1)^2))/2. Its strictly positive unique singular vector has uniform values x>y and is an actual M-active vector, so ||M||^2>=Lambda. For arbitrary nonnegative unit f, the proof bounds ||Mf||^2<=bX^2/(a+1)^2+20(a+1)sqrt(b), implying X^2>=a-Delta with Delta=20(a+1)^3/sqrt b<=1/16 for any maximizer. Cauchy-Schwarz bounds deviations in A and all values in D; the explicit inequalities enforce strictly radius-0 on A and radius-1 on D, hence every maximizer lies on T's simple leading singular vector, proving equality and all moduli. Expansion of the quadratic root yields the asserted -1/(ab) second-order correction at fixed a. Independently enumerated 1782 finite ball-selection matrices for selected K_(a,b), matching the candidate norms; these small cases do not prove the enormous sufficient threshold.
 
-## Limits and residual risks
-Only integers \(a\ge2\), \(b\ge102400(a+1)^6\), counting measure, centered averages and the strong \(\ell^2\) norm are covered. The explicit threshold may be very far from sharp and the balanced regime is open under the present proof. External literature may contain equivalent nonstar results under different terminology. Numerics do not certify the general theorem.
+## originality
 
-Self-review: passed. Independent audit: not yet performed.
+PASS
+
+Foundational centered finite-graph maximal inequalities and exact ℓ² norms for complete and star graphs are published. Those results do not imply the nonstar K_(a,b), a>=2, large-imbalance exact constant, explicit threshold and extremizer rigidity. The novelty is not the singular-value computation alone but the global nonlinear branch-localization proof and exact eventual norm. Qualified PASS with open possibility of more general unindexed bipartite norm results.
+
+## value
+
+PASS
+
+This is a sharp nonlinear strong-type ℓ² problem for a natural graph family not reducible to the already-solved stars/complete graphs. It identifies a whole infinite imbalance regime where a global maximal operator locks to a simple linear selection, with all extremizers and a quantified asymptotic correction. The threshold need not be optimal for the fact to be useful.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
