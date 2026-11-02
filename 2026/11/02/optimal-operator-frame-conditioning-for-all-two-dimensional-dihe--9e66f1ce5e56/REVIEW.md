@@ -1,0 +1,15 @@
+# Mathematical review
+
+## Correctness
+PASS. All four eigenvalues follow from an explicitly normalized Pauli-basis moment matrix. The order of \(\zeta^{2k}\) distinguishes the vanishing and nonvanishing second character sums; the exceptional order-two case is separately calculated. The traceless eigenvalues always sum to \(n\), yielding the universal optimal bound, and the equality conditions solve precisely when all three are \(n/3\). The tensor design identity is obtained from the full operator-frame identity. Independent direct-projector numerical replays check 588 parameter cases and 196 optimal examples; the proof, not the finite replay, handles all admissible integers.
+
+## Originality
+PASS, with residual historical risk. The closest published mathematical research record already determines *qualitative* maximal-span and phase-retrieval criteria for these dihedral irreducibles; the present claim does not relabel those as new. Scott's work already supplies the unrestricted equivalence between tight matrix tomography and projective \(2\)-designs. The new object is the complete **parameterized operator-frame spectrum** and its exact optimal design locus, including the distinction between free-phase and phase-locked irreducibles. Full-text evidence from the 2017 dihedral full-spark work and the 2023 nilpotent-group article concerns different representations or qualitative objectives. Cheng's 2025 broad finite-group article could not be inspected fully, which leaves a concrete implication-comparison risk.
+
+## Mathematical value
+PASS. Stability of linear inversion, not mere injectivity, is a natural problem for structured phaseless group-orbit measurements. The classification shows that **every** two-dimensional dihedral irrep realizes the universal tight-design optimum, despite the unique quarter-turn resonance forcing a complex relative phase; it identifies all stable-optimal fiducials and the exact loss of identifiability for real fiducials in that branch. A complete infinite-family design classification with an exceptional phase-locking phenomenon is more informative than a routine rank calculation. Claims do not extend to arbitrary representations, erasures, or noisy nonlinear inversion.
+
+## Closest sources and limitations
+Oussa–Sheehan (2017), arXiv:1705.00085, concerns full spark in an induced \(n\)-dimensional representation. Führ–Oussa (2022), arXiv:2201.08654, treats phase retrieval for nilpotent groups. Scott (2006), arXiv:quant-ph/0604049, establishes the general optimality and design equivalence. The public record *Exact maximal-spanning vectors for two-dimensional dihedral irreducibles* already contains the qualitative rank classification and is credited accordingly. Cheng (2025), DOI 10.1016/j.laa.2025.03.011, was not fully accessible for a decisive content comparison. The present theorem is restricted to unit generators, Hermitian operator recovery, and full multiplicity-counted orbits.
+
+Self-review: passed. Independent audit: not yet performed.
