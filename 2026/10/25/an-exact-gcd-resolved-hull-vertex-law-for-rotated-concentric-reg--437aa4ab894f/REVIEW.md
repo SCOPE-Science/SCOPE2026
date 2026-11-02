@@ -1,19 +1,21 @@
-# Scientific review: exact gcd-resolved rotated-polygon hull law
+# Independent mathematical audit
 
-## Correctness — PASS
+## correctness
 
-The stated geometric event and normalization are unambiguous: integers \(n\ge m\ge3\), outer circumradius one, \(0<\rho<1\), one uniformly distributed relative rotation, and the extreme-vertex count of the joint planar convex hull. The support-functional proof separates the guaranteed outer vertices from inner vertices; for the latter, it proves both directions of the outer-facet normal criterion. Crucially, the assumption \(n\ge m\) guarantees that an inner vertex crossing the corresponding facet is also the unique inner support maximizer in that direction, rather than merely lying outside the outer polygon. The gcd multiplicity reduction and exactly two floor/ceiling arc counts establish the distribution without sampling assumptions. Solving the zero-variance condition proves the complete rigidity set; inverse-cosine asymptotics yield the critical window, including its endpoint. The bundled independent monotone-chain and threshold checks were run successfully. Risks: exceptional alignments are null events; numerical tests do not replace the analytical proof.
+PASS
 
-## Originality — PASS relative to inspected evidence
+All n outer points remain exposed since ρ<1. The inner vertex criterion ρ cosδ>cos(π/n) is necessary by outer facet inequalities and sufficient by the nearest facet normal plus n≥m ensuring unique maximizing inner vertex. Modulo outer facet-normal period, inner phases form k=m/gcd(n,m) equally spaced sites each with multiplicity g. A uniform phase hits an interval of fractional length q at either floor(kq) or ceil(kq), with fractional probabilities, proving exact two-atom law, mean and variance. Variance zero exactly q=j/k; Taylor expansion ρ_n=1−λ(π/n)^2 proves the gcd-class critical limit. Independent literal planar monotone-chain hulls for 1000 random valid triples all matched the predicted atoms.
 
-Har-Peled, arXiv:1111.5340v1, treats independent spatially sampled points rather than a rigid random rotation. Kiss–Vidnyánszky, arXiv:1402.5452v1, treats nonconvex unions of congruent regular polygons and perimeter/area, not extreme points of the convex hull of two differently sized and differently ordered nested polygons. O'Rourke–Zaimi (2015) treat intersections of equal-circumradius polygons and report gcd-driven side counts; the difference between intersection and hull does not alone establish novelty because polarity might relate them, but the polar configurations have unequal radii here and the cited claim supplies neither continuous radius thresholds nor the random phase law or critical-window limit. Complete published RESULT.md materials on radial coverage of congruent rotated unions and expected intersection area for randomly rotated tangential polygons were inspected and do not imply this claim. The elementary lattice floor/ceiling count and the general gcd pattern are explicitly not claimed as new. Risks: old technical-report full text not recovered, and mathematical non-coverage cannot be conclusively established by database searching.
+## originality
 
-## Mathematical value — PASS
+PASS
 
-For the natural convex-hull complexity of two concentric rotational point lattices, the result gives the complete law, not an isolated special value. Every deterministic aspect ratio is classified, including coprime and noncoprime cases. The exact variance and a sharp near-circular critical scaling reveal persistent arithmetic fluctuations even when the polygons converge in radial scale; for six inner vertices, distinct subsequences have limiting variance zero versus nine. These structural facts are natural benchmarks for coherent (as opposed to independent) point-set perturbations. The narrow planar setting and lack of downstream applications are limitations, not claims of generality.
+Best-of-knowledge qualified PASS: exact full two-atom hull-vertex distribution with all rigidity radii and gcd-critical limit was not found in geometric primary sources or semantic index; known union area, iid hull complexity, equal-radius intersections and a classical circle-lattice occupancy lemma do not imply the unequal-radius case. Residual risks are older special configurations and unindexed polygon intersection formulas.
 
-## Sources and limitations
+## value
 
-Actual comparisons include the full primary mathematical text of Kiss–Vidnyánszky (arXiv:1402.5452v2), the full 2015 O'Rourke–Zaimi problem and response, the Har-Peled arXiv abstract and author summary, and complete scientific RESULT.md texts of two published related records. The main risk is an unindexed or inaccessible historical special case; independent audit remains outstanding. The finite checker is corroboration only.
+PASS
 
-Self-review: passed. Independent audit: not yet performed.
+PASS: coherent rotation of two concentric regular point lattices is a natural convex-hull complexity model. The exact vertex-count distribution across all orders/radii, complete deterministic threshold radii and arithmetic near-circle variance discontinuities are structurally informative, not merely a finite census or arbitrary sample.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
