@@ -1,0 +1,116 @@
+{
+  "correctness": {
+    "rationale": "Cycle parity obstructs shattering. Every tree-component edge labeling admits precisely two vertex colorings and a fixed-cardinality solution exactly when the stated polynomial coefficient is positive; every possible component count is realized. Balanced components imply |S|<=2a and connected positive paths imply |S|<=n-2. The explicit 2a-edge star is fully shattered when n>=3a+1. Bounded checks independently compare direct cut patterns and profile arithmetic for 100490 cases.",
+    "status": "PASS"
+  },
+  "independent": false,
+  "independent_audit_status": "not_performed",
+  "originality": {
+    "broader_coverage": {
+      "evidence": [
+        "Ghazi et al. (arXiv:2007.03668), Proposition 3 and related definitions, concern upper bounds for arbitrary Boolean aggregations; no parameter a or induced edge-cut class appears in its claimed theorem.",
+        "Prior special cases with prescribed two-block size on five vertices do not determine all forest supports or arbitrarily large n.",
+        "A related fixed-size edge-hit family asks whether at least one endpoint belongs to a selected vertex set; its shattered supports are star forests with a different vertex-cardinality budget. That OR-response characterization does not imply the present XOR/same-block forest criterion."
+      ],
+      "reasoning": "Generic closure and combinatorial upper bounds may apply but cannot imply the exact iff on supports or stable equality 2a. Fixed-size families are not refinement-closed, so previously known refinement-closed partition dimension formulas do not directly apply.",
+      "searches": [
+        "VC dimension of fixed-size partitions equivalence relations same block queries balanced two classes",
+        "fixed cardinality graph cuts partition small-side vertices",
+        "near-tight closure bounds Littlestone threshold dimensions arxiv 2007.03668"
+      ]
+    },
+    "checked_sources": [
+      "https://proceedings.mlr.press/v132/ghazi21a/ghazi21a.pdf",
+      "https://arxiv.org/abs/2007.03668",
+      "https://arxiv.org/abs/2211.01443",
+      "https://scispace.com/pdf/the-cost-of-learning-directed-cuts-2ay6ylzug2.pdf"
+    ],
+    "claim_vs_prior_implication": {
+      "evidence": [
+        "Ghazi et al. (2020/2021) bound dimensions of general Boolean aggregations, not cardinality-slice cut shattering.",
+        "Manurangsi (2022/2023) gives inapproximability of arbitrary explicitly represented hypothesis classes, not an exact special-family theorem.",
+        "Gärtner and Garriga study directed vertex-cut learning and distinguish cardinality of crossed edges from other concept parameters.",
+        "An earlier fixed-cardinality edge-hit theorem has a star-forest support criterion, whereas arbitrary-forest shapes occur here; there is no implication of this coefficient characterization."
+      ],
+      "reasoning": "None of those statements entails that a support is shattered iff its forest-component size profile passes every subset-sum coefficient test, or proves the exact eventual value 2a. Conversely, the new result is a structured special-family calculation and does not imply their generic complexity theorems.",
+      "searches": [
+        "arxiv:2007.03668v1",
+        "arxiv:2211.01443v1",
+        "The Cost of Learning Directed Cuts Gärtner Garriga"
+      ]
+    },
+    "equivalent_formulations": {
+      "evidence": [
+        "Under the substitution edge different-block = 1 - edge same-block, the concept class is the cardinality-a layer of complete-graph cut vectors. Searches retrieved no theorem with component-size coefficient tests."
+      ],
+      "reasoning": "The theorem is invariant under complementing each Boolean edge response. A general cut-vector cycle parity condition alone does not enforce a vertex-side cardinality; the polynomial coefficient condition is the additional exact obstruction.",
+      "searches": [
+        "fixed-size cut concept class edge membership VC dimension forest component profile subset sum",
+        "bipartitions with prescribed cardinality edge separation learning VC dimension 2k",
+        "balanced cut query sets forest shatter parity size profiles"
+      ]
+    },
+    "exact_database_or_table": {
+      "evidence": [
+        "Direct enumeration of all supports for n=2,...,6 and a<=n/2 yielded the profile-dependent dimensions in verification_output.txt. Published-result searches found general set-system algorithms, not a fixed-cardinality cut table or the all-parameter theorem."
+      ],
+      "reasoning": "The theorem is not based on a preexisting finite table. Its all-n, all-a structural iff and saturation are derived independently; a prior full table or theorem not indexed by searches remains a historical risk.",
+      "searches": [
+        "shattered edge sets balanced cuts fixed size bipartitions VC",
+        "fixed-size cut concept class edge membership VC dimension forest component profile subset sum",
+        "VC dimension fixed cardinality graph cuts partition small-side vertices"
+      ]
+    },
+    "rationale": "The exact all-parameter forest component-size coefficient criterion and eventual 2a law were not implied by the inspected general dimension bounds, cut-learning results or finite partition examples; residual prior-art risk is explicitly recorded.",
+    "residual_risks": [
+      "Index coverage is not exhaustive; synonyms in older balanced-cut/graph-coding literature may hide an exact theorem.",
+      "The 2022/2023 complexity paper was not read cover to cover; its main claim is not on this family.",
+      "Independent scientific audit and exhaustive historical-priority verification have not been performed.",
+      "Closely related induced-edge and edge-hit concept families have exact structural classifications, but the Boolean XOR of those responses requires a separate cardinality analysis."
+    ],
+    "source_inspections": [
+      {
+        "assessment": "Its statements address aggregation, threshold dimension, and generic bounds, not exact fixed-cardinality edge-cut supports.",
+        "evidence": [
+          "Proposition 3: Ldim(G(H1,...,Hk)) = O(kd log k); paper Section 2.1 defines Ldim and VCdim."
+        ],
+        "identifier_or_url": "https://proceedings.mlr.press/v132/ghazi21a/ghazi21a.pdf",
+        "material_read": "Abstract, related-work discussion, definitions, propositions and closure-bound proofs, future work, and appendix sections spanning the 11-page primary text",
+        "method": "Read searchable primary PDF text and inspected the displayed page of definitions and related work",
+        "title": "Near-tight closure bounds for Littlestone and threshold dimensions",
+        "trigger": "Foundational contemporary learning-dimension comparison and potential general dominating bounds"
+      },
+      {
+        "assessment": "The stated generic inapproximability claim does not cover this explicit structured cut family; full-text coverage not exhaustively excluded.",
+        "evidence": [
+          "The abstract specifies reductions from maximum biclique for hard approximation of explicit concept classes."
+        ],
+        "identifier_or_url": "https://arxiv.org/abs/2211.01443",
+        "material_read": "Primary abstract and main stated complexity claim; full technical text not inspected",
+        "method": "Read preprint abstract and publication synopsis",
+        "title": "Improved Inapproximability of VC Dimension and Littlestone Dimension via (Unbalanced) Biclique",
+        "trigger": "General exact-dimension computation and approximation risks"
+      },
+      {
+        "assessment": "Its vertex-classification on directed graphs and cut-edge count parameter differ from pair-edge responses with side-cardinality a.",
+        "evidence": [
+          "Section 3.2 proves VC dimension equals a DAG minimum path-cover size for monotone vertex concepts; Section 2.4 discusses cut-edge count."
+        ],
+        "identifier_or_url": "https://scispace.com/pdf/the-cost-of-learning-directed-cuts-2ay6ylzug2.pdf",
+        "material_read": "Sections 2.4, 3.2, related work and conclusions in the primary twelve-page PDF",
+        "method": "Read primary PDF material and visually inspected the fixed-parameter section",
+        "title": "The Cost of Learning Directed Cuts",
+        "trigger": "Potentially stronger result on VC dimensions of cut concepts"
+      }
+    ],
+    "status": "PASS"
+  },
+  "review_type": "self_review",
+  "schema_version": 1,
+  "scope_run_id": "e71e3de9-534e-4680-bf7d-5b5525b07be2",
+  "self_review_status": "passed",
+  "value": {
+    "rationale": "Prescribed cluster cardinality is a natural restriction absent from refinement-closed models; the theorem identifies all shattered supports by component sizes and explains a sharp constant-in-n dimension saturation with parameter a, independently of finite case enumeration.",
+    "status": "PASS"
+  }
+}
