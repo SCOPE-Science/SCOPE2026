@@ -5,8 +5,11 @@
     "status": "not_performed"
   },
   "independent_audit": {
-    "evidence": null,
-    "status": "not_performed"
+    "status": "passed",
+    "evidence": [
+      "INDEPENDENT_AUDIT_2026-10-28.md",
+      "INDEPENDENT_AUDIT_2026-10-28.json"
+    ]
   },
   "lean_verification": {
     "evidence": null,
@@ -16,12 +19,24 @@
 }
 ---
 
-# Verification record
+# Independent mathematical audit
 
-The exact symbolic checker is `verification/checker.py`; run it with Python 3 and SymPy. The recorded output in `verification/checker_output.txt` was produced by executing that checker with its actual program text.
+## correctness
 
-Generator identities: stationarity of medium-square, medium fourth power, position square, position fourth power, medium–position mixed fourth power, and two-coordinate mixed squares. Independent check: the medium-square stationary autocovariance equals \(20\Lambda^4 a^{-2}e^{-a|t|}\). Conditional on the independent exponential time since the last position reset, a two-fold integral yields \(\mathbb E Z_t^2=M\). These agree with the Markov generator's mixed moments.
+PASS
 
-Time-lag check: the exact ODE \(K'(t)+bK(t)=2He^{-at}\), initial condition \(K(0)=V\), and its repeated-rate \(a=b\) limit were symbolically verified. Conditional Gaussian fourth moments separate the self-covariance contribution \(2Me^{-bt}\) from the cross-covariance. For all strictly positive parameters, the integral kernel implies strict positivity and increasing cross-to-self ratio. The \(a>b\) rational limit was derived algebraically from the finite integral. The checker also performed 72 positive-parameter/lag comparisons, which are numerical supplements, not proof of all-parameter claims.
+Under independent Poisson rates a for Y reset and b for all positions reset, the invariant generator gives EY²=2Λ²/a, EY⁴=24Λ⁴/a², EX²=4Λ²/(ab), H=Cov(X²,Y²)=40Λ⁴/(a²(a+b)), M=E(X_i²X_j²)=32Λ⁴(a+6b)/(a²b²(a+b)), V=M-(EX²)²=16Λ⁴(a+11b)/(a²b²(a+b)). The Markov ODE K’+bK=2H exp(-at), K(0)=V, gives exact integral K(t). Conditional common-environment Gaussian pairs give same-coordinate extra 2M exp(-bt) by Wick and no-reset probability; n-coordinate average adds 2M exp(-bt)/n. With h(t)=exp(bt)K(t), h’=2H exp((b-a)t)>0, yielding monotone R and threshold a<=b. Independent symbolic simplification confirmed the a>b rational formula and resonance a=b, while inspected checker separately verifies stationarity and 72 substitutions. Absolute time covariance decays; claimed memory is a relative asymptotic. Boundary parameters a,b,Λ=0 are excluded.
 
-This verification concerns only the exact two-clock model. It does not prove independent scholarly priority, a finite-sample statistical estimator, a uniform-in-time law of large numbers, or analogous claims for general waiting-time distributions.
+## originality
+
+PASS
+
+Best-of-knowledge PASS specific to two independent reset clocks and the exact cross-/self-coordinate lag covariance ratio. The closest full primary paper of Santra–Basu–Sabhapandit resets Brownian diffusivity and positions simultaneously with one common clock; a second paper studies a shared diffusivity without the two-clock reset law; ordinary resetting autocorrelation methods do not directly state this threshold.
+
+## value
+
+PASS
+
+The model isolates experimentally interpretable separation between medium renewal and positional reset; the exact nontrivial threshold in normalized fourth-order lag memory and residual non-self-averaging are motivated model-specific stochastic invariants, with a repeated-rate critical form rather than a routine equality of rates.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

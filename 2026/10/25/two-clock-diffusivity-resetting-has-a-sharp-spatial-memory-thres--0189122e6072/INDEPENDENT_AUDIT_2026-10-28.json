@@ -1,0 +1,109 @@
+{
+  "audit_date_utc": "2026-10-28",
+  "audited_at_utc": "2026-10-28T10:52:50Z",
+  "axes": {
+    "correctness": {
+      "rationale": "Under independent Poisson rates a for Y reset and b for all positions reset, the invariant generator gives EY²=2Λ²/a, EY⁴=24Λ⁴/a², EX²=4Λ²/(ab), H=Cov(X²,Y²)=40Λ⁴/(a²(a+b)), M=E(X_i²X_j²)=32Λ⁴(a+6b)/(a²b²(a+b)), V=M-(EX²)²=16Λ⁴(a+11b)/(a²b²(a+b)). The Markov ODE K’+bK=2H exp(-at), K(0)=V, gives exact integral K(t). Conditional common-environment Gaussian pairs give same-coordinate extra 2M exp(-bt) by Wick and no-reset probability; n-coordinate average adds 2M exp(-bt)/n. With h(t)=exp(bt)K(t), h’=2H exp((b-a)t)>0, yielding monotone R and threshold a<=b. Independent symbolic simplification confirmed the a>b rational formula and resonance a=b, while inspected checker separately verifies stationarity and 72 substitutions. Absolute time covariance decays; claimed memory is a relative asymptotic. Boundary parameters a,b,Λ=0 are excluded.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Shared diffusing diffusivity without these two reset clocks can exhibit spatial covariance; common-clock resetting results fix a single rate."
+        ],
+        "reasoning": "Neither inspected framework provides an implication determining the two-free-rate normalized long-lag threshold; standard Markov generator methods can derive it but the exact model-specific observable still requires calculation.",
+        "searches": [
+          "asynchronous resetting fluctuating diffusivity independent position resetting two-time squared position covariance spatial non self averaging relaxation",
+          "arXiv:2506.20859",
+          "arXiv:2205.00549 full PDF"
+        ]
+      },
+      "checked_sources": [
+        "Resultary asynchronous resetting fluctuating diffusivity independent position resetting two-time squared position covariance spatial non self averaging relaxation",
+        "arXiv:2205.00549 primary open-access full PDF",
+        "arXiv:2506.20859 abstract",
+        "arXiv:2107.11686 abstract",
+        "Assigned full RESULT.md f42dac2e364af4566890434fba5ead9805fc3ed5 and actual verification/checker.py"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "The single-clock model has reset jump f(x,y)->f(0,0); new generator uses separately a[f(x,0)-f(x,y)] and b[f(0,y)-f(x,y)]."
+        ],
+        "reasoning": "The different independent-clock Markov generator changes mixed moment recursions and cannot be obtained by only replacing one reset parameter in common-clock formulas.",
+        "searches": [
+          "asynchronous resetting fluctuating diffusivity independent position resetting two-time squared position covariance spatial non self averaging relaxation",
+          "Santra Basu Sabhapandit 2022 pages 1 and 9 full PDF",
+          "Mesquita Majumdar Sabhapandit 2025 abstract"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "The common-clock stochastic diffusivity model from Santra et al sets the two resetting events simultaneous, unlike independent clocks here. Ordinary reset Brownian autocorrelations have fixed diffusivity."
+        ],
+        "reasoning": "Same stochastic diffusion coefficient is not sufficient for equivalence: resetting Y without resetting X and vice versa changes the generator, its stationary mixed moments, and the two-time ODE.",
+        "searches": [
+          "asynchronous resetting fluctuating diffusivity independent position resetting two-time squared position covariance spatial non self averaging relaxation",
+          "arXiv:2205.00549",
+          "arXiv:2107.11686"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "Resultary returned related diffusive covariance results but no same two-clock Brownian hidden-medium fourth-order lag law."
+        ],
+        "reasoning": "No known exact table for the independent-clock pair is identified; absence in a semantic index is not evidence of absolute novelty.",
+        "searches": [
+          "asynchronous resetting fluctuating diffusivity independent position resetting two-time squared position covariance spatial non self averaging relaxation",
+          "arXiv:2205.00549 two-time correlation stationary covariance search",
+          "arXiv:2506.20859 diffusing diffusivity"
+        ]
+      },
+      "rationale": "Best-of-knowledge PASS specific to two independent reset clocks and the exact cross-/self-coordinate lag covariance ratio. The closest full primary paper of Santra–Basu–Sabhapandit resets Brownian diffusivity and positions simultaneously with one common clock; a second paper studies a shared diffusivity without the two-clock reset law; ordinary resetting autocorrelation methods do not directly state this threshold.",
+      "residual_risks": [
+        "Equivalent identities could be embedded in generalized hidden-medium reset covariance literature under other terminology; secondary papers checked only by abstracts.",
+        "The ratio approaching one does not mean nondecaying absolute correlations, and stationary two-sided construction is essential."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "DIFFERENT_COMMON_CLOCK_MODEL",
+          "evidence": "Reset simultaneously takes both medium and position to origin at a single Poisson clock; independent clocks retaining the unreset state are outside its stated model.",
+          "identifier_or_url": "https://arxiv.org/abs/2205.00549",
+          "material_read": "Full 22-page open-access PDF examined, including introductory model and reset law and temporal expressions around page 9",
+          "method": "PDF text and actual screenshots of pages 1 and 9",
+          "title": "Effect of stochastic resetting on Brownian motion with stochastic diffusion coefficient",
+          "trigger": "Same fluctuating Brownian diffusivity and reset mechanism"
+        },
+        {
+          "assessment": "ABSTRACT_DIFFERENT_RESET_PROTOCOL",
+          "evidence": "Describes common fluctuating diffusivity correlations, but no evidence in material read for independent two-rate resets.",
+          "identifier_or_url": "https://arxiv.org/abs/2506.20859",
+          "material_read": "Accessible abstract and bibliographic discussion only; full body not inspected",
+          "method": "Abstract-level comparison; no whole-document NOT_COVERING claim",
+          "title": "Dynamically emergent correlations in a Brownian gas with diffusing diffusivity",
+          "trigger": "Same shared diffusivity and spatial correlations"
+        },
+        {
+          "assessment": "ABSTRACT_BACKGROUND",
+          "evidence": "Discusses resetting autocorrelations, not enough material read to exclude hidden-medium generalization.",
+          "identifier_or_url": "https://arxiv.org/abs/2107.11686",
+          "material_read": "Abstract and paper metadata only",
+          "method": "Abstract-level methodological comparison",
+          "title": "Autocorrelation functions and ergodicity in diffusion with stochastic resetting",
+          "trigger": "General reset two-time observable methods"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "rationale": "The model isolates experimentally interpretable separation between medium renewal and positional reset; the exact nontrivial threshold in normalized fourth-order lag memory and residual non-self-averaging are motivated model-specific stochastic invariants, with a repeated-rate critical form rather than a routine equality of rates.",
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "limitations": [
+    "Requires n>=2, strictly positive finite a,b,Λ and independent Poisson clocks; all positions share one clock.",
+    "Stationary two-sided process, fourth-order two-time squares, not finite-time empirical inference or a thermodynamic transition.",
+    "Only pointwise-in-time large-n conditional-law convergence, not uniform-in-time convergence."
+  ],
+  "schema_version": 1
+}
