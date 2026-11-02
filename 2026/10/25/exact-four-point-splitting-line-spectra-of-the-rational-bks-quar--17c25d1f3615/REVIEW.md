@@ -1,19 +1,21 @@
-# Self-review
+# Independent mathematical audit
 
-## Correctness — PASS
+## correctness
 
-The claim concerns exactly two finite-field extensions, not all extensions. The complete polynomial-residue field tables are explicitly tested for nonzero inverses. The affine equation, unique infinity, projective point and line normalizations, and every incidence are implemented by exact integer operations reduced modulo three. Every one of the 757 and 6,643 lines is visited. The complete line and center spectra agree between the all-lines enumeration and an independently organized point-parametrization and pair-generated-line enumeration. The line count, point-line count, pair count and four-secant incidence first moment supply transparent combinatorial consistency conditions. Nothing depends on a sampled extrapolation.
+PASS
 
-## Originality — PASS (best-knowledge, residual risk stated)
+The claim concerns the exactly specified singular degree-four plane curve Y^4+X^3 Z+XZ^3+XY^2 Z-X^2 Z^2=0 over F_3 and only its sets of distinct F_27/F_81-rational plane points. The affine equation follows by Z=1, and Y^4=0 at Z=0 gives the unique point (1:0:0). Distinct projective-point and dual-line normalization gives Q^2+Q+1 objects. A NEW independently written finite-field enumerator used polynomial quotient arithmetic over F_3, verified inverses of every nonzero element, evaluated the ORIGINAL homogeneous polynomial rather than the package alternative, and enumerated every curve point, line, four-secant and ambient center. It reproduced 31/79 curve points, 24/204 four-secants, line spectra (240,256,195,42,24)/(2520,2290,1515,114,204), center distributions as claimed, and precisely 282/108 uncovered exterior points. Four independent combinatorial double counts (lines, point-line pairs, curve-point pairs, four-secant-center pairs) agree in each field. The on-curve spectra are (0:7,4:24) and (0:3,10:72,24:4). At F_81 four of seven F_3-rational curve points are each on 24 four-secants, while the three nodes are uncovered. The original verify.cpp and check_parameter.py were inspected but NOT executed as proof substitutes. This is a genuine complete finite exhaustion, not a sample or a claim about arbitrary extension degree.
 
-Korchmáros–Nagy–Szőnyi, arXiv:2302.10162v1 (2023), §§4.2 and 7.2, supplies the curve and its parametrization and explicitly leaves the small BKS extension cases \(r=3,4\) open. Its general eventual splitting/completeness statement does not force either exceptional finite count; in particular, the measured \(\mathbb F_{81}\) deficit is not covered by an eventual even-degree assertion. Comparisons considered the original curve equation, the algebraic normalization, secant distribution and projection splitting, including alternate arc/finite-plane terminology. published-finding corpus semantic searches for these exact fields and four-secants returned unrelated Fourier-minor, plane-incidence and finite-field extension records; accessible prior research titles and claims showed no equivalent finding. A 2025 Hermitian completeness work addresses the other family. The cited 2022 original BKS geometry study is background, not an identified exact small-field census. An unindexed earlier arithmetic table remains possible; absence in search does not prove absolute novelty.
+## originality
 
-## Mathematical value — PASS
+PASS
 
-This directly fills two extension degrees explicitly left unsettled by the motivating published analysis, with exhaustive full incidence distributions rather than binary yes/no answers. The even extension exhibits a concrete finite-size failure that cannot be inferred from the eventual even-extension theorem, while the odd extension quantifies a much larger coverage gap. The result is a complete natural exact invariant for two distinguished finite arithmetic fibers of the original rational quartic, reproducible without specialized software.
+The full primary 2024 paper explicitly leaves the rational BKS r=3 and r=4 completeness cases open, and its Theorem 7.5 covers only r>=5. Its Theorem 8.2 addresses on-curve points and has an apparent contradictory small-even-field prediction; it does not give any of the verified full four-secant/ambient-center spectra. The earlier 2022 geometry study concerns the curve construction and automorphism group. Actual Resultary searches of the same curve/extensions and public metadata returned no exact earlier small-field line/center tables. Best of knowledge PASS, qualified by possible unindexed arithmetic tables and the primary-theorem tension; the absence of a search hit is not mathematical proof of uniqueness.
 
-## Scientific scope and risk
+## value
 
-Only the point-set of this singular quartic and the fields of sizes 27 and 81 are classified. No geometry over every finite extension is claimed. An independently conducted audit has not been performed. The field arithmetic and finite exhaustive proof were checked twice using different incidence constructions.
+PASS
 
-Self-review: passed. Independent audit: not yet performed.
+This is an exact finite-arithmetic invariant of a canonical rational BKS plane curve at the two extensions expressly left unsettled by the motivating primary theorem, not an arbitrary choice of test sizes. Determining both completeness failures and the entire 757-/6643-line spectra plus ambient incidence distributions is useful for finite-plane arcs, splitting behavior and constructions in finite geometry. In addition, the F_81 on-curve distribution exposes a concrete, independently checkable tension with a printed theorem. The value is finite but substantive; no unproved all-extension generalization is claimed.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

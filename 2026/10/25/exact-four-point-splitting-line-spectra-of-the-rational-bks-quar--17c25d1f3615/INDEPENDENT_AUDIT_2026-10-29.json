@@ -1,0 +1,129 @@
+{
+  "audit_date_utc": "2026-10-29",
+  "audited_at_utc": "2026-10-29T05:53:46.254588Z",
+  "axes": {
+    "correctness": {
+      "rationale": "The claim concerns the exactly specified singular degree-four plane curve Y^4+X^3 Z+XZ^3+XY^2 Z-X^2 Z^2=0 over F_3 and only its sets of distinct F_27/F_81-rational plane points. The affine equation follows by Z=1, and Y^4=0 at Z=0 gives the unique point (1:0:0). Distinct projective-point and dual-line normalization gives Q^2+Q+1 objects. A NEW independently written finite-field enumerator used polynomial quotient arithmetic over F_3, verified inverses of every nonzero element, evaluated the ORIGINAL homogeneous polynomial rather than the package alternative, and enumerated every curve point, line, four-secant and ambient center. It reproduced 31/79 curve points, 24/204 four-secants, line spectra (240,256,195,42,24)/(2520,2290,1515,114,204), center distributions as claimed, and precisely 282/108 uncovered exterior points. Four independent combinatorial double counts (lines, point-line pairs, curve-point pairs, four-secant-center pairs) agree in each field. The on-curve spectra are (0:7,4:24) and (0:3,10:72,24:4). At F_81 four of seven F_3-rational curve points are each on 24 four-secants, while the three nodes are uncovered. The original verify.cpp and check_parameter.py were inspected but NOT executed as proof substitutes. This is a genuine complete finite exhaustion, not a sample or a claim about arbitrary extension degree.",
+      "residual_risks": [
+        "A noteworthy primary-literature tension: Theorem 8.2 of the 2024 paper asserts all F_3-rational points of the BKS curve are uncovered by four-secants for r>=3. The independent F_81 enumeration instead covers four of seven F_3-rational points and leaves only the three nodes uncovered. The comparison and hypotheses should be checked with the authors before using it as a correction to the published theorem. This does not undermine the exact finite enumeration.",
+        "Only r=3 and r=4 have been classified."
+      ],
+      "sources": [
+        "assigned RESULT.md proof Steps 1-5 and check_parameter.py/verify.cpp read from frozen blobs",
+        "fresh independent_checks.py and independent_check_results.json exact finite-field counts",
+        "Korchmáros, Nagy and Szőnyi, Algebraic approach to the completeness problem for (k,n)-arcs in planes over finite fields, JCTA 204 (2024), 105851, doi:10.1016/j.jcta.2023.105851, especially Section 4.2, Theorems 7.5 and 8.2"
+      ],
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Theorem 7.5 states r>=5 and explicitly excludes r=3 and r=4. Theorem 8.2 states on-curve noncoverage for r>=3, which conflicts at r=4 with the direct enumeration; it does not characterize exterior-center incidence."
+        ],
+        "reasoning": "Neither r>=5 theorem implies the two exceptional complete line spectra or exterior deficits. On-curve Theorem 8.2 is NOT ignored; its apparent disagreement is documented, not cited as support for the new counts. The preceding classification of the curve and nodes does not dominate the present census.",
+        "searches": [
+          "Korchmáros Nagy Szőnyi Algebraic approach completeness problem BKS curve cases r=3 4 unresolved Theorem 7.5 2024",
+          "JCTA 204 (2024) Theorems 7.5 and 8.2",
+          "arxiv:2202.05765 abstract and linked geometric Proposition 4.24"
+        ]
+      },
+      "checked_sources": [
+        "Korchmáros, Nagy and Szőnyi, Algebraic approach to the completeness problem for (k,n)-arcs in planes over finite fields, JCTA 204 (2024), 105851, doi:10.1016/j.jcta.2023.105851, especially Section 4.2, Theorems 7.5 and 8.2",
+        "Borges, Korchmáros and Speziali, Plane curves with a large linear automorphism group in characteristic p, arxiv:2202.05765, Finite Fields Appl. 96 (2024), 102402",
+        "Resultary semantic search for exact BKS four-secants F27/F81, no high-relevance same-object hit"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "Prior Theorem 7.5 only supplies a large-extension covering result; its introduction explicitly lists r=3 and r=4 as unsolved. At F_81, the present exact count gives 108 uncovered exterior centers, not covered by any r>=5 result; on-curve exact enumeration gives three rather than seven uncovered F_3-curve points."
+        ],
+        "reasoning": "Knowing the BKS equation, normalization and rational parameterization does not determine the full 0..4 secant counts or full ambient incidence profile. The published on-curve Theorem 8.2 is apparently incompatible at r=4, so cannot be used as a stronger theorem implying these spectra.",
+        "searches": [
+          "Korchmáros Nagy Szőnyi Algebraic approach completeness problem BKS curve cases r=3 4 unresolved Theorem 7.5 2024",
+          "JCTA 204 (2024) Theorems 7.5 and 8.2",
+          "arxiv:2302.10162 §4.2"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "For q=3, equation (5) of the primary paper is y^4-(x^3+x)+(y^2-2x)^2=0, which equals the audited affine equation after multiplication by 2 in characteristic three; both define exactly the same point set. Four completely split rational line sections are also four-secants of this (k,4)-arc."
+        ],
+        "reasoning": "Compared both affine equations and the point-line set formulation. The geometry and parameterization are prior, but a complete count for these two small extensions was not found in the inspected source.",
+        "searches": [
+          "Rational BKS quartic finite fields F27 F81 four-secant splitting lines uncovered exterior points completeness q=3 r=3 r=4 Korchmaros Nagy Szonyi",
+          "Korchmáros Nagy Szőnyi Algebraic approach completeness problem BKS curve cases r=3 4 unresolved Theorem 7.5 2024",
+          "arxiv:2302.10162 §4.2 equation (5) and rational parameterization (6)",
+          "Resultary query: Rational BKS quartic finite fields F27 F81 four-secant splitting lines uncovered exterior points completeness q=3 r=3 r=4 Korchmaros Nagy Szonyi"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "The available semantic Resultary results are unrelated finite-field extension/Fourier or quartic algebraic-geometry records; the inspected 2024 paper provides no line or center tables for F_27 and F_81."
+        ],
+        "reasoning": "No accessible exact matching table was located. Unindexed or offline finite-geometry tables may exist; search absence is only a qualified observation.",
+        "searches": [
+          "Rational BKS quartic finite fields F27 F81 four-secant splitting lines uncovered exterior points completeness q=3 r=3 r=4 Korchmaros Nagy Szonyi",
+          "Resultary query: Rational BKS quartic finite fields F27 F81 four-secant splitting lines uncovered exterior points completeness q=3 r=3 r=4 Korchmaros Nagy Szonyi",
+          "Plane curves with a large linear automorphism group characteristic p BKS Proposition 4.24 PDF"
+        ]
+      },
+      "rationale": "The full primary 2024 paper explicitly leaves the rational BKS r=3 and r=4 completeness cases open, and its Theorem 7.5 covers only r>=5. Its Theorem 8.2 addresses on-curve points and has an apparent contradictory small-even-field prediction; it does not give any of the verified full four-secant/ambient-center spectra. The earlier 2022 geometry study concerns the curve construction and automorphism group. Actual Resultary searches of the same curve/extensions and public metadata returned no exact earlier small-field line/center tables. Best of knowledge PASS, qualified by possible unindexed arithmetic tables and the primary-theorem tension; the absence of a search hit is not mathematical proof of uniqueness.",
+      "residual_risks": [
+        "The earlier full 2022 BKS geometry monograph/paper was not read; exact number tables might occur in an appendix.",
+        "The 2024 Theorem 8.2 apparent r=4 conflict requires cautious source/hypothesis interpretation before attributing an error publicly.",
+        "Another unindexed independent finite-field enumeration could predate this one."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Theorem 7.5 excludes r=3,4; Theorem 8.2 on-curve statement appears inconsistent with the certified even-extension F_81 census. No small-field complete ambient incidence table appears in inspected material.",
+          "evidence": [
+            "JCTA (2024) PDF pages 4, 9, 29, 32; introduction explicitly says r=3,4 open; equation (5) identical to audited model; Theorem 8.2 states on-curve noncoverage for all r>=3."
+          ],
+          "identifier_or_url": "https://publicatio.bibl.u-szeged.hu/29111/1/KorchmarosNagySzonyiAlgebraicapproachtothecompletenessproblemforkn-arcsinplanesoverfinitefields.pdf",
+          "material_read": "Complete public PDF relevant text including Introduction page 4, Section 4.2 equation (5) and parameterization, Theorem 7.5 page 29 with r>=5 hypothesis, Section 8.2 and Theorem 8.2 page 32; inspected PDF screenshots of these theorem pages.",
+          "method": "Full-source mathematical statement and hypothesis comparison, not abstract-only.",
+          "title": "Korchmáros, Nagy and Szőnyi, Algebraic approach to the completeness problem for (k,n)-arcs in planes over finite fields, JCTA 204 (2024), 105851, doi:10.1016/j.jcta.2023.105851, especially Section 4.2, Theorems 7.5 and 8.2",
+          "trigger": "Exact same rational BKS curve, explicit open r=3,4 cases and broader claimed section theorems."
+        },
+        {
+          "assessment": "Construction/geometry are prior; an unindexed exact special-field table in the unread original remains possible.",
+          "evidence": [
+            "2022 arXiv abstract; 2024 JCTA Section 4.2 identifies geometric Proposition 4.24."
+          ],
+          "identifier_or_url": "https://arxiv.org/abs/2202.05765",
+          "material_read": "Full public abstract and its Proposition 4.24 characterization cited in the 2024 primary paper; entire 2022 original manuscript not retrieved.",
+          "method": "Explicit partial-source screening with no whole-document negative claim.",
+          "title": "Borges, Korchmáros and Speziali, Plane curves with a large linear automorphism group in characteristic p, arxiv:2202.05765, Finite Fields Appl. 96 (2024), 102402",
+          "trigger": "Geometric origin and automorphism classification of the same rational curve."
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "rationale": "This is an exact finite-arithmetic invariant of a canonical rational BKS plane curve at the two extensions expressly left unsettled by the motivating primary theorem, not an arbitrary choice of test sizes. Determining both completeness failures and the entire 757-/6643-line spectra plus ambient incidence distributions is useful for finite-plane arcs, splitting behavior and constructions in finite geometry. In addition, the F_81 on-curve distribution exposes a concrete, independently checkable tension with a printed theorem. The value is finite but substantive; no unproved all-extension generalization is claimed.",
+      "residual_risks": [
+        "Priority of a previously unpublished exact small-field table is not absolutely known."
+      ],
+      "sources": [
+        "Korchmáros, Nagy and Szőnyi, Algebraic approach to the completeness problem for (k,n)-arcs in planes over finite fields, JCTA 204 (2024), 105851, doi:10.1016/j.jcta.2023.105851, especially Section 4.2, Theorems 7.5 and 8.2",
+        "fresh independent exact field census; assigned RESULT.md"
+      ],
+      "status": "PASS"
+    }
+  },
+  "checked_sources": [
+    "Korchmáros, Nagy and Szőnyi, Algebraic approach to the completeness problem for (k,n)-arcs in planes over finite fields, JCTA 204 (2024), 105851, doi:10.1016/j.jcta.2023.105851, especially Section 4.2, Theorems 7.5 and 8.2",
+    "Borges, Korchmáros and Speziali, Plane curves with a large linear automorphism group in characteristic p, arxiv:2202.05765, Finite Fields Appl. 96 (2024), 102402",
+    "Resultary semantic search for exact BKS four-secants F27/F81, no high-relevance same-object hit"
+  ],
+  "disposition": "passed",
+  "limitations": [
+    "Only the two finite fields q=3^3,3^4 and the singular plane curve point sets; not the normalization points or a statement for other fields.",
+    "Potential printed Theorem 8.2 conflict is a source-comparison issue, not an independently adjudicated correction to its authors."
+  ],
+  "residual_risks": [
+    "The earlier full 2022 BKS geometry monograph/paper was not read; exact number tables might occur in an appendix.",
+    "The 2024 Theorem 8.2 apparent r=4 conflict requires cautious source/hypothesis interpretation before attributing an error publicly.",
+    "Another unindexed independent finite-field enumeration could predate this one."
+  ],
+  "schema_version": 1
+}
