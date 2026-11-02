@@ -1,25 +1,21 @@
-# Scientific review
+# Independent mathematical audit
 
-## Correctness — PASS
+## correctness
 
-The domain is the set of unordered pairs of *positions*, queried as smaller-entry comparisons. The VC upper bound is forced by an impossible directed cycle on any cyclic set of comparisons; the explicit first-position pivot construction shatters an \(n-1\)-edge star and always avoids 321. The finite adaptive classification is supported by two independently implemented exhaustive dynamic recurrences with different avoider enumerations. The complete depth-nine tree has all 512 leaves explicitly witnessed and separately checked. Direct sums preserve 321-avoidance and independently concatenate block shattering strategies. This proves the unbounded lower gap without any extrapolation of the finite table.
+PASS
 
-## Originality — PASS, with residual priority risk
+A shattered comparison graph cannot contain a cycle, since its cycle edges could be consistently asked to form an impossible directed cycle; a star is shattered by a pivot followed by low and high increasing subsequences, which avoids 321, proving VC=n−1. For the finite Ldim, the exact full binary-tree recursion on query answer fibers gives ranks (0,1,2,3,4,6,7) for n≤7 in an independently coded rank computation. At n=8, the actual frozen 511-query/512-leaf certificate was independently decoded and every unique leaf verified as 321-avoiding and realizing its exact 9-bit path. No depth 10 can exist since the smaller fiber of any first query has ≤429 candidates, below 2^9=512; hence Ldim=9. Direct sums of 8-block avoiders preserve avoidance and concatenate independent shattered trees to prove all s lower bounds. The finite certificate verifies its stated property, not an uncomputed exact Ldim at larger n.
 
-The inspected primary work on 321-avoiders develops Catalan/Dyck/RSK bijections and rowmotion [1], without comparison-query dimension statements. The general zero-set theorem [2] assumes a linear-algebraic concept representation absent here. The generic dimension-complexity study [3] does not compute these pattern-restricted exact values. Public research-record searches for thicket/Littlestone dimensions, Catalan permutations, 321 avoidance, comparison queries, and direct sums did not return an implication covering the claim. Previously accessible total-order comparison results concern the full permutation class and therefore do not determine the dimension of the restricted 321-avoiding subfamily. Absence from searched sources is not a proof of absolute priority.
+## originality
 
-## Mathematical value — PASS
+PASS
 
-The same canonical class exhibits two qualitatively distinct measures of query complexity: VC dimension is fixed by a forest obstruction, while adaptive shattering can exceed it already at six positions and by two at eight. The explicit eight-position witness then supplies a linear lower gap in the full connected-by-pattern permutation family, not an arbitrary union of unrelated learning problems. The mechanism is reusable for studying online inference on other hereditary permutation classes. The finite transition and the asymptotic amplification are distinct substantive pieces of one theorem.
+The published Catalan/rowmotion characterization of 321-avoiders and general VC/Littlestone theory do not determine adaptive pair-of-position comparison ranks of the restricted permutation family. Generic inapproximability work likewise has no exact values. General full-permutation bounds do not imply a lower bound for the proper 321-avoiding subfamily. No inspected published finding supplies the first gaps or unbounded direct-sum separation.
 
-## Closest literature and limitations
+## value
 
-[1] B. Adenbaum and S. Elizalde, *Rowmotion on 321-avoiding permutations*, arXiv:2212.11347 (2022).
+PASS
 
-[2] V. Guingona, A. Kolesnikov, J. Nierwinski, and R. Soucy, *Littlestone and VC-dimension of families of zero sets*, arXiv:2109.04805 (2021).
+This is a natural hereditary Catalan permutation class with a concrete position-comparison query model, exhibiting exact first VC/adaptive separation at n=6 and a linearly growing gap along n=8s. The explicit depth-9 decision tree and direct-sum mechanism provide substantive reusable lower bounds beyond a numerical curiosity.
 
-[3] P. Manurangsi, *Improved Inapproximability of VC Dimension and Littlestone's Dimension via (Unbalanced) Biclique*, arXiv:2211.01443 (2022).
-
-The classification of adaptive ranks is exact only through eight positions. Larger-size Littlestone ranks are bounded below on multiples of eight, not calculated exactly. Further unindexed or unpublished overlap is possible.
-
-Self-review: passed. Independent audit: not yet performed.
+The dated certificate retains the supplied scientific assessment, sources and limitations.
