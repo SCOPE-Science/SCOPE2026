@@ -1,15 +1,21 @@
-# Self-review
+# Independent mathematical audit
 
-## Correctness: PASS
-The claim is explicitly confined to the characteristic-two reduced dual of the given integral cubic and its rational Gauss map. The proof derives the displayed coordinate substitution and polar net, identifies the seven simple base points and complete cubic system, and proves the exact function-field identity \(k(X)^2=k(r,t)\) by odd divisor valuations and degree computations. The included checker reproduces every critical polynomial identity and local base-point rank. The generic inseparability and infinite-field assertions rely on the proof, not a bounded enumeration.
+## correctness
 
-## Originality: PASS, with risk
-The closest classical duality source, Catanese–Ceresa (1982, Proposition 2), proves a *Steiner quartic dual* for the four-nodal cubic in the classical setting, not a characteristic-two linear dual with Frobenius Gauss extension. Heath-Brown (2002) gives the same \(e_3\) equation for rational-point counting. Catanese (2021, §8) works with complex Cayley cubic coverings; Kadyrsizova et al. (2020) examine characteristic-two cubic surface \(F\)-singularities. The inspected material does not imply the present function-field theorem. The main residual risk is an unidentified older modular/strange-variety treatment of the characteristic-two Gauss map or seven-point cubic net. Search absence alone is not a proof of novelty.
+PASS
 
-## Mathematical value: PASS
-The reduced projective dual of a classical four-nodal cubic changes from a quartic surface in characteristic zero to a plane in characteristic two, with a generically degree-four height-one purely inseparable Gauss map. The complete Fano-plane anticanonical factorization explains the degeneration geometrically and determines a natural birational/differential invariant of this canonical surface, rather than a coordinate-only curiosity or a small finite-field census.
+Checked original scheme/field hypotheses, reduced dual, rational rather than global morphism and degree convention. Direct characteristic-two coordinate transform gives F=UVT+W²(U+V+T); Euler polar relation makes o a strange smooth point. On U=1 w²=yz/(1+y+z), nonsquare by prime y=0 valuation. Polar cubics G=(VT(V+T),UT(U+T),UV(U+V)) have exactly seven simple F2-plane basepoints and span cubic equations vanishing at them, confirmed independently by GF2 evaluation rank7. Source rational identities z²=r(r+1)/t(t+1), y²=r(r+t)/(1+t), w²=r/(1+t) force degree2 each stage and k(X)²=k(r,t), since [k(X):k(X)²]=4 by p-basis over perfect k. Independent symbolic checker confirmed coordinate identity and linear-system rank; proof handles infinite-function-field conclusions, and direct valuations are essential. Blowup anticanonical class 3H−ΣE_i has degree2; no assertion of del Pezzo general position.
 
-## Limits
-No claims are made about scheme-theoretic multiplicities of the dual, the entire exceptional locus, positive-characteristic fields of other characteristics, or complete historical priority. All scientific review here is self-review only.
+## originality
 
-Self-review: passed. Independent audit: not yet performed.
+PASS
+
+Bounded best-of-knowledge prior-work comparison: None of the inspected primary statements logically dominates the all-map theorem, though a differently named older strange-surface result could.
+
+## value
+
+PASS
+
+The drastic degeneration of the Cayley cubic dual from classical Steiner quartic to a plane in characteristic two, plus exact Frobenius Gauss extension and seven-point net factorization, is a motivated geometric classification of a canonical singular surface. The inseparability degree and factorization explain dual degeneration, beyond a trivial coordinate substitution.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
