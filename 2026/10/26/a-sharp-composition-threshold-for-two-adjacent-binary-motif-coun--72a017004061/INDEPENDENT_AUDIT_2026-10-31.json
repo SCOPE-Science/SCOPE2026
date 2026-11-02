@@ -1,0 +1,108 @@
+{
+  "audit_date_utc": "2026-10-31",
+  "audited_at_utc": "2026-10-31T16:09:35.691216Z",
+  "axes": {
+    "correctness": {
+      "rationale": "Uniform binary words with a>=1 ones, b>=2 zeros, n=a+b>=6. Each fixed specified configuration with r ones and s zeros has probability (a)_r(b)_s/(n)_(r+s). For the ordered 001/010 window pairs, exactly (n-4)(n-5) disjoint and two compatible overlap families (n-4) length-five 01001 and (n-3) length-four 0010 contribute; other overlaps are incompatible. The resulting mixed moment and subtracting equal mean squared gives Cov=-ab(b-1)P(a,b)/(n²(n-3)(n-2)(n-1)²). For b<=a+1 set v=a-b+1 and positive polynomial coefficients show P>0; for b>=a+2 set v=b-a-2 and negative coefficients show P<0, including the b=2,a>=4 and a=1,b>=5 edge cases. New independent direct word enumeration confirmed 39 complete composition cases 6<=n<=11 and all covariance signs; universal proof rests on finite overlap partition plus polynomial identities, not extrapolation.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "General pattern-recursion/cluster algorithms could calculate moments given a model; no inspected theorem supplies the strict b-a=2 cutoff.",
+          "Published Resultary run-transition covariance depends on adjacent transition indicators, not the products of counts of distinct length-three motifs."
+        ],
+        "reasoning": "Algorithmic coverage of moment extraction is acknowledged; the concise all-integer inequality and zero exclusion require a distinct sign factorization.",
+        "searches": [
+          "Martin 2019 exact probabilities overlapping pattern occurrences",
+          "Even-Zohar et al. §1 and main spectral covariance",
+          "Resultary fixed-composition run transitions"
+        ]
+      },
+      "checked_sources": [
+        "https://arxiv.org/pdf/2012.00742",
+        "https://doi.org/10.1002/wics.1477",
+        "https://arxiv.org/abs/1905.05646",
+        "Resultary exact dependence phases of fixed-composition run transitions"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "The fixed-composition distribution appears in prior work, but the established #u there counts all nonconsecutive index selections.",
+          "Overlap generating functions are general computational techniques, not a stated all-parameter strict covariance theorem."
+        ],
+        "reasoning": "Prior techniques may imply the formula after specialization and algebra, but no inspected stronger statement decides sign for all a,b without the new calculation.",
+        "searches": [
+          "Even-Zohar eq. W'(n) vs #u(w)",
+          "Martin WIREs Comp. Stat. DOI:10.1002/wics.1477"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Even-Zohar et al. define random W'(n) with fixed multiplicities but explicitly define subwords as nonconsecutive subsequences (§1.1).",
+          "The present U,V are contiguous three-character windows and their overlap geometry is different."
+        ],
+        "reasoning": "The same word-composition sampling law is not the same statistic. The earlier spectral subsequence covariance cannot be substituted for adjacent motif covariance.",
+        "searches": [
+          "Resultary: fixed composition binary words overlapping patterns 001 010 covariance sign threshold",
+          "Even-Zohar–Lakrec–Tessler arXiv:2012.00742v3",
+          "Martin 2019 overlapping pattern occurrences overview"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "No identified tabulation has the exact 001/010 finite-population covariance sign regions.",
+          "The 2012.00742 paper analyzes subsequence spectra and does not list the desired contiguous joint count."
+        ],
+        "reasoning": "The target is an unrestricted algebraic formula rather than a small finite table; generic failed searches do not certify priority.",
+        "searches": [
+          "Resultary query fixed-composition 001 010",
+          "literature search exact joint pattern covariance tables",
+          "Even-Zohar 2026 v3 PDF"
+        ]
+      },
+      "rationale": "The full integer-composition positive/negative threshold for the two literal contiguous trigrams and exact rational covariance are assessed original relative to inspected references, not the classical method of counting overlapping motifs or finite-population hypergeometric probabilities.",
+      "residual_risks": [
+        "General joint-pattern cluster methods might already yield the specialization as a corollary.",
+        "No claims beyond 001/010 with fixed symbol counts."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "DIFFERENT_STATISTIC: subword subsequences not contiguous windows; no whole-document noncoverage assertion",
+          "evidence": "§1.1 explicitly says copies need not appear consecutively; W'(n) uses exact symbol counts.",
+          "identifier_or_url": "https://arxiv.org/pdf/2012.00742",
+          "material_read": "Abstract and §1.1–§1.2 (pp.1–3), including definitions of multisample W'(n) and nonconsecutive #u",
+          "method": "Primary 63-page arXiv PDF text and page visual",
+          "title": "Spectral Analysis of Word Statistics",
+          "trigger": "Same fixed-composition random word model, superficially same pattern-count terminology"
+        },
+        {
+          "assessment": "GENERAL_TOOL, complete implications not excluded",
+          "evidence": "Abstract lists cluster, generating functions, Markov-chain embeddings, not a quoted specific sign theorem.",
+          "identifier_or_url": "https://doi.org/10.1002/wics.1477",
+          "material_read": "Publisher abstract and methods list only; full text not read",
+          "method": "Public publisher summary",
+          "title": "Computation of exact probabilities associated with overlapping pattern occurrences",
+          "trigger": "Potential general method that might dominate a two-trigram count"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "rationale": "The covariance changes sign across a simple exact composition threshold despite equal motif means. This is a natural finite-population joint word-statistic invariant relevant to sequence motif dependence, with no hidden asymptotic condition and no equality cases; its finite overlap geometry and all-composition sign proof are stronger than a small numerical example.",
+      "status": "PASS"
+    }
+  },
+  "checked_sources": [
+    "https://arxiv.org/pdf/2012.00742",
+    "https://doi.org/10.1002/wics.1477",
+    "https://arxiv.org/abs/1905.05646",
+    "Resultary exact dependence phases of fixed-composition run transitions"
+  ],
+  "disposition": "passed",
+  "limitations": [
+    "Only literal contiguous 001 and 010 under uniform fixed-composition null, n>=6.",
+    "Generic multivariate motif generating functions could implicitly subsume the moment formula; priority qualified.",
+    "Independent enumeration through length 11 corroborates unbounded sign proof."
+  ],
+  "schema_version": 1
+}
