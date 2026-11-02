@@ -1,0 +1,101 @@
+{
+  "audit_date_utc": "2026-10-30",
+  "audited_at_utc": "2026-10-30T11:04:51Z",
+  "axes": {
+    "correctness": {
+      "rationale": "Summing F(q)=sum q^j/(j(j+1)) gives 1+(1-q)log(1-q)/q, so V=F(q)-F(q^2). The derivative is H(q)/q^3 and H=q R(q)/(1-q^2)^2 for R(q)=2q^3-q^2-8q+3 with R'(q)=2(q+1)(3q-4)<0. H initially rises, has one local maximum, decreases to -infinity near q=1, hence exactly one positive zero q* at which V is maximized. Since H'(q*)<0, Taylor gives curvature -H'(q*)/(2q*^3)>0. Boundaries q=0 and 1 have V=0; theta fixed in asymptotic limit. Independent check: Independent symbolic differentiation verified identities V'=H/q^3 and H''=qR/(1-q^2)^2, plus high-precision unique-root location, coefficient maximum, fair coin benchmark and quadratic curvature. The bundled source rational-series root bounds were inspected and are finite rational certificates; uniqueness relies on the cubic-monotonicity proof.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "The 2018/2019 FCLT supplies the variance for every fixed retention probability. The 2026 MDP and LIL supply interpretations of its reciprocal as rate/cluster radius."
+        ],
+        "reasoning": "The probability laws are stronger stochastic theorems but do not explicitly optimize theta. Their formulas are credited, and only the analytical choice of parameter is claimed.",
+        "searches": [
+          "random least common multiple functional central limit theorem variance g(p)",
+          "Functional Limit Theorems Random Least Common Multiples 2026 MDP LIL"
+        ]
+      },
+      "checked_sources": [
+        "arXiv:1801.08934",
+        "arXiv:2607.08129"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "The earlier exact series and closed form make the new optimization an approachable corollary after a nontrivial sign analysis; the 2026 endpoint MDP rate is proportional to 1/V(theta), so minimizing it shares the optimizer."
+        ],
+        "reasoning": "The source does not claim novelty for CLT, MDP, LIL or qualitative peak. Its exact single maximizer and curvature require differentiation and a monotonic cubic sign argument that are not stated in the inspected sources.",
+        "searches": [
+          "arXiv:1801.08934 theorem 1.1 remark 1.3",
+          "arXiv:2607.08129 equations 2.20 2.21"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Alsmeyer–Kabluchko–Marynych already derive the *identical* F(q)-F(q^2) variance coefficient, provide closed form and plot an interior maximum. The new statement is root uniqueness and nondegenerate explicit optimizer and curvature."
+        ],
+        "reasoning": "Matching the variance coefficient is full prior coverage for its definition, but not logically the theorem proving the unique root and curvature; derivative analysis adds a genuine exact optimization of known analytic data.",
+        "searches": [
+          "random least common multiple variance thinning probability unique maximum q log q stationary point sampling density",
+          "Alsmeyer Kabluchko Marynych 2018 g(q) variance graph Figure1 Remark1.3",
+          "Wang Yang Zhou 2026 least common multiples moderate deviations variance"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "Figure 1 in the 2018 primary paper already plots the coefficient and visually shows a peak around a non-half probability; the 2018 Remark 1.3 gives exact closed form."
+        ],
+        "reasoning": "The qualitative peak is NOT new. Numerical optimizer 0.329932... and provable uniqueness with sharp curvature are more precise than a plotted graph, although a prior unpublished calculation could have them.",
+        "searches": [
+          "least common multiple variance sampling probability optimal p 0.329932425",
+          "Alsmeyer 2018 variance Figure1 q maximum"
+        ]
+      },
+      "rationale": "Best-of-knowledge priority qualified by primary-source comparisons and explicit antecedent/corollary limits; For the previously established limiting variance V(theta)=sum_{j>=1}q^j(1-q^j)/[j(j+1)] with q=1-theta, there is a unique maximizer theta*=0.32993242521751849..., characterized by H(q*)=0 where H(q)=(2-q)log(1-q)+2log(1+q)+q^2, with Vmax=0.1854345441670716... and sharp quadratic stability curvature 0.6387895185247574...; the original fixed-theta CLT/MDP/LIL are prior work. is not supplied in the compared prior statements.",
+      "residual_risks": [
+        "The 2018 primary source already gives both the coefficient and its graph: incremental novelty is limited to an elementary-looking exact unique optimizer and curvature; earlier unindexed differentiation may exist.",
+        "Exact formulas do not imply a triangular-array CLT or universal best event probability for varying theta."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Directly covers the variance function and qualitative peak, but not an explicit unique optimizer or local curvature theorem",
+          "evidence": "g(q)=F(q)-F(q²), with plotted non-half maximizer.",
+          "identifier_or_url": "arXiv:1801.08934",
+          "material_read": "Original full PDF, Theorem 1.1, Remark 1.3, exact g(q) and Figure 1",
+          "method": "primary PDF text plus page-image inspection of relevant sections",
+          "title": "Limit theorems for the least common multiple of a random set of integers",
+          "trigger": "Identical variance coefficient and apparent figure peak"
+        },
+        {
+          "assessment": "Relevant MDP interpretation, no whole-document noncoverage claim",
+          "evidence": "Endpoint moderate-deviation rate contains the same known variance coefficient.",
+          "identifier_or_url": "arXiv:2607.08129",
+          "material_read": "Abstract and reported equations 2.20–2.21 as described in source; complete recent manuscript not independently read",
+          "method": "arXiv abstract/search and source reference cross-check",
+          "title": "Functional Limit Theorems for Random Least Common Multiples",
+          "trigger": "Identical endpoint MDP/LIL variance"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "rationale": "Selecting the sampling rate to maximize random-LCM endpoint fluctuations or minimize the fixed-parameter quadratic MDP coefficient is a natural optimization; the nondegenerate unique maximizer, quantitative gain over fair-coin sampling and curvature supply a usable precise design parameter, albeit a modest analytic refinement of a known profile.",
+      "status": "PASS"
+    }
+  },
+  "checked_sources": [
+    "arXiv:1801.08934",
+    "arXiv:2607.08129"
+  ],
+  "disposition": "passed",
+  "final_claim": "For the previously established limiting variance V(theta)=sum_{j>=1}q^j(1-q^j)/[j(j+1)] with q=1-theta, there is a unique maximizer theta*=0.32993242521751849..., characterized by H(q*)=0 where H(q)=(2-q)log(1-q)+2log(1+q)+q^2, with Vmax=0.1854345441670716... and sharp quadratic stability curvature 0.6387895185247574...; the original fixed-theta CLT/MDP/LIL are prior work.",
+  "limitations": [
+    "The variance series, CLT and MDP/LIL are previously published.",
+    "2018 authors already plotted the interior variance peak, so only strict optimizer uniqueness, exact root, numerical peak and curvature are claimed; no moving-parameter process theorem.",
+    "The 2018 primary source already gives both the coefficient and its graph: incremental novelty is limited to an elementary-looking exact unique optimizer and curvature; earlier unindexed differentiation may exist.",
+    "Exact formulas do not imply a triangular-array CLT or universal best event probability for varying theta.",
+    "Frozen public METADATA.json and AUDIT.json retain a scope_run_id operational provenance field; full confidentiality-safe replacement contents and verified guarded source-blob operations were not staged. Publication must remain withheld until every public file is semantically sanitized and checked."
+  ],
+  "schema_version": 1
+}
