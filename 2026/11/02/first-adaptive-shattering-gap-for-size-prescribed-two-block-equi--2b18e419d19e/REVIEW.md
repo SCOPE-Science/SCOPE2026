@@ -1,0 +1,11 @@
+# Scientific assessment
+
+**Correctness — PASS.** The four isomorphism types of three-edge supports on five vertices each admit an explicit impossible answer pattern, and a two-edge support is shattered. The complete depth-three tree has eight individually checked pair-block witnesses; the ten-hypothesis bound excludes depth four. The smaller profile cases use explicit supports and hypothesis counts. VC and Littlestone additivity for independent query domains proves the all-\(s\) statement without extrapolation. The reproducibility script exhaustively checked 120 three-edge supports and verified the full adaptive certificate.
+
+**Originality — PASS under accessible comparisons, with residual priority risk.** The closest same-cluster primary works study total query complexity, approximate clustering and noisy partition recovery, rather than the VC-versus-Littlestone classification for a fixed \((2,3)\) partition profile. A general paper on Littlestone dimension addresses different learning models. Fixed-size edge-hit (at-least-one) query systems are not equivalent to the same-block (zero-or-two intersection) predicate. The refinement-closed partition formula does not imply the present result because the prescribed two-block class is not refinement-closed. Searches cannot establish absolute novelty, and unindexed priority remains possible.
+
+**Mathematical value — PASS.** Prescribed cluster sizes are a natural non-refinement-closed version of partition learning, and the exact first threshold distinguishes the information available to a static query set from that available to an adaptive adversary. The minimal local obstruction amplifies to an infinite family with an exactly linear gap and fixed five-point support groups. This is a concrete structural boundary, not a merely relabeled general partition statement.
+
+**Limits.** Larger single-group size profiles are not classified; group supports must be known for the amplification. The concept-class mistake tree is not the same as total exact-recovery query complexity. Independent publication-priority checking and independent mathematical validation remain unperformed.
+
+Self-review: passed. Independent audit: not yet performed.
