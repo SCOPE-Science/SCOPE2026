@@ -1,15 +1,21 @@
-# Self-review
+# Independent mathematical audit
 
-## Correctness — PASS
-The statement and proof use the unweighted categorical adjacency rule and canonical Euclidean edge projections. The four orthogonal Laplacian eigenspaces give a unique normalized edge-source potential, and the nine-level coarea computation exhausts the graph's edge-current absolute values for every integer parameter pair. Strict inequalities establishing the level order apply at all boundaries \(a,b\ge3\); the tied-height case has zero gaps and is harmless. The complementary projection norm follows from its exact diagonal and symmetric edge transitivity. A polynomial with manifestly nonnegative coefficients proves the sharp strict global bound; the fixed-factor limit proves sharpness. The accompanying exact checker confirms the coarea identity algebraically and tests 100 cases, including three independently inverted graph Laplacians. These checks do not replace the general proof.
+## correctness
 
-## Originality — PASS, with identified uncertainty
-The closest relevant primary work is Dilworth–Kutzarova–Ostrovskii (2023), especially the sections on Cartesian Hamming graphs and the Hamming cube. Their projections act on edge sets for one-coordinate changes, whereas the present tensor/categorical product uses two-coordinate changes. Their results do not give the displayed formula or the asymmetric current sign regimes. Foster-Greenwood–Uhl (2024) explicitly treats direct products of complete graphs as generalized Hamming graphs, but studies resolving sets and metric dimension, not endpoint cut/cycle projections. The equal-size specialization sits within the strongly regular setting; this is acknowledged rather than claimed independently novel. The unequal-size two-parameter classification and its sharp global bound are not implied by that specialization. Bibliographic search cannot exclude equivalent formulations in less-indexed network theory.
+PASS
 
-## Mathematical value — PASS
-The invariant is an intrinsic Banach endpoint norm of a geometrically natural graph Hodge decomposition. The classification covers all two-factor categorical products rather than an arbitrarily selected list or finite table, and its unequal-factor correction is a genuine absolute-value sign reversal not seen from eigenvalues alone. The exact unattained universal suprema and contrasting limits with one factor fixed versus both growing give interpretable quantitative structure. The value claim is confined to these exact invariants and does not assume broader consequences.
+For every a,b>=3 the categorical adjacency is (J_a−I_a)⊗(J_b−I_b), so the graph Laplacian splits into constant, first-coordinate, second-coordinate and tensor-interaction eigenspaces with eigenvalues 0,a(b−1),b(a−1),ab−a−b. The explicit source-sink mean-zero electrical potential is obtained by inversion of these nonzero eigenvalues. Its nine vertex levels have the coarea boundary sizes C1..C4 and their four mirror counterparts; inserting the verified order inequalities p>=q, p<2q,2p+q<1 for a>=b yields the exact symmetric B+R transfer-current column sum. Edge transitivity makes this the Q endpoint norm. Diagonal effective resistance 2(ab−1)/[ab(a−1)(b−1)] supplies the I−Q norm. Substituting a=u+3,b=a+v gives a manifestly positive coefficient polynomial for the strict global Q<8/3 inequality, and b→infinity with a=3 approaches 8/3; the companion P<11/3 bound and limits follow. Independent exact-rational grounded Laplacian inversion and edge-current summation reproduced (a,b)=(3,3),(3,4),(4,4),(3,5),(5,3),(4,6), and both Q/P rational values, without trusting the source checker.
 
-## Scientific limitations
-Only canonical orthogonal projections on real unweighted two-factor categorical graph products are covered. No minimality among all nonorthogonal projections, complex variants or arbitrary graph products is asserted. The 2023 and 2024 primary sources were compared at relevant theorem/section level; less-indexed electrically equivalent treatments remain a residual originality risk. No independent audit has taken place.
+## originality
 
-Self-review: passed. Independent audit: not yet performed.
+PASS
+
+The canonical cut/cycle projection, its electrical-current expression and invariant graph projection framework are already known. The assessed original unit is the full exact two-parameter categorical-product classification, its asymmetric |a−b| term, and strict unattained endpoint suprema. Published Cartesian Hamming computations do not imply the categorical product because they employ different edges and eigenvalues; a stronger general transfer-current formula may specialize to these constants and remains a residual priority risk.
+
+## value
+
+PASS
+
+Cut/cycle projection endpoint norms quantify sharp boundedness of canonical graph-flow decompositions. Complete explicit constants for an edge-transitive but spectrally inhomogeneous graph family, including strict universal bounds and the asymmetry correction, give motivated sharp analytic information useful for electrical flows and transportation-cost spaces; not a purely arbitrary finite table.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
