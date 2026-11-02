@@ -1,0 +1,129 @@
+{
+  "audit_date_utc": "2026-10-29",
+  "audited_at_utc": "2026-10-29T02:47:22Z",
+  "axes": {
+    "correctness": {
+      "checked_sources": [
+        "Frozen RESULT.md and inspected finite-state verify.py; independent_checks.py exact finite SIR Markov recursion with M=3,4 and one/two patches",
+        "Ueki–Thompson–Banaji 2026 arXiv:2601.13730v2 branching approximation sections 3.3 and supplementary S1–S2"
+      ],
+      "rationale": "The exact infection-intensity budget uses total infectious person-time E T_M to establish (1−R)E T_M=1−(R/M)J_M, J_M=E∫Σ_ij P_ij I_i C_j dt. A same-seed subcritical multitype birth-death process dominates SIR, has finite second moments, and finite genealogy collision probability O(1/M); integrated quadratic moments provide an integrable dominating variable so J_M→J∞. With D=I−RP, m′=−Dm, Y′=−DY−YD+diag((I+RP)m), X′=−DX+RYP+Rdiag(Pm). Symmetry/stochasticity and uniform seed solve ∫Y=D⁻¹/[n(1−R)] and ∫X=D⁻²/[n(1−R)]. Thus J∞=tr(PD⁻²)/[n(1−R)] and the coefficient follows. Neumann series K=[n(1−R)²]⁻¹ Σ_{k≥1} kR^k tr(P^k) positive (trace P²>0 if trace P=0). For Q symmetric stochastic, f′_R(x)=(1+Rx)/(1−Rx)³>0 on [-1,1], so K increases with identity-mixing θ. Independent exact-rational dynamic programming on finite SIR states, resolvent and integrated-moment matrix checks corroborate two-patch and one-patch examples without replacing the analytic coupling proof.",
+      "residual_risks": [
+        "Independent computations are bounded and do not replace the analytical all-parameter proof."
+      ],
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Ueki et al provide related stochastic network simulation and leading branching, not the specific all-P trace term in inspected technical sections.",
+          "Wilkinson et al bounds exact finite-network SIR via message passing, a distinct quantity/architecture."
+        ],
+        "reasoning": "Neither broad epidemic theorem mathematically yields the first uniform-patch-size asymptotic coefficient without a second-moment calculation.",
+        "searches": [
+          "Subcritical network SIR finite patch size expected outbreak total progeny inverse M correction matrix trace P(I-RP)^-2",
+          "Wilkinson Ball Sharkey 2017 SIR message passing bounds",
+          "Ueki et al arxiv:2601.13730v2 section 3.3 supplementary branching"
+        ]
+      },
+      "checked_sources": [
+        "Targeted Resultary semantic mathematical-record search: Subcritical network SIR finite patch size expected outbreak total progeny inverse M correction matrix trace P(I-RP)^-2",
+        "https://arxiv.t3mt.com/html/2601.13730v2",
+        "https://pmc.ncbi.nlm.nih.gov/articles/PMC5641366/",
+        "https://doi.org/10.1016/0304-4149(94)00034-Q"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "The leading total progeny mean (1−R)⁻¹ and coupling are known; computing J∞ requires the Z–B cross moment X and integration of Y and X.",
+          "Strict K(Pθ) monotonicity requires an additional eigenvalue derivative argument on [-1,1]."
+        ],
+        "reasoning": "Neither baseline branching approximation nor SIR bounds alone imply the explicit trace coefficient plus strict mixing direction.",
+        "searches": [
+          "arxiv:2601.13730v2 leading branching size",
+          "Wilkinson–Ball–Sharkey J Math Biol 2017 epidemic bounds",
+          "Subcritical network SIR finite patch size expected outbreak total progeny inverse M correction matrix trace P(I-RP)^-2"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "The coefficient is an integrated branching birth/cumulative-birth collision functional J∞, not the deterministic final-size Jacobian.",
+          "The representation K=R/[n(1−R)²]tr[P(I−RP)⁻²] is equivalent to K=[n(1−R)²]⁻¹Σ_k kR^k tr(P^k)."
+        ],
+        "reasoning": "Compared both collision-probability and resolvent aliases to prior outbreak-size work; generic branching limit leaves a nontrivial second-order size coefficient to compute.",
+        "searches": [
+          "Subcritical network SIR finite patch size expected outbreak total progeny inverse M correction matrix trace P(I-RP)^-2",
+          "Ueki Thompson Banaji stochastic patch minor outbreaks arxiv 2601.13730",
+          "Ball Donnelly 1995 strong epidemic approximations"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "Resultary responses centered on threshold/invasion and finite-contact consistency claims, not an exact tr[P(I−RP)⁻²] table.",
+          "Finite n=1/2 rational checks are validation examples, not historical database evidence."
+        ],
+        "reasoning": "A coefficient known in a general unindexed expansion remains possible; unsuccessful search does not certify originality.",
+        "searches": [
+          "Subcritical network SIR finite patch size expected outbreak total progeny inverse M correction matrix trace P(I-RP)^-2",
+          "Resultary semantic epidemic SIR first finite population correction trace walk"
+        ]
+      },
+      "rationale": "General subcritical branching epidemic approximations, message-passing bounds and network outbreak results are prior foundations. The assessed new component is the explicit first inverse-patch-size trace resolvent coefficient together with strict identity-mixing monotonicity for every symmetric stochastic P; no inspected predecessor directly implies that exact pair.",
+      "residual_risks": [
+        "Old strong-approximation/epidemic collision expansions, not fully inspected, may contain an equivalent matrix second-moment formula.",
+        "The error is o(M⁻¹) only at fixed n,P and strictly R<1; no claimed uniformity near criticality or finite-M strict comparison.",
+        "No external formal verification; the finite SIR checks are corroboration."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "FOUNDATIONAL AND TOPOLOGICALLY RELATED; NO EXACT TRACE TERM FOUND IN READ SECTIONS",
+          "evidence": "Discusses network effects on outbreak sizes and branching approximations, not an explicitly identified M⁻¹ trace correction.",
+          "identifier_or_url": "https://arxiv.t3mt.com/html/2601.13730v2",
+          "material_read": "Full-text HTML sections 2, 3.3 and supplementary S1/S2 on branching size and network effects",
+          "method": "Primary arXiv HTML read by section headings and mathematical formulas",
+          "title": "Outbreak dynamics and population vulnerability in stochastic epidemic models on networks",
+          "trigger": "Directly related patch/network epidemic stochastic framework"
+        },
+        {
+          "assessment": "BOUNDS, NOT THIS PATCH-LIMIT ASYMPTOTIC",
+          "evidence": "Message-passing inequalities concern graph-based infection states and general SIR comparisons, not fixed-n equal-patch M→∞ leading correction.",
+          "identifier_or_url": "https://pmc.ncbi.nlm.nih.gov/articles/PMC5641366/",
+          "material_read": "Public article background/scope and relevant message-passing bound statements; not exhaustively line-by-line",
+          "method": "Lawful open primary article and bibliographic theorem comparison",
+          "title": "The relationships between message passing, pairwise, Kermack–McKendrick and stochastic SIR epidemic models",
+          "trigger": "Rigorous finite-network stochastic SIR comparisons"
+        },
+        {
+          "assessment": "UNCLEARED EARLIER PRIORITY",
+          "evidence": "Strong coupling is background and could contain sophisticated second-order corrections; explicit network trace not verified in the inaccessible text.",
+          "identifier_or_url": "https://doi.org/10.1016/0304-4149(94)00034-Q",
+          "material_read": "Bibliographic record and abstract only; technical derivations not accessible in full",
+          "method": "Bibliographic and abstract comparison",
+          "title": "Strong approximations for epidemic models",
+          "trigger": "Potential general finite-population branching approximation that could subsume first correction"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "checked_sources": [
+        "Exact natural object/invariant and structural interpretation reconstructed from frozen RESULT.md",
+        "Prior work comparison separated known baseline methods from submitted structural claim"
+      ],
+      "rationale": "The first nontrivial finite-size term of the minor-outbreak mean detects patch network topology while the infinite-population leading term is universal. Its spectral trace/closed-walk form and strict monotone mixing response provide a natural quantitative correction in a standard stochastic epidemic model; no critical-scale assertion is made.",
+      "residual_risks": [
+        "Applicability is limited to the theorem hypotheses, not a generalization to all related objects or interventions."
+      ],
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "final_claim": "For fixed symmetric nonnegative row-stochastic n×n patch mixing P and 0<R<1, a uniformly seeded continuous-time Markov SIR epidemic with M people per patch satisfies E T_M=1/(1−R)−[R/(n(1−R)²M)] tr[P(I−RP)⁻²]+o(1/M). The positive correction has nonnegative closed-walk expansion and increases strictly along P_θ=θI+(1−θ)Q for any Q≠I of this class.",
+  "limitations": [
+    "Old strong-approximation/epidemic collision expansions, not fully inspected, may contain an equivalent matrix second-moment formula.",
+    "The error is o(M⁻¹) only at fixed n,P and strictly R<1; no claimed uniformity near criticality or finite-M strict comparison.",
+    "No external formal verification; the finite SIR checks are corroboration.",
+    "No external expert attestation or Lean formal proof; computations corroborate but do not establish the infinite theorem.",
+    "Publication is withheld until privacy-neutral guarded replacements for public AUDIT.json and METADATA.json are verified."
+  ],
+  "schema_version": 1
+}

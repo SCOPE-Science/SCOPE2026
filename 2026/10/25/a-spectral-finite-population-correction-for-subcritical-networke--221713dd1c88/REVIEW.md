@@ -1,15 +1,21 @@
-# Scientific assessment
+# Independent mathematical audit
 
-## Correctness — PASS
+## correctness
 
-The exact susceptible-depletion census, coupling of stochastic SIR to a finite-moment subcritical multitype branching process, and integrated quadratic branching moment equations prove the first inverse-patch-size coefficient, not just a simulated fit. The Neumann expansion and eigenvalue derivative establish the spectral positivity and monotonicity for all fixed admissible matrices. The independent-from-proof exact-rational program checks matrix identities and finite stochastic epidemics. Boundaries: fixed dimension, equal patch sizes and strict subcriticality; no near-critical uniform estimate.
+PASS
 
-## Originality — PASS (provisional literature assessment)
+The exact infection-intensity budget uses total infectious person-time E T_M to establish (1−R)E T_M=1−(R/M)J_M, J_M=E∫Σ_ij P_ij I_i C_j dt. A same-seed subcritical multitype birth-death process dominates SIR, has finite second moments, and finite genealogy collision probability O(1/M); integrated quadratic moments provide an integrable dominating variable so J_M→J∞. With D=I−RP, m′=−Dm, Y′=−DY−YD+diag((I+RP)m), X′=−DX+RYP+Rdiag(Pm). Symmetry/stochasticity and uniform seed solve ∫Y=D⁻¹/[n(1−R)] and ∫X=D⁻²/[n(1−R)]. Thus J∞=tr(PD⁻²)/[n(1−R)] and the coefficient follows. Neumann series K=[n(1−R)²]⁻¹ Σ_{k≥1} kR^k tr(P^k) positive (trace P²>0 if trace P=0). For Q symmetric stochastic, f′_R(x)=(1+Rx)/(1−Rx)³>0 on [-1,1], so K increases with identity-mixing θ. Independent exact-rational dynamic programming on finite SIR states, resolvent and integrated-moment matrix checks corroborate two-patch and one-patch examples without replacing the analytic coupling proof.
 
-The closest full-text source, Ueki–Thompson–Banaji (2026), contains the same stochastic patch mechanism and zero-order branching analysis, but the inspected sections and appendices do not state the exact \(1/M\) correction. The matrix final-size theorem of Bizzotto–Ball–Britton (2026) addresses deterministic final epidemic fractions, while Wilkinson–Ball–Sharkey (2017) establishes finite-graph message-passing bounds and equivalences, not this spectral coefficient. Searches for collision, return-kernel, patch-size asymptotic and trace-resolvent formulations disclosed no equivalent claim. Ball–Donnelly (1995) was assessed from abstract only, so broader strong approximation theory remains a specific historical-priority risk. Search nonreturn is not a novelty certificate.
+## originality
 
-## Mathematical value — PASS
+PASS
 
-The mean outbreak size under random introduction is a natural metric in network epidemics. The leading branching prediction is identical for all symmetric stochastic patch mixing matrices with fixed reproduction ratio, so the first matrix-dependent correction is genuinely diagnostic. The trace formula measures return walks and its strictly monotone response to within-patch mixing supplies a network-wide comparative statement, beyond a numerical example. It does not predict critical or large outbreaks, unequal patch cases, or a finite-population ordering at every size.
+General subcritical branching epidemic approximations, message-passing bounds and network outbreak results are prior foundations. The assessed new component is the explicit first inverse-patch-size trace resolvent coefficient together with strict identity-mixing monotonicity for every symmetric stochastic P; no inspected predecessor directly implies that exact pair.
 
-Self-review: passed. Independent audit: not yet performed.
+## value
+
+PASS
+
+The first nontrivial finite-size term of the minor-outbreak mean detects patch network topology while the infinite-population leading term is universal. Its spectral trace/closed-walk form and strict monotone mixing response provide a natural quantitative correction in a standard stochastic epidemic model; no critical-scale assertion is made.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
