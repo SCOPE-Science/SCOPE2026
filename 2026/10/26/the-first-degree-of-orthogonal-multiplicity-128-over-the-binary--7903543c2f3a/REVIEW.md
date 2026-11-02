@@ -1,15 +1,21 @@
-# Scientific review
+# Independent mathematical audit
 
-## Correctness
-PASS. The established Blackburn multiplicity formula reduces a value of at least \(128\) to at least seven distinct nonlinear irreducible factors. An elementary irreducible-degree count restricts every possible degree-25 and degree-26 denominator to exactly 6 or 66 explicitly generated products. The standalone C11 enumerator tests these and every one of the \(2^{25}\) and \(2^{26}\) degree-one-partial-quotient continuants. The recurrence and output checks agree with the factorization of the sole witness; the finite exhaustive computation is not extrapolated to unbounded degrees. The cited Blackburn theorem is an external mathematical input.
+## correctness
 
-## Originality
-PASS, with an access reservation. The relevant 2026 primary study gives aggregate counts of denominator polynomials with positive orthogonal multiplicity, not the degree-26 first occurrence of multiplicity 128 or the unique denominator. The reported numerical study in Blackburn (1998) reaches degree 21. Meaning-based and alias/parameter searches did not identify a theorem or exact table covering this classification, and accessible earlier ledger claims did not overlap. Full-text inaccessibility of Blackburn (1998) and unindexed degree-specific tables leave a clearly identified residual risk; failed search alone is not novelty proof.
+PASS
 
-## Value
-PASS. This determines a natural sharp onset for a new power-of-two level in a rare arithmetic statistic on binary rational continued fractions, and the unique minimizer, rather than an arbitrarily chosen sample or an extra row of aggregate counting. It exhibits how irreducible-factor feasibility at degree 25 differs from continued-fraction realizability and settles the first possible degrees of the seven-factor level.
+Degree-d finite continued fractions with degree-one partial quotients T or T+1 correspond bijectively to 2^d binary continuant words. The recurrence K_j=a_j K_{j-1}+K_{j-2} is exact, denominator degree j and uniqueness follows from the Euclidean algorithm. Beyond the source 6+66 candidate calculation, an independently written C11 full census counted every 2^d word at each d=1,...,26 without depending on Blackburn factor restrictions; all degrees<=25 have max multiplicity <=64, and at degree26 precisely one denominator has multiplicity128, mask123935485. Independent GF2 product of all seven displayed factors equals 123935485. Exhaustion is a complete finite proof of the stated first-degree property; it does not extrapolate to higher degrees.
 
-## Limits
-No claim is made about higher levels of orthogonal multiplicity or a general extremal-degree formula; independent verification remains open.
+## originality
 
-Self-review: passed. Independent audit: not yet performed.
+PASS
+
+Blackburn gives m(f) either zero or 2^omega and tabulates smaller degrees (reported through 21). Giraudin 2026 computes aggregate proportion/number of positive multiplicity through degree33; even aggregate counts do not determine the first occurrence and unique witness at 128. Full Blackburn 1998 text inaccessible, so an unindexed older degree26 table remains a significant priority risk.
+
+## value
+
+PASS
+
+The first attainment of a new natural power-of-two orthogonal multiplicity threshold and uniqueness is a motivated exact arithmetic extremum; distinct factor-feasibility threshold25 versus actual word-representability threshold26 is a genuine boundary effect.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
