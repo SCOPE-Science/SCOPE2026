@@ -1,0 +1,9 @@
+# Self-review
+
+**Correctness — PASS.** The complete five-round adversarial game is reduced to counts and unique-high-good owners, a sufficient state representation. The lower policy certificates satisfy symbolic inequalities for every real high value in the stated intervals, and the explicit adaptive upper adversary is exhaustively checked across all 243 allocation histories after its three common-low arrivals. The standalone Python checker proves the finite alternating-game recursion with exhaustive choices and terminal comparisons; no stochastic simulation is used.
+
+**Originality — PASS, provisional external priority.** The October 25, 2026 Neoh–Teh preprint already proves the unbounded-horizon impossibility and includes a five-good EFX counterexample for an appropriate parameter choice. The present result does not claim either as new. It adds the exact five-good optimal approximation function, including the sharp \(H=2,4\) transitions and the positive \(1/2\) large-spike plateau. Searches of the main preprint's Sections 2 and 4 plus Appendix C, the preceding frequency-prediction work, mathematical research records and accessible prior research records did not identify the precise quantitative law. Residual risk: an unindexed or differently worded exact finite-horizon result.
+
+**Value — PASS.** The first small horizon at which approximate versus exact EFX meaningfully diverges in the one-spike domain merits an exact minimax calculation. The factor law quantifies an efficiency-of-information frontier hidden by the published impossibility result and yields explicit optimal algorithms and adversarial instances for a well-defined, economically natural restricted model. No claim of a general-horizon result is made.
+
+Self-review: passed. Independent audit: not yet performed.

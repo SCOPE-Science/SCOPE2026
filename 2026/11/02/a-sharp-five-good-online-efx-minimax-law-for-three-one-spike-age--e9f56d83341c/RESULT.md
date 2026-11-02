@@ -1,0 +1,38 @@
+# A sharp five-good online EFX minimax law for three one-spike agents
+
+## Finding
+For exactly three agents and five irrevocably allocated goods, with every agent knowing that her multiset of values is \(\{H,1,1,1,1\}\), let \(\alpha^*(H)\) denote the best worst-case factor for *all-good* approximate EFX against an adaptive adversary (all random outcomes must satisfy the guarantee). For every real \(H\ge1\),
+\[
+\boxed{\alpha^*(H)=\min\left\{1,\max\left\{\frac{2}{H},\frac12\right\}\right\}.}
+\]
+Thus the exact-EFX regime ends at \(H=2\), the transition regime ends at \(H=4\), and the sharp large-spike factor is \(1/2\). The five-good factor, rather than the known impossibility of uniformly positive EFX over unbounded horizons, is the finding.
+
+## Assumptions and scope
+There are three labeled agents \(i\in\{0,1,2\}\), five indivisible goods, positive additive valuations, and a public number \(H\ge1\). Every agent values exactly one of the goods at \(H\) and all the others at \(1\); the high goods can coincide between agents. The allocator knows these frequency multisets but not the alignment of high goods or their arrival order. An adaptive adversary chooses each good's valuation vector, with exactly one high value per agent over the five rounds. The allocator observes the vector before irrevocably choosing the recipient. For bundles \(A_i\), factor \(\alpha\)-EFX means \(v_i(A_i)\ge\alpha v_i(A_j\setminus\{g\})\) for every \(i\ne j\) and \(g\in A_j\). The factor is capped at one. Randomization is evaluated ex-post on every positive-probability allocation path; no expected-value guarantee is claimed.
+
+## Proof
+**Finite-state reduction.** After \(t\) allocations, let \(c_j\) be the number of goods received by agent \(j\). For each agent \(i\), let \(o_i\in\{-1,0,1,2\}\) be the recipient of her unique high good, with \(-1\) indicating that the high good has not yet arrived. A newly arriving good reveals an arbitrary subset \(S\) of agents whose high value occurs there, necessarily \(S\subseteq\{i:o_i=-1\}\); at the fifth arrival this subset must include all as-yet-unused high marks. For any recipient \(j\), increment \(c_j\) and set \(o_i=j\) for \(i\in S\). These are all legal histories and transitions, not a sample of profiles. At completion,
+\[
+v_i(A_i)=c_i+(H-1)\mathbf1_{\{o_i=i\}},\qquad
+\max_{g\in A_j}v_i(A_j\setminus\{g\})=c_j-1+(H-1)\mathbf1_{\{o_i=j,\ c_j>1\}}.
+\]
+(The second expression is needed only for nonempty \(A_j\).) The exact alternating minimax recurrence declares a state successful if, for each possible adversarial subset \(S\), at least one of the three recipient choices leads to a successful successor; the terminal predicate is the target factor. Induction backward over the five rounds makes this a complete finite proof procedure.
+
+**Lower bound on \(1\le H\le4\).** The accompanying self-contained `VERIFY.py` exhaustively constructs one fixed allocation policy whose every leaf satisfies exact EFX both at \(H=1\) and \(H=2\), and factor \(1/2\) at \(H=4\). For \(H\in[1,2]\), each EFX comparison is affine in \(H\), so its endpoint validity proves exact EFX throughout. For \(H\in[2,4]\), the target \(2/H\) is equivalent to \(H v_i(A_i)\ge2\max_g v_i(A_j\setminus\{g\})\). If agent \(i\) does not own her high good, this inequality is affine and holds between the checked endpoints. If she owns it, the right side is \(2(c_j-1)\) and the left side is \(H(H+c_i-1)\), strictly increasing for \(H\ge2\); the checked \(H=2\) endpoint suffices. Thus one finite policy attains \(\min\{1,2/H\}\) for all \(H\le4\).
+
+**Lower bound on \(H\ge4\).** A second exhaustive policy construction uses a stronger symbolic terminal predicate: each agent not receiving her high good has it in a *singleton* bundle of another agent, and her own bundle size satisfies \(2c_i\ge c_j-1\) for all other agents \(j\). Agents receiving their high good have own value at least \(H\); since there are only five goods, every comparison against another agent's bundle after any one removal is at most four. Therefore the symbolic predicate implies \(1/2\)-EFX for every \(H\ge4\). `VERIFY.py` certifies that the minimax initial state satisfies this predicate, independently replays the resulting allocation policy against all possible value-mask sequences, and checks every reachable terminal state.
+
+**Upper bound.** The adversary makes the first three goods worth \(1\) to everyone. Write \((c_0,c_1,c_2)\) for their recipient counts. If the pattern is \((3,0,0)\) or \((1,1,1)\) up to permutation, the fourth good is worth \(H\) to all three agents; the fifth is low to all. If the pattern is \((2,1,0)\), the fourth good is high only to the agent holding two goods; the fifth is high to the other two. This is a legal adaptive adversary. For all 27 possible assignments of the first three goods and all nine possible recipient choices for the last two, an explicit pairwise EFX comparison gives factor at most \(2/H\) throughout \(2\le H\le4\), and at most \(1/2\) for \(H\ge4\); the verifier checks all 243 paths with affine endpoint certificates. Above \(4\), the witnessing agent never owns her high good, so the ratio bound persists as \(H\) increases. Combined with the universal cap \(1\), the three ranges agree exactly with the lower bound.
+
+## Verification
+Run `python3 VERIFY.py` with Python 3 (no third-party dependencies). It constructs and independently replays both finite allocation policies, uses integer arithmetic for terminal inequalities and symbolic interval arguments for all real \(H\), and exhaustively checks every branch of the explicit upper-bound adversary. Its expected output begins `VERIFY_OK` and reports the numbers of recursive states, policy decisions, terminal profiles and 243 upper-bound paths. This is an exhaustive five-round game certificate, not a simulation or inference from finitely many arbitrary \(H\) samples.
+
+## Relationship to prior work
+Neoh and Teh, *Online Fair Division with Frequency Predictions*, arXiv:2610.34625v1 (first public 25 October 2026), study precisely the adversarial frequency-prediction setting. Their Theorem 4.2 and Appendix C already establish that no constant positive online EFX factor exists uniformly over unbounded numbers of goods, even with one larger value per agent; by setting its parameters, their construction also yields a five-good failure of exact EFX. Those impossibility facts are prior work. Neither their theorem nor its finite construction provides the sharp five-good minimax factor or its two value thresholds. The earlier frequency-prediction framework of Neoh, Peters and Teh, *Online Fair Division with Additional Information* (ICML 2026), gives share-based guarantees and does not present this five-good EFX factor. This statement is an exact finite-horizon quantitative refinement, not a contradiction of the earlier asymptotic impossibility.
+
+## Limitations
+The conclusion applies to exactly three agents, exactly five arrivals, homogeneous one-high-value frequency multisets and every-path approximate EFX. It does not determine optimal ratios for arbitrary frequency multisets, other horizon lengths, or expected EFX under randomized policies. The finite-state certificate is complete for this finite adversarial game; external publication-priority confirmation remains necessary.
+
+## References
+1. T. Y. Neoh and N. Teh, *Online Fair Division with Frequency Predictions*, arXiv:2610.34625v1, 25 October 2026, https://arxiv.org/html/2610.34625v1 (Sections 2, 4.2 and Appendix C).
+2. T. Y. Neoh, J. Peters and N. Teh, *Online Fair Division with Additional Information*, Proceedings of ICML 2026, https://proceedings.mlr.press/v306/ .
