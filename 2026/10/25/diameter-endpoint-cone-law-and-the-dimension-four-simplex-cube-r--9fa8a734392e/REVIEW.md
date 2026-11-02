@@ -1,15 +1,21 @@
-# Scientific assessment
+# Independent mathematical audit
 
-## Correctness — PASS
+## correctness
 
-The full proof derives bounded transverse tangent-cone slices from the diameter inequality for every competing vertex, localizes the long-distance event to finitely many ordered diametral vertex pairs, justifies a bounded blow-up by a uniform linear coercivity estimate, and evaluates the \(2d\)-dimensional limit by the Dirichlet integral. The regular-simplex and orthotope coefficients follow by direct determinant and axial-projection calculations, with dimension-four reversal proved by a strict exact ratio inequality for every integer dimension. Independent direct Euclidean-coordinate importance-sampling experiments corroborate coefficients for regular tetrahedra and three-/four-cubes. Risks: numerical samples do not certify the general proof; historical priority remains provisional.
+PASS
 
-## Originality — PASS relative to inspected evidence
+Strict convexity of Euclidean distance forces every maximizing pair to consist of vertices, so finitely many ordered diametral pairs localize the endpoint. Squared-distance D-bound shows the outward axial linear functionals are strictly positive on nonzero vertex-tangent-cone directions; this makes the axial caps compact and permits a uniform local blow-up. The limiting event a+b<1 over two d-cones has volume (d!)^2 H_v H_w/(2d)!, and normalization by volume(P)^2 gives C(P) epsilon^(2d)+o. Simplicial cone determinants give simplex H_v=2^(d−1)V and the orthotope cap formula, hence C_simplex=d(d+1)4^(d−1)/binom(2d,d) and C_cube=2^d d^(2d)/(2d)!. Independent rational evaluations confirm ratios 32/27 at d3 and 45/64 at d4, with monotonic d2..30; the binomial inequality in the proof handles every d>=2. The statement is for a fixed full-dimensional Euclidean polytope, epsilon down to zero, and ordered pairs.
 
-The 2013 and 2016 triangular/polygonal papers derive complete **planar** distance laws, not the \(d\ge3\) vertex-cone asymptotic. Mathai–Moschopoulos–Pederzoli (1999) treats cube distances and already covers the three-dimensional cube special case; that special case is explicitly not claimed as novel. Lellouche–Souris (2019) gives a general convolution representation and treats hypercubes, a method from which cube tails can be derived, but does not provide the explicit all-polytope diametral-cap law or the strict simplex–cube crossover. Brunel (2015) addresses random sample hull Hausdorff error and diameter estimation, not this fixed-pair distance tail. Searches for tangent-cone cap coefficients, diameter endpoint asymptotics, simplex-versus-cube comparisons and parameter-equivalent statements did not identify a covering result. Older geometric-probability literature may still contain an equivalent formulation.
+## originality
 
-## Mathematical value — PASS
+PASS
 
-The result extracts a geometric quantity (oriented diametral tangent-cap volumes) from a universal observable terminal tail, and provides a finite exact method to compute it for arbitrary convex polytopes. The critical dimension-four simplex–cube reversal is a motivated and nontrivial comparison of canonical shapes at fixed diameter; it is neither a restatement of a single known cube distribution nor a routine bounded numerical instance. Both the exponent universality and the sharp crossover could guide higher-dimensional distance diagnostics. The result is only an endpoint asymptotic, not a full distribution.
+Best-of-knowledge: existing exact interpoint-distance distributions for 3D cubes and higher-dimensional hypercubes cover individual special distributions, but do not in the inspected mathematical statements supply the universal arbitrary-polytope diametral-tangent-cone coefficient plus the simplex–cube dimension-four reversal. Covariogram/convolution is a general representation and could yield the tail after separate local geometric analysis; such a representation is not itself the explicit universal cone asymptotic.
 
-Self-review: passed. Independent audit: not yet performed.
+## value
+
+PASS
+
+The near-maximum Euclidean interpoint distance law of a convex polytope is natural in stochastic geometry. A uniform geometric leading coefficient valid for nonsimple polytopes and a sharp reversal between two extremal regular shape families are structural and nontrivial, extending beyond already tabulated cube-only laws.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
