@@ -5,8 +5,11 @@
     "status": "not_performed"
   },
   "independent_audit": {
-    "evidence": null,
-    "status": "not_performed"
+    "status": "passed",
+    "evidence": [
+      "INDEPENDENT_AUDIT_2026-10-31.md",
+      "INDEPENDENT_AUDIT_2026-10-31.json"
+    ]
   },
   "lean_verification": {
     "evidence": null,
@@ -15,10 +18,25 @@
   "schema_version": 1
 }
 ---
-# Verification
 
-Run `python3 verify_three_sum_concentration.py` in a standard Python 3 environment. The executed output was:
+# Independent mathematical audit
 
-`VERIFY_OK polynomial_profiles=6 additive_bounds={0: 3, 1: 4, 2: 5, 3: 7} exact_witness_profiles=6`
+## correctness
 
-The script uses rational arithmetic to check all 27 light-position configurations on the aligned three-term progression, the six distinct cubic polynomials, lattice sample instances of the cardinality bound, and the construction witnesses at six rational parameter values. The proof of validity for arbitrary integer supports and all real parameter values in the interval is the combinatorial argument in RESULT.md. These finite checks do not constitute an infinite enumeration or an independent audit.
+PASS
+
+For fixed target and other two measures, linearity and c_k->0 reduce each marginal to cap-saturated masses (alpha,alpha,1-2alpha). The elementary additive representation ceilings N(2,2,2)<=3, N(3,2,2)<=4, N(3,3,2)<=5, N(3,3,3)<=7 give the uniform bound in the <=6 regime, while attaining N=7 rigidly forces three aligned arithmetic progressions. Independently enumerated the 27 choices of light position and recovered six exact cubic profiles, all below 3+2t+2t² for t=(1-2alpha)/alpha in [0,1]. Comparing with 3+3t gives the phase boundary t=1/2 or alpha=2/5; LLR vs LLL explicit mass configurations attain the two envelopes. Independent finite grid of three-element supports and rational tests confirmed the arithmetic; proof of arbitrary integer supports is not inferred from that grid.
+
+## originality
+
+PASS
+
+Best-of-knowledge originality of the exact final statement, rather than its standard background ingredients: Determines the first unresolved odd, nonreciprocal common-atom-cap regime of a natural discrete-convolution optimization. The unexpectedly nontrivial change of optimal arrangement at alpha=2/5 is a sharp, useful exact concentration fact distinct from asymptotic or even-number estimates. The searched and materially inspected primary results do not directly cover the full exact statement; plausible uninspected generalizations remain residual risks.
+
+## value
+
+PASS
+
+Determines the first unresolved odd, nonreciprocal common-atom-cap regime of a natural discrete-convolution optimization. The unexpectedly nontrivial change of optimal arrangement at alpha=2/5 is a sharp, useful exact concentration fact distinct from asymptotic or even-number estimates.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
