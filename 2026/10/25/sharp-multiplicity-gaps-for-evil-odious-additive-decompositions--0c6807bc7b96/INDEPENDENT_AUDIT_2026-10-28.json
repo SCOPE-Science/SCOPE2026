@@ -1,0 +1,107 @@
+{
+  "audit_date_utc": "2026-10-28",
+  "audited_at_utc": "2026-10-28T04:02:01.731408Z",
+  "axes": {
+    "correctness": {
+      "rationale": "The formal Thue–Morse product gives C(2m)=C(m)+C(m-1), C(2m+1)=-2C(m). For m>=1, C(4m)=C(m)-C(m-1) and C(4m+2)=C(m-1)-C(m); trivial coefficient bounds yield |C(4m)|<=2m+1 <=(3/5)(4m+1), with equality only m=1, whereas the 4m+2 bound is strict (including n=2). Removing trailing binary ones preserves |C(n)|/(n+1) and changes its sign; the base q=0 recovers exact Mersenne values, and base q=4 yields every three-fifths equality at n=5*2^j-1. The cross-parity indicator convolution is R=(n+1-C(n))/4, giving zero and half-density Mersenne exceptions and sharp one-tenth/two-fifths bounds elsewhere. Independently recomputed the recurrence through n=65535, direct digit-sum convolution and evil/odious pair counts for n<400, and all finite-range sharp equality indices, with agreement. These checks are not a substitute for the all-index recursion proof.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Theorem 3.12 gives maxima/minima on intervals [0,2^k], not a pointwise upper bound relative to n+1 with all non-Mersenne sharp equality classes; Allouche–Shallit counts same-color two-sums."
+        ],
+        "reasoning": "The broader convolution methods are foundations. They could theoretically imply a special case, but the quoted block envelope alone does not imply the precise 3/5 gap by n-specific denominator or the mixed-parity equality characterization.",
+        "searches": [
+          "Gawron–Miska–Ulas Theorem 3.12",
+          "Allouche–Shallit 2021 Sections 1–3"
+        ]
+      },
+      "checked_sources": [
+        "Frozen RESULT.md blob a2f7939bd7005709ff18e861885e8b2bf8d02516, verify.py blob 6b7171b62333fd69b05e3f07d8c4ab11934cebac",
+        "Independent 65536-index exact recurrence and 400-index direct pair enumeration",
+        "Gawron–Miska–Ulas arXiv:1703.01955v1 full HTML Lemma 3.1, Theorem 3.12",
+        "Allouche–Shallit arXiv:2112.13627 full accessible article",
+        "OEIS A106407, Resultary mixed-sum query"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "The previous strongest same-coefficient theorem is about dyadic maxima; the additive paper computes equal-parity comparisons, not the mixed density R."
+        ],
+        "reasoning": "The new conclusion is obtained with the known recurrence plus a sharp even-base normalization and trailing-ones reduction. That derivation is not asserted as a new definition of Thue–Morse, and prior coefficient facts are fully credited.",
+        "searches": [
+          "arXiv:1703.01955 Theorem 3.12 and Lemma 3.1",
+          "arXiv:2112.13627 Theorem 1 and Section 1"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Known signed coefficient t_2(n)=C(n); mixed representation R(n) is exactly (n+1-C(n))/4."
+        ],
+        "reasoning": "An equivalent formulation uses signed self-convolution normalized by n+1. The inspected prior source establishes the recurrence and dyadic maxima but does not record the strict non-Mersenne normalized gap and complete equality indices.",
+        "searches": [
+          "arXiv:1703.01955 Lemma 3.1 / Theorem 3.12",
+          "arXiv:2112.13627 evil odious representations",
+          "Resultary: Thue Morse evil odious mixed representation normalized convolution three-fifths"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "OEIS sequence gives C(n) up to index shift; full equalities 5*2^j-1,10*4^k-1,5*4^k-1 are infinite statements, not a finite coefficient table."
+        ],
+        "reasoning": "A coefficient database with this exact invariant as a proven theorem could cover it, but searched tables provided coefficients rather than a published general sharp normalized extremal theorem.",
+        "searches": [
+          "OEIS A106407 coefficients x product (1-x^(2^k))^2",
+          "Resultary: normalized evil odious two-sum exceptions"
+        ]
+      },
+      "rationale": "Best-of-knowledge original as the complete normalized mixed-parity representation gap and all equality families. Gawron–Miska–Ulas 2017 established the same twofold Thue–Morse convolution, binary recurrence and unnormalized dyadic-block coefficient maxima; Allouche–Shallit 2021 address same-parity sum representation identities and higher sums. Neither inspected full primary contains or implies directly the sharp normalized non-Mersenne 3/5 dichotomy plus both mixed-sum equality families. An equivalent corollary of older coefficient theory remains a priority risk.",
+      "residual_risks": [
+        "The normalized three-fifths result may have an uncatalogued equivalent formulation as sharp signed Thue–Morse convolution coefficients.",
+        "Some conclusions follow quickly once prior recurrence is known; significance lies in the complete global sharp extremizers, not novelty of the recurrence.",
+        "The OEIS index shift must be preserved when comparing coefficient tables."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Same C(n) recurrence and interval maxima already known; no inspected normalized non-Mersenne 3/5 equality theorem.",
+          "evidence": "Lemma 3.1 gives t_m(2n),t_m(2n+1); Theorem 3.12 gives Max_2/Min_2(k) on dyadic blocks.",
+          "identifier_or_url": "https://arxiv.org/html/1703.01955v1",
+          "material_read": "Read full accessible primary HTML around introduction, Lemma 3.1, Theorem 3.12 and proofs/adjacent interval extrema.",
+          "method": "Direct full-text theorem/hypothesis/quantifier comparison",
+          "title": "Arithmetic properties of coefficients of power series expansion of product (1-x^(2^n))^t",
+          "trigger": "Exact t=2 signed convolution and possible dominating coefficient theorem"
+        },
+        {
+          "assessment": "Analyzes equal-parity R_2(A),R_2(B), as well as higher-order sums, rather than sharp mixed-parity counts R(A,B).",
+          "evidence": "Introduction, Section 1 definition R_2, automata Section 2, main theorems.",
+          "identifier_or_url": "https://arxiv.org/abs/2112.13627",
+          "material_read": "Read accessible full primary manuscript sections on two-sums, automata and larger additive representations.",
+          "method": "Full-text object and pair-type comparison",
+          "title": "Additive Properties of the Evil and Odious Numbers and Similar Sequences",
+          "trigger": "Same sequences and additive representation functions"
+        },
+        {
+          "assessment": "Identifies C(n) coefficients but not the claimed infinite normalized inequality/equality proof.",
+          "evidence": "A106407 generating function x prod_{k>=0}(1-x^(2^k))^2.",
+          "identifier_or_url": "https://oeis.org/A106407",
+          "material_read": "Read supplied sequence identity and indexing description; no complete OEIS research bibliography independently surveyed.",
+          "method": "Database identity comparison",
+          "title": "OEIS A106407",
+          "trigger": "Exact signed self-convolution coefficient table"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "rationale": "The evil/odious partition is a standard automatic-arithmetic object, and R(n) is its natural cross-class additive representation function. The exact global gap away from Mersenne indices and both infinite extremizing families give nontrivial sharp frequency information. Though the recurrence is elementary and known, the complete normalized extremizer classification is a motivated all-index invariant rather than a recomputation of a finite sequence table.",
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "limitations": [
+    "Ordered decomposition e+o=n with e evil, o odious, both nonnegative, one count per parity-distinguished ordered pair.",
+    "All-index inequalities are analytic; independent finite verification only for a bounded range.",
+    "No assertion for primes, higher convolution powers, or other bases."
+  ],
+  "schema_version": 1
+}

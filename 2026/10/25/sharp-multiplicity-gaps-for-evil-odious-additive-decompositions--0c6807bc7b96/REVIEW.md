@@ -1,15 +1,21 @@
-# Scientific review of the mixed evil–odious multiplicity theorem
+# Independent mathematical audit
 
-## Correctness — PASS
-The coefficient identities follow directly from \(T(z)=(1-z)T(z^2)\). At even indices the absolute sum of two previously indexed coefficients is bounded by \(2m+1\); the ratio to \(4m+1\) reaches \(3/5\) only at \(m=1\) and is strictly lower in the other even residue class. Repeated removal of terminal binary ones preserves absolute normalized coefficient size; this determines every equality case. The indicator convolution then gives exactly \(R(n)=(n+1-C(n))/4\). This handles \(n=0\), \(n=2\), all Mersenne exceptions and all non-Mersenne indices with no finite-to-infinite inference. The executable independently checked 2049 direct mixed convolutions and 524288 recurrence cases.
+## correctness
 
-## Originality — PASS within inspected evidence
-The 2017 coefficient paper provides the signed series, its coefficient theory and dyadic extrema; the 2021 additive paper treats same-parity evil/odious two-sums and higher sumsets. Direct inspection of those papers and the relevant coefficient table found no statement equivalent to the sharp normalized non-Mersenne inequality, the mixed-sum density bounds, or both infinite equality classes. An exact bound could nevertheless have appeared in unindexed literature or as an unpublished observation. The normalized inequalities are not implied merely by a full-sequence global dyadic block extremum at a Mersenne position: locating the extremal *non-Mersenne normalized ratio* and classifying its equality indices require the residue and trailing-ones arguments.
+PASS
 
-## Mathematical value — PASS
-For a natural, well-studied binary additive partition, the result not only classifies its zero-sum exceptions but gives a global lower multiplicity guarantee of one-tenth of all possible decompositions away from the Mersenne cases, with the exact sharp upper envelope and infinite extremizers. This supplies a quantitative, uniform additive-combinatorial fact rather than a special-value lookup or a restatement of an existing coefficient recurrence.
+The formal Thue–Morse product gives C(2m)=C(m)+C(m-1), C(2m+1)=-2C(m). For m>=1, C(4m)=C(m)-C(m-1) and C(4m+2)=C(m-1)-C(m); trivial coefficient bounds yield |C(4m)|<=2m+1 <=(3/5)(4m+1), with equality only m=1, whereas the 4m+2 bound is strict (including n=2). Removing trailing binary ones preserves |C(n)|/(n+1) and changes its sign; the base q=0 recovers exact Mersenne values, and base q=4 yields every three-fifths equality at n=5*2^j-1. The cross-parity indicator convolution is R=(n+1-C(n))/4, giving zero and half-density Mersenne exceptions and sharp one-tenth/two-fifths bounds elsewhere. Independently recomputed the recurrence through n=65535, direct digit-sum convolution and evil/odious pair counts for n<400, and all finite-range sharp equality indices, with agreement. These checks are not a substitute for the all-index recursion proof.
 
-## Scope and residual risks
-Zero is allowed as an evil summand; the positive-summand variant is not asserted. Prior results already cover definitions and many Thue–Morse coefficient properties, and publication priority is not independently established. The result has not undergone independent mathematical audit.
+## originality
 
-Self-review: passed. Independent audit: not yet performed.
+PASS
+
+Best-of-knowledge original as the complete normalized mixed-parity representation gap and all equality families. Gawron–Miska–Ulas 2017 established the same twofold Thue–Morse convolution, binary recurrence and unnormalized dyadic-block coefficient maxima; Allouche–Shallit 2021 address same-parity sum representation identities and higher sums. Neither inspected full primary contains or implies directly the sharp normalized non-Mersenne 3/5 dichotomy plus both mixed-sum equality families. An equivalent corollary of older coefficient theory remains a priority risk.
+
+## value
+
+PASS
+
+The evil/odious partition is a standard automatic-arithmetic object, and R(n) is its natural cross-class additive representation function. The exact global gap away from Mersenne indices and both infinite extremizing families give nontrivial sharp frequency information. Though the recurrence is elementary and known, the complete normalized extremizer classification is a motivated all-index invariant rather than a recomputation of a finite sequence table.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
