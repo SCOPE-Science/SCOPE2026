@@ -1,0 +1,129 @@
+{
+  "correctness": {
+    "rationale": "Direct multiplication of T(v)T(u) yields trace 1−4uv−i(u+v), determinant −uv. The strict degree-two Schur–Cohn inequalities yield exactly uv<1 and Δ>0; Δ=0 has a unit-circle multiplier. Exact constant-step factorization and small-scale expansion yield the complete ratio boundary including equality. verify_ogda.py executed successfully with 158 rational/finite checks; infinite-time conclusions are proved algebraically, not inferred from those tests.",
+    "status": "PASS"
+  },
+  "independent": false,
+  "independent_audit_status": "not_performed",
+  "originality": {
+    "broader_coverage": {
+      "evidence": [
+        "arxiv:2208.03085, Section 2: constant-step OGDA rates",
+        "arxiv:2212.13955, Sections 2 and 4: fixed-step equivalence with GRAAL, and different adaptive GRAAL updates",
+        "2026/9/21/SCOPE-normal-extragradient-degree-two-minimax--486b3694d0f0: two-stage extragradient polynomial, not a two-period historical-gradient map"
+      ],
+      "reasoning": "Published general convergence theorems identified here assume fixed steps or a distinct guarded adaptive update. No identified result states a theorem encompassing arbitrary naive OGDA two-period steps; broad multistep results may nevertheless imply this algebraic special case.",
+      "searches": [
+        "two period variable learning rate OGDA bilinear saddle alternating stepsizes memory i h previous operator spectral radius",
+        "\"periodic reflected gradient\" 2 cycle stepsize sharp stability",
+        "\"variable-step optimistic GDA\" bilinear exact instability time varying",
+        "arxiv:2208.03085 Section 2",
+        "arxiv:2212.13955 Section 4"
+      ]
+    },
+    "checked_sources": [
+      "arxiv:2010.03211",
+      "arxiv:2208.03085",
+      "arxiv:2212.13955",
+      "JMLR 24 (2023) paper 22-1488",
+      "2026/9/19/SCOPE-rate-optimal-frb-skew-rotations--689d5e743c56: constant-step FRB on skew families",
+      "2026/9/21/SCOPE-normal-extragradient-degree-two-minimax--486b3694d0f0: two-stage extragradient polynomial, not a two-period historical-gradient map",
+      "2026/10/4/SCOPE-a-sharp-online-learning-phase-transition-for-scalar-os-fbs--59ab02ce35b0: adaptive scalar OS-FBS, not bilinear OGDA"
+    ],
+    "claim_vs_prior_implication": {
+      "evidence": [
+        "arxiv:2010.03211, Theorem 3.1: fixed-step OGDA spectral threshold 1/sqrt(3)",
+        "arxiv:2208.03085, Section 2: constant-step OGDA rates",
+        "arxiv:2212.13955, Sections 2 and 4: fixed-step equivalence with GRAAL, and different adaptive GRAAL updates"
+      ],
+      "reasoning": "Constant-step u=v implies Δ(h,h)>0 iff h<1/√3 and is expressly subsumed by prior work. A pair of two individually stable but different steps need not share a stable monodromy: u=0.01,v=0.1 has Δ<0. Adaptive GRAAL does not share the naive historical-gradient recurrence; therefore its theorem does not prove the new instability or disprove it.",
+      "searches": [
+        "arxiv:2010.03211 Theorem 3.1",
+        "arxiv:2208.03085 Section 2",
+        "arxiv:2212.13955 Sections 2 and 4",
+        "alternating periodic stepsizes optimistic gradient descent ascent reflected gradient bilinear zero-sum game exact Schur stability ratio 2+sqrt3 instability arbitrarily small steps",
+        "\"variable-step optimistic GDA\" bilinear exact instability time varying"
+      ]
+    },
+    "equivalent_formulations": {
+      "evidence": [
+        "arxiv:2010.03211, Theorem 3.1: fixed-step OGDA spectral threshold 1/sqrt(3)",
+        "arxiv:2212.13955, Sections 2 and 4: fixed-step equivalence with GRAAL, and different adaptive GRAAL updates",
+        "2026/9/19/SCOPE-rate-optimal-frb-skew-rotations--689d5e743c56: constant-step FRB on skew families"
+      ],
+      "reasoning": "Alternate terms include optimistic GDA, reflected gradient, bilinear games, and Floquet/multistep stability. The current-step-scaled recursion includes a distinct two-period transfer matrix; fixed-step OGDA and FRB are not identical variable-step laws.",
+      "searches": [
+        "alternating periodic stepsizes optimistic gradient descent ascent reflected gradient bilinear zero-sum game exact Schur stability ratio 2+sqrt3 instability arbitrarily small steps",
+        "two period variable learning rate OGDA bilinear saddle alternating stepsizes memory i h previous operator spectral radius",
+        "\"optimistic gradient\" alternating two step learning rates bilinear Floquet multiplier Schur Cohn instability",
+        "\"periodic reflected gradient\" 2 cycle stepsize sharp stability",
+        "arxiv:2010.03211 Theorem 3.1",
+        "arxiv:2212.13955 Sections 2 and 4"
+      ]
+    },
+    "exact_database_or_table": {
+      "evidence": [
+        "2026/9/19/SCOPE-rate-optimal-frb-skew-rotations--689d5e743c56: constant-step FRB on skew families",
+        "2026/9/21/SCOPE-normal-extragradient-degree-two-minimax--486b3694d0f0: two-stage extragradient polynomial, not a two-period historical-gradient map",
+        "2026/10/4/SCOPE-a-sharp-online-learning-phase-transition-for-scalar-os-fbs--59ab02ce35b0: adaptive scalar OS-FBS, not bilinear OGDA"
+      ],
+      "reasoning": "The closest indexed findings concern fixed-step split skew FRB, two-stage extragradient, and scalar adaptive methods. They do not list the two-period OGDA margin or the exact ratio interval.",
+      "searches": [
+        "\"optimistic gradient\" alternating two step learning rates bilinear Floquet multiplier Schur Cohn instability",
+        "\"2+sqrt(3)\" optimistic gradient descent ascent stepsize ratio",
+        "2026/9/19/SCOPE-rate-optimal-frb-skew-rotations--689d5e743c56",
+        "2026/9/21/SCOPE-normal-extragradient-degree-two-minimax--486b3694d0f0"
+      ]
+    },
+    "rationale": "The prior constant-step OGDA results imply neither the two-period product characteristic polynomial nor its global stability region. The only directly related adaptive source uses a different safeguarded update, so its guarantees do not apply to naive step scaling. The accessible literature and record comparisons did not identify a covering claim; a possible broader variable-coefficient multistep implication remains a disclosed priority risk.",
+    "residual_risks": [
+      "An older general variable-coefficient two-step or switched-systems stability theorem might contain this period-two criterion as an implicit special case; this was not independently eliminated.",
+      "The analysis is for naively scaled OGDA only; applying it to guarded adaptive GRAAL or arbitrary OGDA variable-step definitions would be incorrect.",
+      "Independent priority and mathematical validation were not performed."
+    ],
+    "source_inspections": [
+      {
+        "assessment": "Establishes constant-step stability, not the claimed alternating-step Floquet criterion",
+        "evidence": [
+          "Theorem 3.1 has a single fixed learning rate and the 1/sqrt(3) frontier"
+        ],
+        "identifier_or_url": "https://arxiv.org/abs/2010.03211",
+        "material_read": "Full open PDF, model and Theorem 3.1 with fixed-step spectral threshold",
+        "method": "Read PDF text and inspected rendered relevant page",
+        "title": "A Robust Framework for Analyzing Gradient-Based Dynamics in Bilinear Games",
+        "trigger": "Closest known sharp fixed-step OGDA threshold"
+      },
+      {
+        "assessment": "Treats constant-step iteration; no exact pairwise alternating learning-rate classification in inspected material",
+        "evidence": [
+          "Section 2 uses a constant-step OGDA recurrence and fixed-step rates"
+        ],
+        "identifier_or_url": "https://arxiv.org/abs/2208.03085",
+        "material_read": "Open PDF opening, algorithm/model and Section 2 governing fixed steps",
+        "method": "Read PDF and inspected first relevant page",
+        "title": "Optimistic Gradient Descent Ascent in Zero-Sum and General-Sum Bilinear Games",
+        "trigger": "Detailed related OGDA dynamics"
+      },
+      {
+        "assessment": "Constant-step identification does not justify a naive variable-step OGDA substitution; their adaptive method updates differently",
+        "evidence": [
+          "JMLR 24 (2023), Sections 2 and 4 explicitly distinguish fixed-step equivalence and adaptive algorithm"
+        ],
+        "identifier_or_url": "https://arxiv.org/abs/2212.13955",
+        "material_read": "Full openly accessible JMLR paper, Sections 2 and 4 covering constant-step equivalence and adaptive construction",
+        "method": "Read full-text PDF, searched relevant sections and inspected rendered pages",
+        "title": "Beyond the Golden Ratio for Variational Inequality Algorithms",
+        "trigger": "Source describes OGDA–GRAAL equivalence and adaptive steps"
+      }
+    ],
+    "status": "PASS"
+  },
+  "review_type": "self_review",
+  "schema_version": 1,
+  "scope_run_id": "de54d7f6-1af5-438e-8389-783700d9f7c4",
+  "self_review_status": "passed",
+  "value": {
+    "rationale": "Individually stable OGDA steps do not guarantee convergence under naive variable-step reuse of past gradients, even as both steps vanish. The result provides a sharp, nontrivial relative-step frontier 2±sqrt(3) and exact all-scale Floquet stability criterion for a canonical game; these identify a principled risk in time-varying historical-gradient methods rather than an arbitrary numerical counterexample.",
+    "status": "PASS"
+  }
+}
