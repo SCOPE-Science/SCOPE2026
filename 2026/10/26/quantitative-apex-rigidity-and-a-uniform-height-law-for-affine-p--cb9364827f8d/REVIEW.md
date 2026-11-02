@@ -1,9 +1,21 @@
-# Scientific review — quantitative apex rigidity on solid circular cones
+# Independent mathematical audit
 
-**Correctness (PASS).** The integral factorization of normalized cone volume into a Beta height and independent uniform-ball direction gives the exact covariance-inverse affine kernel. The apex row has one sign change, permitting exact integration. The squared reproducing-kernel diagonal bounds every top-cap row by \(B_m\); explicit inequalities establish \(B_m<A_m\) at every permissible dimension. Height-affinity and the triangle inequalities then prove the two-sided estimate, unique apex maximization, uniform \(O(d^{-1/2})\) height law, and both directions of asymptotic near-maximizer rigidity. Standalone rational and quadrature diagnostics corroborate finite checks; they do not replace proof.
+## correctness
 
-**Originality (PASS, with residual risk).** Xu's 2019 cone paper (arXiv:1905.07587, read Sections 3--6, especially Lemma 5.2 and Proposition 6.1) supplies powerful cone kernels and convolution bounds but not an exact strict height-dependent norming law. The public 2026 simplex theorem gives the same numerical constant on a geometrically different support, so numerical equality itself is not an originality claim. Li--Xu (2013), Figueroa (2016), and Olver--Xu (2019) treat related approximation spaces/operators without the two-sided cone height estimate. Searches of aliases, source conclusions, and equivalent implications yielded no dominating result; a hidden earlier calculation remains possible. Xu (2020) was checked at abstract/stated-results level only.
+PASS
 
-**Mathematical value (PASS).** The precise geometry of worst-case amplification is relevant to the stability of continuous least-squares approximation on a nonsmooth high-dimensional domain. The quantified positive-height loss and uniform profile classify all near-extremizers, which neither a generic reproducing-kernel estimate nor equality of a scalar constant with the simplex case yields. The fixed-degree, normalized-volume and circular-cross-section restrictions are explicit; sharpness of the \(d^{-1/2}\) rate is not claimed.
+For uniform solid K_d and full affine L² projector (d>=2), the independent Beta(m,1)-height/uniform-ball decomposition gives eta=m/(m+1), var(T)=m/((m+1)^2(m+2)) and transverse covariance m/((m+1)(m+2)); covariance inversion gives equation (1). Integrating its signed apex row gives A_m=2(m+1)((m+1)/(m+2))^m-1. The cap L¹ row is <= its L² reproducing norm B_m=sqrt(1+(m+2)^2/m). Rational m=3,4 and an exponential lower bound for m>=5 show A_m>B_m. Evaluation-point affine interpolation gives |Lambda(x,s)-(1-s)A_m|<=sB_m and strict unique apex; A_m~(2/e)d, B_m=O(sqrt(d)) give the uniform profile and iff height-to-zero near-maximizers. Independent checks verify 99 dimensions and covariance identities; finite checks do not establish the theorem.
 
-Self-review: passed. Independent audit: not yet performed.
+## originality
+
+PASS
+
+Cone orthogonal polynomial kernel methods are classical (Xu 2019), and the scalar A_m coincides with a published simplex affine-projector result. The claimed contribution is the all-d quantitative STRICT positive-height gap, unique apex, and uniform height-only near-norming characterization on solid circular cones, not kernel construction or novelty of A_m.
+
+## value
+
+PASS
+
+Endpoint norming and exact spatial profile are natural stability invariants of the affine least-squares projector on a canonical high-dimensional solid cone, with a genuine rigid maximizer and uniform d-law; the same numerical simplex constant does not make the cone-specific spatial theorem a routine renaming.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
