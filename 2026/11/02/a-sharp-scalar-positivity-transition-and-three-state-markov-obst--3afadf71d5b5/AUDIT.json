@@ -1,0 +1,156 @@
+{
+  "correctness": {
+    "rationale": "The stability function was reconstructed symbolically from the printed stage formula. The proof writes R_C(-x)=N_C(x)/D_C(x), proves D>0, establishes scalar nonnegativity exactly iff C>=5/183 by a negative-leading-cubic obstruction and two strict quadratic discriminants, and uses the published A-stability to obtain the upper bound one. Every 2-state CTMC generator is parameterized by two nonnegative rates; its matrix function is an explicit convex combination, giving a universal positive result. A 3-state pure-birth Jordan block gives 12R_C prime(-12)=-60(1204C^2+4C-1)/(49(98C+1)^2)<0 for C>=5/183; exact rational verification yields -16260/22193521 at the critical parameter. The attached stdlib program verified 24 exact-rational identities and finite examples; the analytical sign proofs establish the universal quantifiers.",
+    "status": "PASS"
+  },
+  "independent": false,
+  "independent_audit_status": "not_performed",
+  "limitations": [
+    "Linear CTMC generators with exact stage solves and trajectory derivatives only.",
+    "The counterexample is reducible; irreducible dimension and nonlinear/stage positivity not addressed.",
+    "Historical-priority comparison is based on the accessible full texts, indexed published summaries, and actual targeted literature searches; no independent audit."
+  ],
+  "originality": {
+    "broader_coverage": {
+      "evidence": [
+        "Lóczi–Ketcheson (2013), Introduction and Section 1.1, discusses absolute monotonicity of rational functions and the general finite threshold at order >=2, but no family with this 183C-5 coefficient or exact Markov dimension transition.",
+        "Published findings for SSP-SDIRK2(2) and the [2/2] Padé method use different rational functions and different finite-state threshold structures.",
+        "The published original Huo family has numerator degree <=3 and denominator degree 4; its complete parameter-dependent scalar sign boundary and conservative dimension-specific witness are not a direct instance of any same-function table identified."
+      ],
+      "reasoning": "A general theory that high-order methods can lose absolute monotonicity does not entail the exact threshold C_q or the specific minimal finite-state classification. Previously published analogous Markov examples lack an implication to this independently defined R_C. The potential risk that a broad unpublished theorem covers this specialization remains.",
+      "searches": [
+        "absolute monotonicity radius positivity of rational A-stable L-stable integrators on Metzler matrices 2026",
+        "arxiv:1303.6651 rational functions with maximal radius of absolute monotonicity",
+        "Stepsize Conditions for General Monotonicity in Numerical Initial Value Problems Spijker 2007",
+        "published-finding corpus: 2026/10/4/SCOPE-two-state-immunity-and-three-state-sharpness-for-endpoint-positi--46bf11cc19c7",
+        "published-finding corpus: 2026/9/20/SCOPE-eight-state-pade-markov-positivity-barrier--4aad2a3f58ab"
+      ]
+    },
+    "checked_sources": [
+      "arxiv:2512.01628v4 (public arXiv HTML)",
+      "arxiv:2608.03256v1 (public parsed full text)",
+      "arxiv:1303.6651 (public parsed full text)",
+      "DOI:10.1137/060661739 (abstract)",
+      "Published published-finding corpus record: two-state immunity and three-state sharpness for SSP-SDIRK2(2) (summary only)",
+      "Published published-finding corpus record: eight-state barrier for Padé Markov positivity (summary only)"
+    ],
+    "claim_vs_prior_implication": {
+      "evidence": [
+        "Huo 2025/2026 proves A/L-stability and coefficient choices; that conclusion only controls |R_C(z)| in the left half-plane, not entrywise R_C(hQ).",
+        "Huo–Su 2026 proves exact L_h^2 closure in linear constant-coefficient cases and reports stiff-decay parameter C_q=5/183; this does not compare endpoint signs of Markov transition matrices.",
+        "Lóczi–Ketcheson 2013 proves/recalls finite absolute-monotonicity radii for order at least two; no number of Markov states or this explicit C-parametric threshold follows without the new algebra.",
+        "Analogous previously published results on SSP-SDIRK2(2) or Padé have a different rational R, so their dimension thresholds cannot be substituted for those proved here."
+      ],
+      "reasoning": "The new claim is not equivalent to or a mere numerical restatement of any inspected source theorem: it combines a sharp sign dichotomy in C with all-generator two-state sufficiency and a common exact three-state obstruction. The A-stable interval and stable rational coefficients are acknowledged as previous work, not a claimed discovery.",
+      "searches": [
+        "arxiv:2512.01628v4 Sections 2–4, 6, 7",
+        "arxiv:2608.03256v1 Sections 3, 7–8",
+        "arxiv:1303.6651 Introduction and Section 1.1",
+        "published-finding corpus: two-state immunity and three-state sharpness for endpoint positivity of SSP-SDIRK2(2)",
+        "published-finding corpus: eight-state barrier for Markov positivity of the [2/2] Pade map"
+      ]
+    },
+    "equivalent_formulations": {
+      "evidence": [
+        "The source methods have exactly the rational function used in the new proof, but their stated theorems establish A/L-stability, high-frequency damping, and conservative trajectory-derivative assembly, not endpoint sign preservation.",
+        "The two-state/three-state formulation is equivalent to positivity of R(-x) and of the first derivative on a Jordan block, specifically R_C prime at -12; neither source tabulates or bounds that derivative for positivity."
+      ],
+      "reasoning": "The correct alias is matrix-function positivity of the scalar stability rational function on conservative generators (not merely absolute stability). The exact scalar and Jordan identities are derived afresh; the inspected method sources do not express their parameter range in this equivalent form.",
+      "searches": [
+        "An L-Stable Sequential Two-Stage Fourth-Order Method with ADER Trajectory Derivatives Huo Su 2026 scalar stability function nonnegativity positivity Markov generators",
+        "implicit two-stage fourth-order two-derivative Huo Su 2025 stability function R(z) 183C-5, positivity scalar exact threshold C=5/183",
+        "arxiv:2512.01628v4 stability function (3.11), parameter C",
+        "arxiv:2608.03256v1 stability function (31), C_q=5/183"
+      ]
+    },
+    "exact_database_or_table": {
+      "evidence": [
+        "Targeted exact-polynomial and paper-name searches did not return a matching method-specific positivity table.",
+        "Relevant published-finding corpus ranked results were on different named numerical methods rather than the Huo–Su rational function; full texts for two closest published published-finding corpus findings could not be retrieved, so their summaries alone do not prove absence of stronger coverage."
+      ],
+      "reasoning": "No exact published-table match was identified; a negative search does not itself prove novelty. Comparison rests chiefly on full accessible paper statements and distinction from the closest explicitly different rational stability functions.",
+      "searches": [
+        "scalar-positive L stable method 2026 three state Markov chain pure birth negative transition R derivative z=-12, 1204 C^2+4 C-1",
+        "two derivative fully implicit two stage fourth order L stable method positivity preservation Markov chain pure birth 3 state negative offdiagonal derivative R prime(-12), parameter 5/183",
+        "\"183C-5\" \"positivity\" \"L-stable\"",
+        "\"Huo\" \"two-stage\" \"Markov\" \"positivity\""
+      ]
+    },
+    "rationale": "This is an exact method-specific phase classification not stated by the two inspected founding preprints: scalar nonnegativity is equivalent to C >= 5/183, the minimal conservative Markov dimension is 2 below that boundary and 3 above it, and a common h=12 three-state witness has an exact rational negative transition. Generic absolute-monotonicity theory and analogous Markov positivity examples for distinct integrators provide background, not a same-formula implication. Full historical priority remains uncertain.",
+    "residual_risks": [
+      "An inaccessible but closely related full published-finding corpus text could contain a broader theorem; its abstract differs in method and numerical thresholds, but unavailable full text was not used as negative evidence.",
+      "Specialized positivity literature beyond retrieved exact or method-name searches may include equivalent method-specific calculations.",
+      "A-stability and scalar boundedness are established in the motivating sources; their use is acknowledged and not original."
+    ],
+    "source_inspections": [
+      {
+        "assessment": "COVERS source method and spectral stability interval; DOES NOT STATE the proposed scalar positivity boundary or dimension classification in material inspected.",
+        "evidence": [
+          "Equation (3.11) is the family under study; (3.21) gives the exact A/L-stable interval.",
+          "Section 4 optimizes accuracy/damping; Section 6 tests stiff problems rather than matrix entrywise sign transitions."
+        ],
+        "identifier_or_url": "https://arxiv.org/html/2512.01628v4",
+        "material_read": "HTML introduction, Sections 2–4 containing the stages, stability function, A/L-stability, and parameter selection; Section 6 applications; text search for positivity and monotonicity.",
+        "method": "Read publicly accessible arXiv HTML including equation (3.11) and stability interval (3.21); examined latter numerical tests.",
+        "title": "An L-Stable Implicit Two-Stage Fourth-Order Time Discretization for Stiff Evolution Problems",
+        "trigger": "Original method and possibly dominating positivity theorem"
+      },
+      {
+        "assessment": "COVERS rational stability function and C_q stiff cancellation; no Markov positivity classification found in inspected sections.",
+        "evidence": [
+          "Theorem 2 establishes A/L-stability for (25±sqrt(105))/780.",
+          "Proposition 1 gives C_q=5/183 with O(|z|^-2) damping.",
+          "Finite-volume experiments study accuracy and stiff decay, not the exact three-state Markov entry."
+        ],
+        "identifier_or_url": "https://arxiv.org/abs/2608.03256",
+        "material_read": "Full publicly parsed arXiv HTML, especially Section 3.1–3.4, Section 7 algebraic solves and Section 8 experiments; searched text for positivity and monotonicity.",
+        "method": "Read equation (31), A/L-stability Theorem 2 and stiff-decay C_q Proposition 1; examined Sections 7 and 8.",
+        "title": "An L-Stable Sequential Two-Stage Fourth-Order Method with ADER Trajectory Derivatives for Stiff Transport--Relaxation Systems",
+        "trigger": "Completed PDE implementation and possibly same sign theorem"
+      },
+      {
+        "assessment": "BACKGROUND on general finite positivity thresholds and rational derivatives; no directly covering Huo method-specific parameter/dimension result in examined sections.",
+        "evidence": [
+          "Order >=2 rational stability functions have finite absolute-monotonicity radius.",
+          "A negative derivative on the real axis bounds the radius, consistent with but weaker than the claimed minimal Markov-chain transition."
+        ],
+        "identifier_or_url": "https://arxiv.org/abs/1303.6651",
+        "material_read": "Parsed full-text introduction, general theory and Section 1.1, including definition of radius, derivative-bound theorem and background on rational families.",
+        "method": "Direct inspection of source, especially Theorem 1.11 and Remarks 1.6–1.13.",
+        "title": "Rational functions with maximal radius of absolute monotonicity",
+        "trigger": "Could imply positivity obstruction through stronger general theorem"
+      },
+      {
+        "assessment": "Possibly analogous, not demonstrably identical: SSP-SDIRK2(2) is a distinct scheme, and summary provides a different threshold; full-text comparison remains a residual risk.",
+        "evidence": [
+          "Published summary states two-state immunity for SSP-SDIRK2(2) with three-state loss beyond h=4, whereas this claim is for the Huo–Su rational family and all C in its stable range."
+        ],
+        "identifier_or_url": "https://github.com/Resultary/2026/tree/main/2026/10/4/SCOPE-two-state-immunity-and-three-state-sharpness-for-endpoint-positi--46bf11cc19c7",
+        "material_read": "Title and publication summary only; linked full text could not be opened in this run.",
+        "method": "Compared the returned explicit statement and named method; full-text retrieval attempted.",
+        "title": "Two-state immunity and three-state sharpness for endpoint positivity of SSP-SDIRK2(2)",
+        "trigger": "Highly similar minimal Markov-state result for another method"
+      },
+      {
+        "assessment": "Analogous but different function and different minimal-state threshold; full-text historical-priority risk remains.",
+        "evidence": [
+          "Published summary explicitly concerns fourth-order [2/2] Padé / Gauss–Legendre, while the Huo stability rational function has a fourth-degree denominator and cubic numerator."
+        ],
+        "identifier_or_url": "https://github.com/Resultary/2026/tree/main/2026/9/20/SCOPE-eight-state-pade-markov-positivity-barrier--4aad2a3f58ab",
+        "material_read": "Title and publication summary only; linked full text could not be opened in this run.",
+        "method": "Compared statement and underlying [2/2] Padé stability function based on returned summary; full-text retrieval attempted.",
+        "title": "Eight-state barrier for Markov positivity of the [2/2] Pade map",
+        "trigger": "Potentially broader exact Markov positivity size theorem"
+      }
+    ],
+    "status": "PASS"
+  },
+  "review_type": "self_review",
+  "schema_version": 1,
+  "scope_run_id": "3afadf71-d5b5-47ab-a487-2d67ec914276",
+  "self_review_status": "passed",
+  "value": {
+    "rationale": "Positivity and conservation are core qualitative requirements in stiff transport and reaction systems. The source method was designed to be fourth-order and L-stable; knowing precisely where a scalar positivity test succeeds but all-step conservative matrix positivity still fails is useful for interpreting that guarantee. The exact switch from two to three minimal CTMC states, located at the independently motivated parameter C_q=5/183, provides a structural diagnostic and a fixed small counterexample rather than a routine scalar instability check.",
+    "status": "PASS"
+  }
+}
