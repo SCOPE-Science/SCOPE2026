@@ -1,0 +1,15 @@
+# Review of the symmetric-design incidence negative-type classification
+
+## Correctness — PASS
+The proof gives the exact distance profile and singular-value identity for any symmetric design, then identifies every eigenvalue on the zero-sum subspace. The spectral crossing is unique, the scalar global crossing is unique whenever it can preempt the spectral crossing, and the critical sign identity follows from the block-design parameter relation. A standard Schoenberg integral argument supplies strict negative type below an admissible endpoint, with a direct positive eigenmode above it. Centered-Gram ranks give all claimed affine dimensions. The projective-plane comparisons are proved by convexity inequalities and the small orders are treated directly. The executable checks ten actual graphs with independent BFS distances and numerical full-spectrum comparisons; these support but do not replace the proof.
+
+## Originality — PASS (best-knowledge, historical-priority risk retained)
+The 2018 Obata–Zakiyyah graph QE paper, the 2020 Lou–Obata–Huang join paper, and Choudhury–Nandi's 2023 distance-spectra paper treat unpowered quadratic embedding quantities. Abiad and collaborators' 2023 diameter-three distance-regular case covers symmetric-design incidence graphs as graph objects but studies Laplacian group inverses, not the powered-distance spectrum. Relevant published-source and semantic literature searches for generalized roundness, negative type, Levi graphs, incidence graphs, and complementary projective planes did not produce a theorem that dominates the present explicit all-parameter phase and kernel claim. The accessible historical crown-graph result, corresponding to \(k-\lambda=1\), is excluded. A hypothetical all-power association-scheme treatment in older literature is the principal remaining historical risk; unsuccessful searches are not a uniqueness certificate.
+
+## Mathematical value — PASS
+The exact phase boundary \(2^{p_s}\lessgtr (k+\sqrt{k-\lambda})/(k-1)\) distinguishes two non-equivalent mechanisms of failure of Hilbert embeddability, with different critical equality-space dimensions. For projective planes and their complementary designs, the critical exponent changes from order \(q^{-1/2}\) to order \(q^{-2}\) as soon as \(q\ge3\), and endpoint affine dimension changes from \(v\) to \(2v-2\). This fully determines a motivated geometric invariant for every nontrivial symmetric-design incidence graph, independently of its particular incidence realization.
+
+## Limitations and nearest literature
+The proof does not address nonsymmetric designs, weighted incidence metrics, or global classification of possible resonance parameters. The checker is finite and not a proof substitute. Primary literature includes arXiv:2306.15589 (first posted June 27, 2023), EJGTA 6 (2018), arXiv:2001.06752 (2020), and the 2023 M-matrix group-inverse article. An independent historical and mathematical audit has not been performed.
+
+Self-review: passed. Independent audit: not yet performed.
