@@ -5,8 +5,11 @@
     "status": "not_performed"
   },
   "independent_audit": {
-    "evidence": null,
-    "status": "not_performed"
+    "status": "passed",
+    "evidence": [
+      "INDEPENDENT_AUDIT_2026-10-28.md",
+      "INDEPENDENT_AUDIT_2026-10-28.json"
+    ]
   },
   "lean_verification": {
     "evidence": null,
@@ -16,4 +19,24 @@
 }
 ---
 
-The full symbolic proof is in `RESULT.md`; the executable `verify.py` performs independent bounded checks on additive-semigroup membership rather than treating the classification predicate as its own oracle. Execute `python3 verify.py` to check every admissible multiplicity-five Kunz vector of genus at most 60, including all 32,065 such vectors, direct pseudo-Frobenius tests and direct minimal-generator tests. Exactly 88 of these semigroups satisfy the consecutive-pseudo-Frobenius criterion; 57 have embedding dimension four. Independent arithmetic interval counts were checked for every parameter sum from 2 through 1000. The program prints `VERIFY_OK` when every assertion succeeds. Numerical enumeration is not claimed as an exhaustive proof for arbitrary genus, and the published classification is not independently audited.
+# Independent mathematical audit
+
+## correctness
+
+PASS
+
+Using the eight precise Kunz inequalities, reconstruct the Apéry maximality table: the middle consecutive residue pair (2,3) is impossible; the (1,2) and (3,4) cases yield exactly U=(c+d+1,c+d+1,c,d), 1<=d<=c<=2d+1, and V=(a,b,a+b,a+b), 1<=a<=b<=2a. Their direct converses, genus/Frobenius data, strict e=4 boundaries, integer interval counts and N_5(G)=G^2/54+O(G) follow. Independent full enumeration of 32,065 Kunz-valid tuples of genus <=60 found exactly 88 perfect type-two, 57 e=4, all within those families; finite tests do not prove all genera.
+
+## originality
+
+PASS
+
+Statement-level search and implication audit, not a novelty proof from a failed search. Complete multiplicity-five parametrization. Prior e=3 theorem provides only boundary classes; the unbounded strict e=4 cones and all-s interval formulas remain distinct. Fixed-F algorithm enumerates each bound yet no stated global two-cone formulas imply the infinite census; earlier work is explicitly credited. Best-of-knowledge originality survives with the stated residual risk.
+
+## value
+
+PASS
+
+Multiplicity five is the first natural low-multiplicity class beyond the previously treated embedding-dimension-three boundary. The exact two-cone integer lattice classification and all-genus quadratic census give a reusable structural parameterization and new e=4 interior, not a routine table.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
