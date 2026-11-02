@@ -1,15 +1,21 @@
-# Self-review
+# Independent mathematical audit
 
-## Correctness — PASS
-The morphism has no base points because each conic point has at least two nonzero coordinates. Its line-bundle pullback is \(\mathcal O(2,2)\), so its degree is exactly \(8\). Eight explicit faithful automorphisms account for the whole separable function-field degree. The codimension-one fixed loci are exactly four graphs, establishing ramification and branch support. The displayed invariant \(w\) satisfies an exact quartic identity; the intermediate field and normality identify the quotient double plane. Local equations and double-cover adjunction yield six nodes and anticanonical degree two. Standalone exact checks pass. No finite sample is used as an infinite proof.
+## correctness
 
-## Originality — PASS, with residual risk
-The 2015 linear-spaces article gives foundational definitions and results for Hadamard products, not this conic cover. The 2021 hypersurfaces article treats binomial/idempotence phenomena, not the eightfold Galois cover, its four-line branch, or its six-node intermediate quotient. Searches for equivalences (symmetric square, coordinate-sign quotient, four-line double plane) and nearby research records did not identify a theorem implying the combined claim. The 2024 comprehensive monograph was available in preview only, so implicit or explicit coverage there remains unresolved; the already-classical four-line double-plane invariants are not claimed separately as novel.
+PASS
 
-## Value — PASS
-The map is an intrinsic incidence/factorization construction for a natural nonsingular conic. Its complete degree, deck transformations, ramification arrangement, and del Pezzo intermediate quotient describe nontrivial fibers and degenerations not supplied by an image-dimension statement. This geometric bridge between coordinatewise multiplication and a six-node degree-two del Pezzo surface is a meaningful structural result, not a numerical recomputation of a known table.
+For the smooth conic C in P^2, no coordinate point lies on C; both points of C have supports of size >=2, so their supports meet and coordinatewise multiplication has no base points. Its pullback of O(1) to C x C = P^1 x P^1 is O(2,2), which is ample, making the proper map finite and surjective; the self-intersection (2,2)^2=8 gives degree eight. Simultaneous projective coordinate signs V=(Z/2)^2 and interchange tau commute, act faithfully and preserve the products, and supply all eight deck transformations in separable characteristic zero. Nonidentity pure signs have only isolated fixed points, whereas the four involutions tau*epsilon fix graphs with bidegree (1,1), whose images under mu are the four lines z0 +/- z1 +/- z2=0. Generic ramification index is 2; no other divisorial inertia appears. The V-invariant and tau-anti-invariant w=x0^2 y1^2-x1^2 y0^2 satisfies w^2=(z0^2+z1^2-z2^2)^2-4z0^2z1^2, the product of these four line equations. The intermediate normal quadratic cover is the associated quartic double plane. Every triple of branch-line normals has determinant absolute value 4, hence there are six transverse pairwise line crossings; each yields w^2=uv, an A1 node and no further singularities. Double-cover adjunction gives K_Y=-pi^*H and K_Y^2=2, with a crepant weak del Pezzo minimal resolution. Independently verified quartic identities and four triple determinants symbolically; these tests do not independently establish the Galois argument.
 
-## Literature and limitations
-Bocci–Carlini–Kileel (2015) and Bocci–Carlini (2021) were inspected in their public full-text arXiv versions; the 2024 book was checked only from public preview. This is a self-review in characteristic zero only. Equivalent prior coverage could exist, particularly in the full book.
+## originality
 
-Self-review: passed. Independent audit: not yet performed.
+PASS
+
+Bocci–Carlini–Kileel 2015 sets up projective Hadamard products and studies linear spaces; Bocci–Carlini 2021 treats hypersurface idempotence and binomial conditions. Neither inspected paper states this diagonal conic eightfold Galois quotient. The four-line double plane with six nodes is classical, not new alone. A 2024 full monograph on Hadamard projective varieties is plausible stronger coverage but its complete text was inaccessible after lawful OA search and an authenticated Oxford request returned VPN-disconnected. Best-of-knowledge novelty assessment of the surviving precise mathematical contribution; unsuccessful database search is not proof of absolute priority.
+
+## value
+
+PASS
+
+The Hadamard square of a familiar conic is a natural explicit finite projective map, and the exact deck group, inertia, branch arrangement and intermediate K^2=2 del Pezzo model form a coherent geometric classification. The classical four-line double plane is not assigned standalone novelty; identifying it canonically inside a concrete multiplicative cover is the motivated contribution.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
