@@ -1,0 +1,133 @@
+{
+  "audit_date_utc": "2026-10-30",
+  "audited_at_utc": "2026-10-30T12:09:49Z",
+  "axes": {
+    "correctness": {
+      "checked_sources": [
+        "frozen RESULT.md, verify_rook_tr2.py; actual tree d982411e8f9622bdadebd0fb6ae7f0958071563f",
+        "independent_checks.py brute labels and separate exact bipartite tree exponential DP",
+        "Cabrera García et al. definition arxiv:2101.02537"
+      ],
+      "rationale": "For K_p square K_q (2<=p<=q), an empty row/column forces weight >=2p; otherwise all row/column supports are nonempty, changing every label two to one lowers weight without invalidating positive support or zero-site two-neighbor requirements. The associated bipartite incidence graph then has no isolated vertices or single-edge component. With c<=min(p,floor((p+q)/3)), at least p+q-c edges are needed, and a spanning forest construction attains that bound. For p=q=n, ceil(4n/3)<2n, so every optimum has no twos, and equality forces a forest with floor(2n/3) components of order>=3. The bipartite Cayley tree count a^(b-1)b^(a-1) plus excess-vertex profiles (all size3, one size4, or one size5/two size4) derives the three rational closed formulas, including n=2 boundary. Independently checked all labelings for five rectangular boards and coefficient-DP counts n=2..10.",
+      "residual_risks": [
+        "Finite brute-force checks n<=10 are consistency checks; the all-n statement uses the graph-component argument.",
+        "The rectangular n=p=q proof explicitly depends on n>=2, not isolated graph K1."
+      ],
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "General k-tuple and total k-domination on rook graphs are related, but total open 2-domination is stricter at occupied vertices and ordinary domination is weaker at unoccupied vertices."
+        ],
+        "reasoning": "No inspected stronger theorem establishes the exact minimum-forest bijection and labeled enumeration. The 2009 full-text uncertainty remains material.",
+        "searches": [
+          "Burchett Lane Lachniet 2009 Congressus Numerantium 199:187-204",
+          "arxiv:2001.07850",
+          "arxiv:2401.00716"
+        ]
+      },
+      "checked_sources": [
+        "arxiv:2101.02537 foundational full paper",
+        "Burchett–Lane–Lachniet 2009 abstract",
+        "arxiv:2001.07850 different invariant",
+        "arxiv:2401.00716 ordinary domination",
+        "Resultary total Roman two domination rook graph K_n cartesian K_n binary spanning bipartite forests minimum dominating functions enumeration"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "The source proof uses the bipartite incidence forest structure and unlabeled component order restrictions, additional to known scalar n-by-n double domination."
+        ],
+        "reasoning": "Published double-domination minimum weight could be mechanically specialized to give ceil(4n/3), but not the number 880 at n=4, 4200 at n=5 or the exact all-n exponential-formula classification without additional work.",
+        "searches": [
+          "arxiv:2101.02537",
+          "doi:10.1016/j.dam.2023.04.008",
+          "Burchett Lane Lachniet 2009"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "The binary subcase of total Roman {2} equals ordinary double domination; the 2009 study resolves the 2-tuple domination number on rook graphs."
+        ],
+        "reasoning": "The scalar equality by itself does not imply classification of all minimum binary supports or their three modular counts.",
+        "searches": [
+          "total Roman two domination rook graph K_n cartesian K_n binary spanning bipartite forests minimum dominating functions enumeration",
+          "arxiv:2101.02537",
+          "Burchett Lane Lachniet 2009 rook graph 2-tuple domination"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "Resultary hit for total Roman {2} full enumerator concerns complete multipartite graphs, not the Cartesian product K_n square K_n. Published rook domination polynomial counts ordinary dominating sets."
+        ],
+        "reasoning": "No exact table for the three claimed minimum double-dominating function congruence classes was located in the checked sources; this does not prove historical novelty.",
+        "searches": [
+          "total Roman two domination rook graph K_n cartesian K_n binary spanning bipartite forests minimum dominating functions enumeration",
+          "Resultary semantic query total Roman two domination rook graph K_n cartesian K_n binary spanning bipartite forests minimum dominating functions enumeration",
+          "Burchett Lane Lachniet 2009 k-tuple and k-domination on the rook graph full pdf"
+        ]
+      },
+      "rationale": "Classical double-domination equivalence and scalar rook-graph 2-tuple domination are acknowledged. The assessed novel result is complete structure and enumeration of every minimum labeled configuration across all n, not the scalar minimum itself. Full 2009 rook article remains a substantial priority risk but abstract advertises bounds/scalar values rather than the complete forest census.",
+      "residual_risks": [
+        "Most relevant Burchett–Lane–Lachniet 2009 full text inaccessible; may contain minimum-set structural discussion or enumeration in appendix.",
+        "Classical double-domination/line-graph interpretations might provide a previously derived forest counting formula."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "DEFINITIONAL_COVERAGE: general framework only, not complete rook minimum census",
+          "evidence": [
+            "web ; screenshot "
+          ],
+          "identifier_or_url": "arxiv:2101.02537",
+          "material_read": "full accessible 23-page paper, definitions and main general bounds/comparisons",
+          "method": "primary arXiv PDF inspection with screenshot",
+          "title": "Total Roman {2}-domination in graphs",
+          "trigger": "foundational same invariant and binary/double-domination relation"
+        },
+        {
+          "assessment": "PRIORITY_RISK_UNREAD: explicitly proves double-domination scalar case; enumeration unknown",
+          "evidence": [
+            "web ; "
+          ],
+          "identifier_or_url": "Congressus Numerantium 199 (2009) 187-204",
+          "material_read": "bibliographic abstract and journal volume contents only; no accessible full PDF",
+          "method": "journal and ResearchGate abstract/OA search",
+          "title": "k-tuple and k-domination on the rook’s graph and other results",
+          "trigger": "most plausible same-object same-invariant predecessor"
+        },
+        {
+          "assessment": "DIFFERENT_INVARIANT: total open k-domination applies a stronger occupied-vertex rule",
+          "evidence": [
+            "arxiv:2001.07850; DOI 10.1016/j.dam.2023.04.008"
+          ],
+          "identifier_or_url": "arxiv:2001.07850",
+          "material_read": "accessible bibliographic abstract and definition, not a complete source proof inspection",
+          "method": "arXiv index and title comparison",
+          "title": "Total k-domination in Cartesian product of complete graphs",
+          "trigger": "same rook graphs with nearby domination variant"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "checked_sources": [
+        "classical rook double-domination problem and 2009 scalar results",
+        "forest component-size enumerator and bipartite labeled Cayley tree identity"
+      ],
+      "rationale": "The complete labeled census of optimal double-dominating supports is a natural infinite graph family invariant, with a structural spanning-forest bijection and nontrivial modular enumeration. This is more substantial than the already-known scalar minimum and uses the mathematical geometry of row/column incidence.",
+      "residual_risks": [
+        "No classification up to graph automorphisms; only labeled minimum functions."
+      ],
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "limitations": [
+    "Finite brute-force checks n<=10 are consistency checks; the all-n statement uses the graph-component argument.",
+    "The rectangular n=p=q proof explicitly depends on n>=2, not isolated graph K1.",
+    "Most relevant Burchett–Lane–Lachniet 2009 full text inaccessible; may contain minimum-set structural discussion or enumeration in appendix.",
+    "Classical double-domination/line-graph interpretations might provide a previously derived forest counting formula.",
+    "No classification up to graph automorphisms; only labeled minimum functions."
+  ],
+  "schema_version": 1
+}
