@@ -5,8 +5,11 @@
     "status": "not_performed"
   },
   "independent_audit": {
-    "evidence": null,
-    "status": "not_performed"
+    "status": "passed",
+    "evidence": [
+      "INDEPENDENT_AUDIT_2026-10-28.md",
+      "INDEPENDENT_AUDIT_2026-10-28.json"
+    ]
   },
   "lean_verification": {
     "evidence": null,
@@ -15,16 +18,25 @@
   "schema_version": 1
 }
 ---
-# Verification and proof limits
 
-The attached `verify_theta.py` is a standalone Python 3 checker using only `fractions` and `itertools`. Execute from the directory containing the script:
+# Independent mathematical audit
 
-```sh
-python3 verify_theta.py
-```
+## correctness
 
-Observed output: `VERIFIED 2102 exact equalities for 9 finite network cases`.
+PASS
 
-For each stated finite example, the verifier enumerates all independent edge-indicator assignments with exact rational probability, calculates every vertex degree, retains exactly even-degree configurations, and compares their normalized probabilities to the claimed path laws. It also enumerates every marginal subset and calculates each pair covariance independently of the analytic expression. Cases include five- and six-path networks, mixtures of unequal edge probabilities, the central homogeneous point, both sides of the sign transition, and balancing of an entire path despite having no fair individual edge on that path. All arithmetic and equalities are exact fractions.
+At degree-two interior vertices the incident retained-edge indicators agree, forcing each path wholly present or absent. The two terminal even-degree conditions coincide and require even sum of full-path indicators. Relative path weights a_i=product p_e and b_i=product(1-p_e) yield independent Bernoulli(q_i=a_i/(a_i+b_i)) before parity restriction, and parity indicator (1+(-1)^sum)/2 gives exact normalization 1+T>0 (T=product(1-2q_i)) and all-subset marginals. Direct subtraction of E XiXj and product of marginals gives positive factor 4q_i(1-q_i)q_j(1-q_j)/(1+T)^2 times product of other biases. If an unmeasured bias vanishes, measured joint law is product; otherwise changing the parity of the other measured indicators changes Xi conditional odds (including the all-path support case), so no mutual independence. At homogeneous p each bias crosses sign at 1/2; sign (-1)^(m-2). Independent exact fractions for a hetero three-path network verify 29 marginal/covariance equalities and nonfair-edge balanced-path shielding; code elsewhere in source reports 2102 finite checks. Proof holds for any m and irrational interior p by algebra, not tests.
 
-The exhaustive check is finite and does **not** establish the theorem for arbitrary graph sizes or irrational probabilities. General validity depends on the explicit even-parity reduction and conditional-odds proof in the result text. No independent external audit, computational proof assistant, or infinite-size certification was performed.
+## originality
+
+PASS
+
+Best-of-knowledge PASS with overlapping antecedents. Grimmett–Janson establishes the general conditioned-even graph law; Klausen 2022 explicitly studies three/four-path theta network with partition functions and negative association of different whole-cycle events; Hansen–Klausen–Wildemann 2025 table enumerates eight configurations of a four-path network for terminal connectivity. Fixed small-network correlations can be deduced algebraically, so no claim that the parity law or all finite cases are new. These primary target statements do not directly supply the heterogeneous arbitrary-m sign factorization and iff full-subfamily independence shielding. A general parity-conditioned Bernoulli theorem might implicitly dominate; this remains a high-priority residual risk.
+
+## value
+
+PASS
+
+Multipath theta networks are established test cases for FKG failure and nonmonotonicity in even-subgraph/Ising graphical representations. A complete all-m weighted covariance sign classification and exact independent-subfamily shielding criterion identify a mathematically motivated dependence boundary and explain odd-versus-even path-count reversal, stronger than a cheap partition-sum normalization or a single counterexample. The restriction to multipath graphs is natural but explicit.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
