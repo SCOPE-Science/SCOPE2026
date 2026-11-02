@@ -1,19 +1,21 @@
-# Mathematical review
+# Independent mathematical audit
 
-## Correctness — PASS
+## correctness
 
-Every cycle of length four is either contained in one of the two recursively independent halves or uniquely determined by a pair of matched edges whose endpoints are adjacent in both halves. For arbitrary child graphs with \(m\) vertices and degree \(d\), ordered adjacent and disjoint edge-pair counts prove the exact conditional first and second moments of this crossing contribution. The dimension-two deterministic boundary case is explicitly separated. Conditional centering makes crossing contributions at different recursion nodes orthogonal. The iid central limit theorem on fixed-depth bottom blocks, paired with a uniformly vanishing squared-error tail, proves the claimed centered normal law. Exact rational enumeration independently checks all \(24+161{,}280\) relevant matching configurations through dimension four. The numerical checks do not certify convergence by themselves.
+PASS
 
-## Originality — PASS, qualified
+For n>=2 the graph is defined by two independent G_(n-1) copies and an independent uniform perfect matching. Every four-cycle lies in one child or crosses in exactly two matching edges; crossings biject to edge overlap under the matching. For two arbitrary d-regular simple graphs on m vertices, edge-pair collision enumeration yields E[X]=md^2/[2(m-1)] and Var(X)=md^2(m-d-1)^2/[2(m-3)(m-1)^2], with the m=2 case separately deterministic. Independent exact symbolic rational expansion of the ordered adjacent/disjoint edge-pair probabilities verifies this nonstandard variance formula. Constant conditional moments give E C_n=Σ 2^(n-k)a_k and Var C_n=Σ 2^(n-k)b_k. Sum b_k/2^k finite and positive, so the iid depth-L block CLT and L2-small orthogonal upper-level remainder prove the Gaussian limit as L→∞; summable Chebyshev bounds prove almost sure LLN for any coupling. For every n-regular simple graph tr(A^4)=2^n(2n²-n)+8C_n. Independent high-precision summation checked λ and σ², and source verifier implements exact n=3/n=4 matching-overlap enumeration. These finite computations corroborate the universal algebraic proof.
 
-The newest primary source (Baran–Šarković, arXiv:2610.21976v1, §1–8) studies mixing time, cover time and chromatic number of the same independently matched graph model. Benjamini–Dikstein–Gross–Zhukovskii (arXiv:2211.06988v3, Theorem 16, Lemma 17 and Remark 18) prove weak semicircle behavior and coarse short-cycle bounds; their explicit lower bound of one four-cycle per four vertices does not give exact moments or a central limit theorem, and their additional duplicube discussion concerns a different dependent model. Dudek and coauthors (European J. Combin. 70 (2018)) introduced the independent model and treated routing/diameter. Searches of mathematical records and broader literature using fourth-trace, square-count, matching-overlap and Gaussian aliases found no result that directly covers this statement. A general unpublished or missed subgraph-count fluctuation theorem is a residual priority risk. Independent validation has not occurred.
+## originality
 
-## Value — PASS
+PASS
 
-Four-cycles are already identified in previous work as a natural phenomenon that distinguishes twisted hypercubes from locally tree-like random regular graphs. Their exact density and positive central-limit variance are meaningful infinite-family statistics, not arbitrary finite cuts. Because regular-graph fourth traces differ from simple-square counts only by a deterministic term, the theorem also supplies explicit global spectral fluctuations on a scale not captured by a weak semicircle law.
+Qualified PASS: original same mathematical model and weak spectral papers give graph geometry, a lower bound on four-cycles and a semicircle law, not exact nonasymptotic 4-cycle expectation/variance nor a nondegenerate centered CLT. A general recursive-subgraph CLT might nevertheless subsume the fluctuation method; no verified covering instance was found.
 
-## Limits and closest sources
+## value
 
-The independence of child graphs is essential to the Gaussian argument. Results are not asserted for duplicubes, other cycle lengths or general spectral fluctuation fields. Primary evidence: arXiv:2610.21976v1, arXiv:2211.06988v3, and Dudek et al. (2018). Generic recursive-graph CLTs and general random-permutation overlap formulas remain possible prior-art risks; no independent priority certification is claimed.
+PASS
 
-Self-review: passed. Independent audit: not yet performed.
+Natural graph observable in a recursively random regular hypercube; complete exact finite moments and a nondegenerate CLT explain extensive local 4-cycle dependence invisible to weak spectral convergence. The centered fourth-trace limit is a mathematically motivated consequence rather than an arbitrary statistic.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

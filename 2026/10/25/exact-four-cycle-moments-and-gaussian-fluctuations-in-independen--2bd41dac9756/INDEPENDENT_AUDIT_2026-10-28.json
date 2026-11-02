@@ -1,0 +1,120 @@
+{
+  "audit_date_utc": "2026-10-28",
+  "audited_at_utc": "2026-10-28T09:55:57Z",
+  "axes": {
+    "correctness": {
+      "rationale": "For n>=2 the graph is defined by two independent G_(n-1) copies and an independent uniform perfect matching. Every four-cycle lies in one child or crosses in exactly two matching edges; crossings biject to edge overlap under the matching. For two arbitrary d-regular simple graphs on m vertices, edge-pair collision enumeration yields E[X]=md^2/[2(m-1)] and Var(X)=md^2(m-d-1)^2/[2(m-3)(m-1)^2], with the m=2 case separately deterministic. Independent exact symbolic rational expansion of the ordered adjacent/disjoint edge-pair probabilities verifies this nonstandard variance formula. Constant conditional moments give E C_n=Σ 2^(n-k)a_k and Var C_n=Σ 2^(n-k)b_k. Sum b_k/2^k finite and positive, so the iid depth-L block CLT and L2-small orthogonal upper-level remainder prove the Gaussian limit as L→∞; summable Chebyshev bounds prove almost sure LLN for any coupling. For every n-regular simple graph tr(A^4)=2^n(2n²-n)+8C_n. Independent high-precision summation checked λ and σ², and source verifier implements exact n=3/n=4 matching-overlap enumeration. These finite computations corroborate the universal algebraic proof.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "A 2024 published weak semicircle theorem treats the identical model and possibly more dependent-copy variants, but its weak-measure convergence and linear cycle lower bound do not determine second moments or a centered Gaussian limit."
+        ],
+        "reasoning": "A 2024 published weak semicircle theorem treats the identical model and possibly more dependent-copy variants, but its weak-measure convergence and linear cycle lower bound do not determine second moments or a centered Gaussian limit.",
+        "searches": [
+          "Resultary: independently randomly twisted hypercube exact number 4-cycles expectation variance Gaussian central limit fluctuation of fourth adjacency trace",
+          "randomly twisted hypercube four cycles CLT exact variance adjacency trace subgraph statistics",
+          "Benjamini Dikstein Gross Zhukovskii randomly twisted hypercubes four cycle count spectral moments",
+          "Dudek Pérez-Giménez Prałat Qi West Zhu 2018 randomly twisted hypercubes"
+        ]
+      },
+      "checked_sources": [
+        "Benjamini et al., Randomly Twisted Hypercubes: Between Structure and Randomness (journal 2024/2025), https://onlinelibrary.wiley.com/doi/10.1112/blms.13075",
+        "Baran and Šarković, arXiv:2610.21976 (2026)",
+        "Dudek et al., EJC 70 (2018), DOI:10.1016/j.ejc.2018.01.013",
+        "Independent tested source Git RESULT.md SHA 2025bfb9784f5def34d36737776f47a88275efca; verification script blob 55ae89fd235ab1ba6c06ae4b5309884f502a168e"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "A guarantee C_n>=2^n/4 does not entail E C_n~1.7748*2^n or Var C_n~0.9406*2^n; weak convergence of spectral measures is likewise too coarse to imply the stated normalized fourth-trace fluctuations."
+        ],
+        "reasoning": "A guarantee C_n>=2^n/4 does not entail E C_n~1.7748*2^n or Var C_n~0.9406*2^n; weak convergence of spectral measures is likewise too coarse to imply the stated normalized fourth-trace fluctuations.",
+        "searches": [
+          "Resultary: independently randomly twisted hypercube exact number 4-cycles expectation variance Gaussian central limit fluctuation of fourth adjacency trace",
+          "randomly twisted hypercube four cycles CLT exact variance adjacency trace subgraph statistics",
+          "Benjamini Dikstein Gross Zhukovskii randomly twisted hypercubes four cycle count spectral moments",
+          "Dudek Pérez-Giménez Prałat Qi West Zhu 2018 randomly twisted hypercubes"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "For n-regular graphs the 4-cycle count is exactly (tr A⁴ - 2^n(2n²-n))/8; searched both cycle-count and fourth-trace fluctuations. This normalization differs materially from normalized empirical spectral laws."
+        ],
+        "reasoning": "For n-regular graphs the 4-cycle count is exactly (tr A⁴ - 2^n(2n²-n))/8; searched both cycle-count and fourth-trace fluctuations. This normalization differs materially from normalized empirical spectral laws.",
+        "searches": [
+          "Resultary: independently randomly twisted hypercube exact number 4-cycles expectation variance Gaussian central limit fluctuation of fourth adjacency trace",
+          "randomly twisted hypercube four cycles CLT exact variance adjacency trace subgraph statistics",
+          "Benjamini Dikstein Gross Zhukovskii randomly twisted hypercubes four cycle count spectral moments",
+          "Dudek Pérez-Giménez Prałat Qi West Zhu 2018 randomly twisted hypercubes"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "No prior exact table of a_k,b_k or the limiting sigma² for all recursive dimensions identified; finite matching-overlap tables at small levels cannot imply the CLT without the decomposition."
+        ],
+        "reasoning": "No prior exact table of a_k,b_k or the limiting sigma² for all recursive dimensions identified; finite matching-overlap tables at small levels cannot imply the CLT without the decomposition.",
+        "searches": [
+          "Resultary: independently randomly twisted hypercube exact number 4-cycles expectation variance Gaussian central limit fluctuation of fourth adjacency trace",
+          "randomly twisted hypercube four cycles CLT exact variance adjacency trace subgraph statistics",
+          "Benjamini Dikstein Gross Zhukovskii randomly twisted hypercubes four cycle count spectral moments",
+          "Dudek Pérez-Giménez Prałat Qi West Zhu 2018 randomly twisted hypercubes"
+        ]
+      },
+      "rationale": "Qualified PASS: original same mathematical model and weak spectral papers give graph geometry, a lower bound on four-cycles and a semicircle law, not exact nonasymptotic 4-cycle expectation/variance nor a nondegenerate centered CLT. A general recursive-subgraph CLT might nevertheless subsume the fluctuation method; no verified covering instance was found.",
+      "residual_risks": [
+        "A general recursive random-graph subgraph-count theorem could cover the CLT without using the same terminology.",
+        "Dependent-copy duplicubes, longer cycle lengths and full spectral fluctuation fields are not covered.",
+        "Originality from incomplete primary texts is qualified; absence of search hits is not a novelty proof."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Does not imply exact 4-cycle variance or the order-2^(n/2) centered trace CLT",
+          "evidence": "Journal Remark 6 gives at least 2^n/4 four-cycles and discusses the duplicube; spectral theorem establishes weak limiting spectral measure, not fluctuation law.",
+          "identifier_or_url": "https://onlinelibrary.wiley.com/doi/10.1112/blms.13075 ; arXiv:2211.06988",
+          "material_read": "Accessible journal full-text definitions, main weak-semicycle/semicircle theorem and short-cycle/Remark 6 passage",
+          "method": "Read indexed full-text sections and compared sample space, 4-cycle bounds and spectrum normalizations",
+          "title": "Randomly Twisted Hypercubes: Between Structure and Randomness",
+          "trigger": "Identical independent-child random hypercube model and prior four-cycle remark"
+        },
+        {
+          "assessment": "Not demonstrably covering exact cycle moments; complete inaccessible sections retain residual-priority risk",
+          "evidence": "Main reported observables mixing/cover time/chromatic, not centered four-cycle statistics.",
+          "identifier_or_url": "https://arxiv.org/abs/2610.21976",
+          "material_read": "Accessible statement and scope for mixing/cover-time/chromatic estimates; entire proof not re-read in this run",
+          "method": "Read available abstract, source-associated bibliographic references, and compared asserted invariants",
+          "title": "Mixing time of the lazy and simple random walk on a randomly twisted hypercube",
+          "trigger": "Latest same mathematical model primary source"
+        },
+        {
+          "assessment": "No verified coverage of all-n four-cycle variance; incomplete full-text inspection recorded",
+          "evidence": "Primary results are path/diameter properties, distinct from exact edge-overlap moment statistics.",
+          "identifier_or_url": "https://doi.org/10.1016/j.ejc.2018.01.013",
+          "material_read": "Previously accessible abstract/main statement, not full article re-read in this execution",
+          "method": "Compare defined independent matching construction and stated diameter/routing results",
+          "title": "Randomly twisted hypercubes",
+          "trigger": "Model origin and possible graph substructure calculations"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "rationale": "Natural graph observable in a recursively random regular hypercube; complete exact finite moments and a nondegenerate CLT explain extensive local 4-cycle dependence invisible to weak spectral convergence. The centered fourth-trace limit is a mathematically motivated consequence rather than an arbitrary statistic.",
+      "status": "PASS"
+    }
+  },
+  "checked_sources": [
+    "Benjamini et al., Randomly Twisted Hypercubes: Between Structure and Randomness (journal 2024/2025), https://onlinelibrary.wiley.com/doi/10.1112/blms.13075",
+    "Baran and Šarković, arXiv:2610.21976 (2026)",
+    "Dudek et al., EJC 70 (2018), DOI:10.1016/j.ejc.2018.01.013",
+    "Independent tested source Git RESULT.md SHA 2025bfb9784f5def34d36737776f47a88275efca; verification script blob 55ae89fd235ab1ba6c06ae4b5309884f502a168e"
+  ],
+  "disposition": "passed",
+  "limitations": "Only independently uniform recursive matching with independent child copies; exact four-cycle count, not arbitrary cycles or dependent duplicubes. Finite tests do not prove CLT.",
+  "residual_risks": [
+    "A general recursive random-graph subgraph-count theorem could cover the CLT without using the same terminology.",
+    "Dependent-copy duplicubes, longer cycle lengths and full spectral fluctuation fields are not covered.",
+    "Originality from incomplete primary texts is qualified; absence of search hits is not a novelty proof."
+  ],
+  "schema_version": 1
+}

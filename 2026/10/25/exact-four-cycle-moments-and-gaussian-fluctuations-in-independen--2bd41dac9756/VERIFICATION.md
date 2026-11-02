@@ -5,8 +5,11 @@
     "status": "not_performed"
   },
   "independent_audit": {
-    "evidence": null,
-    "status": "not_performed"
+    "status": "passed",
+    "evidence": [
+      "INDEPENDENT_AUDIT_2026-10-28.md",
+      "INDEPENDENT_AUDIT_2026-10-28.json"
+    ]
   },
   "lean_verification": {
     "evidence": null,
@@ -16,18 +19,24 @@
 }
 ---
 
-# Verification
+# Independent mathematical audit
 
-## Analytic checks
+## correctness
 
-For two \(d\)-regular graphs on \(m\) vertices, the edge-overlap mean is \(md^2/[2(m-1)]\). Its variance follows from an exhaustive combinatorial partition into identical, endpoint-sharing, and disjoint ordered edge pairs. Substitution and symbolic simplification give \(md^2(m-d-1)^2/[2(m-3)(m-1)^2]\) for \(m\ge4\). For the dimension-two boundary there is a single square, with no fluctuation.
+PASS
 
-The entire recursive variance uses the conditional-mean-zero property of the matching overlap at each node, not an unjustified unconditional independence of increments. A Gaussian central limit law follows by approximating the large graph by independent blocks at a fixed lower depth and then sending the depth to infinity: the omitted variance divided by the number of vertices is bounded by \(\sum_{k>L}b_k/2^k\to0\). The constants are convergent because \(a_k,b_k=O(k^2)\). The limiting variance is strictly positive because \(b_3=8/9\).
+For n>=2 the graph is defined by two independent G_(n-1) copies and an independent uniform perfect matching. Every four-cycle lies in one child or crosses in exactly two matching edges; crossings biject to edge overlap under the matching. For two arbitrary d-regular simple graphs on m vertices, edge-pair collision enumeration yields E[X]=md^2/[2(m-1)] and Var(X)=md^2(m-d-1)^2/[2(m-3)(m-1)^2], with the m=2 case separately deterministic. Independent exact symbolic rational expansion of the ordered adjacent/disjoint edge-pair probabilities verifies this nonstandard variance formula. Constant conditional moments give E C_n=Σ 2^(n-k)a_k and Var C_n=Σ 2^(n-k)b_k. Sum b_k/2^k finite and positive, so the iid depth-L block CLT and L2-small orthogonal upper-level remainder prove the Gaussian limit as L→∞; summable Chebyshev bounds prove almost sure LLN for any coupling. For every n-regular simple graph tr(A^4)=2^n(2n²-n)+8C_n. Independent high-precision summation checked λ and σ², and source verifier implements exact n=3/n=4 matching-overlap enumeration. These finite computations corroborate the universal algebraic proof.
 
-## Reproducible finite checks
+## originality
 
-Run `python verify_four_cycles.py` with Python 3 (standard library only). The program exhaustively checks 24 level-three matchings; then, for four combinations of level-three child types, exhaustively evaluates all 40,320 level-four top matchings, yielding 161,280 evaluations. It separately tests 140 randomly generated larger recursive constructions by directly counting simple four-cycles using common-neighbor pairs. The exact-rational assertions return \(a_3=8/3\), \(b_3=8/9\), \(a_4=36/7\), and \(b_4=576/245\). This finite exhaustive checking applies only at the stated levels, not to unbounded dimensions or all possible models.
+PASS
 
-## Scope and integrity
+Qualified PASS: original same mathematical model and weak spectral papers give graph geometry, a lower bound on four-cycles and a semicircle law, not exact nonasymptotic 4-cycle expectation/variance nor a nondegenerate centered CLT. A general recursive-subgraph CLT might nevertheless subsume the fluctuation method; no verified covering instance was found.
 
-The independent-copy model and independence across recursive matching nodes are hypotheses, not consequences. Neither the finite program nor the recurrence alone establishes the central limit theorem without the separate analytic Gaussian approximation. No independent audit, external certificate or broad novelty certification has been performed.
+## value
+
+PASS
+
+Natural graph observable in a recursively random regular hypercube; complete exact finite moments and a nondegenerate CLT explain extensive local 4-cycle dependence invisible to weak spectral convergence. The centered fourth-trace limit is a mathematically motivated consequence rather than an arbitrary statistic.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
