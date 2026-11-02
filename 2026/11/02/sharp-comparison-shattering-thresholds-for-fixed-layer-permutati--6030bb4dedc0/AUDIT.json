@@ -1,0 +1,116 @@
+{
+  "correctness": {
+    "rationale": "Exact reduction: inversion on positions i<j occurs iff no cut intersects [i,j-1]. Shattered t-interval supports have distinct private cut positions, which force maximum incidence at most 2 for any point and t<=2r. At t=2r, private/zero-incidence/double-incidence witnesses are disjoint and require at least 4r chain positions; independent four-position gadgets attain equality. For two cuts, private/zero/double counting gives exact thresholds m=3,4,6,8 for VC sizes 1..4, with explicit supports. A complete eight-leaf adaptive tree proves first gap at m=5; hypothesis counts prove optimality and earlier equality. Independent blockwise threshold trees and counting prove the logarithmic asymptotic. Both executable checkers passed, but finite computation is not used as proof of asymptotic claims.",
+    "status": "PASS"
+  },
+  "independent": false,
+  "independent_audit_status": "not_performed",
+  "originality": {
+    "broader_coverage": {
+      "evidence": [
+        "Guingona–Kolesnikov–Nierwinski–Soucy give equal VC and Littlestone dimensions for zero sets of nonzero combinations of d independent functions; strict inequality at the present m=5 rules out a direct stronger general coverage.",
+        "Kabela–Kráľ–Noel–Pierron concern density maximizers and bounded or unbounded numbers of layers, not query shattering."
+      ],
+      "reasoning": "General VC closure bounds do not specify an if-and-only-if size threshold or a full small-size table. The examined zero-set theorem has additional representation hypotheses incompatible with the observed strict adaptive gap.",
+      "searches": [
+        "https://arxiv.org/abs/2109.04805",
+        "https://arxiv.org/abs/2110.01723",
+        "exact VC dimension of layered permutation pairwise comparison concept class with fixed number of layers, finite chain k cut positions, interval stabbing and Littlestone online shattering"
+      ]
+    },
+    "checked_sources": [
+      "https://arxiv.org/abs/2109.04805",
+      "https://arxiv.org/abs/2110.01723",
+      "https://doi.org/10.1007/s004930070023"
+    ],
+    "claim_vs_prior_implication": {
+      "evidence": [
+        "Density-maximizer theorems constrain pattern frequencies, not mistake bounds or VC dimension.",
+        "Zero-set theorem has equality of its two dimensions, whereas the present class differs at three layers and length six.",
+        "Raz uses simultaneous permutation-order realization rather than binary comparison concept traces."
+      ],
+      "reasoning": "Compared objects, quantifiers and implication directions: none of the inspected primary results states or implies the exact r-cut threshold and adaptive gap without a substantial new argument.",
+      "searches": [
+        "https://arxiv.org/abs/2110.01723",
+        "https://arxiv.org/abs/2109.04805",
+        "https://doi.org/10.1007/s004930070023",
+        "comparison learning of layered permutations with exactly three decreasing runs, two breakpoints, VC dimension 4 and unbounded online mistake bound"
+      ]
+    },
+    "equivalent_formulations": {
+      "evidence": [
+        "The exact logical dual is fixed-cardinality point sets versus interval-intersection queries; compare with positional inversions via cut positions.",
+        "The standard union-of-k-intervals point-membership class reverses concept and query roles and does not directly imply the sharp finite 4r threshold."
+      ],
+      "reasoning": "Explicitly searched interval stabbing, two points, layered permutation comparisons and dual interval-hitting aliases. No matching exact theorem surfaced in checked results. The duality is proved rather than merely inferred from a title.",
+      "searches": [
+        "VC dimension and Littlestone dimension of interval stabbing by two selected points, 2-subsets of a finite chain, online interval-hit queries",
+        "comparison learning of layered permutations with exactly three decreasing runs, two breakpoints, VC dimension 4 and unbounded online mistake bound",
+        "Dual VC dimension of 2-point interval hitting set systems shattering five intervals",
+        "https://arxiv.org/abs/2110.01723"
+      ]
+    },
+    "exact_database_or_table": {
+      "evidence": [
+        "Direct finite recurrence was computed for all two-cut classes with m=2..9; dimensions are (0,0),(1,1),(2,2),(2,3),(3,3),(3,4),(4,4),(4,4).",
+        "The local source comparisons distinguish these numbers from interval point-membership VC dimensions and from two-east-step lattice path vertex membership."
+      ],
+      "reasoning": "Queries aimed at exact interval-hit tables, first gaps and matching parameters; no retrieved entry contained the same trace class or tabulated exact first gap. No global uniqueness conclusion is drawn from this search alone.",
+      "searches": [
+        "VC dimension and Littlestone dimension of interval stabbing by two selected points, 2-subsets of a finite chain, online interval-hit queries",
+        "Dual VC dimension of 2-point interval hitting set systems shattering five intervals",
+        "exact VC dimension of layered permutation pairwise comparison concept class with fixed number of layers, finite chain k cut positions, interval stabbing and Littlestone online shattering",
+        "VC dimension and Littlestone dimension of interval stabbing by two selected points"
+      ]
+    },
+    "rationale": "The nearest full-text sources study permutation-density maximization or zero sets of all nontrivial linear combinations rather than fixed-r cut positions queried by interval stabbing. The concrete saturation threshold, all-length three-layer formula and first adaptive gap do not follow from the inspected statements. Literature priority under alternative dual-range terminology remains a residual risk.",
+    "residual_risks": [
+      "Older dual interval stabbing or online-search literature may contain equivalent formulas under different terminology; not all historical full texts were inspected.",
+      "Exact adaptive dimension outside the first three-layer gap is not claimed."
+    ],
+    "source_inspections": [
+      {
+        "assessment": "NOT_COVERING: packing density of patterns, not Boolean positional-comparison range spaces or learning dimensions.",
+        "evidence": [
+          "ArXiv:2110.01723, initial posting 2021-10-04: principal theorems about layer counts of density maximizers; different parameter and objective."
+        ],
+        "identifier_or_url": "https://arxiv.org/abs/2110.01723",
+        "material_read": "ArXiv full-text introduction defining layered permutations, main theorems and concluding sections concerning density maximizers.",
+        "method": "Read the stated theorems and concluding discussion; compared their quantified objects and invariants against interval-hit VC/Littlestone claims.",
+        "title": "Density maximizers of layered permutations",
+        "trigger": "Direct sums of decreasing layers are the object in the proposed comparison class."
+      },
+      {
+        "assessment": "NOT_COVERING: their independent-function zero-set class has equal VC and Littlestone dimensions; the present comparison class has a certified strict gap already at length six.",
+        "evidence": [
+          "ArXiv:2109.04805, first posting 2021-09-10: for d independent functions the zero-set family of all nonzero linear combinations has both dimensions d-1."
+        ],
+        "identifier_or_url": "https://arxiv.org/abs/2109.04805",
+        "material_read": "Full-text introduction, definitions, principal theorem with its proof and surrounding lemmas.",
+        "method": "Read theorem hypotheses and proof; tested whether fixed-cardinality cut incidence forms the stated class of zero sets of all nontrivial linear combinations.",
+        "title": "Littlestone and VC-dimension of families of zero sets",
+        "trigger": "Closest source simultaneously giving exact VC and Littlestone dimensions in a model-theoretic family."
+      },
+      {
+        "assessment": "Different shattering definition; complete historical comparison with all permutation-learning literature remains a residual risk.",
+        "evidence": [
+          "Raz, Combinatorica 20 (2000), 241–255, studies VC dimension of sets of permutations under order-pattern shattering."
+        ],
+        "identifier_or_url": "https://doi.org/10.1007/s004930070023",
+        "material_read": "Bibliographic summary and stated permutation-shattering definition; no full-document noncoverage assertion.",
+        "method": "Compared the notion of shattering (permutation orders on subsets) to binary positional-pair inversion tests.",
+        "title": "VC-dimension of sets of permutations",
+        "trigger": "Potential terminology collision with permutation VC dimension."
+      }
+    ],
+    "status": "PASS"
+  },
+  "review_type": "self_review",
+  "schema_version": 1,
+  "scope_run_id": "6030bb4d-edc0-44e7-a364-f84f1d51b329",
+  "self_review_status": "passed",
+  "value": {
+    "rationale": "The 4r point threshold is a sharp all-parameter static shattering phase boundary for a standard permutation subclass, not a mere fixed-instance enumeration. The all-length three-layer classification and explicit first adaptive gap clarify what extra power adaptive comparisons gain. For every fixed number of layers the proven r log n growth yields an unbounded gap while static dimension remains bounded; this is a structural learning-theoretic distinction with exact finite thresholds and reproducible certificates.",
+    "status": "PASS"
+  }
+}
