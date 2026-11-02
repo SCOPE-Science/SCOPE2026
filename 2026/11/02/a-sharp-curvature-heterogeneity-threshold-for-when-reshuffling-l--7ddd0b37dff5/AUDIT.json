@@ -1,0 +1,104 @@
+{
+  "correctness": {
+    "rationale": "For 0<eta<2/max(a,b), each component multiplier has magnitude less than one. Independent sampling has stationary mean zero and second moment eta^2 d^2/[1-(r1^2+r2^2)/2]. Each fresh reshuffled epoch is an affine AR(1) recurrence with common multiplier r1*r2, mean intercept eta*d*(r1-r2)/2, and exact intercept variance eta^2*d^2*(2-r1-r2)^2/4; the stationary squared-error formula follows. Exact algebra gives a positive-denominator identity with quartic P. The symbolic resultant and subresultant locate exactly one admissible interior double-root event, rational Sturm sequences classify all root intervals, and boundary signs determine the direction. The independent exact certificate verifies all identities, rational root counts, interval enclosures and explicit counterexamples. The numerical decimal approximations do not serve as proof.",
+    "status": "PASS"
+  },
+  "independent": false,
+  "independent_audit_status": "not_performed",
+  "originality": {
+    "broader_coverage": {
+      "evidence": [
+        "arxiv:2305.19259v4 Section 5.2 states tuned asymptotic complexity bounds rather than the stationary error comparison.",
+        "arxiv:1803.07964 Theorem 2 uses the common Hessian long-term model; Section V-A explicitly specializes to common A.",
+        "Public search summary of arxiv:2606.32005 reports a small-step dominance theorem, not full individually contractive steps. Full primary text was not inspected."
+      ],
+      "reasoning": "General RR convergence bounds with restricted steps and identical-Hessian exact formulas cannot imply exact ordering throughout 0<eta<2/max(a,b) for unequal Hessians. A general affine-recursion theorem may generate the stationary formula, but no inspected broader source supplies the sign-root classification. The uninspected 2026 paper is explicitly a priority risk rather than a claimed NOT_COVERING full-text comparison.",
+      "searches": [
+        "random reshuffling worse than with-replacement SGD for unequal Hessians at large learning rate exact phase diagram",
+        "arxiv:2305.19259v4 Section 5.2 random reshuffling",
+        "arxiv:1803.07964 Theorem 2 and Table I",
+        "arxiv:2606.32005 abstract search"
+      ]
+    },
+    "checked_sources": [
+      "arxiv:2305.19259v1 (first public May 30, 2023); relevant full HTML material at v4",
+      "arxiv:1803.07964 (relevant full HTML material)",
+      "arxiv:2303.07160 (public abstract; general lower bounds, not used for whole-document exclusion)",
+      "arxiv:2606.32005 (public abstract/summary only; not used for whole-document exclusion)"
+    ],
+    "claim_vs_prior_implication": {
+      "evidence": [
+        "arxiv:1803.07964 v1 Section V-A (47)-(59) has a common design A for all gradients, so it assumes equal Hessians.",
+        "arxiv:2305.19259v4 Sections 5.2 and 6 establish bounds and shared-Hessian examples, not a heterogeneous sharp stationary threshold."
+      ],
+      "reasoning": "To imply the new result a source would need to distinguish all unequal-curvature ratios according to whether some individually stable step has RR stationary MSE greater than IID MSE, with the unique critical value and equality case. The inspected exact formulas cover the zero-heterogeneity slice; the inspected broader rates do not assert pointwise stationary MSE dominance. Neither entails the classification without additional elimination and real-root arguments.",
+      "searches": [
+        "two scalar quadratic losses different curvatures random reshuffling versus independent sampling with replacement stationary mean squared error sharp curvature ratio threshold high step size",
+        "stationary MSE two-component scalar random reshuffling order averaged iid exact stability phase transition",
+        "2018 shared-Hessian quadratic RR steady-state mean-square",
+        "2023 shuffled SGD constant-step convergence bounds"
+      ]
+    },
+    "equivalent_formulations": {
+      "evidence": [
+        "arxiv:1803.07964 Section V-A equations (47)-(59): shared matrix A gives the same Hessian at all samples.",
+        "arxiv:2305.19259v4 Section 6: quadratic examples use common Hessian A and variable linear offsets."
+      ],
+      "reasoning": "The stationary RR/IID error ratio can be written as an affine AR(1) rational expression; the new assertion additionally optimizes its sign over the full individually stable step interval with unequal curvatures. The common-Hessian special case v=0 is already conceptually represented in prior analysis and is not claimed as the novel part. Neither inspected formulation supplies the algebraic boundary in v.",
+      "searches": [
+        "two scalar quadratic losses different curvatures random reshuffling versus independent sampling with replacement stationary mean squared error sharp curvature ratio threshold high step size",
+        "SGD reshuffling heterogeneity critical curvature ratio 0.2809 two component stationary variance",
+        "arxiv:1803.07964 Section V-A equal-Hessian quadratic stationary error",
+        "arxiv:2305.19259 sections 3 and 5.2"
+      ]
+    },
+    "exact_database_or_table": {
+      "evidence": [
+        "No exact 0.280918564899747 curvature ratio or degree-seven polynomial was returned by the targeted public research-record searches.",
+        "Publicly indexed results concerning related randomized optimization techniques concern different recurrences or accuracy criteria."
+      ],
+      "reasoning": "The value is an algebraic curvature-ratio design boundary, not a tabulated numerical integral or recomputation of a standard constant. Absence in search results is not proof of priority.",
+      "searches": [
+        "SGD reshuffling heterogeneity critical curvature ratio 0.2809 two component stationary variance",
+        "random reshuffling stationary error curvature ratio root seventh degree",
+        "public research-record searches for reshuffling stationary two-atom SGD"
+      ]
+    },
+    "rationale": "The accepted claim is the sharp heterogeneous-curvature stationary RR-versus-IID reversal classification, particularly the unique degree-seven algebraic heterogeneity frontier and interval topology. Koloskova et al. (2023), inspected in HTML at sections 3, 5.2 and 6, develop general data-order bounds but their quadratic experiments have one shared Hessian and do not imply the exact stationary heterogeneous phase diagram. Ying et al. (2018), inspected in Sections I and V-A, give exact quadratic stationary expressions for a common design matrix (identical component Hessians), not the unequal-Hessian threshold. Earlier same-curvature RR reversals and two-order stationary optimization do not imply this all-step-size critical ratio. More specialized earlier literature could contain equivalent formulas; publication priority is not independently certified.",
+    "residual_risks": [
+      "Priority risk from specialized affine-recursion/Markovian random reshuffling comparisons not fully catalogued.",
+      "arxiv:2606.32005 full primary text was not accessible in this check; its reported step-size assumptions should be checked independently.",
+      "Broader many-component/high-dimensional results might algebraically imply the two-atom classification in an unrecognized form.",
+      "No independent external audit is asserted."
+    ],
+    "source_inspections": [
+      {
+        "assessment": "General rate and data-order results, not exact heterogeneous-curvature stationary RR-versus-IID phase boundary",
+        "evidence": "Section 6 specifies f_i(x)=<Ax,x>/2-<b,x>+<u_i,x>, the same A for all components; Section 5.2 presents rate estimates.",
+        "identifier_or_url": "https://arxiv.org/html/2305.19259v4",
+        "material_read": "Sections 1-3, Section 5.2 and Section 6 including quadratic experiments, plus related-work discussion",
+        "method": "Primary arXiv HTML full text with relevant theorem/experimental sections opened",
+        "title": "On Convergence of Incremental Gradient for Non-Convex Smooth Functions",
+        "trigger": "2023 motivating work on SGD with arbitrary data order, reshuffling, and quadratic examples"
+      },
+      {
+        "assessment": "Exact shared-Hessian quadratic setting, and therefore not a direct source of the heterogeneity threshold",
+        "evidence": "Section V-A defines component gradients A^T A w-A^T x_n: all components have Hessian A^T A.",
+        "identifier_or_url": "https://arxiv.org/abs/1803.07964",
+        "material_read": "Introduction, Theorem 2 context, Section V-A quadratic model and formulas (47)-(65), and Table I",
+        "method": "Primary arXiv HTML text of the full paper with relevant model and result paragraphs inspected",
+        "title": "Stochastic Learning under Random Reshuffling with Constant Step-sizes",
+        "trigger": "Exact stationary mean-square expressions for quadratic random reshuffling"
+      }
+    ],
+    "status": "PASS"
+  },
+  "review_type": "self_review",
+  "schema_version": 1,
+  "scope_run_id": "7ddd0b37-dff5-4a65-ace3-7151cfcbfc19",
+  "self_review_status": "passed",
+  "value": {
+    "rationale": "The naturally motivated question is whether the widely used without-replacement sampling protocol uniformly improves stationary optimization accuracy over the full individually stable stepsize range, with equal gradient-evaluation budgets. The theorem supplies a sharp, scale-free heterogeneity threshold and exact reversal window, separating a class for which RR dominates at every stable step from a class where its ordering reverses. This mathematically nontrivial parameter boundary, its equality tangency and explicitly certified rational counterexamples can inform interpretation of RR-versus-SGD experiments, without purporting to solve general stochastic optimization.",
+    "status": "PASS"
+  }
+}
