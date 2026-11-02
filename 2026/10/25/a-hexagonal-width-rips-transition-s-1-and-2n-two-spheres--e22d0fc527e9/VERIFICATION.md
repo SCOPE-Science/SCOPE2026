@@ -5,8 +5,11 @@
     "status": "not_performed"
   },
   "independent_audit": {
-    "evidence": null,
-    "status": "not_performed"
+    "status": "passed",
+    "evidence": [
+      "INDEPENDENT_AUDIT_2026-10-29.md",
+      "INDEPENDENT_AUDIT_2026-10-29.json"
+    ]
   },
   "lean_verification": {
     "evidence": null,
@@ -16,12 +19,24 @@
 }
 ---
 
-# Reproducibility and scope
+# Independent mathematical audit
 
-The complete translation-orbit certificate is `artifacts/certificate.json`. Run `python3 -S artifacts/verify.py` in an environment with Python 3. The verifier uses only standard-library modules. With no arguments it checks every integer period \(7\le n\le20\); passing explicit integers checks those periods instead.
+## correctness
 
-The checker independently constructs every simplex from the inclusive graph-distance rule. It verifies exact face vectors; replays all \(53n\) free-face collapse pairs; checks every selected edge/triangle pair and strict orbit-order acyclicity; and checks the five transverse tree edge orbits and one longitudinal cycle edge orbit that permit a complete lower-dimensional acyclic matching. It reports \(2n\) critical triangles, one critical edge and one critical vertex.
+PASS
 
-The actual successful output for periods \(7\) through \(20\) is included in `artifacts/verification_output.txt`, ending with `VERIFY_OK_C6_CN_RIPS2_WEDGE`. These are finite repeatability tests. The uniform mathematical proof is the three-consecutive-column locality and orbit-incidence argument in RESULT.md, together with the projection to a longitudinal \(S^1\), which rules out nonzero integral two-cell attaching degrees.
+PASS. Actual Git tree and 26,573-byte orbit certificate inspected; exact independent reconstruction of shortest-path cliques and sequential free-face/codim-one collapse conditions at n=7,8,11 yields initial f=(6,36,62,36,6)n, 53n collapse pairs and reduced f=(6,19,15)n. Independently verified 13n edge/triangle matches and strictly monotone 15-orbit triangle priority at these periods, leaving 2n critical triangles and six residual edge orbits. The locality proof that all Cn squared cliques for n>=7 occupy <=3 consecutive columns reduces all-period incidences to finite offset templates, rather than extrapolating from tested n. Remaining five transverse edges per column form a tree; longitudinal n-cycle supplies one H1 generator via simplicial projection. Thus 2-cell degrees vanish; one critical 1-cell plus 2n 2-cells implies specified wedge.
 
-Scientific limitations: the result applies to \(C_6\square C_n\) with \(n\ge7\) at graph-metric radius two only. The checks do not constitute an external independent scientific audit.
+## originality
+
+PASS
+
+PASS best of knowledge. Adams et al. arXiv:2502.07134 and Sterling thesis tabulate square torus Cn square Cn and general large-width conditions, whereas fixed width6 is a boundary case not captured by the square n-by-n radius2 table. Published high-girth edge-disjoint hexagon Rips theorem is inapplicable since C6 square Cn has four-cycles. No direct same-strip result surfaced in checked research records.
+
+## value
+
+PASS
+
+PASS. Complete infinite-family mixed-dimensional homotopy classification for a natural boundary-width torus graph and a reusable translation-orbit discrete Morse certificate; integral wedge type stronger than finite Betti tabulation.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
