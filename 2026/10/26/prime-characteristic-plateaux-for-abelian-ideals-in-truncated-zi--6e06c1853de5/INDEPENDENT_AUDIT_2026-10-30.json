@@ -1,0 +1,116 @@
+{
+  "audit_date_utc": "2026-10-30",
+  "audited_at_utc": "2026-10-30T21:51:36Z",
+  "axes": {
+    "correctness": {
+      "rationale": "The finite algebra has e_i∘e_j=binom(i+j-1,j)e_{i+j} modulo p for i+j<=n; the integer half-shuffle identity verifies the Zinbiel axiom even after modular reduction. Left multiplication by e_1 sends e_j to e_{j+1}, a single Jordan shift. Hence every nonzero two-sided ideal is a terminal span I_r=(e_r,...,e_n). Let P=p^k and (p+ceil(p/2))P<=n<=(2p-1)P, set r=n-pP+1. For any product e_i∘e_j with i,j>=r and i+j<=n, both i-1 and j have P-digit at least ceil(p/2), so their base-p addition has a carry. Lucas's theorem makes binom(i+j-1,j)=0 mod p; I_r is abelian. I_{r-1} contains e_{n-pP},e_{pP}, whose product is binom(n-1,pP)e_n=e_n mod p because the base-p P-digit of n-1 equals p. Thus I_{r-1} is not abelian, and every larger ideal is also not. Since every ideal is a suffix, I_r is the unique maximizing abelian ideal, of dimension pP. An independently implemented exhaustive modular-coefficient test checked 32 (p,k,n) triples over primes p=2,3,5,7, all claimed bounds, with no exceptions. The proof relies on Lucas and the Jordan shift, not numerical evidence.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "The inspected primary Section 4 explicitly assumes complex null-filiform algebra for Proposition 4.2; Section 5 tables classify low-dimensional complex examples.",
+          "No published general-positive-characteristic theorem controlling Lucas carries was located among matching semantic results."
+        ],
+        "reasoning": "Known complex and small-characteristic-independent structural lemmas do not imply the modular staircase; local field modular coefficient effects change which products vanish.",
+        "searches": [
+          "arXiv:2202.03214 complete 19-page primary, Proposition 4.2 and Section 5",
+          "DOI:10.1080/00927872.2022.2134409",
+          "Resultary: truncated Zinbiel algebra positive characteristic maximal dimension abelian ideals binomial Lucas theorem"
+        ]
+      },
+      "checked_sources": [
+        "Frozen RESULT.md and verify.py",
+        "Independent modular coefficient exhaustive 32 parameter triples",
+        "arXiv:2202.03214, §4, Proposition 4.2 (primary full text read)",
+        "DOI:10.1080/00927872.2022.2134409",
+        "Resultary Zinbiel modular search"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "The known Proposition 4.2 yields beta=n-floor(n/2) for complex null-filiform algebras and shows uniqueness.",
+          "For p=2 and n=3*2^k the modular formula beta=2^(k+1) deviates from char-zero beta approximately 1.5*2^k."
+        ],
+        "reasoning": "The modular claim requires a new residue-digit carry argument; it is not a direct corollary of the field-specific complex proposition. Lucas theorem itself is standard and not claimed as original.",
+        "searches": [
+          "arXiv:2202.03214 Proposition 4.2",
+          "Lucas theorem modulo primes, binomial carry criterion"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Ceballos–Towers Proposition 4.2 states beta=n-floor(n/2) for COMPLEX null-filiform Zinbiel algebras and unique maximizing abelian ideal.",
+          "The proposed modular plateau has beta=p^(k+1) in characteristic p, derived by carrying in binomial coefficients, distinct for e.g. p=2,n=3*2^k."
+        ],
+        "reasoning": "The known complex result has the same algebraic formula over C but different coefficient field; its proof assumes nonvanishing factorial/binomial coefficients. It does not settle the claimed modular intervals.",
+        "searches": [
+          "Resultary: truncated Zinbiel algebra positive characteristic maximal dimension abelian ideals binomial Lucas theorem",
+          "Web: modular Zinbiel half shuffle nilpotent algebra abelian ideals dimension p Lucas carries",
+          "arXiv:2202.03214 Proposition 4.2"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "Their tables are about complex low-dimensional algebras, not arbitrary p,k,n intervals.",
+          "The claimed formula covers infinitely many dimensions and arbitrary prime characteristic; finite checks tested 32 representative triples."
+        ],
+        "reasoning": "This is not known-table recomputation; the novelty is an exact infinite family of modular plateaux and uniqueness.",
+        "searches": [
+          "Resultary: truncated Zinbiel algebra positive characteristic maximal dimension abelian ideals binomial Lucas theorem",
+          "Ceballos–Towers 2022 Section 5 tables"
+        ]
+      },
+      "rationale": "PASS on the explicit modular plateau intervals, sharp boundary and unique maximal ideal, with the complex-field null-filiform result credited; a characteristic-zero beta formula cannot be transported through the vanishing of binomial coefficients modulo p.",
+      "residual_risks": [
+        "A separate earlier positive-characteristic Zinbiel/half-shuffle source using a different basis normalization might give the identical Lucas-digit interval.",
+        "Only the specified n intervals are classified; no global beta(n,p) formula for all n and no maximal abelian SUBALGEBRA classification."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "COVERS complex null-filiform beta and uniqueness, NOT the specific positive-characteristic digit plateau",
+          "evidence": [
+            "Page 8 explicitly begins Proposition 4.2 with an n-dimensional COMPLEX null-filiform Zinbiel algebra and asserts beta=n-floor(n/2); no modular plateaux in the inspected sections."
+          ],
+          "identifier_or_url": "https://arxiv.org/pdf/2202.03214",
+          "material_read": "Full primary PDF opened, introduction and Section 4 Proposition 4.2 plus proof and Section 5 table setup read; p7 page visually inspected",
+          "method": "Original arXiv open/PDF text/find plus rendered page screenshot",
+          "title": "Abelian subalgebras and ideals of maximal dimension in Zinbiel algebras",
+          "trigger": "Identical invariant beta, identical half-shuffle structure over a different field"
+        },
+        {
+          "assessment": "NO_MATCH_FOUND with significant retrieval limitations",
+          "evidence": [
+            "Top results were short local algebra, semigroups and other structures, not positive-char truncated Zinbiel half-shuffle ideals."
+          ],
+          "identifier_or_url": "Resultary semantic search: 2026-10-30 query batch",
+          "material_read": "20 returned semantic hits reviewed by titles and statement snippets; no exact modular Zinbiel match",
+          "method": "Resultary semantic query",
+          "title": "Resultary mathematical records on Zinbiel ideal dimensions",
+          "trigger": "Potential previously published equivalent modular invariant"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "rationale": "The maximal dimension of an abelian ideal is a natural structural invariant of nilpotent nonassociative algebras. Prime characteristic changes the invariant discontinuously via Lucas carrying, generating exact infinite-dimensional plateaux with a sharp first-failing boundary and unique maximizer. This isolates a genuine modular phenomenon absent in the known complex theory, not a formal substitution of p into the complex answer.",
+      "status": "PASS"
+    }
+  },
+  "checked_sources": [
+    "Frozen RESULT.md and verify.py",
+    "Independent modular coefficient exhaustive 32 parameter triples",
+    "arXiv:2202.03214, §4, Proposition 4.2 (primary full text read)",
+    "DOI:10.1080/00927872.2022.2134409",
+    "Resultary Zinbiel modular search"
+  ],
+  "disposition": "passed",
+  "limitations": [
+    "Only stated p,k,n intervals and truncated one-generator half-shuffle, over fields of characteristic p; other ideals/subalgebras may have different invariants.",
+    "Lucas theorem and uniqueness of Jordan-block invariant subspaces are standard tools, not independent originality claims."
+  ],
+  "residual_risks": [
+    "A separate earlier positive-characteristic Zinbiel/half-shuffle source using a different basis normalization might give the identical Lucas-digit interval.",
+    "Only the specified n intervals are classified; no global beta(n,p) formula for all n and no maximal abelian SUBALGEBRA classification."
+  ],
+  "schema_version": 1
+}
