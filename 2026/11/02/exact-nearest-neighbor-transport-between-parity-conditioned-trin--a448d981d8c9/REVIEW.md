@@ -1,0 +1,17 @@
+# Scientific review: parity-conditioned nearest-neighbor transport
+
+## Correctness
+**PASS.** The result covers arbitrary independent \(\{0,\frac12,1\}\)-valued summands with both parity events positive. The polynomial extraction is exact. For positive component weights, monotonicity of the argument of each factor along the imaginary axis proves the full *oriented* interlacing of the two parity polynomials; no root-location assertion is assumed without proof. Sorted interlacing factors give two separate Bernoulli stochastic orders, and the common-quantile coupling realizes their simultaneous unit gap. The integer/half-integer support obstruction is a matching sharp lower bound for every Wasserstein order. Coefficientwise approximation handles all zero-weight boundaries without losing conditional normalization. The packaged checker independently reproduces exhaustive exact integer CDF inequalities and rational optimal couplings. The computation alone would not prove the general statement; the written phase and coupling argument does.
+
+## Originality
+**PASS, subject to historical-priority risk.** Broadie and Petkova's full 2026 manuscript gives parity-conditioned Poisson-binomial structure, log-concavity, modes, and mean bounds, but not an optimal coupling or a \(W_p=\frac12\) identity. The classical Hermite–Biehler theorem supplies root interlacing, not itself the claimed whole-law nearest-neighbor transport. An earlier mode-location result for this model has a different conclusion: knowing that modes are close does not force an optimal coupling of all masses. The transport theorem uses the interlacing as input but adds two oppositely indexed Bernoulli comparisons, simultaneous stochastic sandwiching, boundary continuity, and an exact transport optimum. Searches for parity-conditioned Wasserstein distance and neighboring-lattice stochastic ordering found no direct covering statement. A classical total-positivity stochastic-order theorem, not located in this assessment, could affect priority.
+
+## Mathematical value
+**PASS.** Win/tie/loss scores generate the motivating Poisson-trinomial model. A half-unit change in total score alters the parity class; it is mathematically natural to ask how far the *entire two conditional distributions* can be from one another. Their exact \(W_p\) values are invariant in the number, heterogeneity, and degeneracy of matches. The identity provides a quantile-by-quantile error guarantee for every Lipschitz observable, sharper than previously stated conditional-mean comparisons. The theorem is a sharp complete distributional assertion rather than a single mode or first-moment calculation.
+
+## Closest literature and limitations
+- Broadie and Petkova (2026), arXiv:2603.09019v1, full main text and proofs, particularly Theorem 1 and Section 3: parity binomial laws and conditional mean/mode bounds, but no stated transport coupling.
+- Holtz (2003), *Hermite–Biehler, Routh–Hurwitz, and total positivity*: classical polynomial technology, not claimed as novel; this review had bibliographic/abstract access only to that older article.
+- The result requires independence, exact three-point scores, and positive probability of both parity events. General dependent scores and other score alphabets are not addressed. The statement has not received independent mathematical validation.
+
+Self-review: passed. Independent audit: not yet performed.
