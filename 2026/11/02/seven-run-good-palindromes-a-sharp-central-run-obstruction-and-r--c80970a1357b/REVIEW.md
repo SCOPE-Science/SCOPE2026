@@ -1,0 +1,11 @@
+# Scientific review
+
+**Correctness — PASS.** The three-family theorem follows from an exhaustive short-factor analysis, the verified minimal-antisquare classification of Baranwal et al. (arXiv:2209.09223, Theorem 11), and a long-factor occurrence proof: in the only mixed-long-run family a long minimal antisquare occurs exactly when the central block length is no greater than twice an outer block length. The three disjoint cases give the displayed rational generating function. Literal finite tests (6,561 parameter tuples, all palindromes through length 26) and coefficient tests through length 60 agree. These tests are checks, not an infinite proof.
+
+**Originality — PASS, with residual risk.** Primary text of Baranwal et al. was inspected in its minimal-forbidden-factor and counting sections. It provides the key general forbidden-pattern theorem but not this three-family seven-run palindrome phase boundary or rational length enumerator. Ng et al. (arXiv:1904.09157) examine square/antisquare counts, not the stated symmetry-restricted enumeration. Multiple relevant published-finding corpus semantic searches and an accessible prior research records claim inventory found no equivalent result; the closest local record gives an antisquare-factor count for four-run, non-palindromic words, a different domain. The specialization is derived from broader published machinery, so undiscovered equivalent results and the possibility that it would be viewed as a routine consequence remain explicit risks.
+
+**Mathematical value — PASS.** Seven is the first possible palindromic run count where a six-run long minimal antisquare can appear without being entirely ruled out by a short antisquare. The strict boundary between \(d\le2a\) and \(d>2a\) exposes an exact nonlocal interaction between center and both extremities; all seven-run good palindromes and their length spectrum are determined. The result is a natural complete classification, not an arbitrary finite sample.
+
+**Limitations.** The general minimal-antisquare classification is imported; longer-run palindromes are untreated. No uniqueness of mathematical discovery or independent verification is claimed.
+
+Self-review: passed. Independent audit: not yet performed.
