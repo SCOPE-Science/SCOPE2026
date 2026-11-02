@@ -1,0 +1,134 @@
+{
+  "audit_date_utc": "2026-10-30",
+  "audited_at_utc": "2026-10-30T09:02:40Z",
+  "axes": {
+    "correctness": {
+      "limitations": [
+        "p odd, a>=1, three *distinct residues* not necessarily distinct squares. Singular p=3 target handled explicitly."
+      ],
+      "rationale": "Classify ordered solutions A_a to x²+y²+z²=b, B_a to 2x²+z²=b, and diagonal C_a to 3x²=b. The ternary and binary finite-field base counts follow from the standard quadratic Gauss sum, including p dividing b. For p odd, all nonsingular solutions lift with p² or p choices per modulus level; if p divides b the only singular residue tuple is all zero. Its branch is absent unless p² divides b and then contributes p³ A_(a-2)(b/p²) or p² B_(a-2)(b/p²), including a=2 boundary via A_0=B_0=1. For C_a use the standard odd-prime square-root valuation formula and handle p=3 separately by first dividing 3x²=b. Inclusion–exclusion removes triple-coordinate coincidences: N=(A-3B+2C)/6, since the remaining ordered triples have six free permutations. Unit targets for p>=5 yield the displayed exact quadratic-character bias. For support, p>=7 lower bounds and explicit p=5 base counts give a nonzero distinct triple for each mod-p b; lift a nonzero coordinate to every prescribed higher-power target. For p=3, q=3 has unique subset with b=2; nine explicit distinct triples cover every b mod9 and lift to arbitrary 3-powers. No claim for 2-powers or general composite moduli.",
+      "status": "PASS",
+      "verification": [
+        "Independent direct enumeration of EVERY 3-subset and EVERY b for q=3,9,27,5,25,7,49,11. The fresh independent recursion exactly matched all distributions; sums matched binomial(q,3): 1,84,2925,10,2300,35,18424,165 respectively. This is bounded corroboration, not a global certificate.",
+        "Inspected actual RESULT.md SHA 056cdac28273bfdd5a6eb4fe492fd6e8a0d38bfe; assigned verify_counts.py present with Git blob SHA 52e7982b0cf1801d308d5fedf0ba6351fec5cf6e."
+      ]
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Moment subset sums over finite fields and quadratic-residue subset sums over finite fields offer stronger or exact results for different ambient data."
+        ],
+        "reasoning": "Prime-field case a=1 could be included in broader exact finite-field formulas and is not claimed separately new. For a>=2, Z/p^a is a nonfield local ring; the singular branches do not follow just by field extension or replacing q by p^a.",
+        "searches": [
+          "three distinct residues quadratic subset sum x squared+y squared+z squared prime power exact counts Li Wan",
+          "DOI:10.1016/j.ffa.2019.101607",
+          "DOI:10.1016/j.ffa.2016.09.003"
+        ]
+      },
+      "checked_sources": [
+        "https://arxiv.org/pdf/1507.06329",
+        "https://doi.org/10.1016/j.ffa.2019.101607",
+        "https://doi.org/10.1016/j.ffa.2016.09.003",
+        "https://doi.org/10.1016/j.jnt.2019.05.004"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "Li–Wan bounds and Ding–Zhou Galois-ring subset-sum estimates concern related representations but do not visibly assert the same all-depth N_(p,a)(b) closed recursion in examined statements."
+        ],
+        "reasoning": "The final formula is derived by applying classical Gauss/Hensel to singular strata and then a collision sieve; a general p-adic quadratic-form local-density formula plus an existing distinct-coordinate sieve might mathematically imply it, a noted residual risk not dismissed by title mismatch.",
+        "searches": [
+          "three distinct residues quadratic subset sum x squared+y squared+z squared prime power exact counts Li Wan",
+          "arXiv:1507.06329",
+          "DOI:10.1016/j.jnt.2019.05.004"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Li–Wan define N_f(D,k,b) for polynomial subset sums on finite rings and derive general asymptotic bounds; choosing k=3, D=Z/p^a, f=x² gives this object."
+        ],
+        "reasoning": "This exact choice is a specialization of their general definitions but the examined main theorems provide estimates rather than its exact count at every b including high-valuation singular targets. Terminology equivalence alone does not settle prior result coverage.",
+        "searches": [
+          "three distinct residues quadratic subset sum x squared+y squared+z squared prime power exact counts Li Wan",
+          "arXiv:1507.06329",
+          "DOI:10.1007/s11139-018-0020-0"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "Compared published finite-field moment and quadratic-residue-count papers and Resultary nearest matches: no exact all-prime-powers target distribution table identified."
+        ],
+        "reasoning": "Subset sums of quadratic residues choose distinct square values, whereas the present problem chooses distinct input residues even if their squares coincide; that distinction prevents a direct table lookup. Absence in search is bounded evidence, not proof of priority.",
+        "searches": [
+          "three distinct residues quadratic subset sum x squared+y squared+z squared prime power exact counts Li Wan",
+          "arXiv:1507.06329",
+          "DOI:10.1016/j.ffa.2016.09.003",
+          "Resultary:prime-power quadratic 3-subset query"
+        ]
+      },
+      "rationale": "Classical quadratic representation counts and the distinct-coordinate inclusion–exclusion sieve are credited. The assessed addition is one exact depth-decreasing distribution formula for all target residues of every odd prime power, including singular targets and the complete support law; known general upper/lower bounds do not by themselves provide this full exact answer.",
+      "residual_risks": [
+        "A known general p-adic quadratic representation theorem or full text of the 2019 Galois-ring paper could dominate the specialized recursion.",
+        "Finite-field a=1 enumeration may already be classical; the all-exponent singular-target and exact image scope is the assessed addition."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "General asymptotic inequalities are prior coverage of the task type; inspected theorems do not explicitly determine singular all-target counts.",
+          "evidence": [
+            "Theorems 1.3 and 1.4: bounds for polynomial subset sums over finite rings; not displayed as exact ternary diagonal quadratic count."
+          ],
+          "identifier_or_url": "https://arxiv.org/pdf/1507.06329",
+          "material_read": "Lawful original 15-page arXiv preprint: main definitions, Theorems 1.3–1.4, hypotheses and prime-power bounds, Sections 2–3; PDF page screenshot of main theorem inspected.",
+          "method": "Read arXiv PDF including relevant theorem statements and searched for a specialized quadratic k=3 count.",
+          "title": "Counting polynomial subset sums",
+          "trigger": "The published general framework N_f(D,k,b) contains this object as a special case."
+        },
+        {
+          "assessment": "May cover some a=1 base cases; no whole-document noncoverage conclusion asserted.",
+          "evidence": [
+            "Finite-field first and second moment constraints; prime-power residue rings not directly field objects."
+          ],
+          "identifier_or_url": "https://doi.org/10.1016/j.ffa.2019.101607",
+          "material_read": "Bibliographic and abstract result summary, not full paper.",
+          "method": "Inspected primary bibliographic abstract and compared modulus and constraints.",
+          "title": "Moment subset sums over finite fields",
+          "trigger": "Nearby exact moment/constrained subset-sum finite-field results."
+        },
+        {
+          "assessment": "Counts distinct quadratic residue *values* in a finite field, a different selection rule from distinct input residues mapped by x²; complete article comparison remains open.",
+          "evidence": [
+            "2017 paper: exact k-subset sums from quadratic-residue set H subset F_q."
+          ],
+          "identifier_or_url": "https://doi.org/10.1016/j.ffa.2016.09.003",
+          "material_read": "Publisher abstract and introductory displayed N_H(k,b) definition.",
+          "method": "Read accessible publisher abstract and opening definition.",
+          "title": "Subset sums of quadratic residues over finite fields",
+          "trigger": "Potential exact quadratic subset-sum lookup."
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "limitations": [
+        "The Gauss, Hensel, inclusion–exclusion components are standard, and the work does not cover arbitrary polynomial degree/subset size or composite moduli."
+      ],
+      "rationale": "The object—the pushforward of the uniform three-element subset distribution by the quadratic sum on a finite local ring—is natural in additive combinatorics and coding. The exact count at every singular and unit target, distinct-input corrections, and support classification are meaningful finite arithmetic invariants; singular prime-power behavior and the exceptional p=3 case are not recoverable by a trivial finite-field substitution.",
+      "status": "PASS"
+    }
+  },
+  "checked_sources": [
+    "https://arxiv.org/pdf/1507.06329",
+    "https://doi.org/10.1016/j.ffa.2019.101607",
+    "https://doi.org/10.1016/j.ffa.2016.09.003",
+    "https://doi.org/10.1016/j.jnt.2019.05.004"
+  ],
+  "disposition": "passed",
+  "limitations": [
+    "Odd prime powers only; precise distinction between distinct residues and squares.",
+    "Full scope is established by algebra and lifting, not by the finite enumeration."
+  ],
+  "residual_risks": [
+    "A known general p-adic quadratic representation theorem or full text of the 2019 Galois-ring paper could dominate the specialized recursion.",
+    "Finite-field a=1 enumeration may already be classical; the all-exponent singular-target and exact image scope is the assessed addition."
+  ],
+  "schema_version": 1
+}

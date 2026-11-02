@@ -1,19 +1,21 @@
-# Review
+# Independent mathematical audit
 
-## Correctness
+## correctness
 
-The finite-field base counts are the standard exact quadratic-character counts for the ternary form and binary form with determinant two. The recursion splits nonsingular classes (\(p^{2a-2}\) or \(p^{a-1}\) lifts per base solution) from the all-zero singular class (\(p^3\) or \(p^2\) times a solution at exponent decreased by two). The diagonal term is an explicit root count, separately for the singular coefficient at \(p=3\). Inclusion–exclusion among the three equal-coordinate events gives the exact count after division by six. The support proof checks prime-field positivity, gives nine explicit witnesses modulo nine, and Hensel-lifts from those witness solutions. The supplied verifier independently exhausts all target residues in twelve small rings. No step extrapolates from finite data.
+PASS
 
-## Originality
+Classify ordered solutions A_a to x²+y²+z²=b, B_a to 2x²+z²=b, and diagonal C_a to 3x²=b. The ternary and binary finite-field base counts follow from the standard quadratic Gauss sum, including p dividing b. For p odd, all nonsingular solutions lift with p² or p choices per modulus level; if p divides b the only singular residue tuple is all zero. Its branch is absent unless p² divides b and then contributes p³ A_(a-2)(b/p²) or p² B_(a-2)(b/p²), including a=2 boundary via A_0=B_0=1. For C_a use the standard odd-prime square-root valuation formula and handle p=3 separately by first dividing 3x²=b. Inclusion–exclusion removes triple-coordinate coincidences: N=(A-3B+2C)/6, since the remaining ordered triples have six free permutations. Unit targets for p>=5 yield the displayed exact quadratic-character bias. For support, p>=7 lower bounds and explicit p=5 base counts give a nonzero distinct triple for each mod-p b; lift a nonzero coordinate to every prescribed higher-power target. For p=3, q=3 has unique subset with b=2; nine explicit distinct triples cover every b mod9 and lift to arbitrary 3-powers. No claim for 2-powers or general composite moduli.
 
-Li–Wan's archived 2015 abstract states general asymptotic ring bounds rather than this exact complete prime-power distribution. Lai–Marino–Robinson–Wan's inspected finite-field analysis and earlier finite-field exact moment results may imply the \(a=1\) base case, which is expressly not advertised as new alone. Ding–Zhou's Galois-ring paper studies distinct power values rather than distinct input residues and supplies asymptotic estimates. No located indexed source states an all-exponent formula including the \(p=3\) collision term and complete surjectivity threshold; the complete Li–Wan and Ding–Zhou texts remain uninspected, which is a material unresolved literature risk. The comparison does not equate lack of a search hit with novelty proof.
+## originality
 
-## Value
+PASS
 
-The invariant is exactly the motivating polynomial-subset-sum count at the first nonlinear, three-element case for the full prime-power ring, not an arbitrary restricted slice. The result distinguishes all singular target valuations and the exceptional characteristic, supplies the exact unit squareclass bias, and completely classifies the image, including the minimal non-surjective ring. It upgrades approximate counts in this natural regime to a closed computable integer law; no broader theorem, density or priority claim is made.
+Classical quadratic representation counts and the distinct-coordinate inclusion–exclusion sieve are credited. The assessed addition is one exact depth-decreasing distribution formula for all target residues of every odd prime power, including singular targets and the complete support law; known general upper/lower bounds do not by themselves provide this full exact answer.
 
-## Limitations and relevant literature
+## value
 
-Li–Wan (2015, arXiv:1507.06329v1) provides general polynomial subset-sum bounds; the available abstract was studied but the full paper was inaccessible. Lai et al. (2019, DOI 10.1016/j.ffa.2019.101607) treat finite-field first/second moments; its open full-text introduction and comparison were inspected. Ding–Zhou (2019, DOI 10.1016/j.jnt.2019.05.004) treats Galois rings; only its abstract was accessible. Quadratic-form representation and diagonal square-root formulas used here are classical. An unindexed existing exact formula could subsume the theorem.
+PASS
 
-Self-review: passed. Independent audit: not yet performed.
+The object—the pushforward of the uniform three-element subset distribution by the quadratic sum on a finite local ring—is natural in additive combinatorics and coding. The exact count at every singular and unit target, distinct-input corrections, and support classification are meaningful finite arithmetic invariants; singular prime-power behavior and the exceptional p=3 case are not recoverable by a trivial finite-field substitution.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
