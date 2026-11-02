@@ -5,8 +5,11 @@
     "status": "not_performed"
   },
   "independent_audit": {
-    "evidence": null,
-    "status": "not_performed"
+    "status": "passed",
+    "evidence": [
+      "INDEPENDENT_AUDIT_2026-10-28.md",
+      "INDEPENDENT_AUDIT_2026-10-28.json"
+    ]
   },
   "lean_verification": {
     "evidence": null,
@@ -15,14 +18,25 @@
   "schema_version": 1
 }
 ---
-# Reproducibility and limits
 
-With Python 3 and the `sympy` dependency listed in `verification/requirements.txt`, run
+# Independent mathematical audit
 
-```bash
-python3 verification/check_serial_uptake.py
-```
+## correctness
 
-The program verifies the exact symbolic two-stage commutator identity, a complete rational two-stage order switch at incoming concentration one, 10,000 seeded pairwise comparisons over positive parameters, 133 distinct randomly generated rational families with exhaustive permutations at both extreme-input regimes, and an equal-residual-index boundary. It uses exact rational arithmetic for every exhaustive permutation comparison; numerical random tests are checked against a symbolic formula.
+PASS
 
-The seed is fixed and the program uses only the explicitly bundled code and listed dependency. Tests do not prove behavior for all real parameters or establish historical priority. Those universal mathematical conclusions follow from the analytic proof in `RESULT.md`. The paper reports no experimental validation, noise robustness, or extension to hydraulic routing.
+Every T_i is strictly increasing, positive and below x because T_i’=1-u_i K_i/(K_i+x)^2>0. Exact common-denominator expansion gives T_j(T_i(x))-T_i(T_j(x))=-uv x² P(x)/D(x), D>0, P(x)=(K-L)x²+[(K-L)(K+L)-Ku+Lv]x+KL(K-L-u+v). For K>L, if K-u>=L-v, all P coefficients nonnegative and at least leading and linear strictly positive, so larger-K-first wins at every x>0. If K-u<L-v, the leading coefficient is positive, constant negative, and the quadratic has exactly one positive zero x*, so preference reverses there. A finite family has finitely many switches; low-x inputs and all intermediate stage inputs are below them, whereas for high-x, all intermediate inputs remain >x-sum(u_i), above the switches. Strict adjacent interchanges improve any inverted pair under those ranges, producing unique optimal total orders, and their difference rules out any universal order. Independently reduced symbolic commutator to zero and verified exact rational example P=(x-1)(x+5/6) with switch x=1.
+
+## originality
+
+PASS
+
+Michaelis–Menten saturation, ordering of stream reaches and monotone-map interchange arguments are established. Covino–McGlynn–Baker discuss spatial sequence and observed uptake curves, but not a theorem comparing every permutation for the precise rational maps at every x. The exact two-index iff, strict universal-optimal ordering and unique switch for reversed pairs are the candidate new statement. Sakamoto 1994 consecutive reaction transfer-functions is plausible, but only its abstract available; nonaccess alone is not automatic failure.
+
+## value
+
+PASS
+
+A complete robust universal ordering test (and precise failure mechanism) is a natural optimization question for multiple saturable finite-step removal stages. It replaces parameter-dependent brute-force permutation searches with a two-index criterion while sharply explaining concentration-induced reversals. A reusable exact result in a motivated discrete environmental processing model, not a claim of field validation.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

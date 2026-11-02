@@ -1,19 +1,21 @@
-# Scientific review
+# Independent mathematical audit
 
-## Correctness — PASS
+## correctness
 
-The finite-step map preserves positive concentrations and is strictly increasing under the specified capacity condition. Direct rational expansion produces an exact two-stage commutator whose positive denominator leaves a quadratic to determine ordering. With half-saturation constants ordered, a concordant residual index makes every coefficient nonnegative with strictly positive linear and leading coefficients; discordance makes the constant and leading coefficients opposite signs and gives exactly one positive root. Adjacent exchange then proves the all-input criterion and the two extreme-input global sorting theorems for any finite number of stages. The exact rational switching witness and symbolic, random and exhaustive finite tests agree with that proof.
+PASS
 
-## Originality — PASS (provisional)
+Every T_i is strictly increasing, positive and below x because T_i’=1-u_i K_i/(K_i+x)^2>0. Exact common-denominator expansion gives T_j(T_i(x))-T_i(T_j(x))=-uv x² P(x)/D(x), D>0, P(x)=(K-L)x²+[(K-L)(K+L)-Ku+Lv]x+KL(K-L-u+v). For K>L, if K-u>=L-v, all P coefficients nonnegative and at least leading and linear strictly positive, so larger-K-first wins at every x>0. If K-u<L-v, the leading coefficient is positive, constant negative, and the quadratic has exactly one positive zero x*, so preference reverses there. A finite family has finitely many switches; low-x inputs and all intermediate stage inputs are below them, whereas for high-x, all intermediate inputs remain >x-sum(u_i), above the switches. Strict adjacent interchanges improve any inverted pair under those ranges, producing unique optimal total orders, and their difference rules out any universal order. Independently reduced symbolic commutator to zero and verified exact rational example P=(x-1)(x+5/6) with switch x=1.
 
-The 2010 full-text stream study reports Michaelis–Menten uptake varying by reach and names spatial arrangement as important, but does not establish the particular switching polynomial or two-index universal-order classification. The 2006 full-text nutrient-spiraling synthesis and the inspected 2011 scaling analysis address different quantities. A 1994 consecutive-reactions paper is related but its abstract concerns approximate response transfer functions; the full text was not accessible. General interchange inequalities for increasing rational maps could subsume the claim. Searches and partial access do not prove historical uniqueness; priority should be checked independently before external scientific attribution.
+## originality
 
-## Mathematical value — PASS
+PASS
 
-The result answers a motivated order-of-processing question raised by spatially heterogeneous saturable nutrient retention. It supplies a full universal-order iff criterion, two different global sorting laws for low and high input, and an exact unique crossover whenever a pair disagrees. This structural distinction is not a unit conversion or an isolated instance of the known Michaelis–Menten uptake curve. The result remains about an algebraic one-pass model, not hydrodynamic prediction or a prescription to restructure real streams.
+Michaelis–Menten saturation, ordering of stream reaches and monotone-map interchange arguments are established. Covino–McGlynn–Baker discuss spatial sequence and observed uptake curves, but not a theorem comparing every permutation for the precise rational maps at every x. The exact two-index iff, strict universal-optimal ordering and unique switch for reversed pairs are the candidate new statement. Sakamoto 1994 consecutive reaction transfer-functions is plausible, but only its abstract available; nonaccess alone is not automatic failure.
 
-## Limits and sources
+## value
 
-Closest source: Covino, McGlynn and Baker (2010), doi:10.1029/2009JG001263, especially discussions of serial processing and location within networks. Context and noncoverage comparisons: Ensign and Doyle (2006), doi:10.1029/2005JG000114; Basu et al. (2011), doi:10.1029/2010WR010196; Sakamoto (1994), doi:10.1016/0303-2647(94)90050-7 (abstract only). General monotone-map rearrangement theorems and inaccessible older full text are residual originality risks.
+PASS
 
-Self-review: passed. Independent audit: not yet performed.
+A complete robust universal ordering test (and precise failure mechanism) is a natural optimization question for multiple saturable finite-step removal stages. It replaces parameter-dependent brute-force permutation searches with a two-index criterion while sharply explaining concentration-induced reversals. A reusable exact result in a motivated discrete environmental processing model, not a claim of field validation.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
