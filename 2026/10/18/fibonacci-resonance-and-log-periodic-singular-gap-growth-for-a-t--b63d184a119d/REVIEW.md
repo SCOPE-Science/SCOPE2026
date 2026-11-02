@@ -1,11 +1,21 @@
-# Scientific review
+# Independent mathematical audit
 
-**Correctness — PASS.** The Fourier diagonalization is exact for the prescribed generator and torus convention. The small-residual reduction and unimodular Fibonacci comparison establish the eventual *global* minimizer, not merely a good subsequence. Uniform phase convergence and the two-neighbor envelope calculation prove the asymptotic profile and both extremal constants. High-precision finite computations supply independent consistency checks but are not the infinite proof.
+## correctness
 
-**Originality — PASS, with residual risk.** Sznitman--Widmayer's Example 1 treats precisely this drift family and establishes qualitative averaging enhancement, not exact golden-slope optimization or a nonconstant normalized gap profile. Chatterjee's discrete-torus Theorem 2.5 proves a related \(4/3\) exponent under a different limit and only up to multiplicative constants. Equivalent-formulation, stronger-coverage, tabular and implication searches found no claimed exact profile. The complete texts of the general Eberle--Lörler and Xu papers were unavailable; equivalent arithmetic results under different names remain possible. Independent originality review remains desirable.
+PASS
 
-**Value — PASS.** A canonical badly approximable drift direction has an exact leading spectral law but no single leading coefficient: the two sharp extremal values differ by approximately \(0.190657\). The Fibonacci selection mechanism and its log-periodic phase provide structural information beyond either qualitative enhancement or two-sided scaling bounds and identify the correct order of relaxation for averages. Ordinary semigroup relaxation is unchanged, and no sharp average-relaxation prefactor is claimed.
+On the 2π-periodic torus with normalized Haar measure and mean-zero H² domain, the normal constant-coefficient generator acts diagonally on e^{i(px+qy)} with squared modulus (p²+q²)²+a²(p+αq)²; changing q sign yields equation (5). Fibonacci pairs satisfy F_{n−1}−αF_n=(−1)^nφ^(−n), giving a witness O(a^(4/3)). Every minimizing frequency for large a has |p−αq|<1/2, q≠0 and p nearest αq. In each interval F_n≤q<F_{n+1}, the adjacent-convergent unimodular basis and sign inequalities for its integer coefficients give |p−αq|≥φ^(−n); monotonicity of nearest integer gives p≥F_{n−1}; hence BOTH nonnegative terms are minimized by the Fibonacci vector. Binet expansion yields Aφ^(4n)(1+O(φ^(−2n))); with a=φ^(3N)s, uniform exclusion of large ±j on compact s intervals makes the normalized minima converge uniformly to H(s)=min_j f(φ^j s^(−1/3)). Its period φ³, nonconstancy, sharp min f(x*) and max f(xc) follow from monotonicity on a single geometric-lattice cell. Independent exact/high-precision bounded arithmetic checked 33 denominator intervals, eight global finite Fourier minima with certified quartic-radius truncations, phase periodicity and numerical constants. The finite checks support, but are not substitutes for, the unrestricted analytic proof. The average-relaxation consequence is Θ(a^(−2/3)), NOT a sharp prefactor, and ordinary semigroup relaxation stays unchanged.
 
-Closest literature: Sznitman and Widmayer (arXiv:2610.12425v1), Example 1, equations (1.5), (1.33), (2.1); Chatterjee (arXiv:2310.10876v3), Theorem 2.5 and Section 3.10; Eberle and Lörler (arXiv:2607.10801); Xu (arXiv:2606.01683). All assumptions, rescalings, and accessible sources are stated in RESULT.md. This is a self-review, not external certification.
+## originality
 
-Self-review: passed. Independent audit: not yet performed.
+PASS
+
+Best-of-knowledge PASS for the strict original contribution: an eventual exact Fibonacci Fourier minimization and nonconstant logarithmic-phase envelope with two explicit distinct normalized singular-gap constants for a canonical constant-drift diffusion. The same mathematical model Sznitman–Widmayer source provides the motivating qualitative result in accessible material but its primary full text was inaccessible, so historical priority is explicitly qualified, not certified. Chatterjee analyzes a different discrete-size limit; Eberle–Lörler and Xu provide a general framework and different examples. No broader theorem or same-value table was identified in genuine searches. Unavailable material alone was not converted to a FAIL.
+
+## value
+
+PASS
+
+The golden slope is the canonical quadratic badly approximable direction in the natural constant-drift two-torus diffusion already studied for qualitative accelerated averaging. The exact Fibonacci selection, uniform nonconstant logarithmic phase, and two distinct sharp normalized gap constants answer a meaningful quantitative question that mere O/Θ bounds leave open. The phase interval and its spectral-mode mechanism have plausible reuse in arithmetic advection–diffusion and nonnormal spectral limits. The result is parameter-specific but the object/invariant are motivated independently of computation; it makes no inflated claim about ordinary mixing or an exact averaged-relaxation prefactor.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
