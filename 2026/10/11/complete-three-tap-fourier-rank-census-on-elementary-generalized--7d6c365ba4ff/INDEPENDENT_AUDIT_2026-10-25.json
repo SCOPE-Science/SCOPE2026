@@ -1,0 +1,225 @@
+{
+  "audit_date_utc": "2026-10-25",
+  "audited_at_utc": "2026-10-25T22:46:01Z",
+  "axes": {
+    "correctness": {
+      "checked_sources": [
+        "Assigned RESULT.md blob 759a37a089142924c9510d29c8c7224ccd542632",
+        "Assigned VERIFICATION.md and check_triads.py independently inspected, not executed",
+        "Arezoomand and Taeri, On the Characteristic Polynomial of n-Cayley Digraphs, Electron. J. Comb. 20(3) P57 (2013), DOI 10.37236/3105, full OA PDF https://www.combinatorics.org/ojs/index.php/eljc/article/download/v20i3p57/pdf/ (Theorem 6, Corollaries 7 and 9, pp. 7-10)"
+      ],
+      "rationale": "For each additive character χ of A=F_p^d, direct two-coset Fourier transformation of the left-regular action yields one 2×2 fiber Bχ=[[Rχ,Fχ],[conj(Fχ),conj(Rχ)]] (up to harmless conjugation/reindexing), across N characters, with det Bχ=|Rχ|²−|Fχ|². Mixed 2+1 coset support is singular precisely when χ(a−b) is a primitive third root; the singleton forces each such block rank 1. For all-in-one-coset triples the block vanishes precisely when their 3 character values form {1,ω,ω²}, with each zero block contributing 2 dimensions. Since each χ-value is a p-th root, vanishing is impossible unless p=3. For p=3 the number of χ with χ(v)=ω or ω² for nonzero v is 2N/3; with independent v1,v2 giving the two target pairs it is 2N/9. This proves mixed nullity 2N/3, collinear single-coset 4N/3 and noncollinear 4N/9. The combinatorial counts are 2*binom(N,2)*N=N²(N−1), 2*binom(N,2)/3=N(N−1)/3, and 2*binom(N,3)−N(N−1)/3=N(N−1)(N−3)/3. These sum to binom(2N,3). For p=2, inversion acts trivially but the same two-coset Fourier decomposition applies; for d=1 the noncollinear stratum is empty. Full proof is analytic for every prime p and integer d>=1.",
+      "residual_risks": [
+        "The source script uses modular ranks, which are consistency checks, not certificates of all complex ranks.",
+        "The general kernel fiber reconstruction is fixed by choice of χ and complex-conjugation convention but dimension statements are invariant."
+      ],
+      "status": "PASS",
+      "verification": {
+        "cases_exact_Q": 1577,
+        "exhaustive_sizes": [
+          "(2,2):56",
+          "(2,3):560",
+          "(3,1):20",
+          "(3,2):816",
+          "(5,1):120"
+        ],
+        "limitations": "Tests over Q are exact for the finite cases but do not prove the quantified result for all p,d; theoretical character proof independently assessed.",
+        "method": "Independently constructed integer left-convolution matrices with SymPy exact rational ranks, not the submitted modular test; also independently enumerated p=3,d=2 geometric classes.",
+        "p3d2_exact_rank_distribution": {
+          "12": 24,
+          "4": 144,
+          "6": 648
+        },
+        "results": "independent_triads_results.json",
+        "script": "independent_triads_check.py",
+        "tested_parameters": [
+          {
+            "cases": 56,
+            "d": 2,
+            "p": 2
+          },
+          {
+            "cases": 560,
+            "d": 3,
+            "p": 2
+          },
+          {
+            "cases": 20,
+            "d": 1,
+            "p": 3
+          },
+          {
+            "cases": 816,
+            "d": 2,
+            "p": 3
+          },
+          {
+            "cases": 120,
+            "d": 1,
+            "p": 5
+          },
+          {
+            "cases": 5,
+            "d": 3,
+            "p": 3
+          }
+        ]
+      }
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Arezoomand–Taeri Corollary 7: characteristic polynomial factors over irreducible representations for any Cayley digraph; Corollary 9 treats cyclic index-two subgroup.",
+          "Al-Tarimshawy–Siemons Theorem 1.4 gives a cyclotomic divisibility singularity criterion for ordinary cyclic dihedral Cayley graphs.",
+          "Huang–Huang–Lu Corollary 2.1 covers inverse-closed ordinary dihedral cubic types, including some p=3 cases."
+        ],
+        "reasoning": "The representation factorization covers much broader groups but is a generic computation method, not an explicitly quantified support-dependent rank distribution. To imply this result with its multiplicities one must additionally derive the root-of-unity vanishing characterization and count independent linear forms, affine lines, and mixed cosets. All symmetric cyclic special cases covered in earlier theorems are treated as prior; the novel assessment is the complete all-support uniform classification/census, not the block method itself.",
+        "searches": [
+          "Resultary: Three generator Cayley graph generalized dihedral group adjacency matrix singular rank spectrum Fourier character sums finite abelian subgroup",
+          "Resultary: Vanishing of three roots of unity, eigenvalue zero multiplicities generalized dihedral three tap Cayley operators",
+          "Web: generalized dihedral group Cayley graph spectrum adjacency eigenvalues arbitrary abelian group 2x2 Fourier blocks 3 generator singular 2020",
+          "Web: singular directed Cayley graphs on generalized dihedral groups inverse closed cubic adjacency determinant zero prime 3",
+          "Arezoomand and Taeri, On the Characteristic Polynomial of n-Cayley Digraphs, Electron. J. Comb. 20(3) P57 (2013), DOI 10.37236/3105, full OA PDF https://www.combinatorics.org/ojs/index.php/eljc/article/download/v20i3p57/pdf/ (Theorem 6, Corollaries 7 and 9, pp. 7-10)",
+          "Al-Tarimshawy and Siemons, Singular Graphs with Dihedral Group Action, arXiv:2006.12875v1 (2020), https://arxiv.org/pdf/2006.12875 (Theorem 1.4 and Corollaries 1.5-1.6, pp. 1-4)"
+        ]
+      },
+      "checked_sources": [
+        "Arezoomand and Taeri, On the Characteristic Polynomial of n-Cayley Digraphs, Electron. J. Comb. 20(3) P57 (2013), DOI 10.37236/3105, full OA PDF https://www.combinatorics.org/ojs/index.php/eljc/article/download/v20i3p57/pdf/ (Theorem 6, Corollaries 7 and 9, pp. 7-10)",
+        "Huang, Huang and Lu, Enumeration of cubic Cayley graphs on dihedral groups, arXiv:1609.05419v1 (2016), https://arxiv.org/pdf/1609.05419 (Theorem 2.1 and Corollary 2.1, pp. 4-6)",
+        "Al-Tarimshawy and Siemons, Singular Graphs with Dihedral Group Action, arXiv:2006.12875v1 (2020), https://arxiv.org/pdf/2006.12875 (Theorem 1.4 and Corollaries 1.5-1.6, pp. 1-4)",
+        "Published result: Exact three-sparse Fourier support spectra on elementary Abelian odd-prime groups, https://github.com/Resultary/2026/blob/main/2026/10/4/SCOPE-exact-three-sparse-fourier-support-spectra-on-elementary-abelian--ca0d22e76a34/RESULT.md",
+        "Published result: Exact three-level convolution nullity census on ternary Heisenberg groups, https://github.com/Resultary/2026/blob/main/2026/10/11/SCOPE-exact-three-level-convolution-nullity-census-on-ternary-heisenbe--71ee85e08578/RESULT.md"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "The 2013 Corollary 7 supplies general matrix factors, not the character-by-character prime-three cancellation and exact multiplicity count.",
+          "2016 Corollary 2.1 explicitly supplies spectrum for cyclic inverse-closed triples, hence those special cases are logically covered by prior work.",
+          "Published three-sparse Fourier-support spectra allow arbitrary nonzero coefficients on abelian A but do not alone calculate mixed-coset convolution rank for G=A⋊C2."
+        ],
+        "reasoning": "A direct application of the generic representation reduction *plus* new explicit affine-incidence enumeration yields the claimed theorem; neither inspected primary prior statement by itself implies the three-stratum support census with the same scope. The p=3 cancellation pattern and cyclic inverse-closed slice may be readily deduced from published results and are not separately claimed original. The full all-support census for all d is the distinguishing exact finite-group invariant.",
+        "searches": [
+          "Resultary: Complete nullity classification and support counts of three element convolution kernels on elementary abelian generalized dihedral groups A semidirect inversion C2, including p=3 collinear mixed coset",
+          "Resultary: Three generator Cayley graph generalized dihedral group adjacency matrix singular rank spectrum Fourier character sums finite abelian subgroup",
+          "Web: generalized dihedral group Cayley graph spectrum adjacency eigenvalues arbitrary abelian group 2x2 Fourier blocks 3 generator singular 2020",
+          "Arezoomand and Taeri, On the Characteristic Polynomial of n-Cayley Digraphs, Electron. J. Comb. 20(3) P57 (2013), DOI 10.37236/3105, full OA PDF https://www.combinatorics.org/ojs/index.php/eljc/article/download/v20i3p57/pdf/ (Theorem 6, Corollaries 7 and 9, pp. 7-10)",
+          "Huang, Huang and Lu, Enumeration of cubic Cayley graphs on dihedral groups, arXiv:1609.05419v1 (2016), https://arxiv.org/pdf/1609.05419 (Theorem 2.1 and Corollary 2.1, pp. 4-6)",
+          "Published result: Exact three-sparse Fourier support spectra on elementary Abelian odd-prime groups, https://github.com/Resultary/2026/blob/main/2026/10/4/SCOPE-exact-three-sparse-fourier-support-spectra-on-elementary-abelian--ca0d22e76a34/RESULT.md"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Arezoomand and Taeri, On the Characteristic Polynomial of n-Cayley Digraphs, Electron. J. Comb. 20(3) P57 (2013), DOI 10.37236/3105, full OA PDF https://www.combinatorics.org/ojs/index.php/eljc/article/download/v20i3p57/pdf/ (Theorem 6, Corollaries 7 and 9, pp. 7-10)",
+          "Huang, Huang and Lu, Enumeration of cubic Cayley graphs on dihedral groups, arXiv:1609.05419v1 (2016), https://arxiv.org/pdf/1609.05419 (Theorem 2.1 and Corollary 2.1, pp. 4-6)",
+          "Al-Tarimshawy and Siemons, Singular Graphs with Dihedral Group Action, arXiv:2006.12875v1 (2020), https://arxiv.org/pdf/2006.12875 (Theorem 1.4 and Corollaries 1.5-1.6, pp. 1-4)",
+          "Published result: Exact three-sparse Fourier support spectra on elementary Abelian odd-prime groups, https://github.com/Resultary/2026/blob/main/2026/10/4/SCOPE-exact-three-sparse-fourier-support-spectra-on-elementary-abelian--ca0d22e76a34/RESULT.md"
+        ],
+        "reasoning": "A zero eigenvalue of the three-generator Cayley (di)graph, noninvertibility of a three-term group-algebra element, and a nonzero kernel of the three-tap left-convolution operator are equivalent statements. The 2013 full-characteristic-polynomial formula establishes the general block method; its published formula does not evaluate all arbitrary three-tap support classes and their frequencies for noncyclic F_p^d. The 2016 and 2020 cyclic-dihedral analyses concern undirected inverse-closed Cayley graphs (and the latter also connected generating sets), whereas the claim includes identity-containing, directed and nongenerating supports. The separate abelian three-sparse Fourier support spectrum lacks the mixed-coset two-by-two determinant mechanism. No inspected equivalence covers the entire census.",
+        "searches": [
+          "Resultary: Complete nullity classification and support counts of three element convolution kernels on elementary abelian generalized dihedral groups A semidirect inversion C2, including p=3 collinear mixed coset",
+          "Resultary: Three generator Cayley graph generalized dihedral group adjacency matrix singular rank spectrum Fourier character sums finite abelian subgroup",
+          "Web: three elements support singular adjacency Cayley dihedral generalized dihedral prime three nullity rank enumeration",
+          "https://arxiv.org/pdf/1609.05419",
+          "https://arxiv.org/pdf/2006.12875"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "The exactly matching Resultary title points to this same assessed record and is not independent priority evidence.",
+          "Published result: Exact three-level convolution nullity census on ternary Heisenberg groups, https://github.com/Resultary/2026/blob/main/2026/10/11/SCOPE-exact-three-level-convolution-nullity-census-on-ternary-heisenbe--71ee85e08578/RESULT.md",
+          "Published result: Exact three-sparse Fourier support spectra on elementary Abelian odd-prime groups, https://github.com/Resultary/2026/blob/main/2026/10/4/SCOPE-exact-three-sparse-fourier-support-spectra-on-elementary-abelian--ca0d22e76a34/RESULT.md",
+          "Huang–Huang–Lu counts isomorphism classes of cyclic symmetric cubic Cayley graphs; not all labeled supports by nullity."
+        ],
+        "reasoning": "Checked the closest published formula/table results, including a different nonabelian Heisenberg group and abelian three-sparse Fourier data. No independently earlier table with N^2(N-1), N(N-1)/3, and N(N-1)(N-3)/3 support counts was located. This bounded negative search is only a best-of-knowledge result, not proof of novelty.",
+        "searches": [
+          "Resultary: Complete nullity classification and support counts of three element convolution kernels on elementary abelian generalized dihedral groups A semidirect inversion C2, including p=3 collinear mixed coset",
+          "Resultary: Vanishing of three roots of unity, eigenvalue zero multiplicities generalized dihedral three tap Cayley operators",
+          "Web: three elements support singular adjacency Cayley dihedral generalized dihedral prime three nullity rank enumeration",
+          "Resultary published-record search: 20 hits including exact matching assessed record, separate Heisenberg nullity census and 3-sparse abelian Fourier-spectrum theorem"
+        ]
+      },
+      "rationale": "Best-of-knowledge: the general finite Cayley Fourier block method is known (Arezoomand–Taeri 2013), and ordinary inverse-closed cyclic-dihedral cubic formulas are known (Huang–Huang–Lu 2016; Al-Tarimshawy–Siemons 2020). The distinct all-support, all-dimension prime-three nullity trichotomy plus labeled support multiplicity census was not contained in any inspected prior statement. Published elementary-abelian three-sparse Fourier support spectra and ternary Heisenberg support census are adjacent but not logically equivalent. The exactly matching search result is this assessed record, not independent prior art; search absence alone is not novelty proof.",
+      "residual_risks": [
+        "The classical general Cayley block factorization, combined with elementary roots-of-unity arithmetic, makes some parts routine; a historically unindexed exact-specialization/census may predate this claim.",
+        "For d=1 with symmetric supports, earlier cyclic dihedral spectra cover particular cases and must not be counted as novel.",
+        "The exactly matching published index entry is the same assessed record; not independent corroboration of originality."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "General Fourier factorization is known, but no explicit ternary elementary-abelian generalized-dihedral three-support rank census is asserted in the inspected results.",
+          "evidence": "Corollary 7: χ_A factors into determinants of irreducible block sums; Corollary 9: cyclic index-two case; neither supplies three-stratum support counts.",
+          "identifier_or_url": "doi:10.37236/3105; https://www.combinatorics.org/ojs/index.php/eljc/article/download/v20i3p57/pdf/",
+          "material_read": "Abstract and introduction pp.1-2; representation decomposition pp.2-3; Theorem 6 and applications; Corollaries 7 and 9 on printed p.9 and pp.9-10.",
+          "method": "Lawful open-access 14-page PDF via text with rendered page 9 inspected",
+          "title": "On the Characteristic Polynomial of n-Cayley Digraphs",
+          "trigger": "Potential universal covering factorization for arbitrary Cayley digraph operators"
+        },
+        {
+          "assessment": "It covers ordinary cyclic-dihedral symmetric/undirected supports and already entails some special cases; it does not classify arbitrary nonsymmetric supports on F_p^d or enumerate their three nullity strata.",
+          "evidence": "Paper restricts Cayley graphs to S=S^{-1}, identity excluded; Theorem 2.1 and Corollary 2.1 explicit symmetric-type spectra.",
+          "identifier_or_url": "arXiv:1609.05419v1; https://arxiv.org/pdf/1609.05419",
+          "material_read": "Abstract, introductory definition of inverse-closed support, Section 2 character block setup, Theorem 2.1, Corollary 2.1 including types I–III and paper focus.",
+          "method": "Open arXiv 15-page PDF; relevant pages read and page 4 rendered",
+          "title": "Enumeration of cubic Cayley graphs on dihedral groups",
+          "trigger": "Exact cubic dihedral spectra possibly implying special-case singularities"
+        },
+        {
+          "assessment": "Provides cyclotomic divisibility singularity tests for cyclic dihedral connected undirected graphs, but not the general directed elementary-abelian all-triplet nullity multiplicities.",
+          "evidence": "Theorem 1.4 uses cyclotomic divisibility of Ψ′−Ψ″ on ordinary D_n; assumptions exclude arbitrary non-generating, nonsymmetric taps.",
+          "identifier_or_url": "arXiv:2006.12875v1; https://arxiv.org/pdf/2006.12875",
+          "material_read": "Abstract, introduction, definitions of undirected generating connecting sets, Theorems 1.2 and 1.4 and Corollaries 1.5–1.6, proof setup for circulant and dihedral cases.",
+          "method": "Open arXiv 11-page PDF; relevant text read and page 4 rendered",
+          "title": "Singular Graphs with Dihedral Group Action",
+          "trigger": "Plausible direct singularity theorem under dihedral symmetry"
+        },
+        {
+          "assessment": "More general coefficients for scalar abelian Fourier transforms, but does not give the nonabelian block rank and mixed-coset census. It is a related prior, not equivalent.",
+          "evidence": "Fixed support zero sets have j=0,1,2 cosets of H^perp; does not treat two-coset determinant |R|²−|F|².",
+          "identifier_or_url": "https://github.com/Resultary/2026/blob/main/2026/10/4/SCOPE-exact-three-sparse-fourier-support-spectra-on-elementary-abelian--ca0d22e76a34/RESULT.md",
+          "material_read": "Complete RESULT.md claim, assumptions, proof of r=1,2 local zero bounds, verification and limitations.",
+          "method": "Read published GitHub raw record via connected read-only GitHub file retrieval",
+          "title": "Exact three-sparse Fourier support spectra on elementary Abelian odd-prime groups",
+          "trigger": "Published record on the same A=F_p^d and three-sparse Fourier zero counts"
+        },
+        {
+          "assessment": "Different group (extraspecial exponent-three Heisenberg), distinct representation dimensions and symplectic quotient classification; neither contains generalized-dihedral census as a corollary.",
+          "evidence": "Heisenberg group order 3Q, irreps dimension sqrt(Q) with symplectic triangle constraints; three levels 2Q,2Q/3,2Q/9.",
+          "identifier_or_url": "https://github.com/Resultary/2026/blob/main/2026/10/11/SCOPE-exact-three-level-convolution-nullity-census-on-ternary-heisenbe--71ee85e08578/RESULT.md",
+          "material_read": "Complete RESULT.md statement, Fourier proof, structural cases, counting and limitations.",
+          "method": "Read published GitHub raw record via connected read-only GitHub retrieval",
+          "title": "Exact three-level convolution nullity census on ternary Heisenberg groups",
+          "trigger": "Closely matching support-census output but for another nonabelian group family"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "checked_sources": [
+        "Assigned RESULT.md (finding, proof, census)",
+        "Arezoomand and Taeri, On the Characteristic Polynomial of n-Cayley Digraphs, Electron. J. Comb. 20(3) P57 (2013), DOI 10.37236/3105, full OA PDF https://www.combinatorics.org/ojs/index.php/eljc/article/download/v20i3p57/pdf/ (Theorem 6, Corollaries 7 and 9, pp. 7-10)",
+        "Huang, Huang and Lu, Enumeration of cubic Cayley graphs on dihedral groups, arXiv:1609.05419v1 (2016), https://arxiv.org/pdf/1609.05419 (Theorem 2.1 and Corollary 2.1, pp. 4-6)",
+        "Published result: Exact three-sparse Fourier support spectra on elementary Abelian odd-prime groups, https://github.com/Resultary/2026/blob/main/2026/10/4/SCOPE-exact-three-sparse-fourier-support-spectra-on-elementary-abelian--ca0d22e76a34/RESULT.md",
+        "Published result: Exact three-level convolution nullity census on ternary Heisenberg groups, https://github.com/Resultary/2026/blob/main/2026/10/11/SCOPE-exact-three-level-convolution-nullity-census-on-ternary-heisenbe--71ee85e08578/RESULT.md"
+      ],
+      "rationale": "Convolution rank is a natural linear-algebraic/harmonic invariant of a finite group, measuring loss of information under a sparse translation filter. This result gives a complete, size-uniform classification for *all* unordered unweighted three-point supports on the elementary generalized dihedral family, identifies a sharp p=3 obstruction (all three-tap filters singular at p=3, all invertible otherwise), and provides exact kernel dimensions and incidence-geometric frequency counts. The distinction between mixed cosets, affine lines, and independent triples is a motivated structural partition, not an arbitrary small numerical slice; a researcher can directly use the precise rank distribution for sparse group filters. It does not claim a new representation decomposition or generality to weighted/larger-support filters.",
+      "residual_risks": [
+        "Technique uses low-degree character sums and finite-geometry counting; mathematical depth is modest and broader weighted/generalized families remain unclassified."
+      ],
+      "status": "PASS"
+    }
+  },
+  "checked_sources": [
+    "Arezoomand and Taeri, On the Characteristic Polynomial of n-Cayley Digraphs, Electron. J. Comb. 20(3) P57 (2013), DOI 10.37236/3105, full OA PDF https://www.combinatorics.org/ojs/index.php/eljc/article/download/v20i3p57/pdf/ (Theorem 6, Corollaries 7 and 9, pp. 7-10)",
+    "Huang, Huang and Lu, Enumeration of cubic Cayley graphs on dihedral groups, arXiv:1609.05419v1 (2016), https://arxiv.org/pdf/1609.05419 (Theorem 2.1 and Corollary 2.1, pp. 4-6)",
+    "Al-Tarimshawy and Siemons, Singular Graphs with Dihedral Group Action, arXiv:2006.12875v1 (2020), https://arxiv.org/pdf/2006.12875 (Theorem 1.4 and Corollaries 1.5-1.6, pp. 1-4)",
+    "Published result: Exact three-sparse Fourier support spectra on elementary Abelian odd-prime groups, https://github.com/Resultary/2026/blob/main/2026/10/4/SCOPE-exact-three-sparse-fourier-support-spectra-on-elementary-abelian--ca0d22e76a34/RESULT.md",
+    "Published result: Exact three-level convolution nullity census on ternary Heisenberg groups, https://github.com/Resultary/2026/blob/main/2026/10/11/SCOPE-exact-three-level-convolution-nullity-census-on-ternary-heisenbe--71ee85e08578/RESULT.md"
+  ],
+  "disposition": "passed",
+  "residual_risks": [
+    "The classical general Cayley block factorization, combined with elementary roots-of-unity arithmetic, makes some parts routine; a historically unindexed exact-specialization/census may predate this claim.",
+    "For d=1 with symmetric supports, earlier cyclic dihedral spectra cover particular cases and must not be counted as novel.",
+    "The exactly matching published index entry is the same assessed record; not independent corroboration of originality.",
+    "Technique uses low-degree character sums and finite-geometry counting; mathematical depth is modest and broader weighted/generalized families remain unclassified."
+  ],
+  "schema_version": 1
+}
