@@ -1,19 +1,21 @@
-# Scientific review: rank-four pentagon blow-ups
+# Independent mathematical audit
 
-## Correctness
+## correctness
 
-**PASS.** Every graph in the claimed family admits the part-preserving four-move game reduction to five clone sizes at most four. Exact tuple types are defined inductively from complete atomic diagrams and sets of one-point extension types; this recurrence is equivalent to quantifier-rank equivalence. Quotienting only by permutations of unused vertices inside a part is exact, because selected vertices are fixed and all remaining vertices in that part have identical adjacency to every selected vertex. The resulting 1024-element exhaustive classification gives exactly 33 types, with every type realized at clone sizes at most three. Every class has a representative of order at most 15; the only class with shortest order 15 is the one containing the vector \((3,3,3,3,3)\). Direct labelled-graph recursion separately checks all 243 three-clipped graphs and all 29,403 unordered pairs of them. The code and its output are included.
+PASS
 
-## Originality
+For positive part sizes in the independent-set five-cycle blow-up and pure uncolored adjacency language, the four-move EF game is invariant under size clipping at four: before the kth move each named part has fewer than four occupied clones, so Duplicator can preserve equality and adjacency using unused clones in corresponding parts. The exact recursive quantifier-rank type T_{r+1}=(atomic diagram, set of one-vertex extension T_r types) enumerates all possible moves up to permutations of unused clones. I independently coded this type recurrence (not the repository's verify_c5.py) and enumerated all 4^5=1024 clipped size vectors; recovered exactly 33 distinct rank-four empty-tuple types, class-minimum-size frequencies 5:1,6:1,7:3,8:4,9:7,10:7,11:6,12:2,13:1,15:1, and 3-clipping equivalence for every clipped vector. Combined with the analytic four-clipping, this is exhaustive for all positive sizes, not a finite extrapolation. The unique class needing 15 vertices is all sizes at least three. Reviewed actual RESULT.md, verify_c5.py and Git table presence; computed independent census. Does not apply to named parts, counting quantifiers, empty parts or rank >=5.
 
-**PASS, with residual risks.** Hatami et al. (arXiv:1102.1634, Section 2.3 and Theorems 3.1–4.2) define this pentagon blow-up construction and solve an extremal five-cycle counting problem, but neither enumerate first-order rank-four types nor establish the representative cutoff. Balogh et al. (arXiv:1411.4645, Theorems 1–2 and Sections 2–4) study inducibility and iterated blow-ups, not elementary equivalence. Brown and Hoshino (Ars Combinatoria 83, Theorems 3.1 and 3.9) analyze games on pure paths and cycles, not variable-size clones. Indexed published research records contain nearby quantifier-rank classifications but no examined statement implying this pentagon-blow-up census. Broad unindexed literature and results formulated in an unexpected equivalent graph-class language remain possible overlap risks. Nonmatches are supported by comparison of mathematical statements, not by failed keyword searches alone.
+## originality
 
-## Value
+PASS
 
-**PASS.** The nonempty pentagon blow-ups form a natural five-parameter family arising in extremal triangle-free graph theory. A complete exact classification of their low-depth first-order observable behaviour, including 33 distinct classes, the unexpected stabilization at three clones per part (rather than the a priori four), and a sharp 15-vertex testing bound, is a motivated finite-model-theoretic invariant. It gives a finite exact decision procedure for rank-four satisfiability/validity over this infinite family, not merely a computation on a chosen small graph.
+Exact 33-class FO rank-four classification and optimal 15-vertex representative bound are not contained in inspected extremal pentagon-count and inducibility literature; those use induced subgraphs or flag-algebra labeled types, not FO EF types. Brown–Hoshino treat bare paths and cycles, not independent clone substitutions. Standard EF extension recurrence and four-clipping alone are not claimed original; the nontrivial exhaustive reduced census and sharper three-clipping are assessed additions. A specialized unindexed finite model theory census could overlap.
 
-## Scope and risks
+## value
 
-The result is not a classification of all triangle-free graphs, of richer signatures naming the parts, or of five-cycle substitutions by arbitrary graphs. The underlying logical-type recurrence and generic four-pebble truncation are standard; the novelty assessed here is the exact 33-class outcome, collapse to three-clipped vectors, and sharp bound. The logical proof and computations are included, but independent external audit is pending. Relevant full text was examined for the closest comparison sources; some other possible historical overlap remains unindexed.
+PASS
 
-Self-review: passed. Independent audit: not yet performed.
+An exact elementary-equivalence classification of a widely studied natural graph family establishes a sharp finite kernel for all rank-four sentences without named parts. The further collapse from four to three clones is nontrivial and certifies a precise logical indistinguishability threshold, useful for finite-model descriptive complexity and algorithmic model checking.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

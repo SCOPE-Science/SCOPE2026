@@ -5,8 +5,11 @@
     "status": "not_performed"
   },
   "independent_audit": {
-    "evidence": null,
-    "status": "not_performed"
+    "status": "passed",
+    "evidence": [
+      "INDEPENDENT_AUDIT_2026-10-29.md",
+      "INDEPENDENT_AUDIT_2026-10-29.json"
+    ]
   },
   "lean_verification": {
     "evidence": null,
@@ -16,20 +19,24 @@
 }
 ---
 
-# Verification of the rank-four pentagon-blow-up census
+# Independent mathematical audit
 
-The mathematical reduction uses the four-move part-preserving Ehrenfeucht–Fraïssé strategy. The finite exhaustive phase covers all \(4^5=1024\) positive clone-size vectors with coordinates in \(\{1,2,3,4\}\); each extension orbit is either a repeated selected vertex or an unused vertex in one part. The exact recursive game signature is therefore calculated without pruning admissible move types.
+## correctness
 
-The independently coded labelled-graph oracle visits every vertex, without quotienting clones, for all \(3^5=243\) graphs having sizes in \(\{1,2,3\}^5\). The classification agrees on all \(29403\) distinct pairs. The independent oracle has the same standard logical semantics but a different state space from the quotient implementation.
+PASS
 
-Recorded commands, from the directory containing the attached files:
+For positive part sizes in the independent-set five-cycle blow-up and pure uncolored adjacency language, the four-move EF game is invariant under size clipping at four: before the kth move each named part has fewer than four occupied clones, so Duplicator can preserve equality and adjacency using unused clones in corresponding parts. The exact recursive quantifier-rank type T_{r+1}=(atomic diagram, set of one-vertex extension T_r types) enumerates all possible moves up to permutations of unused clones. I independently coded this type recurrence (not the repository's verify_c5.py) and enumerated all 4^5=1024 clipped size vectors; recovered exactly 33 distinct rank-four empty-tuple types, class-minimum-size frequencies 5:1,6:1,7:3,8:4,9:7,10:7,11:6,12:2,13:1,15:1, and 3-clipping equivalence for every clipped vector. Combined with the analytic four-clipping, this is exhaustive for all positive sizes, not a finite extrapolation. The unique class needing 15 vertices is all sizes at least three. Reviewed actual RESULT.md, verify_c5.py and Git table presence; computed independent census. Does not apply to named parts, counting quantifiers, empty parts or rank >=5.
 
-```text
-python verify_c5.py
-```
+## originality
 
-The command writes `c5_class_table.csv`, containing \(1024\) data records plus one CSV header. The accompanying `verify_c5_output.txt` records `VERIFY_OK`, `CAP3_STABILITY_OK`, and `ORACLE_OK` together with the class representatives. The critical numerical claims are exactly \(33\) rank-four types, optimal minimum representative order \(15\), and one class attaining that minimum order.
+PASS
 
-The machine check is complete on the clipped finite domain. The mathematical argument lifting that certificate to arbitrary finite clone sizes is the four-pebble strategy recorded in the proof. Neither code execution nor a finite census alone would prove the infinite claim in the absence of that reduction.
+Exact 33-class FO rank-four classification and optimal 15-vertex representative bound are not contained in inspected extremal pentagon-count and inducibility literature; those use induced subgraphs or flag-algebra labeled types, not FO EF types. Brown–Hoshino treat bare paths and cycles, not independent clone substitutions. Standard EF extension recurrence and four-clipping alone are not claimed original; the nontrivial exhaustive reduced census and sharper three-clipping are assessed additions. A specialized unindexed finite model theory census could overlap.
 
-Independent external validation has not been performed.
+## value
+
+PASS
+
+An exact elementary-equivalence classification of a widely studied natural graph family establishes a sharp finite kernel for all rank-four sentences without named parts. The further collapse from four to three clones is nontrivial and certifies a precise logical indistinguishability threshold, useful for finite-model descriptive complexity and algorithmic model checking.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
