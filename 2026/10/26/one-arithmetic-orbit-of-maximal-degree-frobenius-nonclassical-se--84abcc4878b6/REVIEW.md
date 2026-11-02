@@ -1,15 +1,21 @@
-# Scientific review
+# Independent mathematical audit
 
-## Correctness
-PASS. Proposition 4.8 of arXiv:2207.11981 normalizes all eligible equations to a ten-coefficient family. The gradient is independent of these coefficients and its full geometric zero set is exactly the 21 rational points of the plane; therefore nonvanishing on that finite set is necessary and sufficient for geometric smoothness. Independent exact enumerations return 960. Direct complete matrix enumeration and independent generator-orbit traversal both establish a 960-element rational projective orbit and stabilizer order 63. The proof identifies all parameters, normalization, quantifiers and finite operations.
+## correctness
 
-## Originality
-PASS (with residual publication-priority uncertainty). The closest source, Asgarli--Duan--Lai arXiv:2207.11981 Proposition 4.8 and Example 4.11, gives the parametric normal form and an example, not the exact count or unique arithmetic orbit. The 2006 Cossidente--Siciliano theorem assumes a Singer automorphism, an assumption not supplied for arbitrary smooth Frobenius-nonclassical sextics by either cited source. Existing conic-net enumerations classify different objects. Unindexed catalogues could nevertheless encode the classification.
+PASS
 
-## Value
-PASS. Maximal-degree Frobenius-nonclassical curves are extremal in a degree theorem, and \(\mathbf F_4\) is the first nonprime field with an explicit example in the cited source. The complete smallest-field arithmetic classification replaces mere existence and parameterization by an exact moduli-orbit statement and stabilizer, distinguishing arithmetic coordinate classes from geometric families.
+PASS: Using the source's explicitly cited Asgarli–Duan–Lai Proposition 4.8, q=4 and characteristic 2 fix the normalized gradient of a maximal-degree smooth Frobenius-nonclassical sextic. The derivative-free degree-six difference is precisely a cubic G(x²,y²,z²) in 10 independent F4 coefficients; no scalar duplicates survive normalization. All three derivatives vanish simultaneously at exactly the 21 points of PG(2,F4), so geometric smoothness iff F is nonzero at those 21 points, with no untested algebraic-closure singularities. A separately authored F4 enumerator traversed all 4^10=1,048,576 coefficients and found exactly 960 smooth; a separately implemented orbit traversal under explicit invertible projective generators reached all 960 and orbit-stabilizer gives |PGL3(F4)|/960=63. The representative's nonzero rational evaluations and no-F4-points statement also follow. This is exhaustive finite arithmetic supporting an exact finite classification, not extrapolation. Inspected actual source files RESULT.md, verify_cpp.cpp, verify_python.py; the latter's code, not merely expected logs, was reviewed.
 
-## Risks
-The numerical classification is finite and reproducible but not yet independently audited by another researcher. The 2006 Singer-curve literature supplies a nearby conditional theorem and could be used in a different proof; full publication-priority assessment should consider related old catalogues.
+## originality
 
-Self-review: passed. Independent audit: not yet performed.
+PASS
+
+Known maximal-degree normal form, smooth examples, and conditional Singer-automorphism classification are acknowledged. Fresh exact finite enumeration plus transitivity for *all* smooth F4 sextics and arithmetic stabilizer 63 are not stated or logically forced by the inspected prior results. Best-of-knowledge PASS only, retaining priority risk from specialized finite-geometry literature.
+
+## value
+
+PASS
+
+PASS: The projective orbit count is a natural complete arithmetic classification of a sharply constrained maximal-degree finite-field plane-curve family. The exact 960 normalized equations, single orbit and stabilizer 63 distinguish moduli from mere existence; a finite classification is substantive because all 1,048,576 candidates are conclusively resolved.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
