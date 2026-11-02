@@ -1,0 +1,162 @@
+{
+  "audit_date_utc": "2026-10-26",
+  "audited_at_utc": "2026-10-26T14:42:49Z",
+  "axes": {
+    "correctness": {
+      "evidence": [
+        "RESULT.md lines under Proof, from Git blob 057bae5a2dd5aab6d24a67480f8a83f2d92c4b71",
+        "Cañete and Segura Gomis, arXiv:1803.00321v1, Proposition 3.1 and Definition 2.1",
+        "Exact symbolic differences 2At+t² and 3(A²−B²)+2Bu+u² are nonnegative under A≥B>0, t,u≥0."
+      ],
+      "limitations": [
+        "Correctness relies on the standard Jordan-arc notion of bisection used in the cited paper, rather than completely arbitrary connected partitions with no prescribed separating arc.",
+        "Uniqueness is only among center-passing straight-line cuts, not all curved optimal cuts."
+      ],
+      "rationale": "Under the conventional simple-arc bisection definition, Cañete–Segura Gomis Proposition 3.1 validly reduces arbitrary curved cuts without an equal-area constraint to a central segment. For R=[−A,A]×[−B,B], A≥B>0, a central cut hitting horizontal edges at (t,B), (−t,−B) has a piece containing (−t,−B) and (A,B), forcing squared diameter ≥(A+t)^2+4B^2≥A^2+4B^2 (reflection makes t≥0). A cut meeting vertical edges at (A,u),(−A,−u) forces squared diameter ≥4A^2+(B+u)^2≥A^2+4B^2. Equality in the first class forces t=0; in the second forces A=B and u=0. The vertical midline produces two A×2B rectangles, diameter sqrt(A²+4B²)=sqrt(L²/4+H²). For square there are exactly two orthogonal central optimum cuts. Analytic inequalities were independently algebraically expanded; no finite computation is taken as an all-parameter proof.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "2018 Proposition 3.1 covers arbitrary simple-arc bisections without equal area; Section 5 confirms the rectangle optimizer for this full domain.",
+          "2019 Section 5 treats the broader affine class of parallelograms and the special rectangle [−1,1]×[−2,2] but is not itself the source of a general exact rectangle formula."
+        ],
+        "reasoning": "The broad general-bisection reduction and a family-specific optimal cut are established; the submission does not add a new bound or optimizer for any non-square rectangle.",
+        "searches": [
+          "arXiv:1803.00321 Proposition 3.1, Theorem 3.6 and Section 5",
+          "arXiv:1903.06461: rectangle, parallelogram, Proposition 5.11",
+          "2004 On fencing problems conference Theorem 2"
+        ]
+      },
+      "checked_sources": [
+        "Cañete and Segura Gomis, Bisections of centrally symmetric planar convex bodies minimizing the maximum relative diameter, arXiv:1803.00321v1 (2018), full PDF pp.1-16, in particular Definition 4.1, Figures 8 and 12, Proposition 3.1, Theorem 3.6, Section 5, https://arxiv.org/pdf/1803.00321",
+        "Miori, Peri and Segura Gomis, On fencing problems, 20th EWCG (25-26 March 2004), Theorem 2, https://www.eurocg.org/www.us.es/ewcg04/Articulos/miori.pdf",
+        "Cañete and González Merino, On the isodiametric and isominwidth inequalities for planar bisections, arXiv:1903.06461v3 (2019), Section 5 and Proposition 5.11, https://arxiv.org/pdf/1903.06461",
+        "Cañete, Miori and Segura Gomis, Trisections of a 3-rotationally symmetric planar convex body minimizing the maximum relative diameter, JMAA 418 (2014), introduction on earlier central-bisection theorem, https://doi.org/10.1016/j.jmaa.2014.04.041",
+        "Resultary semantic searches (four queries on rectangle minimax bisection, diameters, aspect ratio, and fencing) returned the assigned result itself and the regular-even-polygon/square result, plus unrelated ellipse, orthotope and 3D-cube problems; indexed assigned finding excluded as independent novelty evidence."
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "Cañete–Segura Gomis arXiv:1803.00321v1, Section 5, printed p.13/Figure 12 (PDF page index 12), explicitly says the standard bisection of every rectangle is minimizing. Definition 4.1, printed p.10, identifies the standard cut as two symmetric inradius segments, and Figure 8, printed p.11, shows the midpoint segment joining the two long horizontal edges. For rectangle width L and height H, this cuts two (L/2) by H rectangles; hence the precise published minimizer has objective sqrt((L/2)^2+H^2), exactly the submitted claimed optimum. The numerical closed form need not be printed to be mathematically covered.",
+          "The 2018 paper explicitly uses the word rectangle in Section 5 and Figure 12, directly contrary to the submitted source assessment that the full text contains no rectangle specialization.",
+          "The 2014 claim about then-unknown general optimum directions predates the 2018 rectangle statement, so it cannot override the later result."
+        ],
+        "reasoning": "Published optimality of this exact cut plus the elementary diameter formula entails the submitted all-aspect-ratio optimum. The submitted strict direction-class inequalities supply, at most, a routine equality refinement rather than a new result with meaningful independent mathematical content.",
+        "searches": [
+          "Full primary PDF arXiv:1803.00321 Section 5 literal search rectangle, and PDF pages 9,10,12 screenshots",
+          "2014 JMAA 418 introduction: optimal straight line not known in earlier generality",
+          "Miori–Peri–Segura Gomis, 2004 conference PDF, Theorem 2"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Cañete–Segura Gomis arXiv:1803.00321v1, Section 5, printed p.13/Figure 12 (PDF page index 12), explicitly says the standard bisection of every rectangle is minimizing. Definition 4.1, printed p.10, identifies the standard cut as two symmetric inradius segments, and Figure 8, printed p.11, shows the midpoint segment joining the two long horizontal edges. For rectangle width L and height H, this cuts two (L/2) by H rectangles; hence the precise published minimizer has objective sqrt((L/2)^2+H^2), exactly the submitted claimed optimum. The numerical closed form need not be printed to be mathematically covered."
+        ],
+        "reasoning": "The 2018 statement that the standard bisection is minimizing for the rectangle is an equivalent optimizer formulation for all aspect ratios; computing the maximum relative diameter of the resulting congruent half-rectangles is one Pythagorean step. This implies the exact formula even though the formula is not displayed verbatim.",
+        "searches": [
+          "arXiv:1803.00321, Definition 4.1, Figure 8, Section 5 Figure 12, minimum diameter bisection of rectangle",
+          "Resultary query: exact minimum maximum relative diameter bisection rectangle aspect ratio center cut sqrt(H^2+L^2/4)",
+          "Web query: rectangle partition into two connected sets minimum maximum Euclidean diameter"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "Resultary returned the assigned rectangle result; it was excluded as independent priority proof.",
+          "A published SCOPE regular-even-polygon record covers the square endpoint; it does not cover all non-square rectangles.",
+          "The primary 2018 Figure 12 is an exact geometric optimizer description for the complete rectangle family, stronger evidence than absence of a numeric table."
+        ],
+        "reasoning": "No numerical aspect-ratio table is needed: the precise optimizing partition is already depicted and certified in a 2018 primary source, from which every entry of such a table follows immediately.",
+        "searches": [
+          "Resultary semantic search: exact minimum maximum relative diameter bisection rectangle aspect ratio",
+          "Resultary search: rectangle partition into two connected sets minimum maximum Euclidean diameter",
+          "Resultary search: optimal bisection of rectangle maximum diameter"
+        ]
+      },
+      "rationale": "Decisive published prior implication: the 2018 primary paper already proves the very same midpoint cut is optimal for every rectangle, not just squares. The claimed exact value follows immediately from the Pythagorean diameter of either resultant half-rectangle. The present center-line uniqueness clause may not be stated verbatim there, but its strictness is a two-case elementary inequality and does not give an independently substantive discovery. Earlier self-review PASS and a mistaken old statement that the 2018 paper had no rectangle reference were not used.",
+      "residual_risks": [
+        "It is conceivable that the strict uniqueness of the optimal center-passing line is not explicitly written in the 2018 paper; it follows from immediate strict inequalities and is not assessed as an independently valuable research gap.",
+        "The 2004 JMAA journal version was not inspected in full; unnecessary for the decisive 2018 full-text prior implication.",
+        "The submission says bisections are into connected pieces; the cited theorem uses the conventional simple-arc bisection. No claim is made here about pathological decompositions outside that definition."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "COVERING",
+          "evidence": [
+            "Cañete–Segura Gomis arXiv:1803.00321v1, Section 5, printed p.13/Figure 12 (PDF page index 12), explicitly says the standard bisection of every rectangle is minimizing. Definition 4.1, printed p.10, identifies the standard cut as two symmetric inradius segments, and Figure 8, printed p.11, shows the midpoint segment joining the two long horizontal edges. For rectangle width L and height H, this cuts two (L/2) by H rectangles; hence the precise published minimizer has objective sqrt((L/2)^2+H^2), exactly the submitted claimed optimum. The numerical closed form need not be printed to be mathematically covered."
+          ],
+          "identifier_or_url": "arXiv:1803.00321v1; https://arxiv.org/pdf/1803.00321",
+          "material_read": "Full 16-page primary PDF text and screenshots of pp.5,6,10,11,13,14; Definition 2.1, Proposition 3.1 with proof, Definition 4.1, Figures 8 and 12, Theorem 3.6 and Section 5 statement that the standard rectangle cut is minimizing.",
+          "method": "Read complete PDF extracted text; locate rectangle occurrences and inspect rendered original pages and relevant theorem proofs.",
+          "title": "Bisections of centrally symmetric planar convex bodies minimizing the maximum relative diameter",
+          "trigger": "Same functional and same family; decisive previously missed rectangle specialization"
+        },
+        {
+          "assessment": "BACKGROUND_SUPPORT",
+          "evidence": [
+            "Conference Theorem 2 gives central-line reduction in equal-area setting, but the decisive full non-equal-area rectangle optimizer comes from 2018 Section 5."
+          ],
+          "identifier_or_url": "20th EWCG 2004; https://www.eurocg.org/www.us.es/ewcg04/Articulos/miori.pdf",
+          "material_read": "Conference PDF definition and Theorems 1–4, especially Theorem 2 on equal-area center-line reduction (pp.1–2); remaining journal text not claimed read.",
+          "method": "Primary open-access PDF text and rendered-page inspection of pp.1–2.",
+          "title": "On fencing problems",
+          "trigger": "Foundational bisection central-line reduction and equal-area antecedent"
+        },
+        {
+          "assessment": "CONTEXT_NOT_NEEDED_FOR_DECISIVE_COVERAGE",
+          "evidence": [
+            "Proposition 5.11 singles out a 1:2 rectangle as Behrend-bisecting position in the parallelogram family, a different affine extremal question."
+          ],
+          "identifier_or_url": "arXiv:1903.06461v3; https://arxiv.org/pdf/1903.06461",
+          "material_read": "PDF definitions pp.1–3 and Section 5, including Proposition 5.11 and proof concerning rectangles as optimally positioned parallelograms.",
+          "method": "Full primary PDF retrieved, targeted text inspection and rendered screenshot of p.2.",
+          "title": "On the isodiametric and isominwidth inequalities for planar bisections",
+          "trigger": "Later primary analysis of same max-bisecting diameter and parallelograms"
+        },
+        {
+          "assessment": "HISTORICAL_CONTEXT",
+          "evidence": [
+            "2014 article says general precise optimizer direction was then unknown; this historical remark does not negate the explicit 2018 rectangle optimality."
+          ],
+          "identifier_or_url": "JMAA 418 (2014), DOI 10.1016/j.jmaa.2014.04.041",
+          "material_read": "Publisher-hosted article introduction and discussion of earlier centrally symmetric bisections and lack of a general optimal-line characterization at that date.",
+          "method": "Primary journal HTML passage inspection.",
+          "title": "Trisections of a 3-rotationally symmetric planar convex body minimizing the maximum relative diameter",
+          "trigger": "2014 state-of-the-art assertion previously used to support alleged novelty"
+        }
+      ],
+      "status": "FAIL"
+    },
+    "value": {
+      "evidence": [
+        "arXiv:1803.00321 (2018), Definition 4.1, Figures 8/12, Section 5 explicitly verifies optimum rectangle midline.",
+        "The formula sqrt(H²+L²/4) is exactly the diagonal length of the (L/2)×H half rectangle, one step after the published result.",
+        "The equality refinements are 2At+t²>0 for t>0 and 3(A²−B²)+2Bu+u²>0 unless A=B,u=0."
+      ],
+      "limitations": [
+        "An explicit strict center-line equality classification may not have been stated in 2018, but it is not independently substantive enough to rescue this claim.",
+        "No general new theorem or classification beyond the previously known optimizer is supplied."
+      ],
+      "rationale": "The rectangle family and max-diameter invariant are natural, but the published 2018 theorem already solves the actual optimization on all rectangles: it explicitly shows that the inradius midline is minimizing (Section 5/Figure 12). Evaluating the two resulting rectangle diagonals is an immediate textbook Pythagorean calculation. The only additional detail, strict uniqueness of the center-passing direction, is two elementary positivity inequalities and is not a motivated substantial independent exact classification once the optimizer is already known. This is a failed novelty/value contribution, not a challenge to the correctness or intrinsic importance of the fencing problem.",
+      "status": "FAIL"
+    }
+  },
+  "checked_sources": [
+    "Cañete and Segura Gomis, Bisections of centrally symmetric planar convex bodies minimizing the maximum relative diameter, arXiv:1803.00321v1 (2018), full PDF pp.1-16, in particular Definition 4.1, Figures 8 and 12, Proposition 3.1, Theorem 3.6, Section 5, https://arxiv.org/pdf/1803.00321",
+    "Miori, Peri and Segura Gomis, On fencing problems, 20th EWCG (25-26 March 2004), Theorem 2, https://www.eurocg.org/www.us.es/ewcg04/Articulos/miori.pdf",
+    "Cañete and González Merino, On the isodiametric and isominwidth inequalities for planar bisections, arXiv:1903.06461v3 (2019), Section 5 and Proposition 5.11, https://arxiv.org/pdf/1903.06461",
+    "Cañete, Miori and Segura Gomis, Trisections of a 3-rotationally symmetric planar convex body minimizing the maximum relative diameter, JMAA 418 (2014), introduction on earlier central-bisection theorem, https://doi.org/10.1016/j.jmaa.2014.04.041",
+    "Resultary semantic searches (four queries on rectangle minimax bisection, diameters, aspect ratio, and fencing) returned the assigned result itself and the regular-even-polygon/square result, plus unrelated ellipse, orthotope and 3D-cube problems; indexed assigned finding excluded as independent novelty evidence."
+  ],
+  "disposition": "failed",
+  "limitations": [
+    "Original result is mathematically true but already implied by a published 2018 rectangle-specific optimal-cut statement.",
+    "No repair attempted because new certificates or a uniqueness footnote do not yield an original and valuable survivor.",
+    "Existing AUDIT.json and METADATA.json include non-public operational identifiers; repository relocation/publication requires independently verified privacy-safe intake."
+  ],
+  "residual_risks": [
+    "It is conceivable that the strict uniqueness of the optimal center-passing line is not explicitly written in the 2018 paper; it follows from immediate strict inequalities and is not assessed as an independently valuable research gap.",
+    "The 2004 JMAA journal version was not inspected in full; unnecessary for the decisive 2018 full-text prior implication.",
+    "The submission says bisections are into connected pieces; the cited theorem uses the conventional simple-arc bisection. No claim is made here about pathological decompositions outside that definition."
+  ],
+  "schema_version": 1
+}
