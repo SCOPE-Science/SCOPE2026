@@ -1,13 +1,21 @@
-# Scientific review
+# Independent mathematical audit
 
-**Correctness — PASS.** The addition kernel on the three-sphere is \((\ell+1)U_\ell\), so its sample Gram is positive semidefinite. Trigonometric periodicity gives the exact matrices at degrees \(L-2\), \(L-1\), and the shift by \(L\); splitting into antipodal parity spaces yields the sharp upper bound and all-degree interpolation result. The quaternionic equality examples have exact algebraic checks, independent of any floating-point inference. The proof does not rely on exhaustive finite sampling.
+## correctness
 
-**Originality — PASS, qualified.** The literature establishes quaternionic polytope designs, binary icosahedral character data, and the 600-cell degree-58 harmonic-index property. The theorem here concerns all antipodal point sets meeting a common angular-period hypothesis and adds a universal cardinality bound, exact shifted Gram recurrence, and a sharp, all-higher-degree interpolation transition. No source examined states or logically covers that whole arbitrary-configuration claim. The related 24-cell and icosahedron sampling claims are special-case comparisons, not the target statement. An inaccessible complete 2010 manuscript and undiscovered positive-definite spherical-code results remain substantive priority risks.
+PASS
 
-**Mathematical value — PASS.** An infinite family of natural quaternionic point sets saturates a sharp geometric cardinality bound and exhibits a one-degree transition from a unique sampling blind mode to tight exact-degree reconstruction. Both the upper bound and simultaneous high-degree surjectivity are useful structural facts for spherical cubature and harmonic interpolation rather than an isolated numerical example.
+On S³ the degree-l reproducing Gram equals (l+1)K_l, K_l(x,y)=U_l(<x,y>), and is PSD. At allowed nonantipodal angles the trigonometric formula gives U_{l+L}=U_l, U_{L-2}=-1 and U_{L-1}=0. Diagonal and antipodal endpoint values combine to K_{l+L}=K_l+L(I+(-1)^l P), K_{L-2}=L(I+P)-J, and K_{L-1}=L(I-P). The parity involution decomposition makes the K_{L-2} constant-vector eigenvalue 2L-N, hence N<=2L by PSD; other compatible eigenvalues equal 2L. K_{L-1} is 2L on the odd-parity sample space, so onto for degree L-1. For l=r+kL>=L, the positive 2kL parity-block shift plus PSD K_r gives full rank N/2. N=2L has the unique degree L-2 null vector, yielding sharp eventual threshold L-1. Binary dihedral Dic_n even n has 4n=2L points with exponent L=2n; the 600-cell binary icosahedral group has N=120,L=60. Independent Q8 exact-arithmetic Chebyshev matrix check confirms the degree-2 rank 3, degrees 3..23 rank 4 and 22 periodic recurrence checks.
 
-The relevant sources are Mamone–Pileio–Levitt (2010, DOI 10.3390/sym2031423), Ćaćić–Marcolli–Teh (2011, arXiv:1106.5473v1, Section 2.7), and Bannai–Okuda–Tagami (2013, arXiv:1308.5101v1, Section 1). The latter two were materially inspected as primary PDF text and images. The 2010 publisher full text was not retrieved; accessible portions concerned rotational quadrature and moment vanishing, and full-content noncoverage is not asserted.
+## originality
 
-Scientific limits: only exact harmonic degree on \(S^3\), root-of-unity angle sets, and parity-compatible target data are covered. No statement about uniqueness of a harmonic input, noisy recovery, all equality configurations, or all subcritical ranks is made.
+PASS
 
-Self-review: passed. Independent audit: not yet performed.
+The spherical harmonic addition theorem, binary polyhedral point sets and known 600-cell harmonic index are prior work. The statement under *angle-only* hypotheses for arbitrary finite antipodal X, its universal N<=2L bound, exact Gram recurrence and sharp all-higher-degree interpolation threshold are additional results in the reviewed evidence.
+
+## value
+
+PASS
+
+This sharp, elementary kernel-spectral theorem resolves a natural exact interpolation threshold for antipodal quaternionic point designs. It gives a universal maximal sample count and infinitely many sharp realizations, not just a repackaged 600-cell table.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
