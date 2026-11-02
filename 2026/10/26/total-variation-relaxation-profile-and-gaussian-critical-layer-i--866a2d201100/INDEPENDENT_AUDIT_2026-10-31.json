@@ -1,0 +1,118 @@
+{
+  "audit_date_utc": "2026-10-31",
+  "audited_at_utc": "2026-10-31T08:42:54Z",
+  "axes": {
+    "correctness": {
+      "rationale": "The starting density formula is explicitly credited to Britton et al.: mu_{n,t}=E[g_{min(T_n,t)}], pi_n=E[g_{T_n}], with T_n Gamma(shape n, rate r) and g_v Gaussian of variance 2Dv. After scaling to U_n= r T_n/n, the difference is E[1_{U_n>c}(g_c-g_{U_n})]. Dividing by the positive g_c leaves a strictly decreasing function of |x|, since for U_n>c the ratio g_{U_n}/g_c is strictly increasing in x^2; at zero the difference is positive and as |x| grows negative, proving exactly one positive crossing. Gamma LLN gives L1 convergence of variance mixtures to normal densities and the explicit theta<1 TV formula, while Gamma Chernoff controls theta>1. In the n+s sqrt(n) critical window, Gamma CLT and bounded second moments give sqrt(n) E(U_n-c)_+ -> phi(s)-s(1-Phi(s)); uniform L1 Taylor control of Gaussian variance derivatives yields limiting signed density -[...]*g_1' and TV coefficient (1/2)||g_1'||_1=phi(1). Independent finite numerical Gamma-mixture quadrature found the unique crossings and profile convergence at n=4,16,64, supporting but not replacing these limits.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Britton et al. derive full transient position law, from which TV is in principle computable",
+          "Alston et al. establish stationary marginal/correlations"
+        ],
+        "reasoning": "The known density formula is stronger distributional input, but deriving the exact joint n/t TV profile, Chernoff bound and O(sqrt(n)) layer coefficient requires a separate crossing proof, Gamma concentration and L1 differentiation; absence of a direct statement in accessible summaries is not enough to exclude implicit full-paper coverage.",
+        "searches": [
+          "Britton Approach to Steady-State in Nested Resetting Processes arxiv 2609.25252",
+          "Alston Britton Bertrand Nested Stochastic Resetting correlations arxiv 2502.03225",
+          "Resultary: nested resetting total variation relaxation"
+        ]
+      },
+      "checked_sources": [
+        "Britton–Le Jeune–Alston–Bressloff–Bertrand, Approach to Steady-State in Nested Resetting Processes, arXiv:2609.25252v1 (2026-09-21)",
+        "Alston–Britton–Bertrand, Nested Stochastic Resetting: Nonequilibrium Steady-states and Exact Correlations, arXiv:2502.03225",
+        "Bressloff, Accumulation Time of Stochastic Processes with Resetting, arXiv:2104.09365",
+        "Resultary searches for nested-resetting Gamma clock and total-variation limits"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "Gamma-mixture identity appears as source equation (2.10) and is explicitly credited, not claimed new",
+          "The finite-n one-crossing, TV integral, macroscopic noncutoff profile and Gaussian critical-layer limit are additional analytic deductions"
+        ],
+        "reasoning": "An explicit density formula logically determines TV in principle but does not state/automatically provide these sharp scaled asymptotics or their coefficient. If the primary paper itself performs that analysis, the claim would be covered; full text access limitation remains material.",
+        "searches": [
+          "arXiv:2609.25252 exact transient density accumulation time",
+          "arXiv:2502.03225 nested stationary correlations"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Britton et al., arXiv:2609.25252, abstract: local accumulation-time relaxation wavefront with linear delay",
+          "The original transient tagged-particle law is a Gamma-weighted Gaussian mixture, explicitly reused in the audited proof"
+        ],
+        "reasoning": "Local spatial accumulation times measure pointwise approach, whereas d_TV integrates absolute signed density differences and is controlled by a single-crossing geometry. They are mathematically distinct invariants.",
+        "searches": [
+          "Resultary: Nested resetting Brownian tagged marginal total variation Gamma clock relaxation Gaussian window",
+          "Resultary: nested resetting total variation relaxation",
+          "web: Britton Le Jeune Alston nested resetting total variation 2026"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "No matching TV-profile table in returned Resultary records",
+          "Numerical checks corroborated the claimed profile at several finite n"
+        ],
+        "reasoning": "A specialized mixing-distance table for this nested system was not identified, but any inaccessible 2026 source or unindexed model notes could contain it; no novelty inference from the failed search alone.",
+        "searches": [
+          "web: nested resetting Gamma total variation profile",
+          "Resultary: nested resetting total variation relaxation"
+        ]
+      },
+      "rationale": "Britton et al. (2026) provide the exact Gamma-mixture transient formula and local accumulation-time results, which are correctly credited. Their accessible abstract emphasizes propagation of local relaxation and heterogeneity; it does not itself assert this global tagged-marginal total-variation profile or critical Gaussian coefficient. The full plausible preprint could not be inspected by open/OA paths and authorized institutional access was blocked by disconnected VPN, so this is a qualified best-of-knowledge PASS and meaningful priority risk, not a claim that the whole source lacks the result.",
+      "residual_risks": [
+        "High-priority access risk: full original Britton et al. September 2026 preprint not read; it may implicitly or explicitly analyze total variation despite an abstract focused on accumulation time. The authorized institutional access was unavailable.",
+        "Related general normal-variance-mixture total-variation or gamma-clock cutoff theory could specialize to the result.",
+        "Only equal-rate tagged-particle marginal from all-zero initial data, not joint-chain mixing or heterogeneous rates."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Credited exact transient law. Accessible material does not explicitly claim tagged-marginal total-variation scaling; whole-document noncoverage is NOT asserted.",
+          "evidence": [
+            "Abstract states accumulation-time wavefront and heterogeneous relaxation; Full primary manuscript remained inaccessible; original abstract alone does not settle the TV issue."
+          ],
+          "identifier_or_url": "https://arxiv.org/abs/2609.25252",
+          "material_read": "Accessible arXiv abstract and bibliographic summary: equal-rate local accumulation times, propagating wavefront, heterogeneous reset rates. Equation (2.10) as quoted in the audited RESULT.md, not independently verified against full primary PDF. Full original was not successfully read.",
+          "method": "arXiv/author OA attempts; authorized institutional retrieval attempted after OA failure; returned vpn_disconnected",
+          "title": "Approach to Steady-State in Nested Resetting Processes",
+          "trigger": "same exact model and starting transient formula"
+        },
+        {
+          "assessment": "Stationary and correlation results are distinct from finite-time total-variation profile.",
+          "evidence": [
+            "The previously known stationary law is credited as input."
+          ],
+          "identifier_or_url": "https://arxiv.org/abs/2502.03225",
+          "material_read": "Accessible abstract and reported stationary marginal and correlations.",
+          "method": "arXiv publication record and abstract",
+          "title": "Nested Stochastic Resetting: Nonequilibrium Steady-states and Exact Correlations",
+          "trigger": "same nested hierarchy earlier stationary results"
+        },
+        {
+          "assessment": "Single resetting-particle accumulation-time results are different from large-index tagged-chain TV scaling.",
+          "evidence": [
+            "The observable is accumulation time, not full marginal TV distance."
+          ],
+          "identifier_or_url": "https://arxiv.org/abs/2104.09365",
+          "material_read": "Accessible title, abstract and problem description.",
+          "method": "arXiv bibliographic text",
+          "title": "Accumulation Time of Stochastic Processes with Resetting",
+          "trigger": "general local relaxation time framework"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "rationale": "The model has published stationary and transient tagged-particle distributions but the global total-variation approach is a natural strong distributional relaxation statistic not equivalent to local accumulation time. The theorem distinguishes a non-cutoff macroscopic profile from a vanishing Gaussian critical layer with exact coefficient, a useful refinement for a canonical nested reset chain.",
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "final_claim": "For tagged particle n of the equal-rate Brownian nested resetting chain from zero, the finite-time/stationary difference of position densities has a unique positive crossing. At t=theta n/r the total-variation distance tends to the explicit normal-density TV profile for theta<1 and zero for theta>=1, with a Chernoff bound for theta>1. At t=(n+s sqrt(n))/r, sqrt(n) times TV tends to phi(1)[phi(s)-s(1-Phi(s))].",
+  "limitations": [
+    "Tagged marginal only; all coordinates start at zero, same r,D>0.",
+    "Asymptotic scaling not an ordinary sharp cutoff and not uniform in all theta,s.",
+    "Full primary September 2026 preprint not read, so originality is explicitly qualified."
+  ],
+  "schema_version": 1
+}
