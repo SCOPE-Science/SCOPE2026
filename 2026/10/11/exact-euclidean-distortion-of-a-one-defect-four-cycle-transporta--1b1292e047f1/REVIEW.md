@@ -1,15 +1,15 @@
-# Mathematical review
+# Scientific scope clarification
 
-## Correctness — PASS
-The problem is defined for real Lipschitz-free spaces over the shortest-path metric on four vertices with weights \(1,1,1,t\), \(0<t\le3\). Normalized edge increments identify its dual norm with a clipped cube. Symmetrizing arbitrary Euclidean quadratic forms establishes global optimality of a permutation-invariant one-parameter form. The proof calculates exact outer and inner extrema with attained witnesses, proves the scalar monotonicities, and gives the four matching closed formulas. The packaged independent-enumeration rational test completed successfully; it is not offered in place of the continuous proof.
+The original all-parameter four-cycle distortion formula is analytically correct. However, the short-edge branch 0<t<=1 is an instance of the previously published all-dimensional theorem *Opposite parity laws for exact Hilbert distortion of one-edge weighted cycles* (n=4). The claim has therefore been substantively narrowed to 1<t<3, with only the genuinely long-edge three-regime profile and plateau asserted as the finding.
 
-## Originality — PASS, with bibliographic risk
-Godard (arXiv:0904.3178v1) treats tree free spaces, which settles the tree endpoint but not the deformed cycles. Alexander et al. (arXiv:1911.10642) identify the equal-edge cube and classify polytopal/zonoid behavior; their relevant original propositions do not give best Euclidean ellipsoids for an unequal-edge cycle. Ostrovska–Ostrovskii (arXiv:2112.02689) give a graph quotient representation and isometric results, not the sharp Euclidean distortion. Published numerical-index parity calculations for unweighted cycles address a different operator-radius invariant without an implication to the claimed formula. Direct searches also used the equivalent four-dimensional cube-hyperplane section and Banach–Mazur aliases. A historical equivalent in differently indexed polyhedral norm literature remains possible.
+## Correctness
+The revised result derives the exact clipped-cube dual norm, reduces all ellipsoid positions by S_3 averaging, computes global quadratic maxima and minima on explicit boundary strata, and minimizes their ratio by justified monotonicity and breakpoint comparisons. Independent symbolic and exact-rational checks corroborate the formulas but do not replace the continuum proof.
 
-## Value — PASS
-A complete natural one-parameter deformation of the canonical four-cycle metric has its optimal Euclidean distortion determined, including exact transition points \(1\), \(3/\sqrt5\), and \(2\) and an unexpected plateau \(5/3\). This compares two geometric endpoints (the equal-edge cube and a tree) via quantitative structure that is invisible to isometry classifications or numerical-index dichotomies. It is a classification of a natural family, not an arbitrary isolated computation.
+## Originality — best of knowledge
+The previously published shorter-edge general theorem fully covers 0<t<=1, and is expressly excluded from the surviving novelty claim. Godard's weighted-tree result covers the t=3 endpoint, Alexander–Fradelizi–García-Lirola–Zvavitch supply the finite graph quotient representation and equal-edge cube case, and Grundbacher–Kobos supply general ellipsoid extremality principles. The inspected statements do not imply the long-edge profile 1<t<3, its interior phase boundaries 3/sqrt(5), 2, or the constant 5/3 interval. A differently indexed older formula for cube sections may exist and remains a priority risk.
 
-## Scientific limits
-Only real four-cycle metrics with one distinguished weight in \(0<t\le3\) are proved. No non-symmetric ellipsoid uniqueness, multiweight classification, or complex analogue is claimed. External independent review has not been performed.
+## Mathematical value
+This is a complete exact Euclidean distortion classification for the natural long-edge deformation of the four-cycle. The nontrivial plateau and two different ellipsoid-contact transitions are structural data unavailable from its known end cases. No arbitrary four-point, complex-scalar, or larger-cycle assertion is made.
 
-Same-model review: passed. Independent audit: not yet performed.
+## Limitations
+Independent external attestation is not claimed. The relevant proof establishes existence of an optimal symmetric Hilbert form but does not classify all nonsymmetric optimal forms. Only the specified real one-parameter family is addressed. The bibliographic priority assessment remains qualified by access and indexing limitations.
