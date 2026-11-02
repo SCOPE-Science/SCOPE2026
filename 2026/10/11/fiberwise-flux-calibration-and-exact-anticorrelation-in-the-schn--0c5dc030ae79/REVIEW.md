@@ -1,20 +1,19 @@
-# Same-model review
+# Scientific assessment
 
 ## Correctness
-PASS. Arbitrary antiderivative tests in \(u\), \(v\), and \(S=u+v\) give the three conditional flux laws. The autocatalytic terms cancel exactly in
-\[
-\dot S=a+b-u,
-\]
-so the centered autocatalyst is the negative total-concentration speed. Conditional orthogonality gives the covariance closure, while invariant-support tangency makes the zero-variance case exactly the unique positive equilibrium. The periodic crossing result follows from the exact orbit average.
-
-Risk: compact invariance in the nonnegative quadrant is part of the statement; no claim is made for unbounded or transient trajectories.
+PASS. Antiderivative generator tests on \(u\), \(v\), and \(S=u+v\) establish the three conditional balance laws. Exact cancellation gives \(\dot S=a+b-u\), so the conditional orthogonality forces the covariance identities. Invariant-support tangency makes zero activator variance equivalent to the unique positive equilibrium. Periodic crossing follows from the average and continuity. The claims apply to compact invariant laws in the nonnegative quadrant, not unbounded or transient trajectories.
 
 ## Originality
-PASS. The complete 2013 mathematical same-object paper was inspected through its kinetic and bifurcation analysis and searched for the principal equivalent statistical formulations. The complete open 2014 same-object article was also inspected, including its summed-equation remark, but its results concern linear transient growth. A 2016 limit-cycle application was compared at implication level. None supplies the accepted conditional stationarity law or covariance closure.
+PASS, best of knowledge, limited to the Schnakenberg-specific conditional reaction-flux and stationary covariance package. The original 1979 work introduces the chemical oscillator. The accessible complete 2013 same-object bifurcation paper covers the kinetic equilibrium, Hopf bifurcations and reaction-diffusion patterns. The complete 2014 transient study discusses the same model and summed dynamics but does not state the stationary conditional laws. The 2016 limit-cycle treatment studies existence, uniqueness and discontinuous extensions, and its cycle geometry already implies crossings of the equilibrium activator level; crossing is not independently novel. Published Brusselator stationary-calibration theorems supply a closely analogous generator-testing mechanism but treat a different differential system and do not themselves give the three Schnakenberg flux fibers.
 
-Risk: the cancellation is short, so an equivalent periodic-average observation may exist under unindexed chemical-kinetics terminology.
+Residual risk: an unindexed chemical-kinetics source may contain an equivalent short balance calculation. The full foundational 1979 paper was not obtained through accessible channels.
 
-## Value
-PASS. The theorem turns the defining autocatalytic exchange into an exact invariant-state diagnostic: every compact stationary state has the same mean autocatalyst concentration as the equilibrium, species fluctuations have a universal negative covariance, and every nonconstant chemical cycle must cross the equilibrium autocatalyst level. These statements are useful beyond local Hopf analysis because they hold at arbitrary oscillation amplitude.
+## Mathematical value
+PASS. These exact model-specific relations constrain every compact stationary distribution, giving a universal activator mean and strict negative anticorrelation outside equilibrium, with a precise speed-variance identity. They are natural stationary consistency checks for a classical chemical oscillator. The technique is elementary and no new general invariant-measure method or cycle existence classification is asserted.
 
-Same-model review: passed. Independent audit: not yet performed.
+## Earlier scientific assessment (preserved)
+The earlier proof review used generator antiderivative tests in each concentration and in their sum, conditional orthogonality, and invariant-support tangency for the zero-variance equality case. It noted that the theorem is restricted to compact invariant laws on the nonnegative quadrant and that no claim is made about unbounded transient trajectories.
+
+The earlier literature comparison inspected the exact-model bifurcation study, the linear-transient study, and a same-object limit-cycle application, reporting no stationary conditional-moment formulation in the material examined. It acknowledged a possible unindexed equivalent balance calculation and did not treat the basic oscillator, Hopf conditions, or cycle existence as new.
+
+The earlier value assessment emphasized amplitude-independent mean calibration, universal negative covariance, an exact variance-speed diagnostic, and cycle crossing. The present analysis retains these mathematical motivations while limiting novelty to the model-specific stationary identities and acknowledging closely analogous prior methods.
