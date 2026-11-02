@@ -1,0 +1,129 @@
+{
+  "correctness": {
+    "rationale": "The stable causal representation and stationary generator give the exact covariance. At \\(q=\\beta\\), the oscillatory-amplitude ratio is \\(R_{\\beta}=\\sqrt{1+3\\beta^2/\\omega_0^2}/2<1\\); a positive input-covariance convolution extends strict positivity to slower switching. A positive impulse response covers overdamped dynamics, while a nonzero sinusoid dominates when \\(q>\\beta\\). The first-negative-lag limit follows from bounds differing by at most one oscillator period. The exact witness is elementary; standalone finite testing passed 2015 diagnostics. The analytical argument, not these diagnostics, establishes the infinite assertions.",
+    "status": "PASS"
+  },
+  "independent": false,
+  "independent_audit_status": "not_performed",
+  "originality": {
+    "broader_coverage": {
+      "evidence": [
+        "arXiv:2406.06120v2 derives general impulse response and equal-time moments for the precise inertial model.",
+        "arXiv:2012.02900, model section and Appendix F, derives two-time position correlations for a first-order overdamped run-and-tumble equation.",
+        "published-finding corpus 2026/10/4/SCOPE-sampling-lag-reversal-of-inertial-autocorrelation-near-a-saddle--d60d72986906 compares inertial and variance-matched first-order autocorrelations near a saddle; its cited summary mentions underdamped negative bands for another forcing model."
+      ],
+      "reasoning": "The motivating paper supplies a necessary calculation route, but not a universal all-lag sign characterization or sharp delayed-onset law. The first-order paper does not contain the inertial complex-mode/colored-force competition. The closest published-finding corpus comparison requires a different oscillator and compares two models, so it is neither equivalent nor stronger in this parameter family.",
+      "searches": [
+        "Run tumble inertial harmonic trap exactly sign-changing stationary lag covariance iff switching rate exceeds damping rate; divergent first negative lag and logarithmic boundary",
+        "harmonic oscillator driven Ornstein Uhlenbeck noise autocorrelation positive for noise relaxation slower than oscillator damping oscillates threshold",
+        "site:arxiv.org \"damped oscillator\" \"telegraph noise\" \"autocorrelation\" switching"
+      ]
+    },
+    "checked_sources": [
+      "arXiv:2406.06120v1 first public date and v2 relevant full text",
+      "arXiv:2012.02900 full-text model and Appendix F",
+      "Phys. Rev. A 37 (1988) 3058 abstract",
+      "published-finding corpus 2026/10/4/SCOPE-sampling-lag-reversal-of-inertial-autocorrelation-near-a-saddle--d60d72986906 search summary",
+      "published-finding corpus 2026/10/11/SCOPE-single-reversal-sampling-boundary-and-spectral-edge-law-for-hidd--8e92b385e07a search summary",
+      "Related prior scientific finding on inertial fourth cumulants: 8126e2ff-3632-4c4a-8da4-3c8c219013f7"
+    ],
+    "claim_vs_prior_implication": {
+      "evidence": [
+        "arXiv:2406.06120v2, Sec. III gives same-time second moments while App. A supplies h(t); Appendix B computes nonstationary equal-time moments, not C(t)=E[X_t X_0] at stationarity.",
+        "arXiv:2012.02900 Appendix F contains an overdamped first-order two-time formula with no inertial beta versus natural frequency distinction.",
+        "published-finding corpus 2026/10/11/SCOPE-single-reversal-sampling-boundary-and-spectral-edge-law-for-hidd--8e92b385e07a concerns a hidden critical OU mode with nuisance relaxation rates, not an exponentially colored *driving force* acting through an inertial oscillator."
+      ],
+      "reasoning": "Although a trained reader can combine the published Green function with the telegraph covariance to derive the forward stationary C(t), the strict positivity for all q<=beta, infinite sign bands for q>beta, and sharp first-negative-lag asymptotic require additional sign and phase arguments. No located comparator has hypotheses implying this full dichotomy and delay law.",
+      "searches": [
+        "Sharp positivity and negativity of stationary position autocorrelation for a damped harmonic oscillator driven by exponential correlated telegraph or Ornstein Uhlenbeck colored noise, critical equality of forcing decay and damping",
+        "Run tumble inertial harmonic trap exactly sign-changing stationary lag covariance iff switching rate exceeds damping rate; divergent first negative lag and logarithmic boundary",
+        "arxiv Run-and-tumble motion in a harmonic potential field theory entropy production 2021 Garcia Millan Pruessner arxiv"
+      ]
+    },
+    "equivalent_formulations": {
+      "evidence": [
+        "The theorem is invariant under the standard transfer-function equivalence between a symmetric telegraph force and a centered OU force with the same exponential covariance at the level of two-time second moments.",
+        "arXiv:2406.06120v2, Sec. II and App. A describe the impulse response; arXiv:2012.02900 Appendix F describes a first-order, not inertial, two-time process."
+      ],
+      "reasoning": "Renaming the telegraph process as exponentially correlated colored or Ornstein-Uhlenbeck forcing does not change the criterion; comparisons used the stationary lag covariance and the first-negative-lag limit, not titles. No direct equivalent threshold was found in the checked primary material or returned database summaries.",
+      "searches": [
+        "Sharp positivity and negativity of stationary position autocorrelation for a damped harmonic oscillator driven by exponential correlated telegraph or Ornstein Uhlenbeck colored noise, critical equality of forcing decay and damping",
+        "\"telegraph noise\" \"harmonic oscillator\" \"autocorrelation\" \"negative\" underdamped",
+        "\"colored noise\" \"damped harmonic oscillator\" correlation negative critical rate"
+      ]
+    },
+    "exact_database_or_table": {
+      "evidence": [
+        "No exact criterion or first-negative-lag coefficient was returned in the checked published-finding corpus search hits for source identifier, mathematical aliases, and parameters.",
+        "Accessible prior research records contains a fourth-cumulant sign-frontier result on the same inertial telegraph model, distinct from unequal-time position autocovariance."
+      ],
+      "reasoning": "The claim is a continuous-parameter theorem rather than a lookup-table invariant. Search absence alone is not novelty proof; the closest specific source and database statements were compared by logical implication.",
+      "searches": [
+        "arXiv:2406.06120 harmonically trapped inertial run and tumble particle position autocovariance at different times and negative lags",
+        "\"2406.06120\" run tumble harmonic particle stationary lag correlation zero crossing",
+        "Stationary random harmonic oscillator negative correlation crossing colored noise damping spectral pole threshold"
+      ]
+    },
+    "rationale": "The reviewed motivating paper computes stationary and transient equal-time moments and oscillator impulse response, not the sign classification of stationary unequal-time covariance or the logarithmic amplitude constant governing the first negative lag. Overdamped two-time formulas and different-model database results do not imply the stated underdamped colored-noise boundary. No directly covering published result was identified; priority risk from general spectral-filter literature remains.",
+    "residual_risks": [
+      "Classical generalized-Langevin/OU spectral filtering results may already give an equivalent parameter-wide time-lag positivity criterion.",
+      "The 1988 analog-simulation paper and the closest mathematical-record full text were not materially inspected; neither abstract/summary contains decisive coverage, but priority remains uncertain.",
+      "A published general sign-variation theorem for rational spectral densities could imply the statement without naming run-and-tumble particles."
+    ],
+    "source_inspections": [
+      {
+        "assessment": "Provides the model, Green function, stationary variance and nonstationary equal-time second moments. No all-lag stationary position-sign threshold or first-negative-lag asymptotic identified in inspected material.",
+        "evidence": [
+          "arXiv:2406.06120v2, Sec. II model, Sec. III Eqs. (31)–(39), Appendix A Eqs. (74)–(79), Appendix B Eqs. (80)–(90)."
+        ],
+        "identifier_or_url": "https://arxiv.org/html/2406.06120v2",
+        "material_read": "Main model and moments, Secs. II–III; Green function and stationary moment appendices A–B; section headings and stated scope.",
+        "method": "Read accessible HTML full text and compared stationary time-lag covariance against equal-time stationary and time-dependent moment formulas.",
+        "title": "Harmonically trapped inertial run-and-tumble particle in one dimension",
+        "trigger": "Exact same inertial telegraph oscillator; plausible prior coverage of lag covariance."
+      },
+      {
+        "assessment": "First-order drift-diffusion with a harmonic trap and thermal noise, not the inertial second-order oscillator or the critical switching-versus-amplitude-damping sign boundary.",
+        "evidence": [
+          "arXiv:2012.02900 model Eqs. (1)–(3), Appendix F on two-time correlation."
+        ],
+        "identifier_or_url": "https://arxiv.org/abs/2012.02900",
+        "material_read": "Model equations, discussion, and Appendix F on two-time position correlations.",
+        "method": "Read full text surfaced by the arXiv textual rendering and checked whether its dynamics include inertia.",
+        "title": "Run-and-tumble motion: field theory and entropy production",
+        "trigger": "Same telegraph-orientation ingredient and expressly derived two-time correlations."
+      },
+      {
+        "assessment": "Abstract addresses analog simulation and spectral density versus color time, not an express lag-covariance positivity theorem. Full-text coverage remains an identified priority risk.",
+        "evidence": [
+          "Phys. Rev. A 37, 3058 (1988), published abstract."
+        ],
+        "identifier_or_url": "https://doi.org/10.1103/PhysRevA.37.3058",
+        "material_read": "Publicly accessible abstract and publication metadata only; primary body not materially inspected.",
+        "method": "Compared abstract scope and observable with claimed all-time-lag sign and boundary.",
+        "title": "Analog simulation of underdamped stochastic systems driven by colored noise: Spectral densities",
+        "trigger": "Underdamped colored-noise spectral literature could dominate a transfer-function claim."
+      },
+      {
+        "assessment": "A variance-matched comparator near a saddle differs from stationary telegraph-filtered harmonic confinement. No direct statement of the present threshold appears in summary; unresolved full-document priority risk retained.",
+        "evidence": [
+          "published-finding corpus record 2026/10/4/SCOPE-sampling-lag-reversal-of-inertial-autocorrelation-near-a-saddle--d60d72986906 search summary."
+        ],
+        "identifier_or_url": "https://github.com/Resultary/2026/tree/main/2026/10/4/SCOPE-sampling-lag-reversal-of-inertial-autocorrelation-near-a-saddle--d60d72986906",
+        "material_read": "Published search summary only; linked full detail could not be retrieved.",
+        "method": "Compared stated summary hypotheses and outcomes; did not infer full-document noncoverage.",
+        "title": "Sampling-lag reversal of inertial autocorrelation near a saddle node",
+        "trigger": "Top semantic mathematical-record comparison, sharing inertial autocorrelation and negative lag bands."
+      }
+    ],
+    "status": "PASS"
+  },
+  "review_type": "self_review",
+  "schema_version": 1,
+  "scope_run_id": "2206b2b3-598e-4739-a688-65f2ae75ec3a",
+  "self_review_status": "passed",
+  "value": {
+    "rationale": "The criterion separates inertia and active-memory timescales in a natural stationary time-lag observable: negative position correlation requires both underdamping and propulsion decay \\(q>\\beta\\), with a stiffness-independent switching threshold and an exact first-negative-lag divergence law. These are motivated, structural parameter-wide statements, not arbitrary finite slices or known-table recomputation.",
+    "status": "PASS"
+  }
+}
