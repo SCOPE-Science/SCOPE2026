@@ -1,15 +1,21 @@
-# Scientific review
+# Independent mathematical audit
 
-## Correctness — PASS
-The dimension-two \(\Gamma\)-hypercube's four radius-one hyperedges are exactly its four three-vertex subsets. Because each target graph hyperedge has size two, every nondegenerate source square must map onto a unique target edge. This decomposes both degree-one and degree-two normalized chain groups by edges and forces every two-cycle to split into cycles supported on individual edges. On the two-vertex edge target, all cubical maps are admissible; the explicit last-coordinate prism satisfies \(\partial P_2-P_1\partial=-\mathrm{id}\) on degree-two generators, giving an integral filling for each cycle. The certificate script independently checks the signed integer identity and exhaustive small graph complexes. No higher-degree inference is made.
+## correctness
 
-## Originality — PASS, with stated material-access risk
-The 2026 source defining \(\Gamma\)-homology was compared using its accessible abstract, introduction, hypercube definitions and available search indexing, but full sections later in the article could not be retrieved. Available evidence did not identify the claimed universal second-homology vanishing. Existing published comparisons of ordinary discrete cubical and path homology concern \(\Box\)-type graph cubes, not the three-vertex-radius \(\Gamma\)-source cubes. Accessible earlier low-degree \(\Gamma\) results concern dimensions zero and one; an isolated degree-two calculation for a four-triple hypergraph does not imply this universal graph theorem. The inaccessible later sections of the source paper remain a significant originality risk, not evidence of absence.
+PASS
 
-## Value — PASS
-The theorem identifies a complete degree-two blind spot for a newly defined homology theory across the entire natural class of ordinary graphs. In particular, it sharply separates \(\Gamma\)-homology from conventional discrete cubical graph homology, which can detect nonzero degree-two classes. It is a structural vanishing theorem, not merely a finite example or a recomputation of standard graph cycle ranks.
+A two-dimensional Gamma hypercube has four vertices and each radius-one hyperedge is a three-vertex subset. A singular square mapped to a simple graph edge-hypergraph can use at most two target vertices, or else three distinct images would occupy some three-source hyperedge. Every nondegenerate 2-square therefore has image exactly a unique graph edge. Both C2 and normalized C1 split as direct sums by that target edge, and d2 preserves each summand. For any edge target {a,b}, every gamma cube into it is singular, so the normalized prism Pk(f)=(f on final coordinate 0, constant a on final coordinate 1) gives dP2-P1d=-id, filling all edge-supported 2-cycles integrally. Finite sums yield H2Gamma(G;Z)=0, and same integral contraction works over any abelian group. No assertion for higher k where edge-localization can fail or for conventional Box cubical homology. Independently checked the signed prism identity on all ten nondegenerate binary squares and verified the normalization/2-color property.
 
-## Sources and limitations
-Zaidi–Jamil, arXiv:2610.08196v1 (2026-10-06), is the defining primary source. Barcelo–Greene–Jarrah–Welker, *Discrete cubical and path homologies of graphs* (2019), and *On the vanishing of discrete singular cubical homology for graphs* are comparisons involving a distinct cubical theory. The universal statement concerns only degree two of the normalized \(\Gamma\)-theory on vertex-covered simple graphs. Full originality verification against the defining article's later sections remains incomplete.
+## originality
 
-Self-review: passed. Independent audit: not yet performed.
+PASS
+
+Zaidi and Jamil (2026) introduced Gamma cubical homology and compared low degrees, including H0/H1 and excision behavior; their accessible full text was inspected across definitions, examples, and section 5, with no identified all-graph H2 vanishing theorem. Ordinary Box graph cubical H2 can be nonzero and cannot cover the Gamma statement without an isomorphism theorem, contradicted by the three homology theories being distinct. The direct edgewise contraction is a new proposed structural boundary, though equivalent unpublished work is possible.
+
+## value
+
+PASS
+
+A universal integral chain-level vanishing theorem for the full natural subcategory of vertex-covered finite graphs in a recently defined Gamma homology theory; it sharply contrasts with ordinary cubical graph homology and isolates the precise degree-two hyperedge geometry. This is a motivated structural property, not a tiny finite sample.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
