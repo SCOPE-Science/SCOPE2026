@@ -1,19 +1,21 @@
-# Self-review
+# Independent mathematical audit
 
-## Correctness — PASS
+## correctness
 
-The exact ball averages on a complete bipartite graph reduce to three scalar candidates. After an absolute-value reduction, split by the order of the two part means. One part becomes a common one-Lipschitz truncation, and the other has an explicitly bounded nonnegative correction. Summing the edge error and using Jensen proves the upper estimate for **all** real inputs. A point mass at a vertex in the smaller part gives the lower estimate. Their gap is precisely \((2(a+b)-1)/((a+1)(a+b))\), implying the uniform sharp two-population asymptotic. The rational checker confirmed intermediate inequalities on many small cases; this is ancillary to the full proof.
+PASS
 
-## Originality — PASS, conditional on available primary literature
+At every 2<=a<=b, the three ball averages are exactly max{x_i,(x_i+b beta)/(b+1),mu} and max{y_j,(y_j+a alpha)/(a+1),mu}. Passing to |f| preserves its maximal function and decreases total edge variation. In the alpha>=beta case, the first half is the one-Lipschitz truncation T(t)=max(t,mu); the second has nonnegative excess <=ab[(alpha-beta)]/((a+1)(a+b)). Thus the summed cross-edge error is bounded by ab times that excess and Var(f)>=ab|alpha-beta| by Jensen. The opposite case swaps sides. A point mass on a vertex of the smaller part gives the exact lower expression 2-3/(a+1)-(a-1)/(a+b); the upper-lower difference is (2(a+b)-1)/((a+1)(a+b)). Squeezing proves C_ab=2-a/(a+b)+O(1/a) uniformly b>=a, sup 2 not attained. Explicit check K4,4 gives 41/40. All boundaries a=2 and unbalanced sequences are included; no claim that finite-size bounds coincide. Independently checked point-mass algebra and analytic inequalities; inspected the exact rational checker check.py (Git blob 53918310c0a9b2177fa57df1a2e6fe45a846dbae), but its finite tests are only corroboration.
 
-The older discrete variation program on the integer line (arXiv:1005.3030) and graph maximal \(\ell^p\) norm theory (arXiv:1410.6204) do not state the present invariant on bicliques. Relevant finite-graph variation work arXiv:2005.03146, arXiv:2011.02630 and arXiv:2603.12462 establishes sharp results for complete graphs, stars or small finite graphs, and that variation constants on arbitrary graphs can be unbounded. Those do not imply the uniform sharp bounded asymptotic on bicliques. The full Liu–Xue (2021) source on graph variation was inaccessible, so possible prior coverage remains a genuine priority risk and no historical uniqueness is certified.
+## originality
 
-## Value — PASS
+PASS
 
-The result supplies a structural dimension-uniform variation estimate plus matching asymptotic lower bounds on a natural two-community family. The asymptotic law interpolates between \(3/2\) (balanced) and \(2\) (strongly imbalanced), while the finite \(K_{4,4}\) point mass expands edge variation by \(41/40\). These consequences go beyond finite enumeration and bear directly on nonlinear maximal-operator BV stability on networks.
+The full joint large-biclique variation constant is not stated in the examined graph maximal-operator literature. González-Riquelme–Madrid obtain sharp variation on complete and star graphs; González-Riquelme–Kovač–Madrid construct generic unbounded graph examples, which neither dominate nor imply these bounds for K_a,b. The highly relevant Liu–Xue 2021 article concerns bounded p-variation norms on finite graphs and remains incompletely inspected, so it is an explicit priority risk rather than a false noncoverage conclusion. Best-of-knowledge PASS for the exact finite bracket and uniform joint asymptotic, not a universal graph theorem.
 
-## Limits
+## value
 
-No exact finite-size optimum is asserted. The asymptotic requires both part sizes to diverge, and the available historical comparison is nonexhaustive because one closely related source could not be read in full. No external validation has occurred.
+PASS
 
-Self-review: passed. Independent audit: not yet performed.
+Centered graph maximal variation is a natural stability invariant; a complete bipartite graph models a substantial two-community geometry not covered by complete graphs or stars. The limiting constant ranges rigorously from 3/2 to 2 as relative part sizes vary, and K4,4 already amplifies variation; the sharp uniform asymptotic is information a researcher could need. The unresolved finite-size exact optimum does not negate the meaningful joint limit.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
