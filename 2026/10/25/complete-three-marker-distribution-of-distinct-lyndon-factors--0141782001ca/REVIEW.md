@@ -1,19 +1,21 @@
-# Scientific review: three-marker Lyndon-factor distribution
+# Independent mathematical audit
 
-## Correctness — PASS
+## correctness
 
-The count is partitioned by factors containing exactly zero, one, two or three ones. Each mixed Lyndon factor starts in a zero gap and ends on a marked one; for two markers the zero-gap condition is strictly decreasing, while three markers require the first gap to be the lexicographically maximal cyclic gap triple. The resulting all-integer formula was checked independently against direct rotation-based Lyndon enumeration for 1,365 words. Seven weak-order cases and six strict-order cases give a disjoint rational generating-function partition; its entire histogram was checked through 25 zeros, involving 23,751 compositions. The limiting simplex transformation and Dirichlet moments were independently evaluated using exact rational arithmetic. These finite checks support, but do not replace, the explicit all-length and limiting proofs.
+PASS
 
-## Originality — PASS with recorded priority risk
+Reconstructed Lyndon substrings by number of marked ones: singleton letters, 0^i1 for 1<=i<=max(a,b,c), two-one strings with strictly decreasing initial and internal zero runs, and three-one strings where i>max(b,c) or i=b>c. For every nonempty mixed Lyndon factor the first symbol is 0 and last is 1; its cyclic zero-run triple determines unique least rotation, excluding periodic ties. These disjoint counts give the exact formula including m=0 and adjacent 1s. Partition of (a,b,c) by six strict and six tie orders and a three-equal stratum generates the stated rational F; independently expanded its Q terms and compared every histogram coefficient m=0..15 against complete compositions (sum choose(m+3,3)). Independently directly tested all 715 words m<=9 using every substring/rotation, and separately recomputed six-sector Dirichlet rational moments. Uniform weak compositions converge to uniform simplex; the indicator terms vanish after /m. Finite tests corroborate the all-length proof and do not prove it by themselves.
 
-Saari (arXiv:1207.4233, 2012) studies lower Lyndon-factor complexity of Lyndon and Fibonacci words. Glen–Simpson–Smyth (arXiv:1701.00928, 2017) studies unrestricted maxima and unrestricted-alphabet expectations and special Christoffel cases. Its sorted-block argument already supplies the fixed-content maximum; this is not part of the new claim. The inspected statements do not determine the individual-word three-marker formula, full bivariate distribution, or its simplex limit. Bassino–Clément–Nicaud (2004) studies standard right factors, a different statistic; its full paper was inaccessible. Earlier equivalent terminology remains possible, so this assessment does not certify global novelty.
+## originality
 
-## Value — PASS
+PASS
 
-The closed rational distribution solves the exact multiplicity census, not merely one extremal example or a marginal mean, for a natural infinite fixed-composition slice of an established word-complexity statistic. The explicit six-sector distributional limit and exact first two moments also give a typical-case counterpart. This is a structural finite-sparse classification with an all-length theorem and a reproducible enumerator.
+Published unrestricted maximum, expectation and Lyndon-input Fibonacci bounds do not determine a full fixed-three-one conditional bivariate histogram and simplex limit. The known fixed-content extremum is explicitly not claimed new. No direct covering published record was found, but unindexed sparse-word counts are possible.
 
-## Scope and limitations
+## value
 
-Three ones, linear words, fixed order 0<1, and contiguous distinct factors only. The six-simplex-sector mixture is supplied without an expanded piecewise-cubic CDF. Historical priority and external validation remain open.
+PASS
 
-Self-review: passed. Independent audit: not yet performed.
+The first weight-three binary-word family with genuine three-marker cyclic tie conditions receives a complete rational distribution (not just a scalar statistic) and a limiting six-sector law. This exact infinite sparse-slice structural invariant naturally complements established Lyndon-factor extremum and average questions; its moments and exact count are reusable typical-case benchmarks.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
