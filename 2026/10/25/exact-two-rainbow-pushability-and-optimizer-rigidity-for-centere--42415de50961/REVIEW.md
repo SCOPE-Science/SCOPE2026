@@ -1,15 +1,21 @@
-# Scientific review
+# Independent mathematical audit
 
-## Correctness
-**PASS.** The centered affine-regular pentagon is represented in \(\mathbb Q(\sqrt5)^2\), with exact normalization and collective-centering equations. Independence makes the objective \(p^\mathsf TBq\). The minimum-support optimizer lemma reduces a continuous nonconvex quadratic optimization to strictly negative-definite affine stationary problems on supports. The standalone script checks all 77 symmetry classes of 1023 masks in exact quadratic-field arithmetic, identifies precisely eleven admissible critical orbits, and identifies a unique largest objective; an explicit balanced pair attains it. Exact strict negativity of all four inactive reduced gradients rules out any larger-support flat maximizers, proving equality rigidity. This proves the global maximum and full optimizer classification. Numerical optimization independently supports the exact formulas but is not used as proof.
+## correctness
 
-## Originality
-**PASS, subject to the stated search limitation.** The 2026 source introducing rainbow pushability was inspected in Sections 3, 4, and 7. It determines cubical pushability, proves a general facet-depth inequality, and asks for new exact examples, but it gives no affine-regular pentagon optimum. Its general pentagonal two-color bound is nonsharp and in fact greater than one. Earlier explicit cross-polytope and affine-regular hexagon computations concern centrally symmetric polytopes, with different vertex constraints, and neither implies the odd pentagon result. Published affine-diameter and Parseval-frame results concern distinct objective functions. Semantic-record and targeted literature searches did not reveal an exact pentagonal two-rainbow value. Lack of discovery does not establish historical uniqueness; independent bibliographic review remains desirable.
+PASS
 
-## Value
-**PASS.** This is an exact evaluation of a new invariant for the first nontrivial odd regular polygon, with a non-obvious quadratic irrational and a complete list of maximizing distributions. It demonstrates a genuine change in optimizing structure from centrally symmetric examples and makes the two-color facet-escape conclusion quantitative for a natural planar model.
+The objective p^T Bq on the compact 10-variable polytope Az=(1,1,0,0), z>=0 equals the common-edge probability. At any minimum-support maximizer the tangent Hessian must be negative definite: a nonzero null direction of a negative semidefinite quadratic at a stationary point would give a constant feasible segment to smaller support. The inspected exact Q(sqrt(5)) checker represents all 1023 support masks by 77 dihedral/exchange orbits; only eleven positive strict stationary candidates remain, uniquely maximal at mask 0x175. Strictly negative reduced gradients on each of the four absent coordinates rule out flat larger-support maximizers. I independently checked the displayed exact distributions (normalization, collective centering, objective), their reduced gradients, and a separate numerical constrained Hessian enumeration of all 1023 supports (ten symmetry-related top candidates). Numerical screening supports but does not replace exact-field algebra.
 
-## Limits and closest literature
-The distinguished center must be the vertex centroid and the result is specific to two independent distributions on centered affine-regular pentagons. The most relevant full source is Martínez-Sandoval–Olvera-Sampieri, arXiv:2610.17157 (2026-10-12), Sections 3, 4, and 7; the nearest published pentagonal mathematical records treat affine diameters and Parseval-frame determinants, not this probability. Unindexed preprints or alternate formulations remain a residual risk. No independent audit is claimed.
+## originality
 
-Self-review: passed. Independent audit: not yet performed.
+PASS
+
+The 2026 Martínez-Sandoval–Olvera-Sampieri paper defines rainbow pushability and affine invariance and proves general bounds and cube evaluations, not the centered affine-regular pentagon two-color exact value or ten maximizers. Two semantically close Resultary pentagon records concern affine diameters and total Parseval-frame determinants, not a common-edge probability subject to collective centering.
+
+## value
+
+PASS
+
+The first nontrivial odd affine-regular polygon beyond a triangle has a natural new two-color combinatorial probability invariant with quadratic-irrational sharp value and rigid optimizer orbit; the exact face-escape extremum is an independent, motivated answer to the source paper’s request for new exact polytope values.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

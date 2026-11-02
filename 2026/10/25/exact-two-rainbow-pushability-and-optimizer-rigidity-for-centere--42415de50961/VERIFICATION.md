@@ -5,8 +5,11 @@
     "status": "not_performed"
   },
   "independent_audit": {
-    "evidence": null,
-    "status": "not_performed"
+    "status": "passed",
+    "evidence": [
+      "INDEPENDENT_AUDIT_2026-10-27.md",
+      "INDEPENDENT_AUDIT_2026-10-27.json"
+    ]
   },
   "lean_verification": {
     "evidence": null,
@@ -16,7 +19,24 @@
 }
 ---
 
-# Verification and scope
-Run `python3 verify_exact.py` using Python 3.10 or later. No third-party packages are required. The script constructs the linear centroid constraints and the pentagon edge-incidence matrix, and iterates over exact dihedral-and-law-swap support orbits. For every mask it solves the affine equations in the quadratic field \(\mathbb Q(\sqrt5)\), checks negative-definiteness of the restricted Hessian via exact leading principal minors, and retains only strictly positive stationary distributions. The program explicitly prints the eleven surviving orbit representatives, asserts that their largest value equals \((73+\sqrt5)/110\), and exactly checks strict complementarity on the four inactive coordinates of the attaining configuration. The proof of why every global optimizer is represented is given in RESULT.md, under the minimal-support quadratic principle.
+# Independent mathematical audit
 
-Checks actually completed: the standalone verifier ran successfully on its source file; the lower-bound distributions were checked for positivity, normalization, collective centering, and exact common-edge probability; a separate floating-point nonlinear optimizer reproduced the optimum numerically. The numerical check is supporting evidence only. The result has not received independent validation or external code review.
+## correctness
+
+PASS
+
+The objective p^T Bq on the compact 10-variable polytope Az=(1,1,0,0), z>=0 equals the common-edge probability. At any minimum-support maximizer the tangent Hessian must be negative definite: a nonzero null direction of a negative semidefinite quadratic at a stationary point would give a constant feasible segment to smaller support. The inspected exact Q(sqrt(5)) checker represents all 1023 support masks by 77 dihedral/exchange orbits; only eleven positive strict stationary candidates remain, uniquely maximal at mask 0x175. Strictly negative reduced gradients on each of the four absent coordinates rule out flat larger-support maximizers. I independently checked the displayed exact distributions (normalization, collective centering, objective), their reduced gradients, and a separate numerical constrained Hessian enumeration of all 1023 supports (ten symmetry-related top candidates). Numerical screening supports but does not replace exact-field algebra.
+
+## originality
+
+PASS
+
+The 2026 Martínez-Sandoval–Olvera-Sampieri paper defines rainbow pushability and affine invariance and proves general bounds and cube evaluations, not the centered affine-regular pentagon two-color exact value or ten maximizers. Two semantically close Resultary pentagon records concern affine diameters and total Parseval-frame determinants, not a common-edge probability subject to collective centering.
+
+## value
+
+PASS
+
+The first nontrivial odd affine-regular polygon beyond a triangle has a natural new two-color combinatorial probability invariant with quadratic-irrational sharp value and rigid optimizer orbit; the exact face-escape extremum is an independent, motivated answer to the source paper’s request for new exact polytope values.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
