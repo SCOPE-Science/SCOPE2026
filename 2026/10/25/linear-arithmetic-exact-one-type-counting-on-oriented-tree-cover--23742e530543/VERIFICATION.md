@@ -5,8 +5,11 @@
     "status": "not_performed"
   },
   "independent_audit": {
-    "evidence": null,
-    "status": "not_performed"
+    "status": "passed",
+    "evidence": [
+      "INDEPENDENT_AUDIT_2026-10-29.md",
+      "INDEPENDENT_AUDIT_2026-10-29.json"
+    ]
   },
   "lean_verification": {
     "evidence": null,
@@ -16,8 +19,24 @@
 }
 ---
 
-The proof uses a uniqueness lemma for the branching point of an antichain's common lower bounds in a directed tree. The lemma is proved in RESULT.md by uniqueness of undirected paths. For each \(v\), \(D_v\) and \(U_v\) count ideals and filters in directed principal subtrees, and \(J(P)\) is computed by an independent two-state ideal dynamic program on the undirected tree.
+# Independent mathematical audit
 
-The standard-library-only file `verify_tree_posets.py` independently enumerates all three-way labels for a new point, checks cover monotonicity and cross-relations via reachability, and compares its count with the formula. Reproduction command: `python verify_tree_posets.py`. Expected final line: `ALL_TESTS_PASS`.
+## correctness
 
-A successful run checked 43,614 exhaustive oriented labeled tree configurations through six vertices, 480 larger randomized configurations, and six named examples. The exact stdout is saved as `verification_output.txt`. None of the finite checks are offered as proof of the infinite family. Completeness of prior-literature coverage and publication priority remain unverified; the 1980 insertion-position paper was available only at abstract level.
+PASS
+
+Every new nonalgebraic 1-type in the countable homogeneous random poset is an admissible ideal/filter pair (L,U) with all l<u. The identity counts separately L empty and U empty as 2J(P)-1. If min(U)={v}, every nonempty ideal L lies in P_<v and contributes D_v-2. For multiple minimal upper vertices with some common lower bound, the orientation of an undirected cover tree forces a unique final common branching ancestor v, with common lower set P_<=v; upper filters using at least two distinct upper-cover branches are counted by B_v=U_v-2-sum_{v<.w}(U_w-1), giving (D_v-1)B_v admissible nonempty lower ideals. Every profile belongs to exactly one class. Directed cover subtrees have disjoint branches, proving D_v=1+prod lower D_w and U_v=1+prod upper U_w. Two-state tree DP counts ideals J(P) in O(n) arithmetic operations of O(n)-bit integers. Independent brute enumeration of all 2143 labeled oriented tree-poset cases on <=5 vertices compared every admissible one-point relation with the formula; N-poset count 20. This bounded test corroborates but does not replace the unique-branching proof.
+
+## originality
+
+PASS
+
+One-point extension types as compatible down/up sets are classical and expressly established by the earlier published general random-poset #P-completeness result. That stronger general counting-hardness theorem does not supply a linear algorithm on directed cover trees. The specific product recurrences and unique branching-ancestor contribution are a uniform structural solution for arbitrary orientations, including an N-poset outside series-parallel settings. Jochemko studies order polynomials rather than simultaneous lower/upper extension profiles. Pretzel studies a potentially related insertion-poset construction but its complete source was inaccessible, so the reported noncoverage is bounded to what was read. No relevant published result or Resultary hit was found to directly imply this tree-cover formula; best-of-knowledge PASS with a concrete priority caveat.
+
+## value
+
+PASS
+
+Cover trees are the natural treewidth-one restriction of an otherwise #P-complete exact 1-type counting problem. A linear-operation exact formula for the entire class, including mixed upward/downward covers and non-series-parallel N configurations, is a motivated tractability boundary, not an arbitrary table of small cases. Researchers studying homogeneous poset reducts, orbit counts or parameterized counting can use this precise invariant and computation without converting the tree to a restricted rooted-forest order.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

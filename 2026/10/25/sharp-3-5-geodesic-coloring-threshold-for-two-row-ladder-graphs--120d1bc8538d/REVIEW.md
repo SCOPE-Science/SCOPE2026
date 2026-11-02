@@ -1,15 +1,21 @@
-# Scientific assessment
+# Independent mathematical audit
 
-## Correctness — PASS
-The lower obstruction is verified directly: five top-to-bottom and five bottom-to-top six-vertex geodesics force each of three colors to occur twice. Consecutive rung shifts exchange exactly one vertex, giving \(t_{j+1}=b_j\) and \(b_{j+1}=t_j\); three equal colors then lie on one top-row geodesic. This proves four colors necessary for all ladders with at least five columns. The four-column pattern is checked by exhausting the two shapes of shortest paths (single row or a single rung plus monotone horizontal travel), including the subtle five-horizontal-vertex endpoint case. Small ladders are settled by diameter and explicit coloring. Direct hyperedge-search and separately generated geodesics corroborate the construction.
+## correctness
 
-## Originality — PASS, qualified by bibliography
-The new part is the exact fixed-length \((3,5)\) ladder threshold and its globally optimal four-period coloring for all \(n\ge7\). In [1], Question 6.2 explicitly requests such Cartesian-product formulas. The thin-grid theorem [2, Theorem 6.4] addresses maximum independently admissible sets and is not a chromatic partition. Chandran et al. [3, Theorem 7.2] already derive all unrestricted general-position coloring values: their results **cover the short-order numerical cases through \(n=6\)** where ladder diameter is at most five. For longer ladders their unrestricted optimum exceeds four; it does not imply the four-color bounded-distance construction. A matching result under unindexed terminology cannot be excluded by bibliographic search.
+PASS
 
-## Value — PASS
-The theorem settles a motivated width-two test case of an explicit current research question, with a simple structural obstruction and a uniform construction. It identifies a sharp stabilization at four and the first gap (\(n=7\)) from the unrestricted invariant, which grows with ladder length. The claim is a full infinite-family exact classification, not a finite census or isolated improvement.
+For L_n=P_n □ P_2 a forbidden monochromatic triple lies on a shortest path of ≤5 edges. On L_5, every opposite-corner shortest path has six vertices; any three-coloring would use each color exactly twice. Comparing consecutive vertical-crossing positions gives t_(j+1)=b_j and b_(j+1)=t_j for j=0..3, hence t_0=t_2=t_4, a forbidden threefold color on the 4-edge top-row geodesic. The period-four column pairs (0,1),(1,0),(2,3),(3,2) cannot create any triple on ≤5-edge geodesics: each row has four distinct consecutive colors; crossing paths with h≤3 horizontal steps have at most one occurrence per row; for h=4 interior crosses have ≤4 in each portion, while endpoint crosses have a singleton different from the repeated endpoint color. Short ladders have chromatic minima 1,2,2,3 for n=1..4; n=4 witness (0,0),(1,2),(2,1),(1,2). Thus n≥5 and both infinite ladders equal 4. Independent exhaustive forbidden-triple backtracking for n=1..5 reproduced [1,2,2,3,4]. The argument, not this finite census, proves all n.
 
-## Limitations and literature
-The methods are specific to \((k,d)=(3,5)\) and two-row ladders, and do not characterize higher widths or different geodesic thresholds. Primary references: [1] Cody–Detore, arXiv:2601.04351; [2] Cody–Moore, arXiv:2409.05644; [3] Chandran S. V. et al., arXiv:2408.13494. The executable finite checks are corroborative only, and there is no independent audit.
+## originality
 
-Self-review: passed. Independent audit: not yet performed.
+PASS
+
+Cody–Detore define the exact metric general-position parameter and explicitly pose ladder grids in Question 6.2; their path/cycle formulas do not answer the width-two family. Chandran et al. establish the unrestricted GP chromatic number of width-two ladders, which covers some short cases but grows with n; it cannot imply the fixed five-edge coloring=4 for all n≥7. Cody–Moore thin-grid maximum (3,d)-independent-set counts do not in general force a partition into minimum color classes. Best-of-knowledge original for the unbounded ladder family.
+
+## value
+
+PASS
+
+A complete sharp fixed-distance coloring formula resolves a specifically posed family of Cartesian-product-of-paths examples. It separates local bounded geodesic coloring from unrestricted general-position coloring for arbitrarily long grids, starting at n=7; a minimum-color explicit periodic pattern and minimal five-column obstruction are reusable structural information.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

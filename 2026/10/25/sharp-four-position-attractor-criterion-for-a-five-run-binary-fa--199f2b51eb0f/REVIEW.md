@@ -1,19 +1,21 @@
-# Review of the five-run attractor criterion
+# Independent mathematical audit
 
-## Correctness
+## correctness
 
-PASS. The gap-cover criterion is an equivalence, and four explicit markers suffice for every word in the stated family. Each of the three complementary parameter regimes has an explicit triple of markers. In the remaining regime the four factors \(011\), \(110\), \(001\), and \(0^e\) have unique, pairwise disjoint occurrences, forcing four markers. The coefficient formula follows from a bijection with nonnegative triples of total weight \(n-13\), one variable having weight two; the leading-ratio calculation is exact. The standalone checker confirmed 216 independently minimized examples, 1,728 complete factor-witness tests, 160 larger tests and the coefficients through length 100. Finite tests do not replace the infinite proof.
+PASS
 
-## Originality
+For W=0 1^b 0^c 1 0^e, check zero-indexed markers (0,b,b+c,b+c+2) provide a four-position attractor: all gaps are monochromatic except a lone one; all missing factors can shift to a marked run. Explicit three-marker constructions apply respectively to e≤c, e>c with b≤3, and e>c,b≥4,c≤2. In the complementary b≥4,c≥3,e>c regime, 011,110,001,0^e each occur uniquely in pairwise disjoint intervals, forcing four markers. Substitution b=4+k,c=3+i,e=c+1+j yields n=13+k+2i+j and generating function z^13/[(1−z)^2(1−z²)]. Independently exhaustively computed smallest attractors for all 125 triples 1≤b,c,e≤5, matching theorem. No finite check is used to infer all triples.
 
-PASS under the inspected-source comparison, with an explicit unindexed-literature risk. The 2019 paper of Mantaci et al. treats Sturmian, de Bruijn and other structured examples, not this entire fixed-run parameter domain. Bannai et al. (2022) provide general optimization formulations, but no exact three-inequality criterion with the corresponding length-class count. Gheeraert et al. (2023/2024) address automatic morphic prefixes with additional hypotheses rather than the free positive parameter triple here. The present result is not a rebranding of their general methods; the four unique occurrences and three complementary constructive cases are the decisive family-specific arguments. An equivalent unindexed specialization cannot be categorically excluded.
+## originality
 
-## Mathematical value
+PASS
 
-PASS. A minimal attractor is a natural compression-related invariant. In this two-singleton five-run family, the sharp transition from at most three required positions to exactly four has a transparent structural obstruction and an exact, asymptotically nontrivial frequency of one half. The full infinite-family criterion and rational enumeration distinguish the result from a finite parameter census or an arbitrary numerical observation. The chosen family isolates competition between the central and terminal zero-runs while permitting an isolated second one; results are not claimed for unrestricted five-run words.
+The exact gamma=4 iff and rational length enumerator for the specified free run-family are not directly included or implied by the inspected generic algorithmic and other fixed-family attractor results; originality is best-of-knowledge.
 
-## Scope and remaining risks
+## value
 
-The distinction between sizes two and three is not resolved, and the conditional length distribution does not apply to unrestricted five-run words. The source comparison supports originality without being a proof of priority. All reported review is self-review; no independent scientific audit or validation is claimed.
+PASS
 
-Self-review: passed. Independent audit: not yet performed.
+A minimal contiguous-factor attractor is a standard compression-related invariant. This natural three-parameter two-singleton five-run motif gives a sharp structural transition from three to four markers and an exact nontrivial density 1/2. The family restriction isolates competition of central and terminal zero runs, rather than an unmotivated numerical slice.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

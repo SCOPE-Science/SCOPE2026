@@ -1,0 +1,97 @@
+{
+  "audit_date_utc": "2026-10-28",
+  "audited_at_utc": "2026-10-28T14:52:08Z",
+  "axes": {
+    "correctness": {
+      "rationale": "PASS: At the simplex barycenter exact away-step minimization is interior, and the derivative of each vertex step on H is P_j=I−n/(n−1)w_jw_j^T, an orthogonal projection. The scalar partial-sum recurrence yields B_n(z)=(1+(n−1)z)^n−n^n z^(n−1); B_n has exactly a double root at 1, n−2 simple nonunit roots, plus one simple zero. Projection-norm strictness proves all nonunit roots have modulus<1. Analytic zero convergence and first nonreal Lambert W branch yield the spectral-radius limit 0.1238303227… and sharp uniform local linear rate. Independent exact rational charpolys n=3..8 reconstruct the same closed form. Boundary n=3 gives {0,−1/8}, n=4 nonreal pair; the theorem is explicitly local and requires away steps.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Mazumder–Wang 2023 Algorithm 2 and Theorem 3.2 establish feasible updates and generic linear convergence under strong convexity."
+        ],
+        "reasoning": "General convergence is prior; the assessed stronger exact local contraction constant on the specified isotropic simplex is not an immediate numeric restatement of their global bound.",
+        "searches": [
+          "Resultary semantic search: PolyCDwA simplex away-step cyclic vertex exact sweep Jacobian spectrum Lambert W local linear convergence projection product",
+          "Mazumder Wang PolyCDwA linear convergence theorem 3.2"
+        ]
+      },
+      "checked_sources": [
+        "https://arxiv.org/pdf/2303.07642",
+        "https://arxiv.org/abs/1604.07130",
+        "Resultary semantic search: PolyCDwA simplex away-step cyclic vertex exact sweep Jacobian spectrum Lambert W local linear convergence projection product",
+        "Frozen record RESULT.md and proof at https://github.com/SCOPE-Science/SCOPE2026/tree/61accd20e9082d7b9b235bc7f4350f083cf94bb8/2026/10/25/an-exact-all-dimensional-local-spectrum-and-lambert-w-rate-for-v--13ec52d48a2a"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "Assessed spectrum det(zI−T) = z((1+(n−1)z)^n−n^n z^(n−1))/((n−1)^n(z−1)^2).",
+          "Prior generic PolyCDwA result ensures some rate but does not determine this polynomial or its limiting W branch."
+        ],
+        "reasoning": "Prior implies local convergence qualitatively, not the exact spectrum or Lambert-W asymptotic without a separate recurrence and complex zero analysis.",
+        "searches": [
+          "Resultary semantic search: PolyCDwA simplex away-step cyclic vertex exact sweep Jacobian spectrum Lambert W local linear convergence projection product",
+          "cyclic orthogonal projections exact eigenvalue formula"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Mazumder–Wang Algorithm 2 has vertex direction and interior away-step interval; at the barycenter its differential is P_n...P_1, orthogonal projections onto h_j=0.",
+          "Sun–Ye arXiv:1604.07130 provides cyclic-CD/Kaczmarz connections."
+        ],
+        "reasoning": "The general cyclic projection/Kaczmarz representation can recover a matrix but no evaluated all-n characteristic polynomial or Lambert-W limiting spectral radius was found in the inspected texts; search absence is not novelty proof.",
+        "searches": [
+          "Resultary semantic search: PolyCDwA simplex away-step cyclic vertex exact sweep Jacobian spectrum Lambert W local linear convergence projection product",
+          "cyclic orthogonal projection product Kaczmarz sweep exact eigenvalues"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "Primary PolyCDwA paper includes algorithms and experiments, not the exact all-dimensional polynomial in inspected sections."
+        ],
+        "reasoning": "No special authoritative finite table is required to support the infinite-dimensional polynomial; small values are independently derived, and no covering exact table was found.",
+        "searches": [
+          "Resultary semantic search: PolyCDwA simplex away-step cyclic vertex exact sweep Jacobian spectrum Lambert W local linear convergence projection product",
+          "PolyCDwA numerical spectral radius simplex n 3 4 Lambert W table"
+        ]
+      },
+      "rationale": "Best-of-knowledge original: exact evaluated local Jacobian spectrum and Lambert-W limit for the original away-step simplex sweep, distinct from the published generic PolyCDwA convergence theorem and classical cyclic-projection machinery.",
+      "residual_risks": [
+        "General cyclic CD complexity, not confirmed same simplex vertex projection spectrum",
+        "Related general cyclic-projection spectra may be available under a different name."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Covers update and general linear convergence; gives no exact isotropic local sweep characteristic polynomial or Lambert-W spectral limit",
+          "evidence": "Algorithm 2 (3.1)–(3.4), Theorem 3.2, PDF pp.6–8",
+          "identifier_or_url": "https://arxiv.org/pdf/2303.07642",
+          "material_read": "Algorithm 2, §3 pp.6–8, Theorem 3.2, relevant introduction and notation",
+          "method": "full-text primary PDF with page screenshot",
+          "title": "Mazumder–Wang, A Cyclic Coordinate Descent Method for Convex Optimization on Polytopes",
+          "trigger": "same PolyCDwA vertex-cyclic algorithm and exact away-step interval"
+        },
+        {
+          "assessment": "General cyclic CD complexity, not confirmed same simplex vertex projection spectrum",
+          "evidence": "abstract",
+          "identifier_or_url": "https://arxiv.org/abs/1604.07130",
+          "material_read": "abstract and cited description; full proof not inspected",
+          "method": "primary abstract",
+          "title": "Sun–Ye, Worst-case Complexity of Cyclic Coordinate Descent",
+          "trigger": "cyclic coordinate/Kaczmarz spectral-equivalence alias"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "rationale": "PASS: An explicit sharp spectrum and limiting rate for a canonical, original nontrivial vertex-cyclic algorithm are useful for estimating sweep speed and distinguishing local from global bounds. It is more than the known qualitative linear-convergence statement.",
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "limitations": [
+    "Exact local tangent spectrum only near u=1/n and on the complete vertex sweep, not an arbitrary initial point or unrestricted PolyCD.",
+    "Finite dimension n=3..8 symbolic checks corroborate but do not establish the infinite theorem; analytic recurrence/complex-zero argument supports it.",
+    "Related general cyclic-projection spectra may be available under a different name."
+  ],
+  "schema_version": 1
+}

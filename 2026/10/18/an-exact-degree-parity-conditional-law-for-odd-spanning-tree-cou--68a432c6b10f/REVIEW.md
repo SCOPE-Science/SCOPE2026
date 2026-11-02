@@ -1,15 +1,21 @@
-# Scientific review
+# Independent mathematical audit
 
-## Correctness
-PASS. The claimed event is the determinant of a reduced Laplacian over \(\mathbb F_2\). Conditioning on the entire degree-parity vector leaves the edges not incident to one chosen vertex independent and fair, forcing a uniformly random symmetric cofactor with a prescribed diagonal. Binary congruence identifies all nonzero diagonal fibres. Alternating-form elimination and the rank-one-update argument supply the exact invertibility probabilities; the proof treats both parities of the order and the \(n=2\) boundary. Independent exhaustive checks cover every graph on two through six labeled vertices and every prescribed diagonal in symmetric matrices of sizes one through five. Enumeration is not used as the infinite proof.
+## correctness
 
-## Originality
-PASS on inspected primary literature. Balister--Powierski--Scott--Tan's 2021 preprint (section 5, Theorem 16 and Corollary 17 in the journal version) analyzes random symmetric matrix ranks in parity-constrained partition counting, but supplies neither the fixed-diagonal cofactor equivalence nor the law conditional on the *complete labeled degree-parity vector*. Eppstein's 1996 theorem implies the even-order all-even obstruction, not the positive values or odd-order independence. Wood's 2014 work gives the unconditioned asymptotic odd-tree-count probability and random sandpile-group distribution, not the finite conditional law. MacWilliams' earlier count of all symmetric matrices and classical alternating-form counts are genuine reusable ingredients; the present new contribution is the graph-level conditional classification, not a claim of independently inventing matrix enumeration. A full historical-priority guarantee is not possible: an equivalent conditional parity formula might occur under random critical-group or binary-form terminology.
+PASS
 
-## Value
-PASS. Conditioning a dense random graph on all \(n\) vertex-degree parities is a natural strongly correlated random-graph ensemble. The exact theorem identifies an unexpected all-order independence when the graph order is odd, and a single exceptional parity fibre when it is even. This is a structural all-parameter probability law that is not recovered from the known unconditioned limit and is relevant to parity-constrained random graphs and two-torsion of graph critical groups. Its scope is restricted to the fair-edge model and oddness of the spanning-tree count; it does not determine full sandpile groups.
+For n>=2 the handshaking map from the edge indicator bits onto even-sum degree parity vectors is surjective; fixing d sets the n-1 incident-to-last-vertex bits uniquely in terms of the C(n-1,2) independent internal bits. The F2 reduced Laplacian minor is therefore a uniform symmetric (n-1)x(n-1) matrix with exact diagonal d[1:n-1], so Kirchhoff makes tree-count odd iff full rank. Under binary congruence the diagonal transforms as P^T b, proving all nonzero b classes equiprobable. Zero diagonal gives the alternating-form product p0(2k)=prod_{j=1}^k(1-2^{1-2j}) and p0(2k+1)=0. For nonzero b, congruence to e1 and Schur complement C+vv^T yield p1(2k+1)=p0(2k) (singular even-dimensional alternating C has nullity>=2) and p1(2k)=(1-2^{-(2k-1)})p0(2k-2)=p0(2k) (odd-dimensional C requires 1-d radical and v.w=1). This derives the exact three-case formula and n=2 boundary. A fresh independent exact-rational enumeration of all graphs n=2..6 and of all symmetric matrices with every fixed diagonal m=1..5 agrees for every feasible d and b. Numeric infinite product independently evaluated to 0.4194224417951076; enumeration alone is not the all-n proof.
 
-## Primary literature and limitations
-The most consequential published comparisons are MacWilliams' symmetric-rank count as quoted in Balister et al., Wood's Corollary 9.4 and limiting odd-tree probability, and Eppstein's Eulerian-cut criterion. None of those *stated* results is an exact classification conditioned on each possible degree-parity vector. Nevertheless the derivation uses standard linear-algebraic ingredients, and older work on conditional binary Laplacians may contain equivalent content. No external independent audit has been conducted.
+## originality
 
-Self-review: passed. Independent audit: not yet performed.
+PASS
+
+Qualified best-of-knowledge: the exact graph-level conditional law is not stated by the inspected source theorems. Its nontrivial extra ingredient is an exact fibre equivalence between entire degree parity vectors and fixed-diagonal binary symmetric reduced Laplacians, followed by congruence orbit separation and an alternating rank-one update. Classical counts explain the product; originality is the finite-n conditional graph-level classification, not the alternating-form count itself.
+
+## value
+
+PASS
+
+This gives the complete finite-n conditional law for a canonical n-bit observable on the strongly dependent degree-conditioned Erdos–Renyi graph ensemble. The exact independence of the tree-parity event from every degree-parity vector at odd n and the single all-even exceptional fibre at even n are structural phenomena not determined by the known unconditioned p-Sylow limiting law. The result is naturally relevant to parity-restricted random graphs, binary Laplacian minors and 2-primary critical groups, even though its alternating-form ingredients are classical. It is an all-order exact law rather than a routine substitution or arbitrary numerical slice; it does not claim full integer tree counts or biased-edge models.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

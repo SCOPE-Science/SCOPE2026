@@ -5,8 +5,11 @@
     "status": "not_performed"
   },
   "independent_audit": {
-    "evidence": null,
-    "status": "not_performed"
+    "status": "passed",
+    "evidence": [
+      "INDEPENDENT_AUDIT_2026-10-28.md",
+      "INDEPENDENT_AUDIT_2026-10-28.json"
+    ]
   },
   "lean_verification": {
     "evidence": null,
@@ -15,12 +18,25 @@
   "schema_version": 1
 }
 ---
-# Computational verification
 
-Run `python3 verify.py > verification-output.json` from this directory. The archived JSON is the output of an actual successful run with `verification: VERIFY_OK`.
+# Independent mathematical audit
 
-The program independently checks all \(1{,}048{,}576\) possible vertex masks against (i) the induced-degree condition and (ii) sixty forbidden connected triples, yielding \(62{,}049\) faces including the empty simplex. It constructs a complete sequential vertex-toggle matching with \(31{,}001\) augmented pairs, then topologically sorts the entire reversed-cover Hasse directed graph. It finds three critical six-cells and forty-four critical seven-cells, and verifies that the Morse boundary contains a \(3\)-by-\(3\) integral minor of determinant \(-1\) (rows \(0,3,14\), indexed from zero). It also checks the reduced Euler characteristic against \(-41\).
+## correctness
 
-The exact signed integral Morse coefficients are produced by recursively solving paired-boundary relations, not by approximating ranks over a finite field. The verifier uses only the standard Python library and no data files. All required critical faces, matrix rows, and the unit-minor certificate are in `verification-output.json`.
+PASS
 
-**Limits.** The calculation is exhaustive for the specified twenty-vertex input only. The topological deduction from the computed acyclic matching uses standard discrete Morse theory and the Hurewicz theorem; computational repetition is not an independent scientific audit. No conclusion is drawn for the wider generalized Petersen family.
+The Desargues generalized Petersen graph GP(10,3) has 20 vertices, 30 edges and is cubic triangle-free. Ind_2 consists exactly of vertex subsets with maximum induced degree≤1, equivalently omitting all 60 length-two path triples. Independent complete enumeration of all 2^20=1,048,576 subsets reproduces 62,049 faces, f-vector and Euler characteristic −41. The sequential vertex-toggle matching has 31,001 matched pairs, leaving three critical 6-cells and forty-four critical 7-cells after an empty-to-vertex pair. Independent global directed-Hasse topological sort visited all 62,049 faces across 400,780 cover incidences, proving acyclicity. Independently reconstructed signed 44×3 integer Morse boundary has rank 3 and 3×3 minor determinant −1 (rows 0,3,14), proving primitive surjectivity onto the 6-cells and H7=Z41. Since the resulting CW six-skeleton is a wedge of three S6, π6 agrees with integral degrees; unit pivots cancel three 6/7 pairs, and remaining attaching maps are null, yielding integral homotopy wedge of 41 S7. Entire result is finite and exhaustive for exactly this graph, not an extrapolation.
+
+## originality
+
+PASS
+
+The inspected accessible full primary papers Deshpande–Singh, Sawant, and Ghosh–Selvaraja concern higher-independence homotopy for complete multipartite graphs/cycles/whiskered graphs/trees and related shellability families. None of their described exact graph families contains the nonchordal girth-six Desargues graph. A published exact ordinary independence complex on the same graph has Ind_1≃S4∨5S5, not the Ind_2 complex. A Petersen Ind_2 result is a different graph and cannot supply the Desargues value. Qualified PASS with the ordinary caveat of unindexed specific computations.
+
+## value
+
+PASS
+
+The Desargues graph is a canonical highly symmetric twenty-vertex incidence graph; higher vertex-independence homotopy is a natural object/invariant not determined by its ordinary independence complex. The complete integral wedge of 41 seven-spheres gives a precisely usable benchmark for small cubic graph topology and shows a nontrivial degree shift; the exact integer primitive boundary calculation is meaningful without a family theorem.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

@@ -1,0 +1,102 @@
+{
+  "audit_date_utc": "2026-10-29",
+  "audited_at_utc": "2026-10-29T03:55:50Z",
+  "axes": {
+    "correctness": {
+      "rationale": "For every integer g>=3 and k>=1, n in E1 requires n=1+b with b in the odd- or even-supported digit class. In odd class the nonoverlapping mixed sum forces 1; an even+even representation is possible exactly when all odd-position digits of b are <=1, by carrying one from each adjacent even digit, with both summands positive. For even class splitting base-g columns classifies 2,3 and 1+g^{2j} (j>=1) as unique essential cases; g=3 and carry boundary handled explicitly. Thus the three stated families are disjoint and the odd-digit family has g^k-2^k vectors, plus k-1 powers and 2 exceptions, proving exact count g^k-2^k+k+1 for all g,k. Independent code enumerates all admissible positive summands and ALL unordered representations below g^{2k}, checking equality of full essentiality sets (not just totals) for (g,k)=(3,1),(3,2),(3,3),(4,2),(5,2),(6,2), giving counts 3,8,23,15,24,35. Finite checks supplement unlimited carry proof.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Theorem 1.1 allows arbitrary infinite partitions with g>h; Corollary 1.5 gives E_a(x)>=c_a x^{1-1/h} for balanced partitions."
+        ],
+        "reasoning": "This broader minimality theorem establishes positivity and order-of-growth lower bound for the special alternating family but not the claimed sharp exact formula or correction; it does not dominate the exact census.",
+        "searches": [
+          "Tang 2026 Theorem 1.1 and Corollary 1.5",
+          "Resultary: alternating g-adic basis essentiality indispensable summand 1 exact g^k minus 2^k census"
+        ]
+      },
+      "checked_sources": [
+        "Tang arXiv:2610.23152v1 Theorem 1.1, Corollaries 1.3-1.5 and proofs",
+        "Tang–Ling arXiv:1810.10925 Theorem 1 and section 2",
+        "Resultary Resultary: alternating g-adic basis essentiality indispensable summand 1 exact g^k minus 2^k census"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "Tang 2026 Cor1.4 is a positive lower bound with unknown c_a and no second-order term; Tang-Ling Theorem1 is counterexample existence for certain partitions."
+        ],
+        "reasoning": "Those claims do not imply the exact g^k-2^k+k+1 equality or the three disjoint essentiality families; the audited proof supplies the missing digit/carry case classification.",
+        "searches": [
+          "arXiv:2610.23152v1 §3-4",
+          "arXiv:1810.10925 Theorem 1"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Tang 2026 defines exactly E_a=hA\\h(A\\{a}) in §1 and proves asymptotic lower bounds."
+        ],
+        "reasoning": "The exact 1-fiber is the same invariant at h=2, a=1, but the source theorem only guarantees infinity/lower growth; no equivalent full digital characterization.",
+        "searches": [
+          "Resultary: alternating g-adic basis essentiality indispensable summand 1 exact g^k minus 2^k census",
+          "arXiv:2610.23152v1 Corollary 1.4"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "No matching exact g^k-2^k+k+1 table or complete E1 finite cutoff fiber identified; same g-adic terminology and asymptotic bases are covered in sources."
+        ],
+        "reasoning": "A general minimality theorem or a count of all two-summand representations is not a table of numbers whose every representation specifically requires 1.",
+        "searches": [
+          "Resultary: alternating g-adic basis essentiality indispensable summand 1 exact g^k minus 2^k census",
+          "Tang-Ling 2018 arXiv:1810.10925"
+        ]
+      },
+      "rationale": "Tang 2026 Theorem 1.1 proves general minimality for every infinite digit partition when g>h, Corollaries 1.4/1.5 give lower bounds for E_a but not exact single-element fiber; earlier Tang-Ling treats minimality conditions and counterexamples, not explicit all-n classifications. Same objects and parameters were compared, not titles alone. Best-of-knowledge PASS subject to unindexed exact digit analysis risk.",
+      "residual_risks": [
+        "An unindexed exact digit-sum fiber computation might cover this special alternating partition.",
+        "Formula only at complete g^{2k} cutoffs, not all real x; requires g>=3 and positive summands."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Establishes broad minimality and growth but not exact alternating 1-fiber",
+          "evidence": "Corollary 1.4 gives only E_a(g^m)>=c_a g^{m-W_i(m)}, Corollary 1.5 only asymptotic lower bound; no sharp second-order fiber equality.",
+          "identifier_or_url": "arXiv:2610.23152v1",
+          "material_read": "OA HTML full text available; §1 Theorem 1.1/Corollaries 1.3-1.5 and §4 proof of Corollary 1.4 inspected",
+          "method": "Lawful OA full HTML, statements and proof read",
+          "title": "Minimal asymptotic g-adic bases from arbitrary partitions",
+          "trigger": "Same g-adic A, essential fibers E_a, and stronger general partition hypothesis"
+        },
+        {
+          "assessment": "Theorems handle whether arbitrary partition families give minimal bases/counterexamples, not exact E1 census",
+          "evidence": "Theorem 1 exhibits nonminimal partition under t<= log h/log g and does not involve the balanced alternating E1 finite count.",
+          "identifier_or_url": "arXiv:1810.10925v2",
+          "material_read": "14-page OA PDF available; introduction, Theorems 1-2 and relevant arguments inspected",
+          "method": "arXiv PDF plus screenshot of Theorem 1",
+          "title": "On asymptotic bases and minimal asymptotic bases",
+          "trigger": "Earlier minimal g-adic partition literature"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "rationale": "The fiber E_1 is a natural refined invariant of minimality, and its full digit classification, sharp leading sqrt-scale coefficient 1 and precise correction -2^k+k+1 are not recoverable from the old generic lower bound. A natural evenly split 2-class g-adic basis provides mathematical motivation for this exact cutoff census.",
+      "status": "PASS"
+    }
+  },
+  "checked_sources": [
+    "Tang arXiv:2610.23152v1 Theorem 1.1, Corollaries 1.3-1.5 and proofs",
+    "Tang–Ling arXiv:1810.10925 Theorem 1 and section 2",
+    "Resultary Resultary: alternating g-adic basis essentiality indispensable summand 1 exact g^k minus 2^k census"
+  ],
+  "disposition": "passed",
+  "limitations": [
+    "Scientific best-of-knowledge priority does not prove historic uniqueness.",
+    "Bounded checks corroborate but do not substitute for proofs."
+  ],
+  "residual_risks": [
+    "An unindexed exact digit-sum fiber computation might cover this special alternating partition.",
+    "Formula only at complete g^{2k} cutoffs, not all real x; requires g>=3 and positive summands."
+  ],
+  "schema_version": 1
+}

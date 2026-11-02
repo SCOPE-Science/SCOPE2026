@@ -1,19 +1,21 @@
-# Review: two covariance reversals from one pendant edge
+# Independent mathematical audit
 
-## Correctness — PASS
+## correctness
 
-The all-parameter identity follows pointwise from \(B=M-LZ\), with \(Z\) indicating that the sole cycle is fully retained. Computing each edge/isolated-vertex and cycle/isolated-vertex covariance gives the exact unicyclic formula, and specializing to the single-leaf host yields the polynomial \(\Phi_L\). Its transformed coefficients show at most two positive roots. The four small cases are disposed of by strict negative quadratic discriminants, and an exact witness for \(L=7\), with a uniform lower bound for \(L\ge8\), establishes two simple roots in every larger case. Endpoint signs then force the complete three-phase classification. The standalone code passed 212 independent exact-rational checks, including exhaustive configurations for cycles and lollipops up to cycle length eight. Its checks corroborate rather than substitute for the unbounded proof.
+PASS
 
-## Originality — PASS, with residual risk
+For any connected unicyclic original graph, open bridges B=M-LZ where M counts retained edges and Z indicates all L cycle edges are open. Indicator covariance gives Cov(M,I)=-p sum_v d_v q^(d_v), and Cov(Z,I)=-p^L sum_{cycle}q^(d_v), so Cov(B,I)=-p sum d_v q^d+L p^L sum_{cycle}q^d. In the single-leaf case degrees are one 1, one 3 and L-1 twos, resulting in pq times Phi_L=-1-2(L-1)q-3q² +L p^(L-1)q(L-1+q). Under odds u=p/q, multiplication by (1+u)^(L+1) yields F_L=L u^(L-1)((L-1)u+L) -(1+u)^(L-1)(u²+2Lu+2(L+1)). All coefficients below u^(L-1) negative, with higher signs -,+,- for L>=4: Descartes gives at most two positive roots counted with multiplicity. For L<=6 the bounding quadratic has negative discriminants -44,-83,-96,-23, establishing no roots. Exact L7 witness Phi_7(13/14)=15515949/210827008>0; for all L>=8 q=1/(2L) and the explicit exponential lower bound give positive witnesses, while Phi(0)<0 and Phi(1)<0. Therefore precisely two simple zeros for L>=7, and one on bare C_L. Independently checked odds-polynomial identities L3..9, exact rational positive witnesses L7..100, and inspected complete exhaustive subset verifier for L3..8. All-L result is analytic, not extrapolation.
 
-The closest published bridge studies are Elçi–Weigel–Fytas (random-cluster bridge densities and bridge fluctuations, arXiv:1509.00668), Bonneau–Biham–Kühn–Katzav (configuration-network bridge frequencies and **endpoint-degree** covariances, arXiv:2009.03682), and Lanchier–La Salle (percolation cluster moments and isolated vertices, arXiv:2111.01982). An accessible published published-finding corpus result gives component-count/triangle-count covariance, not bridge-count/isolate-count covariance. The examined statements and their proved implications do not provide the sharp cycle-length-seven two-root classification. Relevant published work could still encode it implicitly in general percolation generating functions; complete priority cannot be guaranteed. Existing edge-level and component-level identities are acknowledged rather than claimed as new.
+## originality
 
-## Value — PASS
+PASS
 
-Bridge vulnerability and isolated-node fragmentation are two natural network-resilience diagnostics. Their joint covariance is not sign-determined by monotonicity because creating cycles can destroy bridges. The exact one-leaf family demonstrates the resulting *reentrant* negative–positive–negative dependence at a sharp natural graph-size threshold, while the leafless cycle gives a contrasting single switch. This is a complete infinite-family classification, not a parameter chosen for a favorable calculation.
+Best-of-knowledge PASS for the exact sharp L=7 reentrant bridge–isolation covariance threshold. Prior independent-percolation bridge identities concern bridge number, density or covariance with *component count*, and published component-triangle covariance concerns another pair of statistics. Formula for B=M-LZ is elementary, so the claimed new fact is the two-root phase theorem, not generic covariance algebra.
 
-## Scope and limitations
+## value
 
-Independent homogeneous Bernoulli bond retention only; cycle length at least three; no claim about arbitrary unicyclic hosts, multiple cycles, or stochastic independence at covariance zeros. The critical probabilities are uniquely defined as roots, without closed-form expressions. There has been no independent validation.
+PASS
 
-Self-review: passed. Independent audit: not yet performed.
+A one-edge structural perturbation of a natural unicyclic network changes the bridge–isolation covariance from one sign switch to a sharp two-switch pattern at L=7. The exact global root-count transition is motivated by interacting topological connectivity and local isolation observables, and distinguishes a small natural graph family from its leafless base.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

@@ -1,0 +1,118 @@
+{
+  "audit_date_utc": "2026-10-28",
+  "audited_at_utc": "2026-10-28T11:45:46Z",
+  "axes": {
+    "correctness": {
+      "rationale": "The critical Poisson(1) total progeny generating function obeys F(z)=z exp(F(z)-1). Lagrange inversion gives the exact Borel law P(N=n)=e^(-n)n^(n-1)/n!, whose Stirling expansion is comparable to n^(-3/2). The finite-variance conditioned Galton–Watson height-limit theorem implies a uniform positive probability of height >= a sqrt(n) for all sufficiently large n, and diameter d>=height. On any diameter path v_0,...,v_d, taking test function f(v_i)=i and extending constantly on attached branches has energy exactly d and variance at least d(d+1)(d+2)/12, hence lambda_2(Delta_T)<=12/((d+1)(d+2))<=12/d^2. Independently checked this exact Rayleigh certificate on all 94 unlabeled trees of orders 2 through 9. On the long-height event with n>=12/(a^2 E), there is at least one positive eigenvalue <=E, contributing >=1/n to the normalized trace. Thus E[spectral weight] >= p_0 sum_{n>=K/E}P(N=n)/n >= c E^(3/2). The power lower bound excludes an exp(-c_0 E^(-1/2)) upper tail for every positive c_0. This is a full all-E analytic proof, not an extrapolation from small trees; no exact asymptotic or matching upper bound is proved.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Heydenreich–Müller–Terveer establish spectral bounds for lambda>1 and explicitly flag lambda=1 as not studied.",
+          "Khorunzhiy–Kirsch–Müller Theorem 2.5 assumes 0<p<1 and its historical remark leaves p>=1 outside its theorem."
+        ],
+        "reasoning": "The closely related broad papers have explicitly noncritical hypotheses; their theorems do not imply the critical polynomial obstruction, and the source proves a qualitatively opposite low-energy tail. No same-measure all-parameter coverage was found in the inspected primary papers.",
+        "searches": [
+          "arXiv:2603.00344v2 Theorem 1.4 Remark 1.5",
+          "arXiv:math-ph/0502054v3 Theorem 2.5 Remark 2.6(iii)",
+          "critical random tree Laplacian spectral edge polynomial mass conditioned Galton Watson",
+          "Resultary spectral critical Poisson tree query"
+        ]
+      },
+      "checked_sources": [
+        "Heydenreich–Müller–Terveer, Return probability on Bienaymé–Galton–Watson trees and spectral asymptotics of sparse Erdős–Rényi random graphs, arXiv:2603.00344v2",
+        "Khorunzhiy–Kirsch–Müller, Lifshitz tails for spectra of Erdős–Rényi random graphs, arXiv:math-ph/0502054v3",
+        "Kersting, On the Height Profile of a Conditioned Galton-Watson Tree, arXiv:1101.3656v1",
+        "Resultary 19-hit semantic search of critical Galton–Watson tree Laplacian spectral edge, no demonstrated matching claim",
+        "Assigned RESULT.md blob 092032954816cbadb31648b90bee2b1699fcd1c1 and all frozen source files",
+        "Independent algebra of Borel law and summation and exact diameter-path Rayleigh certificate on 94 unlabeled trees of orders 2 through 9"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "Finite-variance conditioned-tree height ~sqrt(n) is a known primary theorem (Kersting); used as a lemma rather than claimed new.",
+          "Existing noncritical Lifshitz bounds rely on exponential component-size tails and do not carry over to Poisson(1)."
+        ],
+        "reasoning": "The current power bound follows from combining classical Borel progeny and conditioned height with a specific Rayleigh quotient and weighted progeny sum; no inspected prior theorem states the resulting lower bound for the identical normalized critical tree spectral measure. The proof uses established lemmas but their explicit conjunction and spectral application are not shown covered.",
+        "searches": [
+          "arXiv:2603.00344v2 Theorem 1.4 Remark 1.5(i)",
+          "arXiv:math-ph/0502054v3 Theorem 2.5 Remark 2.6",
+          "arXiv:1101.3656v1 Theorem 1",
+          "critical Poisson Galton Watson tree Laplacian expected normalized spectral measure near zero polynomial lower bound spectral edge Lifshitz tails critical random tree"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "The root annealed spectral measure in arXiv:2603.00344 is the normalized-trace average over finite rooted GW components for the finite critical tree, as used in the source.",
+          "The cited exponential low-energy tails concern offspring mean strictly above or below 1; the polynomial lower bound concerns mean exactly 1."
+        ],
+        "reasoning": "Changing the mean parameter to its critical value changes total progeny from exponential to n^(-3/2) tail and produces nonexponentially small spectral weight. The critical assertion is not an equivalent parametrization of a strictly subcritical/supercritical Lifshitz result.",
+        "searches": [
+          "critical Poisson Galton Watson tree Laplacian expected normalized spectral measure near zero polynomial lower bound spectral edge Lifshitz tails critical random tree",
+          "critical Galton Watson tree averaged root spectral measure Laplacian low energy Lifshitz tail",
+          "arXiv:2603.00344v2 Theorem 1.4 Remark 1.5(i)",
+          "arXiv:math-ph/0502054v3 Theorem 2.5"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "The target is a quantitative infinite-tree-law low-energy spectral-measure bound, not an exact small-graph table or finite spectral database.",
+          "The exact Borel total progeny law is classical; the new claimed fact is the implication for the spectral measure after conditioning on height and using lambda_2."
+        ],
+        "reasoning": "No exact finite table or database applies to the all-E, critical-law spectral mass statement. Existing Borel size probabilities are standard input and do not by themselves give positive-eigenvalue mass without the path-diameter spectral argument.",
+        "searches": [
+          "critical Poisson Galton Watson tree Laplacian expected normalized spectral measure near zero polynomial lower bound spectral edge Lifshitz tails critical random tree",
+          "critical Poisson 1 Galton-Watson tree positive Laplacian spectral edge E^3/2 integrated density of states",
+          "Resultary search critical Poisson Galton Watson tree Laplacian expected normalized spectral measure"
+        ]
+      },
+      "rationale": "Best-of-knowledge new critical-parameter polynomial lower bound for the annealed normalized combinatorial-Laplacian spectral measure of critical Poisson(1) Galton–Watson trees. The closest full-text 2026 primary theorem treats strictly supercritical mean and explicitly says the critical case is not studied. The 2006 Lifshitz-tail theorem treats strictly subcritical mean. Kersting supplies the conditioned-tree height input, not the spectral-measure consequence. Potential implicit estimates in older conditioned-tree spectral literature are a residual priority risk; no exhaustive novelty guarantee is made.",
+      "residual_risks": [
+        "The true critical spectral-edge asymptotic or a stronger lower bound may exist in specialized older random-tree spectral literature under different normalization.",
+        "The 3/2 exponent is only a proved lower-bound exponent, not asserted sharp; no matching upper bound, exact asymptotic, or finite-graph zero-eigenvalue convergence theorem is proved.",
+        "The conditioned-tree height input is a published theorem, not independent full reproof; its finite-variance hypotheses apply to Poisson(1).",
+        "Best-of-knowledge originality remains qualified by the accessible primary corpus."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "STRONG_PRIOR_FOR_NONCRITICAL_REGIMES_NOT_CRITICAL",
+          "evidence": "Theorem 1.4 addresses lambda>1 and Remark 1.5(i) expressly says the critical case lambda=1 is not studied in that paper; same-measure convention was checked.",
+          "identifier_or_url": "https://arxiv.org/abs/2603.00344",
+          "material_read": "Complete arXiv v2 paper (18 pages), Theorem 1.4, Remark 1.5(i), spectral-measure definitions and relevant surrounding discussion",
+          "method": "Full-text PDF inspection including first-page screenshot and theorem/remark passages",
+          "title": "Return probability on Bienaymé–Galton–Watson trees and spectral asymptotics of sparse Erdős–Rényi random graphs",
+          "trigger": "Same Poisson GW Laplacian spectral measure and direct critical-parameter discussion"
+        },
+        {
+          "assessment": "STRICT_SUBCRITICAL_ONLY",
+          "evidence": "Theorem 2.5 explicitly assumes mean/edge parameter p in (0,1) and proves Lifshitz-tail behavior in that range, not p=1.",
+          "identifier_or_url": "https://arxiv.org/abs/math-ph/0502054",
+          "material_read": "Complete arXiv v3 manuscript (15 pages), Theorem 2.5 and Remark 2.6(iii)",
+          "method": "Full-text PDF inspection including first-page screenshot and hypothesis paragraphs",
+          "title": "Lifshitz tails for spectra of Erdős–Rényi random graphs",
+          "trigger": "Foundational sparse random graph low-energy Lifshitz theorem"
+        },
+        {
+          "assessment": "PROVES_REQUIRED_HEIGHT_INPUT_NOT_SPECTRAL_RESULT",
+          "evidence": "Critical finite-variance conditioned GW height scales at sqrt(n); its limiting positive nondegenerate distribution supplies a uniform event with positive probability.",
+          "identifier_or_url": "https://arxiv.org/abs/1101.3656",
+          "material_read": "Full manuscript (24 pages), height-profile limit theorem, normalizations and finite-variance conditions",
+          "method": "Full-text PDF inspection including first-page screenshot and Theorem 1",
+          "title": "On the Height Profile of a Conditioned Galton-Watson Tree",
+          "trigger": "Critical nonstandard conditioned-tree height input needed for rigorous lower spectral edge bound"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "rationale": "The critical mean 1 is a mathematically distinguished phase boundary separating the previously proved strictly subcritical and supercritical Lifshitz regimes. The explicit c E^(3/2) lower bound forces positive low-energy spectral weight far above exp(-c E^(-1/2)), ruling out an otherwise plausible critical extension of those theorems for precisely defined normalised-trace annealed tree-law measure. This is a motivated qualitative boundary obstruction, not a routine type check or a claim to the exact spectral exponent.",
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "limitations": [
+    "This is a polynomial lower bound on the critical tree-law positive Laplacian spectral mass, not a sharp asymptotic, a matching upper bound, or a finite Erdős–Rényi graph zero-eigenvalue convergence result.",
+    "The scientific originality judgment is best-of-knowledge, with explicitly recorded priority risks; the current publication plan is not_ready solely because complete privacy-sanitized public administrative files were not provided."
+  ],
+  "schema_version": 1
+}

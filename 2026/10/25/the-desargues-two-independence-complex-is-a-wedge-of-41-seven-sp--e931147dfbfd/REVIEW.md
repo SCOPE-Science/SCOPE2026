@@ -1,15 +1,21 @@
-# Self-review
+# Independent mathematical audit
 
-## Correctness — PASS
-The graph is given by a complete edge list in the proof and verifier. The two independent face criteria agree on every one of the \(2^{20}\) masks. A complete acyclic matching on the entire augmented face poset leaves three six-faces and forty-four seven-faces; after converting the empty-face pair into a critical vertex, the ordinary CW model has one zero-cell and those positive cells. The full directed Hasse graph is tested acyclic. The integral Morse boundary is computed from signed face incidences by the standard matched-pair elimination recurrence. A \(3\)-by-\(3\) minor with determinant \(-1\) reduces the CW complex to a wedge of forty-one seven-spheres: the top attaching maps into a wedge of six-spheres are uniquely characterized by their integer degree vectors. The standalone verifier and exact output are included; evidence is not a mere log assertion. No infinite-family assertion is made.
+## correctness
 
-## Originality — PASS, with residual risk
-Closest accessible primary full texts are Sawant, arXiv:2605.25150v1 (all trees), Deshpande–Singh, arXiv:2001.05448v2 (cycles, complete multipartite, whiskered graphs, certain trees), and Ghosh–Selvaraja, arXiv:2505.06614v3 (block graph and related shellability criteria). Their stated results do not apply to the nonchordal Desargues graph and do not calculate this exact object. Named-graph published comparisons concern ordinary one-independence, edge matching, ordinary three-cut, and Rips complexes. None implies the two-independence homotopy claim. Equivalent-name searches included \(H(5,2)\), \(\operatorname{GP}(10,3)\), Desargues incidence graph and three-path-free. A separate published Desargues ordinary-independence record was available only in summary form; its explicit \(r=1\) statement is not a covering result. Unindexed work remains a bibliographic risk, so this is a best-knowledge originality assessment, not priority certification.
+PASS
 
-## Mathematical value — PASS
-The Desargues graph is a canonical distance-transitive cubic graph and the Levi graph of a classical ten-point, ten-line configuration. The exact integral homotopy of its natural first higher-independence invariant is neither a normalization check nor a small perturbation of the ordinary independence answer. The degree-seven wedge of forty-one spheres provides a reproducible high-dimensional benchmark for 3-path-free complexes on cyclic and nonchordal graphs, complementing the available tree and block-graph structural theorems. Its cell dimension reaches eleven, so the exact collapse and attaching-map computation carry substantive topological information.
+The Desargues generalized Petersen graph GP(10,3) has 20 vertices, 30 edges and is cubic triangle-free. Ind_2 consists exactly of vertex subsets with maximum induced degree≤1, equivalently omitting all 60 length-two path triples. Independent complete enumeration of all 2^20=1,048,576 subsets reproduces 62,049 faces, f-vector and Euler characteristic −41. The sequential vertex-toggle matching has 31,001 matched pairs, leaving three critical 6-cells and forty-four critical 7-cells after an empty-to-vertex pair. Independent global directed-Hasse topological sort visited all 62,049 faces across 400,780 cover incidences, proving acyclicity. Independently reconstructed signed 44×3 integer Morse boundary has rank 3 and 3×3 minor determinant −1 (rows 0,3,14), proving primitive surjectivity onto the 6-cells and H7=Z41. Since the resulting CW six-skeleton is a wedge of three S6, π6 agrees with integral degrees; unit pivots cancel three 6/7 pairs, and remaining attaching maps are null, yielding integral homotopy wedge of 41 S7. Entire result is finite and exhaustive for exactly this graph, not an extrapolation.
 
-## Limits
-This is one graph and one invariant, not a family classification. Exhaustive computation certifies only the finite input actually enumerated. No separate independent research audit has been conducted, and bibliographic coverage cannot rule out unindexed equivalent work.
+## originality
 
-Self-review: passed. Independent audit: not yet performed.
+PASS
+
+The inspected accessible full primary papers Deshpande–Singh, Sawant, and Ghosh–Selvaraja concern higher-independence homotopy for complete multipartite graphs/cycles/whiskered graphs/trees and related shellability families. None of their described exact graph families contains the nonchordal girth-six Desargues graph. A published exact ordinary independence complex on the same graph has Ind_1≃S4∨5S5, not the Ind_2 complex. A Petersen Ind_2 result is a different graph and cannot supply the Desargues value. Qualified PASS with the ordinary caveat of unindexed specific computations.
+
+## value
+
+PASS
+
+The Desargues graph is a canonical highly symmetric twenty-vertex incidence graph; higher vertex-independence homotopy is a natural object/invariant not determined by its ordinary independence complex. The complete integral wedge of 41 seven-spheres gives a precisely usable benchmark for small cubic graph topology and shows a nontrivial degree shift; the exact integer primitive boundary calculation is meaningful without a family theorem.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

@@ -1,15 +1,21 @@
-# Review of the characteristic-three Wiman genus-five zeta calculation
+# Independent mathematical audit
 
-## Correctness
-PASS. The fixed quadrics have no point above \([x_3:x_4]=[0:0]\). Their three quadratic square classes have disjoint pairs of geometric zeros, so the fiber product is a smooth connected degree-eight Kummer cover of \(\mathbb P^1\) with six simple tame branch points and genus five. All seven nontrivial character quotients are identified, including the three elliptic quotients and the genus-two curve \(y^2=t-t^5\). Their point counts over \(\mathbb F_3\) and \(\mathbb F_9\) are exact finite enumerations, producing all required zeta factors by the genus-one and genus-two functional equations. The 2-primary character-idempotent decomposition transfers Frobenius and \(3\)-divisible invariants; the Cartier–Manin matrix and quadratic-factor test give the remaining arithmetic assertions. The embedded program was executed and returned `VERIFY_OK`.
+## correctness
 
-## Originality
-PASS with residual risk. Swinarski's §4.3 (2016) already supplies the three canonical quadrics; no equation or complex automorphism-group discovery is claimed. Kudo–Harashita's arithmetic treatment (arXiv:2102.07270, initial 2021 version), §§1, 4.2, 5, gives a 32-point \(\mathbb F_9\) threshold and four Weil polynomials at that threshold, rather than the Wiman form's 24-point count and different zeta polynomial. Their arXiv:2204.06805 (2022), §1 and §4, studies hyperelliptic and trigonal curves, not the smooth three-quadric model here. Searches of accessible mathematical-record collections and relevant prior literature found no equivalent Frobenius polynomial or mixed ordinary/supersingular decomposition. Standard character decomposition can imply the factorization in form, but the explicit arithmetic of the four quotient curves is not supplied by it. Some older bielliptic-genus-five text was inaccessible; special-purpose zeta tables may remain unindexed, so absence in searches is not proof of global novelty.
+PASS
 
-## Mathematical value
-PASS. The uniquely highly symmetric complex genus-five Wiman model gives a natural, fixed diagonal complete intersection whose characteristic-three arithmetic is not captured by its complex automorphism-group data. Determining its complete zeta function for every extension, its exact \(3\)-rank and \(a\)-number, and a simple ordinary abelian-surface factor surrounded by three supersingular elliptic factors supplies a concrete and reproducible nonordinary stratum example. This is not a general theorem for arbitrary genus-five curves, a claim about a maximal-point example, or an artificial coefficient slice.
+PASS: The three displayed quadrics make a degree-eight (Z/2)^3 Kummer cover of P¹ via t=x3/x4 with radicands -(1+t²),1-t²,-t and six distinct simple branch points. Ramification gives genus five, and the canonical complete intersection is smooth. Three character quotients have genus zero; the other four are E12:y²=t^4-1, E13:y²=t³+t, E23:y²=t³-t and H:y²=t-t^5. The 2-primary group-ring idempotents split the Jacobian up to 2-power isogeny, preserving its 3-divisible group. Exact quotient point counts at q=3,9 (three elliptics 4,16; H 4,6) yield three factors 1+3T² and H factor 1-2T²+9T^4 by functional equations, proving zeta for all extensions. H Cartier–Manin matrix [[0,-1],[1,0]] is invertible, giving ordinary surface and a-number 0; supersingular elliptic factors contribute three a=1; quartic u^4-2u²+9 is Q-irreducible, giving F3-simplicity. Independently implemented finite F3/F9 quadratic-square counting: original curve 4/24, quotient table (4,4,4,4)/(16,16,16,6), matching claims; the source verifier also contains finite q=27,81 tests but their output was read, not run here. Infinite zeta follows from the quotient-isogeny proof, not finite extrapolation.
 
-## Scientific limitations
-The model is fixed over \(\mathbb F_3\) and other arithmetic twists are not classified. Nothing is asserted about the size of the automorphism group after reduction or absolute simplicity of the ordinary surface. Earlier specialized arithmetic calculations could cover the same result; the unavailable Kato–Magaard–Völklein paper (2011) is explicitly acknowledged as a residual source risk. Finite enumerations provide exact finite evidence but not the all-extension proof, which uses the theoretical decomposition. There has been no independent audit.
+## originality
 
-Self-review: passed. Independent audit: not yet performed.
+PASS
+
+Best-of-knowledge comparison of the precise claim against related primary statements, algebraic implications, four named searches, and inspected published records; prior building blocks acknowledged, with explicit limitations for inaccessible full texts.
+
+## value
+
+PASS
+
+PASS: The canonical Wiman genus-five model is a recognized highly symmetric curve, and its literal characteristic-three integral-equation reduction is a natural arithmetic object. Its fully explicit Weil polynomial and mixed ordinary/supersingular decomposition determine otherwise nontrivial exact invariants and extension counts beyond previously published model equations.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

@@ -5,8 +5,11 @@
     "status": "not_performed"
   },
   "independent_audit": {
-    "evidence": null,
-    "status": "not_performed"
+    "status": "passed",
+    "evidence": [
+      "INDEPENDENT_AUDIT_2026-10-28.md",
+      "INDEPENDENT_AUDIT_2026-10-28.json"
+    ]
   },
   "lean_verification": {
     "evidence": null,
@@ -16,10 +19,24 @@
 }
 ---
 
-# Reproducibility certificate
+# Independent mathematical audit
 
-Run `python3 verify.py` with the Python standard library. The verifier generates all \(15\) zero-cells, \(60\) one-cells and \(45\) two-cells, checks signed cellular boundaries and the rank of the second boundary over \(\mathbb F_{101}\). It generates the ten complementary-triple product torus cycles, verifies their boundary is zero and their primitive relation, and checks a fixed integral determinant and all \(720\) signed vertex-permutation actions. Expected leading marker:
+## correctness
 
-`VERIFY_OK_K6_TEN_TRIANGLE_TORI_PRIMITIVE_ALTERNATING_RELATION`
+PASS
 
-The observed unit certificate uses rows `0,1,3,6,7,9,12,13,18` in the generated square-coordinate order and columns `0..8` in lexicographic triangle-pair order; determinant is `1`. Rank modulo `101` of the second boundary is `36`; rank modulo `2` is `35`, and the latter is not used to infer a rational or integral rank. This is a finite exact computation for the specified graph; it does not assess other graphs or furnish an external mathematical review.
+The graph configuration model uses 15 unordered vertex-pair zero-cells, 60 vertex–edge one-cells, 45 disjoint-edge square cells. The explicit signed square boundaries compose to zero. Each of ten oriented product triangle-pair torus chains is a 2-cycle. A primitive sign vector (1,-1,1,-1,1,-1,1,1,-1,1) spans their evident relation. Independent reconstructed 60×45 integer boundary matrix has characteristic-zero rank 36; the first nine torus columns have a coordinate 9×9 determinant +1. Therefore these nine cycles form a saturated rank-nine lattice in the free square chains and equal all of ker∂2. Since no 3-cells, H2≅Z9, any nine of ten basis, and a unique primitive relation. The signed chain-action formula and graph automorphism action yield the equivariant integral quotient 0→sgn→P→H2→0; finite source checker covers all 720 group elements. Crucially unordered vs ordered configurations and vertex collision exclusions were inspected. Finite enumeration is exhaustive for K6; not extrapolated to K_n generally.
+
+## originality
+
+PASS
+
+Barnett–Farber and Farber–Hanbury provide intersection forms, general graph two-point configuration homology and explicit ranks for mature complete graphs, mostly in the ordered two-particle setting. Those results can imply ambient ranks under a quotient but not the primitive relation of exactly ten specific shortest disjoint-triangle tori or its integral S6 signed-module structure. Barnett thesis abstract includes ordered H2 generators for planar graphs, whereas K6 is nonplanar and the full thesis inaccessible. Qualified PASS; exact carrier/module may exist in specialist older literature.
+
+## value
+
+PASS
+
+K6 is the smallest complete graph where disjoint triangles give a rich natural family of product tori in the two-particle configuration space. The exact integral primitive relation and any-nine Z-basis property are sharper than rational dimension and could be used to calculate pairings, inclusions and symmetry. The integral equivariant lattice quotient is a meaningful single-object invariant; no general K_n theorem is asserted.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

@@ -1,0 +1,106 @@
+{
+  "audit_date_utc": "2026-10-28",
+  "audited_at_utc": "2026-10-28T15:55:43Z",
+  "axes": {
+    "correctness": {
+      "rationale": "The Poisson exponential backward age A at stationarity and V0|A∼N(0,2DA) give Laplace density κ exp(-κ|v|)/2 with κ=√(r/D). Conditional on future reset interval lengths ℓ_j summing to T, the increment X_T=L V0+G, L=ℓ_1 and G independent centered normal with variance (2D/3)∑ℓ_j³. For c=κ/T all partitions satisfy e^{cx}P(X_T>x|partition)≤exp(Dc²∑ℓ³/3)≤exp(rT/3); if any future reset L<T, the c-weighted tail tends to zero, while on no reset L=T its limit is exp(rT/3)/2. Dominated convergence and P(no reset)=exp(-rT) give constant exp(-2rT/3)/2 and conditional no-reset posterior→1. The MGF denominator κ²-θ²L² and positive-probability L=T event prove its exact finite domain |θ|<κ/T and boundary coefficient exp(-2rT/3). Stationary covariance (2D/r)exp(-r|t|) yields Var X_T=(4D/r³)(rT-1+exp(-rT)). Independent convolution numerics matched the tail constant for three parameter sets; universal asymptotic follows analytically.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Olsen–Löwen develop long-time drift/diffusion and transform methods for the same process.",
+          "Singh 2020 and Smith–Majumdar 2022 analyze different reset targets or large-time asymptotics."
+        ],
+        "reasoning": "General transform representations for position, if sufficiently explicit, could subsume the tail result, but asymptotic limit order and stationary-velocity initialization are nontrivial. This comparison remains qualified because the closest full text was inaccessible.",
+        "searches": [
+          "Olsen Löwen Dynamics of inertial particles under velocity resetting stationary time displacement distribution 2401.12685",
+          "Singh 2020 random acceleration under stochastic resetting",
+          "Smith Majumdar 2022 condensation deviations Gaussian process resetting fixed time",
+          "Resultary Search: stationary velocity-only stochastic resetting random acceleration finite time displacement exponential tail Laplace no resets"
+        ]
+      },
+      "checked_sources": [
+        "arXiv:2401.12685 (Original abstract covering transform, moment recursion, diffusive long-time scaling; original PDF/full methods not obtained)",
+        "arXiv:2007.05576 (Model/mode distinctions in available article descriptions and candidate source comparison; complete full text not re-read this run)",
+        "Resultary stationary velocity-only stochastic resetting random acceleration finite time displacement exponential tail Laplace no resets"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "2024 abstract asserts general observable propagator transform and moment recursion; a transform could entail further inversion-based results, but the exact conditional no-reset asymptotic has not been confirmed as already derived.",
+          "2022 large-time Gaussian-reset condensation results use another initialization and noncommuting limit order."
+        ],
+        "reasoning": "The correct mathematical comparison is the same joint process with a different stationary initialization and asymptotic regime; only full text of the closest source could resolve possible hidden implication. No decisive prior theorem is identified, so best-knowledge pass with explicit risk.",
+        "searches": [
+          "Olsen Löwen Dynamics of inertial particles under velocity resetting stationary time displacement distribution 2401.12685",
+          "Singh 2020 random acceleration under stochastic resetting",
+          "Smith Majumdar 2022 condensation deviations Gaussian process resetting fixed time",
+          "Resultary Search: stationary velocity-only stochastic resetting random acceleration finite time displacement exponential tail Laplace no resets"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Olsen–Löwen arXiv:2401.12685 treats velocity resets without resetting position and computes the observable propagator.",
+          "Candidate selects stationarity of the hidden velocity at t=0, finite T then x→∞, and the no-future-reset conditioning."
+        ],
+        "reasoning": "A full propagator Fourier–Laplace transform could in principle imply the law after analytical inversion; abstract/accessible content does not establish the exact fixed-horizon tail prefactor or posterior no-reset probability. Same stochastic process is not automatically the same theorem.",
+        "searches": [
+          "stationary velocity-only stochastic resetting random acceleration finite time displacement exponential tail Laplace no resets",
+          "Olsen Löwen Dynamics of inertial particles under velocity resetting stationary time displacement distribution 2401.12685",
+          "Resultary Search: stationary velocity-only stochastic resetting random acceleration finite time displacement exponential tail Laplace no resets"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "The fixed-horizon coefficient 0.5 exp(-2rT/3) is an analytic asymptotic, not a precomputed numerical table.",
+          "Independent three-parameter no-reset convolution computations confirmed the constant but cannot prove reset-containing histories are negligible."
+        ],
+        "reasoning": "Published simulations of long-time mean-square displacement do not determine the far-tail constant or conditional reset history.",
+        "searches": [
+          "stationary velocity-only stochastic resetting random acceleration finite time displacement exponential tail Laplace no resets",
+          "Smith Majumdar 2022 condensation deviations Gaussian process resetting fixed time",
+          "Resultary Search: stationary velocity-only stochastic resetting random acceleration finite time displacement exponential tail Laplace no resets"
+        ]
+      },
+      "rationale": "Olsen–Löwen 2024 analyze the same velocity-only resetting model and derive Fourier–Laplace transforms, moment recursions, and long-time effective diffusion, all explicitly credited. The assessed fixed-T stationary-initial-state tail residue and conditional no-future-reset law are not stated in accessible abstract. The full primary text could not be materially inspected; Oxford access reported vpn_disconnected, so this is a significant residual risk. Singh 2020 resets different coordinates; Smith–Majumdar 2022 concern large-time/other initialized ensembles. No located Resultary equivalent.",
+      "residual_risks": [
+        "Olsen–Löwen 2024 full text was inaccessible; its exact propagator analysis might implicitly cover the coefficient or asymptotic.",
+        "Stationary initialization at time zero is essential; resetting velocity to zero initially changes far tails.",
+        "Fixed-T large-x and large-T limits do not commute; no finite-x relative error proved."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "CLOSEST_SOURCE_PRIORITY_RISK",
+          "evidence": "arXiv:2401.12685 abstract; web turn452552academia60",
+          "identifier_or_url": "arXiv:2401.12685",
+          "material_read": "Original abstract covering transform, moment recursion, diffusive long-time scaling; original PDF/full methods not obtained",
+          "method": "Arxiv abstract and publisher metadata; attempted lawful full-text access, Oxford vpn_disconnected",
+          "title": "Dynamics of inertial particles under velocity resetting",
+          "trigger": "Exact same velocity-resetting model and random acceleration example"
+        },
+        {
+          "assessment": "NOT_IDENTICAL_RESETTED_VARIABLE",
+          "evidence": "Singh 2020, arXiv:2007.05576; reset position or both variables rather than velocity only",
+          "identifier_or_url": "arXiv:2007.05576",
+          "material_read": "Model/mode distinctions in available article descriptions and candidate source comparison; complete full text not re-read this run",
+          "method": "Model-level primary bibliographic comparison",
+          "title": "Random acceleration process under stochastic resetting",
+          "trigger": "Potential stochastic-acceleration tail theorem under alternate resetting"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "rationale": "The fixed-horizon extremes provide a sharp, physically interpretable diagnostic: sufficiently far spatial excursions from stationary velocity were overwhelmingly free of velocity resets during the observation window. The exact exponential moment threshold and its residue distinguish fixed-time rare displacement from large-T diffusive variance; this is meaningful boundary behavior of a precisely specified stochastic model.",
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "limitations": [
+    "r,D,T positive fixed; stationary velocity but not stationary position; Poisson velocity resets exactly to zero, Brownian acceleration; no uniform T limit.",
+    "Olsen–Löwen 2024 full text was inaccessible; its exact propagator analysis might implicitly cover the coefficient or asymptotic.",
+    "Stationary initialization at time zero is essential; resetting velocity to zero initially changes far tails.",
+    "Fixed-T large-x and large-T limits do not commute; no finite-x relative error proved."
+  ],
+  "schema_version": 1
+}

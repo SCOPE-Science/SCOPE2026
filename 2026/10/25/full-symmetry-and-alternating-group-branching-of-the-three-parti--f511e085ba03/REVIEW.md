@@ -1,9 +1,21 @@
-# Scientific review
+# Independent mathematical audit
 
-**Correctness: PASS.** The explicit Abrams cubical model has exactly \(20,48,24\) cells in degrees \(0,1,2\); each link is a circle, there are two squares per edge, and a primitive globally coherent orientation cycle. This establishes an orientable genus-three surface, hence integral homology without hidden torsion. The exact signed-cell action of all \(48\) automorphisms computes \(H_1\) by the equivariant Euler identity. Specht character comparison and Lefschetz fixed-point indices then determine the quotient branching. The finite checker reproduces every enumerated step. The distinction between modular rank tests and integral topology is explicit.
+## correctness
 
-**Originality: PASS on inspected material.** Maciążek–Sawicki (arXiv:1806.02846, §5.6) already provides the ordinary genus-three example and numerical homology. An–Knudsen and a published theta-class relation theorem cover top-dimensional generators; that does not imply the first-homology character. Recent stable graph-configuration representations address other bipartite families. Semantic searches across the published mathematical record did not produce the \(S_4\times C_2\) action on this six-dimensional first homology or the stated \(A_4\) branch signature. An unindexed equivalent finite calculation remains a residual risk, not a mathematical disproof.
+PASS
 
-**Value: PASS.** The genus-three three-particle theta surface is a naturally occurring closed surface in graph configuration topology, not an arbitrarily selected triangulation. Its nontrivial path-permutation and hub-swap homology action, and the precise four-orbifold-point quotient, are structural information absent from Betti numbers. They allow comparison of natural graph automorphisms and finite quotients and meaningfully refine a well-studied example.
+Independently rebuilt unordered Abrams cubical model of UConf3(K2,4), with exactly 20 zero-cells, 48 one-cells and 24 squares, each 1-cell in two 2-cells, and all 20 vertex links single cycles. Explicit source primitive global orientation and ranks 19/23 show a closed connected orientable genus-three surface and integral H1=Z6. Independently re-evaluated signed chain traces for all 24×2 automorphisms and obtained H1 cycle-type values (6,0,-2,0,0) for S4 without hub exchange and exact negatives with exchange, orientation class sign(S4) independent of exchange. S4 representation is (3,1)⊕(2,1,1), with hub exchange sign. Orientation-preserving A4 double transpositions have four fixed points, nonidentity three-cycles two, via Lefschetz local indices; cyclic stabilizers give two order-2 and two order-3 orbit branches and Riemann–Hurwitz genus-zero quotient (0;2,2,3,3). Scope is unordered 3 particles only.
 
-Self-review: passed. Independent audit: not yet performed.
+## originality
+
+PASS
+
+Full first-homology S4×C2 module and A4 quotient branching are strictly finer than previously known genus-three homeomorphism, numerical Betti groups, and exterior-cube top theta-class representation.
+
+## value
+
+PASS
+
+For the natural four-path theta surface with known genus three, the full path/hub-swap homology action and exact quotient ramification are meaningful geometric symmetry invariants; they refine known ordinary Betti and top degree module and may inform equivariant graph braid calculations.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

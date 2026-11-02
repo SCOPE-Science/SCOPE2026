@@ -1,19 +1,21 @@
-# Review of the sharp Dieterich stress-exposure allocation theorem
+# Independent mathematical audit
 
-## Correctness
+## correctness
 
-**PASS.** For fixed effective normal stress, the normalized seismicity-state equation integrates exactly to the logarithm of a positive weighted-exponential stress functional. The proof separately establishes the late saturated unique maximizer by a sharp convex chord inequality and strictly increasing weighted rearrangement; and the clipped descending unique minimizer by the strictly convex pointwise Lagrangian. The budget equation is continuous, strictly increasing in its multiplier and attains the full admissible budget range. The stated formulas include endpoint and plateau regimes. Exact-state propagation and randomized finite profiles verify the formulas diagnostically; they are not substitutes for the full proof.
+PASS
 
-## Originality
+With constant normal stress, normalized Dieterich state Γ satisfies Γdot=(1-Γ)/a−Γ sdot, and stress jumps multiply Γ by exp(-Δs). Integrating factor gives Γ(t)=exp(-t/a−s(t))D(t), D(t)=1+(1/a)∫_0^t exp(u/a+s(u))du, hence N_s(T)=ra log D(T). Strict convexity e^z≤1+[(e^H-1)/H]z (equality iff z=0,H), followed by strictly increasing-weight bathtub rearrangement, proves unique max s=H on the last B/H units. For min, the pointwise strictly convex Lagrangian exp(x+z)−exp(C)z on [0,H] has unique minimizer clamp(C−x,0,H); its budget is continuous strictly monotone in C∈(0,H+T/a), guaranteeing unique C for 0<B<HT. Integrating three plateaus reproduces exact N_min and N_max. Independent calculation gives C=7/2−√2, N_min≈2.76976928170860,N_max≈3.27086268884977 at a=r=1,T=2,H=1.5,B=2; 100 independent budget-feasible discrete profiles lie between analytic bounds. Finite tests do not replace rearrangement proof.
 
-**PASS, scoped to the constrained extremal theorem.** The key 2018 general cumulative count integral is acknowledged as prior art, rather than attributed to this result. The inspected full-text discussions in Ziv (2003) and Heimisson–Segall (2018) address pulse responses and general stressing kernels, not all fixed-exposure stress schedules or the clipped-affine minimizer. Candela et al. (2022) optimize injected volume under a bound on seismicity rate in a coupled numerical system; their program does not dominate this stress-level, fixed-budget cumulative-count theorem. Relevant research-record comparisons did not identify a dominating result. Residual risks are an unavailable full 1994 article, potentially equivalent resource-allocation results under other terminology, and not-exhaustive literature coverage. A failed search is not proof of absolute novelty.
+## originality
 
-## Value
+PASS
 
-**PASS.** The result supplies sharp upper and lower finite-horizon expected-seismicity envelopes for an explicitly defined stress-time exposure budget, even when the forcing history is otherwise unconstrained. The late bang-bang maximum and early clipped-ramp minimum have materially different shapes and give a nontrivial difference in expected counts under identical cap and exposure. This distinguishes temporal allocation from total exposure, relevant to counterfactual seismicity hazard comparisons. The result is not a reservoir operational optimization or an earthquake-magnitude risk bound.
+Dieterich 1994 defines the underlying seismicity law; Heimisson–Segall 2018 full accessible paper derives arbitrary-stress cumulative count formula (Eq.18), fully credited. That evaluation kernel alone does not solve fixed-integral stress-exposure optimization. The primary 2018 article focuses derivation, rate evolution and assumptions, not unique extrema over all bounded histories. Ziv 2003 analyzes fixed pulses; Candela et al. 2022 and a 2026 Groningen controller optimize physically coupled injection/feedback variables and different objective. Generic convex duality and rearrangement are known methods, so the novelty is only their explicit budgeted seismicity application; possibility of generic equivalent published optimizer remains a residual risk.
 
-## Scientific boundaries
+## value
 
-The field model neglects evolving normal stress, source interaction, magnitude distributions, stress diffusion, and imposed stress slew rates. The fixed stress-time budget need not correspond to any realizable injection control. The earliest cited primary source is publicly dated 1994-02-10. Independent novelty certification and independent proof audit are both absent.
+PASS
 
-Self-review: passed. Independent audit: not yet performed.
+A model-specific sharp all-measurable-history extrema theorem gives the exact optimal stress shape, multiplicative count bounds, and uniqueness at prescribed exposure and cap. It distinguishes late concentrated forcing and early tapering in an ideal constitutive model. The modeled objective is expected nucleation count, not injection operations or risk of damage, and these restrictions are central.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

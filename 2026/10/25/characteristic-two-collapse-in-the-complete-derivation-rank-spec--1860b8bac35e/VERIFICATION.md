@@ -5,8 +5,11 @@
     "status": "not_performed"
   },
   "independent_audit": {
-    "evidence": null,
-    "status": "not_performed"
+    "status": "passed",
+    "evidence": [
+      "INDEPENDENT_AUDIT_2026-10-29.md",
+      "INDEPENDENT_AUDIT_2026-10-29.json"
+    ]
   },
   "lean_verification": {
     "evidence": null,
@@ -16,15 +19,24 @@
 }
 ---
 
-# Reproduction and mathematical boundaries
+# Independent mathematical audit
 
-Extract `check_derivations.py` with the other files and run `python3 check_derivations.py` using Python 3 without external dependencies. The source constructs \(D|_{V\oplus W}\) directly from its two-generator and four quadratic-basis coefficients and independently row-reduces matrices over \(\mathbb F_2,\mathbb F_3,\mathbb F_4,\mathbb F_5\). Its \(\mathbb F_4\) arithmetic uses the irreducible polynomial \(t^2+t+1\).
+## correctness
 
-An actual replay returned `DERIVATION_SPECTRUM_OK` and `LEIBNIZ_BASIS_OK`. The complete histograms from exhaustive \(q=2\) and \(q=3\) runs are
-\[
-(1,45,466,576,3008,0,0),
-\quad(1,320,6240,5832,217242,104976,196830).
-\]
-Every \(2\times2\) leading matrix was checked for its tensor-square rank in all four tested fields; the full quadratic parameter is exhaustively traversed only for \(q=2\) and \(q=3\). The checker also samples 250 quadratic blocks per leading matrix in each tested field and separately tests the Leibniz identity on all pairs of basis words in 160 random derivations per field. Sampling does not certify an infinite family.
+PASS
 
-The mathematical proof in `RESULT.md` is an all-characteristic argument using the explicit tensor-square matrix, the exact block-rank identity, and closed counts of \(2\times2\) matrices. The claimed scope is all finite fields and exactly the two-generator length-three free associative quotient; nothing is asserted about arbitrary nonmonomial quotients or Jordan types.
+PASS: Differentiating cubic words forces both generator-image constant terms to vanish for every characteristic, and freely choosing linear M∈M2(F_q) and quadratic B∈M_{4x2}(F_q) gives exactly q^12 derivations. On V⊕(V⊗V), D=[[M,0],[B,T_M]] with T_M=M⊗I+I⊗M. Its rank equals rank M+rank T_M plus rank of uniform induced map ker M→coker T_M. For odd characteristic the T_M ranks from cyclic 2x2 normal form partition M into zero, rank1 trace0, rank1 trace nonzero, invertible trace0 and invertible trace nonzero; in characteristic2 nonzero scalar M gives T_M=0, all nonscalars rank T_M=2. Exact 2x2 class sizes and uniform B fiber law give all displayed N0..N6; sums equal q^12. Independently enumerated all 2^12=4096 derivations via bitwise exact rank over F2, obtaining [1,45,466,576,3008,0,0] (matches theorem). The inspected full source check_derivations.py additionally describes exhaustive F3 and sampled F4/F5 checks, but its logged results alone were not used as proof.
+
+## originality
+
+PASS
+
+Best-of-knowledge comparison of the precise claim against related primary statements, algebraic implications, four named searches, and inspected published records; prior building blocks acknowledged, with explicit limitations for inaccessible full texts.
+
+## value
+
+PASS
+
+PASS: The radical-cube-zero two-loop free algebra is the natural smallest two-generator noncommutative truncated algebra with an induced tensor-square action. Complete rank frequencies and the sharp characteristic-two six-to-four collapse give substantive structure not implied by the dimension of Der or by module homological invariants.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

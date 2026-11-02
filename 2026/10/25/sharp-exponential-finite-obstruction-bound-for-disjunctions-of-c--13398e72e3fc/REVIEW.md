@@ -1,15 +1,21 @@
-# Review
+# Independent mathematical audit
 
-## Correctness
-The claim is an exact **at-most** cardinality test under lax team semantics. An induction supplies finite witnesses even from infinite teams; on an inclusion-minimal finite obstruction, deleting each point supplies a coordinate-hyperplane cover whose multilinear polynomial vanishes at all other points but not at the deleted point. Linear independence in the \(2^r\)-dimensional multilinear polynomial space establishes the upper bound, and the full Boolean cube is a matching minimal obstruction. The standalone finite checker confirms all cases listed in `VERIFICATION.md` but is not needed for the all-size proof.
+## correctness
 
-## Originality
-The closest direct published statement is the two-constancy-atom \(4\)-coherence theorem in Fröhlich–Kolaitis–Meier, CSL 2026, Corollary 23. The proof here handles every disjunction arity, and its polynomial diagonalization and Boolean-cube sharpness are not part of the inspected two-atom theorem. Barlag et al., arXiv:2605.31269, discuss general coherence and first-order rewritability, but only the abstract was materially available. Searches across published mathematical records and accessible earlier claims returned no equivalent all-arity precise bound. A general hyperplane-cover or polynomial-method theorem may subsume the result; priority remains qualified.
+PASS
 
-## Value
-Finite subteam tests are a structural complexity invariant of dependence-logic formulas. An exact, exponential, and sharp cutoff for every finite number of constancy disjuncts resolves a natural infinite hierarchy of such tests rather than offering a sample calculation. The proof provides a dimension-theoretic explanation for the bound and a tight family of minimal obstructions.
+For distinct variables and lax team semantics, dep(x_1)∨...∨dep(x_r) holds precisely if r coordinate hyperplanes, one per coordinate, cover the team. A noncoverable possibly infinite team has a finite noncoverable subteam by induction on r using a base row s* and counterwitness sets T_i of rows differing in coordinate i. For an inclusion-minimal finite noncoverable F, covering F\{s} after deleting s yields a_i(s) distinct from s_i, and P_s(X)=∏_i(X_i-a_i(s)) evaluates nonzero at s and zero at each other row. These |F| multilinear polynomials are linearly independent in a 2^r-dimensional space, implying |F|≤2^r. The Boolean cube {0,1}^r itself is noncoverable, but every proper subset is coverable by choosing complementary hyperplanes of an excluded row; sharp. Independent complete enumerations for (arity,alphabet) (1,4),(2,2),(2,3),(3,2),(4,2) corroborated obstruction sizes and diagonal evaluations; the polynomial proof is universal.
 
-## Limitations
-Only disjunctions of distinct-variable constancy atoms and standard lax team semantics are covered; no claim of finite-obstruction bounds for arbitrary dependence atoms is made. The novelty assessment depends on the literature actually inspected. No independent validation has been performed.
+## originality
 
-Self-review: passed. Independent audit: not yet performed.
+PASS
+
+Fröhlich–Kolaitis–Meier CSL 2026 Corollary 23 derives coherence 4 for two constancy atoms. The present theorem proves and realizes 2^r for arbitrary r, and does not claim r=2 novelty. Barlag et al. 2026 study broad coherence/first-order rewritability and may hide an equivalent general formula; only abstract/secondary exposition was accessible and authorized Oxford access was VPN-disconnected. A generic multilinear-polynomial injection is classical, but this exact application and all-arity sharp obstruction are not derived in material read. PASS is risk-qualified.
+
+## value
+
+PASS
+
+The sharp worst-case finite witness size gives an exact, all-arity compactness/coherence cutoff for a natural logical fragment. The polynomial method cleanly separates large minimal obstructions from smaller ones (e.g. both size 3 and 4 when r=2), and supports sound finite-subteam testing over arbitrary structures.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

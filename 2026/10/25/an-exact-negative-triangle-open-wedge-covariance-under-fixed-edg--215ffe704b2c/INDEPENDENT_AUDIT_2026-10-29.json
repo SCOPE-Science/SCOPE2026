@@ -1,0 +1,116 @@
+{
+  "audit_date_utc": "2026-10-29",
+  "audited_at_utc": "2026-10-29T03:55:50Z",
+  "axes": {
+    "correctness": {
+      "rationale": "Let C=binom(n,3), B=3C, a_j=(m)_j/(N)_j. The identity W=P-3T converts induced-wedge count into centered cherry P and triangle T. Direct overlap enumeration yields exact E[T],E[P],E[T^2],E[P^2],E[TP] with common-edge or fully disjoint edge-set union probabilities a_j. Independent rational graph enumeration of ALL labelled simple graphs for n=4,5,6 across all 34 edge-count strata reproduced the finite covariance and boundaries. A separate symbolic SymPy simplification verified for arbitrary n,m the factor -C*a3*6(N-m)(N-m-1)K/((n+1)(n+2)(N-5)(N-4)(N-2)). K>0 for n>=5; n=4 gives K=24-4m>0 for 3<=m<=4. When m<=2 no triangle; when m>=N-1 counts deterministic. In G(n,p), overlap on one edge gives 3 C p^4(1-p)[2(n-3)-(3n-8)p], with positive/negative transition threshold 2(n-3)/(3n-8). Symbolic dense-limit calculations independently recovered -p^4(1-p)^2 covariance coefficient and both variance constants, giving the stated correlation. The general result follows from overlap algebra and positivity, not extrapolation.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "General subgraph statistic frameworks cover individual triangle/cherry deviations and possibly leading covariance, but not found to give exact all-parameter induced W covariance sign."
+        ],
+        "reasoning": "Even broad central limit theorems and moderate deviations do not imply a strict finite sign at every n,m and the precise independent-edge sign threshold.",
+        "searches": [
+          "Goldschmidt–Griffiths–Scott Trans AMS 2020",
+          "Alvarado–Gonçalves de Oliveira–Griffiths arXiv:2305.04326",
+          "Janson 1990/1994"
+        ]
+      },
+      "checked_sources": [
+        "Goldschmidt–Griffiths–Scott arXiv:1902.06830; Trans AMS 2020",
+        "Alvarado–Gonçalves de Oliveira–Griffiths arXiv:2305.04326 Sections 1-2",
+        "Janson RSA 1990 and Memoirs AMS 1994 general subgraph statistics",
+        "Resultary Resultary: negative covariance induced triangle open wedge counts G(n,m) all edge densities sign reversal G(n,p)"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "Alvarado et al. treat triangle and non-induced cherry marginal deviation problems; Goldschmidt et al. study martingale subgraph-count increments."
+        ],
+        "reasoning": "The published marginal/conditional probabilistic estimates alone do not logically fix Cov(T,W) for all finite parameters; the audited enumeration of overlapping required edges and factorization provides the missing sign argument. Older broad Janson formulas may still imply asymptotic pieces.",
+        "searches": [
+          "arXiv:2305.04326 Section 1.3",
+          "arXiv:1902.06830 Section 7",
+          "Janson RSA 1990"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "The source literature uses non-induced cherry P=∑binom(degree,2), whereas target W=P-3T is the induced open wedge."
+        ],
+        "reasoning": "Induced/non-induced counts and fixed-edge/independent-edge probability models must not be conflated; generic joint moments are not the same as an explicit uniformly negative finite sign classification.",
+        "searches": [
+          "Resultary: negative covariance induced triangle open wedge counts G(n,m) all edge densities sign reversal G(n,p)",
+          "Goldschmidt Griffiths Scott 2019 triangles cherries covariance",
+          "Janson random graph statistics orthogonal decompositions"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "Relevant published covariance record involves component count rather than induced open-wedge counts; no exact finite table for this pair identified."
+        ],
+        "reasoning": "The presented rational expression can be checked by overlap counting, but no inspected prior table has the full all-size sign and both sampling-model formulas. The n<=6 experiments are fresh checks, not novelty evidence by themselves.",
+        "searches": [
+          "Resultary: negative covariance induced triangle open wedge counts G(n,m) all edge densities sign reversal G(n,p)",
+          "published SCOPE/Resultary: three-point-connectivity-exactly-controls-component-triangle-covariance"
+        ]
+      },
+      "rationale": "Published work on moderate deviations for non-induced cherries and triangles and Janson subgraph statistics provide general covariance frameworks and may already cover some asymptotic constants, but the inspected results do not assert the all-n,m strictly negative induced triangle–open-wedge finite sign and the exact positive-to-negative G(n,p) contrast. Best-of-knowledge PASS with genuine risk of an unindexed exact cross-covariance identity in older joint induced-subgraph literature.",
+      "residual_risks": [
+        "General orthogonal-decomposition techniques (Janson 1990/1994) may imply the limiting covariance; the originality claim is narrowed to finite exact sign/model reversal.",
+        "Goldschmidt full paper and Janson monograph were not fully read; no whole-document noncoverage is claimed."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Marginal deviations, not an all-n,m induced open-wedge cross-covariance sign theorem",
+          "evidence": "The cited χ=cherry statistics are not induced wedges; W=P-3T is needed to obtain target mixed covariance.",
+          "identifier_or_url": "arXiv:2305.04326",
+          "material_read": "71-page OA PDF available; abstract, §1.3 and relevant statements on triangle/non-induced cherry counts inspected",
+          "method": "arXiv PDF with screenshot of relevant section",
+          "title": "Moderate deviations of triangle counts in sparse Erdős–Rényi random graphs G(n,m) and G(n,p)",
+          "trigger": "Same graphs and triangle/cherry statistics"
+        },
+        {
+          "assessment": "Plausible prior coverage for some covariance ingredients; cannot assert whole-document noncoverage",
+          "evidence": "The paper treats non-induced cherry/triangle martingale increments, which is related but insufficient checked detail for the target exact induced wedge.",
+          "identifier_or_url": "arXiv:1902.06830 / Trans AMS 373 (2020)",
+          "material_read": "Abstract and secondary discussion of Section 7; full PDF inaccessible in this run",
+          "method": "arXiv metadata and accessible secondary cited description",
+          "title": "Moderate deviations of subgraph counts in the Erdős–Rényi random graphs G(n,m) and G(n,p)",
+          "trigger": "Potential stronger joint subgraph-covariance and martingale framework"
+        },
+        {
+          "assessment": "Potential coverage of asymptotic dependence remains; no full-document noncoverage assertion",
+          "evidence": "General functional limit theorem may supply limiting covariance but not verified as having an all-n,m strict negative factorization.",
+          "identifier_or_url": "DOI:10.1002/rsa.3240010103",
+          "material_read": "Bibliographic metadata/abstract only",
+          "method": "Publisher/search metadata",
+          "title": "A functional limit theorem for random graphs with applications to subgraph count statistics",
+          "trigger": "Possible broad asymptotic joint subgraph covariance"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "rationale": "The all-parameter strict sign versus edge-count conditioning and explicit model reversal supply a natural interpretable random-graph dependence phenomenon. Exact finite boundaries and a nontrivial factored positivity polynomial go beyond computing an arbitrary isolated moment; known marginal concentration and asymptotic covariance alone do not establish this sign classification.",
+      "status": "PASS"
+    }
+  },
+  "checked_sources": [
+    "Goldschmidt–Griffiths–Scott arXiv:1902.06830; Trans AMS 2020",
+    "Alvarado–Gonçalves de Oliveira–Griffiths arXiv:2305.04326 Sections 1-2",
+    "Janson RSA 1990 and Memoirs AMS 1994 general subgraph statistics",
+    "Resultary Resultary: negative covariance induced triangle open wedge counts G(n,m) all edge densities sign reversal G(n,p)"
+  ],
+  "disposition": "passed",
+  "limitations": [
+    "Scientific best-of-knowledge priority does not prove historic uniqueness.",
+    "Bounded checks corroborate but do not substitute for proofs."
+  ],
+  "residual_risks": [
+    "General orthogonal-decomposition techniques (Janson 1990/1994) may imply the limiting covariance; the originality claim is narrowed to finite exact sign/model reversal.",
+    "Goldschmidt full paper and Janson monograph were not fully read; no whole-document noncoverage is claimed."
+  ],
+  "schema_version": 1
+}

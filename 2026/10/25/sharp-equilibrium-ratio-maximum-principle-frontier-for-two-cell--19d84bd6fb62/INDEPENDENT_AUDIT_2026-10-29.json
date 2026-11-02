@@ -1,0 +1,105 @@
+{
+  "audit_date_utc": "2026-10-29",
+  "audited_at_utc": "2026-10-29T02:56:32Z",
+  "axes": {
+    "correctness": {
+      "rationale": "For a,b>0, p=b/(a+b), q=1-p, u∈(0,1), s=h(a+b)>0, the supplied stage reduces error to (u−p)R(s,p,u). Independently expanded N′D−ND′=−H with each H coefficient positive since E=u(1−u)/(pq)>0 and B−E=(u−p)^2/(pq)≥0. Thus R strictly decreases from 1 to −1/(1+B); comparing the flipped weighted-density maximum for positive or negative initial error gives a violation precisely when max(p,q)>(√5−1)/2. The exact strictly interior witness (p,u,s)=(3/4,9/10,10) yields output (15134/21985,6851/21985), violating 6/5. Independently verified symbolic derivative and rational state update; finite checks do not prove the universal theorem. The endpoints u=0,1 and s=∞ are excluded and used only in suprema.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Kopecz–Meister arXiv:1702.04589 supplies method construction and order; Bartel–Lampert–Ranocha arXiv:2404.07641 provides Chang–Cooper motivation; Torlo et al. give exact rational endpoint."
+        ],
+        "reasoning": "Known generic positivity and rational endpoint expressions do not, as stated, imply the sharp all-step golden-ratio stationary-mass iff without additional optimization; a hidden specialized maximum bound remains possible.",
+        "searches": [
+          "two-cell original modified Patankar Runge Kutta stationary density weighted maximum principle sharp golden ratio equilibrium mass threshold all time steps",
+          "two-state Patankar positivity max bound discrete Fokker Planck"
+        ]
+      },
+      "checked_sources": [
+        "Torlo–Öffner–Ranocha, arXiv:2108.07347v5, Theorem 4.7",
+        "Bartel–Lampert–Ranocha, arXiv:2404.07641v1",
+        "Kopecz–Meister, arXiv:1702.04589",
+        "Izgin–Kopecz–Meister, arXiv:2202.11649 abstract",
+        "Resultary query two-cell original modified Patankar Runge Kutta stationary density weighted maximum principle sharp golden ratio equilibrium mass threshold all time steps"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "Torlo Theorem 4.7 explicitly requires dimensionless time step ≤2 for oscillation-free behavior, whereas the submitted theorem permits large-step overshoot for balanced masses and rules out weighted max violation.",
+          "The exact large-step negative amplification and p²+p−1 optimization are not asserted in that theorem."
+        ],
+        "reasoning": "The prior rational endpoint is an acknowledged algebraic starting point, but its monotonicity/no-crossing claim does not logically imply the new all-step weighted-maximum iff as a cited corollary.",
+        "searches": [
+          "two-cell original modified Patankar Runge Kutta stationary density weighted maximum principle sharp golden ratio equilibrium mass threshold all time steps",
+          "arXiv:2108.07347v5 Theorem 4.7",
+          "arXiv:2404.07641 equations 3.7-3.8"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Torlo–Öffner–Ranocha 2022 Theorem 4.7 proves all-input absence of equilibrium crossing only for scaled step ≤2, not all-step equilibrium-relative upper maximum preservation.",
+          "Heun-based MPRK stage and endpoint are prior, not claimed new."
+        ],
+        "reasoning": "Positive Markov mass conservation, nonoscillation around equilibrium, and preservation of max_i x_i/pi are distinct; the new comparison permits sign reversal up to asymmetric threshold.",
+        "searches": [
+          "two-cell original modified Patankar Runge Kutta stationary density weighted maximum principle sharp golden ratio equilibrium mass threshold all time steps",
+          "MPRK(2,2,1) oscillation equilibrium weighted maximum contraction"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "Inspected Torlo et al. tables concern oscillation-free time-step cutoffs and method comparisons, not the equilibrium-mass classification."
+        ],
+        "reasoning": "This is a continuum parameter statement; numerical grids or positivity tables cannot certify all positive input states and steps.",
+        "searches": [
+          "two-cell original modified Patankar Runge Kutta stationary density weighted maximum principle sharp golden ratio equilibrium mass threshold all time steps",
+          "Patankar maximum principle invariant domain two species table"
+        ]
+      },
+      "rationale": "At the stated best-of-knowledge level, the specific step-uniform inverse-golden-ratio frontier for the equilibrium-weighted maximum is not a theorem or immediate corollary in the inspected closest Patankar sources; exact rational endpoints and qualitative oscillation analysis remain prior art.",
+      "residual_risks": [
+        "Older Patankar two-state endpoint analyses may implicitly derive the same mass threshold.",
+        "Complete full text of Izgin–Kopecz–Meister 2022 was not read in this execution; no whole-document exclusion is asserted."
+      ],
+      "resultary_searches": [
+        "two-cell original modified Patankar Runge Kutta stationary density weighted maximum principle sharp golden ratio equilibrium mass threshold all time steps"
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Covers no-equilibrium-crossing restriction rather than asymmetric equilibrium-weighted maximum threshold",
+          "evidence": [
+            "Theorem 4.7, equations (29)-(30), PDF pp. 11-12"
+          ],
+          "identifier_or_url": "https://davidetorlo.it/files/publications/Torlo2021StabilityPatankar.pdf",
+          "material_read": "Full extracted PDF Section 4.1 Theorem 4.7 and polynomial endpoint derivation, plus method and experiments sections",
+          "method": "Direct examination of OA author PDF with theorem statement and rational expressions",
+          "title": "Issues with Positivity-Preserving Patankar-type Schemes",
+          "trigger": "closest same two-component MPRK method"
+        },
+        {
+          "assessment": "Original MPRK method/application, not evidence of asserted golden ratio threshold",
+          "evidence": [
+            "arXiv:2404.07641v1, Sections 2-4"
+          ],
+          "identifier_or_url": "https://arxiv.org/html/2404.07641v1",
+          "material_read": "Method/stage definitions and diffusion application as exposed by arXiv source and frozen proof references; full-text reading not freshly repeated",
+          "method": "Scope and formula comparison, without asserting complete present-run full-text exclusion",
+          "title": "Structure-Preserving Numerical Methods for Fokker–Planck Equations",
+          "trigger": "origin of motivating Chang–Cooper application"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "rationale": "The equilibrium-relative maximum is an intrinsic Markov comparison invariant beyond positivity and mass conservation; an exact sharp equilibrium-asymmetry threshold in the smallest nontrivial Chang–Cooper/MPRK diffusion identifies a real numerical invariant-region loss. It is not an arbitrary method parameter slice or a generic restatement of Patankar positivity.",
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "limitations": [
+    "Finite checks corroborate but do not replace infinite proofs or originality comparison.",
+    "Independent originality judgment is best-of-knowledge with documented primary-reading limits."
+  ],
+  "schema_version": 1
+}

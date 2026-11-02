@@ -1,0 +1,137 @@
+{
+  "audit_date_utc": "2026-10-28",
+  "audited_at_utc": "2026-10-28T17:50:41Z",
+  "axes": {
+    "correctness": {
+      "rationale": "For n>=2 the handshaking map from the edge indicator bits onto even-sum degree parity vectors is surjective; fixing d sets the n-1 incident-to-last-vertex bits uniquely in terms of the C(n-1,2) independent internal bits. The F2 reduced Laplacian minor is therefore a uniform symmetric (n-1)x(n-1) matrix with exact diagonal d[1:n-1], so Kirchhoff makes tree-count odd iff full rank. Under binary congruence the diagonal transforms as P^T b, proving all nonzero b classes equiprobable. Zero diagonal gives the alternating-form product p0(2k)=prod_{j=1}^k(1-2^{1-2j}) and p0(2k+1)=0. For nonzero b, congruence to e1 and Schur complement C+vv^T yield p1(2k+1)=p0(2k) (singular even-dimensional alternating C has nullity>=2) and p1(2k)=(1-2^{-(2k-1)})p0(2k-2)=p0(2k) (odd-dimensional C requires 1-d radical and v.w=1). This derives the exact three-case formula and n=2 boundary. A fresh independent exact-rational enumeration of all graphs n=2..6 and of all symmetric matrices with every fixed diagonal m=1..5 agrees for every feasible d and b. Numeric infinite product independently evaluated to 0.4194224417951076; enumeration alone is not the all-n proof.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Balister, Powierski, Scott and Tan, Counting partitions of G(n,1/2) with degree congruence conditions (Random Structures & Algorithms 62, 2023), Section 5, Theorem 16 and Corollary 17: unconditional symmetric F2 rank counts and the even row-sum model; Theorems 18-19 count degree-constrained vertex partitions, not spanning-tree parity conditioned on the complete labeled parity vector.",
+          "Wood, The distribution of sandpile groups of random graphs (arXiv:1402.5149), Introduction Theorem 1.1 and Section 9 Corollary 9.4: asymptotic unconditional p-rank/sandpile group distribution, in particular limiting odd spanning-tree probability around 0.4194.",
+          "MacWilliams, Orthogonal matrices over finite fields (1969), symmetric-matrix rank count as reproduced in Balister et al., Section 5 Theorem 16; the published count is unconditional over diagonal vectors."
+        ],
+        "reasoning": "Wood covers all fixed edge probabilities and arbitrary p-Sylow distributions asymptotically, not finite n conditioned on an entire n-bit degree-parity vector. Balister covers degree-congruence vertex partitions and full rank distribution of an even row-sum binary matrix but not the conditional determinant given its diagonal. MacWilliams counts all symmetric matrices of a given rank after averaging all diagonal classes; these stronger aspects do not logically dominate the present conditional finite-n law.",
+        "searches": [
+          "Resultary: Exact conditional parity probability of spanning tree count in Erdos Renyi G(n, 1/2) conditioned on all vertex degree parity bits Laplacian cofactor determinant fixed diagonal",
+          "Resultary: Random symmetric binary matrix fixed diagonal nondegeneracy probability degree vector of graph and sandpile 2-primary subgroup",
+          "web: Wood sandpile distribution G(n,q) all primes conditional degree parity",
+          "web: Balister Powierski Scott Tan Section 5 Theorem 16 Corollary 17"
+        ]
+      },
+      "checked_sources": [
+        "Balister et al., 2023, DOI 10.1002/rsa.21115, full HTML Section 5 Thm16/Cor17/Thm18-19",
+        "Wood, arXiv:1402.5149, primary preprint introductory and Section 9 results",
+        "Eppstein, 1996 technical report, author abstract and indexed introduction only; PDF 502, Oxford vpn_disconnected",
+        "MacWilliams 1969 Theorem 2 via precise secondary statement in Balister 2023",
+        "Resultary three actual semantic queries for conditional tree parity, prescribed diagonal matrices, Eulerian cut; compared the nearest fixed-graph spanning-tree record",
+        "Web targeted conditional random-graph/sandpile/full degree-parity equivalence queries"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "Eppstein, On the Parity of Graph Spanning Tree Numbers (1996), author abstract and indexed PDF introduction: a graph has even spanning-tree count exactly when an Eulerian cut exists; specifically even-order Eulerian graphs have even count. Direct PDF fetch failed and complete paper was not available in this audit.",
+          "Wood, The distribution of sandpile groups of random graphs (arXiv:1402.5149), Introduction Theorem 1.1 and Section 9 Corollary 9.4: asymptotic unconditional p-rank/sandpile group distribution, in particular limiting odd spanning-tree probability around 0.4194.",
+          "Balister, Powierski, Scott and Tan, Counting partitions of G(n,1/2) with degree congruence conditions (Random Structures & Algorithms 62, 2023), Section 5, Theorem 16 and Corollary 17: unconditional symmetric F2 rank counts and the even row-sum model; Theorems 18-19 count degree-constrained vertex partitions, not spanning-tree parity conditioned on the complete labeled parity vector."
+        ],
+        "reasoning": "Eppstein implies precisely the even-n/all-even d zero subcase; Wood gives the limit after averaging over all d, but not a conditional finite-n value. Balister/MacWilliams supply unconditional rank counts. The nonzero d cases and odd-n independence do not follow from any inspected stated theorem without a further fixed-diagonal congruence and graph-fibre argument; any already-published equivalent derivation remains a priority risk.",
+        "searches": [
+          "Resultary: Exact conditional parity probability of spanning tree count in Erdos Renyi G(n, 1/2) conditioned on all vertex degree parity bits Laplacian cofactor determinant fixed diagonal",
+          "Resultary: Eulerian graphs even number spanning trees Eppstein odd spanning trees random graph parity degree conditional",
+          "web: Eppstein On Parity of Graph Spanning Tree Numbers Eulerian even-order obstruction",
+          "web: Wood Corollary 9.4 odd spanning tree probability"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Balister, Powierski, Scott and Tan, Counting partitions of G(n,1/2) with degree congruence conditions (Random Structures & Algorithms 62, 2023), Section 5, Theorem 16 and Corollary 17: unconditional symmetric F2 rank counts and the even row-sum model; Theorems 18-19 count degree-constrained vertex partitions, not spanning-tree parity conditioned on the complete labeled parity vector.",
+          "Wood, The distribution of sandpile groups of random graphs (arXiv:1402.5149), Introduction Theorem 1.1 and Section 9 Corollary 9.4: asymptotic unconditional p-rank/sandpile group distribution, in particular limiting odd spanning-tree probability around 0.4194.",
+          "Resultary hit 2026/10/11/SCOPE-exact-spanning-tree-complexity-and-a-two-binomial-degree-law-for--9236b8494fff concerns fixed finite graph family and tree degree distribution, not conditional parity for random graphs."
+        ],
+        "reasoning": "Odd tree-count is equivalently det of a reduced Laplacian over F2 being 1 and, for connected graphs, absence of a 2-primary critical-group component. The searched determinant, binary Laplacian, sandpile and degree-vector aliases produced unconditional rank/distribution claims, not the same conditional law. Absence from searched records is not a proof of priority.",
+        "searches": [
+          "Resultary: Exact conditional parity probability of spanning tree count in Erdos Renyi G(n, 1/2) conditioned on all vertex degree parity bits Laplacian cofactor determinant fixed diagonal",
+          "Resultary: Random symmetric binary matrix fixed diagonal nondegeneracy probability degree vector of graph and sandpile 2-primary subgroup",
+          "web: random graph spanning trees odd number conditioned on degree parity uniform random G n 1/2 probability",
+          "Resultary closest 2026/10/11/SCOPE-exact-spanning-tree-complexity-and-a-two-binomial-degree-law-for--9236b8494fff"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "MacWilliams, Orthogonal matrices over finite fields (1969), symmetric-matrix rank count as reproduced in Balister et al., Section 5 Theorem 16; the published count is unconditional over diagonal vectors.",
+          "Balister, Powierski, Scott and Tan, Counting partitions of G(n,1/2) with degree congruence conditions (Random Structures & Algorithms 62, 2023), Section 5, Theorem 16 and Corollary 17: unconditional symmetric F2 rank counts and the even row-sum model; Theorems 18-19 count degree-constrained vertex partitions, not spanning-tree parity conditioned on the complete labeled parity vector.",
+          "Independent exact-rational exhaustive graph enumeration n=2..6 and symmetric fixed-diagonal enumeration m=1..5 reproduces the proposed table; this is new verification, not bibliographic priority evidence."
+        ],
+        "reasoning": "The known full-rank matrix-count formula and the alternating-form symplectic product recover ingredients, but do not separately tabulate full graph degree-vector conditional probabilities. Finite verification tables here corroborate arithmetic and cannot establish historical novelty.",
+        "searches": [
+          "Resultary: Random symmetric binary matrix fixed diagonal nondegeneracy probability degree vector of graph and sandpile 2-primary subgroup",
+          "web: nondegenerate random symmetric matrix over F2 prescribed diagonal exact invertibility probability",
+          "Resultary: random binary symmetric matrix fixed diagonal sandpile graph parity"
+        ]
+      },
+      "rationale": "Qualified best-of-knowledge: the exact graph-level conditional law is not stated by the inspected source theorems. Its nontrivial extra ingredient is an exact fibre equivalence between entire degree parity vectors and fixed-diagonal binary symmetric reduced Laplacians, followed by congruence orbit separation and an alternating rank-one update. Classical counts explain the product; originality is the finite-n conditional graph-level classification, not the alternating-form count itself.",
+      "residual_risks": [
+        "An older precise fixed-diagonal binary symmetric nonsingularity law or graph critical-group identity may have already implied the exact conditionally stratified probability; search failure is not priority proof.",
+        "Eppstein 1996 full paper inaccessible in this run; author and indexed introductory material do not establish whole-document noncoverage; Oxford vpn_disconnected.",
+        "Original MacWilliams 1969 article was not read independently; its full rank theorem was checked via Balister secondary reproduction.",
+        "No certification of complete historical originality, formal Lean proof, or external expert attestation."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Exact unconditional symmetric and row-sum-zero rank distribution plus partition counts; no formula conditional on every labeled vector of graph degree parities and no spanning-tree parity statistic.",
+          "evidence": "Balister, Powierski, Scott and Tan, Counting partitions of G(n,1/2) with degree congruence conditions (Random Structures & Algorithms 62, 2023), Section 5, Theorem 16 and Corollary 17: unconditional symmetric F2 rank counts and the even row-sum model; Theorems 18-19 count degree-constrained vertex partitions, not spanning-tree parity conditioned on the complete labeled parity vector.",
+          "identifier_or_url": "https://onlinelibrary.wiley.com/doi/full/10.1002/rsa.21115",
+          "material_read": "Full open-access HTML: introduction and complete Section 5, particularly MacWilliams Theorem 16, Corollary 17 and Theorems 18-19 with rank/partition arguments.",
+          "method": "Direct primary HTML examination of statements, variables and implications, not abstract-only.",
+          "title": "Counting partitions of G(n,1/2) with degree congruence conditions",
+          "trigger": "Same random graph and degree parity distribution, and explicit symmetric matrix rank formula in Section 5."
+        },
+        {
+          "assessment": "Limiting unconditional sandpile-group and mod-p rank laws, with no finite-n condition on a fixed vertex parity vector.",
+          "evidence": "Wood, The distribution of sandpile groups of random graphs (arXiv:1402.5149), Introduction Theorem 1.1 and Section 9 Corollary 9.4: asymptotic unconditional p-rank/sandpile group distribution, in particular limiting odd spanning-tree probability around 0.4194.",
+          "identifier_or_url": "https://arxiv.org/pdf/1402.5149",
+          "material_read": "Primary 38-page preprint; introduction, Theorems 1.1 and 1.2, discussion of Laplacian determinants, Section 9, Corollary 9.4 and its proof (page 34).",
+          "method": "Direct searchable primary PDF with first and Corollary 9.4 pages visually checked.",
+          "title": "The distribution of sandpile groups of random graphs",
+          "trigger": "Trivial 2-Sylow event equivalent to odd tree count; potentially dominating asymptotic result."
+        },
+        {
+          "assessment": "Known deterministic Eulerian-cut criterion covers n even/d=0 case; complete-text overlap beyond that is an explicitly retained risk.",
+          "evidence": "Eppstein, On the Parity of Graph Spanning Tree Numbers (1996), author abstract and indexed PDF introduction: a graph has even spanning-tree count exactly when an Eulerian cut exists; specifically even-order Eulerian graphs have even count. Direct PDF fetch failed and complete paper was not available in this audit.",
+          "identifier_or_url": "https://www.ics.uci.edu/~eppstein/pubs/Epp-TR-96-14.pdf",
+          "material_read": "Author-maintained bibliography abstract and indexed introductory PDF excerpt; full PDF failed to open with 502. No full-text inspection claim.",
+          "method": "Primary author listing and search-indexed primary PDF excerpt; authorized Oxford retrieval after unsuccessful arXiv/OA attempts returned vpn_disconnected, no bypass or repeat.",
+          "title": "On the Parity of Graph Spanning Tree Numbers",
+          "trigger": "Directly states a deterministic criterion for odd spanning tree count and even-order Eulerian obstruction."
+        },
+        {
+          "assessment": "Classical unconditional symmetric-rank distribution; fixed-diagonal law could be a standard consequence and remains an originality risk.",
+          "evidence": "MacWilliams, Orthogonal matrices over finite fields (1969), symmetric-matrix rank count as reproduced in Balister et al., Section 5 Theorem 16; the published count is unconditional over diagonal vectors.",
+          "identifier_or_url": "MacWilliams, American Mathematical Monthly 76 (1969), 152–164",
+          "material_read": "Theorem 2 as directly restated with explicit rank count in Balister et al. Theorem 16; original 1969 paper itself not read.",
+          "method": "Secondary exact-theorem inspection inside full-text primary Balister article; original document not claimed inspected.",
+          "title": "Orthogonal matrices over finite fields",
+          "trigger": "Source of classic exact rank count; likely broader finite-field matrix antecedent."
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "rationale": "This gives the complete finite-n conditional law for a canonical n-bit observable on the strongly dependent degree-conditioned Erdos–Renyi graph ensemble. The exact independence of the tree-parity event from every degree-parity vector at odd n and the single all-even exceptional fibre at even n are structural phenomena not determined by the known unconditioned p-Sylow limiting law. The result is naturally relevant to parity-restricted random graphs, binary Laplacian minors and 2-primary critical groups, even though its alternating-form ingredients are classical. It is an all-order exact law rather than a routine substitution or arbitrary numerical slice; it does not claim full integer tree counts or biased-edge models.",
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "limitations": [
+    "Exact statement restricted to simple labeled G(n,1/2) and n>=2, with even-weight vector d; outside this parity fibre conditioning is undefined.",
+    "Independently exhaustive finite experiments n<=6 (graphs), m<=5 (fixed-diagonal symmetric matrices); all-order formula rests on the algebraic proof.",
+    "No claim about arbitrary edge density, exact integer-degree sequences or full sandpile group law.",
+    "Primary Eppstein 1996 full text inaccessible: web PDF open 502 and authorized Oxford retrieval vpn_disconnected; no bypass, retry or whole-document noncoverage claim.",
+    "Unresolved historical-priority possibility in fixed-diagonal binary form and random critical group literature; best-of-knowledge O only.",
+    "Public metadata original first_public_date 2021-05-26 conflicted with 2026-10-18 publication date and matched a cited antecedent; removed the unsupported first-public-date assertion from sanitizing replacement without fabricating a new priority date.",
+    "Original source contains operational provenance IDs in AUDIT/METADATA; plan replaces both complete files and removes that identifier; scientific self-review preserved; RESULT/SLOGAN/VERIFICATION unchanged.",
+    "Publication operations are staged, not executed. Independent audit, formal Lean and expert channels not claimed certified."
+  ],
+  "schema_version": 1
+}

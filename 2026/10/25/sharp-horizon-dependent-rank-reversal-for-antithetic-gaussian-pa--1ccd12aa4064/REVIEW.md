@@ -1,21 +1,21 @@
-# Scientific assessment: sharp horizon-dependent rank reversal for antithetic Gaussian particle matching
+# Independent mathematical audit
 
-## Correctness — PASS
+## correctness
 
-The exact conditional variance assignment functional follows by applying the integrated Gaussian-indicator covariance identity to independently reflected pairs. The reflection/independence difference has Gaussian location-difference variances \(2(r+1)\sigma^2\) and \(2r\sigma^2\). The factor \(\mu^2/4\) follows from averaging the two fields and the half-factor in the integrated covariance identity. Differentiating the resulting difference of folded Gaussian absolute moments yields a unique radius at which curvature changes sign. Strict exchange inequalities give the two global assignment regimes under the stated **convex-hull separation** hypotheses. For translated two-particle blocks the centered second-difference has a unique crossover for small spacing, obtained from an exact triangular kernel identity and local Taylor expansion. The far-separated gain-ratio asymptotic follows from the Gaussian Mills expansion. A standalone checker reproduces representative finite tests. The analytical proof, not those tests, supports every universal quantifier.
+PASS
 
-The required distinction between mere pairwise distant observed points and **complete separation of the two point clouds** is built into the final theorem. Strictly ordered positions and conditional stagewise variance are essential hypotheses.
+Under equal-sign equal-mass one-dimensional heat particles, conditional integrated covariance of two reflected Gaussian cumulative-field indicators equals −W_r(d)/2 by the half-line covariance identity. Averaging gives V_π=C−μ²/4 Σ_i W_r(a_i−b_π(i)). Directly differentiating the two folded-Gaussian moments gives W_r″ negative for |d|<T_r, positive outside, T_r=σ√(2r(r+1)ln(1+1/r)). The double integral of W_r″ over exchange rectangles gives unique rank optimum when every cross-difference is in the concave region and reverse rank for complete separation beyond T_r. A triangular-kernel second difference has a unique small-δ crossover, second-order offset [(2r+1)ln(1+1/r)−1]δ²/(12T_r); Gaussian tail expansion yields relative gain ratio ∼2 exp(3D²/(4(r+1)σ²)). Independent checks compare 36 exact-enumerated small-dimensional permutations and six curvature signs. Full analytical proof, not finite checks, establishes universality.
 
-## Originality — PASS subject to historical-priority risk
+## originality
 
-Abkin and Daripa (arXiv:2610.01120, full HTML, Sections 3.1 and 4.2–4.4) derive fixed-matching covariance and folded-normal gains, as well as rank minimization of **total partner distance**, but not an optimization across bijections for the **integrated variance** objective. Specifically their Corollary 4.8 observes a pointwise decreasing gain as partner distance grows; that fact does not compare sums under different permutations when the gain is nonconvex. The new result identifies the exact nonconvex-curvature switch, the two distinct global optimum regions, a positive second-order finite-spacing displacement of the boundary, and exponential loss of rank efficiency for separated blocks. Generic Monge assignment exchanges are acknowledged as classical, not claimed new. Delon–Salomon–Sobolevskii (arXiv:0902.3527, mathematical introduction and Monge exchange sections) assume a Monge cost; here the Gaussian variance gain switches between Monge and reverse-Monge regimes. Nüsken–Pavliotis (arXiv:1806.11026, introduction and Section 5.2) optimize Markov-sampler asymptotic variance using adaptive couplings, a different observable and criterion. Semantic mathematical-record searches on the Gaussian gain kernel, matching permutations, variance and the motivating paper gave no statement that implies the full claim. Historical equivalents not indexed by these checks remain possible; this is not a claim of externally certified originality.
+PASS
 
-## Mathematical value — PASS
+The originating primary source establishes the fixed pair weight but not its permutation optimum; generic rearrangement results are recognized as inherited. The horizon-dependent Gaussian curvature/phase switch and crossover are best-of-knowledge new specialized consequences.
 
-The natural algorithmic decision in a paired particle solver is which particles to match to reduce **actual integrated sampling variance**. The paper uses rank matching because it minimizes \(L^1\) distance, but the physically relevant gain is a decreasing yet curvature-changing folded-Gaussian difference. The result gives computable, sharp, horizon-dependent conditions under which rank is correct versus provably worst relative to reverse rank, plus a quantitative exponential gap in share of attainable variance reduction. It directly informs when cheap sorted pairing is reliable and when a different permutation can be much more effective. This is not merely a reparameterization of a known special-case formula or an arbitrary finite computation.
+## value
 
-## Limitations and remaining risks
+PASS
 
-The theorem addresses only equal nonzero signed masses, one-dimensional heat evolution, independent Gaussian noises across matched pairs, reflected noise within each pair, equal step diffusion width, and the **stagewise conditional** component of the terminal field's spatially integrated variance. It does not optimize the overall full-path variance in which entering states depend on past coupling decisions, nor address nonlinear flux, unequal masses, mixed signs, arbitrary covariance couplings, ties, or more than one spatial dimension. Its exponential efficiency ratio is relative; both absolute gains vanish for large displacement. Generic Monge theory may contain a prior equivalent specialization, and material not indexed in the searches may have comparable results. Independent scientific audit is outstanding.
+Minimizing matching distance is a natural but potentially misleading proxy for variance reduction in antithetic particle schemes. This result gives sharp actionable geometry and horizon conditions for sorted versus reverse assignment, plus asymptotic relative inefficiency, addressing a mathematically motivated algorithm design decision. It is not merely a renamed Monge lemma.
 
-Self-review: passed. Independent audit: not yet performed.
+The dated certificate retains the supplied scientific assessment, sources and limitations.

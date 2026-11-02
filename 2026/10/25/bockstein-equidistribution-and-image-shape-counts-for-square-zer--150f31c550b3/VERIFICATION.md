@@ -5,8 +5,11 @@
     "status": "not_performed"
   },
   "independent_audit": {
-    "evidence": null,
-    "status": "not_performed"
+    "status": "passed",
+    "evidence": [
+      "INDEPENDENT_AUDIT_2026-10-28.md",
+      "INDEPENDENT_AUDIT_2026-10-28.json"
+    ]
   },
   "lean_verification": {
     "evidence": null,
@@ -15,10 +18,25 @@
   "schema_version": 1
 }
 ---
-# Reproducibility and limits
 
-Run `python3 verify.py` with Python 3. The program independently forms all actual matrices over indicated finite rings and tests \(X^2=0\) by ring multiplication, without using the anticommutator normal form. It enumerates every module vector to compute the exact image size and infers the two image invariants from reduction rank and cardinality. The rank formula is computed separately through Gaussian binomial coefficients.
+# Independent mathematical audit
 
-The passing test included \(n=1,2,3\) for \(q=2\) over both \(\mathbb Z/4\mathbb Z\) and dual numbers; \(n=2\) for \(q=3\) over both \(\mathbb Z/9\mathbb Z\) and dual numbers; and \(n=2,q=4\) over dual numbers over \(\mathbb F_4\). The program printed `VERIFY_OK_SQUARE_ZERO_CHAIN2_SHAPE` on success. For \(n=3,q=2\), each of the two nonisomorphic rings yielded exactly \(1184\) matrices satisfying \(X^2=0\), with the six nonzero strata \((r,t)=(0,0),(0,1),(0,2),(0,3),(1,0),(1,1)\) having counts \(1,49,294,168,336,336\), respectively.
+## correctness
 
-Exhaustive checks cover only the enumerated small cases and do not establish any result beyond them. The unrestricted correctness argument is the mathematical proof in `RESULT.md`. No independent external mathematical audit has been conducted.
+PASS
+
+PASS: For square-zero reduction A of rank r, H=kerA/imA has dimension s=n−2r and β_X is well defined because lifts of cycles differ by boundaries. Conjugate A to N:F→E identity, X=N+πY. The condition X²=0 gives Y_FE=Y_FG=Y_GE=0 and Y_FF=−Y_EE, leaving free blocks with 2r(n−r)+s² entries. The induced β is free block Y_GG, so each fixed β has exactly q^{2r(n−r)} lifts for every finite commutative chain ring of length two, even mixed characteristic. Smith-type row/column elimination gives im_R X ≅ R^r⊕k^rankβ; Gaussian rank counts yield exact joint N_{n,q}(r,t). Independent direct enumeration of all 2×2 matrices over Z/4 and F2[ε]/(ε²) reproduced shape counts (r,t): (0,0)→1, (0,1)→9, (0,2)→6, (1,0)→12 in both rings.
+
+## originality
+
+PASS
+
+Qualified original conditional Bockstein-equidistribution/Smith image-shape classification for all length-two finite commutative chain rings; aggregate field and dual-number square-zero counts not claimed as new.
+
+## value
+
+PASS
+
+PASS: Intrinsic secondary-map uniformity and explicit image-module ranks across mixed/equal-characteristic length-two rings form a natural structural refinement of aggregate square-zero counts; useful for matrix lifting and module classification.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

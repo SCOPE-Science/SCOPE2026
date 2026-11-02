@@ -1,19 +1,21 @@
-# Scientific review
+# Independent mathematical audit
 
-## Correctness — PASS
+## correctness
 
-The complete theorem concerns nilpotent partial isometries of \(K_{a,b}\) with \(a,b\geq2\). The graph metric forces every nonempty partial isometry to have exactly one of two global orientations, preserving or exchanging the bipartition. In either orientation, nilpotency is equivalent to absence of directed cycles. The labeled exponential formula counts each disjoint path assembly once, with its arrow count and longest path length correctly tracked. The empty map is the unique overlap of the orientations and is subtracted once. For maximal index, the side-preserving bound is the larger side size and the alternating bound is twice the smaller size, plus one in the unequal case; counting Hamiltonian paths and remaining isolated labels gives the four cases. Reproduction from `verify.py` independently checks every rank/index coefficient for 15 small bipartition sizes and matches the sharp extremizer formulas.
+PASS
 
-## Originality — PASS against inspected evidence
+In K_{a,b} with a,b>=2, any nonempty distance-preserving partial injection has exactly one part-preserving or part-swapping orientation: within-part pairs have graph distance two, cross-part pairs distance one, singleton sources still determine the target part. A nilpotent injection is a labeled assembly of directed paths without cycles, with index the longest path vertex count and rank its arrow count; the two orientation-class exponential EGFs P_L and Q_L count all such assemblies and overlap only at the empty map. Finite bidegree extraction and successive cutoffs give exact full rank-index polynomial. Comparing maximal within-side path length a versus alternating length 2b+1 (a>=b), with disjoint mechanism counting at the tie a=2b+1, proves all four phase formulas. Independently enumerated every partial injection and tested every distance pair and orbit cycle for K_2,2, K_3,2, K_4,2, K_5,2 and K_3,3, reproducing index histograms 1,24,8,8 and 1,56,60,24,12 and 1,138,224,120,48, plus extremal index/count for all five instances. The general result rests on symbolic combinatorial arguments, not small enumerations.
 
-The 2022 star partial-isometry paper (arXiv:2203.05504) studies the monoid's structural description, cardinality, Green relations, generators and presentation for a one-vertex part. The 2022 cycle paper (arXiv:2205.02196) gives presentations, cardinality and Green relations; \(K_{2,2}\) is its four-cycle case. A previous complete nilpotent rank/index census for every cycle already covers \(K_{2,2}=C_4\); a separate star nilpotent enumeration covers the excluded one-vertex-part case, and earlier square-zero results cover further individual slices. None of those special graph or index slices implies the uniform two-sided alternating path census or side-imbalance transition. The 2019 inverse-algebra representation study (arXiv:1906.06415) does not specialize to these rank/index counts. Searches also checked colored partial permutation, nilpotency-index, and graph inverse-monoid terminology. No decisive covering theorem was located, although no search guarantees publication priority.
+## originality
 
-## Value — PASS
+PASS
 
-Nilpotency index and domain rank are natural structural statistics of inverse transformation monoids. The theorem determines their entire joint distribution for a canonical graph family, and the exact threshold \(a=2b+1\) exhibits a competition between two qualitatively different maximal-chain mechanisms. This is more informative than a fixed small-size census or a star-only extension, and the resulting formulas permit exact computations for arbitrary side sizes without enumerating partial maps. Further random-assembly and representation questions can use the precise component polynomial, but no unproved downstream theorem is claimed.
+Known star (one part has size one) and C4 cycle (a=b=2) cases are explicitly excluded as independent novelty. The inspected cycle paper describes full monoid structure/cardinality/presentation and not the complete a,b>=2 nilpotent joint rank/index EGF and sharp imbalance transition; related published mathematical records address different invariants. Best-of-knowledge PASS.
 
-## Closest literature and limitations
+## value
 
-The main comparisons are Fernandes–Paulista's star and cycle partial-isometry papers and FitzGerald's partial-automorphism inverse-algebra framework. The general combinatorial exponential formula is standard, and the proof uses it rather than claiming to invent it. The index-one convention includes the zero partial map. The theorem excludes one-vertex sides from its new claims and acknowledges the already-known \(K_{2,2}\) specialization, makes no claim of an asymptotic distribution, and does not classify nonnilpotent maps. Search gaps remain for an equivalent formulation in colored partial-permutation or graph partial-automorphism literature.
+PASS
 
-Self-review: passed. Independent audit: not yet performed.
+The two-color path-assembly formula is a natural complete joint rank/index distribution of a concrete inverse monoid family, while the exact longest-chain phase boundary at a=2b+1 exhibits distinct mechanisms and counts. Nontrivial colored combinatorics and explicit extremizers give a usable structural invariant beyond a general EGF tautology.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

@@ -5,8 +5,11 @@
     "status": "not_performed"
   },
   "independent_audit": {
-    "evidence": null,
-    "status": "not_performed"
+    "status": "passed",
+    "evidence": [
+      "INDEPENDENT_AUDIT_2026-10-29.md",
+      "INDEPENDENT_AUDIT_2026-10-29.json"
+    ]
   },
   "lean_verification": {
     "evidence": null,
@@ -16,12 +19,24 @@
 }
 ---
 
-# Verification of the attractor criterion
+# Independent mathematical audit
 
-Execute `python3 verify.py` using Python 3 standard library only. The executable constructs factor-occurrence unions from raw strings, tests all supplied position sets directly, checks the four uniqueness certificates, and independently finds the smallest cardinality by enumerating all subsets through size four when \(1\le b,c,e\le6\).
+## correctness
 
-Observed output:
+PASS
 
-`VERIFY_OK exact_minima=216 complete_factor_witnesses=1728 random_large=160 fixed_length_counts=5..100`
+For W=0 1^b 0^c 1 0^e, check zero-indexed markers (0,b,b+c,b+c+2) provide a four-position attractor: all gaps are monochromatic except a lone one; all missing factors can shift to a marked run. Explicit three-marker constructions apply respectively to e≤c, e>c with b≤3, and e>c,b≥4,c≤2. In the complementary b≥4,c≥3,e>c regime, 011,110,001,0^e each occur uniquely in pairwise disjoint intervals, forcing four markers. Substitution b=4+k,c=3+i,e=c+1+j yields n=13+k+2i+j and generating function z^13/[(1−z)^2(1−z²)]. Independently exhaustively computed smallest attractors for all 125 triples 1≤b,c,e≤5, matching theorem. No finite check is used to infer all triples.
 
-The full factor-cover test covers 1,728 parameter triples with run lengths at most 12, plus 160 deterministic samples with parameters at most 60. Length-class coefficients are checked by direct positive-composition counting for every integer \(5\le n\le100\). The proof in RESULT.md handles all positive parameters without relying on finite observations. The checker does not establish worldwide novelty or constitute an independent audit.
+## originality
+
+PASS
+
+The exact gamma=4 iff and rational length enumerator for the specified free run-family are not directly included or implied by the inspected generic algorithmic and other fixed-family attractor results; originality is best-of-knowledge.
+
+## value
+
+PASS
+
+A minimal contiguous-factor attractor is a standard compression-related invariant. This natural three-parameter two-singleton five-run motif gives a sharp structural transition from three to four markers and an exact nontrivial density 1/2. The family restriction isolates competition of central and terminal zero runs, rather than an unmotivated numerical slice.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

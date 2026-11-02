@@ -1,11 +1,21 @@
-# Mathematical assessment
+# Independent mathematical audit
 
-**Correctness — PASS.** The secondary map is well-defined: changing a lifted cycle adds an image-boundary, changing representatives by a boundary can be implemented by the actual square-zero differential, and \(X^2=0\) forces its secondary output to be a cycle. The canonical normal form reduces the lifted equation to a linear anticommutator system, whose five free blocks have dimension \(2r(n-r)+s^2\), with the secondary endomorphism exactly the unconstrained \(s\)-square block. Counting reduction Jordan forms and secondary ranks completes the proof. Direct computations over both mixed-characteristic and equal-characteristic rings independently agree in every enumerated case. Finite checks are corroboration only.
+## correctness
 
-**Originality — PASS, with specified risks.** Field square-zero counts (Hua), general finite-chain-ring Smith-shape counts (Feng and colleagues), and prior equal-characteristic dual-number square-zero totals are treated as pre-existing. The claim is not their sum or reparameterization: it identifies a canonical arbitrary secondary endomorphism at *each fixed square-zero reduction*, proves exact uniform fibers, and determines the **joint** mod-residue Jordan rank and image-module isomorphism type for arbitrary finite chain rings of length two. The existing aggregate formula follows on summing and is expressly excluded from the originality claim. Closest older matrix-equation papers by Brawley and by Dafni--Vaserstein remained inaccessible at full-text level, so their potential implicit stronger coverage is a material historical-priority risk. Database searches found no decisive equivalent, but nonappearance is not proof of uniqueness.
+PASS
 
-**Value — PASS.** The invariants have structural motivation: square-zero matrices are differentials of two-periodic complexes, \(\ker A/\operatorname{im}A\) is their reduced homology, and the secondary endomorphism detects precisely the extra torsion in the image not visible from reduction rank. Every possible secondary endomorphism occurs equally often, and the full image-module spectrum is therefore an explicit, uniform finite-field rank law across inequivalent length-two coefficient rings. This is a natural complete joint classification of labeled differentials by reduction Jordan type and image module shape, rather than an arbitrary numeric slice.
+PASS: For square-zero reduction A of rank r, H=kerA/imA has dimension s=n−2r and β_X is well defined because lifts of cycles differ by boundaries. Conjugate A to N:F→E identity, X=N+πY. The condition X²=0 gives Y_FE=Y_FG=Y_GE=0 and Y_FF=−Y_EE, leaving free blocks with 2r(n−r)+s² entries. The induced β is free block Y_GG, so each fixed β has exactly q^{2r(n−r)} lifts for every finite commutative chain ring of length two, even mixed characteristic. Smith-type row/column elimination gives im_R X ≅ R^r⊕k^rankβ; Gaussian rank counts yield exact joint N_{n,q}(r,t). Independent direct enumeration of all 2×2 matrices over Z/4 and F2[ε]/(ε²) reproduced shape counts (r,t): (0,0)→1, (0,1)→9, (0,2)→6, (1,0)→12 in both rings.
 
-**Scope and residual risks.** Chain length three and higher, orbit counts, and nonprincipal rings are not addressed. Ring characteristic does not alter the proof, but only length-two chain rings are included. Some older sources were inspected only through abstracts. None of these limitations is a claim of universal priority or independent certification.
+## originality
 
-Self-review: passed. Independent audit: not yet performed.
+PASS
+
+Qualified original conditional Bockstein-equidistribution/Smith image-shape classification for all length-two finite commutative chain rings; aggregate field and dual-number square-zero counts not claimed as new.
+
+## value
+
+PASS
+
+PASS: Intrinsic secondary-map uniformity and explicit image-module ranks across mixed/equal-characteristic length-two rings form a natural structural refinement of aggregate square-zero counts; useful for matrix lifting and module classification.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

@@ -1,11 +1,21 @@
-# Scientific review
+# Independent mathematical audit
 
-**Correctness: PASS.** The actual two-stage MPRK formula reduces to a rational map with positive denominator. The signed amplification is strictly decreasing with step size by a coefficientwise-positive derivative certificate; its large-step limit and the two possible input orderings give the complete sharp golden-ratio equivalence. A rational witness is exact. The standalone checker verifies the derivative identity as a multivariate polynomial and independently reconstructs 5920 exact-rational cases. No finite experiment is treated as a universal proof.
+## correctness
 
-**Originality: PASS (self-review, provisional).** The 2024 Chang–Cooper/MPRK paper supplies the method and its structural motivations. The full text of Torlo–Öffner–Ranocha supplies the closely related two-state oscillation analysis and a rational endpoint formula. That source proves a time-step bound for crossing equilibrium, not a necessary-and-sufficient, step-uniform equilibrium-ratio maximum classification in terms of stationary mass. The new threshold is therefore a distinct quantified invariant-region statement, although it is algebraically obtainable starting from previously published general endpoint formulas. Exact equivalence elsewhere in the Patankar literature remains a residual publication-priority risk.
+PASS
 
-**Value: PASS.** The equilibrium-weighted maximum is the finite-state discrete analogue of the comparison bound enjoyed by the exact Markov semigroup and implicit Euler. A sharp criterion distinguishing positivity from this stronger invariant-region property is relevant when using a positive integrator for strongly skewed stationary densities, including Chang–Cooper diffusion grids. The two-cell setting is the minimal nontrivial discretization and is a natural complete classification rather than an arbitrary numerical slice.
+For a,b>0, p=b/(a+b), q=1-p, u∈(0,1), s=h(a+b)>0, the supplied stage reduces error to (u−p)R(s,p,u). Independently expanded N′D−ND′=−H with each H coefficient positive since E=u(1−u)/(pq)>0 and B−E=(u−p)^2/(pq)≥0. Thus R strictly decreases from 1 to −1/(1+B); comparing the flipped weighted-density maximum for positive or negative initial error gives a violation precisely when max(p,q)>(√5−1)/2. The exact strictly interior witness (p,u,s)=(3/4,9/10,10) yields output (15134/21985,6851/21985), violating 6/5. Independently verified symbolic derivative and rational state update; finite checks do not prove the universal theorem. The endpoints u=0,1 and s=∞ are excluded and used only in suprema.
 
-**Scope and risks.** This result concerns strictly positive unit-mass data for a two-cell linear Markov system and the particular original second-order MPRK. It is neither a higher-dimensional maximum-principle theorem nor a claim about any arbitrary MPRK family. Earlier qualitative Patankar oscillations and rational stage formulas are prior art. Stronger equivalent specialized statements may exist despite the targeted searches and primary-source comparisons; independent assessment has not been performed.
+## originality
 
-Self-review: passed. Independent audit: not yet performed.
+PASS
+
+At the stated best-of-knowledge level, the specific step-uniform inverse-golden-ratio frontier for the equilibrium-weighted maximum is not a theorem or immediate corollary in the inspected closest Patankar sources; exact rational endpoints and qualitative oscillation analysis remain prior art.
+
+## value
+
+PASS
+
+The equilibrium-relative maximum is an intrinsic Markov comparison invariant beyond positivity and mass conservation; an exact sharp equilibrium-asymmetry threshold in the smallest nontrivial Chang–Cooper/MPRK diffusion identifies a real numerical invariant-region loss. It is not an arbitrary method parameter slice or a generic restatement of Patankar positivity.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

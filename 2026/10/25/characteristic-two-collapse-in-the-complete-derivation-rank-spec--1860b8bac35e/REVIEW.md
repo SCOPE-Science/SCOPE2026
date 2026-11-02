@@ -1,11 +1,21 @@
-# Scientific review
+# Independent mathematical audit
 
-**Correctness — PASS.** The 12 free derivation coefficients are established by differentiating cubic relations. Every operator has the explicit \(6\times6\) block form with \(T_M=M\otimes I+I\otimes M\). The cyclic-form tensor ranks, kernel-to-cokernel fiber lemma, and closed \(2\times2\) matrix counts prove every displayed formula in all characteristics and over all prime-power fields. The distribution totals \(q^{12}\) and is independently tested exhaustively over \(\mathbb F_2\) and \(\mathbb F_3\), with additional finite-field strata and Leibniz tests. The finite checks do not substitute for the proof.
+## correctness
 
-**Originality — PASS, bounded priority assessment.** The closest inspected primary sources are Strametz (arXiv:math/0111060) on monomial-algebra Hochschild derivation structure, Guo–Li (arXiv:1010.1980) on derivations of untruncated path algebras, and Dugas–Huisgen-Zimmermann–Learned (arXiv:1407.2672) on module homological dimensions of truncated path algebras. A directly inspected published short-local algebra classification addresses monomializability, not derivation-rank multiplicities. Published related findings on one-variable truncated-polynomial derivations, inner commutators in a different truncated free algebra, and tensor-action fixed spaces concern different maps. The new computation is not a stated or direct corollary of these sources; a literature-priority risk remains because searches cannot prove uniqueness.
+PASS
 
-**Value — PASS.** A characteristic-uniform full rank census for the canonical two-loop radical-cube-zero free quotient reveals a structural rank drop from six to four exactly in characteristic two. The result quantifies every rank stratum and the tensor-square degeneration underpinning it, providing a concrete low-degree base case for noncommutative truncated-algebra symmetry questions. It is not a table of isolated examples or a textbook rank identity alone.
+PASS: Differentiating cubic words forces both generator-image constant terms to vanish for every characteristic, and freely choosing linear M∈M2(F_q) and quadratic B∈M_{4x2}(F_q) gives exactly q^12 derivations. On V⊕(V⊗V), D=[[M,0],[B,T_M]] with T_M=M⊗I+I⊗M. Its rank equals rank M+rank T_M plus rank of uniform induced map ker M→coker T_M. For odd characteristic the T_M ranks from cyclic 2x2 normal form partition M into zero, rank1 trace0, rank1 trace nonzero, invertible trace0 and invertible trace nonzero; in characteristic2 nonzero scalar M gives T_M=0, all nonscalars rank T_M=2. Exact 2x2 class sizes and uniform B fiber law give all displayed N0..N6; sums equal q^12. Independently enumerated all 2^12=4096 derivations via bitwise exact rank over F2, obtaining [1,45,466,576,3008,0,0] (matches theorem). The inspected full source check_derivations.py additionally describes exhaustive F3 and sampled F4/F5 checks, but its logged results alone were not used as proof.
 
-**Limitations.** No classification of higher truncations, general quivers, Jordan types of the derivations, or their automorphism-conjugacy orbits is claimed. The source comparison is substantial but bounded and does not constitute independent peer review.
+## originality
 
-Self-review: passed. Independent audit: not yet performed.
+PASS
+
+Best-of-knowledge comparison of the precise claim against related primary statements, algebraic implications, four named searches, and inspected published records; prior building blocks acknowledged, with explicit limitations for inaccessible full texts.
+
+## value
+
+PASS
+
+PASS: The radical-cube-zero two-loop free algebra is the natural smallest two-generator noncommutative truncated algebra with an induced tensor-square action. Complete rank frequencies and the sharp characteristic-two six-to-four collapse give substantive structure not implied by the dimension of Der or by module homological invariants.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

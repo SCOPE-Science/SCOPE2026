@@ -1,15 +1,21 @@
-# Scientific review
+# Independent mathematical audit
 
-## Correctness
+## correctness
 
-**PASS.** The digit-appending pair identities follow directly from Stern's recurrence, and the 24-state prefix-max/min rules follow exactly from word concatenation. The accompanying complete state table verifies the depth-16 to depth-28 affine identity in every state, not merely at the initial state; invariance of the recurrence propagates the shift to arbitrary depths. Eight exact initial bridge cases close the finite prefix. The two asymptotic bounds then follow from realized dyadic maxima/minima. The independent integer Stern and binary-block calculations substantiate the certificates. No finite scan is substituted for the global induction.
+PASS
 
-## Originality
+Stern pair recursion on F_5²\{0} gives 24 invertible states with transitions L(a,b)=(a,a+b), R(a,b)=(a+b,b). Lexicographic dyadic words concatenate W_{r+1}(v)=W_r(Lv)||W_r(Rv), so total S and extremal prefixes H,J obey exact sum/max/min recurrences. Independently regenerated the simultaneous 24-state identities (S28,H28,J28)=(S16,H16+4,J16−4), 12 base extrema r=8..19 and 8 bridge cases r=8..15. Because recurrence is shift-equivariant with S unchanged, finite identity propagates by induction to every later depth, establishing M_{r+12}=M_r+4, m_{r+12}=m_r−4 for all r≥8. Independently cross-checked 16,384 ordinary Stern prefixes and witnesses at N=2190712 (−6), 8693112 (+12). The limsup and liminf normalized by log₂ N follow from dyadic bounds and actual maximizer/minimizer indices, not a finite scan.
 
-**PASS on inspected sources, not definitive priority certification.** Reznick (arXiv:math/0610601v1) analyzes general residue-pair equidistribution and gives a precise bounded discrepancy for modulus three, but provides only a finite numerical range through \(2^{19}\) for the modulus-five signed difference. The spectral error bound does not force a logarithmic coefficient or the exact periodic affine law. Allouche (arXiv:1202.4171) studies Stern and twisted-Stern word identities, not signed residue-five prefix extrema. Focused bibliographic and research-index queries did not identify the same recurrence. Full text of Reznick's later 2012 class notes was not located, and stronger unlocated coverage is possible.
+## originality
 
-## Value
+PASS
 
-**PASS.** The source expressly singles out the modulus-five discrepancy as unresolved while contrasting it with a fully bounded modulus-three case. The result resolves the natural dichotomy with a sharp logarithmic rate, exact twelve-step maxima/minima for all dyadic scales, and explicit witnesses outside the historically observed finite range. The 24-state prefix method is also a reusable framework for residue-discrepancy extremal questions.
+The 2006 original paper states the exact discrepancy under the same modulus and documents only a finite range, with no full d=5 theorem; its general equidistribution estimate and Allouche recurrence identities do not imply the uniform extremum drift. Best-of-knowledge originality PASS with explicitly named later-note risk.
 
-Self-review: passed. Independent audit: not yet performed.
+## value
+
+PASS
+
+The exact same signed modulo-five discrepancy was singled out in the original study as only numerically understood, contrasting a bounded modulo-three theorem. An exact twelve-level recurrence and sharp ±1/3 logarithmic extremal growth resolve a natural historical question with a small reusable 24-state certificate; this is a motivated infinite invariant, not table recomputation.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

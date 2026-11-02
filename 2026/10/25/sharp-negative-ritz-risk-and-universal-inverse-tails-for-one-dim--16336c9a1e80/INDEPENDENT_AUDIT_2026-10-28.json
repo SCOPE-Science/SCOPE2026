@@ -1,0 +1,106 @@
+{
+  "audit_date_utc": "2026-10-28",
+  "audited_at_utc": "2026-10-28T15:55:43Z",
+  "axes": {
+    "correctness": {
+      "rationale": "Let u=Ab,v=b. Gaussian regression gives Sv=αSu+√(||b||²-α²||Ab||²)Z with Z independent standard Gaussian. Then (Su)^T(Sv)/||Su||²=α+β N/R where R²∼χ²_s, N∼N(0,1) independent, so H^{-1}=α+(β/√s) t_s. The reciprocal denominator has strictly positive finite density at zero for β>0; hence P(|H|>z)∼(2√s/β) f_t(-√s α/β)/z and E|H|^p finite iff 0<p<1, with negative risk F_t(-√s α/β). Using weights λ_i²b_i²/||Ab||² on q_i=1/λ_i∈[1/L,1/μ], α=Eq, β²=Var q; the Bhatia–Davis bound gives β²/α²≤(L-μ)²/(4μL), attained for two endpoint eigenvalues and b∝(√(L/μ),1). Thus optimal negative risk is F_t(-2√(s μL)/(L-μ)). Eigenvector β=0 exception handled. Independent Gaussian simulations at four spectral/row settings matched Student probabilities. No simulation is used to infer infinite moments.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Güttel–Liu–Nyman Section 5.3 proves well-conditioned embedding implications, whereas the candidate samples all Gaussian matrices, including rare bad sketches.",
+          "Simoncini 2025 stabilized randomized recurrences concern numerical control and conditioning, not unconditional rank-one moment tails."
+        ],
+        "reasoning": "A bound conditional on good embedding is not a universal probability bound over all sketches, and cannot rule out negative Ritz outliers or infinite unconditional moments.",
+        "searches": [
+          "Güttel Liu Nyman Sketch and Restart 2607.10354 sketched harmonic generalized eigenvalue pencil section 5.3",
+          "randomized sketch harmonic Ritz values negative probability Gaussian sketch rare events inverse Student distribution",
+          "Güttel harmonic Arnoldi positive real Ritz under subspace embeddings",
+          "Resultary Search: Gaussian sketched harmonic Arnoldi 1D negative Ritz probability Student t reciprocal moments sharp spectral bounds"
+        ]
+      },
+      "checked_sources": [
+        "arXiv:2607.10354 (Full accessible original PDF, including Section 5.3 defining pencil and embedding-conditioned positivity)",
+        "DOI:10.1002/nla.70022 (Bibliographic abstract and methodological description only)",
+        "Resultary Gaussian sketched harmonic Arnoldi 1D negative Ritz probability Student t reciprocal moments sharp spectral bounds"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "2026 original generalized pencil exactly matches the candidate after B=b; the original embedding hypotheses exclude the rare events whose probability is quantified.",
+          "The Student t identity alone does not establish the sharp maximization over all SPD matrices and starting vectors; the Bhatia–Davis equality analysis supplies that comparison."
+        ],
+        "reasoning": "The inspected paper supplies model definition and positive conditioned behavior but not the unconditional distributional or sharp risk conclusions. The theorem adds precise failure-tail information rather than contradicting prior guarantees.",
+        "searches": [
+          "Güttel Liu Nyman Sketch and Restart 2607.10354 sketched harmonic generalized eigenvalue pencil section 5.3",
+          "randomized sketch harmonic Ritz values negative probability Gaussian sketch rare events inverse Student distribution",
+          "Güttel harmonic Arnoldi positive real Ritz under subspace embeddings",
+          "Resultary Search: Gaussian sketched harmonic Arnoldi 1D negative Ritz probability Student t reciprocal moments sharp spectral bounds"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Güttel–Liu–Nyman 2026 Section 5.3 defines generalized harmonic pencil (SAB)^*(SAB) versus (SAB)^*(SB) used verbatim in rank one.",
+          "Classical regression gives an inverse noncentral Student-like transform, which is not a novelty claim by itself."
+        ],
+        "reasoning": "The claim is the unconditional distribution and sharp spectral maximization for the same specialized algorithm, not a renamed general Gaussian linear ratio theorem; the contrast with conditioned-sketch positivity is essential.",
+        "searches": [
+          "Gaussian sketched harmonic Arnoldi 1D negative Ritz probability Student t reciprocal moments sharp spectral bounds",
+          "Güttel Liu Nyman Sketch and Restart 2607.10354 sketched harmonic generalized eigenvalue pencil section 5.3",
+          "Resultary Search: Gaussian sketched harmonic Arnoldi 1D negative Ritz probability Student t reciprocal moments sharp spectral bounds"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "Independent Gaussian Monte Carlo matches four negative Ritz probabilities but not the divergence assertion.",
+          "No source-indexed table was found for the sharp worst-case F_t(-2√(s μL)/(L-μ)) risk and attaining endpoint eigenpair."
+        ],
+        "reasoning": "This is an all-positive-integer-s and continuous-condition-number extremum established analytically, not a finite table of sketches.",
+        "searches": [
+          "Gaussian sketched harmonic Arnoldi 1D negative Ritz probability Student t reciprocal moments sharp spectral bounds",
+          "Güttel harmonic Arnoldi positive real Ritz under subspace embeddings",
+          "Resultary Search: Gaussian sketched harmonic Arnoldi 1D negative Ritz probability Student t reciprocal moments sharp spectral bounds"
+        ]
+      },
+      "rationale": "Güttel–Liu–Nyman (arXiv:2607.10354) Section 5.3 defines the same sketched harmonic generalized pencil and proves positive-real spectral guarantees under good sketch embeddings. Its fully inspected methods do not present the unconditional Gaussian reciprocal Student distribution, infinite-moment threshold, or sharp optimal negative event. Classical Gaussian regression, Student ratios, and bounded-support variance inequality are acknowledged tools, not claimed new. Best-of-knowledge new in specific sketched harmonic application.",
+      "residual_risks": [
+        "The source paper could have unindexed supplemental consequences or related randomized projection literature with the same rank-one Student identity.",
+        "Only real unconditional Gaussian sketch; complex/filtered/higher Krylov methods outside scope.",
+        "Tail exponent 1 and moment cutoff concern b not an eigenvector; singular eigenvector case is deterministic."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "SAME_PENCIL_NOT_THE_DISTRIBUTIONAL_SHARP_CLAIM",
+          "evidence": "arXiv:2607.10354 Section 5.3; web , ",
+          "identifier_or_url": "arXiv:2607.10354",
+          "material_read": "Full accessible original PDF, including Section 5.3 defining pencil and embedding-conditioned positivity",
+          "method": "Read original PDF text, inspected Section 5.3 page screenshot",
+          "title": "Sketch-and-Restart: Randomized Sketching in Quadrature-Based Restarting for Matrix Functions",
+          "trigger": "Same sketched harmonic generalized pencil in Section 5.3"
+        },
+        {
+          "assessment": "RELATED_CONDITIONING_NOT_DOMINATING",
+          "evidence": "Simoncini 2025, DOI:10.1002/nla.70022",
+          "identifier_or_url": "DOI:10.1002/nla.70022",
+          "material_read": "Bibliographic abstract and methodological description only",
+          "method": "Abstract-level model distinction; full primary text not inspected",
+          "title": "Stabilized Krylov Subspace Recurrences via Randomized Sketching",
+          "trigger": "Potential stronger stochastic regularization algorithm"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "rationale": "Quantifies precise rare instability of the original sketched harmonic one-dimensional pencil despite positive-definite A; gives exact unconditional heavy-tail exponent, divergence of absolute expectation and a dimension-free sharp condition-number-dependent negative Ritz probability with explicit extremizer, directly relevant to interpreting embedding-conditioning assumptions.",
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "limitations": [
+    "One-dimensional real Gaussian pencil, exact arithmetic, all finite sketch row counts s≥1, unconditioned sketches; no algorithm-wide convergence claim.",
+    "The source paper could have unindexed supplemental consequences or related randomized projection literature with the same rank-one Student identity.",
+    "Only real unconditional Gaussian sketch; complex/filtered/higher Krylov methods outside scope.",
+    "Tail exponent 1 and moment cutoff concern b not an eigenvector; singular eigenvector case is deterministic."
+  ],
+  "schema_version": 1
+}

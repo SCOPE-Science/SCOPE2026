@@ -5,8 +5,11 @@
     "status": "not_performed"
   },
   "independent_audit": {
-    "evidence": null,
-    "status": "not_performed"
+    "status": "passed",
+    "evidence": [
+      "INDEPENDENT_AUDIT_2026-10-29.md",
+      "INDEPENDENT_AUDIT_2026-10-29.json"
+    ]
   },
   "lean_verification": {
     "evidence": null,
@@ -16,17 +19,24 @@
 }
 ---
 
-The exact proof is in `RESULT.md`. The accompanying `verify.py` implements finite-field arithmetic in a polynomial basis, verifies every nonzero field element has an inverse, and exhaustively computes the number of solutions to each of the three coordinate-square equations over all \(q+1\) projective base points for \(q=3,9,27,81\). It also enumerates points in the full projective ambient space over \(\mathbb F_3\) and \(\mathbb F_9\) independently of the base-fiber method.
+# Independent mathematical audit
 
-Actual executed command: `python3 verify.py`.
+## correctness
 
-Actual outputs:
-```
-field_order= 3 curve_points= 4 elliptic_quotients= (4, 4, 4) genus_two_quotient= 4
-field_order= 9 curve_points= 24 elliptic_quotients= (16, 16, 16) genus_two_quotient= 6
-field_order= 27 curve_points= 28 elliptic_quotients= (28, 28, 28) genus_two_quotient= 28
-field_order= 81 curve_points= 56 elliptic_quotients= (64, 64, 64) genus_two_quotient= 110
-VERIFY_OK
-```
+PASS
 
-These are finite exact checks of identified fields and models, not a finite enumeration of all extensions. Geometric smoothness, genus, finite-field zeta for all extensions, the group-theoretic prime-to-three isogeny, the ordinary factor, and the irreducibility claim depend on the arguments in `RESULT.md`. The same mathematical work was checked internally; independent audit and independent validation have not been performed.
+PASS: The three displayed quadrics make a degree-eight (Z/2)^3 Kummer cover of P¹ via t=x3/x4 with radicands -(1+t²),1-t²,-t and six distinct simple branch points. Ramification gives genus five, and the canonical complete intersection is smooth. Three character quotients have genus zero; the other four are E12:y²=t^4-1, E13:y²=t³+t, E23:y²=t³-t and H:y²=t-t^5. The 2-primary group-ring idempotents split the Jacobian up to 2-power isogeny, preserving its 3-divisible group. Exact quotient point counts at q=3,9 (three elliptics 4,16; H 4,6) yield three factors 1+3T² and H factor 1-2T²+9T^4 by functional equations, proving zeta for all extensions. H Cartier–Manin matrix [[0,-1],[1,0]] is invertible, giving ordinary surface and a-number 0; supersingular elliptic factors contribute three a=1; quartic u^4-2u²+9 is Q-irreducible, giving F3-simplicity. Independently implemented finite F3/F9 quadratic-square counting: original curve 4/24, quotient table (4,4,4,4)/(16,16,16,6), matching claims; the source verifier also contains finite q=27,81 tests but their output was read, not run here. Infinite zeta follows from the quotient-isogeny proof, not finite extrapolation.
+
+## originality
+
+PASS
+
+Best-of-knowledge comparison of the precise claim against related primary statements, algebraic implications, four named searches, and inspected published records; prior building blocks acknowledged, with explicit limitations for inaccessible full texts.
+
+## value
+
+PASS
+
+PASS: The canonical Wiman genus-five model is a recognized highly symmetric curve, and its literal characteristic-three integral-equation reduction is a natural arithmetic object. Its fully explicit Weil polynomial and mixed ordinary/supersingular decomposition determine otherwise nontrivial exact invariants and extension counts beyond previously published model equations.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

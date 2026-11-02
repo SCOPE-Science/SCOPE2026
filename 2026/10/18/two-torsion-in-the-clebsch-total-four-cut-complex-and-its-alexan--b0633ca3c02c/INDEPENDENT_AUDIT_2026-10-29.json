@@ -1,0 +1,199 @@
+{
+  "audit_date_utc": "2026-10-29",
+  "audited_at_utc": "2026-10-29T00:51:28.929430Z",
+  "axes": {
+    "correctness": {
+      "checked_sources": [
+        "frozen RESULT.md (mathematical definitions and signed elimination identity)",
+        "frozen verify.py (full face/matching/integral boundary implementation)",
+        "frozen verify_mod2.py (independent raw mod-2 rank method)",
+        "frozen VERIFICATION.md (claim limits)",
+        "fresh independent Python reconstruction of all faces, directed incidence and signed Morse boundaries",
+        "arXiv:2209.13503 Definition 2.3 and Theorem 2.5"
+      ],
+      "rationale": "The graph is the Cayley graph of F_2^4 with XOR generators 1,2,4,8,15. An independent implementation rebuilt all 120 independent four-sets, verified the Alexander dual on all 65,536 vertex masks, and enumerated 52,915 and 12,621 augmented faces. Lexicographic element matchings give 26,434 and 6,287 pairs; independent directed-cover topological sorts traverse all 392,720 and 70,368 incidences with no cycles. Exact signed integral cancellation gives K critical counts {6:1,7:1,8:45}, d7=(2), d8=0 and B counts {5:45,6:1,7:1}, d6=0,d7=(-2). These finite exhaustive calculations verify the complete chain reductions and Smith factors Z/2 and free rank 45; the standard acyclic Morse theorem gives CW models with no low positive-dimensional cells, establishing five-/four-connectivity and K non-shellability because pure dimension is 11 but H6 != 0. No higher attaching maps or wedge decomposition were inferred.",
+      "residual_risks": [
+        "Full homotopy types and higher attaching maps are not established and are not asserted.",
+        "Computational proof is exhaustive only for this specified sixteen-vertex graph, not an infinite family.",
+        "Raw mod-two ranks alone could not certify integral torsion; signed integral boundary was separately computed."
+      ],
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Carnero Bravo arXiv:2602.21427v3 Theorem 22 assumes girth >=2d; Clebsch graph girth 4<8 for d=4.",
+          "Carnero Bravo Example 36 has genuine Z/2 torsion obtained through adding isolated vertices to another graph, not a connected five-regular Clebsch example.",
+          "Bayer et al. arXiv:2209.13503 treat chordal, cycles, bipartite, prisms, grids; their cited family theorems do not state the particular Clebsch calculation.",
+          "Kim–Lew bounds the collapsibility number and related rainbow-transversal parameters, which do not fix the computed Smith factors."
+        ],
+        "reasoning": "Existing general results establish the definitions, some connectivity constraints, torsion possibility in other graphs, and specific homotopy types for different graph classes. Their explicit hypotheses either do not apply to the nonbipartite Clebsch graph with k=4 or yield only bounds, so neither their displayed claims nor immediate corollaries determine the paired exact integral groups.",
+        "searches": [
+          "arXiv:2209.13503 graph-family theorem section and Definition 2.3",
+          "arXiv:2602.21427 Theorem 22 and Example 36",
+          "arXiv:1912.12605 Theorems 1.5–1.8",
+          "arXiv:2602.11365 Theorems 1.1–1.3",
+          "Resultary semantic query: torsion homology graph total cut complexes Alexander duals finite strongly regular graphs"
+        ]
+      },
+      "checked_sources": [
+        "arXiv:2209.13503v2 (primary PDF, relevant definitions/theorems)",
+        "arXiv:2304.13675 (primary PDF, ordinary cut comparison/table)",
+        "arXiv:2602.21427v3 (primary PDF, Theorem 22, Example 36)",
+        "arXiv:1912.12605 (primary PDF, bounded-independence alias/major theorems)",
+        "arXiv:2602.11365v4 (primary PDF, robust-clique alias/grid theorems)",
+        "arXiv:2602.09623 (primary PDF, clique-free complement alias)",
+        "Resultary semantic searches on exact Clebsch four-cut, BI4, general torsion; similar published findings about different complexes",
+        "Web searches for Clebsch total cut torsion and bounded-independence graph complex"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "Ordinary k-cut complexes in arXiv:2304.13675 use disconnected k-vertex induced complements; total cuts require no edge, strictly different for k=4.",
+          "Alexander duality relates H_i(K) to cohomology of B in complementary degree but does not determine the nonzero ranks or 2-primary Smith factors absent an exact computation.",
+          "arXiv:2602.09623 shellability criteria concern clique-free complexes of chordal or decorated graphs; the Clebsch complement is not established to satisfy these hypotheses, and the paper gives no Clebsch homology calculation.",
+          "Carnero Bravo Example 36 already supplies 2-torsion generally, so the isolated novelty is not the existence of total-cut torsion in any graph but its exact connected, highly symmetric Clebsch realization and paired dual classification."
+        ],
+        "reasoning": "Neither general Alexander duality nor weaker connectivity or shellability conclusions imply the exact two decompositions. A prior theorem for another graph or different cut parameter has no direct implication. The assessed claim is the finite exact integral homology and connectivity of this specified pair, not the previously known generic possibility of torsion.",
+        "searches": [
+          "arXiv:2304.13675 Introduction and Table 1",
+          "arXiv:2602.21427v3 Theorem 22 and Example 36",
+          "arXiv:2602.09623 introduction/strong conditions for shellability",
+          "web search: Kim Lew bounded independence Clebsch 2022",
+          "Resultary semantic query: total 4 cut complex Clebsch graph folded 5 cube torsion Z/2 H6 and 45 free H8 Alexander dual"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "For B the exact alternate name is I_4(G) or BI_4(G) or Cliq_4(G): subsets with alpha(G[F])<=3; its combinatorial Alexander dual has facets that are complements of independent four-subsets (arXiv:2209.13503, Definition 2.3; arXiv:1912.12605, p.2; arXiv:2602.11365, Theorem 1 context).",
+          "Kim–Lew arXiv:1912.12605 studies collapsibility and Leray bounds, not exact Clebsch integral homology; Filakovský arXiv:2602.11365 treats grids and square-sequence graphs; neither evaluated this graph."
+        ],
+        "reasoning": "The same simplicial complex can be called bounded-independence parameter four, four-robust clique complex, or the no-independent-four complex, and K is its Alexander dual. Distinguish the ordinary independence complex, whose faces are independent sets, and other complexes of the Clebsch graph; those cannot supply these groups by wording alone.",
+        "searches": [
+          "web: Clebsch total cut complex torsion; Clebsch bounded independence simplicial complex torsion; arXiv:1912.12605",
+          "arXiv:2209.13503 Definition 2.3",
+          "arXiv:2602.21427 introduction/Section 3",
+          "Resultary semantic query: bounded independence complexes independence number at most 3 of Clebsch strongly regular graph integral homology"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "The published ordinary-cut Table 1 of arXiv:2304.13675 lists different families and not a Clebsch total-4-cut pair.",
+          "Relevant Resultary matches include Clebsch matching-complex mod-two homology, the four-cube total-three-cut complex, and other finite graph cut complexes, all with distinct face conditions or graphs.",
+          "None of the inspected searches yielded an exact Clebsch BI_4 integral homology table; this is a finite search observation only."
+        ],
+        "reasoning": "An existing computed database of the exact 16-vertex graph, parameter 4, face-definition, and integral Smith decomposition would cover this claim even without its wording. No such actual entry was located; a private, unindexed, or differently named computation remains a priority risk.",
+        "searches": [
+          "web: \"Clebsch\" \"total cut complex\" torsion; \"Clebsch\" \"bounded independence\" simplicial complex torsion",
+          "web: \"Clebsch graph\" \"bounded independence\" \"2-torsion\"",
+          "Resultary semantic queries: total 4 cut complex Clebsch graph folded 5 cube torsion Z/2 H6 45 free H8 Alexander dual; bounded independence complexes independence number at most 3 of Clebsch strongly regular graph integral homology",
+          "Bayer et al. arXiv:2304.13675 Table 1"
+        ]
+      },
+      "rationale": "Best-of-knowledge comparison across foundational total-cut definitions, the exact bounded-independence alias, general collapsibility results, connected graph-family calculations, and a recent explicit torsion construction. Neither the cited theorems nor searched published records imply the connected Clebsch total-four-cut and dual integral homology groups. An inaccessible or unindexed equivalent computation remains possible; search absence is not proof of uniqueness.",
+      "residual_risks": [
+        "Historical priority remains best-of-knowledge: unindexed or private exact Clebsch BI4 Smith computations may exist.",
+        "Not all full texts were read page-by-page; relevant statements, assumptions, examples and theorem ranges were materially inspected.",
+        "Finite numerical tables or differently named results could exist outside indexed records; negative search does not certify originality.",
+        "Two-torsion in total cut complexes was already known from Carnero Bravo Example 36; no general novelty for torsion is claimed."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Defines K precisely and proves classifications of other graph families; inspected statements do not cover this Clebsch instance.",
+          "evidence": [
+            "Definition 2.3: facets are complements of independent k-subsets.",
+            "Theorem 2.5: a pure shellable complex has a top-dimensional sphere-wedge homotopy type.",
+            "No textual Clebsch occurrence found in the PDF."
+          ],
+          "identifier_or_url": "https://arxiv.org/pdf/2209.13503",
+          "material_read": "Openly available 25-page arXiv PDF; abstract, Definition 2.3 on page 4 (screenshot), shellability criterion and described graph families; in-document Clebsch search.",
+          "method": "Direct PDF reading and page screenshot",
+          "title": "Total Cut Complexes of Graphs",
+          "trigger": "Foundational exact definition and possible dominating graph-family classification"
+        },
+        {
+          "assessment": "Defines a different ordinary k-cut complex; no inspected theorem or table gives this total Clebsch 4-cut integral homology.",
+          "evidence": [
+            "At k>2 the ordinary cut condition disconnected versus independent (stronger total cut).",
+            "Table 1 only states classifications for listed families, not Clebsch."
+          ],
+          "identifier_or_url": "https://arxiv.org/pdf/2304.13675",
+          "material_read": "Openly available 37-page PDF; introduction, ordinary-versus-total distinction, Table 1 (page 2 screenshot), published graph-family list and full-text Clebsch search.",
+          "method": "Direct PDF reading with page screenshot",
+          "title": "Topology of Cut Complexes of Graphs",
+          "trigger": "Potential same k-cut theorem or exact database"
+        },
+        {
+          "assessment": "Same graph-complex definitions and a prior 2-torsion example but no stated result for the connected Clebsch graph; high-girth bound inapplicable.",
+          "evidence": [
+            "Theorem 22 requires girth >= 2d, contrary to Clebsch girth 4 for d=4.",
+            "Example 36 adds isolated vertices and obtains Z/2 in degree 6; this already establishes torsion in general but not the assessed rank 45 for Clebsch."
+          ],
+          "identifier_or_url": "https://arxiv.org/pdf/2602.21427",
+          "material_read": "Openly accessible arXiv v3 33-page PDF (updated Aug 18 2026); introduction, contents, Theorem 22/Corollary 23, disconnected-graph Theorem 34 and Example 36, bibliography, in-document Clebsch search; page 2 screenshot.",
+          "method": "Direct primary PDF inspection with screenshot and text search",
+          "title": "Total cut complexes and their duals",
+          "trigger": "Most plausible 2026 wide-coverage and torsion source"
+        },
+        {
+          "assessment": "Same B definition, but the inspected general results concern collapsibility/Leray bounds rather than exact integral homology for this graph.",
+          "evidence": [
+            "I_n(G) consists exactly of vertex subsets inducing independence number <n.",
+            "Theorem 1.6 gives a collapsibility upper bound in terms of maximum degree, not the group decomposition."
+          ],
+          "identifier_or_url": "https://arxiv.org/pdf/1912.12605",
+          "material_read": "Open 33-page arXiv PDF, definition I_n(G), Theorems 1.5–1.9, collapsibility and Leray discussion, in-document Clebsch search; page 3 screenshot.",
+          "method": "Direct PDF reading and screenshot",
+          "title": "Complexes of graphs with bounded independence number",
+          "trigger": "Exact alias BI_4 may be covered by stronger general theorem"
+        },
+        {
+          "assessment": "Same B alias but results for grid and square-sequence graphs, which do not imply the Clebsch decomposition.",
+          "evidence": [
+            "Theorem 1.1 gives a wedge-of-spheres classification for rectangular grids and k=2,3.",
+            "Corollary 1.3 addresses edge-glued square sequences."
+          ],
+          "identifier_or_url": "https://arxiv.org/pdf/2602.11365",
+          "material_read": "Open 17-page arXiv v4 PDF; introduction, Theorems 1.1–1.3, graph construction restriction, in-document Clebsch search; page 2 screenshot.",
+          "method": "Direct PDF and theorem inspection",
+          "title": "The Topology of k-Robust Clique Complexes in Grid-like Graphs",
+          "trigger": "2026 alias robustness plus Alexander duality"
+        },
+        {
+          "assessment": "Defines an alternate no-four-clique condition on complement; the stated shellability families do not give Clebsch total-cut integral homology.",
+          "evidence": [
+            "CF_t(H) consists of vertex subsets containing no clique of order t.",
+            "Reported main structural hypotheses include t-diamond-free chordal graphs and clique attachments."
+          ],
+          "identifier_or_url": "https://arxiv.org/pdf/2602.09623",
+          "material_read": "Open 18-page PDF; introduction, t-clique-free definition, chordality and attachment theorem statements, in-document Clebsch search, page 2 screenshot.",
+          "method": "Direct PDF inspection",
+          "title": "Shellability in Clique-Free Complexes of Graphs",
+          "trigger": "Equivalent no-four-independent-set formulation in complement graph"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "checked_sources": [
+        "frozen RESULT.md and REVIEW.md (scope and motivation)",
+        "arXiv:2209.13503 graph-family classifications",
+        "arXiv:2602.21427 Example 36 (torsion exists elsewhere)",
+        "arXiv:1912.12605 bounded-independence motivation"
+      ],
+      "rationale": "The 16-vertex Clebsch graph is a standard connected, 5-regular, triangle-free strongly regular graph, providing a motivated high-symmetry test for the natural total-four-cut filtration. Exact two-torsion and free degree-eight homology in a pure 11-dimensional complex, together with the dual integral calculation, identify a concrete failure of all-sphere-wedge and shellability behavior not furnished by previously classified graph families. Though finite, the pair of full Smith decompositions and connectivity are structural facts one can reuse when testing stronger classification conjectures; their value does not rest on a claimed general family or on merely rerunning known tables.",
+      "residual_risks": [
+        "Scientific value is for a canonical finite exact instance rather than a general characterization.",
+        "No full homotopy splitting, family extension or novel generic torsion theorem follows from this proof."
+      ],
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "limitations": [
+    "Best-of-knowledge originality, not a formal historical-priority or independence certificate.",
+    "Scientific results proved only by exhaustive finite integer-chain reduction for the fixed Clebsch graph; no higher attaching-map claim.",
+    "Source scientific self-review remains preserved; new review is a separate independent judgment, not an external expert attestation.",
+    "Administrative replacement operations are staged and SHA-256 guarded; no repository write or dispatcher closeout occurred."
+  ],
+  "schema_version": 1
+}

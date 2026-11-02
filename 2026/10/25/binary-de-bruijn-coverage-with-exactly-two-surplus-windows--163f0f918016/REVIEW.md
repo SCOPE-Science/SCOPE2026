@@ -1,19 +1,21 @@
-# Scientific review
+# Independent mathematical audit
 
-## Correctness — PASS
+## correctness
 
-The proof is an exhaustive classification of balanced two-edge surplus subgraphs of the binary de Bruijn digraph, followed by a rooted, uniquely anchored BEST-theorem count. Both special loop factorials and the alternating-pair matrix-tree rank-one perturbation are derived explicitly. The identity \(P^{k-1}=\Pi\), zero-sum group inverse, and alternating transition probabilities close the all-order calculation. Direct independent necklace enumeration for \(k=2,3,4\) and exact reduced-Laplacian determinants for \(k=2,\ldots,7\) match all formulas.
+PASS
 
-## Originality — PASS with historical-priority risk
+PASS: In the order-(k−1) binary de Bruijn digraph, two extra arcs must themselves be balanced: two loops (00…0 and/or 11…1), or the unique alternating directed two-cycle. With a unique anchoring arc, BEST counts indistinguishable parallel edges. Three loop cases contribute B_k=2^(2^(k−1)−k) each. For alternating pair, determinant lemma on the de Bruijn Laplacian and P^(k−1)=Π give ratio 1+∑_{j=0}^{k−2}(−1/2)^j=5/3+(−1)^k/(3·2^(k−2)). Thus four exact type counts and total B_k(3+R_k) for every k≥2. Independent exhaustive cyclic-word enumeration gave 5,9,76 for k=2,3,4; independent exact reduced-Laplacian determinants k=2..7 reproduced ratios 2,3/2,7/4,13/8,27/16,53/32.
 
-The 1946 result counts perfect (zero-surplus) de Bruijn circles. Kandel et al. (1996) addresses fixed multiplicity vectors through uniform Euler-tour shuffling, but the full article was not inspected. Tesler (2017) derives closed counts for uniform multiplicities of every \(k\)-mer, and its inspected sections on the BEST theorem do not give nonuniform two-surplus types or the alternating tree ratio. Search and accessible published-record comparisons identified no direct statement of the four-type all-order enumeration. The generic BEST/matrix-tree machinery is older; the actual contribution is the closed specialization and its sharp support classification. An overlooked equivalent specialization is a residual risk.
+## originality
 
-## Value — PASS
+PASS
 
-Near-perfect cyclic coverage is a natural boundary case of universal word constructions and fixed-read-multiset reconstruction. At the first excess admitting a nonloop perturbation, the theorem completely classifies feasible observation multisets and counts their reconstructions as an explicit function of window order, not a small isolated table. The alternating-type change is a genuine graph-response quantity, with an exact order-dependent oscillation.
+Best-of-knowledge original closed count for four forced nonuniform two-surplus patterns. BEST and matrix-tree enumeration are longstanding tools; the balance classification and alternating rank-one exact ratio supply the specialized new statement.
 
-## Limits
+## value
 
-Binary alphabet, cyclic windows, exactly two excess positions, rotation but not reversal. This is not a classification of larger surplus regimes or arbitrary nonuniform read multiplicities. The independently reimplemented finite checker corroborates but cannot replace the symbolic proof.
+PASS
 
-Self-review: passed. Independent audit: not yet performed.
+PASS: A complete, natural first nontrivial surplus enumeration for universal cyclic words, with explicit pattern classification and closed all-order formula, is mathematically useful beyond a generic BEST counting recipe.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

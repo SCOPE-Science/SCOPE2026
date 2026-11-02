@@ -1,15 +1,21 @@
-# Scientific review
+# Independent mathematical audit
 
-## Correctness — PASS
-A Gaussian realization of uniform spherical direction reduces the width exactly to a degree-two Gaussian U-statistic divided by a chi radius. Direct finite-vertex maximization validates the support kernel. The centered Hoeffding projection has variance of order the cube of dimension before division by the radius, while the degenerate remainder has squared mean order \(n^2\). The chi-radius Taylor expansion gives the essential \(\mu/4\) correction to the influence function. The Gaussian one-dimensional integrals and homogeneity identity yield the explicit strictly positive variance, and a bivariate central limit theorem plus odd/even symmetry proves independence. No finite experiments are substituted for the asymptotic proof.
+## correctness
 
-## Originality — PASS (qualified)
-The vertex/partial-permutohedron equivalence, Gaussian support representation, first-order width limit, and binomial layer count all have antecedents. A first-order directional-width treatment for partial permutohedra stops short of any order-\(n\) fluctuation limit. The exact nonzero variance, the radial correction, and joint asymptotic independence are not implications of that treatment. Full accessible article text describing the same parking-function polytope concentrates on vertices, combinatorics, Ehrhart questions, and faces rather than this Gaussian joint fluctuation. Targeted mathematical-record searches did not reveal an equivalent or stronger statement; this is not proof of universal priority. One later face-structure preprint was only partially accessible.
+PASS
 
-## Value — PASS
-The natural object is a symmetric polytope whose width in random direction is governed by the geometry of many vertex layers. The first-order width scale alone cannot reveal typical fluctuations, their variance, or their relationship with which vertex is exposed. The full joint limit identifies a surprisingly small exact variance after Gaussian radial cancellation and separates geometric fluctuations from a simultaneous binomial vertex-layer statistic. This is a structural random-direction theorem for all large dimensions, not an isolated finite numerical value.
+Checked exact classical parking-function vertex maximization: h(G)=Σ_i G_i+Σ_{i<j}max(0,G_i,G_j); direct enumeration of all vertex layers for n=2..6 confirmed formula and opposite-direction width as S_n/R_n with kernel L(x,y)=max(0,x,y)-min(0,x,y). K_n=max(1,number of negative Gaussian coordinates), hence binomial layer fluctuations. Independently integrated the one-point Hoeffding projection f(x)=|x|Φ(|x|)+φ(|x|)+φ(0), obtaining μ=(1+√2)/√π and E f²−9μ²/8=(14π+12√3−30√2−21)/(24π)=0.017778933...; cross radial covariance E[(G²−1)f(G)]=μ/2. Degenerate U remainder has O(n²) second moment, negligible against n^(3/2), while chi-radius expansion contributes −μ/4(G²−1) to influence. Joint iid CLT and even influence vs centered odd sign indicator yield independent normal limits, the latter with variance 1/4. Exact mean follows from radial independence E S_n=E R_n E W_n. The finite numerical checks corroborate but do not prove the n→∞ theorem.
 
-## Limitations and closest sources
-The closest existing width statement covers the first-order normalized width of partial permutohedra (which contain the parking-function polytopes as translates); it does not state a second-order Gaussian central limit. See Hanada–Lentfer–Vindas-Meléndez (arXiv:2212.06885), Behrend (arXiv:2403.06975), Bayer et al. (arXiv:2403.07387), and the FPSAC 2025 face paper. The theorem covers classical parking-function polytopes only. A later extended face paper and potentially unindexed Gaussian-geometry literature remain priority risks. No independent assessment is implied.
+## originality
 
-Self-review: passed. Independent audit: not yet performed.
+PASS
+
+Joint second-order random Euclidean width/exposed-layer Gaussian CLT with exact variance is finer than the published polytope vertex descriptions, partial-permutohedron embeddings and first-order deterministic width laws. Generic Hoeffding CLTs give the method but not this exact identified kernel and radial correction.
+
+## value
+
+PASS
+
+A precise second-order Gaussian law and independent exposed-vertex layer behavior for the canonical parking-function polytope are natural probabilistic convex-geometric invariants. The nontrivial exact covariance/radial cancellation and variance are not supplied by elementary vertex enumeration or first-order width scaling.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
