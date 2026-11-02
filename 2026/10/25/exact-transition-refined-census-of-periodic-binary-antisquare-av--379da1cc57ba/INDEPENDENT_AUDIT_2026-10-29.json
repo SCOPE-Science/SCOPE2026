@@ -1,0 +1,98 @@
+{
+  "audit_date_utc": "2026-10-29",
+  "audited_at_utc": "2026-10-29T21:45:11Z",
+  "axes": {
+    "correctness": {
+      "rationale": "Read entire RESULT.md and verify_cyclic_good.py. Baranwal et al Theorem11 gives the minimal antisquare basis, and Proposition18 shows a bi-infinite good word with 001011 must be a nonperiodic one-defect word, excluding it and its reversal/complement on any period. Thus periodic good words are exactly eight-factor avoiders. Cyclic XOR difference p maps those eight to 010,101,11111,01110. Any nonzero good p consists of alternating 0-runs length>=2 and 1-runs length2 or4; total number of ones is even, yielding two lifts to bits. With block GF B=z²/(1-z)*(u²z²+u⁴z⁴), marking 1-run starts yields 2n/r * [z^n u^t]B^r, i.e. F=-2z*d_z log(1-z-u²z⁴-u⁴z⁶). Coefficient extraction proves full bivariate finite sum; rotation stabilizers are handled by marked position double counting. Periodic inversion yields primitive necklace a_n=(1/n)sum mu(d)g_(n/d), and factoring denominator (1+z³)(1-z-z³) gives growth 2psi^n+O(1). Fresh independent exhaustive 8190 periodic binary words lengths1..12 were tested for true antisquares up to sufficient order and the four differences and rational census; source checker independently covers n1..15. Neither finite range implies all-n result, which follows from cited structural rigidity and run counting.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Theorem19 already has recursion C_n=C_(n-1)+C_(n-4)+C_(n-6) and growth constant psi for linear words; complement avoidance asks a different forbidden-factor problem."
+        ],
+        "reasoning": "Previously known linear recurrence and growth rate strongly overlap in ingredients, but not the exact two-variable periodic transition count or Möbius/Burnside necklace populations. The recurrence alone does not determine initial periodic trace coefficients.",
+        "searches": [
+          "binary antisquare avoiding periodic words cyclic difference runs bivariate transition generating function necklaces",
+          "Baranwal et al arXiv:2209.09223 Theorem19",
+          "Currie et al arXiv:2209.09598"
+        ]
+      },
+      "checked_sources": [
+        "https://arxiv.org/abs/2209.09223",
+        "https://arxiv.org/abs/2209.09598",
+        "https://dmtcs.episciences.org/en/articles/10063",
+        "https://github.com/Resultary/2026/tree/main/2026/10/4/SCOPE-exact-dependence-phases-of-fixed-composition-run-transitions--c6b28ad6d93d"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "The original contains identical Pansiot allowed run blocks (0-run>=2, 1-run 2/4) and supergolden ratio; submitted work derives F(z,u), all g_n initial values, cyclic necklaces."
+        ],
+        "reasoning": "The prior paper is a foundation and partially dominates structural lemmas and asymptotic exponential base. Direct re-use of its grammar to count cyclic periodic points and transition levels is a distinct exact enumerative statement; priority risk remains if the periodic trace was recorded elsewhere.",
+        "searches": [
+          "binary antisquare avoiding periodic words cyclic difference runs bivariate transition generating function necklaces",
+          "arXiv:2209.09223 Proposition18 and Theorem19"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Primary paper derives good binary word forbidden basis and Pansiot difference run pattern; submission uses the same pattern but counts cyclic periodic extensions."
+        ],
+        "reasoning": "The linear finite factor count is not the same as a trace of periodic points; cyclic closure, even parity, two lifts and indexed rotation multiplicities require additional arguments.",
+        "searches": [
+          "binary antisquare avoiding periodic words cyclic difference runs bivariate transition generating function necklaces",
+          "Baranwal et al arXiv:2209.09223 Theorems11,19 Proposition18"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "Published searches retrieved binary subsequence universality and attractor counts, not the same cyclic antisquare transition table; the actual manuscript gives c_(n,t) exact."
+        ],
+        "reasoning": "An OEIS or dynamical zeta table might contain total g_n without marking transitions; no matching periodic antisquare counts found from inspected sources. Failure of database search is not a novelty certification.",
+        "searches": [
+          "binary antisquare avoiding periodic words cyclic difference runs bivariate transition generating function necklaces",
+          "Resultary published binary antisquare periodic word search",
+          "Baranwal 2023 Theorem19"
+        ]
+      },
+      "rationale": "Qualified PASS for bivariate periodic-point GF, exact transition histogram and necklace counts. Baranwal et al Theorem11, Proposition18, and Theorem19 already supply the forbidden factors, the Pansiot-code run structure and the dominant growth constant, so none of those building blocks is claimed new. Their inspected Theorem19 counts linear finite words, not periodic points by exact circumference and transitions. Some exact periodic formulas might follow routinely from their transfer grammar or older zeta-function literature; this is a meaningful residual priority/value concern.",
+      "residual_risks": [
+        "Theorem19 Pansiot-run grammar makes this periodic enumeration structurally close to known work; an unindexed periodic-point/zeta-function computation could dominate the exact formulas.",
+        "Asymptotic growth constant psi was already known for linear good words; it is not independent new discovery."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Strong overlap in building blocks and linear growth constant; inspected theorem does not state bivariate periodic counts",
+          "evidence": "Proposition18 rules out 001011 in good bi-infinite periodic words; Theorem19 establishes forbidden-pattern Pansiot block grammar and linear growth psi.",
+          "identifier_or_url": "https://arxiv.org/pdf/2209.09223",
+          "material_read": "Accessible 21-page primary PDF read at Theorem11 forbidden basis, Proposition18 and the complete Theorem19 proof on page17; remaining unrelated repetition-threshold arguments not read line by line",
+          "method": "primary arXiv PDF text and screenshot",
+          "title": "Antisquares and Critical Exponents",
+          "trigger": "Same language, forbidden basis, Pansiot runs and growth"
+        },
+        {
+          "assessment": "Different avoidance predicate: complementary factors in arbitrary locations versus antisquares as adjacent halves",
+          "evidence": "Its forbidden-language notion differs before cyclic specialisation.",
+          "identifier_or_url": "https://arxiv.org/html/2209.09598v2",
+          "material_read": "Introduction and defining sections of accessible primary HTML",
+          "method": "arXiv OA primary text",
+          "title": "Complement Avoidance in Binary Words",
+          "trigger": "Neighboring complement-avoidance language"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "rationale": "A complete multivariate census by circumference and number of cyclic transitions for a natural symbolic-dynamics language of good antisquare-free infinite periodic points is a useful exact invariant; it also determines all primitive and imprimitive necklaces. This extends published linear-word asymptotic growth information to exact periodic-point zeta-type data, not just an arbitrary finite table.",
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "final_claim": "Full cyclic transition-refined population and primitive-necklace count of periodic good binary antisquare words",
+  "limitations": [
+    "Only two-sided periodic extensions and alphabet {0,1}; no census of arbitrary finite good words.",
+    "The published Theorem11/Proposition18 are essential hypotheses, rather than freshly proven here.",
+    "All-indexed counts distinguish positions, necklace counts quotient rotations separately."
+  ],
+  "schema_version": 1
+}

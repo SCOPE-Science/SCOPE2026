@@ -1,15 +1,21 @@
-# Scientific review of the periodic-good-word transition census
+# Independent mathematical audit
 
-## Correctness — PASS
-The claim quantifies over all positive circumferences, indexed binary words, and cyclic transition counts. The published minimal-forbidden-factor theorem and exceptional-bi-infinite-factor rigidity establish that a periodically good word avoids exactly eight short blocks. Taking cyclic adjacent differences maps those blocks to four forbidden difference patterns. Their permitted periodic words have zero-runs of length at least two and one-runs of length two or four, so the change parity is automatically even and every difference pattern lifts exactly twice. Pointing a one-run and double-counting cyclic origins gives the bivariate logarithmic-derivative series, with a separate constant-word term. Exact coefficient extraction, Möbius inversion, and factorization of the univariate characteristic polynomial prove the remaining formulas. The independent direct/transfer/formula checker succeeded. Risk: the external full-text results of [1] are premises, rather than re-proved here; the present argument uses them as published theorems.
+## correctness
 
-## Originality — PASS, subject to the stated search limits
-Baranwal et al. [1], Theorem 11 and Proposition 18, establish the infinite forbidden basis and exceptional-factor restriction, and Theorem 19 obtains the exponential growth constant for unrestricted linear good words. They do not state a cyclic transition distribution, all-circumference rational series, or primitive-rotation enumeration. The present result does not claim the source classification or the generic method of counting cyclic compositions as new. The companion complement-avoidance work [2] studies a different relation (two complementary factors need not be adjacent), and therefore does not imply these exact antisquare counts. Relevant indexed research records and previous recorded claims on cyclic/complementary words have distinct conditions or invariants. Residual risk: the result is derivable from earlier structural ingredients by a short new run-pointing argument; a published symbolic-dynamics or necklace formulation not encountered in the searches might already state it.
+PASS
 
-## Mathematical value — PASS
-The class has infinitely many minimal forbidden linear factors, so its exact periodic-point count is not immediately a finite-alphabet regular-language enumeration. The result closes this natural periodic subclass completely, including the joint distribution of circumference and bit transitions, exact primitive necklaces, and an explicit leading asymptotic constant. The automatic even-transition parity and precise renewal decomposition explain a structural constraint of the periodic language rather than merely producing a small table. The census is useful for enumerating cyclic pattern-avoiding binary sequences with prescribed boundary density and for studying the periodic orbit spectrum of this constrained shift. It does not settle arbitrary finite-word enumeration.
+Read entire RESULT.md and verify_cyclic_good.py. Baranwal et al Theorem11 gives the minimal antisquare basis, and Proposition18 shows a bi-infinite good word with 001011 must be a nonperiodic one-defect word, excluding it and its reversal/complement on any period. Thus periodic good words are exactly eight-factor avoiders. Cyclic XOR difference p maps those eight to 010,101,11111,01110. Any nonzero good p consists of alternating 0-runs length>=2 and 1-runs length2 or4; total number of ones is even, yielding two lifts to bits. With block GF B=z²/(1-z)*(u²z²+u⁴z⁴), marking 1-run starts yields 2n/r * [z^n u^t]B^r, i.e. F=-2z*d_z log(1-z-u²z⁴-u⁴z⁶). Coefficient extraction proves full bivariate finite sum; rotation stabilizers are handled by marked position double counting. Periodic inversion yields primitive necklace a_n=(1/n)sum mu(d)g_(n/d), and factoring denominator (1+z³)(1-z-z³) gives growth 2psi^n+O(1). Fresh independent exhaustive 8190 periodic binary words lengths1..12 were tested for true antisquares up to sufficient order and the four differences and rational census; source checker independently covers n1..15. Neither finite range implies all-n result, which follows from cited structural rigidity and run counting.
 
-## Closest literature and limitations
-[1] A. Baranwal et al., *Antisquares and Critical Exponents*, arXiv:2209.09223 (2022), §§6–7, especially Theorem 11, Proposition 18, Theorem 19. [2] J. Currie et al., *Complement Avoidance in Binary Words*, arXiv:2209.09598 (2022), Introduction. Existing linear-word growth and minimal-forbidden-factor statements are explicitly credited. The result covers exactly the binary two-sided periodic extension, with no assertion of independent verification.
+## originality
 
-Self-review: passed. Independent audit: not yet performed.
+PASS
+
+Qualified PASS for bivariate periodic-point GF, exact transition histogram and necklace counts. Baranwal et al Theorem11, Proposition18, and Theorem19 already supply the forbidden factors, the Pansiot-code run structure and the dominant growth constant, so none of those building blocks is claimed new. Their inspected Theorem19 counts linear finite words, not periodic points by exact circumference and transitions. Some exact periodic formulas might follow routinely from their transfer grammar or older zeta-function literature; this is a meaningful residual priority/value concern.
+
+## value
+
+PASS
+
+A complete multivariate census by circumference and number of cyclic transitions for a natural symbolic-dynamics language of good antisquare-free infinite periodic points is a useful exact invariant; it also determines all primitive and imprimitive necklaces. This extends published linear-word asymptotic growth information to exact periodic-point zeta-type data, not just an arbitrary finite table.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
