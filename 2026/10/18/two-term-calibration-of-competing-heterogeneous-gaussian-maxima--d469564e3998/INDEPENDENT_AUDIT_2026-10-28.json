@@ -1,0 +1,204 @@
+{
+  "audit_date_utc": "2026-10-28",
+  "audited_at_utc": "2026-10-28T22:02:39.325172Z",
+  "axes": {
+    "correctness": {
+      "checked_sources": [
+        "Git actual source tree 4e0415c8ca9867e1ce890206843a55b0916a2055 RESULT.md, VERIFICATION.md and independent script reading",
+        "SciPy direct exact conditional probability and separate analytic constant calculations"
+      ],
+      "evidence": [
+        "Actual RESULT.md source blob 84d0d51447bcb2a1cd6737f7958b103f75f5ed56, proof steps 1–5, Eq. (1)-(4) and normalized constants.",
+        "Independently recalculated r=2,C=1 F=0.594814360966782,H=0.143268670121707,J=-0.082656149001273 and d*=0.25,e*=-0.405709479715752.",
+        "Independent SciPy 1.17 direct exact-integral quadrature for (r,C)=(1.44,1),(2,1),(4,.6) at n=10^6,10^12,10^24. At r=2,n=10^24, uncalibrated P-F=-0.00158165709 and calibrated P-F=-0.0000336622191; finite errors conform to derived order.",
+        "Checked all coefficients by expanding the Mills quotient (1-1/(rt²))/(1-1/t²)^r and t^(r-1) through O(1/L)."
+      ],
+      "rationale": "For fixed r>1,C>0,d,e real, define L=log n,h=(r-1)/2,A=C(4pi)^h/sqrt(r). The high-variance maximum T=max_{1..n}N(0,1) gives Y=n barPhi(T), with exactly f_Y(y)=(1-y/n)^(n-1) for 0<y<n; conditional winner probability gives exact Eq. (1). The excluded tails Y<L^-3 and Y>L^3 have mass <=L^-3+exp(-L^3)=o((log L)^2/L^2). For y in [L^-3,L^3], normal Mills inversion yields t^2=2L-2log y-log L-log(4pi)+O(log L/L), uniformly, and the ratio barPhi(sqrt(r)t)/barPhi(t)^r=(sqrt(2pi)t)^(r-1)/sqrt(r)[1+(r-r^-1)/t^2+O(t^-4)]. Multiplying by the prescribed floored m_n yields intensity Ay^r[1+((d-h/2)log L+e-h log y-(h/2)log(4pi)+(r-r^-1)/2)/L+O((log L)^2/L^2)], uniformly. The binomial exponent and exact Y-density may be replaced by exponentials at errors exponentially small in L; Taylor expansion has integrable quadratic remainder O((log L)^2/L^2), giving coefficient H and J as claimed. H is strictly positive and the independent logL/L and 1/L terms force the unique (d*,e*) within fixed real d,e. Finite n cannot establish the infinite theorem; the displayed uniform bounds do.",
+      "residual_risks": [
+        "No uniformity as r approaches 1, C grows, or d,e depend on n; fixed-parameter only.",
+        "Numerical quadrature at n up to 10^24 illustrates but cannot prove asymptotic remainder, which rests on the Mills-inversion and integration estimates.",
+        "The floor produces errors exponentially small in log n only for sufficiently large n where m_n is positive."
+      ],
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "https://arxiv.org/abs/2605.21155 Theorem 2 extends leading winner limits to finitely many groups, using the same asymptotic-equivalence condition with no rate.",
+          "https://arxiv.org/abs/1308.5541 Theorem 1 and Proposition 11 derive one-sample Gaussian maximum rates and quantile norming, not the signed two-sample competition probability.",
+          "https://arxiv.org/pdf/2503.02473 Theorem 2 and Corollary 3 are weak point-process and argmax convergence statements without quantified two-Gaussian rate."
+        ],
+        "reasoning": "The more-general number-of-groups and point-process formulations are broader at first order, but their hypotheses only fix limits. The claimed next-order d,e dependence requires sharper Gaussian tail/quantile information. A general higher-order extreme-value theorem is an explicit residual risk.",
+        "searches": [
+          "\"Gaussian heterogeneous maxima critical sample sizes second order log log n over log n finite size correction calibrated winning probability\"",
+          "\"second order winning probability Gaussian maxima two groups heterogeneous sample size\"",
+          "Davydov Rotar winner problem point process Gaussian heterogeneous maxima",
+          "Gasull Jolis Utzet normal maxima norming constants second order 2015 theorem"
+        ]
+      },
+      "checked_sources": [
+        "https://arxiv.org/abs/2605.21155",
+        "https://arxiv.org/abs/1308.5541",
+        "https://arxiv.org/pdf/2305.05967",
+        "https://arxiv.org/pdf/2503.02473",
+        "https://doi.org/10.2307/3212912",
+        "https://github.com/Resultary/2026",
+        "SCOPE-Science/SCOPE2026 default-branch code-search: heterogeneous Gaussian maxima; Gaussian maximum winning probability",
+        "Secondary bivariate triangular-array second-order maxima search result: correlated pairs rather than independent competing samples"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "https://arxiv.org/abs/2605.21155 eq. (6) knows log(n1)=r log(n2)-(r-1)loglog(n2)/2+log C+o(1), sufficient for the first-order balance but not identifying an 1/log n coefficient.",
+          "The independent second-order Gaussian tail ratio includes (r-1/r)/t^2, which is not a coefficient in the identified prior two-group theorem.",
+          "https://arxiv.org/abs/1308.5541 bounds single-maximum Gumbel approximation at O(1/log n), not an exact integrated competing-group correction.",
+          "https://arxiv.org/pdf/2305.05967 Theorems 1–2 concern p_in asymptotics and weak winner-index limits for common tail families; https://arxiv.org/pdf/2503.02473 Thm 2 gives point-process convergence."
+        ],
+        "reasoning": "If an earlier first-order theorem implied a specific coefficient, sequences with the same leading ratio C but different d,e would have the same next-order bias, contradicting the explicitly computed derivative H>0. None of the inspected statements supplies the additional second-order hypotheses and coefficient. The unrelated correlated bivariate-array expansion concerns joint maxima under changing correlation, not independent groups with unequal variances and differing sizes.",
+        "searches": [
+          "Zhang Miao Mao arXiv 2605.21155 Theorem 1 proof and numerical section full text",
+          "Gasull Jolis Utzet arXiv 1308.5541 Prop 11 Gaussian maxima quantile asymptotics",
+          "Davydov Rotar arXiv 2305.05967 Thms 1-2; arXiv 2503.02473 Thm 2 Cor 3",
+          "Second order expansions of distributions of maxima of bivariate Gaussian triangular arrays under power normalization"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "https://arxiv.org/abs/2605.21155 Theorem 1, eqs. (3)-(5): for sigma^2=r gives a leading limit ∫exp(-z-e^(-kappa)z^(1/r))dz, with kappa=(log(C/sqrt(r)))/r+(1-1/r)log(4pi)/2. Integration by parts and z=Ay^r gives F=∫(1-e^(-Ay^r))e^(-y)dy, A=exp(r*kappa).",
+          "The event that a group attains the overall maximum is equivalent to the comparison of its group maximum against the other maximum; terminology does not create novelty."
+        ],
+        "reasoning": "The first-order F is exactly covered by the 2026 source and is credited. The new assertion is the explicit dependence of the 1/log(n) term on d,e and its unique cancellation. That term cannot be obtained from the first-order equivalence alone.",
+        "searches": [
+          "\"Asymptotic Probabilities of Attaining the Maximum in Heterogeneous Gaussian Samples\" arXiv:2605.21155 Theorem 1",
+          "\"normal extreme value maximum two populations winning probability convergence rate Mills ratio\"",
+          "\"two-group argmaximum Gumbel comparison\""
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "Resultary nearest identified public item 2026/10/4/SCOPE-exact-heteroscedastic-size-curve-for-the-four-observation-permut--1a16c8f3b610 treats a 4-observation permutation-test size function, not maxima of growing groups.",
+          "Resultary item 2026/10/4/SCOPE-an-exact-maximum-tie-criterion-for-leaders-in-two-dimensional-pr--996b67664456 treats leader ties in product samples, not heteroscedastic normal extrema.",
+          "No exact finite-sample calibration coefficient or natural table of it appeared in retrieved published results; this is not proof of global absence."
+        ],
+        "reasoning": "The natural invariant is a continuum asymptotic expansion depending on r and C, not a finite named-table sequence. The compared public records have unrelated random experiments, so do not imply the claim.",
+        "searches": [
+          "Resultary semantic query: Two group heterogeneous Gaussian maxima different variances critical sample size probability winning first correction log log n / log n optimal calibration (18 results)",
+          "Resultary semantic query: second order asymptotics normal maxima winner problem competing Gaussian populations refined critical sample sizes (18 results)",
+          "GitHub SCOPE-Science/SCOPE2026 search: heterogeneous Gaussian maxima; Gaussian maximum winning probability (no matching indexed files)",
+          "Search: \"heterogeneous Gaussian samples\" \"log log\" \"calibration\" maxima"
+        ]
+      },
+      "rationale": "Best-of-knowledge priority: the exact competing two-group Gaussian winner problem at critical n^r(log n)^(-(r-1)/2) is Theorem 1 of Zhang–Miao–Mao, whose complete Sections 2–4 and proof establish the limiting Gumbel probability, not the explicit signed loglog(n)/log(n) bias or fixed-parameter (d,e) calibration. The other primary articles cover one-sample normal-extreme norming and winner/point-process limits, not this full next-order coefficient. Resultary and separate published SCOPE source searches did not show a dominating statement. A search miss is not a novelty certificate.",
+      "residual_risks": [
+        "A more general unlocated higher-order normal-maxima competition theorem might imply the coefficient after specialization.",
+        "Hall (1979) itself was not read in full; rate results may supply an alternative derivation, although the documented rate bound does not specify the coefficient.",
+        "Search index coverage is incomplete, and failure to find an equivalent formulation is not a novelty proof.",
+        "Original source 2605.21155 was posted May 2026, and any subsequent independently developed refinement might be unindexed."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Establishes first-order critical scaling and equivalent F; not signed 1/log n correction or two-term calibration",
+          "evidence": [
+            "Theorem 1 equation (4) is a limit integral with kappa in eq (5); Lemma 2 uses log n1=r log n2-h loglog n2+log C+o(1).",
+            "Theorem 1 proof applies Slutsky convergence; Section 4 compares simulated winning rates to asymptotes rather than giving an explicit finite-size expansion."
+          ],
+          "identifier_or_url": "https://arxiv.org/abs/2605.21155",
+          "material_read": "Full primary arXiv rendered article Sections 1–4, Lemmas 1–3, Theorems 1–2, proof of Theorem 1, multigroup section, numerical section and source reference list; PDF pages 5–6 visually checked",
+          "method": "Primary full-text HTML and PDF text/visual examination",
+          "title": "Asymptotic Probabilities of Attaining the Maximum in Heterogeneous Gaussian Samples",
+          "trigger": "Exact same centered two-group Gaussian comparison and sample-size critical law"
+        },
+        {
+          "assessment": "Sharpens individual normal maximum Gumbel normalization; supplies classical ingredients but not the two-group competition coefficient",
+          "evidence": [
+            "Theorem 1 bounds Kolmogorov approximation for a single normalized sample maximum; Proposition 11 refines the normal quantile expansion.",
+            "No theorem in the inspected conclusion compares maxima of two groups with a critical sample-size ratio."
+          ],
+          "identifier_or_url": "https://arxiv.org/abs/1308.5541",
+          "material_read": "Full primary arXiv rendered document (595 lines), Introduction and Theorem 1, Section 4 bounds, Section 5 Proposition 11 and concluding formulas",
+          "method": "Primary arXiv full-text rendering",
+          "title": "On the norming constants for normal maxima",
+          "trigger": "Potentially dominating refined Gaussian maximum rate and quantile normalization"
+        },
+        {
+          "assessment": "Uniform first-order p_in~c_i/sum c_j and weak winner index law; does not give the fixed two-Gaussian next-order probability",
+          "evidence": [
+            "Theorem 1 equation (2.5) is a ratio limit; Theorem 2 equation (2.7) is weak convergence.",
+            "Section 3 proofs use dominated convergence and regular tail profiles, without an explicit 1/log n coefficient."
+          ],
+          "identifier_or_url": "https://arxiv.org/pdf/2305.05967",
+          "material_read": "Original 13-page primary PDF, introduction, Theorems 1–2 and their hypotheses/proofs, examples and concluding section, read via extracted text with visual inspection of theorem page",
+          "method": "Primary arXiv PDF with visual theorem-page confirmation",
+          "title": "The Distribution of Argmaximum or a Winner Problem",
+          "trigger": "Alternative name winner problem and potentially stronger heterogeneous maximum result"
+        },
+        {
+          "assessment": "Point-process and argmax weak convergence, not a second-order heteroscedastic Gaussian winner probability expansion",
+          "evidence": [
+            "Theorem 2 states zeta_n⇒zeta, not a numerical rate; Corollary 3 gives argmax convergence.",
+            "The proof bounds a Laplace functional residual by a term tending to zero, with no universal coefficient for differing Gaussian variances."
+          ],
+          "identifier_or_url": "https://arxiv.org/pdf/2503.02473",
+          "material_read": "Complete 9-page original PDF via extracted text, Theorem 2, Corollary 3, Proposition 4 and Laplace-functional proof; theorem page visually inspected",
+          "method": "Primary arXiv PDF including theorem-page screenshot",
+          "title": "Point Process Approach to the Winner Problem",
+          "trigger": "Potential general argmaximum theorem that could encompass the two-group problem"
+        },
+        {
+          "assessment": "Potential general normal-maxima rate tool; full-text noncoverage not established",
+          "evidence": [
+            "Gasull–Jolis–Utzet Introduction cites Hall 1979 for an O(1/log n) normal-maximum Gumbel bound, not an explicit cross-group sample-size calibration."
+          ],
+          "identifier_or_url": "https://doi.org/10.2307/3212912",
+          "material_read": "Bibliographic citation and discussion of Hall 1979 in Gasull–Jolis–Utzet; no independent full-text Hall reading",
+          "method": "Indirect cited-title/secondary discussion only, NOT treated as whole-document exclusion",
+          "title": "On the rate of convergence of normal extremes",
+          "trigger": "Foundational possible rates of Gaussian extreme-value convergence"
+        },
+        {
+          "assessment": "Nearest results concern heteroscedastic permutation tests or max-tie product leaders, not the present two-group Gaussian maxima event",
+          "evidence": [
+            "IDs ending 1a16c8f3b610 and 996b67664456; unrelated objects and parameters, not evidence of global novelty."
+          ],
+          "identifier_or_url": "https://github.com/Resultary/2026",
+          "material_read": "Two distinct 18-hit semantic result sets, titles/summaries of relevant near matches; full papers of remote irrelevant hits not inspected",
+          "method": "Semantic record-search result comparison at statement level",
+          "title": "Resultary published mathematical-record searches",
+          "trigger": "Required check for already published equivalent or dominating mathematical records"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "checked_sources": [
+        "https://arxiv.org/abs/2605.21155",
+        "https://arxiv.org/abs/1308.5541",
+        "Actual assigned RESULT.md and analytical calculation"
+      ],
+      "evidence": [
+        "Existing first-order critical limit arXiv 2605.21155 Theorem 1 is the motivation; comparison of expansions displays a genuine signed correction.",
+        "Independent numerics at three variance ratios confirm practical reduction in signed finite-size bias for calibrated m_n."
+      ],
+      "rationale": "Critical heterogeneous Gaussian maximum competition has a natural sample-size design question: the leading law chooses m_n≈Cn^r(log n)^(-(r-1)/2) to realize a nontrivial limiting win chance, but does not calibrate finite n. The derived universal signed loglog(n)/log(n) bias and exact fixed two-parameter cancellation supply an actionable mathematical refinement, involving a nonstandard integrated second-order Gaussian tail ratio rather than trivial parameter substitution. H>0 proves uniqueness, and the formula works for a whole natural continuum of variance ratios and positive C, not an arbitrary numerical slice. It provides a precise next-order asymptotic relation not contained in first-order winner theory.",
+      "residual_risks": [
+        "A useful n-dependent calibration outside the restricted two-term family is not uniquely characterized.",
+        "No multigroup or non-Gaussian extension is asserted; the result is a precise two-group refinement, not a sweeping classification."
+      ],
+      "status": "PASS"
+    }
+  },
+  "checked_sources": [
+    "https://arxiv.org/abs/2605.21155",
+    "https://arxiv.org/abs/1308.5541",
+    "https://arxiv.org/pdf/2305.05967",
+    "https://arxiv.org/pdf/2503.02473",
+    "Actual Git tree 4e0415c8ca9867e1ce890206843a55b0916a2055",
+    "Independent SciPy computations"
+  ],
+  "disposition": "passed",
+  "limitations": "Fixed independent zero-mean Gaussian two-group model, r>1 and C>0 with fixed real d,e; no claim for varying parameters, non-Gaussian tails, multigroup cases, or optimality among arbitrary n-dependent sample-size rules. Finite numerical checks do not establish the asymptotic theorem.",
+  "residual_risks": [
+    "Best-of-knowledge priority only; fully unindexed dominating mathematical literature cannot be ruled out.",
+    "No formal Lean proof, human expert attestation or third-party certification is claimed; verification is a direct mathematical assessment and bounded numerical corroboration."
+  ],
+  "schema_version": 1
+}
