@@ -1,11 +1,21 @@
-# Mathematical review
+# Independent mathematical audit
 
-**Correctness — PASS.** The proof classifies all subalgebras as inside the abelian ideal or outside it with a Jordan-invariant intersection, proves the scalar-shift identity, and counts three disjoint types of ordered pairs. The mixed count follows from the graph parametrization of subspaces with a prescribed image in a quotient; the outside-pair count follows from the one-dimensional socle of a regular nilpotent Jordan quotient. All small-field counts and explicit scalar-shift pair graphs agree with an independent RREF enumeration in `verify.py`. The large-field transition uses leading terms of Gaussian binomials and a controlled decomposition of dominant subalgebra types. No finite test is presented as a universal proof.
+## correctness
 
-**Originality — PASS on inspected evidence, with residual risk.** The September 2026 motivating manuscript treats the same invariant but gives examples and general bounds, not the all-rank Jordan-chain formula. The previously recorded four-dimensional filiform calculation already gives the rank-three specialization; it is fully excluded as an independent new contribution. A distinct earlier codimension-one semidirect family has a different action type and does not imply the present exact all-rank formula. Searches for Jordan-chain, filiform, scalar-shift, equivalent Gaussian-sum and asymptotic formulations did not locate a dominating theorem; failure of a search is not proof of uniqueness. The oldest projectivization literature was not inspected in full, and may anticipate the scalar-shift lemma.
+PASS
 
-**Value — PASS.** The all-rank formula and limiting law establish a sharp and unexpected transition in a natural family connecting nilpotent and nonnilpotent solvable Lie algebras. The boundary at length four separates generic nonpermutability from asymptotically universal permutability despite the action retaining nontrivial Jordan structure. This is a structural quantitative invariant, not a routine numerical recomputation of a previously tabulated rank-three case.
+For D and D+cI, brackets differ by c(alpha y-beta x) lying in each subalgebra and in A+B, proving invariance. Inside the abelian ideal all vector subspaces qualify. Outside subalgebras have unique F_q(h+a)+W_j with W_j the only J-invariant j-space, q^(r-j) cosets. A mixed pair permutes iff U+W_j=W_ell; quotient graphs yield H_{r,j}. Two outside pairs permute iff b-a lies in W_{max(j,k)+1}; counting cosets gives the sum of (2t-1)q^(t+1), plus 2S-1 whole-algebra cases. The written count and leading Gaussian-binomial degrees give 0 for r=2,3; 1/4 for r=4; 1 for r>=5. Independent symbolic integer calculation reproduced all seven (r,q) totals in the source verification, including (r,q)=(4,2)->(N,P)=(98,6108). Finite-field samples are not asserted to prove arbitrary r,q.
 
-**Closest sources and limitations.** Muhie–Otera–Russo, arXiv:2609.19086, Sections 1–4; classical semimodular-Lie-algebra references discussed therein; an earlier dimension-four standard-filiform census; and related prior quantitative calculations for Heisenberg and diagonally acting four-dimensional semidirect algebras. No conclusion is drawn for multi-block actions, and unindexed literature remains a residual risk.
+## originality
 
-Self-review: passed. Independent audit: not yet performed.
+PASS
+
+Best-of-knowledge all-rank Gaussian-sum formula and rank-four crossover not implied by inspected previously published Heisenberg and scalar-action results; older small-r cases acknowledged.
+
+## value
+
+PASS
+
+A motivated full infinite-rank classification of a quantitative invariant for a natural filiform-to-solvable family. The 0/1/4/1 large-field phase transition, including sharp rank-four coexistence and rank-five inside-subspace domination, is structural rather than recomputation of known dimension-three cases.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

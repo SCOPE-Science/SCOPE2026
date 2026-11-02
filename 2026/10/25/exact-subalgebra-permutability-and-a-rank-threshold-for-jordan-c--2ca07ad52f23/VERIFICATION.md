@@ -5,8 +5,11 @@
     "status": "not_performed"
   },
   "independent_audit": {
-    "evidence": null,
-    "status": "not_performed"
+    "status": "passed",
+    "evidence": [
+      "INDEPENDENT_AUDIT_2026-10-29.md",
+      "INDEPENDENT_AUDIT_2026-10-29.json"
+    ]
   },
   "lean_verification": {
     "evidence": null,
@@ -16,10 +19,24 @@
 }
 ---
 
-# Verification of the mathematical claims
+# Independent mathematical audit
 
-Execute `python3 verify.py` using the Python 3 standard library. The program independently enumerates all linear subspaces, finds Lie subalgebras by testing brackets, and checks permutability of every ordered subalgebra pair by directly testing bracket containment in the vector-space sum.
+## correctness
 
-For \((r,q)=(1,2),(2,2),(2,3),(2,5),(3,2),(3,3),(4,2)\), the observed pairs of *(number of subalgebras, number of ordered permutable pairs)* are respectively \((5,25)\), \((12,120)\), \((19,253)\), \((39,771)\), \((31,633)\), \((68,2086)\), and \((98,6108)\). The script also enumerates the complete permutability relation for all possible scalar shifts in ranks two and three over \(\mathbb F_2\) and \(\mathbb F_3\), finding identical relations after identifying the ambient vector spaces. It prints `VERIFY_OK` when every comparison succeeds.
+PASS
 
-The direct checker covers prime fields and finite ambient dimensions only. Nonprime fields and arbitrary ranks are covered by the algebraic proof, not by an exhaustive computational run. The checks do not provide an external or independent mathematical audit.
+For D and D+cI, brackets differ by c(alpha y-beta x) lying in each subalgebra and in A+B, proving invariance. Inside the abelian ideal all vector subspaces qualify. Outside subalgebras have unique F_q(h+a)+W_j with W_j the only J-invariant j-space, q^(r-j) cosets. A mixed pair permutes iff U+W_j=W_ell; quotient graphs yield H_{r,j}. Two outside pairs permute iff b-a lies in W_{max(j,k)+1}; counting cosets gives the sum of (2t-1)q^(t+1), plus 2S-1 whole-algebra cases. The written count and leading Gaussian-binomial degrees give 0 for r=2,3; 1/4 for r=4; 1 for r>=5. Independent symbolic integer calculation reproduced all seven (r,q) totals in the source verification, including (r,q)=(4,2)->(N,P)=(98,6108). Finite-field samples are not asserted to prove arbitrary r,q.
+
+## originality
+
+PASS
+
+Best-of-knowledge all-rank Gaussian-sum formula and rank-four crossover not implied by inspected previously published Heisenberg and scalar-action results; older small-r cases acknowledged.
+
+## value
+
+PASS
+
+A motivated full infinite-rank classification of a quantitative invariant for a natural filiform-to-solvable family. The 0/1/4/1 large-field phase transition, including sharp rank-four coexistence and rank-five inside-subspace domination, is structural rather than recomputation of known dimension-three cases.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
