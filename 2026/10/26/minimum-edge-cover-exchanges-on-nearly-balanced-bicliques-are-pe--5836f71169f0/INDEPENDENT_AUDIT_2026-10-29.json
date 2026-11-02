@@ -1,0 +1,115 @@
+{
+  "audit_date_utc": "2026-10-29",
+  "audited_at_utc": "2026-10-29T00:56:56Z",
+  "axes": {
+    "correctness": {
+      "rationale": "A minimum edge cover of K_{n+1,n} must have n+1 edges and be the graph of a surjective word from n+1 labeled positions to n colors; exactly one color occurs twice. Replacing either duplicate with a blank gives the endpoints of a unique edge of the permutation star-transposition Cayley graph S_{n+1}. One-coordinate changes correspond exactly to incident root edges, hence X_n=L(S_{n+1}). Root S is n-regular bipartite with (n+1)! vertices, giving |V|=n(n+1)!/2, degree 2n-2, edges n(n+1)!(n-1)/2, triangles (n+1)! binom(n,3), chi=omega=n and independence (n+1)!/2. Classical star-factorization distance (central cycle length-1 plus off-center cycle length+1) yields diameter floor(3n/2), and the line-graph endpoint distance formula plus explicit conjugating extremal permutations attain this bound. In K_{n,n} the n! perfect matchings are isolated under one-edge replacement. Independent Python enumerated all surjective words, direct one-coordinate adjacency and full BFS distances n=2..5, reproducing (6,3),(36,4),(240,6),(1800,7) vertex/diameter pairs. The proof, not finite enumeration, is all n>=2.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "General permutation-star factorizations yield root distances, not a theorem describing minimum edge cover exchanges."
+        ],
+        "reasoning": "The prior root Cayley graph theory covers several numerical consequences after the novel isomorphism, but not a statement that would directly imply the reconfiguration equivalence.",
+        "searches": [
+          "Resultary semantic query: minimum edge cover reconfiguration exchange graph complete bipartite K(n+1,n) line graph star transposition Cayley graph diameter",
+          "arXiv:1911.10340 full HTML Introduction and routing sections",
+          "arXiv:math/0610640 full HTML main sections"
+        ]
+      },
+      "checked_sources": [
+        "Frozen Git RESULT.md SHA b0e5e45588d735d0440d3cf6639723b9776ed05e and verify.py SHA 4fff73d3334f21fb83bceb0c759ab0c8f819aec2; direct independent surjection adjacency/BFS n=2..5.",
+        "Kumar et al. arXiv:1911.10340 full HTML; Irving–Rattan arXiv:math/0610640 full HTML; Akers–Krishnamurthy DOI:10.1109/12.21148 citation.",
+        "Resultary semantic query: minimum edge cover reconfiguration exchange graph complete bipartite K(n+1,n) line graph star transposition Cayley graph diameter"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "Classical diameter of S_{n+1} is floor(3n/2), and its line graph has degree 2n-2; these are prior graph facts."
+        ],
+        "reasoning": "Neither input alone identifies a K_{n+1,n} edge-cover state with a star graph edge. The explicit surjective-word bijection supplies the missing implication; ordinary balanced K_{n,n} isolation follows from perfect matching rigidity.",
+        "searches": [
+          "arXiv:1911.10340 star network diameter floor(3(n-1)/2)",
+          "arXiv:math/0610640 minimal star factorizations",
+          "Resultary semantic query: minimum edge cover reconfiguration exchange graph complete bipartite K(n+1,n) line graph star transposition Cayley graph diameter"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "A minimum cover corresponds to a surjection with one doubled letter, equivalently an edge of the star Cayley graph.",
+          "The cited 2019 source explicitly states the root star graph degree and diameter but studies orientations rather than edge-cover state exchanges."
+        ],
+        "reasoning": "The new correspondence is a line graph of S_{n+1}, not S_{n+1} itself. Search did not locate prior formula for cover-exchange adjacency through this bijection.",
+        "searches": [
+          "Resultary semantic query: minimum edge cover reconfiguration exchange graph complete bipartite K(n+1,n) line graph star transposition Cayley graph diameter",
+          "arXiv:1911.10340 Oriented Diameter of Star Graphs",
+          "arXiv:math/0610640 Factorizations into star transpositions"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "Edge-geodesic cover/partition numbers concern path covers, not one-edge exchanges between minimum edge-cover solutions."
+        ],
+        "reasoning": "No matching exact reconfiguration table found; n<=5 enumerations test the isomorphism rather than establishing originality.",
+        "searches": [
+          "Resultary semantic query: minimum edge cover reconfiguration exchange graph complete bipartite K(n+1,n) line graph star transposition Cayley graph diameter",
+          "Resultary 2026/10/4/SCOPE-edge-geodesic-cover-and-partition-numbers-of-complete-multiparti--ed7c74654578"
+        ]
+      },
+      "rationale": "PASS for the exact optimum-cover exchange-graph identification and consequent all-parameter graph census; the diameter of the permutation star Cayley graph and factorization formula are established background and not independently novel. A known line-graph representation under alternate surjective-word terminology remains the key bibliographic risk.",
+      "residual_risks": [
+        "Unindexed identification of almost-permutation Hamming graph with L(star Cayley graph) may predate this finding.",
+        "Root graph distance and triangle/coloring consequences are prior-derived once the correspondence is found."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Root degree and diameter already known; article targets directed routing, not edge-cover exchange graph.",
+          "evidence": " lines 29-65",
+          "identifier_or_url": "https://arxiv.org/html/1911.10340v1",
+          "material_read": "Full HTML introduction, Section 1.1 definition/diameter, preliminary sections and routing objective",
+          "method": "web HTML line-oriented primary reading",
+          "title": "Oriented Diameter of Star Graphs",
+          "trigger": "exact same root Cayley graph, diameter"
+        },
+        {
+          "assessment": "Counts minimal star factorizations, not same edge-cover exchange classification in inspected material.",
+          "evidence": "; arXiv:math/0610640",
+          "identifier_or_url": "https://arxiv.org/html/math/0610640v2",
+          "material_read": "Full-text HTML abstract, factorization setup and main theorem portions; root permutation theory",
+          "method": "web HTML reading",
+          "title": "Factorizations of permutations into star transpositions",
+          "trigger": "permutation star-distance formula"
+        },
+        {
+          "assessment": "Credited as original root-graph context, not cited as whole-document noncoverage.",
+          "evidence": "DOI:10.1109/12.21148",
+          "identifier_or_url": "https://doi.org/10.1109/12.21148",
+          "material_read": "Bibliographic title and reference, not original full text",
+          "method": "bibliographic discovery",
+          "title": "A Group-Theoretic Model for Symmetric Interconnection Networks",
+          "trigger": "foundational star graph network"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "rationale": "Single-edge reconfiguration of minimum edge covers is a natural discrete optimization state graph. The exact identification with a classical Cayley-network line graph yields connectivity, diameter, coloring, independent-set and triangle counts, and a sharp structural discontinuity between K_{n,n} and K_{n+1,n}. This classification is a motivated infinite family, not simply a known restatement of star graph diameter.",
+      "status": "PASS"
+    }
+  },
+  "checked_sources": [
+    "Frozen Git RESULT.md SHA b0e5e45588d735d0440d3cf6639723b9776ed05e and verify.py SHA 4fff73d3334f21fb83bceb0c759ab0c8f819aec2; direct independent surjection adjacency/BFS n=2..5.",
+    "Kumar et al. arXiv:1911.10340 full HTML; Irving–Rattan arXiv:math/0610640 full HTML; Akers–Krishnamurthy DOI:10.1109/12.21148 citation.",
+    "Resultary semantic query: minimum edge cover reconfiguration exchange graph complete bipartite K(n+1,n) line graph star transposition Cayley graph diameter"
+  ],
+  "disposition": "passed",
+  "limitations": [
+    "Only labeled complete bipartite K_{n,n} or K_{n+1,n} and optimum-preserving one-edge exchanges.",
+    "Independent computation tested only n<=5; full graph diameter derivation is analytic."
+  ],
+  "residual_risks": [
+    "Unindexed identification of almost-permutation Hamming graph with L(star Cayley graph) may predate this finding.",
+    "Root graph distance and triangle/coloring consequences are prior-derived once the correspondence is found."
+  ],
+  "schema_version": 1
+}
