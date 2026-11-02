@@ -1,0 +1,115 @@
+{
+  "audit_date_utc": "2026-10-28",
+  "audited_at_utc": "2026-10-28T13:55:35Z",
+  "axes": {
+    "correctness": {
+      "rationale": "With q=G/2, d=(gamma1-gamma2)/2, |d|<=q and a,b,G>0, the correct characteristic polynomial is P(s)=(s²+qs+a)(s²+qs+a+2b)-d²s². Its roots all have strictly negative real parts by dissipative energy plus connected positive stiffness. At d=0 the slow normal mode gives R*=G/4-sqrt(max(0,G²/16-a)). For undercritical/critical G, root-sum -G forces spectral abscissa >=-G/4; equality would make P(s-G/4) even but its odd linear coefficient is Gd²/2, hence d=0. For G>4sqrt a, P(-R*)=-d² R*²<0 and P(0)>0 gives a slower real root for imbalance, proving unique balanced optimum for all G. R*(G) increases up to G=4sqrt a then decreases; global max sqrt a. At noncritical simple modes implicit roots yield quadratic imbalance costs G/(8b)d² and R*²/(2b sqrt(G²/4-4a))d²; at the critical double low mode 2b(δs)²=ad² yields sqrt(a/(2b))|d|. Independent SymPy exact polynomial and shifted coefficient and 18 numerical root diagnostics across all regimes passed. The rate is spectral asymptotic exponent, not a uniform norm bound at defective eigenvalues.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "1999 unrestricted B optimization permits off-diagonal and unequal trace; 2015 Ryu paper Eq.1 and Figs1–3 vary gamma2 while gamma1 fixed, with no constant-sum constraint."
+        ],
+        "reasoning": "A theorem for all real symmetric damping matrices may determine the global unconstrained maximum, but does not force unique optimizers in the much narrower fixed-trace diagonal slice or compute cusp penalties. Tuned-mass absorber damping is a different topology and criterion.",
+        "searches": [
+          "Freitas Lancaster SIAM J Matrix Anal Appl 21 (1999)",
+          "Ryu et al arxiv:1504.08085 sections I–III",
+          "Krenk Høgsberg tuned mass absorber relative damping"
+        ]
+      },
+      "checked_sources": [
+        "Assigned RESULT.md blob fcfbd6f76551f74acf5975097bcdf774738f2ca7, check.py blob 0c52257087f67e23def958e7003c26752f09727f",
+        "Freitas–Lancaster (1999) DOI:10.1137/S0895479897331850",
+        "Ryu et al 2015 full paper arxiv:1504.08085",
+        "Resultary semantic fixed-total damping query"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "The primary 2015 model uses second derivatives plus gamma_i times first derivatives and omega_i squared times coordinate equals coupling -k x_other, with gamma1=0 in plots; optimizing gamma2 is not minimizing max root real part over gamma1+gamma2=G."
+        ],
+        "reasoning": "The source exceptional point can motivate linear cusp but does not entail global allocation uniqueness at each G; the specific quartic polynomial and traces are essential. An inaccessible full Freitas appendix remains a priority risk.",
+        "searches": [
+          "Freitas Lancaster 1999 abstract of optimal symmetric B",
+          "Ryu et al 2015 Eq.1 and stability matrix Eq.3"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Freitas–Lancaster optimize over unrestricted real symmetric damping matrices, whereas this claim enforces diagonal local damping with fixed trace G; Ryu et al vary one oscillator damping and investigate a local exceptional point."
+        ],
+        "reasoning": "The unconstrained matrix spectral abscissa is a different feasible set. Exceptional-point local square-root splitting is familiar, but the unique equal-budget optimum for every a,b,G and three explicit sensitivity coefficients are additional claims.",
+        "searches": [
+          "Resultary: two coupled oscillators fixed total diagonal damping equal optimal spectral decay exceptional cusp",
+          "Freitas Lancaster 1999 spectral-abscissa symmetric damping matrix",
+          "Ryu et al 2015 exceptional point coupled damped oscillator"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "Ryu 2015 gives finite parameter plots of decay near exceptional points but no exact three-regime fixed-budget formula."
+        ],
+        "reasoning": "No known table of the exact constrained optimizer and coefficients identified; this is a quantified continuous-parameter theorem rather than a small numerical lookup.",
+        "searches": [
+          "Ryu et al arxiv:1504.08085 Figs 1–3",
+          "Resultary semantic coupled oscillators damping optimization"
+        ]
+      },
+      "rationale": "Best-of-knowledge primary and published-record comparison distinguishes the final exact claim from the already known framework, special cases and methods; all specific gaps and accessible-text limits are documented, and failed searches alone are not treated as novelty proof. A complete unique damping allocation theorem under a physically meaningful fixed total local damping budget, plus an explicit exceptional-point cusp versus quadratic sensitivity law and optimum independent of coupling b. This quantifies robustness of a design in a way not supplied by generic damping or exceptional-point observations.",
+      "residual_risks": [
+        "Full Freitas–Lancaster 1999 text not accessible: an exact fixed-trace diagonal corollary could exist despite its unrestricted formulation.",
+        "Engineering literature on grounded equal-mass damping allocation may contain equivalent designs under alternative parameterizations."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Paper varies gamma2 at fixed gamma1, also nonlinear coupled limit cycles; does not establish equal allocation at every fixed total G or the three sensitivity coefficients",
+          "evidence": "Eq.1 and Figs1–3, arXiv:1504.08085",
+          "identifier_or_url": "https://arxiv.org/pdf/1504.08085",
+          "material_read": "Complete arXiv PDF available; equations of Sec.II, phase/parameter plots and critical point discussion pp.1–3 and Sec.III model",
+          "method": "Read extracted PDF and inspected screenshots of pp.2–3",
+          "title": "Exceptional points in coupled dissipative dynamical systems, Ryu et al (2015)",
+          "trigger": "Same two damped linear oscillators and exceptional point"
+        },
+        {
+          "assessment": "The optimization allows unrestricted symmetric damping matrices and no fixed-trace diagonal restriction is stated; cannot assert whole article excludes corollary",
+          "evidence": "SIAM J Matrix Anal Appl 21 (1999), abstract",
+          "identifier_or_url": "https://doi.org/10.1137/S0895479897331850",
+          "material_read": "SIAM primary abstract and metadata only; full text unavailable (Oxford authenticated access VPN disconnected)",
+          "method": "Publisher abstract and authorized access attempt",
+          "title": "On the Optimal Value of the Spectral Abscissa for a System of Linear Oscillators, Freitas and Lancaster (1999)",
+          "trigger": "Potential broad optimization covering fixed-budget case"
+        },
+        {
+          "assessment": "Different relative-coordinate absorber and response objective; no definitive whole-document novelty comparison claimed",
+          "evidence": "J Sound Vib 333 (2014), citation",
+          "identifier_or_url": "https://doi.org/10.1016/j.jsv.2013.11.029",
+          "material_read": "Citation and secondary model description only, not full text",
+          "method": "Bibliographic/related-model comparison",
+          "title": "Tuned mass absorber on a flexible structure, Krenk and Høgsberg (2014)",
+          "trigger": "Related physical damping optimization"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "rationale": "A complete unique damping allocation theorem under a physically meaningful fixed total local damping budget, plus an explicit exceptional-point cusp versus quadratic sensitivity law and optimum independent of coupling b. This quantifies robustness of a design in a way not supplied by generic damping or exceptional-point observations.",
+      "status": "PASS"
+    }
+  },
+  "checked_sources": [
+    "Assigned RESULT.md blob fcfbd6f76551f74acf5975097bcdf774738f2ca7, check.py blob 0c52257087f67e23def958e7003c26752f09727f",
+    "Freitas–Lancaster (1999) DOI:10.1137/S0895479897331850",
+    "Ryu et al 2015 full paper arxiv:1504.08085",
+    "Resultary semantic fixed-total damping query"
+  ],
+  "disposition": "passed",
+  "limitations": [
+    "Two identical unit masses, a>0, b>0, diagonal nonnegative grounded viscous dampers with fixed total G.",
+    "Only spectral asymptotic decay, not transient peak, nonlinear or off-diagonal damping."
+  ],
+  "residual_risks": [
+    "Full Freitas–Lancaster 1999 text not accessible: an exact fixed-trace diagonal corollary could exist despite its unrestricted formulation.",
+    "Engineering literature on grounded equal-mass damping allocation may contain equivalent designs under alternative parameterizations."
+  ],
+  "schema_version": 1
+}

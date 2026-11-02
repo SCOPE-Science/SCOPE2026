@@ -5,8 +5,11 @@
     "status": "not_performed"
   },
   "independent_audit": {
-    "evidence": null,
-    "status": "not_performed"
+    "status": "passed",
+    "evidence": [
+      "INDEPENDENT_AUDIT_2026-10-28.md",
+      "INDEPENDENT_AUDIT_2026-10-28.json"
+    ]
   },
   "lean_verification": {
     "evidence": null,
@@ -16,8 +19,24 @@
 }
 ---
 
-# Reproducibility and verification
+# Independent mathematical audit
 
-The file `check.py` uses Python 3, NumPy and SymPy. Run `python3 check.py` in a directory containing it. It evaluates six exact polynomial identities, 1,200 independently computed quartic-root comparisons under nonnegative fixed-budget local dampers, and eight small-imbalance asymptotic comparisons. The included program passed those tests when run with the packaged contents.
+## correctness
 
-The proof in `RESULT.md` is the evidence for the quantified conclusions over all positive masses-normalized parameters. Finite random numerical tests are neither an exhaustive search nor a proof. The uniqueness arguments use the four-root sum and an explicitly nonzero translated odd coefficient for \(G\le4\sqrt a\), and a strict intermediate-value root obstruction when \(G>4\sqrt a\). The critical cusp is obtained by balancing terms at a double characteristic root. No claim is made about an independently verified formal proof, transient operator-norm optimality, or behavior outside the stated linear mechanical model.
+PASS
+
+With q=G/2, d=(gamma1-gamma2)/2, |d|<=q and a,b,G>0, the correct characteristic polynomial is P(s)=(s²+qs+a)(s²+qs+a+2b)-d²s². Its roots all have strictly negative real parts by dissipative energy plus connected positive stiffness. At d=0 the slow normal mode gives R*=G/4-sqrt(max(0,G²/16-a)). For undercritical/critical G, root-sum -G forces spectral abscissa >=-G/4; equality would make P(s-G/4) even but its odd linear coefficient is Gd²/2, hence d=0. For G>4sqrt a, P(-R*)=-d² R*²<0 and P(0)>0 gives a slower real root for imbalance, proving unique balanced optimum for all G. R*(G) increases up to G=4sqrt a then decreases; global max sqrt a. At noncritical simple modes implicit roots yield quadratic imbalance costs G/(8b)d² and R*²/(2b sqrt(G²/4-4a))d²; at the critical double low mode 2b(δs)²=ad² yields sqrt(a/(2b))|d|. Independent SymPy exact polynomial and shifted coefficient and 18 numerical root diagnostics across all regimes passed. The rate is spectral asymptotic exponent, not a uniform norm bound at defective eigenvalues.
+
+## originality
+
+PASS
+
+Best-of-knowledge primary and published-record comparison distinguishes the final exact claim from the already known framework, special cases and methods; all specific gaps and accessible-text limits are documented, and failed searches alone are not treated as novelty proof. A complete unique damping allocation theorem under a physically meaningful fixed total local damping budget, plus an explicit exceptional-point cusp versus quadratic sensitivity law and optimum independent of coupling b. This quantifies robustness of a design in a way not supplied by generic damping or exceptional-point observations.
+
+## value
+
+PASS
+
+A complete unique damping allocation theorem under a physically meaningful fixed total local damping budget, plus an explicit exceptional-point cusp versus quadratic sensitivity law and optimum independent of coupling b. This quantifies robustness of a design in a way not supplied by generic damping or exceptional-point observations.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

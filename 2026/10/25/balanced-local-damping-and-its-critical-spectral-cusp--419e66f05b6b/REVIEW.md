@@ -1,12 +1,21 @@
-# Scientific review: balanced local damping
+# Independent mathematical audit
 
-## Correctness — PASS
-The same characteristic quartic follows from direct determinant expansion and from normal-mode factorization at balance. Stability extends to admissible zero-damper endpoints because positive intermass coupling precludes undamped eigenvectors. The root-sum lower bound proves optimality for undercritical/critical total damping, with the translated odd polynomial coefficient giving strict uniqueness; a real-root sign argument proves strictness above criticality. The critical repeated-root perturbation produces the linear \(|d|\) cusp; simple-root perturbation produces the two quadratic coefficients. The spectral-rate interpretation allows polynomial transient factors at defective eigenvalues. Six symbolic assertions, 1,200 numerical allocation checks and eight asymptotic diagnostics passed; the infinite result is analytic rather than an extrapolation from finite experiments.
+## correctness
 
-## Originality — PASS on inspected evidence, with residual risk
-Freitas–Lancaster (1999), examined in its publicly available author-uploaded manuscript including the optimal-value theorem and two-dimensional matrix classification, optimizes over **unrestricted symmetric damping matrices** and not the constrained local diagonal equal-total allocation. The unrestricted theorem has a different optimum and cannot yield the present unique allocation or imbalance cusp directly. Ryu et al. (2015), original six-page preprint examined in full, treat coupled dissipative oscillators and exceptional points but vary physical damping parameters differently and do not provide a constant-total allocation theorem. Full materials of Krenk–Høgsberg and Pavić concern, respectively, tuned-mass and hysteretic-response objectives. These comparisons cover the nearest explicit results found, not every historical engineering source; the abstract of Nakić (2013) was accessible but its full text was not. Equivalent findings under alternate formulations remain a genuine priority risk.
+PASS
 
-## Mathematical value — PASS
-The physical budget and local-actuator restriction give a natural constrained design question. The proof establishes an all-positive-parameter unique optimum and an exact best achievable rate, including an independently meaningful sensitivity contrast: critical optimum incurs a first-order imbalance penalty even as every other fixed-budget optimum incurs a second-order penalty. The rates specify robust damping-allocation design and distinguish the attractive critical spectral rate from its nonrobust local cusp. This is not claimed to be a universal damping theorem for other mass matrices or transient objectives.
+With q=G/2, d=(gamma1-gamma2)/2, |d|<=q and a,b,G>0, the correct characteristic polynomial is P(s)=(s²+qs+a)(s²+qs+a+2b)-d²s². Its roots all have strictly negative real parts by dissipative energy plus connected positive stiffness. At d=0 the slow normal mode gives R*=G/4-sqrt(max(0,G²/16-a)). For undercritical/critical G, root-sum -G forces spectral abscissa >=-G/4; equality would make P(s-G/4) even but its odd linear coefficient is Gd²/2, hence d=0. For G>4sqrt a, P(-R*)=-d² R*²<0 and P(0)>0 gives a slower real root for imbalance, proving unique balanced optimum for all G. R*(G) increases up to G=4sqrt a then decreases; global max sqrt a. At noncritical simple modes implicit roots yield quadratic imbalance costs G/(8b)d² and R*²/(2b sqrt(G²/4-4a))d²; at the critical double low mode 2b(δs)²=ad² yields sqrt(a/(2b))|d|. Independent SymPy exact polynomial and shifted coefficient and 18 numerical root diagnostics across all regimes passed. The rate is spectral asymptotic exponent, not a uniform norm bound at defective eigenvalues.
 
-Self-review: passed. Independent audit: not yet performed.
+## originality
+
+PASS
+
+Best-of-knowledge primary and published-record comparison distinguishes the final exact claim from the already known framework, special cases and methods; all specific gaps and accessible-text limits are documented, and failed searches alone are not treated as novelty proof. A complete unique damping allocation theorem under a physically meaningful fixed total local damping budget, plus an explicit exceptional-point cusp versus quadratic sensitivity law and optimum independent of coupling b. This quantifies robustness of a design in a way not supplied by generic damping or exceptional-point observations.
+
+## value
+
+PASS
+
+A complete unique damping allocation theorem under a physically meaningful fixed total local damping budget, plus an explicit exceptional-point cusp versus quadratic sensitivity law and optimum independent of coupling b. This quantifies robustness of a design in a way not supplied by generic damping or exceptional-point observations.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
