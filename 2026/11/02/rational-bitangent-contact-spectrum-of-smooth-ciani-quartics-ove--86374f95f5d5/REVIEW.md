@@ -1,0 +1,11 @@
+# Scientific review
+
+**Correctness — PASS.** The partial derivatives give the necessary and sufficient four-part geometric smoothness test (nonzero three pure coefficients, three coordinate-discriminants, and the ternary-square matrix determinant). All 3906 scalar-normalized sextuples and 31 dual-plane rational lines are enumerated. The quadratic Veronese test exactly detects even geometric intersection divisors and the quadratic discriminant exactly detects the contact splitting; a separate Gröbner/factorization implementation reproduces the 800 smooth instances and fifteen counts. Both scripts were executed to completion; finite enumeration proves the finite-field classification because the parameter and line universes are exhausted.
+
+**Originality — PASS with residual risk.** The closest published geometric works treat complex bitangent arrangements and automorphism orbits, not the joint rational-line/contact-type spectrum over \(\mathbb F_5\). Available published computations on pointless quartic isomorphism classes can establish the known Fermat example but do not provide this full marked-family spectrum, and the known generic 800-count omits rational bitangent data. The small-field quartic tables examined begin at \(\mathbb F_9\). Mathematical research-record and accessible earlier-claim searches found no table giving the fifteen counts; this is not proof of absolute priority. Unindexed earlier computational data could exist.
+
+**Mathematical value — PASS.** Rational bitangents are rational odd theta-characteristics of smooth plane quartics, and the split/nonsplit support data encode Frobenius on their contact divisor. A complete exact distribution on the full finite six-monomial family, with a sharp maximum and explicit incidence strata, is a natural arithmetic classification not implied by the previously known smooth-curve count. The result is specifically about coefficient-normalized marked equations, not new abstract-isomorphism classes.
+
+Closest literature: Janasz–Pokora–Zieliński (2023), Bethea–Brazelton (2024), and Betten–Kaplan–Karaoglu's posted finite-field tables (2021). Independent human or external verification has not been performed.
+
+Self-review: passed. Independent audit: not yet performed.
