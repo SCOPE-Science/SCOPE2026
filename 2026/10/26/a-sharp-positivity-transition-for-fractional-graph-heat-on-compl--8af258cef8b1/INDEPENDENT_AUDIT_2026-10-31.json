@@ -1,0 +1,140 @@
+{
+  "audit_date_utc": "2026-10-31",
+  "audited_at_utc": "2026-10-31T14:03:42Z",
+  "axes": {
+    "correctness": {
+      "rationale": "The orthogonal Laplacian decomposition has eigenvalues 0 on constants, N on part-constant global mean-zero modes, and N-n_i on within-part fluctuations. This yields exact between-part entries (1-e^{-s})/N and within-part off-diagonal H_i/n_i. Jensen convexity forces H_i>0 for α<=1. For α>1, a_i=q_i^α<q_i, e^{a_i s}H_i=u_i e^{a_i s}+q_i e^{-(1-a_i)s}-1 is strictly convex, starts at zero with negative derivative and tends to +∞, so exactly one crossing. Row sums equal one and only within-part off-diagonals can be negative; sum of their absolute values gives the exact operator row/column norm. Differentiating -H_i yields its unique peak; Taylor expansion in ε=α-1 gives delay coefficient (2/N) max (-log q_i)/u_i and norm excess max (1-1/n_i)q_i(log q_i)²/u_i. Independently assembled raw graph Laplacians and spectral fractional heat for 80 graph/α/time combinations; checked block entries, signs and sharp row norms.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Known fractional random-walk heat semigroups for α in (0,1) are positive, matching one half of the result.",
+          "General eventually positive finite-dimensional semigroup criteria imply eventual positivity from a simple positive dominant eigenvector but not sharp graph-dependent finite endpoint times.",
+          "Resultary 3-level ℓ² example is infinite-dimensional and lacks a common finite positive time, unlike the finite graph."
+        ],
+        "reasoning": "General positivity theory supplies context but does not quantitatively dominate the complete transition for this graph family. α=2 complete bipartite slices previously known are explicitly not counted as new.",
+        "searches": [
+          "Riascos–Mateos arxiv:1506.06167 Sections II–IV",
+          "Daners–Glück–Kennedy arxiv:1511.05294 eventual positivity criteria",
+          "Resultary three-spectral-value semigroup positive-time obstruction"
+        ]
+      },
+      "checked_sources": [
+        "Riascos–Mateos arxiv:1506.06167",
+        "Daners–Glück–Kennedy arxiv:1511.05294",
+        "Daners–Glück–Kennedy arxiv:1511.09020",
+        "Resultary three-eigenvalue semigroup summary",
+        "complete multipartite graph fractional Laplacian powers heat semigroup positivity threshold alpha one eventual positivity sharp norms"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "Spectral calculus yields the matrix form, but deriving the unique root, global sharp norm and critical scalings requires additional convexity and Taylor reasoning.",
+          "Qualitative eventually positive results do not supply graph-specific root/peak constants."
+        ],
+        "reasoning": "The new claim is not a rephrased positivity theorem; it evaluates the exact kernel and operator-norm transient for all complete multipartite part sizes, and finds a sharp α=1 phase boundary with different onset orders.",
+        "searches": [
+          "Daners–Glück–Kennedy 2015 qualitative eventual positivity theorems",
+          "Riascos–Mateos 2014 fractional spectral calculus",
+          "published three spectral value semigroup result"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Riascos–Mateos define fractional-Laplacian dynamics mainly in 0<α<1; a Markov generator result does not cover α>1 sign transitions.",
+          "Daners et al. characterize eventual positivity qualitatively, not exact positive roots and peak row norms on multipartite graphs."
+        ],
+        "reasoning": "The exact α-dependent graph heat entries follow from a 3-level combinatorial Laplacian. Qualitative eventual positivity and low-eigenlevel abstractions do not themselves state the singular near-1 coefficient or complete sharp norm profile.",
+        "searches": [
+          "complete multipartite graph fractional Laplacian powers heat semigroup positivity threshold alpha one eventual positivity sharp norms",
+          "Riascos–Mateos 2014 fractional dynamics on networks",
+          "Daners–Glück–Kennedy 2015 eventual positivity",
+          "published three-spectral-value self-adjoint semigroup example"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "Related published records include complete multipartite zero-forcing and bipartite hitting invariants, not fractional-Laplacian heat sign tables.",
+          "The known α=2 bipartite special case is embedded in the claimed broader α>1 all-multipartite formula."
+        ],
+        "reasoning": "Exact prior tables for α=2 or a single graph would cover special cases but not the continuous exponent-phase law. A specialist all-α table was not identified in the reviewed sources.",
+        "searches": [
+          "complete multipartite graph fractional Laplacian powers heat semigroup positivity threshold alpha one eventual positivity sharp norms",
+          "complete multipartite squared Laplacian heat positive crossing time",
+          "fractional graph diffusion eigenvalues part sizes exact row norms"
+        ]
+      },
+      "rationale": "All four comparisons are grounded in actual primary or published-record searches; best-of-knowledge only. The exact α-dependent graph heat entries follow from a 3-level combinatorial Laplacian. Qualitative eventual positivity and low-eigenlevel abstractions do not themselves state the singular near-1 coefficient or complete sharp norm profile.",
+      "residual_risks": [
+        "A specialized all-α multipartite graph kernel formula under another terminology may predate the work.",
+        "An accessible 2026 three-spectral-value summary was not inspected in full; no whole-document noncoverage is asserted.",
+        "The asymptotic expansion is for fixed finite graph; all-complete graphs and degree-normalized Laplacians are outside the theorem."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Treats fractional random-walk dynamics for 0<α<1; not an all-α multipartite positivity delay, exact row norm or near-α=1 transition.",
+          "evidence": [
+            "Fractional powers defined spectrally and used as anomalous diffusion/ring random walks."
+          ],
+          "identifier_or_url": "https://arxiv.org/abs/1506.06167",
+          "material_read": "Accessible complete arXiv primary text including fractional spectral definitions and Sections II–IV examples on network diffusion.",
+          "method": "Full primary textual comparison of the parameter and graph class.",
+          "title": "Fractional dynamics on networks: Emergence of anomalous diffusion and Lévy flights",
+          "trigger": "Primary fractional graph-Laplacian semigroups"
+        },
+        {
+          "assessment": "Provides qualitative dominance arguments but not explicit multipartite H_i root times or l∞ peak.",
+          "evidence": [
+            "Eventual positivity in presence of dominant positive spectral projection."
+          ],
+          "identifier_or_url": "https://arxiv.org/abs/1511.05294",
+          "material_read": "Full available main results and spectral assumption discussion, comparing eventual and individual positivity.",
+          "method": "Primary preprint text reading.",
+          "title": "Eventually and asymptotically positive semigroups on Banach lattices",
+          "trigger": "General dominant positivity criterion potentially covering eventual sign"
+        },
+        {
+          "assessment": "Broader operator-theoretic context; no exact fractional graph heat phase coefficients for the chosen finite graph family.",
+          "evidence": [
+            "General eventual positivity characterizations."
+          ],
+          "identifier_or_url": "https://arxiv.org/abs/1511.09020",
+          "material_read": "Accessible article sections on eventual positivity criteria and background.",
+          "method": "Primary open-access text reading.",
+          "title": "Eventually Positive Semigroups of Linear Operators",
+          "trigger": "Potential stronger general semigroup statement"
+        },
+        {
+          "assessment": "Infinite-coordinate ℓ² counterexample does not imply finite complete multipartite graph quantitative formulas; cannot assert complete source noncoverage.",
+          "evidence": [
+            "Summary: three generator eigenvalues, all coefficients eventually positive individually but no common positive operator time."
+          ],
+          "identifier_or_url": "https://github.com/Resultary/2026/tree/main/2026/10/11/SCOPE-a-three-spectral-value-barrier-for-gaps-in-positivity-times-of-s--da21753d4271",
+          "material_read": "Published record title, synopsis and mathematical comparison; full source not accessed in this run.",
+          "method": "Resultary semantic record search, summary only.",
+          "title": "A bounded three-level self-adjoint semigroup with no positive operator time on ℓ²",
+          "trigger": "Related published mathematical three-spectral-level positivity claim"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "rationale": "The graph family has a natural three-level spectral decomposition, and passing α=1 changes genuine positivity of a Markov heat flow. Exact last sign-change time, attainable norms, and the distinct first/second-order critical scales are useful sharp structural invariants beyond qualitative eventual positivity.",
+      "status": "PASS"
+    }
+  },
+  "checked_sources": [
+    "Riascos–Mateos arxiv:1506.06167",
+    "Daners–Glück–Kennedy arxiv:1511.05294",
+    "Daners–Glück–Kennedy arxiv:1511.09020",
+    "Resultary three-eigenvalue semigroup summary",
+    "complete multipartite graph fractional Laplacian powers heat semigroup positivity threshold alpha one eventual positivity sharp norms"
+  ],
+  "disposition": "passed",
+  "limitations": [
+    "A specialized all-α multipartite graph kernel formula under another terminology may predate the work.",
+    "An accessible 2026 three-spectral-value summary was not inspected in full; no whole-document noncoverage is asserted.",
+    "The asymptotic expansion is for fixed finite graph; all-complete graphs and degree-normalized Laplacians are outside the theorem."
+  ],
+  "schema_version": 1
+}

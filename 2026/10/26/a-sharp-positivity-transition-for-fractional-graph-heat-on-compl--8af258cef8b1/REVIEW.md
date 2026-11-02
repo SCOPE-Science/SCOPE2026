@@ -1,14 +1,21 @@
-# Scientific review
+# Independent mathematical audit
 
-## Correctness — PASS
-The proof uses an explicit orthogonal decomposition of the complete multipartite Laplacian. Its off-diagonal matrix entries have only two forms, making both positivity and induced endpoint norms exact; strict convexity after multiplying the within-part entry by an exponential proves that each relevant part has exactly one positive cutoff. Direct differentiation gives the unique peak for that part; Taylor expansion after factoring out the always-present time-zero root yields the two different critical orders. The checker independently reconstructs and diagonalizes the finite graph matrices (11,556 successful assertions). Infinite-family conclusions are proved analytically, not inferred from the checks.
+## correctness
 
-## Originality — PASS within the inspected evidence
-Riascos–Mateos develop a fractional graph diffusion formalism and focus on the positive range of fractional powers. The 2015 eventual-positivity papers of Daners–Glück–Kennedy give general spectral conditions but not the full sharp multi-partition norm and critical-order crossover. Earlier exact fourth-order heat formulas on complete bipartite graphs are subsumed as a known restricted slice; the fractional-power family, the sharp critical transition, and unequal-part comparisons are not asserted to follow from those fixed-power results. A related published three-spectral-value theorem was seen in abstract, but no full text was available to compare beyond its qualitative statement. Literature could contain an equivalent calculation not located in the inspected sources.
+PASS
 
-## Value — PASS
-The order-one spectral-power boundary separates genuine positivity preservation from eventual positivity in a natural class of higher-order network diffusion models. The result quantifies not just the first safe time but the maximum possible sign-induced sup-norm amplification, with different first nonzero exponents in the near-critical asymptotics. Both invariants have independently meaningful uses in estimating positivity recovery and bounded-data stability on graph networks; the formulas apply to all finite part-size profiles and do not require solving a new matrix problem for each graph.
+The orthogonal Laplacian decomposition has eigenvalues 0 on constants, N on part-constant global mean-zero modes, and N-n_i on within-part fluctuations. This yields exact between-part entries (1-e^{-s})/N and within-part off-diagonal H_i/n_i. Jensen convexity forces H_i>0 for α<=1. For α>1, a_i=q_i^α<q_i, e^{a_i s}H_i=u_i e^{a_i s}+q_i e^{-(1-a_i)s}-1 is strictly convex, starts at zero with negative derivative and tends to +∞, so exactly one crossing. Row sums equal one and only within-part off-diagonals can be negative; sum of their absolute values gives the exact operator row/column norm. Differentiating -H_i yields its unique peak; Taylor expansion in ε=α-1 gives delay coefficient (2/N) max (-log q_i)/u_i and norm excess max (1-1/n_i)q_i(log q_i)²/u_i. Independently assembled raw graph Laplacians and spectral fractional heat for 80 graph/α/time combinations; checked block entries, signs and sharp row norms.
 
-The asserted historical novelty is limited to the scope of the comparisons performed. No independent mathematical or bibliographic certification was obtained. The analytical theorem is limited to the unnormalized, undirected complete multipartite Laplacian with a fixed graph in the critical asymptotics.
+## originality
 
-Self-review: passed. Independent audit: not yet performed.
+PASS
+
+All four comparisons are grounded in actual primary or published-record searches; best-of-knowledge only. The exact α-dependent graph heat entries follow from a 3-level combinatorial Laplacian. Qualitative eventual positivity and low-eigenlevel abstractions do not themselves state the singular near-1 coefficient or complete sharp norm profile.
+
+## value
+
+PASS
+
+The graph family has a natural three-level spectral decomposition, and passing α=1 changes genuine positivity of a Markov heat flow. Exact last sign-change time, attainable norms, and the distinct first/second-order critical scales are useful sharp structural invariants beyond qualitative eventual positivity.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
