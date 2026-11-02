@@ -1,0 +1,111 @@
+{
+  "correctness": {
+    "rationale": "From the exact sampled coefficient and a bounded Volterra input-output operator, the pathwise minimizer is Φ(W_h). Bounded second Frechet derivatives, the exact rank-one sensitivity factorization and independent-sign Hilbert-space triangular-array CLT yield the Gaussian law. Doob fourth-moment estimates give O(h) norm mean bias and negligible quadratic remainder; exact second moments of the linearized sum give C_T. The deterministic objective has Hessian H and exact regret identity, giving R_T. Positivity of the Dirichlet–Robin Green function proves x(r)>0 and G_r not zero, so both constants strictly positive. The embedded numeric checker validates derivative algebra and quadrature without substituting for analysis.",
+    "status": "PASS"
+  },
+  "independent": false,
+  "independent_audit_status": "not_performed",
+  "originality": {
+    "broader_coverage": {
+      "evidence": [
+        "Na–Anitescu arXiv:1912.06734 proves exponential sensitivity decay for dynamic programs with perturbed data, not a distributional random splitting law.",
+        "Ou et al. arXiv:2311.17596 treat stochastic LQ dynamics with process noise, not a sampled deterministic-coefficient pathwise optimizer."
+      ],
+      "reasoning": "A general random-linear-operator CLT plus a differentiable argmin map might subsume the Gaussian limit, but no examined source gives such a theorem with the precise hypotheses and additional sharp positivity and regret consequences. This is the principal residual risk.",
+      "searches": [
+        "Published mathematical-record query: randomized LQ control time splitting 2021 two submatrices 0 negative random telegraph CLT optimal controls covariance",
+        "Published mathematical-record query: Gaussian perturbation of linear quadratic optimal controls Volterra normal equation functional delta method time dependent random dynamics",
+        "arxiv:1912.06734",
+        "arxiv:2311.17596"
+      ]
+    },
+    "checked_sources": [
+      "arxiv:2109.13798; full accessible source read",
+      "arxiv:1912.06734; full-text sections on sensitivity and conclusion read",
+      "arxiv:2311.17596; full-text formulation and conclusions read",
+      "Published mathematical-record queries listed in four named checks; actual closest source IDs compared",
+      "Earlier published mathematical findings were compared for coverage of the same scalar random-coefficient Gaussian control limit."
+    ],
+    "claim_vs_prior_implication": {
+      "evidence": [
+        "Source theorem proves an order-one-half control error upper bound; a bound alone does not imply a Gaussian limit, positivity, or an exact coefficient.",
+        "Source papers on LQ sensitivity or additive stochastic forcing change either the perturbation class, the information structure, or the claim type."
+      ],
+      "reasoning": "The source upper bound E||u_h-u||² <= C h does not imply lim E||u_h-u||²/h=C_T>0, a covariance operator, or the regret constant. The new proof supplies each implication directly from a scalar coefficient specialization.",
+      "searches": [
+        "arxiv:2109.13798: full text Sections 2–3, conclusions and appendices",
+        "arxiv:1912.06734: sensitivity theorem and conclusion",
+        "arxiv:2311.17596: stochastic LQ problem statement and conclusion",
+        "Published mathematical-record query: Veldman Zuazua random time splitting linear quadratic optimal control central limit theorem sharp sqrt(h) stochastic optimal control fluctuations Gaussian limit covariance"
+      ]
+    },
+    "equivalent_formulations": {
+      "evidence": [
+        "Source arXiv:2109.13798, Sections 2.1–2.2 and 3.5, provides mean-square upper bounds but no Hilbert-space covariance CLT.",
+        "Published-record searches returned related algorithmic sensitivity and randomized numerical error records but no scalar two-choice Gaussian law."
+      ],
+      "reasoning": "The same theorem could be phrased as a functional delta-method limit for the optimality normal equation or as a random evolution-operator CLT. The checked sources do not identify the complete specific implication including positive regret coefficient; stochastic calculus alone is a tool, not a quoted covering theorem.",
+      "searches": [
+        "Published mathematical-record query: Veldman Zuazua randomized time splitting scalar linear quadratic optimal control independent Bernoulli 0 -2 dissipative Gaussian central limit theorem control L2 error positive asymptotic constant Brownian Volterra sensitivity and original deterministic regret",
+        "Published mathematical-record query: Veldman Zuazua random time splitting linear quadratic optimal control central limit theorem sharp sqrt(h) stochastic optimal control fluctuations Gaussian limit covariance",
+        "Web search: \"randomized time splitting\" \"central limit\" \"optimal control\"",
+        "arxiv:2109.13798"
+      ]
+    },
+    "exact_database_or_table": {
+      "evidence": [
+        "Closest published comparison record: 2026/10/4/SCOPE-control-dependent-diffusion-breaks-the-published-sqh-projection--2316e46cece1 (different projected-control subproblem).",
+        "Closest published comparison record: 2026/10/4/SCOPE-exact-stationary-covariance-and-stability-factorization-for-cons--fd5004e04a73 (scalar STORM, different noise process)."
+      ],
+      "reasoning": "This is a continuum time-distribution and optimal-control sensitivity result, not an invariant in a database table; actual semantic searches disclosed no exact numerical covariance or equivalent table entry.",
+      "searches": [
+        "Published mathematical-record query: Veldman Zuazua randomized time splitting scalar linear quadratic optimal control independent Bernoulli 0 -2 dissipative Gaussian central limit theorem control L2 error positive asymptotic constant Brownian Volterra sensitivity and original deterministic regret",
+        "Published mathematical-record query: random batch optimal control CLT fluctuations and optimal control linear quadratic operator splitting",
+        "Published mathematical-record query: randomized control covariance sampled dissipative coefficients sharp asymptotic regret"
+      ]
+    },
+    "rationale": "The full source time-splitting paper gives the algorithm, independent coefficient draws and mean-square convergence rate but not the Gaussian control limit, a specific nonzero covariance, or a sharp deterministic-objective regret coefficient. General sensitivity results and additive-noise stochastic LQ theory do not give this pathwise random-coefficient offline-control conclusion as stated. Published mathematical-record queries and targeted literature searches did not identify a covering implication. Known stochastic-CLT and sensitivity tools are credited; mathematical priority remains qualified, not independently certified.",
+    "residual_risks": [
+      "An earlier general random evolution-operator CLT combined with smooth optimal-control sensitivity may imply some parts under different terminology; independent priority verification not performed.",
+      "The result is for pathwise offline controls, not adapted/casual feedback; replacing information structure can alter the conclusion."
+    ],
+    "source_inspections": [
+      {
+        "assessment": "Method and rate are prior; no Gaussian limit with the stated operator kernel or positive regret asymptotic identified.",
+        "evidence": "arXiv:2109.13798, equations (11)–(16), Algorithm 1, main convergence theorem, Section 3.5.",
+        "identifier_or_url": "https://arxiv.org/html/2109.13798v2",
+        "material_read": "Sections 1, 2.1, 2.2, 3.1–3.5, conclusions and appendices as accessible full-text content",
+        "method": "Read accessible full paper and compared selected-coefficient rescaling, pathwise optimization, convergence estimates and quantified claims.",
+        "title": "A framework for randomized time-splitting in linear-quadratic optimal control",
+        "trigger": "Exact original method and potentially covering theorem"
+      },
+      {
+        "assessment": "Related differentiability estimates; no covering Gaussian optimal-control fluctuation theorem.",
+        "evidence": "arXiv:1912.06734, sensitivity results and conclusion.",
+        "identifier_or_url": "https://arxiv.org/abs/1912.06734",
+        "material_read": "Accessible full-text theorem on exponentially decaying sensitivity and conclusions; no randomized splitting CLT result identified",
+        "method": "Read public full text as available and compared perturbation and distributional conclusions.",
+        "title": "Exponential Decay in the Sensitivity Analysis of Nonlinear Dynamic Programming",
+        "trigger": "General dynamic-programming sensitivity potentially dominating a special LQ calculation"
+      },
+      {
+        "assessment": "Studies stochastic process-noise and polynomial-chaos formulation rather than random coefficient offline optimal controls.",
+        "evidence": "arXiv:2311.17596, problem formulation and conclusion.",
+        "identifier_or_url": "https://arxiv.org/abs/2311.17596",
+        "material_read": "Accessible full-text setup, stochastic system model and conclusion",
+        "method": "Read public full text as available; compared noise type and control information pattern.",
+        "title": "A Polynomial Chaos Approach to Stochastic LQ Optimal Control",
+        "trigger": "Stochastic LQ optimal control with possible Gaussian covariances"
+      }
+    ],
+    "status": "PASS"
+  },
+  "review_type": "self_review",
+  "schema_version": 1,
+  "scope_run_id": "fbc51030-976a-4719-a943-138d08664a6d",
+  "self_review_status": "passed",
+  "value": {
+    "rationale": "Unlike a generic O(sqrt(h)) upper control-error rate, a nonzero covariance, an exactly sharp expected squared-error asymptotic and an operational true-objective regret coefficient quantify the statistical cost of independently sampled dissipative time-splitting. These terms permit principled error budgets and distinguish bias from fluctuations for a canonical original-method specialization. The finding does not pretend to generalize to general matrices or adapted policies.",
+    "status": "PASS"
+  }
+}
