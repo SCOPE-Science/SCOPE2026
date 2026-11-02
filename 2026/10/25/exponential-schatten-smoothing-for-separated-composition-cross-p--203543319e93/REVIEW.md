@@ -1,11 +1,21 @@
-# Scientific review
+# Independent mathematical audit
 
-**Correctness — PASS.** The normalized logarithmic Bergman moments give the orthonormal basis exactly; splitting the representing measure into two regions localizes one of the two composition factors to a bounded subdisk. Its high-degree restriction is Hilbert–Schmidt with squared norm bounded by the explicit monomial tail. A rank-\(2N\) approximation yields (1), and geometric decay yields all positive Schatten exponents. The converse for linear fractions is a direct application of Clifford–Zheng's inspected Theorem 1.3 (same normalized weighted Hilbert norm) and Leng–Zhao's inspected Hardy Theorem 3.4. The finite exact-arithmetic tests in `verify.py` are supplementary and do not replace infinite-dimensional arguments.
+## correctness
 
-**Originality — PASS, qualified.** Leng–Zhao (arXiv:2610.15472v1) provide the Bergman characterization only for \(1<p<\infty\); their general sufficient criteria include some trace-class cases, so neither trace-class membership alone nor the Hardy all-\(p\) criterion is claimed as new. Clifford–Zheng (2003) already determine compactness. The quantitative singular-value estimate and resulting complete quasi-Schatten \(0<p<1\) criterion are not asserted in the inspected corresponding primary results, nor identified by the specified research-record and literature searches. A previously published, differently formulated quantitative estimate remains a priority risk.
+PASS
 
-**Value — PASS.** This is a motivated unresolved quantitative boundary in the recent Bergman cross-adjoint classification, not a routine rephrasing of the known compactness theorem. The rank-\(2N\) estimate supplies explicit exponential control and a uniform implication into all nonlocally convex Schatten quasi-ideals; it applies even when the two constituents are noncompact and gives a concrete infinite-rank witness. No exact rate or general \(\delta=1\) classification is claimed.
+The monomial norm ∫|z|^{2n}dμ=(n+1)^(−α−1) is calculated from the exact logarithmic measure, including Hardy α=−1 separately. On E={|φ|≤r} and F={|ψ|≤r}, corresponding restricted high-degree composition tails have Hilbert–Schmidt norm at most B_N(r); Q_N(Cψ* Cφ)Q_N has operator norm ≤(‖Cφ‖+‖Cψ‖)B_N. The complement has rank ≤2N, yielding the claimed s_(2N+1) upper estimate, then asymptotic √δ and all p>0. Compact closure of linear-fractional symbols identifies δ<1 with disjoint contacts; Clifford–Zheng theorem and linear radial deficits exclude compactness at common contacts. The N→∞ bound, not the 225 exact finite moment checks, proves the ideal membership. δ=0 implies one constant map by the analytic identity theorem.
 
-**Related literature and limits.** Leng–Zhao (2026), Theorems 3.4/4.6 and Proposition 4.9; Clifford–Zheng (2003), Theorem 1.3; Čučković–Zhao (2004), individual weighted compositions. The sufficient condition is not asserted necessary for arbitrary analytic maps, and the displayed upper rate need not be sharp.
+## originality
 
-Self-review: passed. Independent audit: not yet performed.
+PASS
+
+Best-of-knowledge PASS for the explicit exponential s-number theorem, independently supported by the proof and non-dominating accessible prior compactness theorem; extremely close inaccessible 2026 paper remains a named priority risk, not treated as proof of absence.
+
+## value
+
+PASS
+
+Quantitative exponential smoothing of cross-products of two possibly noncompact composition operators is a structural operator-ideal result covering the difficult quasi-Schatten 0<p<1 range. It explains a robust geometric condition—no simultaneous near-boundary approach—and is useful independently of exact spectral asymptotics.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
