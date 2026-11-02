@@ -1,0 +1,123 @@
+{
+  "audit_date_utc": "2026-10-31",
+  "audited_at_utc": "2026-10-31T01:15:36.685117Z",
+  "axes": {
+    "correctness": {
+      "rationale": "PASS: The four one-digit contributions 0,1,6,7 have distinct residues mod4; comparing least differing base-four digit proves injectivity of (x,y)→x+6y for all finite M digit strings. The complete three-state carry map ((0,0,1,1),(2,0,0,1),(2,2,0,0)) follows from per-digit equation ε+6η+c=d+4c_next. Exactly two transitions to final carry0 from each state yields a_L=2·4^{L-1}; b_{L+1}=2a_L+b_L and b_1=2 yields b_L=(4^L+2)/3. Counting leading digit0/1 yields F(2·4^L)=2a_L+b_L. The subsequential normalized counts tend to distinct 1/2 and 2/3; no claim that these are global liminf/sup. Independent explicit sums n<3000 confirmed uniqueness, carry acceptance and both formulas for L=1..5; source verifier extends finite checks to 131072. Infinite proof rests on exact automaton recurrences.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Peter 2003 concerns distribution of automatic sequences, and Heuberger–Kropf–Prodinger 2015 gives general transducer output periodic fluctuations.",
+          "The assessed exact three-carry transition and the two explicit F(N) formulas require specialization to digit weights 0,1,6,7; no inspected general theorem outputs these numbers."
+        ],
+        "reasoning": "Generic automaton and fluctuation theory may imply qualitative behavior in another encoding; no direct stronger numerical coverage is established by the inspected source material.",
+        "searches": [
+          "Resultary search: Moser de Bruijn base four digits sumset M+6M natural density oscillation automata",
+          "DOI:10.1016/S0304-3975(02)00587-X",
+          "Heuberger–Kropf–Prodinger 2015 EJC 22(2) P2.19"
+        ]
+      },
+      "checked_sources": [
+        "Frozen Git tree 0a9840a28f3f9d99ad7e8256e6ea8bced4a8da97 RESULT.md and verify.py",
+        "DOI:10.1090/S0025-5718-1964-0167447-9 (scanned opening pages inspected)",
+        "OEIS A000695; A126684",
+        "Nathanson 2010 Cassels Bases §3",
+        "DOI:10.1016/S0304-3975(02)00587-X",
+        "Heuberger–Kropf–Prodinger EJC 22(2) P2.19"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "de Bruijn signed representations involve a subtraction and global decomposition of Z; the present positive weighted sumset is neither that signed result nor M+2M=N0.",
+          "Classical automatic-sequence methods justify a finite automaton but do not alone imply the specific carry-0 count recurrences unless applied to this exact weighted transducer."
+        ],
+        "reasoning": "Prior machinery is used as context, while the exact phase-specific counts and density nonconvergence are newly derived in the inspected claim.",
+        "searches": [
+          "N. G. de Bruijn 1964 signed direct decompositions",
+          "Nathanson Cassels Bases 2010 §3",
+          "Peter 2003 automatic-sequence distribution"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "OEIS A000695 and the classical M+2M unique decomposition cover coefficient 2, which is surjective, unlike the set M+6M with density oscillation.",
+          "OEIS A126684 is M∪2M rather than the positive sumset M+6M; its membership operation differs."
+        ],
+        "reasoning": "Aliases (Moser/de Bruijn/Raikov–Stöhr digital set and additive basis) were compared by actual object and coefficient, not title similarity.",
+        "searches": [
+          "Resultary search: Moser de Bruijn base four digits sumset M+6M natural density oscillation automata",
+          "OEIS A000695",
+          "OEIS A126684"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "Available OEIS entries inspected describe M and M∪2M, not exact M+6M positive counts or natural-density limits.",
+          "Independent sums through N=3000 and exact recurrence through L=5 match F(4^L) and F(2·4^L)."
+        ],
+        "reasoning": "A future OEIS or unindexed table might list M+6M or implicit counts; failure to find such a table does not certify novelty.",
+        "searches": [
+          "Resultary search: Moser de Bruijn base four digits sumset M+6M natural density oscillation automata",
+          "OEIS A000695; A126684",
+          "N. G. de Bruijn (1964), DOI:10.1090/S0025-5718-1964-0167447-9"
+        ]
+      },
+      "rationale": "PASS, qualified: classical unique M+2M=N0 and de Bruijn direct integer decompositions are acknowledged. De Bruijn 1964 considers signed complete decompositions of integers rather than these two positive M+6M cutoff counts; Nathanson treats the coefficient-two sparse basis. Peter 2003 automatic-sequence density theorems and Heuberger–Kropf–Prodinger 2015 transducers offer broader methods, possibly implying eventual log-periodicity but no inspected exact M+6M counts. Resultary search found no equivalent. Some scanned de Bruijn pages and full Peter text were inaccessible/only partially inspected, so do not assert whole-document not-covering solely on fragments.",
+      "residual_risks": [
+        "General automatic-sequence theorem or unindexed digital-sumset table could implicitly contain M+6M counts; several primary texts not fully read.",
+        "Only two subsequences shown; no global liminf/limsup or logarithmic density determined."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Comparisons only from inspected signed decomposition setup; not whole-document exclusion",
+          "evidence": "1964 de Bruijn defines direct decompositions using signed combinations and discusses classical M+2M, different from positive M+6M cutoff counts.",
+          "identifier_or_url": "https://doi.org/10.1090/S0025-5718-1964-0167447-9",
+          "material_read": "Accessible scanned primary PDF first pages, introduction and theorem orientation; not all scanned pages semantically read",
+          "method": "Public scanned PDF page image read (no repeated OCR); bibliographic full text accessible in page images",
+          "title": "Some Direct Decompositions of the Set of Integers",
+          "trigger": "Same Moser–de Bruijn digit set and unique representation"
+        },
+        {
+          "assessment": "Coefficient-two basis not exact coefficient-six positive sumset density",
+          "evidence": "Classical complete additive basis M+2M=N0; the claimed S=M+6M is not surjective.",
+          "identifier_or_url": "https://www.theoryofnumbers.com/melnathanson/pdfs/nath2010-138.pdf",
+          "material_read": "Bibliography and described Section 3 on coefficient-two Raikov–Stöhr construction; complete chapter not reread",
+          "method": "Primary source reference/title and theorem-level description",
+          "title": "Cassels Bases",
+          "trigger": "Canonical Moser–de Bruijn additive basis"
+        },
+        {
+          "assessment": "General methodological antecedent; possible implicit specialization remains risk",
+          "evidence": "Automatic sequences may have nonconvergent frequencies; no inspected formula for the three-state 0,1,6,7 carry automaton.",
+          "identifier_or_url": "https://doi.org/10.1016/S0304-3975(02)00587-X",
+          "material_read": "Bibliographic metadata/abstract; full article not accessed",
+          "method": "Literature discovery and abstract; no full-text exclusion asserted",
+          "title": "The Asymptotic Distribution of Elements in Automatic Sequences",
+          "trigger": "Potential stronger automatic-sequence density theorem"
+        },
+        {
+          "assessment": "General periodic-fluctuation framework, not an inspected specific M+6M count",
+          "evidence": "Different general object: transducer output-sum distributions; no claim of exhaustive noncoverage.",
+          "identifier_or_url": "https://www.combinatorics.org/ojs/index.php/eljc/article/download/v22i2p19/pdf/",
+          "material_read": "Title and abstract plus research summary, not full technical paper",
+          "method": "Publication and abstract comparison",
+          "title": "Output Sum of Transducers: Limiting Distribution and Periodic Fluctuation",
+          "trigger": "Potential general log-periodic density framework"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "rationale": "PASS: M+2M is the canonical perfect-coverage digital basis. c=6 is the first coefficient greater than two preserving local injectivity of all four digit-pair residues; its explicit failure of natural density is a meaningful qualitative boundary. The two infinite exact counting sequences show how a natural sparse additive sumset can oscillate between 1/2 and 2/3 cutoff proportions despite unique representations. This is neither a random finite cutoff nor known-table recomputation.",
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "limitations": [
+    "General automatic-sequence theorem or unindexed digital-sumset table could implicitly contain M+6M counts; several primary texts not fully read.",
+    "Only two subsequences shown; no global liminf/limsup or logarithmic density determined.",
+    "No GitHub write, publication sync, Lean proof or expert attestation was performed. Scientific PASS is best-of-knowledge, not an external mathematical or priority certificate."
+  ],
+  "schema_version": 1
+}
