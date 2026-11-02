@@ -1,19 +1,21 @@
-# Self-review
+# Independent mathematical audit
 
-## Correctness — PASS
+## correctness
 
-The theorem has a precise domain \(n\ge4\), \(r,B>0\), and independently chosen nonnegative edge conductances. The grounded log determinant is strictly concave because the edge-weight-to-matrix map is injective, so averaging under the two endpoint and residual-vertex symmetries is sound. The four eigenspaces give \(\tau=b[2a+(n-2)b][2b+(n-2)c]^{n-3}\) exactly. Solving the three-class KKT equations gives all positive weights below \(r_c=(n-1)/(n-2)\) and a single inactive edge at and above it. The inactive-edge derivative inequality is exact, and strict concavity proves global uniqueness. Exact matrix-tree and full-edge KKT checks in `verify.py` corroborate, but do not substitute for, this proof.
+PASS
 
-## Originality — PASS, with residual risk
+For all connected weight designs, log(det grounded Laplacian) is strictly concave in the full edge vector because the grounded edge-incidence map determines each edge weight. The unique design must respect the stabilizer of the exceptional edge. Three conductance classes a,b,c yield nonzero Laplacian eigenvalues s=2a+(n-2)b, nb, and t=2b+(n-2)c with multiplicity n-3, giving exact tau=b*s*t^(n-3). Euler homogeneity fixes lambda=(n-1)/B. Full KKT equations solve to the displayed positive a,b,c for r<(n-1)/(n-2) and to a=0, b=2B/(n-1)^2, c=2B(n-3)/((n-1)^2(n-2)) otherwise. At a=0 the derivative 2/((n-2)b) <=lambda r holds exactly above the threshold; uniqueness follows including equality. Independently computed grounded minors, budgets and every original edge-gradient KKT condition in 16 exact rational test cases; tests corroborate the all-n argument.
 
-Osting–Brune–Osher (arXiv:1207.6430, complete available text inspected) give the broader pairwise-ranking Laplacian D-optimal criterion, not the explicit one-price complete-graph optimizer or its threshold. Harman–Benková (arXiv:1408.2698, complete available text inspected) develop generic cost-constrained D-optimality and removal conditions, but no explicit exceptional-edge complete-graph solution. Ghosh–Boyd (2006) covers symmetry reductions for spectral graph optimization rather than the present determinant price law. Prior related unicyclic and complete-bipartite design results do not imply the \(K_n\) one-edge solution for \(n\ge4\). Exact novelty is not guaranteed by a literature search; a specialized optimal-design precedent remains possible.
+## originality
 
-## Mathematical value — PASS
+PASS
 
-The objective measures Fisher-information determinant and weighted spanning-tree redundancy in an all-pairs comparison network. The threshold \(1+1/(n-2)\) is a sharp active-set transition: for large networks, even a small marginal price premium removes one otherwise redundant comparison while all other weighted edges remain active. The theorem gives a unique allocation across every edge, not merely a threshold or a computational instance, and an exact optimal determinant in both regimes. This is a natural, nontrivial complete classification under one heterogeneity parameter rather than an arbitrary numerical slice.
+Osting–Brune–Osher derive general Laplacian D-optimal spanning-tree objectives, and Harman–Benková provide general constrained D-optimal equivalence/KKT machinery. Neither inspected result evaluates the full K_n single-edge price allocation and sharp (n-1)/(n-2) active-set threshold. The calculation is a specialization of known tools but the all-parameter explicit design and one-edge support transition are not mechanically stated in inspected literature.
 
-## Scope and remaining risks
+## value
 
-The proof does not cover several exceptional prices, integer trial counts, or hard lower bounds on edge conductances. It explicitly acknowledges the classical matrix-tree, strict-concavity, and equivalence-theorem machinery. Full scholarly priority and publication-worthiness require independent specialist review.
+PASS
 
-Self-review: passed. Independent audit: not yet performed.
+An exact cost premium above 1+1/(n-2) deletes one pairwise comparison entirely from the determinant-optimal fully connected information network, while all other edges remain active. The threshold and all weights for every n and positive budget/price are natural experimental-design invariants and identify a sharp support phase transition, rather than a selected numerical instance.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

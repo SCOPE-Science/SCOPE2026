@@ -1,0 +1,124 @@
+{
+  "audit_date_utc": "2026-10-30",
+  "audited_at_utc": "2026-10-30T22:45:06.434585Z",
+  "axes": {
+    "correctness": {
+      "checked_sources": [
+        "assigned RESULT.md blob aa1a7a7da0b7058368199dbfc72ebbc4dc6bb7dd",
+        "assigned verify.py blob 34a1f9b004bd09831365529d04f2e159a85cb917",
+        "independent_checks.py all-edge rational Laplacian inverse/KKT and determinant assertions"
+      ],
+      "rationale": "For all connected weight designs, log(det grounded Laplacian) is strictly concave in the full edge vector because the grounded edge-incidence map determines each edge weight. The unique design must respect the stabilizer of the exceptional edge. Three conductance classes a,b,c yield nonzero Laplacian eigenvalues s=2a+(n-2)b, nb, and t=2b+(n-2)c with multiplicity n-3, giving exact tau=b*s*t^(n-3). Euler homogeneity fixes lambda=(n-1)/B. Full KKT equations solve to the displayed positive a,b,c for r<(n-1)/(n-2) and to a=0, b=2B/(n-1)^2, c=2B(n-3)/((n-1)^2(n-2)) otherwise. At a=0 the derivative 2/((n-2)b) <=lambda r holds exactly above the threshold; uniqueness follows including equality. Independently computed grounded minors, budgets and every original edge-gradient KKT condition in 16 exact rational test cases; tests corroborate the all-n argument.",
+      "residual_risks": [
+        "Uniqueness uses injectivity of edge weights into grounded Laplacian; this holds for simple K_n, not generally for parallel edges.",
+        "No integer trial counts, multiple abnormal prices, or edgewise upper bounds are considered."
+      ],
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Harman–Benková proves general optimal-design KKT/equivalence statements but does not state or solve this complete-graph one-price KKT system.",
+          "Osting–Brune–Osher connects informative rankings to spanning-tree determinants."
+        ],
+        "reasoning": "Prior broad frameworks imply the method of derivation but not the exact evaluated threshold and unique three-class formula without doing a nontrivial spectral reduction.",
+        "searches": [
+          "complete graph D-optimal experiment design determinant spanning trees one exceptional edge cost price threshold n-1/n-2 conductances deletion",
+          "arxiv:1408.2698 cost constrained optimal design equivalence theorem",
+          "arxiv:1207.6430 optimal data collection rankings graph determinant"
+        ]
+      },
+      "checked_sources": [
+        "Osting, Brune & Osher, arxiv:1207.6430; JMLR published source https://jmlr.org/papers/v15/osting14a.html",
+        "Harman & Benková, arxiv:1408.2698, complete accessible PDF including equivalence theorem",
+        "Ghosh & Boyd 2006 spectral optimization and symmetry",
+        "Resultary semantic query: complete graph D-optimal experiment design determinant spanning trees one exceptional edge cost price threshold n-1/n-2 conductances deletion"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "Generic cost-equivalence tests require solving effective resistances; the present proof explicitly computes all edge gradients and complementary slackness.",
+          "The exact threshold is (n-1)/(n-2), including equality a=0."
+        ],
+        "reasoning": "The broad optimization theorems do not enumerate when the exceptional edge is dropped; the source-specific Laplacian spectrum and KKT solution are mathematically required.",
+        "searches": [
+          "Osting Brune Osher 2014 Proposition 4.2 Laplacian determinant",
+          "Harman Benková 2014 Theorem 1",
+          "complete graph D-optimal experiment design determinant spanning trees one exceptional edge cost price threshold n-1/n-2 conductances deletion"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "The weighted matrix-tree determinant equals a grounded Laplacian D-optimal Fisher-information determinant; the source uses both descriptions."
+        ],
+        "reasoning": "Changing from graph conductances to pairwise experimental allocation does not change the optimum, so the literature search included cost-constrained experimental design and spectral network optimization.",
+        "searches": [
+          "complete graph D-optimal experiment design determinant spanning trees one exceptional edge cost price threshold n-1/n-2 conductances deletion",
+          "approximate D optimal paired comparison complete graph one measurement cost ridge leverage edge deletion"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "No exact n-parametric exceptional-edge K_n optimizer/table among the returned Resultary records; nearby results involve unrelated graph invariants."
+        ],
+        "reasoning": "A finite numerical design table would not dominate a closed-form all-n, all-positive-real-price theorem; existing generic network design database records are not the same invariant.",
+        "searches": [
+          "complete graph D-optimal experiment design determinant spanning trees one exceptional edge cost price threshold n-1/n-2 conductances deletion",
+          "Resultary D-optimal Laplacian exceptional edge cost threshold"
+        ]
+      },
+      "rationale": "Osting–Brune–Osher derive general Laplacian D-optimal spanning-tree objectives, and Harman–Benková provide general constrained D-optimal equivalence/KKT machinery. Neither inspected result evaluates the full K_n single-edge price allocation and sharp (n-1)/(n-2) active-set threshold. The calculation is a specialization of known tools but the all-parameter explicit design and one-edge support transition are not mechanically stated in inspected literature.",
+      "residual_risks": [
+        "A classical complete-block-graph optimal-design calculation may give equivalent exact weights.",
+        "Generic KKT machinery itself and determinant equivalence are not novel."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "METHOD COVERAGE, not explicit weighted K_n solution",
+          "evidence": "Theorem 1 sets general equivalence conditions, not one-edge price threshold",
+          "identifier_or_url": "https://arxiv.org/abs/1408.2698",
+          "material_read": "Accessible entire arXiv PDF, particularly equivalence theorem and constraints",
+          "method": "PDF text plus page-image reading",
+          "title": "Approximate D-optimal Experimental Design with Simultaneous Size and Cost Constraints",
+          "trigger": "Generic theorem could subsume cost-sensitive edge design"
+        },
+        {
+          "assessment": "COVERS determinant objective, not inspected closed form",
+          "evidence": "Proposition 4.2 and Eq.15c identify spanning-tree equivalent",
+          "identifier_or_url": "https://arxiv.org/abs/1207.6430",
+          "material_read": "Published theorem and abstract/excerpts relating D-optimality to matrix-tree formula; not claimed to have read all pages in this audit",
+          "method": "Primary scholarly published material and arXiv abstract",
+          "title": "Optimal Data Collection for Informative Rankings Expose Well-Connected Graphs",
+          "trigger": "Same Laplacian determinant/spanning-tree objective"
+        },
+        {
+          "assessment": "DIFFERENT objective, algebraic connectivity not tree determinant",
+          "evidence": "Eigenvalue optimization does not directly provide determinant price law",
+          "identifier_or_url": "https://stanford.edu/~boyd/papers/eigbounds_laplacian.html",
+          "material_read": "Title, abstract and relevant symmetry-based spectral framing",
+          "method": "Published summary/page inspection",
+          "title": "Upper Bounds on Algebraic Connectivity via Convex Optimization",
+          "trigger": "Potential graph symmetrization method"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "checked_sources": [
+        "Osting–Brune–Osher 2014 D-optimal ranking setup",
+        "Harman–Benková cost-constrained information design"
+      ],
+      "rationale": "An exact cost premium above 1+1/(n-2) deletes one pairwise comparison entirely from the determinant-optimal fully connected information network, while all other edges remain active. The threshold and all weights for every n and positive budget/price are natural experimental-design invariants and identify a sharp support phase transition, rather than a selected numerical instance.",
+      "residual_risks": [
+        "Continuous conductance allocation is an approximation to discrete experimental budgets."
+      ],
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "final_claim": "For K_n, n>=4, budget B>0 and one exceptional edge price r>0, the unique spanning-tree determinant maximizer deletes exactly that edge iff r>=(n-1)/(n-2); both regimes have the stated three-class closed-form conductances and maximum.",
+  "limitations": [
+    "One exceptional edge price, all other prices equal; unrestricted nonnegative continuous conductances.",
+    "No claims for multi-price or discrete design."
+  ],
+  "schema_version": 1
+}

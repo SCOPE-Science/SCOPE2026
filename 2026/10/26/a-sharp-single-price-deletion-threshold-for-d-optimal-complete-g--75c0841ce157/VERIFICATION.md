@@ -5,8 +5,11 @@
     "status": "not_performed"
   },
   "independent_audit": {
-    "evidence": null,
-    "status": "not_performed"
+    "status": "passed",
+    "evidence": [
+      "INDEPENDENT_AUDIT_2026-10-30.md",
+      "INDEPENDENT_AUDIT_2026-10-30.json"
+    ]
   },
   "lean_verification": {
     "evidence": null,
@@ -16,10 +19,24 @@
 }
 ---
 
-# Reproduction and limits
+# Independent mathematical audit
 
-Run `python verify.py` with Python, SymPy, NumPy and SciPy available. The checker is self-contained: it constructs the individual-edge grounded Laplacian rather than trusting the three-class eigenvalue formula as an input. The saved output in `verification_output.txt` is from a successful execution of this same code.
+## correctness
 
-The checker verifies exact rational weighted-spanning-tree determinants, budget identities, and full unrestricted edge-by-edge KKT gradients for 42 combinations of graph size \(4\le n\le9\) and positive price values that include both sides of, and equality at, \((n-1)/(n-2)\). It additionally runs 240 asymmetric feasible comparisons and 40 independent constrained optimizations in the full edge-variable space, for graph sizes four through seven.
+PASS
 
-**Limits:** Finite tests and numerical solvers are not a proof of global optimality. The global result instead relies on the strict concavity of the log determinant, injectivity of the edge-to-grounded-Laplacian map, the exact Laplacian eigenspace decomposition, and exact verification of all KKT inequalities, as developed in `RESULT.md`. Numerical optimization tolerances do not certify an infinite domain. Independent audit: not performed.
+For all connected weight designs, log(det grounded Laplacian) is strictly concave in the full edge vector because the grounded edge-incidence map determines each edge weight. The unique design must respect the stabilizer of the exceptional edge. Three conductance classes a,b,c yield nonzero Laplacian eigenvalues s=2a+(n-2)b, nb, and t=2b+(n-2)c with multiplicity n-3, giving exact tau=b*s*t^(n-3). Euler homogeneity fixes lambda=(n-1)/B. Full KKT equations solve to the displayed positive a,b,c for r<(n-1)/(n-2) and to a=0, b=2B/(n-1)^2, c=2B(n-3)/((n-1)^2(n-2)) otherwise. At a=0 the derivative 2/((n-2)b) <=lambda r holds exactly above the threshold; uniqueness follows including equality. Independently computed grounded minors, budgets and every original edge-gradient KKT condition in 16 exact rational test cases; tests corroborate the all-n argument.
+
+## originality
+
+PASS
+
+Osting–Brune–Osher derive general Laplacian D-optimal spanning-tree objectives, and Harman–Benková provide general constrained D-optimal equivalence/KKT machinery. Neither inspected result evaluates the full K_n single-edge price allocation and sharp (n-1)/(n-2) active-set threshold. The calculation is a specialization of known tools but the all-parameter explicit design and one-edge support transition are not mechanically stated in inspected literature.
+
+## value
+
+PASS
+
+An exact cost premium above 1+1/(n-2) deletes one pairwise comparison entirely from the determinant-optimal fully connected information network, while all other edges remain active. The threshold and all weights for every n and positive budget/price are natural experimental-design invariants and identify a sharp support phase transition, rather than a selected numerical instance.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
