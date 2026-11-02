@@ -1,11 +1,21 @@
-# Scientific review
+# Independent mathematical audit
 
-**Correctness: PASS.** The exact cubical correspondence reduces each winding sector to a five-sheeted cover of \(UD_r(C_k)\), with \(0<r<k\). The discretized graph-configuration equivalence applies since the circle has \(k\ge r+1\) edges. An explicit loop carrying one particle across a cut induces monodromy \(-1\) in \(C_5\), so every sector is connected and circle-like. This proves all lengths in the claimed range, not only the finite checker cases. Direct enumeration, sector face counting, and boundary-rank checks corroborate the theorem for \(4\le k\le9\) in the claimed range.
+## correctness
 
-**Originality: PASS on inspected evidence.** The closest directed Hom literature develops the machinery and treats tournament examples but does not give the length-uniform winding-sector classification for sources of length at least four. The 2024 theorem for undirected cycle targets implies the point/circle pattern only for ordinary graph-Hom, not for the non-periodically twisted systems here. The coordinate change \(g_i=2f(i)-3i\pmod5\) *does* recover ordinary graph-Hom when \(5\mid k\); all such cases are excluded. A previously recorded directed-triangle circle theorem covers length three and is also excluded. Targeted published-finding corpus and primary-literature checks found no stronger theorem implying the full asserted cyclic covering and sector count. Residual risk: equivalent work in a differently indexed voltage-graph or cubical-configuration language.
+PASS
 
-**Value: PASS.** The result gives a closed-form component classification for infinitely many source cycles into a canonical regular tournament. It identifies the components geometrically as nontrivial connected five-fold particle-configuration covers, rather than inferring topology from a small-cell computation; it also determines the action of target rotations on all homology. The winding constraint and primitive monodromy supply the structural explanation and potential reusable method for other cyclic digraphs.
+Inspected all actual RESULT.md mathematical steps and check_hom_r5.py. For an R5 homomorphism the cyclic increments are 1/2 and sum to a multiple of five; r two-steps is invariant under every Hom cell because a two-valued coordinate forces both neighboring coordinates to be singleton and performs exactly an adjacent (1,2)<->(2,1) swap. Disjoint nonadjacent swaps generate the full cubical cell structure. Forgetting f(0) gives five lifts over every unordered disjoint-particle move in UD_r(C_k), with target translation as deck group. Because 0<r<k, the circle is sufficiently subdivided for the Prue-Scrimshaw discretization theorem and the unordered configuration space of r distinct particles on S1 has homotopy type S1. The explicit cyclic vacant-site transport loop crosses the cut once, changes f(0) by -1 mod5 and thus has primitive holonomy, proving each lifted winding sector connected, circle-like and of covering degree five. The bijection r=5w-k counts all allowed sectors. Independently enumerated vertex homomorphisms and one-coordinate changes for k=4,6,7,8,9, finding respectively 1,1,1,2,2 connected sectors, exactly the predicted r labels. This finite check does not prove all k or integral H1; the covering argument does.
 
-Independent confirmation of the general theorem has not been performed. The checker tests finite parameters only, and searches cannot establish absolute novelty.
+## originality
 
-Self-review: passed. Independent audit: not yet performed.
+PASS
+
+The prior directed Hom framework, the directed-triangle case and the undirected cycle-codomain classification were compared by their actual hypotheses and conclusion. The coordinate substitution g_i=2 f(i)-3i mod5 transforms the directed local increments to +/-1 but has a nonzero twisted cyclic boundary condition whenever 5 does not divide k, exactly the stated scope. Hence ordinary periodic Hom(C_k,C_5) results do not imply these twisted sectors, primitive fivefold holonomy or their all-length count. Published SCOPE/Resultary comparisons found only different source-target/functor pairs; an equivalent voltage-graph treatment remains a bibliographic risk.
+
+## value
+
+PASS
+
+A complete all-length and equivariant homotopy classification for a canonical family of directed Hom complexes is a structurally motivated research fact. It identifies connected components by a genuine winding invariant, converts the topology to particle-configurations by a nontrivial regular cover and determines its integral degree and C5 homology action; none follows just from a small finite census or a renaming of the periodic undirected theorem.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

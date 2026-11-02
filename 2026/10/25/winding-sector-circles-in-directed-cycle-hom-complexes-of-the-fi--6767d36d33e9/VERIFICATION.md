@@ -5,8 +5,11 @@
     "status": "not_performed"
   },
   "independent_audit": {
-    "evidence": null,
-    "status": "not_performed"
+    "status": "passed",
+    "evidence": [
+      "INDEPENDENT_AUDIT_2026-10-28.md",
+      "INDEPENDENT_AUDIT_2026-10-28.json"
+    ]
   },
   "lean_verification": {
     "evidence": null,
@@ -16,8 +19,24 @@
 }
 ---
 
-# Reproduction and verification
+# Independent mathematical audit
 
-Run `python3 check_hom_r5.py` using Python 3.9 or later; no dependencies are required. The script builds the entire directed Hom regular CW complex at lengths three through ten; verifies every cell is a nonadjacent-swaps cube with constant winding count, and checks exact face counts against the particle-configuration model. It calculates boundary ranks over both \(\mathbf F_2\) and \(\mathbf F_3\) and compares all Betti numbers with the circle-and-point predictions. It reports `ALL_CHECKS_PASSED` if every assertion succeeds.
+## correctness
 
-The general all-length proof uses the explicit covering map, the standard graph-configuration deformation retraction, the known circle homotopy type of unordered configurations on a circle, and the computed primitive covering monodromy. The finite checks are corroboration rather than a proof for arbitrary length; no independent audit is claimed.
+PASS
+
+Inspected all actual RESULT.md mathematical steps and check_hom_r5.py. For an R5 homomorphism the cyclic increments are 1/2 and sum to a multiple of five; r two-steps is invariant under every Hom cell because a two-valued coordinate forces both neighboring coordinates to be singleton and performs exactly an adjacent (1,2)<->(2,1) swap. Disjoint nonadjacent swaps generate the full cubical cell structure. Forgetting f(0) gives five lifts over every unordered disjoint-particle move in UD_r(C_k), with target translation as deck group. Because 0<r<k, the circle is sufficiently subdivided for the Prue-Scrimshaw discretization theorem and the unordered configuration space of r distinct particles on S1 has homotopy type S1. The explicit cyclic vacant-site transport loop crosses the cut once, changes f(0) by -1 mod5 and thus has primitive holonomy, proving each lifted winding sector connected, circle-like and of covering degree five. The bijection r=5w-k counts all allowed sectors. Independently enumerated vertex homomorphisms and one-coordinate changes for k=4,6,7,8,9, finding respectively 1,1,1,2,2 connected sectors, exactly the predicted r labels. This finite check does not prove all k or integral H1; the covering argument does.
+
+## originality
+
+PASS
+
+The prior directed Hom framework, the directed-triangle case and the undirected cycle-codomain classification were compared by their actual hypotheses and conclusion. The coordinate substitution g_i=2 f(i)-3i mod5 transforms the directed local increments to +/-1 but has a nonzero twisted cyclic boundary condition whenever 5 does not divide k, exactly the stated scope. Hence ordinary periodic Hom(C_k,C_5) results do not imply these twisted sectors, primitive fivefold holonomy or their all-length count. Published SCOPE/Resultary comparisons found only different source-target/functor pairs; an equivalent voltage-graph treatment remains a bibliographic risk.
+
+## value
+
+PASS
+
+A complete all-length and equivariant homotopy classification for a canonical family of directed Hom complexes is a structurally motivated research fact. It identifies connected components by a genuine winding invariant, converts the topology to particle-configurations by a nontrivial regular cover and determines its integral degree and C5 homology action; none follows just from a small finite census or a renaming of the periodic undirected theorem.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
