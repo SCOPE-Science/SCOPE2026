@@ -1,15 +1,21 @@
-# Scientific assessment — exact block-Jacobi conditioning on rank-one spikes
+# Independent mathematical audit
 
-## Correctness: PASS
-The identity-plus-rank-one block reduction uses the actual square-root inverse of each exact diagonal block and preserves all complementary unit eigenvalues. The paired-eigenvalue calculation proves two-block safety. For three block energies \((s,s,t)\), symmetric and antisymmetric reductions give all eigenvalues; the critical factor identities locate every strict and equality region. A separately verified sum-of-squares certificate proves the strict \(3/2\) bound for \(t>s\), and the sequence \((s,t)=(L^2,L)\) gives the sharp limit. SymPy verifies exact factor identities and the rational witness. Numerical eigentests are consistency checks rather than proofs. The conclusions are confined to the stated positive parameters and exact symmetric scaling.
+## correctness
 
-## Originality: PASS, with a specific residual risk
-The 2026 BLOKS manuscript explicitly defines exact block Jacobi but the material inspected concerns approximated blocks, implementation, and experiments, not the asserted rank-one three-block phase boundary. Demmel's 2023 general scaling bounds do not by themselves imply the exact two-parameter thresholds or the sharp family-specific factor. Kolotilina's 2004 two-block eigenvalue formula explicitly covers the two-block spectral reduction, which is treated as background. His 2002 general block-scaling article could not be inspected in full and remains a concrete specialized-overlap risk; only its abstract-level scope is known. Searched research findings about weighted Jacobi damping and additive bidirectional Gauss–Seidel concern different operations and do not imply the asserted condition-number ratio. No claim of exhaustive literature coverage or independent novelty certification is made.
+PASS
 
-## Value: PASS
-Recent preconditioned kernel solvers motivate choosing exact or approximate block-Jacobi diagonal blocks. The result identifies the smallest block count for a condition-number setback in a simple SPD family, gives a complete partition-energy boundary in a natural equal-pair three-block configuration, and quantifies the largest deterioration in that family. It informs partition selection and distinguishes algebraically exact local inverses from global spectral improvement. It is not a numerical experiment, a claim about randomized sketch accuracy, or a theorem about all SPD matrices.
+SPD A=I+vv^T, exact block-Jacobi P=blockdiag(I+v_j v_j^T); S=P^-1/2 A P^-1/2. Active block spike directions reduce S to H with H_ii=1 and H_ij=sqrt(q_i q_j/[(1+q_i)(1+q_j)]); all perpendicular eigenvalues are 1, so extreme eigenvalues come from H for positive active blocks. Two blocks have eigenvalues 1±sqrt(xy/[(1+x)(1+y)]) and κ(S)<=1+x+y, equality x=y. In (s,s,t) three-active-block family the antisymmetric eigenvalue is 1/(1+s), other eigenvalues (2+3s±sqrt(Delta))/(2(1+s)), Delta=s²+8st(1+s)/(1+t). Delta−9s²=8s(t−s)/(1+t) selects min eigenvalue. Symbolic exact factorizations of Delta−(s+2t)² and Delta(K+1)²−(2+3s)²(K−1)² prove deterioration iff t<s or s<t<s(4s+3)/(s+1), with equality at t=s and second threshold. Independent exact symbolic positive-sum certificate proves ratio strictly below 3/2 and asymptotic s=L²,t=L approaches 3/2. Direct generalized eigenproblem confirms witness κ=7+2sqrt6>10. No claim beyond (s,s,t) for the 3/2 constant or all SPD matrices.
 
-## Scientific limitations
-The sharp ratio is restricted to energies \((s,s,t)\), rather than arbitrary three-block spectra. The analysis assumes SPD rank-one perturbations of the identity, exact inverse block factors, and Euclidean spectral condition number. Prior article access constraints leave a specialized historical novelty risk. No floating-point, solver-timing, or approximate-sketch guarantee follows.
+## originality
 
-Self-review: passed. Independent audit: not yet performed.
+PASS
+
+Qualified original addition is exact deterioration versus improvement regions in the rank-one (s,s,t) block-Jacobi model and sharp 3/2 sup, not the known block 2×2 eigenvalue pairing or generic condition-number scaling theory.
+
+## value
+
+PASS
+
+An exact SPD preconditioner can strictly worsen the spectral condition number, with the first possible failure already at three active blocks. The complete deterioration/equality/improvement phase diagram and sharp 3/2 ceiling are natural diagnostic invariants for selecting a baseline preconditioner; they offer more actionable structure than a single counterexample or generic near-optimality bound.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
