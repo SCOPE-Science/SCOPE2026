@@ -1,0 +1,15 @@
+# Scientific assessment
+
+## Correctness — PASS
+
+The critical response is uniquely represented by a positive, finite-memory renewal equation. Explicit lower and upper barriers are sub- and supersolutions; nonnegative Volterra comparison yields the global sharp inequality. The stochastic convolution and the Itô isometry then prove the exact two-time covariance bound. The classical uniform-renewal correction of \(2/3\) gives the subleading variance coefficient and the sharp leading pointwise coupling error by dominated convergence. Brownian rescaling plus the response barrier gives the pointwise \(L^2\) coupling; the moving-average formula for the response derivative gives Gaussian-increment tightness and continuous-path convergence. The accompanying standalone high-precision method-of-steps checker passed the reported finite diagnostics when run from the package. Risk: the result depends on a correct zero-history response normalization, explicit here; finite tests never substitute for the proof.
+
+## Originality — PASS, qualified
+
+The 2022 and August 2024 Kopp–Klapp primary texts were materially inspected: they give the feedback model, deterministic threshold and heat analysis, and discuss the marginality of the linear positional process. The exact finite-sum response and its renewal asymptotic are already known in uniform renewal theory (e.g. the 2021 renewal discussion and renewal notes) and are not claimed as new. They do not supply the precise all-time critical stochastic covariance comparison or the explicit integrated-Brownian path coupling. The 2013 Lingala–Namachchivaya work addresses critical oscillatory averaging, a different regime; the 1995 Mackey–Nechaeva abstract concerns general moment stability and has not been full-text excluded. A search of published mathematical records for the critical repulsive delayed diffusion, integrated-Wiener limit, and uniform renewal envelope identified no direct covering claim; no such search proves novelty. Risk: classical uniform-renewal inequalities or general delay Green-function theorems might imply parts of the result, and a comprehensive priority audit remains necessary.
+
+## Mathematical value — PASS
+
+The exact deterministic threshold is a natural point where effective diffusion predictions become singular. The result identifies the different critical universality class, the explicit cubic dispersion and its first correction coefficient, and quantitative two-time and path-distribution error control with a sharp squared-error constant for any fixed delay. These provide a physically interpretable benchmark for what the linearization can and cannot establish. The sharp subleading cubic-dispersion correction and pointwise coupling-rate constant follow from the known uniform-renewal offset, and are used only as parts of the full physical stochastic theorem; the stochastic finite-time envelope and path-scale law are more informative than a routine parameter substitution or a numerical curve fit. Risk: the nonlinear model cannot be assigned this long-time law without independent analysis.
+
+Self-review: passed. Independent audit: not yet performed.
