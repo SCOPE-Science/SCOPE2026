@@ -1,0 +1,129 @@
+{
+  "audit_date_utc": "2026-10-30",
+  "audited_at_utc": "2026-10-30T21:42:59.815380Z",
+  "axes": {
+    "correctness": {
+      "checked_sources": [
+        "assigned RESULT.md Git blob ea3075a762d531f1fac284dd3d18c86257fbd151",
+        "assigned checker.py blob 50ffb302f634d922d440294b9b60b9cc82b0ae61",
+        "independent_checks.py: harmonic 42 assertions"
+      ],
+      "rationale": "Parity bounds all three evaluation images to the 2^{d−1} Walsh characters with |S|≡d mod2. At degree d+2, sign averaging H against the full Walsh character yields H_top=(∏_i x_i)Σ a_i x_i²; harmonicity enforces 6Σ a_i∏x_i=0, so all evaluations on cube corners vanish in this one direction. Explicit disjoint-coordinate harmonic blocks A4=u⁴−6u²v²+v⁴, B6=(231u⁶−315u⁴R²+105u²R⁴−5R⁶)/16, B7=(429u⁷−693u⁵R²+315u³R⁴−35uR⁶)/16 evaluate to nonzero multiples of 1,1,u at sign corners. The case distinctions m=d−|S| even (m=2, m=4a, m=4a+2), full S, and d=3 produce exact-degree harmonic interpolants for every other compatible Walsh character at degree d+2 and all at d,d+4. Independently checked all block Laplacians and exact Gegenbauer-Walsh eigenvalue ranks for d=3..8 (42 bounded assertions); finite evidence corroborates the explicit all-d construction.",
+      "residual_risks": [
+        "The theorem concerns homogeneous harmonic polynomials of exact degree, not cumulative-degree interpolation or approximate frames.",
+        "No assertion about untested degrees or spectral singular values."
+      ],
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Resultary: all-degree q-ary Hamming sphere paper uses nonbinary shell support, not homogeneous Euclidean harmonic polynomials.",
+          "Bellet et al. abstract identifies equiangular Cubed Sphere grid and a special numerical interpolation subspace."
+        ],
+        "reasoning": "A theorem determining every exact-degree spherical-harmonic evaluation rank at vertices of every hypercube would dominate. The inspected q-ary Hamming-shell Fourier concentration computes a different finite-group restriction, and equiangular cubed-sphere interpolation has d=3 with many face-grid nodes rather than the 2^d hypercube corners.",
+        "searches": [
+          "hypercube vertices exact degree homogeneous harmonic polynomial evaluation ranks Walsh Fourier character parity missing character d+2",
+          "spherical harmonics cube vertices exact degree harmonic interpolation rank Walsh characters",
+          "doi:10.1007/s00211-022-01340-w"
+        ]
+      },
+      "checked_sources": [
+        "Bannai–Okuda–Tagami, Spherical designs of harmonic index t, arxiv:1308.5101 (2013)",
+        "Zhu et al., More on spherical designs of harmonic index t, arxiv:1507.05373 (2015)",
+        "Bellet–Brachet–Croisille, Interpolation on the cubed sphere with spherical harmonics, Numer Math 153 (2023), DOI 10.1007/s00211-022-01340-w",
+        "Resultary Fourier-sampling on q-ary Hamming spheres, 2026/10/11/SCOPE-an-all-degree-spectral-law-for-fourier-sampling-on-q-ary-hamming--f3d01cadaa90"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "RESULT.md full proof gives H_top=(∏x_i)Σ a_i x_i² and explicit A4/B6/B7 representations.",
+          "Published harmonic-index studies target vanishing moments, not this rank-drop/recovery."
+        ],
+        "reasoning": "Harmonic addition formulas and spherical-design bounds do not specify the image rank for each cube character. The sharp nonmonotonic profile d→d+2→d+4 relies on the special degree d+2 sign-isotypic obstruction and separate higher-degree constructive recovery, not on a standard parity bound alone.",
+        "searches": [
+          "hypercube vertices exact degree homogeneous harmonic polynomial evaluation ranks Walsh Fourier character parity missing character d+2",
+          "spherical harmonics cube vertices exact degree harmonic interpolation rank Walsh characters",
+          "arxiv:1308.5101"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "The missing χ_[d] mode is proved by sign-average harmonicity, and other modes by explicit constructions.",
+          "Bannai–Okuda–Tagami formulate harmonic-index designs, not character-by-character image ranks."
+        ],
+        "reasoning": "Walsh-character rank is equivalent to the Gram matrix kernel support for the exact-degree Gegenbauer addition formula on {±1/√d}^d. Unlike harmonic-index t-design vanishing of global sums, it asks which character-isotypic components occur in the evaluation image at one specified degree.",
+        "searches": [
+          "hypercube vertices exact degree homogeneous harmonic polynomial evaluation ranks Walsh Fourier character parity missing character d+2",
+          "spherical harmonics cube vertices exact degree harmonic interpolation rank Walsh characters",
+          "arxiv:1308.5101",
+          "arxiv:1507.05373"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "Independent ranks d=3..8 and original checker d=3..10 are finite; constructive all-d harmonic factors prove the result.",
+          "Resultary Walsh-spectrum records concern other finite Fourier support problems."
+        ],
+        "reasoning": "The first few ranks may be generated from Gegenbauer/Krawtchouk spectra and could appear in computation tables. The claimed fact is a closed uniform formula for all d≥3 at three degrees, with a constructive one-character obstruction and recovery, rather than a small table recomputation.",
+        "searches": [
+          "hypercube vertices exact degree homogeneous harmonic polynomial evaluation ranks Walsh Fourier character parity missing character d+2",
+          "spherical harmonics cube vertices exact degree harmonic interpolation rank Walsh characters",
+          "Resultary: 19 hits"
+        ]
+      },
+      "rationale": "Bannai–Okuda–Tagami (2013) and Zhu et al. (2015) develop harmonic-index spherical design and addition-formula methods, not full Walsh-image ranks of exact-degree solid harmonics restricted to all cube vertices. The strongly titled Bellet–Brachet–Croisille (2023) spherical-harmonic interpolation paper concerns equiangular cubed-sphere nodes on S², not the 2^d equal-sign vertices of S^{d−1}; its full body was not available here, so this difference is based on explicit geometry in its abstract, with residual reading risk. Relevant Resultary Hamming-sphere Fourier sampling results fix nonbinary shells and finite-group Fourier bands, distinct restriction operators. No inspected stronger all-degree cube-vertex harmonic-rank theorem implies the three quantified ranks.",
+      "residual_risks": [
+        "One may find an equivalent character decomposition in unindexed spherical-harmonic restriction/operator literature.",
+        "The full text of Bellet et al. 2023 is subscription-previewed; only geometry, abstract and bibliographic details were inspected here."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "RELATED_METHOD_NOT_RANK_THEOREM",
+          "evidence": "Defines harmonic-index designs and Fisher bounds; not a character-resolved Euclidean exact-degree evaluation-image rank statement in inspected material.",
+          "identifier_or_url": "https://arxiv.org/abs/1308.5101",
+          "material_read": "arXiv abstract and standard harmonic-index design characterization, plus accessible indexing/intro descriptions; full body not read here.",
+          "method": "Lawful arXiv metadata and study of stated theorem scope",
+          "title": "Spherical designs of harmonic index t",
+          "trigger": "Primary exact-degree harmonic design framework"
+        },
+        {
+          "assessment": "DIFFERENT_NODES_FULL_TEXT_NOT_READ",
+          "evidence": "Cubed Sphere nodes are an equiangular face-grid on S², not all 2^d sign-corners in S^{d-1}; a hidden special corner case cannot be excluded by the abstract.",
+          "identifier_or_url": "https://doi.org/10.1007/s00211-022-01340-w",
+          "material_read": "Publisher preview: complete abstract, identifying equiangular Cubed Sphere nodes, bibliographic section and geometry notes; full main body subscription-gated. ResearchGate preprint listing checked but no full lawful extract read.",
+          "method": "Springer original abstract/preview, OA preprint search",
+          "title": "Interpolation on the cubed sphere with spherical harmonics",
+          "trigger": "Plausible similarly titled spherical-harmonic interpolation article"
+        },
+        {
+          "assessment": "DISTINCT_OPERATOR",
+          "evidence": "Nonbinary Hamming-shell Fourier bands and shell equations differ from exact-degree Euclidean harmonic restriction to cube vertices.",
+          "identifier_or_url": "https://github.com/Resultary/2026/tree/main/2026/10/11/SCOPE-an-all-degree-spectral-law-for-fourier-sampling-on-q-ary-hamming--f3d01cadaa90",
+          "material_read": "Resultary title, abstract-style summary, and model/parameter description; full file proof not read.",
+          "method": "Scientific semantic search result and GitHub record identification",
+          "title": "An all-degree spectral law for Fourier sampling on q-ary Hamming spheres",
+          "trigger": "Published related Fourier restriction operators and possible dominating all-degree theorem"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "checked_sources": [
+        "RESULT.md explicit all-dimensional character construction",
+        "spherical harmonic addition formula and exact Gegenbauer spectra"
+      ],
+      "rationale": "The antipodally compatible data space has dimension 2^{d−1}; precisely identifying one lost full-parity Walsh mode at degree d+2 and its complete recovery at d+4 is a natural nonmonotone interpolation phenomenon in every dimension. Exact-degree harmonic sampling is important for representation theory and spherical interpolation, and the proof supplies reusable constructive interpolants rather than isolated computations.",
+      "residual_risks": [
+        "Does not determine other degrees, singular values or conditioning of the interpolation operator."
+      ],
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "final_claim": "For every d≥3, exact-degree homogeneous harmonic evaluation on the 2^d normalized cube vertices has parity-compatible ranks 2^(d−1), 2^(d−1)−1 and 2^(d−1) at degrees d,d+2,d+4; only χ_[d] is lost at d+2.",
+  "limitations": [
+    "Only degrees d,d+2,d+4; no conclusions about all degrees, frames or singular values.",
+    "Published cubed-sphere interpolation article not read beyond publisher preview, with distinct grid geometry and residual hidden-overlap risk."
+  ],
+  "schema_version": 1
+}

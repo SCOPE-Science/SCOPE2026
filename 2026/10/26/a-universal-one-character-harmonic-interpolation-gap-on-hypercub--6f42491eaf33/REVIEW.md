@@ -1,11 +1,21 @@
-# Scientific review
+# Independent mathematical audit
 
-**Correctness (PASS).** The antipodal parity bound limits each exact-degree image to \(2^{d-1}\) Walsh dimensions. A coordinate-sign projection proves the full-sign Walsh coefficient vanishes for every harmonic of degree \(d+2\). Explicit degree-four, -six and -seven harmonic building blocks, multiplied only across disjoint variable sets, realize all remaining characters at degree \(d+2\) and all parity-compatible characters at degrees \(d\) and \(d+4\). All degree and variable-count boundaries were checked, including \(d=3\), the cases of two complementary variables, and the top character. Exact rational finite tests for dimensions 3–10 independently matched the ranks.
+## correctness
 
-**Originality (PASS, bounded evidence).** Published harmonic-index design papers establish addition formulas, extremal bounds and unweighted vanishing moments; the new theorem classifies a character-resolved evaluation *image* of the full cube, including a rank drop and recovery. The closest retrieved finite-Hamming-shell and Walsh-sampling results concern distinct finite-group restriction operators, and accessible earlier spherical-harmonic sampling claims concern different configurations. No stronger statement encompassing these exact ranks was located. This is not a proof of priority over unindexed literature.
+PASS
 
-**Value (PASS).** The full vertex data space has \(2^d\) coordinates and the antipodal constraint leaves \(2^{d-1}\); the theorem identifies the exact, universal one-character failure at a natural degree and its immediate recovery. This settles three adjacent parity-compatible sampling ranks in every dimension, with explicit interpolating polynomials and an exact obstruction. It is a meaningful structural instability for single-degree harmonic sampling, not a numerical interpolation exercise.
+Parity bounds all three evaluation images to the 2^{d−1} Walsh characters with |S|≡d mod2. At degree d+2, sign averaging H against the full Walsh character yields H_top=(∏_i x_i)Σ a_i x_i²; harmonicity enforces 6Σ a_i∏x_i=0, so all evaluations on cube corners vanish in this one direction. Explicit disjoint-coordinate harmonic blocks A4=u⁴−6u²v²+v⁴, B6=(231u⁶−315u⁴R²+105u²R⁴−5R⁶)/16, B7=(429u⁷−693u⁵R²+315u³R⁴−35uR⁶)/16 evaluate to nonzero multiples of 1,1,u at sign corners. The case distinctions m=d−|S| even (m=2, m=4a, m=4a+2), full S, and d=3 produce exact-degree harmonic interpolants for every other compatible Walsh character at degree d+2 and all at d,d+4. Independently checked all block Laplacians and exact Gegenbauer-Walsh eigenvalue ranks for d=3..8 (42 bounded assertions); finite evidence corroborates the explicit all-d construction.
 
-**Closest references and limits.** Bannai–Okuda–Tagami, arXiv:1308.5101, and Zhu et al., arXiv:1507.05373, are closest for harmonic-index analysis; the results are not character-resolved cube rank theorems. Other degrees and conditioning remain open here. Independent priority confirmation has not occurred.
+## originality
 
-Self-review: passed. Independent audit: not yet performed.
+PASS
+
+Bannai–Okuda–Tagami (2013) and Zhu et al. (2015) develop harmonic-index spherical design and addition-formula methods, not full Walsh-image ranks of exact-degree solid harmonics restricted to all cube vertices. The strongly titled Bellet–Brachet–Croisille (2023) spherical-harmonic interpolation paper concerns equiangular cubed-sphere nodes on S², not the 2^d equal-sign vertices of S^{d−1}; its full body was not available here, so this difference is based on explicit geometry in its abstract, with residual reading risk. Relevant Resultary Hamming-sphere Fourier sampling results fix nonbinary shells and finite-group Fourier bands, distinct restriction operators. No inspected stronger all-degree cube-vertex harmonic-rank theorem implies the three quantified ranks.
+
+## value
+
+PASS
+
+The antipodally compatible data space has dimension 2^{d−1}; precisely identifying one lost full-parity Walsh mode at degree d+2 and its complete recovery at d+4 is a natural nonmonotone interpolation phenomenon in every dimension. Exact-degree harmonic sampling is important for representation theory and spherical interpolation, and the proof supplies reusable constructive interpolants rather than isolated computations.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
