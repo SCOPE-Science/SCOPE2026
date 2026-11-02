@@ -1,0 +1,109 @@
+{
+  "audit_date_utc": "2026-10-29",
+  "audited_at_utc": "2026-10-29T09:00:05.132474Z",
+  "axes": {
+    "correctness": {
+      "rationale": "The exact affine Gram inverse yields w_i=1/M-t(X_i-t)/S, sum_i w_i=1, sum_i w_i X_i=0 and sum_i w_i²=1/M+t²/S. Orthogonal polar coordinates X=t*1+r*omega have Jacobian sqrt(M)r^(M-2); setting r=s/u in the tail event and applying dominated convergence on a bounded rescaled cylinder gives P(kappa_M>u)~C_M u^-(M-1), with the displayed sphere integral C_M. Layer-cake integration gives finite p-th moment iff p<M-1. A six-arc centered-circle calculation gives C_3=1/2+pi/(3sqrt3). Exact ordered triple integration and disjoint endpoint negative-weight events give all-positive probability (14-pi)/16. Conditional independent homoscedastic noise variance is sigma²(1/M+t²/S), whose radial singularity int r^(M-4)dr is finite iff M>=4. Independent sample/moment tests had maximum residual below 3.6e-11, and 300000 new triples gave positive fraction 0.6798567 against exact 0.6786505 (1.41 standard errors); numerical sampling is only corroboration.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Migliorati–Nobile arXiv:1812.07761 proves randomized-cubature positivity/stability with sampling assumptions; Bělík et al. arXiv:2609.09506 describes a broad least-squares framework."
+        ],
+        "reasoning": "High-probability large-sample theorems do not preclude nor directly imply exact M-dependent unconditional moment thresholds.",
+        "searches": [
+          "randomized affine least squares quadrature weights heavy tail fixed sample positivity probability variance uniform",
+          "unweighted random least squares affine quadrature three nodes all positive weights probability",
+          "arxiv 1812.07761 randomized cubature positive weights"
+        ]
+      },
+      "checked_sources": [
+        "RESULT.md 19412ed90fb2ecdbaebda0be10af1f5cb5144037 and verification/verify_affine_ls.py b30f9af0beecdfac0e055cb90af217556d2fd688 inspected",
+        "Migliorati–Nobile relevant full primary sections",
+        "Resultary: randomized affine least squares quadrature weights heavy tail fixed sample positivity probability variance uniform / unweighted random least squares affine quadrature three nodes all positive weights probability"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "The existing Gramian formula identifies weights but neither integrates the M=3 ordered-node domain nor computes the near-collision volume."
+        ],
+        "reasoning": "The purported conclusion is not an immediate corollary of sampled Gramian concentration and needs the explicit radial and sorted integration.",
+        "searches": [
+          "randomized affine least squares quadrature weights heavy tail fixed sample positivity probability variance uniform",
+          "unweighted random least squares affine quadrature three nodes all positive weights probability"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Affine regression influence weights make the quadrature map an L-infinity evaluation functional; clustered designs form a codimension-(M-1) singular tube."
+        ],
+        "reasoning": "Searched linear-regression leverage/inverse-Gram and quadrature aliases; ordinary matrix stability bounds do not give this precise tail constant.",
+        "searches": [
+          "randomized affine least squares quadrature weights heavy tail fixed sample positivity probability variance uniform",
+          "unweighted random least squares affine quadrature three nodes all positive weights probability"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "Resultary returned a deterministic affine-simplex projector positivity result with distinct domain/objective; no matching exact continuous three-node table."
+        ],
+        "reasoning": "The probabilities and tail coefficients arise from continuous integrals; finite tables cannot establish the all-M law.",
+        "searches": [
+          "randomized affine least squares quadrature weights heavy tail fixed sample positivity probability variance uniform",
+          "unweighted random least squares affine quadrature three nodes all positive weights probability"
+        ]
+      },
+      "rationale": "The randomized least-squares cubature work of Bělík–Narayan–Turnage and Migliorati–Nobile focuses on construction and high-probability stability/positivity, which is logically compatible with these exact fixed-sample heavy tails. The affine Gramian identity is established background, not claimed new. Exact near-coincident radial exponent, C_3, three-point positivity volume and noise cutoff need further distributional analysis. Bělík full 2026 manuscript and Wilson 1970 full source were inaccessible; possible stronger formula or regression-theoretic aliases remain priority risk.",
+      "residual_risks": [
+        "Full 2026 Bělík and 1970 Wilson articles not read; prior equivalent exact constants remain possible.",
+        "No inference for pruning, rejection, higher-degree fits, adaptive samples, nonuniform densities or finite precision."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "NOT demonstrated covering exact fixed-M tail constant and positivity probability",
+          "evidence": "Migliorati and Nobile, J Approx Theory 275 (2022)",
+          "identifier_or_url": "https://arxiv.org/abs/1812.07761",
+          "material_read": "Full accessible 24-page PDF, introduction, relevant stability and positivity sections 2-3; not every appendix claimed read.",
+          "method": "Read PDF text and rendered pages",
+          "title": "Stable high-order randomized cubature formulae in arbitrary dimension",
+          "trigger": "direct primary randomized cubature comparison"
+        },
+        {
+          "assessment": "UNDETERMINED possible detailed overlap; not whole-document exclusion",
+          "evidence": "Bělík, Narayan, Turnage, 2026 preprint",
+          "identifier_or_url": "https://arxiv.org/abs/2609.09506",
+          "material_read": "Abstract and search materials only; full manuscript could not be retrieved.",
+          "method": "arXiv/OA full-text attempts; institutional service unavailable",
+          "title": "Constructive Tchakaloff results and well-conditioned quadrature through randomized least squares",
+          "trigger": "same algorithmic framework"
+        },
+        {
+          "assessment": "UNDETERMINED historical priority risk",
+          "evidence": "Wilson, Math Comp 24 (1970)",
+          "identifier_or_url": "https://doi.org/10.1090/S0025-5718-1970-0275677-3",
+          "material_read": "Abstract/bibliography only.",
+          "method": "search",
+          "title": "Discrete Least Squares and Quadrature Formulas",
+          "trigger": "potential historical exact quadrature work"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "rationale": "The total variation of quadrature weights is a natural bounded-data amplification norm and positivity is a natural non-overshoot property. A three-node rule can have positive weights with probability about 0.679 while having infinite unconditional squared-noise amplification; exactly four nodes mark the first finite-variance case. This is a motivated sharp reliability cutoff, not routine identity-only algebra.",
+      "status": "PASS"
+    }
+  },
+  "checked_sources": [
+    "RESULT.md 19412ed90fb2ecdbaebda0be10af1f5cb5144037 and verification/verify_affine_ls.py b30f9af0beecdfac0e055cb90af217556d2fd688 inspected",
+    "Migliorati–Nobile relevant full primary sections",
+    "Resultary: randomized affine least squares quadrature weights heavy tail fixed sample positivity probability variance uniform / unweighted random least squares affine quadrature three nodes all positive weights probability"
+  ],
+  "disposition": "passed",
+  "limitations": "IID uniform continuous nodes, unweighted affine least squares and exact arithmetic; homoscedastic independent centered noise for variance claim.",
+  "residual_risks": [
+    "Full 2026 Bělík and 1970 Wilson articles not read; prior equivalent exact constants remain possible.",
+    "No inference for pruning, rejection, higher-degree fits, adaptive samples, nonuniform densities or finite precision."
+  ],
+  "schema_version": 1
+}
