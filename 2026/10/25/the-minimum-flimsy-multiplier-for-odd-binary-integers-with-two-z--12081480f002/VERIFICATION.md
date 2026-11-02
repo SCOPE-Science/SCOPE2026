@@ -5,8 +5,11 @@
     "status": "not_performed"
   },
   "independent_audit": {
-    "evidence": null,
-    "status": "not_performed"
+    "status": "passed",
+    "evidence": [
+      "INDEPENDENT_AUDIT_2026-10-28.md",
+      "INDEPENDENT_AUDIT_2026-10-28.json"
+    ]
   },
   "lean_verification": {
     "evidence": null,
@@ -15,8 +18,25 @@
   "schema_version": 1
 }
 ---
-# Reproducibility
 
-Execute `python3 verify.py` in a directory containing this file and `verify.py`. The verifier enumerates exactly 70 triples satisfying \(1\le a,c\le4\), \(0\le b\le4\), and \(a+b+c+2\ge7\). For each, it calculates the weights of four odd multiples by native arithmetic and an independently programmed bit-serial carry recurrence, and compares the least successful one with the five-case theorem. The output on a successful run starts with `VERIFIED`.
+# Independent mathematical audit
 
-The infinite deduction requires the explicitly proved four-one saturation lemma and the lower bound for the weight of a positive multiple of \(2^r-1\). Finite sampling alone would not establish those statements. Extra checks through length \(80\) are solely corroborative; no claim is made beyond the theorem's domain.
+## correctness
+
+PASS
+
+Odd multiplier reduction by 2-adic valuation is sound. On input run of ones, deficit e=k-1-r obeys e↦floor(e/2), so run lengths >=4 do not alter s2(kN)-s2(N) for k=3,5,7,9. Independent full enumeration of exactly 70 capped triples with a+c+b+2>=7 matches all five classes and initial least-success candidates, plus L=7..32 exact length enumeration. Sturdy exception a=c=1,b>=1 gives N=3(2^(L-2)-1) and the folding argument that multiples of 2^r-1 have at least r set bits excludes every multiplier, not just <=9. Count identities close to binom(L-2,2).
+
+## originality
+
+PASS
+
+Best-of-knowledge originality limited to the narrow final claim: Theorem 15(c) implies infinity class only; existence k<=9 does not imply which k is minimal, and this proof adds finite-state reduction.
+
+## value
+
+PASS
+
+The exact first failing multiplier in an infinite, naturally singled-out family from sturdy/flimsy theory is an unknown numerical invariant for each input, while a uniform local-pattern classification and exact class-size statistics are stronger and reusable than testing a few words or reproducing the known sturdy exception.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

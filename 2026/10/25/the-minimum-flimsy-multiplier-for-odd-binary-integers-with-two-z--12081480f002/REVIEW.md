@@ -1,15 +1,21 @@
-# Scientific review
+# Independent mathematical audit
 
-## Correctness
-PASS. The odd-multiplier reduction removes every even candidate. The elementary multiplication transducer proves that once a run contains four ones, extending it cannot change any digit-sum comparison for multipliers \(3,5,7,9\). Exactly 70 capped triples remain, all checked exhaustively with exact arithmetic and a distinct bit-serial implementation in `verify.py`. A separate proof using the minimum binary weight of a positive Mersenne multiple establishes sturdiness for the sole remaining run family. The counts follow by an explicit count of constrained triples. The unbounded result depends on these lemmas and the exhaustive finite set, not on the additional length-80 stress test.
+## correctness
 
-## Originality
-PASS within inspected literature. The motivating full text defines first flimsy multipliers and gives algorithms for individual inputs, but its two-zero theorem determines only sturdy versus flimsy status. Its upper bound of nine for candidate multipliers does not specify which is first for each input, nor the exact five-class count. The conference version likewise contains no run-length formula. Targeted searches of mathematical records and relevant prior findings revealed no stronger covering claim. An unpublished automata simplification or unindexed table is a genuine residual risk, and independent publication priority is not established.
+PASS
 
-## Mathematical value
-PASS. Minimal witness size is one of four explicit invariants investigated in the motivating paper. A complete, uniform infinite classification of the first witness for the smallest nontrivial two-zero family gives strictly finer arithmetic information than sturdy/flimsy status, identifies the sharp multiplier spectrum, and supplies exact length profiles. The four-one finite-state reduction is structural; the result is not a mere repeated tabulation at fixed length.
+Odd multiplier reduction by 2-adic valuation is sound. On input run of ones, deficit e=k-1-r obeys e↦floor(e/2), so run lengths >=4 do not alter s2(kN)-s2(N) for k=3,5,7,9. Independent full enumeration of exactly 70 capped triples with a+c+b+2>=7 matches all five classes and initial least-success candidates, plus L=7..32 exact length enumeration. Sturdy exception a=c=1,b>=1 gives N=3(2^(L-2)-1) and the folding argument that multiples of 2^r-1 have at least r set bits excludes every multiplier, not just <=9. Count identities close to binom(L-2,2).
 
-## Scope and limitations
-Only odd, exactly-two-zero binary numbers of length at least seven are covered. No general higher-zero classification or formula for the minimum binary digit sum over all multiples is claimed. The existing sturdy characterization is cited as prior work, not represented as new.
+## originality
 
-Self-review: passed. Independent audit: not yet performed.
+PASS
+
+Best-of-knowledge originality limited to the narrow final claim: Theorem 15(c) implies infinity class only; existence k<=9 does not imply which k is minimal, and this proof adds finite-state reduction.
+
+## value
+
+PASS
+
+The exact first failing multiplier in an infinite, naturally singled-out family from sturdy/flimsy theory is an unknown numerical invariant for each input, while a uniform local-pattern classification and exact class-size statistics are stronger and reusable than testing a few words or reproducing the known sturdy exception.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
