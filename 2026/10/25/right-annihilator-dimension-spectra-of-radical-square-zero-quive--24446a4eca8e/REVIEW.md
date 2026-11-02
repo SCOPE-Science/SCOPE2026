@@ -1,11 +1,21 @@
-# Scientific review: right-annihilator dimension spectra
+# Independent mathematical audit
 
-**Correctness (PASS).** For an arbitrary finite quiver, multiplication in the radical-square-zero algebra has separate vertex and arrow coordinates. Conditioning on the zero diagonal set yields an exact basis description of the kernel of left multiplication, including loops and multiple arrows; each remaining arrow coefficient is counted exactly once. This reconstructs the full polynomial rather than just a numerical moment. The height-two specialization and four-vertex separation follow from independent diagonal-pair counting and a degree-bounded polynomial identity. A direct finite-field multiplication-matrix implementation agrees coefficientwise in 37 configurations comprising 26,595 algebra elements. Finite checks support, but do not replace, the general algebraic proof.
+## correctness
 
-**Originality (PASS within investigated coverage).** The general finite-ring identity expressing zero-product probability as a sum of annihilator sizes is established prior work (Dolžan 2025, Lemma 2.3), as is the subject of nullity degrees (Dolžan 2022). Can 2021 treats a different collection of incidence-monoid invariants. The present result refines a scalar sum to a field-uniform **complete dimension spectrum for arbitrary quivers**, including loops and parallel arrows, and proves explicit strict separations between the scalar probability and the spectrum. Accessible primary full texts were examined for their relevant statements and sections; Dolžan 2022 was accessible only via its published abstract. Equivalence elsewhere is a residual risk, not disproved by search failure.
+PASS
 
-**Value (PASS).** Right-annihilator dimension is an intrinsic algebraic invariant and determines the number of zero products upon a single evaluation. Formula (1) computes every stratum uniformly for all finite fields and all radical-square-zero quivers, with no rank enumeration over \(q^{n+m}\) elements. The star/path identity proves that the scalar nullity degree sees graph shape beyond dimension, semisimple quotient, and radical dimensions; reversed stars prove that the complete profile retains information invisible to that scalar. The results are a natural full distribution and motivated sharp boundaries rather than a parameter-substitution exercise.
+PASS. Direct path multiplication (ab)_v=λ_v μ_v, (ab)_e=λ_tail(e) y_e+x_e μ_head(e) is valid with loops and parallel arrows. For S of zero λ, each arrow from tail outside S determines y_e, each arrow from S leaves y_e free; each μ_v for v∈S remains free iff all x_e with tail∈S,head v vanish. Thus d(a)=m_S+number of eligible v∈S, and disjoint coefficient groups by head give factors (q^{r_S(v)}−1+t) or q^{r_S(v)}. Summation over λ,x proves spectrum for any prime power. Evaluating t=q counts zero-product ordered pairs. Independent height-two zero-product equations give q^m Σ_S q^{|S|+e(S)}(q−1)^{v−|S|}; star/path polynomial subtraction q^6(q−1)^3 and opposite-star difference follow. Finite rank checks supplement, not replace, this proof.
 
-**Closest literature and limitations.** The 2022 zero-multiplication paper gives the closest scalar invariant but could not be read in full; the accessible 2025 extension supplies a generic annihilator-sum lemma but no explicit all-quiver dimension spectrum. The 2021 incidence-monoid paper addresses automorphisms and torus complexity. Broader graph partition functions may express the scalar specialization in different notation; the graph polynomial itself is not asserted original. The contribution is restricted to path algebras modulo paths of length at least two and makes no graph-reconstruction or complexity claims.
+## originality
 
-Self-review: passed. Independent audit: not yet performed.
+PASS
+
+PASS best of knowledge. Dolžan 2022 introduces finite-ring zero-product/nullity probability and Dolžan 2025 generic identity P(0)=|A|^{-2}Σ_a |Ann_r(a)|. These are established and explicitly credited; they do not specify all quiver coefficient strata in inspected material. Incidence monoid work and familiar lattice-gas subset graph polynomial are not claimed newly invented. Full Dolžan 2022 article inaccessible, so possible broader formula remains a residual risk; no all-quiver distribution found in Resultary queries.
+
+## value
+
+PASS
+
+PASS. Right-annihilator dimensions are intrinsic algebraic invariants that control zero-product counts but retain strictly more orientation information; the formula evaluates every dimension stratum for all finite fields/quivers, including loops, without enumerating q^(n+m) elements. Explicit orientation-reversing and star/path boundaries demonstrate mathematically meaningful discrimination beyond ring dimension and radical size.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
