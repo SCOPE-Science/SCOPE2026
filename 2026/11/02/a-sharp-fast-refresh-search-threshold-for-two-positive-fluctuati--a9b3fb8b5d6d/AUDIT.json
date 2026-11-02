@@ -1,0 +1,132 @@
+{
+  "correctness": {
+    "rationale": "Starting from the exact backward equation with strict positive reset rates, solve the bounded absorbing system and reduce it to the spectral Schur complement. Two positive eigenvalues and superalgebraically small high-mode inverse yield a uniform differentiated expansion. Explicit derivatives prove strict curvature and the unique nonzero Poisson optimum. Substitution and a sign-definite derivative yield the critical-window limit and unique local zero. A separate direct backward-system solver and high-precision spectral evaluation produced 294 finite checks; none is substituted for proof.",
+    "status": "PASS"
+  },
+  "independent": false,
+  "independent_audit_status": "not_performed",
+  "originality": {
+    "broader_coverage": {
+      "evidence": [
+        "Bressloff (2020) changes diffusivity and simultaneously resets the discrete diffusion state; see abstract and §4.",
+        "Pal–Kundu–Evans (2016) makes rate a function of time since last reset, whereas here phase persists.",
+        "The generic first-order fast-refresh term vanishes at the Poisson-optimal mean intensity, and hence cannot answer the second-order sign question at that point."
+      ],
+      "reasoning": "Generic matrix backward equations or renewal models can provide methods but do not by themselves state the new physical sign threshold. The present critical-window coefficient is not an immediate covered corollary of the known first-order expression, which has a zero leading term at the optimum; however a broader unlocated higher-order theorem might imply it.",
+      "searches": [
+        "Arutkin Reuveni 2509.25365 v1 Brownian first passage critical fluctuation threshold rstar fast refresh second-order asymptotic",
+        "finite globally optimal switching rate zero and rho Brownian target mean first passage telegraph modulated resetting rate",
+        "Bressloff 2020 switching diffusions stochastic resetting first passage",
+        "Pal Kundu Evans 2016 diffusion time-dependent resetting"
+      ]
+    },
+    "checked_sources": [
+      "arxiv:2509.25365v1 (complete HTML manuscript)",
+      "doi:10.1088/1751-8121/ab97e0 (parsed manuscript sections with direct MFPT equations)",
+      "doi:10.1088/1751-8113/49/22/225001 (institutional abstract; full text not inspected)",
+      "doi:10.1039/D5SM00340G (publisher full HTML)",
+      "Published mathematical research-record search for model aliases, special cases and critical-window rate expansion"
+    ],
+    "claim_vs_prior_implication": {
+      "evidence": [
+        "The source's stated results are NESS spatial laws; it explicitly identifies target FPT as future work.",
+        "Leading-order rate-modulation comparisons alone do not resolve the second-order sign decision or its nonzero threshold displacement.",
+        "Bressloff §4 assumes constant resetting and refreshed switching diffusivity, so its one-variable renewal identity does not apply without alteration."
+      ],
+      "reasoning": "The new conclusion is a sign classification in the inverse-refresh-speed window around the Poisson-optimal mean rate, its strictly positive second-order term at that optimum, and a local threshold-shift coefficient. These are not implied by a first-order expansion whose leading term vanishes at the optimum; the proof evaluates and controls the next order. Literature priority remains qualified by not locating every possible non-indexed source.",
+      "searches": [
+        "Two-state Markov modulated stochastic resetting first passage boundary layer r star plus c/nu sign transition",
+        "finite globally optimal switching rate zero and rho Brownian target mean first passage telegraph modulated resetting rate",
+        "First-passage Brownian search with random telegraph resetting intensity both positive rates switching speed improvement above classical optimal reset",
+        "arxiv:2509.25365v1 §5",
+        "doi:10.1088/1751-8121/ab97e0 §4"
+      ]
+    },
+    "equivalent_formulations": {
+      "evidence": [
+        "Arutkin–Reuveni §2 explicitly preserves the intensity environment after position resets; §5 poses FPT as an extension.",
+        "The displayed mean uses a Schur complement of a two-state reset-hazard matrix, not the renewal ratio for a phase-restarting protocol."
+      ],
+      "reasoning": "The model is expressible as a two-state Markov-modulated reset hazard with persistent phase. Searches covered this alias as well as 'doubly stochastic resetting' and fast-refresh rate switching. None of the retrieved scientific statements supplied the singular second-order threshold; a non-return is not proof of novelty.",
+      "searches": [
+        "Brownian two-state stochastic reset intensity positive in both phases exact mean first passage critical Poisson optimal rate 1 over environmental switching rate squared correction",
+        "Two-state Markov modulated stochastic resetting first passage boundary layer r star plus c/nu sign transition",
+        "web: 'Markov-modulated' 'resetting' 'Brownian' target",
+        "arxiv:2509.25365v1"
+      ]
+    },
+    "exact_database_or_table": {
+      "evidence": [
+        "Closest retrieved records discuss generic catastrophe renewal variance or stationary correlation and do not tabulate the mean-FPT critical-window threshold.",
+        "No finite classification or exact parameter table is claimed; the result is analytic for a continuum of physical parameters."
+      ],
+      "reasoning": "The relevant database question is coverage by an exact mean-FPT formula or threshold comparison, not a matching numerical tuple. Searches did not locate such an entry; this is not treated as a uniqueness certificate.",
+      "searches": [
+        "Brownian two-state stochastic reset intensity positive in both phases exact mean first passage critical Poisson optimal rate 1 over environmental switching rate squared correction",
+        "Arutkin Reuveni 2509.25365 v1 Brownian first passage critical fluctuation threshold rstar fast refresh second-order asymptotic",
+        "Semantic search of published mathematical findings: Markov-modulated resetting Brownian motion autocorrelation spectral expansion reversible random reset hazard"
+      ]
+    },
+    "rationale": "The exact critical-window statement and the positive second-order sign coefficient are absent from the inspected source defining the rate-memory process. A first-order fast-switching comparison on its own cannot resolve the critical window because its leading coefficient vanishes at the constant-rate optimum. A different two-state switching-diffusivity paper does not imply this retained-reset-intensity result. Targeted research-record and primary-literature searches found no dominating statement; inaccessible work leaves an explicit priority risk.",
+    "residual_risks": [
+      "Some related literature is available only through summaries, so a general unlocated two-state first-passage theorem could contain the expansion implicitly.",
+      "Earlier special-case matrix-resolvent first-passage methods may subsume the basic exact mean; the claimed contribution is the previously unlocated second-order critical comparison.",
+      "Independent mathematical and publication-priority validation have not been performed."
+    ],
+    "source_inspections": [
+      {
+        "assessment": "Introduces independent environment and position-only resets and develops spatial NESS. Does not prove the two-positive-rate absorbed MFPT or the Poisson-optimum critical window.",
+        "evidence": [
+          "arxiv:2509.25365v1 §§2–5, especially §5 paragraphs on FPT extension (lines 157–174 of HTML)"
+        ],
+        "identifier_or_url": "https://arxiv.org/html/2509.25365v1",
+        "material_read": "Complete publicly accessible HTML manuscript, including model, propagator, steady-state calculation and conclusion; figures described by captions",
+        "method": "Read model construction, resetting-state memory, complete stationary analysis, and explicit future first-passage discussion",
+        "title": "Diffusion with doubly stochastic resetting",
+        "trigger": "Same persistent reset-rate mechanism; motivates target-hitting extension"
+      },
+      {
+        "assessment": "Diffusivity switches while resetting intensity is constant and the diffusion state is reset. Not the same persistent modulated-rate generator or critical-window comparison.",
+        "evidence": [
+          "DOI:10.1088/1751-8121/ab97e0, abstract and §4 equations (4.1)–(4.17)"
+        ],
+        "identifier_or_url": "https://www.math.utah.edu/~bresslof/publications/20-10.pdf",
+        "material_read": "Parsed manuscript introduction, generator and §4 MFPT equations, including explicit discussion of the reset-state randomization",
+        "method": "Read accessible extracted text of author PDF and compared reset generator and environmental memory; page-image rendering was unavailable, so diagrams were not independently inspected",
+        "title": "Switching diffusions and stochastic resetting",
+        "trigger": "Switching two-state Brownian process and first-passage calculation"
+      },
+      {
+        "assessment": "Intensity depends on age since the previous reset, therefore its renewal protocol differs; residual risk remains because the full article was not inspected.",
+        "evidence": [
+          "DOI:10.1088/1751-8113/49/22/225001, source abstract"
+        ],
+        "identifier_or_url": "https://www.research.ed.ac.uk/en/publications/diffusion-under-time-dependent-resetting/",
+        "material_read": "Institutional research-portal abstract and article description; complete manuscript not inspected",
+        "method": "Checked whether modulation is elapsed-since-reset intensity or independent retained phase",
+        "title": "Diffusion under time-dependent resetting",
+        "trigger": "Possible equivalence to stochastic resetting-rate modulation"
+      },
+      {
+        "assessment": "Confirms the classical Poisson optimum is established, and discusses active-particle orientation with resets; no retained two-state modulation of reset intensity or singular critical layer.",
+        "evidence": [
+          "DOI:10.1039/D5SM00340G, §II C, §III"
+        ],
+        "identifier_or_url": "https://pubs.rsc.org/en/content/articlehtml/2025/sm/d5sm00340g",
+        "material_read": "Full publisher HTML sections on passive Brownian benchmark, Poisson optimal root and comparison with active particle",
+        "method": "Compared underlying reset protocol and scalar optimum root",
+        "title": "Optimal first-passage times of active Brownian particles under stochastic resetting",
+        "trigger": "Checks classical optimal Poisson benchmark and possible target-hitting comparison"
+      }
+    ],
+    "status": "PASS"
+  },
+  "review_type": "self_review",
+  "schema_version": 1,
+  "scope_run_id": "a9b3fb8b-5d6d-4798-b0cd-c98170e691fe",
+  "self_review_status": "passed",
+  "value": {
+    "rationale": "When the mean resetting rate is tuned to the globally optimal constant-rate searcher, the leading fluctuating-rate perturbation disappears and its sign cannot be inferred from usual first-order results. The nontrivial positive second-order correction proves that fast environmental disorder is locally harmful there, while the explicit shifted threshold identifies how much above optimum the mean rate must be to make disorder beneficial. This addresses a naturally controllable physical decision boundary rather than an arbitrary perturbative coefficient.",
+    "status": "PASS"
+  }
+}
