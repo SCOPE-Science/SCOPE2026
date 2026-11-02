@@ -1,0 +1,15 @@
+# Self-review
+
+## Correctness — PASS
+The canonical decomposition is a genuine bijection: in characteristic \(p\), \(a^{p+1}=a\) implies \(e=a^p\) is idempotent and \(x=a-e\) is \(p\)-nilpotent in the corner \(eAe\); conversely every such pair solves the power equation. Idempotent lifting with fixed diagonal is verified by the explicit invertible intertwiner and unit-orbit stabilizers. The finite-height formula follows from radical products supported on chains; the first excluded chain is measured by an explicit monomial. The asymptotic is proved with a nonzero polynomial coefficient of a \(p\)-th power and a finite-field polynomial zero bound, yielding the exact antichain leading coefficient. The height boundary follows by selecting a maximum-chain rank level. Direct verifiers exercised prime fields and an extension field, but the general proof does not depend on their exhaustiveness.
+
+## Originality — PASS relative to inspected evidence
+Gargate–Gargate (arXiv:2009.04243, dated 2020-08-30) is the closest directly relevant paper and is motivated by counting \((k+1)\)-potents over incidence algebras. Its stated standing assumptions exclude \(\operatorname{char}K\mid k\), whereas the present object takes \(k=p=\operatorname{char}K\). That paper's separable-root case thus does not entail these characteristic-resonant radical fibers, first height threshold, and antichain leading asymptotics. Gargate–Gargate's involutions (arXiv:1907.06805) similarly exclude the resonant case. Garcés–Khrypchenko's potent preservers (DOI:10.1016/j.laa.2021.11.020) and primitive-idempotent product preservers (arXiv:2206.01788) treat map-preservation problems rather than counts. Standard idempotent lifting and polynomial zero bounds are not asserted novel. No matching result was found in the accessible comparison records, but this is not a proof of publication priority. Residual risk: a general theory of inseparable potent equations, particularly incidence-algebra papers outside inspected titles, may subsume part of the result.
+
+## Value — PASS
+The phenomenon is forced by a natural characteristic boundary at which polynomial separability fails. The complete explicit low-height and sharp first-chain counts classify a mathematically defined full subclass, and the antichain transversal leading coefficient detects an exact height cutoff for all finite posets. The result provides arithmetic poset invariants with a nontrivial asymptotic interpretation rather than a numerical gain on a single parameter choice.
+
+## Limitations
+General unrestricted-height \(p\)-nilpotent radical fibers remain unevaluated. Field-size asymptotics fix characteristic. The verifier enumerations are finite examples rather than an infinite-field proof. Full publication priority is not claimed. The original 2020 paper was read in available full text; preservation papers were checked to their accessible relevant mathematical statements, so complete-document noncoverage is not asserted for inaccessible portions.
+
+Self-review: passed. Independent audit: not yet performed.
