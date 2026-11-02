@@ -1,0 +1,106 @@
+{
+  "correctness": {
+    "rationale": "For any assignment, the signed gap changes by plus or minus the released value. Odd and odd-heavy-position cases admit endpoint-disjoint edge packings giving the sharp H+floor(r/2) bound. For even heavy position, the exact parity/terminal-distance bound for an odd unit prefix is (k+d^2)/2. The remaining first two gaps and pairwise disjoint unit edges yield m+(d^2-1)/2+f(|H-d|). Values d>=3 cost at least m+H, while d=1 gives the sharp penultimate construction. Exact rational DP and independent enumeration from extracted verify.py agree over all reported cases; finite tests are not substituted for the infinite proof.",
+    "status": "PASS"
+  },
+  "independent": false,
+  "independent_audit_status": "not_performed",
+  "originality": {
+    "broader_coverage": {
+      "evidence": [
+        "Goldberg, Robinson and Teh, arXiv:2610.09843v1, Sections 4–5 and Appendix C.5, https://arxiv.org/html/2610.09843v1",
+        "The primary source Section 5 gives NP-completeness and approximation factors; Appendix C.5 contains only the {1,1,2} sharp example, not a uniform real-parameter formula."
+      ],
+      "reasoning": "Hardness, a general approximation factor, and one numerical example do not determine the exact optimal cost function across all positive multiplicities and real exceptional values. The previously derived all-unit-and-double result covers the H=2 slice but cannot imply values at arbitrary H by rescaling.",
+      "searches": [
+        "\"Minimizing Cumulative Envy in Allocating a Sequence of Items\"",
+        "\"Goldberg\" \"Robinson\" \"Teh\" \"one\" \"large\" envy",
+        "semantic: \"Minimizing Cumulative Envy in Allocating a Sequence of Items arbitrary one exceptional good and repeated unit goods; optimal permutation exact value phase transitions\""
+      ]
+    },
+    "checked_sources": [
+      "Goldberg, Robinson and Teh, arXiv:2610.09843v1, Sections 4–5 and Appendix C.5, https://arxiv.org/html/2610.09843v1",
+      "Dobler and Nöllenburg, WADS 2025, Section 3.2, https://drops.dagstuhl.de/storage/00lipics/lipics-vol349-wads2025/html/LIPIcs.WADS.2025.22/LIPIcs.WADS.2025.22.html",
+      "arXiv bibliographic submission history on 2026-10-07, https://arxiv.org/abs/2610.09843"
+    ],
+    "claim_vs_prior_implication": {
+      "evidence": [
+        "Goldberg, Robinson and Teh, arXiv:2610.09843v1, Sections 4–5 and Appendix C.5, https://arxiv.org/html/2610.09843v1",
+        "Dobler and Nöllenburg, WADS 2025, Section 3.2, https://drops.dagstuhl.de/storage/00lipics/lipics-vol349-wads2025/html/LIPIcs.WADS.2025.22/LIPIcs.WADS.2025.22.html",
+        "Known H=2 exact unit/double statement implies the H=2 specialization only. The new formula at H=5/2 or H>=3 is not a logical consequence of that specialization."
+      ],
+      "reasoning": "The source’s general lower bound is weaker than the exact even-r bound for noninteger H; its explicit r=2,H=2 counterexample cannot supply either continuous transition. Fixed-sign prefixsum complexity/algorithms concern an input multiset with predetermined signs; the current optimizer chooses both signs and order. Existing H=2 claims overlap exactly on a slice, which is acknowledged rather than counted as original.",
+      "searches": [
+        "arxiv:2610.09843v1 Sections 4–5 and Appendix C.5",
+        "WADS 2025 LIPIcs 349 article 22 Sections 2–3.2",
+        "semantic: \"two agents identical additive values a unit goods b value-two goods cumulative maximum envy greedy sorting\""
+      ]
+    },
+    "equivalent_formulations": {
+      "evidence": [
+        "Goldberg, Robinson and Teh, arXiv:2610.09843v1, Sections 4–5 and Appendix C.5, https://arxiv.org/html/2610.09843v1",
+        "Dobler and Nöllenburg, WADS 2025, Section 3.2, https://drops.dagstuhl.de/storage/00lipics/lipics-vol349-wads2025/html/LIPIcs.WADS.2025.22/LIPIcs.WADS.2025.22.html",
+        "For identical agents, cumulative maximum envy equals the absolute signed partial sum, but the sign of every item is an allocation decision; Section 3.2 of the wiggle work addresses a fixed signed multiset."
+      ],
+      "reasoning": "The mathematical equivalence with free-sign signed-prefix walks was explicitly considered. The closest independently identified fixed-sign permutation problem does not optimize over all choices of signs. The literal {1,1,2} example and existing unit/double subclass are properly excluded from the novelty claim.",
+      "searches": [
+        "\"sum of absolute load differences\" \"job sequencing\" \"two machines\"",
+        "\"sum of absolute prefix sums\" permutation one exceptional weight 1",
+        "\"cumulative maximum envy\" \"one\" \"value\" \"sequence\" two agents",
+        "semantic: \"two agents identical valuations one heavy H item and r unit items optimal cumulative maximum envy 2 3 thresholds\""
+      ]
+    },
+    "exact_database_or_table": {
+      "evidence": [
+        "Semantic results included unrelated rank-maximality and cumulative-step optimization records, with no record for the claimed arbitrary-H cost law. The accessible local research claims were checked and their closest exact value-two special case identified.",
+        "Primary source Example 3 reports only the single parameter cell r=2, H=2, not a full exact table."
+      ],
+      "reasoning": "No checked exact table or database dominates the proposed full parameter continuum. Searches are evidence of comparison, not uniqueness or an exhaustive novelty certificate; an unindexed formula remains possible.",
+      "searches": [
+        "semantic: \"Exact cumulative-envy and greedy-gap laws for unit-and-double goods\"",
+        "semantic: \"temporal cumulative maximum envy one exceptional good arbitrary H phase 2 and 3\"",
+        "\"minimum total imbalance\" \"two machines\" \"one\" \"large\" job",
+        "\"minimum cumulative envy\" \"exceptional\" item"
+      ]
+    },
+    "rationale": "The source establishes a general 3/2 greedy guarantee, a universal lower bound, and the {1,1,2} example, but not this complete all-r, arbitrary-real-H optimum and two-threshold greedy-regret classification. The preexisting unit/double subclass contains H=2, which is expressly not treated as novel. Neither inspected primary source nor the accessible semantic research results supplies a general covering implication. A fixed-sign prefixsum theorem has different feasible solutions. Novelty is assessed on the new continuous phase law, subject to residual risk.",
+    "residual_risks": [
+      "An equivalent exact continuum formula could be present in unindexed temporal fairness, scheduling, balancing, discrepancy or signed-prefix-sum literature.",
+      "The publicly presented preliminary SAGT 2026 talk predates the October 7 arXiv upload, but no earlier full-text public manuscript with the exact claim was verified.",
+      "The primary result encompasses H=2, already covered by an existing narrower exact-unit/double claim; novelty is solely in the arbitrary-real-H phase law and the optimal policy transition."
+    ],
+    "source_inspections": [
+      {
+        "assessment": "Defines objective and general bounds; gives the r=2,H=2 example but no all-r real-H phase formula",
+        "evidence": [
+          "Goldberg, Robinson and Teh, arXiv:2610.09843v1, Sections 4–5 and Appendix C.5, https://arxiv.org/html/2610.09843v1"
+        ],
+        "identifier_or_url": "https://arxiv.org/html/2610.09843v1",
+        "material_read": "Full accessible HTML main Sections 1–5, Appendix C.5 and related theorem passages; Sections 4–5 and Appendix C.5 examined specifically",
+        "method": "Read and compare definitions, Theorems 4.1 and 5.1–5.4, Examples 2 and 3, and Appendix C.5 in accessible arXiv HTML",
+        "title": "Minimizing Cumulative Envy in Allocating a Sequence of Items",
+        "trigger": "Same optimization objective, two-agent identical valuations, sharp r=2,H=2 example"
+      },
+      {
+        "assessment": "Studies permutations of a specified signed multiset, not unconstrained sign choice for every item; the special case does not entail this real-H formula",
+        "evidence": [
+          "Dobler and Nöllenburg, WADS 2025, Section 3.2, https://drops.dagstuhl.de/storage/00lipics/lipics-vol349-wads2025/html/LIPIcs.WADS.2025.22/LIPIcs.WADS.2025.22.html"
+        ],
+        "identifier_or_url": "https://doi.org/10.4230/LIPIcs.WADS.2025.22",
+        "material_read": "Publisher full HTML Introduction, Sections 2 and 3.2 including Theorems 14–15, and related-work discussion",
+        "method": "Read publisher HTML, compare feasible sign choices and the specific one-positive/negative subclass",
+        "title": "On Minimizing Wiggle in Stacked Area Charts",
+        "trigger": "Same absolute prefix-sum objective under alternative formulation"
+      }
+    ],
+    "status": "PASS"
+  },
+  "review_type": "self_review",
+  "schema_version": 1,
+  "scope_run_id": "be9cfc0a-5997-42d9-add0-286257c69797",
+  "self_review_status": "passed",
+  "value": {
+    "rationale": "A one-exceptional-item subclass is a natural first heterogeneous-size departure from uniform goods in an NP-complete freely sequenced cumulative-envy problem. The theorem determines an exact continuum of optima, two universal price/size transition points, parity-dependent scheduling decisions, and a full greedy regret curve, rather than restating an already known three-good counterexample. Its quantitative precision can benchmark extension to several exceptional goods and alternate time objectives.",
+    "status": "PASS"
+  }
+}
