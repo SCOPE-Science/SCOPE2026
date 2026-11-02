@@ -1,0 +1,127 @@
+{
+  "audit_date_utc": "2026-10-31",
+  "audited_at_utc": "2026-10-31T23:03:27.784322Z",
+  "axes": {
+    "correctness": {
+      "rationale": "After scale a=1, the radial Fourier-Bessel integral 2pi ∫ r(1+r)e^-r cos(lambda r)J0(rho r)dr equals 2pi Re[-i lambda/(z²+rho²)^(3/2)+3z²/(z²+rho²)^(5/2)], z=1-i lambda. At rho=0 its sign is 3-6lambda²-lambda^4, giving necessary lambda²<=2sqrt3-3. For 0<lambda²=t<=2sqrt3-3, put sqrt(z²+rho²)=X-iY, XY=lambda and u=Y/(lambda X)∈(0,1]. Exact rationalization gives a degree-6 polynomial P(u,t) with a seven-term Bernstein expansion B_j(t), j=0..6. Independent symbolic derivation and expansion checked all coefficients and the transformed Fourier numerator; all B0..B5>0 and B6=(1+t)²(3-6t-t²)>=0 for 0<=t<=t*. Therefore spectral density is nonnegative at every rho, and strictly positive except at rho=0 at critical lambda. Bochner gives all finite-configuration PSD, while positive density on an open frequency set gives strict PD for distinct locations. Numerical Fourier checks for four ratios x 35 radii support but do not replace the global Bernstein proof.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Gneiting arXiv:1111.7077 reviews isotropic Matérn positive definiteness and sphere dimension walks, not this oscillatory R² family.",
+          "Hu–Lindgren–Simpson–Rue arXiv:1307.1384 constructs other oscillatory multivariate SPDE covariance spectra.",
+          "Previously known three-dimensional Matérn-product cutoff at 1/sqrt5, if used as restriction to R², supplies only a smaller sufficient interval and does not dominate the claimed larger planar sharp interval."
+        ],
+        "reasoning": "The nonoscillatory Matérn theorem and general SPDE construction do not imply positivity of arbitrary pointwise cosine modulation. A stricter R³ cutoff cannot determine the R² sharp boundary.",
+        "searches": [
+          "Resultary: Matern 3/2 times damped cosine isotropic positive definite R2 Fourier spectral density threshold",
+          "Resultary: matérn oscillatory covariance three dimensional (1+a r) exp(-a r) cos(w r) sharp cutoff",
+          "Web: oscillatory Matérn (1+ar)exp(-ar)cos(omega r) positive definite plane threshold",
+          "arXiv:1111.7077",
+          "arXiv:1307.1384",
+          "Gneiting-Guttorp 2010 damped cosine cited Zastavnyi 1993"
+        ]
+      },
+      "checked_sources": [
+        "Gneiting 2011 arXiv:1111.7077 abstract and sphere positivity overview",
+        "Hu et al. 2013 arXiv:1307.1384 abstract and SPDE family description",
+        "Gneiting-Guttorp handbook damped-cosine chapter extract and original 1993 citation, not full 1993",
+        "Resultary family and spectral threshold searches",
+        "Independent symbolic Bernstein certificate and Fourier samples"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "At lambda=0 the Matérn radial spectral density is 6pi(1+rho²)^(-5/2), already positive.",
+          "The critical lambda²=2sqrt3-3 comes from zero-frequency numerator 3-6t-t², and sufficiency requires the explicit Bernstein all-frequency certificate."
+        ],
+        "reasoning": "Prior unmodulated and oscillatory SPDE statements do not supply this necessary-and-sufficient modulation boundary; a direct calculation is necessary and independently reproduced.",
+        "searches": [
+          "Resultary: Matern 3/2 times damped cosine isotropic positive definite R2 Fourier spectral density threshold",
+          "Resultary: matérn oscillatory covariance three dimensional (1+a r) exp(-a r) cos(w r) sharp cutoff",
+          "Web: oscillatory Matérn (1+ar)exp(-ar)cos(omega r) positive definite plane threshold",
+          "arXiv:1111.7077",
+          "arXiv:1307.1384",
+          "Gneiting-Guttorp 2010 damped cosine cited Zastavnyi 1993"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "The kernel is the real part of a complex-parameter Matérn exponential multiplied by (1+ar); it is not simply a positive definite product of two independent radial kernels.",
+          "The spectral Fourier-Bessel sign criterion is Bochner equivalent to positive definiteness on all R² configurations."
+        ],
+        "reasoning": "This translates the statement to frequency nonnegativity, but the exact polynomial positivity certificate is a new evaluation of that criterion for this product.",
+        "searches": [
+          "Resultary: Matern 3/2 times damped cosine isotropic positive definite R2 Fourier spectral density threshold",
+          "Resultary: matérn oscillatory covariance three dimensional (1+a r) exp(-a r) cos(w r) sharp cutoff",
+          "Web: oscillatory Matérn (1+ar)exp(-ar)cos(omega r) positive definite plane threshold",
+          "arXiv:1111.7077",
+          "arXiv:1307.1384",
+          "Gneiting-Guttorp 2010 damped cosine cited Zastavnyi 1993"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "Actual Resultary searches for exact planar Matérn*(cos) and R³ analogue returned no exact same-family threshold.",
+          "General covariance-function source catalogues list Matérn and damped cosine separately, not a checked exact planar row with sqrt(2sqrt3-3)."
+        ],
+        "reasoning": "No exact table located; negative search and common covariance nomenclature are not a novelty certificate.",
+        "searches": [
+          "Resultary: Matern 3/2 times damped cosine isotropic positive definite R2 Fourier spectral density threshold",
+          "Resultary: matérn oscillatory covariance three dimensional (1+a r) exp(-a r) cos(w r) sharp cutoff",
+          "Web: oscillatory Matérn (1+ar)exp(-ar)cos(omega r) positive definite plane threshold",
+          "arXiv:1111.7077",
+          "arXiv:1307.1384",
+          "Gneiting-Guttorp 2010 damped cosine cited Zastavnyi 1993"
+        ]
+      },
+      "rationale": "The Matérn-3/2 covariance itself and damped-cosine families are classical, and Gneiting reviews positive radial kernel theory. The exact planar threshold for their radial product is a specific Fourier-Bessel calculation not established by inspected primary general/spectral SPDE sources. Inaccessible original 1993 damped-cosine study and potentially equivalent Matérn modulation literature are material priority risks.",
+      "residual_risks": [
+        "The original Zastavnyi 1993 damped-cosine source was not read in full, so hidden stronger statements cannot be excluded.",
+        "Gneiting and Hu full primary papers were not read in this execution; comparison is bounded accordingly.",
+        "The result is restricted to R²; general dimension and other Matérn smoothness are outside scope."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Useful background but sphere-only main subject and Matérn without this modulation; cannot claim complete exclusion from uninspected full text.",
+          "evidence": "Describes completely monotone families, powered exponential and Matérn, and positive type on spheres.",
+          "identifier_or_url": "https://arxiv.org/abs/1111.7077",
+          "material_read": "Abstract and publicly accessible overview of sphere positivity/Gegenbauer theory and Matérn families, not complete article.",
+          "method": "Read primary arXiv abstract and index, compared domain with R² Euclidean kernel.",
+          "title": "Strictly and non-strictly positive definite functions on spheres",
+          "trigger": "Primary Matérn positive-definiteness and geometry review"
+        },
+        {
+          "assessment": "Oscillation is via systems of SPDEs; available material does not identify this exact radial product or threshold; full-paper priority check incomplete.",
+          "evidence": "Models automatically produce nonnegative definite covariance by SPDE construction, a different sufficiency mechanism.",
+          "identifier_or_url": "https://arxiv.org/abs/1307.1384",
+          "material_read": "Primary abstract and public SPDE method description, not the complete paper equations.",
+          "method": "Read arXiv author abstract and related article description.",
+          "title": "Multivariate Gaussian Random Fields with Oscillating Covariance Functions using Systems of SPDEs",
+          "trigger": "Potential same Matérn oscillator construction"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "rationale": "Planar isotropic covariance kernels are natural in Gaussian field modeling, and oscillation changes PSD nontrivially; the exact maximal oscillation-to-decay ratio with strict finite-site positivity is a meaningful stability/design cutoff, not an arbitrary parameter slice. Its difference from the higher-dimensional sufficient bounds is geometrically motivated.",
+      "status": "PASS"
+    }
+  },
+  "checked_sources": [
+    "Gneiting 2011 arXiv:1111.7077 abstract and sphere positivity overview",
+    "Hu et al. 2013 arXiv:1307.1384 abstract and SPDE family description",
+    "Gneiting-Guttorp handbook damped-cosine chapter extract and original 1993 citation, not full 1993",
+    "Resultary family and spectral threshold searches",
+    "Independent symbolic Bernstein certificate and Fourier samples"
+  ],
+  "disposition": "passed",
+  "limitations": [
+    "a>0, omega>=0, Euclidean dimension 2 only; no arbitrary smoothness or mixture theorem.",
+    "Fourier density zero at origin at equality does not preclude distinct-site strict positive definiteness.",
+    "The original Zastavnyi 1993 damped-cosine source was not read in full, so hidden stronger statements cannot be excluded.",
+    "Gneiting and Hu full primary papers were not read in this execution; comparison is bounded accordingly.",
+    "The result is restricted to R²; general dimension and other Matérn smoothness are outside scope."
+  ],
+  "schema_version": 1
+}

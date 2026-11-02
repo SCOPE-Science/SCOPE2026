@@ -5,8 +5,11 @@
     "status": "not_performed"
   },
   "independent_audit": {
-    "evidence": null,
-    "status": "not_performed"
+    "status": "passed",
+    "evidence": [
+      "INDEPENDENT_AUDIT_2026-10-31.md",
+      "INDEPENDENT_AUDIT_2026-10-31.json"
+    ]
   },
   "lean_verification": {
     "evidence": null,
@@ -16,8 +19,24 @@
 }
 ---
 
-# Verification
+# Independent mathematical audit
 
-The included `CHECK.py` is a standalone Python 3 script using NumPy, SciPy, and SymPy. Execute `python CHECK.py` from the directory containing the file. The code checks exact symbolic identities between the raw Fourier numerator, its degree-six polynomial, and the Bernstein basis coefficients. It compares twenty-five independently evaluated Bessel integrals with the closed Fourier formula, checks the zero-frequency endpoint and positive nonzero-frequency behavior numerically, and gives an explicit 36-site finite Gram-matrix negative eigenvalue outside the admissible range.
+## correctness
 
-Actual execution reported all symbolic checks PASS; 25 numerical integral comparisons PASS (maximum absolute discrepancy \(5.33\times10^{-15}\)); origin and sampled sign comparisons PASS; and a finite-grid negative eigenvalue approximately \(-0.012938854494\) at \(a=1\), \(\omega=0.8\). The exact admissibility claim is established analytically in `RESULT.md`, not by numerical sampling. Independent mathematical audit and validation are not performed.
+PASS
+
+After scale a=1, the radial Fourier-Bessel integral 2pi ∫ r(1+r)e^-r cos(lambda r)J0(rho r)dr equals 2pi Re[-i lambda/(z²+rho²)^(3/2)+3z²/(z²+rho²)^(5/2)], z=1-i lambda. At rho=0 its sign is 3-6lambda²-lambda^4, giving necessary lambda²<=2sqrt3-3. For 0<lambda²=t<=2sqrt3-3, put sqrt(z²+rho²)=X-iY, XY=lambda and u=Y/(lambda X)∈(0,1]. Exact rationalization gives a degree-6 polynomial P(u,t) with a seven-term Bernstein expansion B_j(t), j=0..6. Independent symbolic derivation and expansion checked all coefficients and the transformed Fourier numerator; all B0..B5>0 and B6=(1+t)²(3-6t-t²)>=0 for 0<=t<=t*. Therefore spectral density is nonnegative at every rho, and strictly positive except at rho=0 at critical lambda. Bochner gives all finite-configuration PSD, while positive density on an open frequency set gives strict PD for distinct locations. Numerical Fourier checks for four ratios x 35 radii support but do not replace the global Bernstein proof.
+
+## originality
+
+PASS
+
+The Matérn-3/2 covariance itself and damped-cosine families are classical, and Gneiting reviews positive radial kernel theory. The exact planar threshold for their radial product is a specific Fourier-Bessel calculation not established by inspected primary general/spectral SPDE sources. Inaccessible original 1993 damped-cosine study and potentially equivalent Matérn modulation literature are material priority risks.
+
+## value
+
+PASS
+
+Planar isotropic covariance kernels are natural in Gaussian field modeling, and oscillation changes PSD nontrivially; the exact maximal oscillation-to-decay ratio with strict finite-site positivity is a meaningful stability/design cutoff, not an arbitrary parameter slice. Its difference from the higher-dimensional sufficient bounds is geometrically motivated.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
