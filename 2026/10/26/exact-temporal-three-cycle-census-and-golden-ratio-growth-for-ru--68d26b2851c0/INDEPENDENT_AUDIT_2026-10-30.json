@@ -1,0 +1,124 @@
+{
+  "audit_date_utc": "2026-10-30",
+  "audited_at_utc": "2026-10-30T20:50:49Z",
+  "axes": {
+    "correctness": {
+      "rationale": "Three iterations of a radius-one cellular automaton have effective radius three. A 64-state de Bruijn walk records a six-bit overlap and appends a seventh bit only when the central output of Rule62^3 equals the original central input. Closed walks of length n therefore biject to labelled cyclic points fixed by f^3, even at short cyclic sizes by periodic closure. A separately generated 4-state one-step walk has characteristic polynomial x^3(x-1), hence tr(H^n)=1 for all n>=1 and exactly one temporally fixed state. Prime temporal period three gives C_n=(tr(M^n)-1)/3. Independent construction of M and exact SymPy characteristic polynomial factorization matches x^51(x-1)(x²+1)(x²-x-1)Q(x); the separate rational Schur-Cohn reduction in the source establishes |lambda_j|<3/2 and justifies the uniform exponential remainder. Fresh exhaustive ring tests for n=1..12 yield C_n=(0,0,1,0,5,7,7,24,22,35,77,87). Enumeration is corroboration, whereas transfer path correspondence and exact polynomial certificate establish all n.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Stricker examines full cycles for small k (around k<=22), partial larger samples, and organizes lengths rather than exact multiplicities across all k.",
+          "Chen et al. prove infinite-sequence symbolic chaos/gliders by bibliographic abstract, which does not itself count finite periodic three-cycles.",
+          "Zhu–Richard abstract promises finite periodic Koopman classification; full text was inaccessible and is not declared noncovering."
+        ],
+        "reasoning": "A general classification of periods or an existence theorem does not imply the full all-n orbit multiplicity; nevertheless highly relevant unavailable preprint/article leaves historical priority risk.",
+        "searches": [
+          "Stricker Classification of Elementary Cellular Automata Based on Their Limit Cycle Lengths in Z/k 2023",
+          "Zhu Richard Elementary cellular automata spectral properties Koopman finite periodic realizations arXiv:2610.10967",
+          "Chen Shi Chen Jin Chaos and gliders Rule62 Journal Cellular Automata 2012"
+        ]
+      },
+      "checked_sources": [
+        "Stricker, Complex Systems 32 (2023) complete PDF",
+        "Chen et al., JCA 7(4) (2012) abstract/bibliographic only",
+        "Zhu–Richard arXiv:2610.10967 abstract only",
+        "Taga et al., Chaos 31 103121 (2021) abstract",
+        "Resultary semantic Rule62 query; source Git RESULT.md / verify_rule62.py"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "Prior work can demonstrate a period-three attractor or Koopman eigenvalue e^{2pi i/3} at chosen n but that only proves positive C_n there.",
+          "Source determinant establishes the exact powers phi^n and Q-root contributions for every n."
+        ],
+        "reasoning": "The formula is a stronger all-n quantitative multiplicity statement, not a corollary of a finite example. A fully general all-n spectral formula in the inaccessible 2026 primary preprint could dominate, so no absolute priority certification is claimed.",
+        "searches": [
+          "Rule 62 full ring length period 3 cyclic orbit multiplier formula",
+          "finite Koopman spectral classification arXiv:2610.10967",
+          "Stricker cycle length appendix"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "The count C_n is a primitive temporal-orbit multiplicity, not just the existence of three-period points.",
+          "A 64-state de Bruijn adjacency trace computes fixed points of f^3; subtracting the unique f-fixed point and dividing by 3 converts to least period-three orbits."
+        ],
+        "reasoning": "Checked dynamic zeta/Koopman/transfer-matrix aliases: complete Koopman finite-n spectrum would encode C_n at that size, but no inspected source provides the specified all-n symbolic trace or Q polynomial.",
+        "searches": [
+          "elementary cellular automaton rule 62 cyclic temporal period three orbit counts transfer matrix golden ratio [Resultary_Search]",
+          "Rule62 number of points fixed by f^3 finite ring trace zeta function"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "Resultary returned related rules and unrelated trace complexity records, not a same-Rule62 exact C_n sequence.",
+          "Stricker explicitly reports exhaustive cyclic lengths to k=18 or 22 and computational limitations beyond; no all-ring algebraic generating expression.",
+          "Taga et al state numerical Koopman calculation for all rules at one ring size 13."
+        ],
+        "reasoning": "Finite tables do not establish an all-n algebraic formula; failure of one search does not prove uniqueness of the formula.",
+        "searches": [
+          "Resultary_Search: elementary cellular automaton rule 62 cyclic temporal period three orbit counts transfer matrix golden ratio",
+          "Stricker 2023 finite cycle length spectrum appendix",
+          "Taga et al Koopman spectra 2021 finite ring 13 cells"
+        ]
+      },
+      "rationale": "A period-three dynamical signature is known for Rule62, and generic finite-state Koopman spectra can encode finite orbit lengths. But Stricker (2023) computes and classifies finite ring spectra only in finite sampled ranges; Taga et al. (2021) calculate ECA Koopman spectra at a fixed 13-cell size. Zhu–Richard (October 2026) concerns Koopman classification on finite rings, but its full preprint was not obtainable here. Chen et al. (2012) is directly on Rule62 chaos and gliders but full text was unavailable. No accessible exact all-length count or its golden-ratio rate was found; priority remains qualified by these plausible works.",
+      "residual_risks": [
+        "Chen–Shi–Chen–Jin 2012 Rule62 primary full text was not available and could contain equivalent periodic orbit calculations.",
+        "Zhu–Richard 2026 finite Koopman preprint full text was not accessible; its exact ring-level tables/appendices may overlap.",
+        "Generically formulated dynamical zeta or transfer-matrix results could already specialize to this 64-state polynomial."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "NOT_COVERING exact all-n period-three orbit multiplicities",
+          "evidence": "Finite exhaustive/partial period-length tables and a cycle-length classification, not symbolic 64-state transfer determinant.",
+          "identifier_or_url": "https://content.wolfram.com/sites/13/2024/01/32-3-1.pdf (Stricker, 2023)",
+          "material_read": "full PDF Sections 2–7 and Appendix A; inspected computational boundaries and Rule62 classification",
+          "method": "read and examined source pages including visual figures",
+          "title": "Classification of Elementary Cellular Automata Based on Their Limit Cycle Lengths in Z/k",
+          "trigger": "same finite rings and cycle lengths"
+        },
+        {
+          "assessment": "PLAUSIBLE_INACCESSIBLE_PRIORITY_RISK",
+          "evidence": "Abstract concerns symbolic mixing, gliders and Li–Yorke/Devaney chaos; cannot assert whole document has no finite-ring census.",
+          "identifier_or_url": "Journal of Cellular Automata 7(4), 287–302 (2012), Chen–Shi–Chen–Jin",
+          "material_read": "publicly accessible official institutional abstract and bibliographic page only; full text not accessible",
+          "method": "looked for lawful full text and authorized institutional retrieval (worker unavailable)",
+          "title": "Chaos and Gliders in Periodic Cellular Automaton Rule 62",
+          "trigger": "same Rule62 and temporal period-three signatures"
+        },
+        {
+          "assessment": "PLAUSIBLE_INACCESSIBLE_PRIORITY_RISK",
+          "evidence": "Broad abstract gives classification of spectra but not enough text to exclude an appendix containing Rule62 exact data.",
+          "identifier_or_url": "arXiv:2610.10967 (Zhu–Richard, 2026-10-07)",
+          "material_read": "arXiv abstract and bibliographic record only; full preprint HTTP access disabled",
+          "method": "arXiv HTML/PDF attempts plus alternate public abstract",
+          "title": "Elementary cellular automata: spectral properties of Koopman operator for finite periodic realizations",
+          "trigger": "exactly finite periodic ECA spectral analysis; possible primitive orbit multiplicity encoding"
+        },
+        {
+          "assessment": "NO_KNOWN_ALL_N_IMPLICATION",
+          "evidence": "Study explicitly reports numerical all-rule spectra for one ring size N=13.",
+          "identifier_or_url": "DOI:10.1063/5.0059202 (Taga et al., Chaos 2021)",
+          "material_read": "institutional abstract with explicit N=13 limitation",
+          "method": "read paper abstract and institutional bibliographic details",
+          "title": "Koopman spectral analysis of elementary cellular automata",
+          "trigger": "prior finite-ring Koopman evidence"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "rationale": "An all-ring exact cycle census for a nonlinear elementary automaton yields an explicit rational dynamical zeta contribution, distinct spatial growth rate and finite-size spectral correction. It resolves a natural quantitative gap between finite-state period detection and asymptotic cycle abundance, without conflating spatial n with temporal period three.",
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "final_claim": "For Wolfram elementary binary cellular automaton Rule 62 on each labelled cyclic ring of length n>=1, the number C_n of distinct orbits of least temporal period exactly three is (tr(M^n)-1)/3, where the 64-state de Bruijn transfer M has characteristic polynomial x^51(x-1)(x^2+1)(x^2-x-1)Q(x) and Q(x)=x^8+x^7+x^6+x^5+3x^4+2x^3+x^2+2x+1. Therefore C_n=(phi^n+(-phi^-1)^n+2cos(pi*n/2)+sum_j lambda_j^n)/3=phi^n/3+O((3/2)^n), lambda_j roots of Q, phi=(1+sqrt(5))/2. No assertion about all temporal periods or infinite-line entropy.",
+  "limitations": [
+    "Only least temporal period 3 on labelled cyclic binary rings, not general temporal periods, infinite-space mixing or optimal spectral error.",
+    "The octic remainder O((3/2)^n) is certified but not claimed to be sharp."
+  ],
+  "schema_version": 1
+}
