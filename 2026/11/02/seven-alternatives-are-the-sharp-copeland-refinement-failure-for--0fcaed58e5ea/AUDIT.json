@@ -1,0 +1,123 @@
+{
+  "correctness": {
+    "rationale": "For each strict tournament, the paper's four eligibility cases simplify to the two predecessor-successor conditions in RESULT.md. Direct per-iteration scoring yields the witness DSR vector (6,3,2,4,5,14,14) and Copeland vector (3,3,2,2,2,5,4). A C99 program extracted from the same package reproduces the paper's four-alternative benchmark, then enumerates all 2^(n choose 2) bit-coded labeled tournaments for 2<=n<=7, without pruning; failure counts are 0,0,0,0,0,5040. All 5040 seven-vertex failures exactly equal one explicitly generated 5040-element relabeling orbit. Separately written Python/Numba matrix scoring corroborated the n=7 result. These are exact exhaustive finite checks and do not purport to prove statements about n>7.",
+    "status": "PASS"
+  },
+  "independent": false,
+  "independent_audit_status": "not_performed",
+  "originality": {
+    "broader_coverage": {
+      "evidence": [
+        "Hou 2025 International Journal of General Systems abstract: the original formula's containment theorem is stated only through four alternatives.",
+        "Hou 2026 Expert Systems with Applications abstract: a partition-position-based tournament solution agrees with Copeland under specific divisibility and is generally non-equal; neither mere non-equality nor the distinct indicator score proves a failure of containment for the 2024 numeric rule."
+      ],
+      "reasoning": "A stronger theorem proving Copeland containment for all tournaments would contradict the explicit constructed witness. A different solution that is merely unequal to Copeland could still be a strict subset, so its published non-equality claim does not subsume the first noncontainment threshold. Access to that paper's complete proof/examples was not available; this comparison is conditional on available text, and the risk is recorded.",
+      "searches": [
+        "new social welfare function dominating-set-relaxed-scoring Copeland conjecture computational classification",
+        "Fujun Hou 2025 dominating set relaxations score home away Copeland DSR seven alternatives",
+        "\"dominating-set-relaxed\" \"Copeland\" 7 alternatives",
+        "\"A tournament solution based on dominating-set-relaxed partitions\" \"7\" \"Copeland\"",
+        "\"A social welfare function based on dominating set relaxations\" Copeland 7"
+      ]
+    },
+    "checked_sources": [
+      "https://arxiv.org/html/2403.16373",
+      "https://www.tandfonline.com/doi/abs/10.1080/03081079.2025.2493189",
+      "https://eurekamag.com/research/102/701/102701073.php",
+      "https://www.ebiotrade.com/newsf/2025-12/20251225083828089.htm",
+      "https://www.tandfonline.com/doi/full/10.1080/03081079.2025.2493189"
+    ],
+    "claim_vs_prior_implication": {
+      "evidence": [
+        "Hou 2024 Proposition 7: DSR subset Copeland for at most four candidates; its Conclusion conjectures the statement for larger tournaments.",
+        "The original full-text Table 7 score (3,4,1,0) is reproduced exactly by the new implementation.",
+        "Later 2025 journal abstract repeats the up-to-four result and 2026 article describes a partition-position score; neither accessible text contains the 5040-one-orbit census."
+      ],
+      "reasoning": "A theorem about <=4 and an observation about 5 do not imply the <=6 exhaustive bound or failure at 7. Banks, uncovered, Smith and minimal-covering sets are distinct correspondences; their exact finite classifications do not subsume this claim. The uninspected 2026 paper leaves a genuine residual possibility of prior coverage, but no decisive statement available established it.",
+      "searches": [
+        "Fujun Hou 2024 DSR-scoring dominating-set-relaxed scoring tournament Copeland winners counterexample five six seven alternatives subset",
+        "tournament DSR scoring vs Copeland winner open conjecture first failure number of vertices",
+        "new social welfare function dominating-set-relaxed-scoring Copeland conjecture computational classification",
+        "\"DSR-scoring\" \"Copeland\" counterexample seven",
+        "\"A social welfare function based on dominating set relaxations\" Copeland 7",
+        "arxiv:2403.16373v1 Section 6.3 Proposition 7 and Conclusion"
+      ]
+    },
+    "equivalent_formulations": {
+      "evidence": [
+        "Hou 2024 arXiv:2403.16373v1 equations (5)-(9) define this precise home-plus-away score; Proposition 7 proves containment only for <=4 alternatives.",
+        "Hou 2024 conclusion explicitly conjectures extension to larger tournaments and notes a five-alternative check."
+      ],
+      "reasoning": "A counterexample to universal Copeland containment is equivalent to existence of a DSR maximizing candidate of strictly submaximal outdegree. The witness has DSR score 14 for vertices 5 and 6 but Copeland score 5 versus 4, so it satisfies the exact negation. No searched source gave this implication at order seven.",
+      "searches": [
+        "Fujun Hou 2024 DSR-scoring dominating-set-relaxed scoring tournament Copeland winners counterexample five six seven alternatives subset",
+        "tournament DSR scoring vs Copeland winner open conjecture first failure number of vertices",
+        "arXiv 2403.16373 Fujun Hou DSR scoring Copeland n=7 seven vertices 5040 tournaments violation 1324",
+        "\"DSR-scoring\" \"Copeland\" counterexample seven",
+        "\"Fujun Hou\" \"Copeland\" conjecture counterexample tournament"
+      ]
+    },
+    "exact_database_or_table": {
+      "evidence": [
+        "Public summaries of seven-vertex Banks–uncovered and six-vertex minimal-covering/iterated-uncovered censuses concern different tournament solution correspondences.",
+        "Complete direct code enumeration under the 2024 DSR formula produces 5040 labeled failures comprising one relabeling orbit."
+      ],
+      "reasoning": "Censuses sharing tournament order or cardinality do not imply the formula-specific DSR/Copeland winner statement. No queried exact table or publicly indexed database claim covered the DSR seven-alternative obstruction.",
+      "searches": [
+        "arXiv 2403.16373 Fujun Hou DSR scoring Copeland n=7 seven vertices 5040 tournaments violation 1324",
+        "dominating-set-relaxed scoring Copeland seven candidates first counterexample exact smallest tournament",
+        "DSR-scoring tournament Copeland conjecture minimal seven unique isomorphism class 5040"
+      ]
+    },
+    "rationale": "The motivating full OA preprint states the Copeland containment conjecture beyond four alternatives, says five can be checked, and contains no sharp seven-vertex counterexample or orbit census. The later journal abstract repeats the four-alternative claim. A distinct later partition-indicator score need not imply any statement about the original numeric home-plus-away score. Targeted prior-literature and indexed mathematical research-record searches by formulas, paper identifiers, aliases and numerical witness produced no covering claim. Bibliographic incompleteness, notably the newer follow-up full text, remains a documented residual risk.",
+    "residual_risks": [
+      "The 2026 separate tournament-solution article was not read in full after both publicly accessible and authorized institutional routes failed; it could contain an unexpectedly applicable example or reduction.",
+      "Other unpublished or unindexed computations may give the same exact first failure.",
+      "Journal versions might contain details not in the 2024 lawful full-text preprint or publicly accessible abstracts."
+    ],
+    "source_inspections": [
+      {
+        "assessment": "Does not cover seven-candidate sharp failure; explicitly conjectures general inclusion and reports n=5 check",
+        "evidence": [
+          "arXiv 2403.16373v1 lines about equations (5)-(9), Proposition 7 and Conclusion; original Table 7 vector 3,4,1,0"
+        ],
+        "identifier_or_url": "https://arxiv.org/html/2403.16373",
+        "material_read": "Open-access HTML: abstract, Section 3.1 definitions of beta/gamma, Section 3.4 alternative-specific partitions, Section 4.1-4.2 equation (5)-(9) and scoring algorithm, Section 6.3 Proposition 7 and Example 5, and Conclusion",
+        "method": "Direct mathematical comparison to the exact tournament-specialized score and replication of Table 7 benchmark",
+        "title": "A new social welfare function with a number of desirable properties",
+        "trigger": "Exact source formula and open Copeland-refinement conjecture"
+      },
+      {
+        "assessment": "Abstract only states containment for <=4; no direct statement of new sharp seven-alternative census",
+        "evidence": [
+          "DOI 10.1080/03081079.2025.2493189 publisher abstract, posted April 21 2025"
+        ],
+        "identifier_or_url": "https://www.tandfonline.com/doi/abs/10.1080/03081079.2025.2493189",
+        "material_read": "Public abstract and bibliographic/notes material, not paywalled full text; lawful original preprint [1] is available and was read",
+        "method": "Compared published abstract statement with original formula and conjecture",
+        "title": "A social welfare function based on dominating set relaxations",
+        "trigger": "Journal successor to the 2024 preprint"
+      },
+      {
+        "assessment": "Accessible description uses top-placement indicator score h, different from 2024 variable home-plus-away sum. General non-equality is not a sharp noncontainment classification. Full comparison remains an acknowledged risk.",
+        "evidence": [
+          "DOI 10.1016/j.eswa.2025.130835 abstract: agrees with Copeland under specific divisibility; general equality fails, without claim of n=7 threshold"
+        ],
+        "identifier_or_url": "https://eurekamag.com/research/102/701/102701073.php",
+        "material_read": "Bibliographic abstract and public detailed paraphrase/excerpt on https://www.ebiotrade.com/newsf/2025-12/20251225083828089.htm; full original journal text unavailable",
+        "method": "Checked alternative DSR partition scoring and comparisons with Copeland; lawful arXiv and OA searches unsuccessful for this paper, and authorized institutional download reported disconnected VPN; no bypass",
+        "title": "A tournament solution based on dominating-set-relaxed partitions",
+        "trigger": "Same author and terminology, potentially broader prior tournament result"
+      }
+    ],
+    "status": "PASS"
+  },
+  "review_type": "self_review",
+  "schema_version": 1,
+  "scope_run_id": "0fcaed58-e5ea-4d4d-8a5d-2254e5e899d1",
+  "self_review_status": "passed",
+  "value": {
+    "rationale": "The 2024 source explicitly posed an all-order Copeland-refinement conjecture. A smallest counterexample with exact first failure census and a unique isomorphism class resolves its natural question sharply, despite finite proof scope. The non-Copeland DSR co-winner in the witness shows why familiar uncovered-set containment does not ensure Copeland containment. This is a meaningful motivated finite boundary, not a routine recomputation of known tables.",
+    "status": "PASS"
+  }
+}
