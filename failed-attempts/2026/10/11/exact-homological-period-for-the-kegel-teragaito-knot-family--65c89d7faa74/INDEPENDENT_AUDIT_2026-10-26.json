@@ -1,0 +1,140 @@
+{
+  "audit_date_utc": "2026-10-26",
+  "audited_at_utc": "2026-10-26T13:15:52Z",
+  "axes": {
+    "correctness": {
+      "finite_verification": "Independently ran sympy polynomial gcd/derivative-gcd tests, degrees and exact arithmetic formula for n=1..12; exact tree reconstructed from six Git blob identities. This finite check is corroboration, not an all-n proof.",
+      "limitations": "Does not determine pseudo-Anosov stretch factors, Johnson filtration, any relation to strong inversion, or higher nilpotent actions. Depends on the cited exact knot family polynomial.",
+      "proof_components": [
+        "Read actual RESULT.md and Baker–Kegel 2024 Theorem 4.4 m=0 formula; checked normalization/g=4n+2 and n>=1 boundary.",
+        "Verified quotient divisibility: a odd removes -1; b≡2 mod4 removes both ±i, with no repeated roots.",
+        "Proved cross-coprimality via exponent difference exactly 3 and impossibility of a power of a cube root being -1.",
+        "Surviving primitive roots force lower bound of both 2a and 2b; diagonalization gives matching upper bound.",
+        "Integral equality follows because complex matrix identity A^m=I is the same integer-matrix identity."
+      ],
+      "rationale": "The exact K_n family is fibred as an L-space knot; its hyperbolic complement gives pseudo-Anosov monodromy. Published Δ_{K_n}(t)=((t^{4n+5}+1)(t^{4n+2}+1))/((t+1)(t²+1)) equals the characteristic polynomial of A=(φ_n)_* on H1 for genus g=4n+2 (monic degree 2g). With a=4n+5 odd and b=4n+2≡2 mod4, P=(t^a+1)/(t+1) and Q=(t^b+1)/(t²+1) are polynomials with simple roots, and cannot share a root since z^a=z^b=-1 would imply z³=1 and z^b=-1. Thus A is diagonalizable over C. P retains primitive ζ_{2a}, Q retains primitive ζ_{2b}; all roots have orders dividing 2a or 2b. Hence ord(A)=lcm(2a,2b). Because gcd(a,b)=gcd(3,4n+2) is 3 iff n≡1 mod3, the displayed piecewise formula and minimal Torelli power follow exactly. No assertion is made about finite geometric order.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "The 2024 exact Alexander-polynomial formula holds for every n>=1, not just a finite table; it determines the full spectrum of the homological action.",
+          "The family was already proved hyperbolic and L-space in 2024; L-space knots are fibered and hyperbolic knot monodromy is pseudo-Anosov."
+        ],
+        "reasoning": "Full characteristic-polynomial data on the identical infinite family dominate the numerical order as soon as the elementary squarefreeness observation is made. The 2026 new symmetry result is unnecessary for that mathematical consequence.",
+        "searches": [
+          "Resultary 2026-10-26 semantic queries: \"homological monodromy exact order first Torelli power hyperbolic L-space Kegel Teragaito knots family Alexander polynomial roots of unity\"; \"o9_30634 braid K_n Baker Kegel Alexander cyclotomic polynomial finite order monodromy mapping class H1\"; \"fibered knot finite order homological monodromy from cyclotomic Alexander polynomial squarefree pseudo-Anosov knot homology periodic Torelli\"",
+          "2024 Baker–Kegel Section 2, Proposition 2.1, Theorem 4.4",
+          "Hironaka 2005 monodromy Alexander polynomial"
+        ]
+      },
+      "checked_sources": [
+        "Kenneth L. Baker and Marc Kegel, Census L-space knots are braid positive, except for one that is not, Algebraic & Geometric Topology 24 (2024), 569–586, Theorem 4.4 and displayed m=0 factorization, arXiv:2203.12013v3, https://arxiv.org/pdf/2203.12013",
+        "Marc Kegel and Masakazu Teragaito, An infinite family of strongly invertible L-space knots without Khovanov thin surgery, arXiv:2608.00864v1 (2026), Theorem 1.1 and Lemma 2.1, https://arxiv.org/abs/2608.00864",
+        "Eriko Hironaka, Salem–Boyd sequences and Hopf plumbing, arXiv:math/0506602 (2005), abstract and standard homological characteristic-polynomial identification, https://arxiv.org/abs/math/0506602"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "Published Δ_{K_n}=(t^a+1)(t^b+1)/((t+1)(t²+1)), a=4n+5,b=4n+2.",
+          "For every n>=1, a is odd and b≡2 mod4: quotient roots are simple. z^a=z^b=-1 ⇒ z³=1, impossible since z^b=-1; so distinct across factors. Primitive roots ζ_{2a},ζ_{2b} both survive.",
+          "Therefore already known characteristic polynomial forces ord((φ_n)_*)=lcm(2a,2b) and minimal Torelli exponent equal to this order."
+        ],
+        "reasoning": "This is a direct corollary under elementary linear algebra and cyclotomic polynomial facts: no new input beyond published Δ is needed. The adjective \"unique strong inversion\" depends on 2026 work but is orthogonal to the homological order. A claim cannot evade coverage simply because prior authors did not print the lcm or the Torelli wording.",
+        "searches": [
+          "arXiv:2203.12013v3 Theorem 4.4 and formula",
+          "arXiv:2608.00864v1 family definition and Theorem 1.1",
+          "Hironaka arXiv:math/0506602 abstract",
+          "web 2026-10-26: \"Kegel Teragaito knot family period Torelli homological\", \"o9_30634 homological monodromy\", \"exact homological period Kegel Teragaito Baker Kegel Alexander first homology Torelli\""
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Baker–Kegel (2024), Theorem 4.4 and displayed Δ factorization for K_n, include all root orders of the homology action.",
+          "The equivalent formulation \"least common exponent annihilating all roots of the characteristic polynomial\" yields lcm(8n+10,8n+4) upon the obvious squarefreeness check."
+        ],
+        "reasoning": "The period need not be printed: cyclotomic factorization of the exact H1 characteristic polynomial and distinct roots determine the integral matrix order uniquely by textbook complex diagonalization. The family is the same K_n braid, not merely a similar name.",
+        "searches": [
+          "web 2026-10-26: \"Kegel Teragaito knot family period Torelli homological\", \"o9_30634 homological monodromy\", \"exact homological period Kegel Teragaito Baker Kegel Alexander first homology Torelli\"",
+          "Resultary 2026-10-26 semantic queries: \"homological monodromy exact order first Torelli power hyperbolic L-space Kegel Teragaito knots family Alexander polynomial roots of unity\"; \"o9_30634 braid K_n Baker Kegel Alexander cyclotomic polynomial finite order monodromy mapping class H1\"; \"fibered knot finite order homological monodromy from cyclotomic Alexander polynomial squarefree pseudo-Anosov knot homology periodic Torelli\"",
+          "arXiv:2203.12013 Theorem 4.4, m=0 polynomial; arXiv:2608.00864 Lemma 2.1"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "K_1=o9_30634 occurs in the census, but the published all-n Δ formula is much stronger than an isolated census entry.",
+          "No independently verified old table explicitly listing m_n was needed; the exact all-n expression is already mechanically derivable from the prior theorem."
+        ],
+        "reasoning": "An exact period table is unnecessary to establish coverage: published entire-family polynomial and universal eigenvalue-order rules imply every entry. The indexed Resultary copy of the assigned claim was explicitly excluded from external priority evidence.",
+        "searches": [
+          "web 2026-10-26: \"Kegel Teragaito knot family period Torelli homological\", \"o9_30634 homological monodromy\", \"exact homological period Kegel Teragaito Baker Kegel Alexander first homology Torelli\"",
+          "2024 Baker–Kegel o9_30634 / K_n tables and Theorem 4.4",
+          "Resultary 2026-10-26 semantic queries: \"homological monodromy exact order first Torelli power hyperbolic L-space Kegel Teragaito knots family Alexander polynomial roots of unity\"; \"o9_30634 braid K_n Baker Kegel Alexander cyclotomic polynomial finite order monodromy mapping class H1\"; \"fibered knot finite order homological monodromy from cyclotomic Alexander polynomial squarefree pseudo-Anosov knot homology periodic Torelli\""
+        ]
+      },
+      "rationale": "The entire exact-period assertion is an elementary, logically forced corollary of the specific factorized Alexander polynomial published by Baker–Kegel (2024), together with classical monodromy/Alexander identification. For a=4n+5 odd, b=4n+2=2 mod4, the two quotient factors are squarefree and have no shared root (common root would obey z³=1 and z^b=-1). Each retains a primitive 2a- or 2b-th root, so the already published characteristic polynomial forces exact order lcm(2a,2b), exactly the claimed formula. The 2026 unique-strong-inversion theorem contributes an unrelated descriptive property, not new H1 period information. This is mathematical implication coverage, not merely a missing title or an unsuccessful novelty search.",
+      "residual_risks": [
+        "The exact lcm may also appear elsewhere, but this is not necessary to the FAIL: the 2024 factorization already mathematically implies it.",
+        "Any unknown relation between the unique strong inversion and monodromy is not part of the submitted result; no assertion about such a relation is assessed."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Decisive broader published input: all K_n are hyperbolic L-space knots, and their exact Alexander polynomial is already factored into two cyclotomic quotients. A standard fibered-knot identification plus elementary separability and root orders implies the complete submitted numerical invariant. The paper need not say \"Torelli\" for its mathematics to dominate this corollary.",
+          "evidence": [
+            "Section 2 defines K_n as the same four-braid for n>=1 and proves the hyperbolic L-space family (Proposition 2.1).",
+            "Theorem 4.4 (printed p.12) displays Δ_{K_{n,0}}(t)=((t^{4n+5}+1)(t^{4n+2}+1))/((t+1)(t²+1)) and observes all roots are roots of unity."
+          ],
+          "identifier_or_url": "arXiv:2203.12013v3; doi:10.2140/agt.2024.24.569",
+          "material_read": "Original full-text PDF, pp.1–3 (braid and K_n identification), pp.11–12 (m=0 factorization, Theorem 4.4); PDF page 12 screenshot independently inspected.",
+          "method": "Primary arXiv PDF text reading plus page-image inspection; exact symbolic comparison.",
+          "title": "Census L-space knots are braid positive, except for one that is not",
+          "trigger": "Exact same family K_n and characteristic Alexander factorization; decisive mathematical priority comparison."
+        },
+        {
+          "assessment": "Supports the 2026 unique strong inversion, but this property is logically independent of the computed H1 order. This newer adjective does not make the otherwise prior-implied order original.",
+          "evidence": [
+            "Theorem 1.1 states each K_n has a unique strong inversion and a thick Watson invariant.",
+            "Lemma 2.1 explicitly recapitulates hyperbolicity and L-space status; no monodromy result appears in the searched text."
+          ],
+          "identifier_or_url": "arXiv:2608.00864v1",
+          "material_read": "Accessible lawful full-text HTML rendering: abstract, introduction, family definition, Theorem 1.1 and Lemma 2.1, plus full-text searching for monodromy and Alexander discussion.",
+          "method": "Public full-text via ResearchGate CC BY presentation (https://www.researchgate.net/publication/411182628_An_infinite_family_of_strongly_invertible_L-space_knots_without_Khovanov_thin_surgery); arXiv abstract metadata crosscheck.",
+          "title": "An infinite family of strongly invertible L-space knots without Khovanov thin surgery",
+          "trigger": "Defines the named family and verifies the unique strong-inversion adjective in the claimed theorem."
+        },
+        {
+          "assessment": "Confirms classical bridge between fibered-knot Alexander and H1 characteristic polynomials; no priority claim is made about the complete Hironaka paper.",
+          "evidence": [
+            "The abstract explicitly names the characteristic polynomial of monodromy on first homology as the generalized Alexander polynomial."
+          ],
+          "identifier_or_url": "arXiv:math/0506602",
+          "material_read": "ArXiv abstract only; not used as a full-document absence claim.",
+          "method": "Primary bibliographic abstract inspection.",
+          "title": "Salem–Boyd sequences and Hopf plumbing",
+          "trigger": "Background on the standard identification of Alexander polynomials with homological monodromy characteristic polynomials."
+        }
+      ],
+      "status": "FAIL"
+    },
+    "value": {
+      "limitations": "No judgment that homological periods are intrinsically uninteresting; the failure concerns the complete prior determination of this family’s spectrum and the mechanically implied value.",
+      "rationale": "The homological period and first Torelli power are indeed natural invariants for a fibered knot, but this specific computation is no more than a standard cyclotomic-root-order extraction from Baker–Kegel’s fully factored all-n Alexander polynomial. The only added checks are separability, gcd of the exponents (differing by three), and an lcm. The mod-three variation is the elementary gcd(4n+5,4n+2), not a new structural knot phenomenon. The 2026 uniqueness of the strong inversion has no stated mathematical interaction with the homological action. Thus the submitted theorem does not fill an independently unknown or non-implied mathematical gap; it is a routine consequence of published formulae rather than a motivated new classification.",
+      "status": "FAIL"
+    }
+  },
+  "checked_sources": [
+    "Kenneth L. Baker and Marc Kegel, Census L-space knots are braid positive, except for one that is not, Algebraic & Geometric Topology 24 (2024), 569–586, Theorem 4.4 and displayed m=0 factorization, arXiv:2203.12013v3, https://arxiv.org/pdf/2203.12013",
+    "Marc Kegel and Masakazu Teragaito, An infinite family of strongly invertible L-space knots without Khovanov thin surgery, arXiv:2608.00864v1 (2026), Theorem 1.1 and Lemma 2.1, https://arxiv.org/abs/2608.00864",
+    "Eriko Hironaka, Salem–Boyd sequences and Hopf plumbing, arXiv:math/0506602 (2005), abstract and standard homological characteristic-polynomial identification, https://arxiv.org/abs/math/0506602"
+  ],
+  "disposition": "failed",
+  "limitations": [
+    "Scientific failure means not independently original/valuable, not false mathematics.",
+    "No attempt to repair a prior-implied original by disclaimer, redundant certificate, or descriptive 2026 symmetry conjunction."
+  ],
+  "residual_risks": [
+    "No full formal proof assistant certificate or independent expert attestation; symbolic proof checked by direct reconstruction and bounded algebraic corroboration.",
+    "No need to resolve all other historical synonyms because the 2024 full-family formula is already a decisive implication.",
+    "Existing public-facing AUDIT/METADATA include operational run/provenance fields and REVIEW refers to review provenance; safe re-publication requires coordinated sanitization."
+  ],
+  "schema_version": 1
+}
