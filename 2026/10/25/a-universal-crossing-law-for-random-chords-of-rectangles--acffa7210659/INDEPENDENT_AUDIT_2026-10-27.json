@@ -1,0 +1,120 @@
+{
+  "audit_date_utc": "2026-10-27",
+  "audited_at_utc": "2026-10-27T19:52:08Z",
+  "axes": {
+    "correctness": {
+      "checked_sources": [
+        "Assigned pinned RESULT.md Git blob 6ccab00747ced4080b2b56c3eb832f7bf799b73b",
+        "Independent source-free bounded verifier: independent_check_results.json"
+      ],
+      "rationale": "Independent perimeter endpoints select same, opposite, adjacent side-pairs with probabilities p, p, 1-2p, p=(a²+b²)/(2(a+b)²). Same side gives T=1; normalizing to the square and integrating the diamond density on opposite sides gives A(t)=t(3-t)/(1+t); integrating the adjacent segment-line hit condition UV/(U+V)>=1-t gives B(t)=t-(1-t)² log((1+t)/(1-t))/2. Thus F=pA+(1-2p)B, atom p, no others. The difference h=2B-A has h‴=-8(5-t)/((1-t)(1+t)^4)<0, h(0)=0, h(1-)=1, and h′(0+)=-3<h′(1-)=2, proving exactly one interior zero. Strict monotonicity of p with aspect ratio and quadratic inversion establish the inverse and CDF crossing. Independent SymPy derivative and 4 high-precision conditional quadrature checks match exactly; t*=0.560487923302786118 and common CDF=0.438105619826313741.",
+      "residual_risks": [
+        "The precise measure is independent Euclidean arclength perimeter endpoints; arbitrary random-line laws differ."
+      ],
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Bäsel calculates regular-polygon chord/point distances under a different sampling law.",
+          "Published parallelogram result concerns fourth moment of Euclidean distances between uniformly sampled endpoints, not minimum centered-gauge intersection."
+        ],
+        "reasoning": "Even when the geometric object is a rectangle/parallelogram or the endpoints are perimeter-sampled, distance moments do not determine the entire central penetration distribution or its unique crossing.",
+        "searches": [
+          "arXiv:1204.2707 full primary paper",
+          "DOI:10.1239/aap/1246886615 chord length distribution function for regular polygons",
+          "Resultary: Fourth-chord moment amplification and angular phase transition for parallelograms"
+        ]
+      },
+      "checked_sources": [
+        "arXiv:1204.2707 primary PDF",
+        "doi:10.1239/aap/1246886615 abstract",
+        "Resultary published fourth-chord-moment record",
+        "Resultary regular-polygon central chord record",
+        "Resultary semantic query: rectangle perimeter uniformly sampled endpoints random chord intersects concentric homothetic rectangle universal crossing"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "The audited p-dependent mixture has a jump at T=1 and unique interior crossing because h changes sign exactly once.",
+          "Moments of length, or distributions for random lines, do not yield the non-Euclidean minimum-gauge statistic under independent rectangle perimeter sampling."
+        ],
+        "reasoning": "Prior outcomes do not determine the endpoint-side event mixture or the crossing equation; geometry and sampling differ.",
+        "searches": [
+          "Resultary: 2026/10/11/SCOPE-fourth-chord-moment-amplification-and-angular-phase-transition-f--45b0568cfb6e",
+          "arXiv:1204.2707"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "T is minimum Minkowski gauge along chord, equivalently first intersection of chord with a centered homothetic rectangle.",
+          "Bäsel random chord comes from motion-invariant lines and/or interior area-uniform point distances."
+        ],
+        "reasoning": "Normalized square and homothetic hit-event formulations are equivalent, but random-line and central chord formulas use different probability laws and therefore do not imply this distribution.",
+        "searches": [
+          "Resultary semantic query: rectangle perimeter uniformly sampled endpoints random chord intersects concentric homothetic rectangle universal crossing",
+          "arXiv:1204.2707, Random chords and point distances in regular polygons"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "Resultary near matches include exact fourth-chord moment for parallelograms, central chord laws for regular polygons and opposite-side Ptolemy ratios; none contains A/B side-pair penetration table."
+        ],
+        "reasoning": "No equivalent exact CDF table identified; literature indexing could miss chord penetration under another name.",
+        "searches": [
+          "Resultary semantic query: rectangle perimeter uniformly sampled endpoints random chord intersects concentric homothetic rectangle universal crossing",
+          "web query: perimeter uniformly sampled endpoints rectangle central homothetic chord hit distribution"
+        ]
+      },
+      "rationale": "The probability experiment is not a motion-invariant line, a central-angle chord, or fourth endpoint-distance moment. The exact distribution of minimum gauge along independent perimeter-endpoint chords, including the atom, aspect-ratio recovery and universal one-crossing property was not found in checked records. Indexed-source coverage remains nonexhaustive.",
+      "residual_risks": [
+        "No exhaustive literature search under Crofton, penetration functional, or concentric-rectangle hitting nomenclature.",
+        "The precise measure is independent Euclidean arclength perimeter endpoints; arbitrary random-line laws differ."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Distinct chord ensemble and measured quantity; no deduction of this rectangle penetration law",
+          "evidence": [
+            "Uses invariant random line model for chords and interior point distances for point-distance statistics."
+          ],
+          "identifier_or_url": "arXiv:1204.2707",
+          "material_read": "Primary full PDF text on chord construction and distances",
+          "method": "PDF text read and page screenshot viewed",
+          "title": "Random chords and point distances in regular polygons",
+          "trigger": "Closest published random-chord distribution"
+        },
+        {
+          "assessment": "Exactly a fourth Euclidean chord distance moment, no whole-document noncoverage claim",
+          "evidence": [
+            "Record summary gives fourth-moment ratio and angular transition."
+          ],
+          "identifier_or_url": "Resultary:2026/10/11/SCOPE-fourth-chord-moment-amplification-and-angular-phase-transition-f--45b0568cfb6e",
+          "material_read": "Resultary published abstract/summary (not full text)",
+          "method": "Resultary semantic published-record search",
+          "title": "Fourth-chord moment amplification and angular phase transition for parallelograms",
+          "trigger": "Same perimeter-uniform endpoint mechanism"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "checked_sources": [
+        "arXiv:1204.2707 primary PDF",
+        "doi:10.1239/aap/1246886615 abstract",
+        "Resultary published fourth-chord-moment record",
+        "Resultary regular-polygon central chord record",
+        "Resultary semantic query: rectangle perimeter uniformly sampled endpoints random chord intersects concentric homothetic rectangle universal crossing"
+      ],
+      "rationale": "A complete geometric-probability distribution for a natural random-chord construction, with identifiable shape parameter and a unique universal crossing, is a meaningful exact invariant. The CDF crossing refutes stochastic ordering by aspect ratio and goes beyond elementary endpoint-length moments.",
+      "residual_risks": [
+        "The precise measure is independent Euclidean arclength perimeter endpoints; arbitrary random-line laws differ."
+      ],
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "limitations": [
+    "No exhaustive literature search under Crofton, penetration functional, or concentric-rectangle hitting nomenclature.",
+    "The precise measure is independent Euclidean arclength perimeter endpoints; arbitrary random-line laws differ."
+  ],
+  "schema_version": 1
+}
