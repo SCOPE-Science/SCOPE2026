@@ -1,0 +1,11 @@
+# Self-review
+
+**Correctness — PASS.** Radial beta integration gives a gamma quotient on each finite-dimensional homogeneous polynomial space. The exact gamma-product identity proves positivity, monotonicity and compactness after the unique scalar correction. Its logarithm yields a controlled inverse-degree expansion; the exact homogeneous-block multiplicities yield the ordered singular-value constant, Schatten cutoff and weak endpoint sum. The standalone mpmath program passed 336 high-precision finite tests. The infinite-dimensional claims are proved analytically, not inferred from those tests.
+
+**Originality — PASS with historical-priority risk.** Tang–Wang–Zheng (arXiv:2210.04148v1), sections 1, 5 and 6, concern trace formulas for suitably regular symbols; their smooth boundary hypotheses fail here, and their statements do not provide the noncompact scalar defect and weak-Schatten constant. Suárez (arXiv:0710.0797), sections 1–2, provides radial moment context, not the proposed semicommutator product and dimension-dependent endpoint. Bendaoud et al. (DOI:10.15407/mag16.01.003) study radial Toeplitz Schatten classes; its complete text was not accessible from the attempted open sources or institutional retrieval, so a residual priority risk is explicitly retained. Targeted semantic searches of published mathematical findings found related Fock/radial work but no statement implying the precise ball semicommutator claim; lack of a match is not a uniqueness proof.
+
+**Value — PASS.** Smooth-symbol Bergman semicommutators admit trace results, whereas boundary-phase characters are bounded and unimodular yet give a noncompact defect. Precisely subtracting its noncompact scalar produces an intrinsic positive compact operator whose spectral decay records complex dimension; the exact weak-Schatten endpoint quantifies the sharp regularity of that correction. This is a natural boundary-regularity counterpoint, not an arbitrary scalar calculation.
+
+**Scientific limits.** The proof is fixed-frequency, fixed-dimension and fixed-weight; no uniform parameter estimates or independence claims. Originality remains provisional until broader literature review and independent verification.
+
+Self-review: passed. Independent audit: not yet performed.
