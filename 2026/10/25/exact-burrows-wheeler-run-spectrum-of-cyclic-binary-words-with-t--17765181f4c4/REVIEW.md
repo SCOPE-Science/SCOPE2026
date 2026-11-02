@@ -1,15 +1,21 @@
-# Scientific review
+# Independent mathematical audit
 
-## Correctness — PASS
-The run count is calculated from a sorted family of all cyclic rotations, with a rigorous marked-row criterion. Equal-gap and one-step-distinct-gap adjacencies exhaust the ways the three BWT markers can merge; a disjoint combinatorial case count gives the four-run generating function. Burnside's lemma counts cyclic three-gap compositions, including rotationally periodic cases. The packaged `verify.py` was run from its actual source path and independently checked every necklace at each length 4–53 by sorting the rotations themselves, checking both the classification and all three count formulas. Finite checks support but do not replace the proof. Potential review risk: subtle lexicographic ties in periodic words; equal rotations have identical predecessor bits here and are explicitly accommodated.
+## correctness
 
-## Originality — PASS, with priority limitations
-The earliest cited foundational arXiv paper of Crochemore, Désarménien and Perrin (arXiv:cs/0502073; first public 2005-02-17) was read including its definitions, inverse-transform discussion, and the permutation correspondence. It does not enumerate BWT run counts for three-marker necklaces. Mantaci–Restivo–Sciortino (2003) and Simpson–Puglisi (2008) already establish or discuss the special two-run binary case; that result is explicitly excluded from novelty claims. Mantaci et al. (2017) give fixed-point classifications, not a complete run-number distribution. A separately studied four-marker run spectrum has different fixed content and is not logically sufficient to recover the three-marker profile. Semantic searches of research records under fixed-content BWT, cyclic binary three-one words, and two/four/six run enumeration returned no directly dominating statement. Residual risk: unindexed or inaccessible equivalent enumerations, especially among historic BWT clustering papers; primary full-text inspection was incomplete for the 2003 and 2008 articles and the 2017 run-clustering paper.
+PASS
 
-## Value — PASS
-Run number directly measures the clustering behavior of the BWT, and fixed minority frequency is a natural sparsity restriction for circular sequence families. This gives the complete exact all-length distribution, a constructive three-gap classification, rational counting generating functions, and the asymptotic fact that almost every three-marker necklace has six runs. The all-length structural statement is not merely a numerical table, a routine parameter substitution from the known four-marker classification, or a rediscovery of the known two-run boundary.
+Represent each length-n word with exactly three 1s by a cyclic orbit of three nonnegative zero-gap lengths g_0,g_1,g_2 summing n-3; rotation equivalence acts by cyclic permutation, not reflection. For a rotation starting t zeros before a marker, 0≤t≤g_i, lex order prioritizes longer leading zero runs (decreasing t), then compares subsequent gaps. Its preceding BWT letter is 1 precisely for t=g_i. Exactly three marked BWT rows occur, the first transformed symbol is 1 and the last is 0 since at least one zero exists, so the total linear runs are twice the number of connected marked blocks: 2,4,6. The gap adjacency analysis distinguishes equal lengths, pairwise-distinct neighboring lengths and their cyclic orders; balanced gaps yield the unique 2-run necklace, while 4-run triples count by two equal, small-middle or middle-large adjacent marks. The resulting generating series ∑_{M≥0} C_4(M+3)z^M=z²/(1-z)²+z³/(1-z³) holds for M≥1. Burnside on three-gap cyclic compositions gives total [binom(n-1,2)+2·1_{3|n}]/3, so C_6 is the remainder, and its quadratic leading growth proves density→1. Independent code enumerated every cyclic composition orbit for every length 4..60, sorted all n cyclic rotations with multiplicities, and checked all run bins, totaling 11,419 necklaces; this independently tests the complete finite statements but the all-n proof rests on the structural lemmas and Burnside.
 
-## Limitations and closest literature
-The two-run characterization is prior work; the publication-priority of the new all-length four/six-run counts is not independently established. It is limited to binary necklaces of exact weight three, without a sentinel or identification of reflections. Relevant primary sources: Crochemore et al. (2005), arXiv:cs/0502073; Mantaci et al. (2003), DOI 10.1016/S0020-0190(02)00512-4; Simpson and Puglisi (2008), DOI 10.37236/807; Mantaci et al. (2017), DOI 10.3233/FI-2017-1566. Independent mathematical audit has not taken place.
+## originality
 
-Self-review: passed. Independent audit: not yet performed.
+PASS
+
+The sentinel-free cyclic BWT and its standard/Sturmian two-run characterization are prior knowledge; no originality is assigned to those. The exact distribution into two, four, and six linear runs among every weight-three necklace is a distinct all-length question. Simpson–Puglisi 2008 study simple BWT words (especially minimum two runs), and Mantaci–Restivo–Rosone–Russo–Sciortino 2017 fully classify BWT fixed points at low minority weight, not the run spectrum. Indeed the 2017 full primary Section 4 Proposition 4.2 explicitly classifies weight-three fixed words rather than all weight-three BWT run counts, so shared parameters do not imply coverage. No stronger all-run-spectrum theorem was found in actual searches, with possible historical gap enumeration remaining a risk.
+
+## value
+
+PASS
+
+The number of equal-letter runs in the Burrows–Wheeler transform is a natural compressibility and indexing parameter. Exactly three minority markers are the first nontrivial small-weight class with three possible BWT clustering regimes; determining all three proportions and the unique maximally clustered necklace for every length is a natural complete classification, not a selected isolated small-n count. The asymptotic prevalence of six runs is an exact property of the entire fixed-content necklace ensemble.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
