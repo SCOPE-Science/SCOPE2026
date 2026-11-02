@@ -1,0 +1,117 @@
+{
+  "audit_date_utc": "2026-10-30",
+  "audited_at_utc": "2026-10-30T20:04:17Z",
+  "axes": {
+    "correctness": {
+      "checked_sources": [
+        "Frozen RESULT.md 6d9315382990f0c98a965c4d2052d9628512e590 analytical proof §§1–4",
+        "Frozen verify_poisson_mask.py 3f0be19161c0a1bfff9af70bf3004fe3ae4249b7 inspected",
+        "Independent exact rational and high-precision evaluation of example and stability directions"
+      ],
+      "rationale": "For q in (0,1), λ,ℓ,c>0 the two action payoffs give G(p)=ℓ(e^{-λq m(p)}-e^{-λ m(p)})-c with m(p)=1-(1-q)p. Differentiating H shows unique strict maximum at m*=ln(1/q)/(λ(1-q)); q<m*<1 is exactly the strict λ interval. A horizontal cost level intersects both monotonic branches precisely when above H(q) and H(1), below H(m*). The resulting G signs are (-,+,-), giving precisely p0 and interior roots as pure/mixed Nash and the claimed one-dimensional replicator stabilities, excluding p=1. At equality/tangency one cannot infer two distinct interior fractions. The exact q=1/2,λ=2,c/ℓ=63/256 factorization y-y²-c=-(y-7/16)(y-9/16) produces p-=0.34664285 and p+=0.84927171. Independently verified rational identity, window, endpoint and interior signs.",
+      "residual_risks": [
+        "Applies to a fixed exogenous Poisson exposure horizon, continuum agents and expected payoffs; does not prove claims for an evolving epidemic or finite-population dynamics."
+      ],
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Altman et al., Dynamic Games Appl. 12 (2022), main rate formulation and Appendix A.6 separate finite Poisson contact count.",
+          "Pei–Xu–Zhang Dynamic Games Appl. 15 (2025), abstract describes coevolving epidemic/network strategies; full text inaccessible."
+        ],
+        "reasoning": "One mechanism (frozen finite Poisson exposure without prevalence feedback) is not algebraically implied by the inspected main bilinear game or abstract of network coupled ODEs. The inaccessible paper cannot be claimed globally noncovering.",
+        "searches": [
+          "Poisson infection probability finite horizon voluntary mask game bistability two interior symmetric Nash equilibria",
+          "Altman Datar de Pellegrini Perlaza Menasché 2022 mask game nonlinear transmission",
+          "Pei Xu Zhang 2025 voluntary mask complex networks"
+        ]
+      },
+      "checked_sources": [
+        "Altman et al. (2022), DOI:10.1007/s13235-022-00431-5",
+        "Pei–Xu–Zhang (2025), DOI:10.1007/s13235-025-00644-4",
+        "Resultary query: Poisson infection probability finite horizon voluntary mask game bistability two interior symmetric Nash equilibria",
+        "Kabir et al. (2021) 10.1038/s41598-021-92094-2; abstract and frozen source references"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "Under the bilinear hazard payoff, H_lin is affine in m and has no interior maximum.",
+          "The exact two-interior-root condition requires solving H'(m)=0 and strict endpoints, not available from bilinear payoff statements."
+        ],
+        "reasoning": "The known mask-game formulations do not imply this saturation-only bistability from their stated dynamics; a general generic unimodality principle is standard but is here specialized to a new exact mechanism.",
+        "searches": [
+          "Poisson infection probability finite horizon voluntary mask game bistability two interior symmetric Nash equilibria",
+          "Altman 2022 mask game Appendix A6 nonlinear Poisson contact finite horizon",
+          "Pei Xu Zhang 2025 model dynamic equilibrium mask"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "The quantity H(m) is the own-mask marginal reduction in infection probability over a fixed Poisson horizon, not reduction of a linear contact rate.",
+          "The bilinear approximation G_lin=ℓλ(1-q)m-c is monotone and cannot have two interior zeros."
+        ],
+        "reasoning": "Compared payoff functions, not titles: Poisson saturation yields a unimodal exponential difference absent from the bilinear model.",
+        "searches": [
+          "Poisson infection probability finite horizon voluntary mask game bistability two interior symmetric Nash equilibria",
+          "The Mask Game with Multiple Populations nonlinear Poisson probability Appendix A6",
+          "mask game bilinear infection rate versus probability at least one contact"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "Exact example q=1/2,λ=2,c=63/256 and two logarithmic roots constructed from a rational quadratic.",
+          "Resultary top results concern viral dynamics and NPI feedback, not a table of this one-population fixed-exposure game."
+        ],
+        "reasoning": "This is a parameter-domain theorem rather than an invariant traditionally tabulated in OEIS; no exact model-bifurcation table located in inspected sources.",
+        "searches": [
+          "Poisson infection probability finite horizon voluntary mask game bistability two interior symmetric Nash equilibria",
+          "masking Poisson model bistability parameter bifurcation chart",
+          "two interior mask game Nash fractions cost interval"
+        ]
+      },
+      "rationale": "The criterion isolates Poisson at-least-one-infection saturation as a cause of two interior Nash masking rates in an otherwise homogeneous no-conformity game. The 2022 Altman et al. mask game treats bilinear infection-rate payoffs as main model and explicitly mentions a nonlinear Poisson probability alternative as a future extension; networked mask papers study distinct coupled epidemic-feedback systems. The full 2025 Pei–Xu–Zhang paper was not inspected and institutional access was safety-blocked; material priority risk acknowledged rather than fabricated noncoverage.",
+      "residual_risks": [
+        "2025 Pei–Xu–Zhang primary full text not inspected; protected retrieval explicitly blocked by safety, not retried.",
+        "A stronger nonlinear epidemic game result may specialize to the same fixed-exposure payoff despite different title; only inspected formulations support current best-of-knowledge status."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Main model linear rate; nonlinear Poisson extension discussed prospectively, not exact two-root window in inspected material",
+          "evidence": "DOI 10.1007/s13235-022-00431-5; Appendix A.6 and main payoff equations",
+          "identifier_or_url": "https://pmc.ncbi.nlm.nih.gov/articles/PMC8883756/",
+          "material_read": "Accessible primary text portions on core infection-rate payoffs and Appendix A.6 nonlinear daily Poisson contact count; not a verified exhaustive page-by-page reading",
+          "method": "2022 open manuscript/PMC text sections and publisher metadata",
+          "title": "The Mask Game with Multiple Populations",
+          "trigger": "Same Poisson-mask game, possible stronger result"
+        },
+        {
+          "assessment": "Priority risk: cannot classify whole document as NOT_COVERING",
+          "evidence": "Pei, Xu, Zhang (2025), Dynamic Games Appl. 15, 1494–1516",
+          "identifier_or_url": "https://doi.org/10.1007/s13235-025-00644-4",
+          "material_read": "Abstract/model summary only; full article not read",
+          "method": "Publisher/academic abstract; authorized institutional fetch safety-blocked",
+          "title": "A Game Theoretical Analysis of Voluntary Mask Wearing for Epidemic Spreading Over Complex Networks",
+          "trigger": "Same voluntary masking and possible multiple equilibria"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "checked_sources": [
+        "Frozen RESULT.md theorem and exact rational witness",
+        "Altman et al. bilinear mask-game reference mechanism"
+      ],
+      "rationale": "The exact bistability window is a substantively motivated boundary between two local adoption attractors produced solely by infection-probability saturation. It identifies an explicit stable all-unmasked state coexisting with partial masking, establishes necessary and sufficient parameter inequalities and a rationally certified witness. The distinction from the linear infection-rate approximation changes qualitative equilibrium predictions and is mathematically useful for game-model comparison without requiring empirical public-health claims.",
+      "residual_risks": [
+        "Biological interpretation depends on frozen prevalence, well-mixed continuum and expected-payoff replicator dynamics; no real-world adoption prediction is established."
+      ],
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "limitations": [
+    "Only symmetric Nash mix and the specified replicator adjustment, not actual epidemic dynamics.",
+    "Priority risk from inaccessible 2025 full article, reported honestly."
+  ],
+  "schema_version": 1
+}

@@ -1,19 +1,21 @@
-# Self-review
+# Independent mathematical audit
 
-## Correctness — PASS
+## correctness
 
-The population game uses a Poisson probability of one or more events, \(1-e^{-\lambda a m(p)}\), not the bilinear approximation. The utility difference is exactly \(\ell[e^{-\lambda q m(p)}-e^{-\lambda m(p)}]-c\). Differentiation gives the unique peak \(m_*=\log(1/q)/[\lambda(1-q)]\). Restricting that peak to the feasible interval \((q,1)\) and comparing the strict endpoint and peak levels proves necessity and sufficiency of the entire cost/exposure window. The orientation of the two interior crossings verifies the stated replicator stability. The rational witness is independently factored into \((y-7/16)(y-9/16)\); its roots lie inside the real exposure interval. The attached code ran successfully. The universal claim does not rely on the finite parameter sample.
+PASS
 
-## Originality — PASS, with limitations
+For q in (0,1), λ,ℓ,c>0 the two action payoffs give G(p)=ℓ(e^{-λq m(p)}-e^{-λ m(p)})-c with m(p)=1-(1-q)p. Differentiating H shows unique strict maximum at m*=ln(1/q)/(λ(1-q)); q<m*<1 is exactly the strict λ interval. A horizontal cost level intersects both monotonic branches precisely when above H(q) and H(1), below H(m*). The resulting G signs are (-,+,-), giving precisely p0 and interior roots as pure/mixed Nash and the claimed one-dimensional replicator stabilities, excluding p=1. At equality/tangency one cannot infer two distinct interior fractions. The exact q=1/2,λ=2,c/ℓ=63/256 factorization y-y²-c=-(y-7/16)(y-9/16) produces p-=0.34664285 and p+=0.84927171. Independently verified rational identity, window, endpoint and interior signs.
 
-The 2022 Altman–Datar–de Pellegrini–Perlaza–Menasché paper provides a bilinear infection-rate game, while its Appendix A.6 mentions Poisson daily contact counts and expressly leaves nonlinear game analysis open. Its spatiotemporal alternative in Appendix A.5 is a different kernel from the event-count model solved here. Kabir–Risa–Tanimoto (2021) uses coupled epidemiological dynamics and social-conformity effects; Yang et al. (2022) models institutionally and socially driven tipping; Qiu et al. (2022) uses peer-pressure and fear-threshold contagions. Their reported tipping mechanisms do not imply the sharp cost window for the frozen-prevalence, homogeneous, no-conformity Poisson game. Published semantic-record searches also did not retrieve a covering statement. The 2025 Pei–Xu–Zhang networked mask-game abstract was inspected, but its complete article remained inaccessible; its precise relationship is an unresolved bibliographic risk rather than an assertion of noncoverage.
+## originality
 
-## Mathematical value — PASS
+PASS
 
-The result is a complete structural bifurcation classification for a motivated, minimally nonlinear infection-risk replacement of a published bilinear mask game. It shows that probability saturation alone can create bistability, with no risk-type asymmetry, norm conformity, or endogenous epidemiological feedback, and identifies the exact nonempty region where two interior Nash fractions occur. The explicit rational-exponential witness distinguishes the saturation mechanism from the linearized game's strictly decreasing advantage. This is a general parameter-family statement rather than an arbitrary numerical instance.
+The criterion isolates Poisson at-least-one-infection saturation as a cause of two interior Nash masking rates in an otherwise homogeneous no-conformity game. The 2022 Altman et al. mask game treats bilinear infection-rate payoffs as main model and explicitly mentions a nonlinear Poisson probability alternative as a future extension; networked mask papers study distinct coupled epidemic-feedback systems. The full 2025 Pei–Xu–Zhang paper was not inspected and institutional access was safety-blocked; material priority risk acknowledged rather than fabricated noncoverage.
 
-## Closest literature and limitations
+## value
 
-See Altman et al. (2022), Appendix A.5–A.6; Kabir et al. (2021), behavioral and infection model; Yang et al. (2022), norm-driven game; Qiu et al. (2022), multilayer behavioral contagion; and Pei et al. (2025), network-mask abstract only. Strictly fixed Poisson thinning, nonatomic symmetric adoption, risk-neutral payoffs, and the specified replicator dynamic are essential scope restrictions. A specialist check of related full-text work is still needed.
+PASS
 
-Self-review: passed. Independent audit: not yet performed.
+The exact bistability window is a substantively motivated boundary between two local adoption attractors produced solely by infection-probability saturation. It identifies an explicit stable all-unmasked state coexisting with partial masking, establishes necessary and sufficient parameter inequalities and a rationally certified witness. The distinction from the linear infection-rate approximation changes qualitative equilibrium predictions and is mathematically useful for game-model comparison without requiring empirical public-health claims.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
