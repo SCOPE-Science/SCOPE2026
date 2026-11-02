@@ -1,19 +1,21 @@
-# Review
+# Independent mathematical audit
 
-## Correctness
+## correctness
 
-The canonical double cover identifies \(K_C\) with the pullback of \(\mathcal O_{\mathbf P^1}(1)\). Thus the bicanonical divisors are sums of two degree-two fibers, and their degree-three sub-divisors are exactly the divisors \(P+F_t\). The Abel–Jacobi map in degree three is a projective bundle over \(\operatorname{Pic}^3(C)\); the incidence locus is the inverse image of the smooth translate \(T=\{K_C(P):P\in C\}\). The projective bundle trivializes along \(T\), and adjunction on the abelian surface gives the normal bundle \(p_C^*K_C\). No finite computation or unproved classification is used.
+PASS
 
-## Originality
+The canonical genus-two double cover h:C→P1 has K_C=h^*O(1); every bicanonical zero divisor is a sum F_s+F_t of two degree-two canonical fibres with multiplicity. Every effective degree-three sub-divisor includes a full F_s or F_t, even at branch or coincident fibres, and is P+F_t; converse is immediate using F_h(P)+F_t. For any degree-three line bundle L, RR gives h0(L)=2, h1(L)=0, so Abel-Jacobi α3:Sym3 C→Pic3 C is a P1-bundle. The Abel translate T={K_C(P)} is C and its inverse image consists exactly of complete linear systems P+|K_C|; multiplication by the tautological O_C(P) section trivializes the family projectively, giving CxP1 smooth Cartier divisor. Pic3(C) is an abelian surface; adjunction gives normal T/Pic3 is K_T, pulling back gives pr_C^*K_C. Independently checked degrees and RR plus boundary fibre arguments, not relying on a saved code log.
 
-The closest primary source is Dinh's paper on quadratic-differential-special divisors for rank-two wobbly bundles. Its initial public version assumes genus at least three; the later version includes genus two but does not state the product model or the normal-bundle identification for this locus in \(\operatorname{Sym}^3(C)\). The related Pal–Pauly paper concerns components of the wobbly divisor in bundle moduli, a different object. published-finding corpus searches returned related but non-equivalent wobbly-divisor normalizations and hyperelliptic branch results, not this incidence locus. The claim is a geometric refinement rather than a new general theory; its short proof leaves a residual risk that the fact is folklore or implicit in standard references.
+## originality
 
-## Value
+PASS
 
-The locus is the first degree at which the expected dimension of the quadratic-differential condition can become zero for a genus-two base curve: \(3g-3=3\). Giving its global product structure and normal bundle supplies an explicit geometric input for studying how quadratic-differential-special divisors enter rank-two wobbly-bundle constructions. The statement is narrow and does not claim any further moduli-space singularity result.
+Dinh’s arXiv 2406.04224 genus-two extension treats quadratic-differential-special divisors in the broader wobbly-bundle/spectral-curve setting and gives criteria for wobbliness, but the inspected definitions/results do not identify this base-curve sub-divisor locus in Sym³(C) with product C×P1 or compute its normal. Related published Resultary wobbly-divisor normalization P1×Z3 has a genus-17 curve in a different ambient moduli space and does not cover the genus-two base Q3 locus. A textbook-level Abel-Jacobi inference or unindexed symmetric-product source remains a priority risk, despite direct distinctness of checked wobbly results.
 
-## Closest literature and limitations
+## value
 
-Dinh, arXiv:2406.04224v1 and v3, treats the quadratic-differential condition and its relation to wobbly bundles; the exact product and normal-bundle statement is not stated in the inspected text. Pal and Pauly, arXiv:1803.11315, classify components of the wobbly divisor in the moduli space. The residual priority risk is that the genus-two incidence geometry may be implicit in general symmetric-product theory.
+PASS
 
-Self-review: passed. Independent audit: not yet performed.
+The low-genus quadratic-differential incidence condition has a natural role in wobbly-bundle geometry; specifying the entire smooth subvariety and its normal class is more informative than membership counts, and directly usable in intersection/deformation calculations. It is a short special-geometry structural lemma, not a claim of a new wobbly-divisor classification or unrelated arbitrary isolated computation.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
