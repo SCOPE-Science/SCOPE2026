@@ -1,0 +1,122 @@
+{
+  "correctness": {
+    "rationale": "For every n>=2 the graph has diameter two. Every maximal geodesic is one complete two-cell column and one other cell. Such a path has a unique complete column, giving a two-way bijection between k disjoint paths and (k columns, k distinct outside cells, bijection). This proves p(n,k)=n!/(n-k)!*C(2(n-k),k), its support k<=floor(2n/3) and the three residue-class optimal counts. The coefficient ratio R_k=(2n-3k)(2n-3k-1)(2n-3k-2)/(2(2n-2k-1)(k+1)) strictly decreases, since the key fractional ratio comparison has numerator 2n-3>0, proving strict log-concavity. A geodesic-free vertex subset either uses <=1 cell per column or is exactly one full column, yielding (1+2y)^n+n y^2; complements give T_n(z)=z^n(z+2)^n+n z^(2n-2) and every minimum/inclusion-minimal transversal. Unoriented and unordered convention explicit. Independent BFS reconstruction, recursive exhaustive packing enumerations and exhaustive vertex-subset scans for n=2..8 all passed; exact arithmetic for n=2..150 passed. Infinite claims rely on proofs, not enumeration.",
+    "status": "PASS"
+  },
+  "independent": false,
+  "independent_audit_status": "not_performed",
+  "originality": {
+    "broader_coverage": {
+      "evidence": [
+        "In arXiv:2210.15325 Lemma 2.3 bounds packing by floor(number_of_vertices/(shortest_maximal_path_length+1)); Corollary 2.8 applies to Cartesian products of uniform-geodesic graphs.",
+        "The same source establishes the minimum geodesic transversal for balanced rook graphs K_n Cartesian K_n, not for all rectangular rook graphs.",
+        "The exact packing number quoted in that source for complete bipartite K_{n,n} is a separate family, nonisomorphic to this Cartesian product when n>=3."
+      ],
+      "reasoning": "The generic upper bound covers one inequality in the packing-number corollary, and is credited. It does not construct sharp packings or determine any of the required counting polynomials, boundary classifications, or coefficient inequalities. Therefore no inspected stronger theorem dominates the present complete statement.",
+      "searches": [
+        "Web: geodesic packing 2 by n rook graph strong prism clique",
+        "published-finding corpus: geodesic packing number and geodesic transversals Cartesian products of complete graphs triangular graphs rook graphs",
+        "Source: arXiv:2210.15325, Lemma 2.3, Proposition 2.6, Proposition 2.7, Corollary 2.8"
+      ]
+    },
+    "checked_sources": [
+      "arXiv:2210.15325 (public full preprint, relevant sections inspected)",
+      "arXiv:2409.16955 (public full-text HTML, relevant sections inspected)",
+      "Public geodesic-subpath formula for matching-deleted bicliques (claim text, not full text)",
+      "Public mobile-general-position theorem for the apex join of the two-row rook graph (claim text, not full text)"
+    ],
+    "claim_vs_prior_implication": {
+      "evidence": [
+        "Manuel–Brešar–Klavžar define a geodesic packing and prove general size inequalities; their rook-graph result is a scalar transversal value in the balanced case.",
+        "Wild enumerates individual geodesics; this does not give the enumeration of mutually vertex-disjoint unordered collections.",
+        "The published geodesic-subpath result for a matching-deleted biclique counts shortest-path subpaths in a different graph; its formula does not imply these joint polynomial identities."
+      ],
+      "reasoning": "The current theorem includes a construction closing a known size bound, a size-by-size matching bijection, strict log-concavity and a dual transversal polynomial. None follows from the cited general bounds, balanced-square scalar results, individual-geodesic enumeration or geodesic-subpath counts without new counting work.",
+      "searches": [
+        "Source full text: arXiv:2210.15325, §2 pp. 4–6 and conclusion pp. 10–11",
+        "Source full HTML: arXiv:2409.16955, §1–4",
+        "published-finding corpus: geodesic packing graph cycle path vertex-disjoint maximal geodesics"
+      ]
+    },
+    "equivalent_formulations": {
+      "evidence": [
+        "The same graph is two complete graphs on n vertices joined by a perfect matching.",
+        "Every maximal geodesic in this graph is an induced P3 with one full column and one outside cell; the path-hypergraph matching formulation is equivalent.",
+        "Closest retrieved public mathematical record about an apex join of this product studies mobile general position, not disjoint induced paths."
+      ],
+      "reasoning": "The aliases were explicitly reduced to the same mathematical object before searching. Published snippets under other invariants cannot by themselves certify absence from unseen documents, but the checked claims about mobile general position do not contain a packing enumeration. No exact matching polynomial under an alias was found. Publication-priority risk remains.",
+      "searches": [
+        "published-finding corpus: exact enumeration of disjoint maximal geodesics in the Cartesian product K2 square Kn (two cliques joined by matching)",
+        "published-finding corpus: maximal induced P3 packing polynomial Cartesian product K2 and complete graph",
+        "Web: two disjoint cliques joined by a perfect matching induced P3 packing",
+        "Web: induced P3 packing two cliques perfect matching"
+      ]
+    },
+    "exact_database_or_table": {
+      "evidence": [
+        "Retrieved documents introduce the scalar packing parameter, its general bounds and algorithms, and individual-path enumeration; no exact 2-by-n coefficient table or generating-function statement was identified.",
+        "Direct graph-distance experiments in verify.py reproduce the first seven polynomial rows (n=2..8), but these are internal new computations, not evidence of novelty."
+      ],
+      "reasoning": "These are actual table/formula-targeted searches. Failure to find a table is not proof of its absence; only inspected positive literature and specific non-implication comparisons support the best-knowledge originality assessment.",
+      "searches": [
+        "Web: geodesic packing polynomial graph enumerator",
+        "Web: geodesic packing polynomial complete",
+        "published-finding corpus: geodesic packing polynomial and counts of maximum packings in prism of complete graphs K2 cartesian Kn",
+        "published-finding corpus: L shaped tromino packings in 2 by n rook graph with unrestricted nonadjacent columns"
+      ]
+    },
+    "rationale": "Literature-led theorem in the geodesic packing and geodesic transversal framework of Manuel–Brešar–Klavžar (2022 initial preprint). Its bound for diameter-two uniform-geodesic products implies the upper bound floor(2n/3), but does not imply equality, polynomial coefficients, exact optimal count, log-concavity or all transversals. Its explicit gpack formula for K_{n,n} is about the complete bipartite graph, not K_2 Cartesian K_n. Its rook-graph gt proposition concerns balanced squares K_n Cartesian K_n and gives a scalar, not the 2-by-n enumerators. Wild (2024) enumerates individual shortest paths algorithmically, not disjoint collections. Equivalent induced-P3 and full-column-to-cell matching interpretations were compared with searchable published mathematical records; no equivalent joint formulas found. Risk of unknown previous equivalent enumeration acknowledged; absence from search is not proof of absolute novelty.",
+    "residual_risks": [
+      "An earlier unindexed induced-P3 packing or full-column matching enumeration could imply some or all coefficients; the searches do not certify publication priority.",
+      "Public mathematical record snippets were compared only at the claim level; no full-text noncoverage is inferred from them.",
+      "The result is specific to exactly two rows and does not establish a multirow rook-graph packing polynomial."
+    ],
+    "source_inspections": [
+      {
+        "assessment": "Covers generic upper bound and balanced rook scalar transversal theorem, not complete two-row rook enumerators; portions on trees and strong path products are outside the claimed graph family",
+        "evidence": "arXiv:2210.15325, submitted 2022-10-27, especially pp. 4–6 and 10–11",
+        "identifier_or_url": "https://users.fmf.uni-lj.si/klavzar/preprints/2210.15325.pdf",
+        "material_read": "Abstract and definitions, Section 2 (including Lemma 2.3, Proposition 2.6, Proposition 2.7, Corollary 2.8), Section 4 theorem context, Section 5 conclusions; relevant pages 1–6 and 9–11, with screenshots inspected for pages 4 and 5",
+        "method": "publicly accessible full preprint PDF, searched/read extracted text and inspected page screenshots",
+        "title": "Geodesic packing in graphs",
+        "trigger": "Foundational paper on exact same packing and transversal invariants; rook graphs explicitly studied"
+      },
+      {
+        "assessment": "Enumerates individual paths algorithmically; no construction or closed count of disjoint maximal-geodesic packings in this graph family in inspected relevant sections",
+        "evidence": "arXiv:2409.16955, initial date 2024-09-25; HTML sections 1–4",
+        "identifier_or_url": "https://arxiv.org/abs/2409.16955",
+        "material_read": "Accessible preprint HTML abstract and §§1–4 (definitions, single/all-pairs geodesic enumeration)",
+        "method": "public full-text HTML opened and read",
+        "title": "Enumerating all geodesics",
+        "trigger": "Potential coverage by an algorithm enumerating all shortest paths"
+      },
+      {
+        "assessment": "The claimed invariant counts geodesic subpaths of a different biclique family, not disjoint maximal-path packings; no whole-document noncoverage claim",
+        "evidence": "Public record states explicit change in geodesic subpath number after deleting a matching.",
+        "identifier_or_url": "https://github.com/Resultary/2026/tree/main/2026/10/4/SCOPE-geodesic-subpath-numbers-of-bicliques-with-a-deleted-matching--525c4067322f",
+        "material_read": "Public title and descriptive claim returned by mathematical-record search; no full document read",
+        "method": "published-record title/claim comparison",
+        "title": "Geodesic subpath numbers of bicliques with a deleted matching",
+        "trigger": "Closest retrieved published mathematical record in semantic search for geodesic packings"
+      },
+      {
+        "assessment": "Mobile general position under an added universal vertex is a different problem and does not imply a maximal-geodesic packing coefficient law; no whole-document noncoverage claim",
+        "evidence": "Public record states mobile general position n versus ordinary general position n+1 in the apex join.",
+        "identifier_or_url": "https://github.com/Resultary/2026/tree/main/2026/10/4/SCOPE-mobile-general-position-of-l-k-1-1-n--7ab330553509",
+        "material_read": "Public title and descriptive claim returned by mathematical-record search; no full document read",
+        "method": "published-record title/claim comparison",
+        "title": "Mobile general position of L(K_{1,1,n})",
+        "trigger": "Graph contains the exact two-row rook graph as an induced subgraph"
+      }
+    ],
+    "status": "PASS"
+  },
+  "review_type": "self_review",
+  "schema_version": 1,
+  "scope_run_id": "d2c7f360-6aa2-4c7c-8655-3ce90d74e36a",
+  "self_review_status": "passed",
+  "value": {
+    "rationale": "The motivating 2022 work studies a dual min-max geodesic packing/transversal framework, and explicitly calls for understanding graph products. Two complete cliques joined by a perfect matching are the smallest nontrivial Cartesian clique product, where maximal shortest paths have a rigid but nontrivial three-vertex structure. The result determines *every* path-packing cardinality and *every* hitting-set cardinality, all maximum-packing counts with a mod-three transition, strictly log-concave packing coefficients, and every inclusion-minimal hitting configuration. These are natural, previously not implied distributional and structural questions, not a single routine lower-bound consequence. It provides an exactly enumerable baseline for the harder general rook-graph packing problem and for random packing or transversal sampling. No claim of broader consequence is needed.",
+    "status": "PASS"
+  }
+}
