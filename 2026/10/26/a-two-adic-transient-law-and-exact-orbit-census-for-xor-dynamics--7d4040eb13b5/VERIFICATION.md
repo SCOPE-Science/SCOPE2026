@@ -5,8 +5,11 @@
     "status": "not_performed"
   },
   "independent_audit": {
-    "evidence": null,
-    "status": "not_performed"
+    "status": "passed",
+    "evidence": [
+      "INDEPENDENT_AUDIT_2026-10-31.md",
+      "INDEPENDENT_AUDIT_2026-10-31.json"
+    ]
   },
   "lean_verification": {
     "evidence": null,
@@ -15,10 +18,25 @@
   "schema_version": 1
 }
 ---
-# Verification record
 
-Execute `python3 verify.py` in the directory containing this file. This requires Python 3 with the standard library only. The resulting output is preserved verbatim in `verification_output.txt`.
+# Independent mathematical audit
 
-The code builds the original \(n+1\)-vertex open-neighbour adjacency operator in bit form, independently of the polynomial-ring proof. It implements binary row elimination and polynomial arithmetic, and checks the stated rank formula for 1,195 pairs of rim size and iteration count, all-time fixed-point counts for 1,160 pairs with \(3\le n\le60\), and all actual trajectories for each \(3\le n\le10\). Every least preperiod, recurrent-state count and fixed-divisor-of-time count matched. The final status was `VERIFY_OK`.
+## correctness
 
-The argument in `RESULT.md` (polynomial quotient and primary decomposition, hub/parity coupling, exact rank comparisons, Möbius inversion) is the infinite-family proof. Enumeration and computed rank comparisons are finite corroboration, not certification of unrestricted claims. Independent external mathematical validation has not been performed. The dated primary research source is arXiv:0809.1526 (2008-09-09); the older printed source is from 1988 but has no separately verified day.
+PASS
+
+Encode rim as F2[z]/(z^n+1), B=z+z^-1=z^-1(z+1)^2, and hub coupling via all-ones J and parity S. The map is (Bx+hJ,Sx). For even n, BJ=S(Bx)=0 and S(J)=0 give F^3(x,h)=(B^3x,0). Characteristic-2 factorization z^n+1=(z+1)^k q isolates a nilpotent length-k primary factor; B is invertible on q. Its powers have rank n-min(2t,k), and the coupled first two powers have the explicitly stated exceptional ranks. For odd n, S(J)=1 and F swaps hub/parity bits while acting invertibly on q. The kernel of B^t-I on q has dimension deg gcd(q,(z²+1)^t+z^t). This gives fixed counts, primitive cycles by Möbius inversion, the stable image dimension, basin factors and exact preperiod distribution. Independent row-reduction checks over GF2 for wheel matrices and gcd fixed counts corroborate bounded cases.
+
+## originality
+
+PASS
+
+Best-of-knowledge source/implication comparison: General linear-map periodicity alone does not supply exact wheel-specific CRT/rank and preperiod formulas. None of these results has a mathematical parameter family dominating all W_n with their hub/parity coupling. All specific risks are retained; inaccessible literature alone did not determine the outcome.
+
+## value
+
+PASS
+
+All-circumference and all-time classification of a natural hub-plus-cycle XOR automaton, showing reversible odd wheels, two-adic transient jumps and exact periodic/basin counts.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

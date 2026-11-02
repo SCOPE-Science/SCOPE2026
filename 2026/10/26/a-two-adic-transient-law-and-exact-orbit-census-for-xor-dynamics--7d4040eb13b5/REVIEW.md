@@ -1,19 +1,21 @@
-# Self-review
+# Independent mathematical audit
 
-## Correctness — PASS
+## correctness
 
-The theorem is proved by identifying rim configurations with a cyclic binary polynomial quotient and writing the exact joint rim/hub map. The factor \((z+1)^k\) in \(z^n+1\) isolates precisely the nilpotent primary summand; the remaining summand is invertible. For odd \(n\), the hub and rim parity swap while the zero-parity rim evolves invertibly. For even \(n\), direct composition gives \(F_n^3(x,h)=(B^3x,0)\). The first two ranks are evaluated separately, and all later ranks follow from multiplication by \((z+1)^{2t}\). The binomial basin factor, sharp transient and polynomial-gcd fixed-point formula follow from this decomposition. The supplied program independently checks 1,195 rank instances, 1,160 temporal fixed-point comparisons, and complete original-state trajectories for 8 wheel sizes. The finite checks do not substitute for the parameter-uniform proof.
+PASS
 
-## Originality — PASS (bounded by accessible sources)
+Encode rim as F2[z]/(z^n+1), B=z+z^-1=z^-1(z+1)^2, and hub coupling via all-ones J and parity S. The map is (Bx+hJ,Sx). For even n, BJ=S(Bx)=0 and S(J)=0 give F^3(x,h)=(B^3x,0). Characteristic-2 factorization z^n+1=(z+1)^k q isolates a nilpotent length-k primary factor; B is invertible on q. Its powers have rank n-min(2t,k), and the coupled first two powers have the explicitly stated exceptional ranks. For odd n, S(J)=1 and F swaps hub/parity bits while acting invertibly on q. The kernel of B^t-I on q has dimension deg gcd(q,(z²+1)^t+z^t). This gives fixed counts, primitive cycles by Möbius inversion, the stable image dimension, basin factors and exact preperiod distribution. Independent row-reduction checks over GF2 for wheel matrices and gcd fixed counts corroborate bounded cases.
 
-Klaus Sutner's 1988 *Additive Automata on Graphs* establishes the XOR graph rule and investigates reversibility; his Section 4 treats general reductions and other graph classes, rather than the full wheel recurrent spectrum. Ciandrini et al. (arXiv:0809.1526, first submitted 2008-09-09) derive general XOR network laws and maximum-period principles, concentrating on random interaction graphs and feedback components; their formulas do not state the wheel's parity-dependent sharp preperiod, rank sequence, or all-time gcd census. Indexed work on complete multipartite XOR networks and distance-two Boolean cubes considers nonisomorphic graph families with different spectral behavior. Specific web and mathematical-record searches did not identify a wheel-specific statement implying this combined result. Generic linear dynamics is prior knowledge; the claimed contribution is the explicit solution for this natural infinite graph family. Unindexed equivalent work remains possible, so no claim of literature completeness is made.
+## originality
 
-## Mathematical value — PASS
+PASS
 
-A minimal hub-and-cycle network already displays three sharply different features: reversible dynamics for odd rim size, periodic subspace collapse for even rim size with \(n\) a power of two, and a discontinuous transient-depth law controlled by the two-adic valuation for general even rim size. Rather than calculating an arbitrary small graph count, the result classifies all rim sizes and all temporal periods, exact recurrent-state totals, basins and preperiod distributions. These graph-specific formulas provide reproducible benchmarks for finite-field network dynamics.
+Best-of-knowledge source/implication comparison: General linear-map periodicity alone does not supply exact wheel-specific CRT/rank and preperiod formulas. None of these results has a mathematical parameter family dominating all W_n with their hub/parity coupling. All specific risks are retained; inaccessible literature alone did not determine the outcome.
 
-## Limitations and nearest work
+## value
 
-The rule is binary, synchronous, unweighted and open-neighbour only. The temporal periods on the invertible portion are specified by polynomial gcds, which can vary arithmetically with rim size. An equivalent treatment in an unindexed book, table or graph-dynamics paper remains a residual risk. The arXiv source provides an exact first-public UTC date; the older printed work gives a year, not an independently verified day. No independent review is claimed.
+PASS
 
-Self-review: passed. Independent audit: not yet performed.
+All-circumference and all-time classification of a natural hub-plus-cycle XOR automaton, showing reversible odd wheels, two-adic transient jumps and exact periodic/basin counts.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

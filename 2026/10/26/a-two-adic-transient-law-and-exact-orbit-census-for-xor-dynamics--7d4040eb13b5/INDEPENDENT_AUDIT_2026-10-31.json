@@ -1,0 +1,109 @@
+{
+  "audit_date_utc": "2026-10-31",
+  "audited_at_utc": "2026-10-31T00:40:53.466894Z",
+  "axes": {
+    "correctness": {
+      "rationale": "Encode rim as F2[z]/(z^n+1), B=z+z^-1=z^-1(z+1)^2, and hub coupling via all-ones J and parity S. The map is (Bx+hJ,Sx). For even n, BJ=S(Bx)=0 and S(J)=0 give F^3(x,h)=(B^3x,0). Characteristic-2 factorization z^n+1=(z+1)^k q isolates a nilpotent length-k primary factor; B is invertible on q. Its powers have rank n-min(2t,k), and the coupled first two powers have the explicitly stated exceptional ranks. For odd n, S(J)=1 and F swaps hub/parity bits while acting invertibly on q. The kernel of B^t-I on q has dimension deg gcd(q,(z²+1)^t+z^t). This gives fixed counts, primitive cycles by Möbius inversion, the stable image dimension, basin factors and exact preperiod distribution. Independent row-reduction checks over GF2 for wheel matrices and gcd fixed counts corroborate bounded cases.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "The Sutner full paper contains general GF2 graph automata methods and examples for other graphs.",
+          "Published findings provide exact dynamics on distance-two Boolean cubes and complete multipartite graphs, not wheels."
+        ],
+        "reasoning": "None of these results has a mathematical parameter family dominating all W_n with their hub/parity coupling.",
+        "searches": [
+          "Sutner 1988 Section 4 unicyclic graph analysis",
+          "Resultary SCOPE-a-mod-four-orbit-census-for-parity-automata-on-distance-two-bool--f288ef2fe8b4",
+          "Resultary SCOPE-sharp-period-four-census-for-complete-multipartite-parity-automa--acea41c73be7"
+        ]
+      },
+      "checked_sources": [
+        "https://content.wolfram.com/uploads/sites/13/2018/02/02-6-3.pdf",
+        "https://arxiv.org/abs/0809.1526",
+        "https://github.com/Resultary/2026/tree/main/2026/10/11/SCOPE-a-mod-four-orbit-census-for-parity-automata-on-distance-two-bool--f288ef2fe8b4",
+        "https://github.com/SCOPE-Science/SCOPE2026/tree/69e5cd3aa14bc846bbbd0f413f48a6f330f1273c/2026/10/26/a-two-adic-transient-law-and-exact-orbit-census-for-xor-dynamics--7d4040eb13b5"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "General finite-field linear algebra implies eventual periodicity, but not explicit stable dimension  n-k and the exceptional first powers of F.",
+          "Random-feedback cycle estimates lack a wheel-specific polynomial decomposition."
+        ],
+        "reasoning": "The claimed exact formulas require the primary-factor calculation and exceptional hub coupling, not a direct restatement of earlier general methodology.",
+        "searches": [
+          "K. Sutner, Additive Automata on Graphs, Complex Systems 2 (1988)",
+          "L. Ciandrini et al arXiv:0809.1526"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Sutner studies general additive graph automata and graph-specific invertibility, not this wheel two-adic rank sequence.",
+          "Ciandrini et al address input feedback and general XOR dynamics without the explicit W_n all-period gcd."
+        ],
+        "reasoning": "General linear-map periodicity alone does not supply exact wheel-specific CRT/rank and preperiod formulas.",
+        "searches": [
+          "Sutner Additive Automata on Graphs 1988",
+          "Ciandrini Feedback topology and XOR-dynamics in Boolean networks with varying input structure arXiv:0809.1526",
+          "Resultary: binary XOR dynamics open neighbor wheel graph recurrent states preperiod 2-adic rank cycles"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "No exact wheel-wide all-t fixed-state table or rank distribution was located in the checked full text and indexed findings."
+        ],
+        "reasoning": "An unsuccessful search is not a novelty certificate; the natural exact arithmetic invariant remains a literature risk.",
+        "searches": [
+          "Sutner Additive Automata on Graphs 1988 wheel",
+          "Resultary: binary XOR dynamics wheel 2-adic transient"
+        ]
+      },
+      "rationale": "Best-of-knowledge source/implication comparison: General linear-map periodicity alone does not supply exact wheel-specific CRT/rank and preperiod formulas. None of these results has a mathematical parameter family dominating all W_n with their hub/parity coupling. All specific risks are retained; inaccessible literature alone did not determine the outcome.",
+      "residual_risks": [
+        "Unindexed exact wheel-XOR orbit tables and matrix-dynamics textbooks may contain an equivalent specialization.",
+        "Non-Sutner primary XOR literature not all read in full."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Establishes XOR adjacency dynamics and general methods; inspected graph results do not state wheel-specific two-adic rank/preperiod classification.",
+          "evidence": "Different graph analysis includes unicyclic cases; W_n is hub joined to the whole cycle, and n>=4 contains many cycles.",
+          "identifier_or_url": "https://content.wolfram.com/uploads/sites/13/2018/02/02-6-3.pdf",
+          "material_read": "Complete 13-page 1988 PDF with particular attention to definitions, reversibility and discussed graph families",
+          "method": "direct full-text reading with page-image inspection",
+          "title": "Additive Automata on Graphs",
+          "trigger": "Original graph-parity automaton framework"
+        },
+        {
+          "assessment": "Broader XOR framework and feedback themes are related; no whole-document noncoverage inference.",
+          "evidence": "No wheel-specific all-t polynomial-gcd spectrum appears in the material read.",
+          "identifier_or_url": "https://arxiv.org/abs/0809.1526",
+          "material_read": "Public arXiv abstract and indexed description; complete paper not read",
+          "method": "bibliographic abstract comparison",
+          "title": "Feedback topology and XOR-dynamics in Boolean networks with varying input structure",
+          "trigger": "Related feedback-based XOR network dynamics"
+        },
+        {
+          "assessment": "A different graph family with different adjacency characteristic polynomial.",
+          "evidence": "Its mod-four complete classification does not apply to hub-and-cycle wheels.",
+          "identifier_or_url": "https://github.com/Resultary/2026/tree/main/2026/10/11/SCOPE-a-mod-four-orbit-census-for-parity-automata-on-distance-two-bool--f288ef2fe8b4",
+          "material_read": "Published indexed theorem description only",
+          "method": "semantic published-finding search",
+          "title": "A mod-four orbit census for parity automata on distance-two Boolean cubes",
+          "trigger": "Similar exact orbit census"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "rationale": "All-circumference and all-time classification of a natural hub-plus-cycle XOR automaton, showing reversible odd wheels, two-adic transient jumps and exact periodic/basin counts.",
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "final_claim": "For every n>=3, open-neighbour GF(2) wheel adjacency dynamics has the exact all-time fixed-point polynomial-gcd formula; all odd-rim states are recurrent, whereas for even rim n the recurrent subspace size is 2^(n-k), k=2^v2(n), with maximum preperiod 3 for k=2,4 and k/2 for k>=8, and an exact rank/preperiod distribution.",
+  "limitations": [
+    "Binary synchronous open-neighbour rule only; cycle counts remain finite polynomial gcd expressions.",
+    "No claim that state enumeration alone establishes infinite n or t."
+  ],
+  "schema_version": 1
+}
