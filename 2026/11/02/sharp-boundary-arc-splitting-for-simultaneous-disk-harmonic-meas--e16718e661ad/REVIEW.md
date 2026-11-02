@@ -1,0 +1,15 @@
+# Scientific review: two-point disk harmonic-measure observation
+
+## Correctness (C) — PASS
+The Poisson kernel is normalized with respect to \(dt/(2\pi)\). Averaging the two harmonic measures gives a universal maximin upper bound. Reflection of any superlevel region forces the two harmonic masses equal, attaining that bound. Analyticity and nonconstancy make superlevel optimizers unique modulo null sets. The exact rational derivative reduces the mode count to a strictly monotone quadratic, and its factorization at the central value gives the critical length. Strict angular monotonicity of an arc's Poisson mass proves optimality of the geodesic midpoint among connected arcs. The small-length ratio and square-root opening follow from those explicit formulas. Finite numerical checks are not used to prove any statement requiring infinitely many cases.
+
+## Originality (O) — PASS, within inspected evidence
+The October 16, 2024 source supplies classical/alpha-harmonic Poisson boundary-integral theory but not a two-source maximin observation design. The 2013 wrapped-Cauchy mixture paper uses the same two-component density family and highest-density/excess-mass regions: both are credited as prior art rather than claimed as contributions. Direct comparison of its density-regression and region-selection sections does not produce the exact equal-source maximin value, the separation threshold, the critical occupied fraction, the best-connected-arc rule, or the strict split gap. A 2008 circular-density classification considers a different family. A 2003 two-point harmonic-measure paper concerns compact interior obstacles, with only an abstract and limited snippet available; it remains a historical-priority risk. No equivalent/dominating published finding emerged from actual semantic searches, though absence of a match is not a novelty proof. A previously recorded Gaussian two-center concentration result has a related rearrangement idea but different measure, domain and topology formulas, and does not imply the present disk result.
+
+## Value (V) — PASS
+The mathematical object is classical harmonic measure on a disk and the design objective is the worst observed mass over two prescribed interior locations. The theorem completely resolves the constrained/unconstrained comparison, including its exact two-parameter phase boundary and a strict penalty for insisting on a single sensor arc. The topology transition and square-root onset provide structural information not obtained merely by restating the bathtub principle. The result is limited to equal radii and two points; extension to asymmetry remains open.
+
+## Closest literature and limits
+Long (arXiv:2410.12137v1); McMillan–Hanson–Saunders–Gallun (doi:10.1111/rssc.12004); Siew–Kato–Shimizu (Japanese Journal of Applied Statistics 37, 2008); Betsakos (doi:10.1112/S0024609303002108). The Betsakos full text was not available in the inspected lawful sources; this and unlocated equivalent circular-mixture formulas remain residual historical risks. The standalone checker provides corroboration rather than an exhaustive proof.
+
+Self-review: passed. Independent audit: not yet performed.
