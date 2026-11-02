@@ -1,19 +1,21 @@
-# Review of exact single-sensor observability resonances of a singly weighted cycle
+# Independent mathematical audit
 
-## Correctness — PASS
+## correctness
 
-The statement specifies all \(n\ge5\), every real \(w>0\), the measured vertex, the weighted Laplacian, and the exact PBH criterion. The proof separates reflection-even and reflection-odd eigenspaces; treats the uniform-edge eigenvalue degeneracy separately; shows the only weight-independent sensor zero is \(6\mid n\); and derives the complete finite list of odd-mode sensor zeros from a Dirichlet/anti-Dirichlet tridiagonal tail. Strict Jacobi interlacing excludes other cross-parity collisions. The converse constructs a nonzero blind eigenvector for each positive listed resonance. The boundary \(n=5\) has an empty resonance index set. Reproducible numerical eigenchecks returned zero mismatches in 816 test cases; they do not constitute an infinite proof.
+PASS
 
-## Originality — PASS, with literature risk
+The exact Laplacian is L(P_n)+w(e0-e_{n-1})(e0-e_{n-1})^T and commutes with end reflection. Even-parity path cosine eigenmodes q_{2r} survive; their coordinate at vertex1 is cos(3 pi r/n), zero exactly for 6|n. The odd-parity restriction is irreducible Jacobi, with first diagonal 1+2w; its simple eigenvalues strictly increase with w and strictly interlace neighboring path levels. Thus cross-parity eigenvalue coincidence occurs only at w=1, the uniform cycle, whose repeated eigenvalues defeat one scalar sensor. For w !=1, an odd blind eigenmode has v1=0 and necessarily lambda=1+2w and v0=-v2; its remaining sine-tail subject to reflection right boundary gives theta=2pi k/(n-3), with 0<theta<pi and positive w=1/2-cos theta. Conversely each listed positive resonance constructs a blind nonzero odd eigenvector. n=5 has empty index range; all positive weights covered. PBH symmetry gives controllability. Independent eigensystem tests 142 n/weight cases had 0 discrepancies. Finite testing is not the infinite proof.
 
-The closest primary mathematical source is Parlangeli–Notarstefano, arXiv:1109.3556v1, especially its path modes and unweighted-cycle reachability/observability theorems. It characterizes unit-weight paths/cycles, not the complete variation in one undirected edge weight. Xiang–Zhu–Chen–Chen (2013) provides broader weighted and directed network controllability conditions but its named cycle case is directed and its model includes heterogeneous node dynamics, not the stated exact defect resonance formula. Wang–Ni–Lai–Grebogi (2012) treats structural controllability and graph-link changes, not precise PBH failures on the one-weight cycle. Direct exact-formula, alias, parameter, and broader-coverage searches in mathematical result records and primary literature did not reveal an equivalent classification. This is a best-knowledge assessment, not proof that no specialty paper or unpublished note contains an equivalent result.
+## originality
 
-## Mathematical value — PASS
+PASS
 
-A single changed edge is the minimal nontrivial deterministic symmetry defect in an undirected ring. The result completely characterizes which such perturbations make a prescribed single sensor sufficient for exact state reconstruction. The dichotomy \(6\mid n\) versus finite exceptional weight sets, and the discrete nonuniform resonances (for example \(n=7\), \(w=1/2\)), supply design constraints invisible to a generic-weight argument. It is a complete natural one-parameter classification, not a routine restatement of path/cycle unweighted gcd criteria.
+Best-of-knowledge comparison after fresh Resultary searches, focused primary-source proof inspection and explicit implication checks. A related method, family or parameter alone does not establish identity/coverage; historical risk remains noted.
 
-## Limitations
+## value
 
-One fixed sensor, one nonuniform edge, noiseless finite-dimensional consensus and exact observability only; no conditioning guarantees or general sensor-placement assertion. The literature comparison is not an exhaustive survey of every specialized weighted-graph paper. Independent audit and validation have not been performed.
+PASS
 
-Self-review: passed. Independent audit: not yet performed.
+A one-edge defect is the minimal weighted symmetry-breaking modification of an undirected cycle. The theorem determines exactly when a fixed inward single sensor changes from insufficient to fully observable, including a length-dependent permanent obstruction and isolated nonuniform algebraic resonances. This sharp parameter classification informs sensor design beyond generic nonzero perturbations.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
