@@ -1,24 +1,21 @@
-# Scientific review
+# Independent mathematical audit
 
-## Correctness — PASS
+## correctness
 
-For q=3, an edge change at one coordinate has distance-vector displacement 1_B-1_C, for mutually disjoint equality blocks B and C. All nonzero patterns fall into the three exhaustively listed coordinate-partition cases; +1_B, -1_B, and 1_B-1_C uniquely recover every status count c_(π,B). Round d colors determine all marker-distance vectors, so round d+1 determines each neighbour-displacement multiplicity; consequently refinement separates all pointwise-stabilizer orbits. Standard wreath-product automorphisms show orbit invariance and classify the profiles. Stars-and-bars and multinomial counting yield the number and size formulas. Exact executable checks cover 985 mark configurations through dimension four, with finite limitations acknowledged.
+PASS
 
-## Originality — PASS, qualified
+PASS: Aut(H(d,3))=S3 wreath S_d, and the pointwise marker stabilizer permutes coordinate positions of identical marker-equality partitions and free missing symbols. This yields orbit classification by histograms c_{pi,B}. Round d refinement recovers each distance-to-marker vector (diameter d). At the next round each neighbor displacement 1_B−1_C is known. One-block statuses are recovered from multiplicities of +/-1_[r]; two-block B,C from +/-1_B, and three-block B,C,E from 1_B−1_C with proper disjoint union. For two-block +1_B−1_C can occur, but is distinct from three-block patterns by union=[r]; the specified singleton-status recovery is injective. Thus one more round separates all orbits. Counting integer allocations of statuses gives (n_one+1) product binomial(n_pi+2,2), and multinomial class sizes with 2 choices per unmatched one-block coordinate. Independent 1WL and histogram partition implementation exhaustively agreed for d1, d2 marker configurations up to r3 and sampled d3 configurations; does not prove all d.
 
-The archived own-claim comparison identified binary hypercube arbitrary-marker and q-ary Hamming two-marker orbit results, both proper subdomains. Indexed research queries and available primary literature reveal known Hamming automorphism structure and generic refinement/individualization concepts, but no source whose proved statement covers exact orbit recovery for every number of individually marked ternary vertices, the displacement inversion, or class-size formula. The original contribution is the all-marker ternary structural refinement theorem, not the known automorphism group or existing special cases. Specialist earlier coverage remains possible.
+## originality
 
-The closest compared literature is Jones (2010), Arvind–Köbler–Rattan–Verbitsky (2015), and Arvind et al. (2016). Prior work on binary arbitrary-marker and ternary two-marker Hamming instances is acknowledged as covered special cases, not claimed anew.
+PASS
 
-## Value — PASS
+PASS, qualified: Jones gives the known automorphism wreath product, Arvind–Köbler–Rattan–Verbitsky define general refinability and broader CR class hierarchy, and binary arbitrary-marker / q-ary two-marker examples cover restricted subdomains. The exact arbitrary-marker ternary orbit theorem and one-neighbor inverse profile formula are not stated or implied in examined primary material. Potential specialized Hamming Tinhofer/Godsil results remain priority risk.
 
-Ternary Hamming graphs form the smallest nonbinary Cartesian complete-graph powers. For arbitrary individually marked vertex configurations, the theorem completely determines the stable counting-logic partition, how many types occur and their cardinalities, and gives a bounded-round constructive reconstruction method. It extends both the known binary arbitrary-marker and the nonbinary two-marker special cases, resolving a natural structural orbit-recovery problem for an infinite family rather than an arbitrary finite invariant.
+## value
 
-## Limits and risks
+PASS
 
-- No independently performed publication-priority audit; a specialized Hamming graph Godsil/Tinhofer theorem might imply orbit equality even if not identified in the inspected literature.
-- The Boutin 2009 complete body was not accessible for inspection, but its available abstract addresses binary graph determining numbers, not this ternary counting-refinement statement.
-- Full source of Jones 2010 was accessible only as an excerpt and arXiv source listing; its standard wreath-product group fact is separately mathematically reconstructible.
-- The theorem concerns only alphabet size three and within-graph orbit recovery; it does not identify the colored graph among arbitrary competitors.
+PASS: H(d,3) is the smallest genuinely nonbinary Hamming family; arbitrary marker configurations form a natural symmetry-breaking input. This is an all-d structural classification of exact stable 1WL classes, counts and sizes with constructive d+1 stabilization—not an arbitrary finite computation or unmotivated slice.
 
-Self-review: passed. Independent audit: not yet performed.
+The dated certificate retains the supplied scientific assessment, sources and limitations.

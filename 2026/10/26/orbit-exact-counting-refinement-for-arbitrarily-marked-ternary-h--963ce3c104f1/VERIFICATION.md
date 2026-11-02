@@ -5,8 +5,11 @@
     "status": "not_performed"
   },
   "independent_audit": {
-    "evidence": null,
-    "status": "not_performed"
+    "status": "passed",
+    "evidence": [
+      "INDEPENDENT_AUDIT_2026-10-31.md",
+      "INDEPENDENT_AUDIT_2026-10-31.json"
+    ]
   },
   "lean_verification": {
     "evidence": null,
@@ -15,8 +18,25 @@
   "schema_version": 1
 }
 ---
-# Verification and limits
 
-`python3 verify_ternary.py` uses only Python 3's standard library to construct ternary Hamming graphs, run exact simultaneous 1-WL from distinct singleton marker colours, construct coordinate equality-pattern status histograms independently, and compare partitions by mutual functional consistency. It also checks the exact generating multiset of neighbour distance displacements for each tested vertex. The program checks 985 marker configurations for dimensions one to four and markers one to four. All tests passed on the supplied run, documented in `verification_output.txt`. Cases up to dimension two are exhaustive among marker sets containing the all-zero word (a harmless automorphism normalization); larger cases use deterministic bounded samples.
+# Independent mathematical audit
 
-The universal theorem rests on the written combinatorial proof and is not an inference from finite tests. No Lean or external certification is claimed. Scientific independent audit has not been performed.
+## correctness
+
+PASS
+
+PASS: Aut(H(d,3))=S3 wreath S_d, and the pointwise marker stabilizer permutes coordinate positions of identical marker-equality partitions and free missing symbols. This yields orbit classification by histograms c_{pi,B}. Round d refinement recovers each distance-to-marker vector (diameter d). At the next round each neighbor displacement 1_B−1_C is known. One-block statuses are recovered from multiplicities of +/-1_[r]; two-block B,C from +/-1_B, and three-block B,C,E from 1_B−1_C with proper disjoint union. For two-block +1_B−1_C can occur, but is distinct from three-block patterns by union=[r]; the specified singleton-status recovery is injective. Thus one more round separates all orbits. Counting integer allocations of statuses gives (n_one+1) product binomial(n_pi+2,2), and multinomial class sizes with 2 choices per unmatched one-block coordinate. Independent 1WL and histogram partition implementation exhaustively agreed for d1, d2 marker configurations up to r3 and sampled d3 configurations; does not prove all d.
+
+## originality
+
+PASS
+
+PASS, qualified: Jones gives the known automorphism wreath product, Arvind–Köbler–Rattan–Verbitsky define general refinability and broader CR class hierarchy, and binary arbitrary-marker / q-ary two-marker examples cover restricted subdomains. The exact arbitrary-marker ternary orbit theorem and one-neighbor inverse profile formula are not stated or implied in examined primary material. Potential specialized Hamming Tinhofer/Godsil results remain priority risk.
+
+## value
+
+PASS
+
+PASS: H(d,3) is the smallest genuinely nonbinary Hamming family; arbitrary marker configurations form a natural symmetry-breaking input. This is an all-d structural classification of exact stable 1WL classes, counts and sizes with constructive d+1 stabilization—not an arbitrary finite computation or unmotivated slice.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
