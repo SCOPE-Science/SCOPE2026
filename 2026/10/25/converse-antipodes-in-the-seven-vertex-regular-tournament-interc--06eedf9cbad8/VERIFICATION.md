@@ -5,8 +5,11 @@
     "status": "not_performed"
   },
   "independent_audit": {
-    "evidence": null,
-    "status": "not_performed"
+    "status": "passed",
+    "evidence": [
+      "INDEPENDENT_AUDIT_2026-10-27.md",
+      "INDEPENDENT_AUDIT_2026-10-27.json"
+    ]
   },
   "lean_verification": {
     "evidence": null,
@@ -16,12 +19,24 @@
 }
 ---
 
-# Reproducibility
+# Independent mathematical audit
 
-Run `python3 verify_bitmask.py` and `python3 verify_recursive.py` using standard Python 3.10+ from the same directory. Both source files are embedded and standalone, with no external dependencies or data files. Their actual execution outputs are provided beside them; the final line of each is `PASS`.
+## correctness
 
-The bit-mask checker deterministically tests all \(2^{21}\) possible orientations of the 21 edges, checks all outdegree constraints, then tests all \(\binom73=35\) cyclic triangles per regular tournament, explicitly computes all 5040 relabelings of each representative, and runs exact BFS for the three resulting orbits. It checks that the 2640 masks and 18480 exchange edges are complete and symmetric. It checks all distance histograms and all four-subset cyclic-triangle histograms, as well as each class's exact converse distance and farthest-count. Canonical vertex SHA-256: `4c059786ba7d81ff979b14ada49f93a75947da7d31f3f9b61acdcf10c54ff7d8`. Canonical undirected edge SHA-256: `8f7a44ae81aa3923c15e2f60be0241d5a97f568a0d1d531140aedd5f4c4f2755`.
+PASS
 
-The independent row-recursion checker directly constructs all balanced adjacency matrices, reverses directed cycles by manipulating row bits, then performs BFS from **every** one of the 2640 roots. It confirms exactly 360 undirected distance-nine pairs and checks every such pair is a converse pair. Its three shell classes agree with the first program.
+I independently enumerated all 2^21 labeled tournaments by exact oriented-edge masks, filtered by outdegree three, obtaining 2640. Exactly 14 cyclic triangles are flippable at each state (hence 18480 undirected edges). Explicit orbit generation under the 7! label permutations gave orbit sizes 240,720,1680, covering all 2640 states. Exact BFS from each orbit representative visited the entire graph and reproduced shell profiles: 240:(1,14,91,343,749,871,476,92,3), 720:(1,14,91,336,721,822,485,147,22,1), 1680:(1,14,91,340,739,853,483,113,6). Converse distances were 7,9,7; the sole radius-nine shell in the 720 orbit is its converse, yielding 720/2=360 antipodal unordered pairs, global diameter nine and radius eight. Independent four-subset enumeration recovered cyclic-triangle histograms (0,14,21),(7,0,28),(3,8,24), identifying the middle orbit by absence of one-cyclic-triangle four-sets. The source code checks every state; this is a genuinely complete finite proof, not sampling.
 
-Exact coverage is finite only: the checkers do not establish an n-dependent general theorem for arbitrary odd tournament order. The closest classical interchange results supply connectivity and bounds, not these exact recorded finite metrics. Independent external validation has not been performed.
+## originality
+
+PASS
+
+PASS, qualified best-of-knowledge: literature comparison of exact statements/implications. The graph object and moves are classical; the new claim is the complete shortest-path metric, which cannot be derived from connectivity alone. The recognized prior bounds may constrain graph diameter but do not mathematically imply these exact shell profiles; inaccessible original Brualdi–Li tables remain a priority risk.
+
+## value
+
+PASS
+
+The triangle-interchange graph of the smallest interesting regular tournament score class is a canonical finite object. Its exact radius/diameter, full orbit distance distributions and intrinsic converse-antipode criterion are a meaningful complete metric classification rather than a tiny arbitrary slice, resolving a natural extremal configuration question within the 2640-state graph.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

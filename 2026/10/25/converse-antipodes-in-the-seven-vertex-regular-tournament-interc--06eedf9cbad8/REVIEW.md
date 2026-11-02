@@ -1,19 +1,21 @@
-# Scientific review
+# Independent mathematical audit
 
-## Correctness — PASS
+## correctness
 
-The claim is finite and complete: the first standalone proof program maps all \(2^{21}\) directed complete-graph choices bijectively to integer masks, selects those of score \((3,3,3,3,3,3,3)\), constructs all and only legal cyclic-triangle reversals, partitions all 2,640 regular states into all permutation orbits, and performs exhaustive breadth-first search on representatives. That establishes the complete graph's metric from a terminating exhaustive integer calculation, not a mere sample. The second program independently generates the regular states by recursive adjacency-row choices, builds moves directly, and checks distances from every state. Both computations passed on the actual standalone files and agree on every claimed class, shell, diameter, and converse antipode. The proof of class-constancy follows from permutation invariance. There is no extension asserted beyond order seven.
+PASS
 
-## Originality — PASS with recorded risks
+I independently enumerated all 2^21 labeled tournaments by exact oriented-edge masks, filtered by outdegree three, obtaining 2640. Exactly 14 cyclic triangles are flippable at each state (hence 18480 undirected edges). Explicit orbit generation under the 7! label permutations gave orbit sizes 240,720,1680, covering all 2640 states. Exact BFS from each orbit representative visited the entire graph and reproduced shell profiles: 240:(1,14,91,343,749,871,476,92,3), 720:(1,14,91,336,721,822,485,147,22,1), 1680:(1,14,91,340,739,853,483,113,6). Converse distances were 7,9,7; the sole radius-nine shell in the 720 orbit is its converse, yielding 720/2=360 antipodal unordered pairs, global diameter nine and radius eight. Independent four-subset enumeration recovered cyclic-triangle histograms (0,14,21),(7,0,28),(3,8,24), identifying the middle orbit by absence of one-cyclic-triangle four-sets. The source code checks every state; this is a genuinely complete finite proof, not sampling.
 
-The 1984 classical interchange framework and the 1998 article both cover the existence of directed-triangle reversal paths in a fixed tournament score class, so this established statement is explicitly excluded from the new contribution. The 1998 full text's Section 5 addresses general interchange-graph diameter bounds and asymptotic behavior, not the complete metric at score \((3,3,3,3,3,3,3)\). The open 2025 Coxeter interchange text introduces a broader transformation setting and recites the classical regular-degree/connectedness facts without an exact seven-regular three-orbit spectrum. The 2009 minimum-score hypercube statement concerns distinct score constraints, not our 14-regular graph. Searches for triangle-reversal distances, exact seven-tournament radii, and antipodes found no matching primary theorem or archived claim. This is a best-knowledge originality conclusion, not a proof that no equivalent work exists. The original Brualdi–Li chapter was not available in full; an unindexed small-order metric table there or elsewhere remains the main priority risk.
+## originality
 
-## Mathematical value — PASS
+PASS
 
-The unrestricted score-fiber connectivity theorem does not determine the *shortest* number of legal moves. The classical order-seven regular score fiber is the first natural finite case with three relabeling types; determining all exact distance shells, two distinct eccentricity regimes, and the converse-antipode criterion resolves a natural graph-metric invariant in that case. The sharp distinction (only one orbit has a unique antipode; the other orbits' converse distance is seven) is structural, not a routine restatement of the known vertex count or degree. The intrinsic four-vertex characterization enables identifying the antipodal class without solving a shortest-path problem. This is an exact finite theorem, with no claim of a general infinite-family consequence.
+PASS, qualified best-of-knowledge: literature comparison of exact statements/implications. The graph object and moves are classical; the new claim is the complete shortest-path metric, which cannot be derived from connectivity alone. The recognized prior bounds may constrain graph diameter but do not mathematically imply these exact shell profiles; inaccessible original Brualdi–Li tables remain a priority risk.
 
-## Closest literature and limitations
+## value
 
-Relevant sources include Brualdi–Li (1984), Guiduli–Gyárfás–Thomassé–Weidl (1998, full text inspected), Kannan–Tetali–Vempala (1999, bibliographic/abstract comparison), Chen–Chang–Wang (2009, abstract comparison), and Kolesnik–Mitchell–Przybyłowski (2025, available full text). A closely related 1984 source remained inaccessible in full, while other differently indexed theorems cannot be ruled out. The complete verification covers only seven vertices and uses exhaustive exact computation, not an asymptotic argument.
+PASS
 
-Self-review: passed. Independent audit: not yet performed.
+The triangle-interchange graph of the smallest interesting regular tournament score class is a canonical finite object. Its exact radius/diameter, full orbit distance distributions and intrinsic converse-antipode criterion are a meaningful complete metric classification rather than a tiny arbitrary slice, resolving a natural extremal configuration question within the 2640-state graph.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
