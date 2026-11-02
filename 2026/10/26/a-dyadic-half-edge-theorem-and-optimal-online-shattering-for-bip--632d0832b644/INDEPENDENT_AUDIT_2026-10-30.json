@@ -1,0 +1,132 @@
+{
+  "audit_date_utc": "2026-10-30",
+  "audited_at_utc": "2026-10-30T13:10:34Z",
+  "axes": {
+    "correctness": {
+      "checked_sources": [
+        "Git RESULT.md blob 198274be666b78f308115bf7980c1067e65cf48f sections Lemmas 1-4",
+        "Git verify_half16_independent.py blob e857f57975b42dd970acbb2f26e208b1eb63d15d",
+        "Git verify_half16.cpp blob 23951bc2f058f38035846ebe112f820d58434651",
+        "Independent freshly compiled column-mask exhaustive checker with the 57,786 matrix counts"
+      ],
+      "rationale": "Reconstructed degree-pair interpolation: any 16-edge graph with one degree >=8 or two degrees on the same side summing >=8 has an 8-edge induced bipartite subgraph; any degree submultiset summing 8 works by taking all opposite vertices. If no such split, integer partitions on either side are necessarily P=(4,3,3,3,3) or Q=(3,3,3,3,3,1). This is an order-independent argument despite unbounded isolated vertices. Independently wrote, compiled and executed a different column-mask exhaustive C++ generator, not the supplied row-mask code, over ALL four residual fixed degree-sequence matrices: 906, 6720, 6720, 43440, total 57,786; every single matrix admits a row+column subset containing exactly eight ones. Smaller dyadic half-splits 2,4,8 follow stars and pair interpolation. Recursive binary query split of a 2^r-edge subfamily constructs a depth-r shattered tree. Any arbitrary m in [1,31] contains 2^floor(log2 m) edges, and adding hypotheses cannot decrease Ldim; info bound 2^r<=m supplies equality. Upper bound valid for all finite hypothesis classes. Finite exhaustive program alone is not a proof for arbitrary orders: the explicit prior degree-partition reduction provides the needed unbounded-vertex link. No claim at 32 or more edges.",
+      "residual_risks": [
+        "Computer-assisted exhaustive finite case proof depends on the correctness of both degree reduction and enumerator; independently implemented column masks agreed with the source counts and witness property.",
+        "No extension to 32 edges, and no claim of any 512-edge general solution."
+      ],
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Alon/Krivelevich/Sudakov Lemma 4.1 guarantees edge counts only through one bipartition side size, possibly less than 8 in P/Q cases.",
+          "The independent exhaustive residual check handles the cases not controlled by this general interpolation."
+        ],
+        "reasoning": "The stronger-looking general lemma does not dominate the residual 16-edge assertion, while arbitrary online dimensions follow from the previously missing half split rather than a published general dimension equality.",
+        "searches": [
+          "bipartite graphs 16 edges induced subgraph 8 edges half-edge splitting Littlestone dimension edge subset concepts",
+          "Induced Subgraphs of Prescribed Size Alon Krivelevich Sudakov 2003 Lemma 4.1"
+        ]
+      },
+      "checked_sources": [
+        "Resultary semantic search: bipartite graphs 16 edges induced subgraph 8 edges half-edge splitting Littlestone dimension edge subset concepts",
+        "Alon/Krivelevich/Sudakov 2003 PDF Section 4 Lemma 4.1",
+        "arXiv:2007.03668 summary",
+        "MathOverflow 111684 indexed question (content inaccessible)"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "arXiv:2007.03668 gives general closure bounds for Littlestone/threshold dimensions under aggregation.",
+          "The target Ldim equality depends on exact balanced splits for edge-indexed queries, established for powers up to 16."
+        ],
+        "reasoning": "General growth bounds do not imply existence of a perfectly balanced decision tree; conversely exact induced-edge interpolation on degrees up to 16 yields the sharp count by combinatorial induction without generic closure machinery.",
+        "searches": [
+          "bipartite graphs 16 edges induced subgraph 8 edges half-edge splitting Littlestone dimension edge subset concepts",
+          "Near-tight closure bounds for Littlestone and threshold dimensions arXiv:2007.03668"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Alon/Krivelevich/Sudakov 2003 Lemma 4.1 concerns prescribed edge counts in induced bipartite subgraphs.",
+          "Ghazi/Golowich/Kumar/Manurangsi arXiv:2007.03668 analyzes Ldim under Boolean closure operations."
+        ],
+        "reasoning": "The first is an interpolation lemma with a smaller range, not this exact dyadic half split; the second is a general class-composition bound, not the exact tree-shattering law for edge hypotheses.",
+        "searches": [
+          "bipartite graphs 16 edges induced subgraph 8 edges half-edge splitting Littlestone dimension edge subset concepts",
+          "16-edge bipartite 8-edge induced subgraph edge subset conjunction Ldim online shattering"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "Resultary search returned half-graph edge-metric and unrelated bipartite invariants, not 16-edge induced-half-edge tables.",
+          "The actual finite census covers 57,786 residual bipartite degree-constrained matrices, not all arbitrary graphs."
+        ],
+        "reasoning": "No table of 16-edge bipartite induced-half-edge exceptions was identified; graphs with unbounded isolated vertices are covered only after structural reduction, so a small-order catalog cannot automatically imply the theorem.",
+        "searches": [
+          "bipartite graphs 16 edges induced subgraph 8 edges half-edge splitting Littlestone dimension edge subset concepts",
+          "16 bipartite edges induced 8 subgraph finite graph database enumeration"
+        ]
+      },
+      "rationale": "Best-of-knowledge PASS: compared an exact bipartite induced-half-edge statement, unrestricted in vertex order, against published interpolation results and online-dimension closure bounds. The inspected Alon-Krivelevich-Sudakov Lemma 4.1 bounds a shorter interval by partition-side size and does not imply eight for residual P,Q; general Boolean closure bounds likewise do not force exact edge-conjunction Ldim. Specific 16-edge priority remains qualified by limited indexing of combinatorial finite cases.",
+      "residual_risks": [
+        "Unindexed earlier finite 16-edge classification or comprehensive answer to the MathOverflow question might cover the result.",
+        "arXiv:2007.03668 full text not materially read; no whole-document no-coverage assertion.",
+        "Computer-assisted completeness depends on the source structural degree reduction, checked separately by exact partition generation."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "RELATED_NO_IMPLICATION_AT_PQ",
+          "evidence": "The guaranteed interval ends at a positive-degree bipartition-side parameter which can be <8 for the residual degree lists.",
+          "identifier_or_url": "https://people.math.ethz.ch/~sudakovb/aks-induced.pdf",
+          "material_read": "Primary PDF relevant Section 4, especially Lemma 4.1 and its scope",
+          "method": "Public PDF text and page screenshot; specialize parameters to residual P,Q degrees",
+          "title": "Induced Subgraphs of Prescribed Size",
+          "trigger": "a plausible general theorem could subsume 8-of-16 bipartite case"
+        },
+        {
+          "assessment": "ABSTRACT_ONLY_PRIORITY_RISK",
+          "evidence": "Boolean closure bounds target different constructions and supply no inspected exact edge-hypothesis dimension formula; the full paper was not read.",
+          "identifier_or_url": "https://arxiv.org/abs/2007.03668",
+          "material_read": "Bibliographic summary/abstract scope and source citations; full-text unavailable in this run",
+          "method": "Public arXiv metadata and targeted discovery",
+          "title": "Near-tight closure bounds for Littlestone and threshold dimensions",
+          "trigger": "related online combinatorial complexity"
+        },
+        {
+          "assessment": "INACCESSIBLE_CONTEXT_NOT_A_PROOF",
+          "evidence": "The question motivates dyadic half-edge splitting but does not certify the 16-edge claim, and its unseen answers cannot be called non-covering.",
+          "identifier_or_url": "https://mathoverflow.net/questions/111684/",
+          "material_read": "Question title/date and source reference only; website not accessible",
+          "method": "Indexed question metadata and failed direct page open",
+          "title": "Does every bipartite graph with 512 edges have an induced subgraph with 256 edges?",
+          "trigger": "broader half-edge conjecture motivates finite threshold"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "checked_sources": [
+        "Git RESULT.md complete degree reduction and universal Ldim induction",
+        "Alon/Krivelevich/Sudakov 2003 induced subgraph interpolation Lemma 4.1",
+        "MathOverflow question 111684, 2012, general dyadic half-edge problem; page inaccessible in this run"
+      ],
+      "rationale": "The 16-edge case is a small but intrinsically motivated dyadic threshold within the long-standing induced-half-edge problem: the exact finite cutoff is universal over bipartite graphs of arbitrary order, not a bounded-vertex computation. Its consequence is a complete sharp online mistake-dimension law through 31 edge hypotheses. This is a natural classification of the binary query capability, not an unmotivated arbitrary slice; larger dyadic thresholds remain open or unclaimed.",
+      "residual_risks": [
+        "The exact 16-edge threshold is finite and could be generalized; the result alone does not settle 32, 512 or arbitrary dyadic edge counts.",
+        "A simple overlooked uniform 16-edge argument could reduce method complexity but not eliminate the mathematical motivation for the exact threshold."
+      ],
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "limitations": [
+    "Computer-assisted exhaustive finite case proof depends on the correctness of both degree reduction and enumerator; independently implemented column masks agreed with the source counts and witness property.",
+    "No extension to 32 edges, and no claim of any 512-edge general solution.",
+    "Unindexed earlier finite 16-edge classification or comprehensive answer to the MathOverflow question might cover the result.",
+    "arXiv:2007.03668 full text not materially read; no whole-document no-coverage assertion.",
+    "Computer-assisted completeness depends on the source structural degree reduction, checked separately by exact partition generation.",
+    "The exact 16-edge threshold is finite and could be generalized; the result alone does not settle 32, 512 or arbitrary dyadic edge counts.",
+    "A simple overlooked uniform 16-edge argument could reduce method complexity but not eliminate the mathematical motivation for the exact threshold."
+  ],
+  "schema_version": 1
+}
