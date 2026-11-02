@@ -1,0 +1,109 @@
+{
+  "audit_date_utc": "2026-10-30",
+  "audited_at_utc": "2026-10-30T04:44:33.420409Z",
+  "axes": {
+    "correctness": {
+      "rationale": "Both divisor sums are multiplicative with local factors 1+p^a and sum_{d|a}p^d. For a=1 their ratio is >1, for a>=2 their local ratio reverses, ruling out prime powers, squarefree integers, and p²q². For p^a q with a=2,3, equality rearranges to (p-1)q=p^a+1; p-1|2 forces p=2 or 3 and yields only p²q=20,45. For p²qr, equation (p²+1)(q+1)(r+1)=p(p+1)qr implies q,r>p+1. At p=2 divisibility by 5 contradicts q,r>5. At odd p, B=(p²+1)/2>1 is coprime to p(p+1), so B|qr; since B<qr and qr squarefree, B=q or r. Setting q=B gives (p-3)r=p²+3, so p-3|12 and p=5 or 7; r=14 or q=25 invalid. Exhaustion of all exponent partitions with Omega<=4 completes the universal proof. Independently enumerated 152318 low-Omega integers <=200000 with sole hits 1,20,45; finite test is not the proof.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Published first-49 exponent-layer result proves p^a q cases including p²q and p³q but assumes only two distinct primes."
+        ],
+        "reasoning": "That theorem does not include p²qr. Treating it as full Omega<=4 coverage would confuse a fixed-prime-support classification with total multiplicity.",
+        "searches": [
+          "Resultary: unitary exponential divisor sums equal p squared q r Omega four",
+          "Resultary: 2026/10/4/SCOPE-the-first-49-exponent-layers-of-the-unitary-exponential-divisor--59314f8e910e"
+        ]
+      },
+      "checked_sources": [
+        "arxiv:1312.4615",
+        "https://oeis.org/A236474",
+        "Resultary: 2026/10/4/SCOPE-the-first-49-exponent-layers-of-the-unitary-exponential-divisor--59314f8e910e"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "The known two-prime formula cannot exclude a factorization with three distinct prime supports.",
+          "The new q,r>p+1 and divisor argument uses a condition only present when two singleton cofactors occur."
+        ],
+        "reasoning": "No inspected larger-prime-support theorem directly implies the p²qr impossibility; retain possible unindexed coverage as a residual priority risk.",
+        "searches": [
+          "arxiv:1312.4615 Trudgian unitary exponential divisor sum equality",
+          "Resultary first 49 exponent layers"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Trudgian studied sigma*(n)=sigma^(e)(n) and documented early examples 20 and 45, as well as the broader infinitude question.",
+          "OEIS A236474 lists equal-sum integers, not an infinite-domain restriction by Omega."
+        ],
+        "reasoning": "The exact equality numbers are known; novelty is the complete exclusion of any other n with Omega<=4, especially the three-distinct-prime shape.",
+        "searches": [
+          "unitary exponential divisor sums equal p squared q r Omega four",
+          "arxiv:1312.4615",
+          "OEIS A236474"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "The published examples 1,20,45,320,... are consistent with the theorem; numeric lists do not certify the exclusion for infinitely many p²qr candidates."
+        ],
+        "reasoning": "The smallest three equality hits were previously tabulated, but the claimed new object is the exhaustive Omega-layer theorem, not discovery of those entries.",
+        "searches": [
+          "OEIS A236474",
+          "unitary exponential divisor sigma* sigma(e) example list"
+        ]
+      },
+      "rationale": "Trudgian introduced the equality question and examples, while OEIS records examples without an exhaustive proof. Published Resultary work classifies p^a q for 2<=a<=49, covering two-prime cases in this theorem, but not the genuinely different p²qr support. A more general unindexed low-Omega classification remains possible.",
+      "residual_risks": [
+        "An unindexed elementary classification of sigma*=sigma^(e) by total prime-factor multiplicity could cover the same Omega<=4 result.",
+        "No statement about existence or impossibility of solutions with Omega>=5; finite sieve is ancillary."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "FOUNDATIONAL_KNOWN_EXAMPLES, not the full low-Omega classification in read material.",
+          "evidence": [
+            "The paper asks about equality and gives examples; the observed examples alone do not imply p²qr exclusion."
+          ],
+          "identifier_or_url": "https://arxiv.org/abs/1312.4615",
+          "material_read": "Primary short PDF introduction, equality examples and statement/questions near end, with PDF page image inspected.",
+          "method": "Primary text and page screenshot comparison.",
+          "title": "The sum of the unitary divisor function",
+          "trigger": "Original unitary-versus-exponential divisor sum equality question."
+        },
+        {
+          "assessment": "TWO_PRIME_CASE_COVERED, not p²qr.",
+          "evidence": [
+            "Classifies p^a q only for 2<=a<=49; no third distinct prime in its stated support."
+          ],
+          "identifier_or_url": "https://github.com/Resultary/2026/tree/main/2026/10/4/SCOPE-the-first-49-exponent-layers-of-the-unitary-exponential-divisor--59314f8e910e",
+          "material_read": "Published Resultary title, detailed summary specifying the p^a q assumptions and exact two-prime result; no claim to have read entire result body.",
+          "method": "Primary published research record semantic description and scope comparison.",
+          "title": "The first 49 exponent layers of the unitary–exponential divisor-sum equality",
+          "trigger": "Exactly same divisor functions, possible stronger coverage."
+        },
+        {
+          "assessment": "EXAMPLES_COVERED, exclusion theorem not established by table.",
+          "evidence": [
+            "Numerical list includes 20 and 45; finite sequence listing is not an infinite absence proof."
+          ],
+          "identifier_or_url": "https://oeis.org/A236474",
+          "material_read": "Sequence title, examples and scope; proof of universal Omega<=4 cutoff not in inspected material.",
+          "method": "Table and definition comparison.",
+          "title": "OEIS A236474 numbers with equal unitary/exponential divisor sums",
+          "trigger": "Possible exact existing table."
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "rationale": "The total prime-factor multiplicity Omega is a natural arithmetic complexity parameter. The theorem proves a complete infinite-domain low-complexity cutoff motivated by the open-ended unitary/exponential equality problem. The new p²qr obstruction adds real three-prime-support information beyond known p^a q calculations; this is not merely a numeric table.",
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "final_claim": "For every positive integer n with big-Omega(n)<=4, sigma*(n)=sigma^(e)(n) exactly at n=1,20,45; in particular no product p^2qr of three distinct primes is a solution.",
+  "limitations": "Scientific PASS is best-of-knowledge only, with exact prior-source risks preserved. The current public package cannot be published without privacy remediation. ",
+  "schema_version": 1
+}

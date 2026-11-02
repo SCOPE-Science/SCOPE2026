@@ -1,15 +1,21 @@
-# Review of the low-multiplicity unitary–exponential equality classification
+# Independent mathematical audit
 
-## Correctness
-PASS. The prime-power identities follow from the defining divisor sets. The shape list for \(\Omega(n)\le4\) is exhaustive. The substantive three-prime case is excluded by forcing \((p^2+1)/2\) to equal one of two distinct singleton primes and reducing the remaining equality to a four-case divisor of \(12\); all boundary cases are checked. A finite sieve independently agrees through \(10^6\) but is not substituted for the unrestricted argument.
+## correctness
 
-## Originality
-PASS on the sources inspected. Trudgian's paper poses the equal-sum existence question and provides examples, not this multiplicity theorem. OEIS A236474 is a table of examples. The published first-49-exponent-layer result handles only \(p^a q\) and covers the already-known two-prime portion; it neither states nor implies the \(p^2qr\) obstruction. Explicit semantic queries of published mathematical research records and accessible earlier claims did not recover an implication covering the full theorem. The remaining risk is an equivalent unindexed or inaccessible classification.
+PASS
 
-## Value
-PASS. The total prime-factor count \(\Omega\) is a natural complexity measure for multiplicative arithmetic functions. Trudgian's open-ended equality question motivates locating the first support patterns that can or cannot occur. This theorem finishes a complete infinite-domain cutoff \(\Omega\le4\), and its prime-support lemma is not a finite table lookup or a restatement of the two-prime calculation. No downstream theorem or resolution of the global infinitude question is claimed.
+Both divisor sums are multiplicative with local factors 1+p^a and sum_{d|a}p^d. For a=1 their ratio is >1, for a>=2 their local ratio reverses, ruling out prime powers, squarefree integers, and p²q². For p^a q with a=2,3, equality rearranges to (p-1)q=p^a+1; p-1|2 forces p=2 or 3 and yields only p²q=20,45. For p²qr, equation (p²+1)(q+1)(r+1)=p(p+1)qr implies q,r>p+1. At p=2 divisibility by 5 contradicts q,r>5. At odd p, B=(p²+1)/2>1 is coprime to p(p+1), so B|qr; since B<qr and qr squarefree, B=q or r. Setting q=B gives (p-3)r=p²+3, so p-3|12 and p=5 or 7; r=14 or q=25 invalid. Exhaustion of all exponent partitions with Omega<=4 completes the universal proof. Independently enumerated 152318 low-Omega integers <=200000 with sole hits 1,20,45; finite test is not the proof.
 
-## Closest literature and limitations
-The exact singleton-cofactor classification through exponent 49 was published separately and covers the \(p^2q\) and \(p^3q\) cases used here. The additional family \(p^2qr\) is not within that scope. An unindexed equivalent may exist. The result says nothing about \(\Omega(n)\ge5\).
+## originality
 
-Self-review: passed. Independent audit: not yet performed.
+PASS
+
+Trudgian introduced the equality question and examples, while OEIS records examples without an exhaustive proof. Published Resultary work classifies p^a q for 2<=a<=49, covering two-prime cases in this theorem, but not the genuinely different p²qr support. A more general unindexed low-Omega classification remains possible.
+
+## value
+
+PASS
+
+The total prime-factor multiplicity Omega is a natural arithmetic complexity parameter. The theorem proves a complete infinite-domain low-complexity cutoff motivated by the open-ended unitary/exponential equality problem. The new p²qr obstruction adds real three-prime-support information beyond known p^a q calculations; this is not merely a numeric table.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
