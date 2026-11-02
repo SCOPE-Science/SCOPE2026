@@ -1,0 +1,100 @@
+{
+  "correctness": {
+    "rationale": "For each nonempty subset of farthest targets, first-hit probability has Taylor coefficients A=W_d/d! and B=(W_{d+1}-L_d)/(d+1)!, verified from the killed generator and pre-hit holding-time simplex. Inclusion-exclusion and Laplace rescaling yield the N^{-(m+1)/d} term for every fixed m>0, d>=2. An explicit union bound shows nearer targets contribute o(N^{-(m+1)/d}); finite irreducibility controls long tails. Pendant attachment changes only the exit rate at an on-geodesic vertex through order d+1. An independent exact checker passed 6,807 rational assertions and numerical finite-N diagnostics match the two explicit coefficients.",
+    "status": "PASS"
+  },
+  "independent": false,
+  "independent_audit_status": "not_performed",
+  "originality": {
+    "broader_coverage": {
+      "evidence": [
+        "arXiv:2310.07905 Theorem 1 states a leading asymptotic moment coefficient, not an expansion through N^{-(m+1)/d}",
+        "arXiv:2008.04496 Section 2.3 states leading extreme first-passage asymptotics and a limiting Weibull law"
+      ],
+      "reasoning": "Both primary theorems are broader in network type for leading order, while the new claim is restricted to finite irreducible CTMCs and d>=2 but obtains a non-implied next coefficient. Leading asymptotic equivalence cannot imply a specific nonzero next-order pendant response.",
+      "searches": [
+        "\"many random walkers\" \"second-order\" \"cover time\" finite network",
+        "\"Kim\" \"Lawley\" \"cover times of many\" correction next order expansion",
+        "\"cover time\" \"many searchers\" \"higher-order\" asymptotic"
+      ]
+    },
+    "checked_sources": [
+      "https://arxiv.org/abs/2310.07905",
+      "https://arxiv.org/abs/2008.04496",
+      "https://doi.org/10.1103/PhysRevE.109.014121",
+      "https://doi.org/10.1103/PhysRevE.102.062118"
+    ],
+    "claim_vs_prior_implication": {
+      "evidence": [
+        "arXiv:2310.07905 Theorem 1: asymptotic equivalence of m-th moments to an N^{-m/d} term; no coefficient at N^{-(m+1)/d}",
+        "arXiv:2008.04496 Theorem 4 and killed-generator survival representation: leading term and Weibull law only",
+        "The pendant comparison changes K_1^{(1)} from 4/3 to 5/3 with identical leading coefficient sqrt(pi/2)"
+      ],
+      "reasoning": "A first-order N^{-m/d} equivalent allows arbitrarily many distinct next coefficients. The result supplies an explicit next coefficient, a mechanism involving holding rates and length-(d+1) first-hit paths, and a perturbation witness. These are neither formal corollaries of the stated prior leading constants nor contradictory to their geodesic locality at first order.",
+      "searches": [
+        "Kim Lawley 2023 2310.07905 cover times of many random walkers discrete networks second-order correction",
+        "Lawley 2020 2008.04496 extreme first passage finite CTMC higher-order hitting-time moment",
+        "\"shortest paths\" \"second-order\" \"extreme first passage\" Markov chain"
+      ]
+    },
+    "equivalent_formulations": {
+      "evidence": [
+        "Kim–Lawley arXiv:2310.07905, Section II inclusion-exclusion and first-order A(J) moments",
+        "Lawley arXiv:2008.04496, Section 4 exact killed-generator survival identity and leading Weibull asymptotics"
+      ],
+      "reasoning": "A second-order extreme minimum for one target is equivalent to a Taylor expansion of its hitting distribution, but the proposed theorem also gives a universal finite graph path coefficient for arbitrary farthest target sets, proves suppression of nearer target contributions at the next scale, and establishes an exact positive pendant-leaf response. No equivalent combined statement was located in the inspected sources.",
+      "searches": [
+        "\"extreme first passage\" \"second order\" \"Markov chains\" network",
+        "\"second-order\" \"short-time\" \"extreme\" \"first passage\" CTMC finite graph",
+        "Next-to-leading extreme first passage time asymptotics finite-state Markov chains Weibull second-order Q^(d+1) coefficient"
+      ]
+    },
+    "exact_database_or_table": {
+      "evidence": [
+        "The four- and five-vertex example coefficients were computed independently as killed-generator Taylor coefficients and path sums, not imported from a table",
+        "The source articles present first-order formulas and numerical simulations, not an exact next-coefficient table for these graphs"
+      ],
+      "reasoning": "The claim is a uniform infinite-N theorem over all finite chains, not a table lookup or recomputation of a fixed small case. No exact precomputed list or database entry giving the full second coefficient was identified.",
+      "searches": [
+        "many searcher cover time higher order corrections finite graph shortest path degrees",
+        "Markov chain extreme hitting times asymptotic expansion second coefficient network degree",
+        "Second-order N^{-2/d} correction to cover time moments of N independent continuous-time Markov-chain walkers on a finite graph"
+      ]
+    },
+    "rationale": "The main directly comparable sources establish leading fastest first-passage and cover-time asymptotics, not the next-order network coefficient or the strictly positive pendant-attachment response. This was compared by mathematical implication, including the killed-generator representation and the same CTMC model, not by title matching. Broad second-order extreme-value literature is a residual priority risk.",
+    "residual_risks": [
+      "Second-order phase-type/extreme-value expansions in older probabilistic literature could yield overlapping analytic formulas under different names; no exhaustive priority certification is claimed.",
+      "The source inspection concentrated on theorem, method, example and discussion sections of accessible primary full text; uncatalogued appendices or related unpublished texts could contain additional coverage.",
+      "The result does not cover d=1, where the binomial-log correction contributes at the same next order."
+    ],
+    "source_inspections": [
+      {
+        "assessment": "DIRECT MODEL MATCH; first-order theorem does not state or imply the next-order correction; no pendant-leaf response located in inspected sections",
+        "evidence": "Theorem 1 gives E[sigma_N^m]~K_m N^{-m/d}; Section II displays A(J) and Section V emphasizes leading geodesic locality.",
+        "identifier_or_url": "https://arxiv.org/abs/2310.07905",
+        "material_read": "Accessible rendered full text; introduction, all of Section II including Theorem 1, Section III, numerical comparisons, and discussion",
+        "method": "Compared inclusion-exclusion equation, farthest-target definition, leading coefficient and cited FPT theorem with the proposed next-order coefficient",
+        "title": "Cover times of many random walkers on a discrete network",
+        "trigger": "Identical N-walker finite/discrete CTMC union-cover observable and leading asymptotic"
+      },
+      {
+        "assessment": "CLOSE ANTECEDENT; provides first-order fastest first-passage theory and analytical ingredients, but no located N^{-(m+1)/d} graph-cover coefficient or structural sensitivity corollary",
+        "evidence": "Section 4 equations (31)–(34) express finite-N survival and leading N^{-1/d} expectation; the main theorems give first-order limiting laws.",
+        "identifier_or_url": "https://arxiv.org/abs/2008.04496",
+        "material_read": "Accessible rendered full text; introduction, Section 2 extreme FPT framework, Section 4 killed-generator survival identity, and related discussions",
+        "method": "Compared first-passage moment theorem, survival representation and geodesic leading-scale constants with new two-term analysis",
+        "title": "Extreme first-passage times for random walks on networks",
+        "trigger": "Strong potential antecedent for single-target case and killed-generator expansion"
+      }
+    ],
+    "status": "PASS"
+  },
+  "review_type": "self_review",
+  "schema_version": 1,
+  "scope_run_id": "82b43ddb-c479-4c59-a376-ca6e08a3756d",
+  "self_review_status": "passed",
+  "value": {
+    "rationale": "The 2023 cover-time theorem makes leading geodesic locality a central observation. The new formula identifies precisely when off-geodesic rates first matter, proves a strictly positive sensitivity for a natural pendant-branch perturbation, and gives explicit distinct 4/3 versus 5/3 corrections in genuine two-target problems. This structural boundary is meaningful even though the analytical Laplace expansion uses standard tools.",
+    "status": "PASS"
+  }
+}
