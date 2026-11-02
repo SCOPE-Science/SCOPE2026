@@ -1,0 +1,123 @@
+{
+  "audit_date_utc": "2026-10-30",
+  "audited_at_utc": "2026-10-30T02:51:25.475713Z",
+  "axes": {
+    "correctness": {
+      "rationale": "The exact tridiagonal stiffness and consistent mass entries are correct. A=M+tau K is SPD and strictly diagonally dominant, so leading minors and right Schur pivots are positive. The 2x2 Schur elimination of Au=M e_j gives the explicitly positive nearest-neighbor numerator tau[1/2+a/(6b)+b/(3a)+(e/gamma)(a/(6b)-b/(6a))] with |e/gamma|<1. The tridiagonal inverse ratio forces negative P_{i,i+2} or P_{n,n-2} when any interior c_i=h_{i+1}/6-tau/h_{i+1}>0; Stieltjes inverse positivity and M>=0 prove sufficiency. The tau=0 and n=1,2 endpoints are explicit. A separate exact-rational solver checked 480 cases and 128 subthreshold witnesses. The unlimited quantifiers rest on the proof, not these cases.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Li–Huang arXiv:1209.5657 Theorem 3.1 sufficient multi-dimensional mesh criteria",
+          "Thomée–Wahlbin 2008 abstract: semidiscrete no maximum principle, lumped-mass sharpness, discrete solution-operator positivity"
+        ],
+        "reasoning": "A broader-dimensional sufficient positive step bound does not imply a necessary threshold for every 1D graded mesh. The 2008 paper is potentially direct prior work and its unread full text is specifically retained as an unresolved historical-priority risk rather than claimed not covering.",
+        "searches": [
+          "finite element consistent mass matrix backward Euler positivity maximum principle sharp time step nonuniform 1d mesh necessary sufficient",
+          "Thomée Wahlbin On the existence of maximum principles parabolic finite element equations 2008"
+        ]
+      },
+      "checked_sources": [
+        "RESULT.md 879fb9e3f444bd367eb3794a57a9af053254bd34, Steps 1–4",
+        "verify_graded_mesh.py a2f0e780f61d58304ba5da2bba84c83aad349a84 inspected, not relied on as proof",
+        "https://arxiv.org/abs/1209.5657",
+        "https://doi.org/10.2478/cmam-2010-0025",
+        "https://doi.org/10.1090/S0025-5718-07-02021-2",
+        "https://doi.org/10.1002/num.20097"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "Li–Huang Theorem 3.1 gives the sufficient M+tau K M-matrix sign condition",
+          "Explicit distance-two negative witness in audited RESULT.md Steps 2–3 proves necessity",
+          "Yang–Gu abstract says time-step criteria were built from accuracy analysis"
+        ],
+        "reasoning": "The known sufficient condition follows as a corollary of the audited iff but not conversely. No inspected earlier theorem implies the signed tridiagonal inverse necessity or n=1,2 exception; access risk remains for Thomée–Wahlbin 2008.",
+        "searches": [
+          "finite element consistent mass matrix backward Euler positivity maximum principle sharp time step nonuniform 1d mesh necessary sufficient",
+          "Li Huang 2012 maximum principle finite element anisotropic diffusion Theorem 3.1",
+          "Yang Gu 2006 DOI 10.1002/num.20097"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Schatz–Thomée–Wahlbin 2010, Theorem 5.7: Stieltjes sufficiency",
+          "Yang–Gu 2006 DOI 10.1002/num.20097 abstract: minimum time steps based on discretization accuracy"
+        ],
+        "reasoning": "The older minimum-step terminology is not by itself equivalent: Yang–Gu addresses accuracy, while the audited result is sign preservation of P. Earlier sufficiency is only the tau>=threshold implication, not the converse for each arbitrary graded mesh.",
+        "searches": [
+          "finite element consistent mass matrix backward Euler positivity maximum principle sharp time step nonuniform 1d mesh necessary sufficient",
+          "\"Minimum time-step criteria for the Galerkin finite element methods\" Yang Gu 2006"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "Resultary 2026/9/20/SCOPE-backward-euler-filtered-cn-lattice-positivity--1f6f56bd0eac: periodic/uniform filtered Crank-Nicolson positivity, unlike one-step graded Dirichlet P1",
+          "No matching 1D arbitrary graded positivity iff found in the queried published results"
+        ],
+        "reasoning": "An exact table is inapplicable to the continuous mesh-length parameter space. Related published numerical-method records concern other discretizations; an absent search hit is not novelty proof.",
+        "searches": [
+          "finite element consistent mass matrix backward Euler positivity maximum principle sharp time step nonuniform 1d mesh necessary sufficient",
+          "Resultary search: finite element consistent mass matrix backward Euler positivity maximum principle sharp time step nonuniform 1d mesh necessary sufficient"
+        ]
+      },
+      "rationale": "Qualified best-of-knowledge original: the source theorem upgrades known time-step Stieltjes sufficiency to exact necessity for every individual arbitrary graded Dirichlet interval with at least three interior nodes and proves positive nearest-neighbor entries. A specifically relevant 2008 Thomée–Wahlbin article could not be read in full; its abstract does not decide the exact backward-Euler classification, which remains a priority risk. Yang–Gu 2006 explicitly analyzes minimum steps for accuracy rather than this positivity iff.",
+      "residual_risks": [
+        "Full 2008 Thomée–Wahlbin paper inaccessible: Oxford authorized institutional access VPN disconnected; potential exact backward-Euler special-case priority unknown",
+        "Yang–Gu 2006 abstract is about accuracy and does not settle every full-text positivity implication",
+        "One-step homogeneous 1D constant diffusion only; do not extend to variable data/multidim; finite 480 checks nonexhaustive"
+      ],
+      "source_inspections": [
+        {
+          "assessment": "General-dimension sufficient bound, not the asserted necessity on every graded interval",
+          "evidence": "Theorem 3.1 sufficient condition on time steps and mesh acuteness",
+          "identifier_or_url": "https://arxiv.org/abs/1209.5657",
+          "material_read": "Theorem 3.1 and surrounding sufficient-mesh-condition discussion",
+          "method": "ArXiv primary text/PDF, mathematical comparison",
+          "title": "Maximum principle for the finite element solution of time dependent anisotropic diffusion problems",
+          "trigger": "Same consistent-mass time-step positivity criterion"
+        },
+        {
+          "assessment": "Stieltjes sufficiency and small-step phenomena do not yield the quantified sharp necessity",
+          "evidence": "Theorem 5.7 supplies sufficient positivity under nonpositive off-diagonal of A",
+          "identifier_or_url": "https://doi.org/10.2478/cmam-2010-0025",
+          "material_read": "Theorems 5.5 and 5.7, Stieltjes criteria and discrete positivity conditions",
+          "method": "Primary paper theorem passages",
+          "title": "On Positivity and Maximum-Norm Contractivity in Time Stepping Methods for Parabolic Equations",
+          "trigger": "Closest finite element time-step positivity theorem"
+        },
+        {
+          "assessment": "Abstract identifies accuracy-based criteria, not an entrywise P iff; full-content priority not definitively excluded",
+          "evidence": "ResearchGate abstract: discretization accuracy worsens for small time steps",
+          "identifier_or_url": "https://doi.org/10.1002/num.20097",
+          "material_read": "Author/journal abstract only; full body not read",
+          "method": "Publisher/ResearchGate abstract and cited engineering review",
+          "title": "Minimum time-step criteria for the Galerkin finite element methods applied to one-dimensional parabolic partial differential equations",
+          "trigger": "Identical one-dimensional Galerkin and minimum-step vocabulary"
+        },
+        {
+          "assessment": "Inaccessible plausible work; cannot make whole-document NOT_COVERING assertion",
+          "evidence": "Abstract discusses semidiscrete maximum-principle failures, lumped-mass criteria, operator positivity; retrieval status vpn_disconnected",
+          "identifier_or_url": "https://doi.org/10.1090/S0025-5718-07-02021-2",
+          "material_read": "Journal/Chalmers abstracts only, full paper unavailable",
+          "method": "OA search then authorized institutional Oxford retrieval; status vpn_disconnected, no bypass",
+          "title": "On the existence of maximum principles in parabolic finite element equations",
+          "trigger": "Prior finite-element solution operator positivity"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "rationale": "A sharp easily computed one-step positivity phase boundary for the standard consistent-mass finite-element heat solver on every graded interval, with a minimal dimension, exceptional low dimensions, and the non-obvious irrelevance of boundary element lengths, is a structurally useful mesh-design and monotonicity fact. This is more than a generic sufficient M-matrix test.",
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "final_claim": "For every n>=3 and arbitrary positive interval lengths, the consistent-mass P1 Dirichlet backward-Euler nodal map P=(M+tau K)^(-1)M is entrywise nonnegative iff tau=0 or tau>=max_{2<=j<=n}(h_j^2/6); all nearest-neighbor P entries are strictly positive for tau>0, subcritical positive steps exhibit a negative distance-two entry, and n=1,2 are positive for all tau>=0.",
+  "limitations": [
+    "Full 2008 Thomée–Wahlbin paper inaccessible: Oxford authorized institutional access VPN disconnected; potential exact backward-Euler special-case priority unknown",
+    "Yang–Gu 2006 abstract is about accuracy and does not settle every full-text positivity implication",
+    "One-step homogeneous 1D constant diffusion only; do not extend to variable data/multidim; finite 480 checks nonexhaustive"
+  ],
+  "schema_version": 1
+}

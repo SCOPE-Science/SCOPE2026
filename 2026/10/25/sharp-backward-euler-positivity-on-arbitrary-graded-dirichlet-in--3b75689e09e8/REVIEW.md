@@ -1,11 +1,21 @@
-# Scientific review
+# Independent mathematical audit
 
-**Correctness — PASS.** The result is reconstructed with the exact nonuniform Dirichlet consistent-mass and stiffness entries. The positive-offdiagonal necessity uses an independently proved strictly positive nearest-neighbor entry and a signed tridiagonal-inverse ratio, rather than inferring necessity from the Stieltjes sufficiency theorem. Exact-rational experiments (618 configurations) verify sampled cases, while the proof covers all meshes and steps. The low-dimensional exceptions and equality boundary are stated explicitly.
+## correctness
 
-**Originality — PASS, with literature residual risk.** Li--Huang (arXiv:1209.5657) Theorem 3.1 and Schatz--Thomée--Wahlbin (2010) Theorem 5.7 supply the corresponding sufficient condition, but neither inspected theorem states that any positive step below it necessarily produces a negative distance-two coefficient on *every* arbitrary nonuniform Dirichlet interval mesh. The 2010 paper's Theorem 5.5 concerns sufficiently small steps rather than an exact fixed-mesh boundary. Thomée--Wahlbin (2008) was accessible only in abstract, so specialized older coverage cannot be fully ruled out. Previous periodic special-mesh classifications do not imply the arbitrary graded Dirichlet statement.
+PASS
 
-**Value — PASS.** The classification is exact across all interior dimensions at least three and all positive graded intervals, isolates the exceptional one- and two-degree cases, and identifies the precise (and easily computed) forbidden range for positivity preservation. The boundary-cell independence and positive adjacent-entry principle are structural, with a plausible direct role in designing positive time steps.
+The exact tridiagonal stiffness and consistent mass entries are correct. A=M+tau K is SPD and strictly diagonally dominant, so leading minors and right Schur pivots are positive. The 2x2 Schur elimination of Au=M e_j gives the explicitly positive nearest-neighbor numerator tau[1/2+a/(6b)+b/(3a)+(e/gamma)(a/(6b)-b/(6a))] with |e/gamma|<1. The tridiagonal inverse ratio forces negative P_{i,i+2} or P_{n,n-2} when any interior c_i=h_{i+1}/6-tau/h_{i+1}>0; Stieltjes inverse positivity and M>=0 prove sufficiency. The tau=0 and n=1,2 endpoints are explicit. A separate exact-rational solver checked 480 cases and 128 subthreshold witnesses. The unlimited quantifiers rest on the proof, not these cases.
 
-**Scope and limits.** This is a homogeneous one-step matrix positivity theorem, not a complete discrete maximum principle for nonhomogeneous boundary/forcing data, variable diffusivity, or higher dimensions. Finite rational tests are supplementary; residual publication-priority risk remains.
+## originality
 
-Self-review: passed. Independent audit: not yet performed.
+PASS
+
+Qualified best-of-knowledge original: the source theorem upgrades known time-step Stieltjes sufficiency to exact necessity for every individual arbitrary graded Dirichlet interval with at least three interior nodes and proves positive nearest-neighbor entries. A specifically relevant 2008 Thomée–Wahlbin article could not be read in full; its abstract does not decide the exact backward-Euler classification, which remains a priority risk. Yang–Gu 2006 explicitly analyzes minimum steps for accuracy rather than this positivity iff.
+
+## value
+
+PASS
+
+A sharp easily computed one-step positivity phase boundary for the standard consistent-mass finite-element heat solver on every graded interval, with a minimal dimension, exceptional low dimensions, and the non-obvious irrelevance of boundary element lengths, is a structurally useful mesh-design and monotonicity fact. This is more than a generic sufficient M-matrix test.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
