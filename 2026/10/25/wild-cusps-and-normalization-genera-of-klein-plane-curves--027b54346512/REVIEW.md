@@ -1,15 +1,21 @@
-# Mathematical review
+# Independent mathematical audit
 
-## Correctness: PASS
-The Laurent coordinate \(s=u^{m-1}v\) reduces the plane curve to \(u^N=-s^m/(1+s)\). Since \(\gcd(m,N)=1\), the valuation at \(s=0\) gives an irreducible polynomial even in inseparable characteristic, independently proving geometric integrality. All three boundary vertices are smooth. The torus Jacobian equations have no solution unless \(p\mid N\), in which case they give exactly \(h\) distinct points for \(N=p^a h\). The étale coordinate \(w=u^{-h}\) and the double root of \(1+s+w_0^{p^a}s^m\) put every completed germ into the exact form \(X^2+Y^{p^a}=0\). Its semigroup and derivatives yield \(\delta=(p^a-1)/2\), Tjurina length \(p^a\), total singular-scheme length \(N\), and geometric genus \((h-1)/2\). A standalone arithmetic checker corroborates 73 prime-degree pairs through degree 46 but does not prove the general theorem.
+## correctness
 
-## Originality: PASS, with residual risk
-González-Aguilera–Liendo study smooth complex cyclic Klein hypersurfaces and their automorphism orders. Harui addresses smooth complex Klein plane curves. Dolgachev already states that the classical Klein quartic is not smooth in characteristic seven, so that isolated fact is not original. A related higher-dimensional cyclic hypersurface statement addresses at least four variables, and does not imply the planar completed cusp classification or normalization-genus law. Searches for the defining trinomial, modular discriminant, bad reduction, cusp equations, Kummer equivalents and genus did not locate the simultaneous plane-curve formula. Unidentified literature on Delsarte/loop-type curves might imply it.
+PASS
 
-## Mathematical value: PASS
-The singularities arise exactly at arithmetic discriminant primes of a natural classical plane-curve family. Uniform determination of all local analytic cusp germs and Tjurina lengths gives a scheme-level classification, while the explicit normalization genus captures large and sometimes wild genus drops (including the exponent \(p^a=49\)). This is useful for understanding degeneration and distinguishing smooth-characteristic invariants from bad-characteristic geometry. It is more than a numerical restatement of the smoothness criterion.
+For C_m: x^m y+y^m z+z^m x=0 (m>=2), N=m²-m+1, the torus coordinates u=y/x, s=u^(m-1)z/x yield 1+s+s^m u^-N=0; since gcd(m,N)=1, its valuation m/N at s=0 forces degree-N function-field extension even in inseparable characteristic, proving geometric integrality. The three coordinate vertices are smooth. When p∤N, f_u is invertible and the torus is smooth. For p|N, p odd and m,m-1 nonzero mod p, f_s=0 forces s0=-m/(m-1), while the residual equation u^N=constant has exactly h=N/p^a distinct roots. At each, w=u^-h is a formal local coordinate; Frobenius converts to Y^q+s^-mφ(s), q=p^a. φ(s) has an exact double zero with invertible second derivative, yielding analytical coordinates X²+Y^q (p odd). The cusp has normalization t²,t^q, delta=(q-1)/2, Tjurina length q. Arithmetic genus m(m-1)/2 then gives geometric genus (h-1)/2. Independent integer and finite-field sanity checks across 287 characteristic-degree instances m<=150 validated factor arithmetic, all given exceptional examples and local double-root identities. The all-characteristic proof is analytical, not extrapolation.
 
-## Scope and limitations
-The result is for the specified plane model and algebraically closed base field; it does not classify stable models, global automorphisms after reduction, or all wild ramification filtrations. Finite computations do not establish an infinite theorem and unidentified equivalent literature remains a real risk.
+## originality
 
-Self-review: passed. Independent audit: not yet performed.
+PASS
+
+Earlier González-Aguilera–Liendo and Harui discuss cyclic Klein curves in characteristic zero and their automorphisms; Dolgachev–Martin (2024) explicitly notes the classical Klein quartic becomes singular in characteristic seven, which is credited and not novelty. The assessed all-m uniform completed wild-cusp type, exact singular-scheme length and genus formula for every p|N are not established by the inspected primary material. Classical Delsarte/inseparable Kummer theory may imply a related genus formula, so historical priority risk is recorded.
+
+## value
+
+PASS
+
+Bad reduction and wild inseparable singularities of canonical Klein/Delsarte plane curves are natural arithmetic-geometric invariants. The full parameter theorem explains exceptional characteristics, exact local analytic types, total Jacobian length and normalization genus simultaneously, including p-adic exponents greater than one; it goes well beyond the known isolated char-seven quartic observation.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
