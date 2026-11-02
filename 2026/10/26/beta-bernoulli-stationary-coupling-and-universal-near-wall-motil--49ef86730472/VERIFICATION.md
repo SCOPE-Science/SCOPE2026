@@ -5,8 +5,11 @@
     "status": "not_performed"
   },
   "independent_audit": {
-    "evidence": null,
-    "status": "not_performed"
+    "status": "passed",
+    "evidence": [
+      "INDEPENDENT_AUDIT_2026-10-30.md",
+      "INDEPENDENT_AUDIT_2026-10-30.json"
+    ]
   },
   "lean_verification": {
     "evidence": null,
@@ -16,10 +19,24 @@
 }
 ---
 
-# Reproducible mathematical checks
+# Independent mathematical audit
 
-Use Python 3 with NumPy and SciPy. From the same directory, execute `python verify.py`. The script seeds its finite randomized tests for reproducibility and prints a final PASS line on success.
+## correctness
 
-The code checks 256 independent positive-rate samples through even moment order 25, reconstructs six stationary generator moment grids, simulates five piecewise-deterministic physical trajectories with exponential holding times and exact flow between jumps, tests the latent two-Beta/Bernoulli phase moments and strict sampled radial ordering, and compares twenty independent Gauss–Jacobi and hypergeometric evaluations of the conditional near-wall tumble probability.
+PASS
 
-These computations check formulas and behavior at selected finite parameters and thresholds. They are not an exhaustive search over continuous rates, are not an infinite proof, and do not independently certify novelty. The universal results follow from the compact-support moment proof, strict Beta-density likelihood-ratio order, and the exact conditional product integral supplied in RESULT.md.
+Reconstructed generator balances m_n=p_(n-1), (n+rho)p_n=n q_(n-1), (n+rho+tau)q_n=n p_(n-1)+tau m_n; resulting even moments agree with Beta(tau/2,rho/2)*Beta(1/2,rho/2). Compact support proves moment determinacy, reflection recovers signed Y, and weighted moments identify running flag. Beta density ratio A|H=1 versus A|H=0 is strictly increasing, preserving strict radial survival ordering; parameters couple through monotone Beta laws. Posterior change T=(1-A)/(1-Y²) gives tilted Beta(c,c) density, leading E[T]=1/2 at wall and claimed hypergeometric ratio. Independent generator and posterior checks passed; 153 finite diagnostics are not the universal proof.
+
+## originality
+
+PASS
+
+Earlier studies derive the same model marginal and full phase-resolved position densities, so neither these densities nor their moments are novel. Best-knowledge contribution is the explicit joint latent coupling plus all-threshold inequalities and universal conditional boundary coefficient; reviewed full primary materials did not explicitly establish that combined structure. The coefficient is likely derivable from already published conditional density formulas, an important priority limitation, not independent novelty of every component.
+
+## value
+
+PASS
+
+Stationary run/tumble status and distance from the confinement wall are natural observable kinetic quantities. The exact sampler and strict all-threshold order compare full distributions beyond moments; the universal posterior wall slope identifies a robust kinetic boundary invariant beyond plotting previously known phase densities.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

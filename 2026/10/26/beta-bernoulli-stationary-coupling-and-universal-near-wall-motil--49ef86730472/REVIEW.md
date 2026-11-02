@@ -1,11 +1,21 @@
-# Scientific review
+# Independent mathematical audit
 
-**Correctness — PASS.** The stationary generator independently yields exact recurrences for unconditional moments and moments restricted to running. They identify the compactly supported joint law of squared position and run/tumble status with an independent two-Beta/Bernoulli construction, and reflection symmetry recovers signed position. Beta likelihood-ratio ordering proves every-threshold run-versus-tumble separation; monotone Beta couplings give both rate directions. Conditioning the product on its value yields an integrable symmetric-Beta kernel near the wall, proving the universal one-half squared-gap coefficient and its exact hypergeometric ratio. A finite verification program checks analytical identities and simulated physical paths; numerical evidence is not substituted for the infinite-parameter proof.
+## correctness
 
-**Originality — PASS, with explicit close coverage and risk.** Sun–Ye–Podgornik (arXiv:2409.00578) already solved the exact full position law and moments; Basu et al. (arXiv:1910.10083) solved its equal-rate predecessor. Sun–Ye–Chen (arXiv:2610.24961) supplies even the full internal-state-resolved densities. Their explicit formulas mathematically allow further deductions, so neither marginal nor conditional density is new here. The assessed contribution is the specific joint latent Beta–Bernoulli representation, its all-threshold strict stochastic ordering across both independent rates and motility phases, and the parameter-independent leading near-wall tumble probability. These statements and proofs were not found as results in the inspected primary full texts or the literature and research-record searches. Unlocated equivalences, particularly implicit in full-state-density work, remain a residual risk; absence of a hit is not uniqueness proof.
+PASS
 
-**Mathematical value — PASS.** The run/tumble flag is physically observable, and determining how it is coupled to near-boundary position is a motivated gap beyond positional density plots. The latent joint sampler gives direct generation of the full stationary position–phase law without special-function inversions or path simulation. Strict distribution-wide ordering is stronger than previously tabulated moments, and the universal near-wall conditional slope describes a kinetic boundary observable robust to independent changes of both rates. The model is specific; no assertion is made for finite-time trajectories, added noise, or higher dimensions.
+Reconstructed generator balances m_n=p_(n-1), (n+rho)p_n=n q_(n-1), (n+rho+tau)q_n=n p_(n-1)+tau m_n; resulting even moments agree with Beta(tau/2,rho/2)*Beta(1/2,rho/2). Compact support proves moment determinacy, reflection recovers signed Y, and weighted moments identify running flag. Beta density ratio A|H=1 versus A|H=0 is strictly increasing, preserving strict radial survival ordering; parameters couple through monotone Beta laws. Posterior change T=(1-A)/(1-Y²) gives tilted Beta(c,c) density, leading E[T]=1/2 at wall and claimed hypergeometric ratio. Independent generator and posterior checks passed; 153 finite diagnostics are not the universal proof.
 
-**Limitations and closest work.** Strongest close source is arXiv:2610.24961 because it already resolves the three conditional stationary densities. The new comparisons are functional inequalities and near-wall posterior limits rather than new density expressions. arXiv:2602.08436 treats a different velocity-refresh generator. Independent validation and independent audit have not been performed.
+## originality
 
-Self-review: passed. Independent audit: not yet performed.
+PASS
+
+Earlier studies derive the same model marginal and full phase-resolved position densities, so neither these densities nor their moments are novel. Best-knowledge contribution is the explicit joint latent coupling plus all-threshold inequalities and universal conditional boundary coefficient; reviewed full primary materials did not explicitly establish that combined structure. The coefficient is likely derivable from already published conditional density formulas, an important priority limitation, not independent novelty of every component.
+
+## value
+
+PASS
+
+Stationary run/tumble status and distance from the confinement wall are natural observable kinetic quantities. The exact sampler and strict all-threshold order compare full distributions beyond moments; the universal posterior wall slope identifies a robust kinetic boundary invariant beyond plotting previously known phase densities.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
