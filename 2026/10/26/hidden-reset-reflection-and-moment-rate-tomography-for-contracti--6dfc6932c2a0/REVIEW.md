@@ -1,9 +1,21 @@
-# Scientific review
+# Independent mathematical audit
 
-**Correctness — PASS.** A stationary two-sided marked-Poisson integral exists with all moments under strict contraction. Synchronous coupling proves uniqueness. The reflected-Brownian modulus generator depends only on absolute multipliers, while the stationary conditional Gaussian variance depends on their squares. The degree-leading coefficient of each conditional polynomial moment is exactly the compound-Poisson product moment. Its rate limit, compact moment determinacy and the Vandermonde argument prove infinite and finite-atomic inverse claims. Stationary generator identities prove the two-correlation inverse exactly; 211 executable symbolic/rational checks support the algebra, not the stochastic arguments.
+## correctness
 
-**Originality — PASS in the checked literature, with residual priority uncertainty.** Prior analyses establish positive-factor partial-reset propagation and stationary distributions (Di Bello et al., arXiv:2305.13722; Pierce, arXiv:2204.07215; Tal-Friedman et al., arXiv:2205.03363), and distinguish additive signed reset amplitudes from nonnegative state-dependent factors (Dahlenburg et al., arXiv:2104.14866). A general polynomial-jump correlation framework (Benth and Lavagnini, DOI:10.1137/21M141556X) can generate components of the formulas but does not state the combined magnitude-path non-identifiability and multiplier-law tomography in the inspected material. Search results did not establish stronger coverage. Generic inverse-problem literature could still imply parts of the conclusion; independent priority review is needed.
+PASS
 
-**Value — PASS.** Partial resetting is a concrete nonequilibrium transport mechanism; experiments often record absolute displacement rather than an oriented position. The theorem proves a sharp *impossibility* for arbitrarily complete magnitude records, then gives exact sufficient observables for recovering otherwise hidden signed reset dynamics, including unknown rates and a finite-atomic reconstruction criterion. This is a structural distinguishability boundary, not a mere recomputation of a known stationary density. It does not imply practical finite-sample accuracy.
+The two-sided marked-Poisson stochastic integral exists with all finite moments under |Q|<=c<1, and synchronous contraction yields invariant-law uniqueness. The absolute-value process is reflected Brownian motion with jump kernel |Q|R, so its entire stationary path law depends only on the law of |Q|. A stationary one-time position is a centered Gaussian mixture with conditional variance determined by Q², hence cannot reveal reset signs either. For X_t=Z_t x+U_t, the leading coefficient of P_n(t,x)=E(X_t^n|X_0=x) is E Z_t^n=exp[-r(1-m_n)t]. As m_n→0, lambda_n→r; the rates recover all multiplier power moments and compact moment determinacy recovers the signed law. For at most m atoms and known r, moments 0 through 2m-1 solve a Vandermonde system. Lx=−r(1−q)x and Lx²=2D−r(1−q²)x² give the two covariance rates and q=lambda2/lambda1−1, r=lambda1/(1−q), D=V lambda2/2. Independent exact substitution at q=±2/3, r=5/4, D=3/7 confirmed same variance 216/175, squared rate 25/36 and differing signed rates 5/12,25/12. The 211 saved check.py assertions only corroborate algebra, not reflected path equality.
 
-Self-review: passed. Independent audit: not yet performed.
+## originality
+
+PASS
+
+Full relevant sections of Di Bello et al. 2023 treat partial resetting with a fixed positive contraction and stationary Fourier products. Dahlenburg et al. 2021 consider random amplitudes, including signed additive rather than the present random signed multiplicative reset. General polynomial-process correlator methods can yield moment algebra but do not in the inspected material establish the full sign-blind modulus process plus inverse signed-law theorem. Resultary searches for reflected jump semigroups, random multiplier inverse laws and moment relaxation found no demonstrated stronger implication; possible generic inverse-process results remain priority risks.
+
+## value
+
+PASS
+
+Magnitude-only observational impossibility and the precise signed conditional-moment information sufficient for recovery are natural identifiability boundaries for nonequilibrium partial resetting. The exact two-correlation deterministic-q reconstruction adds a motivated low-dimensional observable criterion, without asserting finite-sample estimation accuracy.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
