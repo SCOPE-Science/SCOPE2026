@@ -1,0 +1,130 @@
+{
+  "audit_date_utc": "2026-10-29",
+  "audited_at_utc": "2026-10-29T04:45:33Z",
+  "axes": {
+    "correctness": {
+      "checked_sources": [
+        "RESULT.md at 4f05f8a789d192f12a42585d44d839d9391952dd",
+        "https://arxiv.org/html/2402.05368v2 Eq.3 and model Sec.III.1",
+        "independent_checks.py ndw_checks finite trajectories and moments"
+      ],
+      "rationale": "For the fixed 3-path with ordered a0<=c0<=b0 and d=b0-a0>0, pure neighborhood confidence has center-to-leaf directed distances zero and leaf-to-center distances |b-a|/2; hence both leaves open or close together. Strict gate epsilon<=d/2 permanently freezes leaves; the center follows c_next=(1-rho)c+rho*A with independent fair endpoints, giving unique contracting Bernoulli convolution, mean midpoint and variance rho*d^2/[4(2-rho)], no almost-sure pointwise limit, and SLLN time average. rho=1/2 yields uniform binary expansion. For epsilon>d/2, symmetric simultaneous compromise with rho<=1/2 preserves ordered endpoints, contracts their gap and holds gates open. Conserved average and exact V contraction with spectral bound E V_t <=(1-rho*(1-rho))^t V0 imply almost-sure consensus via summability. Exact strict equality boundary checked. Independent rational history check verified 3072 length-seven edge histories and exact finite recursion moments; infinite time assertions use coupling, SLLN and Borel-Cantelli, not enumeration.",
+      "residual_risks": [
+        "Only ordered center-between-leaves initial state and rho<=1/2; outside these hypotheses order preservation is unproved",
+        "Source NDW model selects one edge per step under stated asynchronous restriction; confidence inequalities strict."
+      ],
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Krishnagopal/Porter full HTML III.1 states NDW model and numerical opinion states; no three-node theorem identified in mathematical sections and conclusions inspected.",
+          "Zhang et al uses randomized clique-neighborhood mean updates and different confidence interaction."
+        ],
+        "reasoning": "A general BC model can specialize to 3 nodes, but no inspected theorem directly forces the sharp gap-only open/closed dynamic or both branch limits.",
+        "searches": [
+          "https://arxiv.org/html/2402.05368v2",
+          "https://arxiv.org/abs/2107.04948"
+        ]
+      },
+      "checked_sources": [
+        "https://arxiv.org/html/2402.05368v2",
+        "https://arxiv.org/pdf/1009.2653",
+        "https://arxiv.org/abs/2107.04948",
+        "Resultary query: neighborhood Deffuant Weisbuch three agent path pure transitive threshold confidence stubborn leaves stationary Bernoulli convolution"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "The source model has directed confidence indicators; on 3-path they simplify to a single leaf-gap gate not automatically present in prior stubborn gossip.",
+          "Exogenously stubborn agents in Acemoğlu remain frozen irrespective of initial confidence or center opinion."
+        ],
+        "reasoning": "Neither general NDW simulations nor exogenously stubborn gossip theorem alone implies the if-and-only-if epsilon<=d/2 freezing and epsilon>d/2 all-agent consensus.",
+        "searches": [
+          "https://arxiv.org/html/2402.05368v2",
+          "https://arxiv.org/pdf/1009.2653",
+          "https://arxiv.org/abs/2107.04948"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Acemoğlu et al Sections 2.1 pages 6-8 explicitly prove Bernoulli convolution, uniform law at theta=1/2 and same stationary variance for an exogenously frozen pair.",
+          "Krishnagopal/Porter introduces directed neighborhood confidence with sigma=0, not fixed stubborn leaves."
+        ],
+        "reasoning": "After the leaf-gate closes the stochastic recursion is exactly the older process; that implication is PRIOR and excluded from novelty. The new classification identifies the gate and complementary open dynamics.",
+        "searches": [
+          "neighborhood Deffuant Weisbuch three agent path pure transitive threshold confidence stubborn leaves stationary Bernoulli convolution",
+          "https://arxiv.org/pdf/1009.2653",
+          "https://arxiv.org/html/2402.05368v2"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "Acemoğlu et al has the exact uniform law and stationary variance in Section 2.1, equations and Figure 2."
+        ],
+        "reasoning": "These standard identities are already covered and must not be counted as independent novel database results; the finite-time phase threshold is the surviving specific fact.",
+        "searches": [
+          "Bernoulli convolution unbiased random affine iteration uniform dyadic distributions",
+          "https://arxiv.org/pdf/1009.2653"
+        ]
+      },
+      "rationale": "The stationary random affine-recursion mechanism including uniform binary series and variance has an exact predecessor: Acemoğlu et al Section 2.1, one regular node and two exogenously stubborn neighbors. Do not claim these formulas standalone as novel. The assessed NDW statement adds the endogenous confidence threshold that causes precisely this stubborn configuration, plus a disjoint all-responsive consensus regime for exactly the same input and model, in a uniform if-and-only-if phase classification. The primary NDW model paper simulates the general model but its inspected technical setup and conclusions do not present this exact three-path theorem.",
+      "residual_risks": [
+        "All frozen-branch stationary formulae and nonconvergence after reduction are strongly covered by Acemoğlu et al; originality only holds for the endogenous necessary-and-sufficient gating and consensus counterpart.",
+        "Model convention sigma=0 and direction of d(i,j) are crucial; another convention could change the phase boundary.",
+        "Other three-agent bounded-confidence classifications may have been published under different notation."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "MODEL PRIOR ART; no precise 3-path transition seen in inspected text",
+          "evidence": "sigma=0 pure transitive gate depends on target-neighbor mean; simulations describe nonstandard opinion patterns.",
+          "identifier_or_url": "https://arxiv.org/html/2402.05368v2",
+          "material_read": "Full converted arXiv HTML main text; Section III.1 model Eq.3, directed thresholds, simulation sections and conclusions inspected",
+          "method": "Original arXiv full HTML",
+          "title": "Bounded-Confidence Models of Opinion Dynamics with Neighborhood Effects",
+          "trigger": "Defines exact NDW confidence and possible direct source theorem"
+        },
+        {
+          "assessment": "STATIONARY CLOSED-BRANCH EXACTLY COVERED; ENDOGENOUS GATE NOT ADDRESSED",
+          "evidence": "Single regular agent, two exogenously stubborn neighbors. Formula theta/[4(2-theta)] for variance and dyadic uniform distribution.",
+          "identifier_or_url": "https://arxiv.org/pdf/1009.2653",
+          "material_read": "Complete primary PDF read materially, especially Sec.2.1 pages 6-8 with equations and Figure 2; rendered page screenshots inspected",
+          "method": "Original arXiv PDF text and screenshots pages 1,6,7,8",
+          "title": "Opinion fluctuations and disagreement in social networks",
+          "trigger": "Potentially stronger coverage of all stationary behavior"
+        },
+        {
+          "assessment": "RELATED, WHOLE-TEXT COVERAGE NOT DETERMINED",
+          "evidence": "Randomized social clique-mean update is not the same fixed-path NDW directed gate.",
+          "identifier_or_url": "https://arxiv.org/abs/2107.04948",
+          "material_read": "ArXiv abstract and stated model read; full technical results not inspected",
+          "method": "Open abstract",
+          "title": "Dynamics of Opinions with Bounded Confidence in Social Cliques: Emergence of Fluctuations",
+          "trigger": "Alternative bounded-confidence fluctuation mechanism"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "checked_sources": [
+        "Krishnagopal/Porter 2025 NDW formulation",
+        "Acemoğlu et al 2013 Section 2.1 identifies the nonnew comparison mechanism"
+      ],
+      "rationale": "The complete threshold at exactly half the initial leaf gap demonstrates a nontrivial phase split between ergodic nonconvergent opinions and a.s. mean consensus in an endogenous directed-confidence model, including the knife-edge strict inequality. This supplies a precise small-graph analytic benchmark for a model previously explored by simulations. The known stubborn-agent recursion alone would not pass value as a new theorem; the gating dichotomy adds mathematical content.",
+      "residual_risks": [
+        "Only three agents and pure neighborhood, not a larger-network theorem",
+        "The source effect becomes elementary once the directed gate is computed, limiting breadth but not the exact classification."
+      ],
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "final_claim": "In pure neighborhood NDW on an ordered three-path with 0<rho<=1/2, epsilon<=initial leaf gap/2 freezes leaves and produces nonconvergent Bernoulli-convolution center, whereas epsilon>gap/2 yields almost sure consensus and geometric mean-square contraction.",
+  "limitations": [
+    "Only ordered center-between-leaves initial state and rho<=1/2; outside these hypotheses order preservation is unproved",
+    "Source NDW model selects one edge per step under stated asynchronous restriction; confidence inequalities strict.",
+    "All frozen-branch stationary formulae and nonconvergence after reduction are strongly covered by Acemoğlu et al; originality only holds for the endogenous necessary-and-sufficient gating and consensus counterpart.",
+    "Model convention sigma=0 and direction of d(i,j) are crucial; another convention could change the phase boundary.",
+    "Other three-agent bounded-confidence classifications may have been published under different notation."
+  ],
+  "schema_version": 1
+}

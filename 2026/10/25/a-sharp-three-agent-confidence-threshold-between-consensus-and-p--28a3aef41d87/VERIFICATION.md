@@ -5,8 +5,11 @@
     "status": "not_performed"
   },
   "independent_audit": {
-    "evidence": null,
-    "status": "not_performed"
+    "status": "passed",
+    "evidence": [
+      "INDEPENDENT_AUDIT_2026-10-29.md",
+      "INDEPENDENT_AUDIT_2026-10-29.json"
+    ]
   },
   "lean_verification": {
     "evidence": null,
@@ -16,10 +19,24 @@
 }
 ---
 
-# Reproduction and limits
+# Independent mathematical audit
 
-The proof is in `RESULT.md`; the supplemental exact-arithmetic program is `verify.py`. Run `python3 verify.py` with Python 3 and no external dependencies. The program implements each directional neighborhood gate from the fixed three-node adjacency list; it does not replace the directed gate by a symmetric ordinary confidence condition.
+## correctness
 
-The program passed the following exact rational tests: 36,828 edge-word trajectories (all words of lengths zero through nine for a collection of exact rational compromise strengths, confidence thresholds and starting centers), 224 bilateral mean-square energy identities, 27 finite-time affine-recursion expectation and variance identities, and ten dyadic-mesh checks of the \(\rho=1/2\) uniform-law limit. It also checks blocked-leaf gate values on illustrative larger stars. All checks completed successfully with `ALL EXACT CHECKS PASS`.
+PASS
 
-The infinite-time statements are not consequences of these finite experiments. The mathematical argument uses a deterministic leaf-gate identity; a contracting coupling to prove uniqueness and convergence of the affine invariant law; independence and the strong law to prove nonconvergence and empirical means; and exact energy contraction, Markov's inequality and Borel–Cantelli for almost-sure consensus on the other side of the threshold. No independent audit, external validation or global novelty certification has occurred.
+For the fixed 3-path with ordered a0<=c0<=b0 and d=b0-a0>0, pure neighborhood confidence has center-to-leaf directed distances zero and leaf-to-center distances |b-a|/2; hence both leaves open or close together. Strict gate epsilon<=d/2 permanently freezes leaves; the center follows c_next=(1-rho)c+rho*A with independent fair endpoints, giving unique contracting Bernoulli convolution, mean midpoint and variance rho*d^2/[4(2-rho)], no almost-sure pointwise limit, and SLLN time average. rho=1/2 yields uniform binary expansion. For epsilon>d/2, symmetric simultaneous compromise with rho<=1/2 preserves ordered endpoints, contracts their gap and holds gates open. Conserved average and exact V contraction with spectral bound E V_t <=(1-rho*(1-rho))^t V0 imply almost-sure consensus via summability. Exact strict equality boundary checked. Independent rational history check verified 3072 length-seven edge histories and exact finite recursion moments; infinite time assertions use coupling, SLLN and Borel-Cantelli, not enumeration.
+
+## originality
+
+PASS
+
+The stationary random affine-recursion mechanism including uniform binary series and variance has an exact predecessor: Acemoğlu et al Section 2.1, one regular node and two exogenously stubborn neighbors. Do not claim these formulas standalone as novel. The assessed NDW statement adds the endogenous confidence threshold that causes precisely this stubborn configuration, plus a disjoint all-responsive consensus regime for exactly the same input and model, in a uniform if-and-only-if phase classification. The primary NDW model paper simulates the general model but its inspected technical setup and conclusions do not present this exact three-path theorem.
+
+## value
+
+PASS
+
+The complete threshold at exactly half the initial leaf gap demonstrates a nontrivial phase split between ergodic nonconvergent opinions and a.s. mean consensus in an endogenous directed-confidence model, including the knife-edge strict inequality. This supplies a precise small-graph analytic benchmark for a model previously explored by simulations. The known stubborn-agent recursion alone would not pass value as a new theorem; the gating dichotomy adds mathematical content.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
