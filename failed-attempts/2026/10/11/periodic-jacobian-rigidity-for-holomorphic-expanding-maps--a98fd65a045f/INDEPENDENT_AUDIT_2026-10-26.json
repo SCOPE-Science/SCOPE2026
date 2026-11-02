@@ -1,0 +1,167 @@
+{
+  "audit_date_utc": "2026-10-26",
+  "audited_at_utc": "2026-10-26T19:05:57Z",
+  "axes": {
+    "correctness": {
+      "checked_sources": [
+        "Jiesong Zhang, Holomorphic expanding maps, arXiv:2610.01525v1, 2026-10-01, Theorem A and entire Section 2, https://arxiv.org/html/2610.01525v1",
+        "Frozen Git files: AUDIT.json, METADATA.json, RESULT.md, REVIEW.md, SLOGAN.txt, VERIFICATION.md"
+      ],
+      "evidence": [
+        "Git source-tree SHA reconstructed from actual six file blobs: 1b96fb0a18d7ea5ff72aa1c4bb0a453e8d8960b4, matching assignment; current main files matched frozen blobs.",
+        "arXiv:2610.01525v1 Theorem A and its complete Section 2 proof directly guarantee biholomorphic affine conjugacy and holomorphic finite deck holonomy.",
+        "Exact covering integration: ∫_N alpha* m_N=d∫_N m_N while alpha* m_N=c m_N, hence c=d. No unproved finite enumeration or opaque certificate.",
+        "Cocycle periodic telescoping and determinant complex-real relation are standard identities, checked algebraically."
+      ],
+      "rationale": "The six frozen source blobs reproduce the exact assigned Git tree; main branch returns the same blob identities. The proof correctly invokes Zhang’s Theorem A: a biholomorphic h conjugates f to an affine expanding endomorphism alpha of N=Pi\\G with lift an expanding Lie automorphism A. Finite holonomy Pi/Gamma acts on the Lie algebra through a finite group of complex-linear real automorphisms; positive determinants have finite order, so each is 1. A left-invariant top form eta is translation invariant and descends under Pi. The induced alpha multiplies it by positive c=det_R dA_e. Integrating alpha*eta over compact N yields c=deg(alpha)=deg(f)=d. Then m=h* m_N, suitably normalized, satisfies f*m=d m. Writing m=e^u m0 gives log J_{m0}f-log d=u-u∘f; periodic telescoping gives det_R D_p f^n=d^n, holomorphicity gives |det_C|², and Oseledets/Birkhoff gives the sum of real Lyapunov exponents log d for every ergodic invariant probability. No finite experiment underwrites the infinite theorem. The conclusion is valid but already covered.",
+      "residual_risks": [
+        "The theorem establishes only the determinant/product of multipliers, not each individual eigenvalue or Lyapunov exponent.",
+        "The periodic determinant law is only a necessary obstruction to holomorphic realization; the converse is not proved.",
+        "The finite holonomy orientation point relies on Zhang’s holomorphic deck action and finite holonomy; neither property can be omitted from that step."
+      ],
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Zhang arXiv:2610.01525v1, Theorem A (HTML lines 38–43): every holomorphic expanding map on compact connected complex X is biholomorphically conjugate to an affine expanding endomorphism on complex infra-nilmanifold N.",
+          "Zhang Section 2 (HTML lines 50–59, 110–115): affine lift induced by expanding automorphism A; left-invariant complex structure and holomorphic deck group.",
+          "Finite holonomy has positive finite-order real determinant and therefore 1. Thus the affine model has a descended homogeneous smooth volume scaled by a constant = covering degree."
+        ],
+        "reasoning": "Theorem A is a strict structural domination of the submission on the identical domain. Adding the basic one-dimensional top-form and covering-degree calculations yields every claimed numerical/dynamical consequence; it is not merely topical proximity. Higher-rank Spatzier–Yang is not the decisive coverage because its hypotheses are different.",
+        "searches": [
+          "Resultary semantic: smoothly conjugate affine expanding map infra nilmanifold Jacobian determinant degree periodic orbit rigidity",
+          "Web: Zhang Holomorphic expanding maps 2026 theorem biholomorphically conjugate affine expanding infra nilmanifold",
+          "Web: affine expanding Haar measure Jacobian nilmanifold",
+          "arXiv:2610.01525v1 Theorem A, Lemmas 2.1–2.2 and final proof",
+          "arXiv:1608.02295 abstract"
+        ]
+      },
+      "checked_sources": [
+        "Jiesong Zhang, Holomorphic expanding maps, arXiv:2610.01525v1, 2026-10-01, Theorem A and entire Section 2, https://arxiv.org/html/2610.01525v1",
+        "Resultary/2026, Sharp degree spectrum and periodic census for homothetic holomorphic expanding tori, 2026-10-11, RESULT.md (full text inspected), https://github.com/Resultary/2026/blob/main/2026/10/11/SCOPE-sharp-degree-spectrum-and-periodic-census-for-homothetic-holomor--a71730bb6cde/RESULT.md",
+        "F. Micena, Constant periodic data and rigidity, arXiv:1903.11595v2, Introduction, Theorem 1.3, Section 2, https://arxiv.org/html/1903.11595v2",
+        "Carlos Arteaga, Absolutely continuous conjugacy of expanding endomorphisms, Ergodic Theory and Dynamical Systems 13 (1993) 225-230, DOI:10.1017/S0143385700007331 (abstract only)",
+        "R. Spatzier and L. Yang, Exponential Mixing and Smooth Classification of Commuting Expanding Maps, arXiv:1608.02295 (abstract)"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "From Zhang’s Theorem A write f=h^{-1} alpha h with alpha induced by A on Pi\\G. Every deck holonomy element has positive finite-order determinant 1, so a left-invariant top form eta descends to m_N.",
+          "alpha* m_N=det_R(A)m_N and ∫ alpha* m_N=deg(alpha)∫m_N. Thus det_R(A)=deg(f)=d.",
+          "m=h*m_N yields f*m=d m; if m=e^u m0 then log J_{m0}f-log d=u-u∘f; at period n the cocycle telescopes to log det Df^n=n log d; integration gives Lyapunov sum log d."
+        ],
+        "reasoning": "The submitted proof simply writes out the elementary invariant-volume consequence of the *already proved* affine model. No nonstandard extra rigidity lemma or unreduced case remains. The original theorem need not print these formulas to cover them mathematically.",
+        "searches": [
+          "arXiv:2610.01525v1 full Theorem A and section 2, direct implication analysis",
+          "Resultary semantic: smoothly conjugate affine expanding map infra nilmanifold Jacobian determinant degree periodic orbit rigidity",
+          "Web: expanding map periodic determinant degree^period Jacobian cohomology",
+          "arXiv:1903.11595v2 Theorems 1.3 and 2.3"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "arXiv:2610.01525v1 Theorem A gives smooth conjugacy to an affine model; transforming a constant affine volume shows log J_{m0}f - log d is a smooth coboundary.",
+          "Arteaga 1993 abstract explicitly treats periodic Jacobians and absolute continuity of conjugacy, but full text unavailable; no negative conclusion drawn.",
+          "Micena arXiv:1903.11595v2 Theorem 1.3 links constant periodic data and smooth linear conjugacy in the circle case."
+        ],
+        "reasoning": "Smooth density with f* m=d m, smooth Jacobian cohomology, constant products of periodic Jacobians, and invariant-measure Lyapunov sum are standard equivalent/derived formulations once Zhang’s affine conjugacy exists. No matching string is needed for coverage; the structural statement already forces them.",
+        "searches": [
+          "Resultary semantic: holomorphic expanding maps constant smooth Jacobian equal covering degree periodic determinants Lyapunov sum infranilmanifold affine conjugacy",
+          "Resultary semantic: smoothly conjugate affine expanding map infra nilmanifold Jacobian determinant degree periodic orbit rigidity",
+          "Resultary semantic: holomorphic expanding map holonomy invariant volume Jacobian Livsic coboundary",
+          "Web search: holomorphic expanding maps constant Jacobian smooth volume invariant affine infranilmanifold periodic determinant degree Lyapunov",
+          "Web search: holomorphic expanding map smooth measure maximal entropy constant Jacobian degree",
+          "arXiv:2610.01525v1 Theorem A and proof",
+          "DOI:10.1017/S0143385700007331 abstract"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "Resultary returned the exact assigned published record as a self-match, not independent earlier corroboration.",
+          "Related Resultary homothetic-torus result was read in full and states the standard affine determinant-degree and periodic-point counting mechanism for a torus subclass.",
+          "The claim is a universal structural implication, not a finite numeric census whose presence/absence in a table determines originality."
+        ],
+        "reasoning": "No separate exact table is mathematically needed: the universal d^n formula is fixed by the established affine conjugacy and elementary degree integration for all dimensions and periods. The search did not reveal a dominating numerical database beyond that theorem; a negative search is not treated as novelty evidence.",
+        "searches": [
+          "Resultary semantic: holomorphic expanding maps constant smooth Jacobian equal covering degree periodic determinants Lyapunov sum infranilmanifold affine conjugacy",
+          "Resultary semantic: holomorphic expanding map holonomy invariant volume Jacobian Livsic coboundary",
+          "Resultary/2026: sharp degree spectrum and periodic census for homothetic holomorphic expanding tori, complete RESULT.md"
+        ]
+      },
+      "rationale": "Zhang’s 2026 Theorem A has EXACTLY the submitted hypothesis class and gives biholomorphic (hence smooth) conjugacy to an affine expanding endomorphism of a complex infra-nilmanifold. Its proof explicitly normalizes the lift to a Lie-group automorphism and identifies the holomorphic finite-holonomy deck action. On this affine model, a positive left-invariant top form is invariant under finite orientation-preserving holonomy and scaled by the constant det_R(A); integrating against the covering identity forces det_R(A)=deg f. Smooth pullback then gives the submitted constant-Jacobian form, its coboundary formulation, period-n determinant d^n, and log d sum of real Lyapunov exponents by routine chain rule/telescoping/Oseledets. These are DIRECT COROLLARIES of the published stronger theorem plus standard Lie-group volume facts, not an uncovered result simply because Zhang did not state the corollary. No authorship/priority misconduct is inferred; the mathematical claim is already implied.",
+      "residual_risks": [
+        "The full 1993 Arteaga paper was inaccessible; only abstract and metadata were read. It might supply a still earlier equivalent Jacobian-periodic formulation, but is unnecessary to resolve the decisive Zhang implication.",
+        "The original package reports first_public_date 2026-10-01 while Zhang arXiv v1 is dated 2026-10-01 and the package was published 2026-10-11. Subday priority is not determined; this verdict is scientific coverage, not an accusation of copying or a historical priority finding.",
+        "Published corpus search also returned the assigned record itself; that self-hit was excluded as independent prior evidence."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "DEFINITIVE_BROADER_COVERAGE_BY_IMPLICATION",
+          "evidence": "Theorem A (lines 38–43) states a biholomorphic conjugacy to a holomorphic affine expanding endomorphism of a complex infra-nilmanifold. Section 2 (lines 50–59, 110–115) normalizes the affine lift to a Lie-group automorphism A and proves that the complex structure is left invariant and the whole deck group acts biholomorphically. Finite holonomy then preserves a positive left-invariant top form, while A pulls it back by its constant positive determinant. Degree integration identifies that multiplier with deg(f). The entire submitted theorem follows by smooth pullback, periodic telescoping and Birkhoff/Oseledets.",
+          "identifier_or_url": "arXiv:2610.01525v1; https://arxiv.org/html/2610.01525v1",
+          "material_read": "Complete four-page primary HTML mathematical text, including Introduction, Theorem A, Section 2 proof, Lemmas 2.1–2.2, Bochner–Montgomery step, and references; especially HTML lines 27–126.",
+          "method": "Opened arXiv versioned HTML via the article full-text link; reviewed full theorem and proof (not just abstract).",
+          "title": "Holomorphic expanding maps",
+          "trigger": "Exact same hypothesis class: holomorphic expanding maps on compact connected complex manifolds; potential dominating structural theorem."
+        },
+        {
+          "assessment": "RELATED_SUBCLASS; DOES_NOT_BY_ITSELF_COVER_GENERAL_INFRA_NILMANIFOLD_CLAIM",
+          "evidence": "Explicit complex torus homothetic examples compute deg(f)=|det A| and fixed counts det(I-A^n). They confirm determinant-degree is elementary in an affine model but do not establish the general compact-complex-manifold classification. Zhang provides the latter.",
+          "identifier_or_url": "https://github.com/Resultary/2026/blob/main/2026/10/11/SCOPE-sharp-degree-spectrum-and-periodic-census-for-homothetic-holomor--a71730bb6cde/RESULT.md",
+          "material_read": "Entire RESULT.md from published GitHub blob, including construction, proof, periodic count, and relationship to Zhang.",
+          "method": "Authorized GitHub read-only fetch_file; exact published source text.",
+          "title": "Sharp degree spectrum and periodic census for homothetic holomorphic expanding tori",
+          "trigger": "Related published mathematical result using the same holomorphic expanding torus subclass and determinant-degree calculations."
+        },
+        {
+          "assessment": "RELEVANT_CLASSICAL_PERIODIC_RIGIDITY; NOT_DECISIVE_FOR_THE_COMPLEX_MANIFOLD_SCOPE",
+          "evidence": "Theorem 1.3 is for expanding maps of the circle and Theorems 1.4–1.6 for Anosov torus diffeomorphisms; Theorem 2.3 cites a C^{r-1} invariant density for expanding maps, not pointwise Jacobian = degree for arbitrary holomorphic infra-nilmanifold models.",
+          "identifier_or_url": "arXiv:1903.11595v2; https://arxiv.org/html/1903.11595v2",
+          "material_read": "Primary HTML Introduction and Theorems 1.3–1.6; Section 2 through Theorems 2.3–2.4 and the beginning of its proof (HTML lines 27–129). Not a claim of whole-document inspection.",
+          "method": "Full-text arXiv HTML, targeted theorem and proof inspection.",
+          "title": "Constant periodic data and rigidity",
+          "trigger": "Potential earlier results connecting expanding-map periodic derivative data, smooth conjugacy, and Lyapunov exponents."
+        },
+        {
+          "assessment": "ACCESS_LIMIT; NO_WHOLE_DOCUMENT_NONCOVERAGE_CLAIM",
+          "evidence": "Abstract states a necessary-and-sufficient condition for absolutely continuous conjugacies between differentiable expanding maps in terms of periodic Jacobians. Its precise theorem was not read; potential additional priority cannot be excluded, but Zhang already decisively implies the submitted result.",
+          "identifier_or_url": "DOI:10.1017/S0143385700007331; https://www.cambridge.org/core/journals/ergodic-theory-and-dynamical-systems/article/absolutely-continuous-conjugacy-of-expanding-endomorphisms/F02D869BD215BFAD74C4FD0004C95D94",
+          "material_read": "Publisher bibliographic page, full abstract, and reference list only; paper full text not obtained.",
+          "method": "Searched arXiv and lawful OA copies; checked publisher; requested institutional Oxford route only after these failed; returned vpn_disconnected.",
+          "title": "Absolutely continuous conjugacy of expanding endomorphisms",
+          "trigger": "Highly relevant classical paper explicitly using periodic Jacobians to characterize regularity of conjugacy between expanding maps."
+        },
+        {
+          "assessment": "RELATED_DIFFERENT_HYPOTHESES",
+          "evidence": "The stated theorem requires genuinely higher-rank commuting expanding actions. It does not alone supply Zhang’s arbitrary single holomorphic expanding map classification.",
+          "identifier_or_url": "arXiv:1608.02295; DOI:10.3934/jmd.2017012",
+          "material_read": "Primary arXiv abstract and bibliographic theorem scope only, not full text.",
+          "method": "arXiv bibliographic/abstract inspection and citation comparison.",
+          "title": "Exponential Mixing and Smooth Classification of Commuting Expanding Maps",
+          "trigger": "Earlier smooth affine classification of expanding systems potentially subsuming the submitted claim."
+        }
+      ],
+      "status": "FAIL"
+    },
+    "value": {
+      "checked_sources": [
+        "Jiesong Zhang, Holomorphic expanding maps, arXiv:2610.01525v1, 2026-10-01, Theorem A and entire Section 2, https://arxiv.org/html/2610.01525v1",
+        "Resultary/2026, Sharp degree spectrum and periodic census for homothetic holomorphic expanding tori, 2026-10-11, RESULT.md (full text inspected), https://github.com/Resultary/2026/blob/main/2026/10/11/SCOPE-sharp-degree-spectrum-and-periodic-census-for-homothetic-holomor--a71730bb6cde/RESULT.md",
+        "F. Micena, Constant periodic data and rigidity, arXiv:1903.11595v2, Introduction, Theorem 1.3, Section 2, https://arxiv.org/html/1903.11595v2"
+      ],
+      "rationale": "Periodic determinant data and smooth Jacobian cocycles are important invariants, but the full result is a routine immediate corollary of Zhang’s published biholomorphic affine classification: construct a homogeneous volume using finite holonomy, identify its degree scaling, and apply chain rule/telescoping/Oseledets. There is no new quantified boundary, nonstandard structural lemma, unknown exact invariant, or separate mathematical obstacle resolved beyond the existing classification. The claim’s scalar obstruction is pedagogically clear but supplies no independent research-level contribution under the same value bar applied to other records. Its correctness does not rescue coverage or value.",
+      "residual_risks": [
+        "The periodic-determinant criterion is a useful exposition of Zhang’s theorem but cannot be billed as a separate non-implied rigidity theorem.",
+        "No necessity-and-sufficiency statement for complex structures or individual multiplier spectrum is established."
+      ],
+      "status": "FAIL"
+    }
+  },
+  "disposition": "failed",
+  "limitations": [
+    "No assertion about individual Lyapunov exponents or periodic eigenvalue spectrum; only their total product/sum.",
+    "A periodic determinant violation obstructs holomorphic expansion; satisfying the determinant law is not sufficient.",
+    "Scientific originality rejection follows direct mathematical implication by a stronger theorem, not merely matching keywords or inaccessible literature."
+  ],
+  "schema_version": 1
+}
