@@ -1,19 +1,21 @@
-# Scientific review
+# Independent mathematical audit
 
-## Correctness — PASS
+## correctness
 
-For every fixed positive nonuniform digit law, the finite sum from arXiv:2309.07366, Theorem 4.2, gives a deficit equal to the expectation of the positive overlap function \(\phi\). Strict convexity of the likelihood moment function places the Chernoff tilt uniquely inside \(0,1\), where it centers the tilted log-likelihood increment and gives positive variance. The exact tilted representation of the deficit and the refinement gain is then subjected to the appropriate nonarithmetic or maximal-lattice local limit theorem. Direct Riemann integrability follows from exponential tails. Strict Jensen concavity gives positivity of every gain and of every lattice prefactor. Integration by parts evaluates the universal coefficient as a beta function. A separate finite checker compares direct enumeration and multinomial coefficients, tests monotone arclength growth, and checks the beta integral by quadrature. The numerical checks are not used in lieu of proof. External local-limit results are invoked as standard theorems; they are not separately reproved.
+PASS
 
-## Originality — PASS on accessible evidence
+For every fixed fully supported nonuniform q-ary law, exact cell increments u=q^(-n),v=product(p_digit) give D_n=2-L_n=E_U phi(exp(S_n)). Since M’(0)=-D(U||P)<0 and M’(1)=D(P||U)>0, strict convexity fixes unique s* in (0,1), rho<1 and centered positive-variance tilted increments. The precise change of measure D_n=rho^n E_pi g(S_n) and per-step gain G_n=rho^n E_pi psi(S_n) follow from the finite formula. Strict concavity of phi and nonuniform weights makes psi positive. g and psi have exponential tails, allowing classical Stone/local lattice LLTs and positive uniformly summable periodic profiles. Explicit integration by parts evaluates int(g)=2^(s*-1) B((s*+1)/2,1-s*)/s*; int(psi)=(1-rho)int(g), and the arithmetic shifts give H(theta)=A(theta)-rho A(theta+a). Thus both D_n and G_n have the asserted sharp rho^n/sqrt(n) laws. Independently recomputed 7-file tree and verified finite levels with direct and multinomial methods, Chernoff tilts, beta quadrature and periodic gains. Uniform p and zero digit weights are correctly excluded; finite numerics are not a proof of the infinite theorem.
 
-Pfeffer, Smith and Severa, arXiv:2309.07366v2, Sections 4.2 and 5.1, establish the finite formula and the limiting value \(2\) and explicitly ask for a rigorous quantification of the gain from each refinement. Their work does not state the sharp \(\rho^n/\sqrt n\) scale or beta and lattice-phase prefactors. Stone (1965) proves a general nonlattice local limit theorem, not the arclength identification. Sason (2018) discusses general divergence representations but does not state this geometry-specific result. Semantic searches of public mathematical findings for unfair dice, singular Bernoulli distribution-function arclength, Chernoff-scale asymptotics, and lattice corrections returned no claim implying the theorem. Previously catalogued mathematical claims were checked for statement-level overlap and have different objects or invariants. Risks: unindexed asymptotics and relevant non-open literature might contain the specialized conclusion; the complete Stone article was not materially read here.
+## originality
 
-## Value — PASS
+PASS
 
-The primary 2023 paper identifies the incremental arclength as an open quantitative problem. This theorem gives the complete leading behavior for the entire fixed, fully supported, biased iid \(q\)-ary family, including both the nonarithmetic and arithmetic possibilities. It identifies a statistically meaningful rate (Chernoff information), a nontrivial \(n^{-1/2}\) penalty, and a genuinely necessary lattice-phase correction. It permits principled comparisons of the arclength obtained from successive digit refinements, rather than supplying only finite tables.
+The motivating 2023 article already proves the exact finite polygonal arclength and its limit 2, but asks for a quantitative step gain in Section 5.1. The assessed result adds the all-positive-biased-law sharp Chernoff exponent, n^-1/2 correction, evaluated beta factor and indispensable arithmetic-phase coefficient. Real Resultary searches and primary-source mathematical comparisons did not identify equivalent or stronger published coverage; standard LLT/Chernoff theory supplies inputs, not the assembled geometric asymptotic. Best-of-knowledge only, with residual risks explicitly recorded.
 
-## Limitations and closest literature
+## value
 
-The original 2023 result supplies the exact finite formula and limiting arclength; it does not solve the quantitative step-size problem. This proof depends on classical local limit theorems, full support, strict bias and independence. The result does not claim an explicit rate for the small-order remainders, a zero-weight extension, or independent external certification.
+PASS
 
-Self-review: passed. Independent audit: not yet performed.
+It resolves the natural explicitly posed quantitative refinement question for biased-digit CDF polygonal arclength, throughout the full fixed fully supported nonuniform q-ary family, rather than merely computing finite instances. The sharp rate identifies the Chernoff affinity and has a nontrivial square-root penalty; a positive periodic correction is essential in arithmetic cases. The result offers a mathematically reusable leading law and distinguishes effects of digit bias from finite numerical tables.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
