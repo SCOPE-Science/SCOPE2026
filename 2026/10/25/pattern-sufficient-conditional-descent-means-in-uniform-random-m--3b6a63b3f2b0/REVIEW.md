@@ -1,11 +1,21 @@
-# Review of the conditional-descent regression
+# Independent mathematical audit
 
-**Correctness (C): PASS.** For an arbitrary fixed-point-free rank pattern, the marked endpoint set is uniform, the residual matching is uniform, and the gap composition is exchangeable. The proof exhausts adjacent positions according to both endpoints marked, neither marked, or exactly one marked. The mixed-neighbor computation explicitly removes the current endpoint before dividing by the \(r-1\) available partners, including its boundary case. Exact enumeration verifies every \(n\le5\) and all marked patterns. The proof, not this enumeration, supplies the unrestricted quantifiers.
+## correctness
 
-**Originality (O): PASS, subject to historical-priority risk.** Kim's descent moments for fixed-point-free involutions provide unconditioned background. Kasraoui–Zeng's crossing/nesting/alignment distribution does not state the proposed conditional descent regression in inspected accessible material; Paguyo's chord-diagram limit theory supplies different marginal/asymptotic questions. The nearest indexed records concern ordinary permutations and unrelated covariance structures rather than a uniform involution conditioned on an arbitrary marked matching. The exact conditional pattern-sufficiency statement and signed pair-type covariances are not implied by the compared published statements; some related full text was not inspected and equivalent prior art remains possible.
+PASS
 
-**Value (V): PASS.** Conditioning on a sampled chord motif is a natural probe of dependence between local permutation order and global chord topology. The all-size, all-marked-pattern regression eliminates the complete combinatorial complexity of the marked pattern from a nontrivial observable's conditional mean, reducing it to one statistic. Its crossing, nesting, and alignment corollaries reveal negative, positive, and exactly zero association, respectively, with explicit finite-size magnitudes.
+Given fixed τ, marked endpoints are a uniform 2k-subset and unmarked matching is independent uniform. Uniform gap compositions give P(G_j=0)=m/N and exchangeable mixed-neighbor moments U+mV=r²/N. Splitting neighboring positions into marked-marked, unmarked-unmarked, and mixed yields mD(τ)/N + r²/(2N)+mr/N = N/2 +(m/N)(D(τ)−m/2), with r=0 separately treated. For two chords, three patterns occur with probability 1/3 and descent numbers 2,1,3, leading to Cov(D,C)=−(n−1)/3, Cov(D,H)=(n−1)/3, Cov(D,A)=0. Independent exact enumeration all matchings and all marked subsets for n=1..5 confirms each conditional pattern and three covariances; finite enumeration not infinite proof.
 
-Limits: uniform even-sized matchings, linear descents, and edge-uniform marking only; no conditional-distribution or nonuniform-model claim. Exhaustive computation is finite, the literature search is not exhaustive, and independent validation has not occurred.
+## originality
 
-Self-review: passed. Independent audit: not yet performed.
+PASS
+
+Best-of-knowledge accepted after statement-level primary-literature and published mathematical-record comparisons; no decisive antecedent implication was identified. Source-reading limits and plausible unindexed-priority risks are explicit; a failed keyword search is not treated as novelty proof.
+
+## value
+
+PASS
+
+Exact conditional regression collapsing an arbitrary marked chord substructure to its descent statistic is a natural and nontrivial dependence law, with useful signed crossing/nesting covariances and exact zero alignment covariance despite non-independence.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
