@@ -1,11 +1,21 @@
-# Scientific review
+# Independent mathematical audit
 
-**Correctness:** PASS. The independent-parent construction yields a two-color Pólya urn before the second mark and a three-color Dirichlet-multinomial urn afterward. Exact rising-factorial moments and conditional covariance calculations prove the two sign formulas and their unconditional cancellation. A separate maximum-subtree conditioning argument proves the strict dependence classification. Exact enumeration through nine vertices checked 1,022 rational assertions. Finite enumeration was not substituted for the general proof.
+## correctness
 
-**Originality:** PASS, provisional. The evaluated covariance cancellation and the complete distinction between conditional positive/negative dependence and unconditional zero covariance were not located in inspected prior primary literature or record searches. The closest source, Kuba (2006), develops a general multivariate generating-function framework for tagged recursive-tree parameters and gives one-tagged-subtree laws; that framework may implicitly encode these mixed moments, but the inspected chapter does not evaluate them. Janson (2004) analyzes outdegree-profile fluctuations using urns, a different statistic. Historical priority risk is real, and this judgment is not an external certification.
+PASS
 
-**Value:** PASS. Two nested-or-disjoint random fringe subtrees are natural correlated objects. Exact orthogonality alongside strict dependence, plus the ancestry-conditioned sign reversal and exact boundary cases, provides a structural classification unavailable from the one-vertex marginal law. This has relevance to interpreting covariance-based diagnostics of growth-tree dependence, without asserting a broader limit theorem.
+Just before vertex j arrives the i-subtree size W follows a two-color Pólya urn. Its first two rising factorial moments yield P(j descendant of i)=1/i and size-biased E[S_i(j)|A]=2j/(i+1); complement gives j/(i+1). A three-color Dirichlet–multinomial urn for vertices after j gives conditional cross-class covariance −n(n−j)ab/[j²(j+1)] and variance n(n−j)a(j−a)/[j²(j+1)]. As j is one initial singleton, averaging conditional Z yields covariances n(n−j)(i−1)/[(i+1)j(j+1)] on A and −n(n−j)/[(i+1)j(j+1)] off A. Their 1/i weighted cancellation is exact. Dependence is witnessed by S_i=n−i+1, where E[S_j]=(n−i+1)/(j−i+1)>n/j. i=1 or j=n gives deterministic subtree size. Independent complete parent-array enumeration n=4..7 verified each pair and signed formula exactly.
 
-Closest sources: Janson (2004), DOI 10.1002/rsa.20046; Kuba (2006), Chapter 5.3.3–5.4. Scope: uniform increasing-parent trees; two fixed label indices. No other growth mechanisms, complete bivariate law, or historical uniqueness is claimed.
+## originality
 
-Self-review: passed. Independent audit: not yet performed.
+PASS
+
+A broad Kuba 2006 multivariate framework handles several tagged node parameters, and Kuba–Panholzer give all factorial moments for a single tagged descendant subtree. These do not in the inspected material evaluate the conditional ancestor/nonancestor covariances or prove zero covariance with strict dependence for every interior pair. The general multivariate framework is substantial prior art and may contain an implicit derivative form, explicitly recorded as a residual risk. Best-of-knowledge qualified PASS.
+
+## value
+
+PASS
+
+Nested versus disjoint descendant subtrees are natural dependent coordinates of a recursive growth tree. Exact zero covariance despite strict dependence, and conditioning that reveals opposite covariance signs, is a motivated structural warning against interpreting orthogonality as independence. Complete pairwise boundary classification is mathematically useful on its own.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
