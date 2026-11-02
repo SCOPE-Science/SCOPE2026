@@ -1,0 +1,15 @@
+# Self-review
+
+## Correctness — PASS
+The domain is explicitly finite and each local neighborhood family is a nonempty up-set of nonempty subsets. The finite minimal-antichain representation is bijective. The rectangle-to-iterated implications hold without extra assumptions; for the reverse implication, the singleton-minimum or principal-minimum construction gives a rectangle, and incomparable minimal vertical neighborhoods with a nonsingleton minimal horizontal neighborhood give an explicit separating truth set. The two-orientation and global counts follow from a four-way antichain split and inclusion-exclusion. The asymptotic uses the middle-layer lower bound on Dedekind numbers. All small tests in `checker.py` passed. No unproved infinite-domain extension is claimed.
+
+## Originality — PASS, subject to historical risk
+The 2026 full-product article defines the three modalities and proves one-way interaction plus class-level axiomatizations, but its inspected introduction, definitions, main results, proof, and relevant appendices do not state the finite nonnormal antichain dichotomy or exact counts. The full text of Sano (2011) treats monotone neighborhood products with two coordinate modalities and hybrid naming axioms, not the third rectangle modality. The 2014 normal-neighborhood product article concerns intersection-closed filters and two modalities. A published rectangularization result is broader at the level of a general uniformization *condition* and contains the finite-normal consequence; this theorem adds the exact minimal-antichain criterion, formulas enumerating one-way and two-way coincidence, and a sharp point-containing counterexample. Its full report was not available for comparison, so possible unpublished-in-summary overlap is expressly not excluded. No absence-of-search-result argument is treated as a novelty proof.
+
+## Mathematical value — PASS
+The original full-product logic distinguishes the rectangle box from iterated coordinate boxes in general. A sharp, pointwise decidable structural boundary, together with the total frame census and asymptotic rarity, quantifies when that extra modality is eliminable in the natural finite monotone class. The minimum-size point-containing counterexample cleanly separates a reflexive-but-nonnormal phenomenon from the finite normal case. These are natural model-theoretic invariants of the same product construction, not an arbitrary parameter slice.
+
+## Closest work and limitations
+Aghamov et al. (EPTCS 447, 2026) supply the semantics and one-way interactions. Sano (2011) treats two-modality monotone hybrid products; Kudinov (2014) studies normal products. The publicly indexed rectangularization note supplies a general abstract equivalence and finite-normal special case. The current statement assumes nonempty local up-sets avoiding the empty set, and counts labelled assignments, not isomorphism types. A fuller older or unpublished exact classification may exist. Finite experiments supplement but do not establish the symbolic universal claim.
+
+Self-review: passed. Independent audit: not yet performed.
