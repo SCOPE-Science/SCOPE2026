@@ -1,0 +1,118 @@
+{
+  "audit_date_utc": "2026-10-30",
+  "audited_at_utc": "2026-10-30T04:51:03Z",
+  "axes": {
+    "correctness": {
+      "rationale": "Fix the k cycle vertices and cyclic order. Removing its cycle edges leaves a uniformly distributed forest with k specified roots and F(n,k)=k*n**(n-k-1) for n>k (1 for n=k). For r labeled J-leaves and s labeled H-leaves, deleting the leaves and reattaching gives k**r (m-r-s)**s F(n-r-s,k) completions per ordered distinct marked tuple; summation produces all (m)_(r+s) factorial moments. The r,s=(1,0),(0,1),(1,1) cases give the displayed covariance. For m>=3, the exact E[JH]/(E[J]E[H]) equals (m-2)/m*(n/(n-1))**2*(1-1/(n-1)**2)**(m-3)<1 because m<=n-3 and m(n-1)**2-(m-2)n**2=2n(n-m)+m>0. At m=2, E[JH]=0; m<=1 gives zero covariance. Expansion for k/n->alpha in (0,1) gives -alpha*(1-alpha)**2*(1+alpha**2)*exp(-2(1-alpha)). Independent exact rooted-forest enumeration through n=7 checked 65 mixed moments across 1425 forests. This is analytic for every admissible n,k; finite tests are corroboration only.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Pitman formula (6): F(n,k)=k n^(n-k-1) with k fixed roots",
+          "Janson 2003 publisher abstract: cycle and unicyclic component sizes in nearcritical G(n,m)"
+        ],
+        "reasoning": "Multiroot forest enumeration is broad but uncolored. Janson focuses different ensemble statistics, so abstract alone cannot establish NOT_COVERING for the complete paper. A multivariate refinement from earlier forest literature could subsume this result and remains an explicit risk.",
+        "searches": [
+          "Pitman Coalescent Random Forests 1996 Section 2.1 and Section 6",
+          "random unicyclic graph cycle length leaf counts Janson 2003"
+        ]
+      },
+      "checked_sources": [
+        "Pitman 1996 Berkeley Technical Report 457 Section 2.1 formula (6)",
+        "Janson 2003 DOI:10.1017/S0963548302005412 abstract only",
+        "Ben-Naim and Krapivsky 2004 arxiv:cond-mat/0403453 abstract",
+        "Resultary query random labeled unicyclic graph pendant leaves/rooted forests 2026-10-30"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "Rooted forest count is used in proof, not novel",
+          "Janson published abstract treats cycle/component sizes in G(n,n/2±s)",
+          "Ben-Naim–Krapivsky arXiv abstract treats growing random graph unicyclic-component distribution"
+        ],
+        "reasoning": "The assigned mixed moments are not a corollary of Pitman number-of-forests without distinguishing two parent types. Component-size asymptotics use different conditioning and cannot alone imply the exact finite law; full Janson paper was inaccessible and not assessed globally.",
+        "searches": [
+          "Pitman 1996 fixed-root forest formula (6)",
+          "Janson 2003 Cycles and Unicyclic Components in Random Graphs",
+          "Ben-Naim Krapivsky 2004 Unicyclic Components in Random Graphs"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Pitman 1996 fixed-root forest count, Section 2.1 formula (6)",
+          "Known total-leaf marginal is a projection J+H, not the bivariate law"
+        ],
+        "reasoning": "The equivalence is to a specified-root labeled forest with parent classified as root or nonroot. The standard count contains no parent-color split, so neither its total forest count nor the J+H marginal implies mixed (J,H) moments alone; they are inputs to the new deletion/reattachment proof.",
+        "searches": [
+          "Resultary: random labeled unicyclic graph root-attached leaves mixed factorial moments; 2026-10-30",
+          "fixed roots Cayley forest leaves adjacent roots color parent generating function"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "Resultary nearest hits concern random recursive-tree root degree, and other root forests, not this conditional 2D leaf law"
+        ],
+        "reasoning": "No identified exact table for all n,k or bivariate factorial-moment count. This is an infinite parameter formula, so unrelated finite unicyclic tables or total-leaf distributions do not supply its joint law.",
+        "searches": [
+          "Resultary semantic search: root-attached random forest leaves negative covariance unicyclic",
+          "unicyclic graph enumeration exact two-class leaves conditional cycle"
+        ]
+      },
+      "rationale": "PASS qualified: fixed-root forest counts and total-leaf marginal are prior art, but neither directly determines the parent-on-cycle versus parent-off-cycle joint law, and the inspected random-graph articles address component/cycle sizes. A possible historical multitype forest generating function that directly implies the whole joint law remains a priority risk.",
+      "residual_risks": [
+        "Earlier multitype rooted-forest outdegree generating functions may imply the full parent-class split without matching wording",
+        "Janson 2003 full paper inaccessible; abstract-level comparison is not whole-document exclusion",
+        "No unconditional covariance sign or general multigraph extension was assessed."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "COVERS_BASE_FOREST_COUNT_NOT_DISPLAYED_JOINT_STATISTIC",
+          "evidence": [
+            "Section 2.1 equation (6) counts rooted forests with specified root set as k*n^(n-k-1); no bivariate cycle-parent statistic in that material"
+          ],
+          "identifier_or_url": "https://statistics.berkeley.edu/sites/default/files/tech-reports/457.pdf",
+          "material_read": "PDF full paper accessible; Section 2.1 and formula (6) on displayed page; selected original PDF pages screened",
+          "method": "Web PDF open plus page screenshots",
+          "title": "Coalescent Random Forests",
+          "trigger": "exact fixed-root forest enumeration"
+        },
+        {
+          "assessment": "INACCESSIBLE_FULL_TEXT_PRIORITY_RISK",
+          "evidence": [
+            "Abstract describes cycle and unicyclic component-size distributions in nearcritical random graphs; cannot assert full text lacks exact leaf count"
+          ],
+          "identifier_or_url": "https://doi.org/10.1017/S0963548302005412",
+          "material_read": "Publisher abstract only; no primary full text. Open-access search failed and authorized institution tool reported vpn_disconnected.",
+          "method": "Cambridge publisher abstract + lawful full-text retrieval attempts",
+          "title": "Cycles and Unicyclic Components in Random Graphs",
+          "trigger": "plausible unicyclic model and cycle-length results"
+        },
+        {
+          "assessment": "BACKGROUND_DIFFERENT_ENSEMBLE_ABSTRACT_ONLY",
+          "evidence": [
+            "Studies evolution and sizes of unicyclic components, no direct exact finite conditional leaf-pair formula in abstract"
+          ],
+          "identifier_or_url": "https://arxiv.org/abs/cond-mat/0403453",
+          "material_read": "Paper abstract and bibliographic description of growing random graph component law",
+          "method": "arXiv search/abstract",
+          "title": "Unicyclic Components in Random Graphs",
+          "trigger": "earlier random unicyclic enumeration"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "rationale": "The conditional two-type leaf statistic is a natural local/global interface statistic of the unicyclic graph model; the exact finite joint law and universally negative covariance (with explicit linear-order limit) are complete distributional information absent from an uncolored total-leaf count. This is a motivated structural dependency result rather than an arbitrary graph instance.",
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "final_claim": "The full mixed factorial-moment law for cycle-adjacent (J) and farther (H) pendant leaves, strict negative covariance at n-k>=2, and its linear-scale alpha limit, for uniform simple labeled connected unicyclic graphs conditional on cycle length k.",
+  "limitations": [
+    "Earlier multitype rooted-forest outdegree generating functions may imply the full parent-class split without matching wording",
+    "Janson 2003 full paper inaccessible; abstract-level comparison is not whole-document exclusion",
+    "No unconditional covariance sign or general multigraph extension was assessed.",
+    "Public-facing AUDIT.json and METADATA.json include scope_run_id provenance; no guarded sanitizing replacement was staged, so publication is not ready."
+  ],
+  "schema_version": 1
+}
