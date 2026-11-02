@@ -1,12 +1,21 @@
-# Scientific review
+# Independent mathematical audit
 
-## Correctness — PASS
-The exact domain is normalized arclength on the perimeter, and the projection space is restricted affine functions. The second-moment calculation gives the precise kernel \(1+6x\cdot y/(2+\cos(2\pi/n))\). Convexity reduces the sharp induced endpoint norm to vertex evaluations. The negative kernel along the polygon perimeter has one contiguous block of negative vertices and two linearly crossing edges. Exact integration of their negative area gives the displayed closed formula. The asymptotic expansion follows by setting \(J-n/3\) to one of three fixed residues and expanding the sine quotient and crossing-edge deficit; algebraic expressions and rational benchmarks are also independently checked. No finite experiment is used as an infinite proof.
+## correctness
 
-## Originality — PASS within inspected evidence
-The closest published cyclic-frequency results determine *sampled counting-measure* Dirichlet-kernel norms, including an all-block-length formula, not affine projection against **continuous polygon-edge arclength**. The former produces no crossing-edge integral, has a different projector kernel, and has an opposite leading defect in the zero residue class. Anderson et al. analyze trigonometric idempotents on the circle; Hangelbroek et al. analyze general kernel-space least-squares stability on smooth manifolds. Their relevant full-text portions do not state the polygon-boundary exact formula, the vertex localization, or its signed cubic residue law. A related filled-polygon **area** projection has a different measure and limit. Residual priority risk: an unindexed historical computation of polygon boundary least-squares constants may exist.
+PASS
 
-## Value — PASS
-Linear least-squares fitting on polygonal boundaries is a canonical test of stability when a smooth contour is replaced by straight edges. The formula gives an exact infinite-family benchmark, not only pointwise numerical values. The geometry alters the second-order error sign relative to vertex-sampled Fourier projection, and its third-order residue-class split records how kernel zero crossings move through edges. This distinguishes boundary arclength approximation from discrete vertex sampling at a quantitatively sharp scale. The result does not claim a theorem for general approximation spaces.
+Rotation symmetry and direct edge second-moment integration yield K_n(x,y)=1+[6/(2+cos(2π/n))]x·y. Convexity of its L1 norm in the evaluation point bounds all perimeter points by vertex values; strict sign disagreement between adjacent vertex kernels on a positive-measure arc excludes edge interiors. At a vertex the kernel values change sign between integer indices J−1 and J, J=ceil(n/3); exact negative edge integrals consist of a full negative-vertex cosine sum minus two fractional crossing-edge triangular deficits amounting to ab/(a+b). This gives the closed finite-n expression. Taylor expansion in h=2π/n with d=J−n/3 in {0,2/3,1/3} produces the stated common positive n^-2 term and n mod 3 cubic correction. Fresh high-precision independent direct edge integration for every n=3..100, rational n=3,4,6, and n≈30000 across all congruence classes corroborated the formula and cubic sign.
 
-Self-review: passed. Independent audit: not yet performed.
+## originality
+
+PASS
+
+The indexed three-frequency Fourier norm problem has a different measure (uniform vertex counting), hence different kernel coefficient and even the opposite sign of the n^-2 defect for some classes. Hangelbroek–Narcowich–Sun–Ward bound L∞ norms of general smooth-manifold kernel projectors, not the exact continuous perimeter-affine polynomial kernel and its n mod 3 asymptotic. The Resultary simplex-affine norm uses volume measure on simplices and cannot imply the polygonal perimeter exact formula without new integration. Possible older numerical-analysis Lebesgue constant calculations remain a qualified priority risk.
+
+## value
+
+PASS
+
+The exact endpoint operator norm is a natural stability and positivity-defect invariant for least-squares approximation on polygonal meshes. The arithmetic n mod 3 term distinguishes discrete polygon boundaries from their smooth circle limit and from vertex-only sampling, and the explicit sharp norm is applicable across every n≥3 rather than an arbitrary finite slice.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

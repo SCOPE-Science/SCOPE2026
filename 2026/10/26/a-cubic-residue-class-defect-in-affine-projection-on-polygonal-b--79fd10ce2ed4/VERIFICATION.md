@@ -5,8 +5,11 @@
     "status": "not_performed"
   },
   "independent_audit": {
-    "evidence": null,
-    "status": "not_performed"
+    "status": "passed",
+    "evidence": [
+      "INDEPENDENT_AUDIT_2026-10-31.md",
+      "INDEPENDENT_AUDIT_2026-10-31.json"
+    ]
   },
   "lean_verification": {
     "evidence": null,
@@ -16,8 +19,24 @@
 }
 ---
 
-# Verification and limits
+# Independent mathematical audit
 
-The supplied `verify.py` performs an independent Gram-moment reconstruction, numerical matrix inversion, direct edgewise absolute-kernel integration, exact rational special cases and three symbolic Taylor-series comparisons. Its execution returned `PASS 3065 assertion groups; infinite assertions come from the proof in RESULT.md` with Python 3, NumPy and SymPy.
+## correctness
 
-For every integer \(n\ge3\), the actual proof is the explicit rank-three reproducing kernel, a strict vertex-localization argument, a complete sign-interval proof, an exact edge-integral summation and analytic Taylor expansions in the three fixed residue classes. The verification program does not purport to enumerate all integers, all possible older literature, or all choices of input function. A separate historical-priority audit and an independent proof review have not been performed.
+PASS
+
+Rotation symmetry and direct edge second-moment integration yield K_n(x,y)=1+[6/(2+cos(2π/n))]x·y. Convexity of its L1 norm in the evaluation point bounds all perimeter points by vertex values; strict sign disagreement between adjacent vertex kernels on a positive-measure arc excludes edge interiors. At a vertex the kernel values change sign between integer indices J−1 and J, J=ceil(n/3); exact negative edge integrals consist of a full negative-vertex cosine sum minus two fractional crossing-edge triangular deficits amounting to ab/(a+b). This gives the closed finite-n expression. Taylor expansion in h=2π/n with d=J−n/3 in {0,2/3,1/3} produces the stated common positive n^-2 term and n mod 3 cubic correction. Fresh high-precision independent direct edge integration for every n=3..100, rational n=3,4,6, and n≈30000 across all congruence classes corroborated the formula and cubic sign.
+
+## originality
+
+PASS
+
+The indexed three-frequency Fourier norm problem has a different measure (uniform vertex counting), hence different kernel coefficient and even the opposite sign of the n^-2 defect for some classes. Hangelbroek–Narcowich–Sun–Ward bound L∞ norms of general smooth-manifold kernel projectors, not the exact continuous perimeter-affine polynomial kernel and its n mod 3 asymptotic. The Resultary simplex-affine norm uses volume measure on simplices and cannot imply the polygonal perimeter exact formula without new integration. Possible older numerical-analysis Lebesgue constant calculations remain a qualified priority risk.
+
+## value
+
+PASS
+
+The exact endpoint operator norm is a natural stability and positivity-defect invariant for least-squares approximation on polygonal meshes. The arithmetic n mod 3 term distinguishes discrete polygon boundaries from their smooth circle limit and from vertex-only sampling, and the explicit sharp norm is applicable across every n≥3 rather than an arbitrary finite slice.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
