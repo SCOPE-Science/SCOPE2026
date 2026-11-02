@@ -1,0 +1,126 @@
+{
+  "correctness": {
+    "rationale": "Multinomial occupancy coefficients give the exact unmarked survival and marked first-failure laws for every N and capacity split. Independent unit-rate Poisson thinning makes the first rejected-arrival times in capacity-one and capacity-two bins independent Gamma(2,1/N) and Gamma(3,1/N) clocks. Uniform Taylor expansions yield the trichotomy including the joint critical densities; a martingale maximal inequality de-Poissonizes jointly, preserving the capacity mark. Strict monotone coupling proves uniqueness of the equal-hazard-class probability parameter. The packaged standard-library checker ran 2,183 deterministic assertions, using independent rational-state recursion and direct word enumeration; it is not a proof of the limits. All boundaries 0<=a<=N and m>=0 are stated, with non-existent classes contributing zero.",
+    "status": "PASS"
+  },
+  "independent": false,
+  "independent_audit_status": "not_performed",
+  "originality": {
+    "broader_coverage": {
+      "evidence": [
+        "Gouet–Hitczenko–Wesołowski, arXiv:1905.06663, primary complete manuscript introduction and Poisson theorem, allows unequal sampling probabilities but assumes a common capacity r.",
+        "Arratia–Garibaldi–Kilian, arXiv:1310.7055, primary manuscript introduction and setup, handles one collision threshold at a time.",
+        "Barbour–Gnedin, arXiv:0809.4387, abstract of broad occupancy count limit work, full applicability to mixed thresholds unresolved."
+      ],
+      "reasoning": "Nonuniform sampling is not equivalent to allocating different hit thresholds across labels, so unequal-probability common-r limits do not supply the two independent hazard terms and responsible-bin mark. Broad general occupancy Poisson approximation may supply ingredients or an alternative proof; its precise implications are residual risk, not asserted excluded.",
+      "searches": [
+        "arXiv:1905.06663 Theorem 2.1 and model definition",
+        "arXiv:1310.7055 collision process section",
+        "heterogeneous storage capacities balls into bins first failure asymptotic mixed capacities Weibull",
+        "generalized birthday problem heterogeneous repetition thresholds 2 3 first collision"
+      ]
+    },
+    "checked_sources": [
+      "https://arxiv.org/abs/1905.06663",
+      "https://arxiv.org/abs/1310.7055",
+      "https://doi.org/10.1016/S0167-7152(98)00076-5",
+      "https://arxiv.org/abs/0809.4387",
+      "2026/9/20/SCOPE-pairwise-independent-occupancy-one-moment-reduction--0c331de546b4",
+      "2026/9/17/SCOPE-balanced-nonuniform-reset-coupon-rates--7b9ca5a2ebed",
+      "2026/10/4/SCOPE-exact-four-key-birthday-envelope-under-three-wise-independent-ha--0e6fb380867b",
+      "2026/10/4/SCOPE-every-uniform-occupancy-law-is-exposed-in-the-distinct-count-con--f2238f4c07c8"
+    ],
+    "claim_vs_prior_implication": {
+      "evidence": [
+        "A theorem with every capacity r=1 or r=2 separately does not by itself cover a non-exchangeable mixture with a_N=N^(2/3) weak bins and N-a_N stronger bins under one uniform label stream; the independent-class coupling is needed for the marked competing risks.",
+        "Henze 1998 abstract treats a generalized birthday problem at a fixed occupancy count and does not provide enough full-text evidence to exclude hidden mixed-threshold consequences."
+      ],
+      "reasoning": "The novel assessed claim is not an isolated r=1 or r=2 birthday law: it is the joint class-resolved critical crossover, the unique balance parameter, and an exact marked coefficient identity for arbitrary splits. Existing common-capacity results may prove each marginal component but neither state the heterogeneous coupling nor its capacity mark; possible broad implication by a general multivariate theorem remains a documented risk.",
+      "searches": [
+        "arXiv:1905.06663 Poisson theorem uniform common capacity",
+        "arXiv:1310.7055 stopping collision count law",
+        "doi:10.1016/S0167-7152(98)00076-5 bibliographic abstract",
+        "published-finding corpus search heterogeneous bins with capacities 1 and 2 first excess arrival Weibull races mixed birthday collisions"
+      ]
+    },
+    "equivalent_formulations": {
+      "evidence": [
+        "arXiv:1905.06663: same capacity r across bins in its model and main theorems; arXiv:1310.7055: all birthdays have the same repeat threshold.",
+        "published-finding corpus 2026/10/4/SCOPE-exact-four-key-birthday-envelope-under-three-wise-independent-ha--0e6fb380867b studies finite collision-free probability envelopes under limited independence, not a capacity-marked first overflow."
+      ],
+      "reasoning": "First overflow is equivalent to the first classwise second hit among capacity-one bins or third hit among capacity-two bins. This reformulation was queried through mixed threshold birthday, urn overflow and collision terminology. Neither the fixed-r urn theorem nor fixed-count birthday embedding directly implies a simultaneous two-capacity marked limit.",
+      "searches": [
+        "mixed capacity urn model capacity one and two first overflow time competing birthday triple collision limit exp(-a t^2/2-t^3/6) phase crossover",
+        "heterogeneous bins with capacities 1 and 2 first excess arrival Weibull races mixed birthday collisions",
+        "birthday collisions double and triple in two-color urns limit marked process",
+        "first overflow birthday problem heterogeneous bins capacity two three threshold first collision triple collision asymptotic",
+        "mixed capacities birthday paradox double triple first repeat competition Weibull 2/3 critical"
+      ]
+    },
+    "exact_database_or_table": {
+      "evidence": [
+        "Available prior mathematical claims had no exact mixed-capacity, capacity-one/two or first-overflow statement; relevant published-finding corpus 2026/9/20/SCOPE-pairwise-independent-occupancy-one-moment-reduction--0c331de546b4 concerns nonidentical independence in distinct-count statistics, and claim 8f08b5ae-0503-4db0-82d7-c8da61b7aefb concerns group coupon completion, not differing bin capacities.",
+        "No mathematical table containing this continuum of critical marked limiting distributions was identified in searched results."
+      ],
+      "reasoning": "A finite table for fixed N cannot establish the all-N marked formulas and asymptotic trichotomy. Queries were compared semantically to the model, not merely by title; lack of hits does not prove global novelty.",
+      "searches": [
+        "Previous mathematical-claim record queries: mixed-capacity; mixed capacity; capacity-one; capacity-two; heterogeneous capacit; first overflow; birthday; collision; urn; first failure",
+        "birthday collisions double and triple in two-color urns limit marked process",
+        "first overflow time and capacity type in unequal capacity occupancy balls bins Poisson approximation"
+      ]
+    },
+    "rationale": "A mixed bin-capacity first-overflow distribution and capacity-marked crossover is distinct from fixed-capacity collision-count laws inspected in the primary full texts. Search in published-result records and available prior claim ledger found no equivalent or implication-dominating mixed two-capacity theorem. The standard Poisson embedding is acknowledged as existing technique, and priority risk from older general occupancy theorems persists.",
+    "residual_risks": [
+      "An older broad generalized birthday or heterogeneous capacity theorem might imply the critical mixed-threshold limit without matching title; Henze (1998) full text and Barbour–Gnedin full text were not inspected.",
+      "The exact multinomial identity follows classical methods and should not be portrayed as a fundamentally new combinatorial technique.",
+      "Literature and mathematical-claim database searches cannot certify universal uniqueness or independent historical priority."
+    ],
+    "source_inspections": [
+      {
+        "assessment": "Common capacity r for all urns, unequal selection probabilities allowed; not a stated result for two capacity classes or the capacity mark.",
+        "evidence": "2019 arXiv first posting and explicit common-r assumption in section 1; main overflow Poisson theorem in section 2.",
+        "identifier_or_url": "https://arxiv.org/abs/1905.06663",
+        "material_read": "Primary arXiv PDF introduction, model assumptions and Theorem 2.1/Poisson regime; pages 1 and 3 visually inspected as PDF pages, with text passages examined.",
+        "method": "Lawful open-access PDF; page images plus extracted text",
+        "title": "Asymptotics of the overflow in urn models",
+        "trigger": "Closest source on overflow time; possible general theorem"
+      },
+      {
+        "assessment": "One common collision notion (ordinary repetitions) over all labels; not a heterogeneous capacity-marked stopping rule.",
+        "evidence": "2013 arXiv title, introductory definitions and stopping/collision embedding discussion.",
+        "identifier_or_url": "https://arxiv.org/abs/1310.7055",
+        "material_read": "Primary arXiv PDF introductory pages, definitions and main structure, visually inspected title page.",
+        "method": "Lawful open-access arXiv PDF and parsed text",
+        "title": "Asymptotic distribution for the birthday problem with multiple coincidences, via an embedding of the collision process",
+        "trigger": "Could cover the generalized birthday threshold or collision time"
+      },
+      {
+        "assessment": "Abstract indicates fixed occupancy threshold; complete exclusion of mixed-threshold variants is not possible.",
+        "evidence": "Henze 1998 journal publication and abstract describing a fixed c-fold birthday coincidence.",
+        "identifier_or_url": "https://doi.org/10.1016/S0167-7152(98)00076-5",
+        "material_read": "Bibliographic abstract only; full text not obtained.",
+        "method": "Public bibliographic record/abstract",
+        "title": "A Poisson limit law for a generalized birthday problem",
+        "trigger": "Older potential priority for generalized birth-day thresholds"
+      },
+      {
+        "assessment": "May contain general techniques relevant to counts of occupancy two and three; no categorical noncoverage claim.",
+        "evidence": "ArXiv abstract indicates joint occupancy count limits; whether it subsumes the marked race remains unverified.",
+        "identifier_or_url": "https://arxiv.org/abs/0809.4387",
+        "material_read": "Abstract-level search snippet only, no full-text comparison; explicitly unresolved.",
+        "method": "Open bibliographic search result",
+        "title": "Small counts in the infinite occupancy scheme",
+        "trigger": "Potential general multivariate occupancy theorem"
+      }
+    ],
+    "status": "PASS"
+  },
+  "review_type": "self_review",
+  "schema_version": 1,
+  "scope_run_id": "80ccf1ac-6bcf-420d-aabd-6cbee61d4e26",
+  "self_review_status": "passed",
+  "value": {
+    "rationale": "The precise N^(2/3) number of capacity-one bins that triggers first-failure competition is a natural reliability threshold for sparse weak bins in a uniform-load system. The complete trichotomy, explicit joint failure time/capacity densities, unique 50:50 class balance and finite-N marked distribution explain failure cause as well as timing. The continuum of mixed hazards is not a contrived finite enumeration or an arbitrary unmotivated slice; it directly distinguishes minority- and bulk-dominated risks.",
+    "status": "PASS"
+  }
+}
