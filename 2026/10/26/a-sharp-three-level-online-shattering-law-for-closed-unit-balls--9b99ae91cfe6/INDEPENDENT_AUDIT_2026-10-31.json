@@ -1,0 +1,116 @@
+{
+  "audit_date_utc": "2026-10-31",
+  "audited_at_utc": "2026-10-31T16:49:16Z",
+  "axes": {
+    "correctness": {
+      "checked_sources": [
+        "Frozen RESULT.md Git blob 6756f862010f215d0fedd13a350d87f1776c08bb",
+        "Frozen verify.py Git blob 41909619a9ebf425c62dd93cc0b57c84a3f10def",
+        "independent_checks.py: Prüfer enumeration, canonical forms, and recursive Littlestone game"
+      ],
+      "rationale": "For n>=3, centers have distinct closed neighborhoods: duplicate adjacent centers would have unequal connections to a third vertex in a tree. Any query v divides centers into N[v] and B_v=V\\N[v]. The positive branch has Ldim<=2 because every second query retains at most two centers on one side (neighbors in a tree have no triangles); it has Ldim exactly two iff degree(v)>=3. The negative branch has Ldim>=2 iff a query w splits B_v into two sets of size >=2, exactly 2<=|N[w] intersect B_v|<=|B_v|-2. A depth-four tree is excluded since its positive branch can never reach depth three. A depth-three root exists exactly when both positive and negative conditions hold. For n>=4 a leaf query has two positive and n-2 negative centers, so depth>=2; n=1,2 are singleton classes and n=3 has Ldim1. The eight-vertex witness degree>=3 and |B_v|>=4 are necessary, hence no seven-vertex witness. If three query vertices were shattered, the all-one center would force a missing exactly-two trace by the uniqueness of a path in a tree, so VC<=2. Independently reconstructed the full online-minimax recursion and canonical Prüfer-tree enumerator: all 23 unlabeled eight-vertex types matched, exactly 12 attained dimension three; all types of order<=7 matched the trichotomy.",
+      "residual_risks": [
+        "The twelve-of-twenty-three numerical count is an exhaustive finite census conditional on verified Prüfer and canonical encodings, not an all-order graph count. Only undirected connected simple trees and radius one are covered."
+      ],
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Theorem statements in Chalopin et al concern proper labeled compression size two for all balls and fixed radii and VC dimension at most two on trees.",
+          "Coudert et al SEA 2024 DOI:10.4230/LIPIcs.SEA.2024.8 computes static graph VC dimensions."
+        ],
+        "reasoning": "Neither general static VC<=2 nor a size-two labeled compression principle dominates Ldim<=3: no implication bounds adaptive mistake depth uniformly; thus broad prior results do not logically cover this graph-specific online classification.",
+        "searches": [
+          "Littlestone dimension of closed neighborhoods unit balls of finite trees exact 3 VC dimension 2 online shattering",
+          "graph minor free ball VC dimension sample compression Littlestone dimension",
+          "Chalopin Chepoi Mc Inerney Ratel Vaxes balls trees all radii"
+        ]
+      },
+      "checked_sources": [
+        "arXiv:2206.13254v2",
+        "DOI:10.4230/LIPIcs.SEA.2024.8",
+        "Resultary query 1"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "The original sample-compression paper proves/provides the static VC upper bound already credited.",
+          "The negative-branch 2/2 split is an additional online condition, not a static three-point trace."
+        ],
+        "reasoning": "The VC<=2 portion is already covered; the independent novelty is exact Ldim trichotomy and first sharp separation, which is not derivable from the cited static statements alone.",
+        "searches": [
+          "arXiv:2206.13254v2 Section 3.3 fixed-radius ball compression",
+          "Littlestone dimension of closed neighborhoods unit balls of finite trees exact 3 VC dimension 2 online shattering",
+          "DOI:10.4230/LIPIcs.SEA.2024.8 static VC dimension"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Chalopin et al arXiv:2206.13254v2 sections 1 and 3 study the identical balls as a static sample-compression/VC set system, not complete adaptive mistake-tree classification.",
+          "The class of all graph neighborhoods on trees is not a tree-path/descendant-cone concept class; membership predicates differ."
+        ],
+        "reasoning": "A proper labeled two-sample compression theorem does not imply this exact online depth: even finite-chain threshold classes have tiny compression and unbounded Littlestone depth as chain size grows. The graph-specific split criterion is substantive.",
+        "searches": [
+          "Littlestone dimension of closed neighborhoods unit balls of finite trees exact 3 VC dimension 2 online shattering",
+          "closed neighborhood hypergraph online shattering tree mistake bound",
+          "Resultary semantic query 1: tree unit ball Littlestone"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "Classical unlabeled-tree count 23 at n=8 is background.",
+          "Independent full n<=8 enumeration produced histogram Ldim2=11, Ldim3=12; no corresponding published adaptive-dimension table was found in the inspected sources."
+        ],
+        "reasoning": "The known number of tree isomorphism classes does not entail the 12 adaptive shattering classifications; search absence alone is not priority proof.",
+        "searches": [
+          "Prüfer tree counts 8 vertices 23 unlabeled trees",
+          "Littlestone dimension first closed-neighborhood tree eight vertices 12 of 23",
+          "Littlestone dimension of closed neighborhoods unit balls of finite trees exact 3 VC dimension 2 online shattering"
+        ]
+      },
+      "rationale": "The established static VC/compression statements are fully credited. The online three-level threshold and first sharp witness survive mathematical implication comparison as a plausible original claim.",
+      "residual_risks": [
+        "Some earlier finite online tree-concept-class paper may hide an equivalent three-round classification; bibliographic search is not exhaustive."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "STATIC_COVERAGE_ONLY",
+          "evidence": "Its tree-family VC<=2 and proper size-two labeled compression are prior art, but no exact Ldim trichotomy in the inspected theorem statements.",
+          "identifier_or_url": "https://arxiv.org/html/2206.13254v2",
+          "material_read": "Full extended HTML, Introduction, Sections 3.1–3.4 and fixed-radius tree compression statements",
+          "method": "Read primary mathematical manuscript",
+          "title": "Sample compression schemes for balls in graphs",
+          "trigger": "Exactly same tree-ball concept classes"
+        },
+        {
+          "assessment": "DIFFERENT_INVARIANT",
+          "evidence": "Computes static VC dimensions; not a whole-paper exclusion claim.",
+          "identifier_or_url": "DOI:10.4230/LIPIcs.SEA.2024.8",
+          "material_read": "Abstract and reported algorithm/scope in bibliographic/primary snippets; full main text not exhaustively read",
+          "method": "Bibliographic and primary available text",
+          "title": "Practical Computation of Graph VC-Dimension",
+          "trigger": "Exactly same closed-neighborhood static set system"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "checked_sources": [
+        "arXiv:2206.13254v2 static VC bound",
+        "Git RESULT.md Lemmas 1–3"
+      ],
+      "rationale": "Adaptive Littlestone depth, unlike static VC dimension, governs realizable online mistakes. The universal three-round cutoff on a natural graph concept class and the sharp eight-vertex first VC/Ldim separation identify a motivated structural boundary, not a routine numeric lookup.",
+      "residual_risks": [
+        "No assertion for variable-radius balls, arbitrary graphs, or a complete forbidden-tree-minor characterization."
+      ],
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "final_claim": "For finite trees, radius-one closed-neighborhood concepts have Littlestone dimension at most three with a complete degree-and-intersection trichotomy, first three-level witness on eight vertices, 12 of 23 eight-vertex tree types, and VC dimension at most two.",
+  "limitations": [
+    "Finite simple connected undirected trees, radius-one closed balls only.",
+    "Eight-vertex census finite and exhaustive; all-order bound is analytic."
+  ],
+  "schema_version": 1
+}
