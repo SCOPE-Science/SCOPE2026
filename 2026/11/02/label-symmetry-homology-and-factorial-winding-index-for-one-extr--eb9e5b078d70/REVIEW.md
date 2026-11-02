@@ -1,0 +1,11 @@
+# Supported assessment
+
+**Correctness — PASS.** The domain consists of connected simple graphs containing a cycle, with precisely one particle more than occupied anchor vertices. Such configurations form a connected one-dimensional cubical complex. The proof gives exact cell stabilizers, an explicit leaf-fixing connectivity procedure, an integral orbit-sum boundary identity with coefficient two, and surjective quotient winding. The cellular exact sequence yields the rational representation and all irreducible multiplicities. The packaged checker independently constructs finite examples and verifies the fixed-chain boundary and full label characters.
+
+**Originality — PASS against inspected evidence.** The closest full primary paper is Kozlov, *Homology and Euler characteristic of generalized anchored configuration spaces of graphs* (arXiv:2309.17149; 2024 journal version), including its published appendix; those sources determine nonequivariant homology, not the complete label-symmetry module or integral fixed-cycle index. The earlier Stirling-complex results concern trees, outside the asserted cyclic-graph domain. A more recent publicly indexed all-graphs integral-homology result has broader Betti coverage, but its accessible summary does not state the module or factorial index. Exact equivalence searches produced no identified covering result. The 2026 result's unavailable full text remains the chief bibliographic risk.
+
+**Value — PASS.** The theorem gives a natural entire-family representation-theoretic classification for the minimal excess-resource topology of cyclic networks, not just a numerical rank. The full Specht multiplicities depend only on vertex and edge counts; the additional integral factor \((v+1)!\) per graph cycle precisely distinguishes invariant homology from integral homology of the label-forgetting quotient. This structural fixed-lattice phenomenon is invisible from nonequivariant Betti numbers and from rational invariants alone.
+
+**Scientific limitations.** No classification of the entire integral group-ring module, higher excess cases or joint graph-automorphism actions is claimed; the finite checker supports but does not prove the infinite family. Novelty remains conditional on coverage not found in accessible indexed and primary materials.
+
+Self-review: passed. Independent audit: not yet performed.
