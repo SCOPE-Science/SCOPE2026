@@ -1,0 +1,127 @@
+{
+  "correctness": {
+    "rationale": "Companion matrix Q represents Fibonacci, its irreducible mod-p polynomial gives Q^p=-Q^{-1} for primes p≡2,3 mod5, and Q^{p²}=Q. Every binomial coefficient (2k choose j) for odd j is even, so the overall sign vanishes and the shift exponent reduces to (h−1)^{2k}. The fixed positive comparison Δ=F_{(h+1)^{2k}}−F_{(h−1)^{2k}} therefore obstructs every fixed M at all but finitely many inert primes, infinite by Dirichlet. Moss–Ward establishes sufficiency of M=5 at h=0; p=5 proves M must be divisible by five. Boundary h=1 and k≥1 handled; modular checker tests 1296+ instances.",
+    "status": "PASS"
+  },
+  "independent": false,
+  "independent_audit_status": "not_performed",
+  "originality": {
+    "broader_coverage": {
+      "evidence": [
+        "Jaidee–Moss–Ward proves universal preservation iff a polynomial is monomial.",
+        "Moss–Ward proves 5F_{n^{2k}} realizable and irreparable odd powers.",
+        "Luca–Ward proves positive sufficient condition for n^s without additive shift."
+      ],
+      "reasoning": "The universal quantifier over all realizable input sequences in Jaidee–Moss–Ward does not entail anything about a specifically fixed, initially nonrealizable Fibonacci sequence after arbitrary multiplication. The positive monomial theorems likewise cannot imply the new no-multiplier negative statement for translated even powers.",
+      "searches": [
+        "arxiv:1809.09199 Theorem 5 polynomial time changes",
+        "arxiv:2204.02711 Theorem 1 simple linearly recurrent monomial subsampling",
+        "arxiv:2011.13068v1 entire Sections 1–4",
+        "Fibonacci even powers almost realizable translated powers F_(n+a)^2 Dold congruences"
+      ]
+    },
+    "checked_sources": [
+      "arxiv:2011.13068v1 (full HTML)",
+      "arxiv:2204.02711 (full HTML)",
+      "arxiv:1809.09199 (full HTML)",
+      "OEIS:A054783 (definition and comments)",
+      "mathematical record search semantic searches: four candidate-specific queries, compared nearest IDs",
+      "prior mathematical claims prior records: recoverable claims reviewed for topical overlap; none asserted a translated even-power Fibonacci realizability dichotomy"
+    ],
+    "claim_vs_prior_implication": {
+      "evidence": [
+        "Moss–Ward proves the h=0 if direction and 5 minimality, which is acknowledged and not claimed as novel.",
+        "Luca–Ward deals with recurrence samples n^s and does not characterize (n+h)^{2k}.",
+        "Jaidee–Moss–Ward excludes universal, but not sequence-specific, realizability for nonmonomials."
+      ],
+      "reasoning": "The negative h>0 direction adds a particular sequence-specific, any-multiplier obstruction: F_{(p+h)^{2k}}−F_{(1+h)^{2k}} is the same fixed nonzero residue at every inert prime, hence infinitely many prime Dold failures. No inspected theorem establishes this implication; its proof is provided independently here.",
+      "searches": [
+        "Moss–Ward 2020 Corollary 3 and Lemma 1",
+        "Luca–Ward 2022 Theorem 1, 2023 journal article",
+        "Jaidee–Moss–Ward 2018 Theorem 5",
+        "mathematical record search four candidate-specific semantic queries"
+      ]
+    },
+    "equivalent_formulations": {
+      "evidence": [
+        "Moss–Ward Corollary 3 treats F_{n^{2k}} and F_{n^{2k-1}}, not F_{(n+h)^{2k}}.",
+        "Luca–Ward Theorem 1 states a monomial sufficient condition.",
+        "No exact translated-power equivalent found in four targeted mathematical record search semantic searches."
+      ],
+      "reasoning": "The statement that fixed M times shifted Fibonacci sampled at any positive translation fails the prime Dold congruences infinitely often is strictly stronger than simply noting a nonmonomial does not universally preserve realizability. Numerical sequences tabulated from shifted squares do not establish Dold denominators.",
+      "searches": [
+        "Fibonacci sequence sampled along shifted even powers F_{(n+h)^{2k}} not almost realizable positive h",
+        "Dold congruences Fibonacci translated squares F_(n+a)^2 no integer repair",
+        "Fibonacci along even powers almost realizable Moss Ward shifted polynomials",
+        "polynomial time change Fibonacci sequence translation near realizability",
+        "https://arxiv.org/html/2011.13068v1 (full text, esp. Corollary 3)",
+        "https://arxiv.org/abs/2204.02711 (full text)"
+      ]
+    },
+    "exact_database_or_table": {
+      "evidence": [
+        "OEIS A054783 explicitly comments on 5 times unshifted F_{n^2} becoming realizable.",
+        "The record contains initial values but no statement about all positive translations or infinitely many denominator primes."
+      ],
+      "reasoning": "An exact tabulation of values is not a classification of the Dold denominator phenomenon. No exact database or table giving the new translated-sequence theorem was identified.",
+      "searches": [
+        "OEIS A054783 (F_{n^2} tabulation and realizability comment)",
+        "four exact/alias searches for shifted square Fibonacci Dold congruences",
+        "mathematical record search queries on shifted Fibonacci samples and Dold conditions"
+      ]
+    },
+    "rationale": "The 2020 Moss–Ward preprint was read throughout and proves unshifted even-power repair but not the positive-translation no-repair classification. Luca–Ward establishes broad monomial sufficiency; Jaidee–Moss–Ward establishes only universal time-change failure for nonmonomials, which does not imply this specific irreparable Fibonacci family. mathematical record search and targeted literature searches found no implication-covering claim. The complete translation dichotomy requires the new inert-Frobenius calculation and fixed nonzero Dold numerator. Bibliographic incompleteness remains a risk.",
+    "residual_risks": [
+      "Search results and accessible sources cannot exclude an unindexed equivalent theorem or a later unknown paper.",
+      "Published h=0 result is inherited; only positive-translation rigidity is proposed as novel.",
+      "No independent mathematical audit has been performed."
+    ],
+    "source_inspections": [
+      {
+        "assessment": "Unshifted result covers positive h=0 component, not positive-shift no-repair theorem.",
+        "evidence": "Corollary 3: 5F_{n^{2k}} realizable; §4 remarks and conjecture concerns Lucas variants, not positive translations.",
+        "identifier_or_url": "https://arxiv.org/html/2011.13068v1",
+        "material_read": "Entire accessible HTML preprint: §§1–4, Theorem 2, Corollary 3, Lemmas 1,5–8 and remarks.",
+        "method": "Read full primary text and compared its monomial quantifiers to translated even powers.",
+        "title": "Fibonacci along even powers is (almost) realizable",
+        "trigger": "Same exact Fibonacci recurrence, even powers, and finite repair multiplier; strongest plausible covering source."
+      },
+      {
+        "assessment": "Proof and conclusion are monomial sampling n^s only; do not cover positive translations.",
+        "evidence": "Theorem 1 explicitly uses u_{n^s}; text states the general polynomial question but proves a monomial sufficient condition.",
+        "identifier_or_url": "https://arxiv.org/abs/2204.02711",
+        "material_read": "Accessible full arXiv-rendered text: introduction, Theorems 1–2, proof discussion and references.",
+        "method": "Compared polynomial shape and quantifiers in Theorem 1.",
+        "title": "On (almost) realizable subsequences of linearly recurrent sequences",
+        "trigger": "Generalization of almost-realizability for recurrence subsequences."
+      },
+      {
+        "assessment": "The only universally preserving polynomials are monomials, but this is logically insufficient to show the specified shifted Fibonacci sequence is irreparable.",
+        "evidence": "Theorem 5 has all-starting-systems quantifier; Example 6(b) constructs a different periodic-point sequence as its witness.",
+        "identifier_or_url": "https://arxiv.org/abs/1809.09199",
+        "material_read": "Accessible full arXiv-rendered text: introduction, Theorem 5 and examples, including n²+1.",
+        "method": "Compared universal operator property against special Fibonacci sample after multiplier.",
+        "title": "Time-changes preserving zeta functions",
+        "trigger": "Broad polynomial time-change classification might dominate the shifted claim."
+      },
+      {
+        "assessment": "Confirms unshifted result but has no translated-power classification.",
+        "evidence": "A054783 is Fibonacci at n² and comments that 5 times its positive-index sequence is realizable.",
+        "identifier_or_url": "https://oeis.org/A054783",
+        "material_read": "Sequence definition and note referencing Moss–Ward and Luca–Ward.",
+        "method": "Compared index definition and tabular information with infinite Dold denominator claim.",
+        "title": "OEIS A054783",
+        "trigger": "Exact database of square-index Fibonacci values and almost-realizability comment."
+      }
+    ],
+    "status": "PASS"
+  },
+  "review_type": "self_review",
+  "schema_version": 1,
+  "scope_run_id": "bd4c6c31-4992-47aa-bafc-45f6ecfa2b7f",
+  "self_review_status": "passed",
+  "value": {
+    "rationale": "The source singles out a surprising repair phenomenon for unshifted even powers. The first natural deformation, translating the polynomial argument by any positive integer, is now completely classified for all even powers with an infinite supply of explicit prime-index obstructions, not just an isolated computation. This sharp rigidity boundary is structurally motivated by periodic-point Dold congruences; arbitrary polynomials and recurrences are not claimed.",
+    "status": "PASS"
+  }
+}
