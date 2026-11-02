@@ -1,103 +1,194 @@
 {
   "correctness": {
-    "rationale": "The full symmetric group acts orthogonally and transitively on edge coordinates, and averaging orbit centers preserves containment of a Euclidean ball, so an optimal incenter may be taken constant. The inspected irredundant facet theorem gives all relevant facet orbits. Their exact distances from a constant point are computed and balanced against coordinate-facet distance. The odd-set balance denominator increases with odd-set size, so only the largest odd set can compete; direct comparison yields the exceptional sizes 3, 5, and 7 and the tie at 4. Uniqueness follows because all center coordinates are at least the radius while an active shrunken degree or global odd-set facet forces their relevant sum to equal the sum of these lower bounds. For the circumradius, distance from a constant center depends only on matching cardinality; exact quadratic minimization gives the stated center and radius, and strong convexity gives uniqueness. The finite checker only corroborates the arbitrary-n proof.",
+    "checked_sources": [
+      "Actual RESULT.md (blob 6ef2b4e57d4e44afecf9c5c2459e22040d1924f2)",
+      "Actual verify.py (blob de59ce8891f7d0328b743580fee8c22775b7a3cd)",
+      "Eisley–Matsushita–Vindas-Meléndez Proposition 3, DOI 10.1007/s00373-025-02923-8",
+      "Independent LP and matching enumeration, independent_checks.py and independent_checks_output.json"
+    ],
+    "rationale": "For n≥3, K_n acts orthogonally transitively on all N=binom(n,2) edge coordinates. Average any feasible inball center over the group; convexity retains the same radius and makes the center q·1. The complete irredundant facet description has coordinate distance q, vertex-degree distance [1-(n-1)q]/sqrt(n-1) when n≥4, and odd-set size-s distance sqrt[(s-1)/(2s)](1-sq), s odd≥3. Balancing each decreasing upper-facet distance against increasing coordinate distance gives q_deg=1/[n-1+sqrt(n-1)] and q_s=1/[s+sqrt(2s/(s-1))]. The latter denominator strictly increases for s≥3; comparing the largest odd set with degree facets gives odd control at 3,5,7, tie at 4, and degree control at 6 and all n≥8. Active shrunken degree or global odd facet together with all coordinates≥r forces every center coordinate to equal r, proving uniqueness. The edge-incidence vertices are exactly matchings. At q·1 their squared distance is j(1-2q)+Nq². Its maximum over j=0..floor(n/2) is the upper envelope of j=0 and j=k; the branch q≥1/2 has minimum N/4, strictly larger than k-k²/N, so q=k/N is globally optimal. Strict convexity of max_j ||vertex-c||² implies unique circumcenter and, since q<1/2, exactly maximum matchings touch. n=2 is the unit segment. Independent LP optimized all ambient center coordinates and radius for n=2..9 using 626 facet inequalities; direct enumeration tested 3,734 matching incidence vertices and active facet lists; exact symbolic checks corroborated the denominators and circumradius simplifications. Finite checks are not used as the proof for all n.",
+    "residual_risks": [
+      "The finite LP checks cover n=2..9 only; the arbitrary-n result depends on the mathematical group-averaging and facet theorem.",
+      "Numerical LP optimal centers are checked to finite tolerance; infinite uniqueness is established analytically."
+    ],
     "status": "PASS"
   },
-  "independent": false,
-  "independent_audit_status": "not_performed",
+  "external_expert_attestation": "not_performed",
+  "final_claim": "Exact Euclidean inradius, circumradius, unique optimal centers, and complete active inner/outer contact classification for matching polytopes P_M(K_n) in standard edge coordinates, all integers n≥2.",
+  "formal_proof_assistant_verification": "not_performed",
+  "independent": true,
+  "independent_audit_status": "passed",
+  "independent_validation": true,
+  "limitations": [
+    "These are Euclidean metrics in canonical edge-incidence coordinates, not affine invariants.",
+    "This finding does not assert explicit radii for noncomplete graphs.",
+    "Best-of-knowledge literature assessment is not absolute priority certification."
+  ],
   "originality": {
     "broader_coverage": {
       "evidence": [
-        "The source gives the exact irredundant facet description but its main theorems concern Gorensteinness and the integer decomposition property.",
-        "The inspected full text contains no occurrences of the four metric-radius terms above."
+        "The Edmonds/Pulleyblank facet characterization supplies halfspaces but no closed Euclidean optima.",
+        "The all-graph weighted squared-distance theorem implies only equality of integral and fractional circumballs, not the closed K_n values or the integral inradius.",
+        "The spectral John theorem concerns maximum-volume ellipsoids inside fractional F_G; the Kneser eigenpolytope theorem uses an orthogonal projected/polar geometry."
       ],
-      "reasoning": "The facet theorem is a structural premise and does not itself evaluate Euclidean distances or optimize a ball radius. The new theorem is therefore not a corollary stated in the inspected source without additional metric work.",
+      "reasoning": "Broader coverage is real for an ambient facet description and for a general quadratic farthest-point reduction; neither covers the specific inball phase and all center/contact formulas. The narrower inner-ball conclusion is not a mere parameter substitution from either ellipsoid result because objective and/or polytope differ.",
       "searches": [
-        "Full-text inspection: Eisley–Matsushita–Vindas-Meléndez, matching-polytope preliminaries and Proposition 3",
-        "Full-text searches in that article for \"inradius\", \"circumradius\", \"Euclidean\", and \"radius\"",
-        "Literature search: matching polytope metric geometry complete graph facet distance Euclidean radius"
+        "Primary full text: Eisley–Matsushita–Vindas-Meléndez Proposition 3 and Theorem 5",
+        "Resultary query: matching polytope of general graph inball circumradius metric geometry facet distances",
+        "Complete published RESULT.md: https://github.com/Resultary/2026/blob/main/2026/10/11/SCOPE-weighted-euclidean-distance-extrema-survive-fractional-matching--7e2404daa627/RESULT.md",
+        "Complete published RESULT.md: https://github.com/Resultary/2026/blob/main/2026/10/11/SCOPE-spectral-john-ellipsoids-of-vertex-and-edge-transitive-fractiona--443f302b065c/RESULT.md",
+        "Complete published RESULT.md: https://github.com/Resultary/2026/blob/main/2026/10/11/SCOPE-parity-controlled-john-and-l-wner-ellipsoids-of-kneser-pair-eige--71ae72613d53/RESULT.md"
       ]
     },
     "checked_sources": [
-      "arXiv:2407.08820v1",
-      "doi:10.1007/s00373-025-02923-8",
-      "doi:10.5540/tema.2019.020.01.189",
-      "Published-result database searches for complete-graph matching-polytope inradius, circumradius, Chebyshev center, blossom facets, and metric-ball formulations",
-      "Direct literature searches for matching-polytope inradius, circumradius, Euclidean radius, and Chebyshev center"
+      "https://link.springer.com/article/10.1007/s00373-025-02923-8",
+      "https://www.scielo.br/j/tema/a/Pkyv88pCH9RWFg6JC4gbHfN/?lang=en",
+      "arXiv:2407.08820",
+      "https://github.com/Resultary/2026/blob/main/2026/10/11/SCOPE-weighted-euclidean-distance-extrema-survive-fractional-matching--7e2404daa627/RESULT.md",
+      "https://github.com/Resultary/2026/blob/main/2026/10/11/SCOPE-spectral-john-ellipsoids-of-vertex-and-edge-transitive-fractiona--443f302b065c/RESULT.md",
+      "https://github.com/Resultary/2026/blob/main/2026/10/11/SCOPE-parity-controlled-john-and-l-wner-ellipsoids-of-kneser-pair-eige--71ae72613d53/RESULT.md",
+      "Resultary semantic queries for inradius, Chebyshev center, matching polytope and blossom facet",
+      "Web alias searches including stable-set polytope of triangular graphs and minimum enclosing ball"
     ],
     "claim_vs_prior_implication": {
       "evidence": [
-        "Proposition 3 gives the nonnegativity, degree, and induced factor-critical odd-set facets used in the proof.",
-        "The source does not state distances from an invariant point to these facets, an incenter, a circumcenter, or a minimum enclosing sphere.",
-        "The displayed radius formulas require an additional symmetry-averaging argument and an exact comparison between degree and largest odd-set facet distances."
+        "Proposition 3 states exact inequalities, allowing an independent new Euclidean support-distance minimax calculation, but no numerical radii.",
+        "The general circumball equivalence yields the same minimal enclosing ball for fractional/integral polytopes; obtaining the K_n center and extremal matching layer requires a separate symmetry and quadratic calculation.",
+        "The inradius genuinely distinguishes odd full matching polytopes from their fractional relaxation through global odd-set facets; 2019 skeleton results concern combinatorial graph distances."
       ],
-      "reasoning": "The prior facet theorem determines the feasible region but does not imply the new metric conclusion without solving a nontrivial max-min problem. The contact-facet phase, uniqueness of the incenter, and circumradius/contact classification are all additional implications.",
+      "reasoning": "The older structural theorems provide necessary inputs but not the complete metric output by an explicitly stated implication. The submitted proof applies a one-orbit minimax reduction, compares normalized blossom versus degree facet distances for all n, proves the exact phase and uniqueness, and independently computes the outer sphere. The previous general all-graph quadratic theorem overlaps only the outer-ball reduction. No checked prior mathematical implication supplies the full submitted C/O/V target.",
       "searches": [
-        "Primary full text: Matching Polytopes, Gorensteinness, and the Integer Decomposition Property, Section 2.3 and Proposition 3",
-        "Literature search: complete graph matching polytope blossom facet radius",
-        "Literature search: matching polytope Euclidean radius complete graph"
+        "Published matching-polytope facet theorem: https://link.springer.com/article/10.1007/s00373-025-02923-8",
+        "Complete general circumball theorem: https://github.com/Resultary/2026/blob/main/2026/10/11/SCOPE-weighted-euclidean-distance-extrema-survive-fractional-matching--7e2404daa627/RESULT.md",
+        "Complete fractional John ellipsoid theorem: https://github.com/Resultary/2026/blob/main/2026/10/11/SCOPE-spectral-john-ellipsoids-of-vertex-and-edge-transitive-fractiona--443f302b065c/RESULT.md",
+        "2019 matching-polytope skeleton theorem: https://www.scielo.br/j/tema/a/Pkyv88pCH9RWFg6JC4gbHfN/?lang=en"
       ]
     },
     "equivalent_formulations": {
       "evidence": [
-        "The searches used both direct Euclidean-radius language and the equivalent Chebyshev-center formulation.",
-        "No located result stated either complete-graph radius formula, the unique centers, or the tangent-facet phase."
+        "Eisley–Matsushita–Vindas-Meléndez, Proposition 1: P_M(G) is isomorphic in the edge-coordinate identification to Stab(L(G)); for K_n this is triangular-graph stable-set geometry.",
+        "Resultary returned the assessed record itself at highest rank; this circular result is not independent evidence.",
+        "Alternate Chebyshev/minimum-enclosing-ball/insphere and line-graph searches did not retrieve a containing radius theorem."
       ],
-      "reasoning": "The claim has natural aliases through Chebyshev centers, minimum enclosing balls, blossom facets, and complete-graph matching polytopes. Those formulations were searched explicitly, with no covering theorem located.",
+      "reasoning": "The same canonical object admits stable-set-of-triangular-graph terminology, and the quantities are also Euclidean Chebyshev/circumcenter and inball problems. An isomorphism alone is not an isometry under an arbitrary realization; here the coordinate permutation identification is metric-preserving. The inspected sources do not evaluate the exact inball, dual center, and contact phase in this geometry; nonappearance is treated only as finite-search evidence.",
       "searches": [
-        "Published-result database query: complete graph matching polytope Euclidean inradius circumradius Chebyshev center",
-        "Published-result database query: matching polytope K_n inradius circumradius maximum matching radius",
-        "Literature search: \"matching polytope\" inradius complete graph",
-        "Literature search: \"matching polytope\" circumradius complete graph",
-        "Literature search: \"matching polytope\" Chebyshev center"
+        "Resultary query: Euclidean inradius circumradius Chebyshev center matching polytope of complete graph K_n blossom facet odd set exact radius",
+        "Resultary query: matching polytope complete graph edge-incidence coordinates inscribed ball active facets degree versus odd-set radius",
+        "Web: \"matching polytope\" \"Chebyshev center\" Euclidean",
+        "Web: \"triangular graph\" \"stable set polytope\" inradius",
+        "Web: \"line graph of complete graph\" \"stable set polytope\" inradius"
       ]
     },
     "exact_database_or_table": {
       "evidence": [
-        "The closest returned records concerned unrelated Euclidean-radius problems, graph metrics, or matching complexes rather than matching-polytope radii.",
-        "No indexed table or formula matched the complete-graph radical values or the dimension-dependent active facet classes."
+        "The exact indexed same-record match is excluded from novelty evidence.",
+        "Returned neighboring radius results are for cycle/wheel/crown/star symmetric edge polytopes, Kneser eigenpolytopes, fractional matching polytopes, partial assignment or other distinct canonical bodies.",
+        "No checked indexed formula/table supplies 1/(n+sqrt(2n/(n-1))) at n=3,5,7 and the stated active-facet list across all n."
       ],
-      "reasoning": "The result is a closed symbolic family theorem, but an exact database check was still made for the object, invariants, and facet terminology. No database item dominated the claim.",
+      "reasoning": "A numerical table for low n or an unrelated symmetric edge-polytope inradius cannot imply the complete radical family or its facet-orbit thresholds. Searches are genuine but index incompleteness remains a residual risk.",
       "searches": [
-        "Published-result database query: matching polytope clique blossom facets Euclidean distance radius",
-        "Published-result database query: matching polytope complete graph metric ball center facet distance",
-        "Published-result database query: complete graph matching polytope Euclidean inradius circumradius Chebyshev center"
+        "Resultary query: Euclidean inradius circumradius Chebyshev center matching polytope of complete graph K_n blossom facet odd set exact radius",
+        "Resultary query: matching polytope complete graph edge-incidence coordinates inscribed ball active facets degree versus odd-set radius",
+        "Resultary query: maximum matching polytope circumcenter minimum enclosing Euclidean ball symmetric points",
+        "Web: \"matching polytope\" \"inradius\" complete graph Euclidean",
+        "Web: \"matching polytope\" \"circumradius\" K_n",
+        "Web: \"matching polytope\" \"inscribed sphere\" radius"
       ]
     },
-    "rationale": "The exact-object middle-period source was inspected at the full facet description and searched for metric-radius terminology. It supplies the matching-polytope facets but not Euclidean ball radii. Published-result database searches and direct literature searches across inradius, circumradius, Chebyshev-center, blossom-facet, and complete-graph formulations found no covering theorem.",
+    "rationale": "Best-of-knowledge original sharp Euclidean metric classification for the full integral matching polytope of K_n in canonical edge coordinates. The complete published facet description, a general fractional matching circumball reduction, and adjacent John/spectral results were compared at statement-and-implication level; none establishes the inball competition, exact radical phase, both unique centers, and all outer contacts.",
     "residual_risks": [
-      "An equivalent formula could exist in older matching-polytope literature under a different normalization or without the word radius.",
-      "The 2019 skeleton paper was not inspected line-by-line in full text; its abstract-level scope makes it a low but nonzero literature risk.",
-      "Search nonappearance is not treated as a formal novelty certificate."
+      "A preexisting exact center/radius formula may exist under an unindexed triangular-graph stable-set-polytope alias, or as an unpublished classical convex-geometric computation.",
+      "A full exhaustive archive census was not possible; unsuccessful query results are not proof of novelty.",
+      "The already published general circumball equality covers part of the outer minimax reduction, though not the exact numerical classification."
     ],
     "source_inspections": [
       {
-        "assessment": "The source defines the matching polytope and records its irredundant nonnegativity, degree, and factor-critical odd-set facets. Its new results concern Gorensteinness and integer decomposition, and it does not state the Euclidean radius theorem proved here.",
-        "evidence": "Publisher Section 2.3, Proposition 3; publisher MSC list 52B05, 52B12, 52B20; arXiv v1 submitted 2024-07-11; full-text searches returned no matching text for the four metric-radius terms.",
-        "identifier_or_url": "arXiv:2407.08820v1 / DOI 10.1007/s00373-025-02923-8",
-        "material_read": "ArXiv first-public metadata; published full text Section 2.3 on matching polytopes; Proposition 3; lines applying those facets in the Gorenstein proof; publisher metadata and MSC classification; full-text searches for inradius, circumradius, Euclidean, and radius.",
-        "method": "Open-access arXiv metadata plus open-access publisher HTML full-text inspection.",
+        "assessment": "Provides the complete combinatorial half-space description of the matching polytope, not either Euclidean radius, the optimizing centers, or the contact-facet phase; its metric absence is not by itself proof of novelty.",
+        "evidence": [
+          "§2.3 Proposition 3: x(e)≥0, essential-vertex degree inequalities, induced 2-connected factor-critical odd-set inequalities.",
+          "Theorem 5 concerns Gorenstein graph classification, not Euclidean inball radius.",
+          "HTML searches for inradius and circumradius have no occurrences."
+        ],
+        "identifier_or_url": "arXiv:2407.08820; doi:10.1007/s00373-025-02923-8; https://link.springer.com/article/10.1007/s00373-025-02923-8",
+        "material_read": "Full open-access HTML: matching-polytope definitions and line-graph correspondence in §2.3, Proposition 3 and essential-vertex definition, §3 Gorenstein characterization and IDP discussion, §4 context; page-wide searches for inradius and circumradius.",
+        "method": "Published open-access primary article, sections read directly, not abstract-only.",
         "title": "Matching Polytopes, Gorensteinness, and the Integer Decomposition Property",
-        "trigger": "Exact-object geometry source for matching polytopes, with a modern full-text restatement of the irredundant facet theorem."
+        "trigger": "Same object and exact irredundant facet theorem, including factor-critical odd-set inequalities."
       },
       {
-        "assessment": "The article studies minimum degree and regularity of the one-skeleton of matching polytopes. The inspected material does not address Euclidean inballs or minimum enclosing balls.",
-        "evidence": "The abstract describes skeleton degree and regularity results, with no metric-radius claim.",
-        "identifier_or_url": "DOI 10.5540/tema.2019.020.01.189",
-        "material_read": "Article landing-page abstract and scope statement.",
-        "method": "Open web literature inspection.",
+        "assessment": "Classifies skeleton adjacency/degree and regularity, not ambient Euclidean inradius or minimum enclosing sphere; its graph-theoretic degree invariant is distinct.",
+        "evidence": [
+          "Theorem 4 computes degree of a matching as number of alternating paths and cycles.",
+          "Theorem 9 characterizes regular skeletons as disjoint unions of stars and triangles.",
+          "Section 4 states the work concerns degrees of skeleton vertices."
+        ],
+        "identifier_or_url": "doi:10.5540/tema.2019.020.01.0189; https://www.scielo.br/j/tema/a/Pkyv88pCH9RWFg6JC4gbHfN/?lang=en",
+        "material_read": "Open-access full HTML, introduction and sections 2–4; Theorems 4 and 9, final considerations and bibliography; full-page searches for inradius and circumradius.",
+        "method": "Primary open-access HTML article; examined the relevant complete discussion of one-skeleton degrees and classification.",
         "title": "A Note on the Matching Polytope of a Graph",
-        "trigger": "Plausible same-object literature that studies the skeleton of matching polytopes."
+        "trigger": "Full matching-polytope object and potential invariant alias through the skeleton/diameter."
+      },
+      {
+        "assessment": "The all-graph farthest-point identity and equality of enclosing balls partially overlap the circumradius setting, but the result does not give the explicit K_n center/radius, nor any insphere or odd-blossom/degree-facet transition.",
+        "evidence": [
+          "Theorem: for nonnegative c, max over fractional matching polytope of weighted squared distance equals max over matching vertices.",
+          "Corollary: the two polytopes share their weighted minimum enclosing ball.",
+          "No metric inradius or K_n radical facet-comparison formula is given."
+        ],
+        "identifier_or_url": "https://github.com/Resultary/2026/blob/main/2026/10/11/SCOPE-weighted-euclidean-distance-extrema-survive-fractional-matching--7e2404daa627/RESULT.md",
+        "material_read": "Complete RESULT.md: theorem, assumptions, four proof steps, diameter claim, limitations and references.",
+        "method": "Direct complete published result-file read.",
+        "title": "Weighted Euclidean distance extrema survive fractional matching relaxation",
+        "trigger": "Highly relevant general-graph weighted Euclidean circumball theorem for integral vs fractional matching polytopes."
+      },
+      {
+        "assessment": "Its body is fractional matching relaxation F_G and its objective is maximum-volume ellipsoid rather than a maximum-radius Euclidean ball of the integral matching polytope. In odd complete graphs these bodies differ.",
+        "evidence": [
+          "Statement defines F_G by only nonnegative and degree inequalities.",
+          "John covariance Σ is generally nonscalar; theorem does not optimize a Euclidean inball in P_M(K_n)."
+        ],
+        "identifier_or_url": "https://github.com/Resultary/2026/blob/main/2026/10/11/SCOPE-spectral-john-ellipsoids-of-vertex-and-edge-transitive-fractiona--443f302b065c/RESULT.md",
+        "material_read": "Complete RESULT.md: spectral matrix formula, John contact proof, special graph families, assumptions and limitations.",
+        "method": "Direct complete published result-file read.",
+        "title": "Spectral John ellipsoids of vertex-and-edge-transitive fractional matching polytopes",
+        "trigger": "Potential stronger graph-symmetric Euclidean inscribed-object theorem including K_n."
+      },
+      {
+        "assessment": "The ambient polytope is the orthonormal Kneser graph eigenprojection, with a polar affinely equivalent to a fractional perfect-matching polytope. This is not the full matching polytope in standard edge-incidence coordinates and its radius formulas do not imply the submitted values.",
+        "evidence": [
+          "Theorem assumes n≥5 and spectral dimension binom(n,2)-n.",
+          "Affine polar equivalence maps to fractional perfect matchings By=1, not all integral partial matchings."
+        ],
+        "identifier_or_url": "https://github.com/Resultary/2026/blob/main/2026/10/11/SCOPE-parity-controlled-john-and-l-wner-ellipsoids-of-kneser-pair-eige--71ae72613d53/RESULT.md",
+        "material_read": "Complete RESULT.md: orthogonal projector, fractional perfect-matching polar identification, extremal ellipsoid theorem and limitations.",
+        "method": "Direct complete published result-file read.",
+        "title": "Parity-controlled John and Löwner ellipsoids of Kneser pair-eigenpolytopes",
+        "trigger": "Uses perfect-matching classes on K_n in an explicitly Euclidean polarity; plausible dual reduction."
       }
     ],
     "status": "PASS"
   },
-  "review_type": "same_model_review",
-  "same_model_review_status": "passed",
+  "previously_published_pending_reaudit": false,
+  "prior_scientific_assessment": {
+    "correctness": "Earlier scientific reasoning used S_n-average of centers, the irredundant coordinate/degree/odd-set facets, exact normalized facet distances and active-shrunken-facet uniqueness. The circumradius came from the matching-cardinality quadratic. Finite enumerations were only corroborative.",
+    "originality": "Earlier source comparisons identified the 2025 Eisley–Matsushita–Vindas-Meléndez facet theorem as a structural premise and the 2019 matching-polytope skeleton paper as a distinct combinatorial invariant, while acknowledging unindexed aliases and broader coverage risks.",
+    "value": "Earlier assessment identified the matching-polytope complete family, the nontrivial odd-set/degree contact-facet transition and the exact maximum-matching outer-contact layer as the motivation."
+  },
+  "review_type": "independent_audit",
   "schema_version": 1,
-  "scope_run_id": "68b58451-aad7-4e4b-8ed2-647499667d43",
+  "scientific_disposition": "passed",
   "value": {
-    "rationale": "The result determines both fundamental Euclidean ball radii, both optimal centers, and the exact contact sets for a classical high-dimensional polytope family. The inradius exhibits a nontrivial facet-orbit phase: blossom facets dominate only in dimensions corresponding to n=3,5,7, tie with degree facets at n=4, and degree facets dominate thereafter. The circumradius identifies maximum matchings as exactly the outer contact vertices. These are structural metric statements across all n, not isolated computations or a simple renaming of the facet theorem.",
+    "checked_sources": [
+      "Classic matching-polytope facet theorem in published primary literature",
+      "Original complete family claim and proof in RESULT.md",
+      "Independent LP tests across odd/even cases n=2..9",
+      "Nearby exact radii and matching-polytope published findings"
+    ],
+    "rationale": "The full matching polytope of a complete graph is a canonical high-dimensional combinatorial polytope, and the standard edge-coordinate Euclidean inradius and circumball are natural sharp metric invariants. The theorem gives both centers, both radii, all tangencies, and a finite exception/transition in which global blossom inequalities win only for n=3,5,7. This quantifies how odd-set facets, though plentiful, cease controlling the inball after a sharp threshold. The outer sphere also links exactly to maximum matchings. The special family is motivated by its universal role in matching-polytope theory; this is more than a restatement of the facet inequalities or a single tiny numerical test, even though the proof reduces to a short optimization once symmetry and all genuine facets are known.",
+    "residual_risks": [
+      "The result is restricted to a highly symmetric family and canonical Euclidean coordinates; it does not give general graph radii or affine-invariant quantities.",
+      "No algorithmic or downstream theorem is claimed beyond the natural exact family classification."
+    ],
     "status": "PASS"
   }
 }
