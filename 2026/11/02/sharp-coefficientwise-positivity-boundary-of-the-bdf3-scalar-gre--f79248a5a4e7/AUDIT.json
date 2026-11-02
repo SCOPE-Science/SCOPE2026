@@ -1,0 +1,102 @@
+{
+  "correctness": {
+    "rationale": "The order-six polynomial H(x) has exactly one zero \\(x_*\\in(1/16,76/1215)\\), as its derivative has strictly positive rational Bernstein coefficients. Independent polynomial identities give all-index positive order-eight and order-seven recurrences on adjacent rational intervals, with exact Bernstein positivity certificates for the requisite seeds and coefficients; an explicit characteristic-root comparison proves the remaining positive range and the infinitely oscillatory high-parameter range. The signed-mass identity is algebraically exact, with absolute convergence. The included standard-library checker reproduces the critical rational certificates and recurrences; the mathematical proof supplies the induction and infinite root-dominance argument.",
+    "status": "PASS"
+  },
+  "independent": false,
+  "independent_audit_status": "not_performed",
+  "originality": {
+    "broader_coverage": {
+      "evidence": [
+        "Li–Liao analyze variable-step BDF3 discrete orthogonal convolution kernels and stability under mesh-step ratios (2022), not the damped constant-step scalar Green parameter mu.",
+        "Qiu establishes root stability for every mu and only a sufficient coefficient positivity interval."
+      ],
+      "reasoning": "Schur or root-location stability controls decay, not coefficient signs; full BDF3 trajectory stability does not imply positivity of the causal impulse-response weights. The variable-grid DOC kernels and the present fixed-step impulse response are not interchangeable.",
+      "searches": [
+        "web: third order backward differentiation formula impulse response sequence nonnegative sharp parameter threshold cubic generating rational function",
+        "arXiv:2201.00527 Sections 1 and 3.2, DOC kernels",
+        "published-finding corpus: BDF3 discrete Green kernel positivity impulse response sign oscillation exact cutoff BDF3"
+      ]
+    },
+    "checked_sources": [
+      "arXiv:2610.32364v1 Sections 4.1–4.3 and Appendix B.1–B.3 (primary full HTML)",
+      "arXiv:2201.00527 introduction and Section 3.2 and remarks (accessible full HTML)",
+      "W. Qiu (2026) introduction discussion of Thomée–Wahlbin (1994) BDF1/BDF2 framework, without reading original 1994 full text",
+      "Published published-finding corpus related BDF2 delayed sign-loss record (search summary, distinct order and recurrence)"
+    ],
+    "claim_vs_prior_implication": {
+      "evidence": [
+        "Qiu Lemma B.1 proves \\(x\\ge256/3915\\), i.e. \\(\\mu\\le1099/1536\\), a strict subset of \\(x\\ge x_*\\) or \\(\\mu\\le0.831264\\ldots\\); it does not determine the negative side.",
+        "Li–Liao BDF3 DOC kernel results address stability under nonuniform meshes, not all-index positivity of the displayed damped scalar sequence."
+      ],
+      "reasoning": "The source sufficient condition cannot imply sufficiency on the strict added interval \\(x_*\\le x<256/3915\\) or necessity beyond x*, because neither is its theorem. The new proof constructs two nonnegative higher-order recurrences and identifies \\(G_6\\) as the sharp obstruction. Prior root stability and BDF2 sign laws alone cannot supply this statement.",
+      "searches": [
+        "arXiv:2610.32364v1 Appendix B.1 Lemma B.1; Section 4.2 Lemma 4.3",
+        "arXiv:2201.00527 Section 3.2; Remark 4",
+        "published-finding corpus: Long-time stability and convergence of a BDF3 method for a parabolic equation with fading memory Wenlin Qiu Green sequence 256/3915 sharp coefficientwise positivity"
+      ]
+    },
+    "equivalent_formulations": {
+      "evidence": [
+        "The impulse response is the coefficient series of (1-18xz+9xz^2-2xz^3)^(-1); its nonnegative coefficients are equivalent to eta times its absolute mass equaling one (Qiu Sec 4.2).",
+        "Qiu Appendix B.1 provides only the explicit proper sufficient \\(x\\ge256/3915\\) region, not the boundary root of \\(G_6\\)."
+      ],
+      "reasoning": "Searched both coefficientwise nonnegativity and equivalent gain-one / impulse-response language. Equality of gain and one is proved by the source but the iff parameter range is not. No inspected prior establishes the algebraic endpoint.",
+      "searches": [
+        "published-finding corpus: BDF3 scalar Green sequence exact positivity threshold mu 0.8312641553 x 0.062548534 G6",
+        "web: BDF3 Green function positivity threshold discrete Green sequence exact nonnegative all coefficients",
+        "arXiv:2610.32364v1 Section 4.2, eqs. (20)-(25)"
+      ]
+    },
+    "exact_database_or_table": {
+      "evidence": [
+        "Targeted literal rational-coefficient, threshold, and first-negative-index searches returned no exact matched tabulation or classification; the closest indexed result concerns BDF2."
+      ],
+      "reasoning": "No exact database/table covering the source recurrence and sharp all-index positivity boundary was found. A negative search result is evidence of search coverage, not a proof of novelty.",
+      "searches": [
+        "published-finding corpus: BDF3 impulse response generating function 1/(1-18x z+9x z^2-2x z^3) coefficientwise nonnegative threshold",
+        "published-finding corpus: BDF3 scalar Green sequence exact positivity threshold mu 0.8312641553 x 0.062548534 G6",
+        "web: BDF3 discrete Green function nonnegative first six coefficients bound 256 3915 positive powers"
+      ]
+    },
+    "rationale": "The motivating paper proves the nonnegative Green sequence only in the proper sufficient subrange \\(x\\ge256/3915\\), and does not derive the full sharp \\(x\\ge x_*\\) classification or the first negative coefficient at n=6. The closest BDF3 variable-step stability analysis concerns a different convolution kernel and different quantifiers. Related BDF2 results and the separate stability of memory-coupled BDF3 tails do not logically entail coefficientwise positivity of this fixed-step scalar Green sequence. Historical priority risk persists for equivalently formulated rational-transfer-function sequence theorems.",
+    "residual_risks": [
+      "An earlier positive-realization or rational cubic generating-function paper could contain an algebraically equivalent sharp coefficientwise sign classification under different notation.",
+      "The 1994 Thomée–Wahlbin article was not read in full, though Qiu describes its scope as BDF1/BDF2.",
+      "No independent expert literature-priority or proof audit has occurred."
+    ],
+    "source_inspections": [
+      {
+        "assessment": "Provides exact prior definitions, root formulas and a sufficient positivity interval; does not give exact all-parameter coefficient positivity frontier or \\(G_6\\) sharp threshold",
+        "evidence": [
+          "Eq. (20)-(25): Green recursion and gain; Lemma B.1: \\(x\\ge256/3915\\) sufficient; Appendix B.3: intermediate range treated by norm enclosures rather than sharp coefficientwise sign classification."
+        ],
+        "identifier_or_url": "https://arxiv.org/html/2610.32364v1",
+        "material_read": "Full open HTML for the relevant source definitions, scalar recurrence and gain Lemma 4.3 (Section 4.2), root analysis (Section 4.1), Appendix B.1 proof, B.2 and B.3; publication and MSC metadata",
+        "method": "Read primary HTML text and compare statements and proof implications, including \\(x\\ge256/3915\\) bound",
+        "title": "Long-time stability and convergence of a BDF3 method for a parabolic equation with fading memory",
+        "trigger": "Exactly the Green function and norm being classified"
+      },
+      {
+        "assessment": "Treats variable-grid BDF3 DOC kernels and decay, with sometimes negative coefficients; does not classify present x-dependent resolvent Green series",
+        "evidence": [
+          "Section 3.2 provides stability of variable-step BDF3 under ratio bound ~2.553; Remark 4 notes DOC kernels may have either sign."
+        ],
+        "identifier_or_url": "https://arxiv.org/abs/2201.00527",
+        "material_read": "Full accessible HTML text including introduction, Section 3 on BDF3 DOC kernels, Section 3.2 and Remark 4",
+        "method": "Compared DOC-kernel definitions, step-ratio stability theorem and sign discussion with damped Green coefficients",
+        "title": "Stability of variable-step BDF2 and BDF3 methods",
+        "trigger": "Plausibly stronger BDF3 discrete kernel stability and positivity theorem"
+      }
+    ],
+    "status": "PASS"
+  },
+  "review_type": "self_review",
+  "schema_version": 1,
+  "scope_run_id": "f79248a5-a4e7-49c6-b335-f8e181be4093",
+  "self_review_status": "passed",
+  "value": {
+    "rationale": "A complete exact classification of a natural invariant in the current BDF3 fading-memory stability analysis is achieved: the causal scalar Green sequence has norm-one convolution response exactly for \\(\\mu\\le\\mu_*\\), with sharp threshold 0.831264155... instead of the published sufficient bound 1099/1536 (~0.715494792). This extends the certified nonamplifying spectral range by ~16.18%, shows an order-six first sign loss, and distinguishes eventual complex-root oscillation from finite-index negativity. The object and invariant are prescribed by the motivating paper rather than artificially chosen.",
+    "status": "PASS"
+  }
+}

@@ -1,0 +1,15 @@
+# Scientific assessment: sharp BDF3 Green-sequence positivity boundary
+
+## Correctness — PASS
+The claim is fully quantified over \(\mu>0\) and all integer indices \(n\ge0\). The proof identifies the unique algebraic zero of \(G_6\) in a rational bracket, proves universal nonnegativity below it using two exact higher-order **positive** recurrence identities and rational Bernstein certificates, and proves necessity beyond it using \(G_6<0\) or complex-root domination. Exact signed-mass summation supplies the gain equivalence. The standalone Python checker reconstructs the polynomial recurrences and strict rational inequalities with standard-library arithmetic; no finite computation is used as a substitute for the infinite proof.
+
+## Originality — PASS, with historical-priority limits
+Qiu (arXiv:2610.32364v1, 23 October 2026, Section 4.2 and Appendix B) defines this Green sequence and proves a **sufficient** positivity range \(\mu\le1099/1536\). Its complete relevant argument does not establish the exact boundary \(\mu_*\), the order-six first negative coefficient, or the positive order-seven/eight recurrences that bridge the remaining interval. Li–Liao (arXiv:2201.00527) study variable-step BDF3 stability and discrete orthogonal convolution kernels, rather than the fixed-step damped scalar Green sequence's exact all-index sign boundary. General root stability alone does not imply coefficientwise positivity. Related BDF2 thresholds involve a different characteristic polynomial. Search-based priority cannot exclude every older algebraically equivalent specialized result.
+
+## Mathematical value — PASS
+The BDF3 source's local \(\ell^\infty\) Green convolution amplification is exactly one **if and only if** all coefficients are nonnegative. The exact endpoint \(\mu_*=0.831264155\ldots\) extends the published sufficient range \(1099/1536=0.715494791\ldots\) by approximately 16.18% in the spectral timestep parameter, and proves sharp loss of that non-amplification property immediately above it. This is a naturally motivated complete classification of a stability-relevant invariant, not merely a sign check at an arbitrary index.
+
+## Closest literature, limitations, and risks
+The precise source is Qiu, *Long-time stability and convergence of a BDF3 method for a parabolic equation with fading memory* (2026), especially Lemma B.1 and the exact Green resolvent. The signed-versus-absolute mass identity is already in that paper, and the classical root analysis is not claimed as new. The contribution is the sharp coefficientwise boundary and its constructive finite-index proof. Li–Liao's variable-grid stability analysis and Thomée–Wahlbin's lower-order fading-memory framework are nearby but have different objects or quantifiers. The result does not classify positivity of arbitrary BDF3 initial histories or spatial solutions. An older exact positive-realization or three-pole sequence classification could have equivalent coverage, and independent mathematical audit remains outstanding.
+
+Self-review: passed. Independent audit: not yet performed.
