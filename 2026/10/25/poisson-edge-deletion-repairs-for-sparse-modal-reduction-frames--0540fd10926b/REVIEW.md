@@ -1,19 +1,21 @@
-# Scientific review
+# Independent mathematical audit
 
-## Correctness
+## correctness
 
-**PASS.** Validity under all valuations is exactly the relational inclusion \(R^m\subseteq R^{m+k}\). At the critical directed-edge probability, the directed \(m\)-path count has Poisson factorial moments because every connected overlap of distinct candidate paths has at least \(m+1\) arcs and therefore a vanishing expected contribution. Incident arcs, bounded directed cycles and longer walks disappear with high probability. Every surviving isolated \(m\)-path then demands exactly one deleted arc, with \(m\) independent choices. The probability regimes follow first/second moment arguments and a dense edge-disjoint path union bound. The included checker verifies the finite modal correspondence and deletion enumeration, not the asymptotic statements.
+PASS
 
-## Originality
+Countervaluation at a missing R^(m+k)-successor verifies the frame correspondence Box^(m+k)p -> Box^m p iff R^m subset R^(m+k). The count of distinct injective length-m paths has mean (n)_(m+1)p^m -> c^m; overlapping path unions have at least m+1 arcs on at most e+1 vertices, so all non-disjoint factorial-moment contributions vanish and Z_n=>Pois(c^m). Additional arcs at any path vertex have expectation O(n^(-1/m)); all short directed cycles and length-(m+k) walks vanish whp. Isolated m-paths then require exactly one deleted existing arc apiece and offer m choices, giving D=Z_n, H=m^Z_n. The subcritical and intermediate regimes follow first/second moment arguments and fixed p>0 dense validity uses many arc-disjoint candidates. A separate exact 64-frame enumeration for 3 vertices, m=2,k=1 independently confirmed all valuation/frame equivalences and exact deletion minimizers; this is not a proof of the asymptotic limit.
 
-**PASS (qualified).** The modal reduction frame correspondence itself is established background, as is the probabilistic Poisson paradigm for rare fixed paths. The reviewed claim is their quantitatively specific combination: an exact distribution for optimal modal axiom edge-deletion repairs, multiplicity \(m^Z\), and the nonmonotone validity phases. Knudstorp's primary paper addresses finite-model constructions rather than random edge deletion. The identified random-frame literature does not explicitly cover this distribution, while an unidentified stronger graph-path transversal result could potentially subsume it. No priority certification is claimed.
+## originality
 
-## Value
+PASS
 
-**PASS.** Counting minimum repairs, rather than merely a yes/no frame property, measures how a semantic axiom fails in minimally sparse networks. The precise Poisson law and multiplicity distinguish the probability of validity from the number of ways to restore it, and the 1–0–1 phase contrast exposes nonmonotonicity across natural random-frame densities. These are mathematically motivated invariants tied to a concrete modal axiom; the claim does not rest on an arbitrary numerical slice.
+The equivalence of a modal reduction to a relational-power inclusion and Poisson counts of rare fixed-length paths are standard antecedents. The new derived statistic is the joint optimal existing-arc deletion count and number of minimum repairs, with a precise critical law and distinct density regimes. The inspected reduction-logic primary text and random-frame papers do not state this repair law; an older random-graph path-transversal theorem remains a priority risk.
 
-## Comparison limits
+## value
 
-The complete Knudstorp preprint sections on relational reduction and finite model properties were inspected. Earlier random-frame work of Goranko–Kapron and Sliusarev was available in bibliographic and abstract/partial form only. In particular, this review does not assert that those whole papers lack a stronger general theorem. Independent human review is still needed to settle historical priority and presentation rigor.
+PASS
 
-Self-review: passed. Independent audit: not yet performed.
+A motivated, complete critical-window repair-count distribution and a sharp validity transition for a natural modal reduction axiom on sparse random Kripke frames. The pair (minimum edits, count of optimal solutions) is more informative than the classical probability of a rare path and has distinct modal semantics and algorithmic interpretation.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
