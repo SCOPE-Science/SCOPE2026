@@ -1,19 +1,21 @@
-# Review of the rank-one Nijenhuis–Rota–Baxter boundary
+# Independent mathematical audit
 
-## Correctness — PASS
+## correctness
 
-The proof is self-contained. It starts from the bilinear operator identity, identifies a nonzero-square alternative with a codimension-one subalgebra, proves its impossibility in \(M_n(k)\) for \(n\ge3\) using the rank \(n\operatorname{rank}F\) of the matrix-multiplication trace form, and classifies the remaining \(2\times2\) branch by Cayley–Hamilton. Every counting factor is explained, including reciprocal rescaling of decomposable rank-one maps. Exhaustive finite-field tests over \(\mathbb F_2\), \(\mathbb F_3\), and \(\mathbb F_4\) passed, but do not substitute for the all-fields argument.
+PASS
 
-## Originality — PASS, qualified
+For any field and rank-one nonzero operator N(X)=f(X)U on M_n(k), the associative Nijenhuis identity forces U²=λU. With c=f(U), the Nijenhuis identity equals weight-zero Rota–Baxter when c=0, and the rank-one RB equation itself forces c=0 by substituting X=U,Y=I. If c≠0 then ker f is a codimension-one subalgebra, so B_F(X,Y)=tr(FXY) vanishes on ker f×ker f; rank B_F≤2. Trace duality gives rank B_F=n rank(F), implying n=2 and rank(F)=1. Simplicity of M2 forces I∈ker f, so trF=0 and F²=0. Conjugate F to E12; the scalar identity is U²=(tr U)U and, by Cayley–Hamilton, det U=0, with c≠0 ensuring rank(U)=1. These and only these yield exceptional N with N²=cN. The projective generator count gives exceptional q²(q²−1), RB (q²−1)(2q+1), Nij (q²−1)(q+1)². Independently enumerated all 225 rank-one maps M2(F2)→M2(F2) by basis identities, obtaining RB=15, Nijenhuis=27, exceptional=12. Reviewed source GF2/3/4 verifier but did not substitute it for arbitrary-field proof. The identity proof works also in characteristic two.
 
-The 2001 contractions framework and 2003 free associative Nijenhuis construction give broad theory but do not state this matrix-size rank-one threshold. Bremner and Elgendy (arXiv:2109.04391, Theorem 6.12) distinguish the two operator identities, but do not classify their matrix-algebra solution sets. The closest accessible full-matrix rank-one Rota–Baxter classification addresses only the proper subfamily with zero operator square; it neither states nor counts the additional Nijenhuis projections. A 2026 classification concerns associative algebras of dimension three rather than the four-dimensional \(M_2(k)\), and its full text was not available in this comparison. Publication priority beyond the material examined is not certified.
+## originality
 
-## Value — PASS
+PASS
 
-The result gives a sharp categorical difference between rank-one solutions of two standard operator identities on simple associative matrix algebras, together with an explicit exceptional normal form and natural finite-field census. The obstruction has a structural proof, and the exceptions are nonnilpotent linear maps, not a routine new parameter value of previously classified Rota–Baxter maps.
+Primary operator-identity classifications by Bremner–Elgendy and earlier Nijenhuis constructions cover the identities and operations, not in inspected relevant portions the rank-one M_n(k) equivalence threshold or exact M2 finite-field counts. General classifications of RB operators or Jordan algebra cases are different in operator rank/product, though an algebraic rephrasing could cover the exceptional family. Best-of-knowledge PASS with targeted uninspected specialty literature as residual risk.
 
-## Remaining limitations
+## value
 
-No higher-rank classification or conjugacy-class census is asserted. The finite-field computation is exhaustive for only three small fields; the mathematical proof covers all fields. Broader literature could contain indirect equivalent coverage, and an independent audit has not occurred.
+PASS
 
-Self-review: passed. Independent audit: not yet performed.
+The stark rank-one coincidence threshold at matrix size three and the complete rank-one exceptional geometry in size two are structural distinctions between two standard associative operator identities. Explicit finite-field counts across all characteristics are natural operator enumerations and offer test cases for broader classification; unlike arbitrary small parameter slices, the threshold is dimension-global.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
