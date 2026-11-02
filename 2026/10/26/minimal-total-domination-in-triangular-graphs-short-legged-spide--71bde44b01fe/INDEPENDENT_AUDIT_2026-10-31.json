@@ -1,0 +1,105 @@
+{
+  "audit_date_utc": "2026-10-31",
+  "audited_at_utc": "2026-10-31T09:44:29Z",
+  "axes": {
+    "correctness": {
+      "rationale": "Directly reconstructed domination in L(K_n) as (at most one isolated ground vertex; no isolated-edge selected component). Any cyclic component admits redundant edge deletion. In a spanning minimal forest, leaf deletion forces every component to be P3. With an isolated ground vertex, every internal edge must split off an isolated edge, yielding exactly trees of diameter <=4 with arms of one or two edges; the P4 two-center overcount in the labeled EGF is corrected by x^4 z^3/2. Edge-count bounds and n=3,4,5 residue cases follow. Independent exhaustive actual open-neighborhood enumeration of every candidate for n=3..7 reproduced {3:3z^2,4:12z^2,5:80z^3,6:840z^4,7:630z^4+3402z^5}. The arbitrary-n proof is structural, not this finite enumeration.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Cornet, Dravec, Torres arXiv:2610.04675 abstract explicitly states the exact minimum gamma_t(J(n,2)) for n>=4, but does not display the all-minimal family or EGF.",
+          "Kanté et al. arXiv:1407.2053 concerns general enumeration reductions."
+        ],
+        "reasoning": "Scalar minimum is directly covered and credited; neither accessible statement implies the full family and the upper maximum. The closely matching 28-page 2026 manuscript is unread in full and remains a concrete priority risk, not a negative finding about uninspected sections.",
+        "searches": [
+          "total domination Johnson graph J(n,2) all minimal sets Cornet Dravec Torres 2026",
+          "minimal total dominating sets triangular graph line graph complete graph short-legged spiders forest exact enumerator upper total domination"
+        ]
+      },
+      "checked_sources": [
+        "Assigned frozen RESULT.md, REVIEW.md, verify_direct.py, verify_species.py; original Git tree SHA checked",
+        "arXiv:2610.04675 (abstract)",
+        "arXiv:1910.02431 (abstract)",
+        "arXiv:1407.2053 (general enumeration)",
+        "OEIS A290716 (ordinary domination)"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "Cornet et al. provide gamma_t(J(n,2))=ceil(2(n-1)/3), a corollary of the submitted classification.",
+          "The EGF characterizes every minimal set including nonminimum sizes, with Gamma_t=max(2,n-2)."
+        ],
+        "reasoning": "Prior scalar minimum cannot recover the all-size EGF or upper size without new structure. Do not claim minimum formula as novel. Unknown body contents remain an O risk.",
+        "searches": [
+          "Cornet Dravec Torres 2610.04675 gamma_t J(n,2)",
+          "minimal total dominating sets triangular graph line graph complete graph short-legged spiders forest exact enumerator upper total domination"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "J(n,2)=L(K_n); a total dominating vertex set in the line graph is a total edge dominating edge set of K_n.",
+          "Pan et al., arXiv:1910.02431, describe total edge domination and linear-time tree algorithms, not a complete-graph all-minimal classification."
+        ],
+        "reasoning": "Recast the claim as complete-graph total-edge irredundance rather than just Johnson-graph domination. Existing inspected abstract results on trees do not imply enumeration of all inclusion-minimal configurations in complete graphs.",
+        "searches": [
+          "minimal total dominating sets triangular graph line graph complete graph short-legged spiders forest exact enumerator upper total domination",
+          "total edge domination complete graph minimal total edge dominating sets line graph K_n upper total domination number all minimal"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "OEIS A290716 enumerates ordinary inclusion-minimal domination of triangular graphs, not total domination.",
+          "Independent counts at n=3..7 are 3,12,80,840,4032 total; ordinary-domination values cannot be substituted."
+        ],
+        "reasoning": "Similarity of the same graph does not equate open-neighborhood total domination with closed-neighborhood ordinary domination. No exact bivariate table was found; this is search evidence rather than proof of absence.",
+        "searches": [
+          "OEIS A290716 minimal dominating sets triangular graph",
+          "Resultary minimal total dominating sets triangular graph line graph complete graph short-legged spiders forest exact enumerator upper total domination"
+        ]
+      },
+      "rationale": "The documented known gamma_t(J(n,2))=ceil(2(n-1)/3) from Cornet–Dravec–Torres is explicitly excluded from the new contribution. The structural classification, all-k EGF and Gamma_t were not implied by searched general minimal-total-domination algorithms, total edge domination tree algorithm, or scalar minima. Exact same-object 2026 source was available as abstract only; its body remains a material overlap risk. Best-of-knowledge originality applies to the narrower new content.",
+      "residual_risks": [
+        "Exact-object 2026 arXiv:2610.04675 remains abstract-only; authorized Oxford returned vpn_disconnected. Its full body could cover a structural subresult.",
+        "Unindexed complete-graph total-edge domination classification or table may precede this result."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Covers scalar minimum; classification/enumerator not found in abstract, with whole-document comparison unavailable",
+          "evidence": [
+            "arXiv:2610.04675, abstract states gamma_t(J(n,2))=ceil(2(n-1)/3), n>=4"
+          ],
+          "identifier_or_url": "https://arxiv.org/abs/2610.04675",
+          "material_read": "Full public abstract, including gamma_t(J(n,2)); full 28-page manuscript not read",
+          "method": "arXiv abstract and paper metadata; authorized Oxford text request returned vpn_disconnected",
+          "title": "Domination and Total Domination in Johnson graphs",
+          "trigger": "Exactly the same J(n,2) total-domination parameter"
+        },
+        {
+          "assessment": "Tree algorithm and general inequalities are distinct from K_n minimal-set enumeration",
+          "evidence": [
+            "arXiv:1910.02431, abstract: bipartite hardness, tree algorithm"
+          ],
+          "identifier_or_url": "https://arxiv.org/abs/1910.02431",
+          "material_read": "Abstract, model and stated graph classes; not the full text in this execution",
+          "method": "Public arXiv abstract and submitted source relationship notes",
+          "title": "The complexity of total edge domination and some related results on trees",
+          "trigger": "Equivalent total-edge-domination name"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "rationale": "Every inclusion-minimal total dominating set of the classical triangular graph is characterized and counted by size, determining upper total domination and the nonuniform distribution. The full infinite-family component classification is a natural structural invariant, rather than a restatement of the already known minimum.",
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "final_claim": "For each n>=3, inclusion-minimal total dominating sets of J(n,2)=L(K_n) correspond exactly to spanning disjoint P3 components or one isolated ground vertex with all remaining components short-legged spiders. The complete cardinality EGF is n![x^n](exp(x^3 z^2/2)+x exp(H)), with H=x(exp(xz+x^2 z^2)-1-xz-x^2 z^2)-x^4 z^3/2; upper total domination is max(2,n-2). The scalar minimum gamma_t=ceil(2(n-1)/3) is prior literature.",
+  "limitations": [
+    "Exact-object 2026 arXiv:2610.04675 remains abstract-only; authorized Oxford returned vpn_disconnected. Its full body could cover a structural subresult.",
+    "Unindexed complete-graph total-edge domination classification or table may precede this result.",
+    "No GitHub write or server-side certification has occurred. Finite checks do not prove unbounded assertions."
+  ],
+  "schema_version": 1
+}
