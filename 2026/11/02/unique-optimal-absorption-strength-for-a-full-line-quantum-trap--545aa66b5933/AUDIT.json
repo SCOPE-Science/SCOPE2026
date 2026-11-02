@@ -1,0 +1,117 @@
+{
+  "correctness": {
+    "rationale": "Norm dissipation gives \\(Q_m=2\\eta\\int_0^\\infty|A_m(t)|^2dt\\). The scalar rank-one free resolvent gives a Laplace transform with a square-root spectral band. Plancherel splits it into a source-independent band integral and a strictly positive exponential exterior integral. Its endpoint expansion yields explicit \\(m^{-2}\\) and \\(m^{-4}\\) coefficients, with an \\(O(m^{-6})\\) remainder. The band integral has an elementary exact evaluation. Its derivative is negative for normalized rate at least 1; below 1, the derivative sign is a series with a single negative constant followed by positive coefficients, giving exactly one global optimum. Independent spectral quadratures and direct finite-time tight-binding propagations in verify.py pass; finite computations are not treated as the proof.",
+    "status": "PASS"
+  },
+  "independent": false,
+  "independent_audit_status": "not_performed",
+  "originality": {
+    "broader_coverage": {
+      "evidence": [
+        "Riberi 2026 analyzes all positive sink strengths but only at the boundary of a semi-infinite uniform lattice (Secs. II–V and Eq. (14)); its optimum is normalized strength 1.",
+        "Longhi 2024 establishes nonzero quantum survival for finite sets of traps, a weaker qualitative conclusion, rather than a sharp parameter optimum."
+      ],
+      "reasoning": "Riberi’s stronger-in-parameter statement is restricted to a different boundary geometry. Its half-line integral cannot directly specialize to the full-line interior absorber; folding the full line yields a modified first hopping coefficient, outside the uniform half-line theorem. Longhi’s arbitrary finite-trap survival theorem does not imply the explicit optimization or inverse-square distance coefficient.",
+      "searches": [
+        "quantum walk single local sink infinite chain absorption optimized rate 1.2257",
+        "Riberi absorbing quantum walk half-line boundary sink weak-strong coupling inversion duality compared interior absorber whole line",
+        "non-Hermitian tight-binding chain local imaginary impurity escape probability survival norm sink position closed form"
+      ]
+    },
+    "checked_sources": [
+      "https://arxiv.org/html/2405.07192v1",
+      "https://arxiv.org/html/2605.08056v1",
+      "https://doi.org/10.1103/PhysRevA.98.012136",
+      "https://openalex.org/W4395011481"
+    ],
+    "claim_vs_prior_implication": {
+      "evidence": [
+        "Riberi 2026 Eq. (14): boundary absorption has exact coupling inversion symmetry and optimum at unit normalized coupling.",
+        "Longhi 2024 Eq. (2): both-sided coherent chain with local loss; its main theorem asserts nonzero survival."
+      ],
+      "reasoning": "The new asymptotic absorption has a distinct full-line band kernel, a non-unit optimal ratio 1.2257411236..., and distance dependence from the exterior spectral band. The half-line result has a different lattice topology, transfer function, and coupling-duality constraint, while Longhi’s survival positivity is not a quantitative maximization statement. Related rank-one scattering machinery is shared and not presented as new.",
+      "searches": [
+        "Riberi absorbing quantum walk half-line boundary sink weak-strong coupling inversion duality compared interior absorber whole line",
+        "Longhi 2024 photonic random walks with traps total absorption single sink inverse-square starting distance asymptotic P infinity"
+      ]
+    },
+    "equivalent_formulations": {
+      "evidence": [
+        "Longhi, Optics Letters 49 (2024) 2809–2812, Eq. (2), https://arxiv.org/html/2405.07192v1",
+        "Riberi, arXiv:2605.08056v1, Eq. (14), https://arxiv.org/html/2605.08056v1"
+      ],
+      "reasoning": "Longhi treats the same full-line absorbing equation but proves qualitative positive survival; its accessible main text lacks the sharp single-site distance-dependent absorption and unique remote-source optimal loss rate. Riberi has a half-line boundary sink: its reciprocal-coupling-invariant kernel differs from the full-line squared band denominator and does not establish the off-unity optimizer. A general resolvent identity itself is known and not claimed novel.",
+      "searches": [
+        "non-Hermitian single lossy defect full-line quantum walk asymptotic absorption fraction monotone initial separation inverse square correction",
+        "absorbing continuous-time quantum walk tight-binding infinite line one lossy defect total absorption probability dependence on initial distance n inverse square 1/n^2 asymptotic",
+        "single lossy site infinite tight binding quantum walk absorption initial distance exact probability efficiency optimal strength"
+      ]
+    },
+    "exact_database_or_table": {
+      "evidence": [
+        "The main source reports qualitative survival and numerical finite-trap examples, not an absorption-efficiency optimizer table.",
+        "The boundary-sink source has an exact parameter-inversion law and different optimal normalized strength 1."
+      ],
+      "reasoning": "Searches for the exact dimensionless constant, the single-defect limit and a matching tabulated result found no equivalent record. This is limited negative evidence, not a proof of priority; inaccessible supplements and unindexed results remain risks.",
+      "searches": [
+        "loss strength optimizes eventual single-site absorption in one-dimensional infinite coherent tight-binding lattice at 1.22574 times hopping, unique optimum vs boundary sink",
+        "Longhi photonic random walks traps quantum survival finite trap exact spatial initial distance trapping probability optimization"
+      ]
+    },
+    "rationale": "The claimed optimizer and strict full-line distance law were not located in the accessible full text of the 2024 source or in related 2026 boundary-sink work. They are distinct in geometry, transfer kernel, optimum and implications from the latter’s duality. All established survival statements, rank-one resolvent techniques and boundary absorption formulas are credited; an inaccessible plausible supplement and unindexed prior results create explicit residual priority risk.",
+    "residual_risks": [
+      "Longhi 2024 separately hosted supplemental analysis could not be read; may contain unrecognized single-absorber special cases.",
+      "Riberi 2026 references appendices not exposed in its accessible arXiv HTML; possible generalization outside uniform half-line remains unverified.",
+      "Other scattering or spectral theory papers may already derive the same full-line optimum under different terminology.",
+      "Priority has not been independently audited."
+    ],
+    "source_inspections": [
+      {
+        "assessment": "Contains same model and qualitative persistent survival; not an explicit global absorption optimum or strict distance formula in the main manuscript",
+        "evidence": [
+          "Eq. (2) specifies tight-binding Hamiltonian with on-site loss",
+          "Text after Eq. (2) proves eventual positive survival for arbitrary finite traps and discusses finite-trap examples",
+          "Supplemental document mentioned but not read"
+        ],
+        "identifier_or_url": "https://arxiv.org/html/2405.07192v1",
+        "material_read": "Accessible entire short main manuscript, including model Eq. (2), survival theorem, concluding discussion and references; supplemental text linked but not available",
+        "method": "Read full arXiv HTML and searched for single-trap absorption, initial position, optimization and asymptotics",
+        "title": "Photonic random walks with traps",
+        "trigger": "Primary same full-line coherent finite-trap Hamiltonian"
+      },
+      {
+        "assessment": "Exact half-line boundary loss, with reciprocal coupling symmetry and optimum normalized rate one; no assertion on full-line interior-optimum ratio or strict exterior-band distance law",
+        "evidence": [
+          "Sec. II fixes uniform semi-infinite chain with boundary sink",
+          "Eq. (14) is boundary absorption integral with sin-squared source-position factor",
+          "Sec. IV proves reciprocal-coupling duality and maximum at coupling one"
+        ],
+        "identifier_or_url": "https://arxiv.org/html/2605.08056v1",
+        "material_read": "Full accessible arXiv HTML, sections II–V, resolvent formulas (6)–(10), absorption Eq. (14), discussion and references; online HTML does not expose separately cited appendix",
+        "method": "Compared operator domains, boundary hopping, loss normalization, absorption kernels, coupling duality and claimed optimization",
+        "title": "An Exactly Solvable Absorbing Quantum Walk",
+        "trigger": "Close exactly soluble quantum walk with one continuous loss site"
+      },
+      {
+        "assessment": "Different walk protocol and observable; no whole-document noncoverage inference from abstract",
+        "evidence": [
+          "Publisher abstract states a two-state discrete-time quantum walk and conditional limit measure"
+        ],
+        "identifier_or_url": "https://doi.org/10.1103/PhysRevA.98.012136",
+        "material_read": "Publisher abstract and model description only",
+        "method": "Compared stated discrete-time two-state walk and conditional-position limit law with continuous-time interior local dissipation",
+        "title": "Conditional limit measure of a one-dimensional quantum walk with an absorbing sink",
+        "trigger": "Earlier absorption and survival study on one-dimensional walks"
+      }
+    ],
+    "status": "PASS"
+  },
+  "review_type": "self_review",
+  "schema_version": 1,
+  "scope_run_id": "545aa66b-5933-4320-a32b-9af00583a839",
+  "self_review_status": "passed",
+  "value": {
+    "rationale": "The proportion of remote quantum walkers captured by a local optical loss site is a natural transport-efficiency quantity and loss strength is directly controllable. The theorem finds a unique dimensionless optimizer at an unexpected non-unit value, separating interior-trap geometry from the unit matching of a boundary sink, and quantifies how finite launch distance approaches the limiting efficiency with a universal inverse-square law. This is a complete natural design-parameter classification, rather than a trivial sign or normalization check.",
+    "status": "PASS"
+  }
+}
