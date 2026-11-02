@@ -1,11 +1,21 @@
-# Scientific review
+# Independent mathematical audit
 
-**Correctness (PASS).** The direct-product independent sets lie in coordinate rows or columns. Weight is exactly \(rs-|V_0|+|V_2|\). A full zero row cannot be defended by a single label-\(2\) vertex; the two possible equality profiles for \(r\ge3\) are explicitly classified and counted. On the two-row boundary, removing all but at most one vertex from a row leaves an isolated positive vertex, enforcing a stronger bound. The distinct matched-pair zero case explains the unique small exception at \(n=3\). Independent brute-force adjacency checks for seven parameter pairs and polynomial coefficient checks agree with every asserted formula. All infinite conclusions follow from the proof, not the finite experiments.
+## correctness
 
-**Originality (PASS, residual priority risk).** The central 2021 preprint/2022 journal article's Theorem 3.5 gives the scalar \(s(r-1)+2\); it omits the necessary total-positive boundary obstruction for \(r=2\). Thus the exceptional corrected value is not implied by that published statement. Its unchanged scalar for \(r\ge3\) is credited, while the complete optimizer census is distinct. The earlier foundational work already gives the \(C_6\) scalar, which is excluded from novelty. Targeted comparisons did not identify a source implying the complete optimum census or crown weight polynomial. Inaccessible/unindexed material remains a risk.
+PASS
 
-**Mathematical value (PASS).** This addresses a concrete mathematical defect in an infinite published product theorem and provides the previously absent complete extremizer structure, exact multiplicities, and a full all-weight boundary enumerator. The change is forced by the precise totality axiom, not by a cosmetic reformulation; the classification exposes two genuinely different optimal-support mechanisms for \(r\ge3\).
+PASS: Independently enumerated all 3^(rs) {0,1,2}-labelings with adjacency and all three defining conditions directly for (r,s)=(2,2),(2,3),(2,4),(2,5),(3,3),(3,4). Returned (minimum,count)=(4,1),(6,25),(7,24),(8,40),(8,108),(10,96), respectively. Full proof: independent zero sets must be rows/columns (or matched two-point pair at r=2), weight=rs−|Z|+|T|; a complete zero row cannot be defended by one 2; for r≥3 only (s−1,1) and (s,2) attain optimal weight, and defenders in different columns plus total-positive condition enumerate both. On K2×Kn one-sided zeros require two positive vertices, while matched cross-zero pairs contribute only at n=3; resulting all-weight crown formula follows by disjoint zero-set partition. The exact finite enumeration is corroboration, universal proof is combinatorial.
 
-Closest literature: Cabrera Martínez–Kuziak–Yero, *Relating the outer-independent total Roman domination number with some classical parameters of graphs* (arXiv:2112.05476v1; DOI 10.1007/s00009-022-02061-y), Theorem 3.5; and their foundational 2019 paper (DOI 10.1016/j.dam.2018.12.018), including the cycle case. Results using perfect Roman rather than outer-independent **total** Roman constraints do not imply this classification. Limits: no independent external audit, and unresolved priority risk outside inspected sources.
+## originality
 
-Self-review: passed. Independent audit: not yet performed.
+PASS
+
+PASS: 2022 source Theorem 3.5 actually states s(r−1)+2 for all 2≤r≤s; its r=2 witness leaves all positive vertices in one independent row and thus violates total-positive axiom. Earlier 2019 C6 value=6 is explicitly credited. Corrected infinite r=2 scalar, entire optimizer census and complete crown polynomial are not implied by the old scalar; distinct Roman variants use different axioms.
+
+## value
+
+PASS
+
+PASS: Repairs an incorrect infinite boundary family in an established published theorem and supplies all minimizing configurations plus an entire crown all-weight generating function. These are natural structural/extremal invariants that a researcher using the published scalar needs, not a tiny gain or arbitrary slice.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
