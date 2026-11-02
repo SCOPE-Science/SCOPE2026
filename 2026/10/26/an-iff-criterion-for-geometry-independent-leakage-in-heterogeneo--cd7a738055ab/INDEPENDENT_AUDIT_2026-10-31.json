@@ -1,0 +1,125 @@
+{
+  "audit_date_utc": "2026-10-31",
+  "audited_at_utc": "2026-10-31T07:52:44.589117Z",
+  "axes": {
+    "correctness": {
+      "checked_sources": [
+        "Frozen RESULT.md blob aae1fb57969cd036cf7939276c148fb16241e7ba",
+        "Frozen VERIFICATION.md blob 22dc1b01901a6574bade3ce07221d58731d92305",
+        "independent_checks_batch4919.py"
+      ],
+      "rationale": "Test the weak parabolic equation against the constant spatial function, using the no-flux boundary. The aggregate stored drawdown M(t)=int_Omega S(x)s(x,t) dx satisfies Mdot=Q-L and M(0)=0 for all admissible locally integrable source histories. If lambda/S=kappa a.e., then L=kappa M exactly; solving Mdot+kappa M=Q yields the stated convolution and constant-rate law, independent of T, Omega and spatial pump profile. Conversely, fix an arbitrary nonnegative spatial profile w integrating to one and a regular time profile with Q(0)>0. Strong continuity of the parabolic semigroup in the storage variable gives L(t)=Q(0)t int(lambda/S)w+o(t), even when pointwise time derivatives of a weak L1 source need not exist. If all spatial profiles give the same L(t), the initial slope is independent of w, forcing lambda/S to equal a constant a.e. For lambda=0 the output vanishes, including kappa=0. No pointwise drawdown invariance is claimed. An independent exact two-cell finite-volume generator with distinct storages and common lambda/S was shown to preserve Mdot+kappa M=Q under arbitrary no-flux exchange; perturbing the ratio made the initial output slope location-dependent. This is corroboration, not the infinite-dimensional proof.",
+      "residual_risks": [
+        "The source profile in the necessity step must range over a sufficiently rich admissible set; using a single fixed pumping well would not justify the iff.",
+        "For merely integrable time sources the initial-time derivative statement must be interpreted via regular test histories and weak/semigroup continuity, not claimed for every irregular Q at t=0."
+      ],
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "General conservative reaction-diffusion semigroup theory might imply source-profile independence iff the reaction output functional is proportional to conserved mass.",
+          "Butler–Tsou show scale invariance for image-model geometries and uniform coefficients; no compared theorem explicitly gives the heterogeneous iff."
+        ],
+        "reasoning": "The result may be an elementary corollary of abstract conservation and identifiability, so broader implicit coverage risk remains, but no decisive stronger same-parameter result was located.",
+        "searches": [
+          "no flow heterogeneous leaky aquifer proportional leakance storage spatial pumping leakage volume time transfer function geometry independent if only if",
+          "total leakage pumping bounded leaky aquifer with heterogeneous storage and leakance ratio geometric invariance theorem",
+          "DOI:10.1029/2002WR001484"
+        ]
+      },
+      "checked_sources": [
+        "no flow heterogeneous leaky aquifer proportional leakance storage spatial pumping leakage volume time transfer function geometry independent if only if",
+        "total leakage pumping bounded leaky aquifer with heterogeneous storage and leakance ratio geometric invariance theorem",
+        "https://doi.org/10.1029/2002WR001484",
+        "https://doi.org/10.1029/TR036i001p00095"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "Prior uniform Hantush–Jacob case is recovered by taking S and lambda constants.",
+          "The result extends to spatially varying T and independently varying S,lambda with fixed ratio, arbitrary Lipschitz domains, arbitrary pump placement and time course; initial-slope proof gives the necessary condition."
+        ],
+        "reasoning": "It is not covered by simply saying any no-flow aquifer has mass conservation; the universal output formula requires a closed proportional leakage functional and necessity uses arbitrary sources.",
+        "searches": [
+          "no flow heterogeneous leaky aquifer proportional leakance storage spatial pumping leakage volume time transfer function geometry independent if only if",
+          "DOI:10.1029/2002WR001484"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "For time-independent coefficients, aggregate output invariance is equivalent to constant spatial ratio lambda/S, or to the constant left eigenvector of the storage-weighted evolution generator.",
+          "The published homogeneous model has that eigenvector property by its fixed coefficients."
+        ],
+        "reasoning": "The mass-balance identity is old; the quantified necessity for every nonnegative pump placement and all finite-time histories is the additional iff formulation.",
+        "searches": [
+          "no flow heterogeneous leaky aquifer proportional leakance storage spatial pumping leakage volume time transfer function geometry independent if only if",
+          "total leakage pumping bounded leaky aquifer with heterogeneous storage and leakance ratio geometric invariance theorem",
+          "DOI:10.1029/2002WR001484"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "Resultary did not return a same mathematical model leakage coefficient-classification record in the closest entries; literature result is equation-level, not a finite database."
+        ],
+        "reasoning": "This check is a theorem-equality search and specific non-applicability of table coverage, not a fabricated exact database inspection.",
+        "searches": [
+          "no flow heterogeneous leaky aquifer proportional leakance storage spatial pumping leakage volume time transfer function geometry independent if only if",
+          "total leakage pumping bounded leaky aquifer with heterogeneous storage and leakance ratio geometric invariance theorem",
+          "Resultary heterogeneous aquifer leakage semantic query"
+        ]
+      },
+      "rationale": "Butler–Tsou (Water Resources Research 2003, DOI:10.1029/2002WR001484) prove homogeneous bounded aquifer scale invariance via image wells and state a fully general proof for complicated geometries had not been obtained in their framework. Their theorem and transfer formula are PRIOR for homogeneous leakance/storage. They do not formulate the heterogeneous coefficient iff lambda/S constant for all spatial pump profiles and arbitrary time total-rate histories. The new result is not that generic conservation of total mass is new. Best-of-knowledge novelty assessment of the surviving precise mathematical contribution; unsuccessful database search is not proof of absolute priority.",
+      "residual_risks": [
+        "A standard reaction-diffusion observability/lumping theorem may already give an abstract if-and-only-if characterization immediately specialized to this model.",
+        "An older hydrogeology text could implicitly state the proportional leakance-to-storage criterion without the same terminology."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "COVERS scale invariance for uniform conceptual aquifers, not stated heterogeneous iff lambda/S or all time-histories",
+          "evidence": "Section 3 paragraph 23 notes lack of general image-well proof for complicated shapes; equations and diagrams focus on homogeneous transmissivity/storage/leakance assumptions",
+          "identifier_or_url": "https://doi.org/10.1029/2002WR001484",
+          "material_read": "Complete accessible publisher HTML: abstract, Section 2 Hantush-Jacob model, Section 3 image-well proof and boundary examples, and conclusions; publication 2003-12-05",
+          "method": "Wiley/AGU publisher full article and mathematical implication comparison",
+          "title": "Pumping-induced leakage in a bounded aquifer: An example of a scale-invariant phenomenon",
+          "trigger": "Same physical observable and geometry independence, most relevant named antecedent"
+        },
+        {
+          "assessment": "PRIOR classical leaky-aquifer setting; no claim of complete-text absence of heterogeneous iff",
+          "evidence": "Hantush–Jacob radial constant-parameter model is strictly narrower in geometry and coefficient variability",
+          "identifier_or_url": "https://doi.org/10.1029/TR036i001p00095",
+          "material_read": "Bibliographic reference and model equation as explained by Butler–Tsou; original 1955 full text not independently obtained",
+          "method": "Publisher-derived citations and primary paper model discussion",
+          "title": "Non-steady radial flow in an infinite leaky aquifer",
+          "trigger": "Classical governing model invoked in the assessed result"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "rationale": "The invariant makes a physically useful, geometry-independent exact aggregate leakage prediction and states the sharp condition under which heterogeneous storage and leakance preserve it. Its necessity supplies a falsifiable diagnostic: varying pumping placement reveals nonconstant lambda/S at initial time. Although the proof is short mass balance plus a source-separation argument, the iff classification across arbitrary transmissivity tensors and Lipschitz geometries is motivated by an explicit historical aquifer-invariance question and is more substantive than an isolated normalization check.",
+      "residual_risks": [],
+      "status": "PASS"
+    }
+  },
+  "checked_sources": [
+    "Frozen source tree 0409a0b5cd093442a49384843708bab4b64b5341",
+    "Frozen RESULT.md Git blob aae1fb57969cd036cf7939276c148fb16241e7ba",
+    "Frozen METADATA.json Git blob fa4f7c2e87f74e6798df855ea0b4ae5e1d44c215",
+    "Frozen AUDIT.json Git blob 1406243d3950a2cb8b2e7ea4a009d24db8f513df",
+    "independent_checks_batch4919.py",
+    "no flow heterogeneous leaky aquifer proportional leakance storage spatial pumping leakage volume time transfer function geometry independent if only if",
+    "total leakage pumping bounded leaky aquifer with heterogeneous storage and leakance ratio geometric invariance theorem",
+    "https://doi.org/10.1029/2002WR001484",
+    "https://doi.org/10.1029/TR036i001p00095"
+  ],
+  "disposition": "passed",
+  "limitations": "Mathematics assessed on the exact current final source claim; no widening of hypotheses, no fabrication of external verification. The source profile in the necessity step must range over a sufficiently rich admissible set; using a single fixed pumping well would not justify the iff.",
+  "residual_risks": [
+    "The source profile in the necessity step must range over a sufficiently rich admissible set; using a single fixed pumping well would not justify the iff.",
+    "For merely integrable time sources the initial-time derivative statement must be interpreted via regular test histories and weak/semigroup continuity, not claimed for every irregular Q at t=0.",
+    "A standard reaction-diffusion observability/lumping theorem may already give an abstract if-and-only-if characterization immediately specialized to this model.",
+    "An older hydrogeology text could implicitly state the proportional leakance-to-storage criterion without the same terminology.",
+    "Finite checks are corroboration only; unrestricted statements rely on analytical argument and named external theorems."
+  ],
+  "schema_version": 1
+}

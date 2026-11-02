@@ -1,19 +1,21 @@
-# Review
+# Independent mathematical audit
 
-## Correctness
+## correctness
 
-**PASS.** The constant test function in the weak formulation eliminates the no-flow divergence term and gives \(M'=Q-\mathcal L\). Under \(\lambda/S=\kappa\), this closes to \(M'+\kappa M=Q\), whose exact solution yields the stated transfer function. Conversely, the right initial derivative \(\mathcal L'(0^+)=Q(0)\int (\lambda/S)w\) varies with the normalized spatial profile \(w\) unless \(\lambda/S\) is almost everywhere constant. The assumptions, quantifiers, and no-flow boundary condition are explicit.
+PASS
 
-## Originality
+Test the weak parabolic equation against the constant spatial function, using the no-flux boundary. The aggregate stored drawdown M(t)=int_Omega S(x)s(x,t) dx satisfies Mdot=Q-L and M(0)=0 for all admissible locally integrable source histories. If lambda/S=kappa a.e., then L=kappa M exactly; solving Mdot+kappa M=Q yields the stated convolution and constant-rate law, independent of T, Omega and spatial pump profile. Conversely, fix an arbitrary nonnegative spatial profile w integrating to one and a regular time profile with Q(0)>0. Strong continuity of the parabolic semigroup in the storage variable gives L(t)=Q(0)t int(lambda/S)w+o(t), even when pointwise time derivatives of a weak L1 source need not exist. If all spatial profiles give the same L(t), the initial slope is independent of w, forcing lambda/S to equal a constant a.e. For lambda=0 the output vanishes, including kappa=0. No pointwise drawdown invariance is claimed. An independent exact two-cell finite-volume generator with distinct storages and common lambda/S was shown to preserve Mdot+kappa M=Q under arbitrary no-flux exchange; perturbing the ratio made the initial output slope location-dependent. This is corroboration, not the infinite-dimensional proof.
 
-**PASS, scoped to the iff characterization and heterogeneous-coefficient extension.** Butler and Tsou (2003) treat scale-invariant total leakage in the homogeneous Hantush–Jacob setting and use image-well arguments for representative bounded geometries. The checked full text notes that a completely general proof had not been obtained for the more complicated geometries under discussion. The present proof applies directly to heterogeneous transmissivity and to spatially varying storage and leakance when their ratio is constant, and it gives a necessity condition from the initial leakage slope. The exact transfer function for arbitrary pumping schedules is part of the same claim. The inspected Butler–Tsou full text does not state the explicit coefficient iff criterion. The Hantush–Jacob full text was not inspected, so no noncoverage conclusion is drawn from it. This remains a best-knowledge comparison, not a proof of global uniqueness.
+## originality
 
-## Value
+PASS
 
-**PASS.** Total leakage is a key water-budget quantity, yet spatial drawdown can vary strongly with geometry and transmissivity. The theorem gives an exact aggregate leakage calculation without solving the spatial field when the local leakance/storage timescale is uniform, and the converse gives a practical diagnostic: heterogeneous ratios make even the initial aggregate response depend on pump placement. The result is a natural structural classification with a clear use in groundwater budgeting, not a claim about local heads or contaminant transport.
+Butler–Tsou (Water Resources Research 2003, DOI:10.1029/2002WR001484) prove homogeneous bounded aquifer scale invariance via image wells and state a fully general proof for complicated geometries had not been obtained in their framework. Their theorem and transfer formula are PRIOR for homogeneous leakance/storage. They do not formulate the heterogeneous coefficient iff lambda/S constant for all spatial pump profiles and arbitrary time total-rate histories. The new result is not that generic conservation of total mass is new. Best-of-knowledge novelty assessment of the surviving precise mathematical contribution; unsuccessful database search is not proof of absolute priority.
 
-## Closest literature and limitations
+## value
 
-The closest source is Butler and Tsou (2003), DOI 10.1029/2002WR001484. Hantush and Jacob (1955), DOI 10.1029/TR036i001p00095, is the classical model antecedent; only its abstract and bibliographic record were inspected, so it is not used as evidence that the extension is absent there. The main residual risk is that the simple integrated conservation law or an equivalent coefficient criterion may be implicit in standard groundwater texts not located by the searches. The claim is deliberately limited to the explicit iff condition and arbitrary-schedule transfer function under the stated assumptions.
+PASS
 
-Self-review: passed. Independent audit: not yet performed.
+The invariant makes a physically useful, geometry-independent exact aggregate leakage prediction and states the sharp condition under which heterogeneous storage and leakance preserve it. Its necessity supplies a falsifiable diagnostic: varying pumping placement reveals nonconstant lambda/S at initial time. Although the proof is short mass balance plus a source-separation argument, the iff classification across arbitrary transmissivity tensors and Lipschitz geometries is motivated by an explicit historical aquifer-invariance question and is more substantive than an isolated normalization check.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
