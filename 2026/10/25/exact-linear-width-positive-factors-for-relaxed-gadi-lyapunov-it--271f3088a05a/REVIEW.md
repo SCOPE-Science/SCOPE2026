@@ -1,9 +1,21 @@
-# Review of the exact GADI factor identity
+# Independent mathematical audit
 
-**Correctness — PASS.** Direct substitution of the two-stage iteration yields \(X_{k+1}=cX_k+bTX_kT^{\mathsf T}+EE^{\mathsf T}\). Binomial powers, positive weights and a Vandermonde witness prove all claimed ranks and factor formulas. The independently constructed dense iteration was compared numerically with the factor representation. Finite tests are not the infinite proof.
+## correctness
 
-**Originality — PASS (self-review, priority uncertain).** Zhang and Xun arXiv:2404.06034v1 explicitly build \((2^k-1)p\)-column GADI factors and discuss their exponential storage/complexity; their ordinary ADI special case already uses \(kp\) columns. The new comparison isolates the nonzero-relaxation binomial Krylov factor and its exact PSD rank. Classical CF-ADI/rational Krylov work supplies the same general space but not an identified covering expression. Targeted published-finding corpus searches found no directly matching published record. Other source formulations remain possible, and the complete Li--White primary text was not independently inspected.
+PASS
 
-**Mathematical value — PASS.** Replacing exponential factor width with \(kp\) exactly (not approximately) is a substantive structural improvement for the given matrix-equation algorithm. The rank formula and positive factor apply to all allowed relaxation values. Nothing is asserted about variable parameters, floating-point robustness or realized timing.
+Eliminating the source fixed-shift two-stage GADI equations with alpha>0, 0<=omega<2, F positive stable, Q=C^T C and X0=0 gives exactly X_{k+1}=c X_k+b T X_k T^T+E E^T with c=omega/2, b=1-c>0, H=(alpha I+F)^-1, T=2alpha H^T-I, E=sqrt(2alpha b)H^T C^T. As identity and congruence operators commute, the binomial theorem yields X_k=sum_{j=0}^{k-1}w_{k,j}T^j E E^T(T^T)^j, w_{k,j}=b^j sum_{r=j}^{k-1}binom(r,j)c^{r-j}>0, giving exact PSD factor with kp columns. Its rank is the dimension of rational Krylov span, and diagonal distinct eigenvalues with p=1 yield rank min(k,n) by Vandermonde. Separate exact rational nonsymmetric 2x2 verification k=1..5 confirms both forms; infinite claim rests on algebraic identities.
 
-Self-review: passed. Independent audit: not yet performed.
+## originality
+
+PASS
+
+Zhang–Xun gives the exact source recurrence and exponential-width direct factor for nonzero relaxation, while equation (7) gives k p columns in unrelaxed ADI. The positive binomial Krylov factor for relaxed GADI is not stated in the inspected primary equations; its conceptual basis is standard but the exact stated compression is a motivated family-specific identity. Qualified against equivalent weighted Smith methods.
+
+## value
+
+PASS
+
+Shows the same relaxed GADI Lyapunov iterate admits a transparent, exact positive low-rank factor with linear rather than exponentially growing column count (k p versus (2^k−1)p in the source construction). The positive weights and rank-span identity are structurally relevant to storage and redundancy, while no finite-precision acceleration is asserted.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

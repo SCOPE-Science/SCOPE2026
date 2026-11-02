@@ -1,0 +1,106 @@
+{
+  "audit_date_utc": "2026-10-29",
+  "audited_at_utc": "2026-10-29T08:52:25.901131Z",
+  "axes": {
+    "correctness": {
+      "rationale": "Eliminating the source fixed-shift two-stage GADI equations with alpha>0, 0<=omega<2, F positive stable, Q=C^T C and X0=0 gives exactly X_{k+1}=c X_k+b T X_k T^T+E E^T with c=omega/2, b=1-c>0, H=(alpha I+F)^-1, T=2alpha H^T-I, E=sqrt(2alpha b)H^T C^T. As identity and congruence operators commute, the binomial theorem yields X_k=sum_{j=0}^{k-1}w_{k,j}T^j E E^T(T^T)^j, w_{k,j}=b^j sum_{r=j}^{k-1}binom(r,j)c^{r-j}>0, giving exact PSD factor with kp columns. Its rank is the dimension of rational Krylov span, and diagonal distinct eigenvalues with p=1 yield rank min(k,n) by Vandermonde. Separate exact rational nonsymmetric 2x2 verification k=1..5 confirms both forms; infinite claim rests on algebraic identities.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Zhang–Xun 2024 GADI factor with (2^k−1)p columns",
+          "Li and White 2002 low-rank Lyapunov CF-ADI Krylov method"
+        ],
+        "reasoning": "General low-rank ADI gives related linear Krylov spaces, but the primary GADI source does not exhibit the exact positive factor for nonzero relaxation. It cannot be assumed that mere span equality fixes the required PSD weights.",
+        "searches": [
+          "GADI Lyapunov relaxed iteration low rank positive factor rational Krylov k columns",
+          "fixed shift generalized ADI linear Krylov rank Smith binomial low rank"
+        ]
+      },
+      "checked_sources": [
+        "Zhang–Xun arXiv:2404.06034v1, Sections 2.1–2.3 and eqs 7/12/13",
+        "Li–White 2002 bibliographic abstract only",
+        "Resultary semantic search: GADI Lyapunov relaxed iteration low rank positive factor rational Krylov k columns"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "Source GADI two-stage recurrence, equation (12), and exponential direct factor, equation (13)",
+          "Unrelaxed ADI k p formula, equation (7)"
+        ],
+        "reasoning": "Existing GADI update is a premise from which the new identity is derived. Ordinary ADI factor is the omega=0 boundary, not a published result covering all omega. The source authors explicitly discuss exponential factor width for the relaxed method.",
+        "searches": [
+          "GADI Lyapunov relaxed iteration low rank positive factor rational Krylov k columns",
+          "arXiv 2404.06034 eq 7 eq 12 eq 13 rational Krylov factor"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Zhang–Xun arXiv:2404.06034v1 equations (7),(12),(13) and complexity section",
+          "Classical CF-ADI factorization and rational Krylov range"
+        ],
+        "reasoning": "Equivalent formulation is a binomially weighted power sum of one fixed congruence operator. Classical ADI factor has same span only at omega=0; the specific positive coefficients for 0<omega<2 were compared against the inspected source equations.",
+        "searches": [
+          "GADI Lyapunov relaxed iteration low rank positive factor rational Krylov k columns",
+          "Zhang Xun R GADI relaxed ADI weighted Smith iteration Cholesky rational Krylov"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "The claim is an identity for all k and matrix data, not a finite database invariant",
+          "Finite independent 2x2 exact nonsymmetric matrix tests at k=1,...,5"
+        ],
+        "reasoning": "No meaningful fixed numerical census could subsume an all-step factorization. Comparisons instead targeted symbolic recurrences and alternative factor formulations; finite calculation only corroborates.",
+        "searches": [
+          "GADI Lyapunov relaxed iteration low rank positive factor rational Krylov k columns",
+          "GADI omega binomial weights k p factors matrix recurrence"
+        ]
+      },
+      "rationale": "Zhang–Xun gives the exact source recurrence and exponential-width direct factor for nonzero relaxation, while equation (7) gives k p columns in unrelaxed ADI. The positive binomial Krylov factor for relaxed GADI is not stated in the inspected primary equations; its conceptual basis is standard but the exact stated compression is a motivated family-specific identity. Qualified against equivalent weighted Smith methods.",
+      "residual_risks": [
+        "An equivalent weighted Smith or stationary ADI iteration identity may be present in older numerical linear algebra literature not recovered by the targeted search.",
+        "The theorem asserts exact factor width, not finite-precision stability, conditioning or realized computational-speed gains."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Source publishes original relaxed recurrence and exponential direct factor; does not directly give exact binomial-weighted linear factor",
+          "evidence": "Equation (7) k p ordinary ADI, (12) GADI, (13) (2^k−1)p relaxed factor",
+          "identifier_or_url": "https://arxiv.org/pdf/2404.06034",
+          "material_read": "Available primary full-text sections 2.1–2.3, equations (7),(12),(13), GADI complexity",
+          "method": "ArXiv PDF and mathematical equations inspected",
+          "title": "Low-rank generalized alternating direction implicit iteration method for solving matrix equations",
+          "trigger": "Exact source GADI iteration and competing low-rank factor"
+        },
+        {
+          "assessment": "Classical Krylov relation, possible broader-prior risk but no demonstrated direct GADI weighted identity",
+          "evidence": "Li–White (2002) general low-rank ADI",
+          "identifier_or_url": "https://researchportal.ip-paris.fr/en/publications/low-rank-solution-of-lyapunov-equations-2/",
+          "material_read": "Public bibliographic abstract; complete article not inspected",
+          "method": "Official research portal metadata",
+          "title": "Low rank solution of Lyapunov equations",
+          "trigger": "Classical CF-ADI low-rank context"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "rationale": "Shows the same relaxed GADI Lyapunov iterate admits a transparent, exact positive low-rank factor with linear rather than exponentially growing column count (k p versus (2^k−1)p in the source construction). The positive weights and rank-span identity are structurally relevant to storage and redundancy, while no finite-precision acceleration is asserted.",
+      "status": "PASS"
+    }
+  },
+  "checked_sources": [
+    "Zhang–Xun arXiv:2404.06034v1, Sections 2.1–2.3 and eqs 7/12/13",
+    "Li–White 2002 bibliographic abstract only",
+    "Resultary semantic search: GADI Lyapunov relaxed iteration low rank positive factor rational Krylov k columns"
+  ],
+  "disposition": "passed",
+  "limitations": [
+    "An equivalent weighted Smith or stationary ADI iteration identity may be present in older numerical linear algebra literature not recovered by the targeted search.",
+    "The theorem asserts exact factor width, not finite-precision stability, conditioning or realized computational-speed gains."
+  ],
+  "residual_risks": [
+    "An equivalent weighted Smith or stationary ADI iteration identity may be present in older numerical linear algebra literature not recovered by the targeted search.",
+    "The theorem asserts exact factor width, not finite-precision stability, conditioning or realized computational-speed gains."
+  ],
+  "schema_version": 1
+}
