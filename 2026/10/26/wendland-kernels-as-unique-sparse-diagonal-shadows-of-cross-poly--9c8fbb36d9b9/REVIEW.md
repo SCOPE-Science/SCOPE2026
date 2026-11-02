@@ -1,11 +1,21 @@
-# Scientific review
+# Independent mathematical audit
 
-**Correctness — PASS.** A Gamma–Dirichlet representation of normalized cross-polytope volume gives all even sparse-shadow moments. The iterated-integral moment identity for the compact Wendland profile matches those moments at dimension \(3k-1\). Hausdorff moment determinacy on \([-1,1]\) gives the exact density. The second moment proves uniqueness of dimension among sparse unit-weight projections. The standalone finite checker validates the algebra through six orders, but the unrestricted theorem rests on the written moment proof.
+## correctness
 
-**Originality — PASS, with historical risk.** Wendland's 1995 construction and positivity theorem are known, as are general \({}_1F_2\) positivity results of Fields and Ismail. Neither inspected statement supplies the simultaneous geometric probability realization for all orders, the normalized exponential/sign sampling law, and uniqueness within sparse cross-polytope projections. A related all-coordinate Fourier marginal appears in pre-existing work, but it does not give this \(k\)-sparse \(3k-1\)-dimensional shadow identity. Literature and research-record searches did not find direct coverage. Earlier stochastic representations of compactly supported kernels remain a substantive unexcluded priority risk.
+PASS
 
-**Mathematical value — PASS.** The identity joins two canonical families (minimum-degree compactly supported positive-definite radial functions and regular cross-polytopes), provides an exact geometric interpretation in all orders, and yields an efficient sampling procedure. Dimension rigidity is a global classification within a natural projection family. Known Fourier positivity is treated as prior work rather than novelty.
+Let E_1,...,E_(d+1) be i.i.d. Exp(1), S=sum E_i, ε_i independent signs, X_i=ε_iE_i/S. Gamma–Dirichlet independence shows X has uniform normalized volume on B_1^d and S is independent of Y=sum_{i≤k}X_i. Since ε_iE_i are independent symmetric exponential/Laplace variables with characteristic function (1+t²)^(-1), SY has characteristic function (1+t²)^(-k) and even moments E[Y^(2n)]=(2n)!(k)_n/[n!(d+1)_(2n)]; odd moments vanish by sign symmetry. For W_k=I^(k-1)(1-r)^k, I f(r)=∫_r^1u f(u)du, repeated Fubini gives ∫_0^1r^m W_k(r)dr=B(m+2k-1,k+1)/prod_{j=0}^{k-2}(m+2j+1). Dividing m=2n by m=0 yields (2n)!(k)_n/[n!(3k)_(2n)]. At d=3k-1 every moment of two compactly supported symmetric probability laws agrees; polynomial density in C[-1,1] proves equality of measures and continuous density representatives p_k(y)=W_k(|y|)/(2∫W_k). For fixed k unit-weight coordinates and any d≥k, equality of second moments forces (d+1)(d+2)=3k(3k+1), strictly increasing and hence d=3k-1. Using d+1=3k exponentials and k independent signs yields the exact sampler. All statements hold for every integer k≥1, no multivariate/all-convex-bodies claim.
 
-**Limitations.** No assertion is made about all possible convex-body representations, arbitrary weighted directions, or multidimensional shadows. External publication-priority review and independent mathematical audit have not been completed.
+## originality
 
-Self-review: passed. Independent audit: not yet performed.
+PASS
+
+Best-of-knowledge original probability identity joining the entire family of one-dimensional normalized Wendland functions with sparse unit-weight coordinate sums of uniformly sampled cross-polytopes, plus a rigid ambient dimension and exact sampler. Wendland 1995 defines radial profile and positivity; Fields–Ismail hypergeometric positivity covers transforms; Bell provides crosspolytope volume/Fourier background. Those known results are credited and do not, in inspected material, express this specific all-order pushforward or its dimension uniqueness. Original Wendland full text and possible older probability-shadow representations inaccessible: significant residual historical priority risk, not an automatic O failure.
+
+## value
+
+PASS
+
+The result realizes an established, natural hierarchy of compactly supported basis kernels as exact one-dimensional probability densities of a second natural geometric hierarchy, uniform cross-polytopes. Matching of *every* moment for all k, the rigid d=3k-1 dimension fingerprint, and a direct rejection-free sampler are a structurally useful translation between radial-basis and convex-probability models. A future researcher can exploit the precise distribution/normalization rather than just positivity or a few low-order tabulations. No novel positive-definiteness theorem or uniqueness over arbitrary convex bodies is asserted.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

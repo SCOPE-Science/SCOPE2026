@@ -1,0 +1,162 @@
+{
+  "audit_date_utc": "2026-10-30",
+  "audited_at_utc": "2026-10-30T07:58:45.050020Z",
+  "axes": {
+    "correctness": {
+      "limitations": [
+        "Geometric realization is one-dimensional sum of exactly k unit-weight coordinates in uniform B1^(3k-1), not arbitrary projections or bodies.",
+        "Finite exact SymPy checks are corroboration only; the complete proof is moment-determinacy plus the Fubini identity."
+      ],
+      "rationale": "Let E_1,...,E_(d+1) be i.i.d. Exp(1), S=sum E_i, ε_i independent signs, X_i=ε_iE_i/S. Gamma–Dirichlet independence shows X has uniform normalized volume on B_1^d and S is independent of Y=sum_{i≤k}X_i. Since ε_iE_i are independent symmetric exponential/Laplace variables with characteristic function (1+t²)^(-1), SY has characteristic function (1+t²)^(-k) and even moments E[Y^(2n)]=(2n)!(k)_n/[n!(d+1)_(2n)]; odd moments vanish by sign symmetry. For W_k=I^(k-1)(1-r)^k, I f(r)=∫_r^1u f(u)du, repeated Fubini gives ∫_0^1r^m W_k(r)dr=B(m+2k-1,k+1)/prod_{j=0}^{k-2}(m+2j+1). Dividing m=2n by m=0 yields (2n)!(k)_n/[n!(3k)_(2n)]. At d=3k-1 every moment of two compactly supported symmetric probability laws agrees; polynomial density in C[-1,1] proves equality of measures and continuous density representatives p_k(y)=W_k(|y|)/(2∫W_k). For fixed k unit-weight coordinates and any d≥k, equality of second moments forces (d+1)(d+2)=3k(3k+1), strictly increasing and hence d=3k-1. Using d+1=3k exponentials and k independent signs yields the exact sampler. All statements hold for every integer k≥1, no multivariate/all-convex-bodies claim.",
+      "status": "PASS",
+      "verification": [
+        "Frozen Git tree 178d174da36152d028d173fd5e2760ee1194aef2 and full RESULT.md blob 95042a0cc996456a047717f04aa206035d1029b4 checked.",
+        "Independent SymPy calculation using a separately written iterative integration script established W_k/Z_k and 7 exact even moment equalities each for k=1,...,6, plus explicit normalization constants; analytic moment proof covers all orders.",
+        "k=1: Z1=1, p1=1-r; k=2: Z2=1/15, p2=5/4(1-r)^3(1+3r); k=3: Z3=1/420, p3=3/2(1-r)^5(1+5r+8r²).",
+        "Inspected frozen checker.py blob 0549601e6cba4f51174b7057598a4b71739094c5, but no reliance on saved output for infinite proof."
+      ]
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Fields–Ismail 1975 DOI:10.1137/0506050 establishes positivity for some 1F2 functions; this concerns Fourier signs rather than a particular geometric realization.",
+          "Lacko–Harman 2012 DOI:10.1007/s00184-011-0360-x concerns uniform sampling on Lp balls and spheres, hence explains Dirichlet sampling but does not by itself identify Wendland profiles.",
+          "arXiv:2406.10544 describes Wendland radial density models for astrophysics (abstract-level), different geometries/outputs."
+        ],
+        "reasoning": "Known general positive-definiteness and random sampling laws imply weaker ingredients but not the displayed all-moments equality between a k-coordinate l1-ball sum and a normalized Wendland profile for d=3k-1. A latent general hypergeometric/marginal formula might entail it, but none was substantiated in inspected sources.",
+        "searches": [
+          "Resultary: Wendland functions cross polytope l1 ball sparse diagonal projection probability density Dirichlet moment",
+          "Resultary: Wendland kernel is density of sum of coordinates uniform l1-ball cross polytope 3k-1 dimension",
+          "DOI:10.1007/BF02123482",
+          "DOI:10.1137/0506050",
+          "Jordan Bell (2016), The cross-polytope, the ball, and the cube",
+          "arXiv:2406.10544"
+        ]
+      },
+      "checked_sources": [
+        "Wendland 1995 DOI:10.1007/BF02123482, abstract only; Oxford VPN disconnected",
+        "Jordan Bell 2016 full public notes",
+        "Fields–Ismail 1975 DOI:10.1137/0506050 abstract only",
+        "Lacko–Harman 2012 DOI:10.1007/s00184-011-0360-x abstract only",
+        "arXiv:2406.10544 abstract",
+        "Two actual targeted Resultary searches above"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "Wendland positivity theorem implies that the normalized functions may be positive definite (claimed as prior), not that they equal the distribution of a signed Dirichlet sum from B1^(3k-1).",
+          "Bell volume formula vol(B1^d)=2^d/d! supports normalization but not the all-order moment identity.",
+          "Fields–Ismail 1F2 positivity is weaker than exact equality of measures under a specified sampling mechanism."
+        ],
+        "reasoning": "The exact geometric shadow and rigidity require computing Dirichlet/Laplace even moments and matching them to iterated-integral beta moments. Those additional arguments are not consequences of merely knowing the functions or their Fourier positivity.",
+        "searches": [
+          "Resultary: Wendland functions cross polytope l1 ball sparse diagonal projection probability density Dirichlet moment",
+          "Resultary: Wendland kernel is density of sum of coordinates uniform l1-ball cross polytope 3k-1 dimension",
+          "DOI:10.1007/BF02123482",
+          "DOI:10.1137/0506050",
+          "Jordan Bell (2016), The cross-polytope, the ball, and the cube",
+          "arXiv:2406.10544"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Wendland 1995 DOI:10.1007/BF02123482 bibliographic/abstract describes compactly supported positive definite radial functions of minimal degree, including iterated integral construction.",
+          "Jordan Bell 2016 full public notes discuss cross-polytope volume and its harmonic/Fourier data, not the all-order Wendland sparse-marginal density."
+        ],
+        "reasoning": "The asserted identity is equality of probability measures under a specified uniform-convex-body pushforward and an all-k dimension formula, not merely coincidence of polynomial shape/positive definiteness. Only inspected Bell full text supports a full-document negative comparison; original Wendland complete text inaccessible, so no categorical noncoverage is claimed.",
+        "searches": [
+          "Resultary: Wendland functions cross polytope l1 ball sparse diagonal projection probability density Dirichlet moment",
+          "Resultary: Wendland kernel is density of sum of coordinates uniform l1-ball cross polytope 3k-1 dimension",
+          "DOI:10.1007/BF02123482",
+          "DOI:10.1137/0506050",
+          "Jordan Bell (2016), The cross-polytope, the ball, and the cube",
+          "arXiv:2406.10544"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "Resultary searches with exact cross-polytope, Wendland, sparse shadow, Dirichlet synonyms returned related projection and l1-ball results but no matching k/d family among inspected ranked hits.",
+          "Exact k=1,2,3 density formulas agree with known Wendland polynomial profiles, which are prior; these polynomial coefficients alone do not identify the random convex-body pushforward."
+        ],
+        "reasoning": "An existing Wendland coefficient table covers the functions themselves, not the probability pushforward/dimension rigidity. No inspected external crosspolytope-marginal table supplied an identical all-k theorem; this is a bounded search, not novelty certification.",
+        "searches": [
+          "Resultary: Wendland functions cross polytope l1 ball sparse diagonal projection probability density Dirichlet moment",
+          "Resultary: Wendland kernel is density of sum of coordinates uniform l1-ball cross polytope 3k-1 dimension",
+          "DOI:10.1007/BF02123482",
+          "DOI:10.1137/0506050",
+          "Jordan Bell (2016), The cross-polytope, the ball, and the cube",
+          "arXiv:2406.10544"
+        ]
+      },
+      "rationale": "Best-of-knowledge original probability identity joining the entire family of one-dimensional normalized Wendland functions with sparse unit-weight coordinate sums of uniformly sampled cross-polytopes, plus a rigid ambient dimension and exact sampler. Wendland 1995 defines radial profile and positivity; Fields–Ismail hypergeometric positivity covers transforms; Bell provides crosspolytope volume/Fourier background. Those known results are credited and do not, in inspected material, express this specific all-order pushforward or its dimension uniqueness. Original Wendland full text and possible older probability-shadow representations inaccessible: significant residual historical priority risk, not an automatic O failure.",
+      "residual_risks": [
+        "Complete Wendland 1995 paper could discuss geometric interpretations not visible in available abstract; original full text could not be inspected and authorized retrieval reported VPN disconnected.",
+        "Special-function probability density or polytopal projection literature may contain an equivalent 3k-1/sparse-coordinate identity under a different name; negative ranked searches are not a priority certificate."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Original profile construction and positivity are prior. No whole-document claim of noncoverage; geometric representation in unavailable passages remains a priority risk.",
+          "evidence": "The documented original contribution is compact radial basis functions of minimal degree.",
+          "identifier_or_url": "DOI:10.1007/BF02123482",
+          "material_read": "Bibliographic abstract and formula descriptions; full licensed article unavailable, authorized Oxford fetch reported VPN disconnected",
+          "method": "ArXiv/OA lookups, primary publisher metadata, authorized institutional request",
+          "title": "Piecewise polynomial, positive definite and compactly supported radial functions of minimal degree",
+          "trigger": "Original paper constructing the exact named Wendland function family"
+        },
+        {
+          "assessment": "Provides cross-polytope basics and volume normalization, not the joint special-function all-k marginal identification in inspected sections.",
+          "evidence": "Volume of the d-dimensional l1 unit ball is 2^d/d!, consistent with the Gamma–Dirichlet density in this proof.",
+          "identifier_or_url": "https://jordanbell.info/LaTeX/mathematics/cube/",
+          "material_read": "Public full mathematical notes including volume calculation and Fourier transform sections",
+          "method": "Direct public text inspection",
+          "title": "The cross-polytope, the ball, and the cube",
+          "trigger": "Full geometric background for l1-ball volumes and Fourier representations"
+        },
+        {
+          "assessment": "Positivity material is prior; no full-text assessment of geometric marginal representation was possible.",
+          "evidence": "The title and accessible description concern positivity of hypergeometric functions.",
+          "identifier_or_url": "DOI:10.1137/0506050",
+          "material_read": "Abstract/bibliographic statement only",
+          "method": "Scholarly search and metadata",
+          "title": "On the positivity of some 1F2’s",
+          "trigger": "Possible broader hypergeometric positivity covering a transform corollary"
+        },
+        {
+          "assessment": "Uniform sampler background does not in itself identify target Wendland density; deeper specializations are not excluded.",
+          "evidence": "Source studies sampling on Lp spheres/balls, which includes l1 geometry.",
+          "identifier_or_url": "DOI:10.1007/s00184-011-0360-x",
+          "material_read": "Bibliographic abstract only",
+          "method": "Scholarly search",
+          "title": "A conditional distribution approach to uniform sampling on spheres and balls in Lp spaces",
+          "trigger": "Possible general Dirichlet representation that makes geometric shadow trivial"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "limitations": [
+        "No generalization to multivariate Wendland kernels, non-unit coordinate weights or arbitrary convex bodies is claimed."
+      ],
+      "rationale": "The result realizes an established, natural hierarchy of compactly supported basis kernels as exact one-dimensional probability densities of a second natural geometric hierarchy, uniform cross-polytopes. Matching of *every* moment for all k, the rigid d=3k-1 dimension fingerprint, and a direct rejection-free sampler are a structurally useful translation between radial-basis and convex-probability models. A future researcher can exploit the precise distribution/normalization rather than just positivity or a few low-order tabulations. No novel positive-definiteness theorem or uniqueness over arbitrary convex bodies is asserted.",
+      "status": "PASS"
+    }
+  },
+  "checked_sources": [
+    "Wendland 1995 DOI:10.1007/BF02123482, abstract only; Oxford VPN disconnected",
+    "Jordan Bell 2016 full public notes",
+    "Fields–Ismail 1975 DOI:10.1137/0506050 abstract only",
+    "Lacko–Harman 2012 DOI:10.1007/s00184-011-0360-x abstract only",
+    "arXiv:2406.10544 abstract",
+    "Two actual targeted Resultary searches above"
+  ],
+  "disposition": "passed",
+  "limitations": [
+    "Geometric realization is one-dimensional sum of exactly k unit-weight coordinates in uniform B1^(3k-1), not arbitrary projections or bodies.",
+    "Finite exact SymPy checks are corroboration only; the complete proof is moment-determinacy plus the Fubini identity.",
+    "No generalization to multivariate Wendland kernels, non-unit coordinate weights or arbitrary convex bodies is claimed."
+  ],
+  "residual_risks": [
+    "Complete Wendland 1995 paper could discuss geometric interpretations not visible in available abstract; original full text could not be inspected and authorized retrieval reported VPN disconnected.",
+    "Special-function probability density or polytopal projection literature may contain an equivalent 3k-1/sparse-coordinate identity under a different name; negative ranked searches are not a priority certificate."
+  ],
+  "schema_version": 1
+}
