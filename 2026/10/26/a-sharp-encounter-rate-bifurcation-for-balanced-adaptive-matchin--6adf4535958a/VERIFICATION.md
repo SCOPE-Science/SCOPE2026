@@ -5,8 +5,11 @@
     "status": "not_performed"
   },
   "independent_audit": {
-    "evidence": null,
-    "status": "not_performed"
+    "status": "passed",
+    "evidence": [
+      "INDEPENDENT_AUDIT_2026-10-31.md",
+      "INDEPENDENT_AUDIT_2026-10-31.json"
+    ]
   },
   "lean_verification": {
     "evidence": null,
@@ -16,16 +19,24 @@
 }
 ---
 
-# Verification record
+# Independent mathematical audit
 
-The accompanying `verify.py` was executed from its packaged source as a standalone Python program. It returned:
+## correctness
 
-```
-PASS projected-flow selection trials 384
-PASS instances 2405 rational equilibrium checks 88985
-PASS balanced example ('5/12', '5/6') ('2/5', '4/5')
-```
+PASS
 
-The checker enumerates pairs of strictly positive target vectors of lengths at most three and common integer total at most nine. It constructs exact rational below-threshold equilibrium candidates using capped-demand inversion and at/above-threshold candidates using the proposed interval parameterization, then independently verifies every individual capped fixed-point equation and aggregate matching-volume identity. The numerical trajectory trials apply the projected homogeneous aggregate vector field over finite time and compare with the predicted clipped-initial-imbalance limit. Exact calculations were independently checked for the heterogeneous two-by-two example and the interior Jacobian eigenvalues.
+Frozen balanced-target matching ODE was reconstructed: capped stationarity gives C(x)=sum min(c_i,x) and D(y), both strictly increasing until T, and a scalar K=C^{-1}(R)D^{-1}(R)/R which is strictly increasing on 0<R<T. Full target R=T gives the exactly feasible A interval [d_max/K,T/c_max]; singleton at K_c=c_max d_max/T and a continuum above. The top multiplicities yield epsilon=T-R and the one-sided slope 1/(K_c eta), eta=1/(m_c c_max)+1/(m_d d_max)-1/T>0. At interior full-target points, within-side fluctuation modes and the aggregate 2x2 Jacobian have one zero tangent and all other negative eigenvalues. For homogeneous targets and within-side identical starts, constant A-B before clipping and boundary saturation give the selected clipped h0. Independent rational checks tested 12 interior/end equilibria and three cusp approximations; this finite sample is not the all-target proof.
 
-Finite arithmetic checks do not prove uniqueness, global convergence, or the asymptotic derivative statement. Those follow from the explicit monotonicity, boundary, and flow arguments in `RESULT.md`. The empirical selection trials use numerical discretization and are not a proof of the limiting statement. Unrestricted heterogeneous trajectory convergence is not claimed. Historical novelty and scientific completeness have not been independently validated.
+## originality
+
+PASS
+
+Qualified best-of-knowledge comparison: the accessible primary works supply originating models or generic techniques but their inspected mathematical statements do not establish this exact complete final result; the four implication checks and specific priority risks below delimit this conclusion.
+
+## value
+
+PASS
+
+Balanced total desired rates are the natural degeneracy hyperplane omitted from the originating model. Identifying the exact K_c, complete heterogeneous equilibrium geometry and quantitative cusp distinguishes feasibility from perpetual target shortfall; the neutral manifold and selected homogeneous outcome give useful dynamics that cannot be read from a numerical equilibrium plot. This is a structural classification, not a routine relabeling of the unequal-total theorem.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
