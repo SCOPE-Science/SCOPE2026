@@ -1,0 +1,11 @@
+# Scientific review
+
+**Correctness: PASS.** Fixed-sum sign identities imply explicit second- and fourth-order moments, which yield the variance formula by exhaustive pair-overlap algebra. The unsigned vertex-pair incidence matrix has positive-definite Gram matrix, giving an exact projection identity and hence a necessary-and-sufficient zero-variance condition. A separate binary-weight rigidity proof classifies the four unweighted graph families. The standard-library exact verifier tests the derivation and the classification independently at small dimensions. Neither finite tests nor source searches replace the all-dimensional proof.
+
+**Originality: PASS, qualified.** The inspected main trace-estimation sources use i.i.d. sign or Gaussian probes and low-rank variance reduction rather than conditioning each sign vector to have zero sum. The 2015 harmonic-slice analysis establishes a general representation theory and orthogonality result that could be specialized to the present variance calculation; those general tools are prior results. The added explicit graph-Laplacian degree identity, weighted projection zero locus, and simple-graph rigidity classification were not stated in the inspected directly relevant results. Prior work on random graph bisections and degree-two slice polynomials could contain an equivalent specialization; publication priority is not independently certified.
+
+**Value: PASS.** Deterministic trace recovery from one *balanced* probe on precisely characterized natural graph families, including the star where an independent-sign probe has strictly positive variance, is a structural benchmark for matrix-free trace estimation. The exact squared-distance formula quantifies departure from those families across all weighted graphs rather than merely proving a nonsharp bound. The result is not marketed as a faster method when the weighted edge list is already available.
+
+**Sources and limitations.** Meyer et al. (2020), arXiv:2010.09649; Persson et al. (2021), arXiv:2109.10659; and Filmus–Mossel (2015), arXiv:1507.02713. The result needs even dimension, exact products, and the graph-Laplacian structure. No statement is made about arbitrary matrices, matrix functions, or independent academic validation.
+
+Self-review: passed. Independent audit: not yet performed.

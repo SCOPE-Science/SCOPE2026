@@ -1,0 +1,120 @@
+{
+  "correctness": {
+    "rationale": "Full exact proof: balanced pair/fourth moments, pair-overlap variance, B^TB=(n-2)I+11^T positive-definite incidence projection, and all-order binary-weight rigidity. The embedded exact-rational verifier independently enumerated balanced probes for 600 random weighted examples and all 4-/6-vertex simple graphs and verified 3434 assertions. No finite sample is used as an infinite proof.",
+    "status": "PASS"
+  },
+  "independent": false,
+  "independent_audit_status": "not_performed",
+  "originality": {
+    "broader_coverage": {
+      "evidence": [
+        "Hutch++ (arxiv:2010.09649), Section 1.2: projection onto leading approximate eigenspaces reduces ordinary Hutchinson trace noise for general PSD matrices.",
+        "Persson–Cortinovis–Kressner (arxiv:2109.10659), Section 1: improved trace estimators and Gaussian-probe variance, with distinct low-rank correction and no fixed-sum slice."
+      ],
+      "reasoning": "General unbiased trace estimation and low-rank deflation imply neither the dependency-corrected balanced variance nor the exact four graph-family rigidity result. A general second-moment harmonic-slice framework is closer, but does not state these graph-specific consequences; that prior mathematical coverage is explicitly acknowledged.",
+      "searches": [
+        "graph Laplacian stochastic trace estimator single zero-sum Rademacher probe variance-free on stars and cliques",
+        "Search: random balanced cut weighted graph variance formula edge degree covariance",
+        "Search: graph cut size same for every bisection star complete graph one isolated vertex"
+      ]
+    },
+    "checked_sources": [
+      "arxiv:2010.09649 (original methods and variance reduction)",
+      "arxiv:2109.10659 (original methods and Gaussian probe variance)",
+      "arxiv:1507.02713v5 (harmonic-slice full HTML, relevant sections)"
+    ],
+    "claim_vs_prior_implication": {
+      "evidence": [
+        "General representation theory yields harmonic decompositions and degree-specific inner-product normalization on slices, but has no inspected explicit all-pair graph zero-variance rigidity list.",
+        "The two 2020–2021 numerical trace-estimation papers formulate independent-sign or independent-Gaussian estimators; the normalizing covariance and pair-overlap structure differ from fixed-sum sampling."
+      ],
+      "reasoning": "The novelty assessment is the combined exact graph-projection and complete unweighted classification, NOT general stochastic trace unbiasedness, general slice orthogonality, or the elementary covariance identity alone. None of the named primary sources as inspected implies the combined statement without an additional nontrivial graph-specific projection and binary rigidity argument. More specialized bisection literature remains a concrete residual risk.",
+      "searches": [
+        "fixed-Hamming-weight sign quadratic forms variance vanishing characterization off diagonal additive",
+        "Hutchinson variance of balanced Rademacher probes exact graph Laplacian degree-square formula",
+        "Filmus–Mossel (2015), Sections 3.1-3.4, especially Theorem 3.10 and Lemma 3.15",
+        "Meyer et al. (2020) / Persson et al. (2021), estimator and variance sections"
+      ]
+    },
+    "equivalent_formulations": {
+      "evidence": [
+        "Meyer et al. (2020) normalize i.i.d. sign probes using E[gg^T]=I and use low-rank deflation; no fixed-sum constraint in inspected estimator.",
+        "Filmus–Mossel (2015), Theorem 3.10, treats general orthogonality of harmonic homogeneous polynomials under exchangeable measures, not the explicit graph-Laplacian projection or binary graph classification."
+      ],
+      "reasoning": "The balanced law has negative pairwise correlations and distinct-index fourth moments absent under independent signs. It is equivalent to a uniformly random equal-size graph bisection, so bisection and slice-harmonic formulations were searched. Known slice representation theory can support the second-moment calculation, but an explicit all-graph risk and the complete graph family classification are not identified in these sources.",
+      "searches": [
+        "balanced Rademacher probes Laplacian trace estimator random bisection variance-free additive weighted complete graphs stars four-point identities",
+        "Search: balanced Rademacher stochastic trace estimator Laplacian",
+        "Meyer et al., arxiv:2010.09649, Sections 1.1-1.2",
+        "Filmus and Mossel, arxiv:1507.02713, Theorem 3.10"
+      ]
+    },
+    "exact_database_or_table": {
+      "evidence": [
+        "Uniform balanced cut values can be compared exactly by summing over the fixed-sign support; this is an analytical projection identity, not a finite-graph enumeration.",
+        "A direct 0/1 potential rigidity argument supplies the graph classification for all even orders, whereas the cited trace-estimator literature presents no such classification."
+      ],
+      "reasoning": "No published database or lookup table was relied on or found that tabulates this exact all-order weighted Laplacian projection and unweighted zero-variance list. Exhaustive n=4 and n=6 computer checks merely corroborate the proof and are not the source of the infinite claim.",
+      "searches": [
+        "weighted bisection cut invariant for all equipartitions iff edge weights are sums of vertex potentials",
+        "Search: graphs having constant cut size over every bisection",
+        "Search: all bisections same size graph complete star clique isolate"
+      ]
+    },
+    "rationale": "Distinct from prior i.i.d. trace estimators: exact balanced-slice, graph-Laplacian variance expressed as edge-weight distance from additive potentials and complete four-family zero-variance graph classification. Classical harmonic-slice orthogonality is expressly recognized, and relevant priority risks remain.",
+    "residual_risks": [
+      "A specialized older exact distribution or zero-variance graph-bisection classification might exist outside the inspected published sources and published-record searches.",
+      "General harmonic-slice results imply a broad degree-two norm framework and may allow related weighted variance identities as corollaries, although the explicit graph rigidity theorem is not identified.",
+      "No independent human publication-priority check has been performed."
+    ],
+    "source_inspections": [
+      {
+        "assessment": "Addresses i.i.d. signs and low-rank correction; does not present this fixed-sum graph-Laplacian variance identity or zero-variance classification in inspected material.",
+        "evidence": [
+          "ArXiv first posting 2020-10-19",
+          "Section 1.1 describes i.i.d. Rademacher signs",
+          "Algorithm 1 uses random sign matrices with independent entries"
+        ],
+        "identifier_or_url": "https://arxiv.org/abs/2010.09649",
+        "material_read": "ArXiv full HTML/text, introduction, Sections 1.1-1.2, algorithms and key variance-reduction statements",
+        "method": "Read original paper text and compare estimator distribution, matrix class and mathematical conclusions",
+        "title": "Hutch++: Optimal Stochastic Trace Estimation",
+        "trigger": "Matrix-vector trace estimation baseline and earliest motivating public paper"
+      },
+      {
+        "assessment": "Uses standard Gaussian vectors with independent coordinates and low-rank approximations; not this balanced sign sampling law or four-family graph classification.",
+        "evidence": [
+          "ArXiv first posting 2021-09-22",
+          "Section 1 gives standard-Gaussian trace variance and describes independent probes"
+        ],
+        "identifier_or_url": "https://arxiv.org/abs/2109.10659",
+        "material_read": "ArXiv full HTML/text, introduction, error formulas and algorithm sections",
+        "method": "Compared probe covariance, variance theorems and low-rank approximation assumptions",
+        "title": "Improved variants of the Hutch++ algorithm for trace estimation",
+        "trigger": "Related randomized trace estimator and variance literature"
+      },
+      {
+        "assessment": "Provides pre-existing general slice-harmonic norm/orthogonality machinery. It does not state the present Laplacian variance projection or classify all unweighted zero-variance graph families in the inspected sections. General machinery could shorten parts of the derivation and is explicitly cited as prior.",
+        "evidence": [
+          "Original arXiv submitted 2015-07-09",
+          "Theorem 3.10: homogeneous harmonic multilinear polynomials have exchangeable-measure inner-product identities",
+          "Section 3.3 gives Poincare identities, not graph-cut classification"
+        ],
+        "identifier_or_url": "https://arxiv.org/html/1507.02713v5",
+        "material_read": "Full accessible HTML, introduction, Sections 3.1-3.4 including Theorem 3.10, Lemmas 3.13–3.17 and representation-theoretic discussion",
+        "method": "Compared harmonic polynomial second moments with explicit graph incidence, projection and binary rigidity",
+        "title": "Harmonicity and Invariance on Slices of the Boolean Cube",
+        "trigger": "Potentially broader representation theory directly covering fixed-Hamming-weight signs and quadratic forms"
+      }
+    ],
+    "status": "PASS"
+  },
+  "review_type": "self_review",
+  "schema_version": 1,
+  "scope_run_id": "93507305-04f5-4211-835a-e38f36ed57d0",
+  "self_review_status": "passed",
+  "value": {
+    "rationale": "The graph-Laplacian class is a natural PSD matrix-free trace benchmark, the exact distance-to-additive-weights formula is a structural variance invariant for every weighted graph, and the all-order simple-graph classification identifies precisely when one balanced probe is deterministic (including nontrivial stars with independent-probe variance 4(n-1)). The claim explicitly excludes graph-list access cases where trace is trivial and does not inflate sample complexity consequences.",
+    "status": "PASS"
+  }
+}
