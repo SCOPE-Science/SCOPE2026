@@ -1,0 +1,103 @@
+{
+  "correctness": {
+    "rationale": "At stationary age A~Exp(r), the reset-free pair is Gaussian; a Brownian bridge gives E[X|Y=y,A=a]=gay/2 and Var(X|Y=y,A=a)=2Da+Dg²a³/6. Bayes gives a GIG posterior proportional to a^(-1/2) exp(-ra-y²/(4Da)). Evaluating its half-integer Bessel moments gives P1=z+1, P2=z²+3z+3 and P3=z³+6z²+15z+15. Total conditional expectation and variance yield the exact formulas on all real y including y=0 by continuity. Symbolic polynomial identities, 45 independent numerical moment integrals and 15 conditional mean/variance comparisons passed. Global moments 2Dg/r² and 2D/r+4Dg²/r³ exactly match source.",
+    "status": "PASS"
+  },
+  "independent": false,
+  "independent_audit_status": "not_performed",
+  "originality": {
+    "broader_coverage": {
+      "evidence": [
+        "Main source Eq.(5) gives generic unintegrated joint renewal law, while its displayed exact moment calculations cover global cumulants only",
+        "Brownian bridge and generalized-inverse-Gaussian posterior identities are standard mathematical ingredients"
+      ],
+      "reasoning": "The source exact joint renewal integral does mathematically determine every conditional law but leaves the integral unevaluated. The explicit closed polynomial conditional moments and far-field growth are not stated; the theorem uses an additional Gaussian bridge calculation plus half-integer Bessel integral evaluation. A generic mixture theory could subsume the result; this is a residual risk, not proof of uniqueness.",
+      "searches": [
+        "\"Shear-Driven Diffusion with Stochastic Resetting\" \"conditional\"",
+        "shear resetting Brownian motion conditional expectation x given y stationary regression conditional variance",
+        "stochastic resetting linear shear flow exact conditional variance transverse coordinate"
+      ]
+    },
+    "checked_sources": [
+      "Abdoli–Olsen–Löwen, arXiv:2410.10333v1, direct HTML full-text sections II–V and Appendices A–B",
+      "Olsen–Löwen, arXiv:2406.10039v1, direct HTML introductory/renewal description",
+      "Targeted scientific-literature and mathematical finding searches for nonlinear conditional shear-resetting laws"
+    ],
+    "claim_vs_prior_implication": {
+      "evidence": [
+        "arXiv:2410.10333v1 Eq.(2),(5),(9)-(14), Appendix A/B are a stronger representation of the same joint distribution but no evaluated conditional moment formula",
+        "arXiv:2406.10039v1 treats partial position rescaling and refractory pauses rather than shear-driven full resets"
+      ],
+      "reasoning": "The global covariance 2Dg/r² follows from the conditional formula by averaging, but the converse is false. The prior implicit joint distribution can be specialized through a substantive conditioning/integral evaluation, yielding exact polynomial conditional moment profiles. No prior explicit evaluated specialization located; the known stronger implicit distribution is acknowledged and priority remains qualified.",
+      "searches": [
+        "arxiv:2410.10333v1 (source inspection: main sections and appendices)",
+        "arxiv:2406.10039v1 (source inspection: introduction and renewal model)",
+        "\"shear\" \"resetting\" \"nonlinear regression\" Brownian"
+      ]
+    },
+    "equivalent_formulations": {
+      "evidence": [
+        "arXiv:2410.10333v1 sections II–III and Appendices A–B provide full stationary renewal integral and unconditional moments; no conditional regression or explicit conditional variance",
+        "A closest semantic research record on conditional variance concerned the Kaplan–Yorke stationary measure, which is a different dynamical system and does not imply the present formula."
+      ],
+      "reasoning": "Searched for quadratic regression, transverse conditioning, GIG posterior age, and cubic conditional dispersion. The closest explicit conditional-variance record concerns a non-sheared discrete dynamical system and implies nothing for the present Brownian reset model.",
+      "searches": [
+        "stochastic reset linear shear conditional law X given Y nonlinear regression quadratic and variance cubic",
+        "\"shear\" \"stochastic resetting\" \"conditional variance\"",
+        "Exact stationary conditional expectation and conditional variance transverse position under stochastic resetting in linear shear flow Brownian tracer; conditional quadratic regression y absolute y and cubic heteroscedasticity"
+      ]
+    },
+    "exact_database_or_table": {
+      "evidence": [
+        "Original article Eq.(9)–(14) tabulates global stationary mean, variances and covariance, not conditional profiles",
+        "The numerical checks reproduce those global moments as consistency, not as novel claims"
+      ],
+      "reasoning": "No checked source/database table was found containing the conditional formulas; exact global moments alone cannot determine arbitrary fiberwise conditional moments in a non-Gaussian joint law.",
+      "searches": [
+        "\"shear\" \"stochastic resetting\" \"conditional variance\"",
+        "\"shear-driven diffusion\" \"stationary conditional\" Brownian",
+        "Abdoli Olsen Löwen Shear-Driven Diffusion with Stochastic Resetting arxiv 2410.10333 stationary conditional moments posterior reset age Bessel K"
+      ]
+    },
+    "rationale": "The source arXiv:2410.10333v1 states the renewal joint-density integral and global moments but not the conditional fiberwise mean/variance formulas or a polynomial hierarchy for the conditioned reset age. Conditional Gaussian bridges and explicit half-integer Bessel evaluation produce the quadratic/cubic exact profiles; these are not mere restatements of source unconditional moments. Targeted database searches found no mathematical implication covering these formulas, but generic Gaussian-mixture and renewal theorems could contain them implicitly and the paper already supplies the general integral. Publication priority is not certified.",
+    "residual_risks": [
+      "The original exact joint stationary renewal representation implies the conditional law implicitly. Broader explicit mixture/conditional regression results may be equivalent or dominate the specialization.",
+      "Originality is best-knowledge, not exhaustive publication-priority certification."
+    ],
+    "source_inspections": [
+      {
+        "assessment": "COVERS model, stationary renewal representation, global moments; does not state or calculate full exact conditional profiles",
+        "evidence": [
+          "Eq.(5): stationary renewal integral",
+          "Eqs.(9)-(14): unconditional stationary means and pair covariance",
+          "Appendix A: reset-free Gaussian propagator; Appendix B: perturbative stationary density"
+        ],
+        "identifier_or_url": "https://arxiv.org/html/2410.10333v1",
+        "material_read": "Abstract; introduction; model; entire main stationary and moments sections, cost and partial-coordinate variant; propagator and steady-state appendices; concluding discussion",
+        "method": "Opened accessible arXiv HTML; searched text for conditional, regression, covariance; read section equations and appendices",
+        "title": "Shear-Driven Diffusion with Stochastic Resetting",
+        "trigger": "Same stochastic process, exactly matching shear, diffusivity, reset protocol"
+      },
+      {
+        "assessment": "DIFFERENT protocol: partial coordinate rescaling plus refractory dynamics, no linear shear or target conditional profiles",
+        "evidence": [
+          "Abstract and sections I-II; resetting x to ax instead of both coordinates to the origin"
+        ],
+        "identifier_or_url": "https://arxiv.org/html/2406.10039v1",
+        "material_read": "Abstract, introduction, renewal propagator and exposition of stationary subpopulations",
+        "method": "Opened accessible arXiv HTML and read model/renewal description",
+        "title": "Partial stochastic resetting with refractory periods",
+        "trigger": "Related Poisson resetting with nontrivial stationary mixture, potential general dominance"
+      }
+    ],
+    "status": "PASS"
+  },
+  "review_type": "self_review",
+  "schema_version": 1,
+  "scope_run_id": "e3c8103e-d9c1-44ce-84ea-e14a94e824f1",
+  "self_review_status": "passed",
+  "value": {
+    "rationale": "The height-resolved transport and dispersion in a reset-sheared Brownian tracer are directly observable and not specified by published spatial averages. The exact nonlinear conditional mean grows as y|y| even though applied shear velocity is linear in y, while the conditional horizontal fluctuation variance grows as |y|³. The all-height monotonicity and explicit coefficients explain the far-field amplification and supply a complete conditional-age moment hierarchy; these are structurally motivated by the shear and resetting interplay, not an arbitrary parameter slice. Main scientific limitations are simultaneous global resetting and ideal stationary observations.",
+    "status": "PASS"
+  }
+}
