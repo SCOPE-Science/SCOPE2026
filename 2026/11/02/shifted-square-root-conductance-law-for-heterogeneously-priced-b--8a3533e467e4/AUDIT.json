@@ -1,0 +1,120 @@
+{
+  "correctness": {
+    "rationale": "The complete independent-edge conductance optimization is strictly convex on connected allocations. Right-side vertex symmetry then forces one conductance a_i per left vertex, and connectedness forces all a_i>0. Unit-current calculations establish every pair-resistance type and exact reduced objective. Its positive-definite Hessian proves uniqueness. Its KKT equations give a positive shift alpha with a strictly monotone scalar equation, and substituting proves the optimal value. The unique-minimum large-q expansion uses K_q/q^2 -> 1 and bounded nonminimal contributions. SymPy verifies the exact K_3,4 resistance identity; 96 spectral, 96 KKT, 2400 asymmetric feasible, and four independent full-edge numerical comparisons corroborate. Residual risk: mistakes in source interpretation or a proof algebra step, not resolved by finite comparisons alone.",
+    "status": "PASS"
+  },
+  "independent": false,
+  "independent_audit_status": "not_performed",
+  "originality": {
+    "broader_coverage": {
+      "evidence": [
+        "Ghosh–Boyd–Saberi 2008 sections 2.7, 4, 5, 8: https://studyres.com/doc/19597605/minimizing-effective-resistance-of-a-graph",
+        "Chen–Yan 2021 abstract: https://doi.org/10.1016/j.amc.2021.126382"
+      ],
+      "reasoning": "General strictly convex optimization covers the existence, uniqueness, and implicit KKT equations on arbitrary graphs. It does not expressly provide the one-dimensional exact biclique allocation or the cheapest-row concentration limits. Chen–Yan 2021 concerns pair resistances in product-vertex-weighted networks and is relevant to the pairwise formula but no allocation theorem appears in the abstract. Full text remains unverified; this is a residual risk rather than proof of absence.",
+      "searches": [
+        "Ghosh Boyd Saberi 2008 minimize effective resistance complete bipartite heterogeneous edge costs optimal weights Kirchhoff index",
+        "optimal edge weights complete bipartite graph minimum total effective resistance network budget",
+        "\"Resistance distances in vertex-weighted complete multipartite graphs\" Chen Yan pdf"
+      ]
+    },
+    "checked_sources": [
+      "Ghosh–Boyd–Saberi 2006, official conference PDF, general ERMP/barbell/extension sections",
+      "Ghosh–Boyd–Saberi 2008, full HTML transcription, strict convexity/SDP/analytic solutions/extension sections",
+      "Chen–Yan 2021, public abstract and metadata only",
+      "Published semantic research records: titles and summaries for closest complete-bipartite and weighted-graph entries",
+      "Public keyword and title searches for row-price biclique conductance optimization, equivalent Kirchhoff objective, and asymptotic cheapest-row concentration"
+    ],
+    "claim_vs_prior_implication": {
+      "evidence": [
+        "2006 conference full primary material: https://web.stanford.edu/~boyd/papers/pdf/eff_res_mtns06.pdf",
+        "2008 SIAM primary text: https://studyres.com/doc/19597605/minimizing-effective-resistance-of-a-graph",
+        "Chen–Yan 2021 abstract: https://doi.org/10.1016/j.amc.2021.126382"
+      ],
+      "reasoning": "The prior convex graph-design principles imply existence of a unique minimizer but not the closed scalar root and asymptotic limits without new biclique-specific resistance identities and a one-parameter KKT elimination. The Chen–Yan abstract claims resistance formulas that may imply the preliminary electrical reduction; no published explicit optimizer or q-scaling classification could be confirmed. This unresolved full-text comparison is recorded, not converted to a whole-paper noncoverage assertion.",
+      "searches": [
+        "\"Minimizing Effective Resistance of a Graph\" 2006 July 24 conference pdf",
+        "arxiv \"Resistance distances in vertex-weighted complete multipartite graphs\" Chen Yan",
+        "\"Resistance distances in vertex-weighted complete multipartite graphs\" filetype:pdf",
+        "optimal conductance design bipartite graph heterogeneous star costs infinite-size cheapest-row concentration"
+      ]
+    },
+    "equivalent_formulations": {
+      "evidence": [
+        "Ghosh–Boyd–Saberi 2006, pp. 1185–1196: https://web.stanford.edu/~boyd/papers/pdf/eff_res_mtns06.pdf",
+        "Independent weighted-bipartite network and heterogeneous-cost keyword searches did not return an exact row-price allocation classification."
+      ],
+      "reasoning": "The shifted reciprocal square-root profile and its unique scalar shift were compared with alternative resistance-sum, Laplacian trace, network sizing, and one-sided vertex-price descriptions; the identified foundational results describe general convex optimization or a different graph class, not a statement-equivalent solution.",
+      "searches": [
+        "\"complete bipartite\" \"effective resistance\" \"optimal\" \"conductances\" \"cost\"",
+        "\"complete bipartite\" \"total effective resistance\" \"edge weights\" \"budget\"",
+        "optimal Kirchhoff index conductances complete bipartite graph heterogeneous edge cost distinguished vertex effective resistance allocation",
+        "Kirchhoff index bipartite weighted a_i edges to all right vertices, effective resistances (N-1)/q sum reciprocal a_i + N(q-1)/sum a_i"
+      ]
+    },
+    "exact_database_or_table": {
+      "evidence": [
+        "No discovered fixed-parameter resistance table gives the arbitrary-dimensional row-price formula. Existing complete multipartite uniform- or vertex-weighted resistance formulas address evaluated networks rather than independently optimal conductance budgets."
+      ],
+      "reasoning": "The theorem has arbitrary positive real prices, integers p,q, and a limiting classification; an isolated spectrum or tabulated small biclique is not dominating coverage. Public search was negative but is not treated as uniqueness or priority proof.",
+      "searches": [
+        "\"complete bipartite\" \"effective resistance\" \"optimal\" \"conductances\" \"cost\"",
+        "\"complete bipartite\" \"total effective resistance\" \"edge weights\" \"budget\"",
+        "heterogeneous link cost minimizing Kirchhoff index biclique conductance allocation"
+      ]
+    },
+    "rationale": "The explicit arbitrary-row-price one-scalar allocation law and the cheapest-row q->infinity concentration theorem are not stated in the inspected foundational papers. The broad published convex program encompasses these instances algorithmically but supplies neither explicit shift solution nor concentration limit. A vertex-weighted multipartite resistance-formula article could cover some pairwise identities, but its accessible abstract claims formulas for multiplicative edge resistances, not optimization; lack of full text remains a real historical risk.",
+    "residual_risks": [
+      "Chen–Yan 2021 full text unavailable: it could contain the row-dependent resistance reduction, although its abstract does not claim an optimal allocation theorem.",
+      "Bendito and collaborators 2007 formula source inaccessible; a broad formula might overlap the electrical identity but no exact optimizer was verified.",
+      "Unlocated specialized circuit/network optimization literature may already derive an equivalent shifted-square-root law; negative searches cannot establish publication priority."
+    ],
+    "source_inspections": [
+      {
+        "assessment": "General graph optimization and specific barbell; does not state independently priced K_pq row allocation or large-q concentration in reviewed statements and sections.",
+        "evidence": "Conference proceedings heading dated July 24–28 2006; general ERMP under sum of conductances; explicit barbell example and extensions.",
+        "identifier_or_url": "https://web.stanford.edu/~boyd/papers/pdf/eff_res_mtns06.pdf",
+        "material_read": "Title, abstract, conference date, general convex formulation, uniqueness, section V barbell allocation, section VII extensions, references",
+        "method": "Official author-hosted publisher conference PDF text and inspected page images 1, 8, and 10",
+        "title": "Minimizing Effective Resistance of a Graph (MTNS 2006)",
+        "trigger": "Foundational optimization and earliest focal 2006 public source"
+      },
+      {
+        "assessment": "Strict convexity, SDP and examples for trees, wheels and barbell; no statement of vertex-heterogeneous biclique optimum observed in inspected material.",
+        "evidence": "https://studyres.com/doc/19597605/minimizing-effective-resistance-of-a-graph; https://epubs.siam.org/doi/10.1137/050645452",
+        "identifier_or_url": "doi:10.1137/050645452",
+        "material_read": "Abstract, introduction, section 2.7 strict convexity, section 4 optimality, section 5 analytic solutions, section 8 extensions",
+        "method": "Full-text accessible HTML transcription supported by publisher bibliographic page",
+        "title": "Minimizing Effective Resistance of a Graph (SIAM Review 2008)",
+        "trigger": "Expanded primary paper for stronger or dominating coverage"
+      },
+      {
+        "assessment": "Not a whole-document NOT_COVERING finding; abstract addresses pair resistance formula, but does not claim optimization. Priority overlap cannot be ruled out without full text.",
+        "evidence": "https://ideas.repec.org/a/eee/apmaco/v409y2021ics0096300321004719.html",
+        "identifier_or_url": "https://doi.org/10.1016/j.amc.2021.126382",
+        "material_read": "Public bibliographic title and abstract only; full text not obtained",
+        "method": "Author/title and DOI open-access/preprint search and authorized institutional full-text attempt",
+        "title": "Resistance distances in vertex-weighted complete multipartite graphs",
+        "trigger": "Plausible same network under vertex-product edge resistances"
+      },
+      {
+        "assessment": "No reliable same-object implication comparison possible; mathematical priority risk explicitly retained.",
+        "evidence": "Publication listing (2007); no material assertion about complete bipartite price optimization from this source.",
+        "identifier_or_url": "https://upcommons.upc.edu/bitstreams/afddf78c-8d6c-4877-b367-69046807a893/download",
+        "material_read": "Search-result bibliographic description only",
+        "method": "Open-access document retrieval attempted; full text not obtained",
+        "title": "A Formula for the Kirchhoff Index",
+        "trigger": "Plausible older broad resistance-sum formula"
+      }
+    ],
+    "status": "PASS"
+  },
+  "review_type": "self_review",
+  "schema_version": 1,
+  "scope_run_id": "8a3533e4-67e4-4ae3-88bd-312557bc653c",
+  "self_review_status": "passed",
+  "value": {
+    "rationale": "Different per-left-vertex conductance prices occur naturally when a network provider or sensor source has its own unit installation cost. The exact optimum is unique against all pq independent edge weights, characterized by a scalar root with a rigorous uniqueness interval and computable optimum. The positive endogenous shift is a structural correction to tree inverse-square-root sizing. For fixed p and expanding q, the proof identifies exact q^{-2} conductance scales on nonminimal-price vertices and asymptotic concentration of the entire budget on a single cheapest vertex; the limiting allocation is not a trivial fixed-size cost substitution. Limit: no assertion about fully arbitrary per-edge prices.",
+    "status": "PASS"
+  }
+}
