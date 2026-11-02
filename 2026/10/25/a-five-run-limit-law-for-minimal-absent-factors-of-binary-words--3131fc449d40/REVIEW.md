@@ -1,11 +1,21 @@
-# Scientific review
+# Independent mathematical audit
 
-**Correctness — PASS.** The two unbounded type-three bridge families are classified directly from prefix, suffix and whole-factor occurrence. The four other MAW types are bounded using explicit numerical specializations of the published RLE Lemmas 1, 2, 4 and 5 in Akagi et al. The Dirichlet-simplex convergence follows by lattice Riemann sums and continuous mapping; the mean is obtained by exact integrals of coordinate minima. The verifier independently enumerated 3125 instances. The infinite result does not rest on finite experiments.
+## correctness
 
-**Originality — PASS, with residual risk.** The closest full paper, Akagi et al. (arXiv:2202.13591), proves the generic type-three characterization and boundedness of the other types, which are expressly credited. It does not report the conditional uniform-five-run limiting law or its rational mean. The genome-statistical paper by Aurell et al. concerns another random-string model; only its abstract was accessible, so full-text noncoverage is not asserted. published-finding corpus searches for the exact law, the `8/15` coefficient, aliases and both bridge families found unrelated distribution results, including closed binary subsequence-universality and random substring-complexity laws; those do not imply the finite-run MAW law. An unindexed equivalent specialization remains possible.
+PASS
 
-**Value — PASS.** The previous RLE theory identifies an unbounded exception but does not quantify typical-size behavior for a natural fixed-run ensemble. The result determines a complete nondegenerate limiting distribution and a rational mean, tracing its components to two explicit bridge families. It is a structural probabilistic refinement of a recognized stringology invariant, not a parameterless restatement of an algorithm.
+For all a,b,c,d,e>=1 the bridge 01^k0 is a minimal absent contiguous factor exactly for 1<=k<=max(b,d), k not one of b,d; 10^k1 occurs exactly for 1<=k<=max(c,min(a,e)), k!=c. Their disjoint count is T+M-1-|{b,d}|. The prior proved RLE five-type bounds give at most 2 unary, 0 missing two-letter factors, 196 type-four, 10 type-five residual factors, hence 0<=R<=208. The fixed-dimensional positive-composition grid converges to Dirichlet(1,1,1,1,1); continuity and bounded error yield weak convergence and all fixed moment convergence. For selected j simplex coordinates, E[min]=1/(5j), so E[max(C,min(A,E))]=7/30 and E[max(B,D)]=3/10; piecewise-affine rational simplex lattice sums yield E[N_n]=(8/15)n+O(1). Independently enumerated all 1024 quintuplets with each run in 1..4, constructing factors afresh; exact bridge family and remainder checked, max observed remainder 7. Read actual verify.py (3125-case planned checker); its output is not substituted for proof. Domain five positive runs, n>=5, linear contiguous factors.
 
-The bounded error is conservative. The limit is conditional on exactly five positive runs and differs from the i.i.d. random-word regime. The literature comparison is not exhaustive, and no independent audit has been performed.
+## originality
 
-Self-review: passed. Independent audit: not yet performed.
+PASS
+
+Best-of-knowledge original five-run positive-composition probability law and first moment; known Akagi RLE characterization is explicitly a premise, not claimed new. No inspected prior result states the Dirichlet functional or its 8/15 moment.
+
+## value
+
+PASS
+
+The exact asymptotic distribution and rational mean answer a natural probabilistic question about minimal absent contiguous words under a fixed-run composition ensemble. Five runs give two distinct competing bridge orientations and the first genuinely joint max/min functional. The bounded-remainder lemma makes a complete nondegenerate law out of the combinatorial count; the known deterministic RLE bounds alone are not the requested random-ensemble statistic. No paper-size theorem or exact density required.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
