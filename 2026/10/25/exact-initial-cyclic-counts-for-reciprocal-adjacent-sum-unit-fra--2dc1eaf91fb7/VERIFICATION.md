@@ -5,8 +5,11 @@
     "status": "not_performed"
   },
   "independent_audit": {
-    "evidence": null,
-    "status": "not_performed"
+    "status": "passed",
+    "evidence": [
+      "INDEPENDENT_AUDIT_2026-10-29.md",
+      "INDEPENDENT_AUDIT_2026-10-29.json"
+    ]
   },
   "lean_verification": {
     "evidence": null,
@@ -16,10 +19,24 @@
 }
 ---
 
-# Reproducibility
+# Independent mathematical audit
 
-The C11 program `verify_counts.c` carries out exact exhaustive enumeration for every circular size \(3\le n\le13\). Compile with `cc -O3 -std=c11 -Wall -Wextra -pedantic verify_counts.c -o verify_counts` and run `./verify_counts`; its output terminates in `VERIFY_OK`. The exact-rational Python3 implementation `crosscheck.py` performs independent checks at the first feasible sizes and terminates in `CROSSCHECK_OK`.
+## correctness
 
-The finite proof depends on exhaustive branching, a unique canonical representative per dihedral orbit, and an integer test using \(L_n=\operatorname{lcm}(3,\ldots,2n-1)\). The checked finite maximum \(L_{13}=26771144400\) bounds every intermediate sum safely below \(2^{64}\). The code also checks the published OEIS A322070 *linear* table as a cross-calibration; that preexisting sequence is not a new result.
+PASS
 
-All observations concern \(n\le13\). No computation outside that range or independent audit is asserted.
+A circle of distinct labels has a unique representative a_1=1 and a_2<a_n; every oriented rooted permutation contributes exactly once. The reciprocal equation is exactly equivalent to the integer LCM(3,...,2n-1) weighted sum equality, bounded in unsigned 64 bits for n<=13. Read actual C DFS and source: recursive exhaustive generation over all remaining labels, with no pruning suppressing solutions, plus closure edge. Independently compiled fresh C11 exhaustive enumerator for each n=3..13 (no floating point) reproduced the entire eleven-entry table. Independently enumerated exact Fraction sums through n=9 and obtained the specified two n=8 canonical representatives.
+
+## originality
+
+PASS
+
+Ai–Hu–Yan prove circular existence for all n>7 and list constructive representatives (including base cases) but do not tabulate total dihedral orbits. OEIS A322070 counts LINEAR solutions, while A040018 counts cycles with distinct adjacent sums; predicates and orbit actions differ. The exact initial cyclic multiplicities are a genuinely different finite enumeration, subject to unknown unpublished tables.
+
+## value
+
+PASS
+
+The natural cyclic analogue of a recent universal-existence problem requires actual orbit multiplicities, not just a witness. This complete consecutive initial census directly after the first feasible size and both exceptional size-eight representatives provide precise test cases and reveal early multiplicity behavior; not an arbitrary unmotivated finite slice.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

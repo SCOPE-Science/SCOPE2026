@@ -1,0 +1,129 @@
+{
+  "audit_date_utc": "2026-10-29",
+  "audited_at_utc": "2026-10-29T19:45:13.174653Z",
+  "axes": {
+    "correctness": {
+      "evidence": [
+        "RESULT.md Git blob 42d65faf28a5737d6fe02de1ff0bfecd005967b1; exact dihedral normalization and integer-equivalence argument",
+        "Reviewed verify_counts.c and crosscheck.py algorithm; independent fresh C11 exhaustive counts n=3..13 0,0,0,0,0,2,5,6,38,79,224",
+        "Independent Python Fraction enumeration n=3..9 and two n=8 representatives agree; independent source and output attached privately."
+      ],
+      "limitations": [
+        "Finite claim only through n=13; no claim for n>=14, no asymptotics. The full enumeration n=13 is exhaustive over (n-1)! rooted oriented permutations in C."
+      ],
+      "rationale": "A circle of distinct labels has a unique representative a_1=1 and a_2<a_n; every oriented rooted permutation contributes exactly once. The reciprocal equation is exactly equivalent to the integer LCM(3,...,2n-1) weighted sum equality, bounded in unsigned 64 bits for n<=13. Read actual C DFS and source: recursive exhaustive generation over all remaining labels, with no pruning suppressing solutions, plus closure edge. Independently compiled fresh C11 exhaustive enumerator for each n=3..13 (no floating point) reproduced the entire eleven-entry table. Independently enumerated exact Fraction sums through n=9 and obtained the specified two n=8 canonical representatives.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Theorem gives existence n>7, not enumeration. Appendix lists constructive examples, not all cycles. Semantic published corpus yielded unrelated dihedral combinatorics."
+        ],
+        "reasoning": "Existence is strictly weaker than orbit multiplicities; no accessible general counting theorem dominates these finite entries.",
+        "searches": [
+          "arXiv:2610.18431 On Permutations Whose Adjacent-Sum Reciprocals Sum to One",
+          "Resultary: circular permutations 1 through n sum reciprocal adjacent sums equals one dihedral orbit counts n 8 through 13"
+        ]
+      },
+      "checked_sources": [
+        "https://arxiv.org/abs/2610.18431",
+        "https://oeis.org/A322070",
+        "https://oeis.org/A040018",
+        "Resultary: circular adjacent reciprocal one dihedral class query"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "Every positive C_n implies existence, not conversely; n=8 two distinct dihedral representatives are extra data. A linear solution may fail when closing edge included."
+        ],
+        "reasoning": "One-direction implication target to existence only; no prior statement located that would imply all exact C_3..C_13.",
+        "searches": [
+          "Ai–Hu–Yan arXiv:2610.18431 main result and appendix",
+          "OEIS A322070"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Closing the linear path changes denominator set by adding 1/(a_n+a_1); dihedral classes rotate/reflect, whereas OEIS path permutation classes do not enforce a closing edge."
+        ],
+        "reasoning": "Compared exact circular predicate, orbit convention, and alternative rooted/reversed normalizations; the known linear count does not determine C_n.",
+        "searches": [
+          "arXiv:2610.18431 full text, Theorem 1.1, appendix C",
+          "OEIS A322070"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "OEIS A322070 linear adjacent reciprocals; OEIS A040018 circular distinct-neighbor-sum property; neither has required circular sum=1 counts."
+        ],
+        "reasoning": "Checked both natural database aliases and numeric count queries, distinguish independent computed data from previously recorded ones.",
+        "searches": [
+          "OEIS A322070",
+          "OEIS A040018",
+          "Resultary: reciprocal adjacent sum circular n=8 n=9 multiplicities dihedral complete count"
+        ]
+      },
+      "rationale": "Ai–Hu–Yan prove circular existence for all n>7 and list constructive representatives (including base cases) but do not tabulate total dihedral orbits. OEIS A322070 counts LINEAR solutions, while A040018 counts cycles with distinct adjacent sums; predicates and orbit actions differ. The exact initial cyclic multiplicities are a genuinely different finite enumeration, subject to unknown unpublished tables.",
+      "residual_risks": [
+        "Earlier cyclic enumeration table may be unindexed or appear in another appendix; database search does not certify priority.",
+        "Finite exhaustive classification stops at n=13; number of classes beyond is unknown here."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "EXISTENCE_NOT_MULTIPLICITIES",
+          "evidence": "Existence for n>7 and constructive base cases do not count all dihedral classes.",
+          "identifier_or_url": "https://arxiv.org/abs/2610.18431",
+          "material_read": "Complete available arXiv manuscript text, Theorem 1.1 existence proof, construction, and Appendix C example tables",
+          "method": "Read full accessible manuscript HTML / statements and appendices",
+          "title": "On Permutations Whose Adjacent-Sum Reciprocals Sum to One",
+          "trigger": "Same equation and circular objects, strongest likely prior"
+        },
+        {
+          "assessment": "DIFFERENT_PREDICATE",
+          "evidence": "No circular closure term; not a count of C_n.",
+          "identifier_or_url": "https://oeis.org/A322070",
+          "material_read": "Sequence definition and counts for linear, unclosed permutations",
+          "method": "Online sequence definition and comparison",
+          "title": "OEIS A322070",
+          "trigger": "Similar equation with path ordering"
+        },
+        {
+          "assessment": "DIFFERENT_PREDICATE",
+          "evidence": "All adjacent sums distinct is not reciprocal sum one.",
+          "identifier_or_url": "https://oeis.org/A040018",
+          "material_read": "Sequence title/definition",
+          "method": "Online sequence comparison",
+          "title": "OEIS A040018",
+          "trigger": "Circular adjacency sums but a different constraint"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "evidence": [
+        "Dihedral orbit counts C_n of circles of 1,..,n with sum 1/(a_i+a_{i+1})=1 are exactly 0 for n=3..7 and (2,5,6,38,79,224) for n=8..13; both n=8 canonical cycles are listed.",
+        "Mathematical motivation and prior-scoped comparison in RESULT.md and this independent review."
+      ],
+      "limitations": [
+        "Finite claim only through n=13; no claim for n>=14, no asymptotics. The full enumeration n=13 is exhaustive over (n-1)! rooted oriented permutations in C."
+      ],
+      "rationale": "The natural cyclic analogue of a recent universal-existence problem requires actual orbit multiplicities, not just a witness. This complete consecutive initial census directly after the first feasible size and both exceptional size-eight representatives provide precise test cases and reveal early multiplicity behavior; not an arbitrary unmotivated finite slice.",
+      "status": "PASS"
+    }
+  },
+  "checked_sources": [
+    "https://arxiv.org/abs/2610.18431",
+    "https://oeis.org/A322070",
+    "https://oeis.org/A040018",
+    "Resultary: circular adjacent reciprocal one dihedral class query"
+  ],
+  "disposition": "passed",
+  "final_claim": "Dihedral orbit counts C_n of circles of 1,..,n with sum 1/(a_i+a_{i+1})=1 are exactly 0 for n=3..7 and (2,5,6,38,79,224) for n=8..13; both n=8 canonical cycles are listed.",
+  "limitations": [
+    "Finite claim only through n=13; no claim for n>=14, no asymptotics. The full enumeration n=13 is exhaustive over (n-1)! rooted oriented permutations in C."
+  ],
+  "residual_risks": [
+    "Earlier cyclic enumeration table may be unindexed or appear in another appendix; database search does not certify priority.",
+    "Finite exhaustive classification stops at n=13; number of classes beyond is unknown here."
+  ],
+  "schema_version": 1
+}

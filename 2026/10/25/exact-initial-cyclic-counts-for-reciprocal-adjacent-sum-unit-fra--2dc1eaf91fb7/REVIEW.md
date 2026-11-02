@@ -1,11 +1,21 @@
-# Review: exact cyclic reciprocal-adjacent-sum multiplicities
+# Independent mathematical audit
 
-**Correctness — PASS.** Every oriented circular permutation is represented exactly once by rotating the label \(1\) to the first position and selecting the direction with second entry less than last. The exhaustive finite permutation recursion checks the exactly equivalent LCM-weight integer equality, and all sums fit unsigned 64-bit arithmetic. `verify_counts.c` generated the full table for \(3\le n\le13\); `crosscheck.py` independently verified the first two nonzero multiplicities using exact fractions. The claim has no unproved infinite extension.
+## correctness
 
-**Originality — PASS with residual risks.** Ai–Hu–Yan (2026) prove existence of a suitable circular order for every \(n>7\), which is weaker than specifying all dihedral multiplicities. The highly relevant OEIS A322070 **already contains the analogous linear counts**; none of those data is claimed as new. OEIS A040018 instead counts circular orders with distinct adjacent sums. Targeted mathematical research and database searches revealed no cyclic multiplicity table with the claimed six successive values. Only excerpts of the most relevant primary manuscript were available, and other implicit or unindexed tables remain possible.
+PASS
 
-**Value — PASS.** This supplies a complete natural initial cyclic census immediately following the existence threshold, including the two exact orbit representatives at the first admissible size. The data distinguish uniqueness, rarity, and multiplicity and are meaningful benchmarks for further counting theory, without claiming a universal formula.
+A circle of distinct labels has a unique representative a_1=1 and a_2<a_n; every oriented rooted permutation contributes exactly once. The reciprocal equation is exactly equivalent to the integer LCM(3,...,2n-1) weighted sum equality, bounded in unsigned 64 bits for n<=13. Read actual C DFS and source: recursive exhaustive generation over all remaining labels, with no pruning suppressing solutions, plus closure edge. Independently compiled fresh C11 exhaustive enumerator for each n=3..13 (no floating point) reproduced the entire eleven-entry table. Independently enumerated exact Fraction sums through n=9 and obtained the specified two n=8 canonical representatives.
 
-**Limits.** All counts stop at \(n=13\); no global growth law follows. The external independent audit remains unperformed.
+## originality
 
-Self-review: passed. Independent audit: not yet performed.
+PASS
+
+Ai–Hu–Yan prove circular existence for all n>7 and list constructive representatives (including base cases) but do not tabulate total dihedral orbits. OEIS A322070 counts LINEAR solutions, while A040018 counts cycles with distinct adjacent sums; predicates and orbit actions differ. The exact initial cyclic multiplicities are a genuinely different finite enumeration, subject to unknown unpublished tables.
+
+## value
+
+PASS
+
+The natural cyclic analogue of a recent universal-existence problem requires actual orbit multiplicities, not just a witness. This complete consecutive initial census directly after the first feasible size and both exceptional size-eight representatives provide precise test cases and reveal early multiplicity behavior; not an arbitrary unmotivated finite slice.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
