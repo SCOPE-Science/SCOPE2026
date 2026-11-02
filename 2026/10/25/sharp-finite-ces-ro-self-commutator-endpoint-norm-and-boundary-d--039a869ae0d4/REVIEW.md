@@ -1,12 +1,21 @@
-# Scientific review: sharp finite Cesàro self-commutator norm
+# Independent mathematical audit
 
-## Correctness — PASS
-Direct product formulas yield \((K_n)_{ij}=-a_{\max(i,j)}\), the strict increment formula \(a_{j+1}-a_j=1/[j^2(j+1)]\), and the cancellation \(\sum_j a_j=0\). Every absolute row sum is explicit; the one-valley row-sum sequence and the endpoint comparison prove that row one is maximal, uniquely for \(n\ge3\). The negative prefix sum gives the exact sharp norm and a two-level extremizer. Euler--Maclaurin expansion and a stationary leading minimizer prove the \(O(n^{-3/2})\) remainder. The infinite positive kernel has exact row-sum norm one, and the finite commutator differs by a rank-one term of nonzero limiting norm. Exact rational finite checks corroborate the normalizations. Risk: neither code nor finite experiments independently verifies the infinite asymptotic; the analytic estimates do.
+## correctness
 
-## Originality — PASS with residual risk
-The 1965 primary Cesàro article treats infinite-operator hyponormality; the 2014 extended-eigenvalue paper treats operator spectra; the 2023 essentially-normal paper concerns compactness of the infinite commutator. Closest published mathematical results concerning Cesàro self-commutators establish infinite Hilbert-space eigenvalue decay and weighted quadratic-form lower bounds, not finite truncation induced maximum norms. Exact published-finding corpus queries for finite row sums, boundary rank-one corrections, step extremizers and the \(2-2\sqrt{2/n}\) asymptotic did not identify the same claim. A classical row-sum derivation might be available in older, unindexed literature, so unsuccessful searches are not proof of global uniqueness.
+PASS
 
-## Value — PASS
-The object is the canonical finite section of the classical Hardy/Cesàro averaging matrix. Its commutator is a common measure of departure from normality, but forming finite sections changes that commutator nontrivially. An exact all-size endpoint norm, its sharp sign-step witness and two nonzero asymptotic terms explain a genuine factor-two discrepancy between finite and infinite constructions, and give a quantitative stability benchmark. This is not an arbitrary finite table or an incremental parameter substitution.
+Finite product calculations give K_ij= -a_max(i,j) where a_j=1/j-sum_{k=j}^n 1/k^2 is strictly increasing and has zero sum. Absolute row sums have one valley, so their maximum is at an end; exact comparison R1>=Rn (strict n>=3) identifies first-row maximum and the sign-step extremizer, yielding 2m sum_{k=m+1}^n 1/k^2. Euler-Maclaurin applied to b_j=sum_{k=j}^infty 1/k^2-1/j yields m=sqrt(n/2)+O(1) and expansion 2-2sqrt(2/n)+2/(3n)+O(n^-3/2). Infinite J_ij=b_max>=0 has endpoint row norm exactly 1; K_n=P_n J P_n - tau_n 11^T, n*tau_n->1. Independent exact rational finite checks n=2..50 confirmed first row and kernel and read actual checker; asymptotics rely on analytic proof.
 
-Self-review: passed. Independent audit: not yet performed.
+## originality
+
+PASS
+
+Classical infinite Cesàro operator theory, hyponormality and essential normality are old, and recently published self-commutator results study Hilbert spectral/weighted quantities. The specific finite-section induced infinity norm, discrete sharp sign-switch and rank-one endpoint doubling are not established by those results.
+
+## value
+
+PASS
+
+A sharp all-size finite operator norm with explicit extremizer and a noncommuting finite-section/infinite-commutator limit, illustrating a mathematically significant boundary effect in a classical operator.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

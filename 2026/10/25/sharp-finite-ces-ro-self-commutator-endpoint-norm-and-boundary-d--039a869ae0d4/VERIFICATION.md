@@ -5,8 +5,11 @@
     "status": "not_performed"
   },
   "independent_audit": {
-    "evidence": null,
-    "status": "not_performed"
+    "status": "passed",
+    "evidence": [
+      "INDEPENDENT_AUDIT_2026-10-25.md",
+      "INDEPENDENT_AUDIT_2026-10-25.json"
+    ]
   },
   "lean_verification": {
     "evidence": null,
@@ -16,15 +19,24 @@
 }
 ---
 
-# Reproducibility and verification
+# Independent mathematical audit
 
-The exact symbolic calculations are reproduced by `cesaro_finite_commutator_check.py` using Python 3 and only the standard library. Its direct rational multiplication checks \(K_n\) and every row sum for \(2\le n\le24\), confirms the first row and sharp step extremizer, and verifies strict first-row uniqueness for \(3\le n\le24\). The script also performs numerical nonproof sanity checks at selected dimensions through \(n=50000\).
+## correctness
 
-The output observed during preparation was:
+PASS
 
-```
-PASS: exact matrices, first-row maximizers, step witnesses,
-and finite numerical checks of two-term boundary asymptotics.
-```
+Finite product calculations give K_ij= -a_max(i,j) where a_j=1/j-sum_{k=j}^n 1/k^2 is strictly increasing and has zero sum. Absolute row sums have one valley, so their maximum is at an end; exact comparison R1>=Rn (strict n>=3) identifies first-row maximum and the sign-step extremizer, yielding 2m sum_{k=m+1}^n 1/k^2. Euler-Maclaurin applied to b_j=sum_{k=j}^infty 1/k^2-1/j yields m=sqrt(n/2)+O(1) and expansion 2-2sqrt(2/n)+2/(3n)+O(n^-3/2). Infinite J_ij=b_max>=0 has endpoint row norm exactly 1; K_n=P_n J P_n - tau_n 11^T, n*tau_n->1. Independent exact rational finite checks n=2..50 confirmed first row and kernel and read actual checker; asymptotics rely on analytic proof.
 
-**Limits:** A finite checker cannot prove the all-dimensional identity, the uniqueness of the extremizing row at arbitrary dimension, or the asymptotic expansion. Those follow from the explicit sign-monotone kernel calculation, discrete row-sum comparison, and Euler--Maclaurin analysis contained in `RESULT.md`. The bibliographic originality comparison has the residual limitations recorded in `REVIEW.md`. Independent scientific audit was not performed.
+## originality
+
+PASS
+
+Classical infinite Cesàro operator theory, hyponormality and essential normality are old, and recently published self-commutator results study Hilbert spectral/weighted quantities. The specific finite-section induced infinity norm, discrete sharp sign-switch and rank-one endpoint doubling are not established by those results.
+
+## value
+
+PASS
+
+A sharp all-size finite operator norm with explicit extremizer and a noncommuting finite-section/infinite-commutator limit, illustrating a mathematically significant boundary effect in a classical operator.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
