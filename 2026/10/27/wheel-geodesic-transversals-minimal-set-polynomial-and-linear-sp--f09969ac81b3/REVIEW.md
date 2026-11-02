@@ -1,19 +1,21 @@
-# Mathematical review
+# Independent mathematical audit
 
-## Correctness: PASS
+## correctness
 
-The finite wheel is diameter two and every edge extends into a two-edge geodesic, so all maximal paths are explicitly accounted for. Omission of the hub is equivalent to an omitted rim clique, giving the second branch. With the hub selected, cyclic gap lengths \(0,1,2\) characterize all transversals. The six allowed adjacent gap pairs characterize essential rim selections, and the additional hub-essentiality argument completes inclusion minimality for \(n\ge6\). The trace matrix and the \(n/k\) rooting correction are justified; the range and minimum counts follow by exact combinatorial arguments. Exhaustive vertex-subset checks verified the complete minimal polynomial through rim length twelve and the all-set polynomial through rim length ten. No finite computation is used in place of the general proof.
+PASS
 
-## Originality: PASS with priority risks
+For J_n=K1∨C_n with n rim vertices and n≥6, every edge extends to a two-edge shortest path, so maximal geodesics are exactly spoke–hub–spoke paths for nonadjacent rim pairs and three consecutive rim vertices. With hub absent, uncovered rim vertices must be a clique of the rim cycle, giving z^n+nz^{n−1}+nz^{n−2} for all transversals and exactly nz^{n−2} inclusion-minimal ones. With hub selected, every three consecutive rim vertices must contain a chosen vertex; cyclic unselected gaps g_i∈{0,1,2} yield the all-set enumerator (n/k)[u^{n−k}](1+u+u²)^k. A chosen rim vertex is indispensable precisely for consecutive gap pairs (0,2),(1,1),(1,2),(2,0),(2,1),(2,2); this proves the stated A(u) transfer trace and n/k rooted-set correction, not merely an empirical fit. Every zero-gap forces the following two-gap, giving k≤floor(n/2), while length restrictions give k≥ceil(n/3). For each integer in that range, 1/2-gap words realize it; hub indispensability holds because at least three omitted rim vertices are not a clique. Hence minimal cardinalities are {ceil(n/3)+1,…,floor(n/2)+1}∪{n−2}; for n≥9 the interval gap is ceil(n/2)−4. At the minimum, deficit from 2 per gap yields 3 if n≡0 mod3, n(ceil(n/3)+1)/2 if n≡1 mod3, and n if n≡2 mod3. Independently rebuilt wheel graphs and enumerated all shortest paths and every subset for n=6…11; observed polynomials and multiplicities match. The finite checks alone would not prove all n.
 
-The geodesic-transversal definition and complexity, the scalar wheel transversal number, and the general join-factor dichotomy are established in the 2021–2022 sources and are not claimed. A review of the relevant full foundational preprint and the full join-product preprint (especially its join theorem and wheel discussion), together with indexed mathematical findings and searches for maximal shortest-path cover aliases and cyclic three-path cover enumeration, did not identify the complete two-polynomial, minimality-spectrum, and exact minimum-set census. The 2021 published wheel-value article was accessible through indexed sections but not fully available during this comparison; an unindexed equivalent hypergraph enumeration remains a risk. The claim stands or falls on the exact strengthened census and gap statement, not on the known minimum.
+## originality
 
-## Mathematical value: PASS
+PASS
 
-The scalar optimum conceals two qualitatively different inclusion-minimal families. The transfer-matrix theorem enumerates all minimal configurations for every rim length, while the extremal spectrum has a growing missing interval of \(\lceil n/2\rceil-4\) consecutive cardinalities. The minimum-set multiplicities change with the rim length modulo three. These are structurally motivated refinements of an established geodesic-hitting problem, not arbitrary parameter slices; the results can be used to study nonuniqueness, redundancy, and extremal nonoptimal transversals.
+Primary comparisons credit the original geodesic-transversal definition, the alias maximal-shortest-path cover, the known wheel scalar optimum and the general join-factor dichotomy. The strongest accessible join theorem (Peterin–Semanišin, Theorem 3.5) minimizes among join regimes but does not supply polynomial coefficients, the six local minimality gap pairs or lacunary sizes. Direct Resultary similarity searches found graph cover-free numbers, geodetic polynomials, and dissociation sets for other graph properties rather than this complete census. An unindexed circular 3-path-cover minimal-set enumeration might imply the hub branch, and the 2021 standalone wheel paper was only partially accessible; those are explicit qualified priority risks. These do not, on present evidence, defeat PASS for the combined final exact census and spectrum.
 
-## Limits and evidence
+## value
 
-Primary references are listed in `RESULT.md`. The provided `verify.py` uses graph-shortest-path semantics, not the proof's path-case split, to test all vertex subsets for the checked finite orders. It also tests the two symbolic coefficient formulas. Residual originality risk is a possible earlier cyclic 3-path-cover census or inaccessible full 2021 historical text. No independent validation is asserted.
+PASS
 
-Self-review: passed. Independent audit: not yet performed.
+The geodesic-transversal minimum of a wheel was already known. The full all-set and inclusion-minimal generating polynomials, complete cardinality spectrum with a linearly growing missing interval, and explicit congruence-dependent minimum-set multiplicity answer natural structural/counting questions beyond the scalar optimum. The cyclic transfer method enables exact sampling and nonuniqueness analysis for this established graph covering invariant. An all-parameter exact classification is independently useful, not an unmotivated finite graph count.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
