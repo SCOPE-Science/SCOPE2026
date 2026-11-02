@@ -1,15 +1,21 @@
-# Scientific review
+# Independent mathematical audit
 
-## Correctness — PASS
-The incidence difference-set definition is a Fano plane. Every perfect matching has a unique permutation encoding, and alternating-hexagon flips are exactly Hamming-three pairs of valid permutations. The first complete checker exhausts all 5040 permutations, derives all 24 admissible matchings and their 84 flip edges, verifies the entire distance-intersection array, and tests an explicit 24-vertex bijection against all 576 entries of a published Klein adjacency matrix. An independent implementation constructs the 28 six-cycles and all perfect matchings directly from incidence edges, flips by symmetric difference, and obtains exactly the same indexed graph digest. These are exhaustive finite proofs, with the scripts and their actual outputs supplied; the identification does not rely merely on spectral coincidence.
+## correctness
 
-## Originality — PASS, with acknowledged priority risk
-Dejter (arXiv:1002.1960, full text Sections 1–4) links the Coxeter, Heawood and Klein graphs via cycle constructions but does not treat the six-cycle flip graph on perfect matchings. The Heawood reference supplies the known 24 matchings and eight one-factorizations, and DistanceRegular.org supplies the already-known Klein target adjacency matrix. Neither supplies the exact flip-preserving identification, which is the claim assessed here. A recent general article on flip dynamics addresses decorated families and gives no corresponding Heawood-to-Klein identification in its inspected theorem statements. Exact equivalence could nevertheless occur in older unindexed work, so priority should be independently checked before publication.
+PASS
 
-## Mathematical value — PASS
-The isomorphism connects a natural matching reconfiguration process on the smallest cubic girth-six graph to the classical Klein quartic map graph. It explains the otherwise nonobvious antipodal triple system in terms of perfect one-factorizations, determines all flip distances and exact transition counts, and recovers a canonical distance-regular geometry from matching transformations. The claim is not the previously known 24-matching count or an arbitrary recomputation of a graph invariant; its content is the explicit structural equivalence of two independently motivated objects.
+Every matching of the Fano incidence graph is a permutation satisfying seven incidence tests, so all 7!=5040 permutations can be exhausted. An alternating six-cycle flip changes exactly three row assignments; conversely any two allowed permutations differing at exactly three positions differ by a single alternating hexagon (girth six rules out 4-cycles). An independent DFS matching generator and explicit six-cycle generator gave 24 matchings, 28 hexagons and 84 flips, with all 576 ordered vertex pairs satisfying the listed intersection parameters. A checked vertex permutation phi matches every one of the 576 entries of the exact 24-by-24 published Klein adjacency matrix, so identity does not rely on an unproved uniqueness of intersection arrays. The independent computation also found eight disjoint one-factorization triples, distance three within fibers, and exactly one outgoing edge to each other fiber per vertex. The finite enumeration is exhaustive for this fully specified finite graph.
 
-## Closest literature and limitations
-The primary closest paper is Dejter, *From the Coxeter graph to the Klein graph*, arXiv:1002.1960 (first public 9 February 2010). The published Klein adjacency matrix and Heawood one-factorization table are independent comparison targets. The result applies only to alternating six-cycle flips on the 14-vertex Heawood incidence graph. The scientific evidence is an exact proof-backed finite certificate, not independent third-party validation. The remaining risk is unindexed equivalent literature, not an unresolved calculation.
+## originality
 
-Self-review: passed. Independent audit: not yet performed.
+PASS
+
+The 24 Heawood perfect matchings, eight factorizations, Coxeter graph from Heawood hexagons and 24-vertex Klein graph are individually established. The inspected Dejter construction passes via Coxeter cycles, not this exact matching flip graph. Exact 24x24 adjacency comparison proves a previously unlocated natural graph identification, qualified by possible historical graph equivalences.
+
+## value
+
+PASS
+
+The full configuration-space graph of local perfect-matching moves is a natural object. An explicit identification with a classical distance-regular graph, including the antipodal correspondence with all one-factorizations, is a substantive structural classification beyond the already-known number of perfect matchings, despite concerning only one canonical finite incidence graph.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
