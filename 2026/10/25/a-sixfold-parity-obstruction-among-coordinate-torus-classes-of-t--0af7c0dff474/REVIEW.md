@@ -1,19 +1,21 @@
-# Scientific review: four-cube two-point configuration tori
+# Independent mathematical audit
 
-## Correctness — PASS
+## correctness
 
-The graph is specified at the level of labeled vertices and edges and the configuration space uses unordered distinct particles. Barnett--Farber's deleted-product cellular model applies, since all cube-graph vertices have degree four and the shortest cycle has four edges. The included verifier independently constructs the 120, 448 and 400 cells, checks the signed cellular chain identity and all 132 torus boundaries, and certifies mod-101 boundary rank 312. The 88 torus pivot columns have an exact determinant-\(+1\) cellular minor, so the 88-dimensional kernel is exactly their integral span, not merely a rational span. The orbit and quotient assertions are verified by all 384 automorphisms and exact integer Smith forms.
+PASS
 
-## Originality — PASS, with bounded literature risk
+The finite unordered deleted-product cubical chain model for the 4-cube graph has 120 vertices, 448 one-cells and 400 two-cells, with signed ∂1∂2=0. Independently rebuilt all 132 disjoint coordinate square-pair torus chains and verified ∂2T=0. Exact elimination gives rank(∂2)=312 mod101 and rank(T)=88 mod2, forcing rational H2 rank 88. A newly chosen 88x88 torus-cell submatrix has exact determinant +1, proving the torus span saturated and equals ker∂2 integrally. Automorphisms give 24+12+96 orbits; Smith normal form on the unimodular torus basis has 82 unit and six 2 invariants for the 96 nonparallel orbit, and all unit invariants after adding either parallel orbit. These exact integer certificates prove the finite Q4 claim; raw verification logs alone were not relied upon.
 
-The claim is **not** a restatement of the general deleted-product model, planar graph cycle-product theory, or a Betti-number computation. The closest identified sources [1]--[4] do not give an exact square-face torus orbit classification and index-six parity lattice for the four-dimensional hypercube graph. The planar generation results cannot be applied directly because the four-cube graph is nonplanar. Indexed comparisons against other two-particle configuration calculations on Petersen, dodecahedral and cuboctahedral graphs concern different graph inputs and do not imply this four-cube finding. An equivalent unindexed specialized computation remains the main bibliographic uncertainty; absence of a search hit alone is not treated as a proof of originality.
+## originality
 
-## Mathematical value — PASS
+PASS
 
-The index-\(64\) obstruction distinguishes the rationally full collection of symmetry-natural nonparallel square tori from an integral top-homology basis. This is a structural integral lattice phenomenon within a graph-configuration problem, where product-cycle generation can fail for nonplanar graphs; the exact effect and restoration by either parallel orbit are not consequences of elementary Euler characteristic or Betti-number bookkeeping. The face pairs are canonical cube geometric objects, not an arbitrarily selected parameter slice.
+The foundational 2009/2010 graph configuration theorems and planar generator results do not specialize to the explicit Q4 nonplanar integral orbit classification. Published mathematical searches found distinct-graph and distinct-complex calculations, not a Q4 index-64 parity quotient. A specialized thesis or unindexed graph-braid census might overlap; the incompletely inspected Barnett thesis is retained as a named priority risk, not dismissed.
 
-## Sources, scope, and residual risks
+## value
 
-Barnett--Farber [1] supplies the cellular deformation-retraction framework; Farber--Hanbury [2] and Barnett's thesis [3] provide the nearest graph-configuration context; An--Knudsen [4] separates planar generation from nonplanar examples. The principal mathematical risk is not the finite enumeration, which is completely specified and replayable, but an undiscovered equivalent specialized statement. All limits are described in the finding.
+PASS
 
-Self-review: passed. Independent audit: not yet performed.
+The natural coordinate-square tori of the 4-cube yield an integral-vs-rational generation distinction: the full set integrally generates H2, but the nonparallel symmetry orbit has six independent parity obstructions repaired by either parallel orbit. This is a motivated exact integral lattice invariant invisible to ranks and a complete symmetry classification, not a randomly sliced finite test.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
