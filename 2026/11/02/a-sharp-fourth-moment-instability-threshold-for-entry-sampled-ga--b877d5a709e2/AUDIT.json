@@ -1,0 +1,125 @@
+{
+  "correctness": {
+    "rationale": "Exact second-moment contraction, direct independent quartic-transfer derivation, Brouwer positive-eigenquartic argument with common-eigenline exclusion, and unique algebraic crossing establish the final quantified theorem. The bundled verifier checks polynomial identities, sampling paths, and the critical polynomial; finite tests support but do not replace the proof.",
+    "status": "PASS"
+  },
+  "independent": false,
+  "independent_audit_status": "not_performed",
+  "originality": {
+    "broader_coverage": {
+      "evidence": [
+        "arXiv:2011.10353 Introduction and main results treat mean-square convergence.",
+        "arXiv:2208.05437 Introduction and results discuss global linear rates and norms of expected iterates."
+      ],
+      "reasoning": "These frameworks include the same algorithm as a special case but their stated convergence rates concern first or second moments; no theorem inspected yields a high-moment transfer spectrum or its algebraic crossing. A broader random-matrix fourth-moment framework remains a nondecisive residual risk.",
+      "searches": [
+        "Doubly stochastic Gauss Seidel entry sampling mean-square convergence exact threshold overrelaxation inconsistent linear systems stationary distribution",
+        "\"A linearly convergent doubly stochastic Gauss-Seidel algorithm\" \"moments\" \"convergence\"",
+        "\"doubly stochastic Gauss Seidel\" 2019 arxiv algorithm variance"
+      ]
+    },
+    "checked_sources": [
+      "arXiv:1810.05251, algorithm and mean-square analysis",
+      "arXiv:1912.13291, algorithm and mean-square analysis",
+      "arXiv:2011.10353, overview and convergence claims",
+      "arXiv:2208.05437, general framework and related work"
+    ],
+    "claim_vs_prior_implication": {
+      "evidence": [
+        "arXiv:1810.05251 Algorithm 1 and mean-square theorem imply convergence of E||x_k||² for the stated admissible step, not convergence of E||x_k||⁴.",
+        "arXiv:1912.13291 Theorem 8 supplies mean-square estimates but contains no stated fourth-moment formula.",
+        "arXiv:2208.05437 general convergence estimates do not impose upper bounds on a fourth moment."
+      ],
+      "reasoning": "The two-moment statements are strictly weaker: the exhibited family has E||x_k||²=(3/4)^k||x_0||² and simultaneously E||x_k||⁴ grows for small r, so those cited theorems cannot cover the new claim as corollaries. The exact quartic result is not a reparameterization of their estimates.",
+      "searches": [
+        "arXiv:1810.05251",
+        "arXiv:1912.13291",
+        "arXiv:2011.10353",
+        "arXiv:2208.05437"
+      ]
+    },
+    "equivalent_formulations": {
+      "evidence": [
+        "arXiv:1810.05251 Algorithm 1 identifies the exact entry sampling and update.",
+        "arXiv:1912.13291 Algorithm 1 and Remark 9 identify its block specialization."
+      ],
+      "reasoning": "The claim is equivalently an exact leading eigenvalue threshold for the fourth-symmetric-tensor transfer of entrywise DSGS. Mean-square convergence, stochastic Gauss–Seidel delays and entrywise coefficient normalization do not imply this fourth-moment classification.",
+      "searches": [
+        "\"doubly stochastic Gauss Seidel\" \"fourth\" \"moment\"",
+        "\"entrywise\" randomized Gauss-Seidel \"fourth moment\"",
+        "exact quartic-moment spectral radius transition stochastic coordinate iteration 2x2 orthogonal reflected matrix r sampling proportion squared entries"
+      ]
+    },
+    "exact_database_or_table": {
+      "evidence": [
+        "No matching exact polynomial or threshold was identified in the targeted published-literature searches or inspected source sections."
+      ],
+      "reasoning": "The constant is the unique root of the explicitly derived determinant and is not reported as a value from an external table. Nonidentification alone is not used as originality proof.",
+      "searches": [
+        "randomized Gauss-Seidel fourth moment moment matrix 5r^4-94r^2+5 critical 0.230960697 while mean squared converges",
+        "fourth moment exponential divergence of doubly stochastic Gauss Seidel entrywise linear system sampling orthogonal 2x2 A conditioned 1 first and second moments converge"
+      ]
+    },
+    "rationale": "Best-knowledge novelty concerns the exact fourth-moment stability transition for the original squared-entry algorithm on condition-number-one systems. Primary algorithm and subsequent mean-square papers have materially different statements; their bounds do not imply fourth-moment behavior. A broader high-moment random-product theorem could in principle subsume the mechanism, which remains an explicit priority risk.",
+    "residual_risks": [
+      "An unlocated high-order stochastic matrix-product theorem may imply this particular fourth-moment criterion, although none was identified in the searched or inspected literature.",
+      "The inspected relevant parts of longer sources do not justify asserting full-document absence; independent priority search remains necessary."
+    ],
+    "source_inspections": [
+      {
+        "assessment": "Original method and lower-order convergence covered; fourth-moment spectral threshold not stated in inspected relevant sections.",
+        "evidence": [
+          "Algorithm 1 pp. 8-9 (PDF zero-based page 8).",
+          "Update (16) and sampling probability (15)."
+        ],
+        "identifier_or_url": "https://arxiv.org/pdf/1810.05251",
+        "material_read": "Algorithm 1 on page 9, its mean-square proof, and introductory description; first page visually inspected.",
+        "method": "open-access full-text inspection plus page screenshot",
+        "title": "A Linearly Convergent Doubly Stochastic Gauss-Seidel Algorithm for Solving Linear Equations and A Certain Class of Over-Parameterized Optimization Problems",
+        "trigger": "Original precise coefficient-squared sampling and stepsize"
+      },
+      {
+        "assessment": "Same entrywise sampling appears as block specialization, but results concern first and second moments; no fourth-order tensor classification found in those sections.",
+        "evidence": [
+          "Algorithm 1, page 2; Theorem 8 and Remark 9, pages 5-6."
+        ],
+        "identifier_or_url": "https://arxiv.org/pdf/1912.13291",
+        "material_read": "Algorithm 1 (pages 2-3), Theorem 8 and Remark 9 (pages 5-6), and related statements; page 3 visually inspected.",
+        "method": "open-access full text and page screenshot",
+        "title": "A doubly stochastic block Gauss-Seidel algorithm for solving linear equations",
+        "trigger": "Specific entrywise specialization and its mean-square proof"
+      },
+      {
+        "assessment": "General mean-square framework; no explicit fourth-moment coverage in the inspected relevant material.",
+        "evidence": [
+          "Abstract and main theoretical results pp. 1-2."
+        ],
+        "identifier_or_url": "https://arxiv.org/pdf/2011.10353",
+        "material_read": "Abstract, introduction and main-results overview, pages 1-2; first page visually inspected.",
+        "method": "full text accessed with targeted sections and screenshot",
+        "title": "Pseudoinverse-free randomized block iterative algorithms for consistent and inconsistent linear systems",
+        "trigger": "Potential stronger general theorem subsuming the same algorithm"
+      },
+      {
+        "assessment": "Global linear-rate/expected iterate analysis; no explicit relevant fourth-moment threshold found in inspected material.",
+        "evidence": [
+          "Abstract, main contribution and related work pp. 1-4."
+        ],
+        "identifier_or_url": "https://arxiv.org/pdf/2208.05437",
+        "material_read": "Abstract, introduction, contribution and related-work sections, pages 1-4; first page visually inspected.",
+        "method": "full text accessed with targeted sections and screenshot",
+        "title": "On pseudoinverse-free randomized methods for linear systems: unified framework and acceleration",
+        "trigger": "Later general framework including entrywise double stochastic Gauss-Seidel"
+      }
+    ],
+    "status": "PASS"
+  },
+  "review_type": "self_review",
+  "schema_version": 1,
+  "scope_run_id": "b877d5a7-09e2-4f06-af17-2d82b3543fc1",
+  "self_review_status": "passed",
+  "value": {
+    "rationale": "Separates almost-sure and second-moment convergence from fourth-moment reliability on perfectly conditioned linear systems. The threshold is sharp, not chosen arbitrarily; it quantifies the rare-small-entry amplification mechanism, and row Kaczmarz on the identical data has a decaying fourth moment. This supplies a motivated stress test for entrywise numerical linear solvers rather than a trivial rescaling.",
+    "status": "PASS"
+  }
+}
