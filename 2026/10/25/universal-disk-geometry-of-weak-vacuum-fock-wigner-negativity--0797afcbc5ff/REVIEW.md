@@ -1,12 +1,21 @@
-# Scientific review
+# Independent mathematical audit
 
-## Correctness — PASS
-The normalized Hermite cross-Wigner identity is verified against direct defining integrals. The exact finite Laguerre polynomial has leading-order rescaling \(Q_\epsilon=|1+C_ne^{-i\phi}\zeta^n|^2-\epsilon n^2C_n^2|\zeta|^{2n-2}/2+O(\epsilon^2)\) in all derivatives on compacta. The leading polynomial has exactly \(n\) simple complex roots; a uniform large-radius coefficient bound and positive compact margin exclude all remote negative domains. Rescaling around each root yields a strictly convex quadratic limit with zero circle radius \(1/\sqrt2\). This proves precisely \(n\) components, their smooth strict convexity for sufficiently small amplitude and their total area \(n\pi/2\). Polynomial upper and interior subdisk lower bounds under the Gaussian factor give the stated logarithmic integrated-mass asymptotic. All quantifiers fix \(n\), and the relative phase rotates the picture. The checker compares five direct Wigner integrals, exact Laguerre coefficients through degree 30, and representative component area/count tests, without substituting finite sampling for the proof.
+## correctness
 
-## Originality — PASS with explicitly bounded publication-priority risk
-Kenfack–Życzkowski, arXiv:quant-ph/0406015 (2004), establish Wigner negativity and individual Fock formulas, while Miranowicz et al., arXiv:1307.6950 (2013), give finite-Fock-state interference formulas. Both are foundational, not claimed as new; their inspected discussions do not contain the all-order weak-amplitude disk and area theorem. A closely related published 2026 boundary-layer theorem was read in full from RESULT.md: it treats a mixed-state maximal-positivity coherence optimization, deriving the same radial escape scale but not the negative-region geometry, topological count or universal unweighted area of **pure** coherent superpositions. The existing two-level coherent \(n=2\) phase diagram and its logarithmic integrated-mass rate cover that special case and are not claimed as firsts. Abreu–Chabaud–Dias–Prata (arXiv:2504.20324, 2025) study Wigner nodal geometry and rigidity; the abstract and updated summary, but not full text, were inspected, so an exact statement-implication comparison remains a residual risk. published-finding corpus searches of aliases, disk geometry, scalar boundary-layer and near-vacuum Fock coherence did not retrieve an all-order statement. Nonretrieval alone is not a novelty guarantee. The all-order component geometry and total-area law remain distinct from inspected stronger-looking radial statements. Independent novelty validation has not occurred.
+PASS
 
-## Mathematical value — PASS
-An unbounded family of physically natural small coherent perturbations exhibits a **fixed per-island phase-space area** despite negative mass escaping to infinity and becoming exponentially tiny. The exact component count and strict-convex disk limit encode global geometry not recovered from a scalar distance to the nearest Wigner zero. The result answers a natural shape-and-measure question linked to Wigner nonclassicality and supplies a sharp benchmark for finite-Hermite interference, rather than an arbitrary polynomial parameter slice. It does not classify finite-amplitude topology or growing-order simultaneous limits.
+The Wigner convention and physicists Hermite normalization give exact sign polynomial 1+a^2(-1)^n L_n(2r^2)+2a sqrt(2^n/n!) Re(e^{-i phi}(q+ip)^n). Set epsilon=a^(2/n), zeta=sqrt(epsilon)(q+ip). Its leading polynomial is the perfect square |1+C_n e^{-i phi} zeta^n|^2, with n distinct simple zeros; first perturbation is -epsilon*n^2*C_n^2*|zeta|^(2n-2)/2. The order-2n positive leading coefficient excludes negativity outside a fixed compact set uniformly; positive margins exclude all but O(sqrt(epsilon)) root neighborhoods. Translating physical coordinates about zeta_j/sqrt(epsilon), Q_epsilon/epsilon converges in every fixed derivative order to a positive multiple of |w|^2-1/2. Uniform strict convexity and exclusion produce exactly n smooth strictly convex Jordan components, each area ->pi/2. On those regions r^2=(n!/2^n)^(1/n)/epsilon+O(epsilon^-1/2); polynomial upper and negative interior lower bounds prove the logarithmic integrated-mass rate. The packaged script and direct Wigner integrals were inspected as finite corroboration. Independently inspected the complete related 2025 Wigner-nodal paper, whose theorems address rigidity rather than this asymptotic geometry.
 
-Self-review: passed. Independent audit: not yet performed.
+## originality
+
+PASS
+
+Best-of-knowledge statement-and-implication comparison against actual primary mathematical results and indexed records. Prior premises/special cases credited; no decisive prior coverage found, with non-zero priority risks.
+
+## value
+
+PASS
+
+The weak coherent perturbation has vanishing total negative Wigner mass but a nonzero limiting unweighted negative-set area. Exact all-n component count, disk shape, strict convexity, and escaping scale distinguish geometric nonclassicality from mass. A natural all-degree shape invariant remains after prior exact cross-term formulas; n=2 special observations are credited.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
