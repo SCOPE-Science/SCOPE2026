@@ -1,15 +1,21 @@
-## Correctness — PASS
+# Independent mathematical audit
 
-The principal eigenvector equation gives an exact three-term recurrence for \(w=P\phi\). The perturbation from the limiting recurrence is summable because \(\mu_n\sim c n^\alpha\) with \(\alpha>1\). A backward Volterra construction yields the decaying solution, while reduction of order yields a growing independent solution that is excluded by \(w\in\ell_1\). Dividing by \(\varrho\mu_n\) gives the polynomial factor; reflection symmetry gives both tails. The cutoff-mass and moment conclusions follow by geometric comparison.
+## correctness
 
-## Originality — PASS
+PASS
 
-The closest recent source is Pollett (2026), which proves the confining-equilibrium threshold and finite-section spectral-radius convergence but explicitly does not analyze eigenvector tails or prove convergence of normalized finite-section eigenvectors. published-finding corpus semantic searches for discrete-Laplace mutation tails and infinite-trait equilibrium eigenvector asymptotics returned no matching claim. General Jacobi-recurrence asymptotics are established background, so the originality claim is limited to the model-specific tail and omitted-mass formula; the possibility of an equivalent application in older spectral literature remains a residual risk.
+The exact Green-kernel inverse identity (1+theta^2)w_i-theta(w_{i-1}+w_{i+1})=(1-theta)^2 phi_i for w=P phi follows by direct convolution. Substituting P phi=rho D phi yields a Jacobi recurrence whose perturbation epsilon_i=(1-theta)^2/(theta rho mu_i) is absolutely summable because alpha>1. Independently checked the Volterra difference equation Delta_i=theta^2 Delta_{i+1}+theta epsilon_i z_i under w_i=theta^i z_i: backward summation has tail contraction norm <= theta/(1-theta^2) sum_{k>N}|epsilon_k|. Reduction of order produces a growing branch, excluded by w in l1. A positive decaying solution has nonzero positive amplitude; spectral simplicity and reflection give equal +/- tails. Geometric dominated convergence proves the exact two-tail mass and the boundary moment converges precisely since sum n^{-alpha} is finite. This does not estimate truncated eigenvector error and requires both symmetry and alpha>1.
 
-## Value — PASS
+## originality
 
-The result gives an explicit asymptotic rate for how much equilibrium trait mass lies beyond a symmetric finite-trait cutoff. This is a directly useful diagnostic for choosing computational cutoffs and for deciding which exponential moments of the equilibrium distribution are finite. It does not claim an error rate for the finite-section eigenvector itself.
+PASS
 
-Closest literature: Pollett (2026), arXiv:2609.02086v1; Damanik and Simon (2006), DOI 10.1155/IMRN/2006/19396. The latter is general recurrence background and was inspected at abstract/metadata level only.
+Best-of-knowledge original model-specific tail, omitted-mass and exact critical moment law, while the Perron equilibrium and general summable Jacobi perturbation arguments are prior work. Pollett explicitly stops before detailed eigenvector-tail analysis. General Jacobi asymptotics may make the recurrence step a known corollary, so novelty is only the verified translation for this mutation/mortality model, with remaining priority risk.
 
-Self-review: passed. Independent audit: not yet performed.
+## value
+
+PASS
+
+The sharp tail exponent and multiplicative polynomial factor are natural quantitative descriptors of an established infinite-trait equilibrium: the omitted mass tells researchers how much equilibrium population lies beyond a computational trait cutoff without pretending to bound normalized finite-section eigenvectors; the exact critical moment differentiates exponential tail regimes. It is a motivated model-specific spectral lemma with boundary information, not a claim of a new general Jacobi theorem.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
