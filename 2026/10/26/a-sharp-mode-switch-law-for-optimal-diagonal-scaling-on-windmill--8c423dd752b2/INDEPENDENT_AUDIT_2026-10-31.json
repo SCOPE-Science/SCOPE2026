@@ -1,0 +1,136 @@
+{
+  "audit_date_utc": "2026-10-31",
+  "audited_at_utc": "2026-10-31T14:03:42Z",
+  "axes": {
+    "correctness": {
+      "rationale": "Positive diagonal congruence corresponds to diagonal Loewner sandwich W<=A<=κW; averaging W over the leaf-permuting automorphism group keeps inequalities valid and produces an invariant optimum without assuming an optimizer is invariant. On invariant D(q), spectra are 1-s (multiplicity k), 1+s (k-1) and the two eigenvalues of [[q,sqrt(2kq)t],[sqrt(2kq)t,1+s]]. The upper block eigenvalue strictly increases, while λ+/λ- is minimized uniquely at q=1+s. The lower active level switches where λ-=1-s, at q=s(1-s)/(s-θ); comparing its position to 1+s gives θ_c=2s²/(1+s). Exact branch formulas and Jacobi locus then follow. Independently recomputed symmetric matrix eigenvalues and one-dimensional minimizers in 27 interior configurations; finite optimization was numerical corroboration, not proof of global unrestricted optimality.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Braatz–Morari establish convex optimization and equivalent scaled condition-number formulations.",
+          "The 2005 property A theorem gives a sufficient criterion for Jacobi optimality on a different sparsity class."
+        ],
+        "reasoning": "A general existence/algorithm theorem determines the optimization abstractly but does not yield this sharp closed-form switch without carrying out the nontrivial eigenmode analysis. Older Shapiro/Kolotilina special cases not fully read remain risks.",
+        "searches": [
+          "Braatz and Morari 1994 Lemmas 2.1–2.3",
+          "Vandebril et al. 2005 unit diagonal scaling",
+          "Gao–Qu–Udell–Ye 2023 scalable approximate diagonal preconditioning"
+        ]
+      },
+      "checked_sources": [
+        "Braatz–Morari 1994 full 6-page SIAM article",
+        "Vandebril–Golub–Van Barel 2005 HTML",
+        "Gao–Qu–Udell–Ye arxiv:2312.15594",
+        "optimal diagonal scaling windmill friendship matrix spectral condition number mode switching hub leaves"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "General condition-number minimization can be set up as convex optimization for every matrix; it does not identify θ_c or q*.",
+          "Property-A Jacobi conclusion does not apply to friendship graphs with odd cycles; indeed Jacobi is optimal only on θ=s²."
+        ],
+        "reasoning": "The exact mode-switch and global unrestricted optimality follow by symmetry averaging and spectral cross-over, not by merely substituting into a previously stated family formula. Its status as a special explicit solved case has genuine independent mathematical content.",
+        "searches": [
+          "Braatz–Morari 1994 Section 2 and Lemma 2.3",
+          "Vandebril–Golub–Van Barel 2005 property A discussion",
+          "Gao et al. 2023 scaling SDP"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Braatz and Morari optimize a general scaled condition-number problem via convex programming, without evaluating the friendship graph family or its threshold.",
+          "Vandebril et al. prove unit-diagonal optimality under property A, which fails for triangles."
+        ],
+        "reasoning": "The family can be formulated as a semidefinite diagonal sandwich, but its special two-level ratio/transition is not a statement found in the general solver. Property-A assumptions fail in the windmill graph, so the known Jacobi conclusion does not cover it.",
+        "searches": [
+          "optimal diagonal scaling windmill friendship matrix spectral condition number mode switching hub leaves",
+          "Braatz–Morari 1994 optimal Euclidean scaling via convex programming",
+          "Vandebril–Golub–Van Barel 2005 property A symmetric scaling"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "The full Braatz–Morari paper contains a table of general minimized condition number formulations, not a family-specific windmill entry.",
+          "Resultary returned related weighted shift optimization and SPD preconditioning abstracts, not a matching 2-regime windmill table."
+        ],
+        "reasoning": "No exact published special-purpose optimizer table was located; absence from topical results is not priority proof. A specialized old preconditioning example remains possible.",
+        "searches": [
+          "optimal diagonal scaling windmill friendship matrix spectral condition number mode switching hub leaves",
+          "windmill graph friendship matrix exact diagonal condition number closed form",
+          "1994 scaling general examples and tables"
+        ]
+      },
+      "rationale": "All four comparisons are grounded in actual primary or published-record searches; best-of-knowledge only. The family can be formulated as a semidefinite diagonal sandwich, but its special two-level ratio/transition is not a statement found in the general solver. Property-A assumptions fail in the windmill graph, so the known Jacobi conclusion does not cover it.",
+      "residual_risks": [
+        "Full Shapiro 1985 and Kolotilina 2002 articles were not obtained; special matrix case could imply formulas.",
+        "The theorem classifies invariant ratio and existence of symmetric optimizer, not uniqueness of all unrestricted asymmetric optimizers.",
+        "The numerically identified cusp is analytically justified; finite numerical minimizers cannot prove unrestricted optimality."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Proves general convex reducibility of optimized condition numbers, but no closed windmill SPD matrix family, active-mode transition or Jacobi locus.",
+          "evidence": [
+            "Theorem/lemma sequence yields convex optimization; no explicit θ_c=2s²/(1+s)."
+          ],
+          "identifier_or_url": "https://web.mit.edu/braatzgroup/Minimizing_the_Euclidean_condition_number.pdf",
+          "material_read": "All six pages of publicly available PDF, abstract, Introduction, Lemmas 2.1–2.3, Remarks 2.4–2.7 and conclusion; page 1 visually inspected.",
+          "method": "Full primary PDF text, page screenshot, algebraic comparison.",
+          "title": "Minimizing the Euclidean Condition Number",
+          "trigger": "Direct stronger general diagonal-condition problem"
+        },
+        {
+          "assessment": "Property A excludes friendship triangles; does not dominate family-specific theorem.",
+          "evidence": [
+            "Its classical graph class is bipartite or property-A tridiagonal/related structure, unlike the windmill triangles."
+          ],
+          "identifier_or_url": "https://people.cs.kuleuven.be/~raf.vandebril/homepage/publications/papers_html/condss/",
+          "material_read": "Accessible article HTML landing and linked property-A hypothesis / semiseparable case discussions.",
+          "method": "Primary full HTML sections and condition-number statements.",
+          "title": "A small note on the scaling of symmetric positive definite semiseparable matrices",
+          "trigger": "Strong Jacobi optimality theorem for SPD property A"
+        },
+        {
+          "assessment": "General computational procedures are not a stated exact branch formula for this graph family.",
+          "evidence": [
+            "Abstract-level optimization scope; no sharp 2s²/(1+s) transition."
+          ],
+          "identifier_or_url": "https://arxiv.org/abs/2312.15594",
+          "material_read": "Available open-access abstract and pertinent general algorithmic discussion, no specific windmill graph evaluated.",
+          "method": "OA text/abstract mathematical comparison.",
+          "title": "Scalable Approximate Optimal Diagonal Preconditioning",
+          "trigger": "General approximate diagonal scaling"
+        },
+        {
+          "assessment": "Potential specialized-dominance risk remains open; not asserted noncovering.",
+          "evidence": [
+            "1985 study of optimal block diagonal scaling with possible special cases."
+          ],
+          "identifier_or_url": "https://doi.org/10.1137/0722005",
+          "material_read": "Bibliographic abstract only; full primary article not retrieved.",
+          "method": "Incomplete comparison explicitly marked.",
+          "title": "Optimal Block Diagonal l2-Scaling of Matrices",
+          "trigger": "Historical specialized closed forms"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "rationale": "Exact scalable condition numbers, a coupling-dependent active-eigenmode transition and the sharply exceptional unit-diagonal-optimality curve provide meaningful performance and symmetry information for a natural triangle-rich SPD sparsity family; general black-box scaling algorithms do not expose this explicit geometry.",
+      "status": "PASS"
+    }
+  },
+  "checked_sources": [
+    "Braatz–Morari 1994 full 6-page SIAM article",
+    "Vandebril–Golub–Van Barel 2005 HTML",
+    "Gao–Qu–Udell–Ye arxiv:2312.15594",
+    "optimal diagonal scaling windmill friendship matrix spectral condition number mode switching hub leaves"
+  ],
+  "disposition": "passed",
+  "limitations": [
+    "Full Shapiro 1985 and Kolotilina 2002 articles were not obtained; special matrix case could imply formulas.",
+    "The theorem classifies invariant ratio and existence of symmetric optimizer, not uniqueness of all unrestricted asymmetric optimizers.",
+    "The numerically identified cusp is analytically justified; finite numerical minimizers cannot prove unrestricted optimality."
+  ],
+  "schema_version": 1
+}
