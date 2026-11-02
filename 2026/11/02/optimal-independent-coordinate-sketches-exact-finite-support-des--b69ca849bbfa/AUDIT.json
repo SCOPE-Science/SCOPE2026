@@ -1,0 +1,126 @@
+{
+  "correctness": {
+    "rationale": "Exact probability of an unobserved coordinate establishes the expected Hilbert--Schmidt error. A common KKT multiplier and coordinatewise strict convexity prove the unique closed-simplex design; full-support approximation proves the isotropic infimum. A monotone integral comparison proves t~L/rho and sharp ratio rho^rho. The proof includes summability and boundary cases; a 90-family finite checker independently tests formulas but does not substitute for infinite proofs.",
+    "status": "PASS"
+  },
+  "independent": false,
+  "independent_audit_status": "not_performed",
+  "originality": {
+    "broader_coverage": {
+      "evidence": [
+        "Lynch-Davies--Webb define the infinite-dimensional isotropic one-hot example and analyze general sketch processes, without optimizing coordinate probabilities against a specified diagonal spectral law. Earlier low-rank survey bounds and coupon-collector caveats do not determine an exact rho-dependent limiting ratio."
+      ],
+      "reasoning": "General guarantees for different sketch ensembles and qualitative coupon collection do not imply this optimum or its power-law constant, although the present result is strictly restricted to independent coordinate samples.",
+      "searches": [
+        "arxiv:2610.31333v1 full text Example 2.13, introduction, conclusions",
+        "arxiv:2308.05814v1 full text coordinate-sampling discussion",
+        "arxiv:0909.4061 survey coupon-collector remark",
+        "published-finding corpus: optimal replacement sampling finite rank diagonal Hilbert-Schmidt spectral power law asymptotic p to p"
+      ]
+    },
+    "checked_sources": [
+      "arxiv:2610.31333v1",
+      "arxiv:2308.05814v1",
+      "arxiv:0909.4061",
+      "arxiv:1511.07263",
+      "published-finding corpus: 2026/9/20/SCOPE-inverse-positive-optimal-coordinate-sampling--82c9d23eb995",
+      "published-finding corpus: 2026/9/17/SCOPE-balanced-nonuniform-reset-coupon-rates--7b9ca5a2ebed",
+      "published-finding corpus: 2026/9/18/SCOPE-exact-haar-moments-sparse-ssd--d9ecf263b248"
+    ],
+    "claim_vs_prior_implication": {
+      "evidence": [
+        "The 2026 source guarantees validity of one-hot isotropic sketches but not their optimized design; the 2023 source discusses non-Gaussian finite-dimensional coordinate sampling and coupon-collector inefficiency but not the exact optimizer. The closest published-finding corpus record about optimal coordinate sampling concerns contraction for inverse-positive SPD quadratics, not coverage of a compact operator."
+      ],
+      "reasoning": "Neither construction alone provides the KKT-optimal iid coordinate distribution nor its asymptotic rho^rho excess; the present result deduces and proves those additional statements under a restrictive model. Broader sampling literature may still contain an equivalent weighted-missing-mass calculation.",
+      "searches": [
+        "arxiv:2610.31333v1 Sections 1,2 Example 2.13,3,5",
+        "arxiv:2308.05814v1 coordinate-sampling and coupon-collector discussion",
+        "published-finding corpus: optimal independent one-coordinate isotropic sketch infinite-dimensional randomized SVD expected Hilbert Schmidt error spectral decay power law",
+        "published-finding corpus: optimal replacement sampling finite rank diagonal Hilbert-Schmidt spectral power law asymptotic p to p"
+      ]
+    },
+    "equivalent_formulations": {
+      "evidence": [
+        "The error is an exactly weighted sum of coupon-absence probabilities, rather than generic cover time. The KKT solution is a reverse-waterfilling law on the entire probability simplex. Saibaba--Międlar discuss coordinate sketching and coupon-collector issues but not exact minimization of this weighted functional for power-law spectra."
+      ],
+      "reasoning": "The weighted missing-mass formulation is mathematically equivalent and was sought explicitly; no identified result supplied both the infinite-dimensional spectral objective and the sharp rho^rho asymptotic. A generic earlier allocation theorem may recover its finite-L KKT component; this priority risk is retained.",
+      "searches": [
+        "published-finding corpus: reverse water filling optimal weighted coupon collector missing weight sum a_i (1-p_i)^L distribution",
+        "Web: optimal sampling probability expected uncaptured weighted mass coupon collector",
+        "arxiv:2308.05814v1"
+      ]
+    },
+    "exact_database_or_table": {
+      "evidence": [
+        "The closest indexed findings concern sampling in a finite SPD coordinate-descent iteration, and nonuniform coupon collection with resets; neither is an exact table or formula for this one-coordinate random rangefinder loss."
+      ],
+      "reasoning": "The actual records were inspected by scientific summary and parameter/implication comparison, not taken as proof of global uniqueness. No exact matching table was located.",
+      "searches": [
+        "published-finding corpus: randomized SVD single-coordinate isotropic samples expected error ratio power-law decay optimal design",
+        "published-finding corpus: sharp asymptotic rho^rho ratio iid with replacement optimal coordinate spectrum decay missed diagonal modes Frobenius",
+        "published-finding corpus: weighted coupon coverage optimal sampling probabilities finite support p_i=1-(lambda/a_i)^(1/(L-1)) minimizing missing weight"
+      ]
+    },
+    "rationale": "The motivating full-text source provides isotropic one-coordinate sketch construction, and foundational works give general sampling bounds but not the closed-form optimal distribution and sharp power-law rho^rho comparison. Distinct closest indexed records concern finite-dimensional coordinate descent and reset coupon collection. Historical priority, particularly weighted coupon-coverage optimization, is not independently certified.",
+    "residual_risks": [
+      "A generic optimal allocation for weighted unobserved coupons or cache miss probabilities may already imply the finite-L KKT formula.",
+      "Published literature is broad; identified surveys and not fully inspected peripheral sources cannot exclude an equivalent spectral asymptotic.",
+      "No independent audit or comprehensive historical priority certification was performed."
+    ],
+    "source_inspections": [
+      {
+        "assessment": "CONTEXT_NOT_COVERING: defines one-coordinate isotropic example and general results, not optimized coordinate probabilities on a power-law diagonal target",
+        "evidence": [
+          "arxiv:2610.31333v1, Introduction §1, Example 2.13 and §5"
+        ],
+        "identifier_or_url": "https://arxiv.org/abs/2610.31333",
+        "material_read": "Abstract, introduction, Algorithm 1, Example 2.13 and surrounding definitions, finite-dimensional and infinite-dimensional bounds, concluding discussion",
+        "method": "Read arXiv HTML full-text sections and compared claims, exact objective and parameters",
+        "title": "Sketching Outside the Hilbert Space for the Infinite-Dimensional Randomised SVD",
+        "trigger": "Motivating current primary source: explicit one-coordinate isotropic sketches"
+      },
+      {
+        "assessment": "RELATED_NOT_COVERING_EXACT_CLAIM: provides general low-rank results and warns about coordinate sketches, does not derive this optimal weighted miss objective and sharp constant",
+        "evidence": [
+          "arxiv:2308.05814v1, introduction and coordinate-sampling discussion"
+        ],
+        "identifier_or_url": "https://arxiv.org/abs/2308.05814",
+        "material_read": "Introduction and main methodological discussion, coordinate-sampling/coupon-collector section in manuscript",
+        "method": "Read available arXiv HTML manuscript and compared its hypotheses/guarantees",
+        "title": "Randomized low-rank approximations beyond Gaussian random matrices",
+        "trigger": "General non-Gaussian randomized low-rank and coordinate-sampling theory"
+      },
+      {
+        "assessment": "GENERAL_BACKGROUND; not a full-text noncoverage certification",
+        "evidence": [
+          "arxiv:0909.4061, randomized rangefinding and coupon-collector issue"
+        ],
+        "identifier_or_url": "https://arxiv.org/abs/0909.4061",
+        "material_read": "Abstract and available indexed content including reported coupon-collector caveat around Remark 11.2; NOT a full-text exclusion",
+        "method": "Compared indexed manuscript material and theorem scope",
+        "title": "Finding structure with randomness: probabilistic algorithms for constructing approximate matrix decompositions",
+        "trigger": "Foundational randomized rangefinding and coupon-collector rank-deficiency caveat"
+      },
+      {
+        "assessment": "Different row/column sampling and ridge leverage score guarantees, not an identified implication of the exact iid one-coordinate optimality and asymptotic ratio",
+        "evidence": [
+          "arxiv:1511.07263, stated ridge-leverage low-rank approximation setting"
+        ],
+        "identifier_or_url": "https://arxiv.org/abs/1511.07263",
+        "material_read": "Abstract and accessible indexed methodological description; NOT exhaustive full-text inspection",
+        "method": "Compared algorithm class and guarantee types",
+        "title": "Input sparsity time low-rank approximation via ridge leverage score sampling",
+        "trigger": "Potentially stronger optimized low-rank coordinate sampling literature"
+      }
+    ],
+    "status": "PASS"
+  },
+  "review_type": "self_review",
+  "schema_version": 1,
+  "scope_run_id": "b69ca849-bbfa-487a-b80d-2308dd004632",
+  "self_review_status": "passed",
+  "value": {
+    "rationale": "A source-motivated white-noise/isotropic one-coordinate sketch raises a precise allocation problem for a natural compact Hilbert--Schmidt operator. The exact optimized law and rho-dependent sharp asymptotic cost quantify the price of repeated iid sparse coordinate sampling versus deterministic rank truncation. The nonattainment of isotropic optimal designs supplies a structural boundary, rather than an arbitrary numerical case. Scope does not extend to general sketches.",
+    "status": "PASS"
+  }
+}
