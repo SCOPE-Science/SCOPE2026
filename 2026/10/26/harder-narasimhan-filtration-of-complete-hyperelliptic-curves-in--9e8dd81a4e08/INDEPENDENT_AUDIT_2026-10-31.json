@@ -1,0 +1,111 @@
+{
+  "audit_date_utc": "2026-10-31",
+  "audited_at_utc": "2026-10-31T19:44:49Z",
+  "axes": {
+    "correctness": {
+      "finite_check_path": "independent_checks.py (private auditor-created; bounded only)",
+      "rationale": "For any smooth complex hyperelliptic genus g>=3 curve and general degree g+4 L with balanced pi_*L=O(1)⊕O(2), the complete series embeds into the smooth cubic scroll S=P(pi_*L)⊂P4. On S, C~2H+(g-2)f, hence normal N_(C/S)=L²A^(g-2), first line of degree 4g+4. The cubic scroll normal resolution 0→O_S(2f)→O_S(H+f)^3→N_(S/P4)→0, restricted to C and divided by LA, identifies quotient with M_D^*, D=LA^-1 and pi_*D=O⊕O(1). Comparison of the two complete evaluation sequences yields 0→A^-1→M_D→AD^-1→0. Its dual and re-twist give saturated second line L²A^-1 and quotient LA² in N_S|C. The normal-sequence inverse image gives E2, and quotient degrees (4g+4,2g+6,g+8) are strictly decreasing since the gaps are 2g-2 and g-2 for every g>=3. Line bundles are stable and inclusions have locally free quotients, so this is the unique HN filtration. The determinant L^5A^(g-1) has adjunction degree 7g+18. Independently checked scroll c1=3H+f, its restricted degree 3g+14, all three HN degree equalities and exact gaps for g=3..24. These tests check arithmetic/determinant constraints, not sheaf exactness; the actual exact normal and evaluation diagrams supply the infinite proof.",
+      "specific_checks": [
+        "Exact scroll intersection numbers and HN degree/determinant checks for g=3..24."
+      ],
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Liu Lemma 2.2 proves smooth scroll embedding and the maximal scroll-line normal subbundle for all relevant r including 3",
+          "Liu Lemma 4.1 assumes r>=g+2, so cannot legally be specialized to r=3,g>=3"
+        ],
+        "reasoning": "A general semistability threshold and destabilizing line do not determine the rank-two intermediate step or its saturated line quotient; the cited refined lemma does not cover this low-rank case.",
+        "searches": [
+          "https://arxiv.org/abs/2610.12854 Lemma 2.2 and Lemma 4.1",
+          "Harder Narasimhan normal bundles genus g hyperelliptic curves degree g+4 embedding P4 cubic scroll subquotient"
+        ]
+      },
+      "checked_sources": [
+        "https://arxiv.org/abs/2610.12854",
+        "https://arxiv.org/abs/2608.01511",
+        "https://arxiv.org/abs/2306.12653",
+        "Resultary Harder Narasimhan normal bundles genus g hyperelliptic curves degree g+4 embedding P4 cubic scroll subquotient"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "Liu exact scroll core uses B_r and B_(2,r) but only asserts its normal quotient sequence under r>=g+2; the current r=3 case has balanced split O1⊕O2 proved from general L",
+          "The 2026 general Brill-Noether normal stability theorem does not cover special hyperelliptic HN grades; the genus-two exception has different g"
+        ],
+        "reasoning": "The new low-rank proof supplies an independent saturated intermediate line by direct cubic-scroll normal resolution; it is not a formal allowed substitution into Liu Lemma 4.1. The standard sequences could nonetheless have appeared as an unstated corollary or older direct calculation.",
+        "searches": [
+          "https://arxiv.org/abs/2610.12854 §4.1 formulas 4.1/4.2 rank restriction",
+          "https://arxiv.org/abs/2608.01511 §1.1.3",
+          "Harder Narasimhan normal bundles genus g hyperelliptic curves degree g+4 embedding P4 cubic scroll subquotient"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "https://arxiv.org/abs/2610.12854 §§2.2,4.1: scroll line and general scroll core via dual evaluation bundles for r>=g+2",
+          "https://arxiv.org/abs/2608.01511 §1.1.3: genus-2 normal bundle HN exceptional example in P4"
+        ],
+        "reasoning": "Equivalent graded slopes, polygon vertices or saturated rank-two HN step would cover the claim; Liu provides closely related evaluation machinery but its rank assumption excludes r=3 for all g>=3. No exact genus>=3 P4 HN theorem found in inspected relevant statements.",
+        "searches": [
+          "Harder Narasimhan normal bundles genus g hyperelliptic curves degree g+4 embedding P4 cubic scroll subquotient",
+          "Harder Narasimhan hyperelliptic P4 normal bundle degrees 4g+4 2g+6 g+8",
+          "cubic scroll normal resolution evaluation kernel HN quotient"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "The previous exact genus-two P4 HN polygon is known and differs in ranks/slopes, and is expressly outside g>=3",
+          "Resultary nearest HN/cubic scroll matches were unrelated wobbly divisors/general curves, not this normal bundle"
+        ],
+        "reasoning": "No finite HN table covers the all-genus statement as checked; a missing search hit is not evidence against the possibility of an older implicit derivation.",
+        "searches": [
+          "Harder Narasimhan normal bundles genus g hyperelliptic curves degree g+4 embedding P4 cubic scroll subquotient",
+          "\"Harder Narasimhan\" \"hyperelliptic\" \"normal bundle\" \"P4\"",
+          "HN degree list 4g+4 2g+6 g+8"
+        ]
+      },
+      "rationale": "The exact target is the complete three-slope Harder–Narasimhan filtration for general embedded hyperelliptic genus g>=3 in P4, not merely instability of the normal bundle. Liu 2026 explicitly proves the scroll destabilizing line for general embeddings and supplies a two-step scroll-core profile in Lemma 4.1 only for r>=g+2; for P4 the normalized rank is r=3<g+2. The basic scroll/evaluation mechanism is known and credited, but its eligible higher-rank result does not imply an HN three-line filtration with grades (4g+4,2g+6,g+8) for this excluded range. Coskun–Jovinelly–Larson treats the genus-two sextic P4 separately, not g>=3 hyperelliptic locus. Mathematically motivated low-dimensional HN extension survives the precise hypothesis comparison; the ease of recovering it from standard sequences remains historical-equivalence risk.",
+      "residual_risks": [
+        "The cubic-scroll normal resolution is classical and could lead to an implicit earlier all-genus low-rank HN calculation not indexed under the same wording.",
+        "The result assumes a general L with balanced direct image; special L and non-hyperelliptic curves are not covered.",
+        "The degree checker verifies arithmetic only, not exactness or saturation of vector-bundle maps."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "COVERS_SCROLL_FIRST_STEP_EXCLUDES_LOW_RANK_HN",
+          "evidence": [
+            "r=3 for P4 and g>=3 violates r>=g+2, while scroll line B_r is established prior; explicit second HN step remains distinct."
+          ],
+          "identifier_or_url": "https://arxiv.org/abs/2610.12854",
+          "material_read": "Full primary arXiv HTML: main Theorem 2.1, Lemma 2.2 proof of scroll, §4.1 especially Lemma 4.1 hypotheses r>=g+2 and its evaluation-kernel argument",
+          "method": "Read relevant main primary mathematical sections, compared rank/genus assumptions and normal quotient sequences",
+          "title": "Normal bundles of hyperelliptic curves and uniform propagation of semistability",
+          "trigger": "Same hyperelliptic general complete normal bundles and potential stronger HN profile"
+        },
+        {
+          "assessment": "COVERS_GENUS_TWO_NOT_HYPERELLIPTIC_G_AT_LEAST_THREE",
+          "evidence": [
+            "Generic Brill–Noether class and genus-two P4 sextic do not imply the HN flag for arbitrary smooth hyperelliptic g>=3."
+          ],
+          "identifier_or_url": "https://arxiv.org/abs/2608.01511",
+          "material_read": "ArXiv primary abstract, introduction and §1.1.3 genus-two exceptional normal bundle discussion",
+          "method": "Read relevant primary HTML sections and compared genus/embedding hypotheses",
+          "title": "Stability of normal bundles of Brill–Noether curves in P4",
+          "trigger": "Closest exact lower-genus P4 filtration, possible domination"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "rationale": "The complete HN polygon of a natural exceptional curve locus describes precise instability, not just the previously known yes/no failure of semistability. The canonical rank-two step and all three line-quotient degrees for every genus g>=3 in P4 are natural algebraic-geometric invariants a researcher comparing normal bundles could require; no general ambient-dimension or paper-sized theorem is needed.",
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "limitations": [
+    "Complex smooth hyperelliptic g>=3, general complete degree-(g+4) polarization with balanced pushforward, ambient P4 only.",
+    "Quotient extensions need not split; no Hilbert scheme or special-polarization claim.",
+    "Finite degree verification corroborates only identities; geometric exactness follows from normal and evaluation sequences."
+  ],
+  "schema_version": 1
+}
