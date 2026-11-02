@@ -1,19 +1,21 @@
-# Review: exact icosidodecahedral spherical contact law
+# Independent mathematical audit
 
-## Correctness
+## correctness
 
-PASS. The proof begins with actual normalized icosahedral edge midpoints and derives the four spherical Voronoi vertices and their orthogonal tangent directions. It then integrates the spherical radial Jacobian over a fully specified gnomonic diamond quadrant. Both endpoint coefficients are derived from local profiles rather than inferred from simulation. The standalone program independently reconstructs face incidences, compares angular integrals with the elementary CDF, checks normalization and support, and corroborates the predicted asymptotics. The critical exact-face identities are stated and derived in RESULT.md. This review does not represent external formal certification.
+PASS
 
-## Originality
+The 30 sites are normalized midpoints of icosahedron edges, with rectified hull having 20 triangular and 12 pentagonal faces; each site has spherical nearest-site Voronoi cell dual to 4 incident face-normal directions. Gnomonic projection at a site sends this cell to |x|/phi^-2+|y|/phi^-1<=1. Four congruent first-quadrant sectors and 30 sites give F(r)=30Q(r)/pi, where Q integrates 1-cos(min(r,alpha(theta))) over theta in [0,pi/2]. The gnomonic radial boundary tan(alpha)=tan(pi/10)/cos(theta-psi) produces an elementary antiderivative arcsin(cos rho sin(theta-psi)), clipping endpoints at atan(phi^-2) and atan(phi^-1). Local quadratic curvature near the first active interval produces the (r-rho)^(3/2) coefficient (40/pi)sqrt(2tan rho); triangular corner area produces the final quadratic coefficient 15a sqrt(1+b²)/(pi b). Independently reconstructed all sites and hull face counts and numerically integrated the direct gnomonic surface density at radii on all sides of thresholds; checked the local coefficient limits. These finite geometric and numeric checks support the exact analytical area and local expansions, not a theorem by sample extrapolation.
 
-PASS relative to accessible mathematical evidence. Na--Lee--Cheong (2001) provides the general spherical Voronoi machinery but not the particular thirty-vertex contact distribution; its complete available report was examined. published-finding corpus scientific comparison searches for the thirty-site distribution, aliases (rectified icosahedron, spherical edge midpoints, Voronoi radial law, cap coverage), and stronger coverage found results about spherical simplex cap unions, icosahedral section counts and width moments, which have different site sets or probability observables. Wang--Lee (2011) is a plausible adjacent source whose full text was not available; only the published abstract and metadata were reviewed, and priority remains uncertain. Search non-detection alone is not used as proof of novelty.
+## originality
 
-## Value
+PASS
 
-PASS. Thirty equidistributed directions of the icosidodecahedron are a canonical finite spherical code; its exact nearest-direction distribution determines the fraction of all orientations within any specified angular tolerance. The two transition thresholds distinguish initial cap collision, a change in which Voronoi vertices control the radial law, and total coverage. The endpoint exponents quantify local overlap onset and worst-case coverage sensitivity, information unavailable from a covering radius alone. The object and thresholds are intrinsic, with no arbitrary parameter slice.
+Spherical Voronoi/convex hull duality and icosidodecahedral face combinatorics are classical and explicitly prior. The accessible Na–Lee–Cheong full PDF covers general spherical Voronoi algorithms but not this 30-site nearest-angle CDF. The plausible 2011 Wang–Lee icosahedral-hexagonal grid paper was located and its abstract read, but arXiv/OA full text unavailable; authorized Oxford retrieval stopped with vpn_disconnected. This source is flagged as historical-priority risk, not an automatic failure.
 
-## Residual limitations
+## value
 
-The analytic result is restricted to uniformly sampled directions for this exact regular code. Adjacent icosahedral-grid literature not accessible in full leaves a historical-priority risk; independent review remains outstanding.
+PASS
 
-Self-review: passed. Independent audit: not yet performed.
+A complete orientation-dependent covering-radius distribution for a canonical 30-point symmetric spherical code, including all thresholds and contact exponents. The exact formula can benchmark spherical quantization/covering errors and distinguishes edge-midpoint sites from original 12 icosahedral vertices or polygonal section observables.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
