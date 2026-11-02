@@ -1,11 +1,21 @@
-# Review of the sharp delayed pumping--injection response theorem
+# Independent mathematical audit
 
-**Correctness — PASS.** The exact normalized Theis response has derivative equal to a positive injection kernel times \(\Phi_\tau(t)-\lambda\). Its logarithmic derivative reduces to a quadratic with one zero in the admissible interval precisely when \(\tau+a>b\); otherwise the kernel ratio decreases from infinity to one. This yields the complete strict-extrema classification, including the \(\lambda=m\) horizontal-inflection boundary. Differentiation of the minimum envelope proves strict unimodality in delay when \(a>b\), with critical value \(m(a-b)=b/a\). Exact exponential bounds prove the \(2,0,2\) example, while direct Theis calculations supplement the proof.
+## correctness
 
-**Originality — PASS with residual risk.** Theis' foundational kernel, standard source superposition, and interference methods are prior art. The physically different case of two distinct well locations with delayed, lower-rate injection admits an exact two-extrema iff criterion and a reentrant delay phase boundary not stated in the inspected technical sections or accessible published abstracts. Same-source pump cessation has equal source magnitude and location and cannot produce the claimed lower-rate double rebound. Searches considered aliases including Theis superposition, aquifer hydrographs, delayed injection and two extrema. Relevant Rushton (1985) and Weber--Chapuis (2013) full texts remained inaccessible; their abstracts emphasize interfering pumping-test parameter recovery, but a broader method could conceivably subsume this classification. No historical uniqueness is certified.
+PASS
 
-**Mathematical value — PASS.** A seemingly minor delayed recharge intervention can produce two transient water-level turning times despite positive net groundwater extraction, and the turning behavior can vanish and reappear as delay increases. The phase boundary is natural in squared distance and transport time; its global extremum \(b/a\) provides a sharp rate-scale diagnostic for interpreting multiwell monitoring curves. The theorem classifies all positive rates and delays in its ideal model, not a selected numerical instance.
+Differentiate E1(c/t): exp(-c/t)/t. The drawdown derivative has the sign of Phi_tau(t)-lambda, with Phi=(t-tau)/t exp(-a/t+b/(t-tau)). Its log derivative numerator is Q(t)=(tau+a-b)t²-tau(tau+2a)t+a tau², with Q(tau)=-b tau² and discriminant tau²(tau²+4ab). This proves monotonic or one-minimum regimes and sharp two-strict-extrema threshold. Envelope differentiation at the stationary t_m yields sign determined by b-(t_m-tau); evaluating log Phi derivative at t=tau+b gives the unique delay peak b/a at tau=a-b for a>b. Exact t witnesses establish the 2/0/2 pattern for (a,b,lambda)=(4,1,0.1); independent symbolic discriminant and numerical root checks passed.
 
-The research is analytical, limited to the ideal assumptions documented in the result. Numerical verification is finite; field performance and external validation are unproved. The strongest open priority risk concerns inaccessible older neighboring-well analyses.
+## originality
 
-Self-review: passed. Independent audit: not yet performed.
+PASS
+
+Theis superposition is classical and derivative zero solutions can be computed routinely. The assessed new claim is the global strict-extrema classification and reentrant delay envelope for a nearer delayed positive injection well with a smaller rate, which are not in the accessible primary materials. Closest full publisher articles inaccessible, so priority is qualified.
+
+## value
+
+PASS
+
+The sharp phase diagram and 2-to-0-to-2 reappearance under a single delay parameter expose a non-monotone identifiable feature of two-well transient interference; this may matter for interpreting pumping/recharge time courses within the idealized model.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
