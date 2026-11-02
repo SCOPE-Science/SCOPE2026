@@ -1,0 +1,162 @@
+{
+  "correctness": {
+    "rationale": "For finite \\(d\\)-regular bipartite \\(H\\) without four-cycles, any mixed independent set in the cross-edge complement \\(G\\) has a singleton on one side; maximality gives exactly the centered stars of \\(H\\). Conditional on the earliest two feasible vertices, the second is opposite with probability \\(d/(n+d-1)\\); alternatively \\(d(d-1)\\) same-side second choices retain a unique common missing neighbor, which wins the residual race with probability \\(1/(n-d+1)\\). This proves \\(p_{n,d}=dn/((n+d-1)(n-d+1))\\); three disjoint early-order scenarios prove all individual atom masses, with a separate \\(d=1\\) pair argument. Degree-square counting gives \\(n\\ge1+d(d-1)\\), yielding uniform asymptotics and prime-power projective-plane sharpness. Independent exact-rational dynamic programming compared full output atoms and moments on matching deletions, one/multiple missing cycles and the Fano incidence graph; a direct enumeration of \\(8!\\) permutations and a four-cycle counterexample passed 441 exact checks. Finite checks alone are not proof.",
+    "status": "PASS"
+  },
+  "independent": false,
+  "independent_audit_status": "not_performed",
+  "originality": {
+    "broader_coverage": {
+      "evidence": [
+        "Krivelevich et al. study local-limit expected-density estimates and concentration with mild growth criteria; the 2019 arXiv HTML and the 2024 full journal HTML were inspected, including theorem statements and applications: https://arxiv.org/abs/1907.07216 ; https://onlinelibrary.wiley.com/doi/full/10.1002/rsa.21200",
+        "Gamarnik and Goldberg abstract gives expectations and concentration for regular bounded-degree/high-girth input graphs: https://arxiv.org/abs/0807.1277",
+        "The input graph G here is regular of degree n-d, which diverges and contains four-cycles; the C4-free graph is its *deleted* incidence graph H.",
+        "The 2026 Shaikh abstract gives a general triangle-free input graph variance bound in terms of edge count, which applies here because G is bipartite but gives order n squared, not this family’s full finite law and sharper order \\(n^{3/2}\\) bound: https://arxiv.org/abs/2609.14826"
+      ],
+      "reasoning": "The original literature deals with asymptotic expected independence ratios/concentration for inputs of differing local structure. It does not give the finite full support and exact individual output probabilities or \\(n^{3/2}\\) sharp variance envelope for these dense cross-edge complements. In particular bounded-degree/high-girth results cannot be applied to the deleted graph H as if it were the input G.",
+      "searches": [
+        "https://arxiv.org/abs/1907.07216",
+        "https://onlinelibrary.wiley.com/doi/full/10.1002/rsa.21200",
+        "https://arxiv.org/abs/0807.1277",
+        "Random-order greedy maximal independent set complement of bipartite girth six graph projective plane incidence graph sharp n^(3/2) variance rare output size d+1",
+        "https://arxiv.org/abs/2609.14826"
+      ]
+    },
+    "checked_sources": [
+      "https://arxiv.org/abs/1907.07216",
+      "https://onlinelibrary.wiley.com/doi/full/10.1002/rsa.21200",
+      "https://arxiv.org/abs/0807.1277",
+      "https://github.com/Resultary/2026/blob/main/2026/10/4/SCOPE-exact-random-greedy-maximal-independent-set-law-on-chain-graphs--36fe61ce32de/RESULT.md",
+      "https://github.com/Resultary/2026/blob/main/2026/9/19/SCOPE-random-greedy-mis-variance-complete-multipartite--9cd73ef8690f/RESULT.md",
+      "https://github.com/Resultary/2026/tree/main/2026/10/4/SCOPE-exact-non-cis-pair-count-for-matching-deleted-complete-bipartite--fb55fa5d8edb",
+      "https://arxiv.org/abs/2609.14826"
+    ],
+    "claim_vs_prior_implication": {
+      "evidence": [
+        "The complete support proved here is \\(\\{U,V\\}\\) plus \\(2n\\) regular-incidence stars (\\(n\\) distinct stars if \\(d=1\\)); every star has an exact mass depending only on \\(n,d\\).",
+        "Krivelevich et al. do not state any such full finite output-set probability distribution.",
+        "Nested-neighborhood and complete-partite formulas do not include generic C4-free missing-incidence graph complements; e.g., deleted eight-cycle violates their requisite input structures."
+      ],
+      "reasoning": "A local-limit expected-value theorem or a complete-multipartite/chain exact law neither implies the full probability mass function here nor the uniform d-variate \\(n^{3/2}\\) sharp variance consequence. The missing-edge C4-free condition is structurally distinct from assumptions on G itself.",
+      "searches": [
+        "https://arxiv.org/abs/1907.07216",
+        "https://onlinelibrary.wiley.com/doi/full/10.1002/rsa.21200",
+        "2026/10/4/SCOPE-exact-random-greedy-maximal-independent-set-law-on-chain-graphs--36fe61ce32de",
+        "2026/9/19/SCOPE-random-greedy-mis-variance-complete-multipartite--9cd73ef8690f",
+        "https://arxiv.org/abs/0807.1277"
+      ]
+    },
+    "equivalent_formulations": {
+      "evidence": [
+        "Krivelevich et al. explicitly identify uniformly random greedy independent sets with arrival-priority random sequential adsorption; see https://arxiv.org/abs/1907.07216 introduction.",
+        "The present event is a complete output-set law on a cross-edge complement of a sparse, C4-free graph; replacing input by its deleted graph would change the random greedy process.",
+        "Retrieved published-finding corpus closest ranks include 2026/9/19/SCOPE-random-greedy-mis-variance-complete-multipartite--9cd73ef8690f and 2026/10/4/SCOPE-exact-random-greedy-maximal-independent-set-law-on-chain-graphs--36fe61ce32de, neither on an equivalent graph family."
+      ],
+      "reasoning": "Aliases random greedy MIS, priority adsorption, jamming law, crown graph (the degree-one case), nonincidence graphs, and deleted regular bipartite graphs were searched. Neither the process on the sparse deleted graph nor the matching-greedy process is equivalent. The closest exact output laws require chain (nested) or complete multipartite input graphs; their hypotheses fail for missing cycles and projective-plane incidence patterns.",
+      "searches": [
+        "Random greedy maximal independent set complete bipartite graph with deleted d-regular C4-free bipartite graph exact two-point law probability dn divided by (n+d-1)(n-d+1) support full sides and deleted incidence stars",
+        "Random sequential adsorption maximal independent set crown graph K_n,n minus perfect matching or Hamilton cycle failure probability and size distribution",
+        "\"random sequential adsorption\" \"complement of bipartite\" C4-free",
+        "\"random greedy\" \"independent set\" \"C4-free\" complement \"bipartite\""
+      ]
+    },
+    "exact_database_or_table": {
+      "evidence": [
+        "Full scientific result text of 2026/10/4/SCOPE-exact-random-greedy-maximal-independent-set-law-on-chain-graphs--36fe61ce32de gives a factorized law for chain graphs, where neighborhoods are nested.",
+        "Full scientific result text of 2026/9/19/SCOPE-random-greedy-mis-variance-complete-multipartite--9cd73ef8690f gives size-biased part-size laws and a variance extremum for connected complete multipartite graphs.",
+        "The 2026/10/4/SCOPE-exact-non-cis-pair-count-for-matching-deleted-complete-bipartite--fb55fa5d8edb record concerns a different non-CIS pair invariant rather than the random greedy independent-set distribution."
+      ],
+      "reasoning": "Semantic search of mathematical records returned matching-deleted biclique graph invariants, general random greedy chain and multipartite laws, and unrelated crown-graph distributions, but no table or exact atom law implying the present theorem. This is a qualified search result, not a certification of uniqueness.",
+      "searches": [
+        "Random greedy maximal independent set complete bipartite graph with deleted d-regular C4-free bipartite graph exact two-point law probability dn divided by (n+d-1)(n-d+1) support full sides and deleted incidence stars",
+        "Random-order greedy maximal independent set complement of bipartite girth six graph projective plane incidence graph sharp n^(3/2) variance rare output size d+1",
+        "Random sequential adsorption maximal independent set crown graph K_n,n minus perfect matching or Hamilton cycle failure probability and size distribution",
+        "Greedy maximal independent set probability distribution for K_{n,n} minus Hamilton cycle or incidence graph, output size n or d+1 C4-free complement.",
+        "2026/10/4/SCOPE-exact-random-greedy-maximal-independent-set-law-on-chain-graphs--36fe61ce32de",
+        "2026/9/19/SCOPE-random-greedy-mis-variance-complete-multipartite--9cd73ef8690f",
+        "2026/10/4/SCOPE-exact-non-cis-pair-count-for-matching-deleted-complete-bipartite--fb55fa5d8edb"
+      ]
+    },
+    "rationale": "The most relevant full-text local-limit article treats the same greedy process but its conclusions are limiting density and concentration, not this finite atom law on dense nonincidence graphs; high-girth input-graph methods and exact chain/complete-multipartite laws have inapplicable structures. The published scientific literature and relevant mathematical claims were compared at the level of implication, rather than title similarity. The absence of a matching search result does not constitute a general uniqueness proof; listed risks remain.",
+    "residual_risks": [
+      "A specialist source indexed under alternative terminology for bipartite nonincidence graphs or random greedy adsorption could contain an equivalent formula.",
+      "The full text of Gamarnik and Goldberg (2008) was not inspected; abstract-level coverage assessment is explicitly limited, although its stated graph hypotheses differ.",
+      "The available exact records do not establish worldwide uniqueness; the independent historical-priority audit remains unperformed.",
+      "The full text of Shaikh (2026) was unavailable; an uninspected special-case discussion is a remaining risk, though its stated theorem does not imply the full output law."
+    ],
+    "source_inspections": [
+      {
+        "assessment": "No exact finite full support or individual atoms on regular C4-free deleted-biclique complements",
+        "evidence": "2019-07-16 first-public date; first-principles definition in introduction and local-limit expected-ratio approach; graph G here has growing dense degree.",
+        "identifier_or_url": "https://arxiv.org/abs/1907.07216",
+        "material_read": "Accessible full HTML, introduction and principal local-limit theorem statements and application sections",
+        "method": "Read open full-text HTML and compare graph hypotheses, output quantities and conclusions",
+        "title": "Greedy maximal independent sets via local limits (2019 preprint)",
+        "trigger": "Same uniform random-priority greedy MIS process and relevant primary source"
+      },
+      {
+        "assessment": "Coverage is limiting expected ratios and concentration in other graph families; no specialized full distribution for these dense bipartite complements identified",
+        "evidence": "Wiley DOI 10.1002/rsa.21200; HTML full text gives local-convergence and tree applications.",
+        "identifier_or_url": "https://onlinelibrary.wiley.com/doi/full/10.1002/rsa.21200",
+        "material_read": "Accessible full HTML, introduction, theorem results, examples and tree/limiting discussions",
+        "method": "Inspect article sections and compare input structures, degree-growth assumptions and reported invariants",
+        "title": "Greedy maximal independent sets via local limits (journal full text)",
+        "trigger": "Expanded related primary text and appendices/sections might contain a special-case formula"
+      },
+      {
+        "assessment": "Bounded-degree/girth hypotheses concern input G, not missing-edge H; no direct coverage from abstract, uninspected full text remains a risk",
+        "evidence": "The paper specifies a regular graph of given girth for algorithm input and an expected-size estimate.",
+        "identifier_or_url": "https://arxiv.org/abs/0807.1277",
+        "material_read": "ArXiv abstract and metadata only; full text not inspected",
+        "method": "Compare abstract hypotheses to input G and deleted graph H",
+        "title": "Randomized greedy algorithms for independent sets and matchings in regular graphs: Exact results and finite girth corrections",
+        "trigger": "Words exact, regular and girth could misleadingly cover the incidence graph condition"
+      },
+      {
+        "assessment": "Does not cover generic nonnested neighborhoods in G; no implication of the new two-point law",
+        "evidence": "Explicit assumption connected chain graph with nested neighborhoods and Ferrers-corner support.",
+        "identifier_or_url": "https://github.com/Resultary/2026/blob/main/2026/10/4/SCOPE-exact-random-greedy-maximal-independent-set-law-on-chain-graphs--36fe61ce32de/RESULT.md",
+        "material_read": "Entire public RESULT.md theorem, proof, verification, relationship and limitations",
+        "method": "Read source through public repository file and compare nested-neighborhood condition to missing-cycle complements",
+        "title": "Exact random-greedy maximal-independent-set law on chain graphs",
+        "trigger": "Potential broader exact distribution on bipartite graphs"
+      },
+      {
+        "assessment": "The law is size-biased by part size on complete multipartite input; cannot imply the rare-star law after nontrivial missing edges",
+        "evidence": "The first accepted vertex forces an entire multipartite part, while missing H permits genuine mixed outputs in the present graph.",
+        "identifier_or_url": "https://github.com/Resultary/2026/blob/main/2026/9/19/SCOPE-random-greedy-mis-variance-complete-multipartite--9cd73ef8690f/RESULT.md",
+        "material_read": "Entire public RESULT.md including full extremal proof",
+        "method": "Compare complete multipartite class structure with the partially deleted bipartite cross-edges",
+        "title": "Sharp variance of random greedy maximal independent sets on complete multipartite graphs",
+        "trigger": "Potential exact two-point output and variance on balanced bicliques"
+      },
+      {
+        "assessment": "Measures disjoint maximal-clique/maximal-stable-set pairs, not random greedy algorithm output probabilities",
+        "evidence": "The published result gives t((a-1)(b-1)-t+1) non-CIS pairs.",
+        "identifier_or_url": "https://github.com/Resultary/2026/tree/main/2026/10/4/SCOPE-exact-non-cis-pair-count-for-matching-deleted-complete-bipartite--fb55fa5d8edb",
+        "material_read": "Search-returned scientific statement and summary, not full source document",
+        "method": "Compare the named invariant and claimed formula from the indexed result",
+        "title": "Exact non-CIS-pair count for matching-deleted complete bipartite graphs",
+        "trigger": "A close structural record involving the degree-one crown-graph subfamily"
+      },
+      {
+        "assessment": "Abstract proves only variance at most number of edges times a finite-size correction; on G this is order n squared, not exact atom law or sharper family bound",
+        "evidence": "Shaikh (2026) states Var(X_G) ≤ e((N-2)/N)^2 for triangle-free N-vertex, e-edge graph, equality on stars/edgeless graphs; the current G has N=2n, e=n(n-d).",
+        "identifier_or_url": "https://arxiv.org/abs/2609.14826",
+        "material_read": "ArXiv abstract and bibliographic metadata only; full source text not inspected",
+        "method": "Compare universal edge-count upper bound, equality cases and claimed observables to the exact current family",
+        "title": "Variance of random greedy independent sets in triangle-free graphs",
+        "trigger": "Broader variance theorem covers bipartite input graphs and might dominate the new variance consequence"
+      }
+    ],
+    "status": "PASS"
+  },
+  "review_type": "self_review",
+  "schema_version": 1,
+  "scope_run_id": "aa4a26f8-b875-4d6e-b0cc-e133ecb9774e",
+  "self_review_status": "passed",
+  "value": {
+    "rationale": "Random-order greedy MIS is an established stochastic adsorption/algorithmic observable. Sparse four-cycle-free edge deletions from a dense balanced biclique generate qualitatively different successful full-class and rare small-star outcomes. The theorem identifies every output atom uniformly over all eligible incidence structures, quantifies the probability of catastrophic small outputs, and gives the sharp worst-case \\(n^{3/2}\\) variance order realized by projective-plane designs. These are motivated family-wide stochastic structural and risk statements rather than a one-off table entry or renaming.",
+    "status": "PASS"
+  }
+}
