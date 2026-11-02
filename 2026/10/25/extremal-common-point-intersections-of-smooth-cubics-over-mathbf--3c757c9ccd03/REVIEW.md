@@ -1,15 +1,21 @@
-# Scientific review
+# Independent mathematical audit
 
-## Correctness — PASS
-The upper bound of five common rational points follows from the genus-one Hasse--Weil bound. A five-point Fano configuration has exactly 32 interpolating cubic coefficient vectors, and two independent exact implementations find precisely two geometrically smooth members. Explicit derivative computations certify their smoothness without finite-extension heuristics. Projective transitivity proves the 21-pair count and uniqueness for every five-point set. The factorization of the third pencil member gives intersection multiplicities five plus four simple points, accounting for Bézout length nine. The full pair histogram is checked independently using rank tests and Gröbner-plus-binomial-moment reconstruction. No infinite-field assertion is inferred from finite enumeration.
+## correctness
 
-## Originality — PASS, qualified
-Kaplan--Matei, arXiv:2003.13944, Theorem 1 assumes the field cardinality exceeds two and treats all cubics without a two-smooth-member restriction. Asgarli--Ghioca, arXiv:2203.07169, studies pencils with all rational members smooth; the present pencil necessarily has a reducible third rational member. The target is a distinct smallest-field extremal orbit and scheme-intersection result. Inspected full primary sections, mathematical literature searches and related research records did not exhibit an implication covering this classification. Earlier finite-field cubic tables could encode equivalent incidence orbits implicitly; this remains a real residual publication-priority risk, not a claim of established uniqueness in the literature.
+PASS
 
-## Value — PASS
-The result completely classifies maximally overlapping *smooth* genus-one plane cubics over the smallest finite field and identifies the forced local fivefold contact and degenerate pencil member. It distinguishes geometric intersection multiplicity from merely counting rational points, a natural geometric refinement of cubic-pair incidence questions. The unique-orbit statement gives a usable structural classification, not only isolated examples or a recomputed point table.
+Every geometrically smooth plane cubic over F2 has at most floor(3+2sqrt2)=5 F2-points by Hasse–Weil. The group PGL3(F2) is transitive on the 21 five-element Fano-plane subsets; for one fixed S, five linear evaluation constraints leave exactly 32 ternary cubic forms, and the homogeneous Jacobian-quadratic rank-15 criterion (equivalent to no common geometric projective zero, by the three-quadrics regular-sequence Hilbert series (1+t)^3) leaves exactly smooth encodings 60 and 172. Their displayed gradients also have no common projective zero. Hence every five-set lies on one unordered smooth pair and there are exactly 21, one orbit with stabilizer size 8. The third pencil member f+g=xz(x+z) has three concurrent lines; line restrictions of f yield divisor 5p+p1+p2+p3+p4, exhausting Bézout length 9 and proving scheme support/multiplicities (5,1,1,1,1), with p the third point on the line through omitted rational points. Fresh independently constructed GF2 Jacobian-rank census over all 1023 nonzero coefficient vectors gave 336 smooth cubics and 56280 unordered pairs with intersection histogram (12740,22575,14448,5488,1008,21). The separate assigned Gröbner-chart and binomial-moment verification file was inspected; its complementary algorithm covers all finite masks. Reconstructed all nine Git blob entries and matched assigned tree SHA 0dd580acb9b8aacc337d39b751a91d2d75969d13.
 
-## Scientific scope and risks
-Only distinct geometrically smooth cubics in characteristic two over the field of two elements are covered. The complete computational census is supported by explicit finite search domains and exact algebra; unexamined older sources could change the originality assessment. Research review does not replace external independent validation.
+## originality
 
-Self-review: passed. Independent audit: not yet performed.
+PASS
+
+Best-of-knowledge PASS for the F2 geometrically smooth cubic pair orbit and local fivefold contact, not for known smooth-cubic count 336. The nearest Kaplan–Matei theorem excludes q=2; Asgarli–Ghioca concerns all-smooth pencils whereas this pencil is not all-smooth. Earlier individual-cubic tables remain residual priority risks.
+
+## value
+
+PASS
+
+The smallest-field sharp simultaneous-rational-point intersection problem for smooth genus-one plane curves is natural, and the unique projective orbit, forced fivefold scheme contact, and complete incidence histogram supply geometrically meaningful information beyond a Hasse upper bound or recomputation of the already known 336 smooth cubics.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
