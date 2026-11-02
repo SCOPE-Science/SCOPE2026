@@ -1,11 +1,21 @@
-# Mathematical review
+# Independent mathematical audit
 
-**Correctness — PASS.** Greedy matching of a fixed pattern in an iid source gives independent geometric waiting times, and the generating function for presence by the source length is the product of letter waiting-time series divided by \(1-z\). Each length-\(2m\) Dyck word contains exactly \(m\) letters of each type and there are exactly \(\operatorname{Cat}_m\) of them. This proves the algebraic expectation series. Its smallest positive singularity satisfies \(3p(1-p)r^2+r-1=0\), is unique on its modulus circle by aperiodic positive coefficients, and has the recorded nonzero square-root derivative constant. The resulting transfer and strict optimizer are proved analytically, not by enumeration. A standalone exact check verified 18,428 source words and 4 rational source probabilities through specified degrees, including recurrence coefficients through 90.
+## correctness
 
-**Originality — PASS, with explicit residual uncertainty.** Inspected the complete Mol–Rampersad–Shallit paper: it counts contiguous Dyck factors in morphic/automatic words, not scattered Dyck patterns under random sources. Inspected the Biers-Ariel–Godbole–Kelley paper and Collins' full work: they count unrestricted distinct scattered subsequences, not Dyck-filtered patterns or the \(n^{-3/2}\) penalty. Actual semantic searches of the research findings repository and recoverable local historical claims found no matching, stronger, or equivalent theorem. The previous exact Abelian-square language expectation imposes a different condition and does not imply the Dyck prefix constraint. Standard Catalan enumeration and waiting-time methods are acknowledged. Equivalent general weighted-context-free-language results outside indexed literature remain possible.
+PASS
 
-**Mathematical value — PASS.** The Dyck language is a canonical deterministic context-free language relevant to syntax and balanced-parens parsing; its prefix viability condition makes this a structurally distinct scattered pattern count. The exact distribution-sensitive expectation and leading constant establish a polynomial \(n^{-3/2}\) correction, rather than only a numerical small instance. The uniquely optimal unbiased exponential rate is identified without restricting source length.
+Greedy first embedding time of any fixed string is the sum of independent geometric waits, so its probability-of-subsequence-by-length GF is ∏g_{letter}(z)/(1-z). Exactly Catalan_m distinct Dyck strings have m zeros and m ones; linearity of expectation, not independence of pattern indicators, gives [C(tz²/(1−z+tz²))−1]/(1−z). The dominant nonnegative real r solves 3tr²+r−1=0. Positive aperiodic coefficients of u enforce strict modulus inequality elsewhere on |z|=r; its other rational poles lie beyond the disk. The derivative 4r u_prime(r)=3(2−r)/(4(1−r)) gives the asserted unique square-root singularity and transfer coefficient; at p=q=1/2 r=2/3,h=3. An independent Python/SymPy implementation enumerated all 255 source words through n=7 for each of p=1/2 and 1/3, and matched every exact rational expectation coefficient to the derived series. These bounded checks corroborate, not replace, the proof.
 
-**Boundaries:** no typical-value or dependent-source claims, no extension to multiple parenthesis types, and no assertion of proved global priority.
+## originality
 
-Self-review: passed. Independent audit: not yet performed.
+PASS
+
+Best-of-knowledge qualified PASS. Biers-Ariel–Godbole–Kelley Theorem 2.9 gives unrestricted distinct scattered subsequences of random words with exponential 1+√(pq) and no Dyck constraint. Collins likewise treats unrestricted patterns. Mol–Rampersad–Shallit count contiguous Dyck factors in automatic fixed words. Dyck filtering is not implied by the unrestricted total: composition of geometric completion weights with a Catalan language yields a different singularity and explicit n^-3/2 correction. Basic Catalan enumeration and singularity transfer are acknowledged as classical; a published general weighted-context-free-language theorem deriving this as a special case remains possible.
+
+## value
+
+PASS
+
+The Dyck language is a canonical grammar of balanced parentheses; asking how many distinct well-nested strings occur as scattered patterns in a random source is a natural nonregular-language subsequence statistic. The exact all-n expectation and bias-dependent growth constant, including an n^-3/2 suppression and unique fair-source growth optimizer, are reusable quantitative invariants, beyond arbitrary finite enumeration.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

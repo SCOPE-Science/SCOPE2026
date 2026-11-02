@@ -1,0 +1,123 @@
+{
+  "audit_date_utc": "2026-10-27",
+  "audited_at_utc": "2026-10-27T15:02:07Z",
+  "axes": {
+    "correctness": {
+      "rationale": "Greedy first embedding time of any fixed string is the sum of independent geometric waits, so its probability-of-subsequence-by-length GF is ∏g_{letter}(z)/(1-z). Exactly Catalan_m distinct Dyck strings have m zeros and m ones; linearity of expectation, not independence of pattern indicators, gives [C(tz²/(1−z+tz²))−1]/(1−z). The dominant nonnegative real r solves 3tr²+r−1=0. Positive aperiodic coefficients of u enforce strict modulus inequality elsewhere on |z|=r; its other rational poles lie beyond the disk. The derivative 4r u_prime(r)=3(2−r)/(4(1−r)) gives the asserted unique square-root singularity and transfer coefficient; at p=q=1/2 r=2/3,h=3. An independent Python/SymPy implementation enumerated all 255 source words through n=7 for each of p=1/2 and 1/3, and matched every exact rational expectation coefficient to the derived series. These bounded checks corroborate, not replace, the proof.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Biers-Ariel et al. Theorem 2.9 enumerates every distinct subsequence, while Mol et al. study contiguous Dyck factors in deterministic automatic words."
+        ],
+        "reasoning": "Neither displayed prior theorem determines the Dyck-filtered random scattered count. A general context-free weighted-pattern result could dominate and remains a risk.",
+        "searches": [
+          "arxiv:1704.08661 Theorem 2.9; arxiv:1310.7288",
+          "arxiv:2301.06145"
+        ]
+      },
+      "checked_sources": [
+        "arxiv:1704.08661v3 Theorem 2.9 complete PDF",
+        "arxiv:1310.7288 source description",
+        "arxiv:2301.06145 abstract/source description",
+        "Resultary: exact scattered Dyck subsequence expectation query"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "Unrestricted mean at fair p has pure exponential growth 2(3/2)^n, whereas the Dyck-filtered mean has 3sqrt(3/pi)(3/2)^n n^-3/2."
+        ],
+        "reasoning": "The unrestricted expectation is one scalar sum over all patterns and does not determine its Dyck-language sub-sum; contiguous-factor results neither imply nor bound the exact scattered statistic.",
+        "searches": [
+          "arxiv:1704.08661v3 Theorem 2.9 and Section 3; arxiv:2301.06145"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "A distinct subsequence statistic can be written ∑_{w∈Dyck}Pr(T_w≤n), with independent geometric waits for each fixed w."
+        ],
+        "reasoning": "This language-restricted occupancy sum is exactly equivalent; known unrestricted total does not encode the Dyck-prefix balance condition.",
+        "searches": [
+          "Dyck language pattern embedding probability greedy waiting times Catalan",
+          "Resultary: Expected number distinct Dyck scattered subsequence patterns of iid random binary word Catalan generating function"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "The retrieved binary-subsequence-universality law classifies existence of every length-k pattern, not expectation over distinct balanced-prefix patterns."
+        ],
+        "reasoning": "No exact Dyck series table found; the search is not a novelty certificate.",
+        "searches": [
+          "Resultary: Expected number distinct Dyck scattered subsequence patterns of iid random binary word Catalan generating function",
+          "Resultary: closed-form law for binary subsequence universality 2026/10/4/SCOPE-closed-form-law-for-binary-subsequence-universality--e77c4e8d9f37"
+        ]
+      },
+      "rationale": "Best-of-knowledge qualified PASS. Biers-Ariel–Godbole–Kelley Theorem 2.9 gives unrestricted distinct scattered subsequences of random words with exponential 1+√(pq) and no Dyck constraint. Collins likewise treats unrestricted patterns. Mol–Rampersad–Shallit count contiguous Dyck factors in automatic fixed words. Dyck filtering is not implied by the unrestricted total: composition of geometric completion weights with a Catalan language yields a different singularity and explicit n^-3/2 correction. Basic Catalan enumeration and singularity transfer are acknowledged as classical; a published general weighted-context-free-language theorem deriving this as a special case remains possible.",
+      "residual_risks": [
+        "A general theorem on scattered occurrences of weighted context-free languages could make the Catalan composition an immediate corollary.",
+        "Only the Biers-Ariel primary was read in full in this execution; Collins and Mol were compared using partial accessible descriptions.",
+        "No limit distribution or concentration of D_n follows from expected-value asymptotics."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Counts unrestricted subsequences, not Dyck-restricted strings; its formula lacks the Catalan n^-3/2 factor",
+          "evidence": [
+            "Theorem 2.9 and Corollary 2.10: unrestricted expectation with rate 1+sqrt(pq)."
+          ],
+          "identifier_or_url": "arxiv:1704.08661v3",
+          "material_read": "All ten pages of primary PDF including Definition 2.1, Lemmas 2.5–2.7, Theorem 2.9 and Section 3",
+          "method": "Primary PDF text and page image",
+          "title": "Expected Number of Distinct Subsequences in Randomly Generated Binary Strings",
+          "trigger": "Closest same random-word/scattered-subsequence metric"
+        },
+        {
+          "assessment": "No Dyck restriction established in accessible description",
+          "evidence": [
+            "Unrestricted distinct scattered subsequences of random binary strings."
+          ],
+          "identifier_or_url": "arxiv:1310.7288",
+          "material_read": "Indexed description and source comparison; no whole-text negative inference in current audit",
+          "method": "Abstract and bibliographic comparison",
+          "title": "The Number of Distinct Subsequences of a Random Binary String",
+          "trigger": "Earlier unrestricted random-subsequence expectation"
+        },
+        {
+          "assessment": "Contiguous Dyck factors of automatic words instead of randomly scattered subsequences",
+          "evidence": [
+            "Automatic/Thue–Morse fixed-source Dyck factors are a different sample/object model."
+          ],
+          "identifier_or_url": "arxiv:2301.06145",
+          "material_read": "Title, indexed abstract and source classification, not full paper during this execution",
+          "method": "Abstract-level source examination",
+          "title": "Dyck Words, Pattern Avoidance, and Automatic Sequences",
+          "trigger": "Strong Dyck-language title plausibly covering count"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "rationale": "The Dyck language is a canonical grammar of balanced parentheses; asking how many distinct well-nested strings occur as scattered patterns in a random source is a natural nonregular-language subsequence statistic. The exact all-n expectation and bias-dependent growth constant, including an n^-3/2 suppression and unique fair-source growth optimizer, are reusable quantitative invariants, beyond arbitrary finite enumeration.",
+      "status": "PASS"
+    }
+  },
+  "checked_sources": [
+    "arxiv:1704.08661v3 Theorem 2.9 complete PDF",
+    "arxiv:1310.7288 source description",
+    "arxiv:2301.06145 abstract/source description",
+    "Resultary: exact scattered Dyck subsequence expectation query"
+  ],
+  "disposition": "passed",
+  "limitations": [
+    "A general theorem on scattered occurrences of weighted context-free languages could make the Catalan composition an immediate corollary.",
+    "Only the Biers-Ariel primary was read in full in this execution; Collins and Mol were compared using partial accessible descriptions.",
+    "No limit distribution or concentration of D_n follows from expected-value asymptotics.",
+    "Bounded arithmetic verification is not an infinite proof; no formal Lean or external expert attestation claimed.",
+    "Scientific status is not repository publication; privacy-safe metadata replacements are not ready."
+  ],
+  "residual_risks": [
+    "A general theorem on scattered occurrences of weighted context-free languages could make the Catalan composition an immediate corollary.",
+    "Only the Biers-Ariel primary was read in full in this execution; Collins and Mol were compared using partial accessible descriptions.",
+    "No limit distribution or concentration of D_n follows from expected-value asymptotics."
+  ],
+  "schema_version": 1
+}
