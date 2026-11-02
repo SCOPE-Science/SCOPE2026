@@ -1,0 +1,11 @@
+# Self-review — closed-factor spectrum of cyclic distinct-run powers
+
+**Correctness: PASS.** The object is a repeated word with a cyclic period of pairwise distinct letter runs. The proof covers every positive run vector and every repetition count at least two. Type A factors are the constant powers, Type B factors are the symmetric first returns to unary frontiers, and Type C factors are exactly the period-separated returns to mixed frontiers. The counting argument proves an exact length distribution and the second-moment total. Boundary conditions and integrality are addressed explicitly. Literal occurrence testing agrees for 4,032 independent parameter cases, but does not substitute for the all-parameter proof.
+
+**Originality: PASS.** The closest inspected power-word paper, Parshina–Puzynina (arXiv:2111.00863), obtains universal upper bounds and conjugacy properties, not the exact multiletter run-length spectrum. Parshina–Zamboni (arXiv:1810.05472) addresses the aperiodic Arnoux–Rauzy setting. A previously recorded binary five-run result concerns a different two-letter family with repeat occurrences in nonadjacent runs. Targeted scholarly-record searches and publicly accessible literature searches found no exact implication of the full new result. This is best-knowledge originality, not global proof of uniqueness.
+
+**Value: PASS.** Complete first returns are a natural measure of closed-word complexity and a string-index primitive. The finding is a complete, exact, infinite-family classification; the striking collapse of the total to a quadratic run-length statistic and a fixed increment per repetition is not a routine numerical change. The length spectrum explains *why* the collapse occurs.
+
+The source risk is an as-yet-unlocated specialization or stronger statement for general periodic roots. This review does not claim independent expert assessment. The classification is limited to distinct run letters in the period, and the finite verifier covers only the stated finite cases. Prior work is cited for definitions, general power bounds, and related complexity formulas rather than as proof of the present equality.
+
+Self-review: passed. Independent audit: not yet performed.
