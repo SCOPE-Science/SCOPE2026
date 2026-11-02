@@ -1,0 +1,93 @@
+{
+  "audit_date_utc": "2026-10-28",
+  "audited_at_utc": "2026-10-28T22:52:49Z",
+  "axes": {
+    "correctness": {
+      "rationale": "Reconstructed the exact held-input ODE in the two-dimensional safety-trigger counterexample, with J skew-symmetric, x(t_i+tau)=e^{h_i tau/2}R(tau)x_i, h(t_i+tau)=1-(1-h_i)e^{h_i tau}, and E_i(tau)^2=(1-h_i)[(e^{h_i tau/2}-1)^2+4e^{h_i tau/2}sin^2(tau/2)]. For rho>1, 0<sigma<1, and nonzero strictly interior x_0 (0<h_0<1), the residual changes sign before the first barrier-zero time, giving a positive trigger. The barriers decrease; if they had a positive limiting value, the bounded speed and trigger magnitude would imply a positive lower bound on each inter-event duration and each barrier decrement, contradiction. Hence h_i->0. The exact error at any fixed small delta>0 tends to 2 sin(delta/2)>0, showing first trigger tau_i->0; the local flow then gives E_i(tau_i)/tau_i->1. With c=sigma/(2rho^3), tau_i/h_{i+1}->c and h_{i+1}/h_i->1; the reciprocal increment 1/h_{i+1}-1/h_i->c. Stolz-Cesàro yields h_i~1/(ci), tau_i~1/i, and summing gives t_i~log i, log N(t)/t->1. The latter is a logarithmic event-count asymptotic, not the stronger N(t)~e^t. The divergent harmonic sum excludes finite-time Zeno accumulation. Independently calculated 20,000 exact held-flow roots, verifying positive decreasing h and i*tau_i tending near 1; finite checks corroborate but are not the asymptotic proof.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Taylor et al. analyze the same flow but their stated conclusion does not quantify the harmonic index law."
+        ],
+        "reasoning": "General ISSf barrier-trigger safety and Zeno/non-Zeno criteria involve sufficient conditions or no-MIET examples; no inspected general bound implies an exact universal constant for this nonuniform held-gain trajectory.",
+        "searches": [
+          "Resultary semantic query: Exact event-time asymptotics safety critical event-triggered control barrier h_i ~ 1/i tau_i ~ 1/i sample hold Taylor Ong Cortes Ames counterexample",
+          "Taylor, Ong, Cortés and Ames, Safety-Critical Event Triggered Control via Input-to-State Safe Barrier Functions, arXiv:2003.06963; https://arxiv.org/pdf/2003.06963"
+        ]
+      },
+      "checked_sources": [
+        "Taylor, Ong, Cortés and Ames, Safety-Critical Event Triggered Control via Input-to-State Safe Barrier Functions, arXiv:2003.06963; https://arxiv.org/pdf/2003.06963",
+        "Resultary search: Exact event-time asymptotics safety critical event-triggered control barrier h_i ~ 1/i tau_i ~ 1/i sample hold Taylor Ong Cortes Ames counterexample"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "The exact flow/trigger is earlier; the new reciprocal-difference asymptotic is not an immediate stated corollary."
+        ],
+        "reasoning": "Qualitative h_i->0 and no positive global gap cannot entail a specific 1/i decay, and no-MIET alone cannot distinguish finite accumulation from an infinite harmonic sum. The new proof uses reciprocal-increment convergence.",
+        "searches": [
+          "Resultary semantic query: Exact event-time asymptotics safety critical event-triggered control barrier h_i ~ 1/i tau_i ~ 1/i sample hold Taylor Ong Cortes Ames counterexample",
+          "Taylor, Ong, Cortés and Ames, Safety-Critical Event Triggered Control via Input-to-State Safe Barrier Functions, arXiv:2003.06963; https://arxiv.org/pdf/2003.06963"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Taylor et al. counterexample has the same h=1-||x||², held k=h_i/2 and 2 rho^3 E_i=sigma h trigger, but only qualitative shrinking gaps and barrier approach."
+        ],
+        "reasoning": "The terms minimum inter-event time (MIET), event-triggered barrier control, Zeno avoidance, and asymptotic event counts refer to related but different properties; Taylor’s lack-of-MIET example does not logically fix the rates tau_i~1/i or t_i~log i.",
+        "searches": [
+          "Resultary semantic query: Exact event-time asymptotics safety critical event-triggered control barrier h_i ~ 1/i tau_i ~ 1/i sample hold Taylor Ong Cortes Ames counterexample",
+          "Taylor, Ong, Cortés and Ames, Safety-Critical Event Triggered Control via Input-to-State Safe Barrier Functions, arXiv:2003.06963; https://arxiv.org/pdf/2003.06963"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "The source uses numerical event-interval behavior; plots alone do not prove 1/i or determine c."
+        ],
+        "reasoning": "There is no natural finite exact lookup table for an all-index asymptotic of a continuous sample-and-hold event sequence; the source’s illustrative time plots are not an exact symbolic coefficient table.",
+        "searches": [
+          "Resultary semantic query: Exact event-time asymptotics safety critical event-triggered control barrier h_i ~ 1/i tau_i ~ 1/i sample hold Taylor Ong Cortes Ames counterexample",
+          "Taylor, Ong, Cortés and Ames, Safety-Critical Event Triggered Control via Input-to-State Safe Barrier Functions, arXiv:2003.06963; https://arxiv.org/pdf/2003.06963"
+        ]
+      },
+      "rationale": "The exact controlled system, its trigger, and the qualitative lack of a uniform inter-event lower bound come directly from Taylor–Ong–Cortés–Ames. The inspected counterexample derives approach to the barrier and illustrates shrinking gaps; it does not provide the sharp reciprocal-index coefficients and logarithmic event-time law. Searches for synonymous MIET/Zeno boundary-layer asymptotics in the same model and published findings found no demonstrated stronger covering statement. Priority remains qualified because known exact equations make the asymptotic derivation accessible and an unindexed follow-up might include it.",
+      "residual_risks": [
+        "An earlier follow-up with asymptotics for this same exact controller may be unindexed or unnamed.",
+        "Rates apply only for rho>1, sigma in (0,1), and nonzero interior initial state; no claim of N(t)~e^t.",
+        "Numerical 20,000-step check is corroborative; the limit proof uses the exact ODE."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "COVERING_MODEL_NOT_RATE",
+          "evidence": "The held-state gain and qualitative no-MIET conclusion are prior, while reciprocal barrier and event-index asymptotics are not stated in the examined counterexample.",
+          "identifier_or_url": "https://arxiv.org/pdf/2003.06963",
+          "material_read": "Read the accessible primary PDF, particularly the two-state sample-and-hold counterexample, its exact dynamics/trigger, MIET conclusion and figures on pages 2–3.",
+          "method": "Full-text PDF, including visual page inspection",
+          "title": "Safety-Critical Event Triggered Control via Input-to-State Safe Barrier Functions",
+          "trigger": "Identical two-state trigger and plant, plausible exact prior rate"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "rationale": "This sharp asymptotic resolves an important distinction in a canonical safety-control counterexample: infimum of inter-event gaps equals zero while events do not accumulate in finite time. The universal leading gap constant and exact barrier coefficient quantify the sampling burden, and t_i~log i distinguishes infinite-time exponential growth of counts from Zeno behavior. It is specifically motivated by the earlier counterexample and is not asserted as a general controller theorem.",
+      "status": "PASS"
+    }
+  },
+  "checked_sources": [
+    "Taylor, Ong, Cortés and Ames, Safety-Critical Event Triggered Control via Input-to-State Safe Barrier Functions, arXiv:2003.06963; https://arxiv.org/pdf/2003.06963",
+    "Resultary search: Exact event-time asymptotics safety critical event-triggered control barrier h_i ~ 1/i tau_i ~ 1/i sample hold Taylor Ong Cortes Ames counterexample"
+  ],
+  "disposition": "passed",
+  "limitations": [
+    "Not a uniform theorem for other barriers/controls; the initial center x_0=0 is excluded.",
+    "An infinite event count is only at infinite physical time."
+  ],
+  "residual_risks": [
+    "An earlier follow-up with asymptotics for this same exact controller may be unindexed or unnamed.",
+    "Rates apply only for rho>1, sigma in (0,1), and nonzero interior initial state; no claim of N(t)~e^t.",
+    "Numerical 20,000-step check is corroborative; the limit proof uses the exact ODE."
+  ],
+  "schema_version": 1
+}
