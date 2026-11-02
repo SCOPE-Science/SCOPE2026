@@ -1,0 +1,142 @@
+{
+  "audit_date_utc": "2026-10-29",
+  "audited_at_utc": "2026-10-29T16:09:36.547806Z",
+  "axes": {
+    "correctness": {
+      "evidence": [
+        "Frozen RESULT.md blob b96a7b41a802497e89fa08576f61944a416468b5 and checker.py blob aea4254621f6f8a9399fbbaaab98194bab60cf09, matched tree d3908dccc7f28e18e6865f8c48ae9d4f1180534b.",
+        "Independent direct restricted-growth partition enumeration checked collision histograms for every path edge count at n=3,4,5,6 against Bell-number inclusion-exclusion.",
+        "Proof independently checked forest subset rank |V|−c=j and moderate-deviation vs e^-W=W/n, not just TV to rare probability."
+      ],
+      "limitations": [
+        "r fixed; graph deterministic forest only; arbitrary graphs with cycles not covered.",
+        "Moving Poisson mean can diverge, so convergence is in total variation to a changing law rather than one fixed Poisson."
+      ],
+      "rationale": "Under Stam sample K with mass k^n/(e B_n k!), independent uniform K-box labels at vertices, equality constraints for forest edge subsets of size j have conditional probability K^-j because an acyclic edge subset has |V|−components=j. Thus conditional indicators are jointly independent Bernoulli(1/K) and X|K~Bin(e,1/K), including all forest shapes; cyclic graphs fail this factorization. Exact factorial moments (e)_j B_(n−j)/B_n and inclusion-exclusion follow by edge contraction. Consecutive k^n/k! weight ratios are monotonically decreasing; mode at t=n/W(n)+O(1), and moderate deviation |K−t|>n^(3/4)/W(n) is O(n exp(−c√n)), sufficiently small relative to min main probability exp(−W(n))=W(n)/n. Inside event K=t(1+O(n^-1/4)), uniform e<=n−1 yields |e/K−e W/n|=O(W n^-1/4), e/K²=O(W²/n); Le Cam and Poisson coupling give TV o(1), while e log(1−1/K)=−e W/n+o(1) gives relative avoidance. Independent exhaustive enumeration of set partitions n=3..6 and all path edge counts matched exact Bell-transform law, not used for limit proof.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Finite shape-invariance for forests from graphical Stirling polynomial is known. Unrestricted first-order convergence theory does not directly give these relative rare-event rates."
+        ],
+        "reasoning": "A global graph-coloring Poisson approximation may dominate if it explicitly controls the varying Stam mixture at moderate deviations; no such theorem in inspected statements.",
+        "searches": [
+          "Galvin Thanh Stirling numbers of forests and cycles (2013)",
+          "Chern et al. central limit set-partition statistics (2015)",
+          "Koponen arXiv:2610.16163"
+        ]
+      },
+      "checked_sources": [
+        "Chern–Diaconis–Kane–Rhoades arXiv:1502.00938 §§1–3, primary PDF read",
+        "Galvin–Thanh arXiv:1206.3591 primary PDF inspected",
+        "Koponen arXiv:2610.16163 abstract contextual",
+        "Resultary semantic forest Poisson collision query"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "Normal limiting levels for paths and fixed-n forest colorings do not imply rare avoidance on n−1 edge forests, whose probability tends to zero at W(n)/n."
+        ],
+        "reasoning": "New moderate-deviation control makes an asymptotic relative bound possible and is not a formal corollary of known CLT or exact shape independence.",
+        "searches": [
+          "Chern et al. arXiv:1502.00938 Theorem 1.1 and Stam §2",
+          "Galvin Thanh arXiv:1206.3591 forests theorem"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Chern et al. Theorem 1.1 is central limit for adjacent levels under uniform set partition; Stam construction known. Galvin–Thanh study graphical Stirling polynomial and proper partitions of forests, giving finite counts."
+        ],
+        "reasoning": "Adjacent equal labels form a path-forest special case; central limit of their count does not imply total-variation Poisson moving-target or the sharp relative zero-probability law.",
+        "searches": [
+          "Chern Diaconis Kane Rhoades arXiv:1502.00938",
+          "Galvin Thanh arXiv:1206.3591",
+          "Resultary forest set partition Poisson collision Stam query"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "Finite factorial moments and exact avoidance Bell transform are existing enumerations; these are not claimed as new."
+        ],
+        "reasoning": "An exact Bell database gives each n,e but lacks uniform n→∞ Poisson TV and relative probability bounds; no database is claimed to prove that asymptotic.",
+        "searches": [
+          "Bell numbers B_n and forest graphical Stirling polynomial",
+          "Resultary published set-partition topic search"
+        ]
+      },
+      "rationale": "Best-of-knowledge PASS for uniform moving-parameter total-variation bound and uniform relative rare-event avoidance law; conditional Stam Bernoulli factorization, finite Bell-transform counts, and asymptotic normal level statistics are known and credited. Inspected theorem statements do not yield a uniform relative estimate for probabilities ~W(n)/n.",
+      "residual_risks": [
+        "Older random-colouring/graphical Bell asymptotics may imply the relative no-collision estimate by another name.",
+        "Only fixed number r of equivalence relations handled; no general first-order expansion law."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Known Stam representation and normal level statistics; no inspected relative avoidance estimate over arbitrary forests.",
+          "evidence": [
+            "Theorem 1.1 gives asymptotically normal level count, not moving-parameter Poisson TV or rare zero probability."
+          ],
+          "identifier_or_url": "https://arxiv.org/pdf/1502.00938",
+          "material_read": "Primary 12-page arXiv PDF accessed; abstract, Theorem 1.1, and sections explaining Stam sampling and levels read, with screenshot of theorem page.",
+          "method": "PDF text and screenshot (page 3 in article)",
+          "title": "Central Limit Theorems for Some Set Partition Statistics",
+          "trigger": "Same random partition distribution, adjacent edge equality"
+        },
+        {
+          "assessment": "Finite shape-independent enumeration is prior; not same quantitative rare avoidance theorem.",
+          "evidence": [
+            "Forest polynomial and Gaussian block-count results are different asymptotic observable."
+          ],
+          "identifier_or_url": "https://arxiv.org/pdf/1206.3591",
+          "material_read": "Primary arXiv PDF accessed; relevant statements on graphical Stirling polynomials of forests and component-conditioned Gaussian laws inspected.",
+          "method": "arXiv PDF text and page image",
+          "title": "Stirling numbers of forests and cycles",
+          "trigger": "Exact graph-Bell enumeration of proper partitions"
+        },
+        {
+          "assessment": "Different logical generality; not a direct probability bound in materials read.",
+          "evidence": [
+            "First-order convergence is not sharp relative probability asymptotics."
+          ],
+          "identifier_or_url": "https://arxiv.org/html/2610.16163v1",
+          "material_read": "Abstract and cited high-level convergence context only.",
+          "method": "arXiv HTML/abstract reference",
+          "title": "A characterization of the finite model property for ω-categorical theories",
+          "trigger": "First-order random expansion motivation"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "checked_sources": [
+        "Chern–Diaconis–Kane–Rhoades arXiv:1502.00938 §§1–3, primary PDF read",
+        "Galvin–Thanh arXiv:1206.3591 primary PDF inspected",
+        "Koponen arXiv:2610.16163 abstract contextual",
+        "Resultary semantic forest Poisson collision query"
+      ],
+      "rationale": "Forest edge constraints factor exactly after conditioning, yielding a natural sharp boundary from cycles. A uniform relative approximation for an event of probability as small as W(n)/n on spanning trees is mathematically stronger than the known central limit and total-variation statements, and directly supplies a quantitative first-order constraint probability.",
+      "residual_risks": [
+        "Older random-colouring/graphical Bell asymptotics may imply the relative no-collision estimate by another name.",
+        "Only fixed number r of equivalence relations handled; no general first-order expansion law."
+      ],
+      "status": "PASS"
+    }
+  },
+  "checked_sources": [
+    "Chern–Diaconis–Kane–Rhoades arXiv:1502.00938 §§1–3, primary PDF read",
+    "Galvin–Thanh arXiv:1206.3591 primary PDF inspected",
+    "Koponen arXiv:2610.16163 abstract contextual",
+    "Resultary semantic forest Poisson collision query",
+    "2026/10/25/uniform-poisson-collision-profiles-and-sharp-avoidance-probabili--2e091d51a0d6/RESULT.md (frozen Git blob and full proof read)",
+    "2026/10/25/uniform-poisson-collision-profiles-and-sharp-avoidance-probabili--2e091d51a0d6/checker.py (frozen package file read)"
+  ],
+  "disposition": "passed",
+  "limitations": [
+    "r fixed; graph deterministic forest only; arbitrary graphs with cycles not covered.",
+    "Moving Poisson mean can diverge, so convergence is in total variation to a changing law rather than one fixed Poisson."
+  ],
+  "residual_risks": [
+    "Older random-colouring/graphical Bell asymptotics may imply the relative no-collision estimate by another name.",
+    "Only fixed number r of equivalence relations handled; no general first-order expansion law."
+  ],
+  "schema_version": 1
+}
