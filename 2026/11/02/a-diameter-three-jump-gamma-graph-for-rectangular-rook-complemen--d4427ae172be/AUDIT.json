@@ -1,0 +1,138 @@
+{
+  "correctness": {
+    "rationale": "Minimum triples characterized from the original closed-neighborhood condition, with an independent direct predicate test on 17,224 three-cell placements. Exact edge degrees obtained from disjoint shared-pair completions; edge count by degree sum. Any pair of minimum triples is supported on at most six rows and six columns, allowing a rigorous finite reduction to the 25 auxiliary 2..6 by 2..6 exchange graphs. An exact exhaustive Python verifier checked every vertex has three-step reachability to all others in each of the 25 finite graphs. Two disjoint corner triples prove sharpness. Quantifiers restricted to m,n>=4; finite checking is a genuine bounded-support lemma, not unbounded extrapolation.",
+    "status": "PASS"
+  },
+  "independent": false,
+  "independent_audit_status": "not_performed",
+  "originality": {
+    "broader_coverage": {
+      "evidence": [
+        "The 2020 Mynhardt–Nasserasr survey describes path/cycle, tree, cograph and Harary jump gamma cases, plus general Johnson-graph embedding. Rall (2021) classifies well-dominated direct products and singles out K_3 × K_3; it does not characterize the present reconfiguration graphs. A distinct ranked finding titled Sharp diameter three for compatible basis pairs in arbitrary rank-3 matroids concerns matroid bases rather than graph domination."
+      ],
+      "reasoning": "The universal Johnson-graph diameter bound does not pass to induced subgraphs in general. The survey tree bounds and cograph bounds are inapplicable to these graph products, and well-dominatedness does not bound the exchange distance between minimum sets. Matroid basis-pair feasibility and its symmetric exchange operation differ from minimum domination and single-set token jumps.",
+      "searches": [
+        "\"reconfiguration of minimum dominating sets\" \"direct product\"",
+        "\"gamma graph\" \"tensor product\" \"complete\"",
+        "arXiv:2003.05956v1 section 4.3 jump gamma graphs",
+        "arXiv:2105.09797v1 section 4 direct product graphs"
+      ]
+    },
+    "checked_sources": [
+      "OEIS:A292074:2017",
+      "OEIS:A384123:2025",
+      "arXiv:2003.05956v1:2020",
+      "arXiv:2105.09797v1:2021",
+      "Edwards–MacGillivray–Nasserasr (2018) bibliographic abstract and subsequent 2020 survey discussion",
+      "Related ranked mathematical-record title: Sharp diameter three for compatible basis pairs in arbitrary rank-3 matroids, a different feasibility and exchange problem"
+    ],
+    "claim_vs_prior_implication": {
+      "evidence": [
+        "The two OEIS records imply the exact number and identity of minimum triples, and are **not** new here. The survey yields the induced-subgraph-of-Johnson-graph property and distinguishes jump from slide. Rall identifies K_3 × K_3 as well-dominated but says nothing about p,q>=4 jump reconfiguration."
+      ],
+      "reasoning": "From a known induced vertex family, an explicit edge analysis is still necessary for local degrees, and a path-construction or connectivity proof is necessary for diameter; neither follows from counts or generic Johnson containment. The 25-kernel certificate and double-counting arguments provide the missing implications. Any prior theorem that directly states this diameter or degree structure would override this novelty assessment; none has been found in the material inspected.",
+      "searches": [
+        "arXiv:2003.05956v1, §4.3, jump gamma graphs",
+        "OEIS A292074, 2017-09-13 comment and formula",
+        "OEIS A384123, 2025-05-20 comment and formula",
+        "arXiv:2105.09797v1, Theorem 2 and §4"
+      ]
+    },
+    "equivalent_formulations": {
+      "evidence": [
+        "The same graph is the rectangular rook complement and the categorical/tensor/direct product of two complete graphs. OEIS:A292074 and OEIS:A384123 describe minimum sets of this graph but not an exchange graph. arXiv:2003.05956v1, pp. 2-3 and §4.3, defines the jump gamma-graph with adjacency by one replacement."
+      ],
+      "reasoning": "The exact equivalent formulation asks for the diameter/degree sequence of the induced subgraph of the Johnson graph on corner and three-matching triples. The OEIS results give its vertex set only; no cited text fixes edges or path lengths. Results about slide gamma-graphs impose an additional adjacency restriction and are not equivalent.",
+      "searches": [
+        "\"jump gamma graph\" \"rook complement\"",
+        "\"minimum dominating sets\" \"categorical product\" \"token jumping\"",
+        "\"diameter three\" \"minimum dominating\" \"rook\"",
+        "semantic query: jump gamma graph of rook complement graph regular exactly 4x4 diameter three"
+      ]
+    },
+    "exact_database_or_table": {
+      "evidence": [
+        "OEIS A292074 comment dated 2017-09-13 describes exactly the corner and matching families of minimum three-cell dominating sets on square rook complements. OEIS A384123, dated 2025-05-20, lists all minimal dominating sets and their total count on rectangular rook complements, with a formula. Neither gives a transition graph, degree sequence, or diameter table."
+      ],
+      "reasoning": "These are the closest exact same-graph databases and are explicitly credited for the underlying configurations; the present degree and reconfiguration claim is extra structural information, not a reformulation of their count.",
+      "searches": [
+        "OEIS:A292074",
+        "OEIS:A384123",
+        "semantic query: token jumping minimum dominating triples grid complement rook adjacency degrees mn-1",
+        "semantic query: minimum dominating set reconfiguration in categorical product of two complete graphs"
+      ]
+    },
+    "rationale": "The new assessment concerns the metric and degree multiset of the one-token-replacement graph of optimal dominating triples, not the already published classification/count of those triples. Comparison of exact implications found the known family statements do not imply shortest exchange paths or degrees. The 2020 survey gives general definitions and examples but not this categorical-product computation; the 2021 direct-product article treats well-dominatedness. No mathematically equivalent claim appeared in the targeted scientific-record queries. Residual priority risk remains for unindexed or differently formulated literature.",
+    "residual_risks": [
+      "Unindexed or differently formulated publications could have already characterized this jump graph.",
+      "The 2018 tree paper was not inspected in original full text; its stated graph class differs, and the relevant tree bounds were checked in the 2020 survey.",
+      "The exact upper-diameter lemma relies on correct execution of the supplied 25-case finite checker; an independent audit remains unperformed."
+    ],
+    "source_inspections": [
+      {
+        "assessment": "COVERS the minimum-triple classification on square boards; does NOT state jump-graph diameter or degrees.",
+        "evidence": [
+          "2017-09-13 comment: all three distinct rows/columns or a row-column corner; explicit number 6*C(n,3)^2 + n^2(n-1)^2 for n>3."
+        ],
+        "identifier_or_url": "https://oeis.org/A292074",
+        "material_read": "Full accessible sequence page, especially dated author/comment and formula, 2017-09-12/13.",
+        "method": "Read HTML mathematical description, dated comments, count formula and links.",
+        "title": "Number of minimum dominating sets in the n×n rook complement graph",
+        "trigger": "Exact object and minimum dominating triple patterns"
+      },
+      {
+        "assessment": "COVERS the underlying shape classification and total counts in both factor orders; NOT a reconfiguration result.",
+        "evidence": [
+          "All minimal dominating families are explicitly listed, including the two three-cell families; no exchange edges or distances are described."
+        ],
+        "identifier_or_url": "https://oeis.org/A384123",
+        "material_read": "Full accessible sequence page including description, structural list and count formula, dated 2025-05-20.",
+        "method": "Read HTML mathematical text and complete listed formulas.",
+        "title": "Number of minimal dominating sets in the n×m rook complement graph",
+        "trigger": "Exact same rectangular graph with stronger full minimal-dominating census"
+      },
+      {
+        "assessment": "Defines jump/slide gamma graphs; surveys other families and Johnson embedding. No exact rook-complement categorical-product diameter/degree theorem in inspected relevant sections.",
+        "evidence": [
+          "§1 distinguishes jump and slide adjacency; §4.3 covers paths, cycles, trees, Harary graphs, connected cographs, and Johnson-graph representation."
+        ],
+        "identifier_or_url": "https://arxiv.org/pdf/2003.05956",
+        "material_read": "Full-text PDF sections 1 and 4.3–4.4, including pages 2–3 and 14–15 (PDF page labels).",
+        "method": "Inspected page-indexed full text and PDF page screenshot; checked named results and family hypotheses.",
+        "title": "Reconfiguration of Colourings and Dominating Sets in Graphs: a Survey",
+        "trigger": "Exact definition, general reconfiguration comparisons and possible stronger coverage"
+      },
+      {
+        "assessment": "Classifies well-dominated direct products, not jump minimum-domination exchange graphs for m,n>=4.",
+        "evidence": [
+          "Theorem 2 includes K_3×K_3; no reconfiguration graph diameter or degree result appears in relevant material."
+        ],
+        "identifier_or_url": "https://arxiv.org/pdf/2105.09797",
+        "material_read": "Full-text PDF abstract, introduction, §4 and its theorems, and the comparison to K_3×K_3.",
+        "method": "Inspected page-indexed full text and PDF page screenshot; located direct-product classification and checked reconfiguration terminology.",
+        "title": "On well-dominated direct, Cartesian and strong product graphs",
+        "trigger": "Direct product terminology and possible stronger result about same graph"
+      },
+      {
+        "assessment": "Inapplicable to these categorical products: source theorem only concerns trees; not used as evidence of whole-text exclusion.",
+        "evidence": [
+          "The abstract explicitly specifies tree gamma-graphs and bounds; 2020 survey Theorem 4.6 restates tree results."
+        ],
+        "identifier_or_url": "https://geodesic.mathdoc.fr/item/DMGT_2018_38_3_a6/",
+        "material_read": "Bibliographic abstract; publisher-hosted PDF inaccessible, but 2020 survey covers the relevant tree theorem.",
+        "method": "Read OA abstract and checked the cited tree bounds in the accessible 2020 full-text survey.",
+        "title": "Reconfiguring Minimum Dominating Sets: The γ-Graph of a Tree",
+        "trigger": "Foundational jump gamma theorem and comparable diameter result"
+      }
+    ],
+    "status": "PASS"
+  },
+  "review_type": "self_review",
+  "schema_version": 1,
+  "scope_run_id": "d4427ae1-72be-4f85-92a9-31480c6c1254",
+  "self_review_status": "passed",
+  "value": {
+    "rationale": "Optimal dominating configurations of K_m × K_n admit arbitrary one-cell exchanges, a natural reconfiguration model already studied for other graph families. Despite the state count growing polynomially of total degree six, any two optima are linked by only three moves, and an exact degree split shows a unique regular case m=n=4. This reveals reachability, local flexibility and a sharp structural boundary absent from published minimal-set enumerations; it is not a routine restatement of the known domination number.",
+    "status": "PASS"
+  }
+}
