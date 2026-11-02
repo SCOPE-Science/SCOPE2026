@@ -5,8 +5,11 @@
     "status": "not_performed"
   },
   "independent_audit": {
-    "evidence": null,
-    "status": "not_performed"
+    "status": "passed",
+    "evidence": [
+      "INDEPENDENT_AUDIT_2026-10-30.md",
+      "INDEPENDENT_AUDIT_2026-10-30.json"
+    ]
   },
   "lean_verification": {
     "evidence": null,
@@ -16,10 +19,24 @@
 }
 ---
 
-# Verification and scope
+# Independent mathematical audit
 
-The exact finite diagnostics in the standalone `verify.py` completed with `VERIFY_OK`: 220 rational arithmetic tests for the unperturbed binomial identities, six deterministic nonlinear lift cases, and 1020 rescaled orbit-membership checks away from the limiting quadratic body's boundary; it also checked the coefficient-volume rational value `544/9`. The verifier uses standard Python 3 only.
+## correctness
 
-The analytical proof in `RESULT.md` supplies the all-length and all-center argument. Its non-finite steps are a uniform ergodic average over a compact family of mean-zero continuous cocycles, an interpolation estimate forcing the first displacement to be quadratic-order small, and convex-body volume convergence. The tests alone cannot establish these infinite claims.
+PASS
 
-For every irrational base and every periodic real `C1` perturbation, the conclusion concerns a fixed sufficiently small radius and the product maximum circular metric. No uniform convergence rate in the base rotation, general nonsmooth cocycle conclusion, or independent certification is asserted.
+The lifted differences satisfy Y_j=b+jh+h S_j g_h and Z_j=c+jb+binom(j,2)h+h sum weighted g_h, with mean-zero compact C0 family g_h. Uniform unique ergodicity gives sup partial sums=o(n) and weighted sums=o(n^2). The radius condition prevents any integer modular winding. The second-difference of Z at 0, floor((n-1)/2), n-1 forces |h|=O(epsilon/n^2), then b=O(epsilon/n). Rescaling leads uniformly in all centers to quadratic polynomial C+tB+(A/2)t^2, where the limiting convex coefficient body has volume 544/9 by endpoint/curvature integration. Rechecked exact endpoint w-interval integral: coefficient volume 272/9, doubled for A gives 544/9. The argument, not sampled orbit checks, covers all irrational alpha and C1 psi. Structural grid bounds give exponent three.
+
+## originality
+
+PASS
+
+PASS for the nonlinear three-dimensional center-uniform constant: full relevant published primary records establish only either linear three-dimensional Jordan body or two-dimensional nonlinear skew robustness. The constant itself and polynomial entropy exponent were known and are not claimed new.
+
+## value
+
+PASS
+
+Determining a sharp local Haar measure invariant uniformly across all centers for a genuinely nonlinear three-step parabolic tower is a natural quantitative dynamical problem. The result shows stability of an exact quadratic-body constant under arbitrary C1 forcing without Diophantine assumptions, going beyond either prior component theorem.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
