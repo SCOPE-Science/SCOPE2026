@@ -1,11 +1,21 @@
-# Self-review
+# Independent mathematical audit
 
-**Correctness — PASS.** The degree-two projection of any square-zero subalgebra has dimension at most one. When the projection is zero, it extends to the canonical square-zero ideal; when it is a line, annihilation of its degree-two component forces the kernel of wedge multiplication by that line. This yields every maximal subalgebra, and direct multiplication proves all candidates are ideals. The parameter quotient, automorphism-orbit assertions, intersection dimensions, and finite-field count follow from exact exterior-power dimensions. Exhaustive rank-three testing over the field of three elements confirms the first nontrivial census; higher-rank testing verifies the predicted candidates but is not exhaustive.
+## correctness
 
-**Originality — PASS within the inspected sources, with residual risk.** Remm (arXiv:2504.04092v1) already establishes the exterior-power model, including the seven-dimensional example. Ismailov–Mashurov–Smadyarov (2023) earlier published the same small non-Zinbiel example; Smadyarov (arXiv:2610.02852v1) proves nilpotency results. Kunze–Scheinberg (1986) discusses earlier related anticommutative antiassociative structures. The current theorem does not claim those constructions. Its all-rank classification of maximal abelian subalgebras/ideals, finite-field count, two orbits, and intersection geometry were not located in the relevant inspected passages and searches. An equivalent classification might be an unstated consequence of broader prior algebra theory, so absence of indexed matches is not proof of absolute novelty.
+PASS
 
-**Value — PASS.** This is a complete structural classification of a natural family of extremal commutative pieces inside the free non-Lie binary Zinbiel specialization, rather than an arbitrary low-dimensional slice. It identifies the characteristic exceptional ideal, the general family, their precise sizes, the orbit geometry and intersections, and exact finite-field counts. The rank-three to rank-four change in maximal-ideal dimensions is meaningful, and the result supplies concrete invariants for free-algebra and ideal-lattice investigations.
+The known free anticommutative antiassociative algebra in characteristic≠2 has graded vector-space description F(V)=V⊕Λ²V⊕Λ³V, V·V=Λ², V·Λ²=Λ³, other products zero. If a square-zero subalgebra U projects to P⊂V with dim(P)≥2, products of independent lifts have nonzero degree-two v∧u, impossible. For P=0, maximal U is W⊕Z. For P=ℓ=Kv, any lift a=v+w+z annihilates the remaining degree-two part precisely when α∈ker(v∧−:Λ²V→Λ³V)=v∧V. Thus all other maximal U are I(ℓ,w)=Z⊕(v∧V)⊕K(v+w). Direct multiplication confirms these are ideals and maximal (larger P impossible); W⊕Z is maximal for r≥3 because some v∧α nonzero. Each ℓ contributes q^{C(r−1,2)} parameters and there are (q^r−1)/(q−1) lines; thus exact total 1+((q^r−1)/(q−1))q^{C(r−1,2)}. Automorphisms preserve W⊕Z and act transitively on line/shift parameters via GL(V) and triangular generator shifts, giving two orbits. Intersections are (ℓ∧V)⊕Z for equal ℓ or distinguished ideal, dimension r−1+C(r,3); for distinct ℓ,m they are (ℓ∧m)⊕Z, dimension 1+C(r,3). Check rank3 q=3 count40, q=5 count156, q=7 count400 independently; the source C++ exhaustive q3 rank3 4-subspace census supports the theorem but is not proof. The all-rank proof is elementary yet a nontrivial complete extremal classification of a natural free algebra.
 
-The conclusion is restricted to free anticommutative antiassociative algebras of rank at least three over fields of characteristic different from two. The source comparison is bounded and incomplete beyond the inspected full texts; there is no independent validation.
+## originality
 
-Self-review: passed. Independent audit: not yet performed.
+PASS
+
+Remm arXiv:2504.04092 full primary HTML Sections 2.5 and later expressly gives the free graded exterior-degree-one-through-three algebra and seven-dimensional rank3 multiplication, so those structures are prior work. The paper's other substantive sections concern representations, (co)homology and operadic ideas; its inspected text does not enumerate inclusion-maximal abelian ideals, affine parameters, intersection spectrum, or two-orbit split. Smadyarov arXiv:2610.02852 full HTML treats general binary Zinbiel nilpotency and an Itô-style sum-of-abelian-subalgebras theorem, not this free-algebra maximal abelian classification. Ismailov–Mashurov–Smadyarov 2023 constructed the rank3 example, not its all-rank maximal-ideal lattice. Resultary queries located other finite-algebra commutativity counts but no same all-rank result. A general implicit description from prior free-algebra structure is conceivable; genuine exact maximality/orbit enumeration beyond the known model is the claimed originality.
+
+## value
+
+PASS
+
+The finding gives a complete classification and finite-field count of a natural extremal property (maximal square-zero, i.e. abelian subalgebras) for all ranks of a classical free-algebra variety, proves automatically idealhood and gives automorphism orbit/intersection geometry. This is a mathematically motivated precise invariant, rather than merely restating the known exterior decomposition or a tiny ad hoc census. The rank3 fact does not masquerade as an exhaustive higher-rank computation.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
