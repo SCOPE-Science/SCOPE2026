@@ -1,19 +1,21 @@
-# Review: universal ordering of recruitment-lottery seasons
+# Independent mathematical audit
 
-## Correctness
+## correctness
 
-PASS. The claimed ratio-dependent chronological order follows from the exact commutator (1) in `RESULT.md`. Its three denominator factors are strictly positive on the full real parameter domain. Each seasonal map is strictly increasing, so local swaps preserve their sign after every downstream season. The pairwise preference is a consistent total order, allowing a finite adjacent-exchange proof for arbitrarily many seasons. Endpoint, all-adult-turnover and neutral-ratio cases are separately stated. The standalone exact-rational checker passed 12,643 checks, including exhaustive permutation tests, but the proof does not infer universality from computations.
+PASS
 
-## Originality
+The rational season map F_r(x)=(1−δ)x+δrx/(1+(r−1)x) is strictly increasing for every r>0, 0<δ<1, x∈(0,1). Direct symbolic common-denominator reduction yields F_b(F_a(x))−F_a(F_b(x))=δ²(1−δ)(a−b)(a−1)(b−1)x²(1−x)²/(ABE), with A,B,E>0; its sign is independent of x, and of all other seasons. Adjacent exchanges improve final x, since any downstream map is increasing; sorting every inversion gives stated extrema and strictness modulo equal/neutral r=1. For δ=1 the odds x/(1−x) multiply by r and all maps commute. Endpoint x=0,1 and δ=1 exception boundaries explicitly excluded or stated.
 
-PASS under the available literature, with explicit residual risk. The canonical 1981 and 1985 lottery-model publications explain fluctuation-supported coexistence and its ecology, but complete texts could not be read. A materially inspected 2021 full-text treatment of this exact lottery update develops stochastic diffusion and Fokker–Planck theory, rather than a finite-horizon permutation extremum. A 2022 open-access discussion uses the same recruitment share to study trait variation, not universal sorting. Searches for season permutation, exchange laws, aliases and a broader rational-map sorting theorem did not reveal a theorem implying the reported all-season order. This is not a proof of historical uniqueness. Potential broad nonlinear-map rearrangement coverage and unavailable original full texts remain explicit risks.
+## originality
 
-## Mathematical value
+PASS
 
-PASS. For a naturally prescribed multiset of different recruitment seasons, a naive search requires factorially many schedules; the theorem replaces it with a single initial-state-independent sorting rule, including strict equality conditions and the sharp loss of all ordering effects at complete adult replacement. The distinction between relatively unfavorable and favorable recruitment seasons is both mechanistically motivated and mathematically essential. This is a finite-horizon management and experimental-ordering result, not an arbitrary numerical statistic or an overclaim about long-term coexistence.
+Best-of-knowledge originality: Existing lottery/storage-effect model analyses do not give the universal finite-horizon sign-switching optimal ordering.
 
-## Closest literature and limits
+## value
 
-Chesson and Warner (1981), DOI 10.1086/283778, and Warner and Chesson (1985), DOI 10.1086/284379, supply the canonical biological framework, but their full texts were unavailable. Cheng, Chesson and Han (2021), DOI 10.1137/20M1357858, was read in its general update derivation, SDE/PDE results and conclusions. Stump et al. (2022), DOI 10.1002/ecm.1493, was read in its lottery subsection. A broader sorting result may exist; comparison against it remains for independent follow-up. The theorem does not address heterogeneous death rates, stochastic extinction or infinite-horizon persistence.
+PASS
 
-Self-review: passed. Independent audit: not yet performed.
+Sharp universal finite-horizon schedule ordering for a standard ecological competition model, independent of initial frequency and adult replacement rate. This identifies a natural intervention/seasonality invariant distinct from long-run storage effects and provides an explicit structural pair-swap law.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

@@ -5,8 +5,11 @@
     "status": "not_performed"
   },
   "independent_audit": {
-    "evidence": null,
-    "status": "not_performed"
+    "status": "passed",
+    "evidence": [
+      "INDEPENDENT_AUDIT_2026-10-30.md",
+      "INDEPENDENT_AUDIT_2026-10-30.json"
+    ]
   },
   "lean_verification": {
     "evidence": null,
@@ -16,8 +19,24 @@
 }
 ---
 
-The theorem is proved by an exact identity for the difference between two chronological seasonal compositions and strict monotonicity of every subsequent seasonal update. The denominator is positive for every admissible state and every positive recruitment ratio. Exhaustive permutation comparisons at finitely many rational points supplement, but do not replace, the all-real proof.
+# Independent mathematical audit
 
-Run `python3 verify.py` from this directory; no third-party dependencies are required. It performs 2,500 exact-rational commutator equalities, all permutations of 170 generated lists with three to six distinct ratios, and exact-example/boundary checks, totaling 12,643 assertions. Observed program output: `PASS: 12643 exact checks; example max=43307611041/83947961440, min=40640350399/83947961440, gap=1333630321/41973980720`.
+## correctness
 
-Scientific limits: common constant replacement fraction \(0<\delta<1\), positive ratios, deterministic update, finite-horizon terminal occupancy. The model's original articles were accessible only as publication metadata/abstracts; more recent full-text descriptions and proofs about stochastic regimes were materially examined. Independence, external certification, and claims about previously inaccessible full texts are not asserted.
+PASS
+
+The rational season map F_r(x)=(1−δ)x+δrx/(1+(r−1)x) is strictly increasing for every r>0, 0<δ<1, x∈(0,1). Direct symbolic common-denominator reduction yields F_b(F_a(x))−F_a(F_b(x))=δ²(1−δ)(a−b)(a−1)(b−1)x²(1−x)²/(ABE), with A,B,E>0; its sign is independent of x, and of all other seasons. Adjacent exchanges improve final x, since any downstream map is increasing; sorting every inversion gives stated extrema and strictness modulo equal/neutral r=1. For δ=1 the odds x/(1−x) multiply by r and all maps commute. Endpoint x=0,1 and δ=1 exception boundaries explicitly excluded or stated.
+
+## originality
+
+PASS
+
+Best-of-knowledge originality: Existing lottery/storage-effect model analyses do not give the universal finite-horizon sign-switching optimal ordering.
+
+## value
+
+PASS
+
+Sharp universal finite-horizon schedule ordering for a standard ecological competition model, independent of initial frequency and adult replacement rate. This identifies a natural intervention/seasonality invariant distinct from long-run storage effects and provides an explicit structural pair-swap law.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
