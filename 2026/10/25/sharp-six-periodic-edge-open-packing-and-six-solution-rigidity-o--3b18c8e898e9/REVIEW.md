@@ -1,11 +1,21 @@
-# Review of the Möbius-ladder classification
+# Independent mathematical audit
 
-**Correctness (C): PASS.** The leaf-edge accounting derives the \(n\) bound independently and forces a bipartite full-star support under equality. The parity/divisibility obstruction proves strictness except \(n\equiv3\pmod6\). Six explicitly checked residue-wise constructions supply matching lower bounds. The cyclic recurrence forces every equality centre set to one of three residue classes per parity; the calculation uses \(2h\equiv1\pmod n\) and \(\gcd(n,h+1)=3\). The full definitions, boundary \(n=3\), and code are in RESULT.md and verification artifacts.
+## correctness
 
-**Originality (O): PASS with residual publication-priority risk.** Closest existing implication is the degree bound and equality-structure theorem of Brešar–Samadi (arXiv:2403.00750v1), which proves the generic upper bound but not the \(n-1\) lower constructions or six-solution Möbius census. Pandey–Santra (arXiv:2508.01935v1) provide general exact-value tests, not a symbolic Möbius classification. Das–Santra (arXiv:2610.02275v1) solve complexity classes, not this cyclic value. The separate exact circular-prism result applies to a different graph and has the opposite equality phase. The associated structured originality checks record searches, full-text comparisons and remaining risks.
+PASS
 
-**Value (V): PASS.** Möbius ladders are a standard canonical family of twisted cubic ladders, and the complete infinite-family formula resolves a natural packing invariant rather than an arbitrary parameter slice. The twist changes the entire extremal divisibility regime relative to circular prisms. The nontrivial six-case construction and six-set rigidity identify the precise obstruction and optimizer structure. The result does not extend to general cubic graphs and the one-unit deficit alone is not cited as significance.
+For M_(2n) on vertices Z/(2n), n≥3, with cycle edges and antipodal rungs, each edge-open packing is an induced disjoint union of stars on the endpoints of its edges. Each selected edge contributes a leaf with two exterior incident edges in this cubic graph; these counted edges are distinct, so 3|P|≤3n and |P|≤n. Equality forces induced full K_(1,3) stars with no remaining improper edges and hence graph bipartiteness. The cycle-and-antipode graph is bipartite iff n odd, and equality requires n divisible by 3 via |B|=3|A|, so n≡3 mod6. The six explicit residue-class constructions have n edges in the equality residue, n−1 otherwise: I independently reconstructed their edge sets and tested all n=3..70 (68 values) by induced-edge equality, disjoint-star structure and exact stated size, including q=0 and wraparound cases. Equality centers in one parity satisfy x_j+x_(j+1)+x_(j+h)=1 with h=(n+1)/2; shifting h and using 2h≡1 (mod n) forces x_j=x_(j+h+1), with gcd(n,h+1)=3. Hence one of three phases in each of two parity sides, exactly six labeled maximizers. Finite tests support but do not replace the infinite edge-accounting and recurrence proof.
 
-**Limits.** The packaged computational checks are independent formulations of finite examples, not an infinite certificate. An unindexed equivalent paper could alter the novelty assessment; a separate independent mathematical audit has not been performed.
+## originality
 
-Self-review: passed. Independent audit: not yet performed.
+PASS
+
+Brešar and Samadi already prove the general |E|/δ upper bound and an equality-structure theorem for edge open packing; they therefore cover the n upper bound and bipartite necessity, which are not new. Pandey–Santra give general characterization and Das–Santra algorithms for other graph classes, without an explicit all-residue Möbius-ladder value or count in inspected material. The separate untwisted prism C_n□K₂ belongs to a different graph family and has the shifted equality phase 6|n; it does not imply the twisted result via parameter renaming. The surviving contributions are the all-n six-residue lower constructions, exact n or n−1 dichotomy, and exactly-six optimizer rigidity. An unindexed generalized-Petersen/efficient-star-packing source could cover these specific formulas, retained as priority risk.
+
+## value
+
+PASS
+
+Möbius ladders are canonical cubic graph families; edge-open packing is a natural induced-star invariant. The Möbius twist changes the divisibility phase relative to circular prisms, and the global formula plus classification of every maximum configuration at equality is a useful structural classification rather than a tiny numerical gain. The mathematical reason is the exact obstruction from bipartiteness and periodic star-center tilings, with constructive matching bounds on every residue class.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
