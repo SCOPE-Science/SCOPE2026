@@ -1,17 +1,21 @@
-# Self-review
+# Independent mathematical audit
 
-## Correctness — PASS
+## correctness
 
-The claim covers the nine-point affine plane and exactly its twelve three-point lines. Enumeration exhausts all \(511\) nonempty vertex subsets. A prescribed \(79\)-pair matching has a directed Hasse graph without cycles and leaves one critical zero-cell, one critical two-cell and eleven critical three-cells. The integral Morse degree row is zero by exact gradient recursion and independently by unit-pivot cancellation of all pairs; the only remaining attaching maps land in \(S^2\) and have zero degree, so the homotopy equivalence follows. The supplied verifier reproduces all calculations with no dependencies.
+PASS
 
-## Originality — PASS
+The claim is the simplicial complex of all 9-point F3² subsets avoiding any of the 12 affine lines, not a complex of maximal caps. An independent integer-mask calculation exhausted all 511 nonempty subsets and obtained 171 faces f=(9,36,72,54). The prescribed 79 matching pairs are disjoint; all 504 nonempty-face Hasse incidences were oriented and the resulting DAG completely topologically sorted. Exactly critical (C0,C2,C3)=(1,1,11) survive. Independently reconstructed exact signed integral Morse C3 -> C2 boundary is the 11x1 ZERO matrix, giving nullhomotopic 3-cell attachments to the unique S² since π2(S²)=Z. Therefore the full homotopy type is S²∨11S³, not just mod-2 Betti ranks.
 
-The primary classical Hesse-pencil source identifies the flex points and affine lines but not the cap-complex homotopy type. The cap-set literature inspected discusses size bounds, rather than the topology of all cap subsets. Comparison with the thirteen-point projective cap complex and with affine incidence-graph Rips complexes shows different objects: their known statements do not imply the nine-point affine cap result. Searches over cap, Hesse, Steiner-triple, progression-free and hypergraph-independence formulations found no covering theorem. An unindexed equivalent result remains possible.
+## originality
 
-## Value — PASS
+PASS
 
-The theorem classifies the entire integral homotopy type of a natural classical Hesse/affine-plane cap complex, not only its face count or a selected finite statistic. Its mixed two- and three-dimensional sphere factors distinguish this invariant from known projective variants and provide a reproducible baseline for line-avoiding complexes of finite geometries.
+The equivalently named Hesse configuration cap or AG(2,3) Steiner triple system independence complex is topologically distinct from the projective cap complex and from graph-metric Rips nerves of the Hesse incidence graph. Artebani–Dolgachev identify the nine flex points and twelve lines, but the geometric primary source does not supply this cap homotopy classification in inspected Section 2. The cap-set counting literature addresses sizes, not integral attaching maps. Resultary found the affine-plane incidence Rips wedge with sixteen spheres in dimensions 2 and 3, an entirely different face predicate. Priority qualified by unknown older enumerations/hypergraph-independence tables.
 
-Limitations: one specific finite plane only; no general-order or equivariant theorem. The Hesse geometry paper was not reread line by line beyond the key material and keyword checks. Independent audit has not been performed.
+## value
 
-Self-review: passed. Independent audit: not yet performed.
+PASS
+
+The affine plane AG(2,3) is a uniquely familiar Steiner triple system and classical Hesse configuration. Computing the *full* torsion-free homotopy type of its line-avoiding complex, including the mixed dimensions S² and S³, yields an exact reusable baseline for cap complexes and distinguishes it from projective and incidence-Rips variants; not an arbitrary unmotivated subset statistic.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
