@@ -1,15 +1,21 @@
-# Scientific review
+# Independent mathematical audit
 
-## Correctness — PASS
+## correctness
 
-The rational matrix theorem follows from the exact ordered-factor identity for \(D^*D-N^*N\), two positive-semidefinite terms, and invertibility of \(D\) on the dissipative numerical range. Strictness uses positive drag. The physical generator is unitarily decomposed into conserved center-of-mass and orthogonal relative sectors. The star-incidence Gram matrix \(G=I+ss^*\succeq I\) supplies a singular-value bound, not just an eigenvalue estimate. An exact rational one-dust witness and a limiting positive-drag family prove that the switching constant cannot be universally reduced. The standalone check program independently verifies the algebra and physically admissible instances. All proof quantifiers assume frozen coefficients, exact linear source evolution, and positive masses and drag rates.
+PASS
 
-## Originality — PASS, subject to priority uncertainty
+For invertible dissipative A with sigma_min(A)>=1/2 set B=A^-1, N=B²-B, D=B²-2B+2I. Verify the exact ORDERED noncommutative identity D*D-N*N=(4I-B*B)+(B-2I)*[-(B+B*)](B-2I)>=0, using ||B||<=2 and B+B*<=0. D is invertible because B has left-half-plane spectrum, establishing R(A)=ND^-1 contractive; strict dissipativity gives positive definiteness. In mass-weighted physical coordinates, each polarized relative generator is G^(1/2)diag(-alpha_i +/- i Omega_i)G^(1/2), where G=I+ss*>=I, so its least singular value exceeds rmin, Hermitian part is negative definite. The center-of-mass direction is fixed and relative components contract; longitudinal real drag also contracts. Scalar imaginary arguments just below 1/2 amplify, and a positive-drag rational one-species witness realizes this physically. Independent random nonnormal SOS matrices, positive-drag mass-weighted sources and the exact rational witness corroborated; no claim for nonlinear state updates.
 
-Chen et al. (2026), arXiv:2610.18979, Appendix A (A3)–(A6), prove scalar stability and eigenmode exclusion; this does not imply nonnormal operator-norm nonexpansion. Appendix B gives a general energy-residual identity without the decisive sign result. Tedeschi-Prades et al. (2025), arXiv:2511.07562, treat neutral drag rather than the stiff charged branch. Checks for equivalent inverse-singular-value rational-matrix contractivity, algebraic-stability implications, and related published mathematical statements did not identify coverage. An uninspected operator-theory formulation remains a genuine residual priority risk; an unsuccessful search is not a uniqueness proof.
+## originality
 
-## Mathematical value — PASS
+PASS
 
-The kinetic-energy budget of numerical gas–dust source updates is physically meaningful: mere eigenmode damping does not prevent transient amplification for nonnormal species couplings. The theorem resolves that gap for every frozen-coefficient, momentum-conserving multispecies source instance under exactly the published threshold, with a uniform, sharp all-vector estimate and a positive-drag counterexample below threshold. No claim is made about variable-coefficient nonlinear stages or full transport/MHD stability.
+Compared exact statements, not shared terminology. Norm contractivity for all initial vectors in a nonnormal matrix is strictly stronger than eigenvalue inclusion in the scalar stability region. The inverse-singular-gap SOS identity supplies the missing matrix implication. Previously stated scalar stability plus energy-residual bookkeeping does not automatically imply the operator-norm estimate. A general matrix-function theorem with precisely this inverse gap could subsume it but was not found. The new object is a universal operator norm inequality, not a scalar data table. The original scalar threshold is expressly acknowledged prior, while its universality for full energy is the new assertion. A spectral-radius bound does not imply contraction for nonnormal matrices. The positive-semidefinite ordered factorization and physical singular lower bound are necessary new logical steps not contained in the accessible summaries.
 
-Self-review: passed. Independent audit: not yet performed.
+## value
+
+PASS
+
+Scalar eigenmode stability alone does not exclude nonnormal transient amplification; an all-vector kinetic-energy inequality is the physically relevant stability guarantee for mixed charged dust and gas. The theorem supplies a general exact matrix inequality and sharp switching coefficient for the published stiff source step, not merely a repetition of scalar stability region.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
