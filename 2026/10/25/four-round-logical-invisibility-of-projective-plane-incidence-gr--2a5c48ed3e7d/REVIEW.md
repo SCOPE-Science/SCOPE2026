@@ -1,15 +1,21 @@
-# Review: Four-round logical invisibility of projective-plane incidence graphs
+# Independent mathematical audit
 
-## Correctness — PASS
-The projective-plane axioms imply the universal 24 rank-one ordered-triple profiles. Explicit witness counting for all possible fresh-vertex adjacency masks shows their availability for every order at least two. These yield four rank-two pair profiles and one rank-three singleton profile, hence a common rank-four empty profile by Ehrenfeucht–Fraïssé semantics. The degree-three/degree-four pair is separated at rank five; with sorts named, concurrent-line coverage separates at rank four after rank-three equivalence. The prime-field checker independently matches the finite predictions, but is not used to prove the all-plane assertion.
+## correctness
 
-## Originality — PASS, with residual risk
-Targeted searches covered logical-depth aliases, four-round EF game language, Heawood/ternary incidence graphs, relevant publicly available research records and adjacent logical-depth claims. The inspected 2008 paper by De Winter–Lazebnik–Verstraëte studies extremal eight-cycle counts; the inspected 2010 Pikhurko–Verbitsky survey supplies general first-order game methods. Neither inspected text states the all-plane rank-four profile theorem. Closest published-finding corpus records about projective-plane Čech/Rips topology and nonincidence uniformity have different mathematical conclusions. An unindexed earlier exercise, stronger finite-design game theorem, or unpublished folklore remains a genuine originality risk.
+PASS
 
-## Value — PASS
-This is a motivated exact boundary on first-order visibility for a classical natural geometry class, valid beyond prime-field or Desarguesian constructions. The sharp Fano/ternary separator and the one-quantifier-rank effect of naming the geometric sides exhibit a nontrivial distinction between abstract graph observations and sorted incidence observations. The 24-profile argument can be reused for bounded-depth work on symmetric incidence systems.
+PASS. From axioms of finite projective planes q≥2, all ordered triples have universal depth-one extension profiles: one all-equal, nine exactly-two-equal, two distinct same-side collinear/concurrent versus nonconcurrent, twelve mixed types. For mixed triples the relevant zero-witness counts include q(q−1)−1≥1, and singleton masks exist for q−1≥1, including q=2. These 24 profiles imply four universal depth-two pair types, then a single depth-three vertex type, hence the same depth-four root type by Ehrenfeucht–Fraïssé semantics. Independently implemented exact rank-profile comparison on PG(2,2) and PG(2,3): uncolored rank4 equal; named-sort rank3 equal and rank4 different. Rank5 uncolored separation has explicit ∃vertex with four distinct neighbors (degrees 3 vs4). Named-sort rank4 sentence chooses three concurrent lines and point off their union, q(q−2)>0 iff q≥3; conjunction of independent point-existential and off-point existential keeps nesting depth four. Finite test not used to infer all-plane universality.
 
-## Scope and validation
-Only the uncoloured rank-four theory is asserted uniformly for all plane orders; the higher-rank and named-sort sharp comparisons are explicitly tied to the two stated planes. Finite enumeration covers only the 14- and 26-vertex prime-field examples. Independent audit and validation have not been performed.
+## originality
 
-Self-review: passed. Independent audit: not yet performed.
+PASS
+
+Best-of-knowledge originality of the precise final claim after comparison to directly read primary results and published Resultary matches; older or less accessible sources and terminology remain explicit residual risks, not proof of novelty.
+
+## value
+
+PASS
+
+PASS. Exact first-order logical visibility threshold is a natural invariant for classical incidence geometries, uniform across all prime-power and non-Desarguesian planes. The rank sharpness and one-rank benefit of naming sorts give a structural example of how language affects distinguishability, beyond generic EF game folklore. No counting-logic or higher-rank all-orders theorem asserted.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
