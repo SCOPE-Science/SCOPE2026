@@ -1,0 +1,135 @@
+{
+  "correctness": {
+    "rationale": "An exact eigenvalue reduction gives the roots of a positive definite 2-by-2 coupled block and the untouched eigenvalue c. The coupled spectral ratio uniquely minimizes at theta=b by AM-GM; the lower root is strictly monotone, and comparison of its unique crossing of c with b gives the exhaustive two-branch unique global minimizer. Strict boundary hypotheses and the t=0 exception are explicit. The extracted reproducibility script passed 255 exact-fraction identities and 4,032 independently evaluated numerical comparisons; continuum validity relies on proof.",
+    "status": "PASS"
+  },
+  "independent": false,
+  "independent_audit_status": "not_performed",
+  "originality": {
+    "broader_coverage": {
+      "evidence": [
+        "Diouane et al., arXiv:2610.28808v1, Section 3.3 controls eigenpair behavior with scaling separated from untouched eigenvalues; its main estimates concern energy-error guarantees.",
+        "Diouane et al., arXiv:2603.28969, Sections 3.2 and 4 optimize finite-iteration CG energy measures, not this exact condition-number optimizer.",
+        "Qu et al., arXiv:2209.00809, develops general matrix-scaling algorithms."
+      ],
+      "reasoning": "A general diagonal-scaling method can in principle compute the finite-dimensional optimum numerically, but the inspected broader statements do not assert or straightforwardly specialize to the sharp two-branch symbolic identity. The motivating paper studies nonuniform scaling restrictions that omit the derived optimizer.",
+      "searches": [
+        "Deflation-Based Spectral Preconditioning for the Conjugate Gradient Method on Perturbed Systems scaled spectral parameter perturbation",
+        "optimal condition number of scaled spectral preconditioner for perturbed symmetric positive definite matrix; rank-one mixing selected eigenvector, sharp eigenvalue collision threshold"
+      ]
+    },
+    "checked_sources": [
+      "arXiv:2610.28808v1 Section 3.3 and related main results",
+      "arXiv:2603.28969 Sections 3.2 and 4",
+      "arXiv:2410.02204 scaling and PCG criteria",
+      "doi:10.1137/040617546 Sections 2 and 3.3",
+      "arXiv:2209.00809 general diagonal scaling"
+    ],
+    "claim_vs_prior_implication": {
+      "evidence": [
+        "Giraud and Gratton, doi:10.1137/040617546, Sections 2–3.3 obtain first-order sensitivity of spectral preconditioners to inaccurate eigeninformation rather than a global parameter optimum.",
+        "Diouane et al. 2026, arXiv:2610.28808v1, Section 3.3 fixes separated scaling values for perturbation estimates, in contrast with an optimizer converging to c or equaling b."
+      ],
+      "reasoning": "The inspected bounds concern different optimization criteria or require a fixed gap; no algebraic implication proves an all-theta, sharp branch/collision classification. A pre-existing general exact arrowhead scaling theorem could still subsume this result.",
+      "searches": [
+        "On the Sensitivity of Some Spectral Preconditioners Giraud Gratton approximate eigenpairs",
+        "spectral preconditioner optimal placement condition number 3 by 3 off diagonal perturbation"
+      ]
+    },
+    "equivalent_formulations": {
+      "evidence": [
+        "The matrix is congruent to a single 2-by-2 SPD block plus one untouched eigenvalue; the exact objective is L_plus(theta)/min(c,L_minus(theta)).",
+        "Qu et al., Optimal Diagonal Preconditioning, arXiv:2209.00809, provides broader algorithmic optimization techniques but not this explicit formula or threshold."
+      ],
+      "reasoning": "Searched direct spectral scaling, arrowhead, and diagonal-congruence formulations. The exact statement is a closed-form optimizer rather than a generic feasible or algorithmically approximable minimum; the exact corresponding theorem was not found in inspected texts.",
+      "searches": [
+        "condition-number-optimal spectral deflation cluster placement perturbations exact threshold",
+        "perturbed 3 by 3 SPD block diagonal eigenvalue crossing condition number optimal scalar scaling theta equals b after coupling threshold",
+        "three by three arrowhead diagonal congruence scaling off diagonal coupling condition number minimization piecewise phase transition"
+      ]
+    },
+    "exact_database_or_table": {
+      "evidence": [
+        "Targeted searches did not identify a published closed-form table or formula for the precise 3-mode SPD congruence-scaling family.",
+        "The derived expression uses symbolic real parameters a,b,c,t and is not a recomputation of a numerical entry from an existing table."
+      ],
+      "reasoning": "This is a continuum parametric theorem with an attained crossover, not a number extracted from a catalog. Search absence alone does not prove priority; older specialist literature remains a residual risk.",
+      "searches": [
+        "exact optimal theta = c(b-c)/(b-c-delta squared) for spectral preconditioner of diag(a,b,c) with offdiagonal perturbation",
+        "piecewise minimal condition number for one recycled eigenvector under Frobenius normalized rank-two off diagonal perturbation"
+      ]
+    },
+    "rationale": "The exact global minimizer of the 3-mode perturbed SPD recycled spectral scaling, including collision with two distinct untouched eigenvalues and the quadratic gap at zero perturbation, was not implied by the inspected primary preconditioning results. Existing sensitivity estimates and general numerical optimization procedures have broader settings but different output claims. Residual historical priority risk remains explicitly stated.",
+    "residual_risks": [
+      "The literature comparison is not exhaustive; a previous special-case arrowhead or optimal diagonal-congruence scaling theorem could imply the formula.",
+      "The general diagonal-scaling optimization framework can solve individual instances computationally; the claimed contribution is the explicit branch threshold.",
+      "The result is specific to SPD dimension three, one recycled eigenvector and one off-diagonal coupling; it does not prove actual finite-step CG advantage."
+    ],
+    "source_inspections": [
+      {
+        "assessment": "Motivating framework, no exact global piecewise scaling optimum in inspected relevant sections",
+        "evidence": [
+          "Section 3.3 restricts scaling away from untouched eigenvalues while derived theta_opt approaches c and reaches b exactly."
+        ],
+        "identifier_or_url": "https://arxiv.org/html/2610.28808v1",
+        "material_read": "Accessible arXiv HTML, particularly Section 3.3 on scaling and eigenpair sensitivity and related main estimates in Section 4",
+        "method": "Compared preconditioner matrices, quantifiers, parameter domain, spectral versus energy-norm objective and whether the sharp threshold is stated",
+        "title": "Deflation-Based Spectral Preconditioning for the Conjugate Gradient Method on Perturbed Systems",
+        "trigger": "Same recycled spectral scaling for perturbed SPD systems; scaling-gap hypothesis"
+      },
+      {
+        "assessment": "Different objective and fixed-matrix setting",
+        "evidence": [
+          "Finite-iteration error analysis does not directly establish the claimed perturbed matrix condition-number minimizer."
+        ],
+        "identifier_or_url": "https://arxiv.org/abs/2603.28969",
+        "material_read": "Accessible arXiv text covering the optimization objective and Sections 3.2 and 4",
+        "method": "Compared finite-iteration CG energy-error criterion to spectral condition-number criterion",
+        "title": "A Spectral Preconditioner for the Conjugate Gradient Method with Iteration Budget",
+        "trigger": "Earlier result on optimal eigenvalue cluster placement"
+      },
+      {
+        "assessment": "Background on placement, not the symbolic crossover",
+        "evidence": [
+          "Prior optimization concerns spectral placement/CG behavior in a different statement."
+        ],
+        "identifier_or_url": "https://arxiv.org/abs/2410.02204",
+        "material_read": "Accessible relevant source discussion of scaling and error objectives",
+        "method": "Compared preconditioner family, perturbation and objective",
+        "title": "An Efficient Scaled Spectral Preconditioner for Sequences of Symmetric Positive Definite Linear Systems",
+        "trigger": "Original scaled spectral preconditioning construction"
+      },
+      {
+        "assessment": "No implication establishing exact global crossover located",
+        "evidence": [
+          "First-order perturbation sensitivity does not resolve a sharp finite-perturbation minimizer collision."
+        ],
+        "identifier_or_url": "https://doi.org/10.1137/040617546",
+        "material_read": "Author-provided text, especially Sections 2 and 3.3",
+        "method": "Compared approximation-order sensitivity estimates to all-positive-scaling global optimization",
+        "title": "On the Sensitivity of Some Spectral Preconditioners",
+        "trigger": "Close older sensitivity theory for perturbed eigenpairs"
+      },
+      {
+        "assessment": "Broader computational methods could solve instances but inspected formulation did not give exact branch formula",
+        "evidence": [
+          "General optimization capability does not itself constitute the claimed explicit symbolic threshold."
+        ],
+        "identifier_or_url": "https://arxiv.org/abs/2209.00809",
+        "material_read": "Accessible main algorithm statements and optimization formulation",
+        "method": "Compared a general optimization algorithm to a closed-form global formula for a fixed 3-mode family",
+        "title": "Optimal Diagonal Preconditioning",
+        "trigger": "Broader general diagonal matrix scaling might subsume result"
+      }
+    ],
+    "status": "PASS"
+  },
+  "review_type": "self_review",
+  "schema_version": 1,
+  "scope_run_id": "8c69b959-36da-487f-a238-11547834d785",
+  "self_review_status": "passed",
+  "value": {
+    "rationale": "Three modes are the minimal natural setting for one recycled spectral direction with two untouched eigenvalues competing as a condition-number floor. The exact all-theta optimizer and sharp coupling transition quantify where a fixed-gap perturbation theory excludes optimal scaling and when the optimum necessarily equals an untouched eigenvalue. This is a structural parameter-selection benchmark with a motivated mathematical role, not an arbitrary scalar computation or claim of a general CG iteration theorem.",
+    "status": "PASS"
+  }
+}
