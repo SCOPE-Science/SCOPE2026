@@ -1,0 +1,113 @@
+{
+  "audit_date_utc": "2026-10-28",
+  "audited_at_utc": "2026-10-28T06:45:32Z",
+  "axes": {
+    "correctness": {
+      "checked_sources": [
+        "RESULT.md blob d11c494d5d6d2fc560f6c44f1d958b434fa704dd",
+        "verify_petersen_crosscycle.py blob 567925615b72cd3f94e5be7353b03be6e78572a5",
+        "check_petersen_independent.py: independent face/Smith/orbit enumeration",
+        "Adamaszek–Stacho 2012 cross-cycle paper (full author-hosted PDF)"
+      ],
+      "rationale": "Correctness PASS for K=M(Petersen), where vertices are the 15 Petersen edges and faces are pairwise disjoint-edge matchings. Freshly built complete simplicial chain groups with face vector (15,75,145,90,6); signed integer boundary ranks (14,61,79,6), and every nonzero Smith factor unit, prove reduced H2=Z^5 and reduced H3=Z^5. The general flag-cycle minimum-support theorem requires at least six vertices for nonzero H2, and at six support the carrier is an induced 3-crosspolytope boundary. Exhaustively inspected all binom(15,6)=5005 supports, found exactly110 incompatibility-perfect-matching octahedra. All eight-triangle join fundamental cycles have zero boundary. Enumerated all 120 S5 permutations, giving orbit sizes (10,60,40). Independent Smith reductions on matrices [D3|orbit cycles] have 84 nonzero factors and nonunit lists (2),(),(), proving exact integral quotients; one representative in each orbit is nonzero primitive with an 80-unit-factor augmented matrix. Source program also constructs seven conjugacy-type characters and rational representation identification; this character calculation was inspected but not independently replayed in this execution, so the latter rests on the explicit signed chain-action formula plus source certificate, not on novel rederivation of every 90×90 rational kernel.",
+      "residual_risks": [
+        "The complete seven-class rational character was source-inspected but not independently recomputed; its code explicitly constructs signed S5 simplicial actions and Euler traces.",
+        "No integral indecomposable Z[S5] module classification follows from matching rational characters."
+      ],
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "General flag support bound says every nontrivial H2 class needs six vertices and any six-support minimal carrier is octahedral; no Petersen 110 count given.",
+          "Known wedge homotopy implies abstract ranks but not signed S5 module structure or Smith indices of the orbit-generated sublattices."
+        ],
+        "reasoning": "These general results provide structural tools/background but not full finite carrier and equivariant lattice data.",
+        "searches": [
+          "Adamaszek–Stacho 2012 full PDF, minimum support lemma",
+          "Prior Petersen matching wedge of spheres result (published record)"
+        ]
+      },
+      "checked_sources": [
+        "Resultary 2026-10-28 Petersen matching octahedral S5 query plus exact wedge title query",
+        "Adamaszek–Stacho, DOI 10.1145/2261250.2261258",
+        "Previously published Petersen ordinary matching complex wedge-of-five-S2-and-five-S3 result identified in source review",
+        "Barmak arXiv:1007.0418"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "H2 rank five alone does not determine which octahedral carrier orbits span H2 integrally, nor whether their quotients have 2-torsion.",
+          "A general induced-octahedron test establishes the type of minimal carrier, not 110 Petersen supports or the S5 character."
+        ],
+        "reasoning": "The full result is a proper integral/equivariant refinement, not a mere rephrasing of the known sphere-wedge homotopy.",
+        "searches": [
+          "Adamaszek–Stacho support lemma; Petersen wedge homotopy prior result",
+          "Resultary Petersen matching exact query"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Ordinary matching complex equals independence complex of the line graph L(P); octahedral carriers are induced K2+K2+K2 incompatibility patterns.",
+          "Two-matching, Morse and 3-cut complexes returned by the database differ from ordinary matching complex."
+        ],
+        "reasoning": "Resolved standard dual functor Ind(L(P)) and cross-cycle aliases; did not treat related complex titles as same theorem.",
+        "searches": [
+          "Resultary search 2026-10-28: Petersen matching complex octahedral sphere shortest cycle integer homology S5 orbit index character",
+          "Resultary search 2026-10-28: The Petersen matching complex is a wedge of five two-spheres and five three-spheres exact integral homotopy"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "Resultary finds a related 2-matching complex of Petersen and a published ordinary matching wedge classification, but not an indexed 110-carrier S5 orbit table.",
+          "The source gives explicit reproducible 15-edge and 5005-six-support enumerations absent from those results at inspected statement level."
+        ],
+        "reasoning": "No exact database table located; comparison of old matching-complex appendices is incomplete and recorded as residual risk.",
+        "searches": [
+          "Resultary exact Petersen ordinary matching 110 octahedral 10 60 40 orbit lattice",
+          "Resultary Petersen matching complex wedge of five S2 and S3 query"
+        ]
+      },
+      "rationale": "Originality PASS, qualified. The existing published Petersen matching complex wedge type yields Betti ranks (5,5) but not shortest embedded homology carriers, their 110 count, three automorphism orbits, orbit index-two exception, or rational S5 characters. Adamaszek–Stacho already give the general flag cross-cycle minimal-support principle; that is used, not claimed new. Nearby Resultary records about Petersen two-matching, graph Morse, independence or 3-cut complexes refer to different simplicial objects.",
+      "residual_risks": [
+        "Earlier unpublished or unindexed finite Petersen matching orbit-character tables could contain equivalent exact numbers.",
+        "The earlier wedge-of-spheres paper was accessible via summary/references rather than a complete independently read primary package in this execution; no claim about all its appendices is made."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Prior work gives general cross-cycle language and minimal-support bound (2k for (k−1)-homology), but does not determine Petersen-specific counts, S_5 orbit Smith quotients or characters.",
+          "evidence": [
+            "For any flag K, nonzero H_(k−1) needs at least 2k support vertices; equality is an embedded cross-polytope boundary.",
+            "The stated computational problem and chordal-graph results are not a Petersen S_5 integral orbit census."
+          ],
+          "identifier_or_url": "https://www.cs.toronto.edu/~stacho/public/indmatchdom7.pdf",
+          "material_read": "Primary author-hosted PDF pp. 1–2 and its cross-cycle definition and support bound; screenshot inspected page 2; main algorithmic theorems read at statement level.",
+          "method": "Checked minimal flag-cycle carrier lemma and distinction between general algorithmic cross-cycles and a Petersen-matching-specific integral orbit classification.",
+          "title": "Algorithmic complexity of finding cross-cycles in flag complexes",
+          "trigger": "Minimum six-vertex flag two-cycle support and its characterization as an induced octahedral cross-cycle."
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "checked_sources": [
+        "Mathematical object and invariant motivation in inspected RESULT.md; independent exact checks where identified",
+        "Closest primary papers explicitly listed in originality.checked_sources"
+      ],
+      "rationale": "Scientific value PASS: the ordinary matching complex of the Petersen graph is a canonical, natural flag complex with nonzero H2 and high symmetry. Determining its minimum integral homology supports, all 110 carriers, and the distinct integral generation indices of the S5 orbits resolves natural geometric questions not implied by the known wedge-of-spheres result. The rational S5 decomposition adds precise equivariant homology information. This is an exact finite classification of motivated objects, not an arbitrary tiny numerical slice.",
+      "residual_risks": [
+        "The classification is particular to one graph and does not imply an algorithmic classification of all matching complexes; significance is intrinsic to this standard example."
+      ],
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "final_claim": "The ordinary Petersen matching complex has exactly 110 induced six-vertex octahedral S2 carriers, the minimum possible support for nonzero reduced H2=Z^5. These split into S5 orbits of sizes10,60,40 with H2/orbit-lattice quotients Z/2,0,0 respectively. Rational H2=sgn⊗Q^[5], H3=Specht(3,2); the known homotopy wedge of five S2 and five S3 is background.",
+  "limitations": [
+    "The complete seven-class rational character was source-inspected but not independently recomputed; its code explicitly constructs signed S5 simplicial actions and Euler traces.",
+    "No integral indecomposable Z[S5] module classification follows from matching rational characters.",
+    "Earlier unpublished or unindexed finite Petersen matching orbit-character tables could contain equivalent exact numbers.",
+    "The earlier wedge-of-spheres paper was accessible via summary/references rather than a complete independently read primary package in this execution; no claim about all its appendices is made.",
+    "The classification is particular to one graph and does not imply an algorithmic classification of all matching complexes; significance is intrinsic to this standard example."
+  ],
+  "schema_version": 1
+}
