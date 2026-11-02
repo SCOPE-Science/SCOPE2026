@@ -1,0 +1,143 @@
+{
+  "correctness": {
+    "rationale": "For \\(C\\geq 2B\\), each summand beyond the constant in \\(T_n/b^n\\) is even because the central binomial factor is even. For \\(C\\leq 2B-2\\), the exact normalized factorial expansion yields \\(\\nu_2(\\text{term}_j)\\geq j(2B-C-2)+s_2(j)\\geq1\\); for \\(j\\geq2\\) the falling factorial is even and the valuation is at least three. Legendre's formula gives \\(\\nu_2\\binom{2m}{m}=s_2(m)\\), proving the unrestricted valuation and first correction modulo four. At the critical line, explicit \\(b=2^B3\\) and \\(c=2^{2B-1}(2^r-9)\\) make \\(\\nu_2(T_2)=2B+r\\); \\(c=-9\\cdot2^{2B-1}\\) makes \\(T_2=0\\). The dyadic histogram follows by counting Hamming weights. Independent finite recurrence checks corroborate the proof but cannot establish all cases.",
+    "status": "PASS"
+  },
+  "independent": false,
+  "independent_audit_status": "not_performed",
+  "originality": {
+    "broader_coverage": {
+      "evidence": [
+        "Noe's Theorem 8.5 supplies a general prime-divisibility digit criterion; that broader qualitative condition has only yes/no valuation content.",
+        "Sun's congruence sums cover many generalized-coefficient values at odd primes and include T_n(2,1), but do not state the two-adic normalized unit or boundary construction.",
+        "The new formula gives the exact finite exponent, not merely whether a prime divides the coefficient.",
+        "The Wang–Sun parametric theorems are weighted sums modulo squares of odd primes and do not give an exact two-adic valuation of a single coefficient.",
+        "Theorem 3 proves v_p(P_n(r)) for any rational r of valuation >=1; the 2-adic part plus T_n(b,c)=d^(n/2)P_n(b/sqrt(d)) implies the matching valuation formula for rational-square d and sufficiently divisible argument."
+      ],
+      "reasoning": "Stronger general prime-divisibility coverage is acknowledged: it does not logically imply a fixed exact valuation or a mod-four normalized odd part. Even full knowledge of mod-two behavior cannot distinguish the phases or sharp boundary. This strong theorem covers a genuine special subfamily of the proposed valuation law when d is a rational square and the Legendre argument is sufficiently 2-adically divisible. It does not directly cover arbitrary nonsquare d (argument algebraic, not rational), the low-regime edge with argument valuation below one, or any normalized-unit congruence modulo four. The covered subclass is not claimed as independent novelty.",
+      "searches": [
+        "Noe 2006 Theorems 8.1–8.9 Schur/Holt Legendre polynomial divisibility and central trinomial sequences",
+        "Sun 2010 arXiv:1008.3887 Sections 1–5 congruences and conjectures",
+        "\"generalized central trinomial\" \"valuation\" \"s_2\"",
+        "Wang–Sun 2019 arXiv:1910.06850 Theorems 1.1–1.2",
+        "Alekseyev et al. 2025 theorem for rational r with v_p(r)>=1"
+      ]
+    },
+    "checked_sources": [
+      "Tony D. Noe, JIS 9 (2006) Article 06.2.7, full-text sections and table",
+      "Zhi-Wei Sun, arXiv:1008.3887, full-text relevant sections",
+      "Mao–Liu 2022 publisher abstract (not full text)",
+      "Classical Legendre factorial valuation and Kummer carry identity",
+      "Chen Wang and Zhi-Wei Sun, arXiv:1910.06850, introduction and Theorems 1.1–1.2",
+      "Alekseyev et al., arXiv:2505.08935, Theorems 3–5 and Legendre-polynomial representations"
+    ],
+    "claim_vs_prior_implication": {
+      "evidence": [
+        "Noe equation (2) supplies the multinomial expansion; Noe Theorem 8.1 gives the parity baseline and Theorem 8.5 a divisibility criterion.",
+        "Sun records the central-binomial degeneration, from which the (2,1) valuation follows by a classical identity.",
+        "The Mao–Liu abstract addresses sums of squared coefficients modulo p^3 for odd p>3, not an exact per-index two-adic valuation law; full text was not inspected.",
+        "Theorem 1.1 of Wang–Sun explicitly assumes an odd prime and a weighted k-sum, so its congruence cannot directly yield the sought valuation for all n.",
+        "For d a nonzero rational square and v_2(b/sqrt(d))>=1, combine their v_2(P_n(r)) with v_2(d^(n/2)) to recover the asserted valuation in that subclass."
+      ],
+      "reasoning": "The finite multinomial expression is not claimed as new. Proving dominant-term inequalities for every j and locating the only remaining valuation line gives the new quantifier-rich all-index classification. The higher-order unit formula and boundary nonuniqueness do not follow solely from the qualitative Noe parity theorem. An unlocated more general valuation theorem remains possible.",
+      "searches": [
+        "Noe 2006 equation (2), Theorems 8.1, 8.5, Table 1",
+        "Sun 2010 arXiv:1008.3887 Section 1",
+        "Mao–Liu 2022 doi:10.1007/s40840-022-01406-w abstract",
+        "Wang–Sun 2019 arXiv:1910.06850 Sections 1–3",
+        "Alekseyev et al. 2025 Theorem 3 plus Noe Legendre identity"
+      ]
+    },
+    "equivalent_formulations": {
+      "evidence": [
+        "Sun explicitly gives T_n(2,1)=binomial(2n,n) in Section 1; Kummer/Legendre gives the known binary digit sum for that special case.",
+        "Noe's exact coefficient representation is the same polynomial, but his Theorem 8.1 is only a parity assertion.",
+        "The proposed all-index region conditions C>=2B and C<=2B-2 together with normalized mod-four correction were not located in inspected sections.",
+        "For d=b^2-4c a nonzero rational square, the classical identity T_n(b,c)=d^(n/2) P_n(b/sqrt(d)) relates the objects; Theorem 3 applies when v_2(b/sqrt(d))>=1, and so covers a particular valuation subclass."
+      ],
+      "reasoning": "The central-binomial point and every trivial scaling of it are prior coverage and not individually novel. The claim is the full two-parameter valuation stratification and its sharp boundary. Alternative generating-function or Legendre-polynomial formulations were considered through the source identities; no covering implication was found.",
+      "searches": [
+        "\"generalized central trinomial coefficients\" \"2-adic valuation\" even b odd c",
+        "\"T_n(b,c)\" \"valuation\" \"2\" central trinomial",
+        "2-adic valuation of generalized central trinomial coefficient T_n(b,c) for b even c odd equals binary digit sum floor(n/2) plus v2(b) at odd indices",
+        "arXiv:1008.3887, Section 1",
+        "Alekseyev–Amdeberhan–Shallit–Vukusic 2025 arXiv:2505.08935 Theorem 3 and Legendre-discriminant transform"
+      ]
+    },
+    "exact_database_or_table": {
+      "evidence": [
+        "Noe's Table 1 catalogs individual parameter sequences (including b=2,c=1 and b=4,c=4) and their OEIS IDs, rather than a general b,c valuation or normalized-unit table.",
+        "Kummer's theorem already determines the (2,1) special sequence; that table entry is not new."
+      ],
+      "reasoning": "Specific displayed sequence entries are covered as known sequences. The searched table does not tabulate the all-index coefficient-valuation phase diagram or prove the joint parameter classification. No assertion of exhaustive database search is made.",
+      "searches": [
+        "Noe 2006 Table 1 generalized central trinomial sequences and OEIS identifiers",
+        "\"T_n(2b,c) valuation binary digit sum c odd generalized central trinomial\"",
+        "\"central trinomial\" \"s_2(n)\" 2-adic valuation 2b"
+      ]
+    },
+    "rationale": "Source-level comparison distinguishes the known coefficient definition, Noe's modulo-two and general prime-divisibility theorems, and Sun's central-binomial special case from the new all-index exact two-adic valuation phase formula plus first mod-four normalized unit and sharp boundary construction. The 2022 Mao–Liu abstract addresses odd-prime sums and its inaccessible full text remains a priority risk. Mathematical-record searches returned no stronger covering statement, but cannot prove historical uniqueness. Alekseyev et al. (2025) Theorem 3 is stronger on rational-argument Legendre valuations; it implies the valuation component on the appropriate rational-square-discriminant subclass, which is explicitly acknowledged. It does not state the full nonsquare family or mod-four normalized unit.",
+    "residual_risks": [
+      "Unlocated earlier work may state the same all-index two-adic phase under Legendre polynomial or Newton polygon terminology.",
+      "The full 2022 Mao–Liu paper was inaccessible; abstract-only inspection does not prove noncoverage of its entire contents.",
+      "An exact formula for the critical line beyond the explicitly demonstrated nonuniformity is not provided.",
+      "An extension of the 2025 rational-argument Legendre valuation theorem to all relevant algebraic arguments could subsume part of the valuation formula; no such extension is established by the inspected theorem."
+    ],
+    "source_inspections": [
+      {
+        "assessment": "Contains the multinomial identity, general prime-divisibility conditions and parity but not an exact two-adic phase with normalized mod-four correction; original table includes covered individual sequences",
+        "evidence": "Equation (2); Theorem 8.1, Theorem 8.5, Table 1; final page: published July 5, 2006.",
+        "identifier_or_url": "https://cs.uwaterloo.ca/journals/JIS/VOL9/Noe/noe35.pdf",
+        "material_read": "Section 1 coefficient identity, Sections 2 and 8, Theorems 8.1–8.9, Table 1, publication date statement on final page (July 5, 2006)",
+        "method": "Read lawful full-text PDF and inspected page images for parity theorem, divisibility results, sequence table, and date",
+        "title": "On the Divisibility of Generalized Central Trinomial Coefficients",
+        "trigger": "Identical polynomial objects and strongest directly relevant original divisibility framework"
+      },
+      {
+        "assessment": "Special (2,1) case is previously known and acknowledged; studied congruence sums and odd-prime formulas do not supply noncritical two-adic valuations for all b,c",
+        "evidence": "Section 1, page 3 display T_n(2,1)=binomial(2n,n); subsequent main results and Section 5.",
+        "identifier_or_url": "https://arxiv.org/pdf/1008.3887",
+        "material_read": "Full-text paper sections on definitions, generating identities, main congruence sums and Section 5 conjectures; special case T_n(2,1)=binomial(2n,n) on page 3",
+        "method": "Read lawful arXiv PDF text and page images, searched for 2-adic and congruences modulo four/eight",
+        "title": "Congruences Involving Generalized Central Trinomial Coefficients",
+        "trigger": "Exact same T_n(b,c) family, congruence theorems and central-binomial specialization"
+      },
+      {
+        "assessment": "The displayed p>3 cubic-power congruence sums are not per-index two-adic valuation results; unavailable complete text leaves residual risk, not a verified noncoverage conclusion",
+        "evidence": "Publisher abstract displays sum of (2k+1)^3 T_k(b,c)^2 / (b^2-4c)^k modulo p^3, p>3.",
+        "identifier_or_url": "https://doi.org/10.1007/s40840-022-01406-w",
+        "material_read": "Publisher abstract, theorem excerpt and bibliographic record; full paper not accessed",
+        "method": "Searched preprint and lawful open-access versions first, inspected accessible abstract",
+        "title": "On Some Congruences Involving Generalized Central Trinomial Coefficients",
+        "trigger": "Same generalized coefficient family and potentially stronger later congruences"
+      },
+      {
+        "assessment": "Theorems are weighted sums modulo squares of odd primes, not all-index two-adic single coefficient valuation or normalized unit correction",
+        "evidence": "Pages 1–3, equations (1.1), (1.3), Theorems 1.1 and 1.2; primary MSC 11A07 and 11B75.",
+        "identifier_or_url": "https://arxiv.org/pdf/1910.06850",
+        "material_read": "Introduction, exact definitions and Legendre form, Theorems 1.1 and 1.2, first corollaries and their odd-prime assumptions",
+        "method": "Read arXiv open PDF and inspected page images for primary results and exact parameter quantifiers",
+        "title": "Some Parametric Congruences Involving Generalized Central Trinomial Coefficients",
+        "trigger": "Same T_n(b,c) parameters and potentially more general parametric congruences"
+      },
+      {
+        "assessment": "Genuine prior coverage of the valuation formula for a square-discriminant subset with rational 2-divisible Legendre argument; does not directly determine arbitrary nonsquare cases or first mod-four normalized unit",
+        "evidence": "Theorem 3, page 4, rational r satisfying nu_p(r)>=1; Noe and Wang–Sun Legendre representation T_n=d^(n/2) P_n(b/sqrt(d)).",
+        "identifier_or_url": "https://www.math.tulane.edu/~tamdeberhan/Legendre_polynomials.pdf",
+        "material_read": "Introduction, Theorem 3 with its rational-argument and valuation hypotheses, Theorems 4 and 5, polynomial representations and adjacent proofs; July 4, 2025 preprint date",
+        "method": "Read lawful full-text PDF and inspected page images of main theorem and relevant polynomial representation",
+        "title": "On the p-adic valuations of values of Legendre polynomials",
+        "trigger": "Potentially stronger all-index p-adic valuation theorem for a Legendre-polynomial representation of generalized central trinomial coefficients"
+      }
+    ],
+    "status": "PASS"
+  },
+  "review_type": "self_review",
+  "schema_version": 1,
+  "scope_run_id": "835ab752-6d97-4803-acd2-2807441db33e",
+  "self_review_status": "passed",
+  "value": {
+    "rationale": "The generalized family has an established history of divisibility and congruence study. A uniform coefficient-valuation phase diagram for arbitrary n and nonzero b,c is a natural complete classification outside a single sharp line; it resolves all primitive pairs, adds an exact mod-four normalized-unit correction, and identifies explicit failure of valuation-only control at the boundary. The binomial all-depth histogram is a substantive consequence of an infinite coefficient classification, not a freestanding cherry-picked numerical slice. No claim of a broader theorem for all primes is made.",
+    "status": "PASS"
+  }
+}
