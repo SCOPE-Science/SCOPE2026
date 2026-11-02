@@ -1,0 +1,11 @@
+# Scientific review
+
+**Correctness — PASS.** The four-round cyclic gap argument proves equivalence of all crowns with at least twelve alternating pairs; its cutoffs are \(L_0=2,L_1=5,L_2=11,L_3=23\), and the initial cycle lengths are at least 24. The exact rank-type recurrence is equivalent to the Ehrenfeucht--Fraisse game by backward induction. Two independent programs agree on the complete finite classification of pairs 2 through 15, including the sharp non-equivalence at 6 versus 7. The infinite conclusion does not depend on extrapolating finite tests.
+
+**Originality — PASS, qualified.** Brown--Hoshino classify pure graph cycles, but pure graph equivalence at twelve and fourteen vertices cannot imply the corresponding crown-poset equivalence: the latter fails. Their published result thus does not cover the sharp six-class statement. published-finding corpus queries on crown posets, circular fences, alternating colored cycles and first-order rank-four equivalence returned crown topology/configuration results, not this equivalence classification. Previously checked mathematical results involve uncolored cycles and other structures; none states or implies the strict-order crown classification. The check is not exhaustive; older papers about colored cycles or finite topological spaces could contain equivalent formulations.
+
+**Value — PASS.** The finite crown is a canonical height-two cyclic poset and a finite model for the circle. Its exact four-round logical visibility and sharp fourteen-point threshold provide a natural finite-model-theoretic invariant of an entire infinite family. The explicit contrast with the uncolored 12- and 14-cycle theories isolates genuine information carried by order orientation that is lost on passing to the Hasse graph. It is not a renaming of the prior graph theorem or an arbitrary parameter slice.
+
+**Closest source and limitations.** Brown--Hoshino (2007), Theorem 4.1, determines the pure-graph cycle threshold at eleven vertices, not the ordered crown threshold. Stong (1966) gives historical finite-space context, not an accessible rank-four crown classification. The result is for the single-crown strict-order language at rank four; priority and independent validation are not conclusively established.
+
+Self-review: passed. Independent audit: not yet performed.
