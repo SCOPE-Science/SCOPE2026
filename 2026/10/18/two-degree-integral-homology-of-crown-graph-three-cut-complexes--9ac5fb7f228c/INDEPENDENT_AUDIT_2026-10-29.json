@@ -1,0 +1,185 @@
+{
+  "audit_date_utc": "2026-10-29",
+  "audited_at_utc": "2026-10-29T14:07:05.401573Z",
+  "axes": {
+    "correctness": {
+      "evidence": [
+        "Observed source tree sha 1a9e14a1455e3beff0482708133e6b810fe0b9a2 and exact Git blobs for RESULT/VERIFICATION/verify.py and all public scientific files.",
+        "Original shellability Theorem 4.4 verified in arXiv:1412.0386 p.18 and proof pp.18-21 (PDF text and rendered page).",
+        "Independent Python enumeration, not the packaged checker: for n=5,6,7 constructed disconnected triples, dual, chessboard and mod-2 homology; dual Betti (1:n,3:B_n) = (5,1),(6,19),(7,71); for n=5,6 directly computed cut-complex Betti (4:1,6:5),(6:19,8:6).",
+        "Independent symbolic algebra: B_{n+1}-B_n=(n-2)(n^2-4n+1); at n>=5 positive.",
+        "Checked sourced verifier logic: mod-2 finite cases n=5,6,7 and original n=5,6, without claiming these prove integral torsion-freeness or infinite n."
+      ],
+      "rationale": "Directly reconstructed the connected/disconnected triple iff test for the crown adjacency i!=j. The dual forbids all disconnected triples; its faces are the two-row capacity-(2,2) chessboard complex X_n plus exactly n isolated matched-pair edges, with no additional higher faces involving matched pairs. Verified the cited Theorem 4.4 shellability threshold n>=2+2+2-1=5 in its original proof. Since X_n is pure 3-dimensional and shellable, its integral homotopy is a wedge of 3-spheres; the exact four face counts yield B_n by reduced Euler characteristic. Each added edge joins vertices in path-connected X_n and contributes a circle. Integral combinatorial Alexander duality on 2n vertices gives H_j(K;Z)=H^{2n-j-3}(K^*;Z), including free groups and zero elsewhere. Every disconnected triple is a facet complement (pure dim 2n-4); every complement of >=5 vertices contains a same-side triple and provides the complete (2n-6)-skeleton. B_n>0 implies nonshellability.",
+      "risks": [
+        "Integral classification uses the published shellability theorem; it is a cited nontrivial premise, not a proof reproduced by the package.",
+        "Only the Alexander dual receives a homotopy wedge decomposition; original cut complex homotopy type remains unknown."
+      ],
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Theorem 7.4 calculates Delta_3(K_{n,n}) homology rank binom(n-1,2)^2 only in degree 2n-6, different from crown two-degree ranks.",
+          "Theorem 7.18 considers a graph with disjoint cliques and perfect matching; crown is bipartite and has 4-cycles, unlike the class covered by high-girth theorems.",
+          "Topology of Cut Complexes II studies disjoint unions, squared paths and grids; none is the deleted-perfect-matching crown family."
+        ],
+        "reasoning": "These theorems do not dominate the crown classification by subgraph inclusion, join formula, homotopy equivalence or a directly stated graph operation. A cut-complex result is not automatically inherited after deleting a matching, and the crown has girth 4, excluding high-girth coverage.",
+        "searches": [
+          "arxiv:2304.13675 Theorems 4.16, 7.1, 7.4 and 7.18",
+          "arxiv:2407.08158 graph families Sections 3-6",
+          "Resultary: high-girth cut complexes are wedges of top-dimensional spheres",
+          "Resultary search: homology of ordinary k-cut complexes of complete bipartite graphs and crown graphs"
+        ]
+      },
+      "checked_sources": [
+        "Jojić–Vrećica–Živaljević arXiv:1412.0386v3 Theorem 4.4 (full relevant proof read)",
+        "Bayer et al. arXiv:2304.13675v2 Theorems 7.1,7.4,7.18",
+        "Bayer et al. arXiv:2407.08158v1 §§3-6",
+        "Resultary exact/alias queries on crown/3-cut/multiple-chessboard and matched bipartite graph",
+        "Web scholarly queries on crown three-cut homology and deleted matching"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "Theorem 4.4 proves X_n shellable and hence its H_3 rank by its face vector. It does not identify Delta_3(G_n)^* as X_n union n matched edges.",
+          "Theorem 7.4 gives one-degree homology for K_{n,n}; n unmatched deleted cross edges alter triangle connectedness, introducing new dual H_1 and original top-dimensional H_{2n-4}.",
+          "The exact crown face classification gives a necessary new graph-to-simplicial-complex step, followed by integral duality."
+        ],
+        "reasoning": "A short proof using a known premise can nevertheless deliver a new result; the credited shellability theorem by itself is insufficient to imply the graph-specific dual identification and rank pair. No inspected broader theorem automatically implies the asserted top homology rank n.",
+        "searches": [
+          "https://arxiv.org/pdf/2304.13675 Theorem 7.4",
+          "https://arxiv.org/pdf/1412.0386 Theorem 4.4",
+          "https://arxiv.org/pdf/2407.08158 §§3-6",
+          "Resultary search: ordinary three-cut complexes crown graphs K(n,n) minus perfect matching integral homology Alexander dual multiple chessboard complex"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Crown G_n = K_{n,n} minus a perfect matching is also the bipartite double cover K_n tensor K_2 and bipartite Kneser H(n,1).",
+          "Published prism K_n square K_2 (arxiv:2304.13675, Thm 7.18) has all within-layer clique edges and a cross matching, not the cross nonmatching crown edges.",
+          "Published multiple chessboard X_n has row-capacity (2,2) and column-capacity 1, but the crown Alexander dual contains n extra matched-pair one-simplices."
+        ],
+        "reasoning": "Compared graph adjacency and Alexander-dual face conditions, not just matching graph names. Existing shellability determines the X_n core only; adding missing matched-pair edges changes reduced first homology by n and via duality produces a new top-degree group. No equivalent complete crown theorem was returned in targeted searches; search absence alone does not establish novelty.",
+        "searches": [
+          "Resultary search: crown graph bipartite Kneser graph deleted perfect matching graph cut simplicial complex",
+          "Resultary search: ordinary three-cut complexes crown graphs K(n,n) minus perfect matching integral homology Alexander dual multiple chessboard complex",
+          "Web: \"crown graph\" \"cut complex\" homology; \"K_{n,n}\" \"matching\" \"cut complex\" Alexander dual; \"multiple chessboard complex\" \"crown\" topology",
+          "arxiv:1412.0386 Theorem 4.4",
+          "arxiv:2304.13675 Theorems 7.1/7.4/7.18"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "Resultary id 2026/10/11/SCOPE-integral-and-equivariant-homology-of-three-cut-complexes-of-rook--bd50464fc17f: rook graph K_m square K_n, distinct from crown G_n.",
+          "Resultary id 2026/10/4/SCOPE-exact-non-cis-pair-count-for-matching-deleted-complete-bipartite--fb55fa5d8edb: same graph class, distinct non-CIS invariant.",
+          "No exact (B_n,n) two-degree crown cut homology table located in inspected published cut-complex primary papers or targeted searches."
+        ],
+        "reasoning": "A same-graph result for a different invariant and a same-invariant result for a different graph do not cover the theorem. Negative database searches increase confidence but cannot prove priority.",
+        "searches": [
+          "Resultary search: ordinary three-cut complexes crown graphs K(n,n) minus perfect matching integral homology Alexander dual multiple chessboard complex",
+          "Resultary search: crown graph bipartite Kneser graph deleted perfect matching graph cut simplicial complex",
+          "Resultary search: homology of ordinary k-cut complexes of complete bipartite graphs and crown graphs",
+          "Web: \"crown graph\" \"cut complex\" homology; \"K_{n,n}\" \"matching\" \"cut complex\" Alexander dual; \"multiple chessboard complex\" \"crown\" topology",
+          "Web: \"crown graph\" \"3-cut\" complex",
+          "published SCOPE Resultary: rook graph 3-cut complex, crown non-CIS pairs and crown domination"
+        ]
+      },
+      "rationale": "Best-of-knowledge: the actual crown Alexander-dual decomposition X_n with n matched-pair edges and consequent free integral two-degree homology are not implied by the published complete-bipartite/prism classifications nor by the cited core shellability theorem alone. Structural construction and degree n top classes are distinct; residual alias/unindexed priority risk remains.",
+      "residual_risks": [
+        "A differently indexed result on bipartite double covers, bipartite Kneser H(n,1), or chessboard-plus-diagonal-edge complexes could contain the same homology classification.",
+        "The tested web/database corpus is not exhaustive; absence in results is not a mathematical proof of novelty."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "COVERS_BACKGROUND_NOT_CROWN: K_{n,n} has a single reduced homology degree; the clique prism K_n square K_2 has different adjacency from the crown K_n tensor K_2. No crown rank formula appears in inspected classification.",
+          "evidence": [
+            "Definition on PDF p.2 (source lines 47-54) defines ordinary k-cut by disconnected complements",
+            "Theorem 7.4 on pp.23-24: K_{m,n} wedge rank binom(m-1,k-1)binom(n-1,k-1) in degree m+n-2k",
+            "Theorem 7.18 on p.29 is explicitly the Cartesian prism with within-part clique edges and matching cross edges, unlike crown adjacency"
+          ],
+          "identifier_or_url": "https://arxiv.org/pdf/2304.13675",
+          "material_read": "arXiv v2 PDF pp.1-2 definitions and graph-family table; §7.1 pp.22-24 Theorems 7.1, 7.4, 7.6, and §7.3 p.29 Theorem 7.18, with rendered pages 23 and 29. Checked stated graph adjacency and relevant theorem implications.",
+          "method": "Full accessible arXiv PDF extracted text and page screenshots in this run",
+          "title": "Topology of Cut Complexes of Graphs",
+          "trigger": "Foundational ordinary three-cut definition and potential complete-bipartite/graph-operation coverage"
+        },
+        {
+          "assessment": "PROVES_PREMISE_ONLY: precise shellability range m >= sum capacities + number_of_rows - 1 applies at n >= 5; does not analyze additional forbidden matching edges or crown cut complexes.",
+          "evidence": [
+            "Theorem 4.4 on PDF p.18: m>=k_1+...+k_r+r-1 implies shellable",
+            "Theorem 4.4 proof pp.19-21 establishes shelling by induction on rows; m=n_columns and r=2, k_1=k_2=2 yields n>=5"
+          ],
+          "identifier_or_url": "https://arxiv.org/pdf/1412.0386",
+          "material_read": "arXiv v3 PDF p.18 Theorem 4.4 and pp.18-21 its recursive shelling proof, including induction and cases (a)-(c), with theorem-page screenshot; complex definitions in early sections.",
+          "method": "Full accessible arXiv PDF parsed text and rendered theorem page in this run",
+          "title": "Multiple chessboard complexes and the colored Tverberg problem",
+          "trigger": "Exact nonstandard shellability premise for the two-row capacity-(2,2) chessboard core"
+        },
+        {
+          "assessment": "DISTINCT_GRAPH_FAMILIES: disjoint unions, squared paths, grid graphs and associated homology representations, not deletion-of-perfect-matching crown graphs.",
+          "evidence": [
+            "Contents p.1 and introduction pp.1-2 explicitly list disjoint unions, squared paths and grids",
+            "No occurrence of crown or chessboard in searchable full PDF; absence is supporting context rather than proof of noncoverage"
+          ],
+          "identifier_or_url": "https://arxiv.org/pdf/2407.08158",
+          "material_read": "arXiv v1 full 29-page PDF contents, introduction and family-specific theorem scope in §§3-6; searched extracted PDF for crown and chessboard, with PDF p.1 screenshot.",
+          "method": "Accessible arXiv PDF text search and relevant full sections assessed by their stated theorems and methods",
+          "title": "Topology of Cut Complexes II",
+          "trigger": "Follow-up to graph cut complex classification potentially covering new graph families or general reductions"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "evidence": [
+        "Bayer et al. Theorem 7.4: for K_{n,n}, only reduced H_{2n-6} of rank binom(n-1,2)^2.",
+        "Crown has additional H_{2n-4}=Z^n and modified lower rank, both with explicit all-n formula and torsion-free conclusion.",
+        "Classification identifies exact topology of the Alexander dual and a nonshellability obstruction for every n>=5."
+      ],
+      "motivation": "Crown graphs are canonical regular bipartite graphs with a highly structured missing matching; graph cut topology is known for complete bipartite graphs but is sensitive to edge deletion.",
+      "rationale": "Exact integral homology for a natural infinite crown family K_{n,n}-M, a symmetric deletion of a perfect matching from a classical benchmark graph. The new graph-to-dual decomposition explains structural non-shellability and the appearance of n top-degree classes absent for complete bipartite graphs, beyond a routine table calculation. A future researcher studying graph cut complexes, edge deletions, or representation of bipartite double covers can use the precise groups and n>=5 boundary.",
+      "risks": [
+        "Does not determine original complex integral homotopy wedge or its equivariant homology representation; these are open extensions, not required for the proved value."
+      ],
+      "status": "PASS"
+    }
+  },
+  "checked_sources": [
+    {
+      "kind": "published mathematical literature",
+      "source": "Jojić–Vrećica–Živaljević arXiv:1412.0386v3 Theorem 4.4 (full relevant proof read)"
+    },
+    {
+      "kind": "published mathematical literature",
+      "source": "Bayer et al. arXiv:2304.13675v2 Theorems 7.1,7.4,7.18"
+    },
+    {
+      "kind": "published mathematical literature",
+      "source": "Bayer et al. arXiv:2407.08158v1 §§3-6"
+    },
+    {
+      "kind": "published mathematical literature",
+      "source": "Resultary exact/alias queries on crown/3-cut/multiple-chessboard and matched bipartite graph"
+    },
+    {
+      "kind": "published mathematical literature",
+      "source": "Web scholarly queries on crown three-cut homology and deleted matching"
+    },
+    {
+      "kind": "frozen research source",
+      "source": "Git source snapshot tree 1a9e14a1455e3beff0482708133e6b810fe0b9a2"
+    }
+  ],
+  "disposition": "passed",
+  "limitations": [
+    "n>=5 only; n=3 is cycle C_6 and n=4 lies outside cited shellability sufficient range.",
+    "No wedge decomposition of the original cut complex, only the dual.",
+    "Finite mod-two checks do not establish general integer torsion-freeness; analytic proof uses shellability and integral duality."
+  ],
+  "residual_risks": [
+    "A differently indexed result on bipartite double covers, bipartite Kneser H(n,1), or chessboard-plus-diagonal-edge complexes could contain the same homology classification.",
+    "The tested web/database corpus is not exhaustive; absence in results is not a mathematical proof of novelty.",
+    "Scientific conclusions depend on standard integral Alexander duality and the precise published chessboard shellability result."
+  ],
+  "schema_version": 1
+}

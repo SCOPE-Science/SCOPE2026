@@ -1,11 +1,21 @@
-# Self-review
+# Independent mathematical audit
 
-**Correctness — PASS.** For each \(n\ge5\) the complement-of-disconnected-triple definition implies that the Alexander dual is exactly the two-row \((2,2;1)\) multiple chessboard complex with the \(n\) forbidden matching edges reattached as one-cells. The full published shellability theorem (Jojić–Vrećica–Živaljević, arXiv:1412.0386, Theorem 4.4) applies since \(n\ge2+2+2-1=5\). The explicit face vector gives the quartic rank, edge attachments add \(n\) circles, and integral combinatorial Alexander duality transfers these to precisely the two claimed integral homology degrees. The cut complex is pure, so lower homology obstructs shellability. The standalone checker constructs both complexes from first principles and confirms their mod-two boundary ranks in the stated finite ranges.
+## correctness
 
-**Originality — PASS.** The closest graph-cut work (Bayer et al., arXiv:2304.13675, Theorems 7.4 and 7.18; arXiv:2407.08158, Sections 3, 5–6) classifies complete bipartite/multipartite and other graph families, but deleting a perfect matching is not one of those constructions. The multiple-chessboard paper proves the shellability of the core complex but does not analyze crown three-cuts or their \(n\) extra one-cells. Published-result and exact-phrase searches found no equivalent rank formula. Same-graph crown domination calculations concern a different invariant. Residual risk: a differently indexed formulation of the same Alexander-dual identification or a later unindexed publication may exist; search absence alone is not a proof of novelty.
+PASS
 
-**Value — PASS.** The crown is a symmetric natural perturbation of a complete bipartite graph. Removing a matching changes the one-degree homology of the complete-bipartite three-cut complex into a nonzero two-degree integral profile, including a new top-dimensional rank \(n\). This yields an infinite nonshellable family with exact integer Betti numbers and supplies a usable structural bridge between cut complexes and multiple chessboard complexes. No stronger wedge-of-spheres homotopy statement is claimed for the original cut complex.
+Directly reconstructed the connected/disconnected triple iff test for the crown adjacency i!=j. The dual forbids all disconnected triples; its faces are the two-row capacity-(2,2) chessboard complex X_n plus exactly n isolated matched-pair edges, with no additional higher faces involving matched pairs. Verified the cited Theorem 4.4 shellability threshold n>=2+2+2-1=5 in its original proof. Since X_n is pure 3-dimensional and shellable, its integral homotopy is a wedge of 3-spheres; the exact four face counts yield B_n by reduced Euler characteristic. Each added edge joins vertices in path-connected X_n and contributes a circle. Integral combinatorial Alexander duality on 2n vertices gives H_j(K;Z)=H^{2n-j-3}(K^*;Z), including free groups and zero elsewhere. Every disconnected triple is a facet complement (pure dim 2n-4); every complement of >=5 vertices contains a same-side triple and provides the complete (2n-6)-skeleton. B_n>0 implies nonshellability.
 
-**Limits.** The parameter range starts at five, the homotopy splitting is proved only for the Alexander dual, and independent scientific audit has not been performed. Source coverage is documented with exact theorems and risk in `AUDIT.json`.
+## originality
 
-Self-review: passed. Independent audit: not yet performed.
+PASS
+
+Best-of-knowledge: the actual crown Alexander-dual decomposition X_n with n matched-pair edges and consequent free integral two-degree homology are not implied by the published complete-bipartite/prism classifications nor by the cited core shellability theorem alone. Structural construction and degree n top classes are distinct; residual alias/unindexed priority risk remains.
+
+## value
+
+PASS
+
+Exact integral homology for a natural infinite crown family K_{n,n}-M, a symmetric deletion of a perfect matching from a classical benchmark graph. The new graph-to-dual decomposition explains structural non-shellability and the appearance of n top-degree classes absent for complete bipartite graphs, beyond a routine table calculation. A future researcher studying graph cut complexes, edge deletions, or representation of bipartite double covers can use the precise groups and n>=5 boundary.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

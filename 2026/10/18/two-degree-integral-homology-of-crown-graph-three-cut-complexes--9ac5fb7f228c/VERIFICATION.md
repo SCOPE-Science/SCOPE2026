@@ -5,8 +5,11 @@
     "status": "not_performed"
   },
   "independent_audit": {
-    "evidence": null,
-    "status": "not_performed"
+    "status": "passed",
+    "evidence": [
+      "INDEPENDENT_AUDIT_2026-10-29.md",
+      "INDEPENDENT_AUDIT_2026-10-29.json"
+    ]
   },
   "lean_verification": {
     "evidence": null,
@@ -16,12 +19,24 @@
 }
 ---
 
-# Computational verification and mathematical limits
+# Independent mathematical audit
 
-Execute `python3 artifacts/verify.py` from the directory containing this document and its `artifacts/` subdirectory. The program uses only Python 3's standard library. Expected final output: `VERIFY_OK cases=5`.
+## correctness
 
-The verifier constructs the graph adjacency relation from the stated definition, enumerates disconnected triples, and forms the dual by testing avoidance of every disconnected triple. A separate capacity-and-index-condition generator constructs the multiple chessboard complex. For \(n=5,6,7\) it verifies equality of all simplices after adding precisely \(n\) matched-pair edges and checks the exact face vector. The reduced mod-two homology of the chessboard part and dual are independently obtained by bit-column elimination in the augmented simplicial chain complex.
+PASS
 
-For \(n=5,6\) it constructs the **ordinary cut complex directly** by checking whether the complement of each subset contains a disconnected triple, then calculates the reduced mod-two homology in all degrees. These computations give respectively \((\widetilde\beta_4,\widetilde\beta_6)=(1,5)\) and \((\widetilde\beta_6,\widetilde\beta_8)=(19,6)\), agreeing with the theorem.
+Directly reconstructed the connected/disconnected triple iff test for the crown adjacency i!=j. The dual forbids all disconnected triples; its faces are the two-row capacity-(2,2) chessboard complex X_n plus exactly n isolated matched-pair edges, with no additional higher faces involving matched pairs. Verified the cited Theorem 4.4 shellability threshold n>=2+2+2-1=5 in its original proof. Since X_n is pure 3-dimensional and shellable, its integral homotopy is a wedge of 3-spheres; the exact four face counts yield B_n by reduced Euler characteristic. Each added edge joins vertices in path-connected X_n and contributes a circle. Integral combinatorial Alexander duality on 2n vertices gives H_j(K;Z)=H^{2n-j-3}(K^*;Z), including free groups and zero elsewhere. Every disconnected triple is a facet complement (pure dim 2n-4); every complement of >=5 vertices contains a same-side triple and provides the complete (2n-6)-skeleton. B_n>0 implies nonshellability.
 
-Finite tests do not establish the infinite-range theorem and mod-two ranks cannot certify torsion-freeness. The all-parameter argument is mathematical: precise face classification, the published multiple chessboard shellability theorem, integral Euler characteristic, elementary homotopy of edge attachments, and integral combinatorial Alexander duality. The original cut complex's homotopy wedge decomposition, if any, is unproved.
+## originality
+
+PASS
+
+Best-of-knowledge: the actual crown Alexander-dual decomposition X_n with n matched-pair edges and consequent free integral two-degree homology are not implied by the published complete-bipartite/prism classifications nor by the cited core shellability theorem alone. Structural construction and degree n top classes are distinct; residual alias/unindexed priority risk remains.
+
+## value
+
+PASS
+
+Exact integral homology for a natural infinite crown family K_{n,n}-M, a symmetric deletion of a perfect matching from a classical benchmark graph. The new graph-to-dual decomposition explains structural non-shellability and the appearance of n top-degree classes absent for complete bipartite graphs, beyond a routine table calculation. A future researcher studying graph cut complexes, edge deletions, or representation of bipartite double covers can use the precise groups and n>=5 boundary.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
