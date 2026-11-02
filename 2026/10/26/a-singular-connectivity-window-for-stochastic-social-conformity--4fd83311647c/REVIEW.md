@@ -1,15 +1,21 @@
-# Self-review
+# Independent mathematical audit
 
-## Correctness — PASS
-The defined count-state kernel is positive and transient outside extinction because every current adopter has a strictly positive forgetting probability. For fixed positive intergroup weight, the zero-forgetting fast chain has precisely the two global homogeneous recurrent classes; an exact type-exchange involution identifies the probability that a lone adopter creates full adoption with the probability that a lone nonadopter destroys it. Renewal of rare forgetting escapes makes the fixation probability cancel. At zero intergroup weight, the one-group gambler's-ruin ratio gives local fixation probability \(2^{-(m-1)}\), producing the different leading coefficient. On the joint scaling \(\mu=c/s\), the fast recurrent classes are precisely group-monomorphic configurations; an explicit finite-state Schur complement yields the effective birth–death chain with the stated rates, and its first-step recursion yields the exact product sum. Continuous resolvent dependence plus a strict interior-versus-endpoint asymptotic comparison establishes the interior minimizer. The included finite exact-rational program passes 29 assertions; these checks support but do not replace the complete finite-state proof.
+## correctness
 
-## Originality — PASS, qualified
-Braga–Wardil (2023) supply the defining update model and exact single-group recurrences, and analyze multiple groups by a weak-intergroup approximation, not by the exact fixed-positive and vanishing-coupling strong-conformity asymptotics. Lessard's (2025) general two-timescale Markov-chain projection is a known analytical method and is explicitly acknowledged; it does not itself give the concrete lifetime formula, boundary layer, cancellation or interior-minimizing coupling for this meme kernel. The 2008 fixation-time network article gives broader context but not observed direct coverage. Actual semantic searches of mathematical research records for the model, singular weak mixing, absorbing times, and alternatives returned no equivalent or stronger explicit result among inspected records. This cannot prove priority; alternative older fixation/migration formulations might still subsume aspects.
+PASS
 
-## Value — PASS
-The result identifies an unexpected discontinuity between exactly disconnected and arbitrarily weakly connected communities, gives the full nontrivial transition at the physically meaningful scale of connectivity times conformity, and proves a global *interior* optimal connectivity for a concrete epidemic-like information-spread lifetime. It resolves the exact-model counterpart of the motivating paper's weak-mixing approximation and gives an interpretable analytic benchmark across arbitrary finite numbers and sizes of groups, rather than a generic reformulation or incremental numerical estimate.
+PASS: Rebuilt the finite count-state kernel and common Z normalization, transient-state resolvent, and fast/slow class decomposition. At mu>0 the zero-forgetting fast chain has precisely two global homogeneous absorbing states and A/B exchange identifies equal single-minority fixation probabilities; renewal cancels fixation factors and leaves the consensus escape rate n gamma/[s(1+(n-1)mu)]. At mu=0 local gambler ruin gives alpha_m=2^{-(m-1)} and cancellation leaves 1/gamma. At mu=c/s, mixed groups are fast-transient, the group-monomorphic states are slow, with projected generator alpha_m times birth b_k=c k(n-k)/n, death d_k=k gamma+c k(n-k)/n. Initial local fixation probability alpha_m cancels the slow-time factor. Absorbing-chain invertibility proves mean-time convergence; first-step recurrence supplies U_n. Strict fixed-positive interior-versus-both-endpoints limits force an interior finite-s optimizer by continuity; no uniqueness follows. Reconstructed exact rational resolvents independently for n,m=(2,1),(2,2),(3,1), s=1000, mu=0,1/2,1 and c/s for c=0,1,4; agreement with asserted limits. Finite tests corroborate rather than replace all-parameter proof.
 
-## Closest literature, scope and limits
-Braga and Wardil, *Physical Review E* 108, 064103 (2023), DOI:10.1103/PhysRevE.108.064103, Eqs. 1–13 and Sec. III.B; Lessard, *Two Timescales in Stochastic Evolutionary Games* (2025), arXiv:2411.01032, introductory projection theorem, low-migration section and conclusion; Baxter, Blythe and McKane, *Physical Review Letters* 101, 258701 (2008), abstract. Only the first two full materials were inspected in depth. Finite populations, symmetric equal-size groups, the prescribed discrete clock, a single initial seed, and fixed strictly positive forgetting are essential assumptions; no finite-conformity uniqueness claim. Other undetected formulations and publication-priority uncertainty remain.
+## originality
 
-Self-review: passed. Independent audit: not yet performed.
+PASS
+
+Best-of-knowledge PASS for the exact multi-group strong-conformity three-regime lifetime law and its interior-optimizer implication, not for the original model, single-group recurrence, general projection method or generic fixation-time formulas. The complete author-hosted source and open mathematical primary comparisons were materially read; no assessed statement directly dominates this one.
+
+## value
+
+PASS
+
+PASS: The joint weak-coupling/strong-conformity window and cancellation of group-size-dependent fixation are a motivated structural gap in the published finite-group meme process. The explicit crossover changes qualitatively between disconnected and any fixed positive coupling, and rigorously forces an interior lifetime-minimizing connectivity; this gives a concrete and mathematically usable comparison beyond general projection techniques, with no paper-sized contribution demanded.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
