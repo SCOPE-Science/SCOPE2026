@@ -1,0 +1,104 @@
+{
+  "correctness": {
+    "rationale": "For integer p>=2 and q>p the claimed candidate is feasible. Exact quotient characteristic factorization and positivity of f(c), f(2-c) give its complete SLEM. At H>=0 the positive Rayleigh/leaf subgradient mixture gives a global lower certificate under both hub constraints, and group averaging extends it to all symmetric stochastic matrices. At H<0 an explicit feasible negative direction lowers both active modes. The threshold is unique because H increases strictly; finite exact-rational and direct spectral checks independently exercise the algebra.",
+    "status": "PASS"
+  },
+  "independent": false,
+  "independent_audit_status": "not_performed",
+  "originality": {
+    "broader_coverage": {
+      "evidence": [
+        "arXiv:2501.02421, PDF pp. 22-24, specifically section 6.7 equations (56)-(60).",
+        "arXiv:0709.0955v1, PDF Sections 4.3 and 5.3.4-5.3.5."
+      ],
+      "reasoning": "The 2007 general convex SDP/symmetrization framework proves computability but not the exact sharp uniform bistar boundary. The 2020 bistar closed forms assume (60), violated here, and the balanced clique-barbell has additional edges plus equal cluster sizes; it does not imply the q>p threshold.",
+      "searches": [
+        "fastest mixing Markov chain trees symmetric star bistar topology general stationary measure",
+        "fastest mixing Markov chain on graphs with symmetries Boyd Diaconis Parrilo Xiao"
+      ]
+    },
+    "checked_sources": [
+      "arXiv:0709.0955v1 (Boyd et al., first public 2007-09-06)",
+      "DOI:10.1137/S0036144503423264 (Boyd et al. 2004)",
+      "DOI:10.1109/TSIPN.2020.2964211 (Jafarizadeh 2020), lawful PDF arXiv:2501.02421",
+      "Targeted semantic mathematical research searches and accessible prior claim ledger"
+    ],
+    "claim_vs_prior_implication": {
+      "evidence": [
+        "Jafarizadeh Section 6.7 says its bistar closed form is valid if inequalities (59) and (60) hold; (60) fails whenever both leaf counts >=2 with equal stationary masses.",
+        "Boyd et al. arXiv:0709.0955v1 Section 5.3.4 gives the equal-clique bridge solution, while 5.3.5 concerns complete binary trees."
+      ],
+      "reasoning": "Neither cited primary statement, specialized formula, nor an obvious reduction includes the excluded uniform-bistar regime. The new proof supplies a previously missing positive dual certificate when the leaf-difference eigenvalue becomes active. General numerical solvability alone does not imply the closed formula or sharp quartic boundary.",
+      "searches": [
+        "fastest mixing Markov chain bistar topology Jafarizadeh eq 60",
+        "fastest mixing Markov chain two joined cliques formula 2007"
+      ]
+    },
+    "equivalent_formulations": {
+      "evidence": [
+        "Boyd et al., arXiv:0709.0955, Sections 2 and 5.3.4, uses symmetric stochastic transition matrices and the SLEM norm.",
+        "Jafarizadeh, DOI:10.1109/TSIPN.2020.2964211, Section 6.7, uses edge flows and stationary weights."
+      ],
+      "reasoning": "Translated the claim to reversible uniform-stationary FMRMC and to Laplacian gap bounds. Bistar terminology matches the graph, but the published bistar expression is conditional and does not apply because its condition (60) would require p<=1 and q<=1 in the uniform setup.",
+      "searches": [
+        "\"fastest mixing\" \"double star\" Markov chain",
+        "\"fastest mixing\" \"bistar\" graph",
+        "\"fastest mixing\" \"two stars\" connected by edge"
+      ]
+    },
+    "exact_database_or_table": {
+      "evidence": [
+        "Targeted semantic database results included a published balanced-spider coupling-tail mixing result and unrelated spectral graph records, none with the same FMMC claim.",
+        "Accessible prior collection includes a separate double-star conductance-allocation result for effective resistance diameter, a different objective."
+      ],
+      "reasoning": "Compared the whole claim rather than exact title only, including bistar, double-star, uniform reversible-chain, characteristic gap and the rational q^2/(q^2+q-p) expression. No exact previously tabulated value or known stronger classification found.",
+      "searches": [
+        "double-star fastest mixing q^2/(q^2+q-p) exact",
+        "bistar Markov chain quartic imbalance frontier optimal probability"
+      ]
+    },
+    "rationale": "The full text of the closest bistar result (Jafarizadeh, Section 6.7) explicitly restricts its formula to stationary measures satisfying condition (60). Uniform stationary mass with at least two leaves violates that condition. Boyd et al. supply a balanced clique-barbell formula and general SDP symmetry principles, but not the stated asymmetric double-star boundary classification. Actual semantic and literature queries yielded no stronger statement. Potential specialized historical treatments remain a risk.",
+    "residual_risks": [
+      "Unretrieved specialized bistar/FMMC papers could establish the same frontier; a negative search is not a proof of priority.",
+      "Some broad semidefinite formulations may imply the result after nontrivial analysis, but an explicit general stronger theorem was not identified."
+    ],
+    "source_inspections": [
+      {
+        "assessment": "general SDP framework; no explicit bistar sharp frontier in inspected material",
+        "evidence": "DOI 10.1137/S0036144503423264, Sections 1.1-1.2",
+        "identifier_or_url": "https://web.stanford.edu/~boyd/papers/pdf/fmmc.pdf",
+        "material_read": "PDF pp. 1-3 and relevant FMMC definitions, feasibility and convex formulation; searched text for tree and star",
+        "method": "opened original accessible PDF and visually inspected page 1",
+        "title": "Fastest Mixing Markov Chain on a Graph",
+        "trigger": "foundational general FMMC optimization and potential stronger general characterization"
+      },
+      {
+        "assessment": "balanced two-clique bridge result is a different graph and parameter domain, and does not state asymmetric bistar classification",
+        "evidence": "arXiv:0709.0955v1, equations (29)-(30)",
+        "identifier_or_url": "https://arxiv.org/pdf/0709.0955",
+        "material_read": "full searchable source structure; Introduction, Sections 4.3.1-4.3.2, 5.3.4 and 5.3.5 including explicit clique-barbell formula and binary-tree blocks",
+        "method": "opened arXiv primary full PDF, searched key objects, visually inspected pages 1 and 30",
+        "title": "Fastest Mixing Markov Chain on Graphs with Symmetries",
+        "trigger": "closest older graph-family FMMC formula and symmetry machinery"
+      },
+      {
+        "assessment": "explicit bistar formulas are conditional on (60); equal stationary masses with p,q>=2 violate both required upper bounds, so the presented interior formula does not cover this claim",
+        "evidence": "DOI 10.1109/TSIPN.2020.2964211, Section 6.7 conditions (59)-(60)",
+        "identifier_or_url": "https://arxiv.org/pdf/2501.02421",
+        "material_read": "Introduction statements of applicability, Section 6.7 pp. 22-24, Fig.6 and equations (56)-(60) together with Remark 7",
+        "method": "opened lawful author full-text arXiv copy and visually inspected page 24",
+        "title": "Fastest Mixing Reversible Markov Chain: Clique Lifted Graphs & Subgraphs",
+        "trigger": "direct bistar graph mention and apparent exact-coverage risk"
+      }
+    ],
+    "status": "PASS"
+  },
+  "review_type": "self_review",
+  "schema_version": 1,
+  "scope_run_id": "7d290a2c-0a7d-475d-9ff4-6e73be814d32",
+  "self_review_status": "passed",
+  "value": {
+    "rationale": "A natural infinite network-design family gains an explicit rational global mixing-rate optimum and transition law. The sharp quartic onset, strict exclusion below onset, and irrational limiting size ratio expose a structural eigenmode change and provide a reproducible design principle. This is not merely another finite numerical example or generic SDP reduction.",
+    "status": "PASS"
+  }
+}
