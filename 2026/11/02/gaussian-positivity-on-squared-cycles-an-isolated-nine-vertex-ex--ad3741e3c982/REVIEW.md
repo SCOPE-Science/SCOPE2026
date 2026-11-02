@@ -1,0 +1,15 @@
+# Scientific review
+
+## Correctness: PASS
+The graph power and geodesic distance are specified unambiguously. The discrete Fourier transform of the squared-cycle distance is derived by splitting the ceiling into ordinary-cycle distance plus parity. For even orders the parity is a single alternating character; for odd orders its Dirichlet kernel is explicit. The resulting sign inequalities are exhaustive and include the \(n=9\) exact-zero boundary. Fourier diagonalization plus the finite Schoenberg equivalence proves the all-orders Gaussian classification and the centered embedding ranks. The separately implemented BFS/DFT checks cover orders 3 through 128 and exactly verify the nine-vertex residue cancellation. These computations corroborate but do not replace the infinite proof.
+
+## Originality: PASS under bounded historical review
+The closest known **same-object** publication, Atik and Panigrahi, Electronic Journal of Linear Algebra 29 (2016), Theorem 2.2 and pp. 198–199, already gives the complete distance spectrum of **even** cycle squares. No novelty is claimed for that part. The assessed claim is the odd-order formula, the all-order negative-type/Gaussian dichotomy, and the isolated admissible odd order \(n=9\). Aalipour et al. (arXiv:1509.01196v1) prove general graph-distance results and discuss other graph families; their accessible full HTML has no cycle-square spectral theorem. Zhou (2014) supplies only circulant distance spectral-radius/Wiener-index relations. Searches under the aliases cycle square, power of cycle, two-step circulant, negative type, generalized roundness, Schoenberg kernel and Euclidean embedding, together with prior findings, did not find a covering claim. The diameter-two cases are accessible from standard adjacency Fourier methods; this does not dominate the all-order odd classification for unbounded diameter. A differently titled historical odd-square-cycle spectrum remains a residual risk.
+
+## Mathematical value: PASS
+Universal Gaussian positivity of a graph metric is a natural Fourier/embedding invariant. The answer is not simply a small-order calculation: even order works in every dimension, almost all odd orders fail, and the isolated nine-vertex exception has a nontrivial two-dimensional null space and a sharp six-dimensional Euclidean realization. The explicit odd Fourier formula and parity-frequency obstruction identify the structural mechanism, while the complete endpoint embedding ranks connect spectral signs to attainable geometry. The result is a meaningful complete classification of an infinite, canonical graph-power family rather than an arbitrary numerical slice.
+
+## Limits and related literature
+The already-known even-order distance spectrum is not counted as novel. There has been no independent mathematical verification. Search-based historical originality cannot rule out differently named or unindexed papers. The result does not cover nonunit distance exponents.
+
+Self-review: passed. Independent audit: not yet performed.
