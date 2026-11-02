@@ -1,11 +1,21 @@
-# Scientific assessment
+# Independent mathematical audit
 
-**Correctness — PASS.** The original cumulant is computed directly from a Gaussian term and a centered compound-Poisson Gamma transform. The coefficient-ratio argument independently proves both sides of the exact phase boundary, and the positive MGF singularity controls the other boundary. Compact-scale localization and uniform expansion prove the small-variance-fraction law; the Erlang-two derivative supplies a separate explicit instance. Exact-rational checks in `checks/verify.py` corroborate nonstandard algebra without replacing the analytic proof.
+## correctness
 
-**Originality — PASS, qualified.** Chen (2026), arXiv:2610.00032v1, proves the general variational transform and the pure Gamma-jump case. These are not claimed as new. The inspected source does not state the mixed Gamma-plus-Gaussian threshold or the singular, shape-dependent small-jump-fraction correction. Chen–Wang's directional framework likewise encompasses the generic setup, but the located original results concern bilateral Gamma and Skellam models rather than this specialized transition. A prior bounded-jump Gaussian-dilution threshold has a related structural mechanism, but its hypotheses exclude unbounded Gamma jumps and do not yield the present positive-MGF-boundary asymptotic. A previously unlocated general theorem for log-concave unbounded jump laws or an unpublished specialization remains a priority risk.
+PASS
 
-**Mathematical value — PASS.** The actual-variance concentration pole is a canonical tail-control parameter. The classification identifies whether the pole is forced by the Gamma MGF boundary, the third cumulant, or an interior scale, and quantifies the singular response as jump variance vanishes. In particular, the Gaussian limit changes the exact optimal pole discontinuously, and the Gamma shape governs a noninteger response exponent. This is more than substituting parameters into the published variational formula, because it requires global optimization, threshold proof, and uniform boundary-scale analysis.
+PASS: The exact centered cumulant K(t)=σ²t²/2+λ[(1−βt)^(-α)−1−αβt] yields normalized M_X(s)=1+ρ(M_α(s)−1), and c*/β=sup_{0<s<1}ρ(M_α−1)/(s[1+ρ(M_α−1)]). The coefficients a_m=2(α+2)_m/(m+2)! give α≤1 boundary c*=β, and for α>1 the threshold ρ_c=a_2/a_1²=3(α+3)/[4(α+2)]. Below it strict positive initial derivative and s→1 expansion force interior optimum. Dominant balance as ρ→0 gives exponent 1/(α−1) and d_α. Independently checked Erlang-two symbolic Φ and its derivative, with critical 15/16 and closed branch. Analytic coefficient bounds and boundary localization, not finite grid optimization, prove the unbounded parameter statements.
 
-**Scientific limitations.** The law is one-dimensional with positive Gamma jumps, fixed parameters, and only right-tail scale optimization. For general shapes an interior maximizer is proved to exist, not to be unique. No independent audit or exhaustive historical-priority review has been performed.
+## originality
 
-Self-review: passed. Independent audit: not yet performed.
+PASS
+
+PASS, qualified best-of-knowledge: Chen general variational formula applies but leaves a nontrivial analytic maximization when Gaussian mass is mixed with Gamma jump mass. The explicit α,rho threshold and singular exponent do not follow as already-stated special cases of the inspected Gamma-only result; they are a new optimization/classification derived here. Residual risks: Broader unindexed concentration results could have performed the same Gaussian-plus-Gamma mixture optimization.; Directional Chen–Wang full text not separately inspected in this execution; general reductions could imply pieces with additional argument.
+
+## value
+
+PASS
+
+PASS: Optimal concentration at the true variance is a natural quantitative invariant. The sharp Gaussian-dilution phase boundary, exact Erlang-two benchmark, and nonanalytic singular limit when jump variance vanishes distinguish qualitatively different optimization mechanisms, extending the earlier pure-Gamma theorem.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
