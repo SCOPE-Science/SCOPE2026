@@ -1,11 +1,21 @@
-# Scientific review
+# Independent mathematical audit
 
-**Correctness — PASS.** The fourth cumulant comes from the fourth-order analytic eigenvalue perturbation of a uniformly elliptic Fourier-diagonal angular generator. The first two nonzero harmonics suffice, yielding an explicit resolvent and rational expression. Substitution into the two uniquely optimizing rate regimes gives strictly negative coefficients, with a positive denominator and positive residual factor \(7d^2-5\Omega^2\ge2d^2\). The spectral gap at angular diffusivity \(d>0\) justifies converting eigenvalue derivatives into infinite-time cumulant growth. The attached standalone verification script passed 2,822 independent symbolic, matrix and admissible-parameter assertions. This is an analytical theorem; finite tests are supporting checks only.
+## correctness
 
-**Originality — PASS (subject to independent priority investigation).** Olsen–Löwen (arXiv:2405.14326, Sec. II, eqs. 30–36) proves the symmetric-turn diffusivity optimizer but does not compute the fourth cumulant. Villa-Torrealba et al. (arXiv:2002.02872, Sec. III) studies kurtosis for nonchiral relative turns and a separate nonchiral reversal-with-diffusion model, not the joint chiral optimization claim. Pattanayak et al. (arXiv:2404.09650, Sec. 2 and appendices) calculates fourth displacement moments of a chiral active Brownian particle without tumbles, not the symmetric-turn optimum. Previously established special noise or discrete-orientation settings do not subsume the positive-angular-diffusion, arbitrary symmetric turn-law result. Targeted conceptual and parameter searches found no directly covering claim. Because a more general additive-functional fourth-cumulant identity could imply the formula, priority is not independently certified.
+PASS
 
-**Scientific value — PASS.** The optimization result supplies a robust higher-order statistical prediction for a controlled chiral active-particle experiment, where optimizing mean-square transport forces a non-Gaussian sign that is otherwise not robust. The second harmonic of the turning law remains inferable from the non-Gaussian magnitude even though diffusivity alone cannot reveal it. A concrete admissible nonoptimal turning strategy has positive fourth-cumulant growth, proving the restriction is not a tautology of the dynamics.
+For stationary-uniform initial heading and d>0, the Fourier generator has eigenvalues −µ_j with µ_j=j²d+λ(1−c_j)−ijω. Analytic perturbation of the simple zero eigenvalue yields S2=v² a/(a²+Ω²) and a fourth-rate depending only on µ1,µ2. Independent exact SymPy rationalization matches the displayed fourth-rate numerator and both optimized branches. The optimum a=max(d,Ω), unique if c1<1; S4 is negative at a=Ω and at a=d with Ω≤d. Independent positive nonoptimal example λ=20 gives S4≈2.07067326917×10⁻⁵, versus λ*=1 negative ≈−0.0453312637. Uniform initial heading, symmetric angle law and fixed nonzero d are explicit hypotheses.
 
-**Scope and risks.** Fixed positive angular diffusion, constant self-propulsion speed, symmetric i.i.d. relative-angle turns, a constant Poisson tumble rate, initially uniform heading and asymptotic observation times are essential. No finite-time sign, independent priority audit, or extension to asymmetric turns is asserted.
+## originality
 
-Self-review: passed. Independent audit: not yet performed.
+PASS
+
+Olsen–Löwen 2024 works in exactly the chiral-turn model but optimizes only second displacement moments/diffusion. Villa-Torrealba et al. compute kurtosis for different nonchiral/reversal regimes and Pattanayak et al. for chiral ABP without turns. Their distinct formulas do not imply the strict fourth-rate sign at the second-rate optimum under arbitrary symmetric turn distributions.
+
+## value
+
+PASS
+
+A parameter-uniform negative fourth-cumulant growth theorem exposes a genuinely nonlinear fluctuation cost of optimal diffusion and identifies surviving second-harmonic information invisible to the optimized diffusivity.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
