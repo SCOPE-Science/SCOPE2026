@@ -5,8 +5,11 @@
     "status": "not_performed"
   },
   "independent_audit": {
-    "evidence": null,
-    "status": "not_performed"
+    "status": "passed",
+    "evidence": [
+      "INDEPENDENT_AUDIT_2026-10-29.md",
+      "INDEPENDENT_AUDIT_2026-10-29.json"
+    ]
   },
   "lean_verification": {
     "evidence": null,
@@ -16,10 +19,24 @@
 }
 ---
 
-# Verification
+# Independent mathematical audit
 
-The accompanying `verify.py` uses only the Python 3 standard library and runs the exact rank-four recursive one-point-extension invariant on all nineteen canonical matching-defect structures with singleton and doubleton part counts capped at four. It has a direct all-vertex implementation and a separate stabilizer-orbit-representative implementation. Both yield precisely the same partition, independently of object enumeration order.
+## correctness
 
-The rank-zero atomic base enumerates every equality pair and every ternary edge triple on the selected tuple; all edge atoms with repeated entries are false. The one-point extension set is complete for quantifier-rank recursion by induction. The proof of the infinite cap is written in RESULT.md and must be used with the finite computation; testing large examples alone would not justify the claim.
+PASS
 
-The run output is reproduced in `verify.log` and ends in `VERIFY_OK`. It establishes class count 12, smallest sizes 3,4,4,5,5,6,6,7,7,8,8,9, and sharp uniform bound 9. No independent scientific audit has been performed.
+For H_{a,b}, each edge meets three different (unlabelled) parts, all parts having size 1 or 2. In a four-round EF game, preserving previously chosen vertices and the size and identity of each represented part is a partial isomorphism; at most four new parts of either size can be entered, so a,b may be truncated at four. There are exactly 19 allowed capped pairs because a+b>=3. Independently implemented complete rank-zero atomic diagrams (equality and ternary edge bits) and iterative all-vertex extension types T_{r+1}(tuple)={T_r(tuple,y):y vertex} partition those 19 cases into exactly twelve equivalence classes, with minimum representative vertex sizes 3,4,4,5,5,6,6,7,7,8,8,9. The complete Hintikka/EF recursion, unlike sampling, decides rank-four equivalence for those finite cases. The new independent enumeration agrees with source direct and orbit-compressed codes and confirms sharp nine-vertex representative bound inside this family. No expansion to arbitrary multipartite sizes or rank five is claimed.
+
+## originality
+
+PASS
+
+Matching-deletion complete triple systems are a canonical two-parameter family, and the contribution is the exact twelve-class rank-four theory partition and sharp nine-vertex representation bound. General finite-model-theory bounds and hypergraph edge-ideal classifications do not compute that partition.
+
+## value
+
+PASS
+
+Exact four-round logical indistinguishability is a natural invariant of a canonical complete hypergraph perturbed by a matching. The full infinite two-parameter family is classified, including structural mergers and optimal representative bound, yielding a finite-model-theory small-model benchmark with mathematical interest independent of arbitrary finite tables.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

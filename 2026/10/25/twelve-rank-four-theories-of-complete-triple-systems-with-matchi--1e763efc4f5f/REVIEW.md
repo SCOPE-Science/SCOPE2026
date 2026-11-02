@@ -1,12 +1,21 @@
-# Scientific review
+# Independent mathematical audit
 
-## Correctness — PASS
-The argument reduces all parameters to exactly nineteen capped cases with a four-move partial-isomorphism strategy. The exact finite Hintikka recursion computes equivalence, rather than a numerical proxy. Direct vertex and stabilizer-orbit implementations agree on all nineteen reduced structures, showing exactly twelve classes. Every class minimum and the sharp nine-vertex bound are established directly from the certified partition. Risk: executable checks assume a correct implementation of the stated recursion; the independent orbit compression supplies a cross-check but is not a third-party proof.
+## correctness
 
-## Originality — PASS, with residual risk
-Pikhurko, Veith and Verbitsky (2003), especially §9, establish general bounds for hypergraphs, not this exact family partition. Kiani and Saeedi Madani (2014) classify edge-ideal and related algebraic properties of multipartite hypergraphs, not bounded first-order theories. The closest accessible historical claim classifies rank-four theories for exactly three unmarked parts of unrestricted size, whereas the present statement covers unboundedly many parts of sizes one or two, so the prior result does not imply this one. Six actual research-index queries on q3/q4 hypergraph logical equivalence, matching defects and multipartite formulations did not identify the present twelve-class result. Residual risk: unindexed or inaccessible coverage could exist; a failed search is not proof of priority.
+PASS
 
-## Value — PASS
-Matching defects are a canonical perturbation of a complete triple system by a disjoint matching. The family contains infinitely many isomorphism types in two independently unbounded natural parameters. The theorem supplies their exact bounded-depth expressive-power classification, identifies unexpected mergers in both parameters, and derives an optimal small-model representative bound. The result is a complete natural invariant, not an arbitrary isolated table cell. It makes no claim about all multipartite triple systems.
+For H_{a,b}, each edge meets three different (unlabelled) parts, all parts having size 1 or 2. In a four-round EF game, preserving previously chosen vertices and the size and identity of each represented part is a partial isomorphism; at most four new parts of either size can be entered, so a,b may be truncated at four. There are exactly 19 allowed capped pairs because a+b>=3. Independently implemented complete rank-zero atomic diagrams (equality and ternary edge bits) and iterative all-vertex extension types T_{r+1}(tuple)={T_r(tuple,y):y vertex} partition those 19 cases into exactly twelve equivalence classes, with minimum representative vertex sizes 3,4,4,5,5,6,6,7,7,8,8,9. The complete Hintikka/EF recursion, unlike sampling, decides rank-four equivalence for those finite cases. The new independent enumeration agrees with source direct and orbit-compressed codes and confirms sharp nine-vertex representative bound inside this family. No expansion to arbitrary multipartite sizes or rank five is claimed.
 
-Self-review: passed. Independent audit: not yet performed.
+## originality
+
+PASS
+
+Matching-deletion complete triple systems are a canonical two-parameter family, and the contribution is the exact twelve-class rank-four theory partition and sharp nine-vertex representation bound. General finite-model-theory bounds and hypergraph edge-ideal classifications do not compute that partition.
+
+## value
+
+PASS
+
+Exact four-round logical indistinguishability is a natural invariant of a canonical complete hypergraph perturbed by a matching. The full infinite two-parameter family is classified, including structural mergers and optimal representative bound, yielding a finite-model-theory small-model benchmark with mathematical interest independent of arbitrary finite tables.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
