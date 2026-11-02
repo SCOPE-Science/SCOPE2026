@@ -1,11 +1,21 @@
-# Scientific review
+# Independent mathematical audit
 
-**Correctness: PASS.** The rooted-path facet formula gives a complete parametrization. The involution's fixed geometric realization is the realization of its invariant incidence-orbit complex. Explicit edge-orbit exclusions, the four-alternation obstruction to mixing orbit types, and witnesses for the two remaining full faces establish exactly two closed simplices for all parameters. Independent facet/orbit enumeration for 53 parameter-axis cases corroborates the symbolic argument. This is an all-parameter proof, not extrapolation from finite tests.
+## correctness
 
-**Originality: PASS (best-knowledge).** The closest published source supplies the rooted-path facet classification and nonequivariant topology, but no reflection-fixed loci. The closest same-object mathematical record computes **rotation** character only, explicitly excluding reflection action. Another computes dihedral Euler characteristics on the **full** strong complex, not the pure subcomplex. Neither implies geometric reflection-fixed loci, and no exact equivalent or dominating result appeared in the checked mathematical sources and searches. Residual possibility: obscure/unindexed independent calculations.
+PASS
 
-**Value: PASS.** This classifies a natural equivariant topological invariant for an entire new family introduced in 2026 and distinguishes the two reflection-axis types by the actual dimensions of their fixed simplices. The invariant fixed-point spaces reveal geometric structure invisible to the nonequivariant sphere-wedge classification or to the single Euler number. The theorem is structural, infinite-family, and not a trivial restatement of an earlier Euler calculation.
+For n>=6, rooted-path facets F_(j,r) indexed by gap vertex and root (n(n-1) facets) completely describe the PURE strong Morse cycle complex. Reflection has involution (i,b)->(a-i-1,1-b), with no fixed incidence vertices; invariant faces yield geometric fixed points via equal barycentric orbit weights. Edge and vertex-axis orbit families force precisely two disjoint maximal orbit faces, with sizes m-1 (n=2m+1 and even vertex-axis) or m-2 (even edge-axis). Their realizations are Δ^(m-2)⊔Δ^(m-2) or Δ^(m-3)⊔Δ^(m-3); fixed Euler characteristic 2 and reduced Lefschetz trace 1. Independent direct exhaustive rooted-facet/orbit enumeration verified maximal faces and all orbit-subfaces for 6<=n<=50 and every reflection conjugacy class; unbounded result follows from alternating-bit and gap obstruction in the supplied symbolic proof.
 
-**Scientific limitations.** This does not determine graded integral homology representations, fixed sets for other subgroups, or an equivariant homotopy equivalence. Published-source indexing is imperfect, and independent auditing remains outstanding.
+## originality
 
-Self-review: passed. Independent audit: not yet performed.
+PASS
+
+The defining Knudson–Owens-White primary source supplies the pure rooted-path complex and nonequivariant homotopy, but not geometric reflection-fixed sets. The previously published pure-complex rotation character concerns rotations; a separate full-strong-complex dihedral Euler result changes the simplicial object and cannot determine pure geometric fixed spaces. Full fixed-point topology is strictly stronger than a Lefschetz number. No dominating source found under same-object aliases; best-of-knowledge PASS with bibliographic risk.
+
+## value
+
+PASS
+
+Provides an exact all-cycle-length PL-homeomorphism classification of reflection fixed spaces, with dimensions detecting distinct parity axes even though Euler characteristics coincide. This is a structural equivariant refinement motivated by cycle symmetry, not a routine restatement of known nonequivariant sphere wedge.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
