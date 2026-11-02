@@ -1,0 +1,106 @@
+{
+  "audit_date_utc": "2026-10-31",
+  "audited_at_utc": "2026-10-31T08:13:58Z",
+  "axes": {
+    "correctness": {
+      "rationale": "PASS: An n-regular connected bipartite child graph on m=2^{n-1} vertices has two equal color classes and a unique coloring up to reversal. For two bipartite children, a compatible cross matching chooses one of two relative orientations and independently permutes the m/2 vertices in each class, giving 2((m/2)!)^2 of m! matchings and p_n=2/binom(m,m/2). Since each child remains an induced subgraph, a nonbipartite child cannot become bipartite. The independent-child recursion squares B_{n-1}; duplicate-child recursion does not. Conditioning factorizes the child laws according to the relevant sampling model and makes each new orientation seed fair and independent of child content; raw permutations still depend on child bipartitions, as correctly stated. Stirling gives log p_k=-2^{k-1}log2+(k/2)log2+(log pi)/2+O(2^{-k}), producing both precise asymptotics; for finite connected n-regular graphs, -n spectral eigenvalue and period two exactly correspond to bipartiteness. Independent 24-permutation enumeration recovered the dimension-three probability, and exact symbolic products through n=6 match; these finite checks corroborate but do not prove the general recurrence.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Benjamini et al. §2.4 chromatic discussion gives high-probability non-bipartiteness; the paper treats independent twisted cubes and duplicubes under general joint coupling.",
+          "Baran–Šarković study nonlazy/lazy mixing and spectral properties, rather than exact rare-event probabilities according to accessible abstract."
+        ],
+        "reasoning": "An asymptotic high-probability assertion that P(bipartite)->0 does not imply the products or n-factor entropy gap. The general-dependence model is not claimed by this finding.",
+        "searches": [
+          "Resultary query: independent randomly twisted hypercubes duplicube exact probability bipartite perfect matching parity spectral eigenvalue",
+          "Benjamini Dikstein Gross Zhukovskii DOI:10.1002/rsa.21267 full primary",
+          "Baran Sarkovic arxiv:2610.21976 2026 mixing time randomly twisted hypercube"
+        ]
+      },
+      "checked_sources": [
+        "Frozen RESULT.md SHA c48690debece718c0992a36cf59f3c60846590af and verify.py SHA 5b3a276b2c25131700ae43fd4c757f7f586474cb",
+        "Benjamini et al. Wiley OA full-text indexed sections",
+        "Baran–Šarković arXiv 2610.21976 abstract",
+        "Resultary semantic query 4 with no directly matching results",
+        "Independent C4_OK gluing 24 matchings, exact all-n rational recurrence through n=6"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "Prior work proves diameter, expansion, semicircle spectrum, asymmetry and qualitative nonbipartiteness.",
+          "A generic incompatibility observation can show high-probability failure but not yield the exact constants without the balanced-permutation count and recursive independence accounting."
+        ],
+        "reasoning": "Exact products, conditional orientation independence and different exponential normalizations are quantitatively stronger than the previously inspected typical-event statements.",
+        "searches": [
+          "Benjamini et al. Wiley open article Introduction, §2 Our Results, §3 remarks",
+          "Baran–Šarković arXiv:2610.21976v1 abstract"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "In a finite connected regular undirected graph, period two of simple walk and adjacency eigenvalue minus degree are equivalent to bipartiteness.",
+          "The prior main paper discusses typical nonbipartiteness but not the complete annealed probability."
+        ],
+        "reasoning": "The spectral/Markov-chain restatements are classical equivalences, not separate originality claims. The novel content is the model-specific probability/conditional laws.",
+        "searches": [
+          "Resultary query: independent randomly twisted hypercubes duplicube exact probability bipartite perfect matching parity spectral eigenvalue",
+          "Benjamini et al. Randomly Twisted Hypercubes 2024 chromatic number bipartite duplicube",
+          "period two eigenvalue -n n-regular bipartite random graph"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "The dimension-3/4 probabilities are 1/3, then 1/315 independent and 1/105 duplicated; independent finite checker confirms the first nontrivial transition.",
+          "No earlier indexed exact probability table matching these two model recurrences was identified."
+        ],
+        "reasoning": "Low-n coincidences do not yield the all-n entropy theorem; failed table search is not proof of historical originality.",
+        "searches": [
+          "Resultary query: independent randomly twisted hypercubes duplicube exact probability bipartite perfect matching parity spectral eigenvalue",
+          "rare bipartite random twisted hypercubes exact n=4 probability 1/315 1/105",
+          "binomial matching compatibility product n hypercube"
+        ]
+      },
+      "rationale": "PASS (qualified): Benjamini–Dikstein–Gross–Zhukovskii 2024/2025 define both exact independence structures and discuss typical chromatic/nonbipartite behavior, spectral properties, and diameter. Their available full primary text notes that bipartiteness fails with high probability but does not state these exact rare-event products, separation of n2^n versus 2^n exponents, or conditional matching kernels. Baran–Šarković 2026 concerns typical random-walk mixing and nonbipartiteness, not full exceptional-event enumeration. General balanced-color matching count is elementary, but its repeated independent/duplicate recursion and quantitative comparison are the assessed theorem.",
+      "residual_risks": [
+        "A different chromatic-number derivation in Baran–Šarković technical sections could contain a stronger exceptional-event result; original full text not retrieved.",
+        "The conditional orientation bit is independent only in the recursive conditional sampling representation, not that all original matching permutations become unconditionally independent."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Models and qualitative nonbipartiteness are prior; no exact rare-event product or conditional sampler in inspected material.",
+          "evidence": [
+            "§2 results describe diameter/expansion/spectral properties; §3 Remark 13 notes not bipartite with high probability."
+          ],
+          "identifier_or_url": "https://onlinelibrary.wiley.com/doi/full/10.1002/rsa.21267",
+          "material_read": "Open-access Wiley full-article text accessible in indexed results: inspected introduction, model definitions, main results, chromatic/bipartiteness remark, and further directions; direct page open timed out.",
+          "method": "Read online indexed full-text sections rather than relying on abstract alone.",
+          "title": "Randomly Twisted Hypercubes: Between Structure and Randomness",
+          "trigger": "Same independent/duplicate models and possible chromatic coverage"
+        },
+        {
+          "assessment": "Cannot assert full-paper noncoverage; possible implicit sharper estimates remain a priority risk.",
+          "evidence": [
+            "Title and indexed description of mixing/cover time and nonbipartiteness."
+          ],
+          "identifier_or_url": "https://arxiv.org/abs/2610.21976",
+          "material_read": "Abstract and contextual snippets only; HTML full text inaccessible via attempted URL.",
+          "method": "Read available arXiv index/search result.",
+          "title": "Mixing time of the lazy and simple random walk on a randomly twisted hypercube",
+          "trigger": "Potential stronger spectral nonbipartiteness coverage on same model"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "rationale": "PASS: The two models share many typical geometric/spectral behaviors, yet their exceptional period-two probabilities have different exponential scales; the exact conditional sampling law tells how that rare graph event is generated. These are natural precise network invariants rather than arbitrary parameter slices or raw computational counts.",
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "limitations": [
+    "Only independent-child and exact-copy duplication couplings, not arbitrary correlated children.",
+    "No full chromatic distribution or rare bipartite expansion law."
+  ],
+  "schema_version": 1
+}
