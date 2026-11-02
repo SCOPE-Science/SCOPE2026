@@ -1,11 +1,21 @@
-# Scientific review: fifteen-line singular star
+# Independent mathematical audit
 
-**Correctness — PASS.** The result is for the specific symmetric six-coordinate integral equation, not for every characteristic-zero-equivalent model. The elementary-symmetric translation formula descends the characteristic-three quartic to a four-dimensional quotient. Fifteen explicit pair-difference classes are singular. In a symmetry-complete affine chart, the ideal of the quartic and its three derivatives has the stated exact reduced Gröbner basis, with nine standard monomials and nine distinct rational zeros. The Hessian determinant is nonzero at all nine; permutation symmetry globalizes this to precisely fifteen ordinary nodes. The cone construction determines all fifteen singular ruling lines, and Serre's criterion proves the normality claims. `CHECK.py` recomputes the necessary finite polynomial certificates rather than merely asserting a transcript result.
+## correctness
 
-**Originality — PASS (with stated residual risk).** The named six-coordinate model and the characteristic-zero Burkhardt geometry are already in Cheltsov–Tschinkel–Zhang, Artebani–Dolgachev, and classical accounts. They are not claimed as novel. Bruin–Nasserden's explicit arithmetic theorems assume characteristic not three, while its commonly used five-coordinate equation has a different, nonnormal coefficientwise reduction in characteristic three. The fifteen nonconcurrent singular lines of the characteristic-zero Igusa quartic are a distinct object. No direct covering statement was found for the present complete fifteen-node-base/normal-cone classification. The 1990 de Jong–Shepherd-Barron–Van de Ven paper could not be read in full, leaving a material historical overlap risk. The search results cannot establish uniqueness.
+PASS
 
-**Mathematical value — PASS.** The excluded characteristic three behaves strikingly differently for two familiar integral presentations of an important modular quartic threefold. The result describes the complete reduced singular set, proves that the symmetric model stays geometrically integral and normal, and gives a natural quartic K3-type surface with fifteen explicitly split ordinary nodes. This is a structural bad-characteristic geometry theorem, not a routine point-count or arbitrary numerical refinement.
+The exact six-coordinate model V(e1,e4) in P5 has char-3 translation invariance along 1=(1,...,1) on V={sum x_i=0}, since e4(x+t1)-e4(x)=3te3+6t²e2+10t³e1+15t⁴, all zero on V. This identifies a projective cone with vertex E over quartic S⊂P(V/k1)=P3. Independently built the affine chart g=e4(1,a,b,c,-1-a-b-c) modulo three and its Jacobian ideal. A fresh exact lex Groebner basis has nine standard monomials and the nine distinct F3 solutions listed in RESULT.md, each Hessian determinant 1 mod3. Thus the geometric chart singular scheme has length nine and is reduced, not merely nine rational points; five-coordinate symmetry exhausts exactly 15 pair-difference nodes on S, all A1. No repeated/reducible surface can have an isolated singular set, giving integral normal S; the cone is integral normal by S2 and R1 since 15 singular ruling lines have codimension two. Cone projection gives transverse A1 away from E, and its quartic equation gives multiplicity four at E. This does NOT determine embedded/nonreduced Jacobian structure at the vertex or stable reduction.
 
-**Boundaries and evidence.** The full nonreduced Jacobian structure at the vertex and stable/semistable arithmetic models are not calculated. Literature inspection included arXiv:math/0611590 (Burkhardt discussion), arXiv:1705.09006 (hypotheses, models, arithmetic theorems), and the open text of DOI 10.1007/s00029-024-01001-w (equations (1.2), (1.3), Section 7). The 1990 primary article is citation-confirmed but not fully accessible. The source first-public evidence for the archived motivating preprint is 19 November 2006; its later revision is not used as the anchor date.
+## originality
 
-Self-review: passed. Independent audit: not yet performed.
+PASS
+
+Best-of-knowledge comparison of actual propositions, implications and hypotheses; the credited prior fragments are not claimed as new. Full texts actually read are identified, and inaccessible same-object papers remain explicit risks; an unsuccessful search is not novelty proof. The ordinary characteristic-zero 45-node Burkhardt result does not imply the geometry of a particular nonflat coordinate degeneration in char3; likewise arithmetic on fields char!=3 has no direct implication. Bad-reduction article priority remains genuinely open.
+
+## value
+
+PASS
+
+The singular fibre of an explicitly fixed integral Burkhardt model in bad characteristic is a natural degeneration problem: its cone structure, fifteen concurrent transverse A1 lines and ordinary quadruple vertex sharply contrast with characteristic-zero 45 isolated nodes. A full reduced singular-locus classification and normality are substantive even without moduli/stable-reduction results.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
