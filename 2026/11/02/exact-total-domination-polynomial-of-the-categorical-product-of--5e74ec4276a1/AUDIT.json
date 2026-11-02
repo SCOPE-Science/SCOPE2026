@@ -1,0 +1,163 @@
+{
+  "correctness": {
+    "rationale": "All m,n>=2. An unselected neighborhood for some cell (i,j) is exactly containment of S in the corresponding row-column cross. Partition failures by (r,s), the numbers of active rows and columns: empty; a single active row/column; (2,2) with 2 diagonals and 4 triples per rectangle; (2,s>=3) and (r>=3,2) with a unique singleton row/column; and (r,s>=3) with unique row and column centers of a paired-star configuration and an optional central edge. Summing gives the stated B polynomial without overcounting. The 2-row factorization and minimum coefficients use the same cross criterion. An independent open-neighborhood implementation exhaustively checked 1,173,328 subsets in eleven graphs and the cross criterion on three, plus 625 exact-arithmetic parameter pairs. Finite tests are not mistaken for the proof.",
+    "status": "PASS"
+  },
+  "independent": false,
+  "independent_audit_status": "not_performed",
+  "originality": {
+    "broader_coverage": {
+      "evidence": [
+        "Defant and Iyer arXiv:1708.01305, §§1-4: domination and upper-domination optima and total domination bounds, without the complete all-cardinality polynomial.",
+        "Vemuri arXiv:1908.02445, §§1-3: structural minimum domination classifications and Jacobsthal comparisons, not enumeration of arbitrary total-dominating vertex subsets.",
+        "Hu et al arXiv:1607.00400: general recursive total-domination polynomial method and computations for paths, cycles and trees; no explicit evaluated K_m times K_n family."
+      ],
+      "reasoning": "General reduction identities could in principle derive a particular graph-family polynomial after new case analysis; they do not already imply or state the closed two-variable evaluated formula. Scalar optimum theorems constrain only the first positive coefficient, not the complete distribution.",
+      "searches": [
+        "\"total domination polynomial\" \"direct product\" \"complete graphs\"",
+        "\"total domination polynomial\" \"tensor product\" \"complete graphs\"",
+        "For direct product of two complete graphs K_m × K_n, full total domination polynomial enumerating all total dominating subsets with all size coefficients using row-column crosses and bipartite paired-star configurations"
+      ]
+    },
+    "checked_sources": [
+      "Defant–Iyer, arXiv:1708.01305 (2017)",
+      "Vemuri, arXiv:1908.02445 (2019)",
+      "Hu–Shan–Wang–Wang–Wei, arXiv:1607.00400 (2016)",
+      "Mertens, arXiv:2401.00716 (2024)",
+      "Henning–Kazemi, DOI:10.1007/s10878-011-9389-z (2012)",
+      "Scientific index searches for total domination, tensor/categorical graph products, complement rook graphs, crosses, and size polynomials"
+    ],
+    "claim_vs_prior_implication": {
+      "evidence": [
+        "Previously observed completed legal open-neighborhood total-domination histories on K_m times K_n enumerate ordered short sequences of length 3 and 4; those counts do not count all unordered total-dominating sets at unrestricted sizes.",
+        "Previously published three-cell domination/total-domination extrema and scalar bounds do not determine the high-degree polynomial coefficients.",
+        "Mertens rook graph ordinary domination coefficients already differ at 3x3: 48 size-three ordinary rook dominating sets versus 6 size-three total-dominating sets of K_3 times K_3."
+      ],
+      "reasoning": "Order-sensitive greedy-sequence histories, scalar minima, closed domination of a Cartesian product, and open total-domination subsets of its complement have non-equivalent hypotheses and quantifiers. Direct comparison finds no stronger previous assertion implying this full polynomial.",
+      "searches": [
+        "total domination polynomial of the categorical product of two complete graphs K_m × K_n characterized by a three-edge matching in the bipartite incidence matrix",
+        "total dominating set of direct product K_m times K_n iff three independent edges nonattacking rooks",
+        "\"total domination polynomial\" \"direct product\" \"complete graphs\""
+      ]
+    },
+    "equivalent_formulations": {
+      "evidence": [
+        "The complement of the Cartesian rook graph K_m square K_n is K_m times K_n: every edge requires both coordinates to differ.",
+        "For a selected matrix S, S fails open total domination iff its corresponding bipartite edge set lies inside a vertex star union centered at one row vertex and one column vertex.",
+        "Mertens arXiv:2401.00716 computes ordinary closed domination of the Cartesian rook graph, using a different neighborhood predicate."
+      ],
+      "reasoning": "The matrix/cross and bipartite-edge formulations were considered explicitly. They provide equivalent descriptions of the new result, not known prior full evaluations. The known rook polynomial does not transfer by graph complement or ordinary-to-total domination.",
+      "searches": [
+        "\"domination polynomial\" \"complement of rook graph\"",
+        "In complement of rook graph, characterize vertex subsets S that fail open-neighborhood total domination as contained in one row-column cross; enumerate sizes and reliability",
+        "total domination polynomial of the categorical product of two complete graphs K_m × K_n characterized by a three-edge matching in the bipartite incidence matrix"
+      ]
+    },
+    "exact_database_or_table": {
+      "evidence": [
+        "The closest indexed record titled Total and Connected Total Domination Polynomials of Chain Graphs concerns chain graphs, not the tensor product.",
+        "The indexed record titled Neighborhood Total 2-Domination Polynomial of Complete Multipartite Graphs studies a different invariant.",
+        "No equivalent evaluated row-column cross enumeration was found in the searched scholarly pages or returned mathematical-record summaries."
+      ],
+      "reasoning": "No exact table or formula dominating all coefficients was located. This is evidence from actual searches, not a proof of global absence; source indexing and the accessible set are incomplete.",
+      "searches": [
+        "For direct product of two complete graphs K_m × K_n, full total domination polynomial enumerating all total dominating subsets with all size coefficients using row-column crosses and bipartite paired-star configurations",
+        "In complement of rook graph, characterize vertex subsets S that fail open-neighborhood total domination as contained in one row-column cross; enumerate sizes and reliability",
+        "exact number of total dominating sets of categorical product of complete graphs by cardinality and minimum configurations",
+        "\"total domination polynomial\" \"Kronecker product\" complete graphs"
+      ]
+    },
+    "rationale": "Originality is judged for the complete all-cardinality polynomial and its exact failing-set classification, not for scalar total-domination numbers, the definition of a total-domination polynomial, or the trivial cross witness. Defant-Iyer (2017) and Vemuri (2019) study direct products of complete graphs but give scalar domination/total-domination results rather than a full polynomial. Hu et al (2016) give general total-domination-polynomial reductions, not the present evaluated family. Mertens (2024) enumerates *ordinary* dominating sets of the *Cartesian* rook graph, whose adjacency is complementary to the graph here. Relevant search results did not imply the full stated formula. Publication priority remains provisional given unindexed literature and a partially inaccessible older paper.",
+    "residual_risks": [
+      "An earlier unindexed equivalent enumerator under bipartite cross-avoiding edge-set terminology could imply the formula.",
+      "A plausible older cross-product total-domination paper was not available as full text; the accessible abstract does not appear to cover all coefficients.",
+      "No comprehensive publication-priority or independent expert audit has been performed."
+    ],
+    "source_inspections": [
+      {
+        "assessment": "Does not state the all-cardinality total-domination polynomial for two complete factors.",
+        "evidence": [
+          "Defines tensor adjacency in Introduction.",
+          "Focuses on bounds, scalar domination/upper domination, and particular total-dominating constructions.",
+          "Text search for polynomial found no matching occurrence."
+        ],
+        "identifier_or_url": "https://arxiv.org/abs/1708.01305",
+        "material_read": "Full browser-rendered text, including introduction, theorem statements and Sections 2–4, accessible as approximately 331 lines.",
+        "method": "Read original preprint rendered as HTML and searched within text for polynomial and total dominating set.",
+        "title": "Domination and Upper Domination of Direct Product Graphs",
+        "trigger": "Exact graph product family and scalar domination/total-domination context; first public posting 2017-08-03."
+      },
+      {
+        "assessment": "Bounds and classifications for scalar parameters do not enumerate all total-dominating sets.",
+        "evidence": [
+          "Defines total domination via N(D)=V.",
+          "No polynomial occurrence in rendered body.",
+          "Main theorems concern minima and Jacobsthal comparisons."
+        ],
+        "identifier_or_url": "https://arxiv.org/abs/1908.02445",
+        "material_read": "Full browser-rendered original text approximately 299 lines, including Introduction and Sections 2–3.",
+        "method": "Read rendered preprint, checked definitions and main theorems, searched for polynomial.",
+        "title": "Domination in Direct Products of Complete Graphs",
+        "trigger": "Same graph class and total domination number, potential stronger theorem; first public posting 2019-08-07."
+      },
+      {
+        "assessment": "General reduction formulas and examples for paths, cycles and trees, without an evaluated K_m times K_n formula.",
+        "evidence": [
+          "Paper explicitly defines the cardinality polynomial.",
+          "Published examples concern paths, cycles, trees and general recurrences."
+        ],
+        "identifier_or_url": "https://arxiv.org/html/1607.00400v1",
+        "material_read": "HTML full text including definitions, reduction formulas, and graph-family examples.",
+        "method": "Read lawful original arXiv full text and compared theorem scope and object.",
+        "title": "Total domination polynomials of graphs",
+        "trigger": "Foundational polynomial framework that could potentially imply the proposed counting result."
+      },
+      {
+        "assessment": "Enumerates ordinary dominating sets in Cartesian K_m square K_n, not total dominating sets in categorical K_m times K_n.",
+        "evidence": [
+          "Explicitly defines the rook graph as a Cartesian product.",
+          "Theorem 4 counts placements attacking unoccupied cells.",
+          "The 3x3 first coefficient differs from the present one."
+        ],
+        "identifier_or_url": "https://arxiv.org/html/2401.00716v2",
+        "material_read": "Full HTML sections, especially Definition and Theorem 4/Corollary 5 and coefficient tables.",
+        "method": "Compared exact graph definition, closed versus open neighborhood and polynomial formula.",
+        "title": "Domination Polynomial of the Rook Graph",
+        "trigger": "A plausibly equivalent two-parameter graph product enumeration, initial public posting 2024-01-01."
+      },
+      {
+        "assessment": "Scalar total-domination bounds and k-tuple results do not provide arbitrary-cardinality polynomial.",
+        "evidence": [
+          "Main results are numeric minima/bounds in graph products.",
+          "No equivalent all-cardinality formula identified in inspected text."
+        ],
+        "identifier_or_url": "DOI:10.1007/s10878-011-9389-z",
+        "material_read": "Accessible author-shared HTML textual sections and theorem statements.",
+        "method": "Reviewed original-scope claims for k-tuple total domination and product bounds.",
+        "title": "k-Tuple Total Domination in Cross Products of Graphs",
+        "trigger": "Same product operation and total domination invariant, despite 2012 vintage."
+      },
+      {
+        "assessment": "Available description concerns scalar numbers and bounds; cannot certify full text excludes an equivalent enumeration.",
+        "evidence": [
+          "A full-text access attempt was unsuccessful.",
+          "Only accessible summary is considered; this source remains a specifically named risk."
+        ],
+        "identifier_or_url": "https://www.researchgate.net/publication/223824455_On_the_Total_Domination_Number_of_Cross_Products_of_Graphs",
+        "material_read": "Bibliographic entry and abstract only; full text unavailable from attempted open-access source.",
+        "method": "Source discovery and access check, not a full-text inspection.",
+        "title": "On the total domination number of cross products of graphs",
+        "trigger": "Older paper on directly related invariant and product, plausible publication-priority source."
+      }
+    ],
+    "status": "PASS"
+  },
+  "review_type": "self_review",
+  "schema_version": 1,
+  "scope_run_id": "5e74ec42-76a1-4d65-90b3-4a84a3500e5d",
+  "self_review_status": "passed",
+  "value": {
+    "rationale": "The complete two-parameter total-domination cardinality spectrum is a natural robustness invariant for open-neighborhood monitoring in dense graph products. The disjoint row-column-support/paired-star classification enumerates every failure size and all maximal failures, identifies the exact random-probe reliability at every common activation probability, and includes exact thin-factor and minimum-set limits. The full enumerator is not implied by previously established scalar extrema and is not an arbitrary tiny parameter slice. The result is self-contained without speculative downstream claims.",
+    "status": "PASS"
+  }
+}
