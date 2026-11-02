@@ -1,19 +1,21 @@
-# Scientific review
+# Independent mathematical audit
 
-## Correctness — PASS
+## correctness
 
-The result concerns the literal positive Gauss–Legendre approximation to the process-noise integral in Bosch–Hennig–Tronarp (arXiv:2305.14978, Section 3.2), applied to the paper's noiseless EKL update and deterministic initial covariance (Appendix B). The impulse response \(v(s)\) satisfies \(Hv(s)=1\). Conditioning therefore turns the process-noise approximation into the exact weighted variance of \((1-e^{-as})/a\). This proves the one-node zero, strict two-node positivity, analytic covariance formula, and the fixed-node stiff asymptotic. A direct one-step forced-ODE calculation proves strictly positive mean error with zero covariance. The repeated-mesh statement is a rank-one Gaussian-conditioning induction. The included script checks 2,886 finite cases; finite tests are not treated as infinite proofs.
+PASS
 
-## Originality — PASS (best-knowledge comparison)
+For A=[[0,1],[0,-a]], H=(a,1) and v(s)=exp(As)B, direct exponentiation gives Hv(s)=1. Gaussian conditioning a positive quadrature covariance sum w_i v_i v_i^T with H therefore returns exactly κ² weighted variance of (1-e^{-as})/a, establishing P1=0 for any node and Pm>0 for positive distinct nodes m>=2. Explicit two-point Gauss rule gives κ²h a^{-2}e^{-ah}sinh²(ah/(2√3)). At fixed m>=2, smallest positive Gauss node determines exponential stiffness decay while the continuous integral variance is κ²/(2a³)(1+o(1)). Rank-one induction gives zero filtered covariance at EVERY mesh point from zero initial covariance and noiseless EKL H. For forced y’=-ay+t, y(0)=0, the midpoint conditional mean h(1-e^{-ah/2})/a exceeds exact h/a-(1-e^{-ah})/a² by e^{-ah/2}(2sinh(ah/2)-ah)/a²>0. Independent Gauss-quadrature numerical checks for m=1,2,3,5 and three positive (a,h) pairs verify finite formulas but do not prove limit.
 
-The source paper's Section 3.2 specifies \(m=q\) Gauss–Legendre nodes and Appendix B proves identities for the **exact covariance**. Neither its relevant full-text statements nor appendices were found to contain the conditioned weighted-variance law, the exact collapse for \(q=m=1\), the forced-ODE false-zero-uncertainty example, or the exponentially deficient stiff limit for every fixed Gauss node count. Schmidt–Hennig–Nick–Tronarp (arXiv:2306.07774) discuss general overconfidence from deliberate low-rank filtering, which does not give these method-specific formulas; Tronarp et al. (arXiv:1810.03440) give the general filtering model. Related published mathematical findings about Langevin covariance, sensor OU modes and general filtering do not imply this specific claim. Exact and alias searches did not locate a covering theorem. There remains a risk of a published equivalent in numerical covariance quadrature or low-rank Kalman theory; a failed search is not proof of world-first novelty.
+## originality
 
-## Mathematical value — PASS
+PASS
 
-The result identifies a design-critical mechanism, not merely a rank count: a publicly described process-noise approximation can eliminate **all** reported mesh uncertainty on an ODE with a rigorously nonzero error. The analysis supplies the sharp minimum node count for nonzero one-step variance, its exact formula for two nodes, and a second failure regime—exponentially wrong fixed-order uncertainty in stiff dynamics despite positive variance. These are directly relevant to covariance quadrature and uncertainty-aware stiff integration. The finding does not claim a full convergence or calibration theorem and does not assess altered implementations.
+The actual 2023 source introduces Gauss–Legendre square-root noise quadrature m=q, while its proof of exponential-trapezoidal equivalence uses exact covariance. The conditioned covariance rank-zero conclusion for that literal quadrature, the forced linear ODE false-certainty witness, and sharp fixed-order stiff limit are additional formulas not found in the inspected sections/appendix. General low-rank filtering warnings are prior but do not supply this particular ODE solver mechanism.
 
-## Closest sources and residual scope
+## value
 
-Primary: Bosch–Hennig–Tronarp, arXiv:2305.14978 (Sections 2.3, 3.2–3.4, Appendix B). Related: Schmidt–Hennig–Nick–Tronarp, arXiv:2306.07774 (Sections 2–5); Tronarp–Kersting–Särkkä–Hennig, arXiv:1810.03440. The proof assumes positive \(h,a,\kappa\), initially exact state, noiseless EKL observation, and the mathematically specified quadrature covariance. Independent publication-priority checking and practical implementation testing remain outstanding.
+PASS
 
-Self-review: passed. Independent audit: not yet performed.
+A natural fixed-order discretization of a probabilistic ODE filter can report exactly zero mesh uncertainty while making strict error; for any fixed larger quadrature order its stiff variance scale is exponentially too small. This is a mathematically explicit, design-critical mechanism, not a generic numerical warning.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

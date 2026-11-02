@@ -1,0 +1,117 @@
+{
+  "audit_date_utc": "2026-10-31",
+  "audited_at_utc": "2026-10-31T10:52:11Z",
+  "axes": {
+    "correctness": {
+      "rationale": "For A=[[0,1],[0,-a]], H=(a,1) and v(s)=exp(As)B, direct exponentiation gives Hv(s)=1. Gaussian conditioning a positive quadrature covariance sum w_i v_i v_i^T with H therefore returns exactly κ² weighted variance of (1-e^{-as})/a, establishing P1=0 for any node and Pm>0 for positive distinct nodes m>=2. Explicit two-point Gauss rule gives κ²h a^{-2}e^{-ah}sinh²(ah/(2√3)). At fixed m>=2, smallest positive Gauss node determines exponential stiffness decay while the continuous integral variance is κ²/(2a³)(1+o(1)). Rank-one induction gives zero filtered covariance at EVERY mesh point from zero initial covariance and noiseless EKL H. For forced y’=-ay+t, y(0)=0, the midpoint conditional mean h(1-e^{-ah/2})/a exceeds exact h/a-(1-e^{-ah})/a² by e^{-ah/2}(2sinh(ah/2)-ah)/a²>0. Independent Gauss-quadrature numerical checks for m=1,2,3,5 and three positive (a,h) pairs verify finite formulas but do not prove limit.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Bosch et al. 2023 Proposition 2 and Appendix B; exact integral Q(h)",
+          "Schmidt et al. 2023 rank-reduced high-dimensional filtering"
+        ],
+        "reasoning": "The prior mean-equivalence theorem uses exact Q(h), so it does not entail an inaccurate quadrature mean. Rank-reduced filtering overconfidence is qualitatively broader but lacks the precise scalar EKL quadrature result and stiff asymptotics.",
+        "searches": [
+          "probabilistic exponential integrators Gauss Legendre covariance quadrature once integrated Ornstein Uhlenbeck EKL rank collapse zero posterior variance stiffness",
+          "general process covariance approximation and exponential-integrator mean equivalence"
+        ]
+      },
+      "checked_sources": [
+        "Resultary semantic query probabilistic exponential integrators Gauss Legendre covariance quadrature once integrated Ornstein Uhlenbeck EKL rank collapse zero posterior variance stiffness",
+        "Bosch–Hennig–Tronarp arXiv:2305.14978v2 actual HTML §3.2, Appendix B",
+        "Schmidt–Hennig–Nick–Tronarp arXiv:2306.07774",
+        "Tronarp et al. arXiv:1810.03440"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "arXiv:2305.14978v2 §3.2 states m=q quadrature",
+          "arXiv:2305.14978v2 Appendix B Lemma B.1 HQH^T=hI, Proposition 2 uses full integral Q"
+        ],
+        "reasoning": "Substituting a rank-one covariance into the same noiseless Kalman update erases uncertainty; the exact covariance remains rank two and its gain has the integral mean. The two settings differ mathematically and the paper does not assert their equivalence.",
+        "searches": [
+          "probabilistic exponential integrators Gauss Legendre covariance quadrature once integrated Ornstein Uhlenbeck EKL rank collapse zero posterior variance stiffness",
+          "Bosch 2023 quadrature algorithm vs its exact-covariance Proposition 2"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Bosch–Hennig–Tronarp arXiv:2305.14978v2 §3.2 equations 24–25 and Appendix B",
+          "Schmidt et al. arXiv:2306.07774 general rank-reduced filters"
+        ],
+        "reasoning": "The weighted-variance formula is standard conditioning, but its combination with Hv(s)=1 and Gauss quadrature of this particular solver gives structural collapse not stated in the general Kalman model.",
+        "searches": [
+          "probabilistic exponential integrators Gauss Legendre covariance quadrature once integrated Ornstein Uhlenbeck EKL rank collapse zero posterior variance stiffness",
+          "once-integrated Ornstein-Uhlenbeck prior, scalar EKL Kalman correction, one-node Gauss-Legendre process-noise quadrature, false certainty"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "Resultary 2026-10-31 query probabilistic exponential integrators Gauss Legendre covariance quadrature once integrated Ornstein Uhlenbeck EKL rank collapse zero posterior variance stiffness",
+          "web exact-formula Gauss Legendre IOUP quadrature searches"
+        ],
+        "reasoning": "Returned records discuss different Langevin sampling covariances and sensors; no exact tabulated zero-variance effect for this prior/observation was found. Negative search is not priority proof.",
+        "searches": [
+          "probabilistic exponential integrators Gauss Legendre covariance quadrature once integrated Ornstein Uhlenbeck EKL rank collapse zero posterior variance stiffness",
+          "zero rank one-node, P2 analytic sinh expression, stiff ratio and forcing mean-error identity"
+        ]
+      },
+      "rationale": "The actual 2023 source introduces Gauss–Legendre square-root noise quadrature m=q, while its proof of exponential-trapezoidal equivalence uses exact covariance. The conditioned covariance rank-zero conclusion for that literal quadrature, the forced linear ODE false-certainty witness, and sharp fixed-order stiff limit are additional formulas not found in the inspected sections/appendix. General low-rank filtering warnings are prior but do not supply this particular ODE solver mechanism.",
+      "residual_risks": [
+        "A less obviously titled covariance quadrature or low-rank Kalman publication may have the same example.",
+        "No claim about particular numerical implementation, higher-order priors, observation noise or dynamically adapted m."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "not directly covering; quadrature and exact integral treated separately",
+          "evidence": "§3.2 m=q Gauss nodes, Appendix B Q(h) exact; Proposition 2 mean-equivalence on integral not literal one-node formula",
+          "identifier_or_url": "https://arxiv.org/html/2305.14978v2",
+          "material_read": "§§2.3,3.2–3.4 including Eq 24–26 and Appendix B equations/lemma and base/induction",
+          "method": "web full accessible HTML, searched relevant sections and appendix",
+          "title": "Probabilistic Exponential Integrators",
+          "trigger": "exact method introducing quadrature and EKL"
+        },
+        {
+          "assessment": "general mechanism not formula for once-integrated IOUP EKL",
+          "evidence": "Different model/dynamics, no present Gauss conditioned covariance formula",
+          "identifier_or_url": "https://arxiv.org/abs/2306.07774",
+          "material_read": "abstract and relevant rank-reduction theorem/analysis sections",
+          "method": "arXiv paper relevant material",
+          "title": "The Rank-Reduced Kalman Filter: Approximate Dynamical-Low-Rank Filtering In High Dimensions",
+          "trigger": "possible broader rank-collapse/overconfidence claim"
+        },
+        {
+          "assessment": "prior framework acknowledged",
+          "evidence": "General ODE Kalman conditioning does not analyze fixed positive quadrature node rank/stiff asymptotics",
+          "identifier_or_url": "https://arxiv.org/abs/1810.03440",
+          "material_read": "abstract and filtering formulation",
+          "method": "arXiv source relevant sections",
+          "title": "Probabilistic Solutions to Ordinary Differential Equations as Non-Linear Bayesian Filtering",
+          "trigger": "foundational noiseless ODE conditioning"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "rationale": "A natural fixed-order discretization of a probabilistic ODE filter can report exactly zero mesh uncertainty while making strict error; for any fixed larger quadrature order its stiff variance scale is exponentially too small. This is a mathematically explicit, design-critical mechanism, not a generic numerical warning.",
+      "status": "PASS"
+    }
+  },
+  "checked_sources": [
+    "Resultary semantic query probabilistic exponential integrators Gauss Legendre covariance quadrature once integrated Ornstein Uhlenbeck EKL rank collapse zero posterior variance stiffness",
+    "Bosch–Hennig–Tronarp arXiv:2305.14978v2 actual HTML §3.2, Appendix B",
+    "Schmidt–Hennig–Nick–Tronarp arXiv:2306.07774",
+    "Tronarp et al. arXiv:1810.03440"
+  ],
+  "disposition": "passed",
+  "limitations": [
+    "Exact initially known state, noiseless EKL, positive diffusion, fixed positive step, once-integrated scalar IOUP.",
+    "Stiff limit keeps m fixed; no assertion of empirical statistical calibration."
+  ],
+  "residual_risks": [
+    "A less obviously titled covariance quadrature or low-rank Kalman publication may have the same example.",
+    "No claim about particular numerical implementation, higher-order priors, observation noise or dynamically adapted m."
+  ],
+  "schema_version": 1
+}
