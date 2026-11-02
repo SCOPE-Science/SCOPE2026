@@ -1,0 +1,107 @@
+{
+  "audit_date_utc": "2026-10-30",
+  "audited_at_utc": "2026-10-30T02:51:25.476091Z",
+  "axes": {
+    "correctness": {
+      "rationale": "For c(n)=floor(n^2/4)/n the exact parity formulas imply strict monotonicity; c(13)=42/13>3 restricts every entry to 2..12, while c(2)=1/2 bounds the multiset cardinality by six. This proves a finite complete search domain; an independently written exact-rational nondecreasing tuple enumeration found exactly 78 feasible multisets, whose unique largest lcm is 60 at (3,4,5), with cost 43/15. This is an exhaustive finite proof after the cutoff, unlike mere sampling. An I_n fiber component group is Z/n, and the exponent of a product is the lcm. The geometric statement is only a conditional inequality and correctly avoids asserting an existing surface with the extremal data.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Laface–Li 2026 Theorem 1.1 uses delta(pi)<=chi and N=sum n_i",
+          "The 2026 paper treats semiampleness and nef-isotropic divisors over all chi>=3"
+        ],
+        "reasoning": "The broader geometric classification is about cone/nef semiampleness and not an LCM maximum over multisets; nevertheless, the unread earlier paper may include an equivalent numerical side calculation.",
+        "searches": [
+          "Jacobian elliptic surface reducible fibers component group exponent lcm floor n squared over 4 divided n delta chi 3",
+          "Mori dream Jacobian elliptic surfaces Kodaira dimension one Laface Li Liu 2026 arxiv 2608.09002",
+          "Semiampleness Jacobian elliptic surfaces Laface Li arxiv 2609.23306"
+        ]
+      },
+      "checked_sources": [
+        "RESULT.md f5ed57868e64ef75ebcd6518bc3f37d23eb1f78f: monotone cost and exhaustive cutoff",
+        "verification/check_lcm_bound.py 324775a819815f49ae63a77c505b9f14cc68db5 inspected and independently reimplemented",
+        "https://arxiv.org/pdf/2609.23306",
+        "https://arxiv.org/abs/2608.09002"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "Laface–Li criterion supplies delta<=chi and N=sum n_i; no stated lcm classification in the inspected 26-page primary PDF",
+          "The cost cutoff n<=12,s<=6 and 78-tuple exact computation derive Lmax=60"
+        ],
+        "reasoning": "The lcm result follows from a new finite optimization once the known cone criterion is given; the prior criterion alone is not the answer, nor does geometric realizability follow. The early paper access gap qualifies the novelty conclusion.",
+        "searches": [
+          "Jacobian elliptic surface reducible fibers component group exponent lcm floor n squared over 4 divided n delta chi 3",
+          "Laface Li arxiv 2609.23306 Theorem 1.1 Proposition 2.3",
+          "Laface Li Liu arxiv 2608.09002"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Laface–Li 2026 Theorem 1.1 defines delta(pi) and rational-polyhedral criterion",
+          "For I_n, component group order n, product exponent lcm n_i",
+          "Their Proposition 2.3 studies divisors and parity-defined q_i, not lcm(n_i)"
+        ],
+        "reasoning": "The known delta≤chi condition and component group identities are premises. A bound on N=sum n_i, and constraints on parity-adjusted q_i, do not determine the exact maximal least common multiple with uniqueness.",
+        "searches": [
+          "Jacobian elliptic surface reducible fibers component group exponent lcm floor n squared over 4 divided n delta chi 3",
+          "Laface Li Semiampleness on Jacobian elliptic surfaces of Kodaira dimension one 2026"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "Exact bounded domain has 78 feasible multisets; independently enumerated from first principles",
+          "Resultary related elliptic-curve/fibration entries concern unrelated geometry, not this cost-constrained exponent"
+        ],
+        "reasoning": "An exact table would matter if previously published for these 78 costs, but no actual table was found in the investigated records. A missing indexed table is not historical-priority proof.",
+        "searches": [
+          "Jacobian elliptic surface reducible fibers component group exponent lcm floor n squared over 4 divided n delta chi 3",
+          "Resultary Jacobian elliptic surface reducible fibers component group exponent lcm floor n squared over 4 divided n delta chi 3",
+          "chi=3 delta finite multiset lcm maximum 60"
+        ]
+      },
+      "rationale": "Qualified original natural numerical optimization under the Laface–Li polyhedrality cost condition. Laface–Li 2026 states the cost criterion and sum-of-fiber-indices bounds, not the maximum lcm. Its Proposition 2.3 concerns a different q_i parity quantity for nef isotropic divisors, not this component-group exponent. The earlier Laface–Li–Liu full text was not accessible; an exact lcm observation therein remains a priority risk. General lcm-maximization facts without the particular delta cost do not determine 60/unique {3,4,5}.",
+      "residual_risks": [
+        "Extremal {3,4,5} is a numerical cost extremizer only, not proved realized by a suitable elliptic surface; do not call geometric exponent bound sharp as a realized example",
+        "Full earlier Laface–Li–Liu 2026 source not retrieved; may have an implicit LCM table/observation",
+        "No theorem for chi>3 nor the exponent of actual MW torsion",
+        "Finite exhaustive enumeration is legitimate only because n<=12, s<=6 are analytically proved"
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Theorem 1.1 supplies delta condition and N bound; no stated 60 lcm extremum; Proposition 2.3 concerns different parity q_i",
+          "evidence": "At PDF page 2: delta=sum floor(n_i^2/4)/n_i; N=sum n_i, not lcm",
+          "identifier_or_url": "https://arxiv.org/pdf/2609.23306",
+          "material_read": "Theorem 1.1, introduction, Proposition 2.3 and relevant numerical-semample discussions in the 26-page primary text",
+          "method": "Read arXiv PDF text, inspect page 2 diagram/theorem screenshot",
+          "title": "Semiampleness on Jacobian elliptic surfaces of Kodaira dimension one",
+          "trigger": "Same exact delta formula, chi domain and reducible-fiber geometry"
+        },
+        {
+          "assessment": "Inaccessible full paper, possible exact numerical side result; do not declare whole-paper NOT_COVERING",
+          "evidence": "Later Laface–Li paper explicitly attributes delta criterion and sum bound to this work",
+          "identifier_or_url": "https://arxiv.org/abs/2608.09002",
+          "material_read": "ArXiv abstract/metadata and Theorem 1.1 statement as quoted by follow-up paper; complete earlier full text not obtained",
+          "method": "ArXiv abstract search and cross-comparison to accessible follow-up",
+          "title": "Mori dream Jacobian elliptic surfaces of Kodaira dimension one",
+          "trigger": "Earlier source of the same delta criterion"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "rationale": "The exponent of the product of reducible Kodaira I_n component groups is a canonical natural integer invariant of semistable elliptic fibrations, and chi=3 is the first Kodaira-dimension-one Euler-characteristic value. A complete sharp numerical bound and equality classification under the geometric polyhedrality criterion is a useful finite boundary datum; it does not overstate physical geometric attainability or apply to Mordell–Weil torsion itself.",
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "final_claim": "Every nonempty finite multiset of integers n_i>=2 with sum floor(n_i^2/4)/n_i<=3 has lcm(n_i)<=60, equality exactly for multiset {3,4,5}. Hence the product of the cyclic component groups attached to any corresponding semistable Jacobian elliptic surface with chi=3, finite MW and polyhedrality condition has exponent <=60; geometric realization of {3,4,5} is NOT asserted.",
+  "limitations": [
+    "Extremal {3,4,5} is a numerical cost extremizer only, not proved realized by a suitable elliptic surface; do not call geometric exponent bound sharp as a realized example",
+    "Full earlier Laface–Li–Liu 2026 source not retrieved; may have an implicit LCM table/observation",
+    "No theorem for chi>3 nor the exponent of actual MW torsion",
+    "Finite exhaustive enumeration is legitimate only because n<=12, s<=6 are analytically proved"
+  ],
+  "schema_version": 1
+}
