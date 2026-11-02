@@ -5,8 +5,11 @@
     "status": "not_performed"
   },
   "independent_audit": {
-    "evidence": null,
-    "status": "not_performed"
+    "status": "passed",
+    "evidence": [
+      "INDEPENDENT_AUDIT_2026-10-26.md",
+      "INDEPENDENT_AUDIT_2026-10-26.json"
+    ]
   },
   "lean_verification": {
     "evidence": null,
@@ -16,12 +19,24 @@
 }
 ---
 
-## Checks performed
-- Reconstructed the edge-opposite-vertex triangles and verified that all nonexceptional affine diameters through a point correspond one-to-one with triangle membership.
-- Verified that each longest diagonal is a side of exactly two relevant triangles on the same side of its line; a generic outward ray therefore loses two memberships at each crossing.
-- Verified the exact central distance to each longest-diagonal line as \(R\sin(\pi/(2n))\), and the regular-polygon circumradius conversion by \(\cos(\pi/n)\).
-- Recomputed the area ratio from the square of the circumradius ratio and checked the leading asymptotic \(\pi^2/(4n^2)\).
-- Checked the special case \(n=5\) against the known pentagon values. Numerical overlay checks for \(n=5,7,9\) were treated only as sanity checks, not as proof.
+# Independent mathematical audit
 
-## Limits
-The proof does not calculate the probabilities for the intermediate multiplicities. It excludes only measure-zero exceptional segments for the almost-everywhere count; it does not classify every boundary point of the triangle arrangement. No independent audit or external validation has been performed.
+## correctness
+
+PASS
+
+For n=2m+1>=5, nondegenerate affine diameters correspond to edge E_i and its opposite support vertex v_(i+m+1). The locus for that edge is precisely triangle T_i=conv(E_i,v_(i+m+1)). Two triangle sides occupy each longest-diagonal boundary on its center side, so on a generic radial traversal the overlap count decreases by two, from n centrally to 1 near the polygon edge. All odd intermediate levels have open cells. The n-overlap is the intersection of the n center-side diagonal halfplanes; their supporting lines are R sin(pi/(2n)) from origin and normals evenly spaced, yielding inradius and circumradius R sin(pi/(2n))/cos(pi/n). Area ratio to P_n equals sin^2(pi/(2n))/cos^2(pi/n), asymptotically pi^2/(4n^2). A finite union of diagonals is excluded. n=5 reduces to the known central pentagon.
+
+## originality
+
+PASS
+
+The 2014 primary affine-diameters theorem gives mean overlap and the triangle decomposition, not the regular-odd-n full support and top-level area. A published pentagon formula is exactly the n=5 special case and is credited; a constant-width parity theorem is inapplicable to odd regular polygons n>=5. The all-odd-n geometric maximal-locus formula survived best-of-knowledge comparisons, with unindexed prior polygon incidence literature risk.
+
+## value
+
+PASS
+
+Affine-diameter multiplicity is a classical planar incidence invariant. The theorem classifies its possible essential levels for the natural entire odd-regular-polygon family and gives a closed exact area of the extreme n-fold set with a geometric n^-2 limit; intermediate-level areas are explicitly not claimed.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

@@ -1,15 +1,21 @@
-# Scientific review
+# Independent mathematical audit
 
-## Correctness — PASS
-For a regular polygon with \(n=2m+1\ge5\), each edge has a unique opposite support vertex. The corresponding edge-vertex triangle contains exactly the points whose generic affine diameter uses that edge. Outside a finite union of segments, multiplicity is the sum of the triangle indicators. Along a generic ray from the center, the triangle count begins at \(n\), ends at \(1\), and drops by two at each longest-diagonal boundary, since each such boundary is shared by exactly two triangles on the same side. This proves the odd support \(\{1,3,\ldots,n\}\) and that each level has positive area. Intersecting all triangles gives the central regular polygon bounded by the longest-diagonal lines. The chord-distance calculation gives inradius \(R\sin(\pi/(2n))\), and dividing by \(\cos(\pi/n)\) gives the circumradius. The area ratio is therefore exact.
+## correctness
 
-## Originality — PASS, with residual risk
-The primary paper by Bárány, Hug, and Schneider gives the mean affine-diameter multiplicity and the planar triangle decomposition, but does not state this pointwise all-odd-\(n\) support classification or the maximal-locus area fraction. The closest published pentagon result covers \(n=5\); the constant-width parity theorem has different hypotheses and does not cover regular odd polygons with \(n\ge5\). published-finding corpus queries for regular odd polygons, maximal affine-diameter multiplicity, central longest-diagonal regions, and the exact area fraction returned no equivalent all-\(n\) claim. This does not establish exhaustive historical priority.
+PASS
 
-## Mathematical value — PASS
-The maximal-multiplicity locus is a natural level set of a classical geometric incidence invariant. Its exact area fraction quantifies the proportion of points through which every affine diameter passes and shows a quadratic \(n^{-2}\) decay as the regular polygon approaches the circular regime. The result also supplies an infinite-family parity and support classification beyond the isolated pentagon case. It is not a full distribution theorem: the intermediate-level probabilities remain open here.
+For n=2m+1>=5, nondegenerate affine diameters correspond to edge E_i and its opposite support vertex v_(i+m+1). The locus for that edge is precisely triangle T_i=conv(E_i,v_(i+m+1)). Two triangle sides occupy each longest-diagonal boundary on its center side, so on a generic radial traversal the overlap count decreases by two, from n centrally to 1 near the polygon edge. All odd intermediate levels have open cells. The n-overlap is the intersection of the n center-side diagonal halfplanes; their supporting lines are R sin(pi/(2n)) from origin and normals evenly spaced, yielding inradius and circumradius R sin(pi/(2n))/cos(pi/n). Area ratio to P_n equals sin^2(pi/(2n))/cos^2(pi/n), asymptotically pi^2/(4n^2). A finite union of diagonals is excluded. n=5 reduces to the known central pentagon.
 
-## Sources and limitations
-The primary text inspected was arXiv:1403.7158v1, including Theorem 1.2, equation (1.4), and the planar triangle decomposition in Section 3. Related public records were available as search summaries only. The result is limited to regular odd polygons with \(n\ge5\); independent audit has not been performed.
+## originality
 
-Self-review: passed. Independent audit: not yet performed.
+PASS
+
+The 2014 primary affine-diameters theorem gives mean overlap and the triangle decomposition, not the regular-odd-n full support and top-level area. A published pentagon formula is exactly the n=5 special case and is credited; a constant-width parity theorem is inapplicable to odd regular polygons n>=5. The all-odd-n geometric maximal-locus formula survived best-of-knowledge comparisons, with unindexed prior polygon incidence literature risk.
+
+## value
+
+PASS
+
+Affine-diameter multiplicity is a classical planar incidence invariant. The theorem classifies its possible essential levels for the natural entire odd-regular-polygon family and gives a closed exact area of the extreme n-fold set with a geometric n^-2 limit; intermediate-level areas are explicitly not claimed.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
