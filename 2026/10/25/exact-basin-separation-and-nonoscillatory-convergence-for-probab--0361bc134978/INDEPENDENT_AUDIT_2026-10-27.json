@@ -1,0 +1,103 @@
+{
+  "audit_date_utc": "2026-10-27",
+  "audited_at_utc": "2026-10-27T20:17:52.192396Z",
+  "axes": {
+    "correctness": {
+      "rationale": "For each integer m>=1, 0<delta<=1, b_j>=0 and sum_j b_j<=1, F(x)=(1-delta)x+(1-x)sum_j b_j x^j maps [0,1] to itself and has finitely many fixed points (positive ones are roots of (1-x)G(x)=delta, G=P(x)/x). At a positive fixed point r, delta=(1-r)G(r), P(r)=rG(r), 1-delta-P(r)=1-G(r)>=0. Since P is nondecreasing, for x>=r the difference F(x)-r >= (x-r)(1-G(r))>=0; for x<=r the reverse upper bound <=0 holds. Thus fixed points cannot be crossed; within each root-free interval F(x)-x has constant strict sign, so orbits are monotone, bounded and converge to a neighboring fixed point. The rightmost gap drifts left since F(1)-1=-delta. The claimed irrational bistable roots and exact basins follow from F(x)-x=-x(19x²-18x+3)/20 at delta=1/5,b1=1/20,b2=19/20. Explicit F'(1)=-1/5 shows the one-step map need not be increasing; the logistic two-cycle at b1=16/5 is deliberately outside the probability condition. Rechecked exact factorization and rationally sampled barriers independently; neither grid nor existing checker proves all m.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Liang–Cui–Liu addresses full network and stricter sufficient basin conditions; its broader model class does not prove every homogeneous orbit under separate physical bounds. Ruhi–Ahn–Hassibi covers pairwise epidemic settings."
+        ],
+        "reasoning": "The new theorem is narrower in state space but stronger as to unconditional basin coverage on that subspace. A theorem stated for the heterogeneous model would dominate only if it implied all the advertised homogeneous equilibria and admissible coefficients; inspected sufficient conditions did not.",
+        "searches": [
+          "arXiv:2408.08602 hypergraph SIS higher-order discrete synchronous global stability Assumption 3",
+          "arXiv:1609.09565 epidemic discrete-time networks uniqueness"
+        ]
+      },
+      "checked_sources": [
+        "arXiv:2408.08602",
+        "arXiv:2005.08312",
+        "arXiv:1609.09565",
+        "Resultary published records search: discrete higher-order SIS recurrence"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "The previous hypergraph result permits separate physical constraints but states sufficient local/global estimates for the full network, while the scalar proof derives a direct 1-G(r)>=0 uncrossable equilibrium inequality."
+        ],
+        "reasoning": "For an arbitrary m polynomial, local stability or uniqueness theorems do not imply exclusion of periodic orbits in multistable regimes; the displayed barrier proves the extra logical conclusion.",
+        "searches": [
+          "arXiv:2408.08602 full HTML Assumption 3a 3b Proposition 8 9 10",
+          "arXiv:2005.08312 Theorem 2.1"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Liang–Cui–Liu arXiv:2408.08602 model (5)/(17), Assumption 3, propositions and theorems on stability; Schreiber et al. arXiv:2005.08312 unique endemic exponential-contact recurrence"
+        ],
+        "reasoning": "Neither the heterogeneous SIS sufficient-criterion formulation nor the unique-endemic exponential infection model is implication-equivalent to an unconditional exact root-by-root basin rule for arbitrary nonnegative-degree m polynomials. Generic interval-map convergence lemmas remain possible aliases.",
+        "searches": [
+          "Resultary: discrete-time polynomial SIS mean-field epidemic map monotone orbit convergence invariant sides fixed points bistable nonlinear incidence",
+          "web: polynomial SIS one-dimensional discrete convergence higher-order incidence equilibrium barriers"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "No exact m-uniform, positive-coefficient all-orbit basin table among Resultary hits; the irrational roots are elementary consequences of the theorem and not themselves treated as the novel object."
+        ],
+        "reasoning": "The result is an infinite parametric dynamical theorem, not a one-line database constant or lookup. Non-matches are only search limits.",
+        "searches": [
+          "Resultary: all admissible higher order SIS polynomial scalar map basins fixed point barriers nonmonotone",
+          "web: polynomial higher order SIS explicit bistable threshold irrational roots"
+        ]
+      },
+      "rationale": "The all-order polynomial homogeneous specialisation possesses a shared invariant-equilibrium barrier even without a monotone update. Closely related hypergraph-SIS work supplies physical admissibility and sufficient heterogeneous stability/basin claims, not this unconditional exact homogeneous partition. Pairwise exponential/contact SIS maps have different incidence and often one endemic equilibrium. A classical scalar order-dynamics result may encode the same no-crossing criterion, so priority remains qualified.",
+      "residual_risks": [
+        "An earlier one-dimensional interval-map/noncrossing-equilibrium result might yield the barrier statement as a corollary under equivalent positivity hypotheses.",
+        "The Schreiber and Ruhi primary papers were not both read cover-to-cover in this execution, so negative whole-document coverage is not asserted."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "NOT DIRECTLY COVERING: sufficient heterogeneous stability/basins do not entail full arbitrary-m homogeneous partition",
+          "evidence": "Assumption 3a interval preservation distinct from Assumption 3b; scope of Propositions 1–3,8–10, Theorems 1–6",
+          "identifier_or_url": "https://arxiv.org/html/2408.08602",
+          "material_read": "model equations, Assumption 3a/3b and relevant stated propositions/theorems and their scope",
+          "method": "primary arXiv HTML text (full accessible text; compared mathematical statements)",
+          "title": "Discrete-time SIS Social Contagion Processes on Hypergraphs",
+          "trigger": "same synchronous SIS model and weaker physical bounds"
+        },
+        {
+          "assessment": "DIFFERENT OBJECT: exponential single-contact infection and unique endemic case",
+          "evidence": "Theorem 2.1 concerns unique equilibrium in different map; no multistable complete basin rule from abstract-level evidence",
+          "identifier_or_url": "https://arxiv.org/abs/2005.08312",
+          "material_read": "primary abstract and cited theorem summary compared with incidence definition; did not claim complete full-text inspection",
+          "method": "arXiv abstract plus inspected source theorem attribution in current mathematical package",
+          "title": "Extinction and quasi-stationarity for discrete-time, endemic SIS and SIR models",
+          "trigger": "possible general scalar discrete SIS convergence"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "rationale": "Discrete time higher-order SIS contagion has meaningful competing endemic and disease-free equilibria; the theorem globally partitions basins and prohibits numerical oscillations on the full separate probability-admissible coefficient range. Its nonmonotone bistable example separates that conclusion from usual global monotone-map theorems and from a stronger small-step assumption. This is a structural all-m result, not a routine local-stability calculation.",
+      "status": "PASS"
+    }
+  },
+  "checked_sources": [
+    "arXiv:2408.08602",
+    "arXiv:2005.08312",
+    "arXiv:1609.09565",
+    "Resultary published records search: discrete higher-order SIS recurrence"
+  ],
+  "disposition": "passed",
+  "limitations": [
+    "Source Git tree and all 7 blobs were fetched at the exact assigned commit; no GitHub writes or dispatcher closeout.",
+    "Sampling or numerical enumeration was not used as a universal proof except where a complete finite domain was rigorously reduced and exhausted.",
+    "Historical novelty is a best-of-knowledge judgment, not a guarantee of priority.",
+    "An earlier one-dimensional interval-map/noncrossing-equilibrium result might yield the barrier statement as a corollary under equivalent positivity hypotheses.",
+    "The Schreiber and Ruhi primary papers were not both read cover-to-cover in this execution, so negative whole-document coverage is not asserted."
+  ],
+  "schema_version": 1
+}
