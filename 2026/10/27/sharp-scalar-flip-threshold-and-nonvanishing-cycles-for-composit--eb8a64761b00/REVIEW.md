@@ -1,19 +1,21 @@
-# Self-review
+# Independent mathematical audit
 
-## Correctness
+## correctness
 
-PASS. The source's capped proximal step is reconstructed for the specified loss and regularizer. The resulting map has two explicit affine branches and an invariant interval. Its global Lipschitz constant is strictly below one exactly below the stated threshold; at equality the invariant reflection interval supplies nonconvergent orbits. Above threshold exact algebra locates one point on each branch and confirms the two-step map and its local derivative. The neutral case is classified only at the linear level. Independent exact-fraction checks corroborate sample formulas.
+PASS
 
-## Originality
+The precise deterministic update is F(x)=(x-tau(x)(x-1))/(1+alpha lambda), where tau(x) is the source truncated nonnegative proximal Polyak step computed with exact C=0 for f=.5(x-1)^2 and ridge phi=lambda x^2/2, lambda in (0,1); tau(1)=alpha by the zero-gradient convention. On invariant [0,1], the cap decision yields continuous affine branches F=(1+x)/2 and F=((1-alpha)x+alpha)/(1+alpha lambda), slopes 1/2 and q=(1-alpha)/(1+alpha lambda). For alpha<2/(1-lambda), both slopes have modulus <1 and Banach contraction proves all initial points converge to x*=1/(1+lambda). At alpha_c=2/(1-lambda), capped slope is -1 and the exact interval [(3-lambda)/(3(1+lambda)),(3+lambda)/(3(1+lambda))] is invariant under reflection x->2x*-x, giving nontrivial two-cycles. Above alpha_c, explicit x_-=(1+alpha)/(1+alpha+2alpha lambda), x_+=(1+alpha+alpha lambda)/(same) straddle the switching threshold, and exact branch substitution gives F(x_-)=x_+, F(x_+)=x_-. The fixed point has derivative q<-1; the cycle return multiplier is q/2, locally attracting exactly when alpha(1-2lambda)<3, repelling when >3, only linearly neutral at equality. Independent exact rational checks cover critical intervals and multiple supercritical parameters; algebra and branch inequalities prove all quantifiers. No claim about all real starting states or every postcritical orbit.
 
-PASS (best-knowledge, residual risk retained). The 2023 source gives sufficient generic stepsize bounds, not a sharp necessary-and-sufficient interval-wide convergence frontier, a continuum of critical cycles, or the particular locally attracting nonoptimal cycle. The broader earlier model-based proximal work does not give these conclusions for the capped update. Search comparisons with related algorithmic cycles concern distinct update laws and so do not imply the result; unindexed equivalent scalar results remain possible.
+## originality
 
-## Value
+PASS
 
-PASS. The phase transition is a qualitative limitation of a motivated algorithmic safeguard: a regularizer creates a discontinuous-onset limit cycle absent in the unregularized scalar model. The exact threshold separates globally convergent caps from explicit counterexamples, and the return multiplier resolves whether the nonoptimal orbit attracts nearby initializations. It is not merely an isolated experimental counterexample.
+Statement/implication comparison of actually read primary theorems and direct published mathematical-finding search supports best-of-knowledge originality for the final narrow claim, with precisely documented broader prior formulas and residual historical risks. Neither a failed search nor literature inaccessibility is treated as a proof of novelty.
 
-## Sources and limitations
+## value
 
-Primary: Schaipp, Gower, Ulbrich, arXiv:2301.04935, Algorithm 3 and convergence analysis. Baseline: Asi and Duchi, arXiv:1810.05633. Later comparison: arXiv:2602.09842. Strongly related periodicity results for other algorithms were compared at the implication level, not assumed equivalent. Only the deterministic scalar family and initial interval stated in the theorem are established; other regularizers, data noise, nonlinear behavior at neutral stability, and all-orbit postcritical dynamics are outside scope. Independent verification remains pending.
+PASS
 
-Self-review: passed. Independent audit: not yet performed.
+The scalar strongly-convex composite is the minimal natural test bed for evaluating cap robustness in a specified optimization algorithm. Its exact convergence frontier, critical continuum of reflected cycles, and nonvanishing nonoptimal cycle show a structural limitation of a popular safeguarding choice; analytic thresholds are useful for adaptive-step design. This is not merely a small isolated counterexample.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

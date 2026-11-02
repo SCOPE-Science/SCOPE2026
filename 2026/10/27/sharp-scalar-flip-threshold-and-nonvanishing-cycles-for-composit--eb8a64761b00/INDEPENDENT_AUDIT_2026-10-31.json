@@ -1,0 +1,118 @@
+{
+  "audit_date_utc": "2026-10-31",
+  "audited_at_utc": "2026-10-31T21:00:41.671076Z",
+  "axes": {
+    "correctness": {
+      "rationale": "The precise deterministic update is F(x)=(x-tau(x)(x-1))/(1+alpha lambda), where tau(x) is the source truncated nonnegative proximal Polyak step computed with exact C=0 for f=.5(x-1)^2 and ridge phi=lambda x^2/2, lambda in (0,1); tau(1)=alpha by the zero-gradient convention. On invariant [0,1], the cap decision yields continuous affine branches F=(1+x)/2 and F=((1-alpha)x+alpha)/(1+alpha lambda), slopes 1/2 and q=(1-alpha)/(1+alpha lambda). For alpha<2/(1-lambda), both slopes have modulus <1 and Banach contraction proves all initial points converge to x*=1/(1+lambda). At alpha_c=2/(1-lambda), capped slope is -1 and the exact interval [(3-lambda)/(3(1+lambda)),(3+lambda)/(3(1+lambda))] is invariant under reflection x->2x*-x, giving nontrivial two-cycles. Above alpha_c, explicit x_-=(1+alpha)/(1+alpha+2alpha lambda), x_+=(1+alpha+alpha lambda)/(same) straddle the switching threshold, and exact branch substitution gives F(x_-)=x_+, F(x_+)=x_-. The fixed point has derivative q<-1; the cycle return multiplier is q/2, locally attracting exactly when alpha(1-2lambda)<3, repelling when >3, only linearly neutral at equality. Independent exact rational checks cover critical intervals and multiple supercritical parameters; algebra and branch inequalities prove all quantifiers. No claim about all real starting states or every postcritical orbit.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Original ProxSPS paper arXiv:2301.04935 Theorem 7(c) gives convergence under inequality (20) for sufficiently restricted caps and often only toward an error neighborhood; no arbitrary-large-cap sharp scalar result.",
+          "Asi–Duchi arXiv:1810.05633 studies general stochastic approximate proximal model convergence, not this capped scalar map with exact cycle bifurcation."
+        ],
+        "reasoning": "General guarantees imposed on small steps do not cover the large-cap nonconvergence region. Algorithmically distinct scalar-cycle studies cannot dominate a sharp iff statement for this exact update.",
+        "searches": [
+          "proximal stochastic Polyak stepsize ProxSPS deterministic quadratic regularizer fixed cap period two cycle bifurcation stability",
+          "ProxSPS Schaipp Gower Ulbrich 2301.04935 exact deterministic scalar cap flip threshold",
+          "ProxSPS fixed cap regularizer quadratic periodic orbit"
+        ]
+      },
+      "checked_sources": [
+        "arXiv:2301.04935; https://arxiv.org/abs/2301.04935",
+        "arXiv:1810.05633; https://arxiv.org/abs/1810.05633",
+        "Resultary plastic-constant B-adaPG stepsize cycle (2026/10/4/SCOPE-plastic-constant-exact-stepsize-two-cycle-for-quadratic-kernel-b--e7d7ac1b509b) concerns oscillation of adaptive stepsizes while iterates converge; not the target map."
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "Schaipp–Gower–Ulbrich arXiv:2301.04935 Theorem 7(c), eq. (20) imposes a sufficient upper cap; it does not assert an iff or characterize excluded caps.",
+          "Other Resultary periodicity examples have different optimizer state updates and hence are not implied source-specific ProxSPS dynamics."
+        ],
+        "reasoning": "The original sufficient theorem cannot imply explicit nonoptimal two-cycles beyond its step hypotheses, nor the entire critical reflecting interval. The new proof uses exact branch algebra and a scalar threshold not appearing in inspected source statement.",
+        "searches": [
+          "proximal stochastic Polyak stepsize ProxSPS deterministic quadratic regularizer fixed cap period two cycle bifurcation stability",
+          "ProxSPS Schaipp Gower Ulbrich 2301.04935 exact deterministic scalar cap flip threshold",
+          "ProxSPS fixed cap regularizer quadratic periodic orbit"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Schaipp–Gower–Ulbrich arXiv:2301.04935 Algorithm 3 and equations in §4.1 define the SAME capped regularized stochastic proximal Polyak update.",
+          "Resultary plastic-constant B-adaPG stepsize cycle (2026/10/4/SCOPE-plastic-constant-exact-stepsize-two-cycle-for-quadratic-kernel-b--e7d7ac1b509b) concerns oscillation of adaptive stepsizes while iterates converge; not the target map."
+        ],
+        "reasoning": "The two-affine-branch simplification is specific to the source ProxSPS regularizer correction. Superficially similar scalar flip bifurcations for Lion, trust-region or B-adaPG do not preserve the map under mere substitution and cannot prove its exact threshold.",
+        "searches": [
+          "proximal stochastic Polyak stepsize ProxSPS deterministic quadratic regularizer fixed cap period two cycle bifurcation stability",
+          "ProxSPS Schaipp Gower Ulbrich 2301.04935 exact deterministic scalar cap flip threshold",
+          "ProxSPS fixed cap regularizer quadratic periodic orbit"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "Resultary hits include sharp fixed-radius composite trust-region transition (2026/10/4/SCOPE-sharp-fixed-radius-phase-transition-for-composite-trust-region-g--18ebe14ebda2), polar express scalar flip (2026/10/4/SCOPE-a-sharp-flip-frontier-for-the-polar-express-surrogate-on-scalar--5f6e926df82f), B-adaPG plastic-constant stepsize cycles, none the ProxSPS rule."
+        ],
+        "reasoning": "No retrieved exact ProxSPS scalar parameter table states the frontier 2/(1-lambda) or two-cycle coordinates. The comparison is based on distinct update laws and cited primary theorem restrictions; search absence alone does not establish originality.",
+        "searches": [
+          "proximal stochastic Polyak stepsize ProxSPS deterministic quadratic regularizer fixed cap period two cycle bifurcation stability",
+          "ProxSPS Schaipp Gower Ulbrich 2301.04935 exact deterministic scalar cap flip threshold",
+          "ProxSPS fixed cap regularizer quadratic periodic orbit"
+        ]
+      },
+      "rationale": "Statement/implication comparison of actually read primary theorems and direct published mathematical-finding search supports best-of-knowledge originality for the final narrow claim, with precisely documented broader prior formulas and residual historical risks. Neither a failed search nor literature inaccessibility is treated as a proof of novelty.",
+      "residual_risks": [
+        "Earlier work in piecewise-affine dynamical systems could derive an equivalent scalar map under a different name.",
+        "The finding does not settle nonlinear dynamics of a two-cycle at neutral multiplier -1, and correctly claims only neutral linear stability there.",
+        "Cap and zero-gradient conventions must remain identical to source Algorithm 3 for this classification to apply."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "ProxSPS algorithm and sufficient small-cap bounds are prior; sharp deterministic scalar global threshold and reflected period-two family not stated in read sections.",
+          "evidence": [
+            "Theorem 7(c) assumes (20) and provides an expectation convergence/error bound; the present parameter region above 2/(1-lambda) lies outside the corresponding generic step hypothesis."
+          ],
+          "identifier_or_url": "arXiv:2301.04935; https://arxiv.org/abs/2301.04935",
+          "material_read": "Full accessible arXiv HTML: §3 model derivation, §4.1 ridge formulation and Algorithm 3, §4.3 Theorem 7 and Appendix A.2 proof; equation (20) cap restrictions.",
+          "method": "Read primary full-text algorithm, theorem, assumptions and convergence sections.",
+          "title": "A Stochastic Proximal Polyak Step Size",
+          "trigger": "Defines the exact algorithm and relevant step-size guarantees."
+        },
+        {
+          "assessment": "Different model assumptions and no exact ProxSPS scalar cap bifurcation in inspected statements.",
+          "evidence": [
+            "General proximal-model bounds are sufficient conditions and do not identify the precise ProxSPS piecewise affine map."
+          ],
+          "identifier_or_url": "arXiv:1810.05633; https://arxiv.org/abs/1810.05633",
+          "material_read": "Accessible full-text model-based update definitions and generic convergence-hypothesis sections.",
+          "method": "Original mathematical model passages in accessible arXiv presentation.",
+          "title": "Stochastic (Approximate) Proximal Point Methods",
+          "trigger": "Broader proximal model-based convergence background."
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "rationale": "The scalar strongly-convex composite is the minimal natural test bed for evaluating cap robustness in a specified optimization algorithm. Its exact convergence frontier, critical continuum of reflected cycles, and nonvanishing nonoptimal cycle show a structural limitation of a popular safeguarding choice; analytic thresholds are useful for adaptive-step design. This is not merely a small isolated counterexample.",
+      "status": "PASS"
+    }
+  },
+  "checked_sources": [
+    "arXiv:2301.04935; https://arxiv.org/abs/2301.04935",
+    "arXiv:1810.05633; https://arxiv.org/abs/1810.05633",
+    "Resultary plastic-constant B-adaPG stepsize cycle (2026/10/4/SCOPE-plastic-constant-exact-stepsize-two-cycle-for-quadratic-kernel-b--e7d7ac1b509b) concerns oscillation of adaptive stepsizes while iterates converge; not the target map.",
+    "https://github.com/SCOPE-Science/SCOPE2026/tree/63b93d4e30936a23689c58728735a25fdce87161/2026/10/27/sharp-scalar-flip-threshold-and-nonvanishing-cycles-for-composit--eb8a64761b00",
+    "GitHub RESULT.md at 63b93d4e30936a23689c58728735a25fdce87161"
+  ],
+  "disposition": "passed",
+  "limitations": [
+    "Only deterministic scalar quadratic f, lambda in (0,1), constant cap alpha>0, C=0, x0 in [0,1].",
+    "Above threshold there is one explicit period-two orbit; no classification of all large-cap trajectories.",
+    "The historical scientific priority assessment is best-of-knowledge and not an externally certified determination. Public transport is withheld; scientific PASS does not mean synchronized or published."
+  ],
+  "residual_risks": [
+    "Earlier work in piecewise-affine dynamical systems could derive an equivalent scalar map under a different name.",
+    "The finding does not settle nonlinear dynamics of a two-cycle at neutral multiplier -1, and correctly claims only neutral linear stability there.",
+    "Cap and zero-gradient conventions must remain identical to source Algorithm 3 for this classification to apply."
+  ],
+  "schema_version": 1
+}
