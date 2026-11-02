@@ -1,0 +1,133 @@
+{
+  "audit_date_utc": "2026-10-28",
+  "audited_at_utc": "2026-10-28T06:02:59.319638Z",
+  "axes": {
+    "correctness": {
+      "checked_sources": [
+        "Git frozen RESULT.md af99b064755b5de7da2aef05fb19eb733700a526"
+      ],
+      "rationale": "For b>0 the monomial H² coefficient matrix is the stated product of gamma ratios. Comparing it with K_b(n,m)=n^b/(n+m)^{b+1} gives an explicit square-summable O(n^{b-1}/(n+m)^{b+1}+n^b/(n+m)^{b+2}) error; n=0 row and m=0 column have square-summable coefficients. Step-function discretization differs Hilbert–Schmidt from B_b(x,y)=x^b/(x+y)^{b+1} on L²([1,infinity)). Under logarithmic unitary Vf(s)=exp(s/2)f(exp s), this is the half-line convolution kernel q_b(u)=exp(u/2)/(1+exp u)^{b+1}. Euler beta integration gives Fourier symbol m_b(tau)=Gamma(1/2+i tau)Gamma(b+1/2-i tau)/Gamma(b+1). This q_b has integrable tails and finite cross-boundary square moment, so the half-line Wiener–Hopf compressions have compact off-diagonal blocks. For lambda nonzero outside the completed symbol curve a compressed full-line resolvent gives a Fredholm parametrix. For every value on the curve normalized escaping packets are weakly-null approximate kernel vectors; compact perturbations do not change Fredholmness. Closure adds 0. The digamma derivative at tau=0 is nonzero imaginary for b>0; for b=1 gamma recurrence yields pi(1/2-i tau)/cosh(pi tau). Independently spot-checked gamma matrix versus beta integrals and Mellin beta integrals for b=1/2,1,2 at multiple indices/parameters, corroborating the exact analytical proof.",
+      "residual_risks": [
+        "The operator is not self-adjoint for b>0: the Fredholm spectrum is a complex curve, not the ordinary full spectrum.",
+        "Zero is obtained as a limit of the symbol, and indices in complementary regions are deliberately not classified.",
+        "Numerical gamma checks corroborate identities, not Fredholmness; analytic HS and packet arguments are decisive."
+      ],
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "General Wiener–Hopf Fredholm criteria concern arbitrary symbols but do not by themselves identify the operator-specific compact model or beta multiplier.",
+          "Li Pan Zhou full text computes norms on H^p and endpoint H^1/Bloch, not Fredholm spectra."
+        ],
+        "reasoning": "Broader functional-calculus framework covers a standard intermediate operator problem, but absent a prior Hilbert-matrix reduction it does not state the entire concrete deformation result.",
+        "searches": [
+          "Li Pan Zhou 2026 exact H^p norms",
+          "Bellavita Chalmoukis Daskalogiannis Stylogiannis generalized Hilbert Hausdorff matrices arXiv:2307.15334",
+          "Classical Wiener–Hopf Fredholm theorem"
+        ]
+      },
+      "checked_sources": [
+        "https://arxiv.org/abs/2608.19660",
+        "https://arxiv.org/abs/2307.15334",
+        "https://github.com/Resultary/2026/tree/main/2026/10/11/SCOPE-hilbert-schmidt-copson-model-and-fredholm-circle-at-the-logarith--45336ee10f3a"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "Exact norm beta(1/p,b+1-1/p) alone does not determine nonnormal Fredholm essential spectrum.",
+          "Power-weighted classical Hilbert kernels x^{a/2}y^{-a/2}/(x+y) differ from x^b/(x+y)^{b+1} and have different Mellin symbols."
+        ],
+        "reasoning": "A general WH theorem combined with freshly verified compact model proves the claim; previously inspected norm or classical spectral results do not imply this beta-curve without additional mathematical work.",
+        "searches": [
+          "Li Pan Zhou arXiv:2608.19660 Theorems 1.1–1.3 and full article",
+          "Resultary Copson 2026/10/11",
+          "Ferudun weighted Hilbert matrix Mellin 2026"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "The same Hardy H² operator has gamma-ratio matrix and an asymptotically homogeneous nonsymmetric kernel.",
+          "The essential spectrum is the range of the Mellin multiplier after compact equivalence, unlike ordinary eigenvalues/norms."
+        ],
+        "reasoning": "The Mellin/Wiener–Hopf alias and beta-symbol formulation were explicitly checked; the exact deformation curve was not located in compared sources.",
+        "searches": [
+          "Resultary: Fredholm spectrum generalized Hilbert operator beta curve Hardy H2",
+          "arXiv:2608.19660 full Li Pan Zhou",
+          "Hilbert matrix homogeneous kernel Mellin Toeplitz Wiener-Hopf beta multiplier"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "Related logarithmic endpoint yields |lambda-1|=1 and is NOT the beta curve of n^b/(n+m)^{b+1}.",
+          "At b=1 the submitted curve pi(1/2-i tau)/cosh(pi tau) has nonzero imaginary part, ruling out equivalence to classical real interval."
+        ],
+        "reasoning": "No prior exact beta-curve table for this kernel was found; different operator families cannot cover by matching a Fredholm-spectrum title.",
+        "searches": [
+          "Resultary: Hilbert–Schmidt Copson model Fredholm circle logarithmic Hilbert matrix endpoint",
+          "Resultary: generalized Hilbert Fredholm essential spectrum beta",
+          "classical Hilbert matrix essential spectrum [0,pi]"
+        ]
+      },
+      "rationale": "Li–Pan–Zhou 2026 introduce the exact same b-generalized Hilbert operator and give its norm on Hardy spaces, but their accessible full manuscript Theorems 1.1–1.3 and subsequent sections do not study Fredholmness or essential spectra. The classical Hilbert matrix is b=0 with a different real spectrum. A published Resultary logarithmic Hilbert-matrix endpoint has a different Copson kernel and circular Fredholm spectrum. Applying WH theory requires a fresh Hilbert–Schmidt comparison and yields the explicit nonreal beta curve; best-of-knowledge original subject to possible uncatalogued general homogeneous-kernel results.",
+      "residual_risks": [
+        "The general Wiener–Hopf algebra and older homogeneous-kernel spectral results may contain an implicit instance of this exact beta-curve spectrum.",
+        "The related generalized Hausdorff-matrix paper was not read completely; stronger family theorems cannot be ruled out."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "SAME OPERATOR but only norms and endpoint mapping; Fredholm and essential spectrum not established.",
+          "evidence": "Theorem 1.1 norm beta(1/p,b+1-1/p); Theorems 1.2–1.3 endpoint norms; no Fredholm discussion.",
+          "identifier_or_url": "https://arxiv.org/abs/2608.19660",
+          "material_read": "Complete accessible arXiv HTML, introduction, Theorems 1.1–1.3, weighted-composition representation, §§3–6 proofs and references; searched spectrum and Fredholm terms",
+          "method": "full primary text inspection and term search",
+          "title": "Norm of the generalized Hilbert operator on Hardy spaces",
+          "trigger": "Exactly same integral operator for all b>0 and H²"
+        },
+        {
+          "assessment": "Broader operator family; no inspected text proving same Fredholm curve.",
+          "evidence": "Li–Pan–Zhou introduction notes this broader Hausdorff-matrix setting.",
+          "identifier_or_url": "https://arxiv.org/abs/2307.15334",
+          "material_read": "Abstract and bibliographic account; complete full text not inspected here",
+          "method": "arXiv metadata and source cross-references",
+          "title": "Generalized Hilbert operators arising from Hausdorff matrices",
+          "trigger": "Possible dominating general class explicitly cited by exact-operator paper"
+        },
+        {
+          "assessment": "Different critical logarithmic kernel with circular Fredholm spectrum rather than beta-curve deformation.",
+          "evidence": "Published record says essential spectrum |lambda-1|=1, unlike b=1 curve.",
+          "identifier_or_url": "https://github.com/Resultary/2026/tree/main/2026/10/11/SCOPE-hilbert-schmidt-copson-model-and-fredholm-circle-at-the-logarith--45336ee10f3a",
+          "material_read": "Published Resultary record title and detailed summary, not complete proof",
+          "method": "Resultary semantic search",
+          "title": "Hilbert–Schmidt Copson model and Fredholm circle at the logarithmic Hilbert-matrix endpoint",
+          "trigger": "Resultary near-match: Hilbert Fredholm essential spectrum"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "checked_sources": [
+        "https://arxiv.org/abs/2608.19660",
+        "https://arxiv.org/abs/2307.15334",
+        "https://github.com/Resultary/2026/tree/main/2026/10/11/SCOPE-hilbert-schmidt-copson-model-and-fredholm-circle-at-the-logarith--45336ee10f3a"
+      ],
+      "rationale": "The exact Fredholm essential spectrum is a natural spectral invariant of the Hardy-space generalized Hilbert operator, and its nonreal beta-curve demonstrates a real qualitative difference from the b=0 classical self-adjoint Hilbert matrix. The complete b>0 family, not a numerical sample, is classified using compact equivalence and a genuine operator-theoretic Fredholm argument.",
+      "residual_risks": [
+        "The complete spectrum, Fredholm indices, eigenvalues and other H^p exponents remain unclassified."
+      ],
+      "status": "PASS"
+    }
+  },
+  "checked_sources": [
+    "https://arxiv.org/abs/2608.19660",
+    "https://arxiv.org/abs/2307.15334",
+    "https://github.com/Resultary/2026/tree/main/2026/10/11/SCOPE-hilbert-schmidt-copson-model-and-fredholm-circle-at-the-logarith--45336ee10f3a",
+    "Git frozen RESULT.md af99b064755b5de7da2aef05fb19eb733700a526"
+  ],
+  "disposition": "passed",
+  "limitations": [
+    "Real b>0, classical H², Fredholm essential spectrum only; not full spectrum or index.",
+    "Compact-equivalence proof is analytic, not established by gamma-numerical samples.",
+    "Compare different Hilbert matrix normalizations carefully."
+  ],
+  "schema_version": 1
+}

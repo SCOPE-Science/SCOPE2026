@@ -5,8 +5,11 @@
     "status": "not_performed"
   },
   "independent_audit": {
-    "evidence": null,
-    "status": "not_performed"
+    "status": "passed",
+    "evidence": [
+      "INDEPENDENT_AUDIT_2026-10-28.md",
+      "INDEPENDENT_AUDIT_2026-10-28.json"
+    ]
   },
   "lean_verification": {
     "evidence": null,
@@ -16,10 +19,24 @@
 }
 ---
 
-# Verification record
+# Independent mathematical audit
 
-The exact matrix of the operator was reconstructed by integrating each monomial against the Euler beta density. Two independent compactness errors were bounded by explicit double series whose squared sums are dominated by \(\sum_{n\ge1}n^{-3}\). The logarithmic coordinate substitution was expanded with both \(L^2\) Jacobians, giving \(q_b(u)=e^{u/2}/(1+e^u)^{b+1}\). A direct change of variables identifies the bilateral Fourier symbol as a convergent Euler beta integral. Off the symbol curve, the parametrix products differ from the identity by cross-boundary Hilbert--Schmidt terms. On the curve, translated interval packets provide normalized weakly null approximate eigenvectors; this rules out Fredholmness without relying on finite numerical computations.
+## correctness
 
-At \(b=1\), gamma recurrence yields \(\pi(1/2-i\tau)/\cosh(\pi\tau)\). The derivative at \(\tau=0\) is nonzero and purely imaginary for every \(b>0\) by strict digamma monotonicity. Independent auxiliary numerical checks of gamma-ratio asymptotics and the \(b=1\) derivative were consistent but do not constitute proof.
+PASS
 
-Scope is limited to real \(b>0\), ordinary \(H^2\), and the Fredholm essential spectrum. Complete spectrum, eigenvalues, and index are not decided. General homogeneous-operator results not found in the examined literature may still entail an equivalent formula; originality checking is not exhaustive. No independent validation or certification has been carried out.
+For b>0 the monomial H² coefficient matrix is the stated product of gamma ratios. Comparing it with K_b(n,m)=n^b/(n+m)^{b+1} gives an explicit square-summable O(n^{b-1}/(n+m)^{b+1}+n^b/(n+m)^{b+2}) error; n=0 row and m=0 column have square-summable coefficients. Step-function discretization differs Hilbert–Schmidt from B_b(x,y)=x^b/(x+y)^{b+1} on L²([1,infinity)). Under logarithmic unitary Vf(s)=exp(s/2)f(exp s), this is the half-line convolution kernel q_b(u)=exp(u/2)/(1+exp u)^{b+1}. Euler beta integration gives Fourier symbol m_b(tau)=Gamma(1/2+i tau)Gamma(b+1/2-i tau)/Gamma(b+1). This q_b has integrable tails and finite cross-boundary square moment, so the half-line Wiener–Hopf compressions have compact off-diagonal blocks. For lambda nonzero outside the completed symbol curve a compressed full-line resolvent gives a Fredholm parametrix. For every value on the curve normalized escaping packets are weakly-null approximate kernel vectors; compact perturbations do not change Fredholmness. Closure adds 0. The digamma derivative at tau=0 is nonzero imaginary for b>0; for b=1 gamma recurrence yields pi(1/2-i tau)/cosh(pi tau). Independently spot-checked gamma matrix versus beta integrals and Mellin beta integrals for b=1/2,1,2 at multiple indices/parameters, corroborating the exact analytical proof.
+
+## originality
+
+PASS
+
+Li–Pan–Zhou 2026 introduce the exact same b-generalized Hilbert operator and give its norm on Hardy spaces, but their accessible full manuscript Theorems 1.1–1.3 and subsequent sections do not study Fredholmness or essential spectra. The classical Hilbert matrix is b=0 with a different real spectrum. A published Resultary logarithmic Hilbert-matrix endpoint has a different Copson kernel and circular Fredholm spectrum. Applying WH theory requires a fresh Hilbert–Schmidt comparison and yields the explicit nonreal beta curve; best-of-knowledge original subject to possible uncatalogued general homogeneous-kernel results.
+
+## value
+
+PASS
+
+The exact Fredholm essential spectrum is a natural spectral invariant of the Hardy-space generalized Hilbert operator, and its nonreal beta-curve demonstrates a real qualitative difference from the b=0 classical self-adjoint Hilbert matrix. The complete b>0 family, not a numerical sample, is classified using compact equivalence and a genuine operator-theoretic Fredholm argument.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

@@ -1,15 +1,21 @@
-# Scientific review
+# Independent mathematical audit
 
-## Correctness (PASS)
-The claim is the exact Fredholm essential spectrum for all real \(b>0\) of the precisely normalized integral operator on standard \(H^2\). Coefficient expansion yields the two-gamma-ratio matrix. Two explicit Hilbert--Schmidt estimates (the gamma-ratio discretization and the step-function versus homogeneous integral kernel) are dominated by a convergent \(\sum n^{-3}\); the initial row and column are finite-rank and square-summable. A logarithmic unitary gives the half-line convolution. Its Fourier multiplier is an absolutely convergent beta integral. The off-curve direction uses a full-line inverse and compact off-diagonal compressions to produce a Fredholm parametrix; the on-curve direction uses norm-one, weakly null, asymptotic eigenfunctions. Closedness supplies zero. The derivative of the beta quotient is purely imaginary and nonzero at the origin for every positive parameter. The proof does not infer infinite-dimensional conclusions from finite numerical tests.
+## correctness
 
-## Originality (PASS, subject to stated residual risk)
-The August 2026 source computes exact operator norms, not Fredholm spectral sets. The ordinary Hilbert-matrix spectral theorem gives a real interval and concerns a symmetric Hankel kernel. The September 2026 power-weighted Hilbert-matrix result obtains a different cosine-quotient symbol from a different homogeneous kernel and does not imply this beta-curve formula. Hausdorff-family results do not state the same kernel or spectral invariant. Searches for the beta curve, Wiener--Hopf symbol, spectral deformation, and aliases against published results and directly relevant papers found no covering result; non-detection is not proof of absolute novelty. The possibility of a broad homogeneous Wiener--Hopf theorem subsuming this as an unstated special case is recorded as a real residual risk, though no decisive covering source was identified.
+PASS
 
-## Value (PASS)
-The exact Fredholm set is a natural spectral invariant of a newly analyzed, naturally parameterized Hardy operator, not an arbitrary finite slice. It gives the exact boundary of invertibility modulo compact operators, showing a qualitative non-selfadjoint transition: the classical limiting parameter has an entirely real essential spectrum, whereas every positive deformation has a complex essential spectral curve. This precise boundary matters to Fredholm solvability, spectral stability, and subsequent index/full-spectrum analyses. Determining it requires genuine compact-model and approximate-spectrum arguments, not a routine norm rescaling.
+For b>0 the monomial H² coefficient matrix is the stated product of gamma ratios. Comparing it with K_b(n,m)=n^b/(n+m)^{b+1} gives an explicit square-summable O(n^{b-1}/(n+m)^{b+1}+n^b/(n+m)^{b+2}) error; n=0 row and m=0 column have square-summable coefficients. Step-function discretization differs Hilbert–Schmidt from B_b(x,y)=x^b/(x+y)^{b+1} on L²([1,infinity)). Under logarithmic unitary Vf(s)=exp(s/2)f(exp s), this is the half-line convolution kernel q_b(u)=exp(u/2)/(1+exp u)^{b+1}. Euler beta integration gives Fourier symbol m_b(tau)=Gamma(1/2+i tau)Gamma(b+1/2-i tau)/Gamma(b+1). This q_b has integrable tails and finite cross-boundary square moment, so the half-line Wiener–Hopf compressions have compact off-diagonal blocks. For lambda nonzero outside the completed symbol curve a compressed full-line resolvent gives a Fredholm parametrix. For every value on the curve normalized escaping packets are weakly-null approximate kernel vectors; compact perturbations do not change Fredholmness. Closure adds 0. The digamma derivative at tau=0 is nonzero imaginary for b>0; for b=1 gamma recurrence yields pi(1/2-i tau)/cosh(pi tau). Independently spot-checked gamma matrix versus beta integrals and Mellin beta integrals for b=1/2,1,2 at multiple indices/parameters, corroborating the exact analytical proof.
 
-## Closest literature and limits
-Li--Pan--Zhou (arXiv:2608.19660): exact norm, no essential spectrum. Silbermann (2021): classical Hilbert spectrum. Ferudun (2026): weighted classical Hilbert spectra from a different Mellin symbol. Bellavita--Chalmoukis--Daskalogiannis--Stylogiannis (arXiv:2307.15334): other Hausdorff-matrix generalized Hilbert operators. General reduction frameworks may still conceal an unstated equivalent formula. This review does not establish independence, priority beyond the inspected sources, the ordinary spectrum or Fredholm indices.
+## originality
 
-Self-review: passed. Independent audit: not yet performed.
+PASS
+
+Li–Pan–Zhou 2026 introduce the exact same b-generalized Hilbert operator and give its norm on Hardy spaces, but their accessible full manuscript Theorems 1.1–1.3 and subsequent sections do not study Fredholmness or essential spectra. The classical Hilbert matrix is b=0 with a different real spectrum. A published Resultary logarithmic Hilbert-matrix endpoint has a different Copson kernel and circular Fredholm spectrum. Applying WH theory requires a fresh Hilbert–Schmidt comparison and yields the explicit nonreal beta curve; best-of-knowledge original subject to possible uncatalogued general homogeneous-kernel results.
+
+## value
+
+PASS
+
+The exact Fredholm essential spectrum is a natural spectral invariant of the Hardy-space generalized Hilbert operator, and its nonreal beta-curve demonstrates a real qualitative difference from the b=0 classical self-adjoint Hilbert matrix. The complete b>0 family, not a numerical sample, is classified using compact equivalence and a genuine operator-theoretic Fredholm argument.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
