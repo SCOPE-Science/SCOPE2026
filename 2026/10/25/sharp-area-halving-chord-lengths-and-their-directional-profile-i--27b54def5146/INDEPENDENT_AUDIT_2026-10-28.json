@@ -1,0 +1,112 @@
+{
+  "audit_date_utc": "2026-10-28",
+  "audited_at_utc": "2026-10-28T03:10:21.732701Z",
+  "axes": {
+    "correctness": {
+      "rationale": "A compact convex polygon admits a unique area-bisecting offset for each line normal because clipped area is strictly increasing through the supporting interval. Dihedral symmetry reduces normals to one sector 0<=phi<=delta. The proof establishes the two support intersection edges remain the same reflected pair throughout that entire sector (including triangular n=3). Subtracting the fixed polygonal cap from the wedge gives constant area of a triangle with endpoint ray distances a,b from the common reflected vertex, so ab is constant. Express a/b=exp(2s); elementary direction trigonometry gives tan(phi)=cot(delta)*tanh(s) (with sign absorbed by orientation) and the cosine rule yields the displayed L(phi). Strict increase with |phi| follows from positive tan(delta), giving exact min/max and endpoint equality cases. Direct independent polygon clipping/binary search of the half-area offset, entirely separate from the analytic formula, agreed for each of n=3,5,7,9,17,31 at seven normal angles per sector with max error 9e-16. Taylor expansion gives difference R*pi^2/(4n^2). Finite confirmation alone is not a universal proof; sector containment and wedge-area geometry are the universal arguments.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "2007 work gives inequalities for h_A and H_A of arbitrary convex bodies, not exact regular-polygon profile; 2024 gives concatenated hyperbolic arc envelopes for general polygons including a regular pentagon. Berele--Catoiu article exists and has 91 pages, but was not read in full."
+        ],
+        "reasoning": "Broader domain does not automatically imply stronger exact conclusion. The available stated general inequalities/envelope topology do not determine exact L_n(phi) and orientation minimizers. The inaccessible 2022 paper could contain an implicit specialization and is retained as a specific risk.",
+        "searches": [
+          "Grune--Klein--Miori--Segura Gomis 2007 full PDF",
+          "Marques da Silva--Craizer 2024 full PDF",
+          "Berele--Catoiu 2022 DOI 10.1016/j.aam.2022.102342 abstract"
+        ]
+      },
+      "checked_sources": [
+        "Frozen RESULT.md 741e6f4164c7f9e3567e0850837212ef84855db1",
+        "verify_halving.py blob a5fa706da770a79d3c04321d62d9ad3e55f6234c",
+        "Independent geometric clipping for six odd n and seven directions each",
+        "Grune et al. 2007 full primary PDF",
+        "Marques da Silva--Craizer 2024 full primary PDF",
+        "Berele--Catoiu 2022 DOI metadata and abstract",
+        "Resultary 2026/10/11 central chord/perimeter law findings"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "General inequality h_A<=H_A and the existence of hyperbolic envelope arcs do not fix the length along a given normal, product constant, or orientation of extrema for each regular odd n."
+        ],
+        "reasoning": "The new calculation uses the prior hyperbola mechanism but adds the explicit constant for regular geometry, direction conversion, sector containment and strict monotonicity. Exact all-odd family is not an immediate logical consequence of the inspected stated results. Since Berele--Catoiu full text is unavailable, no whole-paper negative coverage assertion is made.",
+        "searches": [
+          "Grune et al. 2007 Theorems 1,2, bounds table",
+          "Marques da Silva--Craizer 2024 Section 4 envelope geometry",
+          "Berele--Catoiu 2022 DOI abstract"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "An area-halving chord is also the unit-mass median section perpendicular to a chosen normal. In a fundamental dihedral sector its endpoints lie on reflected edges and vary on a hyperbola."
+        ],
+        "reasoning": "Searched half-area cut/area median/fence, area-bisecting chord and hyperbolic envelope aliases. General hyperbolic envelope structure is prior, but the inspected material does not evaluate the entire regular odd-n length function.",
+        "searches": [
+          "Resultary: odd regular n-gon area-bisecting chord directional profile shortest longest hyperbolic",
+          "Web: bisecting chords regular polygon exact length area halving chord longest shortest",
+          "doi:10.36890/IEJG.1512613 envelopes"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "The 2007 table records general inequalities and extremal examples; Resultary central chord length uses chords through the polygon center, not generally shifted area-median lines, and perimeter Winternitz law bisects perimeter, not area."
+        ],
+        "reasoning": "The nearest tables concern different invariants. Neither center-chord nor perimeter-cut values can be substituted for the unique area-median offset in an odd polygon; the entire directional formula remains distinct.",
+        "searches": [
+          "Resultary exact directional perimeter Winternitz law for regular polygons 2026/10/11",
+          "Resultary parity-resolved central-chord laws 2026/10/11",
+          "Grune et al. 2007 section 1 bounds table"
+        ]
+      },
+      "rationale": "General area-halving chord inequalities, hyperbolic bisection envelopes and the regular-pentagon picture are acknowledged prior mathematics. The exact complete direction-by-direction length law, strict monotonicity and sharp all-odd-n extremal formulas are not stated in inspected primary sources. The 91-page Berele--Catoiu 2022 envelope work is a serious plausible fuller predecessor but inaccessible; its abstract cannot be used to declare NOT_COVERING. This risk does not itself invalidate a best-of-knowledge originality PASS.",
+      "residual_risks": [
+        "Berele--Catoiu 2022 is the closest plausible publication but its 91-page primary text was inaccessible; an equivalent or stronger published regular-polygon formula remains possible.",
+        "Authorized institutional PDF retrieval failed because Oxford VPN was disconnected; no authentication bypass or retry was attempted.",
+        "Theorem applies to Euclidean regular odd polygons only, and area halves not perimeter halves or generally shifted arbitrary convex sets."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Determines convex-body inequalities and extremal classes; does not state complete odd regular polygon directional length.",
+          "evidence": "Grune, Klein, Miori, Segura Gomis 2007 Mathematical Inequalities & Applications 10, 205–216",
+          "identifier_or_url": "https://files.ele-math.com/articles/mia-10-17.pdf",
+          "material_read": "Read accessible 12-page primary PDF definitions, bounds table and selected propositions/examples, with page-image inspection; full text was available, not every page read line-by-line.",
+          "method": "Full primary text and result comparison",
+          "title": "Chords Halving the Area of a Planar Convex Set",
+          "trigger": "Closest general global extrema h_A/H_A"
+        },
+        {
+          "assessment": "General hyperbolic-envelope structure, with regular pentagon illustration; no inspected all-odd-n explicit chord-length profile and sharp orientation law.",
+          "evidence": "Marques da Silva--Craizer 2024 International Electronic Journal of Geometry 17, 421–436, Section 4",
+          "identifier_or_url": "https://dergipark.org.tr/en/download/article-file/4054848",
+          "material_read": "Read accessible 16-page primary PDF introduction, Section 4 bisecting-envelope definitions and selected later arguments, plus page-image inspection; not all pages read exhaustively.",
+          "method": "Primary full-text section and mathematical implication comparison",
+          "title": "Envelopes of Bisection Lines of Polygons",
+          "trigger": "Plausible same-object hyperbola coverage with regular pentagon"
+        },
+        {
+          "assessment": "UNKNOWN COVERAGE: cannot exclude equivalent regular-polygon specialization from uninspected article.",
+          "evidence": "Berele--Catoiu, Advances in Applied Mathematics 137 (2022), article 102342",
+          "identifier_or_url": "https://doi.org/10.1016/j.aam.2022.102342",
+          "material_read": "Read metadata, author publication listing and available abstract only; no full text read. Arxiv/OA preprint searches failed, authorized institutional retrieval returned vpn_disconnected; did not retry or bypass.",
+          "method": "Abstract/metadata only; access blocker explicitly recorded",
+          "title": "Bisecting Envelopes of Convex Polygons",
+          "trigger": "Highly relevant, much longer predecessor (91 pages) that could dominate"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "rationale": "Area-halving distances are classical natural convex-geometric invariants; regular odd polygons form the canonical nonsymmetric case contrasting even polygons and disks. The exact full directional profile determines both sharp extrema, equality orientations and rate of circular convergence, rather than a tiny unmotivated numerical case. It benchmarks earlier general inequalities.",
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "limitations": [
+    "Berele--Catoiu 2022 is the closest plausible publication but its 91-page primary text was inaccessible; an equivalent or stronger published regular-polygon formula remains possible.",
+    "Authorized institutional PDF retrieval failed because Oxford VPN was disconnected; no authentication bypass or retry was attempted.",
+    "Theorem applies to Euclidean regular odd polygons only, and area halves not perimeter halves or generally shifted arbitrary convex sets."
+  ],
+  "schema_version": 1
+}
