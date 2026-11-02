@@ -1,0 +1,114 @@
+{
+  "correctness": {
+    "rationale": "The symmetric two-set-intersection polarity gives F^3=F. Every nonempty image contains a two-set vertex cover; the explicit a,b-spoke membership test exhausts the image shapes and pairs them into all claimed fixed points/two-cycles. Counting inverse fibers gives g_n, h_n and e_n; disjoint basins yield B_n. A union bound proves the n=6 majority cutoff and a pairwise Bonferroni estimate gives the asymptotic. Two separately implemented executable enumerators reproduced all basins at n=5,6 and n=5,6,7 (respectively), covering 2,097,152 labelled states in the largest check. Limits: finite checking alone does not prove all n; that rests on the symbolic cover case analysis.",
+    "status": "PASS"
+  },
+  "independent": false,
+  "independent_audit_status": "not_performed",
+  "originality": {
+    "broader_coverage": {
+      "evidence": [
+        "Aledo et al. 2017, DOI 10.1155/2017/7209762, section 2 defines local maps on {i} union its neighbors; section 3 obtains no coexistence of fixed points and two-cycles for this self-inclusive class. Aledo et al. 2020, DOI 10.1155/2020/9708347, introduction and sections 2-3 concern periodic-point bounds/counting, again using the self-inclusive local rule. The present open-neighborhood rule admits both stars as fixed states and an empty/full two-cycle."
+      ],
+      "reasoning": "The update operator differs in a mathematically decisive input: including the vertex destroys self-intersection in the active-edge encoding. Thus the self-inclusive no-coexistence theorem cannot dominate the proposed open-neighborhood census. The earlier general period-two statement is explicitly background, not the new claim.",
+      "searches": [
+        "\"Parallel discrete dynamical systems on maxterm and minterm Boolean functions\" pdf Aledo",
+        "exact attraction basin sizes Kneser graph KG(n,2) NOR synchronous open-neighborhood two-cycle fixed stars triangles",
+        "2015 Boolean network dynamics survey maxterm minterm functions synchronization NOR arxiv 2015 March"
+      ]
+    },
+    "checked_sources": [
+      "https://doi.org/10.1155/2015/594294 (full HTML, model and period section)",
+      "https://doi.org/10.1155/2017/7209762 (full HTML, sections 2-3)",
+      "https://doi.org/10.1155/2020/9708347 (full HTML, intro and mathematical main sections)",
+      "https://doi.org/10.1016/j.mcm.2011.08.040 (abstract/bibliography only)",
+      "https://www.researchgate.net/publication/220096094_Parallel_discrete_dynamical_systems_on_maxterm_and_minterm_Boolean_functions (abstract only)"
+    ],
+    "claim_vs_prior_implication": {
+      "evidence": [
+        "General short-period facts do not imply orbit multiplicities or labelled basin sizes. The survey at DOI 10.1155/2015/594294 and full accessible 2017 and 2020 research articles do not calculate the Kneser open-NOR preimages. The previously known two-set Kneser parity dynamics is XOR-linear, not NOR; NOR work on graph joins and rook graphs has different graph families."
+      ],
+      "reasoning": "The new theorem classifies 1+binomial(n,2)+4binomial(n,3)+9binomial(n,4)+n attractors and each basin, rather than inferring only a possible primitive period. This is not a specialization of the cited closed-neighborhood counts or the prior XOR Kneser calculation.",
+      "searches": [
+        "maximal cross-intersecting pairs of 2 element subsets Kneser graph two cycles NOR basins",
+        "binary maxterm minterm Kneser graph star triangle fixed points bipartite cross-intersection",
+        "Aledo Martinez Pelayo Valverde 2012 maxterm minterm Boolean functions full text pdf"
+      ]
+    },
+    "equivalent_formulations": {
+      "evidence": [
+        "The rule F(S) is the family of two-element vertex covers of the graph with edges S; F^3=F is the generic symmetric-polarity consequence. Each attractor is a maximal cross-intersecting pair of edge families. Searches did not identify a source giving its complete Kneser basin fiber census."
+      ],
+      "reasoning": "Compared the mathematical equivalence under graph complementation to the two-set-intersection polarity, not only paper titles. An equivalent maximal cross-intersecting family theorem would not alone imply all inverse-fiber basin sizes; none stating both was identified.",
+      "searches": [
+        "open-neighborhood NOR Boolean network on Kneser graph KG(n,2) dominant all-empty all-full cycle basin independence number n-2",
+        "binary nor dynamics Kneser graph two-subsets vertex cover two cross intersecting families attraction basins",
+        "Kneser graph NOR automata periodic orbit basin maximal cross intersecting 2-subsets"
+      ]
+    },
+    "exact_database_or_table": {
+      "evidence": [
+        "No located database/table matched the six basin populations, the values 389, 27627, 2062845, or the exact Kneser family formulas. Primary accessible texts examined have no Kneser-specific table of these dynamical basins."
+      ],
+      "reasoning": "The finite checks in the package calculate these values from the rule rather than reproducing a known database; absence of a match is only negative search evidence, not a proof of novelty.",
+      "searches": [
+        "exact attraction basin sizes Kneser graph KG(n,2) NOR synchronous open-neighborhood two-cycle fixed stars triangles",
+        "NOR dynamics graph with vertices edges K_n disjointness rule exhaustive attractor classification",
+        "Kneser graph NOR automata periodic orbit basin maximal cross intersecting 2-subsets"
+      ]
+    },
+    "rationale": "The full claim concerns the exact labelled attractor types and six individual basin populations of OPEN-neighborhood NOR on KG(n,2), plus its sharp dominant-basin threshold and asymptotic. The 2015 survey establishes general minterm/maxterm background but not this Kneser census. The examined 2017 and 2020 primary texts use each vertex itself in every local update, unlike the present excluded-self rule; their general period restrictions and periodic-point counting therefore do not imply the statement. Separately, historical formulas for two-set intersecting families do not automatically count exact inverse-NOR fibers. Direct claim comparisons identified no covering result. The original 2012 primary text was not accessible in full, so the conclusion is conditional on that historical-overlap limitation.",
+    "residual_risks": [
+      "Original 2012 article full text not inspected; a previously overlooked equivalent result or special-case table cannot be excluded.",
+      "Unindexed work on maximal cross-intersecting families of two-sets may overlap the attractor classification; individual NOR basin claims remain a separate implication comparison.",
+      "Search-result absence is not proof of novelty; independent expert literature review has not been performed."
+    ],
+    "source_inspections": [
+      {
+        "assessment": "GENERAL_BACKGROUND_NOT_COVERING_EXACT_OPEN_NOR_KNESER_BASINS",
+        "evidence": "The graph PDS is locally evaluated on {i} union its neighbors; general minterm discussion omits Kneser-specific labelled basin enumeration. First published 24 March 2015.",
+        "identifier_or_url": "https://doi.org/10.1155/2015/594294",
+        "material_read": "Open-access full HTML: model definitions, section 3.1 on undirected periodic orbit structures, and cited reference to 2012 maxterm/minterm study.",
+        "method": "Direct inspection of publisher-hosted article text",
+        "title": "Parallel Dynamical Systems over Graphs and Related Topics: A Survey",
+        "trigger": "Synchronous Boolean minterm/NOR background and overlap"
+      },
+      {
+        "assessment": "DIFFERENT_SELF_INCLUSIVE_UPDATE_NOT_COVERING",
+        "evidence": "Section 2 explicitly defines local inputs {i} union adjacency, and no-coexistence holds in that class. Our excluded-self open NOR has both fixed points and two-cycles.",
+        "identifier_or_url": "https://doi.org/10.1155/2017/7209762",
+        "material_read": "Publisher full HTML, definitions in section 2, theorems 3-7 and discussion in section 3.",
+        "method": "Direct inspection of open-access primary publication",
+        "title": "On the Periods of Parallel Dynamical Systems",
+        "trigger": "Plausibly stronger no-coexistence and period theorem"
+      },
+      {
+        "assessment": "GENERAL_PERIODIC_POINT_METHOD_NOT_EXACT_BASIN_CLASSIFICATION",
+        "evidence": "Local update uses a vertex and its neighbors; stated counting results concern number of periodic points, not exact open-NOR Kneser preimage basins or threshold.",
+        "identifier_or_url": "https://doi.org/10.1155/2020/9708347",
+        "material_read": "Publisher full HTML abstract, introduction, sections 2-3 description and references.",
+        "method": "Direct inspection of open-access primary publication",
+        "title": "Counting Periodic Points in Parallel Graph Dynamical Systems",
+        "trigger": "General counting theory could subsume finite orbit census"
+      },
+      {
+        "assessment": "PLAUSIBLE_HISTORICAL_SOURCE_INACCESSIBLE_FULLTEXT",
+        "evidence": "The 2015 full survey summarizes the 2012 paper as general minterm/maxterm orbit theory, without an exact Kneser basin census. Full text was not read.",
+        "identifier_or_url": "https://doi.org/10.1016/j.mcm.2011.08.040",
+        "material_read": "Bibliographic record and abstract, including its general orbit-structure characterization; full primary text not available.",
+        "method": "Searched for preprint and lawful open-access full text; institutional retrieval could not furnish the article.",
+        "title": "Parallel discrete dynamical systems on maxterm and minterm Boolean functions",
+        "trigger": "Closest 2012 antecedent for Boolean minterm/NOR results"
+      }
+    ],
+    "status": "PASS"
+  },
+  "review_type": "self_review",
+  "schema_version": 1,
+  "scope_run_id": "e75c8d27-7ab3-4de6-9c16-c6633b5b390d",
+  "self_review_status": "passed",
+  "value": {
+    "rationale": "The Kneser disjointness graph on two-sets is a canonical infinite structured graph family. Exact attractor counts plus all individual inverse-fiber basin populations are natural dynamical invariants, not arbitrary selected parameters. The complete census yields an unanticipated coexistence of fixed stars/triangles and five types of two-cycles, a sharp n=6 dominance transition and an exponentially small-in-n^2 exceptional probability. The motivation and use of the precise invariants are to distinguish recurrent complexity from basin concentration, without asserting a downstream theorem.",
+    "status": "PASS"
+  }
+}
