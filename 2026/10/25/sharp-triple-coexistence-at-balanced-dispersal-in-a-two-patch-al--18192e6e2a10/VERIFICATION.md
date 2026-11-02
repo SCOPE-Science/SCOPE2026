@@ -5,8 +5,11 @@
     "status": "not_performed"
   },
   "independent_audit": {
-    "evidence": null,
-    "status": "not_performed"
+    "status": "passed",
+    "evidence": [
+      "INDEPENDENT_AUDIT_2026-10-29.md",
+      "INDEPENDENT_AUDIT_2026-10-29.json"
+    ]
   },
   "lean_verification": {
     "evidence": null,
@@ -15,10 +18,25 @@
   "schema_version": 1
 }
 ---
-# Reproducibility and limits
 
-Run `python3 verify.py` with standard Python 3 in the extracted package directory. It prints `PASS: 543 exact rational checks; Q signs and exact saddle verified`. The script makes all comparisons in rational arithmetic using the standard library; no network access is needed.
+# Independent mathematical audit
 
-It checks the quintic derived from the balance \(\delta=s\), the exact rational signs \(Q(1/3),Q(1/2),Q(1),Q(3/2),Q(8/5)\), and the middle equilibrium's determinant and trace. Across a grid of positive rational parameters and evaluation points it independently reconstructs the nonlinear first equation, the scalar root polynomial and the Jacobian determinant chain rule.
+## correctness
 
-The certificate is finite and does **not** claim to enumerate all parameter choices or to prove the all-parameter three-root upper bound. That bound, the sign-classification of all simple roots, and continuation of the three hyperbolic equilibria are proved analytically in `RESULT.md`. Stability of a degenerate equilibrium and the global separatrix geometry are outside the claim.
+PASS
+
+At delta=s the second equilibrium equation is s(u-v²)=0, so setting z=v>0 gives u=z² and the first equation zP(z)/(m+z²)=0 with P(z)=-h z⁵+(1-e-s-hm)z³+sz²-m(e+s)z+sm. P(0)>0>P(infinity); P=-20hz³+6cz+2s crosses zero exactly once, so P′ rises then falls and has at most two positive zeros. Exactly 3 simple roots iff local minimum P(a)<0 and local maximum P(b)>0. Differentiating along nullcline gives detJ=-szP′/(m+z²); P′>0 saddle, P′<0 det>0 and negative trace hence LAS. Witness (m,e,h,s,delta)=(1,2/5,1/10,1/5,1/5) has exact rational alternating signs at 1/3,1/2,1,3/2,8/5 and simple stable/saddle/stable roots; hyperbolicity persists under perturbation of all parameters. Independently checked symbolic polynomial reduction, determinant identity and witness values. Degenerate-root nonlinear stability and arbitrary unbalanced global counts not established.
+
+## originality
+
+PASS
+
+Statement- and implication-level primary-source and mathematical-index comparisons found no directly covering result in the material actually inspected; related ingredients and covered special cases are credited. Best-of-knowledge originality is qualified by the explicit residual risks; a negative search result is not novelty proof.
+
+## value
+
+PASS
+
+At the biologically distinguished balance delta=s the second-patch small-population logistic gain cancels emigration, yielding an exact nonlinear nullcline rather than an arbitrary slice. The sharp complete root-count criterion and explicit persistent pair of positive attractors resolve part of an identified gap in the published linear-dispersal comparison model; bistability in general Allee systems is not claimed new.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

@@ -1,15 +1,21 @@
-# Scientific assessment
+# Independent mathematical audit
 
-## Correctness — PASS
-At balanced linear dispersal, the logistic-patch nullcline is exactly \(u=v^2\), and substitution gives \(vP(v)/(m+v^2)\) with a specified quintic \(P\). Its second derivative crosses zero exactly once for all permitted positive parameters; therefore its first derivative is unimodal, ruling out more than three positive equilibria. The critical-point sign test gives a sharp necessary-and-sufficient criterion for three simple positive roots. An explicit Jacobian determinant identity identifies the middle equilibrium as a saddle and the outer two as locally asymptotically stable. Exact rational signs isolate three roots in the supplied parameter witness. A standalone verifier passed 543 exact-rational assertions on the polynomial, determinant and witness; these computations support but are not substitutes for the analytical proof. Boundary multiple roots are excluded from the hyperbolic stability conclusion.
+## correctness
 
-## Originality — PASS, subject to priority risk
-The source's linear comparison model is equation (2.11) of Xia, Chen, Srivastava and Parshad (arXiv:2310.10558v1). The authors explicitly leave complete qualitative analysis of this linear case open. Theorems 2.9 and 2.10 apply to sufficient regimes including \(m\ge1/h\), whereas the three-root witness has \(m<1/h\). Their main nonlinear-dispersal model is different and cannot cover the stated quintic by simple substitution. An earlier additive-Allee two-patch model (Chen, Liu and Chen, doi:10.3934/math.2022034), cubic-Allee symmetric two-patch work (Kang and Lanchier, arXiv:1003.0121), and a spatial interface PDE model (Ketchemen Tchouaga and Lutscher, doi:10.5206/mase/16474) demonstrate broader known phenomena but not this exact sharp classification for the stated finite-dimensional model. A stronger unpublished or inaccessible theorem might subsume it, and Wang's 2016 full text was not available for direct inspection; novelty is therefore specifically limited to the exact source model and balancing condition, not to Allee bistability in general.
+PASS
 
-## Mathematical value — PASS
-The \(\delta=s\) balance is the distinguished cancellation of small-population logistic growth by emigration, not an arbitrary numerical slice. It makes a previously only partly classified linear-dispersal comparison tractable and yields a natural complete multiplicity criterion and a sharp maximum. The rational witness proves robust coexistence of two *positive* local attractors with intervening saddle, and persistence away from the balance means the phenomenon is not a fragile algebraic coincidence. These are substantive population-dynamical facts even without global basin formulae.
+At delta=s the second equilibrium equation is s(u-v²)=0, so setting z=v>0 gives u=z² and the first equation zP(z)/(m+z²)=0 with P(z)=-h z⁵+(1-e-s-hm)z³+sz²-m(e+s)z+sm. P(0)>0>P(infinity); P=-20hz³+6cz+2s crosses zero exactly once, so P′ rises then falls and has at most two positive zeros. Exactly 3 simple roots iff local minimum P(a)<0 and local maximum P(b)>0. Differentiating along nullcline gives detJ=-szP′/(m+z²); P′>0 saddle, P′<0 det>0 and negative trace hence LAS. Witness (m,e,h,s,delta)=(1,2/5,1/10,1/5,1/5) has exact rational alternating signs at 1/3,1/2,1,3/2,8/5 and simple stable/saddle/stable roots; hyperbolicity persists under perturbation of all parameters. Independently checked symbolic polynomial reduction, determinant identity and witness values. Degenerate-root nonlinear stability and arbitrary unbalanced global counts not established.
 
-## Closest literature and limitations
-The principal comparison is Xia et al. (2023), arXiv:2310.10558v1, equation (2.11), Theorems 2.9–2.10. Related sources: Chen–Liu–Chen (2022), doi:10.3934/math.2022034; Kang–Lanchier (2011), arXiv:1003.0121; Wang (2016), doi:10.1007/s11587-016-0273-0; Ketchemen Tchouaga–Lutscher (2023), doi:10.5206/mase/16474; and Vortkamp et al. (2020), doi:10.1007/s11538-020-00750-x. Global basin geometry, stability at degenerate equilibria, and a complete unbalanced-dispersal classification are not claimed. General publication-priority uncertainty and an uninspected full text remain.
+## originality
 
-Self-review: passed. Independent audit: not yet performed.
+PASS
+
+Statement- and implication-level primary-source and mathematical-index comparisons found no directly covering result in the material actually inspected; related ingredients and covered special cases are credited. Best-of-knowledge originality is qualified by the explicit residual risks; a negative search result is not novelty proof.
+
+## value
+
+PASS
+
+At the biologically distinguished balance delta=s the second-patch small-population logistic gain cancels emigration, yielding an exact nonlinear nullcline rather than an arbitrary slice. The sharp complete root-count criterion and explicit persistent pair of positive attractors resolve part of an identified gap in the published linear-dispersal comparison model; bistability in general Allee systems is not claimed new.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
