@@ -1,19 +1,21 @@
-# Scientific review
+# Independent mathematical audit
 
-## Correctness — PASS
+## correctness
 
-The proof constructs a joint law at every attainable conditioned run count using two nested sets of internal cuts. Even-to-odd transition weights are the exact ratios of uniform-composition counts; odd-to-even steps split the color with fewer runs. Uniform-subset insertion proves the marginals, and a single positive split proves majorization. The generating-function calculation gives the exact quadratic conditional expectations. Exhaustive independent enumeration and an exact rational transition-kernel check both passed for all \(1\le a,b\le7\). The infinite-family proof is the combinatorial argument, not the finite enumeration.
+PASS
 
-## Originality — PASS under examined sources
+Conditioned on R=2t, the a- and b-label internal cut sets are independent uniform (t-1)-subsets. At R=2t+1 their required sizes differ by one; choosing one new uniformly unused cut among both color boundary sets gives the exact weights (a-t)/(a+b-2t), (b-t)/(a+b-2t). From odd to even, adding one uniformly unused cut in the lagging color gives independent uniform t-subsets, even after mixing orientations. Every step splits one positive length into u,v, so sorted zero-padded vectors majorize successor, all convex phi with phi(0)=0 decrease and Q drops 2uv>=2. Stars-and-bars/GF gives E sum Xi²=x(2x-t+1)/(t+1), yielding all even/odd Q formulas. At a=1,b=2 equality 2 occurs. Independent exact enumeration of all binary words for each 1<=a,b<=5 checked conditional means, all longest-run thresholds, strict step bound. The source verifier for <=7 was inspected, not itself executed. Scope fixed-content uniform binary words; no location or dependent-string ordering.
 
-The closest accessible papers treat the joint run-count distribution, marginal or joint longest-run distributions, and general run-length order statistics. Kazemi–Jafari (2014) gives the fixed-content composition counts but not the ordered coupling. Wentzel-Larsen–Anhøj (2019) provides joint crossing/longest-run computations but not a simultaneous refinement for every conditioned count. Kong's accessible ordered-run article describes exact marginal formulas without this order comparison. Full texts of Lou (1996) and Kong (2006) remained inaccessible; the assessed originality is a reasoned literature comparison, not a guarantee of historical priority.
+## originality
 
-## Mathematical value — PASS
+PASS
 
-A single coupling compares all conditional run-length vectors rather than one statistic or fixed finite range. It proves simultaneously the joint monotonicity of the two color-specific longest runs, majorization for every Schur-convex dispersion measure, and sharp strict decrease of the quadratic run-concentration statistic. The latter has explicit rational calibration formulas. This directly connects the classical runs-count and longest-run diagnostics under the fixed-margin two-sample randomness null.
+Fixed-content composition counts and exact conditional longest-run tables have predecessors. The full pathwise coupling of entire two-color run-length vectors over ALL successive conditioned total run counts, with simultaneous refinement and exact sharp quadratic drop, is not stated or implied by the inspected distribution papers. Best-of-knowledge originality with inaccessible Lou 1996 and Kong 2006 remaining risks.
 
-## Limitations
+## value
 
-The result applies only to uniform fixed-content binary words; it does not order the positions of runs or arbitrary prefix-sensitive test statistics. Inaccessible literature leaves a residual priority risk. Computational checks cover finite parameters only.
+PASS
 
-Self-review: passed. Independent audit: not yet performed.
+A unified all-run-count majorization coupling is a natural stochastic monotonicity result for classic fixed-margin runs testing, implies broad Schur-convex and longest-run inequalities beyond any one table, and has exact calibration formulas and sharp step decrement.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

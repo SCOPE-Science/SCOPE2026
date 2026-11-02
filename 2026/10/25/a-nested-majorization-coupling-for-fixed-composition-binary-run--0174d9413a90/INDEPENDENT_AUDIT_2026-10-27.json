@@ -1,0 +1,118 @@
+{
+  "audit_date_utc": "2026-10-27",
+  "audited_at_utc": "2026-10-27T14:14:36.144767Z",
+  "axes": {
+    "correctness": {
+      "rationale": "Conditioned on R=2t, the a- and b-label internal cut sets are independent uniform (t-1)-subsets. At R=2t+1 their required sizes differ by one; choosing one new uniformly unused cut among both color boundary sets gives the exact weights (a-t)/(a+b-2t), (b-t)/(a+b-2t). From odd to even, adding one uniformly unused cut in the lagging color gives independent uniform t-subsets, even after mixing orientations. Every step splits one positive length into u,v, so sorted zero-padded vectors majorize successor, all convex phi with phi(0)=0 decrease and Q drops 2uv>=2. Stars-and-bars/GF gives E sum Xi²=x(2x-t+1)/(t+1), yielding all even/odd Q formulas. At a=1,b=2 equality 2 occurs. Independent exact enumeration of all binary words for each 1<=a,b<=5 checked conditional means, all longest-run thresholds, strict step bound. The source verifier for <=7 was inspected, not itself executed. Scope fixed-content uniform binary words; no location or dependent-string ordering.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Kong formulas cover general multivariate m-th ordered run distributions and fixed content, but the inspected main theorems give generating functions and exact marginals.",
+          "Kazemi–Jafari 2014 gives conditional runs count/order-statistic probabilities, not a cross-r pathwise transition."
+        ],
+        "reasoning": "General formulas enumerate marginal outcomes; they do not by themselves imply the existence of one nested coupling with each step a literal positive split.",
+        "searches": [
+          "https://arxiv.org/abs/2405.01747",
+          "https://doi.org/10.1371/journal.pone.0223233",
+          "https://arxiv.org/abs/1410.8167"
+        ]
+      },
+      "checked_sources": [
+        "https://arxiv.org/abs/2405.01747",
+        "https://arxiv.org/abs/1410.8167",
+        "https://doi.org/10.1371/journal.pone.0223233",
+        "Resultary semantic search uniform binary sequences fixed numbers zeros ones conditional total runs majorization refinement coupling run lengths",
+        "Assigned RESULT.md, REVIEW.md, AUDIT.json, verify_runs.py"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "Stars-and-bars composition counts are premises to the new cut insertion law.",
+          "Ordered longest-run distribution formulas calculate one-dimensional tails but need not imply the majorization stochastic order of the full run vector."
+        ],
+        "reasoning": "The extra mathematical step is the common probability-space construction with two sets of uniformly nested cuts and exact mixing weights; no inspected predecessor proves it.",
+        "searches": [
+          "arXiv:1410.8167",
+          "arXiv:2405.01747",
+          "doi:10.1371/journal.pone.0223233"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Kong 2017/2024 manuscript develops mth longest-run conditional distributions for fixed composition.",
+          "Wentzel-Larsen–Anhøj PLOS One 2019 works out the joint crossing/longest-run distribution for iid Bernoulli series and discusses fixed-content extension."
+        ],
+        "reasoning": "Exact marginal distributions or distributions of order statistics are not equivalent to a simultaneous pathwise refinement/majorization coupling of all run lengths, and fixed-content is explicitly distinguished from iid in the full PLOS paper.",
+        "searches": [
+          "uniform binary sequences fixed numbers zeros ones conditional total runs majorization refinement coupling run lengths",
+          "arXiv:2405.01747",
+          "DOI:10.1371/journal.pone.0223233"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "Resultary returned exact covariance phases of transition indicators in fixed-composition words, a distinct random variable.",
+          "PLOS 2019 finite longest-run/crossing tables apply to iid Bernoulli (the fixed-margins extension is discussed separately); no exact vector-valued coupling table was identified."
+        ],
+        "reasoning": "The claim is a structural universal stochastic order, not a finite database enumeration. Known tables do not make the pathwise majorization theorem automatic.",
+        "searches": [
+          "uniform binary sequences fixed numbers zeros ones conditional total runs majorization refinement coupling run lengths",
+          "uniform binary sequences fixed numbers zeros ones conditional total runs majorization refinement coupling run lengths",
+          "arXiv:2405.01747"
+        ]
+      },
+      "rationale": "Fixed-content composition counts and exact conditional longest-run tables have predecessors. The full pathwise coupling of entire two-color run-length vectors over ALL successive conditioned total run counts, with simultaneous refinement and exact sharp quadratic drop, is not stated or implied by the inspected distribution papers. Best-of-knowledge originality with inaccessible Lou 1996 and Kong 2006 remaining risks.",
+      "residual_risks": [
+        "Lou 1996 JASA and Kong 2006 JASA full texts inaccessible in this run; a relevant refinement statement might occur there.",
+        "Only uniform fixed-composition two-color words, not original index locations, are compared."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Covers exact marginals for broad class, not the all-r pathwise majorization in material inspected",
+          "evidence": [
+            "Article itself says conditional models mean numbers of each letter fixed and results give exact distributions; major theorems 2 and 3 are distributional."
+          ],
+          "identifier_or_url": "https://arxiv.org/abs/2405.01747",
+          "material_read": "Definitions for conditional models, key Theorems 2 and 3, run-generating-function statements and relevant methods",
+          "method": "Primary lawful arXiv PDF, read mathematical sections and located theorem formulations",
+          "title": "The m-th longest runs of multivariate random sequences",
+          "trigger": "Same fixed-composition model and strongest plausible order-statistic coverage"
+        },
+        {
+          "assessment": "Earlier conditional counts and order statistics, not new nested coupling",
+          "evidence": [
+            "Paper targets minimum/maximum of two runs and their pmfs, means and variances."
+          ],
+          "identifier_or_url": "https://arxiv.org/abs/1410.8167",
+          "material_read": "Primary article introduction, run-count laws and order-statistic formulas",
+          "method": "Primary arXiv PDF",
+          "title": "Characterization of Order Statistics in Two Runs Using Conditional Expectation",
+          "trigger": "Earliest exact two-sample conditioned runs distribution"
+        },
+        {
+          "assessment": "Its iid Bernoulli crossing/longest-run table differs from fixed-composition pathwise vector coupling",
+          "evidence": [
+            "Paper explicitly describes fixed-count balanced median case as a distinct planned extension; no majorization coupling is given in its main material."
+          ],
+          "identifier_or_url": "https://doi.org/10.1371/journal.pone.0223233",
+          "material_read": "Full open HTML sections including iterative procedure, limitations, and appendix",
+          "method": "PLOS primary open article",
+          "title": "Joint distribution for number of crossings and longest run in independent Bernoulli observations",
+          "trigger": "Potential general coupling implication from joint tables"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "rationale": "A unified all-run-count majorization coupling is a natural stochastic monotonicity result for classic fixed-margin runs testing, implies broad Schur-convex and longest-run inequalities beyond any one table, and has exact calibration formulas and sharp step decrement.",
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "limitations": [
+    "Lou 1996 JASA and Kong 2006 JASA full texts inaccessible in this run; a relevant refinement statement might occur there.",
+    "Only uniform fixed-composition two-color words, not original index locations, are compared."
+  ],
+  "schema_version": 1
+}

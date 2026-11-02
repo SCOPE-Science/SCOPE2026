@@ -5,8 +5,11 @@
     "status": "not_performed"
   },
   "independent_audit": {
-    "evidence": null,
-    "status": "not_performed"
+    "status": "passed",
+    "evidence": [
+      "INDEPENDENT_AUDIT_2026-10-27.md",
+      "INDEPENDENT_AUDIT_2026-10-27.json"
+    ]
   },
   "lean_verification": {
     "evidence": null,
@@ -15,23 +18,25 @@
   "schema_version": 1
 }
 ---
-# Verification
 
-## Proof checks
+# Independent mathematical audit
 
-The conditioning counts are \(2\binom{a-1}{t-1}\binom{b-1}{t-1}\) and, at odd levels, the two binomial products in the proof. The transition ratios match those counts exactly. Insertion of a uniformly chosen unused cut sends a uniformly chosen \(k\)-element subset of an \(n\)-element set to a uniformly chosen \((k+1)\)-element subset, because each target has exactly \(k+1\) predecessors. Splitting \(u+v\) changes the quadratic sum by \(-2uv\), with \(u,v\ge1\). The generating-function coefficient yields the independent conditional expectation formulas.
+## correctness
 
-## Reproduction
+PASS
 
-Run `python verify_runs.py` using Python's standard library. Observed output:
+Conditioned on R=2t, the a- and b-label internal cut sets are independent uniform (t-1)-subsets. At R=2t+1 their required sizes differ by one; choosing one new uniformly unused cut among both color boundary sets gives the exact weights (a-t)/(a+b-2t), (b-t)/(a+b-2t). From odd to even, adding one uniformly unused cut in the lagging color gives independent uniform t-subsets, even after mixing orientations. Every step splits one positive length into u,v, so sorted zero-padded vectors majorize successor, all convex phi with phi(0)=0 decrease and Q drops 2uv>=2. Stars-and-bars/GF gives E sum Xi²=x(2x-t+1)/(t+1), yielding all even/odd Q formulas. At a=1,b=2 equality 2 occurs. Independent exact enumeration of all binary words for each 1<=a,b<=5 checked conditional means, all longest-run thresholds, strict step bound. The source verifier for <=7 was inspected, not itself executed. Scope fixed-content uniform binary words; no location or dependent-string ordering.
 
-```
-PASS: 49 (a,b) pairs, all binary words, all attainable run counts,
-all longest-run thresholds, exact conditional Q, and exact cut kernel states.
-```
+## originality
 
-The script enumerates all fixed-content words with \(1\le a,b\le7\), compares exact rational conditional expectations against the formulas, compares every adjacent conditional longest-run tail, and independently constructs and checks every intermediate distribution of the stated cut-growth kernel. This is finite corroboration; the proof is the general argument in `RESULT.md`.
+PASS
 
-## Limits
+Fixed-content composition counts and exact conditional longest-run tables have predecessors. The full pathwise coupling of entire two-color run-length vectors over ALL successive conditioned total run counts, with simultaneous refinement and exact sharp quadratic drop, is not stated or implied by the inspected distribution papers. Best-of-knowledge originality with inaccessible Lou 1996 and Kong 2006 remaining risks.
 
-These checks do not prove anything about nonuniform content probabilities without conditioning, more than two symbols, or any location-sensitive run statistic. The independent audit is not performed.
+## value
+
+PASS
+
+A unified all-run-count majorization coupling is a natural stochastic monotonicity result for classic fixed-margin runs testing, implies broad Schur-convex and longest-run inequalities beyond any one table, and has exact calibration formulas and sharp step decrement.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
