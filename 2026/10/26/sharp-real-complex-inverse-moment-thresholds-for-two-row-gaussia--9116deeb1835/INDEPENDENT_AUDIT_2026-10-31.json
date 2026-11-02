@@ -1,0 +1,105 @@
+{
+  "audit_date_utc": "2026-10-31",
+  "audited_at_utc": "2026-10-31T17:17:24Z",
+  "axes": {
+    "correctness": {
+      "rationale": "The convolution map from m+1 Gaussian coordinates to a fixed row combination has all nonzero singular values uniformly bounded below: its Toeplitz Gram eigenvalues are 1+2|ab|cos(kπ/(m+1)), so the lower bound is 1−cos(π/(m+1))>0. Spherical small-ball probability for a fixed row direction is O(t^{βm}); a projective β-dimensional t-net yields O(t^{β(m−1)}). A geometric-progression rank-one locus has residual coordinates with triangular Jacobian one and a bounded-density chart giving matching lower power. The independent Gaussian radius has the required negative moments. Layer-cake gives E||H†||^p,Eκ^p finite exactly p<β(m−1), divergent including equality. Verified algebraic rank and covariance bounds independently; 808 finite exact/numeric checks do not prove probability asymptotics.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Theorem 1.1 independent-entry assumption (https://arxiv.org/abs/0802.3956)",
+          "Sections 1–2: proportional aspect ratio (https://arxiv.org/html/2412.17091v3)"
+        ],
+        "reasoning": "Onatski–Kargin arXiv:2412.17091v3 studies rows and columns diverging with positive aspect ratio; not the fixed two-row small-ball exponent or equality moments. Independent-entry rectangular Gaussian results do not cover dependent lagged samples.",
+        "searches": [
+          "Onatski Kargin 2412.17091 large random rectangular Toeplitz fixed rows versus proportional aspect ratio"
+        ]
+      },
+      "checked_sources": [
+        "The smallest singular value of a random rectangular matrix — https://arxiv.org/abs/0802.3956",
+        "The smallest singular value of large random rectangular Toeplitz and circulant matrices — https://arxiv.org/html/2412.17091v3",
+        "Fast and memory-efficient optimization for large-scale data-driven predictive control — https://arxiv.org/abs/2402.13090",
+        "Resultary semantic search: two-row overlapping Gaussian Hankel smallest singular value hard edge small ball pseudoinverse inverse moments real complex"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "Theorem 1.1 independent-entry assumption (https://arxiv.org/abs/0802.3956)",
+          "Sections 1–2: proportional aspect ratio (https://arxiv.org/html/2412.17091v3)"
+        ],
+        "reasoning": "Schmitz et al. arXiv:2402.13090 concerns data Hankel conditioning and computational control; Coulson–van Waarde–Dörfler arXiv:2205.06636 concerns robust persistent excitation; Lawrence et al. arXiv:2310.14098 considers increasing samples. Almost-sure full row rank does not imply integrable inverse singular values; none of the inspected theorem scopes mathematically implies the finite-m cutoff.",
+        "searches": [
+          "Hankel persistent excitation Lawrence Schmitz Schaller Voigt Worthmann inverse moments fixed two rows Gaussian"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Theorem 1.1 independent-entry assumption (https://arxiv.org/abs/0802.3956)",
+          "Sections 1–2: proportional aspect ratio (https://arxiv.org/html/2412.17091v3)"
+        ],
+        "reasoning": "Rank deficiency equals a geometric progression; column reversal is a Toeplitz alias, and projective tube probabilities rephrase the claim. Rudelson–Vershynin (arXiv:0802.3956, Theorem 1.1) requires independent matrix entries, violated by overlapping Hankel rows. No matching structured fixed-two-row moment theorem identified.",
+        "searches": [
+          "two-row overlapping Gaussian Hankel smallest singular value hard edge small ball pseudoinverse inverse moments real complex",
+          "two-row overlapping Gaussian Hankel smallest singular value hard edge small ball pseudoinverse inverse moments real complex"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "Theorem 1.1 independent-entry assumption (https://arxiv.org/abs/0802.3956)",
+          "Sections 1–2: proportional aspect ratio (https://arxiv.org/html/2412.17091v3)"
+        ],
+        "reasoning": "Resultary semantic search yielded unrelated matrix singular-value and two-row Kaczmarz findings, not a database value for the exact all-m, both-field inverse-moment cutoff; search absence is not a priority proof.",
+        "searches": [
+          "two-row overlapping Gaussian Hankel smallest singular value hard edge small ball pseudoinverse inverse moments real complex",
+          "two-row overlapping Gaussian Hankel smallest singular value hard edge small ball pseudoinverse inverse moments real complex"
+        ]
+      },
+      "rationale": "Independent statement/implication comparison including direct mathematical object parameters and available primary material: Rank deficiency equals a geometric progression; column reversal is a Toeplitz alias, and projective tube probabilities rephrase the claim. Rudelson–Vershynin (arXiv:0802.3956, Theorem 1.1) requires independent matrix entries, violated by overlapping Hankel rows. No matching structured fixed-two-row moment theorem identified. Schmitz et al. arXiv:2402.13090 concerns data Hankel conditioning and computational control; Coulson–van Waarde–Dörfler arXiv:2205.06636 concerns robust persistent excitation; Lawrence et al. arXiv:2310.14098 considers increasing samples. Almost-sure full row rank does not imply integrable inverse singular values; none of the inspected theorem scopes mathematically implies the finite-m cutoff.",
+      "residual_risks": [
+        "Unindexed dependent Gaussian matrix tube or inverse-autocovariance theorem may already imply the same threshold.",
+        "Fixed-m constants deteriorate and do not give a controller performance theorem."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Different class: overlapping rows violate entrywise independence",
+          "evidence": "Theorem 1.1 independent-entry assumption",
+          "identifier_or_url": "https://arxiv.org/abs/0802.3956",
+          "material_read": "Original accessible PDF, setup and Theorem 1.1 on independent entries",
+          "method": "Opened full PDF, checked theorem assumptions and page image",
+          "title": "The smallest singular value of a random rectangular matrix",
+          "trigger": "Possible dominating hard-edge theorem"
+        },
+        {
+          "assessment": "Different asymptotic: both dimensions diverge",
+          "evidence": "Sections 1–2: proportional aspect ratio",
+          "identifier_or_url": "https://arxiv.org/html/2412.17091v3",
+          "material_read": "Accessible HTML introduction and principal theorem regime",
+          "method": "Read original full-text main statements",
+          "title": "The smallest singular value of large random rectangular Toeplitz and circulant matrices",
+          "trigger": "Patterned Toeplitz alias"
+        },
+        {
+          "assessment": "No identified fixed-m inverse-moment statement; full-document noncoverage NOT claimed",
+          "evidence": "Hankel persistency and conditioning context",
+          "identifier_or_url": "https://arxiv.org/abs/2402.13090",
+          "material_read": "Abstract and cited Hankel setup, not a fresh full-page-to-end audit",
+          "method": "Compared source statements and definitions",
+          "title": "Fast and memory-efficient optimization for large-scale data-driven predictive control",
+          "trigger": "Original Hankel control motivation"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "rationale": "A finite-column, dependence-aware exact inverse-moment frontier for the smallest nontrivial Hankel input design; the real versus complex transition matters for quantitative conditioning, rather than merely almost-sure rank. Does not directly imply a closed-loop control bound.",
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "limitations": [
+    "Unindexed dependent Gaussian matrix tube or inverse-autocovariance theorem may already imply the same threshold.",
+    "Fixed-m constants deteriorate and do not give a controller performance theorem."
+  ],
+  "schema_version": 1
+}

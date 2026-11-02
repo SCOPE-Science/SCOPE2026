@@ -1,11 +1,21 @@
-# Scientific review: two-row Gaussian Hankel inverse moments
+# Independent mathematical audit
 
-**Correctness — PASS.** The proof identifies the uniformly surjective convolution map \(L_\theta\), computes the exact spectrum of \(L_\theta L_\theta^*\), and combines a projective-dimensional net with Beta-distributed spherical projection to obtain the upper exponent. The triangular residual chart about nonzero geometric sequences attains the same lower exponent over either field. Homogeneity, the inverse chi-radius moment, and layer-cake then establish the precise inverse-moment cutoff for both pseudoinverse and condition number. Exact-rational finite checks verify independent matrix algebra; no finite experiment is used as an infinite proof.
+## correctness
 
-**Originality — PASS (best knowledge).** The motivating 2024 DeePC solver paper [1] observes poor Hankel conditioning without a fixed-two-row Gaussian inverse-moment classification. The 2023 stochastic data-driven systems treatment [2] is about large-sample singular-value growth, and the quantitative-excitation paper [3] gives deterministic singular-value conditions. Classical independent-entry rectangular Gaussian estimates [4] require an entry-independence hypothesis violated by shifted Hankel rows; the 2024 random Toeplitz asymptotics [5] send the row count to infinity at a positive aspect ratio. The actual claim, including the real–complex exponent split and exact integral-moment frontier for dependent Hankel entries, was not found in these sources or targeted semantic records. Earlier geometric-structure hard-edge or inverse-autocovariance work may contain an equivalent statement and is a residual originality risk.
+PASS
 
-**Value — PASS.** Finite rank almost surely does not ensure finite expected data inversion amplification. At the first feasible number of columns a *real* Gaussian input Hankel matrix has infinite expected spectral pseudoinverse norm, and one surplus column is needed for a finite mean; the second moment needs two surplus columns. The proof quantitatively resolves this directly motivated data-conditioning question and distinguishes the complex case while keeping the overlapping design intact. This is an exact self-contained finite-sample threshold, not a claim of overall controller performance.
+The convolution map from m+1 Gaussian coordinates to a fixed row combination has all nonzero singular values uniformly bounded below: its Toeplitz Gram eigenvalues are 1+2|ab|cos(kπ/(m+1)), so the lower bound is 1−cos(π/(m+1))>0. Spherical small-ball probability for a fixed row direction is O(t^{βm}); a projective β-dimensional t-net yields O(t^{β(m−1)}). A geometric-progression rank-one locus has residual coordinates with triangular Jacobian one and a bounded-density chart giving matching lower power. The independent Gaussian radius has the required negative moments. Layer-cake gives E||H†||^p,Eκ^p finite exactly p<β(m−1), divergent including equality. Verified algebraic rank and covariance bounds independently; 808 finite exact/numeric checks do not prove probability asymptotics.
 
-**Closest comparisons and limits.** [1] arXiv:2402.13090 (Hankel conditioning problem); [2] arXiv:2310.14098 (large-sample stochastic inputs); [3] arXiv:2205.06636 (deterministic quantitative persistent excitation); [4] arXiv:0802.3956 (iid-entry small-ball bounds); [5] arXiv:2412.17091 (asymptotic Toeplitz setting, different dimensions). The proof covers fixed two-row independent Gaussian input sequences only, with constants depending on the number of columns. No sharp leading probability coefficient or closed-loop guarantee is asserted.
+## originality
 
-Self-review: passed. Independent audit: not yet performed.
+PASS
+
+Independent statement/implication comparison including direct mathematical object parameters and available primary material: Rank deficiency equals a geometric progression; column reversal is a Toeplitz alias, and projective tube probabilities rephrase the claim. Rudelson–Vershynin (arXiv:0802.3956, Theorem 1.1) requires independent matrix entries, violated by overlapping Hankel rows. No matching structured fixed-two-row moment theorem identified. Schmitz et al. arXiv:2402.13090 concerns data Hankel conditioning and computational control; Coulson–van Waarde–Dörfler arXiv:2205.06636 concerns robust persistent excitation; Lawrence et al. arXiv:2310.14098 considers increasing samples. Almost-sure full row rank does not imply integrable inverse singular values; none of the inspected theorem scopes mathematically implies the finite-m cutoff.
+
+## value
+
+PASS
+
+A finite-column, dependence-aware exact inverse-moment frontier for the smallest nontrivial Hankel input design; the real versus complex transition matters for quantitative conditioning, rather than merely almost-sure rank. Does not directly imply a closed-loop control bound.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
