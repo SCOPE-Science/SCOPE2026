@@ -1,0 +1,121 @@
+{
+  "audit_date_utc": "2026-10-30",
+  "audited_at_utc": "2026-10-30T04:56:27Z",
+  "axes": {
+    "correctness": {
+      "limitations": [
+        "Commutative unital coordinate cross algebra with pairwise products identically zero, arbitrary field normal form.",
+        "Finite-field formula valid for finite fields; brute checks use prime fields and are not the all-field proof."
+      ],
+      "rationale": "The maximal-ideal cotangent map is invertible. Pairwise-zero products force every long-branch row of its matrix to have at most one nonzero coefficient, while a short generator x_i^2=0 prohibits any long linear component; the block matrix has invertible GL_r short block and long monomial block. A long generator has a unique principal branch; power relations force an exponent-preserving permutation. The annihilator of x_j times a unit in k[x_j]/(x_j^{d_j}) is exactly k x_j^{d_j-1}; every off-principal component is therefore a socle scalar. Conversely the normal form respects all products/powers and invertible cotangent map implies automorphism by Nakayama. Counting free parameters over F_q yields |GL_r(q)| * product_e m_e! * (q-1)^s * q^(rs+s(n-1)+sum_{long}(d_i-2)); special all-short, all-long and n=1 boundaries are consistent.",
+      "status": "PASS",
+      "verification": "Independently implemented exhaustive image enumeration (not just reading source verifier) for q=2 (2,3),(2,2,3),(3,3),(2,3,3),(3,4) and q=3 (2,3), giving observed/predicted automorphism orders 8,192,32,512,32,108. Counted normal-form parameters in another 24 algebra cases. Inspected source artifacts/verify.py as evidence."
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Díaz/Lucchini Arteche/Manzano-Flores 2026 states a structural result for zero-dimensional monomial algebras over algebraically closed characteristic-zero fields.",
+          "The target gives explicit finite-field orders and arbitrary-field normal form; no finite-field count was identified in accessed abstract."
+        ],
+        "reasoning": "Strong broader characteristic-zero coverage is positive prior evidence. It does not directly supply finite-field counts over F_2/F_3 because its assumptions explicitly exclude positive characteristic; inaccessible full text remains a residual risk.",
+        "searches": [
+          "Resultary: mixed exponents truncated coordinate cross k[x_i]/(x_ix_j,x_i^di) automorphism group order finite fields",
+          "arXiv:2609.13741 abstract",
+          "arXiv:2408.02197 prior theorem"
+        ]
+      },
+      "checked_sources": [
+        "RESULT.md frozen blob 3587592a8c31d18bec83461fee6fc2ad5cc07aaa",
+        "artifacts/verify.py frozen blob b4bf30242139dcff6e4c51ac7771c8d05a07c875",
+        "Published Resultary/SCOPE uniform case: 2026/10/4/SCOPE-automorphisms-of-truncated-coordinate-cross-algebras-over-arbitr--625ba30274cb (full RESULT.md, 7970 bytes)",
+        "Díaz, Lucchini Arteche, Manzano-Flores, The structure of automorphism groups of zero-dimensional monomial algebras, arXiv:2609.13741 (abstract only)",
+        "arXiv:2408.02197; arXiv:2409.15081 (bibliographic background only)"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "A general char-0 structure theorem can imply that restricted characteristic-zero automorphism group, so original general-method novelty is not claimed.",
+          "Known uniform result follows algebraically from the mixed statement by setting all lengths equal; reverse implication does not determine mixed branch-length permutation or GL_r-to-long maps."
+        ],
+        "reasoning": "The new generalization is logically more general on the natural family across varying lengths and over finite fields; it is not just substitution into the uniform formula. The inaccessible broader paper leaves exact priority qualified.",
+        "searches": [
+          "Resultary: mixed exponents truncated coordinate cross k[x_i]/(x_ix_j,x_i^di) automorphism group order finite fields",
+          "arXiv:2609.13741 general group structure",
+          "published uniform coordinate-cross article"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Full published uniform-exponent result proves GL_n when all d_i=2 and n!(q-1)^n q^{n(n+d-3)} when d_i=d>=3.",
+          "The mixed result becomes exactly this when d_i all equal but has additional mixed short/long parameters."
+        ],
+        "reasoning": "Uniform result is a special case, not an equivalent formulation for unequal d_i. General monomial-algebra char-0 papers may subsume the characteristic-zero slice and are expressly credited.",
+        "searches": [
+          "Resultary: mixed exponents truncated coordinate cross k[x_i]/(x_ix_j,x_i^di) automorphism group order finite fields",
+          "Resultary: 2026/10/4/SCOPE-automorphisms-of-truncated-coordinate-cross-algebras-over-arbitr--625ba30274cb",
+          "arXiv:2609.13741"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "Published uniform formula checks the special n/d slices, but does not have the length-multiplicity product or q^(rs) mixing term.",
+          "Independent direct finite-field enumerations for mixed (2,3),(2,2,3),(3,3),(2,3,3),(3,4) agree with the derived formula."
+        ],
+        "reasoning": "Exact all-length-vector group-order table is not present in inspected uniform primary file; local finite enumeration is verification of the new formula, not evidence of global novelty.",
+        "searches": [
+          "Resultary: mixed exponents truncated coordinate cross k[x_i]/(x_ix_j,x_i^di) automorphism group order finite fields",
+          "Published Resultary 2026/10/4 uniform RESULT.md",
+          "finite-field order mixed length vectors"
+        ]
+      },
+      "rationale": "The mixed branch-length theorem generalizes an already published uniform-length result; its distinguishing content is arbitrary-length splitting, square-zero GL_r block, mixed shears and exact counts in all finite characteristics. The general characteristic-zero theory is acknowledged as strong coverage of its char-0 specialization.",
+      "residual_risks": [
+        "General characteristic-zero monomial-algebra automorphism structure already strongly covers char-0 specialization; no independent novelty is claimed there.",
+        "Complete text of arXiv:2609.13741 was unavailable via primary open-access endpoints, so its possible specialization/positive-characteristic variants were not excluded.",
+        "Older work on Artinian fiber products or coordinate-axis schemes could imply the same arbitrary-field normal form."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Exactly covers all-uniform parameters, not a theorem for arbitrary mixed d_i; generalized characteristic-free normal form remains assessed addition.",
+          "evidence": "For d=2 Aut=GL_n; for d>=3 Aut= k^{n(n-1)}⋊(J_d^n⋊S_n), all branches equal length.",
+          "identifier_or_url": "https://github.com/Resultary/2026/blob/main/2026/10/4/SCOPE-automorphisms-of-truncated-coordinate-cross-algebras-over-arbitr--625ba30274cb/RESULT.md",
+          "material_read": "Complete published RESULT.md read, including normal form, proof by cotangent monomial map, and finite-field order n!(q-1)^n q^{n(n+d-3)}.",
+          "method": "Connected public GitHub read-only file retrieval",
+          "title": "Automorphisms of truncated coordinate-cross algebras over arbitrary fields",
+          "trigger": "Exact uniform-exponent predecessor, potential special-case duplication"
+        },
+        {
+          "assessment": "Clearly relevant general theorem over algebraically closed characteristic zero; cannot make whole-text noncoverage conclusion or claim char-0 independent novelty.",
+          "evidence": "Abstract describes automorphism structure of arbitrary zero-dimensional monomial algebras over algebraically closed characteristic zero.",
+          "identifier_or_url": "arXiv:2609.13741",
+          "material_read": "Accessible arXiv bibliographic page and abstract, not full original paper; lawful open-access/preprint attempts did not yield full text.",
+          "method": "Public primary abstract/bibliography; full text inaccessible",
+          "title": "The structure of automorphism groups of zero-dimensional monomial algebras",
+          "trigger": "General family including these zero-dimensional monomial algebras could dominate the char-0 case"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "rationale": "The automorphism group of a natural finite-dimensional coordinate-cross algebra is a structural invariant useful for moduli and algebra classification; mixed lengths create a mathematically genuine block action of the square-zero branches and length-filtered branch permutations. A complete formula for every finite-field order is a natural nontrivial invariant, beyond the equal-length case.",
+      "status": "PASS"
+    }
+  },
+  "checked_sources": [
+    "RESULT.md frozen blob 3587592a8c31d18bec83461fee6fc2ad5cc07aaa",
+    "artifacts/verify.py frozen blob b4bf30242139dcff6e4c51ac7771c8d05a07c875",
+    "Published Resultary/SCOPE uniform case: 2026/10/4/SCOPE-automorphisms-of-truncated-coordinate-cross-algebras-over-arbitr--625ba30274cb (full RESULT.md, 7970 bytes)",
+    "Díaz, Lucchini Arteche, Manzano-Flores, The structure of automorphism groups of zero-dimensional monomial algebras, arXiv:2609.13741 (abstract only)",
+    "arXiv:2408.02197; arXiv:2409.15081 (bibliographic background only)"
+  ],
+  "disposition": "passed",
+  "limitations": [
+    "General char-0 monomial theory likely implies the char-0 specialization.",
+    "No extension to arbitrary monomial ideals or noncommutative algebras; all k arbitrary, q finite prime powers only for cardinality."
+  ],
+  "residual_risks": [
+    "General characteristic-zero monomial-algebra automorphism structure already strongly covers char-0 specialization; no independent novelty is claimed there.",
+    "Complete text of arXiv:2609.13741 was unavailable via primary open-access endpoints, so its possible specialization/positive-characteristic variants were not excluded.",
+    "Older work on Artinian fiber products or coordinate-axis schemes could imply the same arbitrary-field normal form."
+  ],
+  "schema_version": 1
+}

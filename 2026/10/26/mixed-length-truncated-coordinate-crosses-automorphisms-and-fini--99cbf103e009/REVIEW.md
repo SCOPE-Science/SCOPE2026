@@ -1,15 +1,21 @@
-## Correctness
+# Independent mathematical audit
 
-PASS. The cotangent map separates square-zero branches from longer branches. The longer-branch block is monomial; nilpotency forces its permutation to preserve branch lengths. The annihilator of a valuation-one element in \(k[x]/(x^d)\) is exactly the one-dimensional socle, giving the unique off-principal terms. The finite-field count multiplies independent parameters in the normal form.
+## correctness
 
-## Originality
+PASS
 
-PASS with residual risk. The closest family-specific result treats equal branch lengths and is recovered as the specialization \(d_i=d\). published-finding corpus searches for unequal nilpotency indices, mixed branch lengths, fiber-product aliases, and positive-characteristic monomial-algebra automorphisms returned no statement of the mixed-length formula. General characteristic-zero monomial-algebra theory may cover the characteristic-zero specialization, but it does not establish the stated arbitrary-field result in the accessible material.
+The maximal-ideal cotangent map is invertible. Pairwise-zero products force every long-branch row of its matrix to have at most one nonzero coefficient, while a short generator x_i^2=0 prohibits any long linear component; the block matrix has invertible GL_r short block and long monomial block. A long generator has a unique principal branch; power relations force an exponent-preserving permutation. The annihilator of x_j times a unit in k[x_j]/(x_j^{d_j}) is exactly k x_j^{d_j-1}; every off-principal component is therefore a socle scalar. Conversely the normal form respects all products/powers and invertible cotangent map implies automorphism by Nakayama. Counting free parameters over F_q yields |GL_r(q)| * product_e m_e! * (q-1)^s * q^(rs+s(n-1)+sum_{long}(d_i-2)); special all-short, all-long and n=1 boundaries are consistent.
 
-## Value
+## originality
 
-PASS. Unequal branch lengths are the natural fiber-product generalization of the uniform truncated coordinate-cross family. The complete normal form identifies exactly how square-zero branches contribute a \(\operatorname{GL}_r\) block and how longer branches contribute exponent-preserving permutations, principal substitutions, and socle shears; the formula yields exact finite-field group orders for all length vectors.
+PASS
 
-Closest literature: arXiv:2609.13741v1, *The structure of automorphism groups of zero-dimensional monomial algebras*; and the uniform-exponent coordinate-cross result cited in `RESULT.md`. Limitations and access risks are stated in `RESULT.md` and `AUDIT.json`.
+The mixed branch-length theorem generalizes an already published uniform-length result; its distinguishing content is arbitrary-length splitting, square-zero GL_r block, mixed shears and exact counts in all finite characteristics. The general characteristic-zero theory is acknowledged as strong coverage of its char-0 specialization.
 
-Self-review: passed. Independent audit: not yet performed.
+## value
+
+PASS
+
+The automorphism group of a natural finite-dimensional coordinate-cross algebra is a structural invariant useful for moduli and algebra classification; mixed lengths create a mathematically genuine block action of the square-zero branches and length-filtered branch permutations. A complete formula for every finite-field order is a natural nontrivial invariant, beyond the equal-length case.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
