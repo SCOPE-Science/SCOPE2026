@@ -1,18 +1,21 @@
-# Scientific review: near-circle long-chord crossover
+# Independent mathematical audit
 
-## Correctness — PASS
-The diameter equals the maximum directional width, exactly \(2+\delta M\). An implicit-function calculation at two transverse intersections of a near-circular support boundary proves a uniform chord expansion for \(|t|=O(\sqrt\varepsilon)\). Concentric disk bounds localize all relevant lines, and dominated convergence gives the stated angular profile. Strict monotonicity and far-profile coefficients follow from positive integrands and explicit quadratic rescaling near angular maxima. Nonelliptic numerical line clipping and independently computed ellipse chords provide checks, not infinite proofs.
+## correctness
 
-## Originality — PASS within inspected evidence
-The final mathematical claim concerns a **joint** near-circle and long-chord limit for an arbitrary smooth support perturbation. Gates (1987) studies fixed-body terminal densities, and is the closest historical risk: only its abstract could be inspected, so no definitive noncoverage or priority is claimed. Bäsel's full regular-polygon distribution and the quadrilateral literature concern fixed nonsmooth shapes; the two own near-neighbor claims address either spatial octahedron chords with fixed orientation or pairwise distances of uniform interior points, and do not imply this crossover. The verified external searches and overlap objects are recorded in AUDIT.json.
+PASS
 
-## Value — PASS
-The theorem resolves a natural singular change of long-chord behavior as a disk becomes anisotropic: its finite parameter crossover is a universal functional of the antipodal even support perturbation. It gives a necessary geometric reason why odd harmonics disappear to first order and yields a curvature-controlled far-crossover coefficient for nondegenerate longest directions. The statement is broader than the elementary ellipse test and mathematically motivated by the discontinuity between circular and isolated-direction upper tails.
+For fixed C³ periodic f, support function h_delta(theta)=1+delta f(theta) yields for small delta>=0 a strictly convex C² boundary. Diameter D_delta=max_u[h(u)+h(-u)]=2+delta M, M=max H(theta), H=f(theta)+f(theta+pi). Uniform implicit-function boundary intersections near central offsets t=0 give L_delta(theta,t)=2-t²+delta H(theta)+O_f(t⁴+delta |t|+delta²) at all angles. When epsilon->0 and delta/epsilon->finite x, comparison to enclosing concentric disks localizes L>D−epsilon to |t|=O(sqrt epsilon); normalized indicator tends to z²+x(M−H(theta))<1. The Crofton line normalization is P_delta->2pi; dominated convergence produces G_f(x)=pi^(-1) integral sqrt((1−xDelta(theta))_+) dtheta. For constant H, G=1; for nonconstant continuous H it is strictly decreasing; isolated nondegenerate maxima yield G(x)~(2 sqrt x)^(-1) sum sqrt(2/(-H(theta_j))). Independently checked exact ellipse chord integral against G(x) for x=0,.5,1,3,12 at epsilon=1e-4 (differences <1.3e-4). This is only a finite x double-limit theorem; no uniform assertion for diverging delta/epsilon.
 
-## Closest literature and residual risks
-Gates, *Some properties of chord length distributions* (1987), has an explicitly relevant extreme-density abstract; its full text was inaccessible and remains a genuine priority risk. Bäsel, arXiv:1204.2707, was read in full and proves fixed regular-polygon CDFs; Martirosyan (2023) and Gečiauskas (1967) address related chord statistics in other scopes, with limited accessible material. Neither a search miss nor a partitioned database establishes independence or historical novelty. No claim about fixed-shape terminal densities is treated as new.
+## originality
 
-## Limits
-Only support functions \(1+\delta f\) with fixed smooth \(f\), finite limiting \(\delta/\varepsilon\), and motion-invariant line sampling are included in the main theorem. The large-argument formula applies to the limiting crossover and assumes isolated nondegenerate maxima. The independently unreviewed state is explicitly retained.
+PASS
 
-Self-review: passed. Independent audit: not yet performed.
+Gates 1987 studies endpoint densities of chord-length distributions of fixed planar convex bodies and their smooth/polygon contrast, not the coupled perturbation delta/epsilon->x with a general support function. Bäsel 2012 gives explicit fixed regular-polygon chord laws; Martirosyan 2023 covers quadrilateral orientation-dependent chords. None of the inspected available statements supplies this near-circle crossover profile or its antipodal-width dependence. Gates full text remains inaccessible (Oxford VPN disconnected), so best-of-knowledge PASS qualified by nontrivial priority risk; fixed-shape density novelty is expressly disclaimed.
+
+## value
+
+PASS
+
+A natural singular perturbation of the circle links two distinct long-chord exponents/length scales in a universal crossover profile. The profile isolates antipodal-even support perturbation, identifies constant-width exceptional cases and quantifies how anisotropic maxima split the long-chord directions. The exact regime interpolation is useful beyond fixed-body endpoint computations, with nontrivial orientation statistics.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
