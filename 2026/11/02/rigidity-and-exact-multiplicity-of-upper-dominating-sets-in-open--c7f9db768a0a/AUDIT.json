@@ -1,0 +1,124 @@
+{
+  "correctness": {
+    "rationale": "A private-neighbor injection using the vertical perfect matching bounds every minimal dominating set by n. For equality, full columns and empty columns are equinumerous; all 2k vertices in full columns need distinct outside private neighbors, which exhaust the 2k vertices in empty columns. This forbids adjacency to singleton columns and forces one unlike edge per column in the full/empty case, hence the unique path perfect matching and exactly two even-n words. In the singleton case private-neighbor viability forces period-two row choices, yielding exactly four words. Each word is directly shown minimal dominating. Independent exhaustive brute-force comparison for n=2..10 and all-subset total checks through n=9 passed; these support but do not replace the proof.",
+    "status": "PASS"
+  },
+  "independent": false,
+  "independent_audit_status": "not_performed",
+  "originality": {
+    "broader_coverage": {
+      "evidence": [
+        "Sahbi, arXiv:2610.03785, Theorem 3.1 proves Γ(P_m square P_n)=ceil(mn/2) but does not classify equality cases.",
+        "Goddard and Henning, Domination Parameters and Added Matchings (2025), Theorem 12 matching bound Γ(G)+α′(G)≤|V(G)| as reported by Sahbi; the accessible author-PDF search excerpt addresses the bound, not ladder equality cases.",
+        "Cockayne et al. (1981), bipartite Γ=α as cited and used in Sahbi; no classification of every maximizing minimal set for ladder graphs was located."
+      ],
+      "reasoning": "The general bipartite upper-domination equality implies the cardinality n but is strictly weaker than specifying the family of all equality sets. The general matching injection is reconstructed here and its equality cases analyzed by rung occupancy and private neighbors. No inspected general theorem provides the exact six-word rigidity as a corollary without an additional, substantive equality analysis.",
+      "searches": [
+        "Cardinality generating polynomial of inclusionwise minimal dominating sets of ladder graph, maximum coefficient, upper domination number",
+        "\"minimal domination polynomial\" \"ladder graph\" bivariate polynomial",
+        "\"upper domination\" \"ladder\" \"number of\" maximum minimal dominating sets",
+        "\"maximum minimal dominating sets\" \"ladder\" enumeration"
+      ]
+    },
+    "checked_sources": [
+      "https://arxiv.org/abs/2610.03785 (accessible full HTML, §§1–5)",
+      "https://oeis.org/A290379 (full entry)",
+      "https://pure.uj.ac.za/en/publications/domination-parameters-and-added-matchings/ (metadata/abstract)",
+      "https://doi.org/10.1007/s00010-025-01196-z (bibliographic identification)"
+    ],
+    "claim_vs_prior_implication": {
+      "evidence": [
+        "Sahbi (2026) obtains Γ=n for width-two grids, not the number or positions of all Γ-sets.",
+        "OEIS A290379 reports all minimal domination sets but no size-refined top coefficient or extremal geometry.",
+        "Closest published mathematical result, titled \"Parity-twisted square-pair representation of total three-cut ladder homology\", concerns a ladder homology representation, not domination.",
+        "Earlier independent studies on open-ladder P3-convexity and forts concern different predicates, and the circular-prism 1-limited-domination record concerns a different graph boundary and domination rule."
+      ],
+      "reasoning": "The new statement strictly refines Γ=n: it exhibits all maximizers (four for odd widths, six for even), including non-independent configurations that cannot be deduced from the two checkerboard witnesses alone. The older total-count formula is not size-refined. Neither earlier statement implies the positional list or the parity correction. A general theorem not found by available searches could still imply the claim.",
+      "searches": [
+        "Open 2 x n ladder graph P_2 square P_n: OEIS A290379 gives total minimal dominating sets, but classify extremal size n, four patterns if n odd and six if n even (two all-row, two checkerboards, two alternating full and empty pairs). Is this exact extremal classification known?",
+        "\"P_2\\square P_n\" \"maximum minimal dominating sets\"",
+        "\"ladder graph\" \"upper domination\" \"extremal\" sets"
+      ]
+    },
+    "equivalent_formulations": {
+      "evidence": [
+        "Sahbi, arXiv:2610.03785, full HTML Theorem 3.1 and §3: upper domination number, not equality-set classification.",
+        "OEIS A290379, full entry, gives scalar counts of all minimal dominating sets but not maximal-layer sets.",
+        "Closest public research results searched include the chain-graph minimum perfect-domination finding and the ladder three-cut-homology finding; neither concerns maximum-cardinality ordinary minimal domination on open ladders."
+      ],
+      "reasoning": "Equivalent aliases include upper dominating sets, maximal-size minimal dominating sets, maximum irredundant dominating configurations, and the highest-degree coefficient of the minimal domination polynomial. The inspected same-graph sources determine only the maximum size or the all-size total, not the four/six extremal words. Semantic search of published records returned other domination variants and unrelated ladder homology, without a matching implication.",
+      "searches": [
+        "Exact number of maximum-cardinality minimal dominating sets (upper domination sets) of open ladder graphs P_2 square P_n, parity four for odd n six for even n; classify size-n minimal dominating configurations",
+        "Upper domination extremal sets in ladder graphs: complete classification all maximum minimal dominating sets row, bipartite checkerboard and alternating full/empty rung pairs; exactly 4 for odd n, 6 for even n",
+        "\"upper domination\" ladder \"six\" \"four\" minimum sets",
+        "\"P_2\" \"P_n\" \"upper domination\" \"minimal dominating\" number"
+      ]
+    },
+    "exact_database_or_table": {
+      "evidence": [
+        "OEIS A290379 has sequence 2, 6, 7, 18, 39, 75, 155, 310, 638,... and a scalar order-11 recurrence attributed to A. Howroyd (2017).",
+        "That sequence aggregates all inclusion-minimal dominating sets, irrespective of their cardinality; the present count is the coefficient of the maximal-cardinality layer."
+      ],
+      "reasoning": "An existing scalar all-size total is not an exact table of the maximum-size layer; its recurrence does not directly determine any individual size coefficient. Exhaustive independent counts for n=2..10 and matching of scalar totals for n=1..9 provide consistency without treating data search as proof of novelty.",
+      "searches": [
+        "\"minimal dominating sets\" \"ladder graph\" number maximal",
+        "\"number of upper dominating sets\" \"ladder\" parity",
+        "\"minimal domination polynomial\" \"ladder graph\" bivariate polynomial",
+        "OEIS A290379 number of minimal dominating sets in the n-ladder graph"
+      ]
+    },
+    "rationale": "A natural complete equality-case classification for the newly highlighted upper domination parameter on open ladders: prior Γ=n and known unweighted totals do not themselves imply the four/six extremal-set count or the non-independent parity families. Search and full accessible same-object source comparisons found no dominating theorem; priority risk remains.",
+    "residual_risks": [
+      "The general matching-bound primary full text could not be retrieved as a complete readable PDF in this run; known explicit theorem covers only the inequality, but further equality analyses may exist.",
+      "Unindexed older extremal-domination work or an implicit specialization of a general structural theorem might subsume the classification. Search absence is not priority proof.",
+      "OEIS A290379 gives a same-object aggregate count, but not the cardinality layer or its classified representatives."
+    ],
+    "source_inspections": [
+      {
+        "assessment": "The known value Γ(L_n)=n is covered; extremal-set enumeration and word classification are not in the examined statement.",
+        "evidence": [
+          "Theorem 3.1 gives Γ(P_m square P_n)=ceil(mn/2).",
+          "Theorem 3.1 uses bipartite equality and a matching bound, not a private-neighbor equality classification."
+        ],
+        "identifier_or_url": "https://arxiv.org/abs/2610.03785",
+        "material_read": "Complete accessible HTML, introduction and Sections 2–5, notably Theorem 3.1 and proofs.",
+        "method": "Read full arXiv abstract/full HTML and compare theorem hypotheses, conclusion, and proofs.",
+        "title": "Upper Domination in Rectangular Grid Graphs and Its Relation to Sub-Quorum Colorings",
+        "trigger": "Identical domination parameter on an encompassing family of rectangular grids."
+      },
+      {
+        "assessment": "Known totals are not the maximum-cardinality multiplicity. This same-object source is credited and used as a finite numerical cross-check.",
+        "evidence": [
+          "Unweighted totals 2,6,7,18,39,75,155,310,638 for n=1..9.",
+          "A 2017 scalar order-11 recurrence, with no cardinality refinement stated."
+        ],
+        "identifier_or_url": "https://oeis.org/A290379",
+        "material_read": "Full accessible entry including definition, initial terms, recurrence, ordinary generating function, related references and date.",
+        "method": "Compared sequence indexing and generating function target to maximum-size coefficient and structural set list.",
+        "title": "OEIS A290379 — Number of minimal dominating sets in the n-ladder graph",
+        "trigger": "Exactly the same ladder graphs and minimal domination predicate, summed over cardinality."
+      },
+      {
+        "assessment": "The bound Γ+α′≤|V| covers the n upper bound but not, from material available, equality-set enumeration. Full-text limitation is retained as a risk.",
+        "evidence": [
+          "Theorem 12 indexed excerpt states Γ(G)+α′(G)≤|V(G)|.",
+          "Sahbi cites the bound as an alternative proof of exact grid upper domination."
+        ],
+        "identifier_or_url": "https://doi.org/10.1007/s00010-025-01196-z",
+        "material_read": "Accessible institutional publication metadata, abstract, and author-PDF indexed excerpt of Theorem 12; direct full PDF unavailable through current web retrieval.",
+        "method": "Compared the explicit matching inequality and available proof excerpt to the ladder-specific equality classification; relied on Sahbi citation for its use.",
+        "title": "Domination Parameters and Added Matchings",
+        "trigger": "General matching upper bound that could conceivably imply the extremal family."
+      }
+    ],
+    "status": "PASS"
+  },
+  "review_type": "self_review",
+  "schema_version": 1,
+  "scope_run_id": "c7f9db76-8a0a-4898-857b-4b9aaa08a477",
+  "self_review_status": "passed",
+  "value": {
+    "rationale": "A motivated complete classification of maximum inclusion-minimal dominating sets of every open ladder: the bipartite equality Γ=α explains only the size and checkerboard witnesses, whereas the theorem identifies all non-independent maximizers and a sharp odd/even change in their count. It provides the exact extremal coefficient of the minimal-domination size enumerator, useful for upper-domination benchmark instances and understanding equality in the matching bound, without artificial parameter choices.",
+    "status": "PASS"
+  }
+}
