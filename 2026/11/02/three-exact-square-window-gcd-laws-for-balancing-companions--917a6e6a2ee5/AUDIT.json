@@ -1,0 +1,124 @@
+{
+  "correctness": {
+    "rationale": "The proof reduces each infinite gcd to the initial window and the exact gcd of all window differences using strong divisibility of B. The square and sum identities are verified by recurrence; modular arithmetic at 2, the lifting rule nu_3(B_{2m})=1+nu_3(m), and ordinary odd-prime comparison reconstruct all valuations with no finite-to-infinite inference. The package checker independently computes 25 windows per length for each of 300 lengths, and checks initial sums and difference reductions.",
+    "status": "PASS"
+  },
+  "independent": false,
+  "independent_audit_status": "not_performed",
+  "originality": {
+    "broader_coverage": {
+      "evidence": [
+        "Mbirika--Spilker (2022), arXiv:2204.12626, states the generalization for coefficient-one generalized Fibonacci recurrence, not the balancing recurrence (coefficient six).",
+        "Fiebig--Mbirika--Spilker (2024), arXiv:2408.14632, sections 2-4 and the table of contents concern modular periods, entry points, orders and palindrome properties rather than squares-window GCDs.",
+        "A publicly posted 2024 CV names an in-preparation manuscript with nearly the same square-window GCD topic; the paper itself was not found as publicly inspectable full text."
+      ],
+      "reasoning": "A completely general Lucas-sequence square-window-GCD theorem might subsume the result, but none was identified in the inspected primary texts and bibliographic searches. Companion identities and sequence divisibility are prior tools, not claims of independent novelty. The reported in-preparation manuscript is a serious unresolved overlap risk.",
+      "searches": [
+        "GCD of sums k consecutive squares generalized Fibonacci recurrence coefficient 6 2022 2023",
+        "arXiv:2204.12626",
+        "arXiv:2408.14632",
+        "Mbirika Schrader Spilker squares balancing 2025 2026 gcd"
+      ]
+    },
+    "checked_sources": [
+      "arXiv:2301.05758 (primary PDF, relevant sections)",
+      "arXiv:2204.12626 (primary PDF, first two sections)",
+      "arXiv:2408.14632 (primary PDF, relevant sections, text search)",
+      "2024 Janee Schrader CV (bibliographic excerpt)",
+      "OEIS sequence IDs A001109, A001541, A002315 (sequence identity context)"
+    ],
+    "claim_vs_prior_implication": {
+      "evidence": [
+        "The 2023 paper proves first-power window GCDs but explicitly asks Question 30 about squared balancing, Lucas-balancing, cobalancing and Lucas-cobalancing sequences; its two square-window proportionalities are identified as computational observations.",
+        "The 2022 paper's square-window formula is for the recurrence G_(n+2)=G_(n+1)+G_n, not coefficient six or the c sequence.",
+        "The 2024 period paper supplies general Lucas modular identities but no square-window invariant statement in examined sections."
+      ],
+      "reasoning": "First-power GCDs do not determine squared-window GCDs; a different recurrence or modular period formula requires a nontrivial new step to imply the current theorem. Those steps are established here by exact window-difference identities and prime valuations, not by rephrasing the older statement.",
+      "searches": [
+        "arXiv:2301.05758 Section 6.1 Question 30",
+        "arXiv:2204.12626 Theorem 3.11 generalized Fibonacci square gcd",
+        "arXiv:2408.14632 order entry point gcd balancing",
+        "Pell associated Pell braid square gcd formula balancing Mbirika Schrader Spilker 2024 2025"
+      ]
+    },
+    "equivalent_formulations": {
+      "evidence": [
+        "Mbirika--Schrader--Spilker, arXiv:2301.05758, Section 6.1 (Question 30) presents the B²/C² and c²/C² relationships as observed from Mathematica, not proven; no C²(k)=gcd(k,B_k) there.",
+        "The new exact identities imply those observations for all k using strong divisibility and explicit 2/3-adic valuations."
+      ],
+      "reasoning": "Equivalence searched through the displayed original notation B^2(k), C^2(k), c^2(k), their verbal descriptions, and the shared index gcd(k,B_k). The observations themselves are not new; turning them into theorems along with an index-gcd evaluation is the claimed advance.",
+      "searches": [
+        "GCD sums k consecutive squares Lucas balancing C_n c_n and balancing B_n exact gcd(k,B_k) 2023 Mbirika Schrader Spilker",
+        "\"gcd(k,B_k)\" \"Lucas-balancing\" squares",
+        "\"B²(k)\" \"C²(k)\" \"c²(k)\" gcd square balancing sequence",
+        "arXiv:2301.05758, Question 30"
+      ]
+    },
+    "exact_database_or_table": {
+      "evidence": [
+        "The 2023 source prints experimental proportionality rules without an all-k formula for C²(k) or an exhaustive evaluated table.",
+        "Relevant OEIS-linked balancing sequences A001109, A001541, A002315 identify sequence values, not the full three-square-window GCD theorem.",
+        "Standalone exact calculations for k=1,...,300 agree with the symbolic identities."
+      ],
+      "reasoning": "A finite list of sample values or an OEIS record for the underlying recurrence would not imply the uniform index-GCD formula or establish the two infinite proposed relationships. No direct exact theorem/table covering the statement was located.",
+      "searches": [
+        "Lucas-balancing squares gcd of consecutive sums table sequence OEIS",
+        "GCD sums of squared Pell balancing related numbers tables",
+        "GCD of sums k consecutive squares of balancing cobalancing exact formula"
+      ]
+    },
+    "rationale": "In the publicly inspected 2023 Question 30, two relations were proposed only experimentally and the exact index gcd D_C(k)=gcd(k,B_k) was not stated. The 2022 coefficient-one square-window results and 2024 modular-period results do not directly imply the explicit coefficient-six identities. The 2024 in-preparation manuscript notice is a serious unresolved bibliographic risk, disclosed without pretending to read it.",
+    "residual_risks": [
+      "A 2024 CV lists a seemingly directly related manuscript 'in preparation' by the original authors; no publicly inspectable copy was identified, and it may overlap or supersede these formulas.",
+      "Published generalized Lucas square-window identities not located by the bounded searches could imply the result.",
+      "The 2023 empirical proportionality observations are explicitly prior work; only their proof and the common index-gcd law are novel as claimed."
+    ],
+    "source_inspections": [
+      {
+        "assessment": "Contains numerical observations about two of the three relationships and explicitly leaves their proof, common index formula and the fourth family to future work.",
+        "evidence": "Definition 6-7 on PDF page 5; Section 6.1 / Question 30 on PDF page 22.",
+        "identifier_or_url": "https://cs.uwaterloo.ca/journals/JIS/VOL26/Mbirika/mbir5.pdf",
+        "material_read": "PDF pages 1-7 (definitions, identities), 19-23 (prior gcd theorem and Question 30), with original page image and searchable text.",
+        "method": "Inspected primary full-text sections and mathematical formulas, not an abstract-only comparison.",
+        "title": "Pell and Associated Pell Braid Sequences as GCDs of Sums of k Consecutive Pell, Balancing, and Related Numbers",
+        "trigger": "Same sequences, exact question 30 and proposed square-window relations."
+      },
+      {
+        "assessment": "No direct theorem for coefficient-six balancing recurrence or the Lucas-cobalancing sequence; general techniques may nonetheless be reusable.",
+        "evidence": "Opening definitions and Table 2 on PDF pages 1-2.",
+        "identifier_or_url": "https://arxiv.org/pdf/2204.12626",
+        "material_read": "PDF pages 1-3, particularly definitions and Table 2 with the exact recurrence G_(n+2)=G_(n+1)+G_n.",
+        "method": "Inspected primary arXiv full-text opening theorem statements and rendered the main result table.",
+        "title": "GCD of sums of k consecutive squares of generalized Fibonacci numbers",
+        "trigger": "Broader square-window GCD theorem for related second-order recurrences."
+      },
+      {
+        "assessment": "Focuses on modular periods, entry points, order and palindromes; no square-window GCD statement was located. No claim of whole-document proof of absence is made.",
+        "evidence": "Introduction/table of contents and modular-statistics theorems.",
+        "identifier_or_url": "https://arxiv.org/pdf/2408.14632",
+        "material_read": "PDF table of contents, abstract, introduction, Lucas identities; full-document text searches for 'consecutive squares' and 'gcd of sums'.",
+        "method": "Read primary arXiv article sections 1-2 and searched full indexed text, inspecting rendered page 2.",
+        "title": "Period patterns, entry points, and orders in the Lucas sequences: theory and applications",
+        "trigger": "Later research by overlapping authors on Lucas sequence order and divisibility."
+      },
+      {
+        "assessment": "High-priority residual overlap risk: announced work may cover this result; listing cannot itself determine theorem content.",
+        "evidence": "In-preparation entry: 'GCDs of sums of k consecutive squares of Pell, balancing, and related numbers via p-adic valuation and other techniques.'",
+        "identifier_or_url": "https://math.as.uky.edu/sites/default/files/cv/Updated_9_18_24___CV%20%281%29.pdf",
+        "material_read": "Search excerpt containing research papers in preparation, rather than inaccessible manuscript itself.",
+        "method": "Compared bibliographic listing and attempted exact-title and author searches; no publicly verifiable manuscript full text identified.",
+        "title": "Janee Schrader curriculum vitae, September 2024",
+        "trigger": "A same-authors in-preparation paper title matching consecutive squared balancing terms."
+      }
+    ],
+    "status": "PASS"
+  },
+  "review_type": "self_review",
+  "schema_version": 1,
+  "scope_run_id": "917a6e6a-2ee5-405d-bfd2-241d34cae11d",
+  "self_review_status": "passed",
+  "value": {
+    "rationale": "A published question asks for explicit square-window GCDs of four connected recurrence sequences. These identities determine three complete infinite families by a common finite arithmetic invariant and prove two previously merely observed equalities, using nontrivial two- and three-adic phenomena. This is a mathematically motivated partial resolution with explicit scope; it does not claim to solve the fourth family or the independent index-divisibility problem.",
+    "status": "PASS"
+  }
+}
