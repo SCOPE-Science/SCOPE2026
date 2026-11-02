@@ -1,0 +1,129 @@
+{
+  "correctness": {
+    "rationale": "For every k>=2 and kappa>1, the exact Gaussian-KL formula is (2/k)KL=mh-1-log(h)-ell. Direct differentiation gives F_tt=2S/(k^2 t^3)+R^2/(Rt+1)^2-(k-1)/(kt^2). Cauchy SR>=(k-1)^2 and AM-GM imply the strictly positive factor a(1-a^(1/3))(2a^(2/3)+2a^(1/3)-1), a=(k-1)/k>=1/2, so maxima on [1,kappa]^k have only endpoints. Formula H follows by substitution. A strictly convex first derivative with opposite endpoint signs has one zero, giving a unique continuous optimum; endpoint lattice and two asymptotic expansions prove the rest. The packaged verifier independently passed 6987 supplementary tests, including 2600 exact rational curvature calculations. Finite tests are not treated as an infinite proof.",
+    "status": "PASS"
+  },
+  "independent": false,
+  "independent_audit_status": "not_performed",
+  "originality": {
+    "broader_coverage": {
+      "evidence": [
+        "Fifen et al., arxiv:2609.10080v1, Section 4.4, Theorem 13, bound 0.5*(kappa-1)^2; classical Kantorovich mean-product relation; published-finding corpus 2026/10/4/SCOPE-spectral-calibration-frontier-for-bagged-martingale-posterior-el--93780f48a968"
+      ],
+      "reasoning": "Theorem 13 covers the same SPD covariance class but gives only a weaker universal upper value, not the exact maximum or attainments. Generic mean-product inequalities can improve asymptotic order but do not by themselves yield the exact additive log-mean interaction, optimal integer or uniqueness. Ellipsoid-calibration quantiles are not entropy bounds.",
+      "searches": [
+        "Stochastic Lanczos Quadrature for Computational Uncertainty in Linear Algebra Fifen Karambal Hennig isotropic covariance theorem 13",
+        "Kantorovich inequality sharp Gaussian relative entropy isotropic trace-preserving inverse covariance eigenvalue endpoints two value spectrum multiplicities",
+        "\"arithmetic harmonic geometric\" \"KL\" \"condition number\" covariance",
+        "\"sharp upper bound KL divergence isotropic Gaussian covariance condition number trace normalized inverse spectrum extremal\""
+      ]
+    },
+    "checked_sources": [
+      "https://arxiv.org/html/2609.10080",
+      "https://arxiv.org/abs/2102.05485",
+      "https://arxiv.org/html/1608.06613v2",
+      "arxiv:2609.10080v1 Theorem 13",
+      "arxiv:2102.05485 abstract",
+      "arxiv:1608.06613v2 Section 3.3",
+      "published-finding corpus covariance Riemannian metric 821fc9209308",
+      "published-finding corpus bMGP ellipsoid calibration 93780f48a968",
+      "published-finding corpus Gauss-Seidel inverse e4dd7b4e2fba",
+      "published-finding corpus Lanczos exponential fb3579f163d8"
+    ],
+    "claim_vs_prior_implication": {
+      "evidence": [
+        "Fifen et al. Theorem 13: an inequality for any SPD B, same ordered KL and trace coefficient",
+        "Zhang et al. arxiv:2102.05485: forward/reverse KL inequalities conditional on opposite KL bound",
+        "Alyani et al. arxiv:1608.06613: diagonal surrogate",
+        "published-finding corpus 2026/9/20/SCOPE-additive-bidirectional-gauss-seidel-inverse--e4dd7b4e2fba: inverse preconditioner positive-definiteness"
+      ],
+      "reasoning": "Same quantity in the main paper means its theorem is a predecessor. Its numerical bound cannot determine the exact optimum or maximizing spectra, so the proposed theorem is strictly more informative, though it is not a new Gaussian KL identity. Related studies optimize different functionals or assume different constraints, so their stated claims do not imply this sharp finite-dimensional formula.",
+      "searches": [
+        "Stochastic Lanczos Quadrature for Computational Uncertainty in Linear Algebra Fifen Karambal Hennig isotropic covariance theorem 13",
+        "dimension-sharp KL divergence bound between N(0,(tr B inverse/k)I) and N(0,B inverse); supremum over SPD matrices with fixed spectral condition number kappa attained by eigenvalues only at endpoints",
+        "\"KL divergence\" \"isotropic\" \"spectral condition\" \"sharp\"",
+        "\"sharp upper bound KL divergence isotropic Gaussian covariance condition number trace normalized inverse spectrum extremal\""
+      ]
+    },
+    "equivalent_formulations": {
+      "evidence": [
+        "Equation (1) transforms Gaussian trace-match KL to mh-1-log h-ell; Fifen et al., arxiv:2609.10080v1, Theorem 13; Zhang et al., arxiv:2102.05485, abstract; Alyani et al., arxiv:1608.06613, Section 3.3"
+      ],
+      "reasoning": "Compared the precise ordered Gaussian KL and its simultaneous arithmetic/harmonic/log-mean spectral form. The directly relevant source proves a loose condition-number inequality; the two other items use reverse-KL constraints or diagonal surrogates. No equivalent sharp finite-k endpoint-multiplicity formula was found in inspected material; nonexhaustive search cannot certify uniqueness.",
+      "searches": [
+        "Sharp condition-number and dimension dependent Gaussian KL divergence bound between inverse SPD covariance and trace-matched isotropic covariance; maximum at two-point endpoint spectrum",
+        "Isotropic inverse approximation KL divergence sharp eigenvalue spread bound arithmetic harmonic geometric means",
+        "dimension-sharp KL divergence bound between N(0,(tr B inverse/k)I) and N(0,B inverse); supremum over SPD matrices with fixed spectral condition number kappa attained by eigenvalues only at endpoints",
+        "Kantorovich inequality sharp Gaussian relative entropy isotropic trace-preserving inverse covariance eigenvalue endpoints two value spectrum multiplicities",
+        "\"Kullback-Leibler\" \"condition number\" \"arithmetic mean\" \"harmonic mean\" eigenvalues",
+        "\"Kantorovich\" \"Kullback-Leibler\" \"isotropic\" \"matrix\" Gaussian bound"
+      ]
+    },
+    "exact_database_or_table": {
+      "evidence": [
+        "published-finding corpus 2026/9/19/SCOPE-complete-line-angular-collapse-sylvester-covariance-metrics--821fc9209308: different Riemannian cost",
+        "published-finding corpus 2026/10/11/SCOPE-sharp-tracial-crossed-heinz-stability-for-common-two-point-spect--20c5e33ff291: different tracial Heinz cost",
+        "No matching fixed-dimension endpoint KL envelope was identified in the searched primary literature and mathematical research records"
+      ],
+      "reasoning": "The natural exact table would tabulate H_kappa(j/k), including high-endpoint multiplicities. No accessible searched source or claim records that table. This is evidence only of non-detection in a bounded search, not evidence of global absence.",
+      "searches": [
+        "Sharp condition-number and dimension dependent Gaussian KL divergence bound between inverse SPD covariance and trace-matched isotropic covariance; maximum at two-point endpoint spectrum",
+        "Isotropic inverse approximation KL divergence sharp eigenvalue spread bound arithmetic harmonic geometric means",
+        "dimension-sharp KL divergence bound between N(0,(tr B inverse/k)I) and N(0,B inverse); supremum over SPD matrices with fixed spectral condition number kappa attained by eigenvalues only at endpoints",
+        "\"trace matched isotropic\" \"KL divergence\" covariance condition number",
+        "\"trace-matched\" isotropic covariance \"maximum\" divergence eigenvalues",
+        "\"KL divergence optimal scalar covariance trace matching condition number tight bound eigenvalues\""
+      ]
+    },
+    "rationale": "Closest primary theorem Fifen–Karambal–Hennig 2026 arxiv:2609.10080v1 Theorem 13 uses same ordered KL but gives only a generic sufficient quadratic upper bound. The present exact finite-k maximum, endpoint equality classes and optimizing multiplicities are absent from the directly inspected theorem and not a consequence of its inequality. Compared alternative Gaussian KL constraints, diagonal-divergence metrics, mean inequalities and actual related research records. Historical priority remains qualified; no exhaustive absence assertion.",
+    "residual_risks": [
+      "Possible older equivalent result in entropy/mean inequalities not identified by bounded searches.",
+      "The full text of Zhang et al. was not read; its documented abstract addresses a different KL constraint.",
+      "A particularly structured Krylov complement may not realize arbitrary extremal SPD spectra."
+    ],
+    "source_inspections": [
+      {
+        "assessment": "Closest source: proves a weaker generic sufficient bound, not exact sharp dimension/multiplicity optimum",
+        "evidence": [
+          "Fifen–Karambal–Hennig, Theorem 13, arxiv:2609.10080v1"
+        ],
+        "identifier_or_url": "https://arxiv.org/html/2609.10080",
+        "material_read": "Section 4.4, Theorem 13, proof and adjacent discussion",
+        "method": "Inspected arXiv full-text rendering, equation definitions and assumptions; compared formula and implication",
+        "title": "Stochastic Lanczos Quadrature for Computational Uncertainty in Linear Algebra",
+        "trigger": "Exact same trace-matched inverse-covariance KL quantity and condition-number bound"
+      },
+      {
+        "assessment": "Studies sharp forward/reverse-KL tradeoffs and relaxed triangle inequality rather than trace-matched isotropic fixed-condition-number sharpness; full-text coverage remains a risk",
+        "evidence": [
+          "Zhang et al., arxiv:2102.05485, abstract"
+        ],
+        "identifier_or_url": "https://arxiv.org/abs/2102.05485",
+        "material_read": "Public abstract and statements of its main topic; whole article not inspected",
+        "method": "Read arXiv abstract/submission history; compared quantified constraint to our constraint",
+        "title": "On the Properties of Kullback-Leibler Divergence Between Multivariate Gaussian Distributions",
+        "trigger": "General sharp Gaussian KL extremal literature"
+      },
+      {
+        "assessment": "Different surrogate and constraint; no theorem identified implying this exact extremal spectral formula",
+        "evidence": [
+          "Alyani–Congedo–Moakher, arxiv:1608.06613v2, Section 3.3"
+        ],
+        "identifier_or_url": "https://arxiv.org/html/1608.06613v2",
+        "material_read": "ArXiv HTML abstract, Section 3.3 KL diagonality discussion and surrounding definitions",
+        "method": "Inspected full-text relevant section on KL diagonality, which chooses diagonal part rather than scalar trace average",
+        "title": "Diagonality Measures of Hermitian Positive-Definite Matrices with Application to the Approximate Joint Diagonalization Problem",
+        "trigger": "Prior KL divergence functional on positive definite matrices and covariance surrogates"
+      }
+    ],
+    "status": "PASS"
+  },
+  "review_type": "self_review",
+  "schema_version": 1,
+  "scope_run_id": "f43e22e4-5d82-4718-a311-6c89c38bd530",
+  "self_review_status": "passed",
+  "value": {
+    "rationale": "The exact extremal covariance mismatch answers a motivated quantitative gap from an explicit stochastic-Lanczos uncertainty result: the generic bound cannot identify actual worst-case spectral shape, optimal dimension-dependent multiplicity or sharp high-contrast scaling. The theorem supplies the finite-dimensional sharp envelope, attainment classification, integer-optimization recipe and low/high-contrast asymptotics, useful for trace-calibrated inverse covariance design; it does not assert convergence or total stochastic-error guarantees.",
+    "status": "PASS"
+  }
+}
