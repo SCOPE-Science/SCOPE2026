@@ -1,0 +1,143 @@
+{
+  "correctness": {
+    "rationale": "The exponential-threshold construction reproduces every finite-state SI transition. Uniform empirical-process bounds and an explicit lower bound on the total infection rate prove T=O_P(log n/n). Dissipativity of the two exposure hazards gives delta=o_P(1) at cumulative exposure loglog n; saturation and an integrated susceptible-time bound then yield delta(t_B)->lambda. Independent exponential maxima and their logistic Gumbel difference prove the probability limit. Balanced n>=2 follows from exact state (1,1) symmetry. The standalone exact-rational forward/backward recursion gave 3468 assertions; it is finite diagnostic, not an infinite proof.",
+    "status": "PASS"
+  },
+  "independent": false,
+  "independent_audit_status": "not_performed",
+  "originality": {
+    "broader_coverage": {
+      "evidence": [
+        "arXiv:1201.3137 main theorems concern uniformly chosen vertex-to-vertex shortest-weight path and hopcount in inhomogeneous random graphs, with equal-type mean-degree assumptions for diverging density.",
+        "arXiv:1806.09568 addresses sparse configuration-model flooding-time scale with boundary weights.",
+        "arXiv:2311.16088 discusses complete-graph flooding scales without a bipartite terminal-class limit."
+      ],
+      "reasoning": "Flooding-time growth-rate estimates and typical-path limit theorems do not imply class membership of the last newly infected vertex at a vanishing relative imbalance, because the mark requires resolving order-one differences between competing terminal extreme values.",
+      "searches": [
+        "first passage percolation dense inhomogeneous deterministic graphs flooding last vertex class distribution",
+        "https://arxiv.org/abs/1201.3137",
+        "https://arxiv.org/abs/1806.09568",
+        "https://arxiv.org/abs/1702.00881"
+      ]
+    },
+    "checked_sources": [
+      "arxiv:2311.16088",
+      "arxiv:1702.00881",
+      "arxiv:1201.3137",
+      "arxiv:1806.09568",
+      "doi:10.1103/PhysRevE.99.032309"
+    ],
+    "claim_vs_prior_implication": {
+      "evidence": [
+        "arXiv:2311.16088 Theorem 1.1 states scalar typical-distance, flooding-time and diameter convergence; its graph has edges within all classes and is not K_{a,n}.",
+        "arXiv:1702.00881 Sections III-IV derive coupon-collector and two-Gumbel takeover-time results for star/complete graphs under a random-vertex selection rule.",
+        "arXiv:1201.3137 Section 1 concerns typical path weights and hopcount rather than extreme endpoint mark."
+      ],
+      "reasoning": "A generic Gumbel limit for an unmarked flooding time cannot by itself give a logistic competition between marked classes; nor can a source with a different infection generator or different graph sequence be specialized to the displayed theorem without new control of the two cumulative exposure hazards.",
+      "searches": [
+        "https://arxiv.org/abs/2311.16088",
+        "https://arxiv.org/abs/1702.00881",
+        "https://arxiv.org/abs/1201.3137",
+        "https://arxiv.org/abs/1806.09568"
+      ]
+    },
+    "equivalent_formulations": {
+      "evidence": [
+        "Theorem 1.1 of arXiv:2311.16088 gives 1/2/3 leading time scales for a torus-embedded complete graph, not a marked terminal class.",
+        "arXiv:1702.00881 uses a discrete-time uniformly selected vertex then selected neighbor, distinct from independent unit-rate edge transmission."
+      ],
+      "reasoning": "Equivalent language includes the exponential Richardson SI model, weighted-distance Dijkstra exploration, and the last vertex of a flooding process. Comparing these equivalent objects, neither read primary statement fixes the two-class logistic last-vertex probability in the n/log n imbalance window.",
+      "searches": [
+        "first passage percolation complete bipartite graph epidemic completion time last susceptible distribution",
+        "Richardson model complete bipartite graph flooding last infected type",
+        "infection spread times complete bipartite graphs SI susceptible infected statistical physics exact",
+        "https://arxiv.org/abs/2311.16088"
+      ]
+    },
+    "exact_database_or_table": {
+      "evidence": [
+        "No direct all-n balanced terminal-class identity or n/log n two-class infection crossover was returned by the targeted scholarly searches.",
+        "Class-marked bipartite random-walk coverage results are for repeated visitation and different transition laws, not exponential SI transmission."
+      ],
+      "reasoning": "The statement is a marked probability limit rather than a known numerical data sequence. Lack of a table hit is weak negative evidence and does not itself establish originality.",
+      "searches": [
+        "last infected vertex belongs to bipartition complete bipartite SI process exponential weights",
+        "last-passage infection bipartite SI logistic log n",
+        "first passage percolation complete bipartite flooding time Gumbel limiting last infected part bipartite"
+      ]
+    },
+    "rationale": "The marked last-infection class and n/log n logistic crossover for deterministic dense K_{a,n} are not implications of the inspected complete-graph leading flooding scales, sparse random-graph flooding bounds, typical-path results, or discrete-time vertex-choice takeover distributions. The proof supplies an independent time-changed-threshold mechanism. Similar extreme-value forms exist, and exhaustive priority is not established.",
+    "residual_risks": [
+      "Unlocated dense-graph Richardson-model or exponential-FPP marked flooding theorem may imply the terminal-class law.",
+      "Classical multitype epidemic asymptotics or extreme-value results may cover the n/log n mark crossover under different notation.",
+      "A 2023 finite-birth epidemic paper was discoverable only at abstract level because its publisher page returned a temporary rate-limit error.",
+      "Independent historical-priority assessment has not been performed."
+    ],
+    "source_inspections": [
+      {
+        "assessment": "Leading complete-graph flooding scales do not give near-balanced biclique terminal-class law.",
+        "evidence": [
+          "Theorem 1.1 formulas (1.5)–(1.7); discussion of Janson complete-graph case; no bipartite match."
+        ],
+        "identifier_or_url": "https://arxiv.org/abs/2311.16088",
+        "material_read": "Full-text arXiv rendered Introduction, model, Theorem 1.1, remarks and proof overview (sections 1.1–1.3); searched full article for bipartite.",
+        "method": "Read arXiv primary text and statements; targeted term comparison.",
+        "title": "Long-range first-passage percolation on the complete graph",
+        "trigger": "Motivating 2023 exponential weighted complete-graph flooding paper"
+      },
+      {
+        "assessment": "Discrete-time random-vertex-selection mechanism and different topology; not an exponential-edge bipartite terminal-class theorem.",
+        "evidence": [
+          "Introduction defines uniform vertex then neighbor selection; Sections III–IV study star and complete graph."
+        ],
+        "identifier_or_url": "https://arxiv.org/abs/1702.00881",
+        "material_read": "ArXiv full text introduction and Sections II–IV with model transition rule; searched full article for bipartite.",
+        "method": "Read model and main limit statements and inspect graph classes.",
+        "title": "Takeover times for a simple model of network infection",
+        "trigger": "Infection takeover with Gumbel limits"
+      },
+      {
+        "assessment": "Theorem target is typical path/hopcount, not last infected class.",
+        "evidence": [
+          "Abstract, Introduction and model section, arXiv version."
+        ],
+        "identifier_or_url": "https://arxiv.org/abs/1201.3137",
+        "material_read": "Rendered arXiv abstract, Introduction, model and main-results discussion; searched full text for bipartite and flooding.",
+        "method": "Compared typical-path and hopcount result with marked terminal-extreme law.",
+        "title": "First Passage Percolation on Inhomogeneous Random Graphs",
+        "trigger": "Could be stronger two-type weighted network limit"
+      },
+      {
+        "assessment": "Its stated approximative sparse configuration-model flooding results do not cover class-marked near-balanced dense bicliques.",
+        "evidence": [
+          "Abstract and Introduction identify sparse random graphs and flooding-time estimates."
+        ],
+        "identifier_or_url": "https://arxiv.org/abs/1806.09568",
+        "material_read": "ArXiv rendered abstract and Introduction with flooding definitions and stated result scope; targeted article search for last.",
+        "method": "Compared sparse-network flooding and marked deterministic biclique limit.",
+        "title": "First passage percolation in sparse random graphs with boundary weights",
+        "trigger": "Broader flooding estimates in exponential FPP"
+      },
+      {
+        "assessment": "Mean infection timing focus, not a proved marked logistic crossover; limited inspection leaves priority risk.",
+        "evidence": [
+          "Published abstract describes mean infection time in heterogeneous networks."
+        ],
+        "identifier_or_url": "https://doi.org/10.1103/PhysRevE.99.032309",
+        "material_read": "Journal landing abstract and available linked text summary; no full paper theorem reconstruction.",
+        "method": "Compared infection-time means with last-vertex class probability.",
+        "title": "Understanding the temporal pattern of spreading in heterogeneous networks: Theory of the mean infection time",
+        "trigger": "Same SI infection rates on heterogeneous networks"
+      }
+    ],
+    "status": "PASS"
+  },
+  "review_type": "self_review",
+  "schema_version": 1,
+  "scope_run_id": "8fa90f7e-eff7-41d7-bfef-80092c622804",
+  "self_review_status": "passed",
+  "value": {
+    "rationale": "This identifies a natural sharp mixing-critical imbalance scale n/log n in who receives the last infection during all-to-all cross-community stochastic spread. The limiting logistic law quantifies the exact community-level last-event competition, while the finite exact 1/2 identity highlights a structural symmetry that is invisible from a scalar flooding-time growth rate. It is a marked natural invariant requiring hazard coupling, not a parameter renaming or single finite experiment.",
+    "status": "PASS"
+  }
+}
