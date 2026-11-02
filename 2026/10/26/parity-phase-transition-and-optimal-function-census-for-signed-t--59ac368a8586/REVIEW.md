@@ -1,15 +1,21 @@
-# Scientific review
+# Independent mathematical audit
 
-## Correctness — PASS
-The open-neighborhood condition reduces to the exact blade inequality \(s+w_j-a\ge1\), with the hub constraint \(\sum_jw_j\ge1\). Separate exhaustive cases on the hub label yield strict lower bounds for hub labels \(-1\) and \(1\), plus parity-sharp lower bounds for hub label \(2\). Explicit feasible assignments attain the bounds. The exact optimum census follows from solving two linear equations for blade label multiplicities. Direct enumeration of seven small instances and independent blade-profile convolution for 77 parameter pairs agree with the formulas. Risk: computational tests alone do not prove the unbounded claim; the supplied symbolic proof does.
+## correctness
 
-## Originality — PASS, with residual priority risk
-The principal 2026 source treats cubic and complete multipartite graphs rather than clique bouquets. A clique bouquet has a cut vertex and is not complete multipartite for the parameter range here, so its odd-blade value \(m+2\) is not a consequence of the reported complete-multipartite values \(2\) or \(3\). The 2020 survey and a 2017 biclique/wheel paper concern overlapping invariant definitions but different graph classes. Searches for the exact parameter, synonyms and formulas did not locate an equivalent statement. A negative search is not proof of uniqueness; inaccessible historical primary papers remain a real priority risk.
+PASS
 
-## Value — PASS
-This is a complete closed-form determination of a signed Roman-type invariant and the entire minimum-function census on a natural infinite family of clique-sums. The parity split is structural and unbounded in the number of blades; it is not a tiny arbitrary finite calculation. This distinguishes cut-vertex behavior from the bounded-value complete multipartite setting studied in the contemporary source.
+For hub value s and blade sum w_j, every blade vertex label a satisfies s+w_j-a>=1; the hub requires sum_j w_j>=1. Case s=-1 forces each blade w_j>=3; s=1 forces >=2; s=2 forces >=0, and for odd t forces >=1 by parity and a label-2 case. The even optimum has exactly one weight-1 blade; the odd optimum all weight-1 blades. Explicit labelings achieve bounds and all minima require s=2. Solving a+b+d=t and -a+b+2d=1 gives the H_t multinomial count; weight-zero blades have C(t,t/2) patterns. Independently enumerated all 3^(1+mt) original vertex assignments for (2,3),(2,4),(3,3): optimum (4,9),(3,144),(5,27), hub 2 always, agreeing with formula. Universal proof uses exact blade inequalities, not finite enumeration.
 
-## Closest literature and scientific limitations
-Koster, Volkmann and Wehrmann, arXiv:2606.27175 (2026), full text inspected, is the primary contemporary reference. Chellali et al., *Varieties of Roman domination II* (2020), and Zhao--Miao (2017) are background comparisons. The theorem has not been independently audited. It is restricted to equal-size clique bouquets with \(t\ge3\) and does not assert broader priority or classifications.
+## originality
 
-Self-review: passed. Independent audit: not yet performed.
+PASS
+
+Best-of-knowledge: general STRD paper and new complete-multipartite theorem concern other graph classes; no exact clique-bouquet parity-and-count theorem located. Full texts of closest 2025/2026 papers were not available and this residual risk is recorded.
+
+## value
+
+PASS
+
+A complete, parity-sharp exact optimum and labeled-optimum census on a natural cut-vertex chordal family, with striking discontinuity between constant 3 and linear m+2; the enumeration H_t is not a tautological substitution from complete multipartite formulas.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
