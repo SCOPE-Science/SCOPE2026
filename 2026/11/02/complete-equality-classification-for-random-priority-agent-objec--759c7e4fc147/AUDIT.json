@@ -1,0 +1,125 @@
+{
+  "correctness": {
+    "rationale": "There are precisely 24 strict rankings per agent and 24 priorities. Complete exact integer enumeration of all 331,776 labeled four-agent/three-object preference profiles gives waste-numerator histogram (317664,1728,5040,6912,432), no numerator above four, exactly 432 extremizers in six disjoint agent/object relabeling orbits of size 72, and one maximizing acceptable pair per extremizer. The full-domain C++ implementation checks normal forms, symmetry-orbit coverage, and witness uniqueness. A separately written available-list Python simulator checks a justified sixfold object-label quotient of 55,296 profiles, independently reproduces every count, and verifies common 24-priority allocation vectors and marginals. All tests executed successfully. The finite domain is complete, not sampled; no infinite generalization is claimed.",
+    "status": "PASS"
+  },
+  "independent": false,
+  "independent_audit_status": "not_performed",
+  "originality": {
+    "broader_coverage": {
+      "evidence": [
+        "Basteck and Ehlers, 2026, Lemma 1(i)-(ii), prove the 1/6 bound for at least four agents/three objects in broader parameter ranges.",
+        "Appendix B, four-agent case, rules out waste strictly exceeding 4/24 but does not give a census or complete equality characterization."
+      ],
+      "reasoning": "The broader sharp upper bound neither counts the number of profiles achieving it nor specifies which preference refinements have equal marginal lotteries. The present theorem does not claim a stronger bound; its equality classification is logically additional information.",
+      "searches": [
+        "RSD sharp waste 1/6 exact profile classification 4 agents 3 objects outside option",
+        "Basteck Ehlers random serial dictatorship q-agent object waste equality witnesses 2026",
+        "https://arxiv.org/abs/2608.27261"
+      ]
+    },
+    "checked_sources": [
+      "Christian Basteck and Lars Ehlers, 2026, arXiv:2608.27261 (main text and Appendix B)",
+      "Pietro Martini, 2016, Strategy-proof and fair assignment is wasteful (abstract and 2026 citations, limited access)",
+      "Complete three-agent lottery-shape classification for random serial dictatorship (published summary)",
+      "Exact four-agent random-serial-dictatorship ordinal-inefficiency census (published summary)",
+      "Exact four-agent efficiency census for random priority versus probabilistic serial (published summary)"
+    ],
+    "claim_vs_prior_implication": {
+      "evidence": [
+        "Basteck and Ehlers, 2026, Section 3 equation (1) and Appendix B Lemma 1: one extremizer and no instance with waste greater than 1/6.",
+        "Different published four-by-four random-priority censuses have no outside option and always allocate all objects, so their reported lottery or efficiency counts cannot imply this marginal-unassignment census."
+      ],
+      "reasoning": "Known upper bound plus existence gives max W=1/6, but permits arbitrarily many different equality profiles. It does not entail exactly six orbits, a 1/768 incidence, unique extremal pair, or the other four histogram entries. The 4-by-4 matching-lottery work is not stronger coverage because its object count and absence of outside options eliminate the waste event.",
+      "searches": [
+        "https://arxiv.org/abs/2608.27261",
+        "random serial dictatorship four agents three objects unacceptable outside options extremal 1/6 agent object waste profiles equality characterization",
+        "four agent random serial dictatorship distribution of number of first choice assignments top ranked welfare variance range exact worst case"
+      ]
+    },
+    "equivalent_formulations": {
+      "evidence": [
+        "Basteck and Ehlers, 2026, Section 3 defines q-agent-object waste and gives one sharp 4-by-3 example.",
+        "Inspected published assignment findings concern matching lotteries on fully acceptable square markets or different efficiency/fairness properties, not 4-by-3 marginal waste with outside options."
+      ],
+      "reasoning": "Renaming q-agent-object-waste, unassigned marginal, or random priority gives the same waste object; the primary source covers its maximum, but a maximum and witness do not determine the full histogram or equality-case orbits. No equivalent orbit-count result was found.",
+      "searches": [
+        "random serial dictatorship four agents three objects unacceptable outside options extremal 1/6 agent object waste profiles equality characterization",
+        "exact 432 profiles six symmetry orbits random serial dictatorship 4 agents 3 objects q-agent-object waste one sixth"
+      ]
+    },
+    "exact_database_or_table": {
+      "evidence": [
+        "No inspected primary table gives the exact 331,776-profile histogram or six equality orbits.",
+        "The primary article presents one example probability matrix and proves a bound, which is insufficient to recover the full-domain frequencies."
+      ],
+      "reasoning": "The 432 profile count, six orbit representatives, individual orbit sizes and unique-witness property arise from exhaustive new computations in the supplied code. No known exact database/table providing them was identified; lack of search results does not itself establish priority.",
+      "searches": [
+        "full classification preference profiles attaining sharp ex ante nonwasteful bound for random serial dictatorship three objects",
+        "random assignment ex-ante agent-object waste q profile enumeration outside option 4 persons 3 items",
+        "random priority outside options all extremizers for 1/6 agent-object-wastefulness four agents three objects"
+      ]
+    },
+    "rationale": "Basteck and Ehlers (2026), Section 3, Lemma 1 and Appendix B establish the sharp 1/6 waste bound and exhibit an equality example. The inspected primary argument does not enumerate all equality profiles or prove the six-orbit normal form, unique maximizing pair, frequency 1/768, full waste histogram, or priority-by-priority invariance. Searches and relevant record comparisons uncovered no equivalent coverage. The result is a full equality-case classification for the minimally nontrivial natural market, not a new proof of the known bound. Unindexed prior work remains a residual risk.",
+    "residual_risks": [
+      "An earlier unindexed finite classification, perhaps under different terminology, could contain the exact equality orbits or histogram; failure to find it is not a proof of priority.",
+      "The complete text of the older Martini (2016) paper was not inspected, although the more directly matching Basteck–Ehlers 2026 primary paper was materially read.",
+      "The theorem is confined to four agents and three objects; it does not establish a dimension-independent structural law."
+    ],
+    "source_inspections": [
+      {
+        "assessment": "DIRECT PRIOR: sharp one-sixth bound and one example are known. The complete equality profile classification, histogram, six group orbits and marginal-witness uniqueness are not stated in the inspected text.",
+        "evidence": [
+          "Section 3 equations (1) and Lemma 1; Appendix B, four-agent three-object case."
+        ],
+        "identifier_or_url": "https://arxiv.org/abs/2608.27261",
+        "material_read": "Full accessible textual manuscript, focusing on Section 2 model, Section 3 definitions and main bound, and Appendix B proof of Lemma 1, including the four-agent case.",
+        "method": "Opened the primary arXiv textual rendering; inspected the mathematical definitions, example, quantitative lemma and proof cases rather than relying on an abstract.",
+        "title": "Strategy-Proof and Minimally Wasteful Random Assignment",
+        "trigger": "Identical RSD mechanism, identical waste definition and exact four-agent/three-object market"
+      },
+      {
+        "assessment": "Background priority for qualitative waste; exact four-by-three equality census could not be excluded from the uninspected full text.",
+        "evidence": [
+          "Basteck and Ehlers (2026), Introduction, cite Martini for the qualitative impossibility."
+        ],
+        "identifier_or_url": "Martini (2016), cited by Basteck and Ehlers (2026)",
+        "material_read": "Bibliographic information and available abstract-level description only; no complete primary text inspected.",
+        "method": "Title/abstract discovery and contextual comparison from the directly inspected 2026 article.",
+        "title": "Strategy-proof and fair assignment is wasteful",
+        "trigger": "Earlier work on the same qualitative fairness–waste conflict"
+      },
+      {
+        "assessment": "Different three-by-three full-acceptability lottery-shape invariant, no agent-object waste or 4-by-3 outside-option domain.",
+        "evidence": [
+          "Three agents, three fully acceptable objects, five possible deterministic lottery shapes."
+        ],
+        "identifier_or_url": "Published mathematical finding, title and abstract",
+        "material_read": "Published title and research summary, not full underlying manuscript.",
+        "method": "Semantic search and statement-level comparison of domain, allocation event and theorem strength.",
+        "title": "Complete three-agent lottery-shape classification for random serial dictatorship",
+        "trigger": "Uses random priority and exact finite distribution of outcomes"
+      },
+      {
+        "assessment": "Four-by-four strict full-acceptability model with ordinal efficiency failures; not the 4-by-3 outside-option unassigned-marginal phenomenon.",
+        "evidence": [
+          "Counts ordinal inefficiency for all 4-by-4 complete strict preference profiles."
+        ],
+        "identifier_or_url": "Published mathematical finding, title and abstract",
+        "material_read": "Published title and summary, not full underlying manuscript.",
+        "method": "Compared allocation constraints and measured invariant.",
+        "title": "Exact four-agent random-serial-dictatorship ordinal-inefficiency census",
+        "trigger": "Exact 4-agent RSD exhaustive classification"
+      }
+    ],
+    "status": "PASS"
+  },
+  "review_type": "self_review",
+  "schema_version": 1,
+  "scope_run_id": "759c7e4f-c147-40ea-83a1-3826642e270d",
+  "self_review_status": "passed",
+  "value": {
+    "rationale": "The equality cases for the sharp known one-sixth marginal waste bound are a motivated, mathematically natural target in the first nontrivial 4-by-3 outside-option market. The exact six orbit normal forms, one unique triggering pair, full integer histogram, common per-priority outcome equivalence and rare 1/768 impartial-culture incidence sharpen the worst-case result substantively. These characterize when the upper bound is tight and which additional acceptable choices are behaviorally inert, rather than recomputing the bound, changing notation, or choosing an arbitrary subfamily.",
+    "status": "PASS"
+  }
+}
