@@ -1,0 +1,128 @@
+{
+  "correctness": {
+    "rationale": "Full-systematicity is tested by stripping the fixed marker alphabet; the all-n r>=2 obstruction is proved using the adjacent-deletion equivalence and the two Hamiltonian orientations of a path. For n=3 and n=4, the embedded six- and twenty-four-word certificates have exactly one word per message and pairwise disjoint standardized deletion shadows. The Python verifier, independently ranking by sorting and comparison counts, reports 18 and 90 unique shadows and checks the critical local lemma for all permutations of lengths 3 through 7. No finite search is used to infer the general bound.",
+    "status": "PASS"
+  },
+  "independent": false,
+  "independent_audit_status": "not_performed",
+  "originality": {
+    "broader_coverage": {
+      "evidence": [
+        "Wu et al., Corollary 2: four markers suffice for a single PID for sufficiently large n; not an optimality theorem at small n.",
+        "Gao and Shum discuss perfect codes for symbol-invariant deletions with absolute labels preserved, a strictly different channel from standardized PID.",
+        "Gabrys et al. (2016) distinguish PID and SID and give general constructions, but the accessible article metadata does not disclose a two-marker full-systematic n=4 result."
+      ],
+      "reasoning": "A published existence result using four markers at sufficiently large information length does not imply existence with two markers at lengths three or four. SID parent uniqueness does not imply PID uniqueness: deleting and standardizing discards absolute labels and can introduce collisions.",
+      "searches": [
+        "https://arxiv.org/html/2609.37578v1 Section VI-A, Corollary 2 and Table I",
+        "https://arxiv.org/abs/2411.08258 Sections 1 and 2",
+        "\"full-systematic\" \"permutation-invariant\" \"minimal redundancy\""
+      ]
+    },
+    "checked_sources": [
+      "https://arxiv.org/html/2609.37578v1",
+      "https://arxiv.org/abs/2411.08258",
+      "https://doi.org/10.1109/TIT.2015.2493147",
+      "https://authors.library.caltech.edu/records/km1t9-d3q89",
+      "Published indexed findings for permutation standardized deletion intersections through length eight and related deletion-code optima, compared at claim level."
+    ],
+    "claim_vs_prior_implication": {
+      "evidence": [
+        "The 2026 PID result is an r=4 sufficient construction at sufficiently large n, and its n=4 notation in Example 2 concerns marker placement, not an exact minimum.",
+        "A perfect single SID code may use one marker as a full-systematic code, but PID patterns can collide after standardization.",
+        "The present finite witnesses explicitly contain 6 and 24 codewords, one per message, and independent checks give 18 and 90 distinct receiver outputs with no collision."
+      ],
+      "reasoning": "Neither the stronger *cardinality* of ordinary SID perfect codes nor the asymptotic r=4 PID sufficient bound implies a sharp r=2 small-n systematic PID theorem. An all-length r=2 statement would be stronger than this finding and is not asserted; the all-length impossibility of r=1 follows from a separate explicit structural lemma.",
+      "searches": [
+        "https://arxiv.org/html/2609.37578v1 Definition 3, Corollary 2, Table I",
+        "https://arxiv.org/abs/2411.08258 perfect single-deletion permutation codes",
+        "https://doi.org/10.1109/TIT.2015.2493147 article metadata",
+        "full-systematic permutation-invariant one deletion codes two extra markers S3 S4 explicit codebooks optimal redundancy",
+        "full systematic permutation invariant deletion single deletion codes two redundant markers n=3 n=4 exact minimal redundancy"
+      ]
+    },
+    "equivalent_formulations": {
+      "evidence": [
+        "Full-systematic maps encode every permutation of n symbols as a subsequence of a permutation on n+r; this is exactly Definition 3 of Wu et al. (2026).",
+        "Deleting and standardizing gives PID descendants exactly as in Wu et al. Definition 1; equivalent pattern-distance formulations encode the same disjointness condition."
+      ],
+      "reasoning": "The candidate is a sharp finite optimum for the published full-systematic PID model, not a new name for an ordinary permutation deletion code. Pattern distance ≥2 for all distinct codewords is equivalent to disjoint one-PID descendant sets. The published constructions do not state these minimum marker counts at n=3 or n=4.",
+      "searches": [
+        "full-systematic permutation-invariant one deletion codes two extra markers S3 S4 explicit codebooks optimal redundancy",
+        "full systematic permutation invariant deletion single deletion codes two redundant markers n=3 n=4 exact minimal redundancy",
+        "full systematic permutation codes two redundancy symbols one permutation invariant deletion optimal small message length",
+        "https://arxiv.org/html/2609.37578v1 Definition 3 and deletion-descendant Definition 1"
+      ]
+    },
+    "exact_database_or_table": {
+      "evidence": [
+        "Indexed claims encountered include exact ternary multiset deletion codes, full-space permutation deletion-collision counts and non-systematic deletion-code optima. These concern different alphabets, different observation maps or code-selection constraints.",
+        "Accessible historical claims include pairwise standardized permutation deletion intersections through length eight; those intersections do not determine whether one codeword for each three- or four-symbol message exists after insertion of two fixed labeled markers."
+      ],
+      "reasoning": "No consulted indexed theorem/table supplied the minimum fixed-marker full-systematic PID redundancy r_PID(3), r_PID(4) or the displayed six- and twenty-four-word constructions. Searching is not proof of priority, and unindexed tables remain possible.",
+      "searches": [
+        "full-systematic permutation-invariant one deletion codes two extra markers S3 S4 explicit codebooks optimal redundancy",
+        "full systematic permutation invariant deletion single deletion codes two redundant markers n=3 n=4 exact minimal redundancy",
+        "full systematic permutation codes two redundancy symbols one permutation invariant deletion optimal small message length",
+        "perfect systematic permutation single deletion pattern codes inserted largest two symbols",
+        "\"systematic permutation\" \"two redundancy\" deletion marker",
+        "\"full-systematic\" \"permutation-invariant\" \"minimal redundancy\"",
+        "\"systematic\" \"permutation-invariant\" \"two\" \"redundancy\" \"one deletion\" n"
+      ]
+    },
+    "rationale": "The closely matching 2026 source formalizes the full-systematic PID model and constructs r=4 for sufficiently large n; neither this result nor label-preserving perfect permutation codes entails the exact small-length r=2 encoders. Full primary text comparisons and record searches found no covering finite optimum. Full 2016 text unavailable, so priority risk is explicitly retained.",
+    "residual_risks": [
+      "The 2016 Gabrys et al. journal full text could not be checked; access to one plausible older source is incomplete.",
+      "Unindexed short-block systematic PID constructions or tables may exist.",
+      "The finite theorem makes no large-n claim and does not settle the general optimal systematic PID redundancy."
+    ],
+    "source_inspections": [
+      {
+        "assessment": "Does not state the finite exact r=2 minima for n=3 or n=4 in the inspected material; its r=4 PID guarantee concerns sufficiently large n.",
+        "evidence": [
+          "arXiv:2609.37578v1, Definition 3",
+          "arXiv:2609.37578v1, Corollary 2",
+          "arXiv:2609.37578v1, Table I"
+        ],
+        "identifier_or_url": "https://arxiv.org/html/2609.37578v1",
+        "material_read": "HTML abstract, Introduction, Sections II-A, II-B, II-C, VI-A, VI-C, VI-D, Conclusion, and n=4 marker-placement example; relevant theorem and corollary statements.",
+        "method": "Read indexed primary HTML text and compared stated hypotheses, quantifiers, small length parameters and marker counts.",
+        "title": "Order-Optimal Systematic Permutation Codes for Correcting t Deletions",
+        "trigger": "Defines precisely the systematic PID model and the known single-PID marker construction."
+      },
+      {
+        "assessment": "Known perfect single-SID result; does not yield standardized-PID collision freedom.",
+        "evidence": [
+          "arXiv:2411.08258, Sections 1-2",
+          "Levenshtein 1992 perfect SID construction as explained there"
+        ],
+        "identifier_or_url": "https://arxiv.org/abs/2411.08258",
+        "material_read": "Accessible full-text HTML Introduction and Section 2 including the channel definitions, perfect SID code result and example.",
+        "method": "Compared the label-preserving deletion descendants and their code size against rank-standardized PID descendants.",
+        "title": "Efficient encoding and decoding algorithm for a class of perfect single-deletion-correcting permutation codes",
+        "trigger": "Perfect permutation codes could dominate a finite marker result if the output channel were the same."
+      },
+      {
+        "assessment": "Defines both channels. Possible unpublished or uninspected small parameter constructions remain a risk.",
+        "evidence": [
+          "DOI:10.1109/TIT.2015.2493147",
+          "CaltechAUTHORS public record https://authors.library.caltech.edu/records/km1t9-d3q89"
+        ],
+        "identifier_or_url": "https://doi.org/10.1109/TIT.2015.2493147",
+        "material_read": "Public abstract and citation metadata; full journal article not obtained.",
+        "method": "Compared the accessible bibliographic abstract and source descriptions with the fully inspected 2026 systematic formulation, without treating uninspected text as non-covering.",
+        "title": "Codes Correcting Erasures and Deletions for Rank Modulation",
+        "trigger": "Foundational paper for both permutation deletion models and plausible direct finite constructions."
+      }
+    ],
+    "status": "PASS"
+  },
+  "review_type": "self_review",
+  "schema_version": 1,
+  "scope_run_id": "e0a01394-b7e2-4e2d-94eb-2306551e40a5",
+  "self_review_status": "passed",
+  "value": {
+    "rationale": "Systematic rank-modulation codes preserve the exact order of information symbols while a deletion destroys their absolute ranks. Determining the least count of costly inserted marker symbols is a natural code-design invariant. The result gives a structural prohibition against one marker at all nontrivial lengths and exact two-marker constructions at the first two message lengths beyond the trivial n=2 case, giving rigorously sharp finite benchmarks and a precise PID/SID distinction. The result is not a purely arbitrary codebook maximum or a claimed asymptotic advance.",
+    "status": "PASS"
+  }
+}
