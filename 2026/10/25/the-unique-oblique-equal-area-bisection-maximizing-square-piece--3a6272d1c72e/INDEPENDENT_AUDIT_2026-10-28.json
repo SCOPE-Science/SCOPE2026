@@ -1,0 +1,106 @@
+{
+  "audit_date_utc": "2026-10-28",
+  "audited_at_utc": "2026-10-28T09:17:46Z",
+  "axes": {
+    "correctness": {
+      "rationale": "For precisely two compact convex pieces with disjoint interiors and union a square, convex separation forces their common interface to be a straight cut. Equal area in a centrally symmetric square forces the line through center; square symmetries reduce y=tx,0≤t≤1. For trapezoid K_t=conv{(−1,−t),(−1,1),(1,1),(1,t)}, supporting-line constraints give sharp inradius r=(1+t)/(1+t+√(1+t²)) attained by a specified center. An enclosing circle with the diameter from (−1,−t) to (1,1) contains the other corners, giving R=√(4+(1+t)²)/2. The exact log derivative of f=r/R has sign of H(t)=4(1−t)−(t+√(1+t²))(1+t)³; H strictly decreases from +3 to negative, giving unique t*=0.28867838972... and optimum 0.465023362935585... up to symmetries. Independent symbolic differentiation and exact polynomial squaring checks plus root bracket and endpoint comparisons completed.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Pach–Tardos general fatness guarantee gives nonsharp lower bound, not optimal direction; orthotope inradius-only maximization uses r instead of r/R; Damian–O’Rourke objective across arbitrary number of pieces not the sharp two-piece value."
+        ],
+        "reasoning": "General statements include square as a set but do not dominate this exact constrained optimization; maximizing numerator or minimizing denominator separately does not determine ratio maximizer.",
+        "searches": [
+          "Pach–Tardos 2026 Theorem1, Lemmas7–9, §§2–3",
+          "Damian–O’Rourke 2003 §§1–6",
+          "Resultary exact max-min inradius divisions of orthotopes"
+        ]
+      },
+      "checked_sources": [
+        "Git tree 581dc1654c6cc330e42ea305b3be87d906f7f41d; RESULT.md; verify.py",
+        "Independent sympy exact log-derivative identity, root bounds and disk-contact check",
+        "Pach–Tardos 2026 full paper pp1–18 authorized read; Damian–O’Rourke arXiv full PDF Table1",
+        "Resultary triangle and orthotope related theorems"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "The Pach–Tardos existence lower bound cannot imply a sharp unique t*; unrestricted n optimum in Damian–O’Rourke cannot imply the constrained n=2 optimum. Max-min inradius gives a different optimizing orientation."
+        ],
+        "reasoning": "The exact r/R quotient is not a direct corollary of any identified stronger theorem even when same polygons and equal-area cuts appear.",
+        "searches": [
+          "Pach–Tardos 2026 full primary §§2–3",
+          "Damian–O’Rourke 2003 full primary Table1 and motivation",
+          "Resultary orthotope max-min inradius"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Damian–O’Rourke Table1 square unrestricted number of parts aspect ratio 1.28868–1.29950 and optimal number uncertain; not two equal-area pieces. Pach–Tardos Theorem1 is an existence guarantee for 2^k pieces with lower C(S) bound, not maximum r/R for two square pieces."
+        ],
+        "reasoning": "Equivalent reciprocal circularity could be misleading, but fixed piece count=2 and equal-area constraint distinguish the present theorem. No original exact t* found in inspected primary statements.",
+        "searches": [
+          "Resultary: square equal area two convex pieces partition optimal inradius circumradius ratio oblique line",
+          "Damian–O’Rourke arXiv:cs/0304023 original full PDF",
+          "Pach–Tardos arXiv:2609.20702 2026 full PDF"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "Resultary triangle result gives (√3−1)/2 in distinct body. Open Problems Project/2003 Table1 concerns arbitrary convex partition count; the current best ratio 0.465 for 2 pieces corresponds to aspect >2, not the smaller unrestricted-square aspect ~1.3."
+        ],
+        "reasoning": "No exact existing square two-piece t* table found; unindexed geometry notes remain possible.",
+        "searches": [
+          "Resultary equilateral-triangle equal-area two-piece fatness",
+          "Open Problems Project Most Circular Partition of a Square Problem 59",
+          "Damian–O’Rourke square Table1"
+        ]
+      },
+      "rationale": "Qualified PASS: Damian–O’Rourke 2003 optimize unrestricted-cardinality polygon partitions, with square bounds for a different optimum; Pach–Tardos 2026 prove uniform equal-area fatness bounds for arbitrary convex bodies using a different roundness C(S) measure, not the exact two-piece square ratio. Unlike earlier source claim of inaccessible full text, Pach–Tardos 25-page primary PDF was now obtained through authorized access and pages 1–18 materially read; §§2–3 have no exact oblique square optimum. Resultary sharp two-piece equilateral-triangle result concerns another body.",
+      "residual_risks": [
+        "An unindexed special-case square geometry optimization might give the same oblique slope.",
+        "No assertion beyond exactly two compact convex equal-area planar square pieces or Euclidean radii."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "GENERAL EXISTENCE AND DIFFERENT ROUNDNESS, NOT SHARP SQUARE TWO-PIECE",
+          "evidence": "Theorem1 recursively cuts arbitrary convex body into 2^k equal-area parts with lower roundness bound; §2 compares roundness to r/R but does not optimize fixed square bisection.",
+          "identifier_or_url": "https://arxiv.org/abs/2609.20702",
+          "material_read": "Full 25-page primary PDF obtained by authorized institutional retrieval after OA attempts; materially read pages1–18, especially introduction, §2 fatness measures Lemma7–9 and §3 Theorem1 equal-area subdivision proof",
+          "method": "authorized lawful full-text material; no access bypass",
+          "title": "Cutting a convex body into fat parts and approximating Euclidean distance by graph distances",
+          "trigger": "Recent high-overlap 2026 equal-area fatness result"
+        },
+        {
+          "assessment": "UNRESTRICTED PARTITION CARDINALITY, NOT THIS CONSTRAINED PROBLEM",
+          "evidence": "Table1 square numerical optimal ratio 1.28868–1.29950 over unrestricted number of pieces, so not the reciprocal 2.15043 for n=2 equal-area halves.",
+          "identifier_or_url": "https://arxiv.org/pdf/cs/0304023",
+          "material_read": "Complete 21-page primary PDF opened; materially read introduction, Table1 square line and relevant objective/number-of-pieces discussion",
+          "method": "arXiv full PDF screenshot page2 and inspected sections",
+          "title": "Partitioning Regular Polygons into Circular Pieces I: Convex Partitions",
+          "trigger": "Direct predecessor studying ratio of circumscribed to inscribed radii in polygon pieces"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "rationale": "PASS: precisely two equal-area convex pieces and roundness r/R form a natural nontrivial extremal partition problem. The optimum is strictly oblique rather than axis-parallel/diagonal, giving an exact uniqueness theorem contrasting canonical cuts; geometric reduction and monotonicity are genuine proof content.",
+      "status": "PASS"
+    }
+  },
+  "checked_sources": [
+    "Git tree 581dc1654c6cc330e42ea305b3be87d906f7f41d; RESULT.md; verify.py",
+    "Independent sympy exact log-derivative identity, root bounds and disk-contact check",
+    "Pach–Tardos 2026 full paper pp1–18 authorized read; Damian–O’Rourke arXiv full PDF Table1",
+    "Resultary triangle and orthotope related theorems"
+  ],
+  "disposition": "passed",
+  "limitations": [
+    "An unindexed special-case square geometry optimization might give the same oblique slope.",
+    "No assertion beyond exactly two compact convex equal-area planar square pieces or Euclidean radii.",
+    "Best-of-knowledge originality is not independent external priority certification.",
+    "Publication not_ready is a confidentiality/metadata staging limitation, not scientific rejection."
+  ],
+  "schema_version": 1
+}
