@@ -5,8 +5,11 @@
     "status": "not_performed"
   },
   "independent_audit": {
-    "evidence": null,
-    "status": "not_performed"
+    "status": "passed",
+    "evidence": [
+      "INDEPENDENT_AUDIT_2026-10-27.md",
+      "INDEPENDENT_AUDIT_2026-10-27.json"
+    ]
   },
   "lean_verification": {
     "evidence": null,
@@ -15,8 +18,25 @@
   "schema_version": 1
 }
 ---
-# Verification record
 
-Proof-critical checks: (1) horizontal two-edge orbits are present together at a fixed point; they must project to disjoint base edges; (2) every resulting base matching and compatible rung subset extends by remaining rungs; (3) the midpoint map on invariant orbit simplices is a PL homeomorphism onto the geometric fixed locus; (4) the acyclic face pairing is exhaustive except for base perfect matchings, and a directed cycle cannot enlarge a base matching or reverse a pendant-edge pivot; (5) the remaining zero-cell and common-dimensional cells give the full integral homotopy type, including the zero-sphere case; (6) the reduced Lefschetz formula uses Euler characteristic of fixed geometric points.
+# Independent mathematical audit
 
-Run `python3 verify.py` with standard-library Python 3. The script enumerates prism PMC facets and invariant simplices rather than assuming the theorem; it separately enumerates the fully whiskered graph's ordinary matching faces and tests their equality. Exhaustive labeled base graphs through five vertices and four larger cases total 1,103. Full augmented Hasse diagram topological sorts provide 79 direct acyclicity tests. The verification returned: `PASS: 1103 base graphs; 79 acyclic full matching certificates`. All 1,103 also satisfy the exact reduced Euler formula. The script is finite corroboration only; no finite experiment substitutes for the uniform mathematical proof. Independent audit and independent validation are not performed.
+## correctness
+
+PASS
+
+For any nonempty finite simple H, a point fixed by layer exchange on |PMC(H□K2)| has equal barycentric coefficients on horizontal edge-pairs. Such invariant faces correspond exactly to (T,R), where T is an H-matching and R a set of vertices disjoint from V(T) designating rungs. Every such edge-orbit matching extends to a prism perfect matching by all remaining rungs. Thus the PL orbit-midpoint complex is the ordinary matching complex of fully whiskered W(H), not the vertex-fixed subcomplex. An acyclic matching toggles the pendant at the smallest base vertex not covered by T: along a directed Hasse path, T never grows; within fixed T the toggle cannot be reversed, proving acyclicity. Critical faces are precisely base perfect matchings, p(H) of common dimension n/2−1. The augmented empty/vertex pair leaves a single ordinary 0-cell: contractible if p(H)=0, otherwise p(H) spheres (n=2 handles S0 and p+1 components). Barycentric equivariant Lefschetz fixed-point identity equates reduced trace to reduced fixed-locus Euler characteristic. Independently enumerated every labeled H on n≤4 (75 graphs) from prism perfect matchings, reproducing invariant face-vs-whiskered matching face sets exactly; this bounded experiment corroborates the all-H explicit pairing proof.
+
+## originality
+
+PASS
+
+The 2026 Agarwal–Basak paper studies ordinary perfect-matching complex homotopy of Möbius and circular ladders, not layer-swap geometric fixed points. Other studies treat open polygonal ladders and a broad ordinary matching-complex wedge dichotomy for outerplanar graphs. Their results do not imply the natural exact PL identification or p(H) sphere multiplicities for every (including disconnected/nonouterplanar) base graph. The whiskered-fiber toggle is elementary, but its link to prism equivariant fixed points and exact one-factor extraction remains a natural distinct statement.
+
+## value
+
+PASS
+
+A canonical graph involution converts a perfect-matching complex into the ordinary matching complex of a different natural graph. The fixed-locus integral homotopy type exactly enumerates one-factors of arbitrary finite bases, including nonplanar/disconnected graphs; hence the involution Lefschetz trace detects a combinatorial invariant invisible to nonequivariant ladder topology. The structural PL equivalence and all-graph classification have clear standalone use.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

@@ -1,0 +1,157 @@
+{
+  "audit_date_utc": "2026-10-26",
+  "audited_at_utc": "2026-10-26T03:09:00Z",
+  "axes": {
+    "correctness": {
+      "checked_sources": [
+        "actual Git RESULT.md and artifacts/verify_projective_hypergraph.py at assigned source-tree a2f38b46020a256c997fafa9e01d1b24fc2c91fd",
+        "https://link.springer.com/article/10.1007/s00454-022-00461-1",
+        "https://arxiv.org/abs/1503.04335",
+        "local independent_checks.py output independent_checks_output.json"
+      ],
+      "rationale": "For any actual finite projective plane, the only proper inclusions in the singleton-plus-line hyperedge poset are p⊂l for incidences; its order complex is the connected Levi graph on 2N vertices and (q+1)N edges, hence cycle rank q^3. Jost-Zhang Proposition 5.6 supplies the hypergraph-realization equivalence. Independently of source proof, each facet of the hyperedge Cech nerve is {p}∪L_p. Every face with at least two line vertices belongs to exactly one such facet (the unique intersection of two lines); pairing those faces missing p with those containing p in decreasing cardinality yields genuine elementary free-face collapses to precisely the Levi graph. The hyperedge Rips complex has the full simplex on all N line vertices because all projective lines pairwise meet; each singleton p belongs to one maximal simplex {p}∪L_p and is dominated by any incident line, so deletion leaves a simplex. An independent implementation reconstructed PG(2,p) for p=2,3,5, verified incidence axioms, enumerated 91/364/3782 Cech faces, performed 28/143/1767 explicit legal elementary collapse pairs to the Levi graph, and recovered loop ranks 8/27/125. The all-orders proof is axiomatic and conditional on existence of each plane; finite tests do not prove non-Desarguesian cases.",
+      "residual_risks": [
+        "The finite script independently covers only Desarguesian prime orders 2,3,5; all other orders follow from the explicit finite-projective-plane axioms, not experimental extrapolation.",
+        "The topological identifications use the hyperedge intersection convention of Jost-Zhang, not graph-metric Rips."
+      ],
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "The twin neighborhood theorem covers all nontrivial Steiner 2-designs S(2,k,v), including every finite projective plane, and gives mu=vr-v-b+1, hence q^3.",
+          "The scale-four graph Cech paper gives a direct elementary collapse of J_L and J_P for every finite projective plane of order q, with q^3 loops.",
+          "Jost-Zhang Proposition 5.6 identifies |E| with its order-complex realization, and Remarks 4-5 give exactly the hyperedge Cech and pairwise-intersection Rips conventions."
+        ],
+        "reasoning": "The major topological calculation is already covered at strictly broader object scope by the Steiner-design theorem; the remaining Rips collapse follows immediately from two projective-plane axioms plus dominated-vertex deletion.",
+        "searches": [
+          "Resultary published: Twin circle wedges in neighborhood complexes of Steiner-design incidence graphs",
+          "Resultary published: Scale-four graph Cech nerves of finite projective planes",
+          "Jost-Zhang 2024 Proposition 5.6 and Remarks 4-5"
+        ]
+      },
+      "checked_sources": [
+        "https://link.springer.com/article/10.1007/s00454-022-00461-1",
+        "https://arxiv.org/abs/1503.04335",
+        "https://github.com/Resultary/2026/tree/main/2026/10/11/SCOPE-twin-circle-wedges-in-neighborhood-complexes-of-steiner-design-i--5b757c0a694f",
+        "https://github.com/Resultary/2026/tree/main/2026/10/11/SCOPE-scale-four-graph-ech-nerves-of-finite-projective-planes--2cc10caab711",
+        "https://github.com/Resultary/2026/tree/main/2026/10/4/SCOPE-scale-two-vietoris-rips-complexes-of-finite-projective-plane-inc--c3740b96b3c3",
+        "https://github.com/Resultary/2026/tree/main/2026/10/11/SCOPE-ech-retention-and-rips-collapse-for-projective-plane-hypergraphs--f49ff9172217"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "From twin-circle-wedges, the lines-with-common-point complex J_L has homotopy wedge^{q^3} S^1. Each singleton vertex in Cech lies in one facet and is dominated, so Cech collapses to J_L.",
+          "The inclusion poset of singleton-plus-line edges has nontrivial comparabilities only p in l, so its order complex is the point-line incidence graph with E=(q+1)N, V=2N and cycle rank q^3.",
+          "Jost-Zhang Proposition 5.6 supplies |E|~|S_E| for the hypergraph realization.",
+          "Every pair of lines meets, so Rips contains the entire line simplex; each singleton vertex p has sole maximal coface {p} union L_p and is dominated."
+        ],
+        "reasoning": "The four displayed steps prove exactly the complete submitted conclusion from previously published stronger calculations plus routine definitions/collapses. This is a positive mathematical implication, not an inference from failure to find matching title/wording. The companion results appeared together in an October 11 publication batch, so their internal order is not asserted; the claim is nevertheless already covered in the accessible published mathematical corpus.",
+        "searches": [
+          "Jost-Zhang 2024 Section 5 (Definitions 5.3-5.4, Proposition 5.6, Remarks 4-5)",
+          "published twin-circle-wedges RESULT.md full proof",
+          "published scale-four graph-Cech RESULT.md Section 3 uniform collapses",
+          "Cook et al. 2016 Corollary 2.12"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "The block-side component of the published Lovasz neighborhood complex N(G_Pi) has faces precisely the sets of projective lines concurrent at a point (Resultary twin-circle-wedges RESULT.md, Finding and Proof).",
+          "Deleting each singleton p from the hyperedge Cech nerve is a domination collapse onto that block-side component: p belongs only to the facet {p} union L_p.",
+          "The published scale-four graph Cech RESULT.md defines J_L as the union over points p of simplices on L_p and proves J_L collapses to wedge^{q^3} S^1."
+        ],
+        "reasoning": "The common-neighbor complex on line vertices is simplicially identical to the hyperedge Cech nerve after removing singleton vertices, not merely a similar object. Both published results compute its full homotopy type at every projective-plane order.",
+        "searches": [
+          "Resultary semantic: finite projective plane hypergraph singleton plus lines order complex Cech Vietoris Rips pairwise intersection q cubed circles contractible",
+          "Resultary semantic: finite projective plane incidence complex homotopy wedge q^3 circles",
+          "web: incidence complex finite linear spaces homotopy wedge circles projective plane"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "Resultary indexed twin-circle-wedges result explicitly displays the exact projective-plane specialization mu=q^3 and its integral wedge homotopy type.",
+          "Resultary indexed scale-four graph Cech result supplies the exact same J_L=union_p Delta(L_p) and its q^3-circle wedge type.",
+          "Cook et al. Corollary 2.12 gives the top Stanley-Reisner Betti number q^3 for the associated incidence complex; by Hochster on the full vertex set this already determines rank H_1 of that incidence complex."
+        ],
+        "reasoning": "The needed exact integer q^3 and even its homotopy interpretation for both incidence-side complexes were not absent from the published record. No separate q-specific computation is new here.",
+        "searches": [
+          "Resultary semantic: projective plane line hypergraph clique complex pairwise-intersection nerve homotopy incidence graph 1-skeleton q^3",
+          "Resultary semantic: Jost Zhang hypergraph Cech Rips order complex finite projective planes discrepancy",
+          "Cook et al. 2016, Corollary 2.12"
+        ]
+      },
+      "rationale": "The complete theorem is an immediate combination of already published stronger component calculations and elementary incidences. The published Steiner-design neighborhood-complex theorem evaluates the line-side common-neighbor complex for every Steiner 2-design and specializes to a wedge of q^3 circles for every projective plane. This line-side complex is exactly the submitted hypergraph Cech nerve after deleting its dominated singleton vertices. A separately published projective-plane graph-Cech theorem explicitly proves the same line-concurrency complex J_L collapses to a q^3-circle wedge. Jost-Zhang identifies the hypergraph realization with its order complex; that order complex is the elementary incidence graph. Finally pairwise intersection of every two projective lines makes all line-hyperedges a Rips simplex, and each singleton lies in a unique attached simplex and deletes by domination. Thus no new nonstandard argument or uncovered conclusion remains in the claimed contrast, even though the other papers do not use its headline wording.",
+      "residual_risks": [
+        "The cross-coverage theorems and audited result entered the published repository in the same October 11 reconciliation commit; internal chronological priority cannot be assigned. The failure judgment rests on present mathematical implication/coverage rather than asserting another author published first.",
+        "Other differently named hypergraph intersection-complex sources may provide additional coverage; none is needed for the decisive implication."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "FRAMEWORK_AND_IMPLICATION",
+          "evidence": "Proposition 5.6 identifies |E| with |S_E|; Remark 4 defines hyperedge Cech as a common-intersection nerve; Remark 5 defines its pairwise-intersection Rips complex. No projective-plane specialization in read section.",
+          "identifier_or_url": "https://link.springer.com/article/10.1007/s00454-022-00461-1",
+          "material_read": "Open full-text Section 5.1, Definitions 5.3-5.4, Proposition 5.6 including proof, Remarks 3-6, Section 5.2 opening; searched for projective planes.",
+          "method": "Full HTML text directly on Springer open-access publisher page.",
+          "title": "Discrete-to-Continuous Extensions: Lovasz Extension and Morse Theory",
+          "trigger": "Primary definitions and topology transfer for the exact hypergraph Cech/Rips constructions."
+        },
+        {
+          "assessment": "PARTIAL_COVERAGE",
+          "evidence": "Definition 2.1 defines the incidence complex of line facets, Proposition 2.2 describes its point links, and Corollary 2.12 states its top Stanley-Reisner Betti number q^3. No hyperedge Rips comparison appears.",
+          "identifier_or_url": "https://arxiv.org/abs/1503.04335",
+          "material_read": "Open extracted full-text introduction, Sections 1-2 through Corollary 2.12, and exact term searches for homotopy, Cech, and Rips.",
+          "method": "ArXiv full text retrieved by web; theorem/section text and search inspected directly.",
+          "title": "An algebraic approach to finite projective planes",
+          "trigger": "Exact associated projective-plane incidence complex and top q^3 Betti count."
+        },
+        {
+          "assessment": "STRONG_COVERAGE_CECH_COMPONENT",
+          "evidence": "Block-side neighborhood component has facets L_p and is proved to collapse to a connected graph with mu=vr-v-b+1; projective plane gives mu=q^3.",
+          "identifier_or_url": "https://github.com/Resultary/2026/tree/main/2026/10/11/SCOPE-twin-circle-wedges-in-neighborhood-complexes-of-steiner-design-i--5b757c0a694f",
+          "material_read": "Entire public RESULT.md: finding, assumptions, both component collapses and projective-plane specialization, verification and limitations.",
+          "method": "Read exact published GitHub blob via read-only GitHub connector; blob 675c75b89ee2c2f593ce08ab7070a7d6b3f61445.",
+          "title": "Twin circle wedges in neighborhood complexes of Steiner-design incidence graphs",
+          "trigger": "Broader all-Steiner-design homotopy classification whose block-side complex matches the current Cech nerve after domination."
+        },
+        {
+          "assessment": "STRONG_COVERAGE_CECH_COMPONENT",
+          "evidence": "J_L=union_{p in P} Delta(L(p)) collapses to a graph with q^3 loops; this equals hyperedge Cech after deleting dominated singleton vertices, even though the overall graph-metric Cech theorem is different.",
+          "identifier_or_url": "https://github.com/Resultary/2026/tree/main/2026/10/11/SCOPE-scale-four-graph-ech-nerves-of-finite-projective-planes--2cc10caab711",
+          "material_read": "Entire public RESULT.md, especially the exact definition of J_L and section 3 elementary collapses for every q.",
+          "method": "Read exact published GitHub blob via read-only GitHub connector; blob 4af79d606fd07e1f6b4b3a358fae393b588e1cec.",
+          "title": "Scale-four graph Cech nerves of finite projective planes",
+          "trigger": "Independent exact computation of the same common-line nerve J_L and its simple-homotopy type."
+        },
+        {
+          "assessment": "DIFFERENT_COMPLEX_NOT_DIRECT_COVERAGE",
+          "evidence": "The theorem concerns the distance-two clique complex on the 2N point/line vertices, producing q^3 two-spheres, rather than the pairwise-intersection hyperedge clique complex. It gives the same incidence graph cycle rank at distance one.",
+          "identifier_or_url": "https://github.com/Resultary/2026/tree/main/2026/10/4/SCOPE-scale-two-vietoris-rips-complexes-of-finite-projective-plane-inc--c3740b96b3c3",
+          "material_read": "Entire public RESULT.md, including full scale-two decomposition and exact interval persistence.",
+          "method": "Read exact published GitHub blob via read-only GitHub connector; blob 761244658d594b52ae51ad8b7caa7709730a7ac9.",
+          "title": "Scale-two Vietoris-Rips complexes of finite projective-plane incidence graphs",
+          "trigger": "High-ranked same-parameter result to rule out mistaken equivalence of graph-metric and hyperedge Rips."
+        }
+      ],
+      "status": "FAIL"
+    },
+    "value": {
+      "checked_sources": [
+        "https://link.springer.com/article/10.1007/s00454-022-00461-1",
+        "https://github.com/Resultary/2026/tree/main/2026/10/11/SCOPE-twin-circle-wedges-in-neighborhood-complexes-of-steiner-design-i--5b757c0a694f",
+        "https://github.com/Resultary/2026/tree/main/2026/10/11/SCOPE-scale-four-graph-ech-nerves-of-finite-projective-planes--2cc10caab711"
+      ],
+      "rationale": "The complete all-orders comparison concerns a natural symmetric incidence hypergraph, and it quantitatively contrasts topology-retaining Cech with pairwise-intersection Rips which loses q^3 independent cycles. It is a motivated topological diagnostic example with unbounded first-Betti loss and no artificial parameter slicing; a researcher comparing hypergraph nerve approximations could use that precise uniform family. Its interest is illustrative/structural rather than a new research calculation: prior published homotopy work already supplies the nontrivial q^3 component, which is why originality fails. ",
+      "residual_risks": [
+        "The final contraction is elementary and the example offers no new general theorem beyond published results; its instructional value should not be confused with original contribution."
+      ],
+      "status": "PASS"
+    }
+  },
+  "disposition": "failed",
+  "limitations": [
+    "The negative originality verdict comes from exact stronger published neighborhood and graph-Cech homotopy classifications together with routine projective-plane incidences, not simply lack of novel wording.",
+    "The published comparison results entered in the same day/corpus commit, so temporal precedence within that batch is undetermined.",
+    "No repaired finding is proposed or substituted, because the complete submitted claim is mathematically implied by published work.",
+    "Historical ledger gaps and defects are preserved without revalidation."
+  ],
+  "schema_version": 1
+}

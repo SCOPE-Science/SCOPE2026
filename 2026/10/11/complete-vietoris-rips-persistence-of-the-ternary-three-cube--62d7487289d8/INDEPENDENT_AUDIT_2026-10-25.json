@@ -1,0 +1,182 @@
+{
+  "audit_date_utc": "2026-10-25",
+  "audited_at_utc": "2026-10-25T22:02:02Z",
+  "axes": {
+    "correctness": {
+      "checked_sources": [
+        "Pinned Git RESULT.md db0540ad59b677fb38102660c6816a5f7a8f9cea",
+        "Pinned Git verify.py ca1475d42ddc60858b6ef14f46ac6dcb29243ffe inspected but not relied on as proof",
+        "Independent scratch verification scope08_verify_independent.py recomputed f-vector, critical vector and full acyclicity",
+        "Goyal–Shukla–Singh 2021 Theorem 2.10 (discrete Morse) and Proposition 3.2 (vertex-order matching)"
+      ],
+      "rationale": "The inclusive Hamming cutoff r∈[0,1) has 27 isolated vertices. At scale one the H(3,3) graph has 81 edges and 27 edge-disjoint filled coordinate triangles, each with a free edge, leaving connected graph with 27 vertices/54 edges and cycle rank 28. At scale two the allowed-pair relation agrees with nonadjacency in categorical K3×K3×K3, so R2=Ind(product). Independently rebuilt all cliques from the 27 triples with an algorithm different from the source, confirming exact f-vector (27,243,945,1728,1620,945,351,81,9), total 5949 faces. Reconstructed ordered vertex toggles deterministically, obtaining 2951 disjoint cover pairs, one critical 0-cell and 46 critical 3-cells. Independently formed every one of the 27189 nonempty-face codimension-one incidences with matched reversal and verified topological-sort visit of all 5949 face vertices. Forman discrete Morse gives a CW complex with one 0-cell and 46 3-cells and no lower positive cells, necessarily a wedge of 46 S3 over integers. At scale three all 27 vertices span the full simplex. Piecewise-constant filtration and vanishing other degrees yield reduced bars 26×[0,1) in H0, 28×[1,2) in H1, 46×[2,3) in H3, plus one unreduced infinite H0 bar; no claim beyond this fixed metric.",
+      "residual_risks": [
+        "A fixed exact computational certificate relies on correctness of the independently run integer/bitset implementation and ordinary execution; no formal proof assistant certificate.",
+        "No parameter generalization to q>3 or higher tensor factor counts, no assertion regarding other Rips conventions."
+      ],
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Antolín Camarena–Carnero Bravo Proposition 25 proves I(K2×Kn×Km), with first factor K2 essential in the triangle-free proof.",
+          "Goyal–Shukla–Singh Proposition 3.4 computes Ind(Km×Kn) only for two factors.",
+          "Adamaszek–Adams Theorem 1 computes VR of binary Q_n, not ternary H(3,3).",
+          "Carnero Bravo 2025 paper treats path-factor products; 2026 Mycielskian paper imports K2 triple factor only."
+        ],
+        "reasoning": "Each broader-looking theorem excludes the 3×3×3 product by an actual factor restriction, graph operation or alphabet; none is an implicit proof of the explicit three-factor conjecture in that case.",
+        "searches": [
+          "Resultary: independence complex categorical tensor product of three triangles K3 x K3 x K3 homotopy type 46 spheres Conjecture 26",
+          "Web: independence complex K3 x K3 x K3 categorical graph product 46 homotopy 2024 2025 2026",
+          "Web: Conjecture 26 Camarena Carnero Bravo three complete graph factors solved",
+          "arXiv:1905.06926 / Goyal–Shukla–Singh 2021 Section 3",
+          "arXiv:2103.01040 Theorem 1",
+          "arXiv:2505.06457v2 Sections 1–3",
+          "arXiv:2601.13432 Theorem 5/Corollary 8"
+        ]
+      },
+      "checked_sources": [
+        "Antolín Camarena & Carnero Bravo (2023/2024), arXiv:2307.12401v2, Proposition 25 and Conjecture 26",
+        "Goyal, Shukla & Singh (2021), Contributions to Discrete Mathematics 16(3) 74–92, Proposition 3.2 and Proposition 3.4",
+        "Adamaszek & Adams, On Vietoris–Rips complexes of hypercube graphs, arXiv:2103.01040v3",
+        "Carnero Bravo, On independence complexes of graph products, arXiv:2505.06457v2",
+        "Carnero Bravo, Independence complexes of generalized Mycielskian graphs, arXiv:2601.13432",
+        "Resultary semantic searches for exact Hamming 27 and categorical K3 triple product (same-target Resultary hit distinguished)"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "The general ordered vertex-toggle acyclicity is established by Goyal et al.; the distribution of critical cells (1 vertex, 46 tetrahedra) is not an implication of that theorem without an exhaustive target-specific census.",
+          "The current (3,3,3) graph contains triangles; the factor-K2 theorem proof explicitly exploits their absence.",
+          "Binary Rips Q3 has one S3, not the 27-vertex ternary cube with 46 S3.",
+          "The all-scale reduced integral barcode follows once the genuine new scale-two homotopy type is proved and the easy other cutoffs are counted."
+        ],
+        "reasoning": "Distinguished reused standard Morse machinery and straightforward barcode deductions from the nontrivial exact critical-count computation solving the equal K3 case. Neither a strict special case of proved K2 theorem nor algebraic substitution recovers this result.",
+        "searches": [
+          "arXiv:2307.12401v2 Proposition 25 and Conjecture 26",
+          "Goyal–Shukla–Singh CDM 16(3) 2021 Proposition 3.2 and Proposition 3.4",
+          "arXiv:2103.01040v3 Theorem 1",
+          "arXiv:2505.06457v2 §3",
+          "Resultary: independence complex categorical tensor product of three triangles K3 x K3 x K3 homotopy type 46 spheres Conjecture 26",
+          "Web: independence complex K3 x K3 x K3 categorical graph product 46 homotopy 2024 2025 2026",
+          "Web: Conjecture 26 Camarena Carnero Bravo three complete graph factors solved"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "For distinct 3-tuples, d_H≤2 iff coordinates agree somewhere iff they are nonadjacent in K3×K3×K3; thus R2 is precisely its independence complex.",
+          "Conjecture 26 (Antolín Camarena–Carnero Bravo 2023) conjectures general three-complete-factor wedge; it is not a proof.",
+          "Resultary self-entry 2026/10/11/SCOPE-complete-vietoris-rips-persistence-of-the-ternary-three-cube--62d7487289d8 is same target finding, not earlier independent coverage."
+        ],
+        "reasoning": "Compared canonical complement graph, categorical product, intersecting words, and graph-metric Rips formulations. All refer to the target object, but the strongest primary exact statement is explicitly conjectural for three non-K2 factors.",
+        "searches": [
+          "Resultary: Vietoris Rips complex ternary Hamming cube 27 vertices distance two wedge 46 S3 persistence",
+          "Web: Vietoris Rips ternary Hamming cube 27 vertices scale two topology persistence",
+          "Web: intersection graph of 3-ary length-three words clique complex topology",
+          "Resultary: independence complex categorical tensor product of three triangles K3 x K3 x K3 homotopy type 46 spheres Conjecture 26",
+          "Web: independence complex K3 x K3 x K3 categorical graph product 46 homotopy 2024 2025 2026",
+          "Web: Conjecture 26 Camarena Carnero Bravo three complete graph factors solved",
+          "arXiv:2307.12401v2 Conjecture 26"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "The Resultary exact record is the same target finding, not separate prior evidence. Other Resultary records concerning ternary Čech and neighborhood complexes use different face definitions and different homology groups.",
+          "The reviewed 2021 and 2023 primary papers give no complete 5,949-face / 2,951-pair / 46-critical-S3 table for K3×K3×K3."
+        ],
+        "reasoning": "An exact historical 46-sphere table could cover this narrow result; targeted databases and relevant full-text papers yielded none independent of the target. This is an evidentiary limit, not standalone proof of originality.",
+        "searches": [
+          "Resultary: Vietoris Rips complex ternary Hamming cube 27 vertices distance two wedge 46 S3 persistence",
+          "Web: Vietoris Rips ternary Hamming cube 27 vertices scale two topology persistence",
+          "Web: intersection graph of 3-ary length-three words clique complex topology",
+          "Web: \"46\" \"3-spheres\" \"K3\" \"categorical\" independence",
+          "Resultary target and nearby Hamming/Čech/Rips entries"
+        ]
+      },
+      "rationale": "The exact scale-two Rips complex on {0,1,2}^3 is canonically Ind(K3×K3×K3), the first symmetric all-three-equal instance of the 2023 paper's explicit Conjecture 26. The 2023/2024 primary paper proves the three-factor subfamily having a K2 factor, NOT K3×K3×K3. The 2021 Goyal–Shukla–Singh result treats only two complete factors and supplies the acyclic vertex-toggle scheme but not the new finite critical cell census. A later same-author path-product paper, binary hypercube Rips homotopy theorem, and Mycielskian paper do not entail the metric ternary claim. Resultary returned the same published SCOPE finding (self-match), not an independent predecessor, and neighboring distinct objects; no exact independent covering prior result was located. The verdict is best-of-knowledge; no failed-search-as-proof inference.",
+      "residual_risks": [
+        "A separately published special-case proof or exact table for K3×K3×K3 might be unindexed or under intersecting family terminology.",
+        "The novelty is a fixed, finite instance of a published conjecture, not a proof of the full three-factor conjecture.",
+        "General vertex-toggle acyclicity and Rips definitions are prior art; only the complete target-specific critical-cell certificate and barcode evaluation can count toward novelty."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Theorem covers K2×Kn×Km and C_{3r}×Kn, but Conjecture 26 predicts arbitrary triple product including K3×K3×K3 without proving it; no direct coverage of the equal-three case",
+          "evidence": [
+            "Introduction explicitly lists proved graph families; Proposition 25 assumes first factor K2 and relies on triangle-free graph; Conjecture 26 states I(Kn×Km×Kl)~wedge f(n,m,l) S3 (arXiv 2307.12401v2, §4, Proposition 25 and Conjecture 26)."
+          ],
+          "identifier_or_url": "https://arxiv.org/html/2307.12401v2",
+          "material_read": "Available full-text Introduction, preliminaries, Section 4 including Proposition 25 proof and concluding Conjecture 26, as well as Sections 3 statements for product with cycles and references",
+          "method": "Read author arXiv full-text HTML; checked precise product definitions, theorem quantifiers, proof hypotheses and complete three-factor conjecture",
+          "title": "Homotopy type of the independence complex of some categorical products of graphs",
+          "trigger": "Exact isomorphism to the three-factor categorical product, published Conjecture 26"
+        },
+        {
+          "assessment": "The generic vertex-order face matching is already proved acyclic (Proposition 3.2). Theorem for K_m×K_n (two factors) is wedge (m−1)(n−1) circles. Neither yields the count of 46 critical 3-simplices for three K3 factors.",
+          "evidence": [
+            "Section 3, Proposition 3.2 gives acyclicity for generic vertex toggles; Proposition 3.4 treats exactly two complete factors; author introduction specifies Section 4 Mycielskian and Section 5 edge perturbation."
+          ],
+          "identifier_or_url": "https://cdm.ucalgary.ca/article/download/71284/55559/225284",
+          "material_read": "Primary published PDF pages 74–79 (intro/preliminaries/Section 3 full matching construction and Proposition 3.4), contents and subsequent section scopes; visibly inspected pages 78–79",
+          "method": "Read accessible publisher OA PDF with rendered page screenshots, compare factor count and matching theorem",
+          "title": "Homotopy Type of Independence Complexes of Certain Families of Graphs",
+          "trigger": "Earlier published categorical product independence-complex result and vertex-toggle acyclic matching technique"
+        },
+        {
+          "assessment": "Theorem 1 applies to binary Q_n only; for n=3 gives one S3, not the ternary 27-point space or 46 spheres.",
+          "evidence": [
+            "Theorem 1 explicitly defines Q_n={0,1}^n with 2^n vertices and computes scale-two c_n."
+          ],
+          "identifier_or_url": "https://arxiv.org/html/2103.01040v3",
+          "material_read": "Introduction and Theorem 1 with formula and table, Section 2 metric definition, proof scope in Section 3",
+          "method": "Read arXiv HTML full text for binary-versus-ternary metric parameters and theorem hypothesis",
+          "title": "On Vietoris–Rips complexes of hypercube graphs",
+          "trigger": "Potential broader Hamming-cube Rips homotopy theorem at scale two"
+        },
+        {
+          "assessment": "The new families assume a path factor, induced subgraphs of path products, or strong/lexicographic products; no triple K3 tensor-product homotopy classification follows.",
+          "evidence": [
+            "Abstract and Introduction explicitly state focus on products with at least one path factor; Section 3 treats path-categorical products."
+          ],
+          "identifier_or_url": "https://arxiv.org/html/2505.06457v2",
+          "material_read": "Full HTML Abstract/Introduction; Section 2 definitions and theorem list; Section 3 scope and bibliographic references",
+          "method": "Read arXiv full-text HTML and compare categorical/strong/lexicographic product families",
+          "title": "On independence complexes of graph products",
+          "trigger": "Later paper by the same author with a broad potentially covering graph-product title"
+        },
+        {
+          "assessment": "Provides general formula for generalized Mycielskian of G, with applications to two-factor products and K2×Kn×Km only; does not cover K3×K3×K3.",
+          "evidence": [
+            "Corollary 8 explicitly imports earlier known K2×Kn×Km homotopy; statements centered on generalized Mycielskian rather than independent triple complete factors."
+          ],
+          "identifier_or_url": "https://arxiv.org/abs/2601.13432",
+          "material_read": "Open arXiv full-text converted page with Introduction, Theorem 5 and Corollary 8 and surrounding applications",
+          "method": "Read public article text and distinguish Mycielskian Kronecker double cover from triple product",
+          "title": "Independence complexes of generalized Mycielskian graphs",
+          "trigger": "Newest closely related same-author primary graph-product work"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "checked_sources": [
+        "Conjecture 26 of arXiv:2307.12401v2 provides explicit mathematical motivation",
+        "Binary hypercube VR theorem arXiv:2103.01040v3 provides natural neighboring family and highlights differing alphabet",
+        "Independent 5949-face enumeration, 27189-incidence acyclicity check"
+      ],
+      "rationale": "The ternary three-coordinate Hamming space is a natural next alphabet after binary cubes, and its scale-two Rips complex is exactly the smallest fully equal-non-K2 three-factor case of the specific published Conjecture 26. Computing the integral homotopy type and full barcode provides a meaningful finite benchmark of the conjecture, not an arbitrary tiny parameter substitution: prior homotopy theorems exclude the target and the 5949-face discrete Morse certification is substantial. The 46-sphere integral wedge assertion is stronger than a mod-two Betti count and separates the nontrivial scale-two topology from scale-one circles. The exact fixed space is self-contained and can be used as a test case for future larger-alphabet approaches; a general theorem is not required.",
+      "residual_risks": [
+        "Finite case only, and the general conjecture remains open on present evidence.",
+        "Computational reconstruction remains less explanatory than a closed-form general argument, though it gives an exact complete finite proof."
+      ],
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "limitations": [
+    "The full general Conjecture 26 is not settled: only (3,3,3).",
+    "The vertex-toggle acyclicity method is published; the finite 46-critical-cell census is the target-specific contribution.",
+    "Best-of-knowledge originality has unindexed intersecting-word / categorical-product proof or table risk.",
+    "Public Git metadata contains private operational IDs and has not been staged in sanitized replacement bytes; publication withheld (transport not_ready) without questioning the completed C/O/V science."
+  ],
+  "schema_version": 1
+}

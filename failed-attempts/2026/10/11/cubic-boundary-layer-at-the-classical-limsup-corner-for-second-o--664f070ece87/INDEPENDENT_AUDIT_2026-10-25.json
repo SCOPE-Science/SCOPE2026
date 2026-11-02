@@ -1,0 +1,151 @@
+{
+  "audit_date_utc": "2026-10-25",
+  "audited_at_utc": "2026-10-25T23:00:34Z",
+  "axes": {
+    "correctness": {
+      "checked_sources": [
+        "Pinned Git RESULT.md, exact blob 1c991b9efe25aca6450751203d821ec119fc5ba5",
+        "Pinned Git verify_series.py, exact blob 82bdcc6c6677eadad7168f38e1d258e33755c113, code inspected not accepted solely on VERIFY_OK",
+        "Primary arXiv:2609.31732v1 Corollary 2.8, Lemmas 2.12–2.13, Theorems 1.4 and 2.15 (full-text HTML sections 1–3)",
+        "Independent SymPy Lagrange-inversion coefficient extraction plus high-precision numerical checks (saved independent_checks.py/output.json)"
+      ],
+      "rationale": "For the normalized x''(t)=x(tau(t)) with nondecreasing tau<=t and tau(t)->infinity, the primary arXiv:2609.31732v1 source, Lemma 2.12 (equation 2.15), gives beta(a)=2a-2d+sqrt(2d^2+4/(rs)-2) on beta(a)>=2a. Because beta(0)=sqrt(2), this branch applies for all sufficiently small a>0. Its Corollary 2.8 defines positive analytic spectral roots r^2=exp(ar), s^2=exp(-as). Independently derived the principal Lambert-W expansions by Lagrange inversion and checked the defining spectral equations: d=1/s-1/r=a+a^3/6+2a^5/15+O(a^6), 1/(rs)=1-a^2/2-5a^4/24+O(a^6). Thus the exact radicand is 2-a^4/6+O(a^6) and beta(a)=sqrt(2)-a^3/3-(sqrt(2)/24)a^4+O(a^5) (also -4a^5/15). Vanishing first two right derivatives and third_right_derivative_beta_at_zero=-2 follow from real analyticity at zero. For b(a)=sqrt(2)-kappa*a^3+o(a^3), b-beta=(1/3-kappa)*a^3+o(a^3); fixed kappa<1/3 forbids eventually positive decreasing solutions by source Theorem 1.4, and fixed kappa>1/3 falls into a<=b<=beta(a) and source Theorem 2.15 constructs one tau for each sufficiently small a. No conclusion for equality kappa=1/3 from cubic term alone. These are local one-sided limits; source analytic branch and sharpness are used as assumptions rather than independently reproven.",
+      "residual_risks": [
+        "The foundational arXiv preprint's sharp boundary and existence theorem are taken as published primary mathematics, not freshly reproven from first principles.",
+        "The expansion is only as a->0+ for the principal spectral branches; one-sided derivative statements at a=0, no claim for larger a or nonmonotone tau.",
+        "Exact computations support coefficient algebra only; numeric examples do not prove the asymptotic or the source sharpness theorem."
+      ],
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Stavroulakis 2026 Lemma 2.12 provides beta(a) exactly on all sufficiently small positive a, not merely a few coefficients.",
+          "Theorem 1.4 and Theorem 2.15 prove both exclusion and constructive nonoscillation for all admissible a,b, including the proposed cubic scaling.",
+          "Pituk–Stavroulakis–Stavroulakis 2023 Theorem 1.1 concerns first-order x'(t)+p(t)x(tau(t))=0 and a different integral delay parameter kappa(a)."
+        ],
+        "reasoning": "A complete expression and two-sided sharpness theorem for the same beta(a) logically dominate its local series and corollary sign threshold. The first-order paper is not the decisive source.",
+        "searches": [
+          "arXiv:2609.31732v1 Lemma 2.12, Remark 2.14, Theorems 1.4 and 2.15",
+          "Web: Stavroulakis beta(a) limsup cubic contact arxiv 2609.31732",
+          "Web: second-order liminf limsup oscillation sharp bound monotone argument",
+          "doi:10.1142/S0219199721500875 first-order Lambert W thresholds"
+        ]
+      },
+      "checked_sources": [
+        "arXiv:2609.31732v1 (primary full text, Lemma 2.12/Theorem 2.15 decisive)",
+        "doi:10.1142/S0219199721500875 (authorized PDF pages 1–12: distinct first-order threshold)",
+        "doi:10.1155/2010/598068 (Wiley abstract/introduction, distinct sign and scope)",
+        "Resultary semantic searches: top self-match and unrelated neighboring SCOPE records",
+        "Web searches for source identifier, cubic/endpoint/derivative aliases and broader second-order delay bounds"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "Published beta formula and published Lambert-W spectral roots are exactly the expressions substituted into the audited proof.",
+          "Ordinary Taylor/Lagrange inversion gives the coefficient -1/3 and -sqrt(2)/24 without an additional lemma.",
+          "The published necessity and sharpness theorems give the two claimed alternatives once the sign of b(a)-beta(a) is known."
+        ],
+        "reasoning": "Prior implication is decisive. The earlier exact local formula subsumes the expansion as a routine analytic corollary; the phase-law statements are direct specializations of the already published sharp threshold. No absence-of-verbatim-wording inference is used.",
+        "searches": [
+          "Direct reading arXiv:2609.31732v1 Corollary 2.8, Lemma 2.12 eq. 2.15, Theorem 1.4 and Theorem 2.15",
+          "Web: \"2609.31732\" \"a^3\" beta cubic",
+          "Resultary queries for cubic derivative and sharp delay boundaries"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "arXiv:2609.31732v1, Lemma 2.12, eq. (2.15): beta(a)=2a-2d+sqrt(2d^2+4/(rs)-2) for beta(a)>=2a.",
+          "ArXiv source Corollary 2.8 identifies the same principal Lambert-W branches; this is an exact alternate parameterization of the target beta.",
+          "Resultary top result 2026/10/11/SCOPE-cubic-boundary-layer-at-the-classical-limsup-corner-for-second-o--664f070ece87 is the same target, not an independent predecessor."
+        ],
+        "reasoning": "Compared delay-data threshold, positive decreasing solution condition, principal Lambert-W coordinates, endpoint Taylor derivatives, and cubic-rescaled form. All target statements refer to the same beta(a) that the earlier primary source determines exactly.",
+        "searches": [
+          "Resultary search: sharp second order delay equation x''(t)=x(tau(t)) liminf limsup beta(a) cubic near a=0 sqrt2 third derivative",
+          "Resultary search: Lambert W oscillation sharp threshold boundary small delay cubic 1/3 spectral positive feedback",
+          "Web: arxiv 2609.31732 oscillation of second order delay equations positive feedback Stavroulakis beta a",
+          "Web: second order delay x''(t)=x(tau(t)) liminf limsup beta a sqrt 2 corner cubic asymptotic",
+          "arXiv:2609.31732v1"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "No separately indexed earlier coefficient table identified; exact source formula exists for every a in the local analytic branch.",
+          "The target is a Taylor coefficient and phase inequality, not an enumerated database entry."
+        ],
+        "reasoning": "The absence of a printed coefficient table is not a novelty test. The complete source formula already determines every Taylor coefficient, so an exact database/table is not needed for prior implication.",
+        "searches": [
+          "Resultary: sharp second order delay beta cubic near 0",
+          "Web: \"2609.31732\" \"a^3\" beta cubic",
+          "Web: \"Cubic boundary layer\" \"second-order delay\" limsup",
+          "arXiv:2609.31732v1 exact equation (2.15)"
+        ]
+      },
+      "rationale": "The same-object primary source arXiv:2609.31732v1 already supplies the complete exact analytic formula for beta(a) on a neighborhood of a=0 (Lemma 2.12, eq. 2.15), its Lambert-W spectral roots (Corollary 2.8), the necessary sharp bound (Theorem 1.4), and existence for all admissible (a,b) (Theorem 2.15). These stronger published statements directly imply the proposed endpoint Taylor coefficients by standard Lagrange-inversion/Taylor algebra and imply the fixed-kappa phase rule by sign comparison; the submitted proof uses precisely that deduction and introduces no new construction or theorem independent of it. The new explicit coefficient is not printed in the inspected source, but absence of matching wording or number does not establish novelty when the complete prior formula covers the entire local boundary. Search results (including Resultary self-match) found no separate predecessor but do not negate the decisive prior implication.",
+      "residual_risks": [
+        "The 2026 source is a September 22, 2026 arXiv preprint; changes in later versions were not audited because cited claim uses v1.",
+        "Unindexed older local-expansion observation may exist, but it would only strengthen rejection; no inference from lack of search hits.",
+        "The 2023 first-order 35-page article was materially read only through page 12, and full-document noncoverage is not claimed; decisive coverage is already established by the accessible 2026 exact second-order boundary formula."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "EXACT_GENERAL_COVERAGE",
+          "evidence": [
+            "Lemma 2.12 (2.15) exact closed beta formula on beta(a)>=2a.",
+            "Corollary 2.8 and Section 3 analytic spectral roots.",
+            "Theorems 1.4 and 2.15 necessity and sharpness for each admissible a,b; no cubic coefficient explicitly printed in inspected relevant sections."
+          ],
+          "identifier_or_url": "arXiv:2609.31732v1 (https://arxiv.org/abs/2609.31732)",
+          "material_read": "Full-text article rendered on arxiv abstract URL; examined introduction/Theorem 1.4, Corollary 2.8 spectral coordinates, Section 2.4 especially Lemma 2.12 eq. 2.15, Lemma 2.13, Remark 2.14, Section 2.5 proof and Theorem 2.15; searched entire article text for Taylor/asymptotic endpoints.",
+          "method": "Direct full-text HTML browsing and specific passage inspection.",
+          "title": "Oscillation of Second-Order Delay Equations with Positive Feedback",
+          "trigger": "Exact motivating equation, exact sharp boundary and branch used in submitted proof."
+        },
+        {
+          "assessment": "DIFFERENT_FIRST_ORDER_OBJECT",
+          "evidence": [
+            "Page 2 equation (1.1) is x'(t)+p(t)x(tau(t))=0.",
+            "Page 4 Theorem 1.1 gives kappa(a) on 0<=a<=1/e for the integral delay functional, not the second-order beta(a)."
+          ],
+          "identifier_or_url": "doi:10.1142/S0219199721500875",
+          "material_read": "Original journal pages 1–12 of 35 including abstract, Introduction, Theorem 1.1, remarks on Lambert W, root spectral preliminaries and first-order positivity conditions.",
+          "method": "arXiv and lawful OA search attempted; authorized Oxford PDF text extraction pages 1–12.",
+          "title": "Explicit values of the oscillation bounds for linear delay differential equations with monotone argument",
+          "trigger": "Cited as spectral/Lambert-W predecessor by the 2026 paper; plausible oscillation-threshold alias."
+        },
+        {
+          "assessment": "CLASSICAL_CONTEXT_NO_NEW_DECISIVE_COMPARISON",
+          "evidence": [
+            "Article addresses x''(t)+p(t)x(tau(t))=0 and various other equations; sign differs from the positive-feedback normalized 2026 sharp boundary.",
+            "No exact beta(a) of the proposed 2026 equation in the material inspected; no whole-document noncoverage claim."
+          ],
+          "identifier_or_url": "doi:10.1155/2010/598068",
+          "material_read": "Journal HTML abstract and introduction/problem formulation.",
+          "method": "Direct Wiley web inspection.",
+          "title": "Oscillation Criteria for Second-Order Delay, Difference, and Functional Equations",
+          "trigger": "Older same subject and liminf/limsup criteria, possible stronger prior."
+        }
+      ],
+      "status": "FAIL"
+    },
+    "value": {
+      "checked_sources": [
+        "arXiv:2609.31732v1 Theorem 1.4, Lemma 2.12, Theorem 2.15: naturalness and established exact threshold",
+        "Independent exact series and sign comparison: first nonzero term occurs at degree three",
+        "Original RESULT.md: explicit cubic-scale family and separate critical kappa=1/3 limitation"
+      ],
+      "rationale": "The liminf-to-limsup sharp boundary is a mathematically motivated and operationally meaningful invariant; a=0 is its classical threshold corner. The cancellation of linear and quadratic terms gives an informative cubic scaling and coefficient 1/3 that supplies a quantitative sensitivity rule for nearby admissible delay data. This is a genuinely interpretable exact local fact, rather than an arbitrary parameter slice or mere negative type check, even though its deduction from a stronger published closed formula prevents a new originality claim. It does not purport to establish a new global sharp criterion, and no larger theorem is demanded for value.",
+      "residual_risks": [
+        "As a straightforward corollary of an existing all-parameter exact boundary, the fact is useful mathematical exposition and sensitivity analysis rather than an independent discovery.",
+        "No quantified error uniform over varying kappa or extension to other delay conventions; critical kappa=1/3 undecided by the cubic rule."
+      ],
+      "status": "PASS"
+    }
+  },
+  "disposition": "failed",
+  "limitations": [
+    "The mathematical original is correct but covered by the exact analytic source formula; no rebranding or disclaimer repairs originality.",
+    "One-sided local expansion only; for kappa=1/3 further terms needed.",
+    "No complete expert or Lean verification independently claimed."
+  ],
+  "schema_version": 1
+}

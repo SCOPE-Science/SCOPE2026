@@ -1,23 +1,17 @@
-# Review: exact square-splitting Möbius residue-class distribution
+# Mathematical review: local distribution of the square-splitting Möbius function
 
 ## Correctness
 
-**PASS.** The proof reconstructs the local prime-power values of the square-splitting Möbius function, proves its ordinary square-divisor convolution with the classical Möbius function, and independently reconstructs the fourth-power-free indicator by fourth-power divisor inversion. The unconditional prime number theorem in fixed arithmetic progressions supplies the only analytic input needed for \(o_q(x)\) signed cancellation in reduced classes. Every nonreduced class reduces to finitely many q-supported prime-power factors and finitely many reduced classes, so the cancellation remains valid without a coprimality assumption. Exact congruence counts establish the support formula with \(O_q(x^{1/4})\) error. All vanishing boundaries are handled, including \(q=1\) and classes divisible by \(p^4\).
-
-The finite implementation is independent numerical corroboration, not a substitute for the infinite proof.
+**PASS.** Prime-power values give the ordinary convolution with squared-divisor Möbius weights and identify the fourth-power-free support. The prime number theorem in arithmetic progressions, a bounded-tail argument, and a finite decomposition of noncoprime classes establish vanishing signed means. Exact CRT counts give the Euler-product support density and the \(O_q(x^{1/4})\) remainder. The zero-density boundary is exactly \(p^4\mid\gcd(q,a)\) for some prime. The analytic proof handles all fixed moduli, arbitrary integer residues, and the unit modulus.
 
 ## Originality
 
-**PASS.** The identical primary paper is Talukdar and Saikia, INTEGERS 26 (2026), article A56. Its Theorem 3 gives the arithmetic function, and its Theorem 11 computes only the total support density \(1/\zeta(4)\). The conclusion explicitly notes further distributional questions. General fake-Möbius studies by Martin–Yip and Saraeb were inspected: their global oscillation or smoothed-sum results do not state or directly dominate the present full three-value fixed-residue distribution. Exact-equivalence, periodic-class, fourth-power-free, and Möbius-convolution searches did not reveal an equivalent classification.
+**PASS, best of knowledge.** Talukdar and Saikia's *A Square–Splitting A-Convolution of Narkiewicz Type*, INTEGERS 26 (2026) A56, Theorem 3, fixes the function and its Euler series, while Theorem 11 gives only unrestricted nonzero density. Their conclusion raises further distributional questions. Martin and Yip (arXiv:2411.06610) treat global fake-Möbius oscillation, and Saraeb (arXiv:2512.18936) treats smoothed global sums and bias; inspected results do not supply the exact three-way density in every fixed progression. Classical Möbius cancellation and fourth-power-free counting are important existing ingredients; the claim is the explicit complete classification, not a new general analytic theorem. An unindexed stronger fixed-progression result is possible.
 
-Residual risk: a general unindexed theorem might imply the explicit specialization; a failed search alone is not evidence of uniqueness.
+## Mathematical value
 
-## Value
+**PASS.** Positive, negative and zero values are determined in every fixed residue class by one Euler product, including noncoprime classes and the exact fourth-power obstruction. This answers a motivated distributional question about a natural arithmetic function, not a finite table.
 
-**PASS.** The source determines where the function is nonzero in aggregate but does not say whether either sign dominates in specific arithmetic progressions. The exact three-way classification answers this naturally posed quantitative question for all fixed moduli, including noncoprime classes, and identifies the sharp structural vanishing obstruction \(p^4\mid\gcd(q,a)\). The result also provides an explicit support error without a finite cutoff or empirically chosen parameters.
+## Limits and verification
 
-## Closest literature and limitations
-
-The prior support theorem is recovered as a special case by summing the two signs over the unit modulus. The extension relies on standard Möbius cancellation and exact congruence counting, not a claimed new general prime-number theorem. No estimate uniform in growing \(q\) or finer sign-discrepancy rate is proved.
-
-Self-review: passed. Independent audit: not yet performed.
+Independent finite checks compare the direct prime-power definition with the square-divisor convolution through 120000 and confirm 339 exact CRT residue-support counts. These are finite consistency tests; infinite cancellation relies on PNT in fixed arithmetic progressions. No uniformity for growing moduli, quantitative signed remainder, formal proof, or expert attestation is claimed.

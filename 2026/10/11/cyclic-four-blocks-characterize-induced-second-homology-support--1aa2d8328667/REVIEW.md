@@ -1,14 +1,21 @@
-# Review of Cyclic four-blocks characterize induced second-homology support in the ten-vertex \(S^2\times S^1\)
+# Independent mathematical audit
 
-## Correctness — PASS
-The complex is reconstructed from the three published cyclic difference cycles. Exact binary boundary ranks give \(\dim H_2(K;\mathbf F_2)=1\). All \(1024\) induced vertex subsets are then checked by lifting local two-cycles to the global chain group and testing their image modulo global boundaries. A separate enumeration of all \(210\) four-subsets identifies exactly the ten cyclic four-blocks as missing tetrahedra and verifies that each carries the nonzero class. The threshold-eight conclusion has an independent cyclic-run proof and an explicit seven-vertex counterexample.
+## correctness
 
-## Originality — PASS
-The closest literature inspected comprises Walkup's ten-vertex orientable handle construction, Altshuler's complete ten-vertex neighborly-manifold classification, Kühnel--Lassmann's dihedral/cyclic classification, Kühnel--Lassmann's sphere-bundle family, and Spreer's exact cyclic table. These sources establish existence, topology, symmetry, global homology, or exact difference cycles, but none states or implies the all-subset image criterion, the exact ten minimum supports, the layer counts, or the universal threshold eight. Missing-tetrahedron handle arguments establish far less than the quantified if-and-only-if statement.
+PASS
 
-Residual risk remains that an unindexed historical finite computation could contain the same census.
+Reconstructed all 30 translated tetrahedra from the three stated difference cycles and all simplicial faces, obtaining f=(10,40,60,30). Fresh GF(2) linear algebra gives rank(d2)=30, rank(d3)=29 and H2 dimension one. Independent kernel lifting and rank-imaging for every one of the 1024 vertex subsets verifies r(S)=1 exactly when S contains a cyclic consecutive four-block, with zero mismatches. Independently all 210 four-subsets were checked: exactly ten missing tetrahedra, precisely the cyclic four-blocks. Exact support-layer counts 4:10,5:50,6:100,7:100,8:45,9:10,10:1; every eight-subset qualifies and an explicit seven-subset has no four-block. This exhausts the stated finite object without relying on stored VERIFY_OK output or any extrapolation.
 
-## Value — PASS
-The ten-vertex \(S^2\times S^1\) triangulation is a canonical minimal object. Determining exactly which induced vertex sets carry its unique second mod-two homology class gives a natural local-to-global support invariant, and the sharp threshold eight summarizes when the global class becomes unavoidable in induced subcomplexes.
+## originality
 
-Same-model review: passed. Independent audit: not yet performed.
+PASS
+
+Best-of-knowledge original complete induced-subcomplex mod-two H2 support ideal and all size-layer counts for the natural 10-vertex cyclic S2×S1 triangulation. Independent searches compared implications of stronger classification and tightness results, exact-object tables, aliases and parallel related findings. None of the fully inspected primary results determines this all-subset rank pattern. Reappearance of the identical 2026 SCOPE entry in Resultary is circular and was excluded as independent prior literature. Inaccessible exact-object full-text sources pose genuine residual priority risk but not decisive known coverage.
+
+## value
+
+PASS
+
+The cyclic 10-vertex triangulation of S2×S1 is a natural minimal-dimensional combinatorial-manifold test object, and the image-support ideal of induced H2 into global H2 is a motivated local-to-global invariant. The complete exact counts at every vertex cardinality, ten minimal missing-tetrahedron carriers and sharp forced-surjectivity threshold eight supply structural information not implied numerically by global Betti numbers or a generic enumeration of faces. A later researcher studying induced homology, tightness or vertex-support systoles could use the full exact spectrum. No general family theorem is required for this precisely characterized finite invariant.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

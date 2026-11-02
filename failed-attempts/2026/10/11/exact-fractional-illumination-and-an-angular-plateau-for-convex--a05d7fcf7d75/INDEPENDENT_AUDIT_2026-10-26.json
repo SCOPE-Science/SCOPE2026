@@ -1,0 +1,174 @@
+{
+  "audit_date_utc": "2026-10-26",
+  "audited_at_utc": "2026-10-26T15:07:38.362783Z",
+  "axes": {
+    "correctness": {
+      "checked_sources": [
+        "Frozen RESULT.md blob d05168526d67b7908967c3d03eb87a4deec137d5",
+        "Frozen verify_fractional_polygon.py blob 4171a89b6551233a75ec7ee387b73bce55d24505 (source inspected, not blindly executed)",
+        "Fresh independent_checks.py and independent_checks_output.json, exact rational arithmetic",
+        "Fresh stronger_prior_condition_check.json"
+      ],
+      "rationale": "Read all seven package blobs at their frozen Git snapshot and reconstructed the analytic theorem. For a genuine polygon vertex incident to normals theta_{i-1},theta_i, strictly inward directions form the open arc (theta_i+pi/2,theta_{i-1}+3pi/2), of length pi-(theta_i-theta_{i-1}) in (0,pi); edge-relative-interior illumination follows from the incident vertex arc condition. For equiangular normals with Delta=2pi/m, k=floor((m-1)/2), each open arc has length ell=pi-Delta, (k-1)Delta<ell<=kDelta, so no direction lies in more than k vertex arcs, including the even-side strict-endpoint case. Each cyclic block of k consecutive arcs has a nonempty open intersection; weight 1/k on one point from each of m blocks gives exactly m/k total mass and at least unit vertex coverage. For odd m=2q+1, deviations eta<Delta/4 enlarge each reference arc by <eta at each end; q+1 equispaced arc starts cannot fit inside the expanded length <qDelta, giving the lower bound. Midpoints of the q-reference-arc block intersections have margin Delta/4 from all block endpoints, so remain strictly incident to their q actual arcs, giving the matching upper bound. Finiteness and strict endpoints are respected, also at m=3,4. Independently written exact rational check evaluated 149 finite normal fans for 3<=m<=51 including 100 perturbed odd cases, with zero discrepancies. A separate rational example verified a strictly wider prior-covered odd fan. These finite computations do not substitute for the universal analytic proof.",
+      "residual_risks": [
+        "Finite checks cover only 3<=m<=51 and selected deformations; proof establishes all integer m and all continuous deviations in the specified open range.",
+        "The proof only shows a sufficient angular plateau radius, not maximality."
+      ],
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Published antipodal-normal-fan theorem yields I*(P)=2r/(r-1) for every 2r-gon with nu_{j+r}=-nu_j, without equiangularity or central symmetry.",
+          "Sriamorn Lemma 3.1 covers a family of odd polygons specified only by sums of q consecutive exterior angles; this includes the submitted uniform angular plateau strictly.",
+          "Naszodi and Gorodzha general bounds alone do not imply the exact values, but are not the decisive covering sources."
+        ],
+        "reasoning": "For even equiangular normal fans, nu_{j+r}=-nu_j, so the published all-antipodal-normal-fan theorem specializes exactly to the submitted m/(m/2-1). For odd fans, the weaker-in-hypotheses Sriamorn angle criterion and the elementary matching lower bound imply the entire uniform-displacement plateau. For n=5,7,9,11, normal perturbations larger than 1/(4n) of a turn still satisfy the q-gap condition, demonstrating genuinely broader coverage.",
+        "searches": [
+          "Resultary search: fractional illumination convex body angular plateau directional illumination planar convex polygon exact fractional illumination smooth bodies",
+          "Resultary record 2026/10/11/SCOPE-exact-multiple-illumination-and-parity-rigidity-for-polygons-wit--f4e6962728dc",
+          "Kirati Sriamorn On the multiple illumination numbers of convex bodies arXiv 2306.13517 Lemma 3.1",
+          "Naszodi 2009 Theorem 2 Proposition 5",
+          "Gorodzha arXiv:2609.23913 Theorem 1"
+        ]
+      },
+      "checked_sources": [
+        "Sriamorn, arXiv:2306.13517, Theorem 1.8 and Section 3.3 Lemma 3.1 (2023 preprint; 2024 journal)",
+        "Published Resultary, exact multiple illumination and parity rigidity for polygons with antipodal edge-normal fans (2026-10-11), full RESULT.md",
+        "Naszodi, Fractional Illumination of Convex Bodies (2009), full open-access PDF",
+        "Gorodzha, arXiv:2609.23913, Theorem 1 and introduction",
+        "Published Resultary, Complete homothetic illumination spectrum of regular polygons (2026-10-04), full RESULT.md",
+        "Published Resultary, Illumination-homothety rigidity for equiangular polygons (2026-10-04), full RESULT.md",
+        "Relevant open-web queries for fractional illumination regular/equiangular polygons, 2024 multiple illumination and cyclic interval transversals"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "Under |delta_i|<Delta/4, every q-consecutive normal-angle gap is qDelta+delta_{i+q}-delta_i<pi; this is precisely the hypothesis of Sriamorn Lemma 3.1 for q>=2.",
+          "The complementary q+1 gap is >pi and consequently no direction can simultaneously illuminate q+1 vertices; the fractional lower bound is (2q+1)/q.",
+          "Uniform weight 1/q on the 2q+1 directions from Sriamorn gives the matching upper bound.",
+          "Even m=2r equiangular normals are antipodally paired, hence the published antipodal-fan theorem gives 2r/(r-1).",
+          "The m=3 case is the elementary triangle I*(P)=3."
+        ],
+        "reasoning": "These are explicit logical implications of the primary source plus basic polygon geometry, not title matches. All parts of the final claim are covered, including the normal-displacement plateau and arbitrary side lengths. No surviving corrected independent theorem was identified, and adding a certificate/disclaimer cannot make the covered original original.",
+        "searches": [
+          "Sriamorn 2023 arXiv:2306.13517 pp. 11-14, Lemma 3.1 and Theorem 1.8",
+          "Resultary 2026/10/11 exact multiple illumination antipodal edge-normal fans RESULT.md full mathematical statement and proof",
+          "Naszodi 2009 full text Definition 1, Section 2 and Proposition 5",
+          "Gorodzha arXiv:2609.23913 Introduction and Theorem 1"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Naszodi 2009, Section 2 identifies the fractional illumination number with a fractional transversal of the boundary direction sets.",
+          "Sriamorn 2023 Lemma 3.1 states the q-fold covering theorem for any (2q+1)-gon with each block of q consecutive exterior angles totaling less than pi.",
+          "The geometric equivalence turns the submitted per-normal perturbation inequalities into Sriamorn's exterior-angle conditions."
+        ],
+        "reasoning": "The cyclic open-arc LP is a correct equivalent representation, not an independent new invariant. Normal gaps equal polygon exterior angles; Sriamorn's q-consecutive-angle criterion and the complementary gap obstruction yield the entire odd-case fractional optimum as a short corollary.",
+        "searches": [
+          "arXiv:2306.13517 Section 3.3 Lemmas 3.1, 3.2, 3.5 and Theorem 1.8",
+          "polygon fractional illumination cyclic vertex tangent cones direction weighted open arcs",
+          "Naszodi 2009 Section 2 fractional transversal formulation",
+          "Resultary semantic search: fractional illumination convex body angular plateau directional illumination planar convex polygon exact fractional illumination smooth bodies"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "Sriamorn Theorem 1.8 already gives I^k(P_n)=ceil(kn/floor((n-1)/2)) for every regular n-gon and positive integer k. Setting k a multiple of floor((n-1)/2) and dividing masses gives the submitted regular-polygon fractional value.",
+          "Resultary publishes an explicit fractional formula for antipodal normal fans, covering every even equiangular polygon.",
+          "Naszodi Proposition 5 gives the regular pentagon lower bound 5/2, not by itself the claimed general formula."
+        ],
+        "reasoning": "The regular-n values have an exact published all-n multiple-illumination source, and the even equiangular family an exact published fraction. Thus the absence of a separate numerical table in the precise notation does not constitute an original computation.",
+        "searches": [
+          "Sriamorn arXiv:2306.13517 Theorem 1.8 exact I^m of regular n-gons",
+          "Resultary published findings search exact fractional illumination polygon",
+          "Naszodi 2009 Proposition 5 regular pentagon fractional bound",
+          "fractional illumination regular n-gon exact n over floor((n-1)/2)"
+        ]
+      },
+      "rationale": "The full claim is already mathematically implied by published stronger or earlier results. Sriamorn (arXiv:2306.13517, 2023; 2024 Results in Mathematics), Lemma 3.1, proves I^q(P)=2q+1 for every convex (2q+1)-gon, q>=2, whenever each q consecutive exterior angles sum to less than pi. For every odd-sided normal fan in the submitted plateau, set Delta=2pi/(2q+1) and delta_j=theta_j-phi-jDelta. Then each q-angle sum is qDelta+delta_{j+q}-delta_j <qDelta+Delta/2=pi, hence Sriamorn directly yields a q-fold illumination by 2q+1 directions; weighting those directions by 1/q gives I*(P)<=(2q+1)/q. The complementary (q+1)-angle sum is >pi, so no direction can illuminate q+1 consecutive vertices, and the illuminated vertices of a fixed direction form a contiguous block. Thus each direction illuminates at most q vertices, giving I*(P)>=(2q+1)/q. The triangle q=1 is elementary. This argument actually applies on the larger open set defined by all q-consecutive exterior-angle sums <pi, not merely the submitted uniform normal-displacement ball. In the even-sided case, the published \"Exact multiple illumination and parity rigidity for polygons with antipodal edge-normal fans\" proves I*(P)=2r/(r-1) for ALL polygons with antipodal outward normals, including all equiangular 2r-gons with arbitrary lengths (and a broader non-equiangular family). Sriamorn Theorem 1.8 also already contains the exact regular-polygon multiple-illumination formula. The submitted combination is correct but mathematically covered; absence of its exact title or angular radius from older papers does not establish originality.",
+      "residual_risks": [
+        "The target and the published antipodal-normal-fan mathematical record are both dated 2026-10-11; relative intraday publication chronology was not established. This does not affect the 2023 odd-case implication or the conclusion of mathematical coverage in the published corpus.",
+        "The original statement itself does not claim to have the maximal odd plateau radius; no novel stronger plateau or optimized tolerance was supplied or independently assessed.",
+        "No priority or authorship inference is made from mathematical overlap."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Decisively covering for odd angular plateau via Lemma 3.1 plus finite-support normalization and elementary complement-of-angle-sums counting; exact regular polygon values already in Theorem 1.8.",
+          "evidence": "Lemma 3.1: I^q(P)=2q+1 when any q consecutive exterior angles sum to less than pi; Theorem 1.8: I^k(P_n)=ceil(kn/floor((n-1)/2)).",
+          "identifier_or_url": "https://arxiv.org/pdf/2306.13517 (published 2024 in Results in Mathematics 79, article 124)",
+          "material_read": "Full PDF available; abstract, Theorem 1.8, Section 3.3 pp. 11-14 (Lemmas 3.1, 3.2, 3.5 and proof), closing Problem 2 on p.21; PDF page renderings inspected.",
+          "method": "Primary arXiv PDF text read and screenshots of relevant pages 12, 13 and 14.",
+          "title": "On the Multiple Illumination Numbers of Convex Bodies",
+          "trigger": "An older 2023 exact multiple-illumination theorem on the identical polygon family; potential implication for fractional illumination"
+        },
+        {
+          "assessment": "Covers the entire even equiangular component as a special case of antipodally paired normal fans; ordering within the shared 2026-10-11 publication date not established.",
+          "evidence": "For 2r genuine edges and nu_{j+r}=-nu_j, gives I*(P)=2r/(r-1), with no equal-angle or length hypothesis.",
+          "identifier_or_url": "https://github.com/Resultary/2026/blob/main/2026/10/11/SCOPE-exact-multiple-illumination-and-parity-rigidity-for-polygons-wit--f4e6962728dc/RESULT.md",
+          "material_read": "Entire RESULT.md: theorem, direction-cell proof, exact k-fold/fractional formulas, parity classification and limitations.",
+          "method": "Read full public repository source via authorized GitHub read action.",
+          "title": "Exact multiple illumination and parity rigidity for polygons with antipodal edge-normal fans",
+          "trigger": "Published mathematical theorem with identical invariant under a broader even-polygon normal-fan hypothesis."
+        },
+        {
+          "assessment": "Establishes the definition and a pentagon lower bound, but not independently the all-m plateau. Supports conversion of k-fold covers to fractional weights.",
+          "evidence": "Definition 1 requires finite nonnegative measures; Proposition 5 shows I*(P_5)>=5/2; Section 2 treats fractional transversals.",
+          "identifier_or_url": "https://cdm.ucalgary.ca/article/download/62022/46694/177154 (Naszodi, 2009)",
+          "material_read": "Six-page original paper: Definition 1, Theorem 2, Proposition 5 proof, Section 2 fractional transversals; PDF pages 2, 4, 5 rendered.",
+          "method": "Original open-access journal PDF text with page screenshots.",
+          "title": "Fractional Illumination of Convex Bodies",
+          "trigger": "Foundational exact definition of fractional illumination and regular-pentagon result."
+        },
+        {
+          "assessment": "Not the decisive coverage: the global bound I*(K)<=2^d does not imply the exact polygon normal-fan values.",
+          "evidence": "Theorem 1 states I*(K)<=2^d with equality only for parallelotopes.",
+          "identifier_or_url": "https://arxiv.org/abs/2609.23913 (Gorodzha 2026)",
+          "material_read": "Accessible arXiv full HTML: introduction, Theorem 1 and overlap-energy method; relevant text reviewed.",
+          "method": "Primary arXiv HTML text.",
+          "title": "Fractional illumination and the optimal exponential rate in Hadwiger's covering conjecture",
+          "trigger": "The broadest contemporary all-convex-body fractional illumination estimate."
+        },
+        {
+          "assessment": "Inapplicable to weighted direction illumination: treats areas of convex hulls with an exterior point.",
+          "evidence": "Defines P^delta by area(conv(P union {x})) and classifies homothetic levels.",
+          "identifier_or_url": "https://github.com/Resultary/2026/blob/main/2026/10/4/SCOPE-complete-homothetic-illumination-spectrum-of-regular-polygons--17952b7d24ba/RESULT.md",
+          "material_read": "Entire RESULT.md theorem, proof, distinctions and references.",
+          "method": "Direct public GitHub source access.",
+          "title": "Complete homothetic illumination spectrum of regular polygons",
+          "trigger": "Similar title and regular polygon objects."
+        },
+        {
+          "assessment": "Inapplicable to fractional direction covers; proves geometric rigidity of area-level illumination bodies.",
+          "evidence": "If an area-defined illumination body is homothetic to an equiangular polygon, that polygon is regular.",
+          "identifier_or_url": "https://github.com/Resultary/2026/blob/main/2026/10/4/SCOPE-illumination-homothety-rigidity-for-equiangular-polygons--7f7a63277456/RESULT.md",
+          "material_read": "Entire RESULT.md: theorem and cyclic Fourier proof, limitations.",
+          "method": "Direct public GitHub source access.",
+          "title": "Illumination-homothety rigidity for equiangular polygons",
+          "trigger": "Same equiangular polygons and illumination terminology."
+        }
+      ],
+      "status": "FAIL"
+    },
+    "value": {
+      "checked_sources": [
+        "Naszodi 2009 original motivation and Definition 1",
+        "Sriamorn 2023 Section 3.3 natural multiple-illumination classification",
+        "Resultary published all-antipodal-normal-fan fractional theorem"
+      ],
+      "rationale": "Fractional illumination is a natural convex-geometric invariant measuring optimal weighted illumination of all boundary points. An exact parity-dependent all-m formula for a broad nonregular equiangular polygon family and an open angular stability domain are intrinsically mathematically worthwhile: they characterize sharp cover/packing behavior rather than an arbitrary tiny instance or routine numerical table. This value judgment is independent of priority. The actual formula and sufficient plateau are mathematically covered by the older/broader sources, so value does not rescue originality.",
+      "residual_risks": [
+        "The claim is not historically original and therefore cannot be accepted regardless of its intrinsic mathematical interest."
+      ],
+      "status": "PASS"
+    }
+  },
+  "disposition": "failed",
+  "final_claim": "For any full-dimensional equiangular convex m-gon, m>=3, with genuine edges, I*(P)=m/floor((m-1)/2), where I* is the finite-support fractional weighted inward-direction illumination optimum. For odd m=2q+1, the value (2q+1)/q persists if cyclic outward-normal angles theta_i obey |theta_i-phi-2pi*i/m|<pi/(2m) for some common rotation phi.",
+  "limitations": [
+    "The submitted odd normal fan displacement bound is sufficient, not proved maximal.",
+    "The claim asserts no classification of all nonequiangular normal fans or higher-dimensional bodies.",
+    "The 2026-10-11 ordering of two published mathematical records was not determined; the 2023 source independently covers the essential odd stability part.",
+    "Existing public-facing source metadata includes operational identifiers; publication sanitation has not been performed."
+  ],
+  "schema_version": 1
+}

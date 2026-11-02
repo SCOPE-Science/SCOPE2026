@@ -5,8 +5,11 @@
     "status": "not_performed"
   },
   "independent_audit": {
-    "evidence": null,
-    "status": "not_performed"
+    "status": "passed",
+    "evidence": [
+      "INDEPENDENT_AUDIT_2026-10-27.md",
+      "INDEPENDENT_AUDIT_2026-10-27.json"
+    ]
   },
   "lean_verification": {
     "evidence": null,
@@ -15,50 +18,25 @@
   "schema_version": 1
 }
 ---
-# Verification
 
-The source-dependent checks were made against arXiv:2609.27078v2.
+# Independent mathematical audit
 
-Definition 3.4 makes every sprout finite but defines its height and width using strict modal chains and incomparable immediate successors. Neither parameter counts the number of points inside one reflexive modal cluster.
+## correctness
 
-Definition 7.1 permits a canonical sprout homomorphism to map multiple sprout points to one canonical world.
+PASS
 
-Definition 8.2 extends the notation for grafting a family only when that family is finite.
+In arXiv:2609.27078v2, sprouts are finite but modal height and width count strict cluster links, not the cardinality of a reflexive cluster (Def 3.4); canonical sprout homomorphisms need not be injective (Def 7.1). Choose Sigma={p_bullet}, a reflexive Sigma-region bud representative Psi and a stable canonical one-cluster tree A whose bud image contains a finite representative set, as constructed via canonical Finality and Lemma 6.5. For each m≥1, B_m is the m-world reflexive complete modal cluster mapped constantly to Psi; the Sigma label is atomic and complete with no modal or intuitionistic defect. Its root is graftable, rho(B_m)=rho(w), hgt=wdt=0<3 and the tall-petal clause is vacuous. Distinct cardinalities imply nonisomorphism. Thus G contains infinitely many 3-petals modulo ordinary isomorphism. Def 8.2 limits simultaneous family grafting to finite G, whereas Prop 12.3 immediately grafts all. The gap is in that proof line, not a disproof of the proposition itself. Independent check: a complete reflexive cluster has no strict modal edge for every positive m, so duplicating a point preserves all relevant bounds.
 
-Definition 12.1 imposes bounded height and width on an \(n\)-petal.
+## originality
 
-Proposition 12.3 sets
-\[
-\mathcal G=
-\{\text{all \(n\)-petals over \(w\), up to isomorphism}\}
-\]
-and then writes
-\[
-A'=A\sqcup_w\mathcal G.
-\]
+PASS
 
-The explicit family used for verification is
-\[
-B_m=
-\text{an \(m\)-point reflexive modal cluster mapped constantly to \(\Psi\)}
-\qquad(m\ge1).
-\]
+Best-of-knowledge novelty for the explicit ordinary-isomorphism multiplicity obstruction in Proposition 12.3. Full accessible primary-paper text and targeted published-finding/literature searches did not reveal a stated correction or equivalent argument. This does not treat absence of search results as proof of priority; later-version and unindexed-critique risks remain.
 
-For every \(m\),
-\[
-\operatorname{hgt}(B_m)=
-\operatorname{wdt}(B_m)=0,
-\]
-and all petal conditions are unchanged by increasing \(m\). Ordinary isomorphism nevertheless preserves
-\[
-|B_m|=m.
-\]
-Hence infinitely many isomorphism types occur.
+## value
 
-Theorem 14.2's Kruskal encoding labels a modal cluster by the **set** of labels that occur in it. This can collapse repeated copies under the simulation order, but it is not a proof that the repeated-copy sprouts are ordinarily isomorphic.
+PASS
 
-## Limits
+The finite-petal premise is needed to define the stable flower in Proposition 12.3; the flower is invoked in the later internal-defect resolution and finite-model construction. This is a motivated structural proof-gap witness distinguishing ordinary isomorphism from the simulation quasiorder, not a mere renaming or an unsupported claim against the finite model property. It specifies an exact necessary repair boundary—control modal-cluster multiplicities or replace the all-isomorphism construction by a finite adequate family.
 
-This verifies failure of the stated all-petals finiteness step.
-
-It does not verify failure of Proposition 12.3 as a theorem, does not rule out a finite repair, and does not challenge the separate finite-model proof of \(\mathsf{IK4}\).
+The dated certificate retains the supplied scientific assessment, sources and limitations.

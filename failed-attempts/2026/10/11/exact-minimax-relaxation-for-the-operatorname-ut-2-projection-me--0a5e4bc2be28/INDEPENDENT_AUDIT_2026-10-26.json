@@ -1,0 +1,111 @@
+{
+  "audit_date_utc": "2026-10-26",
+  "audited_at_utc": "2026-10-26T18:09:07.838975Z",
+  "axes": {
+    "correctness": {
+      "rationale": "The theorem is mathematically true in the stated domain. Huang Theorem 2.7(2) proves the uniform upper bound. Theorem 2.3 yields exact fixed-diagonal error multiplication by λ=1-c0/c: any nonfixed off-diagonal initial perturbation gives root rate |λ|. Eq. (2.15) for normalized diagonal p gives p_k=p0^(r^k), r=1-1/c; for p0!=1 and r!=0 the entry error equals (log p0)r^k+O(r^(2k)), yielding root rate |r| regardless of off-diagonal dynamics. For r=0, diagonal mode root rate 0; for λ=0 the other witness suffices; for c0=c=1 the source upper bound forces zero rate. Thus the worst rate is max(|r|,|λ|). With s=1/c in (0,2/c0), c0>=1, s*=2/(1+c0) lies inside this interval. For s<=s*, F(s)>=1-s>=1-s* and for s>=s*, F(s)>=c0*s-1>=c0*s*-1, both strict except s=s*. Hence the unique optimum and formula. Matrix norm equivalence does not alter root rates. Independent rational-grid checks only corroborate these arguments, not prove universality.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Huang Theorem 2.7(2) is arbitrary-initial and already dominates the submitted upper-bound claim, while Theorem 2.3 makes one factor sharp and eq. (2.15) the other.",
+          "Huang and Lawson, arXiv:2609.34267v1 p. 2, characterize the earlier UT2 paper as covering projection-iteration convergence and focus their own work on Karcher mean existence/analyticity for UTn."
+        ],
+        "reasoning": "The primary paper is exactly self-review, same normalization, same c0 and parameter range: its theorems together already imply the full outcome. Broader existence/mean formulas in UTn do not separately prove the minimax rule, but do not diminish the decisive same mathematical model coverage. General two-eigenvalue scalar relaxation equioscillation is an old minimax mechanism; generic numerical-method results need not assert this specific iteration when Huang already supplies its two modes.",
+        "searches": [
+          "Huang arXiv:2609.37018v1 full 15-page text Sections 1,2,4",
+          "Huang--Lawson arXiv:2609.34267v1 introduction, basic projection-mean context",
+          "web: optimal Richardson iteration fixed step length 2/(lambda min + lambda max) convergence factor kappa minus one over kappa plus one"
+        ]
+      },
+      "checked_sources": [
+        "Huajun Huang, arXiv:2609.37018v1, PDF pp. 5-9, Theorems 2.3, 2.6, 2.7, equations (2.15)-(2.16).",
+        "Huajun Huang and Jimmie Lawson, arXiv:2609.34267v1, pp. 1-3 and targeted full-text searches.",
+        "Resultary published findings semantic search (three actual direct/alias queries): self-identical 2026-10-11 result and distinct optimization problems (Kaczmarz, FRB, Richardson, PDHG).",
+        "Web direct title/source-ID searches for UT2 projection mean and stationary-relaxation aliases."
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "From source fixed-diagonal recurrence: t_{k+1}-t*=(1-c0/c)(t_k-t*), so one nonfixed initial point has exactly |1-c0/c| root rate.",
+          "From source exact normalized diagonal recurrence: p_k=p0^((1-1/c)^k), p0!=1, so a diagonal matrix entry has root rate |1-1/c| when the factor is nonzero, else a zero mode.",
+          "Source Theorem 2.7(2) supplies the matching uniform max upper bound for c>c0/2. Thus supremum equality is forced.",
+          "Minimization in s=1/c: for s<=2/(1+c0), max>=1-s; for s>=2/(1+c0), max>=c0*s-1. Both are strictly greater away from balance and equal (c0-1)/(c0+1) at balance."
+        ],
+        "reasoning": "All mathematical steps are direct substitution, scalar asymptotics, and two linear one-sided inequalities using explicit prior theorems. The latter work need not state “worst-case” or print the unique optimum to imply it; consequently the final claim is not independent of the 2026-09-29 result.",
+        "searches": [
+          "Huang arXiv:2609.37018v1 Theorem 2.3, Theorem 2.6, Theorem 2.7, equations (2.15) and (2.16)",
+          "Huang--Lawson arXiv:2609.34267v1 introduction and references",
+          "Resultary direct claim and explicit-factor queries"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Huang, arXiv:2609.37018v1, PDF pp. 5-6, Theorem 2.3: exact fixed-diagonal multiplier 1-c0/c and c0>=1.",
+          "Huang, same PDF pp. 8-9, Theorem 2.7 and proof eq. (2.15): diagonal mode p_k=p0^(1-1/c)^k and global upper rate max(|1-1/c|,|1-c0/c|)."
+        ],
+        "reasoning": "Aliases are exact spectral/linearized two-mode rate, sharpness of the convergence upper bound, robust constant-step minimax, and worst-case over initial states. They are mathematically the same quantity: fixed-diagonal and nontrivial-diagonal initial data attain the two upper-bound factors, so taking their maximum gives the claimed supremum.",
+        "searches": [
+          "Resultary: Karcher mean upper triangular UT2 projection mean optimal relaxation parameter worst-case asymptotic rate",
+          "Resultary: exact minimax stationary relaxation two decay factors diagonal off diagonal balancing |1-1/c| |1-c0/c|",
+          "web: Huajun Huang Karcher Mean 2x2 Triangular Matrices Positive Diagonal Entries arxiv 2609.37018 convergence relaxation rate c0",
+          "Huang 2609.37018 Theorems 2.3/2.7 and equations (2.13)-(2.16)"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "Resultary hits in each query include the assigned 2026-10-11 SCOPE exact-minimax finding, which is self-identical and excluded from independent priority evidence.",
+          "Resultary also returned Kaczmarz, Richardson, FRB and PDHG relaxation results, concerning different iteration operators and not exact UT2 tables.",
+          "The exact two-factor rate is already an explicit expression in Huang Theorem 2.7(2), albeit presented as an upper bound; the exact model-specific optimization follows from companion formulas."
+        ],
+        "reasoning": "No independent UT2 rate database/table is needed for the rejection; the publication containing the entire same mathematical model convergence analysis controls it. Search misses are not used to assert novelty. The candidate's own indexed duplicate is not independent corroboration.",
+        "searches": [
+          "Resultary: Karcher mean upper triangular UT2 projection mean optimal relaxation parameter worst-case asymptotic rate",
+          "Resultary: exact minimax stationary relaxation two decay factors diagonal off diagonal balancing |1-1/c| |1-c0/c|",
+          "Resultary: Huang 2609.37018 triangular matrix projection iteration spectral radius",
+          "web: 2609.37018 full text Huang Karcher 2x2 triangular pdf theorem projection"
+        ]
+      },
+      "rationale": "The 29 September 2026 primary paper already proves the two exact mode dynamics, the global root-rate upper bound, and c0>=1. Its Theorem 2.3 supplies the exact fixed-diagonal scalar contraction 1-c0/c, Theorem 2.7(1) and proof (2.15) supply the exact diagonal law p_k=p_0^(1-1/c)^k, and Theorem 2.7(2) supplies the matching global upper bound. Choosing a nonfixed initial point in each separately invariant witness family makes both terms sharp by elementary limit manipulation. The claimed exact worst-case factor is therefore an immediate corollary of the earlier proven results. The displayed optimum is then the standard two-affine-factor Chebyshev/Richardson balance s=2/(1+c0), a one-line exact minimax calculation. Absence of the final displayed formula in the earlier paper is not originality; all exact claims are already implied by its proved statements.",
+      "residual_risks": [
+        "No claim is made that the scalar equioscillation is a separately formulated theorem in the preceding paper: coverage is a rigorous implication, not a verbatim occurrence.",
+        "More generic Richardson-equioscillation publications may predate this application, but independent generic overlap is unnecessary for rejection.",
+        "This audit establishes no result for varying step schedules, transient constants or UTn with n>2."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "DECISIVELY COVERING BY IMPLICATION: the two exact witness recurrences and matching universal rate bound make the submitted equality an elementary corollary; the unique minimizer is direct elementary two-mode balancing.",
+          "evidence": "Theorem 2.3 and Remark 2.4 (pp. 5-6); Theorems 2.6/2.7 (p. 8); proof of (2.15)-(2.16) (p. 9); c0>=1 from Lemma 2.2. Original paper arXiv first posted 2026-09-29.",
+          "identifier_or_url": "arXiv:2609.37018v1; https://arxiv.org/pdf/2609.37018",
+          "material_read": "Full-text indexed 15-page PDF; examined abstract/introduction, Sections 2.1-2.7 including Lemma 2.2, Theorems 2.3, 2.5-2.7, their proofs and formulas (2.13)-(2.16), and contextual higher-dimensional scope; visually verified PDF pp. 6-9.",
+          "method": "Lawful arXiv source PDF text and visual page inspection; matched scalar recurrences and original quantifiers to the submitted theorem.",
+          "title": "The Karcher Mean on 2×2 Triangular Matrices with Positive Diagonal Entries",
+          "trigger": "Identical nonlinear UT2 projection-mean iteration, same c0 coefficient, same two convergence modes and admissible range."
+        },
+        {
+          "assessment": "Contextual rather than an independent rate-optimization source; the explicit coverage derives from Huang solo 2026 same-model paper.",
+          "evidence": "Introduction p. 2 says preceding UT2 paper characterized convergence while present work proves existence, uniqueness, analytic formulas in all dimensions.",
+          "identifier_or_url": "arXiv:2609.34267v1; https://arxiv.org/pdf/2609.34267",
+          "material_read": "Abstract, introduction and pp. 1-3 on Lie-group means, projection-iteration for UT2 as earlier work, and Section 2 setup; document searched for rate/optimal.",
+          "method": "Lawful arXiv PDF text and visual page inspection, including p. 2.",
+          "title": "The Karcher Mean on Lie Groups of Upper Triangular Matrices",
+          "trigger": "Closely related same-object broader UTn Karcher mean result, adjacent date, likely source of algorithms."
+        }
+      ],
+      "status": "FAIL"
+    },
+    "value": {
+      "rationale": "The constant relaxation denominator is an intrinsic algorithmic design parameter and the exact robust convergence factor is a natural invariant over all starts. Unlike the source's one-step choice c=c0 for fixed diagonal, the optimal global choice c=(c0+1)/2 genuinely balances distinct diagonal/off-diagonal decay modes. For example, when c0=5, the robust rate improves from 4/5 at c=5 to 2/3 at c=3. A user of the iteration could need the sharp setting; no downstream theorem is required for that practical mathematical question. Nevertheless its modest algebraic difficulty and direct implication from earlier exact recurrences bar originality; V is not asserted on the basis of novelty or testing.",
+      "status": "PASS"
+    }
+  },
+  "disposition": "failed",
+  "final_claim": "For c0>=1 defined by Huang normalized triangular matrix data and c>c0/2, sup over all nonfixed UT2 initial matrices of limsup ||X_k-G||_1^(1/k) equals max(|1-1/c|,|1-c0/c|). The unique minimizing denominator is (1+c0)/2, with rate (c0-1)/(c0+1).",
+  "limitations": [
+    "O rejected specifically by proven implication of the identical model, not a failed literature search or inaccessible document.",
+    "This review does not assert novel behavior outside fixed c>c0/2, UT2, positive diagonal inputs and arbitrary nonfixed starts.",
+    "No Lean certificate or external expert attestation; original status channels unchanged.",
+    "Original package contains an internal scope_run_id in public AUDIT.json and METADATA.json and workflow references in REVIEW.md. Publication is withheld pending full verified confidentiality-safe replacements, not a scientific no-access failure."
+  ],
+  "schema_version": 1
+}

@@ -1,0 +1,158 @@
+{
+  "audit_date_utc": "2026-10-27",
+  "audited_at_utc": "2026-10-27T09:06:07.598672Z",
+  "axes": {
+    "correctness": {
+      "checked_sources": [
+        "Assigned RESULT.md, sections Finding/Proof/Verification",
+        "Assigned VERIFICATION.md and C++17 verify_rook.cpp (inspected without executing repository code)",
+        "Independent verifier script/results in private delivery"
+      ],
+      "rationale": "On each selected cell (i,j), the external-neighbor count is (n−ρ_i)+(m−κ_j), yielding ρ_i+κ_j≥m+n−k. Every dominating set covers every row or every column: simultaneous empty row and column would leave their intersection undominated. In the all-rows case the occupied rows satisfy ρ_i≥max(1,n−k), so |D|≥m max(1,n−k); similarly all-columns gives |D|≥n max(1,m−k). Full parallel strips attain both bounds at their respective sizes. For 1≤k<min(m,n), equality forces every used column or row to be completely full, classifying all minimizers and giving binomial counts. k=0 gives D=V by graph connectedness; at k=m+n−2 ordinary domination gives min(m,n). A freshly written exact subset checker enumerated 124,742 nonempty subsets across 58 m≤n capacity instances with no discrepancies, independently of the submitted program. These finite checks support, but cannot prove, the infinite theorem.",
+      "residual_risks": [
+        "Universal proof relies on the exact outside-neighbor formula and the no-empty-row-and-column observation; both were reconstructed directly.",
+        "Independent finite enumeration is bounded (boards up to 16 vertices) and not an infinite certificate."
+      ],
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Tepeh first-version §4 Theorem 7 bounds γᴸ_k(G□H) above by min(γᴸ_k(G)|H|, γᴸ_k(H)|G|); Proposition 8 proves equality for m=n=k+2 only.",
+          "Božović et al. Proposition 1 in the September 11 published full article treats complete graphs, stars, paths and K_{m,n}, not the line graph K_m□K_n."
+        ],
+        "reasoning": "An upper bound plus a diagonal sharpness example is not a general lower bound. The claimed occupancy inequality and row/column cover dichotomy prove the missing lower bound and every low-k extremizer. The full October v2 remains uninspected, so a new stronger theorem in that revision is a material residual risk.",
+        "searches": [
+          "exact k-limited domination rook graph Cartesian product K_m square K_n rectangular all m n k formula low-capacity minimizers slabs",
+          "Tepeh sharp k-limited domination Cartesian product of complete graphs general rectangular rook graphs",
+          "On k-limited domination complexity and Cartesian products 2606.22428v2 PDF HTML revised 2026",
+          "https://www.researchgate.net/publication/407508234_On_k-limited_domination_complexity_and_Cartesian_products",
+          "https://link.springer.com/article/10.1007/s40314-026-03902-2"
+        ]
+      },
+      "checked_sources": [
+        "https://www.researchgate.net/publication/407508234_On_k-limited_domination_complexity_and_Cartesian_products",
+        "https://link.springer.com/article/10.1007/s40314-026-03902-2",
+        "https://www.arxiv.symmetricfunctions.com/paper/2606.22428v2",
+        "https://journal.pmf.ni.ac.rs/filomat/index.php/filomat/article/view/4805",
+        "Resultary searches: exact k-limited domination rook graph Cartesian product K_m square K_n rectangular all m n k formula low-capacity minimizers slabs",
+        "Resultary searches: (1,t)-domination line graph complete bipartite graph K_mn rook graph occupancy minimizers",
+        "Resultary searches: Tepeh sharp k-limited domination Cartesian product of complete graphs general rectangular rook graphs"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "Tepeh Theorem 7 gives γᴸ_k(K_m□K_n)≤min{m max(1,n−k),n max(1,m−k)} from factor constructions.",
+          "Tepeh Proposition 8 gives equality only on m=n=k+2; its counting proof is restricted to that relation.",
+          "Current theorem introduces a matching lower bound on every pair and capacity, plus uniqueness-type classification for 1≤k<min(m,n)."
+        ],
+        "reasoning": "Setting m=n=k+2 recovers the prior equality, but reversing this specialization is invalid. The new all-parameter lower bound and optimizer classification do not follow logically from the published general upper bound or the square instance. The row/column argument is elementary but adds an exact structural assertion.",
+        "searches": [
+          "Tepeh sharp k-limited domination Cartesian product of complete graphs general rectangular rook graphs",
+          "k-limited domination Cartesian product complete graphs rook graph exact formula gamma n max 1 m-k Tepeh",
+          "https://www.researchgate.net/publication/407508234_On_k-limited_domination_complexity_and_Cartesian_products",
+          "https://link.springer.com/article/10.1007/s40314-026-03902-2",
+          "https://journal.pmf.ni.ac.rs/filomat/index.php/filomat/article/view/4805"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Božović et al., Computational and Applied Mathematics (published September 11, 2026), §4: in a d-regular graph the same condition is (1,d−k)-domination; rook graphs have d=m+n−2.",
+          "The same graph is the line graph L(K_{m,n}); (0,k)-pitchfork domination is an additional naming alias (Božović et al., introduction)."
+        ],
+        "reasoning": "The reductions rename the exact same admissible subsets, rather than prove their minima. Searches under regular-graph (1,m+n−2−k), line-graph L(K_{m,n}), and (0,k)-pitchfork terminology found no exact all-parameter rook theorem. The known equivalence itself is not new.",
+        "searches": [
+          "(1,t)-domination line graph complete bipartite graph K_mn rook graph occupancy minimizers",
+          "(1,t)-domination rook graphs line graph complete bipartite closed formula all m n",
+          "pitchfork domination (0,k) rook graph",
+          "https://link.springer.com/article/10.1007/s40314-026-03902-2"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "Resultary semantic searches returned the complete-multipartite k-limited domination result of 2026-10-04, which concerns a different graph class, and multiple rook-graph homology findings, which concern different invariants.",
+          "Web queries surfaced Tepeh’s special square result and 2018 k-tuple total domination of rook graphs, the latter requiring at least k selected neighbors at every vertex and hence not this invariant."
+        ],
+        "reasoning": "No inspected database/table gives the target k-limited domination invariant for every K_m□K_n and its optimum counts. Search absence is not proof of novelty; prior exact instances (e.g. k=0 or k=degree) are acknowledged as classical.",
+        "searches": [
+          "exact k-limited domination rook graph Cartesian product K_m square K_n rectangular all m n k formula low-capacity minimizers slabs",
+          "k-limited domination Cartesian product complete graphs rook graph exact formula gamma n max 1 m-k Tepeh",
+          "(1,t)-domination rook graphs line graph complete bipartite closed formula all m n",
+          "Resultary: exact k-limited domination rook graph Cartesian product rectangular all parameters"
+        ]
+      },
+      "rationale": "The June 2026 full first version of Tepeh, arXiv:2606.22428, proves only a Cartesian-product upper bound (Theorem 7) and square diagonal equality for K_{k+2} □ K_{k+2} (Proposition 8). Neither implies the all-(m,n,k) matching lower bound nor the complete low-capacity optimizer classification. The September 2026 open-access originating paper establishes definitions and equivalent (1,t) parameters but no rook-product formula. Searches of published mathematical results for these claims and aliases returned no stronger covering theorem. A revised October 2026 v2 abstract exists, but its full body could not be inspected; originality is assessed at best knowledge with that substantive risk.",
+      "residual_risks": [
+        "The complete revised October 2026 arXiv:2606.22428v2 text could introduce a stronger rectangular rook theorem; only the v2 abstract could be inspected.",
+        "An older unindexed equivalence for (1,t)-domination of line graphs of complete bipartite graphs or (0,k)-pitchfork domination might determine the result.",
+        "Absence from queried bibliographic/search indexes is not a proof that the theorem has never appeared elsewhere."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Theorem 7 upper bound and Proposition 8 square specialization do not prove all rectangular cases or classify minimizers.",
+          "evidence": [
+            "Visible first-version §4.1, lines near 934–1037 in public full-text rendering; Proposition 8 states γᴸ_k(K_{k+2}□K_{k+2})=2(k+2)."
+          ],
+          "identifier_or_url": "https://www.researchgate.net/publication/407508234_On_k-limited_domination_complexity_and_Cartesian_products",
+          "material_read": "Accessible complete first-version rendition; materially read definitions, §4 Theorem 7 and proof, §4.1 Proposition 8 and proof, and adjacent examples.",
+          "method": "Read ResearchGate publicly available full-text rendition carrying the arXiv v1 June 21, 2026 header.",
+          "title": "On k-limited domination: complexity and Cartesian products",
+          "trigger": "Same invariant, identical rook-graph family, published before target."
+        },
+        {
+          "assessment": "Covers parameter definition, exact complete-graph and complete-bipartite values, and regular graph parameter conversion, but not the two-factor rook formula.",
+          "evidence": [
+            "Proposition 1(iii),(iv) exact K_n and K_{m,n}; introduction and §4 establish γᴸ_k(G)=γ_{1,d−k}(G) for d-regular G."
+          ],
+          "identifier_or_url": "https://link.springer.com/article/10.1007/s40314-026-03902-2",
+          "material_read": "September 11, 2026 open-access journal HTML; introduction, Proposition 1 including complete bipartite values, §3 bounds and §4 (1,t)-domination equivalence overview.",
+          "method": "Read Springer open-access original full HTML article in context.",
+          "title": "On k-limited domination in graphs",
+          "trigger": "Defines the invariant and provides exact values and equivalent domination notions."
+        },
+        {
+          "assessment": "The full revision cannot be excluded as prior coverage; no whole-document noncoverage claim.",
+          "evidence": [
+            "Public arXiv++ v2 listing dated October 1–2, 2026; abstract mentions exact values for several product families without enumerating hypotheses."
+          ],
+          "identifier_or_url": "https://www.arxiv.symmetricfunctions.com/paper/2606.22428v2",
+          "material_read": "Public revised abstract and version dates only, not full body.",
+          "method": "Opened version listing; direct arXiv v2 PDF and HTML attempts failed; older full v1 remained accessible.",
+          "title": "On k-limited domination: complexity and Cartesian products (version 2 listing)",
+          "trigger": "Revised October 1–2, 2026 before target publication; may contain expanded rook results."
+        },
+        {
+          "assessment": "Different invariant: k-tuple total domination imposes a lower neighbor count at every vertex, unlike local outside-neighbor cap on selected vertices; no implication of target values from the abstract.",
+          "evidence": [
+            "Journal description states every vertex must be adjacent to at least k vertices of selected set."
+          ],
+          "identifier_or_url": "https://journal.pmf.ni.ac.rs/filomat/index.php/filomat/article/view/4805",
+          "material_read": "Published 2018 journal abstract describing formula for 2-tuple total domination on products of cliques.",
+          "method": "Read lawful journal abstract and mathematical definition.",
+          "title": "Cartesian product graphs and k-tuple total domination",
+          "trigger": "Rook graphs and domination appear together; possible superficially similar named invariant."
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "checked_sources": [
+        "https://www.researchgate.net/publication/407508234_On_k-limited_domination_complexity_and_Cartesian_products",
+        "https://link.springer.com/article/10.1007/s40314-026-03902-2",
+        "Assigned RESULT.md proof and scope"
+      ],
+      "rationale": "Rook graphs are the canonical two-factor Cartesian products isolated by Tepeh as sharpness witnesses. Showing that the existing general product upper bound is attained for every rectangular pair and every capacity settles a natural exact invariant over a full infinite three-parameter family, and the low-capacity equality case classifies and counts all optimizers. The row/column saturation obstruction provides reusable structure beyond numerical examples. The theorem neither claims all higher Cartesian products nor classifies high-capacity optima.",
+      "residual_risks": [
+        "Broader applications to higher-dimensional rook graphs and high-capacity minimizers remain unproved; these are explicit scope limits, not required outcomes."
+      ],
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "final_claim": "For m,n≥2, 0≤k≤m+n−2, γᴸ_k(K_m□K_n)=min{m max(1,n−k), n max(1,m−k)}. For 1≤k<min(m,n), all minimizers are whole-row/whole-column slabs: if m<n, exactly C(m,k) sets of m−k entire rows; if m>n, exactly C(n,k) sets of n−k entire columns; if m=n, exactly 2C(m,k) slab sets. At k=0 the unique set is the full graph.",
+  "limitations": [
+    "Revised v2 arXiv:2606.22428 accessible only as an abstract; no claim of whole-document exclusion.",
+    "No formal Lean certificate or independent expert attestation.",
+    "The full high-capacity optimizer classification and higher-factor products remain beyond the claim."
+  ],
+  "schema_version": 1
+}

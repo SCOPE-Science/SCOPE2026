@@ -1,15 +1,21 @@
-# Scientific review
+# Independent mathematical audit
 
-## Correctness — PASS
-The exact Alexander-dual face criterion follows directly from the ordinary cut-complex definition. Coordinate geometry gives \(27\) dual vertices, \(351\) edges, \(351\) triangles and \(81\) tetrahedra, with no higher faces. The self-contained checker verifies all incidence data, the integral chain condition, and complete unimodular reductions: boundary ranks \(217\) and \(81\), zero residuals and no nonunit invariant factors. The resulting free dual homology and integral Alexander duality establish precisely the two stated degrees. The claim does not extrapolate finite experiments to an infinite family.
+## correctness
 
-## Originality — PASS on examined evidence
-The relevant 2023 primary paper introduces the cut complex and classifies other graph families; the 2024 continuation explicitly uses ordinary path-product grids. The closest related database results concern binary hypercube ordinary three-cuts and two-coordinate rook graphs, neither of which contains the ternary three-coordinate case as a parameter value. Results for the same \(27\)-vertex Hamming graph concern different simplicial constructions (Rips, Čech or neighborhood complexes); their homology does not imply the ordinary three-cut homology. No inspected stronger general classification subsumes the stated integral groups. Remaining risk: equivalent work not retrieved or indexed.
+PASS
 
-## Value — PASS
-The product of three triangles is the smallest nonbinary, three-coordinate Hamming graph and a highly symmetric natural benchmark for ordinary cut-complex topology. Its two adjacent nonzero integral homology groups distinguish it from known single-degree rook-graph behavior; the exact torsion-free ranks and consequent nonshellability are not apparent from face counts or the source definitions. The single finite classification is mathematically motivated and reproducible, without requiring a speculative extension.
+The ordinary (not total) three-cut complex has facets complements of disconnected triples. The combinatorial Alexander dual is the clique-completion of connected induced triples in H(3,3). Independently enumerated all 27 coordinate triples and all 351 edges, 351 connected triangles, 81 rectangular tetrahedra and no higher faces; the precise dual f-vector is (27,351,351,81). Independently reconstructed signed integral triangle boundaries on the 325-dimensional K27 cycle lattice, obtaining a fully terminating unimodular unit-column reduction of rank 217, with 134 free columns. Independently reduced 81 tetrahedral boundaries in those kernel coordinates with 81 unit pivots and no residual; thus H1(dual)=Z^108 and H2(dual)=Z^53, no torsion, H3=0. Integral combinatorial Alexander duality on 27 vertices sends H^1(dual) to H23(cut) and H^2(dual) to H22(cut); universal coefficients have no Ext. Every cut facet has 24 vertices (dimension 23), and nonzero H22 obstructs pure shellability. All numbers are an exact finite computation, not inference from mod-p rank.
 
-## Scope and limitations
-Only the integral homology and ensuing nonshellability of this particular ordinary cut complex are established. Neither its homotopy type nor an infinite-family generalization is proved. Publication novelty remains subject to independently finding any unindexed equivalent results.
+## originality
 
-Self-review: passed. Independent audit: not yet performed.
+PASS
+
+The exact single-graph integral homology pair and nonshellability for ordinary Δ3(H(3,3)) were not identified in the directly examined relevant papers or published findings. Prior statements about the binary cube, two-factor rook graph, ordinary path-grid graph and Rips/neighbor complexes concern different graphs or different face predicates. Earlier work can supply general definitions and techniques, not these exact integral groups as immediate parameter substitutions.
+
+## value
+
+PASS
+
+H(3,3)=K3□K3□K3 is the smallest nonbinary three-coordinate Hamming graph, a canonical symmetric test of ordinary cut topology. Two adjacent nonzero torsion-free homology degrees and a nonshellability obstruction are structurally different from the one-degree two-factor rook classification. An exact reproducible integral invariant of this natural graph is independently useful even without a uniform family theorem.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

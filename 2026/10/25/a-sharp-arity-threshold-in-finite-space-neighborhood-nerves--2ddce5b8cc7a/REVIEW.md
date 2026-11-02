@@ -1,11 +1,21 @@
-# Self-review
+# Independent mathematical audit
 
-**Correctness — PASS.** The pairwise and higher intersections of minimal opens were proved by direct incidence enumeration, not inferred from a graphical drawing. The barycentric cone deformation is explicit and respects every permutation of the labels. The simplex-skeleton matching proves the integral homotopy wedge, while the augmented boundary identifies the entire integral \(S_n\)-module with \(\bigwedge^kU_n\). The character formula follows from permutation-cycle determinants. Exhaustive small-case boundary and signed trace tests supplement the all-size argument; they are not its substitute.
+## correctness
 
-**Originality — PASS subject to an explicit bibliographic access risk.** published-finding corpus semantic searches for finite Alexandrov inseparability nerves, rank-selected Boolean incidence spaces, sharp arity thresholds, equivalent Dowker/skeleton formulations, and symmetric-group modules did not identify an equivalent all-arity theorem or a dominating result. Closest records on rank-span-two Boolean order complexes and punctured Boolean posets concern different complexes. Cameron–Kumar's 2026 work discusses graph hierarchies and Dowker nerves; the accessible abstract and full author account do not specify the sharp \(r=k+1\) jump or complete integral equivariance here. Its full preprint was inaccessible, however, so the paper cannot be certified not to contain a relevant special case, and priority is not independently established.
+PASS
 
-**Value — PASS.** This is a full classification of a motivated higher-order separation filtration on a canonical family of finite \(T_0\)-spaces. It determines the minimum local-intersection arity required to detect topology, an unbounded binomial rank/dimension jump, non-Cohen–Macaulayness at precisely the higher-arity stage, and all integral permutation-character data. The point is quantitative failure of naive clique completion for the naturally defined neighborhood nerve, rather than a general impossibility of reconstructing the nerve from the entire graph.
+Using U_a={a} union {b_T:a in T} and U_b={b}, distinct maximal b vertices cannot coexist in a face. For minimal atoms, all <=r intersections exist for r<=k, while r>=k+1 permits exactly atom subsets of size <=k. Each maximal-point cone retracts linearly and S_n-equivariantly onto its base Delta_T, leaving a simplex (r<=k) or the (k-1)-skeleton of the (n-1)-simplex. A standard acyclic matching gives choose(n-1,k) spheres dimension k-1. The integral augmented boundary kernel is wedge^k ker(sum:Z^n to Z), yielding the determinant cycle-character formula. All maximal original nerve facets have dimension k but lower (k-1) homology is nonzero, so not Cohen–Macaulay. Literal intersection and rank checks for small n corroborate but do not prove universality.
 
-**Closest literature and limitations.** Cameron–Kumar, *Graphs on Topological Spaces*, arXiv:2610.14783, submitted October 10, 2026; Cameron's October 15 author commentary. The indexed projective-plane Čech/Rips contrast shows that a qualitative difference between pairwise and full intersection complexes is already known; the contribution here is a sharp all-arity threshold and full integral symmetric-group module for a different, complete-uniform-incidence family. Rank-selected Boolean lattice shellability and the exterior-power simplex-skeleton module are classical ingredients, not claimed as new. The primary paper full text could not be obtained from accessible authorized sources. This is a non-negligible originality risk, disclosed rather than erased. The finite verifier was replayed for the actual packaged code and output. No human or independent review has occurred.
+## originality
 
-Self-review: passed. Independent audit: not yet performed.
+PASS
+
+The full all-arity r=k+1 transition on a rank-1/k Boolean finite T0 space, with integral permutation-module refinement, goes beyond the known classical simplex-skeleton ingredients and general pairwise inseparability constructions. The closest October 2026 Cameron–Kumar primary paper could be read only at abstract/author-commentary level, so whole-text noncoverage is NOT asserted; no decisive implication was evidenced. PASS is bounded best-of-knowledge subject to material risk.
+
+## value
+
+PASS
+
+The relation between pairwise inseparability clique-completion and higher common-neighborhood intersections is a natural topology-reconstruction problem. The theorem gives an exact arity cutoff, unbounded-dimensional/binomial-rank discrepancy, purity/CM obstruction and the entire integral S_n-module across a natural infinite symmetric family.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

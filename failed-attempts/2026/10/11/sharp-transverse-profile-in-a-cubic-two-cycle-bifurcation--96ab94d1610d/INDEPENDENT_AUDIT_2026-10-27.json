@@ -1,0 +1,170 @@
+{
+  "audit_date_utc": "2026-10-27",
+  "audited_at_utc": "2026-10-27T03:03:06.295510Z",
+  "axes": {
+    "correctness": {
+      "checked_sources": [
+        "Assigned RESULT.md blob f6a670f94701cee644293f8375e413e2abaf80ab (entire proof, assumptions, scope and references).",
+        "Assigned VERIFICATION.md blob c3a0c21d89bc79898770ccc3a551470055238ce6 and check_branch.py blob 78a6b6bcc7348c15e37c352de4303484bb4cb44c read; original checker not treated as proof.",
+        "independent_analysis.py and independent_analysis_results.json: symbolic identities + independent DOP853 diagnostics.",
+        "https://github.com/Resultary/2026/blob/main/2026/10/11/SCOPE-polar-dulac-rigidity-and-exact-multiplicity-of-an-invariant-circ--a6f982503591/RESULT.md (general neutral coefficient independently cross-checked)."
+      ],
+      "rationale": "For the stated cubic P,Q, exact Cartesian-to-polar algebra gives rdot=r(1-r^2)(a+sin(theta)cos(theta)) and theta-dot=r^2(a+sin(theta)cos(theta))-sin(theta)^2. With phi=-theta and w=r^-2-1 this becomes wphi=2Psi_a*w*(1+w)/(G_a-w sin(phi)^2), Psi_a=a-sin(phi)cos(phi), G_a=Psi_a-sin(phi)^2. At a0=-1/4, G0<=-3/4+1/sqrt(2)<0, so angle phi strictly increases in physical time on a uniform annulus for |delta| small; analytic one-turn return is valid. Linear coefficient L_a=2Psi_a/G_a and exact integral yield log P_a'(0)=2pi-pi(2a+1)/sqrt(a^2-a-1/4), zero at a0, first a derivative -32pi. Quadratic scalar coefficient is B_a=2(Psi_a/G_a)^2, giving P_a0(w)=w+C*w^2+O(w^3), C=int_0^{2pi} B_0(phi)E(phi)dphi>0, E=exp(int L0) periodic and positive. Thus multiplicity exactly two and at neutrality P(w)-w=Cw^2+..., attracting on w<0 (r>1) and repelling w>0 (r<1). Analytic factorization P_a(w)-w=w H(a,w) and IFT give unique other small root w_a(0)=(32pi/C)delta+O(delta^2); first variational flow gives w_a(phi)=(32pi/C)delta E(phi)+O(delta^2) uniformly. r=(1+w)^(-1/2) yields r_a=1-(16pi/C)delta E+O(delta^2); return derivatives are 1-32pi delta+O(delta^2) on circle and 1+32pi delta+O(delta^2) on companion. Strict orientation and nonvanishing angular speed map roots to genuine periodic orbits. Valid only for sufficiently small |delta| and local tubular annulus. Independent symbolic polar/trig-derivative checks and DOP853 integration give C=26.802930537964, section slope=3.750745269159, and first-order branch/root checks for +/-delta. Numerical checks only corroborate the analytic proof.",
+      "residual_risks": [
+        "Uniform O(delta^2) is local near the invariant circle, not a global cycle-count assertion.",
+        "The positive integral C has no elementary closed form established here; quoted decimal is a numerical diagnostic only.",
+        "Finite simulated/ODE values are not exhaustive and do not establish analytic uniqueness; the proof supplies it."
+      ],
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "The general published C2 angular-profile theorem encompasses arbitrary U,V satisfying nonstall, including every sufficiently small perturbation a of the assigned cubic U_a.",
+          "It supplies an exact neutral quadratic coefficient and the full normalized linear variational factor h; 2023 Section 7.1 independently records the precise cubic system and known count/multiplicity."
+        ],
+        "reasoning": "The arbitrary U,V theorem has strictly wider structural scope than this one-parameter cubic. It explicitly provides the coefficient C and E by specialization; the one-parameter branch/floquet expansions require only routine differentiation of the already specified multiplier and the IFT. Thus wider coverage implies the submitted specialized quantitative statement, despite its new-looking decimal and formulation.",
+        "searches": [
+          "Resultary search: Gasull Giacomini Gasull Llibre Sotomayor 1987 invariant circle double limit cycle at a=-1/4 Poincare derivative branch",
+          "Resultary search: transcritical bifurcation of limit cycles cubic planar polynomial invariant unit circle nonlinear radial separation Floquet multiplier",
+          "https://github.com/Resultary/2026/blob/main/2026/10/11/SCOPE-polar-dulac-rigidity-and-exact-multiplicity-of-an-invariant-circ--a6f982503591/RESULT.md",
+          "https://link.springer.com/article/10.1007/s12346-023-00746-7"
+        ]
+      },
+      "checked_sources": [
+        "https://github.com/Resultary/2026/blob/main/2026/10/11/SCOPE-polar-dulac-rigidity-and-exact-multiplicity-of-an-invariant-circ--a6f982503591/RESULT.md",
+        "https://link.springer.com/article/10.1007/s12346-023-00746-7",
+        "https://doi.org/10.1016/0022-0396(87)90140-9",
+        "https://portalrecerca.uab.cat/ca/publications/limit-cycles-of-vector-fields-of-the-form-x-v-av-fvbv/",
+        "https://link.springer.com/article/10.3103/S1066369X25700331",
+        "Resultary three independent semantic searches (self-match excluded)."
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "Gasull-Giacomini 2023 Section 7.1 Eq. (15), lines 564-595: cubic field, invariant circle and double circle at -1/4; no printed first-order radial profile in that section.",
+          "Resultary published polar Dulac theorem (2026-10-11) Finding/Proof: exact sign-definite quadratic coefficient K=(1/2)integral A^2 h; the present C=-K after orientation reversal.",
+          "Independent exact derivative of log M(a)=2pi-pi(2a+1)/sqrt(a^2-a-1/4) at a=-1/4 equals -32pi; from this and K=-C, branch slope and companion multiplier follow by parameter IFT."
+        ],
+        "reasoning": "The published all-profile polar theorem assumes ds/dt=2s(1-s)U(theta), dtheta/dt=sU(theta)-V(theta), C^2 periodic U,V, U not identically zero, and nonzero angular speed in an annulus. Here U(theta)=a+sin(theta)cos(theta) and V(theta)=sin(theta)^2 satisfy those hypotheses around a0=-1/4, s=1: at s=1, U-V<=-3/4+1/sqrt(2)<0. At neutrality its universal quadratic return coefficient in q=s-1 is K=(1/2) integral_0^{-2pi} A(theta)^2 h(theta)dtheta, A=-2U/(U-V), h=exp(integral A). After phi=-theta, h(-phi)=E(phi) and K=-integral_0^{2pi} 2(Psi0/G0)^2 E dphi=-C. The change w=1/s-1=-q+O(q^2) makes the quadratic coefficient +C. Its general circle multiplier is M(a)=exp(integral_0^{-2pi} A_a dtheta). The elementary trigonometric integral for this U,V gives log M(a)=2pi-pi(2a+1)/sqrt(a^2-a-1/4) and derivative -32pi at a0. Standard analytic implicit function theory applied to the simple root after factoring P_a(w)-w=w[(M(a)-1)+Cw+O(delta*w,w^2)] forces w_a(0)=(32pi/C)delta+O(delta^2), and linear flow dependence gives w_a(phi)=(32pi/C)delta E(phi)+O(delta^2) and the two stated multiplier slopes. Hence the entire quantitative claim is a short, explicitly calculable special case/corollary of the published general coefficient formula, rather than a structurally new theorem. The general paper and this record have the same UTC publication date; priority ordering within that date has not been established, so no unverified earlier-hour assertion is made.",
+        "searches": [
+          "Resultary search: cubic vector field ax+y-(ax^2+xy+ay^2)(x+y), ay-(ax^2+xy+ay^2)(y-x), first-order radial graph at a=-1/4",
+          "Resultary search: Gasull Giacomini Gasull Llibre Sotomayor 1987 invariant circle double limit cycle at a=-1/4 Poincare derivative branch",
+          "https://link.springer.com/article/10.1007/s12346-023-00746-7",
+          "https://github.com/Resultary/2026/blob/main/2026/10/11/SCOPE-polar-dulac-rigidity-and-exact-multiplicity-of-an-invariant-circ--a6f982503591/RESULT.md",
+          "https://doi.org/10.1016/0022-0396(87)90140-9"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Assigned RESULT.md specializes the cubic to (s=r^2, theta=arg(x+iy)); U=a+sin(theta)cos(theta), V=sin^2(theta).",
+          "Published polar theorem, Finding 2 and Proof, defines A=-2U/(U-V), h and neutral K=(1/2)integral A^2 h; under phi=-theta and w=1/s-1, K=-C and h(-phi)=E(phi).",
+          "2023 Gasull-Giacomini Section 7.1 Eq. (15) uses exactly the same cubic and confirms double unit circle at a=-1/4."
+        ],
+        "reasoning": "Angular orientation reversal and reciprocal-radius coordinates preserve the return-map dynamics; the general return coefficient specializes exactly to the claimed integral and profile. The rest follows from differentiating its multiplier integral and applying the elementary analytic implicit-function theorem. This is equivalence via mathematics, not a title or decimal match.",
+        "searches": [
+          "Resultary search: cubic vector field ax+y-(ax^2+xy+ay^2)(x+y), ay-(ax^2+xy+ay^2)(y-x), first-order radial graph at a=-1/4",
+          "Resultary search: Gasull Giacomini Gasull Llibre Sotomayor 1987 invariant circle double limit cycle at a=-1/4 Poincare derivative branch",
+          "https://link.springer.com/article/10.1007/s12346-023-00746-7",
+          "https://github.com/Resultary/2026/blob/main/2026/10/11/SCOPE-polar-dulac-rigidity-and-exact-multiplicity-of-an-invariant-circ--a6f982503591/RESULT.md"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "All three Resultary semantic searches returned the audited record itself (excluded from independent evidence) and distinct differential-equation findings; the general polar Dulac record appeared in the relevant search.",
+          "The 2023 published Section 7.1 tabulates/establishes the parameter interval and double circle, not a printed numerical section slope; no independent exact decimal table was verified.",
+          "The general published coefficient K is an exact integral formula that evaluates to -C in this cubic, so numerical tabulation is not needed for mathematical coverage."
+        ],
+        "reasoning": "No exact pre-existing numeric table for 3.750745269 was found or asserted. Absence of identical tabulation is not novelty: a published parameter-dominating integral formula already determines the number and the full profile. The 1987 paper remained inaccessible and is not declared noncovering.",
+        "searches": [
+          "Resultary search: cubic vector field ax+y-(ax^2+xy+ay^2)(x+y), ay-(ax^2+xy+ay^2)(y-x), first-order radial graph at a=-1/4",
+          "Resultary search: Gasull Giacomini Gasull Llibre Sotomayor 1987 invariant circle double limit cycle at a=-1/4 Poincare derivative branch",
+          "Resultary search: transcritical bifurcation of limit cycles cubic planar polynomial invariant unit circle nonlinear radial separation Floquet multiplier",
+          "https://github.com/Resultary/2026/blob/main/2026/10/11/SCOPE-polar-dulac-rigidity-and-exact-multiplicity-of-an-invariant-circ--a6f982503591/RESULT.md",
+          "https://link.springer.com/article/10.1007/s12346-023-00746-7"
+        ]
+      },
+      "rationale": "The published all-profile polar theorem assumes ds/dt=2s(1-s)U(theta), dtheta/dt=sU(theta)-V(theta), C^2 periodic U,V, U not identically zero, and nonzero angular speed in an annulus. Here U(theta)=a+sin(theta)cos(theta) and V(theta)=sin(theta)^2 satisfy those hypotheses around a0=-1/4, s=1: at s=1, U-V<=-3/4+1/sqrt(2)<0. At neutrality its universal quadratic return coefficient in q=s-1 is K=(1/2) integral_0^{-2pi} A(theta)^2 h(theta)dtheta, A=-2U/(U-V), h=exp(integral A). After phi=-theta, h(-phi)=E(phi) and K=-integral_0^{2pi} 2(Psi0/G0)^2 E dphi=-C. The change w=1/s-1=-q+O(q^2) makes the quadratic coefficient +C. Its general circle multiplier is M(a)=exp(integral_0^{-2pi} A_a dtheta). The elementary trigonometric integral for this U,V gives log M(a)=2pi-pi(2a+1)/sqrt(a^2-a-1/4) and derivative -32pi at a0. Standard analytic implicit function theory applied to the simple root after factoring P_a(w)-w=w[(M(a)-1)+Cw+O(delta*w,w^2)] forces w_a(0)=(32pi/C)delta+O(delta^2), and linear flow dependence gives w_a(phi)=(32pi/C)delta E(phi)+O(delta^2) and the two stated multiplier slopes. Hence the entire quantitative claim is a short, explicitly calculable special case/corollary of the published general coefficient formula, rather than a structurally new theorem. The general paper and this record have the same UTC publication date; priority ordering within that date has not been established, so no unverified earlier-hour assertion is made.",
+      "residual_risks": [
+        "General polar theorem and audited record both have publication date 2026-10-11; their within-day priority sequence has not been verified. The logic of coverage by the published broader formula is decisive independent of an unverified earlier-hour ordering.",
+        "1987 Gasull-Llibre-Sotomayor full source inaccessible; authorized institutional retrieval returned storage-limit error. We cannot assert it lacks quantitative calculations.",
+        "No exact earlier decimal lookup was independently verified; originality rejection instead rests on derivability of the full statement from the all-profile theorem.",
+        "Simple generic normal-form/IFT consequences must be distinguished from a novel new structural result; here the only remaining specialization is elementary parameter differentiation and the flow variational factor."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "COVERS BY DIRECT SPECIALIZATION AND SHORT STANDARD PARAMETER ARGUMENT: U,V match assigned cubic and K=-C; computed multiplier derivative gives asserted branch and profile.",
+          "evidence": [
+            "Finding 2: at M=1, q-return quadratic coefficient K=(1/2) integral_0^{theta_f} A^2 h and strict sign.",
+            "Proof Exact quadratic displacement: q^2 coefficient A+A^2/2, h solution, K universal.",
+            "Metadata lists publication_date 2026-10-11 (same as assigned source; no hourly priority established)."
+          ],
+          "identifier_or_url": "https://github.com/Resultary/2026/blob/main/2026/10/11/SCOPE-polar-dulac-rigidity-and-exact-multiplicity-of-an-invariant-circ--a6f982503591/RESULT.md",
+          "material_read": "Entire RESULT.md: Finding, assumptions, full scalar and Dulac proofs, K formula, examples, limitations, references; METADATA.json and relevant AUDIT.json comparison.",
+          "method": "Actual GitHub repository blob read through the connected GitHub read-only action; RESULT blob SHA 3da61dcbd1b12cd2f9f3d7027ba545809d81e746.",
+          "title": "Polar Dulac rigidity and exact multiplicity of an invariant circle",
+          "trigger": "Resultary semantic search surfaced a broader same-class theorem with exact neutral return coefficient."
+        },
+        {
+          "assessment": "COVERS QUALITATIVE BIFURCATION: same cubic, invariant circle, two-cycle count, double at -1/4. This section alone does not print the angular profile; not used alone as decisive coverage.",
+          "evidence": [
+            "Section 7.1 Eq. (15) exactly matches xdot/ydot.",
+            "Section 7.1 states the only cycle is double at a=-1/4 and credits Gasull-Llibre-Sotomayor 1987.",
+            "Dulac discussion establishes a two-cycle bound and parameter interval."
+          ],
+          "identifier_or_url": "https://link.springer.com/article/10.1007/s12346-023-00746-7",
+          "material_read": "Full relevant open-access Section 7.1, especially Eq. (15), Proposition 7.1 and the post-proof Dulac discussion (page HTML lines 561-595); introductory context and references.",
+          "method": "Read publisher full HTML through web; DOI 10.1007/s12346-023-00746-7.",
+          "title": "Number of Limit Cycles for Planar Systems with Invariant Algebraic Curves",
+          "trigger": "Identical polynomial vector field and cited historical two-limit-cycle/double-circle result."
+        },
+        {
+          "assessment": "PLAUSIBLE HISTORICAL PRIORITY RISK only. No whole-document NOT_COVERING claim and no assumption that its unpublished-to-us proof lacks local coefficients.",
+          "evidence": [
+            "Journal of Differential Equations 67 (1987), 90-110; DOI cited in independent Frontiers reference list.",
+            "2023 Section 7.1 credits 1987 paper for double invariant circle at a=-1/4."
+          ],
+          "identifier_or_url": "https://doi.org/10.1016/0022-0396(87)90140-9",
+          "material_read": "Bibliographic index and secondary exact-model attribution; full original article NOT obtained or inspected.",
+          "method": "arXiv and lawful open-access full-text searches unsuccessful; authorized Oxford retrieval of DOI 10.1016/0022-0396(87)90140-9 returned storage limit reached, not paper text; no bypass.",
+          "title": "Limit cycles of vector fields of the form X(v)=Av+f(v)Bv",
+          "trigger": "2023 paper explicitly credits this original article for the exact same cubic double-circle and two-cycle count."
+        },
+        {
+          "assessment": "INAPPLICABLE BY OBJECT: article concerns degree-11 multiparameter polynomial integrable systems with explicit first integrals, whereas the audited system is degree 3 with the specific a=-1/4 circle bifurcation.",
+          "evidence": [
+            "2025 abstract explicitly states degree eleven and explicitly integrable two-cycle examples; no evidence it determines this cubic coefficient."
+          ],
+          "identifier_or_url": "https://link.springer.com/article/10.3103/S1066369X25700331",
+          "material_read": "Publisher abstract and references, not subscription full text.",
+          "method": "Open publisher article landing page and inspect abstract; no publisher bypass.",
+          "title": "Explicit Formulas for Two Limit Cycles of a Family of Planar Differential Systems",
+          "trigger": "Related-publication link in the publisher page included an apparently close title."
+        }
+      ],
+      "status": "FAIL"
+    },
+    "value": {
+      "checked_sources": [
+        "2023 published Section 7.1 identifies a genuine two-cycle/double-circle bifurcation for the same cubic.",
+        "Assigned RESULT.md states full C0 radial graph and both first-order multiplier slopes; checked analytically.",
+        "Published general polar theorem explains structural meaning of neutral return coefficient and hyperbolic companion."
+      ],
+      "rationale": "The coalescence of two limit cycles at the invariant unit circle of a classical cubic planar system is a natural, non-arbitrary bifurcation problem. The leading angular displacement E(phi) with positive normalization C and section coefficient 3.750745269, together with matched sharp Floquet slopes, quantify both how a companion cycle separates in physical space and how its stability changes. These are meaningful model-specific continuation/validation benchmarks beyond a bare qualitative count and may matter to researchers studying explicit bifurcation geometry. Their intrinsic usefulness is distinct from originality: a prior general coefficient formula makes this particular calculation an already-covered specialization.",
+      "residual_risks": [
+        "This is a local model-specific coefficient, not a global bifurcation atlas or a new theorem for arbitrary cubic vector fields.",
+        "Utility as a benchmark does not establish a new contribution when stronger published formulas already imply it."
+      ],
+      "status": "PASS"
+    }
+  },
+  "disposition": "failed",
+  "final_claim": "For the real cubic planar field xdot=ax+y-(ax^2+xy+ay^2)(x+y), ydot=ay-(ax^2+xy+ay^2)(y-x), near a0=-1/4, put delta=a+1/4, phi=-arg(x+iy), Psi0=-1/4-sin(phi)cos(phi), G0=Psi0-sin(phi)^2, E(phi)=exp(int_0^phi 2Psi0/G0), C=int_0^{2pi} 2(Psi0/G0)^2 E dphi>0. In a fixed small annulus about r=1 and for 0<|delta| small, exactly one additional periodic orbit has r_a(phi)=1-(16pi/C)delta E(phi)+O(delta^2) uniformly in phi, and (r_a(0)^(-2)-1)/delta ->32pi/C=3.750745269... . Circle and companion transverse multipliers are respectively 1-32pi delta+O(delta^2) and 1+32pi delta+O(delta^2). The companion is outside/attracting for delta<0 and inside/repelling for delta>0; at delta=0 the circle is semistable of exact multiplicity two. No claim is made for cycles outside the local annulus.",
+  "limitations": [
+    "Historical Gasull-Llibre-Sotomayor (1987) full text not inspected; Oxford institutional download was blocked by storage limit after arXiv/OA full text could not be located.",
+    "Published generic polar result and assigned paper share date 2026-10-11; no sub-day timestamp/priority claim.",
+    "C and E specified by exact integrals and an ODE, not elementary closed-form radial graph away from critical parameter.",
+    "Source package contains potentially public operational metadata (AUDIT.json and METADATA.json scope_run_id and review flags; REVIEW.md internal review lines). No complete guarded sanitization/replacement staged; raw failed source is preserved.",
+    "No GitHub write, publication or dispatcher completion call, and no formal Lean or expert-attestation claims."
+  ],
+  "schema_version": 1
+}

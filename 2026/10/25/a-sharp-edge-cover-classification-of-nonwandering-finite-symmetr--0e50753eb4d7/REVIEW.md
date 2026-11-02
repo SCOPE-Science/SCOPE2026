@@ -1,11 +1,21 @@
-# Scientific review
+# Independent mathematical audit
 
-**Correctness — PASS.** The proof classifies every possible unbounded-time pairwise transition in the countable binary quotient, realizes every permitted arc at a common increasing sequence of times, and converts nonwandering of finite sets into an in/out edge cover. Its crucial quantifier is the freedom to approximate a set of fewer than \(n\) points by up to \(n\) distinct points; this is explicitly respected. The standard bipartite edge-cover identity yields the sharp level.
+## correctness
 
-**Originality — PASS (examined evidence).** Đorić (arXiv:2610.23058v1) constructs the example and classifies \(F_2\) in Proposition 7, but does not state the all-level matching formula. Published published-finding corpus searches targeting its exact title, equivalent directed-edge-cover characterization and all-level nonwandering classifications found no equivalent claim; strongest nearby results were unrelated matching profiles. The theorem is not a rewording of the source's level-two classification because the sharp onset at level four for a three-point configuration depends on extra particles disappearing in the Hausdorff limit.
+PASS
 
-**Value — PASS.** The source identifies nonwandering hyperspaces as a structural issue and resolves only the second symmetric product. The result gives a complete quantitative hierarchy for the canonical counterexample, with a polynomial-time computable exact threshold and a strict level-three/level-four distinction. It exposes the necessity of accounting for multiplicity hidden by finite-set convergence.
+For the specified compact binary-shift quotient, classify large-time orbit transition pairs: p may go to any target; an x rising front can approach p or a falling y front; a y front can approach p or a rising x; a finite island can approach only p. Growing island blocks realize opposite-front arcs, and inverse shifts realize p->target; a finite list of arcs is realized at the same diverging times with distinct source configurations. A nonwandering A in F_n yields, after convergent point assignments and m_j tending to infinity unless A={p}, an in/out-cover of A using at most n distinct arcs. The converse realizes any such edge cover simultaneously. Bipartite edge-cover theorem gives min size 2|A|-maximum_matching, with infinity when isolated on either side. A={p,two distinct islands} has threshold 4. Independently enumerated small matching/edge-cover examples; not exhaustive dynamic verification.
 
-**Limitations and residual risks.** This is not a theorem about general compact systems. A historically earlier equivalent classification under hyperspace or finite-correspondence terminology might exist; independent novelty audit remains outstanding. The verifier is a finite test and is not substituted for the general proof.
+## originality
 
-Self-review: passed. Independent audit: not yet performed.
+PASS
+
+Đorić October 2026 full primary text explicitly classifies F_2(g) in Proposition 7 but does not supply a general F_n exact threshold for all finite A. The all-level in/out transition correspondence and edge-cover formula give new quantitative conclusions including n=4 on three points; these are not entailed by the F_2 classification alone. Standard bipartite edge-cover identity is acknowledged prior math. Semantic published-finding search yielded no dominating equivalent theorem.
+
+## value
+
+PASS
+
+The original system is a canonical example of unexpected nonwandering finite-set behavior, for which the literature treats only level 2. A complete sharp computationally tractable hierarchy for all finite configurations, with a strict three-to-four-particle onset, addresses the natural generalization and illustrates extra approximating points vanishing in the Hausdorff limit.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

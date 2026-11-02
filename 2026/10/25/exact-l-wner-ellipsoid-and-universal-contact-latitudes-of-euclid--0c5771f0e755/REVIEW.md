@@ -1,9 +1,21 @@
-# Scientific assessment
+# Independent mathematical audit
 
-**Correctness — PASS.** For every \(d\ge2\) and \(h>0\), the candidate semiaxes satisfy the exact support-function slack \((h/t)(s-t)^2\). It proves containment for every normal, with no discretization. The normal-equality orbits form an isotropic contact measure after affine normalization; an averaging and eigenvalue AM–GM argument proves global minimality and uniqueness against all enclosing ellipsoids. The volume regimes follow from the quadratic defining the contact parameter. The standalone checker independently sampled supports and verified both limits to floating-point accuracy. Risk: finite checks cannot substitute for the analytic quantifiers; the proof supplies them.
+## correctness
 
-**Originality — PASS, with residual priority risk.** General Löwner contact optimality and convex-body symmetry are old, and the present proof uses them. Güler–Gürtuna (2007, Sections 2, 6–8) solve slabs, truncated second-order cones and cylinders, rather than the two rounded endcaps in a capsule. Halder (2018, Assumption 1 and Sections III–IV) treats convex hulls of ellipsoids through a restricted zero-center parameterization, not the translated generating balls here. Yıldırım (2006) addresses enclosing ellipsoids for ellipsoids algorithmically; the complete article could not be inspected, so an equivalent older explicit solution remains possible. The claim-specific novelty is the closed-form all-dimensional capsule solution, its contact-latitude identity and the volume crossover, not the classical criterion. No identified accessible primary result logically supplies this package without further substantive derivation.
+PASS
 
-**Value — PASS.** Euclidean capsules are canonical parallel bodies of line segments, ubiquitous in convex geometry and computational geometry. A complete globally optimal enclosing-ellipsoid formula (not only a symmetric ansatz), exact contact description and two complementary high-dimensional regimes provide a dimension-sharp benchmark. The transformed contact latitudes being independent of the half-separation is a structural constraint that is not simply a normalization check. The result is limited to equal-radius balls.
+For every d>=2 and h>0, capsule K=B_2^d+[-h,h]e_1 has support 1+h|u_1|. The positive root t of d t^2+(d-1)h t=1 lies in (0,1), and proposed A=(1+ht)(1+h/t), B=1+ht yield exact support square slack h/t (|u_1|-t)^2. This proves global inclusion and precisely two latitude orbits of contacts; the tips are not contacts since A-(1+h)^2=(h/t)(1-t)^2>0. Under Löwner normalization contacts have axial ±1/sqrt d and transverse sqrt((d-1)/d), and their symmetric measure satisfies first moment zero and covariance I_d/d. Any enclosing ellipsoid with shape Q and center c then has tr(Q^-1)/d+c^T Q^-1 c<=1; AM–GM gives det Q>=1 with equality only Q=I, c=0. This proves global uniqueness without symmetry assumption. Volume factor (1+ht)^(d/2) sqrt(1+h/t) tends to exp(tau u_tau/2)/u_tau when h sqrt d→tau; when it diverges, ratio/(h sqrt d)→sqrt e. Independent numerics confirmed support and latitudes for d=2,3,8,23 and varied h, not the quantified asymptotic itself.
 
-Self-review: passed. Independent audit: not yet performed.
+## originality
+
+PASS
+
+Best-of-knowledge PASS qualified by inaccessible full Yıldırım 2006 text: its accessible abstract solves approximate enclosing ellipsoid of the convex hull of m ellipsoids, which covers this object as an input but does not assert the exact symbolic capsule optimizer or crossover. Güler–Gürtuna list other explicit bodies; Halder 2018 centered ellipsoids do not include separated generating centers.
+
+## value
+
+PASS
+
+A spherocylinder/capsule is the simplest nonellipsoidal convex hull of two balls. Exact enclosing ellipsoid in every dimension and separation, strict tip noncontact, universal normalized contact latitudes and sharp dimension crossover supply a natural geometric invariant not a fixed table or mere general ellipsoid-existence theorem.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

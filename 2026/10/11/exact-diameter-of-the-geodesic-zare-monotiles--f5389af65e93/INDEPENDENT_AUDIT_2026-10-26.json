@@ -1,0 +1,116 @@
+{
+  "audit_date_utc": "2026-10-26",
+  "audited_at_utc": "2026-10-26T10:03:34Z",
+  "axes": {
+    "correctness": {
+      "rationale": "Reconstructed the exact hyperbolic geometry of T_q (q>=2; curvature -1), not merely prior logs. A simple geodesic polygon triangulates into triangles with original vertices using the Klein model; convexity of distance on geodesics reduces the ambient diameter to original vertex pairs. For the source vertices, max cosh distances are C_low=1+(q+1)^2/(2q^4), C_up=1+1/(2q^2), C_cross=1+(2q^2+2q+1)/(2q^3(q+1)). C_low>C_up, while C_cross-C_low=(q^3-q^2-2q-1)/(2q^4(q+1)). Its numerator is negative at q=2 and strictly positive for every integer q>=3 (successive difference 3q^2+q-2>0), establishing all extremizers and both exact branches. The limits follow analytically from q^2(C_cross-1)->1, arcosh(1+x)~sqrt(2x), and source area 2atan(1/(2q^2))~1/q^2. Independent Lorentz-model exact computations checked all 156940 vertex pairs for q=2..60, with 59/59 matching formulas and extremizers; these checks supplement rather than prove the infinite result.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Section 6.1 gives a vertex-diameter formula for convex polygons; the specific T_q in Section 7.2 has reflex corners and is nonconvex.",
+          "General lower bounds for fixed-side and vertex-proper tiles do not give a closed diameter value for this non-vertex-proper family."
+        ],
+        "reasoning": "The convex-polygon formula is not directly an exact-diameter theorem for nonconvex T_q. Extending vertex attainment through a simple-polygon triangulation plus maximizing the three vertex types yields the submitted value; broader general gap bounds do not imply it.",
+        "searches": [
+          "arXiv:2610.05438v1 Sections 6.1 and 7.2",
+          "Resultary semantic search: diameter hyperbolic polygon vertex pairs CAT(0) metric tilings",
+          "Liao Wang hyperbolic monotiles stronger diameter theorem"
+        ]
+      },
+      "checked_sources": [
+        "arXiv:2610.05438v1 Sections 6.1,7.2",
+        "MathOverflow answer 291454 (Zare, 2018)",
+        "MathOverflow answer 18417 (Zare, 2010)",
+        "Resultary indexed record searches for exact Zare diameter, hyperbolic monotiles and vertex diameters"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "Theorem 4: exact area 2 arctan(1/(2q^2)) and only diameter <3/q.",
+          "Section 7.2 establishes the explicit lower/upper vertices but does not use their pairwise maxima.",
+          "Zare asserts small diameters for a combinatorial family, not the exact hyperbolic vertex distances of the Liao-Wang geodesic realization."
+        ],
+        "reasoning": "Existing coordinates and a general maximization principle permit a short new derivation but do not themselves assert the complete maximum or extremizer classification. The exact result strengthens a quantitative bound, without improving the class-wide diameter-gap theorem.",
+        "searches": [
+          "Liao-Wang arXiv:2610.05438v1, Theorem 4 and formulas (7.2)-(7.7)",
+          "Zare MathOverflow answer 291454",
+          "Liao-Wang arXiv:2610.05438v1 Section 6.1"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Theorem 4 of Liao-Wang prints only diam(T_q)<3/q; its Section 7.2 does not maximize vertex-pair distance.",
+          "Zare (2018) describes n top arcs and n+1 bottom arcs and vanishing scale, not explicit coordinates of this geodesic realization or exact diameter."
+        ],
+        "reasoning": "The source bound and qualitative Zare statements do not determine the exact arcosh branch or farthest-pair switch; a generic vertex-diameter lemma is a method, not a prior evaluation.",
+        "searches": [
+          "arXiv:2610.05438v1 Sections 6.1, 7.2",
+          "\"Zare\" \"diameter\" \"sqrt2\" \"monotile\"",
+          "Resultary semantic search: exact diameter geodesic Zare monotile T_q hyperbolic plane arcosh endpoints"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "The search returned the present submitted record as an exact match; it was excluded as independent prior coverage.",
+          "Nearest other indexed exact metric results concern regular hyperbolic Reuleaux polygons and hyperbolic simplex thickness, not geodesic Zare tiles."
+        ],
+        "reasoning": "No inspected independent indexed record/tabulation supplies the q=2 split, exact rational cosh values, or sqrt(2) scaling. A failed search is not a proof of absolute novelty.",
+        "searches": [
+          "Resultary: hyperbolic monotiles 2q+3 sides diameter asymptotic sqrt(2) Zare Liao Wang",
+          "Resultary: hyperbolic tiling area diameter gap 2q+3 polygon",
+          "web: 2610.05438 exact diameter q sqrt 2 Zare"
+        ]
+      },
+      "rationale": "The inspected original construction provides an upper bound <3/q but not the exact diameter; Zare gives the underlying combinatorial idea, not this metric evaluation. No independent covering result appeared in targeted mathematical searches; updated uninspected versions remain a priority risk.",
+      "residual_risks": [
+        "The October 6 updated/revised version mentioned in third-party arXiv indexing could not be inspected directly; v2 endpoints were inaccessible and metadata still advertises only <3/q.",
+        "An unindexed independent derivation of the elementary exact diameter computation cannot be excluded."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "FOUNDATIONAL_NOT_COVERING, inspected v1: defines T_q and proves <3/q; does not evaluate the exact global diameter or farthest-pair switch.",
+          "evidence": "Theorem 4 and equations (7.2)-(7.7), particularly the vertical-horizontal path estimate (7.7).",
+          "identifier_or_url": "https://arxiv.org/html/2610.05438v1",
+          "material_read": "Introduction; theorem statement; Section 6.1 vertex-diameter computation; Section 7.2 complete definition, vertices, area calculation, and path diameter estimate.",
+          "method": "Direct primary HTML reading with section and formula comparison.",
+          "title": "Area and diameter gaps for hyperbolic monotiles",
+          "trigger": "Exact defining paper for the proposed geodesic T_q family and its diameter bound."
+        },
+        {
+          "assessment": "RELATED_NOT_COVERING: qualitative construction, not exact geodesic realization diameter.",
+          "evidence": "Zare answer dated January 26, 2018.",
+          "identifier_or_url": "https://mathoverflow.net/a/291454",
+          "material_read": "The complete Zare answer and question context, including n upper and n+1 lower arcs and small diameter.",
+          "method": "Direct reading of full answer.",
+          "title": "Smallest tile to tessellate the hyperbolic plane",
+          "trigger": "Original Zare construction cited by the primary source."
+        },
+        {
+          "assessment": "RELATED_NOT_COVERING: existence of small tiles, no exact q-indexed diameter formula.",
+          "evidence": "Zare answer dated March 16, 2010.",
+          "identifier_or_url": "https://mathoverflow.net/a/18417",
+          "material_read": "Full answer explaining nonfaithful hyperbolic action and small-diameter horobricks.",
+          "method": "Direct reading of answer.",
+          "title": "Do the Baumslag-Solitar groups occur in nature?",
+          "trigger": "Earlier Zare observation referenced by Liao-Wang."
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "rationale": "This is the source paper's canonical nonconvex geodesic counterexample family exhibiting arbitrarily small diameter as the number of sides grows. Its exact diameter and extremizing pairs are natural quantities needed when benchmarking efficient small monotiles; the proof upgrades an explicit 3/q upper bound to the sharp asymptotic scale sqrt(2)/q and shows the exceptional q=2 endpoint regime. The area-diameter ratio is a natural scale-invariant comparison. No universal extremality claim is asserted; usefulness is specific quantitative information for this already motivated construction, not computational novelty alone.",
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "final_claim": "For q>=2, the Liao--Wang geodesic Zare monotile T_q in curvature -1 has diameter arcosh(41/32) when q=2 and arcosh(1+(2q^2+2q+1)/(2q^3(q+1))) when q>=3. For q=2 the unique unordered farthest pair is (V0,V_(q+1)); for q>=3 the pairs are (V0,W_q) and (V_(q+1),W0). Both q*diam(T_q) and diam(T_q)/sqrt(Area(T_q)) tend to sqrt(2).",
+  "limitations": [
+    "The exact metric is the ambient H^2 distance, not shortest-path distance confined to the nonconvex tile.",
+    "No claim of optimality among all geodesic monotiles with 2q+3 sides, or all hyperbolic monotiles.",
+    "The published Liao--Wang v1 Sections 6.1 and 7.2 and original Zare answers were read; an indicated October 6 updated version was not directly accessible through the available primary URL.",
+    "Targeted Resultary/web searches cannot rule out unindexed independent notes or later uninspected revisions.",
+    "Finite exact vertex sweeps are supplementary and do not constitute a proof for every q."
+  ],
+  "schema_version": 1
+}

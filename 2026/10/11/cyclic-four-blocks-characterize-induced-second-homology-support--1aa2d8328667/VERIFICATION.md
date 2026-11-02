@@ -5,8 +5,11 @@
     "status": "not_performed"
   },
   "independent_audit": {
-    "evidence": null,
-    "status": "not_performed"
+    "status": "passed",
+    "evidence": [
+      "INDEPENDENT_AUDIT_2026-10-26.md",
+      "INDEPENDENT_AUDIT_2026-10-26.json"
+    ]
   },
   "lean_verification": {
     "evidence": null,
@@ -15,12 +18,25 @@
   "schema_version": 1
 }
 ---
-# Verification
 
-The accompanying `verify.py` performs only finite exact computations over \(\mathbf F_2\).
+# Independent mathematical audit
 
-It reconstructs the \(30\) tetrahedra from the three cyclic difference cycles and verifies \(f=(10,40,60,30)\). It computes \(\operatorname{rank}\partial_2=30\) and \(\operatorname{rank}\partial_3=29\), hence \(\dim H_2(K;\mathbf F_2)=1\).
+## correctness
 
-It then checks all \(\binom{10}{4}=210\) four-subsets and proves computationally that exactly ten are missing tetrahedra, namely the cyclic four-blocks. Finally it checks every one of the \(2^{10}=1024\) vertex subsets, computes the image rank of local second homology in global second homology, and verifies the complete if-and-only-if support criterion and all layer counts.
+PASS
 
-The seven-vertex set \(\{0,1,2,4,5,6,8\}\) is checked as a zero-image counterexample to any universal threshold below eight. The statement is finite and object-specific; no infinite-family conclusion is inferred from the computation.
+Reconstructed all 30 translated tetrahedra from the three stated difference cycles and all simplicial faces, obtaining f=(10,40,60,30). Fresh GF(2) linear algebra gives rank(d2)=30, rank(d3)=29 and H2 dimension one. Independent kernel lifting and rank-imaging for every one of the 1024 vertex subsets verifies r(S)=1 exactly when S contains a cyclic consecutive four-block, with zero mismatches. Independently all 210 four-subsets were checked: exactly ten missing tetrahedra, precisely the cyclic four-blocks. Exact support-layer counts 4:10,5:50,6:100,7:100,8:45,9:10,10:1; every eight-subset qualifies and an explicit seven-subset has no four-block. This exhausts the stated finite object without relying on stored VERIFY_OK output or any extrapolation.
+
+## originality
+
+PASS
+
+Best-of-knowledge original complete induced-subcomplex mod-two H2 support ideal and all size-layer counts for the natural 10-vertex cyclic S2×S1 triangulation. Independent searches compared implications of stronger classification and tightness results, exact-object tables, aliases and parallel related findings. None of the fully inspected primary results determines this all-subset rank pattern. Reappearance of the identical 2026 SCOPE entry in Resultary is circular and was excluded as independent prior literature. Inaccessible exact-object full-text sources pose genuine residual priority risk but not decisive known coverage.
+
+## value
+
+PASS
+
+The cyclic 10-vertex triangulation of S2×S1 is a natural minimal-dimensional combinatorial-manifold test object, and the image-support ideal of induced H2 into global H2 is a motivated local-to-global invariant. The complete exact counts at every vertex cardinality, ten minimal missing-tetrahedron carriers and sharp forced-surjectivity threshold eight supply structural information not implied numerically by global Betti numbers or a generic enumeration of faces. A later researcher studying induced homology, tightness or vertex-support systoles could use the full exact spectrum. No general family theorem is required for this precisely characterized finite invariant.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

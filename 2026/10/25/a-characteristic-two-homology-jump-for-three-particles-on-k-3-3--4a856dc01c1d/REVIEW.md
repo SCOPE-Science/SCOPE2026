@@ -1,22 +1,21 @@
-## Correctness
+# Independent mathematical audit
 
-**PASS.** The claim is restricted to the unordered three-point configuration space of the geometric graph \(K_{3,3}\). Subdividing each edge once satisfies the finite cubical-model length conditions for three particles. The standalone script enumerates all cells, verifies the integral boundary-square identities, and computes exact ranks \((454,946,432)\) over \(\mathbb Q\) and \((454,945,432)\) over \(\mathbb F_2\). These ranks give the stated Betti vectors and Euler characteristic \(5\). The universal coefficient theorem yields exactly one cyclic 2-primary summand in \(H_1\) and none in \(H_2\); the exponent is explicitly left unresolved.
+## correctness
 
-## Originality
+PASS
 
-**PASS, best-known literature assessment.** Exact aliases searched included \(\operatorname{UConf}_3(|K_{3,3}|)\), \(UC^3(K_{3,3})\), and \(B_3(K_{3,3})\), together with the phrases “three-particle configuration space,” “graph braid homology,” and “integral homology.” The available result database returned nearby calculations for the Heawood and Pappus graphs and for four particles on larger complete bipartite graphs, but no exact match for this graph and particle count. The full Barnett–Farber paper concerns two particles; the full Farley–Sabalka paper supplies a general discrete-Morse framework but does not state these Betti vectors. The open-access An–Drummond-Cole–Knudsen paper supplies a general homology chain model, but its inspected general statements do not state this exact \(K_{3,3}\), three-particle calculation. General algorithms can compute the same invariant, so novelty is not inferred from search failure alone.
+The three-particle Abrams cubical model is applicable after subdividing each K3,3 edge once: essential-vertex paths have length at least 2 and smallest cycles length 8. Independently reconstructed cell counts are (455,1404,1386,432), all integral boundary squares vanish, and exact F2 boundary ranks are (454,945,432). Independent ranks over primes 101 and 1009 are (454,946,432); the inspected package Fraction elimination supplies exact rational ranks (454,946,432), which additionally agrees with the established H1 rank and Euler characteristic. Therefore Q Betti=(1,4,8,0), F2 Betti=(1,5,9,0). Universal coefficients give one cyclic 2-primary summand in H1, zero in H2; no assertion on its exponent or odd torsion.
 
-## Value
+## originality
 
-**PASS.** The graph \(K_{3,3}\) is the canonical minimal nonplanar bipartite graph, and three unordered particles are the first particle count beyond the classical two-particle deleted-product calculations. The exact coefficient-field comparison gives a reproducible small benchmark for torsion-sensitive computations of graph braid homology and locates the 2-primary contribution in degree one. This is a motivated finite invariant rather than a general theorem; the result is useful as a check on general homology formulas and implementations.
+PASS
 
-## Closest literature and limits
+The coefficient-field contrast and degree-two Betti number for UConf_3(K_{3,3}) are not derived by the located sources. Importantly, Ko–Park already gives the nonplanar triconnected component Z/2 in H_1 of K_{3,3} for n=3: that torsion observation by itself is PRIOR COVERED and cannot be advertised as novel. The new package-level assertion includes the exact mod-two H_2=9 and rational H_2=8. This is a bounded best-of-knowledge priority judgment, not an exhaustive database claim.
 
-- Barnett–Farber, arXiv:0903.2180: full text inspected, especially the two-particle scope and its discussion of \(K_{3,3}\); it does not cover three particles.
-- Farley–Sabalka, arXiv:math/0410539: full text inspected for the general graph braid-space model and discrete-Morse method; no exact Betti vector for this case is stated.
-- Prue–Scrimshaw, arXiv:0909.5511: abstract inspected for the relaxed subdivision condition; not used as evidence of non-coverage.
-- An–Drummond-Cole–Knudsen, arXiv:1708.02351 / DOI 10.4171/DM/709: open-access full text inspected for the Świątkowski chain model and its general comparison theorem; no exact \(K_{3,3}\), three-particle vector is stated in the inspected sections.
+## value
 
-Residual risks: a thesis, appendix, or unindexed computation may contain this exact finite case; the exponent of the 2-primary summand and odd-primary torsion remain unresolved; no independent audit has been performed.
+PASS
 
-Self-review: passed. Independent audit: not yet performed.
+K3,3 is the canonical minimal nonplanar bipartite graph. An exact, torsion-sensitive coefficient-field benchmark for three rather than two particles is independently useful in verifying graph-braid chain models and future computations; the specific H2=9 versus H2 rational8 comparison is not merely the already-covered first-homology torsion. A full integral classification is not claimed.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

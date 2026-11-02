@@ -1,12 +1,21 @@
-# Mathematical review
+# Independent mathematical audit
 
-**Correctness — PASS.** A binary splitting lemma gives an exact necessary-and-sufficient condition for sums of the semigroup generators. The proof constructs one bounded witness for every residue and proves the exceptional residue \(3\) has no smaller representative; all quantifiers cover arbitrary admissible \(k,n\). The finite independent Dijkstra checks and witnessed decompositions supplement, but are not substitutes for, this unrestricted argument.
+## correctness
 
-**Originality — PASS relative to inspected sources.** Srivastava–Thakkar [1] treat a restricted Proth coefficient family. Liu–Xin–Ye–Yin [2] give a general greedy Apéry description, which already algorithmically determines each Frobenius number, but their closed formulas Theorems 5.4 and 5.5 exclude the case where both leading greedy digits vanish; they explicitly discuss such cases after Theorem 5.5. In contrast, this result gives a uniform closed-form maximum and its unique residue for every odd coefficient with seven binary ones, including \(k=127\). The generic Apéry theorem is genuine substantial prior coverage and is not characterized as absent. The inspected works and targeted public-record searches did not provide this uniform extremal formula. Unindexed equivalents remain possible.
+PASS
 
-**Value — PASS.** The Hamming-weight stratum is a natural infinite class, not an arbitrary finite slice, and contains the first coefficient beyond the two leading-digit closed-form regimes. Determining an exact Frobenius invariant and the unique maximal Apéry residue addresses a published gap without merely recomputing a finite table. No assertion is made for other binary weights or for the genus or type.
+With a odd and k of popcount 7, k≥127 and n≥7. Since gcd(a,2a−1)=1 the semigroup is numerical. For higher-index summands, setting T=Σ2^i and C=#summands yields value aT−(T−C), and T is even. The binary splitting lemma is valid: T/2 is sum of exactly C binary powers iff popcount(T/2)≤C≤T/2, by repeated splitting of powers into pairs. For each residue −u, 1≤u≤a−1, the proposed piecewise even T (2u, a+1, a+3, a+5, a+7) has C=T−u meeting those bounds using the five weight counts 7,8,8,9,8; direct inequalities bound every representative by M=a(a+6)+3 and ensure strict inequality unless u=a−3. For a hypothetical smaller residue-3 representative, discard copies of a; u=a−3+ta (t≥0). If t≥1, aT−u≥2a²−4a+3>M for a>10. If t=0, even T≥a−1 and value<M forces T∈{a−1,a+1,a+3,a+5}; C∈{2,4,6,8} is less than the respective popcount 7,8,8,9. Thus M is the uniquely largest Apéry element and Frobenius is M−a. The proof covers arbitrary admissible coefficients and exponents, not just sampled k,n. Independently recomputed the exact record Git tree from eight fetched blob identities; exact Dijkstra on three admissible k,n plus exhaustive witness inequalities and one lower-weight boundary case corroborates but does not prove the family.
 
-Self-review: passed. Independent audit: not yet performed.
+## originality
 
-## Closest literature
-[1] Srivastava–Thakkar, arXiv:2311.12462, restricted Frobenius formula and open arbitrary-coefficient problem. [2] Liu–Xin–Ye–Yin, arXiv:2306.03459v4, full Apéry formula Theorem 5.2, conditional Frobenius formulas Theorems 5.4–5.5, and explicit residual first-two-greedy-digits-zero regime.
+PASS
+
+Best-of-knowledge PASS for the new evaluated infinite-family closed Frobenius formula and unique maximizing Apéry residue, not for the computability of individual instances. The highly relevant Liu–Xin–Ye–Yin Theorem 5.2 provides every Apéry value via greedy representation, a substantial general algorithm; its evaluated Frobenius Theorems 5.4–5.5 explicitly require one of the first two greedy digits nonzero. The article singles out q=63, where both are zero, as outside those formulas. Srivastava–Thakkar treat coefficient 2^r+1, with much smaller binary weight. The separate general-repunit note assumes d>0, while these semigroup generators use d=−1. No searched published finding or exact table states a uniform seven-one maximum/residue. The new residue-complete witness construction and popcount obstruction are a nontrivial evaluation of an already computable generic finite maximum; a generic algorithm is acknowledged but not equivalent to a proved uniform closed form. Residual risk of hidden or later derivations remains.
+
+## value
+
+PASS
+
+The Frobenius number and top Apéry residue are natural numerical-semigroup invariants; a closed formula for an infinite full binary-Hamming-weight class is meaningful. Weight seven includes k=127=2^6+63, the first explicit q=63 family singled out as beyond the two standard greedy-prefix closed-form theorems. The proof determines a sharp global maximum among a−1 residues using a structural binary-splitting obstruction rather than merely recomputing finitely many table entries. The exact maximal residue may inform investigations of the Apéry-poset geometry and complements of nearby Proth semigroups. No genus, type or other-weight classification is asserted.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

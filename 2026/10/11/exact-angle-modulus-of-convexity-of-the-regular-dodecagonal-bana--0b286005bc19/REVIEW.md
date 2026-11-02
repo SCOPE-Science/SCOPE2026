@@ -1,25 +1,21 @@
-# Same-model review
+# Independent mathematical audit
 
-## Correctness
-PASS. The fixed-separation problem is reduced to the maximal sum norm \(M(\epsilon)\). The triangle inequality gives \(M\le2\), while two exact weighted dual-facet estimates give
-\[
-M\le4-\sqrt3\,\epsilon
-\quad\text{and}\quad
-M\le\frac{4-\epsilon}{\sqrt3}.
-\]
-All twelve signed facets reduce by cyclic separation to the exact seven-entry certificate
-\[
-2\sqrt3,\ 2+\sqrt3,\ 4,\ 4,\ 4,\ 2+\sqrt3,\ 2\sqrt3.
-\]
-The lower envelope switches at \(4-2\sqrt3\) and \(2(\sqrt3-1)\). Five explicit unit-pair families attain it over the entire interval \(0\le\epsilon\le2\). The bundled symbolic checker verifies the dual table and each continuum family exactly. Substitution into the defining formula yields the stated angle-modulus profile.
+## correctness
 
-## Originality
-PASS. The defining 2022 publisher full text was inspected through the angle-modulus definitions, the exact transform to the Clarkson modulus, structural consequences, and conclusion. No regular-dodecagonal or regular-polygon computation was located. Searches covered the angle notation, the equivalent classical modulus, direct fixed-distance chord language, exact branch formulas, and transition radicals. The closest public angle result changes both the regular polygon and the extremal direction.
+PASS
 
-## Value
-PASS. The theorem computes a complete natural modulus on a canonical polyhedral Banach plane. The initial plateau records the dodecagon's lack of strict convexity, while the two later branches expose distinct supporting-facet regimes. The exact transition geometry and reusable weighted-dual proof provide more information than a one-point constant or routine table value.
+For the real norm whose unit ball has twelve facet inequalities f_j(x)<=1, the definition reduces delta_a(epsilon)=1-M(epsilon)^2/2 where M=max ||x+y|| over unit pairs at separation epsilon. Choose signed supporting facets p for x+y and q for x-y; exact dual vertex support gives ||p±sqrt3 q||_* sums <=4 and ||sqrt3 p±q||_* sums <=4 for all 144 ordered facet pairs. Consequently M<=min{2,4-sqrt3 epsilon,(4-epsilon)/sqrt3}. Independent exact Q(sqrt3) arithmetic reconstructed all twelve vertices, computed seven dihedral facet-separation classes [2sqrt3,2+sqrt3,4,4,4,2+sqrt3,2sqrt3], and verified the upper bounds. It separately proved, by affine endpoint inequalities and identically active facets, that all five explicit families actually have unit coordinates, separation epsilon, and the stated maximal sum on their full intervals [0,a],[a,1],[1,b],[b,sqrt3],[sqrt3,2], with a=4-2sqrt3 and b=2(sqrt3-1). Hence the all-real-epsilon piecewise profile follows analytically, not by finite sampling. Both endpoints epsilon=0 and 2 included.
 
-## Closest literature and limitations
-Du, Ahmad, Din and Li introduced the angle modulus of convexity in Mathematics 10 (2022), 2965, published 17 August 2022 with MSC 46B20, and proved its exact transform to the classical modulus of convexity. Their open full text contains no located dodecagonal computation. The present theorem does not classify other regular polygons, all maximizers, or stability of near-maximizers.
+## originality
 
-Same-model review: passed. Independent audit: not yet performed.
+PASS
+
+Best-of-knowledge original full fixed-distance maximal chord-sum function and hence three-branch angle-convexity profile for the regular dodecagonal Banach plane. The 2022 general transform merely renames the unknown modulus; the same-object minimum-sum (angle smoothness), general regular-polygon Day smoothness and James constant solve mathematically different extrema. Actual Resultary searches also returned the same submitted record; that circular source was explicitly excluded from priority evidence. No stronger covering theorem was found. A publisher full-page re-open was rate-limited and unindexed equivalent classical-modulus work remains a genuine residual risk.
+
+## value
+
+PASS
+
+The fixed-separation Clarkson/angle convexity modulus is a canonical quantitative invariant of Banach-space geometry. The regular dodecagon is a natural 12-facet symmetric polyhedral normed plane: its complete continuum profile has a nontrivial plateau 0<=epsilon<=4-2sqrt3 and two subsequent distinct active-facet phases meeting at 2(sqrt3-1). Unlike a one-point norm constant or arbitrary numerical slice, the result supplies a complete natural function, exact transitions and a reusable weighted-dual-facet proof. A researcher comparing uniform convexity failure, polygonal convexity moduli or primal-dual geometric inequalities could need these precise phase boundaries. No general theorem or paper-sized contribution is claimed or needed.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

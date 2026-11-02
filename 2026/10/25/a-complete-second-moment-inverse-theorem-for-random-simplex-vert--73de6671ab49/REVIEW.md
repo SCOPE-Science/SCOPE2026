@@ -1,15 +1,21 @@
-# Scientific assessment
+# Independent mathematical audit
 
-## Correctness — PASS
-For arbitrary finite dimension, affine barycentric Dirichlet moments yield the exact identity \(S=4GCG\). The positive-definite square-root identity gives a unique inverse, every positive-definite covariance is realized by a Gram matrix, and the determinant gives the volume. All key quantifiers and the dimension-one case are covered; 56 inversion/volume checks and four empirical Dirichlet experiments supplement the exact proof.
+## correctness
 
-## Originality — PASS (best-knowledge comparison)
-The directly inspected 2005 Meckes–Meckes paper treats asymptotic Gaussian projections of regular simplices, not inverses from squared-distance covariance for arbitrary simplices. The inspected 2016 Li–Qiu article evaluates single-vertex distance moments in planar triangles and does not supply the labeled joint squared-distance-difference covariance or its inverse. Gram/Cayley–Menger edge reconstruction requires edge data, rather than deriving it from these observables. Searches of relevant mathematical research records found no equivalent or dominating result. Unindexed inverse-statistical literature and inaccessible older shape-space material remain explicit residual risks.
+PASS
 
-## Mathematical value — PASS
-The observable is natural for noisy location/metric inverse problems and replaces the entire labeled edge-length data by second moments of one random interior probe. The result is a complete all-dimensional realization and uniqueness theorem with explicit shape, scale, every edge, and volume recovery, rather than an isolated moment calculation.
+Uniform barycentric coordinates lambda are Dirichlet(1,...,1) with C=(mI-J)/[m²(m+1)] positive definite, m=d+1. Setting v0=0 and edge Gram G yields Y_i=G_ii-2(G lambda)_i, hence S=4GCG. The unique SPD square root of C^1/2 S C^1/2 recovers G=1/2 C^-1/2 (C^1/2 S C^1/2)^1/2 C^-1/2 for every d>=1. Each SPD S yields a unique SPD Gram and thus an isometry class of labelled simplices. det C=[m^(d+1)(m+1)^d]^-1 and det G=(d!Vol)^2 give the displayed volume formula. Independently checked symbolic exact identities for d=1,2,3; all-dimensional proof is SPD algebra, not finite tests.
 
-## Limitations
-The sampling is exactly uniform; the variables are squared-distance differences with known labels; no noise stability, unknown-label reconstruction, or degenerate-simplex extension is proved. All novelty statements are best-knowledge and independent auditing remains absent.
+## originality
 
-Self-review: passed. Independent audit: not yet performed.
+PASS
+
+Although the matrix square-root algebra is standard, the exact observed-data-to-shape bijection, namely S=Cov(||X-v_i||²-||X-v0||²) for a uniform simplex probe, is not implied by the inspected radial-moment sources, nor by Gram reconstruction from already known edge lengths. A claim of new positive-definite square-root theory would be false; originality lies in recognizing and completely solving this natural inverse observation model.
+
+## value
+
+PASS
+
+The joint covariance of natural vertex-distance difference observables is a complete shape-and-scale parameter, allowing all edges and volume to be recovered from a single uniform interior probe distribution in every dimension. That explicit global bijection has genuine metric inverse-problem interest beyond an isolated arithmetic calculation.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

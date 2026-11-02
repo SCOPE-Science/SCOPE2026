@@ -5,8 +5,11 @@
     "status": "not_performed"
   },
   "independent_audit": {
-    "evidence": null,
-    "status": "not_performed"
+    "status": "passed",
+    "evidence": [
+      "INDEPENDENT_AUDIT_2026-10-27.md",
+      "INDEPENDENT_AUDIT_2026-10-27.json"
+    ]
   },
   "lean_verification": {
     "evidence": null,
@@ -16,7 +19,24 @@
 }
 ---
 
-# Reproducibility and limits
-Run `python3 verify_capsule.py` using Python 3 and only the standard library. An actual execution produced: `PASS: 8442 support comparisons; 42 isotropy/contact checks; 15 crossover checks; 3 wide-separation checks; max residual 7.275957614183426e-12`.
+# Independent mathematical audit
 
-The script tests candidate semiaxes, positivity and tip strictness, the \((h/t)(s-t)^2\) support slack, isotropic-normalized contact geometry, and convergence of volume factors in two scaling regimes. It does not enumerate all real half-separations, dimensions or normals and is not an infinite proof. The mathematical proof is the universal certificate and contact argument in `RESULT.md`; no external independent audit or mechanized proof was performed. The Yıldırım (2006) full paper could not be accessed; potential equivalent prior formulas remain a literature-priority risk.
+## correctness
+
+PASS
+
+For every d>=2 and h>0, capsule K=B_2^d+[-h,h]e_1 has support 1+h|u_1|. The positive root t of d t^2+(d-1)h t=1 lies in (0,1), and proposed A=(1+ht)(1+h/t), B=1+ht yield exact support square slack h/t (|u_1|-t)^2. This proves global inclusion and precisely two latitude orbits of contacts; the tips are not contacts since A-(1+h)^2=(h/t)(1-t)^2>0. Under Löwner normalization contacts have axial ±1/sqrt d and transverse sqrt((d-1)/d), and their symmetric measure satisfies first moment zero and covariance I_d/d. Any enclosing ellipsoid with shape Q and center c then has tr(Q^-1)/d+c^T Q^-1 c<=1; AM–GM gives det Q>=1 with equality only Q=I, c=0. This proves global uniqueness without symmetry assumption. Volume factor (1+ht)^(d/2) sqrt(1+h/t) tends to exp(tau u_tau/2)/u_tau when h sqrt d→tau; when it diverges, ratio/(h sqrt d)→sqrt e. Independent numerics confirmed support and latitudes for d=2,3,8,23 and varied h, not the quantified asymptotic itself.
+
+## originality
+
+PASS
+
+Best-of-knowledge PASS qualified by inaccessible full Yıldırım 2006 text: its accessible abstract solves approximate enclosing ellipsoid of the convex hull of m ellipsoids, which covers this object as an input but does not assert the exact symbolic capsule optimizer or crossover. Güler–Gürtuna list other explicit bodies; Halder 2018 centered ellipsoids do not include separated generating centers.
+
+## value
+
+PASS
+
+A spherocylinder/capsule is the simplest nonellipsoidal convex hull of two balls. Exact enclosing ellipsoid in every dimension and separation, strict tip noncontact, universal normalized contact latitudes and sharp dimension crossover supply a natural geometric invariant not a fixed table or mere general ellipsoid-existence theorem.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

@@ -5,8 +5,11 @@
     "status": "not_performed"
   },
   "independent_audit": {
-    "evidence": null,
-    "status": "not_performed"
+    "status": "passed",
+    "evidence": [
+      "INDEPENDENT_AUDIT_2026-10-27.md",
+      "INDEPENDENT_AUDIT_2026-10-27.json"
+    ]
   },
   "lean_verification": {
     "evidence": null,
@@ -15,19 +18,25 @@
   "schema_version": 1
 }
 ---
-# Verification and reproducibility
 
-`VERIFY.py` runs under Python 3 with only the standard library. Execute `python VERIFY.py` in a directory containing the script. The included `VERIFY_output.txt` records the complete stdout of a successful run.
+# Independent mathematical audit
 
-The program independently constructs maximal simplices of \(N_r(X_{n,k})\), lists all nonempty subfaces, and computes reduced mod-two homology from explicit simplicial boundary matrices. For all \(3\le n\le7\), \(2\le k<n\), and \(r\in\{2,k,k+1,k+2\}\), it compares every degree to the predicted contractible or sphere-wedge reduced Betti vector. For \(n\le4\), it additionally enumerates every vertex subset directly against intersections of actual finite-Alexandrov minimal open neighborhoods, without using the facet criterion under test. For each tested case and each permutation cycle type, it computes the signed reduced simplicial Lefschetz number and compares with the exterior-power character formula.
+## correctness
 
-Recorded stdout:
-```
-FINITE_NEIGHBORHOOD_CASES 60
-TOTAL_ENUMERATED_NONEMPTY_FACES 15318
-LITERAL_TOPOLOGY_COMPARISONS 12
-SIGNED_EQUIVARIANT_LEFSCHETZ_CHECKS 612
-VERIFY_OK
-```
+PASS
 
-The independent finite computations establish no all-size theorem, cannot by themselves certify integral torsion absence, and do not establish historical originality. The geometric and integral chain proofs in RESULT.md address the infinite statement. Independent scientific audit and verification have not been performed.
+Using U_a={a} union {b_T:a in T} and U_b={b}, distinct maximal b vertices cannot coexist in a face. For minimal atoms, all <=r intersections exist for r<=k, while r>=k+1 permits exactly atom subsets of size <=k. Each maximal-point cone retracts linearly and S_n-equivariantly onto its base Delta_T, leaving a simplex (r<=k) or the (k-1)-skeleton of the (n-1)-simplex. A standard acyclic matching gives choose(n-1,k) spheres dimension k-1. The integral augmented boundary kernel is wedge^k ker(sum:Z^n to Z), yielding the determinant cycle-character formula. All maximal original nerve facets have dimension k but lower (k-1) homology is nonzero, so not Cohen–Macaulay. Literal intersection and rank checks for small n corroborate but do not prove universality.
+
+## originality
+
+PASS
+
+The full all-arity r=k+1 transition on a rank-1/k Boolean finite T0 space, with integral permutation-module refinement, goes beyond the known classical simplex-skeleton ingredients and general pairwise inseparability constructions. The closest October 2026 Cameron–Kumar primary paper could be read only at abstract/author-commentary level, so whole-text noncoverage is NOT asserted; no decisive implication was evidenced. PASS is bounded best-of-knowledge subject to material risk.
+
+## value
+
+PASS
+
+The relation between pairwise inseparability clique-completion and higher common-neighborhood intersections is a natural topology-reconstruction problem. The theorem gives an exact arity cutoff, unbounded-dimensional/binomial-rank discrepancy, purity/CM obstruction and the entire integral S_n-module across a natural infinite symmetric family.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
