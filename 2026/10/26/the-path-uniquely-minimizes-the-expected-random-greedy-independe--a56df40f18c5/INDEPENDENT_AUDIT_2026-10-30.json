@@ -1,0 +1,113 @@
+{
+  "audit_date_utc": "2026-10-30",
+  "audited_at_utc": "2026-10-30T11:57:46.205337Z",
+  "axes": {
+    "correctness": {
+      "rationale": "Let α_k=m(P_k) and ν(T)=Σ_vΣ_{C component of T−N[v]}α_|C|. The cited Krivelevich–Mészáros–Michaeli–Shikhelman 2024 Theorem 8.3 proves ν cannot decrease under proper KC transformations, Section 8.1 KC reachability builds any n-vertex tree from the path, and their equations give m(T)≥1+ν(T)/n with equality for the path. The new proof derives the strict subadditivity gap h(r,s)=α_r+α_s−α_{r+s}, with unique equality (r,s)=(2,2), by exact small values and an alternating-series error bound for the linear asymptote to α. For an initial path-to-spider KC move with arm lengths a,b,l≥1 the independently computed exact ν gain is h(a,l)+h(b,l)+Σ_{j=1}^{l−1}(α_{a+b+j}+α_j−α_{a+j}−α_{b+j}); the interior sum is nonnegative by the cited prior Lemma 8.2. Unless a=b=l=2 at least one h term is positive; in that exceptional case the j=1 term is exactly 2/15>0. Therefore every first proper path KC move is strictly increasing, and remaining steps are nondecreasing, proving the n≥4 strict path uniqueness. Independently rebuilt α by rational first-arrival recursion and ν by direct graph-component deletion: exact spider gain and positivity for all 216 triples a,b,l≤6, all h(r,s)≥0 for r,s≤44, and the exceptional value 2/15. Finite checks corroborate, not prove, unrestricted cases.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Krivelevich et al. 2024 Thm 8.3 supplies ν monotonicity, Lemma 8.2 nonnegative interior KC sum, Theorem 1.4 nonstrict path minimality.",
+          "No inspected more general strict tree extremizer theorem surfaced in targeted current searches."
+        ],
+        "reasoning": "The cited universal inequality is broader in set of trees but weaker in the strict equality conclusion; it does not imply uniqueness by itself.",
+        "searches": [
+          "random greedy independent set tree path unique minimizer KC transformation strict expectation"
+        ]
+      },
+      "checked_sources": [
+        "Krivelevich–Mészáros–Michaeli–Shikhelman 2024 full Wiley OA Sections 8.1–8.2 and Section 9",
+        "Krivelevich et al. AofA2020 original conference abstract",
+        "Resultary 2026/10/4/SCOPE-exact-random-greedy-independent-set-law-on-threshold-graphs--13703984bf2d",
+        "Resultary 2026/10/4/SCOPE-exact-random-greedy-maximal-independent-set-law-on-chain-graphs--36fe61ce32de"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "Prior Section 8.1 describes the KC poset and remarks that their proof cannot obtain strict path uniqueness.",
+          "New h(r,s) exceptional classification and explicit 2/15 spider interior gain exclude remaining equality cases."
+        ],
+        "reasoning": "The exact strict proof adds the previously missing positivity input; non-strict prior inequalities alone permit possible nonpath minimizers, so this is not a tautological corollary.",
+        "searches": [
+          "random greedy independent set tree path unique minimizer KC transformation strict expectation"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Original Krivelevich et al. open full text Section 8 expressly says uniqueness of path for expected greedy independent set is anticipated but not implied by their proof.",
+          "Resultary related greedy independent-set laws concern threshold and chain graphs, not all-tree equality classification."
+        ],
+        "reasoning": "Equivalent formulation is that equality in universal lower expectation bound occurs only for P_n. This is not logically equivalent to the previously proved nonstrict m(T)≥m(P_n).",
+        "searches": [
+          "random greedy independent set tree path unique minimizer KC transformation strict expectation"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "Resultary 2026/10/4/SCOPE-exact-random-greedy-independent-set-law-on-threshold-graphs--13703984bf2d and 2026/10/4/SCOPE-exact-random-greedy-maximal-independent-set-law-on-chain-graphs--36fe61ce32de classify different graph families."
+        ],
+        "reasoning": "No relevant all-tree equality table or formula was identified. All-tree strictness requires structural KC reasoning, not finite small-n enumeration.",
+        "searches": [
+          "random greedy independent set tree path unique minimizer KC transformation strict expectation"
+        ]
+      },
+      "rationale": "Best-of-knowledge statement-and-implication comparison with primary literature, published results and a new Resultary search; foundational premises credited; no negative-search priority inference. Equivalent formulation is that equality in universal lower expectation bound occurs only for P_n. This is not logically equivalent to the previously proved nonstrict m(T)≥m(P_n).",
+      "residual_risks": [
+        "A separate, less indexed tree-extremal article or thesis could prove strict uniqueness independently; literature search cannot certify priority.",
+        "The proof depends on exact signs in the cited KC interior-sum lemma; those were examined in primary full text and finite spider cases, not formally re-proved from first principles."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "The inspected nonstrict results are explicitly credited and do not establish strict uniqueness",
+          "evidence": "Theorem 1.4 nonstrict path bound; Section 8 discussion says uniqueness is anticipated but not proved by its argument",
+          "identifier_or_url": "https://onlinelibrary.wiley.com/doi/10.1002/rsa.21200",
+          "material_read": "Open primary article Sections 8.1–8.2: Theorem 8.3, Lemmas 8.1–8.2, proof of Theorem 8.4, KC path reachability and discussion of expected but unproved uniqueness; related Section 9.",
+          "method": "Full OA HTML targeted theorem/proof reading",
+          "title": "Greedy maximal independent sets via local limits",
+          "trigger": "Exact same tree expectation functional, KC transformations, path extremum"
+        },
+        {
+          "assessment": "Nonstrict result, no strict equality classification in read material",
+          "evidence": "2020 conference publication supplies earlier nonstrict theorem",
+          "identifier_or_url": "https://doi.org/10.4230/LIPIcs.AofA.2020.20",
+          "material_read": "Conference abstract and conclusions: the path has no larger expected greedy independent set than other trees.",
+          "method": "Primary proceedings abstract and theorem descriptions",
+          "title": "Greedy Maximal Independent Sets via Local Limits",
+          "trigger": "Earlier conference version of same model"
+        },
+        {
+          "assessment": "DIFFERENT_GRAPH_CLASS; cannot imply arbitrary-tree uniqueness",
+          "evidence": "Threshold graphs do not contain arbitrary trees",
+          "identifier_or_url": "https://github.com/Resultary/2026/tree/main/2026/10/4/SCOPE-exact-random-greedy-independent-set-law-on-threshold-graphs--13703984bf2d",
+          "material_read": "Resultary scientific summary about complete threshold-graph distribution.",
+          "method": "Semantic-index full summary",
+          "title": "Exact random-greedy independent-set law on threshold graphs",
+          "trigger": "Related Resultary random-greedy law"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "rationale": "Uniqueness of the extremizer is a genuine open equality-case gap flagged explicitly in the foundational tree-random-greedy paper, whose path-minimality theorem was nonstrict. The strict first-KC-step invariant and isolated subadditivity equality resolve this natural graph-extremal classification for every tree order, not merely improve a coefficient. The statement does not claim strictness for all KC moves or stochastic order of full greedy output distributions.",
+      "status": "PASS"
+    }
+  },
+  "checked_sources": [
+    "Krivelevich–Mészáros–Michaeli–Shikhelman 2024 full Wiley OA Sections 8.1–8.2 and Section 9",
+    "Krivelevich et al. AofA2020 original conference abstract",
+    "Resultary 2026/10/4/SCOPE-exact-random-greedy-independent-set-law-on-threshold-graphs--13703984bf2d",
+    "Resultary 2026/10/4/SCOPE-exact-random-greedy-maximal-independent-set-law-on-chain-graphs--36fe61ce32de",
+    "https://github.com/SCOPE-Science/SCOPE2026/tree/44ae2b9060bafd7ccaac2bd95bf387d413371148/2026/10/26/the-path-uniquely-minimizes-the-expected-random-greedy-independe--a56df40f18c5/RESULT.md"
+  ],
+  "disposition": "passed",
+  "limitations": [
+    "n≥4; only expectation, not distributional stochastic dominance.",
+    "No assertion all proper KC transforms strictly raise m(T); only first path move strictly raises ν."
+  ],
+  "residual_risks": [
+    "A separate, less indexed tree-extremal article or thesis could prove strict uniqueness independently; literature search cannot certify priority.",
+    "The proof depends on exact signs in the cited KC interior-sum lemma; those were examined in primary full text and finite spider cases, not formally re-proved from first principles."
+  ],
+  "schema_version": 1
+}
