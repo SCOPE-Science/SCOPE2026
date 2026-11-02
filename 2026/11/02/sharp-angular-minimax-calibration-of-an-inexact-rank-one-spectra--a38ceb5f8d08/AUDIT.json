@@ -1,0 +1,134 @@
+{
+  "correctness": {
+    "rationale": "A full analytical proof transforms the problem into a 2x2 SPD trace/determinant invariant; AM-GM yields a unique angle-endpoint lower bound, derivative monotonicity attains that lower bound on the entire angle interval, and a rationally factorized polynomial establishes the strict-worsening cutoff. Asymptotic boundaries follow from elementary equivalent inequalities. 42,521 standalone checks, including exact fraction identities and random full-range comparisons, independently corroborate but do not substitute for the proof. Conditions theta>0, kappa>1 and Phi<=pi/4 include the exact boundary cases.",
+    "status": "PASS"
+  },
+  "independent": false,
+  "independent_audit_status": "not_performed",
+  "originality": {
+    "broader_coverage": {
+      "evidence": [
+        "Diouane et al optimize fixed-iteration energy error using an exact eigenbasis; those conclusions neither upper-bound all uncertain approximate eigendirections nor determine their minimax condition ratio.",
+        "The source 2026 ensemble data assimilation preconditioner experiments compare heuristic scales, without a quantified angular worst-case theorem."
+      ],
+      "reasoning": "General spectral perturbation theory and exact-eigenpair scaled-preconditioner optimality do not logically determine a finite-angle, fixed-scale minimax on unknown Ritz directions; unlike the cited first-order analyses, the new proof controls all admitted angles exactly.",
+      "searches": [
+        "sharp optimal scaling of inexact spectral limited memory preconditioner single approximate eigenvector 2x2 misalignment symmetric positive definite, theta optimal",
+        "minimax fixed scale theta under angular uncertainty Ritz eigenvector inexact rank-one spectral limited-memory preconditioner 2x2 sharp robust condition number worsening κ quarter-power angle",
+        "\"spectral preconditioner\" \"angular\" \"optimal\" \"scaling\"",
+        "arxiv:2603.28969v1 Sections 3-4",
+        "arxiv:2410.02204v1"
+      ]
+    },
+    "checked_sources": [
+      "Daužickaitė et al., arXiv:2605.23571v2, sections 3.1,4.2.1",
+      "Giraud and Gratton, DOI:10.1137/040617546, sections 2,3.2-3.3",
+      "Diouane et al., arXiv:2603.28969v1, sections 3-4,Appendix A",
+      "Diouane et al., arXiv:2410.02204, abstract and body",
+      "Relevant published mathematical findings on Nyström, SOAP, rank-one Rayleigh filtering and spectral scaling; their different hypotheses were compared"
+    ],
+    "claim_vs_prior_implication": {
+      "evidence": [
+        "Exact basis reduction supplies trace=theta+1+dr and determinant=theta*kappa/(kappa-dr), creating a nonlinear angular min-max absent in first-order perturbation results.",
+        "The strict-worsening comparison factorizes as d^2(1-r)(d*r^2+3*r-1).",
+        "The known source empirical theta=1 failure in some full solvers does not imply the exact two-mode angle threshold."
+      ],
+      "reasoning": "The claimed result is not obtained by applying a published bound with renamed parameters: it has a universal minimax quantifier over a continuum of unknown Ritz angles, a unique optimizer, and an iff nonlinear failure boundary. Prior statements with exact eigenvectors, first-order perturbations or fixed scaling cannot imply these conclusions without a new argument.",
+      "searches": [
+        "arxiv:2605.23571v2 Sections 3.1 and 4.2.1",
+        "doi:10.1137/040617546 Sections 3.2 and 3.3",
+        "rank-one Ritz spectral preconditioner angle eigenvector error minimizing condition number 2 by 2 Rayleigh orthogonal complement",
+        "sharp optimal scaling of inexact spectral limited memory preconditioner single approximate eigenvector 2x2 misalignment symmetric positive definite, theta optimal"
+      ]
+    },
+    "equivalent_formulations": {
+      "evidence": [
+        "The two-mode model is a Rayleigh-normalized rank-one form of the cited spectral LMP; its exact invariant is (theta+sigma)^2 rho/(kappa theta).",
+        "The 2006 sensitivity analysis contains perturbative spectral formulas with o(t) remainders, not this nonperturbative fixed-angle minimax law."
+      ],
+      "reasoning": "Synonyms sought include coarse-grid, Ritz, deflation, single-direction spectral preconditioning, angle error, and scaled rank-one correction. A fixed-oracle Nyström correction differs because its scale uses a preset complementary eigenvalue rather than minimax optimization under angular uncertainty.",
+      "searches": [
+        "2x2 SPD Rayleigh Ritz eigenvector misalignment spectral LMP optimal theta complementary Rayleigh quotient sharp minimum condition number",
+        "rank-one Ritz spectral preconditioner angle eigenvector error minimizing condition number 2 by 2 Rayleigh orthogonal complement",
+        "\"rank one\" \"preconditioner\" \"angle\" \"condition number\" spectral Ritz",
+        "arxiv:2605.23571v2 Section 3.1",
+        "doi:10.1137/040617546 Section 3.2"
+      ]
+    },
+    "exact_database_or_table": {
+      "evidence": [
+        "The published-result closest references concern a fixed-oracle Nyström deterioration frontier, stale SOAP normalization, a rank-one Rayleigh-residual distortion law, and a three-mode spectral perturbation scaling transition.",
+        "The exact boundary r=2/(3+sqrt(4*kappa+5)) and theta*=1+(kappa-1)R were not identified in inspected source equations or accessible results."
+      ],
+      "reasoning": "Same numbers and exact problem data, including angular support, Rayleigh normalization, adjustable theta and worst-case SPD condition, were compared; no known tabulation or result covers the full conjunction. Search absence alone is not a novelty certificate.",
+      "searches": [
+        "2x2 SPD Rayleigh Ritz eigenvector misalignment spectral LMP optimal theta complementary Rayleigh quotient sharp minimum condition number",
+        "minimax fixed scale theta under angular uncertainty Ritz eigenvector inexact rank-one spectral limited-memory preconditioner 2x2 sharp robust condition number worsening κ quarter-power angle",
+        "unscaled theta equals one rank-one inexact Ritz spectral preconditioner sharp misalignment threshold inverse square root condition number",
+        "published mathematical result search: rank-one spectral inexact Ritz angular minimax",
+        "\"inexact\" \"spectral preconditioner\" \"angle\" \"condition number\""
+      ]
+    },
+    "rationale": "The inspected direct 2026 spectral-LMP paper gives the preconditioner template and empirical sensitivity, 2006 spectral perturbation work gives local first-order sensitivity, and the 2026/2024 scaled-preconditioning papers optimize different objectives with exact eigenspaces. None of the materially read statements implies the global exact minimax law on a full two-mode angular uncertainty interval or the sharp unshifted-worsening boundary. Published mathematical-result semantic searches found nearby but distinct results, including Nyström fixed-oracle-scale and different structured-preconditioning stability. This is a self-review best-knowledge priority assessment, not proof of historical uniqueness.",
+    "residual_risks": [
+      "An older exact two-dimensional formula or elementary corollary not located by semantic search could predate the claim.",
+      "The two-by-two result has no direct implication about higher-dimensional preconditioned CG iteration counts.",
+      "The angle bound must be known in advance; real randomized sketches may have an uncertain and unbounded angle distribution."
+    ],
+    "source_inspections": [
+      {
+        "assessment": "The source treats randomized sketch construction and empirical scale sensitivity but does not establish the sharp worst-over-angle two-mode calibration or its strict-worsening frontier.",
+        "evidence": [
+          "Section 3.1 gives P_theta=I+S_k(theta(Lambda_k+I)^(-1)-I)S_k^T; Section 4.2.1 compares theta=1 and other scales under approximate eigenpairs."
+        ],
+        "identifier_or_url": "https://arxiv.org/html/2605.23571v2",
+        "material_read": "Full accessible HTML with focus on Sections 3.1, 3.2, 4.2.1 and Conclusions, including the preconditioner equations (7)-(8) and numerical comparisons.",
+        "method": "Statement and equation comparison: their spectral LMP acts on approximate leading eigendirections, with measured solver performance versus choices of scale.",
+        "title": "Accelerating an ensemble of variational data assimilations with randomized preconditioning",
+        "trigger": "Direct source of the spectral-LMP form, approximate Ritz vectors, and scale choices."
+      },
+      {
+        "assessment": "The first-order spectral sensitivity results do not imply the exact finite-angle minimax scale or the nonlinear strict-worsening threshold. Exact specializations elsewhere in older literature remain a priority risk.",
+        "evidence": [
+          "Section 3.2 presents first-order eigenvalue perturbation with o(t) remainder; Section 3.3 gives local sensitivity coefficients and first-order stability cases."
+        ],
+        "identifier_or_url": "https://www.researchgate.net/publication/220656613_On_the_Sensitivity_of_Some_Spectral_Preconditioners",
+        "material_read": "Accessible author-supplied full-text transcription, Sections 2, 3.2, 3.3 and their theorem statements/table, including perturbative eigenvalue expansions.",
+        "method": "Compared hypotheses and conclusions: their formulas analyze first-order small perturbations of eigendirections and preconditioned eigenvalue sensitivity, rather than exact global angular uncertainty.",
+        "title": "On the Sensitivity of Some Spectral Preconditioners",
+        "trigger": "Older primary literature directly addressing approximate eigenvector spectral-preconditioner sensitivity."
+      },
+      {
+        "assessment": "Different objective and exact-eigenvector premise; no stronger statement implying the robust angular calibration.",
+        "evidence": [
+          "Section 3.1 formulates minimization of a fixed-iteration A-energy error over low-rank eigenvector updates; Section 4 discusses theta selection under exact spectral information."
+        ],
+        "identifier_or_url": "https://arxiv.org/html/2603.28969v1",
+        "material_read": "Full accessible HTML, especially Sections 3-4 and Appendix A, including the energy-error optimization and alternate scales.",
+        "method": "Compared optimized functionals and admissible information: fixed-iteration CG energy error and chosen exact eigendirections versus worst-case spectral condition under angularly unknown inexact Ritz vector.",
+        "title": "A Spectral Preconditioner for the Conjugate Gradient Method with Iteration Budget",
+        "trigger": "Recently published optimization of the scaling parameter for scaled spectral preconditioning."
+      },
+      {
+        "assessment": "Its scaling strategies are not universal angular-uncertainty optimizers; no covering exact two-mode threshold found in the inspected material.",
+        "evidence": [
+          "Abstract and introductory formulation emphasize scaling a known spectral subspace to improve early CG energy-error convergence."
+        ],
+        "identifier_or_url": "https://arxiv.org/abs/2410.02204",
+        "material_read": "Accessible arXiv text, abstract and Sections 1-3 on scaling spectral eigenvector corrections for truncated CG.",
+        "method": "Compared the premise of ideal spectral updates and the early-iteration energy-error criterion against the inexact-angle condition-number minimax setting.",
+        "title": "An Efficient Scaled Spectral Preconditioner for Sequences of Symmetric Positive Definite Linear Systems",
+        "trigger": "Earlier scaled spectral preconditioner paper cited in contemporary work."
+      }
+    ],
+    "status": "PASS"
+  },
+  "review_type": "self_review",
+  "schema_version": 1,
+  "scope_run_id": "a38ceb5f-8d08-40f7-a3be-6e1527557ab0",
+  "self_review_status": "passed",
+  "value": {
+    "rationale": "Numerical spectral LMPs built with approximate Ritz vectors require a scale chosen before the direction error is known. The exact robust scale, unique optimum and exact worst-angle law provide a parameter-selection criterion, a sharp failure boundary for the common theta=1 choice, and an asymptotic distinction between avoiding harm and achieving uniformly bounded conditioning. This is a natural complete robustness classification for a two-mode SPD preconditioning model, not a mere re-labeling of a linear algebra identity. It does not promise multidimensional or end-to-end solver acceleration.",
+    "status": "PASS"
+  }
+}
