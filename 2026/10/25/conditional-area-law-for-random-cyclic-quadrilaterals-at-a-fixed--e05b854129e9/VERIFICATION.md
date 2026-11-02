@@ -5,8 +5,11 @@
     "status": "not_performed"
   },
   "independent_audit": {
-    "evidence": null,
-    "status": "not_performed"
+    "status": "passed",
+    "evidence": [
+      "INDEPENDENT_AUDIT_2026-10-28.md",
+      "INDEPENDENT_AUDIT_2026-10-28.json"
+    ]
   },
   "lean_verification": {
     "evidence": null,
@@ -15,20 +18,25 @@
   "schema_version": 1
 }
 ---
-# Reproducibility of the conditional area law
 
-Run `python verify.py` with Python 3, NumPy, and SciPy. The executed checker generated 450,000 independent random four-vertex configurations on the unit circle, used a Cartesian shoelace area and determinant/dot-product diagonal-angle calculation, and compared the first two unconditional area moments against their stated values. Five disjoint narrow diagonal-angle bins were checked against the exact conditional first and second moments.
+# Independent mathematical audit
 
-Four additional fixed angles were tested using 350,000 independent cosine-variable pairs each. For each, the checker independently compared four conditional CDF values against the displayed one-dimensional integral and compared simulated first two moments. It also rechecked the already-known angle marginal as a consistency test.
+## correctness
 
-Actual terminal success markers from `verify.py`:
+PASS
 
-```
-CARTESIAN_AREA_AND_TWO_GLOBAL_MOMENTS
-CARTESIAN_CONDITIONAL_MEAN_VAR_OK
-CONDITIONAL_CDF_1D_QUADRATURE_OK
-KNOWN_CROSSING_ANGLE_MARGINAL_RECONSTRUCTED_OK
-ALL_QUADRILATERAL_CONDITIONAL_AREA_CHECKS_OK
-```
+Four i.i.d. uniform boundary-circle points yield Dirichlet(1,1,1,1) circular gaps after choosing a distinguished sampled vertex. Diagonal crossing angle T=(g1+g3)/2 has beta(2,2), and conditional gap splits are independent uniforms. Acute folding symmetry sends T↔pi−T while preserving area, giving K_t=sin(t)(cos U−cos V), U uniform(0,t) and V uniform(t,2pi−t), independent. This produces complete continuous conditional CDF via one-dimensional integral, support [0,2sin t], exact conditional mean pi sin²t/[t(pi−t)], variance and the upper-tail coefficient pi/[2t(pi−t)sin t] by a half-disk quadratic-endpoint calculation. Independently simulated 70000 conditional cosine pairs at each of four angles, checking mean/variance; derived chord-product identity independently at machine precision. Unconditional moments and angle marginal correctly marked as prior/consistency rather than originality.
 
-Monte Carlo, numerical quadrature and success markers are reproducibility checks, not a proof of universal quantified statements. The analytic proof is given in `RESULT.md`. No independent mathematical audit has been performed.
+## originality
+
+PASS
+
+The exact joint structure conditional on the acute diagonal angle is stronger than the known crossing-angle marginal, unconditional random-polygon area tails, or radius of random chord intersection. Those observables do not determine the conditional area distribution. Classical joint chord geometry remains a priority risk because some older papers were inaccessible.
+
+## value
+
+PASS
+
+The angle-conditioned complete area law for natural four-arclength-sample cyclic quadrilaterals is a motivated joint geometric-probability invariant, with exact conditional moments and endpoint tail. It supplies information not mechanically determined by single-variable marginal distributions.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

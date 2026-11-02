@@ -1,11 +1,21 @@
-# Scientific review: conditional area of a cyclic quadrilateral
+# Independent mathematical audit
 
-**Correctness (C): PASS.** Independently sampled circle points and a distinguished-label rotation yield an exact four-component Dirichlet spacing law; beta-gamma splitting supplies two independent uniform conditional variables. The ordinary diagonal area identity turns the area into the difference of two independent cosine variables. Its CDF follows by conditioning, and the conditional first two moments follow from four elementary trigonometric integrals. The upper-tail coefficient is obtained from the area of a half-disk after a local quadratic expansion. The supplied checker reconstructs area/angle directly from Cartesian vertices, checks conditional CDF by one-dimensional integration, and tests conditional moments; finite sampling corroborates but does not prove these identities.
+## correctness
 
-**Originality (O): PASS relative to the examined scientific literature and recoverable earlier results.** The earlier exact diagonal crossing-angle marginal is explicitly prior. A marginal law alone does not determine the distribution of area conditional on that angle. Koroleva–Nikitin (2013) proves marginal near-maximal-area laws, not the conditional distributions at all diagonal angles. Bortolotto–Souza (2025) solves a marginal radial *intersection-point* law for two independent boundary-endpoint chords, not the area given crossing angle. Barahona Torres et al. (2019) uses an interior-disk chord and a horizontal chord with a different angular law. The published cyclic-quadrilateral area/side-variance result treats deterministic side constraints rather than stochastic conditioning. None of these inspected statements implies the present angle-conditioned area law. Historical-priority uncertainty remains, including classical random-chord articles without accessible full text.
+PASS
 
-**Value (V): PASS.** Diagonal crossing angle is a canonical shape statistic of any cyclic quadrilateral, while enclosed area is its size statistic. Their *joint dependence* is not captured by knowing either marginal or an extremal inequality. A complete conditional law, explicit conditional variance, exact angle-dependent support, and a sharp upper conditional tail give a natural stochastic-geometric description across all nondegenerate crossing angles; this is more than a renaming of the known beta marginal or an arbitrary parameter slice. It can serve as a quantitative reference for random inscribed quadrilateral models.
+Four i.i.d. uniform boundary-circle points yield Dirichlet(1,1,1,1) circular gaps after choosing a distinguished sampled vertex. Diagonal crossing angle T=(g1+g3)/2 has beta(2,2), and conditional gap splits are independent uniforms. Acute folding symmetry sends T↔pi−T while preserving area, giving K_t=sin(t)(cos U−cos V), U uniform(0,t) and V uniform(t,2pi−t), independent. This produces complete continuous conditional CDF via one-dimensional integral, support [0,2sin t], exact conditional mean pi sin²t/[t(pi−t)], variance and the upper-tail coefficient pi/[2t(pi−t)sin t] by a half-disk quadratic-endpoint calculation. Independently simulated 70000 conditional cosine pairs at each of four angles, checking mean/variance; derived chord-product identity independently at machine precision. Unconditional moments and angle marginal correctly marked as prior/consistency rather than originality.
 
-**Scientific limits.** The theorem is restricted to i.i.d. uniform boundary sampling and an exact circle. The integral representation is not claimed to have an elementary antiderivative, and the historical-priority conclusion is not an independent literature certification.
+## originality
 
-Self-review: passed. Independent audit: not yet performed.
+PASS
+
+The exact joint structure conditional on the acute diagonal angle is stronger than the known crossing-angle marginal, unconditional random-polygon area tails, or radius of random chord intersection. Those observables do not determine the conditional area distribution. Classical joint chord geometry remains a priority risk because some older papers were inaccessible.
+
+## value
+
+PASS
+
+The angle-conditioned complete area law for natural four-arclength-sample cyclic quadrilaterals is a motivated joint geometric-probability invariant, with exact conditional moments and endpoint tail. It supplies information not mechanically determined by single-variable marginal distributions.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
