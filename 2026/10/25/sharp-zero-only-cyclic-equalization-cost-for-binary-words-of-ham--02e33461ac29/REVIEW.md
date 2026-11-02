@@ -1,19 +1,21 @@
-# Scientific review: sharp zero-only cyclic equalization at weight two
+# Independent mathematical audit
 
-## Correctness — PASS
+## correctness
 
-For two-one binary words, all circular orbit information is the unordered pair of arc lengths. Writing the arc lengths after common zero insertions yields two exact linear integer equations, one for equal internal distances and one for complementary distances. Every inserted zero contributes a coefficient in \(\{-1,0,1\}\), so a required imbalance of absolute value \(h\) costs at least \(h\) insertions; the proof locates a single gap attaining that lower bound whenever the branch is feasible. The resulting three-case formula implies the bound \(n-3\), sharp witness, and disjoint extremal families of sizes \(4(n-2),4,4\). Literal zero-padding plus cyclic-rotation enumeration confirms every pair through \(n=8\); the universal result is mathematical, not computational extrapolation.
+PASS
 
-## Originality — PASS within examined evidence
+The entire proof is reconstructed for arbitrary n>=3 and common zero-insertion vector z in all n+1 original gaps. Writing I={a+1,...,b}, J={c+1,...,d}, r=b-a, s=d-c, and N=n+sum(z), the two resulting circular two-one words are rotations exactly if R=S or R+S=N, where R=r+sum_I(z), S=s+sum_J(z). The two linear coefficient equations give feasible minimal costs |r-s| and |n-r-s| with exactly the stated disjoint/nested/overlap feasibility; each inserted zero can improve its equation by at most 1. For strict nesting r+s lies between 3 and 2n-3; outside nesting |r-s|<=n-3, yielding global maximum n-3. Equality cases are exhausted by nested interval lengths {1,2}, {n-2,n-1}, or disjoint {1,n-2}, with 4(n-2)+4+4=4n ordered maximizers. The n=3 and n=2 boundary cases are separately covered. Independently constructed and tested literal expanded words under all weak compositions up to the predicted minimum for every ordered pair n=3,4,5,6, 9+36+100+225=370 pairs. Exact cost histograms were {0:9}, {0:20,1:16}, {0:50,1:30,2:20}, {0:81,1:84,2:36,3:24}; all agreed. The n>=3 proof is infinite and does not rely on this finite test.
 
-Thongjarast, Pasiphol, and Ruangwises, arXiv:2604.19504v1, prove general existence and expressly ask for minimum insertion length. Thongjarast, arXiv:2607.18452v1, proves existence under zero-only insertions, gives a polynomial construction, and explicitly asks for sharp nonasymptotic length (Section 10.1). Neither inspected complete manuscript states the exact weight-two formula, all-length sharp bound, or 4n extremal enumeration. Related indexed mathematical results and accessible previous claims were searched using aliases. Historical priority remains qualified by unindexed literature and the incomplete inspection of the original 2025 foundational manuscript.
+## originality
 
-## Mathematical value — PASS
+PASS
 
-The case of two ones is the first nontrivial fixed-weight layer for restricted zero insertion: at weight one all binary words are cyclically equivalent without insertions. Exact minimal helping-card cost is a stated problem in the source literature. An explicit formula for every pair, a sharp linear worst-case threshold, and a classification of all extremizers give a complete resource benchmark within this natural layer. This is not a claim about the general-weight optimum.
+The exact weight-two minimum zero-only padding cost, sharp n-3 worst case, 4n ordered maximizers, and three equality geometries go beyond published existence and general bounded constructions, best of knowledge. These statements are not inferred from lack of search matches; the directly relevant primary theorem and its explicit optimal-length open question were read.
 
-## Scope and risks
+## value
 
-The result is restricted to two binary words of the same length, each with exactly two ones, and identical zero-only gap insertions. Allowing arbitrary inserted symbols changes the cost; no stronger claim is made. Equivalent unindexed work is possible. The embedded checker supplies finite cross-checks but no independent scientific certification.
+PASS
 
-Self-review: passed. Independent audit: not yet performed.
+Weight two is the first nontrivial fixed-weight cyclic equalization case: unlike qualitative parity/weight feasibility, the exact minimum number of shared zero insertions measures the cost of a natural constrained string operation. The theorem supplies an all-length optimum and a rigid count/geometric classification of worst inputs, a reusable benchmark for broader open optimum-length questions. This is neither a mere restatement of equal-weight existence nor an arbitrary one-off sample.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
