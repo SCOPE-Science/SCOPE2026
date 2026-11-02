@@ -1,0 +1,147 @@
+{
+  "correctness": {
+    "rationale": "For every fixed interior binary iid bias, greedy embedding converts each pattern to an independent geometric waiting-time product. Parikh-matched half enumeration gives the exact binomial-square series and a constant-term identity gives the algebraic bivariate generating function. Its critical root r=1/(1+sqrt(p(1-p))) is unique, nonperiodic coefficient positivity excludes other modulus-r singularities, the derivative rS'(r)=2(1+t)/(1+2t) is direct algebra, and transfer gives the stated leading constant and ratio. Four rational sources and all 8190 nonempty binary hosts of lengths at most 12 were checked using three exactly agreeing computational paths; these are supporting checks, not an infinite proof.",
+    "status": "PASS"
+  },
+  "independent": false,
+  "independent_audit_status": "not_performed",
+  "originality": {
+    "broader_coverage": {
+      "evidence": [
+        "Bennink, arXiv:2203.11886, Sections Background and Alternative Recursive Formula, counts unconstrained Abelian-square language words.",
+        "Rubinchik and Shur, arXiv:1505.08043, Theorem 1.1, count contiguous factors, not scattered patterns.",
+        "Biers-Ariel et al., arXiv:1704.08661, main result concerns all distinct subsequences."
+      ],
+      "reasoning": "The located broader results address all patterns (random host), Abelian-square patterns without a host, or contiguous factors. No inspected general weighted-language theorem states the present specialization. Nevertheless, a general substitution principle could cover the algebraic generating function; this is retained as a residual risk.",
+      "searches": [
+        "expected number of distinct subsequences belonging to regular language random words generating function geometric waiting times",
+        "expected number distinct subsequences constrained by context free language random source generating function",
+        "Counting Abelian Squares More Efficiently arxiv:2203.11886",
+        "Fici Mignosi Shallit Abelian-Square-Rich Words arxiv:1701.00948"
+      ]
+    },
+    "checked_sources": [
+      "arxiv:1701.00948 (distinct Abelian-square factors)",
+      "arxiv:0807.5028 (Abelian-square language enumeration)",
+      "arxiv:1704.08661 (unrestricted random-subsequence expectations)",
+      "arxiv:2203.11886 (efficient Abelian-square language counting)",
+      "arxiv:1505.08043 (random contiguous factors)",
+      "OEIS A262249 (distinct contiguous Abelian-square extrema)"
+    ],
+    "claim_vs_prior_implication": {
+      "evidence": [
+        "Richmond--Shallit provide the binomial-square summation over Abelian-square patterns; not embeddings.",
+        "Biers-Ariel et al. provide the unrestricted expectation; not restrictions to Abelian squares.",
+        "Fici et al. cite growth of *contiguous* Abelian-square factors in random words.",
+        "The new argument derives source-dependent greedy geometric weights, an algebraic GF and a singularity constant for a different random variable."
+      ],
+      "reasoning": "The prior claims individually do not imply the new expectation. Their combination with classical waiting-time and analytic-combinatorics techniques provides a derivation, but no already stated stronger theorem was found. Possible equivalent coverage under a general language-transform theorem remains the main priority risk.",
+      "searches": [
+        "Biers-Ariel Godbole Kelley expected number distinct subsequences random binary source 2017",
+        "Richmond Shallit counting Abelian squares 2008 asymptotics",
+        "Abelian-Square-Rich Words random binary word distinct factors",
+        "same Parikh vector halves random distinct subsequences n^-1/2"
+      ]
+    },
+    "equivalent_formulations": {
+      "evidence": [
+        "Richmond and Shallit, arXiv:0807.5028, Sections 2--3, count all Abelian-square strings by length.",
+        "Biers-Ariel, Godbole and Kelley, arXiv:1704.08661, Sections 2--3, study unrestricted distinct random subsequences.",
+        "Fici, Mignosi and Shallit, arXiv:1701.00948, Section 3, define their statistic using contiguous factors."
+      ],
+      "reasoning": "The exact combination of distinct *scattered* Abelian-square patterns, biased random host, and length-resolved expectation was not identified. Language enumeration alone lacks host embedding probabilities; unrestricted-host expectation alone lacks the Abelian-square filter. Contiguous factors cannot be identified with scattered subsequences.",
+      "searches": [
+        "\"abelian square\" \"subsequence\" \"expected\" random word",
+        "\"distinct abelian square subsequences\" count",
+        "\"abelian square subsequences\" random expectation",
+        "Abelian-square scattered-subsequence expectation; Parikh-equivalent halves"
+      ]
+    },
+    "exact_database_or_table": {
+      "evidence": [
+        "OEIS A262249 explicitly concerns contiguous factors and extremal host words.",
+        "Richmond--Shallit Table in arXiv:0807.5028 lists numbers of all Abelian-square language words by fixed pattern length.",
+        "No targeted result supplied the expected random-host sequence starting 0, 0, 1/2, 1, 7/4, 11/4 under the fair source."
+      ],
+      "reasoning": "Neither the contiguous-factor maximum table nor the all-Abelian-square language count determines the expected distinct scattered-pattern count of a random host. No exact database table with the same statistic was identified, but search absence cannot certify uniqueness.",
+      "searches": [
+        "OEIS A262249 maximum possible distinct abelian square factors binary word",
+        "Richmond Shallit 2008 Counting Abelian Squares central binomial table",
+        "random binary abelian-square scattered subsequence expected coefficients",
+        "Parikh-equivalent halves scattered subsequences"
+      ]
+    },
+    "rationale": "Targeted primary research, scientific-web and published mathematical-record searches found no equivalent binary biased-source expected count of distinct *scattered* Abelian-square patterns with the length-refined algebraic generating function and n^(-1/2) ratio. Prior results separately count all Abelian-square strings, unrestricted random-host subsequences, and contiguous Abelian-square factors; none inspected states this result. A general weighted-language composition theorem could subsume it, which remains a documented residual risk.",
+    "residual_risks": [
+      "No independent mathematical priority check has been performed.",
+      "A general restricted-language expected-subsequence theorem or an unindexed paper could directly entail this binary specialization.",
+      "The classical ingredients make independent rediscovery relatively plausible; the new claimed scope is precisely the combined expectation and constant."
+    ],
+    "source_inspections": [
+      {
+        "assessment": "NOT_COVERING for this claim: distinct contiguous factors, not distinct scattered subsequence patterns in iid hosts.",
+        "evidence": [
+          "Section 3 defines AS_n(w) as the count of distinct Abelian-square factors; Proposition 1 concerns quadratic factor richness."
+        ],
+        "identifier_or_url": "https://arxiv.org/html/1701.00948v3",
+        "material_read": "Abstract; Sections 2--3 definitions, Proposition 1, and the Thue--Morse discussion in Section 4.",
+        "method": "Read accessible full-text HTML and compare the actual occurrence model and counted objects.",
+        "title": "Abelian-Square-Rich Words",
+        "trigger": "Close match on distinct Abelian-square counts in random and deterministic words."
+      },
+      {
+        "assessment": "NOT_COVERING for restricted Abelian-square count: expectation counts every distinct subsequence without this language filter.",
+        "evidence": [
+          "Introduction explicitly defines unrestricted phi(S_n); no square-pattern result located by full-document text search."
+        ],
+        "identifier_or_url": "https://arxiv.org/pdf/1704.08661",
+        "material_read": "PDF introduction, Section 2 random-binary expectation, Section 3 arbitrary-alphabet/Markov recurrences and growth discussion, and full-text search for square.",
+        "method": "Inspected source PDF text and selected page images; compared quantified count.",
+        "title": "Expected Number of Distinct Subsequences in Randomly Generated Binary Strings",
+        "trigger": "Closest random-host expectation theorem, possible unrestricted stronger coverage."
+      },
+      {
+        "assessment": "COVERS the classical binomial-square identity; NOT_COVERING the random-host embedding or ratio theorem.",
+        "evidence": [
+          "Section 2 formula counts all Abelian-square strings of length 2L; no host-subsequence statistic appears."
+        ],
+        "identifier_or_url": "https://arxiv.org/pdf/0807.5028",
+        "material_read": "PDF Sections 1--3 including the binary binomial-square identity and asymptotic calculation; full-text search for subsequence.",
+        "method": "Inspected PDF text and relevant page image; compared pattern-length count to random-host subsequence expectation.",
+        "title": "Counting Abelian Squares",
+        "trigger": "Exact language enumeration potentially subsuming the binomial-square part."
+      },
+      {
+        "assessment": "NOT_COVERING: efficient unrestricted language counts, no random-host distinct subsequence expectation.",
+        "evidence": [
+          "Equation for f_d(n) counts pairs with identical Parikh vectors."
+        ],
+        "identifier_or_url": "https://arxiv.org/pdf/2203.11886",
+        "material_read": "PDF Background and Alternative Recursive Formula, Table I, and full-text search for subsequence.",
+        "method": "Inspected PDF text and relevant page image; checked whether random host occurrence is modeled.",
+        "title": "Counting Abelian Squares More Efficiently",
+        "trigger": "Potential more general enumeration of the Abelian-square language."
+      },
+      {
+        "assessment": "NOT_COVERING: its random palindromes/squares are contiguous factors.",
+        "evidence": [
+          "Theorem 1.1 concerns palindromic factors; their square statement is also about factors."
+        ],
+        "identifier_or_url": "https://arxiv.org/pdf/1505.08043",
+        "material_read": "PDF abstract, Introduction, Theorem 1.1 and definitions distinguishing factors from subsequences.",
+        "method": "Inspected PDF text and page image, with term search for subsequence.",
+        "title": "The Number of Distinct Subpalindromes in Random Words",
+        "trigger": "Random-square/other restricted pattern analog."
+      }
+    ],
+    "status": "PASS"
+  },
+  "review_type": "self_review",
+  "schema_version": 1,
+  "scope_run_id": "26aebc76-e70b-4df5-b32b-ba3b24b030ec",
+  "self_review_status": "passed",
+  "value": {
+    "rationale": "This computes an unaddressed natural expected complexity invariant for a classical pattern family; the central mathematical fact is that a language constraint preserving the unrestricted exponential base nevertheless enforces an exact inverse-square-root proportion. The entire length spectrum, continuous bias dependence of the constant, unique fair-source rate maximizer and discontinuous deterministic-source boundary are resolved for infinitely many host lengths. The claim is not a finite table, trivial relabeling, or asserted application unsupported by the theorem.",
+    "status": "PASS"
+  }
+}
