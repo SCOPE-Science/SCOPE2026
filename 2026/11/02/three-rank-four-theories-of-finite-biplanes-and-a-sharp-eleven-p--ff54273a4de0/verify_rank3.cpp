@@ -1,0 +1,12 @@
+#include <bits/stdc++.h>
+using namespace std;
+struct D {string name;int v,k;vector<vector<unsigned char>> incidence;};
+D cyc(string name,int v,vector<int> ds){D d;d.name=name;d.v=v;d.k=ds.size(); d.incidence.assign(v,vector<unsigned char>(v,0));for(int j=0;j<v;j++)for(auto s:ds)d.incidence[(s+j)%v][j]=1;return d;}
+D kummer(){D d;d.name="Kummer16";d.v=16;d.k=6;d.incidence.assign(16,vector<unsigned char>(16,0));for(int x=0;x<16;x++)for(int b=0;b<16;b++)if(x!=b && (x/4==b/4 || x%4==b%4))d.incidence[x][b]=1;return d;}
+void axioms(D &d){int v=d.v,k=d.k;assert(v==1+k*(k-1)/2);for(int p=0;p<v;p++){int r=0;for(int b=0;b<v;b++)r+=d.incidence[p][b];assert(r==k);}for(int b=0;b<v;b++){int r=0;for(int p=0;p<v;p++)r+=d.incidence[p][b];assert(r==k);}for(int a=0;a<v;a++)for(int b=a+1;b<v;b++){int s=0,t=0;for(int j=0;j<v;j++){s+=d.incidence[a][j]&&d.incidence[b][j];t+=d.incidence[j][a]&&d.incidence[j][b];}assert(s==2&&t==2);}}
+string atom(D &d,const vector<int>&a){string s;int n=a.size(),v=d.v;for(int i=0;i<n;i++)s+=(a[i]<v?'P':'B');for(int i=0;i<n;i++)for(int j=i+1;j<n;j++){ if(a[i]==a[j])s+='=';else if((a[i]<v)!=(a[j]<v)){int p=a[i]<v?a[i]:a[j],b=a[i]>=v?a[i]-v:a[j]-v;s+=d.incidence[p][b]?'1':'0';}else s+='-';}return s;}
+int main(){vector<D> ds={cyc("simplex4",4,{1,2,3}),cyc("FanoComplement7",7,{2,4,5,6}),cyc("Paley11",11,{1,3,4,5,9}),kummer()};for(auto &d:ds){axioms(d);cerr<<d.name<<" VALID\n";}
+vector<vector<int>> next(ds.size());map<string,int> intern_atom;for(int t=0;t<(int)ds.size();t++){auto &d=ds[t];int n=2*d.v;next[t].resize(n*n*n);vector<int> a(3);for(int x=0;x<n*n*n;x++){int y=x;for(int i=2;i>=0;i--){a[i]=y%n;y/=n;}string s=atom(d,a);auto [it,ins]=intern_atom.emplace(s,intern_atom.size());next[t][x]=it->second;}}cerr<<"ATOMIC_TYPES "<<intern_atom.size()<<"\n";
+for(int depth=1;depth<=3;depth++){map<vector<int>,int> intern;vector<vector<int>> now(ds.size());for(int t=0;t<(int)ds.size();t++){auto &d=ds[t];int n=2*d.v,len=3-depth,ct=1;for(int i=0;i<len;i++)ct*=n;now[t].resize(ct);for(int a=0;a<ct;a++){vector<int> s;for(int x=0;x<n;x++)s.push_back(next[t][a*n+x]);sort(s.begin(),s.end());s.erase(unique(s.begin(),s.end()),s.end());auto [it,ins]=intern.emplace(s,intern.size());now[t][a]=it->second;}}next=move(now);cerr<<"RANK"<<depth<<" types="<<intern.size()<<" roots/tuple0 ";if(depth==3)for(int t=0;t<(int)ds.size();t++)cerr<<ds[t].name<<":"<<next[t][0]<<" ";cerr<<"\n";if(depth==3){assert(next[0][0]!=next[1][0]&&next[1][0]==next[2][0]&&next[2][0]==next[3][0]);}}
+cout<<"THREE_ROUND_TWO_CLASSES_OK\n";
+}
