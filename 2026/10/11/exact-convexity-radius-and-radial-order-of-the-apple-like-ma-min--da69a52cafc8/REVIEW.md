@@ -1,15 +1,21 @@
-# Scientific review of the exact apple-like convexity radius
+# Independent mathematical audit
 
-## Correctness: PASS
-The asserted observable is precisely \(\operatorname{Re}(1+zf''/f')\), not the Ma–Minda convex target subordination. The proof builds a sign-certified radial target inequality for \(|w|\le17/50\), a Schwarz–Pick derivative bound valid for all Schwarz functions, and an explicit monotone optimization to \(s=r\). Every inequality becomes equality for \(\omega(z)=z\) at \(z=-r\). Exact rational endpoint brackets enclose a unique root. The standard-library verifier reproduces rational coefficients and brackets, a high-precision root, and supplementary sample inequalities. Those finite checks are not substituted for the universal analytic proof.
+## correctness
 
-## Originality: PASS, with documented residual risk
-The full primary paper by Sana–Saliu–Riaz was inspected, including its definitions, geometric preliminaries, growth/distortion theorem, and coefficient/Hankel sections. Its distortion theorem concerns \(|f'|\) and normalized growth, not the sharp order of \(\operatorname{Re}(1+zf''/f')\). The same-target Das–Sarkar preprint announces inverse logarithmic coefficients and determinant bounds, not the current radius, but its complete manuscript was inaccessible and therefore remains a genuine duplication risk. A second Das–Sarkar preprint concerns the distinct apple-like convex class. Closely related published geometric radius results involve other target functions or other source classes. Searches did not identify an equivalent statement, but absence from search results is not novelty proof.
+PASS
 
-## Mathematical value: PASS
-The exact common convexity radius of a recently introduced natural starlike family is a geometrically motivated invariant describing the largest subdisk on which all images are convex. The full sharp radial convexity-order profile is more informative than qualitative subordination or an arbitrary numerical cutoff. The proof requires target-specific phase rigidity and a nontrivial Schwarz–Pick derivative optimization; it is not a coefficient substitution or finite experiment. It neither claims a larger-radius inequality nor a general theorem for other targets.
+For every analytic Schwarz function omega fixing zero, w=omega(z), s=|w|<=r, the exact differentiation identity 1+zf''/f'=phi(w)+z omega'(z)*(1+1/[2(1+w)]) holds. Coefficient recurrence (n+1)a_{n+1}=(3/2-n)a_n+a_{n-1}, with alternating sign from n=5, yields Re phi(w)>=phi(-s) through s<=17/50 using the positive polynomial 3/2-7s/2-11s^3/8. Schwarz–Pick applied to omega(z)/z gives |z omega'|<=s+(r^2-s^2)/(1-r^2); the lower envelope K_r(s)=phi(-s)-m_r(s)(1+1/[2(1-s)]) decreases with s on 0<=s<=r<=17/50 and equals H(r) at s=r. Canonical omega(z)=z at z=-r attains equality. H decreases and has rigorous sign-changing rational brackets at 1/3 and 17/50, hence one sharp root R, with H<0 just above it. Complex target has Re phi>0 by boundary argument sin theta+theta/4<pi/2, guaranteeing normalized starlike/univalent functions. At r=0 radial order is 1. All quantifiers and r<=R boundary hold; no extrapolation of radial equality above R.
 
-## Limitations
-Other unindexed results or the inaccessible full Das–Sarkar coefficient manuscript may contain an equivalent specialization. The decimal radius is not the definition; the scalar equation is exact. Generalizations beyond \(R\) have not been established. The same-source quantitative comparison is incomplete only where the full text was unavailable.
+## originality
 
-Same-model review: passed. Independent audit: not yet performed.
+PASS
+
+Best-of-knowledge: fresh Resultary + independent literature searches, exact same-target 2026 primary full texts, a general Ma–Minda radius full text, and the strongest same-target published interpolation full proof did not imply the sharp full-circle Re(1+zf''/f') profile or its exact convexity radius. Exact Resultary match is the currently assessed result itself, not older independent priority. The formerly inaccessible June same-class preprint was actually read in full accessible arXiv HTML. Unindexed older radius results remain possible; non-detection is not a novelty proof.
+
+## value
+
+PASS
+
+The sharp classical convexity radius of a defined and studied Ma–Minda starlike family is a natural geometric invariant: it is the largest centered subdisk on which every normalized image is convex. The theorem determines a full sharp radial order, a unique exact boundary root, and one extremizer for all r<=R. The target-specific alternating coefficient inequality and Schwarz–Pick optimization are substantive, not a textbook substitution or arbitrary narrow parameter slice. It provides a benchmark to distinguish apple-class starlikeness from local classical convexity; it does not extend to r>R or unrelated targets.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

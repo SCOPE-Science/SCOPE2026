@@ -1,0 +1,199 @@
+{
+  "audit_date_utc": "2026-10-26",
+  "audited_at_utc": "2026-10-26T06:50:32Z",
+  "axes": {
+    "correctness": {
+      "checked_sources": [
+        "Pinned Git RESULT.md, blob 8b2549deb7602454cb6f41e2f1dc59c3aa33b88a",
+        "Pinned Git verify_apple_convexity.py, blob bb5ddb904ad6f13bef38333591316f2e737271f0",
+        "Independent checker independent_apple_check.py and independent_apple_results.json"
+      ],
+      "rationale": "For every analytic Schwarz function omega fixing zero, w=omega(z), s=|w|<=r, the exact differentiation identity 1+zf''/f'=phi(w)+z omega'(z)*(1+1/[2(1+w)]) holds. Coefficient recurrence (n+1)a_{n+1}=(3/2-n)a_n+a_{n-1}, with alternating sign from n=5, yields Re phi(w)>=phi(-s) through s<=17/50 using the positive polynomial 3/2-7s/2-11s^3/8. Schwarz–Pick applied to omega(z)/z gives |z omega'|<=s+(r^2-s^2)/(1-r^2); the lower envelope K_r(s)=phi(-s)-m_r(s)(1+1/[2(1-s)]) decreases with s on 0<=s<=r<=17/50 and equals H(r) at s=r. Canonical omega(z)=z at z=-r attains equality. H decreases and has rigorous sign-changing rational brackets at 1/3 and 17/50, hence one sharp root R, with H<0 just above it. Complex target has Re phi>0 by boundary argument sin theta+theta/4<pi/2, guaranteeing normalized starlike/univalent functions. At r=0 radial order is 1. All quantifiers and r<=R boundary hold; no extrapolation of radial equality above R.",
+      "residual_risks": [
+        "The 20,000 finite Blaschke tests and 161 coefficient terms are corroboration, not proofs for all Schwarz maps; the analytic sign induction and Schwarz–Pick comparison carry the universal theorem.",
+        "No independent formal Lean or expert verification was performed."
+      ],
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Gangania–Kumar, arXiv 2007.07816: Ma–Minda general machinery and special-function/geometric radius problems; inspected statements do not assert a universal same-target sharp Re(1+zf''/f') bound.",
+          "Published exponential–apple interpolant profile uses phi_q=e^z(1+z)^q, q=1/2 apple endpoint, but exact q-dependent *directed class inclusion* radius is 1-qW(1/q), not the classical convexity radius or its radial order.",
+          "Published sine-over-pole convex-class convexity order and half-tanh starlikeness order have different function classes or different targets; neither implies H(r) for all apple-starlike members."
+        ],
+        "reasoning": "The general Schwarz–Pick bound is classical but does not determine the target-specific radial real-part minimum without proving the negative-axis target comparison and monotone optimization. A generic stronger theorem would have to imply the exact same infimum for phi=exp(w)sqrt(1+w); none established in inspected full texts. Unindexed general Ma–Minda radius theorems remain a residual risk.",
+        "searches": [
+          "\"Radii problems for Ma-Minda Starlikeness\" arxiv:2007.07816",
+          "\"radius of convexity\" \"Ma-Minda starlike\" \"phi(-r)\" \"phi'(-r)\"",
+          "https://arxiv.org/abs/2007.07816",
+          "https://github.com/Resultary/2026/tree/main/2026/10/11/SCOPE-exact-two-way-inclusion-profile-for-exponential-apple-interpolan--1dda31d540c7",
+          "https://github.com/Resultary/2026/tree/main/2026/10/4/SCOPE-sharp-order-of-convexity-for-the-sine-over-pole-ma-minda-class--fbc778348a7c",
+          "https://github.com/Resultary/2026/tree/main/2026/10/4/SCOPE-sharp-starlikeness-order-for-the-half-tanh-ma-minda-class--97fab23cfc15"
+        ]
+      },
+      "checked_sources": [
+        "https://doi.org/10.1155/jofs/5570573",
+        "https://arxiv.org/abs/2606.15488",
+        "https://arxiv.org/abs/2606.15780",
+        "https://arxiv.org/abs/2007.07816",
+        "https://github.com/Resultary/2026/tree/main/2026/10/11/SCOPE-exact-two-way-inclusion-profile-for-exponential-apple-interpolan--1dda31d540c7",
+        "https://github.com/Resultary/2026/tree/main/2026/10/4/SCOPE-sharp-order-of-convexity-for-the-sine-over-pole-ma-minda-class--fbc778348a7c",
+        "https://github.com/Resultary/2026/tree/main/2026/10/4/SCOPE-sharp-starlikeness-order-for-the-half-tanh-ma-minda-class--97fab23cfc15",
+        "https://github.com/Resultary/2026/tree/main/2026/10/11/SCOPE-exact-convexity-radius-and-radial-order-of-the-apple-like-ma-min--da69a52cafc8"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "Knowing bounds on |f|, |f'| and finitely many coefficients cannot alone force the sharp unrestricted radial value of Re(1+zf''/f') for every Schwarz function.",
+          "Apple-like convex-class estimates assume 1+zf''/f' subordinate to phi; this is not satisfied automatically by every f in the target starlike class on the whole disk.",
+          "The two-way inclusion profile is about f(rz)/r belonging to an exponential-starlike class; its larger apple radius does not imply classical convexity or equality of the radial pre-Schwarzian infimum."
+        ],
+        "reasoning": "The final theorem requires the exact pointwise pre-Schwarzian minimum, equality at one common canonical extremizer, and a sharp zero crossing; none of the compared earlier statements logically entail these three conclusions, despite shared target/domain. No known stronger implication found.",
+        "searches": [
+          "https://doi.org/10.1155/jofs/5570573 full Theorem 1.1 and Sections 2–3",
+          "https://arxiv.org/abs/2606.15488 Sections 3–7",
+          "https://arxiv.org/abs/2606.15780 main theorems",
+          "https://arxiv.org/abs/2007.07816 principal theorems",
+          "https://github.com/Resultary/2026/tree/main/2026/10/11/SCOPE-exact-two-way-inclusion-profile-for-exponential-apple-interpolan--1dda31d540c7 RESULT.md complete"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Sana–Saliu–Riaz, same exact target and class, Theorem 1.1 provides growth/modulus distortion and covering; Sections 2–3 establish coefficient/Hankel inequalities, not inf Re(1+zf''/f') on every circle.",
+          "Das–Sarkar 2606.15488 complete accessible arXiv HTML: Sections 3–7 establish inverse logarithmic coefficients, Fekete–Szegő, Hankel/Toeplitz estimates; no stated classical convexity radius or sharp radial convexity-order theorem.",
+          "Das–Sarkar 2606.15780 works with the convex subordinate class (1+zf''/f' subordinate to phi), which is not the full starlike subordinate class (zf'/f subordinate to phi)."
+        ],
+        "reasoning": "Equivalent statements could be phrased as the sharp pre-Schwarzian real-part envelope, order of convexity, or a convexity radius for S*(phi). These were compared by functional and logical quantifiers, not merely titles. Inspected same-target full sources do not supply H(r) or its optimal root. No independent earlier equivalent statement identified; search non-detection does not certify novelty.",
+        "searches": [
+          "apple-like target exp(z) sqrt(1+z) Ma Minda starlike sharp classical convexity radius and radial order Re(1+z f''/f')",
+          "Ma Minda starlike function sharp classical convexity radius positive analytic target",
+          "\"apple-like\" \"radius of convexity\" \"e^z\" \"sqrt(1+z)\" Ma Minda",
+          "https://doi.org/10.1155/jofs/5570573",
+          "https://arxiv.org/abs/2606.15488",
+          "https://arxiv.org/abs/2606.15780"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "The original apple-like article has tables of coefficient and Hankel values rather than a root H(R)=0 for classical convexity.",
+          "The published Resultary exact-match is this same assessed record and is not independent priority evidence; nearby interpolation record tabulates a distinct radius ~0.573697, not 0.333877."
+        ],
+        "reasoning": "This is an analytic geometric radius, not a standard enumerative sequence; an exact prior table entry could cover it, so same-target tables/indexes were compared. No independent prior entry for the same H or R was seen. This is a bounded search, not a proof of absence from all databases.",
+        "searches": [
+          "\"e^z sqrt{1+z}\" \"radius of convexity\"",
+          "\"apple-like\" \"radius of convexity\"",
+          "\"0.333876932251357\" Ma Minda convexity",
+          "https://doi.org/10.1155/jofs/5570573",
+          "https://github.com/Resultary/2026/tree/main/2026/10/11/SCOPE-exact-two-way-inclusion-profile-for-exponential-apple-interpolan--1dda31d540c7"
+        ]
+      },
+      "rationale": "Best-of-knowledge: fresh Resultary + independent literature searches, exact same-target 2026 primary full texts, a general Ma–Minda radius full text, and the strongest same-target published interpolation full proof did not imply the sharp full-circle Re(1+zf''/f') profile or its exact convexity radius. Exact Resultary match is the currently assessed result itself, not older independent priority. The formerly inaccessible June same-class preprint was actually read in full accessible arXiv HTML. Unindexed older radius results remain possible; non-detection is not a novelty proof.",
+      "residual_risks": [
+        "Unindexed older thesis or generic Ma–Minda convexity-radius theorem might contain a formula which specializes to the same R and H; no such implication was established in the bounded searched primary texts.",
+        "HTML math extraction fidelity can obscure some embedded formulas in the original Wiley article; its inspected theorem statements and topic structure nonetheless concern modulus and coefficients."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "NOT_COVERING the claimed pre-Schwarzian radial real-part lower envelope and radius; modulus distortion and coefficients differ.",
+          "evidence": [
+            "May 12 2026 paper; Theorem 1.1 is growth, modulus distortion, rotation, covering; subsequent main theorems are coefficient/Hankel estimates."
+          ],
+          "identifier_or_url": "https://doi.org/10.1155/jofs/5570573",
+          "material_read": "Full available open-access HTML article, introduction/definitions, target geometry, Theorem 1.1 and Corollary 1.1, Sections 2–3 coefficient and Hankel results, references.",
+          "method": "Read Wiley open-access HTML complete main text and compared theorem statements and functionals.",
+          "title": "Coefficient Inequalities Related With Apple-Like Functions",
+          "trigger": "Foundational primary paper with the exact exp(w)sqrt(1+w) target and same starlike/convex class."
+        },
+        {
+          "assessment": "NOT_COVERING: inverse logarithmic and related coefficient/determinant sharp inequalities, no full-circle pre-Schwarzian extremal theorem.",
+          "evidence": [
+            "June 2026 preprint; Sections 3–7 list inverse logarithmic, Fekete–Szegő, Hankel/Toeplitz coefficient functionals, not H(r)."
+          ],
+          "identifier_or_url": "https://arxiv.org/abs/2606.15488",
+          "material_read": "Complete accessible arXiv HTML manuscript (approximately 481 extracted lines): abstract, introduction, theorem sections 3–7, conclusion; searched radius of convexity / classical convexity terminology.",
+          "method": "Read full arXiv HTML text, inspected theorem statements and source sections.",
+          "title": "Sharp coefficient Estimates for the class S*_{AP}",
+          "trigger": "Same target and identical starlike class; plausible manuscript previously thought inaccessible."
+        },
+        {
+          "assessment": "NOT_COVERING: assumes the convex Ma–Minda subordination; does not establish convexity radius for every starlike-class member.",
+          "evidence": [
+            "Class definition requires 1+zf''/f' subordinate to exp(w)sqrt(1+w), not zf'/f subordinate to that target."
+          ],
+          "identifier_or_url": "https://arxiv.org/abs/2606.15780",
+          "material_read": "Complete accessible arXiv HTML manuscript (approximately 454 extracted lines): definitions, principal theorems, coefficient estimates and conclusion.",
+          "method": "Read full arXiv HTML main text and checked the defining class/subordination.",
+          "title": "Inverse Logarithmic Coefficients and Associated Sharp Estimates for the Apple-Like Convex Subclass",
+          "trigger": "Same generating function and convexity terminology."
+        },
+        {
+          "assessment": "GENERAL_METHODS_NOT_COVERING target-specific exact apple convexity profile.",
+          "evidence": [
+            "Studies Ma–Minda radii/inclusions and related geometry; no theorem yields H(r) for phi=exp(w)sqrt(1+w)."
+          ],
+          "identifier_or_url": "https://arxiv.org/abs/2007.07816",
+          "material_read": "Full accessible arXiv HTML paper (approximately 852 extracted lines); theorem statements, radius constructions and classes.",
+          "method": "Read open arXiv full text and compared target and observable.",
+          "title": "Radii problems for Ma–Minda Starlikeness",
+          "trigger": "Plausible general earlier theorem potentially implying all targets."
+        },
+        {
+          "assessment": "NOT_COVERING: exact directed inclusion radius and logarithmic inradius are different functionals from the classical convexity radius.",
+          "evidence": [
+            "Apple endpoint directed inclusion radius 1-W(2)/2 ≈0.573697, versus current convexity radius ≈0.3338769."
+          ],
+          "identifier_or_url": "https://github.com/Resultary/2026/tree/main/2026/10/11/SCOPE-exact-two-way-inclusion-profile-for-exponential-apple-interpolan--1dda31d540c7",
+          "material_read": "Complete published Git RESULT.md, all four proof steps, endpoint and statement.",
+          "method": "Read primary published research result in pinned public repository.",
+          "title": "Exact two-way inclusion profile for exponential–apple interpolants",
+          "trigger": "Published same-target apple endpoint phi_{1/2}; possible dominating stronger parameter theorem."
+        },
+        {
+          "assessment": "Different sine-over-pole target and convex source class; title similarity does not yield implication.",
+          "evidence": [
+            "Target is 1+sin(z)/(1-z) and invariant concerns the associated convex class, not exp(z)sqrt(1+z) starlike source."
+          ],
+          "identifier_or_url": "https://github.com/Resultary/2026/tree/main/2026/10/4/SCOPE-sharp-order-of-convexity-for-the-sine-over-pole-ma-minda-class--fbc778348a7c",
+          "material_read": "Resultary title and exact theorem summary only; no full text claimed.",
+          "method": "Published mathematical result semantic record comparison.",
+          "title": "Sharp order of convexity for the sine-over-pole Ma–Minda class",
+          "trigger": "Nearest published related order-of-convexity result."
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "checked_sources": [
+        "https://doi.org/10.1155/jofs/5570573",
+        "https://arxiv.org/abs/2007.07816",
+        "https://github.com/Resultary/2026/tree/main/2026/10/11/SCOPE-exact-two-way-inclusion-profile-for-exponential-apple-interpolan--1dda31d540c7",
+        "Pinned Git RESULT.md"
+      ],
+      "rationale": "The sharp classical convexity radius of a defined and studied Ma–Minda starlike family is a natural geometric invariant: it is the largest centered subdisk on which every normalized image is convex. The theorem determines a full sharp radial order, a unique exact boundary root, and one extremizer for all r<=R. The target-specific alternating coefficient inequality and Schwarz–Pick optimization are substantive, not a textbook substitution or arbitrary narrow parameter slice. It provides a benchmark to distinguish apple-class starlikeness from local classical convexity; it does not extend to r>R or unrelated targets.",
+      "residual_risks": [
+        "The target class is recently introduced and the result is an explicit specialized sharp radius, not a general new method or cross-target classification.",
+        "Possible prior generic all-target theorem would also affect independent value; bounded comparisons found none."
+      ],
+      "status": "PASS"
+    }
+  },
+  "checked_sources": [
+    "https://doi.org/10.1155/jofs/5570573",
+    "https://arxiv.org/abs/2606.15488",
+    "https://arxiv.org/abs/2606.15780",
+    "https://arxiv.org/abs/2007.07816",
+    "https://github.com/Resultary/2026/tree/main/2026/10/11/SCOPE-exact-two-way-inclusion-profile-for-exponential-apple-interpolan--1dda31d540c7",
+    "https://github.com/Resultary/2026/tree/main/2026/10/4/SCOPE-sharp-order-of-convexity-for-the-sine-over-pole-ma-minda-class--fbc778348a7c",
+    "https://github.com/Resultary/2026/tree/main/2026/10/4/SCOPE-sharp-starlikeness-order-for-the-half-tanh-ma-minda-class--97fab23cfc15",
+    "https://github.com/Resultary/2026/tree/main/2026/10/11/SCOPE-exact-convexity-radius-and-radial-order-of-the-apple-like-ma-min--da69a52cafc8"
+  ],
+  "disposition": "passed",
+  "limitations": "Only the defined apple-like starlike class and r<=R sharp radial identity; no claim of exact inequality for r>R, global univalence beyond known positive-real target, or external certification. Best-of-knowledge originality bounded by stated residuals. Publication is not_ready for public metadata provenance, not because science failed.",
+  "residual_risks": [
+    "Unindexed older thesis or generic Ma–Minda convexity-radius theorem might contain a formula which specializes to the same R and H; no such implication was established in the bounded searched primary texts.",
+    "HTML math extraction fidelity can obscure some embedded formulas in the original Wiley article; its inspected theorem statements and topic structure nonetheless concern modulus and coefficients.",
+    "The 20,000 finite Blaschke tests and 161 coefficient terms are corroboration, not proofs for all Schwarz maps; the analytic sign induction and Schwarz–Pick comparison carry the universal theorem.",
+    "No independent formal Lean or expert verification was performed."
+  ],
+  "schema_version": 1
+}
