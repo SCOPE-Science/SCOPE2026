@@ -1,0 +1,147 @@
+{
+  "correctness": {
+    "rationale": "In GP(10,2) the exhaustive anchored DFS lists all 30 Hamilton cycles (two rooted orientations per unlabelled cycle, one retained). Independently 36 recursively enumerated perfect matchings have 30 connected complementary two-factors. Every one of 435 cycle pairs is tested for a single alternating 8-cycle. There are 60 switches, degree four at each state, connected exchange graph and diameter four. Antipodal vertex shift by five induces 15 pairs and an opposite-color involution. Quotient triangle incidence yields ten Petersen vertices explicitly mapped to KG(5,2), proving the quotient is L(P); double lift proves the full graph is K2 x L(P). Every shorter admissible alternating cycle would be an even 4- or 6-cycle, neither present. Exact scripts and certificate are embedded.",
+    "status": "PASS"
+  },
+  "independent": false,
+  "independent_audit_status": "not_performed",
+  "originality": {
+    "broader_coverage": {
+      "evidence": [
+        "Sierksma 1998 explicitly studies interchange graphs of tours in complete graphs K_n (https://research.rug.nl/en/publications/interchange-graphs-and-the-hamilton-cycle-polytope/).",
+        "Takaoka 2018 changes two cycle edges at a time, i.e. four edges in symmetric difference (https://www.researchgate.net/publication/327708735_Complexity_of_Hamiltonian_Cycle_Reconfiguration).",
+        "Schwenk 1989 gives Hamilton cycle counts in GP(n,2), not their shortest-switch metric or quotient (https://www.researchgate.net/publication/220077067_Enumeration_of_Hamiltonian_cycles_in_certain_generalized_Petersen_graphs)."
+      ],
+      "reasoning": "The Hamilton-cycle count theorems are strictly weaker than a full adjacency relation and graph isomorphism. The complete-graph interchange theorem cannot imply induced restricted graph adjacency in D without a separate argument; it does not analyze D. The two-edge switch operation in Takaoka has no moves in this girth-five graph and therefore cannot subsume the claimed eight-cycle-switch connectivity.",
+      "searches": [
+        "Hamiltonian cycle reconfiguration via cycle exchange symmetric difference single alternating cycle graph paper before 2016",
+        "Interchange graphs and the Hamilton cycle polytope Sierksma 1998",
+        "Complexity of Hamiltonian Cycle Reconfiguration Takaoka 2018",
+        "Schwenk Enumeration of Hamiltonian cycles in certain generalized Petersen graphs 1989"
+      ]
+    },
+    "checked_sources": [
+      "Schwenk 1989 DOI:10.1016/0095-8956(89)90064-6",
+      "Hopkins 2004 DOI:10.1155/S0161171204307118",
+      "Sierksma 1998 DOI:10.1016/S0166-218X(97)00086-3",
+      "Takaoka 2018 DOI:10.3390/a11090140",
+      "OEIS A195197, known counts of GP(n,2) Hamilton cycles"
+    ],
+    "claim_vs_prior_implication": {
+      "evidence": [
+        "Hopkins 2004 shows that all dodecahedral tours are equivalent under rotations/reflections and that four faces meet four cycle edges, but does not define the shortest alternating-cycle graph (https://www.researchgate.net/publication/26533752_Hamiltonian_paths_on_Platonic_graphs).",
+        "Schwenk 1989 proves an n-dependent formula for GP(n,2) cycle counts and studies uniquely 3-edge-colored graphs, but gives no pairwise 8-switch classification (https://www.researchgate.net/publication/220077067_Enumeration_of_Hamiltonian_cycles_in_certain_generalized_Petersen_graphs).",
+        "The exact certificate checks that the quotient triangle incidence graph is KG(5,2), a distinctly stronger incidence statement than a 30-tour count."
+      ],
+      "reasoning": "Known 30 tours plus full symmetry does not imply how many adjacent tours are connected by a fixed switch, nor that their swap graph is a particular 30-vertex Kronecker cover. Local differences and a structural quotient must be established separately and are established here. No stronger cited statement implies the new claim.",
+      "searches": [
+        "Dodecahedral Hamiltonian cycle flip graph with 8-edge symmetric differences is the Kronecker double cover of the line graph of the Petersen graph, a 4-regular 30-vertex connected bipartite graph",
+        "dodecahedron Hamiltonian cycles face flip pentagon flip reconfiguration",
+        "Hamiltonian paths on Platonic graphs Brian Hopkins full text 2004",
+        "Enumeration of Hamiltonian Cycles in Certain Generalized Petersen Graphs Allen J Schwenk full text"
+      ]
+    },
+    "equivalent_formulations": {
+      "evidence": [
+        "The published Icosian/dodecahedron descriptions count 30 tours without specifying the Hamilton-cycle exchange adjacency (Hopkins 2004, pp. 1613-1616, https://www.researchgate.net/publication/26533752_Hamiltonian_paths_on_Platonic_graphs).",
+        "The quotient-by-antipode formulation is represented explicitly by 15 orbits, 10 triangles and a KG(5,2) map in certificate.json."
+      ],
+      "reasoning": "Terms Hamilton-tour, Icosian game, cycle switch, symmetric-difference flip, Kronecker cover, and line graph of Petersen were compared. No inspected source states, or provides an explicit alternative equivalence to, the graph K2 x L(P) of 8-edge differences. The graph identity is not a restatement of the known 30-cycle count.",
+      "searches": [
+        "Dodecahedral Hamiltonian cycle flip graph with 8-edge symmetric differences is the Kronecker double cover of the line graph of the Petersen graph, a 4-regular 30-vertex connected bipartite graph",
+        "Enumeration of 30 dodecahedral Hamiltonian cycles, alternating 8-cycle switches, antipodal quotient 15 vertices and Petersen edge adjacency",
+        "icosian game Hamiltonian cycle graph dodecahedron eight-edge exchange 4-regular Petersen",
+        "dodecahedron Hamiltonian cycles face flip pentagon flip reconfiguration"
+      ]
+    },
+    "exact_database_or_table": {
+      "evidence": [
+        "OEIS A195197 tabulates 30 Hamilton cycles for GP(10,2) and cites Schwenk 1989 (https://oeis.org/A195197).",
+        "The proposed new invariants are the 60 shortest moves, their four-regular 30-vertex incidence graph, diameter four, and explicit Petersen antipodal quotient."
+      ],
+      "reasoning": "The known 30-cycle enumeration is fully acknowledged, not proposed as a discovery. A table of counts indexed by n does not determine a 30-by-30 local switch adjacency matrix. No table of the latter was found; database coverage is not asserted exhaustive.",
+      "searches": [
+        "OEIS A195197 number Hamiltonian cycles generalized Petersen P(n,2)",
+        "dodecahedron 30 Hamiltonian cycles table eight edge differences",
+        "Enumeration of 30 dodecahedral Hamiltonian cycles, alternating 8-cycle switches, antipodal quotient 15 vertices and Petersen edge adjacency"
+      ]
+    },
+    "rationale": "Schwenk 1989 establishes the count of Hamiltonian cycles of GP(10,2); Hopkins 2004 establishes uniqueness up to full symmetry; neither describes the exact 8-edge switch graph or its antipodal quotient. The relevant published Hamilton-tour interchange work is for complete graphs, while 2018 two-edge switches are impossible on the dodecahedral graph. Full accessible Schwenk and Hopkins text was read and compared by mathematical implication; no covering claim was located. Indexed and web searches are negative evidence only, not proof of novelty. Risk: old unindexed icosian or graph-transformation literature may encode the same 30-vertex cover.",
+    "residual_risks": [
+      "A historically unpublished or unindexed exact description of shortest dodecahedral Hamilton-cycle exchanges could be equivalent to the proposed graph isomorphism.",
+      "The Sierksma full paper was not read, although its complete-graph domain is manifestly different; the comparison is based on institutional metadata and abstract.",
+      "No formal independent external scholarly validation of the novelty search or the proof was performed."
+    ],
+    "source_inspections": [
+      {
+        "assessment": "NOT_COVERING the exchange graph; establishes count but not 8-edge switch adjacency or Petersen double cover.",
+        "evidence": [
+          "Theorem 1 states the Hamiltonian cycle count for GP(n,2); §§2-3 discuss edge colorings and open enumeration questions.",
+          "https://www.researchgate.net/publication/220077067_Enumeration_of_Hamiltonian_cycles_in_certain_generalized_Petersen_graphs"
+        ],
+        "identifier_or_url": "doi:10.1016/0095-8956(89)90064-6",
+        "material_read": "Complete author-posted seven-page article, pp. 53-59, through accessible full text.",
+        "method": "Read theorem and count proof, all later uniquely-three-edge-colorable and open-question sections, and compared claims about cycle counts versus pairs of distinct Hamilton cycles.",
+        "title": "Enumeration of Hamiltonian Cycles in Certain Generalized Petersen Graphs",
+        "trigger": "Exact same base graph GP(10,2) and known 30-cycle count."
+      },
+      {
+        "assessment": "NOT_COVERING; proves all tours equivalent up to spatial symmetry but not shortest-switch connectivity or quotient graph.",
+        "evidence": [
+          "§2 gives exactly four faces of type four and eight faces of type three, and uniqueness under rotations/reflections.",
+          "https://www.researchgate.net/publication/26533752_Hamiltonian_paths_on_Platonic_graphs"
+        ],
+        "identifier_or_url": "doi:10.1155/S0161171204307118",
+        "material_read": "Complete publicly available four-page paper, pp. 1613-1616.",
+        "method": "Read dodecahedral face-count proof, symmetry and forced-edge arguments, and remainder of paper.",
+        "title": "Hamiltonian Paths on Platonic Graphs",
+        "trigger": "Same dodecahedral Hamiltonian tour objects; topological uniqueness might dominate pairwise classification."
+      },
+      {
+        "assessment": "Not a direct covering source because it studies the complete-graph Hamiltonian-cycle polytope, not the restricted dodecahedron; residual unseen-full-text risk is small.",
+        "evidence": [
+          "Abstract explicitly defines the full (n-1)!/2 Hamiltonian tours of K_n as its vertex set.",
+          "https://research.rug.nl/en/publications/interchange-graphs-and-the-hamilton-cycle-polytope/"
+        ],
+        "identifier_or_url": "doi:10.1016/S0166-218X(97)00086-3",
+        "material_read": "Institutional research-portal abstract and detailed bibliographic summary; full paper not materially read.",
+        "method": "Compared exact base graph and k-interchange operation described in the abstract.",
+        "title": "Interchange Graphs and the Hamilton Cycle Polytope",
+        "trigger": "Similar Hamiltonian-cycle interchange graph terminology and possible general coverage."
+      },
+      {
+        "assessment": "NOT_COVERING the present move and graph; its two-edge switches are impossible on the girth-five dodecahedron.",
+        "evidence": [
+          "The paper defines switches as replacement of two Hamilton-cycle edges by two others and proves complexity results for unrelated graph classes.",
+          "https://www.researchgate.net/publication/327708735_Complexity_of_Hamiltonian_Cycle_Reconfiguration"
+        ],
+        "identifier_or_url": "doi:10.3390/a11090140",
+        "material_read": "Accessible full-text opening, switch definition and main theorem statements, plus title term search for dodecahedron; whole article not exhaustively reread.",
+        "method": "Compared move symmetric difference size (four versus eight) and graph classes in its conclusions.",
+        "title": "Complexity of Hamiltonian Cycle Reconfiguration",
+        "trigger": "Closest explicit Hamilton-cycle reconfiguration literature."
+      },
+      {
+        "assessment": "COVERS tour count only; no new count is claimed.",
+        "evidence": [
+          "Known sequence includes n=10 count 30 and references Schwenk 1989.",
+          "https://oeis.org/A195197"
+        ],
+        "identifier_or_url": "https://oeis.org/A195197",
+        "material_read": "Sequence entry, count table and formulas.",
+        "method": "Verified value 30 at n=10 and assessed table scope.",
+        "title": "OEIS A195197: Number of Hamiltonian cycles in the generalized Petersen graph P(n,2)",
+        "trigger": "Check whether the proposed exact count is already tabled."
+      }
+    ],
+    "status": "PASS"
+  },
+  "review_type": "self_review",
+  "schema_version": 1,
+  "scope_run_id": "8aadbd6c-c4ba-4780-9718-904849bb3982",
+  "self_review_status": "passed",
+  "value": {
+    "rationale": "The Icosian dodecahedron is the historical benchmark for Hamilton cycles, already known to have 30 tours. Determining whether its tours can be locally transformed without losing Hamiltonicity is a natural distinct problem. The minimal connected alternating-cycle threshold eight, exact mobility and diameter, and interpretation as a bipartite double cover of the Petersen line graph identify previously undescribed structure and tie the move graph to the antipodal geometry; these are motivated invariant facts, not arbitrary parameter slices or a routine recount of 30 known cycles.",
+    "status": "PASS"
+  }
+}
