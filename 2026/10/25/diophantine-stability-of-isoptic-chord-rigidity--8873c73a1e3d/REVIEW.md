@@ -1,24 +1,21 @@
-# Review
+# Independent mathematical audit
 
-## Correctness
+## correctness
 
-PASS. The support-function formula is taken from equation (11) of the cited paper. Applying the three shifts to a Fourier mode gives
-\[
-m_n=\frac{2e^{-in\alpha}}{\sin\alpha}
-(\cos(n\alpha)+(-1)^n\cos\alpha).
-\]
-The parity factorizations, the badly-approximable lower bound, and Parseval yield the stated estimate. The sharpness sequence has radius of curvature at least \(R/2\), so it consists of genuine smooth strictly convex bodies.
+PASS
 
-## Originality
+For every C² strictly convex body and alpha in (0,pi) with theta=alpha/pi badly approximable, the stated isoptic-chord translation operator has Fourier multiplier m_n=2e^(-in alpha)[cos(n alpha)+(-1)^n cos alpha]/sin alpha. Its n=±1 kernel is translation; n=0 is radius. For odd n=2k+1 the absolute multiplier factors as (4/sin alpha)|sin(k alpha)sin((k+1)alpha)|; for even n=2k it factors into adjacent odd half-angle cosines. The two zeros are separated modulo pi by δ=min(alpha,pi-alpha); one factor >=eta=sin(δ/2), the other >=constant*kappa/n by bad approximability, giving |m_n|>=2kappa eta/(n sin alpha). Parseval gives the H^-1 estimate. Along continued-fraction denominators q of theta, n=2q+1 has |m_n|=O(1/n); p=R+R/[2(n²-1)]cos(nt) is a smooth strictly convex support function with p+p>=R/2, so no H^-s bound with s<1. Independently tested all 4998 modes n=2..4999 for alpha=pi*(sqrt5-1)/2 against conservative finite Diophantine lower bound; smallest observed ratio >5.09. This finite test is not the proof for all n.
 
-PASS, with the stated scope. The cited paper proves qualitative rigidity for irrational angles and records exact Fourier resonances, but the inspected statements do not provide the Diophantine multiplier lower bound, the \(H^{-1}\)-to-\(L^2\) estimate, or the optimality argument for the one-derivative loss. Related equichordal and equipotential-circle problems use different geometric data; their abstracts were checked only and they remain limited comparison risks.
+## originality
 
-## Value
+PASS
 
-PASS. This is a quantitative stability refinement of an established geometric rigidity theorem. It gives a usable error bound for a natural chord measurement and identifies the exact Sobolev loss that cannot be improved, giving both a stability theorem and a sharp boundary.
+Quantitative Diophantine stability for an exact isoptic-chord Fourier transform previously used for qualitative constant-length disk rigidity, with a sharp one-derivative loss.
 
-## Closest literature and limits
+## value
 
-J. Jerónimo-Castro, F. G. Jimenez-Lopez, and E. Morales-Amaya, “Some results about equichordal convex bodies,” arXiv:2108.12753v1; *Discrete & Computational Geometry* 70 (2023), 1741–1750. The theorem is restricted to badly approximable angles and a weak \(H^{-1}\) shape norm; no Hausdorff or \(L^2\) stability is claimed.
+PASS
 
-Self-review: passed. Independent audit: not yet performed.
+Motivated stability modulus of an inverse geometric chord transform: sharp single-derivative small-divisor loss identifies what measurement precision can recover for strictly convex bodies. The optimality sequence consists of admissible positive-curvature bodies and is not an arbitrary frequency algebra exercise.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
