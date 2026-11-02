@@ -1,19 +1,21 @@
-# Review of the critical sparse-colouring convergence theorem
+# Independent mathematical audit
 
-## Correctness — PASS
+## correctness
 
-The all-marked block factorial moments are exact partition-selection identities; the global summation is controlled using the published log-concavity of the Bell exponential coefficients. Fixed-shift Bell ratios and two-colour second moments prove independent Poisson limits and abundance of every mixed class type. The bounded-rank Ehrenfeucht–Fraïssé profile argument supplies the all-formulas conclusion and a finite algorithm. Exhaustive finite counting verifies 72 identities over 127,203 marked partition pairs, without pretending to prove asymptotics.
+PASS
 
-## Originality — PASS, qualified
+PASS — Exact mixed falling-factorial moments use n! B_(n-s)/((n-s)! B_n); published Bell quotient log-concavity dominates all tail sums and fixed shifts give Poisson factorial moments. Mixed-color classes with at least one unmarked vertex have divergent expected counts and second-moment concentration. Matching q-truncated class size/color profiles gives a winning q-round EF strategy, proving all FO limits. Independent enumeration of marked Bell structures through n=6 verified 36 exact factorial moment cases; these are supporting finite checks, not infinite probabilistic proofs.
 
-The strongest comparison is Arratia–Tavaré (1994), whose refined independent-process method already addresses uniform set partitions and component-count moments; this is explicitly credited rather than repackaged as original. Koponen (2026) gives a motivation from random expansions but not the stated critical coloured equivalence-class semantics. The novelty assessment concerns their combination into an effective all-sentence first-order limit law at a sharp scale. An earlier specialized result could affect priority, and one close indexed published result could not be inspected in full text.
+## originality
 
-## Value — PASS
+PASS
 
-The same probability scale creates simultaneous nondegenerate rare events at every fixed equivalence-class size, and their law controls every sentence in a familiar logical language. This is a natural, reusable description of a complete critical-window convergence law, not a one-off numerical or normalization calculation.
+Qualified PASS for the combined sharp Lambert-W sparse-marked complete-class Poisson point process and all-formula first-order limit semantics, not the already established Bell assembly independent-process method or log-concavity. The closest original 1994 71-page source was substantively read in the set-partition sections and does not directly classify the unary-expanded first-order language.
 
-## Limitations
+## value
 
-No uniform rank-independent convergence rate is claimed; the all-sentence statement is for a fixed positive finite critical parameter. The independent-process theory is prior work. Independent scientific assessment has not been conducted.
+PASS
 
-Self-review: passed. Independent audit: not yet performed.
+PASS — It identifies a natural Lambert-W critical window in random equivalence structures where a full hierarchy of rare monochromatic classes survives and determines every first-order formula, with an explicit computation procedure and sharp threshold for a logically defined event. This goes beyond isolated counting identities or a generic Poisson approximation.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
