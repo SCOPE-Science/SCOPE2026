@@ -1,0 +1,141 @@
+{
+  "correctness": {
+    "rationale": "For any dominating D, the complement of the B-pair projection of its one-A layer has every triangle selected in the all-B layer; removing one edge per triangle and applying the proved Mantel bound gives q(n). A four-family witness of size q(n)+(binom(m-1,2)+1)n-2 dominates all 0,1,2,3-A configurations, including m=2 and n=4. Fixed-m squeeze proves asymptotic 1/4. The self-contained checker directly verifies 95 constructions, triangle-deletion counts for 33,864 graphs, and exhaustive K_2,4 lower boundary. Finite tests are not the infinite proof.",
+    "status": "PASS"
+  },
+  "independent": false,
+  "independent_audit_status": "not_performed",
+  "originality": {
+    "broader_coverage": {
+      "evidence": [
+        "Fabila-Monroy–Gómez-Galicia, arXiv:2509.16448v1 Theorem 4.2, gives a quadratic coefficient 1/12 for F_3(K_N), not for F_3(K_{m,n})",
+        "Chinman et al., arXiv:2610.28936v1 Theorem 1.2, gives bounds (1+mn)^{-1} binom(m+n,k) and n binom(m+n,k)/(m+n-k+1) for k>=3"
+      ],
+      "reasoning": "The complete-graph three-token result applies to a supergraph, whose smaller domination number cannot establish the sharp coefficient of the different bipartite graph. General lower bounds in the 2026 paper are strictly weaker for fixed m, and its upper bound is cubic for k=3. No inspected stronger result dominates both sides of the new sandwich.",
+      "searches": [
+        "Published mathematical-record query: token graph domination Turan Mantel triangle free graph exact asymptotic leading coefficient",
+        "Published mathematical-record query: three token graph complete bipartite domination k3 two by n quadratic lower upper bounds",
+        "Web: token graph complete bipartite domination k=3 asymptotic 2026",
+        "arXiv:2509.16448v1 full text, Section 4",
+        "arXiv:2610.28936v1 full text, Section 5"
+      ]
+    },
+    "checked_sources": [
+      "arXiv:2610.28936v1 §§1,2,5 and Theorem 1.2",
+      "arXiv:2509.16448v1 §4 and Theorem 4.2",
+      "arXiv:2610.31557v1 introduction, main theorem, §7 bibliography",
+      "arXiv:1606.06370 abstract only",
+      "Published-finding semantic searches on graph aliases, domination and Turán terms",
+      "Accessible prior local exact F2(K3,n) domination, F2(Kmn) binary kernel and total domination claims"
+    ],
+    "claim_vs_prior_implication": {
+      "evidence": [
+        "Chinman et al. prove exact F_2(K_{m,n}) and weaker F_k(K_{m,n}) inequalities for k>=3",
+        "Acosta Troncoso et al. study only two tokens and cite unfinished work on Turán numbers and k-token complete bipartite domination",
+        "Fabila-Monroy and Gómez-Galicia derive the related but distinct complete-graph result"
+      ],
+      "reasoning": "No inspected published theorem implies that q(n)<=gamma(F_3(K_{m,n}))<=q(n)+(binom(m-1,2)+1)n-2, or the coefficient 1/4. The lower bound projects one-A selected configurations to B-pairs, giving each such selected vertex at most one paid edge; the construction dominates all four token layers. This is not implied by a two-token classification, the complete-graph coefficient, or generic degree estimates.",
+      "searches": [
+        "arXiv:2610.28936v1, Theorems 1.1–1.2 and section 5",
+        "arXiv:2610.31557v1 introduction, theorem and section 7",
+        "arXiv:2509.16448v1 Theorem 4.2",
+        "Published mathematical-record query: domination number three-token graph complete bipartite K_{2,n}, minimum dominating sets",
+        "Published mathematical-record query: token graph domination Turan Mantel triangle free graph exact asymptotic leading coefficient"
+      ]
+    },
+    "equivalent_formulations": {
+      "evidence": [
+        "arXiv:2610.28936v1 section 5, Theorem 1.2, studies higher-token domination on exactly the same host graph but has weaker inequalities",
+        "Published finding “Exact (3,2)-domination of complete multipartite graphs”: a different (3,2) geodesic domination invariant of the original multipartite graph, not ordinary domination on its three-token graph"
+      ],
+      "reasoning": "The same graph/parameter nomenclature and aliases were checked. Known (3,2)-domination of original complete multipartite graphs is a different invariant; Chinman et al. is the exact same token graph but its inequalities do not imply the present fixed-m asymptotic coefficient.",
+      "searches": [
+        "Published mathematical-record query: domination number three-token graph complete bipartite K_{2,n}, minimum dominating sets",
+        "Published mathematical-record query: exact domination of F_3(K_{m,n}) and token graph of complete bipartite graph",
+        "Published mathematical-record query: F3 K2n token graph ordinary domination asymptotically one fourth n squared",
+        "Web: \"F_3(K_{2,n})\" domination number asymptotic",
+        "Web: \"3-token\" \"K_{2,n}\" domination triangle free Turan",
+        "Web: token graph complete bipartite domination k=3 asymptotic Turan"
+      ]
+    },
+    "exact_database_or_table": {
+      "evidence": [
+        "Published finding “Exact first-open three-token path packing number” concerns packing in F_3(P_13), not domination of F_3(K_{m,n})",
+        "Published records on complete bipartite domination are for original-graph domination variants, not three-token graphs",
+        "Prior accessible local findings on F_2(K_{3,n}) domination and F_2(K_{m,n}) total domination have different token number or parameter"
+      ],
+      "reasoning": "No exact table or accessible published finding provides the fixed-m coefficient 1/4 or a stronger exact formula for the specified three-token graphs. Negative search results are not treated as exhaustive novelty evidence.",
+      "searches": [
+        "Published mathematical-record query: exact domination of F_3(K_{m,n}) and token graph of complete bipartite graph",
+        "Published mathematical-record query: domination polynomial token graph K_{2,n} 3 tokens",
+        "Published mathematical-record query: F3 K2n token graph ordinary domination asymptotically one fourth n squared",
+        "Web: \"F_3(K_{m,n})\" \"Turan\"",
+        "Web: \"Domination in k-token graphs of complete bipartite graphs and Turán numbers\" \"Rivera\""
+      ]
+    },
+    "rationale": "The primary published 2026 manuscript treats the exact same three-token bipartite graph but supplies only bounds with the wrong leading constants/order at fixed m; the new sharp 1/4 coefficient comes from a full one-A-token-pair Mantel obstruction plus a matching leading-term four-layer construction. Complete-graph three-token results and two-token bipartite exact results cannot imply the claim. A specifically referenced unpublished work in progress on this question remains a material priority risk: no historical uniqueness is certified.",
+    "residual_risks": [
+      "The arXiv:2610.31557 concluding bibliography points to L. M. Rivera, \"Domination in k-token graphs of complete bipartite graphs and Turán numbers\", described as work in progress. No public full text or theorem statement was verified. It could independently contain overlapping or stronger results, so historical priority is not settled.",
+      "No semantic-index search can exclude all equivalent unpublished or unindexed results; only checked public literature and accessible records are compared.",
+      "The older token-graph independence/matching paper was screened only via its abstract and cannot support a full-document noncoverage claim."
+    ],
+    "source_inspections": [
+      {
+        "assessment": "Not covering: the k=2 exact formula and general k>=3 degree bounds do not yield coefficient 1/4 for k=3 with fixed m.",
+        "evidence": [
+          "Theorem 1.2, section 5, equation (2): gamma >= binom(m+n,k)/(1+mn), gamma <= n binom(m+n,k)/(m+n-k+1)",
+          "First posted 2026-10-20 UTC; primary MSC 05C69"
+        ],
+        "identifier_or_url": "arXiv:2610.28936v1; https://arxiv.org/html/2610.28936v1",
+        "material_read": "Public full HTML, introduction, Theorems 1.1 and 1.2, sections 2 and 5, including higher-token proof.",
+        "method": "Read theorem statements, hypotheses and the proof bounds; compared their fixed-m k=3 implications to both sides of the new finite inequality.",
+        "title": "The domination number of the k-token graph of the complete bipartite graph K_{m,n}",
+        "trigger": "Exact same host graph, token graph, domination parameter and token-count range."
+      },
+      {
+        "assessment": "Not covering: the paper concerns complete graphs and stars rather than two nontrivial complete-bipartite parts. Its different asymptotic does not imply the claim.",
+        "evidence": [
+          "Theorem 4.2: gamma(F_3(K_N)) asymptotic to N^2/12; proof uses Mantel",
+          "First posted 2025-09-19 UTC"
+        ],
+        "identifier_or_url": "arXiv:2509.16448v1; https://arxiv.org/html/2509.16448v1",
+        "material_read": "Public full HTML; introduction and section 4, including Theorem 4.2 and its extremal-graph proof.",
+        "method": "Compared domain F_3(K_N) to F_3(K_{m,n}) and coefficient 1/12 to 1/4; checked whether supergraph monotonicity implies a sharp bound.",
+        "title": "Domination number of Token Graphs",
+        "trigger": "Plausible stronger result from Mantel-type domination on three-token graphs."
+      },
+      {
+        "assessment": "Published statements concern k=2. Concluding bibliographic entry describes relevant unpublished work in progress, an unresolved priority risk rather than an inspected theorem.",
+        "evidence": [
+          "Conclusion references L. M. Rivera, \"Domination in k-token graphs of complete bipartite graphs and Turán numbers\", work in progress",
+          "Paper first posted 2026-10-22 UTC"
+        ],
+        "identifier_or_url": "arXiv:2610.31557; https://arxiv.org/abs/2610.31557",
+        "material_read": "Public text including introduction, main result and concluding section 7 with bibliography.",
+        "method": "Compared token count and main theorem scope; specifically inspected the mention of higher-token work and its status.",
+        "title": "The domination number of the 2-token graph of the complete bipartite graph",
+        "trigger": "Extremely close exact two-token paper; possible extension into a higher-token Turán classification."
+      },
+      {
+        "assessment": "Only abstract-level screening; concerns independence/matching rather than ordinary domination and is not relied on for a whole-document no-coverage assertion.",
+        "evidence": [
+          "Title and abstract identify independence and matching numbers of token graphs, not domination"
+        ],
+        "identifier_or_url": "arXiv:1606.06370",
+        "material_read": "Abstract and bibliographic metadata.",
+        "method": "Checked stated objects, graph parameters and headline invariants.",
+        "title": "Independence and matching numbers of some token graphs",
+        "trigger": "Older investigations of token graphs and combinatorial invariants."
+      }
+    ],
+    "status": "PASS"
+  },
+  "review_type": "self_review",
+  "schema_version": 1,
+  "scope_run_id": "a6f5ffb9-0b62-43b0-8aea-76785d76e735",
+  "self_review_status": "passed",
+  "value": {
+    "rationale": "An explicit fresh 2026 paper leaves three-token complete-bipartite domination between broad generic bounds that fail to determine even the leading upper-order coefficient at fixed m. An exact quadratic asymptotic with sharp leading constant 1/4 and an O_m(n) gap for every fixed m is a natural substantial infinite family result. The core triangle-free projection and simultaneous four-layer witness convey structural understanding; no exact finite optimum or independent historical priority is claimed.",
+    "status": "PASS"
+  }
+}
