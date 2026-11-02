@@ -1,0 +1,128 @@
+{
+  "correctness": {
+    "rationale": "All n>=4 lie in a unique dyadic block. The proposed low and high position sets meet each zero-only, exactly-one-one, and multiple-one factor by explicit occurrence choices. A projection lemma moves suffix-selected positions to a distinguished zero of the preceding complete gap, proving gamma(W_m 0^h)>=gamma(W_m). Uniquely occurring consecutive-one-gap factors, a near-last-one factor, and a final long zero-run factor occupy pairwise disjoint required regions and give exact matching lower bounds, with m=2 and n<=3 treated separately. The standalone standard-library verifier passed complete factor-coverage checks through 184 and at selected larger lengths up to 512, checked every lower certificate region, and exhaustively minimized n<=14. Finite tests do not replace the symbolic argument.",
+    "status": "PASS"
+  },
+  "independent": false,
+  "independent_audit_status": "not_performed",
+  "originality": {
+    "broader_coverage": {
+      "evidence": [
+        "arXiv:2012.06840 Theorem 8 is constructive upper coverage for the same parameters, not a sharpness theorem.",
+        "arXiv:2206.00376 gives general inequalities and a logarithmic-order example, while arXiv:2302.13647 and arXiv:2511.00650 treat other morphic/Parry families."
+      ],
+      "reasoning": "Neither asymptotic growth classifications nor exact attractor sizes of different morphic words logically imply this equality for every integer length. No inspected stronger theorem resolves the missing lower bound; a nonindexed broader theorem remains a risk.",
+      "searches": [
+        "Sharpness and optimality of Schaeffer-Shallit 2024 Theorem 8 upper bound for powers-of-two automatic word string attractors",
+        "String attractor profile for sparse automatic sequences with exponentially spaced ones powers of two",
+        "arXiv:2206.00376 §§3–4; arXiv:2302.13647; arXiv:2511.00650"
+      ]
+    },
+    "checked_sources": [
+      "https://arxiv.org/pdf/2012.06840 §6 Theorem 8 and following paragraph",
+      "https://arxiv.org/pdf/2206.00376 Example 3 and Figure 1",
+      "https://arxiv.org/pdf/1907.04660 abstract and introduction",
+      "https://arxiv.org/pdf/2302.13647 abstract, definitions and selected results",
+      "https://arxiv.org/pdf/2511.00650 abstract and definitions",
+      "Published-record searches for exact powers-of-two minimum attractors and related words, compared by statements and parameters"
+    ],
+    "claim_vs_prior_implication": {
+      "evidence": [
+        "Schaeffer-Shallit Section 6 says their theorem supplies an upper bound and that a matching lower bound requires another technique.",
+        "Restivo-Romana-Sciortino Example 3 proves only the asymptotic class of the same profile."
+      ],
+      "reasoning": "Prior constructive bounds imply gamma(n)<=the stated integers and an asymptotic lower bound implies gamma(n)=Omega(log n). Neither yields a precise lower bound equal to the upper integer for each n. The new projection and disjoint-witness lemmas establish that nonimplied step.",
+      "searches": [
+        "arXiv:2012.06840 Theorem 8 matching lower bound",
+        "Exact minimum string attractor size for every prefix of the characteristic sequence of powers of two 1101000100000001, gamma(n) step function thresholds 6 times powers of four",
+        "arXiv:2206.00376 Example 3"
+      ]
+    },
+    "equivalent_formulations": {
+      "evidence": [
+        "arXiv:2012.06840 Section 6 defines the same word 11010001... under a shifted index and states the same powers-of-four upper-size candidates.",
+        "arXiv:2206.00376 Example 3 identifies exactly this word and reports only an order-of-growth estimate."
+      ],
+      "reasoning": "The binary word defined by i+1 being a power of two is identical to the cited sequence despite the indexing conventions. An upper-bound attractor construction is not an equivalent statement to the minimum-value equality; neither does a Theta(log n) estimate determine the exact value.",
+      "searches": [
+        "Minimal string attractors for prefixes of the characteristic powers-of-two binary word, indicator of positions 2^j-1, exact attractor size and locations",
+        "Exact minimum string attractor size for every prefix of the characteristic sequence of powers of two 1101000100000001, gamma(n) step function thresholds 6 times powers of four",
+        "arXiv:2012.06840 §6; arXiv:2206.00376 Example 3"
+      ]
+    },
+    "exact_database_or_table": {
+      "evidence": [
+        "The exact power-of-four length thresholds appear in arXiv:2012.06840 as attractor constructions but are not certified optimal there.",
+        "The comparison table in arXiv:2206.00376 Figure 1 records only Θ(log n) for the characteristic powers-of-two sequence."
+      ],
+      "reasoning": "The new result is not a mere table recomputation: it proves the integer minimum at every length from disjoint factor-occurrence obstructions. A failed table search does not exclude unindexed equivalents.",
+      "searches": [
+        "Dyadic prefix powers of two indicator word minimal string attractor gamma(2^m) ceil(m/2)+1 and full prefix profile",
+        "Exact minimal attractor numbers for infinite nonrecurrent powers-of-two characteristic sequence prefixes",
+        "arXiv:2012.06840 Theorem 8; arXiv:2206.00376 Figure 1"
+      ]
+    },
+    "rationale": "The most directly relevant source, Schaeffer and Shallit arXiv:2012.06840 Section 6 Theorem 8, proves upper bounds with the identical underlying object, indices up to a shift, powers-of-four length regimes, and values. Its accompanying text expressly leaves the matching lower bound to other techniques. The present exact theorem adds that missing lower bound at every length. Restivo et al. arXiv:2206.00376 Example 3 supplies only Theta(log n) for this sequence, and the related works on other words do not imply the fine-grained profile. Published-record searches for equivalent or stronger results found no decisive covering result, though absence of search hits cannot establish publication priority.",
+    "residual_risks": [
+      "Unindexed, unpublished, or differently titled sharp lower bounds might exist; searched abstracts and publication records cannot prove uniqueness of research priority.",
+      "Some related nonidentical-word papers were inspected at their definitions and main statements rather than every appendix; no decisive same-word comparison was left unresolved.",
+      "A full independent proof audit has not been performed."
+    ],
+    "source_inspections": [
+      {
+        "assessment": "PROVIDES_UPPER_ONLY",
+        "evidence": "Theorem 8 supplies explicit attractors for both interval regimes, but the next paragraph says a matching lower bound is not established.",
+        "identifier_or_url": "https://arxiv.org/pdf/2012.06840",
+        "material_read": "PDF Section 6, Theorem 8 and following text; Sections 2 and 8 on definitions and asymptotic bounds",
+        "method": "Direct inspection of primary PDF text and rendered page 10 with exact word, hypotheses, sets, and qualification",
+        "title": "String Attractors for Automatic Sequences",
+        "trigger": "Exactly the same automatic word and candidate powers-of-four attractor sizes"
+      },
+      {
+        "assessment": "ASYMPTOTIC_ONLY",
+        "evidence": "Example 3 identifies 1101000100000001... and gives only logarithmic growth of the attractor profile.",
+        "identifier_or_url": "https://arxiv.org/pdf/2206.00376",
+        "material_read": "PDF Sections 2–4, Example 3, Figure 1, and surrounding mathematical statements",
+        "method": "Direct full-text passage inspection of primary PDF and a rendered page",
+        "title": "String Attractors and Infinite Words",
+        "trigger": "Example 3 and Figure 1 name exactly the same powers-of-two characteristic word"
+      },
+      {
+        "assessment": "NO_IDENTIFIED_IMPLICATION",
+        "evidence": "Studied sharp cases concern Sturmian, Thue-Morse, de Bruijn and periodic repetitions; no same-word sharp theorem identified in inspected passages.",
+        "identifier_or_url": "https://arxiv.org/pdf/1907.04660",
+        "material_read": "PDF abstract, Introduction, stated object families and a relevant general factor-power bound",
+        "method": "Direct inspection of source PDF text and title-page rendering",
+        "title": "String Attractors and Combinatorics on Words",
+        "trigger": "Foundational sharp attractor counts for other classical word families"
+      },
+      {
+        "assessment": "DIFFERENT_OBJECTS",
+        "evidence": "The stated families are simple-Parry automatic words, not the characteristic powers-of-two word; their particular constructions do not imply the claim.",
+        "identifier_or_url": "https://arxiv.org/pdf/2302.13647",
+        "material_read": "PDF abstract, introduction, object definitions, and selected main results",
+        "method": "Primary PDF inspection with relevant pages rendered",
+        "title": "String attractors of some simple-Parry automatic sequences",
+        "trigger": "Potentially broader exact automatic-word attractor theorem with same MSC classification"
+      },
+      {
+        "assessment": "DIFFERENT_OBJECTS",
+        "evidence": "The paper treats Parry/β-integer coding words; no covering powers-of-two word result is present in inspected material.",
+        "identifier_or_url": "https://arxiv.org/pdf/2511.00650",
+        "material_read": "PDF abstract, introduction and sequence definitions",
+        "method": "Primary PDF inspection with rendered title page and term search",
+        "title": "Attractors of sequences coding β-integers",
+        "trigger": "Recent related attractor theorem on automatic or morphic sequences"
+      }
+    ],
+    "status": "PASS"
+  },
+  "review_type": "self_review",
+  "schema_version": 1,
+  "scope_run_id": "5ffa12b8-2ec7-428c-88ef-e091f923a418",
+  "self_review_status": "passed",
+  "value": {
+    "rationale": "The exact minimum-cardinality profile of a canonical sparse automatic word was naturally singled out by prior explicit but nonsharp upper constructions. The theorem supplies matching all-length lower bounds, rigorously settles every jump threshold at 6 times a power of four, and gives a structural projection lemma plus disjoint occurrence certificates. It strengthens the previous asymptotic classification and resolves a mathematically motivated sharpness question rather than only computing examples.",
+    "status": "PASS"
+  }
+}
