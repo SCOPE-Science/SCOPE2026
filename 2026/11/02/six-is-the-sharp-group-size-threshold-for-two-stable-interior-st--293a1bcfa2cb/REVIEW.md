@@ -1,0 +1,15 @@
+# Scientific assessment
+
+## Correctness — PASS
+The focal player's gain is exactly the sum of two binomial pivotal-event probabilities minus a fixed cost. For groups of size at most four, degree and endpoint signs bound distinct interior roots by two. At five, Descartes' rule excludes four roots except the precise two-positive-coefficient pattern, and the exceptional two-threshold gain has a derivative cubic with nonpositive discriminant and exactly one positive stationary point, yielding a strict unimodality proof. At six, explicit central quartic factorization establishes two maxima, one valley, exactly four roots for the stated open cost interval, and the alternating stability types. Verification: 145 exact rational/symbolic assertions from the accompanying standalone script; computations check algebra but are not substituted for infinite-parameter proof. Risk: no independent reproduction beyond these checks.
+
+## Originality — PASS, subject to historical-priority limits
+Archetti–Scheuring's single threshold provides one stable interior state; its statement does not imply two coexisting stable interior states under two distinct thresholds. Peña–Lehmann–Nöldeke's general Bernstein sign-variation theorem covers the method and would allow as many as four roots for the five-person exceptional sign pattern, but does not by itself deliver the proved impossibility or the sharp six-person example. Archetti's 2018 analysis of a double sigmoid includes a benefit curve that decreases after increasing; the present total benefit is monotone in the volunteer count and consists of two positive threshold steps. The 2013 contribution-mechanisms article addresses a different model. Actual full texts and relevant sections of all four sources were inspected. No inspected result supplied the complete current statement. Residual risk: an older, differently named result on multi-threshold volunteer games may entail the same theorem; incomplete access to more specialized economics papers is acknowledged. The nonexistence of a search hit is not treated as proof of priority.
+
+## Value — PASS
+The first group size permitting two *stable mixed cooperation regimes* is a mathematically meaningful structural boundary in nonlinear public-goods dynamics. The separation between an all-parameter obstruction for five people and an explicit six-person witness is sharper than just showing an example of multistability, and the result exposes when one contribution jointly maintaining two goods gives qualitatively different social-dilemma dynamics. The exact cost window makes it a reproducible benchmark for analysis of more complex threshold-benefit schedules. This value is restricted to the stated deterministic well-mixed model and does not imply field applicability.
+
+## Closest literature and scientific limitations
+References and source-specific comparisons appear in `RESULT.md`. Earlier single-good models and general Bernstein methods provide essential context. No independent audit has been undertaken, and empirical or stochastic robustness is not claimed.
+
+Self-review: passed. Independent audit: not yet performed.
