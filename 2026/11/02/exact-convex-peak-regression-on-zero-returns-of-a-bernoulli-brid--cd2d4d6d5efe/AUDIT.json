@@ -1,0 +1,135 @@
+{
+  "correctness": {
+    "rationale": "Explicit all-n proof from bridge exchangeability, independent segments under arbitrary zero pins, a polynomial Palm derivative, Lagrange inversion for signed primitive excursions, and elementary derivative/convolution inequalities. Endpoints n=2 and r=n-1 are included. Actual standalone verifier passed 3707 exact finite checks including 66196 enumerated bridges and subset pinning through n=7. Finite checks are not used as an infinite proof.",
+    "status": "PASS"
+  },
+  "independent": false,
+  "independent_audit_status": "not_performed",
+  "originality": {
+    "broader_coverage": {
+      "evidence": [
+        "Labarbe–Marckert 2006 full primary arXiv:math/0601624 §1, Proposition 1 and §2 concern peak enumeration, path interpolation and peak-conditioned shape.",
+        "Mortimer–Prellberg 2012 arXiv:1208.3061 Theorem 1 preserves contacts for nonnegative Dyck paths; their §4 bilateral extension requires a beta operation that explicitly does not preserve contact count (p.6).",
+        "Kreweras 1986 DOI:10.1007/BFb0072516 identified as plausible older joint bridge parameter paper; full chapter unavailable."
+      ],
+      "reasoning": "A joint peak/return generating function for signed bridges would dominate this conditional-mean theorem, but none was located in primary texts accessed. A contact-preserving Dyck bijection does not by itself give a peak/zero-contact law for arbitrary signed bridges or the arbitrary-subset pinning identity. The older Kreweras title is not grounds for asserting either equivalence or noncoverage without full-text inspection.",
+      "searches": [
+        "published-finding corpus: Bernoulli random walk bridge of 2n steps conditioned on number of local maxima peaks, distribution of visits at global maximum, covariance peaks and return local time",
+        "published-finding corpus: random walk bridge excursions peak count number of returns to zero joint distribution",
+        "Web: \"Kreweras\" \"Joint distributions of three descriptive parameters of bridges\" peaks returns",
+        "Web: \"joint distribution\" \"peaks\" \"returns\" \"bridge\" Dyck"
+      ]
+    },
+    "checked_sources": [
+      "arxiv:math/0601624 — Labarbe and Marckert, first public 2006-01-25",
+      "arxiv:1208.3061 — Mortimer and Prellberg, first public 2012-08-15",
+      "arxiv:1611.01434 — Godrèche, first public 2016-11-04",
+      "DOI:10.1007/BFb0072516 — Kreweras 1986 chapter, metadata only",
+      "prior comparable themes: uniform bridge return-count maximum/fragmentation and balanced-word bridge dispersion, deduplication only"
+    ],
+    "claim_vs_prior_implication": {
+      "evidence": [
+        "The new claim combines arbitrary pinned-zero-time expectations with coefficient extraction to obtain an explicit increasing and convex conditional mean, not merely the known marginal bridge peak count.",
+        "Godrèche 2016 §2.5 provides the marginal number of tied-down excursions and its generating function but not the joint peak statistic.",
+        "Mortimer–Prellberg 2012 states a bijection preserving contacts only in the nonnegative Dyck restriction; §4 explicitly indicates a component map does not preserve contacts."
+      ],
+      "reasoning": "Neither a marginal law of P nor a marginal law of R determines E[P|R]. The cited nonnegative contact-preserving bijection and unsigned enumeration do not directly imply the signed arbitrary-return pinning identity. The proof introduces an exact Palm generating-function derivative and shows strict convexity, so the result is not obtained solely by renaming a known proposition.",
+      "searches": [
+        "arxiv:math/0601624 Proposition 1 and Sections 1–2",
+        "arxiv:1208.3061 Theorems 1 and 3, Section 4",
+        "arxiv:1611.01434 Section 2.5 return-count distribution",
+        "published-finding corpus: simple random walk bridge number of peaks and number of returns to zero exact covariance asymptotic"
+      ]
+    },
+    "equivalent_formulations": {
+      "evidence": [
+        "Labarbe–Marckert arXiv:math/0601624 Proposition 1 gives the marginal number of bridges with k peaks as binom(n,k)^2, without conditioning on interior zero visits.",
+        "Mortimer–Prellberg arXiv:1208.3061 §4 extends a peak bijection to bilateral paths but does not state the peak/zero-return regression."
+      ],
+      "reasoning": "Searched aliases peak/UD-turn/local maximum and return/contact/zero local time for tied-down walk, bilateral/grand Dyck path. Inspected enumerations do not state the simultaneous pinned-time Palm expectation or rational mean conditional on number of contacts.",
+      "searches": [
+        "published-finding corpus: Exact conditional expectation of number of peaks in a simple symmetric random walk bridge conditioned on the number of interior returns to zero; strictly increasing convex regression (n-1)/2 + r(r+2)/(4(2n-r-2))",
+        "Web: \"Bernoulli bridge\" peaks zero crossings expectation conditional returns",
+        "Web: \"grand Dyck\" \"peaks\" \"contacts\" \"mean\" conditional number"
+      ]
+    },
+    "exact_database_or_table": {
+      "evidence": [
+        "published-finding corpus hits for exact peak/return/conditional mean wording had unrelated highest-ranked results, including 2026/10/4/SCOPE-extreme-particle-pinning-thresholds-for-alpha-wiener-mean-field--5a24bf7e98db and 2026/10/4/SCOPE-reversal-and-sign-symmetry-force-a-half-variance-maximum-endpoin--5e8da51794ea.",
+        "The classic Narayana count gives peaks on nonnegative Dyck paths, and binom(n,k)^2 gives the signed-bridge peak marginal, but neither is a table of peak-count means by total interior zero-return number."
+      ],
+      "reasoning": "Queries targeted exact rational regression, central binomial covariance, local maxima, tied-down bridges and signed Dyck paths. No directly matching exact database cell, table or previously published statement was identified; nonmatching search is not proof of novelty.",
+      "searches": [
+        "published-finding corpus: Exact covariance number of local maxima with number of visits to zero in a tied-down random walk, involving central binomial coefficient",
+        "published-finding corpus: joint distribution Eulerian peaks returns contacts grand Dyck paths probability covariance mean",
+        "Web: \"peaks\" \"returns\" \"covariance\" \"Dyck\" \"bridge\""
+      ]
+    },
+    "rationale": "No inspected primary statement or identified published research-record claim implies the simultaneous-pinning peak identity or the exact strictly convex peak-on-return-count regression for uniform signed bridges. Labarbe–Marckert gives peak marginals and peak-conditioned asymptotics; Godrèche gives return/renewal marginals; Mortimer–Prellberg gives a peak bijection but does not retain contact counts for its bilateral extension. The Kreweras 1986 multi-parameter nonnegative-path chapter is an inaccessible historical-priority risk and no uninspected contents are asserted.",
+    "residual_risks": [
+      "Kreweras 1986 joint bridge-parameter chapter full text was inaccessible; a stronger historical parameterization might imply a version of this law.",
+      "Csáki 1994 and older multi-additive-functional results for Bernoulli excursions may contain related moments not accessible in the inspected primary source set.",
+      "Search coverage cannot establish global uniqueness.",
+      "No independent historical-priority audit has been performed."
+    ],
+    "source_inspections": [
+      {
+        "assessment": "Separate peak marginal and peak-conditioned shape results, not the joint return-count conditional regression.",
+        "evidence": [
+          "Proposition 1: number of 2n-step bridges with k peaks is binom(n,k)^2.",
+          "Introduction specifies condition on number of peaks; no peak/local-zero-time moment identity observed."
+        ],
+        "identifier_or_url": "https://arxiv.org/pdf/math/0601624",
+        "material_read": "Title/abstract and introduction pp.1–6; Proposition 1 p.2; counting framework §2 pp.7–11; term-level inspection for zero returns and local times across extracted 30-page text",
+        "method": "Inspected primary PDF text and page rendering",
+        "title": "Asymptotics of Bernoulli random walks, bridges, excursions and meanders with a given number of peaks",
+        "trigger": "Defines exact bridge peak counts, plausible domination of peak/return regression"
+      },
+      {
+        "assessment": "Dyck contact-preserving bijection is related; bilateral extension does not provide a contact-preserving peak distribution.",
+        "evidence": [
+          "Theorem 1 preserves number of contacts on nonnegative Dyck paths.",
+          "§4: the map beta does not preserve number of contacts; Theorem 3 only states equidistribution of up-steps at odd height and peaks in bilateral paths."
+        ],
+        "identifier_or_url": "https://arxiv.org/pdf/1208.3061",
+        "material_read": "Full 9-page primary text, focusing on Theorem 1 pp.3–4, §4 pp.6–8, Corollary 4 and reference list",
+        "method": "Primary PDF text and page rendering",
+        "title": "A Bijection on Bilateral Dyck Paths",
+        "trigger": "Directly concerns peaks and contacts in Dyck/bilateral bridges"
+      },
+      {
+        "assessment": "Provides excursion/return-count renewal formulas and extrema of durations but not local-maxima peak regression.",
+        "evidence": [
+          "§2.5 eqs (2.43–2.45): marginal number of intervals conditional on a tied-down endpoint.",
+          "No peak-count variable appears in the investigated sections."
+        ],
+        "identifier_or_url": "https://arxiv.org/pdf/1611.01434",
+        "material_read": "Abstract and §2 pp.1–4, §2.5 pp.7–9, summary §5 and targeted peak term search across primary PDF",
+        "method": "Primary PDF text and page rendering",
+        "title": "Longest interval between zeros of the tied-down random walk, the Brownian bridge and related renewal processes",
+        "trigger": "Contains full return-count marginal distribution for signed random-walk bridges"
+      },
+      {
+        "assessment": "Priority risk unresolved; cannot claim noncoverage from an unread paper.",
+        "evidence": [
+          "1986 Springer LNM 1234, pp.177–191, chapter on multiple parameters of nonnegative bridges.",
+          "Descriptions of related 1986 Kreweras work address peaks and long jump/landing refinements."
+        ],
+        "identifier_or_url": "https://doi.org/10.1007/BFb0072516",
+        "material_read": "Publisher metadata, chapter title and citations only; full chapter unavailable",
+        "method": "ArXiv and lawful open-access searches failed; institutional access returned disconnected status without text",
+        "title": "Joint distributions of three descriptive parameters of bridges",
+        "trigger": "Plausible older multi-parameter bridge-enumeration overlap"
+      }
+    ],
+    "status": "PASS"
+  },
+  "review_type": "self_review",
+  "schema_version": 1,
+  "scope_run_id": "cd2d4d6d-5efe-484f-9560-36b0fb4d49ac",
+  "self_review_status": "passed",
+  "value": {
+    "rationale": "Peak count is a canonical local oscillation statistic; interior zero-return count is discrete bridge local time. The theorem gives a natural complete conditional first-moment law for every possible return count, strict convex response, and an unexpected location-independent all-subset zero-pinning identity; it also identifies exact positive covariance and its square-root order. These are structural relationships between distinct path statistics and not a mere normalization or small-sample table.",
+    "status": "PASS"
+  }
+}
