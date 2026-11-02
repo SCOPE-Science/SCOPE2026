@@ -1,0 +1,19 @@
+# Scientific review
+
+## Correctness — PASS
+
+The domain is indexed length-\(n\) periods with goodness imposed on the full periodic extension. The published complete list of minimal antisquares [Baranwal et al., Theorem 11] and their bi-infinite obstruction [Proposition 18] justify reducing this periodic language to eight explicitly listed forbidden factors. The forbidden factors together exclude mixed long-run symbols: neighboring long runs of opposite symbols with zero intervening singleton runs yield a length-four antisquare, with two yield `001011` or `110100`, and with at least four yield six alternating bits. This forces the exclusive-long-symbol block grammar. Its converse is checked for all eight factors; a zero-run of length two must be excluded separately by the pattern `1001`, so the mere absence of adjacent ones is not used as a sufficient condition. The marked-long-run double count is exact even for imprimitive periods because it counts marked indexed words. The formal-log expansion gives the displayed zeta, recurrence and Möbius inversion, and block densities give the exact equality cases. The independent enumerator tests 32766 binary strings through length 14, plus primitive orbits through 12 and recurrence/support through 80. The proof, not the experiment, supplies all-length coverage.
+
+## Originality — PASS, with bounded literature risk
+
+The closest primary source is Baranwal et al. (arXiv:2209.09223), whose Sections 6–7 explicitly give the minimal-antisquare family, a restriction on nonperiodic exceptional bi-infinite words, and the asymptotic supergolden growth law for ordinary linear words. It already presents a related unweighted recurrence, so **neither the polynomial nor growth exponent is claimed new**. It does not state the exact Hamming-weight-refined periodic-point generating function, primitive weight-necklace enumerators or sharp periodic density interval. Ng et al. (arXiv:1904.09157) study number-of-antisquares restrictions, Currie et al. (arXiv:2209.09598) complementary factors, and Currie–Johnson (arXiv:2005.09742) circular *square* avoidance: each differs in a decisive defining condition. The accessible prior findings about antisquare subsequence hosts and seven-run palindromes address different objects. Semantic searches of available research records found no statement implying this exact combined result. Residual risk: a general finite-type dynamical-zeta computation or an unindexed paper could already contain the same weighted specialization, and translating the 2022 Pansiot grammar might be straightforward to an expert.
+
+## Mathematical value — PASS
+
+Exact weight-resolved periodic orbit data is a natural stronger invariant than the known linear growth rate: it resolves all indexed-period profiles, yields every primitive necklace composition by Möbius inversion, and proves the full density gap with precise equality orbits. These are intrinsic invariants of the well-motivated good-word avoidance language, not arbitrary numerical slices. The argument reveals why the two complementary run grammars produce separate factors and why marked blocks produce logarithms.
+
+## Scientific limitations and nearest sources
+
+The construction does not enumerate arbitrary finite good words; it uses Proposition 18 essentially to rule out nonperiodic exceptional words. Its proof relies on the complete published minimal-antisquare classification. No independent peer/expert audit is represented, and remaining unindexed equivalence risk is stated rather than dismissed. Primary comparison: Baranwal et al., *Antisquares and Critical Exponents* (2022/2023), Theorems 11 and 19, Proposition 18; related comparison: Ng et al. (2019), Currie et al. (2022), Currie–Johnson (2020).
+
+Self-review: passed. Independent audit: not yet performed.
