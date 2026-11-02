@@ -1,0 +1,111 @@
+{
+  "correctness": {
+    "rationale": "For every n>=6, dihedral averaging is objective-nonincreasing and reduces arbitrary symmetric stochastic matrices to p0,p1,p2. Fourier characters produce a quadratic polynomial anchored at 1. The chosen middle frequency is proved nearest to the endpoint midpoint by exhaustive residue-class trigonometry. Its three alternating extrema prove the exact relaxed minimax lower bound and uniqueness within the invariant class. Explicit parity-sensitive factorizations prove p0>0 and p1,p2>0; hence the relaxed optimum is feasible globally. The n=5 complete-graph case and large-n expansions are separate. The local standalone verifier passed 1,006,259 counted assertions, including exhaustive spectra n<=1000 and separately formulated LP n<=80; these finite checks do not prove the infinite theorem.",
+    "status": "PASS"
+  },
+  "independent": false,
+  "independent_audit_status": "not_performed",
+  "originality": {
+    "broader_coverage": {
+      "evidence": [
+        "Boyd--Diaconis--Xiao (2004) gives a generic SDP and explicit numerical method, without a C_n^2 analytic formula in its inspected text.",
+        "Boyd--Diaconis--Parrilo--Xiao (2009) gives a general symmetry reduction and a one-hop cycle solution; its closed-form graph list does not include C_n^2.",
+        "The general k-nearest-ring 2005 analysis bounds the optimum but does not state all finite-n exact coefficients."
+      ],
+      "reasoning": "General semidefinite computability does not, as a statement, supply the trigonometric closed form or the parity-specific optimizers; k=2 is a special case of the earlier object, so exact potential coverage was checked at theorem and appendix level rather than dismissed by title.",
+      "searches": [
+        "exact optimal reversible symmetric stochastic transition weights on second power of cycle graph C_n^2, nearest and next-nearest neighbor jumps, Chebyshev equioscillation SLEM",
+        "two-neighbor cycle graph fastest mixing quadratic polynomial spectrum explicit n-dependent mixing and uniqueness",
+        "range 2 cyclic network fastest mixing Markov chain transition probability polynomial Chebyshev"
+      ]
+    },
+    "checked_sources": [
+      "Boyd, Diaconis, Xiao, SIAM Review 46 (2004), doi:10.1137/S0036144503423264",
+      "Boyd, Ghosh, Prabhakar, Shah, ANALCO (2005), Section 3.1 and Appendix, https://web.stanford.edu/~boyd/papers/pdf/gnr_mix.pdf",
+      "Boyd, Diaconis, Parrilo, Xiao, arXiv:0709.0955 and SIAM J. Optimization 20 (2009)",
+      "Published research-record semantic searches on cyclic random walks, FMMC, circulants and spectral minimax optimization"
+    ],
+    "claim_vs_prior_implication": {
+      "evidence": [
+        "For k=2, the 2005 lower bound is cos(4pi/n); direct finite examples n=6 and n=10 have larger exact optima 1/5 and approximately 0.502802 respectively, so the lower bound is not identical to the present formula.",
+        "The 2009 one-hop cycle has a different support graph and gap asymptotic to 2pi^2/n^2.",
+        "The accessible own archive contains exact mixing on two-hop hypercubes and on Cartesian products of cycles, neither of which includes the second power of a single cycle as a graph-isomorphism special case."
+      ],
+      "reasoning": "The earlier asymptotic lower bound is consistent with, but does not mathematically imply, the exact finite-n optimum or explicit weights. A Cartesian product of cycles is not a ring power and a Boolean cube with two-bit flips is not a general C_n^2. The candidate is a sharp specialization beyond a numerical SDP recipe, not an independent rediscovery of that recipe.",
+      "searches": [
+        "exact optimal reversible symmetric stochastic transition weights on second power of cycle graph C_n^2, nearest and next-nearest neighbor jumps, Chebyshev equioscillation SLEM",
+        "fastest mixing Markov chain square cycle optimal probabilities distance two",
+        "fastest mixing graph C_n squared cycle power k=2 weights closed form spectral"
+      ]
+    },
+    "equivalent_formulations": {
+      "evidence": [
+        "The k=2 ring in Boyd--Ghosh--Prabhakar--Shah (2005), Section 3.1, is exactly C_n^2 and therefore is a same-object comparison. That section states a one-mode lower bound and a near-optimal construction, not the finite-n three-weight formula.",
+        "No semantically matching exact equioscillation formula was among the retrieved published records."
+      ],
+      "reasoning": "A circulant five-diagonal chain, a distance-two cycle walk, and a second-power cycle chain are equivalent descriptions. The current equality and uniqueness of invariant weights are stronger than the published lower bound and asymptotic construction. The conclusion concerns inspected material, not all literature.",
+      "searches": [
+        "fastest mixing Markov chain on squared cycle circulant nearest next nearest neighbor edges optimal weights eigenvalues second-largest eigenvalue modulus",
+        "fastest mixing circulant range-two random walk on n-cycle explicit closed form p1 p2 hold, polynomial in cosine, odd-even parity",
+        "fastest mixing graph C_n squared cycle power k=2 weights closed form spectral"
+      ]
+    },
+    "exact_database_or_table": {
+      "evidence": [
+        "The retrieved published entries nearest in words concern cyclic numerical radii, two-hop hypercubes or discrete graph spectra, not a known table of exact FMMC probabilities for every C_n^2.",
+        "The 2005 source explicitly supplies a nearby bound and near-optimal construction, rather than a tabulated exact optimum for every ring size."
+      ],
+      "reasoning": "The proposed all-dimensional formula is not a recomputation of an identified exact numerical table. The published index may omit older or unindexed tables, retained as an explicit risk.",
+      "searches": [
+        "fastest mixing Markov chain on squared cycle circulant nearest next nearest neighbor edges optimal weights eigenvalues second-largest eigenvalue modulus",
+        "explicit fastest mixing cycle with jumps distance one and two semidefinite optimum symmetry",
+        "fastest mixing circulant range-two random walk on n-cycle explicit closed form p1 p2 hold, polynomial in cosine, odd-even parity",
+        "fastest mixing graph C_n squared cycle power k=2 weights closed form spectral"
+      ]
+    },
+    "rationale": "The exact finite-n probability triple and parity-dependent first-neighbor asymptotic sharpen the related 2005 nearest-k-cycle lower bound and near-optimal construction. The 2004 FMMC formulation and 2009 pure-cycle example establish methods, not this two-hop closed form. Published record searches yielded no same claim; neither unsuccessful search nor dataset partition establishes novelty. A historically unindexed exact formula remains a residual risk.",
+    "residual_risks": [
+      "Potential equivalent exact ring-power solution in specialized historical circulant or spectral-optimization literature not indexed or retrieved.",
+      "General FMMC SDP can numerically recover these values, so novelty is confined to the all-dimensional analytic classification and its parity/asymptotic structure; not to the formulation or symmetry method.",
+      "No independent mathematical review has been performed."
+    ],
+    "source_inspections": [
+      {
+        "assessment": "Provides the general convex problem and algorithm, but no stated exact C_n^2 chain formula.",
+        "evidence": "Section 1 definition of SLEM and symmetric feasible chains; Sections 2--5 semidefinite and dual formulations; published electronically 2004-10-29 on title page.",
+        "identifier_or_url": "https://web.stanford.edu/~boyd/papers/pdf/fmmc.pdf",
+        "material_read": "Accessible full PDF: abstract and formulation, main SDP, numerical examples and spectral dual/optimality sections; searchable text scanned for cycle/circulant applicability.",
+        "method": "Full-text PDF reading and in-document terminology checks",
+        "title": "Fastest Mixing Markov Chain on a Graph",
+        "trigger": "Foundational exact FMMC framework, potential dominance by generic optimality conditions"
+      },
+      {
+        "assessment": "Same graph object; derives general lower bound and asymptotically near-optimal construction, not exact all-n probabilities.",
+        "evidence": "Section 3.1 Lemma 3.1 lower bound cos(2pi k/n); Lemma 3.2 bound cos(2pi k/n)+Theta(k^4/n^4) for fixed k=o(n); no three-point finite-n equioscillation equality stated.",
+        "identifier_or_url": "https://web.stanford.edu/~boyd/papers/pdf/gnr_mix.pdf",
+        "material_read": "Accessible full PDF Section 3.1, Equations (3.7)--(3.10), Lemmas 3.1--3.2 and Appendix discussion of near optimality.",
+        "method": "PDF full-text section inspection with page screenshot and adjacent proof comparison",
+        "title": "Mixing Times for Random Walks on Geometric Random Graphs",
+        "trigger": "Most directly overlapping primary result on k-nearest cycle graphs, k=2 exactly matching support"
+      },
+      {
+        "assessment": "Contains a closed formula for the nearest-neighbor cycle and wheel, not the two-hop cycle square.",
+        "evidence": "Section 3.1.1 treats degree-two C_n with one edge orbit; Section 5.4 treats the wheel; no distance-two ring formula in the inspected graph list.",
+        "identifier_or_url": "https://web.stanford.edu/~boyd/papers/pdf/fast_mix_symm.pdf",
+        "material_read": "Accessible full PDF: Sections 2--3, Section 3.1.1 pure cycle example, Section 5 worked examples and stated closed-form scope.",
+        "method": "PDF full-text search and page screenshot, theorem/graph-support comparison",
+        "title": "Fastest Mixing Markov Chain on Graphs with Symmetries",
+        "trigger": "Exact closed forms for cyclic and graph-symmetric FMMC might subsume C_n^2"
+      }
+    ],
+    "status": "PASS"
+  },
+  "review_type": "self_review",
+  "schema_version": 1,
+  "scope_run_id": "1e4c2afd-1cba-40aa-9b3b-22793fcbaf9d",
+  "self_review_status": "passed",
+  "value": {
+    "rationale": "Second-power cycles are the canonical uniform-spacing ring with two-hop communication links. Their exact fastest reversible mixing design was treated only asymptotically in the directly overlapping k-nearest-ring source. The finding eliminates a numerical SDP for every ring size, proves strict positivity and a unique invariant optimizer, identifies an unexpectedly nearly disconnected two-hop design with vanishing essential first-hop weights, and quantifies a fourfold asymptotic gap gain over one-hop cycles. This is a natural infinite-size classification rather than an arbitrary finite parameter slice.",
+    "status": "PASS"
+  }
+}
