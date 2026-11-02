@@ -1,0 +1,149 @@
+{
+  "audit_date_utc": "2026-10-27",
+  "audited_at_utc": "2026-10-27T06:52:28Z",
+  "axes": {
+    "correctness": {
+      "checked_sources": [
+        "Actual pinned RESULT.md (Git blob 26d0d325b6be2fb53b49b26e000989a4ff243fb5)",
+        "Actual pinned verify.py and VERIFICATION.md (Git blobs 73dd88ab17cebda8878020ae5e14808edcb469a2 and 964dc28c6102bf2c8da6445383c413b904ebc258)",
+        "Direct reconstruction from Gaussian regression and one-dimensional normal density ratios"
+      ],
+      "rationale": "For d≥2, Σ≻0, τ=1ᵀΣ1>0 and β=Σ1/τ. Write Z=X−μ−β(S−1ᵀμ). Being jointly Gaussian with S and uncorrelated (Cov(Z,S)=Σ1−βτ=0), Z is independent of S; its covariance C=Σ−(Σ1)(Σ1)ᵀ/τ has C1=0 and does not depend on s. Therefore X|S=s is N(μ+β(s−1ᵀμ),C). A shared Z couples s₁≤s₂ monotonically iff β≥0, and necessity follows from the affine conditional coordinate means. Because Σ≻0, d≥2, no Xᵢ is linearly identical to S and vᵢ=Cᵢᵢ>0; the log marginal density ratio slope is βᵢ(s₂−s₁)/vᵢ. Zero β entries yield weak equality, negative entries disprove monotonicity, and negative equicorrelation ρ>−1/(d−1) has βᵢ=1/d. Independent exact-rational/symbolic checks included negative-row, zero-row boundary and ρ=−2/5 examples, which corroborate rather than prove the unrestricted theorem.",
+      "residual_risks": [
+        "The theorem is confined to positive-definite Σ and the unweighted sum; it does not assert multivariate likelihood-ratio ordering between conditional vectors living on different hyperplanes.",
+        "Finite rational examples and an existing VERIFY_OK output are only algebraic corroboration, not a proof for all dimensions."
+      ],
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Müller Theorem 5 includes all Gaussian means and all positive-semidefinite covariance matrices, much broader than conditioning positive-definite X on its scalar total.",
+          "On p.568 Müller expressly defines N(μ,Σ) for positive-semidefinite Σ; p.571 Theorem 5 does not require nonsingular covariances. The conditioned C is singular, so this scope detail is decisive."
+        ],
+        "reasoning": "Müller’s arbitrary Gaussian order theorem already dominates the structural statement with no restriction to totals, row sums, or conditioning. Pellerey–Navarro’s future direction concerns general dependence, not an exception to pre-existing Gaussian theory.",
+        "searches": [
+          "Alfred Müller, Stochastic Ordering of Multivariate Normal Distributions, Ann. Inst. Statist. Math. 53(3), 567–575 (2001), DOI:10.1023/A:1014629416504, Theorem 5, p.571; https://www.ism.ac.jp/editsec/aism/pdf/053_3_0567.pdf",
+          "multivariate normal stochastic order equal covariance if and only if mean vectors",
+          "Franco Pellerey and Jorge Navarro, Stochastic monotonicity of dependent variables given their sum, TEST 31 (2022) 543–561, DOI:10.1007/s11749-021-00789-5, Sections 2–4; https://link.springer.com/article/10.1007/s11749-021-00789-5",
+          "Gaussian linear regression conditional total stochastic order positive covariances with sum; normal location family"
+        ]
+      },
+      "checked_sources": [
+        "Alfred Müller, Stochastic Ordering of Multivariate Normal Distributions, Ann. Inst. Statist. Math. 53(3), 567–575 (2001), DOI:10.1023/A:1014629416504, Theorem 5, p.571; https://www.ism.ac.jp/editsec/aism/pdf/053_3_0567.pdf",
+        "Franco Pellerey and Jorge Navarro, Stochastic monotonicity of dependent variables given their sum, TEST 31 (2022) 543–561, DOI:10.1007/s11749-021-00789-5, Sections 2–4; https://link.springer.com/article/10.1007/s11749-021-00789-5",
+        "https://statproofbook.github.io/P/mvn-cond",
+        "Published Resultary mathematical-finding semantic search: four actual full candidate-specific queries recorded in equivalent_formulations/exact_database_or_table, top result summaries inspected; no dominant match."
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "Pellerey–Navarro 2021/2022 Corollary 3.1 assumes Cov(Xᵢ,Σ_{j≠i}Xⱼ)≥0, only a sufficient condition; their bivariate Proposition 2.2 and Schur-constant Proposition 3.3 are different classes.",
+          "Müller 2001 Thm5 + fixed-covariance Gaussian regression implies both directions of the submitted full vector statement without requiring Pellerey–Navarro’s extra assumption.",
+          "For likelihood-ratio order of each conditional marginal, two normal densities with identical positive variance have monotone ratio iff their means are ordered, a standard one-dimensional normal location-family calculation."
+        ],
+        "reasoning": "The recent motivating paper by itself leaves room to improve its sufficient condition; the older, more general Müller normal-order criterion closes that room for this Gaussian subcase. The new result is a direct corollary of this earlier stronger theorem.",
+        "searches": [
+          "Alfred Müller, Stochastic Ordering of Multivariate Normal Distributions, Ann. Inst. Statist. Math. 53(3), 567–575 (2001), DOI:10.1023/A:1014629416504, Theorem 5, p.571; https://www.ism.ac.jp/editsec/aism/pdf/053_3_0567.pdf",
+          "Franco Pellerey and Jorge Navarro, Stochastic monotonicity of dependent variables given their sum, TEST 31 (2022) 543–561, DOI:10.1007/s11749-021-00789-5, Sections 2–4; https://link.springer.com/article/10.1007/s11749-021-00789-5",
+          "Pellerey Navarro stochastic monotonicity dependent variables given sum Gaussian Corollary 3.1",
+          "multivariate normal stochastic order equal covariance if and only if mean vectors"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Müller 2001 Theorem 5 (p.571): arbitrary multivariate normals have usual componentwise stochastic order iff the mean vector orders coordinatewise and covariance matrices are equal.",
+          "Classical Gaussian regression/conditioning identity: Z=X−μ−Σ1(1ᵀΣ1)⁻¹(S−1ᵀμ) is Gaussian, Cov(Z,S)=0, hence Z⊥S; fixed residual covariance Σ−(Σ1)(Σ1)ᵀ/(1ᵀΣ1).",
+          "For two total levels s₂>s₁, means differ by β(s₂−s₁) and both Gaussian laws have the same C; the equivalence is EXACTLY the submitted row-sum condition."
+        ],
+        "reasoning": "The original claim is a direct location-family instance of Müller’s Gaussian order equivalence; renaming parameters to covariance row sums does not create a new theorem.",
+        "searches": [
+          "multivariate normal stochastic order equal covariance if and only if mean vectors",
+          "Gaussian random vector conditional on sum row sums covariance stochastic monotonicity",
+          "Gaussian conditional distribution of vector given its sum increasing in usual multivariate stochastic order iff covariance with total nonnegative row sums Gaussian regression",
+          "stochastic monotonicity of dependent Gaussian random variables conditioned on sum likelihood ratio covariance row sums multivariate",
+          "Alfred Müller, Stochastic Ordering of Multivariate Normal Distributions, Ann. Inst. Statist. Math. 53(3), 567–575 (2001), DOI:10.1023/A:1014629416504, Theorem 5, p.571; https://www.ism.ac.jp/editsec/aism/pdf/053_3_0567.pdf"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "Four candidate-specific published Resultary semantic searches were performed (top-25 result lists where available); no exact table/entry decisive, but this negative search is NOT evidence of novelty.",
+          "The criterion is structural and not a finite numeric table; the d=3 negative-equicorrelation example follows mechanically from Σ1=[1+(d−1)ρ]1 and positive definiteness.",
+          "The exact structural theorem is mathematically covered by Müller 2001 regardless of any indexed table match."
+        ],
+        "reasoning": "A database exact-match test is not the decisive comparison for a universal Gaussian ordering statement. The stronger primary mathematical theorem controls the originality verdict; failure to find a row-sum table does not rescue it.",
+        "searches": [
+          "Gaussian conditional distribution of vector given its sum increasing in usual multivariate stochastic order iff covariance with total nonnegative row sums Gaussian regression",
+          "stochastic monotonicity of dependent Gaussian random variables conditioned on sum likelihood ratio covariance row sums multivariate",
+          "Gaussian linear regression conditional total stochastic order positive covariances with sum; normal location family",
+          "covariance row sum criterion Efron monotonicity multivariate normal conditioned on sum",
+          "Gaussian conditional sum row sum covariance iff stochastic monotonicity"
+        ]
+      },
+      "rationale": "The exact all-dimensional vector iff statement is a direct specialization of an older, stronger result. Müller (2001), Theorem 5, proves for arbitrary multivariate normal vectors, including singular-covariance ones, N(m,C)≤st N(m′,C′) iff m≤m′ componentwise and C=C′. Each conditioned Gaussian vector X|S=s has covariance C independent of s and location m(s)=μ+β(s−1ᵀμ), β=Σ1/(1ᵀΣ1). Substitution into Müller’s iff proves precisely Σ1≥0, with no new ordering lemma or regime. Ordinary univariate normal MLR comparability at fixed variance likewise makes the coordinate criterion standard. The motivating Pellerey–Navarro work has a weaker sufficient Gaussian condition, but it does not negate stronger coverage by Müller. Thus originality fails even though the submitted work states the Gaussian specialization under new terminology.",
+      "residual_risks": [
+        "No residual source-access uncertainty affects the decisive comparison: the Müller (2001) primary full text and relevant theorem/conditions were inspected.",
+        "Literature searches need not be exhaustive after direct stronger coverage; there may be yet earlier versions of the same general theorem, which would strengthen rather than weaken the finding.",
+        "This assessment separates C correctness (true) from O novelty (covered); no independence or publication certification is claimed."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "DIRECT_STRONGER_COVERAGE: theorem 5 implies exact submitted iff as a corollary of classical Gaussian regression.",
+          "evidence": "Theorem 5 (printed p.571): X~N(μ,Σ)≤st X′~N(μ′,Σ′) iff μᵢ≤μᵢ′ for all i and Σ=Σ′; normal definition printed p.568 explicitly permits Σ⪰0.",
+          "identifier_or_url": "https://www.ism.ac.jp/editsec/aism/pdf/053_3_0567.pdf; DOI:10.1023/A:1014629416504",
+          "material_read": "All nine PDF pages inspected as page images; especially p.568 normal definition allowing positive-semidefinite covariances, p.571 Theorem 5 with full iff and its proof, plus surrounding ordering theorems.",
+          "method": "Lawful open-access primary publisher-host PDF; page-image visual reading and direct comparison of quantifiers/assumptions.",
+          "title": "Stochastic Ordering of Multivariate Normal Distributions",
+          "trigger": "Strong published general theorem plausibly implying the exact covariance/mean criterion, including singular conditional laws."
+        },
+        {
+          "assessment": "WEAKER_MOTIVATING_RESULT; it does not itself give an iff vector criterion but does not supersede Müller 2001.",
+          "evidence": "Gaussian corollary needs nonnegative covariance with sum of other coordinates; conclusion marks general multivariate extension as future work. The full Gaussian specialization follows from older Müller theorem.",
+          "identifier_or_url": "https://link.springer.com/article/10.1007/s11749-021-00789-5; DOI:10.1007/s11749-021-00789-5",
+          "material_read": "Open-access primary article, Sections 2–4: bivariate Proposition 2.2, multivariate Gaussian Corollary 3.1, Schur-constant Proposition 3.3 and conclusions; mathematical context and full statements inspected.",
+          "method": "Lawful primary publisher open-access full-text HTML examination.",
+          "title": "Stochastic monotonicity of dependent variables given their sum",
+          "trigger": "Exact motivating prior study and claimed improvement of its sufficient condition."
+        },
+        {
+          "assessment": "CLASSICAL_GAUSSIAN_REGRESSION supporting exact reduction to Müller; its generic block form is specialized via a nondegenerate linear statistic, avoiding any assumption that joint (X,S) is nonsingular.",
+          "evidence": "Z=X−μ−β(S−E S) has Cov(Z,S)=0 and is jointly Gaussian with S, hence independent; Var(Z)=C fixed.",
+          "identifier_or_url": "https://statproofbook.github.io/P/mvn-cond",
+          "material_read": "The conditional mean/covariance formulas and derivation of the standard multivariate Gaussian regression identity.",
+          "method": "Full accessible proof-page HTML examination; direct independent orthogonal-residual justification for linear statistic S.",
+          "title": "Conditional distributions of the multivariate normal distribution",
+          "trigger": "Independent standard source for fixed conditional Gaussian covariance and affine conditional means."
+        }
+      ],
+      "status": "FAIL"
+    },
+    "value": {
+      "checked_sources": [
+        "Alfred Müller, Stochastic Ordering of Multivariate Normal Distributions, Ann. Inst. Statist. Math. 53(3), 567–575 (2001), DOI:10.1023/A:1014629416504, Theorem 5, p.571; https://www.ism.ac.jp/editsec/aism/pdf/053_3_0567.pdf",
+        "Franco Pellerey and Jorge Navarro, Stochastic monotonicity of dependent variables given their sum, TEST 31 (2022) 543–561, DOI:10.1007/s11749-021-00789-5, Sections 2–4; https://link.springer.com/article/10.1007/s11749-021-00789-5",
+        "Actual RESULT.md and example calculations; published normal-order criterion plus fixed Gaussian regression gives the entire classification."
+      ],
+      "rationale": "The conditioned-sum stochastic ordering question is natural, but this Gaussian case is a routine substitution of a classical regression formula into Müller’s 2001 exact all-Gaussian ordering criterion. It requires no new structural lemma, difficult comparison, unknown natural invariant, independent parameter classification, or substantive mathematical boundary absent from the stronger result. The equicorrelation illustration follows instantly from the positive-definite range and row-sum identity. It is legitimate expository clarification of a recent paper’s weaker sufficient hypothesis, but that clarification does not constitute a separately useful unknown mathematical fact under the same value standard.",
+      "residual_risks": [
+        "The pedagogical value of explaining the Gaussian subcase is real but distinct from original mathematical value.",
+        "The failed value judgment does not assert the true statement is uninteresting in applications; it reflects that the exact result is a routine covered corollary."
+      ],
+      "status": "FAIL"
+    }
+  },
+  "checked_sources": [
+    "Alfred Müller, Stochastic Ordering of Multivariate Normal Distributions, Ann. Inst. Statist. Math. 53(3), 567–575 (2001), DOI:10.1023/A:1014629416504, Theorem 5, p.571; https://www.ism.ac.jp/editsec/aism/pdf/053_3_0567.pdf",
+    "Franco Pellerey and Jorge Navarro, Stochastic monotonicity of dependent variables given their sum, TEST 31 (2022) 543–561, DOI:10.1007/s11749-021-00789-5, Sections 2–4; https://link.springer.com/article/10.1007/s11749-021-00789-5",
+    "https://statproofbook.github.io/P/mvn-cond",
+    "Actual seven assigned Git blobs; verified source-tree SHA and all seven blob identities by pinned Git tree and directory listing."
+  ],
+  "disposition": "failed",
+  "limitations": [
+    "Gaussian full-vector stochastic order criterion is correct but already implied by Müller Theorem 5; no proof of novel mathematical discovery.",
+    "Publication/move withheld due to unsanitized administrative provenance."
+  ],
+  "residual_risks": [
+    "Previous independent or self-review PASS is not evidence of O novelty; the present assessment reconstructed all three axes.",
+    "Existing public administrative process metadata makes the otherwise completed failed disposition not ready for package relocation."
+  ],
+  "schema_version": 1
+}
