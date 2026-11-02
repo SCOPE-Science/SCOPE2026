@@ -5,8 +5,11 @@
     "status": "not_performed"
   },
   "independent_audit": {
-    "evidence": null,
-    "status": "not_performed"
+    "status": "passed",
+    "evidence": [
+      "INDEPENDENT_AUDIT_2026-10-28.md",
+      "INDEPENDENT_AUDIT_2026-10-28.json"
+    ]
   },
   "lean_verification": {
     "evidence": null,
@@ -16,10 +19,24 @@
 }
 ---
 
-# Reproducibility and limits
+# Independent mathematical audit
 
-Run `python3 verify_colored_paths.py` with Python 3.10 or later (standard library only). The supplied `verification_output.txt` is the output from an execution of exactly this program.
+## correctness
 
-The program compares coefficient formulas against all admissible independent path subsets for each \(m\in\{4,\ldots,16\}\), including empty remainders and all congruence classes of path blocks. It constructs two-color simplicial face chains for \(m=4,5,6,7\), directly projects each chain group to eigenchains for selected fiber transpositions, computes modular ranks at 101 and 103, and compares degree-by-degree homology dimensions and traces. It independently compares fixed-face alternating Euler traces with diagonal character formulas for \(m=4,\ldots,8\) and \(n=2,3,4\).
+PASS
 
-The modular computations do not prove rational homology in untested dimensions or exclude torsion at untested primes. The infinite-family result follows from the exact rational chain splitting, the path-link suspension recurrence, and the published numerical Betti formula; the verifier tests these identities in finite examples. No independent mathematical audit or external certification was conducted.
+For every independent base face σ, the colored augmented chain module is ⊗_{i∈σ}Q^n, with boundary applying color augmentations. The canonical S_n-invariant splitting Q^n=Q u_i⊕U_i divides the full chain into direct subcomplexes labeled by independent T⊆σ. Deleting positions in T vanishes and other deletions give, up to the explicit Koszul sign, the augmented link of T, shifted by |T|. The complement P_m\N[T] is a disjoint union of paths, whose independence complexes have one sphere when each block length is 0 or 2 mod3, zero homology for length 1 mod3. Each T supplies exactly one external irreducible U_n in selected factors, inequivalent for distinct T. The diagonal binomial coefficients are obtained by coefficient comparison to Okura’s already published all-n nonequivariant Betti polynomial (not by mere dimension-matches for a fixed n). Read the actual verify_colored_paths.py; independently enumerated all T and binomial multiplicities for m=4..16. This is a rational representation theorem, not integral or equivariant homotopy.
+
+## originality
+
+PASS
+
+Okura computes the nonequivariant homotopy type and its multiplicities, which are not new. The independent action by S_n on every fiber is a stronger module question: its canonical equivariant chain decomposition and multiplicity-free external-product irreducibles are not implied by published dimensions alone. Fu–Grbić and related polyhedral-product work concerns symmetries of the indexing complex rather than this path-indexed fiber permutation action. Best-of-knowledge PASS remains qualified by general polyhedral-join equivariant decomposition literature.
+
+## value
+
+PASS
+
+Computes complete irreducible rational homology modules for an unbounded path–clique lexicographic family, rather than ordinary ranks, with a sharp multiplicity-free property and exact fixed-point characters. Such symmetry-resolved topology is natural for automorphism actions on graph independence complexes and can be used to determine invariants under any fiber subgroup. The ingredient from Okura is confined to preexisting dimension counts.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

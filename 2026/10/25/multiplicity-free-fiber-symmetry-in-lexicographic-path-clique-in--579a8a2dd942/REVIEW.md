@@ -1,12 +1,21 @@
-# Scientific review
+# Independent mathematical audit
 
-## Correctness — PASS
-The augmented face chain complex is decomposed equivariantly by splitting each fiber permutation module into its invariant line and augmentation kernel. Deletion of an augmentation factor is zero, so each indexed summand is an actual chain subcomplex. The corresponding link is the independence complex of the path remainder after a closed-neighborhood deletion. A three-step suspension recurrence determines every link's single-sphere/contractible dichotomy, including the empty link. Distinct nontrivial standard-module supports yield inequivalent irreducible modules under the full product group. Okura's explicitly stated nonequivariant Betti polynomial is used only to evaluate the already-proved diagonal tensor multiplicities, by polynomial coefficient comparison. Independent small-chain calculations and exact path-link enumeration agree.
+## correctness
 
-## Originality — PASS, with residual risk
-Okura 2021 and 2023 classify ordinary homotopy types and sphere ranks of the same lexicographic path products but do not specify any color-symmetry representations. Carnero Bravo 2023 gives related nonequivariant polyhedral-join theory. Fu–Grbić 2018 concerns the action induced by symmetries of the indexing simplicial complex on polyhedral products, not the independent internal fiber group acting on a polyhedral join, and does not calculate these irreducible constituents. Searches of published mathematical-result records found related augmentation-tensor calculations for other graph constructions, notably generalized Mycielskians, but no covering theorem for these path–clique products. A more general unindexed equivariant polyhedral-join result remains a plausible risk.
+PASS
 
-## Mathematical value — PASS
-The natural product group has \((n!)^m\) elements; the classification nonetheless gives every rational character and every degree-specific irreducible in a uniform, multiplicity-free form for an infinite two-parameter family. Previously known Betti numbers cannot distinguish the different fiber-supported constituents. The diagonal specialization gives closed representation-ring multiplicities, and the full-group invariant subspaces exhibit a sharp period-three obstruction. The scope is a complete natural symmetry invariant, not a new nonequivariant sphere count or a claim of integral equivariant homotopy.
+For every independent base face σ, the colored augmented chain module is ⊗_{i∈σ}Q^n, with boundary applying color augmentations. The canonical S_n-invariant splitting Q^n=Q u_i⊕U_i divides the full chain into direct subcomplexes labeled by independent T⊆σ. Deleting positions in T vanishes and other deletions give, up to the explicit Koszul sign, the augmented link of T, shifted by |T|. The complement P_m\N[T] is a disjoint union of paths, whose independence complexes have one sphere when each block length is 0 or 2 mod3, zero homology for length 1 mod3. Each T supplies exactly one external irreducible U_n in selected factors, inequivalent for distinct T. The diagonal binomial coefficients are obtained by coefficient comparison to Okura’s already published all-n nonequivariant Betti polynomial (not by mere dimension-matches for a fixed n). Read the actual verify_colored_paths.py; independently enumerated all T and binomial multiplicities for m=4..16. This is a rational representation theorem, not integral or equivariant homotopy.
 
-Self-review: passed. Independent audit: not yet performed.
+## originality
+
+PASS
+
+Okura computes the nonequivariant homotopy type and its multiplicities, which are not new. The independent action by S_n on every fiber is a stronger module question: its canonical equivariant chain decomposition and multiplicity-free external-product irreducibles are not implied by published dimensions alone. Fu–Grbić and related polyhedral-product work concerns symmetries of the indexing complex rather than this path-indexed fiber permutation action. Best-of-knowledge PASS remains qualified by general polyhedral-join equivariant decomposition literature.
+
+## value
+
+PASS
+
+Computes complete irreducible rational homology modules for an unbounded path–clique lexicographic family, rather than ordinary ranks, with a sharp multiplicity-free property and exact fixed-point characters. Such symmetry-resolved topology is natural for automorphism actions on graph independence complexes and can be used to determine invariants under any fiber subgroup. The ingredient from Okura is confined to preexisting dimension counts.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
