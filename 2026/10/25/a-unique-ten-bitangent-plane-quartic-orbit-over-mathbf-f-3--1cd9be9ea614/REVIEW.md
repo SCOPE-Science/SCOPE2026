@@ -1,11 +1,21 @@
-# Scientific assessment
+# Independent mathematical audit
 
-**Correctness — PASS.** Projective normalization exhausts 7,174,453 coefficient classes; restriction-square predicates are exact; every form with eight or more bitangents is saved and covered by seven projective orbits under generators of the full order-5,616 group. Six orbits are singular at a displayed rational point. The remaining representative is smooth by an explicit derivative argument, and its 13 rational line incidences give the pencil complement. Included source and certificates reproduce all finite steps.
+## correctness
 
-**Originality — PASS, qualified.** Bergvall (arXiv:2106.13072) discusses marked bitangent structures and point counts. Bergvall (arXiv:2211.12855), especially Theorem 4.1 and its Frobenius table, may already imply portions of the numerical bitangent distribution for \(\mathbf F_3\). The structural claim is the single exact \(\operatorname{PGL}_3(\mathbf F_3)\) orbit and its explicit concurrent nonbitangent complement; these are not displayed in the inspected primary sources. The earlier paper by Oyono–Ritzenthaler (arXiv:1006.0873) supplies line-intersection background but not this classification. Unindexed earlier classifications remain a priority risk; absence of search hits does not prove first discovery.
+PASS
 
-**Value — PASS.** The rigidity threshold, gap at eight and nine, orbit stabilizer and plane-line incidence arrangement answer a natural arithmetic question about odd theta characteristics in a concrete smallest-field setting. This is more than recounting weighted Frobenius masses.
+For exactly F3, independently rebuilt 13 rational projective lines, 15 quartic monomials, 26 scalar-nonzero binary-quadratic squares. Fresh independent C++ enumeration checked every one of 7,174,453 scalar-normalized equations (histogram 0..13 equal to the source counts), yielded all 2,782 forms with >=8 bitangents. A separately coded orbit action verifies the five generators yield all 5,616 PGL3(F3) elements; 2,782 candidates split into seven orbits of sizes 13,39,78,234,312,702,1404, with unique smooth orbit size 312 at 10 rational bitangents. Six other orbit representatives have an explicit singular rational point. Geometric smoothness of F=X^3Z-XZ^3+Y^4-Y^2 Z^2+Z^4 follows from Fx=-Z^3,Fy=Y^3+YZ^2,Fz=X^3+Y^2 Z+Z^3 with no common projective zero. Direct fresh F3 evaluation confirms one rational curve point [1:0:0], and exactly 3 nonbitangent rational lines Y=0,Y+Z=0,Y-Z=0 through it. The finite exhaustive search truly covers exactly the claimed finite field; no extrapolation to larger fields.
 
-**Limitations.** Fixed field and rational bitangent lines only; projective embedded classification, not all arithmetic models; possible numerical overlap with existing Frobenius tables. An independent audit has not been performed.
+## originality
 
-Self-review: passed. Independent audit: not yet performed.
+PASS
+
+The exact fixed-coordinate unique ten-rational-bitangent orbit, stabilizer and exceptional complement-pencil configuration are not stated or implied by the inspected moduli/Frobenius classification; broad Frobenius counts may cover some scalar bitangent-number distributions, so no independent novelty is claimed for the numerical maximum alone. Best-of-knowledge PASS with a historical-table priority risk.
+
+## value
+
+PASS
+
+A complete high-bitangent projective-orbit classification of smooth plane quartics over the very small characteristic-three field, including concrete model, stabilizer and rational incidence geometry, resolves a natural finite geometric extremal problem. The finite field and rational bitangent line concept are intrinsic and substantive; this is more than verifying a random numerical sample.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
