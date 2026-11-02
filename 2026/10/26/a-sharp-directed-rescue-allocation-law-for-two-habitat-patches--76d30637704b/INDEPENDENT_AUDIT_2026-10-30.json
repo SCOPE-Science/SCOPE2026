@@ -1,0 +1,129 @@
+{
+  "audit_date_utc": "2026-10-30",
+  "audited_at_utc": "2026-10-30T20:04:17Z",
+  "axes": {
+    "correctness": {
+      "checked_sources": [
+        "Frozen RESULT.md 9099146319feee579f26426068cd0b637b92976e proof backward equations, constrained optimizer and benchmark",
+        "Frozen two_patch_verification.py 20161f1181026150afcce329282cf0dd9c82d131 inspected",
+        "Independent exact SymPy 3x3 inverse and weighted derivative plus rational witness"
+      ],
+      "rationale": "The transient CTMC has states 10,01,11 and absorbing 00. The 3x3 backward system is (e1+u)t10-u t11=1, (e2+v)t01-vt11=1, (e1+e2)t11-e2 t10-e1 t01=1. The determinant e1 e2(e1+e2+C)>0. Solving exactly yields the three rational t values in RESULT.md; independent symbolic solution reproduced all formulas. Substituting v=C-u and weighting α,β,γ gives T'(u)=[C+α e1-β e2-2u]/[e1e2(C+e1+e2)] and T''=-2/[...]. Strict concavity proves unique projection onto [ell,C-r] including endpoints, positive initial weights, asymmetrical extinctions and singleton feasible range. Completing the square proves exact regret identity. Independently validated rational benchmark e1=1,e2=4,C=2: t11(u=v=1)=8/7, one-way 31/28, state10 optimum u=3/2 gives 121/112. Not extrapolated to n>2 patches.",
+      "residual_risks": [
+        "Only a continuous-time, independent local-extinction, two-patch chain with linear sum of directional colonization rates is covered.",
+        "Do not substitute finite-horizon survival or quasi-stationary lifetime for expected absorption time."
+      ],
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Day & Possingham 1995 §§2.1 and 4 describe separate discrete-step extinction and colonization transition matrices.",
+          "Etienne & Heesterbeek 2001 abstract gives rules prioritizing low-extinction connections, but model-specific proof remains unavailable.",
+          "Ross & Pollett 2010 abstract uses a stochastic Levins model and trades aggregate colonization vs extinction under budget."
+        ],
+        "reasoning": "A broader ecology intervention topic may contain comparable priorities, but inspected statements do not give formula proj[(C+αe1-βe2)/2] and its exact quadratic regret for heterogeneous directed rates.",
+        "searches": [
+          "two patch continuous time stochastic metapopulation directed colonization budget optimal time extinction",
+          "Day Possingham 1995 two patch transition matrix stochastic",
+          "Etienne Heesterbeek 2001 conservation winking patch optimal colonization",
+          "Ross Pollett 2010 optimally managing metapopulations"
+        ]
+      },
+      "checked_sources": [
+        "Day & Possingham (1995), DOI:10.1006/tpbi.1995.1034, author-uploaded sections",
+        "Etienne & Heesterbeek (2001), DOI:10.1086/321986, abstract only",
+        "Ross & Pollett (2010), DOI:10.1016/j.ecolmodel.2010.02.016, abstract",
+        "Resultary query: two patch continuous time stochastic metapopulation directed colonization budget optimal time extinction"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "The 2001 qualitative rule concerns which colonization links to improve, not an exact optimizer under the specified fixed directed-rate sum in the accessible abstract.",
+          "The 1995 transition matrix framework can be used to compute survival times but does not itself state the strict quadratic objective or its threshold."
+        ],
+        "reasoning": "The claimed threshold C>|αe1-βe2| and exact regret require model-specific algebra; no inspected primary theorem dominates it. Unread 2001 text leaves priority qualified.",
+        "searches": [
+          "two patch continuous time stochastic metapopulation directed colonization budget optimal time extinction",
+          "Etienne Heesterbeek 2001 rules thumb colonization optimal connections",
+          "Day Possingham 1995 two patch transition discrete model"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Backward-equation CTMC and fundamental-matrix survival-time formulation are equivalent when the absorbing state 00 is excluded.",
+          "Discrete annual-step patch chains are not the same generator; converting a transition probability to a rate is not an exact algebraic identification without scaling."
+        ],
+        "reasoning": "Common Markov-chain formalism alone does not imply the optimizer; the exact initial-state-dependent quadratic coefficient is derived here.",
+        "searches": [
+          "two patch continuous time stochastic metapopulation directed colonization budget optimal time extinction",
+          "two-patch CTMC expected time extinction directed rescue budget",
+          "absorbing Markov chain potential inverse optimization two directional rates"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "Source gives exact 3-state transient inverse and e1=1,e2=4,C=2 rational benchmark.",
+          "No natural external numerical lookup table for continuum rates; search produced management-rule papers rather than parameterwise optimizer census."
+        ],
+        "reasoning": "The invariant is a full continuous-parameter optimization rule, not a finite census; exact table check is inapplicable as a validation route for all real rates, and search found no matching exact formula.",
+        "searches": [
+          "two patch continuous time stochastic metapopulation directed colonization budget optimal time extinction",
+          "two patch stochastic extinction time optimal rescue allocation formula",
+          "two site directed colonization extinction fundamental matrix exact"
+        ]
+      },
+      "rationale": "Exact direction-specific fixed-total-colonization optimization for finite two-patch CTMC and arbitrary initial distribution is narrower than established stochastic-patch conservation but not directly supplied by inspected primary statements. Day–Possingham (1995) has state-space matrices and two-patch examples for discrete time rather than this continuous-time budget. Etienne–Heesterbeek (2001) reports qualitative colonization/extinction prioritization rules, which could be close but its complete text could not be accessed and Oxford VPN was disconnected. Ross–Pollett (2009/2010) optimize homogeneous Levins-style colonization/extinction budgets. This merits qualified best-of-knowledge O, not a claim of definitive priority.",
+      "residual_risks": [
+        "Etienne & Heesterbeek (2001) is a highly plausible coverage source but full primary text inaccessible; Oxford returned vpn_disconnected, job dfb32b10dae52cd93c81c3ed74b59c86. No bypass was attempted.",
+        "General Markov-chain optimization could make this an immediate consequence of an earlier specialized two-site theorem not located in searched sources."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "NOT_COVERING the exact continuous-time fixed directional-rate optimization: model transitions explicitly occur in separate discrete breeding phases",
+          "evidence": "Day & Possingham (1995) transition matrix and two-patch formulation",
+          "identifier_or_url": "https://doi.org/10.1006/tpbi.1995.1034",
+          "material_read": "Author-uploaded open full-text transcription, model §§2.1–2.2, four-state/two-patch examples, discrete colonization and extinction matrices, discussion §§3–4",
+          "method": "ResearchGate author-uploaded complete-text transcription, sections actually read",
+          "title": "A Stochastic Metapopulation Model with Variability in Patch Size and Position",
+          "trigger": "Original patch-state matrix theory with two-patch example"
+        },
+        {
+          "assessment": "MATERIAL PRIORITY RISK: do not classify full article as noncovering",
+          "evidence": "Etienne & Heesterbeek (2001), Am. Nat. 158,389–407, DOI above",
+          "identifier_or_url": "https://doi.org/10.1086/321986",
+          "material_read": "Published abstract and bibliographic details only; full body not available",
+          "method": "PubMed PMID 18707335 and university repository abstract; authorized Oxford attempt returned vpn_disconnected",
+          "title": "Rules of Thumb for Conservation of Metapopulations Based on a Stochastic Winking-Patch Model",
+          "trigger": "Closest conservation optimal-colonization prioritization"
+        },
+        {
+          "assessment": "Uses simple stochastic Levins model to trade aggregate colonization and extinction effort; no exact two-direction optimizer in available abstract",
+          "evidence": "Ross & Pollett (2010), Ecol. Model. 221,2515–2520",
+          "identifier_or_url": "https://doi.org/10.1016/j.ecolmodel.2010.02.016",
+          "material_read": "University repository abstract and bibliographic summary, not full journal PDF",
+          "method": "Adelaide institutional repository",
+          "title": "Simple rules for ranking and optimally managing metapopulations",
+          "trigger": "Budget-constrained metapopulation persistence optimization"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "checked_sources": [
+        "Frozen RESULT.md exact CTMC model, boundary tests and loss formula",
+        "Day–Possingham and Etienne–Heesterbeek context on patch management"
+      ],
+      "rationale": "The natural conservation-control question is how to allocate a fixed directional rescue budget to maximize a metapopulation’s time to extinction. The exact optimizer, threshold for abandoning one direction, dependence on the initial distribution and explicit regret are mathematically interpretable, potentially useful for small-patch models, and not a mere table lookup. The four-state chain is intentionally minimal but gives a full, nontrivial quantitative policy boundary.",
+      "residual_risks": [
+        "May be elementary to experts in small Markov-chain control; scientific significance is localized to the natural two-patch benchmark and not asserted for spatial networks."
+      ],
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "limitations": [
+    "Source 2001 full-text retrieval failed via disconnected institutional VPN; this affects priority confidence, not correctness.",
+    "Only mean absorption time and additive colonization-rate budget, not discrete time or stochastic spatial landscapes."
+  ],
+  "schema_version": 1
+}

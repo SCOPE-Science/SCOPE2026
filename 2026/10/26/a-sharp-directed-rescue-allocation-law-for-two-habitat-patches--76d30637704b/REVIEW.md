@@ -1,12 +1,21 @@
-# Scientific review
+# Independent mathematical audit
 
-## Correctness — PASS
-The four-state continuous-time model has an absorbing empty state. Solving its three backward equations yields a positive determinant, explicit mean absorption times and the strictly concave quadratic allocation objective. Differentiation establishes all endpoint and interior cases, including the exactly equal split from full initial occupancy. The separately implemented standalone verifier checked 5,000 seeded admissible instances against direct linear-system solutions, constrained allocations and an exact rational example. The proof, not random tests, establishes the universal claim.
+## correctness
 
-## Originality — PASS with residual historical risk
-Day and Possingham (1995) give a more general discrete-time patch-occupancy transition system and are credited for that foundational model. Ross and Pollett (2009) study homogeneous colonization-versus-extinction management; their full accessible text expressly leaves targeted patch-specific changes for later work. The exact continuous-time directed-budget optimum with arbitrary initial-state mixture was not identified in material read or topical mathematical-record searches. However, Etienne and Heesterbeek (2001) is a directly relevant source whose full text could not be accessed; it may contain a covering special case. Likewise, existing general Markov-control work could subsume the theorem. This originality assessment is provisional and does not certify historical priority.
+PASS
 
-## Value — PASS
-The object, objective and rate-budget constraint are ecological rather than arbitrary arithmetic choices. The sharp switch between all-one-direction and split interventions, the dependence on initial occupancy, the robust exact equal-split law when both patches are initially occupied, and the quadratic penalty for misallocation give a complete, interpretable two-patch management comparison. The result does not claim to guide choices for finite-horizon risk, larger patch networks or empirically unverified costs.
+The transient CTMC has states 10,01,11 and absorbing 00. The 3x3 backward system is (e1+u)t10-u t11=1, (e2+v)t01-vt11=1, (e1+e2)t11-e2 t10-e1 t01=1. The determinant e1 e2(e1+e2+C)>0. Solving exactly yields the three rational t values in RESULT.md; independent symbolic solution reproduced all formulas. Substituting v=C-u and weighting α,β,γ gives T'(u)=[C+α e1-β e2-2u]/[e1e2(C+e1+e2)] and T''=-2/[...]. Strict concavity proves unique projection onto [ell,C-r] including endpoints, positive initial weights, asymmetrical extinctions and singleton feasible range. Completing the square proves exact regret identity. Independently validated rational benchmark e1=1,e2=4,C=2: t11(u=v=1)=8/7, one-way 31/28, state10 optimum u=3/2 gives 121/112. Not extrapolated to n>2 patches.
 
-Self-review: passed. Independent audit: not yet performed.
+## originality
+
+PASS
+
+Exact direction-specific fixed-total-colonization optimization for finite two-patch CTMC and arbitrary initial distribution is narrower than established stochastic-patch conservation but not directly supplied by inspected primary statements. Day–Possingham (1995) has state-space matrices and two-patch examples for discrete time rather than this continuous-time budget. Etienne–Heesterbeek (2001) reports qualitative colonization/extinction prioritization rules, which could be close but its complete text could not be accessed and Oxford VPN was disconnected. Ross–Pollett (2009/2010) optimize homogeneous Levins-style colonization/extinction budgets. This merits qualified best-of-knowledge O, not a claim of definitive priority.
+
+## value
+
+PASS
+
+The natural conservation-control question is how to allocate a fixed directional rescue budget to maximize a metapopulation’s time to extinction. The exact optimizer, threshold for abandoning one direction, dependence on the initial distribution and explicit regret are mathematically interpretable, potentially useful for small-patch models, and not a mere table lookup. The four-state chain is intentionally minimal but gives a full, nontrivial quantitative policy boundary.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
