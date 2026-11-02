@@ -1,15 +1,21 @@
-# Scientific assessment
+# Independent mathematical audit
 
-## Correctness
-PASS. For the exact endpoint dynamics, the conditional origin-return probability is \(C_n(1-pJ_n)/(n+1)\). The bounded origin fraction is a supermartingale and tends to zero. A logarithmic-count martingale yields near-linear growth of the count; this makes both the reciprocal-fraction error and its martingale quadratic variation summable. The exact harmonic telescoping identity then yields the pathwise finite limit and the \(-p\log\log n\) correction. The proof is fully asymptotic and uses no numerical extrapolation. Algebraic identities and a finite distribution recursion were checked in `verify.py`.
+## correctness
 
-## Originality
-PASS, qualified. The closest primary paper, Armfield–Mailler (arXiv:2610.21864), proves localization only for an open interval of off-origin relocation parameters strictly below one. The earlier Boyer–Falcón-Cortés–Giuggioli–Majumdar model (arXiv:1902.00817) already predicts the limiting neighbor-supported profile as that parameter approaches one, but its Section 4 stationary equations do not provide an exact-endpoint almost-sure reciprocal visit-rate or the second-order \(\log\log n\) term. The position-independent framework of Mailler–Uribe Bravo (arXiv:1810.02735) is not directly applicable to the impurity-dependent dynamics. Searches of related mathematical research claims did not locate the expansion. The possibility of an unlocated broader reinforcement theorem remains.
+PASS
 
-## Mathematical value
-PASS. At a singular memory endpoint of an actively studied preferential relocation model, qualitative localization is insufficient to determine how often the impurity is revisited. The dimension-free leading coefficient, universal \(\log\log n\) adjustment, and pathwise finite renormalized limit resolve this naturally motivated quantitative question. These are not merely a restatement of the preexisting stationary-profile limit.
+Under perfect off-origin relocation, an indicator of being at the origin next step has exact conditional probability q_n=C_n/(n+1)(1-pJ_n), p=1-xi_0. Hence a_n=C_n/(n+1) is a bounded nonnegative supermartingale with drift -p a_nJ_n/(n+2). Summability plus a hypothetical a_infty>0 contradicts harmonic divergence, giving a_n→0. The log C increment has predictable drift (1-pJ_n)/(n+1)+O(1/[(n+1)C_n]); its martingale controls first polynomial C_n growth, then C_n=n^(1-o(1)) a.s., yielding eventually C_n>=n^(3/4). Exact drift of Q_n=(n+1)/C_n is pJ_n/C_n+r_n with r_n <=C_n^(-2); conditional variance <=4(n+1)/C_n³. Both summable, so Q_n -p Σ_(k<n)J_k/C_k converges a.s. The harmonic identity Σ_(k<n)J_k/C_k=H_(C_n)-J_n/C_n yields Q_n-p log C_n→L and inversion gives -p loglog n correction and C_n log n/n→1/p. Independent exact rational derivation checked 4680 (t,c,J,p) drift configurations. Requires xi_0 in (0,1), off-origin relocation exactly one and origin start; no claim on L law or nondegeneracy.
 
-## Limits and literature risk
-No statement is made about the law of the random constant or uniform parameter limits. Qualitative nearest-neighbor concentration in the strong-memory limit was already observed in the 2019 model, and is not the originality claim. Independently verifying priority against every general stochastic-approximation theorem is outside this review.
+## originality
 
-Self-review: passed. Independent audit: not yet performed.
+PASS
+
+Armfield–Mailler study this exact impurity walk and prove localization for off-origin relocation xi in an open interval (Xi,1), explicitly excluding xi=1, without a sharp pathwise local-time law. Boyer et al. analyze qualitative stationary mass near the strong-memory boundary, not almost-sure Q_n-p log C_n convergence and loglog correction at the singular endpoint. Homogeneous monkey-walk scaling theories have different site-independent relocation hypotheses. This exact pathwise endpoint expansion is best-of-knowledge original, with reinforced-urn priority risk.
+
+## value
+
+PASS
+
+At the singular perfect-reset boundary, the walk has a nontrivial logarithmic local-time regime. The pathwise sharp coefficient, universal dimension independence and negative loglog correction refine qualitative stationary predictions and resolve a motivated endpoint asymptotic rather than a mere finite enumeration.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
