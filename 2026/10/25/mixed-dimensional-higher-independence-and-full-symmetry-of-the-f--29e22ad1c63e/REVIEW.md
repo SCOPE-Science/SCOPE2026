@@ -1,15 +1,21 @@
-# Scientific review
+# Independent mathematical audit
 
-## Correctness — PASS
-Exact exhaustive enumeration of all 65,536 possible vertex masks gives 3,054 nonempty faces. The supplied `verify.py` checks the full 13,584-incidence acyclicity certificate of 1,514 sequential Morse matches; every nonstandard integral pivot is actually \(\pm1\). It computes the complete critical integral boundary matrices, their primitive rank-one and rank-four images (including a unimodular determinant \(-1\)), and independent mod-two simplicial ranks. The resulting reduced CW model has a primitive three/four-cell cancellation and four primitive four/five-cell cancellations, giving the **homotopy** wedge rather than merely matching Betti numbers. It verifies a 92-term integral four-cycle and all 384 signed automorphism actions and Lefschetz traces. The precise mathematical limitations are stated in `RESULT.md`.
+## correctness
 
-## Originality — PASS (residual literature-access risk)
-The closest complete primary treatment, Deshpande–Singh (arXiv:2001.05448), defines the same higher-independence object but classifies graph families that do not include the four-cube. Its open grid question concerns **nonperiodic** rectangular grid graphs; the four-cube is a periodic grid. Previously indexed ordinary four-cube independence, total cut and edge-matching complexes have different face conditions; neither their numerical results nor their proofs subsume this result. Indexed aliases, character formulas and previously recorded related claims were compared. Salvetti's early d-independent paper was located by DOI but its full text remained inaccessible, so equivalent coverage there or elsewhere is not ruled out. Search absence alone is not a novelty theorem.
+PASS
 
-## Value — PASS
-The four-cube is a canonical symmetric graph. Its first higher-independence complex provides an exact, nonpure and genuinely mixed-dimensional **integral homotopy classification** together with the whole rational hyperoctahedral symmetry character. The distinct invariant dimensions in degrees three and four give meaningful additional structure beyond a face count or a previously known ordinary independence result. The claim is intentionally restricted to this natural graph and one higher-independence index.
+For Q4 with sixteen bit-vector vertices, Ind2 consists of masks with every selected vertex having at most one selected neighbor. Independently enumerated all 65536 masks; 3055 faces including empty, with fvector (16,120,464,964,960,440,80,10) and reduced Euler -15. Independently reconstructed the sequential vertex-toggle matching: 1514 pairs, critical faces 17 three-cells, six four-cells and four five-cells; exact topological sort checked all 13584 directed incidences and found no cycles. Independently performed all signed integral Morse pair cancellations and recovered the exact two degree-four differentials ±([49158]-[49162]), the four critical five-cell boundaries, the rank-four unimodular minor -1, and d²=0, giving H3=Z^16,H4=Z and no torsion. The Morse CW has a primitive 3/4 cancellation and primitive 4/5 cancellation, with residual π4(wedge S3) components absorbed by changing sphere generators; hence an actual wedge of 16 S3 and one S4, not merely matching homology. Independently lifted the primitive 92-term simplicial four-cycle, verified its entire oriented simplicial boundary vanishes and computed its integral action for all 384 group elements; each agrees with sgn(S4), independently of the checked source script. Independently re-enumerated the orientation-weighted Lefschetz trace for all 384 B4 automorphisms: combining this with H4 sign recovered the asserted V⊕W degree-three character exactly. The claim concerns only Q4,r=2 and rational modules, not an infinite hypercube family.
 
-## Closest sources and limitations
-See Zaker, arXiv:1507.07194 (induced-degree bound, not complex topology); Salvetti, DOI:10.1007/978-3-319-20155-9_22 (abstract only); Deshpande–Singh, arXiv:2001.05448 (full text inspected); and Abdelmalek et al., arXiv:2106.10863 (chordal hypotheses inapplicable). Independent scientific verification has not been performed; an unindexed equivalent result remains possible.
+## originality
 
-Self-review: passed. Independent audit: not yet performed.
+PASS
+
+Existing higher-independence theory defines Ind2 and classifies paths, cycles, complete multipartite, fully whiskered graphs and trees; its nonperiodic rectangular-grid question does not cover Q4=C4□C4 (a periodic toroidal grid). A previously published ordinary Ind1(Q4) seven-sphere wedge and other 4-cube cut/Čech complexes use different face predicates. The inspected primary family theorems do not imply this exact mixed-degree integral homotopy or B4 representation. Older Salvetti d-independence work was identified by DOI but only abstract could be inspected; that priority risk remains.
+
+## value
+
+PASS
+
+The four-cube is a canonical highly symmetric sixteen-vertex graph. Its Ind2 complex is nonpure and has a genuinely mixed-dimensional integral wedge; the full 384-element rational B4 character and invariant subspace distinguish it from ordinary independence topology. An exact, fully computed homotopy and equivariant invariant for this natural small periodic grid can serve as a reusable benchmark without claiming an entire family formula.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
