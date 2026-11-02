@@ -1,0 +1,184 @@
+{
+  "audit_date_utc": "2026-10-28",
+  "audited_at_utc": "2026-10-28T21:43:06Z",
+  "axes": {
+    "correctness": {
+      "checked_sources": [
+        "Frozen RESULT.md steps 1-6 (blob c979a9d80b3283bd01a7923200a29afe76d1dc02)",
+        "Frozen phylogenetic_transfer_check.py (blob db92b9736a2407b9aa793b52d130b62fefaaadf1) inspected; not relied on as proof",
+        "Independent exact arithmetic: independent_phylogenetic_check.py, 186 small-census comparisons, 18 six-individual labeled-sample expectations"
+      ],
+      "rationale": "For finite strictly-positive-edge rooted ultrametric trees, N labeled individuals of strictly positive species abundances, uniform size-m sampling without replacement and legal a_i>=a_j+2 transfers, each edge/clade with mass u contributes l*f_m(u), f_m(u)=1-C(N-u,m)/C(N,m). On horizontal cuts, sum of these indicators integrates to expected rooted Faith PD. Increment f_m(u+1)-f_m(u)=C(N-u-1,m-1)/C(N,m) is nonincreasing, proving the star-like case (cuts one block or all singletons). For two individuals E=H+[sum_{r<s}a_r a_s d_rs]/[N(N-1)] and its transfer difference has numerator (a_i-a_j-1)d_ij+sum_{k not i,j}a_k(d_jk-d_ik). A nonstar ultrametric has an outgroup i and closer pair j,k, so a_i=3,a_j=1,a_k=M and all others 1 makes the numerator strictly negative for sufficiently large integer M; at m=N-1, the formerly unique j tip stops being omissible, increasing expectation by its positive terminal pendant length divided by N. For N<=5, the only three-species transfer is (3,1,1)->(2,2,1), and every possible clade partition has nonnegative gain; two-species cases are star-like and >=4 species cannot admit a two-unit donor/recipient gap. Thus six is sharp. For 3 tips with a=(3,1,2)->(2,2,2) and cherry length ratio eps, the m=1..6 differences are [0,(2eps-1)/15,(5eps-2)/20,(4eps-1)/15,eps/6,0]; independent labeled-subset enumeration verified eps=1/7,1/3,9/10, including [0,-1/45,-1/60,1/45,1/18,0] at eps=1/3, and independently enumerated all 186 small-census partition comparisons. Recomputed Git tree and inspected the actual checker source; the infinite theorem is analytic, not inferred from finite checks.",
+      "residual_risks": [
+        "No proof of analogous claims for nonultrametric trees, unrooted diversity or nonuniform sampling; none claimed.",
+        "No all-sample-depth sign profile classification on an arbitrary nonstar tree is proved; only m=2 versus m=N-1."
+      ],
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Nipperess-Matsen (2013) complete model of rarefaction means/variances is broader in computing E[PD] for a fixed profile, but supplies no general transfer-order theorem; Discussion explicitly raises sensitivity to tree shape and distribution of individuals as future work (, lines 230-241).",
+          "Chao et al. (2015), equations (2),(5) and Table 1, extend accumulation/estimation and sample coverage at fixed assemblage rather than an order comparison of different abundance vectors (, ).",
+          "Cadotte et al. (2010) develops abundance-weighted evenness and hierarchical clade imbalance but full technical text is inaccessible, so noncoverage is not asserted ()."
+        ],
+        "reasoning": "General branch formulas imply computability of each transfer difference but do not logically provide the quantified star iff, simultaneous sign reversal, or global N=6 obstruction without further argument. The only extremely close old work whose entire technical statement could not be compared remains an explicit risk.",
+        "searches": [
+          "phylogenetic diversity rarefaction Schur concavity upper tree dependence distributions",
+          "phylogenetic diversity rarefaction tree topology abundance pattern star phylogeny evenness Robin Hood transfer",
+          "Nipperess & Matsen, The mean and variance of phylogenetic diversity under rarefaction (2013), DOI 10.1111/2041-210X.12042, full HTML mathematical sections/Discussion, https://besjournals.onlinelibrary.wiley.com/doi/full/10.1111/2041-210X.12042",
+          "Chao et al., Rarefaction and extrapolation of phylogenetic diversity (2015), DOI 10.1111/2041-210X.12247, full HTML formulas/Methods/Discussion, https://besjournals.onlinelibrary.wiley.com/doi/full/10.1111/2041-210X.12247",
+          "Nipperess, The Rarefaction of Phylogenetic Diversity: Formulation, Extension and Application (2016), DOI 10.1007/978-3-319-22461-9_10, full OA chapter HTML, https://link.springer.com/chapter/10.1007/978-3-319-22461-9_10",
+          "Chao, Chiu & Jost, Phylogenetic diversity measures based on Hill numbers (2010), https://pmc.ncbi.nlm.nih.gov/articles/PMC2982003/, accessible methodological text on descendant branch abundance and Rao quadratic entropy",
+          "Cadotte et al., Phylogenetic diversity metrics for ecological communities: integrating species richness, abundance and evolutionary history (2010), DOI 10.1111/j.1461-0248.2009.01405.x, abstract and reference/supporting-information list only; full technical text unavailable",
+          "Resultary published research search: Expected rooted Faith phylogenetic diversity under rarefaction of a fixed ultrametric tree, equalizing one individual’s abundance between species, star-tree characterization, Schur concavity, crossover sample sizes, smallest six-individual counterexample"
+        ]
+      },
+      "checked_sources": [
+        "Nipperess & Matsen, The mean and variance of phylogenetic diversity under rarefaction (2013), DOI 10.1111/2041-210X.12042, full HTML mathematical sections/Discussion, https://besjournals.onlinelibrary.wiley.com/doi/full/10.1111/2041-210X.12042",
+        "Chao et al., Rarefaction and extrapolation of phylogenetic diversity (2015), DOI 10.1111/2041-210X.12247, full HTML formulas/Methods/Discussion, https://besjournals.onlinelibrary.wiley.com/doi/full/10.1111/2041-210X.12247",
+        "Nipperess, The Rarefaction of Phylogenetic Diversity: Formulation, Extension and Application (2016), DOI 10.1007/978-3-319-22461-9_10, full OA chapter HTML, https://link.springer.com/chapter/10.1007/978-3-319-22461-9_10",
+        "Cadotte et al., Phylogenetic diversity metrics for ecological communities: integrating species richness, abundance and evolutionary history (2010), DOI 10.1111/j.1461-0248.2009.01405.x, abstract and reference/supporting-information list only; full technical text unavailable",
+        "Chao, Chiu & Jost, Phylogenetic diversity measures based on Hill numbers (2010), https://pmc.ncbi.nlm.nih.gov/articles/PMC2982003/, accessible methodological text on descendant branch abundance and Rao quadratic entropy",
+        "O’Dwyer, Kembel & Green, Phylogenetic diversity theory sheds light on the structure of microbial communities (2012), DOI 10.1371/journal.pcbi.1002832, bibliographic/abstract and comparison through Nipperess-Matsen 2013 discussion; PMC full text blocked by browser verification",
+        "Resultary published research search: Expected rooted Faith phylogenetic diversity under rarefaction of a fixed ultrametric tree, equalizing one individual’s abundance between species, star-tree characterization, Schur concavity, crossover sample sizes, smallest six-individual counterexample",
+        "Resultary published research search: Phylogenetic diversity rarefaction under abundance transfers majorization nonmonotonicity, rooted ultrametric trees and two-tip distances"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "The previously known expectation E=Sum(length[branch]*(1-binomial(N-u,m)/binomial(N,m))) is used as a premise here, not a claimed discovery (Nipperess 2016 Eq. (6), ).",
+          "At m=2 the prior Rao connection gives E=H+sum_{r<s}(a_r a_s d_rs)/(N(N-1)); under a transfer i->j the numerator change is (a_i-a_j-1)d_ij+sum_{k ne i,j}a_k(d_jk-d_ik).",
+          "The new nonstar construction uses a third-species abundance M to make this negative and an omitted-singleton argument at N-1 to make the same transfer strictly positive; the prior fixed-profile formulas do not assert this sign comparison.",
+          "Resultary hits on covariance of sample richness/Gini-Simpson and missing-mass discovery are different random variables and do not imply this fixed-tree between-profile order theorem."
+        ],
+        "reasoning": "Implication check separates a known starting formula/two-draw specialization from the unproved-in-prior implication of simultaneous sign reversal. More general sampling theory could imply the calculation after nontrivial specialization, but no inspected theorem subsumes the all-tree classification and sharp minimal sample size.",
+        "searches": [
+          "Rao quadratic entropy Schur concavity phylogenetic ultrametric distance matrix majorization species abundances",
+          "phylogenetic diversity rarefaction abundance equalization can decrease expected PD sample size counterexample",
+          "Nipperess & Matsen, The mean and variance of phylogenetic diversity under rarefaction (2013), DOI 10.1111/2041-210X.12042, full HTML mathematical sections/Discussion, https://besjournals.onlinelibrary.wiley.com/doi/full/10.1111/2041-210X.12042",
+          "Nipperess, The Rarefaction of Phylogenetic Diversity: Formulation, Extension and Application (2016), DOI 10.1007/978-3-319-22461-9_10, full OA chapter HTML, https://link.springer.com/chapter/10.1007/978-3-319-22461-9_10",
+          "Chao, Chiu & Jost, Phylogenetic diversity measures based on Hill numbers (2010), https://pmc.ncbi.nlm.nih.gov/articles/PMC2982003/, accessible methodological text on descendant branch abundance and Rao quadratic entropy",
+          "Chao et al., Rarefaction and extrapolation of phylogenetic diversity (2015), DOI 10.1111/2041-210X.12247, full HTML formulas/Methods/Discussion, https://besjournals.onlinelibrary.wiley.com/doi/full/10.1111/2041-210X.12247",
+          "O’Dwyer, Kembel & Green, Phylogenetic diversity theory sheds light on the structure of microbial communities (2012), DOI 10.1371/journal.pcbi.1002832, bibliographic/abstract and comparison through Nipperess-Matsen 2013 discussion; PMC full text blocked by browser verification",
+          "Resultary published research search: Phylogenetic diversity rarefaction under abundance transfers majorization nonmonotonicity, rooted ultrametric trees and two-tip distances"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Nipperess 2016, OA chapter Extension and Phylogenetic Evenness, Eq. (9), explicitly defines delta PD=E[PD_2]-E[PD_1] and relates it to Rao average patristic distance (, ).",
+          "Nipperess-Matsen 2013, rooted diversity Eq. (3) and star specialization (): the fixed-profile expectation and the star rarefaction identity are already covered.",
+          "The current statement quantifies over every legal donor-recipient transfer, population and sampling depth on a fixed ultrametric tree, then classifies all tree shapes; these quantified claims are not in the inspected prior derivations."
+        ],
+        "reasoning": "A two-draw transfer difference can be expressed as a perturbation of the known Rao distance quadratic form, which by itself is not a proof of the exact all-depth characterization or finite census cutoff. Equal pairwise distances make the branch layers singleton-or-all, while a nonstar provides a special three-tip asymmetry and a distinct penultimate-draw phenomenon.",
+        "searches": [
+          "\"phylogenetic diversity\" \"majorization\" \"abundance\" rarefaction transfer balancing",
+          "phylogenetic diversity rarefaction schur-concave ultrametric tree star balancing abundances",
+          "\"Rao quadratic entropy\" \"Schur concavity\" distances not uniform",
+          "Nipperess, The Rarefaction of Phylogenetic Diversity: Formulation, Extension and Application (2016), DOI 10.1007/978-3-319-22461-9_10, full OA chapter HTML, https://link.springer.com/chapter/10.1007/978-3-319-22461-9_10",
+          "Nipperess & Matsen, The mean and variance of phylogenetic diversity under rarefaction (2013), DOI 10.1111/2041-210X.12042, full HTML mathematical sections/Discussion, https://besjournals.onlinelibrary.wiley.com/doi/full/10.1111/2041-210X.12042",
+          "Resultary published research search: Phylogenetic diversity rarefaction under abundance transfers majorization nonmonotonicity, rooted ultrametric trees and two-tip distances"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "Primary technical articles present rarefaction formulas and empirical examples, not an exhaustive table of all N<=5 admissible transfer/cut cases or the (3,1,2)->(2,2,2) affine formula.",
+          "Independent exact labeled-subset enumeration obtained the six stated epsilon=1/3 differences (0,-1/45,-1/60,1/45,1/18,0) and 186 small-census comparisons (local independent_phylogenetic_check.py)."
+        ],
+        "reasoning": "Neither the analytic exact small-census obstruction nor its six-individual witness was found as an indexed table or special-case database claim. This negative observation is not a novelty proof; the contribution is the general classification and analytic sharpness argument.",
+        "searches": [
+          "\"rarefaction expected phylogenetic diversity balancing three species six individuals reverse sample depth\"",
+          "\"ultrametric tree rooted phylogenetic diversity abundance equalization decreases mean when sampling small but increases near complete census\"",
+          "Chao et al., Rarefaction and extrapolation of phylogenetic diversity (2015), DOI 10.1111/2041-210X.12247, full HTML formulas/Methods/Discussion, https://besjournals.onlinelibrary.wiley.com/doi/full/10.1111/2041-210X.12247",
+          "Nipperess & Matsen, The mean and variance of phylogenetic diversity under rarefaction (2013), DOI 10.1111/2041-210X.12042, full HTML mathematical sections/Discussion, https://besjournals.onlinelibrary.wiley.com/doi/full/10.1111/2041-210X.12042",
+          "Resultary published research search: Expected rooted Faith phylogenetic diversity under rarefaction of a fixed ultrametric tree, equalizing one individual’s abundance between species, star-tree characterization, Schur concavity, crossover sample sizes, smallest six-individual counterexample"
+        ]
+      },
+      "rationale": "Best-of-knowledge PASS for the joint quantified characterization. Nipperess & Matsen (2013) already derive exact hypergeometric edge expectations and their star specialization; Nipperess (2016) already identifies the two-draw phylogenetic-evenness/Rao pairwise-distance connection; Chao et al. (2015) supply further fixed-profile accumulation/estimation. These are credited foundations, not claimed as new. Comparing the actual quantified propositions and deductions in their accessible technical text did not show a star iff all-population abundance-transfer theorem, every-nonstar negative-at-two/positive-at-N-1 witness, or the exact N=6 sharp transfer boundary. Cadotte et al. (2010) bears directly on clade abundance imbalance but could be read only in abstract, and its full technical content is not excluded. The finding is qualified by that and by potentially indexed older equivalent formulations, not a novelty certificate.",
+      "residual_risks": [
+        "Cadotte et al. (2010) has strong same-object relevance, but only abstract and bibliographic material accessible. An authorized Oxford retrieval returned VPN disconnected; no full-document noncoverage is asserted.",
+        "An older phrasing in Rao quadratic entropy/majorization, clade imbalance, or urn-model literature could give an equivalent transfer-order characterization; these search negatives are not a novelty certificate.",
+        "2012 O’Dwyer et al. microbial sampling paper was not inspected in full; its accessible abstract and the 2013 comparison indicate other sampling models, but buried finite-population results are not excluded."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Establishes the baseline exact hypergeometric mean/variance but not the stated star iff and sharp transfer-census bound in inspected text.",
+          "evidence": [
+            ": lines 133-172; : lines 233-241; DOI 10.1111/2041-210X.12042."
+          ],
+          "identifier_or_url": "https://besjournals.onlinelibrary.wiley.com/doi/full/10.1111/2041-210X.12042",
+          "material_read": "Accessible full article HTML: formal Definitions, rooted snip expectation and covariance equations (1)-(3), explicit star specialization, applied examples, Discussion, future work, and Appendix overview.",
+          "method": "Read primary technical HTML sections and contrast the quantifiers of E[PD_m] within one census against all legal transfer comparisons.",
+          "title": "The mean and variance of phylogenetic diversity under rarefaction",
+          "trigger": "Same rarefaction sampling model, exact rooted branch formula, possible dominating theorem."
+        },
+        {
+          "assessment": "Provides broader accumulation/estimator tools but no inspected all-transfer star characterization, two-depth reversal, or N=6 exact obstruction.",
+          "evidence": [
+            ": lines 149-220; : lines 219-267; DOI 10.1111/2041-210X.12247."
+          ],
+          "identifier_or_url": "https://besjournals.onlinelibrary.wiley.com/doi/full/10.1111/2041-210X.12247",
+          "material_read": "Accessible full primary article HTML: Summary, definitions of descendant branch abundances, theoretical expected PD and rarefaction, estimators, extrapolation and Discussion.",
+          "method": "Compared its eqn (2), eqn (5), Table 1 and Discussion to a fixed N balancing transfer on an ultrametric tree.",
+          "title": "Rarefaction and extrapolation of phylogenetic diversity",
+          "trigger": "Broader expected phylogenetic diversity accumulation and finite-sampling estimation formulas."
+        },
+        {
+          "assessment": "Prior art for the distance formula and ecological motivation; the present theorem adds the all-depth shape characterization and sharp N=6 threshold.",
+          "evidence": [
+            ": lines 130-155;  and : phylogenetic-evenness discussion."
+          ],
+          "identifier_or_url": "https://link.springer.com/chapter/10.1007/978-3-319-22461-9_10",
+          "material_read": "Open-access full chapter HTML: Introduction, expectation equation (6), Extension and evenness equations (8)-(10), applications and chapter discussion.",
+          "method": "Matched two-draw distance entropy to the submitted Equation (1), then tested whether the chapter quantifies over changes in abundance distributions.",
+          "title": "The Rarefaction of Phylogenetic Diversity: Formulation, Extension and Application",
+          "trigger": "Closest alternative formulation: early rarefaction slope, phylogenetic evenness and Rao pairwise distances."
+        },
+        {
+          "assessment": "Relevant plausible overlap not excluded by available text. The abstract describes different abundance-weighted indices but does not resolve whether an internal equivalent transfer theorem exists.",
+          "evidence": [
+            ", , ; DOI 10.1111/j.1461-0248.2009.01405.x."
+          ],
+          "identifier_or_url": "https://doi.org/10.1111/j.1461-0248.2009.01405.x",
+          "material_read": "Public abstract, publication record, supporting-information titles, and cited contextual descriptions only. No full technical text was read.",
+          "method": "Searched arXiv and lawful open-access links, reviewed Wiley and PubMed publication/abstract, then requested authorized institutional retrieval; institutional access was disconnected and not bypassed.",
+          "title": "Phylogenetic diversity metrics for ecological communities: integrating species richness, abundance and evolutionary history",
+          "trigger": "Directly relevant older abundance-based phylogenetic evenness and hierarchical clade imbalance; potentially broader priority."
+        },
+        {
+          "assessment": "Relevant normalization and branch-layer antecedent, but different functional and no verified theorem directly covering the target iff/threshold.",
+          "evidence": [
+            ", ."
+          ],
+          "identifier_or_url": "https://pmc.ncbi.nlm.nih.gov/articles/PMC2982003/",
+          "material_read": "Accessible indexed methodology excerpt on branch descendant abundances and the Hill/Rao relationship; entire article not reviewed.",
+          "method": "Compared the target statistic (random-sample expected rooted Faith PD under transfer) against deterministic abundance-weighted Hill/Rao diversity on the same tree.",
+          "title": "Phylogenetic diversity measures based on Hill numbers",
+          "trigger": "Related breadth: descendants aggregated by ultrametric layers; order-two Rao entropy."
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "checked_sources": [
+        "Frozen RESULT.md theorem and six-step proof",
+        "Nipperess-Matsen 2013/Chao et al. 2015 rooted PD rarefaction motivation",
+        "Nipperess 2016 phylogenetic evenness and Rao quadratic entropy context"
+      ],
+      "rationale": "This addresses the interpretation of greater abundance evenness in phylogenetic rarefaction: species-richness expectation is transfer-monotone, but the amount of sampled evolutionary history depends on relatedness. The precise natural-object boundary is all-equal-tip-distance stars vs every nonstar ultrametric. The two opposing sampling-depth effects under the SAME balancing transfer and the exact N=6/three-species minimal obstruction are reusable structural facts, not a trivial reparametrization, arbitrary numerical slice, or known-table recomputation. The proof provides an explanatory clade aggregation mechanism and minimal witness. It does not assert ecology causation, unknown trees, or all sampling designs.",
+      "residual_risks": [
+        "The exact minimal census of reversal on each fixed nonstar tree is not classified.",
+        "Ecological utility is mathematical interpretation of idealized abundance transfers, not field validation."
+      ],
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "final_claim": "For every finite rooted strictly positive-edge ultrametric tree with at least two species and every positive-integer census, all legal one-individual abundance equalizing transfers weakly increase expected rooted Faith PD for each uniform without-replacement sample size if and only if all distinct tip pairs are equidistant (star-like, possibly after a common stem). On every nonstar, some same transfer decreases E(2) strictly but increases E(N-1) strictly. No such loss occurs at N<=5; an N=6, three-species cherry witness (3,1,2)->(2,2,2) and eps=1/3 has six exact gains [0,-1/45,-1/60,1/45,1/18,0].",
+  "limitations": [
+    "Only positive integer finite abundances, rooted ultrametric positive branches, uniform fixed-size sampling without replacement, one legal transfer.",
+    "The constructed reversal concerns existence of some profile per nonstar, not each profile or fixed smallest N per tree.",
+    "No new external formal/Lean proof or human expert attestation claimed.",
+    "Cadotte 2010 technical text unavailable; best-of-knowledge originality qualified; no bibliographic exclusivity certified."
+  ],
+  "schema_version": 1
+}
