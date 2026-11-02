@@ -5,8 +5,11 @@
     "status": "not_performed"
   },
   "independent_audit": {
-    "evidence": null,
-    "status": "not_performed"
+    "status": "passed",
+    "evidence": [
+      "INDEPENDENT_AUDIT_2026-10-27.md",
+      "INDEPENDENT_AUDIT_2026-10-27.json"
+    ]
   },
   "lean_verification": {
     "evidence": null,
@@ -16,10 +19,24 @@
 }
 ---
 
-# Reproducible checks
+# Independent mathematical audit
 
-`verify.py` runs with a standard Python 3 interpreter and no external packages. It constructs the finite fields of orders \(2\), \(3\), and \(4\), enumerates every linear endomorphism of the respective unital square-zero algebra, and directly evaluates the Nijenhuis identity on all basis pairs. It compares each such identity evaluation with the proposed normal form \(N(1)=\alpha 1+u\), \(N|_V=T\), \(Tu=\alpha u\). It separately enumerates every member of \(\mathrm{GL}(V)\) and forms the exact conjugation orbits, and then obtains the claimed orbit-count formula by exhaustive similarity-class enumeration.
+## correctness
 
-The tested pairs \((q,n)\) and resulting (operators, orbits) are \((2,1)\mapsto(6,6)\), \((3,1)\mapsto(15,12)\), \((4,1)\mapsto(28,20)\), \((2,2)\mapsto(56,18)\), \((3,2)\mapsto(459,48)\), \((4,2)\mapsto(1984,100)\), and \((2,3)\mapsto(1920,46)\). Successful execution ends with `VERIFY_OK`.
+PASS
 
-The checker tests only these finite cases; it does not verify every field size or every dimension. The proof of the arbitrary-dimensional theorem is in `RESULT.md`. Independent mathematical audit and validation remain unperformed.
+The square-zero multiplication forces the scalar component of N(V) to vanish in every characteristic: at (v,v), f(v)^2=2f(v)^2 entails f(v)=0. The (1,1) identity gives (T-alpha I)u=0; (1,v),(v,w) give sufficiency. For fixed alpha,T, invertible k[t]-module endomorphisms act transitively on each nonzero socle stratum K_{s-1}\K_s of minimal occupied Jordan length s, with cardinality q^{b_{s-1}}-q^{b_s}. Rational canonical decomposition yields the exact centralizer order and orbit sizes. Counting T with a prescribed eigenvector gives q(2q^{n^2}-q^{n(n-1)}). Marking distinct primary partition part sizes produces P(z)/(1-z) and hence q sum_{j=0}^n c_j(q). The proof handles all prime powers, including characteristic two; finite enumerations only corroborate.
+
+## originality
+
+PASS
+
+The associative Nijenhuis relation is classical. Zou–Gao–Kang–Lü give complex dimensions at most three and explicitly do not perform the full automorphism-orbit analysis. Achar–Henderson Proposition 2.3 and Travkin already classify enhanced nilpotent pairs over general fields, and the standard rational-canonical description gives matrix-plus-eigenvector strata; those ingredients are not new. Nishiyama–Ohta studies larger enhanced adjoint actions, mainly their generic and null-cone geometry. No inspected source stated the all-n, all-prime-power Nijenhuis solution locus and its exact raw count, orbit series, and individual orbit sizes for this natural split square-zero algebra family. A preexisting equivalent pointed-module translation remains a residual risk.
+
+## value
+
+PASS
+
+Split radical-square-zero local algebras form a canonical test family for associative Nijenhuis torsion. An exact all-prime-power, all-rank count of solutions, complete conjugacy classification, and exact sizes of every orbit are motivated intrinsic invariants that may be needed to compare operator moduli in other local algebra families. The matrix-with-marked-eigenvector centralizer lemma is classical and not independently novel; the value is the transparent Nijenhuis reduction and resulting complete operator census, not a paper-sized general classification. Finite enumerations are corroboration.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
