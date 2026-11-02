@@ -1,0 +1,103 @@
+{
+  "audit_date_utc": "2026-10-27",
+  "audited_at_utc": "2026-10-27T10:55:14.529318Z",
+  "axes": {
+    "correctness": {
+      "rationale": "For n>=3 and 1<=s<=n, the face-balanced probability mixture has covariance contrast eigenvalue lambda=(2n-s-1)/[n(n-1)(s+1)]>0, so its affine reproducing kernel is K(t,u)=1+nB(sum_i t_i u_i-1/n), B=(n-1)(s+1)/(2n-s-1). Convexity of F(t)=E|K(t,T)| reduces the endpoint norm to a simplex vertex, where T_1 is 0 with probability 1-s/n and otherwise Beta(1,s-1). Integrating min(T_1,nu), nu=(s-1)/[(n-1)(s+1)], gives exact sharp symmetric L^1/L^infty norm 2B(1-nu)^s-1; s=1 is identity, s=n agrees with known volume formula. At fixed s, B->(s+1)/2 and norm->s; at s/n->alpha, the ratio norm/n->2alpha exp(-alpha)/(2-alpha). Independently recomputed rational covariance, endpoints and positivity for every n=3..39, 1<=s<=n; not a proof of the infinite ranges.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Full-volume local projector max norm and polynomial Sobolev projectors are known; neither includes uniform s-face Dirichlet-mixture L2 projection on all s."
+        ],
+        "reasoning": "Published Sobolev inner products and random empirical designs cannot imply this deterministic face-balanced exact endpoint constant without an additional calculation.",
+        "searches": [
+          "Resultary query: affine L infinity least squares projection skeleton simplex faces uniform Dirichlet exact norm",
+          "Cohen–Davenport–Leviatan random least squares",
+          "Aktaş–Xu singular-weight Sobolev simplex orthogonal polynomials"
+        ]
+      },
+      "checked_sources": [
+        "https://github.com/Resultary/2026/tree/main/2026/10/4/SCOPE-exact-positivity-defect-and-max-norm-of-the-affine-least-squares--99c2b9dd9b34",
+        "https://github.com/SCOPE-Science/SCOPE2026/blob/6d974dcfb14703498a75fe00efd3c648426a494c/2026/10/25/exact-affine-least-squares-amplification-across-simplex-skeleta--067382a671c8/RESULT.md",
+        "affine L infinity least squares projection skeleton simplex faces uniform Dirichlet exact norm"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "Known norm formula for s=n, not a theorem uniformly in skeletal s; the exact covariance changes with s and has mass at T_i=0."
+        ],
+        "reasoning": "Earlier projector result entails endpoint only; other s require new atom/Beta evaluation and asymptotic logic.",
+        "searches": [
+          "Resultary full RESULT 2026-10-04 exact positivity defect simplex",
+          "source 2026-10-25 skeletal projector RESULT proof and formula"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Known full-volume n-simplex norm 2n(n/(n+1))^(n-1)-1 exactly equals submitted s=n specialization."
+        ],
+        "reasoning": "The source recovers one boundary case; the intermediate skeletal measure is a different measure, not a change of symbols.",
+        "searches": [
+          "Resultary semantic query: affine L infinity least squares projection skeleton simplex faces uniform Dirichlet exact norm",
+          "Resultary 2026-10-04 exact positivity defect and max norm of affine least-squares projector on simplex"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "Existing exact volume projector table at s=n; convexification is Minkowski sum of skeletal points rather than orthogonal projection."
+        ],
+        "reasoning": "No table in checked findings gives the all-intermediate-s norm or dimension-ratio limit.",
+        "searches": [
+          "Resultary query: affine L infinity least squares projection skeleton simplex faces uniform Dirichlet exact norm",
+          "Resultary simplex volume exact norm 2026-10-04",
+          "Resultary simplex skeleton convexification 2026-10-11"
+        ]
+      },
+      "rationale": "PASS qualified. The published Resultary 2026-10-04 full-volume simplex L2-projector norm is exactly the s=n endpoint by direct substitution, while the s=1 case is standard interpolation. Neither covers the intermediate face-balanced skeletal measure 2<=s<=n-1, its Beta atom mixture, nor its distinct asymptotic regimes. Polynomial face-Sobolev bases and finite-sample concentration control different inner products and random designs. No inspected broader theorem determines this skeletal projector Lebesgue function, although extensive approximation-theory literature leaves priority risk.",
+      "residual_risks": [
+        "A classical approximation-theory formula for an affine L2 projector with skeleton-supported probability measure may be indexed under Lebesgue constants or Dirichlet-mixture kernels.",
+        "Chernov-type polynomial projection trace estimates were not reviewed in full; current identified subject differs."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Covers volume endpoint, not skeletal intermediates",
+          "evidence": "RESULT, Finding, Proof §§1–5 and Limitations",
+          "identifier_or_url": "https://github.com/Resultary/2026/tree/main/2026/10/4/SCOPE-exact-positivity-defect-and-max-norm-of-the-affine-least-squares--99c2b9dd9b34",
+          "material_read": "Full primary RESULT.md proof of Gram inverse, vertex extremizer, beta integral and exact dimension formula",
+          "method": "GitHub full-text reading",
+          "title": "Exact positivity defect and max norm of the affine least-squares projector on a simplex",
+          "trigger": "Same operator at s=n and sharp norm"
+        },
+        {
+          "assessment": "Correct self-contained intermediate-s calculation",
+          "evidence": "Proof §§1–4, checker file and boundary tests",
+          "identifier_or_url": "https://github.com/SCOPE-Science/SCOPE2026/blob/6d974dcfb14703498a75fe00efd3c648426a494c/2026/10/25/exact-affine-least-squares-amplification-across-simplex-skeleta--067382a671c8/RESULT.md",
+          "material_read": "Complete RESULT proof and source check_skeleton.py; scientific metadata and review summary inspected",
+          "method": "Frozen Git blob reading",
+          "title": "Exact affine least-squares amplification across simplex skeleta",
+          "trigger": "Assigned full research package"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "rationale": "PASS. Exact stability amplification of affine L2 projection is important in numerical approximation; skeleton-supported observations naturally interpolate between vertex data and volume data. The complete intermediate-skeleton formula and the fixed-rank/extensive-rank asymptotics quantify a nontrivial change in the projector norm, not a table recomputation of the volume endpoint. Application to arbitrary shape follows from face-balanced affine invariance, not arbitrary unbalanced face area measure.",
+      "status": "PASS"
+    }
+  },
+  "checked_sources": [
+    "https://github.com/Resultary/2026/tree/main/2026/10/4/SCOPE-exact-positivity-defect-and-max-norm-of-the-affine-least-squares--99c2b9dd9b34",
+    "https://github.com/SCOPE-Science/SCOPE2026/blob/6d974dcfb14703498a75fe00efd3c648426a494c/2026/10/25/exact-affine-least-squares-amplification-across-simplex-skeleta--067382a671c8/RESULT.md"
+  ],
+  "disposition": "passed",
+  "limitations": [
+    "Independent checks do not substitute for the infinite proof or complete literature priority; precise scopes and residual risks listed on each axis.",
+    "All root Git blobs and nested script identities reproduced the assigned source tree; main RESULT.md sha matched frozen for each, but complete current-main tree was not reconstituted, hence publication is withheld."
+  ],
+  "residual_risks": [
+    "A classical approximation-theory formula for an affine L2 projector with skeleton-supported probability measure may be indexed under Lebesgue constants or Dirichlet-mixture kernels.",
+    "Chernov-type polynomial projection trace estimates were not reviewed in full; current identified subject differs."
+  ],
+  "schema_version": 1
+}

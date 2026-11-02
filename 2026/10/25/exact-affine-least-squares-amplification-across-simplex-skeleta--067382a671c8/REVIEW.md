@@ -1,15 +1,21 @@
-# Scientific review
+# Independent mathematical audit
 
-## Correctness — PASS
+## correctness
 
-The result follows from the exact exchangeable skeletal barycentric covariance, an explicit reproducing kernel, convexity of absolute row integrals, and integration of a one-coordinate beta mixture. The zero-dimensional skeleton is handled separately, and the continuous skeletal vertex maximum is interpreted by essential-supremum approximation. The limits are direct consequences of the proven finite formula. A standalone exact-rational checker independently confirms Gram inversion, kernel identities and negative-part integrals over all \(3\le n\le11\), with 4,563 assertions; this is corroboration, not an infinite proof.
+PASS
 
-## Originality — PASS within searched evidence
+For n>=3 and 1<=s<=n, the face-balanced probability mixture has covariance contrast eigenvalue lambda=(2n-s-1)/[n(n-1)(s+1)]>0, so its affine reproducing kernel is K(t,u)=1+nB(sum_i t_i u_i-1/n), B=(n-1)(s+1)/(2n-s-1). Convexity of F(t)=E|K(t,T)| reduces the endpoint norm to a simplex vertex, where T_1 is 0 with probability 1-s/n and otherwise Beta(1,s-1). Integrating min(T_1,nu), nu=(s-1)/[(n-1)(s+1)], gives exact sharp symmetric L^1/L^infty norm 2B(1-nu)^s-1; s=1 is identity, s=n agrees with known volume formula. At fixed s, B->(s+1)/2 and norm->s; at s/n->alpha, the ratio norm/n->2alpha exp(-alpha)/(2-alpha). Independently recomputed rational covariance, endpoints and positivity for every n=3..39, 1<=s<=n; not a proof of the infinite ranges.
 
-The closest mathematical comparison is the known full-simplex affine-projection norm, which covers exactly the \(s=n\) endpoint, not face-balanced singular measures \(2\le s\le n-1\). Aktaş and Xu's face and singular Jacobi theory establishes different Sobolev polynomial inner products, while Cohen, Davenport and Leviatan's least-squares stability is probabilistic and does not determine endpoint constants. Chernov's trace estimates concern a volume-defined projection, although the complete paper was not accessible in this examination. Semantic research-record and literature searches did not reveal the intermediate-skeleton formula or a dominating theorem. The search cannot certify priority, and unindexed literature remains a risk.
+## originality
 
-## Value — PASS
+PASS
 
-Choosing data from an entire simplicial skeleton, rather than exclusively vertices or volume, is a natural design choice in geometric approximation and boundary observations. The intermediate cases give a complete exact family of worst-case amplification constants, witness inputs, and two qualitatively distinct asymptotic regimes. These are substantive quantitative invariants not provided by knowledge of either endpoint alone. No extension to higher polynomial degree or arbitrary unequal face weights is implied.
+PASS qualified. The published Resultary 2026-10-04 full-volume simplex L2-projector norm is exactly the s=n endpoint by direct substitution, while the s=1 case is standard interpolation. Neither covers the intermediate face-balanced skeletal measure 2<=s<=n-1, its Beta atom mixture, nor its distinct asymptotic regimes. Polynomial face-Sobolev bases and finite-sample concentration control different inner products and random designs. No inspected broader theorem determines this skeletal projector Lebesgue function, although extensive approximation-theory literature leaves priority risk.
 
-Self-review: passed. Independent audit: not yet performed.
+## value
+
+PASS
+
+PASS. Exact stability amplification of affine L2 projection is important in numerical approximation; skeleton-supported observations naturally interpolate between vertex data and volume data. The complete intermediate-skeleton formula and the fixed-rank/extensive-rank asymptotics quantify a nontrivial change in the projector norm, not a table recomputation of the volume endpoint. Application to arbitrary shape follows from face-balanced affine invariance, not arbitrary unbalanced face area measure.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
