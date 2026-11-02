@@ -1,9 +1,21 @@
-# Scientific review
+# Independent mathematical audit
 
-**Correctness: PASS.** The claimed method is the with-replacement shared-iterate averaged row-projection update, not a sequential Kaczmarz sweep. Reduction to the i.i.d. binomial batch count yields independent time multipliers and their exact zero events. Inclusion-exclusion gives the full first-hitting distribution, and the binomial second moment yields the exact risk recurrence. For the nonresonant parameter the exact rational multiplier product is below one and the moment factor is above one; the strong law proves the asymptotic statement. Exact-arithmetic replay checks the finite formulas, but is not substituted for the infinite-time proofs.
+## correctness
 
-**Originality: PASS, with a nonzero priority risk.** The most pertinent sources are Moorman et al. (arXiv:2002.04126), especially Section 3 and Corollary 2, and Tondji–Lorenz (arXiv:2203.10838), especially Equation (1.8) and Section 4. Their established mean-square bounds and ordinary overrelaxation recommendations do not state the method-specific complete absorption-resonance classification or the robust nonresonant gap between almost-sure and mean-square behavior. The mean-square polynomial itself, the general possibility of multiplicative-process moment discrepancies, and ordinary orthogonal-row unrelaxed termination are not claimed as new. Equivalent unpublished or unindexed analyses could exist.
+PASS
 
-**Value: PASS.** Numerical analysts use mean-square error both to select relaxation and to diagnose divergent randomized solvers. The finding shows that, for the actual parallel-averaging update on its simplest well-conditioned system, mean-square instability can accompany exact finite solution in finite mean time. Its exact stopping-time law makes the phenomenon quantitative rather than anecdotal. More importantly, the separation survives perturbation of the relaxation parameter, so it is not only a single arithmetic resonance. The limited orthogonal-row and exact-arithmetic scope is explicit.
+The complete two-coordinate update is diagonal with iid K_n~Bin(q,1/2), factors 1−αK_n/q and 1−α(q−K_n)/q. A coordinate is killed only at the integer count j=q/α; every such count occurs eventually a.s. and is absorbing. The two killing counts are disjoint unless 2j=q, giving the exact survival law and mean 3/(2p_j) or 1/p_j. Conditional risk multiplies by 1−α+α²(q+1)/(4q), independent of the error coordinates. For q4 α4, p=1/4, Eτ=6 and risk 2^n. At α=19/5, no factor is zero; exact weighted product of |1−αk/q| equals 6972041972007/64000000000000000<1 whereas risk=137/80>1; the strong law and norm comparison give the almost-sure exponent, with continuity furnishing an open interval. Independent rational arithmetic rechecked the exact product and risk and inspected check.py; finite checks are not the SLLN proof.
 
-Self-review: passed. Independent audit: not yet performed.
+## originality
+
+PASS
+
+Best-of-knowledge, after comparing the actual theorem and its implications to retrieved Resultary records and the named published primary material. Prior mean-square upper bounds imply nothing about almost-sure finite absorption under α=q/j when the bound grows. The new claims concern exact hitting and robust typical-versus-second-moment separation, not the already-known recurrence alone. Residual priority/access risks are explicitly retained.
+
+## value
+
+PASS
+
+The method is a real parallel optimization update; the extreme gap between finite-time almost-sure exact solution and diverging expected squared error, plus robust nonresonant separation, gives a precise caution about interpreting mean-square convergence and relaxation in randomized algorithms. The transparent orthogonal two-row witness is substantively motivated.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
