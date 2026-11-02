@@ -1,0 +1,135 @@
+{
+  "correctness": {
+    "rationale": "The exact finite Stirling transition yields the departure probabilities. For fixed k, inclusion-exclusion gives q_nk~k((k-1)/k)^n. The bound on conditional skipping from a larger state is binom(l,k-1)((k-1)/(l-1))^n, hence all fixed low levels are visited with probability 1-o(1). The self-loop count at each visited level is an independent geometric variable, giving the joint exponential limit. The exact k=2 and k=3 escape rates, together with sum_{k>=4}1/q_nk <= n(4/3)^n, establish E[T]=2^(n-1)+(3/2)^n/3+O(n(4/3)^n); a 625-test exact arithmetic checker corroborates finite formulas but is not an infinite proof.",
+    "status": "PASS"
+  },
+  "independent": false,
+  "independent_audit_status": "not_performed",
+  "originality": {
+    "broader_coverage": {
+      "evidence": [
+        "Benjamini et al. define strictly increasing weights and explicitly specialize to alpha>0; Theorem 1.5 establishes an exponential lower bound for 0<alpha<1 (full-text Introduction and Section 6).",
+        "Cancrini--Posta 2020 repeated balls into bins dynamics has a fixed full bin set, permits refilling empty sites and studies mixing to equilibrium, not irreversible candidate extinction."
+      ],
+      "reasoning": "A generic theorem for monotone finite Markov chains might cover the independence of geometric residence clocks, but does not provide the problem-specific exponential rates or second asymptotic mean scale without the occupancy skip and exit estimates. No directly stronger published claim matching all these conclusions was found. This is a best-knowledge comparison, not a uniqueness certificate.",
+      "searches": [
+        "iterated occupancy decreasing number occupied bins n balls repeatedly 2 3 candidates metastability multiple exponential scales",
+        "conclave flat weights survivor count Markov chain exponential metastability second order expected absorption",
+        "iterated coupon occupancy chain random number of boxes survivors multinomial successive generations neutral extinction exponential",
+        "decreasing Markov chain occupied boxes n balls repeated independently uniformly among occupied boxes lifetime",
+        "arxiv:2001.11246",
+        "arxiv:2607.22324"
+      ]
+    },
+    "checked_sources": [
+      "https://arxiv.org/abs/2607.22324",
+      "https://mathworld.wolfram.com/ClassicalOccupancyProblem.html",
+      "https://arxiv.org/abs/2001.11246",
+      "published-finding corpus:2026/10/4/SCOPE-every-uniform-occupancy-law-is-exposed-in-the-distinct-count-con--f2238f4c07c8",
+      "published-finding corpus:2026/9/17/SCOPE-balanced-nonuniform-reset-coupon-rates--7b9ca5a2ebed"
+    ],
+    "claim_vs_prior_implication": {
+      "evidence": [
+        "Theorem 1.5 of Benjamini et al. is stated only for 0<alpha<1, whereas this claim defines a flat-weight boundary (alpha=0 on positive counts), prohibited by the source strictly-increasing hypothesis.",
+        "The cited Feller/MathWorld formula implies the kernel, but further multistage skip and occupation-time reasoning is needed.",
+        "The compared RBB process is ergodic, not an absorbing monotone chain."
+      ],
+      "reasoning": "The new statement does not claim to improve the same-domain alpha>0 bound: it resolves a natural excluded boundary with a separate exact multiscale law and second exponential mean term. No inspected theorem directly implies the final statement without the additional model-specific proof. Generic pure-death metastability theory remains a possible unindexed source of equivalent coverage.",
+      "searches": [
+        "Conclave Process alpha zero uniform weights remaining candidates exact absorption time exponential 2^(n-1) multi-stage geometric holding times",
+        "conclave flat weights survivor count Markov chain exponential metastability second order expected absorption",
+        "Conclave Process Benjamini Cai Chen Gong Li alpha=0 theorem 2026 full PDF",
+        "arxiv:2607.22324 Theorem 1.5 and section 6",
+        "arxiv:2001.11246 introduction"
+      ]
+    },
+    "equivalent_formulations": {
+      "evidence": [
+        "The flat-weight update is a sequential occupancy kernel with permanent deletion of unoccupied labels. A published uniform occupancy law concerns a one-round convex-hull problem, not this absorbing iteration.",
+        "Classical Occupancy Problem (Weisstein, MathWorld) gives the single-step Stirling probabilities without residence-time asymptotics."
+      ],
+      "reasoning": "Equivalent descriptions as a monotone occupancy chain, absorbing urn-type evolution, and a pure-death chain were checked. The one-step Stirling identity and general geometric holding-time construction are known building blocks and credited; they do not alone state the fixed-level survival probability bounds or the two-term population-dependent mean expansion.",
+      "searches": [
+        "Conclave Process alpha zero uniform weights remaining candidates exact absorption time exponential 2^(n-1) multi-stage geometric holding times",
+        "iterated occupancy decreasing number occupied bins n balls repeatedly 2 3 candidates metastability multiple exponential scales",
+        "uniform-survivor conclave at alpha=0 extinction levels jointly independent geometric clocks exponential times two and three surviving candidates",
+        "monotone occupancy count repeated sampling onto survivors exact 2^n (3/2)^n expectations Stirling numbers",
+        "published-finding corpus:2026/10/4/SCOPE-every-uniform-occupancy-law-is-exposed-in-the-distinct-count-con--f2238f4c07c8"
+      ]
+    },
+    "exact_database_or_table": {
+      "evidence": [
+        "MathWorld states P(T=j)=binom(k,j)j!S(n,j)/k^n for one independent uniform occupancy step.",
+        "The closest published uniform-occupancy record concerns a distinct-count convex-hull property, not a longitudinal extinction table."
+      ],
+      "reasoning": "The exact one-step transition table is standard; neither that table nor the closest queried published occupancy record gives the longitudinal two-exponential-scale mean or independent low-state limit. A database search alone is not a proof of novelty.",
+      "searches": [
+        "monotone occupancy count repeated sampling onto survivors exact 2^n (3/2)^n expectations Stirling numbers",
+        "iterated occupancy decreasing number occupied bins n balls repeatedly 2 3 candidates metastability multiple exponential scales",
+        "published-finding corpus:2026/10/4/SCOPE-every-uniform-occupancy-law-is-exposed-in-the-distinct-count-con--f2238f4c07c8",
+        "https://mathworld.wolfram.com/ClassicalOccupancyProblem.html"
+      ]
+    },
+    "rationale": "The full relevant primary source explicitly assumes alpha>0 and proves only an exponential lower bound for subcritical positive alpha; the flat-weight boundary here is outside its hypotheses. Known one-step occupancy formulas and the generic geometric waiting-time property are credited. The compared repeated-balls-into-bins mixing process is nonabsorbing and not equivalent. Published mathematical-record and literature searches did not find a directly dominating claim; possible implicit generic Markov-chain coverage remains a stated residual risk.",
+    "residual_risks": [
+      "An older generalized absorbing pure-death-chain result could implicitly encompass all constants and the joint exponential limit.",
+      "The published mathematical-record semantic search and sampled sources are not exhaustive.",
+      "No independent mathematical review or historical-priority certification has occurred."
+    ],
+    "source_inspections": [
+      {
+        "assessment": "Flat weights excluded by strictly increasing positive power; no joint low-candidate residence clocks or two-term sharp mean in these results.",
+        "evidence": [
+          "Definition 1.1 uses strictly increasing weight and the paper specifies alpha>0; Theorem 1.5 gives P(T>M)>=(1-exp(-Cn))^M for 0<alpha<1."
+        ],
+        "identifier_or_url": "https://arxiv.org/abs/2607.22324",
+        "material_read": "Open full structured preprint text: definition and parameter restriction (lines 21--71), Theorem 1.5, and the subcritical proof in Section 6 (lines 1396--1413); searched for flat-weight assumptions.",
+        "method": "Read full-text mathematical definitions, theorem and proof section and compared domains and conclusions.",
+        "title": "The Conclave Process",
+        "trigger": "Same voting objects and exponential-time conjectural gap"
+      },
+      {
+        "assessment": "Its known one-round formula is explicitly credited, but does not contain the new multistage laws.",
+        "evidence": [
+          "The entry gives binomial times surjection count over number of boxes and mean number occupied in one occupancy experiment."
+        ],
+        "identifier_or_url": "https://mathworld.wolfram.com/ClassicalOccupancyProblem.html",
+        "material_read": "Entire accessible one-page MathWorld entry including occupation count, expectation and references.",
+        "method": "Compared the single-round Stirling occupancy formula with the iterated stopped-chain statement.",
+        "title": "Classical Occupancy Problem",
+        "trigger": "Exact transition probabilities and possible older formula coverage"
+      },
+      {
+        "assessment": "Not equivalent: all bins remain available for reallocation and an ergodic mixing problem is studied.",
+        "evidence": [
+          "Introduction specifies all balls uniformly reassigned to bins after removal of a ball from each nonempty bin; bins can return from zero."
+        ],
+        "identifier_or_url": "https://arxiv.org/abs/2001.11246",
+        "material_read": "Open full-text manuscript abstract and introduction defining the update and stating its mixing theorem (lines 0--19).",
+        "method": "Compared extinction/refilling features and the state-space dynamics.",
+        "title": "Mixing time for the Repeated Balls into Bins dynamics",
+        "trigger": "Potentially identical repeated occupancy dynamics under an alternative name"
+      },
+      {
+        "assessment": "Summary concerns distinct-count convex hull, not iterative candidate extinction. Full-text novelty conclusion not made from this summary alone.",
+        "evidence": [
+          "Its recorded claim is that each finite uniform occupancy distinct-count distribution is exposed in a convex hull."
+        ],
+        "identifier_or_url": "https://github.com/Resultary/2026/tree/main/2026/10/4/SCOPE-every-uniform-occupancy-law-is-exposed-in-the-distinct-count-con--f2238f4c07c8",
+        "material_read": "Published title and result summary supplied by searchable record; underlying full text not claimed inspected.",
+        "method": "Implication comparison against stated one-round convex-geometric law.",
+        "title": "Every uniform occupancy law is exposed in the distinct-count convex hull",
+        "trigger": "Closest published occupancy result from mathematical-record semantic searches"
+      }
+    ],
+    "status": "PASS"
+  },
+  "review_type": "self_review",
+  "schema_version": 1,
+  "scope_run_id": "2fbd2e84-505d-4e31-a22a-896cb217c0dd",
+  "self_review_status": "passed",
+  "value": {
+    "rationale": "The flat-weight limit of a newly studied reinforced voting model has a natural hierarchy of candidate extinctions at distinct exponential time scales. The result gives the joint law of every fixed number of terminal levels and the first two exponential contributions to the expectation; neither follows from only the source exponential lower bound nor one-round occupancy formulas. It quantifies an intrinsically motivated rare-consensus mechanism, not a reparametrization or arbitrary finite slice.",
+    "status": "PASS"
+  }
+}
