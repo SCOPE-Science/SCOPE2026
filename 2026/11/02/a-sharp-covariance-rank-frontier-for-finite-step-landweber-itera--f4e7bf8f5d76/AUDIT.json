@@ -1,0 +1,120 @@
+{
+  "correctness": {
+    "rationale": "From the exact Gaussian Landweber recurrence, derive \\(\\Gamma_K=\\sigma^2\\omega f_K(\\omega B)\\). The unique interior root follows from one turning point of the explicit polynomial \\(H_K(u)\\); this proves both the positive uniform result and sharp counterexample for any larger ceiling. Rescale \\(t=c/K\\) to obtain the unique positive root \\(e^c=1+2c\\). For even \\(K\\), the explicit 45-degree two-eigenvalue model gives \\(f_K(2-\\epsilon)\\sim K^2\\epsilon^2/2\\); rank-one best approximation then yields the exact divergent error ratio. Four Rademacher outcomes give diagonal probe variance \\(\\gamma^2/(4N)\\), hence its squared ratio. Finite standard-library verifier ran 4997 supplementary checks, including exact rational identities, but infinity claims rest on the analytic derivation. Domain, step endpoints and noise normalization are specified.",
+    "status": "PASS"
+  },
+  "independent": false,
+  "independent_audit_status": "not_performed",
+  "originality": {
+    "broader_coverage": {
+      "evidence": [
+        "The 2021 JMLR paper studies discrepancy stopping bounds and the general spectral filter for smaller steps.",
+        "The inspected 2019 Ito–Jin randomized SVD manuscript studies regularized inverse solutions, not Landweber finite-iteration covariance or Rademacher diagonal probes."
+      ],
+      "reasoning": "General filter theory and SVD rank optimality are inputs; they neither state a corresponding optimization over the \\(K\\)-step covariance spectrum nor a residual-probe variance comparison in the inspected sections. The full 2019 manuscript was inspected for related broader low-rank theory; its relevant sections cover regularized inversion rather than the new covariance-order theorem.",
+      "searches": [
+        "Landweber randomized normal operator covariance residual Hutchinson diagonal probe variance arbitrarily poor high singular eigenvectors even iterations",
+        "https://jmlr.org/papers/volume22/20-358/20-358.pdf",
+        "https://arxiv.org/abs/1909.01947"
+      ]
+    },
+    "checked_sources": [
+      "https://arxiv.org/abs/2610.00882",
+      "https://arxiv.org/html/2610.00882v1",
+      "https://jmlr.org/papers/volume22/20-358/20-358.pdf",
+      "https://arxiv.org/abs/1909.01947",
+      "https://discovery.ucl.ac.uk/10109215/1/1909.01947.pdf",
+      "Published mathematical-record semantic comparisons of spectral-filter and covariance-rank claims"
+    ],
+    "claim_vs_prior_implication": {
+      "evidence": [
+        "The motivating paper gives the closed-form propagated covariance and uses leading normal-operator spectral approximations.",
+        "The new proof analyzes the derivative sign, global uniform boundary and a two-dimensional rank-subspace counterexample; diagonal-probe variances use an explicit four-point calculation."
+      ],
+      "reasoning": "The covariance formula is prior and is an essential premise. The paper's reported numerical uncertainty correction does not imply that top-normal eigenvectors are always top-covariance eigenvectors, nor does it furnish the quantified sharp rank threshold or unbounded standard-probe-efficiency separation. Standard filter and rank approximation identities alone are not passed off as the new claim.",
+      "searches": [
+        "arxiv:2610.00882v1, covariance and randomized approximation sections",
+        "JMLR 22(76) Example 2",
+        "Landweber randomized normal operator covariance residual Hutchinson diagonal probe variance arbitrarily poor high singular eigenvectors even iterations"
+      ]
+    },
+    "equivalent_formulations": {
+      "evidence": [
+        "Noise-variance eigenweights are \\(\\sigma^2\\omega[1-(1-t)^K]^2/t\\), a distinct ordering from \\(t\\).",
+        "The motivating paper writes propagated covariance spectrally but does not state the exact argmax/rank ceiling in the inspected relevant sections."
+      ],
+      "reasoning": "Compared the equivalent language of noise amplification, propagated covariance, spectral filter and eigen-subspace truncation. The exact rank-order threshold, uniform sharpness and residual-probe ratios are not an explicitly stated equivalent result in the checked source material; the known filter identity alone is acknowledged as prior.",
+      "searches": [
+        "Landweber propagated covariance spectral filter ordering reversal largest singular values versus uncertainty eigenvalues two iterations step size 2/3",
+        "Landweber propagated covariance top normal operator eigenmodes fail to capture largest covariance eigenvalues sharp step size threshold 2/3 1.25643",
+        "\"Landweber\" \"covariance\" \"spectral\" \"nonmonotonic\" singular",
+        "arxiv:2610.00882v1"
+      ]
+    },
+    "exact_database_or_table": {
+      "evidence": [
+        "No exact table of the thresholds \\(t_2=2/3\\), \\(t_3=(9-\\sqrt{21})/10\\), or large-\\(K\\) root \\(e^c=1+2c\\) for covariance-rank selection was located in these searches."
+      ],
+      "reasoning": "A negative search does not establish priority; analytic proof is supplied independently. The specific exact optimizer and asymptotic, rather than arbitrary parameter matching, were compared.",
+      "searches": [
+        "Landweber propagated covariance top normal operator eigenmodes fail to capture largest covariance eigenvalues sharp step size threshold 2/3 1.25643",
+        "iterative Landweber Gaussian uncertainty variance spectral rank reversal 2-epsilon eigenvalue 2 step filter threshold",
+        "\"1.256431\" \"Landweber\" variance",
+        "\"Landweber\" \"noise amplification\" \"non-monotonic\" eigenvalue"
+      ]
+    },
+    "rationale": "The known Landweber covariance spectral filter and normal-operator RSVD are cited rather than reclaimed. The joint exact uniform eigen-rank threshold, asymptotic critical constant, and the stable even-iteration family with divergent covariance-error and Rademacher probe-variance ratios are motivated, statement-level additions not found in the inspected relevant primary texts or indexed published mathematical results. Distinct spectral-filter quantities and broader sources were compared by implication, not title. Historical priority remains uncertain even after the accessible 2019 RSVD full-text comparison.",
+    "residual_risks": [
+      "An older specialized inverse-regularization paper might independently state the covariance-eigenweight peak or an equivalent rank-order criterion.",
+      "Even after the complete 2019 randomized-SVD inverse manuscript comparison, another older specialized covariance-rank or stochastic inverse-theory treatment might contain a stronger equivalent result.",
+      "The covariance formula in the 2026 paper already makes the present result a natural tractable derived design boundary, not an independent new filter theory."
+    ],
+    "source_inspections": [
+      {
+        "assessment": "Covariance formula and normal-operator approximation are explicitly pre-existing; inspected results do not provide a sharp covariance-versus-normal-rank threshold or the rank-one Rademacher residual-probe cost separation. Full-method corrections prevent interpreting the example as a failure of the paper's complete coverage procedure.",
+        "evidence": [
+          "arXiv:2610.00882v1, covariance propagation and randomized SVD sections",
+          "2026-10-01 first public v1"
+        ],
+        "identifier_or_url": "https://arxiv.org/html/2610.00882v1",
+        "material_read": "Available full-text mathematical setup, propagated covariance derivation, randomized normal-operator approximation and residual/uncertainty sections (Sections 3.1 and 3.6.1-3.6.2 and Appendix 5.1); publication date checked against first arXiv version.",
+        "method": "Direct inspection of accessible arXiv HTML exposition, covariance formulas and method discussion.",
+        "title": "Uncertainty Quantification for Landweber Iteration with Randomized Normal-Operator Approximation",
+        "trigger": "Same Landweber covariance and leading-normal-operator low-rank uncertainty scheme; main motivating prior paper."
+      },
+      {
+        "assessment": "Gives the Landweber scalar regularizer, which is a known input to the present proof. It studies discrepancy stopping, not uniform covariance rank preservation, the critical roots, or the Rademacher residual variance comparison. Its Example 2 uses a nonovershooting step bound.",
+        "evidence": [
+          "JMLR 22(76) (2021), Section 2, Example 2: \\(g_t(\\lambda)=[1-(1-\\eta\\lambda)^t]/\\lambda\\)",
+          "page 7 screenshot inspected"
+        ],
+        "identifier_or_url": "https://jmlr.org/papers/volume22/20-358/20-358.pdf",
+        "material_read": "Section 2 spectral filters, Example 2 on printed page 7, with surrounding motivation, regularity and learning risk context.",
+        "method": "Direct PDF text inspection and visual page inspection.",
+        "title": "Analyzing the discrepancy principle for kernelized spectral filter learning algorithms",
+        "trigger": "Potential broader spectral-filter statement implying the covariance ranking law."
+      },
+      {
+        "assessment": "Full manuscript analyzes randomized SVD with truncated-SVD and Tikhonov inversion, approximation error and iterative refinement, not the finite-step Landweber covariance spectrum or an eigen-rank/diagonal-probe threshold. Its low-rank approximation principles are correctly treated as prior knowledge.",
+        "evidence": [
+          "https://discovery.ucl.ac.uk/10109215/1/1909.01947.pdf, Sections 2–3, 6 and Appendix A",
+          "PDF rendered-page comparisons of Tikhonov, RSVD rank errors and refinement"
+        ],
+        "identifier_or_url": "https://arxiv.org/abs/1909.01947",
+        "material_read": "Complete authorized open-access accepted manuscript (20 pages): introduction, Section 2 randomized SVD and rank approximation bounds, Section 3 Tikhonov/TSVD schemes, Section 6 conclusion, and Appendix A iterative refinement; searched full PDF for Landweber and covariance rank formulations.",
+        "method": "Direct inspection of the open-access UCL manuscript PDF, including rendered pages 7 and 17 and its mathematical text and equations.",
+        "title": "Regularized Linear Inversion with Randomized Singular Value Decomposition",
+        "trigger": "Earlier randomized SVD in inverse reconstruction might imply a stronger approximation guarantee."
+      }
+    ],
+    "status": "PASS"
+  },
+  "review_type": "self_review",
+  "schema_version": 1,
+  "scope_run_id": "f4e7bf8f-5d76-4eb6-99d5-2e1d92988bbd",
+  "self_review_status": "passed",
+  "value": {
+    "rationale": "Choosing normal-operator leading modes is a natural and explicitly used surrogate for covariance uncertainty quantification. The exact \\(K\\)-dependent ceiling determines when this choice genuinely captures leading propagated-variance modes without reading covariance eigenvalues; a mismatch occurs already for the nonovershooting scaled spectrum \\(\\{1,2/3\\}\\). The even-step two-mode construction quantifies potentially unbounded waste in covariance rank budget and fourth-order relative waste in simple residual-diagonal probe variance as the stable step approaches its ceiling. These are mathematically motivated operator-rank and sampling-cost boundaries, not an arbitrary enumeration or a global failure claim about a paper's corrected estimator.",
+    "status": "PASS"
+  }
+}
