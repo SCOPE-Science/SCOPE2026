@@ -1,0 +1,146 @@
+{
+  "correctness": {
+    "rationale": "All n>=3: exact graph defect computation, first-10 lower bound on every sink-to-source path, explicit bijection f(v)=Q reverse(P) and its inverse, and connected Eulerian augmentation prove matching bounds. State automaton gives A(z) and weighted sink enumeration gives E(z); rational-series algebra yields the formula including n=3,4 exceptions. The extracted standalone verifier reconstructs cyclic witnesses for n=3..16, checks exact coverage, and tests generating coefficients; a separately formulated full-graph integral min-cost-flow solver agrees for these n. Finite checks corroborate but do not replace the quantified proof.",
+    "status": "PASS"
+  },
+  "independent": false,
+  "independent_audit_status": "not_performed",
+  "originality": {
+    "broader_coverage": {
+      "evidence": [
+        "Cazaux–Rivals 2016 abstract explicitly defines Shortest Cyclic Cover of Strings as a set of cyclic strings of minimum total length, not necessarily a single circle.",
+        "Gardner–Godbole 2017 addresses exact-once universal cycles for different restricted-word categories.",
+        "The present graph has a nonzero imbalance, requiring specific extra traversals and a connected Eulerian tour."
+      ],
+      "reasoning": "A general directed min-cost-flow algorithm can compute a finite-n optimum but does not on its own imply the explicit all-order closed form. A multi-circle optimum may be smaller than the single-circle problem. The full publisher manuscript of the closest general algorithm was not exhaustively searched, so specialized examples are a residual risk rather than declared absent.",
+      "searches": [
+        "Cazaux Rivals shortest cyclic cover of strings one cycle multiple cycles string covering 2016",
+        "doi:10.1016/j.jda.2016.05.001",
+        "arxiv:1711.07029",
+        "universal cyclic word covering all binary 010-avoiding finite factors directed de Bruijn imbalance Euler postman"
+      ]
+    },
+    "checked_sources": [
+      "https://www.dim.uchile.cl/~emoreno/publicaciones/PREPRINTS/preprint-LNCS04-Minimal_de_Bruijn_sequence_in_a_language_with_forbidden_substrings.pdf",
+      "https://arxiv.org/abs/0711.1695",
+      "https://doi.org/10.1016/j.jda.2016.05.001",
+      "https://arxiv.org/abs/1711.07029",
+      "https://link.springer.com/book/10.1007/b104584"
+    ],
+    "claim_vs_prior_implication": {
+      "evidence": [
+        "Moreno–Matamala (2004), Sections 2–4, theorem on minimal lexicographic Eulerian cycles of a periodically admissible language rather than augmentation for all finite factors.",
+        "The preceding 001-avoidance formula applies under reversal/complement also to 100, 011 and 110, but not to 010 or 101.",
+        "The previously reported 000-avoidance finite values apply to 000 and 111, not to 010."
+      ],
+      "reasoning": "A corollary of an earlier general theorem would defeat priority even with different wording. The required-arc graph here is intentionally unbalanced, while the periodic-language de Bruijn graph in the WG paper is Eulerian by construction. Reversal and complement preserve the occurrence problem but do not map 010 to 000 or 001. The current all-n overhead is therefore not subsumed by either accessible claim. No stronger dominating claim was found.",
+      "searches": [
+        "binary cyclic length n covering forbidden substring 010 shortest Euler augmentation",
+        "shortest cyclic covering sequence of all binary words avoiding substring 010 exact L_n A_n+A_{n-2}+A_{n-5}-(n-1)",
+        "doi:10.1007/978-3-540-30559-0_14",
+        "arxiv:0711.1695"
+      ]
+    },
+    "equivalent_formulations": {
+      "evidence": [
+        "Moreno–Matamala WG 2004 preprint, definitions in Section 2: its W_F(n) consists of periodically admissible words, and its cyclic sequences use precisely these words once.",
+        "The ordinary finite word 001 avoids 010, but its infinite periodic repetition 001001... contains 010 across a copy boundary, so it is not periodically admissible under the prior definition.",
+        "The provided result permits supplementary windows and is an exact single-circle minimum, so it is not an exact-once restricted-language cycle."
+      ],
+      "reasoning": "Substring-avoidance universal cycles, lexicographically minimal de Bruijn tours, and cyclic string covers are plausible aliases. Their hypotheses and outputs were compared using definitions and the first main theorems. The directed graph framework is shared, but the coverage set and allowed augmentations differ, and neither yields the claimed overhead law merely by renaming.",
+      "searches": [
+        "shortest cyclic covering sequence of all binary words avoiding substring 010 exact L_n A_n+A_{n-2}+A_{n-5}-(n-1)",
+        "universal cyclic word covering all binary 010-avoiding finite factors directed de Bruijn imbalance Euler postman",
+        "shortest circular superstring binary language avoiding 010 all finite windows",
+        "arxiv:0711.1695",
+        "doi:10.1007/978-3-540-30559-0_14"
+      ]
+    },
+    "exact_database_or_table": {
+      "evidence": [
+        "Searches for the formula, exact forbidden word and first six lengths produced no matching covering-table result in accessible indexed records.",
+        "Previously documented results include 000-avoiding lengths through order sixteen and a different all-order formula for 001-avoiding words.",
+        "No matched entry lists the 010-avoiding single-circle length profile."
+      ],
+      "reasoning": "Absence from a database is not proof of novelty. Exact parameter and claim comparison establishes that the closest indexed profiles cover distinct target-language orbits, whereas this result supplies the remaining orbit and an infinite proof.",
+      "searches": [
+        "shortest cyclic covering sequence of all binary words avoiding substring 010 exact L_n A_n+A_{n-2}+A_{n-5}-(n-1)",
+        "binary cyclic length n covering forbidden substring 010 shortest Euler augmentation",
+        "covering 010-avoiding n-words infinite formula shortest binary cycle length",
+        "8 14 25 46 84 151 covering binary avoiding 010"
+      ]
+    },
+    "rationale": "The proved all-order connected cyclic covering formula for every finite 010-avoiding n-word was not supplied or implied by the inspected exact-once periodic-language u-cycle literature or the separate multi-cycle shortest cover problem. The two earlier related forbidden-trigram equivalence classes 000 and 001 do not cover the 010 orbit under reversal/complementation. Research search did not surface an equal or stronger statement. Historical completeness is not certified, and an incompletely accessible general-cover article remains a stated residual risk.",
+    "residual_risks": [
+      "A specialized 010-avoiding finite-language cover might have been described in an unindexed old thesis or table.",
+      "The general SCCS paper was only partially accessible as a full document; no claim is made that all its examples were examined.",
+      "The 2004 workshop presentation date is only known as a June 21–23 interval; the exact dated 2004-12-21 print publication is used as verifiable source-date evidence."
+    ],
+    "source_inspections": [
+      {
+        "assessment": "Different object: periodic admissibility and minimal lexicographic Eulerian sequence, not shortest augmented covering of every finite word",
+        "evidence": [
+          "Section 2 defines membership by periodic repetition avoiding the forbidden set; sections 3–4 characterize minimal Eulerian walks, not min-cost augmentation."
+        ],
+        "identifier_or_url": "https://www.dim.uchile.cl/~emoreno/publicaciones/PREPRINTS/preprint-LNCS04-Minimal_de_Bruijn_sequence_in_a_language_with_forbidden_substrings.pdf",
+        "material_read": "Full parsed preprint text, Sections 1–4 including definitions, Theorems 1, 3 and 10, figures and references",
+        "method": "Read open-access author-hosted 9-page original manuscript; checked the operative definition of W_F(n) and exact-once Eulerian formulation",
+        "title": "Minimal de Bruijn Sequence in a Language with Forbidden Substrings",
+        "trigger": "Direct title and forbidden-substring language, closest original 2004 result"
+      },
+      {
+        "assessment": "Defines periodic admissibility and exact-once cycles; no implication for all finite 010-avoiding word coverage by connected augmented tour in checked material",
+        "evidence": [
+          "First arXiv submission 2007-11-12; language W_F depends on w-infinite periodic admissibility."
+        ],
+        "identifier_or_url": "https://arxiv.org/abs/0711.1695",
+        "material_read": "Preprint introduction, subshift definitions and relevant theorems; original arXiv submission date verified",
+        "method": "Read public arXiv source and inspected corresponding PDF pages",
+        "title": "Minimum de Bruijn Sequence in a Language with Forbidden Substrings",
+        "trigger": "2007 arXiv revision/expansion of same authors restricted-language work"
+      },
+      {
+        "assessment": "General SCCS objective permits a collection of cycles. Scope distinction from connected minimum is decisive for direct implication; possible specialized examples in remaining text are a residual priority risk",
+        "evidence": [
+          "The paper defines SCCS as a set of cyclic strings of minimum summed length."
+        ],
+        "identifier_or_url": "https://doi.org/10.1016/j.jda.2016.05.001",
+        "material_read": "Accessible CC-BY accepted-manuscript abstract and introductory extracted passages, including problem statement; publisher full text not exhaustively searched",
+        "method": "Compared definitions and the available original text through a publicly indexed accepted manuscript; publisher/other full material not accessible in this review",
+        "title": "A linear time algorithm for Shortest Cyclic Cover of Strings",
+        "trigger": "Broadly covering string-supercycle algorithm might dominate special optimum"
+      },
+      {
+        "assessment": "No direct all-n augmented minimum for finite 010-avoiders in inspected claims",
+        "evidence": [
+          "Its task is an exact-once universal cycle for restricted words, not minimum duplication overhead under an unbalanced graph."
+        ],
+        "identifier_or_url": "https://arxiv.org/abs/1711.07029",
+        "material_read": "Original arXiv abstract, definitions and main restricted-word hypotheses/results",
+        "method": "Inspected open-access full-text material and compared the target family to the claimed universal-cycle setting",
+        "title": "Universal Cycles of Restricted Words",
+        "trigger": "Restricted-word exact-once cycles can be confused with covers allowing repeated windows"
+      },
+      {
+        "assessment": "WG 2004 source occurs on pages 168–176; print proceedings published 2004-12-21. Conference occurred 2004-06-21 through 2004-06-23; the precise presentation day is unknown.",
+        "evidence": [
+          "Springer WG 2004 proceedings lists printed softcover 21 December 2004; source chapter pages 168–176."
+        ],
+        "identifier_or_url": "https://link.springer.com/book/10.1007/b104584",
+        "material_read": "Bibliographic details, source-paper contents entry and print/eBook dates",
+        "method": "Checked Springer publisher proceedings page and original conference dates",
+        "title": "Graph-Theoretic Concepts in Computer Science WG 2004 proceedings",
+        "trigger": "Establish the earliest individually verified public date of the 2004 source"
+      }
+    ],
+    "status": "PASS"
+  },
+  "review_type": "self_review",
+  "schema_version": 1,
+  "scope_run_id": "c88f5aa3-1843-4405-9c3e-f3a9020942c6",
+  "self_review_status": "passed",
+  "value": {
+    "rationale": "The optimum is an exact all-n invariant of the natural language with one forbidden binary trigram, a final symmetry orbit distinct from 000 and 001. The nontrivial sink-to-source bijection determines precise additional-window cost and supplies a constructive Eulerian algorithm; this structural theorem is more informative than a finite table and addresses a motivated gap in universal sequencing.",
+    "status": "PASS"
+  }
+}
