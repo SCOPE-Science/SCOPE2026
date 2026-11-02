@@ -1,0 +1,11 @@
+# Self-review
+
+**Correctness — PASS.** The first \(m\) likelihood equations eliminate all \(t_i\) rationally over a generic open locus, yielding an explicitly checkable single equation in \(U\). The critical-scheme correspondence on that locus transfers degeneracy to repeated roots. The motivating paper's irreducibility and smooth-Segre bidegree theorem give divisibility and equality of full bidegrees, proving the absence of all extraneous polynomial factors; a separate specialization proves the discriminant is nonzero. SymPy checks reproduce the published square and test eight further exact algebraic cases. Key risks are accidental conflation of generic scheme and boundary specializations, addressed explicitly in RESULT.md.
+
+**Originality — PASS, with historical qualification.** [1] gives the general Hurwitz construction, the 441-term \(2\times3\) example and the observation that coordinate-eliminant discriminants usually have extra factors; it does not state the all-size factor-free univariate identity. Searches for univariate Segre logarithmic discriminants, exact prime-factor-free formulas, and related descriptions found no equivalent. The relevant prior claim about logarithmic second hypersimplexes concerns a different toric configuration and does not imply this formula. Residual risk: older hyperdeterminant or likelihood literature could contain the identity in disguise; [2] has only been checked at abstract/overview level.
+
+**Value — PASS.** The output is a uniform exact polynomial-size representation of an irreducible parameter discriminant, unlike an expanded high-dimensional Hurwitz determinant. The no-extraneous-factor assertion is the substantive point: it solves a necessary saturation/factor-removal problem uniformly and makes degeneration tests computable via a degree-\(m+1\) univariate discriminant. The result applies to every rectangular size in a natural one-row-factor Segre family, not an arbitrary numerical instance.
+
+**Scope of conclusion.** This is a self-review only. No independent check of mathematical priority or full proof has been performed. The formula does not classify arbitrary coefficient-boundary specializations.
+
+Self-review: passed. Independent audit: not yet performed.
