@@ -1,0 +1,165 @@
+{
+  "correctness": {
+    "rationale": "For every \\(n\\ge1\\) and \\(t\\ge2\\) with the stated independent uniform priority law, a perfect matching is stable iff its chosen student at school s_i is maximal in the intersection among the remaining students. The if-and-only-if proof handles all blocking pairs, and every maximal choice extends. The exact mean factors by school independence and permutation exchangeability, while uniqueness factors by conditional one-maximal-choice events; for t random permutations the local maximal count follows from an exact t-dimensional integral and the uniqueness chance from common first-rank agreement. The fixed-t logarithmic asymptotic uses an explicit integrable dominated-convergence majorant. One exact script independently cross-checks direct blocking-pair enumeration and recursive maximal-choice enumeration for the \\(n=3,t=2\\) global case (46656 profiles); a second script separately checks local random-order maximal-element identities and smaller controls. Verification scripts executed successfully; no finite experiment is used as proof for arbitrary n.",
+    "status": "PASS"
+  },
+  "independent": false,
+  "independent_audit_status": "not_performed",
+  "originality": {
+    "broader_coverage": {
+      "evidence": [
+        "Pittel arXiv:1911.07425 Section 3 models separate independent uniformly random preference lists for agents on both sides; its weak-stability first moment is a joint integral, equation (3.5).",
+        "Bentley et al., J. ACM 25 (1978), Section 2, Theorem 1 and ensuing harmonic-number formula give the local mean count of maxima under independent coordinate rankings."
+      ],
+      "reasoning": "Pittel covers a broader class of random partial orders but not the present shared deterministic student ranking; setting the dimension of the student side to one still leaves that side independently randomized, so his first moment is not a direct instance of this product law. Bentley et al. cover the local maximal-element factor, not how stable assignments branch across independent schools; that local ingredient is not claimed as new.",
+      "searches": [
+        "Multiple priorities at each school, independent random linear orders intersected, all students share one preference list; number of stable matchings Pareto maxima expected product log n and unique chance n factorial inverse.",
+        "arxiv:1911.07425 Section 3",
+        "doi:10.1145/322092.322095 Section 2"
+      ]
+    },
+    "checked_sources": [
+      {
+        "identifier_or_url": "https://arxiv.org/abs/2609.12558",
+        "title": "School Choice Problems with Priority Adjustments"
+      },
+      {
+        "identifier_or_url": "https://arxiv.org/abs/2308.04780",
+        "title": "School Choice with Multiple Priorities"
+      },
+      {
+        "identifier_or_url": "https://arxiv.org/html/2305.00641v2",
+        "title": "On Extensions of Partial Priorities in School Choice"
+      },
+      {
+        "identifier_or_url": "https://arxiv.org/abs/1911.07425",
+        "title": "On random stable matchings: cyclic matchings with strict preferences and two-side matchings with partially ordered preferences"
+      },
+      {
+        "identifier_or_url": "https://doi.org/10.1145/322092.322095",
+        "title": "On the Average Number of Maxima in a Set of Vectors and Applications"
+      }
+    ],
+    "claim_vs_prior_implication": {
+      "evidence": [
+        "Kitahara–Okumura arXiv:2305.00641 proves stable partial-priority assignments are stable under some total-order extension but does not count them under a random common-student-order model.",
+        "Kitahara–Okumura 2026 gives fairness equivalence and selection results, not a probability distribution on the priority criteria.",
+        "Bentley et al. 1978 derives random maximal-vector expectations, which require an additional sequential independence argument to translate into the expected number of entire school assignments."
+      ],
+      "reasoning": "Earlier results establish ingredients: intersection fairness, partial-order extension, and expected local Pareto maxima. None of the inspected theorem statements alone entails the product count or the uniqueness law without the newly proved sequential bijection and conditional factorization. The derivation is elementary once these ingredients are assembled, so obscure earlier direct derivations remain a risk; no independence from all prior mathematics is asserted.",
+      "searches": [
+        "Expected number of weakly stable assignments for identical common school ranking and independent random school partial priority orders. Product of harmonic numbers H_1 H_2 ... H_n; uniqueness probability one over factorial n.",
+        "Multiple priorities at each school, independent random linear orders intersected, all students share one preference list; number of stable matchings Pareto maxima expected product log n and unique chance n factorial inverse.",
+        "arxiv:2305.00641 Section 2",
+        "arxiv:2609.12558 Proposition 1",
+        "doi:10.1145/322092.322095"
+      ]
+    },
+    "equivalent_formulations": {
+      "evidence": [
+        "arXiv:2609.12558 Section 2, Proposition 1 equates two-priority weak fairness with intersection-priority stability.",
+        "arXiv:2308.04780 Appendix A.1 Proposition 3 already proves weak M-stability for multiple priorities is ordinary stability of their intersection."
+      ],
+      "reasoning": "Weak stability, intersection-priority stability, weak M-stability, and Pareto maximality of the remaining student are compared as formulations. The qualitative intersection equivalence is prior work and is credited; the new quantitative theorem concerns the number of complete stable assignments, its expectation, uniqueness probability and asymptotic, none of which is stated by those propositions.",
+      "searches": [
+        "Expected number of weakly stable assignments for identical common school ranking and independent random school partial priority orders. Product of harmonic numbers H_1 H_2 ... H_n; uniqueness probability one over factorial n.",
+        "School Choice with Multiple Priorities Kitahara Okumura weakly M-stable common strict preferences random posets exact number stable matchings.",
+        "arxiv:2609.12558 Proposition 1",
+        "arxiv:2308.04780 Appendix A.1 Proposition 3"
+      ]
+    },
+    "exact_database_or_table": {
+      "evidence": [
+        "The inspected 2023 and 2026 partial-priority school-choice articles provide definitions, propositions, qualitative examples and mechanisms, without the all-size harmonic product or factorial uniqueness law.",
+        "The standalone exact census for three students gives profile counts 7776,14256,11664,9072,2592,1296, which are distinct from the previously inspected formulas about isolated random maxima."
+      ],
+      "reasoning": "Searches targeted both the complete exact formula and aliases such as random poset/partial-priority stable matchings, common preferences and Pareto maxima. No matching published exact school-allocation table was identified; failure of search is treated only as limited evidence, not novelty proof. Small n tables do not establish novelty by themselves.",
+      "searches": [
+        "Expected number of weakly stable assignments for identical common school ranking and independent random school partial priority orders. Product of harmonic numbers H_1 H_2 ... H_n; uniqueness probability one over factorial n.",
+        "\"weakly stable matchings\" \"harmonic\" school choice",
+        "\"expected number\" \"stable matchings\" \"identical preferences\" priority",
+        "\"school choice\" \"random\" \"partial priorities\" \"count\" matchings",
+        "\"Pareto maxima\" \"stable matchings\" \"harmonic\" students schools"
+      ]
+    },
+    "rationale": "Original quantitative contribution is the school-by-school expectation and uniqueness factorization and its harmonic-product and factorial laws for independent random intersection priorities with a common student preference order. The school-priority intersection equivalence is known from Kitahara–Okumura 2023/2026 and the expected local number of random Pareto maxima is classical Bentley et al. 1978; both are expressly credited, rather than appropriated. Pittel 2019 randomizes preferences on both sides and does not directly cover the perfectly correlated common student order. Searches of exact formulas/aliases and comparisons with accessible related claims found no dominating statement. Residual risk of unindexed equivalent analysis persists.",
+    "residual_risks": [
+      "Unindexed previously published model-specific common-preference random-priority stable-matching enumeration may exist.",
+      "Classical random Pareto maxima factor and 2023 qualitative intersection-stability results are not new; the scientific priority of the combined multiplicity law requires independent literature verification.",
+      "The independent-random-priority null model does not represent correlated affirmative-action adjustments by default."
+    ],
+    "source_inspections": [
+      {
+        "assessment": "COVERS definition of two-priority weak stability but does not state the probabilistic number-of-stable-assignments law",
+        "evidence": [
+          "First public arXiv posting 2026-09-11.",
+          "Section 2 Proposition 1 equates weak fairness with stability for the intersection of original and adjusted priorities.",
+          "The paper expressly builds on a 2023 manuscript; earlier foundations are credited."
+        ],
+        "identifier_or_url": "https://arxiv.org/abs/2609.12558",
+        "material_read": "Full accessible article text, Introduction, Section 2 definitions and Propositions 1–2, Lemma 1, and related mechanism discussion",
+        "method": "Read primary arXiv full text; inspected the intersection-priority fairness equivalence and searched the full text for expected and random",
+        "title": "School Choice Problems with Priority Adjustments",
+        "trigger": "Focal recent weak-stability model and exact definition"
+      },
+      {
+        "assessment": "COVERS intersection-equivalent weak M-stability under multiple criteria; does not state random common-order stable matching expectation or uniqueness count",
+        "evidence": [
+          "First posted 2023-08-09.",
+          "Appendix A.1 Proposition 3 establishes weak M-stability if and only if stability under the intersection priority profile."
+        ],
+        "identifier_or_url": "https://arxiv.org/abs/2308.04780",
+        "material_read": "Accessible full primary text including Introduction, model, Propositions 1–2, and Appendix A.1 Propositions 3–4",
+        "method": "Read primary arXiv full text, including Appendix A.1 and searched for probability/random/number-of-matchings statements",
+        "title": "School Choice with Multiple Priorities",
+        "trigger": "Prior model with arbitrary numbers of priority lists; possible equivalence"
+      },
+      {
+        "assessment": "COVERS qualitative extension/existence theory, but not the probabilistic multiplicity factorization under common school rankings",
+        "evidence": [
+          "First posted 2023-05-01.",
+          "Section 2 characterizes stable matchings of a partial order by total-order extensions."
+        ],
+        "identifier_or_url": "https://arxiv.org/html/2305.00641v2",
+        "material_read": "Full accessible HTML, introduction and Section 2 including definitions, maximal-set algorithm and total-order-extension claims",
+        "method": "Read primary HTML including Introduction, Section 2, and statements about union over linear extensions",
+        "title": "On Extensions of Partial Priorities in School Choice",
+        "trigger": "Potentially dominating characterization of all stable matchings under partial priorities"
+      },
+      {
+        "assessment": "DIFFERENT probabilistic domain; includes random independent preference lists on BOTH sides, not one identical deterministic student list. Does not provide present factorization",
+        "evidence": [
+          "Section 3 defines independent random partial preference orders on both sides.",
+          "Equation (3.5) is a joint-integral formula for weak-stable matching expectation."
+        ],
+        "identifier_or_url": "https://arxiv.org/abs/1911.07425",
+        "material_read": "Full accessible Section 3, including random poset construction, formula (3.5), the strong/super-stable comparisons and section statements",
+        "method": "Read primary arXiv full text Section 3 and examined the independently random preferences on both sides",
+        "title": "On random stable matchings: cyclic matchings with strict preferences and two-side matchings with partially ordered preferences",
+        "trigger": "Closest stochastic matching result with random intersections of linear orders"
+      },
+      {
+        "assessment": "COVERS the local maximum count and its asymptotics; explicitly credited. DOES NOT analyze stable school-assignment multiplicity or its uniqueness probability",
+        "evidence": [
+          "J. ACM 25(4), 536–543 (1978).",
+          "Section 2 Theorem 1 gives the maximal-vector mean recurrence.",
+          "Page 539 identifies the two-dimensional mean as the harmonic number."
+        ],
+        "identifier_or_url": "https://doi.org/10.1145/322092.322095",
+        "material_read": "Full primary PDF pages 1–4 including Section 2, Theorem 1, recurrence and the harmonic-number and higher-dimensional expressions",
+        "method": "Read source PDF text and inspected page images for its exact formulas",
+        "title": "On the Average Number of Maxima in a Set of Vectors and Applications",
+        "trigger": "Likely exact prior coverage of the local random-Pareto-maxima factor"
+      }
+    ],
+    "status": "PASS"
+  },
+  "review_type": "self_review",
+  "schema_version": 1,
+  "scope_run_id": "ef91459d-9da1-4932-9c6b-26e9d762b395",
+  "self_review_status": "passed",
+  "value": {
+    "rationale": "A natural and economically meaningful source of assignment-selection discretion is simultaneous school priority criteria. The theorem is an all-market-size structural factorization, not a narrow table: for two independent criteria, the expected number of admissible stable assignments is product H_m while uniqueness shrinks as 1/n!, quantitatively contrasting with the unique common-preference stable assignment under one strict criterion. It is a reproducible benchmark for fairness constraints and how priority disagreement expands the feasible allocation set. The model assumptions and absence of concentration results are explicit.",
+    "status": "PASS"
+  }
+}
