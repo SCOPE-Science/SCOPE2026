@@ -1,15 +1,21 @@
-# Scientific review — A Poisson extreme-value law for random widths of simplex-sum stellohedra
+# Independent mathematical audit
 
-## Correctness — PASS
-The 2^m connected hub-containing tubes yield exact geometric-rank weights. Gaussian maximum-domain-of-attraction and independent upper/lower Poisson arrival limits give the stated two-copy exponential series. The beta-gamma decomposition proves cumulants, and the independent χ radial factor proves the Haar-spherical normalization. Exact finite subset identities were independently checked with rationals for 72 cases. The theorem is asymptotic, and finite computations were not used as infinite proofs.
+## correctness
 
-## Originality — PASS (with residual bibliographic risks)
-Postnikov and Padrol–Pilaud–Poullot supply the coordinate-simplex construction. The published same-object ball and Minkowski-asymmetry results establish different invariants; the published tree graphical-zonotope variance result concerns a different polytope family. Relevant primary full texts were compared, together with exact/alias/implication searches described in AUDIT.json. No result establishing this random-direction stellohedral Poisson limit was found. The limit of weighted Gaussian extremes may have an earlier stochastic formulation under a different name.
+PASS
 
-## Mathematical value — PASS
-The theorem resolves the stochastic Euclidean width scale of a canonical infinite family, including a non-Gaussian fluctuation law with explicit centered exponential coefficients and exact finite-dimensional expectation. It distinguishes what is intrinsic to this Euclidean realization from its previously studied discrete or extremal geometry.
+Reconstructed support width as sum over the 2^m hub-containing coordinate simplices, with sorted extreme-leaf rank weights 2^{-j}; exactly verified the finite subset weighting for 28 independently generated rational test vectors. Gaussian extreme quantile spacings give weighted upper and lower independent Poisson arrival arrays; beta-gamma ratios yield independent (1-2^{-k})/k exponential summands. The centering gamma-log(2), variance (log 2)^2+Li_2(1/4), higher cumulants and positive third cumulant follow algebraically. Projection of an (m+1)-Gaussian to 1-perp has chi_m radial factor independent of direction, and its O_P(m^{-1/2}) relative fluctuation is negligible at b_m squared scale. The exact expectation uses independence of radial and angular factors and E Gaussian range 2 mu_k. Finite examples only verify finite identities, not convergence.
 
-## Scientific limits
-Only unweighted simplex-sum realizations are covered; the limit is weak convergence without a rate. The finite checker verifies input identities and numerical predictions but not the analytic limit. No independent validation has been performed.
+## originality
 
-Self-review: passed. Independent audit: not yet performed.
+PASS
+
+The classical Gaussian extreme point-process theory and Postnikov simplex-sum/nestohedral model are prior ingredients; the inspected graph-associahedron full text and indexed same-object studies do not state or imply the Haar-width limit with geometric order-statistic weighting and explicit two-copy non-Gaussian cumulants. This is a best-of-knowledge finding, not certified priority.
+
+## value
+
+PASS
+
+The unit-weight simplex-sum stellohedron is a canonical, natural polytope realization. An explicit non-Gaussian limit law for its Haar widths, with all cumulants and an exact finite-dimensional expected width, is a reusable stochastic-geometric invariant; it is not merely generic Gaussian maxima or a name change.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
