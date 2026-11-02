@@ -1,0 +1,123 @@
+{
+  "audit_date_utc": "2026-10-31",
+  "audited_at_utc": "2026-10-31T00:11:35Z",
+  "axes": {
+    "correctness": {
+      "checked_sources": [
+        "frozen RESULT.md blob 90d93677b79813b9f6c3d4e80f1ae9a659eac6ec",
+        "original same mathematical model two-point density arxiv:2601.20077v3 supplement S3 (S28)-(S36)",
+        "independent_checks.py PAIRTAIL group: normal-Laplace convolution and finite renewal integral"
+      ],
+      "rationale": "Poisson marking splits pair-affecting resets into independent rates alpha,alpha,c; their union rate is delta. Conditioning on the last such reset gives exactly the integral of c Q_t(x)^2 plus 2alpha Q_t(x) E Q_t(x-Y) against exp(-delta t) dt, with Y Laplace rate k1=sqrt(lambda/D) and independent of subsequent Brownian noise. Mills ratios locate the unique saddle t*=x/sqrt(2Ddelta); Bessel K2 asymptotics give J(x)~exp(-k2 x)/(delta sqrt(2pi k2 x)). In the same saddle window Q_t(x-Y)/Q_t(x)->exp(k2Y/2); the Laplace moment equals 2lambda/c because k2/2<k1 for c>0. Strict exponential integrability plus saddle localization justify the tilt, yielding coefficient c+4alpha lambda/c. Independent integral quadrature at N,m=(5,2),(6,4),(3,2) confirmed positive ratios increasing toward 1 (convergence is especially slow when c small); it is not proof of an asymptotic. The c=0 boundary is exactly independent via Poisson thinning.",
+      "residual_risks": [
+        "Fixed positive common-reset rate c and finite population are essential; expansion not uniform as c tends to zero.",
+        "Numerical finite-threshold ratios can be far from 1 when the tilted Laplace moment is near its integrability boundary; the asymptotic argument requires dominated saddle control."
+      ],
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "The source exact full pair density is broader finite-position information than an asymptotic probability and represents strong logical overlap.",
+          "Biroli et al arxiv:2211.00563 treats m=N synchronous resets, outside strict m<N hypothesis."
+        ],
+        "reasoning": "The previously known exact law potentially dominates this event if one regards integrals and standard saddle evaluation as a routine implication. The prefactor calculation and c->0 singularity still require new analysis beyond the displayed density; this is a high-priority residual comparison.",
+        "searches": [
+          "Resultary semantic search: batch resetting Brownian gas stationary pair joint positive extreme tails asymptotic x minus half prefactor de Mauro Majumdar Schehr",
+          "arxiv:2601.20077v3 supplement §S3",
+          "arxiv:2211.00563"
+        ]
+      },
+      "checked_sources": [
+        "arxiv:2601.20077v3 same mathematical model full pair density supplement §S3",
+        "arxiv:2211.00563 limited comparison",
+        "Resultary query batch resetting Brownian gas stationary pair joint positive extreme tails asymptotic x minus half prefactor de Mauro Majumdar Schehr"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "Source arxiv:2601.20077v3 (S35)-(S36) has K0 convolution and stationary pair law for partial batches, not an evaluated high-x quadrant coefficient.",
+          "General stationary independent resetting m=1 implies simple product tails, but has no x^-1/2 prefactor."
+        ],
+        "reasoning": "A prior exact density implies an integral representation but does not immediately supply the assessed evaluated asymptotic without Laplace saddle and finite tilted marginal calculations. The explicit coefficient is accepted as a substantive asymptotic refinement, with substantial implicit-coverage uncertainty recorded.",
+        "searches": [
+          "Resultary semantic search: batch resetting Brownian gas stationary pair joint positive extreme tails asymptotic x minus half prefactor de Mauro Majumdar Schehr",
+          "https://arxiv.org/pdf/2601.20077",
+          "arxiv:2211.00563"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "de Mauro et al arxiv:2601.20077v3 supplement §S3 eq (S30)-(S36) gives the full Bessel K0-plus-convolution pair density, whose positive-quadrant integral is exactly the event of interest.",
+          "No displayed x^-1/2 coefficient in inspected §S3."
+        ],
+        "reasoning": "The source density already uniquely determines P(X1>x,X2>x), so only sharp asymptotic evaluation is assessed as new; do not claim an independently novel distribution. The calculation requires a two-dimensional tail integral or the equivalent renewal saddle plus a nontrivial finite tilt.",
+        "searches": [
+          "Resultary semantic search: batch resetting Brownian gas stationary pair joint positive extreme tails asymptotic x minus half prefactor de Mauro Majumdar Schehr",
+          "https://arxiv.org/pdf/2601.20077"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "Resultary closest hit 2026/10/4/SCOPE-extreme-particle-pinning-thresholds-for-alpha-wiener-mean-field--5a24bf7e98db studies a different bridge model.",
+          "Source §S3 exact pair-density formulas are NOT a table of quadrant-tail coefficients, but do encode them implicitly."
+        ],
+        "reasoning": "The requested coefficient is exact asymptotic, not a finite-value lookup. Targeted records yielded no equivalent explicit coefficient; the underlying same mathematical model density remains prior coverage of the input law.",
+        "searches": [
+          "Resultary semantic search: batch resetting Brownian gas stationary pair joint positive extreme tails asymptotic x minus half prefactor de Mauro Majumdar Schehr",
+          "Resultary id 2026/10/4/SCOPE-extreme-particle-pinning-thresholds-for-alpha-wiener-mean-field--5a24bf7e98db"
+        ]
+      },
+      "rationale": "The de Mauro-Majumdar-Schehr 2026 source already supplies the exact same mathematical model stationary pair density, so there is no novelty in the pair law or any finite-position probability. The new asserted result is evaluation of the positive-quadrant far-tail integral to the full x^-1/2 factor and coefficient and the singular independent-reset comparison. This nontrivial saddle/exponential-tilt extraction is not tabulated in inspected supplement; originality qualified because density logically encodes the tail and an equivalent asymptotic may exist.",
+      "residual_risks": [
+        "Existing exact same mathematical model density mathematically determines any quadrant probability; publication priority of its explicit large-x prefactor requires expert comparison.",
+        "General Bessel convolution tail asymptotics might make the extraction an already-known special case.",
+        "No uniform regime m->1 or N->infinity is proved."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "SAME_MODEL_EXACT_PAIR_DENSITY; no displayed sharp positive-quadrant tail prefactor in inspected key section; density is strong implicit coverage.",
+          "evidence": [
+            "§S3 equations (S30)-(S36), K0 plus one-point Laplace convolution."
+          ],
+          "identifier_or_url": "https://arxiv.org/pdf/2601.20077",
+          "material_read": "Full main model description and 26-page original PDF supplement §S3 pp12-13, equations (S28)-(S39), including exact Fourier and real-space pair densities; full text searched for exceedance.",
+          "method": "Inspected primary PDF and rendered page 14 (PDF page index 13) displaying (S35)-(S39), compared fixed N,m and asymptotic claims.",
+          "title": "Tuning the strength of emergent correlations in a Brownian gas via batch resetting",
+          "trigger": "Exact self-review, potentially decisive prior pair formula"
+        },
+        {
+          "assessment": "m=N simultaneous resetting model is a boundary case excluded from 2<=m<N; source full coverage not asserted.",
+          "evidence": [
+            "Original model is synchronous resets of all particles, unlike independent uniform proper batches."
+          ],
+          "identifier_or_url": "https://arxiv.org/abs/2211.00563",
+          "material_read": "Abstract and model description available via references and public abstract; full primary PDF not read anew in this execution.",
+          "method": "Limited metadata/background comparison; did not claim whole-source exclusion.",
+          "title": "Extreme statistics and spacing distribution in a Brownian gas correlated by resetting",
+          "trigger": "Synchronous common reset and extremes could subsume mixed case"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "checked_sources": [
+        "same mathematical model de Mauro et al stationary two-point law",
+        "frozen sharp saddle and tilt proof"
+      ],
+      "rationale": "The exponential rate alone is inadequate for calibrating extremely rare pair excursions: the nontrivial x^-1/2 prefactor and exact parameter coefficient distinguish shared reset marks from independent thinning and reveal a singular tail mechanism. This is a mathematically motivated sharp asymptotic, not a recomputation of stationary moments.",
+      "residual_risks": [
+        "The density is known and entails this tail by integration; scientific contribution is specifically the explicit nontrivial asymptotic analysis."
+      ],
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "limitations": [
+    "No claims of novel pair density, growing N, or uniform common-reset intensity.",
+    "Finite independent quadrature confirms trend but cannot establish the x->infinity limit.",
+    "Five frozen source directory entries and all immediate file blobs were checked at exact commit and current main at inspection; later branch changes are not excluded.",
+    "The record remains not_ready for publication due inherited private operational metadata and unverified initial public dates; this is a transport/confidentiality hold, NOT scientific rejection.",
+    "No GitHub writes or dispatcher closeout writes."
+  ],
+  "schema_version": 1
+}

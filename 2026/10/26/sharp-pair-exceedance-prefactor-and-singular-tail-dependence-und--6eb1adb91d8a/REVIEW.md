@@ -1,19 +1,21 @@
-# Scientific review
+# Independent mathematical audit
 
-## Correctness — PASS
+## correctness
 
-The last-pair-event decomposition uses three independent Poisson thinnings and a stationary Laplace one-point law. The saddle of \(\delta t+x^2/(2Dt)\) is unique, and its Bessel integral gives the correct square-root denominator. The unreset coordinate's tilted moment exists precisely because the common-reset rate is strictly positive, yielding \(2\lambda/c\); the exact renewal coefficients sum to \(c+4\alpha\lambda/c\). The quadrant-sign symmetry and independent-reset boundary follow from independent Brownian sign distributions. Finite comparisons in `verify.py` check parameter identities and the exact integral but do not certify the infinite limit.
+PASS
 
-## Originality — PASS with residual risk
+Poisson marking splits pair-affecting resets into independent rates alpha,alpha,c; their union rate is delta. Conditioning on the last such reset gives exactly the integral of c Q_t(x)^2 plus 2alpha Q_t(x) E Q_t(x-Y) against exp(-delta t) dt, with Y Laplace rate k1=sqrt(lambda/D) and independent of subsequent Brownian noise. Mills ratios locate the unique saddle t*=x/sqrt(2Ddelta); Bessel K2 asymptotics give J(x)~exp(-k2 x)/(delta sqrt(2pi k2 x)). In the same saddle window Q_t(x-Y)/Q_t(x)->exp(k2Y/2); the Laplace moment equals 2lambda/c because k2/2<k1 for c>0. Strict exponential integrability plus saddle localization justify the tilt, yielding coefficient c+4alpha lambda/c. Independent integral quadrature at N,m=(5,2),(6,4),(3,2) confirmed positive ratios increasing toward 1 (convergence is especially slow when c small); it is not proof of an asymptotic. The c=0 boundary is exactly independent via Poisson thinning.
 
-The closest paper, de Mauro–Majumdar–Schehr (arXiv:2601.20077, Supplementary Material §S3), already provides the **entire** stationary pair density. The new item neither replaces nor claims that density. It sharply evaluates a rare simultaneous positive-quadrant integral with a nontrivial algebraic prefactor, a moment-generating-function criterion for the saddle and a singular contrast with independent resetting. A separate previously available logarithmic joint-excursion law already gives the exponential rate but not the prefactor. The original density implicitly determines this coefficient after additional asymptotic analysis: whether that is sufficient for prior mathematical coverage is the principal residual risk. Biroli et al. (arXiv:2211.00563) study the fully synchronous case; that case is excluded from the new theorem. No matching sharp coefficient was found in the checked sources.
+## originality
 
-## Value — PASS
+PASS
 
-The exact coefficient permits quantitative estimation of an exceptionally rare *joint* event, for which exponent-only asymptotics can be misleading, especially when the common-reset rate is small. The distinction between \(x^{-1/2}\) correlated co-exceedance and exact independent product tails gives a singular boundary in physically meaningful batch design. This is an explicitly evaluated rare-event property, not merely another moment or a restatement of the known stationary density.
+The de Mauro-Majumdar-Schehr 2026 source already supplies the exact same mathematical model stationary pair density, so there is no novelty in the pair law or any finite-position probability. The new asserted result is evaluation of the positive-quadrant far-tail integral to the full x^-1/2 factor and coefficient and the singular independent-reset comparison. This nontrivial saddle/exponential-tilt extraction is not tabulated in inspected supplement; originality qualified because density logically encodes the tail and an equivalent asymptotic may exist.
 
-## Sources and limitations
+## value
 
-Primary model and stationary pair-density source: arXiv:2601.20077v3, Supplementary Material §S3, equations S33–S36. Synchronous extreme comparison: arXiv:2211.00563, main text and pages 1–3. General stronger-coverage concern: exact pair densities determine integrals in principle. The proof is for fixed finite \(N\), mixed batches \(2\le m<N\), independent Brownian motions and positive reset intensity. No uniform finite-batch or large-population crossover is asserted.
+PASS
 
-Self-review: passed. Independent audit: not yet performed.
+The exponential rate alone is inadequate for calibrating extremely rare pair excursions: the nontrivial x^-1/2 prefactor and exact parameter coefficient distinguish shared reset marks from independent thinning and reveal a singular tail mechanism. This is a mathematically motivated sharp asymptotic, not a recomputation of stationary moments.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
