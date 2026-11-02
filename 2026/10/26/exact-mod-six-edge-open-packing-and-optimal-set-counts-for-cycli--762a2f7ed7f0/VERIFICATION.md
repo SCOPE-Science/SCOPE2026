@@ -5,8 +5,11 @@
     "status": "not_performed"
   },
   "independent_audit": {
-    "evidence": null,
-    "status": "not_performed"
+    "status": "passed",
+    "evidence": [
+      "INDEPENDENT_AUDIT_2026-10-31.md",
+      "INDEPENDENT_AUDIT_2026-10-31.json"
+    ]
   },
   "lean_verification": {
     "evidence": null,
@@ -16,22 +19,24 @@
 }
 ---
 
-# Reproduction and limitations
+# Independent mathematical audit
 
-Run `python3 verify.py` using Python 3.9 or later. The code uses only the standard library and no downloaded data. It constructs the graph directly from its vertex/edge sets, detects conflicts by scanning all possible third edges, and independently constructs the finite-state adjacency rules. It checks all exact integer entries of the critical \(17\times17\) matrix identity and traces, not a floating-point approximation.
+## correctness
 
-Full exhaustive independent graph enumeration for cyclic prism orders seven through eleven verifies the complete extremal counts. Orders seven through fourteen have independently checked local conflict pairs; a separate transfer recurrence checks all orders seven through eighty-four. These bounded tests are corroboration; the all-order proof uses the exact finite matrix identity and unique six-cycle, which the executable also checks.
+PASS
 
-Expected output (the actual execution is captured separately as `verification_output.txt`):
+The definition forbids a third distinct edge joining endpoints of two selected edges; selected edges need not be disjoint. Reconstructed exact direct edge-conflict predicates and the six legal same-column masks. For n>=7 only separations 0,1,2 matter, yielding 17 pair states and 37 shifts. A 0/-1 potential transforms the weight 1-|mask| to nonnegative deficiencies 0,1 with zero-cost matrix B0 (24 transitions) and unit-cost B1 (13). Independently multiplied full integer 17x17 matrices to establish B0^8=B0^2 and exact tr(B1 B0^(j-1)) for j=1..8 as (1,1,4,2,4,6,2,2); direct digraph inspection gives unique zero-deficiency 6-cycle. Trace recurrence counts all zero-deficiency and exactly-one-deficiency closed cyclic words, proving all n formulas. Independent tests checked third-edge geometry and optimum counts n=7..30. All-order conclusion uses exact finite matrix identity, not extrapolation from bounded n.
 
-```
-DIRECT 7 maximum 6 optimal_sets 14 feasible_sets 1079
-DIRECT 8 maximum 7 optimal_sets 16 feasible_sets 2979
-DIRECT 9 maximum 8 optimal_sets 36 feasible_sets 8410
-DIRECT 10 maximum 9 optimal_sets 20 feasible_sets 22583
-DIRECT 11 maximum 10 optimal_sets 44 feasible_sets 61579
-CERTIFICATE_OK states=17 transitions=37 zero=24 unit=13 B0^8=B0^2 unique_zero_cycle=6
-TRACES a[1..8]=1,1,4,2,4,6,2,2; transfer_orders=7..84; local_rules=7..14
-```
+## originality
 
-No independent audit has occurred. Bibliographic coverage is limited to the referenced inspected primary sources and actual search results; no absolute uniqueness claim is made.
+PASS
+
+Chelladurai et al introduced EOP. Brešar–Samadi proved general cubic upper bound n and equality characterization, and Brešar et al proved Cartesian-product lower bound and a *vertex* packing result for prisms. Those do not enumerate all maximum EOP edge sets or give complete n mod6 spectrum in the inspected texts. Equivalent injective edge-color classes and induced-star families were considered explicitly.
+
+## value
+
+PASS
+
+The exact optimal cardinality and all optimizer multiplicities for an infinite canonical cubic graph family form a natural structural classification. Counting 6,2n,4n optima and the sharp mod-six defect goes beyond simply invoking the known cubic bound.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

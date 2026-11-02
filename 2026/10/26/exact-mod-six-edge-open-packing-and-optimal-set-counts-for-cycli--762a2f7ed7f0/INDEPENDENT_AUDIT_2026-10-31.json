@@ -1,0 +1,120 @@
+{
+  "audit_date_utc": "2026-10-31",
+  "audited_at_utc": "2026-10-31T02:10:21Z",
+  "axes": {
+    "correctness": {
+      "checked_sources": [
+        "frozen complete RESULT.md and exact Git tree from assigned commit",
+        "independently implemented mathematical checks in independent_checks.py",
+        "critical lemmas reconstructed from definitions, not merely VERIFY_OK"
+      ],
+      "rationale": "The definition forbids a third distinct edge joining endpoints of two selected edges; selected edges need not be disjoint. Reconstructed exact direct edge-conflict predicates and the six legal same-column masks. For n>=7 only separations 0,1,2 matter, yielding 17 pair states and 37 shifts. A 0/-1 potential transforms the weight 1-|mask| to nonnegative deficiencies 0,1 with zero-cost matrix B0 (24 transitions) and unit-cost B1 (13). Independently multiplied full integer 17x17 matrices to establish B0^8=B0^2 and exact tr(B1 B0^(j-1)) for j=1..8 as (1,1,4,2,4,6,2,2); direct digraph inspection gives unique zero-deficiency 6-cycle. Trace recurrence counts all zero-deficiency and exactly-one-deficiency closed cyclic words, proving all n formulas. Independent tests checked third-edge geometry and optimum counts n=7..30. All-order conclusion uses exact finite matrix identity, not extrapolation from bounded n.",
+      "residual_risks": [
+        "Only simple cyclic prisms n>=7; n<=6, wider ladders and non-optimal packings are excluded."
+      ],
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "For a cubic prism with 3n edges the general EOP bound gives <=n; the Cartesian product theorem gives a lower bound and Proposition 5.9 concerns vertex rather than edge packing."
+        ],
+        "reasoning": "A bound and equality characterization may imply some divisible-by-six behavior but do not yield counts of all optimal sets in the n-1 cases. A stronger specialized theorem remains a priority possibility.",
+        "searches": [
+          "Brešar Samadi arXiv:2403.00750 Theorem 4.1",
+          "Brešar Dravec Hedžet Samadi arXiv:2406.04020 Section 5"
+        ]
+      },
+      "checked_sources": [
+        "arXiv:2403.00750v1 full HTML",
+        "arXiv:2406.04020v2 full HTML",
+        "doi:10.1051/ro/2022171",
+        "Resultary edge open packing prism circular ladder injective edge coloring maximum cardinality and optimal configurations mod six"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "Theorem 4.1 gives the upper bound n; the present proof distinguishes attained n from deficiency one and resolves every optimizing trace multiplicity."
+        ],
+        "reasoning": "None of those general statements implies the 17-state transfer-matrix cyclic trace identity and all-optima count. The previously known n bound is expressly not claimed new.",
+        "searches": [
+          "Brešar Samadi arXiv:2403.00750 Theorem 4.1",
+          "Brešar et al arXiv:2406.04020 Corollary 5.3 and Proposition 5.9"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "An edge open packing is a single injective-edge-colour class and a disjoint union of induced stars; each description yields an equivalent conflict-independent-set optimization."
+        ],
+        "reasoning": "Comparing equivalent graph invariants prevents false novelty from renamed terminology. No statement of the complete mod-six cardinality-plus-count theorem was identified in the inspected sources.",
+        "searches": [
+          "edge open packing prism circular ladder injective edge coloring maximum cardinality and optimal configurations mod six",
+          "arXiv:2403.00750v1 Section 1 exact EOP/injective-edge equivalence",
+          "arXiv:2403.00750v1 Section 1 induced star description"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "The 2022 foundational paper tables cover other graph families; Resultary closest hit is unrelated edge-coloured configurations (record 6bd3d89a6723)."
+        ],
+        "reasoning": "No exact circular-ladder EOP optimal-set table found in inspected material. This is limited search evidence, not proof of an uncited historical result.",
+        "searches": [
+          "Resultary edge open packing prism circular ladder injective edge coloring maximum cardinality and optimal configurations mod six",
+          "arXiv:2406.04020v2 Section 5 Cartesian products",
+          "2022 EOP paper standard graph tables"
+        ]
+      },
+      "rationale": "Chelladurai et al introduced EOP. Brešar–Samadi proved general cubic upper bound n and equality characterization, and Brešar et al proved Cartesian-product lower bound and a *vertex* packing result for prisms. Those do not enumerate all maximum EOP edge sets or give complete n mod6 spectrum in the inspected texts. Equivalent injective edge-color classes and induced-star families were considered explicitly.",
+      "residual_risks": [
+        "A previously unindexed theorem about injective edge color classes, induced stars or independence in prism edge-conflict graphs might be equivalent.",
+        "General equality characterization might subsume the maximum cardinality for n divisible six, but not explicitly the optimizer multiplicity classification."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Known upper bound and possible equality classification, but not optimum count on all prisms",
+          "evidence": "Theorem 4.1: rho_e^o(G)<=|E(G)|/delta(G).",
+          "identifier_or_url": "arXiv:2403.00750v1; https://arxiv.org/html/2403.00750v1",
+          "material_read": "Full accessible arXiv HTML, including Definition/intro, algorithmic sections and Section 4 Theorem 4.1 with proof",
+          "method": "Direct primary text statement and implication comparison",
+          "title": "Edge open packing: complexity, algorithmic aspects, and bounds",
+          "trigger": "Exactly same packing invariant, generic upper bound"
+        },
+        {
+          "assessment": "Cartesian product lower bound and prism vertex-packing invariant, not this edge optimal-set census",
+          "evidence": "Corollary 5.3 EOP lower bound; Proposition 5.9 is vertex distance-three packing.",
+          "identifier_or_url": "arXiv:2406.04020v2; https://arxiv.org/html/2406.04020v2",
+          "material_read": "Full accessible arXiv HTML and direct reading of Section 5, Corollary 5.3 and Proposition 5.9",
+          "method": "Primary open full-text inspection",
+          "title": "Induced matching vs edge open packing: trees and product graphs",
+          "trigger": "Cartesian product C_n square K_2 may be covered"
+        },
+        {
+          "assessment": "Defines EOP and treats several graph families, not identified complete prism optimum census",
+          "evidence": "2022 original invariant, standard classes.",
+          "identifier_or_url": "doi:10.1051/ro/2022171; https://www.numdam.org/item/10.1051/ro/2022171.pdf",
+          "material_read": "Foundational source definitions and standard graph families identified from full-text primary citations and current result comparative review; no fresh full PDF reread asserted",
+          "method": "Referenced original publication and directly compared known statements",
+          "title": "Edge open packing sets in graphs",
+          "trigger": "Original definition and standard-family values"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "checked_sources": [
+        "actual final RESULT.md statement and proof",
+        "prior-work comparison against same objects and invariants"
+      ],
+      "rationale": "The exact optimal cardinality and all optimizer multiplicities for an infinite canonical cubic graph family form a natural structural classification. Counting 6,2n,4n optima and the sharp mod-six defect goes beyond simply invoking the known cubic bound.",
+      "residual_risks": [
+        "The finite 17x17 integer identities are proved by full exact computation, not an unverified log."
+      ],
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "limitations": [
+    "Only simple cyclic prisms n>=7; n<=6, wider ladders and non-optimal packings are excluded.",
+    "The finite 17x17 integer identities are proved by full exact computation, not an unverified log."
+  ],
+  "schema_version": 1
+}
