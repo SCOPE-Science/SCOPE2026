@@ -1,11 +1,21 @@
-# Scientific review
+# Independent mathematical audit
 
-**Correctness — PASS.** The claim concerns exactly \(392\) explicitly parameterized isometries of the \(49\)-point seven-by-seven torus at graph-metric scale four. The orbit-barycenter fixed-space model is proved directly. The attached standard-library checker verifies every symmetry, all admissible orbits and clique faces, every elementary collapse, the connected cycle and sphere recognition criteria, and pre-collapse alternating Euler characteristics. It returns exactly one \(S^3\) identity case (from the inspected published theorem), fourteen \(S^2\) cases, seventy-five \(S^1\) cases, 182 \(S^0\) cases, and 120 empty cases. For the single identity case, Adams et al.'s Section 7 supplies the stated integral nonequivariant homotopy type; it is not an assertion based only on a finite sample.
+## correctness
 
-**Originality — PASS, subject to normal literature limits.** The primary Adams et al. manuscript was inspected in the defining metric, Section 7 homotopy proof, equivariant remarks, and concluding questions. Its theorem identifies the ambient \(S^3\) but does not fix the isotropy types, geometric fixed-point homotopy types or integral symmetry character. The related 2026 torus-grid persistence preprint studies scale-inclusion maps, not group actions at a fixed scale. Searches in the published mathematical-record database for combinations of the seven-by-seven torus, scale four, coordinate-dihedral actions, geometric fixed loci, sphere and reflection did not reveal an equivalent or dominating claim. Compared claims concern other scales, metrics and group actions. Unindexed equivalent work remains a risk; lack of search matches is not treated as a proof of uniqueness.
+PASS
 
-**Value — PASS.** This completes all elemental isotropy fixed-point homotopy types for the first nontrivial torus-grid Rips three-sphere, a naturally singled-out example in the primary paper. It separates cases invisible to the ordinary homology rank and recovers the full integral orientation character. The fixed loci fit the geometric pattern of two circles joined into a sphere without claiming the stronger full equivariant equivalence. Complete finite enumeration is scientifically motivated because the statement concerns every natural symmetry of a specific, independently identified exceptional complex.
+Geometric fixed points in an abstract simplicial complex support unions of complete g-orbits with uniform barycentric coefficients, giving a PL homeomorphism to an explicitly constructed orbit-clique complex L_g (NOT merely a fixed-vertex subcomplex). Original CHECKER.py was read: it constructs all 392 affine permutations, checks isometries, lists every eligible orbit and clique, performs elementary free-face collapses with unique immediate maximal coface tests and recognizes S0/S1/S2 terminal complexes by manifold links and Euler number. This is an exact finite algorithm for a fixed 49-point space. Independently constructed a separate orbit-compatibility clique enumerator and checked all 392 Euler characteristics against the claimed classification; got type counts S3=1, S2=14, S1=75, S0=182, empty=120. This Euler check does not alone prove homotopy; the finite collapse argument and audited program support the homotopy types, with complete source-run replay as residual reproducibility risk. Identity S3 case is imported from Adams et al. Section 7. Finite cyclic Lefschetz χ(Fix(g))=1−tr(g|H3) then gives ε1ε2 for both classes of automorphism, without claiming fixed loci of arbitrary subgroups.
 
-The source-paper homotopy calculation and possible unindexed equivariant work remain external limitations. Neither an equivariant join equivalence nor arbitrary-subgroup fixed points are proved. The finite checker is a complete combinatorial argument for the additional finite claim, not a general theorem in the torus dimension or radius.
+## originality
 
-Self-review: passed. Independent audit: not yet performed.
+PASS
+
+Adams–Adetowubo–Barriga-Acosta–Feng–Sterling prove ambient K≃S3 for the same 7×7 Lee-metric radius four grid, not the fixed loci for 391 nonidentity coordinate symmetries or their character. Related published torus-grid persistence/Rips results use other scales/grids/structures, and none inspected provides the 392-element table. Novelty is the elementwise equivariant refinement, not the S3 fact.
+
+## value
+
+PASS
+
+The 392-symmetry fixed-point profile is a complete natural finite equivariant invariant of a canonical Rips three-sphere; it determines the integral top homology character and differentiates cyclic fixed loci beyond the nonequivariant sphere description.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
