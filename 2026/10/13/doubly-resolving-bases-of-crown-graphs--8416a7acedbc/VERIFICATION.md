@@ -5,8 +5,11 @@
     "status": "not_performed"
   },
   "independent_audit": {
-    "evidence": null,
-    "status": "not_performed"
+    "status": "passed",
+    "evidence": [
+      "INDEPENDENT_AUDIT_2026-10-27.md",
+      "INDEPENDENT_AUDIT_2026-10-27.json"
+    ]
   },
   "lean_verification": {
     "evidence": null,
@@ -16,16 +19,24 @@
 }
 ---
 
-The proof was reconstructed directly from the crown graph distance table. For each pair type, the difference map \(s\mapsto d(u,s)-d(v,s)\) was computed explicitly. The critical checks are:
+# Independent mathematical audit
 
-- two omitted matched pairs make a same-side difference profile constant, proving that every doubly resolving set omits at most one pair;
-- if one pair is omitted, its matched vertices require selected vertices on both bipartition sides;
-- every adjacent cross pair has exactly two complementary transversal level sets, and these are the only cross-pair obstructions;
-- a size-\(n-1\) transversal-with-one-hole avoids all cross-pair obstructions exactly when it has at least three selected vertices on each side;
-- at size \(n\), a doubled pair automatically defeats every cross-pair transversal obstruction, while a full transversal fails exactly at side weights \(2\) and \(n-2\).
+## correctness
 
-The bundled `verify.py` independently constructs the graphs, computes distances by breadth-first search, tests the defining condition, and exhausts all subsets smaller than and equal to the claimed optimum for \(3\le n\le9\). Expected output:
+PASS
 
-`VERIFY_OK n_range=3..9 subset_checks=142833 basis_checks=59467 bases=3096 max_order=18`
+For n>=3 the crown distance table is exact: same-part distinct pairs distance 2, matching nonedges distance 3, other cross pairs distance 1. Same-part difference profiles force every doubly resolving set to omit at most one matched pair P_i, yielding |S|>=n-1. For a single omitted P_i, its matched endpoints require landmarks on both sides. An adjacent cross pair a_i,b_j (i!=j) has just two +/-1 difference levels, each a matched-pair transversal. A set of n-1 vertices is one-hole transversal, and avoids every level exactly if >=3 vertices are chosen from each side. This is feasible precisely for n>=7. For 3<=n<=6 any optimum n-set either has one omitted and another doubled pair (automatically defeats all transversals) or is a full transversal excluding B-side weights 2 and n-2. Counting gives all exact stated coefficients. Independent verifier enumerates all subsets through the claimed optimum for n=3..9, with 142924 subset checks, zero classification mismatches, and bases n3..9 = 14,58,172,514,140,560,1638. The infinite theorem is proved by the distance-level case analysis, not bounded experiments.
 
-The finite computation does not establish the theorem beyond \(n=9\); the symbolic distance-level argument supplies the proof for every \(n\ge3\). No independent audit has been performed.
+## originality
+
+PASS
+
+Originality is a best-of-knowledge judgment for the all-n crown vertex-doubly-resolving phase transition, exact minimum-set structure and enumerations. Foundational theory and general bounds do not imply it; related same-invariant complete multipartite and chain graph theorems exclude the matching-deleted crown; the crown edge-metric theorem is a distinct statistic. Finite cases that follow from classical cycle or hypercube results are not claimed as novel. Searches are not proof of absence and residual unindexed priority risks remain.
+
+## value
+
+PASS
+
+Crown graphs are canonical distance-three matching-deleted complete bipartite graphs. The exact vertex doubly-resolving invariant is mathematically motivated by landmark localization and the classical relation to Cartesian-product metric dimension. The theorem does not just recompute a known scalar: it gives a sharp parameter transition at n=7, complete structure of every minimum set and exact counts, with a nontrivial three-per-side constraint distinguishing doubly resolving from edge resolving. Such detailed bases are reusable as witnesses/counterexamples and for design of landmark sets. The classification is naturally an infinite-parameter family rather than an arbitrary tiny slice.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

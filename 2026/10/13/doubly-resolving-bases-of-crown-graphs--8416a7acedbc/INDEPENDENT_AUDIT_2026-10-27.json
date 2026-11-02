@@ -1,0 +1,236 @@
+{
+  "audit_date_utc": "2026-10-27",
+  "audited_at_utc": "2026-10-27T09:50:26Z",
+  "axes": {
+    "correctness": {
+      "evidence": [
+        "Pinned RESULT.md Git blob a347ddf6df12d961d208c66129a8a2369c2d8240, proof and all boundaries.",
+        "Pinned verify.py Git blob c41e4363f14603c6b4963d977c7b243c48b9d77c, inspected code; independent finite checker uses forbidden-level masks, not the original BFS verifier.",
+        "Git tree 79f44bff09193afad41ef295769888bc85073ab3 reconstructed from seven actual blobs, all identical to current branch.",
+        "Independent checker results: 142924 subsets across n3..9, zero mismatches."
+      ],
+      "rationale": "For n>=3 the crown distance table is exact: same-part distinct pairs distance 2, matching nonedges distance 3, other cross pairs distance 1. Same-part difference profiles force every doubly resolving set to omit at most one matched pair P_i, yielding |S|>=n-1. For a single omitted P_i, its matched endpoints require landmarks on both sides. An adjacent cross pair a_i,b_j (i!=j) has just two +/-1 difference levels, each a matched-pair transversal. A set of n-1 vertices is one-hole transversal, and avoids every level exactly if >=3 vertices are chosen from each side. This is feasible precisely for n>=7. For 3<=n<=6 any optimum n-set either has one omitted and another doubled pair (automatically defeats all transversals) or is a full transversal excluding B-side weights 2 and n-2. Counting gives all exact stated coefficients. Independent verifier enumerates all subsets through the claimed optimum for n=3..9, with 142924 subset checks, zero classification mismatches, and bases n3..9 = 14,58,172,514,140,560,1638. The infinite theorem is proved by the distance-level case analysis, not bounded experiments.",
+      "risks": [
+        "Finite verification only n=3..9; unrestricted correctness relies on explicit distance table and exhaustive vertex-pair-type proof.",
+        "No Lean or human expert attestation; neither is asserted."
+      ],
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Cáceres et al. general bound psi(G)<=|V|-1 gives at most 2n-1 for crown, strictly weaker.",
+          "Jannesari general bound |V|-diameter+1 = 2n-2 and K_{r,s} exact values apply only before matching deletion.",
+          "Complete multipartite all-set theorem does not include K_{n,n}-M.",
+          "2-thick chain/Ferrers graph theorem assumes nested bipartite neighborhoods absent in crown."
+        ],
+        "reasoning": "Compared theorem implications and graph-class inclusion. Neither a weaker general bound nor a structural formula for a different graph class dominates the exact crown basis classification.",
+        "searches": [
+          "Resultary semantic: doubly resolving set doubly resolving number crown graph K_n,n minus perfect matching dimension exact formula",
+          "Resultary semantic: doubly resolving bases of crown graphs one omitted matched pair side balance n=7 counting",
+          "Resultary semantic: double metric dimension bipartite Kneser crown graph minimum doubly resolving sets",
+          "Resultary semantic: doubly resolving sets of complete bipartite graphs deleted perfect matching basis characterization",
+          "arXiv:2106.03080 Theorems 2.5-2.6",
+          "arXiv:math/0507527 Section 4",
+          "Resultary 2026-09-30 complete multipartite RESULT.md",
+          "Resultary 2026-10-04 2-thick chain graphs RESULT.md"
+        ]
+      },
+      "checked_sources": [
+        "arXiv:math/0507527",
+        "arXiv:2106.03080",
+        "doi:10.1155/2020/9407456",
+        "arXiv:2605.06837",
+        "PSA:186118",
+        "Resultary/2026/9/30/SCOPE-doubly-resolving-sets-of-complete-multipartite-graphs--3d968bf6d9b9",
+        "Resultary/2026/10/4/SCOPE-doubly-resolving-sets-of-2-thick-chain-graphs--238d77156fde",
+        "Resultary/2026/10/4/SCOPE-edge-metric-bases-of-crown-graphs--b5b3c45f23e8"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "Cáceres et al. defines the invariant but only general bounds and different family results inspected.",
+          "Jannesari complete-bipartite values refer to K_{n,n}, not Cr_n.",
+          "Cocktail party graph K_{2n}-M is nonbipartite and diameter 2; crowns are bipartite and diameter 3.",
+          "Edge metric bases n2^(n-1) admit unbalanced one-hole transversals, which are explicitly forbidden for doubly resolving."
+        ],
+        "reasoning": "Neither same-parameter different graph results nor same-graph different statistic results logically imply the sharp threshold at n=7 or its all-basis enumeration. Standard general bounds are quantitatively too weak.",
+        "searches": [
+          "arXiv:math/0507527 Section 4 and families",
+          "arXiv:2106.03080 Lemma 2.3 Theorems 2.5 2.6",
+          "doi:10.1155/2020/9407456 Theorem 6",
+          "Resultary 2026-10-04 edge-metric crown RESULT.md",
+          "arXiv:2605.06837 Kneser section"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Cr_n = K_{n,n}-M = bipartite Kneser H(n,1) = tensor/canonical bipartite double of K_n, n>=3.",
+          "Liu et al. (2020) Section 3.2 explicitly defines cocktail-party graph K_{2m}-M, not K_{m,m}-M.",
+          "arXiv:2605.06837 treats ordinary Kneser K(n,2), not bipartite Kneser H(n,1)."
+        ],
+        "reasoning": "Alias search tested matching-deleted complete bipartite graph, crown, bipartite Kneser, double metric dimension and lexicographic/direct-product aliases. No inspected equivalent formulation supplies both exact piecewise minimum and full basis counts. Distinguish false cocktail-party alias, since distance profile differs.",
+        "searches": [
+          "Resultary semantic: doubly resolving set doubly resolving number crown graph K_n,n minus perfect matching dimension exact formula",
+          "Resultary semantic: doubly resolving bases of crown graphs one omitted matched pair side balance n=7 counting",
+          "Resultary semantic: double metric dimension bipartite Kneser crown graph minimum doubly resolving sets",
+          "Resultary semantic: doubly resolving sets of complete bipartite graphs deleted perfect matching basis characterization",
+          "Web: bipartite Kneser H(n,1) crown K_n tensor K_2 doubly resolving"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "Resultary published edge-metric crown basis count n 2^(n-1) uses a different vertex-to-edge statistic.",
+          "Resultary complete-multipartite same-invariant piecewise counts cannot be substituted for matching-deleted crown.",
+          "Original metric-dimension abstract is about ordinary resolving only and full body was not inspected.",
+          "Finite checks n=3..9 reproduce predicted 14,58,172,514,140,560,1638 bases; calculations are not evidence of priority."
+        ],
+        "reasoning": "No independently published matching table/sequence or equivalent all-n exact formula found in checked sources; a negative query result by itself never establishes novelty. Classical n=3 cycle/n=4 hypercube individual entries should be regarded as prior-compatible.",
+        "searches": [
+          "Resultary semantic: doubly resolving set doubly resolving number crown graph K_n,n minus perfect matching dimension exact formula",
+          "Resultary semantic: doubly resolving bases of crown graphs one omitted matched pair side balance n=7 counting",
+          "Resultary semantic: double metric dimension bipartite Kneser crown graph minimum doubly resolving sets",
+          "Resultary semantic: doubly resolving sets of complete bipartite graphs deleted perfect matching basis characterization",
+          "Web: crown graph double metric dimension basis count n7 n8",
+          "Resultary crown exact base classification",
+          "PSA:186118 crown metric dimension"
+        ]
+      },
+      "rationale": "Originality is a best-of-knowledge judgment for the all-n crown vertex-doubly-resolving phase transition, exact minimum-set structure and enumerations. Foundational theory and general bounds do not imply it; related same-invariant complete multipartite and chain graph theorems exclude the matching-deleted crown; the crown edge-metric theorem is a distinct statistic. Finite cases that follow from classical cycle or hypercube results are not claimed as novel. Searches are not proof of absence and residual unindexed priority risks remain.",
+      "residual_risks": [
+        "Doubly resolving sets may have unindexed synonym(s) such as double resolving metric generator.",
+        "An inaccessible older thesis or detailed crown metric-dimension paper could unexpectedly state a doubly resolving corollary. The Nizami (2018) paper was only inspected at abstract level.",
+        "The simple local distance-level argument might exist as folklore or in unindexed computational appendices; no historical priority guarantee is asserted.",
+        "Classical C6 and hypercube special cases are not independently novel; contribution is the uniform all-n and all-bases statement."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "The general upper bound psi<=|V|-1 is weaker than n or n-1 on 2n vertices; known special cases (C_6 and hypercube examples) are not claimed as new. Inspected family theorems do not give the all-n crown bases/classification.",
+          "evidence": [
+            "Section 4 definition and Lemma 4.3, doi:10.1137/050641867",
+            "Full PDF https://web.mat.upc.edu/carlos.seara/data/publications/articles/md.pdf"
+          ],
+          "identifier_or_url": "arXiv:math/0507527; https://web.mat.upc.edu/carlos.seara/data/publications/articles/md.pdf",
+          "material_read": "Full author-hosted primary PDF; abstract, introduction, Section 4 defining doubly resolving sets, upper bounds, family sections, and PDF searches for crown/bipartite/matching.",
+          "method": "Primary full-text PDF and page-image inspection (including pages 6 and 10), text search.",
+          "title": "On the Metric Dimension of Cartesian Products of Graphs",
+          "trigger": "Introduces doubly resolving sets and parameter psi(G), checks any general or family theorem subsuming crown values."
+        },
+        {
+          "assessment": "Theorem for K_{r,s} excludes matching deletion; general N-diameter+1 bound gives 2n-2 on a crown and no basis count, so does not imply n vs n-1.",
+          "evidence": [
+            "arXiv:2106.03080, Lemma 2.3, Theorems 2.5-2.6"
+          ],
+          "identifier_or_url": "arXiv:2106.03080",
+          "material_read": "Open full preprint text (available author/preprint copy), especially Lemma 2.3 complete-bipartite values, Theorems 2.5-2.6 upper bound and near-order extremal characterization.",
+          "method": "Lawful OA preprint reading and targeted textual search.",
+          "title": "On minimal doubly resolving sets in graphs",
+          "trigger": "Broader general bounds and complete-bipartite examples may dominate crown case."
+        },
+        {
+          "assessment": "The cocktail-party graph in this paper is K_{2m} minus a perfect matching and has diameter 2; crown K_{n,n} minus a matching has diameter 3. Its results do not imply crown theorem.",
+          "evidence": [
+            "Liu, Zafari, Zarei (2020), Section 3.2 and Theorem 6, doi:10.1155/2020/9407456"
+          ],
+          "identifier_or_url": "doi:10.1155/2020/9407456",
+          "material_read": "Publisher full HTML article, Section 3.2 defining cocktail-party graph and Theorem 6 about doubly resolving sets.",
+          "method": "Full primary publisher HTML reading.",
+          "title": "Metric Dimension, Minimal Doubly Resolving Sets, and the Strong Metric Dimension for Jellyfish Graph and Cocktail Party Graph",
+          "trigger": "Name \"perfect matching deleted\" resembles crown; test exact object equivalence."
+        },
+        {
+          "assessment": "Treats ordinary Kneser graphs K(n,2) and Johnson graphs, not bipartite Kneser H(n,1), and results do not specialize to crown.",
+          "evidence": [
+            "arXiv:2605.06837 Kneser and Johnson graph definitions and theorem"
+          ],
+          "identifier_or_url": "arXiv:2605.06837",
+          "material_read": "Full primary arXiv HTML preprint, definitions and Kneser doubly-metric theorem and sections.",
+          "method": "Full open preprint HTML reading and searches.",
+          "title": "The strong and doubly metric dimensions of Johnson and Kneser graphs",
+          "trigger": "Crown graph is also bipartite Kneser H(n,1); could be covered by a general Kneser theorem."
+        },
+        {
+          "assessment": "Accessible abstract discusses ordinary metric dimension and subdivisions, a weaker invariant; absence of full-text is an explicit residual priority risk.",
+          "evidence": [
+            "A. R. Nizami (2018), Journal of Prime Research in Mathematics 14(1), 18-23; PSA:186118"
+          ],
+          "identifier_or_url": "Pakistan Science Abstracts PSA:186118 (2018)",
+          "material_read": "Public bibliographic record, abstract, keywords and classification; full paper body not obtained.",
+          "method": "Abstract/database record (NOT whole-document noncoverage evidence).",
+          "title": "Invariance of metric dimension of subdivision of the crown graph",
+          "trigger": "Same graph and metric dimension, check whether doubly resolving is included."
+        },
+        {
+          "assessment": "Crown lacks a specific perfect matching in K_{n,n}; it is not complete multipartite for n>=3. This classification is not applicable through a mere parameter substitution.",
+          "evidence": [
+            "Full 2026-09-30 published Resultary RESULT.md"
+          ],
+          "identifier_or_url": "https://github.com/Resultary/2026/blob/main/2026/9/30/SCOPE-doubly-resolving-sets-of-complete-multipartite-graphs--3d968bf6d9b9/RESULT.md",
+          "material_read": "Entire published RESULT.md including theorem, proof, piecewise formulas and limitations.",
+          "method": "Read full public GitHub primary research record.",
+          "title": "Doubly resolving sets of complete multipartite graphs",
+          "trigger": "Exact all-set classification of same invariant in broadly related graph family."
+        },
+        {
+          "assessment": "Crown has pairwise distinct nonnested neighborhoods and induced 2K2; not a Ferrers/chain graph, so the nested-neighborhood formula cannot specialize to crown.",
+          "evidence": [
+            "Full 2026-10-04 Resultary RESULT.md, canonical chain-graph adjacency j<=i"
+          ],
+          "identifier_or_url": "https://github.com/Resultary/2026/blob/main/2026/10/4/SCOPE-doubly-resolving-sets-of-2-thick-chain-graphs--238d77156fde/RESULT.md",
+          "material_read": "Entire published RESULT.md, exact assumptions, Ferrers nested-neighborhood characterization and proof.",
+          "method": "Read full public GitHub primary research record.",
+          "title": "Doubly resolving sets of 2-thick chain graphs",
+          "trigger": "Same parameter, related bipartite class with structural exact classification."
+        },
+        {
+          "assessment": "Edge resolving studies vertex-to-edge distances, not the nonconstant vertex-pair distance differences. All matched-pair transversals with one omission are edge bases, while doubly resolving sets require >=3 from both sides and may not exist at size n-1 for n<=6. Thus no implication.",
+          "evidence": [
+            "Full 2026-10-04 Resultary RESULT.md, edge metric definition and basis classification"
+          ],
+          "identifier_or_url": "https://github.com/Resultary/2026/blob/main/2026/10/4/SCOPE-edge-metric-bases-of-crown-graphs--b5b3c45f23e8/RESULT.md",
+          "material_read": "Entire published RESULT.md, definitions and edge metric bases proof.",
+          "method": "Read full public GitHub primary research record.",
+          "title": "Edge metric bases of crown graphs",
+          "trigger": "Identical graph and superficially matching n-1 bound/basis pattern."
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "evidence": [
+        "Cáceres et al. (2007) motivates doubly resolving sets via Cartesian products.",
+        "Same crown edge-metric theorem permits all n 2^(n-1) one-hole transversals, while the doubly-resolving classification imposes side balance.",
+        "Exact basis counts and phase transition follow from proved structural obstructions."
+      ],
+      "rationale": "Crown graphs are canonical distance-three matching-deleted complete bipartite graphs. The exact vertex doubly-resolving invariant is mathematically motivated by landmark localization and the classical relation to Cartesian-product metric dimension. The theorem does not just recompute a known scalar: it gives a sharp parameter transition at n=7, complete structure of every minimum set and exact counts, with a nontrivial three-per-side constraint distinguishing doubly resolving from edge resolving. Such detailed bases are reusable as witnesses/counterexamples and for design of landmark sets. The classification is naturally an infinite-parameter family rather than an arbitrary tiny slice.",
+      "risks": [
+        "Does not enumerate nonminimum doubly resolving sets, weighted or edge versions, or disconnected Cr_2.",
+        "The mathematical contribution is specific to crowns, not a general graph-class theorem."
+      ],
+      "status": "PASS"
+    }
+  },
+  "checked_sources": [
+    "arXiv:math/0507527",
+    "arXiv:2106.03080",
+    "doi:10.1155/2020/9407456",
+    "arXiv:2605.06837",
+    "PSA:186118",
+    "Resultary/2026/9/30/SCOPE-doubly-resolving-sets-of-complete-multipartite-graphs--3d968bf6d9b9",
+    "Resultary/2026/10/4/SCOPE-doubly-resolving-sets-of-2-thick-chain-graphs--238d77156fde",
+    "Resultary/2026/10/4/SCOPE-edge-metric-bases-of-crown-graphs--b5b3c45f23e8"
+  ],
+  "disposition": "passed",
+  "final_claim": "For Cr_n=K_{n,n}-M, n>=3, psi=n for n3..6 and psi=n-1 for n>=7, with all minimum doubly resolving bases characterized by deleted-pair occupancy and side balance, with exact counts in the pinned RESULT.md.",
+  "limitations": [
+    "No Cr_n with n<3; these graphs disconnected for n=2.",
+    "Finite independent enumeration is complete only for n3..9, whereas the unrestricted theorem is proved analytically.",
+    "No formal proof-assistant or expert attestation claimed; residual originality risks explicitly recorded."
+  ],
+  "residual_risks": [
+    "Doubly resolving sets may have unindexed synonym(s) such as double resolving metric generator.",
+    "An inaccessible older thesis or detailed crown metric-dimension paper could unexpectedly state a doubly resolving corollary. The Nizami (2018) paper was only inspected at abstract level.",
+    "The simple local distance-level argument might exist as folklore or in unindexed computational appendices; no historical priority guarantee is asserted.",
+    "Classical C6 and hypercube special cases are not independently novel; contribution is the uniform all-n and all-bases statement."
+  ],
+  "schema_version": 1
+}
