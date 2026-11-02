@@ -1,0 +1,141 @@
+{
+  "correctness": {
+    "rationale": "Differentiated cubic Lagrange interpolation gives the two-difference recurrence exactly. Its full three-period monodromy has rational trace U/P and determinant V/P, with P>0. Explicit identities show P-U+V=6Xs^4q2, P+U+V=XHplus and P-V=XHdet, with all displayed factors and monomial coefficients strictly positive for x,y,z>0. The real quadratic Schur criterion then proves both parasitic eigenvalues strictly unit-disk, without inference from samples. Exact rational limits for (t,1,t^-1) give trace=-1+16/(3t)+O(t^-2) and determinant=1/(3t^3)+O(t^-4), hence sharp spectral-radius supremum 1. The packaged checker reconstructs and verifies these identities and 1,200 independent samples; classical fixed-pattern zero-stability follows by summation of geometrically decaying differences.",
+    "status": "PASS"
+  },
+  "independent": false,
+  "independent_audit_status": "not_performed",
+  "originality": {
+    "broader_coverage": {
+      "evidence": [
+        "Li–Liao (2022), Theorem 3.1, conditions on all adjacent ratios < approximately 2.553.",
+        "Söderlind–Fekete–Faragó (2018) assume smooth grids with ratios 1+O(N^{-1}).",
+        "Calvo–Grande–Grigorieff (1990) is cited with a bound about 1.476 in the inspected Li–Liao introduction."
+      ],
+      "reasoning": "The exact three-periodic family contains triples (t,1,t^-1) with unbounded adjacent ratios repeated each period; thus published ratio-capped and smooth-grid results do not imply it, despite having a broader-looking class of arbitrary grids. No implication is claimed from searches alone.",
+      "searches": [
+        "variable step BDF3 instability periodic grid 3 cycle",
+        "BDF3 any periodic steps zero stable all periodic ratios",
+        "On the zero-stability of multistep methods on smooth nonuniform grids",
+        "https://arxiv.org/abs/2201.00527",
+        "https://doi.org/10.1007/s10543-018-0716-y",
+        "https://doi.org/10.1007/BF01386395"
+      ]
+    },
+    "checked_sources": [
+      "Guglielmi–Zennaro, Numerische Mathematik 88 (2001), DOI 10.1007/s211-001-8010-0 (publisher abstract and publication details only)",
+      "Calvo–Grande–Grigorieff, Numerische Mathematik 57 (1990), DOI 10.1007/BF01386395 (bibliography and quoted ratio restriction, full text not obtained)",
+      "Li–Liao, arXiv:2201.00527 (full PDF accessible; hypotheses, BDF3 coefficients, central theorem inspected)",
+      "Söderlind–Fekete–Faragó, BIT Numerical Mathematics 58 (2018), DOI 10.1007/s10543-018-0716-y (publisher open full text inspected)"
+    ],
+    "claim_vs_prior_implication": {
+      "evidence": [
+        "Theorem here: for every fixed positive (x,y,z), all three-step parasitic multipliers have modulus <1, with optimal supremum 1 and a 16/(3t) deficit.",
+        "Li–Liao: fixed adjacent-ratio cap; the present (t,1,t^-1) family violates that cap for large t.",
+        "Smooth-grid results: adjacent-ratio variation vanishes under refinement, while the claim allows fixed strong variation.",
+        "Guglielmi–Zennaro: accessible abstract yields general joint-spectral-radius method but does not expose a same-scope or stronger theorem."
+      ],
+      "reasoning": "Existing ratio-limited sufficient results cannot entail the newly classified high-contrast family. The full earlier specialist theorem is uninspected, so a latent direct or stronger three-periodic statement would override the present novelty assessment; none was established from the actually read material.",
+      "searches": [
+        "https://doi.org/10.1007/s211-001-8010-0",
+        "https://arxiv.org/abs/2201.00527",
+        "https://doi.org/10.1007/s10543-018-0716-y",
+        "https://doi.org/10.1007/BF01386395",
+        "third-order BDF periodic mesh three step pattern stability"
+      ]
+    },
+    "equivalent_formulations": {
+      "evidence": [
+        "Reformulated the claim as the two-dimensional reduced recurrence for differences, with three-step Floquet multipliers governed by three exact Schur expressions.",
+        "The primary spectral-radius study [Guglielmi–Zennaro, DOI 10.1007/s211-001-8010-0] treats BDF3 and is therefore a plausible equivalent formulation, but its full text was not available.",
+        "Li–Liao public preprint 2201.00527 contains the same cubic interpolatory BDF3 but states a ratio-restricted sufficient theorem."
+      ],
+      "reasoning": "The alternative vocabulary of extraneous roots, difference recurrences, Floquet multipliers, joint spectral radius, three-cyclic companion matrices and root condition was compared. The accessible exact BDF3 theorem requires a step-ratio cap, not the all-positive three-periodic claim. The unavailable primary full text is retained as a substantive priority risk, not declared noncovering.",
+      "searches": [
+        "\"BDF3\" \"three-periodic\" stability",
+        "\"BDF3\" \"Floquet\" nonuniform",
+        "\"BDF3\" \"periodic\" \"monodromy\" variable step",
+        "https://doi.org/10.1007/s211-001-8010-0",
+        "https://arxiv.org/abs/2201.00527"
+      ]
+    },
+    "exact_database_or_table": {
+      "evidence": [
+        "The available published discussions focus on general stability inequalities, not a table giving exact three-step trace/determinant and all-positive Schur certificates.",
+        "The new theorem proves exact polynomial identities involving 25,22,25 monomials after a common positive factor, independently reproduced by the bundled script."
+      ],
+      "reasoning": "No specific existing database/table or exactly matching spectral-radius formula was found in the material that could actually be inspected. Absence of an accessible match is only weak evidence, not a proof of originality; the primary inaccessible article is listed under residual risks.",
+      "searches": [
+        "three periodically varying step sizes all positive ratios BDF3 Floquet spectral radius",
+        "BDF3 3 periodic grid three different steps multiplier",
+        "BDF3 three periodic step ratio exact Schur Jury stability polynomial",
+        "https://doi.org/10.1007/s211-001-8010-0"
+      ]
+    },
+    "rationale": "The closest inspected later primary full text (Li–Liao 2022) has an adjacent-ratio restriction violated by the claimed positive three-periodic family, and the smooth-grid result assumes adjacent ratios near 1. The main older spectral-radius article (Guglielmi–Zennaro 2001) is highly plausible overlap, but its accessible abstract and secondary precise descriptions do not establish a three-periodic all-ratio theorem; unresolved full-text priority risk is clearly recorded. Actual source/title/alias/stronger-implication searches found no covering proposition. This is a qualified best-knowledge assessment, not proof of literature uniqueness.",
+    "residual_risks": [
+      "The complete Guglielmi–Zennaro (2001) specialist article could not be inspected; a directly equivalent or stronger restricted-pattern statement may appear there.",
+      "The Calvo–Grande–Grigorieff (1990) original paper was not read in full.",
+      "Unindexed conference proceedings, books or specialist appendices could contain an equivalent exact classification; no exhaustive negative search can prove priority."
+    ],
+    "source_inspections": [
+      {
+        "assessment": "The accessible abstract describes general variable-ratio spectral radius bounds, but does not establish or refute the positive three-periodic all-ratios classification. The full-article comparison remains unresolved.",
+        "evidence": [
+          "Publisher identifies first online publication on 2000-11-08 and original article Numerische Mathematik 88:445–458.",
+          "The accessible abstract discusses the zero-stability of three-step BDF with variable step size via spectral-radius bounds; no particular three-period theorem is available in the accessible portion."
+        ],
+        "identifier_or_url": "https://doi.org/10.1007/s211-001-8010-0",
+        "material_read": "Publisher title, abstract, date, publication metadata and accessible synopsis; full mathematical article unavailable.",
+        "method": "Read accessible publisher article text and repository abstract; checked lawful preprint and open-access options, and attempted institutional access without obtaining the full article.",
+        "title": "On the zero-stability of variable stepsize multistep methods: the spectral radius approach",
+        "trigger": "Same BDF3 object and spectral-radius formulation; highest-priority equivalence risk."
+      },
+      {
+        "assessment": "The cited sufficient adjacent-ratio restriction of about 1.476 is not satisfied by arbitrarily extreme three-periodic patterns; full-text specialist caveat retained.",
+        "evidence": [
+          "Li–Liao 2022 introduction credits Calvo–Grande–Grigorieff with a bound on all adjacent step ratios.",
+          "The BDF3 three-periodic sequence (t,1,t^{-1}) has ratios t and t^2 and can violate any fixed upper cap."
+        ],
+        "identifier_or_url": "https://doi.org/10.1007/BF01386395",
+        "material_read": "Bibliographic record and the published step-ratio restriction as identified in the full later Li–Liao preprint; not the full 1990 paper.",
+        "method": "Bibliographic and cross-citation comparison in the inspected 2022 public preprint.",
+        "title": "On zero stability of variable order variable stepsize BDF formulas",
+        "trigger": "Classical variable-order/variable-grid BDF zero-stability theorem likely to dominate special cases."
+      },
+      {
+        "assessment": "Theorem 3.1 assumes all adjacent step ratios remain below R3≈2.553. It does not logically imply all positive fixed three-periodic patterns with arbitrarily large recurring ratios.",
+        "evidence": [
+          "The published abstract and Theorem 3.1 explicitly state the adjacent-ratio condition.",
+          "BDF3 interpolation formula (1.5) matches the cubic Lagrange construction after regrouping successive differences."
+        ],
+        "identifier_or_url": "https://arxiv.org/abs/2201.00527",
+        "material_read": "Complete publicly available 20-page preprint accessible; introduction, coefficient definitions (1.1)–(1.5), stability definition, main BDF3 theorem 3.1, relevant discussion and references, plus page images checked.",
+        "method": "Inspected public arXiv PDF, including page 2 and page 13 printed, and relevant theorem text and assumptions.",
+        "title": "Stability of Variable-Step BDF2 and BDF3 Methods",
+        "trigger": "Modern broader-scope stability claim, potentially covering all positive time grids."
+      },
+      {
+        "assessment": "Hypothesis of grids produced by a C2 smooth deformation entails adjacent ratios 1+O(N^{-1}); fixed high-contrast three-periodic patterns are outside that regime.",
+        "evidence": [
+          "The open-access abstract gives adjacent-step behavior h_n/h_{n-1}=1+O(N^{-1}) on smooth grids.",
+          "Our fixed pattern allows arbitrarily large ratios repeated a positive fraction of steps."
+        ],
+        "identifier_or_url": "https://doi.org/10.1007/s10543-018-0716-y",
+        "material_read": "Open-access full HTML article: abstract, the introduction and its smooth-grid assumption and main implications for adjacent ratios.",
+        "method": "Read publisher open-access full text in the relevant assumptions and conclusions.",
+        "title": "On the zero-stability of multistep methods on smooth nonuniform grids",
+        "trigger": "Zero-stability for nonuniform BDF-type grids might include periodic patterns."
+      }
+    ],
+    "status": "PASS"
+  },
+  "review_type": "self_review",
+  "schema_version": 1,
+  "scope_run_id": "90fe0589-8983-4166-aea0-51bb81340efe",
+  "self_review_status": "passed",
+  "value": {
+    "rationale": "This is a complete two-parameter classification of the parasitic stability of a natural repeating nonuniform mesh, with arbitrary adjacent jumps beyond commonly cited fixed ratio limits. It gives an exact Schur certificate and determines a physically relevant limit in which strong zero stability persists for each pattern while the damping margin tends to zero as 16/(3t). This structural contrast is not entailed by arbitrary-grid ratio-restricted theorems or a finite census. The statement carefully limits itself to fixed-pattern homogeneous zero stability rather than general nonlinear or adaptive-grid robustness.",
+    "status": "PASS"
+  }
+}
