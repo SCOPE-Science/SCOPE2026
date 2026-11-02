@@ -1,0 +1,116 @@
+{
+  "audit_date_utc": "2026-10-30",
+  "audited_at_utc": "2026-10-30T20:50:49Z",
+  "axes": {
+    "correctness": {
+      "rationale": "For chi<1 the four-state generator is irreducible; conditional second moments solve a linear Markov-modulated OU system (2diag(2k+phi)-M)g=D_x 1. Perron-Frobenius positivity for the shifted Metzler generator ensures finiteness iff its spectral bound is negative; exact determinant and principal-block analysis give the stated D(delta)>0 threshold, with positive stationary stochastic convolution even if its variance diverges. A fresh independent SymPy construction of the entire generator verified det=64(2k+lambda)D(delta), the inverse conditioned moment h=g_2=g_4, Mpsi=-2lambda psi, diag(2k+phi)psi=2k psi and the derivative d h/d delta =D_x lambda c²[k(2k+lambda)-2c²]/[4D(delta)^2]. This backward eigenmode yields the velocity covariance e^{-2(k+lambda)t}; integrating Green–Kubo gives the full MSD and long-time diffusion. A stable k=1,lambda=2,c=3/2 example has critical delta=1/7. The finite symbolic/numerical checks corroborate these identities; irreducibility and positivity arguments justify parameter-wide statements.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Cocconi et al. Eq.15–16 specify the identical four-state generator, but paragraph on page4 says they only consider fully synchronized chi=1 and Eq.17–18 describes that limiting case.",
+          "Alston et al. 2022 Eqs 37–39 solve generic two-state conditioned second moments for a single fluctuating trap.",
+          "Lindskog–Majumder address invariant law and long-time OU distributions for Markov switching, without this center-of-mass active drift."
+        ],
+        "reasoning": "General stationary moment criteria may imply stability after evaluating this matrix, but they do not contain the model-specific fully explicit transport, response derivative and finite-time MSD as stated.",
+        "searches": [
+          "Active Bound States Arise From Transiently Nonreciprocal Pair Interactions arXiv:2304.07738 main plus supplement",
+          "Alston Cocconi Bertrand Non-equilibrium thermodynamics of diffusion in fluctuating potentials arXiv:2202.02630",
+          "Lindskog Majumder Exact long time behavior of regime switching stochastic processes arXiv:1904.01474"
+        ]
+      },
+      "checked_sources": [
+        "Cocconi et al. 2023 full preprint and supplement",
+        "Alston–Cocconi–Bertrand 2022 full preprint",
+        "Lindskog–Majumder 2019 full preprint",
+        "Resultary semantic partial-synchrony query",
+        "source RESULT.md, REVIEW.md, VERIFICATION.md, checks/verify.py"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "One can substitute chi=1 into the prior paper but not invert a limiting chi=1 expression to obtain chi<1 when ergodic class structure changes.",
+          "General 2-state OU formulas and broad ergodic theory require a fresh four-state system and covariance eigenmode for this dimer."
+        ],
+        "reasoning": "The current formula is not a simple corollary of the synchronized transport formula; its exact stability and diffusion derivative require genuinely new finite-dimensional generator analysis. The general techniques themselves are acknowledged prior.",
+        "searches": [
+          "Cocconi 2023 Eq.15 17 18 and explicit chi=1 restriction",
+          "Alston 2022 Markov switched OU moments",
+          "Lindskog Majumder 2019 switching stationary law"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "The finite-variance condition is equivalent to Hurwitz stability of Q=2diag(a)-M, not simply average positivity k>0.",
+          "The velocity covariance follows from a special eigenfunction of the backward generator, not independent factorisation of psi and y at chi<1."
+        ],
+        "reasoning": "Compared generator/M-matrix, telegraph persistent-speed and OU response formulations. General matrix theory is an enabling technique but does not itself list the exact delta,c thresholds for this model.",
+        "searches": [
+          "partially synchronized nonreciprocal Brownian dimer telegraph finite variance and diffusion [Resultary_Search]",
+          "four state Markov modulated OU Perron root M minus 2diag damping and effective diffusivity",
+          "Cocconi Alston Bertrand correlated discrete stiffness chi"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "Nearest Resultary records concern unrelated Brownian correlation/sensitivity and neuron stationary covariances.",
+          "The primary 2023 formula is for chi=1, where switching is reducible, and is not the same irreducible chi<1 stochastic steady state."
+        ],
+        "reasoning": "The relevant existing exact table lies at the singular synchronized endpoint, not this whole partial-synchrony family; failure to find another table is not absolute novelty evidence.",
+        "searches": [
+          "Resultary_Search: partially synchronized nonreciprocal Brownian dimer telegraph finite variance and diffusion",
+          "Cocconi et al. 2023 Eq.17–18 chi=1 only",
+          "Alston et al. 2022 Tables/conditional variances"
+        ]
+      },
+      "rationale": "Cocconi–Alston–Bertrand (2023) gives the same M(chi)=lambda[(1-chi)Mmono+chi Mbi] switching model, but its main text and supplement explicitly restrict exact discrete-state transport to chi=1. Alston–Cocconi–Bertrand (2022) derive 2-state fluctuating-OU conditional variances and entropy rates. Lindskog–Majumder (2019) give general switching-OU stationary behavior. None of those inspected exact statements supplies the irreducible 4-state chi<1 moment determinant, its diffusion-response switch or the persistence independence of chi. Novelty is model-specific and subject to possible deductions from general switching matrices.",
+      "residual_risks": [
+        "General matrix-analytic methods in older regime-switching OU papers could implicitly yield the determinant threshold if applied by a reader.",
+        "The chi=1 boundary is reducible and not covered by the irreducible theorem; extrapolation to it is unsafe.",
+        "Higher moments may diverge even in the finite-variance stability regime; not assessed."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "PARTIAL_OVERLAP chi=1 only, not chi<1",
+          "evidence": "Main text expressly states only the limiting chi=1 case is studied; exact chi<1 all-parameter threshold not supplied.",
+          "identifier_or_url": "arXiv:2304.07738, Cocconi–Alston–Bertrand (2023)",
+          "material_read": "full 16-page preprint main text and supplementary material, particularly p4 Eq.15–18 and supplement Section III",
+          "method": "read and inspected mathematical formulas and page image",
+          "title": "Active Bound States Arise From Transiently Nonreciprocal Pair Interactions",
+          "trigger": "same exact four-state generator and transport observable"
+        },
+        {
+          "assessment": "KNOWN_GENERAL_INGREDIENT not same four-state active-dimer transport",
+          "evidence": "Two-state conditional second-moment linear equations and entropy production established; no finite-lag four-state COM covariance.",
+          "identifier_or_url": "arXiv:2202.02630, Alston–Cocconi–Bertrand (2022)",
+          "material_read": "full 27-page preprint sections on two-state harmonic trapping, Eqs.31–39",
+          "method": "read accessible full-text equations and their assumptions",
+          "title": "Non-equilibrium thermodynamics of diffusion in fluctuating potentials",
+          "trigger": "switching OU moment machinery may dominate"
+        },
+        {
+          "assessment": "BROADER_EXISTENCE_RESULTS but no explicit dimer diffusion response",
+          "evidence": "Exact long time OU and perpetuity laws help understand existence but do not assert this four-state rational D_eff formula.",
+          "identifier_or_url": "arXiv:1904.01474, Lindskog–Majumder (2019)",
+          "material_read": "full 30-page preprint introduction, assumptions and long-time stochastic-convolution framework",
+          "method": "read accessible full-text statements",
+          "title": "Exact long time behavior of some regime switching stochastic processes",
+          "trigger": "broader Markov-modulated OU stationary result"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "rationale": "This resolves a physically motivated parameter interpolation omitted in the primary model. Sharp second-moment divergence, asynchrony-driven stabilization, sign-reversing effect on diffusivity, and fixed velocity-memory rate separate fluctuation amplitude from persistence. Such a complete transport phase diagram is more than a routine positivity calculation or marginal parameter perturbation.",
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "final_claim": "For the four-state correlated telegraph nonreciprocal Brownian dimer with stiffness k>0, switching rate lambda>0, amplitude c>=0, bare diffusion D_x>0 and partial synchrony chi in [0,1), delta=1-chi, a stationary path law exists under positive average damping and has finite second moment exactly when D(delta)=k(k+lambda*delta)(2k+lambda)-c²(2k+lambda*delta)>0. Then the active-velocity covariance is an exact positive exponential e^{-2(k+lambda)t}, and the center-of-mass MSD and D_eff are given by the closed h formula h=D_x[(k+lambda*delta)(2k+lambda)-2c²]/[4D(delta)] and E[X_t-X_0]^2=D_x t+[2c²h/(k+lambda)]t-[c²h/(k+lambda)²](1-e^{-2(k+lambda)t}), D_eff=D_x/2+c²h/(k+lambda). The derivative wrt delta changes sign at c²=k(2k+lambda)/2, independently of the finite-second-moment stability boundary. No claims of higher stationary moments or irreducibility at chi=1.",
+  "limitations": [
+    "Chi in [0,1), positive stiffness and switching rate, four-state telegraph process without nonlinear steric forces.",
+    "Stationary path existence is distinct from finite stationary second moments; non-finiteness is not non-existence.",
+    "No higher-moment or tail law or independent noise correlation beyond the specified switching generator."
+  ],
+  "schema_version": 1
+}

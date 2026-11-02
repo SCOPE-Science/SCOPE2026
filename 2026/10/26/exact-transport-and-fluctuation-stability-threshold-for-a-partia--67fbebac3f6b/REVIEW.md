@@ -1,11 +1,21 @@
-# Scientific review
+# Independent mathematical audit
 
-**Correctness — PASS.** The stationary stochastic convolution is defined by positive mean damping; irreducible Metzler moment dynamics give the necessary and sufficient second-moment condition. The matrix determinant, explicit state moments, backward-generator eigenmode, Green–Kubo integral and asynchrony derivative follow by reproducible algebra. The accompanying exact-arithmetic tests verify nontrivial finite parameter cases. The result does not confuse those tests with proof at all parameters.
+## correctness
 
-**Originality — PASS, with limitations.** The motivating 2023 source introduces the mono/bi switching interpolation but supplies closed-form two-particle diffusion in the fully synchronized case. Generic switching-OU moment machinery in a 2022 paper does not directly provide the four-state correlated threshold, constant normalized active-velocity persistence, or sharp sign-reversal of the synchronization response. A separate 2019 paper discusses broader regime-switching long-time behavior. Explicit scientific comparison found no covering formula in the inspected material. Unindexed equivalent derivations remain possible.
+PASS
 
-**Value — PASS.** This resolves a natural, previously unworked interpolation in a published active-matter model: correlated switching can either enhance or suppress transport, and asynchrony can restore finite second moments in a strong-fluctuation range. The exact finite-time displacement law isolates the persistence timescale from the fluctuation amplitude, a structural separation not visible in a generic OU moment formula.
+For chi<1 the four-state generator is irreducible; conditional second moments solve a linear Markov-modulated OU system (2diag(2k+phi)-M)g=D_x 1. Perron-Frobenius positivity for the shifted Metzler generator ensures finiteness iff its spectral bound is negative; exact determinant and principal-block analysis give the stated D(delta)>0 threshold, with positive stationary stochastic convolution even if its variance diverges. A fresh independent SymPy construction of the entire generator verified det=64(2k+lambda)D(delta), the inverse conditioned moment h=g_2=g_4, Mpsi=-2lambda psi, diag(2k+phi)psi=2k psi and the derivative d h/d delta =D_x lambda c²[k(2k+lambda)-2c²]/[4D(delta)^2]. This backward eigenmode yields the velocity covariance e^{-2(k+lambda)t}; integrating Green–Kubo gives the full MSD and long-time diffusion. A stable k=1,lambda=2,c=3/2 example has critical delta=1/7. The finite symbolic/numerical checks corroborate these identities; irreducibility and positivity arguments justify parameter-wide statements.
 
-**Risks and scope.** The irreducible \(\chi<1\) model is not the pure \(\chi=1\) mixture. No claim is made about arbitrary multiplicative switching systems, higher moments, or tail exponents. The 2022 moment framework may allow an experienced reader to reconstruct some components. Independent reproduction and a more exhaustive literature comparison are outstanding.
+## originality
 
-Self-review: passed. Independent audit: not yet performed.
+PASS
+
+Cocconi–Alston–Bertrand (2023) gives the same M(chi)=lambda[(1-chi)Mmono+chi Mbi] switching model, but its main text and supplement explicitly restrict exact discrete-state transport to chi=1. Alston–Cocconi–Bertrand (2022) derive 2-state fluctuating-OU conditional variances and entropy rates. Lindskog–Majumder (2019) give general switching-OU stationary behavior. None of those inspected exact statements supplies the irreducible 4-state chi<1 moment determinant, its diffusion-response switch or the persistence independence of chi. Novelty is model-specific and subject to possible deductions from general switching matrices.
+
+## value
+
+PASS
+
+This resolves a physically motivated parameter interpolation omitted in the primary model. Sharp second-moment divergence, asynchrony-driven stabilization, sign-reversing effect on diffusivity, and fixed velocity-memory rate separate fluctuation amplitude from persistence. Such a complete transport phase diagram is more than a routine positivity calculation or marginal parameter perturbation.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
