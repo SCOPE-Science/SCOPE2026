@@ -1,0 +1,135 @@
+{
+  "correctness": {
+    "rationale": "Exact diagonalization yields 1/delta noise singularity with uniformly Gaussian-tail remainder; signed separation integration gives the two-sided 1/t coefficient. Lipschitz evaluation cancels the deterministic collision, and dominated convergence after delta=sqrt(eta/alpha)z yields the positive pi/(4 alpha^(3/2)) coefficient. Separate deterministic numerical checks verify expressions but are not treated as universal proof.",
+    "status": "PASS"
+  },
+  "independent": false,
+  "independent_audit_status": "not_performed",
+  "originality": {
+    "broader_coverage": {
+      "evidence": [
+        "Briol et al. quantify random-node sampling effects for noiseless KQ; Cai et al. analyze noisy RKHS BQ upper/lower rates and K+sigma^2 I, not a fixed-two-node inverse-linear-tail distribution."
+      ],
+      "reasoning": "General average-case convergence statements for appropriately designed procedures do not imply the exact pathological mean-square risk of the specific two-point iid unregularized/regularized weight rule.",
+      "searches": [
+        "On Average-Case Error Bounds for Kernel-Based Bayesian Quadrature Cai Lam Scarlett 2202.10615",
+        "2202.10615 noisy kernel based Bayesian quadrature random nodes",
+        "arXiv:2202.10615v1",
+        "arXiv:1706.03369v1"
+      ]
+    },
+    "checked_sources": [
+      "arXiv:1706.03369v1",
+      "arXiv:1803.09532v1",
+      "arXiv:1812.08509v1",
+      "arXiv:2202.10615v1",
+      "arXiv:2301.09517v1"
+    ],
+    "claim_vs_prior_implication": {
+      "evidence": [
+        "Structured-node Gaussian quadrature yields regular designs, positive-weight Gaussian BQ studies design geometry and noise-independent weight magnitude, and noisy BQ literature reports broad rates for different estimators."
+      ],
+      "reasoning": "None of the compared primary statements supplies both the first-order random collision density with singular odd eigenmode and the matched-nugget asymptotic; each is mathematically necessary for the claimed constants. This is a checked nonimplication under their stated hypotheses, not a proof of uniqueness in all literature.",
+      "searches": [
+        "arXiv:1803.09532v1",
+        "arXiv:1812.08509v1",
+        "arXiv:2202.10615v1",
+        "Gaussian kernel quadrature independent uniformly random two nodes collision singular weights infinite variance noise heavy tail ridge nugget"
+      ]
+    },
+    "equivalent_formulations": {
+      "evidence": [
+        "Karvonen–Kanagawa–Särkkä study positivity and magnitudes of Bayesian quadrature weights, with separation-radius estimates for Sobolev kernels and Gaussian examples, rather than exact random two-node Gaussian-noise moment/tail laws."
+      ],
+      "reasoning": "A noise quotient by random Gaussian-kernel eigenvalue could imply the tail result only if its exact numerator cancellation and random design density were established; the inspected source does not provide that implication.",
+      "searches": [
+        "Gaussian kernel quadrature random design near collisions ill-conditioned weights infinite absolute mean additive Gaussian observational noise",
+        "two-node Bayesian quadrature Gaussian kernel weights near-coincident sample nodes Cauchy tails infinite first moment and nugget",
+        "arXiv:1812.08509v1"
+      ]
+    },
+    "exact_database_or_table": {
+      "evidence": [
+        "A sampling-based Nystrom/kernel-quadrature analysis uses random landmarks but contains different stability and approximation statements; semantic research search did not return a relevant exact two-node noise-moment table."
+      ],
+      "reasoning": "The constants depend on integrals of Gaussian kernel-mean derivatives and a local diagonal collision, not on a tabulated deterministic Gaussian quadrature rule.",
+      "searches": [
+        "Sharp inverse square root nugget cost for two point Gaussian radial basis kernel quadrature random landmarks",
+        "Unregularized Gaussian kernel Bayesian quadrature two colliding random points exact heavy-tail constant noisy observations regularization scaling",
+        "arXiv:2301.09517v1"
+      ]
+    },
+    "rationale": "2017 random-node KQ, 2018 positive-weight/structured Gaussian KQ, 2022 noisy BQ and 2023 sampling-based Nystrom sources were read and compared at their actual claim scope. The proposed complete two-node collision-tail plus regularized variance law requires a specialized signed-diagonal analysis absent from the inspected statements; specialized literature remains a risk.",
+    "residual_risks": [
+      "Unindexed historical specialist literature on Gaussian kernel matrix inverse collisions or Bayesian quadrature may contain an equivalent two-node tail law.",
+      "Generic small-eigenvalue analysis does not by itself guarantee novelty of its exact Gaussian-kernel specialization.",
+      "Independent mathematical review has not been carried out."
+    ],
+    "source_inspections": [
+      {
+        "assessment": "Random sampling distribution and deterministic-error convergence, without the independent two-observation noise collision moment classification",
+        "evidence": [
+          "Submitted June 11, 2017; random point sets and sampling-distribution rate constants; kernel quadrature posterior mean formulation."
+        ],
+        "identifier_or_url": "https://arxiv.org/abs/1706.03369",
+        "material_read": "Main text: introduction, kernel quadrature definition, sampling-distribution error theory and results",
+        "method": "Primary open-access full HTML text",
+        "title": "On the Sampling Problem for Kernel Quadrature",
+        "trigger": "Early random-node Bayesian quadrature literature"
+      },
+      {
+        "assessment": "Gaussian-measure and structured Gauss-Hermite node setting; not the iid uniform two-node noise-tails claim",
+        "evidence": [
+          "Structured scaled Gauss-Hermite nodes for the Gaussian kernel."
+        ],
+        "identifier_or_url": "https://arxiv.org/abs/1803.09532",
+        "material_read": "Primary manuscript on structured Gaussian nodes and weights",
+        "method": "Open-access full primary text",
+        "title": "Gaussian kernel quadrature at scaled Gauss-Hermite nodes",
+        "trigger": "Gaussian radial-basis-function weights and conditioning"
+      },
+      {
+        "assessment": "Explains magnitudes/conditioning but does not directly present the exact two-node Gaussian-noise Cauchy tail and nugget coefficient",
+        "evidence": [
+          "Positivity for locally optimal sites with totally positive kernels, magnitude bounds in Sobolev RKHSs, Gaussian-kernel numerical discussion."
+        ],
+        "identifier_or_url": "https://arxiv.org/html/1812.08509v2",
+        "material_read": "Introduction, weight positivity/boundedness arguments, separation-radius criteria and Gaussian examples",
+        "method": "Open-access full primary HTML sections",
+        "title": "On the Positivity and Magnitudes of Bayesian Quadrature Weights",
+        "trigger": "Closest kernel quadrature stability and random near-collisions"
+      },
+      {
+        "assessment": "Noisy RKHS KQ and squared-exponential kernel rates; not fixed-two-node iid collision variance asymptotics",
+        "evidence": [
+          "Submitted February 22, 2022; models independent Gaussian observation noise and regularized kernel matrices."
+        ],
+        "identifier_or_url": "https://arxiv.org/abs/2202.10615",
+        "material_read": "Introduction, regularized estimator and main average-case error results",
+        "method": "Primary full open-access HTML text",
+        "title": "On Average-Case Error Bounds for Kernel-Based Bayesian Quadrature",
+        "trigger": "Noisy Gaussian-process quadrature regularization"
+      },
+      {
+        "assessment": "Different approximation/recombination performance criteria, no exact random two-site singular noise law",
+        "evidence": [
+          "Random samples for kernel approximation and quadrature; different estimator objectives."
+        ],
+        "identifier_or_url": "https://arxiv.org/html/2301.09517v3",
+        "material_read": "Main sampling/Nystrom approximation statements and quadrature algorithm discussion",
+        "method": "Open-access primary full HTML text",
+        "title": "Sampling-based Nyström Approximation and Kernel Quadrature",
+        "trigger": "Random-landmark kernel quadrature and stability"
+      }
+    ],
+    "status": "PASS"
+  },
+  "review_type": "self_review",
+  "schema_version": 1,
+  "scope_run_id": "525cdbd8-d853-47d0-9fac-9d990bebf99d",
+  "self_review_status": "passed",
+  "value": {
+    "rationale": "Natural fixed-two-point iid random-design Bayesian quadrature under physical independent Gaussian observation noise exhibits a sharp moment catastrophe that is absent for Lipschitz noiseless data. The exact tail and 1/sqrt(nugget) constants quantify regularization burden and yield a sigma rather than sigma^2 MSE for the noise-matched choice; this is a motivated diagnostic benchmark, not an arbitrary unmotivated slice.",
+    "status": "PASS"
+  }
+}
