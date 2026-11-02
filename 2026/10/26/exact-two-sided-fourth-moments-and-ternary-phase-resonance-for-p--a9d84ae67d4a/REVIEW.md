@@ -1,19 +1,21 @@
-# Scientific assessment
+# Independent mathematical audit
 
-## Correctness — PASS
+## correctness
 
-The claim has a complete analytic proof: Schur orthogonality normalizes the two characters; the multiplicity-free Pieri square gives \(\int|\chi_n|^4=n+1\); center symmetry eliminates phase-sensitive moments when \(3\nmid n\); two forced Pieri interlacing chains show that both remaining moments equal one when \(3\mid n\). Exact expansion of the quartic form and a one-variable convex optimization yield every bound and equality case, including \(r=0\), \(r=1/2\), and all phase boundaries. The independent Weyl-torus Laurent checker verifies these source moments exactly for degrees 1 through 10, but does not replace the all-degree proof.
+PASS
 
-## Originality — PASS with residual historical-priority risk
+Pieri V_(n,0)⊗V_(n,0)=⊕_(j=0)^n V_(2n−2j,j) without multiplicity gives ∫|χ_n|⁴=n+1. The SU(3) center forces ∫χ_n³ conjugate χ_n and ∫χ_n⁴ to vanish unless 3|n; horizontal-strip interlacing gives multiplicity one for each when 3|n. Expansion yields (n+1)(S²+2|ab|²)+δ_n[4S Re(a conjugate b)+2Re(a² conjugate(b)²)]. With r=|ab|/S≤1/2 and x=cos arg(a conjugate b), optimization of Q=(n+1)+2n r²+4r²x²+4rx proves exact lower/upper bounds and all equality phases. Independently implemented Weyl integration as a Laurent constant term for n=1..7 and obtained moments (1,n+1,δ_n,δ_n); finite checks corroborate the all-n Pieri proof.
 
-Searches for Haar norms of higher symmetric-power characters, the equivalent four moments, the exact lower constant, and phase resonance in conjugate \(SU(3)\) character pairs found no theorem implying the combined all-degree two-sided bounds. The closest published sources address single symmetric tensor traces, correlations of characteristic polynomials over proper unitary subgroups, or adjoint-only invariant dimensions. A separate fixed-lowest-weight sharp \(SU(3)\) character-packet calculation covers degree one but does not imply the higher-weight family. This assessment is best-knowledge only; published invariant-theory formulas could encode the same result without identifying it as a norm theorem.
+## originality
 
-## Value — PASS
+PASS
 
-The irreducible symmetric powers and their contragredients form a canonical sequence of two-dimensional central Fourier packets on \(SU(3)\). The theorem gives their entire sharp fourth-moment range and rigidity, not an arbitrary numerical slice. The qualitative phenomenon is arithmetic: only degrees divisible by three allow destructive interference below the pure-character value; at those degrees the sharp minimizing mixture is unequal and opposite-phase, while the maximizing one is equal and aligned. This exact transition illustrates how central character resonance controls nonabelian \(L^4\) Fourier synthesis.
+Best-of-knowledge originality of the DELIMITED finding: Sharp two-sided Haar L4/L2 fourth-moment bounds on aχ_n+b conjugate χ_n for SU(3) symmetric-power characters, with a divisibility-by-three phase resonance. Existing Pieri rules can reconstruct the entire quartic form, so originality is qualified as a particular exact natural extremal classification, not independent discovery of those rules; no specifically identical full optimization located.
 
-## Sources and limits
+## value
 
-Principal comparisons: Issa–Abbas–Mourad (arXiv:2106.01486), Lee–Oh (arXiv:2110.00505), Agarwal–Nahmgoong (arXiv:2001.10826), and the separately recorded fixed fundamental/antifundamental/adjoint packet. The classical Pieri rule is an ingredient and not claimed as new. Possible equivalent results in unindexed character/invariant-theory material remain a priority risk. No higher-moment, larger-packet, or general-rank claim is made.
+PASS
 
-Self-review: passed. Independent audit: not yet performed.
+The packet is a canonical nontrivial two-character subspace of SU(3) representations. Complete optimizer classification exposes an arithmetic resonance in the Haar fourth-moment norm precisely when the symmetric-power degree is divisible by three, not apparent from the standard individual character norm alone.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

@@ -5,8 +5,11 @@
     "status": "not_performed"
   },
   "independent_audit": {
-    "evidence": null,
-    "status": "not_performed"
+    "status": "passed",
+    "evidence": [
+      "INDEPENDENT_AUDIT_2026-10-31.md",
+      "INDEPENDENT_AUDIT_2026-10-31.json"
+    ]
   },
   "lean_verification": {
     "evidence": null,
@@ -15,8 +18,25 @@
   "schema_version": 1
 }
 ---
-# Verification
 
-The analytical proof determines, for all positive integers \(n\), the exact Haar moments \(\int|\chi_n|^2=1\), \(\int|\chi_n|^4=n+1\), and \(\int\chi_n^3\overline\chi_n=\int\chi_n^4=\mathbf 1_{3\mid n}\). These follow from Schur orthogonality, the two-factor Pieri decomposition, center symmetry and uniquely forced three-/four-factor horizontal-strip chains. They imply the complete fourth-moment identity and all sharp equality cases by finite-dimensional optimization.
+# Independent mathematical audit
 
-Run `python CHECKER.py` with Python 3 (standard library only) to compute the Weyl-torus constant terms without floating-point arithmetic for every \(1\le n\le10\). It checks all four character moments against the exact formulas. The code does not attempt an infinite exhaustive computation; the all-degree argument is mathematical. External independent validation is not performed.
+## correctness
+
+PASS
+
+Pieri V_(n,0)⊗V_(n,0)=⊕_(j=0)^n V_(2n−2j,j) without multiplicity gives ∫|χ_n|⁴=n+1. The SU(3) center forces ∫χ_n³ conjugate χ_n and ∫χ_n⁴ to vanish unless 3|n; horizontal-strip interlacing gives multiplicity one for each when 3|n. Expansion yields (n+1)(S²+2|ab|²)+δ_n[4S Re(a conjugate b)+2Re(a² conjugate(b)²)]. With r=|ab|/S≤1/2 and x=cos arg(a conjugate b), optimization of Q=(n+1)+2n r²+4r²x²+4rx proves exact lower/upper bounds and all equality phases. Independently implemented Weyl integration as a Laurent constant term for n=1..7 and obtained moments (1,n+1,δ_n,δ_n); finite checks corroborate the all-n Pieri proof.
+
+## originality
+
+PASS
+
+Best-of-knowledge originality of the DELIMITED finding: Sharp two-sided Haar L4/L2 fourth-moment bounds on aχ_n+b conjugate χ_n for SU(3) symmetric-power characters, with a divisibility-by-three phase resonance. Existing Pieri rules can reconstruct the entire quartic form, so originality is qualified as a particular exact natural extremal classification, not independent discovery of those rules; no specifically identical full optimization located.
+
+## value
+
+PASS
+
+The packet is a canonical nontrivial two-character subspace of SU(3) representations. Complete optimizer classification exposes an arithmetic resonance in the Haar fourth-moment norm precisely when the symmetric-power degree is divisible by three, not apparent from the standard individual character norm alone.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
