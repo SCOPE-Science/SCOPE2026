@@ -5,8 +5,11 @@
     "status": "not_performed"
   },
   "independent_audit": {
-    "evidence": null,
-    "status": "not_performed"
+    "status": "passed",
+    "evidence": [
+      "INDEPENDENT_AUDIT_2026-10-27.md",
+      "INDEPENDENT_AUDIT_2026-10-27.json"
+    ]
   },
   "lean_verification": {
     "evidence": null,
@@ -16,19 +19,24 @@
 }
 ---
 
-# Verification and limitations
+# Independent mathematical audit
 
-Run `python verify.py` using NumPy and SciPy. The program computes genuine numerical quadratures of two-ellipse near-tangency areas and unequal-disk small-overlap probabilities, rather than relying on previously recorded output. It also checks the pointwise unordered curvature-radius inversion and the affine-normal-angle diagnostic.
+## correctness
 
-Observed output from the complete packaged checker:
+PASS
 
-```
-INDEPENDENT_ELLIPTIC_TANGENCY_LENS_COEFFICIENT_OK 3
-UNIFORM_RANDOM_TRANSLATION_TAIL_AND_BETA_DEPTH_OK 2
-UNORDERED_CONTACT_CURVATURE_RADII_RECOVERY_OK 41
-AFFINE_ARCLENGTH_SPECIALIZATION_OK 2
-AFFINE_NORMAL_ANGLE_RIGIDITY_GEOMETRIC_DIAGNOSTIC_OK 2
-ALL_SHORT_OVERLAP_CONTACT_LAW_CHECKS_OK
-```
+For C³ uniformly positive curvature, normal coordinates at K-L have exact Jacobian m(θ)-s. Tangency expansion gives G=4/3 sqrt(2/q(θ)) s^(3/2)+O(s²), uniformly in the normal angle; inversion yields depth c q^(1/3) ε^(2/3)+O(ε), c³=9/32. Integrating proves the direction-marked tail and conditional independent Beta(2/3,1) overlap fraction. The limit plus M identifies m and q, thus the unordered curvature radii from a quadratic. Equality of m q^(1/3) with affine-arclength weight m^(2/3) means mq constant; continuity forces ρ1/ρ2 constant, and support functions differing by cosine/sine characterize translated reflected homothety. Independent circle lens quadrature checks corroborate, not prove, the general limit.
 
-These finite checks are corroboration, not a computer proof of the general theorem or independent external certification. Analytic quantifiers, assumptions, and proof are in `RESULT.md`. The joint beta law follows analytically from the threshold Jacobian; numerical tests cover representative ellipses and disks, not all smooth convex bodies. A potentially relevant 1992 scalar-distribution source was not accessible in full; the risk is disclosed in `REVIEW.md`.
+## originality
+
+PASS
+
+Originality best-of-knowledge based on mathematical comparison of cited primary results and related published records, not merely keyword absence; important historical priority risks noted.
+
+## value
+
+PASS
+
+The cross-covariogram is a standard shape-comparison observable. Its near-zero direction-resolved intensity recovers the unordered constituent contact curvature radii and detects reflected homothety via affine arclength, while a universal Beta overlap fraction gives a precise probabilistic shape invariant. This adds structural inverse and rigidity content beyond a classical contact exponent.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
