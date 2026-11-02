@@ -1,0 +1,183 @@
+{
+  "audit_date_utc": "2026-10-28",
+  "audited_at_utc": "2026-10-28T15:47:48Z",
+  "axes": {
+    "correctness": {
+      "checked_sources": [
+        "https://github.com/SCOPE-Science/SCOPE2026/blob/cbd61aab71e4f01d305014a9520f769db8108742/2026/10/18/a-poisson-binomial-universality-boundary-for-pattern-counts-in-i--f2d2b4ad711f/RESULT.md",
+        "https://github.com/SCOPE-Science/SCOPE2026/blob/cbd61aab71e4f01d305014a9520f769db8108742/2026/10/18/a-poisson-binomial-universality-boundary-for-pattern-counts-in-i--f2d2b4ad711f/verify.py",
+        "https://arxiv.org/abs/1409.2527",
+        "https://doi.org/10.1016/j.jctb.2006.06.003"
+      ],
+      "rationale": "Reconstructed actual frozen RESULT.md (all definitions, length/letter quantifiers, positive-law necessity, and L=1/n<L boundary). For a cross-bifix-free equal-length code, starts closer than L cannot co-occur, whereas starts at least L apart use disjoint independent coordinate blocks; expanding E ∏(1+(z−1)I_i) gives exactly the weighted independence polynomial of the (L−1)-power of a path with weights a_i=P(I_i=1). Neighbor sets split into left/right cliques, hence this graph is claw-free. The published Chudnovsky–Seymour theorem (checked through Bencs Theorem 1.8 complete proof) applies to the nonnegative weighted case through rational clique blow-ups and coefficient limits, and all roots of normalized nonnegative PGF are ≤0, forcing a Bernoulli-product factorization. For a bordered word with shortest period s, at n=L+s the unique possible overlap is starts 1 and s+1, no triple is possible; E N=(s+1)π and P(N=2)=π²/h. A quadratic PGF is PB iff real rooted; direct discriminant Δ=π²((s+1)²−4/h), giving h≥4/(s+1)². Making one shared-prefix letter rare while retaining strictly positive other letter probabilities forces h→0, proving converse. For iid code probability a, k legal start placements are exactly binomial(n−(L−1)k,k), giving stated full PGF. Independently enumerated all 3^8 ternary words for a nonstationary cross-bifix-free 2-code, exact rational agreement; earliest-overlap direct enumeration for four overlapping binary motifs at three positive iid biases each; iid n=11 stationary full four-mass distribution. These finite tests corroborate but do not prove the arbitrary-n theorem.",
+      "residual_risks": [
+        "Claw-free real-rootedness is a substantial externally proved graph theorem, not an independently reconstructed proof of its most general version; read Bencs's complete alternate proof.",
+        "Finite-rational enumerations do not prove arbitrary word length, alphabet or nonidentical laws; generality rests on indicator expansion plus published theorem.",
+        "PB Bernoulli probabilities exist by real-rooted PGF factorization, not algorithmically supplied for arbitrary nonstationary marginals.",
+        "First-overlap threshold is not claimed to classify every larger sample size."
+      ],
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Chudnovsky–Seymour JCTB 97 (2007) 350–357 is a broad graph theorem; weighted version follows clique substitution, not a new graph result.",
+          "Wang–Wang arXiv:2108.06934 gives a broader code-alphabet parameter range but assumes uniform iid and counts avoidance; the independent nonidentical model goes beyond that hypothesis.",
+          "Kumar–Upadhye arXiv:1701.03294 gives approximations to run counts; approximation to a Poisson or pseudo-binomial law does not prove exact Poisson–binomial equality.",
+          "Johnson–Fu 2014 provides approximation methods with partly different non-overlapping run-count conventions."
+        ],
+        "reasoning": "Broader coverage of graph polynomials or stationary avoidance does not automatically dominate the displayed probabilistic iff: a reduction needs the exact factorial moment identification for all independent letter marginals and a counter-law for each self-overlapping word. Those additional directions are proved here and were not supplied by the inspected primary statements. The stationary uniform consequence is substantially prior/elementary and is not claimed as a distinct novelty.",
+        "searches": [
+          "Chudnovsky Seymour clawfree weighted independence polynomial roots",
+          "cross-bifix-free code occurrence count poisson-binomial",
+          "Wang Wang q-ary non-overlapping codes generating function Theorem 6",
+          "Resultary: count of literal consecutive pattern occurrences independently sampled letters equal in distribution sum independent Bernoulli universally iff nonoverlapping"
+        ]
+      },
+      "checked_sources": [
+        "https://arxiv.org/abs/1409.2527",
+        "https://doi.org/10.1016/j.jctb.2006.06.003",
+        "https://arxiv.org/abs/2108.06934",
+        "https://doi.org/10.1007/s11222-013-9390-0",
+        "https://arxiv.org/abs/1701.03294",
+        "https://pmc.ncbi.nlm.nih.gov/articles/PMC7144682/",
+        "https://github.com/Resultary/2026/tree/main/2026/9/17/SCOPE-stationary-occupancy-variable-length-nonoverlap--effa1409f1ac",
+        "Resultary: 2026/10/4/SCOPE-closed-form-law-for-binary-subsequence-universality--e77c4e8d9f37",
+        "Resultary: 2026/9/20/SCOPE-poisson-binomial-cumulant-effective-trial-hierarchy--c64930932dda"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "Bencs §2 Theorem 1.8 proves only real-rootedness for claw-free graph independence polynomials; combine with the new explicit indicator expansion to prove sufficiency, but no converse word-period theorem comes from this theorem alone.",
+          "Wang–Wang Theorem 6 (2021) encodes uniform-source nonoverlap avoidance, a proper marginal/special case of stationary formulas; it does not assert all positive biased laws and all sample sizes.",
+          "Mansour–Rastegar–Roitershtein PMC7144682 defines occurrences as order-isomorphic *subsequences*, generally not consecutive equal words; its enumeration/asymptotic theorems cannot imply this literal-block count distribution.",
+          "Johnson–Fu Statistics and Computing 2014 and Kumar–Upadhye arXiv:1701.03294 primarily bound approximation distributions, rather than giving exact literal motif PB for all source laws."
+        ],
+        "reasoning": "A proof that stationary avoidance is rational or that an overlapping-count law is approximately Poisson does not entail a PGF factorization into Bernoulli laws for every nonstationary source. Likewise, a real-rooted graph polynomial alone does not provide a condition under which the motif-count PGF equals it. The mathematical implication under audit requires the exact factorization plus a separate shortest-period discriminant, with no detected dominating prior theorem.",
+        "searches": [
+          "on discrete Gibbs measure approximation to runs first theorem exact versus approximation",
+          "finite automata occurrence enumeration pattern words permutations Mansour Rastegar Roitershtein",
+          "Wang 2021 cross bifix free avoidance probability generating function",
+          "Bencs 2014 Theorem 1.8 claw-free polynomial"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "A nonnegative PGF represents a sum of independent Bernoulli variables iff its roots are real and nonpositive, so real-rooted motif count PGFs are the exact equivalent formulation.",
+          "Bencs (arXiv:1409.2527), Theorem 1.8 and proof: independence polynomials of claw-free graphs are real-rooted; does not specialize the statement to literal motif occurrences.",
+          "Wang–Wang (arXiv:2108.06934), §IV Theorem 6, equation (20)/(21): counting non-overlapping-code-avoiding words for uniform independent sources; specializations give exact zero-count probability, not the complete asserted all-source criterion.",
+          "Resultary's closed-form binary *subsequence* universality index record deals with a nonconsecutive statistic, not the occurrence count here."
+        ],
+        "reasoning": "The theorem is equivalent to a uniform all-n all-source real-rootedness criterion and its failure at the first compatible self-overlap. The claw-free graph theorem covers a derived polynomial once overlap incompatibility is shown; existing uniform code avoidance enumerators cover a marginal and can recover stationary laws, but their statements do not imply the all-source iff or bordered first-overlap threshold. Subsequence-based statistics are mathematically different from consecutive literal pattern occurrences.",
+        "searches": [
+          "\"unbordered\" \"Poisson-binomial\" distribution",
+          "\"pattern occurrences\" \"real rooted\" probability generating polynomial",
+          "\"non-overlapping\" \"Poisson-binomial\" pattern matching",
+          "Resultary: unbordered word exact pattern occurrence count Poisson-binomial law negative real zeros independence polynomial cross-bifix free"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "Wang–Wang arXiv:2108.06934 §IV explicit avoidance counting via rational generating functions for non-overlapping codes, including fixed-length models; already tabulates/encodes an important stationary special case.",
+          "Resultary SCOPE-stationary-occupancy-variable-length-nonoverlap--effa1409f1ac proves an occupancy probability inequality for stationary variable-length nonoverlapping codes, not a full count-PGF real-zero theorem.",
+          "No searched full-object table yields the universal all-words border iff or symbolic h≥4/(s+1)^2 first-overlap classification; that is not a proof of absence."
+        ],
+        "reasoning": "Finite pattern tables and exact avoidance functions can compute instances of N=0 and stationary moments but do not themselves determine arbitrary-marginal distributional Bernoulli factorization or a universal sharp converse. The stationary PGF is a direct nonoverlapping-placement calculation and needs prior-art qualification.",
+        "searches": [
+          "\"nonoverlapping words\" \"real zeros\" distribution count",
+          "\"unbordered\" \"Poisson-binomial\" word",
+          "Resultary: Poisson binomial universality boundary pattern counts independent random variables pattern occurrences polynomial root real stability finite pattern counts"
+        ]
+      },
+      "rationale": "Best-of-knowledge PASS for the complete universal border iff theorem with nonidentical-source and cross-bifix-free sufficiency and the sharp first-overlap converse. The Chudnovsky–Seymour/Bencs real-rooted claw-free polynomial theorem is clearly pre-existing and supplies the main nonstandard algebraic implication; Wang–Wang's exact generating-function treatment already supplies fixed-code uniform-source avoidance formulas and makes the stationary placement enumerator unsurprising. Neither original source was found to establish the full universal Poisson–binomial representation for arbitrary independent source marginals nor the necessity and discriminant criterion for all literal words. The published equivalent formulations were checked mathematically, not only by title; lack of a search hit is not conclusive priority evidence. Residual risk from unindexed classical exact word-pattern literature remains.",
+      "residual_risks": [
+        "Older word pattern/renewal/cluster generating-function literature might derive Bernoulli factorization for nonoverlapping code counts under another name; no global priority certificate is possible.",
+        "Wang–Wang 2021 covers or strongly implies the iid uniform special case and avoidance generating function; stationary count formula alone is not established as new.",
+        "The original Chudnovsky–Seymour proof was not read; the full alternative proof in Bencs was inspected.",
+        "Only relevant sections rather than every page of Kumar–Upadhye and Mansour et al. were inspected; no assertion of whole-document noncoverage from isolated snippets."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Establishes algebraic real-rootedness for claw-free graphs; no claim about motif occurrence counts or shortest borders",
+          "evidence": "Theorem 1.8: claw-free independence polynomial has only real roots; proof uses Christoffel–Darboux identity and induced connected bipartite paths/cycles.",
+          "identifier_or_url": "https://arxiv.org/abs/1409.2527",
+          "material_read": "Seven-page arXiv primary PDF: statement of Theorem 1.8 and complete associated proof (page 6), with adjacent preliminaries and graph setup",
+          "method": "Opened arXiv full-text PDF and visually inspected theorem/proof pages; checked graph hypothesis and root assertion",
+          "title": "Christoffel–Darboux type identities for the independence polynomial",
+          "trigger": "Critical nonstandard claw-free real-rootedness input and strongest prior general root theorem"
+        },
+        {
+          "assessment": "Foundational prior theorem, explicitly credited; does not by itself classify word occurrence distributions",
+          "evidence": "J. Combin. Theory B 97 (2007), pp. 350–357: claw-free graph independence polynomial real roots.",
+          "identifier_or_url": "https://doi.org/10.1016/j.jctb.2006.06.003",
+          "material_read": "Original theorem statement and abstract; independently read full proof of same theorem in Bencs 2014, not the original article's complete body",
+          "method": "Compared original bibliographic theorem statement against primary Bencs proof",
+          "title": "The roots of the independence polynomial of a clawfree graph",
+          "trigger": "Original broad 2007 result that can dominate algebraic ingredient"
+        },
+        {
+          "assessment": "Prior exact uniform nonoverlapping-code avoidance formula; stationary counting may be recovered from it; no all-source Bernoulli representability or border iff converse",
+          "evidence": "Theorem 6 rational generating function 1/(1-qx+|C|x^L) for avoiding words under non-overlap, not arbitrary varying marginals.",
+          "identifier_or_url": "https://arxiv.org/abs/2108.06934",
+          "material_read": "Primary arXiv full-text PDF, especially §IV, Theorem 6, equations (20)–(21), explanatory surrounding paragraphs",
+          "method": "Opened lawful OA paper and inspected mathematical PDF pages 17–18 as rendered images; compared q-ary iid uniform avoidance theorem to entire count-PGF",
+          "title": "Q-ary non-overlapping codes: a generating function approach",
+          "trigger": "Same non-overlapping/cross-bifix-free word-code objects and exact stationary counting"
+        },
+        {
+          "assessment": "Studies approximations to run and pattern-count distributions and some differently counted events; not an exact all-source PB universality theorem",
+          "evidence": "Paper's approximation focus contrasts with exact factorization in audited theorem.",
+          "identifier_or_url": "https://doi.org/10.1007/s11222-013-9390-0",
+          "material_read": "Accessible complete HTML; read introductory definitions, theorem descriptions and approximation methodology/results sections",
+          "method": "Compared occurrence conventions and type of conclusions from primary full-text HTML",
+          "title": "Approximating the distributions of runs and patterns",
+          "trigger": "Primary run-pattern probability distribution literature and overlapping versus nonoverlapping conventions"
+        },
+        {
+          "assessment": "Run-count discrete Gibbs/Stein approximations; does not establish exact arbitrary-word PB iff in inspected material",
+          "evidence": "Counting particular run patterns and bounding approximation error are weaker claims than exact all-pattern all-source law.",
+          "identifier_or_url": "https://arxiv.org/abs/1701.03294",
+          "material_read": "Primary arXiv PDF title/abstract/introduction and setup; inspected theorem summaries, not all 31 pages",
+          "method": "Read sampled primary PDF rendered pages and compared random variables and asymptotic/approximation claims",
+          "title": "On Discrete Gibbs Measure Approximation to Runs",
+          "trigger": "Nonidentical Bernoulli run-pattern counts may be an exact prior coverage candidate"
+        },
+        {
+          "assessment": "Main object counts order-isomorphic subsequence occurrences, not consecutive equal literal motifs; no implication of PB theorem",
+          "evidence": "Article explicitly allows nonconsecutive subsequence positions when defining pattern occurrences.",
+          "identifier_or_url": "https://pmc.ncbi.nlm.nih.gov/articles/PMC7144682/",
+          "material_read": "Open-access complete article HTML; inspected occurrence definition, main theorem and random-word enumeration/asymptotic sections, not every appendix",
+          "method": "Read primary text and compared consecutive literal-block versus order-pattern subsequence counting definitions",
+          "title": "Finite automata, probabilistic method, and occurrence enumeration of a pattern in words and permutations",
+          "trigger": "Plausible same word-pattern occurrence enumeration and exact counting"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "checked_sources": [
+        "https://github.com/SCOPE-Science/SCOPE2026/blob/cbd61aab71e4f01d305014a9520f769db8108742/2026/10/18/a-poisson-binomial-universality-boundary-for-pattern-counts-in-i--f2d2b4ad711f/RESULT.md",
+        "https://arxiv.org/abs/2108.06934",
+        "https://arxiv.org/abs/1409.2527",
+        "Related Resultary stationary nonoverlap occupancy summary"
+      ],
+      "rationale": "The word border is a natural combinatorial obstruction to nonoverlapping occurrences, and Poisson–binomial representability is a meaningful exact structural property of dependent local-pattern counts. The theorem gives a complete infinite-family iff classification over all n and all independent, potentially non-identical source marginals, a strictly positive-iid necessary counterlaw for every self-overlapping word, and a sharp first-overlap parameter threshold. Cross-bifix-free code sufficiency expands the class of natural word patterns to nonstationary sources. Stationary placement enumeration is related to known avoidance formulas, so the primary value is the distributional real-rootedness/if-and-only-if bridge and sharp converse, not counting a known table again. This supplies exact input for pattern probability, Bernoulli-sum concentration/shape results and diagnostics; it is neither an arbitrary finite slice nor a routine renaming of an already stated word-count theorem.",
+      "residual_risks": [
+        "A future bibliography might establish this special connection already in classical renewal/word-cluster literature; under that discovery V and O must be reconsidered for the surviving novelty.",
+        "The finite sample first-overlap criterion is local to n=L+s; longer-length PB status for a given biased bordered word is not classified.",
+        "The stationary formula is straightforward from previously known nonoverlapping-code enumeration and not an independent major contribution."
+      ],
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "final_claim": "For any finite alphabet with at least two letters and a fixed length-L consecutive literal word w, its count in every n≥L independent (not necessarily identically distributed) letter source is a Poisson–binomial sum iff w is unbordered (equivalently, iff PB holds for every n and every strictly positive iid alphabet law). Equal-length cross-bifix-free code counts inherit PB for independent nonstationary sources, while for a bordered word with minimum positive period s the first-overlap n=L+s count is PB exactly when prefix mass h=Pr(w_1...w_(L-s))≥4/(s+1)^2. In iid cross-bifix-free case pgf is Σ_{k≤floor(n/L)} C(n−(L−1)k,k)a^k(z−1)^k.",
+  "limitations": [
+    "Only one record assigned by actual dispatcher this execution; not an omitted four-review batch.",
+    "Existing graph theorem (2007) is prior art and essential, not a new general theorem; uniform stationary code counts have strong exact prior formulas.",
+    "Explicit list of Bernoulli success parameters for nonstationary laws is not provided.",
+    "Exact PB threshold is at first overlap n=L+s, not at all larger n.",
+    "Potential unindexed older exact-pattern literature may yield equivalent classification; primary comparisons give best-of-knowledge originality, not global priority certification.",
+    "Operational provenance in existing public AUDIT.json and METADATA.json requires coordinated privacy sanitization; current publication remains not_ready, with no research accepted row."
+  ],
+  "schema_version": 1
+}
