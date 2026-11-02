@@ -1,0 +1,122 @@
+{
+  "correctness": {
+    "rationale": "Sun’s theorem shows no failure before j. For j, Kummer’s base-p carry count is exactly 1 if j+floor(bj/p^r)>=p, otherwise 0. Since p divides bj+1 and the other prime factors divide the binomial to full denominator multiplicity, delayed failure is equivalent to one carry and p² not dividing bj+1. CRT residue class counting gives the exact M formula; a <3 error per j yields the uniform <=2/p^(r-1) error, and harmonic sums tend to log 2. Independent Legendre-valuation and direct binomial computations agreed in 12 configurations.",
+    "status": "PASS"
+  },
+  "independent": false,
+  "independent_audit_status": "not_performed",
+  "originality": {
+    "broader_coverage": {
+      "evidence": [
+        "Guo–Krattenthaler Theorem 2.1 guarantees infinite failures and an explicit upper bound on f for certain a,b, but does not quantify parameters for which the earliest eligible index is delayed.",
+        "Accessible prior related research concerns the prime-base slice f(3,b), rather than the family a=p^r with r>=2."
+      ],
+      "reasoning": "An existence or upper-bound theorem does not imply the exact frequency of initial failure. The prior prime-base slice has different a and does not cover prime-power exponent r>=2.",
+      "searches": [
+        "published-finding corpus: Distribution of first nondivisibility threshold for binomial ((a+b)n choose an) modulo bn+1 prime power a",
+        "published-finding corpus: Sharp initial failure n equals least solution b n congruent -1 modulo p for a=p^r, coefficient density",
+        "web: Sun function f(a,b) smallest n binomial bn+1 Guo Krattenthaler exact prime power",
+        "arxiv:1301.7651v3, Theorem 2.1 and proof Section 4"
+      ]
+    },
+    "checked_sources": [
+      "Sun, arxiv:1005.1054v12, Section 1",
+      "Guo and Krattenthaler, arxiv:1301.7651v3, Sections 1/2/4/5/7",
+      "Kummer carry theorem as standard background",
+      "Actual published-finding corpus semantic searches documented in four named comparisons",
+      "Prior mathematical claim 48d1f8db-bf4c-41ef-ab70-4a5f6a62be52",
+      "Prior mathematical claim c240e25c-3b53-4f8c-bcac-a168388c5f8a",
+      "Prior mathematical claim 05bebccd-9682-42ec-bee9-5fa0a19dde59"
+    ],
+    "claim_vs_prior_implication": {
+      "evidence": [
+        "Sun proves bn+1 divided by gcd(a,bn+1) divides the binomial and asks for behavior of f; this supplies a step of the proof, not the final counting law.",
+        "Guo–Krattenthaler prove Sun’s nondivisibility conjecture and an upper bound, not the logarithmic density.",
+        "The prior f(3,b) statement applies at prime base a=3 only and does not imply a prime-power uniform distribution."
+      ],
+      "reasoning": "The new statement follows from combining the cited divisibility and carry tools with a novel explicit first-index classification, residue progression counts and a two-parameter uniform harmonic asymptotic. It is not a corollary stated or strongly covered by the inspected source results.",
+      "searches": [
+        "arxiv:1005.1054v12 Section 1 Theorem 1.4 and f examples",
+        "arxiv:1301.7651v3 Sections 1, 2, 4",
+        "published-finding corpus: Guo Krattenthaler f(a,b) logarithm 2 distribution"
+      ]
+    },
+    "equivalent_formulations": {
+      "evidence": [
+        "Sun (2010) introduces the least-failure f(a,b) and gives a gcd-reduced divisibility guarantee. No averaging in b or prime-power density is stated in the inspected sections.",
+        "Kummer (1852) equates binomial p-valuation with digit carries. It does not evaluate the parameter census."
+      ],
+      "reasoning": "A first-failure criterion is equivalent to a strict valuation deficit at j_p(b); the new exact carry criterion and progression counts go beyond either cited general tool. The original papers give neither a distribution over b nor a logarithmic limiting proportion.",
+      "searches": [
+        "published-finding corpus: Sun Guo Krattenthaler f(a,b) first nondivisible binomial exact p power a=p^r parameter b density logarithm 2",
+        "published-finding corpus: Lucas Kummer carry nondivisibility Sun f(p^r,b) smallest n, density 1-log(2)",
+        "web: \"f(p^r,b)\" binomial coefficient divisor \"bn+1\"",
+        "arxiv:1005.1054v12, Section 1, definition of f(a,b) and Theorem 1.4"
+      ]
+    },
+    "exact_database_or_table": {
+      "evidence": [
+        "No directly matching published-finding corpus record or parameter table was returned by the actual searches.",
+        "Related own claim 48d1f8db-bf4c-41ef-ab70-4a5f6a62be52 determines f(3,b), not the parameter census for p^r.",
+        "Related own claim c240e25c-3b53-4f8c-bcac-a168388c5f8a constructs witnesses for general a,b but does not count b with delayed first obstruction."
+      ],
+      "reasoning": "No exact database/table was identified for the class (p,r,b) and the limiting density. Absence in searches is not a proof of global priority; no exact-table reuse was made.",
+      "searches": [
+        "published-finding corpus: first nondivisibility binomial parameter b density 1-log 2 prime power",
+        "web: first nondivisibility binomial coefficient parameter log 2 density"
+      ]
+    },
+    "rationale": "Primary-text comparison against Sun 2010 and Guo–Krattenthaler 2013: neither states or implies the exact prime-power parameter census or the uniform limiting 1-log 2 density without additional argument. Search of actual published-finding corpus queries and accessible related prior claims found no equivalent or dominating statement. Absence from searches alone is not a priority proof; historical literature coverage remains incomplete.",
+    "residual_risks": [
+      "Other historical articles or unpublished notes may derive a comparable first-failure distribution from Lucas/Kummer.",
+      "Not every potentially relevant prior claim or historical mathematical source could be inspected.",
+      "The argument relies on the cited general divisibility theorem, checked in the primary source, rather than reproving it."
+    ],
+    "source_inspections": [
+      {
+        "assessment": "Gives f and universal divisibility but no prime-power coefficient census or density",
+        "evidence": [
+          "Theorem 1.4 gcd-reduced divisibility",
+          "f(a,b) definition and explicit sample values after Conjecture 1.4"
+        ],
+        "identifier_or_url": "arxiv:1005.1054v12; https://arxiv.org/html/1005.1054v12",
+        "material_read": "Section 1 introduction, Theorem 1.4, definition of f, examples and posed behavior question",
+        "method": "Read primary arXiv HTML statement and relevant surrounding mathematical text",
+        "title": "On divisibility concerning binomial coefficients",
+        "trigger": "Original definition and examples of first-failure function f and required gcd-divisibility theorem"
+      },
+      {
+        "assessment": "Bounds/existence of failures, not an exact count of coefficients with immediate/delayed first failure or logarithmic density",
+        "evidence": [
+          "Theorem 2.1 gives upper bound f(a,b)<= (p^phi(a+b)-1)/(a+b)",
+          "Theorem 2.2 gives Lucas-theorem witnesses"
+        ],
+        "identifier_or_url": "arxiv:1301.7651v3; https://arxiv.org/html/1301.7651v3",
+        "material_read": "Abstract, Sections 1, 2, 4, 5 and concluding sections via primary HTML",
+        "method": "Read primary arXiv HTML including Theorem 2.1, its proof, and relevant statements",
+        "title": "Some divisibility properties of binomial and q-binomial coefficients",
+        "trigger": "Closest published theorem bounding first failure and proving eventual nondivisibility"
+      },
+      {
+        "assessment": "Provides carry formula, not new enumeration or first-failure density",
+        "evidence": [
+          "p-adic valuation of binomial coefficient equals number of base-p carries"
+        ],
+        "identifier_or_url": "Kummer 1852, J. Reine Angew. Math. 44, 93–146; https://en.wikipedia.org/wiki/Kummer%27s_theorem",
+        "material_read": "Standard theorem statement from available reference, not full 1852 historical paper",
+        "method": "Compared standard mathematical formulation",
+        "title": "Kummer’s theorem on prime valuations of binomial coefficients",
+        "trigger": "Exact local carry valuation used in new proof"
+      }
+    ],
+    "status": "PASS"
+  },
+  "review_type": "self_review",
+  "schema_version": 1,
+  "scope_run_id": "c8a73bdd-998d-4c3d-bd7e-7407ae4b8a6e",
+  "self_review_status": "passed",
+  "value": {
+    "rationale": "Sun explicitly proposed investigating the first nondivisibility index f(a,b), for which only example values and general upper bounds were offered. The result classifies the complete first-eligible index across every invertible coefficient below each prime power p^r (r>=2), gives a finite exact census and a uniform 1-log 2 asymptotic for the genuinely delayed proportion; the complementary log 2 law is a motivated structural distribution, not an arbitrary finite slice or trivial reformulation.",
+    "status": "PASS"
+  }
+}
