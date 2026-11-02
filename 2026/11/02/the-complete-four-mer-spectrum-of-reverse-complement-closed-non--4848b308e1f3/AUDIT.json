@@ -1,0 +1,120 @@
+{
+  "correctness": {
+    "rationale": "The 256 four-mer words give 136 reverse-complement orbits, of which exhaustive exact word tests admit 56 vertices (12 singleton, 44 two-word). The 420-edge graph enforces precisely the remaining pairwise overlap and Hamming constraints. Every valid codebook uniquely corresponds to a weighted clique. The exact base-case/branching recurrence counts all cliques and yields coefficients (1,12,88,288,584,760,688,424,160,32). A structurally separate direct-word backtracker independently enumerates 3037 codebooks and 32 nine-word maximizers, and checks four size-eight symmetry orbits. Both standalone programs were executed on the included files.",
+    "status": "PASS"
+  },
+  "independent": false,
+  "independent_audit_status": "not_performed",
+  "originality": {
+    "broader_coverage": {
+      "evidence": [
+        "https://arxiv.org/pdf/1303.1026: Theorem 4 yields unrestricted q=n=4 maximum 27, without RC closure or minimum Hamming distance.",
+        "https://www.combinatorics.org/ojs/index.php/eljc/article/download/v10i1r33/pdf: Hamming and reverse-complement Hamming bounds, without overlap constraints."
+      ],
+      "reasoning": "A stronger-coverage comparison was made by implication: knowing the unconstrained maximum 27, or the maximal cardinality of the RC-closed overlap-free n=4 subfamily without Hamming restriction, does not determine the number of subsets satisfying an added pairwise Hamming threshold. King imposes separation between each word and its own RC, which excludes fixed points counted here.",
+      "searches": [
+        "non-overlapping DNA codes reverse complement length four Hamming distance two exact enumerations",
+        "Levenshtein non-overlapping codes 1964 construction cross-bifix-free 2014",
+        "Hamming distance constraints reverse-complement closed non-overlapping codebooks four symbols length four"
+      ]
+    },
+    "checked_sources": [
+      "arxiv:math/0306197",
+      "arxiv:1303.1026",
+      "doi:10.1371/journal.pone.0082933",
+      "https://www.combinatorics.org/ojs/index.php/eljc/article/download/v10i1r33/pdf"
+    ],
+    "claim_vs_prior_implication": {
+      "evidence": [
+        "https://arxiv.org/abs/1303.1026, Theorem 4: q=4,n=4, unrestricted optimum 27.",
+        "https://arxiv.org/abs/math/0306197: Hamming/GC/RC-distance bounds; no cross-bifix-free condition.",
+        "https://pmc.ncbi.nlm.nih.gov/articles/PMC3875435/: barcode sizes six to eight and minimum-distance motivation.",
+        "Prior n=4 RC-closed nonoverlap-only extrema omit the Hamming-distance-two graph restriction and do not count qualifying codebooks of every size."
+      ],
+      "reasoning": "Neither earlier extremal statement determines the restricted weighted independence polynomial: the additional Hamming condition deletes compatibility edges and changes the enumerated family. The displayed polynomial and structural split of its 32 maxima require new complete counting, and the relevant exact prior claims do not state them.",
+      "searches": [
+        "nonoverlapping self-complementary 4-mers exact cardinality distribution graph",
+        "complete size distribution reverse-complement-closed non-overlapping DNA tetranucleotide codebooks minimum Hamming distance two",
+        "Short Barcodes for Next Generation Sequencing 2013 barcode hamming distance reverse complement"
+      ]
+    },
+    "equivalent_formulations": {
+      "evidence": [
+        "https://arxiv.org/abs/1303.1026 (non-overlap/cross-bifix-free equivalence, not combined Hamming restriction)",
+        "https://arxiv.org/abs/math/0306197 (reverse-complement distance differs from closure)",
+        "The new definition uses all three constraints simultaneously, with self-RC fixed words allowed."
+      ],
+      "reasoning": "Aliases cross-bifix-free, unbordered, synchronizing, strand-symmetric and DNA codewords were searched. Both primary theories consider strictly different families. No equivalent 3037-count polynomial was identified in the checked records.",
+      "searches": [
+        "reverse-complement-closed non-overlapping DNA tetranucleotide codebooks minimum Hamming distance two",
+        "cross-bifix-free Watson Crick reverse complement tetranucleotide DNA one-substitution detection minimum distance two",
+        "DNA length four reverse-complement-closed Hamming two unbordered cross-bifix codebooks"
+      ]
+    },
+    "exact_database_or_table": {
+      "evidence": [
+        "https://arxiv.org/abs/1303.1026: related maximum for unrestricted non-overlapping codes, no constrained size-spectrum table",
+        "https://arxiv.org/abs/math/0306197: classical DNA-distance bounds, not the combined finite count"
+      ],
+      "reasoning": "Queries for the distinctive complete coefficient vector, total, optimum and synonyms did not reveal an equivalent published enumerator. This negative search is evidence of limited discoverability, not a proof of novelty.",
+      "searches": [
+        "\"12,88,288,584,760,688\" DNA codes",
+        "\"3037\" \"Hamming\" \"non-overlapping\" code",
+        "\"32\" \"9\" \"reverse-complement\" \"non-overlapping\" code length four",
+        "Watson-Crick reverse-complement DNA four-mer cross-bifix-free minimum distance 2 exact 3037 32 codes size 9"
+      ]
+    },
+    "rationale": "King 2003 treats Hamming and reverse-complement distance, not reverse-complement closure plus cross-bifix exclusion. Blackburn 2013/2015 treats unrestricted non-overlap maximum and constructions, not Hamming separation or the combined polynomial. Related previously indexed results on n=4 RC-closed non-overlapping extrema without Hamming distance, on n=4 GC-balanced comma-free codes, and on n=3 reverse-complement-closed non-overlapping spectra concern distinct domains or constraints and do not determine this complete size spectrum. Searches found no exact equivalent indexed table; historical uniqueness remains a risk.",
+    "residual_risks": [
+      "Unindexed historical finite computations may already contain the full 3037-codebook polynomial or 32 nine-word maxima.",
+      "A later restricted-DNA-code table not found in the targeted searches could imply the same result; historical priority is not independently established.",
+      "The 2013 barcode full text was accessed only partially because direct web access triggered a browser verification page; its reported length range is different."
+    ],
+    "source_inspections": [
+      {
+        "assessment": "Not covering combined strict nonoverlap+closure+Hamming cardinality polynomial; the RC-distance condition is different.",
+        "evidence": [
+          "2003-06-12 initial arXiv posting: https://arxiv.org/abs/math/0306197",
+          "Definition of A_4^RC in introduction requires distance from each word to its own RC; no prefix/suffix nonoverlap condition in stated results."
+        ],
+        "identifier_or_url": "https://www.combinatorics.org/ojs/index.php/eljc/article/download/v10i1r33/pdf",
+        "material_read": "Abstract, introduction, Hamming/RC definitions, main bounds and lexicographic constraints sections; text-index scan of the rest",
+        "method": "Open full lawful OA PDF; inspect page image and textual sections",
+        "title": "Bounds for DNA codes with constant GC-content",
+        "trigger": "Earliest accessible primary DNA Hamming/Watson-Crick formalism"
+      },
+      {
+        "assessment": "Not covering RC-closed distance-two spectrum; no RC/Hamming constraints.",
+        "evidence": [
+          "First arXiv posting 2013-03-05: https://arxiv.org/abs/1303.1026",
+          "Theorem 4 gives unrestricted maximum 27 for q=n=4; focuses on maximum sizes and constructive bounds."
+        ],
+        "identifier_or_url": "https://arxiv.org/pdf/1303.1026",
+        "material_read": "Full PDF text, sections 1–5 and references; first page image inspected",
+        "method": "Open original arXiv PDF, page-image inspection and read relevant theorems and constructions",
+        "title": "Non-overlapping codes",
+        "trigger": "Direct prior theory of cross-bifix-free/non-overlapping codes and q=4 n=4 extremum"
+      },
+      {
+        "assessment": "Context only; reports lengths six to eight, no evidence of the exact four-mer combined non-overlap/closure census.",
+        "evidence": [
+          "Publication 2013-12-30, DOI 10.1371/journal.pone.0082933."
+        ],
+        "identifier_or_url": "https://pmc.ncbi.nlm.nih.gov/articles/PMC3875435/",
+        "material_read": "Abstract and online-extracted coding-theoretic constraints passages; full direct page read blocked by browser verification",
+        "method": "Search-indexed OA article text and bibliographic record",
+        "title": "Short Barcodes for Next Generation Sequencing",
+        "trigger": "Practical motivation for distance constraints in short DNA barcodes"
+      }
+    ],
+    "status": "PASS"
+  },
+  "review_type": "self_review",
+  "schema_version": 1,
+  "scope_run_id": "4848b308-e1f3-44f7-b5ed-7776cc818f13",
+  "self_review_status": "passed",
+  "value": {
+    "rationale": "The three constraints independently correspond to framing synchronization, double-strand closure, and detection of one aligned substitution. At length four, fixed and paired RC-orbits coexist and give 32 optimal designs in four symmetry types with two distinct optimal compositions. The complete cardinality polynomial measures all viable codebook sizes, not just the optimum, and is not implied by separate classical code-size bounds. Its scope is a natural complete finite classification with a reproducible exact graph certificate, not an arbitrary unmotivated slice. Practical biochemical quality is not asserted.",
+    "status": "PASS"
+  }
+}
