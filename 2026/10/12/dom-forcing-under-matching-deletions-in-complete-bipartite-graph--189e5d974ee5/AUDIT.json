@@ -1,116 +1,176 @@
 {
   "correctness": {
-    "rationale": "For \\(G_{m,n,t}=K_{m,n}-M_t\\), a vertex can lose at most one cross-shore neighbor. Therefore three white vertices on either shore are permanently unforceable, reducing the lower bound to a finite set of white-count cases. Separate arguments for \\(t=0\\), \\(t=1\\), and \\(t\\ge2\\) give sharp maxima of two, three, and four white vertices, with explicit force chains. The domination exceptions are proved by shore-size obstructions, and explicit one-larger witnesses attain each exceptional bound. Exhaustive replay agrees on 58 connected small profiles and the symbolic witnesses were checked on 681 larger profiles.",
+    "checked_sources": [
+      "Assigned source RESULT.md SHA-1 7a73ebfac42809fe223fb19ce5eb5204fa7074b3",
+      "Assigned source artifacts/verify.py SHA-1 e005ece5d7544db0c9958d8da8b7f93238341337, inspected not executed as authority",
+      "Independent fresh witness and brute-force verifier in supporting evidence"
+    ],
+    "evidence": [
+      "Actual RESULT.md proof reconstructs p,q shore bound and explicit t=0/1/≥2 forcing chains.",
+      "Actual RESULT.md low-shore domination impossibility and complementary white witnesses.",
+      "Independent script exhaustive 58 connected parameter triples of ≤10 vertices, comparing all vertex subsets, and 681 larger witness checks; all passed.",
+      "Git tree and nested artifacts tree independently recomputed from actual GitHub object listing."
+    ],
+    "rationale": "For 2≤m≤n, 0≤t≤m and connected K_{m,n}−M_t (only (2,2,2) excluded), each blue vertex has either p or p−1 white cross-shore neighbors when p vertices of A are white; hence any p≥3 cannot decrease, and likewise q≤2 in any successful zero-forcing initial complement. For t=0, three whites cannot all be removed, while a two-white A/B pair is forceable. For t=1, the sole missing edge permits three but not four whites: with a (2,2) white profile, a first force must use the single deleted pair and subsequently strands two whites on the opposite shore. For t≥2, four whites are forceable by {a1,a2,b1,b3}, through b2→a1→b3→a2→b1 (interpreting the middle terms as successive forces), giving Z=m+n−2−min(t,2). Domination at the Z threshold is obtained by explicitly complementary white sets except (2,2,1), m=2,t=2,n≥3, and m=n=3,t∈{2,3}. In m=2,t=2, any Z-set has no selected A vertex, leaving two undominated B vertices; in m=n=3,t=2 or 3, any dominating A/B selected pair must have two white neighbors per selected vertex, so forcing cannot start. Presented Z+1 witnesses dominate and force in each exception. All proof witnesses and lower-bound regimes were checked independently. These are infinite proof arguments, not inferred from finite exhaustive runs.",
+    "residual_risks": [
+      "Finite brute force is limited to 58 profiles; all-parameter validity depends on the reconstructed symbolic shore-count proof.",
+      "Matching-defect restriction is essential: general t deleted edges can remove two neighbors from one vertex and invalidate the p≥3 invariant."
+    ],
     "status": "PASS"
   },
-  "independent": false,
-  "independent_audit_status": "not_performed",
+  "independent_audit_status": "passed",
+  "independent_validation": true,
   "originality": {
     "broader_coverage": {
       "evidence": [
-        "published-finding corpus record 2026/10/4/SCOPE-all-k-forcing-sets-of-complete-multipartite-graphs--21dd3de55bd1 covers complete multipartite graphs themselves, not graphs obtained by deleting a matching from a biclique.",
-        "Jiang–Wan Proposition 5.6 characterizes equality \\(F_d=Z\\) abstractly but does not supply either \\(Z(K_{m,n}-M_t)\\) or a dominating minimum forcing set for that family."
+        "Jiang–Wan Proposition 5.6 gives F_d(G)=Z(G) iff at least one minimum zero-forcing set is dominating, but does not calculate these terms for matching-deleted bicliques.",
+        "The 2026 published all-k-forcing result gives an all-set criterion for complete multipartite graphs, but K_{m,n}-M_t for t>0 is not complete multipartite.",
+        "Boyer et al. 2018 Proposition 4 gives the complete multipartite zero-forcing polynomial (in particular K_{m,n}), with no matching defects."
       ],
-      "reasoning": "The closest broader forcing result applies to a different graph class. The abstract equality criterion requires precisely the family-specific information proved here, so it does not subsume the claim.",
+      "reasoning": "The closest general forcing and domination results require information about minimum forcing witnesses and their domination that the new all-parameter construction supplies. The deleted-matching graphs are outside the undamaged complete multipartite hypotheses except t=0.",
       "searches": [
-        "published-finding corpus: minimum zero forcing sets K_mn minus matching",
-        "published-finding corpus: zero forcing K_mn minus matching",
-        "published-finding corpus: minimum dominating zero forcing set complete multipartite",
-        "Web: \"zero forcing number\" \"K_{m,n}\" \"matching\""
+        "Resultary semantic: zero forcing and domination crown graph perfect matching deletion K_n,n minus matching",
+        "Resultary semantic: dom forcing number complete bipartite graph minus a matching K_{m,n} - M_t exact formula",
+        "Web and primary PDF: Jiang–Wan Proposition 5.6 on F_d=Z",
+        "Published Resultary full text: All k-forcing sets of complete multipartite graphs",
+        "Primary PDF: Boyer et al. Proposition 4 on complete multipartite graphs"
       ]
     },
     "checked_sources": [
-      "arXiv:2411.00580v1",
-      "doi:10.9734/arjom/2026/v22i31058",
-      "doi:10.3934/math.2026802",
-      "doi:10.17654/0974165826017",
-      "published-finding corpus record 2026/10/4/SCOPE-all-k-forcing-sets-of-complete-multipartite-graphs--21dd3de55bd1",
-      "published-finding corpus record 2026/10/4/SCOPE-restrained-dominating-set-profile-of-crown-graphs--23a9be9d61aa",
-      "Current owned weekly ledger through its latest available generation"
+      "Susanth–Dominic–Premodkumar, arXiv:2411.00580 / DOI 10.9734/arjom/2026/v22i31058, inspected publisher full-text p. 96",
+      "Jiang–Wan, DOI 10.3934/math.2026802, inspected publisher full text pp. 19779–19781",
+      "Boyer et al., arXiv:1801.08910v1, Section 4 Proposition 4 inspected",
+      "Resultary published all-k forcing complete multipartite RESULT.md inspected in full",
+      "Resultary published restrained-domination crown RESULT.md inspected in full",
+      "Resultary three semantic searches of forcing/dom-forcing and matching-deleted bicliques",
+      "Targeted web keyword searches for crown, matching deletions, zero forcing and dom-forcing"
     ],
     "claim_vs_prior_implication": {
       "evidence": [
-        "The owned ledger contains several results on crown graphs and on \\(K_{m,n}-M_t\\) for other invariants, but no prior dom-forcing or ordinary zero-forcing matching-defect classification.",
-        "An owned connected-domination result for crowns together with Jiang–Wan can help recover part of the crown subfamily, but it does not imply the general \\(m,n,t\\) theorem or its low-shore exceptions.",
-        "The initiating paper covers \\(t=0\\) and isolated standard-graph members such as path, cycle, and hypercube cases; those are acknowledged as prior coverage."
+        "The t=0 slice follows from published Susanth and Jiang–Wan complete bipartite formulas.",
+        "For (m,n,t)=(2,2,1), G=P4; for (3,3,3), G=C6; for (4,4,4), G is the 3-cube. Previously studied standard-graph values cover these examples.",
+        "Jiang–Wan F_d=Z equivalence does not quantify the existence of dominating minimum zero-forcing sets for K_{m,n}-M_t; Boyer and the later multipartite theorem apply only to t=0."
       ],
-      "reasoning": "The accepted claim is the uniform matching-deletion theorem. Its new implication content is the all-parameter forcing transition and exact mismatch set for domination; known boundary cases and an overlap-prone crown subfamily are not the basis of the originality assessment.",
+      "reasoning": "Prior theorems imply several named boundary cases and the undamaged biclique value; those are excluded from novelty. They do not imply the complete matching-deletion threshold and the exact exceptional domination family without the supplied first-force bound and construction. The independent contribution is the all-parameter classification, not merely rewritten t=0 or individual examples.",
       "searches": [
-        "Owned ledger search: dom-forcing; dom forcing; zero forcing; K_{m,n}-M_t; crown graph",
-        "Primary full text: Susanth–Dominic–Premodkumar, Sections 2–3 and Theorem 3.8",
-        "Primary full text: Jiang–Wan, Sections 4–6, especially Propositions 5.1–5.7"
+        "Primary Susanth 2026 PDF: Definition 1.1 and Theorem 5.8",
+        "Primary Jiang–Wan 2026 PDF: Propositions 5.3 and 5.6",
+        "Primary Boyer et al. arXiv:1801.08910v1 Proposition 4",
+        "Published Resultary complete multipartite k-forcing theorem full RESULT.md",
+        "Published Resultary restrained-domination crown theorem full RESULT.md"
       ]
     },
     "equivalent_formulations": {
       "evidence": [
-        "No retrieved published-finding corpus record states a dom-forcing formula for a complete bipartite graph with a matching deleted.",
-        "The inspected initiating paper contains no occurrence of 'crown' and its complete-bipartite theorem is for the undeleted graph.",
-        "The inspected Jiang–Wan paper contains no occurrence of 'crown' and treats the complete-bipartite case without matching defects."
+        "Susanth–Dominic–Premodkumar, Theorem 5.8 (journal PDF p. 96): F_d(K_{m,n})=m+n-2 only, without deleted edges.",
+        "Jiang–Wan, Proposition 5.3 (PDF p. 19779): F_d(K_{p,q})=p+q-2 for intact bicliques, not deleted matchings.",
+        "Resultary closest crown finding treats restrained domination rather than dom-forcing, so the same graph family does not mean the same invariant."
       ],
-      "reasoning": "Crown-graph terminology, matching-deleted biclique terminology, symbolic \\(K_{m,n}-M_t\\) phrasing, and the forcing-plus-domination formulation were all checked. The retrieved sources do not contain an equivalent all-parameter statement.",
+      "reasoning": "Searches compared deleted-matching bicliques, crown graphs (perfect-deletion subfamily), nearly complete bipartite graphs and the simultaneous zero-forcing-plus-domination formulation. No inspected source states the uniform formula or the low-shore exception set. This negative search is not an absolute novelty proof.",
       "searches": [
-        "published-finding corpus: dom-forcing number crown graph exact",
-        "published-finding corpus: dom-forcing K_mn minus matching",
-        "published-finding corpus: dom forcing almost complete bipartite matching deletion",
-        "Web: \"dom-forcing\" \"K_{m,n}\" matching",
-        "Web: \"dom-forcing number\" \"K_{m,n}-M\""
+        "Resultary semantic: dom forcing number complete bipartite graph minus a matching K_{m,n} - M_t exact formula",
+        "Resultary semantic: dom-forcing number bipartite graph with missing edges matching deleted",
+        "Web: \"dom-forcing\" \"matching\" \"complete bipartite\" crown graph",
+        "Web: \"dom-forcing number\" \"crown graph\"",
+        "Web: \"dom forcing\" \"deleted matching\" \"bipartite\""
       ]
     },
     "exact_database_or_table": {
       "evidence": [
-        "The closest crown-specific published-finding corpus record was 2026/10/4/SCOPE-restrained-dominating-set-profile-of-crown-graphs--23a9be9d61aa, which concerns restrained domination, not zero forcing or dom-forcing.",
-        "No retrieved exact table or database record gave the matching-defect transition \\(m+n-2,m+n-3,m+n-4\\) or the three domination exceptions."
+        "Published crown-graph finding gives restrained-domination profiles, not dom-forcing numbers.",
+        "Standard path P4, cycle C6 and cube Q3 values cover isolated small triples, but not all m,n,t.",
+        "No exact table retrieved displaying jointly Z=m+n-2-min(t,2) and all three F_d-Z exception regimes."
       ],
-      "reasoning": "Exact parameter and family searches did not reveal a tabulated or database-covered value that implies the theorem.",
+      "reasoning": "Named and symbolic exact-value searches recovered boundary entries and different invariants, but not an all-parameter tabulation or a dominating-prior-table coverage argument. Negative database searches are bounded evidence only.",
       "searches": [
-        "published-finding corpus: K n n minus perfect matching zero forcing number 2n-4",
-        "published-finding corpus: crown graph zero forcing minimum sets complements of two vertices on each shore",
-        "published-finding corpus: Fd crown graph forcing domination",
-        "Web: \"complete bipartite graph minus a perfect matching\" \"zero forcing\""
+        "Resultary semantic: zero forcing and domination crown graph perfect matching deletion K_n,n minus matching",
+        "Web: \"zero forcing number\" \"crown graph\" \"2n-4\"",
+        "Web: \"zero forcing\" \"matching deleted\" \"complete bipartite\" graph",
+        "Web: \"dom-forcing\" \"crown\" K_{n,n}",
+        "Resultary semantic: dom-forcing number bipartite graph with missing edges matching deleted"
       ]
     },
-    "rationale": "The checked initiating paper proves only the undeleted complete-bipartite formula and other standard-family cases. The checked later paper supplies an abstract equality criterion but not the matching-deleted values. Targeted published-finding corpus, web, and owned-ledger searches found no statement implying the uniform matching-defect transition plus exact exception set. Known isolated boundary members are disclosed as covered and are not relied upon for novelty.",
+    "rationale": "Best-of-knowledge novelty for the complete K_{m,n}−M_t ordinary zero-forcing and dom-forcing classification survives relevant primary-text and published-finding comparisons; t=0 and standard-graph boundary values are prior-covered, not claimed as new. No stronger cited theorem provides the full matching-defect parameter transition and domination exception set.",
     "residual_risks": [
-      "A poorly indexed equivalent theorem may exist under another name for almost-complete bipartite graphs.",
-      "Some isolated parameter triples are standard graphs with previously known dom-forcing values; the novelty claim is only the uniform matching-deletion classification and its structural transition."
+      "An unindexed or terminologically different exact result for nearly complete bipartite graphs could exist; negative searches do not certify global priority.",
+      "Known individual graph values and the entire t=0 family predate the evaluated claim; no novelty is assigned to those overlaps.",
+      "One could derive parts of the forcing formula by earlier general zero-forcing techniques, but the checked sources do not provide an implication-equal combined F_d classification."
     ],
     "source_inspections": [
       {
-        "assessment": "COVERS the \\(t=0\\) boundary and isolated standard-graph special cases; DOES NOT COVER the general \\(K_{m,n}-M_t\\) classification.",
-        "evidence": "Theorem 3.8 gives \\(F_d(K_{m,n})=m+n-2\\) for \\(m,n\\ge2\\); no 'crown' occurrence was found in the inspected full text.",
-        "identifier_or_url": "arXiv:2411.00580v1; doi:10.9734/arjom/2026/v22i31058",
-        "material_read": "Full-text sections containing the cycle, hypercube, complete-graph, complete-bipartite, and star results; complete-bipartite Theorem 3.8 was inspected directly.",
-        "method": "Full-text text inspection and exact-term search for crown and matching-deleted formulations.",
-        "title": "Dom-forcing sets in graphs",
-        "trigger": "Defines the invariant and contains the closest complete-bipartite exact theorem."
+        "assessment": "COVERS t=0 and isolated standard-graph overlaps, but gives no matching-deleted biclique theorem.",
+        "evidence": "Theorem 5.8 on p. 96 explicitly states Z(K_{m,n})=F_d(K_{m,n})=m+n-2 for m,n≥2.",
+        "identifier_or_url": "doi:10.9734/arjom/2026/v22i31058; https://www.journalarjom.com/index.php/ARJOM/article/download/1058/2322/1848",
+        "material_read": "Original full-text PDF, relevant Definitions (p. 89), bounds (p. 90), path/cycle/hypercube material (pp. 91–96), and Theorem 5.8 with immediate context (p. 96); exact-text search for matching and crown.",
+        "method": "Lawful journal full-text PDF inspection, including page-image examination of p. 96.",
+        "title": "Dom-forcing Sets in Graphs",
+        "trigger": "Introduces dom-forcing and computes the nearest unperturbed complete-bipartite family."
       },
       {
-        "assessment": "Provides a general criterion \\(F_d(G)=Z(G)\\) iff some minimum zero-forcing set dominates, but does not determine the matching-deleted biclique family.",
-        "evidence": "The paper gives the undeleted complete-bipartite value and leaves structural characterization of \\(F_d=Z\\) as an open direction; no crown occurrence was found.",
-        "identifier_or_url": "doi:10.3934/math.2026802",
-        "material_read": "Full-text sections 4–6, including the complete-multipartite zero-forcing discussion and Propositions 5.1–5.7 on dom-forcing.",
-        "method": "Full-text text inspection and exact-term search for crown and matching-deleted formulations.",
+        "assessment": "COVERS F_d(K_{m,n}) and the iff criterion for F_d=Z; does not determine exact matching-defect Z or classification of minimum dominating forcing sets.",
+        "evidence": "Proposition 5.3 computes K_{p,q}; Proposition 5.6 says F_d(G)=Z(G) iff some minimum zero-forcing set dominates.",
+        "identifier_or_url": "doi:10.3934/math.2026802; https://www.aimspress.com/aimspress-data/math/2026/7/PDF/math-11-07-802.pdf",
+        "material_read": "Original full-text 12-page PDF: definitions and connected domination framework plus Section 5, especially Proposition 5.3 on p. 19779 and Proposition 5.6 on p. 19781; surrounding theorems and open problems inspected.",
+        "method": "Open-access publisher PDF, searchable text and direct page-image checks for pp. 19779 and 19781.",
         "title": "Forcing and domination in graphs",
-        "trigger": "Potentially broader theorem relating zero forcing and domination, plus a complete-bipartite computation."
+        "trigger": "More recent general equality characterization potentially implying dom-forcing matching-deletion result."
       },
       {
-        "assessment": "A \\(k\\)-forcing generalization on selected graph families; no retrieved statement subsumes matching-deleted bicliques for ordinary dom-forcing.",
-        "evidence": "The accessible front matter identifies graph domination/forcing scope and MSC 05C69; targeted family searches returned no matching-deletion theorem.",
-        "identifier_or_url": "doi:10.17654/0974165826017",
-        "material_read": "Abstract and bibliographic front matter, including the listed 2020 Mathematics Subject Classification 05C69.",
-        "method": "Open-access bibliographic/full-text inspection.",
-        "title": "Dom-k-forcing sets in graphs",
-        "trigger": "Checks a potentially broader forcing variant and verifies subject classification."
+        "assessment": "COVERS the complete multipartite Z and zero-forcing polynomial, not graphs with a matching deleted (except t=0).",
+        "evidence": "Proposition 4 assumes a complete multipartite K_{a_1,...,a_k} with all parts ≥2; no matching-deletion graph appears in the result.",
+        "identifier_or_url": "arXiv:1801.08910v1; https://arxiv.org/pdf/1801.08910",
+        "material_read": "Primary arXiv full-text Section 4, specifically Proposition 4 and proof on PDF p. 5, plus document searches for crown and matching terms.",
+        "method": "Lawful arXiv PDF text and page-image inspection.",
+        "title": "The zero forcing polynomial of a graph",
+        "trigger": "Potentially stronger enumerative theorem could imply minimum zero-forcing for the deleted-matching family."
+      },
+      {
+        "assessment": "NOT COVERING the t>0 graph family because its hypothesis requires a complete multipartite graph with every possible cross-edge.",
+        "evidence": "The theorem states a condition on white counts in each complete multipartite part; deleting edges invalidates these counts, and the published scope explicitly restricts to complete multipartite graphs.",
+        "identifier_or_url": "https://raw.githubusercontent.com/Resultary/2026/main/2026/10/4/SCOPE-all-k-forcing-sets-of-complete-multipartite-graphs--21dd3de55bd1/RESULT.md",
+        "material_read": "Entire published RESULT.md: finding, all-set criterion, proof, relations to prior work and limitations.",
+        "method": "GitHub read-only primary published result inspection.",
+        "title": "All k-forcing sets of complete multipartite graphs",
+        "trigger": "Closest published stronger forcing-family result with all-set classification, k=1 includes ordinary zero forcing."
+      },
+      {
+        "assessment": "NOT COVERING this theorem's dom-forcing invariant; it concerns restrained dominating sets with an extra outside-neighbor condition.",
+        "evidence": "Its stated invariant is γ_r(Cr_n)=2 and a restrained domination enumerator; it never applies the zero-forcing rule to compute F_d.",
+        "identifier_or_url": "https://raw.githubusercontent.com/Resultary/2026/main/2026/10/4/SCOPE-restrained-dominating-set-profile-of-crown-graphs--23a9be9d61aa/RESULT.md",
+        "material_read": "Entire published RESULT.md including the definition, all-set enumerator, extremal set classification, proof, and limitations.",
+        "method": "GitHub read-only primary published result inspection.",
+        "title": "Restrained-dominating-set profile of crown graphs",
+        "trigger": "Same perfect-matching-deletion graph family under crown terminology."
       }
     ],
     "status": "PASS"
   },
-  "review_type": "self_review",
+  "previously_published_pending_reaudit": false,
+  "review_type": "mathematical_audit",
   "schema_version": 1,
-  "scope_run_id": "189e5d97-4ee5-4bb5-b2e5-640a10d3ac4b",
-  "self_review_status": "passed",
+  "scientific_claim": "For connected G=K_{m,n}−M_t, 2≤m≤n, 0≤t≤m: Z(G)=m+n−2−min(t,2). The dom-forcing number F_d(G) equals Z(G)+1 precisely for (m,n,t)=(2,2,1), for m=2,t=2,n≥3, and for (m,n)=(3,3), t∈{2,3}; elsewhere F_d=Z.",
+  "scientific_limitations": [
+    "No extension to arbitrary sets of removed edges is claimed.",
+    "Small-graph enumeration independently corroborates but does not replace the proof.",
+    "Previously known t=0 and isolated standard-graph cases are not claimed as separately novel.",
+    "Originality is a qualified best-of-knowledge judgment."
+  ],
   "value": {
-    "rationale": "The initiating literature treats complete bipartite graphs as a basic exact family for dom-forcing. A deleted matching is the canonical sparse, degree-balanced perturbation of a biclique. The theorem gives a full robustness law across every matching size, proves that the forcing threshold saturates after two deletions, and identifies exactly when domination ceases to be free. This is a natural structural classification rather than a parameter increment or isolated numerical computation.",
+    "checked_sources": [
+      "Susanth et al. Theorem 5.8",
+      "Jiang–Wan Proposition 5.6",
+      "Assigned source RESULT.md proof"
+    ],
+    "evidence": [
+      "Susanth 2026 Theorem 5.8 establishes intact K_{m,n} as a baseline invariant family.",
+      "Explicit lower bounds and forcing chains isolate why matching deletion changes the maximum forceable white count from 2 to 3 to 4 and no further.",
+      "Exact obstruction classification shows when domination costs one additional selected vertex."
+    ],
+    "rationale": "Simultaneous domination and zero forcing is a natural hybrid invariant, and complete bipartite graphs are one of its foundational exact families. Deleting a matching is a canonical degree-balanced sparse defect: it is not an arbitrary slice. The result gives the full sharp transition as defect size t changes (two unit decreases in Z and subsequent saturation), together with a complete three-regime equality/failure classification for F_d=Z including small-shore obstructions. This structural robustness law is useful for interpreting how zero-forcing dynamics interact with static domination after sparse edge failure, and goes materially beyond recomputing a known table. Its individual standard-graph examples and t=0 case are not claimed as separate new results.",
+    "residual_risks": [
+      "The construction does not address arbitrary edge failures, propagation time, or connected dom-forcing.",
+      "The novelty of individual P4/C6/Q3 values is zero; the value arises from the full family classification."
+    ],
     "status": "PASS"
   }
 }
