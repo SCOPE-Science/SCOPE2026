@@ -1,0 +1,19 @@
+# Scientific review: balanced-word universality law
+
+## Correctness — PASS
+
+The claim concerns all strictly balanced words, not merely a finite census. Binary greedy arches are uniquely \(0^r1\) and \(1^r0\), with \(r\ge1\); their number equals the exact universality index. Tracking both signed symbol imbalance and arch count produces a rational Laurent series. A constant-term binomial identity then yields the algebraic generating function. Near the unique dominant simple root of the quadratic denominator, uniform square-root transfer gives an analytic quasi-power probability generating function. Logarithmic differentiation proves the stated linear coefficients and bounded centering corrections; the characteristic-function expansion proves the Gaussian limit. The source and full derivation are in RESULT.md. `verify.py` independently enumerates all balanced words through semilength eight and checks the polynomial identity, and independently checks the defining subsequence predicate on all binary words through length ten. Its replay succeeded. No infinite claim is based on finite tests.
+
+## Originality — PASS, with residual bibliographic risk
+
+The closest published balance-specific source is Day–Fleischmann–Manea–Nowotka (arXiv:1904.09125, full HTML text inspected), which classifies cardinalities of fixed \(k\)-spectra for individual balanced words and covers only the maximal-index boundary of the present coefficient array. The accessible full-text sections of Barker et al. (arXiv:2003.04629), Schnoebelen–Veron (arXiv:2304.11932), and Adamson (arXiv:2304.04583) were inspected at the relevant definitions, arch and counting arguments. None presents the all-index distribution under equal global counts or the fixed-composition Gaussian corrections. The public unrestricted binary-word generating function in the published record *Closed-form law for binary subsequence universality* was read and compared: its specialization removes imbalance and cannot by itself extract balanced coefficients. The earlier Dyck-word distribution concerns only nonnegative-prefix bridges, a proper restricted class. In fact if \(D=C(T)\) is the previous Dyck law with \(T=tu(1-tu)/(1-t)\), then the new bridge law satisfies \(B=1/(1-2TD)\). The claim is therefore specifically the proved balanced-word interpretation, full exact distribution and its conditional asymptotics, not the novelty of the radical as an abstract function. Searches for equivalent constrained counts, signed-composition formulas and a matching radical found no exact match. Unindexed equivalents remain possible.
+
+## Mathematical value — PASS
+
+Strictly balanced words are a standard and independently studied input class for scattered-factor reconstruction; their universality index quantifies full-spectrum subsequence coverage. The theorem determines every joint count at every semilength and index, rather than only extremal words or a finite slice. The natural balanced condition changes the generating function from the unrestricted rational law to an algebraic law and gives a precisely centered Gaussian description. The fact also quantifies the distinction between balanced bridges and their Dyck subset. This is a natural complete statistic and not a parameter-substitution exercise or an arbitrary numerical cutoff.
+
+## Risks and limitations
+
+The proof is binary and strictly balanced. A general-alphabet or fixed nonzero-imbalance analogue is not established. The earlier Dyck formula shares its singularity structure and yields an algebraic identity with the new radical after a nontrivial interpretation step; readers should not treat the matching leading Gaussian constants alone as an independent discovery. Search coverage is finite, and an unindexed exact balanced-word formula could remain undiscovered. The finite verifier supports the symbolic argument but does not replace it.
+
+Self-review: passed. Independent audit: not yet performed.
