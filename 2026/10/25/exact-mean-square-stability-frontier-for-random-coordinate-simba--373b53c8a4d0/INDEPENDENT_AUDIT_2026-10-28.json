@@ -1,0 +1,120 @@
+{
+  "audit_date_utc": "2026-10-28",
+  "audited_at_utc": "2026-10-28T09:55:57Z",
+  "axes": {
+    "correctness": {
+      "rationale": "Restricted invariant coordinate axis of quadratic f=μ||x||²/2 yields exact nonlinear y_next=βy+x, x_next=x−I ημ y_next/max{μ|y_next|,sqrt(m)} with Bernoulli I of parameter q=ℓ/n. At equilibrium, floor-active derivative matrices A0=[[1,0],[1,β]], A1=[[1−s,−sβ],[1,β]], s=ημ/sqrt(m). Independent symbolic matrix expansion reproduced all 9 entries of the 3x3 covariance operator M(s) and polynomial identity det(I−M)=qs[2(1−β²)−(1+β−2βq)s]. Perron theorem for positive-semidefinite cone ensures covariance spectral radius is a nonnegative real eigenvalue, so any spectral radius 1 requires eigenvalue +1 (no hidden -1/complex crossing). Root at s=0 is simple with derivative -2q/(1−β)<0; other eigenvalues β,β² lie inside disk. Unique positive determinant zero s*=2(1−β²)/(1+β−2βq); high-s trace growth and no additional unit crossings show stable iff 0<s<s*. q=1 gives deterministic bound 2(1+β), q<1 is strictly lower. This is local mean-square derivative stability, NOT nonlinear global divergence; at equality rho=1. Source verifier is exact-rational polynomial evaluation, independent symbolic algebra agrees.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "General positive-cone Perron or stochastic-system Lyapunov criteria characterize stability abstractly but require evaluating this special 3x3 M(s). Generic bound theorems do not give this sharp q,β frontier."
+        ],
+        "reasoning": "General positive-cone Perron or stochastic-system Lyapunov criteria characterize stability abstractly but require evaluating this special 3x3 M(s). Generic bound theorems do not give this sharp q,β frontier.",
+        "searches": [
+          "Resultary: random coordinate Simba stochastic momentum mean square stability exact learning rate threshold covariance",
+          "Simba Tsipinakis Parpas arXiv:2309.05309 stochastic coarse coordinate preconditioner",
+          "Bernoulli coordinate dropout momentum quadratic mean square stability spectral radius",
+          "general switched-system covariance cone Perron threshold matrix mean-square"
+        ]
+      },
+      "checked_sources": [
+        "Tsipinakis and Parpas, arXiv:2309.05309v1, abstract and method description; full text unavailable",
+        "Li, Lu, Su, arXiv:2402.04074, general mean-square criteria",
+        "Resultary: exact stationary covariance/stability of constant-template STORM; distinct recurrence",
+        "Source RESULT.md Git blob d2052664108739333e96c8d8667cb0fa0dda0c6b, verifier blob f7acec4df17205d7fe38f32ff2db142758476913"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "The source method gives the recurrence under stated rank-one restriction, but global strongly-convex convergence estimates are not a local derivative mean-square iff calculation. STORM, MARINA, SVRG/other optimizer thresholds use different state transitions, so do not imply this expression without a matrix-level reduction."
+        ],
+        "reasoning": "The source method gives the recurrence under stated rank-one restriction, but global strongly-convex convergence estimates are not a local derivative mean-square iff calculation. STORM, MARINA, SVRG/other optimizer thresholds use different state transitions, so do not imply this expression without a matrix-level reduction.",
+        "searches": [
+          "Resultary: random coordinate Simba stochastic momentum mean square stability exact learning rate threshold covariance",
+          "Simba Tsipinakis Parpas arXiv:2309.05309 stochastic coarse coordinate preconditioner",
+          "Bernoulli coordinate dropout momentum quadratic mean square stability spectral radius",
+          "general switched-system covariance cone Perron threshold matrix mean-square"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Mean-square stability of iid switching matrices A0,A1 is equivalent to ρ(q A1⊗A1+(1−q)A0⊗A0)<1 on symmetric covariances; comparisons include Bernoulli dropout momentum and switched linear systems, not just Simba branding."
+        ],
+        "reasoning": "Mean-square stability of iid switching matrices A0,A1 is equivalent to ρ(q A1⊗A1+(1−q)A0⊗A0)<1 on symmetric covariances; comparisons include Bernoulli dropout momentum and switched linear systems, not just Simba branding.",
+        "searches": [
+          "Resultary: random coordinate Simba stochastic momentum mean square stability exact learning rate threshold covariance",
+          "Simba Tsipinakis Parpas arXiv:2309.05309 stochastic coarse coordinate preconditioner",
+          "Bernoulli coordinate dropout momentum quadratic mean square stability spectral radius",
+          "general switched-system covariance cone Perron threshold matrix mean-square"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "No database/table of the exact s*(q,β) for this stochastic momentum cocycle identified in relevant findings; generic numerical stability plots cannot establish an algebraic iff condition."
+        ],
+        "reasoning": "No database/table of the exact s*(q,β) for this stochastic momentum cocycle identified in relevant findings; generic numerical stability plots cannot establish an algebraic iff condition.",
+        "searches": [
+          "Resultary: random coordinate Simba stochastic momentum mean square stability exact learning rate threshold covariance",
+          "Simba Tsipinakis Parpas arXiv:2309.05309 stochastic coarse coordinate preconditioner",
+          "Bernoulli coordinate dropout momentum quadratic mean square stability spectral radius",
+          "general switched-system covariance cone Perron threshold matrix mean-square"
+        ]
+      },
+      "rationale": "Qualified PASS: 2023 Simba method provides the preconditioning/coarse random restriction and convergence estimates; generic switching-system covariance spectral-radius methods are classical. The exact Bernoulli coordinate sampling plus momentum frontier is a new parameter-specific statement not supplied by the accessible primary algorithm summary or related but algebraically different published optimizer results. Complete primary paper not retrievable during this run; specialized optimizer priority remains open.",
+      "residual_risks": [
+        "Full Simba source article inaccessible in this execution; the algorithm-to-restricted-model identification was checked from source research text and accessible method description, not full original algorithm pseudocode.",
+        "Exact switched covariance thresholds under a different method label might cover this two-matrix model.",
+        "No conclusion about global nonlinear clipped dynamics from local instability."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Method and convergence framework are prior art; exact restricted mean-square frontier not observed in accessible statements, significant priority risk retained",
+          "evidence": "Original source describes one EMA-gradient outer-product preconditioner, random low-dimensional restriction and a general convergence analysis, but accessible abstract does not provide this q,β formula.",
+          "identifier_or_url": "https://arxiv.org/abs/2309.05309",
+          "material_read": "Public arXiv/alphaXiv abstract and method summary; full text inaccessible after arXiv/OA attempts and Oxford storage-limit rejection",
+          "method": "Compared reported moving-average outer-product preconditioner and randomized restriction with source-specified single-axis reduction; no full-document noncoverage assertion",
+          "title": "Simba: A Scalable Bilevel Preconditioned Gradient Method for Fast Evasion of Flat Areas and Saddle Points",
+          "trigger": "Original named optimization method whose specialized update is analyzed"
+        },
+        {
+          "assessment": "General stability machinery does not automatically yield parameter-specific Simba threshold",
+          "evidence": "Standard spectral-radius characterization of mean-square stability is used, not claimed as invented.",
+          "identifier_or_url": "https://arxiv.org/abs/2402.04074",
+          "material_read": "Accessible abstract/methodological source overview; full article not read",
+          "method": "Compare state equations and general linear covariance theory to specific A0,A1 model",
+          "title": "Mean-Square Stability and Stabilizability for LTI and Stochastic Systems Connected in Feedback",
+          "trigger": "Broader mean-square spectral-stability framework"
+        },
+        {
+          "assessment": "Different STORM estimator recurrence, not evidence of direct coverage; only snippet-level comparison",
+          "evidence": "Result concerns fixed template STORM noise and rate factor rather than Bernoulli Simba coordinate selector and two-matrix covariance.",
+          "identifier_or_url": "https://github.com/Resultary/2026/tree/main/2026/10/4/SCOPE-exact-stationary-covariance-and-stability-factorization-for-cons--fd5004e04a73",
+          "material_read": "Search-provided title and summary only, not Git proof",
+          "method": "Compared state update type and fixed/stochastic estimator dynamics",
+          "title": "Exact stationary covariance and stability factorization for constant-template STORM",
+          "trigger": "Closest published Resultary optimization covariance stability result"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "rationale": "Sharp, explicit stability boundary and its high-momentum collapse quantify a concrete stochastic tax in a natural reduced model of an actual optimization method; dependence on q and β is not a routine restatement of deterministic momentum stability. The exact single-axis threshold informs interpretation of stochastic coarse restriction without overstating the nonlinear algorithm.",
+      "status": "PASS"
+    }
+  },
+  "checked_sources": [
+    "Tsipinakis and Parpas, arXiv:2309.05309v1, abstract and method description; full text unavailable",
+    "Li, Lu, Su, arXiv:2402.04074, general mean-square criteria",
+    "Resultary: exact stationary covariance/stability of constant-template STORM; distinct recurrence",
+    "Source RESULT.md Git blob d2052664108739333e96c8d8667cb0fa0dda0c6b, verifier blob f7acec4df17205d7fe38f32ff2db142758476913"
+  ],
+  "disposition": "passed",
+  "limitations": "Only single active coordinate, iid random uniform ℓ-coordinate selection with n>=3 and 2<=ℓ<n, β in (0,1), positive eigen floor; local derivative mean-square stability only.",
+  "residual_risks": [
+    "Full Simba source article inaccessible in this execution; the algorithm-to-restricted-model identification was checked from source research text and accessible method description, not full original algorithm pseudocode.",
+    "Exact switched covariance thresholds under a different method label might cover this two-matrix model.",
+    "No conclusion about global nonlinear clipped dynamics from local instability."
+  ],
+  "schema_version": 1
+}

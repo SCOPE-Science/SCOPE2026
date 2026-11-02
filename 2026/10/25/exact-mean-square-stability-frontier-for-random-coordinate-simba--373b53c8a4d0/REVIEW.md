@@ -1,11 +1,21 @@
-# Scientific assessment
+# Independent mathematical audit
 
-**Correctness — PASS.** The source algorithm's single-active-coordinate rank-one update is reduced to an exact Bernoulli-switching two-state recurrence. Its linearization, covariance transfer matrix, exact determinant, small-step derivative, PSD-cone spectral-radius argument, and large-step instability establish an if-and-only-if frontier with boundary behavior. A standalone standard-library verifier independently checks the algebra by exact rational arithmetic (1,403 assertions). The full nonlinear iteration is not claimed globally unstable.
+## correctness
 
-**Originality — PASS under the accessible record; publication priority remains uncertain.** The complete accessible mathematical argument in Tsipinakis–Parpas (arXiv:2309.05309v1) was compared with the source's randomized restriction and momentum algorithm; it does not state the displayed Bernoulli mean-square threshold. Related exact-result database records for Bernoulli error feedback, scalar MARINA, KGSM, constant-step Signum, and deterministic clipped heavy-ball concern different moment operators and do not dominate this claim. Relevant stochastic control literature supplies general covariance stability criteria but not the present exact parameters. Equivalent results in specialized stochastic optimization remain a residual risk.
+PASS
 
-**Mathematical value — PASS.** The closed-form sharp boundary gives an actionable step/momentum/coarse-sampling tradeoff for a published optimizer and establishes a qualitative gap: when the sampled-coordinate fraction is fixed below one, the admissible linearized mean-square step vanishes as momentum approaches one, despite the finite full-coordinate threshold. This nontrivial sampling–momentum interaction is not a normalization check. It is a local and deliberately narrow structural result, not a general convergence theorem.
+Restricted invariant coordinate axis of quadratic f=μ||x||²/2 yields exact nonlinear y_next=βy+x, x_next=x−I ημ y_next/max{μ|y_next|,sqrt(m)} with Bernoulli I of parameter q=ℓ/n. At equilibrium, floor-active derivative matrices A0=[[1,0],[1,β]], A1=[[1−s,−sβ],[1,β]], s=ημ/sqrt(m). Independent symbolic matrix expansion reproduced all 9 entries of the 3x3 covariance operator M(s) and polynomial identity det(I−M)=qs[2(1−β²)−(1+β−2βq)s]. Perron theorem for positive-semidefinite cone ensures covariance spectral radius is a nonnegative real eigenvalue, so any spectral radius 1 requires eigenvalue +1 (no hidden -1/complex crossing). Root at s=0 is simple with derivative -2q/(1−β)<0; other eigenvalues β,β² lie inside disk. Unique positive determinant zero s*=2(1−β²)/(1+β−2βq); high-s trace growth and no additional unit crossings show stable iff 0<s<s*. q=1 gives deterministic bound 2(1+β), q<1 is strictly lower. This is local mean-square derivative stability, NOT nonlinear global divergence; at equality rho=1. Source verifier is exact-rational polynomial evaluation, independent symbolic algebra agrees.
 
-**Closest sources and limits.** Tsipinakis–Parpas (2023) is the originating algorithm. Mathematical-record results on scalar MARINA, Bernoulli error feedback and other momentum algorithms have differing update states and cannot simply be read as the same theorem. No independent priority or correctness assessment has been performed, and specialized literature could contain an equivalent statement.
+## originality
 
-Self-review: passed. Independent audit: not yet performed.
+PASS
+
+Qualified PASS: 2023 Simba method provides the preconditioning/coarse random restriction and convergence estimates; generic switching-system covariance spectral-radius methods are classical. The exact Bernoulli coordinate sampling plus momentum frontier is a new parameter-specific statement not supplied by the accessible primary algorithm summary or related but algebraically different published optimizer results. Complete primary paper not retrievable during this run; specialized optimizer priority remains open.
+
+## value
+
+PASS
+
+Sharp, explicit stability boundary and its high-momentum collapse quantify a concrete stochastic tax in a natural reduced model of an actual optimization method; dependence on q and β is not a routine restatement of deterministic momentum stability. The exact single-axis threshold informs interpretation of stochastic coarse restriction without overstating the nonlinear algorithm.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
