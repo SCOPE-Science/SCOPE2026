@@ -1,0 +1,152 @@
+{
+  "audit_date_utc": "2026-10-27",
+  "audited_at_utc": "2026-10-27T10:52:41Z",
+  "axes": {
+    "correctness": {
+      "rationale": "For N>=7 the five support residues are distinct and f(0)=1 with finite cyclic positive definiteness is equivalent to all sampled Fourier values P_k>=0. Taking the real even part preserves mass. Even N has antipodal sharp upper bound and a=0,b=1/2 witness. Odd 3|N has two positive-multiplier Fourier contacts yielding a+b<=1/(2cos(3pi/N)), attained at a=0. Odd 3∤N has two sharp positive dual multipliers with inverse determinant AD+C^2, exact factorization P(x)=8b(x+C)(x-A)(x-(C-A)), and an adjacent sampled-cosine gap excluding precisely the only negative interval on [-C,1]. The trigonometric identity 4A^3-3A=-C and D=4C^3-3C validates the factorization. Checked N=7 and N=9 boundary separately. Source minor prose slip says an a-coefficient cancels when the weighted combination actually yields equal a,b coefficients; the bound still follows. Independent LP agrees for all 7<=N<=150 and theta formula for 7<=N<=2000. Finite checks corroborate the analytic all-N proof.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "The 2003 ECCC primary article identifies degree-four circulants with chords ±1,±j; Theorem 1 computes their theta for all odd j in O(j) constraints, and Lemma 2 supplies even orders when j odd.",
+          "Brimkov et al (2000) provide explicit closed forms specifically at chord j=3, exactly the audited support."
+        ],
+        "reasoning": "The published quartic-circulant family specializes to exactly j=3 and to all N>=7. The more general Lovasz theta framework thus dominates the proposed Turan mass invariant by an exact graph-complement SDP equivalence.",
+        "searches": [
+          "https://eccc.weizmann.ac.il/report/2003/081/download Sections 2.1, 2.2, 3.1",
+          "Brimkov et al 2000 DOI 10.1007/3-540-46521-9_24",
+          "web query Algorithmic and explicit determination of the Lovasz number for certain circulant graphs 2007"
+        ]
+      },
+      "checked_sources": [
+        "Brimkov et al CIAC 2000 DOI 10.1007/3-540-46521-9_24, abstract and verified exact formula via two later sources",
+        "Brimkov et al ECCC TR03-081 (2003), lawful full-PDF relevant sections",
+        "https://mathworld.wolfram.com/LovaszNumber.html",
+        "Resultary/2026 published first-harmonic isolated-third-harmonic full result",
+        "Resultary/2026 self-publication full result",
+        "Kolountzakis–Révész arXiv:math/0312218 (background framework, not relied on for coverage)"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "The other published Resultary harmonic claim maximizes coefficient lambda of cos(t) with a free cos(3t), which does not itself imply the sum-objective; however Brimkov exact theta does.",
+          "MathWorld Eq. (12) gives theta(C_N(1,3))=N*[1-(c^2-c u+u^2-1)/((c+1)(u-1)(1-c+u))], b=ceil((N-3)/6), u=cos(2pi b/N).",
+          "For even N, the graph C_N(1,3) is bipartite, hence theta(complement)=2. For odd N, invert the given formula using theta(G)theta(complement G)=N."
+        ],
+        "reasoning": "The previous Resultary first-harmonic optimization is not coverage, but the pre-2003 theta formula is directly equivalent and yields the complete claimed mass. It is not necessary for the older theorem to use Turan terminology or match the piecewise form.",
+        "searches": [
+          "Resultary inspected full RESULT.md: Exact discrete Carathéodory–Fejér constant for the isolated third harmonic, 2026-10-04",
+          "web search Brimkov j3 Lovasz theta closed form and successor ECCC 2003",
+          "https://mathworld.wolfram.com/LovaszNumber.html",
+          "https://eccc.weizmann.ac.il/report/2003/081/download"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "https://mathworld.wolfram.com/LovaszNumber.html Eq. (12) explicitly records theta(C_N(1,3)) for every odd N>=7 with b=ceil((N-3)/6), c=cos(pi/N) and u=cos(2pi b/N).",
+          "https://eccc.weizmann.ac.il/report/2003/081/download p.3, Proposition 1 gives theta(G)theta(complement G)=N for vertex-transitive G and defines C_N,j with ±1 and ±j edges.",
+          "Using theta SDP, X_ij=f(j-i)/N is PSD, trace-one, zero off {0,±1,±3} and <J,X>=sum f, so the audited Turan objective equals theta(complement C_N,3)."
+        ],
+        "reasoning": "Identical feasible Fourier coefficients and objective after cyclic translation averaging, not merely similarity of titles. The 2000 theta formula already determines every requested value by taking N/theta; even N gives theta(C_N,3)=N/2 by bipartiteness.",
+        "searches": [
+          "Resultary query Turán extremal positive definite mass finite cyclic group Z_n support {0,±1,±3} sharp 3 residue classes",
+          "Resultary query Lovász theta circulant Cayley graph power graph ±1 ±3 cyclic group theta exact formula odd n",
+          "web query Brimkov Codenotti Crespi Leoncini On the Lovasz Number of Certain Circulant Graphs 2000 C_n(1,3) exact formula",
+          "https://mathworld.wolfram.com/LovaszNumber.html",
+          "https://eccc.weizmann.ac.il/report/2003/081/download"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "MathWorld explicitly tabulates the exact all-odd-N quartic circulant value as equation (12), not just a numerical table; this is a named mathematical reference that points to Brimkov et al (2000).",
+          "Independent check of all 1994 integers 7<=N<=2000 gives |theta_prior*tau_submitted/N-1| <=1.4e-15 (finite numerical corroboration, not proof)."
+        ],
+        "reasoning": "An exact prior formula already covers all odd moduli; even moduli follow from the established bipartite case. This is not absence of a matching table due to alternate naming.",
+        "searches": [
+          "Wolfram MathWorld Lovasz Number Brimkov quartic circulant exact formulas",
+          "https://mathworld.wolfram.com/LovaszNumber.html",
+          "Resultary query nonnegative trigonometric polynomial sampled roots of unity degree 3 maximizing 1+2a+2b"
+        ]
+      },
+      "rationale": "Covered by Brimkov et al. (2000) exact Lovasz theta formula for circulant C_N(1,3), independently transcribed as Eq. (12) in MathWorld and explicitly confirmed in full accessible 2003 follow-up (which credits its authors for the j=3 closed form). For Gamma_N=Cay(Z_N,{±1,±3}), the Turan mass is exactly theta(complement Gamma_N) by the translation-averaged Lovasz SDP, and theta(complement Gamma_N)=N/theta(Gamma_N) by vertex transitivity. Hence the complete three-regime claimed scalar invariant for all N>=7 is already determined, despite the different vocabulary. Full original Springer chapter inaccessible, but the identity is decisive from corroborated equation and full accessible primary follow-up; no inference of absence from snippets.",
+      "residual_risks": [
+        "Original 2000 publisher full text unavailable from authorized sources in this run: Oxford returned vpn_disconnected; do not infer contents beyond explicitly verified transcription and primary attribution.",
+        "A distinct proof or explicit primal optimizer can have expository interest but does not restore priority to the already known all-N theta/Turan value.",
+        "Independent LP and formula comparisons are finite corroborations only; the exact theta SDP equivalence and prior theorem give the all-N implication."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "COVERING by explicit formula, corroborated by later complete primary exposition; original full text access limited.",
+          "evidence": "The work explicitly treats two-cycle circulants and is cited as source of closed cases j=2 and j=3 in ECCC 2003 and MathWorld Eq.12.",
+          "identifier_or_url": "https://doi.org/10.1007/3-540-46521-9_24",
+          "material_read": "Bibliographic record and abstract; later full-text primary and MathWorld exact transcription. Original chapter full text not obtained.",
+          "method": "Open repository metadata, indexed academic bibliographic pages; attempted lawful OA/arXiv first and authorized institutional retrieval afterward.",
+          "title": "On the Lovász Number of Certain Circulant Graphs",
+          "trigger": "The 2000 theorem explicitly gives the theta value for chord length three."
+        },
+        {
+          "assessment": "COVERING via direct equivalence: establishes full theta context, names original exact j=3 closed form, and proves even case and universal theta method.",
+          "evidence": "p.2 credits Brimkov et al (2000) formula for chords two and three; p.3 defines ±1 ±j edge graph and theta(G)theta(complement G)=N; p.5 Lemma 2 states theta(C_N,3)=N/2 for even N.",
+          "identifier_or_url": "https://eccc.weizmann.ac.il/report/2003/081/download",
+          "material_read": "Introduction and cited earlier j=2,3 formula; complete definitions, LP and vertex-transitivity reciprocity in Sections 2.1–2.2; Section 3.1 Lemma 2 and Theorem 1 through its critical proof, with direct PDF screenshots of pp.3 and 5. Remaining sections surveyed for scope.",
+          "method": "Lawful publicly accessible ECCC PDF, textual inspection and page screenshots.",
+          "title": "Computation of the Lovász Theta Function for Circulant Graphs",
+          "trigger": "Accessible full primary successor by the same authors, exact graph and j=3 general method."
+        },
+        {
+          "assessment": "COVERING mathematical equation as secondary transcription of the primary original.",
+          "evidence": "Equation (12) evaluates theta(C_N(1,3)) for all odd N>=7, b=ceil((N-3)/6), cited to Brimkov et al (2000).",
+          "identifier_or_url": "https://mathworld.wolfram.com/LovaszNumber.html",
+          "material_read": "Equation (12), surrounding graph-domain and floor/ceiling definitions, and formula attribution.",
+          "method": "Full textual webpage inspection.",
+          "title": "Lovász Number (MathWorld)",
+          "trigger": "Reference reproduces exact 2000 quartic circulant formula for chord length 3."
+        },
+        {
+          "assessment": "NOT_COVERING alone; optimizes first harmonic coefficient rather than total mass.",
+          "evidence": "Defines D_N as supremum of lambda in 1+lambda*cos(t)+c*cos(3t), not supremum of 1+2a+2b.",
+          "identifier_or_url": "https://github.com/Resultary/2026/blob/main/2026/10/4/SCOPE-exact-discrete-carath-odory-fej-r-constant-for-the-isolated-thir--e309f8e59103/RESULT.md",
+          "material_read": "Full RESULT.md including theorem, proof and limits.",
+          "method": "Published GitHub file through read-only connector.",
+          "title": "Exact discrete Carathéodory–Fejér constant for the isolated third harmonic",
+          "trigger": "Same sampled frequencies 1 and 3, alternate linear objective."
+        },
+        {
+          "assessment": "SELF_DUPLICATE, not independent originality support; independently older theta literature covers.",
+          "evidence": "Same source tree blob SHA 8028e76b84e414f791f077f71d9bef794ce26349 and identical theorem.",
+          "identifier_or_url": "https://github.com/Resultary/2026/blob/main/2026/10/4/SCOPE-exact-turan-mass-for-the-five-point-support-0-1-3-on-cyclic-grou--47b20e0dc8f6/RESULT.md",
+          "material_read": "Complete RESULT.md.",
+          "method": "Published GitHub read-only connector.",
+          "title": "Exact Turan mass for the five-point support {0, ±1, ±3} on cyclic groups",
+          "trigger": "Exact same published record appears in Resultary; must not treat self-publication as independent prior evidence."
+        }
+      ],
+      "status": "FAIL"
+    },
+    "value": {
+      "rationale": "The support and Turan constant are mathematically natural, and the polynomial/contact proof is a readable special-case certificate. But the exact all-N invariant is already determined by the 2000 closed Lovasz theta formula for C_N(1,3), via a routine established SDP translation-averaging and vertex-transitive complement identity. The submitted extremizer/dual proof does not establish a new structural theorem, parameter boundary, or unknown exact invariant beyond that covered value; as a standalone new mathematical finding it is a recomputation under another name. This is not a rejection merely for simplicity or finiteness, but because substantive coverage predates it.",
+      "status": "FAIL"
+    }
+  },
+  "checked_sources": [
+    "Brimkov et al CIAC 2000 DOI 10.1007/3-540-46521-9_24, abstract and verified exact formula via two later sources",
+    "Brimkov et al ECCC TR03-081 (2003), lawful full-PDF relevant sections",
+    "https://mathworld.wolfram.com/LovaszNumber.html",
+    "Resultary/2026 published first-harmonic isolated-third-harmonic full result",
+    "Resultary/2026 self-publication full result",
+    "Kolountzakis–Révész arXiv:math/0312218 (background framework, not relied on for coverage)"
+  ],
+  "disposition": "failed",
+  "final_claim": "All-N normalized positive-definite Turan mass on Z_N supported at 0,±1,±3 is a claimed new 3-regime exact value, with explicit extremizers; previously proved as theta(complement C_N(1,3)).",
+  "limitations": [
+    "Only N>=7 and exact support {0,±1,±3}; source theorem is correct, but not original.",
+    "2000 Springer source full text not directly accessed; exact earlier theorem corroborated by 2003 primary article and MathWorld Eq.12.",
+    "No claim of external formal certification; independent finite LP tests do not substitute for unrestricted proof."
+  ],
+  "residual_risks": [
+    "Original 2000 publisher full text unavailable from authorized sources in this run: Oxford returned vpn_disconnected; do not infer contents beyond explicitly verified transcription and primary attribution.",
+    "A distinct proof or explicit primal optimizer can have expository interest but does not restore priority to the already known all-N theta/Turan value.",
+    "Independent LP and formula comparisons are finite corroborations only; the exact theta SDP equivalence and prior theorem give the all-N implication."
+  ],
+  "schema_version": 1
+}
