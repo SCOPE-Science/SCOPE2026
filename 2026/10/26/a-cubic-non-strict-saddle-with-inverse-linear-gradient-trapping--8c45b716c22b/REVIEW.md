@@ -1,19 +1,21 @@
-# Review
+# Independent mathematical audit
 
-## Correctness
+## correctness
 
-PASS. The critical-point equation, Hessian entries, and spectrum follow by direct differentiation. The exact factorization \(x^4-y_\star x+1=(x-a)^2(x^2+2ax+3a^2)\) yields the diagonal update. Its quadratic displacement term gives the reciprocal-increment limit; the cubic energy term rules out a local extremum.
+PASS
 
-## Originality
+At a=3^(−1/4), direct differentiation shows gradient zero and Hessian diagonal 8/3 and off diagonal −4/3, giving eigenvalues {0,4,4}. The exact polynomial factorization g(x)=x⁴−4a³x+1=(x−a)²(x²+2ax+3a²) gives invariant diagonal GD update x_(k+1)=x_k−2ηx_k g(x_k). With δ=x−a, δ_(k+1)=δ_k−12ηa³δ_k²+O(δ_k³), and diagonal objective has leading odd cubic 12a³δ³, so the critical point is neither minimum nor maximum. For small positive δ the recurrence is monotone to 0, reciprocal increments tend to 12ηa³ and Cesàro averaging gives kδ→1/(12ηa³). Small negative δ moves away and cannot converge to another fixed point locally. An independent symbolic check verified the factorization, gradient, cubic coefficient and characteristic polynomial. No general off-diagonal basin or global GD convergence is asserted.
 
-PASS, narrowly scoped. The inspected primary paper gives the corresponding threshold equality in its non-scalar classification and notes that the fully scalar case is handled separately. This review does not claim the threshold equality as new. The added claim is the explicit cubic coefficient and the exact one-sided inverse-linear asymptotic for simultaneous gradient descent on the invariant diagonal. Searches returned related deep-factorization and optimizer results, but no matching statement; a failed search is not proof of novelty.
+## originality
 
-## Value
+PASS
 
-PASS. The result quantifies a concrete failure mode for strict-saddle-based intuition: at the threshold, a degenerate saddle can hold diagonal gradient-descent iterates for a time proportional to the reciprocal initial displacement, with an exact asymptotic constant. This is a specific dynamical refinement, not a general claim about all nearby trajectories.
+Best-of-knowledge PASS narrowly: Chen–Jiang–Wang identify a regularized deep-factorization non-strict-saddle boundary and exclude/handle the scalar case separately. The novelty is not the critical parameter equality but the exact scalar cubic one-sided discrete-GD trapping law and its coefficient at the boundary. Their general loss-landscape and error-bound analyses do not explicitly establish this local diagonal law in inspected full text. The underlying parabolic fixed-point rate is standard as a technique; structural specialization, not the technique, is assessed.
 
-## Closest literature and remaining limits
+## value
 
-The closest source is Chen, Jiang, and Wang (arXiv:2506.20344), which classifies non-scalar critical points and states that gradient methods may converge to non-strict saddles; it notes that the fully scalar case can be handled separately. The 2024 second-order landscape analysis of unregularized deep linear networks is related but uses a different objective. A broader survey of generic degenerate-gradient dynamics was not completed; the exact model-specific coefficient is proved directly here.
+PASS
 
-Self-review: passed. Independent audit: not yet performed.
+The tuned equality is the natural loss-landscape boundary between strict and non-strict saddles, where a zero Hessian mode defeats linearization. The exact one-sided O(1/k) trapping coefficient demonstrates a concrete optimization slowdown and asymmetry at that mathematically motivated degeneracy, distinct from generic strongly convex descent. Scope remains intentionally one scalar critical example; no general rate theorem is claimed.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

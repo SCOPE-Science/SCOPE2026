@@ -1,0 +1,110 @@
+{
+  "audit_date_utc": "2026-10-31",
+  "audited_at_utc": "2026-10-31T06:38:49Z",
+  "axes": {
+    "correctness": {
+      "checked_sources": [
+        "https://github.com/SCOPE-Science/SCOPE2026/tree/fff5beeb9405ab46c6767460bb1a093bf2f107ab/2026/10/26/a-cubic-non-strict-saddle-with-inverse-linear-gradient-trapping--8c45b716c22b?path=RESULT.md",
+        "independent_checks.py",
+        "verify_trees.py"
+      ],
+      "rationale": "At a=3^(−1/4), direct differentiation shows gradient zero and Hessian diagonal 8/3 and off diagonal −4/3, giving eigenvalues {0,4,4}. The exact polynomial factorization g(x)=x⁴−4a³x+1=(x−a)²(x²+2ax+3a²) gives invariant diagonal GD update x_(k+1)=x_k−2ηx_k g(x_k). With δ=x−a, δ_(k+1)=δ_k−12ηa³δ_k²+O(δ_k³), and diagonal objective has leading odd cubic 12a³δ³, so the critical point is neither minimum nor maximum. For small positive δ the recurrence is monotone to 0, reciprocal increments tend to 12ηa³ and Cesàro averaging gives kδ→1/(12ηa³). Small negative δ moves away and cannot converge to another fixed point locally. An independent symbolic check verified the factorization, gradient, cubic coefficient and characteristic polynomial. No general off-diagonal basin or global GD convergence is asserted.",
+      "residual_risks": [],
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Primary full texts arXiv:2506.20344 and companion error-bound analysis cover critical point structure and conditional error-bound convergence but not a general theorem with the exact degenerate scalar coefficient."
+        ],
+        "reasoning": "The zero eigenvalue and cubic drift obstruct invoking standard linear-rate error-bound theory at this boundary. Aliases: regularized deep matrix factorization loss landscape; local gradient convergence error bounds.",
+        "searches": [
+          "Resultary semantic search: regularized depth three scalar matrix factorization non-strict degenerate saddle gradient descent inverse 1/k rate",
+          "Primary-source comparison: P. Chen, R. Jiang, P. Wang, A Complete Loss Landscape Analysis of Regularized Deep Matrix Factorization, arXiv:2506.20344"
+        ]
+      },
+      "checked_sources": [
+        "P. Chen, R. Jiang, P. Wang, A Complete Loss Landscape Analysis of Regularized Deep Matrix Factorization, arXiv:2506.20344",
+        "P. Chen, R. Jiang, P. Wang, Error Bound Analysis for Regularized Loss of Deep Linear Neural Networks (full arXiv PDF)",
+        "E. M. Achour, F. Malgouyres, S. Gerchinovitz, The loss landscape of deep linear neural networks: a second-order analysis, JMLR 25 (2024)"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "Chen et al. full primary paper identifies possible nonstrict critical points, but classification as a saddle does not determine discrete GD asymptotics, one-sided attraction or the exact 12ηa³ drift."
+        ],
+        "reasoning": "The proof adds invariant-manifold dynamics at a special equality; the standard reciprocal-increment lemma applies only after the novel model-specific expansion. Aliases: existing non-strict saddle classification vs coefficient of one-sided GD trapping.",
+        "searches": [
+          "Resultary semantic search: regularized depth three scalar matrix factorization non-strict degenerate saddle gradient descent inverse 1/k rate",
+          "Primary-source comparison: P. Chen, R. Jiang, P. Wang, A Complete Loss Landscape Analysis of Regularized Deep Matrix Factorization, arXiv:2506.20344"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Chen–Jiang–Wang arXiv:2506.20344 gives the regularized landscape and critical equality, and explicitly discusses the scalar case separately; source full text inspected."
+        ],
+        "reasoning": "The parameter threshold and nonstrictness are antecedents, while an explicit one-sided gradient descent rate on invariant diagonal is a different assertion. Aliases: zero Hessian eigenmode; regularized scalar deep linear network; saddle-node inflection; parabolic fixed point.",
+        "searches": [
+          "Resultary semantic search: regularized depth three scalar matrix factorization non-strict degenerate saddle gradient descent inverse 1/k rate",
+          "Primary-source comparison: P. Chen, R. Jiang, P. Wang, A Complete Loss Landscape Analysis of Regularized Deep Matrix Factorization, arXiv:2506.20344"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "No natural external finite invariant/table is central here: the claim concerns a local dynamical asymptotic, not database enumeration. Exact coefficients were independently verified algebraically."
+        ],
+        "reasoning": "The table/database category is specifically inapplicable to an analytic infinite-iterate limit; absence of a numeric table is not novelty evidence. Aliases: scalar depth-three symmetric critical target 4/3^(3/4) and coefficient 1/(12ηa³).",
+        "searches": [
+          "Resultary semantic search: regularized depth three scalar matrix factorization non-strict degenerate saddle gradient descent inverse 1/k rate",
+          "Primary-source comparison: P. Chen, R. Jiang, P. Wang, A Complete Loss Landscape Analysis of Regularized Deep Matrix Factorization, arXiv:2506.20344"
+        ]
+      },
+      "rationale": "Best-of-knowledge PASS narrowly: Chen–Jiang–Wang identify a regularized deep-factorization non-strict-saddle boundary and exclude/handle the scalar case separately. The novelty is not the critical parameter equality but the exact scalar cubic one-sided discrete-GD trapping law and its coefficient at the boundary. Their general loss-landscape and error-bound analyses do not explicitly establish this local diagonal law in inspected full text. The underlying parabolic fixed-point rate is standard as a technique; structural specialization, not the technique, is assessed.",
+      "residual_risks": [
+        "General one-dimensional parabolic fixed-point theory gives the rate once quadratic drift is identified; the value relies on the motivated non-strict saddle boundary, not on inventing a new rate technique.",
+        "No claims about a positive-measure basin or multidimensional random initialization are justified."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "ANTECEDENT_BOUNDARY_NOT_LOCAL_RATE",
+          "evidence": "The paper covers nonstrict saddle landscape structure, but the inspected theorem does not compute the one-sided diagonal discrete gradient descent coefficient.",
+          "identifier_or_url": "https://arxiv.org/abs/2506.20344",
+          "material_read": "Full primary PDF: setup, critical-point landscape, non-strict saddle equality, scalar-case distinction",
+          "method": "Opened 30-page primary PDF and searched relevant theorem/scalar passages",
+          "title": "A Complete Loss Landscape Analysis of Regularized Deep Matrix Factorization",
+          "trigger": "Same regularized deep objective and degeneracy"
+        },
+        {
+          "assessment": "DIFFERENT_RATE_HYPOTHESES",
+          "evidence": "Error-bound-based linear convergence is not a conclusion for the Hessian-degenerate cubic trapping direction; exact 1/k coefficient not found in the inspected text.",
+          "identifier_or_url": "arXiv full PDF associated with Chen–Jiang–Wang companion paper",
+          "material_read": "Full primary PDF: error bounds and their convergence consequences and hypotheses",
+          "method": "Opened 44-page full PDF and relevant error-bound passages",
+          "title": "Error Bound Analysis for Regularized Loss of Deep Linear Neural Networks",
+          "trigger": "Potentially general convergence rate dominating special scalar law"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "checked_sources": [
+        "P. Chen, R. Jiang, P. Wang, A Complete Loss Landscape Analysis of Regularized Deep Matrix Factorization, arXiv:2506.20344",
+        "P. Chen, R. Jiang, P. Wang, Error Bound Analysis for Regularized Loss of Deep Linear Neural Networks (full arXiv PDF)",
+        "E. M. Achour, F. Malgouyres, S. Gerchinovitz, The loss landscape of deep linear neural networks: a second-order analysis, JMLR 25 (2024)"
+      ],
+      "rationale": "The tuned equality is the natural loss-landscape boundary between strict and non-strict saddles, where a zero Hessian mode defeats linearization. The exact one-sided O(1/k) trapping coefficient demonstrates a concrete optimization slowdown and asymmetry at that mathematically motivated degeneracy, distinct from generic strongly convex descent. Scope remains intentionally one scalar critical example; no general rate theorem is claimed.",
+      "residual_risks": [
+        "General one-dimensional parabolic fixed-point theory gives the rate once quadratic drift is identified; the value relies on the motivated non-strict saddle boundary, not on inventing a new rate technique.",
+        "No claims about a positive-measure basin or multidimensional random initialization are justified."
+      ],
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "final_claim": "For the tuned scalar depth-three factorization F=(w1w2w3−4/3^(3/4))²+Σwi², the diagonal critical point (a,a,a), a=3^(−1/4), is a cubic non-strict saddle with Hessian eigenvalues 0,4,4; diagonal gradient descent traps from above with k(x_k−a)→1/(12ηa³) and escapes locally from below.",
+  "limitations": [
+    "General one-dimensional parabolic fixed-point theory gives the rate once quadratic drift is identified; the value relies on the motivated non-strict saddle boundary, not on inventing a new rate technique.",
+    "No claims about a positive-measure basin or multidimensional random initialization are justified.",
+    "Finite computations establish only their explicitly bounded cases; universal results rely on reconstructed analytic arguments."
+  ],
+  "schema_version": 1
+}
