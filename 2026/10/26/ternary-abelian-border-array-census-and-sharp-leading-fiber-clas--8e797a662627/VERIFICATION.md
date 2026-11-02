@@ -5,8 +5,11 @@
     "status": "not_performed"
   },
   "independent_audit": {
-    "evidence": null,
-    "status": "not_performed"
+    "status": "passed",
+    "evidence": [
+      "INDEPENDENT_AUDIT_2026-10-31.md",
+      "INDEPENDENT_AUDIT_2026-10-31.json"
+    ]
   },
   "lean_verification": {
     "evidence": null,
@@ -15,9 +18,25 @@
   "schema_version": 1
 }
 ---
-# Verification
-Run `python3 artifacts/verify.py` from any directory with Python 3 and a C++17-capable `g++` compiler. The script uses local source paths, recompiles both standalone programs, compares all sixteen totals with `artifacts/expected_counts.tsv`, and checks canonical histograms, normalized counts and the predicted two highest multiplicities from length four through sixteen. Both full enumerations must terminate successfully; no network access, random seeds, external packages or historical files are required.
 
-The first method generates every restricted-growth ternary equality pattern. The second independently generates all ternary words whose first letter is zero; alphabet relabeling guarantees full coverage. These algorithms use distinct Parikh implementations, and their deduplicated counts agree on the exact observation signatures. The generic identity defining the observation and the proof of uniqueness of restricted-growth representatives explain why this constitutes exhaustive verification rather than sampling.
+# Independent mathematical audit
 
-The all-length extremal assertion follows from the combinatorial branch argument in `RESULT.md`, not from matching the finite histogram. The enumeration explicitly stops at length sixteen; larger totals and lower-tier all-length fiber patterns are not claimed. No independent audit has been performed.
+## correctness
+
+PASS
+
+Global alphabet relabeling preserves all prefix Parikh equalities. Every ternary word has a unique restricted-growth representative; the examined artifacts/abelian_census.cpp runs a complete depth-first enumeration (3^n+3)/6 representatives through n=16, computes Parikh prefix counts, and packs each border length into distinct 4-bit positions (length <=16). Independently inspected artifacts/abelian_independent.cpp instead enumerates all 3^(n-1) words beginning with 0 and uses base32 prefix count differences with no borrow (all counts <=16), computing the same exact table. Our separate Python implementation exhaustively computed every first-zero ternary word for n<=11 and matched T_3(1..11), top three fiber multiplicities and specific two runner-up arrays. The all-n fiber bound follows from second-letter branch and each subsequent symbol either forced 0 if border i-1 or one of 1,2 otherwise; the all-zero branch attains 2^(n-2) restricted-growth words. The two runner-up cases follow by first repeated zero and strict split at next position, with 6 labeled permutations for every nonconstant canonical representative. The n=12..16 table rests on inspected exhaustive algorithm and its two independent implementations, not our truncated Python check; no infinite table extrapolation.
+
+## originality
+
+PASS
+
+Best-of-knowledge: compared mathematical implication, equivalent aliases, broader frameworks and exact tables; not directly covered by sources actually inspected. Residual literature risks and incomplete full-text access are explicitly recorded.
+
+## value
+
+PASS
+
+A natural reconstruction ambiguity invariant beyond the binary case: exact attainable signature counts through a substantial finite cutoff plus all-length extremal fiber geometry. The 16-term table is independently motivated by the explicitly open ternary complexity in the 2021 parent work; the infinite top-two classification remains useful without a full all-n census.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
