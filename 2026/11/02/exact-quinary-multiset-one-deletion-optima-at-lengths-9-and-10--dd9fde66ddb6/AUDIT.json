@@ -1,0 +1,133 @@
+{
+  "correctness": {
+    "rationale": "The full binary shadow formulation represents all 715/1001 candidates and all 495/715 possible received multisets. Exact combinatorial code reproduces it and all 4950/7150 pair conflicts. Complete SciPy/HiGHS integer optimizations in both independently constructed formulations returned zero MIP gaps, incumbents 143 and 201 and upper dual bounds <144 and <202, with valid explicitly counted 143/201-word syndrome witnesses; hence integer optimality conditional on solver soundness. Not an infinite proof or partial experiment; numerical solver risk is disclosed.",
+    "status": "PASS"
+  },
+  "independent": false,
+  "independent_audit_status": "not_performed",
+  "originality": {
+    "broader_coverage": {
+      "evidence": [
+        "Motivating paper §4 explicitly contrasts only asymptotic general bounds; §5.5 stops exact q5 table at n8",
+        "Spherical/volume and projection bounds do not identify the exact n9/n10 optimum"
+      ],
+      "reasoning": "General multiset deletion results and continuous/asymptotic upper bounds were checked for implication. They supply a model and lower class sizes but were not found to force both integer sharp optima. An unpublished stronger bound remains a risk.",
+      "searches": [
+        "arxiv:1612.08837 general multiset codes and Kovačević–Tan bound",
+        "arxiv:2603.18322 polynomial multiset deletion balls",
+        "arxiv:2601.05636v2 §4 bounds, §5.5 conjecture"
+      ]
+    },
+    "checked_sources": [
+      "arxiv:2601.05636v2 full HTML §2/§4/§5.5",
+      "arxiv:1612.08837 primary text",
+      "arxiv:2603.18322 abstract",
+      "accessible current/previous private code finding summaries for overlap only",
+      "mathematical research semantic queries recorded in named checks",
+      "relevant simplicial rook graph primary descriptions"
+    ],
+    "claim_vs_prior_implication": {
+      "evidence": [
+        "Conjecture 21 states the same formula as a conjecture and reports only n<=8 exact verification",
+        "Earlier same-topic internal work addressed different invariants or lengths and does not yield n9 or n10 finite optimum"
+      ],
+      "reasoning": "An explicit conjectural assertion does not imply a verified theorem. The prior syndrome construction supplies 143/201 lower bounds, not global upper bounds. The finite optimization supplies precisely the previously absent global inequalities.",
+      "searches": [
+        "arxiv:2601.05636v2 Conjecture 21 and Proposition 14",
+        "arxiv:1612.08837 full-text code bounds",
+        "connected prior research records q=5 multiset support profiles and n=5 finite deletion"
+      ]
+    },
+    "equivalent_formulations": {
+      "evidence": [
+        "arxiv:2601.05636v2 Eq. d(x,y)=||x-y||_1/2 and Conjecture 21",
+        "Direct combinatorial equality of all deletion-incidence and adjacent-one-transfer edge pairs, 4950/7150 edges"
+      ],
+      "reasoning": "Quinary multiset deletion codes are independent sets of a four-dimensional discrete simplex unit-transfer graph and fixed-sum nonnegative integer ℓ1-distance-4 codes. All aliases were searched. Simplicial rook graphs allow larger transfers and are not equivalent; their independence results do not provide a dominating upper bound.",
+      "searches": [
+        "Exact quinary multiset single deletion optimal code size n9 143 n10 201 simplex grid independent sets",
+        "S_5(9,1) = 143 S_5(10,1)=201 five-symbol multiset deletion code conjecture",
+        "multiset deletion codes prime alphabet five Conjecture 21 n 9 n 10",
+        "arxiv:2601.05636v2 §2, §5.5",
+        "arxiv:1612.08837 full text"
+      ]
+    },
+    "exact_database_or_table": {
+      "evidence": [
+        "arxiv:2601.05636v2 §5.5 table n=1,...,8 only, Conjecture 21 beyond",
+        "Actual connected record closest ids: 2026/10/4/SCOPE-exact-ternary-multiset-deletion-codes-when-three-multiset-elemen--d3a62a71c505, 2026/9/21/SCOPE-exact-quinary-length-four-single-deletion-code--77daafd66a03"
+      ],
+      "reasoning": "Directly checked the cited published table and focused mathematical record retrieval; no indexed table entry for S5(9,1) or S5(10,1) was identified. The closest five-symbol sequence deletion result has ordered words of length 4 and does not cover unordered multisets.",
+      "searches": [
+        "Exact quinary multiset single deletion optimal code size n9 143 n10 201 simplex grid independent sets",
+        "S_5(9,1) = 143 S_5(10,1)=201 five-symbol multiset deletion code conjecture",
+        "multiset deletion codes prime alphabet five Conjecture 21 n 9 n 10",
+        "quinary multiset single deletion code n=9 S5(9,1) 143 144 2026 simplex graph optimal",
+        "five symbol multiset deletion independent set simplicial grid n9 143",
+        "quinary single-deletion 9-letter multiset code maximal size proof",
+        "published q=5 length 9 10 table multiset one-deletion simplicial grid"
+      ]
+    },
+    "rationale": "The 2026 source itself lists exact q=5 values only through n=8 and declares n>=9 conjectural. Its syndrome lower construction is credited. Kovačević–Tan bounds and the 2026 multiset-ball geometry do not give an exact two-length upper; no equivalent indexed claim found in actual connected research records or accessible prior research records. No claim of priority beyond searched accessible evidence.",
+    "residual_risks": [
+      "Older unindexed unit-transfer grid independence tables may have the exact two optima.",
+      "The companion ball-geometry article was not wholly inspected, leaving implicit coverage possible.",
+      "HiGHS numerical MILP bounds are conditional on solver correctness and lack an independent exact rational branch-and-bound proof trace."
+    ],
+    "source_inspections": [
+      {
+        "assessment": "NOT_COVERING exact optimality for n=9/10; provides attribution for lower construction and known n<=8 computations",
+        "evidence": [
+          "§5.5 exact q=5 values n=1,...,8; Conjecture 21 explicitly leaves later lengths unresolved; primary MSC94B25"
+        ],
+        "identifier_or_url": "https://arxiv.org/html/2601.05636v2",
+        "material_read": "Full accessible arXiv HTML; especially definitions §2, bounds §4, prime-alphabet §5.5, exact table and Conjectures 21/22, and conclusions",
+        "method": "Read original definitions, table, upper-bound comparison and conjectural implications",
+        "title": "Multiset Deletion Codes: Cyclic Constructions, Bounds, and Exact Results",
+        "trigger": "Same exact object, alphabet, parameters and explicit conjecture"
+      },
+      {
+        "assessment": "NOT_COVERING sharp q5 n9/10 integers in inspected material",
+        "evidence": [
+          "General multiset code formulations and non-sharp asymptotic estimates as compared in §4 of the motivating work"
+        ],
+        "identifier_or_url": "https://arxiv.org/abs/1612.08837",
+        "material_read": "Open-access primary full text covering definitions and general upper bounds",
+        "method": "Compared generalized distance/sphere-packing results by implication with finite integer upper bounds",
+        "title": "Codes in the Space of Multisets—Coding for Permutation Channels with Impairments",
+        "trigger": "Foundational code model and strongest broad upper bound cited in the motivating source"
+      },
+      {
+        "assessment": "No displayed implication of the exact n9/n10 integer optima, but deeper implicit coverage remains a risk",
+        "evidence": [
+          "Abstract lists ball sizes, generating functions, volume bounds; no n9/10 optimum stated"
+        ],
+        "identifier_or_url": "https://arxiv.org/abs/2603.18322",
+        "material_read": "Abstract and accessible source description; not a complete verified full-text comparison",
+        "method": "Compared stated target: ball-volume geometry and constructions against exact one-deletion code packing optima",
+        "title": "Polynomial Constructions and Deletion-Ball Geometry for Multiset Deletion Codes",
+        "trigger": "Contemporary same-object multiset-deletion paper by the same authors"
+      },
+      {
+        "assessment": "NON_EQUIVALENT graph for q5 n>=2; numerical independence claims cannot be imported without a reduction",
+        "evidence": [
+          "Unit-transfer graph edges require ℓ1 distance exactly 2; simplicial rook edges can have ℓ1 distance 4 or higher"
+        ],
+        "identifier_or_url": "https://arxiv.org/html/2601.05636v2#S5.SS5",
+        "material_read": "Relevant discussion of triangular/tetrahedral/unit-transfer graphs plus accessible related simplicial-rook graph sources",
+        "method": "Compared adjacency definitions: unit transfers versus unrestricted same-line moves",
+        "title": "Simplicial rook-graph independence literature",
+        "trigger": "Plausible alias via weak-composition lattice independent sets"
+      }
+    ],
+    "status": "PASS"
+  },
+  "review_type": "self_review",
+  "schema_version": 1,
+  "scope_run_id": "dd9fde66-ddb6-465b-be76-86737c836162",
+  "self_review_status": "passed",
+  "value": {
+    "rationale": "The first two previously uncomputed finite cases n=9 and n=10 of explicitly published Conjecture 21 are motivated by the same natural five-symbol one-deletion invariant. Complete finite optima 143 and 201 require nontrivial integer bounds (natural LP relaxations give approximately 148.0119 and 208.2), provide concrete benchmarks for analytic proofs and sample different congruence classes; no artificially chosen subclass or extrapolated conjecture is asserted.",
+    "status": "PASS"
+  }
+}
