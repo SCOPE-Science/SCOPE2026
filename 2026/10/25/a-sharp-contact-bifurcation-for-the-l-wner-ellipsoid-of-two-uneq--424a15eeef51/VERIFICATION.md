@@ -5,8 +5,11 @@
     "status": "not_performed"
   },
   "independent_audit": {
-    "evidence": null,
-    "status": "not_performed"
+    "status": "passed",
+    "evidence": [
+      "INDEPENDENT_AUDIT_2026-10-27.md",
+      "INDEPENDENT_AUDIT_2026-10-27.json"
+    ]
   },
   "lean_verification": {
     "evidence": null,
@@ -16,8 +19,24 @@
 }
 ---
 
-## Verification performed
-The analytic proof checks both ball support functions, the exact square containment identity for the point-hull phase, the contact-radius condition, monotonicity and endpoints of the scalar root, the covariance identity for the two-orbit contact measure, and the global trace–determinant optimality certificate. The included `verify.py` independently evaluates representative parameter settings and asserts sampled support inequalities and the covariance relation.
+# Independent mathematical audit
 
-## Scope of computation and uncertainty
-Finite sampled directions cannot replace the for-all-directions support proof; numerical root finding does not establish uniqueness. The exact proof gives both. The numerical tests cover selected dimensions and unequal radius ratios only. Published-priority comparison was not independently audited. A plausible earlier 2006 general ellipsoid-hull algorithm paper was available in abstract form only; its complete text was inaccessible and remains a residual bibliographic risk.
+## correctness
+
+PASS
+
+The support h_K(t)=max{1,Lt+q} reduces containment to two scalar inequalities for rotational E(c,a,b). For nested L<=1-q, unit ball is exactly minimal. For 1-q<L<=L_c, an exact nonnegative square identity shows big-ball containment and one latitude; the tip H=L+q contacts, and the small-ball inequality is equivalent to q<=b²/a=d r. The displayed r solves dr²+(d-1)(L+q)r=1 giving L_c at r=q/d. For L>L_c, b↦L(b) increases from L_c to infinity, so unique root, with both tangent latitudes. Their normalized axial values y1 y2=-1/d yield an isotropic contact probability measure. A trace/determinant certificate forces unique globally minimum volume among all ellipsoids (not merely symmetric ones). Independently implemented 112 representative support inequalities and continuity checks; sampled directions cannot replace proof.
+
+## originality
+
+PASS
+
+Best-of-knowledge originality: For d>=2, hull of unit ball and radius-q (0<q<1) ball shifted L, exact three regimes with tip screening threshold L_c=d(1-q²)/((d-1)q) and unique two-latitude root/contacts for larger L. The materially compared earlier results cover only credited subclaims or different mathematical objects; no decisive prior implication was found. Priority is not exhaustively certified. Yıldırım 2006 complete paper, a directly applicable same-objects source, was inaccessible because institutional VPN disconnected; it may contain relevant special-case exact analysis.
+
+## value
+
+PASS
+
+Minimum-volume ellipsoid of the natural convex hull of two unequal balls is a classical but useful contact problem. The sharp screened tip to dual latitude bifurcation with explicit dimension-dependent boundary and one monotone root supplies exact geometric structure beyond standard general ellipsoid certificates or numerical approximations. Meaningfully motivated across arbitrary d,q,L.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
