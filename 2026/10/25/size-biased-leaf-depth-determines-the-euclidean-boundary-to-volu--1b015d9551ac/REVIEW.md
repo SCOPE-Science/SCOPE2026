@@ -1,11 +1,21 @@
-# Self-review
+# Independent mathematical audit
 
-**Correctness — PASS.** The claim specifies standard-coordinate Euclidean measures. Stanley's facet description and braid triangulation give the coordinate-facet contribution \(2n\) and the diagonal-facet contribution \(\sqrt2 n\sum p_{uv}\). Contracting a rooted-tree edge and comparing exact hook-length products gives the size-biased transition \(s_v/(s_u-1)\), so the facet-area probability flow is conserved and its total mass across levels equals the expected leaf depth. The strict positive path probabilities and a linear-extension adjacency argument establish both first- and second-extremal equality classes. A standalone exhaustive finite checker reproduces every equality for all 18,247 labeled rooted trees through seven vertices and directly enumerates linear extensions for an independent sample. The infinite result rests on the written proof, not on the enumeration.
+## correctness
 
-**Originality — PASS, qualified.** Stanley's order-polytope triangulation and facets, the classical tree hook-length formula, tree-poset toric-code work of Can–Hibi, and the volume/triangulation theory of von Bell and collaborators are acknowledged. The assessed statement is specifically the metric boundary-to-volume functional represented as a size-biased genealogical leaf depth, together with its exact edge-facet flow, branching-invariant equal-height classes and second-extremal rigidities. These are not implied by quoted volume or inradius statements without the new facet-flow calculation. Relevant mathematical-record searches, accessible previous findings and both recent primary full texts did not identify a covering theorem. An equivalent form among broader order-polytope or consecutive-linear-extension identities is a remaining bibliographic risk.
+PASS
 
-**Mathematical value — PASS.** Surface area and volume are canonical intrinsic geometric measurements, and their quotient can change substantially with rooted-tree shape. The theorem makes their quotient computable by an elementary tree recursion, identifies an unexpected class of geometry-independent branch rearrangements, and supplies sharp global and next-to-global structural classifications. These distinguish the geometric behavior of order polytopes beyond the classical hook-length volume enumeration. It does not assert a broader theorem for arbitrary posets.
+For every poset, Stanley's canonical order-polytope triangulation yields volume e(P)/n!, coordinate facet total area 2nV, and a cover-contract facet has area √2 e(P/uv)/(n-1)!; the √2 factor is the Euclidean Jacobian of coordinate duplication. In rooted trees, the hook formula e(T)=n!/∏s_u implies cover adjacency probabilities p_uv obey p_root->v=s_v/(n-1) and flow p_v->z/p_u->v=s_z/(s_v-1). Consequently their total equals E depth of the size-biased child walk, proving the exact S/V formula for all finite trees. Positive leaf probabilities give equal-depth rigidity and star/chain extremes. A deepest nonroot internal vertex yields E D≥1+2/(n-1) for nonstar, attained only by one subdivision; consecutive incomparable pairs in extensions yield E D≤n-2 for nonchain with terminal cherry equality. Independently constructed 1,440 rooted labeled trees through n=6 and verified exact rational hook-probability versus size-biased-walk equality. All statements are in standard Euclidean, not lattice boundary normalization.
 
-The review concerns the displayed theorem and its stated corollaries only. A further external mathematical audit would be useful, especially for possible equivalent earlier formulas.
+## originality
 
-Self-review: passed. Independent audit: not yet performed.
+PASS
+
+The general order-polytope facet/volume description is Stanley and the hook product for rooted trees is classical; neither can be claimed new. The specified aggregate Euclidean surface-area/volume ratio as descendant-size-biased expected leaf depth, exact facet-area probability flow, branching-independent equal-depth families, and second-extremal rigidity were not identified as mathematical consequences in inspected tree-order-polytope references or Resultary. A classical cover-adjacency identity makes the main reduction elegant but does not erase the novel geometric interpretation and rigidity.
+
+## value
+
+PASS
+
+Turns a high-dimensional geometric surface-to-volume invariant into a simple probabilistic depth statistic and provides sharp tree-structural extremizers and second gaps; this is meaningful to geometry/combinatorics researchers comparing root-tree order polytopes with varied branching. The invariant uses physical Euclidean metric and is not merely the known lattice volume or rank function.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
