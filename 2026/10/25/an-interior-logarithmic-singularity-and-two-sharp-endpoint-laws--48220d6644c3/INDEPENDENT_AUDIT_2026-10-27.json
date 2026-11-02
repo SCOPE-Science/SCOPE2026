@@ -1,0 +1,139 @@
+{
+  "audit_date_utc": "2026-10-27",
+  "audited_at_utc": "2026-10-27T20:51:28Z",
+  "axes": {
+    "correctness": {
+      "checked_sources": [
+        "RESULT.md six polygon vertices, homogeneous derivatives, local Morse/coarea integrals",
+        "independent_checks.py exact symbolic Hessians and angular integral",
+        "Ciccariello arXiv:1401.7950v1 chord-length distribution full paper",
+        "Meyer–Pajor JFA 1988 zbMATH review of Theorems I/II",
+        "Resultary 2026/10/11/SCOPE-exact-haar-diameter-law-for-central-sections-of-the-regular-octa--4948185eba2f"
+      ],
+      "rationale": "A Haar-random unit normal U determines octahedron section area via the exact six edge-intersection polygon and F=2(ab+ac+bc)/((a+b)(a+c)(b+c)), a,b,c=|U_i|. The homogeneous expression includes sqrt(a^2+b^2+c^2), essential before differentiating. Stationary-gradient differences force at least two equal positive components, and (1,1,t) has derivative 3t(t-1)/((1+t)^3 sqrt(2+t^2)); the body diagonals give minimum 3sqrt3/4, equatorial midpoints yield interior critical sqrt2, and axes yield maximum 2. Independent SymPy second derivatives give diagonal quadratic coefficient sqrt3/16 along (1+t,1,1), and saddle coefficients +sqrt2/2, -3sqrt2/2 in unit area coordinates; eight wells give 64/(9sqrt3) times epsilon, and 12 saddles normalized by 4pi yield sqrt6/pi times log reciprocal distance. Six axial corners have conical deficit 2(b²+bc+c²)/(b+c); an independent exact integral of (1+t)^2/(1+t+t²)^2 over [0,infinity] equals 2/3+4pi/(9sqrt3), yielding upper constant 1/(2pi)+sqrt3/9. Coarea regularity away from critical levels proves nonatomic density. These symbolic local identities corroborate but are not a proof of global critical exhaustiveness; the derivative factoring and compactness argument in RESULT.md provide it.",
+      "residual_risks": [
+        "Finite tests provide corroboration only; the claimed uniform or asymptotic theorem relies on the inspected analytical proof."
+      ],
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Meyer–Pajor, JFA 80 (1988), zbMATH review records monotonicity in p and uniform section volume inequalities for k-planes.",
+          "2014 Ciccariello formula integrates random affine chord positions, not central plane area under Haar S2."
+        ],
+        "reasoning": "Known section-volume inequalities are not an exact probability pushforward; the full 1988 work was not accessible, so this is a qualified rather than whole-document noncoverage conclusion.",
+        "searches": [
+          "central random hyperplane section octahedron area density logarithmic singularity sqrt2 endpoint tails",
+          "Meyer Pajor 1988 Sections of unit ball lp n theorem volume sections distribution"
+        ]
+      },
+      "checked_sources": [
+        "RESULT.md six polygon vertices, homogeneous derivatives, local Morse/coarea integrals",
+        "independent_checks.py exact symbolic Hessians and angular integral",
+        "Ciccariello arXiv:1401.7950v1 chord-length distribution full paper",
+        "Meyer–Pajor JFA 1988 zbMATH review of Theorems I/II",
+        "Resultary 2026/10/11/SCOPE-exact-haar-diameter-law-for-central-sections-of-the-regular-octa--4948185eba2f"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "Ciccariello treats random lines and chord length; the audited formula is a function of the central plane normal alone.",
+          "Meyer–Pajor 1988 recorded theorem compares vol(B_p^n∩E) across p; no sharp Haar probability appears in inspected review."
+        ],
+        "reasoning": "The prior implications are geometrically incomparable, not mere wording changes. Residual historical risk is explicit because 1988 full text could not be read; failure of access is not evidence of novelty.",
+        "searches": [
+          "central random hyperplane section octahedron area density logarithmic singularity sqrt2 endpoint tails",
+          "arXiv:1401.7950v1 regular octahedron chord distribution full text",
+          "Meyer Pajor 1988 0022-1236 sections review theorem"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Ciccariello arXiv:1401.7950v1 derives chord-length density under random affine lines.",
+          "The exact section-diameter published finding depends on min/max normal-coordinate ratio; F(a,b,c) depends also on intermediate coordinate."
+        ],
+        "reasoning": "The proposed area law is not synonymous with chord CDF, radial slice diameter or projected inradius; e.g. (3,2,1) and (3,3/2,1) share diameter ratio but areas 11sqrt14/30 and 7/5.",
+        "searches": [
+          "central random hyperplane section octahedron area density logarithmic singularity sqrt2 endpoint tails",
+          "random octahedron central section area density critical saddle log sqrt2"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "Resultary exact Haar diameter law for central sections of regular octahedron records support sqrt2 to 2 with arctangent CDF, not area law.",
+          "Resultary hits on random planar projections concern inradius and width, not area."
+        ],
+        "reasoning": "Neither the published diameter CDF nor the inradius/width tables imply the area density saddle coefficient or both tails because the mapping from U to area is different.",
+        "searches": [
+          "central random hyperplane section octahedron area density logarithmic singularity sqrt2 endpoint tails",
+          "Resultary exact Haar octahedron section diameter area probability table"
+        ]
+      },
+      "rationale": "A central-section area pushforward under Haar orientation is not the affine random-line chord-length distribution or section diameter; at fixed min and max normal-coordinate ratios, changing the middle coordinate changes area. Meyer–Pajor general deterministic section inequalities do not visibly entail a sharply normalized random 3D law; full primary paper is inaccessible and risk retained, not treated as automatic failure.",
+      "residual_risks": [
+        "Meyer–Pajor 1988 full paper not read: arXiv and lawful OA searches yielded abstract/review only; authorized Oxford retrieval returned vpn_disconnected without bypass. Its available theorem is section-volume monotonicity, but inaccessible text remains a priority risk.",
+        "An unindexed exact 3D octahedral area distribution could precede the stated density/tail coefficients.",
+        "The theorem does not provide a full elementary density or general all-dimensional distribution."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Different random object (affine chords), not a Haar central section-area pushforward",
+          "evidence": [
+            "Chord length integrates over line position and orientation; no equality to area F(U)"
+          ],
+          "identifier_or_url": "arXiv:1401.7950v1; https://arxiv.org/pdf/1401.7950",
+          "material_read": "Public primary PDF: definitions of random line chords, analytic construction and concluding distribution; page image checked",
+          "method": "Full PDF obtained, relevant theorem and methods read",
+          "title": "The chord-length probability density of the regular octahedron",
+          "trigger": "Same polytope and probability-distribution language"
+        },
+        {
+          "assessment": "Available review establishes section-volume inequalities/monotonicity, not a full Haar density; cannot assert whole-paper noncoverage",
+          "evidence": [
+            "MaRDI review states h(p)=vol(E^k∩B_p^n)/vol(B_p^k) increasing; exact random-area law unassessed"
+          ],
+          "identifier_or_url": "doi:10.1016/0022-1236(88)90068-7",
+          "material_read": "Meyer–Pajor 1988 abstract and zbMATH/MaRDI mathematical review at portal.mardi4nfdi.de; full paper unavailable",
+          "method": "Web arXiv and OA search; authorized Oxford source retrieval returned vpn_disconnected",
+          "title": "Sections of the unit ball of l_p^n",
+          "trigger": "Possible dominating general theory of octahedral central sections"
+        },
+        {
+          "assessment": "Measures Euclidean diameter rather than area; the two functions have different dependence on U",
+          "evidence": [
+            "Same min/max normal ratio but varying intermediate coordinate changes area"
+          ],
+          "identifier_or_url": "https://github.com/Resultary/2026/tree/main/2026/10/11/SCOPE-exact-haar-diameter-law-for-central-sections-of-the-regular-octa--4948185eba2f",
+          "material_read": "Resultary published-result title and complete summary plus source comparison in reviewed package",
+          "method": "Resultary search (summary only this run)",
+          "title": "Exact Haar diameter law for central sections of the regular octahedron",
+          "trigger": "Same random central hyperplane but potentially equivalent invariant"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "checked_sources": [
+        "RESULT.md six polygon vertices, homogeneous derivatives, local Morse/coarea integrals",
+        "independent_checks.py exact symbolic Hessians and angular integral",
+        "Ciccariello arXiv:1401.7950v1 chord-length distribution full paper",
+        "Meyer–Pajor JFA 1988 zbMATH review of Theorems I/II",
+        "Resultary 2026/10/11/SCOPE-exact-haar-diameter-law-for-central-sections-of-the-regular-octa--4948185eba2f"
+      ],
+      "rationale": "Haar-distributed central-section area is an intrinsic shape statistic different from chord length, diameter or perimeter. The theorem locates and quantifies a genuine logarithmic interior singularity and both endpoint orders with exact coefficients for this canonical polytope; it is neither a bounded numerical table nor a rephrasing of section extremizers.",
+      "residual_risks": [
+        "Meyer–Pajor 1988 full paper not read: arXiv and lawful OA searches yielded abstract/review only; authorized Oxford retrieval returned vpn_disconnected without bypass. Its available theorem is section-volume monotonicity, but inaccessible text remains a priority risk.",
+        "An unindexed exact 3D octahedral area distribution could precede the stated density/tail coefficients.",
+        "The theorem does not provide a full elementary density or general all-dimensional distribution."
+      ],
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "limitations": [
+    "Meyer–Pajor 1988 full paper not read: arXiv and lawful OA searches yielded abstract/review only; authorized Oxford retrieval returned vpn_disconnected without bypass. Its available theorem is section-volume monotonicity, but inaccessible text remains a priority risk.",
+    "An unindexed exact 3D octahedral area distribution could precede the stated density/tail coefficients.",
+    "The theorem does not provide a full elementary density or general all-dimensional distribution."
+  ],
+  "schema_version": 1
+}

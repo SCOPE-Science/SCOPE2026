@@ -5,8 +5,11 @@
     "status": "not_performed"
   },
   "independent_audit": {
-    "evidence": null,
-    "status": "not_performed"
+    "status": "passed",
+    "evidence": [
+      "INDEPENDENT_AUDIT_2026-10-27.md",
+      "INDEPENDENT_AUDIT_2026-10-27.json"
+    ]
   },
   "lean_verification": {
     "evidence": null,
@@ -16,26 +19,24 @@
 }
 ---
 
-# Reproducibility and limits
+# Independent mathematical audit
 
-Use Python 3, with only its standard library, and run:
+## correctness
 
-```sh
-python3 verify.py
-```
+PASS
 
-The program reconstructs the six vertices of a generic octahedron section directly and independently verifies the area identity at 250 normals. It tests the radial and angular second variations at the eight diagonal minima and twelve equatorial saddles, the first directional behavior at the axial maxima, the exact angular integral controlling the upper-tail constant, and two finite-sample consequences of the theorem using 480,000 directly sampled Gaussian normals normalized to unit length.
+A Haar-random unit normal U determines octahedron section area via the exact six edge-intersection polygon and F=2(ab+ac+bc)/((a+b)(a+c)(b+c)), a,b,c=|U_i|. The homogeneous expression includes sqrt(a^2+b^2+c^2), essential before differentiating. Stationary-gradient differences force at least two equal positive components, and (1,1,t) has derivative 3t(t-1)/((1+t)^3 sqrt(2+t^2)); the body diagonals give minimum 3sqrt3/4, equatorial midpoints yield interior critical sqrt2, and axes yield maximum 2. Independent SymPy second derivatives give diagonal quadratic coefficient sqrt3/16 along (1+t,1,1), and saddle coefficients +sqrt2/2, -3sqrt2/2 in unit area coordinates; eight wells give 64/(9sqrt3) times epsilon, and 12 saddles normalized by 4pi yield sqrt6/pi times log reciprocal distance. Six axial corners have conical deficit 2(b²+bc+c²)/(b+c); an independent exact integral of (1+t)^2/(1+t+t²)^2 over [0,infinity] equals 2/3+4pi/(9sqrt3), yielding upper constant 1/(2pi)+sqrt3/9. Coarea regularity away from critical levels proves nonatomic density. These symbolic local identities corroborate but are not a proof of global critical exhaustiveness; the derivative factoring and compactness argument in RESULT.md provide it.
 
-Observed final diagnostic messages include:
+## originality
 
-```text
-DIRECT_HEXAGON_VERTEX_SHOELACE_IDENTITY_OK 250
-INDEPENDENT_DIAGONAL_MINIMUM_AND_EQUATOR_SADDLE_HESSIANS_OK
-AXIS_CONICAL_ENDPOINT_NORMAL_FORM_OK
-EXACT_AXIS_ANGULAR_INTEGRAL_AND_UPPER_TAIL_COEFFICIENT_OK
-INDEPENDENT_GAUSSIAN_HAAR_ORIENTATION_ENDPOINT_SAMPLING_OK 480000
-TWELVE_SADDLE_LOGARITHMIC_NORMALIZATION_OK
-ALL_OCTAHEDRAL_CENTRAL_SECTION_AREA_CHECKS_OK
-```
+PASS
 
-These computations are finite and are not a proof of an asymptotic theorem. The proof uses the exact section area, an exhaustive critical-normal classification, quadratic saddle integration, and an exact endpoint angular integral. Independent mathematical audit has not been performed. Historical priority is uncertain for older potentially relevant section-volume literature unavailable in full.
+A central-section area pushforward under Haar orientation is not the affine random-line chord-length distribution or section diameter; at fixed min and max normal-coordinate ratios, changing the middle coordinate changes area. Meyer–Pajor general deterministic section inequalities do not visibly entail a sharply normalized random 3D law; full primary paper is inaccessible and risk retained, not treated as automatic failure.
+
+## value
+
+PASS
+
+Haar-distributed central-section area is an intrinsic shape statistic different from chord length, diameter or perimeter. The theorem locates and quantifies a genuine logarithmic interior singularity and both endpoint orders with exact coefficients for this canonical polytope; it is neither a bounded numerical table nor a rephrasing of section extremizers.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
