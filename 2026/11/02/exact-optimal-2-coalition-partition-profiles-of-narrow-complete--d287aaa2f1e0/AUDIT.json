@@ -1,0 +1,114 @@
+{
+  "correctness": {
+    "rationale": "A direct equivalence establishes the 2-domination predicate. The already-proved t+1 maximum gives exact excess <=4; every possible multiset of nonsingleton occupancies is enumerated by an exact finite checker at all 12 base pairs. The separate two-singleton stabilization proof makes these finite checks exhaustive for all t. The factorial counts are derived from orbit-stabilizer counting and checked by direct enumeration of labeled set partitions for (3,4),(4,5),(5,6). The bundled checker was executed successfully and can be replayed from the package.",
+    "status": "PASS"
+  },
+  "independent": false,
+  "independent_audit_status": "not_performed",
+  "originality": {
+    "broader_coverage": {
+      "evidence": [
+        "The 2025 paper covers all C_k(K_{s,t}) scalar optima, including the t+1 value; its proofs exhibit witnesses and bound block counts.",
+        "It does not assert the exact number of optimal labeled-vertex partitions or all possible large-block occupancy multisets."
+      ],
+      "reasoning": "The broader numerical theorem subsumes the optimal-size corollary but not the optimizer-enumeration assertion. No implication from a mere maximum number to multiplicity exists without further structural information.",
+      "searches": [
+        "arXiv:2507.18306v1 Theorem 5.2 pp 13-15 full text",
+        "arXiv:2407.09332v1 Theorem 6",
+        "count number of maximum 2-coalition partitions K_{5,t} complete bipartite graph; extremal 2-coalition partition classification 2024 2025"
+      ]
+    },
+    "checked_sources": [
+      "arXiv:2407.09332v1, Definition 1 and Theorem 6",
+      "arXiv:2507.18306v1, Section 5, Theorem 5.2 and proof",
+      "DOI:10.1007/s40840-025-01831-7, double-coalition definitions and biclique theorem"
+    ],
+    "claim_vs_prior_implication": {
+      "evidence": [
+        "Brešar–Henning–Samadi give exact scalar maximum and selected extremal constructions; these do not count *all* maximizers.",
+        "Henning–Mojdeh use double domination, requiring selected vertices themselves to have selected neighbors, and thus a different coalition condition.",
+        "Cody–Detore (3,2) domination is a separate invariant."
+      ],
+      "reasoning": "The new statement is an exact count and exhaustive optimizer-profile classification. It is not a disguised restatement or logical corollary of the scalar optimum t+1 or the double-coalition value.",
+      "searches": [
+        "arXiv:2507.18306v1 Theorem 5.2 and construction in proof",
+        "DOI:10.1007/s40840-025-01831-7 Theorem 6",
+        "arXiv:2407.09332v1"
+      ]
+    },
+    "equivalent_formulations": {
+      "evidence": [
+        "Theorem 5.2 in arXiv:2507.18306v1 states C_k(K_{s,t}), without a labeled partition enumeration.",
+        "RESULT.md classifies every optimum by occupancy types, which is strictly stronger than knowing cardinality."
+      ],
+      "reasoning": "Converting a 2-coalition partition into a pairwise-completion occupancy profile shows the equivalence of the combinatorial objects; no equivalent count was found. Double-coalition partitions additionally require a neighbor within a selected set and thus are not equivalent.",
+      "searches": [
+        "maximum k-coalition partition count complete bipartite graph optimizer multiplicity",
+        "2-coalition biclique K3t K4t K5t exact number of maximizing coalition partitions labeled maximal partition enumeration",
+        "arXiv:2507.18306v1"
+      ]
+    },
+    "exact_database_or_table": {
+      "evidence": [
+        "Available research results concern C_k numbers, other domination polynomials, or coalition variants.",
+        "The exact count for K_{5,t} is the cubic polynomial 25t+15t(t−1)(t−2), with four explicit optimizer types."
+      ],
+      "reasoning": "No table of optimal 2-coalition partition multiplicities for this natural family was found. A negative database search alone is not a uniqueness proof; the cited full-text comparison carries the scientific assessment.",
+      "searches": [
+        "stirling number polynomial k-coalition partitions complete bipartite graph 2 coalition optimal multiplicity",
+        "2-coalition partition number K_{m,n} Jafari k-coalitions lower bound full classification",
+        "published-finding corpus semantic searches for exact maximizing coalition partition multiplicity"
+      ]
+    },
+    "rationale": "The exact scalar biclique C_2 formula is already Theorem 5.2 of arXiv:2507.18306 and is expressly cited; the newly assessed statement is the complete set of seven optimal block-occupancy profiles and exact labeled multiplicities with a cubic transition. Full cited sources and semantic searches identified no coverage of these enumerators. Priority uncertainty remains.",
+    "residual_risks": [
+      "Unknown unpublished or unindexed source could already list optimizer multiplicities.",
+      "A longer specialized enumeration not reflected in the inspected 2025 article might exist elsewhere.",
+      "No independent mathematical priority or correctness audit has been conducted."
+    ],
+    "source_inspections": [
+      {
+        "assessment": "Defines 2-coalition; does not state complete optimizer profile/multiplicity",
+        "evidence": [
+          "arXiv:2407.09332v1, Definition 1; Theorem 6; initial posting 2024-07-12"
+        ],
+        "identifier_or_url": "https://arxiv.org/html/2407.09332v1",
+        "material_read": "Abstract; introduction and Definition 1; Section 3 Theorem 6 statement and proof; source and posted date",
+        "method": "Full open-access HTML and PDF page inspection",
+        "title": "k-Coalitions in Graphs",
+        "trigger": "First definition, date and initial biclique claims"
+      },
+      {
+        "assessment": "Settles the scalar k-coalition number, but not the exact multiplicity or exhaustive optimizer profile types for the three unbalanced families",
+        "evidence": [
+          "arXiv:2507.18306v1, pp. 13–15, Theorem 5.2 and proof"
+        ],
+        "identifier_or_url": "https://arxiv.org/pdf/2507.18306",
+        "material_read": "Abstract, Introduction, Section 5 pp 13–16, Theorem 5.2 and proof including displayed witnesses; PDF page images 1,13,14",
+        "method": "Full open-access 18-page PDF: parsed source text and page screenshots",
+        "title": "On k-coalition in graphs: bounds and exact values",
+        "trigger": "Decisive broad prior claim for complete bipartite graphs"
+      },
+      {
+        "assessment": "Double domination requires conditions on selected vertices absent in 2-domination; cannot imply the 2-coalition partition counts",
+        "evidence": [
+          "DOI:10.1007/s40840-025-01831-7, Definitions 1–3, Theorem 6"
+        ],
+        "identifier_or_url": "https://link.springer.com/article/10.1007/s40840-025-01831-7",
+        "material_read": "Open-access HTML abstract, Definitions 1–3 and Theorem 6 for bicliques",
+        "method": "Read HTML full text with mathematical expressions",
+        "title": "Double Coalitions in Graphs",
+        "trigger": "Plausible numerical coincidence with biclique scalar optimum"
+      }
+    ],
+    "status": "PASS"
+  },
+  "review_type": "self_review",
+  "schema_version": 1,
+  "scope_run_id": "d287aaa2-f1e0-4433-b2c5-ff7c1274c27c",
+  "self_review_status": "passed",
+  "value": {
+    "rationale": "A complete structural and multiplicity classification of all extremizers sharpens an established scalar result in three full infinite graph regimes. The exact transition from 3t and 10t to a cubic 25t+15t(t−1)(t−2) is explained by the mixed two-hub optimizer type, whose existence as one witness was previously known but whose total multiplicity was not enumerated, giving usable combinatorial counts rather than a routine numerical increment. Finite enumeration is paired with a mathematical stabilization proof.",
+    "status": "PASS"
+  }
+}
