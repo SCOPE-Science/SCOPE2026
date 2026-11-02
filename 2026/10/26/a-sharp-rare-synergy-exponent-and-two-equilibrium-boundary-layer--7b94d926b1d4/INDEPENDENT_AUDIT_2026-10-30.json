@@ -1,0 +1,114 @@
+{
+  "audit_date_utc": "2026-10-30",
+  "audited_at_utc": "2026-10-30T22:04:53Z",
+  "axes": {
+    "correctness": {
+      "checked_sources": [
+        "Frozen RESULT.md fa82bad0b075e4f06c9b61a466644a2461352584",
+        "Source model Zhu et al arXiv:2408.02042 original 23-page PDF including supplementary equations",
+        "Peña & Nöldeke (2018) full 10-page author-hosted PDF Sections 3–4",
+        "verify.py blob 99622f2222324dfe65b548699b4cf400573f272b (partially inspected); independent rational checks"
+      ],
+      "rationale": "The source payoff equation after fixing r/G=κ gives F_n(x)=κ[c((1+δx)/L)^n+(1−cL^(-n))(1−δx)^n]−1. For n≥2 its second derivative is strictly positive on [0,1], while F_n(0)=κ−1>0 and any fixed y in (0,min((L−1)/δ,1)) has F_n(y)→−1, so there is exactly one low crossing and at most one upper crossing, controlled by sign F_n(1). Endpoint: L<1+δ gives +∞, L>1+δ gives −1, equality gives κc−1, except c=1/κ where remaining κ(1−p_n)(1−δ)^n>0. Uniform compact-rescaled limits F_n(u/n)→κe^(−δu)−1 and F_n(x_L+z/n)→κc e^(δz/L)−1 yield low and macroscopic roots. At L=1+δ,c>1/κ, F_n(1−z/n)→κc e^(−δ z/(1+δ))−1; at exact c=1/κ, F_n(1−C(1−δ)^n/n)/(1−δ)^n→κ−δC/(1+δ), giving the finer C*=κ(1+δ)/δ by sign bracketing. The vector field x(1−x)tanh(sF_n/2) has the asserted stability signs. Independent exact-Fraction checks for n=96 δ=2/5 κ=3/2 verified the lower root between 0.01053 and 0.01055 and upper between 0.48735 and 0.48736, along with subcritical/supercritical/critical endpoint signs. Finite tests are illustrative; the limit proof is analytic.",
+      "residual_risks": [
+        "All phase classification is eventual for fixed κ>1,c>0,L>1,δ∈(0,1) with benefit multiplier r=κ(n+1), not for fixed r or small arbitrary n.",
+        "At exact critical amplitude the 1/n expansion alone fails; the exponentially thin boundary layer relies on normalization by (1−δ)^n.",
+        "Mean-field asymptotics do not establish finite stochastic population fixation or network-cooperation effects."
+      ],
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Zhu's general finite endpoint formula p_crit is acknowledged; Peña–Nöldeke allow some n-dependent gains, especially benefit sharing, but their propositions do not specialize to an exponentially changing synergy/discount type mixture."
+        ],
+        "reasoning": "These broader models cover finite phase classification ingredients, not the claimed exact singular limit boundary layers. An unstated corollary would require the explicit coupled scaling analysis.",
+        "searches": [
+          "Zhu 2024 Supplementary Eq S2 finite public goods threshold",
+          "Peña and Nöldeke Proposition 5 and 6 size-dependent gains",
+          "arXiv:2604.07228 nonlinear higher order public goods",
+          "Stochastic public goods synergy discounting exponentially rare synergy increasing group size critical bistability boundary layer"
+        ]
+      },
+      "checked_sources": [
+        "Zhu et al. arXiv:2408.02042 source model and supplementary maths",
+        "Peña–Nöldeke 2018 DOI 10.1016/j.jtbi.2018.08.004 complete primary PDF",
+        "Resultary scientific semantic search: Stochastic public goods synergy discounting exponentially rare synergy increasing group size critical bistability boundary layer",
+        "Other primary comparison: Peña (2012) group-size randomization distinct object; Li–Wu–Wang (2014) structured-network dynamics distinct object; Llabrés et al arXiv:2604.07228 deterministic mixed hyperedges"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "Using the prior exact payoff gives F_n and convexity, but resolving the simultaneous n→∞ and p_n→0 transition requires analyzing three separate upper-root scalings, including a second exponential scale at c=1/κ."
+        ],
+        "reasoning": "The result is mathematically deduced from a known model, not newly proposed payoffs or an all-new finite-n equilibrium classification; the scaled phase boundary and limiting basin width are additional specific assertions absent from the compared prior statements.",
+        "searches": [
+          "Zhu 2024 Eq (6) and supplementary finite p_crit",
+          "Peña Nöldeke 2018 Proposition 6",
+          "Stochastic public goods synergy discounting exponentially rare synergy increasing group size critical bistability boundary layer"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "The mixed-group expected payoff difference is a positive-weighted sum of two powers (1+δx)^n and (1−δx)^n, with size-dependent mixture p_n."
+        ],
+        "reasoning": "The rarity-base condition L=1+δ is the exponential-growth competition of the first power against L^n; this is not the same as the previously studied fixed-size mixture or general monotone root shifts.",
+        "searches": [
+          "Stochastic public goods synergy discounting exponentially rare synergy increasing group size critical bistability boundary layer",
+          "Zhu et al 2024 stochastic nonlinear public goods rare synergistic group probability",
+          "Peña Nöldeke 2018 group size effects stochastic payoffs"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "The transition is a continuum-parameter asymptotic theorem as n→∞ and includes the thin layer n(1−b_n)/(1−δ)^n→κ(1+δ)/δ."
+        ],
+        "reasoning": "Finite game phase diagrams or tables cannot establish the two distinct asymptotic scales; none of the inspected tables gives this linked limit.",
+        "searches": [
+          "Stochastic public goods synergy discounting exponentially rare synergy increasing group size critical bistability boundary layer",
+          "Zhu 2024 supplementary finite equilibrium phase tables"
+        ]
+      },
+      "rationale": "Existing exact Zhu et al. 2024 equations provide the finite-n model and endpoint criterion, and Peña–Nöldeke cover general group-size shifts; neither inspected primary source supplies exponentially rare synergy p_n=cL^(−n) with exact L=1+δ phase transition and two distinct critical upper-root scales. Their recognized finite-n results are not claimed new.",
+      "residual_risks": [
+        "The finite-n threshold is known from Zhu et al; novelty is only the stated sharp coupled rarity limit and boundary layers.",
+        "Other evolutionary game group-size scaling papers could contain an implicit equivalent asymptotic regime not surfaced by the bounded query.",
+        "Finite-population stochastic dynamics are outside scope; do not use mean-field basin widths as fixation claims."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Original already proves finite-n phase conditions; the exponential rarity linked large-n limit and the critical exponentially small separatrix layer are not stated.",
+          "evidence": [
+            "Model Eq. (6); supplementary payoff/threshold equations; arXiv:2408.02042"
+          ],
+          "identifier_or_url": "https://arxiv.org/pdf/2408.02042",
+          "material_read": "Original 23-page arXiv PDF accessed; read main payoff/model/equilibrium sections and attached supplementary equations relevant to fixed-n thresholds and stability.",
+          "method": "Inspected primary PDF model, payoff equations and supplemental algebra, including finite-n endpoint threshold",
+          "title": "Evolutionary dynamics in stochastic nonlinear public goods games",
+          "trigger": "Exact motivating stochastic synergy/discounting model and finite equilibrium condition"
+        },
+        {
+          "assessment": "Covers generic group-size effects and gain sequences; its size-dependent benefit-sharing models do not give p_n=cL^(−n) stochastic mixture or exact critical layers.",
+          "evidence": [
+            "Sections 3–4; Propositions 5–6; figure 6 and discussion, J. Theor. Biol. 457 (2018) 211–220"
+          ],
+          "identifier_or_url": "https://jorgeapenas.github.io/assets/pdf/Pena2018.pdf",
+          "material_read": "Full ten-page author-hosted PDF, Sections 3–4, Propositions 1–6, including size-dependent gain extension and discussion",
+          "method": "Read main results and original group-size extension and visually inspected group-size phase illustrations",
+          "title": "Group size effects in social evolution",
+          "trigger": "Potential dominating theorem on increasing group size and moving replicator equilibria"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "rationale": "This model directly asks whether cooperation can persist when synergistic group interactions become exponentially rare as group size grows. The exact rarity exponent L=1+δ, nonzero limiting full-cooperation basin for L below threshold, and two sharply different vanishing boundary layers at threshold characterize a meaningful singular phase transition beyond fixed-n bistability. The critical amplitude layer is not an arbitrary numerical slice.",
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "limitations": [
+    "No finite-n universal cutoff; statements hold for sufficiently large n at fixed parameters.",
+    "No claim for constant group benefit r, heterogeneous populations, networks or stochastic fixation."
+  ],
+  "schema_version": 1
+}
