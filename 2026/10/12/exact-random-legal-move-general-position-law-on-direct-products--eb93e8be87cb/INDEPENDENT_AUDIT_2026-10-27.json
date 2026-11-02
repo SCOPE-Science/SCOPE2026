@@ -1,0 +1,213 @@
+{
+  "audit_date_utc": "2026-10-27",
+  "audited_at_utc": "2026-10-27T05:50:40Z",
+  "axes": {
+    "correctness": {
+      "checked_sources": [
+        "Frozen record RESULT.md complete proof and exact definitions",
+        "Frozen record verify_random_greedy.py, VERIFICATION.md, verification_output.txt inspected but not trusted as proof",
+        "Independent induced-P3 finite-state rational recursion for 5 boards, implemented separately",
+        "Independent sympy rational simplification and q->infinity limits",
+        "Rather 2026 Theorem 5.3 for prior structural classification, not accepted as proof of the random law"
+      ],
+      "rationale": "For m,n>=3, K_m x K_n is connected of diameter 2: any distinct same-row or same-column cells have a common neighbor because the other coordinate has at least 3 options. A GP violation is exactly an induced 3-vertex path, equivalently the chosen induced graph being not a disjoint union of cliques. Fix first cell. The second is same row (n-1 choices), same column (m-1), or adjacent diagonal ((m-1)(n-1)), out of mn-1 uniformly legal options. From a same-row pair, third-legal cells comprise n-2 remaining row cells and 2(m-1) crossed-column cells; analogously m-2+2(n-1) for same-column pair. From adjacent diagonal pair, third legal cells are (m-2)(n-2) pairwise new row/column cells giving a 3-clique and two crossed corners giving a rectangle. The row/column third-case forces all later choices within that row/column; 3-clique forces only unused-row and unused-column completions to a size-k rook clique; crossed 3-corners force the fourth corner and terminate. Thus probabilities p_R=(n-1)/(mn-1)*(n-2)/(n+2m-4), p_C=(m-1)/(mn-1)*(m-2)/(m+2n-4), p_M=(m-1)(n-1)/(mn-1)*(m-2)(n-2)/((m-2)(n-2)+2), p_Q=1-others. The row-column relabeling group acts transitively within each labeled terminal type; hence within-type uniformity and binomial labeled counts. Terminal PGF uses sizes (n,m,min(m,n),4), even if exponents collide, and q=3 is correctly included. For m=n=q>=4, p_Q=4(q-1)/((q+1)(3q-4))+2(q-1)/((q+1)((q-2)^2+2)), hence q*p_Q ->4/3, (q-4)*p_Q ->4/3 and (q-4)^2*p_Q(1-p_Q)/q ->4/3. At fixed m and n to infinity, p_R->1/m, p_M->(m-1)/m, and p_C,p_Q->0, giving normalized Bernoulli(1/m). Independent exact rational recursion using induced 2-edge-path tests (not the package distance verifier) computed all reachable states for 3x3 (103), 3x4 (212), 4x4 (477), 4x5 (960), 5x5 (2306) with exact agreement, and symbolic algebra checked square formula and all three limits. Those finite checks corroborate, not prove, the unrestricted statement.",
+      "residual_risks": [
+        "Finite computations do not cover arbitrary m,n; the proof via forced geometric completion does.",
+        "Graph sizes m=2 or n=2 are intentionally excluded: diameter/geodesic structure changes.",
+        "The q=4 square distribution has no size variance despite nonzero type Q probability because all four terminal types have equal size 4.",
+        "The two stochastic protocols (uniform legal at each step vs uniform random permutation scan) are not equivalent."
+      ],
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Rather gives ALL feasible GP set types for the same direct-product graphs and counts each by cardinality; all four terminal geometries and their counts are fully prior.",
+          "Di Stefano et al. determine the smallest maximal GP cardinality min{m,n,4}, and Klavzar-Yero determine largest max{m,n}."
+        ],
+        "reasoning": "The strong 2026 static polynomial fully subsumes the four-family classification but does not supply the probabilities of paths through the legal-subset graph. The new claim is restricted to exact stochastic absorption law and its limits. Recomputing the known static cardinality enumeration is not counted as original. The new stochastic law is not obtained by weighting static terminal families equally.",
+        "searches": [
+          "arXiv:2603.06930v3 Theorem 5.3 and full proof pp.20-21",
+          "arXiv:2306.09965v2 Theorem 5.4 pp.13-14",
+          "arXiv:2401.05696v1 Definition 1.1",
+          "Resultary: general position direct product complete graphs K_m K_n random game terminal rectangles uniform choice probability 4/(3n)"
+        ]
+      },
+      "checked_sources": [
+        "arXiv:2603.06930v3 Theorem 5.3 and Remark 5.4 (static direct-product general-position polynomial)",
+        "arXiv:2306.09965v2 Theorem 5.4 (min size of maximal GP subsets of direct products)",
+        "arXiv:2111.07425v1 Lemma 2.1 (legal-move game)",
+        "arXiv:2205.03526v2 introduction (adversarial avoidance game)",
+        "arXiv:2401.05696v1 Definition 1.1 (static GP polynomials)",
+        "arXiv:1906.00935v1 Proposition 3.3 (maximum GP size)",
+        "Published Resultary: Exact random-greedy maximal-independent-set law on chain graphs, RESULT.md",
+        "Published Resultary semantic matches: Sharp variance of random greedy maximal independent sets on complete multipartite graphs; Exact random-greedy independent-set law on threshold graphs; A parity correction for general-position games on complete multipartite graphs (different stochastic rule/graph/strategic objectives)."
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "Theorem 5.3: every size>=3 GP set lies in a row, column, partial matching or 2x2 rectangle.",
+          "Legal-third-move denominators n+2m-4, m+2n-4 and (m-2)(n-2)+2 are not terminal set-count denominators; the first two chosen vertices have row/column/diagonal probabilities (n-1)/(mn-1),(m-1)/(mn-1),(m-1)(n-1)/(mn-1).",
+          "The original 2021 playable-vertex lemma is general but supplies no product-specific normalized count formula; the new proof performs that count."
+        ],
+        "reasoning": "Static classification allows computing a law by extra reasoning, but is not itself an implication of the four rational probabilities from simple substitution; the random law is history-sensitive. The exact counts and limiting variance/mean involve conditional legal-extension counts absent from those cited prior statements. If a general theorem on uniform legal-growth absorption for cluster graphs exists, it could cover the result; no such stronger statement was verified.",
+        "searches": [
+          "arXiv:2603.06930v3 Theorem 5.3, proof and Remark 5.4",
+          "arXiv:2111.07425v1 Lemma 2.1",
+          "Resultary: uniform random legal vertex general position greedy sequential process on direct product of complete graphs exact stopping probabilities rows columns rectangles matchings",
+          "Resultary: general position direct product complete graphs K_m K_n random game terminal rectangles uniform choice probability 4/(3n)",
+          "Resultary: randomized maximal general position set distribution on tensor product of complete graphs"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "arXiv:2111.07425v1 Lemma 2.1 has the same addability predicate, but players select strategically rather than uniformly at random.",
+          "Published Resultary chain-graph random-greedy result uses random-priority independent-set acceptance, a different feasibility family and stochastic rule."
+        ],
+        "reasoning": "The process is a finite absorbing Markov chain on general-position subsets of the tensor/categorical product (complement-of-rook graph). Its transitions are uniform over legal extensions, not uniform among maximal sets or over a random full-vertex ordering. Adversarial general-position games and random-priority independent-set algorithms are mathematically distinct.",
+        "searches": [
+          "Resultary: uniform random legal vertex general position greedy sequential process on direct product of complete graphs exact stopping probabilities rows columns rectangles matchings",
+          "Resultary: randomize achievement avoidance game general position sets K_m tensor K_n terminal distribution",
+          "Resultary: general position direct product complete graphs K_m K_n random game terminal rectangles uniform choice probability 4/(3n)",
+          "Web: \"random greedy\" \"general position\" graph \"direct product\" 2026",
+          "Web: \"general position\" \"uniformly random\" \"legal\" vertices graph game",
+          "Web: \"general position achievement game\" \"random\" terminal"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "Rather Theorem 5.3 gives a static count, e.g. for K_3 x K_3 there are 9 distinct rectangle terminal sets among 21 maximal sets.",
+          "Independent Markov-chain exact calculation gives P(rectangle)=11/15 at 3x3, not 9/21; probability is not proportional to terminal counts.",
+          "No exact same transition-weighted probability table or previously published instance of this four-law found in targeted searches."
+        ],
+        "reasoning": "The sole closely aligned public table is the all-subset polynomial, which determines counts but not path probabilities. The available indexed mathematical findings did not reveal an identical transition kernel or table, while no claim of exhaustive database novelty follows from this absence.",
+        "searches": [
+          "Resultary: uniform random legal vertex general position greedy sequential process on direct product of complete graphs exact stopping probabilities rows columns rectangles matchings",
+          "Resultary: four terminal types general position sets random sequential legal insertion row column clique 2x2 rectangle",
+          "Resultary: randomized maximal general position set distribution on tensor product of complete graphs",
+          "Web: \"general position polynomial\" random greedy complete direct product",
+          "Web: \"uniform random\" \"general position set\" graph sequential",
+          "Published Resultary records searched semantically for four-category K_m x K_n random terminal probabilities and asymptotic p_Q ~ 4/(3n)"
+        ]
+      },
+      "rationale": "Best-of-knowledge: The same-graph complete feasible-set classification and polynomial are known (Rather Theorem 5.3), as are scalar extreme cardinalities and adversarial playable-vertex rules. However the stated transition kernel chooses uniformly among currently addable GP vertices; none of the inspected prior statements yields the exact type absorption probabilities, terminal-size PGF, or contrasting balanced/asymmetric random-process limits without an additional history-sensitive argument. Multiple targeted primary and published-record searches revealed no exact stochastic coverage, but negative search is not proof of priority.",
+      "residual_risks": [
+        "A pre-2026 random maximal general-position process may be indexed under absorbing random growth, random saturation, graph geodesic games, or categorical graph products; searches cannot certify priority exhaustively.",
+        "Rather 2026 Theorem 5.3 independently classifies all four GP set families. Only the legal-choice transition-weighted law, labels and asymptotics are assessed as novel, not static terminal shapes.",
+        "An abstract general finite-state absorbing-chain formula could of course evaluate this process after enumerating states; no inspected theorem gives the claimed closed parameters without substantive specialization.",
+        "Uniform legal-choice growth must not be confused with random-priority greedy scanning; no statement is made for the latter.",
+        "Search snippets alone were not interpreted as evidence that full uninspected papers lack results."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Corrected polynomial and four GP subset types are prior results. The theorem counts static sets and classifies possible sets; it does not assign random sequential legal-move transition probabilities or absorption times. Its structural proof is a major prerequisite but does not itself state the proposed distribution.",
+          "evidence": [
+            "Theorem 5.3, pp.20-21: row, column, partial matching, 2x2 rectangle subset counts; Remark 5.4 and Example 5.5, pp.21-22: correction to older polynomial."
+          ],
+          "identifier_or_url": "Bilal Ahmad Rather, arXiv:2603.06930v3, https://arxiv.org/pdf/2603.06930",
+          "material_read": "Paper introduction and Theorem 5.3 statement/proof, pp.20-22 including full-page screenshots of pp.20-21, Remark 5.4 and examples.",
+          "method": "Primary arXiv open full text with PDF page inspection and on-page theorem comparison.",
+          "title": "Explicit Formulas and Unimodality Phenomena for General Position Polynomials",
+          "trigger": "Exact same graph K_m x K_n and all four classes of general-position vertex sets; strongest prior coverage candidate."
+        },
+        {
+          "assessment": "Proves the minimum size min{m,n,4} among maximal GP sets and constructs row, clique, rectangle examples. No uniform legal-choice terminal type probabilities or distributional asymptotics in those results.",
+          "evidence": [
+            "Theorem 5.4, printed pp.13-14: lower general-position number of K_r x K_s and proof using maximal row/clique/rectangle configurations."
+          ],
+          "identifier_or_url": "Di Stefano, Klavzar, Krishnakumar, Tuite, Yero, arXiv:2306.09965v2, https://arxiv.org/pdf/2306.09965",
+          "material_read": "Introduction, Theorem 5.4 and proof in Section 5, PDF pp.12-14, including screenshot of the direct-product proof.",
+          "method": "ArXiv primary PDF text and page-image inspection.",
+          "title": "Lower General Position Sets in Graphs",
+          "trigger": "Same direct products and maximal general-position families, with sharp minimum terminal size."
+        },
+        {
+          "assessment": "Defines playable moves and studies adversarial alternating decisions. The transition probabilities of uniformly choosing among legal vertices on the tensor product are not supplied by the inspected theorem/sections.",
+          "evidence": [
+            "Lemma 2.1, PDF p.3: exact playable-vertex criterion; abstract and Sections 3-4 describe optimal play on other graph products."
+          ],
+          "identifier_or_url": "Klavzar, Neethu P. K., Chandran, arXiv:2111.07425v1, https://arxiv.org/pdf/2111.07425",
+          "material_read": "Abstract, introduction, Lemma 2.1 and its proof, sections summary and representative results on adversarial Cartesian/lexicographic products; PDF page screenshot.",
+          "method": "ArXiv primary PDF text plus page-image inspection.",
+          "title": "The general position achievement game played on graphs",
+          "trigger": "Direct origin of legal-playable-vertex notion for general-position game."
+        },
+        {
+          "assessment": "Compares adversarial game winners, complexity and rook/grid strategy classes; no exact uniformly random legal-move absorption law in the inspected material. The uninspected remaining sections are not asserted wholly negative.",
+          "evidence": [
+            "Abstract, pp.1-2: PSPACE complexity and linear-time winner algorithms for adversarial avoidance game."
+          ],
+          "identifier_or_url": "Chandran, Klavzar, Neethu P. K., Sampaio, arXiv:2205.03526v2, https://arxiv.org/pdf/2205.03526",
+          "material_read": "Abstract, pp.1-2 and introduction explaining achievement/avoidance strategies, complexity, and products.",
+          "method": "ArXiv primary PDF text and inspected page image.",
+          "title": "The general position avoidance game and hardness of general position games",
+          "trigger": "Other major same-game primary paper, possible randomized variant or stronger result."
+        },
+        {
+          "assessment": "Defines static all-subset counts and product polynomials; probabilities depend on legal history, which the polynomial coefficients alone do not encode.",
+          "evidence": [
+            "Definition 1.1 and Proposition 2.2, printed pp.2-3: general-position set cardinality polynomial and inclusion-exclusion."
+          ],
+          "identifier_or_url": "Irsic, Klavzar, Rus, Tuite, arXiv:2401.05696v1, https://arxiv.org/pdf/2401.05696",
+          "material_read": "Abstract, definition 1.1 and introductory sections 1-2, page image of proposition 2.1 and 2.2.",
+          "method": "Primary OA PDF text/page image.",
+          "title": "General Position Polynomials",
+          "trigger": "Precursor general GP-set enumerator could entail the proposed law."
+        },
+        {
+          "assessment": "Proves largest general-position cardinality max{m,n} for m,n>=3; does not calculate random maximal terminal distribution.",
+          "evidence": [
+            "Proposition 3.3, printed p.5, determines gp(K_m x K_n)=max{m,n}."
+          ],
+          "identifier_or_url": "Klavzar, Yero, arXiv:1906.00935v1, https://arxiv.org/pdf/1906.00935",
+          "material_read": "Abstract, introduction and Proposition 3.3 with proof, printed pp.4-5 and page screenshot.",
+          "method": "ArXiv primary full-text excerpts and inspected page image.",
+          "title": "The general position problem and strong resolving graphs",
+          "trigger": "Earlier direct product extreme gp numbers, possible domination of terminal law."
+        },
+        {
+          "assessment": "Concerns random-permutation greedy independent sets in bipartite chain graphs, not a geodesic-free legal-set growth process on direct products. Neither object nor transition rule reduces to the claimed one.",
+          "evidence": [
+            "Published Finding/Assumptions state random-order scan/accept of an independent set; probability factors through Ferrers neighborhoods."
+          ],
+          "identifier_or_url": "Published Resultary record 2026/10/4/SCOPE-exact-random-greedy-maximal-independent-set-law-on-chain-graphs--36fe61ce32de, https://github.com/Resultary/2026/tree/main/2026/10/4/SCOPE-exact-random-greedy-maximal-independent-set-law-on-chain-graphs--36fe61ce32de",
+          "material_read": "Complete published RESULT.md finding, assumptions, recurrence proof, finite verifier and limitations.",
+          "method": "Pinned public GitHub record read through authorized GitHub connector.",
+          "title": "Exact random-greedy maximal-independent-set law on chain graphs",
+          "trigger": "Closest published random-greedy complete distribution theorem returned by semantic index."
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "checked_sources": [
+        "Klavzar et al. 2021 achievement-game formulation",
+        "Rather 2026 static polynomial and four GP-set classes",
+        "Independent exact law and asymptotic derivation in reviewed RESULT.md"
+      ],
+      "rationale": "A uniform random legal-move analogue of the established general-position achievement game is a natural random saturation process. For every K_m x K_n with m,n>=3, the exact terminal-type probabilities identify an infinite-family output distribution not determined by the static maximal-set inventory, and reveal a non-obvious asymptotic contrast: on qxq boards P(short terminal rectangle)~4/(3q) yet mean size loss tends to 4/3 and variance grows ~4q/3; at fixed width the normalized size tends to a nondegenerate Bernoulli(1/m). The exact finite-board probability generating function supplies all moments and per-labeled-terminal-set probabilities. This is motivated stochastic-combinatorial structural information rather than a table recomputation or unmotivated tiny instance.",
+      "residual_risks": [
+        "The result is specialized to two complete-graph factors and does not solve general random GP saturation on arbitrary graphs.",
+        "No universality across random-priority or adversarial processes is established.",
+        "Not a general theorem about maximal-set uniform sampling."
+      ],
+      "status": "PASS"
+    }
+  },
+  "checked_sources": [
+    "arXiv:2603.06930v3 Theorem 5.3 and Remark 5.4 (static direct-product general-position polynomial)",
+    "arXiv:2306.09965v2 Theorem 5.4 (min size of maximal GP subsets of direct products)",
+    "arXiv:2111.07425v1 Lemma 2.1 (legal-move game)",
+    "arXiv:2205.03526v2 introduction (adversarial avoidance game)",
+    "arXiv:2401.05696v1 Definition 1.1 (static GP polynomials)",
+    "arXiv:1906.00935v1 Proposition 3.3 (maximum GP size)",
+    "Published Resultary: Exact random-greedy maximal-independent-set law on chain graphs, RESULT.md",
+    "Published Resultary semantic matches: Sharp variance of random greedy maximal independent sets on complete multipartite graphs; Exact random-greedy independent-set law on threshold graphs; A parity correction for general-position games on complete multipartite graphs (different stochastic rule/graph/strategic objectives)."
+  ],
+  "disposition": "passed",
+  "schema_version": 1,
+  "scientific_limitations": [
+    "One completed best-of-knowledge C/O/V review, not an external formal certificate.",
+    "No claim outside m,n>=3, no fixed-priority stochastic law, no general adversarial strategy.",
+    "Prior static GP-set classification is attributed and not counted as novel."
+  ]
+}
