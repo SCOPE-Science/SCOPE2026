@@ -1,0 +1,117 @@
+{
+  "audit_date_utc": "2026-10-27",
+  "audited_at_utc": "2026-10-27T21:47:06.474525Z",
+  "axes": {
+    "correctness": {
+      "checked_sources": [
+        "https://github.com/SCOPE-Science/SCOPE2026/tree/6d72467f12de6d5dbde32d9e5fdf796d2ee820b5/2026/10/25/exact-fibonacci-state-cycle-census-modulo-powers-of-five--08749bd4e3a6/RESULT.md",
+        "https://github.com/SCOPE-Science/SCOPE2026/tree/6d72467f12de6d5dbde32d9e5fdf796d2ee820b5/2026/10/25/exact-fibonacci-state-cycle-census-modulo-powers-of-five--08749bd4e3a6/verify.py"
+      ],
+      "rationale": "PASS: Direct multiplication confirms B=Q^4-I=[[1,3],[3,4]], B²=5(B+I), det B=-5, and C1=(Q^20-I)/5=[[836,1353],[1353,2189]], det C1=-605. The fifth-power lifting recurrence preserves C_j mod25 for j>=1, hence C_j has a 5-adic unit entry and determinant valuation exactly one. Smith valuations of Q^(4*5^j)-I are (j,j+1), yielding fixed-point kernel 5^(min(j,k)+min(j+1,k)). Mod5 the sole eigenvalue 3 has multiplicative order 4, so positive periods of nonzero vectors are divisible by 4; every period divides 4*5^k. Differencing nested fixed sets gives exact disjoint lengths and multiplicities. Independently reconstructed and exhaustively enumerated all 5^(2k) states for k=1,2,3 and confirmed predicted orbit histograms; source verifier covers through k=4. Computations corroborate rather than establish the infinite lifting.",
+      "residual_risks": [
+        "Any finite computation is corroboration only; unrestricted statement depends on the stated structural proof."
+      ],
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Coleman et al., Fibonacci Quarterly 44 (2006), Theorem 7 gives sum_{d} d*c_d(m)=m²; Proposition 4 finds one four-cycle when 5 divides modulus."
+        ],
+        "reasoning": "The general counting identity only accounts for total states and a special cycle and cannot force the prime-five Smith valuation increments. A 5-adic normal-form theorem could cover this but was not found in the inspected primary material.",
+        "searches": [
+          "Coleman Dugan McEwen Reiter Tang 2006 Periods q r Fibonacci Sequences Theorem 7",
+          "Resultary Fibonacci recurrence modulo five powers cycle length count number of cycles matrix Smith valuations"
+        ]
+      },
+      "checked_sources": [
+        "Frozen RESULT.md verify.py; independently enumerated k1,2,3",
+        "OEIS A015134 archived conjecture",
+        "Coleman et al. 2006 author full text",
+        "Resultary Fibonacci five-power orbit query and closest distinct entries"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "Class equation gives a weighted sum but leaves individual cycle counts undetermined.",
+          "Exact f_j(k)=5^(min(j,k)+min(j+1,k)) is the essential new calculation."
+        ],
+        "reasoning": "Published general fixed-cycle identities do not imply the complete 5-adic census without the Smith local calculation; the claimed result implies the archival conjectured total, not conversely.",
+        "searches": [
+          "Coleman et al. 2006 Prop4 Thm7",
+          "OEIS A015134 2023 conjecture",
+          "Resultary Fibonacci recurrence modulo five powers cycle length count number of cycles matrix Smith valuations"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "OEIS A015134 counts exactly cycles of the binary Fibonacci recurrence on ordered seed pairs, not a single Pisano period.",
+          "Q acts invertibly on (Z/5^k)^2 since det(Q)=-1."
+        ],
+        "reasoning": "The matrix-permutation and seed-pair sequence formulations are equivalent; the claim determines every orbit length, not merely total. The searched archived conjecture concerns the same total.",
+        "searches": [
+          "Resultary Fibonacci recurrence modulo five powers cycle length count number of cycles matrix Smith valuations",
+          "OEIS A015134 Fibonacci-type sequences cycles modulo 5^n",
+          "Fibonacci Q-matrix full state orbits modulo 5^k"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "OEIS A015134 explicitly labels a(5^n)=(5^n+1)/2 a conjecture, not proved there.",
+          "Own independent k=1..3 orbit histograms match; k=4 verified by package script."
+        ],
+        "reasoning": "An OEIS list of finitely many terms and a conjecture does not constitute a complete proof, nor does the total sequence specify the full period histogram.",
+        "searches": [
+          "OEIS A015134 (5^n+1)/2 conjecture Bartell August 2023",
+          "OEIS: A015134 exact cycle sequence"
+        ]
+      },
+      "rationale": "On the inspected primary sources and independent comparison, the specified new exact evaluation/classification is not supplied by a stronger known theorem; scope and residual priority limitations are stated explicitly. The matrix-permutation and seed-pair sequence formulations are equivalent; the claim determines every orbit length, not merely total. The searched archived conjecture concerns the same total. Published general fixed-cycle identities do not imply the complete 5-adic census without the Smith local calculation; the claimed result implies the archival conjectured total, not conversely.",
+      "residual_risks": [
+        "Other older matrix-Q 5-adic Smith-form literature may imply the histogram under a different naming convention.",
+        "Finite exhaustive k<=4 checks do not prove all k; local lifting proof is needed."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Powers-of-five expression labeled a conjecture by S. Bartell (2023), not a proof",
+          "evidence": "Explicit a(5^n)=(5^n+1)/2 conjecture in the database entry.",
+          "identifier_or_url": "https://oeis.org/A015134",
+          "material_read": "Entry comments, formula information and historical conjecture attribution",
+          "method": "Full publicly accessible database entry",
+          "title": "A015134 — Number of cyclic classes of Fibonacci sequences modulo n",
+          "trigger": "Direct exact total and conjecture"
+        },
+        {
+          "assessment": "Contains general class equation and a four-cycle but no inspected 5-adic Smith histograms",
+          "evidence": "Proposition4 and Theorem7 of the 2006 article; 21-page PDF accessible.",
+          "identifier_or_url": "https://webbox.lafayette.edu/~reiterc/nt/qr_fib_ec_preprint.pdf",
+          "material_read": "Full PDF downloaded; material read includes Proposition 4, Theorem 7, proof and surrounding sections",
+          "method": "Legally available author preprint PDF, extracted text and page-image inspection",
+          "title": "Periods of (q,r)-Fibonacci Sequences and Elliptic Curves",
+          "trigger": "Closest same-recursion general seed-cycle theorem"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "checked_sources": [
+        "Frozen RESULT.md verify.py; independently enumerated k1,2,3",
+        "OEIS A015134 archived conjecture",
+        "Coleman et al. 2006 author full text",
+        "Resultary Fibonacci five-power orbit query and closest distinct entries"
+      ],
+      "rationale": "PASS: Resolves a specific explicitly indexed Fibonacci-cycle conjecture and gives a stronger complete period-resolved orbit census for an infinite prime-power family. General cycle-count class equations and ordinary single-seed Pisano periods do not give all seed-state orbit multiplicities.",
+      "residual_risks": [
+        "Other older matrix-Q 5-adic Smith-form literature may imply the histogram under a different naming convention.",
+        "Finite exhaustive k<=4 checks do not prove all k; local lifting proof is needed."
+      ],
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "final_claim": "For every k>=1, Fibonacci state permutation Q mod 5^k has one cycle of length 1, one of length 4, 6*5^(j-1) cycles of length 4*5^j for 1<=j<k, 5^(k-1) cycles of length 4*5^k, no others, and (5^k+1)/2 cycles in total; k=0 is one fixed state.",
+  "limitations": [
+    "Other older matrix-Q 5-adic Smith-form literature may imply the histogram under a different naming convention.",
+    "Finite exhaustive k<=4 checks do not prove all k; local lifting proof is needed."
+  ],
+  "schema_version": 1
+}
