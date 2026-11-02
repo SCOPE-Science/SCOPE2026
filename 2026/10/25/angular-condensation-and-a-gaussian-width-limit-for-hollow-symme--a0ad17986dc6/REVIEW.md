@@ -1,19 +1,21 @@
-# Review of the Monge-simplex angular condensation theorem
+# Independent mathematical audit
 
-## Correctness
-**PASS.** The dimension, Frobenius normalization and corner-block vertex coordinates are specified explicitly. The exact Gaussian support identity is a direct entrywise calculation from the established vertices; projection to the intrinsic tangent space changes every support value by the same additive scalar. The triangular Gaussian coupling is an actual bijection of orthonormal matrix coordinates, not a heuristic independence assumption. The countable Gaussian-tail sum and Borel--Cantelli prove that rectangle averages vanish at large indices. Classical one-dimensional Gaussian random-walk oscillation guarantees a positive maximum and negative minimum, and the nondegenerate differences guarantee unique optimizing pairs. The resulting eventual stabilization is literal in the coupling. Sample strong laws give the precise spherical normalization; Gaussian radial independence and the gamma moment formula prove convergence of all positive width moments. Conditioning on the Gaussian corner entry proves the exact persistent-angle formula. The monotonicity and strictness arguments compare nested actual competitors.
+## correctness
 
-The finite checker corroborates 576 Gaussian support identities, projections and spherical widths. Its 4,800 cutoff simulations are diagnostics only, not proofs of the infinite statements. No external or independent mathematical audit has been performed.
+PASS
 
-## Originality
-**PASS, with residual literature risk.** The closest primary source is Erickson--Kretschmann, arXiv:2311.07522v2, whose Section 4 establishes vertex/simplex structure, normalized volume and the metric face of the *same* hollow symmetric Monge polytope. These results supply necessary inputs but do not give the almost-sure Gaussian width limit, all-moment convergence, stabilization of exposure indices or a positive limiting spherical normal-cone angle. The related indexed result on the Euclidean inradius of the **nonsymmetric** square Monge polytope studies a different metric functional. The previous result concerning two-row nonsymmetric Monge polytopes concerns a growing-Gumbel vertex family and a rare-vertex mean-width correction, not the countable anchored-rectangle limit of the hollow symmetric family. The closest indexed simplex cone result concerns a regular simplex and conic intrinsic volumes, not persistent vertex exposure of these irregular simplices. The later Erickson--Jones paper (arXiv:2609.09508v1) analyzes normalized volume and Ehrhart series for the generic nonsymmetric Monge polytope, a different invariant and embedding.
+The established vertex coordinates give Gaussian supports Z_ab/sqrt(2) for iid corner-entry normals and an exact width identity R_n/(sqrt(2)||G_n^circ||). For any epsilon the Gaussian tail sum over all a,b is finite, so Z_ab tends uniformly to 0 at large a+b a.s.; the first-row random walk oscillates in both signs, giving attained unique nonzero extrema and eventual exact stability. Projection changes support scores by a common scalar. In dimension n(n-1)/2-1, the projected chi norm divided by n tends to 1/sqrt(2) a.s.; polar independence and gamma moments give all positive-moment limits. Conditioning on xi_11 gives E[1-Phi(T)] and strict angle decrease from independent added competitors. Independently reconstructed all block vertices and support/Frobenius identities in n=3..10, 8 independent arrays per n. The random finite checks do not prove the infinite index claims.
 
-Searches covered hollow symmetric Monge widths and angles, anchored Gaussian rectangle averages, corner supports, competing equivalent formulations and broader Gaussian-width theorems. They did not identify a covering theorem. Searching cannot certify global novelty: a probabilistic treatment of the same infinite Gaussian supremum, or an unindexed treatment of this polytope's angular cones, could reduce the original contribution. The risk is recorded rather than concealed.
+## originality
 
-## Mathematical value
-**PASS.** The work is motivated by a natural established family of cost-matrix simplices and the geometric distinction between their metric face and remaining vertices. It determines a non-Gaussian limiting random-width law at the exact dimensional scale, proves all positive moment limits, and identifies an unexpected angular localization: the exposed labels eventually stabilize although the simplex gains quadratically many vertices. The strictly positive limiting normal-cone mass of the smallest corner block sharply contrasts with regular simplices, for which every individual angle tends to zero. These structural facts are not mere rewordings of the source's combinatorial vertex count or volume formula. No downstream theorem or numerical closed constant is claimed.
+PASS
 
-## Scope and risks
-The proof applies only to symmetric hollow normalized Monge matrices with Frobenius metric and intrinsic random directions. It relies on classical Gaussian laws, not unverified finite simulation extrapolation. The limiting width distribution and corner angle are characterized by explicit, reproducible Gaussian functionals but are not evaluated in elementary constants. An unindexed equivalent treatment is possible; independent validation remains outstanding.
+Erickson and Kretschmann established the corner-block vertex parametrization and simplex structure, not this Gaussian directional-width law and eventual exposing-vertex stabilization. Erickson and Jones study another Monge setting and volume/Ehrhart. The stochastic Gaussian range and persistent individual normal-cone mass are the additional claims; originality is qualified by possibility of a prior rectangle-average Gaussian extreme result.
 
-Self-review: passed. Independent audit: not yet performed.
+## value
+
+PASS
+
+A canonical high-dimensional convex-body metric invariant has a non-Gaussian limiting distribution, full positive-moment convergence, localization to finitely indexed exposing vertices and persistent corner solid-angle mass even as the vertex count diverges quadratically. The fixed Frobenius realization is mathematically motivated by the original Monge matrix model; these are genuine stochastic convex-geometric invariants, not a renaming of volume.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

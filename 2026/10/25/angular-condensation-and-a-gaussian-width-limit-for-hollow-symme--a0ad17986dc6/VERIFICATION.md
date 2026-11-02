@@ -5,8 +5,11 @@
     "status": "not_performed"
   },
   "independent_audit": {
-    "evidence": null,
-    "status": "not_performed"
+    "status": "passed",
+    "evidence": [
+      "INDEPENDENT_AUDIT_2026-10-27.md",
+      "INDEPENDENT_AUDIT_2026-10-27.json"
+    ]
   },
   "lean_verification": {
     "evidence": null,
@@ -16,15 +19,24 @@
 }
 ---
 
-# Verification and reproducibility
+# Independent mathematical audit
 
-The proof is self-contained after the explicitly cited vertex classification for hollow symmetric Monge polytopes and standard Gaussian probability theorems. The relevant mathematical checks are:
+## correctness
 
-1. **Finite geometry:** For each \(n\ge3\), there are \(n(n-1)/2\) normalized corner-block vertices, each supported on two disjoint transposed rectangles. The Frobenius-orthonormal Gaussian coordinate of each off-diagonal pair appears once in the support score and has coefficient \(1/(\sqrt2\,ab)\).
-2. **Intrinsic normalization:** The tangent space has dimension \(n(n-1)/2-1\), and removing the all-ones off-diagonal component changes every vertex score by an identical scalar, preserving width and maximizing vertex. The squared Gaussian tangent norm equals the coordinate sum of squares minus the squared coordinate sum divided by the coordinate count.
-3. **Infinite limit:** The summable bound \(\sum_{a,b}\exp(-\varepsilon^2ab/2)<\infty\) proves decay of every sufficiently distant Gaussian rectangle average. Positive and negative finite extrema and pairwise nondegenerate score differences ensure unique eventually stable maximizing and minimizing index pairs.
-4. **Moments and angles:** The gamma-function chi moment identity and monotone convergence give all positive moments. Conditioning on the single independent \((1,1)\) Gaussian coefficient gives the exact limiting normal-cone probability as an expectation of a normal tail.
+PASS
 
-`CHECK.py` is an ordinary NumPy test script, not a machine-verified infinite proof. Run `python CHECK.py`. With the included fixed seed it passed 576 direct Frobenius Gaussian support/width comparisons across dimensions 3--10, and performed 4,800 diagnostics with triangular cutoff 95 of the limiting anchored-rectangle field. The finite cutoff diagnostic found mean range 1.473515 and 0.214583 as the fraction of samples exposing the \((1,1)\) maximum. These sample statistics are not claimed as exact mathematical constants or rigorous bounds.
+The established vertex coordinates give Gaussian supports Z_ab/sqrt(2) for iid corner-entry normals and an exact width identity R_n/(sqrt(2)||G_n^circ||). For any epsilon the Gaussian tail sum over all a,b is finite, so Z_ab tends uniformly to 0 at large a+b a.s.; the first-row random walk oscillates in both signs, giving attained unique nonzero extrema and eventual exact stability. Projection changes support scores by a common scalar. In dimension n(n-1)/2-1, the projected chi norm divided by n tends to 1/sqrt(2) a.s.; polar independence and gamma moments give all positive-moment limits. Conditioning on xi_11 gives E[1-Phi(T)] and strict angle decrease from independent added competitors. Independently reconstructed all block vertices and support/Frobenius identities in n=3..10, 8 independent arrays per n. The random finite checks do not prove the infinite index claims.
 
-No independent mathematical audit or independent validation has been carried out. Residual risks include incomplete bibliographic coverage of Gaussian-array extrema and the absence of a closed expression for the full limiting law.
+## originality
+
+PASS
+
+Erickson and Kretschmann established the corner-block vertex parametrization and simplex structure, not this Gaussian directional-width law and eventual exposing-vertex stabilization. Erickson and Jones study another Monge setting and volume/Ehrhart. The stochastic Gaussian range and persistent individual normal-cone mass are the additional claims; originality is qualified by possibility of a prior rectangle-average Gaussian extreme result.
+
+## value
+
+PASS
+
+A canonical high-dimensional convex-body metric invariant has a non-Gaussian limiting distribution, full positive-moment convergence, localization to finitely indexed exposing vertices and persistent corner solid-angle mass even as the vertex count diverges quadratically. The fixed Frobenius realization is mathematically motivated by the original Monge matrix model; these are genuine stochastic convex-geometric invariants, not a renaming of volume.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
