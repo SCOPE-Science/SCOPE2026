@@ -1,0 +1,124 @@
+{
+  "correctness": {
+    "rationale": "The 35 possible weight-three words, 595 distinct-word pairs, and 630 forbidden four-word integer-sum collision constraints are regenerated without imported tables. The exact six-vertex C4-free link bound of 7 is independently exhaustively verified over 32768 graphs; the two-way inclusion/exclusion branching omits no feasible completion and proves no 15-word codebook exists (242909 states) and exactly 48 valid 14-word codebooks contain a fixed triple (432937 states). Every such optimum has double-Fano pair incidence. A 14-word cyclic witness is independently verified; the orbit has 120 codebooks, equal to 35*48/14. Both standalone verifier programs were compiled/executed successfully.",
+    "status": "PASS"
+  },
+  "independent": false,
+  "independent_audit_status": "not_performed",
+  "originality": {
+    "broader_coverage": {
+      "evidence": [
+        "Sima et al. 2023 discuss constant-weight B2 sequences, their information-theoretic bounds and code constructions at general lengths; inspected text does not supply a seven-coordinate weight-three optimizer census.",
+        "Della Fiore–Dalai 2022 concerns general 2-separable and B2 codes; accessible abstract does not establish the precise fixed-weight 7,3 value."
+      ],
+      "reasoning": "A stronger general bound or structure theorem could subsume this finite case, but no reviewed primary theorem with quantitative n=7,w=3 specialization gives the capacity 14 and unique orbit. General definitions and asymptotics do not by themselves imply exact finite classification.",
+      "searches": [
+        "constant weight binary B2 sequences exact n 7 weight 3 maximum 14 polymer mass spectrometry",
+        "weight 3 binary Sidon code exact length 6 7 8",
+        "B2 code on 7 coordinates constant Hamming weight 3 14 codewords 120 optimum double Fano",
+        "Sima et al. arxiv:2303.12990 full text"
+      ]
+    },
+    "checked_sources": [
+      "arxiv:2303.12990",
+      "doi:10.26493/2590-9770.1239.e1f",
+      "doi:10.1016/j.disc.2021.112751",
+      "2026/9/20/SCOPE-exact-weight-three-two-cover-free-families--c72f7a3b70a2",
+      "2026/10/4/SCOPE-exact-order-ten-3-union-free-triple-systems--477f2f89e8b5",
+      "2026/10/4/SCOPE-exact-binary-two-multispectrum-code-size-and-singleton-classific--13779c08da71",
+      "2026/10/4/SCOPE-the-binary-2-read-7-5-optimum-is-8--c1d6495a2bda"
+    ],
+    "claim_vs_prior_implication": {
+      "evidence": [
+        "2018 Meszka–Rosa: 120 simple double Fano planes, single isomorphism class; does not optimize pairwise distinct integer sums.",
+        "2023 Sima et al.: general B2 constant-weight code model and bounds; does not specialize to a sharp seven-coordinate/weight-three characterization.",
+        "published-finding corpus weight-three 2-cover-free result has a union-avoidance condition, not equal-sum avoidance."
+      ],
+      "reasoning": "Meszka–Rosa determines a design family, but gives no upper bound over all 35 triple incidence vectors subject to B2. Sima et al. supply the coding setting but reviewed results do not determine the exact maximum 14 or all 120 maximizers. The current computation bridges these distinct hypotheses with a reproducible complete exclusion proof.",
+      "searches": [
+        "Sima et al. arXiv:2303.12990 definitions/bounds/constructions",
+        "Meszka and Rosa 2018 uniqueness, count, reaction graphs",
+        "Sidon subset of 3-subsets of 7 points incidence vectors unique sums of two triples",
+        "2-separable constant weight three binary length seven Sidon packing double Fano plane"
+      ]
+    },
+    "equivalent_formulations": {
+      "evidence": [
+        "The 2018 design article studies 2-(7,3,2) block designs and their reaction graphs, not distinct pair sums of incidence vectors.",
+        "Published published-finding corpus result SCOPE-exact-weight-three-two-cover-free-families--c72f7a3b70a2 concerns 2-cover-free triple hypergraphs, whose union-free implication is different from unique coordinatewise sums."
+      ],
+      "reasoning": "B2 on distinct unordered input pairs concerns equality of sums of 0-1 incidence vectors, equivalently four-block balanced pair trades. Double Fano is an incidence-balance design. Neither property formally entails the other solely from parameter equalities; the new finite proof determines the optimizer correspondence.",
+      "searches": [
+        "binary ternary uniform subset Sidon family 3 sets on 7 vertices 14",
+        "two-fold Steiner triple system double Fano plane Sidon pair sums distinct 2023",
+        "Sidon subset of 3-subsets of 7 points incidence vectors unique sums of two triples",
+        "2-separable constant weight three binary length seven Sidon packing double Fano plane",
+        "integer sum free pairs of triple incidence vectors maximum 14 7 points 2-(7,3,2)",
+        "Meszka–Rosa 2018 full text: Sidon, codebook, integer sum"
+      ]
+    },
+    "exact_database_or_table": {
+      "evidence": [
+        "Meszka–Rosa 2018 explicitly counts 120 labeled simple double Fano designs and their automorphism order 42. These numerical design facts are prior art, not newly claimed.",
+        "No matching published exact 7,3 B2 code table surfaced from published-finding corpus or checked open literature."
+      ],
+      "reasoning": "The known double-Fano census could cover the count only after a valid implication from B2 optimality to the design class. That implication and the sharp B2 upper bound are separately established by the new exhaustive finite certificate.",
+      "searches": [
+        "maximum binary constant weight 3 B2 code length 7 double Fano plane 14 codewords unique 120 designs",
+        "B2 code on 7 coordinates constant Hamming weight 3 14 codewords 120 optimum double Fano",
+        "integer sum free pairs of triple incidence vectors maximum 14 7 points 2-(7,3,2)",
+        "Meszka and Rosa 2018 table of double Fano planes"
+      ]
+    },
+    "rationale": "The earliest relevant primary paper, Meszka–Rosa (2018), already proves the uniqueness and labeled count 120 of double Fano planes but does not assert their equivalence to optimal integer-sum B2 codebooks. Sima–Li–Shomorony–Milenkovic arXiv:2303.12990 (2023) defines constant-weight binary B2 sequences and studies broad bounds and constructions without the exact seven-coordinate weight-three optimum in inspected full text. published-finding corpus searches for B2, Sidon triples, 14, 120, double Fano and equivalent sum-language returned only non-implicative objects. The novel assertion is the exact optimal-B2/double-Fano correspondence, not the previously published design count. A same-result formulation in unindexed sources remains possible.",
+    "residual_risks": [
+      "An unindexed B2 or 2-separable code table may independently identify the 7,3 optimum.",
+      "Full paper of Della Fiore and Dalai (2022) was not inspected; only its accessible abstract was read.",
+      "The 120 double Fano plane count and uniqueness are established earlier and are not novel independently."
+    ],
+    "source_inspections": [
+      {
+        "assessment": "Not known to cover exact (n,w)=(7,3) maximum and complete orbit count.",
+        "evidence": [
+          "Definitions in opening section and general bound/construction sections; no seven-coordinate weight-three census in inspected text."
+        ],
+        "identifier_or_url": "https://arxiv.org/abs/2303.12990",
+        "material_read": "Open full arXiv HTML, including definitions, main entropy bounds, constructions and appendix.",
+        "method": "Manual theorem/parameter comparison across article text, not title-only comparison.",
+        "title": "On Constant-Weight Binary B2-Sequences",
+        "trigger": "Same code model, constant-weight binary Sidon-like pair sums."
+      },
+      {
+        "assessment": "Covers known design uniqueness and 120 count, not the B2 upper bound or equivalence; that prior coverage is explicitly attributed.",
+        "evidence": [
+          "The 2018 article establishes a unique simple 2-(7,3,2) type with automorphism order 42 and 120 labeled designs."
+        ],
+        "identifier_or_url": "https://doi.org/10.26493/2590-9770.1239.e1f",
+        "material_read": "Accessible open article text covering definitions, simple double-Fano isomorphism and labeled counting, and subsequent reaction-graph discussion.",
+        "method": "Compared asserted design facts and the different B2 pair-sum condition; checked for code/Sidon/sum terminology.",
+        "title": "Reaction graphs of double Fano planes",
+        "trigger": "The optimizer is a double Fano plane; crucial possibility of already-known classification."
+      },
+      {
+        "assessment": "Material inspected insufficient to exclude unindexed exact seven-coordinate example.",
+        "evidence": [
+          "Abstract describes general B2/2-separable coding bounds; no exact (7,3) claim visible in accessible abstract."
+        ],
+        "identifier_or_url": "https://doi.org/10.1016/j.disc.2021.112751",
+        "material_read": "Bibliographic abstract only; complete manuscript was not available in inspected sources.",
+        "method": "Abstract/metadata comparison, with no full-text negative coverage inference.",
+        "title": "A note on 2-separable codes and B2 codes",
+        "trigger": "General 2-separable/B2 notion may contain stronger bound."
+      }
+    ],
+    "status": "PASS"
+  },
+  "review_type": "self_review",
+  "schema_version": 1,
+  "scope_run_id": "9a82a99f-64ac-4384-9ed4-70576d339a21",
+  "self_review_status": "passed",
+  "value": {
+    "rationale": "The integer pair-sum uniqueness condition models recovery of two distinct sparse binary words from an additive observation. Seven coordinates and three markers are a natural incidence-design boundary, not an arbitrary normalization: the complete optimum is exactly a double Fano plane, with all 120 labeled optimal designs classified. This supplies exact capacity, constructions, symmetry and an exhaustive obstruction; merely reproving the known 120 design count is not presented as value.",
+    "status": "PASS"
+  }
+}
