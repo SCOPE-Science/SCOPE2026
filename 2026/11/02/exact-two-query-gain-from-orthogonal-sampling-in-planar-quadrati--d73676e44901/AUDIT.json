@@ -1,0 +1,134 @@
+{
+  "correctness": {
+    "rationale": "Whitening converts exact line minimization into rank-one orthogonal projection. Uniform-angle moments give the independent two-step diagonal matrix. A rational partial-fraction integral and an elementary elliptic-angle integral give the paired diagonal matrix, an exact scalar multiple for all r>1; isotropy r=1 is handled separately. Symbolic identities and 50-digit independent angular quadrature reproduce the formulas. No empirical test is promoted to an infinite proof.",
+    "status": "PASS"
+  },
+  "independent": false,
+  "independent_audit_status": "not_performed",
+  "limitations": [
+    "Real dimension exactly two",
+    "Exact sequential minimization on a fixed SPD quadratic",
+    "Uniform spherical marginals, paired via a Haar orthonormal frame in one scheme",
+    "No higher dimensional, nonquadratic, stochastic dominance, or multi-epoch assertion"
+  ],
+  "originality": {
+    "broader_coverage": {
+      "evidence": [
+        "arxiv:2107.03941 pp. 2–4 uses projected gradient and pp. 27–30 notes line-search analysis is outside its theory",
+        "arxiv:2202.04612 Theorem 1 is a complexity bound for noisy finite-difference Hessian sketches",
+        "arxiv:1506.03296 provides a general sketch-and-project convergence framework; no two-step frame coupling identity identified"
+      ],
+      "reasoning": "General bounds under independent sketches and orthogonal finite-difference gradient estimates cannot by themselves yield a sharp exact improvement factor for the two different joint sampling laws. Same direction marginals do not determine their two-step mixed moments.",
+      "searches": [
+        "published-finding corpus: Gaussian or Haar sketch-and-project two sequential projection steps orthogonal dependent directions exact expected error 2x2",
+        "published-finding corpus: orthogonalization of search directions exact two-pass random coordinate descent averaging iid sampling improvement",
+        "web: orthogonal random directions coordinate descent quadratic with replacement 2021 2022",
+        "web: randomized sketch-and-project two sequential projection direction correlation Haar orthogonal"
+      ]
+    },
+    "checked_sources": [
+      "https://arxiv.org/abs/2107.03941",
+      "https://arxiv.org/abs/1803.08200",
+      "https://arxiv.org/abs/2202.04612",
+      "https://arxiv.org/abs/1506.03296",
+      "https://link.springer.com/article/10.1007/s10107-019-01438-4",
+      "2026/9/20/SCOPE-two-coordinate-gauss-seidel-euclidean-transient-threshold--21774554697b",
+      "2026/10/4/SCOPE-a-three-mode-perturbation-threshold-for-two-step-euclidean-steep--e0c764d6ed12",
+      "2026/9/18/SCOPE-exact-haar-moments-sparse-ssd--d9ecf263b248"
+    ],
+    "claim_vs_prior_implication": {
+      "evidence": [
+        "arxiv:1803.08200 contrasts permutation-vs-iid from a finite coordinate basis",
+        "arxiv:2107.03941 analyzes finite difference/projected-gradient convergence with independent random matrices",
+        "arxiv:2202.04612 studies subspace Newton complexity, rather than conditioning-only two-query identity"
+      ],
+      "reasoning": "A fixed-coordinate random-permutation improvement does not directly determine expectations after rotating the fixed coordinate basis at random; likewise an iid-projection convergence bound does not determine a mixed two-step Haar projector moment. Direct reduction to the exact factor was not found in inspected statements.",
+      "searches": [
+        "published-finding corpus: two-dimensional quadratic exact line search Haar orthonormal direction pair mean energy improvement compared with independent spherical directions",
+        "web: Randomness and Permutations in Coordinate Descent Methods PDF 2019",
+        "web: orthogonal random directions vs independent random directions exact line search quadratic two steps"
+      ]
+    },
+    "equivalent_formulations": {
+      "evidence": [
+        "arxiv:1803.08200 Sections 1 and 4 define fixed-basis coordinate selection, not a new Haar frame each experiment",
+        "published-finding corpus closest 2026/9/20/SCOPE-two-coordinate-gauss-seidel-euclidean-transient-threshold--21774554697b concerns Euclidean transient worst-case two-coordinate Gauss-Seidel ordering, not expectation across Haar pairs"
+      ],
+      "reasoning": "In whitened energy coordinates the claim is the identity E[U_s U_{s_perp} U_s] = delta^2 E[U_s (E U_t) U_s] for a continuous uniform direction law, not a rate for a fixed set of two coordinates or a gradient step. Neither the retrieved formulations nor their immediate specialization equals this coupled-versus-independent operator identity.",
+      "searches": [
+        "published-finding corpus: random orthonormal pair exact line search two-dimensional SPD quadratic comparing independent random directions energy contraction proportional factor (condition minus one over condition plus one) squared",
+        "published-finding corpus: Gaussian or Haar sketch-and-project two sequential projection steps orthogonal dependent directions exact expected error 2x2",
+        "web: orthogonal random directions versus independent random directions sequential exact line search quadratic contraction two steps condition number"
+      ]
+    },
+    "exact_database_or_table": {
+      "evidence": [
+        "published-finding corpus returned 2026/10/4/SCOPE-a-three-mode-perturbation-threshold-for-two-step-euclidean-steep--e0c764d6ed12, about a third spectral mode in two-step steepest descent",
+        "published-finding corpus returned 2026/9/18/SCOPE-exact-haar-moments-sparse-ssd--d9ecf263b248, about Haar moments for sparse stochastic subspace descent",
+        "published-finding corpus returned 2026/9/20/SCOPE-two-coordinate-gauss-seidel-euclidean-transient-threshold--21774554697b, about deterministic two-coordinate Gauss-Seidel transient amplitude"
+      ],
+      "reasoning": "No exact tabulated condition-number factor for this two-direction comparison was present among retrieved records. This is a bounded search result, not a proof of global absence.",
+      "searches": [
+        "published-finding corpus: exact two-step expected objective error planar SPD quadratic independent uniform Gaussian directions versus Haar orthogonal pair factor ((condition number minus 1)/(condition number plus 1)) squared",
+        "published-finding corpus: two-dimensional quadratic exact line search Haar orthonormal direction pair mean energy improvement compared with independent spherical directions",
+        "published-finding corpus: random orthonormal pair exact line search two-dimensional SPD quadratic comparing independent random directions energy contraction proportional factor (condition minus one over condition plus one) squared"
+      ]
+    },
+    "rationale": "The searched primary work and published mathematical results address either fixed-basis random permutations, independent one-step/random projected-gradient methods, or a different two-step method. None of the inspected statements implies the identity between the entire expected two-step error matrices for continuously Haar-paired versus continuously independently sampled directions. Priority remains qualified by the risk of an undiscovered equivalent special-case derivation.",
+    "residual_risks": [
+      "An earlier specialized random-frame/two-query analysis not retrieved might already derive this exact identity.",
+      "The sketched-Newton and fixed-basis coordinate-descent papers do not exhaust the broader randomized projection literature.",
+      "The analysis does not establish independent publication priority or an independent scientific audit."
+    ],
+    "source_inspections": [
+      {
+        "assessment": "NOT_COVERING for the specified exact sequential line-minimization two-query identity; its algorithms use finite-difference projected gradients and independent matrices across iterations.",
+        "evidence": [
+          "Algorithm 1 and its independent random matrices on p. 2",
+          "Equation (2.2) on p. 3 is a projected-gradient step, not the exact line minimizer",
+          "The discussion at p. 28 explicitly excludes line-search theory",
+          "The p. 8 discussion leaves tailored quadratic analysis for future work"
+        ],
+        "identifier_or_url": "https://arxiv.org/pdf/2107.03941",
+        "material_read": "Full-text method definitions and orthonormal-direction examples (pp. 2–4); convergence/quasi-descent discussion (pp. 8–10, 27–30); source relationships and appendix (pp. 39–43).",
+        "method": "arXiv PDF parsed text, page images and targeted full-text find",
+        "title": "Zeroth order optimization with orthogonal random directions",
+        "trigger": "orthogonal Haar direction sampling in a randomized optimization algorithm"
+      },
+      {
+        "assessment": "RELATED_DIFFERENT_SAMPLING: random permutation and independent selection from a fixed coordinate set, not fresh continuous uniform directions versus Haar-orthogonal pairs. The inspected results do not give the stated exact matrix identity.",
+        "evidence": [
+          "Section 1 defines RCD as selection with replacement from fixed indices and RPCD as permutation of those indices",
+          "Section 4 analyzes a diagonally dominant matrix family",
+          "No integration over fresh Haar orientations in the inspected theorem statements"
+        ],
+        "identifier_or_url": "https://arxiv.org/abs/1803.08200",
+        "material_read": "Public full text Sections 1–4, algorithm definitions, convergence comparison and stated matrix family.",
+        "method": "arXiv full-text HTML and original journal preview",
+        "title": "Randomness and Permutations in Coordinate Descent Methods",
+        "trigger": "direct prior comparison of with- and without-replacement coordinate selection on quadratics"
+      },
+      {
+        "assessment": "RELATED_DIFFERENT_QUANTIFIER: supplies complexity estimates and projected-Hessian steps, not an exact two-draw comparison of paired and independent continuous line directions.",
+        "evidence": [
+          "Theorem 1 and Corollary 4.1 analyze approximate numerical subspace Newton convergence",
+          "No specified Haar-paired two-step expected energy matrix"
+        ],
+        "identifier_or_url": "https://arxiv.org/pdf/2202.04612",
+        "material_read": "Full-text introduction and sketch formulation (pp. 1–3); main convergence theorem and corollary (p. 4); paper conclusions.",
+        "method": "arXiv PDF parsed text plus page image of main theorem",
+        "title": "Zeroth-Order Randomized Subspace Newton Methods",
+        "trigger": "low-dimensional randomized subspace Newton with orthonormal sketch directions"
+      }
+    ],
+    "status": "PASS"
+  },
+  "review_type": "self_review",
+  "schema_version": 1,
+  "scope_run_id": "d73676e4-4901-426a-a100-ce526f40c54f",
+  "self_review_status": "passed",
+  "value": {
+    "rationale": "This quantifies a concrete choice in two-query random-direction minimization: independently sampled directions versus an orthogonal Haar pair. The identity is sharp for every initial error, exposes the exact conditioning dependence, and proves a complete two-step solve when curvature is isotropic. It is not an arbitrary parameter slice or a one-step identity repackaged as two steps.",
+    "status": "PASS"
+  }
+}
