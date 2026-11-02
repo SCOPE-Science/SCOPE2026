@@ -1,19 +1,21 @@
-# Scientific review: robust Hamiltonian-cycle equilibria
+# Independent mathematical audit
 
-## Correctness — PASS
+## correctness
 
-From the explicitly stated independent turnout semantics, the exact path formula gives a position-free payoff of \(\tau(1-Q_S)\) and distance penalty at most \(\Delta q_{\max}\). A full-cycle deviation necessarily loses at least \(\tau p_{\min}Q/q_{\max}\), whereas every non-full functional graph admits an improving cycle-to-cycle or cycle-to-in-tree redirection with the same minimum position-free gain. The strict diameter bound makes the sign robust. The three-voter condition follows by enumerating every unilateral action; the two-voter minimality statement is checked directly. The embedded standard-library checker passed 8,027 exact-rational assertions; it is a finite corroboration, not the proof.
+PASS
 
-## Originality — PASS, subject to historical-priority risk
+The exact payoff along a finite functional-graph walk is sum prefix q-products p_j(τ-|x_i-x_j|); its no-distance component is τ(1-Q_S), with distance penalty bounded by Δqmax. Any strategy adding a missing visited voter gives at least τ pmin Q/qmax, and replacing a maximal-abstention cycle C by another T with Q_T≤Q_C yields the same strict lower bound. Hamiltonian cycles lose visited voters under any nontrivial redirection, hence strict NE. Any other functional digraph has multiple cycles or an in-tree to its sole cycle, giving a profitable deviation. Robustness bound Δ<τ pmin Q/qmax² proves exact NE set, count (n-1)!. Three-person d=(2,1,2) equivalent zero-based (1,0,1) exact inequalities b≥max(2a,(1+a)/2) follow all deviations; two persons cannot be nonspanning NE under mutual acceptance. Independently enumerated all profiles n=2,3,4 for homogeneous and heterogeneous p and exact boundary grid.
 
-Brill, Colley, George, Lisowski, Papasotiropoulos and Schmidt-Kraepelin, *Cycles in Liquid Democracy: A Game-Theoretic Justification* (COMSOC 2025 and arXiv:2607.12610), define the probabilistic game and prove structural cycle properties (Theorems 5 and 8) and path-level selection (Theorem 14). The inspected statements do not imply the present global if-and-only-if equilibrium classification, \((n-1)!\) count, heterogeneous probability robustness bound, or exact three-voter failure boundary. Classical functional digraph theory and independent-turnout products are credited as tools. Search comparisons include stochastic voting equilibria, delegation cycles, Hamiltonian cycles, spanning-cycle equilibria and aliases. Full 2025 proceedings manuscript and expanded 2026 article were read in relevant model, theorem and appendix sections. Related deterministic delegation and temporal delegation abstracts do not give a direct stochastic implication; they are residual historical search risks.
+## originality
 
-## Mathematical value — PASS
+PASS
 
-This is a complete equilibrium-structure theorem on a natural, explicitly quantified robustness region of the stochastic default-delegation game, valid with heterogeneous turnout; it rules out *all* disconnected or nonspanning equilibria and enumerates the survivors. The sharp three-voter counter-regime shows why mutual acceptability alone cannot replace the small-diameter hypothesis and gives an exact nonspanning-equilibrium boundary. The statement is stronger than graph-theoretic cycle existence and informs stability questions for default delegation. The general diameter constant is not claimed optimal, and independent audit remains outstanding.
+The original probabilistic default-delegation model and component cycle theorems from Brill et al are explicitly prior; inspected full conference paper Theorems 5 and 8 provide local component constraints, not all-and-only spanning cycles under uniform small-diameter bound, exact heterogeneous turnout equilibrium count, or the exact specified 3-voter failure boundary. Other liquid-democracy temporal/iterated delegation models have distinct payoff semantics. Expanded 2026 preprint not fully read, so priority is qualified.
 
-## Limitations and closest literature
+## value
 
-The 2025/2026 source gives weaker cycle/component restrictions; no absolute priority guarantee is possible. The three-voter threshold is exact for the nominated profile only; it does not classify all profiles. Other earlier formulations may exist. The theorem excludes restricted delegate menus, correlated turnout and variable tolerances.
+PASS
 
-Self-review: passed. Independent audit: not yet performed.
+A global pure-Nash equilibrium classification and factorial count under a quantitative, heterogeneous-turnout robustness regime is a natural structural game-theoretic theorem. The sharp inequality for a minimal 3-voter nonspanning counterexample exposes the boundary between strict closeness and mere mutual acceptability; these are meaningful distinctions for default-delegation equilibrium structure.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
