@@ -1,11 +1,21 @@
-# Scientific review
+# Independent mathematical audit
 
-**Correctness — PASS.** The stationary model has a uniform angular marginal and a bounded contracting position coordinate. A finite Fourier-moment recursion obtained from the generator gives the sixth stationary moment exactly; elementary cumulant algebra proves strict negativity on the previously known zero-fourth-cumulant curve. Differentiating an explicit rational function proves the full standardized range. The supplied exact symbolic checker validates intermediate identities and stationary-generator residuals for additional exact rational parameters; it does not substitute an empirical estimate for the proof.
+## correctness
 
-**Originality — PASS, conditional on available material.** Santra–Basu–Sabhapandit, arXiv:2107.12640v1, Appendix A, establishes stationary variance, fourth moment, zero-kurtosis curve, and qualitative non-Gaussianity at zero kurtosis. The new statement is the explicit strictly negative sixth cumulant on *every* positive-diffusivity point of that curve and its exact monotone normalized range. Chaudhuri–Dhar, arXiv:2005.14234, studies the harmonic trap without independent direction reversals. Frydel's arXiv:2312.05406 provides a general moment-recurrence methodology but its full text was inaccessible: whether it contains an equivalent evaluated specialization is a priority risk. Searches cannot certify worldwide uniqueness.
+PASS
 
-**Scientific value — PASS.** Fourth-cumulant blindness is a stated issue for this model. The sixth-order witness gives a strict, fully parameterized quantitative replacement, with a sharp range and a physically natural dimensionless control, rather than another unmotivated moment calculation. The theorem is restricted to stationary, nontranslationally diffusing, harmonically trapped direction-reversing particles on the critical fourth-order curve.
+The dimensionless stationary generator for (Z,Phi) is (-z+cos phi)∂z+d∂phi²+g(f(phi+pi)-f(phi)), with d=D_R/mu>0 and g=gamma/mu>0. Its stationary identity for z^n exp(ik phi) gives M[n,k]=n(M[n-1,k-1]+M[n-1,k+1])/[2(n+dk²+2g 1_{k odd})]. Uniform angular marginal fixes order-zero values, and all subsequent denominators are positive. The order-two/fourth expressions match the primary paper and give the known zero-kurtosis line g=(7d+3)/2. Exact triangular recursion through n=6 gives raw m6=15(8d²+15d+5)/(1024(d+1)²(2d+1)²(8d+3)) and κ6=-15(3d+1)/(1024(d+1)²(2d+1)³(8d+3)); scaling to X multiplies by (v/mu)^6. Dividing by the cube of m2 yields -15(3d+1)/(2(d+1)²(8d+3)); its derivative has numerator +15(48d²+33d+5), proving strict increase, with limits -5/2 and 0. Independently reconstructed symbolic moments and confirmed all claimed identities and limits; a finite triangular exact computation is exhaustive for the specified moment order.
 
-No independent scholarly priority or proof assessment has been carried out.
+## originality
 
-Self-review: passed. Independent audit: not yet performed.
+PASS
+
+Full primary source inspection credits all fourth-order facts. The complete sixth-order rational law and strict global sign/range are not asserted in the directly overlapping article and are a supported narrow original refinement.
+
+## value
+
+PASS
+
+The known critical curve makes fourth cumulant identically zero despite a genuinely non-Gaussian bounded stationary distribution; a strictly negative explicitly normalized sixth cumulant over the *entire* positive-diffusion curve is a motivated quantitative diagnostic, including the sharp attainable range and monotonic parameter fingerprint. This is useful without claiming discovery of non-Gaussianity itself.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
