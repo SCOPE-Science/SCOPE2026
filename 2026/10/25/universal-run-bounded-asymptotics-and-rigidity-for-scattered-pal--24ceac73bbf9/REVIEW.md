@@ -1,11 +1,21 @@
-# Scientific review
+# Independent mathematical audit
 
-**Correctness — PASS.** The exact leading-run identity follows from the order-preserving bijection between full-run palindrome strings and choices of mirrored positive run lengths. All shorter palindrome run counts are bounded by a finite alphabet/run-composition enumeration. AM–GM yields the sharp leading constant; the alternating balanced construction attains it. The unique AM–GM equality case plus an exact identity for unused paired-run slack proves the full asymptotic rigidity in both directions. `verify.py` performs 54,007 exhaustive bounded run-cap checks and auxiliary exact five-run/three-run stress checks. Finite checks supplement rather than replace the proof.
+## correctness
 
-**Originality — PASS (subject to residual literature risk).** Comparison with Mahalingam–Pandoh, arXiv:2108.02729 (distinct scattered palindromes under no run cap); Liron–Langberg, arXiv:1202.1644 (all-subsequence deletion counts under fixed run count); Müllner–Ryzhikov, arXiv:1901.07502 (longest palindromic subsequence); Holub–Saari (2009; long palindromic subsequences) did not identify a dominating result giving the claimed sharp fixed-run asymptotic coefficient together with stability. These comparisons are substantive: in the unconstrained-count paper no fixed-run parameter is optimized, while the deletion paper optimizes a *different* statistic and its balanced-run shape does not imply the doubled middle run. Published-record searches found neighboring palindrome operations and run/subsequence questions but no equivalent. Full coverage of uncatalogued sources is not guaranteed.
+PASS
 
-**Value — PASS.** Restricting the number of symbol changes turns the generally much larger family of scattered palindromes into a fixed-degree polynomial phenomenon. The exact, alphabet-independent leading coefficient and the if-and-only-if rigidity classify the unique macroscopic way to achieve maximal growth; they separate the palindromic statistic from the all-subsequence extremals. This is a structural asymptotic classification, not a single numerical instance or trivial renaming.
+Every palindromic run symbol sequence has an odd number of runs, and a subsequence has no more runs than its parent. For words with <=2k+1 runs, a palindrome with <=2k-1 runs is specified by <=k initial symbol/length choices and contributes only E(w)<=q sum_{j<k}(q-1)^j n^{j+1}=O_{q,k}(n^k). A 2k+1-run palindrome must select every parent run; it exists only for a 2k+1-run palindromic skeleton and has exactly L(w)=r_{k+1} product_{i<=k} min(r_i,r_{2k+2-i}) distinct strings. Set t_i=min(...) and c=r_center; 2 sum t_i+c<=n. AM–GM bounds L<=n^{k+1}/[2^k(k+1)^{k+1}]. Alternating two-symbol palindrome skeleton with each flank length floor(n/[2(k+1)]) and center length n-2k floor(...) attains the leading term. The equality-case stability follows from compactness and AM–GM uniqueness; the n-2sum t_i-c deficit is the sum of absolute differences in mirrored run lengths. This proves the iff rigidity with fixed q,k and excludes a mere finite extrapolation. Fresh dynamic enumeration directly counted distinct PALINDROME STRINGS in 21,690 word/k instances, confirming top-run formula.
 
-**Residual risks.** Unindexed papers or alternate terminology may cover an equivalent statement. The general exact finite-length optimum remains unresolved. Finite tests are not a proof of the asymptotic theorem.
+## originality
 
-Self-review: passed. Independent audit: not yet performed.
+PASS
+
+Mahalingam–Pandoh (2021) study distinct scattered palindromes but optimize by different-letter count and general Fibonacci-type bounds; a fixed run-budget leading coefficient and run-length rigidity were not found in its inspected theorems. Liron–Langberg (2012) give extremal counts for arbitrary fixed-length deletion subsequences, which ignore palindromicity. Resultary related sequence coding results do not imply this all-length palindrome count. The sharp leading coefficient and stability under a natural run constraint are qualified original.
+
+## value
+
+PASS
+
+A natural structural complexity constraint (number of runs) leads to an alphabet-independent universal sharp leading growth law plus a complete characterization of asymptotic extremizers; this rigidity is a substantive exact combinatorial phenomenon rather than a routine substitution into a known maximum-length palindrome bound.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

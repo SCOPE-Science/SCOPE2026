@@ -1,0 +1,127 @@
+{
+  "audit_date_utc": "2026-10-29",
+  "audited_at_utc": "2026-10-29T09:52:55.491025Z",
+  "axes": {
+    "correctness": {
+      "rationale": "Every palindromic run symbol sequence has an odd number of runs, and a subsequence has no more runs than its parent. For words with <=2k+1 runs, a palindrome with <=2k-1 runs is specified by <=k initial symbol/length choices and contributes only E(w)<=q sum_{j<k}(q-1)^j n^{j+1}=O_{q,k}(n^k). A 2k+1-run palindrome must select every parent run; it exists only for a 2k+1-run palindromic skeleton and has exactly L(w)=r_{k+1} product_{i<=k} min(r_i,r_{2k+2-i}) distinct strings. Set t_i=min(...) and c=r_center; 2 sum t_i+c<=n. AM–GM bounds L<=n^{k+1}/[2^k(k+1)^{k+1}]. Alternating two-symbol palindrome skeleton with each flank length floor(n/[2(k+1)]) and center length n-2k floor(...) attains the leading term. The equality-case stability follows from compactness and AM–GM uniqueness; the n-2sum t_i-c deficit is the sum of absolute differences in mirrored run lengths. This proves the iff rigidity with fixed q,k and excludes a mere finite extrapolation. Fresh dynamic enumeration directly counted distinct PALINDROME STRINGS in 21,690 word/k instances, confirming top-run formula.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Liron–Langberg analyze distinct arbitrary subsequences of a specific length after deletion, not all-length palindromic strings.",
+          "Müllner–Ryzhikov study longest palindromic subsequence length, not the number of distinct palindromic subsequences."
+        ],
+        "reasoning": "Neither all-subsequence counting nor longest-palindrome results directly bound the sharp palindrome-only distinct count with a stable run skeleton; possible unindexed extremal subsequence literature remains a risk.",
+        "searches": [
+          "Liron Langberg arxiv:1202.1644 deletion channel subsequences fixed runs",
+          "Mahalingam Pandoh Counting scattered palindromes in a finite word 2021",
+          "Müllner Ryzhikov Palindromic Subsequences in Finite Words 2019"
+        ]
+      },
+      "checked_sources": [
+        "Mahalingam & Pandoh arxiv:2108.02729 (full PDF)",
+        "Liron & Langberg arxiv:1202.1644 (full PDF)",
+        "Müllner & Ryzhikov arxiv:1901.07502 (abstract)",
+        "Holub & Saari 2009 (bibliography)",
+        "Resultary sequence/subsequence searches"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "Source paper Mahalingam–Pandoh derives different extremal letter-frequency and overall counts.",
+          "Fixed-length deletion-channel subsequence count does not impose mirrored symmetry, and balanced run lengths there differ from double-sized center here."
+        ],
+        "reasoning": "The prior statements cannot yield this particular mirrored min-product bound simply by parameter matching; a new top-run enumeration and equality-case argument is required.",
+        "searches": [
+          "Mahalingam Pandoh arxiv:2108.02729 Theorem 5.4, concluding section",
+          "Liron Langberg arxiv:1202.1644 theorem on fixed-run deletion channel",
+          "Holub Saari On highly palindromic words 2009"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Top-run count fixes k mirrored independent run-length choices and central run-length choice.",
+          "Mahalingam & Pandoh study distinct scattered palindrome strings and general alphabet-driven maxima; their invariant is same but extremal constraint is different."
+        ],
+        "reasoning": "A count of palindrome embeddings is not equivalent to distinct strings. The exact top-run product and AMGM growth for a fixed number of constant runs are not restatements of a longest-palindrome length or unconstrained alphabet maximum.",
+        "searches": [
+          "Resultary: distinct scattered palindromic subsequences bounded runs asymptotic maximizing palindrome run lengths",
+          "Mahalingam Pandoh arxiv:2108.02729 distinct scattered palindromic subsequences"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "Fresh check of 21,690 bounded word instances validated top-run and lower-run counts.",
+          "No pre-existing sequence table of the coefficient or rigidity for general fixed k was found."
+        ],
+        "reasoning": "The theorem covers every fixed k and alphabet size q with asymptotic equivalence; any finite table for k=1 or short lengths would not imply the general polynomial leading coefficient or equality characterization.",
+        "searches": [
+          "scattered palindromes fixed number runs maximum number distinct subsequences leading constant",
+          "Resultary run-constrained word subsequences extremal counts"
+        ]
+      },
+      "rationale": "Mahalingam–Pandoh (2021) study distinct scattered palindromes but optimize by different-letter count and general Fibonacci-type bounds; a fixed run-budget leading coefficient and run-length rigidity were not found in its inspected theorems. Liron–Langberg (2012) give extremal counts for arbitrary fixed-length deletion subsequences, which ignore palindromicity. Resultary related sequence coding results do not imply this all-length palindrome count. The sharp leading coefficient and stability under a natural run constraint are qualified original.",
+      "residual_risks": [
+        "An older run-bounded palindrome count under another terminology could give the same polynomial coefficient.",
+        "Asymptotic rigidity is fixed q and k; it neither proves exact maximum for every n nor handles increasing k."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "RELATED_NOT_COVERING: no inspected fixed 2k+1 run budget or quantitative stability",
+          "evidence": [
+            "Mahalingam and Pandoh (2021) focus on distinct scattered palindrome enumeration and different-letter/word-general bounds."
+          ],
+          "identifier_or_url": "https://arxiv.org/abs/2108.02729",
+          "material_read": "Accessible full primary PDF including definitions, Theorem 5.4, discussion and concluding remarks",
+          "method": "arXiv PDF mathematical statements/proof sections read",
+          "title": "Counting scattered palindromes in a finite word",
+          "trigger": "Same distinct palindromic subsequence strings, potential dominating extremal theorem"
+        },
+        {
+          "assessment": "DIFFERENT_INVARIANT: arbitrary fixed-length subsequences rather than all-length palindromes",
+          "evidence": [
+            "Liron and Langberg (2012) fixed deletion length and counts lack required palindrome matching between peripheral runs."
+          ],
+          "identifier_or_url": "https://arxiv.org/abs/1202.1644",
+          "material_read": "Full accessible primary PDF, deletion subsequence counting results and run-extremal arguments",
+          "method": "arXiv PDF read",
+          "title": "A characterization of the number of subsequences obtained via the deletion channel",
+          "trigger": "Potential strong fixed-number-of-runs subsequence count"
+        },
+        {
+          "assessment": "DIFFERENT_INVARIANT: longest palindromic subsequence length rather than number of distinct strings",
+          "evidence": [
+            "Müllner and Ryzhikov, LATA 2019, study longest palindromic subsequences."
+          ],
+          "identifier_or_url": "https://arxiv.org/abs/1901.07502",
+          "material_read": "Accessible abstract and bibliographic information only",
+          "method": "arXiv metadata and search",
+          "title": "Palindromic Subsequences in Finite Words",
+          "trigger": "Possible prior palindrome bounds"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "rationale": "A natural structural complexity constraint (number of runs) leads to an alphabet-independent universal sharp leading growth law plus a complete characterization of asymptotic extremizers; this rigidity is a substantive exact combinatorial phenomenon rather than a routine substitution into a known maximum-length palindrome bound.",
+      "status": "PASS"
+    }
+  },
+  "checked_sources": [
+    "Mahalingam & Pandoh arxiv:2108.02729 (full PDF)",
+    "Liron & Langberg arxiv:1202.1644 (full PDF)",
+    "Müllner & Ryzhikov arxiv:1901.07502 (abstract)",
+    "Holub & Saari 2009 (bibliography)",
+    "Resultary sequence/subsequence searches"
+  ],
+  "disposition": "passed",
+  "limitations": [
+    "q>=2, k>=1 FIXED, length n tending to infinity; distinct nonempty palindrome strings, not embeddings or longest-length statistic.",
+    "Run cap <=2k+1. Lower bound explicitly for n>=2(k+1), no exact all-n optimizer claimed."
+  ],
+  "residual_risks": [
+    "An older run-bounded palindrome count under another terminology could give the same polynomial coefficient.",
+    "Asymptotic rigidity is fixed q and k; it neither proves exact maximum for every n nor handles increasing k."
+  ],
+  "schema_version": 1
+}
