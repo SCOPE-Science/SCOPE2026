@@ -5,8 +5,11 @@
     "status": "not_performed"
   },
   "independent_audit": {
-    "evidence": null,
-    "status": "not_performed"
+    "status": "passed",
+    "evidence": [
+      "INDEPENDENT_AUDIT_2026-10-27.md",
+      "INDEPENDENT_AUDIT_2026-10-27.json"
+    ]
   },
   "lean_verification": {
     "evidence": null,
@@ -16,31 +19,24 @@
 }
 ---
 
-# Verification details
+# Independent mathematical audit
 
-The stated theorem has a complete proof in `RESULT.md`. To independently check finite instances, run `python3 check_idempotents.py`; it enumerates the defining coefficient-space equation without using the Fourier parametrization, and compares with the arithmetic divisor formula. It requires no third-party libraries. The direct checks in the standard invocation completed successfully:
+## correctness
 
-| Coefficient field | Odd quandle order | Direct count | Arithmetic formula |
-| --- | ---: | ---: | ---: |
-| \(\mathbb F_2\) | 3 | 8 | 8 |
-| \(\mathbb F_5\) | 3 | 8 | 8 |
-| \(\mathbb F_2\) | 5 | 12 | 12 |
-| \(\mathbb F_3\) | 5 | 12 | 12 |
-| \(\mathbb F_2\) | 7 | 16 | 16 |
-| \(\mathbb F_2\) | 9 | 80 | 80 |
-| \(\mathbb F_2\) | 11 | 68 | 68 |
-| \(\mathbb F_2\) | 15 | 768 | 768 |
-| \(\mathbb F_4\) | 3 | 8 | 8 |
-| \(\mathbb F_4\) | 5 | 12 | 12 |
-| \(\mathbb F_4\) | 9 | 80 | 80 |
+PASS
 
-The \(\mathbb F_4\) cases explicitly use the relation \(u^2+u+1=0\) for a polynomial-field generator. The C program `check_prime_census.c` is a second exhaustive implementation over prime fields, also using the multiplication table only. Compile with `cc -O3 -std=c11 -o check_prime_census check_prime_census.c`; the following cases were enumerated successfully:
+PASS: Fourier transform over a splitting field is invertible because p=char F_q does not divide n. Bilinear product yields exact idempotence equations y_r=y_(2r)y_(-r), and descent condition y_(qr)=y_r^q. On each H_t orbit nonzero coordinate forces whole orbit nonzero; applying at r and -r yields y_(2r)y_(-2r)=1, hence y_(-r)=y_r^-1 and y_(2r)=y_r². Orbit consistency gives cyclic root group μ_N_t (with t|N_t and the rho map well-defined). Frobenius rotates H_t cosets in cycles e_t and forces z^(q^e)=z^rho(h), leaving exactly gcd(N_t,q^e-a_t) nonzero choices plus zero. These roots lie in requisite splitting field by group-order argument. One binary zero-frequency idempotent gives prefactor 2. Independently exhaustively computed coefficient-basis idempotents over F2 at n=3,5,9, obtaining 8,12,80; source check_idempotents.py and check_prime_census.c were inspected. Finite data not substituted for general Fourier proof.
 
-| Coefficient field | Odd quandle order | Direct count | Arithmetic formula |
-| --- | ---: | ---: | ---: |
-| \(\mathbb F_5\) | 9 | 80 | 80 |
-| \(\mathbb F_3\) | 11 | 24 | 24 |
-| \(\mathbb F_2\) | 17 | 648 | 648 |
-| \(\mathbb F_2\) | 21 | 4096 | 4096 |
+## originality
 
-For each line, the C program's raw enumeration output is the number listed; the arithmetic numbers follow from the closed formula. The extra Python option `--extended` enables further prime-field enumeration. The code checks no instances where the coefficient characteristic divides the quandle size, and finite enumeration is not used in place of the general proof. Independent audit has not been performed.
+PASS
+
+On the inspected primary sources and independent comparison, the specified new exact evaluation/classification is not supplied by a stronger known theorem; scope and residual priority limitations are stated explicitly. The Fourier identity is prior work, and the present count is its finite-field orbit solution with Galois compatibility. Special n=3 count8 in characteristic not3 is previously covered. Deriving the new all-field arithmetic product from a characteristic-zero identity needs genuinely additional H-orbit consistency and Frobenius descent; prior small counts are covered without implying the arbitrary-n formula.
+
+## value
+
+PASS
+
+PASS: An all-odd-n, all-coprime-finite-field exact and arithmetic-sensitive idempotent census/parametrization for a natural nonassociative algebra, with composite n and extension fields. Existing Fourier multiplication identity alone does not determine cyclic root counts or finite-field descent. Examples n11 q2=68 vs q3=24 show nontrivial field dependence.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
