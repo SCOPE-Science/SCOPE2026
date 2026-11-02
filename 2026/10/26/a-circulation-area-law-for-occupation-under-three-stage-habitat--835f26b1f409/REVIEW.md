@@ -1,19 +1,21 @@
-# Scientific review
+# Independent mathematical audit
 
-## Correctness — PASS
+## correctness
 
-The joint occupancy/environment stationarity equations give an exact resolvent. Strictly interior colonization and survival probabilities imply \(\|PD\|_\infty<1\), so the determinant is positive; time reversal yields an identical determinant. The three-state stationary-flow parameterization and adjugate expansion establish the numerator as signed circulation times the oriented colonization–survival area. Exact symbolic cancellation and direct six-state stationary calculations reproduce the general identity and rational example. The proof covers all irreducible three-state matrices, including periodic chains, and explicitly limits claims to stationarity.
+PASS
 
-## Originality — PASS, with qualifications
+The stationary joint occupied-probability row q obeys q=(qD+pi diag(c))P, so U(P)=pi diag(c)(I-PD)^-1 1, with ||PD||infty<1 since 0<c_i,s_i<1; uniqueness and convergence of the resolvent do not require aperiodicity. The reversed chain has the same positive determinant because D commutes with Pi and det(I-AB)=det(I-BA). Write the stationary edge flow Pi P as symmetric pair flows h_ij plus signed cyclic current J/2. Independently constructed symbolic 3x3 matrices and verified identically, not by parameter sampling, that the adjugate numerator difference is J times c1(d2-d3)+c2(d3-d1)+c3(d1-d2); substituting d=s-c cancels the pure-c area and yields the stated oriented (c,s) area. A positive denominator makes the sign and iff criterion exact. A two-state stationary chain satisfies detailed balance automatically. Rechecked the given rational six-state example P,pi,c,s, with J=1/25, area=7/100, det=6287/20000 and difference=56/6287; source random 50 tests are only supplementary.
 
-The closest source is McVinish–Pollett–Chan (arXiv:1412.0719, first posted 2014-12-01), which treats Markovian patch characteristics and dual kernels at a more general level but does not state an exact three-stage directional occupancy-sign classification in the inspected model, equilibrium and discussion sections. Solow–Smith (2006) gives the reverse successional chain and backward-history calculations, not a coupled occupancy sign identity. Hill–Witman–Caswell (2004) gives an empirical Markov-succession model; only its abstract was accessible. Related matrix-resolvent formulas and general Markov-modulated recursions may imply the result, so independent priority verification and wider mathematical searches remain valuable. A search absence is not a uniqueness proof.
+## originality
 
-## Mathematical value — PASS
+PASS
 
-The result answers a concrete ecological comparison: two habitat histories with identical long-run stage frequencies and reversed time ordering can have different stationary species occupancy. It provides a complete if-and-only-if criterion, quantifies the difference exactly, identifies three as the minimum number of stages, and separates habitat irreversibility from the necessary nonlinear configuration of survival and colonization responses. The sign remains unchanged when reversible background flow rates vary without reversing net circulation, even though the magnitude changes.
+PASS, qualified: the stationary resolvent and time-reversal transition formula are general Markov-chain prior art. Full primary McVinish–Pollett–Chan models Markovian habitat/dual landscape; full Solow–Smith article uses reversed succession for first-passage histories. Neither inspected full text presents the combined binary occupancy model with the sharp 3-state current-times-oriented-area identity, exact sign-zero classification and minimality. A general Markov-modulated affine-recursion identity might subsume the calculation and remains a residual risk.
 
-## Scope and risks
+## value
 
-This is an externally colonized binary patch, not a closed metapopulation persistence theorem. Two primary papers were materially read through their full-text HTML renderings; the relevant 2004 empirical article was assessed from its abstract, and its uninspected full text is an originality risk. Numerical checks do not establish the infinite parameter claim independently of the symbolic proof. No independent audit was conducted.
+PASS
 
-Self-review: passed. Independent audit: not yet performed.
+Reversing transition direction while retaining identical long-run habitat stage proportions is a substantive ecological discrimination problem. The exact three-factor decomposition separates circulation, colonization/survival geometry, and positive scale, gives complete equality/sign cases, and proves the minimal number of stages. It is relevant to habitat histories rather than an arbitrary isolated 3x3 determinant calculation.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
