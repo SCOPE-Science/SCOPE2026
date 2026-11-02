@@ -1,0 +1,120 @@
+{
+  "audit_date_utc": "2026-10-31",
+  "audited_at_utc": "2026-10-31T18:57:51.659861Z",
+  "axes": {
+    "correctness": {
+      "rationale": "For any even k>=2 and positive fixed b_j, alternating the unit vectors transforms SDP improvement over the all-path-cut into (w||v_k-v_0||^2-Σb_j||v_j-v_{j-1}||²)/4. Weighted Cauchy proves zero gain through w_c=1/S and the unit-sphere collinearity argument makes the critical Gram optimizer unique. For w near w_c, shortest great-circle replacement reduces path minimization to positive small angles, b_j sin(delta_j)=lambda. Expansion Theta=S lambda +T lambda³/6, sin Theta=S lambda-(S³-T)lambda³/6 gives lambda²=6S²(w-w_c)/(S³-T)+O((w-w_c)²). The SDP envelope derivative integrates to 3S⁴(w-w_c)²/[4(S³-T)] plus cubic error. Strict positivity D=S³-T and Jensen T>=S³/k² give the unique uniform minimum and unbounded heterogeneous curvature. Independent high-precision stationary-branch checks agree in 12 weighted small-epsilon instances; they are corroborative, not the proof. Integer cut optimum is constant near w_c since closing edge remains strictly cheapest.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Delorme–Poljak studies a general weighted spectral bound; Goemans–Williamson give the unweighted pentagon optimal vectors and relative gap."
+        ],
+        "reasoning": "A complete older formula for weighted cycles might imply the proposed expansion after differentiation. The inaccessible 1993 full text is retained as explicit priority risk; the 1995 inspected C5 calculation lacks the arbitrary b_j dependence.",
+        "searches": [
+          "Delorme–Poljak DOI:10.1007/BF01585184",
+          "Goemans–Williamson JACM 1995 pp.1129",
+          "weighted odd cycle max cut semidefinite relaxation exactness threshold harmonic effective resistance near critical quadratic gap coefficient inverse cubic weights"
+        ]
+      },
+      "checked_sources": [
+        "doi:10.1145/800130.801940 (J. ACM 42, 1995); https://math.mit.edu/~goemans/PAPERS/maxcut-jacm.pdf",
+        "doi:10.1007/BF01585184",
+        "Resultary: 2026/10/11/SCOPE-weighted-odd-cycle-fourth-power-edge-converges-to-an-antiperiodi--9299e65764af",
+        "Resultary semantic query: weighted odd cycle max cut semidefinite relaxation exactness threshold harmonic effective resistance near critical quadratic gap coefficient inverse cubic weights"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "The old C5 optimum assumes five equal weights, whereas the assessed coefficient contains S and T for arbitrary positive edge weights."
+        ],
+        "reasoning": "Equal-weight pentagon evaluation determines only the symmetric specialization, not the inverse-cubic variation or heterogeneity extremum. A stronger unknown Delorme–Poljak exact weighted-cycle formula remains possible.",
+        "searches": [
+          "Goemans–Williamson JACM 1995 §5",
+          "Delorme–Poljak 1993 abstract"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Standard semidefinite bound equals an eigenvalue minimization bound (Goemans–Williamson §1); a weighted odd cycle permits a spherical polygon/antiferromagnetic spin formulation."
+        ],
+        "reasoning": "The equivalences were considered; they preserve the quantity but do not by themselves evaluate its second-order gap coefficient at w=1/Σ1/b_j.",
+        "searches": [
+          "weighted odd cycle max cut semidefinite relaxation exactness threshold harmonic effective resistance near critical quadratic gap coefficient inverse cubic weights",
+          "Goemans–Williamson JACM 1995 §5",
+          "Delorme–Poljak DOI:10.1007/BF01585184"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "Published-SCOPE hit concerns quartic edge energy and asymptotic Sturm–Liouville spectrum, a different invariant."
+        ],
+        "reasoning": "The result is a continuous k-parameter formula, not a known finite graph table; no matching arbitrary path-weight curvature record was found, which does not establish global priority.",
+        "searches": [
+          "weighted odd cycle max cut semidefinite relaxation exactness threshold harmonic effective resistance near critical quadratic gap coefficient inverse cubic weights",
+          "Resultary: 2026/10/11/SCOPE-weighted-odd-cycle-fourth-power-edge-converges-to-an-antiperiodi--9299e65764af"
+        ]
+      },
+      "rationale": "The SDP/vector formulation and unweighted odd-cycle gap are old. The assessed claim is a local universal arbitrary-path-weight curvature law and its reciprocal-third-moment heterogeneity extremum, not mere proof of nonexactness on odd cycles. Delorme-Poljak 1993 full weighted spectral bound remains a material unresolved source.",
+      "residual_risks": [
+        "The two 1993 Delorme–Poljak papers on spectral Max-Cut bounds were not read in full; a more general weighted-cycle formula could imply the result.",
+        "The Taylor law is local at fixed strictly positive weights; not uniform when reciprocal weights concentrate or applicable to all large w."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Original unit-vector formulation and symmetric unweighted C5 gap are established; no arbitrary positive path-weight threshold curvature in inspected material.",
+          "evidence": [
+            "§5 gives C5 optimal 2D vectors and value (25+5√5)/8; §1 explains equivalence of SDP and Delorme–Poljak eigenvalue bound."
+          ],
+          "identifier_or_url": "doi:10.1145/800130.801940 (J. ACM 42, 1995); https://math.mit.edu/~goemans/PAPERS/maxcut-jacm.pdf",
+          "material_read": "31-page primary PDF: introduction pp.1117–1118, §5 p.1129 and surrounding presentation of 5-cycle vector optimum",
+          "method": "PDF textual extraction and web PDF screenshots pp.1118 and 1129",
+          "title": "Improved approximation algorithms for maximum cut and satisfiability problems using semidefinite programming",
+          "trigger": "Foundational unit-vector SDP and odd-cycle benchmark"
+        },
+        {
+          "assessment": "Potential stronger prior coverage; cannot exclude this paper by abstract alone",
+          "evidence": [
+            "Abstract establishes weighted-graph eigenvalue upper bound, dual characterization and weakly bipartite bound, but states no local arbitrary-cycle curvature."
+          ],
+          "identifier_or_url": "doi:10.1007/BF01585184",
+          "material_read": "Published February 1993 abstract and metadata; article body not accessible",
+          "method": "Springer publisher abstract",
+          "title": "Laplacian eigenvalues and the maximum cut problem",
+          "trigger": "Broader spectral-bound treatment of weighted Max-Cut graphs"
+        },
+        {
+          "assessment": "Different fourth-power energy continuum limit, not Max-Cut unit-vector SDP",
+          "evidence": [
+            "Its extremum scales as a quartic graph energy near bipartiteness rather than a closing-edge SDP integrality gap."
+          ],
+          "identifier_or_url": "Resultary: 2026/10/11/SCOPE-weighted-odd-cycle-fourth-power-edge-converges-to-an-antiperiodi--9299e65764af",
+          "material_read": "Resultary indexed title and summary; no primary full text needed for this distinct functional",
+          "method": "semantic Resultary records",
+          "title": "Weighted odd-cycle fourth-power edge converges to an antiperiodic Sturm–Liouville eigenvalue",
+          "trigger": "Most similar published-SCOPE semantic hit"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "rationale": "The exactness threshold w_c alone says nothing about onset sensitivity. The explicit sharp curvature and square-root optimizer angle identify how quickly a standard combinatorial relaxation loses tightness as one weight crosses a boundary, and characterize the most/least stable positive profiles at fixed effective resistance.",
+      "status": "PASS"
+    }
+  },
+  "checked_sources": [
+    "doi:10.1145/800130.801940 (J. ACM 42, 1995); https://math.mit.edu/~goemans/PAPERS/maxcut-jacm.pdf",
+    "doi:10.1007/BF01585184",
+    "Resultary: 2026/10/11/SCOPE-weighted-odd-cycle-fourth-power-edge-converges-to-an-antiperiodi--9299e65764af",
+    "Resultary semantic query: weighted odd cycle max cut semidefinite relaxation exactness threshold harmonic effective resistance near critical quadratic gap coefficient inverse cubic weights",
+    "Pinned assigned Git source: https://github.com/SCOPE-Science/SCOPE2026/tree/7c81201545e08a0e1d9cf8ec6f25ce011da92e86/2026/10/27/sharp-quadratic-onset-of-max-cut-sdp-gaps-on-inhomogeneously-wei--e3e1a5c88df4",
+    "Independent checker: independent_checks_batch5039.py"
+  ],
+  "disposition": "passed",
+  "limitations": "Best-of-knowledge review of one exact final claim, not proof of historical priority or formal/expert certification. Finite corroboration not substituted for universal mathematical steps. Publication source requires provenance sanitization; no Git write or research publication.",
+  "residual_risks": [
+    "The two 1993 Delorme–Poljak papers on spectral Max-Cut bounds were not read in full; a more general weighted-cycle formula could imply the result.",
+    "The Taylor law is local at fixed strictly positive weights; not uniform when reciprocal weights concentrate or applicable to all large w."
+  ],
+  "schema_version": 1
+}
