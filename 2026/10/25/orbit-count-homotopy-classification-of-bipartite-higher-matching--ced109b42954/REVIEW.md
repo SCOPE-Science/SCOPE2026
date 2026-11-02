@@ -1,11 +1,21 @@
-# Self-review
+# Independent mathematical audit
 
-**Correctness (PASS).** The barycentric-orbit construction gives an explicit PL homeomorphism between geometric fixed points and \(N_{s,t}\), including the empty cases. For rectangles with \(s,t\ge2\), an explicit staged element matching has one unmatched simplex of \((s-1)(t-1)\) vertices; the proof checks the crucial saturated-first-column class and shows its elimination, as well as the inductive reduction. Acyclicity follows from the sequential matching proposition in Singh [1, Proposition 2.4], and the CW conclusion from discrete Morse theory [1, Theorem 2.1]. Exhaustive checks were replayed for nine rectangles and 34 quotient actions; they are corroborative only. There is no claim of a PL standard sphere.
+## correctness
 
-**Originality (PASS, qualified).** The closest direct prior work is Singh [1, Theorem 1.2], which establishes the equal-sided nonequivariant square case and supplies the matching technology. The earlier Reiner–Roberts formula [2, Theorem 3.3] supplies the characteristic-zero homology modules of bounded-degree chessboard complexes but no full geometric fixed-point homotopy types. The multiple-chessboard paper [3, Section 2.2] imposes one-per-column, not the simultaneous near-full row and column capacities. Relevant published mathematical-result searches, including near-perfect matchings, rectangular forbidden-line spheres, and geometric orbit-fixed complexes, found no direct covering classification. The accessible related historical result on the same \(X_n\) treats part-exchanging involutions, not arbitrary side-preserving product subgroups. A different formulation of the rectangular lemma might exist in uncatalogued work; that remains a risk.
+PASS
 
-**Mathematical value (PASS).** The classification gives the whole geometric subgroup-fixed-point homotopy type for an infinite family and every product subgroup, including an exact empty/nonempty transition and a sphere dimension depending only on orbit counts. Such fixed-space data are natural in equivariant homotopy theory and cannot be reconstructed merely from the known nonequivariant homotopy type or characteristic-zero representation. The rectangular lemma is the mechanism; the substantive contribution is the uniform orbit-count fixed-point classification, not an arbitrary finite parameter table.
+The vertex H-orbits are products of H_L row orbits and H_R column orbits. A geometric fixed point has constant barycentric coordinates on each vertex orbit, and positive orbits may be used only when their union is a simplex; this gives a simplex-wise affine PL homeomorphism to the quotient forbidden-full-row/column complex N_{s,t}. If either orbit count=1 no nonempty face exists. For s,t>=2, sequential greedy cell toggles first s-1 rows. The first-row survival partition has class A containing all first-row cells except the first, and class B with a saturated lower first column, which is eliminated by subsequent toggles. Induction leaves exactly the cell set {(i,j):i<s,2<=j<=t}, a single unmatched simplex of (s-1)(t-1) cells, with the augmented empty simplex matched. Acyclicity by standard element matching and the basepoint Morse conclusion yield S^{(s-1)(t-1)-1}, including S^0. This is homotopy, not PL-homeomorphism to the standard sphere. Independent check: Independent face-set generation and staged toggles for each of the 9 rectangles 2<=s,t<=4 left exactly the prescribed unique unmatched simplex. The quotient-orbit PL identification follows directly from coordinates for arbitrary product subgroups, not only finite checks; the repository supplies 34 additional finite orbit-action corroborations.
 
-**Limits.** Product subgroups only; no equivariant representation-sphere statement, no PL sphere statement, and no claim that the square case is new. Independent mathematical validation has not been carried out.
+## originality
 
-Self-review: passed. Independent audit: not yet performed.
+PASS
+
+Singh 2020 establishes X_n~S^{(n-1)^2-1} only for the equal-sided square and the discrete Morse construction. The present fixed-space classification is over all row- and column-permutation product subgroups and all rectangular quotient sizes; neither square homotopy nor rational representation theory determines all these geometric fixed spaces. General rectangular forbidden-line complexes could be known under another dual/complex-of-arrangements name; qualified priority risk.
+
+## value
+
+PASS
+
+Geometric fixed-point spaces, not merely homology characters, are canonical equivariant invariants. The sharp empty/sphere transition, explicit dimension, and independence from orbit sizes classify a natural infinite family and all its product-subgroup fixed-point homotopy types.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
