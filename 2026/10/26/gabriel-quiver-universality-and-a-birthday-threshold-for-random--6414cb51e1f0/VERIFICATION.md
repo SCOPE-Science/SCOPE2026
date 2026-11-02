@@ -5,8 +5,11 @@
     "status": "not_performed"
   },
   "independent_audit": {
-    "evidence": null,
-    "status": "not_performed"
+    "status": "passed",
+    "evidence": [
+      "INDEPENDENT_AUDIT_2026-10-29.md",
+      "INDEPENDENT_AUDIT_2026-10-29.json"
+    ]
   },
   "lean_verification": {
     "evidence": null,
@@ -16,10 +19,24 @@
 }
 ---
 
-# Verification of the stated theorem
+# Independent mathematical audit
 
-The proof is given in RESULT.md. Its nonstandard point is the loss of one sample direction in each off-diagonal bimodule block after changing the semisimple complement. That change is conjugation by a unit of the form \(1+z\), possible because the diagonal quotient is separable and the radical square is zero. For each pair of distinct vertex labels, the difference of their \(r\)-coordinate tuples is nonzero, leaving precisely \(r-1\) effective independent uniform vectors in that arrow block. Loop blocks retain \(r\) effective vectors. Every factor is the probability that a random matrix has full row rank.
+## correctness
 
-Reproducible finite check: run `python3 verify_generation.py` with Python 3. The program enumerates all tuples of elements in specified truncated path algebras, closes the unital linear span under multiplication, and compares the resulting exact rational proportion to the quiver formula. Thirteen small cases over prime fields passed. Truncating path length from two to three for the path with two arrows leaves the observed probability unchanged, as predicted. Computations cover no nonprime finite fields and cannot by themselves prove all dimensions.
+PASS
 
-The asymptotic verification is analytic: the probability of distinct \(q^r\)-valued vertex labels is a falling factorial, whose logarithm is \(-v(v-1)/(2q^r)+O(v^3/q^{2r})\). Under the given sparsity assumptions, a union bound for all radical ranks is \(O(vq^{M-r})\to0\) when \(r=2k+t\) and \(v=q^k\). No external independent audit was undertaken.
+For a finite split basic algebra, generation modulo J² lifts to generation of A by nilpotence; a square-zero S-bimodule split gives independent vertex labels in F_q^r, whose all-distinct probability is (q^r)_v/q^(rv). For each loop arrow block r uniform directions remain and for each off-diagonal block conjugating the semisimple complement removes exactly one common vertex-difference direction, giving beta_q(m_ii,r) and beta_q(m_ij,r-1). The factors multiply across blocks; higher radical relations vanish. A separately enumerated 2×2 triangular F2 example has 24 generating ordered pairs out of 64, agreeing with 3/8. For v=q^k,r=2k+t, the collision exponent is -q^-t/2 and sparse bounded-multiplicity rank failures sum O(q^-k). The small enumeration is corroboration, not an all-q proof.
+
+## originality
+
+PASS
+
+Sercombe–Shalev establish broader bounds/random-generation theory for general associative algebras; Iovanov–Sistko classify maximal subalgebras of basic algebras. The inspected full introductory, generator and maximal-subalgebra portions do not identify the exact all-relations rank-factor product or the sparse-quiver birthday limit. It may be derivable from older Frattini/maximal-subalgebra incidence formulas; this is a substantive residual priority risk.
+
+## value
+
+PASS
+
+The complete generator probability sequence and minimal generator threshold are canonical quantitative invariants of finite algebras; relation-invariance plus the sharp sparse-quiver birthday window provide an infinite-family structural and probabilistic classification.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
