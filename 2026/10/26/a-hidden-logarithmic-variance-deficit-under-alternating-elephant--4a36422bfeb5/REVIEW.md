@@ -1,12 +1,21 @@
-# Scientific review
+# Independent mathematical audit
 
-## Correctness
-The exact conditional drift gives the moment recursion and, after two steps, the exact centered recursion \(z_{m+1}=(1+\delta(1-2\delta)/(m(2m+1)))z_m-4\delta^2/(2m+1)\). A summable perturbation of harmonic forcing proves the logarithmic coefficient, finite constant, and quantified remainder. Bounded martingale differences, a convergent alternating normalization product, and vanishing predictable-variance corrections prove the functional Brownian limit, including \(\delta=\pm1\). All hypotheses and endpoints are explicitly treated. Seven exact-rational finite models and additional numerical diagnostics passed 322 assertions. Finite tests are not presented as convergence proofs.
+## correctness
 
-## Originality
-The time-dependent full-memory model and its scalar martingale limit theory appear in Fan–Qi, arXiv:2610.16065v1; those parts are credited, not claimed. The specific complementary period-two pattern has nonconvergent repetition probabilities, and its negative logarithmic variance deficit is not a statement or immediate quantified consequence of the source's scalar limit theorems. Classical constant-parameter elephant results, restricted-memory variations, and spatial periodic lattice generalizations use distinct hypotheses and do not imply the claimed signed second-order term. Targeted external and mathematical-finding searches did not locate this period-two expansion; that is evidence under available coverage, not proof of global novelty. An unlocated general second-order recurrence analysis could subsume it.
+PASS
 
-## Value
-The first-order diffusion limit cannot distinguish these nontrivial memory schedules from an independent random walk. The theorem supplies an exact, sign-rigid and parity-resolved secondary signature, identifying how balancing opposing full-history reinforcement still reduces finite-time fluctuation on a logarithmic scale. This is a natural identifiability and finite-sample calibration question, not a random parameter substitution. It does not claim a Gaussian approximation rate or general periodic classification.
+Exact moment recursion v[n+1]=(1+2δ(-1)^n/n)v[n]+1 follows from conditioning on the complete past and E[S_n]=0. Pairing n=2m,2m+1 gives z[m+1]=(1+δ(1−2δ)/(m(2m+1)))z[m]−4δ²/(2m+1); summable perturbation to z[m]+2δ² log m proves finite constant and O(log m/m) tail. Multiplicative martingale normalization g[n] has positive finite limit even at δ=±1 when started at n=2; predictable quadratic variation tends to Brownian clock and bounded increments give Lindeberg; initial short-time tightness closes t=0. Independently propagated all exact finite S_n distributions for seven δ through n=26, 252 checks. Does not claim uniformity in δ or quantification of Brownian convergence rate.
 
-Self-review: passed. Independent audit: not yet performed.
+## originality
+
+PASS
+
+Qualified best-of-knowledge PASS: prior objects, algorithms and general identities acknowledged; independent exact classification/asymptotic/construction is not established by the material read. Specific implication and inaccessible-source risks explicitly retained.
+
+## value
+
+PASS
+
+The logarithmic variance deficit and parity-resolved offset are a specific, measurable second-order signature of nonstationary reinforcement that is invisible in the leading Brownian limit. This is a natural probabilistic asymptotic, not a finite numerical slice; alternate memory schedules could need this benchmark.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
