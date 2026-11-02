@@ -1,19 +1,21 @@
-# Review of the symmetric negative-doubling zeta and entropy plateau
+# Independent mathematical audit
 
-## Correctness (PASS)
+## correctness
 
-The geometric setting is the orientation-reversing degree-two **circle map**, rather than the distinct-endpoint interval convention. Explicit seven-grid and nine-grid Markov matrices have characteristic factors \((\lambda^2-\lambda-1)\) and spectral radius \(\varphi\). Inclusion supplies the common positive entropy on the whole parameter interval and uniform expansion supplies the Hausdorff dimension. The twelve-cell refined graph forces any interior periodic orbit in either newly admitted annulus onto one six-step branch; each fixed-point equation has only an old boundary solution. The only truly new periodic points are two boundary three-cycles at \(a=4/9\). For the two endpoint Markov graphs, orientation-sensitive coding corrections count the circle fixed points and the boundary three-cycles correctly, yielding the all-period zeta identities. Exact arithmetic supports the finite matrices and examples, not the infinite extrapolation.
+PASS
 
-## Originality (PASS under accessible literature)
+The endpoint Markov presentations for a=3/7 and a=4/9 have characteristic polynomials respectively (lambda-1)(lambda+1)(lambda^2-lambda-1)(lambda^2-lambda+1) and (lambda-1)(lambda+1)^3 times the same quadratics. Both Perron roots are phi; survivor inclusion proves constant entropy over the interval and an expanding-cylinder Frostman argument proves dim_H=log(phi)/log2. Refinement by both endpoint grids yields only three recurrent SCCs; any periodic point in either newly retained open annulus must follow the forced six-cycle. Its six-step affine branch has unique fixed point at the OLD forbidden boundary, so no intermediate periodic points enter. At a=4/9 exactly two primitive boundary three-cycles are newly retained. Orientation-reversing side-address corrections give tr A3^n-P_n=(-1)^n and tr A4^n-P_n=3(-1)^n-6 1_{3|n}, which yield the stated rational zeta functions; 0 is one circle fixed point. Independently reassembled both exact matrices and enumerated all geometric periodic points for periods 1..12 at both endpoints and a sample interior parameter; the all-period assertion rests on the SCC and boundary argument, not this finite test.
 
-Ding, Steiner, and Sun, arXiv:2610.03327v1 (2026-10-02), Section 4.4 Example 4.4, **already prove** the golden-mean entropy at the periodic symbolic endpoint representing \(a=4/9\), and their paper provides a general entropy–dimension framework. Neither is claimed as independently new. The assessed contribution is the *entire* equal-periodic-point interval starting at \(3/7\) and the exact entry of two distinct primitive period-three orbits at the final endpoint, yielding the explicit zeta discontinuity. The closest publicly indexed negative-doubling zeta result concerns the disjoint zero-entropy range \(a\le2/5\); its full source was not accessible. A specialized broader historical zeta theorem remains a priority risk.
+## originality
 
-## Mathematical value (PASS)
+PASS
 
-The endpoints \(3/7\) and \(4/9\) are natural periodic boundary parameters, and the exact Lucas-number count reveals a positive-entropy regime in which all actual periodic points remain fixed across the entire half-open parameter interval. The endpoint zeta jump, undetectable from entropy or Hausdorff dimension, is a motivated dynamical invariant and a sharp counterexample to conflating entropy plateaux with zeta plateaux.
+Ding–Steiner–Sun arXiv:2610.03327 already gives the positive-entropy golden-mean value at the 4/9 kneading endpoint and a general dimension framework, which is explicitly excluded from new priority. The assessed contribution is the entire [3/7,4/9) frozen geometric periodic-point set and explicit two-three-cycle endpoint jump, not merely an entropy plateau. Qualified PASS against examined statements, with specialized past dynamical-zeta literature as residual risk.
 
-## Scope and limitations
+## value
 
-All assertions assume a circle, open hole, and parameters \(3/7\le a\le4/9\). No classification of other parameter intervals or all broader open Lorenz maps is claimed. Full specialized historical priority and independent validation remain open.
+PASS
 
-Self-review: passed. Independent audit: not yet performed.
+A natural pair of rational Markov hole boundaries yields a sharp distinction between entropy plateaux and Artin–Mazur zeta plateaux: entropy stays positive and constant while the entire geometric period census remains fixed and then jumps only at one endpoint. The exact Lucas/cosine fixed-point count is a useful dynamical invariant invisible to entropy and dimension alone.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
