@@ -1,9 +1,21 @@
-# Review of the seven-vertex edge-conjunction cutoff
+# Independent mathematical audit
 
-Correctness — PASS. The displayed minimax recurrence is an exact induction on strict version-space masks. The standalone C++17 program exhausts all 2,097,151 nonempty labeled graphs on seven vertices, and its recorded output identifies exactly 147 failures, all with sixteen edges and dimension three. A separate Python construction proves that the two exhibited isomorphism types supply exactly 42 and 105 disjoint labeled masks, none admitting a root split of eight versus eight; their union equals the exhaustive exception set. The result is finite and depends on correct execution of the included source; no unrestricted-graph conclusion is claimed.
+## correctness
 
-Originality — PASS, with residual historical priority risk. The inspected closure-bounds preprint and full published text establish general statements about dimensions under Boolean aggregation, not the exact edge-conjunction obstruction. Related vertex-induced-edge ranges address primal VC shattering rather than the dual Littlestone problem; this distinction is material. Searches for the precise 16-edge cutoff, the two graph shapes, monotone two-variable conjunctions, and adaptive containment tests did not identify dominating statements. Uninspected historical online-learning literature could still contain an equivalent finite classification.
+PASS
 
-Value — PASS. This establishes the first graph order where the hypothesis-cardinality information bound stops determining optimal realizable online mistake complexity, and gives a complete sharp classification at that order. The two obstructions are structurally simple but nonisomorphic, and the 147-mask census makes the boundary reproducible. This is a natural finite learning-theoretic cutoff, not an arbitrary graph sample or a claim to a general theorem.
+The proof derives the exact binary-tree Littlestone recurrence D(v)=max_U[1+min(D(v&Q(U)),D(v\Q(U)))] over proper nonempty splits, with D(singleton)=0. The actual verify_all.cpp iterates every one of 2^21-1 nonempty edge masks and all 128 vertex queries in induction order; the independent rewritten C++ solver exhaustively confirmed exactly 147 failures, all 16-edge masks of dimension 3. An independent constructive set comparison verifies exactly 42 K6-with-leaf and 105 K6-edge-subdivisions, with no 8/8 query split. Isolated-vertex embedding settles <=6 vertices. Exhaustive finite verification is a complete argument for <=7, not beyond.
 
-Self-review: passed. Independent audit: not yet performed.
+## originality
+
+PASS
+
+The invariant is adaptive Littlestone dimension of an edge-indexed class of vertex-conjunction query functions, not primal VC dimension of induced edge sets nor a general aggregation bound. Relevant checked sources do not state its exact <=7 classification; priority remains best-of-knowledge.
+
+## value
+
+PASS
+
+Smallest obstruction to saturation of the information-theoretic Littlestone upper bound is a natural learning-theoretic graph invariant. The sharp 7-vertex, 16-edge cutoff and exact two-class characterization give meaningful boundary structure, not an arbitrary isolated numerical count.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
