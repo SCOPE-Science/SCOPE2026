@@ -1,0 +1,126 @@
+{
+  "correctness": {
+    "rationale": "The ordered three-point density \\(6/L^3\\) leads to exact gap density \\(6(L-u-v)/L^3\\). The inscribed-angle theorem makes the largest angle half the maximum of the three circular gaps. Integrating the intersection \\(u,v\\le2m\\) and complementary gap \\(2\\pi-u-v\\le2m\\) gives a direct one-dimensional cubic integral and the stated positive-part formula. The support bound follows from gap sum and the restricted angular span and is attained in closure by explicit configurations. The acute threshold and all four lower-tail coefficients are direct exact polynomial expansions. The standalone checker independently implements the gap integral and sampling and passed; finite checks are not substituted for the proof.",
+    "status": "PASS"
+  },
+  "independent": false,
+  "independent_audit_status": "not_performed",
+  "originality": {
+    "broader_coverage": {
+      "evidence": [
+        "Kabluchko (2019), arXiv:1909.13335, studies expected simplex angles and face numbers under full sphere/ball and beta distributions, not the maximum interior angle on a proper circular arc.",
+        "Khan (2017), arXiv:1704.05913, samples from planar-region area, not circular arc arclength.",
+        "Greenwell (2026), arXiv:2608.06591, samples each point on a full concentric circle and addresses obtuse probability; it credits classical full-circle one-quarter acute law."
+      ],
+      "reasoning": "These represent nearby broader-sounding random-simplex and random-triangle frameworks. Each lacks the fixed proper-arc sampling support and hence does not directly provide the exact parameter-dependent CDF or its onset transition. Full-circle results are credited, and no conclusion of general historical uniqueness is drawn.",
+      "searches": [
+        "arxiv:1909.13335: random simplex angle distributions and full-sphere sampling, inspected main results",
+        "arxiv:1704.05913: acute random triangles from convex regions, inspected introduction and setup",
+        "arxiv:2608.06591: full concentric-circle random triangles, inspected introduction and Theorem 4.1"
+      ]
+    },
+    "checked_sources": [
+      "arxiv:1704.05913",
+      "arxiv:1909.13335",
+      "arxiv:2608.06591",
+      "MathWorld: Circle Triangle Picking",
+      "Published indexed research summaries for circular arcs, maximum angles and complementary-gap aliases"
+    ],
+    "claim_vs_prior_implication": {
+      "evidence": [
+        "Greenwell (2026) explains that three full-circle arclength points generate a uniform angle simplex and give acute probability \\(1/4\\). Its independent angular inputs occupy the full circle, whereas the proper-arc model conditions the span through a triangular weight \\(L-u-v\\).",
+        "The new formula specializes at \\(L=2\\pi\\) to the known full-circle distribution, and that specialization is expressly not claimed as new."
+      ],
+      "reasoning": "The full-circle case is subsumed by older results and has been excluded from the novelty statement. A full-circle distribution of gaps is not sufficient to give a truncated-arc law by simply substituting \\(L\\) for \\(2\\pi\\), because the unobserved complementary gap remains \\(2\\pi-u-v\\) and the joint density has a span weight. The analytic new conclusion is the complete restricted-support law and the sharp two-threshold geometry. No inspected prior stronger statement covers these implications.",
+      "searches": [
+        "arxiv:2608.06591: uniform triangle-angle simplex for three full-circle samples, introduction lines on angular gaps",
+        "arxiv:1704.05913: area-sampled acute triangle framework",
+        "arxiv:1909.13335: expected angle sums on full sphere"
+      ]
+    },
+    "equivalent_formulations": {
+      "evidence": [
+        "Three uniform arc angles induce a gap density \\(6(L-u-v)/L^3\\); the largest inscribed interior angle equals half the largest complementary cyclic gap.",
+        "The closest indexed paper on three-point Riesz conditioning for finite cycles optimizes discrete spectral conditioning rather than a continuous largest-gap probability law."
+      ],
+      "reasoning": "The same statement was searched through random triangle angles, order statistics, restricted circular spacing, and complementary-gap formulations. The retrieved records concern other functionals or uniform sampling on the full circle; their claims do not imply the truncated-arc two-parameter distribution. The reduction to order statistics is mathematically elementary, but the complete phase diagram and critical lower-tail exponent require the explicit weighted-gap law.",
+      "searches": [
+        "largest cyclic gap induced by three order statistics uniform subarc of circle, exact distribution and cubic onset at two-thirds coverage",
+        "ordered three uniform points on interval length L, max of consecutive gaps and complementary circular gap 2pi-span, distribution cubic threshold 4pi/3",
+        "web: circle arc three points maximum angle triangle probability distribution \"arc\""
+      ]
+    },
+    "exact_database_or_table": {
+      "evidence": [
+        "MathWorld Circle Triangle Picking tabulates area moments of triangles inscribed in a complete circle; it does not give the maximum-angle law for a proper arc.",
+        "The closest indexed published findings concern circumradius tails in a filled convex body or conditional triangle areas from discrete polygon vertices, not the present circular-arc model."
+      ],
+      "reasoning": "The exact object, two-parameter CDF, critical \\(4\\pi/3\\) angle, and listed formula were searched in databases and the literature. No exact table match was returned. This is absence of found coverage, not proof that no source exists.",
+      "searches": [
+        "random triangle uniformly sampled from a circular arc, complete CDF of largest angle, arc opening sharp 4pi/3 threshold, acute probability",
+        "probability three independent uniform points on a proper circle arc form acute triangle expression (L-pi)^2(4pi-L)/L^3",
+        "web: Circle Triangle Picking Wolfram MathWorld"
+      ]
+    },
+    "rationale": "The new scope is a fixed proper circular arc with exactly three independent arclength-uniform points, the entire CDF of the largest triangle angle, and the sharp critical cubic onset at \\(L=4\\pi/3\\). Inspected primary sources use area-uniform convex-region samples, full-sphere angle expectations, or full-circle concentric-circle samples. The classical full-circle acute result \\(1/4\\) and uniform angle-simplex law are expressly credited and not claimed novel. Searches through circular spacings, triangle angles, and database tables returned no covering exact restricted-arc result; historical priority is provisional.",
+    "residual_risks": [
+      "Older literature on conditioned order statistics or scan statistics might contain an equivalent proper-arc maximum-gap CDF under unrelated terminology.",
+      "Some random-triangle work may implicitly imply a special conditional law; exact priority outside inspected sources is not proven."
+    ],
+    "source_inspections": [
+      {
+        "assessment": "Different sampling measure (area-uniform convex regions); neither exact arc-conditioned maximum-angle CDF nor its critical exponent is stated.",
+        "evidence": [
+          "arXiv:1704.05913, introduction and sampling setup; arxiv.org/abs/1704.05913 submission history."
+        ],
+        "identifier_or_url": "https://arxiv.org/html/1704.05913v4",
+        "material_read": "Introduction, sampling-model discussion and relevant acute-triangle setup, including distinctions between disk interior and other sampling measures.",
+        "method": "Opened lawful arXiv HTML full text and inspected relevant sections.",
+        "title": "Hall's Conjecture on Extremal Sets for Random Triangles",
+        "trigger": "Closest earlier area-sampling acute random-triangle work; first public date 2017-04-19."
+      },
+      {
+        "assessment": "Expected internal angles and face numbers of full-sphere/full-ball random simplices; no three-point proper-arc maximum-angle distribution or \\(L=4\\pi/3\\) transition.",
+        "evidence": [
+          "arXiv:1909.13335, section 1.1 and main results, initial public date 2019-09-29."
+        ],
+        "identifier_or_url": "https://arxiv.org/abs/1909.13335",
+        "material_read": "HTML full text main-results introduction, enumerated Problems A-D and mathematical model definitions, and relevant statement program.",
+        "method": "Opened full-text arXiv HTML rendering and examined definitions and main results.",
+        "title": "Angles of Random Simplices and Face Numbers of Random Polytopes",
+        "trigger": "Potential stronger random-simplex angle theorem."
+      },
+      {
+        "assessment": "Samples from full concentric circles, with possibly distinct radii, and studies obtuse probability. Full-circle uniform angle-simplex benchmark is known and credited. No fixed restricted arc parameter or lower-tail critical law is present.",
+        "evidence": [
+          "arXiv:2608.06591, introduction and Theorem 4.1."
+        ],
+        "identifier_or_url": "https://arxiv.org/abs/2608.06591",
+        "material_read": "arXiv full-text introduction, Section 2 setup, Section 3 viewing-angle construction, and Section 4 Theorem 4.1 with derivation.",
+        "method": "Opened and inspected lawful arXiv HTML text.",
+        "title": "Random Triangles on Concentric Circles",
+        "trigger": "Highly relevant recent circular random-triangle treatment with the classical full-circle comparison."
+      },
+      {
+        "assessment": "Area statistic rather than proper-arc maximum interior angle. No coverage of the theorem.",
+        "evidence": [
+          "Weisstein, Circle Triangle Picking, equations for area moments."
+        ],
+        "identifier_or_url": "https://mathworld.wolfram.com/CircleTrianglePicking.html",
+        "material_read": "Article definition of uniform full-circle sampling and formulas for triangle area moments.",
+        "method": "Opened article HTML text.",
+        "title": "Circle Triangle Picking",
+        "trigger": "Potential exact table for circle-inscribed triangles."
+      }
+    ],
+    "status": "PASS"
+  },
+  "review_type": "self_review",
+  "schema_version": 1,
+  "scope_run_id": "9f19083e-c2eb-46d0-9781-9b21d0ed2de2",
+  "self_review_status": "passed",
+  "value": {
+    "rationale": "Restricting visible circumference is a canonical geometric-sampling deformation of the classical complete-circle triangle model. The theorem solves the full family exactly, classifies which arc lengths permit acute triangles, gives a strict acute-probability law, and identifies a non-obvious codimension-one critical aperture \\(4\\pi/3\\) at which the optimal-angle lower tail changes exponent from two to three. This is a natural complete classification and sharp phase transition, not a renaming or arbitrary numerical cutoff; its proof identifies the contributing gap geometry.",
+    "status": "PASS"
+  }
+}
