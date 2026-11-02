@@ -5,8 +5,11 @@
     "status": "not_performed"
   },
   "independent_audit": {
-    "evidence": null,
-    "status": "not_performed"
+    "status": "passed",
+    "evidence": [
+      "INDEPENDENT_AUDIT_2026-10-27.md",
+      "INDEPENDENT_AUDIT_2026-10-27.json"
+    ]
   },
   "lean_verification": {
     "evidence": null,
@@ -16,12 +19,24 @@
 }
 ---
 
-# Reproduction
+# Independent mathematical audit
 
-Run the standalone Python 3 standard-library script with `python3 verify_partition.py` in a directory containing that file. The exact program output is included as `verification_output.txt`, ending in `VERIFY_OK`.
+## correctness
 
-The script enumerates all partition-transfer graph cliques for \(1\le n\le16\), including \(8{,}932\) faces, using direct Ferrers symmetric-difference adjacency. It separately enumerates removable/addable Young corner choices in \(153\) parameter pairs up to \(n=18\), computes the proposed product coefficients up to \(n=65\), compares published face and homology tables, and tests first-occurrence thresholds for clique sizes \(2\) through \(10\). The Euler-Betti series test serves solely as a consistency check and is not claimed new. The script is deterministic and has no network or nonstandard dependencies.
+PASS
 
-# Scientific limits
+PASS. The star/top clique covering theorem is explicitly imported, not reproved. For an r-clique with r>=3, intersection identifies its unique lower star, union its unique upper top, and the r>2 cell-count discrepancy prevents double-description; an edge is counted only through its lower star. Counting addable/removable Young corners yields c_2(n)=sum over mu partitioning n-1 binom(d(mu)+1,2) and c_r(n)=lower+upper for r>=3. The formal factorization F(q,1+x)=P(q) product_j(1+xq^j) and Euler's distinct-part identity give q^2P/D_2 and P(q)(q^(1+binom(r,2))+q^(binom(r+1,2)-1))/D_r. The unique lowest nonzero coefficient yields threshold 1+binom(r,2), and its predecessor is uniquely staircase (r-1,...,1), giving unique first r-face. Independently reconstructed partitions and direct graph-clique counts for n=1..9, matching the corner formula; sample n checks are corroborative rather than a general proof.
 
-Finite enumeration tests the implementation and sampled instances only; it does not certify every integer \(n\) or every \(r\). General validity follows from the proof's exact incidence uniqueness and formal partition-series manipulations, dependent on the published star/top classification. No independent audit has been performed.
+## originality
+
+PASS
+
+PASS, best-of-knowledge. Lyudogovskiy's 2026 star/top theorem covers clique *structure* and wedge homotopy; the March 24 paper explicitly labels the all-dimension first-occurrence and staircase statements Conjectures 5.1–5.2, and the March 27 numerical paper presents tables without a full face-enumerator family. The new all-r coefficient identity plus complete conjecture resolutions are not the previously known Euler/Betti rank generating functions. Inspected later article on initial layers does not resolve the arbitrary-d case.
+
+## value
+
+PASS
+
+PASS. A natural complete face-vector invariant of the classical partition-transfer graph is determined at all sizes and simplex dimensions with a compact product generating function. This resolves two explicit infinite families of conjectures and identifies the unique first simplex geometrically; information is finer than known homotopy rank/Euler series and is a meaningful complete combinatorial classification.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
