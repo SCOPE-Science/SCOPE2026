@@ -1,11 +1,21 @@
-# Scientific review
+# Independent mathematical audit
 
-**Correctness — PASS.** Real Fourier-block Parseval reduces the intensity Jacobian to finite \(2\times2\) complex blocks with the correct \(\sqrt2\) conversion to real singular values. A positive block determinant yields precisely the phase kernel, and the product-of-singular-values expansion produces the linear coalescence coefficients. Strict log-concavity in angular order and an increasing endpoint ratio give the unique transition; the degree asymptotics follow by taking logarithms. Thirty-two standalone numerical cases also matched the exact finite-matrix spectrum and asymptotic predictions. Numerical tests are not the general proof.
+## correctness
 
-**Originality — PASS, with residual risk.** Chalendar–Partington (arXiv:2403.16255, Sections 2.2, 2.4 and Theorem 2.16 inspected) already show qualitative uniqueness for two circles; this claim concerns a specific, complete quantitative real-differential singular spectrum and its coalescence transition, not uniqueness. General Banach-space stability results (arXiv:2210.05114, introductory pages inspected) do not imply the explicit transition. Indexed comparisons found related work on Gabor spectrogram Jacobians, Bergman pole Hessians and Bergman trace frequency thresholds, all on distinct measurement operators. Complete priority assurance is not claimed, especially for older polynomial phase-retrieval conditioning sources.
+PASS
 
-**Value — PASS.** In the already identifiable two-circle geometry, the exact spectral constants quantify the local noise-amplification bottleneck and locate an unexpected switch between distant and neighboring polynomial coefficients. The transition has a nontrivial degree-dependent boundary-layer scale, a structural feature not furnished by qualitative uniqueness.
+For the specified real coefficient norm and two normalized circle L2 norms, the derivative at z^m splits exactly into one real constant Fourier mode and m complex 2-by-2 blocks B_j; complex conjugation of the low coefficient is a real isometry. Real Parseval gives the sqrt(2) block multiplier and multiplicity two, while det B_j=(rR)^(2m-j)(R^(2j)-r^(2j))>0 gives rank 4m+1 with only phase kernel. The determinant/singular-value product yields the h-linear coefficient 2j*r^(2m+j-1)/sqrt(1+r^(4j)). Ratios g_(j+1)/g_j strictly decrease, so the strictly log-concave sequence cannot minimize in the interior. The endpoint ratio m*r^(m-1)*sqrt((1+r^4)/(1+r^(4m))) increases strictly from 0 to m, giving the unique switch and the logarithmic degree asymptotic. Independently constructed six real sampled Jacobians and compared their 4m+1 singular values against all block formulas; tested 12 critical/end-index configurations. Fixed m,r and h-down-to-zero boundaries are explicit; this is neither global nonlinear phase retrieval nor a finite-separation switch theorem.
 
-**Limitations and risk.** Local linearized intensity rather than nonlinear uniform inversion; fixed-degree coalescence asymptotics; no asserted exact mode switch for finite circle separation. Some related articles were not examined page by page; specialist priority checks remain worthwhile.
+## originality
 
-Self-review: passed. Independent audit: not yet performed.
+PASS
+
+Best-of-knowledge PASS for the complete local intensity-Jacobian singular spectrum and its two-endpoint transition, not for phase uniqueness. Chalendar–Partington characterize qualitative uniqueness from two circles, and Freeman et al. give general stable phase retrieval principles. Neither inspected relevant theorem implies explicit normalized B_j singular values or the unique coalescence critical radius. No matching Resultary record surfaced; prior specialized polynomial Fourier-block conditioning is the main remaining priority risk.
+
+## value
+
+PASS
+
+Local conditioning when two concentric intensity-measurement circles merge is mathematically intrinsic, but global uniqueness alone gives no sharp smallest singular direction. This theorem supplies the entire normalized derivative spectrum, proves exclusion of all interior Fourier modes and an exact one-parameter boundary between two very different destabilizing modes, with degree-dependent asymptotics. Those nontrivial structural statements motivate the spectral calculation independently of code or mere reproducibility.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

@@ -1,0 +1,107 @@
+{
+  "audit_date_utc": "2026-10-28",
+  "audited_at_utc": "2026-10-28T17:59:25Z",
+  "axes": {
+    "correctness": {
+      "rationale": "For the specified real coefficient norm and two normalized circle L2 norms, the derivative at z^m splits exactly into one real constant Fourier mode and m complex 2-by-2 blocks B_j; complex conjugation of the low coefficient is a real isometry. Real Parseval gives the sqrt(2) block multiplier and multiplicity two, while det B_j=(rR)^(2m-j)(R^(2j)-r^(2j))>0 gives rank 4m+1 with only phase kernel. The determinant/singular-value product yields the h-linear coefficient 2j*r^(2m+j-1)/sqrt(1+r^(4j)). Ratios g_(j+1)/g_j strictly decrease, so the strictly log-concave sequence cannot minimize in the interior. The endpoint ratio m*r^(m-1)*sqrt((1+r^4)/(1+r^(4m))) increases strictly from 0 to m, giving the unique switch and the logarithmic degree asymptotic. Independently constructed six real sampled Jacobians and compared their 4m+1 singular values against all block formulas; tested 12 critical/end-index configurations. Fixed m,r and h-down-to-zero boundaries are explicit; this is neither global nonlinear phase retrieval nor a finite-separation switch theorem.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Theorem 2.16 treats concentric and other circle configurations globally, but makes no finite-degree central-monomial Jacobian eigenvalue claims in the inspected section."
+        ],
+        "reasoning": "Broader class of holomorphic inputs and qualitative uniqueness is not stronger coverage of the exact quantitative local condition number, which needs all specified normalization constants.",
+        "searches": [
+          "Chalendar–Partington two-circle uniqueness Theorem 2.16",
+          "Freeman–Oikhberg–Pineau–Taylor function-space stability arxiv:2210.05114"
+        ]
+      },
+      "checked_sources": [
+        "Frozen RESULT.md SHA 8f1dcdceea67233805e60bf6bdf29ac32201e191; verify_spectrum.py SHA 31d57607d792be0913a6b844638d3c727bb47bc7",
+        "arxiv:2403.16255 original relevant PDF sections",
+        "arxiv:2210.05114 abstract/background",
+        "two concentric circles polynomial phase retrieval central monomial Jacobian singular value angular mode coalescing radius stability",
+        "Independent direct real Jacobian + 2x2 block singular spectrum and critical radius tests"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "New claim gives 4m+1 explicit nonzero real singular values and an r_m equation, while prior source establishes uniqueness up to unimodular phase for configurations of circles."
+        ],
+        "reasoning": "Uniqueness can hold with arbitrarily small singular values as circles coalesce; no implication from a qualitative uniqueness theorem to the exact transition is available.",
+        "searches": [
+          "arxiv:2403.16255 pp10-12",
+          "arxiv:2210.05114 abstract"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Exact target is real derivative of squared intensity at central monomial with coefficient norm and two-circle L2 norm; prior two-circle result concerns equality of moduli for analytic functions."
+        ],
+        "reasoning": "Phase retrieval up to a global scalar is qualitative injectivity and does not itself prescribe the singular-value spectrum or the h-first-order instability. The abstract stability framework likewise does not evaluate this operator.",
+        "searches": [
+          "two concentric circles polynomial phase retrieval central monomial Jacobian singular value angular mode coalescing radius stability",
+          "arxiv:2403.16255 §2.4 Theorem 2.16",
+          "arxiv:2210.05114"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "Resultary matches concerned different circle integral geometry, Szego frames or Fourier Hessians, not two-radius polynomial intensity derivatives."
+        ],
+        "reasoning": "No matching scientific table was found. This is an observed search result, not a proof of novelty or exhaustive database coverage.",
+        "searches": [
+          "two concentric circles polynomial phase retrieval central monomial Jacobian singular value angular mode coalescing radius stability",
+          "Resultary semantic query on circle phase local Fourier stability"
+        ]
+      },
+      "rationale": "Best-of-knowledge PASS for the complete local intensity-Jacobian singular spectrum and its two-endpoint transition, not for phase uniqueness. Chalendar–Partington characterize qualitative uniqueness from two circles, and Freeman et al. give general stable phase retrieval principles. Neither inspected relevant theorem implies explicit normalized B_j singular values or the unique coalescence critical radius. No matching Resultary record surfaced; prior specialized polynomial Fourier-block conditioning is the main remaining priority risk.",
+      "residual_risks": [
+        "Unindexed local phase-retrieval stability or Fourier-block literature may derive equivalent constants.",
+        "Computed checks corroborate only finite m/r pairs; infinite m and transition proved analytically, not by testing."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "PRIOR_GEOMETRIC_UNIQUENESS_NOT_EXACT_SPECTRUM",
+          "evidence": "Theorem 2.16 decides global uniqueness cases for |f|=|g| on two circles; no local singular-block spectrum in the inspected result.",
+          "identifier_or_url": "arxiv:2403.16255; https://arxiv.org/pdf/2403.16255",
+          "material_read": "Abstract, introduction, Section 2.4 including Theorem 2.16 and proof discussion, pp10–12",
+          "method": "Read original PDF text; visually inspected the actual theorem page",
+          "title": "Phase retrieval on circles and lines",
+          "trigger": "Same two-circle analytic phase-retrieval geometry"
+        },
+        {
+          "assessment": "GENERAL_FRAMEWORK_RISK",
+          "evidence": "General Banach/function-space stability is relevant; an uninspected quantitative specialization remains possible.",
+          "identifier_or_url": "arxiv:2210.05114",
+          "material_read": "Public abstract/background only, no claim of whole-paper inspection",
+          "method": "Compared accessible scope and published abstract",
+          "title": "Stable phase retrieval in function spaces",
+          "trigger": "Potential general stability theorem"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "rationale": "Local conditioning when two concentric intensity-measurement circles merge is mathematically intrinsic, but global uniqueness alone gives no sharp smallest singular direction. This theorem supplies the entire normalized derivative spectrum, proves exclusion of all interior Fourier modes and an exact one-parameter boundary between two very different destabilizing modes, with degree-dependent asymptotics. Those nontrivial structural statements motivate the spectral calculation independently of code or mere reproducibility.",
+      "status": "PASS"
+    }
+  },
+  "checked_sources": [
+    "Frozen RESULT.md SHA 8f1dcdceea67233805e60bf6bdf29ac32201e191; verify_spectrum.py SHA 31d57607d792be0913a6b844638d3c727bb47bc7",
+    "arxiv:2403.16255 original relevant PDF sections",
+    "arxiv:2210.05114 abstract/background",
+    "two concentric circles polynomial phase retrieval central monomial Jacobian singular value angular mode coalescing radius stability",
+    "Independent direct real Jacobian + 2x2 block singular spectrum and critical radius tests"
+  ],
+  "disposition": "passed",
+  "limitations": [
+    "Fixed central monomial p0=z^m, degree≤2m, two circle radii 0<r<R<1 and exact declared real norms.",
+    "Coalescence leading coefficient holds fixed m,r; no global inversion or uniform joint degree/separation limit."
+  ],
+  "residual_risks": [
+    "Unindexed local phase-retrieval stability or Fourier-block literature may derive equivalent constants.",
+    "Computed checks corroborate only finite m/r pairs; infinite m and transition proved analytically, not by testing."
+  ],
+  "schema_version": 1
+}
