@@ -1,0 +1,116 @@
+{
+  "correctness": {
+    "rationale": "Projection trace and rank-one-deflation eigenvalue calculations establish all residual levels, including an all-zero case. Binomial independence proves exact masses. The derivative has the sign of a polynomial with one sign change, yielding the unique maximizing density for all strict tolerances below the dense outcome. Root convergence and binomial-to-Poisson limit give the dimension law; restarts use independence. Direct numerical and exact-rational matrix tests passed 384994 checks. They support, rather than replace, the symbolic proof.",
+    "status": "PASS"
+  },
+  "independent": false,
+  "independent_audit_status": "not_performed",
+  "originality": {
+    "broader_coverage": {
+      "evidence": [
+        "2023 Theorem 3.3 requires an oversampling condition and bounds errors with sub-Gaussian constants; its sparse-sign discussion concludes increasing sparsity needs more columns for broad guarantees.",
+        "Halko–Martinsson–Tropp provides the deterministic randomized range-finder framework and general error bounds, not a sparse-one-probe exact optimization across tolerances.",
+        "Own relevant records 163212af-3a0e-4340-bdb8-6c87da85ea87 and 24d8f4bb-643c-46cb-ae94-c0077e561d0c concern nonzero-entry iid probe expected errors and Gaussian versus dense Rademacher behavior, respectively."
+      ],
+      "reasoning": "General inequalities or expectation orderings do not imply unique optimal success probabilities at each strict tolerance. The earlier nonzero iid squared-entry comparison explicitly excludes the atom at zero and considers expectation rather than tail optimization. No stronger inspected theorem supplies this exact discrete law.",
+      "searches": [
+        "randomized low-rank approximation beyond Gaussian sparse random vectors probability failure leading singular direction when sparsity one spike",
+        "Gaussian Rademacher sparse sketch one-spike diagonal matrix projection error distributions inverse optimal threshold success, rank-one sketch zero vector",
+        "Saibaba–Międlar Theorem 3.3; Appendix B.1; Appendix C",
+        "Halko–Martinsson–Tropp arXiv:0909.4061 range-finder definitions and generic bounds"
+      ]
+    },
+    "checked_sources": [
+      "https://arxiv.org/pdf/2308.05814",
+      "https://arxiv.org/abs/0909.4061",
+      "published-finding corpus public ranked search: sparse Bernoulli Rademacher sketch one column rank-one approximation spiked diagonal positive-part singular value success probability exact optimizer sampling density binomial count",
+      "published-finding corpus public ranked search: Exact Frobenius and operator norm discrete distribution for rank-one randomized range approximation to diagonal one-spike matrix using iid sparse Rademacher probes, probability p binomial cdf and unique p optimizer",
+      "published record: Exact random-radius law for one-spike ellipsoids in every codimension (ranked record summary)",
+      "published record: Worst-case sharpness of multistage adaptive randomized pivoting (ranked record summary)",
+      "Scientific comparison with previously accessible one-probe and one-spike claims"
+    ],
+    "claim_vs_prior_implication": {
+      "evidence": [
+        "General deterministic projector norm formulas calculate the error given an arbitrary fixed probe, but do not classify the optimal iid sparse-sign probability across tolerance bands.",
+        "Related earlier rank-one sign/Gaussian expectation comparison assumes a two-column matrix and different probe laws; the other earlier iid-probe expectation comparison assumes almost surely nonzero entries; the Gaussian covariance result concerns dependent Gaussian trailing coordinates.",
+        "2023 multi-column bounds concern sufficient guarantees, and the paper explicitly says sparse Rademacher requires more columns as sparsity increases."
+      ],
+      "reasoning": "The new theorem is not an implication of the cited bounds with their stated parameter domains; it introduces the exact atom at zero, strict metric thresholds, unique density optimization and Poisson rare-event law. Its proof uses standard binomial calculus, and an unlocated specialized derivation could nevertheless duplicate it.",
+      "searches": [
+        "Exact Frobenius and operator norm discrete distribution for rank-one randomized range approximation to diagonal one-spike matrix using iid sparse Rademacher probes, probability p binomial cdf and unique p optimizer",
+        "Oblivious iid sparse Rademacher vector one-probe randomized SVD success probability maximizing p binomial CDF, strict spectral threshold phase transition at dense probe error",
+        "arXiv:2308.05814v1 §2.1 §3.2 Appendix B.1 Appendix C",
+        "arXiv:0909.4061 general range-finder and error bounds",
+        "comparison to related mathematical claims: 163212af-3a0e-4340-bdb8-6c87da85ea87,24d8f4bb-643c-46cb-ae94-c0077e561d0c,729402e1-20b0-4f41-85a0-594a5f2a3e27"
+      ]
+    },
+    "equivalent_formulations": {
+      "evidence": [
+        "Saibaba–Międlar §2.1 defines the identical iid sparse Rademacher probe law; Theorem 3.3 and Appendix B.1 give sub-Gaussian sample-size bounds rather than a one-column support-probability law.",
+        "Published published-finding corpus record published record: Exact random-radius law for one-spike ellipsoids in every codimension concerns Haar random sections and beta laws rather than coordinatewise sparse-sign one-column projectors."
+      ],
+      "reasoning": "Matching the phrase one-spike or rank-one does not make a Haar-section radius formula equivalent to this binomial rare-success design. No inspected source stated a law equivalent to all the enumerated support masses and optimizer polynomial; a targeted unseen calculation remains possible.",
+      "searches": [
+        "sparse Bernoulli Rademacher sketch one column rank-one approximation spiked diagonal positive-part singular value success probability exact optimizer sampling density binomial count",
+        "Exact Frobenius and operator norm discrete distribution for rank-one randomized range approximation to diagonal one-spike matrix using iid sparse Rademacher probes, probability p binomial cdf and unique p optimizer",
+        "Oblivious iid sparse Rademacher vector one-probe randomized SVD success probability maximizing p binomial CDF, strict spectral threshold phase transition at dense probe error",
+        "arXiv:2308.05814v1 PDF full text searched for sparse Rademacher, binomial, spike, rank-one"
+      ]
+    },
+    "exact_database_or_table": {
+      "evidence": [
+        "The 2023 paper reports aggregate empirical relative errors against sketch size on two synthetic matrices and has no binomial-spike table.",
+        "Inspected earlier one-spike and one-probe studies have different loss objectives and do not state this sparse-sign probability table.",
+        "No relevant exact table appeared in the published-finding corpus ranked returns."
+      ],
+      "reasoning": "The target is an exact spectral/Frobenius probability support and optimal parameter, not a known sample-size or mean-error table. Search incompleteness is a residual priority risk.",
+      "searches": [
+        "sparse Bernoulli Rademacher sketch one column rank-one approximation spiked diagonal positive-part singular value success probability exact optimizer sampling density binomial count",
+        "optimal sparsity maximize p times binomial lower tail rank-one approximation probability one probe",
+        "Exact Frobenius and operator norm discrete distribution for rank-one randomized range approximation to diagonal one-spike matrix using iid sparse Rademacher probes, probability p binomial cdf and unique p optimizer",
+        "2023 Appendix C Fig. 4 sparse Rademacher experiments",
+        "comparative scientific claim/source search: sparse Rademacher, Bernoulli sketch, spiked, rank-one, 2308.05814"
+      ]
+    },
+    "rationale": "Exact joint one-probe spectral/Frobenius distribution and unique threshold-specific iid sparse-sign optimizer are not established by the inspected general randomized low-rank bounds or the closest published records. The zero-probe atom and the tail-success objective prevent direct implication from nonzero-probe expected-error results. This is a qualified best-knowledge originality assessment, not a claim of exhaustive publication priority.",
+    "residual_risks": [
+      "The older full literature on single-column sparse sketches was not exhaustively reviewed; an equivalent specialized benchmark may exist.",
+      "The value is a complete precisely defined tail-objective classification, not a new general sparse-sketch error guarantee."
+    ],
+    "source_inspections": [
+      {
+        "assessment": "General high-probability/sample-size bounds and mean empirical errors, not all-threshold one-probe exact mass and optimizer",
+        "evidence": [
+          "arXiv:2308.05814v1 first publicly dated 2023-08-10",
+          "Theorem 3.3 and §3.2, Appendix B.1, Appendix C Figure 4"
+        ],
+        "identifier_or_url": "https://arxiv.org/pdf/2308.05814",
+        "material_read": "37-page version-1 PDF: introduction; sparse Rademacher definition (p.4), structural bound and Theorem 3.3 (pp.6–9), Appendix B.1 (p.28), Appendix C sparse-sign experiments (p.32), references; full-text keyword searches for binomial, spike, rank-one, Sparse Rademacher",
+        "method": "Original open-access arXiv PDF, textual search and direct page-image inspection",
+        "title": "Randomized low-rank approximations beyond Gaussian random matrices",
+        "trigger": "Exact same sparse Rademacher probing law and randomized range-finder error setting"
+      },
+      {
+        "assessment": "General range finding and nonexact distributional error bounds; no claim located for sparse Bernoulli zero-atom threshold optimization",
+        "evidence": [
+          "arXiv:0909.4061 initial public date 2009-09-22",
+          "Range-finder discussion and probabilistic bounds"
+        ],
+        "identifier_or_url": "https://arxiv.org/abs/0909.4061",
+        "material_read": "arXiv HTML full-text rendering: introduction; range-finder algorithm/structural error bounds; relevant Gaussian and non-Gaussian discussions and term searches for sparse, Rademacher, one-dimensional",
+        "method": "Original open-access arXiv full-text HTML with in-document searches",
+        "title": "Finding structure with randomness: Probabilistic algorithms for constructing approximate matrix decompositions",
+        "trigger": "Foundational randomized range-finder algorithm and possibly stronger general error coverage"
+      }
+    ],
+    "status": "PASS"
+  },
+  "review_type": "self_review",
+  "schema_version": 1,
+  "scope_run_id": "300a3a84-107a-470b-8ed9-e004f0d8bc9a",
+  "self_review_status": "passed",
+  "value": {
+    "rationale": "This natural complete finite-dimensional classification resolves precisely when an oblivious iid sparse one-probe range finder can have strictly better high-accuracy success probability than its dense version, in both spectral and Frobenius metrics. It also quantifies optimal support scale and number of independent restarts. This distinguishes threshold success from mean-error and multi-column high-probability performance, with explicit finite benchmark utility and stated narrow scope.",
+    "status": "PASS"
+  }
+}
