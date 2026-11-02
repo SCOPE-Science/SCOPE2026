@@ -5,8 +5,11 @@
     "status": "not_performed"
   },
   "independent_audit": {
-    "evidence": null,
-    "status": "not_performed"
+    "evidence": [
+      "INDEPENDENT_AUDIT_2026-10-26.md",
+      "INDEPENDENT_AUDIT_2026-10-26.json"
+    ],
+    "status": "passed"
   },
   "lean_verification": {
     "evidence": null,
@@ -34,23 +37,19 @@ B(a)=
 3\sqrt3-3+(7-4\sqrt3)a,&q\le a\le1/2.
 \end{cases}
 \]
-Then the reduced objective is
+Then
 \[
 \Phi(a)=\frac{A(a)^2+B(a)^2}{5C(a)^2}.
 \]
-Its exact derivatives are
+The exact derivatives are
 \[
-\Phi'(a)
-=
-\frac{3a(7+4\sqrt3)}
-{5(4+2\sqrt3-a)^3}
+\Phi'(a)=
+\frac{3a(7+4\sqrt3)}{5(4+2\sqrt3-a)^3}
 \]
 on the first branch and
 \[
-\Phi'(a)
-=
-\frac{(2+\sqrt3)(a+69+40\sqrt3)}
-{5(4+2\sqrt3-a)^3}
+\Phi'(a)=
+\frac{(2+\sqrt3)(a+69+40\sqrt3)}{5(4+2\sqrt3-a)^3}
 \]
 on the second. Hence the unique half-edge maximum is \(a=1/2\).
 
@@ -65,6 +64,4 @@ so
 \Phi\left(\frac12\right)=\frac{14}{5}-\sqrt3.
 \]
 
-The bundled `verify.py` reconstructs the dodecagonal facets, proves the displayed active-facet formulas by exact affine comparisons at interval endpoints, verifies the derivative identities symbolically, and checks the equality pair. No numerical optimization is used to establish the theorem.
-
-No independent audit or independent validation has been performed.
+The symbolic verifier reconstructs the dodecagonal facets, checks affine dominance at every interval endpoint, proves the derivative identities and verifies the equality pair. The continuum supremum follows from the exact piecewise argument, not finite sampling.
