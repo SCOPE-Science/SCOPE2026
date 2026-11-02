@@ -1,0 +1,151 @@
+{
+  "correctness": {
+    "rationale": "For fixed positive \\(\\mu,D,r\\) and \\(N\\ge3\\), the common Poisson age \\(A\\sim\\operatorname{Exp}(r)\\) makes \\(S=e^{-2\\mu A}\\) exactly \\(\\operatorname{Beta}(\\beta,1)\\), with \\(\\beta=r/(2\\mu)\\). Conditioned on \\(S\\), the maximum is \\(\\sqrt{D/\\mu}\\sqrt{1-S}\\) times the maximum of \\(N\\) independent standard normals. The exact beta-weighted Gaussian-maximum integral has density \\(\\beta(\\log N)^{-\\beta}v^{\\beta-1}\\). Normal-tail Mills ratios and Gaussian extreme-value normalization give the Gumbel exceedance function \\(1-\\exp(-e^{-x-v})\\) pointwise; an explicit integrable envelope \\(v^{\\beta-1}e^{-v/4}\\) away from a fixed cutoff permits dominated convergence. Conditional age selection follows by bounded test functions and continuous mapping; the nominal uncorrected edge has extra Gaussian-tail factor \\(1/\\sqrt{4\\pi\\log N}\\), giving amplitude \\(\\Gamma(\\beta+1)/\\sqrt{4\\pi}\\). The proof covers every fixed real \\(x\\) and \\(\\beta>0\\). It does not claim changing-coordinate uniformity or finite-N error rates. A standalone numerical checker passed 94 diagnostics but is not offered as infinite proof.",
+    "status": "PASS"
+  },
+  "independent": false,
+  "independent_audit_status": "not_performed",
+  "originality": {
+    "broader_coverage": {
+      "evidence": [
+        "arxiv:2606.31634 provides model-level coverage and source formulas, not the three sharp statements assessed here.",
+        "arxiv:2509.06658 concerns freely diffusing particles with renewal resetting and lacks the harmonic equilibrium Gaussian upper-variance endpoint.",
+        "The published scientific record \"Extreme-particle pinning thresholds for alpha-Wiener mean-field bridges\" (2026-10-04) concerns shrinking-variance bridges, not shared Poisson age; \"Sharp random-sensor threshold for a single slowing Ornstein–Uhlenbeck mode\" (2026-10-11) concerns random linear observations of multidimensional OU modes."
+      ],
+      "reasoning": "The model is covered by the source, but model coverage does not imply that all fine finite-N tail limits were stated. A broad endpoint Gaussian-mixture maxima theorem might subsume the proof if found; searches did not expose a decisive such theorem. The checked bridge/sensor limits have different Gaussian covariance and mixing parameters and no implication without additional unstated reductions.",
+      "searches": [
+        "Effects of confinement in a Brownian gas with simultaneous stochastic resetting and dynamically emergent correlations 2606.31634 finite N cutoff edge boundary crossover",
+        "Reset-age selection near stationary Gaussian edge rare events: scaling T~(log log N)/(2mu), limiting distribution weighted Gumbel",
+        "\"Ornstein Uhlenbeck\" \"common resetting\" \"finite-N\" Gumbel cutoff 2025 2026",
+        "arxiv:2606.31634 Sec VI.1.1",
+        "arxiv:2509.06658 extremes and renewal"
+      ]
+    },
+    "checked_sources": [
+      "arxiv:2606.31634, relevant full rendered manuscript §§VI, VI.1.1, Eqs 115-136",
+      "arxiv:2312.02570, relevant primary OA PDF and inspected pages",
+      "arxiv:2509.06658, relevant primary OA PDF and inspected pages",
+      "Published scientific-record semantic searches matching Gaussian edge, OU Poisson reset, age selection and Gumbel leakage; nearest result IDs recorded above"
+    ],
+    "claim_vs_prior_implication": {
+      "evidence": [
+        "The leading compact-support weak limit from arxiv:2606.31634 cannot itself fix boundary probabilities of order \\((\\log N)^{-\\beta}\\) or their constants: weak convergence discards such vanishing probabilities.",
+        "The exact Gaussian-mixture formula in that article, plus standard normal tails, is enough to derive the new theorem after a nontrivial boundary-layer analysis; the proof explicitly works out that analysis rather than claiming a new exact mixture.",
+        "The prior switching-trap and free-gas extrema do not identify the additional half-power for the specified harmonic Poisson common-reset edge."
+      ],
+      "reasoning": "The source does mathematically imply the claim when supplemented with fresh asymptotic reasoning, as any rigorous theorem can follow from stronger raw exact representations. The meaningful comparison is whether the conclusion or a stronger ready-made theorem has already been established: the inspected documents did not state or prove these sharp edge and mark limits. All exact starting formulas and standard Gumbel facts are attributed.",
+      "searches": [
+        "\"harmonic confinement\" \"resetting\" \"boundary layer\" \"Gumbel\" extreme particle 2026",
+        "Effects of confinement in a Brownian gas with simultaneous stochastic resetting and dynamically emergent correlations 2606.31634 finite N cutoff edge boundary crossover",
+        "Reset-age selection near stationary Gaussian edge rare events: scaling T~(log log N)/(2mu), limiting distribution weighted Gumbel",
+        "arxiv:2606.31634 Sec VI.1.1 Eq (126),(129)-(136)",
+        "arxiv:2312.02570 maximum section",
+        "arxiv:2509.06658 extreme-statistics section"
+      ]
+    },
+    "equivalent_formulations": {
+      "evidence": [
+        "The exact Gaussian mixture and compact-edge scaling in arxiv:2606.31634 are prior, but its printed finite-size discussion specifies a cutoff of order 1/log N without a beta-weighted Gumbel amplitude or marked-age law.",
+        "The related switched-trap article arxiv:2312.02570 treats leading maximum distribution; the new statement is a rare-probability expansion after exact Gaussian quantile centering."
+      ],
+      "reasoning": "Changing coordinates from the source compact variable z to \\(Y_N=u_N(M_N/\\sigma-u_N)\\) is not by itself a finding. The substantive new comparison is \\(L_N^\\beta\\) times a disappearing exceedance probability, a conditional law for the selected reset age, and the non-equivalent nominal-edge exponent \\(\\beta+1/2\\). These are not equivalent to the source limiting weak law, which cannot determine vanishing rare-event amplitudes.",
+      "searches": [
+        "\"harmonic confinement\" \"resetting\" \"boundary layer\" \"Gumbel\" extreme particle 2026",
+        "\"Brownian gas\" \"boundary layer\" \"Gumbel\" resetting",
+        "common Poisson reset Ornstein Uhlenbeck Brownian particle gas largest position Gaussian edge leakage beta exponent half logarithmic (log N)^(-r/(2mu)-1/2)",
+        "Finite-N Gumbel smoothing of the compact right edge maximum of harmonic Ornstein Uhlenbeck Brownian gas under simultaneous Poisson resetting; probability above centered equilibrium Gaussian extreme decays as (log N)^-r/(2mu) with a beta-mixed Gumbel excess",
+        "arxiv:2606.31634 §VI.1.1",
+        "arxiv:2312.02570 extreme values"
+      ]
+    },
+    "exact_database_or_table": {
+      "evidence": [
+        "The directly relevant source has analytic asymptotic formulae for the compact maximum density and an approximate finite-N cutoff but no tabulated K_beta(x), reset-age conditional density, or Gamma(beta+1)/sqrt(4pi) leakage amplitude.",
+        "Published record searches surfaced only different Gaussian maxima or Ornstein-Uhlenbeck sensors; none was an exact table/database of this claim."
+      ],
+      "reasoning": "A preexisting table of the identical rare-event coefficients would cover the finding even with different notation. No such table or exact database value was located in the actually inspected sources and searches; this negative search is not a proof of uniqueness or exhaustive priority.",
+      "searches": [
+        "common Poisson reset Ornstein Uhlenbeck Brownian particle gas largest position Gaussian edge leakage beta exponent half logarithmic (log N)^(-r/(2mu)-1/2)",
+        "near-edge threshold exceedance Gaussian max under random common variance Ornstein Uhlenbeck Poisson reset beta-weighted Gumbel exact leading constant",
+        "arxiv:2606.31634 Eqs (115)-(136)",
+        "near-edge threshold exceedance Gaussian max under random common variance Ornstein Uhlenbeck Poisson reset beta-weighted Gumbel exact leading constant"
+      ]
+    },
+    "rationale": "Best-knowledge claim-level comparison: the directly matching 2026 source already gives the stationary conditional-Gaussian mixture and leading compact-support maximum, and identifies only the order of finite-size cutoff. The new theorem evaluates the rare-event Gumbel-smoothed coefficient, the conditional reset-age mark law, and the exact additional half-log leakage exponent above the uncorrected compact edge. The 2024 switched-trap leading law and 2025 free-renewal results do not supply the jointly specific harmonic common-Poisson-reset conclusions. Broad Gaussian-extreme and regenerative facts are credited as known; database searches alone would not establish novelty. Independent exhaustive priority assessment remains outstanding.",
+    "residual_risks": [
+      "A general unlocated Gaussian scale-mixture endpoint extreme theorem could imply parts of the boundary-layer calculation.",
+      "Only accessible relevant full texts and selected primary sections were material-inspected, not every potentially related thesis or appendix in the literature.",
+      "Returned mathematical-record summaries for distinct nearby research claims were compared without full-document inspection, so an indirectly covering generalization remains possible.",
+      "The 2026 source already contains the exact underlying stationary Gaussian mixture and the finite-size cutoff order; novelty is the three explicit sharper consequences, not model or mixture discovery."
+    ],
+    "source_inspections": [
+      {
+        "assessment": "SOURCE_OF_STARTING_FORMULAS_AND_CLOSEST_PRIOR; does not state new beta-weighted Gumbel coefficient, conditional selected age density, or sharp additional half-log leakage.",
+        "evidence": [
+          "arxiv:2606.31634 Sec VI.1.1 Eqs (115)-(136)",
+          "Its leading density is \\(S_H(z)=\\nu_H^2 z(1-z^2)^{\\nu_H^2/2-1}\\), with a finite-size cutoff approximately \\(1-1/(4\\log N)\\)."
+        ],
+        "identifier_or_url": "arxiv:2606.31634 | https://arxiv.org/abs/2606.31634",
+        "material_read": "Rendered primary manuscript, especially Sections VI and VI.1.1, formulae (115)-(136), discussion of cutoff and finite-size correction; source includes exact Gaussian mixture and leading maximum compact distribution.",
+        "method": "Read publicly accessible full rendered text and inspected statements/formulae; compared exact conditional-Gaussian mixture, max centering, 1/log N cutoff, and the three new asymptotics.",
+        "title": "Effects of confinement in a Brownian gas with simultaneous stochastic resetting and dynamically emergent correlations",
+        "trigger": "Identical OU harmonic confining gas and simultaneous Poisson resetting, finite-N maximum edge"
+      },
+      {
+        "assessment": "RELATED_NOT_COVERING_THE_SHARP_POISSON_EDGE_CLAIM",
+        "evidence": [
+          "arxiv:2312.02570 leading compact maximum in switching trap",
+          "No corresponding beta-weighted Gumbel stationary Poisson-age selection theorem found in inspected relevant sections."
+        ],
+        "identifier_or_url": "arxiv:2312.02570 | https://arxiv.org/abs/2312.02570",
+        "material_read": "Accessible primary PDF main-text extreme-value discussion and corresponding displayed leading-law derivation, with a visual PDF page inspection.",
+        "method": "Read/OA PDF inspected its main extreme-value discussion and compared stationary environment mechanism and N-dependent edge statistic.",
+        "title": "Dynamically emergent correlations between particles in a switching harmonic trap",
+        "trigger": "Earlier harmonic-trap Gaussian gas with common environment and compact limiting maximum"
+      },
+      {
+        "assessment": "RELATED_METHODS_NOT_THE_SAME_CONFINED_CLAIM",
+        "evidence": [
+          "arxiv:2509.06658 develops free Brownian resetting renewal correlation/extreme laws",
+          "OU Gaussian variance saturation and compact-edge exceedance are absent from this free-particle setting."
+        ],
+        "identifier_or_url": "arxiv:2509.06658 | https://arxiv.org/abs/2509.06658",
+        "material_read": "Accessible primary PDF: introduction, conditional-independent mixture, and extreme-statistics portions with PDF visual inspection.",
+        "method": "Read relevant publicly accessible primary sections and compared free Brownian exploration with confined OU endpoint mechanism.",
+        "title": "Dynamically emergent correlations in Brownian particles subject to simultaneous non-Poissonian resetting protocols",
+        "trigger": "Broader simultaneous-reset renewal gases and extreme statistics"
+      },
+      {
+        "assessment": "SUMMARY_DISTINCT; full-text risk retained rather than claiming exhaustive exclusion.",
+        "evidence": [
+          "Gaussian alpha-Wiener bridge terminal-time pinning windows scale in log N and n, not an OU simultaneous-reset stationary beta-age mixture."
+        ],
+        "identifier_or_url": "Published mathematical research record dated 2026-10-04; exact title given above",
+        "material_read": "Returned title and scientific summary; full article NOT inspected.",
+        "method": "Compared available mathematical-claim summary and parameters (terminal-time pinning vs shared reset age).",
+        "title": "Extreme-particle pinning thresholds for alpha-Wiener mean-field bridges",
+        "trigger": "Published mathematical-record semantic overlap on Gaussian extremes and shrinkage"
+      },
+      {
+        "assessment": "SUMMARY_DISTINCT; residual generalization risk acknowledged.",
+        "evidence": [
+          "Its critical window involves random sensor observation directions and a high-dimensional slow mode; the new claim is a random common stationary reset age near a Gaussian maximum endpoint."
+        ],
+        "identifier_or_url": "Published mathematical research record dated 2026-10-11; exact title given above",
+        "material_read": "Returned title and scientific summary; full article NOT inspected.",
+        "method": "Compared sensor-dimension/high-dimensional slow-mode random projection with the OU gas conditional common Poisson reset age.",
+        "title": "Sharp random-sensor threshold for a single slowing Ornstein–Uhlenbeck mode",
+        "trigger": "Published mathematical-record OU/Gumbel extreme semantic hit"
+      }
+    ],
+    "status": "PASS"
+  },
+  "review_type": "self_review",
+  "schema_version": 1,
+  "scope_run_id": "4cd7cf34-fdd1-4fd8-9db4-e08a49c9a574",
+  "self_review_status": "passed",
+  "value": {
+    "rationale": "The original model publication identifies a slow 1/log N edge cutoff but does not quantify how often the nominal compact edge is exceeded, by what amplitude, or what reset ages select such events. The new exact K_beta(x) and Gamma(beta+1)/sqrt(4pi) constants separate Gaussian quantile correction from reset-age endpoint suppression, reveal a different exponent beta+1/2 for the natural uncorrected threshold, and give a conditional rare-environment distribution rather than just one-point extrema. This is a mathematically motivated next-order extreme-event characterization in a correlated gas, not an arbitrary numerical slice or a generic restatement of standard Gumbel convergence. Scientific use is bounded to the specified stationary harmonic common-reset model; no experimental prediction is asserted.",
+    "status": "PASS"
+  }
+}
