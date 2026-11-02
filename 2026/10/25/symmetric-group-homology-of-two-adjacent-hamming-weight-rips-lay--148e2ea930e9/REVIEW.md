@@ -1,11 +1,21 @@
-# Scientific review
+# Independent mathematical audit
 
-**Correctness — PASS.** The proof starts from the published two-rank homotopy concentration (Feng–Nukala, Theorem 13), independently classifies all pure and mixed cliques, calculates their oriented cellular Euler classes, and uses Jacobi–Trudi telescoping to turn the resulting virtual characters into actual rational Specht decompositions. Each mixed simplex has precisely one vertex on at least one rank, so the two cone-counts overcount only mixed edges; this is the pivotal nonstandard step. A standalone enumerator confirms all class traces for six parameter pairs, including every conjugacy class of \(S_8\); it is corroboration rather than a substitute for the proof.
+## correctness
 
-**Originality — PASS against inspected evidence.** The 2023 Feng–Nukala paper establishes sphere-wedge counts but does not determine the natural symmetric-group representations. Previously indexed single-rank symmetry results determine only one of the two pure layers. This claim treats the union and accounts for additional mixed simplices by an incidence-graph homology summand, yielding a new three-row Specht series. No retrieved source implies this two-rank decomposition; inaccessible or unindexed material remains a priority risk.
+PASS
 
-**Value — PASS.** The module is not determined by the known Betti number. The natural inclusion graph between adjacent Boolean ranks contributes an entire family of nontrivial irreducible modules; these distinguish the two-layer complex from simply combining the homology dimensions of its constituent ranks. The theorem also determines the vanishing of rational quotient homology for two natural label-symmetry groups across an infinite parameter family.
+The inclusive distance-two clique definition is correctly used. Every pure Johnson-layer clique of three or more vertices belongs to a star or top; the mixed simplex has a unique vertex on one of the two ranks, and mixed edges alone are double counted. The oriented Euler identity thereby yields the class of the connected rank-incidence graph H1, while the known Feng–Nukala homotopy theorem concentrates rational homology in degree two. The two Jacobi–Trudi telescoping computations yield precisely the claimed Specht families; semisimplicity converts classes to representations. No sign or trivial representation occurs in the displayed partitions, so S_m and A_m invariants vanish. Fresh independent clique enumeration and hook-length dimensions agree at (m,k)=(5,2),(6,2),(6,3): respectively 260/19, 756/55, 756/55 nonempty faces/Euler H2 rank. This checks only these cases; the all-parameter conclusion depends on the exact chain argument and cited homological concentration.
 
-**Closest literature and limits.** Feng–Nukala, arXiv:2302.14664, Corollary 11 and Theorem 13, provides the exact nonequivariant premise. One-rank equivariant claims in the indexed research corpus and accessible historical claims are explicitly subsumed as inputs, not claimed here as new. Rational representation decomposition does not determine integral torsion, quotient homotopy, or equivariant attaching maps. Some possibly relevant indexed documents were available only as summaries; these are retained as residual bibliographic risks, not declared fully inspected.
+## originality
 
-Self-review: passed. Independent audit: not yet performed.
+PASS
+
+Best-of-knowledge originality PASS: The full homotopy theorem implies reduced rational homology is degree2 only, but not the S_m action; adding two single-rank characters omits the nonzero H1 incidence module. The published statements inspected do not force the claimed three-row summands. Material comparisons distinguish actual mathematical implication from common terminology. Relevant uninspected sources and residual priority risks remain explicit.
+
+## value
+
+PASS
+
+The homology dimensions were known, but the full label-permutation representation on two consecutive ranks is a natural finer invariant and not fixed by the Betti number. The mixed-face incidence-graph term contributes genuinely new three-row Specht constituents. It settles equivariant rational homology and two quotient rational-homology questions for an infinite family; no integral quotient or equivariant sphere wedge is asserted.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

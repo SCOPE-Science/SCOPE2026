@@ -5,8 +5,11 @@
     "status": "not_performed"
   },
   "independent_audit": {
-    "evidence": null,
-    "status": "not_performed"
+    "status": "passed",
+    "evidence": [
+      "INDEPENDENT_AUDIT_2026-10-27.md",
+      "INDEPENDENT_AUDIT_2026-10-27.json"
+    ]
   },
   "lean_verification": {
     "evidence": null,
@@ -16,10 +19,24 @@
 }
 ---
 
-# Verification and scope
+# Independent mathematical audit
 
-Run `python3 verify_two_rank.py` from the directory containing this file. The script independently builds all nonempty cliques of the two-rank Hamming distance-two adjacency graph, computes signed simplicial Lefschetz traces on each conjugacy class, and compares with the predicted Specht characters using exact Jacobi–Trudi determinants and cycle-coloring counts.
+## correctness
 
-Checked pairs: \((5,2),(6,2),(6,3),(7,3),(8,3),(8,4)\). Each uses *all* conjugacy classes of its ground-label symmetric group (respectively \(7,11,11,15,22,22\) classes). At \((8,3)\), the face vector by cardinality is \((126,1260,2940,1890,630,84)\) and the total is \(6930\), with degree-two rank \(461\). The success marker is `TWO_RANK_BOOLEAN_EQUIVARIANT_OK`.
+PASS
 
-The finite enumeration checks neither every parameter pair nor integral homology. The proof relies on the published homotopy concentration and explicit infinite-parameter chain and character calculations. No independent audit or external certification is claimed.
+The inclusive distance-two clique definition is correctly used. Every pure Johnson-layer clique of three or more vertices belongs to a star or top; the mixed simplex has a unique vertex on one of the two ranks, and mixed edges alone are double counted. The oriented Euler identity thereby yields the class of the connected rank-incidence graph H1, while the known Feng–Nukala homotopy theorem concentrates rational homology in degree two. The two Jacobi–Trudi telescoping computations yield precisely the claimed Specht families; semisimplicity converts classes to representations. No sign or trivial representation occurs in the displayed partitions, so S_m and A_m invariants vanish. Fresh independent clique enumeration and hook-length dimensions agree at (m,k)=(5,2),(6,2),(6,3): respectively 260/19, 756/55, 756/55 nonempty faces/Euler H2 rank. This checks only these cases; the all-parameter conclusion depends on the exact chain argument and cited homological concentration.
+
+## originality
+
+PASS
+
+Best-of-knowledge originality PASS: The full homotopy theorem implies reduced rational homology is degree2 only, but not the S_m action; adding two single-rank characters omits the nonzero H1 incidence module. The published statements inspected do not force the claimed three-row summands. Material comparisons distinguish actual mathematical implication from common terminology. Relevant uninspected sources and residual priority risks remain explicit.
+
+## value
+
+PASS
+
+The homology dimensions were known, but the full label-permutation representation on two consecutive ranks is a natural finer invariant and not fixed by the Betti number. The mixed-face incidence-graph term contributes genuinely new three-row Specht constituents. It settles equivariant rational homology and two quotient rational-homology questions for an infinite family; no integral quotient or equivariant sphere wedge is asserted.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
