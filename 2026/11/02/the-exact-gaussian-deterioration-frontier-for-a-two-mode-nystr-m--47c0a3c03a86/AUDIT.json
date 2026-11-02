@@ -1,0 +1,164 @@
+{
+  "correctness": {
+    "rationale": "Exact Nyström eigenpair, rank-one trace/determinant and the positive condition-number trace-ratio criterion reduce to a polynomial with negative sign identity; Descartes and endpoint values prove a single root in (0,1). Independent Gaussian coordinate ratios are Cauchy, giving exact probabilities. The high-contrast rescaled cubic has a unique positive limiting root, and arctangent linearization proves the two asymptotic constants. The program verify.py independently reconstructs matrices and passes 793 checks. These are supporting computations, not proof by enumeration.",
+    "status": "PASS"
+  },
+  "independent": false,
+  "independent_audit_status": "not_performed",
+  "originality": {
+    "broader_coverage": {
+      "evidence": [
+        "Giraud and Gratton, 2004 technical report/2006 SIAM paper, full author-supplied text sections 2–4: eigenpair perturbation sensitivity first-order.",
+        "Carson and Daužickaitė, 2024, full journal HTML sections 2 and 3.1: mixed-precision errors and condition-number bounds for a differently scaled LMP.",
+        "Frangella, Tropp, Udell, 2023, arXiv:2110.02820: randomized Nyström PCG with effective-dimension guarantees (abstract inspected)."
+      ],
+      "reasoning": "Generic spectral perturbation bounds and rank-dependent expected conditioning bounds do not specify a sharp probability of exceeding the unpreconditioned condition number for harmonic single-pass Nyström under two distinct Gaussian covariances. The abstract-only 2023 source remains an acknowledged uncertainty rather than a full-document exclusion.",
+      "searches": [
+        "two-dimensional randomized Nyström eigenspace spectral limited-memory preconditioner condition number worse original matrix sharp angular threshold Gaussian right-hand-side sketch covariance A+A^2",
+        "inexact spectral preconditioner misaligned eigenvectors can increase condition number compared to no preconditioning exact two-dimensional threshold",
+        "Gaussian Nystrom sketch Hessian informed covariance rank one two eigenvalues condition number deterioration probability"
+      ]
+    },
+    "checked_sources": [
+      "arXiv:2605.23571v2, sections 3.1–3.2.3, Algorithm 3.1, 4.2.1",
+      "arXiv:2205.13355 / SIAM 2024 full HTML sections 2–3.1",
+      "Giraud–Gratton CERFACS report TR/PA/04/108 author-supplied complete text",
+      "arXiv:2101.07249v2 selected full-text pages",
+      "arXiv:2603.28969v1 mathematical main sections",
+      "arXiv:2110.02820 abstract only",
+      "Previously accessible exact Rayleigh alignment claim 0c9b408c-c209-4b4e-a1f0-1cb1cef4325e"
+    ],
+    "claim_vs_prior_implication": {
+      "evidence": [
+        "Daužickaitė et al. (2026), Proposition 1, Eq. (14) is an approximate covariance model and Eq. (7) specifies scaling, but no risk probability or cubic threshold.",
+        "Carson–Daužickaitė (2024), section 3 uses alpha=lambda_hat_k+mu; when k=1 the formula becomes identity, unlike oracle alpha=1+b here.",
+        "Earlier Rayleigh alignment claim ID 0c9b408c-c209-4b4e-a1f0-1cb1cef4325e explicitly corrects using lambda=qᵀHq."
+      ],
+      "reasoning": "A covariance identity plus a method definition cannot imply the numerical exponent contrast without solving the model. A generic Rayleigh result for H with lower eigenvalue exactly 1 does not cover H=I+diag(a,b), b>0, harmonic Nyström lambda_hat and oracle scaling m; direct substitution changes the polynomial. Existing bounds might constrain but do not yield the exact coefficients or sharp exponent pair.",
+      "searches": [
+        "Gaussian Nystrom sketch Hessian informed covariance rank one two eigenvalues condition number deterioration probability",
+        "Sharp Gaussian alignment frontier for one-vector Ritz spectral preconditioning H diag(kappa,1) q=Hg normalized",
+        "Nyström approximate eigenvalue harmonic Rayleigh Gaussian spectral limited-memory preconditioner exact worsening probability two-dimensional cubic unique root",
+        "ensemble data assimilation right hand side differences covariance A plus A squared probability spectral limited memory condition number failure oracle scaling",
+        "2026 2605.23571 Dauzickaite Gurol Destouches Berre Weaver two-dimensional Nystrom preconditioner correlated sketch failure"
+      ]
+    },
+    "equivalent_formulations": {
+      "evidence": [
+        "Daužickaitė et al., arXiv:2605.23571v2, sections 3.1–3.2.3 and Algorithm 3.1: spectral LMP, Nyström eigenpair, A+A^2 covariance.",
+        "Earlier Rayleigh alignment claim ID 0c9b408c-c209-4b4e-a1f0-1cb1cef4325e: Rayleigh rather than harmonic Nyström correction."
+      ],
+      "reasoning": "One-pass Nyström uses λhat=||Aω||²/(ωᵀAω), the reciprocal of a weighted inverse Rayleigh quotient on the sketched direction; the earlier Rayleigh claim corrects with λ=qᵀHq. These corrections differ even in dimension two and have different spectrum/benchmark, so identical dependence does not follow. The cubic arises from the exact Nyström parameter dependence.",
+      "searches": [
+        "two-dimensional randomized Nyström eigenspace spectral limited-memory preconditioner condition number worse original matrix sharp angular threshold Gaussian right-hand-side sketch covariance A+A^2",
+        "inexact spectral preconditioner misaligned eigenvectors can increase condition number compared to no preconditioning exact two-dimensional threshold",
+        "Gaussian Nystrom sketch Hessian informed covariance rank one two eigenvalues condition number deterioration probability",
+        "Sharp Gaussian alignment frontier for one-vector Ritz spectral preconditioning H diag(kappa,1) q=Hg normalized",
+        "Nyström approximate eigenvalue harmonic Rayleigh Gaussian spectral limited-memory preconditioner exact worsening probability two-dimensional cubic unique root"
+      ]
+    },
+    "exact_database_or_table": {
+      "evidence": [
+        "Published mathematical search: 2026/9/21/SCOPE-spectral-filter-rayleigh-residual-distortion--7f8adc00c4c0, on Rayleigh residual distortion, not rank-one Nyström.",
+        "Accessible earlier same-topic mathematical claim ID 0c9b408c-c209-4b4e-a1f0-1cb1cef4325e, on Rayleigh spectral preconditioning and Beta alignment probability."
+      ],
+      "reasoning": "Targeted semantic searches for the cubic condition-number crossing, the two-coordinate harmonic Nyström eigenvalue, and A+A²-informed probability recovered no equivalent table or exact formula. Failure to retrieve does not prove no earlier formula exists.",
+      "searches": [
+        "randomized numerical linear algebra 2026 sketch spectral approximations row sampling rare-event exact failure probability",
+        "two-dimensional randomized Nyström eigenspace spectral limited-memory preconditioner condition number worse original matrix sharp angular threshold Gaussian right-hand-side sketch covariance A+A^2",
+        "Nyström approximate eigenvalue harmonic Rayleigh Gaussian spectral limited-memory preconditioner exact worsening probability two-dimensional cubic unique root",
+        "ensemble data assimilation right hand side differences covariance A plus A squared probability spectral limited memory condition number failure oracle scaling",
+        "2026 2605.23571 Dauzickaite Gurol Destouches Berre Weaver two-dimensional Nystrom preconditioner correlated sketch failure"
+      ]
+    },
+    "rationale": "The full primary 2026 EDA article develops the Nyström method, covariance A+A^2 and empirical scaling behavior but not the exact two-mode harmonic-eigenvalue cubic or the two Gaussian probabilities and their contrast a^-1 vs a^-2. The 2024 Carson–Daužickaitė full article proves finite-precision conditioning bounds for another scaling, and Giraud–Gratton first-order sensitivity is not an exact Gaussian law. The previously published Rayleigh alignment theorem was compared by implication and excluded from novelty; its Rayleigh correction does not imply the present harmonic Nyström covariance comparison. Remaining specialized-priority uncertainty is explicitly recognized.",
+    "residual_risks": [
+      "Historical priority is not a mathematical uniqueness theorem.",
+      "The full Frangella–Tropp–Udell 2023 Nyström-PCG paper was not inspected; its exact content beyond synopsis remains an access risk.",
+      "Some older specialized Gaussian-eigenvector and spectral-preconditioner analyses may contain an equivalent law.",
+      "The ideal Gaussian informed covariance A+A² is not a theorem about all realistic EDA right-hand-side differences."
+    ],
+    "source_inspections": [
+      {
+        "assessment": "Defines ingredients and illustrates performance; no exact two-mode deterioration crossing or Gaussian exponent comparison found.",
+        "evidence": [
+          "Eq. (7) preconditioner",
+          "Proposition 1 Eq. (14) covariance A+A²",
+          "Eq. (17), Algorithm 3.1 Nyström",
+          "section 4.2.1 sensitivity"
+        ],
+        "identifier_or_url": "arXiv:2605.23571v2, https://arxiv.org/html/2605.23571v2",
+        "material_read": "Full HTML article including Introduction, sections 3.1, 3.2.2, 3.2.3, Algorithm 3.1, 4.2.1 and appendix B; PDF pages 6, 8, 9 also visually inspected.",
+        "method": "Full primary text and displayed formula comparison",
+        "title": "Accelerating an ensemble of variational data assimilations with randomized preconditioning",
+        "trigger": "Direct source of covariance-informed Nyström and scaled spectral LMP"
+      },
+      {
+        "assessment": "Derives finite-precision bounds; uses a different scale where k=1 degenerates to identity; no exact two-Gaussian risk comparison found.",
+        "evidence": [
+          "Eq. (3.4)",
+          "Theorem 3.1",
+          "section 4.2.1"
+        ],
+        "identifier_or_url": "arXiv:2205.13355; https://epubs.siam.org/doi/full/10.1137/22M154079X",
+        "material_read": "Full open journal HTML including sections 1, 2, 3.1, Theorem 3.1 and section 4.2.1.",
+        "method": "Formulas for rank-k LMP and condition-number bounds inspected",
+        "title": "Single-Pass Nyström Approximation in Mixed Precision",
+        "trigger": "Closest primary paper combining Nyström and LMP condition-number bounds"
+      },
+      {
+        "assessment": "Addresses first-order perturbation of spectral preconditioners and demonstrates sensitivity, not the distribution-specific cubic/covariance result.",
+        "evidence": [
+          "Sections 2–4 and Table 1 of CERFACS report TR/PA/04/108"
+        ],
+        "identifier_or_url": "doi:10.1137/040617546; https://www.researchgate.net/publication/220656613_On_the_Sensitivity_of_Some_Spectral_Preconditioners",
+        "material_read": "Author-supplied complete technical-report text presented by ResearchGate, including preconditioner formulas, perturbation sections, numerical tables, conclusion.",
+        "method": "Full technical-report text through supplied HTML extracted pages",
+        "title": "On the Sensitivity of Some Spectral Preconditioners",
+        "trigger": "Plausible older priority on inaccurate spectral directions"
+      },
+      {
+        "assessment": "Develops approximate preconditioning and observes accuracy sensitivities, not the present exact informed-vs-isotropic rank-one probability.",
+        "evidence": [
+          "Approximated eigenpair method and numerical convergence discussion"
+        ],
+        "identifier_or_url": "arXiv:2101.07249v2",
+        "material_read": "PDF primary pages 3–4 and 8, with screenshots of relevant pages.",
+        "method": "Method/claims comparison",
+        "title": "Randomised preconditioning for the forcing formulation of weak constraint 4D-Var",
+        "trigger": "Earlier data assimilation randomized LMP"
+      },
+      {
+        "assessment": "Primarily analyzes ideal spectral information and finite-budget CG; does not provide Gaussian harmonic Nyström deterioration law.",
+        "evidence": [
+          "Spectral-scale theorem and experiments"
+        ],
+        "identifier_or_url": "arXiv:2603.28969v1",
+        "material_read": "Primary HTML main theorem sections, spectral-scale experiments and bounds.",
+        "method": "Compare scale assumptions and conditioning targets",
+        "title": "A Spectral Preconditioner for the Conjugate Gradient Method with Iteration Budget",
+        "trigger": "Modern scaled spectral LMP convergence guarantees and tuning"
+      },
+      {
+        "assessment": "Its effective-dimension conditioning bounds use a different regularized Nyström-PCG design; deeper historical exclusion cannot be asserted.",
+        "evidence": [
+          "Abstract: condition bounds and effective-dimensional rank"
+        ],
+        "identifier_or_url": "arXiv:2110.02820",
+        "material_read": "Abstract and indexed main-contribution synopsis only; full text not obtained in this run.",
+        "method": "Abstract-level scope comparison, recorded as incomplete",
+        "title": "Randomized Nyström Preconditioning",
+        "trigger": "Broad Nyström-PCG predecessor"
+      }
+    ],
+    "status": "PASS"
+  },
+  "review_type": "self_review",
+  "schema_version": 1,
+  "scope_run_id": "47c0a3c0-3a86-43e5-bb94-e2d1d865d4cc",
+  "self_review_status": "passed",
+  "value": {
+    "rationale": "The motivating 2026 ensemble-data-assimilation sketch has a specific spectral covariance model, and its theoretical risk under LMP scaling is operationally motivated. Exact two-dimensional failure probabilities under a deliberately favorable oracle scale provide a quantified failure boundary; the A+A²-informed sketch improves rare deterioration by an entire inverse-contrast power, unlike a generic angular sensitivity fact. The fact has a direct interpretation for sketch-selection reliability without claiming full CG speedup.",
+    "status": "PASS"
+  }
+}
