@@ -1,0 +1,206 @@
+{
+  "audit_date_utc": "2026-10-28",
+  "audited_at_utc": "2026-10-28T22:42:55Z",
+  "axes": {
+    "correctness": {
+      "checked_sources": [
+        "RESULT.md at assigned frozen Git tree; exact definitions and Forman matching specification",
+        "verify.py complete source certificate; check_mod2.py independent source certificate",
+        "independent_kneser_topology_check.py full fresh enumeration, exact integral projection and mod-2 ranks",
+        "verification_output.txt historical expected output inspected but not treated as proof",
+        "Daneshpajouh–Meunier arXiv:2307.00299, Theorem3.2 (prior box-to-neighborhood equivalence)"
+      ],
+      "rationale": "The claim defines m>=6 graph vertices as unordered cyclic pairs at cyclic separation>=3, edges as disjointness, and N(G) as nonempty simplices sharing a graph neighbor. Reconstructed all face masks independently via a common-neighbor predicate rather than source facet-generation procedure. At m=6,7,8 respectively there are 3,7,12 vertices, 6,56,910 nonempty faces and f-vector at m8 (12,66,204,304,228,84,12). Reproduced source pivot-sweep greedy matching at all sizes and verified full directed Hasse graph acyclic (topological sort of all 6/56/910 faces); critical sets at m8 precisely (7), (0,1,5), (0,4,10), (1,3,6,8); 453 matched pairs. Independently computed exact integral signed Morse projection along matching and found all critical differentials zero. Morse complex at m8 has one 0-cell, no 1-cells, two 2-cells, one 3-cell. The 2-skeleton is S2∨S2, with pi2→H2 an isomorphism, so zero cellular attaching degree forces the 3-cell attaching map null; hence S2∨S2∨S3. At m6/m7 exactly one 0 and one 1 critical cell gives S1. Independent mod2 matrix eliminations yielded reduced b1=1 for m6,m7 and reduced (b2,b3)=(2,1) for m8. Nonequivariant transfer from N(G) to standard box complex is the existing Csorba theorem. Entire finite complexes exhausted, no extrapolation to m>8. Full Git tree recalculated from all nine actual Git blob identifiers; main and frozen repository manifests match.",
+      "residual_risks": [
+        "The proof certifies only m=6,7,8; partial enumeration is not a theorem for all m.",
+        "The transfer is nonequivariant; no Z2-equivariant equivalence is asserted.",
+        "No formal Lean proof or external expert attestation is implied by exact Python recomputation."
+      ],
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Theorem 2 of arXiv:1904.08219 requires last vector gap 1 or 2, not the fully three-stable (3,3) case.",
+          "The 2021 <s,t>-stable theorem assumes t<s; its explicit tables are different s/k/m parameters and omit fully s=t=3 with m=8.",
+          "arXiv:2307.00299 Theorem 3.2 supplies the existing nonequivariant B(G) ≃ N(G) transfer, but Theorem 3.5 is for ordinary 2-stable Schrijver graphs.",
+          "arXiv:2512.09674 Theorem 4.8 requires k>=3, n=3k+1 for squared cycles; Proposition 4.10 explicitly warns its nerve cover may NOT be good, so no automatic equivalence with total cut complexes at H_2(W8).",
+          "arXiv:2510.22574 classifies total cut complexes of W_{3k+1}, W_{3k+2} for k>=3, not the needed 2-independent graph H_2(W8) neighborhood complex."
+        ],
+        "reasoning": "The primary sphere and vector-stable theorems require different gap constraints. The later square-cycle total-cut results are not an automatic encompassing theorem because their cover may not be good and their proven k range excludes 2. The general box/neighborhood equivalence is prior and used only to transfer the independently established N(G8) type. No inspected stronger theorem logically entails this m=8 mixed-dimensional wedge.",
+        "searches": [
+          "Resultary: fully 3-stable Kneser graph pair KG(8,2) neighborhood complex box complex mixed-dimensional S2 S2 S3",
+          "Resultary: vector stable Kneser graph neighborhood complex <3,3> stable 8 2 s stable small cases",
+          "Resultary: homotopy Kneser graph box complex cyclic stable pairs Schrijver wedge of spheres",
+          "Daneshpajouh–Osztényi arXiv:1904.08219 Theorem 2",
+          "Osztényi 2021 DOI:10.47833/2021.3.CSC.006 Proposition 14 and Tables 1–2",
+          "Daneshpajouh–Meunier arXiv:2307.00299 Theorems 3.2 and 3.5 §9.2",
+          "Shen et al arXiv:2512.09674 Theorem 4.8 Proposition 4.10",
+          "Shen et al arXiv:2510.22574 Theorems 1.3, 1.5, 1.6"
+        ]
+      },
+      "checked_sources": [
+        "arxiv:1904.08219 full PDF Theorem 2",
+        "doi:10.47833/2021.3.CSC.006 full 8p PDF Proposition14 and tables",
+        "arxiv:2307.00299 full 33p PDF Theorems3.2/3.5 §9.2",
+        "arxiv:2512.09674 full 14p PDF Theorem4.8 Proposition4.10",
+        "arxiv:2510.22574 full 20p PDF Theorems1.3/1.5/1.6",
+        "doi:10.1007/s12044-024-00790-6 publisher abstract only, full text inaccessible",
+        "Resultary published Wagner matching, Morse and total-cut results for different simplicial complexes",
+        "Resultary published 2-stable Kneser independence-complex homology, distinct invariant"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "The original source gives four specific critical Morse cells and zero integral 3-to-2 boundary for N(G8), independent of the known transfer B(G)≃N(G).",
+          "arXiv:2510.22574 Theorem 1.3 is for ordinary stable Kneser graphs SG(n,k) with 2-stability, not the 3-stable H_2(W8) graph.",
+          "For H_k of arbitrary G, arXiv:2512.09674 Proposition 4.10 identifies a nerve of a cover that may not be good, and hence does not automatically give a homotopy equivalence.",
+          "The closest Wagner published records concern matching/cut/Morse complexes, not the open-neighborhood simplicial complex."
+        ],
+        "reasoning": "The novel finite integral Morse calculation is not a corollary of the existing universal box-to-neighborhood transfer, nor of the squared-cycle total-cut formula without a good cover, nor of different Wagner graph complexes. The precise assertion is the m6,m7,m8 homotopy profile and first mixed-degree obstruction, not a general formula or equivariant classification.",
+        "searches": [
+          "Resultary: neighborhood complex complement of line graph of Wagner Möbius ladder 8 graph homotopy",
+          "Resultary: homotopy Kneser graph box complex cyclic stable pairs Schrijver wedge of spheres",
+          "arXiv:2307.00299 Theorem 3.2 (nonequivariant equivalence)",
+          "arXiv:2512.09674 Proposition 4.10 (not necessarily good cover)",
+          "arXiv:2510.22574 Theorem 1.3 (good cover for ordinary stable cycle graphs)",
+          "Resultary: 2026/10/11/SCOPE-the-wagner-graph-matching-complex-and-its-two-edge-orbit-splitti--1b0ec7f839cb"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "For m=8 the eligible cyclic pairs are exactly 12 edges of the Wagner (8-vertex Möbius-ladder) graph after cyclic-label multiplication by 3, hence G8 is the complement of its line graph.",
+          "The matching complex of Wagner is the clique/independence complex built from disjoint edges, not the Lovász open-neighborhood complex of their disjointness graph; different faces and homology.",
+          "The 2025 induced k-independent graph framework describes the same eligible pairs as H_2(W8), with W8 the square of the 8-cycle, but Theorem 4.8 treats W_{3k+1} for k>=3 and does not compute H_2(W8)."
+        ],
+        "reasoning": "Searched the disjointness-graph and Wagner complement-of-line-graph descriptions plus H_2 of the squared 8-cycle; these aliases were checked for the same actual neighborhood complex, not just for a graph sharing its vertex set. Closest published Wagner matching, Morse and cut complexes are different functors and cannot determine this open-neighborhood homotopy type. The 2025 induced-graph result recognizes a related construction but excludes k=2,n=8 from its computed theorem.",
+        "searches": [
+          "Resultary: neighborhood complex complement of line graph of Wagner Möbius ladder 8 graph homotopy",
+          "Resultary: vector stable Kneser graph neighborhood complex <3,3> stable 8 2 s stable small cases",
+          "Resultary: 2026/10/11/SCOPE-the-wagner-graph-matching-complex-and-its-two-edge-orbit-splitti--1b0ec7f839cb",
+          "Resultary: 2026/10/11/SCOPE-the-morse-complex-of-the-wagner-graph-m-8-is-a-wedge-of-147-six--e14d7350bd8c",
+          "Shen et al., arXiv:2512.09674, induced k-independent graph definition and §4.3"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "The published related table for (s,t)-stable Kneser graphs considers s=4 three-subsets or s=5 two-subsets, with no (3,3),m=8,k=2 case.",
+          "Resultary hit on Wagner matching complex yields six S2 spheres, and total three-cut complex yields three S2 spheres: neither contains two S2 plus one S3 for the exact open-neighborhood complex.",
+          "The only standard circular-complete graph with 12 vertices and degree seven of candidate form K_(12/3) has 40 triangles, while G8 has 44; therefore the graph in the 2024 circular-complete paper is not an exact instance."
+        ],
+        "reasoning": "Targeted exact graph/parameter searches, the H_2(W8) alias, existing tables and indexed published findings found no matching homotopy database or published numerical classification. Search absence is not a proof of global novelty; unindexed and inaccessible literature remain risks.",
+        "searches": [
+          "Resultary: fully 3-stable Kneser graph pair KG(8,2) neighborhood complex box complex mixed-dimensional S2 S2 S3",
+          "Resultary: neighborhood complex complement of line graph of Wagner Möbius ladder 8 graph homotopy",
+          "Resultary: vector stable Kneser graph neighborhood complex <3,3> stable 8 2 s stable small cases",
+          "Resultary: 2026/10/11/SCOPE-the-dihedral-character-of-stable-kneser-independence-complex-hom--8af1ffc8127a",
+          "Resultary: 2026/10/4/SCOPE-the-total-3-cut-complex-of-the-wagner-graph-is-a-wedge-of-three--7df6214f631f",
+          "Osztényi 2021 Tables 1–2, pages 184–185",
+          "DOI:10.1007/s12044-024-00790-6 circular complete graphs title/abstract"
+        ]
+      },
+      "rationale": "Best-of-knowledge originality of the exact first mixed-dimensional m=8 open-neighborhood and nonequivariant box-complex type. Independent Resultary search, original stable-Kneser theorem full texts, and 2025 induced 2-independent/squared-cycle preprints were compared at the exact parameter and implication level. They identify nearby or equivalent graph constructions but their homotopy theorems exclude k=2 or final gap three, or address different complexes; no inspected result yields this wedge. The 2024 circular-complete article is inaccessible in full and its scope beyond the abstract remains a residual risk, not a negative proof. The general box/neighborhood equivalence is expressly prior. Published or unindexed equivalent calculations could still exist.",
+      "residual_risks": [
+        "Possibility of an unindexed exact homotopy calculation of the m=8 fully 3-stable open-neighborhood graph or its Wagner line-complement alias.",
+        "The 2024 circular-complete-graph full text was inaccessible; although its named graph family is nonisomorphic to this graph, an uninspected extension or appendix may exist.",
+        "More general equivalence from a non-good cover is not justified; no such unproved inference is used.",
+        "Only nonequivariant box homotopy is proved; equivariant Z2 invariants remain unassessed."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Its Theorem 2 requires final stability gap 1 or 2; fully three-stable two-subsets have gaps (3,3), so it does not cover the result.",
+          "evidence": [
+            "Theorem 2 states s_k in {1,2} while assigned vector is (3,3).",
+            "https://arxiv.org/pdf/1904.08219"
+          ],
+          "identifier_or_url": "https://arxiv.org/pdf/1904.08219",
+          "material_read": "Full accessible 13-page PDF; exact definitions, Theorem 2 printed p.3, and proof scope. Theorem page rendered.",
+          "method": "primary arXiv full-PDF text and rendered-page inspection",
+          "title": "On the neighborhood complex of vector-stable Kneser graphs",
+          "trigger": "closest potentially dominating all-parameter stable-Kneser sphere theorem"
+        },
+        {
+          "assessment": "Proposition 14 requires t<s and the tables are s=4,5 configurations. No s=t=3, m=8 two-subset homotopy is established in inspected results.",
+          "evidence": [
+            "Proposition 14 t<s; tables have s=4 k=3 and s=5 k=2.",
+            "DOI:10.47833/2021.3.CSC.006"
+          ],
+          "identifier_or_url": "https://gradus.kefo.hu/archive/2021-3/2021_3_CSC_006_Osztenyi.pdf",
+          "material_read": "Full accessible eight-page journal PDF, especially Proposition 14 printed p.182 and Tables 1–2 pp.184–185; table pages rendered.",
+          "method": "primary full-PDF text and page screenshots",
+          "title": "A study of the neighborhood complex of <s,t>-stable Kneser graphs",
+          "trigger": "same graph class, exact finite table or larger theorem"
+        },
+        {
+          "assessment": "The general B(G)≃N(G) nonequivariant homotopy equivalence is prior and is only the transfer step. Sphere classifications identified there concern two-stable cases; no fully three-stable m8 formula.",
+          "evidence": [
+            "Theorem 3.2 B(G)≃N(G), Theorem 3.5 2-stable, §9.2 general stable Kneser topology."
+          ],
+          "identifier_or_url": "https://arxiv.org/pdf/2307.00299",
+          "material_read": "Full accessible 33-page survey; Sections 3.2–3.3, Theorems 3.2/3.5 and Section 9.2, including rendered theorem and open-problem pages.",
+          "method": "primary arXiv full-PDF text and screenshots",
+          "title": "Box complexes: at the crossroad of graph theory and topology",
+          "trigger": "possibly dominating box-complex theorem and equivalence to neighborhood complex"
+        },
+        {
+          "assessment": "Relevant H_k construction but published explicit homotopy theorem assumes n=3k+1,k>=3, excluding W8,k=2. Proposition 4.10 explicitly cautions that the cover is not necessarily good; the total-cut nerve does not imply this homotopy classification.",
+          "evidence": [
+            "Theorem 4.8 k>=3 and W_(3k+1); Proposition 4.10 says nerve of open cover may NOT be good.",
+            "https://arxiv.org/pdf/2512.09674"
+          ],
+          "identifier_or_url": "https://arxiv.org/pdf/2512.09674",
+          "material_read": "Full accessible 14-page primary preprint; graph definitions, §4.3 on squared cycles, Theorem 4.8 p.11 and Proposition 4.10 p.12; relevant pages rendered.",
+          "method": "arXiv full-text and rendered-page comparison of assumptions",
+          "title": "Neighborhood Complexes of induced k-independent graphs",
+          "trigger": "same 3-stable pair graphs arise as H_2(W8) with W8 a squared cycle"
+        },
+        {
+          "assessment": "Theorem 1.3 good-cover equivalence is only for ordinary 2-stable Kneser graphs from cycles; squared-cycle cut results concern k>=3 and do not determine the N(H_2(W8)) homotopy type.",
+          "evidence": [
+            "Theorems 1.3,1.5,1.6 and k>=3 restriction; 2025-10-26 arXiv first version."
+          ],
+          "identifier_or_url": "https://arxiv.org/pdf/2510.22574",
+          "material_read": "Full accessible 20-page primary preprint; introduction Theorems 1.3,1.5,1.6 and structural construction; rendered key pages.",
+          "method": "arXiv full-text and rendered-page theorem comparison",
+          "title": "Homotopy Type of Total Cut Complexes of Squared Cycle Graphs",
+          "trigger": "square-cycle graph W8 provides a potential stronger duality route"
+        },
+        {
+          "assessment": "No direct graph identification: G8 has 12 vertices, degree7, 44 triangles, whereas natural circular-complete candidate K_(12/3) has 40. An inaccessible uninspected broader theorem or appendix cannot be ruled out.",
+          "evidence": [
+            "DOI 10.1007/s12044-024-00790-6; exact independent 44-versus-40 triangle count.",
+            "Authorized institutional retrieval was unavailable due disconnected VPN; no bypass or full-text noncoverage assertion."
+          ],
+          "identifier_or_url": "https://doi.org/10.1007/s12044-024-00790-6",
+          "material_read": "Title, publisher/indexed abstract, bibliographic information only; complete technical PDF not available.",
+          "method": "publisher abstract and graph invariants; arXiv/preprint and OA checked unsuccessfully, then authorized institutional retrieval attempted",
+          "title": "On the neighborhood complex of the circular complete graphs",
+          "trigger": "plausible published 2024 broader homotopy classification of related regular graphs"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "checked_sources": [
+        "arxiv:1904.08219 fully vs partially stable boundary",
+        "arxiv:2307.00299 §9.2 research motivation",
+        "arxiv:2512.09674 induced k-independent graph/neighbor context",
+        "complete finite Morse reconstruction across m6,m7,m8"
+      ],
+      "rationale": "The family of fully three-stable pair Kneser graphs is the next canonical stability boundary beyond the extensively studied two-stable Schrijver sphere theorem. The complete exact nonequivariant homotopy classification of the first three admissible sizes isolates m8 as the first mixed-degree obstruction within these sizes: two independent 2-spheres and one 3-sphere after two circles. Both the naturally motivated graph construction and its open-neighborhood/box-complex invariant precede the computation in primary literature; the mixed-degree integral attaching-map conclusion is not a textbook substitution or a known-table recomputation. This finite homotopy fact can be used as a precise benchmark and boundary for topological chromatic methods, without a paper-sized general theorem. It does not claim an infinite classification, a stronger equivariant invariant or that no other graph exhibits an earlier transition.",
+      "residual_risks": [
+        "Value is confined to this natural small-parameter topological boundary, not a general m theorem.",
+        "Use for chromatic methods requires separate equivariant analysis; none is claimed here."
+      ],
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "final_claim": "For each m in {6,7,8}, G_m has cyclic-distance>=3 unordered two-subsets of Z/mZ as vertices, adjacent iff disjoint. Their ordinary open-neighborhood complexes satisfy N(G_6)≃N(G_7)≃S^1 and N(G_8)≃S^2∨S^2∨S^3. The standard box complexes share these nonequivariant homotopy types. No assertion for m>8 or equivariant type.",
+  "limitations": [
+    "Result states only three smallest admissible sizes; no infinite or equivariant classification.",
+    "Known box/neighborhood homotopy equivalence is prior literature, not a claimed novelty.",
+    "A related 2024 primary circular-complete graph article was inaccessible in complete form, with disconnected authorized institutional access; this is an originality residual risk, not scientific incorrectness.",
+    "No GitHub writes, server closeout, formal Lean proof or external human certification occurred."
+  ],
+  "schema_version": 1
+}
