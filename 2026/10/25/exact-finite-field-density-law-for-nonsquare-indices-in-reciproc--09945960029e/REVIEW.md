@@ -1,19 +1,21 @@
-# Mathematical review
+# Independent mathematical audit
 
-## Correctness — PASS
+## correctness
 
-The reduced recurrence and square-failure criterion follow by explicit coprime numerator/denominator arithmetic. The three local valuation cases account for every initial positive integer and every prime dividing \(h\). The finite-state first-zero hitting criterion is equivalent to divisibility of a reduced numerator at exactly one positive iterate; Chinese remaindering enumerates all initial residue classes with no omitted case. Idempotent monomials record a union of indices rather than falsely adding collisions. The direct residue verifier reproduces the detailed \(h=145\) census. Infinite applicability is established by the local valuation and CRT proof, not by finite experiments.
+PASS
 
-## Originality — PASS, with residual risk
+PASS: Writing t_n=(x0+...+x_n)/h=u_n/v_n in coprime terms gives (u_next,v_next)=(u²+v²,uv) and Q_(j+1)=(u_(j-1)+v_(j-1))²/gcd(h,u_j). If an odd prime divides the gcd its numerator is p-coprime, giving negative valuation; p=2 forces odd valuation after reduction. At each p^alpha||h, only x0 of exact p-valuation alpha produces a nonzero finite-field start; the other two valuation cases escape and cannot cause a later bad index. First T_p(r)=r+r^-1 zero occurs at most once, depth<=p-1; one seed residue mod p^(alpha+1) corresponds to each nonzero starting r. CRT makes these local outcomes independent. Idempotent multiplication precisely corrects collisions of the SAME index from different primes. Independently recomputed first-zero basins p=5 and p=29 and all 21025 CRT classes for h=145, confirming 17493,3512,20 and 12 colliding indices. Source CHECK.py was inspected; finite checks support, not replace, the arbitrary-h proof.
 
-The source's Theorem B gives an upper bound on the number of failures and its Remark 4.2 describes the prime-by-prime obstruction, but Section 7 explicitly asks for exact proportions. The finite idempotent product computes the full law, including distributions with two or more *distinct* failures and coincidences at one index. Known prime-restricted zero/one-failure classifications do not imply this unrestricted theorem or its exact \(h=145\) count. Arboreal Galois-group literature concerns different invariants. The related companion preprint has not been inspected and an equivalent table could exist elsewhere; neither is asserted absent.
+## originality
 
-## Mathematical value — PASS
+PASS
 
-This determines a natural limiting statistic explicitly posed as an open computation in the motivating work, across all prime-power parameters \(h\). It supplies a finite decision procedure for every failure pattern and proves the period \(h\operatorname{rad}(h)\). The collision case \(h=145\) demonstrates why a naïve independent-prime Bernoulli count fails: twelve classes have simultaneous prime obstructions but only one bad index. This is materially different from the established per-prime upper bound.
+On the inspected primary sources and independent comparison, the specified new exact evaluation/classification is not supplied by a stronger known theorem; scope and residual priority limitations are stated explicitly. The theorem converts the local orbit first-hit mechanism into the probability law of a set of indices. This is the same arithmetic problem as the motivating paper, not a different recurrence or a renamed parameter. Known local dynamics are core inputs, not a stronger theorem implying the density without extra residue weights and collisions. The claim settles an explicitly published open quantitative question rather than rephrasing its first-hit criterion.
 
-## Literature and scope
+## value
 
-Closest source: Matijasevick, Rodríguez and Salazar, arXiv:2610.00765v1, especially Proposition 4.1, Remark 4.2, and Question 1 in Section 7. Background: Jones–Manes, arXiv:1101.4339, on arboreal Galois representations. The companion Matijasevick preprint cited in the first paper was not accessible in full. The statement is fixed-parameter and provides no uniform error as \(h\) grows.
+PASS
 
-Self-review: passed. Independent audit: not yet performed.
+PASS: Answers the motivating authors’ explicitly asked distribution question for every h and strengthens it to complete exact failure-index sets; nontrivial collision correction is necessary already at h=145. A natural infinite arithmetic-dynamics density classification with a finite residue algorithm, not a merely arbitrary finite slice.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

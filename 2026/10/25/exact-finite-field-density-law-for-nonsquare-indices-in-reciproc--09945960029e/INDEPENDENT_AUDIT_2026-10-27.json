@@ -1,0 +1,129 @@
+{
+  "audit_date_utc": "2026-10-27",
+  "audited_at_utc": "2026-10-27T21:47:06.474533Z",
+  "axes": {
+    "correctness": {
+      "checked_sources": [
+        "https://github.com/SCOPE-Science/SCOPE2026/tree/6d72467f12de6d5dbde32d9e5fdf796d2ee820b5/2026/10/25/exact-finite-field-density-law-for-nonsquare-indices-in-reciproc--09945960029e/RESULT.md",
+        "https://github.com/SCOPE-Science/SCOPE2026/tree/6d72467f12de6d5dbde32d9e5fdf796d2ee820b5/2026/10/25/exact-finite-field-density-law-for-nonsquare-indices-in-reciproc--09945960029e/CHECK.py"
+      ],
+      "rationale": "PASS: Writing t_n=(x0+...+x_n)/h=u_n/v_n in coprime terms gives (u_next,v_next)=(u²+v²,uv) and Q_(j+1)=(u_(j-1)+v_(j-1))²/gcd(h,u_j). If an odd prime divides the gcd its numerator is p-coprime, giving negative valuation; p=2 forces odd valuation after reduction. At each p^alpha||h, only x0 of exact p-valuation alpha produces a nonzero finite-field start; the other two valuation cases escape and cannot cause a later bad index. First T_p(r)=r+r^-1 zero occurs at most once, depth<=p-1; one seed residue mod p^(alpha+1) corresponds to each nonzero starting r. CRT makes these local outcomes independent. Idempotent multiplication precisely corrects collisions of the SAME index from different primes. Independently recomputed first-zero basins p=5 and p=29 and all 21025 CRT classes for h=145, confirming 17493,3512,20 and 12 colliding indices. Source CHECK.py was inspected; finite checks support, not replace, the arbitrary-h proof.",
+      "residual_risks": [
+        "Any finite computation is corroboration only; unrestricted statement depends on the stated structural proof."
+      ],
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Matijasevick–Rodríguez–Salazar Theorem B bounds total possible failures by number of prime factors and identifies local obstruction orbits.",
+          "Jones–Manes study a broad arboreal Galois invariant rather than exact seed-density tables."
+        ],
+        "reasoning": "A bound of at most one failure per prime does not give the local fraction, overlapping index locations, or global exact pattern distribution. The claimed idempotent CRT product supplies precisely the missing information.",
+        "searches": [
+          "arXiv:2610.00765 Theorem B Section 7 Question 1",
+          "Jones Manes arXiv:1101.4339 quadratic rational Galois preimage trees",
+          "Resultary reciprocal sum squares failures indices finite field orbit first zero density for initial values"
+        ]
+      },
+      "checked_sources": [
+        "Frozen RESULT.md, CHECK.py and Git tree",
+        "Matijasevick–Rodríguez–Salazar arXiv:2610.00765v1 full HTML",
+        "Jones–Manes arXiv:1101.4339 abstract",
+        "Resultary reciprocal-failure density query",
+        "Independent p5,p29 and h145 exhaustive CRT reproduction"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "The source proves prime-local uniqueness of obstruction, but does not state CRT probabilities for first hits or idempotent union.",
+          "For h=145, two independent prime first-hit distributions give a new nontrivial joint index-set law."
+        ],
+        "reasoning": "Known local dynamics are core inputs, not a stronger theorem implying the density without extra residue weights and collisions. The claim settles an explicitly published open quantitative question rather than rephrasing its first-hit criterion.",
+        "searches": [
+          "arXiv:2610.00765 Proposition 4.1 Remark 4.2 Section 7 Question 1",
+          "Resultary reciprocal square index density",
+          "Resultary reciprocal sum squares failures indices finite field orbit first zero density for initial values"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "The finite-field first-zero condition is equivalent to each prime p dividing a reduced numerator at its single possible obstruction index.",
+          "arXiv:2610.00765 establishes the base recurrence and local obstruction interpretation."
+        ],
+        "reasoning": "The theorem converts the local orbit first-hit mechanism into the probability law of a set of indices. This is the same arithmetic problem as the motivating paper, not a different recurrence or a renamed parameter.",
+        "searches": [
+          "Resultary reciprocal sum squares failures indices finite field orbit first zero density for initial values",
+          "Matijasevick Rodriguez Salazar arXiv:2610.00765 Proposition 4.1 Remark 4.2"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "The 2026 primary paper explicitly poses proportions of initial x0 having given numbers of failures as a question.",
+          "The h=145 exact 21025-residue table has 12 two-prime collisions and only 20 two-distinct-index cases."
+        ],
+        "reasoning": "A question and a small table are not all-h index-set densities. The 20 count is not naively the 32 simultaneous-prime count; it requires collision identification.",
+        "searches": [
+          "arXiv:2610.00765 Section 7 proportion with exactly j failures",
+          "h=145 finite-field first-zero frequencies 5 29"
+        ]
+      },
+      "rationale": "On the inspected primary sources and independent comparison, the specified new exact evaluation/classification is not supplied by a stronger known theorem; scope and residual priority limitations are stated explicitly. The theorem converts the local orbit first-hit mechanism into the probability law of a set of indices. This is the same arithmetic problem as the motivating paper, not a different recurrence or a renamed parameter. Known local dynamics are core inputs, not a stronger theorem implying the density without extra residue weights and collisions. The claim settles an explicitly published open quantitative question rather than rephrasing its first-hit criterion.",
+      "residual_risks": [
+        "Full cited companion arithmetic-dynamics preprint unavailable and might derive related basin proportions.",
+        "The O(L) error is for fixed h; there is no uniform result for h growing with X."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "One-spoiled-index-per-prime and first-zero criterion already established; distribution question remains explicitly asked",
+          "evidence": "Section 7 asks proportions by failure counts; Proposition 4.1 and Remark 4.2 give local method.",
+          "identifier_or_url": "https://arxiv.org/html/2610.00765v1",
+          "material_read": "Accessible complete HTML including Theorem B, Proposition 4.1, Remark 4.2, Section 7 Question 1 and references",
+          "method": "Lawful open-access preprint HTML read",
+          "title": "Perfect squares in reciprocal-sum sequences and primes that are inert in quadratic fields",
+          "trigger": "Identical recurrence and explicitly open density problem"
+        },
+        {
+          "assessment": "Background algebraic dynamical invariant, not confirmed to provide same seed distributions",
+          "evidence": "No whole-document claim of noncoverage because complete text was not inspected.",
+          "identifier_or_url": "https://arxiv.org/abs/1101.4339",
+          "material_read": "Abstract and accessible bibliographic summary only",
+          "method": "Arxiv abstract",
+          "title": "Galois theory of quadratic rational functions",
+          "trigger": "Possible general arboreal count dominating the recurrence"
+        },
+        {
+          "assessment": "Potential historical priority risk, no content conclusion drawn",
+          "evidence": "Do not treat the absence of full text as proof of originality.",
+          "identifier_or_url": "Reference in arXiv:2610.00765v1",
+          "material_read": "Only bibliographic citation in primary article; full preprint not located",
+          "method": "Cited reference search",
+          "title": "Arithmetic dynamics of z+k/z: Galois groups, prime divisors of orbits, and zeros of iterates",
+          "trigger": "Companion work on exactly same quadratic map"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "checked_sources": [
+        "Frozen RESULT.md, CHECK.py and Git tree",
+        "Matijasevick–Rodríguez–Salazar arXiv:2610.00765v1 full HTML",
+        "Jones–Manes arXiv:1101.4339 abstract",
+        "Resultary reciprocal-failure density query",
+        "Independent p5,p29 and h145 exhaustive CRT reproduction"
+      ],
+      "rationale": "PASS: Answers the motivating authors’ explicitly asked distribution question for every h and strengthens it to complete exact failure-index sets; nontrivial collision correction is necessary already at h=145. A natural infinite arithmetic-dynamics density classification with a finite residue algorithm, not a merely arbitrary finite slice.",
+      "residual_risks": [
+        "Full cited companion arithmetic-dynamics preprint unavailable and might derive related basin proportions.",
+        "The O(L) error is for fixed h; there is no uniform result for h growing with X."
+      ],
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "final_claim": "For every fixed positive h, the complete set of nonsquare indices Q_n=(2/h)a_n+b_n of x_{n+1}=h²/(x0+...+x_n), n>=2, depends only on x0 mod L=h*rad(h). Its exact density of each finite index set J is coefficient [z_J] of product_{p^alpha||h}(1-B_p/p^(alpha+1)+sum_j b_{p,j} z_{j+1}/p^(alpha+1)) in the idempotent polynomial ring z_i²=z_i. For h=145 the numbers of residue classes with 0,1,2 distinct failures are 17493,3512,20.",
+  "limitations": [
+    "Full cited companion arithmetic-dynamics preprint unavailable and might derive related basin proportions.",
+    "The O(L) error is for fixed h; there is no uniform result for h growing with X."
+  ],
+  "schema_version": 1
+}
