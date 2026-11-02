@@ -1,0 +1,126 @@
+{
+  "correctness": {
+    "rationale": "Proof is self-contained: token adjacency yields an exact necessary-and-sufficient three-part dominating-set criterion; with k isolated B-vertices it gives x+z>=n-k+binom(k,2)>=n-1, so equality has y<=1. For y=1 equality forces precisely the 3*binom(n,2) ordinary constructions. For y=0 the condition on every uncovered B-vertex forces t=0 and k=2, n=4, z=x=2, yielding exactly the 36 injection constructions. Both families satisfy the criterion; no smaller set exists. All 47,432,132 possible size-n labelled subsets at n=3..7 were exhaustively tested by a separately written C++17 token-graph checker, with counts 9,54,30,45,63. The finite checks are not substituted for the quantified infinite proof.",
+    "status": "PASS"
+  },
+  "independent": false,
+  "independent_audit_status": "not_performed",
+  "originality": {
+    "broader_coverage": {
+      "evidence": [
+        "arXiv:2610.31557v1, Theorem 1.1 is wider in m,n but returns only gamma, not all minimum sets.",
+        "arXiv:2610.28936v1, Theorem 1.1 is wider in m,n but returns only gamma.",
+        "arXiv:2509.16448 concerns token graphs of complete graphs and stars, not K_{3,n}."
+      ],
+      "reasoning": "A numerically broader optimization theorem is logically weaker for the number and classification of optimum solutions. The published general necessary/sufficient condition for domination can be specialized and analyzed to derive the present theorem, but does not itself state the equality analysis or count. Total domination, independent domination and token graphs of K_{2,n} have distinct requirements or underlying graphs.",
+      "searches": [
+        "\"dominating sets in F_2(K_m,n) token graphs symmetric squares domination polynomial\"",
+        "\"2-token graph of complete bipartite graph K3,n minimum dominating set counting exactly 3 times binomial n 2 exceptional 54 n4\"",
+        "\"minimum dominating set number of two-token complete bipartite graph K3,4 54\"",
+        "arXiv:2509.16448 domination number token graphs star complete graph"
+      ]
+    },
+    "checked_sources": [
+      "arXiv:2610.28936v1 full HTML Section 1-4",
+      "arXiv:2610.31557v1 full HTML including Sections 2,4 and Remark 5.5",
+      "arXiv:2509.16448 abstract only; full text unavailable",
+      "Related searches for double vertex graphs, symmetric squares, and domination enumerators; no exact match found"
+    ],
+    "claim_vs_prior_implication": {
+      "evidence": [
+        "Acosta Troncoso et al.: Lemma 2.2 gives the same three domination conditions, Proposition 4.1 proves gamma=n, Remark 5.5 forces one selected A-pair in a particular equality case (Family I). None classifies the remaining zero-A-pair case, which produces 36 additional n=4 minima.",
+        "Chinman et al.: theorem identifies gamma=n and one construction, not the complete minimizer count.",
+        "Independently derived bounds x+z>=n-1 and the y=0 equality analysis establish the second class and exclude other n."
+      ],
+      "reasoning": "The closest source strongly covers the domination criterion, so neither the criterion nor gamma=n is novel. It does not entail the new exact count as a stated numerical corollary without additional classification. The new proof supplies a nontrivial equality-case analysis; logical inclusion of this theorem in the universe of dominating sets is not enough to make it a previously stated result.",
+      "searches": [
+        "arXiv:2610.31557v1 Lemma 2.2 Proposition 4.1 Remark 5.5",
+        "arXiv:2610.28936v1 Theorem 1.1 section 3",
+        "\"token graph\" \"minimum dominating sets\" count complete bipartite",
+        "\"symmetric square K3,n domination set rigidity order four exception\""
+      ]
+    },
+    "equivalent_formulations": {
+      "evidence": [
+        "arXiv:2610.31557v1, Lemma 2.2 and Proposition 4.1: domination criterion and numerical optimum n, without counting every minimizer.",
+        "arXiv:2610.28936v1, Theorem 1.1 and Section 3: numerical optimum and construction, not full minimizer classification.",
+        "The two-token graph is also called the double-vertex graph and symmetric square of a graph; this alias was included in searches."
+      ],
+      "reasoning": "The predecessor adjacency criterion is a shared starting condition, not an equivalent classification. The number n of selected token vertices has no implication specifying the labelled count 3*binomial(n,2)+36*indicator(n=4) or its two optimal-set orbits. Earlier search hits for domination polynomials concern other graph families or domination variants.",
+      "searches": [
+        "\"2-token\" \"complete bipartite\" \"domination polynomial\" \"minimum\"",
+        "\"K_{3,n}\" \"minimum dominating sets\" \"token graph\"",
+        "\"double vertex graph\" \"domination polynomial\" \"complete bipartite\"",
+        "\"two-token complete bipartite K3 n optimal domination sets symmetry classification enumerative polynomial\""
+      ]
+    },
+    "exact_database_or_table": {
+      "evidence": [
+        "No matching coefficient table or published classification located among the retrieved mathematical-literature and semantic-record results.",
+        "arXiv:2610.31557v1, Section 6 reports computational checks of the numerical domination value, not an enumeration of all labelled minimizers."
+      ],
+      "reasoning": "A failed search is not evidence of uniqueness; this supports only the documented best-knowledge comparison. Explicit cardinality enumeration on n=3,...,7 was independently reproduced from the original token adjacency, and is new computation rather than a preexisting database entry.",
+      "searches": [
+        "\"F_2(K_{3,n})\" \"minimum\" \"dominating sets\" count",
+        "\"token graph\" \"K_{3,n}\" \"number of minimum dominating\"",
+        "\"minimum dominating sets 2-token graph complete bipartite K3,n number classification optimal sets\"",
+        "\"F_2(K_{3,n}) exact count minimum dominating sets exceptional n=4 3 choose n 2\""
+      ]
+    },
+    "rationale": "The first publications arXiv:2610.28936v1 and arXiv:2610.31557v1 already establish gamma(F_2(K_3,n))=n. The second even states the general three-part dominating criterion; this is explicitly credited. Neither inspected primary states the all-minimizer classification or the exceptional 36 sets at n=4. Query comparisons against the direct sources, broader host parameters, aliases and related records found no prior full enumeration. This is best-knowledge priority, not proof of uniqueness.",
+    "residual_risks": [
+      "General existing dominating-set characterization makes this derivable with additional equality analysis; priority is for the completed enumeration, not the criterion.",
+      "An unlocated earlier enumeration via symmetric-square/double-vertex terminology could imply the count.",
+      "The 2026 primary reference cites related complete-multipartite domination work in progress, not yet available for statement comparison.",
+      "The 2025 stars/complete-graphs paper was assessed from abstract and references, not full text."
+    ],
+    "source_inspections": [
+      {
+        "assessment": "Gives the minimum cardinality n for m=3, a Family-I type witness and global lower bound; it does not state the complete optimal-set spectrum or n=4 second orbit.",
+        "evidence": [
+          "arXiv:2610.28936v1 Theorem 1.1, case C2",
+          "Section 3 upper-bound construction; Section 4 lower-bound proof"
+        ],
+        "identifier_or_url": "https://arxiv.org/html/2610.28936v1",
+        "material_read": "Abstract, Theorem 1.1, preliminary token-adjacency lemmas, Section 3 upper-bound constructions and Section 4 lower-bound structure, with contents and appendices reviewed for minimizer counts.",
+        "method": "Full arXiv HTML text opened and relevant sections read and compared by parameter and logical implication.",
+        "title": "The domination number of the k-token graph of the complete bipartite graph K_{m,n}",
+        "trigger": "Same host graph, same 2-token domination invariant, first motivating publication."
+      },
+      {
+        "assessment": "Describes the very same dominating-set criterion and proves gamma=n. Its Remark 5.5 describes the y=1 construction only. No complete n=4 counting theorem or all-minimum-set orbit census is stated.",
+        "evidence": [
+          "arXiv:2610.31557v1 Lemma 2.2",
+          "Proposition 4.1 (m=3)",
+          "Remark 5.5",
+          "Section 6 computational check of numerical domination"
+        ],
+        "identifier_or_url": "https://arxiv.org/html/2610.31557v1",
+        "material_read": "Abstract, introduction, notation, Lemma 2.2, Proposition 4.1 in Section 4, Remark 5.5, concluding remarks and references.",
+        "method": "Full arXiv HTML text opened; sections and the unusual equality case checked against the candidate theorem and its n=4 exceptional configuration.",
+        "title": "The domination number of the 2-token graph of the complete bipartite graph",
+        "trigger": "Nearest published statement, providing the general domination criterion and exact m=3 result."
+      },
+      {
+        "assessment": "Its stated subject is the star and complete graph hosts, not this complete biclique. No whole-document noncoverage certification is made.",
+        "evidence": [
+          "arXiv:2509.16448 abstract: star and complete graph token graphs only"
+        ],
+        "identifier_or_url": "https://arxiv.org/abs/2509.16448",
+        "material_read": "Abstract and citation context in the 2026 primary paper; direct full HTML could not be retrieved.",
+        "method": "Metadata and abstract read, scope checked through 2026 primary bibliography.",
+        "title": "Domination number of Token Graphs",
+        "trigger": "Earlier cited reference potentially giving general token-domination counts."
+      }
+    ],
+    "status": "PASS"
+  },
+  "review_type": "self_review",
+  "schema_version": 1,
+  "scope_run_id": "792ca4cd-55d5-4a19-91af-8c9a883c0d01",
+  "self_review_status": "passed",
+  "value": {
+    "rationale": "The exact number and symmetry type of all optimal dominating configurations is a natural refinement of the recently established minimum size. The 4-column graph has 36 additional optimal sets, doubling the standard count 18 to 54 and creating a second distinct orbit, whereas every other n>=3 has a rigid single family. These features quantify optimization degeneracy and permit exact random sampling, but are not inferred from knowing gamma=n. It is a complete infinite classification, not an arbitrary small fixed-parameter experiment.",
+    "status": "PASS"
+  }
+}

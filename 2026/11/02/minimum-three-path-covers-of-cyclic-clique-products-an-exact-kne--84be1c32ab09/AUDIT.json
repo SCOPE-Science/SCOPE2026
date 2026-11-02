@@ -1,0 +1,128 @@
+{
+  "correctness": {
+    "rationale": "For n>=6,m>=3 a dissociation subset meets each clique fiber in at most two points. Proper 3-coloring of C_m with three disjoint label pairs realizes the 2m bound. Equality forces two points in every fiber; the within-fiber edge consumes the allowed induced degree, so adjacent label pairs must be disjoint, and that condition is sufficient. This establishes a bijection with length-m Kneser closed walks, not just a size bound. The incidence identity A=J+I-F^TF with FF^T=(n-2)I+J yields all eigenvalues d=C(n-2,2),3-n,1 of multiplicities 1,n-1,n(n-3)/2, proving the exact trace count for all parameters. Standalone exhaustive checks cover original products n=6,7 and m=3,4, independent trace DP n=6..10,m=3..12 and generic product tests. No numerical extrapolation is used.",
+    "status": "PASS"
+  },
+  "independent": false,
+  "independent_audit_status": "not_performed",
+  "originality": {
+    "broader_coverage": {
+      "evidence": [
+        "Yuan et al. (2024) study extremal total numbers of dissociation sets across connected graphs, trees and unicyclic graphs, not maximum-set multiplicities in nonbipartite products.",
+        "Wang–Tu–Lang (2023) give entropy bounds for homomorphism counts and dissociation counts in bipartite graphs; K_n square C_m contains triangles for n>=6.",
+        "Tepeh (2026) studies k-limited domination, whose capacity constraint is on the selected dominating set, and not the induced-degree-one complement condition."
+      ],
+      "reasoning": "The broader results apply different counts, graph classes, or non-equivalent invariants and do not yield the exact labelled extremal-multiplicity formula by stated implication.",
+      "searches": [
+        "\"Entropy, Graph Homomorphisms, and Dissociation Sets\" Wang Tu Lang 2023 theorem regular bipartite",
+        "dissociation graph K_n box H graph homomorphism to Kneser KG(n,2)",
+        "https://arxiv.org/abs/2412.17095",
+        "https://pmc.ncbi.nlm.nih.gov/articles/PMC9858558/",
+        "https://arxiv.org/abs/2606.22428"
+      ]
+    },
+    "checked_sources": [
+      "arxiv:2412.17095 (full accessible article)",
+      "arxiv:2606.22428 (accessible public full text)",
+      "doi:10.6040/j.issn.1671-9352.0.2021.784 (abstract/references only)",
+      "doi:10.3390/e25010163 (abstract/introduction)",
+      "doi:10.1016/j.dam.2013.02.024 (definitions and general P3-cover research)",
+      "Selected published findings on dissociation polynomials of generalized windmills and complete multipartite graphs (different graph families/invariants)."
+    ],
+    "claim_vs_prior_implication": {
+      "evidence": [
+        "Suo–Chen–Zhang study psi_k of products C_m square K_n; psi_3=mn-2m in this domain follows here from the fiber bound and an explicit witness.",
+        "Yuan et al. concern the total dissociation-set count rather than d(G,2m), the leading extremal coefficient in these products.",
+        "The current theorem requires all maximum-set pair labels to form closed walks in KG(n,2) and computes the trace exactly using full eigenvalue multiplicities."
+      ],
+      "reasoning": "Knowing the minimum size or a total-count bound does not force the precise number of minimizing covers. The spectral formula is not claimed new in isolation; applying the pair-label classification to this specific extremal enumeration is the assessed new implication.",
+      "searches": [
+        "\"k-Path vertex cover in Cartesian product graphs\" \"PDF\" Suo Chen Zhang download",
+        "\"k-Path vertex cover in Cartesian product graphs\" theorem 3 minimum number covers",
+        "https://lxbwk.njournal.sdu.edu.cn/EN/Y2022/V57/I12/103",
+        "https://arxiv.org/abs/2412.17095",
+        "https://arxiv.org/abs/2606.22428"
+      ]
+    },
+    "equivalent_formulations": {
+      "evidence": [
+        "For every graph G, the complement of a 3-path vertex cover induces maximum degree at most one, so the exact maximum dissociation set count is the exact minimum 3-path cover count.",
+        "Suo–Chen–Zhang (2022) explicitly study k-path cover cardinalities on cycle-by-complete-graph Cartesian products, making this the closest plausible prior formulation.",
+        "Accessible abstract of the 2022 article reports exact values/bounds for cardinalities; no enumeration claim is visible."
+      ],
+      "reasoning": "The two formulations are equivalent set by set. The known/possibly known optimum cardinality does not imply the count of every minimum set. Direct coverage by uninspected details of the 2022 article remains an acknowledged risk.",
+      "searches": [
+        "\"dissociation number\" Cartesian product of complete graph with cycle K_n box C_m maximum dissociation sets",
+        "\"3-path vertex cover\" \"C\" \"K\" \"number\" \"minimum\"",
+        "\"minimum 3-path vertex covers in C_m square K_n count optimal covers Kneser spectral\"",
+        "https://lxbwk.njournal.sdu.edu.cn/EN/Y2022/V57/I12/103"
+      ]
+    },
+    "exact_database_or_table": {
+      "evidence": [
+        "Accessible exact tables and general statements concerned other product graphs, dissociation polynomials of windmills/multipartite graphs, or cycle-cover invariants not identical to three-path covers of cyclic cliques.",
+        "For n=6,m=3,4 and n=7,m=3,4, original-graph exhaustive counts are 90,1710,630,11550 respectively; these are generated anew and not copied from any identified table."
+      ],
+      "reasoning": "No exact same-parameter table or formula was identified in the accessible results. Absence from searched indexes is not a proof of novelty; the 2022 inaccessible full text is the principal risk.",
+      "searches": [
+        "\"maximum dissociation sets\" \"C_m\" \"K_n\" Cartesian",
+        "\"clique cycle\" \"Kneser\" \"dissociation\"",
+        "\"cycle of cliques maximum dissociation sets complement P3 vertex covers KG(n,2) trace closed walks\"",
+        "\"number maximum 3-path vertex-cover configurations Cartesian product complete and cycle\""
+      ]
+    },
+    "rationale": "The new assertion is a complete classification and exact all-minima multiplicity for 3-path vertex covers of C_m square K_n (n>=6,m>=3), rather than a previously studied minimum cardinality. An exact bijection with Kneser closed walks, followed by the three-eigenvalue trace, produces the formula. Searches targeted the same graph, the 3-path-cover/dissociation duality, maximum-set counts, and Kneser reductions. The closest inspected works treat total dissociation counts or minimum cardinalities, not the extremal multiplicity. Inaccessible 2022 full text remains a priority risk; searches alone do not certify uniqueness.",
+    "residual_risks": [
+      "The complete 2022 Suo–Chen–Zhang paper on cycle-by-clique k-path cover products was not accessible for full statement and appendices comparison.",
+      "Earlier enumerations under the terminology 3-path cover, degree-one bounded deletion, dissociation, or graph homomorphism partition functions might be unindexed.",
+      "Novelty and correctness remain subject to independent mathematical review."
+    ],
+    "source_inspections": [
+      {
+        "assessment": "Different extremal question: total dissociation-set counts in graph families, not all maximum dissociation sets of clique-cycle products.",
+        "evidence": "Theorems 3.1 and 4.1 maximize total d(G) across trees/unicyclic graphs; the present graphs have cliques of size >=6 and many independent cycles.",
+        "identifier_or_url": "https://arxiv.org/abs/2412.17095",
+        "material_read": "Accessible full HTML article: abstract, introduction, preliminary definitions and recurrences, tree and unicyclic extremal theorems and proof sections.",
+        "method": "Read the lawful arXiv HTML full text and compared the exact enumerated objects and quantifiers.",
+        "title": "The number of dissociation sets in connected graphs",
+        "trigger": "2024 emerging extremal enumeration of dissociation sets, closest direct invariant and source date"
+      },
+      {
+        "assessment": "Not covering because k-limited domination constrains neighbors outside a selected dominating set, while our claim concerns maximum induced-degree-one vertex sets and counts them.",
+        "evidence": "Definition in Section 2 and Section 4.1 rook graph estimates concern gamma_k^L, without maximum dissociation multiplicities.",
+        "identifier_or_url": "https://arxiv.org/abs/2606.22428",
+        "material_read": "Public full-text extraction from authorized open preprint: definitions and Sections 3–5, including product bounds, rook graphs, grids, and further products.",
+        "method": "Read public full-text HTML rendering and compared selected-set condition and product theorem statements.",
+        "title": "On k-limited domination: complexity and Cartesian products",
+        "trigger": "2026 product-graph study with capacity-style constraints; potential broader covering results"
+      },
+      {
+        "assessment": "Unresolved full-text comparison, not classified as not covering. Accessible abstract states cardinality exact values/bounds, not enumeration.",
+        "evidence": "Abstract names C_m square K_n and seeks psi_k values; no multiplicity formulas are supplied in the accessible material.",
+        "identifier_or_url": "https://lxbwk.njournal.sdu.edu.cn/EN/Y2022/V57/I12/103",
+        "material_read": "Bibliographic page, complete abstract and reference list; full article PDF did not yield readable source text through accessible links.",
+        "method": "Followed listed PDF link, searched for preprint/open version and attempted authorized document retrieval; full text unavailable for comparison.",
+        "title": "k-Path vertex cover in Cartesian product graphs",
+        "trigger": "Same type of product and the exact P3-cover alias, hence highest historical-priority risk"
+      },
+      {
+        "assessment": "No covering statement found; paper bounds counts for bipartite graphs, and our clique products are nonbipartite.",
+        "evidence": "The published abstract expressly restricts entropy bounds for dissociation sets to bipartite graphs and does not state exact maximum-set counts.",
+        "identifier_or_url": "https://pmc.ncbi.nlm.nih.gov/articles/PMC9858558/",
+        "material_read": "Accessible research abstract and introduction including problem class and theorem scope; full later sections not required for distinct bipartite hypothesis but not asserted as fully inspected.",
+        "method": "Inspected public PubMed Central and bibliographic metadata text and evaluated stated bipartite conditions.",
+        "title": "Entropy, Graph Homomorphisms, and Dissociation Sets",
+        "trigger": "Same two themes, dissociation enumeration and graph-homomorphism counts"
+      }
+    ],
+    "status": "PASS"
+  },
+  "review_type": "self_review",
+  "schema_version": 1,
+  "scope_run_id": "84be1c32-ab09-460d-b58f-ac71d8a1f96c",
+  "self_review_status": "passed",
+  "value": {
+    "rationale": "The number and complete structure of minimum three-path covers are natural but not determined by their already-studied optimum cardinality. An explicit labelled infinite multiplicity formula on the full family C_m square K_n, n>=6,m>=3, exhibits a Kneser-homomorphism mechanism and exact three-eigenvalue dependence; it also gives the leading coefficient in the P3-cover enumerator and an exponential growth law. This is a full natural extremal enumeration, not an arbitrary tiny finite instance or a renamed preexisting size formula. Classical Kneser eigenvalues and the cardinality inequality are acknowledged, not represented as new.",
+    "status": "PASS"
+  }
+}

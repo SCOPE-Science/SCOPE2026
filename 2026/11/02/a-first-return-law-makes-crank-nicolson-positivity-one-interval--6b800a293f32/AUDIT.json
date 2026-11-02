@@ -1,0 +1,131 @@
+{
+  "correctness": {
+    "rationale": "Reconstructed all definitions and quantifiers: T_i starts after exit and is positive with finite mean. The Laplace occupation transform gives exactly R_s(ii)=[1+a_i E integral_0^T_i exp(-u/s)du]^-1. Its denominator strictly increases in every s>0, and its limits are 1 and pi_i, even when the chain is nonnormal. As R_s is nonnegative stochastic and C_h=2R_{h/2}-I, each state has at most one 1/2 crossing and the global positivity set is exactly [0,h_*]. A finite geometric matrix inverse proves the directed-cycle root and n-limit with no unstated spectral assumptions. Exact-fraction verifier independently cross-checks the killed-generator first-return transform and matrix resolvent on nine generators; no finite test stands in for an infinite theorem.",
+    "status": "PASS"
+  },
+  "independent": false,
+  "independent_audit_status": "not_performed",
+  "originality": {
+    "broader_coverage": {
+      "evidence": [
+        "Published reversible theorem covers only a proper class of the stated irreducible generators; its claim expressly excludes the key monotonicity step for nonreversible generators.",
+        "Higueras–Roldán arXiv:2301.01066v1 analyzes a symmetric finite-difference heat matrix and cannot by itself imply arbitrary directed-cycle behavior.",
+        "Horváth DOI:10.1016/S0168-9274(98)00050-6 addresses Runge–Kutta positivity radii for classes of ODEs, not an exact fixed-generator all-steps iff law."
+      ],
+      "reasoning": "Checked stronger candidate coverage: general stochastic-matrix Cayley identities imply the diagonal reduction, but not no-reentrance; method-wide SSP/absolute monotonicity gives conservative sufficient conditions, not arbitrary fixed-generator sharp necessity. The nonreversible theorem properly strengthens the reversible theorem, and does not claim the older results anew.",
+      "searches": [
+        "Nonreversible Markov chains Crank Nicolson positivity windows disconnected reentrant resolvent diagonal nonmonotone in timestep, explicit generator",
+        "Markov generator Crank Nicolson multiple positivity intervals as timestep increases nonreversible positive rational function",
+        "Crank Nicolson positivity preservation on star Markov graph with n leaves rates a and b, exact threshold roots quadratic, hub and leaf bottleneck phase transition",
+        "Crank Nicolson positivity nonreversible continuous time Markov chain one interval resolvent return diagonal monotonic"
+      ]
+    },
+    "checked_sources": [
+      "arxiv:2301.01066v1, full article including main theorem/proof",
+      "Fallat–Tsatsomeros (2002), relevant published PDF sections",
+      "https://github.com/Resultary/2026/blob/main/2026/10/4/SCOPE-a-resolvent-return-law-for-crank-nicolson-positivity-on-reversib--d475df91cd2a/RESULT.md",
+      "Horváth (1998), abstract metadata only",
+      "published-finding corpus semantic records for nonreversible Markov CN and directed-cycle threshold aliases"
+    ],
+    "claim_vs_prior_implication": {
+      "evidence": [
+        "The closest prior derives C_h=2R_s-I for every Q but proves R_s(ii) decreases only when Q is reversible, via symmetric spectral decomposition; its Limitations state nonreversible positivity windows are not classified.",
+        "A nonreversible directed n-cycle (n≥3) has complex nonzero eigenvalues in general and is not covered by a detailed-balance assumption; the new law yields h_n explicitly, including h_3=(1+sqrt(5))/a.",
+        "First-return renewal decomposition yields R_s(ii)=1/[1+a_i E integral_0^T exp(-u/s)du], whose denominator strictly grows with s and does not require diagonalization."
+      ],
+      "reasoning": "The new theorem implies the prior reversible interval result by restriction to the reversible subfamily, but the converse implication fails because the prior hypothesis of reversibility cannot be removed merely by relabeling or changing parameters. The Cayley diagonal equivalence alone cannot rule out multiple crossings. The new regenerative lemma supplies the genuinely missing uniform proof, and the cycle examples lie outside prior hypotheses.",
+      "searches": [
+        "Nonreversible Markov chains Crank Nicolson positivity windows disconnected reentrant resolvent diagonal nonmonotone in timestep, explicit generator",
+        "Any finite irreducible NONREVERSIBLE continuous-time Markov generator has strictly decreasing diagonal entries of (I-sQ)^{-1} from 1 to stationary probability, via regenerative first-return hitting time Laplace transform. Consequence exact one interval Crank-Nicolson positivity.",
+        "GitHub full RESULT.md for 2026/10/4/SCOPE-a-resolvent-return-law-for-crank-nicolson-positivity-on-reversib--d475df91cd2a",
+        "arxiv:2301.01066v1 sections 2,3,6.1"
+      ]
+    },
+    "equivalent_formulations": {
+      "evidence": [
+        "Full published reversible theorem at https://github.com/Resultary/2026/blob/main/2026/10/4/SCOPE-a-resolvent-return-law-for-crank-nicolson-positivity-on-reversib--d475df91cd2a/RESULT.md writes R_s(ii) as a positive real spectral mixture only after assuming detailed balance, and explicitly leaves nonreversible positivity windows unclassified.",
+        "The first-return Laplace transform is classical, but an identity for occupation alone is not the same as the sharp CN timestep interval unless its monotonicity and Cayley positivity implications are both established."
+      ],
+      "reasoning": "Compared nonreversible Markov, semi-Markov return occupation, resolvent-return Laplace, Cayley matrix, and Crank–Nicolson time-step phrasings. Neither exact title nor renewal-term variation yielded the full nonreversible implication in the inspected claims. A renewal formula by itself can imply the numerical theorem, so an earlier source coupling these would cover it; none was found.",
+      "searches": [
+        "Any finite irreducible NONREVERSIBLE continuous-time Markov generator has strictly decreasing diagonal entries of (I-sQ)^{-1} from 1 to stationary probability, via regenerative first-return hitting time Laplace transform. Consequence exact one interval Crank-Nicolson positivity.",
+        "Markov chain return time survival Laplace transform monotonic diagonal resolvent exponential observation time",
+        "first return time Laplace transform resolvent diagonal continuous-time Markov chain renewal occupation formula",
+        "published-finding corpus:Nonreversible Markov chains Crank Nicolson positivity windows disconnected reentrant resolvent diagonal nonmonotone in timestep, explicit generator"
+      ]
+    },
+    "exact_database_or_table": {
+      "evidence": [
+        "arXiv:2301.01066v1 Theorem 1 and its table concern symmetric 1D Dirichlet heat grids and Chebyshev-like formulas, not CTMC directed cycles.",
+        "published-finding corpus published 2026/9/20/SCOPE-eight-state-pade-markov-positivity-barrier--4aad2a3f58ab uses a distinct fourth-order [2/2] Padé integrator rather than CN [1/1]."
+      ],
+      "reasoning": "No exact directed-cycle threshold table or complete nonreversible positivity classification was found in the actual result list or inspected primary article. Any earlier table for the Cayley transform of directed cycles would need comparison if discovered.",
+      "searches": [
+        "Crank Nicolson on nonreversible directed cycle nonmonotone diagonal return resolvent step size positivity",
+        "Unidirectional directed cycle m states Crank Nicolson positivity unique sharp timestep via 1+r+...+r^{m-1}=2, golden ratio three-cycle",
+        "published-finding corpus published result IDs for Crank-Nicolson reversible positivity and [2/2] Padé positivity",
+        "arxiv:2301.01066v1 Theorem 1 and Table 1"
+      ]
+    },
+    "rationale": "The closest full-text published result proves the one-interval threshold only under reversibility and states nonreversible positivity windows are unclassified. The new regenerative first-return identity proves all diagonal resolvents strictly decrease for every finite irreducible nonreversible generator, closing this specific gap and giving exact directed-cycle thresholds. Prior Cayley and renewal ingredients are acknowledged; primary preprint heat-grid results are for a symmetric tridiagonal operator. Searches found no statement implying the new nonreversible theorem; specialist literature may still contain it, so publication priority remains an identified risk.",
+    "residual_risks": [
+      "An unlocated specialized Markov-renewal, rational-stochastic-matrix, or Cayley-transform publication might explicitly combine the classical excursion transform with exact CN positivity thresholds.",
+      "Full Horváth (1998) text and an additional related 2005 positivity-threshold paper were not inspected in full, although their accessible scope concerns general method radii; novelty adjudication is not independent."
+    ],
+    "source_inspections": [
+      {
+        "assessment": "NOT_COVERING: the analyzed symmetric Dirichlet heat matrix does not encompass general nonreversible finite CTMCs or return-time formula",
+        "evidence": [
+          "arxiv:2301.01066v1, Theorem 1, Section 6.1, 2023-01-03 version"
+        ],
+        "identifier_or_url": "https://arxiv.org/abs/2301.01066",
+        "material_read": "HTML full text: abstract, problem setup, Sections 2 and 3, and Section 6.1 proof; theorem conditions for the symmetric tridiagonal heat discretization",
+        "method": "Opened lawful public arXiv article full-text HTML; compared its matrix class, boundary conditions, and theorem quantifiers",
+        "title": "A new insight on positivity and contractivity of the Crank–Nicolson scheme for the heat equation",
+        "trigger": "Motivating time-stepping positivity analysis, first public 2023-01-03"
+      },
+      {
+        "assessment": "COVERS the algebraic Cayley reduction as prior mathematics; NOT_COVERING the new strict return-resolvent monotonicity for all nonreversible CTMCs",
+        "evidence": [
+          "Fallat–Tsatsomeros, Electronic Journal of Linear Algebra 9 (2002), Lemma 2.2 and Section 4, DOI:10.13001/1081-3810.1086"
+        ],
+        "identifier_or_url": "https://journals.uwyo.edu/index.php/ela/article/download/173/173",
+        "material_read": "Published full-text PDF relevant opening, Lemma 2.2 identity and positivity-class/M-matrix application; inspected relevant PDF pages",
+        "method": "Read accessible journal PDF text and visually inspected relevant pages",
+        "title": "On the Cayley Transform of Positivity Classes of Matrices",
+        "trigger": "Classical Cayley-M-matrix algebra potentially dominating the new claim"
+      },
+      {
+        "assessment": "PARTIAL PRIOR COVERAGE: general Cayley criterion and reversible single interval are covered, but the article explicitly leaves nonreversible positivity windows unclassified; the newly proved universal monotonicity removes that limitation",
+        "evidence": [
+          "Published 2026-10-04 RESULT.md states strict monotonicity via detailed balance and identifies nonreversibility as unclassified limitation"
+        ],
+        "identifier_or_url": "https://github.com/Resultary/2026/blob/main/2026/10/4/SCOPE-a-resolvent-return-law-for-crank-nicolson-positivity-on-reversib--d475df91cd2a/RESULT.md",
+        "material_read": "Complete published RESULT.md including Finding, Proof, Relationship to prior work and Limitations",
+        "method": "Read full public primary result text from its repository, compared all quantifiers, sufficient conditions, and stated open scope",
+        "title": "A resolvent-return law for Crank–Nicolson positivity on reversible Markov chains",
+        "trigger": "Highest-similarity published published-finding corpus claim: same CN end-map and return resolvent"
+      },
+      {
+        "assessment": "No decisive coverage observed in accessible material, but full-text priority risk remains specifically documented",
+        "evidence": [
+          "Horváth (1998), Applied Numerical Mathematics 28, 309–326, DOI:10.1016/S0168-9274(98)00050-6"
+        ],
+        "identifier_or_url": "https://doi.org/10.1016/S0168-9274(98)00050-6",
+        "material_read": "Publication metadata and accessible abstract; complete publisher text was not retrieved",
+        "method": "Compared abstract scope (method-wide positivity radii) with generator-specific necessity and sufficiency",
+        "title": "Positivity of Runge–Kutta and Diagonally Split Runge–Kutta Methods",
+        "trigger": "General RK positivity theory could subsume fixed-matrix positivity conditions"
+      }
+    ],
+    "status": "PASS"
+  },
+  "review_type": "self_review",
+  "schema_version": 1,
+  "scope_run_id": "6b800a29-3f32-4872-9ed8-63efa831ec0c",
+  "self_review_status": "passed",
+  "value": {
+    "rationale": "The existing fixed-generator reversible theorem explicitly left nonreversible reentrant positivity unresolved. A universal no-reentrance classification over all finite irreducible CTMC generators is a structurally motivated theorem for numerical propagation on directed networks, replacing a symmetry-restricted spectral argument by an explicit regenerative occupation identity. The cycle threshold gives a natural complete directed family with an exact three-state golden-ratio value and dimension-dependent limit. This is a meaningful extension of applicability, not a routine known-table recomputation or an artificial parameter slice.",
+    "status": "PASS"
+  }
+}

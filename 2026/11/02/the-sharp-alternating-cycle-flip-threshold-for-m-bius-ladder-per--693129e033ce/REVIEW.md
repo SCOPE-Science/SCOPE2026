@@ -1,0 +1,11 @@
+# Scientific review
+
+**Correctness — PASS.** For all integer widths \(n\ge4\), the cyclic-column decomposition of perfect matchings is exhaustive, and its independent-edge-set model makes the four-cycle-flip component connected. For odd widths, each outside configuration has zero chords while every other matching has an odd number, so an exchange must traverse an odd-chord alternating cycle. The modular-sum winding obstruction forces at least \(n\) perimeter edges plus one chord. Every chord yields precisely one length-\(n+1\) alternating semicircle flip from each exception, proving both sharpness and exactly \(2n\) first bridges. Independently written exhaustive and tiling-model checkers agree for their stated finite ranges; neither is used as the infinite proof.
+
+**Originality — PASS, with residual risk.** The Lucas-cube decomposition under square flips is pre-existing and is expressly NOT the new claim. Ernastuti–Vajnovzki and Klavžar–Mollard–Petkovšek concern Lucas networks and degree sequences, Lekshmi–West counts Möbius matchings, and Ito et al. address unrestricted alternating-cycle reconfiguration. Tratnik–Ye address facial resonance; neither facial-only connectivity nor unrestricted connectivity determines the smallest permitted nonfacial alternating cycle. The proof adds a lower bound and a matching family of first bridges that do not follow from the square-flip decomposition by statement implication alone. The full text of McSorley's 1998 paper and Lekshmi–West's 2020 paper was not inspected, so equivalent historical formulations remain a genuine risk.
+
+**Value — PASS.** This is an exact and unbounded local-move connectivity threshold in a canonical infinite family of cubic graphs. The \(n+1\) barrier is a structural winding obstruction, not an arbitrary finite parameter, and the complete first-bridge count quantifies exactly how previously frozen configurations become mobile. It differentiates the ability of local face switches from necessarily nonlocal alternating-cycle switches.
+
+**Limitations.** This theorem concerns single simple alternating cycles in the labelled Möbius ladder for \(n\ge4\); it neither improves known matching counts nor asserts shortest path lengths. Independent expert audit remains outstanding.
+
+Self-review: passed. Independent audit: not yet performed.

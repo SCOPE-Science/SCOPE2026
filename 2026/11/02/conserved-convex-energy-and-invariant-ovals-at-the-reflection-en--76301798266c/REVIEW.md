@@ -1,0 +1,11 @@
+# Scientific review
+
+**Correctness (PASS).** Taking scaling ratios gives two globally defined reflections in projective log coordinates; each has determinant \(-1\). The displayed rational integral is invariant under each reflection by directly exchanging two terms. Its log-cosh expression is strictly convex and proper, which establishes unique minimum and compact regular levels. A strict Lipschitz bound rules out other fixed points. Symplectic invariance and conservation of a regular Hamiltonian on each oval imply a time translation and hence a rotation. Exact rational computations reproduce identities but are not substituted for the proof.
+
+**Originality (PASS, qualified).** The motivating overrelaxation publications provide local convergence on an open parameter range and do not state the endpoint conserved energy or the global positive-plane oval dynamics. Classical QRT literature broadly covers rational maps with first integrals; the general algebraic mechanism is credited. The new mathematical statement assessed here is the concrete endpoint classification for this Sinkhorn map, especially compactness and bounded nonconvergence from all nonfixed positive scalings. This remains a best-knowledge comparison rather than independent priority certification.
+
+**Value (PASS).** The fixed step at the natural boundary \(\omega=2\) behaves differently from contraction in the interior: every nontrivial orbit is trapped on a smooth invariant oval rather than merely becoming locally marginal. This identifies an exact structural obstruction to taking the overrelaxation limit, including a complete qualitative description of all trajectories in the minimal nontrivial positive transport problem.
+
+**Closest literature and risk.** [1] introduces overrelaxed Sinkhorn; [2] proves stability only below the endpoint; [3] analyzes operator scaling; [4] establishes the broad QRT paradigm. Because [4] covers integrability of classes of rational maps, originality attaches to the specific positive Sinkhorn endpoint and its global orbit geometry, not to the generic QRT mechanism. Other special-purpose two-by-two Sinkhorn analyses might predate this claim. Only the symmetric kernel and equal marginal case has been proved.
+
+Self-review: passed. Independent audit: not yet performed.

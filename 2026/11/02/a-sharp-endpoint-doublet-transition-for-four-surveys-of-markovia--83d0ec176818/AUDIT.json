@@ -1,0 +1,128 @@
+{
+  "correctness": {
+    "rationale": "Full exact derivation: Markov kernel P(w), independent-detection diagonal D, explicit multiaffine no-detection F, positive-coefficient AM-GM symmetry, strictly convex quartic H with known endpoint signs, and perfect-detection factorization establish unique optimum and threshold. Standalone stdlib exact-rational checker: 758 passed; finite tests are supporting only.",
+    "status": "PASS"
+  },
+  "independent": false,
+  "independent_audit_status": "not_performed",
+  "originality": {
+    "broader_coverage": {
+      "evidence": [
+        "Guillera-Arroita et al. (2010), full article, methods and discussion: primary objective is precision/bias versus numbers of sites and replicates, with constant detectability; timing is mentioned as another separate design factor. It does not establish a four-time Markov availability schedule.",
+        "Borchers and Langrock (2015), full Oxford HTML, sections 2–4: Markov-modulated point process for line transects, likelihoods, model estimation and simulations; no optimal four-visit calendar with endpoint doublets and quartic threshold.",
+        "Petitot et al. (2014) full text: field protocol with four visits and three methods at ponds; date- and method-specific detection models and effort comparisons rather than exact stationary Markov schedule theorem."
+      ],
+      "reasoning": "All three address imperfect detection, and the 2015 paper explicitly uses Markovian availability. But their stated estimands, observation schemes and optimization objectives differ. A general finite-state dynamic programming framework could derive the four-step finite-dimensional objective; no inspected theorem has been shown to imply the sharp closed-form global classification. This remains a residual risk.",
+      "searches": [
+        "web: design occupancy studies imperfect detection Guillera-Arroita Ridout Morgan 2010",
+        "web: optimal timing repeated visits Markov availability occupancy species detection probability multiple surveys temporal spacing equal nonuniform optimal 2005 2015",
+        "web: \"optimal spacing\" \"Markov\" \"imperfect detection\" survey repeated visits",
+        "web: \"optimal inspection intervals\" \"imperfect\" sensor",
+        "doi:10.1111/j.2041-210X.2010.00017.x full HTML",
+        "doi:10.1111/biom.12341 full HTML"
+      ]
+    },
+    "checked_sources": [
+      "https://doi.org/10.1111/j.2041-210X.2010.00017.x",
+      "https://doi.org/10.1002/ece3.1207",
+      "https://doi.org/10.1111/biom.12341",
+      "related mathematical claims about three-visit survey timing and observation-count identifiability",
+      "semantic searches for four-visit Markovian detection scheduling, endpoint pairs and fixed horizons"
+    ],
+    "claim_vs_prior_implication": {
+      "evidence": [
+        "Three-visit optimal-time theorem does not imply the four-visit maximizer: with three equal-quality tests the free middle visit is at the midpoint, whereas with four imperfect tests uniform spacing is always strictly suboptimal and a finite-horizon doublet regime occurs.",
+        "For d=1 the four-visit answer changes to uniform spacing, giving a real parameter-boundary phenomenon absent from classical independent-replicate allocation.",
+        "2010 occupancy-study precision optimization and 2014 species-specific empirical effort optimization are not stronger statements of the fixed-horizon four-visit no-detection objective; 2015 provides stochastic-availability likelihoods but does not optimize the same free visit times."
+      ],
+      "reasoning": "The present claim is a sharp global optimizer for a specified four-time nonlinear objective. The closest prior three-time law does not entail a result for four and cannot settle the endpoint-doublet/inner-gap transition. The conclusion remains potentially a specialization of a more general optimal-inspection theorem not discovered here.",
+      "searches": [
+        "doi:10.1111/j.2041-210X.2010.00017.x sections Modeling, Discussion",
+        "doi:10.1002/ece3.1207 full text Methods and Results",
+        "doi:10.1111/biom.12341 full text sections Estimation and Simulations",
+        "related three-observation optimal scheduling theorem"
+      ]
+    },
+    "equivalent_formulations": {
+      "evidence": [
+        "Related indexed symbolic-covering and quantum-renewal detection results concern different state spaces and objectives, without the four-time ecological Markov gap optimization.",
+        "The closest related three-visit theorem has three, not four, observations with a free middle time and differing detector sensitivities. It gives a midpoint/clipping law but no four-visit doublet phase or quartic unique optimizer."
+      ],
+      "reasoning": "Model equivalence requires four no-detection Bernoulli emissions along a stationary two-state continuous-time Markov availability process with fixed first/last times and three free gaps; the older three-survey optimization has only two gaps and cannot supply the nontrivial quartic and time-horizon phase transition. The inspected other results optimize distinct quantum renewal, deterministic spectral sampling, symbolic observations, or statistical inference criteria.",
+      "searches": [
+        "optimal timing of repeated ecological surveys when animal availability is a continuous-time two-state Markov process and detection is imperfect; equal interior intervals but shorter first and last intervals",
+        "optimal sampling time spacings for Markov-modulated two-state detection probability at least one observation; boundaries adjacent intervals",
+        "minimizing no-detection probability with fixed observation horizon for Markov chain with imperfect detection and interval length design",
+        "web: \"optimal observation times\" \"Markov\" \"detection\" ecological survey scheduling",
+        "web: \"optimal sampling\" \"two-state Markov\" \"detection\" probability fixed horizon"
+      ]
+    },
+    "exact_database_or_table": {
+      "evidence": [
+        "Searched mathematical research records did not return a matching four-inspection matrix-product or quartic transition claim.",
+        "A related three-visit optimum and a separate count-only three-visit identification theorem are not the present four-visit global scheduling classification."
+      ],
+      "reasoning": "No relevant exact table or enumerative classification matching the parameters (stationary π, detection d, switching γ, fixed total horizon T, exactly four observations) was found. A negative search is not proof that no earlier analytic result exists.",
+      "searches": [
+        "four visits hidden Markov occupancy sampling endpoint doublets optimal detection horizon critical transition all-negative probability",
+        "four-occasion repeat detections temporal observation spacing two-state Markov availability complete global optimum unequal gaps",
+        "ecological survey visit scheduling stationary Markov availability first and last pairs of observations when time horizon short",
+        "web: four occasion repeat detections temporal observation spacing two-state Markov availability complete global optimum unequal gaps",
+        "published and related-claim search: survey, visit, detect, availability, sampling, interval, spacing"
+      ]
+    },
+    "rationale": "Primary full-text 2010 occupancy design, 2014 amphibian detection, 2015 Markov-modulated line-transect papers address related but nonidentical questions. Closest recovered prior three-visit optimization does not imply sharp four-visit endpoint-doublet transition or quartic optimizer. Six semantic searches and independent literature queries returned no matching stronger theorem; historical priority remains provisional.",
+    "residual_risks": [
+      "A broader theorem for optimal inspection of hidden two-state processes may imply this special four-visit case without similar wording.",
+      "Search results and accessible prior claims do not establish universal historical uniqueness.",
+      "The result concerns independent simultaneous tests; alternative observation dependence may change the optimal design."
+    ],
+    "source_inspections": [
+      {
+        "assessment": "NOT_COVERING with high confidence for fixed four-time Markov scheduling; optimizes estimator precision and survey counts under constant probability rather than temporal autocorrelation",
+        "evidence": [
+          "https://besjournals.onlinelibrary.wiley.com/doi/10.1111/j.2041-210X.2010.00017.x",
+          "First published 2010-05-04; lines 131–152 and 240–280 of accessible full text show studied objective and model."
+        ],
+        "identifier_or_url": "https://doi.org/10.1111/j.2041-210X.2010.00017.x",
+        "material_read": "Full accessible article: introduction, explicit constant-probability likelihood and estimator design, numerical site-versus-replicate allocation, discussion and timing remarks",
+        "method": "Web HTML full-text inspection",
+        "title": "Design of occupancy studies with imperfect detection",
+        "trigger": "Earliest dated relevant occupancy design source and possible broader study-design theorem"
+      },
+      {
+        "assessment": "NOT_COVERING for fixed-stationary-availability analytic four-visit timing optimum; empirical date/effort method model differs",
+        "evidence": [
+          "https://onlinelibrary.wiley.com/doi/full/10.1002/ece3.1207",
+          "First published 2014-08-29; Methods describes four calendar visits and fitting seasonal detection covariates rather than joint timing optimization."
+        ],
+        "identifier_or_url": "https://doi.org/10.1002/ece3.1207",
+        "material_read": "Full open article: abstract, introduction, methods of 49-pond four-visit study, date/method-specific detection models and no-visit-probability calculations",
+        "method": "Web full-text https://onlinelibrary.wiley.com/doi/full/10.1002/ece3.1207",
+        "title": "Optimizing occupancy surveys by maximizing detection probability: application to amphibian monitoring in the Mediterranean region",
+        "trigger": "Identical detection-maximization motivation and field study with four visits"
+      },
+      {
+        "assessment": "NOT_COVERING for the four discrete inspection-gap design theorem; model uses line-transect event times and inference, rather than fixed deterministic inspection placement",
+        "evidence": [
+          "https://academic.oup.com/biometrics/article/71/4/1060/7511539",
+          "Published 2015-07-01; sections 2–4 focus on likelihoods, availability and estimator performance."
+        ],
+        "identifier_or_url": "https://doi.org/10.1111/biom.12341",
+        "material_read": "Full Oxford HTML sections 1–4 including Markov-modulated availability model, multiple detections and likelihood/estimation formulas and simulation aims",
+        "method": "Web full-text https://academic.oup.com/biometrics/article/71/4/1060/7511539",
+        "title": "Double-Observer Line Transect Surveys with Markov-Modulated Poisson Process Models for Animal Availability",
+        "trigger": "Closest availability mechanism and independent observer emissions; potential general stronger model"
+      }
+    ],
+    "status": "PASS"
+  },
+  "review_type": "self_review",
+  "schema_version": 1,
+  "scope_run_id": "83d0ec17-6818-42ea-8f00-8ad0ef4a1bf9",
+  "self_review_status": "passed",
+  "value": {
+    "rationale": "Exact global placement policy for four observations, nontrivial short-/long-horizon phase boundary and imperfect-versus-perfect detection dichotomy; directly motivated by monitoring a temporarily unavailable organism. No claim for empirical calibration or higher visit counts.",
+    "status": "PASS"
+  }
+}

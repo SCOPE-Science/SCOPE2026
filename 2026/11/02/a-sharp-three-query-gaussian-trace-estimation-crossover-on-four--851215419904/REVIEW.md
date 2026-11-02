@@ -1,0 +1,11 @@
+# Scientific review — A sharp three-query Gaussian trace-estimation crossover on four-dimensional spikes
+
+**Correctness: PASS.** The estimators use exactly three matrix-vector products each. Conditional Gaussian variance, projector algebra, two polar integrals and a sign-controlled polynomial establish all claimed cases. The supplied verifier independently exercises the actual symbolic certificates and exact projector identities. Simulation is supplementary, not an infinite proof.
+
+**Originality: PASS, qualified.** The original Hutch++ variance-reduction idea (Meyer et al., arXiv:2010.09649), adaptive allocation under varied spectra (Persson et al., arXiv:2109.10659), generic nonadaptive complexity (Jiang et al., arXiv:2111.00664), conditional residual-variance bounds and other estimators (Epperly et al., arXiv:2301.07825), and preceding subspace projection (Saibaba et al., arXiv:1605.04893) are pre-existing. None of the inspected relevant full-text claims states the exact four-dimensional three-query variance ratio and unique quintic boundary. The generic conditional variance formula is prior; the contribution is its explicit evaluation and the sharp crossover. Mathematical record searches and historical title comparisons found no statement implying it, but prior equivalent computations could have escaped retrieval; independent priority verification remains outstanding.
+
+**Value: PASS.** This exact spectral cutoff resolves a nontrivial practical parameter question: with only three Gaussian matrix-vector queries, when does the deflation overhead amortize itself? Dimension four is the first dimension with an exact deterministic canonical-basis trace cost exceeding three queries. The precise boundary and strict order on both sides make a useful analytic calibration benchmark without presupposing a general theorem for all dimensions or matrices.
+
+**Assumptions and limitations.** Real positive-definite rank-one spikes with spectrum \(s\lambda,s,s,s\); \(s>0\), \(\lambda\ge1\); independent standard Gaussian probes, exact arithmetic, fixed budget three. A Rademacher-probe comparison is not claimed; non-Gaussian, adaptive and globally optimal estimators are outside scope. No independent scientific audit or priority certification has been performed.
+
+Self-review: passed. Independent audit: not yet performed.

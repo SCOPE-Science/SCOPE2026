@@ -1,0 +1,131 @@
+{
+  "correctness": {
+    "rationale": "For all n, the proof of static shattering reduces to forest acyclicity, connectivity of the linear-extension adjacency graph, the unique-extension characterization, and parity under reversal; maximal support count follows from Cayley and an explicit parity-involution. The finite adaptive table uses the complete root-query recurrence, finite exhaustive upper calculation, and explicit full witness trees. Replaying the standalone checker at the package path returned all expected counts, including 121,279 cache states for n=7 and independently checked static supports up to n=6. No bound for n>=8 is asserted.",
+    "status": "PASS"
+  },
+  "independent": false,
+  "independent_audit_status": "not_performed",
+  "originality": {
+    "broader_coverage": {
+      "evidence": [
+        "Maass–Turán 1992 pp.137–139 proves the unrestricted order forest criterion, without controlling permutation parity.",
+        "Walker 2022 arXiv:2203.12211, Sections 1–1.1, proves general shattering inequalities; no alternating-permutation statement appears in inspected text."
+      ],
+      "reasoning": "A theorem about the superfamily of all orders yields at most an upper bound or a forest necessary condition for a smaller parity-constrained family. It cannot imply that a particular forest realizes all binary labelings with even witnesses, nor an exact restricted Ldim. General dimension bounds likewise do not determine the finite table.",
+      "searches": [
+        "\"shattered\" \"linear orders\" comparisons forest parity",
+        "learning comparisons restricted to alternating group A_n even orderings",
+        "Littlestone dimension comparison concept class alternating permutations 7 labels first entropy deficit",
+        "Maass Turan On-line Learning Models year published forest VC dimension linear orders"
+      ]
+    },
+    "checked_sources": [
+      "Maass–Turán (1992) doi:10.1023/A:1022637031594, inspected printed pp.138–139",
+      "Walker (2022) arxiv:2203.12211, inspected full parsed PDF and definition",
+      "Berendsohn–Kozma–Marx (2019) doi:10.4230/LIPIcs.IPEC.2019.1, inspected p.1 and text searches",
+      "Raz (2000) doi:10.1007/s004930070023, inspected bibliographic abstract only",
+      "2026/10/4/SCOPE-incidence-precision-law-for-all-inversion-indicators-of-a-random--f6af0a8c3805",
+      "2026/9/19/SCOPE-acyclic-signatures-complete-graphs-minus-matching--c164cb9690e5",
+      "2026/10/11/SCOPE-complete-mod-two-rips-persistence-of-the-four-letter-permutahedr--5b20bd61b710",
+      "2026/10/4/SCOPE-parity-correction-for-general-position-games-on-complete-multi--591b95c04ca3"
+    ],
+    "claim_vs_prior_implication": {
+      "evidence": [
+        "Maass–Turán establishes forest shattering for unrestricted rankings, not parity-restricted rankings.",
+        "Raz 2000 uses realization of all relative orders of selected labels, rather than Boolean labels for selected pair queries.",
+        "IPEC 2019 concerns finding/counting pattern occurrences, not shattering trees."
+      ],
+      "reasoning": "The new all-order forest parity criterion is strictly finer than unrestricted shattering: at n=3 no spanning path is shattered by even orders although every tree is shattered by unrestricted orders. Raz’s invariant is non-equivalent by definition. The adaptive n=7 exactness requires an independent computation, since inclusion alone does not give a matching lower and upper bound.",
+      "searches": [
+        "\"Littlestone\" \"permutations\" \"pairwise\" \"comparisons\"",
+        "even permutations alternating group edge comparisons VC Littlestone dimension parity classes",
+        "Littlestone dimension comparison concept class alternating permutations 7 labels first entropy deficit",
+        "VC-dimension of sets of permutations Raz"
+      ]
+    },
+    "equivalent_formulations": {
+      "evidence": [
+        "Maass–Turán 1992 PDF p.139 identifies shattered query supports for all linear orders with undirected forests.",
+        "The even-order subclass permits orientation patterns precisely if one of their topological sortings has even parity; this is equivalent to a parity-constrained linear-extension condition."
+      ],
+      "reasoning": "Replacing comparisons by transitive tournament orientations or permutations by topological sorts does not remove the evenness condition: forest orientations with unique odd linear extension are forbidden. No matching alternate formulation of that exception was located.",
+      "searches": [
+        "even permutations alternating group edge comparisons VC Littlestone dimension parity classes",
+        "VC shattered comparison query supports of all even permutations complete forests spanning Hamilton paths parity",
+        "\"alternating group\" \"VC dimension\" permutations shattering",
+        "\"even permutations\" \"VC dimension\" rankings"
+      ]
+    },
+    "exact_database_or_table": {
+      "evidence": [
+        "published-finding corpus searches returned related permutation, parity and graph-orientation findings but no matching parity-sensitive shattering classification or seven-label adaptive table.",
+        "Closest published-finding corpus examples concern inversion covariance, acyclic signatures and permutation-polytope topology; none studies this Boolean comparison class.",
+        "The final two targeted published-finding corpus queries returned no direct exact matches; nearest hits involved permutation geometry, parity automata and unrelated combinatorial census problems."
+      ],
+      "reasoning": "No exact existing table or published database entry for the class/parameters was encountered. This is weak negative evidence and does not establish uniqueness.",
+      "searches": [
+        "even permutations alternating group edge comparisons VC Littlestone dimension parity classes",
+        "VC shattered comparison query supports of all even permutations complete forests spanning Hamilton paths parity",
+        "Littlestone dimension comparison concept class alternating permutations 7 labels first entropy deficit",
+        "VC dimension of family all even total orders inversions edge orientations graph forest",
+        "\"even permutations\" \"VC dimension\" rankings",
+        "Parity-refined comparison shattering of even permutations: forests except Hamiltonian paths, modulo four count n factorial",
+        "Exact Littlestone dimensions of even permutations under pairwise comparisons 0 0 1 3 5 8 10"
+      ]
+    },
+    "rationale": "Maass–Turán (1992, printed p.139) supplies precisely the full-symmetric-group forest shattering criterion, but its every-orientation extension argument does not cover parity-restricted existence; the new theorem pinpoints the unique-extension Hamiltonian path exceptions and counts even-permutation shattered maximum supports. Walker (2022) proves general tree-shattering theory, Raz (2000) defines a different permutation VC invariant, and Berendsohn–Kozma–Marx (2019) treats pattern constraints. Exact published-finding corpus searches and checked accessible prior claims did not identify the stated parity criterion, modulo-four maximum-support count, or precise seven-label Littlestone value; this supports a provisional originality judgment, not a proof of absolute priority.",
+    "residual_risks": [
+      "Historical priority not established; a parity-specific ranking-learning paper outside search coverage may subsume the theorem.",
+      "Original full text of Raz 2000 was not inspected, though its abstract clearly defines a distinct VC invariant.",
+      "The IPEC source was only partially read; its algorithmic scope does not suggest an exact parity VC result, but other appendices were not inspected.",
+      "Finite adaptive upper bound is exact-recurrence machine assisted; no independent expert or formal verification."
+    ],
+    "source_inspections": [
+      {
+        "assessment": "COVERS the background full-order forest characterization, not the parity exception or restricted seven-label adaptive values",
+        "evidence": "Printed p.139 explicitly states the unrestricted linear-order VC dimension and forest condition, without referring to even permutation restrictions.",
+        "identifier_or_url": "doi:10.1023/A:1022637031594; https://igi-web.tugraz.at/PDF/54.pdf",
+        "material_read": "PDF printed pp. 138–139 (viewer pages 31–32) and published abstract",
+        "method": "Visual page inspection, full relevant propositions and surrounding discussion",
+        "title": "Lower Bound Methods and Separation Results for On-Line Learning Models",
+        "trigger": "Direct full-order comparison shattering forest claim"
+      },
+      {
+        "assessment": "GENERAL THEORY; DOES NOT COVER the particular even-order classes in inspected full text",
+        "evidence": "Definition 1.9 gives Ldim via labeled binary trees; Theorem 1.3 and Corollary 1.10 bound shatter functions, with no permutation examples or parity claims.",
+        "identifier_or_url": "arxiv:2203.12211; https://arxiv.org/pdf/2203.12211",
+        "material_read": "PDF full nine-page parsed text; page-one screenshot and section 1.1 including definitions and corollaries",
+        "method": "Original arXiv PDF reading and in-document term search",
+        "title": "Tree Dimension and the Sauer–Shelah Dichotomy",
+        "trigger": "Foundational notion and general domination theorem for Littlestone dimension"
+      },
+      {
+        "assessment": "Pattern-occurrence algorithm results, not a binary shattering classification; only a partial relevant-text inspection",
+        "evidence": "Abstract concerns pattern matching and counting, with no appearance of Littlestone or parity in the searchable PDF text.",
+        "identifier_or_url": "doi:10.4230/LIPIcs.IPEC.2019.1; https://drops.dagstuhl.de/storage/00lipics/lipics-vol148-ipec2019/LIPIcs.IPEC.2019.1/LIPIcs.IPEC.2019.1.pdf",
+        "material_read": "Primary PDF p.1 including abstract and introduction; searched full extracted text for Littlestone and parity",
+        "method": "PDF visual page inspection plus term search",
+        "title": "Finding and Counting Permutations via CSPs",
+        "trigger": "Potential stronger treatment of arbitrary permutations and comparison constraints"
+      },
+      {
+        "assessment": "DEFINITION DIFFERENCE clear from abstract, but full text was not inspected",
+        "evidence": "Raz defines shattering by realizing all k! relative orders of k selected labels; the present theorem concerns independent assignments to selected pair queries.",
+        "identifier_or_url": "doi:10.1007/s004930070023; https://weizmann.elsevierpure.com/en/publications/vc-dimension-of-sets-of-permutations/",
+        "material_read": "Published bibliographic abstract defining its permutation VC notion; original full text not obtained",
+        "method": "Abstract and definition comparison",
+        "title": "VC-Dimension of Sets of Permutations",
+        "trigger": "Title suggests direct coverage of permutation shattering"
+      }
+    ],
+    "status": "PASS"
+  },
+  "review_type": "self_review",
+  "schema_version": 1,
+  "scope_run_id": "824e5263-ec2a-448e-bfad-ce8111d1de34",
+  "self_review_status": "passed",
+  "value": {
+    "rationale": "A natural index-two restriction of the total-order concept class preserves VC dimension at n>=4 but creates an exact parity-sensitive set of excluded maximal shattered supports, with an all-order modulo-four count. The same class has a sharp finite adaptive threshold at seven labels, where the cardinality bound first fails. This provides a structural obstruction and a reproducible exact cutoff, not merely a relabeling of unrestricted linear orders.",
+    "status": "PASS"
+  }
+}

@@ -1,0 +1,139 @@
+{
+  "correctness": {
+    "rationale": "A full factor-type bijection for binary four-one words gives theta=floor(max gap/2)+|P2|+|P4|. Deterministic C++ visits each of 275234400 increasing-four-position words at lengths 4..128 once and calculates exact minima and counts. An independent direct-substring C++ checker agrees for every n=4..50; Python direct substring checker agrees n=4..18. A separate family checker proves all proposed words meet the recorded optimum, and optimizer counts match the exhaustive counts. No infinite extrapolation.",
+    "status": "PASS"
+  },
+  "independent": false,
+  "independent_audit_status": "not_performed",
+  "originality": {
+    "broader_coverage": {
+      "evidence": [
+        "Fazekas et al. Theorem 12 provides effective words and upper candidates, not a general lower bound or complete equality classification for x=4.",
+        "Fici–Saarela general floor(n/4) conjecture does not imply M(4,n)=floor((n+2)/4) at the 2 and 3 residues; maxima and occurrences are distinct invariants."
+      ],
+      "reasoning": "Explicitly checked whether stronger coverage of the same invariant implies the finite theorem: the available candidate theorems lack the required fixed-weight lower bound and uniqueness classification.",
+      "searches": [
+        "minimum distinct abelian squares fixed Parikh vector four ones length 50 enumeration counterexample Fici Saarela",
+        "abelian squares minimum number binary words 4 minority letters effective word Conjecture 13",
+        "arXiv:1604.02238",
+        "OEIS:A268084",
+        "arXiv:2604.23188v1"
+      ]
+    },
+    "checked_sources": [
+      "arXiv:2604.23188v1 full accessible arXiv HTML",
+      "arXiv:1604.02238 abstract",
+      "OEIS A268084 title/comments",
+      "Fici–Saarela (2014) statement as cited within arXiv:2604.23188v1",
+      "Actual mathematical research record searches for weight-four minima and aliases"
+    ],
+    "claim_vs_prior_implication": {
+      "evidence": [
+        "Theorem 8 of the primary source solves x=3, not x=4.",
+        "Theorem 12 of the primary source constructs upper witnesses but gives no exhaustive lower proof for x=4.",
+        "Kociumaka et al. concern maxima; OEIS A268084 concerns occurrence multiplicity."
+      ],
+      "reasoning": "A finite-range weight-four exact minimum and complete labeled optimizer list are not implied by the listed results. The arithmetic value agrees with an effective-word upper bound, but its lower bound and all-equality classification are new target components.",
+      "searches": [
+        "abelian squares minimum number binary words 4 minority letters effective word Conjecture 13",
+        "Fazekas Mammoliti Mercas Simpson effective word minimum number of distinct abelian squares four a letters, first unproved case",
+        "arXiv:2604.23188v1",
+        "arXiv:1604.02238",
+        "OEIS:A268084"
+      ]
+    },
+    "equivalent_formulations": {
+      "evidence": [
+        "Primary 2026 source defines theta(w) as distinct Abelian-square factor words and M(x,n) at fixed Parikh vector.",
+        "The current result is exactly the binary fixed-Parikh M(4,n) along with full labeled equality classes."
+      ],
+      "reasoning": "Translated claims from 4-one binary words to Parikh (4,n-4), M(4,n), and minimum distinct Abelian-square subword count; searched those aliases. The closest source proves up to x=3 and leaves x=4 interior open.",
+      "searches": [
+        "binary words minimum number of distinct abelian squares exactly four occurrences of one letter Parikh vector extremizers Fazekas Mammoliti Mercas Simpson 2026",
+        "minimal number of different (distinct not occurrences) abelian square factors in binary words with Parikh vector (4,n-4), complete extremal word classification",
+        "binary abelian square minima sparse weight four ones period modulo four labeled minimizing words",
+        "\"M(4,n)\" \"abelian squares\"",
+        "arXiv:2604.23188v1"
+      ]
+    },
+    "exact_database_or_table": {
+      "evidence": [
+        "Fazekas et al. Table 3 gives selected n=18 weight-four examples only.",
+        "OEIS A268084 is minimum occurrences across all binary words, not a fixed-Parikh distinct-factor table.",
+        "No exact published-finding corpus result for fixed four-one minima appeared in the retrieved ranked results."
+      ],
+      "reasoning": "The published n=18 table does not subsume n=19..128; no covering database or table was identified in actual queries, but failed searches do not establish universal novelty.",
+      "searches": [
+        "binary words minimum number of distinct abelian squares exactly four occurrences of one letter Parikh vector extremizers Fazekas Mammoliti Mercas Simpson 2026",
+        "minimal number of different (distinct not occurrences) abelian square factors in binary words with Parikh vector (4,n-4), complete extremal word classification",
+        "binary abelian square minima sparse weight four ones period modulo four labeled minimizing words",
+        "\"M(4,n)\" \"abelian squares\"",
+        "OEIS:A268084"
+      ]
+    },
+    "rationale": "The closest full primary source treats weight four as an interior, conjecturally open fixed-Parikh case, and its finite example ends at length 18. Exact minima through 128 and all 110 optimizer families/counts are not a corollary of its upper-construction theorem. Related published work counts occurrences or maxima, not fixed-weight distinct minima. Searches of actual mathematical research records and literature found no covering claim, subject to priority risk from unindexed computational work.",
+    "residual_risks": [
+      "Searches and indexed research records cannot rule out unindexed priority, unpublished theses, and independent exact tables.",
+      "Fici–Saarela 2014 original proceedings not inspected in full; only their general bound as cited in the 2026 source was compared.",
+      "The exact finite formula is not claimed beyond n=128."
+    ],
+    "source_inspections": [
+      {
+        "assessment": "Proves weights 0 through 3 and supplies weight-four examples at n=18 and upper constructions, but not exact weight-four minima and complete extremizers n=19..128",
+        "evidence": [
+          "Theorem 8 addresses three copies of one symbol",
+          "Section 5 says interior Parikh classes are not solved and gives effective words as candidates",
+          "Table 3 supplies a minimum example at n=18, not a certified universal optimizer family"
+        ],
+        "identifier_or_url": "https://arxiv.org/html/2604.23188v1",
+        "material_read": "Full-text sections 1 through 6 including Theorems 5–12, the n=18 weight-four table, Conjecture 13, and references",
+        "method": "Inspected accessible arXiv HTML, definition of distinct Abelian squares and treatment of interior weights",
+        "title": "Binary Words Containing Few Abelian Squares",
+        "trigger": "Same object, exactly the fixed-Parikh minimum and minimizers"
+      },
+      {
+        "assessment": "Optimizes maxima, not minima at a fixed number of ones; no implication of current result",
+        "evidence": [
+          "Abstract explicitly defines maximum SQ_Abel(n,sigma) and proves Theta(n^2), different extremal direction"
+        ],
+        "identifier_or_url": "https://arxiv.org/abs/1604.02238",
+        "material_read": "ArXiv abstract defining maximum distinct Abelian square function and asymptotic bounds",
+        "method": "Compared optimization direction and invariants from arXiv abstract",
+        "title": "Maximum Number of Distinct and Nonequivalent Nonstandard Squares in a Word",
+        "trigger": "Potentially stronger theorem on distinct Abelian squares"
+      },
+      {
+        "assessment": "Counts occurrences of Abelian squares rather than distinct factor strings, without fixed Parikh weight",
+        "evidence": [
+          "Sequence title specifies minimum number of occurrences",
+          "Comment explicitly distinguishes the number of distinct Abelian squares"
+        ],
+        "identifier_or_url": "https://oeis.org/A268084",
+        "material_read": "Sequence title, initial values, comments explaining occurrence versus distinct factors",
+        "method": "Compared counted quantity",
+        "title": "OEIS A268084",
+        "trigger": "Potential exact numerical table for Abelian-square minima"
+      },
+      {
+        "assessment": "General conjectural floor(n/4) lower bound is weaker than the weight-four exact finite formula and cannot classify all equality words",
+        "evidence": [
+          "Fazekas et al., Theorem/Conjecture 1 and discussion cite Fici–Saarela general bound"
+        ],
+        "identifier_or_url": "Dagstuhl Reports 4(2014)3, pp.34–35, Fici–Saarela",
+        "material_read": "Statement and reference as reproduced in the 2026 primary source; original full text not inspected",
+        "method": "Scientific implication comparison using primary 2026 article introduction",
+        "title": "On the Minimum Number of Abelian Squares in a Word",
+        "trigger": "Original lower-bound conjecture cited by the most relevant primary paper"
+      }
+    ],
+    "status": "PASS"
+  },
+  "review_type": "self_review",
+  "schema_version": 1,
+  "scope_run_id": "60414279-9482-42b3-9dd5-5a9c7814c9f5",
+  "self_review_status": "passed",
+  "value": {
+    "rationale": "The first unsolved fixed-minority-weight Parikh class of an explicit April 2026 problem is resolved at 110 successive new lengths. Beyond confirming a predicted minimum, the work classifies every extremizer and its sharp 2/2/8/4 residue-class multiplicity. The finite cutoff n=128 is a substantial, reproducible benchmark for conjectures and future uniform proofs, not an arbitrary slice or routine restatement.",
+    "status": "PASS"
+  }
+}

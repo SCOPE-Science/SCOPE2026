@@ -1,0 +1,19 @@
+# Review: square-zero Rota–Baxter rank distributions
+
+## Correctness — PASS
+
+The proof starts from the defining weight-one identity, not an assumed matrix normal form. Center preservation follows by taking one argument in the center and using nondegeneracy. The square-zero condition forces the central scalar to vanish, makes the horizontal map square-zero, and forces the central functional to annihilate its isotropic image. Every reverse implication is checked. Isotropic-image subspaces, surjective maps from the quotient, and central functionals are counted without multiplicities. The full-rank refinement distinguishes central directions emerging from the horizontal kernel. The modular-five concentration follows from an exact degree difference with unit leading coefficients. The proof works also in characteristic two. The independent checker directly tests the nonlinear polynomial identities for all linear maps in three small-field dimension-three cases, and for all horizontal maps and allowed functionals in dimension five over \(\mathbb F_2\).
+
+## Originality — PASS (relative to examined evidence)
+
+Primary full text of Ji–Hua (2018), particularly Section 3, and of Rathee (2024), Sections 4–5, was inspected. Their named theorems classify operators on the **three-dimensional** Heisenberg algebra, principally over algebraically closed or complex fields, and do not state a uniform rank-generating polynomial for square-zero weight-one operators at arbitrary odd dimensions over finite fields. Published-data searches for square-zero/nilpotent Heisenberg Rota–Baxter operators, higher-dimensional counts, symplectic-image ranks, and adjacent-rank asymptotics found no directly covering result. The closest all-dimensional Heisenberg endomorphism literature enumerates endomorphisms and idempotent retractions, not square-zero Rota–Baxter maps; changing the weight parameter does **not** transfer its rank distribution, because square-zero imposes the additional inclusion \(\operatorname{im}A\subseteq\ker A\) and a condition on central functionals. That earlier framework uses a related isotropic-subspace counting technique and deserves acknowledgment. A five-dimensional Lie-superalgebra paper could include a special case but was not fully accessible. Earlier results on square-zero symplectic-image maps could imply the present formula; independent publication-priority certification is absent.
+
+## Mathematical value — PASS
+
+Square-zero is an intrinsic nilpotency condition for Rota–Baxter operators, and ranks determine natural strata of their parameter space. This result provides the complete rank distribution for an infinite family over arbitrary finite fields, not just sample counts. The structural normal form reveals exactly why the image must be isotropic and why the kernel and central functional affect rank. The modular-five two-rank transition is a nontrivial asymptotic consequence not visible from individual three-dimensional classifications. These are natural structural invariants of a studied operator class, rather than an arbitrary finite slice.
+
+## References, boundaries, and status
+
+Ji and Hua, *Rota-Baxter operators of 3-dimensional Heisenberg Lie algebra*, Korean J. Math. 26 (2018), Theorem 3.2, DOI 10.11568/kjm.2018.26.1.53. Rathee, *Rota–Baxter operators and skew left brace structures over Heisenberg Group*, arXiv:2402.15428, Theorems 4.1/4.3 and Section 5. Gubarev, *Rota–Baxter Operators on Unital Algebras* (2021) treats a different class of associative algebras. Lv and Liu (2016) on five-dimensional Heisenberg Lie superalgebras remains a bibliographic overlap risk with uninspected full text. The number of conjugacy classes and all non-square-zero operators are outside scope.
+
+Self-review: passed. Independent audit: not yet performed.

@@ -1,0 +1,136 @@
+{
+  "correctness": {
+    "rationale": "For the stated unnormalized Gaussian basis, Wick moments yield exact Gram entries. D*=diag(1,sqrt2,1) has a complete explicit orthonormal spectrum. Equal squared component moduli of the extreme eigenvectors yield a common Rayleigh denominator for every positive diagonal alternative, proving optimality and equality uniqueness; the rho=0 case is checked separately. Jacobi eigenvalues give the symbolic exact near-degenerate 9/8 limit. The deterministic standalone checker passed its symbolic identities and 3200 supplemental numerical tests.",
+    "status": "PASS"
+  },
+  "independent": false,
+  "independent_audit_status": "not_performed",
+  "originality": {
+    "broader_coverage": {
+      "evidence": [
+        "Qu et al. supplies algorithms for arbitrary full-rank matrices",
+        "Rahman develops arbitrary-dimensional correlated Hermite moments"
+      ],
+      "reasoning": "General algorithmic coverage includes this finite numerical optimization and Rahman determines the entries, but none explicitly resolves the stated spectral minimax over all diagonal scales. Full whitening outside the admissible class makes condition number one and is acknowledged.",
+      "searches": [
+        "quadratic Gaussian chaos symmetric tensor square covariance optimal diagonal congruence sharp squared condition number",
+        "equal absolute component extremal eigenvectors necessary sufficient optimal positive diagonal preconditioning symmetric tensor square Gram",
+        "arxiv:2209.00809v2 Section 2-3",
+        "arxiv:1704.07912 Gaussian chaos second moments"
+      ]
+    },
+    "checked_sources": [
+      "https://arxiv.org/html/2610.30204v1",
+      "https://www.iccs-meeting.org/archive/iccs2021/papers/127470672.pdf",
+      "https://arxiv.org/abs/1704.07912",
+      "https://arxiv.org/html/2209.00809v2"
+    ],
+    "claim_vs_prior_implication": {
+      "evidence": [
+        "Isserlis already yields G, so a mere restatement would be covered",
+        "Qu et al. proves algorithms for general diagonal preconditioning",
+        "The proof uses identical component moduli of extremal eigenvectors to certify this optimum for all asymmetrical diagonals"
+      ],
+      "reasoning": "A moment formula and general numerical optimization algorithm do not state the closed unique optimizer or 9/8 penalty without an additional exact spectral analysis. The present proof fills that narrow specialized step; a potentially implicit stronger symmetric-square theorem is a residual historical risk.",
+      "searches": [
+        "bivariate correlated Gaussian Hermite homogeneous degree two Gram block diagonal congruence sqrt two optimal scaling 9/8 Jacobi condition",
+        "equal absolute component extremal eigenvectors necessary sufficient optimal positive diagonal preconditioning symmetric tensor square Gram",
+        "arxiv:2610.30204v1",
+        "arxiv:2209.00809v2",
+        "arxiv:1704.07912"
+      ]
+    },
+    "equivalent_formulations": {
+      "evidence": [
+        "Lyman (2026) X^(2) degree-two block",
+        "Qu et al. (2022) quasi-convex/SDP diagonal scaling formulation"
+      ],
+      "reasoning": "The formulation can be stated as optimum diagonal congruence on the symmetric-square Gram or as an optimal diagonal coordinate preconditioner; neither inspected source supplies the specific closed optimum and uniqueness. A generic optimization formulation is not itself the specialized exact solution.",
+      "searches": [
+        "correlated multivariate Hermite polynomial chaos bivariate second degree Gram three by three Jacobi scaling eigenvalues correlation",
+        "bivariate correlated Gaussian Hermite homogeneous degree two Gram block diagonal congruence sqrt two optimal scaling 9/8 Jacobi condition",
+        "equal absolute component extremal eigenvectors necessary sufficient optimal positive diagonal preconditioning symmetric tensor square Gram",
+        "arxiv:2610.30204v1 Section 5",
+        "arxiv:2209.00809v2 Section 2"
+      ]
+    },
+    "exact_database_or_table": {
+      "evidence": [
+        "Lyman (2026) prints exact G as an existing table/matrix",
+        "Lyman–Iaccarino (2021) prints formulas for same second moments"
+      ],
+      "reasoning": "All table-level matrix entries are known. The new invariant is the all-diagonal best condition and sharp comparison to Jacobi; no scanned table supplied that optimized invariant.",
+      "searches": [
+        "correlated multivariate Hermite polynomial chaos bivariate second degree Gram three by three Jacobi scaling eigenvalues correlation",
+        "bivariate correlated Gaussian Hermite homogeneous degree two Gram block diagonal congruence sqrt two optimal scaling 9/8 Jacobi condition",
+        "arxiv:2610.30204v1 displayed X^(2)",
+        "doi:10.1007/978-3-030-77980-1_53"
+      ]
+    },
+    "rationale": "The degree-two Gram entries are expressly prior and are not claimed as new. Direct full-text comparison located no previous statement of the all-positive-diagonal unique optimum, exact condition-number formula and sharp Jacobi ratio for this Gaussian-chaos block. The general diagonal optimization machinery of Qu et al. is broader algorithmically, but applying it here still requires the specific analytic equality and uniqueness argument. Residual priority risk from equivalent tensor-square scaling literature is acknowledged.",
+    "residual_risks": [
+      "An older general symmetric-square diagonal-scaling result might make this specific scale an unrecognized corollary.",
+      "The broad Qu et al. optimization machinery covers finding the optimum algorithmically; novelty is solely the explicit family classification and Jacobi ratio.",
+      "Historical priority is best-knowledge from the inspected primary texts and searches, not a uniqueness certificate."
+    ],
+    "source_inspections": [
+      {
+        "assessment": "Covers the unnormalized Hermite polynomials and the full Gram entries, but does not state their diagonal condition-number optimum or Jacobi penalty",
+        "evidence": [
+          "Section 5 displayed X^(2) bottom-right 3x3 block gives exactly G_rho",
+          "Section 6 emphasizes exact double/triple product calculation rather than optimal scaling"
+        ],
+        "identifier_or_url": "https://arxiv.org/html/2610.30204v1",
+        "material_read": "Definitions 3.1, second moments, Section 5 equations (17)–(19) and displayed X^(2), Section 6 and references",
+        "method": "Full publicly accessible arXiv HTML, relevant sections and equations inspected",
+        "title": "Triple Products of Correlated Multivariate Hermite Polynomials",
+        "trigger": "Exact 2026 motivating paper and source of the degree-two mass block"
+      },
+      {
+        "assessment": "Establishes double-product formulas and how they are calculated; not a minimax condition-number analysis of a three-mode block",
+        "evidence": [
+          "Introduction identifies Theorem 2 as improved formula for double products",
+          "Section 3 compares the complexity of evaluating those products"
+        ],
+        "identifier_or_url": "https://www.iccs-meeting.org/archive/iccs2021/papers/127470672.pdf",
+        "material_read": "14-page accessible PDF: introduction, definition of Hermite polynomials, formulae and examples for double products, computational-complexity comparison",
+        "method": "Full accessible PDF text and page screenshots checked",
+        "title": "Second Order Moments of Multivariate Hermite Polynomials in Correlated Random Variables",
+        "trigger": "Older full-text source responsible for the raw Gram moments"
+      },
+      {
+        "assessment": "General weak orthogonality and expansions, with no closed-form optimal diagonal congruence scale for this bivariate degree-two block found in examined material",
+        "evidence": [
+          "General expansion requires coupling among same-degree basis polynomials",
+          "Gram block derives from Gaussian second-moment formulas"
+        ],
+        "identifier_or_url": "https://arxiv.org/abs/1704.07912",
+        "material_read": "29-page arXiv PDF text; relevant sections on Gaussian polynomial definitions, second moments and coupled systems",
+        "method": "Open-access full PDF and selected source page screenshots inspected",
+        "title": "Wiener–Hermite Polynomial Expansion for Multivariate Gaussian Probability Measures",
+        "trigger": "Foundational source for weakly orthogonal Hermite polynomial chaos and coupling"
+      },
+      {
+        "assessment": "General quasiconvex/SDP algorithms cover generic matrices and can solve this instance; the inspected text does not explicitly identify the unique sqrt(2) scaling or Hermite-specific 9/8 Jacobi limit",
+        "evidence": [
+          "Section 2 equations (2)–(6) formulate generic optimal diagonal preconditioning",
+          "No correlated Hermite chaos example or parameter-exact closed solution in the inspected paper"
+        ],
+        "identifier_or_url": "https://arxiv.org/html/2209.00809v2",
+        "material_read": "Full arXiv HTML: abstract, Sections 1–3 optimal diagonal problems, formulations and algorithms, related prior scaling references",
+        "method": "Public arXiv HTML inspected, including full statements of general optimization problems",
+        "title": "Optimal Diagonal Preconditioning",
+        "trigger": "Strongest general prior-art candidate which algorithmically covers diagonal condition-number minimization"
+      }
+    ],
+    "status": "PASS"
+  },
+  "review_type": "self_review",
+  "schema_version": 1,
+  "scope_run_id": "6cfcbdb7-1ff3-43d2-a136-c38ee0a8599e",
+  "self_review_status": "passed",
+  "value": {
+    "rationale": "Optimal condition number of the actual minimal weakly orthogonal quadratic Gaussian-chaos mass block is a natural numerical invariant because stochastic Galerkin systems invert these matrices. An exact correlation-independent optimal scale and sharp nontrivial 9/8 disadvantage of standard Jacobi normalization provide a precise reproducible design benchmark. The result is not advertised as a general PDE preconditioner or a new moment identity.",
+    "status": "PASS"
+  }
+}

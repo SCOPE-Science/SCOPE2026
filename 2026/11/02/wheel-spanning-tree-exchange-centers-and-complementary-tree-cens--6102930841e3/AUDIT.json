@@ -1,0 +1,120 @@
+{
+  "correctness": {
+    "rationale": "For any wheel spanning tree T, graphic-matroid exchange distances and the maximum forest rank of the complementary subgraph prove ecc(T)=m-beta(H_T). Every complementary wheel cycle uses at least three edges, and rim degrees <=2 force distinct cycles to share at most the hub, giving beta<=floor(m/3). Explicit q disjoint hub triangles plus r spokes attain the bound, while an explicit complementary tree attains diameter m. For the periphery, each nonconstant binary rim coloring has exactly two spoke completions, by alternation at the even number of run boundaries, and both colors then form trees. Two standalone Python verifiers pass complete finite exhaustive checks, including all tree pairs for m<=5.",
+    "status": "PASS"
+  },
+  "independent": false,
+  "independent_audit_status": "not_performed",
+  "originality": {
+    "broader_coverage": {
+      "evidence": [
+        "Mahoney 2016 discusses center conditions for arbitrary graphs, but the visible conclusion is one-way and does not calculate this family radius or its periphery multiplicity.",
+        "General matroid basis distance and forest rank formulas are used as known reductions rather than claimed as new."
+      ],
+      "reasoning": "A more general conditional theorem can cover our result if it quantitatively optimizes wheel cotrees; no such implication was found in inspected full-text passages. The qualitative theorem is insufficient to determine the numerical formulas.",
+      "searches": [
+        "web: wheel graph spanning tree exchange graph radius diameter eccentricity wheel tree graph",
+        "web: wheel graph spanning trees whose edge complement also spanning tree count 2^(n+1)-4",
+        "Basis exchange graph center and periphery wheel graphs with cotree cycles"
+      ]
+    },
+    "checked_sources": [
+      "Mahoney 2016, doi:10.15760/etd.2939, Section 4.2 and wheel appendix",
+      "Benjamin and Yerger 2006 institutional abstract, 47:37–42",
+      "OEIS A002985, wheel tree isomorphism types",
+      "Targeted semantic comparisons of mathematical research records by graph and formula",
+      "Accessible earlier wheel triangle-restricted exchange claim a98c9fe6-1d22-43a8-a6a7-bf93b57b0db6",
+      "Accessible earlier Petersen unrestricted tree-exchange metric claim"
+    ],
+    "claim_vs_prior_implication": {
+      "evidence": [
+        "A previous wheel result restricts exchanges to fundamental hub triangles and gives a degree enumerator, without an exact unrestricted radius or periphery formula.",
+        "A previous Petersen result concerns a single different graph, though it shares the generic basis-exchange metric.",
+        "The qualitative 2016 dissertation claims do not imply exact wheel radius or complementary-tree count without an additional extremal and counting argument."
+      ],
+      "reasoning": "Keeping the same tree-state set does not make a restricted exchange graph equivalent to the unrestricted basis graph; no distances of the latter follow from the former. A finite Petersen classification does not subsume a formula for wheels of all rim lengths.",
+      "searches": [
+        "For wheel graph W_{m+1}, unrestricted spanning-tree basis-exchange graph has radius ceil(2m/3), diameter m; eccentricity m minus cyclomatic number of cotree",
+        "Wheel spanning trees T with complementary spanning tree E(W)\\T, exact count 2^(m+1)-4, binary rim run alternating spoke colors",
+        "a98c9fe6-1d22-43a8-a6a7-bf93b57b0db6",
+        "51e29d31-4015-4f15-8c25-68b88bb21d37"
+      ]
+    },
+    "equivalent_formulations": {
+      "evidence": [
+        "Mahoney 2016 Section 4.2 establishes qualitative complement-forest and cycle consequences for tree-graph eccentricity, not the exact wheel formula in inspected pages 42–45 of the publicly accessible PDF.",
+        "A cyclic cotree criterion by itself does not determine the number of possible cycles or radius."
+      ],
+      "reasoning": "Exact wheel eccentricities require the cotree cycle-rank equality plus a wheel-specific extremal cactus bound and attainment; the inspected predecessor does not state these quantitative results.",
+      "searches": [
+        "Exact radius and diameter of spanning-tree exchange graph (basis graph) of wheel W_n; eccentricity of trees via cycle rank of cotree; center trees",
+        "Wheel graph spanning tree reconfiguration exchange radius ceil(2m/3) complement cycle packing",
+        "web: wheel graph spanning tree graph tree graph radius center eccentricity"
+      ]
+    },
+    "exact_database_or_table": {
+      "evidence": [
+        "Benjamin–Yerger (2006) institutional abstract gives the total number of wheel spanning trees as a Lucas-number expression, not the subclass with spanning-tree complements.",
+        "OEIS A002985 counts abstract isomorphism classes of trees in wheel graphs, a distinct equivalence relation.",
+        "Mahoney 2016 Appendix D contains tree-graph data, but the inspected table does not state an all-size wheel eccentricity or peripheral-count formula."
+      ],
+      "reasoning": "The exact periphery count 2^(m+1)-4 does not follow from the Lucas total tree count without a new structural classification, and is distinct from counts of unlabelled tree types.",
+      "searches": [
+        "web: wheel graph complementary spanning trees count spanning-tree pair complementary",
+        "web: wheel graph spanning tree graph tree graph radius center eccentricity",
+        "OEIS A002985 number of trees in wheel up to isomorphism"
+      ]
+    },
+    "rationale": "The explicit all-size wheel exchange radius, cotree-cycle extremizers and complementary-tree periphery count are not implied by the cited qualitative complement-cycle center criterion or the established total spanning-tree enumeration. The unrestricted one-edge basis graph differs from the earlier triangle-restricted wheel exchange model. Targeted semantic and formula searches found no covering result; unindexed earlier enumerations remain possible.",
+    "residual_risks": [
+      "An equivalent old wheel complementary-pair enumeration could exist in unindexed or inaccessible papers.",
+      "Benjamin and Yerger 2006 full text was inaccessible; the comparison to that work is based on its abstract, not an asserted full-document exclusion.",
+      "Historic claims beyond the accessible ledger and search corpus cannot be ruled out."
+    ],
+    "source_inspections": [
+      {
+        "assessment": "Qualitative cyclic/acyclic complement criterion established; no exact all-size wheel radius, center cotree packing, or complementary-tree count located in inspected material.",
+        "evidence": [
+          "Theorem 4.8 at PDF page 44 states a necessary cyclic-complement property for centered trees; Lemmas 4.4 and 4.7 distinguish acyclic from cyclic complements.",
+          "PDF page 27 treats wheels as self-dual Halin graphs, rather than optimizing cotree cycle rank."
+        ],
+        "identifier_or_url": "doi:10.15760/etd.2939; https://web.pdx.edu/~caughman/mahoneyDissertation.pdf",
+        "material_read": "Dissertation text at Chapter 3 wheel discussion, Section 4.2 (PDF pages 42–45), Appendix B.6 wheel entries and Appendix D tree-graph data; full PDF accessible.",
+        "method": "Read extracted full-text passages, document table of contents and page-image screenshots for the center theorem and wheel headings.",
+        "title": "Tree Graphs and Orthogonal Spanning Tree Decompositions",
+        "trigger": "Direct precursor: centers and eccentricity of exactly the unrestricted spanning-tree exchange graph."
+      },
+      {
+        "assessment": "Abstract treats the total wheel spanning-tree count; cannot assert that the uninspected body lacks complementary-pair counts. Residual novelty risk recorded.",
+        "evidence": [
+          "The 2006 abstract explicitly asserts a Lucas-number formula for the total number of spanning trees, not the count whose complementary edge sets also form trees."
+        ],
+        "identifier_or_url": "https://scholarship.claremont.edu/hmc_fac_pub/1050/",
+        "material_read": "Institutional record, abstract, and recommended citation, not the full article (institutional download gave 403).",
+        "method": "Read publicly accessible institutional abstract and attempted linked full-text download.",
+        "title": "Combinatorial Interpretations of Spanning Tree Identities",
+        "trigger": "Earlier total wheel spanning-tree enumeration, a plausible counting overlap."
+      },
+      {
+        "assessment": "The sequence counts tree isomorphism types, not individually labelled peripheral vertices of the tree graph.",
+        "evidence": [
+          "The entry specifies nonequivalent spanning trees up to isomorphism, unlike the present 2^(m+1)-4 count of labelled edge subsets."
+        ],
+        "identifier_or_url": "https://oeis.org/A002985",
+        "material_read": "Sequence introduction, interpretation and bibliographic references.",
+        "method": "Inspect webpage entry and compare its counting objects.",
+        "title": "OEIS A002985: Number of trees in an n-node wheel",
+        "trigger": "Search for exact databases of wheel tree enumeration."
+      }
+    ],
+    "status": "PASS"
+  },
+  "review_type": "self_review",
+  "schema_version": 1,
+  "scope_run_id": "61029308-41e3-4658-b770-6336797c5161",
+  "self_review_status": "passed",
+  "value": {
+    "rationale": "The full center/periphery metric classification is a natural missing numerical refinement of the existing general tree-graph complement theory. The explicit count of all peripheral labelled spanning trees is a genuine closed enumerative result, not a substitution into a known total tree-count formula. It answers intrinsic network exchange questions for an infinite family and supplies checkable algorithmic benchmarks.",
+    "status": "PASS"
+  }
+}

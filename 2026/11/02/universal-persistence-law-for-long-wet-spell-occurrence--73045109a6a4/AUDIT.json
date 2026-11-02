@@ -1,0 +1,172 @@
+{
+  "correctness": {
+    "rationale": "The finite positive killed-chain eigenvector yields the characteristic identity for every k. The positive change of variables r=q/lambda is an increasing bijection; the derivative of h_m has one strictly monotone sign crossing, proving the unique optimizer. A compactness and monotone limiting-equation argument proves both high-k limits. Exact enumeration, rational determinant comparisons and independent Perron power iteration passed 387 regression assertions. Boundary and order-of-limits restrictions are explicit.",
+    "status": "PASS"
+  },
+  "independent": false,
+  "independent_audit_status": "not_performed",
+  "originality": {
+    "broader_coverage": {
+      "evidence": [
+        "Fu–Wang–Lou 2003 full article, Sections 1–6, contains exact distributions, spectral asymptotics and numerical comparisons for fixed transitions; its broader sequence classes do not themselves optimize the transition choice.",
+        "Lou 1996 abstract explicitly studies joint longest-run and success-count distributions and statistical tests under IID or Markov dependence.",
+        "Samarova 1982 title and bibliographic abstract address longest-run length asymptotics for fixed Markov chains."
+      ],
+      "reasoning": "A general distribution/large-deviation theory covers computing the risk at any specified q but is not a dominating parameter-optimization classification. All three strongest general-source comparisons remain priority-sensitive, especially for material beyond accessible abstracts.",
+      "searches": [
+        "Fu Wang Lou 2003 On exact and large deviation approximation for distribution longest run two state Markov pdf",
+        "Koutras 1997 Waiting Time Distributions Associated with Runs of Fixed Length in Two-State Markov Chains pdf",
+        "Samarova On the Length of the Longest Head-Run for a Markov Chain with Two States pdf",
+        "doi:10.1080/01621459.1996.10476727"
+      ]
+    },
+    "checked_sources": [
+      "https://doi.org/10.1175/1520-0493%281963%29091%3C0298%3AAMCMFT%3E2.3.CO%3B2",
+      "https://journals.ametsoc.org/abstract/journals/mwre/92/4/1520-0493_1964_092_0169_sowodd_2_3_co_2.xml",
+      "https://doi.org/10.1239/jap/1053003548",
+      "https://www.researchgate.net/publication/305973350_On_exact_and_large_deviation_approximation_for_the_distribution_of_the_longest_run_in_a_sequence_of_two-state_Markov_dependent_trials",
+      "https://onlinelibrary.wiley.com/doi/10.1155/2013/494976",
+      "https://doi.org/10.1023/A:1003118807148",
+      "https://doi.org/10.1080/01621459.1996.10476727",
+      "https://doi.org/10.1137/1126056"
+    ],
+    "claim_vs_prior_implication": {
+      "evidence": [
+        "Fu–Wang–Lou 2003 Theorem 4.2 identifies the rate -log Perron eigenvalue given a transition matrix, providing a starting point but no parameter maximization theorem.",
+        "Sen–Mohan–Agarwal 2013 full article treats waiting-time generating functions for specified patterns separated by failures, rather than maximizing the exponential rate of an uninterrupted wet run.",
+        "The earlier q=3/5 result is for k=2 and is therefore logically weaker than a statement covering all k>=3."
+      ],
+      "reasoning": "The new theorem strengthens the known fixed-parameter spectral characterization with a global uniqueness proof and asymptotic optimizer scaling. It is not merely an algebraic restatement of the previously checked k=2 fact; the derivative sign argument works for every m and a separate compactness calculation yields the high-m constant.",
+      "searches": [
+        "doi:10.1239/jap/1053003548",
+        "doi:10.1155/2013/494976",
+        "ef8eca42-93c6-418b-9d82-7516f844e650",
+        "doi:10.1175/1520-0493(1964)092<0169:SOWODD>2.3.CO;2"
+      ]
+    },
+    "equivalent_formulations": {
+      "evidence": [
+        "Fu–Wang–Lou 2003, published full text Section 4, Theorems 4.1 and 4.2: Perron rate for given transition probabilities; Section 5 evaluates fixed numerical matrices.",
+        "Prior two-wet-day claim: asymptotic best q=3/5 for k=2; no claim over k>=3 or large-k constant.",
+        "Koutras 1997 abstract: waiting-time distributions and their asymptotics for a given two-state chain."
+      ],
+      "reasoning": "The Perron-rate formulation is equivalent to a first-hit survival-rate problem, but a fixed-transition distribution formula does not state or imply the unique optimizer and its large-k scaling without additional uniform optimization. The previous length-two optimizer is recovered solely as a boundary calibration and does not subsume the theorem for every length at least three.",
+      "searches": [
+        "two state Markov chain longest run probability optimal persistence maximize spectral radius fixed marginal wet spell",
+        "Unique parameter q that maximizes exponential rate of at least k consecutive wet days in stationary symmetric two-state Markov weather chain, arbitrary run length k",
+        "doi:10.1239/jap/1053003548",
+        "doi:10.1023/A:1003118807148",
+        "ef8eca42-93c6-418b-9d82-7516f844e650"
+      ]
+    },
+    "exact_database_or_table": {
+      "evidence": [
+        "Closest indexed result 2026/10/4/SCOPE-an-n-1-4-finite-window-approach-to-the-two-state-sliding-count-o--523e1f91b8c1 concerns a different two-state rare-entrance Rayleigh quotient.",
+        "Closest indexed result 2026/10/11/SCOPE-exact-finite-cutoff-zeta-and-perron-correction-for-a-countable-m--35b9405279c4 concerns zeta/Perron corrections for a countable expanding map.",
+        "Fu–Wang–Lou 2003 Tables 3–6 tabulate run probabilities for fixed transitions, not the fixed-marginal optimizing q or universal constants."
+      ],
+      "reasoning": "No checked database result or run table gives the parameter optimum for every k>=3 or the constant. Lack of a match does not establish novelty; direct mathematical implication comparisons above are decisive to the provisional assessment.",
+      "searches": [
+        "\"Unique parameter q that maximizes exponential rate of at least k consecutive wet days in stationary symmetric two-state Markov weather chain, arbitrary run length k\"",
+        "\"Optimal Markov persistence q_k for longest success run avoidance spectral radius, exact Perron eigenvalue unique optimum across k\"",
+        "\"Large k asymptotic optimal weather serial correlation persistence to achieve k consecutive rainy days rare event rate constant\"",
+        "\"Markov run hitting time exponential tail minimize Perron root wrt serial dependence q with fixed stationary rain marginal\""
+      ]
+    },
+    "rationale": "Fu–Wang–Lou (2003) supplies a general fixed-parameter run-distribution/Perron framework, but material inspection of its six scientific sections did not identify optimization of the symmetric equal-marginal transition family, the strictly unique optimal persistence for every run length at least three, or the high-length universal constants. The earlier two-wet-day result is strictly a one-length special case. The result is provisionally original under accessible evidence; uncovered full texts remain a stated risk.",
+    "residual_risks": [
+      "Full text of Koutras (1997) was not retrievable, and an attempted authorized institutional access route reported that the connection was unavailable; its distribution and asymptotic methods could conceal a relevant parameter-optimization corollary.",
+      "Older meteorological and longest-run manuscripts, including Weiss (1964), Lou (1996), and Samarova (1982), were accessible only to abstract or bibliographic depth.",
+      "General reliability literature might contain a mathematically equivalent sharp spectral-optimization theorem under a different vocabulary.",
+      "No independent assessment of historical priority has been performed."
+    ],
+    "source_inspections": [
+      {
+        "assessment": "Motivation and model precedent, not evidence for the present spectral optimizer",
+        "evidence": [
+          "Caskey 1963 empirical Markov precipitation occurrence probabilities for Denver"
+        ],
+        "identifier_or_url": "https://doi.org/10.1175/1520-0493%281963%29091%3C0298%3AAMCMFT%3E2.3.CO%3B2",
+        "material_read": "Title, abstract, print date 1963-06-01, pages 298–301",
+        "method": "Publisher indexed HTML metadata and abstract",
+        "title": "A Markov Chain Model for the Probability of Precipitation Occurrence in Intervals of Various Length",
+        "trigger": "Earliest dated meteorological Markov-source model"
+      },
+      {
+        "assessment": "Demonstrates weather-model precedent, cannot be ruled out by abstract alone",
+        "evidence": [
+          "Weiss 1964 studies Markov wet/dry sequences and a nomograph for cumulative sequence probability"
+        ],
+        "identifier_or_url": "https://journals.ametsoc.org/abstract/journals/mwre/92/4/1520-0493_1964_092_0169_sowodd_2_3_co_2.xml",
+        "material_read": "Publisher abstract, page and publication-date details; complete article not accessible",
+        "method": "Publisher abstract and bibliographic HTML",
+        "title": "Sequences of Wet or Dry Days Described by a Markov Chain Probability Model",
+        "trigger": "Foundational first-order wet/dry spell literature"
+      },
+      {
+        "assessment": "Establishes general exact distribution and dominant eigenvalue for fixed transitions, but does not state optimized equal-marginal choice or large-k constants",
+        "evidence": [
+          "Full publicly displayed author-uploaded article text, Sections 1–6; Section 2 gives Markov pattern embedding, Section 4 gives Perron decay and large-deviation approximation, Section 5 fixes transition matrices for numerical cases; no optimization over a fixed-marginal family or all-spell root equation was identified."
+        ],
+        "identifier_or_url": "https://www.researchgate.net/publication/305973350_On_exact_and_large_deviation_approximation_for_the_distribution_of_the_longest_run_in_a_sequence_of_two-state_Markov_dependent_trials",
+        "material_read": "Full publicly displayed author-uploaded manuscript text: Sections 1 through 6, especially Theorems 4.1–4.2 and numerical tables",
+        "method": "Material inspection of full author-uploaded article transcription in HTML; compare objective and quantifiers",
+        "title": "On exact and large deviation approximation for the distribution of the longest run in a sequence of two-state Markov dependent trials",
+        "trigger": "Exact same longest-run observable and Perron-rate approach"
+      },
+      {
+        "assessment": "Different pattern waiting-time problem; spectral optimization of the present symmetric model not identified",
+        "evidence": [
+          "Sen, Mohan and Agarwal 2013 construct GERT generating functions for Markov pattern waiting times"
+        ],
+        "identifier_or_url": "https://onlinelibrary.wiley.com/doi/10.1155/2013/494976",
+        "material_read": "Accessible full HTML article with introduction, generating functions and application sections",
+        "method": "Read full-text sections for optimized transition or uninterrupted long-wet run classification",
+        "title": "Distributions of Patterns of Pair of Successes Separated by Failure Runs ... Markov Dependent Trials: GERT Approach",
+        "trigger": "General Markov pattern waiting-time calculation"
+      },
+      {
+        "assessment": "Material risk remains; do not assert full-text noncoverage",
+        "evidence": [
+          "Koutras 1997 describes exact waiting-time laws and asymptotics for runs of fixed length"
+        ],
+        "identifier_or_url": "https://doi.org/10.1023/A:1003118807148",
+        "material_read": "Abstract and bibliographic record only; publisher and repository did not yield complete text",
+        "method": "Search for lawful open text and university repository; institutional request could not retrieve full manuscript",
+        "title": "Waiting Time Distributions Associated with Runs of Fixed Length in Two-State Markov Chains",
+        "trigger": "Highly plausible general waiting-time dominance"
+      },
+      {
+        "assessment": "Focuses on distributions and testing; complete-text equivalence not ruled out",
+        "evidence": [
+          "Lou 1996 abstract states joint and conditional run-statistic distributions under Markov alternatives"
+        ],
+        "identifier_or_url": "https://doi.org/10.1080/01621459.1996.10476727",
+        "material_read": "Publisher abstract, definitions and bibliographic data only",
+        "method": "Publisher HTML abstract comparison",
+        "title": "On Runs and Longest Run Tests: A Method of Finite Markov Chain Imbedding",
+        "trigger": "Broader possible exact longest-run coverage"
+      },
+      {
+        "assessment": "Possible historical coverage of longest-run asymptotics, but parameter optimization not evidenced",
+        "evidence": [
+          "Samarova 1982 concerns asymptotic longest-head-run length in a two-state chain"
+        ],
+        "identifier_or_url": "https://doi.org/10.1137/1126056",
+        "material_read": "Title, bibliographic record and related scholarly summaries; complete text not accessible",
+        "method": "Publisher metadata and scholarly cross-references",
+        "title": "On the Length of the Longest Head-Run for a Markov Chain with Two States",
+        "trigger": "Older two-state longest-run asymptotics"
+      }
+    ],
+    "status": "PASS"
+  },
+  "review_type": "self_review",
+  "schema_version": 1,
+  "scope_run_id": "73045109-a6a4-4f9d-970b-adb0f53c985b",
+  "self_review_status": "passed",
+  "value": {
+    "rationale": "Holding daily wet probability at one half removes marginal frequency as a confounder, while the optimized persistence determines the fastest exponential onset of specified long wet spells. A complete all-length unique-maximizer classification and two nontrivial large-spell scaling constants provide a motivated exact benchmark for binary precipitation-sequence stress testing, beyond the preexisting k=2 special case; no unsupported empirical significance is claimed.",
+    "status": "PASS"
+  }
+}

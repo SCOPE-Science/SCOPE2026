@@ -1,0 +1,142 @@
+{
+  "correctness": {
+    "rationale": "Exact independent Schur-complement closure for positive diagonal plus positive rank-one matrix; conditional product probability for avoiding exceptional index; exact two trace values and their difference; greedy picks the exceptional index first; rational scaling of \\(n=t^3\\), \\(a=t\\), \\(b=t^2\\) proves ratio \\(\\sim t/2\\) and every normalized correlation tends one. The distributed checker checks 9,345 finite equalities and diagnostics using exact rational Schur complements. If trace values coincide the probability statement is event-based, avoiding a false two-distinct-atom claim.",
+    "status": "PASS"
+  },
+  "independent": false,
+  "independent_audit_status": "not_performed",
+  "originality": {
+    "broader_coverage": {
+      "evidence": [
+        "https://arxiv.org/abs/2207.06503, Sec. 4.2 and Appendix C.2: proves worst-case greedy stalling with block-diagonal identity and all-ones blocks; cross-block correlations vanish rather than tend to one.",
+        "https://arxiv.org/abs/2608.20633, Secs. 1.2–1.6 and proof sections: broader convergence bounds for randomized pivoting; the resulting inequalities do not fix the residual distribution or optimal pivot set on the constructed family.",
+        "https://arxiv.org/abs/2404.11487, Sec. 2.2: broad warning on misleading diagonals but no all-pairwise-correlations limit."
+      ],
+      "reasoning": "General arbitrarily poor greedy approximation is already known and is explicitly excluded from the novelty claim. Generic expected-trace guarantees and known block-diagonal counterexamples do not imply arbitrarily bad greedy approximation along a family whose normalized cross-correlations uniformly approach one and whose diagonal ratio approaches one. The exact trace distribution and strict finite-k parameter frontier likewise are not supplied by bounds.",
+      "searches": [
+        "random pivoted Cholesky approximate trace rank one posterior variance diagonal sampling",
+        "near rank-one all-positive kernel nearly identical diagonal greedy diagonal pivot unbounded trace error versus adaptive randomized pivot",
+        "randomly pivoted cholesky exact expectation two iterations equicorrelation compound symmetry",
+        "greedy Cholesky one outlier compound symmetry kernel bad pivot diagonal similar approximation",
+        "greedy pivoted cholesky all pairwise correlations tending one random sampling outlier worse"
+      ]
+    },
+    "checked_sources": [
+      "https://arxiv.org/abs/2207.06503",
+      "https://arxiv.org/abs/2404.11487",
+      "https://arxiv.org/abs/2608.20633",
+      "https://github.com/Resultary/2026/tree/main/2026/9/19/SCOPE-deflation-history-weighted-mass-aca--f46330fd3a80",
+      "https://github.com/Resultary/2026/tree/main/2026/9/18/SCOPE-sharp-multistage-arp-error-products--77e11f8220ee"
+    ],
+    "claim_vs_prior_implication": {
+      "evidence": [
+        "https://arxiv.org/abs/2207.06503, Appendix C.2: block-diagonal hard instance has zero cross-block entries, so its normalized correlations are not uniformly near one.",
+        "https://arxiv.org/abs/2404.11487, Sec. 2.3: the spiral example demonstrates practical greedy issues and ties, unlike this unique maximum-diagonal pivot and explicit divergence.",
+        "https://arxiv.org/abs/2608.20633, Theorem 1.2: rate and expected-tail inequalities do not determine an exact Bernoulli residual law."
+      ],
+      "reasoning": "Known failure examples imply that greedy may be inferior in general, not that it can lose an unbounded residual-trace factor when all diagonal ratios and every off-diagonal correlation tend to one. The latter follows here from explicit rational asymptotics. General RPCholesky trace bounds are compatible with but cannot force the exact factorization, support probabilities, and if-and-only-if frontier.",
+      "searches": [
+        "Sharp criterion diagonal greedy Cholesky worse than randomized Cholesky even when every pairwise correlation tends to one; rank-one plus diagonal covariance",
+        "exact Bernoulli trace residual law for randomly pivoted Cholesky with one heterogeneous diagonal and common-factor covariance",
+        "all entries near one correlation matrix greedy diagonal pivoting unbounded trace error Nyström exact rank one",
+        "pivoted Cholesky largest diagonal nearly equal diagonal arbitrarily bad PSD matrix rank one perturbation greedy randomized pivot",
+        "\"diagonal plus rank one\" \"randomly pivoted Cholesky\" sampling",
+        "greedy pivoted cholesky all pairwise correlations tending one random sampling outlier worse"
+      ]
+    },
+    "equivalent_formulations": {
+      "evidence": [
+        "https://arxiv.org/abs/2207.06503, Algorithm 1 and Sec. 4.2: residual-diagonal RPCholesky and generic greedy failures, no exact one-defect two-event trace law in inspected material.",
+        "https://arxiv.org/abs/2404.11487, Secs. 2.2–2.3: diagonal versus column-norm pivoting and numerical spiral-kernel example, not the exact common-factor criterion.",
+        "https://arxiv.org/abs/2608.20633, Theorems 1.2 and 1.4: dimension-free error guarantees, not a sharp parameter equality for this covariance family."
+      ],
+      "reasoning": "The new formula is equivalent to an exact inclusion/exclusion law for the exceptional coordinate in diagonal-plus-rank-one Nyström elimination. Prior general Cholesky updates can derive the scalar Schur complement, but the inspected results do not state or imply the exact finite-step survival distribution, sharp flip criterion, and all-correlations-to-one unbounded separation as a theorem. An exact equivalent may exist beyond accessible searches.",
+      "searches": [
+        "randomly pivoted Cholesky kernel rank two star correlation matrix exact residual trace finite steps",
+        "randomized low rank pivoted Cholesky equicorrelation compound symmetry one spike exact expectation",
+        "Sharp criterion diagonal greedy Cholesky worse than randomized Cholesky even when every pairwise correlation tends to one; rank-one plus diagonal covariance",
+        "exact Bernoulli trace residual law for randomly pivoted Cholesky with one heterogeneous diagonal and common-factor covariance",
+        "pivoted Cholesky largest diagonal nearly equal diagonal arbitrarily bad PSD matrix rank one perturbation greedy randomized pivot",
+        "Nystrom greedy diagonal pivoting arbitrarily suboptimal almost constant diagonal kernel",
+        "\"diagonal plus rank one\" \"randomly pivoted Cholesky\" sampling",
+        "\"compound symmetry\" \"pivoted Cholesky\" trace residual sampling"
+      ]
+    },
+    "exact_database_or_table": {
+      "evidence": [
+        "https://arxiv.org/abs/2207.06503, Algorithm 1 and Appendix C.2: contains a related constant-diagonal block Schur-complement calculation but no one-defect k-step probability table.",
+        "https://github.com/Resultary/2026/tree/main/2026/9/19/SCOPE-deflation-history-weighted-mass-aca--f46330fd3a80: closest published record concerns an ACA rule using stale deflation data, a distinct sampling rule and objective.",
+        "https://github.com/Resultary/2026/tree/main/2026/9/18/SCOPE-sharp-multistage-arp-error-products--77e11f8220ee: closest published record concerns multistage adaptive randomized pivoting worst-case bounds, not the common-factor trace law."
+      ],
+      "reasoning": "No exact table or database row for the displayed probability product, two support values, or sharp comparison criterion was identified. Search absence is not a proof of priority. The closest record matches use a different algorithm or assumptions.",
+      "searches": [
+        "randomized low rank pivoted Cholesky equicorrelation compound symmetry one spike exact expectation",
+        "exact Bernoulli trace residual law for randomly pivoted Cholesky with one heterogeneous diagonal and common-factor covariance",
+        "near rank-one all-positive kernel nearly identical diagonal greedy diagonal pivot unbounded trace error versus adaptive randomized pivot",
+        "one defect common factor covariance matrix Nyström randomized pivoted Cholesky two point trace residual law sharp greedy threshold",
+        "Sherman Morrison compound symmetry single outlier randomized Cholesky inclusion probability product",
+        "rank one plus diagonal single exceptional variance pivoted Cholesky exact probability",
+        "\"compound symmetry\" \"pivoted Cholesky\" trace residual sampling",
+        "pivoted Cholesky covariance one heterogeneous diagonal outlier exact trace distribution"
+      ]
+    },
+    "rationale": "Relevant papers and searchable published records were compared by statement and implication, including known broad counterexamples with zero cross-block correlations. Novelty is restricted to the exact finite-k two-event trace law and sharp frontier on a one-defect common-factor matrix, with the strongly correlated near-equal-diagonal unbounded greedy gap. Literature inspection supports best-knowledge distinction, not a uniqueness certificate; older specialized coverage remains possible.",
+    "residual_risks": [
+      "Broad greedy-worst-case results are known; the present claim cannot be marketed as the discovery that greedy can fail.",
+      "A specialized older paper may have the exact common-factor rank-k law or near-unity-correlation witness; a negative index search is not priority proof.",
+      "General rank-one Schur-complement identities may have other applications that could conceal an equivalent special case."
+    ],
+    "source_inspections": [
+      {
+        "assessment": "Covers algorithm, generic failure, and shared algebra; does not state the new exact distribution and near-unity-correlation witness in material inspected.",
+        "evidence": [
+          "Initial arXiv date 2022-07-13; Algorithm 1: sampling from residual diagonal.",
+          "Sec. 4.2 and Appendix C.2: block-diagonal greedy lower-bound witness."
+        ],
+        "identifier_or_url": "https://arxiv.org/abs/2207.06503",
+        "material_read": "Abstract, introduction, Algorithm 1, Sections 3–4 including greedy comparison, and Appendix C.2 proof and related Schur-complement formulas.",
+        "method": "Accessible arXiv full-text HTML inspection, following statements and displayed formulas through cited appendix.",
+        "title": "Randomly pivoted Cholesky: Practical approximation of a kernel matrix with few entry evaluations",
+        "trigger": "Primary source describing residual-diagonal randomized pivots and greedy worst cases."
+      },
+      {
+        "assessment": "Shows general differences between greedy and random rules and numerical spiral example, not the sharp one-defect survival law and correlated-matrix reversal.",
+        "evidence": [
+          "Initial arXiv date 2024-04-17.",
+          "Sections 2.2–2.3 compare pivot rules and spiral-kernel examples."
+        ],
+        "identifier_or_url": "https://arxiv.org/abs/2404.11487",
+        "material_read": "Introduction, Section 2 results, especially Sections 2.2–2.3 examples and Section 2.5 related work, and beginning of proof section.",
+        "method": "Accessible arXiv full-text HTML inspection.",
+        "title": "Randomly Pivoted Partial Cholesky: Random How?",
+        "trigger": "Possible stronger example comparing greedy and random pivot probabilities."
+      },
+      {
+        "assessment": "General convergence and residual functional bounds; no exact finite-n one-defect trace distribution or correlation-constrained greedy loss found in inspected sections.",
+        "evidence": [
+          "Initial arXiv date 2026-08-21.",
+          "Theorems 1.2 and 1.4 concern bound-based guarantees for general PSD matrices."
+        ],
+        "identifier_or_url": "https://arxiv.org/abs/2608.20633",
+        "material_read": "Introduction and theorems on trace/spectral convergence, Sections 1.6 and 2–4 proof discussions and key formulas.",
+        "method": "Accessible arXiv full-text HTML inspection.",
+        "title": "A new analysis of the randomly pivoted Cholesky algorithm",
+        "trigger": "Newer comprehensive RPCholesky analysis might subsume exact trace results."
+      }
+    ],
+    "status": "PASS"
+  },
+  "review_type": "self_review",
+  "schema_version": 1,
+  "scientific_limits": [
+    "Exact arithmetic and residual trace only.",
+    "No claims for arbitrary PSD matrices or all growing pivot-count sequences.",
+    "Finite checker does not prove infinite quantifiers or publication priority."
+  ],
+  "scope_run_id": "73b2b6cd-dee0-4db6-bec8-05b67a8d34f7",
+  "self_review_status": "passed",
+  "value": {
+    "rationale": "The family is a natural common-factor covariance and kernel benchmark with nontrivial exact pivot-selection distributions. The sharp crossover guides the choice between largest-diagonal and residual-random pivots. Its fully coherent high-correlation construction rules out a tempting structural protection heuristic for greedy trace error, despite near-identical diagonal entries.",
+    "status": "PASS"
+  }
+}

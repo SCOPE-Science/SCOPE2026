@@ -1,0 +1,101 @@
+{
+  "correctness": {
+    "rationale": "The six-vertex class and query domain are fully explicit. Direct exhaustive enumeration of all 2^15 edge orientations yields exactly 2640 legal score patterns; testing all 2^15 supports gives the complete polynomial and excludes higher support sizes. Independent cut inequality classification agrees on all 32768 cases. All 1185 maximum supports are canonically classified under all 720 label permutations. An explicit 2048-leaf depth-eleven tree certifies the online lower bound, and 2640<4096 certifies the upper bound. The general cut lemma follows rigorously by prescribed-degree flow orientation.",
+    "status": "PASS"
+  },
+  "independent": false,
+  "independent_audit_status": "not_performed",
+  "originality": {
+    "broader_coverage": {
+      "evidence": [
+        "Earlier regular-odd-order result ID 3c08fa61-445b-4231-8f2a-270d8f3dca86 determines maximum VC supports in odd order; the even near-regular class has a different query domain.",
+        "Earlier regular-seven result ID 06efc55a-daeb-43f4-b4a8-50f57ba8568b determines eleven-round online depth using the full twenty-one-coordinate domain and an unrelated polynomial."
+      ],
+      "reasoning": "Deleting a vertex gives a bijection of hypotheses, but reduces available queries from 21 to 15: Ldim under query restriction can strictly decrease. The previous dimension 11 on 21 queries gives only an upper bound for the 15-query restriction. The present 2048-leaf certificate proves preservation. The previous regular-seven support polynomial aggregates supports touching and avoiding the deleted vertex, so it does not imply the separate six-vertex coefficientwise counts or extremal isomorphism spectrum.",
+      "searches": [
+        "regular tournament 7 vertices deleting one vertex 6 vertex near-regular tournament preserves adaptive dimension 11",
+        "regular tournament of seven vertices VC dimension nine Littlestone dimension eleven and maximum shattered edge supports",
+        "accessible prior claims: 3c08fa61-445b-4231-8f2a-270d8f3dca86 and 06efc55a-daeb-43f4-b4a8-50f57ba8568b"
+      ]
+    },
+    "checked_sources": [
+      "arxiv:2009.09322",
+      "doi:10.37236/240",
+      "id:3c08fa61-445b-4231-8f2a-270d8f3dca86",
+      "id:06efc55a-daeb-43f4-b4a8-50f57ba8568b",
+      "published-finding corpus:2026/10/4/SCOPE-complete-six-vertex-tournament-neighborhood-complex-homotopy-cen--089ebb6a89de"
+    ],
+    "claim_vs_prior_implication": {
+      "evidence": [
+        "Brualdi–Kiernan 2009, Theorem 3.1 gives conditions for completing one partial orientation with a prescribed labeled score sequence.",
+        "Kolesnik–Sanchez 2020, Corollary 6 gives feasibility of an integer score vector for an orientation.",
+        "Previous odd-order VC theorem and regular-seven online calculation have different support domains and weaker implications for the specific restricted-coordinate problem."
+      ],
+      "reasoning": "A completion theorem can be combined with finite enumeration to derive the present polynomial, but does not itself state or entail the numerical counts without that nontrivial additional exhaustive work. The former seven-vertex eleven-round certificate need not avoid the removed six edges. Our explicit certificate does, giving a new non-implied result about preservation of adaptive shattering depth.",
+      "searches": [
+        "Kolesnik Sanchez The Geometry of Random Tournaments arxiv 2009.09322 theorem score vectors",
+        "Brualdi Kiernan Landau Rado partial tournament corollary near-regular",
+        "regular seven vertex tournaments online shattering dimension 11 twenty one edge coordinates"
+      ]
+    },
+    "equivalent_formulations": {
+      "evidence": [
+        "Brualdi–Kiernan (2009), Theorem 3.1 and Corollary 3.2, gives degree-constrained orientation completion and names near-regular even-order score sequences.",
+        "Kolesnik–Sanchez (2020), Theorem 5 and Corollary 6, gives general score-vector feasibility."
+      ],
+      "reasoning": "The cut-criterion reduction is a known-completion-theory corollary and is explicitly not asserted novel. Neither inspected paper reports all fifteen-coordinate VC-shattered supports, five maximum-support types, or any full eleven-round adaptive query tree.",
+      "searches": [
+        "near-regular six-vertex tournaments score multiset (2,2,2,3,3,3) 2640 orientations VC-dimension 7 Littlestone dimension 11",
+        "all score-constrained tournament orientations shattering all subsets of queried edges partial degree constraints 5 isomorphism classes",
+        "Brualdi Kiernan partial tournament near regular score completion Theorem 3.1 Corollary 3.2"
+      ]
+    },
+    "exact_database_or_table": {
+      "evidence": [
+        "Complete direct calculation enumerates every one of 32768 fixed-edge supports and all 2640 legal orientations, producing coefficients 1,15,105,455,1335,2697,3355,1185.",
+        "published-finding corpus search gave tournament-structure and social-choice neighboring IDs, e.g. 2026/10/4/SCOPE-complete-six-vertex-tournament-neighborhood-complex-homotopy-cen--089ebb6a89de, but no overlapping table."
+      ],
+      "reasoning": "No exact matching table was found in the actual indexed searches; this alone is not novelty proof. The tested data are not a recomputation of a named published table, and the five-type classification and depth-eleven witnesses were independently generated. Other unindexed tables remain a risk.",
+      "searches": [
+        "almost regular tournaments even order score pattern 2 2 2 3 3 3 shattered edge supports polynomial 1185 maximum",
+        "near-regular tournament score constrained Littlestone eleven",
+        "1185 maximal shattered supports 2640 tournament concepts"
+      ]
+    },
+    "rationale": "The exact five-isomorphism-type census, fifteen-coordinate polynomial, and full eleven-round online tree are not implied by the established partial-orientation feasibility theorems nor by earlier twenty-one-coordinate regular-seven-vertex shattering results. Direct published-literature and accessible earlier-claim comparisons found no dominating statement, with residual priority risk from possible alternative terminology.",
+    "residual_risks": [
+      "A pre-existing equivalent exact enumeration under unlabeled near-regular tournaments, score-constrained orientation, or online query terminology may remain unindexed.",
+      "Older alternate partial-tournament tables could encode the 1185-support extremal counts even if they do not explicitly use VC terminology.",
+      "Not all earlier local historical files were retrieved; accessible claim records and current-week claims were checked, and gaps do not prove priority."
+    ],
+    "source_inspections": [
+      {
+        "assessment": "COVERS score-constrained completion criteria and the near-regular definition, NOT the exact new finite shattering profile or online certificate",
+        "evidence": "Theorem 3.1 inequality (10) and Corollary 3.2 near-regular even-order condition (12).",
+        "identifier_or_url": "doi:10.37236/240",
+        "material_read": "Sections 1, 3 including Theorem 3.1, Corollary 3.2 and surrounding proof, pages 1 and 3–6",
+        "method": "Original full-text PDF, text extraction and page image inspection",
+        "title": "Landau's and Rado's Theorems and Partial Tournaments",
+        "trigger": "Primary historical near-regular score-constrained completion theory"
+      },
+      {
+        "assessment": "COVERS general score-feasibility and zonotopal interpretation, NOT the exact six-vertex trace census or adaptive tree",
+        "evidence": "Theorem 5 integral-score orientation and Corollary 6 score-feasibility inequalities.",
+        "identifier_or_url": "arxiv:2009.09322",
+        "material_read": "Theorem 1, Theorems 4–5, Corollary 6 and proofs in sections 1–3, pages 1–4",
+        "method": "Original arXiv PDF; text and page images inspected",
+        "title": "The Geometry of Random Tournaments",
+        "trigger": "Eligible 2020 primary treatment of score-vector feasibility"
+      }
+    ],
+    "status": "PASS"
+  },
+  "review_type": "self_review",
+  "schema_version": 1,
+  "scope_run_id": "7d3930d3-da31-4ed8-8f63-bfc168857a5a",
+  "self_review_status": "passed",
+  "value": {
+    "rationale": "Near-regular tournament scores are a classical natural even-order counterpart to regular tournaments (Brualdi–Kiernan 2009). The six-vertex case supplies the first substantial nontrivial even-order restricted-score learning profile, its complete five-type extremal edge-support classification, and a counterintuitive preservation of all eleven online query rounds when a vertex and six coordinates are deleted from the regular-seven realization. These are motivated structural and exact invariants, not arbitrary slices or a restatement of the known orientation-feasibility criterion.",
+    "status": "PASS"
+  }
+}

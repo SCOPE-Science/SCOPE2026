@@ -1,0 +1,120 @@
+{
+  "correctness": {
+    "rationale": "Every realized nonconstant binary cyclic profile has parameters n,z,t; marking one of its t indexed 01 transitions and counting alternating positive compositions yields n/t * C(z-1,t-1)*C(n-z-1,t-1). For fixed t>=2 its consecutive z-ratio has cleared difference (t-1)(n-2z-1), so centered content strictly dominates; for n>=6 centered t=2 dominates all t=1 profiles. For fixed centered content the adjacent t-ratio equals (z-t)(n-z-t)/(t(t+1)); its sign relative to 1 is the sign of z(n-z)-t(n+1). Modulo-four evaluation proves the four formulae and exact maximizing sets. Small n are directly resolved. Stirling gives uniform asymptotic constant 4/pi. Python parameter search n<=200, direct word enumeration n<=19, and separate C++17 four-entry matrix census n<=20 replayed successfully. These checks supplement a self-contained infinite proof.",
+    "status": "PASS"
+  },
+  "independent": false,
+  "independent_audit_status": "not_performed",
+  "originality": {
+    "broader_coverage": {
+      "evidence": [
+        "https://dmtcs.episciences.org/en/articles/2768/download, pp. 388-392, defines the same cyclic balanced matrices but Theorem 1 enumerates the count of types",
+        "https://doi.org/10.1111/j.2517-6161.1955.tb00197.x, accessible original abstract describes transition totals likelihood and exact distributions",
+        "https://ideas.repec.org/a/eee/stapro/v80y2010i9-10p874-885.html, abstract describes joint and conditional run-count distributions"
+      ],
+      "reasoning": "General fixed-profile type-class formulae dominate the counting component but do not directly determine which of all binary cyclic profiles globally maximizes its inverse multiplicity for each finite n and how ties change by residue. The new theorem proves that optimization, while expressly declining novelty for the per-profile count. The uninspected historical treatments are a material residual priority risk, not claimed noncoverage.",
+      "searches": [
+        "\"Counting Markov Types\" Jacquet Knessl Szpankowski cyclic balanced matrix",
+        "\"Some Distribution and Moment Formulae for the Markov Chain\" Whittle 1955",
+        "\"On the conditional and unconditional distributions of the number of success runs on a circle\""
+      ]
+    },
+    "checked_sources": [
+      "https://dmtcs.episciences.org/en/articles/2768/download",
+      "https://ccsenet.org/journal/index.php/ijsp/article/view/28864",
+      "https://doi.org/10.1111/j.2517-6161.1955.tb00197.x",
+      "https://ideas.repec.org/a/eee/stapro/v80y2010i9-10p874-885.html",
+      "https://www.cambridge.org/core/journals/journal-of-applied-probability/article/abs/runs-on-a-circle/1380D08A85F8F94B8292A6993FE44B0D"
+    ],
+    "claim_vs_prior_implication": {
+      "evidence": [
+        "https://dmtcs.episciences.org/en/articles/2768/download, Theorem 1 counts balanced frequency matrices and obtains their number asymptotically",
+        "https://ccsenet.org/journal/index.php/ijsp/article/view/28864, equations (15)-(18) count a specified run statistic rather than optimizing all four pair multiplicities",
+        "https://www.cambridge.org/core/journals/journal-of-applied-probability/article/abs/runs-on-a-circle/1380D08A85F8F94B8292A6993FE44B0D, abstract concerns one-run probabilities and Poisson approximation"
+      ],
+      "reasoning": "Known per-profile counting expressions imply an algorithm for computing every fiber and hence in principle its maximum by enumeration; they do not assert or immediately state the closed optimized value, exact equality profiles, and four-residue tie law. The proof derives this additional global comparison. If a source contains a general exact sharp maximizer theorem its implication would be decisive and requires reevaluation; none was observed in the accessible material.",
+      "searches": [
+        "\"Counting Markov Types\" Section 2 Theorem 1 full text",
+        "\"Counting Runs of Ones with Overlapping Parts in Binary Strings Ordered Linearly and Circularly\" full text",
+        "\"Runs on a Circle\" Koutras Papadopoulos Papastavridis sharp bounds"
+      ]
+    },
+    "equivalent_formulations": {
+      "evidence": [
+        "https://dmtcs.episciences.org/en/articles/2768/download sections 1-2: cyclic balanced pair-frequency matrices; no extremal fiber statement",
+        "https://ccsenet.org/journal/index.php/ijsp/article/view/28864 article sections 1-3: fixed runs-of-ones distributions rather than four-entry pair-profile max"
+      ],
+      "reasoning": "The exact equivalent wording is mode of the full cyclic binary Markov-type inverse cardinality distribution. It is not the mode of the number of ones alone, nor the maximum count of observed matrices. The inspected closest works describe these other objects and do not assert the maximization and equality cases.",
+      "searches": [
+        "\"maximum\" \"Markov type class\" \"cyclic\" binary",
+        "\"largest type class\" \"Markov\" binary circular",
+        "\"maximum number of binary circular sequences with fixed count of 00 01 10 11 pairs\""
+      ]
+    },
+    "exact_database_or_table": {
+      "evidence": [
+        "Numerical direct enumeration of complete cyclic pair-profile fibers for all indexed binary words through n=20; n=8,9,12,16,20 maxima are 36,54,400,4900,63504.",
+        "https://dmtcs.episciences.org/en/articles/2768/download contains enumerated numbers of *types*, not tabulated maximum inverse cardinalities"
+      ],
+      "reasoning": "No matching indexed table or exact four-residue extremal formula was identified in the targeted searches. Finite agreement is not evidence that no prior table exists; unindexed tables remain a risk.",
+      "searches": [
+        "\"binom{2k}{k}^2\" binary circular Markov types",
+        "\"4\" \"pi n\" \"Markov type\" binary",
+        "\"cyclic binary 2-gram inverse fiber max length 4k balanced runs 2k k\""
+      ]
+    },
+    "rationale": "The assessed novelty is the explicit all-length largest inverse list and complete maximizing pair profiles, including a transition-count tie when n is 1 modulo 4 and the exact 4/pi asymptotic. Jacquet et al. count the number of Markov types, whereas Whittle and run-statistics methods address individual cardinalities or marginal distributions; a separate global optimization and strict equality analysis are required. Related linear multispectrum results concern different observations and other invariants. Historical priority is qualified, particularly where older full text was inaccessible.",
+    "residual_risks": [
+      "Whittle (1955) and Inoue–Aki (2010) full primary texts were inaccessible; older joint-count formulas are known and may contain an unobserved exact global optimization.",
+      "No search coverage can prove priority, and an unindexed circular runs table or wider theorem could explicitly include the four-residue maximal inverse-list classification.",
+      "The main per-profile cardinality formula is prior-method territory; no novelty is claimed for its individual instances."
+    ],
+    "source_inspections": [
+      {
+        "assessment": "COUNT_OF_TYPES and fixed-type context; no explicit exact maximum-size fiber and equality classification located",
+        "evidence": "Equation (3) and binary example on p. 389 enumerate matrix values, Theorem 1 on p. 392 enumerates number of types; p. 390 references Whittle general class cardinalities.",
+        "identifier_or_url": "https://dmtcs.episciences.org/en/articles/2768/download",
+        "material_read": "Publisher open-access PDF introduction, pages 388–392: definitions, binary example, type-counting goal and Theorem 1; no claim of having inspected every later proof detail.",
+        "method": "Publisher PDF text plus visual inspection of pages 389 and 392.",
+        "title": "Counting Markov Types",
+        "trigger": "Exact cyclic balanced frequency matrices and historical general Markov-type method"
+      },
+      {
+        "assessment": "COUNTS_ONE_RUN_STATISTIC under fixed k and overlap, not the global four-entry profile inverse-list maximizer",
+        "evidence": "The counted variable is the number of fixed-length overlapping 1-runs, not a complete m00,m01,m10,m11 vector.",
+        "identifier_or_url": "https://ccsenet.org/journal/index.php/ijsp/article/view/28864",
+        "material_read": "Full-text publisher-supplied transcript read in pertinent portions: introduction, definitions, Section 2 run-statistic formulae and Section 3 concluding comparison.",
+        "method": "Full-text scientific text inspection, including equations (15)-(18) and concluding study summary",
+        "title": "Counting Runs of Ones with Overlapping Parts in Binary Strings Ordered Linearly and Circularly",
+        "trigger": "Highly related circular runs enumeration that might imply fixed cyclic pair-profile counts"
+      },
+      {
+        "assessment": "UNRESOLVED_FULL_TEXT; source is credited for older exact fixed-transition-total methods, direct finite-n optimizer not established from available text",
+        "evidence": "The publisher summary identifies equation (8) as transition-total distribution, with no mention of maximizing over all matrices.",
+        "identifier_or_url": "https://doi.org/10.1111/j.2517-6161.1955.tb00197.x",
+        "material_read": "Original publisher abstract and bibliographic record only; full text unavailable in accessible source",
+        "method": "Publisher primary abstract, publication metadata and secondary reference in the 2010 full-text paper",
+        "title": "Some Distribution and Moment Formulae for the Markov Chain",
+        "trigger": "Early general transition-total distribution formula potentially covers fixed-profile counts"
+      },
+      {
+        "assessment": "UNRESOLVED_FULL_TEXT; exact joint/conditional runs formulas are accepted as older methods, but no global inverse-fiber optimizer observed",
+        "evidence": "Abstract describes conditional/unconditional distributions of the number of success runs given number of successes.",
+        "identifier_or_url": "https://ideas.repec.org/a/eee/stapro/v80y2010i9-10p874-885.html",
+        "material_read": "Abstract only, published 2010; full primary text not obtained",
+        "method": "Bibliographic abstract inspection",
+        "title": "On the conditional and unconditional distributions of the number of success runs on a circle with applications",
+        "trigger": "Conditional fixed-content circular success-run count closely related to the fiber formula"
+      }
+    ],
+    "status": "PASS"
+  },
+  "review_type": "self_review",
+  "schema_version": 1,
+  "scope_run_id": "725d4549-6fd0-4967-9042-94885aacba25",
+  "self_review_status": "passed",
+  "value": {
+    "rationale": "The exact maximum list size of the noiseless cyclic two-gram observation is a canonical worst-case reconstruction invariant and determines maximum conditional ambiguity, unlike the number of distinct outputs or a single fixed type. The all-length equality structure is parity-sensitive: every maximizing input has balanced symbol content, and n congruent to 1 mod 4 has two maximizing run budgets. The explicit 4/pi constant quantifies a worst list of order 2^n/n. This is a genuine global extremal classification, not only a known-table recomputation or finite trial.",
+    "status": "PASS"
+  }
+}

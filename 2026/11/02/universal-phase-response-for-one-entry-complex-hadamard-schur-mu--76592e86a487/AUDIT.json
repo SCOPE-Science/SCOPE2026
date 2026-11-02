@@ -1,0 +1,154 @@
+{
+  "correctness": {
+    "rationale": "The proof starts with exact spectral/nuclear norm duality, derives joint concavity of matrix fidelity via a positive-definite variational minimum, and uses special-row/column Gram permutation invariance to certify that the two-mass stationary point is a global optimum even for nonsymmetric complex Hadamard matrices. A dephased two-dimensional invariant block produces the exact nuclear objective; its derivative has a unique positive zero for all n>=3, and tangency gives the stated radical. n=2,zeta=-1 is handled as a rank-one symbol. Strict phase ordering and quadratic deficit follow by h monotonicity and envelope differentiation. Numerical tests independently optimize unrestricted row/column weights for 39 finite complex Hadamard/phase examples with 117 local starts; all comparisons pass. These finite tests are supplementary, not an infinite proof.",
+    "status": "PASS"
+  },
+  "independent": false,
+  "independent_audit_status": "not_performed",
+  "originality": {
+    "broader_coverage": {
+      "evidence": [
+        "Theorem 2 of Holbrook--Johnston--Schoch gives upper bound sqrt(n) and equality for Hadamard symbols; it does not compute non-Hadamard one-entry perturbations.",
+        "Davidson--Donsig Section 4 treats matrices invariant under transitive permutation groups; a generic complex Hadamard one-entry perturbation is not required to have that invariance.",
+        "Christensen 2025/2026 paper gives a self-adjoint Loewner-order characterization, while the symbols here need not be self-adjoint."
+      ],
+      "reasoning": "General SDP and factorization characterize every Schur norm but do not state or trivially imply the exact parameter-dependent closed evaluation, monotone phase law, and sharp local deficit as a published result. No broader explicit theorem covering these statements was identified in inspected primary material.",
+      "searches": [
+        "Exact spectral-operator Schur multiplier norm of a complex Hadamard matrix with a single entry multiplied by a unit complex phase; universal formula depending only on order and phase",
+        "Schur multiplier Fourier matrix one entry rescaled unimodular phase Schatten infinity trace dual",
+        "Schur norm Hadamard matrix one changed complex entry modulus 2024 2025",
+        "arxiv:2505.24670v1 Schur multiplier norm and its dual norm",
+        "arxiv:math/0506073v1 norms of Schur multipliers group-invariant matrices"
+      ]
+    },
+    "checked_sources": [
+      "arxiv:2206.02863v1",
+      "arxiv:math/0506073v1",
+      "author-hosted Finding Norms of Hadamard Multipliers PDF",
+      "arxiv:2410.20112v1",
+      "arxiv:2505.24670v2",
+      "2026/10/11/SCOPE-the-exact-sharp-gap-for-complex-schatten-four-schur-idempotents--c0af236321e7",
+      "2026/9/17/SCOPE-complex-plucker-sharp-constants--7196b90b39f6",
+      "2026/9/20/SCOPE-relative-toeplitz-schur-flat-s-numbers--078a2c47eeeb",
+      "own claim 3adaaaf0-d7ec-4495-a670-2490965d6d7c",
+      "own claim e51d2d78-1123-43a8-9084-964a70c58322"
+    ],
+    "claim_vs_prior_implication": {
+      "evidence": [
+        "prior 3adaaaf0-d7ec-4495-a670-2490965d6d7c proves all existing real Hadamard matrices at exactly the -1 sign flip and a n^{-3/2} deficit; that is an endpoint of the present formula.",
+        "prior e51d2d78-1123-43a8-9084-964a70c58322 proves the Walsh special case, also only at the -1 sign flip.",
+        "Holbrook--Johnston--Schoch give global maximum sqrt(n), one n=4 sign-matrix constant, and generic computational methods."
+      ],
+      "reasoning": "The previous -1 formula is implied by the new theorem, but conversely does not determine the values at other phases, complex Hadamard classes in arbitrary orders, strict angle dependence, or the local quadratic coefficient. Generic Schur SDP characterization requires a separate global fidelity-concavity optimization. This is a substantive continuum stability extension rather than a relabeling of a known isolated norm.",
+      "searches": [
+        "prior research records claim 3adaaaf0-d7ec-4495-a670-2490965d6d7c",
+        "prior research records claim e51d2d78-1123-43a8-9084-964a70c58322",
+        "Schur multiplier norm phase defect entry complex Hadamard order n zeta formula fidelity trace norm one row column distinguished",
+        "Schur multiplier norm \"single entry\" \"complex Hadamard\" perturbed",
+        "arxiv:2206.02863v1 Theorem 2 / Section 4.2 / Theorem 5"
+      ]
+    },
+    "equivalent_formulations": {
+      "evidence": [
+        "The trace-dual formulation is max over probability vectors of nuclear norm diag(sqrt p) B diag(sqrt q), equivalent to Haagerup factorization/Schur SDP but not a phase-explicit evaluation.",
+        "arxiv:2206.02863v1 equations (5), (6), Theorems 2 and 5: global Hadamard norm, circulant norms, and general SDP, not the full one-entry complex phase response.",
+        "published-finding corpus closest published record 2026/10/11/SCOPE-the-exact-sharp-gap-for-complex-schatten-four-schur-idempotents--c0af236321e7 is a Schatten-four idempotent norm, a different operator ideal and symbol class."
+      ],
+      "reasoning": "The theorem is invariant under row/column phase gauge and includes all Fourier matrices; equivalent descriptions would involve a one-coordinate phase change, weighted nuclear trace norm, or a two-sided fidelity optimization. Searched these aliases; no explicit identical full phase law was found. The standard general factorization method alone does not give the evaluated closed formula without new optimization.",
+      "searches": [
+        "Exact spectral-operator Schur multiplier norm of a complex Hadamard matrix with a single entry multiplied by a unit complex phase; universal formula depending only on order and phase",
+        "Schur multiplier norm of Fourier matrix after a one-entry phase defect; exact full angle continuous perturbation norm",
+        "Schur multiplier norm phase defect entry complex Hadamard order n zeta formula fidelity trace norm one row column distinguished",
+        "Schur multiplier norm of Fourier matrix after a one-entry phase defect; exact full angle continuous perturbation norm",
+        "arxiv:2206.02863v1 section 2 and section 4; arxiv:math/0506073v1 sections 1 and 4"
+      ]
+    },
+    "exact_database_or_table": {
+      "evidence": [
+        "Holbrook--Johnston--Schoch Section 4.2 includes a special real four-by-four sign matrix with norm (2+3 sqrt(6))/5, matching the n=4, phase=-1 endpoint.",
+        "The database result 2026/9/17/SCOPE-complex-plucker-sharp-constants--7196b90b39f6 concerns Plücker constants and Fourier extremizers, not a Schur multiplier phase-defect table.",
+        "No table of this all-order full phase-response curve appeared in the inspected primary papers or semantic-search results."
+      ],
+      "reasoning": "A finite sign-mask table or the fixed phase -1 value cannot determine the continuum phase profile. Exact special entries were treated as already covered, not evidence of an independently novel special case.",
+      "searches": [
+        "Schur multiplier norm of Fourier matrix after a one-entry phase defect; exact full angle continuous perturbation norm",
+        "Schur multiplier norm \"phase defect\" \"Hadamard\" matrix",
+        "Real Schur norms and Hadamard matrices small Schur spectra Table 1 arxiv 2206.02863",
+        "2026/10/11/SCOPE-the-exact-sharp-gap-for-complex-schatten-four-schur-idempotents--c0af236321e7",
+        "2026/9/17/SCOPE-complex-plucker-sharp-constants--7196b90b39f6"
+      ]
+    },
+    "rationale": "The closest independently established special case is the exact sign-flip norm for a real Hadamard matrix (prior claim 3adaaaf0-d7ec-4495-a670-2490965d6d7c), itself generalizing a Walsh case (e51d2d78-1123-43a8-9084-964a70c58322). It is recovered only at phase -1. The assessed theorem treats all complex Hadamard orders, every unit phase, and derives strict phase ordering and a sharp local quadratic deficit; these latter statements are not implications of a single -1 value. Holbrook--Johnston--Schoch (arXiv:2206.02863v1) study real sign matrices and the global Hadamard bound, not the continuous complex-phase profile. Davidson--Donsig, Cowen et al., and Christensen supply general methods rather than this exact class formula. Targeted public searches and published mathematical database searches found no matching phase formula. Residual priority risk remains, especially under trace-fidelity or diagonal-scaling terminology.",
+    "residual_risks": [
+      "Historical equality under diagonal-scaling/fidelity reparameterizations may appear in older matrix-analysis literature not discovered by targeted searches.",
+      "A general SDP characterization is known; novelty is confined to its evaluated phase-perturbation family, strict monotonicity and local coefficient.",
+      "Exact priority has not been independently verified; absent retrieval results are not proof of novelty."
+    ],
+    "source_inspections": [
+      {
+        "assessment": "Covers the global complex/real maximum, general dual/SDP methods, and real finite sign-mask constants; no claim of arbitrary-order continuous unit-phase defect formula in inspected sections.",
+        "evidence": [
+          "arxiv:2206.02863v1 p.1-3 equations (2)-(7), p.6-7 small Schur spectra, p.10 Theorem 5, p.11-12 norm computations."
+        ],
+        "identifier_or_url": "https://arxiv.org/pdf/2206.02863",
+        "material_read": "Original v1 PDF, abstract, Sections 2-4 and 6 (Schur norm bounds, witnesses, equivalences, small Schur spectra and SDP); inspected PDF page images including pages 1 and 11.",
+        "method": "Full-text PDF text and targeted rendered-page inspection",
+        "title": "Real Schur norms and Hadamard matrices",
+        "trigger": "Primary motivating preprint on Schur norms and Hadamard maximizers, including a sign-defect small-order value."
+      },
+      {
+        "assessment": "Gives a general dual maximization algorithm and factorization; its real and Hermitian examples do not directly evaluate a universal complex Hadamard unit-phase defect. Residual risk of implicit older formulation retained.",
+        "evidence": [
+          "Author PDF pp.2-5, equations (1)-(3), discussion of rank-two Hermitian matrices around pp.12-13."
+        ],
+        "identifier_or_url": "https://www.math.purdue.edu/~cowen/Downloads/HadNorm.pdf",
+        "material_read": "Author-hosted PDF introduction and Sections 1-3, with rank-two Hermitian material and references located; rendered pages 1 and 3.",
+        "method": "PDF full-text search and targeted page rendering",
+        "title": "Finding Norms of Hadamard Multipliers",
+        "trigger": "Older general trace-duality and Schur-factorization methods plausibly covering matrix perturbation norms."
+      },
+      {
+        "assessment": "General Grothendieck-Haagerup and transitive-symmetry formulas; no universal one-coordinate unit-phase perturbation curve identified.",
+        "evidence": [
+          "arxiv:math/0506073v1 pp.1-3 and 15-17, Theorems 1.1 and 4.5."
+        ],
+        "identifier_or_url": "https://arxiv.org/pdf/math/0506073",
+        "material_read": "PDF abstract, introduction, Theorem 1.1 and Section 4 statements including Proposition 4.1 and Mathias Theorem 4.5; first page rendered.",
+        "method": "PDF text and targeted page rendering",
+        "title": "Norms of Schur Multipliers",
+        "trigger": "General Schur norm characterization and exact norms with symmetry."
+      },
+      {
+        "assessment": "Extremality/rank results for norm-ball elements, not an exact phase-response formula for a perturbed complex Hadamard.",
+        "evidence": [
+          "arxiv:2410.20112v1 abstract, pp.1-5."
+        ],
+        "identifier_or_url": "https://arxiv.org/pdf/2410.20112",
+        "material_read": "Original PDF abstract, Sections 1-2 and rank/extreme-point statements; rendered first page.",
+        "method": "PDF full-text search and targeted page rendering",
+        "title": "Extremal Schur Multipliers",
+        "trigger": "Contemporary general extremal Schur multiplier coverage."
+      },
+      {
+        "assessment": "General self-adjoint Loewner-order norm and Schur factorization; does not supply explicit complex nonself-adjoint phase-perturbation formula.",
+        "evidence": [
+          "arxiv:2505.24670v2 pp.1-4, Theorems 2.1-2.2; v1 public May 30, 2025."
+        ],
+        "identifier_or_url": "https://arxiv.org/pdf/2505.24670",
+        "material_read": "Latest accessible PDF abstract, Sections 1-2 and Theorems 2.1-2.2; first page rendered.",
+        "method": "PDF full-text and rendered first page",
+        "title": "The Schur multiplier norm and its dual norm",
+        "trigger": "Potentially dominating 2025 general norm formula."
+      }
+    ],
+    "status": "PASS"
+  },
+  "review_type": "self_review",
+  "schema_version": 1,
+  "scope_run_id": "76592e86-a487-42a7-8fc3-0d38744553ed",
+  "self_review_status": "passed",
+  "value": {
+    "rationale": "The exact response of a maximal Schur-norm complex Hadamard symbol to the smallest unimodular entry perturbation is a natural stability invariant: it measures amplification under a phase error in a Fourier/Hadamard multiplier. The theorem covers all Fourier orders (including those with no real Hadamard), every complex Hadamard equivalence class, and a continuous phase parameter, and proves an unexpected class-independent strict ordering and a sharp local quadratic rigidity coefficient. These features are not determined by the known isolated -1 sign-flip norm and are relevant to understanding robustness of spectral Schur multipliers; no broader unrelated conjecture is claimed.",
+    "status": "PASS"
+  }
+}

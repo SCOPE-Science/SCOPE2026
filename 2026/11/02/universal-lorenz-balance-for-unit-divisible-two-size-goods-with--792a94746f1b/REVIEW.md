@@ -1,0 +1,11 @@
+# Scientific review
+
+**Correctness — PASS.** The proof reduces arbitrary heavy-good counts through pairwise majorization-preserving smoothing, then independently shows the least-loaded unit-good process minimizes every separable convex cost. Their conjunction proves all-size Lorenz dominance and the three-case formula. The noninteger counterexample follows from strict nearest-odd distance. Exact finite exhaustive checks of 2,127,810 assignments test, but do not prove, the quantified theorem. Edge cases \(n=1\), \(k=0\), and \(m=0\) are included.
+
+**Originality — PASS, with residual risk.** The principal 2026 compact high-multiplicity paper provides algorithms and a different exact-tractability classification. Akrami et al. 2022 solve more general Nash allocation at divisible ratios; Cousins et al. 2023 solve leximin and other welfare optimization for wider valuations. Neither inspected work states the precise common-instance **simultaneous all-Schur-concave majorization theorem together with its constant-arithmetic compressed profile and iff divisibility frontier for the specified two-stage rule**. Thus this is a structural refinement, not a novelty claim for maximizing Nash or leximin individually. Similar results may be implicit in general resource-allocation theory; priority is not independently established.
+
+**Value — PASS.** The result unifies a family of fairness/efficiency objectives by one canonical allocation, identifies the exact arithmetic boundary of a natural allocation rule, and converts potentially exponential item multiplicity into a constant-number-of-divisions exact compressed solution. The result is a motivated structural answer about what two denominations permit, rather than an isolated numeric example.
+
+**Closest sources and limits.** Nguyen–Elbassioni (2026), Akrami et al. (2022), Cousins–Viswanathan–Zick (2023), and Vu et al. (2026) were compared for model, objective and consequences. More general objective-specific solvability was already known. The theorem is for common normalized valuations (plus a Nash-only multiplicative scaling corollary); it does not solve heterogeneous two-type Nash allocation or nonintegral ratios.
+
+Self-review: passed. Independent audit: not yet performed.

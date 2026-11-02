@@ -1,0 +1,15 @@
+# Scientific review
+
+## Correctness — PASS
+The source domain is binary length-\(n\) words with \(3\le n\le15\) and exactly one contiguous length-two tandem duplication. The invertible derivative and zero-run parity decomposition prove that errors never cross classes. Within each class, shared one-duplication outputs are equivalent to \(\ell_1\) distance two between integer compositions. The sum of the classwise independence numbers is therefore an exact optimum, not just a construction. The exhaustive clique algorithm enumerates all unpruned branches and prunes only by a proved proper-coloring upper bound; it supplies explicit attaining classwise codes and checks all their outputs. A separate direct-channel graph solver checks the exact maxima through length nine. Both passed on the actual supplied artifacts.
+
+## Originality — PASS (qualified)
+The first public source [1] proves the reduction and unbounded-error optimality, but states that optimal finite-error constant-weight constructions are not known. The new assertion is the finite **maximum-cardinality table** for one fixed length-two error, not an alternative restatement of the reduction. [2] gives general bounds and constructions; [3] proves asymptotic behavior; neither implies exact values through fifteen. The discrete-simplex perfect-code literature [5] does not determine maximum nonperfect independent sets. The simplicial rook graphs of [6,7] differ from the unit-transfer graph here: their edges allow transfers of any positive number of units, and their independence results therefore do not dominate the computed values. The nearby confusability-edge-count record cannot determine maximum independent-set cardinality; palindromic duplications and short-edit channels differ. Database and public-literature searches found no identical or dominating finite census. As with any incomplete index, unindexed finite tables remain a residual priority risk.
+
+## Value — PASS
+The exact sizes are natural finite block-length benchmarks for a synchronization-error channel motivated by DNA sequence storage. They reveal a sharp separation between correction of one event and correction of any number of events: the first difference is at length seven, where the maximum is 84 rather than 80. The nontrivial classwise independence numbers, up to a 126-vertex composition graph, make these values more than direct symbolic substitution into the established reduction.
+
+## Evidence and limitations
+The complete finite table, 56-class graph certificate, exact search code and independent direct-channel checks are supplied. All results are computationally exhaustive **only** for the stated domain. The short-range cross-check is not an independent external audit, and no assertion of independent scientific verification or historical priority is made. Relevant primary sources [1]–[7], including the discrete-simplex and simplicial-rook results [5]–[7], are compared in RESULT.md.
+
+Self-review: passed. Independent audit: not yet performed.

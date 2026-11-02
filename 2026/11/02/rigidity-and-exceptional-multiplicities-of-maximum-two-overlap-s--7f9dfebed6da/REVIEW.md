@@ -1,0 +1,12 @@
+# Review: exact extremizers of two-overlap synchronization codes
+
+## Correctness (C): PASS
+A saturated-code argument derives a **bijection**, not merely a construction, between maximum codebooks and triples \((A,B,T)\). The exact objective is \((a^2+t)(b^2+ab-t)\). The continuous quadratic bound excludes all interior optimizers for \(q\ge8\), and direct elementary small-case analyses settle \(q=2,\ldots,7\); the integer cubic has a unique optimum. Independently, complete enumeration of prefix sets for \(q\le5\) and a separate \((a,t)\) enumeration through \(q=35\) reproduce the conclusion. Neither finite computation is relied on for the infinite theorem. Risk: a definition mismatch on zero-length overlaps is excluded explicitly; only lengths 1 and 2 are considered.
+
+## Originality (O): PASS, with priority limitations
+The closest earlier result by Cai, Wang, and Feng fixes optimum cardinality but does not in the accessible abstract identify/count *all* optimizers. Stanovnik's full 2025 article states the known cardinality and a general classification of inclusion-maximal families, not this uniform optimizer classification or the small-alphabet phase transition; that earlier broader framework is relevant, and the nontrivial exact optimization here is additional. Yang and Ding's full article studies constructions and non-expandability. The earlier complete non-overlapping-code counts forbid longer overlaps and therefore do not imply this theorem. Specific mathematical-research results on non-overlapping codes and a earlier length-three **overlap-two-only** result were compared and do not imply the present length-four-or-larger \((1,2)\) classification. Risk: the full 2023 Cai article was inaccessible; an implicit proof of extremizer uniqueness may have appeared there. No claim of independent priority certification is made.
+
+## Value (V): PASS
+Finding the size of a synchronization code does not determine whether optimum designs are rigid or numerous. Here all \(q\ge6\) extremizers collapse to two rectangular families, while \(q=4,5\) admit discrete nonrectangular families; the classification and exact labeled counts settle a natural design-enumeration question across **every** alphabet size and arbitrarily long codewords. The exception threshold and all-parameter formula are substantive structural additions to a known size optimum, not a recomputation of that optimum. Risk: the result is limited to overlap lengths one and two, with no general higher-overlap theorem.
+
+Self-review: passed. Independent audit: not yet performed.

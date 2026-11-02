@@ -1,0 +1,124 @@
+{
+  "correctness": {
+    "rationale": "Occurrence positions are partitioned by their first selected one. The preceding-zero count profile yields an exact weighted sum of positive binomial terms, bounding both the number of post-boundary ones and the final constrained zero count. Unique factorization into a+b unrestricted zero/one gap slots yields precisely z^(q+t_r)/(1-z)^(a+b) for each profile. Since the numerator has nonnegative coefficients and evaluates to the positive profile count at z=1, each attainable positive frequency has eventual degree exactly a+b-1. Independent word-level dynamic-programming enumeration matched the formula in 3,168 cells; no infinite conclusion rests on finite checks.",
+    "status": "PASS"
+  },
+  "independent": false,
+  "independent_audit_status": "not_performed",
+  "originality": {
+    "broader_coverage": {
+      "evidence": [
+        "Bruda arXiv:2607.02578v1, Theorem 1.4: eventual polynomial degree at most ell-r+1 for binary patterns with at least two runs.",
+        "Bruda arXiv:2607.02578v1, Section 4.2: existing sufficient sharpness conditions are not exhaustive and completely determining equality is proposed as future research.",
+        "Tian arXiv:2507.03205v1 provides broader pattern-counting procedures rather than a stated exact two-run numerator and sharpness characterization."
+      ],
+      "reasoning": "The new two-run formula realizes degree ell-r+1 = a+b-1 whenever k is attainable and gives the exact positive numerator at every length. A general upper bound does not entail nonzero top coefficient or the explicit profile formula. An algorithm for enumerating general primitive words may imply computability, but the inspected results do not state the present closed form or characterization.",
+      "searches": [
+        "two run binary pattern 0^a1^b exactly k occurrences generating function sharp polynomial degree",
+        "Glenn Bruda 2026 enumerating binary words restricted by subsequence frequency equality degree 0011 k=5",
+        "Bruda 2026 subsequence frequency two runs equality degree condition and first 0011 k=5 counterexample"
+      ]
+    },
+    "checked_sources": [
+      "arXiv:2607.02578v1 (Bruda; full HTML, Sections 1,2,4.2)",
+      "arXiv:2306.07870v1 (Menon–Singh; full HTML, Sections 2–4)",
+      "arXiv:2507.03205v1 (Tian; full HTML, Sections 1,4,5)",
+      "Public research-record semantic searches using actual fixed-pattern, two-run and parameter-equivalence queries",
+      "OEIS A000292 and targeted web queries for 0011 frequency-five formula"
+    ],
+    "claim_vs_prior_implication": {
+      "evidence": [
+        "Bruda arXiv:2607.02578v1, Sections 1–2 and 4.2: eventual upper-degree result and explicitly open complete sharpness question.",
+        "Menon–Singh arXiv:2306.07870v1, Sections 3–4: low-frequency enumeration and extremal-frequency discussion.",
+        "Tian arXiv:2507.03205v1, Sections 1, 4 and 5: occurrence counting and primitive-word construction."
+      ],
+      "reasoning": "Bruda proves a weak inequality for all two-run patterns and some sufficient equality conditions; the present criterion is necessary and sufficient, with an exact formula. Menon–Singh low-frequency cases do not imply the arbitrary-k result. Tian supplies general-purpose machinery, but specialization and proof of positivity would still be required; no full-text statement covering the exact claim was identified.",
+      "searches": [
+        "Glenn Bruda 2026 enumerating binary words restricted by subsequence frequency equality degree 0011 k=5",
+        "Binary words 0^a 1^b having exactly k scattered subsequence occurrences, rational generating function polynomial numerator and denominator (1-z)^(a+b)",
+        "Bruda 2026 subsequence frequency two runs equality degree condition and first 0011 k=5 counterexample"
+      ]
+    },
+    "equivalent_formulations": {
+      "evidence": [
+        "Public research-record search: nearest semantically related result, “Closed-form law for binary subsequence universality,” concerns the universality index rather than fixed scattered occurrence multiplicity.",
+        "Tian arXiv:2507.03205v1 gives a general occurrence formula and primitive-word enumeration framework; no displayed finite q/t-profile rational numerator was located in the inspected material.",
+        "OEIS A000292 gives the numerical tetrahedral sequence underlying the 0011,k=5 special case but does not identify these subsequence-frequency classes."
+      ],
+      "reasoning": "Matching generic binomial coefficients, primitive-word enumeration approaches or a tetrahedral coefficient sequence does not by itself establish the claimed all-frequency two-run canonical bijection. Searches for the exact parameters and generating function found no equivalent stated theorem; absence from searches is not a proof of priority.",
+      "searches": [
+        "subsequence frequency B_0011(n,5) generating function exact count binary words pattern 0011 five scattered occurrences",
+        "subsequence pattern 0011 exact 5 occurrences polynomial eventual generating function",
+        "Binary words 0^a 1^b having exactly k scattered subsequence occurrences, rational generating function polynomial numerator and denominator (1-z)^(a+b)",
+        "Two-run binary subsequence pattern fixed multiplicity k: exact OGF all k, degree a+b-1 if attainable",
+        "binary subsequence occurrences 0011 five generating function z6/(1-z)^4"
+      ]
+    },
+    "exact_database_or_table": {
+      "evidence": [
+        "OEIS A000292 contains tetrahedral numbers: the special-case coefficient sequence is a shifted instance of a widely known integer sequence.",
+        "Menon and Singh arXiv:2306.07870v1 display results for k through 4 rather than the all-k profile set.",
+        "Targeted public research-record search returned other coding and word-statistic results, not a fixed-frequency two-run subsequence table."
+      ],
+      "reasoning": "The 0011,k=5 numerical values alone are not claimed as a novel integer sequence, nor is the known k=5 sharpness exception. The new object is the all-parameter exact combinatorial decomposition and the if-and-only-if sharpness criterion.",
+      "searches": [
+        "Exact enumeration binary words with five copies of 0011 as scattered subsequences B(n,5)=binomial(n-3,3)",
+        "site:oeis.org binomial(n,3) 1 4 10 20 tetrahedral numbers",
+        "binary subsequence occurrences 0011 five generating function z6/(1-z)^4"
+      ]
+    },
+    "rationale": "Bruda 2026 provides the general upper-degree bound and asks for complete sharpness conditions; this result supplies an exact if-and-only-if answer for all two-run binary patterns and all positive frequencies via a new explicit finite profile numerator. Menon–Singh covers small frequencies and Tian provides general algorithms, without the inspected sources stating the same closed formula or sharpness classification. Public research-record, parameter-alias and OEIS checks found no equivalent stated result. Publication priority remains uncertain outside inspected sources.",
+    "residual_risks": [
+      "Unindexed earlier enumeration or an unpublished result might state an equivalent two-run profile decomposition.",
+      "Tian’s general counting machinery could be specialized with nontrivial additional derivations; no explicit equivalent was identified in the inspected material.",
+      "An independent mathematician has not evaluated publication priority."
+    ],
+    "source_inspections": [
+      {
+        "assessment": "Gives eventually polynomial upper degree and existing sufficient conditions but not the explicit canonical two-run profile numerator or all-positive-frequency sharpness criterion.",
+        "evidence": [
+          "Theorem 1.4: degree at most ell-r+1.",
+          "Section 4.2: counterexample p=0011,k=5 to necessity of conditions, and request for a complete characterization."
+        ],
+        "identifier_or_url": "https://arxiv.org/abs/2607.02578",
+        "material_read": "Abstract, introductory theorem and conditions, combinatorial proof framework in Section 2, and Section 4.2 future research discussion, including known 0011 frequency-five exception.",
+        "method": "Accessible full-text arXiv HTML scientific statement and argument comparison, not title-only search.",
+        "title": "Enumerating binary words restricted by subsequence frequency",
+        "trigger": "Same fixed subsequence-frequency statistic and open exact-degree sharpness problem for two-run patterns."
+      },
+      {
+        "assessment": "Finite small-frequency formulas and maximum-count results do not state the all-positive-frequency two-run profile formula.",
+        "evidence": [
+          "Introductory overview of exact formulas for k<=4.",
+          "Section 4 studies maximum occurrences and internal zeros."
+        ],
+        "identifier_or_url": "https://arxiv.org/abs/2306.07870",
+        "material_read": "Abstract, definitions and results in Sections 2–4 concerning frequencies through four and maximal occurrences.",
+        "method": "Accessible full-text arXiv HTML scientific theorem comparison.",
+        "title": "Subsequence frequency in binary words",
+        "trigger": "Foundational exact word counts with the same subsequence-occurrence convention."
+      },
+      {
+        "assessment": "General occurrence/primitive-word methods can in principle enumerate examples, but no explicit all-k two-run profile numerator or exact degree criterion was found in inspected material.",
+        "evidence": [
+          "Abstract and Sections 4–5 describe primitive word algorithm and B(n,p,k) approaches.",
+          "No equivalence to the finite nondecreasing preceding-zero profile identity established by that text."
+        ],
+        "identifier_or_url": "https://arxiv.org/html/2507.03205v1",
+        "material_read": "Introduction, occurrence formula, construction/primitive-word methods and length-completion enumeration in Sections 4–5.",
+        "method": "Accessible full-text arXiv HTML read and comparison of algorithmic statements against the exact theorem.",
+        "title": "Counting occurrences of a pattern in a binary word",
+        "trigger": "A broad enumerative framework that could dominate two-run specialization."
+      }
+    ],
+    "status": "PASS"
+  },
+  "review_type": "self_review",
+  "schema_version": 1,
+  "scope_run_id": "618e49d0-888b-4270-a022-b6b442a0df67",
+  "self_review_status": "passed",
+  "value": {
+    "rationale": "The source explicitly proposes complete characterization of sharpness after its known sufficient conditions fail. Resolving this question for the entire natural two-run subfamily at every positive occurrence frequency, and supplying a finite coefficient formula for all lengths, is a substantive complete classification rather than a single routine special case.",
+    "status": "PASS"
+  }
+}

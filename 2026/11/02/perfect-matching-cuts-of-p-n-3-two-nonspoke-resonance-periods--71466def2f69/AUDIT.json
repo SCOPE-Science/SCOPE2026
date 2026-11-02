@@ -1,0 +1,110 @@
+{
+  "correctness": {
+    "rationale": "For all n>=7, a perfect matching cut is equivalent to a 0/1 coloring with exactly one opposite-color neighbor at every vertex. Outer colors uniquely determine inner colors; the 9-bit local test gives a bijection to closed walks in an explicitly defined 256-state digraph. All 512 potential arcs are exhausted; three exact rounds delete vertices absent from any closed walk and leave precisely two loops, one directed 4-cycle and two directed 5-cycles. This yields 2+4[4|n]+10[5|n] oriented colorings and the stated half-count of cuts. The 0,n/5,n crossing-spoke stratification follows by reading each orbit. A standalone C++17 checker reproduces the 90 arcs, state-core counts 42/20/16, exact 16 arcs, periodic closed walks to n=100, and brute-force original-edge colorings on 11,182,080 assignments for 7<=n<=12. Finitely checked orders are corroborative; the finite-state bijection and exhaustive 512-case certificate prove all n.",
+    "status": "PASS"
+  },
+  "independent": false,
+  "independent_audit_status": "not_performed",
+  "originality": {
+    "broader_coverage": {
+      "evidence": [
+        "Le--Telle gives hardness and algorithms for generic classes, not an enumeration of generalized Petersen cuts.",
+        "Bonnet et al. prove cubic planar bipartite NP-hardness, with no parameter-specific P(n,3) theorem in the inspected full text."
+      ],
+      "reasoning": "General recognition/complexity results are not stronger numerical or structural enumerations. No examined blanket theorem implies the exact 4- and 5-period decomposition.",
+      "searches": [
+        "\"GP(n,3)\" \"matching cut\"",
+        "\"generalized Petersen graphs\" \"perfect matching cuts\" count",
+        "arxiv:2107.06399, Sections 2--5",
+        "arxiv:2302.11667, Sections 1--3"
+      ]
+    },
+    "checked_sources": [
+      "arxiv:2107.06399 (full HTML relevant sections)",
+      "arxiv:2302.11667 (full HTML relevant sections)",
+      "Arora--Cheng--Melekian, Matching Preclusion of the Generalized Petersen Graph (abstract only)"
+    ],
+    "claim_vs_prior_implication": {
+      "evidence": [
+        "At n=8, direct independent coloring enumeration gives one perfect matching cut in P(8,2), but three in P(8,3).",
+        "The P(n,3) proof has two primitive nonconstant periods 4 and 5, while the adjacent jump-two specialization does not supply both.",
+        "Le--Telle and Bonnet et al. do not provide a graph-family enumeration."
+      ],
+      "reasoning": "A jump-two formula cannot be relabeled into the jump-three formula; P(8,2) and P(8,3) already differ in the counted invariant. An unrestricted k theorem covering this instance was neither identified nor assumed.",
+      "searches": [
+        "\"generalized Petersen\" \"perfect matching cut\"",
+        "\"generalized Petersen\" \"2-factor\" \"bipartite\" \"matching\" cut counting",
+        "\"perfect matching cuts GP(n,2) outer patterns 11000 period five, how compare to GP(n,3) period four and five\""
+      ]
+    },
+    "equivalent_formulations": {
+      "evidence": [
+        "Le--Telle 2021, Section 1: exactly one crossing neighbor per vertex is the perfect-matching-cut condition.",
+        "Bonnet--Chakraborty--Duron 2023, Introduction: for a cubic graph the same condition is a vertex partition into induced cycle unions."
+      ],
+      "reasoning": "Both the cut-edge and monochromatic-2-factor formulations were explicitly compared. The present statement counts the precisely defined perfect crossing-edge cuts, not all disconnected perfect matchings or all 2-factors; neither paper evaluates the periodic P(n,3) count.",
+      "searches": [
+        "\"generalized Petersen\" \"perfect matching cut\"",
+        "\"generalized Petersen\" \"disconnected 2-factor\" matching cuts",
+        "arxiv:2107.06399",
+        "arxiv:2302.11667"
+      ]
+    },
+    "exact_database_or_table": {
+      "evidence": [
+        "No matching exact GP(n,3) cut enumeration appeared in the retrieved indexed literature and research-record summaries; this is a search result, not a logical proof of novelty.",
+        "The two directly inspected primary full texts did not contain a GP(n,3) case table or equivalent cyclic-period list."
+      ],
+      "reasoning": "The claimed 1+2[4|n]+5[5|n] formula and the spoke-count strata were checked against the accessible exact literature; a differently indexed table remains possible.",
+      "searches": [
+        "\"generalized Petersen\" \"perfect matching cut\"",
+        "\"P(n,3)\" \"matching cut\"",
+        "\"GP(n,3)\" \"two monochromatic cycles\" bipartition"
+      ]
+    },
+    "rationale": "The two full-text primary sources formalize the object and prove generic complexity statements but neither determines the enumerated P(n,3) family. The adjacent k=2 calculation does not imply the k=3 formula: P(8,2) and P(8,3) have respectively one and three cuts, and the latter has a new primitive 4-period orbit. Named aliases, stronger possible coverage, matching tables, and source implications were compared; no equivalent proof or statement was located, subject to the recorded indexing risk.",
+    "residual_risks": [
+      "A differently titled or unindexed paper might already enumerate these perfect matching cuts.",
+      "A previously unpublished general jump-parameter classification could cover the jump-three case.",
+      "The nearby jump-two classification motivates careful priority review; a new period-four branch makes this result mathematically distinct."
+    ],
+    "source_inspections": [
+      {
+        "assessment": "Defines the same perfect-matching-cut object but has no GP(n,3) enumeration or periodic classification.",
+        "evidence": "2021 Introduction explicitly gives the one-crossing-neighbor condition; theorem sections concern hardness and algorithms, and the document has no Petersen match.",
+        "identifier_or_url": "https://arxiv.org/html/2107.06399v1",
+        "material_read": "Full-text HTML table of contents, Introduction (definitions and contribution list), hardness theorem statements, algorithmic and polynomial-class sections, concluding structure; full-text search for Petersen.",
+        "method": "Direct lawful arXiv HTML inspection and text search.",
+        "title": "The Perfect Matching Cut Problem Revisited",
+        "trigger": "Provides the rigorous definition and principal generic results of the closest matching-cut theory."
+      },
+      {
+        "assessment": "Gives broad cubic hardness results, not exact perfect matching cuts of generalized Petersen graphs.",
+        "evidence": "2023 Introduction explicitly states the cubic induced-cycle partition equivalence and Theorem 1 proves NP-hardness, without a GP(n,3) theorem.",
+        "identifier_or_url": "https://arxiv.org/html/2302.11667v1",
+        "material_read": "Full-text HTML Introduction, abstract, central Theorem 1, cubic-graph equivalence, structural theorem outline and reference material; full-text search for Petersen and generalized.",
+        "method": "Direct lawful arXiv HTML inspection and text search.",
+        "title": "Cutting Barnette graphs perfectly is hard",
+        "trigger": "Strongest nearby cubic-graph perfect-matching-cut framework and induced 2-factor equivalence."
+      },
+      {
+        "assessment": "Studies deletion of edges to destroy all perfect matchings rather than perfect matchings that are edge cuts.",
+        "evidence": "Abstract defines matching preclusion and classifies optimal deletion sets, a different extremal problem.",
+        "identifier_or_url": "https://digitalcommons.georgiasouthern.edu/tag/vol6/iss1/5/",
+        "material_read": "Title and abstract only; full-text comparison was not needed after the invariant was identified as matching preclusion.",
+        "method": "Public publisher repository abstract.",
+        "title": "Matching Preclusion of the Generalized Petersen Graph",
+        "trigger": "Same graph family and matchings; plausible semantic confusion with cuts."
+      }
+    ],
+    "status": "PASS"
+  },
+  "review_type": "self_review",
+  "schema_version": 1,
+  "scope_run_id": "71466def-2f69-4a98-9b0e-55f94fc48e49",
+  "self_review_status": "passed",
+  "value": {
+    "rationale": "Cubic graph perfect matching cuts encode separations into two cycle-unions and are nontrivial to recognize in general. For the canonical GP(n,3) family this theorem completely enumerates and classifies every such separation, identifies sharp divisibility criteria for the additional cuts, and distinguishes three exact crossing-spoke strata. The new primitive period four coexists with period five, unlike the sole nonconstant period in the adjacent jump-two case; this is a structural resonance, not a numerical one-off. There is no claim of a general-k classification.",
+    "status": "PASS"
+  }
+}

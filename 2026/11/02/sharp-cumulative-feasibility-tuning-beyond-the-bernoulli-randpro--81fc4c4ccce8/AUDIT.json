@@ -1,0 +1,103 @@
+{
+  "correctness": {
+    "rationale": "Direct substitution into the source exact RandProx-LC update gives u_next=(1−aI)u and x_next=−γ(1−aI/p)u. Conditional iid moments yield the exact q and c, with q<1 iff 0<a<2. Geometric summation yields J. Symbolic differentiation yields S_prime=2[(1−p)a²+pa−p]/[p²a²(2−a)²], whose numerator is strictly increasing. Its unique zero is a*=2sqrt(p)/(sqrt(p)+sqrt(4−3p)). G(p)<0<G(1), and direct asymptotic expansion proves the p^(-3/2) versus p^(-2) contrast. Standalone symbolic and complete finite rational checks corroborate all identities; they are not used to infer the infinite result.",
+    "status": "PASS"
+  },
+  "independent": false,
+  "independent_audit_status": "not_performed",
+  "originality": {
+    "broader_coverage": {
+      "evidence": [
+        "Condat–Richtárik 2022/2023 Theorem 4: general sufficient convergence for γτ≤p in the Bernoulli K=1 case",
+        "ProxSkip 2022 Theorem 3.6: general Lyapunov-rate bound with specific update parameters"
+      ],
+      "reasoning": "The general source condition is sufficient, not an iff description for each scalar specialization, and it neither gives exact large-step stability nor optimizes the different time-integrated feasibility objective. Generic expectation bounds do not determine its precise unique minimizer.",
+      "searches": [
+        "RandProx Bernoulli dual proximal updates exact scalar quadratic equality constraint sharp stepsize gamma tau, probability p, mean square stability beyond p",
+        "Condat Richtarik 2022 RandProx primal dual Davis Yin stochastic skip exact stability quadratic 1/p",
+        "Bernoulli RandProx linearly constrained quadratic γ=1/µ exact cumulative mean-square feasibility optimal dual τ, square-root p step beyond conventional γτ ≤ p"
+      ]
+    },
+    "checked_sources": [
+      "https://arxiv.org/html/2207.12891v3",
+      "https://arxiv.org/html/2202.09357v2",
+      "https://arxiv.org/abs/2207.12891",
+      "https://arxiv.org/abs/2202.09357"
+    ],
+    "claim_vs_prior_implication": {
+      "evidence": [
+        "arXiv:2207.12891v3 Algorithm 4: xhat, Bernoulli dual update, final primal correction; Theorem 4: sufficient γτ≤p",
+        "arXiv:2202.09357v2 Section 3.5: optimal skip probability for an iteration/communication rate bound"
+      ],
+      "reasoning": "The original update algebra is prior; the present law is derived by an exact scalar multiplicative reduction and optimizing a distinct cumulative squared-constraint metric. Theorem 4 alone cannot imply validity at γτ>p, nor does its rate bound identify the minimizer a*(p)>p. Section 3.5 of ProxSkip minimizes a bound over probability p, not over free dual a at fixed p.",
+      "searches": [
+        "Bernoulli RandProx linearly constrained quadratic γ=1/µ exact cumulative mean-square feasibility optimal dual τ, square-root p step beyond conventional γτ ≤ p",
+        "RandProx Bernoulli dual proximal updates exact scalar quadratic equality constraint sharp stepsize gamma tau, probability p, mean square stability beyond p",
+        "SplitSkip RandProx Bernoulli skip scalar equality-constrained quadratic dual coefficient u_(t+1)=(1−a I_t)u_t cumulative primal squared residual optimal step sqrt probability"
+      ]
+    },
+    "equivalent_formulations": {
+      "evidence": [
+        "Condat–Richtárik Algorithm 4/5, arXiv:2207.12891v3",
+        "Mishchenko et al., ProxSkip Theorem 3.6, arXiv:2202.09357v2"
+      ],
+      "reasoning": "Equivalent formulations include Bernoulli skipping of a dual proximal update, a one-dimensional multiplicative random matrix, and cumulative mean-square equality residual. The closest source has the same probabilistic operator but does not optimize the integrated constraint-residual metric over its free dual step; ProxSkip fixes that coupling.",
+      "searches": [
+        "Bernoulli RandProx linearly constrained quadratic γ=1/µ exact cumulative mean-square feasibility optimal dual τ, square-root p step beyond conventional γτ ≤ p",
+        "SplitSkip RandProx Bernoulli skip scalar equality-constrained quadratic dual coefficient u_(t+1)=(1−a I_t)u_t cumulative primal squared residual optimal step sqrt probability",
+        "ProxSkip exact integrated feasibility error ∑ E x_t^2 Bernoulli activation optimized probability and dual relaxation, beyond source coupling parameter"
+      ]
+    },
+    "exact_database_or_table": {
+      "evidence": [
+        "Targeted mathematical-record search returned published findings on scalar PDHG parameter ratios, loopless SVRG stability and related stochastic optimization but no entry for the displayed Bernoulli RandProx-LC squared feasibility series."
+      ],
+      "reasoning": "The result is a full real-parameter optimization identity rather than a finite lookup; no covering table or exact database entry was identified. A negative search is not itself proof of novelty.",
+      "searches": [
+        "Bernoulli RandProx linearly constrained quadratic γ=1/µ exact cumulative mean-square feasibility optimal dual τ, square-root p step beyond conventional γτ ≤ p",
+        "SplitSkip RandProx Bernoulli skip scalar equality-constrained quadratic dual coefficient u_(t+1)=(1−a I_t)u_t cumulative primal squared residual optimal step sqrt probability",
+        "ProxSkip exact integrated feasibility error ∑ E x_t^2 Bernoulli activation optimized probability and dual relaxation, beyond source coupling parameter",
+        "RandProx Bernoulli dual proximal updates exact scalar quadratic equality constraint sharp stepsize gamma tau, probability p, mean square stability beyond p"
+      ]
+    },
+    "rationale": "First-priority paper and close ProxSkip full-text sections were compared by mathematical implication, along with targeted published mathematical record searches. Known source results give a sufficient step bound and a Lyapunov-rate estimate. They do not state or obviously imply the exact nontrivial optimum of the accumulated primal squared-feasibility loss over a free RandProx-LC dual step; this includes a parameter regime beyond the source theorem and an asymptotically unbounded risk separation. An earlier equivalent unindexed scalar recurrence analysis remains possible, so the finding is a qualified best-knowledge priority judgment.",
+    "residual_risks": [
+      "A prior equivalent calculation may appear in older or differently indexed stochastic fixed-point or random-coordinate splitting literature.",
+      "The conclusion is specific to exact-gradient scalar constrained quadratics and the chosen cumulative feasibility metric; no global novelty claim about randomized proximal methods is asserted."
+    ],
+    "source_inspections": [
+      {
+        "assessment": "Source gives the stochastic operator and the general sufficient coupling restriction; no exact scalar cumulative primal feasibility risk optimum appears in inspected statements or relevant proof discussion. The original algorithm and source range are explicitly credited.",
+        "evidence": [
+          "arXiv:2207.12891v3 Algorithm 4, Theorem 4 and Appendix A.1 (lines 250, 285–305, 423–450 of public HTML)",
+          "General sufficient bound in the scalar Bernoulli specialization: γτ≤p; present result also examines p<γτ<2 and optimizes ∑_{t≥1}E(x_t)^2."
+        ],
+        "identifier_or_url": "https://arxiv.org/html/2207.12891v3",
+        "material_read": "HTML article Sections 2–4, Algorithm 2, Algorithm 4, Theorem 4, Bernoulli Algorithm 5, Appendix A.1 and surrounding proof discussion",
+        "method": "Read relevant original full-text sections and compare the dual-step parameter, mean-square quantities and objective of each theorem",
+        "title": "RandProx: Primal–Dual Optimization Algorithms with Randomized Proximal Updates",
+        "trigger": "The source exactly defining the Bernoulli linearly constrained primal–dual update and convergence theorem"
+      },
+      {
+        "assessment": "Its prescribed update and Lyapunov-bound parameter tuning address different cost and a fixed primal–dual coupling. They do not state the variable-step integrated feasibility optimizer for RandProx-LC.",
+        "evidence": [
+          "arXiv:2202.09357v2, Theorem 3.6, Section 3.5; arXiv:2207.12891v3 Appendix A.1 explains ProxSkip is the fixed choice τ=p/γ."
+        ],
+        "identifier_or_url": "https://arxiv.org/html/2202.09357v2",
+        "material_read": "HTML Sections 2 and 3, Algorithm 1, Theorem 3.6 and Section 3.5 including its choice of skip probability",
+        "method": "Read full relevant algorithm and convergence sections and inspect the coupling of primal step, dual step and skip probability",
+        "title": "ProxSkip: Yes! Local Gradient Steps Provably Lead to Communication Acceleration! Finally!",
+        "trigger": "Close probabilistic-skipping algorithm and special case of RandProx-Skip"
+      }
+    ],
+    "status": "PASS"
+  },
+  "review_type": "self_review",
+  "schema_version": 1,
+  "scope_run_id": "81fc4c4c-cce8-49ae-abac-cd1ecd07b5bb",
+  "self_review_status": "passed",
+  "value": {
+    "rationale": "The unique cumulative feasibility risk minimizer differs both from the generic sufficient dual step and from the fastest asymptotic dual contraction; an unbounded separation of risk scaling as p→0 is mathematically substantive for random-constraint enforcement. The exact scalar counterexample delineates where one should not confuse rate tuning, sufficient stability tuning, and integrated feasibility tuning; no claim of broad method superiority is made.",
+    "status": "PASS"
+  }
+}

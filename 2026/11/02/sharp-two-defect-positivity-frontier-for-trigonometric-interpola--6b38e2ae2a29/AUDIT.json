@@ -1,0 +1,130 @@
+{
+  "correctness": {
+    "rationale": "PASS: For distinct nodes the Fourier interpolation problem is uniquely solvable. Applying exactness to uniform-grid Dirichlet cardinal functions reduces the one-defect case to a one-column update and proves positivity for every signed shift of size less than half a mesh. A two-column reflection symmetry gives two equal moved-node weights and the exact central-weight formula. The closed expression for all other weights proves their strict positivity, while the sine equation yields a unique sharp crossing. Convexity of g(t)=arcsin(sqrt(2)sin(t/2)) proves threshold monotonicity; Taylor expansion yields the condition-number asymptotic. The extracted stdlib verifier passed 5100 grouped numerical assertions including independent Fourier-system solutions; finite tests alone are not used to prove the infinite statement.",
+    "status": "PASS"
+  },
+  "independent": false,
+  "independent_audit_status": "not_performed",
+  "originality": {
+    "broader_coverage": {
+      "evidence": [
+        "The 2022 result permits arbitrarily small displacement only by changing linearly many sites; its existence statement for some large grid does not yield two-node existence or the explicit symmetric threshold.",
+        "The 2016 thesis experiments cover many perturbation patterns but supply no exact characterization of sparse-defect support."
+      ],
+      "reasoning": "Even though broad universal positivity bounds would dominate particular two-site families if sufficiently sharp, the inspected results are convergence/conditioning bounds and a many-node negative construction. They neither imply the all-K one-site safety nor the all-K exact two-site sign classification.",
+      "searches": [
+        "Yu Townsend 2022 unevenly spaced samples negative quadrature weights sparse perturbation single point all positive",
+        "Yu Townsend uneven nodes sparsity minimum two node displacements quadrature weight positivity finite odd grid",
+        "Austin 2016 thesis section 3.5.2",
+        "Yu Townsend 2022 section 4.1 Appendix B"
+      ]
+    },
+    "checked_sources": [
+      "Oxford ORA:uuid:11c16937-4a59-494d-a06f-6d27b634e2f3; author-hosted full thesis, section 3.5.2",
+      "arXiv:1612.04018, author-hosted complete PDF",
+      "arXiv:2202.04722v1, complete HTML sections 4, Appendices A–B",
+      "2026/10/4/SCOPE-the-first-monotone-range-failure-of-closed-newton-cotes-occurs-a--c37fd2660f48",
+      "2026/9/21/SCOPE-generalized-romberg-positive-weights-integer-refinement--b7c2819b6648",
+      "2026/10/4/SCOPE-a-sharp-three-knot-positivity-defect-for-natural-cubic-interpola--0b51d8330304",
+      "2026/10/11/SCOPE-sharp-positive-fourier-sampling-on-three-consecutive-cyclic-site--29fa16b8c55a"
+    ],
+    "claim_vs_prior_implication": {
+      "evidence": [
+        "Yu–Townsend Theorem 6: negative weight from an alternating large-support perturbation, not an exact rank-two pattern.",
+        "Austin thesis discusses numerical nonpositive weights for assorted grids; no analytic two-defect formula is stated."
+      ],
+      "reasoning": "The present final claim is for every odd K≥5 and explicitly restricts the exact threshold to a fixed two-site symmetric construction. The only common ingredient is trigonometric interpolatory exactness; prior existence, convergence and probabilistic results do not logically imply the all-order deterministic sign diagram or its limit.",
+      "searches": [
+        "Exact Fourier trigonometric interpolatory quadrature positive for any single moved grid point under half spacing, but two neighboring shifts toward fixed center yield negative weight at threshold delta_K tending 1-1/sqrt(2)",
+        "Yu Townsend uneven nodes sparsity minimum two node displacements quadrature weight positivity finite odd grid",
+        "arXiv:2202.04722 Theorem 6 and Appendix B",
+        "Oxford ORA 2016 thesis pp.85–87",
+        "three-node independent-jitter comparison"
+      ]
+    },
+    "equivalent_formulations": {
+      "evidence": [
+        "Our node patterns can be expressed as a rank-one or rank-two update of the uniform Fourier evaluation matrix; the proof explicitly evaluates the corresponding original cardinal functions.",
+        "Austin–Trefethen use general perturbations and derive convergence; Yu–Townsend use a global alternating pattern."
+      ],
+      "reasoning": "A Fourier rank-two node update or Dirichlet-kernel reparametrization is mathematically equivalent to the claim only if it explicitly yields the weight signs and the exact \\(\u0007rcsin\\) crossing; the inspected sources do not provide such an implication. General matrix invertibility and convergence alone are too weak to imply weight positivity.",
+      "searches": [
+        "One-point perturbation of equally spaced trigonometric quadrature nodes exact weights positivity, threshold at half spacing, negative adjacent weight",
+        "Single-node relocation on Fourier grid rank-one Dirichlet cardinal interpolation, exact quadrature weight sign, condition number",
+        "Exact Fourier trigonometric interpolatory quadrature positive for any single moved grid point under half spacing, but two neighboring shifts toward fixed center yield negative weight at threshold delta_K tending 1-1/sqrt(2)",
+        "Two point perturbations of uniform odd trigonometric quadrature one negative intermediate node, all other weights positive, explicit arcsin threshold",
+        "arXiv:1612.04018",
+        "arXiv:2202.04722"
+      ]
+    },
+    "exact_database_or_table": {
+      "evidence": [
+        "Austin thesis Table 3.3 records numerical maximizers for seven and nine nodes with sign patterns mostly perturbing many nodes; no one-/two-moved-node exact threshold table.",
+        "published-finding corpus nearest published records concern Newton–Cotes, Romberg, cubic interpolation and finite Fourier frame samples with different quadrature schemes."
+      ],
+      "reasoning": "No checked exact published table or record states the odd-grid formula \\(\\delta_K\\) or the one-/two-site support distinction. Absence from checked records is not a proof of global uniqueness.",
+      "searches": [
+        "One-point perturbation of equally spaced trigonometric quadrature nodes exact weights positivity, threshold at half spacing, negative adjacent weight",
+        "Two point perturbations of uniform odd trigonometric quadrature one negative intermediate node, all other weights positive, explicit arcsin threshold",
+        "Yu Townsend uneven nodes sparsity minimum two node displacements quadrature weight positivity finite odd grid",
+        "published-finding corpus published records: 2026/10/4/SCOPE-the-first-monotone-range-failure-of-closed-newton-cotes-occurs-a--c37fd2660f48",
+        "Austin 2016 thesis Table 3.3"
+      ]
+    },
+    "rationale": "PASS on best-knowledge comparison: Austin 2016 thesis pp.85–87 supplies experimental weight-norm behavior, Austin–Trefethen 2017 prove general convergence, and Yu–Townsend 2022 Theorem 6 gives an all-site alternating witness for any positive displacement; none derives the minimum support of two moved nodes, the exact all-odd K≥5 symmetric threshold, or the unique-negative-weight classification. The checked published-finding corpus search hits use different objects/parameters. Priority remains subject to specialized prior publications not located by the searches.",
+    "residual_risks": [
+      "Nonindexed or differently titled specialized exact quadrature-weight sign formulas might establish the same two-shift statement; absence in searched records does not exclude that possibility.",
+      "The family-specific \\(\\delta_K\\) is not a global optimum over all two-site movement choices, and this limitation is explicit."
+    ],
+    "source_inspections": [
+      {
+        "assessment": "The relevant text gives numerical weight-norm experiments, various full and partially unmoved perturbation patterns and a bounded-norm conjecture, not an all-odd-order exact two-defect crossing or one-defect positivity proof.",
+        "evidence": [
+          "Section 3.5.2 pp.85–87 numerically explores signed weights and norms for perturbed grids",
+          "Table 3.3 lists maximizing sign patterns for seven and nine sites with many moved nodes",
+          "Oxford archive metadata states December 8, 2016 deposit date"
+        ],
+        "identifier_or_url": "Oxford ORA:uuid:11c16937-4a59-494d-a06f-6d27b634e2f3; https://www.mcs.anl.gov/~aaustin/pubs/DPhilThesis.pdf",
+        "material_read": "Thesis abstract, table of contents, chapter 3 section 3.5.2 pages 85–87, including Tables 3.3, Figure 3.10 discussion and Conjectures 3.13–3.14",
+        "method": "Author-hosted complete PDF; read quadrature section text and inspected its first page image",
+        "title": "Some New Results on and Applications of Interpolation in Numerical Computation",
+        "trigger": "Earliest motivating treatment of perturbed-grid quadrature weight signs and a potentially encompassing primary source"
+      },
+      {
+        "assessment": "Theorem 1 bounds quadrature convergence for smooth functions under uniform half-mesh perturbations. It neither classifies signed individual weights for two changed nodes nor determines the sharp family-specific crossing.",
+        "evidence": [
+          "Theorem 1 gives approximation/convergence, not the signs of each quadrature weight",
+          "Article discussion explicitly locates weight-norm investigations in thesis section 3.5.2",
+          "First preprint submission December 13, 2016"
+        ],
+        "identifier_or_url": "arXiv:1612.04018; https://people.maths.ox.ac.uk/trefethen/perturbed.pdf",
+        "material_read": "Full author-hosted 10-page article, especially introduction, Theorem 1, discussion of quadrature and prior Austin thesis experiments",
+        "method": "Read open complete author-hosted PDF and inspected a page image",
+        "title": "Trigonometric Interpolation and Quadrature in Perturbed Points",
+        "trigger": "General perturbed-grid convergence theorem for exactly the same trigonometric interpolatory quadrature"
+      },
+      {
+        "assessment": "Theorem 6 constructs alternating inward shifts of order the number of sites to make one weight negative for arbitrarily small displacement on sufficiently large grids. Appendix B establishes a dimension lower bound. Neither treats perturbation support cardinality one versus two, nor an explicit two-site \\(\\delta_K\\) threshold.",
+        "evidence": [
+          "Section 4.1 equation (19) moves alternating nodes across the grid and proves Theorem 6",
+          "Appendix B treats minimum overall grid size as perturbation amplitude tends to zero, not minimum number of moved nodes",
+          "Theorem 7 bounds absolute-weight sums, not an exact two-defect norm formula"
+        ],
+        "identifier_or_url": "arXiv:2202.04722; https://arxiv.org/html/2202.04722v1",
+        "material_read": "Full v1 HTML, section 4.1, Theorems 6–7, Appendix A proof, Appendix B grid-size obstruction and small-displacement estimates",
+        "method": "Read full primary text in HTML, including construction and proof sections and appendices",
+        "title": "On the Stability of Unevenly Spaced Samples for Interpolation and Quadrature",
+        "trigger": "Strong covering candidate: negative quadrature weights for arbitrarily small perturbation"
+      }
+    ],
+    "status": "PASS"
+  },
+  "review_type": "self_review",
+  "schema_version": 1,
+  "scope_run_id": "6b38e2ae-2a29-4b02-817d-54994b2c4a53",
+  "self_review_status": "passed",
+  "value": {
+    "rationale": "PASS: The sign of quadrature weights decides positivity preservation and the absolute-weight condition number; sparse sensor failures are a natural axis beyond maximal displacement. The proof shows a sharp complexity transition between one and two displaced sites in the standard half-mesh model, an explicit finite-order sensitivity frontier and its asymptotic limit. It explains why failure of positivity need not entail substantial norm amplification, complementing broad negative-weight constructions that move many nodes. The threshold is neither artificially selected nor claimed universal across all two-node patterns.",
+    "status": "PASS"
+  }
+}

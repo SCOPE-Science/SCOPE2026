@@ -1,0 +1,118 @@
+{
+  "correctness": {
+    "rationale": "For any beta>0, the angular clock gives E exp(i(Theta_t-Theta_s))=exp[-kappa|t^beta-s^beta|]. The exact time-integrated velocity covariance gives the inherited MSD. The integration-by-parts identity turns position into a weighted Brownian martingale and a remainder of order 1+T^(1-beta)_+; its infinite tail has a remainder bounded by 2v T^(1-beta)/(kappa beta). The angular second-harmonic covariance exp[-4kappa|u-w|] and Young convolution inequality give vanishing normalized quadratic-covariation anisotropy; martingale CLTs supply all three precisely normalized Gaussian laws. The martingale has finite terminal L2 norm exactly when beta>2, giving a.s. localization. A nondegenerate Gaussian scaling precludes a finite endpoint in probability below the threshold. Tonelli/Beta integration establishes the exact finite terminal second moment. The packaged verify.py passed 64 finite checks.",
+    "status": "PASS"
+  },
+  "independent": false,
+  "independent_audit_status": "not_performed",
+  "originality": {
+    "broader_coverage": {
+      "evidence": [
+        "arXiv:1911.02291 studies imposed spatial and temporal control, including position-feedback localization.",
+        "arXiv:2001.04015 derives diffusive long-time transport from fractional angular Brownian noise with stationary increments.",
+        "arXiv:2401.03127v1 calculates MSD and kurtosis mainly for beta between 0.2 and 1.8."
+      ],
+      "reasoning": "The 2019 localization mechanism uses a distinct position-dependent feedback operator. Fractional rotational Brownian motion has stationary-increment angular noise, not the time-inhomogeneous Markov clock of the theorem. Generic martingale central limit theory supplies a proof technique but not this explicit trichotomy without the model-specific bracket and remainder estimates.",
+      "searches": [
+        "\"active Brownian particle\" \"position\" \"converges\" \"rotational\" time dependent",
+        "\"accelerated rotational diffusion\" \"active Brownian\" \"localization\"",
+        "arXiv:1911.02291 (primary full-text source)"
+      ]
+    },
+    "checked_sources": [
+      "arXiv:2401.03127v1 (Sevilla, Valdés-Gómez, Torres-Carbajal; 2024-01-06)",
+      "doi:10.1103/PhysRevE.110.014113 (2024 journal version)",
+      "arXiv:2001.04015 (Gómez-Solano and Sevilla; 2020)",
+      "arXiv:1911.02291 (Fernandez-Rodriguez and collaborators; 2019)"
+    ],
+    "claim_vs_prior_implication": {
+      "evidence": [
+        "Sevilla et al. (2024): source covariance and exact second-moment integral; results identify anomalous spreading for beta below 2.",
+        "Gómez-Solano and Sevilla (2020): long-time effective diffusion under fractional Brownian angular noise, not a power-clock endpoint theorem.",
+        "The new proof directly evaluates normalized quadratic covariations of a time-inhomogeneous angular martingale and its infinite future tail."
+      ],
+      "reasoning": "A second-moment identity is logically weaker than a multidimensional CLT or almost-sure endpoint convergence; the former has non-Gaussian countermodels with the same moments. No inspected cited source has a stronger theorem whose hypotheses and conclusion entail the new claims. Residual uncertainty remains for unindexed abstract theorems on time-inhomogeneous additive functionals.",
+      "searches": [
+        "arXiv:2401.03127v1 Sec. III.2, Eq. (21)",
+        "active Brownian motion orientation fractional Brownian angle anomalous diffusion 2022 Sevilla reference",
+        "integrated exponential of Brownian motion deterministic power time change central limit theorem angular diffusion 2d"
+      ]
+    },
+    "equivalent_formulations": {
+      "evidence": [
+        "arXiv:2401.03127v1 Sec. II and Sec. III.2, Eq. (21): identical time-changed angular dynamics and exact MSD integral.",
+        "arXiv:2001.04015: fractional angular Brownian motion uses stationary-increment correlated noise, rather than scaled-Brownian angular increments."
+      ],
+      "reasoning": "Rewriting as a complex integral of exp(i Brownian time change) is mathematically equivalent to the claimed model, but the exact position second moment alone does not imply an almost-sure endpoint or the vector martingale CLT. The fractional-angular model is not equivalent because its increment covariance differs.",
+      "searches": [
+        "\"Anomalous diffusion of scaled Brownian tracers\" \"beta\" \"2\" localization saturation",
+        "integrated exponential of Brownian motion deterministic power time change central limit theorem angular diffusion 2d",
+        "angular scaled Brownian motion swimmer particle finite random endpoint Gaussian tail"
+      ]
+    },
+    "exact_database_or_table": {
+      "evidence": [
+        "arXiv:2401.03127v1 Eq. (21) exactly determines finite-time MSD; its integration supplies the plateau constant and critical logarithm.",
+        "Semantic mathematical-record search nearest results concerned diffusive simplex covariance and Jacobi diffusion, not the claimed swimmer."
+      ],
+      "reasoning": "The plateau value is already mathematically implied by the exact MSD integral and is explicitly treated as inherited. Searches did not uncover a table or theorem containing the model-specific almost-sure threshold and Gaussian terminal-tail covariance. Absence from a search is not proof of novelty.",
+      "searches": [
+        "\"scaled Brownian tracers\" saturation \"beta=2\" logarithmic",
+        "\"angular diffusion\" \"beta > 2\" self propelled",
+        "active Brownian time-dependent angular diffusivity Brownian motion time change finite random endpoint"
+      ]
+    },
+    "rationale": "The 2024 primary paper supplies the model and the exact MSD integral, hence all of its direct moment consequences must be credited and are not the novelty. The reviewed new claim is the model-specific almost-sure endpoint criterion and explicit isotropic Gaussian laws for the spreading position and shrinking endpoint error; neither the inspected primary text nor the compared distinct mechanisms state a result implying these joint limit laws.",
+    "residual_risks": [
+      "A broad indexed or unindexed result on nonstationary additive functionals might imply this exact endpoint CLT without matching the paper/model title.",
+      "Part of the motivating journal PDF was not inspectable as a page image; the arXiv HTML supplied the critical primary model and MSD sections.",
+      "The inherited second-moment identity already implies the exact plateau and its phase-dependent moment asymptotics; these are expressly not the novel component."
+    ],
+    "source_inspections": [
+      {
+        "assessment": "Identical model and exact MSD are prior. Inspected original sections do not present almost-sure terminal convergence, critical Gaussian scaling, or the supercritical isotropic residual CLT.",
+        "evidence": [
+          "arXiv:2401.03127v1 (2024-01-06) model D_R,beta(t)=beta R_beta t^(beta-1)",
+          "Eqs. (20)-(21) give exact MSD; Eqs. (26)-(27) and simulations treat power-law spreading in beta<2 range."
+        ],
+        "identifier_or_url": "https://arxiv.org/html/2401.03127",
+        "material_read": "ArXiv HTML title/first-public date, introduction, Sec. II equations (5), Sec. III Fourier equations and Sec. III.2 equations (19)–(27), plus opening of kurtosis section; APS open-text rendition of model and early sections.",
+        "method": "Primary full-text HTML section reading and source-equation implication comparison; the attempted journal-PDF page image was not accessible.",
+        "title": "Anomalous diffusion of scaled Brownian tracers",
+        "trigger": "Identical angular-scaled Brownian model and strongest possible prior coverage."
+      },
+      {
+        "assessment": "Different process: stationary-increment fractional Gaussian angular noise with Hurst parameter 0<H<1, not independent-increment scaled-Brownian angle with arbitrary beta>0.",
+        "evidence": [
+          "arXiv:2001.04015 equations for angular fractional Brownian covariance and Hurst range",
+          "Source abstract reports effective diffusion for every studied Hurst exponent."
+        ],
+        "identifier_or_url": "https://arxiv.org/abs/2001.04015",
+        "material_read": "Full-text abstract, introduction, and Sec. 2 model including covariance of fractional rotational noise and reported long-time diffusive limit.",
+        "method": "Primary arXiv full-text page reading with assumptions and formula comparison.",
+        "title": "Active particles with fractional rotational Brownian motion",
+        "trigger": "Closely related nonstandard angular noise and active-particle transport."
+      },
+      {
+        "assessment": "Localization arises through spatial feedback-controlled rotational dynamics; no theorem about a deterministic power-law angular clock or its Gaussian endpoint-error limit was identified in inspected sections.",
+        "evidence": [
+          "arXiv:1911.02291 introduction and Results: imposed spatial/temporal magnetic feedback of rotational diffusivity."
+        ],
+        "identifier_or_url": "https://arxiv.org/abs/1911.02291",
+        "material_read": "Full-text abstract, introduction, model motivation, and feedback-control/results opening.",
+        "method": "Primary arXiv full-text page, mechanism and hypotheses comparison.",
+        "title": "Feedback-Controlled Active Brownian Colloids with Space-Dependent Rotational Dynamics",
+        "trigger": "The phrase active-particle localization might signal stronger previously published coverage."
+      }
+    ],
+    "status": "PASS"
+  },
+  "review_type": "self_review",
+  "schema_version": 1,
+  "scope_run_id": "7aaf57ea-ae57-4f3d-b032-eeb6b6a21a2b",
+  "self_review_status": "passed",
+  "value": {
+    "rationale": "The complete law separates three qualitatively different regimes of a constant-speed, unconfined active particle: polynomial Gaussian spreading, critical logarithmic Gaussian spreading, and a.s. localization with an isotropic Gaussian endpoint-error law. The phase boundary beta=2 is forced by integrability of the martingale variance, not an arbitrary parameter slice. The theorem answers a natural mathematical-physics transport question left beyond the beta<2 numerical regime of the motivating study, and its distributional content is not a routine consequence of previously known second moments.",
+    "status": "PASS"
+  }
+}

@@ -1,0 +1,136 @@
+{
+  "correctness": {
+    "rationale": "Exact diagonal covariance recursion gives all four schedule values; the dominated schedule is removed rigorously. Comparing the remaining three gives the displayed greedy and optimal costs and an if-and-only-if failure condition. A universal ratio bound follows by termwise comparison; a strictly positive-variance family tends to the same bound for each fixed diagonal dynamics. The separate zero-dynamics case and minimality are explicit. The Python standard-library verifier recomputes 20,000 rational cases and exact sharpness examples; infinite assertions rely on the algebraic proof.",
+    "status": "PASS"
+  },
+  "independent": false,
+  "independent_audit_status": "not_performed",
+  "originality": {
+    "broader_coverage": {
+      "evidence": [
+        "https://arxiv.org/abs/2003.11951",
+        "https://arxiv.org/abs/2304.02692",
+        "https://arxiv.org/abs/1604.04158"
+      ],
+      "reasoning": "The 2020 arbitrarily poor greedy phenomenon concerns static design-time steady-state selection and is not a counterexample to a bound for two-step dynamic sensing with fixed state gains. The general 2023 optimization formulation includes much broader instances algorithmically but does not assert or imply the exact sharp growth-dependent analytical bound. The 2016 indefinite-horizon work uses different sensing and objective conventions.",
+      "searches": [
+        "\"Greedy sensor selection cannot achieve constant factor Kalman covariance trace counterexamples independent 2 by 2 horizon\"",
+        "\"Unbounded approximation ratio greedy sensor scheduling Kalman filtering two dimensional two-step horizon independent process observation\""
+      ]
+    },
+    "checked_sources": [
+      {
+        "title": "dutta",
+        "url": "https://arxiv.org/abs/2304.02692"
+      },
+      {
+        "title": "jawaid",
+        "url": "https://ece.uwaterloo.ca/~sl2smith/papers/2015Aut_Greedy_Submodularity.pdf"
+      },
+      {
+        "title": "ye",
+        "url": "https://arxiv.org/abs/2003.11951"
+      },
+      {
+        "title": "han",
+        "url": "https://arxiv.org/abs/1604.04158"
+      }
+    ],
+    "claim_vs_prior_implication": {
+      "evidence": [
+        "https://arxiv.org/abs/2304.02692",
+        "https://ece.uwaterloo.ca/~sl2smith/papers/2015Aut_Greedy_Submodularity.pdf",
+        "https://arxiv.org/abs/2003.11951"
+      ],
+      "reasoning": "General mixed-integer solvability computes an optimizer for supplied numerical data but does not explicitly give the universal closed-form ratio, failure iff criterion, or sharpness construction. A result about static steady-state greedy unboundedness cannot imply the fixed-gain two-time bound. Qualitative greedy/submodularity findings do not establish the claimed exact worst-case constant for cumulative posterior trace.",
+      "searches": [
+        "\"Two-step noiseless Gaussian sensor scheduling one coordinate per observation exact optimal schedule and greedy suboptimality condition\"",
+        "\"Unbounded approximation ratio greedy sensor scheduling Kalman filtering two dimensional two-step horizon independent process observation\""
+      ]
+    },
+    "equivalent_formulations": {
+      "evidence": [
+        "https://arxiv.org/abs/2304.02692",
+        "https://ece.uwaterloo.ca/~sl2smith/papers/2015Aut_Greedy_Submodularity.pdf"
+      ],
+      "reasoning": "The equivalent decision problem is choosing one of two perfect coordinate sensors at each of two instants, with cumulative posterior trace as loss, rather than subset selection or terminal covariance. The inspected finite-horizon formulation is more general in feasible schedules but reports computational solutions, not a closed form sharp multiplicative ratio in this restricted domain.",
+      "searches": [
+        "\"Two-step noiseless Gaussian sensor scheduling one coordinate per observation exact optimal schedule and greedy suboptimality condition\"",
+        "\"Receding horizon finite sensor scheduling exact factor two contraction case two dimensional diagonal system\""
+      ]
+    },
+    "exact_database_or_table": {
+      "evidence": [
+        "https://arxiv.org/abs/2304.02692",
+        "https://ece.uwaterloo.ca/~sl2smith/papers/2015Aut_Greedy_Submodularity.pdf"
+      ],
+      "reasoning": "Semantic searches of published mathematical-record summaries and the directly relevant finite-horizon/greedy papers did not identify a table or exact two-state, two-measurement formula with growth-dependent sharp supremum. The no-match observation is only bounded evidence and not a proof of absence.",
+      "searches": [
+        "\"Sharp 1+a squared approximation guarantee for myopic two-stage sensor scheduling trace Kalman covariance with diagonal dynamics and perfect coordinate observations\"",
+        "\"Arbitrarily bad myopic greedy Kalman sensor scheduling with two independent states and two time steps even noiseless sensors; smallest dimension finite horizon\""
+      ]
+    },
+    "rationale": "This precise sharp two-time, cumulative-posterior-trace guarantee and exact failure criterion were not located in the examined main texts or compared research-record search results. Closest finite-horizon formulation solves combinatorial instances (Dutta et al., 2023); older greedy, hardness and remote-sensing papers have different objectives/horizons. Search nonidentification is not a novelty certificate; unexamined equivalent closed forms remain a stated priority risk.",
+    "residual_risks": [
+      "Classical two-stage dynamic-programming textbooks or decentralized-sensing literature could derive this special-case ratio without matching terminology.",
+      "No claim is made about novelty of the four-schedule enumeration itself; priority pertains to the complete sharp class-wide bound and exact failure classification.",
+      "Semantic search is incomplete and independent scientific priority review has not been performed."
+    ],
+    "source_inspections": [
+      {
+        "assessment": "General MILP and empirical greedy benchmarks, no same sharp two-time scalar-variance approximation-ratio classification identified",
+        "evidence": [
+          "First posted 2023-04-05 as arXiv:2304.02692v1",
+          "Finite-horizon Kalman covariance-trace minimization with greedy benchmarks"
+        ],
+        "identifier_or_url": "https://arxiv.org/abs/2304.02692",
+        "material_read": "Full-text preprint HTML; problem definition, scheduling formulation, optimization method, comparisons and concluding discussion",
+        "method": "Open-access arXiv full-text reading and version-date verification",
+        "title": "A Unified Approach to Optimally Solving Sensor Scheduling and Sensor Selection Problems in Kalman Filtering",
+        "trigger": "Directly motivating finite-horizon trace-objective and greedy-comparison paper"
+      },
+      {
+        "assessment": "Relates submodularity and terminal sensing performance; does not supply the fixed-two-step cumulative-posterior-trace exact bound",
+        "evidence": [
+          "Terminal covariance-based objective rather than sum of posterior traces for two chosen observation instants"
+        ],
+        "identifier_or_url": "https://ece.uwaterloo.ca/~sl2smith/papers/2015Aut_Greedy_Submodularity.pdf",
+        "material_read": "Available author-hosted PDF full text, including statement and supporting derivations, with first and relevant middle-page visual inspection",
+        "method": "Author-hosted PDF text and page images",
+        "title": "Submodularity and Greedy Algorithms in Sensor Scheduling for Linear Dynamical Systems",
+        "trigger": "Potential dominating general greedy guarantee in dynamical sensor selection"
+      },
+      {
+        "assessment": "Static steady-state sensor selection has a different domain; its unboundedness result does not subsume this bounded two-time fixed-gain ratio",
+        "evidence": [
+          "Greedy selection can be arbitrarily poor for design-time steady-state problems"
+        ],
+        "identifier_or_url": "https://arxiv.org/abs/2003.11951",
+        "material_read": "Full HTML preprint; model, results on greedy selection and hardness, proofs/discussion",
+        "method": "arXiv full-text HTML reading",
+        "title": "On the Complexity and Approximability of Optimal Sensor Selection and Attack for Kalman Filtering",
+        "trigger": "Potential stronger unbounded-greedy impossibility statement"
+      },
+      {
+        "assessment": "Infinite-horizon remote estimation with stochastic communication, not the proposed two-time cumulative-trace exact-observation bound",
+        "evidence": [
+          "Independent local dynamics and remote-estimation scheduling setting"
+        ],
+        "identifier_or_url": "https://arxiv.org/abs/1604.04158",
+        "material_read": "Full HTML preprint including indefinite-horizon model and scheduling analysis",
+        "method": "arXiv full-text HTML reading",
+        "title": "Optimal Sensor Scheduling for Multiple Linear Dynamical Systems",
+        "trigger": "Potential closed-form result for independent scalar sensing and scheduling"
+      }
+    ],
+    "status": "PASS"
+  },
+  "review_type": "self_review",
+  "schema_version": 1,
+  "scope_run_id": "721e7e00-a960-43ec-b84e-4892e2e931b4",
+  "self_review_status": "passed",
+  "value": {
+    "rationale": "Trace-greedy sensing is a natural computational baseline under a one-sensor-per-time constraint. The exact fixed-gain approximation constant quantifies how open-loop growth affects the value of one-step lookahead, is tight uniformly over the covariance/noise inputs, and distinguishes contractive versus arbitrarily expanding systems. The two-time two-state scope is minimal for strict greedy regret, making a meaningful boundary classification, not an arbitrary isolated numerical witness. Generalizations to noisy or dependent systems are not proved.",
+    "status": "PASS"
+  }
+}

@@ -1,0 +1,115 @@
+{
+  "correctness": {
+    "rationale": "A direct blocking-pair contradiction shows that any stable 3x3 matching lacking a first-choice recipient must assign everyone their second choice. For all other stable matchings n<=3, both gap and ratio are strictly increasing functions of the worst partner rank. Borda utilities 1..4 yield the complete four-row ratio-gap table, guaranteeing a shared optimum at n=4. All 24 four-pair matchings of the explicit witness were tested: exactly two are stable; both have difference 2 but their ratios are 2 and 3. A standalone exact implementation verifies every profile n=1,2,3 and all the witness bijections with exact Fraction arithmetic.",
+    "status": "PASS"
+  },
+  "independent": false,
+  "independent_audit_status": "not_performed",
+  "originality": {
+    "broader_coverage": {
+      "evidence": [
+        "Sheng and Yokoi have broader capacity and utility models and polynomial-time optimization for each objective but no asserted relationship between their optimizers.",
+        "Indexed 2026/10/4/SCOPE-sharp-coincidence-boundary-for-egalitarian-and-minimum-regret-st--57631882a89b concerns egalitarian (sum rank) vs minimum-regret (max rank), different objectives."
+      ],
+      "reasoning": "Broad tractability of distinct objective optimization does not logically entail a shared weak ordering; no retrieved stronger theorem for strict complete Borda scoring implies the small-order boundary. The nearest result studies a different pair of fairness criteria.",
+      "searches": [
+        "stable marriage minimum utility range versus max minimum ratio ranking first conflict",
+        "stable matchings fairness minimax difference ratio strict disjoint optimum sets",
+        "arxiv:2607.07160",
+        "2026/10/4/SCOPE-sharp-coincidence-boundary-for-egalitarian-and-minimum-regret-st--57631882a89b",
+        "2026/10/4/SCOPE-sharp-first-conflict-between-egalitarian-and-sex-equal-stable-ma--8fdd6836ad87"
+      ]
+    },
+    "checked_sources": [
+      "arxiv:2607.07160 (public primary full HTML)",
+      "published-finding corpus 2026/10/4/SCOPE-sharp-coincidence-boundary-for-egalitarian-and-minimum-regret-st--57631882a89b",
+      "published-finding corpus 2026/10/4/SCOPE-sharp-first-conflict-between-egalitarian-and-sex-equal-stable-ma--8fdd6836ad87",
+      "published-finding corpus 2026/10/4/SCOPE-sharp-three-by-three-conflict-layer-for-rank-maximal-and-egalita--c67e0358daf3",
+      "Gale and Shapley (1962), stability definitions"
+    ],
+    "claim_vs_prior_implication": {
+      "evidence": [
+        "Source §2 specifies Δdiff and Δrat separately. §4 gives algorithms. Appendix A examples address nonrepresentability and non-submodularity.",
+        "Published indexed nearest 2026/10/4/SCOPE-sharp-coincidence-boundary-for-egalitarian-and-minimum-regret-st--57631882a89b proves n<=3 nested optimum sets for egalitarian and minimum-regret, not the claimed identical weak order under two utility-gap measures."
+      ],
+      "reasoning": "The new statement follows from a separate small-n blocking-pair lemma, Borda arithmetic, and explicit n=4 witness. It is neither a special case of polynomial-time solvability nor equivalent to minimization of a total rank or a worst rank.",
+      "searches": [
+        "arxiv:2607.07160",
+        "minimum maximum utility gap and utility ratio stable matching Borda rank utilities smallest divergent n",
+        "stable marriage minimum utility range versus max minimum ratio ranking first conflict",
+        "stable matchings fairness minimax difference ratio strict disjoint optimum sets",
+        "2026/10/4/SCOPE-sharp-coincidence-boundary-for-egalitarian-and-minimum-regret-st--57631882a89b",
+        "2026/10/4/SCOPE-sharp-first-conflict-between-egalitarian-and-sex-equal-stable-ma--8fdd6836ad87",
+        "2026/10/4/SCOPE-sharp-three-by-three-conflict-layer-for-rank-maximal-and-egalita--c67e0358daf3"
+      ]
+    },
+    "equivalent_formulations": {
+      "evidence": [
+        "Sheng and Yokoi, arXiv:2607.07160, §§1,2,4,5 and Appendix A, define Δdiff and Δrat and algorithmically solve each.",
+        "The paper explicitly treats arbitrary monotone consistent values; its appendix examples do not state the small-n Borda coincidence."
+      ],
+      "reasoning": "A characterization of which minimum-utility-gap solution is selected under two objective functions could be phrased as argmin coincidence, preference-rank utility spread, or interval fairness equivalence. Primary inspected text gives a common algorithmic framework but no equality of optimal sets or earliest strict refinement for positive Borda rank coding.",
+      "searches": [
+        "minimum maximum utility gap and utility ratio stable matching Borda rank utilities smallest divergent n",
+        "Borda position utilities stable marriage minimax ratio versus minimax difference n=3 four pairs first divergence",
+        "positive Borda utilities stable marriage ratio difference optimizers coincide for three pairs but not four pairs",
+        "\"stable matchings\" \"minimum utility gap\" \"Borda\" \"ratio\" \"difference\"",
+        "arxiv:2607.07160"
+      ]
+    },
+    "exact_database_or_table": {
+      "evidence": [
+        "The published-finding corpus returned stable-marriage small-profile studies, but their reported statistics concern sex-equal, egalitarian, rank-maximal, regret, or proposal counts.",
+        "A complete deterministic enumerator verifies 46,656 n=3 labeled profiles and the 24 possible n=4 witness bijections."
+      ],
+      "reasoning": "No published-finding corpus or primary source in actual checked results gives this difference-versus-ratio optimizer table under Borda score; existing profile census data for other criteria do not determine the present claim.",
+      "searches": [
+        "minimum maximum utility gap and utility ratio stable matching Borda rank utilities smallest divergent n",
+        "Borda position utilities stable marriage minimax ratio versus minimax difference n=3 four pairs first divergence",
+        "positive Borda utilities stable marriage ratio difference optimizers coincide for three pairs but not four pairs",
+        "every stable matching three by three has a top-choice partner unless all agents rank match second",
+        "2026/10/4/SCOPE-sharp-coincidence-boundary-for-egalitarian-and-minimum-regret-st--57631882a89b",
+        "2026/10/4/SCOPE-sharp-three-by-three-conflict-layer-for-rank-maximal-and-egalita--c67e0358daf3"
+      ]
+    },
+    "rationale": "The new theorem compares the two gap objectives under strictly positive Borda rank coding. The Sheng--Yokoi source defines and algorithmically optimizes both objectives, but solving both does not imply equality of the induced weak order through three pairs or the first split of argmin sets at four. Closest indexed matching claims compare egalitarian/minimum-regret/sex-equal/rank-maximal objectives, which are distinct statements. Complete primary manuscript was inspected at the substantive sections and appendices. No equivalent theorem or stronger result implying this sharp boundary was found. Residual unindexed priority risk remains.",
+    "residual_risks": [
+      "Potential equivalent or stronger small-market theorem in unindexed earlier literature, not observed in inspected primary text or semantic searches.",
+      "Finite witness demonstrates optimizer-set difference but not an order reversal.",
+      "No independent outside scientific review."
+    ],
+    "source_inspections": [
+      {
+        "assessment": "The source motivates the objectives and solves both, but does not establish the sharp Borda optimizer-set separation.",
+        "evidence": [
+          "arXiv:2607.07160, §1 contribution and algorithm overview, §2 definitions, §5 comparison, Appendix A Examples 18 and 19"
+        ],
+        "identifier_or_url": "https://arxiv.org/abs/2607.07160",
+        "material_read": "Full public extracted HTML text, including introduction, definitions and algorithm, comparisons and Appendix A examples 18 and 19.",
+        "method": "Read the complete arXiv HTML extraction and inspected specific lines/sections and example references.",
+        "title": "Stable Matchings with Minimum Utility Gap",
+        "trigger": "The precise primary source defining both objectives and their algorithms."
+      },
+      {
+        "assessment": "Egalitarian sum-rank and maximum-rank regret are different objective functions; its nested-optimum theorem does not imply equivalence of difference and ratio of highest/lowest utility.",
+        "evidence": [
+          "published-finding corpus id 2026/10/4/SCOPE-sharp-coincidence-boundary-for-egalitarian-and-minimum-regret-st--57631882a89b, published summary"
+        ],
+        "identifier_or_url": "https://github.com/Resultary/2026/tree/main/2026/10/4/SCOPE-sharp-coincidence-boundary-for-egalitarian-and-minimum-regret-st--57631882a89b",
+        "material_read": "published-finding corpus title, mathematical summary and indexing metadata (not a full-text inspection).",
+        "method": "published-finding corpus semantic query retrieval and comparison of objective statements.",
+        "title": "Sharp coincidence boundary for egalitarian and minimum-regret stable marriage",
+        "trigger": "A nearby indexed result about optimum-set nesting in small stable-marriage markets."
+      }
+    ],
+    "status": "PASS"
+  },
+  "review_type": "self_review",
+  "schema_version": 1,
+  "scope_run_id": "6a393a86-556e-49bb-8697-a7d69da65d3d",
+  "self_review_status": "passed",
+  "value": {
+    "rationale": "Difference of extreme agent utilities and their ratio are mathematically distinct but practically substitutable fairness criteria only when their minimizers agree. This result gives a sharp structural cutoff for complete Borda-scored stable marriage and an explicit two-outcome market where the choice changes which stable solutions are accepted; a blocking-pair lemma explains the cutoff. The no-reversal result for four pairs prevents exaggeration of this finite boundary.",
+    "status": "PASS"
+  }
+}

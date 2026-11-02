@@ -1,0 +1,139 @@
+{
+  "correctness": {
+    "rationale": "A complete mathematical certificate supplies shattered trees for all n=2..7 at depths 1,2,4,6,9,11, verified by verify.py against every relevant permutation and every root-to-leaf answer path. Cardinality 2^d<=n! closes all n<=6. For n=7, the exact partial-order closure/linear-extension dynamic program in poset_upper.py exhaustively disproves a depth-eleven continuation after any first comparison (16,587 states); an independent concept-bitset recursion in verify_bitset_upper.py gives depth eleven but not twelve (74,797 states). Proof explains why both algorithms are exhaustive, exact, and sound, and provides unrestricted forest-VC and concatenation lemmas. n=1 is the singleton base case. Finite enumeration makes no assertion for n>=8.",
+    "status": "PASS"
+  },
+  "independent": false,
+  "independent_audit_status": "not_performed",
+  "originality": {
+    "broader_coverage": {
+      "evidence": [
+        "arxiv:1806.00949v1 states general Littlestone/online-learning connections, not these finite values in the available abstract.",
+        "PMLR 132 (2021) derives closure bounds for arbitrary Boolean aggregation, not the seven-permutation exact value in its accessible abstract.",
+        "The general finite-poset VC formula covers n-1 for an antichain but concerns static shattering only."
+      ],
+      "reasoning": "The cardinality inequality gives only Ldim<=12 at n=7, while the exhibited exclusion is strictly stronger. General closure bounds and previous VC results cannot supply the exact seven-item upper bound without additional comparison-specific arguments.",
+      "searches": [
+        "VC dimension and Littlestone dimension of permutation comparison classes, all linear orders over n elements, exact adaptive shattering depth and comparison decision trees",
+        "Seven alternatives all rankings comparison query Littlestone dimension 11 rather than information bound 12; first failure to shatter binary decision tree of size 4096",
+        "Static VC dimension n-1 and Littlestone dimension 11 for permutations of seven elements, adaptive sorting from comparisons",
+        "online learning sorting permutations worst case mistake bound pairwise comparisons adversarial consistent realizable"
+      ]
+    },
+    "checked_sources": [
+      "Agarwal et al., COLT/PMLR 65 (2017), DOI-equivalent public publisher record and PDF Section 3",
+      "Alon et al., arxiv:1806.00949v1 (first public 2018-06-04), abstract/date verified",
+      "Ghazi et al., PMLR 132 (2021), accessible abstract",
+      "Alon, Moran and Moran, arxiv:2608.21579v1 (2026), full relevant HTML sections",
+      "Published semantic-search records on permutation inversion covariance and permutahedral geometry: objects differ from comparison-query shattering"
+    ],
+    "claim_vs_prior_implication": {
+      "evidence": [
+        "Agarwal et al. 2017 PDF Section 3: Borda-score/top-k ranking and stochastic comparison feedback; not complete binary trees of deterministic total-order hypotheses.",
+        "Alon, Moran, Moran 2026 HTML Introduction/Related Work: query is an entire proposed ranking, with a returned incorrect pair; not a chosen pair query.",
+        "The prior poset linear-extension VC theorem specializes to n-1 but does not state adaptive Littlestone depths or the n=7 obstruction."
+      ],
+      "reasoning": "A theorem giving VC dimension n-1 cannot imply the exact Littlestone dimension, since these invariants differ here. The ranking papers do not provide the same oracle/model and their sample-query bounds do not force the exact maximum full binary shattering depth.",
+      "searches": [
+        "VC dimension and Littlestone dimension of permutation comparison classes, all linear orders over n elements, exact adaptive shattering depth and comparison decision trees",
+        "online learning permutations, maximum complete binary comparison query tree, balanced sorting comparisons",
+        "online learning sorting permutations worst case mistake bound pairwise comparisons adversarial consistent realizable",
+        "Agarwal Agarwal Assadi Khanna 2017 Learning with limited rounds adaptivity ranking from pairwise comparisons PMLR full text",
+        "learning a total order from pairwise comparisons Littlestone dimension shattering complete comparison tree"
+      ]
+    },
+    "equivalent_formulations": {
+      "evidence": [
+        "arXiv:2608.21579v1, Introduction and Related Work distinguish full-ranking counterexample feedback from choosing a single pair.",
+        "PMLR 65 (2017) Section 3 studies stochastic top-k ranking; the PDF contains no occurrence of the string Littlestone."
+      ],
+      "reasoning": "Compared aliases: complete binary comparison tree, maximal min-depth of adaptive sorting comparisons, online mistake-bound for total orders, and Littlestone shattering. The returned ranking papers address query/sample complexity or different feedback; they do not establish the exact depth-11 obstruction at seven.",
+      "searches": [
+        "VC dimension and Littlestone dimension of permutation comparison classes, all linear orders over n elements, exact adaptive shattering depth and comparison decision trees",
+        "Littlestone dimension of permutations, sorting, adaptive pairwise comparisons, n! total order hypotheses",
+        "online learning permutations, maximum complete binary comparison query tree, balanced sorting comparisons",
+        "\"Littlestone dimension\" \"permutations\" comparisons",
+        "\"Littlestone dimension\" \"total orders\" pairwise",
+        "Littlestone dimension of all total orders permutation comparison queries exact"
+      ]
+    },
+    "exact_database_or_table": {
+      "evidence": [
+        "Actual search results centered on permutation codes, tournament rankings, covariance of inversion indicators, and learning from rankings; none of the returned summaries states the sequence 0,1,2,4,6,9,11 or a seven-item depth-twelve obstruction.",
+        "Direct prior claims were compared for exact objects and dimensions; closest previous result concerns static VC dimension of linear extensions."
+      ],
+      "reasoning": "Searched numerical and structural aliases, including seven-item entropy deficit and depth-11 versus depth-12 comparison trees. No matching published exact table was found; this is negative evidence, not proof of originality.",
+      "searches": [
+        "Seven alternatives all rankings comparison query Littlestone dimension 11 rather than information bound 12; first failure to shatter binary decision tree of size 4096",
+        "Exact online mistake bound all permutations on n=2 through 7 comparing pairs; values 1 2 4 6 9 11",
+        "Static VC dimension n-1 and Littlestone dimension 11 for permutations of seven elements, adaptive sorting from comparisons",
+        "Full binary comparison decision trees, balanced partial orders, 7 elements, order extensions",
+        "Littlestone dimension of all total orders permutation comparison queries exact"
+      ]
+    },
+    "rationale": "The prior general finite-poset comparison-VC classification already entails the static n-1 dimension, and no novelty is claimed for it. The new adaptive claims are the exact 1..7 Littlestone table, the first deficit relative to floor(log2 n!) at seven, and the disjoint-block amplification lower bound. Actual semantic research-index queries, the accessible previous comparison claim, and relevant published mathematical literature were compared on these statements and implication directions. The inspected 2017 top-k noisy-ranking section and the 2026 ranking-counterexample paper have different feedback and objectives. General Littlestone-theory abstracts and closure bounds do not themselves imply an exact seven-item table. Residual historical-priority uncertainty remains explicit.",
+    "residual_risks": [
+      "Older sorting-decision-tree and teaching-dimension literature may express the maximal complete pair-comparison mistake depth without using Littlestone terminology; historical priority is not conclusively settled.",
+      "The full manuscripts of general learning-dimension papers were not all available for inspection; abstract-only conclusions are not used as claims of whole-document noncoverage.",
+      "Semantic index search nonappearance does not prove uniqueness or absence of equivalent corollaries."
+    ],
+    "source_inspections": [
+      {
+        "assessment": "Not covering the deterministic all-total-orders Littlestone-depth table in the inspected ranking model; it optimizes noisy top-k feedback and number of adaptive rounds.",
+        "evidence": [
+          "2017 publication, Section 3 describes Borda scores and pairwise comparison sample bounds",
+          "No Littlestone string in full-text search"
+        ],
+        "identifier_or_url": "https://proceedings.mlr.press/v65/agarwal17c/agarwal17c.pdf",
+        "material_read": "Full-text PDF search plus abstract, introduction, Table 2 and Section 3 ranking discussion (PDF pages 1,4,12-13)",
+        "method": "PDF text and page-image inspection; full-text term searches for Littlestone and VC dimension",
+        "title": "Learning with Limited Rounds of Adaptivity: Coin Tossing, Multi-Armed Bandits, and Ranking from Pairwise Comparisons",
+        "trigger": "Identical ranking and pairwise-comparison vocabulary with possible adaptive coverage"
+      },
+      {
+        "assessment": "Does not cover the claim in the inspected sections: learner proposes an entire ranking; counterexample oracle returns an erroneous pair, unlike a binary query chosen from all pairs.",
+        "evidence": [
+          "Section 1 and Section 3 expressly distinguish the direction of the interaction",
+          "Complexity theorem concerns sorting from counterexamples, not seven-item complete mistake trees"
+        ],
+        "identifier_or_url": "https://arxiv.org/html/2608.21579v1",
+        "material_read": "HTML abstract, Introduction, Related Work and references, including explicit model comparison in Section 3",
+        "method": "Full-text HTML source section reading and in-document searches",
+        "title": "Sorting from Counterexamples",
+        "trigger": "Learning unknown full linear orders from pairwise errors, possible reduction to the same invariant"
+      },
+      {
+        "assessment": "Relevant conceptual source; abstract does not establish permutation-comparison finite values. No full-document exclusion asserted.",
+        "evidence": [
+          "First public arXiv version dated 2018-06-04",
+          "Study concerns private PAC learning and general Littlestone dimension"
+        ],
+        "identifier_or_url": "https://arxiv.org/abs/1806.00949",
+        "material_read": "Public arXiv bibliographic record and abstract; full manuscript not obtained",
+        "method": "arXiv abstract and publication date verified",
+        "title": "Private PAC learning implies finite Littlestone dimension",
+        "trigger": "Primary conceptual introduction of Littlestone dimension in modern learning"
+      },
+      {
+        "assessment": "General Boolean aggregation upper bounds; direct implication to exact seven-item table is not supplied by inspected material. No full-document noncoverage claim.",
+        "evidence": [
+          "ALT 2021 abstract frames results as closure bounds for aggregations"
+        ],
+        "identifier_or_url": "https://proceedings.mlr.press/v132/ghazi21a.html",
+        "material_read": "Complete PMLR bibliographic HTML, abstract and listed results; full PDF not inspected",
+        "method": "Publisher abstract and metadata inspection",
+        "title": "Near-tight Closure Bounds for the Littlestone and Threshold Dimensions",
+        "trigger": "A possible general closure principle implying a product lower bound"
+      }
+    ],
+    "status": "PASS"
+  },
+  "review_type": "self_review",
+  "schema_version": 1,
+  "scope_run_id": "6c4de5b6-28dc-4627-84c5-9b929ce809ae",
+  "self_review_status": "passed",
+  "value": {
+    "rationale": "The first failure at seven of the natural entropy ceiling is a sharp structural boundary in the optimal adversarial online mistake problem for ordering all labels. The exact short table is not an arbitrary parameter slice: it settles the first capacity obstruction beyond cardinality. The complete negative finite proof and explicit positive witnesses provide reusable benchmark instances for adaptive comparison decision-tree complexity. The six-item witness grafts to full unrestricted total-order classes on arbitrarily many labels, proving a linear adaptive-minus-VC gap. This is a mathematical distinction not supplied by the earlier static comparison-support theorem.",
+    "status": "PASS"
+  }
+}

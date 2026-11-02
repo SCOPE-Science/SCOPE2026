@@ -1,0 +1,102 @@
+{
+  "correctness": {
+    "rationale": "For all positive finite \\(r,g\\), the exact quadratic generator identity gives a Foster–Lyapunov bound and stationary centering. Diagonalizing the linear SDE after its last Poisson reset yields the exact mean and variance. Palm sampling of the bath state and exponential age gives an integral identity with preserved memory. Jensen supplies divergence of \\(\\mathbb E e^{sX}\\) at \\(|s|\\ge\\sqrt{r(g+1)}\\); a compact bath event, Gaussian Mills asymptotics and saddle minimization yield \\(\\liminf_{z\\to\\infty}z^{-1}\\log\\mathbb P(X>z)\\ge-\\sqrt{r(g+1)}\\). The separately defined bounded-variance Gaussian mixture has quadratic log-tail rate \\(r/[2(2r+1)]\\). The standalone symbolic program verifies the critical finite algebra. No exact finite-\\(g\\) upper tail or parameter limit is asserted.",
+    "status": "PASS"
+  },
+  "independent": false,
+  "independent_audit_status": "not_performed",
+  "originality": {
+    "broader_coverage": {
+      "evidence": [
+        "Falcao and Evans, arXiv:1610.03503v1, full-text sections 1–2: reset events are triggered by collisions and reset both particles; the stochastic mechanism and preserved-variable claim differ.",
+        "Santra and Das, arXiv:2603.17027v1, explain that arbitrary finite-parameter stationary densities are not obtained in closed form, and treat the frozen bath by time-scale separation."
+      ],
+      "reasoning": "A general theorem for partially reset linear diffusions with a free Brownian common mode might imply the claim without mentioning this paper. No such explicit dominating theorem was located during the targeted search. Generic full-reset renewal formulas do not directly apply because the bath is not reset, whereas the present proof uses the Palm bath marginal.",
+      "searches": [
+        "harmonically coupled two overdamped Brownian particles resetting only tracer nonrenewal stationary marginal tail exponential large deviations",
+        "two coupled Brownian particles one reset fixed other unreset stationary distribution tails",
+        "Noncommuting Gaussian and exponential spatial tails in stochastic tracer resetting with finite viscoelastic bath relaxation time; sharp lower escape tail rate sqrt(r(1+gamma))"
+      ]
+    },
+    "checked_sources": [
+      "arxiv:2603.17027v1; full-text model, free covariance, stationary moments, quasistatic density, appendix.",
+      "arxiv:1610.03503v1; interacting two-particle resets of a different type.",
+      "Targeted semantic published-mathematics searches for finite-bath-memory Gaussian/exponential tail boundaries and moment-generating thresholds."
+    ],
+    "claim_vs_prior_implication": {
+      "evidence": [
+        "Santra and Das arXiv:2603.17027v1 Eq. (7) gives the same Gaussian free covariance from which one can start the new conditioning argument, while Eq. (28) gives a bounded-variance mixture only in the quasistatic reduction.",
+        "The current statement derives additional Palm-conditioning, Jensen-divergence, and optimized Gaussian-age lower-bound implications not asserted in the motivating publication."
+      ],
+      "reasoning": "The source free propagator supplies ingredients but does not imply a stationary finite-memory tail without controlling the bath at a last reset. The new conditioning identity uses the stationary bath marginal and shows why arbitrarily long event-free intervals rule out a quadratic large-deviation tail. The comparison is explicitly only to the defined Gaussian quasistatic mixture, so it does not invalidate the source asymptotic under its intended order of limits.",
+      "searches": [
+        "resetting viscoelastic bath tracer only reset stationary far-tail exponential Gaussian finite memory",
+        "Brownian probe viscoelastic bath long no resets exponential tail Gaussian singular perturbation resetting",
+        "resetting in a viscoelastic bath the bath remembers Santra Das rigorous Gaussian tail finite gamma asymptotic"
+      ]
+    },
+    "equivalent_formulations": {
+      "evidence": [
+        "arXiv:2603.17027v1, sections II.1 and III.3: exactly the same two-coordinate model; Eqs. (7) and (28) concern free covariance and a quasistatic mixture, not a fixed-finite-friction long-distance bound.",
+        "A published mathematical-record search for these phrases returned no directly corresponding theorem on the stationary exponential-moment threshold of this preserved-bath model."
+      ],
+      "reasoning": "An equivalent theorem would quantify the finite-friction exponential-moment obstruction or establish a Gaussian-versus-finite-memory far-tail nonuniformity in the same model. Neither the published Gaussian quasistatic density nor the stationary second/fourth moments imply the stated lower bound on all large-distance probabilities.",
+      "searches": [
+        "viscoelastic bath tracer only position reset no reset medium bath finite memory stationary exponential far tail Gaussian core noncommuting large gamma limit",
+        "partially reset coupled Ornstein Uhlenbeck stationary distribution exponential tails resetting one coordinate",
+        "resetting probe memory retaining bath position Gaussian core exponential tails long no-reset"
+      ]
+    },
+    "exact_database_or_table": {
+      "evidence": [
+        "arXiv:2603.17027v1 tabulates finite-parameter stationary moments and numerically plots stationary distributions; it has no stated full finite-parameter tail table or the divergence boundary.",
+        "Published-result semantic searches produced general memory/OU/resetting results rather than a database or table for the particular far-tail bound."
+      ],
+      "reasoning": "The claim is about an asymptotic probability exponent and the finiteness domain of Laplace transforms; matching variance/kurtosis tables or a numerical density plot do not determine either, and no exact far-tail table was located.",
+      "searches": [
+        "Resetting in a viscoelastic bath the bath remembers Santra Das rigorous Gaussian tail finite gamma asymptotic",
+        "Santra Das 2026 coupled overdamped tracer x and bath q, position-only Poisson resetting, long gap escape causing finite moment generating function radius",
+        "resetting viscoelastic bath tracer only reset stationary far-tail exponential Gaussian finite memory"
+      ]
+    },
+    "rationale": "The exact source model and reset-free Gaussian covariance are credited to Santra and Das, who derive the quasistatic Gaussian mixture but do not derive a finite-parameter exponential-moment divergence threshold or the quantitative large-distance tail lower bound. Falcao and Evans study collision-triggered resetting of both interacting particles rather than an unreset bath coordinate. Relevant published-record searches and exact-claim comparisons did not show direct coverage; general renewal-age mixture methods may imply parts and remain a qualified residual priority risk.",
+    "residual_risks": [
+      "A general result on tails of partially reset non-hypoelliptic/linear diffusions could entail this bound without matching model terminology.",
+      "The source paper may have subsequent revisions or follow-up literature beyond the inspected version; a search miss cannot prove absolute novelty.",
+      "The comparison Gaussian mixture is a formal quasistatic law, not a rigorously proved stationary finite-friction limit here."
+    ],
+    "source_inspections": [
+      {
+        "assessment": "Source establishes the model, variance and quasistatic Gaussian mixture but does not provide a finite-\\(g\\) moment-generating divergence or large-distance exponential lower bound.",
+        "evidence": [
+          "arXiv:2603.17027v1 Eqs. (2), (7), (11), (19), (28), and discussion of limiting tail after Eq. (28)."
+        ],
+        "identifier_or_url": "https://arxiv.org/html/2603.17027",
+        "material_read": "Full article HTML: model and propagator in section II.1; Poisson resetting generator, moment equations, stationarity and stationary distribution in section III; noninstantaneous return discussion in section IV; Appendix and conclusion.",
+        "method": "Read substantive primary full-text equations and surrounding arguments; compared finite-parameter and quasistatic assertions.",
+        "title": "Resetting in a viscoelastic bath: the bath remembers",
+        "trigger": "Exact same stochastic model, source of Gaussian quasistatic claim and reset-free covariance."
+      },
+      {
+        "assessment": "Not covering: collision-triggered resets of both particles have a different Markov generator and no retained bath coordinate at exogenous Poisson times.",
+        "evidence": [
+          "arXiv:1610.03503v1, Introduction and section 2."
+        ],
+        "identifier_or_url": "https://arxiv.org/abs/1610.03503",
+        "material_read": "Primary full-text introduction and definition of collision-triggered interacting-particle reset model, plus abstract and stationary-law scope.",
+        "method": "Read arXiv full-text rendering, comparing the resetting mechanism and whether a bath variable survives resets.",
+        "title": "Interacting Brownian Motion with Resetting",
+        "trigger": "Plausible two-Brownian-particle resetting predecessor with stationary laws."
+      }
+    ],
+    "status": "PASS"
+  },
+  "review_type": "self_review",
+  "schema_version": 1,
+  "scope_run_id": "7d57b733-f684-46bd-bc84-204edcca7ae1",
+  "self_review_status": "passed",
+  "value": {
+    "rationale": "The motivating physical gap is whether the strong-memory quasistatic Gaussian profile remains accurate arbitrarily far into the stationary tails when the bath has very large but finite friction. The result gives a quantitative nonuniformity: for every finite bath friction a rare long Poisson-free interval produces diffusive motion of the free common mode, forcing an exponential-moment obstruction and at least exponentially likely large excursions. This is a structural boundary for interpreting stationary rare events, beyond reproducing a known moment or changing a numerical coefficient.",
+    "status": "PASS"
+  }
+}

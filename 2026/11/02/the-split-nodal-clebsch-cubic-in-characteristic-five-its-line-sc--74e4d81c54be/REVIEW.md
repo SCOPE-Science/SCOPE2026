@@ -1,0 +1,15 @@
+# Review: split nodal Clebsch cubic in characteristic five
+
+## Correctness — PASS
+For the specified integral cubic, characteristic-five coordinates give \(TQ=H\) with nonsingular \(Q\) and six transverse rational base points. The six-point blowup is the minimal resolution and contracts only the strict transform of \(Q\). Divisor-intersection and Cauchy estimates yield exactly six nodal and fifteen nonnodal lines. Explicit Grassmann chart computations have Jacobian ranks three and four respectively and a nonvanishing quadratic obstruction at the nodal-line chart, proving local lengths two and one. The length sum \(6\cdot2+15=27\) equals the generic line-scheme degree, proving finite flatness. The blowup-contraction point-count argument proves the formula over every finite extension. A self-contained exact verifier reruns finite charts, line identities, and \(\mathbb F_5,\mathbb F_{25}\) checks.
+
+## Originality — PASS (qualified)
+Cynk–van Straten (arXiv:0804.0668, pp. 12–13) explicitly note the characteristic-five node but do not give the full special relative Fano scheme, the six-point arithmetic and the all-extension zeta function together. Baez's 2016 exposition addresses the generic twenty-seven lines. Dolgachev–Martin (2024), Remark 5.7, confirms the characteristic-five singularity without the stated Fano special-fiber multiplicities or point counts. Published mathematical-record queries for the special Clebsch line scheme and conic blowup did not reveal an equivalent claim. Generic theory of nodal cubics covers part of the geometric count and imposes real residual priority risk; it does not identify this particular split six-point structure without additional calculations. Originality here is a qualified best-knowledge judgment, not a guarantee of global uniqueness.
+
+## Mathematical value — PASS
+The Clebsch diagonal cubic is a maximally symmetric classical cubic surface, and characteristic five is its distinguished bad-reduction prime. The specific integral Fano scheme retains all twenty-seven line multiplicities in a uniform flat arithmetic degeneration, while the special cubic has twenty-one visible geometric lines and an unexpectedly fully split six-point blowup. The exact local thickening and Frobenius-split exceptional resolution give a natural, complete special-fiber invariant and a zeta function for all extensions. This is structural degeneration geometry, not an arbitrary finite slice or a mere recount of known twenty-seven lines.
+
+## Sources and risks
+Primary: S. Cynk and D. van Straten, *Small Resolutions and Non-Liftable Calabi–Yau Threefolds*, arXiv:0804.0668, §6.1 (primary text pp. 10–13 examined). Supporting: J. Baez, *27 Lines on a Cubic Surface* (AMS Visual Insight, 2016); I. Dolgachev and G. Martin, *Automorphisms of del Pezzo surfaces in odd characteristic* (2024), Remark 5.7. The highest residual risk is an older arithmetic treatment of the Clebsch surface or a general line-scheme theorem implying the six double points. No independent audit was performed; proof and arithmetic checks are packaged.
+
+Self-review: passed. Independent audit: not yet performed.

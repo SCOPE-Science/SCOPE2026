@@ -1,0 +1,112 @@
+{
+  "correctness": {
+    "rationale": "The theorem is reconstructed from the exact orthogonal Gaussian decomposition Av=(a+Delta W)v+Delta sqrt(W(1-W))u with W~Beta(q/2,p/2), and the independent Student ratio U=Z/chi_k. Below/above interval events yield the two regularized beta functions. Gamma ratios give each boundary contribution and the min(p,q)/2 scale. An explicit positive-part beta integral yields mean overshoot and conditional mean, with controlled endpoint domination by bounded small-u integrals and arbitrarily high inverse-chi moments for large k. The regularly varying density of U and beta integration produce the fixed-k tail constant; the strict moment threshold follows by tail integration. The standalone checker validates symbolic identities, finite-row special cases, exact beta quadrature, tail constants, and 960000 independent Gaussian sketches, but finite checks are not treated as infinite proofs. Not proved: multilevel spectra, non-Gaussian sketches, finite precision.",
+    "status": "PASS"
+  },
+  "independent": false,
+  "independent_audit_status": "not_performed",
+  "originality": {
+    "broader_coverage": {
+      "evidence": [
+        "Nakatsukasa–Tropp arXiv:2111.00113, §§6.1, 6.8: the sketched Rayleigh–Ritz generalized eigenproblem and loss of symmetric spectral structure are described; no probability law over Haar trial vectors, multiplicity exponent, or sharp overshoot constant appears in these inspected portions.",
+        "Balabanov–Grigori arXiv:2111.14641v2, §4.4 and supplementary Rayleigh-quotient discussion: the sketched quotient and embedding-based residual comparisons are explicit, but neither a joint Gaussian-sketch/Haar-direction beta mixture nor its edge asymptotics is supplied in those inspected portions.",
+        "Classical Courant–Fischer min–max applies to unsketched symmetric projections and guarantees interval inclusion; it does not apply to the nonsymmetric sketched inner product."
+      ],
+      "reasoning": "The prior sketched-projection analyses treat general matrices and subspaces and provide embedding-conditioned approximation/error statements; these are broader in objects but not in the claimed exact unconditional probability and sharp constants. Standard Rayleigh interlacing covers a different symmetric inner product and inapplicably predicts no escape. One-vector two-level geometry is essential to the present exact law.",
+      "searches": [
+        "randomized sketched Rayleigh Ritz spectral interval violation random Haar unit vector two eigenvalues eigenvalue multiplicities",
+        "subspace embeddings sketched Rayleigh quotient Min Max violation symmetric eigenvalue spectral bounds Student t"
+      ]
+    },
+    "checked_sources": [
+      "arxiv:2111.00113 full open-access HTML, Section 6.1 and 6.8, https://ar5iv.labs.arxiv.org/html/2111.00113",
+      "arxiv:2111.14641v2 full open-access HTML, Sections 4.4 and supplementary sketched-Rayleigh discussion, https://arxiv.org/html/2111.14641v2",
+      "arxiv:2604.01037 abstract-only, full comparison unresolved",
+      "Published-record and web searches for Gaussian-sketch Ritz spectral-envelope failure, Student-ratio geometry, beta mixture, and multiplicity exponents"
+    ],
+    "claim_vs_prior_implication": {
+      "evidence": [
+        "Nakatsukasa–Tropp arXiv:2111.00113, §§6.1, 6.8: the sketched Rayleigh–Ritz generalized eigenproblem and loss of symmetric spectral structure are described; no probability law over Haar trial vectors, multiplicity exponent, or sharp overshoot constant appears in these inspected portions.",
+        "Balabanov–Grigori arXiv:2111.14641v2, §4.4 and supplementary Rayleigh-quotient discussion: the sketched quotient and embedding-based residual comparisons are explicit, but neither a joint Gaussian-sketch/Haar-direction beta mixture nor its edge asymptotics is supplied in those inspected portions.",
+        "The direct conditional Gaussian quotient formula implies finite-k Student tails for each fixed v, and after an independent beta-distribution calculation supplies the kernel from which the new exact Haar-averaged statements are derived."
+      ],
+      "reasoning": "Neither inspected primary text states a sharp fixed-multiplicity \\(k^{-\\min(p,q)/2}\\) failure law, a mean overshoot of one extra inverse power, or the Beta/Gamma tail constant. The conditional Gaussian quotient identity is not novel and implies these only upon adding the new Haar eigenspace distribution and carrying out edge integrals with exact coefficients; the accepted claim is restricted to that derived structural theorem. This is not a statement that lack of search results establishes publication priority.",
+      "searches": [
+        "Gaussian sketched Rayleigh-Ritz Ritz value Haar random one-dimensional trial space probability spectral interval violation exact mean overshoot and k power law",
+        "randomized sketched Rayleigh Ritz spectral interval violation random Haar unit vector two eigenvalues eigenvalue multiplicities",
+        "Fast and Accurate Randomized Algorithms for Linear Systems and Eigenvalue Problems sketched Rayleigh–Ritz symmetric case",
+        "Randomized block Gram-Schmidt process randomized RR sketched Rayleigh quotient supplementary"
+      ]
+    },
+    "equivalent_formulations": {
+      "evidence": [
+        "Nakatsukasa–Tropp arXiv:2111.00113, §§6.1, 6.8: the sketched Rayleigh–Ritz generalized eigenproblem and loss of symmetric spectral structure are described; no probability law over Haar trial vectors, multiplicity exponent, or sharp overshoot constant appears in these inspected portions.",
+        "Balabanov–Grigori arXiv:2111.14641v2, §4.4 and supplementary Rayleigh-quotient discussion: the sketched quotient and embedding-based residual comparisons are explicit, but neither a joint Gaussian-sketch/Haar-direction beta mixture nor its edge asymptotics is supplied in those inspected portions.",
+        "The conditional identity (Sv)^T(SAv)/||Sv||² = a+Delta[W+sqrt(W(1-W))Z/chi_k] is a Student-ratio representation; its joint Haar–Gaussian mixture is an endpoint-weighted beta law rather than the fixed-direction Student law."
+      ],
+      "reasoning": "A full exact conditional Student law for a deterministic vector is an upstream component. Replacing the deterministic vector by a Haar direction changes the quantity to an explicitly integrated interval-failure event and reveals the extreme-eigenspace multiplicity exponent. The result is not a new Student distribution, a renaming of the ordinary Rayleigh quotient, or an assertion of novelty for Gaussian rotational invariance.",
+      "searches": [
+        "sketched Rayleigh quotient symmetric matrix two eigenvalues random trial unit vector spectral leakage probability arctan Student t law",
+        "random eigenvector Gaussian sketched Ritz a+cZ/chi sketch rows spectral envelope escape mean overshoot one-dimensional",
+        "student t sketched Ritz generalized Rayleigh quotient real symmetric two eigenvalue dimension spectral interval probability"
+      ]
+    },
+    "exact_database_or_table": {
+      "evidence": [
+        "No exact table of spectral escape probabilities, edge multiplicity phase rates, and fixed-k overshoot coefficients was identified in the targeted published-record and literature queries; absence of a hit is not a proof of uniqueness.",
+        "The elementary planar cases P_{1,1,1}=1/2 and P_{1,1,2}=1-2/pi can be reconstructed directly from the derived beta law and are not claimed as isolated discoveries."
+      ],
+      "reasoning": "Targeted lookups sought full beta-mixture formulas, finite-row tail coefficients, and extreme-eigenspace multiplicity exponents rather than only matching titles. Closest retrieved publications address sketched methods and deterministic embedding accuracy, not an already-tabulated equivalent law. An unindexed specialized calculation remains a priority risk.",
+      "searches": [
+        "Gaussian sketched Rayleigh-Ritz Ritz value Haar random one-dimensional trial space probability spectral interval violation exact mean overshoot and k power law",
+        "random sketch Rayleigh quotient Gaussian two-point spectrum beta distribution overshoot eigenvalues",
+        "Gaussian sketch rank one Rayleigh Ritz estimate outside eigenvalue interval Haar random trial direction leakage probability k^(-1/2) spectral overshoot k^(-3/2)"
+      ]
+    },
+    "rationale": "The Gaussian quotient/Student law and the random-sketched projection equation are established starting points. The assessed new mathematical statement is the **unconditional** exact beta-mixture escape probability for the global two-level spectral interval, the edge-multiplicity-dependent sharp rates, the conditional violation scale, and the explicit large-overshoot constant. These are not asserted by the inspected directly relevant primary texts. An adjacent fixed-direction Gaussian quotient identity entails the conditional kernel but not the endpoint analysis and its sharp averaged constants as a stated result. No independence of publication priority is asserted.",
+    "residual_risks": [
+      "A specialized Gaussian/sketched-eigenvalue paper or database record may already contain the exact joint beta-mixture asymptotics without matching search terminology.",
+      "The fixed-trial Student ratio is already established; an expert could judge the beta integration and its edge phase diagram as a derivative refinement rather than an independently new discovery.",
+      "The 2026 randomized-Ritz paper was inspected only through an abstract because full accessible HTML was unavailable; coverage cannot be excluded from a snippet.",
+      "No independent scientific or publication-priority audit has been performed."
+    ],
+    "source_inspections": [
+      {
+        "assessment": "DOES_NOT_STATE_THE_CLAIM_IN_INSPECTED_MATERIAL",
+        "evidence": "Nakatsukasa–Tropp arXiv:2111.00113, §§6.1, 6.8: the sketched Rayleigh–Ritz generalized eigenproblem and loss of symmetric spectral structure are described; no probability law over Haar trial vectors, multiplicity exponent, or sharp overshoot constant appears in these inspected portions.",
+        "identifier_or_url": "https://ar5iv.labs.arxiv.org/html/2111.00113",
+        "material_read": "Full accessible HTML, with focused reading of Sections 1.3, 6.1–6.8 and symmetric case (§6.8); the remaining sections scanned for exact-probability comparisons.",
+        "method": "Read full open-access HTML, locate and compare the sketched Ritz generalized eigenproblem and symmetric case",
+        "title": "Fast & Accurate Randomized Algorithms for Linear Systems and Eigenvalue Problems",
+        "trigger": "Motivating first public source and closest sketched eigenvalue algorithm"
+      },
+      {
+        "assessment": "DOES_NOT_STATE_THE_CLAIM_IN_INSPECTED_MATERIAL",
+        "evidence": "Balabanov–Grigori arXiv:2111.14641v2, §4.4 and supplementary Rayleigh-quotient discussion: the sketched quotient and embedding-based residual comparisons are explicit, but neither a joint Gaussian-sketch/Haar-direction beta mixture nor its edge asymptotics is supplied in those inspected portions.",
+        "identifier_or_url": "https://arxiv.org/html/2111.14641v2",
+        "material_read": "Full accessible HTML; focused Sections 4.4, 5.3 and supplementary discussion including the explicit Rayleigh-quotient formula near its end.",
+        "method": "Read accessible open-access HTML sections and supplementary sections; compare formulas and claimed probability/risk outcomes",
+        "title": "Randomized block Gram-Schmidt process for solution of linear systems and eigenvalue problems",
+        "trigger": "Direct sketched Rayleigh quotient formula and randomized Rayleigh–Ritz analysis"
+      },
+      {
+        "assessment": "INCOMPLETE_INSPECTION_POTENTIAL_PRIORITY_RISK",
+        "evidence": "The available abstract concerns output convergence for a randomized Ritz extraction scheme, not an explicit two-level independent Gaussian sketch; full text unavailable, so no whole-document negative coverage assertion is made.",
+        "identifier_or_url": "https://arxiv.org/abs/2604.01037",
+        "material_read": "Abstract and metadata only; accessible full HTML could not be retrieved",
+        "method": "Opened arXiv abstract listing and attempted to access open full HTML",
+        "title": "Stabilizing the Rayleigh–Ritz procedure by randomization",
+        "trigger": "Highly plausible later randomized-Ritz title; needs comparison despite different apparent randomization"
+      }
+    ],
+    "status": "PASS"
+  },
+  "review_type": "self_review",
+  "schema_version": 1,
+  "scope_run_id": "797c5afe-2e63-4a29-b3e0-ca93cd3c34f1",
+  "self_review_status": "passed",
+  "value": {
+    "rationale": "Spectral-envelope inclusion is a natural invariance of symmetric Rayleigh–Ritz; a non-symmetric sketched inner product may fail it. The finding measures both occurrence and size, quantifies distinct rates controlled by the smaller extreme eigenspace multiplicity, and separates frequency \\(k^{-r/2}\\) from mean severity \\(k^{-r/2-1}\\) and rare \\(t^{-k}\\) tails. These exact positive constants supply a meaningful stress-test benchmark for randomized eigenvalue methods, especially at very small sketch sizes; the theorem does not extrapolate to every eigensolver or guarantee better performance.",
+    "status": "PASS"
+  }
+}

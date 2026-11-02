@@ -1,0 +1,135 @@
+{
+  "correctness": {
+    "rationale": "The exact independent-choice construction and precise zero-child definition fix all quantifiers for n≥3. The i<j joint root/terminal event gives Cov(A_j,B_i)=(n-j)q^(n-i-1)/(n-1)^2, with zero for j≤i; summing and differentiating a finite geometric series gives the stated covariance. Conditional on independent Bernoulli root flags and fixed older-parent targets, both counts are increasing coordinatewise; an elementary induction proves product-measure positive association, with explicit pivotal event for strictness. Exact two-terminal joint probabilities imply the variance formula, and uniform Taylor expansions control both asymptotic Riemann sums and yield the positive correlation constant. A standalone fully independent exact enumeration checks 425 identities/inequalities over 50,068 configurations; the unrestricted proof does not rely on those finite checks.",
+    "status": "PASS"
+  },
+  "independent": false,
+  "independent_audit_status": "not_performed",
+  "originality": {
+    "broader_coverage": {
+      "evidence": [
+        "arXiv:1906.08806, Proposition 3.1: exact law of component count and its variance; Proposition 4.1: individual total-degree law, not the joint root–terminal dependence.",
+        "arXiv:1906.08806, manuscript §2.2 states its forest is not the previously studied uniform recursive-forest model.",
+        "Balińska–Quintas–Szymański, Random recursive forests, doi:10.1002/rsa.3240050103: publisher abstract describes degree counts and root locations under a uniform recursive-forest model, not this stationary Moran law."
+      ],
+      "reasoning": "A general stochastic law of the whole forest of course permits a new observable to be calculated, but the prior sampling representation alone does not supply the quantified positive-association theorem or evaluated covariance and correlation. The older and other published-result models do not dominate the stationary Moran distribution by an established implication.",
+      "searches": [
+        "Bienvenu Duchamps Foutel Rodier Moran forest number of trees leaves covariance",
+        "random recursive forest uniformly chosen leaves root count covariance generating function",
+        "\"Random Recursive Forests\" \"Balinska\" \"Quintas\" \"Szymanski\" pdf 1994"
+      ]
+    },
+    "checked_sources": [
+      "arXiv:1906.08806 (June 20, 2019 first public version), author-hosted full manuscript, §2.2/§3.1/§4.1",
+      "doi:10.1002/rsa.20997 (2021 journal version of focal source, not a separate first publication)",
+      "doi:10.1002/rsa.3240050103 (1994 publisher abstract; full text inaccessible)",
+      "Public research-result records: Equal-share covariance of root degree and leaves in a random recursive tree; Exact negative regression between endpoint degree and distance in a uniform Cayley tree"
+    ],
+    "claim_vs_prior_implication": {
+      "evidence": [
+        "Proposition 2.1 of arXiv:1906.08806 fixes the model and gives independent choices; the present proof adds joint root/terminal exclusion probabilities, a coordinatewise-monotone coupling, and a terminal-pair variance calculation.",
+        "Proposition 3.1 of arXiv:1906.08806 determines Var(number of trees) but cannot determine its covariance with a different count from marginals alone.",
+        "Equal-share covariance of root degree and leaves in a random recursive tree (published result record, October 2026) computes Cov(root degree, leaf count) in a connected recursive tree, which does not imply Cov(component count, zero-child count) in the Moran stationary forest.",
+        "Exact negative regression between endpoint degree and distance in a uniform Cayley tree (published result record, October 2026) is a conditional law for endpoint degree given distance under the Cayley model; it cannot imply the positive-association theorem here."
+      ],
+      "reasoning": "The exact new claim is neither a renamed version of a prior displayed formula nor a special case of the published-result statements compared. Positive association holds for all nondecreasing transforms of two counts and is not inferable solely from their univariate marginal laws. The principal novelty risk is that another source may already have made this specific joint computation from the same known construction.",
+      "searches": [
+        "Moran forest number of trees terminal leaves correlation",
+        "random forest uniform attachment backward construction root indicators terminal vertices leaves covariance positive nonvanishing correlation",
+        "Bienvenu Duchamps Foutel Rodier Moran forest number of trees leaves covariance"
+      ]
+    },
+    "equivalent_formulations": {
+      "evidence": [
+        "arXiv:1906.08806, §2.2 Proposition 2.1 and §§3.1,4.1: root indicators and degree marginals; the tested claim concerns their cross-statistic with zero-child terminal indicators.",
+        "Direct full-text search of the author-hosted 34-page Moran forest manuscript for leaves, joint, Cov found no dedicated mixed-statistic theorem; only a reference title mentions leaves.",
+        "Equal-share covariance of root degree and leaves in a random recursive tree (published result record, October 2026): a root-degree statistic of a single connected recursive tree; the Moran component count is random and has order n."
+      ],
+      "reasoning": "Aliases examined include component count, number of trees, roots, terminal/leaf vertices, outdegree zero, and root–leaf dependence. In a rooted forest, terminal (zero children) is not the same as degree-one or total-degree-zero, eliminating a potentially misleading apparent match. Identical Bernoulli product proofs do not identify the distinct tree measures.",
+      "searches": [
+        "Moran forest stationary distribution number of roots number of leaves joint covariance positive association stochastic dependence",
+        "random forest uniform attachment backward construction root indicators terminal vertices leaves covariance positive nonvanishing correlation",
+        "\"Moran forest\" \"leaves\" \"roots\" covariance",
+        "\"Moran forest\" \"terminal\" correlation"
+      ]
+    },
+    "exact_database_or_table": {
+      "evidence": [
+        "arXiv:1906.08806: Table 1 lists the number of trees and individual-degree limiting statistics, without a root–terminal joint covariance table.",
+        "Equal-share covariance of root degree and leaves in a random recursive tree (published result record, October 2026): concerns a connected uniform recursive tree and different statistics; not an exact table for the stationary Moran forest.",
+        "Exhaustive new enumeration on 3≤n≤7 independently reproduced the derived formulas, but no claim is made that finite enumeration establishes database novelty."
+      ],
+      "reasoning": "Actual source and result-record searches did not yield an explicit tabulation or classification of the requested statistic. Absence of a retrieved database hit is not proof of uniqueness; the focal distributional construction could hide an equivalent implicit enumeration.",
+      "searches": [
+        "\"Moran forest\" \"leaf count\" \"number of trees\"",
+        "\"Moran forest\" \"joint distribution\" roots leaves",
+        "\"Moran forest\" \"total number of leaves\"",
+        "Moran forest stationary distribution number of roots number of leaves joint covariance positive association stochastic dependence"
+      ]
+    },
+    "rationale": "Originality is relative to the inspected and available record. The focal source [arXiv:1906.08806, sections 2.2, 3.1, 4.1] contains the independent-choice forest representation, the component-count law, and the individual degree marginal; these are prior inputs. It does not state the root–zero-child-terminal cross-covariance kernel, all-monotone positive association, exact finite covariance, or nonzero correlation limit. Published-result comparisons on recursive-tree root degree/leaves and Cayley endpoint degree/distance are distinct stochastic models and their statements do not imply the Moran-forest theorem. The older uniform recursive-forest paper has a different forest sampling law and was not accessible in full; implicit historical derivations remain a material caveat.",
+    "residual_risks": [
+      "A prior paper may implicitly derive the same mixed covariance from the known independent-choice Moran construction, even if the inspected focal paper does not display it.",
+      "Complete original text of the 1994 uniform recursive-forest article was unavailable; its different model reduces but does not eliminate broader combinatorial-priority uncertainty.",
+      "Closest published result records were available as titles and summaries; their full underlying texts could not be opened. Their named models and observables differ materially."
+    ],
+    "source_inspections": [
+      {
+        "assessment": "Sampling construction and marginal root/degree results are prior. Inspected material contains no displayed root-count/zero-child-terminal covariance or association theorem. Document-wide search cannot certify global absence of differently named equivalent formulations.",
+        "evidence": [
+          "§2.2 Proposition 2.1 and its proof, §§3.1 Proposition 3.1, 4.1 Proposition 4.1",
+          "arXiv:1906.08806 and doi:10.1002/rsa.20997"
+        ],
+        "identifier_or_url": "https://www.normalesup.org/~bienvenu/articles/BienvenuRSA2021.pdf",
+        "material_read": "34-page full manuscript: contents and introduction, sections 2.1–2.2, 3.1–3.2, 4.1, and document-wide keyword searches for leaves, joint, Cov; one visual PDF-page inspection",
+        "method": "Full-author-manuscript text inspection and page-image inspection",
+        "title": "The Moran forest",
+        "trigger": "Identical stochastic model and independent-choice representation"
+      },
+      {
+        "assessment": "Uses uniform recursive forest rather than the Moran stationary measure, as explicitly distinguished by the focal paper. Its full text could not be inspected; coverage cannot be ruled out purely from its abstract.",
+        "evidence": [
+          "1994 publisher abstract lists uniform recursive-forest component and degree questions",
+          "The Moran forest §2.2 distinguishes its law from preexisting uniform recursive forests"
+        ],
+        "identifier_or_url": "https://doi.org/10.1002/rsa.3240050103",
+        "material_read": "Publisher abstract and reference page only; no accessible original full article",
+        "method": "Publisher abstract, bibliographic comparison, attempted institutional full-text retrieval",
+        "title": "Random recursive forests",
+        "trigger": "Older paper on recursive forests, component counts, and vertex degrees"
+      },
+      {
+        "assessment": "Single connected uniform recursive tree, root *degree*, and its leaf count. Does not state an identity for the random number of rooted components in Moran forests.",
+        "evidence": [
+          "Published result abstract reports Cov(root degree, leaves)=(n-2)/(2(n-1)) in a random recursive tree",
+          "Here Cov(component count, zero-child count) is linear in n and the correlation approaches a positive constant"
+        ],
+        "identifier_or_url": "Published mathematical-result record: Equal-share covariance of root degree and leaves in a random recursive tree",
+        "material_read": "Title and abstract summary returned by public research-result search; linked full article unavailable in this run",
+        "method": "Semantic result search and implication comparison of the available summary",
+        "title": "Equal-share covariance of root degree and leaves in a random recursive tree (published result record, October 2026)",
+        "trigger": "High-similarity published result concerning roots and leaves"
+      },
+      {
+        "assessment": "Uniform Cayley tree, endpoint degree and endpoint distance: unrelated observables and law to stationary Moran forest.",
+        "evidence": [
+          "Abstract describes binomial-plus-Bernoulli conditional degree and negative covariance with distance"
+        ],
+        "identifier_or_url": "Published mathematical-result record: Exact negative regression between endpoint degree and distance in a uniform Cayley tree",
+        "material_read": "Title and abstract summary returned by public research-result search; linked full article unavailable",
+        "method": "Semantic result search and statement/model comparison",
+        "title": "Exact negative regression between endpoint degree and distance in a uniform Cayley tree (published result record, October 2026)",
+        "trigger": "High-similarity published result concerning tree dependence"
+      }
+    ],
+    "status": "PASS"
+  },
+  "review_type": "self_review",
+  "schema_version": 1,
+  "scope_run_id": "79980f52-4581-42dd-9979-6e30e0054030",
+  "self_review_status": "passed",
+  "value": {
+    "rationale": "Fragmentation (component count) and zero-child lineage extinction (terminal count) are natural different observables of the stationary Moran genealogy. Previous marginal descriptions do not quantify their joint fluctuations. The complete triangular cross-covariance kernel establishes how later root formation preserves earlier terminality, with positive covariance under every increasing transform. Its exact finite covariance and a nonvanishing ~0.630879 correlation contrast sharply with negative pairwise terminal correlations. This is a model-wide dependence and fluctuation result, not an arbitrary small finite statistic or a renamed marginal.",
+    "status": "PASS"
+  }
+}

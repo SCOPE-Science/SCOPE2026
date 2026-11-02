@@ -1,0 +1,125 @@
+{
+  "correctness": {
+    "rationale": "The quotient cross product factors exactly into (a-b)(cos^2 theta-sin^2 theta){UZ+sin(theta)cos(theta)V(U+Z)}. With U,Z,V the standard two-Gaussian Gram variables, k>=2 gives a correctly normalized trace-free Wishart disk density; exact beta conditioning and Tonelli expansion produce the coefficient Gamma((k+1)/2)^2/(pi k Gamma(k)) and the 3F2 series. The k=1 singular Wishart boundary is treated separately by a uniform circle calculation; k=2 follows by integration by parts to a complete elliptic E. Gamma duplication and dominated convergence at fixed 0<rho<1 prove the sharp asymptotic. The verifier ran all 700,113 recorded direct/symbolic/numerical/sample checks. Strictness excludes theta=pi/4; denominators positive a.s. Computational checks are corroborative, not substituted for general proofs.",
+    "status": "PASS"
+  },
+  "independent": false,
+  "independent_audit_status": "not_performed",
+  "originality": {
+    "broader_coverage": {
+      "evidence": [
+        "Nakatsukasa--Tropp 2021/2024 develops broad sketched eigenvalue algorithms with embedding-conditioned estimates; these do not provide the unconditioned exact joint ordering law for two fixed trial vectors in the inspected sRR sections.",
+        "Balabanov--Grigori 2021 defines the sketched one-vector quotient and presents general sketch-embedding controls. Such a high-probability distortion bound can give sufficient conditions for preserving ordering but does not imply the strict finite-k probability nor its sharp asymptotic constant.",
+        "A separately reported result classifies the probability that one random vector has a sketched quotient leaving the spectral interval. That event and sampling model do not include two coupled fixed candidate quotients or their reversal."
+      ],
+      "reasoning": "The strongest relevant sources address algorithm guarantees or one-quotient spectral envelopes, not a theorem that entails the precise paired ranking probability. The present claim is narrower in matrix/algorithm scope and more exact in probability. A published full distribution for correlated Rayleigh-quotient comparisons would be dominating, so this remains an explicit priority risk.",
+      "searches": [
+        "sketched Rayleigh quotients spectral envelope rank one versus pairwise inversion",
+        "Gaussian sketched Rayleigh quotients eigenvalue ordering reversal crossing probability shared Wishart sketch two trial vectors",
+        "sketched Rayleigh-Ritz Ritz value ordering two test vectors shared Gaussian sketch counterexample",
+        "Gaussian Wishart nonsymmetric sketched Rayleigh quotient ordering spectral crossing eigenvalue inversion two dimension"
+      ]
+    },
+    "checked_sources": [
+      "https://arxiv.org/abs/2111.00113 (October 29, 2021 public version); relevant full-text sections at https://ar5iv.labs.arxiv.org/html/2111.00113",
+      "https://arxiv.org/pdf/2111.14641 (eigenvalue and supplemental quotient sections)",
+      "https://arxiv.org/abs/2304.09281 (abstract only)",
+      "Published mathematical result records, using the semantic search strings documented in the named comparison checks",
+      "Previously reported accessible mathematical claims, checked for matching hypotheses, parameters, and implications; no previous scientific result was re-assessed"
+    ],
+    "claim_vs_prior_implication": {
+      "evidence": [
+        "The earlier published single-vector spectral-envelope law (item 797c5afe-2e63-4a29-b3e0-ca93cd3c34f1) integrates one random Haar direction, whereas the present deterministic paired trials share one Gaussian sketch and compare two dependent ratios; neither event contains the other.",
+        "Other compared results involving sketched GMRES residuals and stochastic subspace steps concern optimization or linear solves, not ordered Rayleigh-value comparison.",
+        "The two foundational full-text preprints give sketching formulations and embedding estimates, which imply only qualitative controls under stated conditions rather than an exact finite-k joint distribution."
+      ],
+      "reasoning": "Matching words Rayleigh, sketch and Gaussian do not suffice. The operands and quantifiers differ: two fixed non-eigenvectors, one shared sketch, every k >=1, exact probability independent of eigenvalue gap, and k-to-infinity sharp constant. No checked prior implication yields that combined conclusion; specialized unexamined published formula could change this evaluation.",
+      "searches": [
+        "sketched Rayleigh quotients spectral envelope rank one versus pairwise inversion",
+        "sketched Rayleigh-Ritz Ritz value ordering two test vectors shared Gaussian sketch counterexample",
+        "randomized Rayleigh quotient misordering probability Gaussian sketch exact distribution"
+      ]
+    },
+    "equivalent_formulations": {
+      "evidence": [
+        "The normalized 2x2 Wishart coordinate pair (r,w) has the classical disk density; the current joint event is 1-r^2+rho*w<0. This translates the ranking problem to a polynomial region in the Wishart disk, rather than claiming a new Wishart density.",
+        "Nakatsukasa--Tropp arXiv:2111.00113 sets up sketched Ritz projection and explains non-self-adjoint Ritz behavior; Balabanov--Grigori arXiv:2111.14641 presents sketched Rayleigh quotients. The inspected corresponding full-text sections did not give the same two-candidate reversal probability.",
+        "Semantic searches of published mathematical records returned no direct equivalent. A closest thematic result on sharp Rayleigh-residual distortion under normal spectral filtering concerns a different deterministic spectral-filter problem."
+      ],
+      "reasoning": "Exact equivalence is established only between this new paired quotient ranking event and a specified 2x2 Wishart-disk probability region. That transformation requires a new sign cancellation across two correlated quotients. Existing single-quotient distributions, generic sketches, and spectral residual/filter results do not themselves state the integrated hypergeometric probability or the rho/2 sharp exponential base. The positive assessment is limited to material actually inspected; equivalent specialized literature could exist.",
+      "searches": [
+        "one-vector sketched Rayleigh quotient ordering reversal for symmetric two eigenvalues symmetric trial vectors common Gaussian sketch angle exact probability",
+        "two-dimensional real Wishart normalized trace polar disk beta density ranking inversion spectral",
+        "Gaussian sketch Rayleigh quotient spectral ordering inversion angle t exponential probability sketch rows",
+        "sketched Rayleigh quotient ordering inversion probability gaussian sketch two vectors Wishart exact",
+        "randomized Rayleigh quotient misordering probability Gaussian sketch exact distribution"
+      ]
+    },
+    "exact_database_or_table": {
+      "evidence": [
+        "The actual one-vector sketched-quotient ordering query returned 23 published-record summaries without the same-event formula; a closest ranked mathematical result on three-mode CSD concerns a distinct algorithm.",
+        "The actual trace-normalized Wishart query returned 24 thematic result summaries, most addressing unrelated spectral/geometric problems; no exact inversion table was identified in those summaries.",
+        "Direct web searches for exact Gaussian sketch misordering/inversion yielded relevant general sketching papers but no exact tabulated pairwise 3F2 law."
+      ],
+      "reasoning": "No exact match was found in the searched result tables. These results are evidence of attempted checks, not an exhaustive search or uniqueness proof; semantic index recall and unindexed older statistics literature limit confidence.",
+      "searches": [
+        "one-vector sketched Rayleigh quotient ordering reversal for symmetric two eigenvalues symmetric trial vectors common Gaussian sketch angle exact probability",
+        "two-dimensional real Wishart normalized trace polar disk beta density ranking inversion spectral",
+        "random projection two Rayleigh quotient rankings inversion exact probability beta distribution",
+        "sketched Rayleigh quotient ordering inversion probability gaussian sketch two vectors Wishart exact",
+        "randomized Rayleigh quotient misordering probability Gaussian sketch exact distribution"
+      ]
+    },
+    "rationale": "The new statement is an exact probability distribution and sharp row-count asymptotic for strict reversal between two coupled Gaussian-sketched Rayleigh quotients on symmetric swapped eigenvector mixtures. The closest inspected foundational full texts define sketched Ritz/quotients and loss of symmetry, not the explicit joint inversion law. Checked prior single-quotient escape and GMRES sketch claims do not imply this joint ranking statement. Novelty is assessed subject to specialized Wishart/comparison distribution priority risks; absence of search results is not asserted to prove novelty.",
+    "residual_risks": [
+      "General joint distributions of Gaussian quadratic-form ratios, or a special function equivalent, may exist in older specialist statistics literature not fully covered by semantic indexing.",
+      "Some eigenvalue-sketching works were compared only at abstract level, and independent publication-priority assessment has not been performed.",
+      "An unrestricted joint Rayleigh--Ritz projected eigenproblem differs from the two separately projected one-dimensional estimates examined here."
+    ],
+    "source_inspections": [
+      {
+        "assessment": "Provides the numerical eigenvalue sketching context and accuracy/symmetry discussion, but relevant sections do not state this paired 3F2 inversion law.",
+        "evidence": [
+          "First publicly posted October 29, 2021: https://arxiv.org/abs/2111.00113",
+          "Sections of https://ar5iv.labs.arxiv.org/html/2111.00113 describing sRR and asymmetry"
+        ],
+        "identifier_or_url": "arxiv:2111.00113; https://ar5iv.labs.arxiv.org/html/2111.00113",
+        "material_read": "ArXiv full-text HTML introduction, sketched projection setup, sketched Rayleigh--Ritz eigenvalue discussion (section 6), and discussion of lost symmetry; also checked the public first-posted metadata.",
+        "method": "Direct substantive reading of full-text HTML sections and formula comparison with two-candidate Gaussian event; no snippets-only negative claim.",
+        "title": "Fast & Accurate Randomized Algorithms for Linear Systems and Eigenvalue Problems",
+        "trigger": "First-public October 29, 2021 motivating method; plausible coverage of sketched Rayleigh--Ritz ordering."
+      },
+      {
+        "assessment": "Describes a sketched single-vector Rayleigh quotient, not the exact probability that two fixed swapped-mode candidates reverse order under the same Gaussian sketch.",
+        "evidence": [
+          "https://arxiv.org/pdf/2111.14641; Section 4.4 and supplementary sketched quotient formulation"
+        ],
+        "identifier_or_url": "arxiv:2111.14641; https://arxiv.org/pdf/2111.14641",
+        "material_read": "Primary public PDF, eigenvalue algorithm sections including section 4.4, relevant displayed formulae and supplementary sketched Rayleigh-quotient discussion toward pages 29--32.",
+        "method": "Read relevant extracted full-text paragraphs and inspected PDF page images, comparing object, randomization, and stated bounds.",
+        "title": "Randomized Block Gram-Schmidt Process for Solution of Linear Systems and Eigenvalue Problems",
+        "trigger": "Defines a sketched Rayleigh quotient and studies eigenvalue approximation, thus a plausible overlapping result."
+      },
+      {
+        "assessment": "Its Gaussian eigenvalue approximation setup is not the fixed-pair quotient comparison, but absence of full-text inspection is a residual risk.",
+        "evidence": [
+          "Public abstract at https://arxiv.org/abs/2304.09281; no full-text NOT_COVERING claim made"
+        ],
+        "identifier_or_url": "arxiv:2304.09281; https://arxiv.org/abs/2304.09281",
+        "material_read": "Public abstract and descriptive metadata only, not full paper.",
+        "method": "Abstract-level method comparison only.",
+        "title": "Optimal Eigenvalue Approximation via Sketching",
+        "trigger": "Search surfaced a potentially broader eigenvalue sketching study."
+      }
+    ],
+    "status": "PASS"
+  },
+  "review_type": "self_review",
+  "schema_version": 1,
+  "scope_run_id": "60f775fc-6960-446e-b408-c8594c4ffb11",
+  "self_review_status": "passed",
+  "value": {
+    "rationale": "Ordering two Rayleigh estimates is a natural eigenvalue candidate-selection operation, and approximate Rayleigh--Ritz loses deterministic min--max guarantees under sketching. The theorem makes that risk exact in a basic nontrivial two-mode family, quantifying how candidate overlap controls both the full finite-row probability and the sharp exponential rate, while the eigenvalue gap cancels. The one- and two-row forms and the noncommuting rho-to-1 boundary distinguish a structural algorithmic failure mode. It is not only a numerical recomputation or arbitrary named finite slice. Limits to separate scalar Ritz quotients and fixed paired candidates are explicitly disclosed.",
+    "status": "PASS"
+  }
+}

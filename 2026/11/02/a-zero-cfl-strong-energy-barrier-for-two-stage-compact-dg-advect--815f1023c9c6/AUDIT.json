@@ -1,0 +1,128 @@
+{
+  "correctness": {
+    "rationale": "The cRKDG coefficient weak forms and the order-two Butcher identities reconstruct the exact update. The alternating invariant subspace has W=diag(1,1/3) and M_nu as given. Direct exact multiplication yields det(W-M^T W M)=-4nu^4, so for every positive nu the real symmetric decrement has a negative eigenvalue. The exact generalized eigenvalues give modal max amplification and the sharp cubic limit. An independent period-two four-coefficient matrix assembly and symbolic code check the algebra; the theorem does not rely on finite samples.",
+    "status": "PASS"
+  },
+  "independent": false,
+  "independent_audit_status": "not_performed",
+  "originality": {
+    "broader_coverage": {
+      "evidence": [
+        "Liu–Jiang–Zhang Section 2.3 treats standard noncompact SSP-RK3 cell-average entropy, while Section 2.4 explicitly distinguishes cRKDG. Sun–Shu Theorem 3.4 obtains strong contraction for an alternate Lax–Wendroff derivative-flux arrangement."
+      ],
+      "reasoning": "A strong stability claim for a DIFFERENT flux or corrected scheme does not cover uncorrected cRKDG. A general weak-cell-entropy theorem does not entail strong physical-energy contraction of the polynomial. The all-small-step counterexample for standard SSP-RK3 does not imply the cRKDG P1 2-stage result.",
+      "searches": [
+        "high order entropy stable discontinuous Galerkin compact RK weak cell versus strong all arbitrarily small Courant no-contractivity linear advection piecewise linear",
+        "Runge Kutta DG local derivative stage full L2 Fourier step always transient growth normal amplification time step any positive parameter",
+        "arXiv:2610.30535v1",
+        "DOI:10.1051/m2an/2016049"
+      ]
+    },
+    "checked_sources": [
+      "arXiv:2610.18837v1",
+      "arXiv:2610.30535v1",
+      "arXiv:2307.06471v1",
+      "DOI:10.1051/m2an/2016049",
+      "DOI:10.1007/s10915-026-03437-y"
+    ],
+    "claim_vs_prior_implication": {
+      "evidence": [
+        "Inspected 2026 entropy papers construct strong-entropy corrections from weak cell-average estimates; original cRKDG paper states maximum second-order von Neumann CFL 0.333. Prior narrower report of Fourier amplification for Courant >1/3 gives no coverage for 0<nu<=1/3, which the new exact determinant covers."
+      ],
+      "reasoning": "The final claim extends the obstruction to EVERY positive nu and computes the exact alternating-mode amplification. A prior restricted above-1/3 amplification observation neither proves a zero safe-step frontier nor fixes the sharp 3nu^3 small-step behavior. The corrected schemes satisfy different propositions and are not contradicted.",
+      "searches": [
+        "one step L2 energy monotonicity nonnormality cRKDG Lax Wendroff DG second order no positive CFL 2x2 amplification matrix",
+        "fully discrete energy stability compact Runge Kutta DG 2-stage order 2 P1 upwind Fourier Nyquist uncorrected strong contraction vanishing CFL determinant",
+        "arXiv:2610.18837v1",
+        "arXiv:2610.30535v1",
+        "DOI:10.1051/m2an/2016049"
+      ]
+    },
+    "equivalent_formulations": {
+      "evidence": [
+        "Direct uncorrected Fourier symbol is identical to a norm-contraction question for weighted P1 coefficients; 2023 source gives spectral CFL 0.333 but not physical-norm nonexpansion."
+      ],
+      "reasoning": "The putative equivalent is one-step strong quadratic-entropy monotonicity, also expressible as W-M^T W M >=0, a singular-value rather than eigenvalue condition. Exact determinant -4 nu^4 excludes the equivalent. Source spectral-radius conclusions do not imply or subsume it.",
+      "searches": [
+        "compact Runge Kutta discontinuous Galerkin one dimensional advection P1 Heun RK2 Fourier mode alternating slope energy amplification all positive Courant no L2 contraction determinant negative",
+        "one step L2 energy monotonicity nonnormality cRKDG Lax Wendroff DG second order no positive CFL 2x2 amplification matrix",
+        "fully discrete energy stability compact Runge Kutta DG 2-stage order 2 P1 upwind Fourier Nyquist uncorrected strong contraction vanishing CFL determinant",
+        "arXiv:2307.06471v1 Eq (2.8)-(2.9)"
+      ]
+    },
+    "exact_database_or_table": {
+      "evidence": [
+        "Original compact-method table says second-order eigenvalue CFL 0.333; no inspected table gives Nyquist energy-decrement determinant or exact per-mode squared-energy amplification."
+      ],
+      "reasoning": "Eigenvalue-stability tables contain a different invariant. The exact quartic polynomial obstruction and cubic small-step ratio cannot be read off an eigenvalue stability cutoff.",
+      "searches": [
+        "compact Runge Kutta discontinuous Galerkin one dimensional advection P1 Heun RK2 Fourier mode alternating slope energy amplification all positive Courant no L2 contraction determinant negative",
+        "fully discrete energy stability compact Runge Kutta DG 2-stage order 2 P1 upwind Fourier Nyquist uncorrected strong contraction vanishing CFL determinant",
+        "arXiv:2307.06471v1 introductory CFL table",
+        "arXiv:2610.18837v1"
+      ]
+    },
+    "rationale": "Comparison of implications: the original method paper reports spectral-radius CFL bounds, not norm contractivity; the two 2026 entropy papers concern weak cell averages and/or end-step corrected methods, one counterexample being for noncompact three-stage RKDG; the LW2DG contraction theorem uses a different auxiliary flux. The exact all-positive-Courant quartic energy-decrement determinant and sharp cubic alternating-mode amplification were not found in inspected primary full texts or targeted mathematical-record results. One specialized paywalled article and older unindexed analyses remain residual priority risks; no global novelty or independence certification is asserted.",
+    "residual_risks": [
+      "A 2026 filtered-RKDG Fourier-analysis full article was not available; an appendix could contain an equivalent weighted singular-value calculation.",
+      "Older specialized DG transient-growth literature could contain a more general theorem implying this simple two-cell result.",
+      "Finite semantic record searches cannot certify global priority. Independent expert historical review has not been performed."
+    ],
+    "source_inspections": [
+      {
+        "assessment": "Weak cell-average analysis and corrected strong-entropy method; no stated uncorrected two-stage Nyquist energy-decrement determinant or all-positive-step impossibility.",
+        "evidence": "Methods and weak-to-strong entropy analysis; source explicitly distinguishes preliminary DG polynomial from corrected output.",
+        "identifier_or_url": "https://arxiv.org/html/2610.18837v1",
+        "material_read": "Full accessible HTML; construction, weak cell entropy theorem, end-step strong-entropy correction, examples and conclusions.",
+        "method": "Direct arXiv full-text HTML inspection",
+        "title": "Fully discrete multi-entropy-stable compact Runge--Kutta discontinuous Galerkin methods for hyperbolic conservation laws",
+        "trigger": "Primary recent cRKDG entropy-stability claim and construction"
+      },
+      {
+        "assessment": "Defines the same method and reports second-order von Neumann CFL about one-third. Eigenvalue stability is weaker than physical-norm contraction and does not determine energy-decrement determinant.",
+        "evidence": "Equations (2.8)-(2.9); second-order CFL 0.333 in introductory table.",
+        "identifier_or_url": "https://arxiv.org/html/2307.06471v1",
+        "material_read": "Full accessible HTML with Section 2.2 compact stages, Table 1 eigenvalue CFL thresholds and Section 3 analysis.",
+        "method": "Direct arXiv full-text HTML inspection",
+        "title": "The Runge--Kutta discontinuous Galerkin method with compact stencils for hyperbolic conservation laws",
+        "trigger": "Original definition and strongest method-level coverage"
+      },
+      {
+        "assessment": "Arbitrarily-small-step obstruction is for standard noncompact 3-stage RKDG and weak cell-average entropy; compact methods receive feasible flux correction. Does not imply the present uncorrected 2-stage compact full L2 result.",
+        "evidence": "Section 2.4 explicitly says its original counterexample is avoided by compact local stages on piecewise constants.",
+        "identifier_or_url": "https://arxiv.org/html/2610.30535v1",
+        "material_read": "Full accessible HTML, notably Section 2.3 SSP-RK3 DG counterexample, Section 2.4 compact-stage distinction, Section 3.5 compact constructions, and conclusions.",
+        "method": "Direct arXiv full-text HTML inspection",
+        "title": "High-Order Fully Discrete Entropy-Stable DG Methods with Compact Explicit Single-Step Time Discretizations",
+        "trigger": "Potential same-week stronger entropy impossibility theorem"
+      },
+      {
+        "assessment": "Strong contraction is proved for upwind flux for the auxiliary derivative; other flux gives a weaker long-time statement. The auxiliary derivative-flux treatment is not the cell-local stage used in the present scheme.",
+        "evidence": "Theorem 3.4 explicitly splits upwind/upwind contraction versus an opposite auxiliary-flux case.",
+        "identifier_or_url": "https://www.numdam.org/item/10.1051/m2an/2016049.pdf",
+        "material_read": "Original PDF introduction, definitions and Theorem 3.4 with its immediate proof context, pages 1–7.",
+        "method": "PDF pages examined and source text around Theorem 3.4",
+        "title": "Stability analysis and error estimates of Lax-Wendroff discontinuous Galerkin methods for linear conservation laws",
+        "trigger": "Potential stronger existing one-step L2 contraction theorem on a related scheme"
+      },
+      {
+        "assessment": "No whole-document noncoverage conclusion. A specialist filtered-RKDG Fourier analysis remains a plausible historical-priority source.",
+        "evidence": "Accessible metadata and abstract focus on filtered spectral stability, but the full article was not read, so no assertion is made about its appendices.",
+        "identifier_or_url": "https://doi.org/10.1007/s10915-026-03437-y",
+        "material_read": "Public abstract and bibliographic text only; the complete article was not available for inspection.",
+        "method": "Public bibliographic and abstract inspection; preprint and lawful open-access searches.",
+        "title": "Filtered RKDG Methods: Fourier Analysis for the Second-Order Case",
+        "trigger": "Possible identical Fourier-mode stability calculation"
+      }
+    ],
+    "status": "PASS"
+  },
+  "review_type": "self_review",
+  "schema_version": 1,
+  "scope_run_id": "815f1023-c9c6-497c-a47a-b88399a37313",
+  "self_review_status": "passed",
+  "value": {
+    "rationale": "The full-state quadratic entropy of the uncorrected method lacks even an arbitrarily small universal nonexpansion step, despite the nonzero Fourier eigenvalue CFL threshold in the source. This exact zero-CFL boundary and its sharp cubic severity isolate why weak cell-average estimates cannot justify omitting a terminal full-polynomial energy correction. The result is a motivated structural obstruction, not an arbitrary numerical example or a claim about the corrected integrator.",
+    "status": "PASS"
+  }
+}

@@ -1,0 +1,140 @@
+{
+  "correctness": {
+    "rationale": "The signed batch imbalance has exact first and second moments 0 and 1/η. Squaring the explicit coordinate update gives B exactly. Positivity of B yields a simple Perron root controlling every deterministic nonzero initial error, radical diagonalization gives r, and the determinant crossing plus strict convexity proves the exact mean-square frontier and sharp boundaries. The separate conditional energy operator yields the one-step threshold and strict gap. Convexity and signed derivatives at 1 and 2 give unique optimal alpha; exhaustive exact rational path enumeration across three finite steps passed 1,116 equalities.",
+    "status": "PASS"
+  },
+  "independent": false,
+  "independent_audit_status": "not_performed",
+  "originality": {
+    "broader_coverage": {
+      "evidence": [
+        "Agaskar, Wang and Lu (2014), Randomized Kaczmarz Algorithms: Exact MSE Analysis and Optimal Sampling Probabilities (single-row exact-MSE lifting antecedent).",
+        "Published finding 2026/10/4/SCOPE-exact-finite-horizon-cost-of-asymptotically-optimal-two-row-kacz--d549f7251aa1 (deterministic cyclic, not independently sampled batch averaging)."
+      ],
+      "reasoning": "General lifted exact-MSE analysis can in principle derive the two-row moment operator, but the published single-row exact-MSE theorem is not itself a statement of averaged batch sharp threshold or gap. Cyclic Kaczmarz two-row analysis uses a different deterministic product, so its spectral behavior cannot dominate this claim.",
+      "searches": [
+        "optimal overrelaxation randomized sparse Kaczmarz averaging two nonorthogonal rows spectral contraction 2 step size saturation",
+        "two-row nonorthogonal averaged randomized Kaczmarz with replacement minibatch exact asymptotic mean-square stability threshold 4/(1+sqrt(cosine squared plus sine squared divided batch squared)) spectral radius covariance rate optimal relaxation",
+        "Agaskar Wang Lu exact MSE averaging Kaczmarz spectral radius"
+      ]
+    },
+    "checked_sources": [
+      "Moorman et al., Randomized Kaczmarz with Averaging, arxiv:2002.04126; conference manuscript https://jacob.moorman.me/research/2019ita.pdf, Theorem 2/Corollary 5 (one-step bound, its minimizer).",
+      "Tondji and Lorenz, Faster Randomized Block Sparse Kaczmarz by Averaging, arxiv:2203.10838, DOI 10.1007/s11075-022-01473-x, §1, §4 and §6 (general bounds, relaxation).",
+      "Agaskar, Wang and Lu (2014), Randomized Kaczmarz Algorithms: Exact MSE Analysis and Optimal Sampling Probabilities (single-row exact-MSE lifting antecedent).",
+      "Published finding 2026/10/4/SCOPE-exact-finite-horizon-cost-of-asymptotically-optimal-two-row-kacz--d549f7251aa1 (deterministic cyclic, not independently sampled batch averaging).",
+      "Published finding 2026/9/21/SCOPE-kaczmarz-coherence-residual-spike-frontier--332a15a5d36f (maximal-distance adaptive row choice and residual monotonicity, not fair independent average)."
+    ],
+    "claim_vs_prior_implication": {
+      "evidence": [
+        "Moorman et al., Randomized Kaczmarz with Averaging, arxiv:2002.04126; conference manuscript https://jacob.moorman.me/research/2019ita.pdf, Theorem 2/Corollary 5 (one-step bound, its minimizer).",
+        "Tondji and Lorenz, Faster Randomized Block Sparse Kaczmarz by Averaging, arxiv:2203.10838, DOI 10.1007/s11075-022-01473-x, §1, §4 and §6 (general bounds, relaxation).",
+        "Agaskar, Wang and Lu (2014), Randomized Kaczmarz Algorithms: Exact MSE Analysis and Optimal Sampling Probabilities (single-row exact-MSE lifting antecedent)."
+      ],
+      "reasoning": "One-step strict contraction implies stability but not conversely; algebraically the one-step frontier is 4/(1+ρ+(1-ρ)/η), while true mean-square frontier is 4/(1+sqrt(ρ²+(1-ρ²)/η²)), strictly larger at 0<ρ<1 and η>1. An upper bound optimized in the former source results does not logically imply the new exact operator/optimal asymptotic parameter. The established exact-MSE lifting is acknowledged as method precedent.",
+      "searches": [
+        "Moorman Theorem 2 Corollary 5 Kaczmarz averaging one-step MSE bound",
+        "Tondji Lorenz §4 Corollary 4.14 averaged sparse Kaczmarz tuning"
+      ]
+    },
+    "equivalent_formulations": {
+      "evidence": [
+        "Moorman et al., Randomized Kaczmarz with Averaging, arxiv:2002.04126; conference manuscript https://jacob.moorman.me/research/2019ita.pdf, Theorem 2/Corollary 5 (one-step bound, its minimizer).",
+        "Tondji and Lorenz, Faster Randomized Block Sparse Kaczmarz by Averaging, arxiv:2203.10838, DOI 10.1007/s11075-022-01473-x, §1, §4 and §6 (general bounds, relaxation)."
+      ],
+      "reasoning": "Compared binomial averaged-projector second moments, their Perron root and strict first-step/sequential distinction, including aliases parallel randomized Kaczmarz, averaged block sparse Kaczmarz and batch SGD on rows. Source estimates are upper bounds for conditional one-step error, not equal to long-run annealed rates. No exact equivalent found in inspected portions.",
+      "searches": [
+        "randomized averaged block Kaczmarz two rows exact relaxation optimal one step worst expected squared error cosine angle minibatch phase transition",
+        "mini batch randomized Kaczmarz with replacement exact optimal relaxation spectral projector eigenvalues two rows correlation",
+        "arxiv:2203.10838",
+        "arxiv:2002.04126"
+      ]
+    },
+    "exact_database_or_table": {
+      "evidence": [
+        "Published finding 2026/10/4/SCOPE-exact-finite-horizon-cost-of-asymptotically-optimal-two-row-kacz--d549f7251aa1 (deterministic cyclic, not independently sampled batch averaging).",
+        "Published finding 2026/9/21/SCOPE-kaczmarz-coherence-residual-spike-frontier--332a15a5d36f (maximal-distance adaptive row choice and residual monotonicity, not fair independent average)."
+      ],
+      "reasoning": "Searches of mathematical research records returned cyclic Kaczmarz, maximal-distance Kaczmarz and smoothed momentum rather than any table giving the exact binomially averaged two-row annealed rate, stability endpoint or separation from uniform one-step contraction.",
+      "searches": [
+        "published-finding corpus: randomized averaged block Kaczmarz two rows exact relaxation optimal one step worst expected squared error cosine angle minibatch phase transition",
+        "published-finding corpus: optimal overrelaxation randomized sparse Kaczmarz averaging two nonorthogonal rows spectral contraction 2 step size saturation"
+      ]
+    },
+    "rationale": "Direct comparison of the exact long-run second-moment operator and separate conditional one-step bound shows a substantive, nontrivial distinction. Inspected primary averaged-Kaczmarz articles establish algorithms and conservative guarantee tuning but no exact two-row annealed Perron formula. Exact-MSE machinery is classical and credited; scientific novelty is the sharp coexistence window and complete two-row rate. Related published records concern different recurrence mechanisms. Residual priority risk remains for uninspected appendices and older exact-MSE works.",
+    "residual_risks": [
+      "The complete BIT journal text and some original 2014 exact-MSE manuscript pages were inaccessible; a narrowly equivalent special-case derivation might exist there.",
+      "A general lifted covariance formula from earlier work may imply the displayed special case after direct computation, even if the crossover statement was not located.",
+      "The published-result record comparisons were statement-level rather than comprehensive document inspections; independent priority review is not performed."
+    ],
+    "source_inspections": [
+      {
+        "assessment": "Contains general upper bound and one-step step-size tuning, not the all-iterate two-row annealed Perron rate nor strict separation of rate stability from uniform step contraction in inspected material.",
+        "evidence": [
+          "Conference PDF https://jacob.moorman.me/research/2019ita.pdf pages 1–4",
+          "arxiv:2002.04126"
+        ],
+        "identifier_or_url": "arxiv:2002.04126; https://jacob.moorman.me/research/2019ita.pdf",
+        "material_read": "Conference manuscript pages 1–4, including the statements of Theorem 2 and Corollary 5; journal full text not obtained.",
+        "method": "Viewed accessible conference PDF pages and extracted text; checked one-step bounds against exact two-row formula.",
+        "title": "Randomized Kaczmarz with Averaging",
+        "trigger": "Exact source algorithm and expected one-step error/contraction bounds"
+      },
+      {
+        "assessment": "Its result optimizes a bound, whereas the new exact two-row result computes the true mean-square asymptotic rate and stronger stability region; no matching theorem located in examined sections.",
+        "evidence": [
+          "https://link.springer.com/article/10.1007/s11075-022-01473-x",
+          "arxiv:2203.10838"
+        ],
+        "identifier_or_url": "arxiv:2203.10838; DOI:10.1007/s11075-022-01473-x",
+        "material_read": "Publisher open full-text article, introduction, main convergence/tuning section 4 and concluding section 6, with equations and references.",
+        "method": "Read full article sections relevant to iteration, MSE estimates and relaxation and compared hypotheses/conclusions.",
+        "title": "Faster Randomized Block Sparse Kaczmarz by Averaging",
+        "trigger": "Primary motivating averaged block method, same batch algorithm and relaxation bounds"
+      },
+      {
+        "assessment": "Earlier exact MSE lift for standard RK establishes methodology prior art; uninspected sections leave a bounded priority risk for a specialized two-row batch formula.",
+        "evidence": [
+          "Agaskar–Wang–Lu (2014), title and initial manuscript pages",
+          "Single-row recurrence differs from multi-sample shared-old-iterate average"
+        ],
+        "identifier_or_url": "2014 manuscript, Randomized Kaczmarz Algorithms: Exact MSE Analysis and Optimal Sampling Probabilities",
+        "material_read": "Abstract and initial methodology/pages 1–2 of accessible open manuscript. Later page-image retrieval was unavailable.",
+        "method": "Compared single-sample update model and lifted recursion to independent simultaneous batch-average update.",
+        "title": "Randomized Kaczmarz Algorithms: Exact MSE Analysis and Optimal Sampling Probabilities",
+        "trigger": "Potentially dominating exact-MSE spectral-lifting methods"
+      },
+      {
+        "assessment": "Deterministic cyclic two-projection sweep vs independently sampled simultaneous average; its stated finite-horizon and defective-root laws do not imply current annealed sharp frontier.",
+        "evidence": [
+          "Published record ID d549f7251aa1; cyclic sweep vs independent batch averaging"
+        ],
+        "identifier_or_url": "2026/10/4/SCOPE-exact-finite-horizon-cost-of-asymptotically-optimal-two-row-kacz--d549f7251aa1",
+        "material_read": "Published research record title, statement and summary.",
+        "method": "Statement-level implication comparison; not full paper.",
+        "title": "Exact finite-horizon cost of asymptotically optimal two-row Kaczmarz overrelaxation",
+        "trigger": "Closest published two-row Kaczmarz optimization result"
+      },
+      {
+        "assessment": "Maximal-distance adaptive row selection and total residual are distinct from fair with-replacement simultaneous correction and Euclidean error MSE; no implication.",
+        "evidence": [
+          "Published record ID 332a15a5d36f"
+        ],
+        "identifier_or_url": "2026/9/21/SCOPE-kaczmarz-coherence-residual-spike-frontier--332a15a5d36f",
+        "material_read": "Published research record summary and statement.",
+        "method": "Statement-level algorithm and observable comparison.",
+        "title": "Sharp coherence frontier for residual spikes in maximal-distance Kaczmarz",
+        "trigger": "Possible coherence-parameter collision"
+      }
+    ],
+    "status": "PASS"
+  },
+  "review_type": "self_review",
+  "schema_version": 1,
+  "scope_run_id": "85b584c1-ebd0-4517-863d-ec0692671260",
+  "self_review_status": "passed",
+  "value": {
+    "rationale": "The sharp nonempty gap between conditional stepwise monotonicity and actual long-run mean-square stability directly addresses conservative fixed-step tuning in independently averaged row solvers. It is a structural distinction with explicit endpoints for every pair of nonorthogonal normalized rows and every finite batch; convergence of averages of individually isometric reflections at relaxation 2 is an illuminating nontrivial consequence, not merely a generic one-step bound.",
+    "status": "PASS"
+  }
+}

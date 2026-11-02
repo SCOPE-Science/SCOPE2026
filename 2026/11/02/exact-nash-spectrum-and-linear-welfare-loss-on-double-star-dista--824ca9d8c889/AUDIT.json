@@ -1,0 +1,127 @@
+{
+  "correctness": {
+    "rationale": "Every finite-welfare coalition is connected and every nontrivial connected coalition contains a hub. Separated hubs force two full stars; joined hubs admit only (p,q)=(a,0),(0,b),(1,1) by independent leaf entry/exit inequalities, with hub deviations never profitable. Thus exactly \\(ab+3\\) Nash partitions. Pairwise distance scores give \\(W(p,q)=2(1+p+q-pq)\\), capped by \\(2(a+b)\\), and the worst Nash welfare is four. Standard-library exhaustive checking directly enumerated 217,219 labeled partitions across 18 parameter pairs; infinite result established by proof, not enumeration.",
+    "status": "PASS"
+  },
+  "independent": false,
+  "independent_audit_status": "not_performed",
+  "originality": {
+    "broader_coverage": {
+      "evidence": [
+        "Ganian et al. https://arxiv.org/html/2307.05061v1 Theorem 7: treewidth-parameterized computation of welfare-optimal Nash partitions; expanded paper https://arxiv.org/html/2312.07632v1 contains related algorithmic generalizations.",
+        "Flammini et al. https://aamas.csc.liv.ac.uk/Proceedings/aamas2020/pdfs/p1846.pdf page 2 asserts unbounded price of anarchy for negative scoring in a distinct normalized distance-hedonic utility."
+      ],
+      "reasoning": "General-purpose optimization/decision algorithms do not imply a specific closed labeled Nash count or all equilibria, nor the exact welfare spectrum or worst price ratio. The normalized-model inefficiency statement is not a stronger theorem for the present payoff function.",
+      "searches": [
+        "\"score-based social distance games\" \"price of anarchy\" \"(1,0,-1)\"",
+        "Nash-stable coalition partitions distance-based utility graph exact welfare price of anarchy",
+        "\"bistar\" \"social distance games\" \"price of anarchy\""
+      ]
+    },
+    "checked_sources": [
+      "https://arxiv.org/html/2307.05061v1",
+      "https://arxiv.org/html/2312.07632v1",
+      "https://aamas.csc.liv.ac.uk/Proceedings/aamas2020/pdfs/p1846.pdf",
+      "https://doi.org/10.1609/aaai.v31i1.10608",
+      "https://doi.org/10.1613/jair.1.11808",
+      "https://arxiv.org/abs/2307.05061"
+    ],
+    "claim_vs_prior_implication": {
+      "evidence": [
+        "Ganian et al. https://arxiv.org/html/2307.05061v1 Sections 3–4 derive general algorithms and particular counterexamples, not the local-leaf entry/exit inequalities on a double star.",
+        "Flammini et al. https://aamas.csc.liv.ac.uk/Proceedings/aamas2020/pdfs/p1846.pdf page 2 uses \\(1/|C|\\) scaling and disconnected-pair score zero; neither payoff nor deviation ordering matches the present model."
+      ],
+      "reasoning": "An algorithm deciding welfare thresholds for inputs is not an implication that all Nash partitions are among the four labeled forms. Normalized negative-score price-of-anarchy claims permit large losses but do not entail the exact ratio \\((a+b)/2\\) on this fixed-diameter family. Stronger direct coverage of the exact count was not identified.",
+      "searches": [
+        "\"score-based social distance games\" \"double star\" \"Nash\"",
+        "\"score-based social distance games\" \"price of anarchy\" \"(1,0,-1)\"",
+        "non-normalized score-based social distance game scoring vector (1,0,-1) double star bistar Nash stable coalition partitions price of anarchy linear welfare"
+      ]
+    },
+    "equivalent_formulations": {
+      "evidence": [
+        "2023 source https://arxiv.org/html/2307.05061v1 lines 78–89 defines unnormalized distances and Nash deviations; 2020 source https://aamas.csc.liv.ac.uk/Proceedings/aamas2020/pdfs/p1846.pdf page 2 defines normalization by coalition cardinality."
+      ],
+      "reasoning": "Same graph and scoring vector are not equivalent across normalized/non-normalized utilities. The theorem also includes the complete count and welfare multiset, not merely the existence of a stable or optimal outcome; no equivalent statement was found in inspected text.",
+      "searches": [
+        "\"score-based social distance games\" \"double star\" \"Nash\"",
+        "double-star graph hedonic game optimal partitions Nash equilibria sum of distance scores",
+        "social distance game two hubs leaves Nash stable equilibria welfare"
+      ]
+    },
+    "exact_database_or_table": {
+      "evidence": [
+        "arxiv:2307.05061 text and appended figures/tables do not list the all-parameter double-star \\(ab+3\\) sequence or equilibrium welfare spectrum.",
+        "Indexed publications on double-star graph invariants concern zero forcing and graph topology rather than the induced-distance hedonic equilibrium count."
+      ],
+      "reasoning": "No known exact Nash-equilibrium database or table covering these induced-distance score-based partitions was identified. Graph families appearing in unrelated graph-theoretic tables do not imply a strategic equilibrium count.",
+      "searches": [
+        "\"double star\" \"score-based\" \"Nash\" \"hedonic\"",
+        "Double star hedonic coalition formation score distance1 positive distance2 zero distance3 negative exact Nash equilibria",
+        "complete equilibrium classification double star two hubs each pendant leaves connected coalition social-distance friends neutrals enemies Nash stable cost welfare"
+      ]
+    },
+    "rationale": "Inspected 2023 original and expanded primary full texts: both treat general welfare/stability algorithms on tree-like networks and demonstrate some specific stable/unstable examples, but no all-size double-star Nash classification or exact equilibrium price ratio. Earlier normalized distance-hedonic games prove other price-ratio phenomena, not this unnormalized claim. Multiple targeted publication and mathematical-record searches located no matching coverage. Priority remains provisional pending further specialist review.",
+    "residual_risks": [
+      "Relevant specialist texts not indexed or not accessed could contain an equivalent all-size double-star classification; no absolute priority guarantee.",
+      "2017 and 2019 inverse-distance articles were not inspected in complete primary full text; model definition establishes nonimplication but publication comparison is not exhaustive.",
+      "The expanded source contains extensive algorithmic appendices; searches and theorem inspection did not identify this formula, but an implicit closed-form corollary from an unrecognized stronger result remains possible."
+    ],
+    "source_inspections": [
+      {
+        "assessment": "MODEL_MATCH_NOT_COVERING_SPECIFIC_SPECTRUM",
+        "evidence": "Preliminaries give score 1,0,-1 and induced-subgraph distances; Sections 3–4 give general optimization and complexity algorithms, not the \\(ab+3\\) Nash count or precise ratio.",
+        "identifier_or_url": "arxiv:2307.05061v1 https://arxiv.org/html/2307.05061v1",
+        "material_read": "Introduction, formal definitions, structural lemmas, algorithmic theorems, conclusion and references",
+        "method": "Direct full-text HTML inspection of primary open-access article",
+        "title": "Maximizing Social Welfare in Score-Based Social Distance Games",
+        "trigger": "Same model and exact initiating vector"
+      },
+      {
+        "assessment": "GENERAL_ALGORITHMS_NOT_THE_SAME_THEOREM",
+        "evidence": "General algorithms for score-based coalition welfare and Nash constraints, no explicitly stated double-star Nash spectrum or welfare-price formula.",
+        "identifier_or_url": "arxiv:2312.07632v1 https://arxiv.org/html/2312.07632v1",
+        "material_read": "Introduction, preliminaries, theorem and appendix structure, and searches for double stars/price-of-anarchy statements",
+        "method": "Direct full-text HTML inspection of expanded open-access article",
+        "title": "Maximizing Social Welfare in Score-Based Social Distance Games (expanded treatment)",
+        "trigger": "Same authors extended account could include stronger classifications"
+      },
+      {
+        "assessment": "DISTINCT_NORMALIZED_MODEL",
+        "evidence": "Page 2 Definition 2.1 divides sums by coalition size and assigns score zero at infinite distance; page 2 discusses general negative-score unbounded price ratios.",
+        "identifier_or_url": "https://aamas.csc.liv.ac.uk/Proceedings/aamas2020/pdfs/p1846.pdf",
+        "material_read": "Complete three-page extended abstract including exact utility definition and efficiency claims",
+        "method": "Read primary PDF text and visually inspected utility-definition page",
+        "title": "Distance Hedonic Games",
+        "trigger": "Earlier scoring-vector Nash-stability and price-of-anarchy results"
+      },
+      {
+        "assessment": "DISTINCT_INVERSE_DISTANCE_MODEL",
+        "evidence": "Earlier definition uses inverse distance normalized by coalition size, unlike the signed three-level nonnormalized scoring vector.",
+        "identifier_or_url": "https://doi.org/10.1609/aaai.v31i1.10608",
+        "material_read": "Bibliographic record and model comparison in later primary article",
+        "method": "Secondary primary-paper citation plus indexed publication overview; not full original text",
+        "title": "Nash Stability in Social Distance Games",
+        "trigger": "Original social-distance Nash stability model"
+      },
+      {
+        "assessment": "DIFFERENT_PAYOFF_CLASS",
+        "evidence": "Uses inverse-distance normalized utilities rather than sum of fixed integer scores (1,0,-1).",
+        "identifier_or_url": "https://doi.org/10.1613/jair.1.11808",
+        "material_read": "Bibliographic record and originating paper discussion",
+        "method": "Cited model comparison; not complete original primary text",
+        "title": "On Non-Cooperativeness in Social Distance Games",
+        "trigger": "Earlier price-of-anarchy results for social distance games"
+      }
+    ],
+    "status": "PASS"
+  },
+  "review_type": "self_review",
+  "schema_version": 1,
+  "scope_run_id": "824ca9d8-c889-4f65-85b9-0f3fbfbe68f8",
+  "self_review_status": "passed",
+  "value": {
+    "rationale": "Two-hub trees provide the simplest natural topology where distance 1, 2 and 3 contributions all occur. The all-size equilibrium partition classification, exact labeled count and complete welfare spectrum quantify the gap between efficient Nash existence and worst-case Nash selection: \\(\\mathrm{PoS}=1\\) but \\(\\mathrm{PoA}=(a+b)/2\\), linear despite uniformly bounded diameter and treewidth. This is not a simple graph renaming, textbook consequence, or result implied by the known general optimization algorithms.",
+    "status": "PASS"
+  }
+}

@@ -1,0 +1,152 @@
+{
+  "correctness": {
+    "rationale": "For arbitrary independently adjustable reversible edge flows, conjugation by sqrt of stationary masses expresses SLEM as an affine symmetric spectral norm, hence convex. The mass-preserving dihedral subgroup is edge-transitive, so averaging proves that a homogeneous edge-flow optimizer exists globally. Exact two-by-two Fourier blocks yield the entire nonstationary spectrum and reduce its SLEM to max(1-alpha*G,abs(1-2*(1+r)*alpha)); the two extreme rates are attained and all intermediate rates cannot exceed them. The scalar piecewise-linear minimax yields alpha=min(1/2,2/(2*(1+r)+G)) and the exact boundary r=1-sin^2(pi/m)/2. Direct exact algebra checks all endpoint regimes, including m=2 and r=1; numerical matrix and unrestricted-conductance computations independently test finite samples only. The analytic steps cover every integer m>=2 and real 0<r<=1.",
+    "status": "PASS"
+  },
+  "independent": false,
+  "independent_audit_status": "not_performed",
+  "originality": {
+    "broader_coverage": {
+      "evidence": [
+        "Boyd, Diaconis, Xiao (2004), Fastest Mixing Markov Chain on a Graph, Section 6, https://web.stanford.edu/~boyd/papers/pdf/fmmc.pdf",
+        "Boyd, Diaconis, Parrilo, Xiao (2007), Fastest Mixing Markov Chain on Graphs with Symmetries, Sections 1 and 3.1.1, https://arxiv.org/abs/0709.0955",
+        "Boyd, Diaconis, Sun, Xiao (2005), Symmetry Analysis of Reversible Markov Chains, https://web.stanford.edu/~boyd/papers/pdf/symmetry.pdf",
+        "Jafarizadeh (2010), Fastest Mixing Markov Chain on Symmetric K-Partite Network, https://arxiv.org/abs/1008.2588"
+      ],
+      "reasoning": "The 2004 paper handles arbitrary prescribed stationary distributions abstractly by semidefinite programming, but does not specialize to alternating masses on even cycles or imply the explicit threshold without a nonstandard all-length spectral calculation. The 2007 paper solves the uniform-stationary cycle; its cycle statement r=1 is covered. Jafarizadeh studies symmetric stochastic cyclic multipartite networks with uniform stationarity. No inspected broader theorem was found whose explicit statement or direct corollary supplies the complete r-dependent phase law. As always, existence of a general optimization method is not absence of potential equivalent exact results elsewhere.",
+      "searches": [
+        "cycle graph non-uniform stationary distributions SLEM optimal transition probabilities FMMC exact",
+        "Sharp stationary bias transition in fastest mixing reversible Markov chain on even ring",
+        "Fastest mixing symmetric Markov chains on Cartesian products of cycles exact SLEM optimizer for arbitrary dimensions",
+        "Reversible complete multipartite fastest mixing chains with nonuniform prescribed stationary distribution",
+        "Web: period two stationary weights cyclic random walk minimax eigenvalue metropolis Hastings optimization"
+      ]
+    },
+    "checked_sources": [
+      "Boyd, Diaconis, Xiao (2004), Fastest Mixing Markov Chain on a Graph, Section 6, https://web.stanford.edu/~boyd/papers/pdf/fmmc.pdf",
+      "Boyd, Diaconis, Parrilo, Xiao (2007), Fastest Mixing Markov Chain on Graphs with Symmetries, Sections 1 and 3.1.1, https://arxiv.org/abs/0709.0955",
+      "Boyd, Diaconis, Sun, Xiao (2005), Symmetry Analysis of Reversible Markov Chains, https://web.stanford.edu/~boyd/papers/pdf/symmetry.pdf",
+      "Jafarizadeh (2010), Fastest Mixing Markov Chain on Symmetric K-Partite Network, https://arxiv.org/abs/1008.2588",
+      "prior research records record 8e7b5e3f-9718-4f63-ae8b-d873c0bea2af (alternating edge-price Laplacian gap, different objective)",
+      "prior research records record e4e82375-9da3-49a7-829b-436d0ce2e699 (uniform stationary Cartesian products of cycles)",
+      "prior research records record c991250f-dec2-4021-be94-c57f7cfe4502 (nonuniform multipartite Markov graph)",
+      "published-finding corpus indexed title 2026/10/4/SCOPE-a-resolvent-return-law-for-crank-nicolson-positivity-on-reversib--d475df91cd2a (unrelated positive time integrator)",
+      "published-finding corpus indexed title 2026/10/4/SCOPE-two-autocorrelations-give-the-sharp-reversible-chain-variance-fl--91597e4391a6 (variance objective rather than FMMC)"
+    ],
+    "claim_vs_prior_implication": {
+      "evidence": [
+        "Boyd, Diaconis, Xiao (2004), Fastest Mixing Markov Chain on a Graph, Section 6, https://web.stanford.edu/~boyd/papers/pdf/fmmc.pdf",
+        "Boyd, Diaconis, Parrilo, Xiao (2007), Fastest Mixing Markov Chain on Graphs with Symmetries, Sections 1 and 3.1.1, https://arxiv.org/abs/0709.0955",
+        "Jafarizadeh (2010), Fastest Mixing Markov Chain on Symmetric K-Partite Network, https://arxiv.org/abs/1008.2588",
+        "Own relevant IDs: 8e7b5e3f-9718-4f63-ae8b-d873c0bea2af; e4e82375-9da3-49a7-829b-436d0ce2e699; c991250f-dec2-4021-be94-c57f7cfe4502"
+      ],
+      "reasoning": "The claimed threshold r<=1-sin^2(pi/m)/2 and the exact two-regime optimum cannot be obtained by substituting alternating vertex masses into the known uniform-stationary cycle formula, because the resulting stochastic transition matrix is not symmetric and each Fourier mode has a nontrivial two-by-two matrix. The novel implication is derived by constructing the two-band spectrum and optimizing its nonstationary extreme modes subject to heterogeneous holding constraints. Existing 2004 SDP theory does provide a computational route for any instance, but no inspected source makes the all-m/r closed-form implication. No claim of new uniform-cycle formula, stationarity-reversibility definition, or symmetry-averaging principle is made.",
+      "searches": [
+        "Fastest mixing reversible nearest-neighbor Markov chain with alternating stationary weights on even cycles and self-loop saturation threshold, exact SLEM formula",
+        "cycle graph non-uniform stationary distributions SLEM optimal transition probabilities FMMC exact",
+        "Even cycle 2m reversible fastest mixing nonuniform two-color vertex masses uniform edge conductance optimal Metropolis",
+        "alternating vertex mass even cycle reversible fastest mixing spectral gap and bias threshold",
+        "Boyd et al. 2007 Section 3.1.1 cycle example and orbit reduction",
+        "Boyd et al. 2004 Section 6 fixed-stationary-distribution extension"
+      ]
+    },
+    "equivalent_formulations": {
+      "evidence": [
+        "Boyd, Diaconis, Xiao (2004), Fastest Mixing Markov Chain on a Graph, Section 6, https://web.stanford.edu/~boyd/papers/pdf/fmmc.pdf",
+        "Boyd, Diaconis, Parrilo, Xiao (2007), Fastest Mixing Markov Chain on Graphs with Symmetries, Sections 1 and 3.1.1, https://arxiv.org/abs/0709.0955",
+        "published-finding corpus nearest: 2026/10/4/SCOPE-two-autocorrelations-give-the-sharp-reversible-chain-variance-fl--91597e4391a6",
+        "published-finding corpus nearest: 2026/10/11/SCOPE-exact-mixing-norms-and-time-reversal-obstruction-for-binary-cond--8cff936fbe0f"
+      ],
+      "reasoning": "The transformed stationary edge-flow formulation and the symmetrized Bloch-matrix problem were compared with ordinary FMMC, prescribed-distribution FMMC, nearest-neighbor reversible-walk formulations, and Metropolis-Hastings optimality. The general convex SLEM formulation does not state the closed-form alternating-mass criterion. One exact known subcase r=1 is the uniform cycle and is not claimed new; the novel assertion is the full nonuniform r-family, including the sharp necessary-and-sufficient Metropolis threshold. The retrieved published-finding corpus articles treat other objectives or other state-space structures.",
+      "searches": [
+        "Fastest mixing reversible nearest-neighbor Markov chain with alternating stationary weights on even cycles and self-loop saturation threshold, exact SLEM formula",
+        "Reversible periodic random walk on bipartite ring with two-color target stationary probabilities and optimal transition conductance",
+        "Even cycle 2m reversible fastest mixing nonuniform two-color vertex masses uniform edge conductance optimal Metropolis",
+        "FMMC SLEM period-two cycle stationary alternating r Fourier Bloch 2x2 graph",
+        "Web: fastest mixing Markov chain alternating stationary distribution cycle even cycle Metropolis optimal lazy threshold"
+      ]
+    },
+    "exact_database_or_table": {
+      "evidence": [
+        "published-finding corpus near source 2026/9/7/SCOPE002 is a lazy walk on balanced spiders, not the alternating ring.",
+        "Own previous claim 8e7b5e3f-9718-4f63-ae8b-d873c0bea2af concerns optimizing a *combinatorial Laplacian* spectral gap on a ring with two alternating edge prices under a linear conductance budget, rather than fixed alternating stationary mass and SLEM.",
+        "Own previous claim e4e82375-9da3-49a7-829b-436d0ce2e699 covers uniform-stationary symmetric Markov mixing on products of cycles, not nonuniform stationary masses.",
+        "Own previous claim c991250f-dec2-4021-be94-c57f7cfe4502 covers nonuniform multipartite graphs rather than cycles."
+      ],
+      "reasoning": "Searches for exact tables, phase boundaries, and nearest-neighbor spectral-ratio formulas returned no exact entry for the two-parameter family. Previous own formulas that superficially mention alternating rings address a different normalization/objective. No assertion is made that the indexed database is exhaustive or that one missing string proves novelty.",
+      "searches": [
+        "Metropolis-Hastings nearest neighbor on cycle with alternating two-state stationary weights optimal if and only if ratio exceeds or falls below 1 minus half sine-squared pi over half cycle",
+        "FMMC SLEM period-two cycle stationary alternating r Fourier Bloch 2x2 graph",
+        "Metropolis-Hastings versus fastest mixing fixed nonuniform stationary ring phase diagram",
+        "Web: alternating weights cycle fastest mixing reversible Markov chain nonuniform stationary distribution"
+      ]
+    },
+    "rationale": "The exact nonuniform alternating-mass, all-cycle-length Metropolis-optimality iff threshold and full SLEM phase law were not present in the inspected general FMMC symmetry, uniform cycle, or cyclic multipartite sources, nor in the recorded published-finding corpus/prior research records implication comparisons. General convex SDP algorithms and the r=1 uniform case are established prior art, expressly excluded from novelty claims. Remaining risk: an uncatalogued specialist result could coincide with the two-mass cycle formula.",
+    "residual_risks": [
+      "The completeness of any external index and specialist literature search cannot be established.",
+      "The general FMMC optimization literature may contain an equivalent closed formula not revealed in the inspected text.",
+      "Asymmetric optimizing kernels are not classified; only the globally optimal objective and one symmetric optimizer are claimed."
+    ],
+    "source_inspections": [
+      {
+        "assessment": "General convex SDP solves arbitrary fixed-stationary kernels, including these cycles in principle. No explicit all-length alternating-stationarity Metropolis-optimality threshold was identified in the reviewed sections.",
+        "evidence": [
+          "Section 6 fixed equilibrium distribution extension",
+          "FMMC spectral-norm convexity and SDP formulation",
+          "https://web.stanford.edu/~boyd/papers/fmmc.html"
+        ],
+        "identifier_or_url": "https://web.stanford.edu/~boyd/papers/pdf/fmmc.pdf",
+        "material_read": "The paper description, fixed-stationary-distribution extension in Section 6, and surrounding optimization framework; inspected rendered PDF and extracted section text",
+        "method": "Read primary lawful full-text PDF, including the relevant mathematical development and equation context",
+        "title": "Fastest Mixing Markov Chain on a Graph",
+        "trigger": "General prescribed-stationarity FMMC could dominate the new formula"
+      },
+      {
+        "assessment": "Uniform stationary/symmetric P cycle r=1 is covered, and the same reduction method applies. The alternating nonuniform target and mass-dependent threshold are not supplied in the inspected cycle treatment.",
+        "evidence": [
+          "Article text explicitly assumes P=P^T and uniform stationary distribution in Section 1.1",
+          "Section 3.1.1 treats ordinary uniform cycle",
+          "First preprint date on arXiv: 2007-09-06"
+        ],
+        "identifier_or_url": "https://arxiv.org/abs/0709.0955",
+        "material_read": "Full HTML primary article; Introduction, orbit reduction, Section 3.1.1 on the cycle, relevant analytic formulas and illustrations; also inspected PDF pages",
+        "method": "Read the full-length lawful preprint HTML and relevant PDF pages",
+        "title": "Fastest Mixing Markov Chain on Graphs with Symmetries",
+        "trigger": "Cycle orbit-averaging treatment could imply the claimed phase transition"
+      },
+      {
+        "assessment": "Provides broad methodological symmetry arguments for reversible chains. These arguments are cited as known; no explicit alternating-mass ring phase formula was located in read sections.",
+        "evidence": [
+          "General reversible-chain symmetry theory and examples",
+          "No claimed novelty for group averaging itself"
+        ],
+        "identifier_or_url": "https://web.stanford.edu/~boyd/papers/pdf/symmetry.pdf",
+        "material_read": "Abstract, introduction and relevant graph-orbit examples from lawful full text PDF; inspected PDF page images",
+        "method": "Read primary PDF text and rendered pages around formulation and examples",
+        "title": "Symmetry Analysis of Reversible Markov Chains",
+        "trigger": "General reversible-chain symmetries and orbit descriptions overlap proof mechanism"
+      },
+      {
+        "assessment": "Its symmetric-stochastic framework has uniform stationarity; cycle of singleton parts gives the uniform cycle, not a fixed alternating stationary distribution. It does not cover the two-mass minimax formula as a stated result.",
+        "evidence": [
+          "2010 preprint Section II framework",
+          "Cyclic K-PPDR family Section III/IV, uniform equilibrium setting"
+        ],
+        "identifier_or_url": "https://arxiv.org/pdf/1008.2588",
+        "material_read": "Full primary PDF, Sections II-IV on symmetric stochastic setting and cyclic K-PPDR networks; inspected rendered PDF pages",
+        "method": "Read primary lawful preprint text and page images",
+        "title": "Fastest Mixing Markov Chain on Symmetric K-Partite Network",
+        "trigger": "Cyclic multipartite network could contain or subsume the alternating cycle"
+      }
+    ],
+    "status": "PASS"
+  },
+  "review_type": "self_review",
+  "schema_version": 1,
+  "scope_run_id": "6d927e78-fee0-49df-8042-0e10bdfeaf70",
+  "self_review_status": "passed",
+  "value": {
+    "rationale": "The precise r<=1-(1/2)sin^2(pi/m) criterion decides, for every size and every alternating mass ratio, when the familiar Metropolis-Hastings proposal is exactly optimal among all reversible same-support kernels. When it is not, the theorem supplies the optimal amount of holding and exact SLEM, with an asymptotic sharp bias threshold. This is a motivated all-parameter Markov-chain design classification, not an arbitrary isolated small-graph computation or a rewording of the known uniform cycle.",
+    "status": "PASS"
+  }
+}

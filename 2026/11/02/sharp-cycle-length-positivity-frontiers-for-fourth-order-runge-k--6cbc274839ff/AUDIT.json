@@ -1,0 +1,147 @@
+{
+  "correctness": {
+    "rationale": "Equation (1) follows exactly from the binomial theorem and partitions matrix entries by cycle residues. Every coefficient is nonnegative for \\(0\\le h\\le1\\). For \\(n\\ge p\\) a unique penultimate-power coefficient is strictly negative beyond one. Short-cycle coefficients reduce to explicit cubics and a strictly decreasing quartic with exactly one positive crossing. The 2-state spectral implication is proved for every nonnegative pair of transition rates, including reducible chains, using a nonnegative stationary projection and Taylor remainder. Exact rational calculations certify the three-state negative diagonal -1/128 with nonstationary spectral radius 79/128. A standalone rational-matrix verifier passed 4,070 check groups; the proof, not finite enumeration, supports infinite quantifiers.",
+    "status": "PASS"
+  },
+  "independent": false,
+  "independent_audit_status": "not_performed",
+  "originality": {
+    "broader_coverage": {
+      "evidence": [
+        "Gottlieb–Grant–Higgs optimize method-wide SSP properties and distinguish linear and nonlinear order; their parameters do not describe individual Markov-cycle end-step horizons.",
+        "Higueras–Ketcheson–Kocsis perturb RK methods to improve absolute monotonicity, changing the prescribed polynomial rather than classifying it on cyclic generators."
+      ],
+      "reasoning": "A universal monotonicity radius can provide conservative bounds but does not imply the three exceptional exact algebraic roots. A published theorem for all generators giving coefficients of \\(R_4(hQ)\\) could imply this result, but no such stronger theorem was identified in material inspected.",
+      "searches": [
+        "\"runge-kutta\" \"cycle\" \"positivity\" matrix",
+        "Optimal Explicit Strong Stability Preserving Runge--Kutta Methods with High Linear Order and optimal Nonlinear Order",
+        "Optimal monotonicity-preserving perturbations of a given Runge-Kutta method",
+        "https://arxiv.org/abs/1403.6519",
+        "https://arxiv.org/abs/1505.04024"
+      ]
+    },
+    "checked_sources": [
+      "https://arxiv.org/abs/2102.08242",
+      "https://arxiv.org/abs/1403.6519",
+      "https://arxiv.org/abs/1505.04024",
+      {
+        "material": "public summary; different rational method",
+        "title": "A resolvent-return law for Crank–Nicolson positivity on reversible Markov chains",
+        "url": "https://github.com/Resultary/2026/tree/main/2026/10/4/SCOPE-a-resolvent-return-law-for-crank-nicolson-positivity-on-reversib--d475df91cd2a"
+      },
+      {
+        "material": "public summary; different rational method",
+        "title": "Eight-state barrier for Markov positivity of [2/2] Padé map",
+        "url": "https://github.com/Resultary/2026/tree/main/2026/9/20/SCOPE-eight-state-pade-markov-positivity-barrier--4aad2a3f58ab"
+      },
+      {
+        "material": "public summary; different RK method",
+        "title": "Two-state immunity and three-state sharpness for endpoint positivity of SSP-SDIRK2(2)",
+        "url": "https://github.com/Resultary/2026/tree/main/2026/10/4/SCOPE-two-state-immunity-and-three-state-sharpness-for-endpoint-positi--46bf11cc19c7"
+      }
+    ],
+    "claim_vs_prior_implication": {
+      "evidence": [
+        "Known linear stability of RK4 on the negative real axis does give the two-state spectral endpoint after scaling, so that endpoint alone is not a novelty claim.",
+        "Known zero nonlinear SSP coefficient for classical four-stage fourth-order RK does not exclude end-step positivity for specific fixed linear generators.",
+        "A sharp directed-cycle Crank–Nicolson positivity theorem has a rational resolvent propagator; the RK4 polynomial is not a corollary.",
+        "The Gaussian Padé [2/2] and SSP-SDIRK2 end-step positivity analyses use different maps and cannot imply the polynomial residue coefficients without new results."
+      ],
+      "reasoning": "The exact statement covers all n>=2 for classical Taylor orders 1–4, identifies the sole short-cycle exceptions, and proves minimal dimension of a stable but negative RK4 stochastic end-step. Each cited competing result differs in scheme, quantifier domain, or objective. The general spectral/positivity distinction itself is known and is not the finding.",
+      "searches": [
+        "https://arxiv.org/abs/2102.08242",
+        "https://arxiv.org/abs/1403.6519",
+        "https://arxiv.org/abs/1505.04024",
+        "classical fourth order Runge Kutta Taylor exponential polynomial 3 cycle P-I negative diagonal 3/2 79/128",
+        "https://github.com/Resultary/2026/tree/main/2026/10/4/SCOPE-a-resolvent-return-law-for-crank-nicolson-positivity-on-reversib--d475df91cd2a",
+        "https://github.com/Resultary/2026/tree/main/2026/9/20/SCOPE-eight-state-pade-markov-positivity-barrier--4aad2a3f58ab",
+        "https://github.com/Resultary/2026/tree/main/2026/10/4/SCOPE-two-state-immunity-and-three-state-sharpness-for-endpoint-positi--46bf11cc19c7"
+      ]
+    },
+    "equivalent_formulations": {
+      "evidence": [
+        "The 2021 Markov/graph-Laplacian preprint discusses high-order RK positivity and uses RK4 as a comparator; its full text has no directed-cycle threshold classification.",
+        "The SSP linear-order preprint proves bounds on method-level monotonicity for general classes but does not compute entrywise transition matrices on a fixed directed cycle."
+      ],
+      "reasoning": "The statement is compared both as a positivity radius for an explicit Taylor polynomial and as a stochastic end-step on directed cycles. Unlike global SSP coefficient zero for classical RK4, fixed-generator end-step positivity extends to positive steps. No equivalent polynomial-residue threshold theorem was located in inspected sources.",
+      "searches": [
+        "\"Runge Kutta\" \"circulant\" \"Markov\" \"positivity\" fourth order",
+        "classical Runge Kutta 4 directed cycle Markov chain positivity threshold finite cyclic permutation polynomial",
+        "RK4 directed cycle Markov 3 states nonnegative positivity versus spectral stability exact threshold 1.493377376740",
+        "https://arxiv.org/abs/2102.08242",
+        "https://arxiv.org/abs/1403.6519"
+      ]
+    },
+    "exact_database_or_table": {
+      "evidence": [
+        "The primary texts contain SSP coefficient tables, not tables of these three cycle-length positivity roots.",
+        "The public related integrator findings concern rational Crank–Nicolson, Padé and SSP-SDIRK stability functions rather than the classical RK4 stability polynomial."
+      ],
+      "reasoning": "The exact fractions at h=3/2 and three algebraic endpoints have been compared with retrieved tables and records, including searches of their decimal signatures. No identical table was found; lack of an exact search hit is not novelty proof.",
+      "searches": [
+        "\"1.493377\" \"Runge\" positivity",
+        "fourth order explicit Runge Kutta positivity Markov generators cyclic permutation n=2 n=3 minimal dimension",
+        "truncated exponential polynomials Markov stochastic matrices directed cycles classification 1.256372663 1.392646781 1.493377377"
+      ]
+    },
+    "rationale": "Inspected primary papers discuss unconditional positivity, SSP coefficients, and modified methods but not the exact all-length RK4 cyclic Markov positivity horizons or the sharp dimension-three stable-but-nonpositive witness. The scalar RK4 stability radius, Taylor expansion, and general spectral/positivity distinction are prior facts and are explicitly excluded as standalone originality claims. Related public findings address Crank–Nicolson, Gauss–Legendre Padé, and SSP-SDIRK, whose rational stability functions differ; none directly entails the exact fourth-order polynomial coefficient table. Publication priority remains conditional on specialized cyclic semigroup literature.",
+    "residual_risks": [
+      "Specialized literature on positivity radii for cyclic or circulant Markov semigroups may subsume the coefficient classification.",
+      "Retrieval and accessible full-text reading are not exhaustive over all historical literature and do not prove priority.",
+      "The known scalar classical-RK4 spectral stability radius already implies the isolated two-state endpoint; originality rests on the complete classification and minimal three-state phenomenon."
+    ],
+    "source_inspections": [
+      {
+        "assessment": "Motivation and existing order-barrier results cover the general issue, not the exact cyclic polynomial table.",
+        "evidence": [
+          "First posted 2021-02-16, verified by source metadata.",
+          "RK4 is listed as a reference integrator in section 5; no directed-cycle classification was located in full accessible HTML."
+        ],
+        "identifier_or_url": "https://arxiv.org/abs/2102.08242",
+        "material_read": "Full accessible HTML text; sections 1, 2, 3, 5 and conclusions, including discussion of Markov generators, mass conservation, RK4 comparisons and order barriers.",
+        "method": "Direct reading of the accessible primary source and inspection for directed cycles and RK4-specific exact thresholds.",
+        "title": "Positivity-preserving methods for population models",
+        "trigger": "Same Markov-generator/graph-Laplacian positivity problem, with classical RK4 comparator."
+      },
+      {
+        "assessment": "General SSP bounds and designed RK methods, no exact RK4 end-step threshold per small directed Markov cycle.",
+        "evidence": [
+          "The source explicitly recalls the nonexistence of positive SSP coefficient for classical four-stage fourth-order RK.",
+          "Its numerical linear positivity experiments use advection grids and different optimized methods."
+        ],
+        "identifier_or_url": "https://arxiv.org/abs/1403.6519",
+        "material_read": "Full accessible HTML, introduction, theoretical SSP discussion, linear order and optimization sections, numerical results, including tables.",
+        "method": "Review of formulas, order conditions, SSP tables, and positivity experiments and targeted full-text search for directed cycles.",
+        "title": "Optimal Explicit Strong Stability Preserving Runge–Kutta Methods with High Linear Order and Optimal Nonlinear Order",
+        "trigger": "Potential stronger method-wide linear monotonicity and SSP thresholds."
+      },
+      {
+        "assessment": "Perturbed tableau and global monotonicity theory do not calculate this unperturbed RK4 Markov cycle table.",
+        "evidence": [
+          "The paper compares perturbed RK methods and their absolute monotonicity radii.",
+          "It notes classical RK4 can fail SSP despite nonnegative tableau coefficients."
+        ],
+        "identifier_or_url": "https://arxiv.org/abs/1505.04024",
+        "material_read": "Full accessible HTML sections 1–3, especially definitions, linear theory, and RK perturbations.",
+        "method": "Review of absolute-monotonicity definitions and optimization comparisons; targeted full-text check for cyclic Markov examples.",
+        "title": "Optimal monotonicity-preserving perturbations of a given Runge–Kutta method",
+        "trigger": "Could dominate cycle-specific monotonicity through absolute-monotonicity radius theory."
+      }
+    ],
+    "status": "PASS"
+  },
+  "review_type": "self_review",
+  "schema_version": 1,
+  "scientific_limits": [
+    "No result for arbitrary generators beyond the two-state spectral equivalence.",
+    "No stage-positivity guarantee.",
+    "No nonlinear or floating-point assertions.",
+    "No independent audit or publication-priority certification."
+  ],
+  "scope_run_id": "6cbc2748-39ff-4347-8c3f-2083a0ede195",
+  "self_review_status": "passed",
+  "value": {
+    "rationale": "The exact classifications solve a natural complete family of finite-state Markov master-equation time steps for four classical exponential Taylor orders, and expose the nonmonotone dependence of the admissible timestep on cycle length. The three-state rational example is a minimal-dimensional obstruction showing that spectral damping and preservation of nonnegative probabilities are separate numerical safety criteria. It is a practical benchmark for choosing time steps and diagnosing otherwise invisible probability violations; these facts are not merely a substituted generic SSP formula.",
+    "status": "PASS"
+  }
+}

@@ -1,0 +1,12 @@
+# Self-review
+
+## Correctness (PASS)
+The theorem fixes a stationary two-state continuous-time Markov chain, four conditional Bernoulli observations, horizon and all quantifiers including coincident inspections. Direct independent matrix multiplication gives the multiaffine no-detection expression. Since its coefficient of the two outer lag factors' sum is strictly positive, AM–GM forces their equality at any global minimizer. The remaining one-dimensional objective has derivative proportional to a strictly convex quartic whose signs at the admissible interval endpoints give exactly one critical threshold and one optimizer. The d=1 factorization and all boundary cases are proved. The standalone exact checker passed 758 assertions. It does not replace the infinite-parametric proof.
+
+## Originality (PASS, historical priority provisional)
+The accessible three-observation scheduling law has different dimension and concludes midpoint/clipping rather than a four-observation endpoint-doublet transition. Semantic research searches for four-visit Markov detection schedules, hidden availability, repeated survey gaps and temporal optimization returned no dominating matching claim. Full primary text of Guillera-Arroita et al. (2010), Petitot et al. (2014) and Borchers–Langrock (2015) was inspected; these treat occupancy estimator precision, empirical optimal amphibian survey effort, and inference in Markov-modulated line-transect availability, respectively. They do not state the four-time closed-form optimizer in the material read. Broader optimal-inspection theory could contain or imply this result and priority has not been independently verified.
+
+## Mathematical value (PASS)
+Survey times are a natural design choice when an organism may be temporarily unavailable and tests miss available individuals. The result gives a complete global policy and an explicit, nontrivial qualitative phase transition. It shows uniform time spacing is always strictly suboptimal with imperfect detection, unlike perfect detection, and identifies the exact circumstances when simultaneous independent endpoint replicates are optimal. This is a structural result rather than a small ad hoc numerical improvement. The model does not address unknown occupancy, field logistics, estimation information, adaptive testing, cross-observer dependence or more than four visits.
+
+Self-review: passed. Independent audit: not yet performed.

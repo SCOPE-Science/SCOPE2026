@@ -1,0 +1,155 @@
+{
+  "correctness": {
+    "rationale": "Exact SPD decomposition into pair-antisymmetric eigenvalues (1-b), pair-symmetric differences (1+b), and a 2×2 hub block. Diagonal Loewner sandwich convexity makes orbit-averaging rigorous. Perron positivity of the top generalized eigenvector forces every optimum to be orbit-constant. A sharp eigenvalue-crossing and AM–GM minimax proof yields both branches and Jacobi locus for all admissible real parameters. Replaying verify.py gave 1,799 deterministic numerical assertions across 126 cases; finite evidence is corroboration only.",
+    "status": "PASS"
+  },
+  "independent": false,
+  "independent_audit_status": "not_performed",
+  "originality": {
+    "broader_coverage": {
+      "evidence": [
+        "Van der Sluis (1969), Section 4, gives a dimension-factor Jacobi bound and describes exact optimal Jacobi scaling for matrices with Young’s property A.",
+        "The matched-pair hub graph contains triangles, hence cannot satisfy the relevant bipartite property A.",
+        "Shapiro (1985) and Kolotilina (2002) treat broadly defined scaling problems, but their full texts were not accessible in this inspection."
+      ],
+      "reasoning": "The known exact Jacobi/bipartite theorem is not applicable: each hub plus leaf-pair is an odd cycle. General optimality criteria may characterize all SPD matrices implicitly; they do not imply a stated explicit matched-pair phase diagram without nontrivial specialization. Residual coverage risk is retained because relevant full texts were unavailable.",
+      "searches": [
+        "optimal diagonal scaling spectral condition number bipartite matrix graph",
+        "",
+        "",
+        "",
+        "",
+        "optimal diagonal scaling spectral condition number for signed nonbipartite positive definite cyclic graph",
+        "optimal symmetric diagonal scaling bipartite off diagonal zero diagonal block identity condition number"
+      ]
+    },
+    "checked_sources": [
+      "Van der Sluis (1969), https://doi.org/10.1007/BF02165096, full-text pp.19–21",
+      "Braatz–Morari (1994), https://doi.org/10.1137/S0363012992238680, repository abstract",
+      "Shapiro (1985), https://doi.org/10.1137/0722005, journal/JSTOR abstract",
+      "Kolotilina (2002), https://doi.org/10.1016/S0024-3795(01)00412-8, publisher abstract",
+      "Friendship graph spectrum, arXiv:1310.6529, abstract"
+    ],
+    "claim_vs_prior_implication": {
+      "evidence": [
+        "The van der Sluis full-text Section 4 gives bounds for Jacobi scaling and refers to Young property A; it does not contain the positive-matching hub phase transition.",
+        "Braatz–Morari supplies a generic convex formulation; the present derivation proves a closed-form optimizer and a uniqueness statement.",
+        "The inspected bibliographic material for Shapiro and Kolotilina does not assert the same structured result; their entire articles could not be checked."
+      ],
+      "reasoning": "A general convex feasibility algorithm could find a numerical optimum for any instance, but it does not state these parameterized symbolic values. The present theorem needs a two-dimensional coupled mode, an independent pair-antisymmetric eigenvalue, and a full-orbit rigidity argument. Previously examined dense equicorrelation-hub formulas do not directly imply this sparse paired-leaf result because the transverse eigenvalue multiplicities and values differ; a stronger general theorem remains a risk.",
+      "searches": [
+        "",
+        "",
+        "",
+        "",
+        "",
+        "Optimal spectral condition number diagonal congruence scaling for friendship graph matrix with triangles sharing a hub and matched leaf correlations",
+        "Jacobi optimality locus hub matching correlated pairs SPD matrix positive diagonal scaling",
+        "Optimal scaling of arrowhead SPD matrices with block diagonal two-by-two leaves"
+      ]
+    },
+    "equivalent_formulations": {
+      "evidence": [
+        "Braatz–Morari 1994 formulates condition-number scaling through convex optimization, but the inspected accessible abstract does not give the paired-leaf spectrum or its two-phase optimizer.",
+        "Kolotilina 2002 concerns general optimal block conditioning; its abstract does not identify the disjoint-pair hub family.",
+        "The exact weighted two-by-two block and residual pair-antisymmetric mode are derived independently in the proof."
+      ],
+      "reasoning": "Positive diagonal congruence minimization is equivalent to diagonal Loewner sandwich feasibility; generic equivalence of problem formulations does not itself supply a closed-form family classification. The named graph model has sparse disjoint matching blocks and two distinct transverse eigenvalue types. An inaccessible specialist derivation remains a possibility.",
+      "searches": [
+        "Optimal spectral condition number diagonal congruence scaling for friendship graph matrix with triangles sharing a hub and matched leaf correlations",
+        "Jacobi optimality locus hub matching correlated pairs SPD matrix positive diagonal scaling",
+        "Optimal scaling of arrowhead SPD matrices with block diagonal two-by-two leaves",
+        "",
+        "",
+        ""
+      ]
+    },
+    "exact_database_or_table": {
+      "evidence": [
+        "Friendship-graph eigenvalue literature concerns adjacency spectra rather than optimized diagonal congruence condition numbers.",
+        "No inspected numerical table or published closed-form source lists the threshold \\(2ma^2=4b^2/(1+b)\\) or the Jacobi locus \\(ma^2=b^2\\)."
+      ],
+      "reasoning": "An adjacency spectrum alone does not determine the best diagonal scaling because the optimization permits independently rescaled coordinate axes. Searches for the exact object and alternate hub-pair terminology found no matching explicit table. Absence of a search hit is not proof of uniqueness.",
+      "searches": [
+        "",
+        "Optimal spectral condition number diagonal congruence scaling for friendship graph matrix with triangles sharing a hub and matched leaf correlations",
+        "Jacobi optimality locus hub matching correlated pairs SPD matrix positive diagonal scaling",
+        "Optimal scaling of arrowhead SPD matrices with block diagonal two-by-two leaves",
+        ""
+      ]
+    },
+    "rationale": "The scoped explicit result for a sparse hub with independent matched-pair correlations was not found in examined literature or accessible prior records. Classical general convex scaling frameworks, property-A exactness, adjacency spectra, and dense equicorrelation hub results do not explicitly give the present disjoint-pair transverse spectrum, its sharp phase boundary and exact Jacobi locus. Inaccessible broad specialist full texts remain an acknowledged residual overlap risk.",
+    "residual_risks": [
+      "The complete Shapiro 1985 and Kolotilina 2002 papers were unavailable; a specialist theorem could state the same or stronger closed-form classification.",
+      "An alternative representation of the sparse matched-leaf matrix could make the result a nonobvious special case of a broader known diagonal scaling theorem.",
+      "Search result coverage is incomplete and negative search results are not novelty proofs."
+    ],
+    "source_inspections": [
+      {
+        "assessment": "NOT_COVERING for explicit matched-pair hub formulas; broad Jacobi bound and property-A reference only",
+        "evidence": [
+          "Section 4 Theorem 4.1 bounds Jacobi conditioning within dimension factor; property A exactness cited on pp.19–20.",
+          "Hub-pair triangle structure is not property A."
+        ],
+        "identifier_or_url": "https://user.it.uu.se/~maney676/Courses/NLA/Projects/2014/VanderSluis1963.pdf",
+        "material_read": "Extracted PDF text from the introduction and Sections 2–5, including Theorems 4.1 and 4.3; screenshots pp.19–20",
+        "method": "Open-access full-text reading, theorem and hypothesis comparison",
+        "title": "Condition Numbers and Equilibration of Matrices",
+        "trigger": "Foundational symmetric diagonal scaling and Young property A"
+      },
+      {
+        "assessment": "General optimization framework; whole-document noncoverage NOT claimed",
+        "evidence": [
+          "Published 1994; repository abstract states convex optimization approach to general condition-number minimization."
+        ],
+        "identifier_or_url": "https://authors.library.caltech.edu/records/77k80-98q27",
+        "material_read": "Repository abstract and bibliographic details; linked full PDF could not be retrieved",
+        "method": "OA repository article record and full-text link attempt",
+        "title": "Minimizing the Euclidean Condition Number",
+        "trigger": "Convex formulation of global scaling"
+      },
+      {
+        "assessment": "Plausible implicit characterization; no decisive whole-document exclusion",
+        "evidence": [
+          "Abstract advertises optimality criteria and several special closed forms without naming this graph family."
+        ],
+        "identifier_or_url": "https://www.jstor.org/stable/2156920",
+        "material_read": "JSTOR abstract and bibliography; full text unavailable",
+        "method": "Bibliographic/abstract inspection",
+        "title": "Optimal Block Diagonal l2-Scaling of Matrices",
+        "trigger": "Possible stronger theorem for two-orbit scaling"
+      },
+      {
+        "assessment": "Important remaining priority risk, not proven NOT_COVERING",
+        "evidence": [
+          "2002 article is about descriptions of optimally conditioned Hermitian positive-definite block matrices, not an explicitly identified hub-matching parameter family in accessible text."
+        ],
+        "identifier_or_url": "https://doi.org/10.1016/S0024-3795(01)00412-8",
+        "material_read": "Journal abstract, MSC and bibliography; full text inaccessible",
+        "method": "Publisher abstract and attempted authorized full-text retrieval",
+        "title": "Optimally conditioned block matrices",
+        "trigger": "Potentially dominant general block-matrix characterization"
+      },
+      {
+        "assessment": "Graph adjacency spectrum, not unrestricted condition-number scaling",
+        "evidence": [
+          "The abstract concerns graph adjacency spectral classification of friendship graphs."
+        ],
+        "identifier_or_url": "https://arxiv.org/abs/1310.6529",
+        "material_read": "Title and abstract only",
+        "method": "Open discovery abstract comparison",
+        "title": "The graphs with all but two eigenvalues equal to ±1",
+        "trigger": "Possible spectral precursor for friendship graphs"
+      }
+    ],
+    "status": "PASS"
+  },
+  "review_type": "self_review",
+  "schema_version": 1,
+  "scope_run_id": "65800581-cc6b-42b5-9c41-8a9a6068a533",
+  "self_review_status": "passed",
+  "value": {
+    "rationale": "This solves a natural complete structured diagonal preconditioning problem for a hub coupled to independent correlated pairs, with a rank-changing active eigenvalue constraint. The exact optimum, unique unrestricted scaler and sharp isolated Jacobi condition \\(ma^2=b^2\\) determine when inexpensive diagonal equilibration is fully optimal and how sparsity and system dimension change that decision. Unlike isolated low-order numerical examples, the result applies to every number of paired blocks and every admissible positive parameter.",
+    "status": "PASS"
+  }
+}

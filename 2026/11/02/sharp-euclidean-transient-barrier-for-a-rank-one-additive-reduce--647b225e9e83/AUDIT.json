@@ -1,0 +1,147 @@
+{
+  "correctness": {
+    "rationale": "For the precise real SPD two-dimensional Type-II inverse action, direct orthogonal-basis multiplication gives the error matrix with entries \\(0,-h/a,-\\alpha h,1-\\alpha b\\). Sylvester's criterion reduces strict Euclidean contraction to a concave quadratic in \\(y=\\alpha b\\), whose discriminant is exactly \\(4(1-r^2)(1-r^2s^2)\\). Choosing \\(\\alpha=1/b\\) bounds the operator norm by \\((\\kappa-1)/(2\\sqrt\\kappa)\\) using AM-GM, and a diagonal SPD family at the optimizing rotation attains that bound for every positive coefficient via the image of the complementary basis vector. The neutral, zero-coupling and \\(\\kappa=1\\) boundaries are resolved. The bundled verifier reconstructs five symbolic identities, 25,904 comparisons and 48 exact sharp families. Finite tests are supplementary, not an infinite proof.",
+    "status": "PASS"
+  },
+  "independent": false,
+  "independent_audit_status": "not_performed",
+  "originality": {
+    "broader_coverage": {
+      "evidence": [
+        "Demmel (2023) studies \\(\\kappa_2(DAD^T)\\) under block diagonal scaling; this is not \\(\\|I-BA\\|_2\\) of a nonsymmetric iteration.",
+        "Xu–Zhang (2020/2022) derives energy-norm bounds for two-grid error propagation; the current metric is the Euclidean operator norm of a one-step additive RB Richardson error map.",
+        "Fan–Hu–Zhang (2026) treats invertibility of Type II and general norm bounds rather than the exact two-by-two orientation minimax."
+      ],
+      "reasoning": "None of these inspected results states a theorem whose hypotheses and conclusion subsume the exact one-coordinate optimized Euclidean norm equality. Generic block-preconditioning frameworks do not yield this numerical sharp constant by direct specialization without an additional optimization.",
+      "searches": [
+        "additive reduced basis preconditioner inverse Galerkin correction complementary subspace optimal scalar alpha spectral condition number 2x2",
+        "one exact coordinate Richardson iteration two by two SPD Euclidean nonexpansion inverse coarse matrix nonnormal obstruction",
+        "block Jacobi optimal scalar diagonal scaling two by two condition number off diagonal correlation",
+        "Nearly Optimal Block-Jacobi Preconditioning Demmel 2023",
+        "A new analytical framework for the convergence of inexact two-grid methods Xu Zhang 2020",
+        "optimal complement damping Euclidean one step error amplification sqrt condition number exact"
+      ]
+    },
+    "checked_sources": [
+      "https://arxiv.org/abs/2609.11097",
+      "https://github.com/Resultary/2026/blob/main/2026/9/20/SCOPE-weighted-jacobi-euclidean-damping-frontier--457b47fc383f/RESULT.md",
+      "https://doi.org/10.1137/22M1504901",
+      "https://arxiv.org/abs/2007.12754"
+    ],
+    "claim_vs_prior_implication": {
+      "evidence": [
+        "Weighted-Jacobi Theorem 2 establishes the undamped criterion \\(|h|\\le\\min(a,b)\\); the present pointwise *existence* criterion is \\(|h|<a\\), permitting \\(b<|h|<a\\) when SPD allows.",
+        "Weighted-Jacobi Theorem 3 gives a fixed common-relaxation safe envelope and the number \\(3+2\\sqrt2\\), but does not state that optimizing only the complementary correction leaves worst-orientation amplification \\((\\kappa-1)/(2\\sqrt\\kappa)\\).",
+        "Fan–Hu–Zhang Proposition 3.9 bounds Richardson error by products of approximation tolerances and correction terms, without a matching exact Euclidean orientation supremum."
+      ],
+      "reasoning": "A shared threshold alone is not a claim of independent discovery; the stronger distinction is the exact tuned-parameter minimax identity, sharp witness, and full per-instance admissible interval. Neither the motivating bounds nor the inspected earlier claims logically supplies all three without further analysis.",
+      "searches": [
+        "Additive reduced basis preconditioner Type II exact 2x2 Euclidean norm Richardson one step contraction principal angle gap condition number 3+2sqrt2",
+        "weighted Jacobi Euclidean safety threshold one diagonal block fixed exact coarse coordinate complementary damping",
+        "https://arxiv.org/abs/2609.11097",
+        "https://github.com/Resultary/2026/blob/main/2026/9/20/SCOPE-weighted-jacobi-euclidean-damping-frontier--457b47fc383f/RESULT.md",
+        "https://doi.org/10.1137/22M1504901",
+        "https://arxiv.org/abs/2007.12754",
+        "pointwise safe alpha interval two dimensional exact Galerkin coarse inverse scalar complementary correction nonnormal Richardson",
+        "sharp minimax sup over coarse directions inf over alpha norm I minus additive reduced basis inverse A equals (kappa-1)/(2 sqrt kappa)"
+      ]
+    },
+    "equivalent_formulations": {
+      "evidence": [
+        "Published weighted-Jacobi result: \\(T_\\omega=I-\\omega D^{-1}A\\), with one common scalar; it gives an exact Euclidean nonexpansion ceiling and states \\(|h|\\le\\min(a,b)\\) for \\(\\omega=1\\).",
+        "New map fixes the Galerkin coarse coefficient at \\(1/a\\) but varies only the complementary inverse coefficient \\(\\alpha\\), so it is a diagonal relaxation with one coordinate held exact."
+      ],
+      "reasoning": "Orthogonal rotation and diagonal preconditioning link the settings, but simultaneous scalar damping is not the same feasible family as optimized complementary correction. The new exact interval and optimized minimax lower bound require an additional parameter elimination and sharp witness, not a wording variation of the common-damping statement.",
+      "searches": [
+        "Additive reduced basis preconditioner Type II exact 2x2 Euclidean norm Richardson one step contraction principal angle gap condition number 3+2sqrt2",
+        "right block inverse Galerkin diagonal correction rank one 2d Euclidean transient growth relaxation parameter alpha",
+        "rank one reduced basis inverse complementary projection Richardson Euclidean one step contraction",
+        "Galerkin coarse correction Jacobi smoother Euclidean nonexpansive two by two arbitrary orientation",
+        "https://github.com/Resultary/2026/blob/main/2026/9/20/SCOPE-weighted-jacobi-euclidean-damping-frontier--457b47fc383f/RESULT.md",
+        "pointwise safe alpha interval two dimensional exact Galerkin coarse inverse scalar complementary correction nonnormal Richardson"
+      ]
+    },
+    "exact_database_or_table": {
+      "evidence": [
+        "published-finding corpus returned the closely related weighted-Jacobi Euclidean damping frontier and different Richardson/Gauss–Seidel transient thresholds, not this additive reduced-basis minimax statement.",
+        "The 2026 motivating manuscript states 65N30, 65F08, 65F10 and explicitly defines Type II in equation (7)."
+      ],
+      "reasoning": "These checks identify a shared numerical threshold but not a database or exact table of the complementary-scalar minimax and parameter interval. A negative search does not prove uniqueness.",
+      "searches": [
+        "additive reduced basis preconditioner inverse Galerkin correction complementary subspace optimal scalar alpha spectral condition number 2x2",
+        "Additive reduced basis preconditioner Type II exact 2x2 Euclidean norm Richardson one step contraction principal angle gap condition number 3+2sqrt2",
+        "right block inverse Galerkin diagonal correction rank one 2d Euclidean transient growth relaxation parameter alpha",
+        "one exact coordinate Richardson iteration two by two SPD Euclidean nonexpansion inverse coarse matrix nonnormal obstruction",
+        "weighted Jacobi Euclidean safety threshold one diagonal block fixed exact coarse coordinate complementary damping",
+        "https://arxiv.org/abs/2609.11097",
+        "https://github.com/Resultary/2026/blob/main/2026/9/20/SCOPE-weighted-jacobi-euclidean-damping-frontier--457b47fc383f/RESULT.md",
+        "sharp minimax sup over coarse directions inf over alpha norm I minus additive reduced basis inverse A equals (kappa-1)/(2 sqrt kappa)"
+      ]
+    },
+    "rationale": "The 2026 additive reduced-basis manuscript defines the Type-II complement correction and analyzes nonsingularity, Richardson error estimates, and FGMRES use, without the sharp pointwise Euclidean correction window or optimization over that correction followed by the worst coarse-space orientation. The published published-finding corpus weighted-Jacobi theorem already covers the separate common-relaxation problem and the same numerical undamped threshold, explicitly credited rather than rebranded. Its statements do not alone imply the optimized one-coordinate minimax equality. Demmel studies condition numbers of symmetrically block-scaled systems, and Xu–Zhang energy-norm two-grid factors. The precise claim is best-knowledge original; classical two-dimensional diagonal relaxation may still contain equivalent algebra.",
+    "residual_risks": [
+      "The \\(3+2\\sqrt2\\) numerical threshold is already present for undamped weighted Jacobi; no independent novelty is claimed for that bare constant.",
+      "An older specialist exact two-dimensional diagonal-relaxation result might contain the optimized scalar interval or imply the minimax identity.",
+      "The Demmel and Xu–Zhang papers were compared at abstract level, not claimed to be fully read."
+    ],
+    "source_inspections": [
+      {
+        "assessment": "Defines the same Type-II action and norm-error motivation but lacks the candidate sharp two-dimensional Euclidean minimax formula",
+        "evidence": [
+          "Equation (7): \\(M_{(2)}=(\\widetilde M+\\alpha(I-PP^T))^{-1}\\).",
+          "Theorem 3.6: nonsingularity under stated conditions.",
+          "Proposition 3.9: Richardson error bound involving tolerances and \\(|\\alpha|\\|A\\|\\)."
+        ],
+        "identifier_or_url": "https://arxiv.org/abs/2609.11097",
+        "material_read": "Primary-source HTML introduction and substantive §§3.1–3.4, including equation (7), Theorem 3.6, and Proposition 3.9; no claim of inspecting the full remaining document.",
+        "method": "Read mathematical definitions, algorithmic objective, assumptions and theorem conclusions",
+        "title": "Additive reduced basis preconditioners for large-scale parametrized PDEs",
+        "trigger": "Exact definition and previously analyzed properties of the inverse-action correction"
+      },
+      {
+        "assessment": "Already contains the same universal undamped-Jacobi threshold but not the optimized one-complement scalar minimax or pointwise admissible interval",
+        "evidence": [
+          "Theorem 1 gives \\(\\omega_E(A)=\\lambda_{\\min}(A^{-1}D+DA^{-1})\\).",
+          "Theorem 2: \\(|h|\\le\\min(a,b)\\) for undamped Jacobi.",
+          "Theorem 3: \\(3+2\\sqrt2\\) universal standard-Jacobi threshold."
+        ],
+        "identifier_or_url": "https://github.com/Resultary/2026/blob/main/2026/9/20/SCOPE-weighted-jacobi-euclidean-damping-frontier--457b47fc383f/RESULT.md",
+        "material_read": "Complete published RESULT.md statement, proof, relation and limitations",
+        "method": "Compared exact iteration parameter families and theorem implications",
+        "title": "Sharp Euclidean damping frontier for weighted Jacobi on 2×2 SPD systems",
+        "trigger": "Closest mathematical overlap: Euclidean transient norm of nonnormal diagonal preconditioning"
+      },
+      {
+        "assessment": "Spectral condition-number objective rather than the nonnormal Euclidean error propagator; residual risk because full text was not inspected",
+        "evidence": [
+          "Abstract explicitly formulates minimization of \\(\\kappa(DAD^T)\\) and block-Jacobi scaling."
+        ],
+        "identifier_or_url": "https://doi.org/10.1137/22M1504901",
+        "material_read": "Publisher abstract and bibliographic record; full text not inspected",
+        "method": "Compared target norm, class of scalings and stated scope",
+        "title": "Nearly Optimal Block-Jacobi Preconditioning",
+        "trigger": "Potential broader block-diagonal scaling coverage"
+      },
+      {
+        "assessment": "Related coarse-grid framework, but a different norm and iteration model; low direct overlap",
+        "evidence": [
+          "Abstract describes two-sided energy-norm bounds for inexact two-grid error propagation."
+        ],
+        "identifier_or_url": "https://arxiv.org/abs/2007.12754",
+        "material_read": "ArXiv abstract and submission record; full text not inspected",
+        "method": "Compared energy-norm error analysis to one-step Euclidean norm",
+        "title": "A new analytical framework for the convergence of inexact two-grid methods",
+        "trigger": "Related exact/inexact coarse correction analysis"
+      }
+    ],
+    "status": "PASS"
+  },
+  "review_type": "self_review",
+  "schema_version": 1,
+  "scope_run_id": "647b225e-9e83-4a86-b4da-087564d19d95",
+  "self_review_status": "passed",
+  "value": {
+    "rationale": "The research question is anchored to a concrete additive reduced-basis inverse action whose scalar correction is algorithmically adjustable. The theorem gives the exact pointwise safe tuning window and a robust minimax that remains \\(\\Theta(\\sqrt\\kappa)\\) after optimizing the correction, with a sharp condition-number safety transition. This distinguishes nonnormal transient behavior from spectral convergence and provides a precise failure benchmark for an otherwise nonsingular preconditioner, rather than an arbitrary numerical example. The result is limited to the minimal nontrivial SPD dimension; no broad Krylov performance guarantee is implied.",
+    "status": "PASS"
+  }
+}

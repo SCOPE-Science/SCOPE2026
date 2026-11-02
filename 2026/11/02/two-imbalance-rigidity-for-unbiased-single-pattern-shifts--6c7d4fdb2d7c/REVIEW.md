@@ -1,0 +1,15 @@
+# Scientific review: two-imbalance rigidity
+
+## Correctness — PASS
+The exact domain is a single forbidden binary factor with at least two occurrences of each bit. The published weighted avoidance generating function implies the exact implicit growth-root equation. Setting the letter-density derivative to \(1/2\) is equivalent to a zero of the imbalance polynomial at the growth root. Its entropy polynomial is monic, has integer coefficients and constant term \(\pm1\), so the root is an algebraic unit; no positive power of it is rational since it exceeds one. A polynomial with one or two nonzero monomials cannot vanish there. The needed simple-pole property holds for these nonexceptional mixing single-pattern shifts. The separate prefix-automaton implementation confirms the derived formula across \(426\) short words and the two specifically mixed-sign examples. Risk: mistakes in the imported generating-function identity or choice of dominant branch; both were separately checked against direct finite-state computations. Finite tests do not substitute for the general proof.
+
+## Originality — PASS, residual priority risk
+The closest manuscript [1] explicitly conjectures the balanced-border necessity direction, proves only the one-sided imbalance criterion, and highlights exactly the two mixed-sign examples treated here. The result is not a restatement of its balanced-border sufficient condition, because it proves strict non-half density when two border imbalances have opposite signs. Prior single-forbidden-pattern shift results [2] treat entropy, correlation polynomials, representation and conjugacy, not this weighted cancellation obstruction. Scientific-record and phrase searches did not reveal a published theorem making the present two-term exclusion; they are not proofs of priority. Risk: an implicit earlier algebraic-unit argument or later unindexed update could dominate this claim.
+
+## Value — PASS
+The conjecture in [1] is explicitly open and its first mixed-sign cases are given concrete attention. The theorem disposes of the entire class with at most two unbalanced self-borders in arbitrary length, not just one example or a finite search, by an exact reusable algebraic mechanism. It also settles the sign for the two highlighted examples without reliance on unstable finite-prefix estimates. This is a motivated substantive partial resolution rather than a routine example count.
+
+## Closest literature and limitations
+[1] M. Bóna, B. Maga and J. Richey, *Letter frequency in shifts of finite type with one forbidden word*, arXiv:2606.06655, 2026, especially Eq. (2.11), Theorem 3.5 and Conjecture 6.1. [2] N. Chandgotia et al., *Shifts of finite type obtained by forbidding a single pattern*, arXiv:2409.09024, 2024, and DCDS 48 (2026). The conjecture for at least three unbalanced borders is unresolved here, as is the separate stopping-time statistic. The present review is not independent validation.
+
+Self-review: passed. Independent audit: not yet performed.

@@ -1,0 +1,11 @@
+# Self-review
+
+**Correctness — PASS.** For every odd prime power and every prescribed diagonal, the proof completes a square after a nonzero pivot, counts the resulting nondegenerate binary quadratic forms, handles the one-or-zero-pivot cases separately, and derives the singular fibers by summation. No assumption on primeness or on the nonzero determinant is omitted. Separate direct enumeration confirms 17,820 determinant fibers in four prime fields and one quadratic extension, over 1,911,396 matrices in total. Finite verification is supporting evidence, not a proof of infinitely many fields.
+
+**Originality — PASS (best-knowledge, with explicit historical risk).** The most closely related 2026 diagonal-count theorem concerns the full general linear group rather than symmetric matrices and does not fix determinant. The 2011 determinant-twisted formula likewise covers unrestricted invertible matrices, not this fixed-diagonal symmetric family. Brent–McKay counts determinant divisibility of uniformly sampled symmetric matrices without fixed diagonal, so it does not imply conditional fibers. Mathematical-record searches and accessible earlier research claims found no matching conditional-fiber law. A 1955 paper of Hodges on symmetric-matrix exponential sums is highly relevant but its complete text was not accessible; it is a material unresolved historical-priority risk, not evidence of uniqueness.
+
+**Value — PASS.** This is a natural complete, exact classification of a three-variable determinant fiber central to finite-field quadratic-form and matrix-counting questions. It strengthens the undifferentiated nonsingularity counts to a fully resolved conditional distribution, with a striking support-only singular law and a four-character arithmetic correction for nonzero determinants. It supplies the first nontrivial symmetric matrix dimension, not an arbitrary finite table or isolated numeric evaluation. Higher dimensions and characteristic two remain open within this result.
+
+The 2026 Gorodetsky paper, Li–Hu (2011), Brent–McKay (1988/2010), Hodges (1955, metadata only), and Kim (1997) are compared in the accompanying audit, including explicit residual risks.
+
+Self-review: passed. Independent audit: not yet performed.

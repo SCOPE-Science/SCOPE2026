@@ -1,0 +1,136 @@
+{
+  "correctness": {
+    "rationale": "The complete proof verifies SPD hypotheses, all eigenvalue multiplicities, full independent-diagonal optimization via diagonal semidefinite majorants, Perron-positive rigidity for uniqueness, strict branch monotonicity, crossing equations and the clipping limits. Each potential negative denominator and equality boundary is addressed. Replayed attached standalone verifier passed 17,287 assertions, including direct full-matrix eigenvalues, the exact rational family and off-symmetry numerical searches; finite tests are supplementary rather than a substitute for the analytical proof.",
+    "status": "PASS"
+  },
+  "independent": false,
+  "independent_audit_status": "not_performed",
+  "originality": {
+    "broader_coverage": {
+      "evidence": [
+        "Kolotilina (2004), DOI 10.1023/B:JOTH.0000026285.08558.74: theorem 1.1 and discussion of full nonsingular block-diagonal transformations and block-Jacobi normalization read in openly accessible author text.",
+        "Kolotilina (2002), DOI 10.1016/S0024-3795(01)00412-8: bibliographic record and abstract cover optimally conditioned general block matrices; complete original text inaccessible.",
+        "Shapiro (1985), DOI 10.1137/0722005: abstract states a general scaling theory and some unnamed closed-form special cases; full text not inspected, an explicit residual coverage risk.",
+        "Demmel (2023), DOI 10.1137/22M1504901: abstract gives near-optimal block-Jacobi general bounds, not a restricted scalar-per-coordinate optimum."
+      ],
+      "reasoning": "Full-block congruence allows transformations that are not positive diagonal and usually improves the attainable condition number beyond the admissible class here; optimality in that broader class does not by itself identify this restricted optimum. The accessible theorems do not specify the two-community phase formula or the positive-vector rigidity certificate. Shapiro could contain a stronger covering special case, but available material does not establish one; this remains an explicit risk.",
+      "searches": [
+        "Web: Shapiro 1985 optimal block diagonal l2 scaling full-text special cases",
+        "Web: Kolotilina 2002 optimally conditioned block matrices",
+        "Web: Kolotilina 2003 optimally conditioned block 2x2 matrices",
+        "Web: Nearly Optimal Block-Jacobi Preconditioning Demmel 2023",
+        "published-finding corpus: block-equicorrelated SPD two exchangeable classes optimal diagonal preconditioning condition number eigenvalue edge phases"
+      ]
+    },
+    "checked_sources": [
+      "arxiv:1610.03871v1 (HTML §§1--4 and beginning of §5 inspected)",
+      "doi:10.1137/S0363012992238680 (author-supplied extracted full text inspected)",
+      "doi:10.1023/B:JOTH.0000026285.08558.74 (extracted author text inspected)",
+      "doi:10.1137/0722005 (abstract/metadata only, full text unavailable)",
+      "doi:10.1016/S0024-3795(01)00412-8 (abstract/metadata only)",
+      "doi:10.1137/22M1504901 (abstract only)",
+      "Published published-finding corpus semantic searches: six focused query variants plus preliminary broader queries"
+    ],
+    "claim_vs_prior_implication": {
+      "evidence": [
+        "Van der Sluis (1969): approximate-condition-number guarantee for Jacobi equilibration rather than exact optimal scaling of two nontrivial communities.",
+        "Braatz--Morari (1994) establishes convex computation for general scaled condition-number problems, not the rational closed-form phase boundaries.",
+        "Kolotilina (2004) studies full-block transformations rather than arbitrary independent positive scalar diagonal entries; no implication establishing the explicit clipped formula found in the inspected theorem and spectral discussion.",
+        "The singleton-community specialization lacks the eigenvalue branch for first-block fluctuations and does not logically establish a theorem for two nontrivial communities."
+      ],
+      "reasoning": "An algorithm that can numerically solve an SDP does not state the resulting closed-form phase classification. A bigger permissible preconditioner group can furnish a bound but cannot generally identify the optimum under stricter scalar restrictions. The one-hub setting does not encompass two groups of size at least two. Earlier direct coverage in uninspected texts is still possible.",
+      "searches": [
+        "Web: optimal diagonal preconditioning two group equicorrelated covariance matrix spectral condition number",
+        "Web: condition number after scaling matrix optimal diagonal congruence van der Sluis",
+        "Web: A Class of Optimally Conditioned Block 2 x 2 Matrices Kolotilina theorem 1.1"
+      ]
+    },
+    "equivalent_formulations": {
+      "evidence": [
+        "Braatz--Morari (1994), DOI 10.1137/S0363012992238680: general Euclidean condition-number optimization via convex procedures; manuscript introduction, optimization setup and conclusions inspected.",
+        "Takapoui--Javadi, arXiv:1610.03871v1: matrix equilibration and ADMM diagonal scaling; HTML sections 1--5 inspected.",
+        "A one-hub equicorrelation matrix has no first-block fluctuation eigenvalue; it is a different, noncovering structured subclass."
+      ],
+      "reasoning": "The semi-definite feasibility problem for optimal positive diagonal congruence is an equivalent generic optimization formulation, not this explicit two-population clipping rule; the singleton-hub subclass cannot cover a model with two nontrivial fluctuation subspaces. The equality condition and two competing fluctuation branches are essential here.",
+      "searches": [
+        "published-finding corpus: two-block compound symmetry covariance correlation matrix optimal positive diagonal condition number scaling exact two-block formula unique optimizer",
+        "published-finding corpus: two-population equicorrelation within and between groups SPD Jacobi optimal diagonal congruence matrix scaling spectral condition number closed form",
+        "Web: diagonal scaling condition number two compound symmetry blocks explicit analytic optimum"
+      ]
+    },
+    "exact_database_or_table": {
+      "evidence": [
+        "published-finding corpus closest records returned weighted-Jacobi Euclidean damping (2026/9/20/SCOPE-weighted-jacobi-euclidean-damping-frontier--457b47fc383f) and additive bidirectional Gauss-Seidel (2026/9/20/SCOPE-additive-bidirectional-gauss-seidel-inverse--e4dd7b4e2fba), but neither reports this inverse spectral-condition-number optimum.",
+        "No explicit two-group scaling formula appeared in the scientific records retrieved for the stated aliases; nonretrieval is not a novelty guarantee."
+      ],
+      "reasoning": "This is a continuous-parameter theorem, not a finite database or table value. The executed searches found no exact formula table, but unsuccessful retrieval alone does not certify novelty; the meaningful comparison is that the closest reported results address different objective functions or a singleton group.",
+      "searches": [
+        "published-finding corpus: two-block compound symmetry covariance correlation matrix optimal positive diagonal condition number scaling exact two-block formula unique optimizer",
+        "published-finding corpus: block-equicorrelated SPD two exchangeable classes optimal diagonal preconditioning condition number eigenvalue edge phases",
+        "Web: optimal diagonal scaling compound symmetry covariance two group condition number exact formula block"
+      ]
+    },
+    "rationale": "For the exact claim (the clipped two-community positive diagonal scaling formula, uniqueness over unrestricted independent diagonal entries, and an exact saturation subfamily), the accessible primary sources provide broader optimization algorithms, stronger but differently constrained block-transformation theorems, or one-community special cases rather than an implication of this claim. published-finding corpus and accessible published mathematical records were searched by aliases and implications. Residual coverage risk is identified explicitly, especially the unavailable full text of Shapiro (1985). This is a best-knowledge literature assessment, not proof of novelty.",
+    "residual_risks": [
+      "Shapiro (1985) promises unnamed closed-form special cases; original full text could cover the same structured family and was not available through lawful access routes.",
+      "The complete texts of Kolotilina (2002) and Kolotilina (2003) were not inspected; specialized full-block results may contain an equivalent restricted corollary.",
+      "Semantic search and accessible history are incomplete measures of the literature; exact uniqueness is not certified by absence of matching records."
+    ],
+    "source_inspections": [
+      {
+        "assessment": "Relevant motivation and general heuristics, not the present SPD two-exchangeable-class closed formula",
+        "evidence": "arXiv:1610.03871v1, 2016-10-12, §§1--5 and abstract",
+        "identifier_or_url": "https://arxiv.org/html/1610.03871v1",
+        "material_read": "HTML primary-text sections 1--4, beginning of section 5, and section outline; references identified",
+        "method": "Read indexed arXiv HTML primary text and its submission history",
+        "title": "Preconditioning via Diagonal Scaling",
+        "trigger": "Focal publicly dated 2016 motivation for exact diagonal scaling and numerical first-order methods"
+      },
+      {
+        "assessment": "Contains general convex procedures, not an exhibited two-community spectral formula or unrestricted per-coordinate uniqueness for this family",
+        "evidence": "Braatz and Morari (1994), SIAM J. Control Optim. 32, 1763--1768, abstract, setup and conclusions",
+        "identifier_or_url": "https://doi.org/10.1137/S0363012992238680",
+        "material_read": "Author-supplied openly accessible extracted full-text introduction, convex-generalized-eigenvalue formulation and conclusions",
+        "method": "Read the publisher abstract and author-supplied publicly accessible full-text sections",
+        "title": "Minimizing the Euclidean Condition Number",
+        "trigger": "Potential general exact convex formulation that dominates the optimization problem"
+      },
+      {
+        "assessment": "Unrestricted within-block transformations differ substantially from positive diagonal congruence; general formula does not directly imply the constrained clipping law",
+        "evidence": "Kolotilina (2004), pp. 2474--2475, theorem 1.1 and Eqs. (1.3)--(1.5), subsequent discussion",
+        "identifier_or_url": "https://doi.org/10.1023/B:JOTH.0000026285.08558.74",
+        "material_read": "Publicly accessible extracted full text, introduction, theorem 1.1, block-Jacobi normalization, spectral-pair argument and discussion",
+        "method": "Read primary author-supplied complete text in accessible HTML extraction",
+        "title": "A Class of Optimally Conditioned Block 2 x 2 Matrices",
+        "trigger": "Full-block optimization might provide stronger implications for the same two-block structure"
+      },
+      {
+        "assessment": "Cannot establish either coverage or noncoverage; the possibility of an existing matching special case is a residual risk",
+        "evidence": "Shapiro (1985), SIAM J. Numer. Anal. 22, 81--94, abstract",
+        "identifier_or_url": "https://doi.org/10.1137/0722005",
+        "material_read": "Publisher abstract, references, journal metadata and contents description only; full original text not accessible",
+        "method": "Checked arXiv/preprint and legal open-access availability; an additional authorized full-text route was unavailable",
+        "title": "Optimal Block Diagonal l2-Scaling of Matrices",
+        "trigger": "Title and abstract signal earlier general scaling results including unnamed special closed forms"
+      },
+      {
+        "assessment": "Broad-block transformation setting, not direct evidence of present exact scalar formula; incomplete full-text comparison remains",
+        "evidence": "Kolotilina (2002), Linear Algebra Appl. 340, 55--67, abstract",
+        "identifier_or_url": "https://doi.org/10.1016/S0024-3795(01)00412-8",
+        "material_read": "Publisher bibliographic metadata, abstract and reference list only; full original text not accessible",
+        "method": "Compared stated transformation class and theorem subject in the accessible abstract",
+        "title": "Optimally Conditioned Block Matrices",
+        "trigger": "Broad positive-definite block-scaling classification could imply restricted problem"
+      }
+    ],
+    "status": "PASS"
+  },
+  "review_type": "self_review",
+  "schema_version": 1,
+  "scope_run_id": "7da87f4b-4cc4-4c55-ae3b-7f8d60269f65",
+  "self_review_status": "passed",
+  "value": {
+    "rationale": "Two-block exchangeable SPD systems are a natural model for multigroup correlation/Hessian systems. The result replaces numerical diagonal-scaling optimization with an exact formula for arbitrary two-group sizes and strictly positive correlations, determines the global optimizer without imposing within-group equality, and exhibits two different active fluctuation constraints plus a dimension-independent optimal scaling in an infinite family. The exact parameter family has a provably strict improvement over ordinary unit-diagonal Jacobi equilibration; this is structural conditioning information rather than an arbitrary finite slice.",
+    "status": "PASS"
+  }
+}

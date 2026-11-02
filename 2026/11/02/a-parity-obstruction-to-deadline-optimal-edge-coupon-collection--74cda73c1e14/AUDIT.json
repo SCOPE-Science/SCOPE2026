@@ -1,0 +1,131 @@
+{
+  "correctness": {
+    "rationale": "The bound reduces exactly to a b-category coupon collector by recording B endpoints. Conditioning on two coupon categories proves all-t Schur concavity and equality at the uniform vector. An isolate-free, matching-saturating construction attains the full-vertex bound, while equality at the first feasible deadline forces supported incidence sets to form a perfect matching in the balanced case. For odd cycles, the n maximum matchings of size m give the exact first-deadline counts and a strict sparse advantage for m>=3; odd parity ensures every nonuniform edge law has a vertex with marking rate <2/n, producing a slower exponential uncovered-vertex tail than the uniform law. All quantifiers and discrete-time boundaries were checked. Python standard-library exact full-state checker reports 864 assertions. Finite checks alone are not proof.",
+    "status": "PASS"
+  },
+  "independent": false,
+  "independent_audit_status": "not_performed",
+  "originality": {
+    "broader_coverage": {
+      "evidence": [
+        "Berend–Sher 2025 Theorem 2.1 and Proposition 2.4: nonuniform packages can improve expected waiting time, near-decomposition expectation given; no optimality of all tails is asserted.",
+        "Betken–Thäle 2022/2023 Theorems 1 and 2: Gaussian and Poisson approximation for equal-probability groups; no graph-constrained law design.",
+        "The 2021 Schilling paper might contain related convex optimization; its complete manuscript was not obtained."
+      ],
+      "reasoning": "The more general choice of arbitrary size-two packages contains the graph-supported subproblem, but the published conclusions examined are lower expectation constructions/limit distributions; they cannot logically imply the order of every deadline CDF nor certify the odd-cycle nonexistence. A classical uniform single-coupon optimum is included explicitly as known input.",
+      "searches": [
+        "generalized coupon collector optimum distribution Schilling 2021 and Berend Sher 2025",
+        "arxiv:2509.17201 decomposition distribution s=2 n odd",
+        "arxiv:2202.07485 Stein method normal Poisson group drawing",
+        "edge coupon collector bipartite matching minimizes all cover time tails odd cycle no universally optimal drawing distribution",
+        "odd cycle consecutive pair coupon collector no stochastic dominant sampling distribution early deadline late deadline",
+        "balanced bipartite group coupon collector uniform matching stochastic minimum cover time all deadlines"
+      ]
+    },
+    "checked_sources": [
+      "doi:10.1017/jpr.2021.15 abstract (published 2021-11-22)",
+      "arxiv:2202.07485 / Cambridge full HTML text",
+      "arxiv:2509.17201 full HTML text",
+      "doi:10.1016/j.ipl.2021.106112 publisher description and 2025 discussion only",
+      "Public indexed result 2026/9/17/SCOPE-balanced-nonuniform-reset-coupon-rates--7b9ca5a2ebed",
+      "Public indexed result 2026/10/4/SCOPE-exact-discounted-hitting-domination-of-complete-bipartite-graphs--f5f86f5d861d"
+    ],
+    "claim_vs_prior_implication": {
+      "evidence": [
+        "Berend–Sher 2025 comparison implies some *mean* gains, and classical coupon decomposition has expectation bH_b in the bipartite construction, but their statements do not imply CDF-optimality or the no-all-deadline-optimizer result.",
+        "Schilling–Henze and Betken–Thäle focus on sampling all equal-size subsets uniformly, not designing an edge-law over one fixed graph."
+      ],
+      "reasoning": "The new theorem is a logically paired general extremal claim, one all-t optimizer on a matching-saturable bipartite class and failure of an all-t optimizer on odd cycles. The uniform-edge limit laws considered do not compare designs; prior mean-only optimization does not entail stochastic order. The known single-coupon stochastic balancing lemma alone has no odd-cycle obstruction without the new min-edge-cover and marginal-parity arguments.",
+      "searches": [
+        "arxiv:2509.17201 Theorem 2.1 decomposition distribution expected waiting time",
+        "doi:10.1017/jpr.2021.15 Poisson group drawing theorem",
+        "arxiv:2202.07485 full text central and Poisson limit"
+      ]
+    },
+    "equivalent_formulations": {
+      "evidence": [
+        "Berend–Sher arXiv:2509.17201, Sections 2–3: their explicit proposals optimize comparisons of expectation for arbitrary size-s packages; not an all-deadline stochastic dominance theorem.",
+        "Schilling–Henze, DOI 10.1017/jpr.2021.15, abstract specifies Poisson limit results, not an exact fixed-graph edge-law optimization."
+      ],
+      "reasoning": "Reformulating edge draws as size-two packages makes the connected graph edge set the allowed package family. A time-independent law must maximize every full-coverage CDF, unlike minimization of an expectation or proving a Gumbel/Poisson limit. The odd-cycle assertion is absence of any such law, stronger than nonoptimality of uniform at a selected deadline.",
+      "searches": [
+        "weighted edge drawing probabilities on bipartite graph optimal cover time all deadlines matching distribution coupon collector Schur convex",
+        "edge coupon collector cycles odd length no stochastically optimal edge sampling distribution early deadline versus late deadline",
+        "optimal edge activation probabilities for coverage graph vertices perfect matching all deadline and odd cycle 7 nonexistence",
+        "arxiv:2509.17201 group drawing decomposition arcs distribution full text"
+      ]
+    },
+    "exact_database_or_table": {
+      "evidence": [
+        "No indexed exact graph-sampling design table or statement directly matching the infinite parity conclusion was returned."
+      ],
+      "reasoning": "The finite count of minimum edge covers of an odd cycle is elementary and is not presented as an independent novelty; the new structural claim needs the strict late-time comparison for every nonuniform law and the universal bipartite classification. Absence of search results alone does not establish priority.",
+      "searches": [
+        "edge coupon collector odd cycles exact deadline edge cover count distribution optimal probabilities",
+        "published-finding corpus indexed mathematical findings graph edge cover time uniform sampling",
+        "C7 C9 stochastic dominance edge sampling min edge cover"
+      ]
+    },
+    "rationale": "The coherent claim is stronger than published expectation comparisons, group-drawing limit laws, or earlier fixed-uniform edge-cover distribution results. It proves a sharp all-deadline optimum for isolate-free matching-saturable bipartite graphs, classifies every balanced optimizer, and proves there is no universal fixed-design stochastic minimum for odd cycles length >=7. Relevant manuscript and indexed-result comparisons found no implication-equivalent theorem; the inaccessible 2021 optimization full text remains a genuine residual priority risk.",
+    "residual_risks": [
+      "Full text of Schilling 2021 distribution-optimization article not accessible; its historical breadth might contain related special-case inequalities.",
+      "General prior numerical or combinatorial optimization results may exist outside indexed sources.",
+      "No independent verification or historical-priority certification."
+    ],
+    "source_inspections": [
+      {
+        "assessment": "Provides related expected-time comparisons and the near-decomposition construction, but does not assert or imply the joint all-deadline/odd-cycle claim. Source first posted in 2025, supporting comparison only.",
+        "evidence": [
+          "Theorem 2.1 establishes strict expected-time comparisons; Proposition 2.4 gives expectation under decomposition and arcs distributions; Remark 2.5 discusses consecutive packages."
+        ],
+        "identifier_or_url": "https://arxiv.org/abs/2509.17201",
+        "material_read": "Full accessible HTML preprint, introduction, theorem and proposition statements, Sections 2 and 3 proofs and references",
+        "method": "Compared expected-time optimization and near-decomposition/arcs constructions against all-t graph-constrained CDF extremality and odd-cycle nonexistence",
+        "title": "On a Conjecture on Uniform Group Drawings in the Coupon Collector Problem",
+        "trigger": "Most directly relevant published group-drawing optimization, including decomposition and consecutive arcs"
+      },
+      {
+        "assessment": "Uniform package sampling and limit approximations, not graph-constrained all-deadline design.",
+        "evidence": [
+          "Introduction states all s-subsets equiprobable; Theorems 1 and 2 concern normal/Poisson approximation of missing coupons."
+        ],
+        "identifier_or_url": "https://arxiv.org/abs/2202.07485; https://doi.org/10.1017/jpr.2023.6",
+        "material_read": "Complete Cambridge HTML sections 1–5 including model, normal/Poisson theorem statements and proofs",
+        "method": "Checked sampling hypotheses, distributional target and whether optimal weights over graph edges are compared",
+        "title": "Approaching the coupon collector’s problem with group drawings via Stein’s method",
+        "trigger": "Relevant 2022 full-text group-drawing probabilities and coupling methods"
+      },
+      {
+        "assessment": "Published abstract describes Poisson limit theorems for uniform and approximately uniform group draws; full document not ruled out as containing additional comparisons.",
+        "evidence": [
+          "Cambridge online publication November 22, 2021; abstract explains Poisson limit and full-collection-time law."
+        ],
+        "identifier_or_url": "https://doi.org/10.1017/jpr.2021.15",
+        "material_read": "Publisher abstract and publication metadata; full manuscript could not be opened",
+        "method": "Compared only the abstracted statements and the model, without inferring noncoverage of unseen sections",
+        "title": "Two Poisson limit theorems for the coupon collector’s problem with group drawings",
+        "trigger": "Source published in the required historical interval and close group-drawing extreme-value literature"
+      },
+      {
+        "assessment": "Known scope is mean-optimality and conjectures; full-body comparison remains unverified. No decisive covering theorem available in accessible evidence.",
+        "evidence": [
+          "Berend–Sher introduction describes Schilling 2021 as conjecturing when uniform minimizes expectation and analyzing Hessians; publisher full text not retrieved."
+        ],
+        "identifier_or_url": "https://doi.org/10.1016/j.ipl.2021.106112",
+        "material_read": "Bibliographic/abstract references and detailed description in Berend–Sher 2025 introduction; neither arXiv nor lawful open manuscript obtained; institutional retrieval unavailable",
+        "method": "Classified source as unresolved priority risk; did not present it as inspected full text",
+        "title": "Results and conjectures on the role of the uniform distribution in the coupon collector’s problem with group drawings",
+        "trigger": "Earlier primary paper specifically about optimizing group-draw distribution, closest possible broader coverage"
+      }
+    ],
+    "status": "PASS"
+  },
+  "review_type": "self_review",
+  "schema_version": 1,
+  "scope_run_id": "74cda73c-1e14-44e9-b729-fe39a04f2726",
+  "self_review_status": "passed",
+  "value": {
+    "rationale": "The graph-constrained pair-coupon model is a natural problem for contact scheduling and coverage. The theorem fully determines the optimum for an infinite isolate-free bipartite family at every deadline and shows that no time-independent deadline-universal optimum exists on every odd cycle of length >=7. The contrast has practical relevance to fast versus reliable late completion and supplies a structural boundary beyond expectation-only comparisons; its value is not based on the elementary minimum-edge-cover count in isolation.",
+    "status": "PASS"
+  }
+}

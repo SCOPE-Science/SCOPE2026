@@ -1,0 +1,133 @@
+{
+  "correctness": {
+    "rationale": "Exact three-eigenvalue star decomposition and direct Butcher-derived rational function give all endpoint entries. F(x)=(1-r(x))/x is strictly positive and decreasing, proving all offdiagonals positive. The scalar minimum r(w*)=-eta makes balanced stars with 2–4 leaves positive. For every m>=5 and every rate ratio, either z>3+2sqrt(2) yields a negative hub diagonal, or z<=3+2sqrt(2) yields a leaf diagonal bounded above by (297-211sqrt(2))/98<0; radical sign checked exactly. The full extracted verifier passed 2827 assertions, 420 direct-RK matrix comparisons; finite tests are diagnostic and do not replace proof.",
+    "status": "PASS"
+  },
+  "independent": false,
+  "independent_audit_status": "not_performed",
+  "originality": {
+    "broader_coverage": {
+      "evidence": [
+        "Z. Horváth, Applied Numerical Mathematics 28 (1998) 309–326, doi:10.1016/S0168-9274(98)00050-6, full 18 pages reviewed; Theorems 2–7 are method-level positivity-radius results",
+        "S. Blanes, A. Iserles and S. Macnamara, arXiv:2102.08242; relevant positivity/order-barrier sections read",
+        "T. A. Kocsis and A. Németh, arXiv:1409.8583 (2014-09-30), 11-page preprint reviewed, optimization of SSP/absolute-monotonicity radii of DIRK schemes"
+      ],
+      "reasoning": "Uniform positivity and absolute-monotonicity order barriers exclude unconditional positivity over all Markov generators for general higher-order RK methods; they neither rule out small-graph exceptions nor determine the dimension in which every possible homogeneous spoke-rate tuning fails. The explicit star spectral inequalities fill that narrower gap.",
+      "searches": [
+        "\"two-stage\" \"SDIRK\" \"star\" positivity Laplacian",
+        "Optimal second order diagonally implicit SSP Runge-Kutta methods",
+        "doi:10.1016/S0168-9274(98)00050-6; arxiv:2102.08242"
+      ]
+    },
+    "checked_sources": [
+      "R. Alexander (1977), Diagonally Implicit Runge-Kutta Methods for Stiff O.D.E.s, doi:10.1137/0714068; original full text not obtained",
+      "T. A. Kocsis and A. Németh, arXiv:1409.8583 (2014-09-30), 11-page preprint reviewed, optimization of SSP/absolute-monotonicity radii of DIRK schemes",
+      "Z. Horváth, Applied Numerical Mathematics 28 (1998) 309–326, doi:10.1016/S0168-9274(98)00050-6, full 18 pages reviewed; Theorems 2–7 are method-level positivity-radius results",
+      "S. Blanes, A. Iserles and S. Macnamara, arXiv:2102.08242; relevant positivity/order-barrier sections read",
+      "Cardinal LStableDirk2 method specification: https://cardinal.cels.anl.gov/source/timeintegrators/LStableDirk2.html; Butcher tableau checked"
+    ],
+    "claim_vs_prior_implication": {
+      "evidence": [
+        "Z. Horváth, Applied Numerical Mathematics 28 (1998) 309–326, doi:10.1016/S0168-9274(98)00050-6, full 18 pages reviewed; Theorems 2–7 are method-level positivity-radius results",
+        "T. A. Kocsis and A. Németh, arXiv:1409.8583 (2014-09-30), 11-page preprint reviewed, optimization of SSP/absolute-monotonicity radii of DIRK schemes",
+        "R. Alexander (1977), Diagonally Implicit Runge-Kutta Methods for Stiff O.D.E.s, doi:10.1137/0714068; original full text not obtained"
+      ],
+      "reasoning": "The positivity radius determines a safe timestep common to broad problem classes, whereas the present claim compares whether some positive rate ratio makes every step safe as star size varies. The general framework and Alexander method definition imply the spectral problem but do not by themselves imply the m=4/5 cutoff or rate-independent negative diagonal.",
+      "searches": [
+        "\"Alexander\" \"SDIRK\" \"nonnegative\" \"Markov\" matrix",
+        "Optimal second order diagonally implicit SSP Runge-Kutta methods",
+        "Horvath 1998 Theorem 6 positivity radius",
+        "Kocsis Németh arxiv:1409.8583 Alexander SDIRK"
+      ]
+    },
+    "equivalent_formulations": {
+      "evidence": [
+        "T. A. Kocsis and A. Németh, arXiv:1409.8583 (2014-09-30), 11-page preprint reviewed, optimization of SSP/absolute-monotonicity radii of DIRK schemes",
+        "Z. Horváth, Applied Numerical Mathematics 28 (1998) 309–326, doi:10.1016/S0168-9274(98)00050-6, full 18 pages reviewed; Theorems 2–7 are method-level positivity-radius results",
+        "Cardinal LStableDirk2 method specification: https://cardinal.cels.anl.gov/source/timeintegrators/LStableDirk2.html; Butcher tableau checked"
+      ],
+      "reasoning": "Equivalent formulations include preservation of the nonnegative cone by the row-stochastic endpoint transition map and positivity of a rational functional calculus of a reversible generator. The reviewed works concern SSP radii over whole problem classes or different Runge–Kutta tables, rather than this restricted two-parameter star property.",
+      "searches": [
+        "\"Alexander\" \"star graph\" \"positivity\" \"Runge-Kutta\"",
+        "\"Alexander\" \"SDIRK\" \"nonnegative\" \"Markov\" matrix",
+        "arxiv:1409.8583; doi:10.1016/S0168-9274(98)00050-6"
+      ]
+    },
+    "exact_database_or_table": {
+      "evidence": [
+        "Cardinal LStableDirk2 method specification: https://cardinal.cels.anl.gov/source/timeintegrators/LStableDirk2.html; Butcher tableau checked",
+        "T. A. Kocsis and A. Németh, arXiv:1409.8583 (2014-09-30), 11-page preprint reviewed, optimization of SSP/absolute-monotonicity radii of DIRK schemes",
+        "Z. Horváth, Applied Numerical Mathematics 28 (1998) 309–326, doi:10.1016/S0168-9274(98)00050-6, full 18 pages reviewed; Theorems 2–7 are method-level positivity-radius results"
+      ],
+      "reasoning": "The implementation tableau supplies the scalar rational method but no tabulated graph-size/rate-tuning threshold. The consulted 11-page preprint and complete 18-page positivity paper do not contain the all-star two-rate classification or the derived explicit negative-certificate formula.",
+      "searches": [
+        "\"Alexander\" \"star graph\" \"positivity\" \"Runge-Kutta\"",
+        "\"two-stage\" \"SDIRK\" \"star\" positivity Laplacian",
+        "Horvath Positivity of Runge Kutta and diagonally split Runge Kutta methods 1998 pdf",
+        "Cardinal LStableDirk2 specification"
+      ]
+    },
+    "rationale": "The claimed sharp existential/all-rates cutoff for Alexander SDIRK2 on homogeneous reversible stars is not supplied by the inspected method-wide SSP radii, conditional positivity theorems, or high-order order barriers. The six-state obstruction requires the specific rational stability function and explicit rate-independent diagonal certificates; only best-knowledge originality is asserted. The Alexander 1977 full text and unindexed literature remain coverage risks.",
+    "residual_risks": [
+      "The original 1977 Alexander full text was inaccessible; a specialized comparison beyond its available abstract and tableau remains possible.",
+      "Unindexed or inaccessible special-purpose graph-dependent RK positivity papers may contain equivalent results.",
+      "Self-review is not independent mathematical validation."
+    ],
+    "source_inspections": [
+      {
+        "assessment": "NOT_COVERING: SSP-radius optimization, no homogeneous reversible-star all-timestep rate-tuning cutoff",
+        "evidence": "Focus is method radii/SSP constraints, not spectral projectors of star CTMC generators",
+        "identifier_or_url": "https://arxiv.org/abs/1409.8583",
+        "material_read": "Full 11-page open-access preprint and relevant method analysis",
+        "method": "Read PDF text and method conditions",
+        "title": "Optimal second order diagonally implicit SSP Runge–Kutta methods",
+        "trigger": "Same two-stage DIRK family and scalar monotonicity radius"
+      },
+      {
+        "assessment": "NOT_COVERING: method-level positivity radii and order barriers, no rate-tuned star classification",
+        "evidence": "Theorems 5–7 concern monotonicity/positivity radii on broad classes; no six-state star threshold",
+        "identifier_or_url": "https://doi.org/10.1016/S0168-9274(98)00050-6",
+        "material_read": "Complete 18-page article, including definitions, Theorems 2–7, examples and references",
+        "method": "Read extracted full-page text",
+        "title": "Positivity of Runge-Kutta and diagonally split Runge-Kutta methods",
+        "trigger": "Potential general positivity theorem dominating the star claim"
+      },
+      {
+        "assessment": "No direct coverage in inspected material; whole-document coverage is not claimed",
+        "evidence": "General order barrier, alternate positivity-preserving schemes",
+        "identifier_or_url": "https://arxiv.org/abs/2102.08242",
+        "material_read": "Abstract, introduction and relevant mathematical sections; not entire paper",
+        "method": "Read PDF text with limited topical inspection",
+        "title": "Positivity-preserving methods for ordinary differential equations",
+        "trigger": "Broader positivity order barriers and methods"
+      },
+      {
+        "assessment": "UNRESOLVED full-text comparison; explicit residual historical coverage risk, no claim of whole-document exclusion",
+        "evidence": "Verified 1977 method and published formulation; original full text inaccessible",
+        "identifier_or_url": "https://doi.org/10.1137/0714068",
+        "material_read": "Publisher abstract/metadata, not original full paper; tableau separately verified from documented implementation",
+        "method": "Read accessible metadata and LStableDirk2 documentation",
+        "title": "Diagonally Implicit Runge-Kutta Methods for Stiff O.D.E.s",
+        "trigger": "Original source of the precise algorithm"
+      },
+      {
+        "assessment": "Method specification, not scientific classification",
+        "evidence": "Two-stage coefficients gamma=1-1/sqrt(2) agree with the rational function independently derived from the tableau",
+        "identifier_or_url": "https://cardinal.cels.anl.gov/source/timeintegrators/LStableDirk2.html",
+        "material_read": "Documented method specification and coefficients",
+        "method": "Compare Butcher tableau and derive rational stability function symbolically",
+        "title": "LStableDirk2 implementation specification",
+        "trigger": "Verify exact two-stage method parameters and stability rational function"
+      }
+    ],
+    "status": "PASS"
+  },
+  "review_type": "self_review",
+  "schema_version": 1,
+  "scope_run_id": "63dd53cb-63c9-4a34-a601-c253772d085a",
+  "self_review_status": "passed",
+  "value": {
+    "rationale": "Model rates alter the discrete positivity of transition probabilities despite L-stability and exact CTMC positivity. The six-state cutoff proves that no homogeneous rate tuning can remove an intermediate negative endpoint on larger stars and gives a constructive positive all-step choice on smaller ones. This is a natural sharp classifier for a widely used implicit integrator/Markov network pair, with explicit failure steps and sign location.",
+    "status": "PASS"
+  }
+}

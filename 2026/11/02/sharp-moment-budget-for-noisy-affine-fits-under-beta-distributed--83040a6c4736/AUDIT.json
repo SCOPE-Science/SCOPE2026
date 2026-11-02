@@ -1,0 +1,148 @@
+{
+  "correctness": {
+    "rationale": "Analytic proof reconstructed: conditional Gaussian slope error reduces q moments to E[S_m^(-q/2)]; R_m²/2<=S_m<=mR_m²/4; exact range-order statistic integral and endpoint scaling give exponent min(m-1,m alpha,m beta), with log only at a leading tied critical exponent; layer-cake gives iff threshold including boundary divergence. For four arcsine nodes both endpoint integrals evaluate to 24/pi^4 and sum to 48/pi^4; exact uniform identity and 4 vs 5 cases follow. Finite verification script re-executed but is not the infinite proof.",
+    "status": "PASS"
+  },
+  "independent": false,
+  "independent_audit_status": "not_performed",
+  "originality": {
+    "broader_coverage": {
+      "evidence": [
+        "Chkifa–Dolbeault 2023 obtains guarantees for specifically constructed sampling algorithms and conditioned events, including iid uniform/arcsine empirical comparison.",
+        "Cohen–Migliorati 2016 studies conditioned/weighted least squares; conditioning away degenerate designs can avert infinite raw moments."
+      ],
+      "reasoning": "Generic Gram concentration does not imply finiteness of unconditional inverse Gram moments at m=4, and conditional/weighted estimators are not the same object. Nevertheless general random design texts may contain an unlocated stronger specialized theorem; risk retained.",
+      "searches": [
+        "sample variance iid beta observations m >= 4 small deviations tail power m min alpha beta",
+        "negative moment of sample variance for beta-distributed nodes low-rank design condition number",
+        "randomized least squares with minimal oversampling and interpolation general spaces 2023",
+        "optimal weighted least-squares methods noisy conditioned samples"
+      ]
+    },
+    "checked_sources": [
+      {
+        "assessment": "Full paper, random design and iid arcsine/uniform comparisons; not same conditional risk.",
+        "identifier": "arxiv:2306.07435"
+      },
+      {
+        "assessment": "Full paper, weighted and conditioned risk, different estimation.",
+        "identifier": "arxiv:1608.00512"
+      },
+      {
+        "assessment": "Full paper, minimax asymptotic design, different risk.",
+        "identifier": "arxiv:2112.14178"
+      },
+      {
+        "assessment": "Indexed title and statement checked; full text inaccessible, no whole-document noncoverage claim.",
+        "identifier": "2026/10/4/SCOPE-exact-lower-tail-phase-diagram-for-the-three-sample-beta-varianc--f275509045a1"
+      }
+    ],
+    "claim_vs_prior_implication": {
+      "evidence": [
+        "The prior three-sample variance statement fixes m=3, so substituting m=4 or m=5 is an unproved extension rather than a corollary of its stated claim.",
+        "The motivating source contrasts iid arcsine and uniform designs using conditioning figures, not raw Gaussian slope MSE moments.",
+        "Minimax weighted-design and conditioned sampling results use other risks and estimators."
+      ],
+      "reasoning": "Exact claim quantified over m>=4 and iid beta nodes, unweighted Gaussian-noisy affine OLS. No consulted prior statement directly implies the m=4-versus-m=5 finite-MSE boundary under those same assumptions. Residual risk arises because the directly plausible m=3 research article was not readable in full.",
+      "searches": [
+        "noisy degree one least squares beta random sampling slope estimate finite variance Chebyshev arcsine four five samples",
+        "Gaussian observation noise iid beta nodes random Vandermonde design finite mean square error moment sample size endpoint exponents",
+        "sample variance iid beta observations m >= 4 small deviations tail power m min alpha beta",
+        "https://arxiv.org/abs/2306.07435",
+        "https://arxiv.org/abs/1608.00512",
+        "https://arxiv.org/abs/2112.14178",
+        "2026/10/4/SCOPE-exact-lower-tail-phase-diagram-for-the-three-sample-beta-varianc--f275509045a1"
+      ]
+    },
+    "equivalent_formulations": {
+      "evidence": [
+        "OLS conditional slope noise variance is sigma²/S_m, so equivalent questions are inverse beta sample-variance moments and the small design range.",
+        "The closest published beta-variance claim explicitly concerns THREE observations and has no stated m>=4 theorem."
+      ],
+      "reasoning": "Translated noisy-regression moments to inverse sample-variance moments and minimum-spacing/small-range events. Published m=3 classification does not logically entail m>=4. No equivalent m>=4 moment law found in the searched published index or accessible primary full texts; this is not a uniqueness proof.",
+      "searches": [
+        "noisy degree one least squares beta random sampling slope estimate finite variance Chebyshev arcsine four five samples",
+        "Gaussian observation noise iid beta nodes random Vandermonde design finite mean square error moment sample size endpoint exponents",
+        "arcsine Chebyshev node random affine least squares Gaussian noise slope heavy-tailed risk oversampling",
+        "2026/10/4/SCOPE-exact-lower-tail-phase-diagram-for-the-three-sample-beta-varianc--f275509045a1"
+      ]
+    },
+    "exact_database_or_table": {
+      "evidence": [
+        "Published indexed closest record gives m=3 small-ball powers and exact constants, not m>=4 iid node OLS risk tables.",
+        "The exact uniform m=4 range formula and arcsine m=4 coefficient were derived anew using the minimum-order-statistic integral."
+      ],
+      "reasoning": "The queried database record is directly related but fixed to three draws. The present exact threshold for every m>=4, every beta endpoint exponent and every positive error moment is not a recomputation of that fixed-cardinality table.",
+      "searches": [
+        "uniform random affine regression slope inverse design variance four samples versus Chebyshev five",
+        "sample variance iid beta observations m >= 4 small deviations tail power m min alpha beta",
+        "2026/10/4/SCOPE-exact-lower-tail-phase-diagram-for-the-three-sample-beta-varianc--f275509045a1"
+      ]
+    },
+    "rationale": "Targeted published-finding corpus searches found a close m=3 beta-variance lower-tail paper, which was checked as a fixed-cardinality statement and not generalized without evidence. Accessible full primary text for the motivating random-design least-squares paper, foundational conditioned/weighted least-squares paper, and an asymptotic random-design paper addresses different estimators and goals. Exact unweighted iid-beta Gaussian slope-error moment thresholds for every m>=4, especially uniform-four versus arcsine-four/five, were not found as consequences of their stated results. Publication priority remains qualified by full-text access limits.",
+    "residual_risks": [
+      "The full text of the very similar three-sample beta-variance result could not be retrieved; it may contain a broader remark or appendix for all m.",
+      "General linear regression design and sampling literature is extensive; failure to locate an identical claim does not prove priority.",
+      "No independent publication-priority review performed."
+    ],
+    "source_inspections": [
+      {
+        "assessment": "Does not state an exact unconditional affine OLS Gaussian slope-error moment threshold or four-versus-five sample contrast; sampling algorithm and risk metric differ.",
+        "evidence": [
+          "Section 6 discusses condition-number histograms of iid uniform and arcsine designs (lines 469-493).",
+          "Section 3 bounds Gram matrix eigenvalues in probability and conditions on a good event (lines 202-230)."
+        ],
+        "identifier_or_url": "https://arxiv.org/abs/2306.07435",
+        "material_read": "Arxiv full HTML/text, Sections 1, 2, 3, 4 and 6 and the uniform/arcsine conditioning comparison; current public full text, particularly Section 6 concerning conditioning and sampling.",
+        "method": "Compared sampling distributions, stabilization/rejection and target risk rather than merely terminology.",
+        "title": "Randomized least-squares with minimal oversampling and interpolation in general spaces",
+        "trigger": "Motivating 2023 numerical-analysis paper studies random sampling budgets and explicitly compares iid uniform/arcsine sampling."
+      },
+      {
+        "assessment": "General weighted, conditioned and truncated sampling stability results do not directly give the finite unweighted iid-beta OLS slope moment threshold; conditioning can avoid the singular design event.",
+        "evidence": [
+          "Lines 41-82 introduce weights, truncation, rejection on condition number, then distinguish unweighted iid sampling.",
+          "Theorems give expectation and probability approximation bounds under sampling concentration assumptions."
+        ],
+        "identifier_or_url": "https://arxiv.org/abs/1608.00512",
+        "material_read": "Arxiv full text, introductory setup, Sections on weighted sampling and conditioned/truncated estimators; source preprint and its conditioned-estimator analysis.",
+        "method": "Compared estimator definition, conditional rejection/truncation and type of guarantee.",
+        "title": "Optimal weighted least-squares methods",
+        "trigger": "Major primary noisy random-node least-squares theory and possible stronger matrix conditioning guarantee."
+      },
+      {
+        "assessment": "Addresses optimization of asymptotic model-robust random-design risk, not the stated all-m unconditional beta node noise-moment boundary.",
+        "evidence": [
+          "Lines 3-6 describe the asymptotic minimax design criterion.",
+          "Lines 33-56 discuss misspecification, weighting and random sampling."
+        ],
+        "identifier_or_url": "https://arxiv.org/abs/2112.14178",
+        "material_read": "Arxiv full text, abstract and Introduction through problem formulation; source preprint.",
+        "method": "Compared iid design, misspecification minimax and weighted asymptotic objective versus exact correctly specified finite-m risk.",
+        "title": "Optimal minimax random designs for weighted least squares estimators",
+        "trigger": "Noisy linear regression with randomized sample locations."
+      },
+      {
+        "assessment": "Indexed theorem classifies m=3 and sharp constants but does not itself imply m>=4 moment cutoffs or four-vs-five arcsine behavior; inaccessible full text leaves explicit risk of broader statements elsewhere.",
+        "evidence": [
+          "Indexed summary: three iid beta observations, variance lower-tail transition at endpoint exponent 2/3, linear/log/power regimes.",
+          "The m=3 claim has different sample cardinality; the new theorem begins at m=4."
+        ],
+        "identifier_or_url": "https://github.com/Resultary/2026/tree/main/2026/10/4/SCOPE-exact-lower-tail-phase-diagram-for-the-three-sample-beta-varianc--f275509045a1",
+        "material_read": "Indexed mathematical title and summary from published-finding corpus semantic search; complete page and raw full text were inaccessible (web attempts failed), so full document NOT_COVERING is not asserted.",
+        "method": "Compared theorem quantifier m=3 against new m>=4, its reported exponent and constants against new Gaussian-noise and sample-budget claims.",
+        "title": "Exact lower-tail phase diagram for the three-sample Beta variance",
+        "trigger": "Closest indexed theorem: small variance of three beta samples."
+      }
+    ],
+    "status": "PASS"
+  },
+  "review_type": "self_review",
+  "schema_version": 1,
+  "scope_run_id": "83040a6c-4736-4a19-9a5e-b0e5db525e0a",
+  "self_review_status": "passed",
+  "value": {
+    "rationale": "A natural noise-stability invariant for iid point-sampled affine approximation is the smallest number of nodes yielding a finite *unconditional* slope MSE. Exact all-m, all-beta endpoint phase boundary yields a meaningful and surprising design comparison: four uniformly distributed points suffice, four arcsine-distributed points do not, five arcsine points suffice; the arc-sine m=4 small-range constant further quantifies the failure mechanism. This is a structural sample-complexity boundary rather than a routine tiny parameter gain.",
+    "status": "PASS"
+  }
+}

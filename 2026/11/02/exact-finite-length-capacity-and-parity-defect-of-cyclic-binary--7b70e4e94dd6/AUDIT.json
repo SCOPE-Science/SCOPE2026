@@ -1,0 +1,159 @@
+{
+  "correctness": {
+    "rationale": "Exhaustive algebraic transition table for 2 hidden states, complete three-state subset automaton, anchored-word singleton synchronization, constructive cyclic realizability for all 1/2-only outputs and both parities, exact two-word alternating multiplicity classification, and diagonalizable transition trace prove the identity for all m>=1. The actual standalone verifier directly enumerated 1,398,100 binary inputs for m=1..10 and checked all output-fiber and label-cycle multiplicities; a separate 200-period recurrence/matrix check also passed. Finite work supports but is not the infinite proof.",
+    "status": "PASS"
+  },
+  "independent": false,
+  "independent_audit_status": "not_performed",
+  "originality": {
+    "broader_coverage": {
+      "evidence": [
+        "Yerushalmi–Etzion–Yaakobi 2024 give general noncyclic asymptotic capacity when stride is below read length below twice stride; they do not state a cyclic all-period count.",
+        "Chee–Vardy–Vu–Yaakobi 2023 explicitly excludes cyclic model from their scope.",
+        "Manada–Kashyap 2013 explicitly notes that the classical sofic-shift zeta function is computable from finitely many auxiliary graph matrices, which is a general counting procedure, but neither their periodic-finite-type application nor their displayed formulas evaluate the cyclic (3,2) transverse-read model."
+      ],
+      "reasoning": "A more general asymptotic rate does not imply an exact finite-period image enumeration or identify an even-period double count. General cyclic b-symbol models retain ordered substrings rather than these scalar overlapping sums. The generic Manning–Bowen periodic-point algorithm is related methodological coverage; applying it to the known three-state read presentation still requires the explicit cyclic-language equivalence and overlapping-path subtraction furnished here. Exact channel-specific closed evaluation is not stated in that method paper.",
+      "searches": [
+        "cyclic weighted read channel finite blocklength capacity 3 2",
+        "Integer cyclic convolution 1+x+x^2 decimated by two exact zero-error capacity",
+        "periodic points shift (3,2) transverse read labeled graph 2+sqrt2 exact",
+        "sofic shift zeta function period n count periodic blocks label graph two presentations corrections trace matrix"
+      ]
+    },
+    "checked_sources": [
+      "Chee, Vardy, Vu and Yaakobi (2021), doi:10.1109/ISIT45174.2021.9518271, author OA pp. 1-4, https://yaakobi.net.technion.ac.il/files/2022/08/124_Trans_Reads_ISIT21.pdf",
+      "Chee, Vardy, Vu and Yaakobi (2023), doi:10.1109/JSAIT.2023.3334303, author OA pp. 2 and 5, conclusion pp. 8-9, https://ymchee66.github.io/home/PDF/transverse-readj.pdf",
+      "Yerushalmi, Etzion and Yaakobi (2024), arxiv:2401.15368, https://arxiv.org/abs/2401.15368",
+      "https://github.com/Resultary/2026/tree/main/2026/10/4/SCOPE-fibonacci-worst-case-ambiguity-of-the-binary-3-2-transverse-read--d72c6473df5e",
+      "https://github.com/Resultary/2026/tree/main/2026/10/4/SCOPE-exact-binary-two-multispectrum-code-size-and-singleton-classific--13779c08da71",
+      "Manada and Kashyap 2013, doi:10.1587/transfun.E96.A.1024, author OA https://ece.iisc.ac.in/~nkashyap/Papers/pft_zeta.pdf"
+    ],
+    "claim_vs_prior_implication": {
+      "evidence": [
+        "The 2021 and 2023 primary papers prove the asymptotic noncyclic rate and display the three-state graph but do not establish the cyclic output equivalence of labeled closed paths.",
+        "The compared noncyclic Fibonacci inverse-fiber finding maximizes the parent count for an open-boundary channel, not the number of attainable cyclic outputs.",
+        "The two-multispectrum code-size finding counts unordered adjacent-pair observation profiles and is not this ordered scalar-weight read vector."
+      ],
+      "reasoning": "No inspected prior statement supplies the exact cyclic image count as a direct theorem, corollary, table entry, or immediately dominating finite-length parameter family. The new proof must establish the nontrivial overcount correction before a trace can be interpreted operationally.",
+      "searches": [
+        "distinct cyclic read-vector outputs binary 3,2 shift domain wall memories exact finite-length size",
+        "cyclic (3,2) transverse read channel exact distinct outputs length 2m formula (2+sqrt2)^m+(2-sqrt2)^m-1-(-1)^m even parity correction",
+        "cyclic stride two length three window sum channel finite block size all m periodic output enumeration",
+        "https://github.com/Resultary/2026/tree/main/2026/10/4/SCOPE-fibonacci-worst-case-ambiguity-of-the-binary-3-2-transverse-read--d72c6473df5e",
+        "https://github.com/Resultary/2026/tree/main/2026/10/4/SCOPE-exact-binary-two-multispectrum-code-size-and-singleton-classific--13779c08da71"
+      ]
+    },
+    "equivalent_formulations": {
+      "evidence": [
+        "The 2023 journal paper describes the same subset automaton in its Fig. 3 but expressly chooses the noncyclic version (p. 2) and computes the Perron asymptotic rate (p. 5).",
+        "Symbolic-dynamics equivalents include periodic labeled paths, periodic output words, and zeta-function fixed-point counts; the correction by two alternating words on even periods is not supplied by the inspected papers."
+      ],
+      "reasoning": "An isomorphic deterministic graph and its spectral radius are previously known, but its periodic closed-walk trace counts labeled paths rather than distinct cyclic output words. This claim gives the exact image count and classifies the necessary quotient; it is not a rephrasing of the previously proved eigenvalue.",
+      "searches": [
+        "cyclic (3,2) transverse read channel exact distinct outputs length 2m formula (2+sqrt2)^m+(2-sqrt2)^m-1-(-1)^m even parity correction",
+        "cyclic stride two length three window sum channel finite block size all m periodic output enumeration",
+        "Binary cyclic length-three sliding Hamming-weight sums sampled every second position, stride-2 downsampled nanopore read channel capacity exact 2+sqrt2",
+        "cyclic transverse reads exact periodic output count 3 2 finite length sums Chee Vardy"
+      ]
+    },
+    "exact_database_or_table": {
+      "evidence": [
+        "Direct source/claim searches and the indexed repository comparison did not yield a matching finite-period image formula or all-length table. No claim of exhaustive coverage of all databases is made."
+      ],
+      "reasoning": "The small terms have been independently reproduced from the defined read map; matching only an eigenvalue power sum would omit the parity correction. A sequence database may still contain these terms with a different interpretation.",
+      "searches": [
+        "\"4, 10, 40, 134, 464, 1582\" sequence",
+        "OEIS \"10, 40, 134, 464, 1582\" 2 sqrt 2",
+        "cyclic (3,2) transverse read channel exact distinct outputs length 2m formula (2+sqrt2)^m+(2-sqrt2)^m-1-(-1)^m even parity correction"
+      ]
+    },
+    "rationale": "The closest primary sources openly exclude cyclic observations and provide the same three-state automaton only for noncyclic asymptotics. The exact finite cyclic read-image count, parity correction, and proof of the only duplicate periodic labeled paths were not implied by the inspected statements. No equivalent or stronger covering item emerged from direct published/prior research records searches; residual risk concerns unindexed sofic-shift periodic-output counts.",
+    "residual_risks": [
+      "The matrix and its Perron spectral radius are previously published; they are not original claims.",
+      "An equivalent cyclic image count may exist under periodic labeled shifts or zeta functions in unindexed literature.",
+      "The two related published repository results were compared through accessible summaries, not full proof text.",
+      "Classical general-purpose sofic-shift zeta-function algorithms apply to this finite graph, so the claim is the specific exact evaluated count and alternating multiplicity classification, not an independently novel general algorithm."
+    ],
+    "source_inspections": [
+      {
+        "assessment": "Established noncyclic model and Perron asymptotic capacity but not cyclic finite output image",
+        "evidence": [
+          "2021 PDF p. 2: cyclic version possible, yet noncyclic chosen",
+          "2021 PDF pp. 3-4: NFA/DFA and spectral rate"
+        ],
+        "identifier_or_url": "doi:10.1109/ISIT45174.2021.9518271",
+        "material_read": "Author-hosted complete six-page full text: abstract, definitions, cyclic exclusion on page 2, graph and capacity argument on pages 3-4, conclusion on page 5",
+        "method": "Opened full-text PDF and examined relevant page images and textual theorem/automaton sections",
+        "title": "Coding for Transverse-Reads in Domain Wall Memories",
+        "trigger": "Same parameters, same graph, and potential stronger image-cardinality theorem"
+      },
+      {
+        "assessment": "Same deterministic presentation and noncyclic asymptotic rate; explicit noncyclic restriction, no formula for cyclic all-period output cardinality",
+        "evidence": [
+          "Journal p. 2: noncyclic version preferred explicitly",
+          "Journal p. 5: state machine Figure 3 and asymptotic Perron rate",
+          "Journal pp. 8-9: conclusions about rates/errors"
+        ],
+        "identifier_or_url": "doi:10.1109/JSAIT.2023.3334303",
+        "material_read": "Author-hosted ten-page full text: definitions and explicit noncyclic disclaimer on p. 2, Fig. 3/adjacency matrix and Theorem 4 on p. 5, later theorems and conclusion pp. 5-9",
+        "method": "Opened full PDF, examined page image of automaton, reviewed theorem texts and conclusion",
+        "title": "Transverse-Read-Codes for Domain Wall Memories",
+        "trigger": "Full journal expansion potentially subsumes finite cyclic version"
+      },
+      {
+        "assessment": "Asymptotic noncyclic weighted-read capacity, no identified exact cyclic finite-period enumeration",
+        "evidence": [
+          "arXiv abstract Jan 27, 2024, general result for stride less than window less than twice stride"
+        ],
+        "identifier_or_url": "arxiv:2401.15368",
+        "material_read": "Author arXiv abstract and available primary PDF mathematical model and capacity bounds for the stride-two length-three specialization",
+        "method": "Inspected primary preprint full-text relevant parameter statements",
+        "title": "The Capacity of the Weighted Read Channel",
+        "trigger": "Broader weighted-read capacity might dominate the proposed result"
+      },
+      {
+        "assessment": "Noncyclic worst-case fiber maximum, not the cyclic image count; full article not inspected",
+        "evidence": [
+          "Published summary: maximum fiber size Fibonacci F_{m+3} at n=2m+1, constant output extremizers"
+        ],
+        "identifier_or_url": "https://github.com/Resultary/2026/tree/main/2026/10/4/SCOPE-fibonacci-worst-case-ambiguity-of-the-binary-3-2-transverse-read--d72c6473df5e",
+        "material_read": "Published short research summary reporting odd-length open-boundary maximum inverse-fiber size",
+        "method": "Compared accessible summary statement, quantifiers, and observation domain",
+        "title": "Fibonacci worst-case ambiguity of the binary (3,2) transverse-read channel",
+        "trigger": "Exactly matching read parameters and possible overlap"
+      },
+      {
+        "assessment": "Unordered two-gram multiplicity output, not ordered length-three scalar reads; full article not inspected",
+        "evidence": [
+          "Published summary gives quadratic adjacent-pair multispectrum count, different observable"
+        ],
+        "identifier_or_url": "https://github.com/Resultary/2026/tree/main/2026/10/4/SCOPE-exact-binary-two-multispectrum-code-size-and-singleton-classific--13779c08da71",
+        "material_read": "Published short summary of adjacent-pair multispectrum capacity",
+        "method": "Compared stated observation statistic and domain",
+        "title": "Exact binary two-multispectrum code size and singleton classification",
+        "trigger": "Potentially equivalent count after forgetting indices"
+      },
+      {
+        "assessment": "General methodology for periodic count zeta functions; no channel-specific cyclic (3,2) output count or phase-two correction in the inspected text",
+        "evidence": [
+          "Manada–Kashyap p.1: classical general sofic-shift zeta calculation from labeled graph",
+          "Manada–Kashyap p.4: inclusion-exclusion over labeled cycles"
+        ],
+        "identifier_or_url": "doi:10.1587/transfun.E96.A.1024",
+        "material_read": "Author-hosted full five-page PDF: introductory general sofic zeta formula on p. 1 and periodic-path inclusion-exclusion lemma on p. 4",
+        "method": "Opened entire primary PDF and checked relevant page images and mathematical statements",
+        "title": "On the Zeta Function of a Periodic-Finite-Type Shift",
+        "trigger": "Potentially stronger exact periodic word counting for general sofic presentations"
+      }
+    ],
+    "status": "PASS"
+  },
+  "review_type": "self_review",
+  "schema_version": 1,
+  "scope_run_id": "7b70e4e9-4dd6-48ab-9f3e-4d6ea834d1ec",
+  "self_review_status": "passed",
+  "value": {
+    "rationale": "The natural finite-length zero-error capacity of a noiseless cyclic transverse-read channel is distinct from the already known open-boundary asymptotic rate. Its all-period exact count and the fully classified even-period overcount resolve the operational difference between labeled closed paths and observable read vectors and give an exact constrained-coding benchmark. The parity effect is bounded so no asymptotic rate gain is asserted.",
+    "status": "PASS"
+  }
+}

@@ -1,0 +1,128 @@
+{
+  "correctness": {
+    "rationale": "Both exact equations check by cancellation. The homogeneous second equation reduces the first to a standard Sylvester equation with eigenvalues on circles of radii 1 and r=(1+τ)^(-1/n)<1, ensuring uniqueness. Input matrices have κ2≤2. Both solutions are ±I, so all singular values are 1; the projector pair yields explicit residual matrices with squared Frobenius norms 2 and 0, first equation denominator 2√k+2, and squared relative forward error (n-k)/n. For n=m²,k=m the limiting result is rigorous. The 1035 finite Fraction checks supplement rather than prove the universal statement.",
+    "status": "PASS"
+  },
+  "independent": false,
+  "independent_audit_status": "not_performed",
+  "originality": {
+    "broader_coverage": {
+      "evidence": [
+        "Displacement singular-value decay bounds depend on rational approximation separating coefficient spectra.",
+        "Here the generalized spectral distance is Θ(1/n), so a uniform separation premise is absent."
+      ],
+      "reasoning": "Known Zolotarev bounds and examples explain why low-rank data alone cannot guarantee decay; they do not imply this exact combined residual metric failure. There is no contradiction with general bounds because the spectral gap shrinks.",
+      "searches": [
+        "arxiv:1609.09494",
+        "arxiv:2308.11533",
+        "rank deficient Krylov approximation coupled Sylvester small relative residual large forward Frobenius error cyclic shift"
+      ]
+    },
+    "checked_sources": [
+      "arxiv:2610.30804v1",
+      "arxiv:2308.11533",
+      "arxiv:1609.09494",
+      "doi:10.1002/nla.2176"
+    ],
+    "claim_vs_prior_implication": {
+      "evidence": [
+        "Zulfiqar 2026 studies low-rank coupled solutions and corresponding normalized residuals under a numerical low-rank assumption.",
+        "Clouâtre et al. 2023 already supply high-rank ordinary Sylvester solutions with low-rank forcing."
+      ],
+      "reasoning": "Neither inspected source contains a conclusion with all claimed quantifiers: for every n and τ a uniquely solvable two-forcing coupled system, bounded individual coefficient condition numbers, flat solution spectrum, and the explicit residual-versus-error limit. The old general rank-one forcing obstruction is not presented as original.",
+      "searches": [
+        "arxiv:2610.30804v1",
+        "arxiv:2308.11533",
+        "arxiv:1609.09494",
+        "rank deficient Krylov approximation coupled Sylvester small relative residual large forward Frobenius error cyclic shift",
+        "rank-one RHS Sylvester unitary permutation spectra roots of unity and negative roots identity exact solution"
+      ]
+    },
+    "equivalent_formulations": {
+      "evidence": [
+        "Rank-one Sylvester displacement and identity-matrix examples are known (Clouâtre–Klippenstein–Slevinsky 2023, §4.2).",
+        "The present coupled construction has both right-hand sides nonzero and measures the two normalized residuals simultaneously."
+      ],
+      "reasoning": "A single ordinary Sylvester rank-one displacement example covers the general observation, not the full coupled two-forcing formulation with residual/forward-error scaling. The coupled homogeneous system is equivalent to an ordinary Sylvester equation but the second nonzero forcing and its exact residual still constrain the full claim.",
+      "searches": [
+        "coupled generalized Sylvester equation two rank-one forcings flat singular value spectrum solutions X identity Y minus identity cyclic permutation skew-cyclic shift full numerical rank",
+        "low-rank right hand side Sylvester displacement rank cyclic shift and signed cyclic shift identity full rank",
+        "arxiv:2308.11533"
+      ]
+    },
+    "exact_database_or_table": {
+      "evidence": [
+        "published-finding corpus semantic hits checked: nilpotent resolvent spectral edge 2026/10/11/...ad9e67002c01, Roth rank inequality 2026/10/4/...584b308b0805, symmetric GMRES barrier 2026/9/20/...89eb763dddfc.",
+        "Accessible prior research records claims were screened for coupled Sylvester, low-rank forcing, and normalized residual; none matched."
+      ],
+      "reasoning": "No numerical database or known tabulation directly lists the two-equation family or residual ratio. Database absence is only bounded evidence, not uniqueness proof.",
+      "searches": [
+        "coupled generalized Sylvester equation two rank-one forcings flat singular value spectrum solutions X identity Y minus identity cyclic permutation skew-cyclic shift full numerical rank",
+        "low-rank right hand side Sylvester displacement rank cyclic shift and signed cyclic shift identity full rank",
+        "rank-one RHS Sylvester unitary permutation spectra roots of unity and negative roots identity exact solution"
+      ]
+    },
+    "rationale": "The primary and classical literature were compared at the level of mathematical implications. Standard rank-one displacement and rank-one Sylvester forcing with flat solution singular values are explicitly prior art. The distinct combined theorem adds two simultaneously nonzero rank-one coupled forcings, condition-number ≤2 coefficients and disjoint generalized spectra, and a quantitative sequence where the specific published normalized residual tends to zero while forward errors tend to one. Accessible primary sections and semantic database searches have not identified direct coverage; historical-priority risk remains.",
+    "residual_risks": [
+      "Classical displacement-structure texts may contain an equivalent coupled example under a different formulation.",
+      "The Beckermann–Townsend full manuscript and Jarlebring–Mele full manuscript were not read in entirety; neither abstract alone supports exclusion.",
+      "Semantic database ranking cannot prove global scientific priority.",
+      "The normalized residual construction exploits near-resonance; uniform separation would substantially change the question."
+    ],
+    "source_inspections": [
+      {
+        "assessment": "The paper assumes/targets numerical low-rank solutions; it does not supply the constructed flat-spectrum counterfamily or the published relative-residual limit on it. No claim that its algorithms fail under their hypotheses.",
+        "evidence": [
+          "arXiv:2610.30804v1, equations (1)–(2), section 2 and section 3 normalized residuals."
+        ],
+        "identifier_or_url": "https://arxiv.org/abs/2610.30804",
+        "material_read": "First-page definitions, uniqueness and projection sections, singular-value discussion, and numerical residual definitions, including pages corresponding to equations in sections 1–3.",
+        "method": "Direct primary PDF text inspection with page screenshot confirmation.",
+        "title": "Numerical Solution of Large-Scale Low-Rank Coupled Generalized Sylvester Equations",
+        "trigger": "Same exact coupled equation structure, low-rank solutions, normalized residual formula."
+      },
+      {
+        "assessment": "Already shows rank-one ordinary Sylvester forcing can have full-rank identity solutions, which preempts any novelty for that broad subclaim. Does not establish both coupled nonzero forcings, explicit normalized residual sequence, and present uniformly conditioned family.",
+        "evidence": [
+          "arXiv:2308.11533, Introduction and Section 4.2."
+        ],
+        "identifier_or_url": "https://arxiv.org/abs/2308.11533",
+        "material_read": "Introduction/theorem describing Zolotarev rates and identity-matrix constructions in section 4.2.",
+        "method": "Open-access full-text parsed inspection of specified sections.",
+        "title": "Lifting Sylvester Equations: Singular Value Decay for Non-Normal Coefficients",
+        "trigger": "Most relevant stronger prior possibility: low-rank forcing yet nondecaying singular values."
+      },
+      {
+        "assessment": "Establishes broader framework; its bounds depend on effective separation and do not imply dimension-uniform low-rank approximability for the present gap tending to zero. Historical coverage of an equivalent special family remains possible.",
+        "evidence": [
+          "arXiv:1609.09494, abstract/overview."
+        ],
+        "identifier_or_url": "https://arxiv.org/abs/1609.09494",
+        "material_read": "Accessible abstract and theorem summaries; not a complete line-by-line full-text review.",
+        "method": "Metadata, abstract, and indexed result summaries.",
+        "title": "On the Singular Values of Matrices with Displacement Structure",
+        "trigger": "Classical displacement rank one and separated normal Sylvester singular-value theory."
+      },
+      {
+        "assessment": "States conditions for low-rank approximability in a different generalized equation and proposes projection; not decisive on this particular coupled residual example.",
+        "evidence": [
+          "Jarlebring and Mele, Numer. Linear Algebra Appl. 25(6), 2018, abstract."
+        ],
+        "identifier_or_url": "https://doi.org/10.1002/nla.2176",
+        "material_read": "Publisher abstract only; no claim to full-document exclusion.",
+        "method": "Publisher-indexed bibliographic abstract.",
+        "title": "Krylov methods for low-rank commuting generalized Sylvester equations",
+        "trigger": "Related generalized Sylvester low-rank projection methods."
+      }
+    ],
+    "status": "PASS"
+  },
+  "review_type": "self_review",
+  "schema_version": 1,
+  "scope_run_id": "662de06e-6334-45f7-866c-68ba4d5ce9c4",
+  "self_review_status": "passed",
+  "value": {
+    "rationale": "The exact benchmark tests a natural research question about when coupled low-rank equation data and apparently successful termwise-normalized residuals justify low-rank solution recovery. It shows a quantitative, asymptotically decisive failure without allowing poor conditioning of individual coefficient matrices, and isolates the missing dimension-uniform spectral separation/low-rank-solution hypothesis. It is not an arbitrary single size or mere computed example; it provides an all-dimensional limit and an exact diagnostic formula, suitable as a stress test for low-rank solver stopping criteria.",
+    "status": "PASS"
+  }
+}

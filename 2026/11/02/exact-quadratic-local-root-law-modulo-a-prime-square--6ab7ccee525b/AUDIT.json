@@ -1,0 +1,146 @@
+{
+  "correctness": {
+    "rationale": "The all-prime finite-field reduction classification counts exactly p(p-1)^2/2 quadratics with 0 roots, p(p-1) with one singular root, and p(p-1)^2/2 with two simple roots; the p=2 derivative-zero branch is checked explicitly. One-step Hensel lifting partitions every p^3 coefficient lift. The zero mod-p branch g=p h accounts for 0,p,2p,p^2 roots. Removing exactly one all-zero coefficient vector yields the generating polynomial over p^6-1 outcomes, even when p=2 causes exponent collisions. Independent pair-evaluation counting verifies E R^2=3-2/p before conditioning. Standalone exhaustive enumeration of p=2,3,5,7 verifies all coefficient triples and both moments. All asymptotic statements are for fixed k; rare p-root mass gives leading constant one for k>=3. The finite checks are not used as an infinite proof.",
+    "status": "PASS"
+  },
+  "independent": false,
+  "independent_audit_status": "not_performed",
+  "originality": {
+    "broader_coverage": {
+      "evidence": [
+        "Bhargava–Cremona–Fisher–Gajović DOI:10.1112/plms.12438 classifies p-adic field roots for random polynomials.",
+        "Caruso, Where are the zeroes of a random p-adic polynomial?, concerns distributions and locations of p-adic roots.",
+        "Hakami, Lower Bounds on Solutions of Quadratic Polynomials Defined over Finite Rings (2015), is for multivariable quadratic forms under conditions and lower bounds for box intersections."
+      ],
+      "reasoning": "The p-adic root-count law does not determine the number of solutions modulo p² since singular modular roots may fail to lift to a p-adic root. Finite-ring quadratic-form lower-bound results cannot directly supply the exact distribution across all coefficient triples. These adjacent works were examined for stronger coverage rather than dismissed by title.",
+      "searches": [
+        "quadratic local root count modulo prime square coefficients random polynomial exact five mass distribution",
+        "Simhi squarefree random polynomials Gaussian mixtures rho_g(p^2) moments sharp quadratic degree",
+        "congruence a x^2+b x+c mod p^2 root count probability p 2p second moment",
+        "Bhargava Cremona Fisher Gajovic 2022 random polynomials p-adic moments number roots all moments"
+      ]
+    },
+    "checked_sources": [
+      "arxiv:2610.29911v1 Lemmas 3.3–3.4 and Appendix A.2",
+      "arxiv:2601.19319v1 full HTML",
+      "DOI:10.1112/plms.12438 open HTML",
+      "X. Caruso 2022 Cambridge open HTML",
+      "DOI:10.1155/2015/305730 full HTML",
+      "A. H. Hakami 2015 finite-ring quadratic-form lower-bound article"
+    ],
+    "claim_vs_prior_implication": {
+      "evidence": [
+        "Simhi §3.1 Lemma 3.4: E rho^k << 1+p^{k-2}.",
+        "Simhi Appendix Lemma A.2: a singular-root local event has probability at least c_d/p² for sufficiently large p.",
+        "Our exact law gives E rho^k ~ 1*p^{k-2} for every fixed k>=3 and E rho² ->3 although rho converges weakly to 0/2 equal masses."
+      ],
+      "reasoning": "An upper moment estimate and a lower bound for one rare event do not uniquely determine the five-mass generating function or the exact conditional moments. The exact quadratic law therefore supplies more than a restatement or a parameter substitution. It does not claim a stronger global Gaussian-mixture result.",
+      "searches": [
+        "Simhi arXiv:2610.29911v1 Lemma 3.4 Appendix A.2",
+        "Random polynomial local roots mod prime square rare singular lifts nonuniform integrability and higher moments",
+        "Simhi squarefree random polynomials Gaussian mixtures rho_g(p^2) moments sharp quadratic degree"
+      ]
+    },
+    "equivalent_formulations": {
+      "evidence": [
+        "Simhi arXiv:2610.29911v1 §3.1 Lemma 3.4 expresses the moment in terms of rho_g(p²) without exact coefficients.",
+        "Full coefficient distribution is equivalent to the probability generating polynomial of R_p; it includes singular roots that can fail further Hensel lifting.",
+        "The enumerated support after conditioning is {0,1,2,p,2p}, with collisions of exponents added at p=2."
+      ],
+      "reasoning": "Explicit random-coefficient, prime-square, root-count, discriminant, probability generating-function, second-moment and rare-singular-lift aliases were considered. No matching statement appeared among the actual searches and inspected sources.",
+      "searches": [
+        "Exact distribution number of roots modulo p squared of a uniformly random quadratic polynomial, support 0,1,2,p,2p,p² Hensel, moment transition",
+        "Random polynomial local roots mod prime square rare singular lifts nonuniform integrability and higher moments",
+        "Simhi squarefree values random polynomials local rho(p²) quadratic root statistics probability law",
+        "random quadratic p² number of roots probability",
+        "polynomial p² variance roots 3-2/p"
+      ]
+    },
+    "exact_database_or_table": {
+      "evidence": [
+        "Direct independent enumeration for p=2,3,5,7 gives the predicted distributions and moments.",
+        "Retrieved public mathematical findings involving Fourier restriction and random complex-polynomial moments concern different invariants."
+      ],
+      "reasoning": "No retrieved table or data record presents the exact conditional five-mass distribution. The finite computations are original checks, not a claim that lack of indexed results proves novelty.",
+      "searches": [
+        "Exact distribution number of roots modulo p squared of a uniformly random quadratic polynomial, support 0,1,2,p,2p,p² Hensel, moment transition",
+        "quadratic local root count modulo prime square coefficients random polynomial exact five mass distribution",
+        "quadratic polynomials p² probability zero roots 1 2 p",
+        "The distribution of solutions to quadratic polynomials over finite rings"
+      ]
+    },
+    "rationale": "The exact five-mass distribution for uniformly random nonzero coefficient triples of degree at most two modulo p² is not stated by the most directly relevant primary sources. Simhi (arXiv:2610.29911v1) proves O_k(1+p^{k-2}) for moments in Lemma 3.4 and proves an order-p^{-2} rare singular event in Appendix Lemma A.2, but neither delivers the complete probability law, the exact conditional first two moments, or leading constant one for all fixed k≥3. Other random-p-adic polynomial works concern field roots or location distributions rather than modular root multiplicities. Searches using equivalent descriptions and high-moment asymptotics found no implication-dominating theorem. This is best-knowledge priority assessment, not a uniqueness proof; a hidden broad finite-ring polynomial law remains possible.",
+    "residual_risks": [
+      "An earlier unindexed exact finite-ring polynomial root-count theorem may cover the five-mass law after specialization.",
+      "Literature indexing and access are incomplete, and an unlocated general root-count result could imply the present exact formula.",
+      "The source results from Simhi are stronger globally, but they do not directly imply this exact local formula."
+    ],
+    "source_inspections": [
+      {
+        "assessment": "Provides moment upper bounds and order-p^{-2} singular-event lower bounds, not this exact degree-two distribution.",
+        "evidence": [
+          "Lemma 3.4 states E rho(p²)^k << 1+p^{k-2}.",
+          "Appendix A.2 isolates a unique singular residue and provides E Z_p=p^{-2}+O(p^{-3})."
+        ],
+        "identifier_or_url": "https://arxiv.org/html/2610.29911v1",
+        "material_read": "Full HTML including introduction and local model, §3.1 Lemmas 3.3–3.4, §5.4, and Appendix Lemma A.2 and its proof.",
+        "method": "Read complete available HTML sections and compared formulas and proof implications.",
+        "title": "Squarefree values of random polynomials are Gaussian mixtures",
+        "trigger": "Direct source defining the local root count and moment upper bound."
+      },
+      {
+        "assessment": "Global mean/variance results and local estimates do not give the full distribution across quadratic coefficient triples.",
+        "evidence": [
+          "The main problem is a global squarefree-value counting error term and singular series."
+        ],
+        "identifier_or_url": "https://arxiv.org/html/2601.19319v1",
+        "material_read": "Full HTML introduction, local estimates and proof sections.",
+        "method": "Compared local number of roots modulo p² with global error-term variance statements.",
+        "title": "Counting square-free values of random polynomials",
+        "trigger": "Prior source for squarefree random polynomial local-factor methods."
+      },
+      {
+        "assessment": "The counted objects differ; finite modulus counts include singular roots that may not extend to p-adic roots.",
+        "evidence": [
+          "Journal article explicitly counts roots in Q_p, not solutions in Z/p²Z."
+        ],
+        "identifier_or_url": "https://londmathsoc.onlinelibrary.wiley.com/doi/full/10.1112/plms.12438",
+        "material_read": "Full open-access journal HTML including setup, p-adic-root count statements and derivations.",
+        "method": "Compared p-adic field root counts to solutions modulo a fixed prime square.",
+        "title": "The density of polynomials of degree n over Z_p having exactly r roots in Q_p",
+        "trigger": "Plausible stronger random polynomial root-count distribution."
+      },
+      {
+        "assessment": "Studies p-adic roots and their positions, not the proposed five-mass law.",
+        "evidence": [
+          "Its observables concern zeroes of random p-adic polynomials rather than exact modular solution multiplicities."
+        ],
+        "identifier_or_url": "https://www.cambridge.org/core/journals/forum-of-mathematics-sigma/article/where-are-the-zeroes-of-a-random-padic-polynomial/0244BCEFD452D02D70D4ED4CE66B46FB",
+        "material_read": "Open HTML article, abstract, definitions and main results with root-location discussion.",
+        "method": "Checked object of root statistics and its relation to finite residue lifts.",
+        "title": "Where are the zeroes of a random p-adic polynomial?",
+        "trigger": "Potential p-adic polynomial root-location result implying modular count statistics."
+      },
+      {
+        "assessment": "Provides lower bounds for multivariate quadratic forms and box intersections rather than exact probabilities for random univariate coefficients.",
+        "evidence": [
+          "The principal Theorem 2 requires n>=4 variables and gives an intersection lower bound."
+        ],
+        "identifier_or_url": "https://onlinelibrary.wiley.com/doi/10.1155/2015/305730",
+        "material_read": "Full available HTML abstract, introduction, Theorem 2, remarks and references; also inspected accessible description of Hakami 2012 precursor.",
+        "method": "Checked dimension, uniformity, unknown coefficients and exact versus lower-bound conclusions.",
+        "title": "Lower Bounds on Solutions of Quadratic Polynomials Defined over Finite Rings",
+        "trigger": "Title appears to cover counting quadratic solutions over finite rings."
+      }
+    ],
+    "status": "PASS"
+  },
+  "review_type": "self_review",
+  "schema_version": 1,
+  "scope_run_id": "6ab7ccee-525b-4e64-8d3c-376b9fdbe46a",
+  "self_review_status": "passed",
+  "value": {
+    "rationale": "The exact local root count rho_g(p²) is part of the recently published Gaussian-mixture random-squarefree-polynomial model. Degree two is the first nonlinear natural case. The full distribution establishes the sharp exponent and constant in the published local high-moment estimate and identifies a singular-lifting mass of order p^-2. It exhibits an explicit discrepancy between weak convergence to equal point masses at 0 and 2 and the limiting second moment 3. This is an exact mathematically motivated local invariant, not an arbitrary tabulation or unsupported downstream claim.",
+    "status": "PASS"
+  }
+}

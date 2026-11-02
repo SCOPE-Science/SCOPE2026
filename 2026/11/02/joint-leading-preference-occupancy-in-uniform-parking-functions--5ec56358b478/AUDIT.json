@@ -1,0 +1,131 @@
+{
+  "correctness": {
+    "rationale": "For n>=2 the ballot definition is permutation invariant. Fix k ones, move them first, and map each remaining preference to q=max(1,a-k); this is a bijection with a PF_(n-k) word and k possible preimages of q=1. Marking just preference 2 gives weight k-1+v. Using the established A_m(t)=t(t+m)^(m-1) produces the bivariate enumerator exactly, including k=n. Dividing by the k-fiber count yields a Bernoulli-plus-binomial conditional PGF; nested coupling proves strict stochastic regression. Differentiation/integration of the shifted-binomial first marginal yields the exact covariance and 2/e-1 limit. The all-size proof covers every k and n>=2; a standalone verifier independently checked 5,026 finite assertions, not as an infinite proof.",
+    "status": "PASS"
+  },
+  "independent": false,
+  "independent_audit_status": "not_performed",
+  "originality": {
+    "broader_coverage": {
+      "evidence": [
+        "Kenyon and Yin (2021) analyze the distributions of one or fixed car-index coordinates and covariance of coordinate values; their objects differ from counts across all n coordinates of two specified preference values.",
+        "Gessel and Seo (2005) count parking functions and lucky cars and treat c-parking functions, but do not state the two-leading-value occupancy polynomial.",
+        "The general parking-function multinomial/ballot condition yields an implicit finite enumeration but not the evaluated bivariate polynomial or its strict stochastic regression as an immediate parameter specialization."
+      ],
+      "reasoning": "A broader enumerative framework is acknowledged; the inspected closed enumerators specialize to ones counts or other statistics, not directly to counts at both preferences 1 and 2. A complete multivariate preference-weight formula elsewhere would be a residual priority risk; no inspected theorem dominates the claimed evaluated two-value law and ordering.",
+      "searches": [
+        "Parking functions multiplicity of 1 and 2 initial preferences bivariate distribution, conditioned on number of ones",
+        "Random parking functions parking preferences 1 and 2 exact stochastic monotone conditional counts",
+        "arxiv:2103.17180 marginal coordinate law and coordinate covariance",
+        "arxiv:2306.08681 section 4 triple-statistic formula",
+        "arxiv:math/0507497 section 10 generalized parking functions"
+      ]
+    },
+    "checked_sources": [
+      "arxiv:math/0507497 Section 10",
+      "arxiv:1611.09821 Sections 2 and 3 (relevant parts)",
+      "arxiv:2103.17180 abstract and Section 1 methods outline",
+      "arxiv:2306.08681 Theorem 4.2, Corollary 4.3, comparison on page 18",
+      "OEIS A373086 and FindStat St000135 (different statistics)"
+    ],
+    "claim_vs_prior_implication": {
+      "evidence": [
+        "Known one-value formula A_m(t)=t(t+m)^(m-1) is expressly used as an input rather than presented as new.",
+        "The weight-preserving truncation q_i=max(1,a_i-k) identifies an evaluated joint law whose conditional factorization and stochastic order are derived separately.",
+        "The nearby record for occupied-box indicators studies independent uniformly assigned balls, unlike uniform preference vectors conditioned on successful parking."
+      ],
+      "reasoning": "Neither the marginal ones law nor joint ones/unlucky enumerator implies a fixed-value twos distribution by equality of statistics. The additional truncation bijection, exact conditional decomposition and limiting negative covariance are genuine extra propositions. The inference is elementary once this new decomposition is supplied, but not just a renaming of a published displayed result.",
+      "searches": [
+        "Parking functions conditional first second preference occupancy counts 1+binomial Bernoulli n-k-1",
+        "random parking functions empirical frequencies first two values correlation negative limit 2/e-1",
+        "Covariance of parking function preference-value occupancy counts one and two converges to 2/e minus 1",
+        "Random parking functions parking preferences 1 and 2 exact stochastic monotone conditional counts",
+        "arxiv:1611.09821 Sections 2-3",
+        "arxiv:2306.08681 Theorem 4.2"
+      ]
+    },
+    "equivalent_formulations": {
+      "evidence": [
+        "Stanley and Yin (2023), Theorem 4.2, jointly count leading-element multiplicity, number of 1 preferences, and unluckiness; the number of 2 preferences is not their leading-element count or their unluckiness count.",
+        "Diaconis and Hicks (2016), Section 3, give the shifted-binomial distribution for the count of 1 preferences, not its conditional relation with the count of 2 preferences."
+      ],
+      "reasoning": "The full two-value occupancy law and its conditional stochastic order are not equivalent to the one-value marginal, to lucky-car/unluckiness counts, or to the car-index-coordinate distribution in the inspected texts. A shared marginal does not determine the proposed joint law. No exact equivalent statement was located in the queried record corpus or primary sections.",
+      "searches": [
+        "Parking functions joint number of cars preferring spot 1 and spot 2 first two preference multiplicities negative covariance",
+        "Parking functions multiplicity of 1 and 2 initial preferences bivariate distribution, conditioned on number of ones",
+        "Exact two-binomial conditional law for counts of preference 2 given k preferences 1 in a uniform parking function: Bernoulli(1/k) plus Binomial(n-k-1,1/n)",
+        "Uniform parking function joint generating polynomial for multiplicities of first two preference spots",
+        "arxiv:2306.08681 Theorem 4.2 Corollary 4.3",
+        "arxiv:1611.09821 Section 3"
+      ]
+    },
+    "exact_database_or_table": {
+      "evidence": [
+        "OEIS A373086 tabulates counts under a restriction of preference values, not the bivariate leading-preference occupancy coefficient table.",
+        "FindStat St000135 tabulates lucky cars, not the proposed pair of fixed preference-value multiplicities.",
+        "Targeted searches returned no exact coefficient table or exact covariance 2(n/(n+1))^n-1-(n-1)/(n+1)^2."
+      ],
+      "reasoning": "Available tabulations concern different invariants or different restrictions. The searches cannot prove no unpublished table exists; any uninspected tabulation remains a priority risk.",
+      "searches": [
+        "Parking functions joint number of cars preferring spot 1 and spot 2 first two preference multiplicities negative covariance",
+        "Exact two-binomial conditional law for counts of preference 2 given k preferences 1 in a uniform parking function: Bernoulli(1/k) plus Binomial(n-k-1,1/n)",
+        "Uniform parking function joint generating polynomial for multiplicities of first two preference spots",
+        "OEIS A373086 preferences restricted to initial ranges",
+        "FindStat St000135 lucky cars"
+      ]
+    },
+    "rationale": "The established one-value marginal and the lucky-car enumerators are not claimed new. Relevant primary sections of Diaconis-Hicks, Kenyon-Yin, and Stanley-Yin were compared at the level of random variables, exact formula and implication; their displayed results count first-value preferences, unluckiness, other same-preference classes or car-index coordinates, not the new two fixed preference-value occupancy law with strict conditional ordering and limiting covariance. Targeted public-record and literature searches did not return a stronger matching statement. Broader multivariate enumerators and historical priority remain qualified risks.",
+    "residual_risks": [
+      "Classical general multivariate parking-function preference enumerators or chapter-level formulas not inspected in full could contain a stronger specialization or already imply the same evaluated two-value identity.",
+      "A plausible exact table of first-two occupancy multiplicities could exist outside the queried indices; failed search is not a uniqueness certificate.",
+      "The inspected sections are not entire corpora; historical priority and independent validation remain unperformed."
+    ],
+    "source_inspections": [
+      {
+        "assessment": "Provides general parking-function and lucky-car enumerators; does not state joint multiplicities of preferences 1 and 2.",
+        "evidence": "Section 10 counts lucky cars and c-parking functions; its polynomials are explicitly attached to a different statistic.",
+        "identifier_or_url": "https://arxiv.org/pdf/math/0507497",
+        "material_read": "Introductory definition and Section 10, pages 17-19, including Theorem 10.1 and Corollary 10.2",
+        "method": "Opened PDF text, located Section 10 and inspected a rendered page",
+        "title": "A refinement of Cayley's formula for trees",
+        "trigger": "Earliest archived parking-function enumeration and related generalized parking interpretation"
+      },
+      {
+        "assessment": "One-value marginal shifted binomial is prior and used here; the examined sections do not give the law conditional on the number of 1 preferences for the count of 2 preferences.",
+        "evidence": "Section 3 explicitly gives N_1=1+Bin(n-1,1/(n+1)) and its Poisson limit, whereas the main single-coordinate results concern a_i at fixed car index.",
+        "identifier_or_url": "https://arxiv.org/pdf/1611.09821",
+        "material_read": "Introduction, section-two coordinate objectives, Section 3 pages 15-16 containing Theorem 7 and the formula for the ones count, and overview of joint car-index coordinate analysis",
+        "method": "Read PDF extracted text and a rendered page of the coordinate proof",
+        "title": "Probabilizing Parking Functions",
+        "trigger": "Closest probability-focused treatment of low preference values"
+      },
+      {
+        "assessment": "Gives coordinate marginals and pairwise covariance for car-index values, not the joint frequency counts at preferences 1 and 2.",
+        "evidence": "The abstract and Section 1 outline expressly describe the distribution of a single coordinate and covariance between two coordinates.",
+        "identifier_or_url": "https://arxiv.org/pdf/2103.17180",
+        "material_read": "Abstract, introduction and the detailed outline of Section 3 including coordinates and covariance claims",
+        "method": "Opened primary PDF, inspected extracted text and rendered introductory page",
+        "title": "Parking functions: from combinatorics to probability",
+        "trigger": "Broader probabilistic treatment with generalized parking-function bijections"
+      },
+      {
+        "assessment": "Its exact formulas establish the marginal number-of-ones and joint ones/unlucky/leading-element laws. They do not explicitly evaluate preference-2 multiplicity or its conditional stochastic ordering.",
+        "evidence": "Theorem 4.2 marks lel, ones and unl; Corollary 4.3 marks ones alone; the page-18 comparison with tree root degree is on these same variables.",
+        "identifier_or_url": "https://arxiv.org/pdf/2306.08681",
+        "material_read": "Definitions on pages 1-3, Theorem 4.2 on page 14, Corollary 4.3 on page 16, and joint-statistic comparison on page 18",
+        "method": "Read PDF extracted text and rendered the cited pages for formula comparison",
+        "title": "Some enumerative properties of parking functions",
+        "trigger": "High-risk joint-refinement paper explicitly studying ones, leading elements and unluckiness"
+      }
+    ],
+    "status": "PASS"
+  },
+  "review_type": "self_review",
+  "schema_version": 1,
+  "scope_run_id": "5ec56358-b478-491d-a51e-d78e52e4bad2",
+  "self_review_status": "passed",
+  "value": {
+    "rationale": "The number of cars requesting the first two spots is a natural local occupancy profile of the linear-probing/parking model. The complete conditional distribution reveals a strict stochastic negative-regression hierarchy across every possible number of first-spot requests; the exact covariance converges to 2/e-1 rather than disappearing as in independent sparse occupancy. These structural and asymptotic conclusions are sharper than a one-value marginal, a finite exercise, or a reparameterization of the lucky-car statistic.",
+    "status": "PASS"
+  }
+}

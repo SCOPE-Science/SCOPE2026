@@ -1,0 +1,114 @@
+{
+  "correctness": {
+    "rationale": "Independent directed trajectories yield exact Q_s and factorial moments; Bonferroni truncations give o(log^-2 n) Poisson approximation for Z0, a birth-death supermartingale bounds post-first-jump early failure by O(log^-2 n), and the no-outside-incoming/internal-edge subset bound is O(log n/n). Together this proves O(log^-2 n) coupling error and sharp TV constant. The embedded checker passes 1265 exact finite assertions; it is not a proof for all n.",
+    "status": "PASS"
+  },
+  "independent": false,
+  "independent_audit_status": "not_performed",
+  "originality": {
+    "broader_coverage": {
+      "evidence": [
+        "Ball and Barbour (1990), Corollary 2.6, pp. 488–489: O(1/log n) TV under an almost-geometric contact law; subsequent remark suggests mixtures for early extinction.",
+        "De Carvalho and Machado (2024), Theorems 1.1–1.2 concern high-survival coverage thresholds with an extra root population."
+      ],
+      "reasoning": "General epidemic results dominate the leading Poisson limit and order-of-error claim. Their inspected statements do not imply the exact coefficient one or the quantitative O(1/log^2 n) mixture remainder without further model-specific estimates. The 2024 initial configuration also differs at the root.",
+      "searches": [
+        "severe stochastic epidemic Poisson approximation sharp error constant geometric infectious period small epidemic defect mixture",
+        "coupon coverage frog model rare extinction stochastic epidemic fine critical window corrections",
+        "https://sites.math.rutgers.edu/~zeilberg/EM20/epidemics/ball.pdf",
+        "https://arxiv.org/abs/2407.19027"
+      ]
+    },
+    "checked_sources": [
+      "https://sites.math.rutgers.edu/~zeilberg/EM20/epidemics/ball.pdf",
+      "https://arxiv.org/abs/2210.04968",
+      "https://arxiv.org/abs/2407.19027"
+    ],
+    "claim_vs_prior_implication": {
+      "evidence": [
+        "Ball–Barbour, Theorem 3 and Corollary 2.6, establish Poisson approximation and O(1/log n) error, but not exact leading TV coefficient.",
+        "De Carvalho–Machado (2022) Theorem 1.2 treats fixed p, whereas the present theorem has p approaching one with mean lifetime log n+c.",
+        "De Carvalho–Machado (2024) treats critical full-coverage thresholds for a different root population, not the sharp one-root correction."
+      ],
+      "reasoning": "An \\(O(1/\\log n)\\) upper bound alone allows any leading coefficient (including zero) and is not implication-equivalent to \\(d_{\\mathrm{TV}}=1/\\log n+O((\\log n)^{-2})\\). A qualitative mixture suggestion does not establish the specific mixing mass with \\(O((\\log n)^{-2})\\) error. Older first-order results are credited rather than counted as new.",
+      "searches": [
+        "https://sites.math.rutgers.edu/~zeilberg/EM20/epidemics/ball.pdf",
+        "https://arxiv.org/abs/2210.04968",
+        "https://arxiv.org/abs/2407.19027",
+        "severe stochastic epidemic Poisson approximation sharp error constant geometric infectious period small epidemic defect mixture"
+      ]
+    },
+    "equivalent_formulations": {
+      "evidence": [
+        "The frog model with preassigned geometric trajectories is a directed epidemic reachability model. Ball–Barbour (1990), Section 2, considers exactly this class of random directed contact structures."
+      ],
+      "reasoning": "Poisson survival approximation is an equivalent first-order epidemic formulation and is already known. The claim is expressly narrower: the nonvanishing first TV coefficient and a concrete two-component approximation at remainder order 1/log^2 n. The inspected prior theorem provides O(1/log n), not that coefficient.",
+      "searches": [
+        "frog model complete graph geometric lifetime Poisson residual survivors asymptotic sharp total variation 1/log n early root extinction",
+        "rooted directed random graph with geometric number of outgoing arcs unreachability probability Poisson plus atom total variation",
+        "https://sites.math.rutgers.edu/~zeilberg/EM20/epidemics/ball.pdf"
+      ]
+    },
+    "exact_database_or_table": {
+      "evidence": [
+        "Scientific-index candidates concerned other graph coverage, epidemic thresholds or geometric first-exit laws, not a tabulated sharp constant for frog survivor TV distance."
+      ],
+      "reasoning": "The result is an infinite-size distributional limit, not a known finite combinatorial table or database entry. No identical formula was located in checked records; absence from an index is not novelty proof.",
+      "searches": [
+        "frog model complete graph geometric lifetime Poisson residual survivors asymptotic sharp total variation 1/log n early root extinction",
+        "rooted directed random graph with geometric number of outgoing arcs unreachability probability Poisson plus atom total variation",
+        "frog model complete graph geometric lifetimes logarithmic critical window limit number unvisited vertices Poisson Gumbel"
+      ]
+    },
+    "rationale": "1990 Ball–Barbour already proves the general Poisson approximation with \\(O(1/\\log n)\\) error and discusses early epidemic mixture; 2022 and 2024 frog papers study different regimes and/or initial populations. Checked primary texts and scientific-record searches did not show the exact coefficient-one TV asymptotic and \\(O((\\log n)^{-2})\\) two-component approximation for the one-root model; priority remains conditional on older epidemic refinements.",
+    "residual_risks": [
+      "General epidemic and random-digraph literature may contain an overlooked explicit higher-order survivor law despite the inspected 1990 upper bound and qualitative mixture remark.",
+      "The 2024 frog model has an additional root population; its coverage statements cannot be equated to the present one-root model.",
+      "The theorem is restricted to c fixed and one initial root frog."
+    ],
+    "source_inspections": [
+      {
+        "assessment": "Covers Poisson approximation and O(1/log n) rate but neither exact TV coefficient one nor this O(1/log^2 n) mixture remainder.",
+        "evidence": [
+          "Section 2, Theorem 3 and Corollary 2.6; p. 489 remark on small epidemic failure and natural mixture approximation."
+        ],
+        "identifier_or_url": "https://sites.math.rutgers.edu/~zeilberg/EM20/epidemics/ball.pdf",
+        "material_read": "Full accessible article, pp. 479–490: model and factorial moments in Section 1, Theorem 3, Corollary 2.6 and discussion on pp. 487–489.",
+        "method": "Read page-resolved full-text extraction and visual page 488 from the accessible PDF.",
+        "title": "Poisson Approximation for Some Epidemic Models",
+        "trigger": "Potential directly stronger general epidemic theorem with almost-geometric contact distributions."
+      },
+      {
+        "assessment": "Fixed-p coverage ratio, extinction phase and first-order branching comparison; no high-survival Poisson total-variation coefficient.",
+        "evidence": [
+          "arXiv posted 2022-10-10; Section 2 equation (2.7) lists the exact birth/death/hold transition probabilities."
+        ],
+        "identifier_or_url": "https://arxiv.org/abs/2210.04968",
+        "material_read": "Accessible full arXiv article body, especially Definition 1.1, Theorem 1.2, Sections 2 and 3, and the active-count process.",
+        "method": "Read primary open full-text and inspected initial-configuration and theorem statements.",
+        "title": "The coverage ratio of the frog model on complete graphs",
+        "trigger": "Exact one-active-root and one-frog-per-vertex model."
+      },
+      {
+        "assessment": "Threshold separation and high-survival coverage; initial root has 1+eta_root frogs, unlike the present one-root initial state; does not provide sharp first TV correction.",
+        "evidence": [
+          "arXiv preprint first posted 2024-07-26, Section 1 and Theorems 1.1–1.2."
+        ],
+        "identifier_or_url": "https://arxiv.org/abs/2407.19027",
+        "material_read": "Accessible preprint full-text rendition, abstract, main high-survival theorems, initial root configuration and critical threshold discussion.",
+        "method": "Read full-text accessible version and compared assumptions and results.",
+        "title": "Critical Conditions for the Coverage of Complete Graphs with the Frog Model",
+        "trigger": "Closest published coverage-threshold work."
+      }
+    ],
+    "status": "PASS"
+  },
+  "review_type": "self_review",
+  "schema_version": 1,
+  "scope_run_id": "6a523e0d-eac5-4be2-aadf-493a47b86a24",
+  "self_review_status": "passed",
+  "value": {
+    "rationale": "Quantifies the concrete sharp constant missing in the known O(1/log n) Poisson error and isolates a rare catastrophic extinction mass at n-1 while the rest of the survivor law is Poisson to second order. The result supplies an informative critical finite-size correction to complete-graph epidemic coverage.",
+    "status": "PASS"
+  }
+}

@@ -1,0 +1,138 @@
+{
+  "correctness": {
+    "rationale": "For every m>=2, correct treatment of vacancy endpoints and post-move neighborhoods yields necessary/sufficient opposite-endpoint and run-length conditions. Counting runs separately gives k from ceil((m+1)/2) to m and each 2(2m+1) C(k-1,m-k)^2. Boundary utilities turn 2k-1 unlike edges into welfare 2k; alternating colors attain the optimum 2m. Standalone exact enumeration for all placements m<=7 checked both direction of Nash equivalence and formulas; finite tests do not replace algebraic proof. Independent audit not performed.",
+    "status": "PASS"
+  },
+  "independent": false,
+  "independent_audit_status": "not_performed",
+  "originality": {
+    "broader_coverage": {
+      "evidence": [
+        "Potential on regular graphs guarantees termination of improving paths, not which endpoints admit which moves or equilibrium counts.",
+        "General balanced-type price-of-anarchy bound ≤2 dominates the asymptotic ceiling only, not exact finite parity ratios or distributions.",
+        "The exact line formula with 2m agents is 2m/(m+2), but the cycle formula is 2m/(m+1) at odd m and has an additional binomial welfare census."
+      ],
+      "reasoning": "The specific line result is not a superset: adding an edge between the path endpoints through a vacant cycle vertex changes the set of permitted profitable jumps. General regular-graph potentiality and upper bounds cannot imply binomial equilibrium multiplicities or the odd/even finite-size distinction without additional arguments.",
+      "searches": [
+        "mathematical-record database: Narayanan Sabbagh Voudouris diversity-seeking jump games networks exact price of anarchy line regular graphs cycle counting welfare",
+        "Web: \"diversity-seeking jump\" \"cycle\" \"price of anarchy\"",
+        "Primary: arXiv:2305.17757 Theorems 5.1, 5.3, 6.1, 6.4",
+        "Primary: DOI:10.1007/s10458-025-09714-8 expanded Section 6"
+      ]
+    },
+    "checked_sources": [
+      "arXiv:2305.17757 (first posted 2023-05-28, accessible research full text Sections 2, 5, 6)",
+      "DOI:10.1007/s10458-025-09714-8 (expanded 2025 open-access full article, model and Sections 5–6)",
+      "arXiv:2302.12107 (introductory/model portions)",
+      "DOI:10.24963/ijcai.2025/446 (proceedings abstract and utility description)",
+      "MSC2020 code 91A43, games involving graphs (AMS database)",
+      "Previous mathematically distinct finding dbd1a811-fcf4-4fcc-afad-12685c7505d1 (complete bipartite exact potential)"
+    ],
+    "claim_vs_prior_implication": {
+      "evidence": [
+        "Theorem 6.4 obtains path/line PoA 2n/(n+4); at m=3 agents per type this is 6/5, whereas current cycle theorem produces 3/2.",
+        "Earlier mathematical theorem proves an exact potential for K_{a,b} under one vacancy, not equilibria on C_{2m+1}, which for m≥2 is not a complete bipartite graph.",
+        "Single-peaked nonmonotone utilities and IJCAI distinct-type-count utility do not yield the fractional-neighbor game without a separate equivalence proof."
+      ],
+      "reasoning": "A theorem specifically about paths does not assert the present cycle welfare. Known general results entail existence/potentiality and upper bounds but do not determine the exact run criterion, integer-valued spectrum and multiplicities. At odd m the cycle ratio even strictly exceeds the path class value, establishing nonidentical scope. The prior complete-bipartite potential statement concerns different graphs and quantities.",
+      "searches": [
+        "Primary: arXiv:2305.17757 Section 6, Theorems 6.1/6.4",
+        "Primary: DOI:10.1007/s10458-025-09714-8 Theorems 5.1/6.4",
+        "Earlier result: item dbd1a811-fcf4-4fcc-afad-12685c7505d1 source arXiv:2305.17757",
+        "Primary: arXiv:2302.12107 single-peaked jumping model"
+      ]
+    },
+    "equivalent_formulations": {
+      "evidence": [
+        "The fractional unlike-occupied-neighbor utility and strict profitable jump definition are explicit in arXiv:2305.17757 §2.",
+        "The IJCAI 2025 variety-seeking model instead uses the count of different types (not the neighbor fraction).",
+        "Targeted mathematical-record database hits concerned voting-game censuses or unrelated run statistics rather than equivalent cycle Nash equilibria."
+      ],
+      "reasoning": "The claimed theorem counts equilibrium colorings and total fractional-neighbor utility on a labeled odd cycle. A monocolor-runs binary-string count alone is not equivalent without the Nash equivalence and endpoint deviation analysis. Search did not reveal an equivalent game-theoretic claim, but this is not proof of uniqueness.",
+      "searches": [
+        "mathematical-record database: balanced red blue diversity seeking jump game odd cycle single empty vertex classify equilibria by runs exact welfare distribution binomial squared",
+        "mathematical-record database: pure Nash equilibrium on cycle two types one vacancy fraction differently colored occupied neighbors parity price of anarchy formula",
+        "Web: \"diversity-seeking jump\" \"odd cycle\" \"parity\" social welfare",
+        "Web: \"diversity-seeking\" \"ring\" \"two types\" Nash equilibrium welfare"
+      ]
+    },
+    "exact_database_or_table": {
+      "evidence": [
+        "An earlier result concerns about complete bipartite exact potential (source arXiv:2305.17757), not odd-cycle counts.",
+        "Original journal and preprint provide line topology bounds and graph-class potentiality, not a table of counts by odd-cycle welfare.",
+        "mathematical-record database returned no item whose available mathematical summary tabulates the asserted odd-cycle equilibrium welfare spectrum."
+      ],
+      "reasoning": "No known exact database/table containing these welfare multiplicities was identified among the materials actually checked. This negative result is limited by indexing and accessible text. Finite computational tests were independently generated for the current claim, not copied from existing tables.",
+      "searches": [
+        "mathematical-record database: balanced red blue diversity seeking jump game odd cycle single empty vertex classify equilibria by runs exact welfare distribution binomial squared",
+        "mathematical-record database: graph Schelling diversity seeking strategic agents ring cyclic network vacancy equilibrium counts binary",
+        "Web: diversity seeking jump games odd cycle number of equilibria binomial run lengths"
+      ]
+    },
+    "rationale": "The source model's regular-graph potentiality, universal balanced welfare bound and line-specific 2n/(n+4) formula do not determine odd-cycle equilibrium run configurations, their binomial welfare counts or their parity effect; published line and cyclic vacancy games have different deviation constraints. Complete-bipartite prior claims have no covering graph specialization. Related games use different utility functions. mathematical-record database and web searches were performed with residual unindexed-literature risk noted.",
+    "residual_risks": [
+      "An equivalent odd-cycle census may exist in unindexed literature or in full-text portions of additional related game papers not inspected.",
+      "The result is restricted to one vacancy and equal two-type counts; a general class theorem under other utility definitions would require carefully checking normalization before comparison.",
+      "Finite exhaustions through m=7 support the derivation but do not independently prove the formula for all m; the all-size result relies on the analytic argument."
+    ],
+    "source_inspections": [
+      {
+        "assessment": "The paper establishes potential on regular graphs and an exact line price of anarchy, but the inspected theorem statements do not provide the balanced odd-cycle equilibrium run census or binomial welfare distribution.",
+        "evidence": [
+          "arXiv:2305.17757 Section 2 defines occupied-neighbor normalization",
+          "Theorems 5.1 and 5.3 establish potential on regular and degree-at-most-two graphs",
+          "Theorems 6.1 and 6.4 bound general balanced games and give exact line PoA 2n/(n+4)"
+        ],
+        "identifier_or_url": "https://arxiv.org/abs/2305.17757",
+        "material_read": "Accessible full-text rendering: abstract and introduction, Section 2 model and utility, Section 5 degree-two/regular potential results, Section 6 global and line-specific welfare theorems and proofs",
+        "method": "Read the primary research full-text rendering and compare actual theorem statements/graph domains, including the exact line formula",
+        "title": "Diversity-Seeking Jump Games in Networks",
+        "trigger": "Direct source of the fractional-neighbor jump utility and potential/welfare theorems; possible same-cycle coverage"
+      },
+      {
+        "assessment": "Latest journal theorem on exact balanced welfare concerns a line, not a one-vacancy odd cycle; no directly stronger cycle census identified in inspected sections.",
+        "evidence": [
+          "Published July 8, 2025; open-access article",
+          "Theorem 6.4 proves 2n/(n+4) on line topology",
+          "Theorem 5.1 provides potential, not enumeration of equilibria"
+        ],
+        "identifier_or_url": "https://doi.org/10.1007/s10458-025-09714-8",
+        "material_read": "Open-access full article: definitions, theorem listings, Section 5 and Section 6 including Theorem 6.4 proof",
+        "method": "Direct online journal full-text comparison of cycle and line model assumptions and efficiency claims",
+        "title": "Diversity-seeking jump games in networks",
+        "trigger": "Expanded final journal version might contain stronger welfare coverage than the original preprint"
+      },
+      {
+        "assessment": "Its nonmonotone payoff and integration objectives are not the self-review; no direct implication follows from the inspected statement. Full coverage of all its detailed results is not claimed.",
+        "evidence": [
+          "Paper defines single-peaked utility with preferred fraction and studies degree of integration"
+        ],
+        "identifier_or_url": "https://arxiv.org/abs/2302.12107",
+        "material_read": "Accessible full-text rendering: abstract, introduction and game utility definition",
+        "method": "Compared the nonmonotone single-peaked payoff definition with the fractional unlike-neighbor utility",
+        "title": "Single-Peaked Jump Schelling Games",
+        "trigger": "Related binary-type strategic jumping on ring/path topologies"
+      },
+      {
+        "assessment": "Variety-seeking counts the number of distinct other types in a neighborhood, not the fraction of unlike occupied neighbors. Its threshold utility for two types differs from the continuous fraction; no direct coverage is established by its abstract.",
+        "evidence": [
+          "IJCAI 2025 proceedings model description identifies distinct-type-count utility"
+        ],
+        "identifier_or_url": "https://doi.org/10.24963/ijcai.2025/446",
+        "material_read": "Publisher proceedings page: abstract and model summary; associated extracted introductory text",
+        "method": "Compare utility functions at two types and welfare objectives",
+        "title": "Variety-Seeking Jump Games on Graphs",
+        "trigger": "Later similarly named jump-game model with potential and welfare results"
+      }
+    ],
+    "status": "PASS"
+  },
+  "review_type": "self_review",
+  "schema_version": 1,
+  "scope_run_id": "69b919e6-3ddd-4302-8ed6-3f7c1ae9f321",
+  "self_review_status": "passed",
+  "value": {
+    "rationale": "Complete naturally parametrized Nash-equilibrium classification, all welfare multiplicities and exact price of anarchy/stability on balanced odd cycles address the motivating paper's efficiency question. The parity-sensitive discrepancy with the exact line-topology value is a substantive structural finite-size phenomenon; explicit colorings and counts provide useful reproducible benchmarks beyond the known universal bound. Scope limitations are precise.",
+    "status": "PASS"
+  }
+}

@@ -1,0 +1,116 @@
+{
+  "correctness": {
+    "rationale": "Every distinct input pair is one-edit confusable iff exactly one data column differs in Hamming weight 1 or 2; the even-parity property of every extended column proves this and row-length patterns exclude indel cross-collisions. The fiber upper bound and row-parity construction match for all positive ell,n. Full edit spheres are independently generated and compared with this criterion for ell<=4,n<=2; published A_2(8,3)=20 is not inferred merely from the supplied witness.",
+    "status": "PASS"
+  },
+  "independent": false,
+  "independent_audit_status": "not_performed",
+  "originality": {
+    "broader_coverage": {
+      "evidence": [
+        "https://arxiv.org/abs/2601.10256 Theorem 5: at most floor(2^(ell*n)/(ell+1)) for substitution"
+      ],
+      "reasoning": "The only directly relevant broad bound in the inspected source is a sphere-volume estimate, which does not imply equality with A_2(ell,3) for arbitrary ell; the published lower construction lacks the present matching converse. General Hamming/Singleton bounds concern classical codes, not a complete decomposition of the channel.",
+      "searches": [
+        "single-edit sum channel redundancy exact classical binary codes max size",
+        "sum channel one edit corrected exact optimal code size independent set parity syndrome column",
+        "\"sum channel\" \"tensor product\" \"optimal\" one edit binary matrix"
+      ]
+    },
+    "checked_sources": [
+      "arXiv:2601.10256",
+      "https://aeb.win.tue.nl/codes/binary-1.html",
+      "https://users.aalto.fi/~pat/72.html",
+      "https://users.aalto.fi/~pat/opt/20.txt",
+      "https://cris.technion.ac.il/en/publications/error-correcting-codes-for-the-sum-channel/"
+    ],
+    "claim_vs_prior_implication": {
+      "evidence": [
+        "https://arxiv.org/abs/2601.10256: Construction 4 corrects single edit for any distance-three row-parity code",
+        "https://arxiv.org/abs/2601.10256: Theorem 5 gives sphere-packing upper bound only",
+        "https://users.aalto.fi/~pat/opt/20.txt: valid classical length-eight code"
+      ],
+      "reasoning": "Earlier construction implies >= A_2(ell,3)*2^(ell(n-1)) once classical codes are optimized; its independent sphere bound is strictly weaker when A_2 is below 2^ell/(ell+1), e.g. ell=8 where 20<256/9. The all-fiber upper bound is mathematically additional. Earlier exact ell=2 results are a special case and do not imply all ell.",
+      "searches": [
+        "Abboud Yaakobi sum channel row-parity code optimal all row counts Hamming A(ell,3)",
+        "\"Error-Correcting Codes for the Sum Channel\" optimal for arbitrary ell 2026 corrections",
+        "Error-Correcting Codes for the Sum Channel arXiv:2601.10256 Section V-B Theorem 5"
+      ]
+    },
+    "equivalent_formulations": {
+      "evidence": [
+        "https://arxiv.org/abs/2601.10256 Section V-B (Construction 4 and Theorem 5)",
+        "https://aeb.win.tue.nl/codes/binary-1.html"
+      ],
+      "reasoning": "Channel confusability is the Cartesian power of the binary Hamming-distance-one-or-two graph. A classical packing number supplies both the fiber bound and a row-parity coloring/independent-set lower bound. The indexed queries found no result identifying this equality for all row counts; the cited classical table only defines or tabulates the factor.",
+      "searches": [
+        "sum channel exact one substitution correcting code optimum product A_2(ell,3) times 2^{ell(n-1)} classical binary code",
+        "Abboud Yaakobi Error Correcting Codes Sum Channel one single substitution exact A_n^{SID}(ell;1) A_2(ell,3) 2^{ell(n-1)}",
+        "sum channel row parity fibers classical Hamming codes shortest optimal redundancy for one edit all rows"
+      ]
+    },
+    "exact_database_or_table": {
+      "evidence": [
+        "https://aeb.win.tue.nl/codes/binary-1.html: A_2(9,4)=20 and shortening equivalence",
+        "https://users.aalto.fi/~pat/72.html: five (8,20,3) representatives"
+      ],
+      "reasoning": "The numerical number 20 is already known and not claimed as original. Tables do not give the theorem that the sum-channel capacity is classical maximum times 2^(ell(n-1)); the new channel identification cannot be dismissed as a table reproduction.",
+      "searches": [
+        "sum channel exact one substitution correcting code optimum product A_2(ell,3) times 2^{ell(n-1)} classical binary code",
+        "\"sum channel\" \"A_2\" single substitution maximum code size row parity 2026",
+        "A_2(8,3) optimal binary code 20 table"
+      ]
+    },
+    "rationale": "Directly read the source model and its full Section V; published Construction 4 supplies the lower bound but only a sphere-packing upper bound for general ell. The new fixed-column converse and all-column optimum-section rigidity are not stated and are not consequences of the old upper bound. Classical tables address A_2(ell,3) but not the sum-channel exact capacity. Multiple indexed prior-work/alias searches did not find stronger coverage. Residual unindexed/unpublished priority risk acknowledged.",
+    "residual_risks": [
+      "An unindexed or unpublished equivalent capacity identity could exist; indexed novelty searches do not establish absolute priority.",
+      "The optimal A_2(ell,3) factor is taken from the classical literature when not computed by exhaustive search; no complete classical table is reconstructed here.",
+      "The numerical ell-eight upper bound relies on established classical code classification, not on checking a single 20-word witness."
+    ],
+    "source_inspections": [
+      {
+        "assessment": "Defines identical channel, already supplies general construction lower bound; does not state the new exact converse for all ell",
+        "evidence": [
+          "Section II describes row-wise edit balls and XOR sum row",
+          "Section V-B states all-ell lower construction and only <=2^(ell*n)/(ell+1) upper for substitution"
+        ],
+        "identifier_or_url": "https://arxiv.org/abs/2601.10256",
+        "material_read": "Sections II and V, especially Definitions 1–3, Construction 4, Theorems 4–5, Corollary 6 and proof",
+        "method": "Open-access arXiv full-text HTML and associated PDF pages",
+        "title": "Error-Correcting Codes for the Sum Channel",
+        "trigger": "Exact same channel and arbitrary-row code bound"
+      },
+      {
+        "assessment": "Establishes the already-known classical factor, not the channel equality",
+        "evidence": [
+          "Entry for n=9,d=4 is 20 and shortening equivalence implies A_2(8,3)=20"
+        ],
+        "identifier_or_url": "https://aeb.win.tue.nl/codes/binary-1.html",
+        "material_read": "Opening table and statement A_2(n-1,2e-1)=A_2(n,2e), row n=9 d=4",
+        "method": "Read openly accessible coding-theory table",
+        "title": "Table of general binary codes",
+        "trigger": "Independent confirmation of classical distance-three optimum at ell=8"
+      },
+      {
+        "assessment": "Provides published classical numerical input, no claim about sum channel",
+        "evidence": [
+          "First of five 20-word length-eight representatives transcribed and independently Hamming-checked"
+        ],
+        "identifier_or_url": "https://users.aalto.fi/~pat/72.html",
+        "material_read": "Description of code-file format and entry (8,20,3): five codes; 20.txt all five representatives",
+        "method": "Read author-hosted companion page and raw code list",
+        "title": "Optimal binary one-error-correcting codes of length 10 have 72 codewords",
+        "trigger": "Explicit optimal length-eight code list and historical publication"
+      }
+    ],
+    "status": "PASS"
+  },
+  "review_type": "self_review",
+  "schema_version": 1,
+  "scope_run_id": "72be90af-443a-46a6-9bde-33d982145f51",
+  "self_review_status": "passed",
+  "value": {
+    "rationale": "The 2026 source gives an arbitrary-row construction but leaves a nonzero all-ell capacity gap; the exact reduction closes it for every parameter and derives a necessary optimal-section rigidity law. At ell=8 it makes the concrete code 25% larger than the source-selected shortened-Hamming construction and reduces redundancy from 4 to 3 bits. It bridges a new storage-channel optimization to a long-studied classical packing problem rather than merely tabulating a small case.",
+    "status": "PASS"
+  }
+}

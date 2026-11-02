@@ -1,0 +1,113 @@
+{
+  "correctness": {
+    "rationale": "All quantifiers explicitly restricted to finite g-invariant space, iid two-point sampler, M≥1 and ties counted as nonexceedance only when strictly below. The conditional binomial identity is exact; cycle descents are at most L−1, with a matching construction. Grid-to-superuniform equivalence, monotonicity, size-bias inequality and weak-law asymptotics were derived analytically. A standalone exact-rational finite enumerator passed 78,579 checks; finite tests are not substituted for the infinite proof.",
+    "status": "PASS"
+  },
+  "independent": false,
+  "independent_audit_status": "not_performed",
+  "originality": {
+    "broader_coverage": {
+      "evidence": [
+        "The broad arbitrary-q theorem applies only after drawing an additional reference transform; the fixed-reference statistic is identified there as vulnerable to invalidity.",
+        "The subgroup theorem is restricted to uniform q and is recovered as a special case after corrected and uncorrected laws agree."
+      ],
+      "reasoning": "Though the prior arbitrary-q theorem has broader sampler scope, it changes the procedure. A guarantee for a different statistic cannot dominate a sharp claim for the uncorrected statistic, and standard uniform subgroups do not imply safe nonuniform probabilities.",
+      "searches": [
+        "arxiv:2204.13581 theorem 2 arbitrary q",
+        "10.1007/s11749-017-0571-1 uniform group p-values",
+        "arxiv:1603.05766 randomly drawn permutation p-values"
+      ]
+    },
+    "checked_sources": [
+      "Ramdas et al., arXiv:2204.13581, full-text Sections 2.1–2.2 (first public 2022-04-28)",
+      "Hemerik and Goeman, DOI:10.1007/s11749-017-0571-1, full-text Definitions 1–2, Theorem 2, Section 3.4",
+      "Phipson and Smyth, arXiv:1603.05766, abstract and contextual full-text discussion in Hemerik–Goeman"
+    ],
+    "claim_vs_prior_implication": {
+      "evidence": [
+        "Random recentering sigma_0 in Ramdas et al. is essential for their arbitrary-q guarantee.",
+        "In the present problem the event T(gX)<T(X) yields a binomial number of identity draws, and the extremal descent fraction follows from a directed cycle; neither is a consequence of uniform-group sampling for a nonuniform a."
+      ],
+      "reasoning": "Published random-center validity cannot be specialized by simply setting sigma_0=identity under nonuniform q; the resulting law changes. The uniform-group guarantee applies at only special q values. A separate cycle descent proof is needed to obtain the exact supremum and sharp safe boundary.",
+      "searches": [
+        "Ramdas et al. equations (10)–(12) and omitted-anchor counterexample",
+        "Hemerik–Goeman Definition 2 and Theorem 2",
+        "Phipson–Smyth 2010 correction context"
+      ]
+    },
+    "equivalent_formulations": {
+      "evidence": [
+        "Ramdas et al. Theorem 2 uses sigma_m composed with sigma_0^{-1}; uniform subgroup corollary equates corrected and uncorrected laws only for uniform q.",
+        "Hemerik and Goeman Definition 2 restricts draws to uniform subgroup elements."
+      ],
+      "reasoning": "Recentered q and unmodified fixed-identity q are not the same random statistic. The claimed sharp dependence on maximal transformation orbit length and all grid binomial inequalities is neither an equivalent representation nor an immediate consequence of the cited uniform-only law.",
+      "searches": [
+        "arxiv:2204.13581 Section 2.1–2.2",
+        "10.1007/s11749-017-0571-1 Theorem 2 and Section 3.4",
+        "'two-point nonuniform permutation Monte Carlo p-value identity fixed calibration cycle'"
+      ]
+    },
+    "exact_database_or_table": {
+      "evidence": [
+        "The identified scientific papers are general methodological treatments, not tables giving a_{M,L} for fixed-reference two-point samplers.",
+        "No exact table of the claimed all-grid frontier was identified in retrieved scientific documents."
+      ],
+      "reasoning": "The proposed characterization ranges over all positive integers M and longest cycle sizes L, not a standalone ad hoc table; absence from retrieved tables is not proof of priority.",
+      "searches": [
+        "'fixed-origin naive two-transform Monte Carlo permutation p-value binomial tail'",
+        "'two-point nonuniform permutation Monte Carlo p-value identity fixed calibration cycle'",
+        "'biased identity permutation tests binomial resampling p-value'"
+      ]
+    },
+    "rationale": "The sharp fixed-identity two-transform null-size formula, simultaneous extremizer, all-level safe-bias inequalities and resampling-budget reversal are not asserted by the inspected primary full texts: Ramdas et al. require random reference recentering for arbitrary q, whereas Hemerik–Goeman assume uniform draws on a group. The result is elementary once the correct orbit reduction is observed but is an explicit, sharp, nontrivial calibration distinction. Broader historical priority remains a stated risk.",
+    "residual_risks": [
+      "A less-visible earlier paper may contain the same two-transform sharp validity frontier or imply it through an undiscovered general fixed-reference calibration theorem.",
+      "Phipson and Smyth original full text was not fully inspected in this review; no whole-document not-covering inference rests on that source.",
+      "Uniform-orbit examples attain the bound but may be more adversarial than natural fixed statistics."
+    ],
+    "source_inspections": [
+      {
+        "assessment": "NOT_COVERING the fixed-reference exact binomial worst-case and calibration frontier; Theorem 2 uses an additional random reference element and composition with its inverse.",
+        "evidence": [
+          "Section 2.2 Theorem 2, equations (10)–(12); Section 2.1 'The role of sigma_0' and Example 1."
+        ],
+        "identifier_or_url": "https://arxiv.org/html/2204.13581v5",
+        "material_read": "Full-text introduction, Section 2.1 discussion of omission of random centering and counterexample, Section 2.2 Theorem 2 and Corollary 1, and references.",
+        "method": "Read lawful open HTML full text and compare exact sample definitions and quantifiers.",
+        "title": "Permutation tests using arbitrary permutation distributions",
+        "trigger": "Arbitrary nonuniform transformation distributions and the role of a random reference element could subsume the fixed-reference claim."
+      },
+      {
+        "assessment": "COVERS uniform-subgroup fixed-reference special cases, not sharp all-level validity for a biased two-atom identity/one-transformation sampler.",
+        "evidence": [
+          "Definition 2 specifies uniform draws on G (or uniform without-replacement draws); Section 3.4 discusses classical plus-one p-values."
+        ],
+        "identifier_or_url": "https://link.springer.com/article/10.1007/s11749-017-0571-1",
+        "material_read": "Full HTML introduction, Definitions 1–2, Theorem 2 and proof discussion, Section 3.4 on p-values.",
+        "method": "Read open-access article body and compare draw law, inclusion of identity, and allowed bias.",
+        "title": "Exact testing with random permutations",
+        "trigger": "Uniform subgroup sampling theorem is the closest fixed-reference Monte Carlo formula."
+      },
+      {
+        "assessment": "INSUFFICIENT_DETAIL_FOR_FULL_EXCLUSION from this source alone; accessible descriptions concern correction of p-values with randomly drawn permutations, and the primary full-text comparisons provide stronger model distinctions.",
+        "evidence": [
+          "arXiv:1603.05766 abstract; Hemerik and Goeman (2018), Introduction and Section 3.4."
+        ],
+        "identifier_or_url": "https://arxiv.org/abs/1603.05766",
+        "material_read": "Author abstract and accessible arXiv bibliographic/summary text, with the model and scope cross-checked against Hemerik and Goeman's full-text discussion of this paper.",
+        "method": "Read arXiv abstract/bibliographic page and relevant scholarly treatment; no claim of complete original full-text inspection.",
+        "title": "Permutation p-values should never be zero: calculating exact p-values when permutations are randomly drawn",
+        "trigger": "Standard plus-one correction could already imply arbitrary biased two-atom sampling validity."
+      }
+    ],
+    "status": "PASS"
+  },
+  "review_type": "self_review",
+  "schema_version": 1,
+  "scope_run_id": "70d14022-375b-467d-9f9f-26f9ef7185ae",
+  "self_review_status": "passed",
+  "value": {
+    "rationale": "Sharp type-I error calibration for the commonly used but potentially invalid fixed-reference plus-one test directly answers which biased two-transform sampling probabilities are defensible at each computational budget. The exact cycle structural invariant determines a full universal finite-sample frontier; the M=1 to M=2 reversal is mathematically and practically consequential. Corrected random-reference tests remain available for unconstrained samplers.",
+    "status": "PASS"
+  }
+}

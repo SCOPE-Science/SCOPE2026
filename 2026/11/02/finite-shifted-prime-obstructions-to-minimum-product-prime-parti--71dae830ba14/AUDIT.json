@@ -1,0 +1,124 @@
+{
+  "correctness": {
+    "rationale": "The proof treats every distinct-prime competitor with product at most \\(qM\\). Removing its maximum prime gives \\(R<4M^2\\) via the product-versus-cardinality bound, and \\(q(R-M)\\le R(u-d)\\). Since \\(q>16M^4\\), \\(R>M\\) is impossible; \\(R=M\\) forces the original set by unique factorization, and \\(R<M\\) yields a prime at a finite nonzero even offset. Conversely, every such prime offset creates a distinct-prime set of the same sum with smaller product. The analytic count invokes the known unconditional Selberg sieve bound for each nonzero fixed even shift. A separately executed dynamic-programming computation verifies 867 small exact-sum prime extensions for four bases, with explicit recognition that it is not an infinite proof.",
+    "status": "PASS"
+  },
+  "independent": false,
+  "independent_audit_status": "not_performed",
+  "originality": {
+    "broader_coverage": {
+      "evidence": [
+        "arXiv:2610.19534v1 Lemma 2 yields product-minimal extensions from primes isolated in a prescribed interval, a stronger sufficient hypothesis than forbidding the particular shifts in the new criterion.",
+        "Deléglise–Nicolas 2015, JIS 18 Article 15.2.8, concerns maximum prime product under a sum upper bound, not minimum product for an exact sum.",
+        "The Selberg sieve covers the analytic upper-bound corollary, not the prime-set optimality equivalence."
+      ],
+      "reasoning": "The density-one consequence alone could already be obtained from Campbell’s sufficient condition by a standard twin-prime sieve and is acknowledged as such; the central iff finite obstruction cannot be deduced from that one-direction existence lemma or the bounded-sum maximum problem without the new reverse-reduction argument.",
+      "searches": [
+        "product-minimal sets of distinct primes fixed sum append almost every prime density one q_A(n) Campbell 2026 prime partition",
+        "sum of distinct primes product minimum append q density 1 prime gap fixed H",
+        "asymptotic counting primes q for which A union q product-minimal prime partition",
+        "\"On a problem on partitions into distinct primes\" \"extension\" \"density\""
+      ]
+    },
+    "checked_sources": [
+      "arXiv:2610.19534v1",
+      "https://pub.math.leidenuniv.nl/~evertsejh/ANT-Chapter12.pdf",
+      "https://cs.uwaterloo.ca/journals/JIS/VOL18/Deleglise/deleglise3.pdf",
+      "https://github.com/Resultary/2026/blob/main/2026/9/18/SCOPE-sharper-sparsity-prime-gap-distinct-products--019c9cd2e5c7/RESULT.md",
+      "published indexed mathematical records via semantic searches fixed product-minimal distinct-prime set A sum d product M extension A union prime q iff no q plus finite offsets prime exceptional q density zero"
+    ],
+    "claim_vs_prior_implication": {
+      "evidence": [
+        "Campbell’s Lemma 2 uses q as the sole prime in a wide interval to exclude competing large primes; the proof bounds the residual product but stops at isolation.",
+        "The new proof additionally compares the residual product R to M, excludes \\(R>M\\) numerically, identifies \\(R=M\\) by factorization, and realizes every \\(R<M\\) obstruction as a beating competitor.",
+        "The published prime-gap distinct-product construction studied by Chojecki and its later strengthening concerns multiplicative collisions between products of consecutive integers, rather than the exact-sum prime partition minimum."
+      ],
+      "reasoning": "Prior sufficient isolated-prime coverage is not a logical equivalence: it does not classify extensions that succeed despite having other nearby primes. The new finite subset of shifts supplies both necessary and sufficient conditions. Classical sieve bounds imply only the counting consequence, not this stronger structural classification.",
+      "searches": [
+        "product-minimal sets of distinct primes fixed sum append almost every prime density one q_A(n) Campbell 2026 prime partition",
+        "sum of distinct primes product minimum append q density 1 prime gap fixed H",
+        "asymptotic counting primes q for which A union q product-minimal prime partition",
+        "fixed product-minimal distinct-prime set A sum d product M extension A union prime q iff no q plus finite offsets prime exceptional q density zero"
+      ]
+    },
+    "equivalent_formulations": {
+      "evidence": [
+        "Campbell Lemma 2 (arXiv:2610.19534v1) has a one-way condition based on a whole interval free of neighboring primes; its conclusion defines \\(q_A(n)\\) and asks for its growth.",
+        "Closest ranked indexed finding 2026/9/18/SCOPE-sharper-sparsity-prime-gap-distinct-products--019c9cd2e5c7 analyzes Chojecki’s greedy prime-gap distinct-consecutive-products construction, not minimal products for fixed sums."
+      ],
+      "reasoning": "The exact equivalence relates product competition to primality at the finite set of offsets determined by lower-product residual prime sets. The named prior results lack such a necessary condition, even after recasting isolated-prime intervals as collections of shifts.",
+      "searches": [
+        "\"product-minimal\" \"distinct primes\" \"q\" \"density\" Campbell",
+        "\"product-minimal\" \"finite\" \"prime\" \"offsets\" Campbell",
+        "fixed product-minimal distinct-prime set A sum d product M extension A union prime q iff no q plus finite offsets prime exceptional q density zero",
+        "Campbell 2026 q_A(n) asymptotic finite shifted prime obstructions q+d-s(U) v(U)<v(A)"
+      ]
+    },
+    "exact_database_or_table": {
+      "evidence": [
+        "The original paper’s Table 2 lists initial isolated-prime examples for A={3,5,19}; its Lemma 2 and conclusion do not provide a table of all eventual failures.",
+        "Exact arithmetic verification found Δ_{ {2} }={2}, Δ_{ {3} } empty, Δ_{ {3,5} }={6,8}, and 82 even shifts for A={3,5,19}."
+      ],
+      "reasoning": "The theorem is an infinite exact reduction across every fixed product-minimal A, not a re-computation of the finitely many primes shown in the published examples. No indexed table giving this finite-offset iff criterion was found.",
+      "searches": [
+        "\"On a problem on partitions into distinct primes\" \"q_A(n)\" \"product-minimal\" growth",
+        "Campbell 2026 q_A(n) asymptotic finite shifted prime obstructions q+d-s(U) v(U)<v(A)",
+        "finite shifted-prime sieve exact criterion product-minimal prime partitions asymptotic all primes",
+        "arXiv:2610.19534v1 Table 2 and Section 3 on q_A(n)"
+      ]
+    },
+    "rationale": "The closest originating paper proves only existence through isolated primes and explicitly asks for the growth of admissible extension primes. The present central claim is a complete eventual necessary-and-sufficient characterization by finitely many computable shifted-prime obstructions. Density one is not treated as a standalone novel claim: it follows more directly from the existing sufficient isolation condition and standard sieve theory. No comparable exact obstruction criterion appeared in the inspected primary text or searched research records; prior implicit derivation is a residual risk.",
+    "residual_risks": [
+      "An earlier textbook or unindexed paper may implicitly derive this elementary exact finite-offset equivalence.",
+      "The standard Selberg sieve is used as an external theorem (not re-proved in the manuscript).",
+      "The Deléglise–Nicolas full text was not inspected; its stated maximum-product bounded-sum object is distinct from the present one."
+    ],
+    "source_inspections": [
+      {
+        "assessment": "NOT_COVERING exact finite-shift iff; COVERS existence under an isolated-prime sufficient hypothesis and asks asymptotic growth.",
+        "evidence": "14 October 2026 version; Lemma 2, equations (8)–(18), Example 2, Section 3 concluding \\(q_A(n)\\) question.",
+        "identifier_or_url": "https://arxiv.org/html/2610.19534v1",
+        "material_read": "Original accessible arXiv HTML: Section 1 definitions and prior work, Section 2 Lemmas 1–2 and proof through its product bound, and Section 3 conclusion with growth question and example table.",
+        "method": "Read original primary full-text sections and compared exact statements and implications.",
+        "title": "On a problem on partitions into distinct primes",
+        "trigger": "Direct source introducing minimum-product extensions and q_A(n)"
+      },
+      {
+        "assessment": "COVERS classical sieve ingredient; does not discuss prime-set minimality.",
+        "evidence": "Section 12.3 ends with π_2(X) ≪ X/(log X)^2, applicable in the standard way to fixed nonzero even gaps.",
+        "identifier_or_url": "https://pub.math.leidenuniv.nl/~evertsejh/ANT-Chapter12.pdf",
+        "material_read": "PDF pages 65–66 (zero-index pages 8–9), including displayed fixed-twin-prime derivation and final X/log^2 X bound; theorem 12.2.1 preceding.",
+        "method": "Inspected the original PDF text and visual page images; extended the fixed +2 argument to each fixed nonzero even shift by changing finitely many local conditions.",
+        "title": "Selberg’s Sieve, Chapter 12",
+        "trigger": "Required unconditional upper bound on fixed-distance prime pairs"
+      },
+      {
+        "assessment": "NOT_COVERING: bounded-sum maximum versus exact-sum minimum and extension primes.",
+        "evidence": "Journal of Integer Sequences 18 (2015), Article 15.2.8; h(n)=max product with sum ≤n.",
+        "identifier_or_url": "https://cs.uwaterloo.ca/journals/JIS/VOL18/Deleglise/deleglise3.pdf",
+        "material_read": "Publisher bibliographic record, article abstract, and Campbell’s Section 1 description of its max-product bounded-sum results; primary full PDF not inspected.",
+        "method": "Compared published mathematical objects and optimization quantifiers, not titles.",
+        "title": "On the Largest Product of Primes with Bounded Sum",
+        "trigger": "Related maximum-product prime partitions cited in the source paper"
+      },
+      {
+        "assessment": "NOT_COVERING: Chojecki’s prime-gap greedy distinct-consecutive-products problem differs from minimal exact-sum distinct-prime sets.",
+        "evidence": "Its result controls raw short rejected prime gaps and density-one sets with distinct consecutive integer products, with no A∪{q} minimum-product criterion.",
+        "identifier_or_url": "https://github.com/Resultary/2026/blob/main/2026/9/18/SCOPE-sharper-sparsity-prime-gap-distinct-products--019c9cd2e5c7/RESULT.md",
+        "material_read": "Full accessible RESULT.md in the source repository, including theorem, proof, and limitations.",
+        "method": "Compared mathematical objects, hypotheses, and conclusions directly.",
+        "title": "Sharper quantitative sparsity in the prime-gap distinct-product construction",
+        "trigger": "Top ranked partially similar published research record"
+      }
+    ],
+    "status": "PASS"
+  },
+  "review_type": "self_review",
+  "schema_version": 1,
+  "scope_run_id": "71dae830-ba14-4cfe-b433-856376b44894",
+  "self_review_status": "passed",
+  "value": {
+    "rationale": "The finite obstruction Δ_A, computable independently of q, exactly classifies all sufficiently large prime extensions of every fixed minimum-product distinct-prime partition. This natural structural criterion resolves an explicitly posed extension-prime question, strengthens a nonconstructive existence lemma to a necessary-and-sufficient arithmetic test, and gives the unconditional π(X)+O_A(X/log²X) count and \\(q_A(n)\\sim n\\log n\\). The new mathematical value resides especially in the inverse characterization rather than the already suggested density-one consequence.",
+    "status": "PASS"
+  }
+}

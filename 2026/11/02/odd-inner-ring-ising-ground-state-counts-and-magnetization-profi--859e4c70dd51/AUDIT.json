@@ -1,0 +1,125 @@
+{
+  "correctness": {
+    "rationale": "For \\(n=4r+2\\), translating an odd five-cycle and summing edge incidences gives \\(n\\le2f-e_i\\). Both inner rings have odd length \\(n/2\\), so \\(e_i\\ge2\\), hence \\(f\\ge n/2+1\\) and energy at least \\(-2(n-1)J\\). The finite eight-state transfer counts every labelled assignment once. Its exact determinant-trace identity gives ground-state count \\(2m^2F_m\\). A spin-fugacity refinement has normalized determinant \\(E_0=(1-3Y^2+Y^4)^2\\) and the next odd coefficient \\(-2Y^7+(2-w^2-w^{-2})Y^5-2Y\\), which forces magnetization \\(M\\in\\{0,\\pm4\\}\\) and determines each nonzero-magnetization multiplicity as \\(m[t^{(m-5)/2}](1-3t+t^2)^{-2}\\), with coefficient zero at \\(m=3\\). Included symbolic code reproduces weighted and unweighted polynomial identities exactly; independent finite-graph brute tests and 99 transfer comparisons corroborate. No finite experiment establishes the infinite theorem.",
+    "status": "PASS"
+  },
+  "independent": false,
+  "independent_audit_status": "not_performed",
+  "originality": {
+    "broader_coverage": {
+      "evidence": [
+        "https://arxiv.org/html/1303.5210v2 Eq. (3.3) and (5.8): general exact transfer-matrix representation of the full Q=2 partition function.",
+        "https://arxiv.org/html/1905.05548v1 Theorem 4.1: bound on the maximum frustration over all signatures, not an exact fixed-signing count.",
+        "https://arxiv.org/abs/1502.04449 Table 5: full n=10 fixed-magnetization ground-state table (a covered single instance)."
+      ],
+      "reasoning": "Jacobsen–Salas 2013 provide a general exact zero-field Potts partition-function transfer representation, which mathematically enables total coefficient extraction but lacks field/fugacity-resolved counts; the present all-n magnetization theorem is not implied by their zero-field scalar Z. Strečka et al. 2015 cover n=10 explicitly but not an unbounded GP(n,2) family. Sehrawat–Bhattacharjya 2019 bound max frustration over all signatures, not full fixed-signing counts. The new unified statement extends beyond each earlier scope and requires a separate exact weighted determinant.",
+      "searches": [
+        "generalized Petersen graph k=2 zero-temperature two-state Potts ground-state multiplicity Fibonacci squared circumference parity",
+        "arxiv:1303.5210v1 Section 5.3 Q=2, Eq.(5.8)",
+        "arxiv:1905.05548v1 Section 4, Theorem 4.1"
+      ]
+    },
+    "checked_sources": [
+      "arxiv:1303.5210v1 (initially public 2013-03-21)",
+      "arxiv:1303.5210v2 full HTML (same paper, revised 2013-09-02)",
+      "arxiv:1905.05548v1 full HTML (2019-05-14)",
+      "Semantic search across published mathematical finding records for maximum cuts, frustration, generalized Petersen and Fibonacci; no directly matching theorem",
+      "arxiv:1502.04449v1 full text including Table 5 (2015-02-16); covers n=10 specialization"
+    ],
+    "claim_vs_prior_implication": {
+      "evidence": [
+        "https://arxiv.org/html/1303.5210v2 Section 5.3: an expression for Q=2 full partition functions, without low-temperature coefficient evaluation.",
+        "https://arxiv.org/html/1905.05548v1 Theorem 4.1: D(P(n,k)) maximum over signings bound.",
+        "The known n divisible by 4 Lucas-law concerns graphs with both inner rings even; it does not imply an odd-ring coefficient or quadratic prefactor.",
+        "https://arxiv.org/abs/1502.04449 Table 5: the single n=10 instance is subsumed by earlier work, not claimed novel."
+      ],
+      "reasoning": "The combined new claim includes an unbounded magnetization-resolved law, not merely the known n=10 special case or the general existence of a partition function. The 2013 unweighted Z can encode the total leading coefficient but not M=±4 sector multiplicities, while the 2015 exact field-sensitive finite cluster covers only n=10. The separately previously solved n divisible 4 class is disjoint. The displayed weighted determinant calculation supplies a substantive new implication not derived by those examined sources.",
+      "searches": [
+        "arxiv:1303.5210v1 Eq.(3.3), Eq.(5.8)",
+        "arxiv:1905.05548v1 Theorem 4.1",
+        "previously established GP(4r,2) Ising degeneracy parity class"
+      ]
+    },
+    "equivalent_formulations": {
+      "evidence": [
+        "https://arxiv.org/html/1303.5210v2 Sections 2, 3, 5.3: Q=2 Potts model on G(2m,2) and transfer-matrix partition function.",
+        "https://arxiv.org/html/1905.05548v1 Section 2: frustration-index definition via switching; no all-negative maximum-cut multiplicity.",
+        "https://arxiv.org/abs/1502.04449 Table 5 already gives the n=10 dodecahedral special case (250 total, 240 at M=0 and 5 each at M=±4)."
+      ],
+      "reasoning": "Equivalent formulations include all-negative signed-graph frustration, maximum cuts, low-temperature Q=2 Potts coefficients and the magnetic-sector ground-state generating function. The 2015 dodecahedron is an explicitly covered n=10 instance and not claimed new. The checked general zero-field Potts framework does not retain magnetization weights and does not give an all-n closed coefficient; the 2019 signing optimum is not a fixed-signing sector count. No source inspected covers the full n=4r+2 magnetization polynomial.",
+      "searches": [
+        "antiferromagnetic Ising generalized Petersen GP(n,2) even n ground state degeneracy Lucas Fibonacci exact maximum cuts n mod 4",
+        "GP(n,2) maximum cut maximum bipartite subgraph ground-state Ising frustration",
+        "arxiv:1303.5210v1 Sections 2, 3, 5.3",
+        "GP(4r+2,2) generalized Petersen antiferromagnetic Ising ground state magnetization 0 plus minus 4 Fibonacci degeneracy",
+        "generalized Petersen graph G(2m,2) fixed magnetization maximum cuts spin imbalance enumeration"
+      ]
+    },
+    "exact_database_or_table": {
+      "evidence": [
+        "https://arxiv.org/html/1303.5210v2 Sections 2, 3, 5.3 provide a parametric algorithm, without a listed table or closed coefficient for the n=4r+2 ground-state count.",
+        "https://arxiv.org/html/1905.05548v1 Sections 3-4 do not supply a count of maximizing bipartitions.",
+        "https://arxiv.org/abs/1502.04449 Table 5 is a known exact table for n=10 only; its 250=240+5+5 values match the formula."
+      ],
+      "reasoning": "An exact tabulated datum is already published for n=10 and is credited; a finite table is not a proof of an all-parameter count. Searches for an n congruent 2 mod 4 magnetization counting formula, Fibonacci convolution and maximum-cut degeneracies yielded no directly matching all-dimensional table. Absent search hits do not establish historical uniqueness.",
+      "searches": [
+        "antiferromagnetic Ising generalized Petersen GP(n,2) even n ground state degeneracy Lucas Fibonacci exact maximum cuts n mod 4",
+        "generalized Petersen graph k=2 zero-temperature two-state Potts ground-state multiplicity Fibonacci squared circumference parity",
+        "signed Petersen frustration index even generalized GP(2m,2) maximum cut count Ising degeneracy",
+        "\"G(2n,2)\" \"maximum cut\" \"number\"",
+        "\"generalized Petersen\" \"ground states\" antiferromagnetic Ising"
+      ]
+    },
+    "rationale": "The complete all-circumference \\(n\\equiv2\\pmod4\\) ground-state counting and magnetization profile were not found in the inspected literature. Jacobsen–Salas (2013) supply a zero-field Ising/Potts partition-function transfer method; it encodes total counts algorithmically but does not give magnetization sectors or the evaluated formulas. Strečka, Karlová and Madaras (2015) give the specific \\(n=10\\) dodecahedral ground-state multiplicities \\(250\\), \\(240\\) at \\(M=0\\), and \\(5\\) each at \\(M=\\pm4\\); this known case is credited and not claimed original. Sehrawat–Bhattacharjya (2019) optimize frustration over signings instead of counting fixed-signing magnetization sectors. An already established \\(4\\mid n\\) Lucas law is explicitly outside the claim. Historical priority of the unbounded family remains a risk.",
+    "residual_risks": [
+      "An unlocated specialized all-circumference maximum-cut or magnetization census could still imply the general law.",
+      "The 2013 unweighted Potts partition function is broad enough to encode total ground-state counts; the magnetization-refined theorem is not implied without adding a fugacity.",
+      "The n=10 instance was published in 2015; claiming its 250 and 240/5/5 values as novel would be incorrect, so they are used only as a consistency benchmark.",
+      "No independent audit or historical priority certification has been performed."
+    ],
+    "source_inspections": [
+      {
+        "assessment": "Covers the general partition-function method and entails coefficient computability, but does not give this exact n mod 4 restricted Fibonacci-squared maximum-cut count as a closed-form claim",
+        "evidence": [
+          "https://arxiv.org/html/1303.5210v2, Sections 2, 3, 5.3; arxiv v1 submitted 2013-03-21"
+        ],
+        "identifier_or_url": "arxiv:1303.5210v2; https://arxiv.org/html/1303.5210v2",
+        "material_read": "Full HTML available; definitions in Section 2, transfer construction in Section 3, Q=2 specialization in Section 5.3, and discussion of phase diagrams; exact relevant equations (3.3), (5.8)",
+        "method": "Read and compared explicit objects, Q=2 state correspondence, transfer scope, and presence/absence of a low-temperature coefficient evaluation",
+        "title": "A generalized Beraha conjecture for non-planar graphs",
+        "trigger": "Same generalized Petersen G(nk,k) graphs and Q=2 Ising partition function, possible dominating coverage"
+      },
+      {
+        "assessment": "Theorem 4.1 bounds a maximized frustration index across all edge signings; it does not state or count the fixed all-antiferromagnetic maximizers for n congruent 2 modulo 4",
+        "evidence": [
+          "https://arxiv.org/html/1905.05548v1, Introduction and Sections 3–4"
+        ],
+        "identifier_or_url": "arxiv:1905.05548v1; https://arxiv.org/html/1905.05548v1",
+        "material_read": "Full HTML available; Introduction, definitions and Sections 3–4, including Lemma 3.3 and Theorem 4.1 for gcd(n,k)=2",
+        "method": "Compared maximum frustration over signatures with the all-negative-signing frustration and its multiplicity",
+        "title": "Maximum Frustration in Signed Generalized Petersen Graphs",
+        "trigger": "Exact same underlying graphs and signed-graph frustration terminology"
+      },
+      {
+        "assessment": "Explicitly establishes n=10 counts total 250, M=0 count 240, and M=+4 count 5 (with M=-4 also 5 by reversal). These numbers are not new; no theorem on all GP(4r+2,2) graphs is presented.",
+        "evidence": [
+          "https://arxiv.org/abs/1502.04449, Table 5 and Section 3; first submitted 2015-02-16"
+        ],
+        "identifier_or_url": "arxiv:1502.04449v1; https://arxiv.org/abs/1502.04449",
+        "material_read": "Accessible full article text, Sections 1-3, especially Table 5 in Section 2 and the low-field discussion in Section 3",
+        "method": "Compared spin Hamiltonian, count of ground states, magnetization-resolved table and graph-size scope with the proposed infinite parity family",
+        "title": "Giant magnetocaloric effect, magnetization plateaux and jumps of the regular Ising polyhedra",
+        "trigger": "The regular dodecahedron is GP(10,2), a special instance of the proposed theorem; field-dependent ground-state degeneracy may cover it"
+      }
+    ],
+    "status": "PASS"
+  },
+  "review_type": "self_review",
+  "schema_version": 1,
+  "scope_run_id": "859e4c70-dd51-423a-8447-85567f815aa8",
+  "self_review_status": "passed",
+  "value": {
+    "rationale": "For \\(GP(4r+2,2)\\), two odd inner rings force an additional unsatisfied edge, producing a motivated structural parity boundary from the even-inner-ring situation. The theorem gives an exact infinite-family maximum-cut count and an unexpected universal restriction to ground-state magnetizations \\(M\\in\\{0,\\pm4\\}\\), with explicit Fibonacci-convolution multiplicities of the nonzero sectors. This extends, while crediting rather than re-claiming, the known \\(n=10\\) dodecahedral magnetic response; it is valuable for frustrated spin models and exact cubic-graph extremal enumeration.",
+    "status": "PASS"
+  }
+}

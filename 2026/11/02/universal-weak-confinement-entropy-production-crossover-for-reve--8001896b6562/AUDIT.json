@@ -1,0 +1,132 @@
+{
+  "correctness": {
+    "rationale": "For the stated reversible finite-state process and the full joint even-orientation entropy-production definition, the Fokker--Planck entropy identity is exact: integrated jump currents vanish edgewise by detailed balance. Positive reversible autocovariance and linear Langevin dynamics bound the propulsion-position covariance by W and the position variance by (D+W)/kappa. The exact heat flux differs from (sigma²+u² exp(-2 kappa t))/D by at most kappa(2W+D)/D at every positive time. Gaussian convolution and maximum-entropy bounds confine joint entropy to a bounded interval across each scaled time window. Time integration proves the precise stated O(kappa) inequality and limit. The supplied standard-library checker passes finite diagnostics but cannot replace the analytic argument.",
+    "status": "PASS"
+  },
+  "independent": false,
+  "independent_audit_status": "not_performed",
+  "originality": {
+    "broader_coverage": {
+      "evidence": [
+        "Pruessner--García-Millán present generic entropy-production formulae for microscopic active particles, a powerful framework but not the double scaling of small confinement and long observations.",
+        "Bao--Hou study finite-time thermodynamic-uncertainty lower bounds, especially on homogeneous run-and-tumble systems, and not weak harmonic trapping."
+      ],
+      "reasoning": "General entropy-production identities do not automatically imply a uniform weak-confinement time-window asymptotic, because entropy endpoints and singular spatial widths require quantitative control. Broader theory may imply this specialization; priority risk is retained.",
+      "searches": [
+        "finite-state reversible Markov velocity switching Ornstein Uhlenbeck weak confinement entropy production time-averaged universal law",
+        "arxiv:2211.11906v2 Sections III--V and Appendix C",
+        "arxiv:2211.15973v1",
+        "\"entropy production\" Markov switching Ornstein Uhlenbeck finite time weak confinement"
+      ]
+    },
+    "checked_sources": [
+      "https://arxiv.org/html/2404.16955v1",
+      "https://arxiv.org/abs/2012.02900",
+      "https://arxiv.org/abs/2211.15973",
+      "https://arxiv.org/html/2211.11906v2"
+    ],
+    "claim_vs_prior_implication": {
+      "evidence": [
+        "The known stationary trapped value equals the positive-reversible-covariance spectral expression, while the unconfined value adds the squared mean propulsion. The new theorem supplies the bounded-time crossover between those rates for all reversible finite-state switchers.",
+        "The 2021 and 2025 field-theory works establish general production identities and steady-state expressions, not a direct implication for the specified singular dynamical window."
+      ],
+      "reasoning": "Our theorem reduces to the known endpoint formulas only after separate limits, but neither endpoint gives the time-resolved crossover; a quantitative entropy-bound argument is additionally necessary. Thus the reviewed prior results do not logically cover the final claim on the available material, though a more general hidden limit theorem could.",
+      "searches": [
+        "arxiv:2404.16955v1 Section IV Eqs. 72--75",
+        "arxiv:2012.02900v1 stationary entropy section",
+        "arxiv:2211.11906v2 Section III and Appendix C",
+        "finite-state reversible Markov velocity switching Ornstein Uhlenbeck weak confinement entropy production time-averaged universal law"
+      ]
+    },
+    "equivalent_formulations": {
+      "evidence": [
+        "The 2024 preprint reports trapped stationary production in Eq. (72), free stationary production in Eq. (75), and notes their singular difference; it does not evaluate joint entropy production on scaled time windows.",
+        "The 2021 field-theory derivation contains exact finite-time correlation functions, but its entropy-production quantity is evaluated in the stationary setting."
+      ],
+      "reasoning": "The result can be reformulated as a time-window law for the entropy-balance flux plus an entropy-endpoint term. The former follows from transient cross moments, while the latter must be controlled uniformly by conditional Gaussian entropy; no assessed source combines these to give the claimed universal finite-time rate and error.",
+      "searches": [
+        "Poisson-tumbling Brownian particle weak harmonic confinement limit entropy production jump singularity mean self propulsion exponential squared crossover free to trapped",
+        "entropy production stochastic run and tumble weak harmonic trap noncommuting k to zero and t to infinity boundary layer at t=1/k",
+        "arxiv:2404.16955v1 Sections III--IV",
+        "arxiv:2012.02900v1 Section 3"
+      ]
+    },
+    "exact_database_or_table": {
+      "evidence": [
+        "Published mathematical record searches for the weak harmonic confinement crossover and its reversible multistate aliases yielded no directly matching theorem in the inspected results.",
+        "The published two-state stationary tables supply only endpoint rates, not the positive-window profile or explicit \\(O(\\kappa)\\) uniform bound."
+      ],
+      "reasoning": "Neither a matching exact table nor a dominating closed formula was identified. Absence of a search hit is not a proof that the result is novel.",
+      "searches": [
+        "Poisson-tumbling Brownian particle weak harmonic confinement limit entropy production jump singularity mean self propulsion exponential squared crossover free to trapped",
+        "entropy production stochastic run and tumble weak harmonic trap noncommuting k to zero and t to infinity boundary layer at t=1/k",
+        "finite-state reversible Markov velocity switching Ornstein Uhlenbeck weak confinement entropy production time-averaged universal law",
+        "\"run-and-tumble\" \"time-dependent entropy production\" \"harmonic\" asymmetry",
+        "\"entropy production\" \"harmonic\" \"run and tumble\" transient formula",
+        "arxiv:2404.16955v1 Eqs. 72 and 75"
+      ]
+    },
+    "rationale": "The primary 2024 article explicitly records a mismatch between free and trapped stationary anisotropic propulsion entropy production, but does not establish the scaled transient entropy-production limit, its quantitative error or the reversible multistate theorem. Earlier harmonic-trap field theory and later general entropy-production formalism supply identities and stationarity but no identified direct implication for the claimed window law. Targeted mathematical-record queries and the accessible related research claim did not reveal a covering theorem. A broader unlocated entropy-bound or homogenization result remains a genuine novelty risk.",
+    "residual_risks": [
+      "Broad entropy-balance, Gaussian-entropy or homogenization results might contain a stronger theorem with this as a specialization.",
+      "Later arXiv revisions and long appendices were investigated by relevant portions rather than every page; publication priority requires external specialist confirmation.",
+      "Search-result absence cannot establish priority or exhaustive novelty."
+    ],
+    "source_inspections": [
+      {
+        "assessment": "STATIONARY_ENDPOINTS_ONLY_NOT_TRANSIENT_CROSSOVER",
+        "evidence": [
+          "Equation (72) is confined stationary production; equation (75) is free stationary production; the text notes the limits disagree. No scaled observation-window limiting theorem is stated in the inspected main sections."
+        ],
+        "identifier_or_url": "https://arxiv.org/html/2404.16955v1",
+        "material_read": "Abstract; Sections II, III.2 and IV including entropy balance, jump term, Eqs. (58), (72), (75), and singular-limit commentary; Section V scope",
+        "method": "Directly inspected open-access arXiv HTML equations and arguments",
+        "title": "Entropy production of run-and-tumble particles",
+        "trigger": "Exact same two-heading model, weak-confinement singular stationary entropy production"
+      },
+      {
+        "assessment": "NO_COVERING_SCALED_WEAK_TRAP_THEOREM_ON_READ_MATERIAL",
+        "evidence": [
+          "The work derives field-theoretic propagators and stationary entropy production. The inspected sections do not prove a nonzero mean-drift exponentially decaying macroscopic time-window entropy crossover."
+        ],
+        "identifier_or_url": "https://arxiv.org/abs/2012.02900",
+        "material_read": "Full preprint PDF with examination of time-dependent correlation material and the stationary entropy-production derivation, including pages 8 and 10--14",
+        "method": "Open-access arXiv PDF text plus visual page inspection",
+        "title": "Run-and-tumble motion: field theory and entropy production",
+        "trigger": "Earlier exact active particle harmonic-trap entropy production and transient correlations"
+      },
+      {
+        "assessment": "DIFFERENT_FINITE_TIME_BOUND_PROBLEM",
+        "evidence": [
+          "The paper estimates entropy production via current statistics and finite-time uncertainty inequalities, not a weak-confinement entropy-production time-window limit."
+        ],
+        "identifier_or_url": "https://arxiv.org/abs/2211.15973",
+        "material_read": "Abstract, formulation of finite-time thermodynamic uncertainty relations, and representative PDF body pages",
+        "method": "arXiv metadata and open-access PDF text and visual inspection",
+        "title": "Improving estimation of entropy production rate for run-and-tumble particle systems by high-order thermodynamic uncertainty relation",
+        "trigger": "Finite-time entropy production bounds for asymmetric persistent particles"
+      },
+      {
+        "assessment": "BROADER_IDENTITY_BUT_NOT_DIRECT_CROSSOVER_COVERAGE_ON_READ_MATERIAL",
+        "evidence": [
+          "General entropy-production identities and stationary spatial-correlation formulas are present, but no weak harmonic confinement or exponential-in-scaled-time boundary law was identified in the examined material.",
+          "The later 2025 revision is treated only as supporting literature and does not set the first-public-date of the motivating 2024 source."
+        ],
+        "identifier_or_url": "https://arxiv.org/html/2211.11906v2",
+        "material_read": "Extended abstract and Introduction, sections III and IV descriptions, Discussion, and targeted Appendix C equations and stationary-vs-nonstationary statements; not every appendix line",
+        "method": "Open-access arXiv HTML inspection and targeted terms on full-text document",
+        "title": "Field theories of active particle systems and their entropy production",
+        "trigger": "Potential broad framework dominating special-case entropy production"
+      }
+    ],
+    "status": "PASS"
+  },
+  "review_type": "self_review",
+  "schema_version": 1,
+  "scope_run_id": "8001896b-6562-40b2-a4ec-161991c2072d",
+  "self_review_status": "passed",
+  "value": {
+    "rationale": "The published anisotropic RTP stationary formulas yield a mathematically natural singular weak-confinement question with no time scale information. This theorem determines the universally decaying mean propulsion-memory contribution on t=O(1/kappa), gives an explicit error uniform for scaled intervals away from zero, and applies to every finite reversible Markov drive. That resolves a motivated dynamical mechanism, not a numerical increment or textbook substitution. Scope and thermodynamic-convention limits are explicit.",
+    "status": "PASS"
+  }
+}

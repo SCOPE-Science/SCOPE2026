@@ -1,0 +1,117 @@
+{
+  "correctness": {
+    "rationale": "Pathwise matrix signs yield the exact min-adjacent-product cutoff; Dirichlet normalized exponentials reduce the random threshold to min one-dependent exponential products. A p(t)=t log(1/t)+O(t) expansion and adjacent joint upper bound 2t justify the independent-block Poisson limit. Slutsky gives factor 2, and negative Dirichlet moments give sharp q<1. Fractional exact-rational tests pass 800 cases; Monte Carlo is not proof.",
+    "status": "PASS"
+  },
+  "independent": false,
+  "independent_audit_status": "not_performed",
+  "originality": {
+    "broader_coverage": {
+      "evidence": [
+        "Chatzipantelidis–Horváth–Thomée (2015) studies positive finite-element heat semigroups and fully discrete FEM; available bibliographic abstract does not mention random meshes.",
+        "Li–Yang–Zhou (2020), arXiv:2010.08789, Section 2: uniform mesh and exponential cut-off, not this random-knot forward Euler model."
+      ],
+      "reasoning": "The deterministic local sign criterion may be subsumed by general maximum-principle theory, so it is explicitly not claimed as novel. No inspected broader theorem supplies the stochastic limit with its logarithmic correction and constant, or its inverse-moment statement.",
+      "searches": [
+        "\"random mesh\" \"maximum principle\" \"explicit Euler\" finite element time steps",
+        "\"On Preservation of Positivity in Some Finite Element Methods for the Heat Equation\"",
+        "\"order statistics\" \"mass lumped\" \"explicit\" Euler"
+      ]
+    },
+    "checked_sources": [
+      "https://arxiv.org/abs/2103.06204",
+      "https://arxiv.org/abs/2010.08789",
+      "https://doi.org/10.1515/cmam-2015-0018",
+      "https://ideas.repec.org/a/eee/spapps/v25y1987ip73-81.html"
+    ],
+    "claim_vs_prior_implication": {
+      "evidence": [
+        "Abdulle–Garegnani arXiv:2103.06204 first public 2021-03-10, Sections 1-2,6: random perturbation for elliptic error estimation, no explicit heat timestep law.",
+        "Li–Yang–Zhou arXiv:2010.08789 first public 2020-10-17, Sections 1-2: mass lumping, exponential cut-off and uniform grid; not the asserted random-knot extreme law.",
+        "Chatzipantelidis–Horváth–Thomée doi:10.1515/cmam-2015-0018: full source inaccessible at attempted public PDF endpoint; abstract confirms deterministic heat FEM positivity coverage."
+      ],
+      "reasoning": "The elementary matrix cutoff follows from FEM assembly and prior positivity theory. The new independent-order-statistic assumptions plus dependent-product extreme limit and fixed-mesh inverse-moment classification require new probabilistic steps absent from the inspected prior statements. A stronger undiscovered stochastic extreme theorem remains a qualified originality risk.",
+      "searches": [
+        "\"probabilistic finite element method based on random meshes\" arxiv first submission",
+        "\"Arbitrarily high-order exponential cut-off methods\" arxiv",
+        "\"On preservation of positivity\" \"lumped mass\" \"fully discrete\""
+      ]
+    },
+    "equivalent_formulations": {
+      "evidence": [
+        "The 2021 random-mesh arXiv full text describes bounded vertex perturbations of an elliptic Galerkin discretization (Sections 1-2, 6).",
+        "The 2020 lumped-mass full text uses uniform spatial partitions and exponential integration/cut-off (Sections 1-2)."
+      ],
+      "reasoning": "An equivalent formulation would be a minimum-over-neighbor-products extreme law or a random forward-Euler CFL distribution. The inspected source statements are not equivalent: one is error estimation on different random meshes, the other a different time update on uniform meshes.",
+      "searches": [
+        "\"random meshes\" \"forward Euler\" \"CFL\" finite elements",
+        "\"random grid\" \"smallest\" \"product\" \"stability\" heat",
+        "\"minimum adjacent spacings product Dirichlet limiting exponential log n\""
+      ]
+    },
+    "exact_database_or_table": {
+      "evidence": [
+        "Searches returned classical minimum-spacing papers (e.g. Hüsler 1987) and unrelated grid stability results, not an exact table for minimum consecutive Dirichlet spacing products."
+      ],
+      "reasoning": "The claimed object is a continuous random statistic, not a finite database table. Known minimum-spacing laws do not state a neighboring-product law with the additional logarithmic scale.",
+      "searches": [
+        "\"adjacent\" \"exponentials\" \"products\" minimum limit distribution",
+        "\"minimum of adjacent products\" exponential random variables asymptotic",
+        "\"random finite element mesh time step stability n^3 log n random knot extreme value\""
+      ]
+    },
+    "rationale": "Classical heat FEM positivity criteria and mass lumping are known, and the motivating random FEM paper treats elliptic mesh perturbations; neither inspected full HTML source gives the n^3 log n asymptotic on independent uniformly random knots. The accessible published-record searches did not find a stronger theorem implying this complete random-mesh distribution and inverse-moment statement. A classical 2015 positivity original could not be fully read and may cover the elementary deterministic formula; original priority remains conditional on further specialist checking.",
+    "residual_risks": [
+      "Classical 2015 positivity primary full text not inspected due to HTTP 502; deterministic step identity may be included there.",
+      "Specialized dependent-product or order-statistic extreme-value literature could imply the probabilistic asymptotic, though no direct match was found.",
+      "One dependent-product extreme is proved here from a block argument; external priority, not mathematical validity, remains unverified."
+    ],
+    "source_inspections": [
+      {
+        "assessment": "Different bounded mesh perturbation model and elliptic error estimators; not covering stochastic forward-Euler threshold law",
+        "evidence": [
+          "First posted 2021-03-10",
+          "Section 2 random vertices x_i+h^p alpha_i; conclusion mentions parabolic extension"
+        ],
+        "identifier_or_url": "https://arxiv.org/abs/2103.06204",
+        "material_read": "Full HTML: introduction, Sections 2.1-2.2 (perturbed vertices and elliptic Galerkin formulation), Conclusion; searched CFL/explicit/order-statistic",
+        "method": "Read accessible arXiv HTML",
+        "title": "A probabilistic finite element method based on random meshes: Error estimators and Bayesian inverse problems",
+        "trigger": "Random-mesh construction and motivating open parabolic direction"
+      },
+      {
+        "assessment": "Different time stepping and mesh law; deterministic positivity framework acknowledged",
+        "evidence": [
+          "First posted 2020-10-17",
+          "Uniform mesh and exponential cut-off scheme in Section 2.1"
+        ],
+        "identifier_or_url": "https://arxiv.org/abs/2010.08789",
+        "material_read": "Full HTML: Introduction, Section 2.1 on uniform meshes, Gauss-Lobatto lumping and exponential cut-off stepping",
+        "method": "Read accessible arXiv HTML",
+        "title": "Arbitrarily high-order exponential cut-off methods for preserving maximum principle of parabolic equations",
+        "trigger": "Closest lumped-mass maximum-principle scheme for heat equations"
+      },
+      {
+        "assessment": "Likely covers classical deterministic positivity and related conditions; random adjacent-product extreme-value theorem not evidenced in abstract; full-text overlap risk recorded",
+        "evidence": [
+          "2015 paper on lumped mass and fully discrete heat FEM positivity",
+          "Author-hosted PDF not accessible in this check"
+        ],
+        "identifier_or_url": "https://doi.org/10.1515/cmam-2015-0018",
+        "material_read": "Author repository and publication metadata/abstract; attempted author-hosted PDF returned HTTP 502",
+        "method": "Read bibliographic abstract and attempted primary PDF",
+        "title": "On Preservation of Positivity in Some Finite Element Methods for the Heat Equation",
+        "trigger": "Potentially dominant classical deterministic FEM positivity result"
+      }
+    ],
+    "status": "PASS"
+  },
+  "review_type": "self_review",
+  "schema_version": 1,
+  "scope_run_id": "61ef290a-3b87-44d0-80ae-013eca1bd5cb",
+  "self_review_status": "passed",
+  "value": {
+    "rationale": "Unrestricted iid random knots change the typical sharp explicit positive timestep from n^-2 to (n^3 log n)^-1, with exact limiting law and infinite mean reciprocal work budget. This is a concrete mathematical and algorithmic boundary between unregularized random meshes and shape-regular perturbations; it is not mere rearrangement of deterministic CFL formulas.",
+    "status": "PASS"
+  }
+}

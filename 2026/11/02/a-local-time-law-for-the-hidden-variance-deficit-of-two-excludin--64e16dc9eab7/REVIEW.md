@@ -1,0 +1,12 @@
+# Scientific review: two-particle exclusion bracket correction
+
+## Correctness — PASS
+The generator, gap drift and three predictable bracket identities follow by exhaustive enumeration of allowed jumps. The gap's occupation drift is exactly the one-sided reflection regulator, not an approximation. Doob's inequality bounds the regulator's rescaled second moments, making the joint martingale functional CLT and continuous-mapping steps valid. The Brownian reflection principle and uniform integrability give the stated tail and variance constant. The standalone checker independently reproduces the finite generator and heat-kernel identities. There is no claim that finite checks prove a functional limit.
+
+## Originality — PASS, with limitations
+The motivating fixed-particle convergence theorem (Ayala–Dirr–Zimmer, arXiv:2610.31319v1) estimates vanishing near-collisions but does not identify the rescaled random predictable-bracket deficit, its independent joint limit, or its exact distribution. Ayala–Renger (arXiv:2512.20412v1) use a different particle-number and initial-density regime; Gess–Konarovskyi (arXiv:2610.13308v1) treat positive-density Gaussian fluctuation fields. Semantically targeted mathematical-record searches gave no equivalent finding. Brownian regulator and martingale invariance tools are classical and not claimed as original. Fan (arXiv:1410.3585) indeed supplies general joint reflected-walk and local-time convergence, covering the regulator ingredient; Denisov–Wachtel (arXiv:1412.6184) supplies further reflected local-time universality. Neither inspected work formulates the joint independent centre-motion and exact blocked-jump predictable-bracket correction for two exclusion particles. Such tools may substantially shorten this derivation, and historical priority still requires independent review.
+
+## Mathematical value — PASS
+The fixed-two-particle atomic limit erases the exclusion mechanism at first order, making its leading Gaussian motion identical to independent walkers. The exact first surviving correction is a *random non-Gaussian process*, not merely a rate bound or another normal approximation, and the result identifies its independence structure and explicit law. This is motivated by the known sharp order of the near-collision contribution, unlike an arbitrary finite parameter specialization. The limitation to the two-particle nearest-neighbour regime is explicit.
+
+Self-review: passed. Independent audit: not yet performed.

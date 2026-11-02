@@ -1,0 +1,120 @@
+{
+  "correctness": {
+    "rationale": "The stage-success rate is (r-1)(n+1)/(nr), and failures consist of two independent Exp(r) holding periods; independent post-merger hub vacancies introduce Bernoulli(1/(n+1)) Exp(r) delays. Their product gives the finite transform and mean exactly. The monotone geometric coupling bounds mean distance by (3H_n-1)/(n+1), and summable independent-stage variances yield the centered law and explicit cumulants. Full-subset rational generator solutions for n<=6 reproduce transforms and means and for n<=5 reproduce variances: 467 assertions passed. Remaining risk is mathematical review of the analytic coupling and asymptotic uniform integrability; finite tests alone are not an infinite proof.",
+    "status": "PASS"
+  },
+  "independent": false,
+  "independent_audit_status": "not_performed",
+  "originality": {
+    "broader_coverage": {
+      "evidence": [
+        "Hermon, Li, Yao and Zhang, arXiv:2105.11585, abstract/introduction and main scope",
+        "Fernley and Ortgiese, arXiv:1911.13187, pp. 1-4 and main setup",
+        "Durrett, Chapter 7 §7.6, general mean-field theorem and star example"
+      ],
+      "reasoning": "The general results concern early-time occupied density or random graph consensus scales, and do not specialize to this exact finite-n star law or its additive logarithmic centered limit: the star is highly nontransitive and is used as a counterexample to mean-field-style behavior. No stronger stated theorem implying all three claimed formulas was identified.",
+      "searches": [
+        "\"Mean Field Behavior during the Big Bang Regime for Coalescing Random Walks\"",
+        "\"Voter models on subcritical inhomogeneous random graphs\"",
+        "coalescing random walks mean-field general graphs star graph exact full coalescence"
+      ]
+    },
+    "checked_sources": [
+      "https://sites.math.duke.edu/~rtd/DoG/Chapter7.pdf (star example and §7.6)",
+      "https://arxiv.org/abs/1908.03218 (first posted 2019-08-08; annihilation contrast)",
+      "https://arxiv.org/abs/1911.13187 (first posted 2019-11-29; classical voter definition)",
+      "https://arxiv.org/abs/2105.11585 (first posted 2021-05-25; early-time density)",
+      "https://link.springer.com/article/10.1007/s44146-024-00125-x (binary voting protocols rather than multi-lineage coalescence)"
+    ],
+    "claim_vs_prior_implication": {
+      "evidence": [
+        "Durrett Example 7.6.1 explicitly gives only coalescence time Ω(log n) for the rate-one star",
+        "Cristali et al. Proposition 1 treats the wrong collision reaction, A+A→0 rather than A+A→A",
+        "Fernley–Ortgiese 2019 random-graph model and Hermon et al. 2021 early-time density have different output observables"
+      ],
+      "reasoning": "An Ω(log n) estimate neither determines the O(1) additive mean nor the centered law. Annihilation reduces count by two on collision while coalescence reduces by one, making the exact stage transition laws inequivalent. The new result follows from a directly derived failure-and-return decomposition, not from renaming or a straightforward special case of the cited published assertions.",
+      "searches": [
+        "\"star graph\" \"coalescence\" \"lower bound\" Durrett",
+        "\"Two-type annihilating systems\" star graph proposition",
+        "\"coalescing random walks\" \"time\" \"star\" finite Laplace product"
+      ]
+    },
+    "equivalent_formulations": {
+      "evidence": [
+        "Durrett, Voter Models, Coalescing RWs, Chapter 7 §7.6 Example 7.6.1, pp. 22-23 of PDF; https://sites.math.duke.edu/~rtd/DoG/Chapter7.pdf",
+        "Cristali et al., arXiv:1908.03218, introduction and Proposition 1"
+      ],
+      "reasoning": "The all-distinct-state voter dual is the rate-one fully occupied coalescing system considered here. Durrett explicitly notes its logarithmic lower bound, but does not calculate the finite time transform or distributional correction. The geometric-star law in Cristali et al. is for annihilation, where two colliders vanish, rather than merger; it cannot be identified with this dual.",
+      "searches": [
+        "\"star graph\" \"coalescence time\" \"Laplace transform\"",
+        "\"coalescing random walks\" \"star graph\" \"non-Gumbel\"",
+        "Voter Models, Coalescing RWs Example 7.6.1 star graph"
+      ]
+    },
+    "exact_database_or_table": {
+      "evidence": [
+        "Cristali et al., arXiv:1908.03218, opening pages and Proposition 1",
+        "Durrett, Example 7.6.1"
+      ],
+      "reasoning": "The closest exact star calculation is for two-particle annihilation events under sequential selection, not pairwise merger under independent unit-rate clocks. A formula solely for an annihilating system does not tabulate the full coalescence-time law or its cumulants. No exact coalescence table matching (1)-(4) was located.",
+      "searches": [
+        "\"two-type annihilating systems on the complete and star graph\" exact geometric waiting time",
+        "arxiv:1908.03218 Proposition 1 star geometric",
+        "coalescing star mean H_n+1-(H_n+2)/(n+1)"
+      ]
+    },
+    "rationale": "Direct statement/implication comparison with the nearest same mathematical model star lower bound, analogous annihilation geometric waiting laws, random-graph voter models, and general coalescing-walk results identified no coverage of the finite star coalescence-time Laplace product together with its exact expectation and centered non-Gumbel law. In particular, collision preservation and clock normalization invalidate a reduction from the nearest annihilation paper. These are finite positive comparisons, not proof of universal priority.",
+    "residual_risks": [
+      "An older, differently indexed exact star-coalescent calculation could have escaped the accessible search and would overturn originality.",
+      "Some broad primary papers were inspected at the relevant sections rather than read cover-to-cover; absence of an exact theorem elsewhere in their appendices is not certified.",
+      "A general theorem with explicit spectral/phase-type representation could subsume the finite expression if a substantive, unexamined specialization is available; no such implication was found."
+    ],
+    "source_inspections": [
+      {
+        "assessment": "Same graph and clock semantics, but an order-of-growth lower bound and general unrelated bounds; no finite transform or centered limit in example.",
+        "evidence": "Example 7.6.1 explicitly states C=Ω(log n) and argues that with k+1 particles the merger rate is at most k+1.",
+        "identifier_or_url": "https://sites.math.duke.edu/~rtd/DoG/Chapter7.pdf",
+        "material_read": "Chapter 7 §7.6, especially Example 7.6.1 on PDF p. 22 and nearby general theorems",
+        "method": "Full-text PDF search and page-image inspection",
+        "title": "Voter Models, Coalescing RWs, Chapter 7",
+        "trigger": "Same rate-one coalescing-walk star model appears as a named example"
+      },
+      {
+        "assessment": "Annihilating rather than coalescing particles; collision removes two instead of one, so its geometric-stage statement does not cover this theorem.",
+        "evidence": "Cristali, Jiang, Junge, Kassem, Sivakoff, York (2019), Proposition 1 and process definitions.",
+        "identifier_or_url": "https://arxiv.org/pdf/1908.03218",
+        "material_read": "Opening pages, process definitions, introductory exact results and Proposition 1",
+        "method": "Accessible arXiv PDF, text and page-image inspection",
+        "title": "Two-type annihilating systems on the complete and star graph",
+        "trigger": "Star particle-interaction problem with geometric waiting-time decomposition"
+      },
+      {
+        "assessment": "Studies subcritical random graph models and consensus-time asymptotics, not deterministic-star exact law. Full paper not read cover-to-cover.",
+        "evidence": "Fernley–Ortgiese (2019), Definition 2.2 and preceding classical voter rate specification.",
+        "identifier_or_url": "https://arxiv.org/pdf/1911.13187",
+        "material_read": "PDF pp. 1-4, definition of classical θ=0 voter model and graph-family setup",
+        "method": "Accessible arXiv PDF, text and page-image inspection",
+        "title": "Voter models on subcritical inhomogeneous random graphs",
+        "trigger": "Standard voter/coalescent duality and same unit vertex clock"
+      },
+      {
+        "assessment": "Addresses expected occupied density in an early-time big-bang regime for suitable graph sequences; no exact final coalescence-time law for star. Not a whole-document negative certification.",
+        "evidence": "Hermon, Li, Yao, Zhang (2021), abstract and early-time hypotheses.",
+        "identifier_or_url": "https://arxiv.org/pdf/2105.11585",
+        "material_read": "Abstract, introductory statements and paper scope",
+        "method": "Accessible arXiv PDF and bibliographic/main-result comparison",
+        "title": "Mean Field Behavior during the Big Bang Regime for Coalescing Random Walks",
+        "trigger": "Potentially stronger general coalescence theorem"
+      }
+    ],
+    "status": "PASS"
+  },
+  "review_type": "self_review",
+  "schema_version": 1,
+  "scope_run_id": "60f19df4-c0e2-4396-aafc-701eaf0865f2",
+  "self_review_status": "passed",
+  "value": {
+    "rationale": "The motivating same mathematical model star literature gives a logarithmic lower bound. An exact finite Laplace transform, additive mean correction, explicit non-Gumbel fluctuation law, and calculable cumulants resolve a natural distributional question about hub-excursion coalescence that is not determined by the bound. Such results can be benchmarks for voter-model duality and nonhomogeneous coalescing graph families; no conjectural downstream general theorem is claimed.",
+    "status": "PASS"
+  }
+}

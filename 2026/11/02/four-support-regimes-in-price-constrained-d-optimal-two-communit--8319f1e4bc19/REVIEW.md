@@ -1,0 +1,11 @@
+# Review of the priced two-community determinant theorem
+
+**Correctness — PASS.** The proof establishes strict log-determinant concavity in all independent complete-graph edge weights, which rules out asymmetric competing optima. Matrix–Tree and the Laplacian decomposition give an exact three-factor spanning-tree polynomial. The complete positive and boundary Karush–Kuhn–Tucker classification yields the closed optimizer in each region, including weak threshold inequalities. The numerical verifier checks determinants, budget conditions, all four regimes, asymmetric alternatives, and full-edge optimizations. Its finite checks are supporting tests, not the infinite proof.
+
+**Originality — PASS (qualified).** Bailey–Cameron (arXiv:1111.3768), Harman–Bachratá–Filová (arXiv:1402.7263), and Khosoussi–Sukhatme–Huang–Dissanayake (arXiv:1604.01116) supply classical graph D-optimality or general numerical optimization frameworks, not the stated full price-region classification. Direct semantic research-record and literature searches found no equivalent or stronger statement establishing this exact three-class continuous-budget optimizer. A specialized older article with the same formulas remains possible; absence of a search hit does not prove precedence.
+
+**Value — PASS.** The support of a determinant-optimal two-community network is a natural design decision, and the two independent internal price classes interact in a nontrivial linear phase diagram. The sharp unequal-group two-stage deletion shows which redundant edges deserve zero investment before the whole support becomes bipartite. The result is an explicit all-size classification rather than a minor numerical improvement or an arbitrary finite example.
+
+**Closest literature and limits.** General log-determinant convex programs could numerically solve any fixed instance; this theorem analytically identifies the entire four-region parameter space. The case of fixed-sample count in pairwise block designs and edge-selection relaxations does not assert these formulas. No claims are made for arbitrary edgewise prices, incomplete potential graphs, or additional constraints. Unlocated specialized prior work and lack of independent external review are residual risks.
+
+Self-review: passed. Independent audit: not yet performed.

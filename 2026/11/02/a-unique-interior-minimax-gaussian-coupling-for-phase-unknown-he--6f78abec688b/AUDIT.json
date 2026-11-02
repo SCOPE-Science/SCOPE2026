@@ -1,0 +1,127 @@
+{
+  "correctness": {
+    "rationale": "Direct Gaussian characteristic functions yield exact cosine and sine variances and cross covariances for all real r in [-1,1]. The worst unknown-phase variance is half the larger of two closed-form diagonal covariance entries. On [-1,0] one decreases and the other increases, meeting uniquely at r=-log(2-exp(-q))/q; on (0,1] the sine entry strictly increases, so no second minimum exists. Exact endpoint and asymptotic comparisons follow algebraically. The supplied standard-library checker separately verifies 45 Gaussian double integrals and 6,611 finite-grid inequalities, supplementary to the analytic proof.",
+    "status": "PASS"
+  },
+  "independent": false,
+  "independent_audit_status": "not_performed",
+  "originality": {
+    "broader_coverage": {
+      "evidence": [
+        "https://arxiv.org/abs/2608.08089",
+        "https://doi.org/10.1111/cgf.13613"
+      ],
+      "reasoning": "Cross-validation antithetic minimax work has a different Gaussian-normal-means asymptotic loss and randomization budget; rendering Fourier sampling considers arbitrary correlated importance samples but offers no accessible special-case exact finite-q optimizer. Their broad techniques motivate the comparison, but accessible claims do not logically imply the displayed formula without an additional phase-specific covariance analysis.",
+      "searches": [
+        "\"optimal correlation\" \"Fourier\" \"antithetic variates\"",
+        "\"On the optimality of antithetic randomization for cross-validation\"",
+        "\"Fourier Analysis of Correlated Monte Carlo Importance Sampling\""
+      ]
+    },
+    "checked_sources": [
+      "https://arxiv.org/abs/2610.01120",
+      "https://www.themoonlight.io/en/review/sign-switched-antithetic-coupling-for-signed-gradient-particle-methods",
+      "https://arxiv.org/abs/2608.08089",
+      "https://doi.org/10.1111/cgf.13613",
+      "https://en.wikipedia.org/wiki/Antithetic_variates"
+    ],
+    "claim_vs_prior_implication": {
+      "evidence": [
+        "https://arxiv.org/abs/2610.01120",
+        "https://www.themoonlight.io/en/review/sign-switched-antithetic-coupling-for-signed-gradient-particle-methods",
+        "https://arxiv.org/abs/2608.08089"
+      ],
+      "reasoning": "The motivating paper analyzes the signed particle reconstructed field, with a specific sign rule for paired increments. Its pointwise field variance claim does not dominate a Fourier-projected estimator, whose variance depends on off-diagonal spatial covariances. The present optimizer is strictly interior for q>0, whereas reflection and synchronization use endpoint correlations. The cross-validation asymptotic antithetic optimum has different hypotheses and target loss.",
+      "searches": [
+        "Sign-Switched Antithetic Coupling for Signed Gradient-Particle Methods 2026 sign rule pointwise variance",
+        "Gaussian coupling cosine observables antithetic correlation optimal covariance Fourier modes",
+        "On the optimality of antithetic randomization for cross-validation Gaussian"
+      ]
+    },
+    "equivalent_formulations": {
+      "evidence": [
+        "https://arxiv.org/abs/2610.01120",
+        "https://en.wikipedia.org/wiki/Antithetic_variates"
+      ],
+      "reasoning": "Equivalent formulations include minimizing the largest eigenvalue of the two-by-two covariance matrix of paired cosine/sine Fourier estimators, minimizing worst-phase unbiased heat-multiplier estimator variance, and a Gaussian-copula design with equal Gaussian marginals. The accessible prior statements discuss monotone and signed field estimators, not this exact covariance eigenvalue balancing.",
+      "searches": [
+        "\"phase robust\" \"antithetic\" \"Fourier\" Gaussian covariance Monte Carlo",
+        "bivariate normal cosine sine antithetic variates optimal correlation minimax phase",
+        "\"cosh\" \"sinh\" \"minimax\" \"antithetic\" cosine"
+      ]
+    },
+    "exact_database_or_table": {
+      "evidence": [
+        "Target is a continuous closed-form covariance optimization rather than an enumerated parameter table; no matching formula surfaced in the searched accessible sources."
+      ],
+      "reasoning": "No finite database or published numerical table controls this continuous correlation/phase minimax. Exact-expression searches returned no matching formula; search failure alone is not evidence of novelty.",
+      "searches": [
+        "\"log(2-exp(-\" gaussian correlation variance antithetic",
+        "\"2-e^{-q}\" \"correlation\" minimax gaussian cosine",
+        "optimal minimax correlation for unknown phase noisy Fourier cosine heat semigroup"
+      ]
+    },
+    "rationale": "The exact unique nonendpoint correlation for the worst-phase real-Fourier heat estimator, and its closed-form variance, are not stated in the accessible motivating paper abstract/secondary topical analysis or other inspected sources. The closest sign-switched theorem optimizes a different reconstructed-field observable, and a pointwise-in-x variance minimization cannot imply minimax variance of an integrated Fourier projection because cross-point covariance matters. General antithetic covariance identities do not themselves state the closed-form result; originality is best-knowledge and historical priority remains provisional.",
+    "residual_risks": [
+      "The original 46-page signed-gradient-particle article and its appendices were not obtained in full; only the abstract, metadata and a secondary explanation were readable, so no whole-document noncoverage judgment is made.",
+      "A more general unpublished or unlocated Gaussian-copula/Fourier-estimator theorem could specialize to this exact phase minimax.",
+      "General non-Gaussian coupling or optimization of a multi-frequency ensemble may produce different optima; these are excluded from the claim."
+    ],
+    "source_inspections": [
+      {
+        "assessment": "The reported optimality concerns sign-dependent reflective/synchronous noise for a reconstructed spatial field at matched particle positions. It does not explicitly provide an unknown-phase real-Fourier minimax correlation, but full-text noncoverage cannot be asserted.",
+        "evidence": [
+          "arXiv 2610.01120 abstract: for fixed matching a sign-switched rule minimizes variance contribution at the final diffusion step and extends to heat equation steps",
+          "The secondary analysis describes an indicator-based field U(x), reflected coupling for equal signs and synchronous coupling for opposite signs."
+        ],
+        "identifier_or_url": "https://arxiv.org/abs/2610.01120",
+        "material_read": "Primary abstract, title, date, MSC and submission history; Full text not obtained. A secondary topical analysis describing the sign rule and the spatial-field objective was also read.",
+        "method": "Primary abstract and bibliographic metadata, plus indexed scientific summary at https://www.themoonlight.io/en/review/sign-switched-antithetic-coupling-for-signed-gradient-particle-methods.",
+        "title": "Sign-Switched Antithetic Coupling for Signed Gradient-Particle Methods",
+        "trigger": "Closest 2026 numerical-analysis paper coupling matched signed Brownian particles; exact first-public evidence and MSC."
+      },
+      {
+        "assessment": "Studies cross-validation normal-means randomization as bias vanishes and smooth estimators; does not explicitly state a finite-q real Fourier phase-minimax heat estimator or its unique correlation.",
+        "evidence": [
+          "Abstract identifies K-fold antithetic correlation -1/(K-1) in a vanishing-bias asymptotic regime, and a different minimax Gaussian scheme."
+        ],
+        "identifier_or_url": "https://arxiv.org/abs/2608.08089",
+        "material_read": "Primary abstract and bibliographic metadata, not complete paper.",
+        "method": "Public abstract search and submission information.",
+        "title": "On the optimality of antithetic randomization for cross-validation",
+        "trigger": "Plausible more general Gaussian-coupling minimax theorem in Monte Carlo."
+      },
+      {
+        "assessment": "Addresses general correlated importance-sampling variance and Fourier analysis; the accessible description supplies neither a specific phase-unknown Gaussian heat estimator nor its sharp covariance tradeoff.",
+        "evidence": [
+          "The published abstract describes a general nonuniform and correlated importance-sampling variance framework in rendering."
+        ],
+        "identifier_or_url": "https://doi.org/10.1111/cgf.13613",
+        "material_read": "Public abstract and source metadata only; complete primary text not obtained.",
+        "method": "Publisher abstract in web search.",
+        "title": "Fourier Analysis of Correlated Monte Carlo Importance Sampling",
+        "trigger": "Potentially broad Fourier-domain covariance framework that could dominate the claim."
+      },
+      {
+        "assessment": "Gives the covariance reduction principle, but not the phase-robust Fourier-mode optimization or its unique interior solution.",
+        "evidence": [
+          "Var of a two-sample average depends on pair covariance; negative covariance improves the estimate."
+        ],
+        "identifier_or_url": "https://en.wikipedia.org/wiki/Antithetic_variates",
+        "material_read": "General antithetic estimator and covariance-based variance formula.",
+        "method": "Accessible reference explanation.",
+        "title": "Antithetic variates",
+        "trigger": "Standard general variance identity and monotonicity conditions potentially making the result routine."
+      }
+    ],
+    "status": "PASS"
+  },
+  "review_type": "self_review",
+  "schema_version": 1,
+  "scope_run_id": "6f78abec-688b-492f-845c-febbc3a493f8",
+  "self_review_status": "passed",
+  "value": {
+    "rationale": "Unknown Fourier phase is a natural nuisance in variance reduction for random-walk heat solvers. The full minimax design yields a nontrivial unique interior correlation, strict superiority to both standard independent and fully antithetic Gaussian pairs at every q>0, a sharp crossover at q=log 3 between baseline endpoints, and an order-q to order-q^2 low-noise worst-phase variance improvement. This provides an exact spectral calibration benchmark, without claiming general nonlinear or multistep solver guarantees.",
+    "status": "PASS"
+  }
+}

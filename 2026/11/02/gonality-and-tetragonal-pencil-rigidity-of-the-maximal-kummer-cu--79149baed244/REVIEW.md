@@ -1,0 +1,11 @@
+# Scientific review
+
+**Correctness — PASS.** The Kummer extension has degree \(q+1\); tame Riemann--Hurwitz gives \(g=q-\gcd(q+1,4)/2\). A birational change of variables produces maps of degrees \(4\) and \(\frac{q+1}{2}\). Every smaller degree is excluded using Castelnuovo--Severi, genus calculations of all three quadratic intermediate fields, and, in characteristic seven, the obstruction to a faithful noncyclic abelian \(2\)-subgroup of \(\mathrm{PGL}_2\). The high-genus uniqueness argument also checks possible intermediate fields. Symbolic checks are reproducible, but do not replace the infinite-family proof. Independent validation has not been conducted.
+
+**Originality — PASS with residual risk.** The 2026 motivating paper explicitly studies these Kummer curves, their genus, semigroups and automorphisms; it does not state the new gonality and pencil-rigidity classification. The inspected 2023 subcover paper treats the exponent \(n=(q+1)/3\), which meets \(n=2\) when \(q=5\), and gives a trigonal model there; this special-case upper bound is prior knowledge. Searches of mathematical research records and public literature, including equation variants and special-linear-series aliases, found no dominating classification. The proof's classical ingredients and the known genus/symmetries are excluded from originality. An implicit consequence of a broader earlier superelliptic theorem remains possible.
+
+**Value — PASS.** Gonality and uniqueness of minimal pencils are intrinsic, geometrically motivated birational invariants. The theorem gives their precise values across an infinite family, the sharp low-parameter exceptions, and a genuinely rigid tetragonal range. The value is the complete behavior of a natural family, not numerical recomputation or an arbitrary slice.
+
+**Closest literature and limitations.** J. P. Guardieiro, Y. da Silva and S. Tafazolian, arXiv:2605.25257v1 (2026), and P. Beelen, M. Montanucci and L. Vicino, doi:10.1016/j.ffa.2023.102300. The geometric characteristic-two and other-exponent cases, as well as tetragonal-pencil uniqueness at \(q=9,11\), remain outside the claim. Historical priority remains provisional.
+
+Self-review: passed. Independent audit: not yet performed.

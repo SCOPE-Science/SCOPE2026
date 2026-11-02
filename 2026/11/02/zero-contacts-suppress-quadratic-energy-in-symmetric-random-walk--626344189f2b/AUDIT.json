@@ -1,0 +1,120 @@
+{
+  "correctness": {
+    "rationale": "Uniform balanced sign vectors give exactly Var(S_t)=t(N-t)/(N-1), and pinning at prescribed zeros factors the bridge into independent shorter bridges. The coefficient identity [z^n](zB'(z))²=4^(n-1)n(n-1)/2 gives Cov(R,Q)=-n(n-1)4^n/(6 binom(2n,n)). Two-contact counting gives Var(R)=4n+2-b-b²; balanced-sign fourth moments with m4=3/((N-1)(N-3)) and explicit pair-weight sums give Var(Q)=N²(N-2)(N+1)/45. Stirling then yields the universal negative correlation limit. Exact enumeration of 66,194 bridges across n=2..9 and 346 rational checks reproduced all critical identities; bounded tests are corroboration, not infinite proof.",
+    "status": "PASS"
+  },
+  "independent": false,
+  "independent_audit_status": "not_performed",
+  "originality": {
+    "broader_coverage": {
+      "evidence": [
+        "Knight, DOI 10.1155/S1048953300000137, describes a conditional moment recursion for the time integral of absolute height of a continuous reflected bridge; the introductory preview concerns that functional and local time.",
+        "Csáki–Hu 2003, Theorems 2.1–2.4 and 3.1–3.3 in https://dmtcs.episciences.org/en/articles/3337/download treat order statistics of excursion heights and lengths; they do not display squared-displacement energy moments."
+      ],
+      "reasoning": "The full conditional *law* of every bridge trajectory would of course imply any moment, but none of the examined published statements is a distribution of the pair (zero-contact count, integrated squared energy), or a law strong enough to derive this mixed covariance without solving another problem. Knight full-text access was incomplete, so broader-coverage risk remains rather than being dismissed.",
+      "searches": [
+        "Bernoulli bridge exact joint moments number of visits to zero and area under path squared",
+        "Brownian bridge local time integrated square bridge covariance Rayleigh",
+        "Frank Knight moments area under reflected Brownian bridge conditional local time pdf"
+      ]
+    },
+    "checked_sources": [
+      "Pitman (1998) Berkeley Technical Report 539, complete searchable PDF with targeted sectional reading and screenshot of Section 3.",
+      "Csáki and Hu (2003) DMTCS Proceedings AC 45–52, full OA PDF and statements Theorems 2.1–2.4/3.1–3.3.",
+      "Knight (2000) Journal of Applied Mathematics and Stochastic Analysis DOI 10.1155/S1048953300000137, abstract and article-introduction preview only.",
+      "Scientific-record topical searches on discrete bridge contacts/quadratic energy and Brownian local time/quadratic functional."
+    ],
+    "claim_vs_prior_implication": {
+      "evidence": [
+        "Pitman §3 provides a Rayleigh law for local time at 0 in Brownian bridges and an occupation-time marginal; no discrete exact mixed second moment is specified.",
+        "Csáki–Hu derives distributions for ranked excursion lengths/heights, not the additive quadratic energy across full bridges.",
+        "Knight paper accessible introductory material uses the area integral of |U(t)|, not ∫U(t)^2 dt or discrete ∑S_t²; its complete implications remain uninspected."
+      ],
+      "reasoning": "Neither Brownian local-time marginal nor ordered height/length distribution gives the required cross moment directly. Even if the asymptotic constant could be deduced through a separate Brownian functional calculation, the finite-size covariance and variance identities for all n are not specializations of the examined statements. This is a best-evidence priority assessment, not independence or uniqueness certification.",
+      "searches": [
+        "Brownian bridge zero local time and integrated squared bridge path; exact covariance and correlation scaling",
+        "\"local time\" \"integral\" \"B_t^2\" \"bridge\"",
+        "Pitman report 539 §§1–3 and Csáki–Hu DMTCS 3337 §§2–3"
+      ]
+    },
+    "equivalent_formulations": {
+      "evidence": [
+        "Pitman Berkeley Report 539, §3 formula (11) identifies the Rayleigh marginal distribution of Brownian bridge local time at 0 (https://live-statistics.pantheon.berkeley.edu/sites/default/files/tech-reports/539.pdf).",
+        "An earlier result concerns peaks and zero contacts in a uniform walk bridge; the present Q is squared energy rather than peaks.",
+        "Another earlier result concerns runs and a quadratic empirical-bridge energy; number of runs is not number of returns to zero."
+      ],
+      "reasoning": "The present statistic R is the count of interior bridge zeros, and Q is the sum of squared positions, not absolute area, not signed area, not the peak count, and not the number of up/down runs. Neither marginal local-time statements nor mixed moments involving a different statistic imply this joint moment without a separate nontrivial identity.",
+      "searches": [
+        "Simple symmetric random walk bridge of 2n steps: exact negative covariance between number of zero returns local time and sum of squared heights sum S_k^2, Brownian bridge quadratic area",
+        "Brownian bridge zero local time and integrated squared bridge path; exact covariance and correlation scaling",
+        "\"local time\" \"integrated squared Brownian bridge\" covariance",
+        "\"number of returns\" \"sum of squares\" \"random walk bridge\""
+      ]
+    },
+    "exact_database_or_table": {
+      "evidence": [
+        "The Semantic literature-index results returned other bridge/linear-covariance topics, not a record tabulating the present R,Q moments.",
+        "No directly covering table was present in the two fully inspected primary documents (Pitman report 539; Csáki–Hu proceedings 3337)."
+      ],
+      "reasoning": "The submitted formulas are symbolic for every n≥2 and were compared against identified records and literature by observable and quantifier. An unsuccessful database query is not proof of uniqueness; unavailable historical tables remain a risk.",
+      "searches": [
+        "Simple symmetric random walk bridge of 2n steps: exact negative covariance between number of zero returns local time and sum of squared heights sum S_k^2, Brownian bridge quadratic area",
+        "Brownian bridge zero local time and integrated squared bridge path; exact covariance and correlation scaling",
+        "\"quadratic area\" \"returns\" \"random walk bridge\" covariance"
+      ]
+    },
+    "rationale": "The targeted scientific-record searches, accessible recovered prior claims, and examined primary sources do not show an equivalent exact discrete zero-contact/quadratic-energy covariance or its universal nonzero correlation limit. The objects, normalizations, and implications were compared directly. Brownian local-time marginals, ranked-excursion lengths/heights, and conditional absolute-area moments are not by themselves the finite quadratic mixed moment, although uninspected historical extensions remain a substantial residual risk.",
+    "residual_risks": [
+      "Knight (2000) full paper was not accessible and may have a broader functional identity not visible in the introduction, although its named observable is absolute-area rather than quadratic-area.",
+      "Historical stochastic-process literature on joint local time and quadratic Brownian functionals may yield the limiting covariance by a different route; no claim of first-ever analytic expression is made.",
+      "The Semantic literature-index search does not exhaust unpublished, unindexed, or differently named results, and a finite slot partition cannot establish uniqueness."
+    ],
+    "source_inspections": [
+      {
+        "assessment": "Rayleigh local-time marginal and stationarity claims do not state the discrete quadratic-energy joint covariance; Brownian continuous process analog is related but not an all-n finite result.",
+        "evidence": [
+          "Page dated Nov. 3, 1998.",
+          "Section 3 equation (11): Brownian bridge local time at zero has the Rayleigh distribution."
+        ],
+        "identifier_or_url": "https://live-statistics.pantheon.berkeley.edu/sites/default/files/tech-reports/539.pdf",
+        "material_read": "Original 9-page PDF: title and dated report page; introduction and formulae (1)–(9); section 3 local-time law (10)–(18), and later references/abstract indexing.",
+        "method": "Opened publisher-hosted report PDF, read extracted text by page, and visually inspected page containing formula (11).",
+        "title": "The distribution of local times of a Brownian bridge",
+        "trigger": "Directly relevant Brownian-bridge zero local-time marginal and possible joint functional coverage"
+      },
+      {
+        "assessment": "Calculates ranked lengths and heights but does not state integrated quadratic path-energy moments or their covariance with interior contacts.",
+        "evidence": [
+          "Introduction defines zero-return local time and excursions.",
+          "Section 2 states laws for ranked maxima and lengths, Section 3 gives limiting distributions."
+        ],
+        "identifier_or_url": "https://dmtcs.episciences.org/en/articles/3337/download",
+        "material_read": "Original 8-page proceedings PDF: introduction and return-time definitions; exact length/height laws Theorems 2.1–2.4; limit results Theorems 3.1–3.3 and accompanying generating functions.",
+        "method": "Opened legal OA PDF, read relevant statements and their assumptions across sections 1–3, and visually inspected title/definitions page.",
+        "title": "Lengths and heights of random walk excursions",
+        "trigger": "Same random walk, same zero-return decomposition, possibly exact joint-distribution machinery"
+      },
+      {
+        "assessment": "The inspected sections explicitly study ∫|bridge|dt (reflected Brownian area), not ∫bridge²dt; the full source has not been read, so its total coverage remains uncertain.",
+        "evidence": [
+          "DOI 10.1155/S1048953300000137.",
+          "Paperity preview explicitly defines the observable as the time integral of absolute position and develops conditional moments."
+        ],
+        "identifier_or_url": "https://doi.org/10.1155/S1048953300000137",
+        "material_read": "Abstract and online transcription preview of article introduction, approximately original pages 99–101; PDF retrieval attempts failed.",
+        "method": "Search for arXiv and legal open access versions, followed journal/archival PDF links; compared accessible article introduction on Paperity and journal/research-index abstracts.",
+        "title": "The moments of the area under reflected Brownian bridge conditional on its local time at zero",
+        "trigger": "Closest apparent joint conditioning of local time and path integral; potentially dominating general conditional moments"
+      }
+    ],
+    "status": "PASS"
+  },
+  "review_type": "self_review",
+  "schema_version": 1,
+  "scope_run_id": "62634418-9f2b-4fe5-88fe-e04e2e799b10",
+  "self_review_status": "passed",
+  "value": {
+    "rationale": "Zero-contact count is a natural lattice local-time observable and quadratic displacement energy is the discrete analog of integrated squared Brownian-bridge energy. Their exact all-size covariance and nonzero limiting correlation quantitatively describe a structural local/global dependence that marginal results do not determine. The exact multi-contact energy-suppression law is reusable for pinning and excursion-decomposition calculations; the result is not an arbitrary finite slice or just a numeric computation.",
+    "status": "PASS"
+  }
+}

@@ -1,0 +1,15 @@
+# Scientific review
+
+## Correctness — PASS
+The scope is all positive real \(X\) asymptotically and all odd BCT-perfect **composites**. For each such integer select a nontrivial odd factor pair. The case split \(t\leq B/2\) versus \(t>B/2\) covers all factor bit-length pairs. In the first case, the two guaranteed support positions \(0,t\) of the odd smaller factor forbid adjacent occupied vertices along difference-\(t\) paths in the larger factor; a disjoint matching yields the exact factor \((3/4)^{B/4}\) and exponent \(1-\log_2(4/3)/6\). In the second case, one-bit convolution implies the product of Hamming weights is at most the total number of possible sums, \(k+1\), so at least one factor is sparse; counting all sparse bitstrings yields at most \(2^{2k/3+O(\sqrt{k}\log k)}\) pairs. The strict gap \(1-\log_2(4/3)/6>2/3\) allows absorption into the same exponential exponent. Summing over dyadic lengths gives the claimed logarithmic factor. A standalone verifier checks the matching bound and finite examples. No experiment is used as an infinite argument.
+
+## Originality — PASS with residual priority risk
+The source's Question 9.5.2 explicitly asks for a quantitative upper bound; its theorem statements and Table 3 establish identities and finite counts but no proved power-saving census. Four focused semantic searches of existing research records, broader searches of literature for carry-free multiplication and binary orthogonality counts, and statement-level checks against related mathematical findings found no already stated or dominating general upper bound for this counting function. The closest binary-weight product result concerns a finite family of weight patterns, and a previous carry-depth bound concerns a different invariant. Searches cannot prove priority. A classical implicit upper count in additive combinatorics or digit-constrained integer multiplication remains conceivable.
+
+## Mathematical value — PASS
+This is an infinite quantitative answer to a freshly and explicitly posed problem, not an arbitrary census or a formal substitution. The exponent below \(1\) rules out positive density and is driven by a structural graph-matching constraint for unbalanced factor lengths and a sumset/Hamming-weight constraint for balanced lengths. It does not purport to give sharp asymptotics or a bound for all BCT-perfect integers.
+
+## Closest literature and access limitations
+M. Iizumi, *Binary convolution height: Structural invariants of integer factorisations* (September 11, 2026), Definitions 5–6, Theorems 1–2, Section 9.5.2. Substantive publicly rendered original HTML sections were read, including the definitions, relevant theorems and exact open question. The separately downloadable publisher PDF was inaccessible. Closest additional research-record finding: *Exact (3,2,3) binary-weight product classification*, which does not address the same counting function or imply the present theorem.
+
+Self-review: passed. Independent audit: not yet performed.

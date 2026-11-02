@@ -1,0 +1,124 @@
+{
+  "correctness": {
+    "rationale": "The four row-coverage classes exhaust the eight subsets of each three-vertex column with correct weights. A vertex is dominated precisely when each cyclic triple covers all three rows. The 16-state directed pair graph therefore counts the complete polynomial by tr(T^n) for all n>=3. The finite determinant identity det(XI-T)=X^7 A(X)B(X) is symbolically recomputed from all matrix entries by verify.py. At z=-1 its roots have multiplicities 1 three times, -1 twice, +i twice, and -i twice, yielding 9 at n divisible by four and 1 otherwise. Independent direct adjacency enumeration checks the full polynomial for n=3 through 6. Finite checks are not substitutes for the exact transfer proof; cycles of sizes 1 and 2 are excluded.",
+    "status": "PASS"
+  },
+  "independent": false,
+  "independent_audit_status": "not_performed",
+  "originality": {
+    "broader_coverage": {
+      "evidence": [
+        "arXiv:2407.19344 proves a parity identity for P_m boxtimes P_n and displays finitely many cyclic-board cases with the first coordinate wrapped; no P_3 boxtimes C_n all-order factorization is stated.",
+        "arXiv:2408.08053 introduces general computational methods but has graph families P_m square C_n, C_m square C_n and P_m boxtimes P_n; the stronger exact algebraic formula is not provided."
+      ],
+      "reasoning": "General transfer-matrix methods are methodological precedents rather than covering statements: the explicit characteristic reduction to degree nine and its all-n parity consequence are not automatic corollaries of the surveyed published theorems. Other prior research records results about chain graphs, book graphs, and domination of cycles are on non-isomorphic families.",
+      "searches": [
+        "\"strong product\" \"P_3\" \"C_n\" domination polynomial",
+        "\"cylindrical king graph\" \"domination polynomial\" -Moore",
+        "graph theory combinatorics 2022 2023 2024 open problem graph products polynomials exact enumeration",
+        "arXiv:2407.19344 Sections 2-3",
+        "arXiv:2408.08053 Sections 1-3 and king-board algorithm"
+      ]
+    },
+    "checked_sources": [
+      "Moore and Mertens, arXiv:2407.19344v1 (2024-07-27), full primary text and PDF relevant pages.",
+      "Mertens, arXiv:2408.08053v1 (2024-08-15), full primary text and PDF relevant pages.",
+      "Klobučar, Mathematical Communications 10 (2005), 23-30, accessible publisher abstract/metadata, no full text.",
+      "Semantic mathematical-record searches for equivalent claims and stronger results; relevant distinct studies of chain-graph domination, power domination of book graphs and finite-ring commuting graphs.",
+      "Existing studies of domination in nonisomorphic graph families were compared by logical implication."
+    ],
+    "claim_vs_prior_implication": {
+      "evidence": [
+        "The first paper yields D(P_m boxtimes P_n;-1)=±1 under free boundaries; this does not imply D(P_3 boxtimes C_n;-1).",
+        "The second derives enumeration algorithms, not the explicit factorization X^7 A(X)B(X) for this strong cylinder.",
+        "Klobučar studies independent sets/independent dominating sets, a strict subset of ordinary dominating sets, and the accessible journal abstract states these objects."
+      ],
+      "reasoning": "The present claim specifies every coefficient of D(P_3 boxtimes C_n;z) and its z=-1 residue-class values for all n>=3. The published free-boundary formula has a nonidentical adjacency relation; the general algorithms do not give the explicitly proved nine-root all-n theorem. The independent-domination count does not determine the full dominating-set count.",
+      "searches": [
+        "arXiv:2407.19344 full text",
+        "arXiv:2408.08053 full text",
+        "Klobučar 2005 strong product independent dominating sets",
+        "graph polynomial exact classification 2023 2024 combinatorics conjecture domination general position visibility matching counting"
+      ]
+    },
+    "equivalent_formulations": {
+      "evidence": [
+        "Semantic research-record searches for cylindrical king graphs, signed domination, strong-product cylinders, period-four and power-sum aliases: no statement/graph-family match in the returned indexed findings.",
+        "Moore–Mertens, arXiv:2407.19344, Section 3 uses a cylinder with cyclic first coordinate C_m boxtimes P_n, not the graph P_3 boxtimes C_n here.",
+        "Mertens, arXiv:2408.08053, Introduction graph definitions: ordinary cylinders are Cartesian products and king boards have two free path boundaries."
+      ],
+      "reasoning": "The graph can also be described as a three-row cylindrical king graph or a circular ladder of three-vertex path columns joined by strong-product edges; its signed domination count is an alternating coefficient sum. Searches using all these descriptions found no equal all-n root-sum formula or period-four classification. The cyclic coordinate in the source finite table is the opposite coordinate.",
+      "searches": [
+        "signed domination polynomial at -1 cylindrical king graph strong product P3 with Cn trace period four values nine",
+        "king graph cylinder periodic signed domination 3 x n (-1) special family 1 or 9",
+        "domination polynomial P3 strong product cycle graph closed transfer matrix parity",
+        "ordinary domination polynomial of cylindrical king graph P_3 strong product C_n, a 9th-degree root power sum and period-four signed value",
+        "\"strong product\" \"P_3\" \"C_n\" domination polynomial",
+        "\"cylindrical king graph\" \"domination polynomial\" -Moore",
+        "\"king graph\" cylinder \"-1\" \"9\" domination set"
+      ]
+    },
+    "exact_database_or_table": {
+      "evidence": [
+        "The 2024 article provides small signed count tables for C_m boxtimes P_n, with its cyclic coordinate m; its m=3 row is not a table for P_3 boxtimes C_n.",
+        "No exact full coefficient database for the family or published all-n algebraic certificate was identified by the actual searches."
+      ],
+      "reasoning": "A finite table, even if it used the same graph, could not by itself prove an all-n polynomial identity. The cited finite table is additionally for a differently wrapped family. No database identity claimed without an inspection.",
+      "searches": [
+        "site:oeis.org \"1, 9, 1, 1, 1, 9\" domination",
+        "Moore–Mertens arXiv:2407.19344 Table 2",
+        "ordinary domination polynomial of cylindrical king graph P_3 strong product C_n, a 9th-degree root power sum and period-four signed value"
+      ]
+    },
+    "rationale": "The six actual semantic research-database queries and targeted literature searches found no matching closed all-circumference polynomial or signed four-period law for P_3 strong-product C_n. The most relevant original full texts establish free-boundary king-board signed behavior (Moore and Mertens, 2024) and algorithms for Cartesian cylinders and noncyclic king boards (Mertens, 2024). Neither logically implies the present cubic-sextic factorization. An older graph-family paper treats independent domination rather than the ordinary domination polynomial; its full text was inaccessible, explicitly recorded as a residual risk. This is a best-knowledge originality assessment, not certification of publication priority.",
+    "residual_risks": [
+      "Unindexed or differently named exact polynomial formulas for cyclic king strips could establish publication priority elsewhere.",
+      "Klobučar (2005) full article could not be obtained; its indexed topic is independent domination, however its entire treatment is not known.",
+      "The algebraic characteristic polynomial is a finite identity checked symbolically with SymPy; an independent external audit is not performed."
+    ],
+    "source_inspections": [
+      {
+        "assessment": "Different theorem: free-boundary parity identity, and finite data for first-coordinate-wrapped cylinders C_m boxtimes P_n; does not cover P_3 boxtimes C_n full polynomial.",
+        "evidence": [
+          "arXiv:2407.19344v1, July 27 2024, Section 3, Table 2 caption says cyclic coordinate x in [m]."
+        ],
+        "identifier_or_url": "https://arxiv.org/abs/2407.19344",
+        "material_read": "Full eight-page arXiv manuscript, especially introductory definitions, theorem, Section 3 and its finite cylinder/torus table.",
+        "method": "Open-access full text via arXiv; parsed primary article and inspected PDF page imagery.",
+        "title": "Domination by kings is oddly even",
+        "trigger": "Main first-public source directly discusses parity for king boards and failure under cyclic wrapping."
+      },
+      {
+        "assessment": "Published Cartesian cylinder/torus and rectangular noncyclic king-board algorithms; no algebraic degree-nine factor or P_3 boxtimes C_n four-period law.",
+        "evidence": [
+          "arXiv:2408.08053v1, August 15 2024; Section 1 explicitly identifies Cartesian cylinders C_m square P_n, while king graph is P_m boxtimes P_n."
+        ],
+        "identifier_or_url": "https://arxiv.org/abs/2408.08053",
+        "material_read": "Full primary manuscript, including Introduction, graph-product definitions, transfer-algorithm sections, king-board discussion and conclusions.",
+        "method": "Open-access full text via arXiv; parsed paper and inspected relevant PDF page imagery.",
+        "title": "Domination Polynomials of the Grid, the Cylinder, the Torus, and the King Graph",
+        "trigger": "Plausibly stronger generic exact algorithm and possible tabulated graph counts."
+      },
+      {
+        "assessment": "Different invariant: independent dominating sets, not all dominating sets; full-text access uncertainty is retained as a residual risk.",
+        "evidence": [
+          "Mathematical Communications 10 (2005), 23-30, abstract and keywords: independent set, independent dominating set, strong product."
+        ],
+        "identifier_or_url": "https://hrcak.srce.hr/en/657",
+        "material_read": "Public journal landing page, bibliographic metadata, keywords, and abstract; full PDF could not be accessed from the page in the current check.",
+        "method": "Publisher open metadata and abstract inspection, followed by unsuccessful PDF access attempt.",
+        "title": "Independent sets and independent dominating sets in the strong product of paths and cycles",
+        "trigger": "Same exact graph-product classes, potentially related invariant."
+      }
+    ],
+    "status": "PASS"
+  },
+  "review_type": "self_review",
+  "schema_version": 1,
+  "scope_run_id": "6d20a013-de06-4e40-98af-41a1d157fa6f",
+  "self_review_status": "passed",
+  "value": {
+    "rationale": "The 2024 king-board parity result identifies cyclic boundaries as producing nontrivial exceptional behavior. Determining the entire ordinary domination polynomial for every three-row king cylinder at once, by a fixed-degree nine-root algebraic expression, is a natural exact enumeration of a canonical graph strip. The derived 1-versus-9 parity law at mod-four circumferences exhibits a nontrivial structural boundary effect. The explicit row-state factorization can motivate other fixed-width families. It is not an arbitrary finite table or routine renaming of the source Cartesian-cylinder algorithms.",
+    "status": "PASS"
+  }
+}

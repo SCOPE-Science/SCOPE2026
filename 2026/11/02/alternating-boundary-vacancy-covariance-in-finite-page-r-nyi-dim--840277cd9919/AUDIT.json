@@ -1,0 +1,174 @@
+{
+  "correctness": {
+    "rationale": "The first accepted edge partitions the remaining priorities uniformly and independently, proving the one-endpoint and two-endpoint recurrences. Generating functions yield the exact coefficient formula. Taylor integral remainder and strict Jensen plus a logarithm inequality give opposite signed deviations of the joint and squared marginal probabilities from \\(e^{-2}\\), hence the parity sign for every \\(n\\ge3\\). Beta-moment Taylor expansion yields the signed leading \\(2^{n-2}/(n-1)!\\) term. The exact checker passed 390 assertion groups including exhaustive edge-priority orders through \\(n=8\\); finite tests supplement, not replace, the proof.",
+    "status": "PASS"
+  },
+  "independent": false,
+  "independent_audit_status": "not_performed",
+  "originality": {
+    "broader_coverage": {
+      "evidence": [
+        "Gerin (2014/2015), Section 2, gives a superfactorial upper bound on infinite-line covariance and one short-range correlation; its Section 3 addresses finite interval coverage and timing. Neither supplies the finite-boundary formula or sign law.",
+        "Bonnier, Boyer and Viot (1994) explicitly announce an analytic pair distribution for one-dimensional random sequential adsorption, including lattice dimers. Only their abstract could be accessed; possible finite-boundary specialization is a substantive historical risk.",
+        "Evans (1993) reviews spatial correlations and methods in 1D adsorption; accessible abstract lacks finite-boundary results."
+      ],
+      "reasoning": "An infinite translation-invariant two-point function at varying separation is not the same observable as two fixed boundary sites on an interval of that length. Without finite-boundary corrections, the infinite-line formula does not imply the alternating finite-endpoint covariance. However, the 1994 broad analytical paper was not read in full and is retained as a priority risk, rather than declared not covering.",
+      "searches": [
+        "random sequential dimer adsorption path graph endpoint endpoint occupancy correlation alternating sign",
+        "greedy random maximal matching path endpoints pair covariance factorial decay",
+        "web: random sequential adsorption dimers one dimensional correlation exact Bonnier Boyer Viot 1994",
+        "web: random sequential adsorption correlation spatial one dimensional finite boundaries",
+        "https://doi.org/10.1088/0305-4470/27/11/017",
+        "https://doi.org/10.1103/RevModPhys.65.1281"
+      ]
+    },
+    "checked_sources": [
+      {
+        "identifier_or_url": "https://arxiv.org/pdf/1411.8002",
+        "scope_of_check": "Full 13-page open preprint, Sections 1–3 including model construction, infinite-line covariance and finite-interval analysis",
+        "title": "The Page–Rényi parking process"
+      },
+      {
+        "identifier_or_url": "https://algo.inria.fr/libraries/autocomb/fatmen-html/fatmen1.html",
+        "scope_of_check": "Available full HTML article and its recurrences/occupancy discussion",
+        "title": "A Seating Arrangement Problem"
+      },
+      {
+        "identifier_or_url": "https://academic.oup.com/jrsssb/article/21/2/364/7027981",
+        "scope_of_check": "Bibliographic record and accessible descriptive summary only; full text not accessible",
+        "title": "The Distribution of Vacancies on a Line"
+      },
+      {
+        "identifier_or_url": "https://doi.org/10.1088/0305-4470/27/11/017",
+        "scope_of_check": "Publisher abstract only; full article inaccessible",
+        "title": "Pair correlation function in random sequential adsorption processes"
+      },
+      {
+        "identifier_or_url": "https://doi.org/10.1103/RevModPhys.65.1281",
+        "scope_of_check": "Accessible abstract and publisher description, not full review",
+        "title": "Random and cooperative sequential adsorption"
+      }
+    ],
+    "claim_vs_prior_implication": {
+      "evidence": [
+        "Gerin (Sections 1.1–1.2) already gives independent first-dimer fragments; Section 2 establishes infinite-lattice covariance bounds and a distance-three example, but not a finite end-to-end exact covariance or its sign across all lengths.",
+        "Page (1959), accessible bibliographic summary, concerns total vacancies on a line and their moments. Its actual contents were inaccessible for checking a potentially stronger joint result.",
+        "The present exact coefficient comes from a new two-endpoint recurrence; the strict sign uses Jensen’s inequality on a beta-integral, and the sharp signed amplitude follows from Taylor remainders."
+      ],
+      "reasoning": "The classical decomposition implies one-point recursion, but an exact formula for the total count or an infinite-lattice mixing bound does not directly imply the two-endpoint sign, since the latter requires a new joint recurrence and strict analytic comparison of two different Taylor approximations. Absolute priority is not certified because Page (1959) and Bonnier–Boyer–Viot (1994) are not fully available.",
+      "searches": [
+        "greedy random maximal matching path endpoints pair covariance factorial decay",
+        "discrete car parking dimer Page model vacancy endpoint pair joint probability exact",
+        "random greedy matching path first last vertex uncovered covariance parity n",
+        "arXiv:1411.8002v1",
+        "https://algo.inria.fr/libraries/autocomb/fatmen-html/fatmen1.html",
+        "https://academic.oup.com/jrsssb/article/21/2/364/7027981"
+      ]
+    },
+    "equivalent_formulations": {
+      "evidence": [
+        "Page–Rényi dimers on a finite interval are also described as unfriendly seating and greedy maximal matching of path edges; Gerin (arXiv:1411.8002, Sections 1–3) identifies the model and its continuous edge-priority representation.",
+        "Flajolet (1997), A Seating Arrangement Problem, presents the equivalent unfriendly-seating recursion, emphasizing total occupancy rather than two specified endpoint vacancies."
+      ],
+      "reasoning": "These aliases describe the same distribution. The new statement concerns the joint law of the two extremal vacancy events, not the mean total number of free seats. The full inspected Gerin text contains an infinite-lattice correlation bound but not the finite opposite-endpoint sign identity; Flajolet’s seating count does not determine it.",
+      "searches": [
+        "finite Page Renyi parking open interval endpoint monomer vacancy covariance parity alternation",
+        "random sequential dimer adsorption path graph endpoint endpoint occupancy correlation alternating sign",
+        "random greedy matching path first last vertex uncovered covariance parity n",
+        "unfriendly seating problem endpoints emptiness probability correlation",
+        "web: Page Rényi parking finite line boundary vacancy correlation joint two ends",
+        "arXiv:1411.8002v1"
+      ]
+    },
+    "exact_database_or_table": {
+      "evidence": [
+        "Targeted scientific-record queries returned no title or summary reporting an exact finite Page–Rényi endpoint-vacancy covariance, and local prior-ledger claims contained no such formula.",
+        "Gerin full text and Flajolet full HTML did not report a table of finite endpoint covariance signs; their marginal formulas do not tabulate this joint statistic."
+      ],
+      "reasoning": "There is no located exact published database/table for these two boundary indicators. A negative index search is not uniqueness proof; the conclusion relies additionally on object-and-implication checks and leaves uninspected specialist papers as risks.",
+      "searches": [
+        "finite Page Renyi parking open interval endpoint monomer vacancy covariance parity alternation",
+        "finite discrete Page Renyi parking both extreme sites unoccupied endpoint covariance alternating signs factorial decay",
+        "discrete random sequential adsorption dimers finite path endpoint two-point correlation",
+        "unfriendly seating problem endpoints emptiness probability correlation",
+        "web: parking endpoints covariance dimer Page process",
+        "web: alternating sign correlation dimer adsorption line factorial"
+      ]
+    },
+    "rationale": "The full directly relevant Gerin source gives the priority construction, infinite-lattice covariance decay and finite interval marginal coverage but not the finite endpoint sign theorem. The full available equivalent unfriendly-seating article concerns total occupancy. Research-record and prior-claim comparisons identify no equivalent claim. The nearby 1994 analytic pair-distribution article and Page 1959 article are not fully accessible; both are material priority risks, with no established direct implication to finite boundary-to-boundary covariance.",
+    "residual_risks": [
+      "The 1994 Bonnier–Boyer–Viot article may contain a stronger finite-boundary treatment; only abstract accessible.",
+      "The 1959 Page paper may contain a specialized joint boundary formula; full text not available.",
+      "Other early RSA correlation literature may imply the theorem under different notation; database searches do not prove absolute novelty."
+    ],
+    "source_inspections": [
+      {
+        "assessment": "Same process and basic first-edge splitting; finite opposite-endpoint covariance theorem not stated in inspected text",
+        "evidence": [
+          "arXiv:1411.8002, Section 1.2, continuous independent priorities",
+          "Section 2, equation (1), infinite-lattice correlation bound and a distance-three example",
+          "Section 3, finite path mean occupancy and arrival trials"
+        ],
+        "identifier_or_url": "https://arxiv.org/pdf/1411.8002",
+        "material_read": "Full 13-page open preprint, Sections 1–3 including model construction, infinite-line covariance and finite-interval analysis",
+        "method": "Full-text reading with inspection of displayed formulas and section statements",
+        "title": "The Page–Rényi parking process",
+        "trigger": "Exactly the same finite random dimer parking process and an infinite-lattice two-point bound"
+      },
+      {
+        "assessment": "Focuses on occupancy count rather than joint extreme-seat vacancy correlations",
+        "evidence": [
+          "Equivalent sequential no-adjacent occupancy scheme",
+          "Generating-function treatment of mean and occupancy counts"
+        ],
+        "identifier_or_url": "https://algo.inria.fr/libraries/autocomb/fatmen-html/fatmen1.html",
+        "material_read": "Available full HTML article and its recurrences/occupancy discussion",
+        "method": "Full-body HTML inspection",
+        "title": "A Seating Arrangement Problem",
+        "trigger": "Equivalent unfriendly seating process"
+      },
+      {
+        "assessment": "Not classified as noncovering; residual risk of a stronger finite-line joint statement",
+        "evidence": [
+          "1959 article concerns moments of vacancy counts and related problems; no verified full-text claim comparison"
+        ],
+        "identifier_or_url": "https://academic.oup.com/jrsssb/article/21/2/364/7027981",
+        "material_read": "Bibliographic record and accessible descriptive summary only; full text not accessible",
+        "method": "OA and arXiv search followed by authorized institutional retrieval attempt, unavailable through authorized access",
+        "title": "The Distribution of Vacancies on a Line",
+        "trigger": "Foundational finite-line Page parking paper, potentially broader joint vacancy calculations"
+      },
+      {
+        "assessment": "Potential broader-coverage risk; not represented as fully inspected or definitively noncovering",
+        "evidence": [
+          "1994 abstract states analytic pair distribution for 1D RSA of k-mers and super-exponential decay"
+        ],
+        "identifier_or_url": "https://doi.org/10.1088/0305-4470/27/11/017",
+        "material_read": "Publisher abstract only; full article inaccessible",
+        "method": "Targeted open-access and arXiv search and attempted authorized institutional retrieval; unavailable through authorized access",
+        "title": "Pair correlation function in random sequential adsorption processes",
+        "trigger": "Potentially stronger analytical lattice-dimer spatial pair distribution"
+      },
+      {
+        "assessment": "Context on general spatial correlations but not enough full text to determine all finite-boundary specializations",
+        "evidence": [
+          "Abstract advertises kinetic and spatial correlations in RSA and CSA"
+        ],
+        "identifier_or_url": "https://doi.org/10.1103/RevModPhys.65.1281",
+        "material_read": "Accessible abstract and publisher description, not full review",
+        "method": "Publisher bibliographic/abstract comparison",
+        "title": "Random and cooperative sequential adsorption",
+        "trigger": "Broad 1993 survey of one-dimensional random sequential adsorption spatial correlations"
+      }
+    ],
+    "status": "PASS"
+  },
+  "review_type": "self_review",
+  "schema_version": 1,
+  "scope_run_id": "840277cd-9919-4d10-aeb2-72263a23ff2f",
+  "self_review_status": "passed",
+  "value": {
+    "rationale": "Boundary vacancy dependence is a canonical finite-volume mixing observable for irreversible adsorption, complementing well-studied total vacancy means and infinite-volume pair correlations. The alternating sign for every finite distance and its exact superfactorial amplitude supply a structural parity law not inferred from the known qualitative spatial decorrelation bound. The theorem compares actual competing boundary events rather than a gratuitous isolated finite computation.",
+    "status": "PASS"
+  }
+}

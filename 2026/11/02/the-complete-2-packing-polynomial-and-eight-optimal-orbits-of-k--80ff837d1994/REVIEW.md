@@ -1,0 +1,9 @@
+# Scientific review
+
+**Correctness: PASS.** In the Kneser graph on \(r\)-sets of \([3r-3]\), two selected blocks may share exactly one or two ground elements. A four-block packing would need at least \(4r-12>3r-3\) coordinates for \(r\ge11\). With the known maximum of three, counting one-, two-, and three-block configurations via disjoint Venn atoms yields the exact polynomial. Every Venn atom is prescribed by \((k,t)\), establishing exactly eight coordinate-permutation orbits and their factorial labeled sizes. Direct exhaustive counts for \(K(9,4)\) and an independent anchored-pair formula check the counting identity without substituting for the all-parameter proof.
+
+**Originality: PASS, with priority qualifications.** Brešar--Cornet--Dravec--Henning (arXiv:2312.15464, Observation 4.1 and Proposition 4.2) already give the intersection criterion and the value \(\rho_2(K(3r-3,r))=3\) for \(r\ge10\). Neither the inspected original article nor the inspected coding-theory size tables provide the complete cardinality enumerator or eight orbit multiplicities. The earlier finite optimal constant-weight code classification explicitly covers only smaller lengths. Earlier unindexed equivalent enumerations cannot be ruled out, and the 2010 paper was available only in abstract form for this comparison.
+
+**Mathematical value: PASS.** Rather than repeating a minimum or maximum cardinality, the result exactly counts every feasible vertex family in a natural infinite series of Kneser graph squares and determines the multiplicities of all symmetry types of maximum families. The first previously unclassified parameter in this range already has \(9,693,705,696,717,042,000\) maximum families, divided into eight explicit orbit types.
+
+Self-review: passed. Independent audit: not yet performed.

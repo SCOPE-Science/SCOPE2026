@@ -1,0 +1,133 @@
+{
+  "correctness": {
+    "rationale": "Construct stationary Gaussian integral under aw>bu; solve invariant PDMP transport with zero flux; map to two exact beta laws and recover occupation weights; calculate both tail constants and universal composition by beta endpoint asymptotics and Gaussian moments. Analytic argument handles all parameter values; independent checker passed 72 generator/mixture moment comparisons and 144 tail/bias comparisons and 1044 flux identities on 36 sets.",
+    "status": "PASS"
+  },
+  "independent": false,
+  "independent_audit_status": "not_performed",
+  "originality": {
+    "broader_coverage": {
+      "evidence": [
+        "Guyon–Iovleff–Yao 2004 full PDF §§2–3, especially two-state example: existence and moment conditions.",
+        "De Saporta–Yao 2005 theorem 2 and §8: polynomial-tail existence and exponent, constant denoted L>0 but not evaluated."
+      ],
+      "reasoning": "The broad prior theorems imply the existence of the same regime and the exponent 2theta, so these are not claimed novel. They do not determine the normalized beta law, its tail coefficient, or rate-independent conditional probability of repulsion during an extreme displacement.",
+      "searches": [
+        "Guyon Iovleff Yao 2004 linear diffusion stationary switching regime density exact stationary law Fourier pdf",
+        "de Saporta Yao 2005 \"tail of a linear diffusion with Markov switching\" exact constants"
+      ]
+    },
+    "checked_sources": [
+      "https://www.numdam.org/item/10.1051/ps:2003017.pdf",
+      "https://arxiv.org/abs/math/0503527",
+      "https://doi.org/10.1080/03610918.2015.1132321",
+      "https://arxiv.org/pdf/2102.13308",
+      "https://www.numdam.org/articles/10.1016/j.crma.2004.09.022/",
+      "https://eprints.whiterose.ac.uk/id/eprint/176114/"
+    ],
+    "claim_vs_prior_implication": {
+      "evidence": [
+        "Guyon describes conditional Gaussianity and gives two-state moment conditions, not a beta-distributed transformed variance.",
+        "De Saporta gives kappa=lambda_2/a_2 + lambda_1/a_1 and a strictly positive but unspecified tail constant.",
+        "Zhang–Wang assumes both drift signs negative/nonpositive."
+      ],
+      "reasoning": "The claimed beta law plus exact K_X and a/(a+b) are additional specific distributional information not implied quantitatively by just the earlier existence, moment criteria or exponent formulas; a separate invariant-variance transport solution is needed.",
+      "searches": [
+        "Guyon–Iovleff–Yao 2004 full primary pdf equations (1)-(3), section 3.3",
+        "de Saporta–Yao 2005 author full text Theorem 2 and section 8",
+        "Zhang–Wang 2016-public Assumption A and Theorem 2.1"
+      ]
+    },
+    "equivalent_formulations": {
+      "evidence": [
+        "A semantic search of the public mathematical-results index did not surface a conditional-variance beta transform with the claimed extreme-state composition.",
+        "Zhang and Wang state Assumption A excludes the regime with a positive drift coefficient."
+      ],
+      "reasoning": "Checked characteristic-function, Gaussian-scale-mixture, beta-prime-transform and Markov-modulated OU aliases, not just the proposed title. The closest explicit stationary Fourier formulas require nonpositive regime drifts; the present exact conditional variance law covers an explosive regime.",
+      "searches": [
+        "stationary distribution variance process for dichotomously switching attractive repulsive harmonic trap Ornstein Uhlenbeck Gaussian mixtures beta distribution power law",
+        "two-state Markov-modulated Ornstein Uhlenbeck process with negative and positive drift stationary algebraic tails conditional variance transformed Beta law",
+        "Markov modulated linear stochastic differential equation stable unstable drift exact stationary Gaussian scale mixture beta prime tail moment index",
+        "\"Ornstein Uhlenbeck\" \"switching\" \"beta\" \"variance\" distribution stable unstable",
+        "randomly switching attractive repulsive harmonic trap OU stationary variance distribution power law tails beta prime Markov switching oscillator"
+      ]
+    },
+    "exact_database_or_table": {
+      "evidence": [
+        "A prior distinct diffusivity-switching harmonic model treats changing thermal diffusivity at fixed strictly attractive curvature, so its implications do not include switched stable/unstable curvature.",
+        "A public beta sample-variance tail classification concerns independent beta observations rather than the conditional variance of a switched Brownian particle."
+      ],
+      "reasoning": "Compared model hypotheses and implications, not mere matching words: a stable harmonic trap with changing diffusivity has a different variance flow from the attractive/repulsive stiffness model and cannot imply its tail bias.",
+      "searches": [
+        "stationary distribution variance process for dichotomously switching attractive repulsive harmonic trap Ornstein Uhlenbeck Gaussian mixtures beta distribution power law",
+        "two-state Markov-modulated Ornstein Uhlenbeck process with negative and positive drift stationary algebraic tails conditional variance transformed Beta law",
+        "Markov modulated linear stochastic differential equation stable unstable drift exact stationary Gaussian scale mixture beta prime tail moment index",
+        "switching diffusivity, conditional variance, unstable harmonic, Ornstein and beta-mixture claim aliases"
+      ]
+    },
+    "rationale": "Exact normalized conditional beta laws, explicit stationary displacement-tail constant and universal stiffness-only extreme-state composition were not found in the directly relevant inspected primary sources. Existence, heavy-tail regular variation, two-state exponent and general moment threshold are already known and explicitly excluded from the novelty claim; priority remains provisional.",
+    "residual_risks": [
+      "Generic telegraph-driven affine PDMP theory could contain the identical fractional-linear beta law under a different notation, outside the searched historical corpus.",
+      "A prior formula not indexed by published-finding corpus or standard searches may give the tail amplitude or extreme-state mixing implicitly.",
+      "Novelty and proof have not received independent review."
+    ],
+    "source_inspections": [
+      {
+        "assessment": "Strong prior coverage of existence, conditional Gaussian representation, and moment boundaries; no exact conditional beta mixture, explicit normalized displacement tail constant, or rate-independent extreme-state mixture given",
+        "evidence": [
+          "Equations (1)–(3) describe Markov-switched OU and conditional variance.",
+          "Section 3.3 states a two-state example with drifts -1 and +1 and moment orders below 1."
+        ],
+        "identifier_or_url": "https://www.numdam.org/item/10.1051/ps:2003017.pdf",
+        "material_read": "Accessible 11-page primary PDF; inspected the introduction, stationary construction, moment theorem and two-state example in sections 1–3",
+        "method": "Full accessible primary PDF, inspected text and page renderings",
+        "title": "Linear diffusion with stationary switching regime",
+        "trigger": "Exactly the same switched-OU object, including an attractive/repulsive two-state example"
+      },
+      {
+        "assessment": "Already proves existence of a polynomial tail with positive but unspecified constant and computes exponent in two regimes; no closed full beta mixing distribution or tail amplitude in the inspected main result and §8",
+        "evidence": [
+          "Theorem 2 gives t^kappa P(X>t)→L>0 but does not evaluate L.",
+          "Section 8 computes kappa from the two-rate spectral matrix (not a normalized mixing law)."
+        ],
+        "identifier_or_url": "https://arxiv.org/abs/math/0503527",
+        "material_read": "Author-uploaded full 2005 preprint text; inspected the introduction, main Theorems 1–2, conditional variance representation and section 8 two-state exponent calculation",
+        "method": "Open accessible author-uploaded manuscript text equivalent to arXiv v1; arXiv PDF retrieval blocked",
+        "title": "Tail of a linear diffusion with Markov switching",
+        "trigger": "Strongest same-object heavy-tail theorem and two-state exponent"
+      },
+      {
+        "assessment": "Explicit results assume both regime drifts nonpositive; authors explicitly note one positive drift prevents their explicit construction; not a covering case",
+        "evidence": [
+          "Assumption (A.1) requires alpha(1)≤0 and alpha(2)≤0.",
+          "Introduction says the positive-drift case cannot use the derived explicit transforms."
+        ],
+        "identifier_or_url": "https://doi.org/10.1080/03610918.2015.1132321",
+        "material_read": "Author-uploaded complete article representation, introduction, Assumption (A), Theorem 2.1, and surrounding explicit formulas",
+        "method": "Open accessible full-text transcription; inspected assumptions and relevant theorem",
+        "title": "The stationary distribution of Ornstein–Uhlenbeck process with a two-state Markov switching",
+        "trigger": "Plausibly equivalent Fourier-transform stationary distribution"
+      },
+      {
+        "assessment": "Replaces Wiener forcing with a telegraph process and analyzes its invariant measure; not the additive Brownian conditional-variance mixing theorem",
+        "evidence": [
+          "Introduction identifies the Kac OU replacement of Wiener noise by telegraph driving."
+        ],
+        "identifier_or_url": "https://arxiv.org/pdf/2102.13308",
+        "material_read": "PDF title/abstract, sections describing defining dynamics and relation to switching OU, and large-switching-limit section",
+        "method": "Accessible arXiv PDF with page rendering and parsed text",
+        "title": "First-passage probabilities and invariant distributions of Kac–Ornstein–Uhlenbeck processes",
+        "trigger": "Related invariant measures with two-state telegraph environment"
+      }
+    ],
+    "status": "PASS"
+  },
+  "review_type": "self_review",
+  "schema_version": 1,
+  "scope_run_id": "77cbfa2b-6b10-4fe0-904e-78caa032c40c",
+  "self_review_status": "passed",
+  "value": {
+    "rationale": "Exact normalized stationary position law and tail amplitude answer a physically motivated measurement question for switching traps, rather than reiterating the known polynomial-tail exponent. The stiffness-only composition of extreme displacements is an additional structural invariant independent of switching rates and thermal noise.",
+    "status": "PASS"
+  }
+}

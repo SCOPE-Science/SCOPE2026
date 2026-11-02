@@ -1,0 +1,15 @@
+# Scientific review of the Brandt power-semigroup nilpotency census
+
+## Correctness — PASS
+Every nonzero product of a subset is equivalent to a support-digraph walk with matching matrix indices. Group labels cannot suppress an available product. Acyclicity is therefore necessary and sufficient for nilpotence. For a nonempty DAG, a product of an edge with itself supplies the zero needed at the first vanishing power. The canonical longest-path-level decomposition is uniquely determined and has exactly the constraints used in the formula; it cannot overcount graphs. The factor of two for optional zero is correctly omitted in the unique empty-support case. The source inclusion-exclusion recurrence is independently derivable. An exact standalone program checks all small labeled digraphs and directly enumerates all subsets in representative small Brandt semigroups, with `VERIFY_OK`. No step infers a universal statement from a finite search.
+
+## Originality — PASS, with stated priority risk
+The closest source is Margolis–Rhodes–Silva (2017), which explicitly identifies subsets of *aperiodic* Brandt semigroups with Boolean relations and relates nilpotent *subsemigroups* to acyclic graphs (Theorems 5.1 and 5.4). Its results do not contain the stated complete **individual power-semigroup element** index census, nor the group-label-weighted formula. Liu–Tringali (2026) establishes rigidity of power-semigroup isomorphisms instead of counting nilpotent elements. The unweighted DAG count is classical and OEIS A003024 explicitly notes its interpretation as the number of nilpotent binary relations. McKay (1989) studies longest-path height in acyclic digraphs, but its complete text was not accessible. The claimed refinement is the exact all-index, group-labelled power-semigroup formula, not the known acyclicity correspondence, binary-relation count or longest-path concept. Exact historical priority cannot be certified because a broader matrix-relation or DAG-height enumeration could imply this as a corollary; this remains a substantive, explicitly recorded risk.
+
+## Mathematical value — PASS
+The question asks for a natural internal invariant of a finite semigroup: its full distribution of nilpotency indices. The result is a complete closed census across an infinite family, not a single numerical example. The maximal index, its exact multiplicity, and the fact that the distribution is unchanged when a finite group is replaced by any other group of equal order have structural content. This can inform comparison of finite power semigroups and probabilistic nilpotency questions; no stronger downstream theorem is claimed.
+
+## Limitations and nearest literature
+The classification concerns nonempty subset elements, not arbitrary nilpotent subsemigroups or their isomorphism classes. The direct verification uses cyclic groups and small dimensions; the proof gives the all-group, all-dimension result. References and comparisons are provided in RESULT.md; unresolved historical priority is a stated risk.
+
+Self-review: passed. Independent audit: not yet performed.

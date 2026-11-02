@@ -1,0 +1,123 @@
+{
+  "correctness": {
+    "rationale": "Exact projector identity proves Ahat <= A; operator monotonicity and the explicit nonzero eigenvalue give E=m+L^beta-mu^beta. Independent chi-square variables yield a beta-prime density; the scaled ratio gives an exact finite-L integral. The integrand is uniformly dominated by h_beta(y)=1-(y²/(1+y²))^beta, integrable on (0,infinity). Its beta-integral yields the claimed positive gamma coefficient. Every parameter and boundary regime is a consequence of the proved exponent. A fixed-Gaussian coupling proves the in-probability claim. The standalone verifier checks matrix identities, exact finite-L beta=1 specializations and quadrature, but is not treated as an asymptotic proof.",
+    "status": "PASS"
+  },
+  "independent": false,
+  "independent_audit_status": "not_performed",
+  "originality": {
+    "broader_coverage": {
+      "evidence": [
+        "Theorem 2.4 of arXiv:2311.14023 gives a matrix-function nuclear norm upper bound given a relative Nyström error.",
+        "Its Corollary 1.4 assumes p>=2 for Gaussian subspace iteration and gives no exact gamma coefficient."
+      ],
+      "reasoning": "The generic transfer theorem is stronger in its algorithmic generality, but weaker as an exact distribution-specific sharp limit and does not imply the new leading asymptotic constant or q=1 beta=1/2 expectation threshold in the singular unoversampled regime.",
+      "searches": [
+        "Persson Kressner randomized low-rank approximation monotone matrix functions q=1 power functions x beta exact asymptotic trace error spiked",
+        "power-iterated Nyström randomized low-rank approximation of monotone matrix functions trace nuclear error, zero oversampling",
+        "https://arxiv.org/html/2311.14023v2"
+      ]
+    },
+    "checked_sources": [
+      "arXiv:2209.11023v1 and full text v3",
+      "arXiv:2311.14023v1 and full text v2",
+      "arXiv:2110.02820 and full text v2",
+      "Published mathematical-result semantic search for six aliases/claim forms"
+    ],
+    "claim_vs_prior_implication": {
+      "evidence": [
+        "Original arXiv:2209.11023 introduces funNyström and its p>=2 expected bound.",
+        "arXiv:2311.14023 supplies operator-monotone transfer conditioned on an input Nyström accuracy guarantee; Gaussian expectation Corollary 1.4 again assumes p>=2.",
+        "arXiv:2110.02820 analyzes Nyström-based preconditioners, not the function-power expected trace deficit."
+      ],
+      "reasoning": "Neither general upper bound proves the precise asymptotic 2 Gamma((m+1)/2) Gamma(beta+1/2)/(Gamma(m/2) Gamma(beta)), the sign-of-exponent regimes, nor the typical/expected discrepancy in the case with exactly one sketch column. These are the only originality assertions.",
+      "searches": [
+        "Persson Kressner randomized low-rank approximation monotone matrix functions q=1 power functions x beta exact asymptotic trace error spiked",
+        "power-iterated Nyström randomized low-rank approximation of monotone matrix functions trace nuclear error, zero oversampling",
+        "https://arxiv.org/html/2209.11023v3",
+        "https://arxiv.org/html/2311.14023v2",
+        "https://arxiv.org/html/2110.02820v2"
+      ]
+    },
+    "equivalent_formulations": {
+      "evidence": [
+        "Rank-one Nyström scalar eigenvalue is a ratio of weighted chi-square variables; exact gamma-function expectation coefficient is the claim, not mere equality of algorithm names.",
+        "Theorem 3.9 of arXiv:2209.11023 requires Gaussian oversampling p>=2."
+      ],
+      "reasoning": "Gaussian-ratio and beta-prime density formulas are classical tools; the sharp unoversampled matrix-function error asymptotic does not follow solely from identification of these tools without an asymptotic integral evaluation. We credit those tools as prior art. Source lacks the zero-oversampling parameter regime.",
+      "searches": [
+        "funNystrom rank one diagonal two-by-two spiked matrix square root trace residual persistent 2/pi bias one pass Gaussian",
+        "Nyström approximation A=diag(L,1) Gaussian one column expected trace error asymptotic square root power iteration",
+        "https://arxiv.org/html/2209.11023v3"
+      ]
+    },
+    "exact_database_or_table": {
+      "evidence": [
+        "Published research result “Worst-case sharpness of multistage adaptive randomized pivoting” (opaque public reference 77e11f8220ee) addresses adaptive pivoting expected projection error, not Gaussian one-column funNyström function-power error.",
+        "Published research result “Critical-tolerance Gaussian fluctuations and half-step CG law on Haar power-law spectra” (opaque public reference ef42dbde8c03) addresses fixed-degree conjugate gradients on random spectra, not the Nyström matrix-power functional trace error.",
+        "No exact table of one-column matrix-power function error constants was identified in the inspected literature."
+      ],
+      "reasoning": "The nearest ranked published records address different algorithms or random spectral models, not this functional Nyström error. This negative search is not proof of unique priority; the precise matched claim-to-record implication was checked.",
+      "searches": [
+        "funNystrom rank one diagonal two-by-two spiked matrix square root trace residual persistent 2/pi bias one pass Gaussian",
+        "Persson Kressner randomized low-rank approximation monotone matrix functions q=1 power functions x beta exact asymptotic trace error spiked",
+        "Nyström approximation A=diag(L,1) Gaussian one column expected trace error asymptotic square root power iteration",
+        "power-iterated Nyström randomized low-rank approximation of monotone matrix functions trace nuclear error, zero oversampling",
+        "one-spike matrix Gaussian Nyström square-root approximation rare event bias expected trace",
+        "rank-one Gaussian Nystrom sampling spectral anisotropy function trace beta square root q iterations"
+      ]
+    },
+    "rationale": "The original algorithm and its oversampling bounds are prior art, as is the general operator-monotone transfer theorem. Primary full text of both was examined and their nearest expectation guarantee needs at least two oversampling columns. The new no-oversampling single-spike exponent and exact gamma coefficient, including a unique beta=1/2 expectation phase boundary at q=1, are not stated or supplied with sharp constants by those results. Published-result semantic searches under aliases and spectral-spike/power-matrix-function terms found no covering statement. Remaining priority risk: specialized earlier zero-oversampling calculation may be unindexed.",
+    "residual_risks": [
+      "An unindexed or differently named Gaussian-ratio/Nyström special-case paper could contain the same sharp integral asymptotic.",
+      "General transfer bounds are antecedent work; the result is explicitly restricted to a single-spike family and one-column no-oversampling regime."
+    ],
+    "source_inspections": [
+      {
+        "assessment": "Not covering: its expected error bound requires at least two oversampling columns; current claim has zero oversampling and a sharp power-dependent limit.",
+        "evidence": [
+          "Algorithm definition and Theorem 3.9 at https://arxiv.org/html/2209.11023v3",
+          "arXiv:2209.11023v1 first posted 2022-09-22"
+        ],
+        "identifier_or_url": "https://arxiv.org/html/2209.11023v3",
+        "material_read": "Relevant full-text HTML passages: method definition and Algorithm 1, Theorem 3.9 and the stated Gaussian oversampling hypotheses, and adjacent function-error discussion.",
+        "method": "Accessed primary arXiv HTML and compared algorithm, theorem hypotheses, and conclusion against the one-column matrix-power claim.",
+        "title": "Randomized low-rank approximation of monotone matrix functions",
+        "trigger": "Defining one-column funNyström and assessing the closest original expected nuclear-error theorem"
+      },
+      {
+        "assessment": "General error-transfer implication is acknowledged; Corollary 1.4 requires p>=2 oversampling. No exact one-column spectral-spike constant/phase boundary is stated and generic transfer does not force that coefficient.",
+        "evidence": [
+          "https://arxiv.org/html/2311.14023v2 : Theorem 2.4; Corollary 1.4 explicitly p>=2",
+          "arXiv:2311.14023v1 first posted 2023-11-23"
+        ],
+        "identifier_or_url": "https://arxiv.org/html/2311.14023v2",
+        "material_read": "Relevant full-text HTML passages: Sections 1.1 and 1.2, Corollary 1.4, Theorem 2.4, Section 5 motivation and examples, with the surrounding hypotheses.",
+        "method": "Accessed primary arXiv HTML and compared the nuclear-norm transfer theorem and Gaussian expectation corollary, including their hypotheses and the parameter regime.",
+        "title": "Algorithm-agnostic low-rank approximation of operator monotone matrix functions",
+        "trigger": "Plausibly stronger transfer theorem for identical f and Nyström construction"
+      },
+      {
+        "assessment": "Not covering: preconditioned linear solves and effective-dimension bounds are distinct from the unoversampled function-power sharp expected nuclear-error asymptotic.",
+        "evidence": [
+          "https://arxiv.org/html/2110.02820v2",
+          "arXiv:2110.02820 first public 2021-10-06"
+        ],
+        "identifier_or_url": "https://arxiv.org/html/2110.02820v2",
+        "material_read": "Relevant primary HTML passages: Nyström sketch construction and preconditioning conclusions.",
+        "method": "Compared the stated objects and error metrics to the present function-power nuclear norm.",
+        "title": "Randomized Nyström Preconditioning",
+        "trigger": "General randomized Nyström theory with Gaussian sketches and low-rank approximation"
+      }
+    ],
+    "status": "PASS"
+  },
+  "review_type": "self_review",
+  "schema_version": 1,
+  "scope_run_id": "799984e7-51a1-43df-982b-021a82ad7986",
+  "self_review_status": "passed",
+  "value": {
+    "rationale": "The motivating function-valued Nyström method specifically seeks reliable approximation from cheap matrix-vector products; its available expected-error theory requires oversampling. One-column sketches are a natural minimal-query regime. This exact phase diagram reveals a rare-event expectation penalty invisible in typical-error behavior for a square-root, computes its sharp constant, and identifies an additional subspace-iteration power as removing that penalty in fixed dimension. No general algorithmic performance claim beyond the defined family is made.",
+    "status": "PASS"
+  }
+}

@@ -1,0 +1,124 @@
+{
+  "correctness": {
+    "rationale": "Exact coordinate classification for every pair; checked case-by-case transition inequalities on two letter-count potentials; construct an attaining word; uniqueness from exactly one outgoing rank-decreasing edge, with strictly positive weights; pair-coordinate intervals establish consecutive multiplicity-one distance spectrum. Direct Python checker computes all transition inequalities at n=2..50 and independently computes reverse shortest paths for five positive cost vectors at n=2..17. Checks are finite and not proof of universal quantifiers; universal proof in RESULT.md.",
+    "status": "PASS"
+  },
+  "independent": false,
+  "independent_audit_status": "not_performed",
+  "originality": {
+    "broader_coverage": {
+      "evidence": [
+        "Kisielewicz–Kowalski–Szykuła (2013) presents general shortest reset-word search algorithms, not simultaneous positive-cost optimality of specific pair words.",
+        "Ruszil (2021) concerns approximation and general weighted synchronization, with a later public date than the principal 2014 source.",
+        "Gusev 2014 analyzes random-input expected time, not per-letter deterministic resource minima."
+      ],
+      "reasoning": "Algorithms for general inputs do not logically supply the closed-form characterizations, uniqueness, or a universal pair-distance bijection without additional family-specific arguments. No inspected broader result implies the full statement.",
+      "searches": [
+        "Cerny automaton pair synchronization shortest merging word distances unordered pairs complete spectrum 1 to binomial n 2",
+        "Černý automaton pair unique optimal weighted reset sequence arbitrary costs",
+        "Cerny automaton weighted pair synchronization shortest path unique positive costs",
+        "Computing the shortest reset words of synchronizing automata Kisielewicz Kowalski Szykula DOI 10.1007/s10878-013-9682-0"
+      ]
+    },
+    "checked_sources": [
+      "arXiv:1404.6731v1: full author-uploaded manuscript Section 3 and theorem",
+      "DOI:10.1007/s10878-013-9682-0: accessible full text, especially Section 5.2 Theorem 3",
+      "arXiv:2103.16185: complete author-uploaded manuscript, especially per-subset weighted shortest paths and approximation Theorems 3–4",
+      "Semantic searches of published mathematical research records: eight exact queries with nearest titles and logical comparisons"
+    ],
+    "claim_vs_prior_implication": {
+      "evidence": [
+        "Gusev 2014 Section 3 defines the pair automaton and odd-n graph, then solves linear equations for random-walk hitting-time expectations, whose value depends on input probabilities.",
+        "Current theorem has a unique deterministic cost minimizer independent of all strictly positive letter costs; its proof uses two monotone lower-bound potentials and explicit unique rank-descent.",
+        "Published finding titled \"Exact k-avoiding thresholds of the Černý automata\" finds shortest words avoiding a k-set, not the cost-optimal merging of arbitrary specified pairs."
+      ],
+      "reasoning": "The expected stochastic hitting time is not an upper or lower equality for shortest positive-cost merging. Pair graph existence alone is not a direct inequality proving the separate resource minima. A new potential comparison and explicit attainment establish the claim; comparison does not rest on unmatched titles.",
+      "searches": [
+        "arXiv:1404.6731v1, Section 3, Lemma 1 and Theorems 3–4",
+        "Cerny automata pairwise merge time distribution subset synchronization",
+        "Cerny automaton minimum cost pair synchronizing word letter weights",
+        "Cerny automaton pair merging distance shortest word weights Gusev 2014 pair automaton"
+      ]
+    },
+    "equivalent_formulations": {
+      "evidence": [
+        "Gusev 2014, Lemma 1: explicit odd-n pair graph with cycle-letter and collision-letter swapped relative to current coordinates.",
+        "Gusev 2014, Theorems 3–4: Bernoulli-input expected merging-time formulas for both parities, not an optimal deterministic word or letter-weight formula.",
+        "Published finding titled \"Exact early deficiency profile of the Černý automata\" addresses early rank deficiency of the full state image, not shortest synchronization of each individual pair."
+      ],
+      "reasoning": "Conjugating states and interchanging letter names makes the Gusev pair graph relevant, but its stated stochastic expectation and structural graph isomorphism do not assert the weighted unique geodesic, simultaneous minimum letter counts, or the all-pair consecutive spectrum. The nearby published research result concerns an entirely different initial subset (the full state set).",
+      "searches": [
+        "for the Cerny automaton C_n, each two-state pair has a unique shortest synchronizing word and all binomial(n,2) pair-merger distances are distinct",
+        "pair automaton for Cerny example Hamiltonian geodesic unique pair shortest reset lengths",
+        "Černý automaton pair automaton shortest merging word unique all pairs distances weighted pair synchronization",
+        "arXiv:1404.6731v1, Section 3, Lemma 1 and Theorems 3–4"
+      ]
+    },
+    "exact_database_or_table": {
+      "evidence": [
+        "Published research-record comparisons returned closest results on a Černý early full-image deficiency profile and on Černý k-set avoidance, neither enumerating pairwise optimal word lengths.",
+        "Targeted web queries on shortest pair paths and positive weighted synchronization returned Gusev 2014 and general automata literature, but no table of all pairwise distances or pairwise cost-optimal words."
+      ],
+      "reasoning": "No exact table or finite census found that directly lists the claimed full infinite family; absence of a record is not mathematical proof of novelty. The present rank spectrum is a closed formula for every n, not just checked small n.",
+      "searches": [
+        "Cerny automaton pair synchronization shortest merging word distances unordered pairs complete spectrum 1 to binomial n 2",
+        "for the Cerny automaton C_n, each two-state pair has a unique shortest synchronizing word and all binomial(n,2) pair-merger distances are distinct",
+        "Cerny automaton pairs weighted synchronization costs all positive letter weights same unique shortest word Pareto optimal counts a b",
+        "Cerny pair automaton unique geodesic shortest merging words",
+        "Cerny automaton each pair unique shortest synchronizing word length n(n-1)/2"
+      ]
+    },
+    "rationale": "Gusev 2014 proves an expectation formula for a random input to the pair automaton and describes its odd-n transition graph; neither his graph lemma nor his expected-value theorem asserts the cost-independent unique shortest word for all pairs and parities, two separate letter-count lower bounds, or the exact distance spectrum. The graph supplies a useful prior technical ingredient, not a theorem already expressing these conclusions. Published generic shortest-reset and weighted-synchronization algorithms do not dominate the exact all-pair fixed-family theorem. Published research-record and primary-literature comparisons are evidence of no located coverage, not a general novelty certificate.",
+    "residual_risks": [
+      "Gusev 2014 completely describes the odd-state pair graph; an unindexed prior source may already have extracted deterministic distances or Pareto-minimal paths from that graph.",
+      "The later weighted-approximation article supplies a general pair-state shortest-path algorithm and so the exact formula is algorithmically computable from known transitions; an unindexed older article may have derived the same cost result explicitly.",
+      "No claim of global historical uniqueness or independent verification is made."
+    ],
+    "source_inspections": [
+      {
+        "assessment": "Same pair state space; odd-n graph representation relevant, but full text focuses on expected random-input pair synchronization and does not state deterministic all-pair unique optimal words, componentwise letter lower bounds, even antipodal formula, or complete length spectrum",
+        "evidence": [
+          "arXiv:1404.6731v1 dated 27 Apr 2014 in manuscript header",
+          "Section 3 at RG extracted lines 664-809: Černý family, pair automaton and Lemma 1",
+          "Theorem 3 and probability equations at RG extracted lines 1038-1250; Theorem 4 for even n at lines 1503-1555: expected random-walk hitting times"
+        ],
+        "identifier_or_url": "https://www.researchgate.net/publication/261952170_Synchronizing_Automata_with_Random_Inputs",
+        "material_read": "Full author-uploaded manuscript text, especially Section 3, definition of C_n and P_n, Lemma 1, Theorems 3 and 4 and random-walk recurrences",
+        "method": "Read accessible complete primary text in HTML-extracted manuscript and compared all-state definitions, pair transition graph, stated theorem and goal to present explicit weighted claim",
+        "title": "Synchronizing automata with random inputs",
+        "trigger": "Direct closest same-family same-pair-state geometry, original arXiv public version 2014-04-27"
+      },
+      {
+        "assessment": "Theorem 3 establishes polynomial complexity for finding full-state shortest reset words of Černý automata, not the all-pair positive-cost unique-word classification",
+        "evidence": [
+          "Springer full-text Section 2.4 Theorem 1: generic full-state shortest reset algorithm; Section 5.2 Theorem 3: polynomial complexity O(n^4) for Černý full-state synchronization"
+        ],
+        "identifier_or_url": "https://doi.org/10.1007/s10878-013-9682-0",
+        "material_read": "Accessible open-access full article, especially introduction, Section 2.4 correctness and Section 5.2 performance on slowly synchronizing Černý automata, Theorem 3",
+        "method": "Read main algorithmic theorems and the relevant Černý case in Section 5.2 of the full primary article; compared the backward preimage chain of full-state reset search with individual pair shortest-path costs",
+        "title": "Computing the shortest reset words of synchronizing automata",
+        "trigger": "General shortest-reset algorithms could cover special Černý family implicitly"
+      },
+      {
+        "assessment": "General Dijkstra-based per-subset weighted-word computation and full-state approximations; no Černý-specific formula or proof of unique cost minimizer for every positive letter weighting",
+        "evidence": [
+          "arXiv:2103.16185v1, 2021, full author manuscript, pair/subset shortest-path discussion (around extracted lines 414–560), Theorems 3–4 on approximation and complexity; compares distinct shortest-length and minimum-weight words in examples"
+        ],
+        "identifier_or_url": "https://arxiv.org/abs/2103.16185",
+        "material_read": "Complete accessible author-uploaded manuscript, including weighted-DFA definitions, pair/subset shortest-path method, Lemmas 3–4, Theorems 3–4, and examples",
+        "method": "Read full text of the author-uploaded 2021 preprint, especially the reverse shortest-path procedure for subsets and its complexity/approximation arguments, then compared exact per-pair closed formulas",
+        "title": "Approximation algorithm for finding short synchronizing words in weighted automata",
+        "trigger": "Potential stronger coverage of positive-cost optimum"
+      }
+    ],
+    "status": "PASS"
+  },
+  "review_type": "self_review",
+  "schema_version": 1,
+  "scope_run_id": "6c832e78-45c7-4bd1-8a74-ea3b842c6d15",
+  "self_review_status": "passed",
+  "value": {
+    "rationale": "The natural problem is exact pair synchronization under unequal operation costs, central to finite-automaton control. An explicit all-n classification and a single word optimizing both resource counts separately for every initial pair is stronger than a one-cost shortest-path table, especially because shortest paths need not be robust across costs in general automata. The bijection between all pairs and every shortest merging length 1..binomial(n,2) gives a rigid structural invariant and exact boundary behavior for even antipodal pairs. The result covers arbitrarily large n, with a mathematical proof, not merely an exhaustive finite experiment.",
+    "status": "PASS"
+  }
+}

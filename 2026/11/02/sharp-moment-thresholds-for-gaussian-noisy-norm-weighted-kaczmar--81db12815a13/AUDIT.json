@@ -1,0 +1,132 @@
+{
+  "correctness": {
+    "rationale": "The exact conditional jump moment is sum |b_i|^q r_i^(beta-q)/sum r_j^beta; Gaussian radius local density r^(d-1), max-radius sector decomposition, and sharp lower cone bounds give finite iff q<min(md,d+beta) including both equality divergences. State-independent projection norm<=1 proves finite-time sufficiency; bounded-prestate and unbounded jump moments prove necessity. Full support of the selected Gaussian direction makes E||Bv||^q uniformly contracting on the unit sphere; W1 contraction and Lq bounds establish unique invariant law and its exact moment spectrum, including the d=1 reset exception. In centered beta=2 case, Gamma/Dirichlet factorization proves exact one-step q formula and orthogonality yields the q=2 recurrence. The actual standalone verifier completed exact gamma-ratio and independently simulated checks. Independent auditing is not claimed.",
+    "status": "PASS"
+  },
+  "independent": false,
+  "independent_audit_status": "not_performed",
+  "originality": {
+    "broader_coverage": {
+      "evidence": [
+        "Bergou et al., arXiv:2308.16904v2 §3 Theorem 5 uses fixed noisy matrix estimates conditioned on that matrix.",
+        "Anderson et al., arXiv:2511.20877v1 Theorems 1.2–1.3 concern homogeneous errors for fixed consistent systems.",
+        "Needell–Srebro–Ward, arXiv:1310.5715 §5 treats convergence and weighting for a fixed matrix."
+      ],
+      "reasoning": "Existing conditional convergence or higher-moment bounds do not control Gaussian row denominators after averaging over fresh coefficient observations. Standard Wasserstein contraction gives only a framework for invariant existence, not the sharp moment boundary.",
+      "searches": [
+        "randomized Kaczmarz doubly noisy linear systems mean square stability under random Gaussian coefficient errors and row selection probabilities",
+        "stochastic affine random orthogonal projection heavy-tailed stationary distribution Gaussian normal vector shifted hyperplane integrability",
+        "\"randomized Kaczmarz\" \"moments\" perturbation matrix Gaussian row"
+      ]
+    },
+    "checked_sources": [
+      "arXiv:2308.16904v2 §1–§4 (full accessible HTML)",
+      "arXiv:1310.5715 §§1,3,5 (full accessible text)",
+      "arXiv:2511.20877v1 §§1–2 (full accessible HTML)",
+      "arXiv:2309.04889v2 §§1,3 (full accessible HTML)",
+      "published-finding corpus semantic queries r1–r6 as concretely recorded in named checks; nearest displayed mathematical records assessed by statement and method",
+      "Web literature queries listed in named checks"
+    ],
+    "claim_vs_prior_implication": {
+      "evidence": [
+        "Theorem 5 in arXiv:2308.16904v2 is a bound conditional on a perturbed fixed matrix; it cannot establish unconditional q-moment finiteness or infinity for a new Gaussian matrix at each step.",
+        "The homogeneous Y_k e_{k-1} structure in arXiv:2511.20877v1 omits the affine singular innovation V, so its error concentration result cannot imply the exact cutoff.",
+        "Published published-finding corpus research record 2026/10/4/SCOPE-exact-mean-square-stability-frontier-and-a-signed-mean-blind-spo--e15c00248209 treats KGSM momentum stability for a deterministic 2x2 system, not Gaussian-random row-normal division."
+      ],
+      "reasoning": "Different normalization, noise model, and quantifiers prevent inference: neither generic RK weighted convergence nor fixed-matrix moment bounds imply the two-mechanism min(md,d+beta) law. Results for consistent b=A*x* can be outside our b fixed independently of fresh A model.",
+      "searches": [
+        "randomized Kaczmarz with Gaussian matrix noise coefficient perturbations finite moments heavy tails inverse row norm importance sampling infinite variance exact dimensional thresholds",
+        "randomized Kaczmarz doubly noisy linear systems mean square stability under random Gaussian coefficient errors and row selection probabilities",
+        "exact moment integrability finite-time and stationary noisy Kaczmarz with resampled Gaussian rows and norm-power importance sampling, cutoff min(md, d+beta)",
+        "\"iterated random projections\" \"stationary distribution\" \"moment\""
+      ]
+    },
+    "equivalent_formulations": {
+      "evidence": [
+        "The equivalent size-biased inverse-row-radius integral is E[sum_i |b_i|^q r_i^(beta-q)/sum_j r_j^beta]; both single-selected-row collapse and simultaneous-matrix collapse must be tested.",
+        "Relevant research-record search returned Gaussian moment and random-matrix topics, but no equivalent row-projection integrability assertion in the displayed nearest hits."
+      ],
+      "reasoning": "A mere inverse-chi-square threshold would be only a special case; the joint min(md,d+beta) frontier and its invariant extension were compared. No equivalent formulation appeared among the inspected source sections or returned research-record abstracts.",
+      "searches": [
+        "randomized Kaczmarz with Gaussian matrix noise coefficient perturbations finite moments heavy tails inverse row norm importance sampling infinite variance exact dimensional thresholds",
+        "exact moment integrability finite-time and stationary noisy Kaczmarz with resampled Gaussian rows and norm-power importance sampling, cutoff min(md, d+beta)",
+        "\"randomized Kaczmarz\" \"heavy tail\" noise inverse rows",
+        "\"iterated random projections\" \"stationary distribution\" \"moment\""
+      ]
+    },
+    "exact_database_or_table": {
+      "evidence": [
+        "The checked Kaczmarz original and weighted-sampling papers do not tabulate q-moments for time-refreshed Gaussian denominators.",
+        "A numerical research-record search on these exact invariants returned unrelated Gaussian moments and Kaczmarz step stability records, not the proposed row-collapse spectrum."
+      ],
+      "reasoning": "Known Gamma/Dirichlet inverse moments are credited as standard building blocks; they supply the centered q formula once this probabilistic RK sampling law is derived, rather than independently tabulating the complete method-specific claim.",
+      "searches": [
+        "row-norm squared sampling random Gaussian rows heavy tail higher moments stochastic projection inverse norm division phase transition",
+        "power-weighted row sampling Kaczmarz near-zero Gaussian row rare events inverse-normal amplification, variance restored when number of rows >=3",
+        "\"randomized Kaczmarz\" \"infinite variance\" Gaussian noise coefficient matrix",
+        "\"importance sampling\" \"Kaczmarz\" \"moment\" Gaussian row"
+      ]
+    },
+    "rationale": "A genuine difference of quantified statements was checked against source papers and searched research records. The source Kaczmarz method and importance weights are not new. The asserted contribution is the joint exact q-moment cutoff for time-refreshed noisy candidate rows for arbitrary fixed nonzero b, m,d,beta and Gaussian means, together with matching stationary moments and a closed centered Gaussian MSE recurrence. No searched source was found to imply this combined statement; a general affine iterated-function theorem could establish stationarity but not its specific singular-integrability frontier without additional analysis. Unseen equivalent work remains a residual priority risk.",
+    "residual_risks": [
+      "The classical inverse Gamma/Dirichlet integrability and affine random contraction tools could have been assembled previously into an equivalent stochastic-projection theorem under terminology missed by the searches.",
+      "Some search results were abstracts or snippets; only source sections identified as fully inspected warrant whole-statement comparisons.",
+      "Independent priority and scientific auditing have not been performed."
+    ],
+    "source_inspections": [
+      {
+        "assessment": "Provides the original noisy-matrix context and conditional error horizons; does not state the q-moment frontier or invariant-law classification of a newly sampled coefficient matrix at each time.",
+        "evidence": [
+          "arXiv:2308.16904v2 §1 Eq. (3), §3 Theorem 5 Eq. (8); first public arXiv submission 2023-08-31."
+        ],
+        "identifier_or_url": "https://arxiv.org/html/2308.16904v2",
+        "material_read": "Full accessible HTML: introduction and noise model; §2 perturbation bounds; §3 Theorem 5, update formula and matrix-conditional error bound; §4 study framing.",
+        "method": "Read main text and compared the conditioning of its error statements on the perturbed matrix with the new unconditional fresh-noise moment classification.",
+        "title": "A Note on Randomized Kaczmarz Algorithm for Solving Doubly-Noisy Linear Systems",
+        "trigger": "Same Kaczmarz denominator and additive coefficient noise; likely direct covering source."
+      },
+      {
+        "assessment": "Row weighting and tradeoffs are old; no exact Gaussian ensemble moment spectrum nor stationary moment cutoff is given in the inspected source.",
+        "evidence": [
+          "arXiv:1310.5715 §1.1 and §5, especially Corollaries 5.1–5.3."
+        ],
+        "identifier_or_url": "https://arxiv.org/abs/1310.5715",
+        "material_read": "Accessible arXiv full text: Introduction §§1.1–1.2; §3 reweighting; §5 weighted and partially biased Kaczmarz estimates and convergence horizons.",
+        "method": "Compared sampling normalization and fixed-design expected convergence/residual statements to fresh-Gaussian denominator integrability and stationary moments.",
+        "title": "Stochastic Gradient Descent, Weighted Sampling, and the Randomized Kaczmarz Algorithm",
+        "trigger": "Classical importance-sampling analysis might dominate generalized norm-power sampling."
+      },
+      {
+        "assessment": "Addresses moments of errors with homogeneous random-matrix recurrences on a fixed consistent input, not an affine random-normal projection with freshly noisy coefficients.",
+        "evidence": [
+          "arXiv:2511.20877v1 §§1.2–2.1.1."
+        ],
+        "identifier_or_url": "https://arxiv.org/html/2511.20877v1",
+        "material_read": "Full accessible HTML: §§1–2 including Theorems 1.2–1.3 and §2.1.1 on Kaczmarz.",
+        "method": "Checked hypothesis on independent homogeneous error multipliers and deterministic consistent matrix versus random affine shifts with singular 1/row-radius effects.",
+        "title": "Beyond Expectation: Concentration Inequalities for Randomized Iterative Methods",
+        "trigger": "Recent general higher-moment RK bounds could include claimed classification."
+      },
+      {
+        "assessment": "Does not give the beta-weighted Gaussian singular-moment cutoff or stationary noise floor.",
+        "evidence": [
+          "arXiv:2309.04889v2 Algorithm 1 and §3.2."
+        ],
+        "identifier_or_url": "https://arxiv.org/html/2309.04889v2",
+        "material_read": "Full accessible HTML: §1.2.1 SCRK method, Algorithm 1, Theorem 1.1, and §3.2 noisy/inconsistent problem framing.",
+        "method": "Compared fixed-data projected-row algorithm and its noise horizon with the unconditioned fresh Gaussian row-normal integrability question.",
+        "title": "A subspace constrained randomized Kaczmarz method for structure or external knowledge exploitation",
+        "trigger": "Related Kaczmarz bounds in the inconsistent/noisy setting."
+      }
+    ],
+    "status": "PASS"
+  },
+  "review_type": "self_review",
+  "schema_version": 1,
+  "scope_run_id": "81db1281-5a13-4f87-bc10-0f97f1bab58f",
+  "self_review_status": "passed",
+  "value": {
+    "rationale": "The precise integrability threshold governs which expected powers of iterate error and stationary noise floor are mathematically meaningful for noisy numerical row actions. It separates two distinct structural failure mechanisms: an individual selected near-zero row, mitigated by norm-power sampling, versus near-simultaneous collapse of all candidate rows, which cannot be mitigated by any such sampling exponent. For example in scalar Kaczmarz, ordinary squared-norm sampling restores finite variance with three candidate rows while uniform sampling never does, but still leaves an infinite third moment. The exact centered q=2 recursion and equilibrium floor make the distinction operationally interpretable and not a mere restatement of an inverse-Gaussian moment.",
+    "status": "PASS"
+  }
+}

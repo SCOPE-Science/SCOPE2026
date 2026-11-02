@@ -1,0 +1,120 @@
+{
+  "correctness": {
+    "rationale": "Universal m≤2n result: for each player at first turn, any then-available singleton can be secured by unilateral deviation; with monotonicity equilibrium payoff dominates its singleton value. Any opposing bundle has at most two goods, at most one preceding that first turn; deleting one good reduces it to an available singleton or empty bundle, proving EF1. For three players and seven goods, the exact SPNE recurrence is necessary/sufficient by off-path minimum-payoff continuation induction. The checker recomputes all 128 states twice, confirms two root allocations, constructs a 13,700-node SPNE strategy tree, and certifies the B-to-A gap 1092<1161. Strict subset preferences follow from binary perturbations with 128 multiple base.",
+    "status": "PASS"
+  },
+  "independent": false,
+  "independent_audit_status": "not_performed",
+  "originality": {
+    "broader_coverage": {
+      "evidence": [
+        "Online paper proves two-agent EF1 for all horizons under additivity and all-agent PROP1; it gives no n-agent all-monotone EF1 protection through two rounds.",
+        "Offline paper gives approximate EF1 guarantees for one-time report mechanisms, not the claimed extensive-form protection."
+      ],
+      "reasoning": "The two-agent online theorem is not a stronger general-n theorem, and PROP1 does not imply EF1. The independent seven-good exact witness has a distinct, stronger SPNE requirement than an offline PNE witness.",
+      "searches": [
+        "pure subgame-perfect equilibrium round-robin with at most two rounds EF1 monotone valuations",
+        "m=2n 2 rounds picking strategy subgame perfect envy free up to one item",
+        "arXiv:2609.18309v1 Theorems 16, 17, 19",
+        "arXiv:2610.23686v1 Theorems 1, 2"
+      ]
+    },
+    "checked_sources": [
+      "https://arxiv.org/html/2609.18309v1",
+      "https://arxiv.org/abs/2610.23686",
+      "https://cs.stackexchange.com/questions/171836/show-that-in-every-pure-spne-the-first-agent-weakly-prefers-their-own-bundle-to",
+      "Semantic research-record queries compared against source texts"
+    ],
+    "claim_vs_prior_implication": {
+      "evidence": [
+        "The prior nine-good result implies failure exists by nine, not that failure must await nine, and it strengthens the witness by having no fair SPNE.",
+        "The prior eight-good offline violation does not imply a seven-good online SPNE violation.",
+        "The n-agent monotone two-round protection has an independent first-pick-deviation proof."
+      ],
+      "reasoning": "Our exact statement is the first possible *existential* failure in three-agent online SPNE and a *universal* safe horizon for any n with monotone utilities. Neither known statement, alone or after obvious parameter reduction, entails both.",
+      "searches": [
+        "arXiv:2609.18309v1 §4 Theorems 16–19",
+        "arXiv:2610.23686v1 §2 mechanism and §3 example",
+        "seven goods three agents online round robin subgame perfect equilibrium EF1 violation minimum two complete rounds guarantee"
+      ]
+    },
+    "equivalent_formulations": {
+      "evidence": [
+        "Goldberg–Hollender–Tyrovolas analyze an online sequential extensive-form game; their nine-good example has a unique unfair SPNE but no seven-good first-failure characterization.",
+        "Amanatidis et al. use one-time simultaneous preference reports, not adaptive perfect-information picks."
+      ],
+      "reasoning": "We compared the exact equilibrium concept, picking procedure, numbers of goods, universal lower-bound quantifiers and existence-versus-all-equilibria assertions. The online nine-good implication does not settle the sharp seven-good existential boundary; offline PNE is not sequential SPNE.",
+      "searches": [
+        "strategic round robin additive valuations first EF1 violation seven goods three agents subgame perfect equilibrium",
+        "pure subgame-perfect equilibrium round-robin with at most two rounds EF1 monotone valuations",
+        "arXiv:2609.18309v1 §4",
+        "arXiv:2610.23686v1 §§2–3"
+      ]
+    },
+    "exact_database_or_table": {
+      "evidence": [
+        "The online Table 3 contains nine goods and a unique unfair equilibrium; the offline paper Proposition 1 contains eight goods under a different report mechanism.",
+        "Closest retrieved mathematical research records concerned serial dictatorship rank-maximality or probabilistic serial, not the same multi-pick extensive-form draft."
+      ],
+      "reasoning": "No retrieved exact seven-good online SPNE table or database gave the same valuation matrix or implied the claimed sharp lower horizon. Retrieval is not proof of absence; unindexed equivalences remain a risk.",
+      "searches": [
+        "strategic round robin additive valuations first EF1 violation seven goods three agents subgame perfect equilibrium",
+        "seven goods three agents online round robin subgame perfect equilibrium EF1 violation minimum two complete rounds guarantee",
+        "seven goods three agents online round robin subgame perfect equilibrium EF1 violation minimum two complete rounds guarantee",
+        "Goldberg–Hollender–Tyrovolas Table 3",
+        "Amanatidis et al. Proposition 1"
+      ]
+    },
+    "rationale": "Primary §4 of Goldberg–Hollender–Tyrovolas (arXiv:2609.18309v1) provides an online nine-good unique-unfair-SPNE example, not existential seven-good minimality or the general monotone two-round safe region. Amanatidis et al. (arXiv:2610.23686v1) provide a distinct eight-good *offline reporting PNE* counterexample; that is not the online extensive-form SPNE model. Targeted published-finding corpus and literature searches found no stronger covering implication. An unindexed equivalent statement remains a real priority risk.",
+    "residual_risks": [
+      "A prior seven-good online SPNE counterexample or an equivalent n-agent two-round EF1 theorem could exist outside accessible/indexed literature.",
+      "There are two SPNE outcomes in the seven-good witness, one EF1 and one non-EF1; unlike the prior nine-good example, failure is not unavoidable."
+    ],
+    "source_inspections": [
+      {
+        "assessment": "Establishes three-agent nine-good unique unfair SPNE and general two-agent EF1/PROP1, but not the seven-good existential minimality or arbitrary-n two-round monotone safety",
+        "evidence": [
+          "arXiv:2609.18309v1 §4 Table 3 has exactly nine goods; Theorem 17 and proof state unique unfair SPNE",
+          "Theorem 16 treats two agents; Theorem 19 is PROP1, not EF1"
+        ],
+        "identifier_or_url": "https://arxiv.org/html/2609.18309v1",
+        "material_read": "Full HTML article: abstract, §2 game definition, §3 equilibrium structure, §4 Theorems 16–19 and Table 3, related work and appendix headings",
+        "method": "Read primary HTML and matched valuation domain, picking order, SPNE quantifiers, counterexample size and unique-equilibrium caveat",
+        "title": "Equilibria of Round-Robin: Computational Hardness and Fairness for Few Subadditive Agents",
+        "trigger": "Same mechanism, same fairness and agents; nine-good counterexample may subsume candidate"
+      },
+      {
+        "assessment": "Mechanism is offline report-and-execute; eight-good example is a PNE, not an online SPNE; no implication to claimed result",
+        "evidence": [
+          "§2 specifies each agent reports one fixed bid vector before picks",
+          "§3 Proposition 1 is an eight-good offline PNE failure"
+        ],
+        "identifier_or_url": "https://arxiv.org/abs/2610.23686",
+        "material_read": "Primary arXiv rendered article sections 1–5, including §2 sequential mechanisms description, §3 Proposition 1, theorems and references",
+        "method": "Compared exact mechanism and deviation strategies: one-time bid vectors versus adaptive extensive-form picking",
+        "title": "Revisiting the Fairness of Pure Nash Equilibria of Round-Robin",
+        "trigger": "Potential overlapping eight-good equilibrium counterexample and stronger coverage"
+      },
+      {
+        "assessment": "The proposed six-good allocation exhibits ordinary envy but is consistent with EF1, since removing one of two valued goods eliminates envy",
+        "evidence": [
+          "Two-round example gives player 1 utility 1 and another bundle two unit-valued items; removing one leaves value 1"
+        ],
+        "identifier_or_url": "https://cs.stackexchange.com/questions/171836/show-that-in-every-pure-spne-the-first-agent-weakly-prefers-their-own-bundle-to",
+        "material_read": "Question and posted six-good example; abstracted its valuation and outcomes",
+        "method": "Compared EF versus EF1 in two-round six-good witness",
+        "title": "Show that in every pure SPNE, the first agent weakly prefers their own bundle to any other",
+        "trigger": "Six-good online counterexample to stronger envy-freeness might conflict with safety theorem"
+      }
+    ],
+    "status": "PASS"
+  },
+  "review_type": "self_review",
+  "schema_version": 1,
+  "scope_run_id": "7bf15c9e-d289-41ac-97e6-bde92d69aa7b",
+  "self_review_status": "passed",
+  "value": {
+    "rationale": "This settles the exact first possible existential EF1 failure horizon for three-agent online strategic round-robin, improving the known nine-good online witness to seven while proving robust safety for all normalized monotone valuations through two full rounds for any number of agents. The exact, strict-positive witness and complete SPNE calculation reveal how the third draft round creates the fairness failure, a nonroutine structural boundary.",
+    "status": "PASS"
+  }
+}

@@ -1,0 +1,108 @@
+{
+  "correctness": {
+    "rationale": "Complete arithmetic lemma captures every length-n paperfolding factor for any n<2^h. Exact map identity plus prefix-heredity propagates finite injectivity at m to all n>=m when every m-factor has >=k ones. Both independent programs verified 31 sharp predecessor collisions, 31 injective thresholds, one-count bounds, and 4n factor counts; source files and CSV contain all computations.",
+    "status": "PASS"
+  },
+  "independent": false,
+  "independent_audit_status": "not_performed",
+  "originality": {
+    "broader_coverage": {
+      "evidence": [
+        "arXiv:2604.25811v2 Theorem 3 establishes only single-tortoise equality for n>=8. Section 5 explicitly labels higher-depth values as computational observations.",
+        "arXiv:1809.09158 studies images, fertilities and sorting time of finite words, not paperfolding factor injectivity thresholds."
+      ],
+      "reasoning": "A theorem for T at depth one does not imply a theorem for T^k on paperfolding factors, since images of the first iterate need not be factors. Older generic sorting-map results do not cover the claimed length thresholds.",
+      "searches": [
+        "Public mathematical research-record query: Campbell Rampersad Subword enumeration up to stack-sorting equivalence paperfolding k-tortoise n=13 25 49",
+        "arXiv:2604.25811v2 Theorems 2 and 3",
+        "arXiv:1809.09158"
+      ]
+    },
+    "checked_sources": [
+      "arXiv:2604.25811v2",
+      "arXiv:1809.09158v2",
+      "J.-P. Allouche, Bull. Austral. Math. Soc. 46 (1992) factor count, as quoted by arXiv:2604.25811v2",
+      "Public mathematical research-record results 2026/9/8/SCOPE079 and 2026/10/4/SCOPE-unbounded-prefix-normal-defect-of-the-ordinary-paperfolding-word--a7708413f1f3 (different invariants)"
+    ],
+    "claim_vs_prior_implication": {
+      "evidence": [
+        "Published s(1)=8 implies only one-iteration factor injectivity.",
+        "Published s(2)=13, s(3)=14, s(4)=25, s(5)=26 are explicitly presented as computational appearances, not deductions valid at unbounded factor lengths.",
+        "Theorem in RESULT.md adds a finite-cover lemma and prefix-heredity which substantiate all lengths and determine 26 later terms."
+      ],
+      "reasoning": "No implication from published one-step results yields the 2..31 depths, and the finite predictions do not logically imply their all-length correctness; prior manuscripts lack the 26 later parameter values.",
+      "searches": [
+        "Public mathematical research-record query: paperfolding word higher iterates of tortoise sorting operator injection threshold k-tortoise complexity 2 3 4",
+        "Public mathematical research-record query: Campbell Rampersad Subword enumeration up to stack-sorting equivalence paperfolding k-tortoise n=13 25 49",
+        "arXiv:2604.25811v2 Section 5, 7",
+        "arXiv:1809.09158 Section 2"
+      ]
+    },
+    "equivalent_formulations": {
+      "evidence": [
+        "arXiv:2604.25811v2 defines k-tortoise factor complexity and s(k); our s(k)=earliest n from which rho^{t^k}(n)=4n due to factor count 4n for n>=7.",
+        "Public research-record result 2026/9/8/SCOPE079 deals with paperfolding string attractors, not iteration-map fibers."
+      ],
+      "reasoning": "Exact equivalence to the paper’s s(k) is acknowledged; previous work contains only proved s(1) and unproved numerical s(2)..s(5), not the new theorem for k>=2 or entries k>=6.",
+      "searches": [
+        "Public mathematical research-record query: paperfolding word higher iterates of tortoise sorting operator injection threshold k-tortoise complexity 2 3 4",
+        "Public mathematical research-record query: Campbell Rampersad Subword enumeration up to stack-sorting equivalence paperfolding k-tortoise n=13 25 49",
+        "arXiv:2604.25811v2 Sections 3,5"
+      ]
+    },
+    "exact_database_or_table": {
+      "evidence": [
+        "The source prints the starting integer values (8,13,14,25,26,...) and states they were not indexed in OEIS as of its writing.",
+        "Web exact-prefix searches did not reveal a longer 31-term table; closest indexed public mathematical research records paperfolding hits concerned unrelated invariants."
+      ],
+      "reasoning": "Values k=1..5 are prior knowledge or prior conjectures and are explicitly excluded from any novelty claim for their raw numbers. Entries k=6..31 and mathematical proof for all k=2..31 are not covered by the identified table.",
+      "searches": [
+        "Public mathematical research-record query: regular paperfolding sequence tortoise iterates injective on factors eventually and exact stabilization length 6 2^r",
+        "Web: \"8,13,14,25,26,28,29,49\" tortoise paperfolding",
+        "arXiv:2604.25811v2 Section 5",
+        "site:oeis.org \"8,13,14,25,26\" tortoise"
+      ]
+    },
+    "rationale": "Direct close-source comparison: the 2026 article proves k=1 only, suggests k=2..5 computationally, and explicitly poses the general s(k) question; it does not state k=6..31 or give an infinite-length proof for k>=2. Exact-claim semantic search of public mathematical research records and public literature found no broader theorem or table implying the new cases; access and priority risks are recorded, not omitted.",
+    "residual_risks": [
+      "No independent priority audit; exact threshold table could appear in unindexed or later literature.",
+      "Full original 1992 factor-complexity article not separately read; its 4n assertion is reported in primary 2026 text and computationally checked at every decisive length.",
+      "The finite k cutoff must not be read as an arbitrary-k recurrence or extrapolated beyond 31."
+    ],
+    "source_inspections": [
+      {
+        "assessment": "PARTIAL_COVERAGE: s(1) proved, s(2)..s(5) suggested, no higher 26 entries or all-length proof for depth >=2.",
+        "evidence": [
+          "https://arxiv.org/html/2604.25811v2#S5",
+          "Section 5 explicitly introduces s(k) and prints the initial five values; Sections 3 and 7 discuss higher iterates."
+        ],
+        "identifier_or_url": "https://arxiv.org/html/2604.25811v2",
+        "material_read": "Abstract; Sections 2 (operators), 3 (k-tortoise), 4 (special factors), 5 (paperfolding Theorems 2,3 and computational s(2)..s(5)), Section 6 (Thue-Morse comparison), and Section 7 (open questions).",
+        "method": "Full accessible arXiv HTML, including explicit statements and proof sections.",
+        "title": "Subword enumeration up to stack-sorting equivalence",
+        "trigger": "Primary source defines s(k) and presents first five terms."
+      },
+      {
+        "assessment": "NOT_COVERING: defines tortoise but contains no paperfolding factor-threshold results.",
+        "evidence": [
+          "https://arxiv.org/abs/1809.09158",
+          "The source develops generalized sorting and preimage enumerations, not automatic-word factor injectivity."
+        ],
+        "identifier_or_url": "https://arxiv.org/abs/1809.09158",
+        "material_read": "Full-text arXiv rendering, abstract, Section 1.1 definition, Section 2 sorting dynamics, Section 6 open problems; searched full rendering for paperfolding.",
+        "method": "Accessible source full-text rendering and term inspection.",
+        "title": "Stack-sorting for words",
+        "trigger": "Origin of the tortoise recursion, possible stronger general sorting theorem."
+      }
+    ],
+    "status": "PASS"
+  },
+  "review_type": "self_review",
+  "schema_version": 1,
+  "scope_run_id": "64aa0748-2c20-4d91-8452-642d94d625d2",
+  "self_review_status": "passed",
+  "value": {
+    "rationale": "Addresses Campbell--Rampersad explicitly introduced paperfolding invariant s(k), proving previously unproved finite depth claims and calculating the entire natural dyadic depth range 1..31 (26 previously unreported terms). Exactly locates permanent information-preservation thresholds under partial sorting and their dyadic jumps.",
+    "status": "PASS"
+  }
+}

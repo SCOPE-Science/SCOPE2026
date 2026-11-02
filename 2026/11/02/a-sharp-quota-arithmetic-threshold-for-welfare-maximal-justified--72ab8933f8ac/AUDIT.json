@@ -1,0 +1,129 @@
+{
+  "correctness": {
+    "rationale": "The proof bounds total approvals of selected candidates by twice the number of voters outside a JR-witness group. The threshold forces a selected score tied at the quota, and maximal coverage removes the only equality obstruction by a second exchange. Balanced two-approval ballots give a unique welfare optimum violating JR whenever the reverse inequality holds. The two-seat and singleton-ballot statements have direct disjoint-support counting proofs. A standalone Python verifier independently checked 850,550 anonymous finite profiles and 100 explicit witness sizes; finite checks only corroborate the analytical proof.",
+    "status": "PASS"
+  },
+  "independent": false,
+  "independent_audit_status": "not_performed",
+  "originality": {
+    "broader_coverage": {
+      "evidence": [
+        "Elkind et al. prove bounds on the maximum welfare achievable under JR and algorithms, but no published universal equality guarantee for the sparse subclass was identified.",
+        "Becker et al. establish always-exists core committees using a different objective, without maximizing approval count."
+      ],
+      "reasoning": "Unconditional core existence is stronger on fairness yet independent of the required welfare maximizing property. General price bounds need not imply equality of optimum values for every population of restricted profiles. Neither dominates the theorem.",
+      "searches": [
+        "Elkind et al. arXiv:2112.05994, full text sections 1–4, Appendix A and searches for \"at most two\", \"k=3\"",
+        "Becker–Greger–Peters arXiv:2609.11912v1, core existence and algorithm",
+        "Mathematical-record search: 2026 existence of core approval committee election harmonic entropy new threshold"
+      ]
+    },
+    "checked_sources": [
+      "arXiv:2112.05994v2 full HTML and appendices",
+      "arXiv:2609.11912v1 core existence / inspected sections",
+      "AAAI 2015 JR original abstract",
+      "arXiv:2312.08187 accessible full paper",
+      "arXiv:2609.02030 abstract only",
+      "Targeted published-literature web searches",
+      "Mathematical-record indexed scientific claims matching the listed queries"
+    ],
+    "claim_vs_prior_implication": {
+      "evidence": [
+        "Aziz et al. prove JR attainable without approval-welfare optimality.",
+        "Elkind et al. study welfare loss under JR and give general bounds, not the exact sparse-profile compatibility criterion.",
+        "Becker et al. construct core committees not constrained to be approval-welfare maximizers."
+      ],
+      "reasoning": "A fair committee can exist while every welfare-maximizing committee is unfair, as the explicit nine-voter construction demonstrates. Therefore prior unqualified JR/core existence cannot imply simultaneous welfare-optimal JR; asymptotic price bounds do not settle the exact zero-price regime.",
+      "searches": [
+        "Aziz et al., Justified Representation in Approval-Based Committee Voting (AAAI 2015 / SCW 2017)",
+        "Elkind et al. arXiv:2112.05994v2, sections 2–4 plus appendix A",
+        "Becker et al. arXiv:2609.11912v1, core+ existence",
+        "Mathematical-record search: Approval-based multiwinner elections justified representation and welfare optimality"
+      ]
+    },
+    "equivalent_formulations": {
+      "evidence": [
+        "Full text of Elkind et al., arXiv:2112.05994v2, sections 1–4 and appendix A; JR and approval-welfare definitions and general examples; no encountered two-approval three-seat exact criterion."
+      ],
+      "reasoning": "Equivalent restatements include zero price of JR, existence of a JR approval-voting co-winner and top-three score-tie compatibility. The explicit inequality is equivalent to a population-wise if-and-only-if for each of these, but none of the retrieved results establishes it.",
+      "searches": [
+        "Mathematical-record search: Three-member approval-voting committee maximum utilitarian welfare also justified representation when each voter approves at most two candidates, exact voter-number threshold 2n < 5 ceil(n/3)+3",
+        "Mathematical-record search: sharp incompatibility between approval voting score maximization and JR under degree two ballot approval incidence, 9 voters 4 candidates",
+        "web: \"2-approval\" \"justified representation\" \"social welfare\" committee"
+      ]
+    },
+    "exact_database_or_table": {
+      "evidence": [
+        "No retrieved mathematical-indexed record or located published table lists the nine-voter four-candidate obstruction and the exact residue classification.",
+        "The package’s 850,550 finite anonymous-profile checks are newly computed supporting evidence, not a literature database attribution."
+      ],
+      "reasoning": "The exact phase law is derived by a population-independent counting proof and construction; it is not copied from known exhaustive election tables. Search incompleteness is explicitly retained as a priority risk.",
+      "searches": [
+        "Mathematical-record search: price of justified representation for sparse approval ballots of size at most two, three seats, congruence classes",
+        "web: \"2-approval\" \"JR\" \"optimal\" \"committee\""
+      ]
+    },
+    "rationale": "The original contribution is the exact all-populations phase condition for joint approval-welfare optimality and JR when each ballot approves at most two candidates, with four-candidate obstruction and minimality of three seats and two allowed approvals. The full accessible primary Price of Justified Representation manuscript treats welfare-JR tradeoffs generally, not this exact restricted-domain criterion. The 2026 core-existence paper proves fair committees exist but does not demand ordinary approval-welfare optimality. Targeted comparisons against primary publications and mathematically relevant indexed claims did not reveal equivalent or stronger coverage. Remaining risk is unindexed sparse-approval results, not an assertion of uniqueness.",
+    "residual_risks": [
+      "Unindexed or differently titled earlier results may prove equivalent zero-price-of-JR conditions for two-approval ballots.",
+      "Some recent related full texts are inaccessible or not fully examined; an abstract does not exclude stronger coverage.",
+      "Semantic search may fail to rank mathematically equivalent work; unsuccessful retrieval is not novelty proof."
+    ],
+    "source_inspections": [
+      {
+        "assessment": "General welfare-JR tradeoff, hardness and algorithms do not establish exact finite-population equality threshold under ballots of size ≤2",
+        "evidence": "Sections 1–4 and Appendix A, especially definitions of JR/welfare and Example A.1 with large approval ballots; arXiv:2112.05994v2",
+        "identifier_or_url": "https://arxiv.org/html/2112.05994v2",
+        "material_read": "Full accessible HTML: introduction, definitions, price bounds, computational sections, examples and appendices; targeted within-text searches",
+        "method": "Statement/assumption/implication comparison, including at-most-two-ballot and committee-size-three variants",
+        "title": "The Price of Justified Representation",
+        "trigger": "Direct study of welfare/JR tradeoffs and all-size loss bounds"
+      },
+      {
+        "assessment": "The existence of core-stable committees is not a guarantee that any welfare-optimal committee satisfies JR",
+        "evidence": "Becker, Greger and Peters, arXiv:2609.11912v1, first public 2026-09-10",
+        "identifier_or_url": "https://arxiv.org/abs/2609.11912",
+        "material_read": "Accessible primary HTML content on introduction, core/core+ definitions, main existence theorem and construction; bibliographic date verified independently",
+        "method": "Compared conclusion and optimization objective to maximization of sum of candidate approval scores",
+        "title": "Existence of the Core in Approval-Based Committee Elections",
+        "trigger": "Recent stronger fairness-existence theorem"
+      },
+      {
+        "assessment": "Does not imply welfare-optimal JR for restricted approval ballots",
+        "evidence": "AAAI 2015 abstract, associated Social Choice and Welfare 2017 version",
+        "identifier_or_url": "https://ojs.aaai.org/index.php/AAAI/article/view/9324",
+        "material_read": "Publisher abstract and definition evidence",
+        "method": "Compared unconstrained JR existence to simultaneous unconstrained-welfare optimum",
+        "title": "Justified Representation in Approval-Based Committee Voting",
+        "trigger": "Original JR definition and existence"
+      },
+      {
+        "assessment": "Does not provide the exact three-seat two-approval population law",
+        "evidence": "Brill and Peters, arXiv:2312.08187 (2023)",
+        "identifier_or_url": "https://arxiv.org/abs/2312.08187",
+        "material_read": "Accessible full paper sections on utilitarian guarantees and committee completion",
+        "method": "Compared algorithmic guarantee and assumptions with exact sparse JR zero-loss criterion",
+        "title": "Completing Priceable Committees: Utilitarian and Representation Guarantees",
+        "trigger": "Related welfare and representative committee algorithms"
+      },
+      {
+        "assessment": "Abstract concerns a different computational problem; full text not inspected, so residual priority risk remains",
+        "evidence": "arXiv:2609.02030 abstract",
+        "identifier_or_url": "https://arxiv.org/abs/2609.02030",
+        "material_read": "Abstract only",
+        "method": "Statement and applicability comparison only, explicitly not whole-document exclusion",
+        "title": "Additive JR complexity paper",
+        "trigger": "Nearby September 2026 computational social choice result"
+      }
+    ],
+    "status": "PASS"
+  },
+  "review_type": "self_review",
+  "schema_version": 1,
+  "scope_run_id": "72ab8933-f8ac-465e-97b8-0a1f5ef55264",
+  "self_review_status": "passed",
+  "value": {
+    "rationale": "The exact population/residue phase for a familiar natural welfare-vs-representation tradeoff is a meaningful mathematical classification: it identifies the sharp first obstruction at nine voters, compatibility restoration at ten and eleven, a general family of obstructions for every negative size, and the minimality of the approval and seat dimensions. This is not a textbook renaming or arbitrary finite computation; the result includes an all-n theorem and construction.",
+    "status": "PASS"
+  }
+}

@@ -1,0 +1,133 @@
+{
+  "correctness": {
+    "rationale": "Exact one-corner perturbations (4/5,-1/5,1/15,-1/30) yield mass 4/15 per pure coordinate. When n>=8, vertices in distinct corner neighborhoods cannot be adjacent, so each clique sees at most one patch. A complete local pattern check proves every lower clique has nonpositive perturbation and every upper clique stays within its baseline slack. Every clique of the unit-transfer graph lies in a lower or upper clique, so all clique inequalities hold. Five disjoint patches yield the objective C(n+4,4)/5+4/3. The previously proved quinary independence formula then gives a gap at least 8/15. A standalone exact rational checker tests complete graphs at n=8,9,10,11,12,15,20. The infinite proof does not rely on finite tests.",
+    "status": "PASS"
+  },
+  "independent": false,
+  "independent_audit_status": "not_performed",
+  "originality": {
+    "broader_coverage": {
+      "evidence": [
+        "arXiv:2607.13733 Remark 9.7 exhibits a positive clique-orbit defect for (q,d)=(32,28) rather than (5,n).",
+        "arXiv:2603.18322v1 Section 5 derives nonuniform volume-based coding bounds, not a complete-clique LP obstruction."
+      ],
+      "reasoning": "The earlier q=32 obstruction does not imply a quinary obstruction for every n >= 8. The stronger published integer formula does not provide a bound on the fractional relaxation from below, hence does not subsume the new structural statement.",
+      "searches": [
+        "arXiv:2607.13733 Section 9 Remark 9.7 clique-orbit obstruction q=32 d=28",
+        "Independent Sets in Multiset Profile Graphs via Weighted Local Covers q=5 all degrees clique relaxation",
+        "arXiv:2603.18322v1 Section 5 multiset sphere-packing and code-anticode bounds"
+      ]
+    },
+    "checked_sources": [
+      "https://arxiv.org/html/2601.05636v1",
+      "https://arxiv.org/html/2603.18322v1",
+      "https://arxiv.org/abs/2607.13733",
+      "https://arxiv.org/abs/1612.08837"
+    ],
+    "claim_vs_prior_implication": {
+      "evidence": [
+        "arXiv:2601.05636v1 proves single-deletion constructions and general packing bounds but does not produce an all-degree clique-relaxation nonintegrality proof.",
+        "arXiv:2607.13733 proves alpha_5(n)=ceil(C(n+4,4)/5) for n>=8, which is invoked as prior work.",
+        "arXiv:2607.13733 Section 9 proves a different finite clique-only failure at (32,28), without implying a quinary infinite family."
+      ],
+      "reasoning": "The joint use of the prior integer optimum and the new explicit feasible fractional point proves the gap. Neither the integer optimum by itself nor a clique defect at other parameters logically entails the point or the uniform gap claimed here.",
+      "searches": [
+        "arXiv:2601.05636v1 multiset one-deletion general bounds Sections 3 and 5",
+        "arXiv:2607.13733 q=5 integer theorem and weighted local-cover dual Section 3",
+        "arXiv:2607.13733 clique method stops at q32 degree28",
+        "fractional clique number simplex compositions 11 into 5 parts one transfer graph"
+      ]
+    },
+    "equivalent_formulations": {
+      "evidence": [
+        "arXiv:2607.13733 Section 3 Eq. (9) identifies the dual clique fractional packing with maximal-clique inequalities.",
+        "arXiv:2607.13733 Section 6 establishes the known quinary integer independence number but uses non-clique templates."
+      ],
+      "reasoning": "The edge relation is exactly the unit-transfer multiset deletion graph. The proof identifies all maximal cliques as lower and upper coordinate-sum cliques; the exhibited point satisfies both orientations. Existing exact graph independence results do not certify a *failure* of every clique inequality to obtain that answer.",
+      "searches": [
+        "quinary multiset profile graph maximal clique LP relaxation nonzero gap all degrees n at least eight corner perturbation",
+        "fractional clique covering integrality gap all n G_5(n) upward and downward cliques weighted local covers",
+        "arXiv:2607.13733 Sections 3, 6, 9 (weighted local covers, clique fractional packing)"
+      ]
+    },
+    "exact_database_or_table": {
+      "evidence": [
+        "The published exact q=5 integer values are already known for all degrees; this result does not duplicate those values.",
+        "The July preprint records specific clique-orbit LP certificates at other alphabet/degree pairs; no all-degree q=5 clique-LP separation table or theorem was found."
+      ],
+      "reasoning": "No equivalent database of exact fractional LP values or published symbolic corner perturbation was identified. The new quantitative lower bound is analytically established and not a claimed new integer entry.",
+      "searches": [
+        "q=5 multiset deletion graph maximal clique inequalities not sharp every large degree",
+        "quinary single-deletion complete clique LP fractional stable set n>=8",
+        "arXiv:2607.13733 Section 6 exact q=5 integer table and Section 9 orbit LP"
+      ]
+    },
+    "rationale": "The new claim is a quantitative, all-degree obstruction specifically to the complete maximal-clique relaxation for quinary unit-transfer graphs. The July 2026 primary full text proves the *integer* optimum and uses larger local tiles; its distinct clique obstruction is at (q,d)=(32,28). The integer value does not imply the existence of the exhibited fractional feasible point, and one isolated distinct obstruction does not imply the present all-n theorem. Actual exact-topic and equivalent-formulation searches produced no covering result. Residual unindexed-priority risk remains.",
+    "residual_risks": [
+      "The foundational 2016 article was not inspected in full; its cited high-level claims are not a substitute for its entire text.",
+      "Unindexed or differently described fractional clique-cover calculations could contain an equivalent all-degree perturbation.",
+      "No independent mathematical audit has been performed."
+    ],
+    "source_inspections": [
+      {
+        "assessment": "SETTING_ONLY_NOT_COVERING",
+        "evidence": [
+          "9 January 2026 first public version; MSC 94B25, 94B05, 94B60",
+          "Sections 3 and 5 concern bounds/constructions, not all-degree clique-LP integrality gap"
+        ],
+        "identifier_or_url": "https://arxiv.org/html/2601.05636v1",
+        "material_read": "Full accessible HTML introduction/model and the published sections on bounds and single-deletion constructions, including MSC metadata",
+        "method": "Read and compare definitions, parameter scopes, and proved results",
+        "title": "Multiset Deletion-Correcting Codes: Bounds and Constructions",
+        "trigger": "Earliest public source for one-deletion multiset model and primary MSC ownership"
+      },
+      {
+        "assessment": "NOT_COVERING",
+        "evidence": [
+          "Section 5 treats volume-based code bounds",
+          "No exact all-degree clique-LP gap stated in the sections read"
+        ],
+        "identifier_or_url": "https://arxiv.org/html/2603.18322v1",
+        "material_read": "Full accessible HTML introduction, contribution outline and volume-based upper-bound section 5",
+        "method": "Compared sphere packing, difference vectors and code-anticode to full graph clique inequalities",
+        "title": "Polynomial Constructions and Deletion-Ball Geometry for Multiset Deletion Codes",
+        "trigger": "Closest same-channel geometric bounds"
+      },
+      {
+        "assessment": "INTEGER_OPTIMUM_COVERED; NEW_CLIQUE_GAP_NOT_COVERED",
+        "evidence": [
+          "Section 6 proves alpha_5(d)=ceil(C(d+4,4)/5) except d=2,4",
+          "Section 3 states the fractional local-cover/clique-packing dual",
+          "Remark 9.7 proves a different clique-orbit obstruction at (q,d)=(32,28)",
+          "The q=5 proof uses non-clique exact-density tiles but does not prove their necessity for all d>=8"
+        ],
+        "identifier_or_url": "https://arxiv.org/abs/2607.13733",
+        "material_read": "Accessible full 858-line text: Sections 1-3, Section 6 (lines around 354-458), Section 9 (lines around 647-838), in particular Remark 9.7",
+        "method": "Compared integer optimum to new LP gap; compared upward/downward clique dual, boundary templates and parameter scopes",
+        "title": "Independent Sets in Multiset Profile Graphs via Weighted Local Covers",
+        "trigger": "Decisive exact q=5 integer theorem and closest fractional-cover method"
+      },
+      {
+        "assessment": "FULL_TEXT_NOT_INSPECTED; RESIDUAL_RISK",
+        "evidence": [
+          "The foundational work formulates codes in multiset simplices",
+          "No exact matching all-degree clique gap was identified from available material"
+        ],
+        "identifier_or_url": "https://arxiv.org/abs/1612.08837",
+        "material_read": "Public abstract and relevant later-paper citations only; original full text not inspected",
+        "method": "Compared the documented one-deletion model and general bounds through cited later literature",
+        "title": "Codes in the Space of Multisets—Coding for Permutation Channels with Impairments",
+        "trigger": "Foundational multiset-channel reductions and classical upper bounds"
+      }
+    ],
+    "status": "PASS"
+  },
+  "review_type": "self_review",
+  "schema_version": 1,
+  "scope_run_id": "77539448-cf88-4c20-8734-a0a35b5962b7",
+  "self_review_status": "passed",
+  "value": {
+    "rationale": "An all-blocklength impossibility theorem for the strongest possible clique-only fractional upper-bound method in a natural coding channel. The 2026 exact q=5 code theorem requires richer local tiles; this new explicit gap establishes that no rearrangement of maximal-clique inequalities can give sharp bounds for any n>=8, clarifying the mathematical necessity of stronger local inequalities. The additive separation is quantified uniformly and has a short, reusable boundary perturbation proof; no claim of new integer code sizes is made.",
+    "status": "PASS"
+  }
+}

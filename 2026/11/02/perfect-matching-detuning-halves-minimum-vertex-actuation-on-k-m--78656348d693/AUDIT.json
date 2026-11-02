@@ -1,0 +1,136 @@
+{
+  "correctness": {
+    "rationale": "The displayed block Laplacian is exact. Its mutually orthogonal eigenspaces have eigenvalues 0, 2(m-1+t), m and m-2+2t with multiplicities 1,1,m-1,m-1. For all real t>0, only the latter two collide, exactly at t=1. Spectral projector ranks of selected coordinate inputs are min(|A union D|,m-1) separately when distinct, or min(|A|,m-1)+min(|D|,m-1) on the merged space. Polynomial interpolation of the eigenvalues establishes equality between the Kalman reachable dimension and the sum of projector ranks. The result covers m=2 and both endpoint-input choices; the independent extracted modular verifier passed 2450 exact-rank comparisons, but finite tests are not a proof for arbitrary parameters.",
+    "status": "PASS"
+  },
+  "independent": false,
+  "independent_audit_status": "not_performed",
+  "originality": {
+    "broader_coverage": {
+      "evidence": [
+        "Yuan et al. establishes a universal PBH/eigenspace method and general lower bound by maximum multiplicity, used as background here.",
+        "Monshizadeh–Zhang–Camlibel (2014) analyze all matrices in a qualitative class and explicitly distinguish that guarantee from controllability of a particular matrix; a fixed detuned Laplacian is a different quantifier.",
+        "Dai (2023) emphasizes minimal leader selection via critical sets on specific tree-like classes; accessible abstract and references do not state this matched-biclique classification."
+      ],
+      "reasoning": "The earlier theorems are broader methods, not a stronger explicitly evaluated rank/placement classification on this one-parameter family. In particular, a zero-forcing sufficient condition for every weight pattern does not imply failure of a smaller input set for a specially structured fixed weight pattern. A hidden graph-specific corollary remains a historical overlap risk.",
+      "searches": [
+        "doi:10.1038/ncomms3447 (full-text general exact controllability theorem)",
+        "arxiv:1403.4868 (Sections IV, IV-A, IV-B on strong controllability and zero forcing)",
+        "minimum leader selection for controllability of undirected graphs with leader follower framework Dai 2023"
+      ]
+    },
+    "checked_sources": [
+      "https://pmc.ncbi.nlm.nih.gov/articles/PMC3945876/",
+      "https://arxiv.org/abs/1403.4868",
+      "https://doi.org/10.1155/2013/405034",
+      "https://doi.org/10.1049/cth2.12385"
+    ],
+    "claim_vs_prior_implication": {
+      "evidence": [
+        "Xiang et al. observe that altering edge weights can improve controllability, but the inspected description and examples do not evaluate a balanced biclique with a uniformly detuned perfect matching.",
+        "Yuan et al. give a general multiplicity criterion. Substitution of the newly derived spectrum explains the minimum counts, but all-set rank and placement counts require the new projection calculation.",
+        "Monshizadeh et al. address a different all-matrices quantifier; their criterion does not assert the detuned-graph rank or the transition at t=1."
+      ],
+      "reasoning": "The established general machinery is explicitly credited. The specific proof evaluates four invariant eigenspaces, their single collision, and the ranks of projections of every coordinate-input collection. None of the inspected prior claims alone entails this evaluated formula without these family-specific steps. No assertion of independence from all possible prior literature is made.",
+      "searches": [
+        "doi:10.1155/2013/405034 Section 5 varying edge weights to improve controllability",
+        "doi:10.1038/ncomms3447 maximum eigenvalue multiplicity",
+        "arxiv:1403.4868 Section IV-A qualitative subclasses"
+      ]
+    },
+    "equivalent_formulations": {
+      "evidence": [
+        "Yuan et al. (2013), doi:10.1038/ncomms3447, prove a general maximum-geometric-multiplicity rule, not the specific all-input subset rank on a fixed weighted matched biclique.",
+        "No inspected direct statement gave the two index-set formulas for the paired conductance family.",
+        "The crown graph corresponds to zero matching conductance, excluded here, and does not by itself settle the unit-weight collision or positive detuning."
+      ],
+      "reasoning": "A fixed matched-biclique Laplacian can be written using J and I, and general PBH theory applies to it. However, that general criterion alone leaves the matching-mode decomposition and ranks of every coordinate input projection to be evaluated. The present exact rank stratification also distinguishes same-side indices from matched-pair coverage at the collision. Titles and keyword differences are not treated as proof of novelty.",
+      "searches": [
+        "weighted complete bipartite graph distinguished perfect matching edge weight controllability rank minimum leaders",
+        "\"K_{n,n}\" controllability matching edge weights",
+        "crown graph controllability minimum leader set Laplacian",
+        "doi:10.1038/ncomms3447 (full text, Results and PBH rank treatment)",
+        "For weighted K_{m,m} with all off-diagonal bipartite edges unit and common matching weight t, controllability rank from coordinate inputs equals 2+2 min(number of distinct paired indices,m-1) except at t=1, with exact minimum leader sets"
+      ]
+    },
+    "exact_database_or_table": {
+      "evidence": [
+        "Targeted searches surfaced general controllability frameworks and unrelated graph matching objects, not an exact rank table for this two-parameter-by-input-index family.",
+        "Finite exact checks for small dimensions were computed independently from the statement and do not constitute an existing database.",
+        "A nearby retrieved matched-biclique title addressed geodesic subpath counts after matching deletion, not Kalman reachability; common matching terminology alone does not transfer that result."
+      ],
+      "reasoning": "The formula concerns an infinite family, all positive real conductances and all vertex subsets; no inspected table or database entry contained a dominating classification. An unsuccessful table search is not by itself novelty proof.",
+      "searches": [
+        "weighted crown graph Laplacian controllability input locations",
+        "weighted perfect matching Laplacian controllability leaders",
+        "minimum control nodes weighted perfect matching in complete bipartite network"
+      ]
+    },
+    "rationale": "Targeted direct, alias, crown-graph and stronger-coverage searches plus primary-text inspection identified general PBH, weight-perturbation and zero-forcing frameworks, but not this exact all-vertex-set rank law or full minimum-placement enumeration. The proof calculates family-specific spectral projections not contained in the searched general statements. Strong specialist overlap and incomplete individual-source inspection remain residual risks.",
+    "residual_risks": [
+      "Equivalent family-specific results may occur under weighted crown graph, paired bipartite network, or graph Laplacian control nomenclature not recovered by the targeted search.",
+      "The Xiang journal page timed out during direct full-page retrieval; only substantial indexed article sections were available.",
+      "The 2023 leader-selection paper was not inspected in full, although its abstract identifies distinct graph families.",
+      "The 2013 general multiplicity theorem is a key premise and the family-specific deduction should be distinguished from claiming a new general controllability principle."
+    ],
+    "source_inspections": [
+      {
+        "assessment": "Strongest nearby general method; no explicit complete matched-bipartite rank/placement formula located",
+        "evidence": [
+          "Yuan et al. (2013), Results: largest geometric multiplicity determines minimal independent inputs.",
+          "The graph-model examples and text do not provide the claimed all-subset paired-index rule."
+        ],
+        "identifier_or_url": "https://pmc.ncbi.nlm.nih.gov/articles/PMC3945876/",
+        "material_read": "Full open-access HTML including abstract, Results, discussion of PBH/Kalman and model-network examples; searched for balanced bipartite matching-specific claims",
+        "method": "Primary article full-text HTML inspection",
+        "title": "Exact controllability of complex networks",
+        "trigger": "Most direct exact controllability and eigenvalue multiplicity theorem"
+      },
+      {
+        "assessment": "A qualitative-class/zero-forcing guarantee, logically different from this fixed-weight Kalman rank; no explicit paired-biclique specialization found",
+        "evidence": [
+          "Section II distinguishes fixed matrix and all qualitative matrices.",
+          "Section IV-A explains converse failure from qualitative-class controllability to subclasses.",
+          "Section IV-B discusses paths, cycles and complete graphs rather than the paired-weight biclique."
+        ],
+        "identifier_or_url": "https://arxiv.org/abs/1403.4868",
+        "material_read": "Full rendered arXiv text; Introduction, problem formulation, Section IV including qualitative subclasses and special graphs, conclusion",
+        "method": "Primary public preprint rendered text inspection",
+        "title": "Zero forcing sets and controllability of dynamical systems defined on graphs",
+        "trigger": "Potential dominating all-leader graph theorem"
+      },
+      {
+        "assessment": "Qualitative edge-weight observations and general framework, no directly observed uniform matching-actuation rank theorem; residual incomplete-text risk remains",
+        "evidence": [
+          "Section 5.3 states that changing edge weights may improve controllability.",
+          "The accessible example concerns a different small directed network with heterogeneous nodal dynamics."
+        ],
+        "identifier_or_url": "https://doi.org/10.1155/2013/405034",
+        "material_read": "Accessible indexed article text: abstract, introduction, model and sections on edge-weight perturbations, examples, conclusion; uninterrupted page retrieval timed out",
+        "method": "Primary journal HTML indexed text excerpts and DOI metadata, without claiming full continuous read",
+        "title": "Controllability of Weighted and Directed Networks with Nonidentical Node Dynamics",
+        "trigger": "Explicit discussion of changing link weights to improve control"
+      },
+      {
+        "assessment": "Published application centers on deterministic scale-free networks and Cayley trees; incomplete specialist inspection noted as risk",
+        "evidence": [
+          "The published abstract identifies the solved families as deterministic scale-free networks and Cayley trees, not weighted matched complete-bipartite graphs."
+        ],
+        "identifier_or_url": "https://doi.org/10.1049/cth2.12385",
+        "material_read": "Article abstract and reference list; secondary indexed extract of Sections 1–2, not its complete full text",
+        "method": "Journal article landing-page HTML and indexed excerpt",
+        "title": "Minimum leader selection for controllability of undirected graphs with leader–follower framework",
+        "trigger": "Potential stronger exact minimum-leader result"
+      }
+    ],
+    "status": "PASS"
+  },
+  "review_type": "self_review",
+  "schema_version": 1,
+  "scope_run_id": "78656348-d693-4f16-aa5b-1a66809c8c96",
+  "self_review_status": "passed",
+  "value": {
+    "rationale": "A positive uniform perturbation of one perfect matching cuts the exact minimal independent coordinate-actuator count from 2m-2 to m-1. The all-subset rank law distinguishes coverage of matched indices from coverage of individual sides, enumerates every minimum placement, and isolates t=1 as the unique singular parameter. This is a structurally motivated control-design fact for dense symmetric network models; no control-energy or conditioning benefit is inferred.",
+    "status": "PASS"
+  }
+}

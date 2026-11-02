@@ -1,0 +1,131 @@
+{
+  "correctness": {
+    "rationale": "For a,T,Omega>0 and 0<g<2+k^{-2}, direct Routh--Hurwitz calculation establishes existence of a unique positive-definite Gaussian stationary law. Six exact covariance entries solve KC+CK^T+2I=0 and were checked by a separately implemented exact-rational linear elimination in checker.py. Gaussian marginal and conditional independences reduce to C13=0 and C13*C22-C12*C23=0. Exact factorization and signs of an upward quadratic prove one positive stable root of each kind, in disjoint universal bands, and implicit differentiation proves strict threshold monotonicity and endpoint limits. The common T/a noise scale cancels from the screening criteria. The 4103 checker assertions are finite diagnostics only; all continuous quantifiers are proved in RESULT.md. The zero-shear extra zero and stability boundary are explicitly excluded.",
+    "status": "PASS"
+  },
+  "independent": false,
+  "independent_audit_status": "not_performed",
+  "originality": {
+    "broader_coverage": {
+      "evidence": [
+        "Hess et al. (2023) generalize stationary second-moment dynamics and shear escape but do not specify the marginal/conditional zero correlation classifications.",
+        "Loos and Klapp (2020) treat generic nonreciprocal information and heat flows in different settings rather than simultaneous Couette three-variable threshold identities."
+      ],
+      "reasoning": "Broader model and general information-flow treatments were checked for implication by a stated stronger theorem. Generic Lyapunov solvability or Gaussian conditional-independence identities do not themselves assert uniqueness, universal interval separation or monotonicity of the two physical screening shears.",
+      "searches": [
+        "\"Irreversibility, heat and information flows induced by non-reciprocal interactions\" arxiv",
+        "\"hidden-variable Brownian shear OU covariance conditional independence zero partial correlation eigenmode 2024\"",
+        "arXiv:2008.00894",
+        "DOI:10.1478/AAPP.1011A3"
+      ]
+    },
+    "checked_sources": [
+      "arXiv:2402.10579v1 (main text and Appendix B)",
+      "DOI:10.1478/AAPP.1011A3 (available full text)",
+      "arXiv:2008.00894 (model and information-flow sections)",
+      "DOI:10.1103/PhysRevE.85.061127 (abstract only)"
+    ],
+    "claim_vs_prior_implication": {
+      "evidence": [
+        "The source explicitly acknowledges all six stationary moments can be calculated from its linear system, and gives critical shear from the drift determinant.",
+        "The new identity C12*C23-C13*C22=g*k*B_k(g)/[(1+2k^2-gk^2)(8+4k^2+gk^2)^2] and universal inequalities are not identified as theorems in those sources."
+      ],
+      "reasoning": "The source moment equations entail the exact covariance as a solvable consequence, so the result is not logically independent of their framework. Its contribution is the unreported information-screening classification and global root/sign theorem. Neither a source title match nor a failure to find keywords is used as novelty evidence; the model, computed observables, parameter domains and implications are compared explicitly.",
+      "searches": [
+        "arXiv:2402.10579v1, especially Secs. II.4, III.1, III.2, Appendix B",
+        "Hess et al. 2023, DOI:10.1478/AAPP.1011A3, covariance-relaxation sections",
+        "arXiv:2008.00894, information and thermodynamics sections"
+      ]
+    },
+    "equivalent_formulations": {
+      "evidence": [
+        "The stationary covariance is Gaussian and marginal independence equals zero C13; conditional independence equals vanishing Schur-complement C13-C12*C23/C22.",
+        "arXiv:2402.10579 specifies the matching Couette/antisymmetric hidden drift and six linear covariance equations."
+      ],
+      "reasoning": "The Gaussian-equivalence reductions were explicitly checked in the same model. A single zero covariance does not imply a zero Schur complement; the rational witness shows these notions are not equivalent. No equivalent all-k two-root classification appears in the inspected motivating paper.",
+      "searches": [
+        "\"nonreciprocal hidden medium shear covariance independent x hidden variable at special shear\"",
+        "\"Gaussian three dimensional Ornstein Uhlenbeck shear model information screening thresholds Omega marginal and conditional independence\"",
+        "arXiv:2402.10579, Sec. III and Appendix B"
+      ]
+    },
+    "exact_database_or_table": {
+      "evidence": [
+        "The source gives R^2, xy cross covariance and physical anisotropy Q_-, rather than a cross-table of XZ and its conditional covariance or their zero sets.",
+        "The rational witness C13=0, C12=2/7, C23=1/14, C22=15/14 is reconstructed by exact Lyapunov elimination."
+      ],
+      "reasoning": "No exact published table or database value was identified giving the two distinct thresholds or their ordering over all hidden-coupling ratios. This is not a claim of exhaustive global database coverage.",
+      "searches": [
+        "\"Fernandez Hess Klapp stationary nonreciprocal shear trapped colloid two independence transitions Gaussian hidden coordinate marginal conditional zero correlations 3/5 0.946\"",
+        "\"Fernandez Hess Klapp 2024 shear auxiliary variable cross correlation x z zero shear 0.6\"",
+        "arXiv:2402.10579v1 main text and appendices"
+      ]
+    },
+    "rationale": "The motivating full article and its appendices derive the 3-coordinate moment equations and known stability threshold but analyze measured physical moments and entropy production, not the global marginal/conditional independence classification involving the hidden coordinate. Its equations algebraically imply the present result only after nontrivial elimination and two separate root/ordering arguments. The 2023 precursor discusses broad moment systems without the two-screening theorem. General Gaussian graphical theory supplies conditional-independence criteria but not these physical root identities. Limited public-record and primary-text comparisons found no covering result; a stronger source could remain unindexed.",
+    "residual_risks": [
+      "The 2024 source explicitly permits solving all six covariance entries, and a supplementary or unstated implication could have already been formulated elsewhere.",
+      "A general theorem on Gaussian graphical-model edge cancellations may imply portions of the present parameter classification.",
+      "The 2012 two-bath correlation paper was inspected only at abstract level; this does not justify a claim about its complete content.",
+      "Scientific priority and proof have not undergone independent audit."
+    ],
+    "source_inspections": [
+      {
+        "assessment": "SAME_MODEL_NOT_EXPLICITLY_COVERING_TWO_SCREENING_THRESHOLD_CLASSIFICATION",
+        "evidence": [
+          "First public arXiv date 2024-02-16. Sec. III.1 imposes Couette M12 and opposite hidden M13/M31, M23/M32 couplings.",
+          "Sec. III.2 gives critical shear and the three physical positional observables R^2, Q_+, Q_-.",
+          "Appendix B states six covariance equations are in principle solvable, which is properly credited as an algebraic implication risk."
+        ],
+        "identifier_or_url": "https://arxiv.org/abs/2402.10579",
+        "material_read": "Main full-text HTML with Sec. II general Gaussian moment equations, Sec. III parameter specialization and exact stationary physical covariance expressions, Sec. IV/V entropy and correlations, and Appendix B six-moment solvability statement.",
+        "method": "Scientific comparison of the model drift, stability domain, physical observables and hidden-coordinate claims; trace back to the original v1 public date.",
+        "title": "Nonequilibrium dynamics and entropy production of a trapped colloidal particle in a complex nonreciprocal medium",
+        "trigger": "The exact motivating Couette-flow and one-hidden-coordinate model with positive shear and known covariance-stability boundary."
+      },
+      {
+        "assessment": "BROADER_MOMENT_FRAMEWORK_WITHOUT_IDENTIFIED_SCREENING_THRESHOLD_THEOREM",
+        "evidence": [
+          "General covariance-elimination method and instability conditions are prior art.",
+          "No jointly stated marginal/conditional independence roots or universal gap was identified in the examined full text."
+        ],
+        "identifier_or_url": "https://doi.org/10.1478/AAPP.1011A3",
+        "material_read": "Available full paper text including the coupled moment system, stationary versus unstable shear regions, and analysis of physical cloud distortion.",
+        "method": "Compared model assumptions, computed observables and the purpose of the moment equations, including possible implications for the selected three-coordinate specialization.",
+        "title": "Shear-flow-induced distortion of the density distribution and transition from a stationary to an instationary non-equilibrium state of a colloidal particle in a trap",
+        "trigger": "Directly named broader predecessor of the 2024 paper, potentially containing covariance identities in the stronger multivariable setting."
+      },
+      {
+        "assessment": "RELATED_INFORMATION_THEORY_NOT_DIRECTLY_COVERING",
+        "evidence": [
+          "Information and thermodynamic flow results concern nonreciprocal couplings in more general or different dynamics.",
+          "No all-positive-coupling two-threshold Couette screening classification was identified."
+        ],
+        "identifier_or_url": "https://arxiv.org/abs/2008.00894",
+        "material_read": "Accessible paper introduction, model and information-flow discussion.",
+        "method": "Compared the specific shear/hidden-coordinate model and parameter-wise vanishing correlation criteria.",
+        "title": "Irreversibility, heat and information flows induced by non-reciprocal interactions",
+        "trigger": "Primary literature on informational observables under nonreciprocal Langevin coupling."
+      },
+      {
+        "assessment": "ABSTRACT_SCOPE_ONLY_RESIDUAL_ACCESS_RISK",
+        "evidence": [
+          "Describes a different stochastic-thermodynamic model; absence of covering results in uninspected full text is not asserted."
+        ],
+        "identifier_or_url": "https://doi.org/10.1103/PhysRevE.85.061127",
+        "material_read": "Journal abstract and publicly accessible model description only; full article was not materially read.",
+        "method": "Scope screening only; not used for a whole-document exclusion claim.",
+        "title": "Nonequilibrium and information: The role of cross correlations",
+        "trigger": "Earlier primary stochastic thermodynamics study of hidden cross-correlations cited by the motivating article."
+      }
+    ],
+    "status": "PASS"
+  },
+  "review_type": "self_review",
+  "schema_version": 1,
+  "scope_run_id": "80976777-32f0-4a26-9bbb-bce1556c4038",
+  "self_review_status": "passed",
+  "value": {
+    "rationale": "The stationary nonreciprocal hidden-medium model creates a real question: does screening out the hidden coordinate occur marginally or only after observing a second physical coordinate? The exact all-parameter classification identifies two disjoint tuning regimes, a universal separation and monotone endpoints, plus an exact witness that removes any possible conflation of Gaussian covariance with partial covariance. It is an invariant with physical interpretation and strong complete-cutoff structure, not an arbitrary sampled or preexisting table entry. It does not claim causality or experiment-level validation.",
+    "status": "PASS"
+  }
+}

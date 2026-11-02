@@ -1,0 +1,123 @@
+{
+  "correctness": {
+    "rationale": "The density-tail estimate has a controlled relative error \\(m/(u-m)^2\\), which tends to zero because the rare centering satisfies \\((u-m)/\\sqrt m\\to\\infty\\). Independent Gamma maxima then have a common local exponential scale and an adjacent-shape tail ratio. The rate-function bound \\(u/b^2\\le2\\log n+O(1)\\) controls global Poisson-clock fluctuations for every divergent multiplicity sequence; last-completer ordering is preserved exactly. A standalone checker reproduced 454 finite assertions, which supplement but do not replace the analytic proof.",
+    "status": "PASS"
+  },
+  "independent": false,
+  "independent_audit_status": "not_performed",
+  "originality": {
+    "broader_coverage": {
+      "evidence": [
+        "Long, arxiv:2604.25108v2, Theorem 4.1 defines q_{N,j}=Q_{m_N}(p_{N,j}t) with one common shape m_N; varying arrival rates only",
+        "May (2008), equation (4), permits all quotas, but is exact finite generating-function coverage, not the claimed asymptotic regime",
+        "Ilienko (2020), introduction, successive homogeneous collection layers"
+      ],
+      "reasoning": "The finite arbitrary-quota generating function is genuinely broader on finite input distributions and is credited. Converting it to this exact joint two-group Gumbel scaling and phase transition requires the asymptotic estimates proved here. Long has the needed defect-transfer structure but only common shape, while the new claim changes quota by one across groups.",
+      "searches": [
+        "nonuniform coupon collector differing collection quotas critical competition multiple target levels Gamma maximum asymptotic regime",
+        "Coupon Collecting with Quotas Russell May 2008 finite generating function asymptotic two populations m and m+1",
+        "arxiv:2604.25108v2 theorem 4.1",
+        "arxiv:2002.00650 joint collection limits"
+      ]
+    },
+    "checked_sources": [
+      "Castro and Marinho, arxiv:2610.33199v1, Section 2.3 and Section 4",
+      "Long, arxiv:2604.25108v2, Sections 3-4",
+      "May, Electronic Journal of Combinatorics 15 (2008) #N31, Sections 2-5",
+      "Ilienko, arxiv:2002.00650, abstract and introduction"
+    ],
+    "claim_vs_prior_implication": {
+      "evidence": [
+        "The homogeneous prior marked-depth claim concerns positive deficits relative to m at a single time and does not count coupons whose count equals exactly m",
+        "Castro–Marinho Theorem 2.3 proves a homogeneous completion-time distribution, not competition between m and m+1 groups",
+        "The new event that the m+1 class is complete requires tracking coupons at exactly m arrivals in that class"
+      ],
+      "reasoning": "Neither the homogeneous one-quota Gumbel theorem nor an earlier positive-deficit statement alone determines which group finishes last at adjacent quotas. Types at exactly \\(m\\) arrivals, invisible to the positive-deficit process, must be incorporated. The 2008 arbitrary-quota finite generating function remains full prior coverage of exact finite input distributions; it does not provide the joint extreme-value phase diagram without the asymptotic analysis here.",
+      "searches": [
+        "Cutoff profile for coupon collector with many collections 2610.33199 adjacent quota group maxima identity n even",
+        "arxiv:2610.33199v1 Section 2.3",
+        "arxiv:2604.25108v2 Sections 3-4"
+      ]
+    },
+    "equivalent_formulations": {
+      "evidence": [
+        "arxiv:2610.33199v1 Theorem 2.3: one quota for all types",
+        "R. May, Coupon Collecting with Quotas (2008), Section 2: finite multivariate-quota generating function",
+        "Independent maxima of Gamma shapes m and m+1 are an equivalent Poissonized formulation of adjacent quotas"
+      ],
+      "reasoning": "The equivalence to competing Gamma maxima is handled explicitly. The searched equivalent forms did not reveal a theorem giving the asymptotic last-class identity or its m/log n phase diagram. The 2008 finite generating function contains the underlying finite model, but its Section 5 treats homogeneous-quota expectation approximations.",
+      "searches": [
+        "multilevel coupon collector two classes different quotas m and m+1 when m scales with logarithm n asymptotic last completion identity Gumbel",
+        "The first of two equally sized coupon classes reaches its group-specific threshold first, with quota levels m and m+1, and m/log n critical scaling of winner probability",
+        "Gamma(m) versus Gamma(m+1) maximum of n samples, independent maxima and Gumbel joint limits, probability one side larger",
+        "web: \"coupon collector\" \"varying quotas\" Gumbel",
+        "web: \"coupon collector\" \"different\" \"multiplicities\" threshold collection times"
+      ]
+    },
+    "exact_database_or_table": {
+      "evidence": [
+        "May (2008), equations (4)-(6), gives exact finite completion generating functions and expectations for arbitrary quota vectors; it does not tabulate the last group or its growing-quota asymptotic",
+        "The 2013 Mathematics Stack Exchange discussion points to May (2008) as an exact treatment of arbitrary quotas"
+      ],
+      "reasoning": "The general finite formula is covered and is not re-claimed. The claim instead concerns a limiting last-class probability and joint extreme-value law, not a known exact numerical table or a recomputation of exact finite probabilities.",
+      "searches": [
+        "Coupon Collecting with Quotas Russell May 2008 finite generating function asymptotic two populations m and m+1",
+        "web: \"coupon collector\" \"different number\" \"copies\" \"each\" asymptotic quota",
+        "https://www.combinatorics.org/ojs/index.php/eljc/article/download/v15i1n31/pdf/"
+      ]
+    },
+    "rationale": "The claim is a new asymptotic group-competition profile rather than the known arbitrary-quota finite generating function or a one-quota cutoff theorem. Direct covering statements were not found after primary source inspections, existing ledger claim comparison and six targeted mathematical-record searches; historical priority remains qualified.",
+    "residual_risks": [
+      "Older generalized coupon-collection formulas may implicitly yield the same scaling after unrecorded asymptotic work.",
+      "General non-identically distributed extreme-value theory may contain an equivalent abstract point-process statement, despite no matching specialized application in searched results.",
+      "Ilienko deeper proof sections not exhaustively inspected; no categorical whole-document noncoverage claim is made."
+    ],
+    "source_inspections": [
+      {
+        "assessment": "Single common quota Gumbel limit; not stated for two concurrent classes with different quotas",
+        "evidence": "Theorem 2.3 gives t_{n,m}=nF_m^{-1}(1-1/n), a single m, and Section 4 formula (4.3) is F_m(t/n)^n",
+        "identifier_or_url": "https://arxiv.org/html/2610.33199v1",
+        "material_read": "Introduction, Section 2.3 Theorem 2.3, Poissonization and proof Sections 3-4, Gamma-tail lemma and references",
+        "method": "read accessible original HTML",
+        "title": "Cutoff profile for the coupon collector with many collections",
+        "trigger": "Same uniform growing-quota asymptotic problem"
+      },
+      {
+        "assessment": "Terminal-defect transfer and growing multiplicity under common per-type quota; exact broader method acknowledged, two-shape class competition not treated",
+        "evidence": "Theorem 4.1 defines \\(q_{N,j}(t)=Q_{m_N}(p_{N,j}t)\\) with a common quota shape for all types.",
+        "identifier_or_url": "https://arxiv.org/html/2604.25108v2",
+        "material_read": "Abstract, Sections 3-4 and Theorem 4.1, unequal-probability framework, discussion of Gamma-tail quantiles",
+        "method": "read accessible original full-text HTML sections",
+        "title": "Terminal Defects, Growing Multiplicity, and Variance Extremality in the Double Dixie Cup Problem",
+        "trigger": "General growing-quota terminal defect theory and possible stronger coverage"
+      },
+      {
+        "assessment": "Finite arbitrary quota/probability generating functions are prior. Growing adjacent-class last-completer transition is not stated; later asymptotic section specializes to uniform quotas",
+        "evidence": "Section 2 arbitrary quotas, equation (4); Section 5 explicitly specializes to equal probabilities and equal quotas for an approximation of expectation",
+        "identifier_or_url": "https://www.combinatorics.org/ojs/index.php/eljc/article/download/v15i1n31/pdf/",
+        "material_read": "All seven pages: definition, equation (4) finite generating function, Sections 3-5, asymptotic approximation and references",
+        "method": "read primary PDF text plus visual screenshots of pages 1, 5 and 6",
+        "title": "Coupon Collecting with Quotas",
+        "trigger": "Original general heterogeneous quota problem and possible dominating exact results"
+      },
+      {
+        "assessment": "Different homogeneous successive-collection formulation with fixed layer indices; not sufficient to rule out all possible implicit generalized coverage",
+        "evidence": "Introduction defines T_r^{(n)} with fixed r and cites log n+r log log n limit",
+        "identifier_or_url": "https://arxiv.org/abs/2002.00650",
+        "material_read": "Original accessible abstract and introduction including setup and fixed-layer limit formula",
+        "method": "read arXiv hosted article text; no claim of exhaustive inspection of later sections",
+        "title": "Limit theorems in the extended coupon collector's problem",
+        "trigger": "Possible stronger joint point-process results for successive coupon layers"
+      }
+    ],
+    "status": "PASS"
+  },
+  "review_type": "self_review",
+  "schema_version": 1,
+  "scope_run_id": "7750e1db-f2a4-49f6-aacc-ff6796d3b25b",
+  "self_review_status": "passed",
+  "value": {
+    "rationale": "A one-copy quota difference is the smallest natural heterogeneity in coupon collection. The theorem distinguishes a dominant high-quota class from a balanced last-completer competition at the critical ratio \\(m/\\log n\\), with an explicit continuous transition. The universal completion-time Gumbel law holds without assuming the ratio converges; the joint competing-extremes profile determines which subsystem controls the final bottleneck.",
+    "status": "PASS"
+  }
+}

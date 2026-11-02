@@ -1,0 +1,111 @@
+{
+  "correctness": {
+    "rationale": "All quantities are defined for any finite positive part sizes, any positive number of agents and identical unit valuations. EF1 is shown equivalent to the only balanced quota vector. The exact conflict-count identity reduces optimization to a sum of entry squares. An integer alternating cycle perturbation preserves nonnegative margins and increases the square sum strictly in at least one sign, so optimal supports are forests, giving \\(\\le r-1\\) mixed bundles. The equal-size r-part construction forces sharpness, and bipartite remainder arithmetic gives the exact minimum plus full optimizer pattern. Finite checks passed on 864 parameter instances comprising 69,276 occupancy matrices; the proof does not depend on finite extrapolation.",
+    "status": "PASS"
+  },
+  "independent": false,
+  "independent_audit_status": "not_performed",
+  "originality": {
+    "broader_coverage": {
+      "evidence": [
+        "Yoneda–Yoneda arXiv:2602.20929, Theorem 7 states that identical additive valuations admit an EF1 complete allocation with at most \\(|E|/n\\) violations on arbitrary graphs.",
+        "The same source Section 3 obtains worst-case \\(|E|/n\\) via a star having a zero-valued good; the present positive-unit bipartite family has exact 1 versus n for odd n.",
+        "The full source Section 6 discusses an extension to all valuations but does not give the structural all-optima statement."
+      ],
+      "reasoning": "The general \\(|E|/n\\) upper bound is not a stronger exact characterization; it cannot imply a factor-n improvement for odd \\(K_{n,n}\\), nor the forest support of every optimum. The source is broader in graph class and valuation class but weaker in requested mathematical conclusion. Known transportation-polytope extremality is credited as a proof technique, not ignored as prior knowledge.",
+      "searches": [
+        "published-finding corpus: Fair Division with Soft Conflicts Yoneda complete multipartite K_{a,b} exact optimum balanced EF1 monochromatic violated edges q remainder",
+        "Web: \"Fair Division with Soft Conflicts\" Yoneda citations followup 2026",
+        "Web: balanced maximum k-cut complete multipartite graph monochromatic edges balanced partitions"
+      ]
+    },
+    "checked_sources": [
+      "arxiv:2602.20929 — Yoneda and Yoneda, primary full text",
+      "arxiv:2201.12650 — Garijo, Márquez and Robles, relevant primary full text",
+      "arxiv:2605.09930 — Fair Allocation under Conflict Constraints; abstract-only hard-conflict comparator (no claim of full-text exclusion)",
+      "published-finding corpus result 7b706d1b874b — complete-bipartite released packing (different invariant)",
+      "published-finding corpus result 5943975f038c — proper conflict-free multipartite coloring (different invariant)",
+      "published-finding corpus result 9aaf81e2ad5d — prescribed max-degree-two coloring (different graph family and objective)"
+    ],
+    "claim_vs_prior_implication": {
+      "evidence": [
+        "2026 Yoneda–Yoneda Theorem 7: general upper bound (n for \\(K_{n,n}\\), n agents). Our proven exact value for odd n is 1, while even n is 0, so the bound is not tight on this graph family.",
+        "2024 Garijo–Márquez–Robles Theorem 2.1 characterizes robust color classes under proper-coloring constraints, not the minimum number of charged edges under a size-balanced but otherwise unrestricted allocation.",
+        "The earlier hard-conflict allocation literature permits discarding vertices for maximal EF1, whereas the present optimum always allocates every good, possibly violating edges."
+      ],
+      "reasoning": "Neither inspected statement entails the exact optimum or the all-optima support forest. Hard conflict-free coloring cannot simply be relaxed to give a sharp positive conflict count, as shown by the odd \\(K_{n,n}\\) family. A stronger unindexed specialized equitable-cut theorem could nevertheless cover the present claim, and is treated as residual risk.",
+      "searches": [
+        "Web: \"complete bipartite\" \"soft conflicts\" \"EF1\" exact",
+        "Web: \"equitable max k-cut\" \"complete bipartite\" optimal",
+        "Web: \"minimize\" \"monochromatic edges\" \"complete bipartite\" \"equitable\""
+      ]
+    },
+    "equivalent_formulations": {
+      "evidence": [
+        "Exact model equivalence: unit-additive EF1 is equitable n-coloring of vertices, where monochromatic edges are allowed but charged; the cell-sum objective is the negative of a strictly convex quadratic up to a fixed constant.",
+        "Garijo–Márquez–Robles, arXiv:2201.12650, Theorem 2.1: robust coloring optimizes monochromatic edges in a second graph over proper colorings of a first graph; it does not impose these mandatory equitable quotas.",
+        "published-finding corpus record 7b706d1b874b, \"Exact uniform released packing on complete bipartite graphs,\" optimizes a different released-packing quantity, not EF1 edge-violation minimization."
+      ],
+      "reasoning": "The present allocation is equivalently an equitable max-n-cut/min-monochromatic-edge problem. Classical transportation-polytope forest techniques help prove the result, but the inspected robust-coloring theorem operates over a different feasible set and does not give either the exact residue law or the every-optimum sparse mixing theorem. No indexed equivalent formulation with both the quota and charged-conflict requirements was found.",
+      "searches": [
+        "published-finding corpus: balanced max k cut complete multipartite graph transportation polytope optimal allocation at most r-1 mixed bundles",
+        "Web: equitable maximum k cut complete multipartite graph monochromatic edges balanced partitions",
+        "Web: \"equitable max cut\" \"complete bipartite\" \"formula\""
+      ]
+    },
+    "exact_database_or_table": {
+      "evidence": [
+        "The closest returned published-finding corpus records concern released packing on \\(K_{a,b}\\) (7b706d1b874b), proper conflict-free graph coloring (5943975f038c), and prescribed graph coloring of maximum-degree-two graphs (9aaf81e2ad5d); none records the exact soft-conflict quota-residue optimum.",
+        "Independent finite verification enumerated every feasible occupancy matrix in 864 parameter instances, but these are new proof checks, not a pre-existing database or published table."
+      ],
+      "reasoning": "No directly matching exact database, table or published record was located. The returned graph-coloring and packing results have different objective functions or feasibility constraints. Search incompleteness remains an originality risk.",
+      "searches": [
+        "published-finding corpus: two parts conflict items uniform value m divisible by n agent bundle quota q exact minimum (a mod q)(q-(a mod q))",
+        "published-finding corpus: complete bipartite graph fair division soft conflicts n odd class size two one conflict exact",
+        "published-finding corpus: EF1 minimum intra-bundle conflict edges complete bipartite graph balanced coloring"
+      ]
+    },
+    "rationale": "The primary 2026 soft-conflict paper was read in its accessible full text and proves a general upper bound of \\(|E|/n\\), not the complete multipartite optimizer-support theorem, exact bipartite residue law, or the odd bipartite factor-n separation. A relevant 2024 robust-coloring primary paper was inspected: it constrains proper colorings and optimizes a second graph, so its results do not imply the present equitable soft-conflict optimum. Searches of published mathematical-result records, close graph-coloring literature and accessible prior claims found no equivalent or stronger statement; this is not a proof of global publication priority.",
+    "residual_risks": [
+      "A specialized exact equitable max-n-cut theorem on complete bipartite graphs might exist in unindexed or differently named literature.",
+      "Standard transportation-polytope convexity and support-forest facts are not original; the new claim is the fair-allocation specialization and exact numerical characterization, which might be an overlooked corollary of a stronger source.",
+      "Some thematically adjacent hard-conflict work was accessible only at the abstract level; it concerns a different complete/partial feasibility requirement."
+    ],
+    "source_inspections": [
+      {
+        "assessment": "NOT_COVERING exact multipartite/bipartite optimum; establishes general upper bound and algorithm, not all-optima structure.",
+        "evidence": [
+          "Theorem 7: at most \\(|E|/n\\) violations for identical additive valuations.",
+          "Section 3 worst-case star example uses a zero-value good.",
+          "Conclusion conjectures \\(|E|/n\\) for all general valuations."
+        ],
+        "identifier_or_url": "https://arxiv.org/abs/2602.20929",
+        "material_read": "Accessible HTML main text from Introduction through Conclusion, including Definitions 1 and 4, Propositions 2 and 3, Theorems 7, 8, 14, 15, and Conjecture 16.",
+        "method": "Read primary arXiv full-text rendering; compared formal definition, parameters and conclusion rather than abstract alone.",
+        "title": "Fair Division with Soft Conflicts",
+        "trigger": "Same edge-violation objective, same EF1 definition, identical valuation case, direct primary source."
+      },
+      {
+        "assessment": "NOT_COVERING; robust coloring charges edges of a second graph under a proper coloring of a first graph, not quota-constrained soft conflicts on the charged graph.",
+        "evidence": [
+          "Definition of robust coloring: k-proper coloring of G minimizes monochromatic edges on H subset of complement of G.",
+          "Theorem 2.1 relates robust coloring on the complement graph to equitability, not this exact charged-edge problem."
+        ],
+        "identifier_or_url": "https://arxiv.org/html/2201.12650v3",
+        "material_read": "Abstract, introductory definition, Section 2 including Theorem 2.1, Proposition 2.1, Theorem 2.2 and \\(K_{3,3}\\) example, and relevant scope description of Sections 3–4.",
+        "method": "Inspected accessible primary arXiv HTML text.",
+        "title": "New results on the robust coloring problem",
+        "trigger": "Closest alternative coloring/monochromatic-edge objective with equitable partitions."
+      }
+    ],
+    "status": "PASS"
+  },
+  "review_type": "self_review",
+  "schema_version": 1,
+  "scope_run_id": "8317f469-97a6-43b8-aaa4-f08a51192aee",
+  "self_review_status": "passed",
+  "value": {
+    "rationale": "The 2026 fair-division paper motivates minimizing within-bundle conflict violations under EF1. The result is a precise structural law for all optimal allocations, with a sharp universal dependence on the number of conflict types and an exact natural bipartite invariant. Odd \\(K_{n,n}\\) with n agents has optimal cost 1, compared with the available general all-graph guarantee n, an unbounded factor-n gap over a dense infinite family. The result is restricted to unit valuations and does not claim a general-valuation extension.",
+    "status": "PASS"
+  }
+}

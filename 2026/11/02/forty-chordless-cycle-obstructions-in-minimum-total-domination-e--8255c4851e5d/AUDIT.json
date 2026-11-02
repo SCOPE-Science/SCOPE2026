@@ -1,0 +1,135 @@
+{
+  "correctness": {
+    "rationale": "The 20-vertex cubic graph is explicitly reconstructed by two algorithms. A degree argument excludes sets of size at most 6, and exhaustive 20-choose-7 and 20-choose-8 checks certify minimum 8 and exactly 190 optima. Every ordered one-vertex replacement is checked for membership in the full set, then component and eccentricity computations exhaust all 190 states. Independent generalized-Petersen bitset reconstruction reproduces 360 exchanges, 150+40 components, and radius/diameter 10 in the core. All 20-choose-12 possible complementary subsets are scanned for induced cycles, proving the exact set equivalence. Explicit 120-automorphism enumeration certifies the five orbit sizes. Scripts and assertions are included; no sampling-to-infinity inference.",
+    "status": "PASS"
+  },
+  "independent": false,
+  "independent_audit_status": "not_performed",
+  "originality": {
+    "broader_coverage": {
+      "evidence": [
+        "Cao-Lin-Shi (2009) Theorem 1 gives gamma_t(P(n,2)), not the set-to-set exchange graph.",
+        "Zhao et al. (2020) treat general Petersen total domination numerical invariants and quote the earlier P(n,2) formula.",
+        "Alikhani-Fatehi-Mynhardt (2017) investigate add/delete reconfiguration and d0 mainly for paths and cycles."
+      ],
+      "reasoning": "The general cardinality formula and the set-size-at-most-k addition/deletion framework each leave the number, adjacency, components, and cycle-complement interpretation of size-eight optimum token jumps unresolved. They cover background premises but do not dominate the asserted metric/reachability theorem.",
+      "searches": [
+        "\"Total Domination number of Generalized Petersen Graphs\" Cao Lin Shi 2009",
+        "\"minimum total dominating sets\" \"dodecahedral\" 190",
+        "doi:10.1155/2020/5473675",
+        "\"On k-Total Dominating Graphs\""
+      ]
+    },
+    "checked_sources": [
+      "Cao, Lin and Shi, 2009, doi:10.4236/iim.2009.11003",
+      "Zhao et al., 2020, doi:10.1155/2020/5473675",
+      "Alikhani, Fatehi and Mynhardt, 2017, arxiv:1711.04363v1",
+      "Henning, 2000, Journal of Graph Theory 35, DOI 10.1002/1097-0118(200009)35:1<21::AID-JGT3>3.0.CO;2-F",
+      "Cockayne, Dawes and Hedetniemi, 1980, doi:10.1002/net.3230100304",
+      "Wolfram GraphData documentation, generic minimum-total-dominating-set interface only"
+    ],
+    "claim_vs_prior_implication": {
+      "evidence": [
+        "Previously known gamma_t(GP(10,2))=8 only fixes the optimization threshold.",
+        "The 2017 total dominating graph uses add/remove moves and potentially larger cardinalities, so equality of the word reconfiguration does not give the same graph.",
+        "The present proof explicitly counts all 190 optima, 360 legal one-for-one exchanges, 40 cycle-complement isolates, and all distances."
+      ],
+      "reasoning": "The established minimum 8 neither implies the count of optima nor whether their exchange graph has a 150-node connected component with radius 10. The 2017 theorems on threshold add/remove moves cannot be specialized by merely setting k=8, since any minimum eight-set has no add/remove edge at threshold 8 whereas the present graph has 360 exchange edges. No stronger inspected result entails the new theorem.",
+      "searches": [
+        "doi:10.4236/iim.2009.11003",
+        "arxiv:1711.04363v1",
+        "\"dodecahedral graph\" \"total domination number\" 8 reconfiguration",
+        "\"total domination\" \"token jumping\" \"reconfiguration\" graphs"
+      ]
+    },
+    "equivalent_formulations": {
+      "evidence": [
+        "Total dominating sets are defined with open neighborhoods, so ordinary domination and power domination are different optimization problems.",
+        "Alikhani-Fatehi-Mynhardt, arXiv:1711.04363v1, Definition 1 uses additions/deletions and sets of size at most k."
+      ],
+      "reasoning": "Checked alternate phrases: gamma_t-sets, total dominating configurations, minimum total dominating subsets, token jumping and one-vertex-exchange, induced/chordless twelve-cycles, and generalized Petersen GP(10,2). The inspected k-total dominating graph has different vertices and adjacency, so its results do not directly imply the fixed-minimum exchange components.",
+      "searches": [
+        "\"dodecahedral graph\" \"total dominating sets\" 190 150",
+        "\"dodecahedron\" \"total domination\" \"reconfiguration\"",
+        "\"dodecahedron\" \"induced cycles\" \"12\" \"40\"",
+        "arxiv:1711.04363v1"
+      ]
+    },
+    "exact_database_or_table": {
+      "evidence": [
+        "Wolfram GraphData documentation advertises general MinimumTotalDominatingSets and related set-count properties, but no dodecahedron-specific value or exchange table was retrieved.",
+        "Targeted public queries did not locate an explicit 190-by-190 exchange table or the asserted 40 induced twelve-cycle equivalence."
+      ],
+      "reasoning": "A general database interface that can enumerate minima is not itself evidence that the derived exchange connectivity, automorphism orbits, and eccentricity have been published. A specialized historical enumerator could nonetheless overlap; this remains a residual risk rather than a false assertion of having searched every table.",
+      "searches": [
+        "\"dodecahedron\" \"total domination\" \"190\"",
+        "\"dodecahedral graph\" \"total dominating\" \"40\" \"cycle\"",
+        "https://reference.wolfram.com/language/ref/GraphData.html"
+      ]
+    },
+    "rationale": "Cao, Lin and Shi (2009) determine the numerical minimum for GP(n,2), including eight for GP(10,2), but do not classify one-vertex exchange connectivity. Alikhani et al. (2017) define a different add/delete reconfiguration graph over cardinalities up to a bound; their broad properties do not entail this exact fixed-cardinality exchange graph. Direct targeted searches and mathematical-record comparisons found no published claim of a 150-vertex connected component, forty isolated minimum total dominating sets characterized by complementary induced twelve-cycles, or uniform core eccentricity ten. This is best-knowledge priority only, not global uniqueness.",
+    "residual_risks": [
+      "An unindexed dodecahedral configuration or induced-cycle catalogue might encode the same exchange invariants indirectly.",
+      "Henning (2000) full article not accessible; its abstract concerns general bounds, so overlap is unlikely but cannot be excluded from the abstract alone.",
+      "No dodecahedron-specific evaluated output from existing all-set enumeration databases was accessible; exhaustive priority verification is not possible."
+    ],
+    "source_inspections": [
+      {
+        "assessment": "Determines minimum total-domination cardinalities for GP(n,2), including eight at n=10; does not enumerate all optimal configurations, exchanges, the dodecahedral components or cycle-complement isolates.",
+        "evidence": [
+          "Theorem 1 states gamma_t(P(3k+1,2))=2(k+1), hence gamma_t(P(10,2))=8.",
+          "Remaining proof treats minimum cardinality by explicit witnesses and lower bounds, not token jumping."
+        ],
+        "identifier_or_url": "https://content.scirp.org/pdf/iim20090100002_63198021.pdf",
+        "material_read": "Four-page publisher PDF text and its theorem/proof; page screenshots inspected for the three proof pages (second through fourth).",
+        "method": "Full primary PDF retrieval, theorem verification and visual inspection of the displayed original pages.",
+        "title": "Total Domination Number of Generalized Petersen Graphs",
+        "trigger": "Exact same graph family GP(n,2), potentially dominating the minimum or classification"
+      },
+      {
+        "assessment": "Discusses numerical invariants, particularly other Petersen parameters; the paper cites Cao et al. for the GP(n,2) cardinality rather than supplying the asserted dodecahedral exchange graph.",
+        "evidence": [
+          "The article identifies Cao et al. as proving gamma_t(P(n,2)).",
+          "The main propositions count total domination in different generalized Petersen subfamilies, without an optimal-set one-token exchange metric."
+        ],
+        "identifier_or_url": "https://onlinelibrary.wiley.com/doi/10.1155/2020/5473675",
+        "material_read": "Full HTML article; Introduction, Main Results (Theorems 1-6), and conclusions, including its reference to Cao et al.",
+        "method": "Publisher full-text HTML section and theorem reading.",
+        "title": "The Numerical Invariants concerning the Total Domination for Generalized Petersen Graphs",
+        "trigger": "Plausible stronger counting result for generalized Petersen graphs"
+      },
+      {
+        "assessment": "Defines thresholded single-vertex addition/removal reconfiguration rather than replacement at fixed minimum cardinality; no dodecahedron classification identified.",
+        "evidence": [
+          "Definition 1 takes all total dominating sets of size at most k, with one add/delete step.",
+          "Theorems concern general connectivity and paths/cycles; neither reports the dodecahedral graph."
+        ],
+        "identifier_or_url": "https://arxiv.org/abs/1711.04363",
+        "material_read": "HTML manuscript abstract, Introduction and Definitions, Section 2 framework, theorem statements, and document-wide searches for dodecahedron/Petersen.",
+        "method": "Read accessible arXiv HTML text and compare the formal reconfiguration relation and claimed graph families.",
+        "title": "On k-Total Dominating Graphs",
+        "trigger": "Exact phrase total-domination reconfiguration; potential stronger coverage through a graph of configurations"
+      },
+      {
+        "assessment": "Bounds and extremal structures; no explicit exchange classification in accessible material, but no full-text NOT_COVERING claim is made.",
+        "evidence": [
+          "First published 2000-08-09; discusses upper bounds for total domination of connected graphs."
+        ],
+        "identifier_or_url": "https://onlinelibrary.wiley.com/doi/abs/10.1002/1097-0118%28200009%2935%3A1%3C21%3A%3AAID-JGT3%3E3.0.CO%3B2-F",
+        "material_read": "Publisher abstract and full bibliographic/publication-date metadata only; full text not accessed.",
+        "method": "Publisher abstract and dated landing page.",
+        "title": "Graphs with large total domination number",
+        "trigger": "Archival day-granular public source supporting basic total-domination research"
+      }
+    ],
+    "status": "PASS"
+  },
+  "review_type": "self_review",
+  "schema_version": 1,
+  "scope_run_id": "8255c485-1e5d-4c02-b728-2c5696c7e2f3",
+  "self_review_status": "passed",
+  "value": {
+    "rationale": "The regular dodecahedron is a canonical and highly symmetric cubic graph with natural minimum total-dominating sensor configurations. Whether the minimum-cost configurations remain reachable by one-for-one relocation is a motivated structural invariant, not inferable from the known size-8 optimum. The result finds forty genuinely frozen configurations and a connected 150-configuration core of uniform eccentricity ten, explains all frozen states as complements of induced twelve-cycles, and completely classifies automorphism orbit types. The characterization is a meaningful finite structural boundary for optimal reconfiguration rather than an arbitrary slice or small numerical improvement.",
+    "status": "PASS"
+  }
+}

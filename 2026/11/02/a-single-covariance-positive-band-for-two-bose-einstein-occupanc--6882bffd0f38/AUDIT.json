@@ -1,0 +1,114 @@
+{
+  "correctness": {
+    "rationale": "Every fixed-frequency moment follows from exact stars-and-bars enumeration. Explicit logarithmic differentiation of the normalized mixed moment reduces the derivative sign to 2-(s+1)T, where T is a strictly increasing sum of positive-factor products. This proves exactly one interior maximum or strict decrease, with the k=2 boundary and subunit tail checked. The seven-file package contains the full proof and a standalone checker passing 21,041 exact assertions.",
+    "status": "PASS"
+  },
+  "independent": false,
+  "independent_audit_status": "not_performed",
+  "originality": {
+    "broader_coverage": {
+      "evidence": [
+        "Huillet and Martínez (2013), Proposition 5 gives multivariate factorial moments for a broader Gibbs–Poisson family",
+        "Ben-Hamou, Boucheron and Ohannessian (2014), arXiv:1412.8652, fixed-probability independent-sampling occupancy scheme"
+      ],
+      "reasoning": "The Gibbs–Poisson moment identity is a broader enumerative starting point but does not explicitly supply the stronger global derivative-shape inequality as the number of categories varies. The infinite iid urn setup has a different allocation distribution and is not a dominating covariance-shape statement.",
+      "searches": [
+        "Dirichlet multinomial symmetric alpha=1 frequency of frequencies pair covariance as number of categories varies unimodal ratio second moment",
+        "uniform Bose Einstein allocation occupancy frequencies covariance positive for middle numbers of boxes negative small and large boxes",
+        "Occupancy distributions arising in sampling from Gibbs-Poisson abundance models arXiv 1307.3000"
+      ]
+    },
+    "checked_sources": [
+      "https://arxiv.org/abs/0809.4181",
+      "https://arxiv.org/abs/1307.3000",
+      "https://arxiv.org/abs/1412.8652"
+    ],
+    "claim_vs_prior_implication": {
+      "evidence": [
+        "General mixed factorial moments of the frequency-of-frequencies counts: Huillet and Martínez (2013), Proposition 5",
+        "The derivative identity d log R/dx=[2-(s+1)T(x)]/[x(x-2)], together with the strict growth of T, is proved in RESULT.md"
+      ],
+      "reasoning": "Prior formulas imply the exact mixed moment after specialization and algebra, so that formula is not claimed new. The asserted contribution is a nontrivial global parameter-order property requiring the strict monotonicity certificate and endpoint proof. No inspected theorem directly implies the interval or maximum statements, although earlier formulas may conceal them.",
+      "searches": [
+        "uniform weak compositions two distinct part size counts covariance nonmonotone number of components single positive interval signed covariance Bose Einstein",
+        "Dirichlet multinomial symmetric alpha=1 frequency of frequencies pair covariance as number of categories varies unimodal ratio second moment",
+        "uniform Bose Einstein allocation occupancy frequencies covariance positive for middle numbers of boxes negative small and large boxes"
+      ]
+    },
+    "equivalent_formulations": {
+      "evidence": [
+        "Huillet and Martínez (2013), arXiv:1307.3000, Sec. 2 Proposition 5 and Dirichlet specialization",
+        "Huillet and Paroissin (2008), arXiv:0809.4181"
+      ],
+      "reasoning": "Uniform weak composition is equivalent to symmetric Dirichlet(1) multinomial sampling, so both formulations were compared. The retrieved general mixed-factorial moments recover the ratio but do not explicitly classify its unique maximum or covariance-positive interval in varying category count.",
+      "searches": [
+        "uniform weak compositions two distinct part size counts covariance nonmonotone number of components single positive interval signed covariance Bose Einstein",
+        "Dirichlet multinomial symmetric alpha=1 frequency of frequencies pair covariance as number of categories varies unimodal ratio second moment",
+        "\"Dirichlet multinomial\" \"frequency of frequencies\" covariance"
+      ]
+    },
+    "exact_database_or_table": {
+      "evidence": [
+        "The inspected arXiv papers tabulate/derive moments, not a complete positive-covariance interval table indexed by category number",
+        "The six-value example at (10,1,6) is checked exactly in check.py"
+      ],
+      "reasoning": "No directly matching parameter sign-band table was located in the checked accessible sources. This is bounded search evidence, not a proof of absolute uniqueness; such a table could be implicit in an uninspected source.",
+      "searches": [
+        "uniform weak compositions two distinct part size counts covariance nonmonotone number of components single positive interval signed covariance Bose Einstein",
+        "Uniform weak composition Bose Einstein occupancy frequency counts covariance number of cells occupied exactly r and s positive interval in number of boxes k unimodal likelihood ratio",
+        "Bose Einstein occupancy frequency counts covariance positive correlations number of species Dirichlet multinomial number of boxes"
+      ]
+    },
+    "rationale": "The prior 2013 general factorial-moment identity is acknowledged and not claimed new; the assessed result is the all-parameter unique-maximum and single-positive-band classification with an explicit two-sign-reversal witness. Inspected primary sources and relevant published-record summaries did not explicitly give this classification, with real residual priority risk from implicit coverage by older formulas.",
+    "residual_risks": [
+      "Earlier general mixed-moment formulas could yield an unrecognized short corollary equivalent to the shape theorem.",
+      "Search and primary-text inspection are bounded, and unsearched older probability/occupancy literature could contain a directly matching covariance classification."
+    ],
+    "source_inspections": [
+      {
+        "assessment": "Covers model and frequency distribution; no explicit number-of-categories covariance-positive-band theorem located",
+        "evidence": [
+          "arXiv:0809.4181; first posted 2008-09-24",
+          "Dirichlet parameter-one Bose–Einstein uniform weak-composition model"
+        ],
+        "identifier_or_url": "https://arxiv.org/pdf/0809.4181",
+        "material_read": "Full-text PDF sampled, especially pages 1 and 7 for probability laws and occupancy discussion; arXiv submission date separately verified",
+        "method": "Read rendered PDF pages and searchable text; compared objects and derived model identities",
+        "title": "Sampling from Dirichlet populations: estimating the number of species",
+        "trigger": "Exact symmetric Dirichlet-to-uniform-composition correspondence"
+      },
+      {
+        "assessment": "Explicit general factorial moments dominate the enumerative part of this claim, but no covariance-positive parameter band or strict one-maximum theorem identified",
+        "evidence": [
+          "arXiv:1307.3000, Proposition 5, joint occupancy factorial moments",
+          "Dirichlet-multinomial specialization in the same paper"
+        ],
+        "identifier_or_url": "https://arxiv.org/pdf/1307.3000",
+        "material_read": "Full-text PDF examined, particularly pages 14–15 and 21 including Proposition 5 and Dirichlet specialization",
+        "method": "Read PDF page images and searched text for relevant moments and conditional parameters",
+        "title": "Occupancy distributions arising in sampling from Gibbs-Poisson abundance models",
+        "trigger": "General frequency-of-frequencies mixed factorial-moment formula plausibly dominating the exact moments"
+      },
+      {
+        "assessment": "Independent sampling from deterministic category weights and concentration bounds; does not give the exact Dirichlet mixture covariance-band theorem",
+        "evidence": [
+          "arXiv:1412.8652, independent urn allocation and occupancy concentration setup"
+        ],
+        "identifier_or_url": "https://arxiv.org/pdf/1412.8652",
+        "material_read": "Full-text PDF examined, including opening two pages and model statement",
+        "method": "Compared sampling law and concentration statements with the Dirichlet-mixture uniform-composition law",
+        "title": "Concentration inequalities in the infinite urn scheme for occupancy counts and the missing mass, with applications",
+        "trigger": "Strong occupancy-count dependence results could potentially dominate the claim"
+      }
+    ],
+    "status": "PASS"
+  },
+  "review_type": "self_review",
+  "schema_version": 1,
+  "scope_run_id": "6882bffd-0f38-45c9-bcfa-ad6af390423e",
+  "self_review_status": "passed",
+  "value": {
+    "rationale": "The abundance frequency-of-frequencies statistics are natural in Dirichlet species sampling. The result gives a global all-pair sign-topology classification with at most one positive window as the potential species pool varies. The exact example displays both possible reversals; a moment formula alone does not state or visualize this structural one-band restriction.",
+    "status": "PASS"
+  }
+}

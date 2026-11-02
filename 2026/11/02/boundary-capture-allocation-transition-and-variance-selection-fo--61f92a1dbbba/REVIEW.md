@@ -1,0 +1,15 @@
+# Scientific review: capture allocation in finite-speed transport
+
+## Correctness — PASS
+
+The domain consists of positive finite corridor half-width and speed, any nonnegative exponential reversal rate, and a fixed sum \(Q\in(0,2]\) of independent per-collision capture probabilities in \([0,1]\). The initial state is the corridor midpoint with equal velocity signs. The backward first-passage moment equations and collision boundary conditions yield an exact rational mean, independently matching the established telegraph absorption expression upon reparametrization. Its derivative with respect to the feasible product \(P=q_-q_+\) has the rigorous sign of \(1-2\xi\). Extremizing \(P\) gives the complete mean-allocation classification; for \(Q=2\) there is only one admissible allocation. At \(\xi=1/2\) the exact second-moment calculation gives a strictly increasing affine dependence of the variance on \(P\). The nonstandard moment identities and limits were verified with exact symbolic algebra; finite-event simulations corroborate but do not replace proof.
+
+## Originality — PASS on inspected evidence
+
+The focal prior result (Angelani, arXiv:1601.04845) already gives the full general absorption-time transform and mean formula, a strictly broader *distributional* description, so the present result does not claim those known formulas as new. The mathematical contribution is the fixed-sum endpoint-capture **optimization theorem**, including the sharp reversal-rate phase boundary and variance selection within the continuum of mean minimizers. Those conclusions are not formulated in the inspected original source, and an previously established constrained optimum has not been located. Bressloff's 2023 encounter and sticky-boundary model has additional residence dynamics; Masoliver–Porrà–Weiss (1993) provides a historical telegraph boundary comparison with material-rendering limitations. The older related bulk-reversal tuning claim varies a different control variable, not capture-probability allocation. Targeted literature and database searches included optimization, boundary reactivity, equivalent formulation, and per-collision capture terminology. No search is a proof of worldwide priority, and broader transform knowledge leaves a meaningful residual rediscovery risk.
+
+## Mathematical value — PASS
+
+At a fixed and physically interpretable boundary capture budget, the exact minimizer changes from maximally asymmetric to symmetric when the ballistic mean free path crosses the corridor length. At the critical point all feasible designs are mean-optimal, but a universal sharp variance penalty distinguishes them: for budgets not exceeding one, equal capture worsens the variance by \(4h^2/(3v^2)\) independently of the budget. This is a substantive robustness/design statement for finite-speed transport rather than a formula reparameterization or a small numerical improvement. The cost budget is specific to per-collision capture probabilities; other cost functions, sticky boundaries, biased initial velocity, and non-Poisson dynamics can behave differently.
+
+Self-review: passed. Independent audit: not yet performed.

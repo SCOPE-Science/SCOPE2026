@@ -1,0 +1,149 @@
+{
+  "correctness": {
+    "rationale": "The full proof derives the exact integer-polynomial representation, Vandermonde shift, prime-power valuations and recurrence minimality. For c even with valuation \\(t\\ge2\\) it proves a unique lowest-valuation shift term, and for \\(t=1\\) it proves a cancelling pair at \\(j=1,2\\); each gives an exact dyadic least period. The c odd preperiod follows from a recurrence induction with explicit last nonzero residue. All cases combine by CRT. Independent finite recurrence and shift calculations through specified bounds corroborate but do not replace the unrestricted proof.",
+    "status": "PASS"
+  },
+  "independent": false,
+  "independent_audit_status": "not_performed",
+  "originality": {
+    "broader_coverage": {
+      "evidence": [
+        "2019 Theorems 8, 10 cover weighted odd-shift and multiplicative-shift congruences modulo c*m.",
+        "2026 Theorem 1 is universal in cycle weights and gives multiplicative shift modulo lcm(n,k); its Corollary 25 provides period upper bounds and nilpotent-tail information."
+      ],
+      "reasoning": "Both general shift results have broader object coverage, but neither supplies a result strong enough in 2-adic exponent or least-period optimality to imply the exact \\(c=2u\\) versus \\(c=4u\\) binary phase or the sharp equality of shift valuations. Known odd components are treated as prior knowledge.",
+      "searches": [
+        "web: \"generalized telephone numbers\" congruence even modulus period",
+        "web: \"generalized involution numbers\" \"periodic\" \"power of 2\"",
+        "weighted involution polynomials T_c(n)=T_c(n-1)+c(n-1)T_c(n-2) exact least eventual period modulo 2^a*m, preperiod 4a-2, even c mod 4 dichotomy",
+        "generalized telephone numbers modulo 2^k least periods c=2u odd u: 2^{max(2,k-1)}; c divisible by 4: 2^{k-v2(c)+1}"
+      ]
+    },
+    "checked_sources": [
+      "Kim and Kim, arxiv:0902.4311, sections 3,4,6",
+      "Amdeberhan and Moll, arxiv:1406.2356, sections 2–4",
+      "Bednarz and Wołowiec-Musiał, DOI:10.3906/mat-1812-108, section 4",
+      "Kallat, arxiv:2610.15849, introduction, Theorem 1, Corollary 25, Section 6",
+      "OEIS A000085",
+      "Published mathematical result summaries searched for all-weight periods, exact dyadic phases, and aliases; closest mathematical claims were compared for implication"
+    ],
+    "claim_vs_prior_implication": {
+      "evidence": [
+        "2009 Theorem 6.3 implies the exact \\(c=1\\) special case, which is expressly acknowledged as prior.",
+        "2019 Theorem 8 implies the weighted odd-factor upper period but not its leastness nor the dyadic exact phases.",
+        "2026 Theorem 1 implies \\(A(n+h)\\equiv A(n)A(h)\\pmod h\\), insufficient for the exact least period modulo arbitrary 2^a and cancellation difference."
+      ],
+      "reasoning": "Statement-level implication test isolates the genuinely additional ingredient: for \\(t\\ge2\\) the all-index exact value \\(\\nu_2(T_c(n+2^r)-T_c(n))=r+t-1\\) and for \\(t=1\\) a canceled layer improving the shift modulus. Both control previously undetermined exact dyadic minimum periods, and the recurrence comparison establishes sharpness. No inspected more general prior result implies these particular equalities without substantial new arithmetic lemmas.",
+      "searches": [
+        "arxiv:0902.4311 Theorem 6.3",
+        "doi:10.3906/mat-1812-108 Theorems 8/10",
+        "arxiv:2610.15849 Theorem 1 Corollary 25",
+        "weighted involution polynomials T_c(n)=T_c(n-1)+c(n-1)T_c(n-2) exact least eventual period modulo 2^a*m, preperiod 4a-2, even c mod 4 dichotomy",
+        "generalized telephone numbers modulo 2^k least periods c=2u odd u: 2^{max(2,k-1)}; c divisible by 4: 2^{k-v2(c)+1}"
+      ]
+    },
+    "equivalent_formulations": {
+      "evidence": [
+        "The family is the complete-graph matching polynomial with edge weight c and the specialization t_n(1,c) of the 2009 weighted involution polynomial.",
+        "OEIS A000085, Kim and Kim Theorem 6.3, and the 2014 polynomial were compared as aliases, not merely titles."
+      ],
+      "reasoning": "The unweighted \\(c=1\\) period/preperiod is exactly covered, explicitly excluded from claimed novelty. Generalizing c beyond 1 is not alone the novelty; the proof distinguishes nonunit c by two exact and inequivalent dyadic phases and gives all-index sharp binary shift valuations, not supplied by inspected alias sources.",
+      "searches": [
+        "involution numbers telephone numbers minimal periods modulo powers of 2 exact least period",
+        "Generalized telephone numbers T_c(n) weighted involution polynomials recurrence T_n=T_{n-1}+c(n-1)T_{n-2} least exact eventual period and preperiod modulo any integer including powers of two odd weights",
+        "Hermite involution polynomial modulo 2^a 3^a minimal period modulus weighted matchings even edge weight",
+        "weighted involution polynomials T_c(n)=T_c(n-1)+c(n-1)T_c(n-2) exact least eventual period modulo 2^a*m, preperiod 4a-2, even c mod 4 dichotomy",
+        "generalized telephone numbers modulo 2^k least periods c=2u odd u: 2^{max(2,k-1)}; c divisible by 4: 2^{k-v2(c)+1}",
+        "web: \"involution polynomials\" \"period\" \"modulo\" weights 2",
+        "web: \"telephone numbers\" \"2-adic\" \"period\" weighted involutions"
+      ]
+    },
+    "exact_database_or_table": {
+      "evidence": [
+        "OEIS A000085 lists \\(c=1\\) and references to classical valuations and periods; no all-weight exact period table identified.",
+        "A grid of 12,691 recurrence comparisons was performed as verification, not used as a known reference table."
+      ],
+      "reasoning": "No inspected database entry/table lists the full integer-edge-weight dyadic phase map. Absence in a database is not a novelty proof; this is corroborative only.",
+      "searches": [
+        "source inspected: https://oeis.org/A000085",
+        "web: \"generalized telephone numbers\" \"least period\" modulus",
+        "Generalized telephone numbers T_c(n) weighted involution polynomials recurrence T_n=T_{n-1}+c(n-1)T_{n-2} least exact eventual period and preperiod modulo any integer including powers of two odd weights"
+      ]
+    },
+    "rationale": "The unweighted \\(c=1\\) case is already completely proved by Kim and Kim (2009), and the weighted odd-shift upper bounds are established by Bednarz and Wołowiec-Musiał (2019). The novelty claim is restricted to the new exact even-weight binary phase split and global all-integer-parameter synthesis: c divisible by 4 has universally sharp 2-adic shifts, whereas c congruent to 2 modulo 4 exhibits an additional two-term cancellation. These are absent from the full-text prior results inspected. Priority remains subject to unlocated specialized historical literature.",
+    "residual_risks": [
+      "A specialized prior theorem on the Hermite/complete-graph matching polynomial at even edge weights could contain an equivalent minimal-period formula not found through the available searches.",
+      "The universal weighted-permutation congruence has wide scope, but no stronger unpublished or external specialization was established.",
+      "The \\(c=1\\) case and odd shift upper bounds are emphatically not original."
+    ],
+    "source_inspections": [
+      {
+        "assessment": "DEFINITIVELY COVERS the \\(c=1\\) least-period/preperiod formula (Theorem 6.3). Section 4 develops general two-variable weighted involution polynomial but Section 6 treats \\(c=1\\) only. No weighted c-even dyadic least-period phase theorem found in inspected text.",
+        "evidence": [
+          "Theorem 6.3: the minimum index 4k-2 and minimum odd period for unweighted involutions modulo 2^k times an odd number.",
+          "Section 4: weighted involution generating function; Theorem 6.2: exact odd-modulus period for \\(c=1\\)."
+        ],
+        "identifier_or_url": "https://arxiv.org/abs/0902.4311",
+        "material_read": "Full rendered HTML text, in particular Introduction, Sections 3–4, 6 and Theorems 6.2–6.4.",
+        "method": "Read arXiv primary full-text HTML, not abstract-only.",
+        "title": "A combinatorial approach to the power of 2 in the number of involutions",
+        "trigger": "Direct match to unweighted period, exact preperiod, and weighted involution polynomial; potentially dominating prior theorem."
+      },
+      {
+        "assessment": "Classical recurrence, weighted-by-fixed-point involution polynomials and two-adic background; no matching nonunit c-weighted dyadic least-period phase formula found.",
+        "evidence": [
+          "Section 2 Theorem 2.1 gives the \\(c=1\\) recurrence; Section 3 defines fixed-point weighted polynomial; Section 4 studies \\(c=1\\) valuations."
+        ],
+        "identifier_or_url": "https://arxiv.org/abs/1406.2356",
+        "material_read": "Full paper HTML Sections 1–4, together with the published 2014 PDF introduction and valuation pages.",
+        "method": "Read arXiv full-text HTML and examined PDF page images.",
+        "title": "Involutions and their progenies",
+        "trigger": "Archival involution number arithmetic and involution polynomial normalizations."
+      },
+      {
+        "assessment": "Directly covers odd-shift congruence mod c*m, and a multiplicative shift mod c*m. Does not assert sharp least periods, dyadic phase split or all-index exact valuation of a binary shift. The new weighted odd-prime upper periods are not novel independently.",
+        "evidence": [
+          "Theorem 8: T_c(n+m)=T_c(n) modulo c*m for odd m (positive c).",
+          "Theorem 10: T_c(n+m)=T_c(n) T_c(m) modulo c*m."
+        ],
+        "identifier_or_url": "https://doi.org/10.3906/mat-1812-108",
+        "material_read": "Complete open-access article text, especially Section 4, Theorems 8, 10 and Corollaries 9, 11.",
+        "method": "Read complete original full-text transcription, including proof of congruence theorems.",
+        "title": "On a new generalization of telephone numbers",
+        "trigger": "Exact same weighted recurrence for positive integer weight and stated congruence theorems."
+      },
+      {
+        "assessment": "Provides universal multiplicative shift and coarser periodicity/zero-tail conclusions. Its Corollary 25 bounds periods, but does not determine exact least dyadic periods for weighted involutions or the sharp 2-adic shift difference phase here.",
+        "evidence": [
+          "Theorem 1: A_w(n+k) congruent A_w(n)A_w(k) modulo lcm(n,k).",
+          "Corollary 25 classifies generic residue-class behavior based on A_w(k), not exact minimal periods for the specialized weighted involution family."
+        ],
+        "identifier_or_url": "https://arxiv.org/abs/2610.15849",
+        "material_read": "Full arXiv HTML, Sections 1, 4, 6, and applications, particularly Theorem 1, Corollary 25, Example 26.",
+        "method": "Read original arXiv full-text HTML with targeted theorem and residue-dynamics comparison.",
+        "title": "Universal Shift Congruences for Weighted Permutation Sequences",
+        "trigger": "Potentially stronger universal theorem over every cycle weight and modulus, explicitly involutions."
+      },
+      {
+        "assessment": "Unweighted case known and matches Kim and Kim. Not a table of exact dyadic least periods for all edge weights.",
+        "evidence": [
+          "A000085 is the \\(c=1\\) involution/telephone sequence and matching number of the complete graph."
+        ],
+        "identifier_or_url": "https://oeis.org/A000085",
+        "material_read": "Sequence definition, references, arithmetic and matching-number descriptions.",
+        "method": "Read public OEIS entry.",
+        "title": "OEIS A000085",
+        "trigger": "Known sequence tables and named classical involution alias."
+      }
+    ],
+    "status": "PASS"
+  },
+  "review_type": "self_review",
+  "schema_version": 1,
+  "scope_run_id": "6a1f95c9-9d4e-45b9-b134-a7fbbfc05749",
+  "self_review_status": "passed",
+  "value": {
+    "rationale": "The exact least eventual period and preperiod of a natural weighted matching enumerator modulo every integer is an invariant that distinguishes parameter-driven arithmetic regimes. In particular, the unexpected \\(c\\equiv2\\pmod4\\) cancellation versus the sharp noncancellation for 4|c produces different dyadic period growth, and the exact shift valuation is stronger than merely bounding a period. The pre-existing \\(c=1\\) and odd-shift ingredients are transparently isolated; no unsupported downstream importance is claimed.",
+    "status": "PASS"
+  }
+}

@@ -1,0 +1,123 @@
+{
+  "correctness": {
+    "rationale": "Every shattered m≥3 support forces m distinct private coordinates, so m≤k. At m=k they exhaust the free axes; a two-positive trace forces k−2 spare axes, giving d≥2k−2. Exact constructions realize every trace and uniquely count 2^d binom(d,k) maximal supports. Each splitting all-positive query introduces a fresh axis, so online depth≤k+1. At d=2k−1 a uniform-subset containment tree provides depth k in the positive root branch, and a k-shattered support in the opposite facet provides depth k in the negative branch. Included reproducible enumeration and 16-leaf certificate check finite cases independently. Assumptions d≥k≥3, finite discrete cube and rank exactly k were checked; no extrapolation from finite code is made.",
+    "status": "PASS"
+  },
+  "independent": false,
+  "independent_audit_status": "not_performed",
+  "originality": {
+    "broader_coverage": {
+      "evidence": [
+        "Guingona et al., arXiv:2109.04805, abstract, introduction and main-theorem discussion: full linear-combination zero-set families.",
+        "Chepoi–Knauer–Philibert, arXiv:1906.04492, introduction and 2-dimensional partial-cube results: set-family VC dimension under primal inclusion representations."
+      ],
+      "reasoning": "Generic VC bounds and unrestricted class identities are not enough to determine the exact thresholds for fixed-rank signed conjunctions. The named prior zero-set and partial-cube families are neither identical to nor demonstrated to cover the theorem by implication.",
+      "searches": [
+        "VC dimension of k-dimensional faces of the Boolean cube under vertex-membership incidence queries",
+        "Littlestone dimension of exact-width signed conjunctions of Boolean literals and uniform Boolean terms",
+        "Shattering of coordinate subcubes; maximum VC-shattered supports and adaptive query trees",
+        "Littlestone dimension of all conjunctions Boolean cube",
+        "arxiv:2109.04805 Littlestone VC zero sets linear combination"
+      ]
+    },
+    "checked_sources": [
+      "arxiv:2212.14685",
+      "arxiv:1906.04492",
+      "arxiv:2109.04805",
+      "Mitchell, Machine Learning (1997), Chapter 7"
+    ],
+    "claim_vs_prior_implication": {
+      "evidence": [
+        "Partition theorem: existence/structure of pairwise disjoint face decompositions, not full incidence class shattering.",
+        "Partial cube paper: representation of families by cube vertices, not all rank-k face membership concepts.",
+        "Zero-set theorem: unrestricted linear combination zero sets with matched static/online ranks, not the restricted class of exact-width signed conjunctions."
+      ],
+      "reasoning": "Neither equality of the objects nor a published implication sufficient for the simultaneous sharp VC threshold d=2k−2, maximal-support orbit count, universal online bound k+1, and attained online range d≥2k−1 was identified. The claims are compared mathematically rather than by wording alone.",
+      "searches": [
+        "arxiv:2212.14685 Section 2.8 homogeneous subcube partitions",
+        "arxiv:1906.04492 partial cubes VC dimension",
+        "arxiv:2109.04805 Littlestone families of zero sets",
+        "Littlestone dimension of exact-width signed conjunctions of Boolean literals and uniform Boolean terms"
+      ]
+    },
+    "equivalent_formulations": {
+      "evidence": [
+        "A k-dimensional coordinate face is the truth set of exactly d-k consistent signed literals on different variables.",
+        "Mitchell, Machine Learning (1997), Chapter 7 discusses conjunctions with a variable number of literals, not a single fixed width.",
+        "Filmus et al., arXiv:2212.14685, introduction and §2.8 discuss equicodimensional subcube partitions."
+      ],
+      "reasoning": "The exact-width conjunction equivalence was explicitly checked. A broader class admitting up-to-width terms is not logically identical: it has additional hypotheses and therefore its VC or Littlestone result does not imply an equality for the restricted fixed-width class. The full fixed-rank face system is also distinct from a partition of the cube by disjoint faces.",
+      "searches": [
+        "VC dimension of k-dimensional faces of the Boolean cube under vertex-membership incidence queries",
+        "Littlestone dimension of exact-width signed conjunctions of Boolean literals and uniform Boolean terms",
+        "VC dimension conjunctions of exactly r signed literals versus conjunctions of at most r literals",
+        "fixed-codimension Boolean subcubes uniform signed conjunctions exact width VC dimension"
+      ]
+    },
+    "exact_database_or_table": {
+      "evidence": [
+        "The reviewed sources describe subcube partition enumeration, partial cube VC dimension, and more general learning-theory bounds, without giving the fixed-rank maximum-support count 2^d binom(d,k).",
+        "The directly recomputed examples (d,k)=(4,3),(5,3) contain 64 and 320 maximal shattered supports respectively."
+      ],
+      "reasoning": "No verified pre-existing table or exact formula covering the claim was found in the inspected sources. The finite enumerations are newly computed checks, not an assertion that an unsearched database does not exist.",
+      "searches": [
+        "VC dimension of k-dimensional faces of the Boolean cube under vertex-membership incidence queries",
+        "Shattering of coordinate subcubes; maximum VC-shattered supports and adaptive query trees",
+        "fixed face Boolean cube VC dimension exact maximum support counting 2^d binomial",
+        "VC dimension of Boolean conjunctions that fix exactly r variables and leave k free; fixed-codimension subcubes"
+      ]
+    },
+    "rationale": "The theorem concerns all fixed-rank coordinate faces as a set system on cube vertices, equivalently conjunctions of exactly d-k consistent signed literals. The primary subcube-partition source addresses partitions into faces, not incidence shattering for the full face class. The partial-cube source uses a different primal embedding invariant, and the zero-set source gives full linear-combination zero-set families. Standard variable-width conjunction classes do not imply this fixed-width threshold, count, and online rank. No checked published result implied the joint claim; this is a best-knowledge comparison, not a complete priority certification.",
+    "residual_risks": [
+      "An earlier theorem phrased in terms of exact-width signed conjunctions, homogeneous Boolean terms, or dual uniform subcube incidence systems may have been missed.",
+      "No independent historical-priority verification was performed; findings from partial excerpts alone are not global absence claims."
+    ],
+    "source_inspections": [
+      {
+        "assessment": "NOT_COVERING within inspected relevant sections: partitions are disjoint coverings, whereas all k-faces overlap and are queried by vertex incidence.",
+        "evidence": "Section 2.8 and introduction emphasize irreducible partitions and homogeneous codimensions, not VC or Littlestone dimensions.",
+        "identifier_or_url": "https://arxiv.org/abs/2212.14685",
+        "material_read": "Abstract, introduction, definitions and §2.8 on homogeneous partitions; theorem statements on disjoint partitions.",
+        "method": "Inspected lawful public arXiv PDF text and selected PDF pages as images.",
+        "title": "Irreducible Subcube Partitions",
+        "trigger": "Natural source for fixed-codimension Boolean subcubes"
+      },
+      {
+        "assessment": "NOT_COVERING within the mathematical comparison: the VC system is a family represented by cube vertices and its inclusion graph, not coordinate k-face versus vertex membership.",
+        "evidence": "The source defines 2-dimensional partial cubes by a bound on the primal VC dimension of the set-family representation.",
+        "identifier_or_url": "https://arxiv.org/abs/1906.04492",
+        "material_read": "Abstract, introductory definitions and theorem framing on VC dimension of partial cubes.",
+        "method": "Inspected public full-text PDF and relevant page images.",
+        "title": "Two-dimensional partial cubes",
+        "trigger": "Potential geometric VC source with hypercube structure"
+      },
+      {
+        "assessment": "NOT_COVERING within the studied family: zero sets of nonzero linear combinations are not all and only exactly d-k-literal Boolean conjunction truth sets.",
+        "evidence": "The main results concern families of zero sets generated by linear spaces, not the stipulated fixed-dimensional coordinate faces.",
+        "identifier_or_url": "https://arxiv.org/abs/2109.04805",
+        "material_read": "Abstract, introductory results and theorem discussions identifying the zero-set family scope.",
+        "method": "Inspected public arXiv PDF and relevant page images.",
+        "title": "Littlestone and VC-dimension of families of zero sets",
+        "trigger": "Potential stronger simultaneous VC and online dimension theorem"
+      },
+      {
+        "assessment": "NOT_COVERING: the classical example allows variable width and does not state the sharp fixed-width maximal-support count or online threshold.",
+        "evidence": "The cited example describes conjunctions of up to a prescribed number of literals, whereas this class requires exactly d-k signed literals.",
+        "identifier_or_url": "Tom M. Mitchell, 1997, Chapter 7",
+        "material_read": "Chapter 7 example of VC dimension of conjunctions of a variable number of Boolean literals.",
+        "method": "Compared accessible textbook excerpt with the fixed-width hypothesis definition.",
+        "title": "Machine Learning",
+        "trigger": "Equivalent formulation as Boolean literal conjunctions"
+      }
+    ],
+    "status": "PASS"
+  },
+  "review_type": "self_review",
+  "schema_version": 1,
+  "scope_run_id": "61bbc385-7361-4614-8d0f-bbc5bfb11baa",
+  "self_review_status": "passed",
+  "value": {
+    "rationale": "Determines an infinite family’s sharp maximal VC threshold, classifies and enumerates every largest shattered support, and establishes a sharp static/online separation with a one-ambient-coordinate transition between saturation regimes. The private-coordinate rigidity and two-coordinate online decision gadget are structural explanations, not routine reparameterizations or a one-off small census.",
+    "status": "PASS"
+  }
+}

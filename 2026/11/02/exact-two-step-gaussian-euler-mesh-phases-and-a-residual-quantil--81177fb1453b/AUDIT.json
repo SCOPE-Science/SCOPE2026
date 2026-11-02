@@ -1,0 +1,130 @@
+{
+  "correctness": {
+    "rationale": "The two Euler updates give M=1-ct(1-t), the terminal Gaussian norm is ||M|-exp(-c/2)|, and root existence/multiplicity follows from a scalar quadratic with two uniquely crossed threshold curves. The quantile median lies strictly in (1/2,2/3) by exact pi/8 area plus concavity/Jensen bounds, making E4(q)>exp(-2)-1/9 while a distinct positive root has E4=0. Nonzero derivatives of the exact-grid equations continue roots under epsilon>0, and strictly positive regularized residual profiles converge uniformly, preserving the positive median error. The standalone exact-file checker executes; finite tests supplement rather than prove the infinite assertions.",
+    "status": "PASS"
+  },
+  "independent": false,
+  "independent_audit_status": "not_performed",
+  "originality": {
+    "broader_coverage": {
+      "evidence": [
+        "Pierret–Galerne derive exact Gaussian solver errors generally; their discussion does not classify the two-zero/multiple-zero terminal meshes for this nonautonomous scalar drift.",
+        "Pei–Hu–Gu optimize reference-trajectory loss, not the propagated-density residual quantile; different objective.",
+        "Obzherin–Khrulkov Appendix H.5 has an unbounded ratio for residual-only vs propagation-aware surrogate, not zero-optimum terminal Wasserstein failure of the propagation-aware surrogate."
+      ],
+      "reasoning": "Any stronger full-grid terminal-error bound would need to cover both objective and exact two-step Euler parameter setting. The known general Gaussian identity alone is insufficient to imply the discrete count and quantile-position inequality without the added extremal analysis.",
+      "searches": [
+        "Gaussian exact Wasserstein errors arbitrary sampling scheme diffusion models arxiv:2405.14250",
+        "arxiv:2503.21774 optimal stepsize diffusion sampling dynamic programming",
+        "arxiv:2610.29475 Appendix H.5 propagation separation Gaussian schedule"
+      ]
+    },
+    "checked_sources": [
+      "arXiv:2610.29475v1 §§4–7; Appendix G.2, H.3, H.5, N.1",
+      "arXiv:2405.14250v1 §§3–4, 6",
+      "arXiv:2503.21774v1 introduction and stepsize objective",
+      "Related published mathematical results on scalar Euler step profiles, Langevin covariance bias, and adaptive-optimization convergence"
+    ],
+    "claim_vs_prior_implication": {
+      "evidence": [
+        "Theorem 4 gives Jensen equality for squared interval masses; it does not bound the nonlinear endpoint error by a constant times the best such error and explicitly disclaims that inference.",
+        "Appendix H.5 shows a surrogate comparison for residual-only scheduling and is inapplicable to the terminal-error oracle equal to zero.",
+        "The 2024 Gaussian identity yields E=||M|-r| once M is provided but does not itself give the root-count transitions or the median gap."
+      ],
+      "reasoning": "No checked prior statement implies the asserted five-phase exact-grid classification together with a positive-profile terminal-error counterexample. The central proof additionally needs the root multiplicity classification, strict integral bounds, and implicit-function stability; thus it is not a mere citation of the quantile surrogate theorem.",
+      "searches": [
+        "arxiv:2610.29475v1 Theorem 4 equations 25-29",
+        "arxiv:2610.29475v1 Appendix H.3 H.5",
+        "arxiv:2405.14250v1 Gaussian W2 formula",
+        "arxiv:2503.21774 optimal grid oracle"
+      ]
+    },
+    "equivalent_formulations": {
+      "evidence": [
+        "arXiv:2610.29475v1 §6, Theorem 4: finite-N equal-mass local surrogate, with an explicit non-claim about terminal error.",
+        "arXiv:2405.14250v1 §4: Gaussian covariance/Wasserstein formulas but not a terminal-error mesh root-count theorem.",
+        "Direct comparison reformulated the claim as roots of 1-ct(1-t)=±exp(-c/2) and a positive local-quantile deficit."
+      ],
+      "reasoning": "Searching both mesh-root equations and Gaussian-Wasserstein wording found generic Gaussian propagation and surrogate allocation, not the two bifurcation thresholds jointly with a strictly contractive local-quantile counterexample. Ordinary Gaussian covariance algebra is not claimed original.",
+      "searches": [
+        "two step explicit Euler scalar nonautonomous x'=-c t x Gaussian flow endpoint covariance exact timestep 0 2 4 roots",
+        "exact terminal Gaussian Wasserstein zero error Euler nonuniform two steps schedule phase transition stepsize",
+        "Wasserstein density-aware local defect quantile optimal terminal loss unbounded approximation ratio Gaussian Euler steps",
+        "sharp bifurcation number of exact two-step grids for nonautonomous linear Gaussian flow",
+        "strictly contractive scalar flow Euler time quantile schedule zero optimal error",
+        "\"Gaussian\" \"two-step\" \"Euler\" \"time grid\" \"Wasserstein\" exact",
+        "\"x'=-ct x\" \"Euler\" mesh exact integration step"
+      ]
+    },
+    "exact_database_or_table": {
+      "evidence": [
+        "Search returned \"Fractional midpoint noise creates configurational superconvergence in UBU-type Langevin sampling\" (public 2026 result), treating stationary Langevin covariance correction.",
+        "Search returned \"Finite Euler step profiles converge to a universal self-similar rectangle\" (public 2026 result), treating a scale-invariant PDE reduction.",
+        "Search returned \"Exact cumulative-step boundary law for B-adaPG\" (public 2026 result), treating an optimization recursion."
+      ],
+      "reasoning": "The closest indexed records concern other numerical objects; none supplies the Gaussian Euler terminal-error root table or the local-surrogate mismatch. This absence is evidence of no retrieved overlap, not a uniqueness proof.",
+      "searches": [
+        "numerical analysis exact stability phase transition recent 2026 splines quadrature preconditioning",
+        "sharp numerical quadrature adaptive error estimator amplification conditioned 2026",
+        "two step explicit Euler scalar nonautonomous x'=-c t x Gaussian flow endpoint covariance exact timestep 0 2 4 roots",
+        "exact terminal Gaussian Wasserstein zero error Euler nonuniform two steps schedule phase transition stepsize",
+        "Wasserstein density-aware local defect quantile optimal terminal loss unbounded approximation ratio Gaussian Euler steps",
+        "sharp bifurcation number of exact two-step grids for nonautonomous linear Gaussian flow",
+        "numerical analysis Gaussian two-step Euler quadrature schedule root phase transition"
+      ]
+    },
+    "rationale": "A direct full-text comparison with the primary 2026 local-residual quantile theorem shows it proves exact optimality for a distinct surrogate, and itself warns against assuming terminal optimality; its Appendix H.5 compares two surrogate policies, whereas the present result counts exact terminal-optimum grids and constructs a propagation-aware surrogate with a positive terminal error versus a zero-error optimum. General Gaussian W2 formulas in Pierret–Galerne (2024) are explicitly prior; the new phase counts and robust surrogate/endpoint contradiction are additional derived conclusions. Exact database searches did not find equivalent statements; classical two-step mesh analysis is a residual priority risk.",
+    "residual_risks": [
+      "A classical scalar nonautonomous Euler mesh-cancellation result or special Gaussian sampling theorem may encode an equivalent phase diagram under different terminology.",
+      "Historical priority beyond retrieved open-access material and searched records is not independently exhaustive.",
+      "General Gaussian Wasserstein identities are established prior work; only the combined bifurcation and quantile-mismatch statements are asserted as distinct."
+    ],
+    "source_inspections": [
+      {
+        "assessment": "Covers exact surrogate quantiles and Gaussian tangent formulas; explicitly not a terminal endpoint-optimality claim; H.5 compares other surrogate policies",
+        "evidence": [
+          "Sec 6 eqns 24–29 and caveat immediately following eqn 28",
+          "Appendix H.3 Jensen proof and H.5 propagation-separation example",
+          "Appendix G.2 Gaussian W2 and Appendix N.1 one-dimensional gauge"
+        ],
+        "identifier_or_url": "https://arxiv.org/html/2610.29475v1",
+        "material_read": "Sections 4–7, Theorem 4 and remarks after it, Appendix G.2, H.3, H.5 and N.1",
+        "method": "Primary open-access HTML text with theorem/equation and appendix comparison",
+        "title": "Density-Level Backward Error for Low-NFE Generative Flows",
+        "trigger": "Direct source of the density-active projected Euler defect and equal-mass timestep rule"
+      },
+      {
+        "assessment": "General exact Gaussian errors are prior; the exact nonautonomous two-step root-count and density-residual quantile separation are not supplied in inspected material",
+        "evidence": [
+          "Abstract describes exact Wasserstein error of Gaussian solver discretizations",
+          "Sections 3–4 and discussion characterize general Gaussian setting, not this explicit mesh bifurcation"
+        ],
+        "identifier_or_url": "https://arxiv.org/abs/2405.14250",
+        "material_read": "Abstract, Sections 3–4 Gaussian errors and Section 6 discussion/limitations",
+        "method": "Open-access rendered arXiv text inspected by the relevant Gaussian and discretization sections",
+        "title": "Diffusion Models for Gaussian Distributions: Exact Solutions and Wasserstein Errors",
+        "trigger": "Most plausible stronger general Gaussian Wasserstein discretization result"
+      },
+      {
+        "assessment": "Reference-oracle optimization is different from local weighted-residual quantile optimality; no universal implication for our terminal W2 ratio",
+        "evidence": [
+          "Abstract and Section 1 identify dynamic programming against teacher reference trajectories"
+        ],
+        "identifier_or_url": "https://arxiv.org/abs/2503.21774",
+        "material_read": "Abstract, introduction, global-grid dynamic programming formulation",
+        "method": "Open-access rendered source text",
+        "title": "Optimal Stepsize for Diffusion Sampling",
+        "trigger": "Potential broader claim on finite-budget globally optimal time meshes"
+      }
+    ],
+    "status": "PASS"
+  },
+  "review_type": "self_review",
+  "schema_version": 1,
+  "scope_run_id": "81177fb1-453b-4655-9ae0-dc59e84a7f31",
+  "self_review_status": "passed",
+  "value": {
+    "rationale": "Exact finite-budget Gaussian solver reliability is mathematically motivated by local-defect timestep allocation. A sharp five-regime global zero-W2 grid count and an unavoidable gap between equal-mass local-surrogate optimality and exact terminal optimality distinguish two competing objectives. Robustness to strictly contractive analytic drift and positive regularization shows a genuine obstruction to universal terminal competitiveness, not an arbitrary tiny numerical improvement.",
+    "status": "PASS"
+  }
+}

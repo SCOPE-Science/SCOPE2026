@@ -1,0 +1,139 @@
+{
+  "correctness": {
+    "rationale": "The exhaustive domain decomposition into r^2st, 4pq, 2p^2q and 2pq^2 is sound for omega=3, Omega=4. The odd inequality sigma(n)/n <= 624/315 < 2 eliminates all odd cases. For 4pq, Delta=(7-p)q+7(p+1) eliminates p>=13 and bounds q<=7(p+1) for p=3,5,7; p=11 has q<21. For 2p^2q, Delta=(3+3p-p^2)q+3(p^2+p+1) eliminates p>=7, with exact candidate reduction p=3: q in {5,7,11}; p=5: q in {7,11,13}. For 2pq^2, Delta=(3-p)q^2+3(p+1)(q+1) eliminates p>=7 and reduces p=5 to q=7, p=3 to q in {5,7,11}. The actual independent checker reconstructs all divisor sets and every unordered omitted pair for the resulting 32+6+4 finite candidates; it finds the specified ten numbers and precisely one pair for each. The infinite conclusion rests on the algebraic exclusion and not on a finite extrapolation. The exact script and proof are embedded.",
+    "status": "PASS"
+  },
+  "independent": false,
+  "independent_audit_status": "not_performed",
+  "originality": {
+    "broader_coverage": {
+      "evidence": [
+        "arXiv:2310.01305, Theorems 1–2: only n=2^k p or 2^k p^2",
+        "arXiv:2508.06651, Theorems 1–3: complete two-prime-support family 2^k p^m",
+        "Published mathematical record 2026/10/4/SCOPE-squarefree-2-near-perfect-numbers-with-three-prime-factors--ab9cfade94ac: 2pq with Omega=3",
+        "Accessible previous record a57416e8-6b23-4ccc-a623-84ccfc2c2f53: 2p^2q, four examples"
+      ],
+      "reasoning": "A theorem that classifies all two-prime-support integers cannot subsume a three-prime-support result. A squarefree 2pq theorem has Omega=3 and is disjoint. The earlier 2p^2q result is a proper subcase: it covers exactly four of the ten present examples but neither the 4pq cases nor the nonexistence of 2pq^2 or odd cases. No broader covering classification was found.",
+      "searches": [
+        "2-near-perfect numbers n = 4 p q for odd primes p < q six examples",
+        "2-near perfect numbers 2^a p q three prime supports omitted divisors complete classification",
+        "two omitted divisor sum sigma(n)-2n when n=4pq exact six prime pairs",
+        "arXiv:2310.01305 two-prime support theorem",
+        "arXiv:2508.06651 three-prime support section"
+      ]
+    },
+    "checked_sources": [
+      "arXiv:2310.01305v1",
+      "DOI:10.5281/zenodo.12167628",
+      "arXiv:2508.06651v1",
+      "OEIS:A341475",
+      "2026/10/4/SCOPE-squarefree-2-near-perfect-numbers-with-three-prime-factors--ab9cfade94ac",
+      "2026/10/4/SCOPE-a-2-adic-shape-theorem-for-near-perfect-numbers-congruent-to-2-p--3538e49f3788",
+      "2026/9/20/SCOPE-deficient-perfect-three-prime-squarefree-slice--3e91eb00b44d",
+      "a57416e8-6b23-4ccc-a623-84ccfc2c2f53"
+    ],
+    "claim_vs_prior_implication": {
+      "evidence": [
+        "arXiv:2310.01305 abstract and main theorems limit prime support to two",
+        "arXiv:2508.06651 Section 6.2 identifies three-prime-support classification as an open direction",
+        "Previous accessible research a57416e8-6b23-4ccc-a623-84ccfc2c2f53 proves only 2p^2q",
+        "Published squarefree result 2026/10/4/SCOPE-squarefree-2-near-perfect-numbers-with-three-prime-factors--ab9cfade94ac has Omega=3, not Omega=4"
+      ],
+      "reasoning": "The previously established 2p^2q classification is a true corollary of the present statement, but the reverse implication fails: nothing there constrains 4pq or 2pq^2. The other three references likewise do not imply the exact 4pq list or the unique-pair classification. This is a mathematically stronger global statement rather than a mere restatement of four known integers.",
+      "searches": [
+        "2-near perfect numbers 2 p q squared complete classification distinct omitted divisors",
+        "2-near-perfect numbers n = 4 p q for odd primes p < q six examples",
+        "2-near-perfect numbers Omega(n)=4 omega(n)=3 exact classification ten values",
+        "two near perfect odd three prime factors p squared q r abundance impossible"
+      ]
+    },
+    "equivalent_formulations": {
+      "evidence": [
+        "published-finding corpus ranked results: 2026/10/4/SCOPE-squarefree-2-near-perfect-numbers-with-three-prime-factors--ab9cfade94ac",
+        "OEIS:A341475 initial terms 84,90,126,132,156,198,220,364,380,550",
+        "arXiv:2508.06651, Section 6.2 presents only initial three-prime examples and calls their classification further work"
+      ],
+      "reasoning": "Searched both omega/Omega notation and the four possible exponent shapes, plus the exact ten-value statement and divisor-pair language. Retrieved literature/tables have strictly narrower parameters or only examples. No theorem equivalent to the full ten-value classification was identified; absence of hits is not a universal novelty guarantee.",
+      "searches": [
+        "2-near perfect numbers 2 p q squared complete classification distinct omitted divisors",
+        "exact 2-near-perfect classification 4pq three distinct primes 2 squared p q",
+        "All 2-near-perfect integers with three distinct prime factors and exactly four prime factors counted with multiplicity are 84,90,126,132,156,198,220,364,380,550",
+        "2-near-perfect numbers Omega(n)=4 omega(n)=3 exact classification ten values",
+        "prime support three 2-near-perfect numbers non-squarefree 4pq 2p^2q 2pq^2"
+      ]
+    },
+    "exact_database_or_table": {
+      "evidence": [
+        "OEIS A341475 supplies individual examples (finite initial sequence terms) but does not classify omega=3, Omega=4",
+        "arXiv:2508.06651 Section 6.2 table lists examples 30,66,84,90,126,132,156,180 and immediately identifies classification of three-prime families as a remaining problem"
+      ],
+      "reasoning": "These tables are consistent with all ten values but do not assert that no other 4pq or 2pq^2 cases exist, do not prove the odd obstruction, and do not determine uniqueness of omitted pairs throughout the stratum. Known examples do not cover the classification theorem.",
+      "searches": [
+        "OEIS A341475 2-near-perfect numbers 84 90 126 132 156 198 220 364 380 550",
+        "arXiv:2508.06651 multi-prime 2-near-perfect table",
+        "All 2-near-perfect integers with three distinct prime factors and exactly four prime factors counted with multiplicity are 84,90,126,132,156,198,220,364,380,550"
+      ]
+    },
+    "rationale": "The full omega(n)=3, Omega(n)=4 classification is not implied by a classification at two-prime support, by the published squarefree 2pq classification (Omega=3), by the previously obtained 2p^2q subclass, or by numerical tables of initial 2-near-perfect examples. The new non-implied components are all six 4pq cases, the empty 2pq^2 branch, the odd obstruction, and an exhaustive cross-shape theorem with unique pairs. The 2025/2026 primary paper explicitly names three-prime-support families as future work. All available close records were compared by implication, not title alone.",
+    "residual_risks": [
+      "An unindexed or newly published equivalent classification may exist; the search provides best-known originality, not absolute priority.",
+      "Initial example tables in the inspected literature do not constitute an exhaustive classification; a separate unpublished or inadequately indexed complete classification cannot be ruled out."
+    ],
+    "source_inspections": [
+      {
+        "assessment": "NOT_COVERING: all stated classifications are for exactly two distinct prime supports (2^k p or 2^k p^2), not omega=3, Omega=4.",
+        "evidence": "Theorems 1 and 2 at PDF page 3; end discussion at PDF pages 17–18.",
+        "identifier_or_url": "arXiv:2310.01305v1; https://math.colgate.edu/~integers/y61/y61.pdf",
+        "material_read": "Journal PDF abstract, Introduction, Theorems 1–2, relevant proof/Proposition section headings, last section and references; corresponding page images for title and theorem page",
+        "method": "Primary PDF text and inspected page screenshots",
+        "title": "On 2-Near Perfect Numbers",
+        "trigger": "Same defining equation and first verified middle-period motivating work"
+      },
+      {
+        "assessment": "NOT_COVERING: global proof is restricted to two prime supports, and Section 6.2 lists preliminary three-prime examples and asks for their classification; no four-factor three-prime theorem was found in inspected material.",
+        "evidence": "Theorem 3 has n=2^k p^m; Section 6.2 lists 84, 90, 126, 132 and 156 and says classifying families with three distinct prime factors remains a natural next problem.",
+        "identifier_or_url": "arXiv:2508.06651, https://arxiv.org/pdf/2508.06651",
+        "material_read": "Open-access PDF extracted abstract, Introduction, Theorems 1–3, Section 6.2 and surrounding table/discussion; page screenshots of the PDF first pages and later proof pages",
+        "method": "Full-text PDF extraction and page-image review for selected pages",
+        "title": "Complete characterization of 2-near perfect numbers with exactly 2 prime factors",
+        "trigger": "Plausible stronger classification and source of three-prime-support examples"
+      },
+      {
+        "assessment": "PARTIAL_EXAMPLES_NOT_COVERING: the values occur as terms but the table provides no global omega=3, Omega=4 exclusion theorem.",
+        "evidence": "A341475 contains 84,90,126,132,156,198,220,364,380,550 among its initial entries.",
+        "identifier_or_url": "OEIS:A341475; https://oeis.org/A341475",
+        "material_read": "Definition, initial sequence terms, references and code example",
+        "method": "Public OEIS sequence web page",
+        "title": "2-near-perfect numbers",
+        "trigger": "Exact numerical entries could already occur in a database"
+      },
+      {
+        "assessment": "MATHEMATICALLY_DISJOINT: covers squarefree 2pq, hence Omega=3; this theorem requires Omega=4.",
+        "evidence": "Record summary states exactly 30 and 66 in the squarefree 2pq family.",
+        "identifier_or_url": "2026/10/4/SCOPE-squarefree-2-near-perfect-numbers-with-three-prime-factors--ab9cfade94ac",
+        "material_read": "Indexed title, statement and short summary; not underlying full paper",
+        "method": "published-finding corpus semantic search",
+        "title": "Squarefree 2-near-perfect numbers with three prime factors",
+        "trigger": "Same two-omitted-divisor equation and three-prime support"
+      },
+      {
+        "assessment": "PARTIAL_COVERAGE: independently rederived in the new proof; four example values covered, but not full stratum.",
+        "evidence": "Earlier claim covers 2p^2q = 90, 126, 198, 550; this theorem additionally treats 4pq, 2pq^2 and odd support.",
+        "identifier_or_url": "a57416e8-6b23-4ccc-a623-84ccfc2c2f53",
+        "material_read": "Recoverable theorem statement and title (used for statement-overlap comparison only)",
+        "method": "Comparison of the mathematical statement of an earlier classification",
+        "title": "Earlier partial 2p squared q classification",
+        "trigger": "Accessible own previous research in same four-factor domain"
+      }
+    ],
+    "status": "PASS"
+  },
+  "review_type": "self_review",
+  "schema_version": 1,
+  "scope_run_id": "7d2c76c9-ad9a-4a14-96db-b55a87ebae7e",
+  "self_review_status": "passed",
+  "value": {
+    "rationale": "The exact first nonsquarefree three-prime-support layer is a natural and complete classification indexed by omega(n)=3 and Omega(n)=4. It answers a precisely motivated part of the published three-support classification program, not an arbitrary numeric slice: three distinct primes require Omega>=3, so Omega=4 is the immediately next exponent layer. It determines all ten values and all unique omitted-divisor pairs, proves the absence of odd and 2pq^2 examples, and supplies explicit finite algebraic cutoffs. The 2025/2026 primary source identifies three-prime-support 2-near-perfect families as a future classification problem. The four previously covered 2p^2q cases do not imply the remaining six 4pq cases or exclusions. No universal larger-support conjecture is claimed.",
+    "status": "PASS"
+  }
+}

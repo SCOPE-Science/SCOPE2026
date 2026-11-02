@@ -1,0 +1,135 @@
+{
+  "correctness": {
+    "rationale": "For fixed r>0 and gamma>0, L(x^2+gamma q^2)=4-r x^2-2(x-q)^2 gives coercive recurrence; direct stationarity equations give uniform second moments. The compensated-reset martingale identity shows that the integrated tracer differs from the instantaneous bath average by O_L2(gamma^-1/2) on compact rescaled times. Stationarity then forces the bath marginal to converge to the unique Gaussian invariant of an explicitly derived OU diffusion. Disintegration of any tight joint invariant subsequential limit identifies the exact conditional reset-OU law. The empirical-average regimes follow from this Gaussian OU limit, an L2 bath increment estimate and an exact positive integrated stationary autocovariance. CHECK.py passed 282 deterministic arithmetic/numerical assertions; the infinite statements are proved analytically in RESULT.md.",
+    "status": "PASS"
+  },
+  "independent": false,
+  "independent_audit_status": "not_performed",
+  "originality": {
+    "broader_coverage": {
+      "evidence": [
+        "Biswas et al., https://arxiv.org/abs/2412.09260, explicitly reset all memory-bearing auxiliary coordinates, enabling complete renewal.",
+        "Maes and Thiery, https://arxiv.org/abs/1705.07670, reset bath particles while the probe responds to the bath.",
+        "Santra and Das, https://arxiv.org/html/2603.17027v1, study the same probe-only reset model but focus on one-time moments, stationary position and finite-return protocols."
+      ],
+      "reasoning": "The full-renewal covariance theory cannot imply the memory-preserving Gaussian sample-mean crossover because the bath in the present system stays continuous through tracer resets. General Ornstein--Uhlenbeck averaging results motivate the method but do not give the specific stated crossover for the partially reset coupled process without an explicit identification argument.",
+      "searches": [
+        "Santra Das 2026 Resetting in a viscoelastic bath the bath remembers stationarity probe time averaged variance zero frequency spectrum noncommuting bath relaxation order of limits",
+        "\"partial resetting\" \"bath\" \"time-averaged\" nonergodicity",
+        "\"tracer only\" \"reset\" \"bath\" \"time averages\"",
+        "arxiv:2412.09260, Sections III.2 and V",
+        "arxiv:1705.07670, Section 2"
+      ]
+    },
+    "checked_sources": [
+      "arXiv:2603.17027v1 — full HTML preprint, first public March 17, 2026",
+      "arXiv:2412.09260 — HTML-text rendering of relevant renewal and simulation sections, first public December 12, 2024",
+      "arXiv:1705.07670 — HTML model and resetting protocol, first public May 22, 2017",
+      "DOI:10.1088/1367-2630/ae868c — indexed excerpts only, full publisher version inaccessible",
+      "Published-research semantic searches with the scientific queries listed above"
+    ],
+    "claim_vs_prior_implication": {
+      "evidence": [
+        "The source preprint proposes the frozen marginal as a time-scale separation approximation and derives the second-moment ODEs.",
+        "The earlier full-resetting GLE article proves a renewal-based two-time covariance in a model whose reset also erases bath memory.",
+        "The nonzero limiting empirical-mean Gaussian law is obtained here from compensated-jump averaging and stationary OU invariance rather than solely from covariance integration."
+      ],
+      "reasoning": "Known second-moment and autocovariance formulas imply the finite-window variance and are not new. They do not alone imply convergence in law to a Gaussian, nor the complete joint stationary law: those require proving the slow bath invariant limit and conditional invariant measure. The previously proposed marginal formula is reused as the identified limiting law, not re-presented as a novel density.",
+      "searches": [
+        "arxiv:2603.17027v1, exact model and Eq. (28)",
+        "arxiv:2412.09260, Eq. (20) and full-renewal definition",
+        "Santra Das 2026 Resetting in a viscoelastic bath the bath remembers stationarity probe time averaged variance zero frequency spectrum noncommuting bath relaxation order of limits",
+        "Santra Das 2603.17027 rigorously converge invariant joint distribution slow bath gamma infinity to Gaussian mixture resetting Ornstein Uhlenbeck",
+        "Santra Das viscoelastic resetting bath slow time Gaussian limit of empirical probe average observation time proportional gamma"
+      ]
+    },
+    "equivalent_formulations": {
+      "evidence": [
+        "Santra and Das, https://arxiv.org/html/2603.17027v1, Eq. (28), present the frozen-bath marginal mixture via a quasi-static argument, not the Gaussian law of growing-window empirical averages.",
+        "Previously accessible exact two-time covariance work determines second-order functions but not distributional convergence of the empirical average."
+      ],
+      "reasoning": "The known x-marginal frozen mixture and covariance are explicit partial overlap and are excluded from the new claim. A non-Gaussian process is not determined by its first two time moments; the new limit theorem determines a full family of empirical-average distributions and identifies the joint limit of the bath and tracer.",
+      "searches": [
+        "Santra Das 2603.17027 rigorously converge invariant joint distribution slow bath gamma infinity to Gaussian mixture resetting Ornstein Uhlenbeck",
+        "Santra Das viscoelastic resetting bath slow time Gaussian limit of empirical probe average observation time proportional gamma",
+        "frozen bath time scale gamma partial reset two particle Langevin averaging OU stationary limit",
+        "arxiv:2603.17027v1, Sections III.2–III.3 and conclusion"
+      ]
+    },
+    "exact_database_or_table": {
+      "evidence": [
+        "The relevant inspected arXiv papers report formulae for one-time distributions, renewal covariances or bath-particle resetting, not a tabulation of empirical-mean laws at the three observation-to-bath timescale ratios.",
+        "Related published research records returned generic OU correlation and harmonic-sampler covariance studies, with no statement of this tracer-bath law."
+      ],
+      "reasoning": "The objects are continuous-time stationary random empirical averages, not a previously tabulated finite parameter value. Database nonmatches are used to focus comparisons, not treated as proof of priority.",
+      "searches": [
+        "Santra Das 2603.17027 rigorously converge invariant joint distribution slow bath gamma infinity to Gaussian mixture resetting Ornstein Uhlenbeck",
+        "Santra Das viscoelastic resetting bath slow time Gaussian limit of empirical probe average observation time proportional gamma",
+        "frozen bath time scale gamma partial reset two particle Langevin averaging OU stationary limit",
+        "\"Resetting in a viscoelastic bath\" \"autocorrelation\"",
+        "\"the position variance and the correlation function of the resetting particle driven by the environmental memory\""
+      ]
+    },
+    "rationale": "The previously proposed marginal frozen-bath mixture and existing stationary and two-time moment formulas are credited. The asserted result is the rigorous joint invariant-law convergence and distributional empirical-average trichotomy on growing windows. The inspected primary paper does not establish that trichotomy, and the earlier exact renewal-correlation article resets the bath memory as well. Available related-record summaries concern different observables or models. Generic averaging theory may provide another proof and remains a priority risk; absence from search alone does not prove originality.",
+    "residual_risks": [
+      "The separately hosted 2026 journal version could not be read completely; it might add relevant temporal results absent from the accessible original preprint.",
+      "Generic averaging or random-environment sampling literature might prove an equivalent distributional theorem without using the same physical terminology.",
+      "Exact finite-parameter stationary moments and two-time autocovariances are known and must not be separately treated as original."
+    ],
+    "source_inspections": [
+      {
+        "assessment": "Direct source of the model and x-marginal mixture; no three-regime Gaussian distributional empirical-average statement found",
+        "evidence": [
+          "Equations (2), (11), (14), (19), (21)–(28); Sections III.2–III.3 and V"
+        ],
+        "identifier_or_url": "https://arxiv.org/html/2603.17027v1",
+        "material_read": "Full HTML preprint: model, Fokker–Planck operator, stationary moment equations, stationary mixture, conclusion and appendix headings",
+        "method": "Read HTML mathematical text and equations; compared reset map, generator and observation classes",
+        "title": "Resetting in a viscoelastic bath: the bath remembers",
+        "trigger": "Exact same coupled tracer-bath model and claimed large-friction marginal mixture"
+      },
+      {
+        "assessment": "Full state including bath memory is renewed at each reset, unlike the present partial-reset model",
+        "evidence": [
+          "The source expressly states resetting both particle position and friction-kernel auxiliary variables; Section V resets all coordinates"
+        ],
+        "identifier_or_url": "https://arxiv.org/abs/2412.09260",
+        "material_read": "HTML-text rendering covering sections on GLE resetting, autocorrelation renewal and resetting simulation protocol",
+        "method": "Read Section III.2, Section IV.2, Section V and model definitions",
+        "title": "A resetting particle embedded in a viscoelastic bath",
+        "trigger": "Prior exact position correlation formula for a viscoelastic resetting system"
+      },
+      {
+        "assessment": "The reset occurs on bath particles, not the probe; no present joint frozen-bath law or sample-mean trichotomy",
+        "evidence": [
+          "Section 2.1, equations (1)–(3) and bath reset definition"
+        ],
+        "identifier_or_url": "https://arxiv.org/abs/1705.07670",
+        "material_read": "HTML text of introduction, Section 2 equations and model/reset protocol",
+        "method": "Compared which coordinate resets and whether a large slow-bath parameter is considered",
+        "title": "The induced motion of a probe coupled to a bath with random resettings",
+        "trigger": "Coupled linear probe and bath with resets and induced non-Gaussian noise"
+      },
+      {
+        "assessment": "No coverage apparent in the inspected excerpts, but a full version-by-version comparison was not possible",
+        "evidence": [
+          "Indexed article text describes transient moments, stationary distribution and return-speed protocols"
+        ],
+        "identifier_or_url": "https://doi.org/10.1088/1367-2630/ae868c",
+        "material_read": "Abstract and search-indexed article excerpts; complete publisher article text not accessible",
+        "method": "Compared indexed summary of sections and stated results with complete arXiv preprint",
+        "title": "Resetting in a viscoelastic bath: the bath remembers (published version)",
+        "trigger": "Possible changes to the primary article after the public preprint"
+      }
+    ],
+    "status": "PASS"
+  },
+  "review_type": "self_review",
+  "schema_version": 1,
+  "scope_run_id": "785566ff-1dcf-45a5-9eb6-fe15ac3505f5",
+  "self_review_status": "passed",
+  "value": {
+    "rationale": "The result rigorously justifies a physically motivated quasi-static bath approximation and identifies the observable time needed for a long tracer trajectory to self-average: sub-bath windows retain a Gaussian random offset, comparable windows have the explicit strict crossover Phi, and super-bath windows average to zero. This is an interpretable structural classification of incomplete environmental equilibration, not a mere re-evaluation of a known variance.",
+    "status": "PASS"
+  }
+}

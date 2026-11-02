@@ -1,0 +1,140 @@
+{
+  "correctness": {
+    "rationale": "The increasing-tree exponential specification correctly marks two-protected nodes by excluding singleton children. The root-specific degree mark yields a mixed derivative whose normalized coefficient is E[D_n P_n]. The known exact protected first moment and H_{n-1} root-degree mean are recovered. Writing w=1-z, the mixed derivative splits into a(1+L)/w²-2/(ew)+L(U+V)+an entire term, with (U+V)(0)=(1+e^-1)/2. Exact coefficient extraction gives the limiting covariance 1/2-3/e and 1/(n-1) correction with O(n^-2) remainder. The standalone independent enumerator agrees with rational coefficients through all 40320 n=9 trees, plus lower sizes, and the verifier passed 297 finite assertions. Finite checks are not substituted for the proof.",
+    "status": "PASS"
+  },
+  "independent": false,
+  "independent_audit_status": "not_performed",
+  "originality": {
+    "broader_coverage": {
+      "evidence": [
+        "Holmgren–Janson (doi:10.1214/EJP.v20-3627), Propositions 1.11–1.13 and §8, prove covariance and limit laws for collections of fringe-tree type counts and global outdegree profiles; their degree-profile variable counts all vertices of a fixed degree, not the degree of the original root.",
+        "Toofanpour–Javanian–Imany-Nabiyyi (doi:10.1137/S0040585X97T991040), §2, derives generating recurrences for protected and nonprotected counts at the same fixed depth, without a covariance between the root degree and the all-level protected total.",
+        "Devroye–Janson (arXiv:1310.0665v1), §7, and Mahmoud–Ward (doi:10.1239/jap/1429282623), §3, address protected means, limiting fractions, and marginal variances."
+      ],
+      "reasoning": "The infinite-size distinguished-root degree grows like log n and is not the global fixed-type fringe additive functional in the Holmgren–Janson covariance tables. Their general results establish limits and full-count covariances, not the specific root-marked mixed derivative or its constant. A fixed-level protected versus nonprotected profile covariance does not imply a covariance between first-level size and an all-level protected sum unless additional cross-level formulas are supplied. A latent general marked-ODE corollary cannot be excluded in all historical sources.",
+      "searches": [
+        "random recursive trees 2-protected vertices dependence on root degree 2015 sharp negative covariance asymptotic constant",
+        "protected vertex count root degree increasing tree bivariate EGF derivative covariance",
+        "\"root\" \"protected\" \"covariance\" \"recursive trees\"",
+        "Holmgren Janson \"Limit laws for functions of fringe trees\" pdf ejp 2015 3627",
+        "doi:10.1214/EJP.v20-3627 §1 and §8.2",
+        "doi:10.1137/S0040585X97T991040 §2"
+      ]
+    },
+    "checked_sources": [
+      "arxiv:1310.0665v1, Section 7 (published 2013-10-02)",
+      "doi:10.1239/jap/1429282623, Theorem 2.1 and Section 3",
+      "doi:10.1214/EJP.v20-3627, Propositions 1.11–1.13 and Section 8",
+      "doi:10.1137/S0040585X97T991040, Section 2 as displayed in author-uploaded manuscript"
+    ],
+    "claim_vs_prior_implication": {
+      "evidence": [
+        "The exact claim is an all-size coefficient formula and a second-order asymptotic for Cov(root outdegree, total two-protected nodes).",
+        "arXiv:1310.0665v1 §7 equations (7.1)–(7.3) derive protected proportions from fringe limits, not the cross moment.",
+        "doi:10.1239/jap/1429282623 Theorem 2.1 and Eq. (3.1) derive the total protected first and second moments; the root outdegree is not jointly marked.",
+        "doi:10.1214/EJP.v20-3627 Propositions 1.11–1.13 handle global fringe-subtree count covariance, while §8.2 treats protected counts.",
+        "A known root-degree/leaf covariance tends to +1/2 for the same tree model; the present covariance tends to 1/2-3/e<0, so the latter is not a special case of the former."
+      ],
+      "reasoning": "The new proof introduces an explicit root-specific child mark in addition to protection marks. Neither the protected marginal nor the global leaf or degree-type covariances imply this mixed derivative with its constant and first correction. Their objects/normalization and quantifiers were compared rather than relying on title differences. Implicit inclusion in a broad marked-tree framework remains the scientifically relevant residual priority risk.",
+      "searches": [
+        "Mahmoud Ward 2015 protected nodes random recursive trees covariance with root degree exact joint moment negative limit 1/2 minus 3/e",
+        "uniform random recursive tree root outdegree number two protected vertices covariance negative limit half minus three over e generating function",
+        "protected vertex count root degree increasing tree bivariate EGF derivative covariance",
+        "arxiv:1310.0665v1 §7",
+        "doi:10.1239/jap/1429282623 §2–3",
+        "doi:10.1214/EJP.v20-3627 §1 and §8"
+      ]
+    },
+    "equivalent_formulations": {
+      "evidence": [
+        "Devroye–Janson (arXiv:1310.0665v1), §7, identifies two-protected nodes by a fringe-subtree root condition and computes their asymptotic fraction, 1/2-e^-1.",
+        "Mahmoud–Ward (doi:10.1239/jap/1429282623), Theorem 2.1, gives the marginal first moment of the protected count.",
+        "An accessible earlier mathematical comparison concerns root-degree covariance with total leaves, not with two-protected vertices."
+      ],
+      "reasoning": "The equivalent names root degree/root outdegree/first-level size and protected/two-protected/no-leaf-child are compared as the same objects. Marginal protected-node count, distinguished-root outdegree, and their cross moment are different statistics. The exact first moment and root-degree mean alone do not imply their covariance, and the leaf-count result concerns a different additive parameter.",
+      "searches": [
+        "Mahmoud Ward 2015 protected nodes random recursive trees covariance with root degree exact joint moment negative limit 1/2 minus 3/e",
+        "joint degree and protected nodes random increasing tree generating function expected root degree protected count",
+        "uniform random recursive tree root outdegree number two protected vertices covariance negative limit half minus three over e generating function",
+        "protected nodes in random recursive trees root degree covariance joint number of children 2-protected 2015",
+        "\"root degree\" \"protected nodes\" \"random recursive\"",
+        "\"number of protected\" \"degree of the root\" \"recursive tree\""
+      ]
+    },
+    "exact_database_or_table": {
+      "evidence": [
+        "The accessed mathematical records contain close root-degree versus leaf-count and path-length comparisons, but no matching root-degree/protected-node exact numerical table.",
+        "Mahmoud–Ward Theorem 2.1 and Holmgren–Janson Theorem 8.6 contain protected-node first-moment or normal-limit calculations but not a finite table of root-degree/protected-node covariances."
+      ],
+      "reasoning": "No matching exact table or known-number entry was found in the accessed mathematical records; a search miss is not asserted to establish novelty. The independently enumerated rational covariances n=3,...,9 are checks, not a previously known database census.",
+      "searches": [
+        "correlation number of protected nodes number of children of root uniform recursive tree n exact finite covariance",
+        "1/2 - 3/e root degree protected vertices random recursive tree joint cumulant",
+        "\"protected nodes\" \"root degree\" \"covariance\" recursive tree",
+        "\"1/2-3/e\" covariance tree"
+      ]
+    },
+    "rationale": "The exact bivariate root-marked cross moment and its finite nonzero negative limiting constant were not present in the four inspected closely relevant primary texts, nor the accessed previous mathematical claims. The nearest published root-degree/leaf comparison concerns a positive covariance with leaf count, which does not imply the protected-node covariance. This is best-knowledge originality rather than a claim of formal uniqueness, subject to the listed historical implicit-coverage risk.",
+    "residual_risks": [
+      "A generic bivariate increasing-tree marking identity in an uninspected older monograph may already imply the exact mixed moment as a corollary.",
+      "The 2022 profile paper treats same-depth protected/nonprotected covariances; a nonexplicit derivation through additional cross-depth identities could weaken priority.",
+      "Bibliographic search does not prove uniqueness, and no independent literature audit has been carried out."
+    ],
+    "source_inspections": [
+      {
+        "assessment": "Derives 2-protected node limiting fraction and recursive root protection, not a global protected count/root outdegree covariance",
+        "evidence": [
+          "arXiv:1310.0665v1 pp. 9–10 §§7 (7.1)–(7.3); posted 2013-10-02"
+        ],
+        "identifier_or_url": "https://arxiv.org/pdf/1310.0665",
+        "material_read": "Complete introduction and Section 7, including equations (7.1)–(7.3), and references; PDF page 9 was visually inspected",
+        "method": "Read lawful public arXiv full text; compared definitions and the conditional root-protection process against the proposed cross moment",
+        "title": "Protected nodes and fringe subtrees in some random trees",
+        "trigger": "Earliest public primary source on protected nodes in uniform random recursive trees and their limiting proportion"
+      },
+      {
+        "assessment": "The source derives protected-node first and second moments, without the mixed root-degree/protected statistic",
+        "evidence": [
+          "J. Appl. Probab. 52 (2015), pp. 290–297, Theorem 2.1 and (3.1), doi:10.1239/jap/1429282623"
+        ],
+        "identifier_or_url": "https://the-examples-book.com/personal/mdw/_attachments/paper029.pdf",
+        "material_read": "Full-text introduction and Sections 2–3, especially Theorem 2.1, decomposition (2.1), second-moment recurrence (3.1)",
+        "method": "Read author-hosted full-text PDF; cross-checked exact marginal mean against independent generating-function derivation",
+        "title": "Asymptotic properties of protected nodes in random recursive trees",
+        "trigger": "Same stochastic model and global protected-node count, directly plausible source for a hidden mixed moment"
+      },
+      {
+        "assessment": "Covariance tables concern counts over all vertices by fringe shape/size; the marked original root degree is different, and the current joint covariance constant is not stated",
+        "evidence": [
+          "Electronic J. Probability 20 (2015), paper 4, Propositions 1.11–1.13 and §8.2, doi:10.1214/EJP.v20-3627"
+        ],
+        "identifier_or_url": "https://uu.diva-portal.org/smash/get/diva2%3A802290/FULLTEXT01.pdf",
+        "material_read": "Introduction and Propositions 1.11–1.13 (pp. 6–8); Sections 8.1 and 8.2 (pp. 41–45) on degree profiles and protected counts",
+        "method": "Read lawful university repository full-text PDF, compared global degree-profile variables with the original distinguished-root degree",
+        "title": "Limit laws for functions of fringe trees for binary search trees and random recursive trees",
+        "trigger": "Broad general covariance theory for fringe subtree counts could dominate a protected-count dependence statement"
+      },
+      {
+        "assessment": "Profile covariances are for protected and nonprotected node counts at fixed depth, not the asserted global protected/root-degree covariance",
+        "evidence": [
+          "Theor. Probab. Appl. 67 (2022), doi:10.1137/S0040585X97T991040; author upload §2"
+        ],
+        "identifier_or_url": "https://www.researchgate.net/publication/362203766_Normal_limit_law_for_protected_node_profile_of_random_recursive_trees",
+        "material_read": "Author-uploaded displayed article text covering introduction and Section 2, fixed-depth profile definitions and generating recurrences",
+        "method": "Inspected available author-uploaded full-text display and the journal abstract; compared same-depth protected/nonprotected profiles with all-depth total plus root-degree cross moment",
+        "title": "Normal limit law for protected node profile of random recursive trees",
+        "trigger": "Directly related protected/nonprotected profile covariance potentially subsumes root-level interactions"
+      }
+    ],
+    "status": "PASS"
+  },
+  "review_type": "self_review",
+  "schema_version": 1,
+  "scope_run_id": "7793f6ec-3dc0-41f7-b8c6-605ae4642a1b",
+  "self_review_status": "passed",
+  "value": {
+    "rationale": "The original root degree is a natural early-branching signal, while the total count of protected nodes measures global non-leaf local structure. The discovered exact dependence has a finite strictly negative limit despite root degree and protected count growing at logarithmic and linear expectation scales; its first finite-size correction is explicit. This contrasts with the known positive dependence of root degree and leaf count for the self-review, and supplies a directly reproducible structural relationship beyond marginal moments.",
+    "status": "PASS"
+  }
+}

@@ -1,0 +1,108 @@
+{
+  "correctness": {
+    "rationale": "For all n>=2 and c>0, reconstruct the direct payoff comparison A_i-c; adjacent values differ by 1-s_i-s_(i+1). At a switch, integrality requires c integer and forces an alternating suffix. Exact first-transition A values give two explicit prefix candidates, and separate treatment of the allzero and allone words completes the proof. Independently enumerated direct-payoff equilibria match predicted sets in 150 exact-rational finite instances (90,104 profiles), with 8,192 payoff-identity tests; finite checks are corroborative only.",
+    "status": "PASS"
+  },
+  "independent": false,
+  "independent_audit_status": "not_performed",
+  "originality": {
+    "broader_coverage": {
+      "evidence": [
+        "Lin et al. 2026 Appendix S-D, Proposition S44: graph-general assertions at c in (0,1) and all-zero iff c>=max_i b_i, but not all price values.",
+        "Brandt et al. Ranking Games (2008): utilities represent preferences over ranks only; an own-priority price distinguishes profiles with the same rank.",
+        "Hassin and Haviv (1997) concerns strategic stochastic queue threshold play rather than fixed deterministic complete-conflict sorting."
+      ],
+      "reasoning": "General graph coverage of the two published extreme-price facts does not dominate an exact complete-graph classification for intermediate prices. Theorem explicitly preserves and attributes each existing extreme-price statement. General ranking-game complexity and stochastic queue models have different payoffs and no demonstrated reduction implying these counts.",
+      "searches": [
+        "All-pay rank-order game fixed linear bidding fee tie breaking complete graph binary bids pure strategy Nash equilibrium only integer prices",
+        "Priority Coordination Games Hodge Decomposition priced priorities Proposition S44 pure equilibrium complete graph two levels threshold",
+        "rank ordering costly priority bids binary actions Nash equilibrium two strategies ordered tie break"
+      ]
+    },
+    "checked_sources": [
+      "https://arxiv.org/html/2610.05832v1",
+      "https://ai.stanford.edu/~shoham/www%20papers/rankinggames_journal.pdf",
+      "https://pubsonline.informs.org/doi/10.1287/opre.45.6.966 (abstract only)",
+      "https://mathscinet.ams.org/mathscinet/msc/msc2020.html?s=91-10",
+      "2026/10/4/SCOPE-exact-first-rank-maximality-failure-of-serial-dictatorship--a60f04d4085b",
+      "2026/10/4/SCOPE-sharp-five-player-proper-game-boundary-for-deegan-packel-versus--1acdbecf1e75"
+    ],
+    "claim_vs_prior_implication": {
+      "evidence": [
+        "Appendix S-D Proposition S44: excludes all equilibria for 0<c<1; supplies only all-zero condition c>=max b_i.",
+        "This proof independently derives the adjacent-rank recurrence and all alternating prefix patterns, which are absent from the relevant S-D section."
+      ],
+      "reasoning": "Our theorem specializes existing nonexistence for c in (0,1) and the c>=n-1 allzero-existence statement; these pieces are NOT claimed as independently novel. The exact count 2 at every integer 1..n-1, lack of any equilibrium at all other lower prices, uniqueness above n-1, and constructive word description are not consequences of those two statements alone. The full exact claim is the asserted new addition.",
+      "searches": [
+        "Priority Coordination Games Hodge Decomposition priced priorities Proposition S44 pure equilibrium complete graph two levels threshold",
+        "Complete conflict graph two priority levels tie breaking fixed index price c per high bid Nash equilibrium count, alternating suffixes"
+      ]
+    },
+    "equivalent_formulations": {
+      "evidence": [
+        "arxiv:2610.05832v1: Proposition S44(b,c) explicitly handles 0<c<1 and all-zero equilibrium, not every integer/noninteger fee; 2026/10/4/SCOPE-exact-first-rank-maximality-failure-of-serial-dictatorship--a60f04d4085b: fixed-order serial dictatorship rank optimality; distinct utility and players."
+      ],
+      "reasoning": "The full claim comprises a complete fee spectrum, an exact count at each fee and an explicit equilibrium-word classification. Rephrasing as a rank-based game with costly binary actions, integer resonances, or complete-network priority-choice game was searched. Source S44 has overlapping proper subclaims but cannot imply the two-equilibrium enumeration for fees from 1 to n-1.",
+      "searches": [
+        "Binary priced priority rank-order games on complete graphs: pure Nash equilibria occur only at integer bidding prices with exactly two alternating priority profiles, or a single all-zero profile above n-1",
+        "Complete conflict graph two priority levels tie breaking fixed index price c per high bid Nash equilibrium count, alternating suffixes",
+        "priced priorities pure equilibrium thresholds integer prices two priority levels complete conflict exact classification 2610.05832",
+        "Two priority levels complete conflict graph priced priority rank order game affine bidding cost pure Nash equilibria exact number price integer noninteger"
+      ]
+    },
+    "exact_database_or_table": {
+      "evidence": [
+        "Lin et al. 2026 Appendix S-D computational notes enumerate an eight-agent intersection with three levels; not a table of complete-graph binary fee equilibria.",
+        "2026/10/4/SCOPE-exact-first-rank-maximality-failure-of-serial-dictatorship--a60f04d4085b: equilibrium inefficiency of serial dictatorship on small matching profiles, not priority bids."
+      ],
+      "reasoning": "No exact table giving the full formula or the two alternating forms was identified in accessible records or the source manuscript. Small numerical intersection results have different graph and priority alphabet; they cannot imply the all-n count.",
+      "searches": [
+        "Binary priced priority rank-order games on complete graphs: pure Nash equilibria occur only at integer bidding prices with exactly two alternating priority profiles, or a single all-zero profile above n-1",
+        "priced priorities pure equilibrium thresholds integer prices two priority levels complete conflict exact classification 2610.05832",
+        "Mathematical economics: exact equilibrium counts and structural characterizations in sparse social network games"
+      ]
+    },
+    "rationale": "The closest full-text 2026 source proves only low-price exclusion on arbitrary conflict graphs and the all-zero threshold; the new theorem gives exact equilibrium count and all patterns for every strictly positive fee in the full two-level complete-conflict family. Relevant ranked games and queueing papers differ in incentive structure. Specific searches of mathematical research records and owned claims did not identify implication coverage. Residual unindexed publication priority is expressly not certified.",
+    "residual_risks": [
+      "Published priority-queue and auction literature may contain unindexed equivalent discrete-action specializations, which were not all inspected in full.",
+      "Accessible 2008 ranking-games preprint was not exhaustively inspected page by page; incentive-structure distinction is strong but not a formal global novelty proof.",
+      "No independent human mathematical audit or publication-priority certification has been performed."
+    ],
+    "source_inspections": [
+      {
+        "assessment": "Relevant and overlapping at c in (0,1) and all-zero condition, not the full exact price spectrum or counts.",
+        "evidence": [
+          "2026-10-05 arXiv v1 posting",
+          "S44(b): no pure equilibrium for 0<c<1 when there is conflict.",
+          "S44(c): all-zero iff c>=max_i b_i.",
+          "S-D computation addresses three levels on a particular eight-agent intersection."
+        ],
+        "identifier_or_url": "https://arxiv.org/html/2610.05832v1",
+        "material_read": "Full accessible HTML model Section II, dynamic/equilibrium discussion Sections III and IV, priced-priorities Supplementary Appendix S-D Proposition S44 and numerical notes, and references around rank-order games.",
+        "method": "Read primary HTML by section and inspect the actual formal assertions and proof against the new complete-graph, two-level thresholds.",
+        "title": "Priority Coordination Games: Hodge Decomposition and a Sharp Design Limit",
+        "trigger": "Same decision layer, fee, deterministic tie breaking and equilibrium criterion."
+      },
+      {
+        "assessment": "Formal ranking-game utilities cannot represent a profile-dependent positive priority charge while keeping rank fixed; broader computational claims do not imply a special priced-counting theorem.",
+        "evidence": [
+          "Brandt et al. 2008 preprint p1-p4: payoff depends solely on own rank or lotteries over rank; our payoff also depends on chosen binary priority."
+        ],
+        "identifier_or_url": "https://ai.stanford.edu/~shoham/www%20papers/rankinggames_journal.pdf",
+        "material_read": "Primary full-text PDF abstract and first several introduction/model pages; full-text keyword exploration; remaining pages not exhaustively inspected.",
+        "method": "Examined authors’ definition of ranking-only payoffs and principal complexity objective; compared with added fee depending on own action.",
+        "title": "Ranking Games",
+        "trigger": "Close class of multiplayer games with payoff depending on service rank."
+      }
+    ],
+    "status": "PASS"
+  },
+  "review_type": "self_review",
+  "schema_version": 1,
+  "scope_run_id": "68659e78-682c-4acf-bb76-5549877f6ce8",
+  "self_review_status": "passed",
+  "value": {
+    "rationale": "The motivating article shows a nonexistence interval and a high-price allzero threshold but leaves intermediate prices unresolved on even the complete graph. A full exact classification, two-per-integer resonance and explicit alternating bids establish precise robustness and equilibrium multiplicity over all prices and every population size in a natural complete-conflict binary-priority market. The result is a natural model-wise theorem rather than a chosen isolated example; extrapolation to richer games is not asserted.",
+    "status": "PASS"
+  }
+}

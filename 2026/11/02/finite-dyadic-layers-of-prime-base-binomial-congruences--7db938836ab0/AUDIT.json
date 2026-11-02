@@ -1,0 +1,126 @@
+{
+  "correctness": {
+    "rationale": "Legendre yields the exact q-adic valuation s_q((q-1)2^e)/(q-1). For t=1, Lucas parity and the overlapping bit of q and q(q-1) at h=nu_2(q-1) force the left-hand binomial even while q^n is odd. If q>2^e the digit sum is exactly q-1, giving a contradiction. Thus t>=2, q<2^e, and t has the explicit finite digit bound. Direct exact binomial residues for every possible e<=4 candidate give the claimed fibers; verifier independently checks all candidates and full modulus.",
+    "status": "PASS"
+  },
+  "independent": false,
+  "independent_audit_status": "not_performed",
+  "originality": {
+    "broader_coverage": {
+      "evidence": [
+        "Guedes--Machado 2026 Sections 3 and 6: n=q^t p or n=p^2.",
+        "Published prime-power-tower index record 2026/10/4/SCOPE-prime-power-towers-for-the-prime-base-binomial-congruence--a71ec1d0fa28 specifies p>=5 and pure p^r."
+      ],
+      "reasoning": "The p>=5 tower theorem does not treat mixed q^t*2^e. The 2026 source treats the e=1 branch, which cannot imply bounds for all e>=2; neither dominates this result.",
+      "searches": [
+        "prime power cofactors of q^t in Wolstenholme converse binomial congruence; binary carry obstruction and q-adic digit sum bound",
+        "classification solutions binomial(q n,n) congruent q^n mod 2^e q^t for q odd prime and e fixed",
+        "for odd prime q, binomial(q²,q) always even; solutions of binomial(q n,n) congruent q^n mod n with n=2^e q^t and q>2^e impossible"
+      ]
+    },
+    "checked_sources": [
+      "https://arxiv.org/abs/2606.30232",
+      "https://oeis.org/A080469",
+      "https://oeis.org/A109760",
+      "https://github.com/Resultary/2026/tree/main/2026/10/4/SCOPE-prime-power-towers-for-the-prime-base-binomial-congruence--a71ec1d0fa28"
+    ],
+    "claim_vs_prior_implication": {
+      "evidence": [
+        "2026 Theorem 3.1 implies the digit condition for n=q^t*2 only, e=1.",
+        "Lucasian binary-overlap argument rules out all t=1 for every e and combines with q-digit bound to prove q<2^e."
+      ],
+      "reasoning": "The conjunction for general e is not a corollary of the e=1 theorem or the odd-p tower. Previously tabulated examples cannot imply absence of others across infinitely many prime bases.",
+      "searches": [
+        "for odd prime q, binomial(q²,q) always even; solutions of binomial(q n,n) congruent q^n mod n with n=2^e q^t and q>2^e impossible",
+        "for each fixed e, only finitely many n=2^e q^t satisfy Wolstenholme prime-base binomial congruence; dyadic valuation finite classification 36 and 400",
+        "2-adic cofactor finite support q<=2^e for binomial congruence n=2^e q^t and q prime"
+      ]
+    },
+    "equivalent_formulations": {
+      "evidence": [
+        "Guedes--Machado 2026 Thm3.1 states n=q^t p with p prime, first power only.",
+        "OEIS A080469 and A109760 report separate base-specific sequences."
+      ],
+      "reasoning": "Neither a binomial modular reduction for general odd prime bases with fixed v_2(n) nor a uniform finite-q theorem appears in the inspected statements. The exact equivalent formulation is bounded 2-adic cofactor strata, with q and t varying.",
+      "searches": [
+        "For prime q and fixed 2-adic exponent e, binomial congruence binom(q n,n)=q^n mod n with n=2^e q^t imposes q<=2^e, finite prime bases, exact first layers n=36,400",
+        "prime power cofactors of q^t in Wolstenholme converse binomial congruence; binary carry obstruction and q-adic digit sum bound",
+        "classification solutions binomial(q n,n) congruent q^n mod 2^e q^t for q odd prime and e fixed"
+      ]
+    },
+    "exact_database_or_table": {
+      "evidence": [
+        "OEIS A080469 lists 36.",
+        "OEIS A109760 lists 400.",
+        "The OEIS entries are finite lists without claims excluding arbitrarily large q,t at fixed dyadic e."
+      ],
+      "reasoning": "The displayed example integers are known. The mathematical claim is the uniform bound across all prime bases and the exhaustive fibers for fixed valuations e<=4, which individual terms do not settle.",
+      "searches": [
+        "OEIS A080469 binomial(3n,n)=3^n",
+        "OEIS A109760 binomial(5n,n)=5^n",
+        "for each fixed e, only finitely many n=2^e q^t satisfy Wolstenholme prime-base binomial congruence; dyadic valuation finite classification 36 and 400"
+      ]
+    },
+    "rationale": "Guedes--Machado arXiv:2606.30232 Theorem 3.1 treats exponent-one prime cofactors, not uniformly fixed higher dyadic powers. Public record for prime-power towers covers a different p>=5 cofactor; its condition cannot imply the p=2 binary-overlap bound. OEIS lists the positive examples 36 and 400, which are expressly not claimed new. No returned indexed theorem implies the universal q<2^e and complete first four dyadic fibers; residual unindexed-priority risk remains.",
+    "residual_risks": [
+      "Earlier or unindexed 2-adic specialization may independently contain the obstruction.",
+      "Full text of the closest published odd-prime-power tower record was not obtainable; its explicit p>=5 hypothesis makes it inapplicable to the present dyadic proof."
+    ],
+    "source_inspections": [
+      {
+        "assessment": "Exponent-one second prime and isolated squares only; no fixed-2-adic-power finiteness theorem.",
+        "evidence": [
+          "Theorem 3.1 imposes a digit filter when n=q^t p, p prime.",
+          "Theorem 6.2 concerns n=p^2, not mixed powers."
+        ],
+        "identifier_or_url": "https://arxiv.org/abs/2606.30232",
+        "material_read": "Full accessible HTML text including Sections 1-3, 5, 6 and references; Theorems 3.1, 6.2 and proofs.",
+        "method": "Web full-text reading",
+        "title": "Structured Solutions of Prime-Base Binomial Congruences",
+        "trigger": "Exact same congruence and overlapping q^t p subfamily"
+      },
+      {
+        "assessment": "Records n=36 as known; no global exclusion in fixed dyadic layers.",
+        "evidence": [
+          "The displayed list begins 36, 57, 121, 132."
+        ],
+        "identifier_or_url": "https://oeis.org/A080469",
+        "material_read": "Sequence, comments, examples and linked source note.",
+        "method": "Web entry reading",
+        "title": "OEIS A080469",
+        "trigger": "Verify known base-3 numerical instance"
+      },
+      {
+        "assessment": "Records n=400 as known; no fixed-dyadic-layer theorem.",
+        "evidence": [
+          "The displayed list includes 400, 3200, 6400."
+        ],
+        "identifier_or_url": "https://oeis.org/A109760",
+        "material_read": "Sequence, comments, examples and references.",
+        "method": "Web entry reading",
+        "title": "OEIS A109760",
+        "trigger": "Verify known base-5 numerical instance"
+      },
+      {
+        "assessment": "Explicitly p>=5 and n=p^r, not n=2^e q^t; partial inspection retains priority caveat.",
+        "evidence": [
+          "Record states distinct primes p>=5 and q, with prime-power n=p^r."
+        ],
+        "identifier_or_url": "https://github.com/Resultary/2026/tree/main/2026/10/4/SCOPE-prime-power-towers-for-the-prime-base-binomial-congruence--a71ec1d0fa28",
+        "material_read": "Search-index title and substantive theorem summary; linked full text was not accessible through web.",
+        "method": "Published mathematical record comparison",
+        "title": "Prime-power towers for the prime-base binomial congruence",
+        "trigger": "Closest indexed result on p-adic lifting for the same binomial congruence"
+      }
+    ],
+    "status": "PASS"
+  },
+  "review_type": "self_review",
+  "schema_version": 1,
+  "scope_run_id": "7db93883-6ab0-477c-b551-551e0916dde5",
+  "self_review_status": "passed",
+  "value": {
+    "rationale": "Fixing nu_2(n) while varying both an odd prime base q and exponent t is an infinite natural subproblem of a 2026 studied prime-base binomial congruence. The proof extracts an effective finiteness bound q<2^e and an exact digit-sum bound on t, a structural obstruction special to the binary cofactor; it additionally resolves the first four dyadic valuation fibers completely. Known individual OEIS examples are not the contribution. This is a motivated local restriction on potential infinite families, not an arbitrary finite computation or a restatement of the known n=q^t p theorem.",
+    "status": "PASS"
+  }
+}

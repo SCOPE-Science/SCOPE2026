@@ -1,0 +1,116 @@
+{
+  "correctness": {
+    "rationale": "The exact log-concavity cutoff, score derivatives, integration-by-parts equality B=E rho triple-prime, Gaussian sech-tilt strict covariance inequality, fourth cumulant, endpoint curvature identity, and alpha-to-zero L2 convergence reconstruct a proof for every 0<alpha<=1/2, including the boundary. Full-precision quadrature independently agrees with the curvature formula; finite checks are not used as an infinite proof.",
+    "status": "PASS"
+  },
+  "independent": false,
+  "independent_audit_status": "not_performed",
+  "originality": {
+    "broader_coverage": {
+      "evidence": [
+        "Eskenazis and Gavalakis arXiv:2308.15997, Theorems 1–2 explicitly assume centered Gaussian scale mixtures, not two displaced fixed-variance Gaussians.",
+        "Luo arXiv:2609.11418 addresses an asymmetric log-concave counterexample and does not establish this symmetric two-Gaussian endpoint theorem."
+      ],
+      "reasoning": "A known full-interval entropy concavity theorem covers centered Gaussian scale mixtures, which have fourth cumulant 3 Var(scale squared) >= 0; the present negative-kurtosis location mixture cannot lie in that class. The asymmetric counterexample is not a theorem for the symmetric family. General symmetric log-concavity remains unsettled in the motivating source.",
+      "searches": [
+        "\"symmetric two Gaussian location mixture\" \"entropy\" \"concavity\" weighted",
+        "\"Gaussian location mixture\" \"entropy concavity\" binary",
+        "arXiv:2308.15997 Theorem 1",
+        "arXiv:2609.11418 Introduction"
+      ]
+    },
+    "checked_sources": [
+      "arXiv:2610.22386 Theorem 3.1, Sections 4–8",
+      "arXiv:2308.15997 Theorems 1–2",
+      "arXiv:2609.11418 main claims",
+      "Targeted literature searches for binary/Rademacher Gaussian entropy curvature and centered vs location mixtures"
+    ],
+    "claim_vs_prior_implication": {
+      "evidence": [
+        "Abu-Ajamieh arXiv:2610.22386, Theorem 3.1 is a general curvature identity; Section 4 treats generalized-Gaussian densities, Sections 5–7 conditional inequalities, Section 8 the positive fourth-Hermite family.",
+        "Eskenazis and Gavalakis arXiv:2308.15997, Theorems 1–2 explicitly assume centered Gaussian scale mixtures, not two displaced fixed-variance Gaussians.",
+        "For the present family, B = c^4 exp(-v/2)(4 E sech Z - 6 E sech^3 Z), and a newly established strict tilt bound makes B<0 for v<=1/3."
+      ],
+      "reasoning": "The endpoint formula alone does not imply a sign for arbitrary log-concave inputs, as emphasized by the motivating source. The new structural inequality supplies the missing hypothesis for this precise family. Earlier centered-scale-mixture concavity is stronger but applies to disjoint distributions.",
+      "searches": [
+        "arXiv:2610.22386 Theorems 3.1 and 5.1",
+        "arXiv:2308.15997 Theorems 1–2",
+        "\"entropy concavity\" \"Gaussian mixtures\" \"symmetric\" endpoint two-component",
+        "\"Gaussian location mixture\" \"entropy concavity\" binary"
+      ]
+    },
+    "equivalent_formulations": {
+      "evidence": [
+        "Abu-Ajamieh arXiv:2610.22386, Theorem 3.1 is a general curvature identity; Section 4 treats generalized-Gaussian densities, Sections 5–7 conditional inequalities, Section 8 the positive fourth-Hermite family.",
+        "Binary location mixtures have negative fourth cumulant and cannot be centered scale mixtures."
+      ],
+      "reasoning": "Equivalent statements include a signed fourth-cumulant times score-correction criterion, or the sign of a Gaussian sech-weight ratio. The motivating paper states the abstract criterion but does not prove the sech-weight inequality for the full binary-location family. No exact equivalent was found.",
+      "searches": [
+        "\"entropy concavity\" \"Gaussian mixtures\" \"symmetric\" endpoint two-component",
+        "\"Rademacher\" \"Gaussian\" \"entropy\" \"concavity\" \"endpoint\"",
+        "arXiv:2610.22386 Theorem 3.1, Sections 3–8"
+      ]
+    },
+    "exact_database_or_table": {
+      "evidence": [
+        "The source Table 1 lists general endpoint identities, generalized-Gaussian and leading-Hermite results but no binary-location parameter classification."
+      ],
+      "reasoning": "No located database table or exact parameter atlas contains the two-Gaussian location family boundary and its quartic limit. Searches provide negative evidence only, not proof of uniqueness.",
+      "searches": [
+        "\"entropy concavity\" \"mixture of two Gaussians\" weighted sums",
+        "\"two-point\" \"Gaussian\" \"Ball Nayar Tkocz\" entropy concavity",
+        "arXiv:2610.22386 Table 1 and Figures 1–4"
+      ]
+    },
+    "rationale": "The derived strict sign of the non-Gaussian score term for the entire sharp binary-Gaussian log-concavity interval, with the explicit quartic coefficient, is not a theorem or simple covered special case in the three materially inspected primary sources. The general endpoint identity is acknowledged as known. Targeted web and mathematical-record searches found no equivalent claim; residual publication priority risk is disclosed.",
+    "residual_risks": [
+      "An unlocated specialized Gaussian-location-mixture theorem may imply this endpoint result despite different wording.",
+      "The original half-thermalization paper supplies a general conditional sign criterion; any literature establishing that condition in this family would reduce the novelty.",
+      "No independent publication-priority audit has been conducted."
+    ],
+    "source_inspections": [
+      {
+        "assessment": "Provides curvature identity and conditional criterion, but not this binary Gaussian location-mixture sign theorem",
+        "evidence": [
+          "Theorem 3.1 eq. (12), eqs. (20)–(21); Table 1; Section 4; Sections 5–8"
+        ],
+        "identifier_or_url": "https://arxiv.org/abs/2610.22386",
+        "material_read": "Full publicly accessible HTML text, including introduction, Theorems 3.1 and 5.1, Sections 4–8 and conclusion",
+        "method": "Direct reading and hypothesis/implication comparison",
+        "title": "Noise-Induced Restoration of Entropy Concavity Near Gaussian Equilibrium",
+        "trigger": "Source of the endpoint identity and most plausible family coverage"
+      },
+      {
+        "assessment": "Its centered Gaussian scale-mixture hypothesis excludes the present separated-mean negative-kurtosis family",
+        "evidence": [
+          "Theorem 1, Theorem 2 and characterization of X=Y Z centered scale mixtures"
+        ],
+        "identifier_or_url": "https://arxiv.org/abs/2308.15997",
+        "material_read": "Open full-text theorem statements, definition of centered scale mixtures, proof of Theorems 1–2 and relevant introduction",
+        "method": "Compare class representation and cumulants",
+        "title": "On the entropy and information of Gaussian mixtures",
+        "trigger": "Stronger entropy-concavity theorem for potentially overlapping Gaussian mixtures"
+      },
+      {
+        "assessment": "The counterexample is asymmetric and does not give a sign theorem for the symmetric binary-Gaussian family",
+        "evidence": [
+          "Abstract, main counterexample and scope statement"
+        ],
+        "identifier_or_url": "https://arxiv.org/abs/2609.11418",
+        "material_read": "Full publicly accessible preprint HTML, abstract and main claims",
+        "method": "Compare symmetry assumptions and conclusion",
+        "title": "Entropy concavity for log-concave random variables: an asymmetric counterexample",
+        "trigger": "Boundary of current symmetric entropy concavity questions"
+      }
+    ],
+    "status": "PASS"
+  },
+  "review_type": "self_review",
+  "schema_version": 1,
+  "scope_run_id": "7b3dcae8-20f1-46ba-87c2-b39575136a15",
+  "self_review_status": "passed",
+  "value": {
+    "rationale": "A complete continuously parametrized natural binary-Gaussian location-mixture family is classified exactly up to its maximal log-concave boundary. The proof identifies a structural weighted-hyperbolic inequality resolving the nontrivial sign term in an open symmetric entropy-geometry setting and gives the exact fourth-order nonequilibrium curvature onset. It does not claim a full all-t theorem or solve the broad conjecture.",
+    "status": "PASS"
+  }
+}

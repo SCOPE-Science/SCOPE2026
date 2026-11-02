@@ -1,0 +1,158 @@
+{
+  "correctness": {
+    "rationale": "The exact generating function f iterated t times equals (t-(t-1)s)/(t+1-ts), giving P(Z_t>=h)=(t+1)^(-1)(t/(t+1))^(h-1) for t>=1. With h=ceil(n(lambda_n+x)), compact rescaled immigration times u=k lambda_n/n yield rare-event mass e^(-x) u^alpha exp(-u)/Gamma(alpha+1)du. Early u and late k tails are bounded using respectively polynomial integrability and an exponentially small e^(-2lambda_n) envelope, so all mass is accounted for. Independent clan indicators and max individual probability o(1) give the marked Poisson limit; unique top marks imply the joint Gumbel/Gamma limit. Exact moments E Z_t=1, Var Z_t=2t prove the aggregate L2 law and maximal-clan share by Slutsky. Boundary alpha>0 and t=0 are handled explicitly. A standalone stdlib checker replayed 3214 finite assertions; the analytical argument, not enumeration, proves the infinite statement.",
+    "status": "PASS"
+  },
+  "independent": false,
+  "independent_audit_status": "not_performed",
+  "originality": {
+    "broader_coverage": {
+      "evidence": [
+        "Barczy–Bezdány (2026), arXiv:2609.18503, Theorem 3.3, establishes aggregate population functional convergence expressed as an immigration-process integral.",
+        "Barczy–Bezdány (2026), arXiv:2610.39771, Theorem 3.1, establishes deterministic aggregate population scaling for growing immigration.",
+        "Smadi–Vatutin (2021), arXiv:2109.13315, Theorem 1, studies a clan conditional on being the only one surviving in a common random environment."
+      ],
+      "reasoning": "Aggregate population limits lose identities of individual immigrant ancestors and cannot determine maximum-clan extremes or founder-time marks; the conditional only-survivor result works on a different event with a random environment. None of the inspected theorem statements implies the unconditional two-coordinate marked extreme law.",
+      "searches": [
+        "branching processes with immigration extremes of families lineages largest family critical Galton Watson time n",
+        "arXiv:2609.18503 Theorem 3.3",
+        "arXiv:2610.39771 Theorem 3.1",
+        "arXiv:2109.13315 Theorem 1"
+      ]
+    },
+    "checked_sources": [
+      "arXiv:2609.18503v2; §§1–3 and proofs, initial version dated 2026-09-16",
+      "arXiv:2610.39771v1; abstract and Sections 1–3",
+      "arXiv:math/0312510v1; §§1–4, Theorems 1 and 9–11",
+      "arXiv:2109.13315v1; introduction, assumptions, Theorem 1",
+      "arXiv:2610.29759v1; §§1–3 and Proposition 2",
+      "Yanev and Tsokos 2000 DOI 10.1080/07362990008809690; abstract only"
+    ],
+    "claim_vs_prior_implication": {
+      "evidence": [
+        "In arXiv:math/0312510 Section 4 the maximum is explicitly max of offspring produced by generation n-1 parents; in this claim the maximum is descendants after n-k generations for every prior immigration time k.",
+        "In arXiv:2610.29759 Section 1, offspring never equal zero and fitness causes a single lineage to dominate population share; here offspring can be zero and the maximal share converges to zero at a known logarithmic/polynomial rate."
+      ],
+      "reasoning": "Neither the one-generation maximum nor the nonextinguishing fitness leader implies the joint marked rare-event law of a critical family, and aggregate-process weak limits do not determine extremes. The claim credits geometric tails and elementary Poisson approximation as standard methods; the new assertion is their complete founder-age saddle, factorized marked limit and fraction limit for this model.",
+      "searches": [
+        "arXiv:math/0312510 Section 4 family size definition",
+        "arXiv:2610.29759 Section 1 Proposition 2",
+        "arXiv:2609.18503 Theorem 3.3",
+        "critical branching processes immigration largest immigrant family age distribution Gumbel"
+      ]
+    },
+    "equivalent_formulations": {
+      "evidence": [
+        "Mitov–Pakes–Yanev (2003), arXiv:math/0312510, Sections 1–2 and 4, define row maxima of one-step offspring counts; their homogeneous triangular array has one success parameter per row.",
+        "Yanev–Tsokos (2000), DOI 10.1080/07362990008809690, accessible abstract defines order statistics over offspring of individuals in the same generation."
+      ],
+      "reasoning": "The present maximum is instead over complete extant descendant populations from differently aged immigrant ancestors. Each clan has a distinct survival probability and conditional scale determined by its founding time; uniform row-maximum laws do not state the age-marked Poisson process, Gamma founder-time localization, or population-share asymptotic. A generalization of geometric triangular-array methods is conceivable, so implicit coverage by older theory remains a stated risk.",
+      "searches": [
+        "Galton Watson immigration maximum number descendants of a single immigrant family generations Gumbel",
+        "arXiv:math/0312510 Theorems 1 and 9-11",
+        "Yanev Tsokos family size order statistics immigration 2000"
+      ]
+    },
+    "exact_database_or_table": {
+      "evidence": [
+        "The explicitly tabulated one-step geometric extreme laws in Mitov–Pakes–Yanev (2003) concern offspring counts, not complete immigrant-clan descendant counts.",
+        "Fontes–Schinazi (2026), arXiv:2610.29759, Section 1 and Proposition 2, treat fitness-dependent positive-integer reproduction and one founder per time; Proposition 2 is an extreme of deterministic-age-weighted exponential fitness scores, not a critical geometric-family genealogy."
+      ],
+      "reasoning": "No exact prior table or formula located among the inspected sources contains this polynomial-arrival, extinction-allowing clan maximum with independent Gamma founder-time mark. This is a bounded comparison, not a proof that no earlier table exists.",
+      "searches": [
+        "maximum immigrant clan size critical Galton Watson branching with immigration geometric offspring Gumbel",
+        "largest immigrant family Galton Watson population geometric Gumbel arrival time gamma distribution power immigration",
+        "arXiv:2610.29759 founder Gumbel point process"
+      ]
+    },
+    "rationale": "Full-text comparison isolates a founder-indexed multi-generation descendant maximum under deterministic growing immigration, rather than known aggregate GWII functional limits, geometric one-step offspring maxima, unique-survivor conditional clans, or nonextinguishing fitness sweeps. No inspected theorem statement dominates the factorized age-marked Poisson limit or sharp largest-share decay. Older inaccessible order-statistic results and more general geometric triangular-array theorems remain residual historical priority risks.",
+    "residual_risks": [
+      "Full text of Yanev–Tsokos (2000) was not accessible; the abstract concerns one-generation offspring but cannot exclude a broader implicit corollary.",
+      "Older extreme-value methods for nonidentically distributed zero-modified geometric arrays could imply some parts implicitly; priority cannot be certified by searches alone.",
+      "The model is special and the point-process claim does not assert universality across offspring families."
+    ],
+    "source_inspections": [
+      {
+        "assessment": "Not covering: aggregate functional limit and integrated immigration processes, not maxima of ancestor-indexed extant clans",
+        "evidence": [
+          "Theorem 3.3, equation (3.2), displays integrated limiting immigration function, no largest-clan or marked founder statistic",
+          "Initial arXiv version submitted 2026-09-16; current HTML v2 from 2026-10-26"
+        ],
+        "identifier_or_url": "https://arxiv.org/html/2609.18503v2",
+        "material_read": "Accessible full HTML: introduction, model, Section 3 Theorems 3.1/3.3, proof sections and appendix structure",
+        "method": "Direct full-text HTML reading with theorem and subject searches",
+        "title": "Functional limit theorems for Galton–Watson processes with inhomogeneous immigration",
+        "trigger": "Most recent literature motivating inhomogeneous immigration and eligible primary MSC 60J80"
+      },
+      {
+        "assessment": "Not covering: law of large numbers for aggregate population and deterministic process, not family-indexed extremes",
+        "evidence": [
+          "The abstract states deterministic aggregate functional convergence",
+          "Theorem 3.1 and Example 3.6 concern immigration expectation functions, not the maximum immigrant clan"
+        ],
+        "identifier_or_url": "https://arxiv.org/html/2610.39771v1",
+        "material_read": "Full HTML Introduction, Sections 2–3 summary, Theorem 3.1 description, proof plan and appendix headings",
+        "method": "Direct HTML reading of theorem context and proof outline",
+        "title": "Functional limit theorems for Galton–Watson processes with inhomogeneous immigration towards a deterministic limit function",
+        "trigger": "Potential direct recent dominance of deterministic-polynomial immigration population asymptotics"
+      },
+      {
+        "assessment": "Does not directly cover the theorem: row extrema are exchangeable geometric variables and the branching family maximum is one-step offspring within a generation",
+        "evidence": [
+          "Section 4 defines the maximum as max of X_i(n) for parents in generation n-1",
+          "Theorem 10 addresses conditional logistic extremes of those one-step offspring counts"
+        ],
+        "identifier_or_url": "https://arxiv.org/html/math/0312510v1",
+        "material_read": "Full HTML Section 1, Section 2 Theorems 1–5, Section 3 model, Section 4 Theorems 9–11 and their displayed definitions",
+        "method": "Direct full-text HTML inspection and comparison of exact random variables and quantifiers",
+        "title": "Extremes of geometric variables with applications to branching processes",
+        "trigger": "Strongest structural predecessor: maxima of geometric offspring variables and branching family-size order statistics"
+      },
+      {
+        "assessment": "Not covering: stochastic common environment, single survivor conditioning, different family selection law",
+        "evidence": [
+          "Theorem 1 conditions explicitly on the event that the clan is the sole surviving clan",
+          "The model assumes a random environment with geometric law and a different regime"
+        ],
+        "identifier_or_url": "https://arxiv.org/abs/2109.13315",
+        "material_read": "Accessible HTML introduction, model, Hypotheses A1–A3 and Theorem 1 with only-surviving-family conditioning",
+        "method": "Direct accessible HTML theorem/assumption reading",
+        "title": "Critical branching processes in random environment with immigration: the size of the only surviving family",
+        "trigger": "Near-matching phrases surviving family and immigration"
+      },
+      {
+        "assessment": "Different process and opposite population-share phenomenon; no critical extinction-based polynomial immigration marked limit",
+        "evidence": [
+          "Section 1 sets positive-integer offspring with no extinction and exactly one founder per time",
+          "Theorem 1 proves domination of the entire population by a single fitter clan"
+        ],
+        "identifier_or_url": "https://arxiv.org/html/2610.29759v1",
+        "material_read": "Accessible full HTML Sections 1–3, including offspring law, Theorem 1, Proposition 2 and independent fitness score proof",
+        "method": "Direct primary-paper HTML inspection",
+        "title": "A branching model for selective sweeps",
+        "trigger": "Independent founder leader and Gumbel point-process results in a nearby model"
+      },
+      {
+        "assessment": "Accessible definition studies direct offspring of generation-n individuals. Implicit general theorems in inaccessible full text remain a residual priority risk.",
+        "evidence": [
+          "Abstract describes kth largest number of offspring among particles in the nth generation",
+          "No complete manuscript read; no whole-document negative claim made"
+        ],
+        "identifier_or_url": "https://doi.org/10.1080/07362990008809690",
+        "material_read": "Public abstract and accessible search result describing its random variable; primary full text not accessible in this run",
+        "method": "Abstract-level scholarly search and bibliographic comparison; no whole-document inference",
+        "title": "Family size order statistics in branching processes with immigration",
+        "trigger": "Plausibly dominant older order-statistic paper"
+      }
+    ],
+    "status": "PASS"
+  },
+  "review_type": "self_review",
+  "schema_version": 1,
+  "scope_run_id": "71003679-8089-4447-a6c6-f2b680e295e6",
+  "self_review_status": "passed",
+  "value": {
+    "rationale": "The natural population genealogy asks which immigration cohort supplies the largest extant family and whether that clan dominates a population with increasing arrival flux. Beyond an aggregate law, the result determines the exact logarithmic correction, complete marked Poisson limit, Gamma immigration-time localization independent of size fluctuation, asymptotic absence of ties, and explicit vanishing-share rate. The early-founder localization at times of order n/log n is not a fixed-slice table calculation and is plausibly relevant to population genealogy and extreme-lineage inference.",
+    "status": "PASS"
+  }
+}

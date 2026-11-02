@@ -1,0 +1,134 @@
+{
+  "correctness": {
+    "rationale": "The exact local Rule-18 truth table identifies every produced one as one endpoint of a zero-run of length at least two between input ones. Each such run supplies exactly two endpoints, forcing a nonempty alternating class of zero gaps. Replacing paired arcs by input zeros and interpair arcs by input ones realizes every allowed state, including n=1 and n=2. Inclusion–exclusion on indexed marked one positions yields the fixed-weight binomial formula, and independent cycle-incidence generating functions give the logarithmic-derivative identity. Factorization of its denominators proves the asymptotic. Standalone verify.py exhaustively independently checks all 2^n inputs and all 2^n output candidates for each n<=18 and recurrence coefficients to n=70, printing VERIFY_OK; finite checks are corroboration only.",
+    "status": "PASS"
+  },
+  "independent": false,
+  "independent_audit_status": "not_performed",
+  "originality": {
+    "broader_coverage": {
+      "evidence": [
+        "Hanson–Crutchfield (1991), Attractor-Basin Portrait, develops attractor/domain transducer methods rather than a complete weight-refined one-step image; Sabrié–Törmä (2026), section 5, identifies necessary preimage obstructions 111 and 11v11 for odd-one v."
+      ],
+      "reasoning": "An explicit general-language algorithm would compute individual counts but does not supply the new closed-form series or cyclic criterion automatically. In the 2026 necessary obstruction, lack of those patterns has not been claimed sufficient on rings; this proof constructs the same-period predecessor.",
+      "searches": [
+        "\"rule 18\" \"Garden of Eden\" \"generating function\" ring",
+        "\"rule 18\" \"preimages\" \"periodic\" \"image\" zero blocks",
+        "https://doi.org/10.1017/etds.2026.10300"
+      ]
+    },
+    "checked_sources": [
+      "Hanson and Crutchfield, Attractor-Basin Portrait (1991), SFI-91-02-012",
+      "Jen, Scaling of Preimages in Cellular Automata (1987), Complex Systems 1",
+      "Jen, Cylindrical cellular automata (1988), DOI:10.1007/BF01221109 (abstract only)",
+      "Meunier, arXiv:1406.5306v1 (2014)",
+      "Sabrié and Törmä, Limit dynamics of ECA 18 (2026), DOI:10.1017/etds.2026.10300"
+    ],
+    "claim_vs_prior_implication": {
+      "evidence": [
+        "Sabrié–Törmä (2026), section 5, proves outputs containing 111 or 11v11 with odd-one v have no preimages, while the present claim gives a two-alternation global criterion and explicit counts. Jen (1987) provides preimage-counting recurrences for finite words; Hanson–Crutchfield (1991) analyzes long-time Rule-18 attractor basin domains."
+      ],
+      "reasoning": "Necessary forbidden patterns do not imply the sufficiency or periodic predecessor construction, and asymptotic attractor descriptions do not determine all one-step images with a fixed period. Earlier general matrix techniques can calculate examples but do not directly imply these particular closed forms.",
+      "searches": [
+        "https://doi.org/10.1017/etds.2026.10300",
+        "https://content.wolfram.com/sites/13/2018/02/01-6-2.pdf",
+        "https://sfi-edu.s3.amazonaws.com/sfi-edu/production/uploads/sfi-com/dev/uploads/filer/aa/5a/aa5a7d95-aa45-4ca8-a057-c2b154d34d12/91-02-012.pdf"
+      ]
+    },
+    "equivalent_formulations": {
+      "evidence": [
+        "Rule 18 local image can be written as an alternating positive zero-gap condition; full accessible papers inspected do not state that condition. Jen (1987) studies general finite-word preimage recurrences rather than a complete indexed periodic-ring criterion."
+      ],
+      "reasoning": "We treated the forbidden-word, run-pairing, periodic transducer, and predecessor existence formulations as potentially equivalent, not merely searched for the final title. The compared full-text propositions address finite blocks or limit sets and do not entail this exact cyclic all-n equivalence.",
+      "searches": [
+        "\"rule 18\" \"one step image\" \"cyclic\" predecessors binary cellular automata",
+        "\"rule 18\" \"preimages\" \"periodic\" \"image\" zero blocks",
+        "\"rule 18\" predecessor zero run endpoint pair alternating cyclic gap characterization",
+        "https://arxiv.org/abs/1406.5306"
+      ]
+    },
+    "exact_database_or_table": {
+      "evidence": [
+        "An externally maintained elementary-CA Garden-of-Eden finite-ring resource reports finite searches but does not publish this all-n density-refined characterization or coefficient formula; checked exact first-image count string gave no identified exact table with matching proof."
+      ],
+      "reasoning": "Finite image counts for a handful of lengths are not equivalent to a complete all-length formula. No verified existing table or database with the exact coefficient series was located; absence of search results is not itself a proof of novelty.",
+      "searches": [
+        "\"sequence 1 1 4 7 11 19 36 67 rule 18 image OEIS\"",
+        "\"rule 18\" \"Garden of Eden\" \"generating function\" ring",
+        "https://cellular.solves.ca/gardens-of-eden"
+      ]
+    },
+    "rationale": "Comparison of exact statements shows published Rule-18 attractor descriptions and general preimage methods do not supply the same-period one-step alternating-gap necessary-and-sufficient criterion, explicit predecessor, fixed-weight binomial count, or logarithmic-derivative enumerator. Sabrié–Törmä supplies a related necessary condition, not cyclic sufficiency. Related Jen (1988) full text remained inaccessible and is an explicit historical priority risk; no claim of independent priority certification is made.",
+    "residual_risks": [
+      "Jen (1988) full text was not inspected; its cyclic-attractor techniques could include stronger coverage than suggested by the abstract.",
+      "Unindexed or differently phrased prior work may already imply the precise image series; searches and inspected sources cannot establish global priority.",
+      "2026 literature is a post-archive comparison and was not used to assign the archival source date."
+    ],
+    "source_inspections": [
+      {
+        "assessment": "Attractor-basin/domain study; inspected material does not cover all one-step periodic images and weight counts",
+        "evidence": [
+          "1991 SFI working paper 91-02-012; sections on formal language transducers and attractor basins"
+        ],
+        "identifier_or_url": "https://sfi-edu.s3.amazonaws.com/sfi-edu/production/uploads/sfi-com/dev/uploads/filer/aa/5a/aa5a7d95-aa45-4ca8-a057-c2b154d34d12/91-02-012.pdf",
+        "material_read": "Full OA PDF opened; abstract, contents, transducer/domain and attractor sections, and selected page images read",
+        "method": "PDF parsed text and selected page screenshots",
+        "title": "The Attractor-Basin Portrait of a Cellular Automaton",
+        "trigger": "Direct Rule-18 transducer/domain and possible finite-image coverage"
+      },
+      {
+        "assessment": "Finite-block preimage recurrences, not identical-period periodic image reconstruction and weight generating function",
+        "evidence": [
+          "Jen, Complex Systems 1 (1987) 1045–1062, section 2 preimage matrix methods"
+        ],
+        "identifier_or_url": "https://content.wolfram.com/sites/13/2018/02/01-6-2.pdf",
+        "material_read": "Full OA PDF opened; abstract and mathematical preimage recurrence sections read with page screenshots",
+        "method": "PDF parsed text and page screenshots",
+        "title": "Scaling of Preimages in Cellular Automata",
+        "trigger": "Strongest general preimage counting predecessor"
+      },
+      {
+        "assessment": "Material comparison not decisive; article states attractor/cycle subject, and historical coverage remains unresolved at full-text level",
+        "evidence": [
+          "Jen (1988), Communications in Mathematical Physics 118, 569–590, publicly accessible abstract"
+        ],
+        "identifier_or_url": "https://doi.org/10.1007/BF01221109",
+        "material_read": "Publisher abstract/metadata only; full text not accessible; OA/arXiv routes did not yield accessible full text",
+        "method": "Abstract-level publisher inspection and bounded authorized retrieval",
+        "title": "Cylindrical cellular automata",
+        "trigger": "Potentially close finite cyclic rule-18 and periodic preimage theory"
+      },
+      {
+        "assessment": "Computational and communication complexity classification, no one-step cyclic image density classification in inspected material",
+        "evidence": [
+          "arXiv:1406.5306v1 publicly submitted 2014-06-20 at 08:10:02 UTC"
+        ],
+        "identifier_or_url": "https://arxiv.org/abs/1406.5306",
+        "material_read": "Full open-access arXiv HTML read in relevant complexity/prediction sections",
+        "method": "arXiv HTML parsed/full relevant sections",
+        "title": "Unraveling simplicity in elementary cellular automata",
+        "trigger": "Verified archival public source, classification of elementary CA, possible image complexity claim"
+      },
+      {
+        "assessment": "Supplies necessary output pattern obstructions and long-time limit dynamics, not the complete indexed-ring one-step image formula",
+        "evidence": [
+          "Sabrié and Törmä (2026), sections 4 and 5, obstructions 111 and 11v11 for v of odd weight"
+        ],
+        "identifier_or_url": "https://doi.org/10.1017/etds.2026.10300",
+        "material_read": "Accessible journal HTML section on predecessor obstructions and kink dynamics read",
+        "method": "Publisher HTML parsed and section-level inspection",
+        "title": "Limit dynamics of elementary cellular automaton 18",
+        "trigger": "Most directly named later study of Rule-18 preimages"
+      }
+    ],
+    "status": "PASS"
+  },
+  "review_type": "self_review",
+  "schema_version": 1,
+  "scope_run_id": "5f94d5a3-1b27-4a59-b919-0c67ed637873",
+  "self_review_status": "passed",
+  "value": {
+    "rationale": "The exact one-step image is the natural reachable-output invariant of a classical nonlinear cellular automaton. The two alternating-gap test gives an O(n)-time deterministic recognition criterion and constructive predecessor, while the weight-refined formula gives exact counts in each occupation sector and the rational generating function fixes all finite-ring image sizes and exponential information loss. The statement is all-length, addresses a distinct natural structural gap beyond finite tables, and does not merely rename standard computability.",
+    "status": "PASS"
+  }
+}

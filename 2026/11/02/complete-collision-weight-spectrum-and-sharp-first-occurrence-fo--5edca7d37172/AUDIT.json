@@ -1,0 +1,141 @@
+{
+  "correctness": {
+    "rationale": "All-length proof via a complete 12-vertex paired de Bruijn graph, exhaustive ten-simple-cycle census, additive cycle-weight decomposition, and matching sharp constructions. The bivariate enumerator follows from a 16-by-16 equal-output pair transfer matrix minus a four-by-four diagonal transfer matrix; exact determinant factors are checked by 17 integer specializations and a degree-at-most-16 polynomial identity argument. Independent direct forward-image enumeration confirms coefficients through n=14. Ring sizes one and two and ordered-pair normalization are explicitly covered.",
+    "status": "PASS"
+  },
+  "independent": false,
+  "independent_audit_status": "not_performed",
+  "originality": {
+    "broader_coverage": {
+      "evidence": [
+        "Jen (1989) abstracts and accessible introduction explain rule matrices and preimage prediction for general one-dimensional cellular automata (https://digital.library.unt.edu/ark:/67531/metadc1189848/).",
+        "Powley and Stepney (2010) explicitly state in the abstract that the counted targets are homogeneous configurations (https://pure.york.ac.uk/portal/en/publications/counting-preimages-of-homogeneous-configurations-in-1-dimensional/).",
+        "Wolfram (2002) gives a direct inverse algorithm for Rule 30 and an unweighted nonunique-predecessor asymptotic (https://www.wolframscience.com/nks/notes-10-10--cryptographic-properties-of-rule-30/)."
+      ],
+      "reasoning": "Existing general de Bruijn and rule-matrix machinery can count arbitrary specified-target preimages, but the primary inspected sources do not give the complete composition-resolved collision spectrum or sharp first collision widths. Powley's 2009 thesis was identified but not materially accessible in full; this is an unresolved specific historical-priority risk, not evidence of noncoverage.",
+      "searches": [
+        "rule 30 \"preimages\" \"at most\" cyclic ring",
+        "rule 30 \"three\" preimages periodic configurations cellular automaton",
+        "Edward Powley \"Global properties of cellular automata\" thesis date",
+        "Erica Jen 1989 preimages elementary cellular automata transition matrix rule 30"
+      ]
+    },
+    "checked_sources": [
+      "https://www.wolframscience.com/nks/notes-10-10--cryptographic-properties-of-rule-30/",
+      "https://digital.library.unt.edu/ark:/67531/metadc1189848/",
+      "https://pure.york.ac.uk/portal/en/publications/counting-preimages-of-homogeneous-configurations-in-1-dimensional/",
+      "https://www.mathpages.com/home/kmath439/kmath439.htm",
+      "https://www.cs.york.ac.uk/nature/group/theses/EdPowley.pdf",
+      "https://www.wolfram-media.com/products/nks/"
+    ],
+    "claim_vs_prior_implication": {
+      "evidence": [
+        "Prior indexed cyclic Rule 30 image-size result determines only total reachable output count as a function of circumference; the claim there explicitly excludes predecessor multiplicity.",
+        "Wolfram (2002) notes 0- or 2-predecessor aggregate behavior, but not the distribution by output weight.",
+        "A full off-diagonal pair-graph cycle classification gives the new weights and their sharp minimum lengths, and the exact determinant ratio gives the two-variable generating function."
+      ],
+      "reasoning": "An unweighted image count or total predecessor-count bound does not determine the Hamming-weight locations of collisions. A rule that enumerates each specified output is computational machinery, not a previously stated formula for all n and k. The asserted new statements are logically stronger than mere aggregate counts and need the independent cycle-weight argument and determinant factorization.",
+      "searches": [
+        "Rule 30 finite cyclic predecessor count at most three, exactly three only all ones period multiple of three, two-to-one image inverse ambiguity",
+        "Rule 30 elementary cellular automaton preimage multiplicity bound 3 on periodic finite rings, 41 state semigroup",
+        "Rule 30 \"predecessor\" \"Hamming weight\" \"generating function\""
+      ]
+    },
+    "equivalent_formulations": {
+      "evidence": [
+        "Wolfram, 2002, chapter 10 cryptography note, gives local inverse algorithm and aggregate predecessor frequencies (https://www.wolframscience.com/nks/notes-10-10--cryptographic-properties-of-rule-30/).",
+        "MathPages, Global Reversibility of Cellular Automata, discusses closed-loop special cases and a three-predecessor all-one output (https://www.mathpages.com/home/kmath439/kmath439.htm)."
+      ],
+      "reasoning": "The equality of ordered outputs is equivalently a pair-de-Bruijn closed walk, so transfer matrices are a relevant known technique. The inspected Rule 30 inverse descriptions do not state a joint output-weight enumerator, exact weight-five obstruction, or sharp first-occurrence formula. A general preimage algorithm is not by itself an explicit all-length formula or an implication of the sharp support law without additional mathematical work.",
+      "searches": [
+        "Rule 30 cyclic preimage multiplicity \"weight enumerator\"",
+        "Rule 30 \"predecessor\" \"Hamming weight\" \"generating function\"",
+        "Rule 30 cyclic image outputs counted jointly by Hamming weight and predecessor multiplicity; bivariate rational generating functions and collision-pair transfer matrices"
+      ]
+    },
+    "exact_database_or_table": {
+      "evidence": [
+        "The Wolfram (2002) note lists aggregate finite-width state/predecessor statistics and an inverse procedure, not the bivariate polynomial coefficients (https://www.wolframscience.com/nks/notes-10-10--cryptographic-properties-of-rule-30/).",
+        "MathPages provides closed-loop examples, but no all-weight table or formula (https://www.mathpages.com/home/kmath439/kmath439.htm)."
+      ],
+      "reasoning": "No inspected exact table or sequence is composition-resolved by output Hamming weight. Aggregating the new formula at weight variable one recovers known-style total collision information; its nontrivial weight coefficients and sharp first-occurrence thresholds are not a recomputation of any identified table.",
+      "searches": [
+        "Rule 30 cellular automaton collision output weight spectrum exact enumerator",
+        "Rule 30 \"number of preimages\" weight",
+        "rule 30 \"2\" \"3\" predecessors finite state"
+      ]
+    },
+    "rationale": "The full accessible Rule 30 inversion accounts, prior general preimage-matrix work, the homogeneous-target count and the previous unweighted image law do not state or logically give the output-weight collision generating function, complete forbidden-weight support or sharp minimum ring size without additional analysis. General preimage algorithms are recognized as prior machinery; inaccessible older sources leave a qualified priority risk.",
+    "residual_risks": [
+      "A possibly relevant 2009 York thesis was not read in full due PDF transport limits; it may contain a matching result.",
+      "Only the abstract/introductory pages of Jen 1989 and the abstract of Powley-Stepney 2010 were accessible; no claim that their entire texts are noncovering is made.",
+      "Keyword and semantic database searches do not prove uniqueness; unindexed exact formulas may exist."
+    ],
+    "source_inspections": [
+      {
+        "assessment": "Provides earlier inverse procedure, aggregate frequencies, and qualitative predecessor claims; exact weight-resolved collision series and minimum-width spectrum not stated in inspected note",
+        "evidence": [
+          "2002 note: left-permutivity, 0/2 predecessor counts for most finite cyclic configurations, and predecessor algorithm"
+        ],
+        "identifier_or_url": "https://www.wolframscience.com/nks/notes-10-10--cryptographic-properties-of-rule-30/",
+        "material_read": "Complete accessible HTML note, including predecessor paragraph and code",
+        "method": "Read official chapter note and compare known aggregate and open-word claims against weight-resolved collision theorem",
+        "title": "[Cryptographic] properties of rule 30, A New Kind of Science",
+        "trigger": "Direct statement of Rule 30 finite-ring inverse procedure and precursor frequencies"
+      },
+      {
+        "assessment": "Special cyclic behavior and all-one triple situation are known; no corresponding weight support, sharp minimum lengths, or two-variable generating function found in full text",
+        "evidence": [
+          "Undated MathPages full discussion, especially closed-loop examples and nine-bit repunit case"
+        ],
+        "identifier_or_url": "https://www.mathpages.com/home/kmath439/kmath439.htm",
+        "material_read": "Complete HTML discussion including the 9-bit all-one ring and special multiple-of-three condition",
+        "method": "Compared explicit cyclic predecessor examples and formal ambiguity language with new exact all-weight statistic",
+        "title": "Global Reversibility of Cellular Automata",
+        "trigger": "Potential prior exact classification of all cyclic predecessor multiplicities"
+      },
+      {
+        "assessment": "Known general matrix-preimage framework; exact-new-claim overlap remains uncertain in unread pages",
+        "evidence": [
+          "1989 report catalog abstract and accessible introduction describing degree vectors and preimage scaling"
+        ],
+        "identifier_or_url": "https://digital.library.unt.edu/ark:/67531/metadc1189848/",
+        "material_read": "Repository record, abstract, extracted introductory page; complete report not read",
+        "method": "Compared topic/method with the new weight-resolved collision problem; did not infer whole-report noncoverage from snippets",
+        "title": "Rule matrices, degree vectors, and preimages for cellular automata",
+        "trigger": "Earlier general preimage matrix methodology"
+      },
+      {
+        "assessment": "Abstract explicitly restricts target enumeration to homogeneous configurations; full document could still contain background relevant to the stronger result",
+        "evidence": [
+          "2010 abstract and bibliographic record; 29-page article"
+        ],
+        "identifier_or_url": "https://pure.york.ac.uk/portal/en/publications/counting-preimages-of-homogeneous-configurations-in-1-dimensional/",
+        "material_read": "Full official bibliographic record and abstract, not full journal article",
+        "method": "Checked declared scope (homogeneous targets) and de Bruijn methodology against nonhomogeneous output-weight collision enumeration",
+        "title": "Counting Preimages of Homogeneous Configurations in 1-Dimensional Cellular Automata",
+        "trigger": "Exact predecessor-count methods for finite elementary cellular automata"
+      },
+      {
+        "assessment": "Specific historical-priority risk remains, without decisive evidence of a matching Hamming-weight classification",
+        "evidence": [
+          "2009 York thesis listing; accessible search metadata only"
+        ],
+        "identifier_or_url": "https://www.cs.york.ac.uk/nature/group/theses/EdPowley.pdf",
+        "material_read": "Public title and dated repository metadata; PDF full-text retrieval failed because of transport/content-length limit",
+        "method": "Searched for the thesis and located an open university copy, but did not assert noncoverage of inaccessible material",
+        "title": "Global properties of cellular automata",
+        "trigger": "Broad 2009 thesis plausibly containing finite-ring precursor results"
+      }
+    ],
+    "status": "PASS"
+  },
+  "review_type": "self_review",
+  "schema_version": 1,
+  "scope_run_id": "5edca7d3-7172-49be-80b3-fa36db17a46c",
+  "self_review_status": "passed",
+  "value": {
+    "rationale": "The exact support of cyclic inverse ambiguity by output composition is naturally motivated and is not determined by total image cardinality. The global output-weight-five exclusion, all-weight existence criterion, and sharp earliest ring circumference for every permitted weight are structural results relevant to constrained predecessor reconstruction. The factorized bivariate series provides exact joint counts without finite extrapolation or unsupported security conclusions.",
+    "status": "PASS"
+  }
+}

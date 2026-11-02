@@ -1,0 +1,128 @@
+{
+  "correctness": {
+    "rationale": "Pairwise heavy-count smoothing strictly decreases sum of squared heavy counts and weakly decreases majorization, because attainable pair differences retain parity and their nonnegative centers decrease by twice the integer ratio. Unit-item marginal increments are convexly ordered, so water-filling minimizes every separable convex sum for the balanced baselines. The resulting vector is globally majorization minimal, with explicitly calculated three-case load profile. A nearest-odd integer gives the strict nonintegral-ratio counterexample. A standalone exact test exhaustively checked 2,127,810 small allocations; it is corroboration, not an infinite proof.",
+    "status": "PASS"
+  },
+  "independent": false,
+  "independent_audit_status": "not_performed",
+  "originality": {
+    "broader_coverage": {
+      "evidence": [
+        "Akrami et al. 2022 proves an exact optimal NSW algorithm for general bi-valued valuations when the smaller value divides the larger.",
+        "Cousins et al. 2023 gives leximin and p-mean algorithms for general submodular bi-valued valuations under divisibility.",
+        "Nguyen–Elbassioni 2026 gives a compact FPTAS for multiple item types and exact compact treatment for simpler classes."
+      ],
+      "reasoning": "These are stronger on allowed valuation heterogeneity, but their inspected statements are objective-specific and do not imply a single common-instance allocation simultaneously optimizing every Schur-concave criterion. Important residual risk: a stronger general Lorenz theorem could subsume this specialty.",
+      "searches": [
+        "web: majorization optimal identical agents two sizes unit sized items fair allocation",
+        "web: Cousins et al 2023 bi-valued goods values 1 c submodular leximin lorenz",
+        "published-finding corpus: high-multiplicity compact two item types integer ratio exact Nash p-mean welfare arbitrary population"
+      ]
+    },
+    "checked_sources": [
+      "arxiv:2610.04417v1",
+      "arxiv:2107.08965v1",
+      "arxiv:2302.03087v3",
+      "arxiv:2610.05237v1",
+      "published-finding corpus semantic queries listed in prior checks"
+    ],
+    "claim_vs_prior_implication": {
+      "evidence": [
+        "The 2026 paper explicitly focuses on individual p-mean welfare optimization; two-type egalitarian polynomial algorithms are acknowledged.",
+        "Akrami et al. establish NSW maximization and even exhibit a nonintegral-ratio balanced-heavy counterexample.",
+        "Cousins et al. distinguish different welfare criteria and provide mechanisms with different gain functions."
+      ],
+      "reasoning": "Known individual-objective algorithms alone do not logically guarantee a common majorization-minimum, nor the explicit three-branch compressed sorted vector. The new lemma proves such a vector exists in a restricted equal-valuation case. Akrami nonintegral counterexample covers a single instance of the boundary; the theorem supplies the arbitrary-real-ratio iff characterization for the specified two-stage procedure.",
+      "searches": [
+        "arxiv:2610.04417v1 introduction Sections 5.6–5.7, high multiplicity objective restrictions",
+        "arxiv:2107.08965v1 introduction and two-valued Nash optimization",
+        "arxiv:2302.03087v3 introduction and theorem summary",
+        "arxiv:2610.05237v1 introduction and complexity table"
+      ]
+    },
+    "equivalent_formulations": {
+      "evidence": [
+        "arXiv:2302.03087v3 describes distinct optimized welfare criteria; arXiv:2107.08965v1 uses NSW and integer divisibility, including a noninteger counterexample.",
+        "No published-finding corpus candidate returned a matching two-denomination common-valuation majorization claim in these searches."
+      ],
+      "reasoning": "The theorem concerns sorted *entire load vectors*, not merely matching Nash-optimal or leximin-optimal scores. Searches also included load-balancing and scheduling aliases. The strongest matched algorithms solve objective-specific tasks and do not directly assert the simultaneously optimal vector.",
+      "searches": [
+        "published-finding corpus: integer-divisible two-size identical additive goods majorization Lorenz optimal allocation all concave welfare functions",
+        "published-finding corpus: two-length equal machines unit jobs long jobs Lorenz dominates every schedule",
+        "web: indivisible fair division common valuations 1 k lorenz optimal allocation"
+      ]
+    },
+    "exact_database_or_table": {
+      "evidence": [
+        "published-finding corpus hits were primarily unrelated assignment, voting and scheduling records; none stated the exact three-case profile.",
+        "Primary 2026 high-multiplicity article Table 1 is a complexity classification, not a tabulation of this exact profile."
+      ],
+      "reasoning": "The claim is an all-parameter theorem and a sharp if-and-only-if boundary; a finite lookup table alone would not imply it. No exact database was identified. This is not evidence of exhaustive world-wide novelty.",
+      "searches": [
+        "published-finding corpus: two sizes 1 r balance big jobs first greedy small jobs majorization theorem",
+        "published-finding corpus: two-length equal machines unit jobs long jobs Lorenz dominates every schedule",
+        "web: load balancing two processing times one divides another majorization optimal schedules"
+      ]
+    },
+    "rationale": "Inspected full primary sources establish general objective-specific algorithms and hardness, but not the asserted single universally Lorenz-minimal common-valuation profile together with the exact compressed three-case expression and sharp universal-rule divisibility frontier. The narrower structural theorem does not purport to supersede the known general Nash/leximin algorithms. Priority remains subject to possible implications of classical scheduling and other unindexed majorization literature.",
+    "residual_risks": [
+      "An exact majorization result for identical two-length scheduling or common bi-valued allocations may appear under different terminology in unindexed literature.",
+      "The general leximin and Nash algorithms may implicitly yield the new structural theorem after specialization; direct all-criteria implication was not found in examined results."
+    ],
+    "source_inspections": [
+      {
+        "assessment": "Covers other algorithmic statements, not exact universal Lorenz profile for identical valuations",
+        "evidence": [
+          "arXiv:2610.04417v1, introduction and Table 1, Sections 5.6–5.7"
+        ],
+        "identifier_or_url": "https://arxiv.org/html/2610.04417v1",
+        "material_read": "Full HTML introduction, related work, objective table and named Sections 5.6–5.7 and technical scope",
+        "method": "HTML full-text inspection including exact one/two item type scope and table",
+        "title": "Maximizing p-Mean Social Welfare in the High-Multiplicity Setting",
+        "trigger": "motivating compact high-multiplicity two-item-type allocation literature"
+      },
+      {
+        "assessment": "Known NSW exact algorithm dominates that narrower objective; the simultaneous vector majorization theorem is not stated in inspected relevant parts",
+        "evidence": [
+          "arXiv:2107.08965v1 pp.1–4, including Example 1"
+        ],
+        "identifier_or_url": "https://arxiv.org/pdf/2107.08965",
+        "material_read": "Abstract, introduction, theorem summary and counterexample with identical valuations",
+        "method": "Read searchable primary PDF and inspected PDF page display",
+        "title": "Maximizing Nash Social Welfare in 2-Value Instances",
+        "trigger": "strong exact NSW theorem at divisible ratio"
+      },
+      {
+        "assessment": "Distinct gain functions optimize distinct objectives in a broader class; does not directly assert the exact simultaneous majorization theorem or three-case profile",
+        "evidence": [
+          "arXiv:2302.03087v3, pp.1–3"
+        ],
+        "identifier_or_url": "https://arxiv.org/pdf/2302.03087",
+        "material_read": "Abstract and introductory contribution, theorem and technique descriptions, table of gain functions and relation to prior bi-valued algorithms",
+        "method": "Read primary PDF extracted text and visually inspected p.2",
+        "title": "Dividing Good and Better Items Among Agents with Bivalued Submodular Valuations",
+        "trigger": "strongest plausible prior algorithms for both NSW and leximin"
+      },
+      {
+        "assessment": "Studies single egalitarian objective and hardness across heterogeneous valuations; does not supply the joint criterion theorem",
+        "evidence": [
+          "arXiv:2610.05237v1, Introduction, Table 1"
+        ],
+        "identifier_or_url": "https://arxiv.org/html/2610.05237v1",
+        "material_read": "Full accessible introduction, related-work section, contributions and Table 1",
+        "method": "HTML primary text inspection",
+        "title": "Settling the Computational Complexity of Max-Min Allocation with Ternary Valuations",
+        "trigger": "recent exact two-value maximin results"
+      }
+    ],
+    "status": "PASS"
+  },
+  "review_type": "self_review",
+  "schema_version": 1,
+  "scope_run_id": "792a9474-6f1b-44fb-a2cd-3f31809eb81e",
+  "self_review_status": "passed",
+  "value": {
+    "rationale": "Provides exact majorization rather than merely one social-welfare optimum, a single simultaneously optimal allocation for all symmetric Schur-concave scores, an explicit exponent-compressed load formula with only constant binary arithmetic, and an if-and-only-if arithmetic boundary for a natural two-stage algorithm. The comparison with compact p-mean approximation and wider bi-valued algorithms motivates exactly why this structure is useful.",
+    "status": "PASS"
+  }
+}

@@ -1,0 +1,103 @@
+{
+  "correctness": {
+    "rationale": "A greedy subsequence embedding is earliest at each step in any prefix of a q-periodic permutation word. For each palindrome, reflected opposite transitions contribute exactly q unless an adjacent half-word pair agrees, when the contribution is 2q; even length adds a central q. Thus the greedy final index is v_1+q(m+e). Comparing with kq+s proves precisely m+e<k or m+e=k with v_1<s, including all k=1,s=0 boundary cases. The q-ary half-word transition count gives the exact binomial length spectrum; independent formal geometric summation gives both rational terms. The shipped verify.py generated 49 literal host cases with 3086 distinct palindromes, 67121 palindrome membership comparisons, and 50932 formal coefficient comparisons. These checks supplement, but do not replace, the proof.",
+    "status": "PASS"
+  },
+  "independent": false,
+  "independent_audit_status": "not_performed",
+  "originality": {
+    "broader_coverage": {
+      "evidence": [
+        "Mahalingam–Pandoh Theorem 4.2 proves only a universal Fibonacci upper bound and its Section 5 gives maximum-over-words results for high alphabet sizes.",
+        "Müllner–Ryzhikov focus on longest palindromic and antipalindromic subsequence bounds in circular words."
+      ],
+      "reasoning": "An upper bound, a maximum over all words of a given length, or a longest-subsequence threshold does not determine all exact length-specific distinct-palindrome counts for a fixed cyclic family.",
+      "searches": [
+        "arxiv:2108.02729 Theorem 4.2 Section 5 scattered palindrome bound",
+        "arxiv:1901.07502 circular word longest palindromic subsequence",
+        "research-record semantic query: q-ary periodic permutation word (1 2 ... q)^k distinct scattered palindromic subwords exact spectrum rational generating function"
+      ]
+    },
+    "checked_sources": [
+      "arxiv:1901.07502v1, first public 2019-01-22",
+      "arxiv:2108.02729v1, first public 2021-08-05",
+      "Accessible historical binary alternating-prefix spectrum, opaque item 42120300-c87a-407c-9120-e83e96dcaf72",
+      "Research-record semantic searches for cyclic powers, alphabet-size spectra, and binary analogues"
+    ],
+    "claim_vs_prior_implication": {
+      "evidence": [
+        "An accessible binary-prefix result has complete q=2 enumeration; its hypotheses exclude every q>=3 case.",
+        "Theorem 3.6 of arxiv:2108.02729 characterizes minimum-palindrome words as distinct blocks, whereas these q>=3 repeated permutations have repeat appearances of each letter.",
+        "Proposition 5.1 of arxiv:2108.02729 gives only a bound for q letters each twice, whereas the new k=2 formula counts every target length exactly."
+      ],
+      "reasoning": "None of the inspected hypotheses imply the claimed exact formulas. General properties of the underlying subsequence order motivate, but do not supply, the sharp q-ary equality-transition endpoint test. The earlier binary theorem prevents claiming q=2 priority.",
+      "searches": [
+        "research-record semantic query: palindromic subsequences of 0^a1^b0^c1^d exact formula",
+        "research-record semantic query: palindromic subword counts of cyclic permutation powers",
+        "web: Counting scattered palindromes in a finite word Mahalingam Pandoh cyclic permutation"
+      ]
+    },
+    "equivalent_formulations": {
+      "evidence": [
+        "Accessible historical result 42120300-c87a-407c-9120-e83e96dcaf72 gives binary alternating-prefix spectrum q=2, but not q>=3.",
+        "No q>=3 partial cyclic-permutation-prefix formula found among closest returned semantic results."
+      ],
+      "reasoning": "The known binary formula specializes only to two symbols and does not specify q-1 independent alternatives at distinct steps or the three-or-more-symbol boundary condition v_1<s. Renaming symbols cannot transform its binary host into a q>=3 host.",
+      "searches": [
+        "research-record semantic query: distinct palindromic scattered subsequences of binary alternating run word (0^a 1^b)^k exact count length distribution",
+        "research-record semantic query: palindromic subsequences repeated increasing permutation sequence 012 012 012",
+        "web: distinct scattered palindromic subsequences cyclic word 012 repeated"
+      ]
+    },
+    "exact_database_or_table": {
+      "evidence": [
+        "Published paper arxiv:2108.02729 includes finite small-length global tables and broad alphabet-sensitive bounds, neither an all-k periodic-prefix table nor a full generating function for this family."
+      ],
+      "reasoning": "Enumerated global maxima and generic formulas that bound the invariant are not an exact database of the requested infinite cyclic-permutation prefix spectrum.",
+      "searches": [
+        "research-record semantic query: palindromic subsequence spectrum run length encoded periodic binary strings rational generating function",
+        "research-record semantic query: counting scattered palindromes q-ary repeated permutation word number by length Fibonacci recurrence",
+        "web: palindromic scattered subwords powers permutations generating function q ary"
+      ]
+    },
+    "rationale": "The leading 2021 primary study supplies general or extremal bounds but no exact counting of all lengths for powers of a q-ary cyclic permutation and partial final prefixes. The 2019 circular-word study concerns longest subsequence existence rather than distinct-palindrome counts. A pre-existing result for binary alternating prefixes (q=2) is explicitly outside the claim; the new theorem covers q>=3 with an alphabet-dependent half-word classification and exact endpoint-boundary correction for all s. Relevant source statements and implications were compared; unlocated specialized equivalents remain a residual risk.",
+    "residual_risks": [
+      "An unlocated specialized q-ary periodic-word publication could have an equivalent or stronger result.",
+      "No claim of priority is established by a bounded literature and research-record search.",
+      "Binary case is already known and is excluded; current value rests on the complete nonbinary family and incomplete-period exact classification."
+    ],
+    "source_inspections": [
+      {
+        "assessment": "NOT_COVERING after relevant-material comparison; gives general bounds and extremal block-word characterizations rather than a complete exact spectrum for cyclic-permutation powers with any incomplete final period.",
+        "evidence": [
+          "arxiv:2108.02729v1 p.4 Theorem 3.6 (block words), p.5 Theorem 4.2 (Fibonacci bound), p.13 Proposition 5.1 (two appearances of q letters)."
+        ],
+        "identifier_or_url": "arxiv:2108.02729v1; https://arxiv.org/pdf/2108.02729",
+        "material_read": "Abstract, Section 3 definition and Theorem 3.6, Section 4 Theorem 4.2 and Lemma 4.5, propositions and comparison in Sections 4–5 including Proposition 5.1 and surrounding arguments.",
+        "method": "Accessible full-text PDF searched for periodic, permutation, and relevant named theorems; inspected extracted pages and screenshots.",
+        "title": "Counting scattered palindromes in a finite word",
+        "trigger": "Same invariant: distinct scattered palindromic subsequences of finite words, with alphabet-sensitive and length-sensitive bounds."
+      },
+      {
+        "assessment": "NOT_COVERING on inspected materials; studies existence and extremal lengths of longest palindromic subsequences, not counts of distinct scattered palindrome strings by every length.",
+        "evidence": [
+          "arxiv:1901.07502v1 pp.1–2 definitions and stated aim: longest palindromic/antipalindromic subsequences in circular words."
+        ],
+        "identifier_or_url": "arxiv:1901.07502v1; https://arxiv.org/pdf/1901.07502",
+        "material_read": "Abstract, introductory definitions, circular-word extremal constructions and conjectures regarding longest palindromic subsequences; accessible PDF theorem statements.",
+        "method": "Accessible arXiv full-text PDF inspected in text view, with screenshot of first page and relevant statements.",
+        "title": "Palindromic Subsequences in Finite Words",
+        "trigger": "Potential circular-word theorem about palindromic subsequences that could dominate a periodic-word count."
+      }
+    ],
+    "status": "PASS"
+  },
+  "review_type": "self_review",
+  "schema_version": 1,
+  "scope_run_id": "85b73838-625b-49f3-9979-187ee1d12c0d",
+  "self_review_status": "passed",
+  "value": {
+    "rationale": "Scattered-palindrome complexity is a standard exact word invariant with general bounds but comparatively few tractable structured all-length families. Here all q>=3, k, and s are settled together, with a one-statistic membership theorem, rational length distribution, sharp longest length, and the invariant increment produced by appending one symbol of the incomplete final period. Unlike an arbitrary small enumeration, these solve a motivated complete family and give explicit benchmark distributions for subsequence enumeration and extremal comparisons.",
+    "status": "PASS"
+  }
+}

@@ -1,0 +1,11 @@
+# Mathematical review
+
+**Correctness — PASS.** The explicit Coker gamma identity is an established polynomial identity; its Catalan coefficient valuations follow from Legendre's formula. At odd input, exactly one endpoint term attains the least valuation because every preceding term has at least \(2r-s_2(r)>0\) additional factors of two. Even inputs give an immediate unit after dividing by the weight. Counting residues then proves the complete fiber formulas. The case \(x=-1\), \(n=1\), and zeros were evaluated explicitly. Standard-library checks independently compare the binomial polynomial to the gamma expansion for 1,908 cases and 864 exhaustive modular fiber tests; these are supporting computations, not substitutes for proof.
+
+**Originality — PASS with residual risk.** Mansour–Sun 2008 already give Coker's expansion and the special value at \(-1\), so neither is new. Postnikov–Sagan 2006 and Gao–Gu 2019 give valuations for height-of-ascent weighted Catalan families rather than integer specializations of the ordinary Narayana polynomial by peak count. Lassalle 2011 gives symmetric-function identities, and Checcoli–D'Adderio 2013 concern individual Narayana coefficients. Searches for equivalent valuation, modular-fiber, and two-adic-zero formulations in relevant literature and a mathematical findings database did not locate the present uniform trichotomy. That does not prove uniqueness: it remains possible that an unlocated general theorem implies it.
+
+**Value — PASS.** The polynomial counts Dyck paths by peaks and evaluates their full weight enumerator at every integer. The exact valuation is uniform over an infinite two-parameter family, identifies nonobvious constancy across all odd weights at odd index, and converts the valuation formula to complete congruence-fiber counts and a classification of two-adic roots. These are natural, previously non-explicit arithmetic invariants of a standard enumerator, not an arbitrary finite sample. The argument is a short synthesis of classical ingredients and is not claimed as a new general method.
+
+**Limitations.** The classification is two-adic only and does not cover other primes or distinct Narayana normalizations. Exact literature completeness remains open to independent checking.
+
+Self-review: passed. Independent audit: not yet performed.

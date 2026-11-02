@@ -1,0 +1,15 @@
+# Scientific review: four-modal observational fibers
+
+## Correctness
+PASS. For every upper-set suffix, a successor row meets it exactly when its maximum passes the suffix threshold and is contained in it exactly when its minimum passes that threshold; the four published semantic clauses turn these comparisons into two prefix maxima and two suffix minima. The four local recurrence constraints, plus initial and terminal sentinels, are equivalent to the prescribed records. Every allowed row endpoint pair has exactly the stated independent interior-choice weight. All quantifiers include empty rows via explicit sentinels. A separate exhaustive direct-semantic program verifies every relation on chains of one to four worlds and, independently, every corresponding fiber count. The all-size statements rest on proof rather than extrapolation.
+
+## Originality
+PASS on available evidence, not a claim of global historical priority. Balbiani–Gencer [1] supply the four operators, their eliminability relationships, and frame correspondences, but no representation-fiber computation. Přenosil [2] discusses canonical/modal relational representation in a more general signature; no exact raw-relation fibers for this specific four-modal chain signature were found. The closest publicly indexed chain result [3] counts a specially confluent subclass of relations, not equivalence classes of induced four-modal operations, and [4] concerns algebraic commuting condensations. Targeted searches for aliases, raw-versus-canonical relation equivalence, four-operator signatures, counts, and the parameter-specific sequence located no covering result. The possibility of an older equivalent inverse-image theorem in distributive modal algebra remains a concrete risk.
+
+## Mathematical value
+PASS. Identifiability of a raw accessibility relation from its modal truth operations is a natural inverse problem raised by the distinction between relational and algebraic semantics. The all-size exact fiber factorization solves that inverse problem on arbitrary finite chains; it makes the obstruction structural rather than merely exhibiting an indistinguishable example. The sharp two-to-three-world threshold, exact first four quotient cardinalities, and exponential family of indistinguishable nonidentical relations quantify the information lost by restricting valuations to persistent sets. These are not consequences of the existing confluence census, which counts a different object.
+
+## Boundaries and remaining risks
+The four operator semantics are those of [1], without additional frame hypotheses; the results are on labelled finite total orders only. Full-history priority cannot be guaranteed by indexed searches; a theorem about raw relational fibers in an older positive-modal or canonical-extension framework may cover some or all conclusions. The small-size maximal-fiber assertions use complete finite enumeration; no maximal-fiber formula for arbitrary larger carriers is claimed.
+
+Self-review: passed. Independent audit: not yet performed.

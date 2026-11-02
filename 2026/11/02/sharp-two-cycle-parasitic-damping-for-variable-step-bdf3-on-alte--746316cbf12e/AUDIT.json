@@ -1,0 +1,122 @@
+{
+  "correctness": {
+    "rationale": "Exactly derive alternating transfer matrices from third-degree interpolation; their two-step trace and determinant have explicit rational closed forms. The three exact Schur expressions at scaling five factor into strictly positive polynomials for every r>0, so both multipliers are strictly smaller than 1/5 in modulus. Singular-ratio limits give -1/5 and zero, making the bound sharp. With fixed r the increments are summable. The packaged verifier checks the nonstandard symbolic identities by a second formula and sample characteristic roots; limits and boundaries are explicitly stated.",
+    "status": "PASS"
+  },
+  "independent": false,
+  "independent_audit_status": "not_performed",
+  "originality": {
+    "broader_coverage": {
+      "evidence": [
+        "Li–Liao (2022) Theorem 3.1: all adjacent ratios below about 2.553, with numerical observations beyond the bound.",
+        "Söderlind–Fekete–Faragó (2018) Theorem 5.1: smoothly deformed grids with ratios tending to one.",
+        "Guglielmi–Zennaro (2001) abstract: joint spectral radius treatment improving the earlier general bound to about 1.501, as described in Li–Liao introduction."
+      ],
+      "reasoning": "The alternating family has arbitrarily large ratios at infinitely many steps and fixed unequal ratios even as the mesh refines; it is outside these stated hypotheses. Older specialized texts not fully readable leave a stated residual risk.",
+      "searches": [
+        "\"backward differentiation formula\" \"periodic steps\" zero stability alternating",
+        "\"BDF3\" \"unrestricted\" step ratio stability",
+        "On the zero-stability of variable stepsize multistep methods: the spectral radius approach Guglielmi Zennaro BDF3",
+        "Stability of variable-step BDF2 and BDF3 methods ratio 2.553"
+      ]
+    },
+    "checked_sources": [
+      "https://arxiv.org/html/2201.00527v1",
+      "https://doi.org/10.1137/21M1462398",
+      "https://link.springer.com/article/10.1007/s10543-018-0716-y",
+      "https://iris.gssi.it/handle/20.500.12571/302",
+      "https://epubs.siam.org/doi/10.1137/0720056",
+      "https://epubs.siam.org/doi/10.1137/0724054"
+    ],
+    "claim_vs_prior_implication": {
+      "evidence": [
+        "Li–Liao ratio threshold is violated infinitely often when r>2.553 or its reciprocal exceeds that value.",
+        "Söderlind–Fekete–Faragó require 1+O(1/N) adjacent ratios, violated for every fixed r different from one.",
+        "Fixed r>0 two-step monodromy eigenvalues tend towards -1/5,0 as r diverges; neither source supplies this sharp value."
+      ],
+      "reasoning": "Both principal full-text prior statements fail to cover the target parameter range; their matrix coefficients do not themselves prove the new bound without the separate exact product and Schur factorization. A stronger hidden specialized period-two theorem could still cover it.",
+      "searches": [
+        "arxiv:2201.00527v1 Theorem 3.1",
+        "doi:10.1007/s10543-018-0716-y Theorem 5.1",
+        "\"BDF3\" \"alternating\" \"ratio\" stable periodic"
+      ]
+    },
+    "equivalent_formulations": {
+      "evidence": [
+        "Li–Liao arXiv:2201.00527v1 section 3 uses companion matrices for DOC kernels and bounds their norms; its stated result is conditional on adjacent ratios.",
+        "Söderlind–Fekete–Faragó 2018 section 5 includes BDF3 extraneous-mode recurrence on smooth grids only."
+      ],
+      "reasoning": "The alternating two-step characteristic polynomial is a Floquet/extraneous-mode formulation of zero-stability, not new terminology for an existing published exact result. Neither cited full text evaluates its arbitrary-ratio two-cycle spectrum.",
+      "searches": [
+        "\"BDF3\" \"alternating\" \"ratio\" stable periodic",
+        "BDF3 period-two step sequence reciprocal ratios sharp zero stability characteristic multiplier",
+        "third order variable-step backward differentiation formula two-periodic grid exact Floquet characteristic polynomial parasitic damping"
+      ]
+    },
+    "exact_database_or_table": {
+      "evidence": [
+        "Li–Liao (2022) tables 2 and 4 report third-order numerical convergence for graded/random meshes, not exact periodic characteristic roots.",
+        "Queries of published mathematical finding records returned closest unrelated periodic recurrences and BDF2 positivity but no tabulated alternating BDF3 spectrum."
+      ],
+      "reasoning": "The exact all-ratio sharp 1/5 constant is not a finite numerical table entry. No inspected database/table supplied the exact two-cycle characteristic polynomial or optimal universal bound.",
+      "searches": [
+        "variable step BDF3 2 periodic mesh alternating zero stability unbounded ratios",
+        "BDF3 period-two step sequence reciprocal ratios sharp zero stability characteristic multiplier",
+        "nonuniform BDF3 repeated alternating large small steps no mesh ratio bound spectral radius 0.2"
+      ]
+    },
+    "rationale": "The closest accessible full texts prove BDF3 stability under local ratio bounds or smooth grids, neither implying the exact unlimited two-periodic family or its sharp 1/5 multiplier. Searches of published mathematical records and primary literature found no exact equivalent. Closed older general BDF3 stability papers remain a material priority risk, openly identified rather than declared inspected.",
+    "residual_risks": [
+      "An earlier uncatalogued specialized alternating-grid calculation could contain an equivalent theorem, notwithstanding the absence of a match in completed published-record and full-text searches.",
+      "The 1983 Skeel–Jackson and 2001 Guglielmi–Zennaro complete articles were not materially readable in this execution; their accessible abstracts do not settle every period-two subcase.",
+      "No independent scientific/priority audit was performed."
+    ],
+    "source_inspections": [
+      {
+        "assessment": "NOT_COVERING stated claim: ratio cap theorem and numerical observations do not give unrestricted alternating two-cycle spectrum",
+        "evidence": "arXiv v1 posted 2022-01-03; primary MSC 65M06; lines 41–84, 195–268, 374–406, 433–505.",
+        "identifier_or_url": "https://arxiv.org/html/2201.00527v1",
+        "material_read": "Introduction, coefficient formulas (1.1)–(1.5), section 3 companion-matrix bounds and Theorem 3.1, random-grid discussion, conclusions and BDF3 examples",
+        "method": "Read lawful open full text in HTML",
+        "title": "Stability of variable-step BDF2 and BDF3 methods",
+        "trigger": "Exact motivating BDF3 definition and apparently restrictive generic stability theorem"
+      },
+      {
+        "assessment": "NOT_COVERING: fixed nonunit alternating ratios cannot satisfy adjacent ratios 1+O(1/N)",
+        "evidence": "Theorem 5.1 lines 374–436 and BDF3 recurrence; publication 2018.",
+        "identifier_or_url": "https://link.springer.com/article/10.1007/s10543-018-0716-y",
+        "material_read": "Introduction, smooth-grid hypotheses, section 5 main theorem and BDF3 specialization, discussion and conclusion",
+        "method": "Read lawful open full text in HTML",
+        "title": "On the zero-stability of multistep methods on smooth nonuniform grids",
+        "trigger": "Direct general BDF3 zero-stability theory that might subsume periodic meshes"
+      },
+      {
+        "assessment": "UNRESOLVED_SPECIALIZED_RISK: general joint-spectral-radius restriction not known to imply unrestricted exact alternating result; complete comparison impossible",
+        "evidence": "2001 Numerische Mathematik 88, 445–458; Li–Liao intro reports bound near 1.501.",
+        "identifier_or_url": "https://doi.org/10.1007/s211-001-8010-0",
+        "material_read": "Accessible abstract, bibliographic record and Li–Liao 2022 characterization of its step-ratio bounds; complete article unavailable",
+        "method": "Inspected public abstracts/metadata and downstream primary-text discussion; full text not obtained",
+        "title": "On the zero-stability of variable stepsize multistep methods: the spectral radius approach",
+        "trigger": "BDF3 matrix product spectral radius could contain specialized two-cycle"
+      },
+      {
+        "assessment": "UNRESOLVED_SPECIALIZED_RISK: abstract reports variation-bounded or step-ratio restricted conditions; no exact arbitrary-ratio period-two bound in accessible material",
+        "evidence": "1983 SIAM J. Numer. Anal. 20, 840–853.",
+        "identifier_or_url": "https://doi.org/10.1137/0720056",
+        "material_read": "Accessible complete abstract and bibliographic metadata; full text inaccessible",
+        "method": "Attempted arXiv and lawful open-access retrieval; only public abstract and metadata readable",
+        "title": "The stability of variable-stepsize Nordsieck methods",
+        "trigger": "Classical change-frequency and BDF stability conditions could mention alternating patterns"
+      }
+    ],
+    "status": "PASS"
+  },
+  "review_type": "self_review",
+  "schema_version": 1,
+  "scope_run_id": "746316cb-f12e-4ecd-8b2f-6a1633a468de",
+  "self_review_status": "passed",
+  "value": {
+    "rationale": "A natural alternation of long and short steps has an exact unrestricted positive-ratio parasitic spectral margin even though the standard general-grid BDF3 theorem requires ratios below about 2.553. The sharp period-two bound 1/5 gives an informative, reproducible structural stability result and separates long-run damping from potentially large within-period transients. It is neither a routine strengthening by rounding a constant nor an arbitrary finite parameter slice.",
+    "status": "PASS"
+  }
+}

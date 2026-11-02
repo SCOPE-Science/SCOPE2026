@@ -1,0 +1,125 @@
+{
+  "correctness": {
+    "rationale": "The grounded Dirichlet problem is uniquely solvable. Series/parallel current division gives the explicit three-piece voltage profile with denominator F=L(d+1)-d^2>0, checked at the chord endpoints and boundaries; summation gives the exact gain. At fixed span d the gain is strictly increasing under rightward translation, forcing the unrestricted maximizing chord to end at the one-valued leader. A single sign change of the cubic derivative characterizes every finite integer maximizer. Root expansion yields a=sqrt(L)+O(1) and optimum mean 1-1/sqrt(L)+O(1/L). A separately coded exact-fraction grounded-Laplacian solver verified all chords for L=3..11, and exact finite optimization against cubic bracketing for L=3..159 (989 assertions). Finite tests do not replace the all-L proof.",
+    "status": "PASS"
+  },
+  "independent": false,
+  "independent_audit_status": "not_performed",
+  "originality": {
+    "broader_coverage": {
+      "evidence": [
+        "Zhou–Zhang (2021) Problem 1 explicitly restricts candidates \\(Q\\subseteq F\times S_1\\), so its guarantees are not for all missing edges.",
+        "Zhao–Liu–Wang (2014) introduces two fixed competitors and tests an example modified network; it does not globally optimize a chord in each path size."
+      ],
+      "reasoning": "The 2021 general algorithm can recover a restricted single-edge maximizer by enumeration when supplied the path graph and only leader-follower candidates, but it does not imply that other follower-follower or opposing-leader incident chords are dominated or identify the \\(\\sqrt L\\) asymptotic placement. The theorem proves that reduction rather than assuming it.",
+      "searches": [
+        "Maximizing Influence of Leaders in Social Networks arxiv 2106.06128 full text Sections 4-6",
+        "Competitive Dynamics on Complex Networks doi 10.1038/srep05858 full text Results, Discussion, Methods",
+        "\"influence maximization\" \"path graph\" \"leader\" \"adding edges\""
+      ]
+    },
+    "checked_sources": [
+      "https://www.nature.com/articles/srep05858",
+      "https://ar5iv.labs.arxiv.org/html/2106.06128",
+      "https://arxiv.org/abs/2106.06128",
+      "https://paperzz.com/doc/8057777/discrete-opinion-dynamics-with-stubborn-agents",
+      "https://ssrn.com/abstract=1744113"
+    ],
+    "claim_vs_prior_implication": {
+      "evidence": [
+        "Zhou–Zhang (2021) Problem 1 assumes every edge in the optimization is leader-follower; their Sherman–Morrison formula computes candidate gain but does not optimize over all missing path links.",
+        "Yildiz et al. optimizes positions of stubborn agents while fixing the network, a genuinely different decision variable.",
+        "Zhao et al. (2014) demonstrates a nonleader link changes competition, without obtaining the sharp best possible single link."
+      ],
+      "reasoning": "The 2021 result is the strongest close comparator: same Dirichlet/DeGroot quantities but strictly smaller candidate set. It supplies a generic algorithm for that smaller set; it does not contain a theorem over the unrestricted candidate set. An implication to the exact cubic and asymptotics would require the independent path calculations proved here, and is not present as a stated corollary or theorem. The new claim is not an automatic specialization of an asserted unrestricted optimum.",
+      "searches": [
+        "Zhou-Zhang 2021 Section 4.2 candidate set Q and Sections 5-6 algorithms, https://ar5iv.labs.arxiv.org/html/2106.06128",
+        "Zhao-Liu-Wang 2014 Figure 1 and Discussion, https://www.nature.com/articles/srep05858",
+        "Yildiz et al. Discrete Opinion Dynamics with Stubborn Agents Section 6 optimal stubborn agent placement"
+      ]
+    },
+    "equivalent_formulations": {
+      "evidence": [
+        "Zhao et al. (2014), https://doi.org/10.1038/srep05858, Sections Results and Discussion: fixed leaders and influence of example added links, but no unrestricted path optimum.",
+        "Zhou and Zhang (2021), https://arxiv.org/abs/2106.06128, Sections 4–6: incident-to-leader candidates assumed before optimization."
+      ],
+      "reasoning": "Aliases checked include harmonic measure, random-walk absorption probabilities, grounded Laplacian/voltage, DeGroot leader-follower opinions and chord/shortcut addition. The exact all-nonedges path endpoint theorem, cubic integer characterization and square-root asymptotic do not occur in examined primary materials; search incompleteness is acknowledged.",
+      "searches": [
+        "voter opinion competition two committed zealots path adding one edge maximizes stationary share",
+        "social influence two leaders path optimal shortcut chord maximizing average consensus opinion",
+        "harmonic influence path network optimal extra edge to leader average hitting probability",
+        "\"path graph\" \"stubborn\" \"edge\" \"influence\" optimize",
+        "\"path\" \"leader\" \"edge addition\" \"opinion\" maximizing exact"
+      ]
+    },
+    "exact_database_or_table": {
+      "evidence": [
+        "Relevant indexed mathematical records about paths/consensus concern other invariants, including finite quantum average mixing, damped consensus and random-walk ranges; none returned the claimed harmonic chord table or exact formula.",
+        "The exhaustive exact checker reproduces the present formula for all admissible chords for path lengths \\(3\\) through \\(11\\), but this private calculation cannot itself establish novelty."
+      ],
+      "reasoning": "No matching table or enumerated optimum was located in actual searches. That negative finding is evidence of search coverage only, not a mathematical proof of historical priority.",
+      "searches": [
+        "path graph competing stubborn leaders unrestricted edge addition exact optimum square root chain length average absorption probability",
+        "DeGroot two fixed opinion leaders path graph add one shortcut edge full optimization best chord near square root path length",
+        "committed agents random walk absorption path effective resistance shortcut maximal average influence",
+        "\"opinion\" \"path graph\" \"extra edge\" \"stubborn\"",
+        "\"one edge\" \"leader\" \"influence\" \"path\" DeGroot"
+      ]
+    },
+    "rationale": "Strong overlapping 2021 source restricts possible new edges by assumption to follower/promoting-leader pairs; the present theorem proves global optimality of this restriction for all nonedges on a path and derives a full exact chord gain, complete cubic finite optimum and asymptotic near-total mean influence. The 2014 source supplies the model and examples only; the 2013 stubborn-agent framework optimizes agent placement instead. Dedicated semantic mathematical-record and web searches and recoverable own-claim screening did not locate a stronger result. Best-knowledge PASS is provisional pending independent historical review.",
+    "residual_risks": [
+      "An unlocated earlier special-path optimization or gambler-ruin electrical-network result could contain equivalent claims; negative searches are not novelty proofs.",
+      "The strongest published 2021 source gives generic single-edge evaluation for a restricted candidate set, so the novelty concerns the exact unrestricted path theorem, not the marginal-gain methodology.",
+      "No independent audit has been performed."
+    ],
+    "source_inspections": [
+      {
+        "assessment": "Establishes equilibrium model, and demonstrates an edge can change competition, but does not optimize the average harmonic opinion over all chords of an arbitrary path.",
+        "evidence": [
+          "Published 2014-07-28 (article metadata).",
+          "Results model: two fixed competitors, follower consensus; Figure 1 describes follower-to-follower edge affecting outcome.",
+          "Discussion mentions possible network adjustment, without path one-link optimization theorem."
+        ],
+        "identifier_or_url": "https://www.nature.com/articles/srep05858",
+        "material_read": "Open-access full article: Abstract, Introduction, Results model, Figure 1/example, influence matrix, Discussion and Methods; publication date explicitly read.",
+        "method": "Full HTML text inspection with section/figure coverage and statement-level comparison.",
+        "title": "Competitive Dynamics on Complex Networks",
+        "trigger": "Original pre-2016 fixed-opinion competitive network model and numerical edge-addition figure."
+      },
+      {
+        "assessment": "Strong related prior work; restricts candidates to leader-follower edges. It neither proves this restriction optimal against arbitrary path chords nor provides the complete path-specific finite cubic/maximizer/asymptotic theorem.",
+        "evidence": [
+          "arXiv:2106.06128v1 first submitted 2021-06-11.",
+          "Problem 1: candidate set Q is a subset of F × S1, solely follower-to-1-leader edges.",
+          "Section 4.2 focuses on filtered candidates with original opinion below threshold; Sections 5–6 optimize that restricted problem."
+        ],
+        "identifier_or_url": "https://ar5iv.labs.arxiv.org/html/2106.06128",
+        "material_read": "Full readable preprint: Abstract, Introduction, preliminaries, exact problem/candidate set in Section 4, restricted-edge marginal gain, mathematical theorems in Section 5, algorithms and theoretical analysis in Section 6, experiments and conclusion.",
+        "method": "Read primary full-text rendered HTML and compare quantifiers over admissible edges and resulting guarantee.",
+        "title": "Maximizing Influence of Leaders in Social Networks",
+        "trigger": "Strong same-object edge-addition optimization paper that could subsume the present claim."
+      },
+      {
+        "assessment": "Optimizes leader locations given a fixed graph rather than adding a single edge to a fixed-leader path. Does not supply present optimization theorem.",
+        "evidence": [
+          "SSRN public first-post date is 2011-01-21; Section 6 is titled Optimal Stubborn Agent Placement.",
+          "The objective selects locations of type-one stubborn agents in an otherwise fixed graph; the current claim fixes those leaders and modifies an edge."
+        ],
+        "identifier_or_url": "https://paperzz.com/doc/8057777/discrete-opinion-dynamics-with-stubborn-agents",
+        "material_read": "Accessible HTML text: model, random-walk/absorbing boundary interpretation, Section 6 optimization, and conclusions.",
+        "method": "Substantive full-text section inspection of the optimization decision variable and its formulas.",
+        "title": "Discrete Opinion Dynamics with Stubborn Agents",
+        "trigger": "The closest early random-walk/voter-model formulation of competing fixed-opinion agents."
+      }
+    ],
+    "status": "PASS"
+  },
+  "review_type": "self_review",
+  "schema_version": 1,
+  "scope_run_id": "72b1d78d-dd7c-4683-b722-516626332642",
+  "self_review_status": "passed",
+  "value": {
+    "rationale": "A single added link on a long, perfectly balanced chain can raise the average promoting-leader influence from 1/2 to 1-1/sqrt(L)+O(1/L), while the exact optimizing interior endpoint is at distance sqrt(L)+O(1) from the opposing leader. The theorem gives a sharp structural certificate, rather than selecting a candidate set by assumption or merely computing small graph examples. This is a naturally motivated optimal network intervention in fixed-leader opinion dynamics; the conclusion is not claimed for noisy, weighted or empirical settings.",
+    "status": "PASS"
+  }
+}

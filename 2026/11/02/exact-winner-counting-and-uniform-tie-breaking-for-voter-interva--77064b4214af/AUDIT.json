@@ -1,0 +1,134 @@
+{
+  "correctness": {
+    "rationale": "Every committee is uniquely decomposed into an increasing path of inclusion-maximal selected interval types, with subordinate labels assigned to the first containing maximal type. The equivalence of first ownership with not being contained in the preceding maximal type proves the transition coefficient exactly. The right-endpoint argument proves coverage gain; the max-plus count DP and empty-label convolution are bijective, and count-weighted backward sampling is uniform. A standalone independent brute-force comparison passed 1,167,656 exhaustive small instances and 5,000 random nonnegative weighted instances; 7,000 sample outputs were all optimal. Exhaustion is limited to finite test sizes, not the proof.",
+    "status": "PASS"
+  },
+  "independent": false,
+  "independent_audit_status": "not_performed",
+  "originality": {
+    "broader_coverage": {
+      "evidence": [
+        "Cohen–Gonen (2019), Algorithm 1 eliminates intervals that are strict subsets; Algorithm 2 outputs one optimal set; Manurangsi–Sornat and Avramidis et al. (2026) cover more voting rules for optimization, not counting."
+      ],
+      "reasoning": "The apparently broader interval/Thiele algorithms answer a weaker output task (find an optimum), and cannot simply be counted over: nested and duplicate candidates yield distinct optima lost by pruning. Our count handles all such cases.",
+      "searches": [
+        "Exact count of maximum coverage size-k subfamilies of intervals polynomial time even nested and duplicate intervals",
+        "interval maximum coverage counting optimal size k distinct interval subsets dynamic programming #optimal covers",
+        "\"On interval and circular-arc covering problems\" Cohen Gonen 2019",
+        "\"counting optimal solutions\" \"maximum k-interval coverage\""
+      ]
+    },
+    "checked_sources": [
+      "https://u.math.biu.ac.il/~cohenr5/publications/interval.pdf",
+      "https://comsoc-community.org/archive/comsoc-2023/comsoc/papers/paper29.pdf",
+      "https://arxiv.org/pdf/2604.05953",
+      "https://arxiv.org/pdf/2605.03067",
+      "https://arxiv.org/pdf/2011.10938"
+    ],
+    "claim_vs_prior_implication": {
+      "evidence": [
+        "Cohen–Gonen (2019), Theorems 1–2 and Algorithms 1–2; Janeczko–Faliszewski (2023), Section 4 and Table 1; Manurangsi–Sornat (2026) abstract and Section 4; Avramidis et al. (2026) Section 3."
+      ],
+      "reasoning": "General #P-hardness does not preclude a tractable VI restriction. Winner determination does not imply exact counting; Cohen–Gonen remove dominated intervals that may occur in tied committees. The new path-decomposition coefficients explicitly preserve those labels. The remaining priority risk is an unseen equivalent count algorithm.",
+      "searches": [
+        "Counting optimal Chamberlin Courant approval committees on voter interval profiles by interval containment maximal antichains dynamic programming uniform optimal sampling",
+        "counting number of approval Chamberlin Courant winning committees with voter interval preferences exact optimal coverage committees uniform random winners",
+        "\"Chamberlin-Courant\" \"counting\" \"voter interval\" committee"
+      ]
+    },
+    "equivalent_formulations": {
+      "evidence": [
+        "Janeczko–Faliszewski (2023), Section 4 defines #WINNING-COMMITTEES for approval rules; Cohen–Gonen (2019), Problem 1 is maximum weighted interval-coverage optimization."
+      ],
+      "reasoning": "Equivalent formulations include labeled optimum counting for size-k interval maximum coverage and all approval-CC tied committees on VI profiles. Existing inspected results optimize a single cover or treat general-case counting hardness; no equivalent exact enumerator/sampler was found.",
+      "searches": [
+        "Counting optimal Chamberlin Courant approval committees on voter interval profiles by interval containment maximal antichains dynamic programming uniform optimal sampling",
+        "counting number of approval Chamberlin Courant winning committees with voter interval preferences exact optimal coverage committees uniform random winners",
+        "\"counting\" \"Chamberlin-Courant\" \"voter interval\" winners",
+        "\"counting winning committees\" \"voter interval\" approval"
+      ]
+    },
+    "exact_database_or_table": {
+      "evidence": [
+        "Searches of accessible mathematical research records returned voting-paradox/classification and interval-packing records but no exact formula for weighted VI CC winner counts; the 2023 ties study reports simulation frequencies, not an exhaustive solution table for this domain."
+      ],
+      "reasoning": "The theorem is an all-input algorithm, not a specific database entry or pre-existing finite table. Recorded nearest hits were checked by statement and objective; no dominating #winning-committee result emerged.",
+      "searches": [
+        "Existence of the core approval-based committee elections exact core characterization entropy payment stable committees Becker Greger Peters",
+        "Voting rules candidate intervals weighted coverage count all winning committees voter intervals Chamberlin Courant",
+        "Thiele voting voter interval #counting winning committees approval CC weighted coverage"
+      ]
+    },
+    "rationale": "The exact count-and-uniform-sampling statement is not implied by known optimization algorithms. Cohen–Gonen explicitly discard contained intervals, which is lossless for the optimal score but destroys multiplicity information. Janeczko–Faliszewski establish hardness of general CCAV counting and motivate uniform tie-breaking; recent VI Thiele results address winner determination. Related accessible mathematical claims and published research records were compared. Residual unindexed-equivalence risk remains.",
+    "residual_risks": [
+      "Unindexed prior counting algorithms for maximum coverage by intervals or for consecutive-ones matrices may be equivalent after translation.",
+      "Literature search cannot prove absolute priority; none of the inspected sources purport to solve exact all-labeled-optima counting on VI profiles."
+    ],
+    "source_inspections": [
+      {
+        "assessment": "Covers optimal interval selection, not the total number of optimal labeled fixed-cardinality selections. Eliminating contained intervals for optimization is incompatible with naive counting of redundant or nested winning candidates.",
+        "evidence": [
+          "Section 2, pp.5–7: removes subintervals and assigns transformed costs, returns a single optimal solution; Algorithm 2 sets a single argmax decision; Theorem 2 is an optimization guarantee."
+        ],
+        "identifier_or_url": "https://u.math.biu.ac.il/~cohenr5/publications/interval.pdf",
+        "material_read": "Author full-text PDF: abstract/introduction, Section 2 pp.4–8, Algorithms 1–2 and Theorems 1–2, conclusions; pp.4, 6–7 inspected visually.",
+        "method": "PDF full-text extraction, passage inspection, and page screenshots.",
+        "title": "On Interval and Circular-Arc Covering Problems",
+        "trigger": "The exact same maximum weighted coverage objective over a collection of intervals, with its 2019 published version."
+      },
+      {
+        "assessment": "Defines and motivates the counting question, establishes general hardness for Chamberlin–Courant, and studies spatial interval experiments, but no polynomial voter-interval count or sampler in inspected work.",
+        "evidence": [
+          "Table 1 lists #P-hardness of general CCAV counting; Section 4 defines counting winning committees; Section 5 states interval simulation model and experiments, not a structural exact-counting theorem."
+        ],
+        "identifier_or_url": "https://comsoc-community.org/archive/comsoc-2023/comsoc/papers/paper29.pdf",
+        "material_read": "Full-text PDF abstract, Sections 3–5 on tie detection, #WINNING-COMMITTEES, general hardness and interval experiments; page 5 visually inspected.",
+        "method": "PDF text extraction, section and theorem inspection, and screenshot.",
+        "title": "Ties in Multiwinner Approval Voting",
+        "trigger": "A directly stated exact winning-committee counting problem and motivation for sampling tied outcomes."
+      },
+      {
+        "assessment": "Finds an optimal committee for broader Thiele objectives, rather than the cardinality and exact uniform lottery of the set of all winning committees. No direct count in inspected algorithms.",
+        "evidence": [
+          "Abstract and Section 4: an optimal committee via concavity and total-unimodularity of Lagrangian relaxation; p.12 states it stops when one optimal size-k committee is returned."
+        ],
+        "identifier_or_url": "https://arxiv.org/pdf/2604.05953",
+        "material_read": "Full PDF introduction, structural interval theorem pp.4–7, optimization formulation and Lagrangian algorithm pp.10–14; p.12 visually inspected, keyword scan of full text.",
+        "method": "PDF extraction, section reading, visual screenshot, searching count and sampling terms.",
+        "title": "Polynomial-Time Algorithm for Thiele Voting Rules with Voter Interval Preferences",
+        "trigger": "2026 voter-interval theorem for general Thiele winner determination; nearest recent research inspiration."
+      },
+      {
+        "assessment": "Gives an optimal integral solution of the winner-determination linear program; it neither enumerates all optima nor provides the present multiplicity-correct exact count.",
+        "evidence": [
+          "Abstract pp.1–2 and Section 3: optimizing one size-k committee using an integral solution; domain matrix definition p.4."
+        ],
+        "identifier_or_url": "https://arxiv.org/pdf/2605.03067",
+        "material_read": "Full PDF abstract, domain definitions pp.3–4, algorithm claims and integrality arguments pp.5–8; p.7 visually inspected.",
+        "method": "PDF text extraction and theorem inspection with a visual page screenshot.",
+        "title": "Computing Thiele Rules on Interval Elections and their Generalizations",
+        "trigger": "Independent 2026 generalized Thiele winner determination on VI and supersets."
+      },
+      {
+        "assessment": "Derives an offline optimal-value dynamic program for geometric interval coverage; it does not specify exact winner multiplicities including nested and duplicated labels.",
+        "evidence": [
+          "Abstract: offline DP optimal approach; pp.10–12 define Bellman states for coverage length, not counts of all labeled optima."
+        ],
+        "identifier_or_url": "https://arxiv.org/pdf/2011.10938",
+        "material_read": "Full PDF abstract, intro, Section 4 offline optimal DP and its recurrence pp.10–13; p.11 visually inspected.",
+        "method": "PDF text extraction, targeted algorithm inspection, screenshot.",
+        "title": "Online Maximum k-Interval Coverage Problem",
+        "trigger": "Offline benchmark selects up to k intervals maximizing union weight/length."
+      }
+    ],
+    "status": "PASS"
+  },
+  "review_type": "self_review",
+  "schema_version": 1,
+  "scope_run_id": "77064b42-14af-477f-ad72-d995d988e49c",
+  "self_review_status": "passed",
+  "value": {
+    "rationale": "Exact tied-committee counting and unbiased tie-breaking are explicitly motivated in the 2023 multiwinner literature, where general CCAV counting is difficult. A correct count distinguishes label identities and redundant or nested winners that standard interval optimization prunes. The polynomial all-k recurrence makes exact, non-approximate fair tie-breaking available in a natural structured voting domain; this is stronger than routine recomputation of one optimum and is independent of any finite census.",
+    "status": "PASS"
+  }
+}

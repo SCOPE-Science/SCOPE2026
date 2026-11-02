@@ -1,0 +1,119 @@
+{
+  "correctness": {
+    "rationale": "Subtraction of one required parity edge at each vertex preserves balance. The augmentation decomposes into simple cycles, and the component-incidence connectivity equivalence follows in both directions from Euler circuits. Every possible simple cycle whose length could occur in an optimal augmentation is exhaustively generated canonically, and integer bitmask dynamic programming finds the minimum connected family. Explicit witnesses meet all upper bounds; the extracted standalone verifier returns VERIFY_OK at orders 2–7 and a separately implemented brute-force small-case checker returns CROSSCHECK_OK at orders 2–4. No inference beyond the verified finite domain.",
+    "status": "PASS"
+  },
+  "independent": false,
+  "independent_audit_status": "not_performed",
+  "originality": {
+    "broader_coverage": {
+      "evidence": [
+        "Sawada–Williams–Wong prove exact universal cycles for every contiguous interval c..d with at least two levels (Theorems 1 and 3–6); their full set can include odd levels but this provides only nonsharp upper bounds for even-only coverage.",
+        "Campbell (2013) abstract advertises selected weight intervals rather than parity-union shortest superstrings; full text inaccessible."
+      ],
+      "reasoning": "Full binary de Bruijn words cover the parity subset in length \\(2^n\\), and weight-interval cycles can cover broader sets, but these are not optimality statements for the parity subset. The reported shorter lengths 24, 46 and 82 are not consequences of such broader coverage, and a bound on an unconstrained set does not establish the exact minimum here.",
+      "searches": [
+        "Universal cycles for weight-range binary strings Sawada Williams Wong 2013",
+        "Universal Cycles for Some Combinatorial Objects Andre Campbell 2013",
+        "\"even-weight\" \"covering\" \"cyclic\" binary words length n"
+      ]
+    },
+    "checked_sources": [
+      {
+        "scope": "definitions, relevant full-text theorem sections",
+        "title": "Sawada, Williams and Wong (2013)",
+        "url": "https://www.socs.uoguelph.ca/~sawada/papers/den-range.pdf"
+      },
+      {
+        "scope": "HTML full text with relevant pattern and overlap definitions",
+        "title": "Burstein and Kitaev (2003)",
+        "url": "https://arxiv.org/abs/math/0311399"
+      },
+      {
+        "scope": "abstract and download access attempt",
+        "title": "Campbell (2013)",
+        "url": "https://dc.etsu.edu/etd/1130/"
+      }
+    ],
+    "claim_vs_prior_implication": {
+      "evidence": [
+        "Sawada–Williams–Wong, pp. 388–401: the specification is an exact Eulerian listing of weights c,c+1,...,d, which are consecutive; even-only words do not form that range.",
+        "Burstein–Kitaev, arXiv 2003: universal cycles are for pattern words with an order-isomorphism equivalence, and the graph-Hamiltonicity theorem does not specify shortest cyclic covers for even-weight binary factors."
+      ],
+      "reasoning": "The current theorem optimizes a connected Eulerian completion of a disconnected one-arc-per-vertex parity subgraph. An exact universal cycle for a different larger or quotient set does not imply the displayed sharp lengths, and a lower bound on the distinct mandatory factor count \\(2^{n-1}\\) is strictly weaker at every order.",
+      "searches": [
+        "\"Universal cycles for weight-range binary strings\" parity even weight minimum length",
+        "\"On unavoidable sets of word patterns\" universal cycles binary even Hamming weight",
+        "binary even parity words universal cycle shortest circular superstring exact length parity n"
+      ]
+    },
+    "equivalent_formulations": {
+      "evidence": [
+        "Sawada–Williams–Wong (2013), Sections 1–4, author manuscript, https://www.socs.uoguelph.ca/~sawada/papers/den-range.pdf",
+        "Burstein–Kitaev (2003), arXiv:math/0311399, Sections 1–3, https://arxiv.org/abs/math/0311399"
+      ],
+      "reasoning": "Indexed binary factors constrained by even Hamming weight are not words modulo alphabet relabeling (the pattern problem), and they are not a consecutive interval of Hamming weights (the 2013 universal-cycle problem). Neither identification preserves the set of required arcs or the shortest-supercycle objective.",
+      "searches": [
+        "\"even-weight\" words \"universal cycle\" parity",
+        "\"even parity\" \"universal cycle\" binary words",
+        "shortest even parity substring covering circle, mixed-parity cycle augmentation, de Bruijn directed rural postman"
+      ]
+    },
+    "exact_database_or_table": {
+      "evidence": [
+        "The relevant inspected 2013 primary manuscript tabulates and constructs consecutive-weight universal cycles, but contains no even-parity minimum-length table.",
+        "The accessible 2003 primary work treats longest avoiding words and abstract pattern cycles; its numerical invariants are different from the present exact covering lengths."
+      ],
+      "reasoning": "Actual research-record and public literature queries did not expose a matching numerical table. This is a bounded negative search result, not a claim of exhaustive bibliographic completeness or a novelty proof by failed search.",
+      "searches": [
+        "shortest cyclic binary word containing all even Hamming-weight length-n factors, exact n=5 24, n=6 46, n=7 82",
+        "universal cycles binary length seven even weight covering sequence optimal length 82 46 24",
+        "\"even weight\" \"shortest\" \"de Bruijn\" covering"
+      ]
+    },
+    "rationale": "The full inspected 2013 weight-range construction handles contiguous weight sets and its Eulerian subgraphs, whereas the even-parity set is a disconnected union of alternating weight levels and shortest completion requires surplus factors. The 2003 pattern-unavoidability paper uses relabeling-pattern equivalence, not exact indexed binary factors. Near-neighbor comparisons in the accessible previous research corpus concern weight two only, Fibonacci restrictions, unoriented covers or universal partial words, none of which logically determines the even-parity minima. No equivalent exact finite table was identified in research-index and primary-literature searches; the thesis full-text limitation and unindexed literature remain disclosed risks.",
+    "residual_risks": [
+      "The downloadable full text of Campbell (2013) was blocked; priority assessment relies on its abstract, not an uninspected whole-document exclusion.",
+      "Older or unindexed studies may contain parity-constrained shortest-cover lengths under alternative names (directed rural postman, selected-edge de Bruijn superstrings).",
+      "Search and similarity indexes are incomplete; originality is best-knowledge rather than a formal uniqueness or priority certificate."
+    ],
+    "source_inspections": [
+      {
+        "assessment": "Not covering: only consecutive weight ranges c..d, while the present required set consists of alternating parity weight classes and allows supplementary windows.",
+        "evidence": "The manuscript defines B^d_c(n) as weights c,c+1,...,d (intro), and proves the existence and efficient generation of exact universal cycles for these consecutive ranges (Theorems 1, 3, 5, 6).",
+        "identifier_or_url": "https://www.socs.uoguelph.ca/~sawada/papers/den-range.pdf",
+        "material_read": "Abstract, definition and Eulerian criterion in Sections 1–2; detailed gluing and consecutive weight-range construction in Sections 3–4, including Theorems 1 and 3–6.",
+        "method": "Read the publicly accessible author-manuscript PDF text and inspected the first page visually; searched the full text for parity, shortest and minimum-length statements.",
+        "title": "Universal cycles for weight-range binary strings",
+        "trigger": "Closest same-alphabet same-overlap construction using Hamming weight restrictions"
+      },
+      {
+        "assessment": "Not covering: pattern-unavoidability and pattern universal cycles are not fixed indexed even-parity word coverage with minimum permitted extra factors.",
+        "evidence": "The paper defines n-pattern words with each letter 1,...,k appearing, and studies unavoidable sets and graph Hamiltonicity, not minimum circular superstring length for selected Hamming parity.",
+        "identifier_or_url": "https://arxiv.org/abs/math/0311399",
+        "material_read": "Complete accessible arXiv HTML presentation, concentrating on Sections 1–3, the definitions, review of unavoidable word sets, overlap graphs, and universal-cycle relation.",
+        "method": "Read HTML full-text mathematical definitions and the pattern-overlap claims and compared their underlying equivalence and quantifiers.",
+        "title": "On unavoidable sets of word patterns",
+        "trigger": "Historical de Bruijn overlap graph and universal cycles for word-pattern equivalence; publicly dated 2003-11-23"
+      },
+      {
+        "assessment": "The abstract describes de Bruijn cycles for words with weight between s and t. Whole-document noncoverage cannot be established; retained as a specific residual risk.",
+        "evidence": "Institutional abstract explicitly describes an interval of allowable weights, not a shortest parity-union supercycle; inaccessible full thesis could contain additional related discussion.",
+        "identifier_or_url": "https://dc.etsu.edu/etd/1130/",
+        "material_read": "Bibliographic record, May 2013 date and complete public abstract; full text inaccessible.",
+        "method": "Inspected public institutional HTML page and tried its PDF download, which returned HTTP 403.",
+        "title": "Universal Cycles for Some Combinatorial Objects",
+        "trigger": "Plausible 2013 thesis on restricted-weight universal cycles"
+      }
+    ],
+    "status": "PASS"
+  },
+  "review_type": "self_review",
+  "schema_version": 1,
+  "scope_run_id": "67b5da42-3a59-4067-adc9-d769d06604e6",
+  "self_review_status": "passed",
+  "value": {
+    "rationale": "A natural parity restriction disconnects the otherwise simple binary universal-cycle overlap graph. Exact shortest circular covers give a benchmark beyond existence and generic word counts. After order four requires a complete de Bruijn cycle, the first renewed shortening occurs at order five, and exact odd-only augmentation deficits at n=5 and n=7, show that permitting mixed-parity repeated windows has a structural optimization effect not captured by the standard parity-necklace gluing idea. The general cycle-hypergraph reduction helps explain the obstruction and supports future exact investigations.",
+    "status": "PASS"
+  }
+}

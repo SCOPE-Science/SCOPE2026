@@ -1,0 +1,87 @@
+{
+  "correctness": {
+    "rationale": "The full-gradient Armijo inequality is solved exactly for the maximal permissible step; the compressed objective difference is an exact quadratic identity. All 2D spectral orientations reduce to a positive ratio of two cosine functions. Its tangent-at-zero condition gives \\(\\kappa(r-1)^2=(\\kappa-1)^2r\\sin^2\\theta\\), and the top-one cone restricts \\(\\theta\\le\\pi/4\\); these give the sharp global factor. Continuity handles strict top-one counterexamples; the critical-condition formula follows algebraically. Independent finite orientation and direct energy checks succeeded. No unproved implication about long-run stability is used.",
+    "status": "PASS"
+  },
+  "independent": false,
+  "independent_audit_status": "not_performed",
+  "originality": {
+    "broader_coverage": {
+      "evidence": [
+        "Subramaniam et al. 2022 Theorems 1–3: sufficient positive scaling for compressed stochastic optimization and convergence; no equality classification for the ideal maximal Armijo step.",
+        "Related Polyak, LARS and BB frontiers have different update scaling laws."
+      ],
+      "reasoning": "A sufficient multi-step scale bound does not compute the necessary-and-sufficient first-step boundary here. A general operator norm inequality permits looser bounds but does not dominate the sharp top-one cone restriction or its golden-ratio threshold.",
+      "searches": [
+        "Sharp universal two dimensional condition number threshold for top-1 gradient sparsification after full-gradient Armijo line search positive definite quadratic",
+        "Top-1 sparsified Armijo full gradient step largest accepted two dimensional SPD descent scaling"
+      ]
+    },
+    "checked_sources": [
+      "Scaled Armijo gradient compression: Subramaniam et al., arxiv:2207.10046v1, Section III, eqs. (6)–(14)",
+      "Sharp one-step objective frontier for scaled Polyak steps on SPD quadratics, record 169a05cdc789",
+      "Sharp condition-number frontier for objective descent in core LARS, record 70b4a7c981f6",
+      "Sharp objective-monotonicity frontier for Barzilai–Borwein interval steps, record 7866f4762b53",
+      "Sharp conditioning threshold for an obtuse first LAMB direction, record 00498ba452dc"
+    ],
+    "claim_vs_prior_implication": {
+      "evidence": [
+        "Source Algorithm 2 compresses scaled gradients with feedback; initial zero-feedback step matches this model when using its ideal, uncapped Armijo maximum.",
+        "Nearby published frontier for scaled Polyak steps concerns f(x)/||grad f||², not an Armijo full-gradient step followed by top-one sparsification."
+      ],
+      "reasoning": "The motivating algorithm admits bounded/backtracked smaller steps, so its failure examples do not imply failure at any given spectral condition K and its theorems do not give the exact sharp frontier. The current result neither contains nor follows from convergence claims for a different algorithm.",
+      "searches": [
+        "Top-k compressed gradient deterministic quadratic Armijo monotonicity and scaling exact rotated Hessian worst angle golden ratio",
+        "Top-1 sparsified Armijo full gradient step largest accepted two dimensional SPD descent scaling"
+      ]
+    },
+    "equivalent_formulations": {
+      "evidence": [
+        "Source arxiv:2207.10046v1: top-k compression with scaled Armijo, but the published theorems bound multi-step convergence rather than characterize the exact planar first-step objective factor."
+      ],
+      "reasoning": "Recast the result as the sharp maximal ratio of a selected Hessian diagonal to its Rayleigh quotient over top-one cones. Checked the alternate phrases zero-feedback, top-one, scaled Armijo, SPD quadratic and rotated eigenvectors; no equivalent factor was identified.",
+      "searches": [
+        "Sharp universal two dimensional condition number threshold for top-1 gradient sparsification after full-gradient Armijo line search positive definite quadratic",
+        "Top-k compressed gradient deterministic quadratic Armijo monotonicity and scaling exact rotated Hessian worst angle golden ratio",
+        "Exact golden ratio squared spectral condition threshold Armijo top one compressed gradient quadratic"
+      ]
+    },
+    "exact_database_or_table": {
+      "evidence": [
+        "No matching finite-dimensional table or database entry among returned semantic research records; closest hits are named in checked_sources."
+      ],
+      "reasoning": "The claimed continuous optimization over orientations is not a catalogued small finite table; database search cannot establish uniqueness and is treated only as negative search evidence.",
+      "searches": [
+        "Sharp universal two dimensional condition number threshold for top-1 gradient sparsification after full-gradient Armijo line search positive definite quadratic",
+        "Exact golden ratio squared spectral condition threshold Armijo top one compressed gradient quadratic"
+      ]
+    },
+    "rationale": "The searched first-step Armijo-before-top-one composition has a sharp all-orientations condition-number frontier not stated by the motivating scaled compressed-SGD source, which derives sufficient whole-algorithm convergence ranges; other nearby exact frontiers use fundamentally different update maps. The analytic identity is not an immediate corollary of their stated parameter bounds. Priority is best-knowledge only, not proven by absence of hits.",
+    "residual_risks": [
+      "The exact Rayleigh quotient ratio may have appeared as a special case in earlier generalized-eigenvalue or compressed coordinate descent literature not identified by searches.",
+      "Only the relevant primary material, not every remotely related work, received direct full-text inspection; standalone independent novelty validation remains unperformed."
+    ],
+    "source_inspections": [
+      {
+        "assessment": "ALGORITHM_RELATED_NOT_COVERING: exact sharp all-orientations first-step SPD threshold and equality case not found in examined material; source makes general convergence claims for backtracking and scaling",
+        "evidence": [
+          "arxiv:2207.10046v1, Section III.B, eqs. (6)–(8), Algorithm 2; Section III.C, Theorems 1–3"
+        ],
+        "identifier_or_url": "https://arxiv.org/html/2207.10046v1",
+        "material_read": "Introduction; Sections II.B–II.D; III.A–III.C, including Algorithm 2, equations (2),(3),(6)–(15), theorems and convergence statements; experimental discussion on scaling",
+        "method": "Inspected accessible primary arXiv full-text HTML and original PDF sections",
+        "title": "Adaptive Step-Size Methods for Compressed SGD",
+        "trigger": "Directly motivating algorithm with Armijo search, scaled top-k update, and error feedback"
+      }
+    ],
+    "status": "PASS"
+  },
+  "review_type": "self_review",
+  "schema_version": 1,
+  "scope_run_id": "71bcead6-44cf-4b4b-87d3-018092964abe",
+  "self_review_status": "passed",
+  "value": {
+    "rationale": "The question is intrinsic to composing full-gradient line search with gradient communication sparsification. A provably maximal safe scaling and sharp full spectrum/eigenvector-angle boundary distinguish this from general sufficient convergence estimates: even a globally accepted full-gradient step can become non-descent after top-one compression. The golden-ratio-square half-Armijo threshold is a natural closed-form reliability benchmark, not an arbitrary finite-sample count.",
+    "status": "PASS"
+  }
+}

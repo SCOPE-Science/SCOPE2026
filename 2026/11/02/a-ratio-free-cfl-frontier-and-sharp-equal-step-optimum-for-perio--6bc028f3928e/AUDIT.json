@@ -1,0 +1,129 @@
+{
+  "correctness": {
+    "rationale": "Exact 2×2 AB2 transfer algebra yields trace a+d and determinant d. Factored discriminant, Schur condition p(1), monotonic dominant root in d, and equal-step factorization at 3a/5 prove all claims for all c>0,r>0. Symbolic and rational verifier independently replayed from the final package; complex-number spot checks alone do not establish universal assertions. Matrix corollary uses SPD modal diagonalization.",
+    "status": "PASS"
+  },
+  "independent": false,
+  "independent_audit_status": "not_performed",
+  "originality": {
+    "broader_coverage": {
+      "evidence": [
+        "López and Romay 2010 analyze practical ratio limits, not a necessary-and-sufficient negative-axis two-period criterion.",
+        "Calvo et al. 2016 analyze zero-stability of differing Nordsieck Adams methods, not a broader theorem implying all positive ratio Floquet stability for standard AB2."
+      ],
+      "reasoning": "Stronger general absolute-stability statements for all step sequences would imply the new claim if applicable, but none was identified in inspected source material. Restricted zero-stability and implementation claims do not imply it.",
+      "searches": [
+        "Adams Bashforth 2 alternating steps stability condition sum of two steps average step r 2 linear test equation",
+        "\"Adams-Bashforth\" \"periodic\" \"stepsizes\" stability",
+        "variable step Adams Bashforth period two exact stability real negative axis h1 plus h2"
+      ]
+    },
+    "checked_sources": [
+      "doi:10.21042/AMNS.2016.2.00043",
+      "doi:10.1155/2010/765620",
+      "https://homepages.math.uic.edu/~jan/mcs471/variablestep.pdf",
+      "doi:10.1137/0726052 (abstract only)"
+    ],
+    "claim_vs_prior_implication": {
+      "evidence": [
+        "For r=1 the known constant-step AB2 real-axis interval follows, but a one-parameter specialization cannot imply every r>0 or uniqueness of its optimization.",
+        "General Schur root criterion plus the standard AB2 recurrence enables a fresh calculation but does not itself state the factorization or sharp global penalty.",
+        "The 1989 full text is inaccessible; no claim of whole-document noncoverage is made."
+      ],
+      "reasoning": "The new joint claim covers the full variable-ratio stable interval and a global optimum/penalty. Checked sources provide its inputs and nearby techniques, not a prior implication that directly supplies that all-ratio result; unresolved historical full text remains a priority risk.",
+      "searches": [
+        "Two-step Adams Bashforth variable time stepping h and r h alternating, exact Floquet monodromy negative real stability if lambda times sum h1+h2<2",
+        "Variable-step explicit AB2 coupled two-step transfer matrices trace determinant periodic mesh arbitrary ratios",
+        "\"On the Stability of Interpolatory Variable-Stepsize Adams Methods in Nordsieck Form\" filetype:pdf"
+      ]
+    },
+    "equivalent_formulations": {
+      "evidence": [
+        "The standard coefficient formula in the 2022 lecture gives the same recurrence after substituting the scalar decay test equation.",
+        "1989 Nordsieck terminology and 2016 zero-stability are not by themselves equivalent to the absolute-stability test at negative real spectral parameter."
+      ],
+      "reasoning": "Compared cycle-start reversal (similar nonzero spectra), root polynomial and potential Floquet/Schur aliases. No accessible exact equivalent including optimal split and sharp 5/3 penalty was found.",
+      "searches": [
+        "Two-step Adams Bashforth variable time stepping h and r h alternating, exact Floquet monodromy negative real stability if lambda times sum h1+h2<2",
+        "Periodic alternating-step Adams–Bashforth two-step method scalar linear test y'=-lambda y stability sharp step size independent of ratio, Schur Jury",
+        "Variable-step explicit AB2 coupled two-step transfer matrices trace determinant periodic mesh arbitrary ratios"
+      ]
+    },
+    "exact_database_or_table": {
+      "evidence": [
+        "Closest published mathematical-record item on two-periodic recurrences concerns bilateral first-order residual bounds, not AB2.",
+        "General AB2 tables give only the constant-step negative-axis interval; the two-variable periodic optimum and 5/3 penalty are not tabulated in inspected sources."
+      ],
+      "reasoning": "Searched scientific databases and mathematical findings for aliases, periodic transfer matrices and root/stability-table equivalents; no exact covered value emerged. Absence from a search is not uniqueness proof.",
+      "searches": [
+        "Two-step Adams Bashforth variable time stepping h and r h alternating, exact Floquet monodromy negative real stability if lambda times sum h1+h2<2",
+        "Periodic alternating-step Adams–Bashforth two-step method scalar linear test y'=-lambda y stability sharp step size independent of ratio, Schur Jury"
+      ]
+    },
+    "rationale": "Inspected full 2016 and 2010 variable-step Adams papers and exact 2022 AB2 formula; their zero-stability/ratio-implementation conclusions do not imply two-period negative-real sharp CFL plus unique rate optimality and 5/3 global extremum. Published mathematical-record and literature searches for equivalent Floquet statements found related but noncovering claims. The 1989 primary source remains uninspected beyond its abstract, explicitly retained as unresolved priority risk.",
+    "residual_risks": [
+      "Calvo–Lisbona–Montijano (1989) full text could contain a similar specialized stability theorem; only abstract was accessible.",
+      "Less visible ODE textbooks or historical variable-step stability articles might contain the same two-period special case despite unmatched titles.",
+      "Independent literature priority review has not been conducted."
+    ],
+    "source_inspections": [
+      {
+        "assessment": "No covering two-period negative-axis AB2 theorem located. The paper develops different Adams–Moulton/Nordsieck step-change techniques and examines zero-stability at a variable ratio.",
+        "evidence": [
+          "2016 article §2 introduces Nordsieck propagation of Adams–Moulton under techniques T1–T3.",
+          "§4 explicitly studies zero-stability and compares interpolation-technique ratio intervals; no fixed-c negative real scalar AB2 Floquet optimization."
+        ],
+        "identifier_or_url": "doi:10.21042/AMNS.2016.2.00043",
+        "material_read": "ResearchGate full-text transcription, sections 1–4 including formulas (8)–(18), zero-stability section, local truncation error and concluding tables",
+        "method": "Full HTML transcription of the available paper; compared hypotheses and output, not merely title/abstract",
+        "title": "A new stepsize change technique for Adams methods",
+        "trigger": "2016 study specifically on Adams step-change stability"
+      },
+      {
+        "assessment": "Not a stronger periodic scalar test equation criterion: studies coefficient precomputation, permissible ratio sets and numerical efficiency, not the exact two-cycle stability and spectral optimization.",
+        "evidence": [
+          "§3 discusses selected ratio values and adaptive control; experiments recommend ratios near one for high-order variable-step codes.",
+          "No theorem giving periodic scalar AB2 negative-axis CFL independent of ratio or bound 5/3."
+        ],
+        "identifier_or_url": "doi:10.1155/2010/765620",
+        "material_read": "Open-access article, sections 1–3 on variable step coefficient storage, selected ratios, convergence/cost experiments",
+        "method": "Full Wiley-hosted HTML article and section-text inspection",
+        "title": "Implementing Adams Methods with Preassigned Stepsize Ratios",
+        "trigger": "Preassigned variable step ratios for Adams-family methods"
+      },
+      {
+        "assessment": "The coefficient formula agrees exactly. The inspected material does not treat a periodically alternating test spectrum, monodromy trace/determinant or fixed-time optimal splitting.",
+        "evidence": [
+          "Page 32 derives coefficients 1+h_n/(2h_{n−1}) and −h_n/(2h_{n−1}).",
+          "Earlier pages discuss ordinary constant-step root conditions, not two-period root optimization."
+        ],
+        "identifier_or_url": "https://homepages.math.uic.edu/~jan/mcs471/variablestep.pdf",
+        "material_read": "PDF pages 27–29 on root stability and page 32/34 on variable-step two-step Adams–Bashforth formula",
+        "method": "PDF parsed-text inspection and page 32 image inspection",
+        "title": "Variable Step Methods (Numerical Analysis lecture)",
+        "trigger": "Identical standard variable-step AB2 recurrence under investigation"
+      },
+      {
+        "assessment": "Plausible unresolved source; abstract refers to variable-ratio conditions and Nordsieck stability and does not itself decide whether a specialized two-period negative-axis AB2 theorem appears in its full text.",
+        "evidence": [
+          "1989 journal abstract focuses on conditions for stability of interpolation-based Nordsieck step variation.",
+          "Complete paper could not be materially compared; remains a named residual originality risk."
+        ],
+        "identifier_or_url": "doi:10.1137/0726052",
+        "material_read": "Abstract and bibliographic references only, not complete article",
+        "method": "Open abstract/search record; lawful PDF/full-text acquisition unsuccessful and complete original could not be obtained",
+        "title": "On the Stability of Interpolatory Variable-Stepsize Adams Methods in Nordsieck Form",
+        "trigger": "Historic closest titled source on stability of Adams method with variable time steps"
+      }
+    ],
+    "status": "PASS"
+  },
+  "review_type": "self_review",
+  "schema_version": 1,
+  "scope_run_id": "6bc028f3-928e-4799-b5fb-e66031679e9d",
+  "self_review_status": "passed",
+  "value": {
+    "rationale": "Adaptive multistep stability under large ratio oscillations is a documented practical issue. The result gives a complete sharp two-period scalar/SPD negative-real CFL law independent of ratio, the unique optimal budget split and sharp 5/3 worst-case spectral penalty, with a matching explicit warning that transient norms can be ratio-unbounded. These structural all-parameter conclusions go materially beyond known constant-step interval or a single constructed numerical example.",
+    "status": "PASS"
+  }
+}

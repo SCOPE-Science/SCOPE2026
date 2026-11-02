@@ -1,0 +1,102 @@
+{
+  "correctness": {
+    "rationale": "First-step equations admit a unique fixed point for 0<lambda<1. The three pair occupancy cases and pinned/unpinned hub cases yield exact worst-support expressions and disjoint multiplicities. Minima and four transitions follow from exact inequalities and counting; all boundaries are handled. Exact-rational direct-graph tests enumerate every set for m<=5 at 202 parameter points, supporting rather than replacing the proof.",
+    "status": "PASS"
+  },
+  "independent": false,
+  "independent_audit_status": "not_performed",
+  "originality": {
+    "broader_coverage": {
+      "evidence": [
+        "Allagan et al., original full manuscript §§5–7: path transfer on spiders, stars and complete graphs.",
+        "Guo et al., original full manuscript §§II–IV: algorithms for pairwise and top-k group hitting probability queries."
+      ],
+      "reasoning": "The general algorithms can test a specified instance but neither supplies the displayed all-order polynomial and phase transitions for F_m. The published complete-graph special case overlaps only F_1=K_3; no novelty is claimed for that isolated classical complete-graph value.",
+      "searches": [
+        "arXiv:2609.31535v1 \"spiders\" \"stars\" \"complete\"",
+        "\"discounted hitting domination\" \"friendship\"",
+        "\"group hitting probability\" friendship windmill"
+      ]
+    },
+    "checked_sources": [
+      "arxiv:2609.31535v1 (primary original full text)",
+      "DOI:10.1109/TKDE.2023.3349164 (original author-hosted full text)",
+      "Targeted public bibliographic searches for friendship/windmill discounted first-hitting source placement and related aliases"
+    ],
+    "claim_vs_prior_implication": {
+      "evidence": [
+        "2026 source: first-hitting representation and uniform-floor objective; explicit treatments of complete graphs, stars and spider trees.",
+        "2024 paper: group-target hitting probability and ranking algorithms; no uniform-floor source-set enumeration."
+      ],
+      "reasoning": "The claim needs a new two-case (hub pinned/unpinned) quotient resolution and exact occupancy count on F_m. It is not a corollary of a star, spider or clique formula for m>=2; no identified stronger specialized family covers it. Priority nonetheless remains conditional on the accessible source set.",
+      "searches": [
+        "arXiv:2609.31535v1 original §§2–8",
+        "DOI:10.1109/TKDE.2023.3349164 §II and algorithmic results",
+        "\"discounted hitting domination\" complete bipartite source placement"
+      ]
+    },
+    "equivalent_formulations": {
+      "evidence": [
+        "Discounted first-hitting potential equals probability of hitting a pinned target before geometric termination (Allagan et al., §2).",
+        "Guo et al., 2024 §II defines group hitting probability for alpha-terminating random walks."
+      ],
+      "reasoning": "Under lambda=1-alpha the potential is the same quantity. However target evaluation/top-k retrieval for a fixed initiating vertex does not imply every-source minimum cardinality or all feasible set counts on friendship graphs.",
+      "searches": [
+        "\"discounted hitting\" \"friendship\" \"windmill\"",
+        "\"penalized hitting\" \"windmill graph\" source placement",
+        "arXiv:2609.31535v1 §2 and §7",
+        "DOI:10.1109/TKDE.2023.3349164 §II"
+      ]
+    },
+    "exact_database_or_table": {
+      "evidence": [
+        "Original 2026 paper contains application/synthetic-network examples and closed formulas on stars and complete graphs, but no friendship-graph optimum table.",
+        "Original 2024 hitting-probability paper evaluates several network instances, not this exact family."
+      ],
+      "reasoning": "No known published table or computational database in the inspected works provides the full coefficient polynomial or the exact multiplicities at the two additional thresholds. Absence in a search is a residual risk, not a novelty proof.",
+      "searches": [
+        "\"discounted hitting domination\" \"friendship graph\" enumeration",
+        "\"friendship graph\" \"discounted first hitting\" threshold",
+        "arXiv:2609.31535v1 tables and examples"
+      ]
+    },
+    "rationale": "The newly introduced discounted-hitting uniform-floor parameter has published spider, star and complete-graph results, not a friendship-graph all-set classification. The 2024 group hitting probability work computes target-set evaluation and top-k queries, not uniform-floor minima or their complete cardinality census. Inspected relevant primary full texts, compared mathematical implication, and searched aliases; historical priority remains provisional.",
+    "residual_risks": [
+      "Unindexed or unretrieved prior research could contain an equivalent friendship-graph formula.",
+      "Algorithmic group hitting probability papers could subsume particular computational cases without explicitly stating the uniform-floor optimizer spectrum."
+    ],
+    "source_inspections": [
+      {
+        "assessment": "NOT_COVERING for m>=2 friendship polynomial and optimizer transitions; F_1 is a known complete-graph case.",
+        "evidence": [
+          "Definition §2.4 (uniform floor); theorem §2.3 (discounted first-hit representation); §6 spiders; §7 complete graphs/stars; abstract and concluding scope."
+        ],
+        "identifier_or_url": "https://arxiv.org/abs/2609.31535",
+        "material_read": "Full original 19-page manuscript: definitions and equilibrium §2, general bounds §3, spiders §§5–6, complete graphs and stars §7, examples and conclusions §§8–9.",
+        "method": "Read full open-access primary text; compared object, support normalization, feasible thresholds and explicit graph families.",
+        "title": "Discounted Hitting Domination on Graphs with Submodularity, Complexity and Exact Algorithms",
+        "trigger": "Introduces exactly the optimized invariant and has related star and complete-graph cases."
+      },
+      {
+        "assessment": "NOT_COVERING: fixed-origin pairwise or top-k group-target retrieval differs from minimum set subject to a floor simultaneously at all graph vertices.",
+        "evidence": [
+          "Definition 2 group hitting probability; §I contributions state pairwise/top-k query tasks; §II α-terminating walk normalization."
+        ],
+        "identifier_or_url": "https://doi.org/10.1109/TKDE.2023.3349164",
+        "material_read": "Original open-access author-hosted 14-page text: abstract, introduction, formal model §II, pairwise/top-k query objectives and algorithms §§III–IV, conclusions, plus full-text checks for friendship/windmill and domination terminology.",
+        "method": "Inspected primary paper sections and the conclusion; searched its full text for the graph family and claimed invariant; compared the quantifiers, graph family, and objective.",
+        "title": "Efficient Algorithms for Group Hitting Probability Queries on Large Graphs",
+        "trigger": "A theoretically equivalent discounted hitting potential used before the recent domination definition."
+      }
+    ],
+    "status": "PASS"
+  },
+  "review_type": "self_review",
+  "schema_version": 1,
+  "scope_run_id": "7eb9bc53-acc5-4d25-a1e7-ae7f6fca554b",
+  "self_review_status": "passed",
+  "value": {
+    "rationale": "The exact all-set generating polynomial for a natural family of cycle-bearing, central-hub graphs closes a gap in a newly proposed source-placement invariant. Two sharp secondary thresholds change the multiplicity and hub participation of optimal placements without changing the minimum size, providing structural insight beyond a straightforward minimum cardinality. The method is reproducible and covers all m and all real admissible parameters.",
+    "status": "PASS"
+  }
+}

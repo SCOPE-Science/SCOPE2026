@@ -1,0 +1,172 @@
+{
+  "correctness": {
+    "rationale": "Matching lower trace-norm witness (explicit repeated eigenvalue and 2x2 spectrum) and upper PSD Gram factorization (explicit two-block PSD matrices for each k regime) prove the exact norm over complex matrices for every n>=1 and 0<=k<=n. All boundary cases and row duplication are handled analytically. Supplementary numerical test of 895 assertions in finite dimensions confirms, not replaces, proof.",
+    "status": "PASS"
+  },
+  "independent": false,
+  "independent_audit_status": "not_performed",
+  "originality": {
+    "broader_coverage": {
+      "evidence": [
+        "Davidson–Donsig give exact results for transitive group-orbit patterns; the present symbol with both flipped and unflipped coordinates has two noninterchangeable coordinate classes.",
+        "Christensen (2025) gives a general self-adjoint semidefinite characterization; the current formula requires explicit optimization and a sharp regime comparison."
+      ],
+      "reasoning": "General factorization and SDP results provide a method that can recover the formula after new specialized calculations, not a directly published implication with a stated sharp k=6 transition. A hidden older specialization is the primary residual priority risk.",
+      "searches": [
+        "\"Schur multiplier reflection diagonal projection subset k sign matrix\"",
+        "\"Schur multiplier norms J-2I with extra positive row vertex threshold 6\"",
+        "arxiv:math/0506073 Sections 4–5",
+        "arxiv:2505.24670 Theorem 2.2"
+      ]
+    },
+    "checked_sources": [
+      {
+        "comparison": "Known finite Schur spectra; general SDP, not parameter cutoff",
+        "source": "Holbrook–Johnston–Schoch, arXiv:2206.02863"
+      },
+      {
+        "comparison": "General factorization; exact transitive symmetric cases not two-orbit extension",
+        "source": "Davidson–Donsig, arXiv:math/0506073"
+      },
+      {
+        "comparison": "Optimal factorization abstract; no explicit family formula verified",
+        "source": "Christensen, arXiv:2211.00591"
+      },
+      {
+        "comparison": "General SDP not same explicit parameter result",
+        "source": "Christensen, arXiv:2505.24670"
+      },
+      {
+        "comparison": "Idempotent versus signed reflection",
+        "source": "Levene, arXiv:1302.4849"
+      },
+      {
+        "comparison": "Full-flipped core covered; extended family noncirculant",
+        "source": "Mathias (1993), circulant Schur norm"
+      }
+    ],
+    "claim_vs_prior_implication": {
+      "evidence": [
+        "Mathias circulant formula implies the n=k fully flipped case only.",
+        "Holbrook–Johnston–Schoch Section 6 offers a general SDP and Section 4 some overlapping small-size numerical values, but no inspected closed family formula or six-coordinate stabilization law.",
+        "Levene concerns idempotent zero-one multipliers, whose signed reflection requires a distinct norm analysis."
+      ],
+      "reasoning": "The new combined claim is not just an instance of the core circulant formula: for k=2,3,4,5 one unflipped coordinate produces a strictly larger norm, followed by exact stabilization for all k>=6. Generic SDP methods could be used to derive it but do not directly imply a symbolic cutoff without solving a nontrivial two-orbit PSD optimization.",
+      "searches": [
+        "arxiv:2206.02863 full text, especially Sections 2, 4, 6",
+        "arxiv:math/0506073 full text, especially Section 4",
+        "arxiv:2211.00591 abstract",
+        "arxiv:1302.4849 full paper relevant idempotent norms",
+        "\"The Hadamard operator norm of a circulant and applications\" 1993"
+      ]
+    },
+    "equivalent_formulations": {
+      "evidence": [
+        "Holbrook–Johnston–Schoch (2022), Section 2 defines the exact complex Schur multiplier norm and gives factorization; Sections 4 and 6 compute finite Schur spectra and SDP formulations.",
+        "Davidson–Donsig (2005), Section 1 identifies Grothendieck–Haagerup vectors; Section 4 derives transitive-orbit formulas."
+      ],
+      "reasoning": "The target is the spectral norm of the signed multiplier, not the symbol operator norm, a 0–1 Schur idempotent norm, or a real bilinear norm. Generic SDP/Gram equivalences are known but do not themselves explicitly state or evaluate the all-size partially flipped diagonal family or its cutoff.",
+      "searches": [
+        "\"Schur multiplier norm sign matrix diagonal negative except last row column positive\"",
+        "\"Schur norm partial diagonal sign matrix J-2 diag k\"",
+        "arxiv:2206.02863 Sections 2, 4, 6",
+        "arxiv:math/0506073 Sections 1, 4"
+      ]
+    },
+    "exact_database_or_table": {
+      "evidence": [
+        "Holbrook–Johnston–Schoch list numerical Schur spectrum entries 1.86969385, 2.04481550, 2.20126537, 2.33333333, matching special numerical values of this family.",
+        "The full-flip core has the known circulant formula of Mathias (1993)."
+      ],
+      "reasoning": "The finite numerical values and core identity are pre-existing and specifically excluded as stand-alone novelty. The asserted new result is an all-k closed-form family, its threshold, and explicit optimal certificates. A match in a small table is not claimed to prove the full general formula.",
+      "searches": [
+        "arxiv:2206.02863 Section 4 Schur spectra sigma_3 through sigma_6",
+        "\"Schur multiplier norm partial negative diagonal 5/3 1.86969385\"",
+        "\"Schur norm J minus 2I exact sign matrix\""
+      ]
+    },
+    "rationale": "The n=k circulant identity and overlapping low-order numerical values are prior art, and are expressly excluded from the novelty claim. In the inspected relevant literature, the exact all-k two-orbit sign formula and sharp six-coordinate stabilization are not stated or covered directly. Residual risk persists from older matrix-completion and specialization literature, including unavailable full text.",
+    "residual_risks": [
+      "An equivalent all-k formula could appear in older specialized multiplier or matrix-completion sources, particularly full texts not accessible for exhaustive comparison.",
+      "Holbrook–Johnston–Schoch already numerically records several special values; these are explicitly not treated as original.",
+      "Only abstracts or indirect citations were accessible for some older plausible sources."
+    ],
+    "source_inspections": [
+      {
+        "assessment": "Supplies prior small numerical constants and general method; no all-size partially flipped diagonal cutoff located",
+        "evidence": [
+          "arXiv 2206.02863, Sections 2, 4, 6; sigma_6 contains 1.86969385, 2.04481550, 2.20126537, 2.33333333"
+        ],
+        "identifier_or_url": "https://arxiv.org/abs/2206.02863",
+        "material_read": "Complete public arXiv HTML text including definition/factorization, Sections 4 and 6, the explicit sigma_6 numerical list",
+        "method": "Read text and compared numeric values and general SDP scope to exact parameterized claim",
+        "title": "Real Schur norms and Hadamard matrices",
+        "trigger": "Direct Schur norms of sign matrices, possible overlapping small cases"
+      },
+      {
+        "assessment": "General factorization used; inspected exact transitive families do not directly state two-orbit partial diagonal formula",
+        "evidence": [
+          "arXiv math/0506073, Theorem 1.1 and Sections 4–5"
+        ],
+        "identifier_or_url": "https://arxiv.org/abs/math/0506073",
+        "material_read": "Public full HTML text, Section 1 Grothendieck–Haagerup factorization and Sections 4–5 symmetry applications",
+        "method": "Compared transitive group action hypotheses and worked Kneser examples to two-orbit sign matrix",
+        "title": "Norms of Schur Multipliers",
+        "trigger": "Older exact symmetric multiplier families could dominate the candidate"
+      },
+      {
+        "assessment": "General norm-optimality is known; exact specialized phase law not established from inspected abstract alone",
+        "evidence": [
+          "arXiv 2211.00591 abstract; full-text scope remains residual uncertainty"
+        ],
+        "identifier_or_url": "https://arxiv.org/abs/2211.00591",
+        "material_read": "ArXiv title and full abstract, not entire manuscript",
+        "method": "Compared general factorization statement to specialized explicit k cutoff",
+        "title": "Norm optimal factorizations of scalar and block matrices",
+        "trigger": "Optimal factorization potentially covers a stronger theorem"
+      },
+      {
+        "assessment": "Contains general SDP identity; no specialized six-defect phase formula located",
+        "evidence": [
+          "arXiv 2505.24670, Theorem 2.2"
+        ],
+        "identifier_or_url": "https://arxiv.org/abs/2505.24670",
+        "material_read": "Available full arXiv HTML relevant theorem and proof of self-adjoint matrix SDP identity",
+        "method": "Separated generic SDP equivalence from analytic evaluation of the candidate family",
+        "title": "The Schur multiplier norm and its dual norm",
+        "trigger": "Recent precise self-adjoint semidefinite identity may directly cover the candidate"
+      },
+      {
+        "assessment": "Different operator norm and signs; does not directly yield exact reflected norm",
+        "evidence": [
+          "arXiv 1302.4849, abstract and sections on graph idempotents"
+        ],
+        "identifier_or_url": "https://arxiv.org/abs/1302.4849",
+        "material_read": "Public paper abstract, definitions and relevant PDF pages on idempotent multipliers",
+        "method": "Contrasted zero-one projections with signed map 1 minus twice the projection",
+        "title": "Norms of idempotent Schur multipliers",
+        "trigger": "Potential relation through idempotent diagonal projection"
+      },
+      {
+        "assessment": "Definitively covers core identity; complete original paper not fully compared for any extra-coordinate extension",
+        "evidence": [
+          "Holbrook–Johnston–Schoch, Section 2, cited Mathias formula"
+        ],
+        "identifier_or_url": "1993 paper of R. Mathias cited in arXiv:2206.02863, equation (5)",
+        "material_read": "Citation and reproduced exact circulant norm formula in Holbrook–Johnston–Schoch; original paper full text not available",
+        "method": "Applied circulant eigenvalues to core-only case, identified limitation for noncirculant extension",
+        "title": "The Hadamard operator norm of a circulant and applications",
+        "trigger": "Known fully flipped core is circulant"
+      }
+    ],
+    "status": "PASS"
+  },
+  "review_type": "self_review",
+  "schema_version": 1,
+  "scope_run_id": "6ae70fc7-6077-4b8f-9641-cb8102aed2aa",
+  "self_review_status": "passed",
+  "value": {
+    "rationale": "A natural family of partial diagonal sign reflections has an exact norm law with a sharp and unexpected k=6 stabilization boundary: adjoining a neutral coordinate raises amplification for k<6 but never from six onward. Explicit extremizing contractions and PSD certificates give reusable norm benchmarks rather than a list of small calculations.",
+    "status": "PASS"
+  }
+}

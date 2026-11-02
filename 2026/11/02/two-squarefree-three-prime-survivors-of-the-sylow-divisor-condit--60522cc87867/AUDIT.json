@@ -1,0 +1,109 @@
+{
+  "correctness": {
+    "rationale": "All divisors of squarefree pqr are explicit. The largest-prime congruence yields pq-1=kr with 1<=k<p. The middle-prime condition forces pr≡1 mod q and hence q=p+k. Mod p gives qr≡-1; for odd p, q cannot be 1 mod p, so r≡1 mod p forces k=p-1 and (q,r)=(2p-1,2p+1). Mod 3 restricts odd p to 3; p=2 yields (2,3,5). Both final witness sets were checked exactly. The one- and two-support exclusions are direct. A standalone exhaustive direct divisor checker tested 776216 triples with prime factors below 1000 and a separate 100000 prime-shape range, finite only.",
+    "status": "PASS"
+  },
+  "independent": false,
+  "independent_audit_status": "not_performed",
+  "originality": {
+    "broader_coverage": {
+      "evidence": [
+        "Li 2026, Theorem 1.1, A(x) = x exp(-(1/(2 sqrt(log 2))+o(1)) sqrt(log x) log log x); the main text concerns density bounds and canonical witnesses.",
+        "Group-theoretic theorem: a finite group of squarefree three-prime order is not nonabelian simple, e.g. Wellesley group theory Sylow problem sheet, problem 7."
+      ],
+      "reasoning": "Li proves asymptotic counting without individual finite prime-support fibers. The group-theoretic no-simple-group result is about realizable subgroup counts, not numerical divisibility witnesses; it does not exclude the arithmetic survivors 30 and 105, so it cannot imply the classification.",
+      "searches": [
+        "integer n having divisors d congruent 1 modulo each prime p three-prime radical Sylow necessary condition",
+        "squarefree three prime factors property for each prime p divisor d>1 congruent to 1 mod p examples classification pqr",
+        "\"sylow\" \"squarefree\" \"exactly three primes\" \"30\" \"105\""
+      ]
+    },
+    "checked_sources": [
+      "arXiv:2606.24872v2 (full HTML)",
+      "OEIS:A352287 (full entry)",
+      "Wellesley group theory Sylow problem sheet (search-extracted statement)",
+      "Research-index records about squarefree three-prime deficient-perfect and 2-near-perfect numbers (different arithmetic conditions)"
+    ],
+    "claim_vs_prior_implication": {
+      "evidence": [
+        "E. Li, arXiv:2606.24872v2 Sections 1–8, has no three-prime classification; a direct text search for 105 and three prime returned no mathematical discussion.",
+        "OEIS A352287 examples contain the same two values but not their uniqueness.",
+        "Textbook facts about Sylow subgroups require actual groups; the defining arithmetic criterion is only necessary for nonabelian simple-group orders."
+      ],
+      "reasoning": "The new proof forces pq-1=kr, then q=p+k, then (for odd p) k=p-1, giving twin translates (p,2p-1,2p+1), which collapse modulo 3. Neither a global density estimate nor the group-realizability theorem supplies these prime congruences or an implication yielding the two-element set.",
+      "searches": [
+        "\"Erdos 768\" \"30 and 105\" squarefree",
+        "Erdos problem 768 squarefree p q r classification p<q<r 30 105, 2p-1 and 2p+1 both prime",
+        "\"square-free\" \"pqr\" \"Sylow divisor\" 30 105"
+      ]
+    },
+    "equivalent_formulations": {
+      "evidence": [
+        "E. Li, arXiv:2606.24872v2, Sections 1 and 5–8: the same divisor-witness predicate but a global density asymptotic rather than a fixed-prime-support classification.",
+        "OEIS A352287, sections COMMENTS, EXAMPLE and entries through 600: both 30 and 105 occur, with explicit witnesses for 105; no general uniqueness claim appears."
+      ],
+      "reasoning": "The arithmetic predicate is exactly the Sylow necessary condition; equivalent wording as survival of numerical Sylow tests was compared. The new statement universally quantifies over all squarefree pqr and excludes every other triple; a finite table or an asymptotic for the full set does not imply this.",
+      "searches": [
+        "Sylow divisor condition exactly three distinct prime factors squarefree numbers 30 and 105 uniqueness",
+        "Erdos problem 768 squarefree p q r classification p<q<r 30 105, 2p-1 and 2p+1 both prime",
+        "\"Sylow divisor condition\" \"30\" \"105\" \"squarefree\"",
+        "\"A352287\" \"squarefree\" \"three prime factors\""
+      ]
+    },
+    "exact_database_or_table": {
+      "evidence": [
+        "OEIS A352287 has 30 and 105 in its numerical list and an explanation of witnesses for 105; the listed first few hundred integers include many nonsquarefree examples, but give no exhaustive three-prime theorem.",
+        "A published-index finding on squarefree three-prime 3-deficient-perfect numbers treats a distinct sigma-deficiency equation rather than this divisor-witness predicate."
+      ],
+      "reasoning": "The numerical examples are not claimed as new; the novelty is the bound-free exclusion of all other squarefree triples. No matching proof, stronger covering table, or claimed exact fiber was found in the inspected sources.",
+      "searches": [
+        "sequence, examples, program and references",
+        "\"30\" \"105\" \"only\" \"Sylow divisor condition\" prime",
+        "Sylow divisor condition exactly three distinct prime factors squarefree numbers 30 and 105 uniqueness"
+      ]
+    },
+    "rationale": "The motivating arXiv full text determines the full-set asymptotic, not the exact squarefree-three-prime stratum. OEIS records the two positive examples but no infinite exclusion. The finite-group Sylow theorem addresses group existence, which does not imply failure of the arithmetic necessary test at 30 or 105. Targeted mathematical research-index and webpage searches returned no equivalent or dominating theorem. Residual historical-priority risk remains.",
+    "residual_risks": [
+      "Erdős (1974) original remarks and some older group-theory sources were not available in complete inspected text; they could contain an unindexed equivalent elementary observation.",
+      "Search and database absence cannot establish priority or uniqueness of an argument."
+    ],
+    "source_inspections": [
+      {
+        "assessment": "NO_EXPLICIT_COVERAGE: asymptotic global count and canonical witnesses; no complete squarefree three-prime fiber statement in the inspected full text.",
+        "evidence": "arXiv:2606.24872v2, Theorem 1.1; definitions Section 1; Lemma 6.10 and Proposition 6.11; Theorem 8.3.",
+        "identifier_or_url": "https://arxiv.org/html/2606.24872v2",
+        "material_read": "Relevant passages of accessible full HTML: Introduction/Theorem 1.1; Sections 4, 6, 7 and 8; references; searched the complete HTML text for 105, 30, three prime and squarefree.",
+        "method": "Direct reading of relevant HTML sections and targeted search across the full HTML document.",
+        "title": "A Resolution of Erdős Problem 768: the Sylow Divisor Condition",
+        "trigger": "Same exact divisor-congruence predicate and recent motivating theorem."
+      },
+      {
+        "assessment": "PARTIAL_EXAMPLE_COVERAGE: both exceptional values previously tabulated, but no universal squarefree triple classification.",
+        "evidence": "OEIS A352287 initial sequence includes 30 and 105; EXAMPLE lists three witness divisors for 105.",
+        "identifier_or_url": "https://oeis.org/A352287",
+        "material_read": "Entire accessible OEIS page, including initial terms, comments, example, programs and references.",
+        "method": "Direct webpage read.",
+        "title": "Sylow divisor condition sequence",
+        "trigger": "Exact same arithmetic set with finite entries 30 and 105."
+      },
+      {
+        "assessment": "DIFFERENT_OBJECT: group realizability rather than arithmetic divisor-witness classification.",
+        "evidence": "Problem 7 states that a group of order pqr cannot be simple, while the arithmetic test is satisfied by n=30,105.",
+        "identifier_or_url": "https://palmer.wellesley.edu/~ivolic/pdf/2007WCSMPW/ProblemSets/AbstractAlgebra/pset-sylow-theory.pdf",
+        "material_read": "Search-extracted problem statement concerning pqr finite simple groups; source not inspected exhaustively.",
+        "method": "Search result and quoted mathematical problem statement only.",
+        "title": "Classical Sylow exercises on squarefree three-prime group orders",
+        "trigger": "Possible stronger implication from group-theoretic nonexistence of simple groups of order pqr."
+      }
+    ],
+    "status": "PASS"
+  },
+  "review_type": "self_review",
+  "schema_version": 1,
+  "scope_run_id": "60522cc8-7867-46de-86d6-ebc7530d6ff2",
+  "self_review_status": "passed",
+  "value": {
+    "rationale": "The exact classification closes the first nonempty squarefree prime-support stratum of the numerical Sylow necessary condition, a classical object whose complete-set density was determined in 2026. It identifies precisely the two sizes 30 and 105 for which the numerical test alone fails to rule out a hypothetical nonabelian simple group among all squarefree orders with at most three prime supports, while the group-theoretic theorem rules those groups out. The claim is a natural complete infinite classification, not the recomputation of two known listed values; the primitive congruence rigidity is transferable to other small-support divisor-witness problems.",
+    "status": "PASS"
+  }
+}

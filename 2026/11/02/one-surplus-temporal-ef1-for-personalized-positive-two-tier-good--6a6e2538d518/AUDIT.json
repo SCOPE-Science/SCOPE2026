@@ -1,0 +1,141 @@
+{
+  "correctness": {
+    "rationale": "For the first n arrivals all received bundles are singletons or empty, hence EF1. The first low-tier recipient j is unenvied: any other low-tier recipient i was unassigned when j received g_j and would have been preferred by the high-first rule if v_i(g_j)=h_i; so v_i(g_j)=ell_i=v_i(g_i). Any high-own agent i has v_i(g_i)=h_i>=v_i(g_j). If no low recipient exists every agent owns a high-valued good. Therefore give the last good to an unenvied anchor and remove only that last good for every other agent; pairwise singleton comparisons are trivially EF1. The proof covers all n and positive real tiers. Exact-integer checker reconstructed the rule and passed 3,908,208 instances and 21,778,368 prefix comparisons, which are corroboration rather than infinite proof.",
+    "status": "PASS"
+  },
+  "independent": false,
+  "independent_audit_status": "not_performed",
+  "originality": {
+    "broader_coverage": {
+      "evidence": [
+        "arXiv:2505.24321v2, Table 1, Theorems 4-6: all-personalized two-agent EF1 factor one-half; exact EF1 for n agents requires n-1 identical binary agents and one bi-valued agent.",
+        "arXiv:2607.01159v1, Theorems 4.1-4.2: temporal EF1 for personalized k-value agents uses a buffer of (n-1)k items; Section 4.3 discusses lower bounds for different models.",
+        "arXiv:2601.12835v3, Table 1 and Section 4.3.5: bi-valued exact TEF1 not established, approximate TEFX established."
+      ],
+      "reasoning": "The n-agent exact prior has stronger duration but a strictly smaller preference class; the unrestricted k-value result permits all agents but uses a positive buffer, whereas this theorem is zero-buffer and online for the first surplus. Approximate EFX is neither exact EF1 nor a dominating theorem.",
+      "searches": [
+        "At most one extra good online irrevocable EF1 with heterogeneous bi-valued preferences two values per agent",
+        "Bounded surplus one extra good positive personalized bivalued online EF1 existence all agents",
+        "arxiv:2505.24321 personalized bi-valued online envy free up to one",
+        "arxiv:2607.01159 personalized k-value no-buffer online EF1"
+      ]
+    },
+    "checked_sources": [
+      "arxiv:2601.12835v3 (full text relevant sections + arxiv v1 date)",
+      "arxiv:2410.14593v1 (full text relevant sections)",
+      "arxiv:2505.24321v2 (full text relevant sections)",
+      "arxiv:2607.01159v1 (full text relevant sections)",
+      "arxiv:2610.34625v1 (full text relevant sections)",
+      "published mathematical research-record search, multiple exact/semantic queries",
+      "accessible prior findings, comparison by claim/assumptions"
+    ],
+    "claim_vs_prior_implication": {
+      "evidence": [
+        "arXiv:2601.12835v3, Table 1: exact bi-valued TEF1 unresolved in the unrestricted setting.",
+        "arXiv:2505.24321v2, Theorem 6: exact result depends on special identical binary other agents.",
+        "arXiv:2607.01159v1, Theorem 4.1: k-valued temporal EF1 with buffer, not zero-buffer.",
+        "arXiv:2610.34625v1, Theorems 4.1 and 4.2: general EF1 impossibility with at least four valuation levels and two-value EFX (not EF1) impossibility, respectively."
+      ],
+      "reasoning": "A general negative EF1 result with four levels does not contradict a positive two-tier exception; a negative EFX guarantee does not refute EF1. General temporally buffered algorithms have additional power and cannot be applied with a zero buffer. Earlier exact positive algorithms require global types or different valuation classes, so their hypotheses do not imply the new claim.",
+      "searches": [
+        "Online temporal EF1 two valued positive online fair allocation n+1 goods one each zero one high low 2026",
+        "Online Fair Division with Frequency Predictions n+1 EF1 two distinct positive values proof",
+        "n+1 item positive personalized two-tier online EF1 prefix fairness first low recipient"
+      ]
+    },
+    "equivalent_formulations": {
+      "evidence": [
+        "arXiv:2601.12835v3, Table 1: the bi-valued goods/TEF1 cell is marked as unresolved in the unrestricted horizon; Theorem 14 is about approximate TEFX.",
+        "arXiv:2410.14593v1, Theorems 3.6 and 3.7: two global item types or generalized binary v_i(g) in {0,p_g}, respectively."
+      ],
+      "reasoning": "Equivalent wordings considered: prefixwise EF1, temporal EF1, a universally unenvied singleton anchor, and a horizon of one surplus good. The two-global-type and generalized-binary positive results do not contain arbitrary individually positive two-level vectors; a valuation matrix may have more than two distinct item-type vectors and all entries positive.",
+      "searches": [
+        "Exact TEF1 for at most n+1 goods with each agent two-valued positive item preferences and an unenvied singleton anchor",
+        "online EF1 bounded binary two-valued each agent exactly two high singleton goods",
+        "Online temporal envy-freeness up to one good for n agents and n+1 arriving goods, per-agent two positive valuation levels low high, give first n goods to distinct high-valuing unassigned agents and extra to first low-valued recipient"
+      ]
+    },
+    "exact_database_or_table": {
+      "evidence": [
+        "arXiv:2601.12835v3, Table 1 explicitly records a question mark for the exact bi-valued TEF1 guarantee.",
+        "arXiv:2505.24321v2, Table 1 restricts its n-agent exact EF1 positive result to identical binary agents plus one personalized bi-valued agent."
+      ],
+      "reasoning": "The relevant reviewed theorem tables were compared with the exact one-surplus domain and the online anchor construction. Neither tabulates an equivalent one-surplus existence theorem, and no matching exact-result record surfaced in these indexed searches.",
+      "searches": [
+        "Temporal Fair Division of Indivisible Goods with Scheduling bi-valued goods TEF1 table",
+        "An online irrevocable algorithm assigns n+1 indivisible goods to n agents with personalized positive bi-valued additive valuations satisfying EF1 at every prefix; select an unassigned agent for whom the next good is high, then give extra good to earliest low-valued recipient"
+      ]
+    },
+    "rationale": "Direct comparison of exact hypotheses and conclusions against the complete relevant portions of five primary research PDFs, prior published research records, and accessible previous claims found no statement implying a universal, deterministic, zero-buffer, prefixwise EF1 guarantee for arbitrary positive personalized two-tier goods at the first surplus horizon. Choi--Li explicitly leave the unrestricted two-valued temporal EF1 case unresolved; Wang--Wei exact n-agent theorem assumes a strictly narrower homogeneous-agent class; the buffer paper requires deferred allocation. Priority risk remains from unindexed or overlooked special-case results, not from a decisive source conflict.",
+    "residual_risks": [
+      "Possible earlier unindexed or differently phrased exact one-surplus result; keyword and semantic searches alone cannot prove priority.",
+      "The full all-horizon positive bi-valued temporal EF1 question remains unaddressed; this result applies only to at most one surplus good."
+    ],
+    "source_inspections": [
+      {
+        "assessment": "Exact TEF1 for positive bi-valued goods left open in table; Theorem 14 is approximate TEFX, not a n+1-goods exact online EF1 result.",
+        "evidence": [
+          "arXiv:2601.12835v3 PDF pp. 1-2 and p. 17; arxiv record first submitted January 19, 2026."
+        ],
+        "identifier_or_url": "https://arxiv.org/pdf/2601.12835",
+        "material_read": "Full-text PDF version 3, abstract, introduction, Table 1 and Table 2, Section 4.3.5 Theorem 14 and its proof, and nearby definitions",
+        "method": "Direct full-text inspection with page-image corroboration",
+        "title": "Temporal Fair Division of Indivisible Goods with Scheduling",
+        "trigger": "Primary precise bi-valued TEF1 gap"
+      },
+      {
+        "assessment": "Two globally uniform item types or restricted generalized binary with item-specific common positive size, neither dominates unrestricted strictly-positive personalized two-tier matrices.",
+        "evidence": [
+          "arXiv:2410.14593v1 PDF pp. 6-7, Theorems 3.6 and 3.7."
+        ],
+        "identifier_or_url": "https://arxiv.org/pdf/2410.14593",
+        "material_read": "Full-text PDF version 1, abstract/introduction, Sections 3.2.1-3.2.2 Theorems 3.6 and 3.7, and their stated hypotheses",
+        "method": "Direct full-text inspection with page-image corroboration",
+        "title": "Temporal Fair Division of Indivisible Items",
+        "trigger": "Earlier exact temporal EF1 positive theorems"
+      },
+      {
+        "assessment": "Theorem 6 gives all-n exact EF1 for n-1 identical binary agents plus one bivalued, not all personalized agents; all-personalized two-agent results concern weaker factors and nonwastefulness.",
+        "evidence": [
+          "arXiv:2505.24321v2 PDF pp. 1-2, 15-20, Theorems 4-6."
+        ],
+        "identifier_or_url": "https://arxiv.org/pdf/2505.24321",
+        "material_read": "Full-text PDF version 2, abstract/introduction, Table 1, Sections 3.3.1-3.3.2, Theorems 5-6, and their stated proofs and scope",
+        "method": "Direct full-text inspection with page-image corroboration",
+        "title": "Online Fair Allocations with Binary Valuations and Beyond",
+        "trigger": "Direct positive bi-valued online EF1 algorithm and possible broader coverage"
+      },
+      {
+        "assessment": "All-k-valued temporal EF1 positive result assumes a (n-1)k-size reordering buffer, unavailable in this zero-buffer result; lower bounds use different duration or fairness model.",
+        "evidence": [
+          "arXiv:2607.01159v1 PDF pp. 1-2, 8-15."
+        ],
+        "identifier_or_url": "https://arxiv.org/pdf/2607.01159v1",
+        "material_read": "Full-text PDF version 1, abstract, introductory summary, Sections 4.1-4.3 including Theorems 4.1, 4.2, 4.9, 4.10 and buffer-model hypotheses",
+        "method": "Direct full-text inspection with page-image corroboration",
+        "title": "Online Fair Division Meets Reordering Buffers",
+        "trigger": "Possible k-value temporal EF1 full-domain theorem"
+      },
+      {
+        "assessment": "EF1 impossibility uses four distinct positive levels, whereas the two-tier impossibility concerns the strictly stronger EFX property; neither implies absence of exact EF1 at two tiers. This is a priority comparison, not the earlier primary-source date.",
+        "evidence": [
+          "arXiv:2610.34625v1 PDF pp. 2-3 and 8-10."
+        ],
+        "identifier_or_url": "https://arxiv.org/pdf/2610.34625",
+        "material_read": "Full-text PDF version 1, Introduction, Section 4.1 Theorem 4.1 and construction, Section 4.2 Theorem 4.2, related-work discussion",
+        "method": "Direct full-text inspection with page-image corroboration",
+        "title": "Online Fair Division with Frequency Predictions",
+        "trigger": "Highly relevant recent n+1-good EF1 impossibility and two-positive-tier EFX impossibility"
+      }
+    ],
+    "status": "PASS"
+  },
+  "review_type": "self_review",
+  "schema_version": 1,
+  "scope_run_id": "6a6e2538-d518-4d59-8544-d24a0a1d5ecc",
+  "self_review_status": "passed",
+  "value": {
+    "rationale": "The horizon n+1 is the first meaningful online EF1 step beyond the trivial one-good-per-agent regime; it is the exact same supply threshold appearing in strong unrestricted negative results. The structural universally-unenvied anchor and simple high-first algorithm solve this motivated positive two-tier boundary for any number of heterogeneous agents without buffering, frequencies, or future order. The explicit two-agent obstruction to naive first-phase placement shows the preference-aware choice matters. The result is not just a routine table computation and has concrete interpretation for irreversible one-unit-surplus allocation.",
+    "status": "PASS"
+  }
+}

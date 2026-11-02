@@ -1,0 +1,136 @@
+{
+  "correctness": {
+    "rationale": "Private-neighbor equivalence is proved directly, and two independent standalone programs enumerate all vertex masks for cycles n=3,...,11 by different minimality tests. All 462 five-coordinate supports of C11 have at most 29 of the 32 traces; a four-query witness proves VC=4. A complete depth-five 31-query tree supplies 32 distinct consistent terminal witnesses; 44 hypotheses exclude depth six. For n<11, exact VC enumeration meets the floor-log2 concept-count upper bound, forcing equality with Littlestone. Cartesian-product and online-mistake arguments prove exact dimensions 4m,5m for arbitrary disjoint unions. A separate 22-concept maximal independent subset comparison is verified. The self-contained paths and computation results were replayed.",
+    "status": "PASS"
+  },
+  "independent": false,
+  "independent_audit_status": "not_performed",
+  "originality": {
+    "broader_coverage": {
+      "evidence": [
+        "Couturier et al., Theoretical Computer Science 487 (2013), sections 1–2 and surveyed graph-class results: count and enumerate minimal dominating sets of chordal, split, proper interval, cograph, and related classes; no VC or Littlestone dimension results were found in full-text targeted inspection.",
+        "Bhaskar (2017) gives general thicket theory, not exact dimensions for cycles.",
+        "Malliaris–Moran (2021) studies excellent sets, stability and general Littlestone classes, not this finite domination-system trace spectrum."
+      ],
+      "reasoning": "None of the inspected general results fixes the 44-element concept class at the eleven-cycle or entails its 462-support trace spectrum and adaptive tree. General VC/Littlestone inequalities and entropy bounds establish only upper/lower constraints, not the precise separation.",
+      "searches": [
+        "https://pimvanthof.github.io/mds_journal.pdf",
+        "hypergraph of minimal dominating sets Vapnik Chervonenkis dimension",
+        "arxiv:2108.05569"
+      ]
+    },
+    "checked_sources": [
+      "arxiv:1702.03956 (full-text HTML definitions and target-term search)",
+      "arxiv:2108.05569 (full-text HTML sections 1-2)",
+      "https://pimvanthof.github.io/mds_journal.pdf (primary full-text PDF)",
+      "https://doi.org/10.4230/LIPIcs.ITCS.2023.85 (abstract/landing page)",
+      "published-finding corpus nearest: 2026/9/17/SCOPE-cover-free-path-cycle-wheel-exact-values--d0cab96518f2",
+      "Accessible previous claim: minimal dominating sets of P11",
+      "Accessible previous claim: maximal independent sets of C13"
+    ],
+    "claim_vs_prior_implication": {
+      "evidence": [
+        "Accessible previous path analysis addresses inclusion-minimal dominating sets on P11 (36 concepts); changing the path closure to C11 gives 44 concepts by independently verified enumeration.",
+        "Accessible previous cycle analysis addresses inclusion-maximal independent sets on C13; the eleven-cycle has a strictly larger minimal-dominating-set concept class than its own maximal-independent-set class (44 versus 22).",
+        "The present independent checks directly compare VC and Littlestone dimensions 4/4 for maximal independent sets of C11 and 4/5 for all minimal dominating sets of C11."
+      ],
+      "reasoning": "The path result is not a reduction because adding the closing edge changes the minimality and domination predicates. The maximal-independent-cycle results have a different hypothesis class; maximal independence implies minimal domination, not conversely. Product additivity is shared machinery, but no earlier result forces the new base case, first-cycle cutoff or full trace distribution.",
+      "searches": [
+        "Shattering dimension and online mistake bounds for families of minimal dominating sets of graphs",
+        "Maximal independent sets of cycle C13 VC dimension four Littlestone dimension five linear gap 2-regular vertex transitive",
+        "Exact VC Littlestone dimension of minimal dominating sets of eleven vertex path P11 4 5",
+        "Thicket or Littlestone dimension minimal dominating sets cycle, domination hypergraph of an eleven-cycle"
+      ]
+    },
+    "equivalent_formulations": {
+      "evidence": [
+        "Bhaskar (arXiv:1702.03956, §2) defines adaptive thicket shattering but does not specialize to domination hypergraphs or eleven-cycles.",
+        "Malliaris–Moran (arXiv:2108.05569, §1.2) defines Littlestone trees and finite concept classes; no minimal-dominating-cycle classification in inspected material.",
+        "Searches for the equivalent terms domination hypergraph, thicket dimension and Shelah 2-rank did not produce a covering statement in retrieved sources."
+      ],
+      "reasoning": "The mathematical target is the hypergraph of all inclusion-minimal dominating sets of the cycle, equipped with membership queries, not graph neighborhood VC dimension or online selection of a dominating set. Terminological variants are considered, but their complete historical coverage cannot be proven by search.",
+      "searches": [
+        "VC dimension minimal dominating sets cycle graphs family exact",
+        "Littlestone dimension minimal dominating sets cycles vertex membership",
+        "Thicket or Littlestone dimension minimal dominating sets cycle, domination hypergraph of an eleven-cycle",
+        "arxiv:1702.03956",
+        "arxiv:2108.05569"
+      ]
+    },
+    "exact_database_or_table": {
+      "evidence": [
+        "The closest returned published published-finding corpus record 2026/9/17/SCOPE-cover-free-path-cycle-wheel-exact-values--d0cab96518f2 concerns graph cover-free-family parameters t(P_n), t(C_n), t(W_n), not the present concept-class dimension or five-query patterns.",
+        "No retrieved exact-dimension table applied to the full minimal domination system on C11, but semantic retrieval cannot rule out omitted or unindexed records."
+      ],
+      "reasoning": "The result concerns actual membership traces and adaptive tree shattering of a 44-concept hypergraph; equal integers in unrelated graph parameters would not imply coverage. Search yielded no exact table with the same objects and predicates.",
+      "searches": [
+        "Minimal dominating sets of cycle C11: 44 concepts, VC dimension 4, Littlestone dimension 5, five-coordinate trace maximum 29",
+        "VC shattering and adaptive Littlestone dimensions of minimal dominating sets of cycle graphs, first strict gap at 11 vertices",
+        "vertex-transitive disjoint unions of eleven-cycles: vertex-membership concept class of inclusion-minimal dominating sets has VC dimension four m and online Littlestone dimension five m",
+        "Exact VC Littlestone dimension of minimal dominating sets of eleven vertex path P11 4 5",
+        "2026/9/17/SCOPE-cover-free-path-cycle-wheel-exact-values--d0cab96518f2"
+      ]
+    },
+    "rationale": "The checked exact statement differs in objects and logical implication from general thicket/online-learning theory, previous path-based minimal domination, and prior cycle maximal-independent-set analyses. Published minimal domination research addresses enumeration rather than these membership shattering invariants. Actual semantic published-finding corpus searches located no covering theorem, although historical priority remains a nonzero risk.",
+    "residual_risks": [
+      "Potential preexisting result under the equivalent domination-hypergraph, hypergraph-thicket, or minimal-transversal terminology; semantic search does not prove novelty.",
+      "Published general hardness article not inspected in full; its accessible abstract does not suggest the present explicit family.",
+      "Finite exact results rest on executable exhaustive enumeration and a full decision-tree certificate; no independent external audit."
+    ],
+    "source_inspections": [
+      {
+        "assessment": "General framework, not exact minimal dominating sets of cycles.",
+        "evidence": [
+          "Definition 2.4 gives thicket dimension; the §2 comparison identifies VC dimension with level-wise fixed queries. No minimal-dominating-set theorem located."
+        ],
+        "identifier_or_url": "arxiv:1702.03956 | https://arxiv.org/abs/1702.03956",
+        "material_read": "ArXiv full-text HTML, introduction and §2 definitions, with full-text search for minimal domination.",
+        "method": "Read exact definition of full labeled trees and VC/thicket comparison; searched for target objects.",
+        "title": "Thicket Density",
+        "trigger": "Middle-cohort primary literature defining adaptive tree shattering and relation to VC dimension"
+      },
+      {
+        "assessment": "Generic stability/online bounds; no covering eleven-cycle minimal-domination classification in inspected material.",
+        "evidence": [
+          "§1.2 defines complete mistake trees and connection to online learning; §§1.4–2 focus on excellent sets and general bounds."
+        ],
+        "identifier_or_url": "arxiv:2108.05569 | https://arxiv.org/abs/2108.05569",
+        "material_read": "ArXiv full-text HTML, overview §§1.1–1.4 and §2 definitions.",
+        "method": "Compared quantified statement of generic Littlestone learning theorems with the finite specialized claim.",
+        "title": "Agnostic Online Learning and Excellent Sets",
+        "trigger": "Plausible stronger theorem about Littlestone classes and online mistake trees"
+      },
+      {
+        "assessment": "Defines inclusion-minimal dominating sets and counts/enumerates them in different graph classes; the present learning dimensions and full trace spectrum are not supplied.",
+        "evidence": [
+          "§2 gives the private-neighbor criterion and disjoint-component multiplicativity for the number of sets; Table 1 and §§3–6 concern enumeration bounds for specific graph classes."
+        ],
+        "identifier_or_url": "https://pimvanthof.github.io/mds_journal.pdf | TCS 487 (2013) 82–94",
+        "material_read": "Accessible 24-page full-text PDF: title, introduction, §2 private-neighbor criterion, graph-class results and global text search for VC, Littlestone, cycle.",
+        "method": "Read the object definitions and major theorem scope; searched complete text for the relevant dimensions and cycle-specific claims.",
+        "title": "Minimal Dominating Sets in Graph Classes: Combinatorial Bounds and Enumeration",
+        "trigger": "Closest full-text source on exactly the same type of hypotheses"
+      },
+      {
+        "assessment": "Not a covering theorem for this fixed concept class; full PDF not inspected, so the assessment is restricted to the published abstract and stated results.",
+        "evidence": [
+          "The stated main theorem concerns hardness of approximating dimensions of explicitly given classes via biclique reductions."
+        ],
+        "identifier_or_url": "https://doi.org/10.4230/LIPIcs.ITCS.2023.85",
+        "material_read": "Open-access publication landing page abstract, keywords, and displayed description of main contributions.",
+        "method": "Compared computational-hardness claims to exact finite classification.",
+        "title": "Improved Inapproximability of VC Dimension and Littlestone’s Dimension via (Unbalanced) Biclique",
+        "trigger": "Potential broad complexity theorem covering exact computations"
+      }
+    ],
+    "status": "PASS"
+  },
+  "review_type": "self_review",
+  "schema_version": 1,
+  "scope_run_id": "84ef6ec7-29bc-41cb-b004-82bb19ee0d69",
+  "self_review_status": "passed",
+  "value": {
+    "rationale": "A first exact cutoff in the natural inclusion-minimal domination hypergraphs of connected cycles, complete 462-support five-query trace distribution, and a strict same-graph contrast against maximal-independent-set membership provide structural information beyond recomputing hypothesis counts. The 11-cycle gives a vertex-transitive two-regular base for an unbounded adaptive/static separation; its base case is not implied by the previously studied path or maximal-independent-set objects. The precise support spectrum and first-gap boundary are natural exact learning invariants, useful for extremal online-vs-static comparisons, rather than an arbitrary parameter slice. The result does not purport to classify larger connected cycles.",
+    "status": "PASS"
+  }
+}

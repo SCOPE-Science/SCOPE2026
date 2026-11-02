@@ -1,0 +1,126 @@
+{
+  "correctness": {
+    "rationale": "The five exclusive local equality cases are exhaustive over all 240 nonpalindromic four-tuples. Their explicit potential inequality sums through exact triple-flow balance. At each of four aaa vertices, reversal exclusion plus flow parity forces the uniform-edge count <=2, yielding the universal 90+16=106 bound. The 106-digit cyclic witness was independently parsed and all cyclic windows/reversals enumerated with an executable standard-library checker. Both halves establish exact maximality.",
+    "status": "PASS"
+  },
+  "independent": false,
+  "independent_audit_status": "not_performed",
+  "originality": {
+    "broader_coverage": {
+      "evidence": [
+        "Mitchell–Wild (arXiv:2507.02526), Theorem 2.22 and Table 7 give a general upper bound 112 at (alphabet 4, order 4).",
+        "Gabrić–Sawada (arXiv:2407.07029) gives asymptotic general constructions, explicitly exact optimality only for n=2.",
+        "Mitchell–Wild (arXiv:2411.17273), Definitions 1.2–1.4 distinguish special orientability from ordinary orientability."
+      ],
+      "reasoning": "General 112 bound is too weak to imply 106 and known constructions only show period at least 88. Special orientability imposes additional sign-reversal avoidance, so its bounds cannot supply the exact ordinary maximum. Asymptotic general constructions do not certify the finite exact optimum.",
+      "searches": [
+        "quaternary orientable sequences order four maximum period 106 88 112 exact",
+        "orientable sequences 4-symbol order 4 106 windows reverse unique",
+        "arXiv:2407.07029",
+        "arXiv:2411.17273v1"
+      ]
+    },
+    "checked_sources": [
+      "arXiv:2507.02526v1, Table 7, Sections 2,6,7",
+      "arXiv:2407.07029, construction and n=2 special case",
+      "arXiv:2411.17273v1, special vs ordinary definitions and bounds",
+      "arXiv:2510.16545, randomized generation"
+    ],
+    "claim_vs_prior_implication": {
+      "evidence": [
+        "Mitchell–Wild (2025) place the optimum between 88 and 112 and explicitly call for closing the gap.",
+        "Sawada–Gabrić (arXiv:2510.16545) develop randomized universal-cycle generation, without an all-cycles 106 upper-bound theorem for this parameter."
+      ],
+      "reasoning": "A lower witness 88 and upper bound 112 cannot entail maximality at 106; either inequality admits larger periods. The new proof is a strict improvement in the upper bound and supplies a distinct larger construction. The related general approaches provide context but no implication to this exact theorem.",
+      "searches": [
+        "alphabet size four window length four maximum orientable necklace length 106 upper bound",
+        "arXiv:2507.02526v1",
+        "arXiv:2510.16545"
+      ]
+    },
+    "equivalent_formulations": {
+      "evidence": [
+        "Mitchell–Wild (arXiv:2507.02526), Definitions 1.1–1.2 identify reverse-unique cyclic four-windows as an orientable sequence; their de Bruijn incidence formulation uses the same objects."
+      ],
+      "reasoning": "Window-reversal uniqueness is precisely the ordinary orientability condition, equivalently a reversal-free Eulerian subgraph cycle. The new proof bounds any cycle, not just one Eulerian construction. Relevant aliases were used in both bibliographic and research-record searches; no equal or stronger 106 statement was identified.",
+      "searches": [
+        "orientable sequence OS_4(4) exact maximum length period 106",
+        "quaternary n4 orientable sequence reversal-free de Bruijn cycle period 106",
+        "orientable sequence order 4 alphabet 4 106 period"
+      ]
+    },
+    "exact_database_or_table": {
+      "evidence": [
+        "The full arXiv:2507.02526v1 HTML Table 7 gives 88 (best known construction) and 112 (upper bound), not 106; Section 7 expressly flags the even-alphabet order-four gap.",
+        "Indexed scientific-record searches for 106, four-letter order-four and reversed de Bruijn windows returned no relevant exact-value match."
+      ],
+      "reasoning": "The precise published parameter cell is unresolved in the directly relevant table, whereas the present claim is an exact equality with a new witness and inequality. Existing prior research records claims for other parameter cells do not subsume it. Unindexed work remains a risk.",
+      "searches": [
+        "quaternary orientable sequences order four maximum period 106 88 112 exact",
+        "orientable sequence OS_4(4) exact maximum length period 106",
+        "arXiv:2507.02526v1, Table 7"
+      ]
+    },
+    "rationale": "The directly relevant 2025 primary paper explicitly leaves (q,n)=(4,4) between known 88 and bound 112, while the new strict upper bound and exact-length witness give 106. The comparison explicitly includes reversal-unique-cycle aliases, relevant stronger/general constructions, the same table, and indexed record queries; no equivalent theorem was identified, with residual priority risk disclosed.",
+    "residual_risks": [
+      "An unindexed, unpublished, or independently discovered exact 106 maximum might exist.",
+      "Research-record semantic retrieval is not an exhaustive proof of publication priority."
+    ],
+    "source_inspections": [
+      {
+        "assessment": "Reported best 88, bound 112; states even alphabet/order-four gap remains; no 106 maximum in inspected primary text.",
+        "evidence": [
+          "Table 7 row n=4 k=4: 88 (112)",
+          "Section 7 conclusion says further work needed for k even n=4."
+        ],
+        "identifier_or_url": "https://arxiv.org/html/2507.02526v1",
+        "material_read": "Definitions 1.1–1.2, Sections 2 and 6–7, Table 7, conclusion and references",
+        "method": "Accessible original full-text HTML with table and theorem comparisons",
+        "title": "New orientable sequences",
+        "trigger": "Identical objects and exact alphabet/order parameter, open table entry"
+      },
+      {
+        "assessment": "Asymptotic, order-two sharp special case; does not state an exact 106 bound for n=4 k=4.",
+        "evidence": [
+          "Abstract explicitly singles out n=2 for a maximal-length construction."
+        ],
+        "identifier_or_url": "https://arxiv.org/abs/2407.07029",
+        "material_read": "Abstract, introduction, asymptotic construction statement, and exact n=2 special case",
+        "method": "Accessible arXiv full-text HTML",
+        "title": "Constructing k-ary Orientable Sequences with Asymptotically Optimal Length",
+        "trigger": "Earlier strong general construction might imply sharp small optimum"
+      },
+      {
+        "assessment": "Special and negative orientability differs in assumptions; its maximum or construction does not settle ordinary order-four quaternary maximum.",
+        "evidence": [
+          "Definition 1.4 adds negative orientability; Section 2 bounds special sequences."
+        ],
+        "identifier_or_url": "https://arxiv.org/html/2411.17273v1",
+        "material_read": "Abstract, Definitions 1.1–1.4, Section 2 and construction objectives",
+        "method": "Accessible original full-text HTML",
+        "title": "Special orientable sequences",
+        "trigger": "Same authors and nearby orientability variant"
+      },
+      {
+        "assessment": "General random generation and cover-time experiments, no identified exact 106 optimality theorem.",
+        "evidence": [
+          "Introduction focuses random arborescences and Eulerian tours rather than exact quaternary order-four maxima."
+        ],
+        "identifier_or_url": "https://arxiv.org/abs/2510.16545",
+        "material_read": "Accessible arXiv abstract, introduction, and random-arborescence construction outline",
+        "method": "Accessible original full-text HTML",
+        "title": "Random generation of universal cycles and de Bruijn sequences",
+        "trigger": "More recent general Eulerian generation method for orientable sequences"
+      }
+    ],
+    "status": "PASS"
+  },
+  "review_type": "self_review",
+  "schema_version": 1,
+  "scope_run_id": "5f16b10f-ab7a-4232-9787-54bc96f63f44",
+  "self_review_status": "passed",
+  "value": {
+    "rationale": "The result resolves a named, natural still-open small-parameter maximum in orientable sequences, for which both the prior best construction and prior upper bound were nonsharp. This invariant controls exact bidirectional localization period, and the proof supplies a new local certificate and usable extremal cycle.",
+    "status": "PASS"
+  }
+}

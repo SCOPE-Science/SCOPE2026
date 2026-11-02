@@ -1,0 +1,132 @@
+{
+  "correctness": {
+    "rationale": "In exact arithmetic least-squares orthogonality and the reverse construction give precisely all feasible unit-vector pairs at each residual ratio t<=mu. A compressed SPD spectral bound reduces the relative error to a two-by-two determinant-one singular-value formula, attained via an explicit two-mode top singular vector. Differentiation yields the unique peak and the sharp nonexpansion crossing. The package checker independently evaluates 99 rational first-step identities and 27461 numerical witness/envelope cases; no finite enumeration is used as infinite proof.",
+    "status": "PASS"
+  },
+  "independent": false,
+  "independent_audit_status": "not_performed",
+  "originality": {
+    "broader_coverage": {
+      "evidence": [
+        "https://doi.org/10.1137/0915034: accessible 1994 abstract explicitly says decreasing residuals need not imply decreasing errors for ill-conditioned systems.",
+        "https://doi.org/10.1007/BF01386231: 1960 Bauer–Householder classical matrix-condition inequalities (publisher preview, not theorem-level inspected)."
+      ],
+      "reasoning": "Weiss provides broader qualitative warnings but not a known sharp universal numeric FGMRES tolerance frontier. Bauer–Householder may cover the SPD distortion lemma, yet the algorithm-specific optimization and attainment require additional conditions. Inaccessible older theorem-level texts remain a genuine priority risk.",
+      "searches": [
+        "flexible GMRES one outer iteration inexact preconditioner sharp Euclidean solution error transient SPD and inner tolerance",
+        "FGMRES residual tolerance versus Euclidean solution error increase exact sharp threshold condition number positive definite",
+        "\"GMRES\" \"Euclidean error\" \"preconditioner\" \"sharp\"",
+        "https://doi.org/10.1137/0915034",
+        "https://doi.org/10.1007/BF01386231"
+      ]
+    },
+    "checked_sources": [
+      "https://arxiv.org/html/2604.27971v1",
+      "https://doi.org/10.1137/0915034",
+      "https://doi.org/10.1007/BF01386231",
+      "https://github.com/Resultary/2026/blob/main/2026/9/20/SCOPE-symmetric-gmres1-euclidean-error-barrier--89eb763dddfc/RESULT.md"
+    ],
+    "claim_vs_prior_implication": {
+      "evidence": [
+        "https://arxiv.org/html/2604.27971v1, Proposition 4 and its m=1 case: ||r_1||/||r_0|| <= mu.",
+        "https://github.com/Resultary/2026/blob/main/2026/9/20/SCOPE-symmetric-gmres1-euclidean-error-barrier--89eb763dddfc/RESULT.md: r-based unpreconditioned GMRES(1) Euclidean error bound 2/sqrt(3), with indefinite equality witness.",
+        "https://doi.org/10.1137/0915034: qualitative error/residual mismatch."
+      ],
+      "reasoning": "The published first-step residual inequality implies only the generic solution-error inequality <= kappa*mu, which misses the exact formula, plateau, and threshold. The unpreconditioned GMRES(1) result constrains z to the residual direction, whereas this theorem permits any z satisfying ||v-Az||<=mu; no stated implication transfers its sharp constant to the FGMRES class. Classical angular bounds alone do not specify the FGMRES feasible pair relation or optimize residual tolerance.",
+      "searches": [
+        "https://arxiv.org/html/2604.27971v1",
+        "https://doi.org/10.1137/0915034",
+        "https://github.com/Resultary/2026/blob/main/2026/9/20/SCOPE-symmetric-gmres1-euclidean-error-barrier--89eb763dddfc/RESULT.md",
+        "flexible GMRES FGMRES inexact preconditioner residual tolerance sharp Euclidean solution error amplification nonexpansion condition number one step",
+        "FGMRES residual tolerance versus Euclidean solution error increase exact sharp threshold condition number positive definite"
+      ]
+    },
+    "equivalent_formulations": {
+      "evidence": [
+        "https://arxiv.org/html/2604.27971v1: first inner-action residual criterion and sharp residual bounds, but no Euclidean-error minimax theorem in inspected sections 1–6.",
+        "https://github.com/Resultary/2026/blob/main/2026/9/20/SCOPE-symmetric-gmres1-euclidean-error-barrier--89eb763dddfc/RESULT.md: explicit unpreconditioned symmetric GMRES(1) theorem; algorithm uses z proportional to r, unlike arbitrary FGMRES preconditioning action."
+      ],
+      "reasoning": "A solution-error ratio can be written as t times an SPD two-vector angular norm distortion. Classical matrix-angle identities can express that intermediate inequality, but the full exact FGMRES projection-feasibility geometry, optimization over inner tolerance, and sharp threshold are not equivalent to the inspected residual-convergence theorem or the unpreconditioned GMRES(1) error theorem.",
+      "searches": [
+        "flexible GMRES FGMRES inexact preconditioner residual tolerance sharp Euclidean solution error amplification nonexpansion condition number one step",
+        "Bauer Householder Wielandt antieigenvalue angle distortion FGMRES preconditioner forward error bound",
+        "\"flexible GMRES\" \"forward error\" \"inner tolerance\" bound",
+        "2026/9/20/SCOPE-symmetric-gmres1-euclidean-error-barrier--89eb763dddfc"
+      ]
+    },
+    "exact_database_or_table": {
+      "evidence": [
+        "https://github.com/Resultary/2026/blob/main/2026/9/20/SCOPE-symmetric-gmres1-euclidean-error-barrier--89eb763dddfc/RESULT.md: exact sharp constant 2/sqrt(3) for a different algorithm and symmetric indefinite systems, not the two-parameter inner-tolerance profile.",
+        "https://arxiv.org/html/2604.27971v1: publishes the sharp FGMRES residual-contraction profile instead of a Euclidean solution-error table."
+      ],
+      "reasoning": "The checked relevant published mathematical records and source formulas do not tabulate the displayed two-parameter FGMRES physical-error gain or its safe inner tolerance. A failed search by itself is not proof of novelty.",
+      "searches": [
+        "flexible GMRES FGMRES inexact preconditioner residual tolerance sharp Euclidean solution error amplification nonexpansion condition number one step",
+        "sharp one step FGMRES error ratio tolerance kappa delta sqrt(1+delta^2)",
+        "\"FGMRES\" \"solution error\" \"preconditioner\" \"tolerance\" amplification",
+        "2026/9/20/SCOPE-symmetric-gmres1-euclidean-error-barrier--89eb763dddfc"
+      ]
+    },
+    "rationale": "The motivating paper proves outer-residual estimates, not Euclidean solution-error minimax, and the inspected unpreconditioned GMRES(1) theorem has different search directions/quantifiers. Classical error-residual separation and matrix-angle inequalities are credited, not presented as new. Searches found no equivalent two-parameter algorithm-specific theorem; older inaccessible theorem-level literature remains a priority risk.",
+    "residual_risks": [
+      "Historical equivalence under classical Bauer–Householder/Kantorovich angle inequalities combined with preconditioned projection geometry cannot be excluded from the inaccessible original full text.",
+      "Older minimum-error/GMRES theory could contain an implicitly stronger condition-number-dependent inexact-first-step formula not revealed by its accessible abstracts.",
+      "No external independent audit or separate mathematical certification has been performed."
+    ],
+    "source_inspections": [
+      {
+        "assessment": "Defines same inner tolerance; sharp residual results do not state the physical solution-error envelope or exact safe tolerance",
+        "evidence": [
+          "arXiv:2604.27971v1, equation (1), Proposition 4, Sections 4–6"
+        ],
+        "identifier_or_url": "https://arxiv.org/html/2604.27971v1",
+        "material_read": "Full HTML paper sections 1–6 and references, including algorithm definition, Proposition 4 first-step case, sharpness, numerical examples and conclusions",
+        "method": "Read arXiv v1 HTML primary article",
+        "title": "Flexible GMRES converges in two phases",
+        "trigger": "Exact inner preconditioning residual criterion and sharp FGMRES residual results"
+      },
+      {
+        "assessment": "Unpreconditioned GMRES(1), no arbitrary inexact preconditioner; includes an indefinite equality case, and explicitly excludes flexible preconditioning",
+        "evidence": [
+          "Section \"Result\" and \"Computational model and limitations\""
+        ],
+        "identifier_or_url": "https://github.com/Resultary/2026/blob/main/2026/9/20/SCOPE-symmetric-gmres1-euclidean-error-barrier--89eb763dddfc/RESULT.md",
+        "material_read": "Complete RESULT.md theorem, assumptions, proof, comparison and limitations",
+        "method": "Direct read of public primary research artifact",
+        "title": "A sharp Euclidean solution-error barrier for symmetric GMRES(1)",
+        "trigger": "Closest published sharp Euclidean error amplification for minimal-residual iteration"
+      },
+      {
+        "assessment": "Supports qualitative separation, not verified to contain the exact first-step FGMRES profile",
+        "evidence": [
+          "SIAM journal abstract, 1994"
+        ],
+        "identifier_or_url": "https://doi.org/10.1137/0915034",
+        "material_read": "Publisher abstract, bibliographic metadata, and MSC; full theorem text not accessible",
+        "method": "Publisher abstract inspection",
+        "title": "Error-Minimizing Krylov Subspace Methods",
+        "trigger": "Classical source for error increase despite residual decrease"
+      },
+      {
+        "assessment": "Classical geometric lemma may be stronger; exact FGMRES tolerance application not verifiable from accessible text",
+        "evidence": [
+          "Numerische Mathematik 2 (1960), 308–311, publisher preview"
+        ],
+        "identifier_or_url": "https://doi.org/10.1007/BF01386231",
+        "material_read": "Publisher preview, title, bibliographic metadata; theorem-level text not accessible",
+        "method": "Publisher preview inspection",
+        "title": "Some inequalities involving the euclidean condition of a matrix",
+        "trigger": "Potential stronger classical angular-norm distortion coverage"
+      }
+    ],
+    "status": "PASS"
+  },
+  "review_type": "self_review",
+  "schema_version": 1,
+  "scope_run_id": "6c1c5de9-e0a4-4769-a14e-301f51b79408",
+  "self_review_status": "passed",
+  "value": {
+    "rationale": "A sharp condition-number-dependent inner tolerance separating guaranteed nonexpansion of physical solution error from genuine expansion is a natural quantitative stopping-rule decision for FGMRES. The attained full minimax profile and saturation in dimension two provide informative benchmarks distinct from known residual contraction. The exact statement is limited to first outer steps and arbitrary inner actions, not a specific inner algorithm or multistep convergence.",
+    "status": "PASS"
+  }
+}

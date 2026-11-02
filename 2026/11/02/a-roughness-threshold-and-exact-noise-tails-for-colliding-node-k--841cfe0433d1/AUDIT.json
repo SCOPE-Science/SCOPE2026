@@ -1,0 +1,111 @@
+{
+  "correctness": {
+    "rationale": "Exact symmetric/antisymmetric Gram decomposition, uniform C1 kernel-mean collision expansions and Gaussian small-ball integration prove both tail constants and all moment boundaries. The ridge integral reduces to a positive d^2/(eta+lambda*d^alpha)^2 model; integration yields finite, logarithmic and beta-function regimes. The Lipschitz deterministic part stays bounded. 109 numerical diagnostic checks agree with exact identities and asymptotics.",
+    "status": "PASS"
+  },
+  "independent": false,
+  "independent_audit_status": "not_performed",
+  "originality": {
+    "broader_coverage": {
+      "evidence": [
+        "The 2023 paper studies sampled Nyström subspaces and convex quadrature rules; the 2018 paper studies positivity and separation-radius-dependent bounds. None of the inspected portions gives this noise-amplified two-node power-exponential phase diagram."
+      ],
+      "reasoning": "A general estimate on weight magnitude, even for more nodes, need not give the precise effect of node-distribution small balls, the coefficient at alpha=3/2, or the logarithmic ridge critical law.",
+      "searches": [
+        "arxiv:2301.09517 Section 5 kernel quadrature",
+        "arxiv:1812.08509 Section 4 weight magnitudes",
+        "arxiv:1706.03369 kernel quadrature random nodes"
+      ]
+    },
+    "checked_sources": [
+      "https://arxiv.org/abs/2301.09517",
+      "https://arxiv.org/abs/1812.08509",
+      "https://arxiv.org/abs/1706.03369"
+    ],
+    "claim_vs_prior_implication": {
+      "evidence": [
+        "The previously analyzed squared-exponential/Gaussian kernel is alpha=2 and provides the special tail exponent 1 and nugget exponent 1/2. The new theorem proves the sharp alpha=3/2 variance threshold, a logarithmic boundary and continuously varying exponents."
+      ],
+      "reasoning": "Specializing a general-alpha theorem recovers the earlier alpha=2 result, but the converse implication is invalid: a single alpha=2 limit cannot determine, much less prove, finite variance for alpha<3/2 or the unique critical logarithm.",
+      "searches": [
+        "arxiv:1812.08509 weight magnitude separation radius",
+        "arxiv:2301.09517 convex kernel quadrature sampled nodes",
+        "Gaussian kernel two-node Cauchy collision-tail and square-root nugget special case"
+      ]
+    },
+    "equivalent_formulations": {
+      "evidence": [
+        "The two-point Gram inverse has a single antisymmetric denominator 1-k; known weight-separation bounds concern magnitude at fixed design, not the iid-node tail exponent and averaged second-moment transition."
+      ],
+      "reasoning": "Converting to inverse Gram condition numbers alone loses the numerator cancellation m(X)-m(Y)=O(|X-Y|), so the all-exponent threshold is not implied by generic condition-number statements.",
+      "searches": [
+        "two-node Bayesian quadrature noise collision Cauchy tail exponential-power kernel regularity",
+        "coalescing nodes kernel mean difference power exponential noise tails regularization",
+        "arxiv:1812.08509 Sections 3-4"
+      ]
+    },
+    "exact_database_or_table": {
+      "evidence": [
+        "Search results did not show an exact numerical or symbolic table of the same power-exponential collision-tail and ridge constants."
+      ],
+      "reasoning": "No exact matching tabulation was located; this is positive evidence of a bounded comparison only, not a uniqueness or universal-publication-priority certificate.",
+      "searches": [
+        "two node power exponential kernel quadrature iid uniform node collision roughness alpha 3/2 phase noise variance regularization logarithm",
+        "random-node kernel quadrature exponent alpha smoothness threshold 3/2 infinite noise variance nugget scale eta power",
+        "coalescing nodes kernel mean difference 1-exp(-lambda|x-y|^alpha) Gaussian noise tails Weibull log ridge phase"
+      ]
+    },
+    "rationale": "The contribution is the continuous alpha-dependent noise-tail and regularization phase diagram with the singular alpha=3/2 logarithmic boundary. Earlier sources cover generic weight magnitudes, random-node Nyström methods and the alpha=2 Gaussian special case, but no inspected primary source implies the all-alpha statement. Novelty confidence is qualified by the possibility of specialized prior work.",
+    "residual_risks": [
+      "Older specialized fixed-design or iid-random-design kernel quadrature literature could contain an equivalent implicit result under different terms.",
+      "The earlier alpha=2 Gaussian tail and nugget formulas are covered; new work must be read as the all-alpha phase diagram, not a rediscovery of that case.",
+      "No independent external scientific review or universal literature exhaustion has occurred."
+    ],
+    "source_inspections": [
+      {
+        "assessment": "Develops sampling subspaces and convex quadrature guarantees, not two-node unregularized noisy power-exponential collision tails",
+        "evidence": [
+          "https://arxiv.org/abs/2301.09517",
+          "https://arxiv.org/html/2301.09517v3"
+        ],
+        "identifier_or_url": "https://arxiv.org/html/2301.09517v3",
+        "material_read": "Abstract, kernel Nyström construction and kernel-quadrature sections with their hypotheses and statements",
+        "method": "Primary open full-text HTML section inspection",
+        "title": "Sampling-based Nyström Approximation and Kernel Quadrature",
+        "trigger": "Earliest qualifying 2023 source; iid sampling and kernel quadrature"
+      },
+      {
+        "assessment": "Provides deterministic weight-magnitude analysis, not a random two-node noise tail or critical smoothness law",
+        "evidence": [
+          "https://arxiv.org/abs/1812.08509",
+          "https://arxiv.org/html/1812.08509v2"
+        ],
+        "identifier_or_url": "https://arxiv.org/html/1812.08509v2",
+        "material_read": "Sections on positivity, magnitudes and separation-radius bounds; relevant theorem statements",
+        "method": "Primary open full-text HTML comparison",
+        "title": "On the positivity and magnitudes of Bayesian quadrature weights",
+        "trigger": "Weight magnitude and node-separation bounds are plausibly stronger than the new result"
+      },
+      {
+        "assessment": "General probabilistic integration framework does not state the exact two-point power-exponential collision-noise critical threshold",
+        "evidence": [
+          "https://arxiv.org/abs/1706.03369"
+        ],
+        "identifier_or_url": "https://arxiv.org/html/1706.03369v1",
+        "material_read": "Setup, core kernel quadrature formulas and main sections on quadrature performance",
+        "method": "Primary open full-text HTML comparison",
+        "title": "Briol et al. (2017), probabilistic numerical integration",
+        "trigger": "Foundational random-node kernel quadrature and probabilistic integration context"
+      }
+    ],
+    "status": "PASS"
+  },
+  "review_type": "self_review",
+  "schema_version": 1,
+  "scope_run_id": "841cfe04-33d1-4076-b509-ef80dd41798b",
+  "self_review_status": "passed",
+  "value": {
+    "rationale": "The exact critical alpha=3/2 condition decides whether ordinary iid-node kernel quadrature with Gaussian measurements has finite mean-squared error. The sharp regularization cost provides a nontrivial design benchmark across kernel roughness classes and quantifies an unexpected logarithmic critical regime. This is a natural complete classification, not an arbitrary parameter slice or merely a known Gaussian recomputation.",
+    "status": "PASS"
+  }
+}

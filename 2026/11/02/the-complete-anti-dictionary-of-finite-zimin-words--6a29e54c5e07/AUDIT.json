@@ -1,0 +1,118 @@
+{
+  "correctness": {
+    "rationale": "A self-contained proof establishes the ruler-position formula, exact occurrences of each smaller Zimin block, all possible continuations of each proper prefix, and the complete border set. Inserting the unique highest-ranked letter produces exactly three exhaustive cases: old absent words persist, words with two new letters must have them as endpoints around a Zimin border, and words with one new letter must use an alternative continuation of a Zimin prefix. Disjoint explicit templates then give 1+(n-m-1)^2 words of length 2^m+1 and the cubic total. The independently generated complete absent-word oracle and all prefix-continuation sets match ranks 1 through 9. This finite check supplements rather than substitutes for induction.",
+    "status": "PASS"
+  },
+  "independent": false,
+  "independent_audit_status": "not_performed",
+  "originality": {
+    "broader_coverage": {
+      "evidence": [
+        "Głowinski--Rytter, arXiv:1307.1560, Lemma 2 provides a complete factor-membership criterion.",
+        "Barton--Heliou--Mouchard--Pissis, BMC Bioinformatics 15:388 (2014), provides an algorithm to enumerate minimal absent words of an arbitrary supplied finite word."
+      ],
+      "reasoning": "The factor-membership test and universal enumeration algorithms can in principle decide individual cases, but do not state the explicit rank-parameterized forbidden templates, all-length multiplicities, or a closed cubic count. Neither inspected result supplies a theorem logically identifying these formulas without additional arguments. The factor-membership lemma is the most substantial possible source of an implicit corollary.",
+      "searches": [
+        "\"Compressed Pattern-Matching with Ranked Variables in Zimin Words\" pdf",
+        "\"Zimin\" \"bispecial factors\" \"minimal absent\"",
+        "Zimin words minimal forbidden words factor complexity"
+      ]
+    },
+    "checked_sources": [
+      "https://arxiv.org/abs/1307.1560",
+      "https://arxiv.org/abs/1409.8235",
+      "https://doi.org/10.1186/s12859-014-0388-9"
+    ],
+    "claim_vs_prior_implication": {
+      "evidence": [
+        "Głowinski--Rytter 2013, Section 2, gives factor membership if and only if an interleaving condition holds.",
+        "Rytter--Shur 2014, Sections 2--4, treats Zimin-type recurrences, Fibonacci words, and unavoidable pattern bounds.",
+        "Barton et al. 2014, methods, describes missing bi-extensions for arbitrary finite words."
+      ],
+      "reasoning": "The new result is a complete and explicit classification for literal Zimin iterates and a derived cardinality spectrum; it is not a special case of an enumerated table in inspected sources. The prior membership criterion is stronger as a decision procedure for arbitrary candidate factors, yet it does not itself assert the finite list or its counts. The proof supplies the missing prefix-extension/border reduction and counts rather than treating a failed search as uniqueness proof.",
+      "searches": [
+        "Głowinski Rytter compressed pattern matching Zimin factor interleaving Lemma 2",
+        "On Searching Zimin Patterns 2014 factor borders Zimin type",
+        "Linear-time computation of minimal absent words using suffix array Barton 2014"
+      ]
+    },
+    "equivalent_formulations": {
+      "evidence": [
+        "Głowinski--Rytter 2013, arXiv:1307.1560, Section 2, defines factor membership by interleaving; no explicit minimally missing factor set is stated in the inspected text.",
+        "Rytter--Shur 2014, arXiv:1409.8235, studies Zimin type and homomorphic pattern occurrence rather than minimally absent literal factors."
+      ],
+      "reasoning": "Alternative descriptions as anti-dictionaries, minimal forbidden factors, absent contiguous words, and Zimin factors were searched. The critical difference is literal factor language versus homomorphic pattern embedding; no directly equivalent formula was found.",
+      "searches": [
+        "Zimin words minimal absent words factors exact number Zimin finite word",
+        "Zimin word minimal absent word number site:arxiv.org",
+        "\"Zimin words\" \"antidictionary\"",
+        "\"Zimin words\" \"absent words\""
+      ]
+    },
+    "exact_database_or_table": {
+      "evidence": [
+        "The accessible 2013 factor-compression text describes algorithms rather than a minimal-absent-factor table.",
+        "The 2014 minimal-absent-word algorithms article contains no Zimin-specific table or treatment in its inspected definitions, method, and result sections."
+      ],
+      "reasoning": "No exact precomputed Zimin anti-dictionary list or parameter table matching the claim was found. Absence of search hits is not proof of novelty; the uncertainty is retained.",
+      "searches": [
+        "Zimin word antidictionary full list minimal forbidden factors",
+        "\"Zimin\" \"forbidden factors\" \"minimal\"",
+        "\"Zimin\" \"minimal absent\" \"Zimin\" word factors"
+      ]
+    },
+    "rationale": "The examined primary papers establish Zimin factor membership/pattern algorithms and general minimal-absent-word algorithms, but no inspected statement enumerates the Zimin literal anti-dictionary, its lacunary length spectrum, or its exact cubic count. A generic factor test can be specialized to obtain these facts only after additional classification; it is a genuine possible implicit antecedent and is recognized as a priority risk. Targeted searches did not surface an equivalent direct classification.",
+    "residual_risks": [
+      "The broad interleaving factor criterion of Głowinski--Rytter could make the classification an unrecorded easy corollary; independent priority assessment may judge coverage differently.",
+      "Historical monographs, non-indexed theses, or equivalent descriptions in terms of forbidden extensions may contain prior results.",
+      "Web and database searches are not exhaustive; no independence certification is claimed."
+    ],
+    "source_inspections": [
+      {
+        "assessment": "CLOSEST: supplies candidate factor membership, not explicit complete anti-dictionary and counts.",
+        "evidence": [
+          "Section 2 Lemma 2: factor membership via interleaving after deleting smaller-ranked symbols.",
+          "Section 2: unique largest letter in each factor and compressed representations."
+        ],
+        "identifier_or_url": "https://arxiv.org/abs/1307.1560",
+        "material_read": "Author-uploaded accessible full-text HTML transcription: definition and examples, Section 2 interleaving Lemma 2 and compression machinery, later ranked-pattern methods; searched for minimal absent and forbidden terminology.",
+        "method": "Primary full-text transcription with section/term comparison; dated arXiv record",
+        "title": "Compressed Pattern-Matching with Ranked Variables in Zimin Words",
+        "trigger": "Primary research directly about factors of Zimin words"
+      },
+      {
+        "assessment": "Zimin type and homomorphic pattern instances, not the literal minimal absent factor classification.",
+        "evidence": [
+          "Introduction defines Zimin recurrence and 2010 MSC 68R15.",
+          "Section 4.2 counts minimal words of Zimin type in arbitrary alphabets, a different meaning of minimal than minimal absent literal factors."
+        ],
+        "identifier_or_url": "https://arxiv.org/pdf/1409.8235",
+        "material_read": "Primary 15-page preprint: introduction/definitions; Section 2 online Zimin type algorithm; Section 3 Fibonacci factors; Section 4 bounds and minimal pattern instances.",
+        "method": "Open full PDF text and page image; inspect relevant sections and term search",
+        "title": "On Searching Zimin Patterns",
+        "trigger": "Direct Zimin-word and pattern-searching literature, 68R15"
+      },
+      {
+        "assessment": "Generic finite-string enumeration algorithm; no Zimin-specific closed formula.",
+        "evidence": [
+          "Methods characterize missing extensions a-u-b when a-u and u-b occur.",
+          "The algorithm accepts an explicit word; the Zimin rank-family multiplicity law is not stated."
+        ],
+        "identifier_or_url": "https://doi.org/10.1186/s12859-014-0388-9",
+        "material_read": "Open-access full HTML: abstract, background, methods/definition and missing bi-extension characterization, discussion of output algorithms.",
+        "method": "Read relevant full-text sections and search Zimin terminology",
+        "title": "Linear-time computation of minimal absent words using suffix array",
+        "trigger": "Potential general algorithm dominating special classification"
+      }
+    ],
+    "status": "PASS"
+  },
+  "review_type": "self_review",
+  "schema_version": 1,
+  "scope_run_id": "6a29e54c-5e07-49f3-84c7-b4c207abbc9e",
+  "self_review_status": "passed",
+  "value": {
+    "rationale": "The problem asks for the canonical anti-dictionary of a heavily nested, exponentially long family central to unavoidable-pattern theory. The result gives all forbidden templates with a rank-index triple, identifies a nontrivial lacunary length spectrum, exact per-level multiplicities and total Θ(n^3) obstruction count relative to host length 2^n−1. This is a motivated compact classification relevant to finite factor-language representation and a specific structural property not supplied by generic enumeration.",
+    "status": "PASS"
+  }
+}
