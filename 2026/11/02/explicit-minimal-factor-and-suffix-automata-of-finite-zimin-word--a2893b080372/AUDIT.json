@@ -1,0 +1,139 @@
+{
+  "correctness": {
+    "rationale": "For each factor, unique maximal-index symbol fixes a rank-centered occurrence set E_{r,j}; its earliest endpoint parametrizes the states and the entire transition map. Distinct states have distinct longest continuation lengths. The finite checker independently reproduces all factors/endsets for ranks 1–7 and standard suffix automata for ranks 1–11. Infinity follows from a complete all-rank occurrence proof, not finite extrapolation.",
+    "status": "PASS"
+  },
+  "independent": false,
+  "independent_audit_status": "not_performed",
+  "originality": {
+    "broader_coverage": {
+      "evidence": [
+        "Fici 2009, Combinatorics of Finite Words and Suffix Automata, gives general endset automaton descriptions and state bounds, and relates minimal states to left-special factors.",
+        "Fici 2011, Special factors and the combinatorics of suffix and factor automata, abstract states general state-count formulas and classes of extremal automata; the complete text was unavailable.",
+        "Blumer et al. 1985 provides generic minimization theory."
+      ],
+      "reasoning": "General Myhill–Nerode/ending-position results and minimum-state characterizations can imply the state-count subclaim but do not explicitly supply the exact Zimin-specific labelled transition graph or counts by letter. Full-text inaccessibility of the closest general 2011 work is a documented historical-priority risk.",
+      "searches": [
+        "Finite Zimin words episturmian palindromic closure left special factor suffix automaton 2^n",
+        "exact labeled transitions for all factors of Zimin words and cardinalities by letter 2^(n-r)+r-1",
+        "Zimin words shortest factor occurrence ending positions valutation prefix DFA",
+        "\"Gabriele Fici\" \"Zimin\" \"automata\"",
+        "\"Zimin\" \"subword automaton\" \"states\""
+      ]
+    },
+    "checked_sources": [
+      "https://arxiv.org/html/1307.1560v1",
+      "https://www.researchgate.net/publication/220795075_Combinatorics_of_Finite_Words_and_Suffix_Automata",
+      "https://arxiv.org/pdf/1409.8235",
+      "https://iris.unipa.it/handle/10447/73740",
+      "https://doi.org/10.1016/0304-3975(85)90157-4",
+      "https://oeis.org/A132925"
+    ],
+    "claim_vs_prior_implication": {
+      "evidence": [
+        "Głowinski–Rytter 2013 Lemma 2 already settles literal membership algorithmically.",
+        "Fici 2009 endset and special-factor theorems are generic and may cover the minimal state count.",
+        "Full Zimin index-to-right-context correspondence and deterministic arc targets are not stated in either inspected material."
+      ],
+      "reasoning": "Neither known linear membership nor general state-count bounds entails the explicit transition formula as a stated prior theorem; deriving the formula still requires the rank-centered occurrence classification. The new claim does not claim first state lower bound, membership decision, or a new arithmetic sequence.",
+      "searches": [
+        "\"Zimin\" \"factor automaton\" \"transitions\" word",
+        "\"Zimin\" \"automaton\" \"factor\" \"states\"",
+        "Zimin words factor automaton minimal DFA exact transitions state graph Z_n ruler word"
+      ]
+    },
+    "equivalent_formulations": {
+      "evidence": [
+        "Głowinski–Rytter arXiv:1307.1560v1, Section 2, Lemma 2 gives a literal-factor interleaving criterion, not a state-indexed labelled DFA.",
+        "Rytter–Shur arXiv:1409.8235v1, introduction and algorithm sections address morphic Zimin-pattern embeddings."
+      ],
+      "reasoning": "The factor language is equivalent, but a decision criterion does not state the canonical automaton, its endpoint classes or its per-symbol transition incidence. No equivalent graph appeared in searched records.",
+      "searches": [
+        "Zimin words factor automaton minimal DFA exact transitions state graph Z_n ruler word",
+        "Zimin pattern substring automaton directed acyclic word graph state and edge counts",
+        "\"Zimin\" \"directed acyclic word graph\""
+      ]
+    },
+    "exact_database_or_table": {
+      "evidence": [
+        "OEIS A132925 explicitly lists 1, 4, 10, 21, 41, 78, ... with formula 2^n-1+binomial(n,2); its description is about the arithmetic sequence and gives no Zimin automata identification."
+      ],
+      "reasoning": "The numeric total is previously catalogued. The submitted mathematical claim is the graph and exact letter-resolved edge law; it is not novelty of the integer sequence itself.",
+      "searches": [
+        "\"1, 4, 10, 21, 41, 78, 148\" automata Zimin",
+        "https://oeis.org/A132925"
+      ]
+    },
+    "rationale": "The assessed claim is the complete labelled right-context graph, the joint factor/suffix interpretation, and the per-letter transition spectrum for every rank. Generic automata results and the 2013 literal factor-membership criterion do not give this labelled graph. The total-edge arithmetic sequence is already in OEIS A132925 without a Zimin-automaton interpretation. An overlapping general paper from 2011 was not available in full; priority is qualified, not asserted to be exhaustively established.",
+    "residual_risks": [
+      "The full text of Fici 2011 was inaccessible; conclusions about its specific Zimin coverage are limited to the abstract and related 2009 presentation.",
+      "An unindexed Zimin-automaton treatment or derivation from episturmian automata might predate this description.",
+      "The total arc-count formula itself is in OEIS A132925; only the graph structure and its Zimin interpretation are assessed as new."
+    ],
+    "source_inspections": [
+      {
+        "assessment": "Covers literal factor membership and rank-centered encoding; no minimal labelled DFA or edge spectrum found",
+        "evidence": "Lemma 2 characterizes membership by interleaving; Section 2 supplies compressed factor encoding and a linear-time test.",
+        "identifier_or_url": "https://arxiv.org/html/1307.1560v1",
+        "material_read": "Full accessible HTML, especially Definition 1, Lemma 2 and interleaving proof in Section 2 and Theorem 1",
+        "method": "Direct inspection of author preprint full text",
+        "title": "Compressed Pattern-Matching with Ranked Variables in Zimin Words",
+        "trigger": "Literal Zimin factor membership could dominate the new result"
+      },
+      {
+        "assessment": "Supplies generic automata framework and state-count implications, but no Zimin-specific labelled transition graph",
+        "evidence": "Endset equivalence slides and general minimum-state and transition-count slides.",
+        "identifier_or_url": "https://www.researchgate.net/publication/220795075_Combinatorics_of_Finite_Words_and_Suffix_Automata",
+        "material_read": "Author-uploaded complete accessible 2009 presentation text, especially end-position equivalence, state and edge bounds, left-special discussion",
+        "method": "Direct inspection of primary author presentation text",
+        "title": "Combinatorics of Finite Words and Suffix Automata",
+        "trigger": "General minimal suffix automata and edge formulas"
+      },
+      {
+        "assessment": "Studies pattern embeddings and Zimin type, not the minimal automaton for literal factor language",
+        "evidence": "Definition of Zimin patterns and Theorem 2.4 on computing Zimin type.",
+        "identifier_or_url": "https://arxiv.org/pdf/1409.8235",
+        "material_read": "Accessible original PDF introduction and Section 2 definitions/lemmas, plus section overview",
+        "method": "Direct inspection of preprint PDF text and rendered page",
+        "title": "On Searching Zimin Patterns",
+        "trigger": "Possible coverage of Zimin factor and pattern algorithms"
+      },
+      {
+        "assessment": "Generic states/formulas possibly imply count but cannot certify absence of a Zimin-specific graph from full text",
+        "evidence": "Abstract states formulas for sizes of suffix and factor automata and classes with minimal state counts.",
+        "identifier_or_url": "https://iris.unipa.it/handle/10447/73740",
+        "material_read": "Metadata and abstract only; complete paper not accessible via available open or institutional routes",
+        "method": "Direct abstract inspection and attempted authorized full-text retrieval",
+        "title": "Special factors and the combinatorics of suffix and factor automata",
+        "trigger": "Highly plausible stronger general automata results and minimum-state characterizations"
+      },
+      {
+        "assessment": "General DFA construction and minimization, no verified Zimin-specific rule",
+        "evidence": "1985 paper title and summary in bibliographic databases and 1987 successor paper.",
+        "identifier_or_url": "https://doi.org/10.1016/0304-3975(85)90157-4",
+        "material_read": "Bibliographic and primary-paper abstract/context via cited source pages; not full text",
+        "method": "Background cross-reference check",
+        "title": "The smallest automaton recognizing the subwords of a text",
+        "trigger": "Foundational general automata statement"
+      },
+      {
+        "assessment": "The arithmetic sequence predates this classification, without the Zimin-automaton interpretation",
+        "evidence": "Formula a(n)=2^n-1+n(n-1)/2 and initial values 1,4,10,21,41,78.",
+        "identifier_or_url": "https://oeis.org/A132925",
+        "material_read": "Entire OEIS entry including formula, comments and examples",
+        "method": "Direct database entry inspection",
+        "title": "OEIS A132925",
+        "trigger": "Sequence of predicted total edge counts matched database numerically"
+      }
+    ],
+    "status": "PASS"
+  },
+  "review_type": "self_review",
+  "schema_version": 1,
+  "scope_run_id": "a2893b08-0372-4633-9061-b7560997857f",
+  "self_review_status": "passed",
+  "value": {
+    "rationale": "This is a complete labelled minimal-DFA classification for an exponentially long classical recursive word, including all canonical right-context states and a letter-resolved transition inventory. Its arithmetic description permits substring recognition without materializing the graph. It adds structural information beyond an existing scalar sequence, routine state lower bounds or known generic membership algorithms.",
+    "status": "PASS"
+  }
+}
