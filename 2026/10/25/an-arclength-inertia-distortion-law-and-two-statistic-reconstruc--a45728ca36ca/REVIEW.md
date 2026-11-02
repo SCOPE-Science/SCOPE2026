@@ -1,15 +1,21 @@
-# Self-review
+# Independent mathematical audit
 
-## Correctness
-**PASS.** All parameters have explicit domains: \(a\ge b>0\), \(s=b^2/a^2\in(0,1]\), \(t=1-s\), and \(0<U<1\). The geometric moments are exactly the trace and determinant of the arclength covariance. The key lemma bounds the covariance of \(U\) with \(U/(1-tU)\), proving strict global monotonicity of its inertia ratio, including circular and thin-limit behavior. The circular expansion and its square-root inverse follow from the beta-arcsine variance. The Python cross-check passed 27 configurations; the infinite claims rest on the proof, not numerical enumeration.
+## correctness
 
-## Originality
-**PASS under present evidence, with an explicit historical-priority risk.** Prior work gives the forward principal inertia integrals of elliptical wires. The accessible Tatum exposition was read through the relevant section; it does not state the global strict ratio sandwich, a two-statistic rigid reconstruction theorem, or the optimal inverse square-root exponent. Lord's closely relevant 2014 article is a plausible priority risk: its abstract and bibliographic materials were examined, but the full text was unavailable. The quantitative strict inversion and distortion are not inferred to be historically unique merely because searches failed. Claims are limited to these additions, not the known forward inertia formulas or covariance determinant identity.
+PASS
 
-## Mathematical value
-**PASS.** The arclength law is not an affine image of uniform circular measure, so inversion of its covariance anisotropy is not immediate from axis scaling. The theorem establishes global one-to-one determination of a natural shape from two rotation-invariant sampling statistics, a practical semiaxis-ratio distortion bound, and the exact loss of quadratic identifiability at a circle. No downstream result or large contribution is assumed.
+Let U=sin^2 theta under probability density proportional to sqrt(1-t sin^2 theta), t=1-b^2/a^2. The centered boundary covariance eigenvalues are a^2 A(t) and b^2(1-A(t)), A=E_t[U]. The two independent sampling moments recover its trace and determinant exactly: D=2 tr Sigma, H=3 det Sigma/2. Their ordered eigenvalues therefore solve z^2-(D/2)z+2H/3=0. The nonstandard global step is A'(t)=-1/2 Cov_t(U,U/(1-tU)); the covariance bound gives -A(1-A)/(2(1-t))<A'<0, from which h=(1-t)(1-A)/A is strictly decreasing and s<h<sqrt(s). Hence the ordered eigenvalue ratio uniquely recovers t and then both semiaxes, with the t=0 circle endpoint treated directly. Expanding A at t=0 by the arcsine-beta variance yields eta=32H/(3D^2), t=(8/3)sqrt(1-eta)+O(1-eta); the exponent 1/2 cannot be improved for this scalar. I independently implemented scipy quadrature and reconstructed all 24 test configurations plus three near-circle inverse-expansion cases; finite tests are only a cross-check. No statement about translation, orientation, arbitrary ovals, or Lipschitz inversion at the circle is proved.
 
-## Closest sources and limits
-Nick Lord, *The moment of inertia of an elliptical wire*, Mathematical Gazette 98 (2014), 121–125, DOI 10.1017/S0025557200000796; J. B. Tatum, *Ellipses and Ellipsoids*, section 2.20, elliptical hoop discussion. Source-priority uncertainty remains for Lord's uninspected full article and other historical elliptical-wire literature. The method does not reconstruct ellipse translation or absolute orientation, nor handle arbitrary convex ovals.
+## originality
 
-Self-review: passed. Independent audit: not yet performed.
+PASS
+
+The elementary covariance trace/determinant identities and forward elliptical-wire inertia integrals are known, notably Tatum section 2.20 and Lord (2014). The specific incremental claim is an all-axis-ratios strictly invertible inertia shape map, the nontrivial sharp ratio sandwich, and square-root loss of inverse conditioning at a circular ellipse. I read Tatum's actual equations and numerical discussion, which do not give those global inequalities. Lord is highly relevant, but complete pages were inaccessible, so priority remains explicitly uncertain; the authenticated institutional request stopped at VPN disconnected. No searched exact or stronger covering theorem was found. PASS is best-of-knowledge, not a uniqueness certificate.
+
+## value
+
+PASS
+
+This is a natural inverse geometric-probability question because Euclidean arclength on a nonspherical ellipse is not the affine push-forward of uniform circle arclength. The result gives exact global identification from two rotation-invariant random-sample statistics and quantitatively locates the circle as an inverse-stability singularity. The global sandwich is mathematical content beyond evaluating an elementary integral; the result is narrowly scoped to Euclidean elliptical boundaries.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

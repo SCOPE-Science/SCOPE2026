@@ -1,0 +1,128 @@
+{
+  "audit_date_utc": "2026-10-27",
+  "audited_at_utc": "2026-10-27T21:45:33.188576Z",
+  "axes": {
+    "correctness": {
+      "rationale": "Let U=sin^2 theta under probability density proportional to sqrt(1-t sin^2 theta), t=1-b^2/a^2. The centered boundary covariance eigenvalues are a^2 A(t) and b^2(1-A(t)), A=E_t[U]. The two independent sampling moments recover its trace and determinant exactly: D=2 tr Sigma, H=3 det Sigma/2. Their ordered eigenvalues therefore solve z^2-(D/2)z+2H/3=0. The nonstandard global step is A'(t)=-1/2 Cov_t(U,U/(1-tU)); the covariance bound gives -A(1-A)/(2(1-t))<A'<0, from which h=(1-t)(1-A)/A is strictly decreasing and s<h<sqrt(s). Hence the ordered eigenvalue ratio uniquely recovers t and then both semiaxes, with the t=0 circle endpoint treated directly. Expanding A at t=0 by the arcsine-beta variance yields eta=32H/(3D^2), t=(8/3)sqrt(1-eta)+O(1-eta); the exponent 1/2 cannot be improved for this scalar. I independently implemented scipy quadrature and reconstructed all 24 test configurations plus three near-circle inverse-expansion cases; finite tests are only a cross-check. No statement about translation, orientation, arbitrary ovals, or Lipschitz inversion at the circle is proved.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Tatum provides general numerical/elliptic integral forward calculation only.",
+          "Lord article is directly relevant but complete text inaccessible."
+        ],
+        "reasoning": "A general numerical formula for given semiaxes does not logically imply the strict global monotonicity and local Hölder exponent without further analysis. This conclusion is limited to materially read texts, not the unavailable Lord pages.",
+        "searches": [
+          "elliptical ring moment of inertia inversion global uniqueness arbitrary axes",
+          "moment of inertia of an elliptical wire shape inverse stability"
+        ]
+      },
+      "checked_sources": [
+        "https://doi.org/10.1017/S0025557200000796",
+        "https://phys.libretexts.org/Bookshelves/Classical_Mechanics/Classical_Mechanics_(Tatum)/02:_Moments_of_Inertia/2.20:_Ellipses_and_Ellipsoids"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "The published Tatum equations define exactly the same forward arclength-weighted distribution.",
+          "Claim uses independent strict covariance-derivative inequalities to establish inverse global monotonicity and sharp expansion."
+        ],
+        "reasoning": "We credit forward integral formulas and covariance trace/determinant as prior routine consequences; the only proposed novel mathematical implication is complete invertibility and quantitative distortion. Lord could potentially contain it, so no categorical NOT_COVERING is asserted for that paper.",
+        "searches": [
+          "\"98.08 The moment of inertia of an elliptical wire\"",
+          "\"Ellipses and Ellipsoids\" Tatum section 2.20"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Tatum section 2.20: elliptical-wire principal inertia moments are covariance eigenvalues up to scaling.",
+          "Lord 2014 elliptical-wire study is a possible mathematical alias."
+        ],
+        "reasoning": "The observation map (D,H) is equivalent to recovering covariance trace/determinant and then globally inverting the arclength inertia eigenvalue ratio. The inverse and quantitative ratio theorem are not in the inspected Tatum text; Lord is unread and specifically reserved as risk.",
+        "searches": [
+          "arclength uniformly sampled ellipse squared chord length three point triangle area moment inertia inverse semiaxes covariance aspect ratio Hölder exponent",
+          "ellipse boundary uniformly arclength covariance matrix eigenvalue ratio monotone axis ratio",
+          "doi:10.1017/S0025557200000796"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "Tatum publishes plots of forward c1,c2 coefficients as a function of aspect ratio."
+        ],
+        "reasoning": "Forward coefficient curves are known data; finite tables are not exhaustive identities for continuous ellipticity and do not directly give the strict sharp inverse inequalities. No exact inverse table found.",
+        "searches": [
+          "arclength uniformly sampled ellipse squared chord length three point triangle area moment inertia inverse semiaxes covariance aspect ratio Hölder exponent",
+          "elliptical hoop numerical c1 c2 table aspect ratio"
+        ]
+      },
+      "rationale": "The elementary covariance trace/determinant identities and forward elliptical-wire inertia integrals are known, notably Tatum section 2.20 and Lord (2014). The specific incremental claim is an all-axis-ratios strictly invertible inertia shape map, the nontrivial sharp ratio sandwich, and square-root loss of inverse conditioning at a circular ellipse. I read Tatum's actual equations and numerical discussion, which do not give those global inequalities. Lord is highly relevant, but complete pages were inaccessible, so priority remains explicitly uncertain; the authenticated institutional request stopped at VPN disconnected. No searched exact or stronger covering theorem was found. PASS is best-of-knowledge, not a uniqueness certificate.",
+      "residual_risks": [
+        "Lord (2014) full four/five-page text was not accessible; it could contain an unlocated global monotonicity or inverse claim. The institutional download encountered vpn_disconnected and was not bypassed.",
+        "Any independent inverse-inertia reconstruction published under elliptical hoop mechanics terminology could cover an equivalent form.",
+        "The inverse does not fix translation or orientation and its scalar conditioning deteriorates at the circle."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Forward integrals directly covered; no quantitative global inverse monotonicity, s<h<sqrt(s), or sharp reconstruction exponent given",
+          "evidence": "Equation for c1 and c2 and arclength weight, sections around published web lines 203-230.",
+          "identifier_or_url": "https://phys.libretexts.org/Bookshelves/Classical_Mechanics/Classical_Mechanics_(Tatum)/02:_Moments_of_Inertia/2.20:_Ellipses_and_Ellipsoids",
+          "material_read": "Full elliptical-hoop discussion, original integrals, coefficient plots/interpretation (paragraphs 191-235)",
+          "method": "Read accessible full HTML mathematical section, including both principal inertia equations",
+          "title": "J. B. Tatum, Classical Mechanics, 2.20 Ellipses and Ellipsoids",
+          "trigger": "Same object: arclength-uniform elliptical hoop principal moments"
+        },
+        {
+          "assessment": "INACCESSIBLE_PRIORITY_RISK: cannot classify full article as noncovering or covering",
+          "evidence": "Mathematical Gazette 98 (2014), 121-125; Cambridge article online January 23, 2015; Oxford job blocked by disconnected VPN.",
+          "identifier_or_url": "https://doi.org/10.1017/S0025557200000796",
+          "material_read": "Publisher title, full bibliographic information and access preview only; complete scientific text was NOT read",
+          "method": "ArXiv and OA searches, Cambridge publisher access preview, then authorized Oxford request returned vpn_disconnected",
+          "title": "Nick Lord, The moment of inertia of an elliptical wire",
+          "trigger": "Identical physical object and likely elliptic-integral manipulations"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "rationale": "This is a natural inverse geometric-probability question because Euclidean arclength on a nonspherical ellipse is not the affine push-forward of uniform circle arclength. The result gives exact global identification from two rotation-invariant random-sample statistics and quantitatively locates the circle as an inverse-stability singularity. The global sandwich is mathematical content beyond evaluating an elementary integral; the result is narrowly scoped to Euclidean elliptical boundaries.",
+      "status": "PASS"
+    }
+  },
+  "checked_sources": [
+    "https://doi.org/10.1017/S0025557200000796",
+    "https://phys.libretexts.org/Bookshelves/Classical_Mechanics/Classical_Mechanics_(Tatum)/02:_Moments_of_Inertia/2.20:_Ellipses_and_Ellipsoids"
+  ],
+  "disposition": "passed",
+  "final_claim": "For every a>=b>0, the pair (mean squared distance of two independent arclength-uniform boundary points, mean squared area of a triangle of three such points) determines the unordered ellipse semiaxes; the normalized inertia ratio h satisfies s<h<sqrt(s), s=(b/a)^2, and the sharp circular inverse is t=(8/3)sqrt(1-eta)+O(1-eta).",
+  "limitations": [
+    "No original Git raw blob content streams were separately SHA-1 rehashed locally: the actual directory inventories and SHA-1 Git tree serializations were reconstructed from authenticated per-file Git blob identities.",
+    "Independent finite calculations are corroboration and do not replace general analytic proofs.",
+    "No repository writes or dispatcher closeout performed."
+  ],
+  "residual_risks": [
+    "Lord (2014) full four/five-page text was not accessible; it could contain an unlocated global monotonicity or inverse claim. The institutional download encountered vpn_disconnected and was not bypassed.",
+    "Any independent inverse-inertia reconstruction published under elliptical hoop mechanics terminology could cover an equivalent form.",
+    "The inverse does not fix translation or orientation and its scalar conditioning deteriorates at the circle."
+  ],
+  "schema_version": 1,
+  "source_inspections": [
+    {
+      "assessment": "Forward integrals directly covered; no quantitative global inverse monotonicity, s<h<sqrt(s), or sharp reconstruction exponent given",
+      "evidence": "Equation for c1 and c2 and arclength weight, sections around published web lines 203-230.",
+      "identifier_or_url": "https://phys.libretexts.org/Bookshelves/Classical_Mechanics/Classical_Mechanics_(Tatum)/02:_Moments_of_Inertia/2.20:_Ellipses_and_Ellipsoids",
+      "material_read": "Full elliptical-hoop discussion, original integrals, coefficient plots/interpretation (paragraphs 191-235)",
+      "method": "Read accessible full HTML mathematical section, including both principal inertia equations",
+      "title": "J. B. Tatum, Classical Mechanics, 2.20 Ellipses and Ellipsoids",
+      "trigger": "Same object: arclength-uniform elliptical hoop principal moments"
+    },
+    {
+      "assessment": "INACCESSIBLE_PRIORITY_RISK: cannot classify full article as noncovering or covering",
+      "evidence": "Mathematical Gazette 98 (2014), 121-125; Cambridge article online January 23, 2015; Oxford job blocked by disconnected VPN.",
+      "identifier_or_url": "https://doi.org/10.1017/S0025557200000796",
+      "material_read": "Publisher title, full bibliographic information and access preview only; complete scientific text was NOT read",
+      "method": "ArXiv and OA searches, Cambridge publisher access preview, then authorized Oxford request returned vpn_disconnected",
+      "title": "Nick Lord, The moment of inertia of an elliptical wire",
+      "trigger": "Identical physical object and likely elliptic-integral manipulations"
+    }
+  ]
+}
