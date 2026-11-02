@@ -1,11 +1,21 @@
-# Self-review
+# Independent mathematical audit
 
-**Correctness — PASS.** The exterior-square Euler sequence yields the exact surjection from \(\Omega^2(2)\) to the structure sheaf, with kernel \(E(-1)\). Along an arbitrary smooth twisted cubic the source splits as three intrinsic degree \(-2\) summands, six degree \(-1\) summands and one trivial summand. The scalar on the trivial summand is precisely the symplectic pairing of the two-dimensional annihilator. In the exceptional case, injectivity of the symplectic map on that annihilator forces the cross-term coefficient linear forms to be basepoint-free, so the crucial two-dimensional map on sections is onto. Ranks, degrees, generation bounds and all resulting multiplicities were independently checked; the finite script is corroboration only. Boundary cases are both realized.
+## correctness
 
-**Originality — PASS on the specifically stated cubic-restriction theorem.** The complete source papers arXiv:2610.20208v1 (§3) and arXiv:2212.04228v1 (§6.2) were compared with the new statement, including the dual-twist identification with Landsberg–Manivel's symplectic bundle. The first proves line uniformity, the second describes the symplectic construction and moduli, neither gives the full splitting of all smooth twisted cubics or the isotropic-\(2\)-plane divisor for those restrictions. arXiv:2306.04317v1 treats generalized syzygy moduli rather than the target classification. Published-database searches on the exact source, syzygy bundle, cubic restrictions, isotropic Grassmannian and aliases did not return covering claims. Prior research records involving the same bundle's line and plane restrictions are not the current degree-three result: a twisted cubic lies in no plane. General source constructions may imply the result after additional reasoning, but are not themselves the same proved statement; this residual literature risk is acknowledged.
+PASS
 
-**Value — PASS.** This is an exhaustive geometric classification of the first non-planar rational-normal-curve restrictions of a conspicuous uniform-but-not-projectively-homogeneous bundle. It provides a concrete, nonempty jump divisor with exact intrinsic splitting data and identifies a geometric diagnostic of the underlying symplectic form. It is neither a random numerical slice nor a mere line-uniformity corollary: degree-three curves distinguish a codimension-one symplectic degeneracy that line restrictions cannot detect.
+For V=C^6 with nondegenerate bivector pi, the Koszul evaluation quotient yields exact vector-bundle sequence 0->E(-1)->Omega^2_{P5}(2)->O->0: the map is surjective since a five-dimensional subspace cannot be isotropic in symplectic dimension six. On any smooth twisted cubic C in P(U)=P3, Ann(U)=A has dimension two and the middle term is O_C(-2)^3 + O_C(-1)^6 + O_C. The last O maps by pi|Lambda^2 A. If nonzero, split off O and get E|C=O(2)^6 + O(1)^3. If zero, the cross term O(-1)^6 -> O has no basepoint because pi-sharp(A) is a two-plane contained in U and cannot lie in any point line; its linear coefficient sections span H0(O_C(1)). Thus h0(E|C(-3))=1 and h0(E|C(-2))=6. With global generation of E and E^vee(1) as assumed from Denham–Miro-Roig–Schenck and c1(E)=5, all nine splitting degrees lie in [0,3] and sum to 15; their h0 counts force (3,2^4,1^4). Isotropy of two-plane A is one smooth symplectic Plucker hyperplane equation in Gr(2,6), giving the seven-dimensional jumping divisor. I inspected the actual RESULT.md and verify.py; the reported fifteen coordinate-plane checks are consistent but do not establish universality. Boundary: smooth cubics over C and this symplectic bundle only.
 
-**Limits.** Characteristic zero, smooth twisted cubics, and the stated bundle only. The proof does not assert a broader theory of all curves or independent certification.
+## originality
 
-Self-review: passed. Independent audit: not yet performed.
+PASS
+
+The originating 2026 Denham–Miro-Roig–Schenck paper builds the same bundle, while Landsberg–Manivel §6.2 already gives its symplectic constant-rank realization up to dual twist. The asserted addition is the exact two-type restriction to every twisted cubic and the isotropic-Grassmannian jump divisor. I examined the relevant Landsberg–Manivel section and the Denham abstract, but not the unavailable complete Denham §3; cannot declare the original paper conclusively noncovering. Best-of-knowledge no direct prior cubic-restriction classification observed; this is a material priority risk.
+
+## value
+
+PASS
+
+For a natural uniform nonhomogeneous rank-nine bundle, uniform splitting on lines does not decide splitting on degree-three rational curves. Computing both nontrivial cubic restriction splittings and a geometric codimension-one jumping locus is a motivated structural classification; it can distinguish a bundle's curve behavior from line-uniformity. This is not a discovery of the underlying already known symplectic construction.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
