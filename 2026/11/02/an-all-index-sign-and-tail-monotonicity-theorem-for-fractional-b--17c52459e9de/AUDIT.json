@@ -1,0 +1,120 @@
+{
+  "correctness": {
+    "rationale": "Finite symbolic identities for coefficients 1..6, Q4 and Q5 squares, r5 base and r6 bound were recomputed. For j>=6 the exact recurrence traps all adjacent negative-coefficient ratios strictly between 3/4 and 1; induction gives every index and real alpha in (0,1). The 6261 rational/symbolic checks replay from embedded verifier; they are auxiliary rather than an infinite proof. h>0 scaling preserves signs.",
+    "status": "PASS"
+  },
+  "independent": false,
+  "independent_audit_status": "not_performed",
+  "originality": {
+    "broader_coverage": {
+      "evidence": [
+        "Open 2017/2018 discrete maximal regularity paper gives BDF2 symbol and analytic resolvent argument, but not each coefficient sign.",
+        "Jin 2014 has second-order accuracy for subdiffusion, not coefficient sign."
+      ],
+      "reasoning": "Sectorial stability, numerical convergence and maximal regularity do not imply coefficientwise negativity; even a stable BDF method may have positive history weights at specific fractional exponents. Both finite-index signs and uniform tail monotonicity are separately checked against strongest relevant sources.",
+      "searches": [
+        "discrete maximal regularity BDF2 fractional CQ symbol sectorial resolvent",
+        "fractional BDF2 generating function weights coefficients n greater than 3 negative for alpha between 0 and 1"
+      ]
+    },
+    "checked_sources": [
+      "https://arxiv.org/abs/1404.3800",
+      "https://arxiv.org/html/2311.00081v3",
+      "https://pmc.ncbi.nlm.nih.gov/articles/PMC5762870/",
+      "https://arxiv.org/abs/2311.00081",
+      "https://link.springer.com/article/10.1007/s00211-017-0904-8"
+    ],
+    "claim_vs_prior_implication": {
+      "evidence": [
+        "2014 Jin--Lazarov--Zhou Section 2.2: CQ symbol for fractional diffusion.",
+        "2023 López-Fernández--Płociniczak Section 2: explicitly states higher-weight signs were numerically checked, not proved.",
+        "A 2026 study of classical BDF2 scalar positivity concerns step-dependent trajectories, not the power-series coefficients."
+      ],
+      "reasoning": "No prior rigorous theorem inspected logically implies both exact all-order tail signs and monotone adjacent ratios. We credit finite signs and empirical observations, not claim new discovery of the 5/8 and 7/8 numbers. The recurrence and induction supply the missing proof; possible specialist historical overlap remains a residual risk.",
+      "searches": [
+        "BDF2 fractional convolution weights second third indices 5/8 7/8 coefficient all j≥4 strictly negative finite analytic proof",
+        "Lubich BDF2 CQ symbol (1-z)^alpha (1-z/3)^alpha sign proof induction recurrence fractional derivative",
+        "Jin Lazarov Zhou 2014 fractional BDF2 sign coefficient monotonicity, Lopez-Fernandez Plociniczak 2023 figure sign numerical",
+        "BDF2 fractional higher weights analytic negativity proof j >=4"
+      ]
+    },
+    "equivalent_formulations": {
+      "evidence": [
+        "2023 López-Fernández--Płociniczak Section 2 identifies the same Taylor coefficients and hypergeometric form; first three signs known.",
+        "2014 Jin--Lazarov--Zhou exact BDF2 convolution generating symbol; general fractional-derivative CQ but no all-index sign theorem."
+      ],
+      "reasoning": "Equivalent generating functions are delta(z)^alpha = (3/2)^alpha (1-4z/3+z^2/3)^alpha and (3/2)^alpha(1-z)^alpha(1-z/3)^alpha. The prior 2023 numerical higher-index observation is not a proven infinite-index theorem; we supply exact recurrence induction and strict ratio bounds.",
+      "searches": [
+        "BDF2 convolution quadrature coefficient sign fractional alpha 5/8 7/8 all higher coefficients negative sharp",
+        "fractional BDF2 generating function weights coefficients n greater than 3 negative for alpha between 0 and 1",
+        "BDF2 delta(z) power alpha sign pattern coefficients 5/8 7/8 maximum principle positivity",
+        "fractional BDF2 powers of delta(z), sign of all Maclaurin coefficients beyond cubic"
+      ]
+    },
+    "exact_database_or_table": {
+      "evidence": [
+        "López-Fernández--Płociniczak Figure 1/2 plot selected weights and conjecture/empirically report late negativity/magnitude decrease.",
+        "A published scalar-decay BDF2 positivity result treats a different numerical object and does not supply a fractional CQ coefficient sign table/classification."
+      ],
+      "reasoning": "The plot and initial explicit formulas cover observations but not every real exponent and every integer index, whereas the presented theorem supplies an exact algebraic certificate for both infinite quantifiers and additional 3/4 ratio inequality.",
+      "searches": [
+        "BDF2 convolution quadrature coefficient sign fractional alpha 5/8 7/8 all higher coefficients negative sharp",
+        "fractional BDF2 generating function weights coefficients n greater than 3 negative for alpha between 0 and 1",
+        "BDF2 delta(z) power alpha sign pattern coefficients 5/8 7/8 maximum principle positivity",
+        "BDF2 fractional convolution weights second third indices 5/8 7/8 coefficient all j≥4 strictly negative finite analytic proof"
+      ]
+    },
+    "rationale": "Jin--Lazarov--Zhou (arXiv:1404.3800), section 2.2, defines and applies second-order BDF CQ without the all-index tail-sign/monotonicity theorem. López-Fernández--Płociniczak (arXiv:2311.00081v3), section 2, eqs. (8)-(20) gives hypergeometric coefficients, 5/8 and 7/8 finite-index thresholds and explicitly reports only numerical verification of later negative signs and decreasing magnitudes. The thresholds and empirical observations are PRIOR KNOWLEDGE, not novel; the provable all-real-order, all-index induction and quantitative 3/4 adjacent ratio bounds are additional, not implied by finite numerical checks. A separate BDF2 scalar-decay positivity result concerns nonfractional trajectories and cannot imply fractional coefficient signs. No direct stronger proof was located; possible historical equivalence remains.",
+    "residual_risks": [
+      "The all-index positivity and coefficient monotonicity may have been proved under other special-function or generating-function terminology not surfaced by the inspected searches.",
+      "The paper from 2023 already states the high-index sign pattern as a numerical observation; scientific originality lies in the first located rigorous uniform-in-order proof and ratio bounds, not the observed phenomenon itself."
+    ],
+    "source_inspections": [
+      {
+        "assessment": "Historical generator and numerical PDE error estimates; does not give the exact all-index coefficient-sign and tail-monotonicity theorem.",
+        "evidence": [
+          "arXiv:1404.3800 first public 2014-04-15",
+          "Section 2.2 describes CQ weights and BE/SBD symbols; Section 2.3 and later prove scheme error estimates"
+        ],
+        "identifier_or_url": "https://arxiv.org/abs/1404.3800",
+        "material_read": "Full open text available; introduction, Section 2.2 defining the CQ weights and SBD generating polynomial, other method sections/appendix searched for positivity and sign terms.",
+        "method": "Primary preprint open text and targeted sections searched for weights, signs, positive, second-order backward.",
+        "title": "Two Schemes for Fractional Diffusion and Diffusion-Wave Equations with Nonsmooth Data",
+        "trigger": "Archival source directly applies BDF2 convolution quadrature for fractional derivatives."
+      },
+      {
+        "assessment": "Finite-index threshold formulas are prior results; all-index negativity and magnitude decrease are reported as numerical evidence and a hypothesis, not supplied with an all-index analytic induction; the added rigorous proof and ratio lower bound remain distinct.",
+        "evidence": [
+          "arXiv:2311.00081 initial submission 2023-10-31",
+          "Section 2: ``not straightforward to prove and ``numerically checked the sign of a number of subsequent weights; Figure 1/2 empirical tail observations"
+        ],
+        "identifier_or_url": "https://arxiv.org/html/2311.00081v3",
+        "material_read": "Full HTML text available; introduction, complete Section 2 including equations 8 through 23, Proposition 1, Figure 1 and Figure 2 captions, later stability and conclusion sections searched.",
+        "method": "Primary open-access arXiv HTML, section reading and pattern search; first publication date verified at arXiv abstract.",
+        "title": "Convolution Quadrature for the Quasilinear Subdiffusion Equation",
+        "trigger": "Closest source directly discusses sign hypothesis, fractional BDF2 weights and numerical evidence for all late weights."
+      },
+      {
+        "assessment": "Establishes resolvent/operator maximal regularity, not the individual coefficient-sign and tail-monotonicity classification.",
+        "evidence": [
+          "BDF2 symbol delta(xi)=3/2-2xi+xi^2/2",
+          "Proof uses A-stability and R-boundedness, with no all-index coefficient sign induction"
+        ],
+        "identifier_or_url": "https://pmc.ncbi.nlm.nih.gov/articles/PMC5762870/",
+        "material_read": "BDF2 section with generating equation (3.4)-(3.5) and theorem/proof based on sectoriality and R-bounded resolvents.",
+        "method": "Full-text open HTML; examined BDF2 scheme and surrounding maximal regularity statements.",
+        "title": "Discrete maximal regularity of time-stepping schemes for fractional evolution equations",
+        "trigger": "Specialist source treats BDF2 fractional CQ with identical symbol and could imply sign criteria."
+      }
+    ],
+    "status": "PASS"
+  },
+  "review_type": "self_review",
+  "schema_version": 1,
+  "scope_run_id": "17c52459-e9de-4a27-bd77-504449391d47",
+  "self_review_status": "passed",
+  "value": {
+    "rationale": "The 2023 CQ energy/Grönwall analysis assumes negative convolution history weights and cites numerical checks for all higher BDF2 weights. A finite-step check cannot justify a uniform-in-history assumption. The present full-index analytic sign/monotonicity certificate and sharp failure orders provide a rigorous decision criterion for exactly that hypothesis; this is a meaningful structural result without claiming a new PDE convergence theorem.",
+    "status": "PASS"
+  }
+}
