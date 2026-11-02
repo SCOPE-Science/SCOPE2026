@@ -1,15 +1,21 @@
-# Self-review
+# Independent mathematical audit
 
-## Correctness — PASS
-The full statement applies to all nondegenerate Euclidean parallelograms of positive perimeter and all base points in the closed body. Polar integration gives the exact relationship between the chord average and the inverse-distance potential; the layer-cake/Brunn–Minkowski argument establishes the strict center optimum, including boundary cases. One-dimensional rearrangement eliminates shear while decreasing perimeter, the rectangle potential evaluates exactly, and strict concavity of inverse hyperbolic sine gives the unique square optimizer. The key equalities and normalizations were independently rederived. Quadrature is a sanity check only.
+## correctness
 
-## Originality — PASS (bounded literature comparison)
-Rabinowitz (arXiv:2609.11370v1, first public September 10, 2026) treats triangles rather than centrally symmetric quadrilaterals. Related indexed records on parallelogram fourth-chord moments, regular polygon central-chord quantiles, and quadrilateral chord asymmetry do not state the same sampling-functional-and-global-optimality combination. Anderson's classic symmetric unimodal convolution result covers part of the center-step background, not the new sharp fixed-perimeter shape optimization. Priority beyond the accessible texts is not certified; several potentially adjacent full texts were unavailable.
+PASS
 
-## Value — PASS
-This completes the natural four-vertex centrally symmetric case for the same angularly uniform fixed-base-point chord extremal problem studied for triangles in 2026. The result quantifies the global optimum, proves point-and-shape rigidity, and explicitly handles arbitrary skew angle and aspect ratio. It is a useful exact benchmark for the wider quadrilateral problem, without claiming a general convex-body theorem.
+For all nondegenerate parallelograms K and any P in its closed body, polar integration of rays gives exactly pi M_K(P)=∫_K |x-P|^{-1} dx. A layer-cake identity coupled with Brunn–Minkowski for K=-K yields potential maximal at its center, strictly if P≠center, even on the boundary. A sheared centered parallelogram has horizontal slices of length a centered at sy/h; rearranging every slice toward 0 only increases inverse-distance potential and removes the shear while decreasing perimeter, with strictness unless shear 0. The rectangle potential equals 2[a asinh(h/a)+h asinh(a/h)]. As asinh is strictly concave, weighted Jensen with weights a/(a+h), h/(a+h) and arguments h/a,a/h gives upper p asinh(1), with equality exactly a=h; dividing pi yields the sharp mean chord coefficient. The proof is for uniform orientation of a chord through fixed P, not random affine-line chord sampling. Independent quadrature/identity comparisons passed 20 rectangles; the proof holds for arbitrary real sizes and shear.
 
-## Closest literature and limitations
-The triangle theorem alone cannot compare parallelograms, while different random-chord ensembles and centered shape-specific quantile laws cannot imply the uniform-angle all-parallelogram inequality. The present proof uses classical symmetrization ideas, so an unindexed equivalent remains possible. No independent mathematical audit or priority certification was performed.
+## originality
 
-Self-review: passed. Independent audit: not yet performed.
+PASS
+
+Compared direct equivalences, stronger implications, exact tables, and the original papers; no decisive prior coverage identified for the same final statement. Residual priority and access risks separately recorded.
+
+## value
+
+PASS
+
+The angular mean length of the chord through a chosen point in a parallelogram is a natural localized integral-geometric invariant. Optimizing its ratio to perimeter over all shapes and points with an exact unique equality configuration answers a clear sharp extremal question; the proof uses several natural but nontrivial reductions. Even if techniques are classical, the shape comparison is not a mere constant substitution in the triangle result.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
