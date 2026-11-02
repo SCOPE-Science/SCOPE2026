@@ -1,11 +1,21 @@
-# Scientific review: smooth binary plane-filling quintic pencils
+# Independent mathematical audit
 
-**Correctness — PASS.** A full-rank 21-by-21 first-jet matrix gives an exhaustive 2,187-form local smoothness parameterization. Unit-ideal Gröbner tests on all three affine charts establish geometric smoothness. The direct 2,187-form checker agrees with the group-orbit calculation on 1,512 smooth forms. XOR-pair and independent Walsh–Hadamard counts agree on 16,800 pencils. Exact projective orbits account for every pencil, and chartwise complete-intersection Jacobian tests give the 16,128/672 reduced-base split. The pointwise two-dimensional first-jet bound excludes three-dimensional all-smooth filling systems.
+## correctness
 
-**Originality — PASS, qualified.** Asgarli–Ghioca (2022, arXiv:2203.07169) provides general all-smooth pencil existence, but not this constrained genus-six classification. Their 2023 plane-filling paper (arXiv:2307.03072) provides constructions and a special parameterized family, not the 108-orbit census or base intersection stratification. The genus-six census of Huang–Kedlaya–Lau (2024, arXiv:2402.00716) classifies individual smooth curves, not their containing pencils. Searches of mathematical records and the accessible relevant source texts found no full equivalent. Unindexed earlier finite-field enumerations remain a publication-priority risk.
+PASS
 
-**Value — PASS.** This determines all maximal-dimensional smooth linear systems subject to a natural extremal rational-point condition. In addition to the count and projective stabilizer spectrum, it measures a genuine geometric distinction: 672 pencils have nonreduced geometric base even though their three rational members are smooth. The finding is not a routine restatement of the single-curve census.
+The value/first-jet matrix on the seven P2(F2) points has full rank 21, so I5 is 14-dimensional and 3^7=2187 forms pass all rational first-jet tests. The independently reconstructed GF(2) mask, GL3 action and three-affine-chart Groebner unit-ideal tests found 1512 geometrically smooth forms, 50400 unordered XOR-valid pairs, and 16800 pencils. Exact projective-orbit enumeration gave (orbit size,base reducedness) multiplicities (168,true):93,(168,false):3,(56,true):9,(56,false):3. Bezout and transverse rational differentials give length25 with seven reduced rational points and residual length18; the 2-dimensional first-jet target at any rational point proves the global dimension upper bound. Tests use geometric unit ideals, not bounded extension-field sampling.
 
-The classification is only over \(\mathbf F_2\) and in the fixed projective embedding; no abstract-isomorphism or geometric-member classification is inferred.
+## originality
 
-Self-review: passed. Independent audit: not yet performed.
+PASS
+
+The closest primary finite-field papers concern existence of smooth pencils or enumeration of single curves rather than the all-smooth rational three-member filling-quintic incidence, 108 orbit classes and reducedness strata. This does not rule out unindexed earlier classification; no primary covering theorem was found.
+
+## value
+
+PASS
+
+This is a natural sharp extremal degree-five plane-filling linear-system classification over the smallest field, giving a nontrivial finite incidence and orbit/stabilizer census and a geometric base-reducedness dichotomy. It goes beyond merely counting individual curves or restating the first-jet upper bound.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
