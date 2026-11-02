@@ -1,0 +1,161 @@
+{
+  "audit_date_utc": "2026-10-29",
+  "audited_at_utc": "2026-10-29T00:09:39.918595Z",
+  "axes": {
+    "correctness": {
+      "checked_sources": [
+        "RESULT.md d548889a7123a5d304dc724bdc07fd7f3d4167ad",
+        "diamond_jordan_checker.py 11c5291a8d85edbb41e517eba9bfae133ea4d413"
+      ],
+      "evidence": [
+        "Frozen RESULT.md d548889a7123a5d304dc724bdc07fd7f3d4167ad: product basis, quadratic form, group and derivation proofs",
+        "Frozen diamond_jordan_checker.py 11c5291a8d85edbb41e517eba9bfae133ea4d413: inspected modular constraint evaluator and small group enumeration",
+        "Independent direct linear-equation elimination for r=1..4 and primes 2,3 produced expected dimensions in all eight cases"
+      ],
+      "rationale": "From the incidence basis x_i=e_{u,v_i}, y_i=e_{v_i,w}, z=e_{u,w}, the sole nonzero products are x_i y_i=z, so squares span kz and give hyperbolic quadratic form q(x,y)=x^T y. A bijective square-preserver must fix the square-span line up to multiplier and induce q-similitude on A/kz; its shear is arbitrary. Associative product preservation forces coordinate block diagonal M=diag(P,cP^{-T}). Linearization of D(a²)=D(a)a+aD(a) produces S=λI−P^T and alternating off-diagonal Q,R with zero diagonals even in characteristic two; ordered derivation identity forces Q=R=0. Dimension counts then follow. Hyperbolic bases count O^+(2r,q) recursively by S_r=(q^{r−1}+1)(q^r−1) isotropic nonzero first vectors and q^{2r−2} mates; multiplier surjectivity and central shears give both group orders and index. Independently generated linear constraints (not using supplied normal-form checker) returned ordinary/Jordan dimensions (r+1)^2,2r²+r+1 for r=1..4 over F_2 and F_3, including zero-diagonal char-2 restrictions. These checks corroborate the all-field proof.",
+      "residual_risks": [
+        "The characteristic-two zero diagonal clauses in alternating matrices are essential.",
+        "Infinite-field automorphism and derivative formulas rest on algebraic proof, not finite elimination."
+      ],
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Cheng–Jing assumes a unital triangular algebra and 2-torsion-free setting, unlike this radical in char2.",
+          "The available 2010 Theorem A/preview concerns radical finitary niltriangular matrices on a chain, rather than the branching matched-product basis.",
+          "The 2011 abstract describes full strictly triangular matrix rings, not diamond poset radicals."
+        ],
+        "reasoning": "A chain radical has all upper-triangular basis products, not only r independent x_i y_i=z channels, and its general theorems do not visibly specialize to this nonunital branch algebra. Exact full-text comparison of 2010/2011 sources was inaccessible and is explicitly treated as priority risk.",
+        "searches": [
+          "Cheng and Jing arXiv:0706.1942 Theorem 2.10",
+          "Kuzucuoğlu and Levchuk DOI:10.1142/S0219498810004282 Theorem A preview",
+          "Kuzucuoğlu DOI:10.1142/S1005386711000393 abstract",
+          "Jordan derivation square-preserving automorphism niltriangular incidence poset general"
+        ]
+      },
+      "checked_sources": [
+        "Cheng–Jing arXiv:0706.1942 full PDF",
+        "Kuzucuoğlu–Levchuk 2010 DOI 10.1142/S0219498810004282 preview",
+        "Kuzucuoğlu 2011 DOI 10.1142/S1005386711000393 abstract",
+        "Wang–Li 2010 DOI 10.1017/S0017089510000406 abstract",
+        "Resultary semantic query above"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "The 2-torsion-free assumption cannot give characteristic-two Jordan derivation defects.",
+          "The chain-ring results do not explicitly imply the all-r finite-field index or alternating-matrix defect for branching incidence radical.",
+          "Orthogonal group formulas supply only the arithmetic factor after the separate ring-symmetry reduction."
+        ],
+        "reasoning": "No inspected source proves the entire algebraic identification plus its ordinary subgroup and derivation defect; the non-read full papers leave an acknowledged possibility of broader implicit coverage.",
+        "searches": [
+          "arXiv:0706.1942 Theorem 2.10 and hypotheses",
+          "DOI:10.1142/S0219498810004282 abstract/Theorem A preview",
+          "DOI:10.1142/S1005386711000393 abstract",
+          "Jordan maps on rank-one-product nilpotent associative algebra quadratic form"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Diamond radical has multiplication x_i y_i=z, hence square map q(x,y)=x·y.",
+          "Classical O^+(2r,q) group order is known, but identifying it with this Jordan symmetry group requires the radical construction."
+        ],
+        "reasoning": "Jordan/square-preserving map and a hyperbolic q-similitude plus shear are exactly equivalent here; the known orthogonal group order does not classify which ring maps preserve the ordered bilinear product. The alternating-matrix derivation quotient is an additional independent invariant.",
+        "searches": [
+          "Resultary: Jordan automorphisms derivations diamond poset incidence algebra radical split orthogonal similitude",
+          "square-preserving rank-one product associative algebras and hyperbolic quadratic form similitude",
+          "Jordan derivations radical diamond height-three poset and orthogonal similitudes"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "Known formula 2q^{r(r−1)}(q^r−1)Π_{i=1}^{r−1}(q^{2i}−1) is the classical orthogonal group order; that constituent alone is not claimed new.",
+          "An independent finite-field dimension check agrees for r=1..4 in characteristics 2 and 3."
+        ],
+        "reasoning": "The finite-field group index derives from the nontrivial identification of the diamond radical square-preservers with GO, rather than a novel count of orthogonal groups. No matching group-index table for the algebra family surfaced; a negative search alone proves nothing.",
+        "searches": [
+          "Resultary published findings for Jordan diamond incidence radical orthogonal automorphism",
+          "classical order of split orthogonal group O_+(2r,q)",
+          "finite-field Jordan automorphisms of diamond incidence algebra group index"
+        ]
+      },
+      "rationale": "Classical split-orthogonal similitude orders are not new; the asserted contribution is identifying full square-preserving versus genuine associative symmetries and their infinitesimal difference for the branching diamond radical uniformly in all characteristics. The closest triangular-ring Jordan theorems concern unital/2-torsion-free algebras or full niltriangular chain rings; inspected statements do not classify this sparse nonunital branching radical. The two closest 2010/2011 complete articles remained inaccessible despite lawful access attempt (institutional VPN disconnected), leaving specific material priority risk. Their inaccessibility alone does not negate a best-of-knowledge PASS.",
+      "residual_risks": [
+        "Full text of the two closest 2010 and 2011 niltriangular Jordan papers could not be read because institutional VPN was unavailable.",
+        "A general theorem on nonunital rank-one-product algebras could subsume the computation without naming diamond posets.",
+        "The classical orthogonal group order itself is already established prior mathematics."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Unital/2-torsion-free theorem does not apply to nonunital diamond radical in arbitrary characteristic.",
+          "evidence": [
+            "Theorem 2.10, stated triangular-algebra and module assumptions"
+          ],
+          "identifier_or_url": "https://arxiv.org/pdf/0706.1942",
+          "material_read": "Full available five-page PDF; theorem and 2-torsion-free hypotheses",
+          "method": "Read primary PDF and screenshot of relevant page",
+          "title": "On Jordan Derivations of Triangular Algebras",
+          "trigger": "Primary Jordan derivation rigidity theorem near target"
+        },
+        {
+          "assessment": "Available claim is for chain-indexed radical finitary triangular matrices; uninspected full article leaves generalization risk.",
+          "evidence": [
+            "Abstract and Theorem A summary; no claim of whole-document inspection"
+          ],
+          "identifier_or_url": "https://doi.org/10.1142/S0219498810004282",
+          "material_read": "Publisher abstract, available preview/Theorem A summary; full article not accessible",
+          "method": "Read available publisher/indexed previews; attempted authorized institutional access and received VPN-disconnected blocker",
+          "title": "Jordan Isomorphisms of Radical Finitary Matrix Rings",
+          "trigger": "Closest niltriangular Jordan isomorphism title"
+        },
+        {
+          "assessment": "Full strictly triangular ring is different from sparse diamond radical; cannot rule out a general theorem in inaccessible full text.",
+          "evidence": [
+            "Abstract scope only; full text not assessed"
+          ],
+          "identifier_or_url": "https://doi.org/10.1142/S1005386711000393",
+          "material_read": "Title, publisher metadata and abstract only; no full text",
+          "method": "Read available abstract; attempted authorized full-text access, VPN disconnected",
+          "title": "Jordan Derivations on Strictly Triangular Matrix Rings",
+          "trigger": "Potential dominating Jordan derivation theorem"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "evidence": [
+        "Complete GO-versus-block-GL characterization and index",
+        "Two independent alternating matrix directions in the derivation quotient, visible even in characteristic 2"
+      ],
+      "rationale": "The branching diamond is a canonical height-three incidence-poset family, and its radical has a natural non-symmetric multiplication despite a highly symmetric quadratic square map. Classifying the full Jordan/associative symmetry gap in every characteristic and its r(r−1)-dimensional infinitesimal defect exhibits a structural phenomenon, rather than an arbitrary numerical slice. The explicit finite-field index quantifies this distinction.",
+      "residual_risks": [
+        "No asserted classification for arbitrary height-three posets or full incidence algebras."
+      ],
+      "status": "PASS"
+    }
+  },
+  "checked_sources": [
+    "RESULT.md d548889a7123a5d304dc724bdc07fd7f3d4167ad",
+    "diamond_jordan_checker.py 11c5291a8d85edbb41e517eba9bfae133ea4d413",
+    "Cheng–Jing arXiv:0706.1942 full PDF",
+    "Kuzucuoğlu–Levchuk 2010 DOI 10.1142/S0219498810004282 preview",
+    "Kuzucuoğlu 2011 DOI 10.1142/S1005386711000393 abstract",
+    "Wang–Li 2010 DOI 10.1017/S0017089510000406 abstract",
+    "Resultary semantic query above"
+  ],
+  "disposition": "passed",
+  "limitations": [
+    "Nonunital height-three diamond radical only; r>=2 for principal statement.",
+    "Square preserving is defined by T(v²)=T(v)², and does not assume a polarization inverse when char=2.",
+    "Finite-field group formulas only when k is finite."
+  ],
+  "residual_risks": [
+    "The characteristic-two zero diagonal clauses in alternating matrices are essential.",
+    "Infinite-field automorphism and derivative formulas rest on algebraic proof, not finite elimination.",
+    "Full text of the two closest 2010 and 2011 niltriangular Jordan papers could not be read because institutional VPN was unavailable.",
+    "A general theorem on nonunital rank-one-product algebras could subsume the computation without naming diamond posets.",
+    "The classical orthogonal group order itself is already established prior mathematics.",
+    "No asserted classification for arbitrary height-three posets or full incidence algebras."
+  ],
+  "schema_version": 1
+}
