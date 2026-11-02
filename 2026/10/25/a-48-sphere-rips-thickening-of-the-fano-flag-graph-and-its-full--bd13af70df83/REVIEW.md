@@ -1,11 +1,21 @@
-# Scientific review: Fano flag-graph radius-two Rips complex
+# Independent mathematical audit
 
-**Correctness — PASS.** The graph-square metric is specified through a provable Fano cross-incidence equivalence. All 511 nonempty simplices are enumerated, and all 231 codimension-one pairs are present in a standalone certificate. The full directed Hasse graph is proven acyclic by exhaustive topological sorting; exactly one zero-dimensional and 48 two-dimensional critical simplices remain, yielding an integral wedge of two-spheres. Separately, exact binary boundary ranks agree. A second finite enumeration produces all 336 incidence automorphisms and checks the complete signed Lefschetz character.
+## correctness
 
-**Originality — PASS, subject to residual bibliographic risk.** The closest primary text is Adamaszek's graph-power paper, whose radius-two stable-range result requires girth at least seven; the line graph here has triangles. Its total-graph theorem concerns a different graph square. Goyal–Shukla–Singh's full text studies the radius-one clique complex of a line graph, which is eight circles in the present example, not the 48 two-spheres at radius two. The Larrión–Pizaña–Villarroel-Flores fundamental-group comparison is not a computation of this higher homotopy or its symmetry character. Targeted indexed-record and primary-literature queries for Fano flags, the squared Heawood line graph, and equivalent strong-edge-distance terminology found no covering claim. This does not exclude unindexed results.
+PASS
 
-**Value — PASS.** The 21 flags of the smallest projective plane form a canonical symmetric graph on which the first nontrivial metric enlargement replaces eight degree-one generators by 48 degree-two spheres. Beyond Betti numbers, the complete 336-element character detects a one-dimensional invariant for the 168-element color-preserving subgroup that reverses under point–line duality. This supplies a meaningful exact example at a natural boundary outside high-girth stability, rather than an arbitrary graph slice.
+The 21 flags are edges of the point-line Heawood graph; distance <=2 in the flag line graph is exactly cross-incidence. Independently rebuilt all 511 faces (21,126,238,105,21); read the actual JSON certificate, verified 231 disjoint codimension-one pairs, one critical vertex, 48 critical triangles, and topological sorting of all 511 oriented Hasse vertices. This proves the integral wedge via Forman rather than just Betti numbers. Separately enumerated 168 point automorphisms and a polarity, all 336 induced permutations, and signed Lefschetz sums over the 511 faces. Exactly reproduced all eight order/swap/trace/count classes (1/0:48x1; 2/0:0x21; 2/1:-4x28; 3/0:3x56; 4/0:0x42; 6/1:-1x56; 7/0:-1x48; 8/1:0x84), with W+ invariant dimension 1 and W invariant 0. Only Fano order-two case and rational character are asserted.
 
-**Limitations.** Only the order-two plane and graph-distance threshold two are classified. The character is rational and does not determine the integral module decomposition. Unindexed equivalent literature cannot be ruled out, and no external scientific audit has been performed.
+## originality
 
-Self-review: passed. Independent audit: not yet performed.
+PASS
+
+Against materially inspected primary literature and indexed mathematical findings, the precise claim is not implied by the closest related theorems, as detailed by the four comparisons. Best-of-knowledge, not global proof of priority.
+
+## value
+
+PASS
+
+The squared line graph of the Heawood incidence graph is a canonical 21-flag distance complex. The integral 48-sphere homotopy and full 336-symmetry homology character are natural, precisely reproducible invariants not merely routine conversions of radius-one graph homology. The character distinguishes dualities from incidence-preserving automorphisms; no higher plane generalization is claimed.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

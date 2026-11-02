@@ -5,8 +5,11 @@
     "status": "not_performed"
   },
   "independent_audit": {
-    "evidence": null,
-    "status": "not_performed"
+    "status": "passed",
+    "evidence": [
+      "INDEPENDENT_AUDIT_2026-10-27.md",
+      "INDEPENDENT_AUDIT_2026-10-27.json"
+    ]
   },
   "lean_verification": {
     "evidence": null,
@@ -16,8 +19,24 @@
 }
 ---
 
-The mathematical proof is given in `RESULT.md`. Its critical ingredients are the exact zero-position shift under iteration, the preservation of prefix-zero dominance, and the count of zero-prefix boundaries in the irrational mechanical-word partition.
+# Independent mathematical audit
 
-Standalone reproduction: run `python3 verify_tortoise.py`. The script tests every coprime numerator for six rational denominators below the period threshold and compares two independent finite transformations. It checks 114,832 parameter tuples over \(k=1,\ldots,8\); a separate long-period Fibonacci-slope approximation is also checked. Observed outputs: `VERIFY_OK rational_cycles=114832 q_values=6 k_range=1..8 n<36` and `FIBONACCI_APPROX_OK`.
+## correctness
 
-The rational checks probe the local combinatorial mechanism under exact integer arithmetic; they cannot certify the theorem for all irrational slopes or all factor lengths. Those ranges are established by the proof, with no external or independent scientific audit claimed.
+PASS
+
+PASS. The transformation that deletes the first one and appends it, applied k times, maps the ith zero position z_i to max(i,z_i−k), including k beyond the word’s number of ones. This preserves prefix-zero dominance and therefore monotone lexicographic phase ordering for lower-mechanical Sturmian coding. There are n+1 distinct phase factor intervals cut by fractional parts {−jα}, j=0..n. The final-letter boundary x_n cannot merge because one-count changes. For j=1..n−1, adjacent words are p01s/p10s; they have the same k-step output precisely when prefix p contains fewer than k ones. Its one count is ceil(jα)−1, so exactly min(n−1,floor(k/α)) boundaries merge for irrational α. Thus rho_(α,k)(n)=max(2,n+1−floor(k/α)) for all n≥1,k≥2, and n=0 gives 1. The agreement cutoff floor(k/α)+1 and slope limit k/floor(k/α)→α follow. Independent high-precision irrational mechanical-factor simulation checked 154 (n,k) cases (n=1..22,k=1..7) and reproduced the formula; finite simulation is corroboration only.
+
+## originality
+
+PASS
+
+PASS, best-of-knowledge. Campbell–Rampersad 2026 formally defines iterated tortoise complexity and its Abelian comparison and explicitly invites Sturmian extensions; inspected Sections 3–4 and 7 do not state this all-k Sturmian formula. Defant–Kravitz previously defined the general finite-word tortoise operator but did not calculate Sturmian factor-language profiles. A previously known single-iterate case does not cover k≥2 without the new zero-position/phase-boundary argument. Slope recovery is presented only as a consequence, not separately claimed novel.
+
+## value
+
+PASS
+
+PASS. The complete n,k profile solves an explicit family proposed in recent complexity literature, quantifies an exact sharp phase transition from constant Abelian complexity to linear output growth and determines the irrational Sturmian slope from discrete cutoffs. The method is a structural order/collision lemma for the natural language of irrational rotations, not a small finite test or arbitrary alphabet slice.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

@@ -1,90 +1,75 @@
-# A sharp two-pair correlation law for the four-cube Hypercube inequality
+# Exact two-pair correlation law for the four-dimensional Hypercube polynomial
 
 ## Finding
 
-Let \(Q=\{0,1\}^4\), and let \(a,b,c,d>0\). For each vertex \(v=(v_1,v_2,v_3,v_4)\), define its weight by the parities of the disjoint coordinate pairs:
+Let \(Q=\{0,1\}^4\). For positive parameters \(a,b,c,d\), assign each vertex \(v\in Q\) the weight
 \[
-x_v=\begin{cases}a&v_1=v_2,\\ b&v_1\ne v_2\end{cases}\cdot
+x_v=\begin{cases}a&v_1=v_2,\\ b&v_1\ne v_2\end{cases}
 \begin{cases}c&v_3=v_4,\\ d&v_3\ne v_4.\end{cases}
 \]
-For a five-element subset \(U\subset Q\), put \(\operatorname{Vol}(U)=4!\,\operatorname{vol}_4(\operatorname{conv}U)\), and set
+For every five-vertex subset \(U\) let \(\operatorname{Vol}(U)=4!\,\operatorname{vol}_4(\operatorname{conv}U)\), and define
 \[
-P(x)=\sum_{\substack{U\subset Q\\ |U|=5}}\operatorname{Vol}(U)\prod_{v\in U}x_v,\qquad T=\sum_{v\in Q}x_v,\qquad S_F=\sum_{v\in F}x_v,
+P=\sum_{|U|=5}\operatorname{Vol}(U)\prod_{v\in U}x_v,\quad T=\sum_{v\in Q}x_v,\quad S_F=\sum_{v\in F}x_v
 \]
-where \(F\) ranges over all eight facets of \(Q\). Define the two within-pair correlations
+for each of the eight cube facets \(F\). Set \(\rho=(a-b)/(a+b)\) and \(\sigma=(c-d)/(c+d)\). The **exact identity** is
 \[
-\rho=\frac{a-b}{a+b},\qquad \sigma=\frac{c-d}{c+d}.
+\boxed{\frac{PT^3}{\prod_F S_F}=\frac{(1-\rho^2)(1-\sigma^2)\bigl(105+15\rho^2+15\sigma^2-7\rho^2\sigma^2\bigr)}{128}.}
 \]
-Then the following **exact identity** holds:
+For all \(a,b,c,d>0\), this ratio belongs to \((0,105/128]\), with equality at the upper endpoint **if and only if** \(a=b\) and \(c=d\). It decreases strictly in either squared within-pair correlation while the other is fixed. This is the sharp enhanced estimate and entire correlation profile for the stated pair-product family; it is not a new proof of the unrestricted Hypercube inequality, which had already been proved in every dimension in the October 18, 2026 version of Averkov–von Dichter–Soprunov.
+
+## Scope and interpretation
+
+The two coordinate pairs are independent, and the bits within each pair are individually unbiased but may be correlated. Indeed
 \[
-\boxed{\frac{P(x)T^3}{\prod_F S_F}=
-\frac{(1-\rho^2)(1-\sigma^2)\bigl(105+15\rho^2+15\sigma^2-7\rho^2\sigma^2\bigr)}{128}.}
+\frac{x_v}{T}=\frac{\bigl(1+\rho(-1)^{v_1+v_2}\bigr)\bigl(1+\sigma(-1)^{v_3+v_4}\bigr)}{16}.
 \]
-Consequently, for every choice of strictly positive parameters,
+The domain \((\rho,\sigma)\in(-1,1)^2\) is exact after quotienting independent positive scale factors of \((a,b)\) and \((c,d)\). We do **not** claim the improved bound \(105/128\) for unrestricted nonnegative sixteen-vertex weight vectors, for biased pair marginals, or for an arbitrary four-bit joint distribution.
+
+## Complete proof
+
+**Facet normalization.** Each coordinate marginal is unbiased because, for fixed one coordinate of a pair, the sum of the two pair weights is \(a+b\) (respectively \(c+d\)). Direct summation gives
 \[
-\boxed{0<\frac{P(x)T^3}{\prod_F S_F}\le\frac{105}{128}<1,}
+T=4(a+b)(c+d),\qquad S_F=2(a+b)(c+d)=T/2
 \]
-and the upper bound is attained **if and only if** \(a=b\) and \(c=d\) (all sixteen vertex weights are equal). Thus the dimension-four Hypercube inequality has a sharp relative gap of \(23/128\) on this full two-correlation-parameter family. The exact ratio decreases strictly as either squared correlation increases with the other fixed.
-
-## Assumptions and scope
-
-All coordinates take values in \(\{0,1\}\), the volume is the ordinary four-dimensional Euclidean volume normalized by \(4!\), and the parameters are strictly positive. Positive common rescaling of the first pair \((a,b)\), independently of the second pair \((c,d)\), leaves the ratio unchanged. Thus \((\rho,\sigma)\in(-1,1)^2\) parametrizes the family up to its irrelevant scalings.
-
-The normalized weights are equivalent to the probability distribution on four fair bits formed by taking two independent **pairs**, with arbitrary correlation inside each pair. More explicitly, \(x_v/T=(1+\rho(-1)^{v_1+v_2})(1+\sigma(-1)^{v_3+v_4})/16\). Individual bits are unbiased, but nonzero within-pair correlations mean that the four bits are not all independent. No conclusion is asserted for arbitrary sixteen-tuples of weights, or for general four-bit joint distributions.
-
-## Proof
-
-For any fixed first coordinate, the sum of the weights of its partner is \(a+b\). Analogously, the sum of the second pair after fixing either of its coordinates is \(c+d\). Hence
+for each of the eight facets. Therefore
 \[
-T=4(a+b)(c+d),\qquad S_F=2(a+b)(c+d)=T/2\quad\text{for each facet }F.
+\frac{PT^3}{\prod_FS_F}=\frac{P}{4(a+b)^5(c+d)^5}.
 \]
-Therefore the ratio to be determined is \(P(x)/[4(a+b)^5(c+d)^5]\).
 
-The finite exact determinant enumeration, independently reconstructed in `verify.py`, yields
+**Finite exact coefficient identity.** There are exactly \(\binom{16}{5}=4368\) unordered five-vertex subsets of \(Q\). For each subset, translate one vertex to the origin, take the absolute determinant of the resulting integer \(4\times4\) coordinate-difference matrix, and group by the pair-parity exponents. Every nonzero term is a monomial \(a^jb^{5-j}c^kd^{5-k}\) with \(j,k\in\{1,2,3,4\}\). The complete matrix of its coefficients (rows \(j=1,2,3,4\), columns \(k=1,2,3,4\)) is
 \[
-\begin{aligned}
-P(x)={}&8abcd(a+b)(c+d)\bigl[8(a^2+b^2)(c^2+d^2)\\
-&+14(a^2+b^2)cd+14ab(c^2+d^2)+17abcd\bigr].
-\end{aligned}
+\begin{pmatrix}64&176&176&64\\176&424&424&176\\176&424&424&176\\64&176&176&64\end{pmatrix}.
 \]
-For completeness, its coefficients at monomials \(a^j b^{5-j}c^k d^{5-k}\), with \(j,k\in\{1,2,3,4\}\), are exactly the following matrix, with rows and columns ordered increasingly:
+The independent exhaustive determinant reconstruction finds \(1360\) zero-volume subsets and normalized-volume multiplicities \(2672,320,16\) for volumes \(1,2,3\); these exhaust the \(4368\) subsets. Expanding the coefficient table yields the exact factorization
 \[
-\begin{pmatrix}
-64&176&176&64\\
-176&424&424&176\\
-176&424&424&176\\
-64&176&176&64
-\end{pmatrix}.
+P=8abcd(a+b)(c+d)\bigl[8(a^2+b^2)(c^2+d^2)
++14(a^2+b^2)cd+14ab(c^2+d^2)+17abcd\bigr].
 \]
-All other monomial coefficients vanish. Each coefficient is the sum of exact absolute four-by-four determinants of differences of vertices from a five-vertex subset. There are exactly \(\binom{16}{5}=4368\) possible subsets, so this gives an exhaustive finite coefficient identity, not a sample-based approximation. The companion checker uses both integer-preserving elimination and an independent Leibniz determinant expression for every subset, then verifies the factored polynomial coefficientwise.
+This is a **finite polynomial identity**, not an inference from sampled weights. Its coefficients can be reproduced by either exact integer elimination or an independent Leibniz-determinant summation over all subsets (see the unchanged verifier supplied with the original package).
 
-Set \(r=ab/(a+b)^2\) and \(s=cd/(c+d)^2\). Substituting the factored identity into the ratio and simplifying gives
+**Closed form.** Put \(r=ab/(a+b)^2\) and \(s=cd/(c+d)^2\). Substitution of the factorization into the normalized ratio and cancellation give
 \[
-\frac{P(x)T^3}{\prod_F S_F}=2rs\bigl(8-2r-2s-7rs\bigr).
+\frac{PT^3}{\prod_F S_F}=2rs(8-2r-2s-7rs).
 \]
-Since \(r=(1-\rho^2)/4\) and \(s=(1-\sigma^2)/4\), this is precisely the boxed correlation identity.
+Using \(r=(1-\rho^2)/4\), \(s=(1-\sigma^2)/4\) gives the announced correlation identity.
 
-To establish the sharp global bound (not just a finite test), set \(u=\rho^2\), \(v=\sigma^2\), both in \([0,1)\), and denote the boxed expression by \(R(u,v)\). Direct exact differentiation yields
+**Sharpness, uniqueness and boundaries.** Write \(u=\rho^2\), \(v=\sigma^2\), with \(0\le u,v<1\), and let \(R(u,v)\) denote the boxed expression. Exact differentiation gives
 \[
 \frac{\partial R}{\partial u}=-\frac{(1-v)(90+30u+22v-14uv)}{128}<0,
 \]
-for \(u,v\in[0,1)\): indeed \(90+30u+22v-14uv>0\) there. The derivative in \(v\) is the symmetric expression. Consequently \(R\) has its unique maximum at \(u=v=0\), namely \(105/128\), and is strictly decreasing in either squared correlation while the other is fixed. Strict positivity follows directly from the formula. This proves all stated assertions. By continuity the ratio tends to zero when either squared correlation tends to one.
+with the symmetric formula for \(\partial R/\partial v\). The displayed polynomial is strictly positive on \([0,1)^2\), and all factors \(1-u,1-v\) are positive. Hence \(R\) has its unique maximum at \((u,v)=(0,0)\), where \(R=105/128\), and is positive everywhere in the stated domain. Since \(u=v=0\) means \(a=b,c=d\), the equality case is rigid. The ratio tends to zero as either squared correlation tends to one.
 
-## Verification
+## Relationship to prior work and revised chronology
 
-Run `python3 verify.py` with Python 3 standard library only. The exact-arithmetic checker enumerates all \(4368\) vertex subsets, computes the normalized simplex volume in two independent integer determinant routines, groups the monomials, and verifies the displayed factorization in the integer polynomial ring. It reports \(1360\) zero-volume subsets and positive determinant multiplicities \(2672,320,16\) for normalized volumes \(1,2,3\), respectively. It also checks the uniform value \(105/128\) and selected rational-parameter evaluations; the latter numerical evaluations are diagnostic only. The all-real-parameter result follows from the proved symbolic identity and strict derivative sign.
+**The general Hypercube inequality is no longer open.** Averkov, von Dichter and Soprunov's arXiv:2608.14909v1 (August 14, 2026) proved the three-cube case and formulated general-dimensional conjectures. Their **arXiv:2608.14909v2 (October 18, 2026), Section 7**, incorporates a probabilistic proof of the inequality for *every* cube dimension. In particular the unrestricted four-dimensional inequality \(PT^3\le\prod_F S_F\) was proved before this restricted computation was recorded. That already-established broad bound is \(1\), not the sharp \(105/128\) obtained here; the general proof does not state the exact polynomial in \(\rho^2,\sigma^2\), this restricted optimum, or strict correlation monotonicity. The contribution assessed here is solely that exact quantitative profile on the natural two-independent-correlated-pair family.
 
-## Relationship to prior work
+The earlier published result *Sharp symmetric gap for the first open hypercube inequality* (October 11, 2026) obtains the same sharp factor \(105/128\) on the cone invariant under full coordinate permutation and complementation, with vertex weights depending on Hamming-weight classes. Its three-parameter cone and the present parity-pair cone are not nested: equal-Hamming-weight vertices need not have equal pair-parity weights, and vice versa. The identical maximizing value at uniform weights does not establish equivalence of the restricted inequalities. Separately, the independent-Bernoulli family has zero within-pair correlation and therefore does not give the two-variable profile.
 
-Averkov, von Dichter and Soprunov formulated the Hypercube inequality for nonnegative weights on the \(d\)-cube as a partial-submodularity problem associated with projection volumes of zonoids. Their first unresolved unrestricted instance is \(d=4\), the dimension treated here. Their paper establishes \(d=3\), but not the general sixteen-variable \(d=4\) statement. This result is a **restricted exact confirmation**, not a proof of the unrestricted conjecture.
+## Verification and limits
 
-Another exact investigation of that same conjectural dimension gives the sharp factor \(105/128\) when the vertex weights depend only on Hamming weight and are unchanged by complementation. The present family instead treats pair parity: for example, vertices of the same Hamming weight can have different weights. Neither family contains the other, except at special intersections, so the earlier symmetry-cone bound does not establish the correlated-pair identity. Likewise, a family with four mutually independent Bernoulli bits does not encompass nonzero pair correlations. The matching numerical sharp constant is explained by the shared uniform-weight extremizer, not by containment of the parameter spaces.
-
-## Limitations
-
-This solves the exact ratio only for two independent correlated pairs of unbiased bits. It makes no claim for general correlated four-bit measures, biased pair marginals, or unrestricted nonnegative vertex weights. Its optimal constant is only for the stated parameter family. The finite determinant enumeration establishes a finite polynomial identity; the analytic inequality for all positive real inputs separately requires (and is supplied by) the derivative argument. Priority against inaccessible or unindexed older mathematical work has not been independently established.
+An unchanged standard-library checker in the source package exhausts all \(4368\) subsets, independently computes determinants, recovers the \(4\times4\) coefficient matrix, and checks the factorization. The unrestricted real-parameter conclusion follows from this exact finite polynomial identity and the derivative sign, **not** from finite numerical samples. This result is a restricted exact identity and sharp quantitative refinement of a now-proved general inequality. It establishes neither global sharpness for arbitrary vertex weights nor historical uniqueness against all less-indexed computations. No external certification is asserted.
 
 ## References
 
-1. G. Averkov, K. von Dichter, and I. Soprunov, *On the Log-submodularity for zonoids: from Mixed Volume inequalities to the Hypercube*, arXiv:2608.14909v1, first posted 14 August 2026, https://arxiv.org/abs/2608.14909 (full primary paper examined).
-2. *Sharp symmetric gap for the first open hypercube inequality*, mathematical research record, https://github.com/published-finding corpus/2026/tree/main/2026/10/11/SCOPE-sharp-symmetric-gap-for-the-first-open-hypercube-inequality--4f3e013d18c9 (complete mathematical result read for implication comparison).
+1. G. Averkov, K. von Dichter, I. Soprunov, *On the Log-submodularity for zonoids: from Mixed Volume inequalities to the Hypercube*, arXiv:2608.14909v2 (October 18, 2026), especially Sections 4 and 7. https://arxiv.org/html/2608.14909v2.
+2. *Sharp symmetric gap for the first open hypercube inequality*, complete published mathematical result (October 11, 2026), https://github.com/Resultary/2026/blob/main/2026/10/11/SCOPE-sharp-symmetric-gap-for-the-first-open-hypercube-inequality--4f3e013d18c9/RESULT.md.

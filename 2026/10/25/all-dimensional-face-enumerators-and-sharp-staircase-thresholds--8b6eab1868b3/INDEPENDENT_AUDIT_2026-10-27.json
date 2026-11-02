@@ -1,0 +1,143 @@
+{
+  "audit_date_utc": "2026-10-27",
+  "audited_at_utc": "2026-10-27T18:54:58Z",
+  "axes": {
+    "correctness": {
+      "checked_sources": [
+        "2026/10/25/all-dimensional-face-enumerators-and-sharp-staircase-thresholds--8b6eab1868b3/RESULT.md",
+        "2026/10/25/all-dimensional-face-enumerators-and-sharp-staircase-thresholds--8b6eab1868b3/VERIFICATION.md",
+        "2026/10/25/all-dimensional-face-enumerators-and-sharp-staircase-thresholds--8b6eab1868b3/verify_partition.py"
+      ],
+      "rationale": "PASS. The star/top clique covering theorem is explicitly imported, not reproved. For an r-clique with r>=3, intersection identifies its unique lower star, union its unique upper top, and the r>2 cell-count discrepancy prevents double-description; an edge is counted only through its lower star. Counting addable/removable Young corners yields c_2(n)=sum over mu partitioning n-1 binom(d(mu)+1,2) and c_r(n)=lower+upper for r>=3. The formal factorization F(q,1+x)=P(q) product_j(1+xq^j) and Euler's distinct-part identity give q^2P/D_2 and P(q)(q^(1+binom(r,2))+q^(binom(r+1,2)-1))/D_r. The unique lowest nonzero coefficient yields threshold 1+binom(r,2), and its predecessor is uniquely staircase (r-1,...,1), giving unique first r-face. Independently reconstructed partitions and direct graph-clique counts for n=1..9, matching the corner formula; sample n checks are corroborative rather than a general proof.",
+      "residual_risks": [
+        "Finite computational checks are bounded and independently corroborate rather than replace universal proof."
+      ],
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "The first-occurrence staircase statements are explicitly conjectured, with only small initial cases addressed by later layer computations."
+        ],
+        "reasoning": "Broader Young-lattice results cover graph structure but do not imply exact first occurrence without counting many-part corners; proved scope extends from finitely observed cases to all r.",
+        "searches": [
+          "Lyudogovskiy arXiv:2603.23228v1 §5 conjectures 5.1,5.2",
+          "Lyudogovskiy arXiv:2603.29988v1"
+        ]
+      },
+      "checked_sources": [
+        "arXiv:2603.14370v1",
+        "arXiv:2603.23228v1",
+        "arXiv:2603.26656v1",
+        "arXiv:2603.29988v1",
+        "Resultary search partition-graph face enumerators"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "The known star/top theorem plus Young-partition Euler product implies the new formula once the distinct r>=3 incidences are proved; conjectures and finite tables do not themselves state it."
+        ],
+        "reasoning": "Originality is claimed for the exact evaluated consequences, not the existing star/top theorem. The fact that a new result is derivable from standard inputs does not mean it was already formally covered by the previously stated weaker results.",
+        "searches": [
+          "arXiv:2603.14370v1 Theorem 3.6",
+          "arXiv:2603.23228v1 conjectures",
+          "arXiv:2603.26656v1 tables"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "The star/top theorem characterizes cliques as common Young covers; it does not directly state the full exact coefficient formula or staircase uniqueness for all r."
+        ],
+        "reasoning": "The imported structural classification is equivalent to the input combinatorial cover. Converting it to the new explicit all-face product requires nonduplicate counting and corner generating functions.",
+        "searches": [
+          "Lyudogovskiy arXiv:2603.14370v1 §3",
+          "Resultary: partition graph Young diagrams clique complexes face enumerators staircase first occurrence corner numbers Lyudogovskiy"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "Prior numerical clique tables are finite; known series for two-sphere Betti numbers are an alternating/euler specialization only."
+        ],
+        "reasoning": "A Betti generating function and a table of low n cannot be inverted to obtain all c_r(n); no matching all-dimensional exact table found in inspected originals.",
+        "searches": [
+          "Lyudogovskiy arXiv:2603.26656v1 numerical topology tables",
+          "Resultary query partition-graph face enumerators"
+        ]
+      },
+      "rationale": "PASS, best-of-knowledge. Lyudogovskiy's 2026 star/top theorem covers clique *structure* and wedge homotopy; the March 24 paper explicitly labels the all-dimension first-occurrence and staircase statements Conjectures 5.1–5.2, and the March 27 numerical paper presents tables without a full face-enumerator family. The new all-r coefficient identity plus complete conjecture resolutions are not the previously known Euler/Betti rank generating functions. Inspected later article on initial layers does not resolve the arbitrary-d case.",
+      "residual_risks": [
+        "Could be an uncatalogued subsequent resolution of the March 2026 conjectures; priority remains best of knowledge.",
+        "The proof relies on the prior complete star/top classification; independent verification reconstructed its consequences but did not reprove that external structural theorem from first principles."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Provides crucial star/top input but not new all-dimensional face generating formula",
+          "evidence": [
+            "Theorem 3.6 is the prior classification explicitly used as a lemma."
+          ],
+          "identifier_or_url": "https://arxiv.org/html/2603.14370v1",
+          "material_read": "Full accessible primary HTML including Section 3 and Theorem 3.6 covering maximal cliques by stars and tops",
+          "method": "Read relevant full HTML mathematical proof and theorem statements",
+          "title": "The homotopy type of the clique complex of the partition graph",
+          "trigger": "Direct same graph and clique structural theorem"
+        },
+        {
+          "assessment": "States the two all-dimension threshold claims as conjectural rather than proved",
+          "evidence": [
+            "Conjectures 5.1 and 5.2 posit triangular onset and staircase supporting partitions."
+          ],
+          "identifier_or_url": "https://arxiv.org/html/2603.23228v1",
+          "material_read": "Complete relevant Section 5 including Conjectures 5.1 and 5.2",
+          "method": "Read primary HTML and checked stated conjectures",
+          "title": "Simplex Stratification and Phase Boundaries in the Partition Graph",
+          "trigger": "Same first occurrence parameter and staircase conjectures"
+        },
+        {
+          "assessment": "Previously tabulates finite faces, not general rational-product formula",
+          "evidence": [
+            "Published tables tested as finite consistency checks."
+          ],
+          "identifier_or_url": "https://arxiv.org/abs/2603.26656",
+          "material_read": "Original tables, numerical enumerations and caveat on closed clique-count formula",
+          "method": "Read accessible original text/tables",
+          "title": "Numerical topology of the clique complex of the partition graph: Euler characteristic, clique counts, and sequence data",
+          "trigger": "Exact same simplex counts and potential precomputed table"
+        },
+        {
+          "assessment": "Restricted first-layer computations do not settle all r",
+          "evidence": [
+            "Focus on initial finite phase boundaries rather than arbitrary dimensions."
+          ],
+          "identifier_or_url": "https://arxiv.org/abs/2603.29988",
+          "material_read": "Relevant theorem statements and initial-layer results",
+          "method": "Read accessible primary presentation and compared parameters",
+          "title": "First layers of the partition graph clique complex",
+          "trigger": "Potential later proof of all threshold conjectures"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "checked_sources": [
+        "arXiv:2603.14370v1",
+        "arXiv:2603.23228v1",
+        "arXiv:2603.26656v1",
+        "arXiv:2603.29988v1",
+        "Resultary search partition-graph face enumerators"
+      ],
+      "rationale": "PASS. A natural complete face-vector invariant of the classical partition-transfer graph is determined at all sizes and simplex dimensions with a compact product generating function. This resolves two explicit infinite families of conjectures and identifies the unique first simplex geometrically; information is finer than known homotopy rank/Euler series and is a meaningful complete combinatorial classification.",
+      "residual_risks": [
+        "Could be an uncatalogued subsequent resolution of the March 2026 conjectures; priority remains best of knowledge.",
+        "The proof relies on the prior complete star/top classification; independent verification reconstructed its consequences but did not reprove that external structural theorem from first principles."
+      ],
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "limitations": [
+    "Could be an uncatalogued subsequent resolution of the March 2026 conjectures; priority remains best of knowledge.",
+    "The proof relies on the prior complete star/top classification; independent verification reconstructed its consequences but did not reprove that external structural theorem from first principles.",
+    "Audit does not certify absolute historical priority, external expert attestation, formal proof checking, or publication.",
+    "Current source administrative AUDIT.json and METADATA.json embed process-specific scope_run_id; unchanged public bytes are not safe to republish until sanitized and guarded."
+  ],
+  "schema_version": 1
+}

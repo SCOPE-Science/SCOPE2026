@@ -1,0 +1,118 @@
+{
+  "audit_date_utc": "2026-10-27",
+  "audited_at_utc": "2026-10-27T22:53:04Z",
+  "axes": {
+    "correctness": {
+      "checked_sources": [
+        "Actual RESULT.md all-m chain derivation, assumptions, and exact finite factorization",
+        "Actual verify.py blob read (labeled Markov transition construction)",
+        "Independent symbolic rational factorization for m=2 and large-m analytic expansion"
+      ],
+      "rationale": "For m≥2 loose hyperedges {hub,leaf2j-1,leaf2j} with whole-edge overwrite (fitness-proportional parent then uniform incident edge) and r>0, synchronized leaf pairs remain synchronized. The sole initially discordant petal for leaf seeding resolves before other type changes with mutant success rate r versus resident-leaf 1 and hub 1/m, giving c=mr/[m(r+1)+1]. On synchronized states (resident hub,k mutant petals) and (mutant hub,k mutant petals), genuine-change conditional probabilities yield u_k=bv_k+(1-b)u_{k-1}, v_k=av_{k+1}+(1-a)u_k, with a=r/(r+2m),b=2mr/(2mr+1). Boundary u_0=0,v_m=1 and geometric increment ratio q=(1-b)/a give H and exact hub/leaf/uniform fixation. Checked neutral r=1 directly and independently simplified exact m=2 suppression polynomial by symbolic rational factorization. Recomputed advantaged r>1 1/m coefficient and deleterious r<1 exponential scale via q=r^-2(1+(r-r^-1)/(2m)+O_r(m^-2)). Pointwise fixed r only; no extrapolation across r→1. All states can reach an absorbing consensus with positive probability, so finite harmonic solution valid.",
+      "residual_risks": [
+        "No uniform error in a neighborhood of neutrality and no finite-m all-r suppression theorem for m>2."
+      ],
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Liu–Masuda neutral drift theorem gives uniform average i/N on every hypergraph under model 1 at r=1.",
+          "Keller–Uğurlu analyze single-neighbor Moran-like graph replacement, not simultaneous three-node hyperedge overwrite."
+        ],
+        "reasoning": "Neutral average 1/(2m+1) is covered and credited; nonneutral exact loose-star expression and its two-sided asymptotics do not follow from the neutral statement or graph-replacement formulas.",
+        "searches": [
+          "DOI:10.1371/journal.pcbi.1011494 main article and supplement overview",
+          "Keller–Uğurlu arXiv:2403.12598"
+        ]
+      },
+      "checked_sources": [
+        "Liu–Masuda 2023 PLOS Comput Biol 19:e1011494",
+        "Keller–Uğurlu arXiv:2403.12598",
+        "Moran 1958 neutral/fixation benchmark",
+        "Resultary search for loose hyperstar selection"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "At fixed r>1, audited asymptotic 1−1/r with explicit negative m^-1 deficit; at r<1, audited ratio to Moran tends to r^-1 exp((r^-1−r)/2)>1.",
+          "The preexisting general model definition and numerical dense-star suppression cannot establish these exact loose-star limits without petal first-resolution and harmonic reduction."
+        ],
+        "reasoning": "The novelty claim is restricted to the loose family analytic formula, not generic suppression on hypergraphs or neutral averaging.",
+        "searches": [
+          "Liu–Masuda 2023 Sect 3.1.3, Supplement Text G/H",
+          "Liu–Masuda 2023 neutral Theorem 1"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "PLOS model 1 uses fitness-proportional parent and whole-hyperedge propagation, matching the process rule.",
+          "Their star takes *all* hub-plus-two-leaf triples (complete pairing), whereas audited loose star has disjoint petal pairs only."
+        ],
+        "reasoning": "Same process mechanism is not the same hypergraph. Their dense-star transition reduction does not imply the loose-petal synchronization recurrences.",
+        "searches": [
+          "loose 3 uniform hyperstar fixation probability simultaneous birth death Moran selection amplification suppression",
+          "Liu–Masuda 2023 PLOS model 1 and star 3-uniform hypergraph Sections 2,3.1.3"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "Retrieved Resultary records concerned other finite configurations or stochastic settings; no identical model/loose-star formula was found.",
+          "PLOS dense-star numerics include N=5/20/200/1500, not the loose hyperstar m-petal table."
+        ],
+        "reasoning": "The exact formula is not a recomputation of the published dense-star table; different hyperedge incidence changes the Markov chain.",
+        "searches": [
+          "loose 3 uniform hyperstar fixation probability simultaneous birth death Moran selection amplification suppression",
+          "Resultary semantic search for loose 3-uniform hyperstar fixation"
+        ]
+      },
+      "rationale": "Best-of-knowledge: full published Liu–Masuda primary text materially inspected; despite matching update law their star means all leaf pairs, not loose disjoint petals. The exact all-fitness rational formula and precise two fixed-fitness asymptotics have specific new mathematical content. Baseline neutral i/N already known.",
+      "residual_risks": [
+        "A less visible exact loose-hyperstar formula in evolutionary dynamics literature could predate this calculation.",
+        "Supplemental materials to broad hypergraph studies may include additional unusual hyperedge configurations beyond the main dense-star analysis, though the inspected material does not establish this loose case."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Mechanism covered; star edge set *all* leaf pairs, unlike disjoint loose petals; neutral averaged result known; nonneutral formula not the same object",
+          "evidence": [
+            "Section 3.1.3 explicitly states all pairs of leaves form hyperedges."
+          ],
+          "identifier_or_url": "https://journals.plos.org/ploscompbiol/article?id=10.1371/journal.pcbi.1011494",
+          "material_read": "Full open-access PLOS primary HTML including model 1 definition, Sections 3.1.3 dense star, 3.3 neutral theorem and supplement links",
+          "method": "Lawful publisher open access HTML read",
+          "title": "Fixation dynamics on hypergraphs",
+          "trigger": "Identical model 1 and nominally similar 3-uniform star"
+        },
+        {
+          "assessment": "Single-neighbor graph replacement differs from whole hyperedge overwrite",
+          "evidence": [
+            "Scope is Moran-like graph replacement, not group-overwrite 3-uniform hyperstar."
+          ],
+          "identifier_or_url": "https://arxiv.org/abs/2403.12598",
+          "material_read": "Primary abstract and mathematical model summary in cited literature; full original proof not materially read",
+          "method": "arXiv bibliographic and abstract comparison",
+          "title": "Fixation probability in Moran-like Processes on graphs",
+          "trigger": "Potential stronger fixation theorem over graph processes"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "checked_sources": [
+        "Liu–Masuda model1 fixation motivation",
+        "Exact harmonic reduction and explicit asymptotic regimes"
+      ],
+      "rationale": "Loose m-petal hyperstars form a canonical sparse linear 3-uniform hypergraph family and isolate group-overwrite versus ordinary graph replacement. The theorem gives exact hub-vs-leaf seeding, complete fixed-fitness large-size behavior, an explicit deleterious selection ratio and a sharp m=2 all-r suppression result. This is a motivated natural infinite-family classification, not an arbitrary sample of small hypergraphs.",
+      "residual_risks": [
+        "Suppression for all m and all r is not proved; important nonuniformity near r=1 is retained."
+      ],
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "limitations": [
+    "Exactly loose m-petal triple hyperstars, m≥2, all r>0, model1 whole-edge overwrite.",
+    "Asymptotic suppressor conclusion only for each fixed nonneutral fitness, and all-fitness finite claim only m=2.",
+    "Neutral mean fixation already follows from existing Liu–Masuda theorem."
+  ],
+  "schema_version": 1
+}

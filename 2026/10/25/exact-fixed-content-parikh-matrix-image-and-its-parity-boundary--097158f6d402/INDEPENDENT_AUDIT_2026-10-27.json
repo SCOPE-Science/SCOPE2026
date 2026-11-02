@@ -1,0 +1,144 @@
+{
+  "audit_date_utc": "2026-10-27",
+  "audited_at_utc": "2026-10-27T22:53:04Z",
+  "axes": {
+    "correctness": {
+      "checked_sources": [
+        "Actual RESULT.md exact hinge formula, integer-grid lemma, reversal and summation",
+        "Actual checker.py source inspected",
+        "Independent direct word enumeration all m=0..8 and every admissible support slice"
+      ],
+      "rationale": "For every m≥0, enumerate all ordered ternary words with fixed content two a, m b, two c. Let u=#scattered ab, v=#scattered bc, z=#scattered abc. Independent placement of the two a and two c relative to m ordered b cuts yields x1+x2=u, y1+y2=v and z=∑_{i,j}(xi+yj-m)_+. For u≤m the difference coordinates X=x1-x2,Y=y1-y2 lie on parity grids. Opposite-sign hinge pairing gives z=2max(h,0)+G_|h|(X,Y), h=u+v−2m. For h≠0, the integer-grid strip lemma traces all intermediate values between min and max by monotone step-two moves; at h=0, G0=max(X,Y) yields the parity-only support. Reversal maps (u,v,z) to (2m-u,2m-v,4m−2u−2v+z), determining u>m. Summing all support slices yields (m+1)(m+2)(2m+1)/2. Independently enumerated all words through m=8, checked *every* (u,v) support and total image sizes 1,9,30,70,135,231,364,540,765. These finite checks corroborate the universal grid/path proof, not an extrapolation.",
+      "residual_risks": [
+        "Does not count fiber multiplicities or strong M-equivalence; assumes a<b<c and scattered subsequences."
+      ],
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "General equivalence and rewriting results describe how matrices match or transform; 2002 injectivity work mainly concerns binary alphabet.",
+          "No cited global bound in these sources evaluates the exact 3D support (u,v,z) for content (2,m,2)."
+        ],
+        "reasoning": "General rewriting characterizations can in principle be used to compute a fixed image, but do not immediately imply this three-case integer-support formula and cubic polynomial.",
+        "searches": [
+          "Teh arXiv:1506.06476 full primary sections 2,4–6",
+          "Teh arXiv:1501.07354 abstract and sections scope",
+          "Atanasiu–Martín-Vide–Mateescu 2002 DOI:10.3233/FUN-2002-49401"
+        ]
+      },
+      "checked_sources": [
+        "Teh 2015 arXiv:1506.06476",
+        "Teh 2015 arXiv:1501.07354",
+        "Atanasiu et al. 2002 DOI:10.3233/FUN-2002-49401",
+        "2022 Bera/Nagar/Sastha/Subramanian institutional abstract",
+        "Resultary unconditional polynomial sparsity of M-unambiguous words"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "The support has an exceptional parity-only slice precisely at u+v=2m, with full integer intervals either side, plus a cubic exact count.",
+          "Neither a polynomial upper bound on matrix ranges nor a rewriting equivalence criterion supplies these exact realized triples and all-m coefficients without additional counting proof."
+        ],
+        "reasoning": "The parity boundary and exact polynomial are substantive content rather than a relabeling of a known equivalence algorithm.",
+        "searches": [
+          "Teh 2015 Theorem 2.3 and rewriting-system sections",
+          "Resultary unconditional sparsity finding"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "General Parikh matrices encode scattered subword counts and rewriting systems characterize matrix equivalence among words.",
+          "Strong M-equivalence changes alphabet orders and is a different classification, not fixed-order support cardinality."
+        ],
+        "reasoning": "The target asks the image for one infinite composition family, including numeric parity boundary, rather than deciding whether two given words share a matrix.",
+        "searches": [
+          "Parikh matrix words counts two a m b two c image possible abc ab bc fixed content support polynomial",
+          "Teh arXiv:1506.06476 rewrite/counter equivalence criteria",
+          "Teh arXiv:1501.07354 strong M-equivalence"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "Published Resultary sparsity proves polynomial range bound for M-unambiguous words across an alphabet, not exact fixed-content image enumeration.",
+          "2022 Bera et al. abstract says predominantly binary applications, and full manuscript was restricted."
+        ],
+        "reasoning": "No exact indexed table for the (2,m,2) support was verified. Unavailable plausible source is named as a risk rather than treated as proof of novelty.",
+        "searches": [
+          "Parikh matrix words counts two a m b two c image possible abc ab bc fixed content support polynomial",
+          "Resultary: 2026/10/4/SCOPE-unconditional-polynomial-sparsity-of-m-unambiguous-words--68116579b62c",
+          "2022 Parikh Matrices of Words and Some Further Properties"
+        ]
+      },
+      "rationale": "Best-of-knowledge: primary full relevant Parikh rewriting material and strong-equivalence distinctions compared, alongside Resultary exact/generic records. No inspected general criterion or polynomial bound dominates the exact (2,m,2) support theorem. Inaccessible or unindexed specialized counts remain a priority risk.",
+      "residual_risks": [
+        "An older specialized fixed-content ternary image table may already have the (2,m,2) support or polynomial, under variant terminology.",
+        "The full restricted 2022 manuscript and complete strong-equivalence source were not readable, so priority comparisons with them cannot exclude coverage."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "General M-equivalence criteria, not explicit complete support for (2,m,2) in inspected sections",
+          "evidence": [
+            "Teh 2015 characterizes equivalence by rewriting systems rather than fixed-content image size."
+          ],
+          "identifier_or_url": "https://arxiv.org/abs/1506.06476",
+          "material_read": "Author full text accessed in primary arXiv HTML material, Definitions 2.2, Theorem 2.3 and Sections 4–6 on rewriting and counters",
+          "method": "Lawful primary open full text, relevant named sections read",
+          "title": "Parikh matrices and Parikh Rewriting Systems",
+          "trigger": "Same ternary Parikh mapping and equivalence theory"
+        },
+        {
+          "assessment": "Strong equivalence is a different order-independent invariant; no whole-document noncoverage claim",
+          "evidence": [
+            "The strong variant asks equal Parikh matrices under all alphabet orders."
+          ],
+          "identifier_or_url": "https://arxiv.org/abs/1501.07354",
+          "material_read": "Primary abstract and statement of strong M-equivalence scope; full original not materially read",
+          "method": "arXiv bibliographic/abstract check",
+          "title": "Parikh matrices and strong M-equivalence",
+          "trigger": "Potential stronger invariant across alphabet orders"
+        },
+        {
+          "assessment": "Cannot imply the full ternary fixed (2,m,2) image from an abstract alone; residual priority risk retained",
+          "evidence": [
+            "Abstract emphasizes binary palindromic amiable word families."
+          ],
+          "identifier_or_url": "https://doi.org/10.3233/FUN-2002-49401",
+          "material_read": "Journal abstract and scope, chiefly binary injectivity",
+          "method": "Publisher journal landing page",
+          "title": "On the Injectivity of the Parikh Matrix Mapping",
+          "trigger": "Foundational injectivity/equivalence prior result"
+        },
+        {
+          "assessment": "Mostly binary as described in abstract; full text inaccessible, no whole-document exclusion drawn",
+          "evidence": [
+            "Accepted-manuscript file is marked restricted. Novelty remains best-of-knowledge."
+          ],
+          "identifier_or_url": "https://hira.hope.ac.uk/id/eprint/3730/",
+          "material_read": "Institutional repository abstract only; accepted manuscript marked restricted to staff",
+          "method": "OA repository metadata/abstract check",
+          "title": "Parikh Matrices of Words and Some Further Properties",
+          "trigger": "Possibly specialized 2022 article with exact Parikh counts"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "checked_sources": [
+        "Exact four-cut geometry and parities",
+        "Prior Parikh mapping/injectivity theory and Resultary sparsity context"
+      ],
+      "rationale": "The exact image and exceptional parity boundary of a natural fixed-content ternary Parikh mapping give a complete infinite-family invariant useful for word reconstruction and ambiguity. The universal cubic polynomial is not a routine consequence of coarse image-sparsity bounds; explicit attainable triples, not only their count, are classified. The (2,m,2) slice is motivated as the first two-sided multiplicity-two marker case with nontrivial hinge interactions.",
+      "residual_risks": [
+        "Special fixed composition only, without fiber-size or strong-equivalence classification; usefulness is local to this natural family."
+      ],
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "limitations": [
+    "Only ordinary Parikh matrix of ordered three-letter alphabet, content exactly (2,m,2), scattered subsequences.",
+    "Does not classify individual ambiguity fibers or strong matrix equivalence.",
+    "Older restricted/unindexed relevant Parikh enumerations remain an originality risk."
+  ],
+  "schema_version": 1
+}

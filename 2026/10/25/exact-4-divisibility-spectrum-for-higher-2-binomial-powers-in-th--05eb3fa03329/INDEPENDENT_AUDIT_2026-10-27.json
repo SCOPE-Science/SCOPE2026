@@ -1,0 +1,148 @@
+{
+  "audit_date_utc": "2026-10-27",
+  "audited_at_utc": "2026-10-27T21:53:20Z",
+  "axes": {
+    "correctness": {
+      "checked_sources": [
+        "Frozen RESULT.md 53a4e75ca9bdeae8fa4644ae395d5f08f6a65060",
+        "Frozen verify.py 02d143739e179877085a6c5beeec8a37f6f14447",
+        "Independent arithmetic Thue–Morse prefix, all starts for root length 1..64 and all 4-aligned starts",
+        "Direct algebraic proof of S/J criterion, odd-root parity obstruction and both desubstitution offsets"
+      ],
+      "rationale": "For equal-length binary words, the complete order-two binomial signature is exactly (S=sum bits,J=sum positional weights), since #01=J-binomial(S,2), while #00,#11,#10 follow from ones count and total length. The Thue–Morse relation t_{2a}=t_a,t_{2a+1}=1-t_a forces each aligned two-letter pair to contain one 1. Three adjacent odd-root blocks cannot have equal ones counts, since one of their adjacent pairs starts on an even boundary and has counts h+b versus h+1-b. For m=2h with h odd, even starts reduce equality of J(mu(x))=h²-S(x) to the forbidden odd-root abelian cube; odd starts use four boundary bits, whose equal differences must all vanish, and a left-rotation moment identity gives the same forbidden cube. For m=4k, mu²(0)=0110 and mu²(1)=1001 both have two ones and moment 3, and order-2 binomial equivalence is a concatenation congruence, so any aligned concatenation length4k works for every exponent. Independent 8192-bit arithmetic-prefix calculation checked all starting positions for m<=64 and uniform aligned examples; finite tests corroborate but not replace proof for all m and exponent.",
+      "residual_risks": [
+        "The theorem applies to one-sided Thue–Morse and exponent ell>=3, and does not settle all starting positions for permissible roots.",
+        "Exponents two can behave differently; this boundary is correctly excluded."
+      ],
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Class-count results for all k and lengths cover binomial complexity, but do not imply which length-m factors occur in consecutive runs of at least three equivalence classes.",
+          "Rigo–Salimov provide equivalence/congruence background used by the existence proof, but not the Thue–Morse root-length biconditional."
+        ],
+        "reasoning": "A general equivalence theory does not determine this specific infinite-word repetition avoidance versus existence; the local-position quantifier is extra.",
+        "searches": [
+          "RESULTARY: Thue Morse 2-binomial cube powers root length divisible by 4 triple repetitions",
+          "arXiv:1310.4743",
+          "arXiv:1812.07330",
+          "https://orbi.uliege.be/handle/2268/149313",
+          "WEB: Thue Morse 2 binomial powers cube length divisible by four exact theorem"
+        ]
+      },
+      "checked_sources": [
+        "arXiv:1310.4743 primary full text",
+        "arXiv:1812.07330 primary full text",
+        "ORBi 2268/149313 bibliographic entry",
+        "Resultary targeted Thue-Morse two-binomial cube root-length query"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "The avoidance theorem selects a constructed different morphic word; the complexity theorem counts equivalence classes of factors regardless of positions.",
+          "The source offset parity analysis and no odd-root abelian cube obstruction show why precisely m=2 mod4 is forbidden."
+        ],
+        "reasoning": "Neither earlier theorem entails the existence/forbidden-root dichotomy for every exponent in Thue–Morse without new local combinatorics; the concatenation-congruence ingredient alone does not force 4-divisibility.",
+        "searches": [
+          "RESULTARY: Thue Morse 2-binomial cube powers root length divisible by 4 triple repetitions",
+          "arXiv:1310.4743",
+          "arXiv:1812.07330",
+          "https://orbi.uliege.be/handle/2268/149313",
+          "WEB: Thue Morse 2 binomial powers cube length divisible by four exact theorem"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Rao–Rigo–Salimov construct a different infinite word avoiding 2-binomial squares and cubes, rather than classify the root lengths of occurrences in Thue–Morse.",
+          "Lejeune–Leroy–Rigo count binomial equivalence classes of length-n factors, not local adjacent repeated triple blocks."
+        ],
+        "reasoning": "Avoidability in another morphic word and complexity counts of factor signatures are different mathematical quantifiers from the exact occurrence spectrum in one named fixed point.",
+        "searches": [
+          "RESULTARY: Thue Morse 2-binomial cube powers root length divisible by 4 triple repetitions",
+          "arXiv:1310.4743",
+          "arXiv:1812.07330",
+          "https://orbi.uliege.be/handle/2268/149313",
+          "WEB: Thue Morse 2 binomial powers cube length divisible by four exact theorem"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "The published binomial complexity table records number of equivalence classes, not adjacent-block repetition root support.",
+          "Finite direct testing through root length 64 is not a substitute for a table of all m, and no prior all-m table was located."
+        ],
+        "reasoning": "No matching exact database/table supplies the all-length 4-divisibility spectrum or uniform aligned-start construction; the result requires an all-m proof.",
+        "searches": [
+          "RESULTARY: Thue Morse 2-binomial cube powers root length divisible by 4 triple repetitions",
+          "arXiv:1310.4743",
+          "arXiv:1812.07330",
+          "https://orbi.uliege.be/handle/2268/149313",
+          "WEB: Thue Morse 2 binomial powers cube length divisible by four exact theorem"
+        ]
+      },
+      "rationale": "The theorem precisely determines an all-root-length occurrence spectrum for 2-binomial cubes and every higher exponent in Thue–Morse, not just factor equivalence class counts or existence of a separate avoiding word. Its odd-start desubstitution obstruction and universal 4-aligned construction are additional to the general binomial congruence.",
+      "residual_risks": [
+        "An older unindexed combinatorics-on-words treatment could have established the same mod-four binomial cube spectrum.",
+        "The original 2013 Rigo–Salimov paper was read only through accessible abstract/metadata, not used to claim whole-document noncoverage."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Covers avoiding words under a different construction, not occurrence root lengths in Thue–Morse.",
+          "evidence": [
+            "arXiv:1310.4743 full primary PDF and screenshot source "
+          ],
+          "identifier_or_url": "https://arxiv.org/abs/1310.4743",
+          "material_read": "full accessible primary PDF, statements and proof of avoidance construction",
+          "method": "web full PDF read and screenshot",
+          "title": "Avoiding 2-binomial squares and cubes",
+          "trigger": "direct overlap in k=2 cubes terminology"
+        },
+        {
+          "assessment": "Determines numbers of k-binomial equivalence classes, not adjacent power spectrum m mod4.",
+          "evidence": [
+            "arXiv:1812.07330 full primary PDF and screenshot source "
+          ],
+          "identifier_or_url": "https://arxiv.org/abs/1812.07330",
+          "material_read": "full accessible primary PDF, introduction, factor-class counting results and relevant proofs",
+          "method": "web full PDF read and screenshot",
+          "title": "Computing the k-binomial complexity of the Thue–Morse word",
+          "trigger": "same infinite word and binomial equivalence parameters"
+        },
+        {
+          "assessment": "Background only; no whole-document noncoverage conclusion inferred.",
+          "evidence": [
+            "ORBi 2268/149313 indexed bibliographic record"
+          ],
+          "identifier_or_url": "https://orbi.uliege.be/handle/2268/149313",
+          "material_read": "accessible ORBi record/abstract, not complete article",
+          "method": "open metadata page",
+          "title": "Another Generalization of Abelian Equivalence: Binomial Complexity of Infinite Words",
+          "trigger": "original binomial equivalence definitions and congruence"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "checked_sources": [
+        "arXiv:1310.4743 primary full text",
+        "arXiv:1812.07330 primary full text",
+        "ORBi 2268/149313 bibliographic entry",
+        "Resultary targeted Thue-Morse two-binomial cube root-length query",
+        "Frozen RESULT.md 53a4e75ca9bdeae8fa4644ae395d5f08f6a65060"
+      ],
+      "rationale": "Thue–Morse is a canonical automatic word; the precise allowed root lengths of all 2-binomial cubes and higher powers are fundamental repetition/avoidance invariants. The sharp arithmetic threshold m divisible by four and the stronger every aligned start, every exponent construction form a uniform all-m classification and a natural answer for power avoidance, not a finite prefix statistic.",
+      "residual_risks": [
+        "Does not classify all occurrence starts or order-k binomial equivalence for k>2."
+      ],
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "limitations": [
+    "The theorem applies to one-sided Thue–Morse and exponent ell>=3, and does not settle all starting positions for permissible roots.",
+    "Exponents two can behave differently; this boundary is correctly excluded.",
+    "An older unindexed combinatorics-on-words treatment could have established the same mod-four binomial cube spectrum.",
+    "The original 2013 Rigo–Salimov paper was read only through accessible abstract/metadata, not used to claim whole-document noncoverage.",
+    "Does not classify all occurrence starts or order-k binomial equivalence for k>2."
+  ],
+  "schema_version": 1
+}

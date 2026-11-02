@@ -1,19 +1,21 @@
-# Self-review
+# Independent mathematical audit
 
-## Correctness — PASS
+## correctness
 
-The published Follow-the-Leader recurrence is reproduced with synchronous updates and a fresh independent uniform sample at the middle vertex. The exact leaf-difference identity \(x_1(t)-x_3(t)=\alpha(s_1-s_3)\) for \(t\ge1\) supplies deterministic noise amplitudes. Multiplication by the stationary path measure gives the scalar recurrence, whose solution is checked through a Gamma-product identity. Independent-sign moments prove the finite-time variance and fourth-cumulant formula. The almost-sure subcritical series limit follows from square-summable deterministic coefficients; the Gaussian regimes follow from Lindeberg and Gamma-ratio asymptotics. Exhaustive exact-rational checks through eight rounds corroborate, but do not prove, the asymptotic steps.
+PASS
 
-## Originality — PASS, with publication-priority risk
+Rebuilt synchronous FTL recurrence at t>=1 with x(0)=s on graph 1-2-3, uniform independent center sampling, alpha in (0,1) and s1!=s3. For t>=1, the leaf difference is exactly alpha(s1-s3), whereas initial difference is s1-s3; multiplying by pi=(1/4,1/2,1/4) yields E1=c ξ0 and Et=(1-alpha/t)E(t-1)+(alpha*c/t)ξ(t-1) for t>=2, c=(1-alpha)(s1-s3)/4. Gamma product solution gives the exact finite Rademacher law, variance and product characteristic function. For alpha<1/2, coefficients b_j~j^(alpha-1) are square summable, proving almost sure and L2 convergence and strictly negative -2∑weights^4 fourth cumulant. For alpha=1/2 and >1/2, harmonic/power sums with maximal normalized coefficient→0 establish Lindeberg CLTs with respective c²/4 and alpha²c²/(2alpha-1) variances. Independently recomputed all center-choice histories to t=7 for three rational alpha and three leaf/center tuples, checking exact scalar impulse equalities; finite data only corroborate analytic limits. Boundary s1=s3 is excluded to avoid zero-noise degeneracy.
 
-The motivating 2018/2023 full text treats the same sampled-neighbor FTL rule and gives norm convergence bounds, not this path-projection distribution. Renlund (2011) already provides general stochastic-approximation rate regimes and normal limits, so that standard half-exponent transition is not claimed as original. The narrowly assessed result is the exact Rademacher-product finite-time distribution, identification of the subcritical model-specific non-Gaussian law and its strictly negative fourth cumulant, and exact critical/supercritical variances arising from the deterministic leaf-gap invariant. Targeted scholarly and mathematical-record searches did not find a direct covering statement, but priority cannot be established solely by unsuccessful searches.
+## originality
 
-## Value — PASS
+PASS
 
-The degree-weighted social opinion is a natural invariant observable of the Friedkin–Johnsen model and equals the corresponding equilibrium projection in expectation at every time. Its exact distribution quantifies the otherwise unreported fluctuations of no-regret limited-information learning, providing a parameter-sharp contrast between sample-history-dominated and aggregative Gaussian error behavior. Three agents are the smallest connected simple network with any genuine random neighbor choice; the invariant permits a complete analytic answer instead of an arbitrary finite calculation.
+Best-of-knowledge originality of the exact network observable law and its cumulants, not of the general stochastic-approximation transition. The relevant primary full text supplies general FTL convergence rates rather than exact distributions; a matching specific scalar law was not found in bounded searches.
 
-## Closest literature and limitations
+## value
 
-Fotakis et al., WINE 2018 (DOI: 10.1007/978-3-030-04612-5_19) and Algorithmica 2023 (DOI: 10.1007/s00453-023-01157-5), give the original process and vector-error bounds. Renlund (arXiv:1102.4741) establishes the general stochastic-approximation limit-theory context. The theorem does not address the full vector, heterogeneous confidence, general graphs, or nonuniform sampling. Some conclusions may be implied by a more general source not located in the targeted comparison; an independent audit has not been conducted.
+PASS
 
-Self-review: passed. Independent audit: not yet performed.
+On the smallest connected graph with a random choice of neighbor, an explicit all-time law and three limiting regimes for an actual network observable is a natural exact benchmark. The non-Gaussian limit is certified by a strictly negative fourth cumulant, and exact variance constants sharpen earlier qualitative convergence estimates. This is not merely observing the generic half-exponent stochastic approximation transition.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

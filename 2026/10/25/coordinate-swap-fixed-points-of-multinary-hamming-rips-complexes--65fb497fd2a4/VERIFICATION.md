@@ -5,8 +5,11 @@
     "status": "not_performed"
   },
   "independent_audit": {
-    "evidence": null,
-    "status": "not_performed"
+    "status": "passed",
+    "evidence": [
+      "INDEPENDENT_AUDIT_2026-10-27.md",
+      "INDEPENDENT_AUDIT_2026-10-27.json"
+    ]
   },
   "lean_verification": {
     "evidence": null,
@@ -16,18 +19,24 @@
 }
 ---
 
-# Verification of the coordinate-swap fixed-point homotopy theorem
+# Independent mathematical audit
 
-The included `verify_orbit_complex.py` is a self-contained Python 3 program with no external dependencies. Execute `python3 verify_orbit_complex.py` from the same folder. It independently derives orbit adjacency from the Hamming metric, enumerates maximal cliques with Bron--Kerbosch and compares them to the three exact families of proposed maximal faces; for small alphabets it also reconstructs all simplicial faces and computes mod-two boundary ranks by bitset Gaussian elimination.
+## correctness
 
-An actual invocation succeeded with these exact outputs:
+PASS
 
-```text
-q=2 vertices=6 facets=8 mod2_betti2=1 other_reduced_betti=0 PASS
-q=3 vertices=18 facets=30 mod2_betti2=14 other_reduced_betti=0 PASS
-q=4 vertices=40 facets=92 mod2_betti2=63 other_reduced_betti=0 PASS
-q=5 vertices=75 facets=230 exact_facet_check=PASS predicted_betti2=184 (not calculated)
-All checks passed. Finite cases do not prove the all-q statement.
-```
+The involution swapping the first two coordinates on [q]^3 has fixed-vertex orbits A_{a,c} and two-element orbits B_{ab,c}; each B orbit spans an edge in VR_{≤2}. Geometric fixed points have equal barycentric weights on each orbit, identifying the fixed space with a flag orbit complex L_q. All maximal facets classify as q row simplices S_c, q² symbol-column simplices T_{a,c}, and N=q(q−1)C(q,2)=q²(q−1)²/2 attachment triangles U_{a,b,c,d}. For the S/T-only subcomplex Y, deleting B vertices yields links covered by S,T_a,T_b with interval nerve, so each link is contractible; Y≃the clique complex of the q×q rook graph≃K_{q,q}. Each U triangle attaches along a rectangle loop of K_{q,q}; the (q−1)² rectangles based at a fixed row and column kill the free π1. Relative homology gives H2=Z^{N−(q−1)²}=Z^{(q−1)²(q²−2)/2}, no other positive homology. A simply connected 2-dimensional CW model is homotopy equivalent to that many 2-spheres by Hurewicz and Whitehead. Independently checked actual maximal facets q=3:30, q=4:92, and reduced mod2 Betti 2 respectively 14 and 63; no all-q inference from finite checks.
 
-The \(q=2\) case is a known binary boundary and is not part of the new theorem's novelty claim. For \(q=5\), the checker verifies facets but does **not** independently compute homology. Higher alphabets have not been exhaustively tested. The all-parameter proof instead uses the orbit-simplex PL identification, a contractible-link deletion sequence, the nerve lemma, the rectangle generators of the complete bipartite graph, integral cellular homology, and Hurewicz/Whitehead. No mechanized infinite formalization or independent scientific audit is claimed.
+## originality
+
+PASS
+
+PASS, qualified best-of-knowledge: literature comparison of exact statements/implications. The orbit-support principle is credited standard; the universal q-fold maximal-facet classification and attachment argument are not supplied by the bare principle. Existing broader ambient homotopy theorems may cover q-specific complexes but do not mathematically imply the fixed-space topology without a new equivariant geometric analysis.
+
+## value
+
+PASS
+
+This computes an exact integral homotopy invariant of a natural infinite family of multinary Hamming Rips complexes with a coordinate-permutation symmetry. The distinction between ambient complexes and geometric fixed loci, together with the q-dependent complete two-sphere wedge decomposition, is a useful and motivated classification; the two-dimensional attaching geometry explains rather than merely tabulates ranks.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

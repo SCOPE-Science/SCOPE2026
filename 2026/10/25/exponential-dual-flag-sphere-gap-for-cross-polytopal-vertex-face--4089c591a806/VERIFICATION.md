@@ -5,8 +5,11 @@
     "status": "not_performed"
   },
   "independent_audit": {
-    "evidence": null,
-    "status": "not_performed"
+    "status": "passed",
+    "evidence": [
+      "INDEPENDENT_AUDIT_2026-10-28.md",
+      "INDEPENDENT_AUDIT_2026-10-28.json"
+    ]
   },
   "lean_verification": {
     "evidence": null,
@@ -16,10 +19,24 @@
 }
 ---
 
-# Verification
+# Independent mathematical audit
 
-The analytic proof is based on the finite incidence relation, two closed-neighborhood domination arguments, and the identification of each reduced graph as a complete multipartite graph whose parts have size two. Each domination step preserves the clique complex up to simplicial collapse. The resulting joins of \(S^0\) are combinatorial spheres in the claimed dimensions for every \(m\ge3\). The genuine-nerve equivalence uses the stated hypotheses of Cameron–Kumar Theorem 9.2(a) for finite \(T_0\) spaces.
+## correctness
 
-Run `python3 check_incidence.py` with Python 3 standard libraries only. The script checks exact adjacency and domination for \(m=2,3,4\), verifies face vectors of the reduced complexes using the formula \(f_{k-1}=2^k\binom{r}{k}\), and for \(m=2,3\) computes reduced mod-two homology via exact binary matrix elimination. It yields spheres in dimensions \(1\) and \(1\) at \(m=2\), and dimensions \(3\) and \(2\) (inseparability, closure-meeting) at \(m=3\). No finite enumeration is treated as a proof for larger \(m\).
+PASS
 
-Proof scope excludes the homotopy type of the finite space itself, unrestricted posets, and any assertion that graph clique-complex duality holds generally. Literature coverage is not exhaustive. There is no independent audit evidence.
+Checked the down-set open/up-set closure convention and all v_{i,epsilon}<f_s iff epsilon=s_i incidences. An incident minimal vertex dominates each maximal facet in the closure-meeting graph; dually an incident facet dominates each minimal vertex in the inseparability graph, by inclusion of closed neighborhoods. Standard elementary flag-complex collapses then remove those dominated vertices without altering integral homotopy. Remaining vertices give graph K_{2,...,2} with m antipodal coordinate pairs, hence Cl=(S^0)^{*m}=S^(m-1); remaining facets give complete graph on 2^m sign words except 2^(m-1) antipodal edges, hence sphere S^(2^(m-1)-1). The Dowker complex allows at most one sign in each coordinate, giving another S^(m-1), and Cameron–Kumar Theorem 9.2(a) identifies the genuine nerves. Independently rebuilt the complete up/down incidence and verified both proposed neighborhood dominations for m=3,4,5, plus reduced opposite-pair formulas for m=3..6. Finite checks are corroboration, not the all-m proof.
+
+## originality
+
+PASS
+
+PASS best-of-knowledge for the two-sided exact exponential sphere-dimension separation; general Dowker nerve equivalence is prior and is fully credited.
+
+## value
+
+PASS
+
+Replacing a joint-intersection nerve by the clique complex of its one-skeleton is an important and sometimes invalid computational simplification. The canonical vertex–facet cross-polytope incidence family provides an unrestricted explicit dual counterexample where both flag completions remain spheres yet differ by an exponential dimension gap, rather than a trivial collapse to a point.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

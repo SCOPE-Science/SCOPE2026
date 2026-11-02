@@ -1,11 +1,21 @@
-# Scientific review
+# Independent mathematical audit
 
-**Correctness — PASS.** The reduction to weighted heights counts each integer block configuration exactly. The unique nonintegral height vertex is \((1/2,\ldots,1/2)\), and its active-facet matrix has determinant two with image the even-coordinate-sum sublattice. The parity projection of the tangent-cone generating function cancels its singular component and leaves the analytic logistic product. Brion localization then gives the exact constituent difference, while top differential order proves the nonzero leading coefficient for all odd cycle lengths and positive block sizes. Exact-rational computations reproduce both independently counted lattice points and the differential formula on six parameter pairs. Finite tests are explicitly not used to assert universal correctness.
+## correctness
 
-**Originality — PASS under accessible evidence.** The principal 2026 source announces denominator two and quasiperiod *at most* two. The new claim proves no collapse for any odd cycle with any positive equal block size, and identifies precisely where parity first enters the polynomial coefficients, with an exact operator identity. Hamano–Hibi–Ohsugi's fractional stable-set formula covers scalar cycle heights and general Ehrhart numerators but does not state the full weighted block discrepancy. The closest accessible prior related research records address ellipsoids or enclosing spheres of the scalar odd-cycle fractional stable-set polytope, not Ehrhart period depth. Full text of the 2026 source remained inaccessible, which is a recorded priority risk rather than a claim of exhaustive noncoverage.
+PASS
 
-**Mathematical value — PASS.** Minimal quasiperiod and the degree at which periodic coefficients first appear are fundamental structural invariants in rational Ehrhart theory, with known period collapse making denominator information insufficient. The exact equality \(\deg(E-O)=ma-m\) exhibits a nontrivial codimension law controlled by cycle length despite increasing block dimension. The calculation answers a natural open aspect left by the new at-most-two result and gives a reusable exact local-cone formula.
+Reconstructed the weighted height reduction y_i=sum_j x_(i,j), with W_a(y)=binom(y+a-1,a-1), and the fractional stable-set odd cycle Q_m. Every vertex with a zero coordinate is integral by bipartite-path total unimodularity; the only nonintegral vertex is c=(1/2,...,1/2), where B=I+cyclic shift has determinant 2. Parity-restricted tangent-cone lattice summation and Brion localization yield the analytic difference exp(t/2 sum s_i)*prod_j(1+exp(-(B^-1 s)_j))^-1. The weight differential operator has order m(a-1); its top t coefficient is 2^-ma/((a-1)!)^m, proving exact degree and period 2. Independently computed weighted integer-point counts and interpolated parity polynomials for (m,a)=(3,1),(5,1),(3,2),(5,2), including the stated cubic and quintic polynomial identities. Finite cases only corroborate the Brion-based all-m,a argument.
 
-**Closest literature and limitations.** Jiang–Yang–Zhong, arXiv:2607.22008 (2026); Hamano–Hibi–Ohsugi, arXiv:1603.09613 (2016/2018), with relevant complete Chapter 3, Section 3.3 read in Hamano (2018); Woods, DOI:10.37236/1931 (2005). The 2026 full article was not accessible for direct comparison; priority is provisional. General theorem uses Brion's exact cone identity and analytic expansion rather than exhaustive computations.
+## originality
 
-Self-review: passed. Independent audit: not yet performed.
+PASS
+
+Jiang–Yang–Zhong arXiv:2607.22008 studies precisely these cyclic block polytopes and publicly states denominator 2 and quasiperiod dividing 2. Its inaccessible full text could conceivably contain a sharper minimal-period or coefficient-degree result; abstract alone cannot justify whole-document noncoverage. Hamano–Hibi–Ohsugi arXiv:1603.09613 supplies Ehrhart series for scalar fractional stable-set polytopes, including odd cycles, but not the all-a weighted parity-degree law. Under available full-text and abstract evidence, the general block-size exact degree and analytic formula were not shown covered, so O passes at best-of-knowledge level with a substantial explicit same-paper access risk.
+
+## value
+
+PASS
+
+Minimal Ehrhart quasiperiod and the first parity-sensitive coefficient are canonical rational-polytope invariants; denominator two alone allows period collapse. The exact codimension-m coefficient law for odd cyclic block sizes and analytic all-coefficient differential identity resolve a meaningful structural gap as dimension ma varies.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

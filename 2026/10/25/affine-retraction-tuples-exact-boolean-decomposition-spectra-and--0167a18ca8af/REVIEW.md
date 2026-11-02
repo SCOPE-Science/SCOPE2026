@@ -1,19 +1,21 @@
-# Scientific review: affine retraction tuples
+# Independent mathematical audit
 
-## Correctness
+## correctness
 
-**PASS.** The affine common fixed point is obtained from the product of the commuting idempotents. The simultaneously diagonalizable linear parts determine uniquely labelled Boolean eigenspaces, and quotienting common-fixed-point choices by their shared image gives precisely the affine translation factor. The orbit-stabilizer count, integer exponent identity, lattice theta limit and total-variation convergence follow from explicitly stated equations and a summable Gaussian majorant. The verifier independently enumerates affine functions and checks the exact counts in eleven small instances, including a proper extension field.
+PASS
 
-## Originality
+PASS. For commuting affine idempotents f_i, the idempotent product P fixes P(0) under each f_i, establishing a common fixed point without assuming one. Translating it to zero gives commuting linear projections A_i and orthogonal Boolean idempotents E_sigma whose images form a unique labelled direct-sum decomposition. The common fixed subspace is V_(1,...,1), so affine shifts contribute exactly q^(n-a_1) and stabilizer q^(a_1)*product(GL_(a_sigma)). For fixed q,k, log_q of each weight is (1-1/2^k)(n^2+n)-sum(delta_sigma^2)-delta_1; GL product factors have uniform finite bounds, and a summable discrete Gaussian majorant on the zero-sum deviation lattice proves the stated theta asymptotic and total-variation convergence via dominated convergence. Taking the ratio to k independent single-retraction counts gives gamma_k=k/2-1+2^-k. Independent direct function-table enumeration for F_2^2 recovered 17 idempotent affine maps, 121 ordered commuting pairs, and 617 ordered commuting triples. These finite cases corroborate, but do not prove, the fixed-arity limiting theorem; extension-field and further finite checks in repository were read but not treated as independent proof.
 
-**PASS relative to the inspected material.** The simultaneous Boolean spectral decomposition is classical and is not claimed as new. Diatta–Manga–Mbaye (arXiv:2002.08737v1) study systems of unrestricted commuting matrices and Gerstenhaber-type bounds, not the exact finite-field affine-idempotent fibre counts or their rank-profile probability law. Sharma (arXiv:1409.2698) treats small-size unrestricted commuting tuples, while Sharma (arXiv:1506.07678) varies the number of commuting matrices at fixed dimension. Published finite-field factorization and matrix-invariant records located by related searches do not state the claimed affine-retraction theorem. Related earlier results count commuting involution pairs (equivalent to commuting linear idempotent pairs in odd characteristic), derive fixed-rank linear-idempotent pair distributions, and prove a higher-arity theta law for upper-triangular idempotents. Those linear-algebra results already cover their own two-member linear specializations. They do not count affine translations or give the claimed all-arity full-matrix affine joint-profile theta weights and commutativity costs. A more general unpublished or unlocated theorem remains a priority risk.
+## originality
 
-## Value
+PASS
 
-**PASS.** Pairwise compatibility is a natural composition property of retractions. The all-arity formula gives full simultaneous conjugacy classification, exact common-image and individual-rank spectra, and a sharp commutation-probability exponent with a periodic positive leading factor. These invariants are not recoverable from a single-retraction count and are useful for understanding typical compatible systems in finite transformation monoids.
+PASS, best-of-knowledge. Simultaneous eigenspace decomposition is classical. The audited additional statements are the affine translation-fibre census, all-k orbit/stabilizer formulas, joint-rank discrete-Gaussian limit, and sharp periodically weighted commutation probability. Inspected primary results on unrestricted commuting matrices in finite fields do not imply the joint affine-idempotent strata or the displayed limit without additional specialization and proof; found no identified stronger theorem covering all components. Boolean-module counting is a notable prior-method risk.
 
-## Limitations and evidence
+## value
 
-The proof is for every finite field and every finite tuple arity, while the asymptotics hold only for each fixed field and fixed arity. Exhaustive verification is bounded to eleven explicit small cases and does not itself prove an infinite theorem. Search results are not a completeness guarantee. The central structural decomposition is known; the claimed contribution is the combined affine finite-field census and asymptotic rank/cost law.
+PASS
 
-Self-review: passed. Independent audit: not yet performed.
+PASS. Finite affine retractions are natural idempotents of a transformation monoid, and the compatibility constraint is pairwise composition commutativity. The result resolves not a tiny instance but complete labelled-orbit and rank spectra for arbitrary n,k, and an exact asymptotic probability with residue-dependent theta multiplier at fixed field and arity. These are substantive structural statistics not mechanically recoverable from single-retraction enumeration; the standard simultaneous diagonalization is properly attributed as input.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

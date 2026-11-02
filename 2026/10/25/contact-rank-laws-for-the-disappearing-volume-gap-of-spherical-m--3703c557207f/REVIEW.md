@@ -1,19 +1,21 @@
-# Scientific review
+# Independent mathematical audit
 
-## Correctness: PASS
+## correctness
 
-All set equalities and quantifiers are established for a fixed full-dimensional origin-symmetric convex polytope in dimension at least two. The proof characterizes the absent volume exactly as a relative erosion, proves that farthest vertices alone define it for sufficiently small critical deficit, rescales the span and orthogonal directions at different rates, and computes an absolutely convergent beta integral. The bounded-domain sandwich gives the explicit relative \(O_Q(\delta)\) remainder. The exact rhombus cutoff is both sufficient and necessary, with positive-area failure below it. A standalone numerical checker passed 18 tests, but the universal proof is analytic.
+PASS
 
-## Originality: PASS, with priority risks
+For a full-dimensional centrally symmetric polytope Q, (B+λQ)\(S+λQ) is exactly {x: x−λQ lies inside the open unit ball}, since x−λQ is convex and intersects the ball. Symmetric farthest vertices force λ²R²+||x||²+2λh_P(Π_W x)<1, so it vanishes exactly at λR=1. Nonfarthest vertices are inactive near this threshold because their squared norm has a positive finite gap. Writing δ=1−λ²R², x_W=δy and x_perp=√δ z yields exponent s+(d−s)/2=(d+s)/2; integration over z gives C=(R/2)^s vol(P°) π^((d−s)/2) Γ(s+1)/Γ(s+1+(d−s)/2) with O(δ) relative error by uniform sublevel bracketing. The rhombus shield condition √(1−λ²a²)+λb≤1 is equivalent to λ≥2b/(a²+b²). At a>b, coefficient 4/3 and exponent 3/2; at a=b, coefficient 1 and exponent 2. I independently evaluated direct four-disk quadrant intersections at a=2,b=1, λ=.2,.4,.45,.49: below .4 true area is smaller than two-disk lens (1.52775924<1.58534685 at .2), at and above .4 exact lens agreement; a=b examples also distinguished the symmetry boundary.
 
-The June 2026 Hausdorff-convexification result treats repeated equal summands, not the two-summand spherical-boundary volume gap. The 2018 Minkowski convexification survey treats volume deficits of repeated averages; the 2010 relative inner parallel-body papers establish general theory and inequalities, not the stated farthest-contact rank exponent and polar coefficient. A later October 2026 qualitative finite-convexification manuscript discusses thresholds and exposed faces, but its inspected claims do not quantify this volume. Available mathematical database entries concern different summands, observables, or geometries. The erosion identity and standard two-disk lens area are acknowledged as known; the new statement is their dimension-independent contact-rank synthesis, including a sharp rhombus shielding threshold. Historical equivalences, especially unpublished exact erosion asymptotics, cannot be categorically excluded by these searches.
+## originality
 
-## Mathematical value: PASS
+PASS
 
-The problem measures the *volume* not yet convexified under continuous Minkowski addition, a natural companion to current qualitative and Hausdorff convexification theory. Contact rank produces a nontrivial geometric phase law in every dimension and an explicit computable invariant rather than a parameter-free estimate. The rhombus family proves the rank jump is geometrically realized and gives a sharp, globally meaningful shielding cutoff. The result does not merely recompute a known table or make an arbitrary finite slice.
+PASS, qualified best-of-knowledge: literature comparison of exact statements/implications. An inner parallel body is an equivalent description of this gap, but a theorem about general quermassintegral bounds is not an explicit critical δ^{(d+s)/2} contact-rank law. The erosion reduction itself is credited as standard. The prior theorems do not imply the specific asymptotic exponent and positive polar coefficient; a generic endpoint expansion is a genuine remaining priority risk, not disproved by search absence.
 
-## Limitations and closest literature
+## value
 
-The proof assumes central symmetry and a finite vertex set; no statement for general smooth convexifiers or uniform variation of the polytope is made. The historical references and later qualitative finite-convexification paper are listed in RESULT.md. Originality is an evidence-based comparison, not a formal priority guarantee.
+PASS
 
-Self-review: passed. Independent audit: not yet performed.
+The disappearance of the open gap between the sphere-plus-polytope union and its convex hull is a natural Minkowski-convexification invariant. The farthest-vertex contact rank s gives an invariant exponent and a polar-body leading coefficient, while the explicit rhombus shielding threshold identifies a sharp degeneracy, not an arbitrary numerical slice. This self-contained asymptotic can inform studies of inner parallel bodies and finite convexification.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

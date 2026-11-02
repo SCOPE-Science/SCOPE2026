@@ -1,11 +1,21 @@
-# Scientific review
+# Independent mathematical audit
 
-**Correctness — PASS.** The explicit permutation-chamber-to-simplex bijection has unit absolute Jacobian, proving the intrinsic volume and a Dirichlet representation of uniform Lebesgue measure. Conditioning on the two maxima yields all second moments and four invariant covariance spaces. The displayed factorization of the \(2\)-by-\(2\) shifted determinant proves the strict integer crossover globally, and exact balanced formulas settle the rigidity statement. Uniform Stirling bounds give the isotropic limit. The standalone checker provides independent rational chamber integrations for nine parameter pairs and rational factor/phase comparisons for 2,401 pairs; finite checks support rather than prove the infinite statement.
+## correctness
 
-**Originality — PASS, qualified.** The full text of the relevant stable-set polytope and fractional stable-set polytope papers was read for the type of object and comparison to their principal results. Related results on the *same complete two-layer chain polytope* were examined in full: their precise theorems identify John ellipsoids, which are not uniform-volume covariances. The published signed two-level polytope result is structurally adjacent but treats a strictly larger signed body and a different extremum. No consulted result determines the precise switch at \(|p-q|=2\) or the covariance identity \(\lambda_{\max}=1/12\) for balanced blocks. This is a best-knowledge, non-exhaustive originality judgment, not a proof of unique priority.
+PASS
 
-**Mathematical value — PASS.** The object is a standard graph stable-set/poset chain polytope; its Euclidean covariance directly measures direction-dependent spread under the intrinsic uniform measure. A parameter-independent integer transition of the least-spread eigenspace, an exact balanced maximal variance, and an all-path uniform affine-invariant asymptotic together give a natural, complete second-moment geometric classification. The calculation is not a reparameterization of the John-ellipsoid solution.
+PASS: Unit-Jacobian permutation chambers give exact p!q!/d! volume and Dirichlet(1,..,1) gap law. Conditional maxima moments recover all block-diagonal covariance entries, t_p,t_q transverse eigenvalues and 2-by-2 longitudinal block. Independently simplified det(B-t_min I) to p*q*(q+1)*(p^2-q^2-3q-3)/[48(d+1)^3(d+2)^2] for p>=q; it is strictly negative at differences 0,1 and positive at difference >=2, with no ties. Balanced lambda+=1/12 and condition number follow exactly; uniform Stirling cancellation yields isotropic limit 1/sqrt12, including fixed small blocks. Finite rational checker corroboration does not replace all-parameter proof.
 
-**Closest literature and residual risks.** The two existing complete two-layer John-ellipsoid reports are same-object but optimize a different geometric functional; the 2016 fractional stable-set study concerns Ehrhart data, and the 2018 stable-set study concerns the one-skeleton. There remains a possibility that these moment formulas or their full spectral implications occur in less-indexed probability or order-statistics literature; no world-priority guarantee is made.
+## originality
 
-Self-review: passed. Independent audit: not yet performed.
+PASS
+
+PASS best-of-knowledge: the exact same complete-bipartite two-level chain polytope has previously published John-ellipsoid classifications, one of which was read in full, but a maximal-volume inscribed ellipsoid does not imply the centroid covariance spectrum of a uniform-volume random point. The primary Aliniaeifard–Benedetti–Bergeron–Li–Saliola paper, accessed in full HTML, treats stable-set one-skeleta and diameter rather than second moments. Other poset/Ehrhart results concern combinatorics. No stronger material-read source implies the p-q=2 covariance crossover.
+
+## value
+
+PASS
+
+PASS: the uniform-volume covariance is a canonical geometric invariant of a standard graph/poset polytope. The integer shift at |p-q|=2 is a sharp structural eigenmode change, accompanied by exact balanced variance and a uniform affine-invariant high-dimensional limit; not a renaming of John ellipsoids.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

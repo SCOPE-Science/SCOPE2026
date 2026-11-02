@@ -1,0 +1,137 @@
+{
+  "audit_date_utc": "2026-10-27",
+  "audited_at_utc": "2026-10-27T21:53:20Z",
+  "axes": {
+    "correctness": {
+      "checked_sources": [
+        "Frozen RESULT.md 8683ad0a6dd144c97c09c4e6d8cc493ce69a2f18",
+        "Frozen prism_root_certificate.py 5a1928a05e5236673c55cf4875686ad88c5a13c9",
+        "Independent SymPy expansion of both full discriminant polynomials; check 72/25 terms, positive coefficients and special corners"
+      ],
+      "rationale": "Pick gives L_P(n)=(I+B/2-1)n^2+(B/2)n+1 and L_{P×[0,k]}(n)=(kn+1)L_P(n), yielding exactly the stated cubic h* numerator 1+((k+1)(I+B)-4)t+(4kI+(2k-1)B-6k+3)t²+(k-1)It³. Independently expanded the exact cubic discriminant over disjoint chambers I=1+a,B=3+b,k=1+s and I=0,B=4+b,k=1+s. Obtained respectively 72 and 25 nonzero positive-coefficient monomials, constants 0 and 12; first chamber has coefficients 192b,288s,64a² so discriminant vanishes only at a=b=s=0 (the lone I=1,B=3,k=1 double root). The I=0,B=3 case is a simple linear polynomial. In all other degree2/3 cases discriminant is strictly positive and positive coefficients preclude nonnegative real zeros, so all zeros are simple strictly negative. Exact symbolic identities, not the 1848 sampled triples, prove the universal quantified result.",
+      "residual_risks": [
+        "Only Cartesian products of full 2D lattice polygons and integer segments are proved; not all dimension-three polytopes.",
+        "Algebraic chamber positivity covers formal I>=0,B>=3; arbitrary pairs need not correspond to polygons but the stronger algebraic calculation remains valid."
+      ],
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Liu 2026 full primary HTML Section2/Theorem2.2(i) gives product preservation conditioned on both inputs being real-rooted, not an all-base prism statement.",
+          "Nill 2026 large-width theorem assumes sufficiently large lattice width in fixed dimension, absent for height-one prisms."
+        ],
+        "reasoning": "These are general operations theorems with stronger antecedents and cannot dominate all polygon-prism cases, notably a base with nonreal roots.",
+        "searches": [
+          "RESULTARY: Ehrhart h* real rooted lattice prism polygon times interval Cartesian product lattice polygon",
+          "arXiv:2610.06338",
+          "arXiv:2608.03635",
+          "Resultary/2026:2026/10/4/SCOPE-lattice-segment-factors-preserve-ehrhart-h-log-concavity--5724d44ac8d4",
+          "WEB: Ehrhart h star polynomial prism lattice polygon segment real rooted arbitrary planar lattice polytope"
+        ]
+      },
+      "checked_sources": [
+        "Feihu Liu arXiv:2610.06338 complete article Section2 Theorem2.2(i) via arxiv HTML, dated 2026-10-19",
+        "Benjamin Nill arXiv:2608.03635 width condition from public abstract",
+        "Resultary lattice-segment log-concavity full RESULT.md",
+        "Resultary semantic Ehrhart h* lattice prism query"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "In Liu 2026 Theorem 2.2(i), both factors must have real-rooted h*; an I=1,B=3 polygon has h*=1+t+t² and fails that antecedent.",
+          "The published 2026 lattice-segment result explicitly says it does not upgrade log-concavity to real-rootedness."
+        ],
+        "reasoning": "The exact discriminant certificate covers nonreal-rooted bases; this extra zone is not a corollary of the cited prior preservation theorem or weaker log-concavity result.",
+        "searches": [
+          "RESULTARY: Ehrhart h* real rooted lattice prism polygon times interval Cartesian product lattice polygon",
+          "arXiv:2610.06338",
+          "arXiv:2608.03635",
+          "Resultary/2026:2026/10/4/SCOPE-lattice-segment-factors-preserve-ehrhart-h-log-concavity--5724d44ac8d4",
+          "WEB: Ehrhart h star polynomial prism lattice polygon segment real rooted arbitrary planar lattice polytope"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Liu 2026, Theorem 2.2(i), assumes h*_P and h*_Q are real-rooted to conclude the product is; this is not equivalent to a universal statement for all lattice polygon bases.",
+          "Resultary 2026 segment-factor theorem proves only log-concavity from log-concave inputs, not negative real zeros."
+        ],
+        "reasoning": "The universal prism theorem has instances with non-real-rooted polygon input (I=1,B=3 gives 1+t+t²). This disproves the premise needed for an apparent equivalent two-factor preservation formulation.",
+        "searches": [
+          "RESULTARY: Ehrhart h* real rooted lattice prism polygon times interval Cartesian product lattice polygon",
+          "arXiv:2610.06338",
+          "arXiv:2608.03635",
+          "Resultary/2026:2026/10/4/SCOPE-lattice-segment-factors-preserve-ehrhart-h-log-concavity--5724d44ac8d4",
+          "WEB: Ehrhart h star polynomial prism lattice polygon segment real rooted arbitrary planar lattice polytope"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "The exact three-dimensional numerator follows from Pick and a product of Ehrhart polynomials; prior log-concavity formula has no zero-location classification.",
+          "The 72/25 discriminant positivity chamber certificate and unique exceptional multiplicity are not known-tabulated data in located references."
+        ],
+        "reasoning": "Standard Ehrhart coefficient formulas allow re-computation but do not already tabulate or imply global discriminant sign in all formal parameter chambers without additional proof.",
+        "searches": [
+          "RESULTARY: Ehrhart h* real rooted lattice prism polygon times interval Cartesian product lattice polygon",
+          "arXiv:2610.06338",
+          "arXiv:2608.03635",
+          "Resultary/2026:2026/10/4/SCOPE-lattice-segment-factors-preserve-ehrhart-h-log-concavity--5724d44ac8d4",
+          "WEB: Ehrhart h star polynomial prism lattice polygon segment real rooted arbitrary planar lattice polytope"
+        ]
+      },
+      "rationale": "Universal real-rootedness for polygon-by-segment prisms is stronger than the prior log-concavity-only segment-factor theorem. Full primary text of Liu 2026, Section 2 Theorem 2.2(i), now read from arXiv article HTML, requires BOTH input h* polynomials to be real-rooted; a polygon with I=1,B=3 has h*(t)=1+t+t², not real-rooted, so that theorem does not subsume this unrestricted claim. Large-width results similarly exclude width-one prisms. Prior Wagner result under real-rooted inputs is credited.",
+      "residual_risks": [
+        "An older specialized low-dimensional corollary of total-positivity or Hadamard transforms could imply the same all-polygon prism sign theorem, though none was identified in inspected primary sections.",
+        "The arXiv PDF rendition of Liu 2026 was inaccessible and Oxford attempt exhausted storage, but relevant full primary HTML including section 2 was accessible and read; no access-only failure was counted against O."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Not covering universal polygon prism theorem: two real-rooted input factors are required. PDF route blocked, but complete relevant primary section was actually read in HTML.",
+          "evidence": [
+            "Theorem 2.2(i), lines 213-230, exact two-real-rooted-input hypothesis",
+            "h* for I=1 B=3 is 1+t+t², which is non-real-rooted"
+          ],
+          "identifier_or_url": "https://arxiv.org/abs/2610.06338",
+          "material_read": "full accessible arXiv article HTML; Section 1 property table and entire Section 2 Cartesian products, especially Theorem 2.2(i) and its cited Wagner antecedent",
+          "method": "web full-text arxiv HTML view  and detailed Section 2 view ",
+          "title": "Ehrhart Properties under Operations on Lattice Polytopes",
+          "trigger": "near-identical Cartesian-product real-rootedness topic and newer revision 2026-10-19"
+        },
+        {
+          "assessment": "Provides explicit coefficient transform/log-concavity, expressly no upgrade to real-rootedness.",
+          "evidence": [
+            "Resultary published RESULT.md blob 65b166410a213abc805bb064344a0b8834e69e0d"
+          ],
+          "identifier_or_url": "https://github.com/Resultary/2026/blob/main/2026/10/4/SCOPE-lattice-segment-factors-preserve-ehrhart-h-log-concavity--5724d44ac8d4/RESULT.md",
+          "material_read": "complete published scientific RESULT.md including proof, limitations and prior-work section",
+          "method": "GitHub full-file connected read",
+          "title": "Lattice-segment factors preserve Ehrhart h*-log-concavity",
+          "trigger": "same product with interval, weaker asserted h* property"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "checked_sources": [
+        "Feihu Liu arXiv:2610.06338 complete article Section2 Theorem2.2(i) via arxiv HTML, dated 2026-10-19",
+        "Benjamin Nill arXiv:2608.03635 width condition from public abstract",
+        "Resultary lattice-segment log-concavity full RESULT.md",
+        "Resultary semantic Ehrhart h* lattice prism query",
+        "Frozen RESULT.md 8683ad0a6dd144c97c09c4e6d8cc493ce69a2f18"
+      ],
+      "rationale": "Real-rooted Ehrhart numerators are a strong algebraic/geometric property. Showing this for every 3D polygon-by-segment lattice prism, including thin prisms with nonreal-rooted 2D base numerator, is a genuine boundary strengthening beyond conditional product-preservation theorems. The all-I,B,k formula, unique double root and complete discriminant classification are independently reusable exact invariants, not an arbitrary enumerated range.",
+      "residual_risks": [
+        "No claim is made for general nonproduct dimension-three polytopes or higher-dimensional products."
+      ],
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "limitations": [
+    "Only Cartesian products of full 2D lattice polygons and integer segments are proved; not all dimension-three polytopes.",
+    "Algebraic chamber positivity covers formal I>=0,B>=3; arbitrary pairs need not correspond to polygons but the stronger algebraic calculation remains valid.",
+    "An older specialized low-dimensional corollary of total-positivity or Hadamard transforms could imply the same all-polygon prism sign theorem, though none was identified in inspected primary sections.",
+    "The arXiv PDF rendition of Liu 2026 was inaccessible and Oxford attempt exhausted storage, but relevant full primary HTML including section 2 was accessible and read; no access-only failure was counted against O.",
+    "No claim is made for general nonproduct dimension-three polytopes or higher-dimensional products."
+  ],
+  "schema_version": 1
+}

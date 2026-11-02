@@ -1,11 +1,21 @@
-# Review of the cross-polytopal dual flag-sphere classification
+# Independent mathematical audit
 
-**Correctness.** The incidence order is explicit and has height one. For the closure-meeting graph, each maximal facet point is dominated by an incident minimal point; for the inseparability graph, each minimal vertex point is dominated by an incident facet. Closed-neighborhood domination justifies simplicial collapses, leaving complete multipartite graphs with, respectively, \(m\) and \(2^{m-1}\) two-vertex parts. Their flag complexes are joins of zero-spheres, proving the full integral homotopy types. The Dowker complex consists of sets with no antipodal coordinate pair, so is the join of \(m\) zero-spheres; the cited duality theorem supplies the two nerve equivalences. Independent finite adjacency and boundary-rank calculations for \(m\le4\) give consistency checks. No general infinite proof is inferred from finite checks.
+## correctness
 
-**Originality.** The closest direct source is Cameron–Kumar, Theorem 9.2 and Example 9.4 (arXiv:2610.14783). Its theorem identifies the two joint-intersection nerves, not their clique completions; its six-point example changes a single clique completion to a contractible space. The present infinite family has two noncontractible flag spheres with distinct exponentially separated degrees and therefore cannot follow merely by applying their nerve duality. Existing finite-topology classifications of weak-order and vertex–facet posets and other graph-complex computations cover different constructions and do not state or dominate this dual classification. Equivalences under hypergraph two-sections or related graph terminology remain a genuine literature risk: absence of a matching search hit does not prove priority.
+PASS
 
-**Value.** Replacing a higher-order intersection nerve by the flag complex of its one-skeleton is a common but generally unjustified simplification. The new construction quantifies exactly how severely it can fail for both sides of a natural Dowker-dual incidence, without degenerating to contractible versus noncontractible: both graph complexes are spheres, but their nonzero homology occurs in exponentially separated degrees. The incidence family is canonical (cross-polytope vertex–facet structure) and works in every dimension \(m\ge3\).
+Checked the down-set open/up-set closure convention and all v_{i,epsilon}<f_s iff epsilon=s_i incidences. An incident minimal vertex dominates each maximal facet in the closure-meeting graph; dually an incident facet dominates each minimal vertex in the inseparability graph, by inclusion of closed neighborhoods. Standard elementary flag-complex collapses then remove those dominated vertices without altering integral homotopy. Remaining vertices give graph K_{2,...,2} with m antipodal coordinate pairs, hence Cl=(S^0)^{*m}=S^(m-1); remaining facets give complete graph on 2^m sign words except 2^(m-1) antipodal edges, hence sphere S^(2^(m-1)-1). The Dowker complex allows at most one sign in each coordinate, giving another S^(m-1), and Cameron–Kumar Theorem 9.2(a) identifies the genuine nerves. Independently rebuilt the complete up/down incidence and verified both proposed neighborhood dominations for m=3,4,5, plus reduced opposite-pair formulas for m=3..6. Finite checks are corroboration, not the all-m proof.
 
-**Scope and residual risks.** Only the two-rank vertex–facet incidence poset is treated, not the full face lattice. Similarities to standard hypergraph intersection constructions could conceal prior coverage. The computer script samples \(m=2,3,4\); all other dimensions rely on the symbolic proof. Independent verification has not been performed.
+## originality
 
-Self-review: passed. Independent audit: not yet performed.
+PASS
+
+PASS best-of-knowledge for the two-sided exact exponential sphere-dimension separation; general Dowker nerve equivalence is prior and is fully credited.
+
+## value
+
+PASS
+
+Replacing a joint-intersection nerve by the clique complex of its one-skeleton is an important and sometimes invalid computational simplification. The canonical vertex–facet cross-polytope incidence family provides an unrestricted explicit dual counterexample where both flag completions remain spheres yet differ by an exponential dimension gap, rather than a trivial collapse to a point.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

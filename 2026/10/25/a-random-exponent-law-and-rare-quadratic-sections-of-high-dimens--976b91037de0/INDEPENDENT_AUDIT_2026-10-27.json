@@ -1,0 +1,110 @@
+{
+  "audit_date_utc": "2026-10-27",
+  "audited_at_utc": "2026-10-27T17:00:18Z",
+  "axes": {
+    "correctness": {
+      "rationale": "For generic hyperplane H separating K of the m simplex vertices, each section vertex is a crossed edge and exactly V=K(m-K). Independently verified direct crossed-edge enumeration for synthetic finite samples. A Gaussian vector with centered radius R and order statistics gives the correctly width-tilted Crofton law E[(1/R)int f(K(s)(m-K(s))) ds]/E(W/R), not uniform normal plus uniform offset. Its exact expectation is binom(m,2) E|Z1-Z2|/E range=binom(m,2)/(sqrt(pi) mu_m). Gaussian range endpoints at ±sqrt(2log m), concentration R/sqrt(m)->1 and width tilt in L1 yield a limiting uniform offset U in [-1,1]. Mills tail and binomial concentration imply log V/log m -> 2-U^2; for fixed 0<a<1/4, empirical central quantiles give an interval of length 2q_a+o_L2(1), and ratio to Gaussian range proves sqrt(2 log m) Pr[V>=a m^2]->q_a and the conditional marked law. No inference of infinite asymptotics from simulations.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Kabluchko-Litvak-Zaporozhets arXiv:1511.08479, §3.2 gaussian extrema for mean widths; Swan arXiv:1808.09482 hypercube/parallelotope sections."
+        ],
+        "reasoning": "Gaussian range results furnish normalization but not random translated crossings; the hypercube section model has a different edge arrangement. Neither yields this random exponent and rare quadratic-section law.",
+        "searches": [
+          "random affine hyperplane section regular simplex number of vertices isotropic motion invariant measure random exponent Gaussian level Poisson rare quadratic",
+          "arXiv:1511.08479 Gaussian range mean width regular simplex",
+          "arXiv:1808.09482 random hypercube hyperplane slice expected vertices"
+        ]
+      },
+      "checked_sources": [
+        "https://arxiv.org/abs/1511.08479",
+        "https://arxiv.org/abs/1808.09482",
+        "https://arxiv.org/abs/2412.12419",
+        "Resultary/2026/10/11/SCOPE-exact-mean-and-chi-square-fluctuations-of-haar-central-simplex-s--d3f9b0447a8e"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "De Loera-Lopez-Campos-Torres arXiv:2412.12419 treats attainable section vertex counts; Gaussian width known from arXiv:1511.08479."
+        ],
+        "reasoning": "Counting possible section complexities does not measure probability under Crofton sampling, and the Gaussian width denominator alone does not yield the new random-offset empirical-CDF asymptotics.",
+        "searches": [
+          "arXiv:1511.08479 Gaussian simplex width",
+          "arXiv:2412.12419 cross-section attainable vertices",
+          "random affine hyperplane section regular simplex number of vertices isotropic motion invariant measure random exponent Gaussian level Poisson rare quadratic"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Motion invariant hyperplane measure dσ(u)dt conditioned intersecting has normal marginal weighted by width; a central Haar hyperplane fixes the offset at zero."
+        ],
+        "reasoning": "Changing from central to translated sections is a different sampling model, not a coordinate rephrasing. Affine section vertex counts encode binomial empirical CDF at a random offset.",
+        "searches": [
+          "random affine hyperplane section regular simplex number of vertices isotropic motion invariant measure random exponent Gaussian level Poisson rare quadratic",
+          "Crofton isotropic random affine section simplex Gaussian order statistics edge crossings"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "Resultary 2026/10/11/SCOPE-exact-mean-and-chi-square-fluctuations-of-haar-central-simplex-s--d3f9b0447a8e and 2026/10/11/SCOPE-joint-chi-square-face-vector-fluctuations-of-random-central-regu--aa90c887fe90"
+        ],
+        "reasoning": "Those indexed exact formulas count central simplex sections: expected quadratic vertices and chi-square deficits, not affine motion-invariant sections where a random offset yields a continuum of exponents.",
+        "searches": [
+          "random affine hyperplane section regular simplex number of vertices isotropic motion invariant measure random exponent Gaussian level Poisson rare quadratic"
+        ]
+      },
+      "rationale": "Existing Gaussian mean-width results for regular simplices and probability laws for Haar CENTRAL sections lack translation conditioning; results on hypercube affine sections involve a different body; general combinatorial bounds on section vertex counts do not determine Crofton probabilities. These primary and indexed results do not imply the three stated affine-section asymptotic laws at fixed m and in the m→∞ limit. Priority is best-of-knowledge.",
+      "residual_risks": [
+        "Potential equivalent Crofton-conditioned simplex section law under an alternative invariant-hyperplane parameterization may be unindexed.",
+        "Source about feasible counts was not excluded on whole-document grounds, though its advertised problem differs."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "BACKGROUND_NOT_AFFINE_SECTION",
+          "evidence": [
+            "Gaussian maximum/range supplies normalizing denominator but no stochastic crossing offsets or rare vertex event."
+          ],
+          "identifier_or_url": "https://arxiv.org/abs/1511.08479",
+          "material_read": "Original arXiv article relevant Gaussian maxima and regular-simplex mean width formulas and supporting derivations",
+          "method": "Read accessible full primary text and checked which random variables are counted",
+          "title": "Mean width of regular polytopes and expected maxima of correlated Gaussian variables",
+          "trigger": "Same regular simplex and Gaussian directional widths"
+        },
+        {
+          "assessment": "DIFFERENT_QUESTION_WITH_FULL_TEXT_RISK",
+          "evidence": [
+            "Attainable combinatorial section counts are not Crofton probabilities."
+          ],
+          "identifier_or_url": "https://arxiv.org/abs/2412.12419",
+          "material_read": "Original available abstract and mathematical count formulation; no whole-document noncoverage assertion",
+          "method": "Compared stated combinatorial feasible counts with probability under invariant random measure",
+          "title": "On the Number of Vertices in Hyperplane Cross-Sections of Convex Polytopes",
+          "trigger": "Possible general combinatorial coverage"
+        },
+        {
+          "assessment": "DIFFERENT_SAMPLING",
+          "evidence": [
+            "Central section typical complexity near m^2/4, whereas affine translated sections have a random exponent in [1,2]."
+          ],
+          "identifier_or_url": "Resultary/2026/10/11/SCOPE-exact-mean-and-chi-square-fluctuations-of-haar-central-simplex-s--d3f9b0447a8e",
+          "material_read": "Published indexed theorem and summary",
+          "method": "Compared central offset zero vs random affine offset",
+          "title": "Exact mean and chi-square fluctuations of Haar central simplex-section vertex counts",
+          "trigger": "Same regular simplex with hyperplane sections"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "rationale": "The number of vertices in random sections is a canonical geometric-probability statistic; the sharp nonconstant random polynomial exponent, exact mean, and 1/sqrt(log m) rare high-complexity law quantify a strong mean-versus-typical discrepancy not captured by known central-section results.",
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "limitations": [
+    "Regular m-vertex simplex and Crofton-normalized invariant affine intersecting hyperplane only, not normal-uniform then offset-uniform.",
+    "Rare event parameter a fixed strictly between 0 and 1/4; no uniform rare-event error rates."
+  ],
+  "schema_version": 1
+}

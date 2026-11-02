@@ -1,0 +1,109 @@
+{
+  "audit_date_utc": "2026-10-27",
+  "audited_at_utc": "2026-10-27T17:00:18Z",
+  "axes": {
+    "correctness": {
+      "rationale": "The complete resolution-k four-composition alphabet has b_i=(i+1)(k-i+1) symbols in GC-bin i, and the probability of exactly one GC in a pair is (i(k-j)+(k-i)j)/k^2. With weighted matrix T_ij=b_j 1_{success>=1-eps}, standard Perron walk growth gives 2^{C}=rho(T). When 0<=eps<1/2, allowable bins must lie on opposite GC halves with failure p+h-2ph>=max(p,h), forcing both bins to the extreme eps tails and hence row sums <=W_k(floor(k eps)). The smaller eps/2 tail rectangle is a complete bipartite induced subgraph with Perron root W_k(floor(k eps/2)); W_k(m)=(m+1)(m+2)(3k+3-2m)/6 leads to uniform absolute-factor k(1+k eps)^2 bounds and the exponent 3-2 min(alpha,1). For eps<1/k only the two pure bins remain, giving rho=k+1; at eps=1/k for k>=3, the four-bin weighted path yields rho=[k+1+sqrt((k+1)(9k+1))]/2 and asymptotic one-bit jump. Independently checked rational adjacency and numerical Perron roots against bounds and threshold for k=2..15 and multiple tolerances. Finite checks are corroborative only; k=2 is properly excluded at eps=1/k.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "arXiv:2610.09998v1 Theorem 15, lines 150-164: finite-state Markov weighted matrix, C=log2 lambda; Remark 16 evaluates fixed k=4 and w=5,10 numerical capacities."
+        ],
+        "reasoning": "A general finite-state matrix prescription is a mathematical starting point but does not automatically give sharp scale-uniform estimates or diagonal k,eps asymptotics without the target two-tail inequality and edge-spectrum calculations.",
+        "searches": [
+          "probabilistic composite DNA GC constraint length two exact balanced two-position capacity threshold resolution epsilon scaling",
+          "probabilistic sliding window GC capacity Theorem 15 Bodur Walter Wachter-Zeh"
+        ]
+      },
+      "checked_sources": [
+        "https://arxiv.org/abs/2610.09998",
+        "https://arxiv.org/abs/2501.10645",
+        "Resultary/2026/10/4/SCOPE-exact-worst-case-realizing-length-for-ternary-window-two-dna-pro--9a35e7b20e23"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "Bodur Theorem 15 proves rho(T) characterization; Nguyen et al. arXiv:2501.10645 requires deterministic satisfaction for all synthesized realizations; source appendix proves Gelfand growth, not the new sharp inequalities."
+        ],
+        "reasoning": "The new explicit bounds and one-bit threshold are consequences after a nontrivial specialization and Perron analysis, not merely rewriting theorem 15 or deterministic capacity.",
+        "searches": [
+          "arXiv:2610.09998 Theorem 15 Appendix proof",
+          "arXiv:2501.10645 deterministic GC composite coding",
+          "probabilistic composite DNA GC constraint length two exact balanced two-position capacity threshold resolution epsilon scaling"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Bodur-Walter-Wachter-Zeh arXiv:2610.09998v1 Theorem 15 supplies exactly the same T_epsilon when w=2, alpha=beta=1/2 and bin multiplicities (i+1)(k-i+1)."
+        ],
+        "reasoning": "The source transfer matrix formula is known; the present claim is specifically its resolution-uniform spectral tail bounds, k→infinity exponent law, and first nonzero tolerance threshold, not the construction of T.",
+        "searches": [
+          "probabilistic composite DNA GC constraint length two exact balanced two-position capacity threshold resolution epsilon scaling",
+          "arXiv:2610.09998v1 w=2 alpha=beta=1/2 exact epsilon GC sliding window"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "Bodur et al. Remark 16 reports example capacities at k=4 for w=5 and 10, neither the exact balanced w=2 spectral jump nor an all-k table; Resultary semantic DNA hits concerned other DNA coding invariants."
+        ],
+        "reasoning": "No indexed exact all-k onset formula or equivalent phase table found. Lack of matching search results alone is not novelty proof.",
+        "searches": [
+          "probabilistic composite DNA GC constraint length two exact balanced two-position capacity threshold resolution epsilon scaling",
+          "composite DNA k epsilon first tolerance mixed GC capacity threshold"
+        ]
+      },
+      "rationale": "The motivating October 7 2026 primary paper Theorem 15 already supplies the exact general weighted transfer matrix/capacity for arbitrary windows, so that framework is NOT new. Its materially read Sections II-III and Appendix yield bin multiplicities and generic capacity but do not state or imply, without new Perron-tail analysis, the uniform resolution-dependent two-sided estimates and explicit onset eigenvalue. The earlier deterministic all-realizations composite GC model is distinct. Best-of-knowledge originality with explicit general-theorem corollary risk.",
+      "residual_risks": [
+        "Theorem 15 of the primary source encompasses the starting weighted matrix, so any previously unnoticed special-case spectral estimate in that literature could weaken priority; inspected statements did not show the claimed sharp resolution phase.",
+        "Authorized PDF download reported a storage limit, but full arXiv HTML body was then inspected, avoiding any claim based only on an abstract."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "GENERAL_MATRIX_PRIOR_NOT_SHARP_PHASE",
+          "evidence": [
+            "Equation (1): (i+1)(k-i+1); Theorem 15: C=log2(lambda(T_epsilon)); Remark 16: numerical examples for other window sizes; no sharp all-k two-tail capacity bounds or first jump stated."
+          ],
+          "identifier_or_url": "https://arxiv.org/abs/2610.09998",
+          "material_read": "Full text as rendered on accessible arXiv abstract page, Sections II-A and III-C (Definitions 1-2, Theorem 15, Remark 16) and Appendix A proof of the transfer-matrix theorem",
+          "method": "Read primary text and compared w=2, exact balance, k variable and epsilon threshold with stated results",
+          "title": "Probabilistic GC-Constraints for Composite DNA",
+          "trigger": "Same alphabet, GC bins, probabilistic window constraints, potential full coverage"
+        },
+        {
+          "assessment": "DIFFERENT_CONSTRAINT",
+          "evidence": [
+            "Deterministic model rejects symbols leading to any violating realization; epsilon model permits controlled failure probability."
+          ],
+          "identifier_or_url": "https://arxiv.org/abs/2501.10645",
+          "material_read": "Available arXiv article description and introductory model differences; no whole-document noncoverage certification",
+          "method": "Compared deterministic all-realizations compliance with probabilistic per-pair compliance",
+          "title": "Constrained Coding for Composite DNA: Channel Capacity and Efficient Constructions",
+          "trigger": "Potential prior composite GC capacity"
+        },
+        {
+          "assessment": "DIFFERENT_OBJECT_NO_WHOLE_TEXT_NONCOVERAGE",
+          "evidence": [
+            "Rankings of ternary profiles versus weighted Perron capacity for GC probability bins."
+          ],
+          "identifier_or_url": "Resultary/2026/10/4/SCOPE-exact-worst-case-realizing-length-for-ternary-window-two-dna-pro--9a35e7b20e23",
+          "material_read": "Published indexed theorem summary only",
+          "method": "Compared symbolic ranking-realization length with spectral capacity under probabilistic GC",
+          "title": "Exact worst-case realizing length for ternary window-two DNA profile rankings",
+          "trigger": "Indexed window-two DNA result with potentially overlapping parameter"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "rationale": "Resolution and permissible synthesis error are natural design parameters in probabilistic composite-DNA constrained coding. The uniform capacity scaling and precise first change at eps=1/k provide a reproducible two-parameter phase description beyond a general transfer-matrix algorithm, without asserting wet-lab gains or error-correction properties.",
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "limitations": [
+    "Exactly one GC in every consecutive pair with per-pair failure probability <=epsilon, k>=2, 0<=epsilon<1/2; k>=3 at epsilon=1/k.",
+    "No claims about longer windows, sequencing error rates, or biological validation."
+  ],
+  "schema_version": 1
+}

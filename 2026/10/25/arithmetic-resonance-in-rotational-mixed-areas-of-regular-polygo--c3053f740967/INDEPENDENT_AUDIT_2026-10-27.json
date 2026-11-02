@@ -1,0 +1,128 @@
+{
+  "audit_date_utc": "2026-10-27",
+  "audited_at_utc": "2026-10-27T19:59:23Z",
+  "axes": {
+    "correctness": {
+      "checked_sources": [
+        "RESULT.md Git blob e931c5e12f48533ffcda5919ee9e5caa076fc69b",
+        "verify.py Git blob 9e73f8a6582901051d31bf3f9a3a62254e5c6ea7",
+        "/mnt/data/scope_worker07_math_checks_20261027T1941Z.py"
+      ],
+      "rationale": "PASS. The planar polygon mixed-area formula reduces the cross coefficient to a sum of one polygon support function at edge normals of the other. With m=gM,n=gN and L=lcm(m,n), coprimality of M,N makes the selected angular residues one length-M consecutive grid with spacing 2pi/L, repeated g times. The finite cosine sum is g sin(pi/n)cos(d(phi))/sin(pi/L), giving A0+Bcos d globally, including tie angles. Coincident edge normals occur exactly at minimizing orientations and in exactly gcd(m,n) directions, proving the side count m+n-g versus m+n. The cusp expansion, cosine-distribution under uniform rotation, mean perimeter product/(2pi), and L^-2 range follow by one-variable analysis. Independent fresh support-functional evaluations on 2,025 random (m,n,r,s,phi) instances matched the formula; finite tests are not the proof.",
+      "residual_risks": [
+        "The asymptotic requires m,n both tending to infinity at fixed positive radii."
+      ],
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "General polygon Minkowski normal-fan algorithms imply the sum is piecewise trigonometric after an additional computation; the 2026 mixture paper tabulates certain fixed relative orientations."
+        ],
+        "reasoning": "A general algorithm is not itself the closed gcd/lcm response and singularity classification for every relative angle.",
+        "searches": [
+          "Deza and Pournin arXiv:1806.07643",
+          "Abbasi Moud arXiv:2606.21812",
+          "Resultary: area Minkowski sum two regular polygons relative rotation cosine gcd lcm excluded area"
+        ]
+      },
+      "checked_sources": [
+        "Resultary semantic search Resultary: area Minkowski sum two regular polygons relative rotation cosine gcd lcm excluded area",
+        "arXiv:1806.07643",
+        "arXiv:1902.05961",
+        "arXiv:2606.21812",
+        "DOI:10.1088/1751-8113/47/41/415205"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "Normal-fan merging determines which directions become edges, not by itself the evaluated geometric cosine grid coefficient B or arithmetic maximizing phase."
+        ],
+        "reasoning": "Classical mixed-area identity and finite trigonometric sum give a reproducible derivation; prior statements inspected did not already assert the resulting all-parameter identity.",
+        "searches": [
+          "arXiv:1806.07643",
+          "arXiv:1902.05961",
+          "arXiv:2606.21812"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Excluded area for hard planar polygons equals Minkowski area of one shape and a reflection/rotation of the other; same-species small-side examples are equivalent special cases."
+        ],
+        "reasoning": "Polygon excluded-area terminology is an important alias. The surveyed primary same-species results address slices, not an explicit mixed (m,n) continuous phase formula.",
+        "searches": [
+          "Resultary: area Minkowski sum two regular polygons relative rotation cosine gcd lcm excluded area",
+          "Geigenfeind and de las Heras arXiv:1902.05961"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "Inspected source comparisons include explicit regular triangle/square curves, same-species extrema and mixture tables at fixed orientations, which the present formula specializes to."
+        ],
+        "reasoning": "Acknowledged known numerical/exact special cases, but no exact all m,n relative-angle table or distribution found. Unsearched geometric literature remains risk.",
+        "searches": [
+          "Geigenfeind and de las Heras arXiv:1902.05961",
+          "Abbasi Moud arXiv:2606.21812"
+        ]
+      },
+      "rationale": "PASS best-of-knowledge. Classical mixed-volume/support calculus, rotational mean and some congruent-polygon extrema are known. The assessed result explicitly evaluates the entire angular response for unequal arbitrary m,n, determines parity-shifted gcd/lcm phase and exact side-count cusp coincidence, and supplies the induced area distribution. Checked earlier same-species and fixed-orientation statements do not imply this full all-order formula without nontrivial arithmetic collapse.",
+      "residual_risks": [
+        "An equivalent closed cosine-of-nearest-grid formula could occur in collision detection, excluded-volume or convex-geometry references under other terminology.",
+        "Some primary comparisons were section-level, not full-paper proof inspections."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Covers congruent/small cases, no direct all m,n formula identified",
+          "evidence": [
+            "The same-species periodic excluded-area problem is a legitimate special case."
+          ],
+          "identifier_or_url": "https://arxiv.org/abs/1902.05961",
+          "material_read": "Accessible original abstract and discussion of same-species small-n angle curves; not all original proof pages inspected",
+          "method": "Compared definitions, known triangular/square special cases, and scope",
+          "title": "The excluded area of two-dimensional hard particles",
+          "trigger": "Angular excluded-area formulas for regular polygons"
+        },
+        {
+          "assessment": "Fixed-orientation mixture data do not establish full relative rotation distribution",
+          "evidence": [
+            "Known fixed-angle area specializations."
+          ],
+          "identifier_or_url": "https://arxiv.org/abs/2606.21812",
+          "material_read": "Accessible original paper description of Section IV.1 and Table 2 fixed-orientation mixed excluded areas",
+          "method": "Compared model and orientation quantifiers",
+          "title": "Saturation Coverage in Binary Mixtures of Oriented Regular Polygons via Random Sequential Adsorption",
+          "trigger": "Two regular polygon orders in mixed excluded area"
+        },
+        {
+          "assessment": "General structural method, not same evaluated mixed polygon angular law",
+          "evidence": [
+            "Normal-fan/side-union facts are classical."
+          ],
+          "identifier_or_url": "https://arxiv.org/abs/1806.07643",
+          "material_read": "Accessible primary article scope and Section 2 discussion of common fan refinements",
+          "method": "Read framework and compared output type",
+          "title": "Diameter, decomposability, and Minkowski sums of polytopes",
+          "trigger": "General normal-fan formula for Minkowski polygon sums"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "checked_sources": [
+        "RESULT.md",
+        "classical mixed-area support reduction",
+        "independent 2025-case support evaluation"
+      ],
+      "rationale": "PASS. The full exact two-order angular mixed-area distribution and arithmetic side-count transition are useful in convex geometry and mixed excluded-area models. The sharp gcd/lcm resonance, corner cusps and random-orientation law are meaningful refinements beyond a routine single numeric substitution.",
+      "residual_risks": [
+        "No claims on packing, 3D polytopes, or general nonsymmetric polygons."
+      ],
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "limitations": [
+    "A formula for planar regular polygons only.",
+    "Classical support/mixed-area method and same-order cases are prior results."
+  ],
+  "schema_version": 1
+}

@@ -1,19 +1,21 @@
-# Scientific comparison and review
+# Independent mathematical audit
 
-## Correctness — PASS
+## correctness
 
-The area identity is derived from the polygon mixed-area support-sum formula, with all radii positive and integer orders at least three. The coprime-residue argument gives the precise arithmetic phase, including its parity change. The finite cosine progression proves the identity at ordinary angles, and continuity treats tied support directions. The common-normal congruence proves the side-count phase; strict cosine monotonicity gives every optimum; the angular cusp and orientation distribution follow by exact one-variable calculations. A separately implemented standard-library convex-hull calculation passed 3,696 regressions; numerical tests are not the infinite proof. Mixed-area normalization has been checked against the known same-polygon cases.
+PASS
 
-## Originality — PASS (within inspected sources)
+PASS. The planar polygon mixed-area formula reduces the cross coefficient to a sum of one polygon support function at edge normals of the other. With m=gM,n=gN and L=lcm(m,n), coprimality of M,N makes the selected angular residues one length-M consecutive grid with spacing 2pi/L, repeated g times. The finite cosine sum is g sin(pi/n)cos(d(phi))/sin(pi/L), giving A0+Bcos d globally, including tie angles. Coincident edge normals occur exactly at minimizing orientations and in exactly gcd(m,n) directions, proving the side count m+n-g versus m+n. The cusp expansion, cosine-distribution under uniform rotation, mean perimeter product/(2pi), and L^-2 range follow by one-variable analysis. Independent fresh support-functional evaluations on 2,025 random (m,n,r,s,phi) instances matched the formula; finite tests are not the proof.
 
-The closest published work on angle-dependent excluded areas, Geigenfeind–de las Heras (2019), computes regular-polygon examples and reports identical-order extrema but not the mixed-order closed law. Abbasi Moud (2026) computes fixed-orientation cross-species excluded areas and the equal-species parity formula, both obtained as special values; Deza–Pournin (2018) gives the normal-fan machinery without angular area formulas. Earlier identical-convex-body minimization covers the corresponding equal-order minimization statement, which is not asserted as the novel part. The combination of a universal \(\gcd/\operatorname{lcm}\) law, exact angular classification, facet count at precisely the minima, and full random-orientation distribution is not implied by those stated special-case results without new arithmetic analysis. Search coverage cannot establish absolute priority.
+## originality
 
-## Value — PASS
+PASS
 
-The result provides a complete structural phase diagram, not one numerical value: it identifies a number-theoretic sensitivity scale for mixed polygon pairs, shows that all nonsmooth angular minima coincide with normal-fan degeneracy, and supplies exact orientation-dependent excluded areas relevant to mixtures of polygonal particles. The coprime versus commensurate contrast in the \(L^{-2}\) oscillation connects geometry to side-count arithmetic. Previously available pairwise Minkowski-sum algorithms compute each angle separately but do not explain these sharp transitions.
+PASS best-of-knowledge. Classical mixed-volume/support calculus, rotational mean and some congruent-polygon extrema are known. The assessed result explicitly evaluates the entire angular response for unequal arbitrary m,n, determines parity-shifted gcd/lcm phase and exact side-count cusp coincidence, and supplies the induced area distribution. Checked earlier same-species and fixed-orientation statements do not imply this full all-order formula without nontrivial arithmetic collapse.
 
-## Residual risks
+## value
 
-An equivalent formula may exist in older collision-detection, kinetic-theory, or mathematical-morphology literature not indexed by title search. The proof uses classical mixed-area and polygon-normal-fan facts; the claim is originality of the explicitly collapsed arithmetic-angle profile and classification, not invention of those tools. The finite checks are regressions, not certification.
+PASS
 
-Self-review: passed. Independent audit: not yet performed.
+PASS. The full exact two-order angular mixed-area distribution and arithmetic side-count transition are useful in convex geometry and mixed excluded-area models. The sharp gcd/lcm resonance, corner cusps and random-orientation law are meaningful refinements beyond a routine single numeric substitution.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

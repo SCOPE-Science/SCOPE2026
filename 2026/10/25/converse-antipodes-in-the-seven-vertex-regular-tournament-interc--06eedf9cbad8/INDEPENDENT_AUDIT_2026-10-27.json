@@ -1,0 +1,116 @@
+{
+  "audit_date_utc": "2026-10-27",
+  "audited_at_utc": "2026-10-27T20:53:33Z",
+  "axes": {
+    "correctness": {
+      "checked_sources": [
+        "Frozen RESULT.md theorem/complete mask algorithm, blob a16b90439eb322e81caf0aa6dced6ec1aeca1569",
+        "Frozen verify_bitmask.py blob 303decd16eb6ebdfa85c0029c9fa1f5685f75e3d and verify_recursive.py blob 3ff7c27cccd37050dc3330456d844f0febcbe9c0",
+        "Independent direct enumeration of all 2^21 masks and BFS of three 7!-orbits",
+        "Kolesnik et al arXiv:2312.04532 full primary text"
+      ],
+      "rationale": "I independently enumerated all 2^21 labeled tournaments by exact oriented-edge masks, filtered by outdegree three, obtaining 2640. Exactly 14 cyclic triangles are flippable at each state (hence 18480 undirected edges). Explicit orbit generation under the 7! label permutations gave orbit sizes 240,720,1680, covering all 2640 states. Exact BFS from each orbit representative visited the entire graph and reproduced shell profiles: 240:(1,14,91,343,749,871,476,92,3), 720:(1,14,91,336,721,822,485,147,22,1), 1680:(1,14,91,340,739,853,483,113,6). Converse distances were 7,9,7; the sole radius-nine shell in the 720 orbit is its converse, yielding 720/2=360 antipodal unordered pairs, global diameter nine and radius eight. Independent four-subset enumeration recovered cyclic-triangle histograms (0,14,21),(7,0,28),(3,8,24), identifying the middle orbit by absence of one-cyclic-triangle four-sets. The source code checks every state; this is a genuinely complete finite proof, not sampling.",
+      "residual_risks": [
+        "Original Brualdi–Li 1984 full text unavailable, so small-order priority remains uncertain despite related literature checks.",
+        "Finite theorem proof is exhaustive only for n=7; no general odd-order extrapolation."
+      ],
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Kolesnik–Mitchell–Przybyłowski full arXiv paper generalizes interchange graphs to Coxeter tournament families and gives regularity/degree theory; its inspected main results are not the exact 2640-node 7-vertex shortest-path matrix."
+        ],
+        "reasoning": "A theorem about degree and fiber connectivity under broader Coxeter moves does not imply exact metric shells for this fixed classical tournament-score fiber.",
+        "searches": [
+          "Coxeter interchange graphs Kolesnik Mitchell Przybylowski arXiv:2312.04532 tournament interchange diameter",
+          "Guiduli Gyárfás Thomassé Weidl 2 Partition Transitive Tournaments triangle reversals"
+        ]
+      },
+      "checked_sources": [
+        "https://arxiv.org/abs/2312.04532",
+        "Brualdi and Li, Progress in Graph Theory (1984), pp. 128–151",
+        "Frozen RESULT.md theorem/complete mask algorithm, blob a16b90439eb322e81caf0aa6dced6ec1aeca1569",
+        "Frozen verify_bitmask.py blob 303decd16eb6ebdfa85c0029c9fa1f5685f75e3d and verify_recursive.py blob 3ff7c27cccd37050dc3330456d844f0febcbe9c0",
+        "Independent direct enumeration of all 2^21 masks and BFS of three 7!-orbits",
+        "Kolesnik et al arXiv:2312.04532 full primary text"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "General connectivity and diameter upper bounds do not force radius 8, diameter 9, or the uniqueness of the converse farthest state exactly in the 720 orbit."
+        ],
+        "reasoning": "The recognized prior bounds may constrain graph diameter but do not mathematically imply these exact shell profiles; inaccessible original Brualdi–Li tables remain a priority risk.",
+        "searches": [
+          "Brualdi Li interchange tournament seven vertices distance nine complements",
+          "https://arxiv.org/abs/2312.04532"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Ryser and Brualdi–Li provide triangle reversal interchange connectivity for fixed score sequence; the seven-vertex exact metric shells and converse-antipode classification are additional finite invariants."
+        ],
+        "reasoning": "The graph object and moves are classical; the new claim is the complete shortest-path metric, which cannot be derived from connectivity alone.",
+        "searches": [
+          "Seven vertex regular tournament triangle reversal interchange graph shortest path diameter converse antipodes",
+          "Brualdi Li 1984 interchange graph tournaments same score vector regular n=7"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "Established listings of the three unlabeled regular seven-vertex tournaments and counts do not determine the triangle-flip graph shortest-path profiles or 360 maximal pairs."
+        ],
+        "reasoning": "Enumeration of vertices or isomorphism classes is a necessary input, not a table of reversal distances or antipodal pairs.",
+        "searches": [
+          "2640 regular tournaments seven vertices exact reversal graph radius diameter table",
+          "ANU digraphs regular tournaments order seven counts"
+        ]
+      },
+      "rationale": "PASS, qualified best-of-knowledge: literature comparison of exact statements/implications. The graph object and moves are classical; the new claim is the complete shortest-path metric, which cannot be derived from connectivity alone. The recognized prior bounds may constrain graph diameter but do not mathematically imply these exact shell profiles; inaccessible original Brualdi–Li tables remain a priority risk.",
+      "residual_risks": [
+        "Original Brualdi–Li 1984 full text unavailable, so small-order priority remains uncertain despite related literature checks.",
+        "Finite theorem proof is exhaustive only for n=7; no general odd-order extrapolation."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Generalized Coxeter interchange regularity, not the original seven-vertex regular-score graph metric census in the inspected theorems",
+          "evidence": "Abstract, intro and main theorems: regularity/score sequences in Coxeter setting; no n=7 distance profiles identified.",
+          "identifier_or_url": "https://arxiv.org/abs/2312.04532",
+          "material_read": "Accessible full OA manuscript introduction, principal degree/connectivity theorem statements, classical interchange background and compared sections",
+          "method": "Read full-page source text; targeted term queries for seven and diameter",
+          "title": "Coxeter interchange graphs",
+          "trigger": "Modern primary paper studying the same tournament interchange operation"
+        },
+        {
+          "assessment": "CANNOT determine whether chapter has n=7 exact metric tables; explicit priority risk, not a whole-document noncoverage assertion",
+          "evidence": "Bibliographic title, scope, year and page range; no original mathematical passages were available.",
+          "identifier_or_url": "Brualdi and Li, Progress in Graph Theory (1984), pp. 128–151",
+          "material_read": "Bibliographic data and later citations only; original chapter full text not obtained",
+          "method": "OA/arXiv searches followed by authorized institutional request, which returned “Oxford worker unavailable or request invalid”",
+          "title": "The interchange graph of tournaments with the same score vector",
+          "trigger": "Original exact same classical graph definition, possible small-order tables"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "checked_sources": [
+        "Frozen RESULT.md theorem/complete mask algorithm, blob a16b90439eb322e81caf0aa6dced6ec1aeca1569",
+        "Frozen verify_bitmask.py blob 303decd16eb6ebdfa85c0029c9fa1f5685f75e3d and verify_recursive.py blob 3ff7c27cccd37050dc3330456d844f0febcbe9c0",
+        "Independent direct enumeration of all 2^21 masks and BFS of three 7!-orbits",
+        "Kolesnik et al arXiv:2312.04532 full primary text"
+      ],
+      "rationale": "The triangle-interchange graph of the smallest interesting regular tournament score class is a canonical finite object. Its exact radius/diameter, full orbit distance distributions and intrinsic converse-antipode criterion are a meaningful complete metric classification rather than a tiny arbitrary slice, resolving a natural extremal configuration question within the 2640-state graph.",
+      "residual_risks": [
+        "The scope is exactly seven vertices, and no assertion is made for arbitrary odd order; the value is a complete finite structural census."
+      ],
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "limitations": [
+    "Original Brualdi–Li 1984 full text unavailable, so small-order priority remains uncertain despite related literature checks.",
+    "Finite theorem proof is exhaustive only for n=7; no general odd-order extrapolation.",
+    "The scope is exactly seven vertices, and no assertion is made for arbitrary odd order; the value is a complete finite structural census."
+  ],
+  "schema_version": 1
+}

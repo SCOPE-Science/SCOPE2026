@@ -5,8 +5,11 @@
     "status": "not_performed"
   },
   "independent_audit": {
-    "evidence": null,
-    "status": "not_performed"
+    "status": "passed",
+    "evidence": [
+      "INDEPENDENT_AUDIT_2026-10-27.md",
+      "INDEPENDENT_AUDIT_2026-10-27.json"
+    ]
   },
   "lean_verification": {
     "evidence": null,
@@ -16,10 +19,24 @@
 }
 ---
 
-# Reproducible checks and scope
+# Independent mathematical audit
 
-The theorem holds for all real relative angles, all integer side counts at least three, and arbitrary positive circumradii. Its analytic certificate is the mixed-area identity, a coprime residue bijection, the finite cosine progression, and the congruence of outward facet normals. These steps are written out in `RESULT.md` and do not depend on experiments.
+## correctness
 
-Execute `python3 verify.py` from the directory containing this file to perform an independently coded pairwise-vertex-sum convex hull and shoelace check using the standard library only. The program enumerates 3,696 numerical checks: 3,179 area comparisons for side counts between 3 and 19, 512 exact phase side-count comparisons, and five finite-sample orientation moments. Expected success message begins `PASS: 3696`; the observed worst numerical absolute area error was less than \(2.14\times10^{-14}\).
+PASS
 
-The computation uses floating-point arithmetic and cannot prove exact equality for untested orders, all radii, or all angles. Analytic limit uses \(\sin x/x\to1\) and \((1-\cos x)/x^2\to1/2\). The uniform-angle law is a direct change of variables; the result does not assert a packing theorem or independence of scientific audit.
+PASS. The planar polygon mixed-area formula reduces the cross coefficient to a sum of one polygon support function at edge normals of the other. With m=gM,n=gN and L=lcm(m,n), coprimality of M,N makes the selected angular residues one length-M consecutive grid with spacing 2pi/L, repeated g times. The finite cosine sum is g sin(pi/n)cos(d(phi))/sin(pi/L), giving A0+Bcos d globally, including tie angles. Coincident edge normals occur exactly at minimizing orientations and in exactly gcd(m,n) directions, proving the side count m+n-g versus m+n. The cusp expansion, cosine-distribution under uniform rotation, mean perimeter product/(2pi), and L^-2 range follow by one-variable analysis. Independent fresh support-functional evaluations on 2,025 random (m,n,r,s,phi) instances matched the formula; finite tests are not the proof.
+
+## originality
+
+PASS
+
+PASS best-of-knowledge. Classical mixed-volume/support calculus, rotational mean and some congruent-polygon extrema are known. The assessed result explicitly evaluates the entire angular response for unequal arbitrary m,n, determines parity-shifted gcd/lcm phase and exact side-count cusp coincidence, and supplies the induced area distribution. Checked earlier same-species and fixed-orientation statements do not imply this full all-order formula without nontrivial arithmetic collapse.
+
+## value
+
+PASS
+
+PASS. The full exact two-order angular mixed-area distribution and arithmetic side-count transition are useful in convex geometry and mixed excluded-area models. The sharp gcd/lcm resonance, corner cusps and random-orientation law are meaningful refinements beyond a routine single numeric substitution.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

@@ -1,15 +1,21 @@
-# Scientific review
+# Independent mathematical audit
 
-## Correctness — PASS
-Exactly \(2^{18}\) fixed-center coefficient vectors are tested. All geometric singular closed points capable of contributing to genus defect beyond the prescribed node/cusp have degree at most five. Separate exact algorithms check smoothness, irreducibility, and algebraic splitting; both agree on 67,608 qualifying embedded equations and coarse point-count distributions. The primary geometric theorem establishes uniqueness of the trigonal map. The fine 75-cell profile is reproduced from the supplied Python source and supplied in complete tables, with witnesses.
+## correctness
 
-## Originality — PASS (qualified)
-Wennink's theorem gives the **known** weighted count and nodal/cuspidal parametrizations, but not the three-fibre arithmetic partitions. Dragutinović's complete equation database and known rational-point counts in genus five imply the maximum of eight points (and therefore the exclusion of the all-LLL triple), so this exclusion and the global curve counts are not asserted as novel. The new object is the full 34-pattern realizability plus 75 source-type-conditioned profile counts and complete rational ramification histogram. Prior published equation data can in principle yield these invariants after additional computation, and an unpublished prior enumeration cannot be excluded. published-finding corpus searches for same Hurwitz data produced no equivalent claim.
+PASS
 
-## Value — PASS
-The unique trigonal map is a canonical invariant of a genus-five trigonal curve, and simultaneous fibre splitting, ramification at rational targets, and singularity-model type encode arithmetic branch information not recoverable merely from rational point totals. The complete small-field census and explicit witnesses provide natural benchmark data for finite-field Hurwitz spaces and point counting.
+PASS. The full normalized fixed-center coefficient space has 2^18 binary quintic forms. A quadratic tangent cone and cubic transverse term classify ordinary split/nonsplit nodes and cusps; rejecting Jacobian-zero points at every closed point degree 1 through 5 and every factor of degrees 1 or 2 certifies the one ordinary singularity and geometric integrality, using genus defect and degree-five conjugate-line reasoning. For each of the three P^1(F2) lines through the singular center, the order-two exceptional factor leaves a binary cubic whose geometric factorization supplies five fibre types. A fresh independently written exact finite-field census—not either submitted checker—enumerated all 2^18 masks, field orbits (closed-point counts 6,7,22,63,210), degree-1/2 factor products and the three cubic fibres. It recovered 67,608 valid fixed-center forms, split/nonsplit/cusp totals 36,840/12,384/18,384, 75 nonempty (singularity,triple) cells, 34 realized unordered triples, and only missing (LLL,LLL,LLL). A separate fresh check reconstructed all 34 supplied witness masks and their fibre factorizations. These finite computations are exhaustive of the stated finite equation space, not a theorem about all characteristics or genera.
 
-## Residual limitations
-The tables count normalized **embedded equations**, not abstract isomorphism classes. Only rational target-fibre splitting is resolved; no claim about geometric monodromy, full branch cycles or all extension-field zeta data is made. A later independent review is necessary for external certification and global priority.
+## originality
 
-Self-review: passed. Independent audit: not yet performed.
+PASS
+
+PASS best-of-knowledge. Wennink establishes the previously known weighted trigonal genus-five stack count 2817, and Dragutinovic constructs the full binary genus-five curve database including 2854 classes and rational-point maxima. Those totals and existence of equations are not new. The assessed finer, naturally attached unordered splitting type of all three rational base fibres of the intrinsic trigonal map, stratified by singularity type into 75 cells, is not given in the inspected primary results. An existing equation database makes this computable but is not an exact published table of these invariants. Residual near-priority risk is specifically recorded.
+
+## value
+
+PASS
+
+PASS. The intrinsic trigonal morphism gives a canonical arithmetic invariant finer than the known total curve/point counts. Exhaustive realization of 34/35 possible rational base fibre configurations and 75 singularity-conditioned cells supplies a compact, reproducible finite arithmetic classification and useful explicit witnesses. Value lies in the full positive realization and distribution, not the previously known 2817 calibration or eight-point bound.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

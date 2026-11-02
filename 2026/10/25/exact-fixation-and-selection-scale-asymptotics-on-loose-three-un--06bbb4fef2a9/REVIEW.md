@@ -1,11 +1,21 @@
-# Scientific assessment
+# Independent mathematical audit
 
-**Correctness — PASS.** The exact model specifies the parent, hyperedge choice and whole-edge overwrite. An updated petal permanently synchronizes its leaves; the unique mixed petal in leaf-singleton seeding has an exact three-rate first-resolution calculation. Conditioning on genuine changes yields two harmonic recurrences, solved by a geometric increment ratio and both absorbing boundaries. The formulas include neutrality explicitly. Fixed-fitness asymptotic expansions and the complete five-vertex suppression polynomial have separately checkable algebra. The included exact-rational full-chain and polynomial tests executed successfully. Risks: large-size results are pointwise in fitness; no theorem about other hypergraph structures follows.
+## correctness
 
-**Originality — PASS (provisional publication priority).** Liu–Masuda's relevant full primary text defines the update rule and analyzes the *dense* hub-and-all-leaf-pairs hypergraph; their formula is not the sparse disjoint-petal all-size law. Keller–Uğurlu's weighted graph process changes one neighbor per update, not an entire three-vertex group. Targeted literature and research-record searches found no identical loose-hyperstar formula or dominating theorem. Risk: not every paper in the field is searchable, and undiscovered equivalent formulations may exist.
+PASS
 
-**Value — PASS.** The number and overlap pattern of group interactions is a natural structural variable in evolutionary dynamics. The result avoids exponential-state absorption solves for every population size and explicitly separates hub and leaf mutation success. Its two different fixed-selection asymptotic regimes quantify how finite hypergraph suppressor behavior approaches the Moran benchmark, while a five-vertex rational identity supplies a rigorous complete nonneutral comparison. These are nontrivial exact fixation and scaling facts, not relabelings of the dense-star findings.
+For m≥2 loose hyperedges {hub,leaf2j-1,leaf2j} with whole-edge overwrite (fitness-proportional parent then uniform incident edge) and r>0, synchronized leaf pairs remain synchronized. The sole initially discordant petal for leaf seeding resolves before other type changes with mutant success rate r versus resident-leaf 1 and hub 1/m, giving c=mr/[m(r+1)+1]. On synchronized states (resident hub,k mutant petals) and (mutant hub,k mutant petals), genuine-change conditional probabilities yield u_k=bv_k+(1-b)u_{k-1}, v_k=av_{k+1}+(1-a)u_k, with a=r/(r+2m),b=2mr/(2mr+1). Boundary u_0=0,v_m=1 and geometric increment ratio q=(1-b)/a give H and exact hub/leaf/uniform fixation. Checked neutral r=1 directly and independently simplified exact m=2 suppression polynomial by symbolic rational factorization. Recomputed advantaged r>1 1/m coefficient and deleterious r<1 exponential scale via q=r^-2(1+(r-r^-1)/(2m)+O_r(m^-2)). Pointwise fixed r only; no extrapolation across r→1. All states can reach an absorbing consensus with positive probability, so finite harmonic solution valid.
 
-Closest literature: Liu and Masuda (2023, arXiv:2301.05343), Sections 2–3.1 and relevant supplement; Keller and Uğurlu (2024, arXiv:2403.12598), graph replacement framework. Neither covers disjoint two-leaf petals under whole-edge overwriting. Scientific limitations and residual priority uncertainty are recorded in RESULT.md.
+## originality
 
-Self-review: passed. Independent audit: not yet performed.
+PASS
+
+Best-of-knowledge: full published Liu–Masuda primary text materially inspected; despite matching update law their star means all leaf pairs, not loose disjoint petals. The exact all-fitness rational formula and precise two fixed-fitness asymptotics have specific new mathematical content. Baseline neutral i/N already known.
+
+## value
+
+PASS
+
+Loose m-petal hyperstars form a canonical sparse linear 3-uniform hypergraph family and isolate group-overwrite versus ordinary graph replacement. The theorem gives exact hub-vs-leaf seeding, complete fixed-fitness large-size behavior, an explicit deleterious selection ratio and a sharp m=2 all-r suppression result. This is a motivated natural infinite-family classification, not an arbitrary sample of small hypergraphs.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

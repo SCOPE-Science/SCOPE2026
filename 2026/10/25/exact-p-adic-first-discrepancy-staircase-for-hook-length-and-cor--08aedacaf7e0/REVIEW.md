@@ -1,15 +1,21 @@
-# Mathematical review
+# Independent mathematical audit
 
-## Correctness
-The argument works in \(\mathbb Z[[q]]\), where the Euler product has constant coefficient \(1\) and is invertible. The ratio-lifting lemma gives the uniform \(p^{a+1}\) divisibility for the difference of the two numerators. A separate lifting at each Frobenius scale \(p^j\), for \(0\le j<a\), gives the first coefficient at that degree as \(-p^{2a-j}\) modulo \(p^{2a-j+1}\), with all lower degrees zero modulo the same modulus. These statements transfer unchanged to the original two series, because their numerator difference is multiplied by an integral unit. The endpoint cases \(a=1\) and \(r\ge2a+1\) are included. Finite exact computations in `verify.py` confirm the stated consequences without serving as proof of infinity.
+## correctness
 
-## Originality
-The closest direct work, Sharma (arXiv:2610.01422v1), supplies congruence modulo \(p^a\) and its stronger prime-case \(p^2\) result, but not the entire family of optimal exponents and first-failure indices. Han (arXiv:0805.1398v1) establishes the generating-function context and Han--Ono (arXiv:0805.2461v1) determines the matching coefficient-zero sets for \(t=3\); neither inspected central statement supplies the new filtration. Targeted searches did not identify a stronger applicable statement. There remains a risk of an implicit consequence of standard lifting theory or broader eta-quotient congruence literature.
+PASS
 
-## Mathematical value
-This is a complete, natural congruence invariant: it gives the strongest modulus valid for *all* coefficients and the precise first index of failure at *every* higher prime-power modulus, with sharp residues for all intermediate levels. It resolves the higher-lifting question prompted by the explicit prime-power comparison in Sharma's recent work; it is not merely a computed lower bound or a single additional congruence example. Although the proof is short and uses standard lemmas, the output is a uniform exact classification of the full p-adic first-discrepancy filtration.
+Reconstructed the formal Euler-product reduction H-C=E(q)^(-1)[E(q)^(p^(2a))-E(q^(p^a))^(p^a)] in Z[[q]] and proved V/W=1+pZ implies V^(p^k)=W^(p^k) mod p^(k+1), also for p=2. At scale 0<=j<a, Frobenius and repeated p-power lifting force every coefficient before q^(p^j) to vanish modulo p^(2a-j+1), and the coefficient at q^(p^j) to equal -p^(2a-j) modulo that modulus. Since E(q)^(-1) is an integral unit of constant term one, it preserves the first nonzero coefficient index. The r<=a+1 and r>=2a+1 endpoints agree, including a=1. Independent bounded Euler-factor expansions for p=2,3,5 and several a verified the claimed first failures; these do not prove the infinitely quantified formula.
 
-## Remaining scientific limitations
-The result is confined to prime-power parameters and first failure indices, rather than valuations at all indices or mixed-prime parameters. External independent review and exhaustive survey of every possible older eta-product formulation have not been performed.
+## originality
 
-Self-review: passed. Independent audit: not yet performed.
+PASS
+
+Sharma arXiv:2610.01422v1 proves a comparison modulo p^a for t=p^a and the stronger prime case modulo p^2; its different first-failure analysis concerns t with nontrivial coprime factor. Han develops the generating-function formula and Han–Ono compares zero sets at t=3. None of their inspected results states or implies the full p-adic first discrepancy staircase for arbitrary a. A standard higher-order Frobenius lifting corollary or older eta-product congruence remains a genuine priority risk.
+
+## value
+
+PASS
+
+The exact maximal uniform prime-power congruence p^(a+1), sharp leading residues, and every first failure index d_{p,a}(r) give a complete natural filtration invariant of two established partition generating functions. They answer an explicitly motivated higher-lifting question beyond a single numerical congruence; the unrestricted arithmetic law is not a mere parameter renaming or a known finite table.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

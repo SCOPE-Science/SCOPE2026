@@ -1,19 +1,21 @@
-# Scientific review
+# Independent mathematical audit
 
-## Correctness
+## correctness
 
-PASS. The transition update matches the specified full-reset rule: the focal agent resets on an opposing contact, the speaker is reinforced even during an opposing contact, and both agents are reinforced after agreement. An increment at least one closes the continuous confidence process on zealot flags. The six-color-quotient transition table yields exact harmonic equations for the proposed absorption probability and expected update count, including every unanimity boundary. A uniform two-step probability of at least \(1/9\) of reaching consensus makes the corresponding finite Markov solutions unique. Independent all-state rational residual checks and an exact twelve-orbit linear solution corroborate the coefficients. All quantifiers and time units are explicit.
+PASS
 
-## Originality
+For K3 with six equally likely ordered focal/speaker choices, two opinion colors, pre-update zealot flags c_i=1_{eta_i>=1}, full reset on disagreement and Δη>=1, the flag process is an exact closed finite Markov chain. Reconstructed all six mixed (z,m) classes, including probability complement when tracked color becomes majority and unanimous boundaries. Harmonic residuals confirm f(z,m)=[105+36z-(25+4z)m+binom(m,2)]/339 and mean time g(z,m)=[621+366z+(105+3z)m-87binom(m,2)]/131. Every mixed state hits consensus with probability≥1/9 in two attempts by twice choosing a minority focal voter against majority speaker; hence hitting equations uniquely determine finite expectations and absorption probabilities. Independent Fraction enumeration verified all 48 labeled mixed-state probability and mean-time identities. Numerators establish minority wins above 1/3 iff z=1,m=0, and all six mean times exceed classical 3; at N=2 every opposing pair resolves at first update. No large-N generalization claimed.
 
-PASS subject to residual priority uncertainty. Latoski–Dantas–Arenzon 2022/2024 provide the model and discuss spatial coarsening and mean times, not the complete full-reset triangle probability/time classification. Volovik–Redner 2012 uses distinct reinforcement transitions; de Almeida et al. 2025 use a simplified two-state confidence update with different speaker behavior; Arenzon et al. 2026 analyze long-range lattices. A survey of accessible mathematical research records and prior findings found no direct statement or stronger implication of the exact triangle fractions. General absorbing-chain methods are standard and expressly not claimed as new. Relevant references and checked comparisons are in the structured scientific assessment. A broader unpublished enumeration remains possible.
+## originality
 
-## Value
+PASS
 
-PASS. This is the first nontrivial complete-network size where self-induced zealotry can shift a one-holder minority's success probability away from the classical martingale fraction. The complete six-case classification provides a sharp criterion for when initial minority zealotry overcomes the neutral benchmark, and exact stopping-time constants usable to benchmark persistent-voter implementations. The small size is mathematically natural (the smallest setting with a strict initial majority), not an arbitrary parameter slice; it does not assert a population-wide effect.
+Best-of-knowledge originality: the full-reset zealot mechanism is credited to prior PVM authors; inspected primary model/coarsening material does not state the exact K3 six-class rational fixation and time census. The classification is a concrete new-looking microscopic consequence requiring exact finite analysis.
 
-## Limitations
+## value
 
-The result is a finite-three-person theorem for one precise update, not a large-network asymptotic. There is no independent scientific validation and residual publication-priority risk remains.
+PASS
 
-Self-review: passed. Independent audit: not yet performed.
+A complete all-confidence-flag classification of the smallest nontrivial complete-graph persistent-voter process supplies a motivated microscopic benchmark and sharp counterexample to classical voter initial-fraction fixation. The six exact probabilities and mean times resolve concrete questions at the first network size where intrinsic zealotry matters; value does not depend on a large-network theorem.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

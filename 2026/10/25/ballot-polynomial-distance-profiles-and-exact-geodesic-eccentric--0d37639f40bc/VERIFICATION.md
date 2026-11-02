@@ -5,8 +5,11 @@
     "status": "not_performed"
   },
   "independent_audit": {
-    "evidence": null,
-    "status": "not_performed"
+    "status": "passed",
+    "evidence": [
+      "INDEPENDENT_AUDIT_2026-10-27.md",
+      "INDEPENDENT_AUDIT_2026-10-27.json"
+    ]
   },
   "lean_verification": {
     "evidence": null,
@@ -16,14 +19,24 @@
 }
 ---
 
-# Reproducibility and scope
+# Independent mathematical audit
 
-The Python 3 standard-library `verify.py` enumerates the graph vertices explicitly and computes the minimum Hamming distance to every vertex of a canonical geodesic. It separately implements the claimed ballot polynomial and product formula, and tests their full coefficient arrays without calling the proof formula for the direct distances. It also enumerates every candidate unoriented geodesic in twelve small mixed products and compares optimal-path counts directly against the counting formula.
+## correctness
 
-Recorded replay of the actual standalone program:
+PASS
 
-`VERIFY_OK binary_profiles=65 mixed_profiles=1474 exhaustive_optimal_geodesic_cases=12`
+PASS. In the Cartesian product of cliques every geodesic changes each coordinate at most once. Its active binary endpoint words form a monotone prefix chain; the distance of binary word a to the path equals number of ones minus the maximum of prefix walk sums. A reflection-principle count by maximum m and number of ones gives B_L(z)=sum_j (L-2j+1)[C(L,j)-C(L,j-1)]z^j including L=0. Every unchanged coordinate contributes 1+(q_i-1)z and every active coordinate taking a third symbol contributes the constant distance 1, giving the complete product/subset polynomial. Degree and explicit farthest vertices yield ecc=d-ceil(s/2) for s active binary coordinates; minimization over s and reversal-paired path counting prove the stated optimizer sets and exact numbers, separately counting singleton geodesics at b=0. A new independent direct vertex-geodesic distance enumerator matched 216 mixed binary/nonbinary cases, including order invariance. These checks corroborate rather than replace the all-product proof.
 
-The binary checks range over dimensions one through ten; the mixed checks use alphabet sizes two, three, and four in dimensions up to four, and include changed-coordinate order reversals. Exhaustive counts include dimensions up to four and mixed alphabets. This finite computational evidence does not certify the theorem for unbounded parameters; the reflection-principle and coordinate decomposition provide the analytic proof.
+## originality
 
-The first-public-date evidence for the initiating source is the arXiv v1 submission on 2026-10-14, with time recorded as 18:17:58 UTC. Historical novelty is not guaranteed by search coverage.
+PASS
+
+PASS best-of-knowledge. The reflection-principle ballot enumerator is classical and general MESP parameter complexity and approximation are published. The new assembled claim is the all-distance polynomial for every geodesic of an arbitrary mixed-alphabet Hamming product, its order independence, exact eccentricity, all minimizing changed-coordinate sets and full unoriented optimizer count. The accessible compared primary statements concern decision complexity and broad structured graphs, not these closed enumerators. Priority under Boolean-chain neighborhood or coding-theory language remains open.
+
+## value
+
+PASS
+
+PASS. A full layer-by-layer generating function rather than only the eccentricity, together with optimal geodesic classification and exact counts, is a natural and independently reusable invariant of Hamming/Cartesian product metric geometry. It is not simply the classical ballot polynomial rebranded: the mixed-alphabet decomposition and optimizer enumerator are additional all-parameter statements.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
