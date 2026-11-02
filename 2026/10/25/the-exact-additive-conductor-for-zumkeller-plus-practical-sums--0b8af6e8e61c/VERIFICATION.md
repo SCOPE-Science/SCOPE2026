@@ -5,8 +5,11 @@
     "status": "not_performed"
   },
   "independent_audit": {
-    "evidence": null,
-    "status": "not_performed"
+    "status": "passed",
+    "evidence": [
+      "INDEPENDENT_AUDIT_2026-10-28.md",
+      "INDEPENDENT_AUDIT_2026-10-28.json"
+    ]
   },
   "lean_verification": {
     "evidence": null,
@@ -15,10 +18,25 @@
   "schema_version": 1
 }
 ---
-The reproducible checks use the packaged exact Python and C++ programs plus the complete finite witness lists.
 
-Executed `python3 verify_small.py`: `SMALL_CERTIFICATE_OK odd_z=38 exceptions=720 last=19067`.
+# Independent mathematical audit
 
-Executed `g++ -O3 -std=c++17 verify_large.cpp -o verify_large && ./verify_large`: `PRACTICAL_COUNT=3197350 RESIDUES=99225 MAX_FIRST=41235272 RESIDUE=56897 BOUND=41236217 ODD_WITNESSES=1989 EXCEPTIONS_ABOVE_19067=1 FIRST_EXCEPTION=20177`, followed by `LARGE_CERTIFICATE_OK`.
+## correctness
 
-Scope of finite checks: all integers through \(19067\) for the exception list; all \(99225\) residue classes for least practical representatives through \(42000000\); all odd integers between \(19069\) and \(41236216\) via certified odd Zumkeller witnesses and all even practical numbers in this range. The special odd target \(20177\) is covered by \(20176+1\). The unbounded tail is supplied by the coprime-multiplication progression, not by enumeration. No formal proof-assistant or independent audit was performed.
+PASS
+
+The 945 divisor witness has half divisor sum 960 and gcd(945,1+105t)=1, giving the infinite progression 945+99225t of Zumkeller numbers. A complete practical representative in each residue modulo 99225 with max 41235272 implies every n>=41236217 is in the sumset. The finite bridge 19069<=n<41236217 is explicitly certified by a whole-bitset convolution of 1989 odd Zumkeller witnesses with even practical numbers, plus the separate 20177=20176+1 case and the previously proved even-number coverage. Independent exact Python divisor-subset and practical tests recomputed 720 exceptions, last gap 19067 and the 38 odd Zumkeller integers below 19068. Crucially, a separately written C++ implementation independently performed the full 42,000,000-number practical sieve: it found all 99,225 residue classes, the exact maximum first representative 41,235,272 in residue 56,897, independently enumerated exactly 1,989 odd Zumkeller integers through one million, and checked the entire odd finite bridge: exactly one apparent gap at 20,177, itself covered by 20,176+1; the independent divisor test confirmed 20,176 is Zumkeller. This complete finite computation, rather than a saved log, supports the finite part; the arithmetic progression/residue argument proves the infinite tail.
+
+## originality
+
+PASS
+
+Somu–Kukla–Tran prove qualitative eventual representation by Z+P and separately an exact maximal gap for Z+Z; neither statement gives the Z+P conductor or its 720-exception list. Our exact conductor is a meaningful quantitative specialization of the established qualitative theorem, not a claim to discover eventual additive coverage.
+
+## value
+
+PASS
+
+The least eventual-additive threshold for a natural divisor-structural sumset answers the finite obstruction problem left by a published cofinite-sum theorem. The 19067 sharp witness and full exception census can be reused as exact boundary data rather than merely repackaging a density bound.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
