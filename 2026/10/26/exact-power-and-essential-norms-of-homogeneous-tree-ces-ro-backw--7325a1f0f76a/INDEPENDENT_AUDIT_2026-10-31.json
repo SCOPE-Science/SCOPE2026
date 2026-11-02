@@ -1,0 +1,105 @@
+{
+  "audit_date_utc": "2026-10-31",
+  "audited_at_utc": "2026-10-31T11:52:45Z",
+  "axes": {
+    "correctness": {
+      "rationale": "The level averages M_n yield M_n(B^mf)≤(b|λ|)^m M_{n+m}(f), with equality at root for level-m common-phase f. For scalar backward shift on ces_p, the identities with increasing cumulative sums u_n and d_k=u_k−u_{k−1}≥0 give exactly ||S^ma||^p=Σ_{k≥m}d_kH_p(k−m+1) and ||a||^p=Σd_kH_p(k+1). Strict log-convexity of Hurwitz tails via their Gamma-integral representation makes the ratio strictly decreasing in k, yielding unique maximizing support at k=m. Finite-rank level truncation gives essential upper bound (b|λ|)^m; normalized weakly-null radial basis vectors in reflexive ces_p give reverse bound against every compact operator. Integral test H_p(m+1)~m^(1−p)/(p−1) yields asymptotic and spectral radius. Independently checked 12 Hurwitz-ratio cases and the Tonelli identities for sample nonnegative vectors; analytical proof covers all m,p,b.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Chen et al Theorem 2.7 boundedness criterion for general weighted tree shifts; Example 3.14 mixing iff q|α|≥1 and chaos iff q|α|>1.",
+          "Scalar Cesàro source discusses reflexive Schauder basis and shift norm estimates."
+        ],
+        "reasoning": "Those general dynamical criteria imply coarse boundedness and perhaps spectral-radius thresholds but do not imply exact norms (b|λ|)^m(ζ(p)/H_p(m+1))^(1/p) or essential norms. These require strict log-convexity optimization and compactness argument.",
+        "searches": [
+          "Cesaro sequence spaces backward shift exact power norms essential norm constant weighted rooted homogeneous tree"
+        ]
+      },
+      "checked_sources": [
+        "Frozen RESULT.md/check.py",
+        "Chen et al arXiv:2609.21752",
+        "Albanese and Asensio 2026 Springer full text",
+        "Resultary semantic Cesàro weighted-shift query"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "Theorem 2.7 and Example 3.14 from 2609.21752 and scalar PLB-space Corollary 4.2."
+        ],
+        "reasoning": "Prior boundedness/mixing results constrain b|λ| but do not distinguish the ordinary norm factor ζ(p)/H_p(m+1) from essential norm 1. Boundedness alone cannot determine phase-rigidity of norm extremizers.",
+        "searches": [
+          "Cesaro sequence spaces backward shift exact power norms essential norm constant weighted rooted homogeneous tree"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Chen et al arXiv:2609.21752 §2 boundedness, §3.3 chaos and Example 3.14 for full q-ary homogeneous shifts.",
+          "Albanese–Asensio (2026) §4 scalar Cesàro backward-shift bounds."
+        ],
+        "reasoning": "Ordinary scalar left shift on ces_p appears as the radial reduction of the tree shift; however no inspected source states the exact all-m Hurwitz norm plus essential norm and common-phase tree extremizers.",
+        "searches": [
+          "Cesaro sequence spaces backward shift exact power norms essential norm constant weighted rooted homogeneous tree"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "Independent H_p ratio checks for p=1.5,2,3 and m=1,2,3,4; independent Tonelli numerical identity.",
+          "Resultary 2026/10/11 exact dyadic backward shift power norms uses c0-sum; 2026/9/20 irreducible weighted-shift essential power profiles deals with general ℓp shifts."
+        ],
+        "reasoning": "No published homogeneous-tree Cesàro exact table found. Similar operator-norm sequences in different norms are not equivalent; the finite checker proves only sampled identities.",
+        "searches": [
+          "Cesaro sequence spaces backward shift exact power norms essential norm constant weighted rooted homogeneous tree"
+        ]
+      },
+      "rationale": "Chen–Cheng–Zhang–Zhou 2026 treat exactly rooted-tree Cesàro weighted backward shifts, but their Theorem 2.7 and subsequent mixing/chaos results give boundedness/dynamics rather than sharp all-m power/essential norms and phase-rigidity. Albanese–Asensio 2026 scalar Cesàro shifts supply rough finite p-norm estimates and reflexive basis framework, not this exact Hurwitz-zeta all-power formula. Resultary power-profile hits concern different spaces.",
+      "residual_risks": [
+        "Earlier scalar ces_p shift norm under alternative operator notation could imply the ordinary tree norm by radial reduction.",
+        "Some operator-theoretic texts may contain an essential-norm criterion immediately yielding the one-line homogeneous value, though no exact joint statement found."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "PRIOR model and dynamical thresholds; NOT_COVERING exact norms claimed",
+          "evidence": "Example 3.14 treats full q-ary tree and constant α, mixing iff q|α|≥1, chaotic iff q|α|>1; no exact all-power norm formula in inspected text.",
+          "identifier_or_url": "https://arxiv.org/abs/2609.21752",
+          "material_read": "Full arXiv HTML §2 Theorem 2.7, §3 boundedness/mixing/chaos, Example 3.14 homogeneous constant weights, proof context",
+          "method": "Read accessible full primary HTML mathematical statements and relevant proof/sections",
+          "title": "Dynamics of Weighted Backward Shifts on Cesàro Spaces of Rooted Trees",
+          "trigger": "Exact same tree Banach space and shift"
+        },
+        {
+          "assessment": "RELATED scalar background, does not determine exact all-power tree norm/essential norm",
+          "evidence": "Provides non-sharp shift-norm estimates and linear-dynamics framework, not sharp H_p(m+1) quotient.",
+          "identifier_or_url": "https://link.springer.com/article/10.1007/s13398-026-01935-0",
+          "material_read": "Full open Springer HTML sections on sequence Cesàro spaces, Corollary 4.2 and basis/reflexivity",
+          "method": "Read accessible full primary HTML mathematical statements and relevant proof/sections",
+          "title": "On the linear dynamics of shift operators on (PLB)-spaces",
+          "trigger": "General scalar Cesàro shift operator bounds"
+        },
+        {
+          "assessment": "INAPPLICABLE distinct dyadic c0-sum space and operator",
+          "evidence": "Its exact finite-horizon growth is not the homogeneous-tree Cesàro formula.",
+          "identifier_or_url": "https://github.com/Resultary/2026/tree/main/2026/10/11/SCOPE-exact-power-growth-and-norm-attaining-vectors-for-critical-dyadi--64652a093836",
+          "material_read": "Published title and semantic mathematical summary",
+          "method": "Read accessible full primary HTML mathematical statements and relevant proof/sections",
+          "title": "Exact power growth and norm-attaining vectors for critical dyadic backward shifts",
+          "trigger": "High-ranked Resultary exact-power-norm alias"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "rationale": "The exact operator/essential-norm gap and extremizer rigidity settle natural operator-geometric questions for a canonical homogeneous-tree model. In particular at critical b|λ|=1, essential norms remain 1 while usual power norms grow polynomially with sharp coefficient. This distinguishes spectral boundedness from norm dynamics in a natural infinite-dimensional setting.",
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "final_claim": "For full b-ary rooted tree b≥2, p>1 and constant λ≠0, norm of m-th Cesàro backward shift is (b|λ|)^m(ζ(p)/H_p(m+1))^(1/p), essential norm is (b|λ|)^m, with exactly common-phase inputs on level m as nonzero norm extremizers, asymptotic coefficient ((p−1)ζ(p))^(1/p) and both spectral radii b|λ|.",
+  "limitations": [
+    "Earlier scalar ces_p shift norm under alternative operator notation could imply the ordinary tree norm by radial reduction.",
+    "Some operator-theoretic texts may contain an essential-norm criterion immediately yielding the one-line homogeneous value, though no exact joint statement found.",
+    "The identified finite checks do not substitute for the explicitly reconstructed proofs of infinite claims.",
+    "Historical priority is best-of-knowledge, not exhaustive. The frozen public administrative metadata requires confidentiality sanitization before import."
+  ],
+  "schema_version": 1
+}

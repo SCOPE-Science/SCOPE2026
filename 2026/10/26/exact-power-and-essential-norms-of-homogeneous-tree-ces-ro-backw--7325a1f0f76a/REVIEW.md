@@ -1,19 +1,21 @@
-# Review: Exact power and essential norms of homogeneous-tree Cesàro backward shifts
+# Independent mathematical audit
 
-## Correctness — PASS
+## correctness
 
-The principal equality is established by a scalar positive-cone identity, strict log-convexity of Hurwitz-zeta tails, and the exact tree-level mass inequality. Equality in both steps proves that the only nonzero norming inputs lie on one level and have aligned phases. Finite-rank depth truncations bound the Calkin norm from above; a weakly null radial basis gives the sharp lower bound. The tail integral test and spectral-radius formulas conclude the claim. The reproducibility script ran 2418 supplementary checks; the full infinite-dimensional argument is analytic.
+PASS
 
-## Originality — PASS
+The level averages M_n yield M_n(B^mf)≤(b|λ|)^m M_{n+m}(f), with equality at root for level-m common-phase f. For scalar backward shift on ces_p, the identities with increasing cumulative sums u_n and d_k=u_k−u_{k−1}≥0 give exactly ||S^ma||^p=Σ_{k≥m}d_kH_p(k−m+1) and ||a||^p=Σd_kH_p(k+1). Strict log-convexity of Hurwitz tails via their Gamma-integral representation makes the ratio strictly decreasing in k, yielding unique maximizing support at k=m. Finite-rank level truncation gives essential upper bound (b|λ|)^m; normalized weakly-null radial basis vectors in reflexive ces_p give reverse bound against every compact operator. Integral test H_p(m+1)~m^(1−p)/(p−1) yields asymptotic and spectral radius. Independently checked 12 Hurwitz-ratio cases and the Tonelli identities for sample nonnegative vectors; analytical proof covers all m,p,b.
 
-The focal tree-shift paper (Chen et al., arXiv:2609.21752) gives boundedness and dynamical classifications. The 2026 (PLB)-spaces paper gives classical Cesàro sequence structure and basis norms. Neither inspected text states this all-power sharp norm/essential-norm comparison or equality classification. Indexed analogues concern different spaces or Cesàro orbit moments rather than Cesàro sequence norms. Searches considered the radial reformulation, general tree coverage, zeta-value tables and implication by stronger results. Remaining risk: an unindexed scalar left-shift formula or an uninspected predecessor could overlap.
+## originality
 
-## Mathematical value — PASS
+PASS
 
-The calculation quantifies a central operator-theoretic distinction on an emerging Cesàro-tree model: ordinary norms of powers show exact polynomial amplification at critical scaling, whereas essential norms remain constant. The all-power formula and complete norming-vector geometry go beyond qualitative continuity/dynamics and provide a natural benchmark for inhomogeneous tree shifts.
+Chen–Cheng–Zhang–Zhou 2026 treat exactly rooted-tree Cesàro weighted backward shifts, but their Theorem 2.7 and subsequent mixing/chaos results give boundedness/dynamics rather than sharp all-m power/essential norms and phase-rigidity. Albanese–Asensio 2026 scalar Cesàro shifts supply rough finite p-norm estimates and reflexive basis framework, not this exact Hurwitz-zeta all-power formula. Resultary power-profile hits concern different spaces.
 
-## Scope and limitations
+## value
 
-Only homogeneous \(b\)-ary trees, constant nonzero edge weights, and \(1<p<\infty\) are covered. No near-extremizer stability or arbitrary-weight classification is asserted. Indexed summaries and an abstract-only predecessor leave residual priority uncertainty. Independent verification and independent scientific audit have not been performed.
+PASS
 
-Self-review: passed. Independent audit: not yet performed.
+The exact operator/essential-norm gap and extremizer rigidity settle natural operator-geometric questions for a canonical homogeneous-tree model. In particular at critical b|λ|=1, essential norms remain 1 while usual power norms grow polynomially with sharp coefficient. This distinguishes spectral boundedness from norm dynamics in a natural infinite-dimensional setting.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
