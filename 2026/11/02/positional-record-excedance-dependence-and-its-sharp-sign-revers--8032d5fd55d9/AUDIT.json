@@ -1,0 +1,116 @@
+{
+  "correctness": {
+    "rationale": "The unordered first-i subset of a uniform permutation is independent of its relative ordering; conditioning on the ith upper record excludes the maximum from each earlier position. For j<i the maximum necessarily exceeds j, giving -j/[ni(i-1)]; for j=i the sole conditional failure is S_i={1,...,i}, yielding the diagonal 1/n-1/[i binom(n,i)]; for j>i the later value is independent of the prefix record event. Summation yields row and global covariances. Interior positivity uses i binom(n,i)>=n(n-1); global n>=5 positivity uses the explicit binomial-reciprocal upper bound; n=2,3,4 evaluated exactly. The verifier computes 500825 exact assertions, independently enumerating permutations through n=8 and checking closed formulas to n=1000. Finite checks are corroboration, not a proof beyond the stated subset argument.",
+    "status": "PASS"
+  },
+  "independent": false,
+  "independent_audit_status": "not_performed",
+  "originality": {
+    "broader_coverage": {
+      "evidence": [
+        "Mesh-pattern expansions are broadly expressive, and excedance-set recurrences enumerate single-statistic refinements.",
+        "The inspected material contains no full two-parameter positional record-by-excedance moment formula."
+      ],
+      "reasoning": "A broader generating method could reconstruct the claim after additional extraction but does not itself state or immediately imply the explicit entries and the five-element dependence reversal; this is a documented residual priority risk.",
+      "searches": [
+        "https://arxiv.org/abs/1102.4226",
+        "permutation joint distribution excedances records left to right maxima polynomial",
+        "https://www.ms.uky.edu/~jrge/Papers/Excedance.pdf"
+      ]
+    },
+    "checked_sources": [
+      "Ehrenborg and Steingrímsson (2000), The Excedance Set of a Permutation, author PDF, pp.284–299",
+      "Gnedin (2006 first public arXiv submission), Coherent random permutations with record statistics, full proceedings PDF",
+      "Brändén and Claesson (2011), Mesh Patterns and the Expansion of Permutation Statistics as Sums of Permutation Patterns, full arXiv PDF",
+      "Relevant mathematical scholarly index searches: records/excedances, left-to-right maxima/excedances, direct covariance aliases"
+    ],
+    "claim_vs_prior_implication": {
+      "evidence": [
+        "Excedance-set enumerators do not condition on the upper record at another position.",
+        "The independent prefix-rank representation is a prior ingredient, but says nothing alone about the cross-covariance with absolute excedance thresholds.",
+        "General mesh-pattern expansion provides a formal language; explicit mixed moments still require the conditional-sampled-subset argument and sign analysis."
+      ],
+      "reasoning": "The new claim is the exact cross-covariance kernel plus its row/global sign classification. Its ingredients are classical, but the inspected theorems do not supply this mixed event with a stated implication to the classified signs. Claims that marginals or a general expansion imply this explicit theorem without evaluating the interaction were not treated as established coverage.",
+      "searches": [
+        "https://www.ms.uky.edu/~jrge/Papers/Excedance.pdf",
+        "https://dmtcs.episciences.org/en/articles/3551/download",
+        "https://arxiv.org/pdf/1102.4226",
+        "random permutation joint distribution of number of records and excedances covariance"
+      ]
+    },
+    "equivalent_formulations": {
+      "evidence": [
+        "A left-to-right maximum is a record, and a strict excedance is the event pi(j)>j; this alias mapping was included in search.",
+        "Brändén–Claesson represents these among mesh-pattern statistics but does not evaluate the mixed entrywise covariance."
+      ],
+      "reasoning": "Equivalent terminology (records, left-to-right maxima, exceedances/excedances, mesh-pattern occurrences) was compared. A general statistic expansion is not the evaluated covariance kernel or its sharp sign classification.",
+      "searches": [
+        "random permutation joint distribution of number of records and excedances covariance",
+        "left to right maxima excedances joint distribution bivariate generating polynomial",
+        "record excedance joint distribution uniform permutations correlation",
+        "https://arxiv.org/abs/1102.4226"
+      ]
+    },
+    "exact_database_or_table": {
+      "evidence": [
+        "Searches for direct bivariate record/excedance covariance data returned general marginal, permutation correlation, and other mixed-statistic works rather than the exact finite-size cross-covariance table."
+      ],
+      "reasoning": "No matching finite-size table or all-size sign chart was identified. A failed exact-table search cannot prove uniqueness, so the novelty conclusion rests primarily on inspected source comparisons.",
+      "searches": [
+        "permutation covariance left to right maxima excedances",
+        "random permutation joint distribution of number of records and excedances covariance",
+        "record excedance joint distribution uniform permutations correlation"
+      ]
+    },
+    "rationale": "Compared the actual mixed positional covariance statements and their implications, rather than only similar terminology. Ehrenborg–Steingrímsson establishes excedance sets without record-conditioned mixed moments; Gnedin develops record ranks and weighted permutations without this absolute-position excedance kernel; Brändén–Claesson gives a general mesh-pattern expansion but not the stated evaluated covariance matrix, row-sign pattern, or finite-size sign transition. No directly dominating statement was found in inspected primary material or the available research index. Historical-priority risk remains.",
+    "residual_risks": [
+      "Earlier or less-indexed bivariate Eulerian–Stirlingian enumeration may encode this kernel indirectly; independent priority checking is still necessary.",
+      "The oldest relevant excedance-set source has a publication month verified but no demonstrated first-public day; the selected earliest day-verified archival source is 2006-11-17.",
+      "Claims about broader classes of permutations, nonuniform weights, or central limit laws are not made."
+    ],
+    "source_inspections": [
+      {
+        "assessment": "Covers single excedance-set counting, not a record-conditioned two-position covariance kernel",
+        "evidence": [
+          "Ehrenborg–Steingrímsson, Adv. Appl. Math. 24 (2000), 284–299, introduction and excedance-set enumeration"
+        ],
+        "identifier_or_url": "https://www.ms.uky.edu/~jrge/Papers/Excedance.pdf",
+        "material_read": "Abstract and introductory statement, definition of excedance sets, opening enumerative recurrences and relevant portions of the accessible full text",
+        "method": "Opened lawfully available author-hosted PDF and inspected text and pages; searched for records and mixed covariance",
+        "title": "The Excedance Set of a Permutation",
+        "trigger": "Natural primary reference for prescribed excedance positions; closest potential enumerative coverage"
+      },
+      {
+        "assessment": "Establishes independent record-rank viewpoint but does not calculate correlations with fixed-position excedances",
+        "evidence": [
+          "Gnedin, DMTCS proceedings article; original arXiv:math/0611538 first submission 2006-11-17"
+        ],
+        "identifier_or_url": "https://dmtcs.episciences.org/en/articles/3551/download",
+        "material_read": "Introduction and initial-rank characterization, particularly opening pages of the full proceedings paper",
+        "method": "Read open proceedings PDF with detailed inspection of the rank definitions and their probabilistic consequences",
+        "title": "Coherent random permutations with record statistics",
+        "trigger": "Record rank dependence could potentially dominate the record half of the claim"
+      },
+      {
+        "assessment": "General pattern-statistic representation is related but does not establish the evaluated mixed kernel or sharp finite-size sign threshold",
+        "evidence": [
+          "Brändén–Claesson, Electron. J. Combin. 18(2) (2011), #P5, arXiv:1102.4226"
+        ],
+        "identifier_or_url": "https://arxiv.org/pdf/1102.4226",
+        "material_read": "Abstract, introduction, mesh-pattern definitions and examples, primary expansion statements and early propositions",
+        "method": "Opened arXiv full PDF, inspected relevant pages and searched the document for records, excedances and covariance",
+        "title": "Mesh Patterns and the Expansion of Permutation Statistics as Sums of Permutation Patterns",
+        "trigger": "Broad framework expressing both records and excedances as mesh-pattern statistics; possible implicit mixed-moment coverage"
+      }
+    ],
+    "status": "PASS"
+  },
+  "review_type": "self_review",
+  "schema_version": 1,
+  "scope_run_id": "8032d5fd-55d9-4ef2-adf0-6d76cffcfef7",
+  "self_review_status": "passed",
+  "value": {
+    "rationale": "Records and excedances are canonical but differently indexed statistics in uniform random permutations. The complete cross-covariance kernel identifies the exact negative lower-triangular and nonnegative diagonal structure, proves a sharp global covariance reversal at n=5 and a persistent nonzero covariance with vanishing correlation. This position-resolved dependence information is not supplied by the ordinary record/Eulerian marginals and is a coherent all-size structural classification, not an arbitrary numerical slice.",
+    "status": "PASS"
+  }
+}
