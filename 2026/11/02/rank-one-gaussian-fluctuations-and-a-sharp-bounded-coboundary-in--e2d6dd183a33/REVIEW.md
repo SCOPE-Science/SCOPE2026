@@ -1,0 +1,15 @@
+# Scientific review
+
+## Correctness — PASS
+The fully specified triangle has area \(1\); each of the two displayed affine inverse branches has Jacobian \(1/2\), so its normalized Lebesgue law is stationary. Exact integration supplies the four initial moments and exact Perron action on centered affine observables. With initial time indexing the covariance row, the geometric lag sequence sums to the displayed rank-one Green--Kubo matrix. The zero-variance direction is the exact bounded coboundary \(x-3y=H-H\circ T\). The proof of a one-dimensional martingale CLT uses the fair full-branch Bernoulli coding, bounded reverse martingale increments and ergodic conditional variance; telescoping gives the bivariate CLT. The sharp bound \(2\) is attained at \((2,0)\), \(n=1\). The accompanying checker was executed with exact arithmetic; it corroborates all local algebraic identities and 24 positive lag formulas, without substituting finite checks for a limit proof.
+
+## Originality — PASS within inspected evidence
+Alves–Etubi, arXiv:2409.18805, §1.2 and §6, establishes density/entropy continuity for the same family. Alves–Pumariño, arXiv:1806.01095, §1.5 and Theorem G, establishes the earlier invariant-measure and entropy context. Their inspected statements do not give the coordinate lag matrices, exact null space, sharp Birkhoff discrepancy or rank-one bivariate CLT. Equivalent formulations as a bounded coordinate coboundary and zero asymptotic variance, as well as stronger general mixing/entropy theorems, were compared by implication, not title alone. Pumariño et al.'s 2015 complete article and González-Koda et al.'s 2025 rare-event paper were not accessible in complete mathematical text: the latter is a particularly relevant residual priority risk, so this is not an exhaustive priority certification. The original map, Bernoulli coding and general martingale CLT are prior background and are not claimed as new.
+
+## Mathematical value — PASS
+This is an exact temporal-statistics answer for a published natural multidimensional expanding model. It displays an initially counterintuitive coexistence of two expanding Lyapunov directions with a rank-one coordinate central-limit covariance and a unique direction of uniformly bounded Birkhoff sums. The sharpness, full lag sequence and classification of linear null observables make the result a quantitative structural complement to invariant-density and entropy studies rather than a routine parameter redefinition.
+
+## Closest literature and limits
+Closest fully inspected mathematical texts: arXiv:2409.18805 and arXiv:1806.01095. Related but not fully accessible: *Chaotic dynamics for two-dimensional tent maps* (Nonlinearity, 2015) and *Making rare events typical in d-dimensional chaotic maps* (arXiv:2507.10663, 2025). The theorem applies only to the canonical \(t=1\) map and the linear coordinate observables. No independent mathematical audit or complete publication-priority certification is claimed.
+
+Self-review: passed. Independent audit: not yet performed.
