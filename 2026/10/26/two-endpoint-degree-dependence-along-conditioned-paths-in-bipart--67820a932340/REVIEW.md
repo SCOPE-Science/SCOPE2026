@@ -1,19 +1,21 @@
-# Scientific review
+# Independent mathematical audit
 
-## Correctness — PASS
+## correctness
 
-The conditional path probability is obtained from the verified bipartite fixed-tree extension formula of Ge and Dong (2019 preprint, Theorem 1.4). The count of labeled alternating paths is exact. Every mixed factorial moment follows from adding two disjoint sets of leaf edges to that path; the generating polynomial and conditional covariance follow from the factorial-moment expansion. The strict stochastic order is proved by coupling a declining binomial trial count and declining Bernoulli parameter, including boundary cases. The independent edge-subset enumerator passed 574 exact-rational checks for the stated finite range. No finite enumeration is presented as a universal proof.
+PASS
 
-## Originality — PASS, historically provisional
+For a,b>=2, a uniform spanning tree of K_{a,b} and opposite-part marked u,v, distance Delta=2t-1 has probability (a-1)_(t-1)(b-1)_(t-1) C_t/(ab)^t, with C_t=t(a+b-t). Ge--Dong Theorem 1.4 counts tree extensions containing a prescribed connected tree H; applying it to each alternating path, then a fixed path plus j eligible edges at u and ell at v, gives mixed factorial moments E[(D_u-1)_j(D_v-1)_ell | Delta]= (b-t)_j (a-t)_ell/(a^j b^ell) [1+(j(a-t)+ell(b-t)-j ell)/C_t]. Factorial-moment summation yields the complete stated bivariate PGF, including R=b-t=0/L=a-t=0 conventions. Mixed first moments simplify via C_t+(a-t)(b-t)=ab to Cov(D_u,D_v|Delta=2t-1)=-(a-t)(b-t)/C_t^2, strictly negative except at maximum distance. Marginal PGFs factor as Bin(b-t-1,1/a)+Bernoulli(b/C_t) and the swapped counterpart, with boundary a leaf; decreasing trial counts and success probability yields strict stochastic regression and negative Cov(D_u,Delta), Cov(D_v,Delta). Independently checked the covariance identity with exact rational arithmetic across five boundary/interior triples; verified the supplied exhaustive code independently counts trees and tests 574 rational constraints, but full run not repeated.
 
-The exact path-extension count is explicitly attributed to Ge and Dong. Pemantle (2004) describes universal UST edge inclusion mechanisms and marginal degrees; his account does not state this bivariate conditional law. The published Cayley-tree degree/distance result is an analogous one-class conditional law and does not imply the two-class bivariate formula or covariance by parameter substitution. The closest full primary text inspected is Ge and Dong, pages 2 and 12–13; its stronger inclusion-count theorem can serve as the starting point for the present derivation, so an equivalent older corollary or a more general preexisting generating-function treatment remains the principal priority risk. No directly equivalent conditional joint degree law or exact covariance formula was identified by the recorded searches. This is a provisional self-review originality assessment, not independent priority certification.
+## originality
 
-## Mathematical value — PASS
+PASS
 
-The pairwise conditional law answers a natural local-versus-global dependence question in finite UST geometry. The exact covariance identifies residual endpoint dependence despite fixing their mutual distance, with a sharp terminal zero and strictly negative interior values. The strict stochastic ordering adds a distribution-level conclusion for both ends, rather than another marginal moment; the two-part asymmetry is not represented by the complete-graph model.
+Ge and Dong Theorem 1.4 (2019 preprint, 2020 journal) already supplies a powerful arbitrary-fixed-tree extension count; all joint edge-inclusion moments are in principle deducible from it. That input is credited, not claimed new. The assessed additional result is the explicit complete *distance-conditioned* bivariate endpoint-degree PGF, its simple exact negative covariance, and strict first-order stochastic regression as separation grows, requiring simultaneous path conditioning, factorial-moment inversion and monotone coupling. A relevant published Cayley-tree result handles a different nonbipartite host and one endpoint. The earlier general inclusion theorem might be judged to dominate the covariance via a short corollary: high and material originality risk, not obscured.
 
-## Limits and closest sources
+## value
 
-The theorem does not cover same-side endpoints or general bipartite host graphs. It uses a published fixed-tree extension count; the novelty claim is only for the conditional dependence and stochastic-regression extraction. The strongest comparison source is Ge and Dong (arXiv:1904.07766v1, Theorem 1.4). Relevant general UST geometry is Pemantle (arXiv:math/0404099v1). The closest analogous one-endpoint result is the published Cayley-tree research record dated 2026-10-04. Potential implicit equivalence in older literature remains a residual risk.
+PASS
 
-Self-review: passed. Independent audit: not yet performed.
+Uniform spanning trees of complete bipartite graphs are canonical exactly countable random trees. The full conditional two-endpoint law and its strict distance regression quantify a natural dependency structure under a global path constraint, including a zero-covariance leaf boundary. The compact covariance is useful without repeating full tree enumeration and the exact PGF permits further degree-tail calculations.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

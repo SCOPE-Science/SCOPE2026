@@ -1,0 +1,120 @@
+{
+  "audit_date_utc": "2026-10-29",
+  "audited_at_utc": "2026-10-29T07:59:15Z",
+  "axes": {
+    "correctness": {
+      "rationale": "For a,b>=2, a uniform spanning tree of K_{a,b} and opposite-part marked u,v, distance Delta=2t-1 has probability (a-1)_(t-1)(b-1)_(t-1) C_t/(ab)^t, with C_t=t(a+b-t). Ge--Dong Theorem 1.4 counts tree extensions containing a prescribed connected tree H; applying it to each alternating path, then a fixed path plus j eligible edges at u and ell at v, gives mixed factorial moments E[(D_u-1)_j(D_v-1)_ell | Delta]= (b-t)_j (a-t)_ell/(a^j b^ell) [1+(j(a-t)+ell(b-t)-j ell)/C_t]. Factorial-moment summation yields the complete stated bivariate PGF, including R=b-t=0/L=a-t=0 conventions. Mixed first moments simplify via C_t+(a-t)(b-t)=ab to Cov(D_u,D_v|Delta=2t-1)=-(a-t)(b-t)/C_t^2, strictly negative except at maximum distance. Marginal PGFs factor as Bin(b-t-1,1/a)+Bernoulli(b/C_t) and the swapped counterpart, with boundary a leaf; decreasing trial counts and success probability yields strict stochastic regression and negative Cov(D_u,Delta), Cov(D_v,Delta). Independently checked the covariance identity with exact rational arithmetic across five boundary/interior triples; verified the supplied exhaustive code independently counts trees and tests 574 rational constraints, but full run not repeated.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Theorem 1.4 Ge--Dong counts completions for ANY connected prescribed tree H in K_{a,b}; summing its implications does mathematically determine every endpoint degree moment under a fixed path.",
+          "Pemantle reviews spanning tree measure and transfer impedance generally; Cayley result treats a different graph class."
+        ],
+        "reasoning": "The inclusion theorem is a strong prior formula and must be credited as a source logically powerful enough to reconstruct the new statistics; no inspected theorem states the specific conditional PGF and monotone regression. Residual risk that this exact consequence is routine under the general theorem.",
+        "searches": [
+          "https://arxiv.org/abs/1904.07766#Theorem-1.4",
+          "https://arxiv.org/abs/math/0404099",
+          "https://github.com/Resultary/2026/tree/main/2026/10/4/SCOPE-exact-negative-regression-between-endpoint-degree-and-distance-i--d9ddfb06a9ae"
+        ]
+      },
+      "checked_sources": [
+        "https://arxiv.org/abs/1904.07766",
+        "https://arxiv.org/abs/math/0404099",
+        "https://github.com/Resultary/2026/tree/main/2026/10/4/SCOPE-exact-negative-regression-between-endpoint-degree-and-distance-i--d9ddfb06a9ae"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "Fixed-tree extension counts immediately imply the conditional inclusion probabilities after identifying a fixed path and attachments; mixed moment summation and a Bernoulli factorization still need to be performed.",
+          "The Cayley-tree record has no biclique asymmetry and does not determine the joint endpoint covariance in K_{a,b}."
+        ],
+        "reasoning": "Explicitly distinguish an already determined input from the novel extracted joint law and strict stochastic order. A broad reading of originality as any mathematical corollary of the fixed-tree theorem could reject this; the mathematical derivation is not a parameter substitution, and its distribution/coupling are not stated in the source.",
+        "searches": [
+          "https://arxiv.org/abs/1904.07766#Theorem-1.4",
+          "https://github.com/Resultary/2026/tree/main/2026/10/4/SCOPE-exact-negative-regression-between-endpoint-degree-and-distance-i--d9ddfb06a9ae"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "The published Cayley-tree record yields a one-endpoint conditional degree law and strict regression for uniform complete-graph trees.",
+          "The Ge--Dong fixed-tree formula determines probabilities of prescribed connected subtrees, not directly the two-endpoint distance-conditioned distribution."
+        ],
+        "reasoning": "Checked Cayley-tree, fixed-tree inclusion and transfer-impedance formulations as aliases; the biclique full bivariate PGF is a different explicit statistic.",
+        "searches": [
+          "Resultary query: Uniform spanning tree complete bipartite distance conditioned endpoint degree covariance bivariate distribution",
+          "https://arxiv.org/abs/1904.07766",
+          "https://github.com/Resultary/2026/tree/main/2026/10/4/SCOPE-exact-negative-regression-between-endpoint-degree-and-distance-i--d9ddfb06a9ae"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "The 574 finite exact comparisons from source code are verification, not a prior published all-parameter table.",
+          "No complete (a,b,t)-parameter conditional covariance or bivariate PGF table in the inspected Ge--Dong theorem/Resultary summaries."
+        ],
+        "reasoning": "A finite table cannot substitute for all a,b>=2; the theorem gives exact polynomial expressions and strict order. Earlier tables not universally excluded.",
+        "searches": [
+          "Resultary biclique conditioned degree search",
+          "https://arxiv.org/abs/1904.07766"
+        ]
+      },
+      "rationale": "Ge and Dong Theorem 1.4 (2019 preprint, 2020 journal) already supplies a powerful arbitrary-fixed-tree extension count; all joint edge-inclusion moments are in principle deducible from it. That input is credited, not claimed new. The assessed additional result is the explicit complete *distance-conditioned* bivariate endpoint-degree PGF, its simple exact negative covariance, and strict first-order stochastic regression as separation grows, requiring simultaneous path conditioning, factorial-moment inversion and monotone coupling. A relevant published Cayley-tree result handles a different nonbipartite host and one endpoint. The earlier general inclusion theorem might be judged to dominate the covariance via a short corollary: high and material originality risk, not obscured.",
+      "residual_risks": [
+        "Ge--Dong arbitrary prescribed-tree inclusion theorem mathematically determines all finite mixed moments; the new joint law could be considered a corollary of this strong prior premise, even without exact published formula.",
+        "Source published Cayley conditional degree law has a structurally similar margin, though not a biclique joint distribution.",
+        "No general bipartite graph, weighted tree, or same-side endpoint claim."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Strong mathematical premise that determines finite edge inclusion, but no inspected explicit bivariate distance-conditioned degree law, covariance or stochastic regression",
+          "evidence": "Theorem 1.4: for prescribed H with s,q vertices in respective parts, #(T contains H)=(s b+q a-s q)a^(b-q-1)b^(a-s-1).",
+          "identifier_or_url": "https://arxiv.org/abs/1904.07766",
+          "material_read": "Primary full PDF accessed; Theorem 1.4 and its fixed-tree count on page 2 inspected with screenshot, plus scope of main results",
+          "method": "arXiv PDF text and page screenshot",
+          "title": "Spanning trees in complete bipartite graphs and resistance distance in nearly complete bipartite graphs",
+          "trigger": "Direct exact precursor counts arbitrary prescribed connected tree in K_{a,b}"
+        },
+        {
+          "assessment": "General spanning-tree background; no whole-document exclusion of exact bipartite conditional result",
+          "evidence": "Pemantle 2004, arXiv math/0404099.",
+          "identifier_or_url": "https://arxiv.org/abs/math/0404099",
+          "material_read": "Article abstract and high-level context from source and literature references; not entire PDF",
+          "method": "Primary arXiv search",
+          "title": "Uniform random spanning trees",
+          "trigger": "Transfer impedance and dependence general theory"
+        },
+        {
+          "assessment": "Cayley complete-graph one-endpoint law rather than complete bipartite two-endpoint joint conditional law",
+          "evidence": "Summary states endpoint conditional binomial-plus-Bernoulli and strict stochastic decrease in uniform Cayley tree.",
+          "identifier_or_url": "https://github.com/Resultary/2026/tree/main/2026/10/4/SCOPE-exact-negative-regression-between-endpoint-degree-and-distance-i--d9ddfb06a9ae",
+          "material_read": "Published Resultary summary with exact statement; not full Git blob",
+          "method": "Resultary semantic search",
+          "title": "Exact negative regression between endpoint degree and distance in a uniform Cayley tree",
+          "trigger": "Most similar publicly indexed conditional degree and distance result"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "rationale": "Uniform spanning trees of complete bipartite graphs are canonical exactly countable random trees. The full conditional two-endpoint law and its strict distance regression quantify a natural dependency structure under a global path constraint, including a zero-covariance leaf boundary. The compact covariance is useful without repeating full tree enumeration and the exact PGF permits further degree-tail calculations.",
+      "status": "PASS"
+    }
+  },
+  "checked_sources": [
+    "https://arxiv.org/abs/1904.07766",
+    "https://arxiv.org/abs/math/0404099",
+    "https://github.com/Resultary/2026/tree/main/2026/10/4/SCOPE-exact-negative-regression-between-endpoint-degree-and-distance-i--d9ddfb06a9ae"
+  ],
+  "disposition": "passed",
+  "limitations": [
+    "Uniform unweighted complete bipartite host only, marked vertices opposite parts, a,b>=2, t<=min(a,b).",
+    "Strict stochastic ordering is marginal, not claimed coordinatewise joint stochastic domination.",
+    "Finite checks corroborate but do not prove the general tree formula."
+  ],
+  "residual_risks": [
+    "Ge--Dong arbitrary prescribed-tree inclusion theorem mathematically determines all finite mixed moments; the new joint law could be considered a corollary of this strong prior premise, even without exact published formula.",
+    "Source published Cayley conditional degree law has a structurally similar margin, though not a biclique joint distribution.",
+    "No general bipartite graph, weighted tree, or same-side endpoint claim."
+  ],
+  "schema_version": 1
+}
