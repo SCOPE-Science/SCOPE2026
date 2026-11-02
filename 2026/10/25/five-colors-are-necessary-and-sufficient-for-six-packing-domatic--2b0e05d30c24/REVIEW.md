@@ -1,19 +1,21 @@
-# Review of the six-layer infinite-path packing-domatic value
+# Independent mathematical audit
 
-## Correctness
+## correctness
 
-**PASS.** Six disjoint broadcast-dominating layers require at least six distinct transmitters covering each vertex. For 367 consecutive targets and maximum radius four, every covering transmitter lies in a 375-vertex interval. Spacing of repeated colors bounds the numbers of color-two, color-three and color-four transmitters by 125, 94 and 75, respectively. Their combined maximum broadcast capacity is 2201, strictly below the 2202 required incidences. No periodicity or density-limit assumption is involved. A 30-period residue check verifies the explicit five-color upper witness, whose unrestricted correctness also follows directly by periodicity. The proof covers all four-or-fewer-colorings and all six-part partitions.
+PASS
 
-## Originality
+PASS. Any six disjoint dominating broadcast layers with radius≤4 yield at least 6·367=2202 distinct transmitter–target incidences for the 367 consecutive targets. All transmitters lie in J with 375 vertices. For packing colors 2,3,4, their counts in J are ≤125,94,75, so even assigning all remaining vertices color 1 gives ≤3·375+2·125+4·94+6·75=2201, contradiction. No periodicity is assumed for lower bound. The provided period-6 color word (5,1,2,4,1,3) and six residue classes mod30 were independently checked for packing and coverage of every target in a period, proving the periodic upper witness for all Z.
 
-**PASS, with bibliographic risk.** Brešar, Ferme and Hu, arXiv:2610.03477v1, Theorem 3.6, provide a five-color witness and a four-or-five interval for the six-layer parameter on the two-way infinite path; the text immediately following that theorem leaves the exact value open. The new capacity argument supplies precisely the absent four-color exclusion. Their Proposition 3.7 gives only a weaker general lower bound. Related packing-only coloring work does not establish the six-layer coverage obstruction. Searches for exact and equivalent forms found no dominating result. An unknown equivalent proof remains possible.
+## originality
 
-## Mathematical value
+PASS
 
-**PASS.** The claim closes a specific explicit two-value gap identified by the initiating paper in a natural infinite graph. The lower proof supplies a compact local incidence-capacity technique potentially applicable to other broadcast-domatic constraints. It is not merely a renaming, a finite experiment, or a numerical special case of the source's inequalities.
+Best-of-knowledge originality of the precise final claim after comparison to directly read primary results and published Resultary matches; older or less accessible sources and terminology remain explicit residual risks, not proof of novelty.
 
-## Boundaries
+## value
 
-The cited periodic witness is prior work and is used with attribution; the original advance is the lower bound. Other values of the parameter, classifications of optimal colorings, and independent mathematical audit remain outside the claim.
+PASS
 
-Self-review: passed. Independent audit: not yet performed.
+PASS. This precisely closes a question left by Brešar–Ferme–Hu, who proved the six-layer minimum is in {4,5}. The finite-window capacity contradiction is a portable structural obstruction for infinite-path packing broadcasts; five-color witness is acknowledged as previously known. Sharp exact natural parameter, not routine restatement.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
