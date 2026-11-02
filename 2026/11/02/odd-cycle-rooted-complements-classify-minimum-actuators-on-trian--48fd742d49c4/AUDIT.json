@@ -1,0 +1,146 @@
+{
+  "correctness": {
+    "rationale": "For every n>=5, L=(2n-2)I-C^T C and CC^T=(n-2)I+11^T yield the exact 0,n,2n-2 eigenspaces. The symmetric PBH test reduces injectivity for the top eigenspace to the invertibility of the n-column unsigned incidence complement; with n edges this is exactly a spanning forest of odd-unicyclic components. The other eigenspace is killed precisely when the selected-edge graph has a balanced bipartite component compatible with the zero-sum potential. At the sharp n(n-3)/2 edge count, extremal graph density makes this possible only at n=6 with U=K3,3. Zero eigenvalue and n=3,4 are handled explicitly. The exponential formula counts these complements exactly. The verified reproducibility program reports VERIFY_OK 6600; finite checks support but do not prove the all-n result.",
+    "status": "PASS"
+  },
+  "independent": false,
+  "independent_audit_status": "not_performed",
+  "originality": {
+    "broader_coverage": {
+      "evidence": [
+        "https://www.nature.com/articles/ncomms3447, Results and Methods: general framework gives controller count and method based on matrix elimination.",
+        "https://arxiv.org/abs/1403.4868, Theorem IV.4: qualitative-class controllability equivalent to zero forcing, a different stronger robustness requirement.",
+        "https://ietresearch.onlinelibrary.wiley.com/doi/10.1049/cth2.12385: leader-follower setting and two self-similar bipartite graph families, not arbitrary triangular-graph placements."
+      ],
+      "reasoning": "Known broader algebraic algorithms can compute candidates but do not supply the specific all-n graph-theoretic equivalent of odd-unicyclic complements with an exceptional balanced partition. In particular, the 2013 general maximum-multiplicity theorem covers the numerical q_n but does not resolve all coordinate selector placements.",
+      "searches": [
+        "triangular graph controllability leaders actuator graph T(n)",
+        "Johnson graph controllability leaders Laplacian J(n,2)",
+        "line graph controllability leader complete graph",
+        "Laplacian controllability of Johnson graphs J(n,2) leader selection"
+      ]
+    },
+    "checked_sources": [
+      "https://www.nature.com/articles/ncomms3447 (full HTML primary sections)",
+      "https://arxiv.org/abs/1403.4868 (full accessible HTML primary text)",
+      "https://arxiv.org/abs/1805.04759 (full accessible HTML key proof sections)",
+      "https://ietresearch.onlinelibrary.wiley.com/doi/10.1049/cth2.12385 (full HTML relevant sections)",
+      "https://dml.cz/handle/10338.dmlcz/143937 (abstract: zero forcing on line graphs of wheel and bouquet graphs only; not treated as full-document exclusion)",
+      "https://www.um.edu.mt/library/oar/handle/123456789/28166 (2014 abstract: general undirected controllability; restricted full text, unresolved risk)"
+    ],
+    "claim_vs_prior_implication": {
+      "evidence": [
+        "Yuan et al. (2013), Results and Methods: maximum geometric multiplicity principle subsumes q_n after the triangular spectrum is inserted.",
+        "Monshizadeh et al. (2014), Theorem IV.4: zero-forcing characterization for a qualitative class; U_* has at least two white neighbors per controlled node and no zero-forcing move.",
+        "Monfared–Mallik (2018), Lemma 2.2–2.3 and TU-graph definition: supports the incidence half of the proof, not the K3,3 second-mode obstruction.",
+        "Dai (2022), Abstract, introduction, methods and conclusion: minimum leader sets for DSFN and Cayley trees with follower-subsystem formulation."
+      ],
+      "reasoning": "Only the count q_n and unsigned-incidence rank condition are prior implications. Neither separately nor through a directly stated special case do the inspected published statements supply the exact necessary-and-sufficient criterion for ALL minimum coordinate selectors, the sole n=6 exception, or the resulting count. Formal combination is independently proved; risk of prior implicit derivations is acknowledged.",
+      "searches": [
+        "Exact controllability of complex networks 2013 maximum multiplicity full text",
+        "Zero forcing sets and controllability of dynamical systems defined on graphs arxiv 1403.4868 full text",
+        "An Analog of Matrix Tree Theorem for Signless Laplacians arxiv 1805.04759 full text",
+        "Minimum leader selection for controllability of undirected graphs 2022 full text",
+        "Johnson graph J(n,2) minimal controllable actuator set triangular graph minimum leaders",
+        "line graph complete graph spectral PBH actuator selection odd-unicyclic complement"
+      ]
+    },
+    "equivalent_formulations": {
+      "evidence": [
+        "https://www.nature.com/articles/ncomms3447 — fixed-Laplacian PBH and maximum eigenspace multiplicity give a count but not the classification of all coordinate sets.",
+        "https://arxiv.org/abs/1805.04759 — odd-unicyclic incidence determinants are known, not the additional zero-sum PBH condition.",
+        "https://arxiv.org/abs/1403.4868 — zero-forcing equivalence is for all matrices in a qualitative class; constructed optimum fails zero forcing."
+      ],
+      "reasoning": "The candidate is not merely an alternate parametrization of the PBH rank test: it replaces a matrix-rank test on all candidate selections with an explicit graph-complement iff criterion and identifies exactly one exception. The odd-cycle condition alone is not equivalent (n=6 two triangles fail). Strong structural zero-forcing characterizations do not imply a placement with no forcing move.",
+      "searches": [
+        "Johnson graph J(n,2) controllability minimum leader number Laplacian line graph complete graph",
+        "line graph complete graph controllability PBH actuator placement signed incidence odd unicyclic",
+        "Johnson graph controllability leader selection 2013 2014 2015",
+        "minimum number control leaders actuator placement Johnson graph J(n,2) line graph complete graph PBH controllability signless incidence odd unicyclic pseudoforest",
+        "controllability Johnson graph line graph complete graph Laplacian minimal leaders eigenvalue multiplicity spectral"
+      ]
+    },
+    "exact_database_or_table": {
+      "evidence": [
+        "A published result on two-coordinate Johnson-slice face concentration treats low-degree function restriction, not full-state PBH controllability.",
+        "A published result on transposition-sampling spectra studies the symmetric-group standard Fourier block, not coordinate-actuator selection on a triangular graph.",
+        "A published result on odd-unicyclic exponential Riesz basis partners concerns finite-field Fourier matrices, not graph Laplacian control.",
+        "https://arxiv.org/abs/1805.04759 contains the known unsigned-incidence determinant ingredient, not the claimed minimum actuator classification."
+      ],
+      "reasoning": "Actual semantic-result records and targeted literature queries yielded no exact class table or enumerated classification. This is negative search evidence only, not proof of uniqueness; thematic Johnson graph or unicyclic titles were compared by their mathematical objects and outputs.",
+      "searches": [
+        "minimum number control leaders actuator placement Johnson graph J(n,2) line graph complete graph PBH controllability signless incidence odd unicyclic pseudoforest",
+        "controllability Johnson graph line graph complete graph Laplacian minimal leaders eigenvalue multiplicity spectral",
+        "Johnson graph J(n,2) minimal controllable actuator set triangular graph minimum leaders",
+        "line graph complete graph spectral PBH actuator selection odd-unicyclic complement",
+        "Johnson graph triangular graph zero forcing number controllability",
+        "minimum input selection line graph K_n odd unicyclic"
+      ]
+    },
+    "rationale": "The all-minimum-placements iff classification is distinct from the general geometric-multiplicity controller-count result in Yuan et al. (2013): the count alone is already implied and is not asserted as novel. The signless-incidence odd-unicyclic invertibility lemma is also known, as in Monfared–Mallik (2018). New assessed content is the exact simultaneous second-eigenspace test, its unique six-label K3,3 obstruction, an explicit optimum that is not zero forcing, and the exact labeled counting series. Inspected primary full-text sections and published semantic records did not exhibit equivalent statements; exhaustive historical coverage is not claimed.",
+    "residual_risks": [
+      "Some specialist earlier graph-control articles, especially general controllability of undirected graphs (Farrugia–Sciriha 2014), were only available as abstracts; no unsupported whole-document exclusion is claimed.",
+      "A specific equivalent result could be indexed under triangular-graph leader sets, line-graph PBH observation, signless incidence matroids or zero-forcing variants not recovered in semantic searches.",
+      "General theory plus known graph spectra imply the optimal cardinality; originality depends specifically on the all-minimum-set structural classification, six-label exception, and exact enumeration rather than that cardinality."
+    ],
+    "source_inspections": [
+      {
+        "assessment": "The general multiplicity principle covers minimum number, not a closed iff description of all coordinate selections on J(n,2).",
+        "evidence": [
+          "Published 2013-09-12",
+          "Results: maximum geometric multiplicity yields minimum independent controllers; Methods derives PBH inequality and eigenvalue multiplicities."
+        ],
+        "identifier_or_url": "https://www.nature.com/articles/ncomms3447",
+        "material_read": "Open full HTML Results section on exact controllability (PBH, maximum multiplicity, regular networks) and Methods Jordan/PBH derivation; tables and references located.",
+        "method": "Full-text HTML section and within-page searches, comparing quantifiers and allowed selector class.",
+        "title": "Exact controllability of complex networks",
+        "trigger": "General minimum number and selection of controllers for undirected networks could subsume the claim."
+      },
+      {
+        "assessment": "Establishes all-matrices controllability iff zero forcing. Our construction is not zero forcing and is valid for one fixed Laplacian, so its conclusion is not covered by that theorem.",
+        "evidence": [
+          "Submitted 2014-03-19",
+          "Theorem IV.4: zero forcing iff controllability for the specified qualitative class."
+        ],
+        "identifier_or_url": "https://arxiv.org/abs/1403.4868",
+        "material_read": "Accessible full HTML Sections II–IV, including qualitative class definition, main Theorem IV.4, and special graph discussion.",
+        "method": "Full-text HTML page reading and in-page Johnson/line-graph term searches.",
+        "title": "Zero forcing sets and controllability of dynamical systems defined on graphs",
+        "trigger": "Qualitative strong controllability can be confused with fixed-Laplacian control."
+      },
+      {
+        "assessment": "Odd-unicyclic invertibility is known and not claimed. No full-state PBH classification or exceptional six-label actuator obstruction appears in inspected proof material.",
+        "evidence": [
+          "First submitted 2018-05-12",
+          "Lemma 2.3: determinant ±2 for connected odd-unicyclic incidence matrix."
+        ],
+        "identifier_or_url": "https://arxiv.org/abs/1805.04759",
+        "material_read": "Accessible full HTML Introduction and Section 2, especially TU-graph definition, incidence determinant Lemmas 2.2 and 2.3 and Cauchy–Binet factorization.",
+        "method": "Full-text HTML mathematical statement and proof inspection.",
+        "title": "An Analog of Matrix Tree Theorem for Signless Laplacians",
+        "trigger": "The unsigned-incidence odd-unicyclic condition is a potential exact overlap."
+      },
+      {
+        "assessment": "Focuses on reduced leader–follower matrices and special families DSFN and Cayley trees, not a stated all-optimal-set classification for J(n,2).",
+        "evidence": [
+          "First published 2022-10-29",
+          "Abstract identifies two self-similar bipartite network families; formulation uses follower-restricted Laplacian blocks."
+        ],
+        "identifier_or_url": "https://ietresearch.onlinelibrary.wiley.com/doi/10.1049/cth2.12385",
+        "material_read": "Accessible full HTML abstract, introduction, problem definition, key theorem discussion and conclusion; not treated as an exhaustive search of every appendix.",
+        "method": "Read and compared accessible full-text HTML sections.",
+        "title": "Minimum leader selection for controllability of undirected graphs with leader–follower framework",
+        "trigger": "A potentially stronger minimum leader-set classification."
+      }
+    ],
+    "status": "PASS"
+  },
+  "review_type": "self_review",
+  "schema_version": 1,
+  "scope_run_id": "48fd742d-49c4-47cf-bb24-424bdce7b366",
+  "self_review_status": "passed",
+  "value": {
+    "rationale": "The result classifies all minimum independently actuated vertex subsets of a natural strongly regular network, including one sharp exceptional obstruction missed by the top eigenspace alone. It provides an explicit optimal selector, a closed counting series and a mathematically meaningful separation from robust zero forcing: the exhibited optimal selector cannot perform any zero forcing move. This is a motivated complete classification rather than a small numerical improvement; the already-known minimum-count corollary is identified as prior coverage.",
+    "status": "PASS"
+  }
+}
