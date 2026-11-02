@@ -1,0 +1,143 @@
+{
+  "correctness": {
+    "rationale": "Exact normal-equation computation, AM–GM with equality attained by fixed residual, independent row-product binomial law, and exact near-identity residual calculation. The supplied checker passed 352 rational enumerations and strict-boundary checks.",
+    "status": "PASS"
+  },
+  "independent": false,
+  "independent_audit_status": "not_performed",
+  "originality": {
+    "broader_coverage": {
+      "evidence": [
+        "Standard high-probability subspace embeddings bound residual norms conditioned on success; they do not give the unconditional exact binomial wrong-sign probability for a two-mode input.",
+        "FGMRES outer stabilization produces nonincreasing outer residuals under its own update and is not the unguarded single sketched coefficient here."
+      ],
+      "reasoning": "Compared implication direction: existing guarantees are conditional on embeddings or concern differently controlled iteration; neither covers the low-probability defective sign-sketch events and their exact staircase.",
+      "searches": [
+        "random sign sketch one-step GMRES negative stepsize two-eigenvalue mode phase transitions",
+        "Rademacher sketched one-step GMRES sign reversal exact binomial probability near identity SPD discontinuity 2^-k",
+        "arxiv:2111.00113",
+        "arxiv:2506.18408v2"
+      ]
+    },
+    "checked_sources": [
+      "arxiv:2610.34964v1",
+      "arxiv:2506.18408v2",
+      "arxiv:2111.00113",
+      "Epperly 2024 Gaussian sketch-and-solve note",
+      "published-finding corpus search results for sign sketched GMRES and deterministic GMRES(1)",
+      "64 accessible owned research claim statements for current week"
+    ],
+    "claim_vs_prior_implication": {
+      "evidence": [
+        "Yuan–Wu lists Rademacher sketches and the sketched minimal-residual projection but no inspected assertion computes this exact two-coordinate negative-coefficient law.",
+        "Epperly derives unbiasedness and expected residual for Gaussian sketches, not sign-sketch finite binomial probabilities.",
+        "The prior deterministic error-barrier theorem concerns standard rather than sign-sketched GMRES."
+      ],
+      "reasoning": "The new conclusion requires the signed row-product law, an optimized two-eigenmode AM–GM threshold, and strict discrete endpoint accounting. It is not implied by cited Gaussian distribution, deterministic GMRES, or subspace embedding statements without a further ensemble-specific analysis.",
+      "searches": [
+        "arxiv:2610.34964v1 §2.2",
+        "arxiv:2506.18408v2 §1 and §3",
+        "arxiv:2111.00113 §1–2",
+        "Ethan N. W. Epperly 2024 Gaussian sketch-and-solve",
+        "published-finding corpus 2026/9/20/SCOPE-symmetric-gmres1-euclidean-error-barrier--89eb763dddfc"
+      ]
+    },
+    "equivalent_formulations": {
+      "evidence": [
+        "The coefficient sign depends on one binomial row-product statistic, which is absent from the inspected randomized Krylov formulation.",
+        "Gaussian sketching yields a different continuous distribution; exact sign sampling is not orthogonally invariant."
+      ],
+      "reasoning": "Translated the claim to the sign of the sketched least-squares normal-equation numerator and searched both negative-step and sign-sketch terminology. The known Gaussian rank-one regression law cannot imply the discrete staircase without changing the random law. No matching same-ensemble equivalence was identified.",
+      "searches": [
+        "Rademacher sketched GMRES step negative SPD diagonal binomial sign probability",
+        "random sign sketch minimal residual first coefficient negative curvature ratio binomial phase transition",
+        "Rademacher sign sketch exact binomial chance negative minimal-residual Krylov coefficient on SPD diagonal",
+        "arxiv:2610.34964v1 §2.2"
+      ]
+    },
+    "exact_database_or_table": {
+      "evidence": [
+        "Nearest binomial published-finding corpus records concern other statistical models rather than sketched SPD Krylov steps.",
+        "A deterministic symmetric GMRES(1) Euclidean solution-error result concerns a different norm and no random sketch."
+      ],
+      "reasoning": "Checked owned active-week research claims and queried published mathematical record titles/summaries for alternate terminology; no direct formula or dominating table was located. This does not certify exhaustive novelty.",
+      "searches": [
+        "Rademacher sign sketch exact binomial chance negative minimal-residual Krylov coefficient on SPD diagonal",
+        "Rademacher sketched one-step GMRES sign reversal exact binomial probability near identity SPD discontinuity 2^-k",
+        "published-finding corpus semantic search: Rademacher sketched one-step GMRES sign reversal exact binomial probability near identity SPD discontinuity 2^-k"
+      ]
+    },
+    "rationale": "Inspected primary randomized Krylov and Gaussian sketch literature gives objective/embedding guarantees or continuous Gaussian laws, not the exact discrete sign-sketch wrong-step risk staircase and near-identity floor; accessible historical claims and published-finding corpus comparisons find no dominating statement. Specialized unpublished/older sign-sketch priority is a residual risk.",
+    "residual_risks": [
+      "No exhaustive archival priority search; specialized Rademacher sketching probability literature may contain equivalent two-coordinate formulas.",
+      "A statistical Gaussian sketch paper could not be inspected in full, though it treats a different ensemble.",
+      "Section-level rather than entire-page-by-page inspection of some relevant long primary texts."
+    ],
+    "source_inspections": [
+      {
+        "assessment": "Relevant algorithmic definition and explicit ensemble option; no exact wrong-sign binomial formula found in the inspected material",
+        "evidence": [
+          "arxiv:2610.34964v1 submitted 2026-10-26, Section 2.2 Definition 2, Eq. (2)"
+        ],
+        "identifier_or_url": "https://arxiv.org/html/2610.34964v1",
+        "material_read": "Abstract, dated arXiv record, Section 2.2 and its algorithmic assumptions/projection objective",
+        "method": "Targeted full-text HTML inspection, especially lines 165–186",
+        "title": "Randomized Krylov Subspace Methods for Shifted Linear Systems",
+        "trigger": "Primary current motivating source specifies Rademacher sign sketches and randomized Krylov minimal-residual objective"
+      },
+      {
+        "assessment": "Stabilization via flexible outer GMRES; does not supply stated single-step Rademacher failure law in inspected sections",
+        "evidence": [
+          "arxiv:2506.18408v2 abstract and introduction, Sections 1 and 3"
+        ],
+        "identifier_or_url": "https://arxiv.org/html/2506.18408v2",
+        "material_read": "Abstract, introduction and algorithm description of flexible outer iteration",
+        "method": "Targeted primary full HTML comparison",
+        "title": "Stabilizing randomized GMRES through flexible GMRES",
+        "trigger": "Directly discusses true-residual safety of sketched GMRES"
+      },
+      {
+        "assessment": "Subspace embedding error control, no identified exact two-mode Rademacher sign reversal in inspected material",
+        "evidence": [
+          "arxiv:2111.00113 Section 1.2"
+        ],
+        "identifier_or_url": "https://arxiv.org/abs/2111.00113",
+        "material_read": "Introduction and sketched GMRES/embedding formulation",
+        "method": "Targeted lawfully accessible primary text comparison",
+        "title": "Fast & Accurate Randomized Algorithms for Linear Systems and Eigenvalue Problems",
+        "trigger": "Baseline sketched least-squares GMRES guarantee"
+      },
+      {
+        "assessment": "Gaussian ensemble, not same discrete law; generic one-dimensional least-squares identity is known and not claimed new",
+        "evidence": [
+          "2024-11-19 blog, Gaussian estimator and residual sections"
+        ],
+        "identifier_or_url": "https://www.ethanepperly.com/index.php/2024/11/19/note-to-self-sketch-and-solve-with-a-gaussian-embedding/",
+        "material_read": "Full article including derivation of unbiased estimator and exact mean-squared residual",
+        "method": "Full text HTML inspection",
+        "title": "Note to Self: Sketch-and-Solve with a Gaussian Embedding",
+        "trigger": "Tests whether stronger least-squares distribution subsumes discrete sketch result"
+      },
+      {
+        "assessment": "No whole-paper NOT_COVERING assertion; residual risk recorded",
+        "evidence": [
+          "Search index excerpt from Section 3.1, access challenge when opening full text"
+        ],
+        "identifier_or_url": "https://pmc.ncbi.nlm.nih.gov/articles/PMC7612324/",
+        "material_read": "Search snippets identifying Gaussian complete-sketch coefficient distribution; full page inaccessible due to access challenge",
+        "method": "Search result evidence only; full text not inspected",
+        "title": "Statistical properties of sketching algorithms",
+        "trigger": "Potentially stronger statistical Gaussian sketching results"
+      }
+    ],
+    "status": "PASS"
+  },
+  "review_type": "self_review",
+  "schema_version": 1,
+  "scope_run_id": "8eac0198-fcec-42a2-8347-23dd9633b55d",
+  "self_review_status": "passed",
+  "value": {
+    "rationale": "The exact phase staircase and persistent 2^-k wrong-sign risk near the identity provide a motivated, sharp design benchmark for sketch size and residual-descent safeguards. The near-identity event produces a factor-two true residual spike, a qualitative difference from mean-error guarantee alone.",
+    "status": "PASS"
+  }
+}
