@@ -1,15 +1,21 @@
-# Scientific assessment
+# Independent mathematical audit
 
-## Correctness — PASS
-The fourth-order overlap graph has six length-three permutation vertices and 24 distinctly labeled length-four permutation arcs. The normalized nonnegative circulation description is established in the cited primary text. For a pair of distinct simple-cycle vertices, the union-support face is one-dimensional exactly when its incidence-nullity is two; this follows from positivity of the midpoint on every used arc. Two different exhaustive cycle enumerations agree on all 160 vertices, and two independent adjacency tests agree for all 12,720 unordered pairs. The completed integer certificate proves the joint cycle-length/degree table, 2,667 edges, 72 simple Hamiltonian vertices and diameter two. The proof does not infer an infinite theorem from a finite experiment; the finite fourth-order instance is exhausted.
+## correctness
 
-## Originality — PASS
-Borga–Penaguiao's arXiv:1910.02233 is the exact primary source and proves the cycle-polytope representation and full-subgraph face criterion. Those general theorems imply a procedure for obtaining this instance's graph and are **credited, not claimed as new**. The inspected full text does not evaluate the 160-vertex one-skeleton degree spectrum, 2,667 edges or the Hamiltonian/simple equivalence. Asplund–Fox arXiv:1609.02210 supplies graph-cycle enumeration but not pairwise polytope adjacency statistics. The later pattern-avoiding paper arXiv:2010.06273 recalls the unrestricted result rather than tabulating the claimed local profile. published-finding corpus semantic comparison and targeted exact-value/alias searches found no stronger statement with this full fourth-order evaluated data; undiscovered numerical tables remain possible.
+PASS
 
-## Value — PASS
-This resolves a natural **complete** local face invariant for the canonical 18-dimensional polytope of attainable consecutive pattern statistics. A genuinely nonuniform ten-class degree distribution reveals a precise structural simplicity boundary: exactly the 72 Hamiltonian-cycle vertices are simple. The complete graph is of a tractable but nontrivial size (160 vertices and 12,720 pairs), and its local incidence profile can support exact finite optimization and further combinatorial comparisons without invoking speculative future implications.
+The final finding specifies all 24 separately labeled arcs of Ov(4) and six length-three state vertices, so the normalized nonnegative circulation polytope is precisely the unrestricted frequency polytope. Each cycle support yields one extreme point by nonnegative flow decomposition and support minimality. The full directed graph has incidence rank 5, hence affine dimension 18. For two cycles the positive midpoint is in the relative interior of the union-support nonnegative-flow face; its dimension equals |E(U)|-|V(U)|+components(U)-1, and rank two gives exactly one-dimensional adjacency. Fresh independent code constructs every graph arc and all 160 simple directed cycle supports, evaluates all 12720 unordered pairs with both union-graph cycle rank and all-contained-simple-cycle counting, and confirms the ten-class degree and complete length-by-degree tables with zero criterion disagreements. The degree handshake sum 5334 yields 2667 edges; precisely all 72 Hamiltonian length-six cycles have the minimal degree 18. Two monotone loops have degree 159 and all other vertices distance 2 via them. The proof is a complete exact finite census of this fixed graph, not an extrapolation to all pattern lengths.
 
-## Closest literature and limitations
-The general face-poset criterion, all-dimensional cycle-polytope interpretation and overlapping-permutation cycle enumeration are prior results, explicitly excluded from originality. This is not a higher-dimensional face census, an all-pattern-length formula, or a claim of independent validation. No inaccessible source was represented as reviewed; remaining risk is an undiscovered existing full numerical order-four table. The included standalone integer verifier establishes the finite table under the mathematical definitions, while third-party review has not been conducted.
+## originality
 
-Same-model review: passed. Independent audit: not yet performed.
+PASS
+
+The exact identity of the frequency polytope with a directed cycle polytope, its dimension, and its general skeleton adjacency test are already established and excluded from the originality claim. Primary text comparisons distinguish those general facts from an evaluated order-four table. The complete ten-class graph-degree census, 2667 edges, joint 1..6 cycle-length/degree table, and 72 Hamiltonian/simple classification were not present in the inspected primary publications or another indexed finding. This is a best-of-knowledge new evaluated natural finite invariant, not a new general theorem on cycle polytopes or proof of exhaustive publication priority. The known general criterion does determine the instance algorithmically, but obtaining the full explicit distribution requires a nontrivial exhaustive computation.
+
+## value
+
+PASS
+
+Order four is the first natural unrestricted consecutive-pattern frequency polytope beyond the small illustrated order-three example; its 18-dimensional geometry is accessible only indirectly through the overlap graph. The complete exact one-skeleton degree spectrum and joint cycle-length classification are natural local face invariants of the whole canonical polytope, not an arbitrary small slice or a textbook substitution. They distinguish all 72 simple Hamiltonian vertices from 88 nonsimple ones and quantify ten degree classes, providing reusable structure for polytope optimization and comparisons. No all-order theorem or downstream application is required for the independently useful natural complete finite invariant. The generic diameter-two fact is cheap and supplies background, not the value basis.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
