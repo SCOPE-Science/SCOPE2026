@@ -1,0 +1,11 @@
+# Self-review
+
+**Correctness — PASS.** The exact lower-digit counts are reconstructed from the base-four digit blocks, with a uniform \(2^{-k}\) Cantor-cylinder error estimate. The quantitative distribution bound follows from bounded variation, not from finite sampling. The density and its complete mass decomposition follow by a measure-preserving change of variables and a gap-by-gap transformation of Lebesgue measure. The first-gap coefficient, phase intervals, exact support, and finite checks were recomputed. Finite tests do not replace these analytic arguments.
+
+**Originality — PASS, subject to bibliographic uncertainty.** Zhang (arXiv:2610.29963v1, Sections 1 and 6) establishes the sharp threshold and revisits the base-four construction; Ma (arXiv:2205.04128, relevant digit-block results) supplies earlier general extremal formulas. Neither inspected statement supplies the quantitative limiting law or explicit Cantor-gap density. Comparisons with accessible related research-record descriptions and historical claim records did not identify an equivalent result. The construction and sharp \(3/2\) limsup are acknowledged as known. An unindexed equivalent analysis is still possible; this review is not a priority certificate.
+
+**Mathematical value — PASS.** The new result determines a canonical limiting *distribution*, rather than a previously known endpoint. Its nontrivial absolutely continuous law has full support on the extremal interval, a quantitative convergence rate, and a rigorous \(2/3\)-to-\(1/3\) decomposition between an elementary density and an infinite Cantor-gap correction. This gives precise typical and atypical behavior within the published sharpness example, potentially useful when comparing additive complements with identical extremal constants.
+
+**Scope and risks.** The result is confined to full four-adic blocks for this specific digital pair. No full-cutoff natural-density law or result for arbitrary complements is claimed. The infinite probability-law assertions are proved analytically but have not undergone independent validation. An earlier unindexed density computation remains the principal originality risk.
+
+Self-review: passed. Independent audit: not yet performed.
