@@ -1,15 +1,21 @@
-# Scientific review
+# Independent mathematical audit
 
-## Correctness — PASS
-The finite statement is precise: sixteen vertices identified with the ordered pairs modulo four, an explicit Shrikhande generating set with correlated diagonal signs, and the forbidden induced triangle condition. Both face predicates independently enumerate all 65,536 subsets. Graph parameters, 32 triangles, complete face counts, paired-face disjointness, and every Hasse incidence are checked. The explicit perfect acyclic matchings reduce the nonempty complexes to one zero-cell plus nine six-cells or fifteen five-cells; Forman's theorem establishes the claimed integral homotopy types. Full mod-two chain-boundary ranks provide independent corroboration. See `verify.py`, `verify_output.txt`, and `RESULT.md` for the actual algorithms, numbers and mathematical deduction.
+## correctness
 
-## Originality — PASS with qualified residual risk
-Taylan's full available text (arXiv:1501.06754) defines precisely this kind of forbidden-pattern complex and treats other graph families; its statements do not cover the Shrikhande case. Jojić–Vrećica–Živaljević (arXiv:1412.0386) explicitly define the two-rook-per-row-and-column generalized chessboard object. A published published-finding corpus result `915eed6b65e5` already gives the full rook homotopy type, which is expressly not counted as new. The closest Shrikhande results available through the indexed search concern its ordinary independence or Čech/neighborhood complexes, which do not imply the triangle-avoidance homotopy type. Targeted searches for triangle hypergraph, induced \(K_3\)-free vertex subsets, alternative chessboard formulations, and precise sphere decompositions found no covering result for Shrikhande. Indexing gaps remain possible; the earlier rook result is a known, explicitly acknowledged component of the comparison.
+PASS
 
-## Value — PASS
-The Shrikhande graph provides the second canonical strongly regular realization of \((16,6,2,2)\). Its 32 triangles form the faces of a toroidal triangulation, making a triangle-avoidance complex natural rather than an arbitrary induced subcomplex. Showing that its complex is a bouquet of nine six-spheres gives a full integral topological invariant and, relative to the already known rook complex, a clear separation in the *degree* of homology despite matching strongly regular parameters and triangle counts. Neither numerical Betti calculation nor absence of novelty coverage alone is offered as value; the canonical comparison and exact homotopy dimension give the specific mathematical motivation.
+The definition is the K3-devoid complex, not ordinary independence. Both graph adjacencies were reconstructed from their explicit Z4^2 step sets; each has 16 vertices of degree six, 48 edges, 32 triangles, and common-neighbor count two. Every one of the 65536 vertex subsets was independently tested for forbidden triangles, yielding 8951 faces including empty for Sh and 7343 for rook. The specified staged greedy Morse matching leaves nine critical six-faces after 4471 pairs (Sh) and fifteen critical five-faces after 3664 pairs (rook), with augmented empty face paired in each. An independently implemented complete directed Hasse topological sort visits all 8951 faces/48288 incidences and all 7343 faces/37744 incidences without cycles. Removing the empty pair leaves one critical vertex and cells only in a single higher dimension: Forman then gives wedges of nine six-spheres and fifteen five-spheres integrally. Modular boundary computations are corroborative, not the source of the homotopy claim.
 
-## Closest literature and limitations
-The foundational sources are arXiv:1501.06754 (2015-01-27) and arXiv:1412.0386 (2014-12-01), both read in accessible HTML/text, including definitions and application statements. The direct prior record for the rook case was available as a searchable title and summary, not full source. Other finite topology records concern different complexes. This result proves no family-wide theorem, and indexing gaps cannot exclude unobserved equivalent results. Its computer certificate has not been independently validated.
+## originality
 
-Self-review: passed. Independent audit: not yet performed.
+PASS
+
+The rook graph result is logically IDENTICAL to the published two-matching complex M2(K4,4) and explicitly excluded from novelty; it is retained only as comparator. The new natural Shrikhande K3-devoid complex and dimension-separated comparison survive. Prior Shrikhande independence-complex results use edge-avoidance instead of triangle-avoidance and do not imply this homotopy classification.
+
+## value
+
+PASS
+
+This exact integral homotopy invariant separates the canonical nonisomorphic strongly regular pair with identical (16,6,2,2) parameters and even identical triangle count. The strong dimension change (S6 versus S5) demonstrates structural information invisible to low graph parameters and supplies a test object for K3-devoid complexes.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

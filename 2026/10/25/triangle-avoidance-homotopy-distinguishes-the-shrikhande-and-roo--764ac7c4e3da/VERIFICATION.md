@@ -5,8 +5,11 @@
     "status": "not_performed"
   },
   "independent_audit": {
-    "evidence": null,
-    "status": "not_performed"
+    "status": "passed",
+    "evidence": [
+      "INDEPENDENT_AUDIT_2026-10-28.md",
+      "INDEPENDENT_AUDIT_2026-10-28.json"
+    ]
   },
   "lean_verification": {
     "evidence": null,
@@ -16,10 +19,24 @@
 }
 ---
 
-The full standalone verifier is `verify.py`. Run it with `python3 verify.py` from the extracted package directory; it uses only Python's standard library. Its actual replay output is `verify_output.txt`.
+# Independent mathematical audit
 
-The verifier constructs both graphs from the explicit coordinate rules, verifies degree six and exactly two common neighbors for each distinct vertex pair, enumerates all 32 triangles per graph, and tests each of the 65,536 vertex subsets with two logically different predicates. It then constructs every Morse pair from the stated deterministic vertex order and performs a topological sort of the entire oriented face-poset Hasse diagram, including the empty face.
+## correctness
 
-The certified counts are: rook graph, 7,343 faces (including empty), 3,664 pairs, fifteen critical five-cells, 37,744 incidence checks; Shrikhande graph, 8,951 faces, 4,471 pairs, nine critical six-cells, 48,288 incidence checks. Each augmented matching pairs the empty face with one singleton; removing that pair gives one critical vertex in ordinary simplicial Morse theory. Independent mod-two reductions of the *full* augmented chain groups yield Betti ranks fifteen in degree five and nine in degree six, respectively.
+PASS
 
-The homotopy equivalences follow from discrete Morse acyclicity and the absence of other critical dimensions, not from mod-two ranks alone. The verifier does not search the mathematical literature or establish priority. The only unverified scientific issue is possible unindexed prior equivalent coverage; independent audit has not been performed.
+The definition is the K3-devoid complex, not ordinary independence. Both graph adjacencies were reconstructed from their explicit Z4^2 step sets; each has 16 vertices of degree six, 48 edges, 32 triangles, and common-neighbor count two. Every one of the 65536 vertex subsets was independently tested for forbidden triangles, yielding 8951 faces including empty for Sh and 7343 for rook. The specified staged greedy Morse matching leaves nine critical six-faces after 4471 pairs (Sh) and fifteen critical five-faces after 3664 pairs (rook), with augmented empty face paired in each. An independently implemented complete directed Hasse topological sort visits all 8951 faces/48288 incidences and all 7343 faces/37744 incidences without cycles. Removing the empty pair leaves one critical vertex and cells only in a single higher dimension: Forman then gives wedges of nine six-spheres and fifteen five-spheres integrally. Modular boundary computations are corroborative, not the source of the homotopy claim.
+
+## originality
+
+PASS
+
+The rook graph result is logically IDENTICAL to the published two-matching complex M2(K4,4) and explicitly excluded from novelty; it is retained only as comparator. The new natural Shrikhande K3-devoid complex and dimension-separated comparison survive. Prior Shrikhande independence-complex results use edge-avoidance instead of triangle-avoidance and do not imply this homotopy classification.
+
+## value
+
+PASS
+
+This exact integral homotopy invariant separates the canonical nonisomorphic strongly regular pair with identical (16,6,2,2) parameters and even identical triangle count. The strong dimension change (S6 versus S5) demonstrates structural information invisible to low graph parameters and supplies a test object for K3-devoid complexes.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
