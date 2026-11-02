@@ -1,19 +1,21 @@
-# Scientific review: two-scale Dirichlet dilation spectrum
+# Independent mathematical audit
 
-## Correctness — PASS
+## correctness
 
-The coefficient matrix is explicitly banded in the orthonormal monomial basis, with every normalization factor shown in the proof. The leading singular-value law follows from closed-walk trace moments, polynomial approximation supported away from zero, singular-value counting perturbation inequalities and uniform quasi-Schatten bounds. The norm edge uses local plane waves, not only moment convergence. The first Hilbert--Schmidt correction follows from an exact nonnegative coefficient series and a controlled large-index expansion, including its finite-index and remainder contributions. Supplementary exact rational and finite-matrix checks pass; they are not infinite proofs.
+PASS
 
-## Originality — PASS, with a specified risk
+On D_beta with squared monomial weight (k+1)^(1-beta), the normalized basis is e_k=(k+1)^((beta-1)/2)z^k. The exact operator matrix for P(z) f^(n)(exp[-eps]z) has finite shifts j-n and entry p_j eps^n k!/(k-n)! exp[-eps(k-n)]((k+1)/(k-n+j+1))^((beta-1)/2). Compared to P(S)S*^n D_eps, the residual is O(eps) in operator norm and contributes negligible eps-scaled Schatten-q mass for every q>0. Closed-walk moments of the slowly varying finite-band Gram matrix lead to the two-variable symbol g(x)|P(e^{i theta})|, g=x^n exp[-x]. Uniform small-singular-value control via q<p extends positive-threshold counting to every Schatten p>0, while localized plane waves establish the sharp spectral norm edge. Exact orthogonal monomial-column summation produces the Hilbert-Schmidt first correction eps^((2n)+1)||T_eps||^2 = [(2n)!/2^(2n+1)]A_P + eps[(2n-1)!/2^(2n)][n(n+beta)A_P-(beta-1)B_P]+o(eps). The finite-dimensional numerical tests separately corroborate the coefficient and are not a proof of infinite-rank asymptotics. Independently verified exact rational coefficients and numerically checked first-correction slopes for beta=0,1,3, n=1.
 
-The full Sun--Liu Section 9.2 determines monomial-weight singular spectra, not a coupled polynomial angular density or an index-sensitive expansion. Barik--Sen--Paul establishes classification and special unweighted norms, not the two-scale quantitative result. Classical generalized locally Toeplitz theory already supplies the conceptual bulk-distribution mechanism for finite approximants; that general tool is credited, and its bulk law alone is not claimed as novel. It does not by itself give the displayed first Hilbert--Schmidt correction or justify the all-positive-exponent infinite-family limits without added estimates. No directly covering combined statement was located in the indexed mathematical comparisons. Publication priority remains uncertain, especially for general asymptotic Toeplitz literature.
+## originality
 
-## Mathematical value — PASS
+PASS
 
-The near-identity degeneration is natural because the limiting differentiated operator is unbounded on the same coefficient space. The theorem resolves a coupled multimononomial singular-spectrum problem that cannot be handled by rearranging independent monomial singular-value sequences. It provides exact constants for all Schatten exponents, a computable rank-density profile and an explicit first correction showing exactly when and how the Dirichlet index and polynomial degree distribution reappear. This distinction between leading universality and subleading sensitivity is a structurally motivated quantitative refinement rather than an arbitrary fixed-degree table.
+Best-of-knowledge based on actual source-tree proof inspection, prior claim/implication comparisons and the explicit coverage boundaries. A general second-order Szego/GLT trace expansion may cover the first Hilbert-Schmidt correction; this historical priority remains unexcluded.
 
-## Closest literature and limitations
+## value
 
-Barik--Sen--Paul, arXiv:2605.00213 (2026), and Sun--Liu, arXiv:2610.19658 (2026), are the closest operator-family sources. Generalized locally Toeplitz spectral-symbol literature covers much of the bulk proof technology, but not the joint index-dependent expansion as stated. The result fixes the polynomial, differentiation order and space index; it asserts no counting rate or arbitrary-symbol extension. The paper-priority assessment is not an independent literature certification.
+PASS
 
-Self-review: passed. Independent audit: not yet performed.
+This is a natural sharp spectral invariant for differentiation combined with near-identity composition on a precisely normalized family of coefficient Dirichlet spaces, including all quasi-Schatten exponents. The bulk local-Toeplitz principle is known; the coupled polynomial symbol and first index-dependent Hilbert-Schmidt correction isolate information invisible to the leading law, providing a motivated nontrivial specialization. Scope fixes beta,n,P as eps->0 and no arbitrary symbols are asserted.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

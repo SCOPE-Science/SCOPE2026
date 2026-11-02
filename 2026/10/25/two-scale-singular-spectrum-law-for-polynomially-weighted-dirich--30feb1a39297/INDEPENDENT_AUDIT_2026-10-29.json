@@ -1,0 +1,106 @@
+{
+  "audit_date_utc": "2026-10-29",
+  "audited_at_utc": "2026-10-29T18:12:15.014646Z",
+  "axes": {
+    "correctness": {
+      "rationale": "On D_beta with squared monomial weight (k+1)^(1-beta), the normalized basis is e_k=(k+1)^((beta-1)/2)z^k. The exact operator matrix for P(z) f^(n)(exp[-eps]z) has finite shifts j-n and entry p_j eps^n k!/(k-n)! exp[-eps(k-n)]((k+1)/(k-n+j+1))^((beta-1)/2). Compared to P(S)S*^n D_eps, the residual is O(eps) in operator norm and contributes negligible eps-scaled Schatten-q mass for every q>0. Closed-walk moments of the slowly varying finite-band Gram matrix lead to the two-variable symbol g(x)|P(e^{i theta})|, g=x^n exp[-x]. Uniform small-singular-value control via q<p extends positive-threshold counting to every Schatten p>0, while localized plane waves establish the sharp spectral norm edge. Exact orthogonal monomial-column summation produces the Hilbert-Schmidt first correction eps^((2n)+1)||T_eps||^2 = [(2n)!/2^(2n+1)]A_P + eps[(2n-1)!/2^(2n)][n(n+beta)A_P-(beta-1)B_P]+o(eps). The finite-dimensional numerical tests separately corroborate the coefficient and are not a proof of infinite-rank asymptotics. Independently verified exact rational coefficients and numerically checked first-correction slopes for beta=0,1,3, n=1.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "General GLT theorems predict bulk spectral distribution of finite-band slowly varying matrices under appropriate truncation. Sun-Liu give monomial exact spectra and general Schatten membership/criteria, but the inspected theorem does not furnish the coupled-polynomial index-sensitive HS correction."
+        ],
+        "reasoning": "Credit the broadly covering bulk *method*: it may imply (I) and leading (II) after verifying truncation/tail hypotheses. The combined package with the explicit beta-sensitive next-order coefficient is not established by those cited results.",
+        "searches": [
+          "Garoni Serra-Capizzano 2017 Generalized Locally Toeplitz sequences: a review and an extension",
+          "arXiv:2610.19658 Section 9.2"
+        ]
+      },
+      "checked_sources": [
+        "Assigned RESULT.md proof steps 1-5",
+        "Assigned verify.py finite exact basis and finite asymptotic checks",
+        "arXiv:2610.19658",
+        "arXiv:2605.00213",
+        "Generalized Locally Toeplitz 2017 reference",
+        "Resultary operator singular-value searches"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "The monomial theorem yields point singular values when j has a single value. The GLT framework concerns leading eigenvalue-density distributions under sufficiently regular symbols. A first correction depending on B_P=sum j|p_j|^2 and beta cannot be read from the beta-independent leading symbol alone."
+        ],
+        "reasoning": "The precise joint statement is not subsumed by inspected first-order coverage; its Hilbert-Schmidt correction requires a separate nonleading asymptotic and exact coefficient normalization.",
+        "searches": [
+          "arXiv:2610.19658 Theorem 9.2",
+          "arXiv:2605.00213 Dirichlet operator membership and norm statements",
+          "GLT general local-symbol literature"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "If P is monomial, different columns are orthogonal and exact individual singular values can be computed. For multi-term P, the matrix is band-coupled and the singular spectrum is nontrivial; classical GLT symbol descriptions are asymptotic rather than exact individual singular values."
+        ],
+        "reasoning": "The claim explicitly includes coupled polynomial P and infinite-rank eps->0 singular density; it does not merely rename a monomial singular-value formula.",
+        "searches": [
+          "arXiv:2610.19658 Theorem 9.2 monomial weighted composition-differentiation singular values",
+          "arXiv:2605.00213 Weighted Composition-differentiation operators on weighted Dirichlet spaces"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "Nearest retrieved exact singular-value results concern binomial lattice backward shifts or generalized Cesaro-type operators with different weights/symbols; no stored matching D_beta polynomially coupled two-scale coefficient table appeared."
+        ],
+        "reasoning": "Searched mathematical result database by operator, quasi-Schatten regime and local-Toeplitz relation. No exact table found, but this is a best-of-knowledge indication only.",
+        "searches": [
+          "Resultary: polynomial weighted composition differentiation operators Dirichlet space singular value spectral asymptotics",
+          "Resultary: spectral distribution generalized locally Toeplitz weighted composition differentiation Dirichlet dilation Schatten correction"
+        ]
+      },
+      "rationale": "Best-of-knowledge based on actual source-tree proof inspection, prior claim/implication comparisons and the explicit coverage boundaries. A general second-order Szego/GLT trace expansion may cover the first Hilbert-Schmidt correction; this historical priority remains unexcluded.",
+      "residual_risks": [
+        "A general second-order Szego/GLT trace expansion may cover the first Hilbert-Schmidt correction; this historical priority remains unexcluded.",
+        "The norm and all-p laws are first-order results, and the claim holds with fixed polynomial/n/beta only; no general nonpolynomial or uniform-in-parameter conclusion."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "MONOMIAL_SPECIAL_CASE",
+          "evidence": "Known exact singular values require orthogonality of distinct monomial input outputs; coupled P has off-diagonal Gram terms.",
+          "identifier_or_url": "https://arxiv.org/abs/2610.19658",
+          "material_read": "Accessible full preprint including Section 9.2 and Theorem 9.2 on monomial-symbol exact singular values",
+          "method": "Primary full-text inspection and comparison with multi-term P",
+          "title": "Weighted composition-differentiation operators on mixed-norm, derivative Hardy and F(p,q,s) spaces",
+          "trigger": "Closest contemporary differentiation-composition singular-value results"
+        },
+        {
+          "assessment": "KNOWN_QUALITATIVE_NOT_THE_ASYMPTOTIC",
+          "evidence": "Proves general operator properties, not all p>0 coupled leading symbol with first beta-sensitive Hilbert-Schmidt correction.",
+          "identifier_or_url": "https://arxiv.org/abs/2605.00213",
+          "material_read": "Accessible revised full text, including compactness, membership and special weighted compositions",
+          "method": "Read relevant primary full text and compare statements",
+          "title": "Weighted Composition-differentiation operators on weighted Dirichlet spaces",
+          "trigger": "Same Dirichlet operator family and Hilbert-space norm conventions"
+        },
+        {
+          "assessment": "POTENTIAL_BROADER_COVERAGE_RISK",
+          "evidence": "Leading symbol may be a GLT corollary; the explicit next-order coefficient is not established from the inspected summary.",
+          "identifier_or_url": "https://doi.org/10.1007/978-3-319-49182-0_16",
+          "material_read": "Bibliographic abstract/framework description and known general local-symbol results; a specific theorem-level application to this family was not material-read",
+          "method": "Search and compare mathematical reach; no whole-document NOT_COVERING inference",
+          "title": "The theory of generalized Locally Toeplitz sequences: a review, an extension, and a few representative applications",
+          "trigger": "General machinery potentially dominating leading bulk spectral result"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "rationale": "This is a natural sharp spectral invariant for differentiation combined with near-identity composition on a precisely normalized family of coefficient Dirichlet spaces, including all quasi-Schatten exponents. The bulk local-Toeplitz principle is known; the coupled polynomial symbol and first index-dependent Hilbert-Schmidt correction isolate information invisible to the leading law, providing a motivated nontrivial specialization. Scope fixes beta,n,P as eps->0 and no arbitrary symbols are asserted.",
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "limitations": [
+    "A general second-order Szego/GLT trace expansion may cover the first Hilbert-Schmidt correction; this historical priority remains unexcluded.",
+    "The norm and all-p laws are first-order results, and the claim holds with fixed polynomial/n/beta only; no general nonpolynomial or uniform-in-parameter conclusion."
+  ],
+  "schema_version": 1
+}
