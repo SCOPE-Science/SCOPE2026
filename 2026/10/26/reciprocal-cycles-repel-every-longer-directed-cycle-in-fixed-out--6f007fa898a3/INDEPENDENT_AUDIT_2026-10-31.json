@@ -1,0 +1,123 @@
+{
+  "audit_date_utc": "2026-10-31",
+  "audited_at_utc": "2026-10-31T04:05:13Z",
+  "axes": {
+    "correctness": {
+      "rationale": "PASS: Independently reconstructed the four pair-vs-cycle overlap types under row-wise hypergeometric sampling without replacement: outside/outside zero; exactly one shared vertex contributes ℓ(n−ℓ)p^ℓ(q−p²); nonconsecutive inside pair contributes ℓ(ℓ−3)p^(ℓ−2)(q²−p⁴)/2; adjacent inside contributes ℓ(p^(ℓ−1)q−p^(ℓ+2)). Here p=k/(n−1), q=k(k−1)/((n−1)(n−2)), distinct rows independent. Summing over (n)_ℓ/ℓ oriented cyclic words yields exact Cov(C2,Cℓ)=−(n)_ℓ k^ℓ(n−k−1)²(2n−ℓ−1)/[2(n−1)^(ℓ+2)(n−2)²]. Fresh rational arithmetic verified all 440 n,k,ℓ strata for 3≤n≤12, 1≤k<n, 3≤ℓ≤n. Positivity of 2n−ℓ−1 proves strictly negative when k≤n−2 and zero for k=n−1. ER shared-arc argument gives (n)_ℓ p^(ℓ+1)(1−p)>0. Fixed-k and dense limits follow algebraically; no asymptotic claim for variable ℓ.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Cai--Devroye studies random automata that allow loops/repetition (and a simple variant); Sood--Yağan samples distinct K-out neighbors but studies orientation-erased connectivity."
+        ],
+        "reasoning": "Neither their asymptotic component structure nor undirected connectivity implies the exact mixed two-cycle/ℓ-cycle covariance in the directed distinct-target model. A broad general fixed-row-matrix covariance theorem would cover this if identified, but no such specific implication was found.",
+        "searches": [
+          "Resultary semantic search: fixed k-out regular directed graph reciprocal 2 cycles covariance longer directed cycles all lengths",
+          "arXiv:1504.06238",
+          "arXiv:1911.05147",
+          "arXiv:1909.11147"
+        ]
+      },
+      "checked_sources": [
+        "https://arxiv.org/abs/1911.05147",
+        "https://arxiv.org/abs/1504.06238",
+        "https://arxiv.org/abs/1909.11147",
+        "Resultary semantic search: fixed k-out regular directed graph reciprocal 2 cycles covariance longer directed cycles all lengths"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "The literal full-cycle-vs-reciprocal overlaps include ℓ(n−ℓ) and ℓ(ℓ−3)/2 row-dependence terms absent from independent-arc calculations."
+        ],
+        "reasoning": "Standard K-out connectivity theorems do not imply the mixed covariance sign. The contrast to D(n,p) is a derived independent comparator, not separately claimed as a new model.",
+        "searches": [
+          "arXiv:1911.05147",
+          "arXiv:1504.06238",
+          "Resultary semantic search: fixed k-out regular directed graph reciprocal 2 cycles covariance longer directed cycles all lengths"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "The statistic is covariance of length-two directed cycle counts with oriented length-ℓ simple cycle counts in a product of row-hypergeometric measures."
+        ],
+        "reasoning": "Graph-model equivalence to independent row draws does not make it an independent-arc directed ER statistic: within-row arc indicators are negatively correlated and sharing an existing arc produces a different overlap effect.",
+        "searches": [
+          "Resultary semantic search: fixed k-out regular directed graph reciprocal 2 cycles covariance longer directed cycles all lengths",
+          "random k-out directed digraph reciprocal dyad cycle covariance",
+          "arXiv:1911.05147"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "A closed rational formula applies to all n,k,ℓ; the independent checks span 440 finite strata, not a lookup table."
+        ],
+        "reasoning": "An exact database/table for finitely many directed graphs could corroborate boundaries but cannot replace this unrestricted expression. No matching all-parameter table was located.",
+        "searches": [
+          "Resultary semantic search: fixed k-out regular directed graph reciprocal 2 cycles covariance longer directed cycles all lengths",
+          "random directed k-out fixed row simple cycle counts table"
+        ]
+      },
+      "rationale": "PASS (qualified): The published random K-out and automaton analyses inspected focus on undirected connectivity or repeated-neighbor/random-mapping cycles, not this uniformly without-replacement oriented pair-vs-every-ℓ covariance. The four-pattern derivation could be implicit in a more general enumeration for binary contingency tables or random fixed-row digraphs; exact priority remains open.",
+      "residual_risks": [
+        "More general fixed-row random-matrix moment/cycle covariance results could contain the identity as an unstated special case.",
+        "The covariance is not a full negative-association theorem; no conclusions about prescribed indegree, loops or with-replacement sampling are made.",
+        "Some nearby papers were accessible only at abstract/result level, so no whole-document noncoverage claims rest on snippets."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Uses K-out choices but discards arc orientations; does not state the directed mixed cycle covariance",
+          "evidence": [
+            "arXiv:1911.05147, model and connectivity theorems"
+          ],
+          "identifier_or_url": "https://arxiv.org/abs/1911.05147",
+          "material_read": "Primary arXiv full PDF: model definition, undirected construction, connectivity statements and theorem scope",
+          "method": "PDF full text / page inspection",
+          "title": "On the Strength of Connectivity of Inhomogeneous Random K-out Graphs",
+          "trigger": "Same distinct-neighbor, independently sampled row model"
+        },
+        {
+          "assessment": "Allows loops/repeated targets in principal model; exact same mathematical model noncoverage not certified from abstract alone",
+          "evidence": [
+            "arXiv:1504.06238, abstract and random automaton model"
+          ],
+          "identifier_or_url": "https://arxiv.org/abs/1504.06238",
+          "material_read": "Abstract and indexed cycle results; full technical article not separately read in this run",
+          "method": "Search / abstract and result context",
+          "title": "The graph structure of a deterministic automaton chosen at random: full version",
+          "trigger": "Same random outgoing-arc cycle language"
+        },
+        {
+          "assessment": "Undirected component boundary edges; does not provide affirmative exact directed covariance coverage",
+          "evidence": [
+            "arXiv:1909.11147, abstract"
+          ],
+          "identifier_or_url": "https://arxiv.org/abs/1909.11147",
+          "material_read": "Abstract/accessible indexed theorem description only, not full technical text",
+          "method": "Search / abstract",
+          "title": "Random k-out subgraph leaves only O(n/k) inter-component edges",
+          "trigger": "Fixed-outdegree related sampling"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "rationale": "PASS: The model is a standard fixed-outdegree analogue of directed Erdős--Rényi. Exact all-length negative reciprocal/long-cycle covariance, its strict finite-size range including Hamiltonian cycles, and opposite sign in independent-arc sampling at equal expected degree yield a substantive structural dependence distinction, not just a small-sample sign test.",
+      "status": "PASS"
+    }
+  },
+  "checked_sources": [
+    "https://arxiv.org/abs/1911.05147",
+    "https://arxiv.org/abs/1504.06238",
+    "https://arxiv.org/abs/1909.11147",
+    "Resultary semantic search: fixed k-out regular directed graph reciprocal 2 cycles covariance longer directed cycles all lengths"
+  ],
+  "disposition": "passed",
+  "limitations": [
+    "More general fixed-row random-matrix moment/cycle covariance results could contain the identity as an unstated special case.",
+    "The covariance is not a full negative-association theorem; no conclusions about prescribed indegree, loops or with-replacement sampling are made.",
+    "Some nearby papers were accessible only at abstract/result level, so no whole-document noncoverage claims rest on snippets.",
+    "Exact assigned source tree was retained as returned but a complete standalone Git tree-entry SHA recomputation was not performed; actual named files and their Git blob SHAs were read at the frozen commit.",
+    "No GitHub files were modified and no dispatcher closeout or public certification was performed."
+  ],
+  "schema_version": 1
+}

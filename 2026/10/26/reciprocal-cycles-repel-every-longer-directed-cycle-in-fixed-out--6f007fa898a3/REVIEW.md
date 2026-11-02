@@ -1,11 +1,21 @@
-# Scientific review: reciprocal and longer directed-cycle counts
+# Independent mathematical audit
 
-**Correctness — PASS.** In the distinct-target fixed-outdegree model, each outgoing row is a uniform \(k\)-subset and rows are independent. A fixed directed \(\ell\)-cycle and a reciprocal pair have four exhaustive intersection classes, with joint probabilities \(p^{\ell+2}\), \(p^\ell q\), \(p^{\ell-2}q^2\) and \(p^{\ell-1}q\) as applicable. The class counts sum to \(\binom n2\). Their covariance sum is the stated perfect-square factorization. The symbolic polynomial difference is identically zero (15 nonzero monomials before subtraction); independent exact graph enumeration and event-probability checks passed. The sign and asymptotic statements follow with \(n\ge3\), \(3\le\ell\le n\), and \(1\le k\le n-1\); the complete-row endpoint gives zero. Finite checks supplement the complete proof.
+## correctness
 
-**Originality — PASS on inspected evidence, with historical-priority risk.** The 2019 work of Sood–Yağan uses independently selected distinct targets but studies orientation-forgotten connectivity and giant components; the 2019 work of Holm et al. addresses inter-component edges in undirected random \(k\)-out samples. Cai–Devroye's 2015 study treats cycles outside the giant and asymptotic properties of an automaton digraph, alongside a simple-digraph variant. None of the materially read results provides a simultaneous exact \(\operatorname{Cov}(C_2,C_\ell)\) formula or a dominating general mixed-cycle identity. The prior work on the entire cycle-count covariance matrix or fixed-row-sum binary-matrix trace moments was not exhaustively accessible; an earlier equivalent formula is a genuine residual risk.
+PASS
 
-**Value — PASS.** Reciprocal dyads and directed cycles are canonical feedback motifs in directed networks. An all-length exact negative-covariance row, the strict boundary \(k=n-1\), and its opposite sign under independent-arc sampling isolate an effect of row-wise degree conditioning that first moments and limiting Poisson independence do not quantify. The result covers all longer cycle lengths uniformly rather than an arbitrary small subcase, and includes both fixed-degree and dense asymptotic constants.
+PASS: Independently reconstructed the four pair-vs-cycle overlap types under row-wise hypergeometric sampling without replacement: outside/outside zero; exactly one shared vertex contributes ℓ(n−ℓ)p^ℓ(q−p²); nonconsecutive inside pair contributes ℓ(ℓ−3)p^(ℓ−2)(q²−p⁴)/2; adjacent inside contributes ℓ(p^(ℓ−1)q−p^(ℓ+2)). Here p=k/(n−1), q=k(k−1)/((n−1)(n−2)), distinct rows independent. Summing over (n)_ℓ/ℓ oriented cyclic words yields exact Cov(C2,Cℓ)=−(n)_ℓ k^ℓ(n−k−1)²(2n−ℓ−1)/[2(n−1)^(ℓ+2)(n−2)²]. Fresh rational arithmetic verified all 440 n,k,ℓ strata for 3≤n≤12, 1≤k<n, 3≤ℓ≤n. Positivity of 2n−ℓ−1 proves strictly negative when k≤n−2 and zero for k=n−1. ER shared-arc argument gives (n)_ℓ p^(ℓ+1)(1−p)>0. Fixed-k and dense limits follow algebraically; no asymptotic claim for variable ℓ.
 
-The proof does not establish full negative association, covariances between arbitrary longer-cycle counts, or claims for digraphs with prescribed indegrees. Neither publication priority nor correctness has undergone independent assessment.
+## originality
 
-Self-review: passed. Independent audit: not yet performed.
+PASS
+
+PASS (qualified): The published random K-out and automaton analyses inspected focus on undirected connectivity or repeated-neighbor/random-mapping cycles, not this uniformly without-replacement oriented pair-vs-every-ℓ covariance. The four-pattern derivation could be implicit in a more general enumeration for binary contingency tables or random fixed-row digraphs; exact priority remains open.
+
+## value
+
+PASS
+
+PASS: The model is a standard fixed-outdegree analogue of directed Erdős--Rényi. Exact all-length negative reciprocal/long-cycle covariance, its strict finite-size range including Hamiltonian cycles, and opposite sign in independent-arc sampling at equal expected degree yield a substantive structural dependence distinction, not just a small-sample sign test.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
