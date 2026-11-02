@@ -5,8 +5,11 @@
     "status": "not_performed"
   },
   "independent_audit": {
-    "evidence": null,
-    "status": "not_performed"
+    "status": "passed",
+    "evidence": [
+      "INDEPENDENT_AUDIT_2026-10-29.md",
+      "INDEPENDENT_AUDIT_2026-10-29.json"
+    ]
   },
   "lean_verification": {
     "evidence": null,
@@ -16,10 +19,24 @@
 }
 ---
 
-# Verification and reproducibility
+# Independent mathematical audit
 
-Execute `python3 pentagon_extension_verify.py` with Python 3 and no third-party packages. The program computes exact rational intervals for the square roots and confirms seven strictly positive expressions: denominator, last coefficient, the two coefficient gaps, amplification above one, and two midpoint coupling margins. It also checks interval enclosures for normalization and saturation of all three vertex-distance orbits.
+## correctness
 
-The independent finite consistency test enumerates the complete set of extreme one-Lipschitz functions on five original vertices, anchored at one vertex. A polytope extreme point has a connected graph of tight distance constraints and therefore contains a signed spanning tree. Exhaustively enumerating 125 labelled trees and 16 sign assignments each, then filtering with exact comparisons in \(\mathbb Q(\sqrt5)\), gives 70 distinct potentials. Their five extension rows satisfy 2,450 vertex–midpoint and midpoint–midpoint inequalities to the declared tight rational-interval tolerance. The final output is `PENTAGON_EXTENSION_CERTIFICATE_OK`.
+PASS
 
-The source proof establishes the lower bound for arbitrary signed linear extensions through symmetry averaging; the upper bound through a positive explicit operator and two transport plans. It is a proof for the one exact finite geometry, not a computational generalization to other polygons. Equality checks use exact displayed polynomial identities; the program's very small interval widths corroborate them. No independent audit has occurred.
+For every finite-norm operator constant preservation forces row sums 1. Averaging over D_5 reduces the representative midpoint row to (a,a,b,b,c) without positivity. Three genuine distance-function tests yield 2H0+2H1+H2=2(phi+1) and L>=2(phi+1)/(1+2u+w). The exact positive weights 0<c<b<a, with 2a+2b+c=1, saturate all three vertex orbit inequalities; two explicit nonnegative transports control both midpoint-midpoint orbits strictly. Original-vertex pairs cost 1<L. Radical interval checks and an independently enumerated 70-vertex extreme-potential LP verify, but do not replace, the all-function proof.
+
+## originality
+
+PASS
+
+General finite-Lipschitz projection-constant linear programs and extension bounds were known, but these papers do not state this simultaneous five-midpoint Euclidean norm, its lower-bound witness, or strict compatibility for its two midpoint-pair orbits. The nearby published regular-polygon snowflake case adjoins one central point, not five edge midpoints.
+
+## value
+
+PASS
+
+The relative Lipschitz-free-space projection norm of a canonical 5-to-10-point Euclidean configuration is a natural exact metric invariant; the odd dihedral symmetry yields three nontrivial coefficient orbits. Both a sharp dual certificate and a simultaneous positive optimizer with strict compatibility supply reusable benchmark information beyond a renamed generic extension inequality.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
