@@ -1,11 +1,21 @@
-# Scientific review
+# Independent mathematical audit
 
-**Correctness — PASS.** The finite seed polynomial has exactly three nondegenerate equimodular global maxima, confirmed by the rational identity in RESULT.md, and a transverse gap derivative \(27\). Analytic implicit-function arguments give a robust local three-peak switch under real-symmetric perturbations. The lacunary induction uses the strict exponent inequality \(m_j>2d_{j-1}\) to dominate the previous polynomial at the next scale while keeping future blocks uniformly tiny on every protected earlier annulus. The disjoint coefficient blocks and growth condition \(R_j\ge(m_j+3)^j\) prove order zero. Finite code checks support the seed algebra, not the infinite induction.
+## correctness
 
-**Originality — PASS under documented access limits.** Published work establishes generic maximum-count bounds, finite polynomial exceptional configurations, finite-order transcendental examples, and unbounded maximum counts in a different setting. The present result combines infinitely many *transverse exactly-three* circles, zero-order growth and first Taylor gap one. Direct claim-level comparisons against those results and semantic index searches located no result implying that conjunction. The 2026 Li full text could not be inspected, and older unindexed constructions could cover the statement; priority is not independently certified.
+PASS
 
-**Value — PASS.** Recent generic maximum-point bounds permit isolated exceptional radii but do not quantify how sparsely grown an entire function can be while having infinitely many. Order zero is a natural extremal growth condition, and the theorem gives an exact three-point global classification on each selected circle, with strict one-to-two phase switching. Its finite cubic crossing is a robust structural building block; the conclusion is not a mere parameter substitution. This does not settle the separate order-zero discontinuity question.
+For P(z)=1-(3/2)z+3z²+2z³, exactly independently expanded |P(re^{iθ})|² as a degree-three polynomial Q(r,x), x=cosθ. At r=1 it equals 81/4-16(1-x)(x+1/2)²; hence global maxima only x=1, x=-1/2, with one axis and one conjugate pair. Direct exact differentiation gives Q_x(1,1)=36>0, Q_xx(1,-1/2)=-48<0 and radial height difference slope 27>0. A compact annulus and analytic implicit-function theorem preserve those nondegenerate peaks, exclude every other global maximum, and guarantee a unique transverse crossing under small real-symmetric C³ perturbations. Inductively H_j(z)=R_j^-m_j/2 z^m_j P(z/R_j), m_j=2deg(F_{j-1})+10, dominates earlier polynomial on its new large-radius annulus because m_j/2>deg(F_{j-1}), yet tends to zero with derivatives on all old compacts. Finitely many inequalities per stage and summable future-perturbation budgets preserve every prior crossing. The disjoint coefficient blocks have log(1/|a_n|)>=(m_j/2)j log(m_j+3)-O(1) when R_j>=(m_j+3)^j, giving entire order zero via the coefficient criterion, while infinitely many nonzero blocks guarantee transcendence. A separate exact SymPy expansion confirmed seed identity, derivatives and 27; the finite verifier cannot prove this infinite induction.
 
-**Residual risks.** Inaccessible full text of Li's closely related 2026 preprint; historical Herzog–Piranian constructions without growth control in inspected summaries; recursive scale choices are not explicitly numerical; no component-level claim.
+## originality
 
-Self-review: passed. Independent audit: not yet performed.
+PASS
+
+Best-of-knowledge statement-and-implication comparison against actual primary mathematical results and indexed records. Prior premises/special cases credited; no decisive prior coverage found, with non-zero priority risks.
+
+## value
+
+PASS
+
+The number of global maximum-modulus points is a natural invariant in the Erdős/Hayman maximum-modulus problem. Demonstrating infinitely many genuinely transverse triple exceptions at growth order zero and first nonzero coefficient gap one distinguishes exceptional circles from generic-count restrictions, and is not a routine restatement of finite polynomial examples. It does not claim the separate component-theoretic discontinuity problem.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
