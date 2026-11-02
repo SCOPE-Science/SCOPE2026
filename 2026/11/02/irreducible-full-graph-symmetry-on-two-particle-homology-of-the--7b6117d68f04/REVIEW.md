@@ -1,0 +1,11 @@
+# Scientific review
+
+**Correctness — PASS.** The exact two-point cubical model has 28, 96 and 72 cells. The integer chain identities, modular rank lower bounds 27 and 60, and twelve independent integral two-torus cycles furnish exact rational boundary ranks; the graph cycle representation identifies the 9-dimensional first homology. Signed traces for all 1152 graph automorphisms match the claimed induced representation. Character inner product one proves irreducibility; transfer gives vanishing positive-degree quotient rational homology. A mod-prime rank alone would not prove the upper rank bound; the integral cycles do.
+
+**Originality — PASS against checked material, with bibliographic risk.** The 2018/2019 study of particle configurations on graphs treats product cycles and known homology methods, not this full automorphism module. Ramos and Yun (2026), §3.3 and Table 3, already determine the diagonal \(S_4\)-module \(2S^{(2,1,1)}\oplus2S^{(3,1)}\) on the same unordered configuration space, so that result is explicitly not claimed anew. A diagonal restriction does not determine the actions of the independent left/right permutations or the part exchange; those are the new classification. Other indexed studies of configuration spaces and graph automorphism modules were compared at claim level; an equivalent unindexed computation cannot be ruled out.
+
+**Value — PASS.** The graph is the smallest complete bipartite graph admitting a pair of vertex-disjoint four-cycles, hence a natural first test of two-particle toric homology. Its nonzero twelve-dimensional top homology remains an irreducible module for the entire large automorphism group, showing more structure than Betti numbers or diagonal-label calculations. The exact character is a reproducible benchmark for equivariant graph-configuration topology; no general-theory breakthrough is claimed.
+
+**Scope and limitations.** The computation concerns ordinary unordered distinct particles; rational symmetry statements and the free integral rank in degree two. Integral quotient torsion and an integral representation lattice are not classified. The novelty check covered the named sources and available indexes but is not a completeness guarantee.
+
+Self-review: passed. Independent audit: not yet performed.
