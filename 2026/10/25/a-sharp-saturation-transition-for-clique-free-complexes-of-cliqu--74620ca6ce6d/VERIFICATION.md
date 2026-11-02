@@ -5,8 +5,11 @@
     "status": "not_performed"
   },
   "independent_audit": {
-    "evidence": null,
-    "status": "not_performed"
+    "status": "passed",
+    "evidence": [
+      "INDEPENDENT_AUDIT_2026-10-27.md",
+      "INDEPENDENT_AUDIT_2026-10-27.json"
+    ]
   },
   "lean_verification": {
     "evidence": null,
@@ -16,10 +19,24 @@
 }
 ---
 
-# Verification record
+# Independent mathematical audit
 
-The proof in `RESULT.md` is integral and applies to every integer \(t\ge3\) and all vectors of nonnegative integers \((q_1,\ldots,q_t)\). Its nonstandard step is that the integral Mayer--Vietoris connecting morphism is a unit, witnessed by the explicit product of peripheral suspension cycles. This is checked symbolically in the proof, not inferred from a finite log.
+## correctness
 
-`verify_bouquet.py` independently generates forbidden clique masks and all admissible faces; it computes simplicial boundary ranks over \(\mathbb F_2\), derives all reduced Betti numbers, and checks the alternating face count. The exact run printed in `verification_output.txt` covered 57 parameter tuples with \(t\in\{3,4,5\}\), at most 13 graph vertices, and 130,478 faces. Rerun from the same directory with `python3 verify_bouquet.py`.
+PASS
 
-No finite test determines the infinite homotopy type or integral torsion; no claim of an external or independent audit is made. The two-source mathematical comparison and the restrictions on larger clique attachments are stated in `RESULT.md` and `REVIEW.md`.
+Direct source RESULT.md (Git blob 97b759151822c26d0fc60f3121da34cb3647858b): the forbidden t-cliques are precisely central C and the pendant petals. Omitting central C gives join X=*A_i, where each positive-petal factor A_i=Delta(U_i) union (c_i*B_i) is the suspension of B_i=* partial Delta(W_ij), an integral sphere of dimension q_i(t-2); q_i=0 instead makes X a cone. Restoring central C via X=K union Delta(C)*L with intersection P=partial Delta(C)*L ~= S^E, E=(q+1)(t-2), gives the unsaturated inclusion P->K an integral homology isomorphism. In the saturated case, primitive local suspension cycles gamma_i=c_i*z_i-u_i join to a generator Gamma of H_{E+1}(X), whose unique C-containing chain is C*(z_1*...*z_t); the Mayer-Vietoris boundary is +/-1, so K is integral acyclic. Simply connectivity is justified by complete 2-skeleton for t>=4, or cones over forbidden triangle boundaries for t=3 (q=0 handled directly). Whitehead upgrades the two homological conclusions to homotopy sphere or contractibility. Independently generated finite cases and exact Euler checks matched; all-parameter claims rely on the proof rather than mod-two enumeration.
+
+## originality
+
+PASS
+
+Best-knowledge statement-level novelty survives comparison with relevant primary literature and published records, with the exact theorem and aliases checked. This exact infinite, nonuniform-multiplicity integral homotopy classification gives a sharp natural saturation boundary: one missing pendant at the final central vertex retains a sphere in specified dimension, and completing the coverage kills all topology. Priority residuals are explicitly retained; a failed search is not a novelty certificate.
+
+## value
+
+PASS
+
+This exact infinite, nonuniform-multiplicity integral homotopy classification gives a sharp natural saturation boundary: one missing pendant at the final central vertex retains a sphere in specified dimension, and completing the coverage kills all topology. The primitive connecting-map mechanism is structurally informative beyond general shellability or a total Betti bound. Natural clique block graphs and their clique-avoidance complexes motivate the object and invariant.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
