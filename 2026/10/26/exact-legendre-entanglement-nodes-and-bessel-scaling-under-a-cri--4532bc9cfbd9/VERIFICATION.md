@@ -5,8 +5,11 @@
     "status": "not_performed"
   },
   "independent_audit": {
-    "evidence": null,
-    "status": "not_performed"
+    "status": "passed",
+    "evidence": [
+      "INDEPENDENT_AUDIT_2026-10-30.md",
+      "INDEPENDENT_AUDIT_2026-10-30.json"
+    ]
   },
   "lean_verification": {
     "evidence": null,
@@ -16,10 +19,24 @@
 }
 ---
 
-# Reproduction and verification
+# Independent mathematical audit
 
-Run `python3 verify_legendre.py` with Python 3 and installed `numpy`, `scipy`, and `mpmath`. The mathematical proof and domain are given in `RESULT.md`; the program tests finite instances only.
+## correctness
 
-The exact age-state recursion uses `fractions.Fraction`, verifies the specified clock against the closed-form weights for every integer horizon \(0\le t\le23\), and tests normalization. The script compares direct complex weighted sums to \(e^{it\theta/2}P_t(\cos(\theta/2))\) at eight phases for every horizon. It independently builds the physical \(4\times4\) mixed density matrix and evaluates Wootters' spin-flip spectrum at 40 parameter pairs, matching the Legendre-modulus concurrence. It counts all numerically represented Legendre roots for degrees 5, 10, 20, 40, 80, and 160, and compares the small-phase limit for \(t=500\) with \(J_0(s/2)\).
+PASS
 
-A successful run prints `PASS`. Standard floating-point root and special-function checks are approximate; exact finite recurrence tests are rational arithmetic. None of these checks independently certifies the infinite-horizon Bessel limit, full real-root count, or novelty. Those follow analytically from the stated standard generating identities and root/asymptotic theorems.
+Derived the reset-age survival S_n=(1-gamma)_n/n! and renewal mass u_m=(gamma)_m/m! for hazard gamma/(n+1). At gamma=1/2 the age law is the symmetric beta-binomial product of central-binomial coefficients. Averaging Bell states after n phase gates gives an X-state with coherence Phi_t=sum_n w_(t,n)*exp(i*n*theta); direct spin-flip concurrence equals |Phi_t|. Its exact generating function is [(1-z)(1-z*exp(i*theta))]^(-1/2), which is the Legendre generating function after w=z*exp(i*theta/2), proving Phi_t=exp(i*t*theta/2)*P_t(cos(theta/2)). All t roots in (-1,1) are simple and give exactly t separability phases with linear cusps; the arcsine characteristic-function limit proves C_t(s/t)->|J_0(s/2)|, and classical zero convergence gives scaled node limit 2*j_(0,k). Fixed interior phases obey the displayed Hilb oscillatory t^(-1/2) expansion. Independently propagated exact rational reset-age probabilities through horizon 20 and matched the beta-binomial and theta=pi Legendre amplitude. Finite checks do not prove all t or asymptotic zeros.
+
+## originality
+
+PASS
+
+The original Wald et al. discrete-time quantum reset model supplies its renewal equations, concurrence observations and power-law age-dependent hazard, while Legendre generating functions and Bessel/Mehler-Heine limits are classical. Their inspected full paper does not provide the exact gamma=1/2 horizon-by-horizon entanglement-node classification and scaled node locations for this full-Bell-reset local-phase specialization.
+
+## value
+
+PASS
+
+Exact locations and count of entanglement-death phases despite maximal entanglement in every trajectory are natural quantum-dynamical observables; Bessel edge scaling and lack of finite-width zero intervals distinguish phase and time regimes. The result is a complete, motivated classification of one critical reset clock, not a claim that special-function identities themselves are new.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
