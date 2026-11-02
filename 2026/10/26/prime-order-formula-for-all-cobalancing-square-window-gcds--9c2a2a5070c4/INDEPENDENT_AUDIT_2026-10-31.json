@@ -1,0 +1,127 @@
+{
+  "audit_date_utc": "2026-10-31",
+  "audited_at_utc": "2026-10-31T18:48:10Z",
+  "axes": {
+    "correctness": {
+      "rationale": "From u_n=2b_n+1 and α=3+2√2, β=α^{-1}, the homogeneous recurrence gives u_n=Aα^n+Bβ^n with AB=1/8. Expanding b_n² produces a constant 5/16 and four ±1/±2 exponential modes. For odd p, α±1 and α±2 denominators are units; for p≥11 five distinct modes give an invertible Vandermonde modulo p. Thus all windows vanish mod p exactly when p|k and r_p|k, and lifting S_k(α^j) gives nonconstant modes one extra p-adic digit so ν_p(G)=ν_p(k). At p=5, r5=6 and α^6−1=5(3920+2772√2) has exact valuation 1, yielding the extra factor. The p=3 and 7 periodic b_n² sequences give 12|k and 21|k conditions; the p=2 matrix C^4=I+2K and doubling prove the dyadic block valuation max(2,1+ν2(k)). Independent exact integer GCDs of first eight genuine window sums at 17 selected k (including k=6,12,21,30,84,120) match the proposed product. These finite checks do not establish all-window or all-k claims, which follow from the five-mode/Vandermonde and dyadic induction.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Mbirika–Spilker's 2022 square-GCD paper assumes the homogeneous Fibonacci recurrence G_{n+2}=G_{n+1}+G_n, unlike the affine cobalancing recurrence.",
+          "Fiebig–Mbirika–Spilker 2024 preprint develops general Lucas periods/orders but its abstract does not claim cobalancing-square window GCD valuations; full implication remains a risk."
+        ],
+        "reasoning": "Generic Pell/Lucas order lemmas provide ingredients but neither the inspected 2022 Fibonacci-specific theorem nor the 2023 Question30 supplies an all-k factorization of the specified sequence.",
+        "searches": [
+          "arxiv:2204.12626 generalized Fibonacci squares",
+          "arxiv:2408.14632 Lucas period/entry points",
+          "arxiv:2301.05758 Section 6"
+        ]
+      },
+      "checked_sources": [
+        "arxiv:2301.05758v3 (full paper Section 6.1 Question30)",
+        "arxiv:2204.12626 (abstract and theorem-summary)",
+        "arxiv:2408.14632 (abstract)",
+        "cobalancing numbers GCD sums consecutive squares all k multiplicative orders 3+2sqrt2 prime factorization",
+        "Earlier limited GCD evaluator and dyadic family present in record comparison"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "Observation G(k)≡0 mod4 is a consequence of the submitted formula, not sufficient to obtain it.",
+          "The previously observed bound G(k)|40k and special dyadic cases cannot derive the new odd-prime support r_p|k and exceptional p5 valuation without additional computation/proof.",
+          "The generalized Fibonacci square GCD theorem has a different characteristic recurrence."
+        ],
+        "reasoning": "Neither the exact earlier small finite evaluator nor the inspected published broader papers logically implies the universal local-prime classification without the submitted five-mode separation and p-adic lifting argument. General Lucas congruence overlap remains a qualified risk.",
+        "searches": [
+          "arxiv:2301.05758v3 Question 30",
+          "arxiv:2204.12626 Theorem 3.4",
+          "arxiv:2408.14632 abstract"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Mbirika–Schrader–Spilker 2023 Section 6.1 Question 30 directly asks for the cobalancing-square window GCD and notes only divisibility by four.",
+          "Earlier partial same-object exact finite evaluator G(k)=gcd(40k,H_0(k),...,H_3(k)) computes individual k but does not formulate the universal prime-order product."
+        ],
+        "reasoning": "Special cases of prior finite evaluations are covered and not claimed novel. The order-of-quadratic-unit criterion and exceptional valuation law are a stronger structural reformulation requiring additional arithmetic argument.",
+        "searches": [
+          "cobalancing numbers GCD sums consecutive squares all k multiplicative orders 3+2sqrt2 prime factorization",
+          "cobalancing b_n squared k consecutive gcd prime order alpha=3+2sqrt2",
+          "arxiv:2301.05758v3 Question 30"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "OEIS A053141 lists the underlying cobalancing sequence, not the complete prime valuations of G(k).",
+          "The 2023 article lists examples/initial terms and an open question rather than a covering all-k factorization.",
+          "A previous finite GCD evaluator recovers numbers but does not give the structural formula."
+        ],
+        "reasoning": "This is an infinite symbolic GCD formula; direct recomputation of known G(12*2^r) values is explicitly excluded from the claimed novelty.",
+        "searches": [
+          "OEIS A053141 cobalancing",
+          "arxiv:2301.05758v3 Table 1 and Section 6.1",
+          "Resultary query cobalancing numbers GCD sums consecutive squares all k multiplicative orders 3+2sqrt2 prime factorization"
+        ]
+      },
+      "rationale": "Best-of-knowledge PASS for uniform all-k prime-order valuation formula beyond the 2023 open Question30 and prior finite per-k evaluator; known special values and generic Lucas-order tools not counted as new.",
+      "residual_risks": [
+        "A general published Lucas/Pell square-window theorem or unindexed order classification might imply this factorization.",
+        "The general Lucas-period paper was compared by abstract, not full mathematical implications; no whole-document noncoverage claim."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Question30 seeks nice closed forms including cobalancing squared sums; only mod-four observation for this specific object, not the all-prime formula",
+          "evidence": [
+            "Question30: “Can we find nice closed forms ...”, cobalancing-square observation ≡0(mod 4)."
+          ],
+          "identifier_or_url": "https://arxiv.org/pdf/2301.05758",
+          "material_read": "Opened freely available full 2023 paper, definitions/recurrences and Section 6.1 pp.21–22, including Question 30; PDF screenshots pages 20–21",
+          "method": "Primary full-paper PDF with page verification",
+          "title": "Pell and associated Pell braid sequences as GCDs of sums of k consecutive Pell, balancing, and related numbers",
+          "trigger": "Direct original published open cobalancing square-GCD question"
+        },
+        {
+          "assessment": "Recurrence is G_n=G_{n−1}+G_{n−2} homogeneous, and stated three-term GCD formula, not the inhomogeneous cobalancing recurrence",
+          "evidence": [
+            "arXiv:2204.12626, Mbirika–Spilker 2022, general Fibonacci square windows."
+          ],
+          "identifier_or_url": "https://arxiv.org/abs/2204.12626",
+          "material_read": "Original abstract and theorem-summary metadata; full article not materially inspected this run",
+          "method": "Primary arXiv abstract and formula comparison",
+          "title": "GCD of sums of k consecutive squares of generalized Fibonacci numbers",
+          "trigger": "Potential stronger square-window GCD theorem for linear recurrences"
+        },
+        {
+          "assessment": "General Lucas periods/orders may imply ingredients but abstract alone cannot establish noncoverage of target window GCD",
+          "evidence": [
+            "Fiebig–Mbirika–Spilker 2024, period, entry point, order of Lucas sequences."
+          ],
+          "identifier_or_url": "https://arxiv.org/abs/2408.14632",
+          "material_read": "Primary arXiv abstract, title, scope, revision record; full proof not inspected",
+          "method": "ArXiv bibliographic/abstract inspection",
+          "title": "Period patterns, entry points, and orders in the Lucas sequences: theory and applications",
+          "trigger": "Could dominate prime-order arithmetic via general Lucas period identities"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "rationale": "The 2023 original paper explicitly poses the closed-form cobalancing-square-window GCD problem. This result supplies a uniform prime-order criterion and exact local valuations for every positive window size, sharply beyond a per-k GCD computation, special dyadic family, or finite table. It is a natural arithmetic invariant with a nontrivial exceptional 5-adic factor.",
+      "status": "PASS"
+    }
+  },
+  "checked_sources": [
+    "arxiv:2301.05758v3 (full paper Section 6.1 Question30)",
+    "arxiv:2204.12626 (abstract and theorem-summary)",
+    "arxiv:2408.14632 (abstract)",
+    "cobalancing numbers GCD sums consecutive squares all k multiplicative orders 3+2sqrt2 prime factorization",
+    "Earlier limited GCD evaluator and dyadic family present in record comparison"
+  ],
+  "disposition": "passed",
+  "schema_version": 1,
+  "scientific_limitations": [
+    "Exactly squared cobalancing sequence with b0=b1=0; not all related Pell-square sums.",
+    "Finite GCD tests and source checks do not certify the infinite window quantifier."
+  ]
+}

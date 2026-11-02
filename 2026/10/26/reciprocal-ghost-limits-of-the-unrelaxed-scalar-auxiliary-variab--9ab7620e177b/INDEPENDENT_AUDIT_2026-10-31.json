@@ -1,0 +1,125 @@
+{
+  "audit_date_utc": "2026-10-31",
+  "audited_at_utc": "2026-10-31T18:48:10Z",
+  "axes": {
+    "correctness": {
+      "rationale": "For the original unrelaxed zero-linear-operator SAV recurrence on f(x)=x²/2, set t=1/h and A=x²+2C. The updates rationalize to r_{k+1}=r_k tA/(x²+tA), x_{k+1}=x_k−2r_k sqrt(A/2)x/(x²+tA). The exact first step yields x1=a(t(a²+2C)−2C)/(a²+t(a²+2C)) and r1=O(t); the second yields r2=O(t²) and x2=−2C/a+[(a²+2C)²/a³](1+|a|/sqrt(2C))t+O(t²). For b=−2C/a≠0 an invariant compact interval around b bounds all subsequent shrink factors r_{k+1}/r_k≤tR; the entire infinite x-tail from step2 is O(t²), hence x∞≠0 and r_k→0. The exact a=C=1,h=20 rational/square-root witness traps all subsequent steps. Independently evaluated the recurrence at steps h=50..5000: h(x∞+2) converges numerically toward 9(1+1/sqrt2), corroborating—not proving—the expansion. The source paper's Theorem1 certifies r² decay, not stationarity if r∞=0.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "2023 Theorem1 establishes monotone r²; later convergence estimates require Wolfe or additional safeguards, not this oversized fixed step.",
+          "2021 relaxed SAV and 2024 corrected optimization papers address consistency or altered solutions, not the exact two-step reciprocal asymptotic in the unrelaxed algorithm."
+        ],
+        "reasoning": "Energy dissipation or a qualitative warning of poor approximation does not imply convergence to a specific noncritical point for all sufficiently large h. General corrected-method convergence is inapplicable to the unchanged unrelaxed recurrence.",
+        "searches": [
+          "arxiv:2301.02942 Theorem 1, Section 4",
+          "arxiv:2104.06620",
+          "JCP 505(2024)112911",
+          "arxiv:2609.13569"
+        ]
+      },
+      "checked_sources": [
+        "arxiv:2301.02942 (full primary PDF algorithm and Theorem1)",
+        "arxiv:2104.06620 (abstract)",
+        "JCP 505(2024)112911 (bibliographic/method comparison)",
+        "unrelaxed SAV optimizer large fixed timestep converges nonstationary quadratic ghost limit auxiliary variable tends zero"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "Liu–Shen–Zhang show r² is unconditionally nonincreasing but this is consistent with r∞=0 and ∇f(x∞)≠0.",
+          "Original p.3 stationary-inference remark implicitly assumes a nonzero limiting auxiliary factor; the new counterexample violates it, and the p.4 general fixed-step convergence claim is not an established theorem for this regime.",
+          "The correction and line-search literature introduces modified methods not covered by the no-relaxation hypotheses."
+        ],
+        "reasoning": "An exact two-step perturbation and invariant geometric tail are needed to establish the reciprocal noncritical limit. Existing conditional convergence/energy results do not mathematically imply it.",
+        "searches": [
+          "arxiv:2301.02942 equations (2.3)–(2.5), Theorem1 and Section4",
+          "arxiv:2104.06620 relaxed SAV",
+          "Ma–Mao–Shen J Comput Phys 505 (2024) 112911"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Liu–Shen–Zhang's equations (2.3) and (2.5) define exactly the analyzed unrelaxed fixed-step recurrence.",
+          "Their p.3 statement that convergence θk→θ*,rk→r* forces ∇f(θ*)=0 omits the possibility r*=0 and is false for the exhibited recurrence."
+        ],
+        "reasoning": "The source's fixed-step convergence assertion and energy decay are not an exact ghost-limit computation; indeed its informal stationarity inference fails in the r*=0 boundary. Alternative names ghost fixed point, auxiliary collapse and energy inconsistency were searched.",
+        "searches": [
+          "unrelaxed SAV optimizer large fixed timestep converges nonstationary quadratic ghost limit auxiliary variable tends zero",
+          "SAV gradient descent quadratic r goes to zero nonstationary limit",
+          "arxiv:2301.02942 Sec.2"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "Resultary top results concern Yogi accumulator neutral manifolds, SARAH random residuals and FISTA scalar resonances, not this same SAV recurrence.",
+          "No exact preexisting numeric table or database for x∞(h) in this recurrence found."
+        ],
+        "reasoning": "The claimed limit is a two-parameter analytic asymptotic, not a finite numerical lookup; negative index search is not proof of priority.",
+        "searches": [
+          "unrelaxed SAV optimizer large fixed timestep converges nonstationary quadratic ghost limit auxiliary variable tends zero",
+          "SAV original algorithm quadratic fixed step ghost limit −2C/a",
+          "published Resultary SAV optimizer mathematical records"
+        ]
+      },
+      "rationale": "Best-of-knowledge PASS for exact nonstationary limit and reciprocal correction in the unrelaxed SAV quadratic recurrence; 2023 source covers energy decay and falsely infers stationarity without ruling out r*=0, but does not establish this explicit counterexample.",
+      "residual_risks": [
+        "Broader SAV consistency work may independently exhibit nonzero quadratic ghost states or a matching perturbative calculation.",
+        "Claim applies only to exact unrelaxed original scheme with L=0 and fixed oversized h; no assertions about relaxed or line-search variants."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Defining unrelaxed scheme and energy descent are prior. Source asserts stationarity informally, but its step does not exclude r∞=0; inspected results do not give the exact nonstationary reciprocal ghost asymptotic",
+          "evidence": [
+            "Eq.2.5 gives r_{k+1}=r_k/(1+h||∇f||²/[2(f+C)]) and x-update; Thm1 proves decreasing r²."
+          ],
+          "identifier_or_url": "https://arxiv.org/pdf/2301.02942",
+          "material_read": "Full freely available original preprint, especially PDF pp.3–4 original equations (2.3),(2.5), p.4 Theorem1, p.3 stationarity remark and p.4 convergence assertion; sections 2 and 4 inspected via PDF text and page screenshots",
+          "method": "Primary PDF rendered page + proof text inspection",
+          "title": "An efficient and robust SAV based algorithm for discrete gradient systems arising from optimizations",
+          "trigger": "Defining source recurrence and possible claimed universal convergence"
+        },
+        {
+          "assessment": "Relaxation differs from original unrelaxed scheme; no whole-document noncoverage conclusion",
+          "evidence": [
+            "2021 SAV relaxation addresses variable-energy consistency."
+          ],
+          "identifier_or_url": "https://arxiv.org/abs/2104.06620",
+          "material_read": "Accessible primary abstract/introduction-level description; full technical paper not materially inspected in this run",
+          "method": "ArXiv abstract and scope comparison",
+          "title": "Improving the Accuracy and Consistency of the Scalar Auxiliary Variable (SAV) Method with Relaxation",
+          "trigger": "Potential general consistency fix"
+        },
+        {
+          "assessment": "Method variants and wrong solutions may overlap diagnosis, but exact all-large-h limit not established from materials actually inspected this run",
+          "evidence": [
+            "J. Comput. Phys. 505 (2024) 112911, corrected SAV optimization framework."
+          ],
+          "identifier_or_url": "https://www.math.purdue.edu/~shen7/pub/MMS_JCP24.pdf",
+          "material_read": "Original 2024 source description and relevant historical source summary, but this execution did not complete full-page inspection",
+          "method": "Bibliographic and specific method-comparison evidence",
+          "title": "Efficient and stable SAV-based methods for gradient flows arising from deep learning",
+          "trigger": "Same family of optimizers with baseline consistency issues"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "rationale": "The nonstationary ghost limit on the most elementary strongly convex objective exposes an important gap between unconditionally decreasing auxiliary energy and actual optimizer correctness. The reciprocal leading location, sharp first correction and rigorous fixed-step witness provide substantive diagnostic information for numerical integrators, beyond a qualitative slow-convergence warning.",
+      "status": "PASS"
+    }
+  },
+  "checked_sources": [
+    "arxiv:2301.02942 (full primary PDF algorithm and Theorem1)",
+    "arxiv:2104.06620 (abstract)",
+    "JCP 505(2024)112911 (bibliographic/method comparison)",
+    "unrelaxed SAV optimizer large fixed timestep converges nonstationary quadratic ghost limit auxiliary variable tends zero"
+  ],
+  "disposition": "passed",
+  "schema_version": 1,
+  "scientific_limitations": [
+    "Only fixed-step unrelaxed SAV on scalar f(x)=x²/2, a≠0, C>0; H(a,C) existence not optimized.",
+    "Numerical trajectories are corroboration, infinite convergence is from invariant interval/geometric tail."
+  ]
+}

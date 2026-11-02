@@ -1,0 +1,125 @@
+{
+  "audit_date_utc": "2026-10-31",
+  "audited_at_utc": "2026-10-31T20:51:11Z",
+  "axes": {
+    "correctness": {
+      "rationale": "PASS. For a fixed tree, indicator Y_v of a surviving vertex with no surviving neighbors satisfies E[Y_v]=p q^{d_v}; for nonadjacent distinct u,v, E[Y_u Y_v]=p² q^{d_u+d_v−1_{dist=2}}; adjacent pairs cannot both be isolates. Thus Var(I_T)=mu-mu²+2p²F_T(q). Identical degree multisets force the same mu, so variance ordering is exactly the sign of the polynomial F_T−F_H. Inspected explicit complete certificate and finite exhaustive algorithm: 1,1,2,3,6,11,23,47 unlabelled tree types for n=2..9; degree-matched pairs 0,0,0,0,1,5,23,96 and reversal pairs 0,0,0,0,0,0,0,3, with one identical-variance pair at n=9. Independently generated the unlabeled tree families and exact integer F-polynomials with SymPy rational Sturm interval root counts, confirming all counts and the witness F_T−F_H=−q(1−q)^2(2q²+2q−1). The resulting variance difference −2p^4(1−p)(2p²−6p+3) switches precisely at p=(3−sqrt(3))/2; independent 512-survival-state enumeration for the witness checks rational p=1/2 and 4/5. This is an exhaustive finite cutoff through 9, NOT a claim for all larger trees.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Callaway et al. 2000 full text treats random graph degree distributions, cluster size generating functions and giant component, not all fixed small trees or second-order isolate-count covariances",
+          "The ecological connectivity framework is conceptual rather than the same exact combinatorial invariant"
+        ],
+        "reasoning": "Broader percolation theory describes connected clusters in stochastic large networks, but it does not automatically imply exact degree-matched pairwise variance order changes at minimal n=9.",
+        "searches": [
+          "Callaway–Newman–Strogatz–Watts arXiv:cond-mat/0007300",
+          "Rayfield–Fortin–Fall 2011 ecological network connectivity",
+          "published graph percolation variance search"
+        ]
+      },
+      "checked_sources": [
+        {
+          "material_read": "Complete four-page arXiv HTML, generating functions F0/F1/H0/H1, cluster size distribution and percolation threshold, Eq. 1–14",
+          "title": "Network robustness and fragility: Percolation on random graphs",
+          "url": "https://arxiv.org/html/cond-mat/0007300v2"
+        },
+        {
+          "material_read": "Bibliographic abstract/framework and network measure classification",
+          "title": "Connectivity for conservation: a framework to classify network measures",
+          "url": "https://doi.org/10.1890/09-2190.1"
+        },
+        {
+          "material_read": "Accessible primary HTML Theorem 3 and Section 5 on isolated trees and giant component",
+          "title": "Site percolation on pseudo-random graphs",
+          "url": "https://doi.org/10.1002/rsa.21141"
+        }
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "Prior mean/cluster formulas are compatible with same μ for degree-matched trees",
+          "An exact pair-of-vertices covariance plus tree shape beyond degrees is required for the second moment and the n<=9 exhaustive threshold"
+        ],
+        "reasoning": "The first moment follows from degrees, but the variance depends on distance-two pair incidences, which neither cited prior type determines from degree multiset. The new finite census is not a corollary of a degree-distribution-only theorem.",
+        "searches": [
+          "Callaway et al. 2000 cluster generating functions",
+          "Rayfield et al. 2011 connectivity metrics",
+          "site-percolation singletons variance searches"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "The isolate variable is the number of singleton connected components in the induced occupied subgraph; its first and second moments follow two-neighborhood overlaps",
+          "Degree-matched graph comparison reduces exactly to F_T(q) difference"
+        ],
+        "reasoning": "Equivalent formulations under singleton components, isolated retained sites, occupied degree-zero vertices and graph reliability were searched. No returned published theorem gives this minimum crossing census.",
+        "searches": [
+          "Resultary: degree-matched trees isolated surviving vertex count variance crossing percolation nine vertices exact census",
+          "site percolation singleton-component count variance polynomial graph"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "Known unlabeled tree counts 1,1,2,3,6,11,23,47 are input enumeration, not published three-pair crossing count",
+          "Exact certificate independently reproduced 3 reversals among 96 degree-matched pairs at 9"
+        ],
+        "reasoning": "A database of graph types cannot alone imply the analytic sign change of reliability polynomials; no existing exact crossover table was found.",
+        "searches": [
+          "Resultary published mathematical records: nine vertex tree degree matched percolation isolation variance",
+          "nonisomorphic unlabelled trees class counts up to 9"
+        ]
+      },
+      "rationale": "PASS, qualified best-of-knowledge. Standard site-percolation robustness and connected-cluster formulas do not give the fixed-tree degree-matched *variance ordering* or the minimum number of vertices at which it can reverse. Ecological connectivity literature motivates patch isolation but does not have this finite exact Sturm census. Semantically queried the published mathematical records for singleton-component variance and exact 9-tree first crossing; nearest returned results address other graph invariants. Could be an overlooked graph-reliability or percolation statistic formula under different terms; no priority guarantee.",
+      "residual_risks": [
+        "An unindexed paper on singleton-component reliability polynomials or isolated-site variances may have the same nine-vertex threshold.",
+        "The exhaustive result ends at n=9 and assumes independent identical survival probabilities, simple connected trees, and exactly isolated surviving vertices, not all connected components."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Analyzes random-graph degree distributions/cluster sizes, not fixed unlabelled 9-tree degree-matched variance reversal",
+          "evidence": "Callaway et al. 2000 equations 1–14",
+          "identifier_or_url": "https://arxiv.org/html/cond-mat/0007300v2",
+          "material_read": "Complete four-page arXiv HTML, generating functions F0/F1/H0/H1, cluster size distribution and percolation threshold, Eq. 1–14",
+          "method": "Full primary HTML read, section formulas and numerical use",
+          "title": "Network robustness and fragility: Percolation on random graphs",
+          "trigger": "Direct parent setting of independent site survival"
+        },
+        {
+          "assessment": "Motivates network connectivity statistics, not a verified exact isolated-site variance table",
+          "evidence": "Rayfield–Fortin–Fall 2011 ecology framework",
+          "identifier_or_url": "https://doi.org/10.1890/09-2190.1",
+          "material_read": "Bibliographic abstract/framework and network measure classification",
+          "method": "Journal abstract/publication description; no full-body noncoverage claim",
+          "title": "Connectivity for conservation: a framework to classify network measures",
+          "trigger": "Ecological meaning of habitat patch connectivity"
+        },
+        {
+          "assessment": "Different asymptotic pseudorandom graph setting, not finite fixed-tree second moments",
+          "evidence": "Diskin et al. 2023 isolated tree components and concentration",
+          "identifier_or_url": "https://doi.org/10.1002/rsa.21141",
+          "material_read": "Accessible primary HTML Theorem 3 and Section 5 on isolated trees and giant component",
+          "method": "Publisher HTML primary mathematical statements",
+          "title": "Site percolation on pseudo-random graphs",
+          "trigger": "Possible stronger general site-percolation results"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "rationale": "PASS. The object (number of isolated surviving patches) is a canonical singleton-component statistic in network reliability. Equal degree sequences force equal expected isolation while failing to determine risk dispersion. The sharp first order n=9 and exactly three crossing pairs give a natural and complete minimal counterexample classification, with an explicit probability threshold that demonstrates practical limits of mean/degree-only comparisons. Finite exact data is substantively motivated, not an arbitrary slice.",
+      "status": "PASS"
+    }
+  },
+  "checked_sources": [
+    "https://arxiv.org/html/cond-mat/0007300v2",
+    "https://doi.org/10.1890/09-2190.1",
+    "https://doi.org/10.1002/rsa.21141"
+  ],
+  "disposition": "passed",
+  "schema_version": 1,
+  "scientific_limitations": [
+    "An unindexed paper on singleton-component reliability polynomials or isolated-site variances may have the same nine-vertex threshold.",
+    "The exhaustive result ends at n=9 and assumes independent identical survival probabilities, simple connected trees, and exactly isolated surviving vertices, not all connected components."
+  ]
+}

@@ -1,12 +1,21 @@
-# Scientific assessment
+# Independent mathematical audit
 
-## Correctness — PASS
-The exact recurrence was reconstructed from the source's equations (2.3)–(2.5). Its first two iterates and the two-term reciprocal expansion follow from algebra. Since the second-step auxiliary variable is quadratic in the inverse step, a uniform invariant interval away from the minimizer traps the entire infinite tail and proves convergence to a nonzero gradient. An independent exact rational/square-root trapping certificate at \(a=C=1\), \(h=20\) removes dependence on asymptotic constants. Ordinary numerical checks corroborate algebra but are not used as infinite proofs.
+## correctness
 
-## Originality — PASS, with priority risk
-The source establishes modified-energy decay and warns that small auxiliary ratios slow optimization. The new statement is a full **actual** nonstationary fixed-step limit for every nonzero scalar quadratic initialization at all sufficiently large steps, plus a universal reciprocal limit and sharp first correction. The source's separate line-search convergence theorem has Wolfe assumptions that this fixed-step scheme does not satisfy. The related 2021 relaxed SAV and 2024 SAV-learning studies concern corrections or different implementations; their consistency warnings do not imply the precise theorem. Targeted published-record, published-finding corpus, alias and implication searches found no covering statement, but cannot establish absolute publication priority. One newer pullback-corrected optimization paper was abstract-accessible only.
+PASS
 
-## Value — PASS
-The discrepancy between an energy certificate and stationarity matters for the method's numerical design: even the simplest smooth strongly convex objective can be asymptotically mis-solved by oversized unrelaxed steps. The quantitative location and correction permit a structural diagnostic rather than an anecdotal example and mathematically motivate auxiliary consistency safeguards. Scope is limited to the specified unrelaxed scalar scheme; neither broad impossibility nor an optimal step threshold is claimed.
+For the original unrelaxed zero-linear-operator SAV recurrence on f(x)=x²/2, set t=1/h and A=x²+2C. The updates rationalize to r_{k+1}=r_k tA/(x²+tA), x_{k+1}=x_k−2r_k sqrt(A/2)x/(x²+tA). The exact first step yields x1=a(t(a²+2C)−2C)/(a²+t(a²+2C)) and r1=O(t); the second yields r2=O(t²) and x2=−2C/a+[(a²+2C)²/a³](1+|a|/sqrt(2C))t+O(t²). For b=−2C/a≠0 an invariant compact interval around b bounds all subsequent shrink factors r_{k+1}/r_k≤tR; the entire infinite x-tail from step2 is O(t²), hence x∞≠0 and r_k→0. The exact a=C=1,h=20 rational/square-root witness traps all subsequent steps. Independently evaluated the recurrence at steps h=50..5000: h(x∞+2) converges numerically toward 9(1+1/sqrt2), corroborating—not proving—the expansion. The source paper's Theorem1 certifies r² decay, not stationarity if r∞=0.
 
-Self-review: passed. Independent audit: not yet performed.
+## originality
+
+PASS
+
+Best-of-knowledge PASS for exact nonstationary limit and reciprocal correction in the unrelaxed SAV quadratic recurrence; 2023 source covers energy decay and falsely infers stationarity without ruling out r*=0, but does not establish this explicit counterexample.
+
+## value
+
+PASS
+
+The nonstationary ghost limit on the most elementary strongly convex objective exposes an important gap between unconditionally decreasing auxiliary energy and actual optimizer correctness. The reciprocal leading location, sharp first correction and rigorous fixed-step witness provide substantive diagnostic information for numerical integrators, beyond a qualitative slow-convergence warning.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

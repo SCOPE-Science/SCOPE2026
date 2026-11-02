@@ -1,0 +1,123 @@
+{
+  "audit_date_utc": "2026-10-31",
+  "audited_at_utc": "2026-10-31T19:48:10Z",
+  "axes": {
+    "correctness": {
+      "rationale": "For valuations (81 all)x3, (100,100,94,94)x5, (94,94,100,100)x5, and (101 all)xp, each agent has total deficit 100 from baseline 101 per item, forcing any PMMS allocation’s bundle sizes to differ by <=1: a pair with difference >=2 can be repartitioned into bundles each worth strictly more than the smaller original bundle. For equal cardinalities k, two-bundle maximin reduces exactly to minimizing maximum deficit across all rare-item triples t; for k and k+1 the short agent compares its deficit to the minimum attainable deficit of the k-side, while long agents automatically pass. Every labeled assignment of the 3 A, 5 B and 5 C rare goods is determined by count compositions; there are C(6,3) C(8,3)^2=62720 profiles. Independent exhaustive exact-integer enumeration over all 62720 profiles at each k=4..13 returned feasible equal-size counts 28,24,8,0,0,0,0,0,0,0. For k>=13 every rare subset fits and comparisons stabilize, proving no equal-size PMMS beyond k=13. The inspected verifier also specifies 15 small-p witnesses and templates for all n=4k+r, r=1,2,3; explicit deficit feasibility and monotonic split-set argument extend each template for all k>=7. Finite enumeration is exhaustive for the bounded certificate only; the infinite periodic statement uses cardinality and k>=13 stabilization. Thus PMMS iff p<15 or (13+p)%4 !=0; first failure p=15, 28 goods, then p=19,23,..., within this particular positive-valued family.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Gölz and Bei et al. offer broader unrestricted PMMS counterexamples with fewer agents/items.",
+          "Their global negative existence results are existential over all valuations; they do not imply anything about the precise fixed A/B/C valuation family as p varies."
+        ],
+        "reasoning": "Strong unrestricted negative results are not covering parameters for a family-specific if-and-only-if characterization. There is no false global minimum claim in the source.",
+        "searches": [
+          "Gölz arxiv:2609.08954 3 agent PMMS",
+          "Bei Lin Liu Luan Tao arxiv:2609.10493 PMMS",
+          "Aziz arxiv:2609.06282",
+          "pairwise maximin share PMMS allocations Aziz common-good padding 3 A 5 B 5 C p D exact periodic threshold"
+        ]
+      },
+      "checked_sources": [
+        "assigned Git RESULT.md, REVIEW.md, verify.py and full 7-file frozen tree",
+        "Aziz arXiv:2609.06282 accessible primary PDF preview only; lawful full access blocked",
+        "Gölz arXiv:2609.08954 abstract/limited",
+        "Bei et al. arXiv:2609.10493 abstract/limited",
+        "Resultary query pairwise maximin share PMMS allocations Aziz common-good padding 3 A 5 B 5 C p D exact periodic threshold"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "Aziz Theorem 1 asserts some positive additive PMMS counterexample; the p=39 seed is not an iff family law.",
+          "Other studies give independent global impossibility bounds, not the positive existence at all p not congruent to 3 mod4 after threshold."
+        ],
+        "reasoning": "Neither a single nonexistence witness nor a universal nonexistence result for some instances can imply the proven alternating existence of one explicit modified instance, without further argument.",
+        "searches": [
+          "Aziz arxiv:2609.06282 Theorem 1",
+          "Gölz arxiv:2609.08954",
+          "Bei Lin Liu Luan Tao arxiv:2609.10493",
+          "pairwise maximin share PMMS allocations Aziz common-good padding 3 A 5 B 5 C p D exact periodic threshold"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "The Aziz paper abstract and introductory primary preview prove existence of a four-agent nonexistence example; the package identifies its 3,5,5,39 class counts and positive values.",
+          "The current all-p classification is not equivalent to p=39 nonexistence, since existence holds at adjacent p values."
+        ],
+        "reasoning": "A one-point counterexample cannot imply the infinite conditional existence law without a new exact classification. Searched common-good padding, item additions and pairwise MMS aliases.",
+        "searches": [
+          "pairwise maximin share PMMS allocations Aziz common-good padding 3 A 5 B 5 C p D exact periodic threshold",
+          "pairwise maximin-share allocations Aziz 2026 52 goods padding all agents common values",
+          "Aziz arxiv:2609.06282 instance A3 B5 C5 D39 81 100 94 101"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "No existing PMMS parameter table or exact common-good padding threshold was located in Resultary or searched literature.",
+          "The independently exhaustive 62720-profile finite obstruction gives exact zero counts at k7..13 but alone cannot prove all p; the stabilization lemma supplies the infinite extension."
+        ],
+        "reasoning": "This is a natural complete classification within a family, not a handful of isolated numerical checks or a known dataset reproduction; no search non-detection is treated as a priority certificate.",
+        "searches": [
+          "pairwise maximin share PMMS allocations Aziz common-good padding 3 A 5 B 5 C p D exact periodic threshold",
+          "PMMS 28 goods 32 goods Aziz padding 4-periodic counterexample",
+          "Resultary exact PMMS padding monotonicity"
+        ]
+      },
+      "rationale": "Qualified best-of-knowledge: Haris Aziz 2026 introduces the specific valuation seed at p=39 (52 items), proving only that seed lacks PMMS. The supplied theorem characterizes every p>=0, including first family failure p=15 and recurrent restoration after a single common good. Earlier unrestricted small-market counterexamples by Gölz and Bei et al. dominate global minimum sizes, not the precise padding-family phase diagram. Aziz original full text unavailable in this run, so a stronger appendix covering all p cannot be excluded; an exact match under alternative language remains a residual risk, not an automatic fail.",
+      "residual_risks": [
+        "Aziz 2026 full text and appendices not accessible; it is plausible they discuss parameter variations, and whole-document noncoverage is not established.",
+        "Authorized Oxford retrieval said vpn_disconnected, no retry/bypass; this is a literature-access residual risk and not a correctness defect.",
+        "Finite exhaustive PMMS certificate independently replicated for balanced cases; direct witness checks rely on transparent inspected construction/finite verifier rather than independently executing the full original code."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "A single four-agent positive-additive nonexistence theorem is verified. No claim of whole-document noncoverage because the full paper could not be read.",
+          "evidence": "Haris Aziz, September 5 2026, arXiv:2609.06282; main theorem preview.",
+          "identifier_or_url": "https://arxiv.org/abs/2609.06282",
+          "material_read": "Primary introduction and Theorem 1 through Paperity extracted PDF preview; later construction/appendices not accessible",
+          "method": "lawful open PDF attempt unsuccessful; authorized Oxford paper source returned vpn_disconnected and was not retried",
+          "title": "Pairwise Maximin Share Allocations Need Not Exist",
+          "trigger": "Exactly the valuation-family seed (four agents, 52 goods p39)"
+        },
+        {
+          "assessment": "Global three-agent counterexample does not settle exact p sequence in a fixed four-agent family",
+          "evidence": "P. Gölz, September 2026.",
+          "identifier_or_url": "https://arxiv.org/abs/2609.08954",
+          "material_read": "Abstract and identified general existence counterexample, not full paper",
+          "method": "limited abstract/bibliographic inspection",
+          "title": "PMMS Allocations Need Not Exist for 3 Agents with Additive Valuations",
+          "trigger": "Stronger unrestricted small-agent counterexample"
+        },
+        {
+          "assessment": "Different valuation instances and guaranteed fairness domain; does not directly imply precise padding-family iff condition",
+          "evidence": "Bei, Lin, Liu, Luan, Tao (2026).",
+          "identifier_or_url": "https://arxiv.org/abs/2609.10493",
+          "material_read": "Abstract/bibliographic statements, not entire paper",
+          "method": "limited abstract inspection",
+          "title": "Non-Existence of PMMS Allocations and a 4/3-PMMS Guarantee for Additive Chores",
+          "trigger": "Competing general counterexample/minimal market"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "rationale": "Adding an equally positively valued resource to a fixed four-agent fair-division instance is a natural market perturbation. The complete infinite four-periodic existence/nonexistence law shows nonmonotonicity of fair allocation under added resources and an exact first family-specific obstruction; it does not claim a new universal minimum or simply re-evaluate p=39.",
+      "status": "PASS"
+    }
+  },
+  "checked_sources": [
+    "assigned Git RESULT.md, REVIEW.md, verify.py and full 7-file frozen tree",
+    "Aziz arXiv:2609.06282 accessible primary PDF preview only; lawful full access blocked",
+    "Gölz arXiv:2609.08954 abstract/limited",
+    "Bei et al. arXiv:2609.10493 abstract/limited",
+    "Resultary query pairwise maximin share PMMS allocations Aziz common-good padding 3 A 5 B 5 C p D exact periodic threshold"
+  ],
+  "disposition": "passed",
+  "schema_version": 1,
+  "scientific_limitations": [
+    "Aziz 2026 full text and appendices not accessible; it is plausible they discuss parameter variations, and whole-document noncoverage is not established.",
+    "Authorized Oxford retrieval said vpn_disconnected, no retry/bypass; this is a literature-access residual risk and not a correctness defect.",
+    "Finite exhaustive PMMS certificate independently replicated for balanced cases; direct witness checks rely on transparent inspected construction/finite verifier rather than independently executing the full original code."
+  ]
+}

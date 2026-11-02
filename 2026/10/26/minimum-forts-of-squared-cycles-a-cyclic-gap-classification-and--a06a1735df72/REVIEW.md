@@ -1,14 +1,21 @@
-# Scientific review: minimum forts of squared cycles
+# Independent mathematical audit
 
-**Correctness — PASS.** The four-neighbor rule is equivalent to a local condition on every cyclic gap: lengths at most four, with any four flanked by two ones. The incidence bound on four-gaps versus one-gaps proves \(n\le3|F|\); explicit gap words attain the bound, and the deficit equation \(3\lceil n/3\rceil-n=2b+c-a\) exhausts all equality cases. Counting rooted gap words proves the claimed multiplicity, including the five configurations at ten vertices. A separate verifier directly checks the original definition on 32,695 nonempty subsets for orders six through fourteen and independently examines 3,264,250 subsets of size at most the predicted minimum through order twenty-four. Finite checks are supporting evidence rather than the proof.
+## correctness
 
-**Originality — PASS, with substantial disclosed residual risk.** The complete 2024 primary text on minimal forts [1] gives ordinary cycles and other families, not cycle squares. The 2023 spark result [2] gives a general equivalence and does not enumerate optimizers. Searches of directly relevant published records and mathematical result summaries found no equivalent cyclic-gap classification or exact count. The 2025 circulant failed-zero-forcing paper [3] directly concerns a numerically equivalent invariant, but its full text was inaccessible at the inspected repository. Therefore priority is **not claimed for the failed zero-forcing number**, only for the more detailed classification and number of extremal configurations. An uninspected classification in [3] or unindexed work remains a genuine risk. A statement of the optimum alone cannot imply the number or exceptional geometry of all optima.
+PASS
 
-**Value — PASS.** Forts are canonical obstructions to zero forcing and determine sparse possible null-vector supports of graph-patterned symmetric matrices. Describing *every* extremal obstruction is substantially stronger than computing just a cardinality, and exposes a nonuniform exceptional class at ten vertices. The cyclic-gap condition is a constructive description of all forts, while the minimum-stratum enumeration has a distinct quadratic arithmetic phase. These features are structurally motivated by the prior fort-enumeration program, not an arbitrary finite slice.
+PASS. For n>=6 the four ±1,±2 neighbors are distinct. Direct gap analysis proves: every cyclic gap between selected vertices is 1..4; each gap of four must be flanked by two gaps of one, and this condition suffices for every outside vertex to have 0 or >=2 fort neighbors. Counting 4-to-1 incidences yields a<=b and n=3m+a-2b-c<=3m, so |F|>=ceil(n/3). Explicit gap words attain this. At minimum size, the deficit delta=3m-n equals 2b+c-a; exhaustive small-deficit patterns give all-three, one-two, one-one, two-two, and the sole alternating 1,4,1,4 n=10 anomaly. Rooted cyclic-gap word double-counting (n/m) yields counts 3, n, n(n+5)/6+5*1_{n=10}. Independent bitmask enumeration on every subset n=6..13 matched the gap biconditional and exact minimum counts; the source verifier/certificate independently extends checks to n=24 but neither proves the infinite theorem.
 
-The original 2025 circulant paper's inaccessible body, and possible unindexed equivalent counts, are bibliographic limitations. The theorem does not enumerate all inclusion-minimal forts or address higher cycle powers. The verification program cannot prove the infinite statement by enumeration.
+## originality
 
-Self-review: passed. Independent audit: not yet performed.
+PASS
 
-## Sources
-[1] Becker et al., arXiv:2404.05963v1 (2024). [2] Deaett et al., arXiv:2307.00376v2 (2023). [3] Gomez et al., DOI:10.20429/tag.2024.110105 (2025). [4] Johnson et al., DOI:10.3390/appliedmath5020032 (2025).
+PASS, qualified by an inaccessible closely related circulant paper. The minimum fort size, equivalently graph spark or n minus failed zero forcing number, is a known numerical corollary and expressly not claimed new. The assessed novel object is the complete cyclic-gap structural classification of all forts and number of minimum-cardinality forts, including 5 isolated n=10 anomalies. Earlier 2024 minimal-fort paper treats inclusion-minimal forts of ordinary cycles and other graph families; generic spark/failed-forcing equivalences yield only a number. The 2025 Gomez et al. paper targets circulant failed zero forcing and might have an uninspected optimal-configuration classification; only its abstract could be inspected; authorized institutional full text request gave vpn_disconnected. This is a genuine residual priority risk, not grounds by itself to reject the statement.
+
+## value
+
+PASS
+
+PASS. Minimum forts are natural obstructions to zero forcing and possible sparse null supports. Explicitly characterizing ALL forts by cyclic gaps and counting every minimum support across every cycle square is a reusable structural result and not implied by a minimum-size number. The exceptional n=10 orbit and the quadratic arithmetic phase are mathematically motivated complete classifications, not an arbitrary finite slice.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

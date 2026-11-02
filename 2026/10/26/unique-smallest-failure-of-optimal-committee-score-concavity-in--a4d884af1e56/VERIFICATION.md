@@ -5,8 +5,11 @@
     "status": "not_performed"
   },
   "independent_audit": {
-    "evidence": null,
-    "status": "not_performed"
+    "status": "passed",
+    "evidence": [
+      "INDEPENDENT_AUDIT_2026-10-31.md",
+      "INDEPENDENT_AUDIT_2026-10-31.json"
+    ]
   },
   "lean_verification": {
     "evidence": null,
@@ -16,8 +19,24 @@
 }
 ---
 
-# Reproducible checks
+# Independent mathematical audit
 
-Run `python3 verify.py` using Python 3 and only its standard library. The program enumerates all candidate-unlabeled multiset profiles for exactly four candidates and labeled voter universes of sizes one through six; it includes empty and duplicate approval-supporter sets. The run passed 823,086 four-candidate instances and returned precisely 120 exceptions at six voters, all with coverage profile \((0,3,4,6,6)\) and the three-pair-plus-transversal form. Candidate labeling yields 2880 profiles. It separately checks all six single-voter deletions of the witness for voter-interval realizability, and checks that the undeleted instance does not admit a voter-interval order.
+## correctness
 
-This finite program cannot prove concavity for an unbounded number of candidates, which is established by the inequalities in the main proof. Numerical or finite computations are not used to claim broader uniqueness beyond the stated scope. No independent audit has been performed.
+PASS
+
+Let M(k) be maximum covered voters by exactly k approval candidates. Before all voters in the union U are covered, each optimal committee can add a strictly new voter; increments are positive integers, with M(2)-M(1)<=M(1). For <=3 candidates, submodularity of coverage shows 2M(2)>=M(1)+M(3). For arbitrary candidates with <=5 voters, any first strict convex step at k>=3 forces maximum supporter-set size <=1; at k=2, max set size <=2 and the three-set union estimate excludes M(1)=2,M(2)=3,M(3)>=5. For six voters and four candidates, violation at k=3 would require at least 8 private vertices among 6, impossible; at k=2 integer constraints force (M1,M2,M3)=(3,4,6). An optimal covering triple has three disjoint two-element supports; the fourth is a 3-element transversal, giving profile 0,3,4,6,6. Exactly 6!/(2!^3 3!)×2^3=120 voter-labelled candidate-unlabelled profiles, 2880 fully labelled. Explicit voter orderings after deletion establish voter-deletion criticality for consecutive-ones domain. Independent enumeration of every 4-multiset of subsets of n labelled voters n=3,4,5,6 found no violations for n<6 and exactly 120 canonical cases for n=6. This does not substitute for the arbitrary-number-of-candidates proof.
+
+## originality
+
+PASS
+
+Best-of-knowledge independent comparison of the precise surviving theorem to same-object primary mathematics, Resultary semantic matches, general covering results and exact numeric searches; known foundations explicitly excluded from claimed novelty. Relevant inaccessible source risks are material and unresolved historical-priority caveats, not automatic scientific failure. The unique six-voter/four-candidate nonconcavity classification is not implied by the cited interval-domain positive concavity theorem.
+
+## value
+
+PASS
+
+The unique 6-voter/4-candidate first failure of discrete concavity, plus its voter-deletion criticality for the known interval-positive regime, is a natural sharp boundary between submodular coverage objectives and concave optimal-cardinality score sequences. The unique forbidden configuration and its complete multiplicity are reusable exact information. Not claimed for weighted voters or general Thiele scoring rules.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

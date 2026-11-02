@@ -1,19 +1,21 @@
-# Scientific review
+# Independent mathematical audit
 
-## Correctness — PASS
+## correctness
 
-The exact pole decomposition follows from the rational generating function. The only potential nonconstant linear quasipolynomial contributions come from nonidentity double roots, which correspond precisely to nontrivial pair gcds because the overall gcd is one. Their Fourier sums equal the stated sawtooth function. The first difference therefore has the stated periodic leading coefficient. Pair gcds are pairwise coprime, allowing CRT independence. With no shared pair the slope is strictly positive; with at least one shared pair and all denominations at least two, the all-wrap and no-wrap choices force opposite nonzero slopes. For one shared pair the two cases exhaust the residues and give the exact rational densities. For a unit denomination, the first difference is the two-coin denumerant. A separate exact-integer program checks the slope identity for all primitive triples with each generator between two and eleven, and the special branches.
+PASS
 
-## Originality — PASS, with residual risk
+The generating function F(q)=product_{v=a,b,c}(1-q^v)^{-1} has a triple pole at q=1. Because gcd(a,b,c)=1, every nonidentity pole has order <=2 and double poles arise exactly at common nontrivial roots of pair denominations. The three pair-gcds are mutually coprime, avoiding overlapping double-pole classes. Taking coefficients and the finite Fourier sawtooth yields Delta(n)=n/(abc)[1+sum_{pairs} t(-u+d*epsilon(n))]+O(1) with bounded L-periodic remainder. CRT makes all nonwrap and wrap epsilon statuses simultaneous and yields strictly negative (when all v>=2) and positive leading slopes on positive-density classes. For exactly one shared pair, signs exhaust classes and densities are (d-u)/d and u/d, no ties eventually. The a=1 boundary reduces Delta to a two-generator denumerant, giving nonnegative values and eventual 1/gcd(b,c) positive density. I independently checked exact first-difference quasipolynomial slopes across all residues for eight primitive families by dynamic counting, not as an infinite proof. Includes repeated denominations if overall gcd=1; stabilizing index is not quantified.
 
-Aldrich–Gulbrandsen–Keddy's 2026 paper supplies general bounds for the values of the three-variable denumerant rather than the signs of differences of consecutive values. Baldoni et al. establish general quasipolynomial and pole-coefficient methods, including the possibility of computing all relevant leading periodic coefficients. The present statement makes a separate, explicit structural identification: eventual monotonicity is equivalent to pairwise coprimality for denominations at least two; noncoprime pairs yield positive-density oscillations with sharp modular-inverse density when exactly one pair is involved. Neither the examined primary literature nor the queried research summaries stated this explicit classification. An equivalent consequence of pre-existing step-polynomial software or a less-searchable work could reduce priority; this is a residual bibliographic risk.
+## originality
 
-## Mathematical value — PASS
+PASS
 
-Monotonicity of representation counts is a natural stability question when the target sum grows by one. The proof identifies the exact arithmetic obstruction, sharp sign frequencies for an unrestricted infinite class, and a unit-generator boundary. The phenomenon cannot be deduced from the dominant quadratic growth term alone because oscillatory linear coefficients can overwhelm its first difference. Both the qualitative rigidity and quantitative inverse-modular density can inform computations of denumerants and factorization statistics. The statement is not a routine computation of a single table value.
+Qualified best-of-knowledge: broad coefficient/quasipolynomial algorithms are known, including the highest-degree periodic coefficients, but the sharp eventual increase iff pairwise coprimality, the inverse-modular exact one-pair descent density and multi-pair positive lower densities were not stated or transparently implied by inspected primary results. This might be algorithmically derivable from those broader methods, which is a genuine residual priority risk.
 
-## Limitations and closest work
+## value
 
-The full density for several shared pairs is not simplified beyond computable periodic signs and the explicit positive lower bounds. The paper by Baldoni et al. contains a general coefficient algorithm that could indirectly cover the ingredients; independent historical priority checking is needed. The numerical verifier is finite, while the infinite result is supported by the analytic and arithmetic proof.
+PASS
 
-Self-review: passed. Independent audit: not yet performed.
+The target-to-target direction of change of a natural denumerant is not implied by its dominant quadratic growth because double-pole oscillations contribute linear quasipolynomial coefficients. The theorem gives a complete qualitative coprimality classification and exact densities on the natural one-shared-pair stratum, useful for restricted partition and factorization counts; far more than an arbitrary coin table.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

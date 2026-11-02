@@ -1,19 +1,21 @@
-# Self-review
+# Independent mathematical audit
 
-## Correctness
+## correctness
 
-**PASS.** Deleting a pinned value and standardizing the other entries gives a uniform permutation and an exact exceptional event: all earlier surviving entries are smaller than the pinned value. The record count rises by one exactly on that event. Conditioning on the two separated value blocks gives the exact product of record-count generating polynomials and the displayed polynomial identity for every complex parameter. Differentiation and binomial-coefficient comparisons then prove the local and aggregate covariance signs. Exact exhaustive enumeration for sizes two through nine and further rational sign tests through size four hundred (161,280 assertions total) were independently executed; infinite scope rests on the analytic proof.
+PASS
 
-## Originality
+Condition on Pi(i)=i, delete that fixed entry, and standardize to uniform sigma in S_{n-1}. Inserting i retains all old upper records, adding exactly one when the first m=i-1 standardized values are {1,...,m}; the event has probability 1/binom(n-1,m). On that event the two blocks are independent uniform permutations, so E[t^R|fixed_i]=[t^(overline(n-1))+(t-1)t^(overline(i-1))t^(overline(n-i))]/(n-1)!. Reflection of the two block sizes gives full conditional distribution symmetry. Differentiation yields Cov(1_{Pi(i)=i},R)=1/(n binom(n-1,i-1))-1/n². Binomial unimodality proves positive exactly i=1,2,n-1,n for n>=5, negative otherwise, and sum over i proves total-fixed-point covariance positive with n times covariance approaching 1. Independent exact enumeration of permutations for n=2..7 verified every conditional mean and reflection, not the all-n theorem. All-complex-t polynomial identity, n>=2; four-label sign result n>=5.
 
-**PASS (provisional historical priority).** Closest accessible primary texts include Gnedin (arXiv:math/0611538) and Gnedin--Gorin (arXiv:1202.3680) on record-dependent laws; Brändén--Claesson (arXiv:1102.4226) on separate mesh-pattern expansions of records and fixed points; and Dubach (arXiv:2402.10116) on conjugacy-invariant random permutations and record counts under total fixed-point constraints. Their inspected claims do not imply the exact finite distribution conditioned on an individual pinned position. A search of published mathematical records surfaced related covariance profiles for fixed points versus descents and for cycles versus inversions, but not this pinned record polynomial. Search nonappearance is not definitive priority; uninspected older joint-distribution treatments remain the main risk.
+## originality
 
-## Mathematical value
+PASS
 
-**PASS.** The result characterizes an entire natural conditional distribution, exposes an unexpected reflection symmetry of a directed record statistic, and yields a sharp uniform-in-sample-size separation into four positively associated boundary fixed points and negatively associated interior ones. Summing those individually signed covariances produces the opposite aggregate sign, providing a structural dependence phenomenon not obtained by a marginal Stirling law alone.
+Qualified best-of-knowledge: classical record Bernoulli/Stirling law and mesh-pattern expansions are prior, as are total-fixed-point-conditioned asymptotics. The explicit exact generating polynomial for conditioning on a particular one-line fixed point, reflection of the pinned label, four-boundary covariance sign classification and positive aggregate despite negative interiors were not stated/implied by the materially inspected named earlier results.
 
-## Limits
+## value
 
-Only uniform one-line permutations and conditioning on one specified fixed-point event are covered. Finite enumeration does not certify the unrestricted theorem by itself. Historical novelty and scientific validity have not undergone an independent audit.
+PASS
 
-Self-review: passed. Independent audit: not yet performed.
+The complete conditional law of a standard random permutation statistic under a natural label-pinning event, unexpected reflection symmetry of a directional record count, and position-dependent sign reversal form a coherent finite-sample dependence classification. This is not a relabeling of the marginal Stirling generating function.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

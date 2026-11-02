@@ -1,0 +1,122 @@
+{
+  "audit_date_utc": "2026-10-31",
+  "audited_at_utc": "2026-10-31T23:51:35Z",
+  "axes": {
+    "correctness": {
+      "checked_sources": [
+        "Frozen RESULT.md, verify.py (Git SHA d066c87a...), REVIEW.md and verification status",
+        "Independent exhaustive 4-candidate subset multisets for n=3–6 (n6:120 cases)",
+        "Manurangsi–Sornat 2026 arxiv:2604.05953 full primary Theorem 5, Corollary 9"
+      ],
+      "rationale": "Let M(k) be maximum covered voters by exactly k approval candidates. Before all voters in the union U are covered, each optimal committee can add a strictly new voter; increments are positive integers, with M(2)-M(1)<=M(1). For <=3 candidates, submodularity of coverage shows 2M(2)>=M(1)+M(3). For arbitrary candidates with <=5 voters, any first strict convex step at k>=3 forces maximum supporter-set size <=1; at k=2, max set size <=2 and the three-set union estimate excludes M(1)=2,M(2)=3,M(3)>=5. For six voters and four candidates, violation at k=3 would require at least 8 private vertices among 6, impossible; at k=2 integer constraints force (M1,M2,M3)=(3,4,6). An optimal covering triple has three disjoint two-element supports; the fourth is a 3-element transversal, giving profile 0,3,4,6,6. Exactly 6!/(2!^3 3!)×2^3=120 voter-labelled candidate-unlabelled profiles, 2880 fully labelled. Explicit voter orderings after deletion establish voter-deletion criticality for consecutive-ones domain. Independent enumeration of every 4-multiset of subsets of n labelled voters n=3,4,5,6 found no violations for n<6 and exactly 120 canonical cases for n=6. This does not substitute for the arbitrary-number-of-candidates proof.",
+      "residual_risks": [],
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "The full 30-page Manurangsi–Sornat article proves concavity under the voter-interval hypothesis for broader Thiele rules.",
+          "Classical maximum coverage and submodularity yield marginal diminishing returns for a fixed set but not necessarily concavity of optimal k-set values."
+        ],
+        "reasoning": "A stronger result on interval profiles is inapplicable because the counterexample has no interval ordering. General submodularity of the set function cannot be converted into global concavity of its optimal size-k envelope; the explicit six-voter example disproves that putative implication.",
+        "searches": [
+          "arxiv:2604.05953 full text Theorem 5 and Corollary 9",
+          "search submodular maximum coverage cardinality optimal score concavity"
+        ]
+      },
+      "checked_sources": [
+        "Manurangsi–Sornat 2026 arxiv:2604.05953 full primary Theorem 5, Corollary 9",
+        "Resultary semantic query for exact approval score concavity classification",
+        "Classical maximum coverage / submodular definitions"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "Manurangsi–Sornat full primary text proves concavity for voter-interval approval elections.",
+          "A three-pair/transversal witness fails voter-interval property, but deleting any voter makes it voter-interval."
+        ],
+        "reasoning": "The source theorem explains why deletion removes the obstruction, but does not classify the first forbidden election or its exact counts. The submitted theorem is not a corollary on the source theorem’s domain.",
+        "searches": [
+          "Pasin Manurangsi Krzysztof Sornat arxiv:2604.05953v1 Section 3 Theorem 5 Corollary 9",
+          "approval Chamberlin–Courant coverage definition"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Resultary returned unrelated voting paradox finite censuses, none with matching coverage/committee-score statement.",
+          "Manurangsi–Sornat arxiv:2604.05953 Theorem 5 assumes voter-interval profiles."
+        ],
+        "reasoning": "The profile 0,3,4,6,6 is a nonconcave maximum-coverage score, outside the interval domain. The positive voter-interval concavity result does not imply the sharp negative threshold or unique forbidden family.",
+        "searches": [
+          "Resultary semantic query: approval Chamberlin Courant optimal coverage committee score nonconcavity minimum six voters four candidates three pairs transversal 0 3 4 6",
+          "web query: approval Chamberlin Courant optimal score concavity six voters four candidates three disjoint pairs transversal"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "Exact numeric-profile web query found no mathematically relevant known six-voter/four-candidate table.",
+          "Independent exhaustive 4-candidate multiset enumeration n<=6 produces exactly 120 failing families."
+        ],
+        "reasoning": "An existing raw finite-profile catalogue could contain the witness without stating its sharp universal properties. No such table found in actual searches; complete novelty is not inferred from search nonreturn.",
+        "searches": [
+          "web exact profile query: \"0 3 4 6 6\" \"coverage\" committee concavity",
+          "Resultary query on maximum-coverage score sequence"
+        ]
+      },
+      "rationale": "Best-of-knowledge independent comparison of the precise surviving theorem to same-object primary mathematics, Resultary semantic matches, general covering results and exact numeric searches; known foundations explicitly excluded from claimed novelty. Relevant inaccessible source risks are material and unresolved historical-priority caveats, not automatic scientific failure. The unique six-voter/four-candidate nonconcavity classification is not implied by the cited interval-domain positive concavity theorem.",
+      "residual_risks": [
+        "A more general characterization of concavity of maximum-coverage cardinality envelopes in set-system or consecutive-ones literature might imply the same sharp instance.",
+        "Only unweighted approval CC; arbitrary number of candidates at small n is proven analytically, not by the four-candidate enumeration."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "The scope guarantees concavity on interval profiles, but not uniqueness/minimality of the first noninterval failure",
+          "evidence": [
+            "arxiv:2604.05953; web , , "
+          ],
+          "identifier_or_url": "https://arxiv.org/abs/2604.05953",
+          "material_read": "Full 30-page preprint, especially Section 3 Theorem 5 and Corollary 9, voter-interval structural results",
+          "method": "Read arXiv full PDF with page screenshot and theorem search",
+          "title": "Polynomial-Time Algorithm for Thiele Voting Rules with Voter Interval Preferences",
+          "trigger": "Direct source of the nearest relevant concavity theorem"
+        },
+        {
+          "assessment": "Same definition, no sharp concavity classification",
+          "evidence": [
+            "web "
+          ],
+          "identifier_or_url": "https://masiarek.github.io/star-voting-library/04_Approval/01_Learn/Multiwinner_Approval/abc_rules_spectrum.html",
+          "material_read": "Approval CC definition counts voters covered by at least one committee member",
+          "method": "Read web exposition",
+          "title": "Approval Chamberlin–Courant objective exposition",
+          "trigger": "Confirm same objective and score convention"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "checked_sources": [
+        "Frozen RESULT.md, verify.py (Git SHA d066c87a...), REVIEW.md and verification status",
+        "Manurangsi–Sornat 2026 arxiv:2604.05953 full primary Theorem 5, Corollary 9",
+        "Resultary semantic query for exact approval score concavity classification"
+      ],
+      "rationale": "The unique 6-voter/4-candidate first failure of discrete concavity, plus its voter-deletion criticality for the known interval-positive regime, is a natural sharp boundary between submodular coverage objectives and concave optimal-cardinality score sequences. The unique forbidden configuration and its complete multiplicity are reusable exact information. Not claimed for weighted voters or general Thiele scoring rules.",
+      "residual_risks": [
+        "Only unweighted approval CC; arbitrary number of candidates at small n is proven analytically, not by the four-candidate enumeration."
+      ],
+      "status": "PASS"
+    }
+  },
+  "checked_sources": [
+    "Frozen RESULT.md, verify.py (Git SHA d066c87a...), REVIEW.md and verification status",
+    "Independent exhaustive 4-candidate subset multisets for n=3–6 (n6:120 cases)",
+    "Manurangsi–Sornat 2026 arxiv:2604.05953 full primary Theorem 5, Corollary 9",
+    "Resultary semantic query for exact approval score concavity classification",
+    "Classical maximum coverage / submodular definitions"
+  ],
+  "disposition": "passed",
+  "schema_version": 1,
+  "scientific_limitations": [
+    "A more general characterization of concavity of maximum-coverage cardinality envelopes in set-system or consecutive-ones literature might imply the same sharp instance.",
+    "Only unweighted approval CC; arbitrary number of candidates at small n is proven analytically, not by the four-candidate enumeration."
+  ]
+}
