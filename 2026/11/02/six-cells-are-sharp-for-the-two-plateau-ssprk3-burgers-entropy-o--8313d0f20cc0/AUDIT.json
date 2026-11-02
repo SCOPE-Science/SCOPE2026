@@ -1,0 +1,104 @@
+{
+  "correctness": {
+    "rationale": "Exact rational recurrence yields all stated polynomials, mass conservation, wave-speed bounds and Bernstein certificates; the analytic inequality A delta>2 and finite stencil localization prove global entropy increase for every even N>=6. The convex chord argument excludes the same global obstruction on N=2,4 without asserting stronger cellwise entropy feasibility.",
+    "status": "PASS"
+  },
+  "independent": false,
+  "independent_audit_status": "not_performed",
+  "originality": {
+    "broader_coverage": {
+      "evidence": [
+        "[2] proves counterexample to one-step L2-stability for P2 RKDG on smooth data",
+        "[1] establishes feasibility criteria for compact single-step updates, but its SSPRK3 obstruction uses N>=12"
+      ],
+      "reasoning": "Neither the smooth P2 L2 counterexample nor the compact single-step theory implies a complete N=2,4,6 cutoff for the fixed P1 two-plateau family.",
+      "searches": [
+        "cell average 3 stage classical RKDG shortest periodic mesh 6 8 10 12 positivity convex entropy",
+        "https://bpb-us-w2.wpmucdn.com/sites.brown.edu/dist/0/348/files/2025/09/Counterexample-to-the-one-step-strong.pdf",
+        "https://arxiv.org/html/2610.30535v1"
+      ]
+    },
+    "checked_sources": [
+      "https://arxiv.org/html/2610.30535v1",
+      "https://bpb-us-w2.wpmucdn.com/sites.brown.edu/dist/0/348/files/2025/09/Counterexample-to-the-one-step-strong.pdf",
+      "published-finding corpus semantic search (five exact queries in the audit)"
+    ],
+    "claim_vs_prior_implication": {
+      "evidence": [
+        "[1] states even N>=12 and proves the large-grid overshoot by radius-three locality",
+        "[2] develops P2 square-entropy strong-stability failures for smooth input, with no specific two-plateau N=6/8 classification",
+        "New N=2/4 Bernstein certificate and N=6/8 wraparound formulas are necessary to establish the claimed sharp minimum."
+      ],
+      "reasoning": "A statement for all N>=12 gives no implication about smaller N; [2] does not apply its P2 construction to the current P1 discontinuous two-plateau family.",
+      "searches": [
+        "https://arxiv.org/html/2610.30535v1 section 2.3",
+        "https://bpb-us-w2.wpmucdn.com/sites.brown.edu/dist/0/348/files/2025/09/Counterexample-to-the-one-step-strong.pdf",
+        "Liu Jiang Zhang 2610.30535 standard SSP RK3 P1 Burgers counterexample six cells N=6 N=8 N=10 minimal even grid exponential entropy"
+      ]
+    },
+    "equivalent_formulations": {
+      "evidence": [
+        "[1] gives same normalized Burgers P1 DG SSPRK3 recurrence and N>=12 asymptotic formula",
+        "N=6/8 formulas differ from large-N formula due to periodic wraparound; small-N nonincrease not stated in [1]"
+      ],
+      "reasoning": "The original N>=12 construction is strictly weaker than an exact smallest-grid classification and does not imply N=6/8 or exclude N=2/4.",
+      "searches": [
+        "Liu Jiang Zhang 2610.30535 standard SSP RK3 P1 Burgers counterexample six cells N=6 N=8 N=10 minimal even grid exponential entropy",
+        "minimum six-cell threshold for exponential entropy increase SSPRK3 P1 DG periodic two-plateau Burgers small CFL",
+        "https://arxiv.org/html/2610.30535v1 section 2.3"
+      ]
+    },
+    "exact_database_or_table": {
+      "evidence": [
+        "published-finding corpus returned distinct records including 2026/9/17/SCOPE010 and 2026/10/4/SCOPE-two-state-immunity-and-three-state-sharpness-for-endpoint-positi--46bf11cc19c7",
+        "prior research records records contained no direct six-cell SSPRK3/Burgers exponential entropy claim"
+      ],
+      "reasoning": "The mathematical record hits concern tilings, SSP-SDIRK Markov positivity or unrelated entropy; none is a table of the present N-dependent DG stage polynomials. Lack of a hit alone is not proof of novelty.",
+      "searches": [
+        "minimum six-cell threshold for exponential entropy increase SSPRK3 P1 DG periodic two-plateau Burgers small CFL",
+        "cell average 3 stage classical RKDG shortest periodic mesh 6 8 10 12 positivity convex entropy",
+        "6 cell minimal periodic DG SSP RK3 Burgers exponential entropy counterexample N=6 two plateau minimum mesh size"
+      ]
+    },
+    "rationale": "Published source [1, section 2.3] proves the two-plateau obstruction only for even N>=12, and its formula does not classify the small periodic grids. The new exact boundary is N=6, with explicit N=6/8 output polynomials and a convex-entropy nonincrease certificate for N=2/4. Wei--Shu [2] addresses another spatial degree, initial data and entropy. published-finding corpus aliases/source/parameter searches found no dominating statement; priority remains subject to incomplete indexing and possible uncatalogued treatments.",
+    "residual_risks": [
+      "An uncatalogued preprint or unpublished small-mesh computation could have anticipated the cutoff.",
+      "The result is not a global entropy-stability theorem for arbitrary P1 DG states or general numerical fluxes."
+    ],
+    "source_inspections": [
+      {
+        "assessment": "Contains N>=12 sufficient obstruction and its large-grid polynomial, not sharp N=6 cutoff or N=2/4 exclusion",
+        "evidence": [
+          "arXiv HTML lines 195-249, especially lines 201-230",
+          "Paper lists primary MSC 65M12 at HTML line 55"
+        ],
+        "identifier_or_url": "https://arxiv.org/html/2610.30535v1",
+        "material_read": "Full text sections 1-3, especially equations (5)-(15) in section 2.3 and compact method comparison in 2.4",
+        "method": "Read accessible arXiv HTML, extracted identical modal recurrence and verified stated lower mesh bound",
+        "title": "High-Order Fully Discrete Entropy-Stable DG Methods with Compact Explicit Single-Step Time Discretizations",
+        "trigger": "Same DG spatial operator, SSPRK3 stages, discontinuity pattern and exponential entropy"
+      },
+      {
+        "assessment": "Different P2 polynomial degree and smooth data; concerns L2-norm, not minimum even mesh for P1 exponential cell-average entropy",
+        "evidence": [
+          "PDF abstract and introduction at page 1-2",
+          "PDF stability expansion, pages 6-11; no six-cell piecewise-constant exponential-entropy cutoff stated"
+        ],
+        "identifier_or_url": "https://bpb-us-w2.wpmucdn.com/sites.brown.edu/dist/0/348/files/2025/09/Counterexample-to-the-one-step-strong.pdf",
+        "material_read": "PDF abstract, mathematical DG setup, stability expansion and counterexample proof through pages 1-11",
+        "method": "Read searchable primary PDF and visually inspected title/abstract page",
+        "title": "Counterexample to the one-step strong L2-stability of a class of third order Runge-Kutta discontinuous Galerkin methods for Burgers equation",
+        "trigger": "Same Burgers nonlinear flux and SSPRK3 but possibly broader stability result"
+      }
+    ],
+    "status": "PASS"
+  },
+  "review_type": "self_review",
+  "schema_version": 1,
+  "scope_run_id": "8313d0f2-0cc0-4ecf-b1a2-a6cfda74e22a",
+  "self_review_status": "passed",
+  "value": {
+    "rationale": "The source used twelve cells to exhibit a necessary obstruction; the natural exact minimum even grid is six, a nontrivial sharp finite cutoff supported by a complete small-mesh classification. The result identifies wraparound effects in multistage DG, relevant when testing entropy-limiter feasibility on coarse periodic meshes.",
+    "status": "PASS"
+  }
+}
