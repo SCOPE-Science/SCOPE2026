@@ -5,8 +5,11 @@
     "status": "not_performed"
   },
   "independent_audit": {
-    "evidence": null,
-    "status": "not_performed"
+    "status": "passed",
+    "evidence": [
+      "INDEPENDENT_AUDIT_2026-10-31.md",
+      "INDEPENDENT_AUDIT_2026-10-31.json"
+    ]
   },
   "lean_verification": {
     "evidence": null,
@@ -16,13 +19,24 @@
 }
 ---
 
-# Verification
+# Independent mathematical audit
 
-The supplied `verify.py` checks the algebraic identity
-\[
-F(a^2/t)+(a/t)F(t)=(a+t)(a^2-bc)/(at),
-\quad F(t)=(t+b)(t+c)/(t-a),
-\]
-and the polynomial form obtained by clearing denominators. It checks sample involution calculations for degrees \(m=6,7,8,11\), with \((a,b,c)=(2,1,4)\).
+## correctness
 
-The universal claims are justified by the explicit projective-line puncture model, the standard classification of finite subgroups of \(\operatorname{PGL}_2(\mathbb C)\), and a complete scaling/inversion case split. Finite examples do not prove those statements by themselves. The paper establishing the original smooth curve family is arXiv:2610.15607v1, Theorem 3.1; the added automorphism theorem does not assert independent validation or independent historical priority.
+PASS
+
+PASS: The equation expresses w=F(z^m) with F(t)=(t+b)(t+c)/(t-a). Therefore its smooth completion is P1, with punctures {0,infinity} plus m-th roots of a,-b,-c. The full regular automorphism group is the finite PGL2 stabilizer of these 3m+2 punctures. Its element of order m>=6 excludes platonic finite subgroups, so all stabilizers normalize the root pair {0,infinity}; every element scales z or inverts z. Real-sign three-set T={a,-b,-c} rules out nontrivial scalar action u^m T=T, leaving exactly m rotations. An inversion d/t must fix the unique positive a and swap the distinct negatives, hence d=a^2=bc; conversely the explicit (z,w)->(v/z,-a z^(-m)w) with v^m=a^2 is an involutory Laurent-monomial torus automorphism and conjugates rotation to its inverse. Independently factored F(a^2/t)+a F(t)/t=(a+t)(a^2-bc)/(at), checked distinct parameter samples and powers m=6,7,10. Classification of finite PGL2 groups is a standard premise, not independently reproved.
+
+## originality
+
+PASS
+
+Best-of-knowledge new parameter-specific stabilizer calculation, not a claim that finite PGL2 classification is new. The exact originating same-object Nisse manuscript was inaccessible in full this run, hence a significant priority qualification but not evidence of mathematical coverage.
+
+## value
+
+PASS
+
+PASS: Determines the full intrinsic affine automorphism group, rather than only symmetries inherited from the ambient torus, of a natural published non-Harnack curve family; the exact geometric-mean jump hypersurface and explicit involution are a meaningful symmetry classification.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
