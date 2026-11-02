@@ -1,0 +1,121 @@
+{
+  "correctness": {
+    "rationale": "Every same-spectrum word has the target symbol totals and exactly t transitions of each orientation. Sandwich-factor presence and (k-1)-run factors force all short runs to the original lengths and all long runs to length at least k-1. Redistributing the latter preserves every mixed k-window; constant letter totals fix pure windows. A bijection to cyclic pairs of weak compositions gives Burnside’s exact count, and explicit inequivalent excess distributions prove the sharp threshold. Finite checks: 568 exhaustive parameter/read cases, 8,914 necklaces and 26,160 constructed-word comparisons.",
+    "status": "PASS"
+  },
+  "independent": false,
+  "independent_audit_status": "not_performed",
+  "originality": {
+    "broader_coverage": {
+      "evidence": [
+        "Ota–Manada, 2023 online/2024 journal, assumption of primitive length-n rotation orbit excludes periodic inputs with t>=2.",
+        "Gabrys–Milenkovic 2018, linear code construction rather than a fixed periodic circular source classification.",
+        "General k-mer reconstruction is Eulerian assembly, but the generic method alone does not state the closed count for every (a,b,t,k)."
+      ],
+      "reasoning": "A theorem about primitive circular sources cannot directly imply a fiber size for the imprimitive repeated source. Generic code-rate and factor graph frameworks do not present the claimed exact cyclic run-redistribution classification; they are background methods, not automatically identical statements.",
+      "searches": [
+        "reconstruction of circular strings with repeated blocks by k-spectrum Euler tours run lengths",
+        "periodic circular word 0^a 1^b exact size of k-spectrum equivalence class run lengths homopolymer",
+        "circular string reconstruction multispectrum periodic unique reconstructibility all windows k mer multiplicity"
+      ]
+    },
+    "checked_sources": [
+      "arXiv:1804.04548 (2018 first version; 2019 PDF revision)",
+      "DOI:10.1587/transfun.2023TAP0015 (2023 first journal online)",
+      "DOI:10.1134/S106456242202003X (2022, scattered fragments, inapplicable)",
+      "OEIS A032168 (necklace arithmetic)",
+      "Earlier special-case three-gram and four-gram fiber claims inspected for implication only"
+    ],
+    "claim_vs_prior_implication": {
+      "evidence": [
+        "Ota–Manada, section 2 Assumption 1 and section 4.2 theorem: their uniqueness condition concerns primitive necklaces, not counts of all inverse necklaces of an imprimitive input.",
+        "Gabrys–Milenkovic, sections II–V: focus is on coded linear strings and noisy/partial reads.",
+        "A related special-case circular three-gram fiber calculation for restricted binary run patterns covers at most the fixed k=3 member, and does not imply the sharp all-k formula without an additional run stability argument."
+      ],
+      "reasoning": "The new theorem compares actual fiber implications rather than title wording. Partial old results with fixed read length are acknowledged as overlapping special cases, not cited as independent novelty; a uniform k-dependent characterization and necklace count for every k is not an immediate restatement of any inspected source.",
+      "searches": [
+        "number of cyclic words same k-mer spectrum as periodic two runs 0^a1^b multiset Euler tours",
+        "binary circular string k-mer spectrum periodic runs number of reconstructions compositions",
+        "circular k-mer multiset reconstruction ambiguity for periodic binary two-run words repeated blocks and run-length partition necklaces"
+      ]
+    },
+    "equivalent_formulations": {
+      "evidence": [
+        "Gabrys–Milenkovic, arXiv:1804.04548, section II: linear L-substring multispectrum and coding constructions, not the cyclic inversion count.",
+        "Ota–Manada, DOI:10.1587/transfun.2023TAP0015, section 2 Assumption 1: their circular reconstruction analysis explicitly assumes distinct full-length rotations.",
+        "Full inverse necklace parametrization follows here from short sandwich factors and long-run slack allocation."
+      ],
+      "reasoning": "Equality of cyclic k-mer multispectra is equivalent to reallocation of long-run excesses with fixed shorter runs. This equivalence is stronger than general existence of Euler tours and was not stated in the inspected publications; searches did not expose a matching all-parameter theorem. Non-discovery is not a proof of priority.",
+      "searches": [
+        "circular k-mer multiset reconstruction ambiguity for periodic binary two-run words repeated blocks and run-length partition necklaces",
+        "two-run periodic string k-spectrum ambiguity exact count cyclic shifts homopolymer",
+        "cyclic word k-gram spectrum repeated homopolymer run Eulerian tours fixed-run compositions"
+      ]
+    },
+    "exact_database_or_table": {
+      "evidence": [
+        "OEIS A032168 presents aperiodic fixed-weight necklace enumeration and general cycle-composition transforms; these arithmetic ingredients are classical.",
+        "No exact full cyclic k-spectrum inverse-fiber table for the repeated two-run source surfaced in the attempted searches.",
+        "The actual exhaustive finite check independently compared every relevant target through length 16."
+      ],
+      "reasoning": "Known necklace counts and Burnside formulas do not supply which necklaces share a particular source spectrum for every read length. The novel claim is the necessary-and-sufficient reconstruction fiber characterization; integer sequences or Burnside itself are not presented as new.",
+      "searches": [
+        "site:oeis.org cyclic k-mer reconstruction periodic runs necklace homopolymer number",
+        "site:oeis.org necklaces with specified number of runs of two colors Burnside weak compositions"
+      ]
+    },
+    "rationale": "The new claim is a complete all-read-length cyclic inverse-fiber classification and sharp reconstruction threshold for every repeated binary two-run source. Inspected primary works treat linear reconstruction codes or primitive circular sources; a prior fixed three-gram run-constrained description covers only a proper subcase, not the all-k result. The Burnside ingredient is classical and is not claimed new. A generic Eulerian specialization remains a priority risk.",
+    "residual_risks": [
+      "An implicit specialization of a general Euler-tour enumeration might recover the formula without stating the run characterization.",
+      "An obscure necklace/assembly paper might independently contain the all-k repeated two-run classification.",
+      "Database searches and primary inspections cannot prove originality or replace independent scholarly assessment."
+    ],
+    "source_inspections": [
+      {
+        "assessment": "LINEAR source words and code rates; no all-k periodic cyclic exact fiber formula found in the inspected primary material.",
+        "evidence": "arXiv:1804.04548, pp.1–3, 7, 11, 15; section II defines M_L(x) using n-L+1 ordinary substrings.",
+        "identifier_or_url": "https://arxiv.org/pdf/1804.04548",
+        "material_read": "Abstract, introduction, section II definitions and results, substantive sections on repeat replacement, noisy reconstruction and concluding claims; PDF text and page screenshot inspected.",
+        "method": "Open-access arXiv PDF text with a visual page check",
+        "title": "Unique Reconstruction of Coded Strings from Multiset Substring Spectra",
+        "trigger": "Same type of multiplicity-preserving substring observations and coding reconstruction"
+      },
+      {
+        "assessment": "Primitive circular strings only; the repeated input (0^a1^b)^t with t>=2 violates Assumption 1. The theorem concerns a uniqueness criterion, not the exact inverse fiber count.",
+        "evidence": "Journal PDF p.2 Assumption 1, pp.3–5 weighted automaton theorem, conclusion on p.7.",
+        "identifier_or_url": "https://doi.org/10.1587/transfun.2023TAP0015",
+        "material_read": "Eight-page available primary full text, sections 2 through 4.2 and conclusion including explicit Assumption 1 and Theorem 1, with visual page check.",
+        "method": "Open-access journal PDF text and screenshot",
+        "title": "A Reconstruction of Circular Binary String Using Substrings and Minimal Absent Words",
+        "trigger": "Closest circular binary full factor-frequency reconstruction theorem"
+      },
+      {
+        "assessment": "NOT_APPLICABLE: fragments are scattered subsequences selected by arbitrary index sets, not the contiguous cyclic windows used here.",
+        "evidence": "Section 1 defines subsequence index i_1<...<i_k; Theorem 2 gives a scattered-fragment sufficiency bound.",
+        "identifier_or_url": "https://doi.org/10.1134/S106456242202003X",
+        "material_read": "Open-access full HTML, problem formulation in section 1, theorems in section 3 and definition of fragments.",
+        "method": "Open-access primary HTML",
+        "title": "On the Word Fragment Length for Unambiguous Reconstruction of a Periodic Word from a Complete Multiset of Fragments of Fixed Length",
+        "trigger": "Plausible periodic-word reconstruction title"
+      },
+      {
+        "assessment": "Known arithmetic and transform, not the same inverse-fiber observation.",
+        "evidence": "OEIS A032168 enumerates aperiodic necklaces with fixed numbers of colored beads.",
+        "identifier_or_url": "https://oeis.org/A032168",
+        "material_read": "Sequence definition and commentary describing cyclic-composition transforms.",
+        "method": "Public mathematical database HTML",
+        "title": "OEIS A032168: aperiodic fixed-weight necklaces",
+        "trigger": "Possible known table of the underlying necklace arithmetic"
+      }
+    ],
+    "status": "PASS"
+  },
+  "review_type": "self_review",
+  "schema_version": 1,
+  "scope_run_id": "5a78e608-a73b-4f12-87be-8a50ac5d5207",
+  "self_review_status": "passed",
+  "value": {
+    "rationale": "The theorem solves the complete noiseless cyclic assembly fiber, at every read length, of a natural infinite family of highly repetitive two-run sources. Exact ambiguity sizes and all reconstructible realizations quantify homopolymer-run uncertainty, and the 1+max(a,b) read-length threshold is sharp. This is more than a finite census or a renamed count; known orbit tools only apply after the source-specific k-spectrum equivalence is proved.",
+    "status": "PASS"
+  }
+}
