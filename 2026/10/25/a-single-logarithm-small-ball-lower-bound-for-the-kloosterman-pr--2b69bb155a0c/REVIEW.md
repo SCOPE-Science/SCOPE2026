@@ -1,11 +1,21 @@
-# Scientific review
+# Independent mathematical audit
 
-**Correctness — PASS.** The conditional-window lemma has a direct intermediate-value argument valid uniformly for centers in \([-1,1]\), the conditional centered-block estimate follows from Hoeffding plus a Bernstein-controlled grid, and the double geometric summations yield respectively \(O(M)\) information cost and \(O(\sqrt{\log M/M})\) expected approximation error. Zero frequency and the independent tail are both included. The deterministic Fejér estimate and centered-tail maximal bound were checked against Section 4 of the source.
+## correctness
 
-**Originality — PASS, with residual risk.** The closest full text is Kyselov (2026), Theorem 1.2 and its proof, which gives a squared logarithm and explicitly makes no optimality claim. The single-logarithm estimate cannot follow by weakening that lower bound. The 2017 qualitative support theorem does not provide the quantitative bound. Searches for equivalent small-ball bounds and for random-Fourier-series general theorems found no dominating statement. Implicit coverage by a general small-deviation result remains a real risk.
+PASS
 
-**Value — PASS.** A uniform quantitative estimate for a natural arithmetic random Fourier process is improved by an entire logarithmic factor in its exponential cost, using a transferable scale-dependent centered-conditioning technique. The improvement applies to the full target class rather than one constructed example.
+For the specified centered iid Sato–Tate coefficients X_h, fixed closed 1/2-Hölder target g with real normalized Fourier coefficients beta_h in [-1,1], and 0<epsilon<=1/4, take M=ceil(A_L epsilon^-2 log(2/epsilon)). Kyselov's exact Fejér approximation gives ||q_M-g||<=C L/sqrt(M) and independent high-frequency expected sup norm O(sqrt(log M/M)). For each b in [-1,1], sliding a length-delta interval inside [b-delta,b+delta] makes its Sato–Tate conditional expectation exactly b with mass >=c delta uniformly because the density is positive on [-5/4,5/4]. On dyadic frequency block 2^(j-1)<|h|<=2^j, choose widths delta_j=d 2^(-3(J-j)/4); conditioned errors are independent, centered, bounded. The negative log event probability is O(sum 2^j(1+J-j))=O(M); Hoeffding plus a Bernstein grid and summing blocks yields expected centered sup norm O(sqrt(log M/M)). Markov gives positive conditional probability of small error, and the independent tail plus X0 window cost only an additional factor c epsilon. Thus probability >= exp[-C_L epsilon^-2 log(2/epsilon)] for the same target class, genuinely improving Kyselov's log-squared exponent. I separately verified symmetric frequency counts, conditional window centering and dyadic geometric cost scaling; these bounded checks are not proof of the stochastic uniform estimates, whose bounds were reconstructed analytically.
 
-**Limits.** No matching upper bound, general optimality, or endpoint-of-support statement is claimed. The original Kloosterman convergence theorem does not imply an effective finite-prime rate.
+## originality
 
-Self-review: passed. Independent audit: not yet performed.
+PASS
+
+Comparison by actual mathematical hypotheses, conclusions and implications, including the closest primary works and structured equivalent/general/table checks; best-of-knowledge acceptance with explicit historical-priority risks.
+
+## value
+
+PASS
+
+Removing a logarithm from a published quantitative uniform small-ball theorem for the Kloosterman random Fourier process, without narrowing its 1/2-Hölder target class, improves a natural arithmetic-probability lower-bound scale. Dyadic centered conditioning is a substantive entropy-versus-concentration mechanism rather than relabeling Kyselov's coefficient pinning. The theorem does not assert a matching upper bound or optimality.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
