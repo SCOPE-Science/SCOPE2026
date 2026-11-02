@@ -1,0 +1,127 @@
+{
+  "audit_date_utc": "2026-10-25",
+  "audited_at_utc": "2026-10-25T21:47:46Z",
+  "axes": {
+    "correctness": {
+      "rationale": "All quantifiers checked for integer n≥1, arbitrary nondegenerate affine n-simplex and parallelogram, all unordered N+2-vertex subsets and all full-dimensional contained simplices. After selecting one row per simplex-vertex layer the barycentric block is an identity and exactly two surplus rows remain, yielding a 2×2 determinant of corner differences; missing a layer forces zero. The only nonzero-support occupancy patterns are a triple layer plus N−1 singles (each of four possible triples determinant 1), or two doubled layers plus N−2 singles. Among six unoriented square-segment types, 36 ordered pairs partition into 10 zero (parallel), 24 unit (eight perpendicular edge–edge and sixteen edge–diagonal), and two determinant-two (the complementary diagonal pair). Thus H1=N4^N+12N(N−1)4^(N−2), H2=N(N−1)4^(N−2), H0=binom(4N,N+2)−H1−H2. Homogeneous-coordinate determinant equals (n+2)! volume for standard simplex×unit square, while product volume is 1/n!, giving j/((n+1)(n+2)). The maximum of |det| is separately convex in each arbitrary simplex vertex, so sequential extremal replacement proves no nonvertex simplex exceeds determinant 2. Existence at n=1 uses distinct doubled layers and diagonal pairs. Product affine transformations transfer ratios and vertex-supported equality cases. Independent full subset enumeration by planar occupancy and cross products for n=1..4 gave (H0,H1,H2)=(12,56,2),(288,480,24),(4488,3328,192),(55760,20480,1280). Independently constructed ordinary homogeneous matrices with exact SymPy Bareiss determinants for n=1..3 and obtained identical counts. All-n conclusion rests on the algebraic proof, not finite checks. No classification of nonvertex equality cases is claimed; the volume-only triangulation lower bound is nonoptimal and not claimed novel.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Seacrest–Su Section 6 bounds V(s,t) for products of s segments and t triangles and Section 7 computes V(2,1)=2; Delta_n for n>2 is outside the studied s,t class.",
+          "Ardila–Billey Proposition 7.2 characterizes spanning trees encoding triangulations of Delta_{a}×Delta_{b}; this is a two-factor, unimodular setting, not the three-factor nonunimodular spectrum.",
+          "No Resultary hit independent of the assigned finding yields a stronger determinant-spectrum formula for arbitrary n."
+        ],
+        "reasoning": "A general result for ALL products of simplices class-distributions would cover the claim, but the materially read primary results are respectively low-factor-specific and about two-factor triangulation combinatorics. Their statements do not yield the submitted multiplicities as special cases.",
+        "searches": [
+          "arXiv:0910.1134v2 Sections 2–7 on general simplotopes and V(s,t)",
+          "arXiv:math/0605598v1 (Ardila–Billey), Sections 7–8",
+          "Resultary: maximum volume inscribed simplex in product of n-simplex and parallelogram fraction 2/((n+1)(n+2))",
+          "Web: count of non-unimodular simplices product three simplices hypergraph cycle"
+        ]
+      },
+      "checked_sources": [
+        "Seacrest–Su, A Lower Bound Technique for Triangulations of Simplotopes (arXiv:0910.1134v2; SIAM J. Discrete Math. 32 (2018), 1–28), Sections 3, 4, 6, 7; author-uploaded complete 2017 text https://www.researchgate.net/publication/45876779_Minimal_triangulations_of_simplotopes",
+        "Ardila–Billey, Flag arrangements and triangulations of products of simplices (arXiv:math/0605598, Advances in Mathematics 214 (2007), 495–524), Sections 1, 7, 8; full author PDF https://fardila.com/Articles/flags.pdf",
+        "Resultary semantic queries (three): target volume histogram; largest-volume fraction; determinant classes for Δ_n×two segments. Self-identical Resultary entry excluded.",
+        "Web queries: products of simplices determinant classes; number of maximum-volume simplices; product of simplex and square; potentially equivalent three-factor enumeration."
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "From Seacrest–Su Section 7, V(2,1)=2 and the 24 class-two sets match the n=2 specialization; no all-dimensional Δ_n×square result is asserted.",
+          "Ardila–Billey Proposition 7.2 associates triangulation simplices to spanning trees of K_{n,d}, which does not enumerate all (N+2)-subsets or their determinants in a product of THREE simplices.",
+          "The submitted formulas require an all-n barycentric-layer determinant reduction and enumeration of exactly 36 ordered square segment pairs (10/24/2), absent from cited prior statements."
+        ],
+        "reasoning": "Prior normalized-volume methods overlap, but no inspected prior theorem logically implies H0/H1/H2 or all-n sharp ratio without additional work. Existence of familiar elementary determinant tools is not equivalent to an existing published all-dimensional statement; nonetheless historical rediscovery risk remains.",
+        "searches": [
+          "Seacrest–Su Proposition 7.1, Proposition 7.2 proof and Theorem 7.4, full text pp. 26–28",
+          "Ardila–Billey Proposition 7.2 and Proposition 8.2, author PDF pp. 21–29",
+          "Web: largest simplex in product of simplex and square maximum volume number"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Seacrest–Su Section 3 defines \"class\" as d! times volume, exactly the submitted determinant classes.",
+          "Seacrest–Su Section 7 Proposition 7.2 proof counts exactly 24 class-two simplices in triangle×square, matching H2 at n=2; it is equivalent for that specialization.",
+          "Resultary ID 2026/10/11/SCOPE-complete-simplex-volume-spectrum-in-simplex-parallelogram-produc--33fe969659a5 is the same assigned claim; excluded as independent prior work."
+        ],
+        "reasoning": "Aliases considered are lattice volume/class, full-dimensional vertex simplex determinant, maximal inscribed simplex and triangle×square (n=2). The exact n=2 H2 special case is prior; no inspected source states an all-n three-class census.",
+        "searches": [
+          "Resultary: exact count vertex simplex volume classes 0 1 2 simplex times square product Delta_n square parallelogram",
+          "Web: simplex times square full simplex volume spectrum determinant count 4^n maximal simplices",
+          "arXiv:0910.1134v2 Sections 3 and 7 (normalized class = abs determinant)"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "The 2009/2017 paper Section 7 has exact n=2 count 24; Tables 1 and 2 concern triangulation/covering lower bounds, not H0,H1,H2 for varying simplex dimensions.",
+          "No independently relevant exact database or generating-function table in the three Resultary result sets; self-record excluded."
+        ],
+        "reasoning": "A known exact all-n database/generating function for volume counts would be covering even without formula wording, but none was identified in inspected materials. Known n=1,2 values are not new.",
+        "searches": [
+          "Seacrest–Su complete author text Tables 1–2, Section 7 n=2 class-two enumeration",
+          "Resultary: simplicial determinant spectrum of simplotopes products of simplex and two intervals class two multiplicities N(N-1)4^(N-2)",
+          "Web: number of maximal simplices Delta_n square volume H2"
+        ]
+      },
+      "rationale": "Qualified best-of-knowledge PASS for the all-n complete three-class vertex-volume histogram and exact affine-invariant contained-simplex maximum. Seacrest–Su 2017/2018 Sections 3 and 7 provide normalized class vocabulary, the n=2 maximal class 2, and the exact 24 class-two simplices. These statements cover the n=2 specialization, and the n=1 cube is classical. The inspected full original text does not state, tabulate, or mathematically imply without substantial additional enumeration the all-n formulas H0/H1/H2 for Delta_n times two segments. Ardila–Billey Sections 7–8 cover combinatorics of triangulations of a product of TWO simplices, not all vertex-supported potentially nonunimodular simplices of this THREE-factor product. Three actual Resultary semantic searches found an identical indexed copy of this very assigned record, excluded as independent priority evidence; other returned SCOPE records address different polytope problems. All-dimensional proof is elementary but is not a routine parameter substitution of the inspected prior n=2 theorem. No claim of exhaustive historical priority.",
+      "residual_risks": [
+        "A historical general enumeration of maximal minors of product-vertex matrices, or a generating-function formulation for three-factor simplotopes, could already imply all formulas.",
+        "The n=1 cube and n=2 triangle–square cases are known; no priority asserted for those instances.",
+        "Searches were bounded and cannot exclude all prior literature or unpublished theses; mathematical simplicity raises rediscovery risk."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "COVERS n=2 sharp class and its 24 class-two simplices; general methods do not explicitly cover all-n Δ_n×square spectrum or contained-simplex maximum.",
+          "evidence": [
+            "Section 3 defines class as the absolute determinant/lattice volume.",
+            "Section 6 pp. 25–26 restricts V(s,t) analysis to products of segments and triangles and lists V(2,1)=2.",
+            "Section 7 Proposition 7.2 proof says exactly 24 class-two simplices for Δ_2×[0,1]^2; Theorem 7.4 gives ten-piece minimal triangulation."
+          ],
+          "identifier_or_url": "arXiv:0910.1134v2; https://www.researchgate.net/publication/45876779_Minimal_triangulations_of_simplotopes",
+          "material_read": "Full author-uploaded revised manuscript text, including introduction, Sections 3 and 4 on class and products of two simplices, Sections 5–6 on general simplotopes and V(s,t), and Section 7 Propositions 7.1–7.2 and Theorem 7.4 with proof.",
+          "method": "Primary full-text author-upload available online, compared its explicit theorem statements, proofs and tables to claimed all-n determinant histogram.",
+          "title": "A Lower Bound Technique for Triangulations of Simplotopes",
+          "trigger": "Same Δ_2×[0,1]^2 polytope and class-two volume count; potentially dominating general simplotope technique."
+        },
+        {
+          "assessment": "COVERS two-factor Δ_{a}×Δ_{b} triangulation combinatorics; does not cover the all-vertex-subset determinant spectrum of Δ_n×Δ_1×Δ_1.",
+          "evidence": [
+            "Section 7 explicitly states Δ_{n-1}×Δ_{d-1} is a product of two simplices and triangulation simplices are spanning trees of K_{n,d}.",
+            "Proposition 7.2 gives spanning-tree consistency conditions and Proposition 8.2 describes pure simplices in such triangulations, not nonunimodular three-factor volume classes."
+          ],
+          "identifier_or_url": "arXiv:math/0605598; https://fardila.com/Articles/flags.pdf",
+          "material_read": "Author PDF abstract and introduction; Section 7 (fine mixed subdivisions, Cayley trick, Proposition 7.2); Section 8 (Proposition 8.2). PDF pages 1, 21–29 including visually checked pages 1 and 28.",
+          "method": "Read full primary PDF text through web and visually inspected PDF page images.",
+          "title": "Flag arrangements and triangulations of products of simplices",
+          "trigger": "Strong related triangulation results might encode determinant classes in a product of simplices."
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "rationale": "The product of an arbitrary simplex and a parallelogram is a canonical infinite 3-factor simplotope family, with dimension growing and an existing literature on normalized volume classes and triangulations. An exact full histogram of nonzero and zero full-dimensional vertex-subset determinants, plus sharp equality classification and the unrestricted maximal contained-simplex volume fraction, is a motivated natural geometric invariant useful for class-based covering/triangulation lower bounds and exact benchmark families. It goes beyond a single precomputed n=2 entry, gives complete closed formulas for every n and controls arbitrary inscribed simplices. The recurrence-free proof is short but not merely parameter substitution of a prior all-dimensional formula; no unproved general consequence or optimal triangulation size is claimed.",
+      "status": "PASS"
+    }
+  },
+  "checked_sources": [
+    "Seacrest–Su, A Lower Bound Technique for Triangulations of Simplotopes (arXiv:0910.1134v2; SIAM J. Discrete Math. 32 (2018), 1–28), Sections 3, 4, 6, 7; author-uploaded complete 2017 text https://www.researchgate.net/publication/45876779_Minimal_triangulations_of_simplotopes",
+    "Ardila–Billey, Flag arrangements and triangulations of products of simplices (arXiv:math/0605598, Advances in Mathematics 214 (2007), 495–524), Sections 1, 7, 8; full author PDF https://fardila.com/Articles/flags.pdf",
+    "Resultary semantic queries (three): target volume histogram; largest-volume fraction; determinant classes for Δ_n×two segments. Self-identical Resultary entry excluded.",
+    "Web queries: products of simplices determinant classes; number of maximum-volume simplices; product of simplex and square; potentially equivalent three-factor enumeration."
+  ],
+  "disposition": "passed",
+  "limitations": [
+    "Published Seacrest–Su work covers the n=2 class-two multiplicity 24 and classical cube work covers n=1. The claimed all-n finding has qualified best-of-knowledge novelty only.",
+    "No claim to classify maximal contained simplices with nonvertex vertices, to achieve a minimal triangulation, or to generalize to other two-dimensional factors beyond parallelograms.",
+    "Numerical checks stop at n=4; infinite-dimensional-family proof is symbolic and combinatorial, not experimental.",
+    "Privacy sanitation for existing public metadata remains incomplete; no publication or GitHub mutation occurred."
+  ],
+  "residual_risks": [
+    "A historical general enumeration of maximal minors of product-vertex matrices, or a generating-function formulation for three-factor simplotopes, could already imply all formulas.",
+    "The n=1 cube and n=2 triangle–square cases are known; no priority asserted for those instances.",
+    "Searches were bounded and cannot exclude all prior literature or unpublished theses; mathematical simplicity raises rediscovery risk."
+  ],
+  "schema_version": 1
+}
