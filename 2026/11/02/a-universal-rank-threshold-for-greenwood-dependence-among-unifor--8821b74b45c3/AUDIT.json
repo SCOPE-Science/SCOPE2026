@@ -1,0 +1,123 @@
+{
+  "correctness": {
+    "rationale": "Constant-density ranked Dirichlet simplex transform is bijective; the quadratic-form coefficients are 1/max(i,j); direct Dirichlet factorial moments yield the mixed formula. The adjacent-rank harmonic difference and endpoint signs rigorously give a unique sign transition, and harmonic tail limits give \\(e^{-2}\\). Independently computed exact monomial integration passed for dimensions \\(2\\le m\\le9\\), with 71058 total computational checks. The finite checks supplement—not replace—the infinite proof.",
+    "status": "PASS"
+  },
+  "independent": false,
+  "independent_audit_status": "not_performed",
+  "originality": {
+    "broader_coverage": {
+      "evidence": [
+        "Royen arXiv:1008.4059v1, especially Introduction and Sections 2–5, derives marginal representations for Q and quantiles; it has no dependence on ranked components.",
+        "Rao–Sobel 1980 ordered-spacing joint densities would permit integration of further moments but do not give this theorem."
+      ],
+      "reasoning": "General formulas allowing an additional nontrivial calculation are not the same as coverage of the resulting harmonic-tail sign classification. The earlier maximum/Greenwood covariance (earlier maximum-spacing/Greenwood calculation) covers only rank one, while a maximum/Schur-convex function covariance theorem (a known maximum/Schur-convexity statement) cannot handle arbitrary middle ranks.",
+      "searches": [
+        "joint Dirichlet order statistics and Greenwood's statistic exact covariance ordered spacings",
+        "joint moments ordered spacings uniform Dirichlet Greenwood's statistic 1980 2000",
+        "Sobel Jammalamadaka Incomplete Dirichlet integrals with applications to ordered uniform spacings 1980 pdf",
+        "Greenwood statistic ordered spacings joint moments order statistic asymptotic",
+        "arXiv:1008.4059v1, full article"
+      ]
+    },
+    "checked_sources": [
+      "Rao and Sobel 1980 DOI 10.1016/0047-259X(80)90073-1",
+      "Royen 2010 arXiv:1008.4059v1",
+      "Pyke 1965 DOI 10.1111/j.2517-6161.1965.tb00602.x (bibliographic summary only)",
+      "Uniform spacings — a Bird's-Eye View (review PDF, 2021)"
+    ],
+    "claim_vs_prior_implication": {
+      "evidence": [
+        "The previous maximum/Greenwood formula agrees with the present theorem at \\(k=1\\) but makes no assertion for ranks \\(k>1\\).",
+        "The general maximum/Schur-convexity theorem does not order intermediate coordinate ranks under majorization.",
+        "The prior large-spacing-count/Greenwood result concerns K_t, not the signed dependence profile of individual ranked lengths."
+      ],
+      "reasoning": "The new finite one-switch classification and limiting \\(e^{-2}\\) rank fraction do not follow as special cases of the compared earlier statements, even though the \\(k=1\\) case was previously computed. The theorem requires a new ranked-coordinate mixed moment and asymptotic sign analysis.",
+      "searches": [
+        "For uniformly distributed Dirichlet spacings, covariance between the k-th largest ordered gap and Greenwood sum of squared gaps; rank sign change k/m approaching \\(e^{-2}\\)",
+        "joint Dirichlet order statistics and Greenwood's statistic exact covariance ordered spacings",
+        "ordered uniform spacings Greenwood statistic covariance kth largest spacing exact",
+        "ordered Dirichlet components sum of squares cross moments covariance threshold"
+      ]
+    },
+    "equivalent_formulations": {
+      "evidence": [
+        "Rao–Sobel Section 3 treats ordered-spacing densities and sums of extreme spacings, including equations (3.3)–(3.11), not their covariance with the Greenwood sum of squares.",
+        "Exact harmonic tails also describe normalized ordered exponential spacings and a mixed Simpson concentration moment."
+      ],
+      "reasoning": "The aliases ranked gaps, ordered Dirichlet components, Simpson index and Greenwood squared spacings were compared by object and quantifiers; recovered texts give marginal laws rather than the joint mixed rank covariance and \\(e^{-2}\\) sign threshold.",
+      "searches": [
+        "For uniformly distributed Dirichlet spacings, covariance between the k-th largest ordered gap and Greenwood sum of squared gaps; rank sign change k/m approaching \\(e^{-2}\\)",
+        "ranked uniform spacings ordered gap sum squares mixed moment covariance sign threshold 0.135",
+        "ordered uniform spacings Greenwood statistic covariance kth largest spacing exact",
+        "ranked uniform spacings conditional moment sum of squares covariance order statistic",
+        "\"ranked spacings\" \"Greenwood\" correlation",
+        "Rao and Sobel (1980), DOI 10.1016/0047-259X(80)90073-1, Section 3"
+      ]
+    },
+    "exact_database_or_table": {
+      "evidence": [
+        "Royen tabulates marginal Greenwood quantiles for several sample sizes, not ranked-gap covariances or rank sign boundaries.",
+        "No relevant exact mixed-moment table was returned by the targeted searches."
+      ],
+      "reasoning": "The conclusion is based on actually inspected table contents and search evidence; negative search alone is not treated as a proof that no unindexed table exists.",
+      "searches": [
+        "ranked uniform spacings conditional moment sum of squares covariance order statistic",
+        "uniform spacings rth largest Greenwood correlation negative rank sign change",
+        "\"kth largest spacing\" \"Greenwood\" covariance",
+        "\"ordered spacings\" \"sum of squares\" \"covariance\"",
+        "arXiv:1008.4059v1, numerical tables"
+      ]
+    },
+    "rationale": "Ranked-spacing mixed moment and universal positive-to-negative rank threshold are not stated in the inspected full text of Rao–Sobel (1980), Royen (2010), or the compared earlier mathematical claims. The existence and asymptotic fraction of the sign reversal are not obtained merely by substituting the maximum or a convex functional: intermediate ranked coordinates are not all Schur-convex. This is a best-knowledge assessment, not an assertion of complete historical priority.",
+    "residual_risks": [
+      "Specialized full-text work on exact joint ordered-spacing/Greenwood moments beyond the inspected papers may contain equivalent formulas.",
+      "The full Pyke 1965 PDF was not inspected; bibliographic abstract/metadata were used as general background, not as a negative coverage certificate.",
+      "General integrals for ordered Dirichlet coordinates could imply the formula after a calculation; not identical to a published rank-sign theorem."
+    ],
+    "source_inspections": [
+      {
+        "assessment": "Distributional results on ordered gaps and sums, no exact ranked gap–quadratic sum mixed covariance or universal sign fraction reported.",
+        "evidence": [
+          "Section 3 computes density of kth largest and sums of kth largest spacings; no Greenwood quadratic statistic appears in the mathematical claims."
+        ],
+        "identifier_or_url": "doi:10.1016/0047-259X(80)90073-1; https://www.researchgate.net/publication/23629882_Incomplete_Dirichlet_integrals_with_applications_to_ordered_uniform_spacings",
+        "material_read": "The author-posted full article was accessible. Read the introductory setup and the ordered-spacing application in Section 3, including the density identities (3.3)–(3.11), the closing section, and references.",
+        "method": "Author-posted public full text rendered in page; examined statement and formulas.",
+        "title": "Incomplete Dirichlet integrals with applications to ordered uniform spacings",
+        "trigger": "Same uniform spacing objects; full ordered statistics law might dominate the claimed cross-moment."
+      },
+      {
+        "assessment": "Derives Q marginal integral and orthogonal series distributions, plus quantiles, not ordered-rank cross-covariances or the \\(e^{-2}\\) boundary.",
+        "evidence": [
+          "Abstract identifies marginal square-sum distribution and tabulated quantiles; Sections 4–6 develop univariate distribution methods."
+        ],
+        "identifier_or_url": "arXiv:1008.4059v1; https://arxiv.org/pdf/1008.4059",
+        "material_read": "The full 21-page PDF was accessible; examined abstract, introduction, Sections 2 and 5, later results/tables and performed document-wide searches for rank/ordered/largest/covariance; the entire paper was not independently checked line by line.",
+        "method": "Full PDF text and visual first-page inspection; focused searches for ordered spacing, largest spacing, covariance and conditional quantities.",
+        "title": "The distribution of the square sum of Dirichlet random variables and a table with quantiles of Greenwood's statistic",
+        "trigger": "Same quadratic statistic Q, possible exact joint transform that covers rankwise dependence."
+      },
+      {
+        "assessment": "Describes Greenwood additive statistic and extreme spacings as separate methods, not the target joint covariance theorem.",
+        "evidence": [
+          "Section 4 describes Greenwood and related goodness-of-fit statistics without rankwise covariance signs."
+        ],
+        "identifier_or_url": "https://ssca.org.in/media/16_19_2_2021_SA_Saran_Ishika_Maiti_Final.pdf",
+        "material_read": "Review text and page 11 discussion of Greenwood and ranked spacing use, PDF page inspected visually.",
+        "method": "PDF text and screenshot, page 11.",
+        "title": "Uniform spacings — a Bird's-Eye View",
+        "trigger": "Review of both ranked and Greenwood-based spacing statistics, potentially pointing to common joint theory."
+      }
+    ],
+    "status": "PASS"
+  },
+  "review_type": "self_review",
+  "schema_version": 1,
+  "scope_run_id": "8821b74b-45c3-44a2-a439-0418ff1c1a76",
+  "self_review_status": "passed",
+  "value": {
+    "rationale": "Both ranked extreme spacings and Greenwood quadratic dispersion are classical goodness-of-fit statistics. The rank-resolved finite covariance identity and limiting universal 13.53% threshold distinguish positive versus negative global concentration association across all ranks; this is a natural structural question not a narrow arbitrary constant. Rankwise localization is not furnished by the separate marginal distribution results or previously established maximum-only case.",
+    "status": "PASS"
+  }
+}

@@ -1,0 +1,11 @@
+# Scientific assessment
+
+**Correctness — PASS.** The ranked-gap map is an invertible constant-Jacobian linear map between uniform simplices, so its image has uniform Dirichlet law. Expressing the quadratic statistic as a Dirichlet quadratic form and applying exact degree-two/three Dirichlet moments gives the harmonic-tail covariance. The explicit adjacent-rank difference plus signs at the first and last ranks proves one sign transition; harmonic asymptotics prove the \(e^{-2}\) limit. A separately coded rational monomial integration agrees in dimensions two through nine, and deterministic sign checks extend through 350 gaps. These finite experiments do not replace the proof.
+
+**Originality — PASS, subject to historical-priority risk.** Rao–Sobel's complete author-posted text establishes ordered-spacing marginal and joint density results; Royen's 2010 complete arXiv article gives the marginal law of the quadratic sum. Neither inspected statement supplies the mixed rankwise covariance or the \(e^{-2}\) sign boundary. Classical Dirichlet moments and ranked spacing laws make the formula computable but do not themselves establish the rank-sign classification. A prior exact maximum-spacing/Greenwood covariance is the \(k=1\) subcase; a broader maximum/Schur-convexity sign result cannot cover intermediate ordered coordinates, which need not be Schur-convex. No direct equivalent was recovered in targeted published searches, but uninspected specialized work may exist.
+
+**Mathematical value — PASS.** Ranked uniform spacings and Greenwood's statistic are independently natural diagnostics of nonuniformity. The theorem completely classifies how global quadratic concentration is associated with local spacing size *by rank* in each dimension and discovers an unexpectedly stable boundary at approximately 13.5% of the ranked gaps. This is a substantive structural localization, not a numerical one-off, with a clear distinction between extreme and moderate gaps.
+
+**Limitations.** The null law is uniform Dirichlet; arbitrary concentration parameters are not treated. Covariance signs do not establish stochastic association. Published-literature priority is not independently certified.
+
+Self-review: passed. Independent audit: not yet performed.
