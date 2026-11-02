@@ -1,0 +1,136 @@
+{
+  "audit_date_utc": "2026-10-27",
+  "audited_at_utc": "2026-10-27T05:49:05.042798Z",
+  "axes": {
+    "correctness": {
+      "evidence": [
+        "https://github.com/SCOPE-Science/SCOPE2026/blob/6c379935c2e469fc18959fc6c387e31328c64bcf/2026/10/12/exact-resolution-profile-for-equal-rate-generalized-amplitude-da--de8c86562a15/RESULT.md",
+        "https://arxiv.org/html/2610.03629v1#A2",
+        "https://arxiv.org/html/2610.03629v1#A8.3.1",
+        "Independent symbolic replay: generator matrices on {I,X,Y,Z}; polynomial Pauli weights, g expansion through order s^5, strict curvature identity."
+      ],
+      "limitations": [
+        "Uses the 2026 paper Theorem A1 as a scientific premise; not a self-contained proof of the universal adaptive Stein theorem.",
+        "Asymptotic exposure-time exponent only; no finite total-time type-II formula."
+      ],
+      "rationale": "The equal-rate generator sends I->0, X->-mu X, Y->-mu Y, Z->-2mu Z. Thus N_s=e^{sL_mu} is the exact Pauli channel with p_I=(1+a)^2/4, p_X=p_Y=(1-a^2)/4 and p_Z=(1-a)^2/4, a=e^{-mu s}. The weights are nonnegative, sum to one, and yield channel eigenvalues a,a,a^2. Since N_s-p_I id is CP, for arbitrary ancilla and finite D(rho||sigma), N_s⊗id(sigma)>=p_I sigma, and operator-monotonicity of log gives D(rho||N_s(sigma))-D(rho||sigma)<=-log_2 p_I. The Bell input rho=sigma=Phi saturates the bound, since N_s(Phi) is Bell diagonal with eigenvalue p_I on Phi. Consequently D^A(id||N_s)=-log_2 p_I. Anchor Theorem A1 directly identifies the minimum-resolution asymptotic exponent with sup_{s>=smin}D^A/s. g(x)=-ln((1+e^{-x})/2)=x/2-ln cosh(x/2) obeys g(0)=0 and g''(x)=-1/(4cosh^2(x/2))<0, hence g(x)/x strictly decreases for x>0; the supremum is at smin for mu>0. The limit is mu log_2 e and the series is mu log_2 e-(mu^2 smin/4)log_2 e + (mu^4 smin^3/96)log_2 e+O(smin^5). For mu=0 both exponents vanish for every smin and no strictness is claimed. This is the full quantifier and normalization range. Independently executed SymPy matrix-generator, Pauli-weight, spectrum and Taylor checks reproduce the algebra; they corroborate, rather than replace, the infinite analytic proof.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Theorem A1 treats arbitrary finite-dimensional Lindbladian pairs with arbitrary finite-dimensional ancillas, adaptive controls and exposure-time accounting, and shows Gamma_{smin}=sup_{s>=smin}D^A(e^{sL1}||e^{sL2})/s.",
+          "Theorem 37 treats all jointly covariant/environment-seizable fixed-channel pairs; for id versus a Pauli channel N_s, its relative-entropy Stein rate is D(Phi||J(N_s))=-log_2 p_I(s)."
+        ],
+        "reasoning": "Both earlier theorems have broader hypothesis coverage than the qubit equal-rate special case. Their conjunction plus routine standard identities determines the entire asserted profile and limiting exponent. This is stronger coverage even without an identical printed formula.",
+        "searches": [
+          "Primary arXiv:2610.03629v1: Theorem A1, Eq.(A4) and A8.3.1",
+          "Primary arXiv:1808.01498v2: Theorem 37, equations (260)–(269), and one-design condition",
+          "Web: Pauli channels jointly teleportation covariant Choi discrimination Stein exponent relative entropy identity channel"
+        ]
+      },
+      "checked_sources": [
+        "arXiv:2610.03629v1 (Oct 2 2026, full accessible HTML and decisive relevant sections)",
+        "arXiv:1808.01498v2 (June 18 2020, full primary PDF available; relevant covariance/environment-seizing sections and Theorem 37 read)",
+        "Resultary Search: three targeted semigroup/Pauli/covariance searches and three additional targeted variants (October 27 2026); no direct equal-rate record detected, not treated as proof of novelty",
+        "Web targeted exact-formula, GAD alias, Pauli-covariant/Choi discrimination searches (October 27 2026)"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "Pauli covariance gives zeta(id,N_s)=D(Phi||J(N_s))=-log_2[((1+e^{-mu s})/2)^2].",
+          "Theorem A1 turns this into Gamma_{smin}=sup_{s>=smin}[-2 log_2((1+e^{-mu s})/2)]/s.",
+          "Writing g(x)=x/2-log cosh(x/2) gives g(0)=0 and g''(x)=-1/[4cosh^2(x/2)]<0, so g(x)/x is decreasing; therefore supremum is at smin. Taylor expansion gives mu log_2 e - (mu^2 smin/4)log_2 e + O(smin^3)."
+        ],
+        "reasoning": "This is an explicit statement-by-statement deduction of the complete submitted claim from previous published theorems using elementary diagonalization and calculus, including mu=0, mu>0 strictness, and the small-resolution correction. It constitutes decisive prior-implication coverage under the corollary/special-case standard.",
+        "searches": [
+          "Full-text reading: arXiv:2610.03629v1, Theorem A1 and equal-rate appendix",
+          "Full-text relevant-section reading: arXiv:1808.01498v2, Theorem 37 and jointly covariant discussion",
+          "Resultary: Discriminating Lindbladian Dynamics Salzmann Lami Plenio Huelga generalized amplitude damping finite exponent"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "In the equal-rate qubit model, L(I)=0, L(X)=-mu X, L(Y)=-mu Y, L(Z)=-2mu Z, so e^{sL} is exactly a Pauli channel with Bell/identity probability p_I(s)=((1+e^{-mu s})/2)^2.",
+          "Wilde–Berta–Hirche–Kaur 2020 Theorem 37, PDF pp42–43, reduces Stein discrimination of jointly covariant fixed channels (including Pauli channels) to discrimination of their Choi states.",
+          "Salzmann–Lami–Plenio–Huelga 2026 Theorem A1, A2 Eq.(A4), supplies the exact fixed-resolution time supremum."
+        ],
+        "reasoning": "The claimed formula is the Pauli-covariant/Choi formulation of the existing fixed-channel theorem composed with the existing continuous-time variational theorem. Its different wording (“equal-rate generalized amplitude damping”) does not isolate a new mathematical object. The scalar p_I is a standard Pauli-basis eigenvalue calculation, not a nonstandard lemma.",
+        "searches": [
+          "Web: equal rate generalized amplitude damping Lindbladian Stein exponent exact resolution gamma mu log 2 e",
+          "Web: \"+generalized amplitude damping\" \"Stein exponent\" \"equal\" Lindbladian",
+          "Resultary: Lindbladian Stein exponent for Pauli generalized amplitude damping equal excitation relaxation rates",
+          "Primary: arXiv:2610.03629v1, A8.3.1 and A2; arXiv:1808.01498v2 VII.B"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "The anchor 2026 classification table records equal transition rates as finite exponent but does not list the closed value in its A8.3.1.",
+          "The exact Pauli/Choi relative entropy is fixed in the 2020 broad theorem for jointly covariant channels, not a separate numerical table entry.",
+          "Targeted searches returned no independent exact-value table; negative search is not used as novelty evidence."
+        ],
+        "reasoning": "There is no separate finite lookup table to audit as an essential prerequisite: the exact formula is directly covered through the published general theorem chain. A missing literal row in the anchor paper cannot rescue mathematical originality.",
+        "searches": [
+          "Web: \"equal-rate\" \"Lindbladian\" \"Stein\" \"mu\"",
+          "Web: \"identity\" \"Pauli\" \"Stein\" \"Choi\" \"relative entropy\" \"noise\"",
+          "Resultary: temporal-resolution loss exact Bell identity Pauli channel semigroup Stein hypothesis testing",
+          "Anchor arXiv:2610.03629v1, Table 1 and Eq.(A4)"
+        ]
+      },
+      "rationale": "The exact profile is a routine corollary of two published stronger results: Salzmann et al. (2026) Theorem A1 gives every fixed-resolution Lindbladian Stein exponent as a duration supremum of amortized channel relative entropy; Wilde et al. (2020) Theorem 37 reduces all jointly covariant fixed-channel pairs, hence the identity versus any Pauli channel, to relative entropy of their Choi states. The equal-rate generator has the elementary Pauli/Bell weight p_I=((1+e^{-mu s})/2)^2. Substituting -log_2 p_I into Theorem A1 and differentiating the elementary function g(x) evaluates the supremum and yields every asserted boundary, limit and Taylor coefficient. The absence of an identical formula in the 2026 paper is not independent originality when its own general theorem and the earlier broad fixed-channel theorem mathematically imply it.",
+      "residual_risks": [
+        "No claim of exhaustive search for direct identical formulas; the negative search is irrelevant to the decisive published-theorem implication.",
+        "The 2020 theorem applies to fixed-channel discrimination, not directly to exposure-time optimization; that missing bridge is provided explicitly by the 2026 Theorem A1, so this is not a scope mismatch."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "STRONG_PRIOR_GENERAL_COVERAGE: Theorem A1 exactly supplies fixed-resolution variational principle, but A8.3.1 only records finiteness for the equal-rate model.",
+          "evidence": "Theorem A1 states Gamma_{smin}=sup_{s>=smin}D^A(e^{sL1}||e^{sL2})/s (lines 357–371); A8.3.1 states only gamma(0||L_{mu,mu})<infinity (lines 835–837).",
+          "identifier_or_url": "https://arxiv.org/html/2610.03629v1",
+          "material_read": "HTML introduction and model definitions, Sections II–III, Theorem 1, Appendix A2 Eq.(A1)–(A5) including theorem/proof and fixed-resolution equality, Appendix A8.1 depolarizing calculation, A8.3.1 equal-rate subsection, Table 1.",
+          "method": "Full-text HTML with exact theorem and appendix inspection; mathematical comparison of the variational functional and normalization.",
+          "title": "Discriminating Lindbladian Dynamics",
+          "trigger": "Same two Lindbladians, same adaptive controls, total-exposure and minimum-interval asymptotic Stein exponent; exact 2026 source theorem."
+        },
+        {
+          "assessment": "STRONG_PRIOR_FIXED_CHANNEL_COVERAGE: Theorem 37 reduces jointly Pauli-covariant channel discrimination to Choi-state Stein relative entropy. It predates the continuous-time exposure model but applies to each fixed semigroup duration used by Theorem A1.",
+          "evidence": "Theorem 37 eq.(264), p42, yields Stein rate D(theta_N||theta_M); on p43 authors state all jointly covariant one-design channels are jointly teleportation-simulable with respective Choi states.",
+          "identifier_or_url": "https://arxiv.org/pdf/1808.01498",
+          "material_read": "Full accessible primary PDF searched; introduction, channel-amortization/covariance material pp15–16 and definitions, environment-seizable section pp40–43, Theorem 37 (p42) and adjoining Choi/one-design argument (p43); PDF screenshots of cover and pages 42–43.",
+          "method": "Primary arXiv PDF text/section reading with visual page screenshots 1, 42, 43 (zero-index PDF pages 0, 41, 42).",
+          "title": "Amortized Channel Divergence for Asymptotic Quantum Channel Discrimination",
+          "trigger": "General prior channel discrimination theorem; jointly covariant Pauli channels include the fixed-time identity/equal-rate GAD pair."
+        }
+      ],
+      "status": "FAIL"
+    },
+    "value": {
+      "evidence": [
+        "arXiv:2610.03629v1 Theorem A1 covers full time-resolution optimization; A8.3.1 identifies equal-rate finite regime.",
+        "arXiv:1808.01498v2 Theorem 37 establishes general Choi reduction for Pauli covariant fixed channels.",
+        "Source RESULT.md section Proof consists of exact Pauli diagonalization, CP/Choi argument and one-variable concavity."
+      ],
+      "limitations": [
+        "No claim that the formula is incorrect or that the physical use case is irrelevant; scientific originality and separate research value are the failed axes."
+      ],
+      "rationale": "The requested temporal-resolution profile is physically interpretable and concerns a natural qubit noise model, but all its mathematical content is a standard Pauli-channel Choi-overlap substitution into the general Stein/variational theorems, followed by strict concavity of a one-variable logarithm and its Taylor expansion. The source already identifies the equal-rate finite regime. No independently unknown obstruction, new structural lemma, boundary classification beyond the covered general theorem, or nonroutine parameter phenomenon is established. This can be useful as an illustrative computation but does not survive the stated independent mathematical-value bar.",
+      "status": "FAIL"
+    }
+  },
+  "checked_sources": [
+    "arXiv:2610.03629v1 (Oct 2 2026, full accessible HTML and decisive relevant sections)",
+    "arXiv:1808.01498v2 (June 18 2020, full primary PDF available; relevant covariance/environment-seizing sections and Theorem 37 read)",
+    "Resultary Search: three targeted semigroup/Pauli/covariance searches and three additional targeted variants (October 27 2026); no direct equal-rate record detected, not treated as proof of novelty",
+    "Web targeted exact-formula, GAD alias, Pauli-covariant/Choi discrimination searches (October 27 2026)"
+  ],
+  "disposition": "failed",
+  "limitations": [
+    "Theorem is correct; rejection is scientific O/V prior-implication/routine-specialization, not computational, access or transport failure.",
+    "No proof that a finite numerical checker establishes infinite asymptotics; analytical derivation establishes them.",
+    "Original source package contains operational provenance fields in AUDIT.json and METADATA.json; no public sanitization or relocation performed."
+  ],
+  "residual_risks": [
+    "No claim of exhaustive search for direct identical formulas; the negative search is irrelevant to the decisive published-theorem implication.",
+    "The 2020 theorem applies to fixed-channel discrimination, not directly to exposure-time optimization; that missing bridge is provided explicitly by the 2026 Theorem A1, so this is not a scope mismatch."
+  ],
+  "schema_version": 1
+}
