@@ -1,0 +1,121 @@
+{
+  "correctness": {
+    "rationale": "For each positive radius \\(r\\), every full-column interval has at most \\(2r-1\\) columns and all off-interval tips lie in the source row. The endpoint-overlap charging argument gives a bound on tip redundancy: \\(\\sum_x((a_x-1)_++(b_x-1)_+)\\le\\sum_p(M_p-1)\\). Every unfilled column costs one overlap unit when \\(m\\ge4\\), whereas for \\(m=3\\) at most one hole can use the sole radius-zero source without such a cost. Hence the exact upper cutoffs \\((k-1)^2\\) and \\((k-1)^2+1\\), plus a separate two-round exclusion for \\(n>1\\). Explicit interval tilings and a three-row gap construction attain the bounds. Clamping sources proves shorter paths. The standalone Python verifier checked 236 constructions, 30 exact instances, and 891 endpoint-budget instances; finite tests are supplementary.",
+    "status": "PASS"
+  },
+  "independent": false,
+  "independent_audit_status": "not_performed",
+  "originality": {
+    "broader_coverage": {
+      "evidence": [
+        "Mitsche–Prałat–Roshanbin (2018), Theorem 7: for connected graphs, \\(\\max\\{b(G),b(H)\\}\\le b(G\\boxtimes H)\\le b(G\\square H)\\le\\min\\{b(G)+\\operatorname{rad}(H),b(H)+\\operatorname{rad}(G)\\}\\); for a clique and path this gives \\(\\lceil\\sqrt n\\rceil\\le b\\le\\lceil\\sqrt n\\rceil+1\\).",
+        "Their next paragraph explicitly says the upper bound is attained for arbitrary radius-one factor when the path has square order.",
+        "Antony et al. (2024), Sections 3–5, treat proper interval-graph hardness, P_k-free upper bounds, edge/total burning."
+      ],
+      "reasoning": "None of these stronger-general-scope published results supplies equality for all nonsquare n or establishes a jump specific to K_3. The known square-order subcase is subsumed; it is not part of claimed new mathematical content.",
+      "searches": [
+        "Graph burning of clique-chain graphs K_m □ P_n, burning sequences, full-column radius intervals and endpoint spikes",
+        "burning graph strong Cartesian product clique of order at least 3 with path all graph orders, optimal number of rounds",
+        "https://doi.org/10.1016/j.tcs.2018.06.036",
+        "https://arxiv.org/abs/2402.18984"
+      ]
+    },
+    "checked_sources": [
+      "Mitsche–Prałat–Roshanbin, DOI:10.1016/j.tcs.2018.06.036 (published indexed Theorem 7 and following paragraph, limited material)",
+      "Antony et al., arXiv:2402.18984v1 (original HTML Sections 1–5 and full-text term checks)",
+      "MathWorld Burning Number (secondary family table)",
+      "Public research-record searches returned relevant other burning families and different clique-product invariants, none with this statement"
+    ],
+    "claim_vs_prior_implication": {
+      "evidence": [
+        "The general Cartesian-product bound leaves a possible one-round ambiguity except on specified square cases.",
+        "For width three, every \\(k\\ge3\\) rounds can cover exactly up to \\((k-1)^2+1\\) columns; for width at least four, the maximum is \\((k-1)^2\\). This is not implied by a factor-only general bound."
+      ],
+      "reasoning": "The statement is a proper refinement rather than a corollary of the published upper/lower bounds; it contains infinitely many nonsquare cases and a separate sharp boundary for width three. It does not claim the known square cases themselves as original.",
+      "searches": [
+        "burning number exact formula for Cartesian product K_m square P_n clique path graph; three clique vertices permitting one extra column, sharp (k-1)^2+1",
+        "burning graph strong Cartesian product clique of order at least 3 with path all graph orders, optimal number of rounds",
+        "https://doi.org/10.1016/j.tcs.2018.06.036",
+        "https://arxiv.org/abs/2402.18984"
+      ]
+    },
+    "equivalent_formulations": {
+      "evidence": [
+        "Graph burning K_m square P_n is equivalent to a time-ordered cover by distances |j-h|+1_{a!=b}.",
+        "Theorem 7 of DOI 10.1016/j.tcs.2018.06.036 gives bounds but no exact nonsquare formula."
+      ],
+      "reasoning": "Checked ordinary burning against ball-cover, interval-burning, path-of-cliques and Cartesian-product terminology. The new theorem determines each m>=3,n>=1 exact threshold; no matching equivalence identified. The radius-one-factor square case is already covered and expressly credited.",
+      "searches": [
+        "Exact burning number of Cartesian product of a clique with a path K_m square P_n, with three rows exception and threshold n=(k-1)^2",
+        "Graph burning of clique-chain graphs K_m □ P_n, burning sequences, full-column radius intervals and endpoint spikes",
+        "burning number exact formula for Cartesian product K_m square P_n clique path graph; three clique vertices permitting one extra column, sharp (k-1)^2+1",
+        "\"K_3\" \"P_n\" \"burning number\" Cartesian",
+        "10.1016/j.tcs.2018.06.036"
+      ]
+    },
+    "exact_database_or_table": {
+      "evidence": [
+        "MathWorld Burning Number tabulates ladder K_2 square P_n and several standard families but not the claimed entire clique-width>=3 family.",
+        "A retrieved research record addresses four-round burning of H(n,5), a different graph family."
+      ],
+      "reasoning": "Neither the accessible table nor the retrieved research records provide an all-order clique-path threshold table. Absence from an index is not proof of novelty; remaining table-indexing risk is noted.",
+      "searches": [
+        "Exact burning number of Cartesian product of a clique with a path K_m square P_n, with three rows exception and threshold n=(k-1)^2",
+        "graph burning fixed clique width path product exact burnable path length k squared column deficit, interval covering",
+        "https://mathworld.wolfram.com/BurningNumber.html"
+      ]
+    },
+    "rationale": "Mitsche–Prałat–Roshanbin (2018), Theorem 7, is a universal two-sided interval and expressly notes equality at square-order paths for radius-one factors. Neither implies the exact nonsquare thresholds or the three-row additional-column boundary. Antony et al. (2024) study P_k-free bounds, hardness, edge/total burning and do not calculate clique-path exact values. Known ladder K_2 square P_n is outside m>=3. Separate clique–path work on general-position and resolving-set invariants does not imply burning thresholds.",
+    "residual_risks": [
+      "An unpublished or unindexed exact clique-path burning calculation may cover the theorem.",
+      "The complete author-hosted 2018 product-paper PDF could not be read; the decisive related primary Section 3.1 was inspected through accessible indexed material.",
+      "The Published reference tables and mathematical research indexes are incomplete, so failed retrieval is not priority proof."
+    ],
+    "source_inspections": [
+      {
+        "assessment": "PARTIALLY_COVERING: general interval plus square-order equality; no all-n exact classification in inspected section",
+        "evidence": [
+          "Theorem 7 exact inequalities; statement immediately following that any radius-one factor achieves the upper bound at square path order",
+          "Section 3 lists Cartesian bounds, strong grid and hypercube asymptotics, and lexicographic product characterization"
+        ],
+        "identifier_or_url": "https://doi.org/10.1016/j.tcs.2018.06.036",
+        "material_read": "Indexed original publisher article introduction, Section 3.1 Theorem 7, proof and next square-order exactness observation; retrieved author-hosted PDF search excerpts, not the complete PDF",
+        "method": "Primary publisher text indexed in literature searches, direct access attempts to author-hosted lawful OA PDF unsuccessful",
+        "title": "Burning number of graph products",
+        "trigger": "Closest graph-product theorem and possible stronger coverage"
+      },
+      {
+        "assessment": "NOT_COVERING the clique-path exact burning numbers",
+        "evidence": [
+          "Theorem 4.2 addresses connected P_k-free bounds; Sections 3 and 5 concern complexity and edge/total variants",
+          "Full-text term query for Cartesian returned no results"
+        ],
+        "identifier_or_url": "https://arxiv.org/abs/2402.18984",
+        "material_read": "Accessible full-text HTML: introduction; contributions; Sections 3, 4 (Theorem 4.2), 5; full-text queries for Cartesian and clique",
+        "method": "Original 2024-02-29 arXiv v1 full HTML, direct inspection and text matching",
+        "title": "Graph Burning: Bounds and Hardness",
+        "trigger": "Dated original manuscript establishing active burning-number questions and potential domination"
+      },
+      {
+        "assessment": "KNOWN_WIDTH_TWO: ladder is not included in the new theorem",
+        "evidence": [
+          "Ladder graph K_2 square P_n is tabulated separately; m=2 excluded from theorem"
+        ],
+        "identifier_or_url": "https://mathworld.wolfram.com/BurningNumber.html",
+        "material_read": "Indexed graph-family list identifying a ladder case and standard burning numbers",
+        "method": "Secondary reference indexed and searched, not treated as a substitute for primary paper",
+        "title": "Burning Number",
+        "trigger": "Check exact graph-family tables and possible known ladder extension"
+      }
+    ],
+    "status": "PASS"
+  },
+  "review_type": "self_review",
+  "schema_version": 1,
+  "scope_run_id": "6e573921-16ba-46e5-8c97-42c0730fa189",
+  "self_review_status": "passed",
+  "value": {
+    "rationale": "Completes the ordinary burning number for every Cartesian clique–path product with at least three clique vertices and every path order. The exact sharp horizon boundary gives a qualitative transition: width three gains one extra column via three source tips, while every width at least four has a squared-interval cutoff. This closes nonsquare cases left undecided by general graph-product bounds and isolates a reusable geometric obstruction; the result does not claim the known square-order or ladder cases as new.",
+    "status": "PASS"
+  }
+}
