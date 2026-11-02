@@ -1,0 +1,141 @@
+{
+  "correctness": {
+    "rationale": "Cubic Lagrange interpolation gives the exact signed two-term difference recurrence. For four arbitrary positive step lengths, the three strict Schur--Jury numerators are degree-20 homogeneous integer polynomials with respective 271, 267 and 271 strictly positive nonzero coefficients. The complete coefficient table and two independently implemented exact reconstructions were checked. The nonuniform sharp limit is deduced from exact rational trace and determinant expansions. The proof is infinite-parameter, whereas the eight rational spot tests are only normalization cross-checks.",
+    "status": "PASS"
+  },
+  "independent": false,
+  "independent_audit_status": "not_performed",
+  "originality": {
+    "broader_coverage": {
+      "evidence": [
+        "Calvo--Grigorieff (2002), introduction equations (1.7)--(1.9): adjacent ratios below 1.199, with a mesh-variation factor.",
+        "Söderlind--Fekete--Faragó (2018), Theorem 5.1: smooth deformation and sufficiently many steps, with adjacent ratios near one."
+      ],
+      "reasoning": "These are not coverage of arbitrarily large repeating step ratios. General variable-grid stability subject to ratio restrictions does not imply the claimed unconditional fixed four-periodic classification.",
+      "searches": [
+        "\"BDF third order periodic meshes monodromy zero stability constant varying positive mesh\"",
+        "https://doi.org/10.1023/A:1021992101967",
+        "https://doi.org/10.1007/s10543-018-0716-y"
+      ]
+    },
+    "checked_sources": [
+      "https://www.researchgate.net/publication/226854075_On_the_zero_stability_of_the_variable_order_variable_stepsize_BDF-Formulas",
+      "https://arts.units.it/handle/11368/1703201",
+      "https://doi.org/10.1023/A:1021992101967",
+      "https://doi.org/10.1007/s10543-018-0716-y",
+      "https://arxiv.org/abs/2201.00527"
+    ],
+    "claim_vs_prior_implication": {
+      "evidence": [
+        "Calvo--Grande--Grigorieff (1990) abstract: bounds on adjacent mesh ratios for variable-order BDF methods.",
+        "Guglielmi--Zennaro (2001) abstract: BDF3 spectral-radius analysis yielding improved admissible ratio bounds.",
+        "Li--Liao (2022) full preprint, Theorem 3.1 and Section 1: sufficient adjacent-ratio bound about 2.553.",
+        "The prior two-/three-periodic BDF3 statements handle fewer independent step lengths."
+      ],
+      "reasoning": "A fixed four-period mesh with arbitrary positive lengths can have ratios far above all published sufficient bounds. The earlier smaller-period results are special parameter subfamilies, not dominating implications. No inspected source proves the all-four-parameter strict Schur inequalities or the degeneration coefficient six.",
+      "searches": [
+        "\"On the zero stability of the variable order variable stepsize BDF-Formulas\"",
+        "\"On the zero-stability of variable stepsize multistep methods: the spectral radius approach\"",
+        "https://arxiv.org/abs/2201.00527"
+      ]
+    },
+    "equivalent_formulations": {
+      "evidence": [
+        "Li--Liao (2022), introductory formula (1.5), is the same cubic-interpolation variable-step BDF3 method; it proves a ratio-restricted bound near 2.553, not an equivalent four-period Floquet theorem.",
+        "Söderlind--Fekete--Faragó (2018), equation (4.7) identifies the extraneous difference recursion."
+      ],
+      "reasoning": "Equivalent descriptions include 2x2 difference monodromy, the extraneous root condition and a 3x3 nodal Floquet matrix with one constant multiplier. The old studies use these concepts but their inspected claims do not assert the four-period, unrestricted-ratio inequality.",
+      "searches": [
+        "\"BDF3 zero-stability on four-periodic positive time grids, unrestricted adjacent ratios, exact Schur criterion\"",
+        "\"periodic nonuniform mesh backward differentiation formula BDF3 unconditional stability\"",
+        "https://arxiv.org/abs/2201.00527"
+      ]
+    },
+    "exact_database_or_table": {
+      "evidence": [
+        "The 2001 Guglielmi--Zennaro bibliographic abstract describes a joint-spectral-radius method and improved admissible step-ratio bounds; no full text or exact four-period table was accessible.",
+        "Inspected 2002 article gives coefficients (2.7) and a ratio-conditional stability theorem, but no unrestricted four-period algebraic coefficient table."
+      ],
+      "reasoning": "No corresponding four-period coefficient table or exact database entry was found in the examined material. This absence alone is not evidence of mathematical novelty, so inaccessible original full texts remain explicit residual risks.",
+      "searches": [
+        "\"variable-step backward differentiation formula third order four-periodic mesh Floquet monodromy spectral radius less than 1\"",
+        "\"four-periodic BDF3 parasitic root spectral radius product variable step ratio\"",
+        "https://arts.units.it/handle/11368/1703201"
+      ]
+    },
+    "rationale": "The complete checked 2002, 2018 and 2022 primary texts give step-ratio or smooth-grid sufficient conditions, not strict Floquet damping for all positive four-periodic mesh parameters. The two-/three-periodic results concern strictly smaller mesh families. Metadata and abstracts for the closely relevant 1990 and 2001 original works were checked but their complete texts were inaccessible, creating residual specialist priority risk. No inspected stronger theorem or exact database entry implies the four-period positivity and geometric sharpness.",
+    "residual_risks": [
+      "Guglielmi--Zennaro (2001) full original not inspected, despite searches for the original and accessible copies.",
+      "Calvo--Grande--Grigorieff (1990) full original not inspected; the dated author upload has no accessible PDF preview.",
+      "No publication-priority claim stronger than best-knowledge novelty from materially inspected sources; broader uncatalogued results may exist."
+    ],
+    "source_inspections": [
+      {
+        "assessment": "UNRESOLVED_PRIORITY: stated adjacent-ratio bounds do not affirm four-period all-ratio result; inaccessible full content prevents whole-paper exclusion",
+        "evidence": [
+          "ResearchGate author-upload date January 30, 2015; 1990 abstract describes bounds on adjacent mesh-size ratios."
+        ],
+        "identifier_or_url": "https://www.researchgate.net/publication/226854075_On_the_zero_stability_of_the_variable_order_variable_stepsize_BDF-Formulas",
+        "material_read": "Abstract, bibliographic metadata and verified author-upload date only; complete PDF preview inaccessible",
+        "method": "Open-access author upload landing page and metadata review",
+        "title": "On the zero stability of the variable order variable stepsize BDF-Formulas",
+        "trigger": "Same BDF scheme, potential broad zero-stability result"
+      },
+      {
+        "assessment": "UNRESOLVED_PRIORITY: methodology overlaps; abstract reports improved ratio bounds, not all-positive-four-period theorem",
+        "evidence": [
+          "Numerische Mathematik 88 (2001), 445--458; repository abstract explicitly refers to a family of matrix spectral radii."
+        ],
+        "identifier_or_url": "https://arts.units.it/handle/11368/1703201",
+        "material_read": "Institutional metadata and abstract only; no full text available",
+        "method": "Author and repository bibliographic records, plus searches for publicly accessible original text",
+        "title": "On the zero-stability of variable stepsize multistep methods: the spectral radius approach",
+        "trigger": "Especially plausible 2001 original on BDF3 spectral radii"
+      },
+      {
+        "assessment": "NOT_COVERING: stability inequality imposes step ratios below about 1.199 plus mesh-variation control",
+        "evidence": [
+          "https://www.researchgate.net/publication/251358808_Time_Discretisation_of_Parabolic_Problems_with_the_Variable_3-Step_BDF",
+          "Equations (1.7)--(1.9) and Section 3."
+        ],
+        "identifier_or_url": "https://doi.org/10.1023/A:1021992101967",
+        "material_read": "Author-posted readable full text, sections 1--3, especially (1.7)--(1.9), (2.6)--(2.7), and Lemma 3.1",
+        "method": "Full-text HTML inspection",
+        "title": "Time Discretisation of Parabolic Problems with the Variable 3-Step BDF",
+        "trigger": "Same variable BDF3 coefficients and potentially strong stability"
+      },
+      {
+        "assessment": "NOT_COVERING: requires smooth grid deformations with local ratios approaching one as grid refines",
+        "evidence": [
+          "Theorem 5.1 and Section 6, https://doi.org/10.1007/s10543-018-0716-y."
+        ],
+        "identifier_or_url": "https://doi.org/10.1007/s10543-018-0716-y",
+        "material_read": "Full open-access HTML, sections 1, 4, 5 and Theorem 5.1",
+        "method": "Full-text HTML inspection",
+        "title": "On the zero-stability of multistep methods on smooth nonuniform grids",
+        "trigger": "General smooth-grid zero-stability theorem"
+      },
+      {
+        "assessment": "NOT_COVERING: sufficient ratio bound near 2.553 and perturbed stability estimate; not arbitrary fixed four-periodic mesh",
+        "evidence": [
+          "https://www.researchgate.net/publication/357553223_Stability_of_variable-step_BDF2_and_BDF3_methods",
+          "Theorem 3.1 and introductory comparison to earlier ratio bounds."
+        ],
+        "identifier_or_url": "https://arxiv.org/abs/2201.00527",
+        "material_read": "Full publicly readable preprint: introduction, formulas (1.1)--(1.5), Theorem 3.1 and discussion",
+        "method": "Author preprint HTML text inspection",
+        "title": "Stability of variable-step BDF2 and BDF3 methods",
+        "trigger": "Modern improved BDF3 stability and its exact coefficient recurrence"
+      }
+    ],
+    "status": "PASS"
+  },
+  "review_type": "self_review",
+  "schema_version": 1,
+  "scope_run_id": "ddf3ab19-c46a-46ec-9210-9e1bff6cd732",
+  "self_review_status": "passed",
+  "value": {
+    "rationale": "A complete unrestricted classification of all four positive recurring step lengths is a natural next-dimensional family in variable-step stability, not a sampled parameter slice. Large adjacent-ratio variations defeat common general sufficient conditions yet do not create a growing parasitic mode. The positive degree-20 exact certificate captures this nonobvious structure, and the sharp 1-6r near-neutral law quantifies an operationally important nonuniformity. No convergence or general-nonperiodic claim is made.",
+    "status": "PASS"
+  }
+}
