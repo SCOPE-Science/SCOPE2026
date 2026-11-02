@@ -1,0 +1,122 @@
+{
+  "audit_date_utc": "2026-10-29",
+  "audited_at_utc": "2026-10-29T05:50:50Z",
+  "axes": {
+    "correctness": {
+      "checked_sources": [
+        "Frozen RESULT.md blob d4ab912b47fab56844f99b7b579f900d087ace9a",
+        "Freschi et al 2023 Theorem 1.5 and Proposition 2.9",
+        "independent_checks.py complete small-n induced-poset enumeration, source and published comparison families"
+      ],
+      "rationale": "The family F_n={empty,[n],all singletons,all co-singletons} has exactly 2n+2 members for n>=4. Incomparable pairs cannot have a common strict upper 3-chain in F_n. Every missing S with 2<=|S|<=n-2 yields an induced P by two distinct singleton subsets of S, S, a co-singleton containing S and [n]. The cited 2023 legs theorem proves ONLY sat*(n,P)>=n+1, not the source asserted strict inequality sat*(n,P)>n+1 for n>3. No additional argument in the frozen package establishes the claimed n+2 lower bound for every n. This unsupported load-bearing lemma makes C FAIL for the joint two-sided claim, although the upper family is correct. Independently enumerated all missing sets and checked induced saturation for n=4,5,6. Also independently validated Freschi et al's *older stronger* family size n+5 for n=4..8. Thus correctness does not supply originality.",
+      "residual_risks": [
+        "The purported all-n lower n+2 is not established: Freschi et al 2023 Theorem 1.5 only yields n+1; this is an actual proof gap, not a finite-computation limitation.",
+        "Finite checks supplement explicit all-n construction and established legs lower bound."
+      ],
+      "status": "FAIL"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Ivan-Jaffe arxiv:2509.10294v1, Theorem 14 (all complete multipartite posets sat*=O(n))",
+          "Freschi-Piga-Sharifzadeh-Treglown 2023 Proposition 2.9, n+5 upper for wedge_3"
+        ],
+        "reasoning": "The 2025 family theorem includes all nonchain complete multipartite posets, so a (2,1,1,1) instance is an already established corollary; the 2023 result even dominates the submitted explicit upper coefficient.",
+        "searches": [
+          "induced saturation of complete layered posets layer sizes (2,1,1,1) linear construction bound",
+          "arxiv:2509.10294 Theorem 14",
+          "Freschi 2023 Prop 2.9"
+        ]
+      },
+      "checked_sources": [
+        "DOI:10.5070/C63362792; 2023 Proposition 2.9",
+        "arxiv:2509.10294v1 Theorem 14",
+        "Resultary query induced saturation of complete layered posets layer sizes (2,1,1,1) linear construction bound"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "2023 Freschi et al prop2.9 yields upper n+5 <=2n+2 for n>=3",
+          "2025 Ivan-Jaffe Theorems 13-14 yield full Theta(n) for this complete multipartite P"
+        ],
+        "reasoning": "The precise older claims imply the submitted linear growth and a strictly stronger upper bound, without asserting the unproved one-unit lower refinement. The original is not a valid new classification; disclaimers cannot rescue it.",
+        "searches": [
+          "arxiv:2509.10294 Theorem 14",
+          "DOI:10.5070/C63362792 Proposition 2.9"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Freschi et al 2023 Section 2 notation wedge_ell: two legs below a chain of ell hips; setting ell=3 gives exactly level pattern (2,1,1,1)"
+        ],
+        "reasoning": "This is an exact order-isomorphism, not a loose analogy. In prior Proposition 2.9 choose parameter ell=2 to obtain wedge_3 and an all-n n+5 upper bound.",
+        "searches": [
+          "induced saturation of complete layered posets layer sizes (2,1,1,1) linear construction bound",
+          "Freschi et al 2023 Proposition 2.9",
+          "\"wedge_3\" \"induced saturation\""
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "2023 Proposition 2.9 n+1<=sat*(n,wedge_3)<=n+5 for n>=4",
+          "Independent exact n=4..8 verification of 2023 source n+5 saturated family"
+        ],
+        "reasoning": "The claimed n+2 lower might have been a tiny one-unit improvement on the known n+1, but its submitted proof cites a theorem that gives only n+1. Stronger old upper and general linearity dominate the headline; no proved new exact sat value remains.",
+        "searches": [
+          "induced saturation of complete layered posets layer sizes (2,1,1,1) linear construction bound",
+          "Freschi 2023 Section 2 Proposition 2.9"
+        ]
+      },
+      "rationale": "DECISIVE PRIOR COVERAGE: Freschi, Piga, Sharifzadeh and Treglown, The Induced Saturation Problem for Posets (Combinatorial Theory 3(3), 2023), Section 2, Proposition 2.9, explicitly define wedge_{ell} as two incomparable legs with ell-point chain above and prove for ell=2 that n+1 <= sat*(n,wedge_3) <= n+5 for all n>=4. Our P is exactly wedge_3; its 2023 n+5 bound is strictly tighter than this submission's 2n+2 for n>=4, with strict inequality for n>3. Ivan and Jaffe 2025, Saturation for Sums of Posets and Antichains, Theorem 14, already establishes O(n) for *all* complete multipartite posets, including the same (2,1,1,1), while its Theorem 13 supplies linear lower bounds. The original headline Theta(n) and its upper bound are therefore covered. The numerical n+2 lower bound is a potential one-unit strengthening of the published n+1 bound, but the cited lemma in the package does not prove it. This cannot rescue a main classification and upper bound already covered by prior results.",
+      "residual_risks": [
+        "A strictly improved lower n+2 is not derived from the cited 2023 legs theorem, so no mathematical claim of its universal correctness is justified."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "COVERING: wedge_3 exactly equals submitted P; published sat*(n,wedge_3)<=n+5 for all n>=4 dominates proposed 2n+2.",
+          "evidence": "Combinatorial Theory 3(3), 2023, Proposition 2.9; https://web.mat.bham.ac.uk/~tregloac/FinalInducedPosets.pdf",
+          "identifier_or_url": "https://doi.org/10.5070/C63362792",
+          "material_read": "Original 2023 full PDF; Section 2 definitions of wedge_ell, Theorem 1.5 and Proposition 2.9 on page 10, including explicit smaller construction",
+          "method": "Primary PDF reading and page screenshot; independent direct n=4..8 reproduction",
+          "title": "The induced saturation problem for posets",
+          "trigger": "Same five-element wedge_3 poset and explicit numerical upper bound"
+        },
+        {
+          "assessment": "COVERING: Theorem 14 all complete multipartite layer patterns includes (2,1,1,1) and already proves linear O(n); prior paper states linear overall for nonchains.",
+          "evidence": "Ivan-Jaffe arxiv:2509.10294v1, 12 Sep 2025, Theorems 13-14",
+          "identifier_or_url": "https://arxiv.org/pdf/2509.10294",
+          "material_read": "Original full preprint PDF; abstract, introduction and Section 6 Theorem 14 (page 11), with screenshot of theorem and proof beginning",
+          "method": "Primary PDF reading and theorem-level implication check",
+          "title": "Saturation for Sums of Posets and Antichains",
+          "trigger": "Potential complete multipartite universal linear theorem"
+        },
+        {
+          "assessment": "Its restricted theorem alone does not include this pattern, but it does not supersede the 2025 broader Theorem 14 or 2023 stronger Prop 2.9.",
+          "evidence": "Ivan-Jaffe arxiv:2503.12223v1",
+          "identifier_or_url": "https://arxiv.org/abs/2503.12223",
+          "material_read": "Accessible article/theorem discussion of adjacent singleton layer restriction",
+          "method": "Primary mathematical statement comparison",
+          "title": "Gluing Posets and the Dichotomy of Poset Saturation Numbers",
+          "trigger": "Older source mentioned by submitted review"
+        }
+      ],
+      "status": "FAIL"
+    },
+    "value": {
+      "checked_sources": [
+        "Freschi et al 2023 Proposition 2.9, stronger n+5 upper",
+        "Ivan-Jaffe 2025 Theorem 14 universal multipartite linearity"
+      ],
+      "rationale": "The natural poset and invariant are motivated, but the all-n linear growth and even a sharper explicit upper were already established in 2023/2025. Only an unproved one-unit lower-bound strengthening is left in the 2026 package, without a demonstrated new mechanism or meaningful cutoff; the submitted main mathematical conclusion offers no significant improvement. This is a scientific value failure grounded in dominating primary results, not in inability to access sources or an arbitrary higher value bar.",
+      "residual_risks": [
+        "A genuinely new sharp exact minimum or novel asymptotic coefficient could be valuable, but neither is proved by this final claim."
+      ],
+      "status": "FAIL"
+    }
+  },
+  "disposition": "failed",
+  "final_claim": "For the five-point layered poset with level sizes (2,1,1,1), n+2 <= sat*(n,P) <= 2n+2 for every n>=4, hence sat*(n,P)=Theta(n).",
+  "limitations": [
+    "Scientific rejection is independently supported by the false citation for the n+2 lower bound, dominating published coverage of linearity and the stronger upper bound, and limited residual value; it is not caused by inaccessible literature."
+  ],
+  "schema_version": 1
+}
