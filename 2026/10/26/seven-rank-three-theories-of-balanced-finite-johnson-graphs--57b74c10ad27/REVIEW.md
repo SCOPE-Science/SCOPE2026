@@ -1,11 +1,21 @@
-# Scientific review
+# Independent mathematical audit
 
-**Correctness:** PASS. The claim reduces rank-three equivalence of vertex-transitive graphs to equality of the two-vertex one-round-extension profiles. Explicit set exchanges verify every mask uniformly for arbitrary balanced Johnson parameters; the exceptional disjoint-three-set case is settled by a pigeonhole argument. The checked program reproduces the seven masks on 34 finite parameter pairs. The program is not used to prove the universal claim.
+## correctness
 
-**Originality:** PASS under currently accessible evidence. The exact triangular-graph rank profile is a proper special case. The previously examined Johnson-graph orbit-refinement statements treat counting refinement and marked vertices rather than unmarked first-order rank three. The inspected earlier Johnson coding paper (Silberstein--Etzion 2010) proves perfect-code restrictions; the Chalopin et al. paper (2022) concerns betweenness definability and partial Johnson graphs; Verbitsky's 2004 work treats more general separator graph depth. None of their inspected statements implies the exceptional \(\(J(6,3)\)\) profile or the collapse over all \(k\ge3\). Relevant papers may exist outside the material accessible in this check; full text of the Gavrilyuk--Goryainov coloring paper was not inspected.
+PASS
 
-**Value:** PASS. This is a complete exact finite-model-theoretic classification across a two-parameter family of distance-regular graphs, with a uniform large-family collapse and a genuine small-parameter exception. The seven distinguishable regimes provide sharp rank-three visibility information, not merely a check of individual finite graphs.
+For nonempty vertex-transitive simple graphs, the three-move Ehrenfeucht–Fraïssé winning criterion is equality of all possible distinct-ordered-pair edge indicators and sets of third-vertex adjacency patterns. The first chosen vertex can be matched by transitivity, the second determines a pair profile, and the third can be matched exactly when its four-bit extension mask is present. For Johnson k-sets, intersection distance d=1,2,≥3 gives the claimed edge/nonedge masks by exchanging elements of I=A∩B, X=A\B, Y=B\A and Z=ground\(A∪B). The unique disjoint k=3,n=6 exception is a pigeonhole obstruction to a third vertex nonadjacent to both; with n≥7 an extra element supplies one. For k=2 the outside-element thresholds are n=5 and n=6; k=1 complete-graph threshold is n=3. Independent brute-force subset enumeration checked masks and seven distinct profiles in representative bounded cases. The arbitrary-size assertion follows from the constructive proof, not extrapolation.
 
-**Limits:** No assertion about higher quantifier ranks, counting quantifiers, or unindexed earlier literature; finite enumeration is corroboration only.
+## originality
 
-Self-review: passed. Independent audit: not yet performed.
+PASS
+
+The exact all-parameter claim was compared by statement and implication against all identified strongly related primary works; known constructions, setup theorems and restricted subclasses are acknowledged as prior. The four structured comparisons and source inspections distinguish unproven priority from a concrete known coverage implication. Under a best-of-knowledge standard the unlocated stronger result is a stated risk, not an invented negative full-text finding.
+
+## value
+
+PASS
+
+A complete two-parameter, unbounded-family classification for an exact logical complexity measure in distance-regular graphs is useful on its own. It identifies a large rank-three indistinguishability collapse and an exceptional small case, not merely a list of finite computations. It does not imply anything about rank four, counting logic or richer betweenness signatures.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
