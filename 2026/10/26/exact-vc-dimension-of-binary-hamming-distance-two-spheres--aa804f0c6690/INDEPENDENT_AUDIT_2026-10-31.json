@@ -1,0 +1,120 @@
+{
+  "audit_date_utc": "2026-10-31",
+  "audited_at_utc": "2026-10-31T21:06:31Z",
+  "axes": {
+    "correctness": {
+      "checked_sources": [
+        "Frozen RESULT.md at d48b7f9d4bc333a64c6bdf2ff1f31bcf56488136",
+        "Own independent check script /mnt/data/scope05_checks_20261031.py"
+      ],
+      "rationale": "Any shattered nonempty F lies in a sphere of one center; XOR translation anchors F as a collection of weight-2 vertices, encoded by edges of a simple graph. For a center of weight w, the trace on each edge e depends on |supp(c)∩e|=w/2, forcing w∈{0,2,4} for nonempty traces. At most four spare coordinates suffice for all possible patterns, with empty/full granted. Enumerating all unlabeled graphs with 6 edges via complete edge-addition recursion gives counts 1,2,5,11,26,68 and maximum only 49 of 64 six-edge patterns, hence no shattered 6-set in any dimension. An independently implemented NetworkX isomorphism-recursion and different trace-mask computation reproduced all counts and max 49. Direct checks exclude k+1 shattered sets in d=3,4,5,6 after respectively 1,20,210,3003 candidates, and find witnesses size 2,2,3,4. For d≥7 the 5-edge star plus spare-coordinate center constructions realize all 32 traces; d1,d2 are immediate. Infinite-dimension assertion rests on the mathematical support reduction plus full finite kernel, not finite experiments alone.",
+      "residual_risks": [
+        "A prior theorem under halved cube, distance-regular graphs, second-distance Hamming graph or NIP-graphs terminology may imply this result."
+      ],
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Adler–Benediktsson–Macpherson Theorem 1.1 gives VC dimension 3 for distance-one edges of Hamming graphs; the present relation is distance two, including both parity components. Coudert et al compute general closed-neighborhood graph VC dimension."
+        ],
+        "reasoning": "Neither broader algorithmic theorem nor the exact radius-one result implies the sharper particular open-neighborhood value for the distance-two/halved-cube graph; a radius-two ball is also a distinct concept family.",
+        "searches": [
+          "VC dimension distance exactly 2 Hamming cube halved cube graph open neighborhood",
+          "Adler Benediktsson Macpherson arxiv:2007.16042 Theorem 1.1 Hamming VC 3",
+          "Coudert Csikos Ducoffe Viennot arxiv:2405.07588 closed neighborhoods"
+        ]
+      },
+      "checked_sources": [
+        {
+          "identifier_or_url": "https://arxiv.org/abs/2007.16042",
+          "material_read": "Accessible full HTML: introduction defines H(d,q) adjacency as exactly one coordinate change; Theorem 1.1 specifies VC≤3 for Hamming graph edge relation; §4 Hamming analysis",
+          "title": "Vapnik–Chervonenkis Dimension and Density on Johnson and Hamming Graphs"
+        },
+        {
+          "identifier_or_url": "https://arxiv.org/pdf/2405.07588",
+          "material_read": "PDF abstract, first-page screenshot and general algorithm/problem definition; authors define closed neighborhoods and computational algorithms, not an explicit halved-cube classification in material read",
+          "title": "Practical Computation of Graph VC-Dimension"
+        }
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "Theorem 1.1 explicitly addresses edges at Hamming distance one; the d=7 star witnesses five points against exact-distance-two centers, contradicting any attempted application of their VC≤3 bound to this different relation."
+        ],
+        "reasoning": "The prior results cannot dominate the new claim through a parameter substitution. A separate exact VC bound on halved cubes would imply it; no such theorem was found in the actual searches.",
+        "searches": [
+          "Adler Benediktsson Macpherson 2007.16042 Theorem 1.1",
+          "Coudert Csikos Ducoffe Viennot 2405.07588",
+          "VC dimension distance exactly 2 Hamming cube halved cube graph open neighborhood"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Distance-two graph of Q_d consists of parity-isomorphic halved cubes; exact-distance-two sphere family is its open-neighborhood family, not the ordinary Q_d adjacency family."
+        ],
+        "reasoning": "An equivalent theorem under halved-cube open-neighborhood terminology would count as coverage; searches did not locate a VC=5 theorem for that relation, so this remains a specifically recorded alias risk.",
+        "searches": [
+          "VC dimension distance exactly 2 Hamming cube halved cube graph open neighborhood",
+          "halved cube open neighbourhood graph VC dimension",
+          "Hamming distance two exact spheres and parity"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "Computer-assisted exact census of 68 unlabelled six-edge graph supports and trace maximum 49, with independent reproduction; no prior six-edge trace table located."
+        ],
+        "reasoning": "The finite database here is generated from an exhaustive proof kernel, not merely looked up. Existing Johnson/Hamming edge-relation tables are for another graph; no equality should be inferred from similar values.",
+        "searches": [
+          "VC dimension distance exactly 2 Hamming cube halved cube graph open neighborhood",
+          "halved cube graph VC dimension 5",
+          "Hamming sphere VC radius 2 five"
+        ]
+      },
+      "rationale": "Best-of-knowledge originality of the DELIMITED finding: For binary Q_d, exact-distance-two spheres have VC dimension 0,1,2,2,3,4,5 in dimensions 1,2,3,4,5,6,≥7 respectively. The prior results cannot dominate the new claim through a parameter substitution. A separate exact VC bound on halved cubes would imply it; no such theorem was found in the actual searches.",
+      "residual_risks": [
+        "A prior theorem under halved cube, distance-regular graphs, second-distance Hamming graph or NIP-graphs terminology may imply this result.",
+        "The six-edge exhaustive kernel uses graph-isomorphism software, although independently reconstructed with an alternative implementation; this is computer-assisted exact mathematics rather than a purely manual classification."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "NOT_SAME_DISTANCE_RELATION",
+          "evidence": "Distance-one neighborhoods do not imply distance-two parity graph neighborhood VC dimension; witness VC5 in high dimensions.",
+          "identifier_or_url": "https://arxiv.org/abs/2007.16042",
+          "material_read": "Accessible full HTML: introduction defines H(d,q) adjacency as exactly one coordinate change; Theorem 1.1 specifies VC≤3 for Hamming graph edge relation; §4 Hamming analysis",
+          "method": "Full primary arXiv HTML, theorem and §4 terms",
+          "title": "Vapnik–Chervonenkis Dimension and Density on Johnson and Hamming Graphs",
+          "trigger": "Same binary Hamming cube and graph-neighborhood VC dimension"
+        },
+        {
+          "assessment": "GENERAL_ALGORITHMIC_TOOL_NOT_SPECIFIC_THEOREM",
+          "evidence": "Problem uses closed neighborhoods, whereas this result uses open neighborhoods of distance-two cube graph; lack of full appendix inspection is an explicit risk.",
+          "identifier_or_url": "https://arxiv.org/pdf/2405.07588",
+          "material_read": "PDF abstract, first-page screenshot and general algorithm/problem definition; authors define closed neighborhoods and computational algorithms, not an explicit halved-cube classification in material read",
+          "method": "OA PDF with page-0 screenshot and text inspection",
+          "title": "Practical Computation of Graph VC-Dimension",
+          "trigger": "Plausible general VC-dimension exact computation of graph neighborhood systems"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "checked_sources": [
+        "https://arxiv.org/abs/2007.16042",
+        "https://arxiv.org/pdf/2405.07588"
+      ],
+      "rationale": "The distance-two sphere is the open-neighborhood relation of the two parity components of a halved cube, a natural graph/set-system invariant distinct from the familiar distance-one neighborhoods and radius-two balls. The sharp dimension-independent bound five and its first realization at d=7 constitute a complete natural classification with an auditable finite certificate.",
+      "residual_risks": [
+        "A prior theorem under halved cube, distance-regular graphs, second-distance Hamming graph or NIP-graphs terminology may imply this result.",
+        "The six-edge exhaustive kernel uses graph-isomorphism software, although independently reconstructed with an alternative implementation; this is computer-assisted exact mathematics rather than a purely manual classification."
+      ],
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "limitations": [
+    "A prior theorem under halved cube, distance-regular graphs, second-distance Hamming graph or NIP-graphs terminology may imply this result.",
+    "The six-edge exhaustive kernel uses graph-isomorphism software, although independently reconstructed with an alternative implementation; this is computer-assisted exact mathematics rather than a purely manual classification.",
+    "Scientific assessment is independent only within this run; no external peer certification, no authorship/provenance assertion, no public changes. Finite checker outputs are not an infinite proof."
+  ],
+  "schema_version": 1
+}

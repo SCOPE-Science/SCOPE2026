@@ -5,8 +5,11 @@
     "status": "not_performed"
   },
   "independent_audit": {
-    "evidence": null,
-    "status": "not_performed"
+    "status": "passed",
+    "evidence": [
+      "INDEPENDENT_AUDIT_2026-10-31.md",
+      "INDEPENDENT_AUDIT_2026-10-31.json"
+    ]
   },
   "lean_verification": {
     "evidence": null,
@@ -16,26 +19,24 @@
 }
 ---
 
-# Reproduction and proof boundary
+# Independent mathematical audit
 
-Install the Python requirements in `requirements.txt`, then run `python verify.py` from the extracted file directory. The code compares graph types using exact isomorphism and enumerates every admissible trace mask, giving a fully deterministic finite certificate.
+## correctness
 
-Observed output from the actual embedded checker:
+PASS
 
-```
-SIX_EDGE_KERNEL unlabeled_graphs 68 maximum_patterns 49 ... PASS
-SMALL 2 VC 1 no_larger_sets 0 ... PASS
-SMALL 3 VC 2 no_larger_sets 1 ... PASS
-SMALL 4 VC 2 no_larger_sets 20 ... PASS
-SMALL 5 VC 3 no_larger_sets 210 ... PASS
-SMALL 6 VC 4 no_larger_sets 3003 ... PASS
-STAR_WITNESS 7 patterns 32 PASS
-STAR_WITNESS 8 patterns 32 PASS
-STAR_WITNESS 9 patterns 32 PASS
-STAR_WITNESS 10 patterns 32 PASS
-VERIFY_OK graph_isomorphism_kernel=PASS small_cases=PASS all_dimension_upper=REDUCTION star_lower=PASS
-```
+Any shattered nonempty F lies in a sphere of one center; XOR translation anchors F as a collection of weight-2 vertices, encoded by edges of a simple graph. For a center of weight w, the trace on each edge e depends on |supp(c)∩e|=w/2, forcing w∈{0,2,4} for nonempty traces. At most four spare coordinates suffice for all possible patterns, with empty/full granted. Enumerating all unlabeled graphs with 6 edges via complete edge-addition recursion gives counts 1,2,5,11,26,68 and maximum only 49 of 64 six-edge patterns, hence no shattered 6-set in any dimension. An independently implemented NetworkX isomorphism-recursion and different trace-mask computation reproduced all counts and max 49. Direct checks exclude k+1 shattered sets in d=3,4,5,6 after respectively 1,20,210,3003 candidates, and find witnesses size 2,2,3,4. For d≥7 the 5-edge star plus spare-coordinate center constructions realize all 32 traces; d1,d2 are immediate. Infinite-dimension assertion rests on the mathematical support reduction plus full finite kernel, not finite experiments alone.
 
-The executable enumerates the \(68\) graph-isomorphism classes of graphs with exactly six edges and no isolated vertices and proves at most \(49\) traces in the generous model. This is exhaustive for the kernel, not an incomplete sample. The separate mathematical reduction in `RESULT.md` proves why all dimensions reduce to that kernel. Small-dimensional computations range only over anchored weight-two points, justified by XOR symmetry, and thus exhaust every possible shattered family at the tested cardinalities. The star-witness argument is symbolic for all \(d\ge7\); checks for dimensions seven through ten corroborate it.
+## originality
 
-Scientific limits: independent implementation and human publication-priority review have not been performed. A code or dependency failure would invalidate the computational certificate, not prove any impossibility theorem. This record neither asserts independent certification nor substitutes finite experiments for the stated all-dimensional reduction.
+PASS
+
+Best-of-knowledge originality of the DELIMITED finding: For binary Q_d, exact-distance-two spheres have VC dimension 0,1,2,2,3,4,5 in dimensions 1,2,3,4,5,6,≥7 respectively. The prior results cannot dominate the new claim through a parameter substitution. A separate exact VC bound on halved cubes would imply it; no such theorem was found in the actual searches.
+
+## value
+
+PASS
+
+The distance-two sphere is the open-neighborhood relation of the two parity components of a halved cube, a natural graph/set-system invariant distinct from the familiar distance-one neighborhoods and radius-two balls. The sharp dimension-independent bound five and its first realization at d=7 constitute a complete natural classification with an auditable finite certificate.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
