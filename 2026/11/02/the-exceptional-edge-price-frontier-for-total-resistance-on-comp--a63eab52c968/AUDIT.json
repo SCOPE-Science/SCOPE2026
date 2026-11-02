@@ -1,0 +1,134 @@
+{
+  "correctness": {
+    "rationale": "For n>=4, the three nonzero Laplacian eigenvalue classes are A=2w+(n-2)x, D=2x+(n-2)y (multiplicity n-3), and nx. Their inverse sum is the exact Kirchhoff index divided by n. Strict convexity and price-preserving automorphisms force the unique global minimizer into these classes. Cauchy–Schwarz with the exact transformed budget produces the claimed cheap-edge equality case; the two positivity inequalities show feasibility exactly through tau=n/(n-2). On the w=0 face a second sharp Cauchy–Schwarz inequality gives the plateau solution. Repricing-and-rescaling rules out w>0 at higher prices. S and its first two derivatives verify the quadratic contact. The packaged full-Laplacian and exact symbolic tests passed; their finite range is not substituted for the infinite proof.",
+    "status": "PASS"
+  },
+  "independent": false,
+  "independent_audit_status": "not_performed",
+  "originality": {
+    "broader_coverage": {
+      "evidence": [
+        "Ghosh–Boyd–Saberi 2006 introduction and optimization sections, distinct fixed unit-edge-cost setup (https://web.stanford.edu/~boyd/papers/pdf/eff_res_mtns06.pdf)",
+        "Ghosh–Boyd–Saberi 2008 §§5–6 analyses tree, wheel, barbell, and equal-cost clique, not heterogeneous exceptional-edge pricing (https://web.stanford.edu/~boyd/papers/pdf/eff_res.pdf)",
+        "Bhoite et al. 2026 §§I–II and Proposition 2 concerns fixed weighted base networks plus budgeted link augmentation and numerical relaxation, with no explicit from-scratch clique frontier (https://arxiv.org/html/2609.29790v1)"
+      ],
+      "reasoning": "General ERMP frameworks encompass numerical computation of the new optimization instance but do not state or algebraically imply the sharp price threshold, its full unique design, and quadratic contact without further derivation. The cost-aware augmentation result fixes a base graph, which is different from sizing every edge from zero. No directly dominating closed-form theorem was found.",
+      "searches": [
+        "Boyd Ghosh Saberi complete graph different edge price optimization threshold; Kirchhoff index efficient network",
+        "complete graph Kirchhoff index optimal weights one expensive edge price remove phase transition network  n/(n-2)",
+        "weighted complete graph one edge different cost optimal total effective resistance conductances",
+        "",
+        ""
+      ]
+    },
+    "checked_sources": [
+      "https://web.stanford.edu/~boyd/papers/pdf/eff_res_mtns06.pdf",
+      "https://web.stanford.edu/~boyd/papers/pdf/eff_res.pdf",
+      "https://arxiv.org/html/2609.29790v1",
+      "https://epubs.siam.org/doi/10.1137/050645452",
+      "published-finding corpus semantic searches using q1–q4; no directly covering returned entries",
+      "Related mathematical statements with opaque scientific identifiers 4f89042d-f17b-4da9-b1b9-1ba56a528aaf, 7f96525d-ec6d-44b8-8461-2d45e9cb24c8, e576b278-ca35-4119-a627-426e77a8a5bd"
+    ],
+    "claim_vs_prior_implication": {
+      "evidence": [
+        "The Ghosh–Boyd–Saberi equal-price clique optimum is recovered at tau=1 but does not distinguish one edge; 2008 §6 (https://web.stanford.edu/~boyd/papers/pdf/eff_res.pdf)",
+        "Ghosh–Boyd–Saberi 2008 §5.2 makes symmetry and uniqueness available, but needs the present three-eigenvalue optimization and feasibility analysis",
+        "Bhoite 2026 Proposition 2 gives derivative per cost; no closed-form tau=n/(n-2) support claim (https://arxiv.org/html/2609.29790v1)"
+      ],
+      "reasoning": "The prior equal-price solution is one strict parameter slice (tau=1). It does not imply the departure of exactly one edge, the exact threshold, or the quadratic plateau. The broader convexity/symmetry machinery motivates the new proof but is not by itself a resolved classification for heterogeneous price. An existing priced-cycle result differ in topology for all n>=4. Specialized historical explicit solutions may exist.",
+      "searches": [
+        "On K_n complete graph with all edge conductances variable and budget sum_{e not e0} w_e + tau w_e0 = B, minimizing Kirchhoff index yields unique optimum; threshold tau = n/(n-2) beyond which distinguished edge vanishes, exact formula",
+        "Resistance minimization edge priced complete graph deleting exceptional expensive edge K_n minus one edge, A-optimal conductance design",
+        "",
+        "",
+        ""
+      ]
+    },
+    "equivalent_formulations": {
+      "evidence": [
+        "Ghosh–Boyd–Saberi 2008, Sections 2, 4–6, explicit inverse-trace ERMP and equal-price complete graph (https://web.stanford.edu/~boyd/papers/pdf/eff_res.pdf)",
+        "Bhoite et al. 2026, Proposition 2 gives generic cost-normalized sensitivity, not the priced clique support boundary (https://arxiv.org/html/2609.29790v1)"
+      ],
+      "reasoning": "The equivalent A-optimal Laplacian-design objective is total effective resistance, n times the trace of the pseudoinverse. Exact-price and K_n-minus-edge queries produced no implication-equivalent mathematical result. Generic KKT/equality conditions require further problem-specific analysis to yield the threshold and all weights; search non-detection is not proof of global novelty.",
+      "searches": [
+        "On K_n complete graph with all edge conductances variable and budget sum_{e not e0} w_e + tau w_e0 = B, minimizing Kirchhoff index yields unique optimum; threshold tau = n/(n-2) beyond which distinguished edge vanishes, exact formula",
+        "Optimal total effective resistance complete graph with one premium-priced edge; explicit phase transition, equality conditions, two special vertices and all others symmetric",
+        "Resistance minimization edge priced complete graph deleting exceptional expensive edge K_n minus one edge, A-optimal conductance design",
+        "published-finding corpus semantic search; closest IDs: 2026/10/4/SCOPE-exact-discounted-hitting-domination-of-complete-bipartite-graphs--f5f86f5d861d; 2026/10/4/SCOPE-signless-laplacian-pole-strength-and-optimal-equilateral-quantum--22be85a237ec",
+        "complete graph Kirchhoff index optimal weights one expensive edge price remove phase transition network  n/(n-2)",
+        "weighted complete graph one edge different cost optimal total effective resistance conductances"
+      ]
+    },
+    "exact_database_or_table": {
+      "evidence": [
+        "published-finding corpus returned unrelated complete-bipartite domination, polytope and quantum-graph entries rather than a Kirchhoff priced-clique table",
+        "Previously documented mathematical statements include: a priced cycle Kirchhoff threshold (ID 4f89042d-f17b-4da9-b1b9-1ba56a528aaf), an exceptional-price four-cycle spectral-gap result (ID 7f96525d-ec6d-44b8-8461-2d45e9cb24c8), and a clique-tree Kirchhoff result (ID e576b278-ca35-4119-a627-426e77a8a5bd)"
+      ],
+      "reasoning": "The priced-cycle resistance result has no complete graph K_n when n>=4; the priced C4 work optimizes a different spectral objective; the gateway-clique-tree work has a different graph and equal within-topology edge prices. No accessible exact database table or published prior mathematical claim supplies the new complete-graph conductance formulas.",
+      "searches": [
+        "On K_n complete graph with all edge conductances variable and budget sum_{e not e0} w_e + tau w_e0 = B, minimizing Kirchhoff index yields unique optimum; threshold tau = n/(n-2) beyond which distinguished edge vanishes, exact formula",
+        "Optimal total effective resistance complete graph with one premium-priced edge; explicit phase transition, equality conditions, two special vertices and all others symmetric",
+        "Resistance minimization edge priced complete graph deleting exceptional expensive edge K_n minus one edge, A-optimal conductance design",
+        "A optimal design complete graph single exceptional edge price Laplacian trace inverse weighted graph",
+        "2026/10/4/SCOPE-exact-discounted-hitting-domination-of-complete-bipartite-graphs--f5f86f5d861d",
+        "2026/10/4/SCOPE-signless-laplacian-pole-strength-and-optimal-equilateral-quantum--22be85a237ec",
+        "2026/10/4/SCOPE-feasible-polytope-and-all-optimizers-for-fractional-edge-dimensi--7877372a9b3d",
+        "4f89042d-f17b-4da9-b1b9-1ba56a528aaf",
+        "7f96525d-ec6d-44b8-8461-2d45e9cb24c8",
+        "e576b278-ca35-4119-a627-426e77a8a5bd"
+      ]
+    },
+    "rationale": "Direct comparison against the earlier exact ERMP literature and more recent cost-aware augmentation shows established strict convexity, symmetry and equal-price clique results but no located same-statement or stronger explicit single-exceptional-price complete graph classification. published-finding corpus, web and prior-scientific-claim comparisons returned no dominating statement. This is a qualified accessible-literature assessment, not a guarantee of first discovery.",
+    "residual_risks": [
+      "Older specialized A-optimal network design or edge-price sensitivity literature not indexed by the chosen queries might cover a mathematically equivalent classification.",
+      "A general convex optimization theorem gives an implicit recipe for this design; the originality assessment is for the explicit uniform-in-n threshold, conductances, positivity classification and transition, not for convexity or symmetry themselves."
+    ],
+    "source_inspections": [
+      {
+        "assessment": "Covers unit-priced fixed-topology convex optimization and general KKT/duality; no one-premium-edge priced complete graph classification in inspected material",
+        "evidence": [
+          "conference cover identifies July 24–28, 2006",
+          "Introduction specifies unit total conductance; barbell example and dual derivations are not exceptional priced-clique result"
+        ],
+        "identifier_or_url": "https://web.stanford.edu/~boyd/papers/pdf/eff_res_mtns06.pdf",
+        "material_read": "PDF cover and introduction; representative sections on convex formulation and duality, plus the analytical examples and references in the conference version",
+        "method": "Opened text-extracted full 12-page PDF and visually inspected page 1",
+        "title": "Minimizing Effective Resistance of a Graph (MTNS 2006)",
+        "trigger": "Earliest accessible primary source of conductance-budget ERMP and analytical symmetry methodology"
+      },
+      {
+        "assessment": "Explicitly treats equal-cost complete-graph optimizer and general symmetry/convexity, but does not state the distinguished-price frontier; it supplies methods rather than the displayed exact solution",
+        "evidence": [
+          "SIAM Review 50(1), pp.37–66, DOI 10.1137/050645452, §5.2 symmetry, §6 equal-price clique",
+          "§8 discusses alternative objectives, not heterogeneous edge pricing"
+        ],
+        "identifier_or_url": "https://web.stanford.edu/~boyd/papers/pdf/eff_res.pdf",
+        "material_read": "Abstract and introduction, Sections 5.1–5.2, Section 6 including complete graph bound, Section 8 extensions, and associated extracted text/illustrations",
+        "method": "Opened full 30-page author-hosted PDF; inspected PDF screenshot of page 3 and searched extracted text for complete graph and cost",
+        "title": "Minimizing Effective Resistance of a Graph (SIAM Review 2008)",
+        "trigger": "Same optimization objective, known complete-graph optimum, closest older primary theorem"
+      },
+      {
+        "assessment": "Uses a fixed weighted base graph and candidate link augmentation with discrete constraints and numerical relaxation; generic KKT formulas but no all-edge conductance allocation closed form on K_n",
+        "evidence": [
+          "arXiv:2609.29790v1 abstract, Table I and Proposition 2",
+          "Sections I–II differentiate fixed-base augmentation and unrestricted from-scratch sizing"
+        ],
+        "identifier_or_url": "https://arxiv.org/html/2609.29790v1",
+        "material_read": "Full HTML abstract, introduction, comparison table, formulation, Proposition 2 and relevant cost-normalized sensitivity equations",
+        "method": "Opened arXiv HTML full text and navigated relevant sections by text search",
+        "title": "Budget-Constrained Graph Augmentation for Robust Network Design via Kirchhoff Index Minimization",
+        "trigger": "Closest modern cost-aware resistance-design paper with heterogeneous edge costs"
+      }
+    ],
+    "status": "PASS"
+  },
+  "review_type": "self_review",
+  "schema_version": 1,
+  "scope_run_id": "a63eab52-c968-4581-91c7-ed2c8de102f2",
+  "self_review_status": "passed",
+  "value": {
+    "rationale": "Dense redundant networks with nonuniform link costs lead to a natural and decision-relevant question: at which price can a direct edge optimally be eliminated if every remaining conductance is reoptimized? The unique complete-graph solution answers it at the sharp threshold 1+2/(n-2), proves all other edges remain positive, gives a closed-form design/value, and exhibits quadratic contact and an O(1/n) critical price premium. This is a genuine infinite-family structural support change, not a mere numerical example or relabeling of the known equal-price clique.",
+    "status": "PASS"
+  }
+}
