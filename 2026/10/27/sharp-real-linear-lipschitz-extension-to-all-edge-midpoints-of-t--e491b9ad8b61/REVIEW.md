@@ -1,15 +1,21 @@
-# Mathematical review
+# Independent mathematical audit
 
-## Correctness — PASS
-The sharp norms follow from two independently useful halves. Averaging over cubical isometries reduces *arbitrary signed linear* extension competitors to two coefficients in the square and three in the three-cube. At a vertex and two midpoint positions, explicit 1-Lipschitz distance potentials supply opposing affine lower bounds. In dimension three an additional non-distance 1-Lipschitz test potential eliminates the possible benefit of a negative third coefficient. The unique intersections give the stated radical minima. Positive extension kernels attain them: a complete isometry-orbit enumeration of vertex/midpoint pair types and specified finite transport couplings bounds every output Lipschitz quotient. The less immediate perpendicular-midpoint coupling for the cube has cost \(a_3(1+\sqrt3)\), strictly below the claimed norm after dividing by the geometric distance. All boundaries \(d=2,3\) and the constant-preserving quotient normalization are explicit. A standard-library verifier checks all \(218\) output pairs and the non-distance dual witness; floating-point computation is supplementary to the proof.
+## correctness
 
-## Originality — PASS, with residual risk
-Bruè–Di Marino–Stra (2018) and Ambrosio–Puglisi (2016) develop general linear Lipschitz-extension and transport techniques; Basso (2021) explicitly connects finite simultaneous extension to Lipschitz-free relative projection constants and analyzes other extremal finite configurations. Their inspected primary texts do not state the Euclidean cube-vertex-to-*every*-edge-midpoint constants or the matching dual-witness and coupling structure. A published result about adding only the cube center is not a stronger theorem covering all edge midpoints. Related regular-simplex and cross-polytope midpoint configurations are geometrically distinct and do not imply these constants. Searches for cubical edge-midpoint simultaneous extension and the exact approximate norms located no matching statement. Literature indexing can be incomplete and an older equivalent computation remains possible.
+PASS
 
-## Mathematical value — PASS
-The question measures the optimal *linear* and simultaneous stability of refining the standard square and the spatial three-cube by every edge midpoint while retaining the original Euclidean metric. These are natural cells in finite-element and cubical sampling constructions; unlike nonlinear scalar McShane extensions, one shared linear map must control interactions between new points. Arithmetic midpoint interpolation is provably suboptimal in both dimensions. The three-dimensional optimum involves a signed-coefficient obstruction in its lower proof even though a positive kernel ultimately attains it, and ordinary interpolation is worst at a *midpoint-pair* type that ceases to be extremal after optimization. These structural features justify the two concrete exact invariants without asserting an unproved higher-dimensional theorem.
+For V_d={0,1}^d and S_d=V_d plus all Euclidean edge midpoints, d=2,3, averaging arbitrary signed right-inverse extensions over cube isometries preserves norm and yields stabilizer-orbit coefficients (a,b) or (a,b,c). In d=2 two exact 1-Lipschitz distance potentials give opposite affine lower bounds meeting at b_2; in d=3 f_+=||v|| and the verified non-distance 1-Lipschitz f_- force c-independent bound, which meets the far-midpoint lower bound at b_3. The explicit positive coefficients a=1/2-(d-1)b, b on mismatch-one, zero on mismatch-two in d3 yield probability measures. The finite Kantorovich–Rubinstein dual implies operator norm equals max over 28/190 point pairs of W1(mu_x,mu_y)/||x-y||. The written exact transport couplings cover all vertex and midpoint orbit types (including perpendicular mismatched cube midpoints), yielding matching upper bounds. A separate SciPy LP formulation of all 218 transportation problems recovered both radicals 1.0550500132 and 1.0719126700; the 3D dual potential also passed all 28 vertex-pair Lipschitz inequalities. Finite LP supports, but does not replace, exact symmetry/dual/coupling reasoning.
 
-## Closest sources and limitations
-Bruè, Di Marino and Stra, arXiv:1801.07533, §§3–4.1 (general random-projection extension); Basso, arXiv:2104.14238, introduction and finite-metric projection-constant examples; Ambrosio and Puglisi, arXiv:1609.01450, §§1–2 (transport formulation). No general-all-dimensional cubical theorem, uniqueness of every optimizer, other target Banach spaces, or complex-linear assertion follows. Independent scientific assessment is still required.
+## originality
 
-Self-review: passed. Independent audit: not yet performed.
+PASS
+
+General random-projection Lipschitz extension, Lipschitz-free projection constants, and finite metric computations are known; the specific Euclidean vertex-to-every-edge-midpoint 2D and 3D simultaneous signed-linear optimum and positive kernel are not stated in inspected predecessor results. Other center or simplex targets are not equivalent target metric spaces.
+
+## value
+
+PASS
+
+Exact joint operator norms for natural Euclidean cell refinements quantify stability of one shared linear extension, unlike nonlinear McShane extension at individual targets. Arithmetic midpoint interpolation is strictly suboptimal and the positive optimal kernel must beat competing signed maps, a structurally meaningful finite invariant and a useful benchmark for cubical interpolation.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

@@ -5,8 +5,11 @@
     "status": "not_performed"
   },
   "independent_audit": {
-    "evidence": null,
-    "status": "not_performed"
+    "status": "passed",
+    "evidence": [
+      "INDEPENDENT_AUDIT_2026-10-31.md",
+      "INDEPENDENT_AUDIT_2026-10-31.json"
+    ]
   },
   "lean_verification": {
     "evidence": null,
@@ -16,14 +19,24 @@
 }
 ---
 
-# Verification notes
+# Independent mathematical audit
 
-The submitted proof is finite but mathematically universal across all data functions on the two specified vertex sets. It uses all signed linear extension operators for the lower bound, not just positive extensions. The dual certificates are explicit 1-Lipschitz functions, and the upper bounds use probability couplings of prescribed marginals; the orbit enumeration is exact by the signed-permutation symmetry of the cube.
+## correctness
 
-`verify_cube_midpoints.py` is standalone and uses only the Python standard library. Running `python3 verify_cube_midpoints.py` gave:
+PASS
 
-- Square: 4 vertices, 4 edge midpoints, 28 unordered output pairs; computed optimum 1.055050013198716 and arithmetic-midpoint norm 1.079669127533634.
-- Three-cube: 8 vertices, 12 edge midpoints, 190 unordered output pairs; computed optimum 1.071912669955583 and arithmetic-midpoint norm 1.115355071650411.
-- Every computed pair ratio was within 1e-9 of the analytical norm ceiling; the second cube near-midpoint potential passed all 28 input-vertex pair Lipschitz tests and reached equality in the claimed lower bound.
+For V_d={0,1}^d and S_d=V_d plus all Euclidean edge midpoints, d=2,3, averaging arbitrary signed right-inverse extensions over cube isometries preserves norm and yields stabilizer-orbit coefficients (a,b) or (a,b,c). In d=2 two exact 1-Lipschitz distance potentials give opposite affine lower bounds meeting at b_2; in d=3 f_+=||v|| and the verified non-distance 1-Lipschitz f_- force c-independent bound, which meets the far-midpoint lower bound at b_3. The explicit positive coefficients a=1/2-(d-1)b, b on mismatch-one, zero on mismatch-two in d3 yield probability measures. The finite Kantorovich–Rubinstein dual implies operator norm equals max over 28/190 point pairs of W1(mu_x,mu_y)/||x-y||. The written exact transport couplings cover all vertex and midpoint orbit types (including perpendicular mismatched cube midpoints), yielding matching upper bounds. A separate SciPy LP formulation of all 218 transportation problems recovered both radicals 1.0550500132 and 1.0719126700; the 3D dual potential also passed all 28 vertex-pair Lipschitz inequalities. Finite LP supports, but does not replace, exact symmetry/dual/coupling reasoning.
 
-The numerical transport routine is a successive shortest augmenting-path solver with real floating-point edge costs. It checks the finished kernel but does not prove the symbolic inequalities or certify global optimality on its own. Global optimality is established by the analytical symmetry and dual-potential argument in `RESULT.md`. The proof's square-root bounds are elementary exact inequalities, rather than extrapolations from numerical data. No independent mathematical audit has been performed.
+## originality
+
+PASS
+
+General random-projection Lipschitz extension, Lipschitz-free projection constants, and finite metric computations are known; the specific Euclidean vertex-to-every-edge-midpoint 2D and 3D simultaneous signed-linear optimum and positive kernel are not stated in inspected predecessor results. Other center or simplex targets are not equivalent target metric spaces.
+
+## value
+
+PASS
+
+Exact joint operator norms for natural Euclidean cell refinements quantify stability of one shared linear extension, unlike nonlinear McShane extension at individual targets. Arithmetic midpoint interpolation is strictly suboptimal and the positive optimal kernel must beat competing signed maps, a structurally meaningful finite invariant and a useful benchmark for cubical interpolation.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
