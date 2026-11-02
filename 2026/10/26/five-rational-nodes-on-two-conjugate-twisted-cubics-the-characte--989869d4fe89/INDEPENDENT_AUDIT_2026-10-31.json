@@ -1,0 +1,119 @@
+{
+  "audit_date_utc": "2026-10-31",
+  "audited_at_utc": "2026-10-31T17:44:30Z",
+  "axes": {
+    "correctness": {
+      "checked_sources": [
+        "RESULT.md blob f403aeb4f76402691da36fb475ebaa15816f0fe6",
+        "bring_coeff_check.py exact GF4 coefficient identity",
+        "independent_checks.py independent projective enumerator over 2^1,...,2^4"
+      ],
+      "rationale": "The claim concerns the integral elementary-symmetric intersection V(e1,e2,e3), not naive reduction of power sums (which would make the quadratic redundant in char2). Exact independent GF(4) symbolic multiplication verifies that the parametrization [s^3:(s+t)^3:(s+ωt)^3:(s+ω²t)^3:t^3] satisfies e1=e2=e3=0. On H=e1=0 the polar form of e2 is nondegenerate, so e2 defines a smooth quadric; e3 is not identically zero there, giving a degree-six pure complete intersection. Two distinct conjugate degree-three rational curves exhaust that degree. Five explicit F2 common points and bidegrees (1,2)/(2,1) on the quadric force intersection multiplicity exactly five and ordinary transverse nodes; arithmetic genus 4 follows via the dual graph. Frobenius interchanges components, forcing counts #B(F_{2^n})=5 for odd n and 2^{n+1}-3 for even n. Zeta exp of counts is (1+T)^4/((1-T)(1-4T²)); independent projective enumeration over F2,F4,F8,F16 yields 5,5,5,29.",
+      "residual_risks": [
+        "The theorem is model-specific: does not identify stable reduction of every integral Bring model.",
+        "Finite field checks up to F16 corroborate but do not prove extension counts; geometric component proof does."
+      ],
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Braden–Disney-Hogg explicitly state that extension to positive characteristic is outside the paper focus; Braden–Northover calculates complex periods."
+        ],
+        "reasoning": "A general statement that the classical Bring curve has genus four or S5 symmetry does not determine bad-fiber components, five nodes, or zeta. No broader comparison was found that mathematically implies this one.",
+        "searches": [
+          "Braden and Disney-Hogg, Bring’s curve: old and new, European Journal of Mathematics, 2023, DOI:10.1007/s40879-023-00706-0",
+          "Braden and Northover, Bring’s Curve: its Period Matrix and the Vector of Riemann Constants, SIGMA 8 (2012) 065, arXiv:1206.6004",
+          "Resultary search Resultary: Bring curve mod 2 stable reduction special fiber conjugate twisted cubics five nodes"
+        ]
+      },
+      "checked_sources": [
+        "Braden and Disney-Hogg, Bring’s curve: old and new, European Journal of Mathematics, 2023, DOI:10.1007/s40879-023-00706-0",
+        "Braden and Northover, Bring’s Curve: its Period Matrix and the Vector of Riemann Constants, SIGMA 8 (2012) 065, arXiv:1206.6004",
+        "Resultary search Resultary: Bring curve mod 2 stable reduction special fiber conjugate twisted cubics five nodes"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "The complex models are smooth genus-four curves and do not specify the flat special fiber over Z_(2)."
+        ],
+        "reasoning": "Genus and S5 automorphisms over C do not imply a conjugate pair of twisted cubics meeting in five F2 nodes or the stated F2-zeta numerator.",
+        "searches": [
+          "Braden and Disney-Hogg, Bring’s curve: old and new, European Journal of Mathematics, 2023, DOI:10.1007/s40879-023-00706-0",
+          "Braden and Northover, Bring’s Curve: its Period Matrix and the Vector of Riemann Constants, SIGMA 8 (2012) 065, arXiv:1206.6004"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Complex analytic Bring curve uses S5-symmetric power-sum equations; Newton identities fail to identify naive power-sum reduction with e1,e2,e3 in characteristic 2."
+        ],
+        "reasoning": "Characteristic-zero formula equivalence cannot imply the specified characteristic-two stable model; no prior two-cubic decomposition was found in inspected texts.",
+        "searches": [
+          "Resultary: Bring curve mod 2 stable reduction special fiber conjugate twisted cubics five nodes",
+          "Braden and Disney-Hogg, Bring’s curve: old and new, European Journal of Mathematics, 2023, DOI:10.1007/s40879-023-00706-0",
+          "Braden and Northover, Bring’s Curve: its Period Matrix and the Vector of Riemann Constants, SIGMA 8 (2012) 065, arXiv:1206.6004"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "Indexed twisted-cubic surface singularity examples concern different varieties; no table of Bring e1,e2,e3 reduction at 2 located."
+        ],
+        "reasoning": "This is geometry and zeta of a singular special fiber, so any exact arithmetic table would need the same model and point counts; none of the inspected records has that data.",
+        "searches": [
+          "Resultary: Bring curve mod 2 stable reduction special fiber conjugate twisted cubics five nodes",
+          "Resultary search Resultary: Bring curve mod 2 stable reduction special fiber conjugate twisted cubics five nodes"
+        ]
+      },
+      "rationale": "Qualified: primary work on Bring’s complex analytic equations and geometry does not supply the characteristic-two elementary-symmetric special fiber; the 2023 full paper explicitly excludes positive characteristic. The model choice is essential since raw power sums change scheme in characteristic 2.",
+      "residual_risks": [
+        "Specialized modular or stable-reduction literature could contain the same 2-adic model despite the cited Bring papers not addressing it.",
+        "No claim of model-independent bad reduction."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Background on classical Bring equations; excludes the characteristic-two special-fiber theorem",
+          "evidence": [
+            "https://link.springer.com/article/10.1007/s40879-023-00706-0",
+            "Intro positive-characteristic caveat"
+          ],
+          "identifier_or_url": "DOI:10.1007/s40879-023-00706-0",
+          "material_read": "Full open-access Springer article reviewed, introduction, algebraic equations and model scope; inspected explicit caveat excluding positive-characteristic extensions",
+          "method": "Open-access full HTML",
+          "title": "Bring’s curve: old and new",
+          "trigger": "Same classical algebraic curve with potential mod-2 model discussion"
+        },
+        {
+          "assessment": "Gives classical complex smooth model, not the e1,e2,e3 characteristic-two fiber",
+          "evidence": [
+            "https://arxiv.org/pdf/1206.6004",
+            "page 1 power sums"
+          ],
+          "identifier_or_url": "arXiv:1206.6004",
+          "material_read": "Read 20-page OA PDF, complex-analytic period formulas and the explicit power-sum model on its introduction, with PDF screenshot",
+          "method": "Full OA PDF",
+          "title": "Bring’s Curve: its Period Matrix and the Vector of Riemann Constants",
+          "trigger": "S5 complete-intersection equations and potential alternate model"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "checked_sources": [
+        "Braden and Disney-Hogg, Bring’s curve: old and new, European Journal of Mathematics, 2023, DOI:10.1007/s40879-023-00706-0",
+        "Braden and Northover, Bring’s Curve: its Period Matrix and the Vector of Riemann Constants, SIGMA 8 (2012) 065, arXiv:1206.6004",
+        "Exact GF4 polynomial and independent finite field checks"
+      ],
+      "rationale": "Determines a natural arithmetic-geometric degeneration of a canonical genus-four curve at the delicate characteristic-two prime, including exact geometric components, five nodes, arithmetic genus, stability and all extension-field counts/zeta. The distinction between valid flat elementary-symmetric model and naive power-sum reduction is mathematically essential.",
+      "residual_risks": [
+        "Result is an exact theorem for the displayed model, not an all-model stable reduction classification."
+      ],
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "final_claim": "The characteristic-two elementary-symmetric Bring curve is the transverse union of two Frobenius-conjugate twisted cubics at five F2 nodes, a stable genus-four curve with #B(F2^n)=5 for odd n and 2^(n+1)-3 for even n and zeta (1+T)^4/((1-T)(1-4T^2)).",
+  "limitations": [
+    "This model is not the naive reduction of characteristic-zero power sums.",
+    "Priority against alternative-model bad-reduction literature is qualified."
+  ],
+  "schema_version": 1
+}

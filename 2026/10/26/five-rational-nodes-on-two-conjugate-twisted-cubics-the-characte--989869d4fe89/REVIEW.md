@@ -1,11 +1,21 @@
-# Scientific review
+# Independent mathematical audit
 
-**Correctness — PASS.** The five explicit binary cubic forms have vanishing first three elementary symmetric forms, verified coefficientwise over \(\mathbb F_4\). They span a four-dimensional cubic space and define twisted cubic embeddings. The smooth quadric, complete-intersection degree-six exhaustion, and bidegree intersection calculation prove that the reduced special fibre has exactly the asserted two components and five transverse nodes. The two components are Frobenius-conjugate, which proves all point counts and the zeta expression. The standalone exact checker corroborates the polynomial identity and four finite-field counts, without replacing the infinite proof.
+## correctness
 
-**Originality — PASS, qualified.** Braden–Northover (arXiv:1206.6004, original 2012 submission) study the classical complex model and analytic geometry; Braden–Disney-Hogg (DOI 10.1007/s40879-023-00706-0) give further classical geometry but explicitly exclude positive-characteristic extensions from their focus. Their results do not imply the component splitting or arithmetic at two. Prior characteristic-five Bring results concern six concurrent lines and cannot imply the distinct characteristic-two fibre. Targeted literature and mathematical-record searches located no equivalent statement. Residual risk: specialized modular/stable-reduction work was not exhaustively covered, so absence of a hit is not proof of novelty.
+PASS
 
-**Value — PASS.** The arithmetic and geometry of a natural flat integral canonical model at the bad prime two are structurally significant: an apparently irreducible characteristic-zero genus-four curve becomes a reducible stable curve with Frobenius-conjugate components and no nonnodal singularities, producing unusual extension-dependent point counts. The identification resolves the full singular fibre, its normalization, dual graph and zeta function rather than a gratuitous finite-field example.
+The claim concerns the integral elementary-symmetric intersection V(e1,e2,e3), not naive reduction of power sums (which would make the quadratic redundant in char2). Exact independent GF(4) symbolic multiplication verifies that the parametrization [s^3:(s+t)^3:(s+ωt)^3:(s+ω²t)^3:t^3] satisfies e1=e2=e3=0. On H=e1=0 the polar form of e2 is nondegenerate, so e2 defines a smooth quadric; e3 is not identically zero there, giving a degree-six pure complete intersection. Two distinct conjugate degree-three rational curves exhaust that degree. Five explicit F2 common points and bidegrees (1,2)/(2,1) on the quadric force intersection multiplicity exactly five and ordinary transverse nodes; arithmetic genus 4 follows via the dual graph. Frobenius interchanges components, forcing counts #B(F_{2^n})=5 for odd n and 2^{n+1}-3 for even n. Zeta exp of counts is (1+T)^4/((1-T)(1-4T²)); independent projective enumeration over F2,F4,F8,F16 yields 5,5,5,29.
 
-**Limitations.** Only the elementary-symmetric integral model is covered. This is not the naive power-sum reduction. The classical generic-fibre geometry is previously known; the special-fibre conclusion is the contribution. Neither independent scientific validation nor an exhaustive literature novelty certification has occurred.
+## originality
 
-Self-review: passed. Independent audit: not yet performed.
+PASS
+
+Qualified: primary work on Bring’s complex analytic equations and geometry does not supply the characteristic-two elementary-symmetric special fiber; the 2023 full paper explicitly excludes positive characteristic. The model choice is essential since raw power sums change scheme in characteristic 2.
+
+## value
+
+PASS
+
+Determines a natural arithmetic-geometric degeneration of a canonical genus-four curve at the delicate characteristic-two prime, including exact geometric components, five nodes, arithmetic genus, stability and all extension-field counts/zeta. The distinction between valid flat elementary-symmetric model and naive power-sum reduction is mathematically essential.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
