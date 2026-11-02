@@ -1,0 +1,120 @@
+{
+  "audit_date_utc": "2026-10-29",
+  "audited_at_utc": "2026-10-29T21:16:47Z",
+  "axes": {
+    "correctness": {
+      "checked_sources": [
+        "RESULT.md first-force lemma, seven orbit table, affine-congruence incidence table, connectivity proof, n=6 traces",
+        "exhaustive.py, template_certificate.py inspected; independent_math_checks.py independently enumerated all four-subsets for 6<=n<=11"
+      ],
+      "rationale": "First-force local structure excludes any 3-set (new initial force needs two blue neighbors in triangle-free cubic graph, after first force no further move) and reduces four-sets to local fourth placements; propagating explicit seeds and dihedral symmetries produces seven orbit representatives, six of size 2n and one size n. Intersection-three exchanges are reduced to at most 16 candidate translations and affine congruences An+B=0 mod 2n; |B|<=12 gives uniform stabilization beyond n=13. The seven-by-seven incidence matrix yields degree enumerator, 48n edges, and connectivity through the A-family cycle. Independent exhaustive forcing of every four-set and reconfiguration adjacency for n=6..11 reproduced exactly 13n and degree histogram, and did not substitute for infinity. The n=6 sixth adjacency trace was recomputed using an independently implemented exhaustive construction and length-2-through-6 closed-walk recurrence; both reported trace vectors agreed exactly.",
+      "residual_risks": [
+        "Sixth adjacency traces are a finite-only witness, not an assertion of nonisomorphism for all ladder sizes.",
+        "Uniform periodicity of incidence checked by symbolic congruence bound, not by extrapolation from finite n alone."
+      ],
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Geneson–Haas–Hogben arXiv:2009.00220 Theorem on forests and small characterizations does not assert connectedness or exact incidence for all Möbius ladders.",
+          "Duong et al cubic circulant theorem handles zero-forcing number not exchange combinatorics."
+        ],
+        "reasoning": "General connectivity of forest reconfiguration graphs does not apply to cubic Möbius ladders; generic bounds do not determine the sharp census.",
+        "searches": [
+          "zero forcing reconfiguration graphs general connectivity of cubic graphs",
+          "minimum zero forcing sets Mobius ladder M2n seven rotation orbits exchange reconfiguration graph token jumping connected 13n"
+        ]
+      },
+      "checked_sources": [
+        "arXiv:1906.03079 Theorem 5.2",
+        "arXiv:2009.00220 sections 1,4,5",
+        "Resultary minimum zero forcing sets Mobius ladder M2n seven rotation orbits exchange reconfiguration graph token jumping connected 13n"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "Duong 2019 Theorem 5.2 explicitly Z=4 but no minimum-set family enumeration.",
+          "Geneson 2020 studies forests, path/complete reconfiguration types; full PDF search returned no Möbius ladder result."
+        ],
+        "reasoning": "Known Z=4, and even a general definition of the exchange graph, do not imply the 13n/48n structure. Distinct n=6 twist witness rules out simply identifying circular and Möbius exchange graphs.",
+        "searches": [
+          "Duong Kroschel Riddell zero forcing Mobius ladder Theorem 5.2",
+          "Geneson Haas Hogben reconfiguration zero forcing Möbius ladder"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Duong et al arXiv:1906.03079 Theorem 5.2 expresses Möbius ladder as cubic circulant C_2n(1,n) and gives Z=4.",
+          "Geneson–Haas–Hogben arXiv:2009.00220 defines the identical one-vertex-change graph Z(G) on minimum zero forcing sets."
+        ],
+        "reasoning": "These aliases match graph and exchange rule, but the known cardinality and reconfiguration definition do not supply seven rotation classes, 13n states or exact degrees.",
+        "searches": [
+          "minimum zero forcing sets Mobius ladder M2n seven rotation orbits exchange reconfiguration graph token jumping connected 13n",
+          "zero forcing graph token jumping Mobius ladder cubic circulant minimal sets"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "Resultary semantic search returned a Möbius-ladder perfect-matching homology rotation record, a distinct complex and invariant.",
+          "No cited existing table gives seven minimum-set rotation orbits or edge count 48n."
+        ],
+        "reasoning": "No exact count table located; negative search does not certify absence of private/unindexed enumerations.",
+        "searches": [
+          "minimum zero forcing sets Mobius ladder M2n seven rotation orbits exchange reconfiguration graph token jumping connected 13n",
+          "Mobius ladder minimum zero forcing sets 13n 48n exchange graph exact counts"
+        ]
+      },
+      "rationale": "Z(M_2n)=4 is explicitly prior (Duong et al Theorem 5.2); token-jump reconfiguration definition is prior (Geneson–Haas–Hogben). Neither inspected source contains the complete seven-orbit minimum-set census, its exchange graph degree formula/connectedness or n=6 sixth-trace distinguishing invariant. Originality asserted for these structural extras only, with older zero-forcing literature risk.",
+      "residual_risks": [
+        "Full foundational 2008 paper inaccessible; its complete tables were not inspected.",
+        "Unindexed minimum-set classifications or generalized exchange graph formulas may exist."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "KNOWN_MINIMUM_CARDINALITY_ONLY",
+          "evidence": "Theorem 5.2 C_2m(1,m) has Z=4 for m>=3, no family of minimal sets or reconfiguration counts.",
+          "identifier_or_url": "arXiv:1906.03079; https://arxiv.org/pdf/1906.03079",
+          "material_read": "Full relevant §5 p12 (Theorem 5.2) and definitions/related results",
+          "method": "parsed PDF and rendered section page",
+          "title": "Maximum nullity and zero forcing of circulant graphs",
+          "trigger": "Exactly same Möbius ladder as cubic circulant"
+        },
+        {
+          "assessment": "EXACT_OPERATION_BUT_NOT_MOBIUS_CLASSIFICATION",
+          "evidence": "Defines Z(G), proves forest connectedness; no 13n Möbius-ladder orbit table in materially checked material.",
+          "identifier_or_url": "arXiv:2009.00220; https://arxiv.org/pdf/2009.00220",
+          "material_read": "Abstract, Sections 1–2 definition, §4 cyclic examples, §5 forests, PDF search for Möbius and ladder",
+          "method": "PDF text and rendered first page",
+          "title": "Reconfiguration graphs of zero forcing sets",
+          "trigger": "Same one-token exchange construction"
+        },
+        {
+          "assessment": "HISTORICAL_ACCESS_LIMIT",
+          "evidence": "Introduces Z(G), no responsible whole-document noncoverage assertion.",
+          "identifier_or_url": "DOI:10.1016/j.laa.2007.10.009",
+          "material_read": "Publisher abstract and bibliographic summary; complete publisher PDF not accessible",
+          "method": "public publisher abstract only",
+          "title": "Zero forcing sets and the minimum rank of graphs",
+          "trigger": "Foundational initial zero-forcing parameter paper"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "checked_sources": [
+        "RESULT.md seven representative orbits and exchange incidence table",
+        "Duong 2019 previous cardinality Z=4"
+      ],
+      "rationale": "Knowing minimum controllability placement size does not enumerate configurations or whether a controller can be moved one at a time without loss of forcing. Complete 13n orbit census, connected 48n exchange graph and twist-detecting sixth moment give natural reconfiguration structure on an infinite, classical cubic family.",
+      "residual_risks": [
+        "Does not settle reconfiguration diameter or infinite-family spectral twist; trace distinction only n=6."
+      ],
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "limitations": [
+    "The twist witness is proved only for n=6; independent_twist_check.py reran the full sixth trace computation."
+  ],
+  "schema_version": 1
+}
