@@ -1,0 +1,105 @@
+{
+  "audit_date_utc": "2026-10-31",
+  "audited_at_utc": "2026-10-31T09:03:55.462020Z",
+  "axes": {
+    "correctness": {
+      "checked_sources": [
+        "RESULT.md rational voltage tables, verify_star_product.py inspected, independent full graph grounded-Laplacian exact checks; source tree Git object."
+      ],
+      "rationale": "For Q=D^T(DD^T)^+D, a column is an electrical dipole current vector; its absolute sum gives the l1 norm, while P=I-Q has column norm 1+||Qe||_1-2R_e. The supplied 6-cell A0 and 9-cell A1 potential tables solve grounded Laplacian equations, and fixed difference signs yield A(m,n), U(m,n) and W,Z. Strict hub-layer dominance follows the two polynomial comparisons (for cut, the candidate bracket sum is (m-n)^2+2(m+n)+8>0; for cycle each candidate difference is positive). The exact hub differences factor 2(m-n)(mn-2m-2n)/Delta and 2(m-n)(mn-4m-4n-2)/Delta. The positive deficits from 5 and 6 show finite nonattainment and m=r,n=r^2 give limits. Independent full-graph rational grounded-Laplacian solves checked all four orbit classes for (m,n)=(2,2),(2,3),(3,2),(3,3),(3,4), not using the proof voltage tables.",
+      "residual_risks": [
+        "Only five small integer pairs independently computed; unbounded conclusion depends on hand-checked rational identities and inequalities."
+      ],
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "DKO Hamming graph factors are complete graphs K_n; K_{1,m} (m>=2) is not K_{m+1}. The cactus result concerns spanning-tree basis suppression rather than orthogonal projection edge-space absolute norms."
+        ],
+        "reasoning": "Neither specialized published theorem has hypotheses that contain the two-factor branching-star Cartesian graph plus the specified canonical orthogonal operator.",
+        "searches": [
+          "arxiv:2305.12582 sections 1.1 and 2.6–2.7 full PDF",
+          "Resultary result Sharp coordinate-projection norms for edge bases of cactus transportation spaces"
+        ]
+      },
+      "checked_sources": [
+        "GitHub frozen RESULT.md, code, audit and verification",
+        "arXiv:2305.12582v1 full source sections",
+        "Resultary published cactus basis theorem statement"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "Hamming graph norms provide known projections on complete-graph products, not the star factors nor opposite complementary maximizers; general cycle-space definitions alone do not algebraically force the explicit phases."
+        ],
+        "reasoning": "The nontrivial four-orbit voltage calculation and two distinct transition inequalities are additional mathematics, not a substitution of alphabet sizes into Hamming results.",
+        "searches": [
+          "Dilworth Kutzarova Ostrovskii arxiv:2305.12582v1 full text",
+          "Relevant Resultary cactus projection indexed statement"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "The edge cut projector is the effective-resistance transfer-current matrix and P the complementary cycle Hodge projector; the claimed norms are sums of absolute dipole currents, not minimum norms among arbitrary projections."
+        ],
+        "reasoning": "Equivalent electrical-current or transfer-current formulas were considered. A general Laplacian pseudoinverse identity provides a computational representation but does not fix its exact absolute column norms on this two-star product.",
+        "searches": [
+          "Resultary semantic query orthogonal cut cycle projections edge l1 norms Cartesian product stars",
+          "Dilworth Kutzarova Ostrovskii arxiv:2305.12582v1"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "Indexed same-area hits are other graph families or operators; no numeric table with both phase polynomials located."
+        ],
+        "reasoning": "Exact rational functions would dominate individual values, but there was no verified pre-existing table for these parameters; cannot infer novelty solely from search failure.",
+        "searches": [
+          "Resultary query cut cycle norm Cartesian star product hub phase",
+          "Graph Hodge projection endpoint norm star Cartesian product"
+        ]
+      },
+      "rationale": "Best-of-knowledge PASS. Primary Dilworth–Kutzarova–Ostrovskii (arXiv:2305.12582) develops graph cycle-space projections, invariant/minimal projection framework and Hamming graph/cube families, but those use complete-graph factors, whereas K_{1,m} with m>=2 is noncomplete and has four distinct edge orbits. Their general projection machinery does not state these two rational columns or opposite optimizing phase curves. Same-area cactus basis-projection results have a different operator and graph class. A less-indexed electrical-network calculation could cover a special case.",
+      "residual_risks": [
+        "Unindexed electrical network, resistance-distance or transfer-current literature may already have exact two-star absolute-current sums.",
+        "Exact per-parameter formulas corroborated on five pairs; mathematical universality rests on sign and polynomial claims."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "RELATED_NOT_COVERING_THE_TWO_STAR_FORMULAS",
+          "evidence": "Primary proves projection results for discrete tori, complete-graph Hamming products and cube; star factors and the two max-orbit phase curves are not among the stated family results.",
+          "identifier_or_url": "https://arxiv.org/pdf/2305.12582",
+          "material_read": "Full accessible 35-page PDF; inspected overview, Section 1.1 and Hamming graph/cube Sections 2.6–2.7, including rendered page 21",
+          "method": "ArXiv OA full-text search and PDF page images",
+          "title": "Cycle spaces: invariant projections and applications to transportation cost",
+          "trigger": "Direct primary graph cycle/cut projection paper"
+        },
+        {
+          "assessment": "DIFFERENT_GRAPH_AND_OPERATOR_IN_STATED_THEOREM",
+          "evidence": "Suppression projections on cactus edge-molecule bases are not canonical orthogonal Hodge projections on product-of-stars edges; no assertion about its entire paper.",
+          "identifier_or_url": "https://github.com/Resultary/2026/tree/main/2026/10/11/SCOPE-sharp-coordinate-projection-norms-for-edge-bases-of-cactus-trans--b98930fbc1cd",
+          "material_read": "Semantic indexed title/claim statement only; no complete paper read",
+          "method": "Resultary indexed statement comparison",
+          "title": "Sharp coordinate-projection norms for edge bases of cactus transportation spaces",
+          "trigger": "Nearby published exact norm theorem for graph transportation spaces"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "checked_sources": [
+        "Product graph geometry, network dipole currents, Hodge projections; explicit phase boundaries and extremal constants."
+      ],
+      "rationale": "Endpoint l1/l∞ norms of the canonical cut and cycle Hodge decomposition are intrinsic numerical graph invariants; their exact values over a natural two-parameter Cartesian family and explicit orbit maximizers are meaningful. Opposite maximizing edge directions for the two complementary operators persist for all (3,n),n>=7, with distinct sharp phase polynomials, unattained global constants 5 and 6, and different balanced vs strongly unbalanced limits. These are structural facts not a generic norm exercise or a table of small graphs.",
+      "residual_risks": [
+        "No statement about arbitrary nonorthogonal projections or weighted stars."
+      ],
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "limitations": [
+    "Only unweighted Cartesian star products m,n>=2, real endpoint norms of canonical Euclidean-orthogonal projections.",
+    "No global optimal projection constant among other idempotents is claimed."
+  ],
+  "schema_version": 1
+}

@@ -1,9 +1,21 @@
-# Scientific review
+# Independent mathematical audit
 
-**Correctness — PASS.** The result specifies all integer \(m,n\ge2\), the real edge-space normalization, and all four edge orbits. The explicit six- and nine-cell voltage tables solve the dipole Laplacian equations. Their center-to-leaf potential differences have fixed signs throughout the domain and yield the four exact rational column norms. The two strict leaf-layer comparisons and two hub-layer phase identities prove the claimed maxima. Positivity of exact rational deficits proves the unattained global suprema; the diagonal and unbalanced limits are direct substitutions. The standalone exact-rational checker independently reconstructs full grounded Laplacians in eight graphs and all grouped orbit types on 225 parameter pairs. Finite tests support but do not replace the analytical proof.
+## correctness
 
-**Originality — PASS with residual bibliographic uncertainty.** The main full-text comparison is Dilworth–Kutzarova–Ostrovskii, arXiv:2305.12582v1, especially its Hamming-graph and cube sections. That work supplies the cut/cycle projection setting, but its graph family is made from complete-graph factors and does not cover Cartesian products of two nontrivial stars. Related identified research records concern cactus transportation-coordinate projections, vertex harmonic projections, or cycle/cut complexes rather than these exact edge Hodge norms. Related earlier claims on clique–star, clique–path and biclique-prism products were checked at the statement level: none contains two independently branching star factors or implies the distinct phase curves. Limited bibliographic indexing leaves a residual possibility of an equivalent electrical-current computation elsewhere.
+PASS
 
-**Mathematical value — PASS.** Both norms are natural invariants of the canonical cut/cycle splitting. The exact rational formulas classify a two-parameter family with four edge orbits, reveal that complementary projections can be maximized by opposite edge directions on infinitely many graphs, and determine two distinct optimizing-phase boundaries and the sharp unattained constants \(5\) and \(6\). This is a structural optimization phenomenon not obtained by a trivial renaming or parameter substitution in the related Hamming or clique-factor results. No claim is made about minimum norms over arbitrary projections.
+For Q=D^T(DD^T)^+D, a column is an electrical dipole current vector; its absolute sum gives the l1 norm, while P=I-Q has column norm 1+||Qe||_1-2R_e. The supplied 6-cell A0 and 9-cell A1 potential tables solve grounded Laplacian equations, and fixed difference signs yield A(m,n), U(m,n) and W,Z. Strict hub-layer dominance follows the two polynomial comparisons (for cut, the candidate bracket sum is (m-n)^2+2(m+n)+8>0; for cycle each candidate difference is positive). The exact hub differences factor 2(m-n)(mn-2m-2n)/Delta and 2(m-n)(mn-4m-4n-2)/Delta. The positive deficits from 5 and 6 show finite nonattainment and m=r,n=r^2 give limits. Independent full-graph rational grounded-Laplacian solves checked all four orbit classes for (m,n)=(2,2),(2,3),(3,2),(3,3),(3,4), not using the proof voltage tables.
 
-Self-review: passed. Independent audit: not yet performed.
+## originality
+
+PASS
+
+Best-of-knowledge PASS. Primary Dilworth–Kutzarova–Ostrovskii (arXiv:2305.12582) develops graph cycle-space projections, invariant/minimal projection framework and Hamming graph/cube families, but those use complete-graph factors, whereas K_{1,m} with m>=2 is noncomplete and has four distinct edge orbits. Their general projection machinery does not state these two rational columns or opposite optimizing phase curves. Same-area cactus basis-projection results have a different operator and graph class. A less-indexed electrical-network calculation could cover a special case.
+
+## value
+
+PASS
+
+Endpoint l1/l∞ norms of the canonical cut and cycle Hodge decomposition are intrinsic numerical graph invariants; their exact values over a natural two-parameter Cartesian family and explicit orbit maximizers are meaningful. Opposite maximizing edge directions for the two complementary operators persist for all (3,n),n>=7, with distinct sharp phase polynomials, unattained global constants 5 and 6, and different balanced vs strongly unbalanced limits. These are structural facts not a generic norm exercise or a table of small graphs.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
