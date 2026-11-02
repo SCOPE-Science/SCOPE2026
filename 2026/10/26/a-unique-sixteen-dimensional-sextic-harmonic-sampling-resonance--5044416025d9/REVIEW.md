@@ -1,15 +1,21 @@
-# Self-review
+# Independent mathematical audit
 
-## Correctness — PASS
-The degree-six normalized Gegenbauer values at \(0\) and \(1/2\) were computed symbolically. Root inner-product classes reduce the Gram matrix to a one-dimensional sign-difference branch on each coordinate edge plus a Johnson \(J(n,2)\) adjacency/disjointness block; both multiplicities and four factorizations were derived algebraically. The only possible zero comes from \((n-16)^2\), and the remaining cubic is increasing and positive on \(n\ge5\). An independently assembled Gram matrix agrees numerically in eight dimensions; it is not needed for the infinite proof.
+## correctness
 
-## Originality — PASS (with historical risk)
-The reviewed full primary treatments arXiv:1308.5101v1 and arXiv:1507.05373v2 introduce harmonic-index designs, give root-system examples, and study tight sextic designs; their inspected statements do not provide the four-branch exact sextic spectrum on the signed-edge root shell or isolate \(n=16\) in this form. Relevant published records and an accessible previous degree-four result were compared by implication, not title. Classical Johnson eigenvalues and the Gegenbauer formula are explicitly treated as prior tools. A general association-scheme table or historical root-system moment census may imply the result; the priority risk is real and requires independent literature review.
+PASS
 
-## Mathematical value — PASS
-For a canonical, dimension-parametrized root configuration, the theorem settles a full harmonic interpolation spectrum and exactly identifies a nonmonotone isolated sextic obstruction at the natural dimension sixteen. It simultaneously characterizes when this infinite family is a harmonic-index-six design. This natural classification is more informative than a finite matrix diagonalization or an arbitrary numerical special case.
+With normalized Gegenbauer P_6(t), compute u=P_6(1/2)=(n^3-42n^2+224n+672)/(64(n-1)(n+1)(n+3)), v=P_6(0)=-15/((n-1)(n+1)(n+3)). Sign-difference edge vectors have eigenvalue 1-v. Sign-symmetric sector is (1+v)I+2u A_J+2v B_J on Johnson J(n,2), whose A_J eigenvalues 2(n-2),n-4,-2 and complementary B_J eigenvalues (n-2)(n-3)/2,-(n-3),1. This proves all four branches and multiplicities, not a fit to numerical eigenvalues. Symbolic substitution and factorization independently checked in SymPy, and remaining B cubic q(n) has q(5)=939>0 and q'(n)=3(n-6)^2+452>0, while all other positive factors are manifest. Thus A=(n-16)^2(n-2)(n+6)/(16(n-1)(n+1)(n+3)) alone vanishes at n16. Direct Gram numerics are supporting tests only. Exact normalization is probability surface L2 and f(x)/sqrt(h_n,6); dimensions n>=5.
 
-## Limitations
-No claim is made for other degrees, nonuniform weights, or usual spherical six-design strength. Numerical checks are secondary. Independent publication-priority and mathematical audits remain outstanding.
+## originality
 
-Self-review: passed. Independent audit: not yet performed.
+PASS
+
+Bannai–Okuda–Tagami arXiv:1308.5101 defines harmonic-index designs and Gegenbauer kernels; Zhu et al arXiv:1507.05373 studies tight degree-six designs and Gegenbauer formulas. These establish the language and techniques, not visibly the four specific D_n half-root eigenvalue branches or sole n=16 constant-zero sector. Johnson scheme spectral decomposition is standard and explicitly not new. A prior all-degree association-scheme eigenmatrix or root-system moment classification could imply the full answer even without the same wording; this is a real residual risk despite searching.
+
+## value
+
+PASS
+
+Full harmonic sampling spectrum of a canonical family of D_n root shells is a natural analytic/combinatorial invariant. It yields an isolated rank obstruction in dimension sixteen and exact conditioning for all n>=5, more than an arbitrary finite computation or renaming of a known design. Clarifies harmonic-index 6 versus ordinary spherical 6-design.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
