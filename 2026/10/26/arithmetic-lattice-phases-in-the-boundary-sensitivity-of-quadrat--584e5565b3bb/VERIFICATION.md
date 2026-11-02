@@ -5,8 +5,11 @@
     "status": "not_performed"
   },
   "independent_audit": {
-    "evidence": null,
-    "status": "not_performed"
+    "status": "passed",
+    "evidence": [
+      "INDEPENDENT_AUDIT_2026-10-30.md",
+      "INDEPENDENT_AUDIT_2026-10-30.json"
+    ]
   },
   "lean_verification": {
     "evidence": null,
@@ -16,10 +19,24 @@
 }
 ---
 
-# Verification
+# Independent mathematical audit
 
-The self-contained script `quadratic_boundary_verify.py` uses only the Python standard library. Execute `python quadratic_boundary_verify.py` to verify 1,175 exact rational coefficients from independent Gram inversion and 248 finite-sample Bernoulli identities to 60 digits. Every finite test passed when run on the embedded script source.
+## correctness
 
-The infinite root-sign statement follows by factoring the explicit kernel, and the quadratic sum identity follows from exact endpoint-truncated Euler–Maclaurin. The second-order liminf and limsup require Weyl equidistribution for \((6-\sqrt6)/10\) along the residue class \(m\equiv3\pmod5\), not just numerical experimentation.
+PASS
 
-Limits: No finite test establishes the infinite phase law; no full \(\ell^\infty\)-operator-norm statement for the whole fitted-value matrix or off-grid evaluation is asserted. Independent scientific audit remains unperformed.
+Independently inverted the degree-two Vandermonde Gram matrix over exact rationals for all m=3..55; all 1540 row entries agree with kernel 3(10j²+(6-12m)j+3m²-3m+2)/[m(m+1)(m+2)]. Reconstructed two quadratic sign roots, exact quadratic Euler-Maclaurin/Bernoulli boundary sum, uniform asymptotic expansion and nonconvergence via Weyl equidistribution on m≡3 mod5 of irrational slope (6−sqrt6)/10. Root-integer boundary contributions vanish.
+
+## originality
+
+PASS
+
+Best-of-knowledge comparison of the precise final mathematical statement against relevant published frameworks and Resultary findings; priority remains qualified, not asserted conclusively. No matching exact degree-2 endpoint second-order lattice correction in inspected results
+
+## value
+
+PASS
+
+A sharp exact endpoint amplification and nonconvergent second-order coefficient are natural numerical stability data for the simplest nontrivial nonaffine polynomial regression on an equispaced grid. The lattice phase is mathematically substantive, not a routine norm bound.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
