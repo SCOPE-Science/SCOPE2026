@@ -1,0 +1,116 @@
+{
+  "correctness": {
+    "rationale": "Analytic stationary renewal mean and exact Perron-root expansion derive the claimed curvature. A globally positive Maclaurin series proves monotone Q and unique crossing, with full n>=6 coefficient formula and endpoint limits. Actual standalone code reproduces symbolic differentiations and tests; equality/higher-order and full nonlinear epidemic claims explicitly excluded.",
+    "status": "PASS"
+  },
+  "independent": false,
+  "independent_audit_status": "not_performed",
+  "originality": {
+    "broader_coverage": {
+      "evidence": [
+        "Galeotti–Rogers 2013 Proposition 2 treats static strategic immunization, which may favor targeted protection under disassortativity.",
+        "Delmas–Dronnier–Zitt 2023 Theorem 4.2 studies coverage allocations for perfect immunity, not an explicit exponential waning renewal-rate resource transition."
+      ],
+      "reasoning": "Static perfect vaccine budget constraints are in immune coverage fractions, whereas here mean susceptibility is a nonlinear analytic function of inverse booster period. Existing targeting comparisons therefore do not determine sign reversal or uniqueness for this exact constraint.",
+      "searches": [
+        "Galeotti Rogers Strategic Immunization and Group Structure 2013 Proposition 2 disassortative",
+        "Delmas Dronnier Zitt Optimal vaccination various counter intuitive examples Theorem 4.2",
+        "published-finding corpus: vaccination allocation symmetric two communities disassortative contact network cross-group mixing unfair optimal booster waning immunity"
+      ]
+    },
+    "checked_sources": [
+      "arXiv:2306.13633v1 (2023-06-23)",
+      "https://link.springer.com/article/10.1007/s00285-024-02171-z",
+      "https://doi.org/10.1257/mic.5.2.1",
+      "https://doi.org/10.1007/s00285-022-01858-5",
+      "https://github.com/Resultary/2026/tree/main/2026/10/4/SCOPE-mean-matching-exposes-a-systematic-waiting-time-bias-in-vaccinat--a2652ff4622e",
+      "https://github.com/Resultary/2026/tree/main/2026/10/11/SCOPE-critical-threshold-extinction-with-heterogeneous-vaccination-in--45f2bd1d5fd8"
+    ],
+    "claim_vs_prior_implication": {
+      "evidence": [
+        "Foutel-Rodier Section 5.4 proves global optimality at alpha in [0,1], leaving disassortativity unproved there.",
+        "Galeotti–Rogers gives concentration preference with perfect immunization, so generic beneficial asymmetry is known.",
+        "Delmas–Dronnier–Zitt covers other immunization effects, but not the fixed recurrent-dose-rate uniqueness statement."
+      ],
+      "reasoning": "The original source contains the epidemic threshold and costs; the missing nontrivial step is proving that a combined waning/contact elasticity Q(u) is strictly increasing with exact endpoints, creating one and only one reversal. The perfect-immunity results cannot fix Q(u).",
+      "searches": [
+        "Foutel-Rodier 2024 Springer full text Sections 4.2 5.3 5.4 Proposition 6",
+        "Galeotti Rogers 2013 full PDF Proposition 2",
+        "Delmas Dronnier Zitt 2023 full text Theorem 4.2"
+      ]
+    },
+    "equivalent_formulations": {
+      "evidence": [
+        "Foutel-Rodier et al. Eq. (25) gives eigenvalue under two-group contacts; Proposition 6 limits fair-optimality to alpha<=1.",
+        "The novel threshold concerns the second variation under reciprocal-mean booster intervals, not a direct statement of the leading eigenvalue."
+      ],
+      "reasoning": "Exact reparametrization of the source matrix agrees; no equivalent uniqueness-of-curvature threshold found in read source or searched aliases.",
+      "searches": [
+        "published-finding corpus: Foutel-Rodier Charpentier Guerin optimal vaccination policy to prevent endemicity 2023 two groups dissortative alpha greater than one fair unequal allocation spectral radius",
+        "web: \"vaccination\" \"dissortative\" \"fair\" \"allocation\" spectral radius",
+        "web: Foutel Rodier dissortative vaccinate at different rates fair optimum waning immunity allocation 2023 2024"
+      ]
+    },
+    "exact_database_or_table": {
+      "evidence": [
+        "Closest semantic search hit: 2026/10/4/SCOPE-mean-matching-exposes-a-systematic-waiting-time-bias-in-vaccinat--a2652ff4622e concerns waiting-time distributions, not two-group booster-rate fairness.",
+        "Closest vaccination multigroup hit: 2026/10/11/SCOPE-critical-threshold-extinction-with-heterogeneous-vaccination-in--45f2bd1d5fd8 concerns SAIRS stability at R0=1, not resource allocation."
+      ],
+      "reasoning": "No matching exact table, parameterized transition formula or claim was located in searched mathematical record; unsuccessful search does not establish uniqueness.",
+      "searches": [
+        "published-finding corpus: critical vaccination dose frequency fairness symmetry breaking pitchfork disassortative two-group susceptibility waning",
+        "published-finding corpus: exponential waning immunity deterministic booster spectral radius contact matrix local fair allocation second variation",
+        "web: waning immunity dissorative fair allocation local curvature"
+      ]
+    },
+    "rationale": "The exact unique waning-versus-contact local curvature reversal is absent from the inspected two-group source (whose Proposition 6 covers only alpha<=1). Static perfect-vaccine disassortative targeting is known and is not claimed as original; its resource variable and susceptibility law do not imply the periodic booster-rate crossover without further analysis.",
+    "residual_risks": [
+      "An unindexed specialist analysis might state the same exact unique curvature threshold under equivalent dimensionless variables.",
+      "The source paper describes its endemic threshold as heuristic and assumes smooth waiting-time densities for some limit results; the proof is confined to the explicit stationary renewal spectral model."
+    ],
+    "source_inspections": [
+      {
+        "assessment": "Directly supplies assumptions and known alpha<=1 result, but no alpha>1 exact unique waning-dependent transition",
+        "evidence": [
+          "Equation (25), Section 5.4 Proposition 6, and deterministic interval discussion Section 4.2"
+        ],
+        "identifier_or_url": "https://link.springer.com/article/10.1007/s00285-024-02171-z",
+        "material_read": "Full open-access HTML with Sections 4.2, 5.3, 5.4, Proposition 6 and the Appendix references",
+        "method": "Read displayed equations (24)–(28), dose allocation derivation, Proposition 6 and proof, and the statement limiting equality to assortative mixing",
+        "title": "Optimal vaccination policy to prevent endemicity: a stochastic model",
+        "trigger": "Same matrix, same two-group fixed booster-dose budget and nearest plausible stronger proposition"
+      },
+      {
+        "assessment": "Covers perfect one-shot immunization allocation but not recurrent boosters or changing curvature with dose rate",
+        "evidence": [
+          "Proposition 2 and 2013 article model setup"
+        ],
+        "identifier_or_url": "https://doi.org/10.1257/mic.5.2.1",
+        "material_read": "Full accessible 2013 article PDF, including title, setup and Proposition 2 on disassortative allocation",
+        "method": "Read and inspected downloaded PDF source text and relevant rendered pages",
+        "title": "Strategic Immunization and Group Structure",
+        "trigger": "Closest general asymmetry-beneficial-under-disassortativity precedent"
+      },
+      {
+        "assessment": "Results concern permanent perfect vaccination coverage and do not state a recurring-booster resource threshold",
+        "evidence": [
+          "Theorem 4.2 and perfect-vaccination coverage framework"
+        ],
+        "identifier_or_url": "https://doi.org/10.1007/s00285-022-01858-5",
+        "material_read": "Full open-access Journal of Mathematical Biology article HTML including Theorem 4.2 and optimization setup",
+        "method": "Reviewed vaccine efficacy parameterization, spectral objectives, optimality theorems and assumptions",
+        "title": "Optimal vaccination: various (counter) intuitive examples",
+        "trigger": "Broad spectral vaccine-allocation comparisons may subsume claims"
+      }
+    ],
+    "status": "PASS"
+  },
+  "review_type": "self_review",
+  "schema_version": 1,
+  "scope_run_id": "b1779b85-de6a-405d-b146-c386e453a2ad",
+  "self_review_status": "passed",
+  "value": {
+    "rationale": "The source leaves alpha>1 disassortative allocations beyond its fair-optimality theorem. The new resource-dependent unique reversal establishes where a policy that locally benefits from concentration changes to benefiting from fairness, with a sharp all-rate classification and concrete finite-budget counterexample, not just a reparameterization or arbitrary slice.",
+    "status": "PASS"
+  }
+}
