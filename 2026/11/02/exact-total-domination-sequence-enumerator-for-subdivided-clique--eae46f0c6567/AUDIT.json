@@ -1,0 +1,126 @@
+{
+  "correctness": {
+    "rationale": "The graph bipartition separates original-vertex and subdivision-vertex footprints; any completed history bijects with an ordered (n-1)-vertex cover, an ordered legal edge-cover of K_n, and an interleaving. Last-edge classification proves \\(a_{r,k}=r(r-1)a_{r-1,k-1}+\\binom r2 a_{r-2,k-1}\\); all feasible lengths are constructible, and factorial extreme counts follow. Independent exhaustive dynamic programming on original graph neighborhoods for n=2,3,4,5 agrees with every polynomial coefficient. Finite checks are not the general proof.",
+    "status": "PASS"
+  },
+  "independent": false,
+  "independent_audit_status": "not_performed",
+  "originality": {
+    "broader_coverage": {
+      "evidence": [
+        "Theorem 8.4 in Brešar--Henning--Rall (2016) asserts the *maximum length* of incidence-graph sequences is twice a hypergraph Grundy covering number; it does not specify counts of individual lengths.",
+        "Brešar--Kos--Nasini--Torres (arXiv:1608.06804, abstract and Introduction) develops algorithms for extremal lengths on other graph classes.",
+        "A published mathematical finding on central graphs gives a vertex-cover optimization for their total domination number (public finding f6679e0fe594); a central graph of a clique coincides with its subdivision, but that scalar optimization does not supply ordered sequence counts."
+      ],
+      "reasoning": "The strongest inspected general prior result covers the upper endpoint, which is acknowledged as implied. Neither an exact full length distribution nor its recurrence follows from the stated extremal theorem without the new bijective enumeration.",
+      "searches": [
+        "subdivision graph total dominating sequences complete graph combinatorial enumeration shuffled vertex covers edge covers",
+        "edge-covering sequence polynomial K_n and shuffles with transversal sequences",
+        "\"total dominating sequence polynomial\" graph",
+        "\"Grundy total domination\" \"subdivision\" \"complete graph\" 2022"
+      ]
+    },
+    "checked_sources": [
+      "arXiv:2010.08368 first published 2020-10-16 (motivation and definitions)",
+      "arXiv:1601.07525 Section 8 / Theorem 8.4 (strongest incumbent statement)",
+      "arXiv:1608.06804 Abstract, Sections 1--2 (extremal algorithms)",
+      "OEIS A351990 (unordered minimum edge-cover tables)",
+      "Public mathematical-record IDs as named in originality check objects"
+    ],
+    "claim_vs_prior_implication": {
+      "evidence": [
+        "2016 Theorem 8.4 implies the stated scalar Grundy upper endpoint once the complete-graph edge-cover extremum is evaluated, so that scalar is credited, not offered as the independent novelty.",
+        "2020/2021 total-k-uniformity paper asks about and studies length equality; the presently proved length polynomial differentiates all completed histories even in the nonuniform cases.",
+        "Related mathematical claims count completed total-dominating sequences on categorical clique products (opaque ID 5207806f) or calculate the scalar Grundy total number of rook graphs (13948cc3), while results on subdivided cliques address forts and dissociation sets (c1670e0d, 817e6d9d). Their statements do not imply the present ordered-history distribution on subdivided cliques."
+      ],
+      "reasoning": "Known vertex-cover/edge-cover dualities explain the extreme lengths, but there is no provided previous count for every ordering and its interleaving multiplicity. The claim does not treat the endpoints as independently novel and supplies an explicit combinatorial refinement.",
+      "searches": [
+        "Grundy total domination in bipartite incidence graph of complete graph",
+        "\"total dominating sequences\" \"subdivision\" graph counting",
+        "\"edge covering sequence\" \"complete graph\" number"
+      ]
+    },
+    "equivalent_formulations": {
+      "evidence": [
+        "Brešar--Henning--Rall (2016), Section 8, identifies total-domination histories with open-neighborhood hyperedge covers; Theorem 8.4 gives only a maximum-length identity for incidence graphs (arXiv:1601.07525, pages 16--18).",
+        "Bahadır--Gözüpek--Doğan (arXiv:2010.08368, Section 1) defines total-k-uniformity by equality of extreme lengths, not by history multiplicities."
+      ],
+      "reasoning": "Subdivided cliques are incidence graphs of complete graphs; both descriptions were compared. The known duality implies an extremal scalar, whereas the present coefficient-by-coefficient enumeration retains order and counts all interleavings. No equivalence to an inspected prior formula was established.",
+      "searches": [
+        "Grundy total domination and total dominating sequence enumerator for subdivision S(K_n) of complete graph, ordered edge covers, Bessel recurrence",
+        "total dominating sequences on incidence graphs of complete graphs K_n with edges subdivided once, enumerating legal ordered vertex sequences by length",
+        "\"total dominating sequences\" \"subdivision graph\" complete",
+        "\"legal edge cover sequences\" complete graph enumeration"
+      ]
+    },
+    "exact_database_or_table": {
+      "evidence": [
+        "OEIS A351990 tabulates *unordered minimum edge covers* of complete graphs, a distinct enumerand.",
+        "A related public finding on maximum closed-neighborhood Grundy sequences of complete multipartite graphs (036eea4e58d1) studies a distinct graph and distinct invariant.",
+        "A public complete-graph edge-cover code collection counts unordered covers without a per-prefix new-vertex requirement (hsanzg/edge-covers, README)."
+      ],
+      "reasoning": "Conventional edge-cover tables and maximum-sequence counts do not specify the legal ordered histories of the incidence graph. The full polynomial was not located in the inspected databases or accessible related records; absence from a search is not uniqueness proof.",
+      "searches": [
+        "ordered legal edge-covering sequences of complete graphs Bessel numbers n(n-1) a(n-1,k-1)+ binomial n 2 a(n-2,k-1)",
+        "full one-subdivision S(K_n) total domination Grundy open neighborhood sequence generating function",
+        "count of ordered edge covering sequences complete graph all vertices newly covered edge counts",
+        "number of ordered edge covers of complete graphs each edge introduces new vertex"
+      ]
+    },
+    "rationale": "The closest general prior result, Brešar--Henning--Rall (2016), already implies the scalar maximum length, so that part is not presented as novel. The complete sequence-length polynomial and multiplicities require the new exact history decomposition and ordered edge-cover recurrence; no inspected source or indexed comparator gave this count. Independent priority has not been established.",
+    "residual_risks": [
+      "An earlier formulation of the full ordered edge-cover history distribution may be hidden under another term or in a database not retrieved.",
+      "Only specified relevant sections of two supporting full texts were inspected in detail; global publication-priority certification is not claimed.",
+      "The scalar maximum is covered by the 2016 incidence-graph theorem and is included only as a corollary of the claimed stronger enumeration."
+    ],
+    "source_inspections": [
+      {
+        "assessment": "Defines total-k-uniformity and studies equal extreme lengths; no inspected theorem states the refined length enumerator for full clique subdivisions.",
+        "evidence": [
+          "Section 1 definition of legal open-neighborhood sequences",
+          "Section 2 Theorem 2.3 on odd uniformity",
+          "Section 6 on characterizing uniform graphs"
+        ],
+        "identifier_or_url": "arXiv:2010.08368 / https://arxiv.org/pdf/2010.08368",
+        "material_read": "Full-text introduction, Sections 2 and 6, key theorem statements and references (10-page open preprint).",
+        "method": "Compared definitions, extremal equality statements and the concluding directions with the proposed exact ordered-history formula.",
+        "title": "Total k-Uniform Graphs",
+        "trigger": "Primary first-public 2020 motivation for complete total-domination histories"
+      },
+      {
+        "assessment": "Theorem 8.4 covers the maximum length as a scalar for incidence graphs; no formula for ordered counts by length is stated in the inspected relevant sections.",
+        "evidence": [
+          "Section 8 definition of covering sequences",
+          "Theorem 8.4: incidence-graph extremal identity",
+          "No length-multiplicity claim in its theorem statement"
+        ],
+        "identifier_or_url": "arXiv:1601.07525 / https://arxiv.org/pdf/1601.07525",
+        "material_read": "Full-text introduction and Section 8, especially edge covering sequences, Theorem 8.4 and the incidence-graph construction (pages 16--18); Section 9 questions.",
+        "method": "Statement-to-statement implication check separating exact maximum from the distribution of all orders.",
+        "title": "Total Dominating Sequences in Graphs",
+        "trigger": "Potential dominating general theorem for all incidence graphs"
+      },
+      {
+        "assessment": "Focuses on determining extremal Grundy total numbers and complexity; no equivalent coefficientwise formula in the material inspected. Remaining sections not exhaustively searched for a differently phrased enumeration.",
+        "evidence": [
+          "Abstract gives algorithms for extremal lengths",
+          "Introduction states primary algorithmic goals"
+        ],
+        "identifier_or_url": "arXiv:1608.06804 / https://arxiv.org/pdf/1608.06804",
+        "material_read": "Full-text abstract, Introduction and Section 2 definitions (pages 1--3).",
+        "method": "Compared scope and announced results with subdivision-clique ordered enumeration.",
+        "title": "Total dominating sequences in trees, split graphs, and under modular decomposition",
+        "trigger": "Known algorithmic coverage might include the same invariant"
+      }
+    ],
+    "status": "PASS"
+  },
+  "review_type": "self_review",
+  "schema_version": 1,
+  "scope_run_id": "eae46f0c-6567-4d4a-96e8-5a5a4a7cfc07",
+  "self_review_status": "passed",
+  "value": {
+    "rationale": "The exact polynomial counts every legal full domination history of a natural dense-graph incidence family, refining known scalar endpoints and distinguishing ordered histories from ordinary unordered edge covers. A short recurrence permits all coefficient counts, while closed shortest/longest history multiplicities and gapless support quantify the combinatorial range of greedy covering behavior for arbitrarily large n.",
+    "status": "PASS"
+  }
+}
