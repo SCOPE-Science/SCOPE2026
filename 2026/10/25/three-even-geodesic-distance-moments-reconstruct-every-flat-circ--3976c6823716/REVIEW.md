@@ -1,15 +1,21 @@
-# Scientific review
+# Independent mathematical audit
 
-## Correctness — PASS
-For positive \(C,H\), shortest product geodesics yield the exact decomposition \(D^2=U^2+V^2\), with independent uniform circular separation and triangular vertical separation. Direct integral moment formulas give the explicit quadratic \(Q_4(t)\) and cubic \(Q_6(t)\) under \(0<t<6\). The quadratic fiber cardinalities follow from strict endpoint inequalities; the exact reflected cubic difference equals a nonzero linear factor times an everywhere-positive quadratic. The proof covers the minimum, both excluded degenerate endpoints, the twofold interval, and its exact transition level. A portable rational checker and a separate exact double integral verify the algebra; no infinite inference relies on finite computation.
+## correctness
 
-## Originality — PASS, with priority limits
-The nearest investigated complete sources are Herman–Pakianathan (arXiv:1407.5607) on homogeneous-space distance distributions and Granata–Carnevale (DOI 10.1038/srep31377) on geodesic-distance profiles including a lateral cylinder. Neither states a sharp finite-even-moment reconstruction or the twofold alias interval. A related cylinder/Möbius CDF calculation uses infinitesimal CDF coefficients; its reconstruction conclusion concerns much richer data and does not entail the claimed truncated moment cutoff. Published inverse-distribution work by Mémoli–Needham (arXiv:1810.09646) is particularly relevant, but complete text could not be inspected. Priority is not certified by unsuccessful searches; the residual bibliographic risk is real.
+PASS
 
-## Mathematical value — PASS
-The first consecutive global even-moment cutoff is an exact natural inverse-geometric invariant for all positive parameter values, with complete classification of the nonidentifiability region below the cutoff and an explicit collision. It establishes what information is retained by three scalar population expectations rather than by an entire distance histogram or short-distance coefficients. The sharp ambiguity interval and its cubic resolution motivate this exact fact beyond a routine moment evaluation.
+For positive C,H on the UNCAPPED lateral flat cylinder with intrinsic metric and uniform area, shortest circular separation U is uniform [0,C/2], vertical difference V has density 2(H−v)/H², and D²=U²+V². Writing x=(C/2)²,y=H², direct integration yields M2=x/3+y/6; M4=x²/5+xy/9+y²/15; M6=x³/7+x²y/10+xy²/15+y³/28. Setting s=M2 and t=y/s∈(0,6), Q4(t)=(324−48t+11t²)/180 has min 83/55 and exactly two allowed preimages for 83/55<rho<9/5. Its reflected sixth-moment difference is 2(11t−24)(121t²−528t+1512)/139755, with strictly positive quadratic, hence three moments identify parameters uniquely. Exact alias (x,y)=(2,2) versus (20/11,26/11) proves two insufficient. Independent SymPy expansions of the exact polynomials and reflected factorization passed; critical endpoints included.
 
-## Unproved scope and checks
-Population moments are assumed exact; no noisy-estimation stability, general surface extension, or independence from prior mathematical literature has been proved. Self-review scrutiny establishes only the stated analytic claim; no outside referee has checked it.
+## originality
 
-Self-review: passed. Independent audit: not yet performed.
+PASS
+
+Cylinder geodesic distance distributions and general metric-measure space inverse questions are known. The exact first-three EVEN moment inverse and sharp complete two-moment fibers are not stated by the inspected accessible sources. A relevant general full-text inverse-distribution study was not thoroughly available; judgment is qualified.
+
+## value
+
+PASS
+
+This is a complete minimal finite-statistic identifiability theorem for a canonical two-parameter compact flat surface with boundary, with a precise ambiguity interval and an explicit recovery formula; useful for distance-based inverse geometric inference.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

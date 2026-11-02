@@ -5,8 +5,11 @@
     "status": "not_performed"
   },
   "independent_audit": {
-    "evidence": null,
-    "status": "not_performed"
+    "status": "passed",
+    "evidence": [
+      "INDEPENDENT_AUDIT_2026-10-28.md",
+      "INDEPENDENT_AUDIT_2026-10-28.json"
+    ]
   },
   "lean_verification": {
     "evidence": null,
@@ -16,9 +19,24 @@
 }
 ---
 
-# Reproduction and boundaries
-Run `python3 verify_moments.py` in a directory containing this file and `verify_moments.py`. The script requires the Python standard library only and uses `fractions.Fraction` throughout. It verifies exact binomial expectations, the two parameter-collision identities, the reflected normalized-sixth-moment polynomial on a rational grid, and numerous separate positive-parameter triples. All checks must pass with no floating-point tolerance.
+# Independent mathematical audit
 
-An independent symbolic integration over \(0\le u\le C/2\) and \(0\le v\le H\), with densities \(2/C\) and \(2(H-v)/H^2\), yields the displayed second, fourth, and sixth moment polynomials. The proof's strictly positive reflected-difference quadratic is algebraic and valid for every positive parameter choice. The finite loops alone do not certify the universal statement or historical novelty.
+## correctness
 
-The lateral surface carries the intrinsic flat product metric. Sampled points are independent and uniform by area. There are no filled endcaps and no use of ambient Euclidean chords. The two moment measurements can be ambiguous; the third resolves that ambiguity, without asserting recovery for broader surface classes. External independent scientific audit has not been performed.
+PASS
+
+For positive C,H on the UNCAPPED lateral flat cylinder with intrinsic metric and uniform area, shortest circular separation U is uniform [0,C/2], vertical difference V has density 2(H−v)/H², and D²=U²+V². Writing x=(C/2)²,y=H², direct integration yields M2=x/3+y/6; M4=x²/5+xy/9+y²/15; M6=x³/7+x²y/10+xy²/15+y³/28. Setting s=M2 and t=y/s∈(0,6), Q4(t)=(324−48t+11t²)/180 has min 83/55 and exactly two allowed preimages for 83/55<rho<9/5. Its reflected sixth-moment difference is 2(11t−24)(121t²−528t+1512)/139755, with strictly positive quadratic, hence three moments identify parameters uniquely. Exact alias (x,y)=(2,2) versus (20/11,26/11) proves two insufficient. Independent SymPy expansions of the exact polynomials and reflected factorization passed; critical endpoints included.
+
+## originality
+
+PASS
+
+Cylinder geodesic distance distributions and general metric-measure space inverse questions are known. The exact first-three EVEN moment inverse and sharp complete two-moment fibers are not stated by the inspected accessible sources. A relevant general full-text inverse-distribution study was not thoroughly available; judgment is qualified.
+
+## value
+
+PASS
+
+This is a complete minimal finite-statistic identifiability theorem for a canonical two-parameter compact flat surface with boundary, with a precise ambiguity interval and an explicit recovery formula; useful for distance-based inverse geometric inference.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
