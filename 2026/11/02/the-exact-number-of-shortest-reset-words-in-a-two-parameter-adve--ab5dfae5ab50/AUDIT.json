@@ -1,0 +1,126 @@
+{
+  "correctness": {
+    "rationale": "Token conservation yields the exact minimum number of kills and high-to-low cycles. The gate necessity and sufficiency lemmas prove a bijection between all shortest input words and admissible labeled event permutations; independent uniform arrival times count precisely (k+2m)!/6^m. Exhaustive subset-DP verifies 37 pairs and exact permutation checks plus finite simulations replay. The proof covers all m>=1,k>=2m-1, not merely the checked finite set.",
+    "status": "PASS"
+  },
+  "independent": false,
+  "independent_audit_status": "not_performed",
+  "originality": {
+    "broader_coverage": {
+      "evidence": [
+        "Kisielewicz–Kowalski–Szykuła provide a general method for computing short reset words but not a symbolic all-parameter multiplicity result.",
+        "Rodaro addresses factor-minimal reset words, which is different from shortest-length reset-word multiplicity."
+      ],
+      "reasoning": "General algorithms that can compute each finite instance do not logically imply the evaluated universal closed formula or the structural classification; a published generic algorithm cannot be treated as a dominating explicit parameter theorem.",
+      "searches": [
+        "web: counting shortest synchronizing words automaton 2024",
+        "published-finding corpus: minimal reset word multiplicity sink cyclic letters automata counting (k+2m)! 6^{-m}"
+      ]
+    },
+    "checked_sources": [
+      "Lipin and Volkov, arXiv:2601.18362",
+      "Kisielewicz, Kowalski and Szykuła, doi:10.1007/s10878-013-9682-0",
+      "Rodaro, arXiv:1708.04864",
+      "published-finding corpus 2026/10/4/SCOPE-exact-multiplicity-of-shortest-reset-words-in-the-wielandt-type--45b41a2c7114",
+      "published-finding corpus 2026/10/4/SCOPE-shortest-reset-multiplicity-of-the-seven-state-wielandt-automato--84d91bfb4a49",
+      "published-finding corpus 2026/10/4/SCOPE-exactly-four-shortest-reset-words-in-the-deficiency-two-family-d--c55ed3dc1ef0",
+      "Lipin and Volkov, CiE 2026, DOI 10.1007/978-3-032-31348-5_24 (metadata and abstract only)"
+    ],
+    "claim_vs_prior_implication": {
+      "evidence": [
+        "Source [1] establishes the minimum length but only constructs reset witnesses; the number of all shortest witnesses is logically stronger and not given by its minimum-length bound.",
+        "published-finding corpus 2026/10/4/SCOPE-exactly-four-shortest-reset-words-in-the-deficiency-two-family-d--c55ed3dc1ef0 concerns a deficiency-two D_n family, not these high-cycle maps."
+      ],
+      "reasoning": "The length of a shortest word and one witness do not determine the number of shortest words. Comparing exact domains and transition maps excludes implication from the inspected automata-family enumerations; nonetheless source priority is not certified.",
+      "searches": [
+        "Lipin & Volkov arxiv:2601.18362 section 3.4 reset-threshold construction L_m^k",
+        "published-finding corpus: shortest resetting words multiplicity L_m^k rotation kill letters",
+        "web: \"Adversarial Synchronization\" Lipin Volkov number of shortest reset words 2026"
+      ]
+    },
+    "equivalent_formulations": {
+      "evidence": [
+        "arXiv:2601.18362 defines this automaton and its reset threshold; direct proof adds complete count rather than replacing the threshold.",
+        "The cited general reset-word algorithm counts distances for arbitrary DFA but provides no closed factorial-over-six expression for these transitions."
+      ],
+      "reasoning": "Any claimed equivalent result must count distinct shortest input-letter strings for the identical low-kill and high-cycle transition maps, or give a closed generating description from which their count follows. No inspected source states or implies this event-order bijection.",
+      "searches": [
+        "published-finding corpus: number shortest reset words Lipin Volkov L_m^k Adversarial Synchronization formula factorial 6 power k+2m nested cycle automaton",
+        "published-finding corpus: shortest resetting words multiplicity L_m^k rotation kill letters",
+        "web: \"L_m^k\" \"shortest reset words\" multiplicity counting Lipin Volkov"
+      ]
+    },
+    "exact_database_or_table": {
+      "evidence": [
+        "Closest indexed result 2026/10/4/SCOPE-exact-multiplicity-of-shortest-reset-words-in-the-wielandt-type--45b41a2c7114 counts 2^((p-1)(q-3)) for a distinct automaton family.",
+        "Result 2026/10/4/SCOPE-shortest-reset-multiplicity-of-the-seven-state-wielandt-automato--84d91bfb4a49 counts words for one W_7 automaton."
+      ],
+      "reasoning": "These records are not a complete count for the present source-defined automata; their transition systems and quantifiers differ. The current family is infinite in two independent parameters, not an unrecorded entry in a known finite table.",
+      "searches": [
+        "published-finding corpus: geodesic count exact shortest words Rystsov automaton flower sink one way cycles",
+        "published-finding corpus: number shortest reset words Lipin Volkov L_m^k Adversarial Synchronization formula factorial 6 power k+2m nested cycle automaton"
+      ]
+    },
+    "rationale": "The original paper defines the automata and their reset threshold but does not enumerate all shortest words. The new complete two-parameter geodesic multiplicity and event-order structure is not implied by a witness or threshold formula. Comparisons exclude directly inspected general algorithms and distinct automata families, subject to unindexed priority risk.",
+    "residual_risks": [
+      "Search indexing is incomplete; previously unindexed or unpublished identical enumeration could affect priority.",
+      "Inspection focused on relevant sections of primary documents; no worldwide exhaustive source certification is asserted.",
+      "The later CiE 2026 proceedings treatment by Lipin and Volkov was not read in full; its public metadata and abstract do not settle whether it contains an unobserved enumeration."
+    ],
+    "source_inspections": [
+      {
+        "assessment": "Defines the same cycle and kill maps, and gives the reset length, but does not state or count all shortest reset words",
+        "evidence": [
+          "Lipin and Volkov, arXiv:2601.18362, section describing L_m^k, notably the source family and reset-length remark"
+        ],
+        "identifier_or_url": "https://arxiv.org/abs/2601.18362",
+        "material_read": "Available full-text HTML sections on family construction, its reset-length argument, and conclusions; bibliographic metadata",
+        "method": "Read the relevant definitions and propositions and compare their exact assertions with the proposed counting theorem",
+        "title": "Adversarial Synchronization",
+        "trigger": "Original transition definition for the proposed family and closest direct antecedent"
+      },
+      {
+        "assessment": "General computational algorithm, not a closed universal event-bijection theorem",
+        "evidence": [
+          "Kisielewicz, Kowalski, Szykuła, Journal of Combinatorial Optimization, online 2013"
+        ],
+        "identifier_or_url": "https://doi.org/10.1007/s10878-013-9682-0",
+        "material_read": "Accessible HTML introduction and algorithm-oriented sections",
+        "method": "Compared scope of general subset-search algorithm with explicit symbolic count for the defined automaton family",
+        "title": "Computing the shortest reset words of synchronizing automata",
+        "trigger": "General algorithms might dominate a count of shortest reset words"
+      },
+      {
+        "assessment": "Factor-minimal reset-word language differs from shortest-length reset multiplicity and does not cover these parameters",
+        "evidence": [
+          "Rodaro, arXiv:1708.04864, introduction"
+        ],
+        "identifier_or_url": "https://arxiv.org/abs/1708.04864",
+        "material_read": "Accessible abstract, introductory definitions, and factor-minimal reset language discussion",
+        "method": "Checked definition of minimality and implication versus shortest-length multiplicity",
+        "title": "Synchronizing automata and the language of minimal reset words",
+        "trigger": "Possible nomenclature overlap between minimal and shortest words"
+      },
+      {
+        "assessment": "No visible statement of the proposed shortest-word count; the inaccessible proceedings body remains a genuine residual priority risk, not certified as non-covering",
+        "evidence": [
+          "Lipin and Volkov, CiE 2026, pages 358–373, DOI 10.1007/978-3-032-31348-5_24"
+        ],
+        "identifier_or_url": "https://doi.org/10.1007/978-3-032-31348-5_24",
+        "material_read": "Bibliographic metadata, publicly indexed abstract and references only; conference full text inaccessible during this review",
+        "method": "Compared available scope and authorship, and inspected the open January 2026 arXiv treatment first",
+        "title": "Adversarial Synchronization and Reset Length",
+        "trigger": "Later 2026 conference treatment by the source authors under a closely related title"
+      }
+    ],
+    "status": "PASS"
+  },
+  "review_type": "self_review",
+  "schema_version": 1,
+  "scope_run_id": "ab5dfae5-ab50-41bb-b937-e32818fd6763",
+  "self_review_status": "passed",
+  "value": {
+    "rationale": "The exact factorial geodesic multiplicity is a natural complete invariant for a published two-parameter automaton family with nontrivial reset thresholds. A structural event-order bijection explains the count and quantifies freedom among all optimal synchronizing words, not just one optimal construction.",
+    "status": "PASS"
+  }
+}
