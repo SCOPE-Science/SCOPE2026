@@ -1,22 +1,13 @@
-# Same-model review
+# Mathematical assessment of the revised Chua speed-balance result
 
 ## Correctness
-PASS. Generator tests in each coordinate give the three conditional laws and the two exact variance defects. Stationarity of the squared fast residual and of \(\dot y^2/2\) yields
-\[
-\mathbb E[\dot y^2]
-=
-\mathbb E[h'(x)\dot x^2].
-\]
-The piecewise-linear breakpoints cause no ambiguity because invariant measures have zero \(\dot x^2\)-weighted mass on transversal breakplanes. The sector identity follows independently from the \(z\)-fiber law and stationarity of \(y^2/2\). Vanishing of any coordinate-speed square is rigidly equivalent to equilibrium support.
-
-Risk: the speed-slope identity uses the almost-everywhere chain rule for the Lipschitz characteristic and the stated breakpoint zero-weight lemma.
+**PASS.** The three-segment characteristic is continuous and Lipschitz. Generator tests of antiderivatives of arbitrary one-variable functions prove the conditional x-fiber calibration. The conditional-projection norm identity yields the exact variance defect. Stationarity of the squared residual \((y-h(x))^2/2\) and of the squared speed \(\dot y^2/2\), together with stationarity of \(y^2/2\), independently produce the two expressions for \(\mathbb E[\dot x\dot y]\), proving \(\mathbb E[\dot y^2]=\mathbb E[h'(x)\dot x^2]\). A flow-box argument gives zero \(\dot x^2\)-weighted mass to transversal breakplanes. If the mean squared y-speed is zero, the compact invariant support is a mixture of equilibria, which proves strictness for all other invariant probabilities. Thus the claimed outer speed-energy fraction exceeds \(-m_0/(m_1-m_0)\) and equals a strict bound of one third at the classical slopes.
 
 ## Originality
-PASS. The complete primary double-scroll report was inspected at model, Poincaré-map, homoclinic, conjugacy, and bifurcation level, and targeted searches found no matching invariant-measure moment theorem. A same-object compact-invariant-set localization paper was identified as the strongest plausible broader source. Its accessible material does not expose the exact conditional or speed-slope identities; the unavailable full body is retained as a residual risk for the geometric crossing corollary rather than treated as negative evidence.
-
-Risk: a full localization source could overlap the amplitude-only consequence, and the exact identities are short enough that an incidental unindexed observation remains possible.
+**PASS for the revised, differentiated claim.** The previously published October 4 result *Equilibrium-amplitude excursion law for the Chua double-scroll system* already proves the sector moment \(\mathbb E[xh(x)]=\mathbb E[y^2]\), two other conditional laws and the excursion beyond the equilibrium voltage. The new result does not claim originality for those statements. Its additional content is the invariant-measure speed-slope balance, strict quantitative outer-branch squared-speed fraction, and the x-conditional regression. The 1986 primary double-scroll treatment gives the exact model and rigorous chaos/return-map geometry, but an explicit stationary speed-slope identity was not located in inspected material. A 2016 compact-invariant-set localization paper has a highly relevant title, but the accessible introductory text specializes to a cubic nonlinearity. Its full body was inaccessible; coverage cannot be ruled out from preview alone. A general energy-synchronization article was inspected at abstract level only. Broader prior identities under circuit-power terminology remain a priority risk. The detailed four-part implication comparisons and source-inspection limits are in the accompanying structured assessment.
 
 ## Value
-PASS. The theorem ties the defining negative-inner/positive-outer Chua characteristic directly to stationary dynamics. It gives exact data checks for every compact invariant state and forces non-equilibrium recurrence to use the outer positive-slope branches. At the classical slopes it yields the parameter-free thresholds \(|x|>3/2\) and outer \(x\)-speed fraction greater than \(1/3\), complementing rather than duplicating known chaos and bifurcation results.
+**PASS.** This is an exact shape-of-activity constraint for a natural nonlinear circuit with negative inner and positive outer differential slope. It holds for every compact stationary probability, including mixtures, periodic measures, and any compact chaotic invariant measures. The quantitative fraction is stronger and mathematically different from the previously known geometric amplitude excursion: it constrains the distribution of squared velocity, not mere occurrence or residence time. The proof is elementary and does not claim a general chaos or stability theorem.
 
-Same-model review: passed. Independent audit: not yet performed.
+## Boundaries
+The statement does not construct attractors, imply sufficiency for chaos, bound ordinary residence time, or establish full novelty against inaccessible literature. The accompanying algebraic checker does not verify the measure-theoretic quantifiers. Formal proof and external expert attestation have not been performed.
