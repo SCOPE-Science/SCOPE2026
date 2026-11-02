@@ -1,0 +1,11 @@
+# Self-review
+
+**Correctness — PASS.** For each \(k\), finitely many pairwise disjoint periodic orbits are separated by clopen cylinder neighborhoods. The induced potentials are strictly positive and yield word-quasimorphisms with explicit uniformly bounded concatenation defect. Their periodic homogenizations equal the exact orbit sums. Every dilation ratio is a convex combination of coordinate ratios, and every extremal coordinate occurs on a selected periodic orbit. Thus both extremal dilations, quotient injectivity, and the exact variation-distance identity follow for all parameter pairs. The displayed unbounded four-point gap proves non-Gromov hyperbolicity without relying on numerical tests.
+
+**Originality — PASS, relative to inspected literature.** The 2026 foundational paper establishes the metric, its contractibility/unboundedness/separability/incompleteness, density of locally constant representatives, and complete pressure geodesics, but not universal isometric normed flats or the four-point obstruction. The classical Hilbert-simplex-to-normed-space theorem is explicitly credited as the already known metric ingredient. Its abstract simplex theorem does not assert the existence of periodic-orbit-isolating cones in each fixed symbolic moduli space. Targeted scholarly and published-mathematical-record searches did not locate an equivalent combined embedding. An uninspected broader projective-thermodynamic embedding theorem remains a possible historical-priority risk.
+
+**Mathematical value — PASS.** The motivating construction studies the global metric geometry, where unboundedness and lines do not resolve Gromov hyperbolicity or metric rank. The exact arbitrarily high-dimensional flats settle both questions in the strongest constructive form available from a locally constant sector: no approximate/quasi-isometric embeddings or exceptional subshifts are required. All periodic orbits not specially selected are rigorously controlled, which is the decisive dynamical feature.
+
+**Limitations.** These flat embeddings are not a classification of the full moduli; the method does not give uniform defect bounds in dimension, pressure-geodesic uniqueness, or an independent audit. The classical Hilbert-simplex ingredient has prior authorship.
+
+Self-review: passed. Independent audit: not yet performed.
