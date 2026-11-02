@@ -1,0 +1,128 @@
+{
+  "audit_date_utc": "2026-10-28",
+  "audited_at_utc": "2026-10-28T07:50:10.976659Z",
+  "axes": {
+    "correctness": {
+      "evidence": [
+        "Pinned RESULT.md blob 541d17b860ac0ca08b3da93d55a171021b544971",
+        "Independently verified Git tree 1a37f9e58283126c7584f7a14ef7205033933e63",
+        "independent_checks.py and independent_check_results.json"
+      ],
+      "rationale": "For real scalar Lipschitz seminorms on a unit-edge depth-two m-by-k tree, averaging any right inverse under S_k^m semidirect S_m is contractive and fixes leaf values; all symmetric candidates reduce to root mu0 and branch alpha*mu_i+(1-alpha)*mu0. The exact dual norm of any zero-mass signed leaf measure is sum of absolute leaf masses plus sum of absolute branch masses, by tree-edge telescoping with attaining sign potentials. Root-branch edge norm is 4(m-1)|alpha|/m. A concrete leaf test potential gives the affine branch-leaf lower bound 4-2(k+1)(1+(m-1)alpha)/(mk). Their minimax intersection alpha* lies strictly between 0 and 1; in that range direct dual norm computes attainment on every edge. Hence Lambda=4(2mk-k-1)/(m(3k+1)) globally over ALL linear operators. Algebra gives >2 iff (m-2)(k-1)>4 and monotone limiting supremum 8/3. Independently computed 1,936 exact edge dual norms across all 64 pairs (2<=m,k<=9), confirming but not replacing the minimax proof.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Fefferman-Klartag theorem quantifies p in (1,infty) and binary-tree radial weights, not sharp p=infty / arbitrary m,k.",
+          "General random-projection bound is not sharp for this family."
+        ],
+        "reasoning": "Broader existence of bounded operators does not imply exact operator norm; one-point extension is not the simultaneous tree extension.",
+        "searches": [
+          "Fefferman Klartag theorem 1.1 p finite",
+          "Bruè Di Marino Stra random-projection construction",
+          "Resultary one-point p-Banach star results"
+        ]
+      },
+      "checked_sources": [
+        "Pinned RESULT.md 541d17b860ac0ca08b3da93d55a171021b544971",
+        "Pinned verify.py 512eed7dfc499c2909bd8de7ae63c90d13943467",
+        "Fefferman–Klartag arXiv:2301.13792 theorem1.1",
+        "Bruè–Di Marino–Stra arXiv:1801.07533",
+        "Resultary star Lipschitz records",
+        "Independent exact tree KR calculations 1,936 edge functionals"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "General existence bound C(p) has divergent or endpoint-inapplicable p dependence and does not give 4(2mk-k-1)/(m(3k+1)).",
+          "Symmetrization plus tree-flow dual norm gives a two-affine-line minimax not present in inspected general constructions."
+        ],
+        "reasoning": "Sharp all-right-inverse optimality is not a corollary of nonsharp extension existence.",
+        "searches": [
+          "Fefferman Klartag theorem 1.1",
+          "Bruè Di Marino Stra theorem random projections"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "The ambient norm here is max tree-edge increment, not weighted W1,p bulk energy for finite p.",
+          "Resultary one-point equilateral stars extend to one new point, not m internal branches plus root at once."
+        ],
+        "reasoning": "Known aliases: linear Lipschitz extension norm, trace section, Lipschitz-free projection. No exact same two-layer m,k minimax constant located among checked candidates.",
+        "searches": [
+          "Resultary query: optimal linear Lipschitz extension from leaves to tree depth two norm simultaneous real linear extension metric star",
+          "Fefferman Klartag arXiv:2301.13792; Bruè Di Marino Stra arXiv:1801.07533"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "Resultary p-Banach stars report n-dependent one-center factors, not matrix of exact two-layer constants.",
+          "No complete (m,k) table found in examined primary theorem or indexed results."
+        ],
+        "reasoning": "No exact prior table covers m,k>=2; unindexed finite dimensional LP calculations remain plausible.",
+        "searches": [
+          "Resultary star and tree Lipschitz constants search",
+          "Fefferman Klartag 2023 full PDF theorem and later sections"
+        ]
+      },
+      "rationale": "Fefferman–Klartag proves existence of bounded W^{1,p}, 1<p<infty, extensions on binary trees with weighted bulk energy; this is distinct from sharp Lipschitz p=infty for every homogeneous depth-two branching pair. Bruè–Di Marino–Stra supplies general random-projection-based Lipschitz extension operators with bounds rather than a sharp exact finite-tree constant. Resultary one-point star and p-Banach formulas apply to different extension geometries and cannot simply be substituted. Best-of-knowledge specific exact norm appears new, with finite-tree literature priority risk.",
+      "residual_risks": [
+        "An older explicit norm computation for finite rooted trees under a different Lipschitz-free/projection language may remain unindexed.",
+        "No sharp claim for deeper or weighted trees, complex target or general Banach-valued extension."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Establishes uniform operator for p in (1,infty), not exact scalar p=infty constant in depth-two homogeneous tree.",
+          "evidence": [
+            "web ; screenshot "
+          ],
+          "identifier_or_url": "https://arxiv.org/pdf/2301.13792",
+          "material_read": "PDF pp.1–2 containing assumptions, W1,p trace norm and Theorem 1.1; searched subsequent endpoint material",
+          "method": "web PDF text and p.2 screenshot",
+          "title": "Linear extension operators for Sobolev spaces on radially-symmetric binary trees",
+          "trigger": "Closest leaf-to-tree operator theorem"
+        },
+        {
+          "assessment": "General doubling/random projection construction, no examined exact homogeneous depth-two optimal constant.",
+          "evidence": [
+            "web ; screenshot "
+          ],
+          "identifier_or_url": "https://arxiv.org/pdf/1801.07533",
+          "material_read": "PDF abstract/introduction and section 4 heading; full theorem not claimed read",
+          "method": "web PDF and page0 screenshot",
+          "title": "Linear Lipschitz and C1 extension operators through random projection",
+          "trigger": "General Lipschitz extension operators"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "evidence": [
+        "Mathematical motivation and non-implication reasoning in originality comparisons",
+        "Reviewed exact theorem / scope / boundaries in RESULT.md"
+      ],
+      "rationale": "The exact optimal simultaneous extension operator norm for a family of finite depth-two trees is a natural Lipschitz-free/trace-space projection constant; the phase boundary Lambda>2 and limiting 8/3 exhibit structural dependence on independent branching parameters. Optimality over non-positive operators is a substantive minimax theorem, not only a computation for one handpicked averaging rule.",
+      "status": "PASS"
+    }
+  },
+  "checked_sources": [
+    "Pinned RESULT.md 541d17b860ac0ca08b3da93d55a171021b544971",
+    "Pinned verify.py 512eed7dfc499c2909bd8de7ae63c90d13943467",
+    "Fefferman–Klartag arXiv:2301.13792 theorem1.1",
+    "Bruè–Di Marino–Stra arXiv:1801.07533",
+    "Resultary star Lipschitz records",
+    "Independent exact tree KR calculations 1,936 edge functionals"
+  ],
+  "disposition": "passed",
+  "limitations": [
+    "Best-of-knowledge originality is conditional, not a priority certification.",
+    "Bounded independent computational checks corroborate, not replace, all-parameter mathematical proofs.",
+    "An older explicit norm computation for finite rooted trees under a different Lipschitz-free/projection language may remain unindexed.",
+    "No sharp claim for deeper or weighted trees, complex target or general Banach-valued extension."
+  ],
+  "residual_risks": [
+    "An older explicit norm computation for finite rooted trees under a different Lipschitz-free/projection language may remain unindexed.",
+    "No sharp claim for deeper or weighted trees, complex target or general Banach-valued extension."
+  ],
+  "schema_version": 1
+}

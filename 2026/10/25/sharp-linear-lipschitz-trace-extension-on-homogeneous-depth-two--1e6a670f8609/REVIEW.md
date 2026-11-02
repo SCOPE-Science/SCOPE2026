@@ -1,9 +1,21 @@
-# Scientific evaluation
+# Independent mathematical audit
 
-**Correctness — PASS.** Automorphism averaging reduces every real-linear extension to a one-parameter family without increasing norm. The exact Kantorovich–Rubinstein tree-flow formula supplies the norm of each output-edge functional. Two dual witness affine lower bounds intersect at the proposed parameter, where direct positive-mass calculation establishes attainment. The proof explicitly handles arbitrary real coefficients, both types of tree edges, both parameters at their lower boundaries, and finite-dimensional norms modulo constants. Exact-rational checks on 49 parameter pairs and 1470 edge functionals independently corroborate the identities; neither finite enumeration nor numerical linear programming substitutes for the proof.
+## correctness
 
-**Originality — PASS, with residual bibliographic uncertainty.** Fefferman–Klartag (arXiv:2301.13792v1) treat the finite-Sobolev-exponent tree extension problem and explicitly leave the infinite endpoint outside their theorem. Bruè–Di Marino–Stra (arXiv:1801.07533v1) provide general Lipschitz random-projection extension operators without this exact tree trace constant. Known one-point star extension questions do not imply simultaneous extension at all internal depth-two vertices. Equivalently formulated exact older finite-tree formulas may be unindexed, and searches do not prove worldwide uniqueness.
+PASS
 
-**Mathematical value — PASS.** The exact two-parameter all-operator optimum is a nontrivial endpoint benchmark for simultaneous extension on branching tree metrics. The threshold \((m-2)(k-1)=4\) and unattained sharp uniform bound \(8/3\) distinguish it from a routine chosen-kernel norm calculation. The result is deliberately restricted to depth two rather than overstating any general endpoint solution.
+For real scalar Lipschitz seminorms on a unit-edge depth-two m-by-k tree, averaging any right inverse under S_k^m semidirect S_m is contractive and fixes leaf values; all symmetric candidates reduce to root mu0 and branch alpha*mu_i+(1-alpha)*mu0. The exact dual norm of any zero-mass signed leaf measure is sum of absolute leaf masses plus sum of absolute branch masses, by tree-edge telescoping with attaining sign potentials. Root-branch edge norm is 4(m-1)|alpha|/m. A concrete leaf test potential gives the affine branch-leaf lower bound 4-2(k+1)(1+(m-1)alpha)/(mk). Their minimax intersection alpha* lies strictly between 0 and 1; in that range direct dual norm computes attainment on every edge. Hence Lambda=4(2mk-k-1)/(m(3k+1)) globally over ALL linear operators. Algebra gives >2 iff (m-2)(k-1)>4 and monotone limiting supremum 8/3. Independently computed 1,936 exact edge dual norms across all 64 pairs (2<=m,k<=9), confirming but not replacing the minimax proof.
 
-Self-review: passed. Independent audit: not yet performed.
+## originality
+
+PASS
+
+Fefferman–Klartag proves existence of bounded W^{1,p}, 1<p<infty, extensions on binary trees with weighted bulk energy; this is distinct from sharp Lipschitz p=infty for every homogeneous depth-two branching pair. Bruè–Di Marino–Stra supplies general random-projection-based Lipschitz extension operators with bounds rather than a sharp exact finite-tree constant. Resultary one-point star and p-Banach formulas apply to different extension geometries and cannot simply be substituted. Best-of-knowledge specific exact norm appears new, with finite-tree literature priority risk.
+
+## value
+
+PASS
+
+The exact optimal simultaneous extension operator norm for a family of finite depth-two trees is a natural Lipschitz-free/trace-space projection constant; the phase boundary Lambda>2 and limiting 8/3 exhibit structural dependence on independent branching parameters. Optimality over non-positive operators is a substantive minimax theorem, not only a computation for one handpicked averaging rule.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
