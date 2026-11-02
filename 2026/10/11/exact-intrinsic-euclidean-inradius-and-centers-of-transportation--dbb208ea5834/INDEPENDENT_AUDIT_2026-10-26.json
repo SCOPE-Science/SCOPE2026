@@ -1,0 +1,181 @@
+{
+  "audit_date_utc": "2026-10-26",
+  "audited_at_utc": "2026-10-26T11:18:52.303559Z",
+  "axes": {
+    "correctness": {
+      "rationale": "For all integers m,n>=2 and strictly positive real margins of common total N, the strictly positive rank-one table r_i c_j/N proves the row/column affine hull has translation space L={H:H1=0,H^T1=0}. P_L(E_ij)=Q_ij=(e_i-1_m/m)(e_j-1_n/n)^T; direct orthogonality to row/column potentials and squared norm kappa²=(m-1)(n-1)/(mn) establish the intrinsic support-hyperplane clearance X_ij/kappa. For a ball B_L(X,rho) contained in all halfspaces X_ij>=0, necessarily rho<=X_ij/kappa for each (i,j), and these inequalities are jointly sufficient; this remains valid even when an individual coordinate inequality is redundant as a facet. Thus radius at X is min X_ij/kappa. If min X_ij>=t, row sums imply t<=min_i r_i/n and column sums t<=min_j c_j/m. Conversely residual margins r_i-nt,c_j-mt are nonnegative and equal-total; outer product Y_ij=r_i^prime c_j^prime/S for S>0, or Y=0 for S=0, yields feasible X=tJ+Y with floor t. At t=t*=min of those two bounds, all optimizing centers are exactly t*J+T(r-nt*1,c-mt*1), including forced-zero residual rows or columns. For dxd Birkhoff margins all one, t*=1/d, kappa=(d-1)/d, rho=1/(d-1) and residual set {0}, so unique center J/d. Independent check used exact rational projections for all i,j with 2<=m,n<=9 (1936 cases), and independent scipy.linprog max-inball LP for 200 positive-margin matrices with 2<=m,n<=6, validating exact formula (numerical LP tolerance). Separately exact counterexamples for d=3..8 locate Birkhoff boundary matrices at rho=1/(d-1), disproving the larger 2017 reported number. Finite tests corroborate, not replace, the all-parameter proof.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Bauschke–Singh–Wang Theorem 3.3 and Example 3.8 give affine orthogonal projections (and the linear tangent space indirectly), but do not bound all nonnegative coordinate slacks jointly or classify optimal intrinsic inball centers.",
+          "Bouthat et al., arXiv:2310.14043, §2.2 and §§4–5, minimize sup_{V in Birkhoff} ||V-X||, the reverse ball containment direction.",
+          "Resultary 97466e887773 determines Minkowski ASYMMETRY and asymmetry centers, an affine-invariant containment criterion, with similar residual-transportation construction but no Euclidean inradius normalization or same incenter criterion.",
+          "Resultary 6c3de65c0b12 treats M_{N,k} with k<N and its larger fixed-total affine hull; it expressly EXCLUDES k=N (ordinary Birkhoff)."
+        ],
+        "reasoning": "The same support geometry and a residual transportation-polytope center locus occur in nearby results, but the optimized functions differ. No inspected stronger theorem states or trivially implies both the positive arbitrary-margin intrinsic inradius and complete Euclidean incenter set. Partial-assignment results do not cover the changed-affine-dimension Birkhoff endpoint.",
+        "searches": [
+          "web: Bauschke Singh Wang Projecting onto rectangular matrices prescribed row and column sums 2021 full text",
+          "web: Bouthat Mashreghi Morneau-Guérin Birkhoff geometry Schatten Chebyshev enclosing ball",
+          "Resultary: Complete Minkowski-center loci of positive-margin transportation polytopes (RESULT.md)",
+          "Resultary: Birkhoff-polytope family of incenters for partial assignment polytopes (RESULT.md)"
+        ]
+      },
+      "checked_sources": [
+        "Collins et al. (2017), J. Convex Analysis 24(3) 903–916, §5.4, https://journalofconvexanalysis.com/articles/jca24053/jca24053.pdf",
+        "Bauschke–Singh–Wang 2021, doi:10.1186/s13663-021-00708-1, full Springer HTML",
+        "Bouthat–Mashreghi–Morneau-Guérin, arXiv:2310.14043v1, sections 2 and 4–5",
+        "Blanchard–De Loera–Louveaux, arXiv:2001.09575v1, section 4",
+        "Resultary/2026 published Minkowski-center finding 97466e887773, entire RESULT.md",
+        "Resultary/2026 published partial-assignment incenter finding 6c3de65c0b12, entire RESULT.md",
+        "Three independent Resultary semantic queries (self-hit excluded); targeted web inradius/insphere/Frobenius searches",
+        "Sage Birkhoff polytope reference (dimensions, vertices, Ehrhart/f-vector only)"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "Collins et al. (2017) Section 5.4 calls r=1/sqrt(d-1) the insphere radius for B_d. It computes distance to B_0=(J-I)/(d-1), a special boundary point, NOT nearest boundary. For d=3 the true closest feasible boundary point relative to J/3 is [[0,1/2,1/2],[1/2,1/4,1/4],[1/2,1/4,1/4]], distance 1/2 <1/sqrt2; in general X=J/d - Q_11/(d*kappa^2) has nonnegative entries, full margins and distance 1/(d-1).",
+          "Bauschke–Singh–Wang derive the row/column affine projector; combining that with elementary facet slack and maximizing the minimum entry requires further mathematical steps. Neither the radius nor incenter locus appears in the inspected main projection theorems.",
+          "Blanchard–De Loera–Louveaux Section 4 concerns monotone graph-path lengths for transportation polytopes, not metric balls.",
+          "Bouthat et al. define Chebyshev radius via inf_center sup_vertex rather than the claimed sup_center inf_boundary."
+        ],
+        "reasoning": "The literature comparison follows mathematical implication: the closest exact same-object Birkhoff inradius statement is incorrect for dimensions >=3 and cannot cover the correct general-margin claim. The affine projector is a component of the new proof but does not alone solve the max-min margin optimization or return its complete center locus. No reviewed published result directly implies both conclusions.",
+        "searches": [
+          "Primary Collins–Kousha–Kulik–Szarek–Życzkowski, Journal of Convex Analysis 24 (2017), Section 5.4, https://journalofconvexanalysis.com/articles/jca24053/jca24053.pdf",
+          "Primary Bauschke–Singh–Wang, Theorem 3.3 and Example 3.8, https://doi.org/10.1186/s13663-021-00708-1",
+          "Primary Blanchard–De Loera–Louveaux, Section 4, https://arxiv.org/pdf/2001.09575",
+          "Primary Bouthat–Mashreghi–Morneau-Guérin, Sections 2–5, https://arxiv.org/pdf/2310.14043"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "The claimed intrinsic Frobenius distance is not an enclosing Chebyshev radius: it is the maximal R for which the affine-hull ball B_L(X,R) lies in the nonnegative transportation polytope.",
+          "Bauschke–Singh–Wang (2021), Introduction and Theorem 3.3, project onto the AFFINE prescribed-margin space, not a maximal inscribed ball of the nonnegative intersection.",
+          "Collins et al. (2017), Section 5.4, use the same Birkhoff object/inner radius but report 1/sqrt(d-1) for B_d; the independently validated correct value is 1/(d-1), so that statement is not an equivalent correct answer for d>=3."
+        ],
+        "reasoning": "Insphere, Chebyshev incenter of complement, nonnegative contingency-table margin robustness, Birkhoff/bistochastic and Frobenius/Hilbert–Schmidt aliases were compared. The only direct exact general-margin Resultary match was the assessed result itself (not priority evidence). The older Birkhoff inner-radius expression is a conflicting numerical claim, not a proof of the general-margin theorem; d=3 explicitly refutes its claimed radius.",
+        "searches": [
+          "web: \"transportation polytope\" \"inradius\" Frobenius Birkhoff polytope",
+          "web: \"Birkhoff polytope\" \"inscribed sphere\" \"center\"",
+          "web: \"transportation polytope\" \"largest inscribed ball\" center",
+          "Resultary search: Exact Euclidean inradius largest inscribed ball centers of transportation polytopes prescribed margins Birkhoff polytope doubly stochastic matrices"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "Resultary directly returns the assessed finding itself; the other most similar hits concern different objects or other invariants (partial assignment, Minkowski asymmetry, John ellipsoids).",
+          "Sage Birkhoff polytope documentation lists dimension, vertices, f-vectors and Ehrhart data, not the asserted positive-margin inball center classification.",
+          "Collins et al. (2017) supplies a Birkhoff number, but it is not a matching correct table: its r=1/sqrt(d-1) conflicts for d>=3 with a feasible Birkhoff boundary matrix at distance 1/(d-1)."
+        ],
+        "reasoning": "The exact general-margin radius and full incenter-set formula were not located in the checked tables/search results. A self-hit is not independent prior evidence; absence is not proof of absolute novelty. The discovered earlier conflicting Birkhoff value is recorded rather than hidden.",
+        "searches": [
+          "Resultary query: Exact Euclidean inradius largest inscribed ball centers of transportation polytopes prescribed margins Birkhoff polytope doubly stochastic matrices",
+          "Resultary query: Birkhoff polytope inradius 1/(n-1) tangential coordinate hyperplanes center Frobenius metric",
+          "Resultary query: Transportation polytope Chebyshev center positivity constraints max minimum matrix entries",
+          "web: \"transportation polytopes\" \"inradius\" \"margins\"; Sage Birkhoff_polytope reference"
+        ]
+      },
+      "rationale": "Qualified best-of-knowledge PASS after primary full-text mathematical implication comparisons and three targeted published-finding searches. Found explicit antecedent Collins et al. (2017) that names exactly the Birkhoff insphere but reports r=1/sqrt(d-1), false for d>=3; its chosen boundary B0=(J-I)/(d-1) is not nearest to uniform J/d. The correct Birkhoff special case is therefore not covered by that numerically conflicting statement. Bauschke–Singh–Wang establish an affine projector; Bouthat et al. calculate smallest enclosing balls; Blanchard–De Loera–Louveaux calculate combinatorial monotone paths. Published same-transportation Minkowski centers use a different asymmetry objective; partial assignment incenters exclude the Birkhoff endpoint. No independently verified prior theorem was found directly implying arbitrary positive-margin Frobenius inradius together with the full optimizing center locus. Residual priority risk persists for unindexed older operations-research work or exact formulas presented without inradius vocabulary. The discovery of the wrong earlier Birkhoff inradius expression merits explicit correction in any eventual scientific publication.",
+      "residual_risks": [
+        "An older article or handbook could give the full arbitrary-margin formula or a mathematically equivalent max-min-center classification under robustness/insphere/transportation vocabulary.",
+        "The Collins et al. (2017) Birkhoff same-object r-value is incorrect for d>=3; a fuller bibliographic history of this error and any later corrections was not completed.",
+        "No assertion is made for sparse or structural-zero transportation polytopes, where projected coordinate normals and residual feasibility differ."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Explicitly asserts B_d inradius 1/sqrt(d-1) (its d is matrix order N in §5.4); for d>=3 this exceeds the true radius 1/(d-1). The cited B_0 lies on several coordinate hyperplanes and is not the nearest boundary point. Therefore does not imply the correct all-margin result and its discrepancy materially strengthens the need for a careful metric calculation.",
+          "evidence": "§5.4: “radius of the inscribed sphere ... distance between B* and ... B0 ... r=1/sqrt(N−1)”; independently constructed feasible Birkhoff nearest-coordinate-face point at distance 1/(N−1).",
+          "identifier_or_url": "B. Collins, T. Kousha, R. Kulik, T. Szarek, K. Życzkowski; J. Convex Analysis 24(3), 903–916 (2017); https://journalofconvexanalysis.com/articles/jca24053/jca24053.pdf",
+          "material_read": "Full-text PDF opening and §§5.1–5.4, especially printed page 913, §5.4; paper definition of R/r and boundary point B_0; viewed page 913 screenshot.",
+          "method": "Lawful open-access primary PDF full-text extraction plus visual screenshot, followed by exact independent counterexample and dimension checks.",
+          "title": "The Accessibility of Convex Bodies and Derandomization of the Hit and Run Algorithm",
+          "trigger": "Direct same-object explicit Euclidean Birkhoff inscribed-radius statement located by targeted search; potentially decisive coverage."
+        },
+        {
+          "assessment": "Gives projections onto the affine prescribed-margin constraints, not the inner Euclidean ball inside their nonnegative intersection, and no complete optimal incenter locus.",
+          "evidence": "Motivation explicitly sets B=G intersect N and contrasts P_G with projection onto B; Theorem 3.3 gives P_C, Example 3.8 the square affine projector.",
+          "identifier_or_url": "H. H. Bauschke, S. Singh, X. Wang; Fixed Point Theory Algorithms Sciences Engineering (2021) 23; arXiv:2105.12222; doi:10.1186/s13663-021-00708-1",
+          "material_read": "Full accessible publisher HTML: motivation, Proposition 1.1, Theorems 2.4, 3.1 and 3.3, rectangular matrix specialization, Corollary 3.7, Example 3.8, and numerical section.",
+          "method": "Lawful full-text publisher HTML, inspected actual theorem formulas and direction of projection.",
+          "title": "Projecting onto rectangular matrices with prescribed row and column sums",
+          "trigger": "Potential domination by a general row/column-sum orthogonal projection theorem."
+        },
+        {
+          "assessment": "Treats smallest containing ball (Chebyshev radius), optimizing inf sup, not largest intrinsic contained ball and not arbitrary-margin center set.",
+          "evidence": "Section 2.2 defines r_norm(A)=sup_{B∈Omega}||A-B|| and Chebyshev radius =inf_A sup_B; this reverses the required containment.",
+          "identifier_or_url": "L. Bouthat, J. Mashreghi, F. Morneau-Guérin; arXiv:2310.14043v1, doi:10.1007/s44146-024-00153-7",
+          "material_read": "Full-text arXiv PDF introductory problem outline, Sections 2.1–2.2 definitions, sections 4–5 via PDF text, with explicit page 7 screenshot.",
+          "method": "Lawful OA primary PDF, text and visual page review.",
+          "title": "On the Geometry of the Birkhoff Polytope II: The Schatten p-norms",
+          "trigger": "Metric ball research on exact same Birkhoff polytope including Frobenius norm."
+        },
+        {
+          "assessment": "Studies vertices, cycle graph, monotone diameters/pivot paths, not the intrinsic Euclidean Chebyshev inball.",
+          "evidence": "Section 4 opening and Lemma 4.1 discuss directed improving edges; no radius/center bound in the inspected core argument.",
+          "identifier_or_url": "M. Blanchard, J. A. De Loera, Q. Louveaux; arXiv:2001.09575v1; doi:10.1137/20M1315646",
+          "material_read": "Primary OA PDF abstract, Theorems 1.5 and 1.11, Section 4 transportation-polytope monotone path arguments and Lemma 4.1; PDF page 19 screenshot.",
+          "method": "Lawful arXiv full-text text extraction and screenshot.",
+          "title": "On the Length of Monotone Paths in Polyhedra",
+          "trigger": "Canonical transportation-polytope polyhedral-combinatorics antecedent."
+        },
+        {
+          "assessment": "Its affine-invariant Minkowski asymmetry minimizes reflected containment using cell upper bounds U_ij; the present Euclidean inball maximizes uniform lower coordinate clearance divided by a projected normal length. Similar residual-locus technique but mathematically distinct optimizations; neither theorem implies the other directly.",
+          "evidence": "Minkowski theorem uses A>=U/beta, beta=max row/column U sums / margin, while inner ball uses A>=t*J, t*=min row/n,col/m.",
+          "identifier_or_url": "Resultary/2026, 2026/10/11/SCOPE-complete-minkowski-center-loci-of-positive-margin-transportation--97466e887773/RESULT.md",
+          "material_read": "Entire published RESULT.md, including exact theorem, full proof 1–5, verification, limitations and references.",
+          "method": "Read canonical GitHub published RESULT.md through repository connector.",
+          "title": "Complete Minkowski-center loci of positive-margin transportation polytopes",
+          "trigger": "Very close same objects/parameters and a translated residual-transportation optimizer locus; possible strong implication."
+        },
+        {
+          "assessment": "Deals with k-assignment polytope in fixed-total codimension-one affine hull, strictly k<N. It excludes ordinary Birkhoff k=N, whose affine hull has fixed rows and columns, and does not cover general positive-margin transportation polytopes.",
+          "evidence": "Theorem assumptions N>=3, 2<=k<N and text expressly excludes endpoint k=N because facet/affine-hull structures change.",
+          "identifier_or_url": "Resultary/2026, 2026/10/11/SCOPE-a-birkhoff-polytope-family-of-incenters-for-partial-assignment-p--6c3de65c0b12/RESULT.md",
+          "material_read": "Entire published RESULT.md: theorem for 2<=k<N, facet geometry, threshold proof, limitations and references.",
+          "method": "Read canonical GitHub published RESULT.md via repository connector.",
+          "title": "A Birkhoff-polytope family of incenters for partial assignment polytopes",
+          "trigger": "Same metric inradius and Birkhoff-center appearance, but potentially changed polytope family."
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "rationale": "Positive-margin transportation polytopes are a canonical matrix-feasibility/optimal-transport family, and the intrinsic Frobenius inball describes sharp uniform robustness of nonnegative feasible tables under perturbations respecting both sets of margins. The result determines that quantity for every positive real margin list and all m,n>=2 by a simple minimum-normalized-margin bottleneck, and classifies the entire (possibly positive-dimensional) optimizer set as one residual transportation polytope. The full center-locus description is nontrivial and directly useful for selecting robust feasible tables; no unrelated downstream theorem is required. The explicit Birkhoff specialization also resolves an erroneous numerical inradius in a 2017 primary convex-geometry study (whose choice of boundary point was not closest). The proof is elementary once the projected normals and complete support are recognized; that limits depth but does not turn this all-parameter natural exact classification into an arbitrary slice or merely a verifier output.",
+      "status": "PASS"
+    }
+  },
+  "checked_sources": [
+    {
+      "title": "The Accessibility of Convex Bodies and Derandomization of the Hit and Run Algorithm",
+      "url": "B. Collins, T. Kousha, R. Kulik, T. Szarek, K. Życzkowski; J. Convex Analysis 24(3), 903–916 (2017); https://journalofconvexanalysis.com/articles/jca24053/jca24053.pdf"
+    },
+    {
+      "title": "Projecting onto rectangular matrices with prescribed row and column sums",
+      "url": "H. H. Bauschke, S. Singh, X. Wang; Fixed Point Theory Algorithms Sciences Engineering (2021) 23; arXiv:2105.12222; doi:10.1186/s13663-021-00708-1"
+    },
+    {
+      "title": "On the Geometry of the Birkhoff Polytope II: The Schatten p-norms",
+      "url": "L. Bouthat, J. Mashreghi, F. Morneau-Guérin; arXiv:2310.14043v1, doi:10.1007/s44146-024-00153-7"
+    },
+    {
+      "title": "On the Length of Monotone Paths in Polyhedra",
+      "url": "M. Blanchard, J. A. De Loera, Q. Louveaux; arXiv:2001.09575v1; doi:10.1137/20M1315646"
+    },
+    {
+      "title": "Complete Minkowski-center loci of positive-margin transportation polytopes",
+      "url": "Resultary/2026, 2026/10/11/SCOPE-complete-minkowski-center-loci-of-positive-margin-transportation--97466e887773/RESULT.md"
+    },
+    {
+      "title": "A Birkhoff-polytope family of incenters for partial assignment polytopes",
+      "url": "Resultary/2026, 2026/10/11/SCOPE-a-birkhoff-polytope-family-of-incenters-for-partial-assignment-p--6c3de65c0b12/RESULT.md"
+    }
+  ],
+  "disposition": "passed",
+  "limitations": [
+    "The result is for m,n>=2, strictly positive common-total margins, complete support and intrinsic Frobenius metric; arbitrary sparse supports, other norms, nonpositive margins and inconsistent totals are outside scope.",
+    "Originality is a qualified best-of-knowledge assessment; Collins et al. (2017) contains a conflicting incorrect special-case number that warrants explicit correction before scientific release.",
+    "Public source METADATA.json and AUDIT.json contain operational run identifiers, review-status provenance and a 2020 first_public_date referring to a cited antecedent rather than this 2026 result; REVIEW.md exposes review-process metadata. A fully guarded truthful confidentiality-safe sanitation bundle was not constructed, hence publication is not_ready.",
+    "No source repository modification, publication, independent expert attestation, formal proof, or dispatcher closeout was performed."
+  ],
+  "schema_version": 1
+}
