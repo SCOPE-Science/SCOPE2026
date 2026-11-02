@@ -1,0 +1,126 @@
+{
+  "audit_date_utc": "2026-10-26",
+  "audited_at_utc": "2026-10-26T04:10:40.160624Z",
+  "axes": {
+    "correctness": {
+      "checked_sources": [
+        "Denis Zelent, Stability of concentration in the Paley–Wiener space, arXiv:2610.01299v1 (2026) eq (13), Proposition 1, eq (21)",
+        "Actual frozen RESULT.md and VERIFICATION.md Git blobs 2ee4f5f69d97fc4ecce6c987b81dc152d14530b1 and d17be880727fac7b0cb1cdff7b7870dbf4e1ba47"
+      ],
+      "rationale": "PASS for every fixed s>0 and joint epsilon->0, epsilon<=b_epsilon->0. From the exact E removal/addition identity D_0(E)=int_{r-epsilon}^r int_0^b -u_s'(x+t)dt dx and continuity of the prolate ground-state density derivative, D_0=-u_s'(r)epsilon*b[1+o(1)], with u_s'(r)<0 (Zelent (13)). The interval mass profile Phi_0(a)=int_{-r}^r u_s(x-a)dx has unique global maximum at a=0 (bathtub inequality from the strict inside/outside threshold), curvature Phi_0''(0)=2u_s'(r)<0. Uniform C^2 closeness of Phi_E to Phi_0 (symmetric-difference measure 2epsilon) forces its maximizer a_E to zero; Phi_E'(0)=int_{r-epsilon}^r[u_s'(x)-u_s'(x+b)]dx=O(epsilon*b) by bounded u_s'', so a_E=O(epsilon*b) and its gain over Phi_E(0) is O(epsilon^2*b^2). Thus D(E)=D_0+O(epsilon^2*b^2). Zelent Prop. 1 / eq (21) proves 0<=D(E)-eta(E)<=A_s D(E)^2; as D(E) asymp epsilon*b->0, eta(E)~ -u_s'(r)epsilon*b. The argument uses an analytic inequality and strict center-curvature, not experimental extrapolation.",
+      "residual_risks": [
+        "The cited 2026 global interval optimality and stability papers are used as prior mathematical premises; this assessment reconstructs the new argument, not a new independent proof of their entire foundational results.",
+        "No claim for fixed b>0, second-order coefficient, or joint s variation."
+      ],
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Zelent arXiv:2610.01299v1 eq (21) gives 0<=D(E)-eta(E)<=A_s D(E)^2 for all fixed-measure E.",
+          "Abreu–Speckbacher arXiv:2607.19192v1 Theorem 1.1 proves global interval optimality.",
+          "Zelent eq (13) states strict endpoint slope and threshold ordering for u_s."
+        ],
+        "reasoning": "The general results supply the deep premises but do not state the optimized-displacement first variation. The new specific asymptotic follows using additional quantitative center sensitivity. Because that calculation uses routine Taylor/implicit optimization, the possible status as an immediate corollary is a material priority limitation.",
+        "searches": [
+          "web: arxiv 2610.01299 Stability of concentration in the Paley Wiener space Zelent full theorem discrepancy eta quadratic",
+          "web: arxiv 2607.19192 optimal concentration Paley Wiener Abreu Speckbacher interval maximizer",
+          "web: Slepian prolate concentration eigenvalue shape derivative interval splitting perturbation small gap",
+          "Resultary: sharp stability of Paley-Wiener concentration weighted set discrepancy versus spectral deficit and displaced interval"
+        ]
+      },
+      "checked_sources": [
+        "Denis Zelent, Stability of concentration in the Paley–Wiener space, arXiv:2610.01299v1 (2026); primary HTML §1–4 and eq (21)",
+        "Luís D. Abreu and Michael Speckbacher, Optimal concentration in the Paley–Wiener space, arXiv:2607.19192v1 (2026); author-posted CC BY full text, theorem and end proof",
+        "Classical prolate endpoint and derivative facts as explicitly stated and attributed in Zelent eq (13) and (18)",
+        "Resultary semantic searches for sharp shift-coefficient, detachment, and weighted-discrepancy formulations",
+        "Web searches of exact endpoint-slope and nearby spectral-perturbation formulations"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "Zelent §3 eq (21) reduces the novel spectral asymptotic to the optimized weighted discrepancy; the source does not compute D(E_{epsilon,b}) at leading order for b->0.",
+          "Zelent §1.1 explicitly compares only b=epsilon and fixed b_0>0.",
+          "The new local calculation bounds shift a_E=O(epsilon*b), so recentering alters loss only O(epsilon^2*b^2)."
+        ],
+        "reasoning": "The new claim is strongly implied by the general stability comparison plus an elementary but quantitative local optimization. It is not logically an immediate substitution because D is an infimum over all translations, requiring global optimizer localization and a uniform recentering estimate. The difference is narrow and must not be marketed as new general stability theory.",
+        "searches": [
+          "web: arxiv 2610.01299 Stability of concentration in the Paley Wiener space Zelent full theorem discrepancy eta quadratic",
+          "web: Paley-Wiener detached piece concentration eps b exact slope prolate vanishing displacement",
+          "Resultary: sharp stability of Paley-Wiener concentration weighted set discrepancy versus spectral deficit and displaced interval"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Zelent arXiv:2610.01299v1 §1.1 gives E_{epsilon,b} and two comparable-order examples, not an exact two-scale limit.",
+          "Exact-phrase/result-database searches returned the record under assessment, not an independent covering source."
+        ],
+        "reasoning": "The proposed epsilon*b law, the prolate boundary-slope coefficient, and the displacement crossover are equivalent descriptions. The closest primary paper sets up the family but does not state this uniform two-parameter sharp coefficient.",
+        "searches": [
+          "web: \"Paley-Wiener\" \"detached\" \"epsilon\" \"asymptotic\" concentration",
+          "web: \"Paley Wiener\" \"endpoint slope\" \"concentration deficit\"",
+          "web: Paley Wiener detached piece concentration eps b exact slope prolate vanishing displacement",
+          "Resultary: Exact leading coefficient concentration loss when a short portion of a Paley-Wiener interval is shifted a small distance; prolate endpoint derivative times length displacement"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "The indexed record with the identical exact coefficient is the record currently under assessment (Resultary id 2026/10/11/SCOPE-exact-detachment-crossover-for-paley-wiener-concentration--2c548bca48bc).",
+          "Other retrieved records concern different spectral/geometric quantities; there is no relevant finite table for a joint asymptotic over all real epsilon,b."
+        ],
+        "reasoning": "No independent same-object database entry found; the self-match was expressly excluded as evidence of novelty. This is a continuous asymptotic coefficient, not a tabulated finite count.",
+        "searches": [
+          "Resultary: Paley Wiener concentration operator detachment crossover exact threshold eigenvalue bandlimited time frequency window critical transition competing eigenvalue discrete spectrum",
+          "Resultary: Paley Wiener time band limiting optimal shape small interval detachment spectral deficit perturbation eigenvalue shape derivative",
+          "web: Paley Wiener detached piece concentration eps b exact slope prolate vanishing displacement"
+        ]
+      },
+      "rationale": "Best-of-knowledge PASS narrowly for the explicit two-parameter leading coefficient, not the prior global concentration or stability theorems. Zelent 2026 introduces exactly this family and proves quadratic-versus-linear orders for two different regimes; its general inequality eta=D+O(D^2) is a strong pre-existing premise. The remaining new content is the asymptotic optimized discrepancy under a shrinking displacement, including quantitative recentering O(epsilon*b). A short standard Taylor argument suffices once that premise is known; therefore the priority and significance claim is intentionally limited to this exact unstated joint-limit formula. Direct searches found only the same assessed public record among exact formula hits, which is not independent evidence of priority. No inspected pre-existing statement gives the full two-scale coefficient. An unindexed corollary or routine extraction from Zelent remains a real residual risk.",
+      "residual_risks": [
+        "The complete direct text of the 1961 prolate article was not separately read; endpoint monotonicity and smoothness are checked as explicit stated inputs in the directly inspected 2026 primary source.",
+        "The proposed formula is a very short corollary of the strong Zelent comparison once the local center-optimization calculation is made, so a reader may regard it as mechanically implicit in that work.",
+        "A recent/unindexed note might already report the coefficient and joint limit; negative searches cannot establish absolute historical priority.",
+        "Originality does not extend to b bounded away from zero, global interval optimality, or the weighted-versus-spectral deficit comparison."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "DIRECT PARTIAL COVERAGE: the source states eta(E_{epsilon,epsilon}) comparable to epsilon^2 and eta(E_{epsilon,b0}) comparable to epsilon for b0>0 fixed, and proves 0<=D-eta<=A_s D^2. It neither states an exact -u_s'(s/2) coefficient nor proves uniform joint epsilon<=b->0 for this family.",
+          "evidence": "Introduction equations for E_{epsilon,b} and two order examples (lines 79–96); threshold/end-slope properties (lines 256–266); local comparison (lines 217–319); theorem proof eq (21) (lines 368–379).",
+          "identifier_or_url": "https://arxiv.org/html/2610.01299v1",
+          "material_read": "Full available arXiv HTML through introduction sections 1.1–1.4, Proposition 1 and its proof in section 2, Lemma 1 and Theorem 1 proof in section 3, and the sharpness section 4.",
+          "method": "Direct reading of full source HTML, including formulas (5), (13)–(17), (21) and statements surrounding the detached example.",
+          "title": "Stability of concentration in the Paley–Wiener space",
+          "trigger": "Exact same detached-piece E_{epsilon,b}, its two fixed-scale examples, and the quantitative discrepancy-versus-deficit theorem."
+        },
+        {
+          "assessment": "FOUNDATIONAL ONLY: interval concentration maximality for all fixed measures and bandwidths, without a detached-piece asymptotic.",
+          "evidence": "Theorem 1.1 asserts C_Omega(E)<=C_Omega(I); section 9 closes the proof for arbitrary finite-measure E (rendered source lines 264–294, 3642–3675).",
+          "identifier_or_url": "arXiv:2607.19192v1; author-uploaded CC BY full text https://www.researchgate.net/publication/410643263_Optimal_concentration_in_the_Paley-Wiener_space",
+          "material_read": "Theorem 1.1 and setup, surrounding analysis of interval optimality, Theorem 2.1, and the conclusion of proof section 9 in the author-posted full-text rendering; not every page was individually checked.",
+          "method": "Direct reading of legally posted author full-text rendering after the arXiv HTML/PDF endpoints did not load.",
+          "title": "Optimal concentration in the Paley–Wiener space",
+          "trigger": "Foundational global interval extremizer underlying the stability theorem."
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "checked_sources": [
+        "Denis Zelent, Stability of concentration in the Paley–Wiener space, arXiv:2610.01299v1 (2026) canonical detached-piece motivation in §1.1",
+        "Luís D. Abreu and Michael Speckbacher, Optimal concentration in the Paley–Wiener space, arXiv:2607.19192v1 (2026) interval extremizer theorem"
+      ],
+      "rationale": "PASS as a motivated exact calibration of the canonical detached-piece example singled out by Zelent: the first-order deficit tracks displaced measure times distance with an intrinsic prolate boundary-slope constant, interpolating the adjacent epsilon^2 regime and genuinely mesoscopic epsilon=o(b)->0 regime. The specified infinite joint-scale asymptotic is useful for assessing whether weighted set discrepancies resolve the movement distance lost by symmetric difference. The calculation is short and heavily dependent on known general stability; it is not a broader theorem, a new stability method, a fixed-b coefficient, or proof of any numerical algorithm.",
+      "residual_risks": [
+        "The result is a specialized, short exact asymptotic; it is not independent of existing stability machinery.",
+        "A formula for a fixed positive detachment or arbitrary perturbation shape is not established."
+      ],
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "limitations": [
+    "Best-of-knowledge historical priority only; the published broad stability theorem supplies the major analytic input.",
+    "Claim restricted to b->0 with epsilon<=b and fixed s; no fixed-b or higher-order claim.",
+    "Replacements are staged and require authorized importer validation, not published in this audit."
+  ],
+  "schema_version": 1
+}

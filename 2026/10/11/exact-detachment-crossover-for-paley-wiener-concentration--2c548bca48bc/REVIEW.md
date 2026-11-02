@@ -1,67 +1,23 @@
-# Review of Exact detachment crossover for Paley–Wiener concentration
+# Mathematical review: Exact detachment crossover for Paley–Wiener concentration
 
 ## Correctness
 
-PASS. The unshifted weighted discrepancy has the exact identity
-\[
-D_0(E_{\varepsilon,b})
-=
-\int_{r-\varepsilon}^{r}
-\int_0^b
--u_s'(x+t)\,dt\,dx.
-\]
-When
-\[
-b\to0,
-\qquad
-\varepsilon\le b,
-\]
-the integration rectangle collapses uniformly to the endpoint \(r=s/2\), so this equals
-\[
--u_s'(r)\varepsilon b(1+o(1)).
-\]
+The claimed law holds for a fixed interval length s>0 and a joint limit epsilon->0, epsilon<=b->0. With r=s/2 and u_s the squared normalized first prolate function, the centered weighted discrepancy is exactly
 
-The interval center is a unique strict maximizer and has curvature
-\[
-2u_s'(r)<0.
-\]
-The detached perturbation changes the first center derivative by only
-\[
-O(\varepsilon b),
-\]
-so the optimal center moves by
-\[
-O(\varepsilon b)
-\]
-and improves the mass by only
-\[
-O(\varepsilon^2b^2).
-\]
-The recent stability proof then supplies
-\[
-0\le\mathcal D(E)-\eta(E)\le A_s\mathcal D(E)^2,
-\]
-which preserves the same leading asymptotic.
+D_0(E_{epsilon,b}) = integral from r-epsilon to r, integral from 0 to b, of -u_s'(x+t) dt dx.
+
+The strict endpoint slope gives D_0=-u_s'(r)epsilon*b(1+o(1)). The interval mass profile has unique maximizing center zero with curvature 2u_s'(r)<0. A first-derivative perturbation of order epsilon*b shifts its maximizing center by O(epsilon*b), changing the optimized mass by only O(epsilon^2*b^2). The published comparison 0<=D(E)-eta(E)<=A_s D(E)^2 then transfers the sharp leading term to the spectral deficit. The proof is analytic and does not rely on finite sampling.
 
 ## Originality
 
-PASS. The October 2026 primary source introduces exactly the family
-\[
-E_{\varepsilon,b}
-\]
-and gives only two order comparisons: quadratic loss when \(b=\varepsilon\), and linear loss in \(\varepsilon\) for fixed positive \(b\). It does not calculate the leading coefficient or the joint regime in which \(b\) itself tends to zero.
+The 2026 Paley–Wiener stability theorem of Denis Zelent already introduces this exact family, supplies the weighted discrepancy and quadratic spectral comparison, and gives two order examples. The exact joint vanishing-displacement coefficient is not stated there. The mathematical addition is narrowly the recentering-sensitive two-scale asymptotic, not a new global concentration or stability theorem. This short deduction depends heavily on existing work; an unindexed equivalent corollary remains a priority risk.
 
-The earlier optimal-concentration theorem establishes the interval extremizer but contains no stability expansion for a detached piece. Classical prolate theory supplies the endpoint slope and spectral gap but not the set-perturbation crossover.
+## Mathematical value
 
-Exact-source and implication-equivalent searches did not locate a published statement of the product law
-\[
-\eta\sim-u_s'(s/2)\varepsilon b.
-\]
+The canonical detached-piece example demonstrates that ordinary symmetric difference does not measure displacement. The sharp coefficient identifies how local loss depends on moved length times distance and supplies a precise benchmark across the adjacent and mesoscopic regimes. No fixed-displacement coefficient, second-order expansion, or new general set-stability theory is claimed.
 
-## Value
+## References
 
-PASS. The source uses the detached-piece example to motivate why symmetric difference loses displacement information. The exact product law quantifies precisely the missing information: near the interval boundary the concentration deficit measures moved length times travel distance, with an intrinsic sharp coefficient supplied by the optimizer's boundary slope.
-
-This unifies the source's adjacent-piece quadratic regime with the previously unstated mesoscopic regime and gives an exact leading constant rather than only an order estimate.
-
-Same-model review: passed. Independent audit: not yet performed.
+- Denis Zelent, *Stability of concentration in the Paley–Wiener space*, arXiv:2610.01299v1 (2026), especially the detached example, Proposition 1 and equation (21).
+- Luís D. Abreu and Michael Speckbacher, *Optimal concentration in the Paley–Wiener space*, arXiv:2607.19192v1 (2026), Theorem 1.1.
+- Classical prolate spheroidal analysis of Slepian, Landau, and Pollak, as used in the cited stability theorem.
