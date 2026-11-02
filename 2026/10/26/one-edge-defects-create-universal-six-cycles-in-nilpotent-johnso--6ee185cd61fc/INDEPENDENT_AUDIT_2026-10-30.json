@@ -1,0 +1,117 @@
+{
+  "audit_date_utc": "2026-10-30",
+  "audited_at_utc": "2026-10-30T20:44:24.952254Z",
+  "axes": {
+    "correctness": {
+      "checked_sources": [
+        "Frozen RESULT.md Git blob 0f223efcafa5d5ae192e999fda7340ed9efe9c8e",
+        "Frozen johnson_edge_verify.py blob 87fcdfa76bffe37995e357922da3f3a99a0b517e, read source",
+        "Independent independent_checks.py GF2_JOHNSON_CHECKS_OK, n=4,6,8 tested with finite exhaustive small cases",
+        "Peeters, Journal of Algebraic Combinatorics 15 (2002) §4.1, full available HTML"
+      ],
+      "rationale": "Over F2, the k-subset permutation module is exterior-degree k, with adjacency A=wedge_u contraction_i plus kI. Even k and n imply A^2=0; decomposition along a distinguished vector with contraction_i=1 gives rank r=binom(n-2,k-1). For deleted adjacent k-subsets u,v, U=span(e_u,e_v,Ae_u,Ae_v) is four-dimensional, since A e_u and A e_v have supports outside u,v and can be separated. B e_u=Ae_u+e_v, B e_v=Ae_v+e_u, B(Ae_u)=e_u and B(Ae_v)=e_v. From this explicit 4x4 action, B^3 swaps each paired coordinate, B^6 fixes all of U, only zero is fixed, and B^3 has exactly four fixed vectors, giving one 3-cycle and two 6-cycles. The rank-two edge term makes B²=AE+EA+E² with image exactly U. The preimage count is 2^{N-(r+2)} per attractor state for one more step, giving exact cumulative totals. Independent GF2 adjacency and orbit assertions reproduce six n,k instances and exhaustive populations for N<=15; universal formulas come from the algebra, not those samples.",
+      "residual_risks": [
+        "Only even n and even k in the indicated range, with exactly one deleted undirected edge.",
+        "Counts are for all 2^N initial binary states; finite enumeration is corroboration only."
+      ],
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "The 2002 paper covers general mod-p rank for distance-regular matrices, not a non-distance-regular edge-deleted graph.",
+          "A published mod-four orbit census for Boolean cubes addresses a separate adjacency structure."
+        ],
+        "reasoning": "A general matrix computation could derive B dynamics, but the inspected published theorem does not give this Johnson-specific exact cycle and hitting-time count as a corollary.",
+        "searches": [
+          "Peeters p-ranks distance-regular graphs Johnson 2002",
+          "Resultary query Johnson graph J(n,k) over F2 adjacency nilpotent one edge deletion parity cellular automaton period 3 6",
+          "GF2 matrix finite dynamical systems rank two perturbations"
+        ]
+      },
+      "checked_sources": [
+        "Peeters (2002) original full text https://studylib.net/doc/10958606/p-of-distance-regular-graphs §4.1",
+        "Resultary query: Johnson graph J(n,k) over F2 adjacency nilpotent one edge deletion parity cellular automaton period 3 6"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "The known binary rank r is used as a premise; the specific edge defect forces B^2V=U of dimension four.",
+          "Restriction B|U has order 6 and produces the two primitive periods, which are not entailed by rank(A)."
+        ],
+        "reasoning": "The antecedent establishes one required rank but neither perturbed operator dynamics nor exact transient populations. A matrix lemma plus Johnson structure supplies the new result.",
+        "searches": [
+          "Peeters original 2002 §4.1",
+          "Resultary query Johnson graph J(n,k) over F2 adjacency nilpotent one edge deletion parity cellular automaton period 3 6"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Peeters Section 4.1 computes rank and the polynomial constraints of A, not B=A+E.",
+          "Resultary distance-two Boolean cube parity orbit census concerns a different underlying graph."
+        ],
+        "reasoning": "The perturbation-induced primitive six-period orbits cannot be identified with the previously nilpotent unperturbed system.",
+        "searches": [
+          "Johnson graph J(n,k) over F2 adjacency nilpotent one edge deletion parity cellular automaton period 3 6",
+          "one edge deleted Johnson graph binary adjacency cellular automaton period 6 mod 2",
+          "Peeters 2002 Johnson graph p-rank"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "Published tables report only ranks of unmodified Johnson adjacency; no deleted-edge cycle/census entry in inspected primary text.",
+          "Resultary ranked hits did not return an exact six-cycle Johnson deleted-edge record."
+        ],
+        "reasoning": "Known rank values alone do not fix periods or cumulative preimage counts after an edge deletion; negative search is not certified novelty.",
+        "searches": [
+          "Resultary query Johnson graph J(n,k) over F2 adjacency nilpotent one edge deletion parity cellular automaton period 3 6",
+          "Johnson graph deleted edge XOR period six binary state",
+          "Peeters 2002 Section 4.1 table rank"
+        ]
+      },
+      "rationale": "Peeters 2002 Section 4.1 gives the unmodified Johnson graph binary rank rk_2(J(n,k)+kI)=binom(n-2,k-1) for even n and other modular ranks; this known prerequisite is not novel. His paper does not discuss deleting one edge, synchronous finite-state parity dynamics, the 4-dimensional invariant block after perturbation, periods 3 and 6, or the exact transient census. The unperturbed rank plus explicit independent edge-update analysis are necessary new implications. Resultary related Johnson graph and parity dynamics concern other adjacency graphs and orbit problems.",
+      "residual_risks": [
+        "A broader binary linear cellular automaton low-rank edge-perturbation theorem might subsume the result; no exhaustive search of obscure finite dynamics literature.",
+        "If an older defect-modification rank theorem exists, the novelty must be reassessed against its full implications."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "COVERS_UNPERTURBED_RANK_ONLY",
+          "evidence": "Provides rk2(J(n,k)+kI)=C(n-2,k-1) for even n, but no edge deletion or orbit cycles.",
+          "identifier_or_url": "https://studylib.net/doc/10958606/p-of-distance-regular-graphs",
+          "material_read": "Full lawful HTML transcription, especially §4.1 Johnson graphs and references; paper sections and main goals checked. Tilburg repository OA download separately attempted but returned 403.",
+          "method": "Read original full text as a hosted HTML transcription; confirmed §4.1 displayed equations and scope.",
+          "title": "On the p-Ranks of the Adjacency Matrices of Distance-Regular Graphs",
+          "trigger": "Exact Johnson-graph mod-two rank is a likely antecedent"
+        },
+        {
+          "assessment": "DIFFERENT_GRAPH",
+          "evidence": "Distance-two Boolean cubes differ from Johnson one-edge deletion.",
+          "identifier_or_url": "Resultary research-record identifier: 2026/10/11/SCOPE-a-mod-four-orbit-census-for-parity-automata-on-distance-two-bool--f288ef2fe8b4",
+          "material_read": "Resultary title/summary, not full source.",
+          "method": "Read research-record summary.",
+          "title": "A mod-four orbit census for parity automata on distance-two Boolean cubes",
+          "trigger": "Related result on parity automata"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "checked_sources": [
+        "Frozen RESULT.md; explicit invariant four-dimensional block",
+        "Independent GF2 rank/orbit tests; full family proof algebraic"
+      ],
+      "rationale": "A single missing edge converts a nilpotent synchronous XOR network into a uniform finite recurrent attractor with genuinely new primitive three- and six-cycles for an infinite graph family. Exact one- versus two-step basin sizes measure a sharp robustness failure; the claim is not simply unperturbed rank recomputation. This has a direct motivation as fault response of linear network dynamics and a concise structural answer.",
+      "residual_risks": [
+        "Does not address deleting two edges, other parities, or perturbations of arbitrary strongly regular graphs."
+      ],
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "final_claim": "For Johnson J(n,k), n even >=4 and k even, 2<=k<=n-2, binary synchronous parity adjacency A is square-zero; deleting any one edge gives B=A+E with exactly sixteen recurrent configurations: one fixed zero state, one primitive three-cycle and two primitive six-cycles. Every configuration reaches this attractor after at most two updates, with cumulative counts 16, 2^{binom(n,k)-binom(n-2,k-1)+2}, 2^{binom(n,k)} at depths 0,1,2.",
+  "limitations": [
+    "Finite checks n=4,6,8 do not prove all even n,k.",
+    "The result is specific to GF2 parity update and deletion of one Johnson edge."
+  ],
+  "schema_version": 1
+}

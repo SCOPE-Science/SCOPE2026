@@ -1,15 +1,21 @@
-# Scientific review
+# Independent mathematical audit
 
-## Correctness
-PASS. A self-contained exterior-algebra proof establishes that the original adjacency matrix squares to zero and has rank \(r=\binom{n-2}{k-1}\). The four vectors associated to an edge form an independent, invariant four-dimensional space whose explicit action has one fixed point, one three-cycle and two six-cycles. The formula for \(B^2\) proves all states reach that space in at most two updates. Symmetry and a direct-sum rank argument establish the exact transient population. A standalone verifier checked all initial configurations on the three smallest tested graph instances, as well as nine exact-rank instances through \(n=10\). Finite testing is corroboration only.
+## correctness
 
-## Originality
-PASS within documented search coverage. Peeters (2002), Section 4.1, already proves relevant binary ranks and polynomial constraints for unperturbed Johnson graphs, so those antecedents are not claimed as new. The extra edge-deletion term defeats the original nilpotence and yields a four-dimensional periodic attractor of order six; no implication of this perturbed classification was found in the inspected sources, related published parity-automaton results, or accessible historical claim records. Ganesan (2014) treats graph automorphisms, not XOR dynamical orbits; Kong–Lv–Wang (2011) treats Johnson incidence graphs. An unindexed or inaccessible equivalent remains a material risk. Novelty is not certified by the absence of a search hit.
+PASS
 
-## Value
-PASS. The main insight is that deletion of a single adjacency creates exact six-periodic oscillations from a globally nilpotent update, uniformly over an infinite two-parameter Johnson family. The sixteen-state attractor, full cycle census, and exact two-step transient populations quantify a natural robustness failure in finite binary network dynamics. This is a qualitative bifurcation, not merely a recomputation of the known binary rank.
+Over F2, the k-subset permutation module is exterior-degree k, with adjacency A=wedge_u contraction_i plus kI. Even k and n imply A^2=0; decomposition along a distinguished vector with contraction_i=1 gives rank r=binom(n-2,k-1). For deleted adjacent k-subsets u,v, U=span(e_u,e_v,Ae_u,Ae_v) is four-dimensional, since A e_u and A e_v have supports outside u,v and can be separated. B e_u=Ae_u+e_v, B e_v=Ae_v+e_u, B(Ae_u)=e_u and B(Ae_v)=e_v. From this explicit 4x4 action, B^3 swaps each paired coordinate, B^6 fixes all of U, only zero is fixed, and B^3 has exactly four fixed vectors, giving one 3-cycle and two 6-cycles. The rank-two edge term makes B²=AE+EA+E² with image exactly U. The preimage count is 2^{N-(r+2)} per attractor state for one more step, giving exact cumulative totals. Independent GF2 adjacency and orbit assertions reproduce six n,k instances and exhaustive populations for N<=15; universal formulas come from the algebra, not those samples.
 
-## Limits
-All quantifiers require even \(n\ge4\) and even \(2\le k\le n-2\), and the graph must have exactly one removed edge. Independent examination and exhaustive coverage of historical literature have not been performed.
+## originality
 
-Self-review: passed. Independent audit: not yet performed.
+PASS
+
+Peeters 2002 Section 4.1 gives the unmodified Johnson graph binary rank rk_2(J(n,k)+kI)=binom(n-2,k-1) for even n and other modular ranks; this known prerequisite is not novel. His paper does not discuss deleting one edge, synchronous finite-state parity dynamics, the 4-dimensional invariant block after perturbation, periods 3 and 6, or the exact transient census. The unperturbed rank plus explicit independent edge-update analysis are necessary new implications. Resultary related Johnson graph and parity dynamics concern other adjacency graphs and orbit problems.
+
+## value
+
+PASS
+
+A single missing edge converts a nilpotent synchronous XOR network into a uniform finite recurrent attractor with genuinely new primitive three- and six-cycles for an infinite graph family. Exact one- versus two-step basin sizes measure a sharp robustness failure; the claim is not simply unperturbed rank recomputation. This has a direct motivation as fault response of linear network dynamics and a concise structural answer.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
