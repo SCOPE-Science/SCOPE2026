@@ -1,0 +1,103 @@
+{
+  "audit_date_utc": "2026-10-31",
+  "audited_at_utc": "2026-10-31T10:47:43Z",
+  "axes": {
+    "correctness": {
+      "rationale": "Reconstructed balanced connected directed multigraph/Euler-tour equivalence, including active-vertex convention and loop-only singleton. Flow conservation uniquely gives one integer triangle circulation t with three nonnegative opposing pair counts. The mutually exclusive cases one active loop vertex, a connected two-vertex reversible pair, three vertices with nonzero circulation, and three vertices with t=0 and at least two reversible links give exactly the stated formal generating function; no disconnected loop components counted. Positive off-diagonal support thresholds follow from minimum arc lengths. Fresh, separately implemented enumeration of all 3^n words for n=1..9 agrees with symbolic GF by each support type, but unrestricted n relies on the exact Eulerian case decomposition.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "2012 IEEE TIT paper counts all balanced matrices, known rational F3(z), and isolates Eulerian connectivity (not support-marked counts)",
+          "2021 Beeri–Schwartz PDF p.3 Lemma 6 gives balance/Eulerian feasibility, then studies feasible ranking permutations and encoding bounds"
+        ],
+        "reasoning": "A broader general Markov-type setting supplies the feasibility criterion and unrefined totals, but the exact support refinement is not a corollary of the unrefined total without a fresh bivariate decomposition. Its derivation here is checked, so priority is restricted to that evaluation.",
+        "searches": [
+          "Jacquet Knessl Szpankowski Counting Markov Types Balanced Matrices and Eulerian Graphs 2012 Section 3",
+          "Beeri Schwartz Improved Rank-Modulation Codes for DNA Storage with Shotgun Sequencing arXiv2101.06033 Sections II–IV"
+        ]
+      },
+      "checked_sources": [
+        "Jacquet–Knessl–Szpankowski 2012 DOI:10.1109/TIT.2012.2191476 full PDF",
+        "Beeri–Schwartz arXiv:2101.06033 PDF",
+        "Resultary published-finding corpus search and binary multispectrum neighbor",
+        "Git frozen 2026-10-26 RESULT.md, verify.py, METADATA.json, AUDIT.json"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "General Eulerian multigraph criterion implies realizability and unrefined counts when specialized to m=3, but has no u-marked offdiagonal class coefficients in inspected formula",
+          "The present flow case distinction supplies genuinely additional counts under each support s."
+        ],
+        "reasoning": "Prior criteria imply the problem setup and reduction, not the evaluated six support branches. The all-balanced generating function alone cannot recover coefficients of the extra independent support variable; the theorem explicitly credits the known u=1 specialization.",
+        "searches": [
+          "Jacquet–Knessl–Szpankowski 2012 eqs 9–17 and F3 rational function",
+          "Beeri–Schwartz 2021 Lemma 6 and bounds",
+          "Resultary ternary cyclic profile support query"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Jacquet–Knessl–Szpankowski (2012) Section 2 Eulerian/Markov profile criterion, Section 3 all-balanced unrefined series",
+          "Resultary 2026/10/4/SCOPE-exact-binary-two-multispectrum-code-size-and-singleton-classific--13779c08da71 describes a binary alphabet and a different linear profile code"
+        ],
+        "reasoning": "Reformulating as a 3-vertex connected integer circulation polytope or as cyclic 2-gram profile codes yields the same claim. The indexed binary two-multispectrum result cannot determine the ternary six-class support variable, and no directly equivalent bivariate theorem was found.",
+        "searches": [
+          "Resultary: ternary cyclic dinucleotide profile exact bivariate support enumeration Markov types Eulerian flows connected balanced 3 letters",
+          "GitHub research index: dinucleotide profile",
+          "Web: ternary Markov types off diagonal support profiles bivariate generating function Eulerian counts"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "Resultary hit 2026/10/4/SCOPE-exact-worst-case-realizing-length-for-ternary-window-two-dna-pro--9a35e7b20e23 concerns worst shortest realizing length for profile rankings, not multiplicity-support census",
+          "Direct n=7 support distribution from independent checker (3,36,36,90,6,3) sums 174, not merely the earlier unrefined 174 count"
+        ],
+        "reasoning": "Published near-neighbor tables concern rankings or binary multispectra; no exact three-symbol all-length support-count table was surfaced. This negative search is not historical priority proof.",
+        "searches": [
+          "Resultary: ternary cyclic dinucleotide profile exact bivariate support enumeration Markov types Eulerian flows connected balanced 3 letters",
+          "Resultary: exact binary two-multispectrum code size",
+          "Web: ternary Markov types off diagonal support profiles bivariate generating function Eulerian counts"
+        ]
+      },
+      "rationale": "The Eulerian characterization, balanced 3-by-3 matrix enumerator and general Markov-type counting are established earlier. The assessed additional statement is the all-length support-refined bivariate expression, unattainable support 1, nonmonotone first-occurrence thresholds, and exact profile-code sizes. Neither the inspected full unrefined 2012 source nor the 2021 DNA rank-modulation code source supplies this two-variable support distribution; the absence is limited to inspected material.",
+      "residual_risks": [
+        "Earlier general directed-flow refinements or enumerated 3-vertex Eulerian support polynomials may contain the same bivariate expression.",
+        "Code-size inference is tautological from the profile count and not claimed as independent coding theorem."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "COVERS balance and unrefined Markov type totals; no inspected u-refined support generating function",
+          "evidence": "PDF equations and series in Section 3; web PDF",
+          "identifier_or_url": "https://www.cs.purdue.edu/homes/spa/papers/it12-types.pdf",
+          "material_read": "Full-text PDF introduction, Eulerian feasibility, equations (9)–(17), 3-symbol balanced GF and disconnected corrections, Sections 2–3; PDF page screenshots and text inspected",
+          "method": "lawful full primary PDF text with visual page check",
+          "title": "Counting Markov Types, Balanced Matrices, and Eulerian Graphs",
+          "trigger": "Exact same 3-symbol transition-frequency objects, possible dominating enumeration"
+        },
+        {
+          "assessment": "COVERS existence of cyclic profile vectors and rank-modulation code goals, not exact ternary support multiplicities",
+          "evidence": "arXiv p3 Lemma 6 and introduction",
+          "identifier_or_url": "https://arxiv.org/pdf/2101.06033",
+          "material_read": "Abstract, Sections I and II.A definitions, p3 Lemma 6 Eulerian feasibility, overview of systematic/non-systematic rank codes and their bounds",
+          "method": "arXiv open-access primary PDF text and screenshot p3",
+          "title": "Improved Rank-Modulation Codes for DNA Storage with Shotgun Sequencing",
+          "trigger": "Same DNA profile vectors and Eulerian realizability"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "rationale": "Ordered adjacent-pair multiplicity profiles are natural Markov-type and DNA read channels; number of positive off-diagonal transition types measures sparsity of observed dynamics. An all-length exact distribution and sharp support thresholds are meaningful enumerative refinements, not just a reprint of unrefined known balanced-matrix totals.",
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "final_claim": "For cyclic words of length n>=1 on three labelled symbols, the bivariate enumerator by length and positive off-diagonal ordered-transition types is 3L+3H/(1-z)^2+(2u^3z^3/(1-z^3)*(1+uz^2/(1-z^2))^3+3H^2+H^3)/(1-z)^3, L=z/(1-z), H=u^2z^2/(1-z^2). Off-diagonal supports are exactly {0,2,3,4,5,6}; first lengths 1,2,3,4,7,6 respectively. Zero-error profile-channel code size equals number of realized profiles.",
+  "limitations": [
+    "Only 3 labelled symbols, cyclic length-two reads, off-diagonal *types*; no noisy-channel capability or counting words per profile.",
+    "Earlier general directed-flow refinements or enumerated 3-vertex Eulerian support polynomials may contain the same bivariate expression.",
+    "Code-size inference is tautological from the profile count and not claimed as independent coding theorem."
+  ],
+  "schema_version": 1
+}

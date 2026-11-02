@@ -1,11 +1,21 @@
-# Scientific review
+# Independent mathematical audit
 
-**Correctness — PASS.** Balance plus weak connectivity characterizes realizable cyclic adjacent-pair matrices by the directed Euler-circuit theorem. The unique signed-circulation parameterization partitions the problem into one-active-, two-active-, and three-active-vertex supports. The nonzero-circulation contribution has an oriented triangle and optional reverse arcs; zero circulation requires at least two reversible undirected links. The displayed series and support thresholds are obtained by a disjoint, exhaustive decomposition. The embedded checker independently compares all claimed support coefficients with direct words through length eleven and with separately generated connected balanced matrices through length fourteen. Boundary cases, particularly singleton loops and disallowed disconnected loops, were checked.
+## correctness
 
-**Originality — PASS (best available evidence; external confirmation outstanding).** The closest work is Jacquet–Knessl–Szpankowski (2010/2012), whose equation for the three-state *all-balanced* matrix series is explicitly credited, along with their general connected-Eulerian criterion and decomposition. Those source results determine the unrefined count by further elementary algebra, so that *unrefined specialization is not counted as the novel contribution*. The independently claimed refinement marks the number of nonzero offdiagonal arc types, obtaining a bivariate rational function and six distinct transition-support strata, plus minimum lengths. Directly inspected papers by Beeri–Schwartz (2021) and Kiah–Puleo–Milenkovic likewise do not derive this support-refined spectrum. published-finding corpus comparisons against published binary two-gram spectra and ternary rank-only DNA spectra reveal neither equivalent nor stronger coverage. General Eulerian methods could yield the bivariate specialization; an overlooked source and its implicit coverage remain risks.
+PASS
 
-**Mathematical value — PASS.** The length-by-transition-support distribution is a natural invariant in exact symbolic observation, constrained Markov-type counting, and sequence-profile coding. It separates sparse, directed-cycle, partially reversible, and full-support profiles; gives forbidden support size one and sharp first-occurrence lengths (including the non-monotone thresholds for five and six types); and supplies exact finite-block-length benchmarks under a support-sparsity restriction. This is more information than the known total asymptotics or single-variable balanced-matrix series and is valid for every length rather than an arbitrary finite slice.
+Reconstructed balanced connected directed multigraph/Euler-tour equivalence, including active-vertex convention and loop-only singleton. Flow conservation uniquely gives one integer triangle circulation t with three nonnegative opposing pair counts. The mutually exclusive cases one active loop vertex, a connected two-vertex reversible pair, three vertices with nonzero circulation, and three vertices with t=0 and at least two reversible links give exactly the stated formal generating function; no disconnected loop components counted. Positive off-diagonal support thresholds follow from minimum arc lengths. Fresh, separately implemented enumeration of all 3^n words for n=1..9 agrees with symbolic GF by each support type, but unrestricted n relies on the exact Eulerian case decomposition.
 
-**Scientific limits and literature risk.** The prior all-balanced expression and Eulerian criteria are not novel. Results apply only to the ternary alphabet and cyclic length-two factors. Existing general theory may be specialized to recover the refined result, so an independent literature audit could affect the originality conclusion.
+## originality
 
-Self-review: passed. Independent audit: not yet performed.
+PASS
+
+The Eulerian characterization, balanced 3-by-3 matrix enumerator and general Markov-type counting are established earlier. The assessed additional statement is the all-length support-refined bivariate expression, unattainable support 1, nonmonotone first-occurrence thresholds, and exact profile-code sizes. Neither the inspected full unrefined 2012 source nor the 2021 DNA rank-modulation code source supplies this two-variable support distribution; the absence is limited to inspected material.
+
+## value
+
+PASS
+
+Ordered adjacent-pair multiplicity profiles are natural Markov-type and DNA read channels; number of positive off-diagonal transition types measures sparsity of observed dynamics. An all-length exact distribution and sharp support thresholds are meaningful enumerative refinements, not just a reprint of unrefined known balanced-matrix totals.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
