@@ -1,0 +1,107 @@
+{
+  "audit_date_utc": "2026-10-30",
+  "audited_at_utc": "2026-10-30T14:57:24Z",
+  "axes": {
+    "correctness": {
+      "rationale": "For n>=3, 1<=k<=n-2, each loop-free row chooses a uniform k-subset independently. For a specified directed simple l-cycle J, P(J)=p^l and any of its l vertices cannot have indegree zero. For outside v, conditional avoidance probability at a cycle source is (n-k-1)/(n-2)=q(n-1)/(n-2), hence E[Z|J]=(n-l)q^{n-1}A^l. Summation over (n)_l/l rotations yields the stated exact Cov. f_l=(n-l)A^l strictly decreases for l>=2 with f_2-n=1/(n-2)>0 and f_3-n=-(2n-3)/(n-2)^3<0, giving unique positive l=2; k=n-1 Z=0. Independent-arc model and fixed-k asymptotics follow separately. Independent exact rational exhaustive checks passed n,k=(3,1),(4,1),(4,2),(5,1),(5,2), all l. Finite checks support rather than replace all-n proof.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Sood–Yağan studies graph connectivity under independently chosen outgoing subsets; Itzkovitz et al. gives approximate expected motifs with degree information."
+        ],
+        "reasoning": "Neither an undirected connectivity bound nor first moment approximation determines an all-l exact cross moment. Generic configuration-model covariance formulas might cover a different ensemble and need careful conditioning.",
+        "searches": [
+          "arXiv:2006.10638 random K-out graph connectivity",
+          "arXiv:1911.05147 inhomogeneous K-out strength connectivity",
+          "cond-mat/0302375 subgraphs in random networks fixed degree"
+        ]
+      },
+      "checked_sources": [
+        "https://arxiv.org/abs/2006.10638",
+        "https://arxiv.org/abs/cond-mat/0302375",
+        "https://github.com/SCOPE-Science/SCOPE2026/tree/08b5385690dc524c8369c4c5b989c7d15f8d9afa/2026/10/26/a-unique-positive-cycle-indegree-deficiency-covariance-in-fixed--608993d6b3da"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "In independent-arc directed ER the covariance equals -(n)_l p^l(1-p)^(n-1), strictly negative, whereas fixed k-out l=2 covariance is positive."
+        ],
+        "reasoning": "The positive reciprocity covariance cannot be implied by independent-arc results; it arises from conditional redistribution of each cycle source’s remaining k-1 choices.",
+        "searches": [
+          "arXiv:2006.10638 k-out connectivity",
+          "random directed Erdos Renyi indegree zero cycle covariance independent arcs"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "No Resultary hit gives this directed cycle/indegree mixed moment; Sood–Yağan arXiv:2006.10638 gives connectivity of symmetrized k-out graphs."
+        ],
+        "reasoning": "A directed zero-indegree count differs from an undirected isolated component; similarly mean motif counts do not imply mixed covariance.",
+        "searches": [
+          "Resultary: random k-out digraph indegree zero directed cycle covariance two cycle cycles",
+          "exact covariance zero indegree vertices directed cycle fixed outdegree random k-out digraph"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "No exact table or published mixed-moment entry located in inspected result records; graph-statistic catalogue searches returned other models."
+        ],
+        "reasoning": "Continuous infinite (n,k,l) formula is not a single small table entry; classical finite random mapping enumerators are a residual risk.",
+        "searches": [
+          "Resultary database zero-indegree cycle counts finite n k",
+          "random mapping cycle covariance number indegree zero exact table"
+        ]
+      },
+      "rationale": "Previously located k-out graph connectivity, inhomogeneous row-selection and motif expectation sources concern global connectivity, isolated undirected components or expected subgraph counts, not the cross-covariance with zero-indegree vertices and its sign for every cycle length. A stronger joint-moment formula in older random mappings remains possible.",
+      "residual_risks": [
+        "Older random mappings and prescribed outdegree configuration models may contain equivalent joint probability generating functions.",
+        "Primary full-text inspections for k-out connectivity and motif papers were not obtained in this run; only material actually accessible was compared."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Context for the random ensemble; no whole-document originality exclusion asserted.",
+          "evidence": [
+            "Covers graph connectivity, not shown to address directed indegree-zero / cycle covariance."
+          ],
+          "identifier_or_url": "https://arxiv.org/abs/2006.10638",
+          "material_read": "Abstract and bibliographic description; original full text not obtained in this run",
+          "method": "Web search and source abstract",
+          "title": "Tight Bounds for the Probability of Connectivity in Random K-out Graphs",
+          "trigger": "Same row-independent k-out construction"
+        },
+        {
+          "assessment": "First-moment motif work is a plausible toolkit, but insufficient basis for claiming full source excludes a cross-moment.",
+          "evidence": [
+            "Approximate subgraph expectations are not exact covariance identities under uniform row-subset sampling."
+          ],
+          "identifier_or_url": "https://arxiv.org/abs/cond-mat/0302375",
+          "material_read": "Abstract and cited statement about approximate expected subgraph counts; full text not independently read",
+          "method": "Web/source bibliographic search",
+          "title": "Subgraphs in random networks",
+          "trigger": "Possible general motif expectation formula"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "rationale": "The sign reversal for reciprocal directed two-cycles relative to equal-mean independent-arc sampling isolates the effect of without-replacement row constraints. Exact all-cycle covariance and triangular cancellation at l=3 are natural finite-sample network-motif statistics, useful in choosing graph null models.",
+      "status": "PASS"
+    }
+  },
+  "checked_sources": [
+    "https://arxiv.org/abs/2006.10638",
+    "https://arxiv.org/abs/cond-mat/0302375",
+    "https://github.com/SCOPE-Science/SCOPE2026/tree/08b5385690dc524c8369c4c5b989c7d15f8d9afa/2026/10/26/a-unique-positive-cycle-indegree-deficiency-covariance-in-fixed--608993d6b3da"
+  ],
+  "disposition": "passed",
+  "limitations": [
+    "Simple directed cycles and no self-loops; independent k-subsets without replacement per source.",
+    "Asymptotics require fixed positive k and l as n grows."
+  ],
+  "residual_risks": [
+    "Older random mappings and prescribed outdegree configuration models may contain equivalent joint probability generating functions.",
+    "Primary full-text inspections for k-out connectivity and motif papers were not obtained in this run; only material actually accessible was compared."
+  ],
+  "schema_version": 1
+}
