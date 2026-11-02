@@ -1,0 +1,116 @@
+{
+  "audit_date_utc": "2026-10-31",
+  "audited_at_utc": "2026-10-31T11:07:31Z",
+  "axes": {
+    "correctness": {
+      "rationale": "The exact known joint enumeration J_n(k,f)=binom(n,f)d(n-f,k-f) is correct. Reconstructed the derangement recurrence d(m,r)=(m-1)[d(m-1,r)+d(m-2,r-1)], weighted path matching polynomial P_m(z)=D_m(z)/((m-1)!z), and Jacobi determinant identity det(tI-H)=t^{m-2} P_m(-t^{-2}), yielding positive-rootedness and strict log-concavity of d(m,r) on support. Rederived mixed-size identities R_m(r)=(m-1)T_{m-1}(r-1) and T_m(r)=(m-1)(L_{m-1}(r)+R_{m-1}(r)), hence T>=0 and strict on positive interior. Adjacent minors equal binom(n,f)binom(n,f+1)T_{n-f}(k-f). Shifting interval row supports and ratio telescoping handle nonadjacent minors including the isolated final row and all zero cells. An independently written exact-integer script verified mixed recurrences through m=58 and ALL pairwise minors for n=2..25 (not the package script), agreeing with proof. Finite tests are supportive only; the all-n induction and interval logic prove the theorem.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Brenti 1995 is directly relevant by title, and Bóna 2006 Theorem 1.1 cites its derangement-root work.",
+          "Brenti full text was not read: authorized institutional service reported VPN disconnected, after arXiv/other OA attempts failed.",
+          "The inspected Bóna primary paper proves root location/modular residue asymptotics, not this joint TP2 statement."
+        ],
+        "reasoning": "A broad theorem about the exact associated Stirling coefficient array might imply the MLR inequality; accessible material has not supplied such an implication. Preserve substantial priority risk without substituting inaccessible text noncoverage as evidence.",
+        "searches": [
+          "Francesco Brenti 1995 Combinatorics and Total Positivity associated Stirling numbers cycles fixed points",
+          "Bóna arXiv:math/0606277, Thm1.1",
+          "Brenti JCTA71 (1995) 175-218 bibliographic record"
+        ]
+      },
+      "checked_sources": [
+        "Ma 2012 complete seven-page PDF; page420 visual screenshot",
+        "Bóna 2006 full HTML main theorems",
+        "Brenti 1995 secondary/bibliographic information only; authenticated full-text blocked",
+        "Resultary semantic query fixed points permutations conditioned number of cycles monotone likelihood ratio total positivity derangement cycles joint distribution"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "Known enumeration J_n(k,f)=binom(n,f)d(n-f,k-f) (Ma 2012, p420).",
+          "Known real-rootedness yields nonnegative L_m(r), but R_m and T_m mixed-index recurrences are needed to prove cross-row minors."
+        ],
+        "reasoning": "Single-variable Newton inequalities only compare neighboring cycle counts at fixed derangement SIZE; they do not prove the mixed size n-f, n-f-1 TP2 determinants. Stochastic monotonicity would likewise be too weak to entail likelihood ratio order.",
+        "searches": [
+          "Ma fixed point cycle generating function Brenti derangement real rootedness implies TP2 MLR?",
+          "Ma DOI:10.1017/S0004972711002760",
+          "Bóna arXiv:math/0606277"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "S.-M. Ma, Counting Permutations by Numbers of Excedances, Fixed Points and Cycles, p.420 gives fixed-point coefficient extraction D_{n,k}=binom(n,k)q^kD_{n-k}.",
+          "Bóna arXiv:math/0606277 gives known root structure for derangement cycle polynomial."
+        ],
+        "reasoning": "Equivalent fixed-point/cycle joint enumerators are prior. TP2 is a global inequality across TWO cycle-count rows and fixed-point columns; known coefficient identities and one-row log-concavity are insufficient alone.",
+        "searches": [
+          "fixed points permutations conditioned number of cycles monotone likelihood ratio total positivity derangement cycles joint distribution",
+          "Ma 2012 page 420 PDF inspected by screenshot",
+          "Bóna 2006 full HTML"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "Ma 2012 completely determines J_n numerically by a generating function, so all exact finite entries are known.",
+          "Resultary semantic matches about fixed-point/descent covariance and cycle-count/inversion covariance are different statistics and lack TP2."
+        ],
+        "reasoning": "No originality is claimed for exact tables; novelty is the universal sign of every 2x2 minor. Checked indexed claims do not assert this property, but absence from indexes is not a proof.",
+        "searches": [
+          "fixed points permutations conditioned number of cycles monotone likelihood ratio total positivity derangement cycles joint distribution",
+          "Resultary 2026/10/4/SCOPE-boundary-localization-of-fixed-point-descent-dependence-in-a-uni--6e228e1e9495",
+          "Resultary 2026/10/4/SCOPE-linear-inversion-gap-profile-for-cycle-count-in-a-uniform-random--efaa92233051"
+        ]
+      },
+      "rationale": "Ma (2012) explicitly gives the whole joint coefficient formula, and Bóna (2006) credits Brenti (1995) with the derangement real-rootedness. Only the cross-size TP2 and consequent MLR order are claimed original. The strongest priority risk is Brenti (1995) broader total positivity of associated Stirling arrays, not available in full: lawful open-access route failed and authorized Oxford access reported VPN disconnected. This access limitation alone is not a scientific failure; its unresolved implicit-coverage risk is explicit.",
+      "residual_risks": [
+        "Brenti 1995 (full text unavailable; institutional VPN disconnected) or another associated Stirling total-positivity theorem might subsume this global MLR order.",
+        "Only uniform permutations; no Ewens parameter extension asserted.",
+        "Zero support and nonadjacent minor proof reconstructed analytically; finite script checks n<=25, not proof of all n."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Exact joint count matrix known; no joint TP2 theorem found in examined portions.",
+          "evidence": "Page 420 D_{n,k}(x,q)=binom(n,k)q^k D_{n-k}(x,q), and recurrence (3.3).",
+          "identifier_or_url": "https://doi.org/10.1017/S0004972711002760",
+          "material_read": "Full seven-page primary PDF; visually inspected page 420, especially fixed-point coefficient identity after Cor.3.3; parsed other theorem passages",
+          "method": "Compared the generating functions and what they imply to MLR cross-row inequalities",
+          "title": "Counting Permutations by Numbers of Excedances, Fixed Points and Cycles",
+          "trigger": "Same exact joint fixed-point/cycle statistics"
+        },
+        {
+          "assessment": "Root properties predate the claim; paper does not prove conditional fixed-point MLR in read text.",
+          "evidence": "Theorem 1.1 attributes derangement real-rootedness to Brenti; Theorem 3.8 is modular cycle-count asymptotic.",
+          "identifier_or_url": "https://arxiv.org/html/math/0606277v1",
+          "material_read": "Full accessible arXiv HTML including introduction, Theorems 1.1 and 3.8 and references",
+          "method": "Compared root-location and modular cycle-count theorem with mixed-size TP2",
+          "title": "On a Balanced Property of Derangements",
+          "trigger": "Real-rootedness input and possible stronger cycle-statistic order"
+        },
+        {
+          "assessment": "Substantial unresolved historical priority risk; scientific correctness proof separately checked.",
+          "evidence": "Brenti, J. Combin. Theory Ser. A 71 (1995), 175-218, Bóna reference [4].",
+          "identifier_or_url": "https://doi.org/10.1016/0097-3165(95)90000-4",
+          "material_read": "Bibliographic citation and secondary theorem attribution only; full text inaccessible; authorized institutional access reported vpn_disconnected",
+          "method": "Did not assert noncoverage; identified possible implication from broader total positivity",
+          "title": "Combinatorics and Total Positivity",
+          "trigger": "Potentially stronger 1995 total-positivity result"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "rationale": "Cycles and singleton cycles are canonical statistics for permutations. Global MLR order is materially stronger than covariance positivity or stochastic dominance: it compares all conditional odds and gives monotone threshold tests at every n. The cross-size determinant induction supplies a nontrivial structural order that the known bivariate enumeration and one-row real-rootedness do not mechanically imply.",
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "limitations": [
+    "Only uniform permutations and n>=2; full Brenti 1995 source unavailable, priority provisional.",
+    "The known joint enumerator and real-rootedness are not new and are explicitly excluded from originality.",
+    "Brenti 1995 (full text unavailable; institutional VPN disconnected) or another associated Stirling total-positivity theorem might subsume this global MLR order.",
+    "Only uniform permutations; no Ewens parameter extension asserted.",
+    "Zero support and nonadjacent minor proof reconstructed analytically; finite script checks n<=25, not proof of all n."
+  ],
+  "schema_version": 1
+}

@@ -1,19 +1,21 @@
-# Self-review
+# Independent mathematical audit
 
-## Correctness — PASS
+## correctness
 
-The statement is global in all integers \(n\ge2\) and all admissible ordered pairs of rows/columns. The known joint coefficient formula removes designated fixed points. The classical derangement recurrence leads to a weighted path-matching polynomial; a real symmetric Jacobi matrix proves real-rootedness and strict log-concavity without assuming numerical root calculations. Two explicitly displayed mixed-size determinant recurrences then prove nonnegative adjacent joint-count minors. Interval support and a ratio-telescoping argument handle arbitrary minors and terminal degenerate cases. A standard-library exact-arithmetic script independently checks the input identities and 6,171,849 finite instances. Proof and code were examined in the produced package, including boundary conventions. Risk: this is a mathematical derivation plus self-review inspection, not external peer review.
+PASS
 
-## Originality — PASS (provisional priority)
+The exact known joint enumeration J_n(k,f)=binom(n,f)d(n-f,k-f) is correct. Reconstructed the derangement recurrence d(m,r)=(m-1)[d(m-1,r)+d(m-2,r-1)], weighted path matching polynomial P_m(z)=D_m(z)/((m-1)!z), and Jacobi determinant identity det(tI-H)=t^{m-2} P_m(-t^{-2}), yielding positive-rootedness and strict log-concavity of d(m,r) on support. Rederived mixed-size identities R_m(r)=(m-1)T_{m-1}(r-1) and T_m(r)=(m-1)(L_{m-1}(r)+R_{m-1}(r)), hence T>=0 and strict on positive interior. Adjacent minors equal binom(n,f)binom(n,f+1)T_{n-f}(k-f). Shifting interval row supports and ratio telescoping handle nonadjacent minors including the isolated final row and all zero cells. An independently written exact-integer script verified mixed recurrences through m=58 and ALL pairwise minors for n=2..25 (not the package script), agreeing with proof. Finite tests are supportive only; the all-n induction and interval logic prove the theorem.
 
-Ma's full 2011/2012 paper was inspected through all seven pages, and its p. 420 coefficient identity already supplies the **entire joint enumeration**; it is not credited as new. Bóna's full 2006 preprint confirms derangement real-rootedness was already known through Brenti (1995). Lugo (2009) and Diaconis--Fulman--Guralnick (2007) were inspected for nearby cycle/fixed-point problems, without finding the specific two-parameter MLR comparison. Claim-level comparisons against accessible earlier research and external research records found covariance and stochastic-fragmentation statements, but no covered TP2 assertion. Stronger general total-positivity work, notably Brenti 1995, remains a named priority risk because its full text was not accessible. Novelty is assessed for the mixed determinant/MLR result only and remains provisional.
+## originality
 
-## Mathematical value — PASS
+PASS
 
-Conditioning on an exact number of cycles is a classical random-permutation model; its fixed-point count is a natural finer observable. Monotone likelihood ratio is a substantially stronger order than covariance positivity or ordinary stochastic dominance: it compares conditional odds for every two fixed-point values and supports monotone conditional threshold testing. The nontrivial mixed-size determinant recurrence proves this order for all sample sizes, with strictness and boundary cases. This is a meaningful structural dependence result rather than a new notation for a known marginal enumeration.
+Ma (2012) explicitly gives the whole joint coefficient formula, and Bóna (2006) credits Brenti (1995) with the derangement real-rootedness. Only the cross-size TP2 and consequent MLR order are claimed original. The strongest priority risk is Brenti (1995) broader total positivity of associated Stirling arrays, not available in full: lawful open-access route failed and authorized Oxford access reported VPN disconnected. This access limitation alone is not a scientific failure; its unresolved implicit-coverage risk is explicit.
 
-## Limits and closest literature
+## value
 
-The full 1995 Brenti paper and all historical specialized sources were not exhaustively inspected; the comparison is best knowledge from inspected texts, not a guarantee of worldwide uniqueness. Finite checks do not certify unbounded statements without the included proof. No external independent audit has occurred.
+PASS
 
-Self-review: passed. Independent audit: not yet performed.
+Cycles and singleton cycles are canonical statistics for permutations. Global MLR order is materially stronger than covariance positivity or stochastic dominance: it compares all conditional odds and gives monotone threshold tests at every n. The cross-size determinant induction supplies a nontrivial structural order that the known bivariate enumeration and one-row real-rootedness do not mechanically imply.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
