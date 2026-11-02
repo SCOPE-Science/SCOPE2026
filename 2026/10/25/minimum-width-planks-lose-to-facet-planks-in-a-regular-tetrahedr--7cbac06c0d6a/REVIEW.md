@@ -1,15 +1,21 @@
-# Scientific review
+# Independent mathematical audit
 
-## Correctness — PASS
-For the specified regular tetrahedron, the vertex projection has mean zero and variance one in every unit direction, so the range–variance inequality proves the minimum width is two. Its equality condition forces precisely the coordinate-axis normals. Uniform simplex barycentric coordinates give a \(\operatorname{Beta}(2,2)\) law for those two-versus-two projected heights, and a \(\operatorname{Beta}(1,3)\) law for facet-normal heights. The unimodal/symmetric and monotone densities prove, **for every** real \(0<W<2\), which translates maximize coverage within each orientation. Their exact integrals and factored difference establish the single crossover. The exact checker successfully replayed normalization, integration, factorization, root range and boundary consistency. There is no step that extrapolates from numerical samples to all widths. The conclusion applies to one plank and only disqualifies the complete minimum-width direction orbit for \(W<W_*\).
+## correctness
 
-## Originality — PASS with residual risk
-The primary source of 29 July 2026 formulates the partial-plank volume problem and derives single-plank results in the plane and an altitude-restricted simplex case, but it does not compute the present tetrahedral profiles or their crossing. Published results on simplex erosion find minimum-width complementary-face directions, and a pyramid-width result determines altitude-minimality; neither implies which slab captures the greater fraction. Searches for the tetrahedron with planks, facets, minimum-width normals, beta section laws, and exact crossover located no covering statement. A preexisting result in older simplex-spline or tomography literature may express equivalent volume formulas, which is a genuine residual originality risk. Absence of a search hit is not treated as a proof of novelty.
+PASS
 
-## Value — PASS
-This is a motivated quantitative obstruction to reducing a higher-dimensional partial-volume-plank search to minimum-width normals. The simplest three-dimensional regular simplex already defeats that restriction, although its minimum-width directions are geometrically natural and exactly classified. The exact crossover \(W_*=8\sqrt3-12\) identifies the entire initial width interval in which the facet direction strictly outperforms **every** minimum-width direction; the mechanism is the change from a symmetric \(\operatorname{Beta}(2,2)\) slice distribution to a highly peaked \(\operatorname{Beta}(1,3)\) distribution. The work does not claim a global optimum or a solution for multiple planks.
+PASS: Actual RESULT.md at frozen Git blob 4b0e7826 gives a complete minimax width calculation from the four projected vertices (sum 0, squared sum 4); equality in the range-variance inequality requires two projections at each endpoint, giving exactly the three coordinate axes. Uniform tetrahedral barycentric Dirichlet(1,1,1,1) gives Beta(2,2) for two high vertices, so its projection has decreasing even density 3(1-z^2)/4 and centered optimum G. Facet height 4/sqrt(3), one barycentric Beta(1,3), density decreasing toward the apex, so translated optimum F at the facet. Exact symbolic independent integration and factorization found roots 8sqrt(3)-12 in (0,2) and (20sqrt(3)-12)/11 >2. All W boundaries and quantifier restrictions accounted for.
 
-## Closest literature and scope limits
-Bakaev–Polyanskii, *Optimal partial plank coverings*, arXiv:2607.27483v1 (29 July 2026); the published finding *Bang's homothetic core is exact for every simplex* (11 October 2026), which explicitly excludes global single-plank attainment; and *Exact minimum-width formula for convex pyramids and a partial-plank consequence* (4 October 2026), which concerns minimal width and only its altitude-minimal partial-plank application. The present result only compares two natural tetrahedral direction classes; generic oblique normals and arbitrary plank families are not optimized.
+## originality
 
-Self-review: passed. Independent audit: not yet performed.
+PASS
+
+PASS best-of-knowledge: A primary full text comparison to Bakaev–Polyanskii partial-plank work and the complete Resultary Bang-core finding shows neither establishes the maximizing captured volume of a translated tetrahedral plank in the two specified symmetry orbits, nor their exact crossing. General simplex Minkowski-subtraction eroded-core optimization is a DIFFERENT functional; equality of minimum-width directions does not entail volume-capture dominance. No matching equivalent statement found, but classical simplex slice splines may give it implicitly.
+
+## value
+
+PASS
+
+PASS: Partial-volume plank covering of a 3D regular simplex is a natural geometric optimization problem. A nontrivial exact interval disproves the plausible minimum-width-direction restriction when searching for the globally best single plank. It pinpoints a sharp crossover without overclaiming global optimality. Not merely a width calculation because translation-optimized volume profiles are compared.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

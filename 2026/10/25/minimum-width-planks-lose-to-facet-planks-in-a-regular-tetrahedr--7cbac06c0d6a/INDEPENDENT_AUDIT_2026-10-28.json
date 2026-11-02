@@ -1,0 +1,94 @@
+{
+  "audit_date_utc": "2026-10-28",
+  "audited_at_utc": "2026-10-28T01:12:31.123950Z",
+  "axes": {
+    "correctness": {
+      "rationale": "PASS: Actual RESULT.md at frozen Git blob 4b0e7826 gives a complete minimax width calculation from the four projected vertices (sum 0, squared sum 4); equality in the range-variance inequality requires two projections at each endpoint, giving exactly the three coordinate axes. Uniform tetrahedral barycentric Dirichlet(1,1,1,1) gives Beta(2,2) for two high vertices, so its projection has decreasing even density 3(1-z^2)/4 and centered optimum G. Facet height 4/sqrt(3), one barycentric Beta(1,3), density decreasing toward the apex, so translated optimum F at the facet. Exact symbolic independent integration and factorization found roots 8sqrt(3)-12 in (0,2) and (20sqrt(3)-12)/11 >2. All W boundaries and quantifier restrictions accounted for.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Bang core theorem gives minimizing Minkowski erosion volume (1-W/w)^d and opposite-edge axes for regular tetrahedron, but explicitly does NOT establish single-plank captured volume. Pyramid result gives a width/altitude criterion, not these fractions."
+        ],
+        "reasoning": "These general statements do not dominate the current capture-functional comparison; the minima of erosion and maxima of captured one-plank volume cannot be interchanged without proof.",
+        "searches": [
+          "Resultary 2026/10/11/SCOPE-bang-s-homothetic-core-is-exact-for-every-simplex--b077f6e663a4 full RESULT.md",
+          "Resultary 2026/10/4/SCOPE-exact-minimum-width-formula-for-convex-pyramids-and-a-partial-pl--5011fb3c7815",
+          "arXiv:2607.27483 §5"
+        ]
+      },
+      "checked_sources": [
+        "arXiv:2607.27483 (primary full text)",
+        "Resultary 2026/10/11 Bang simplex core (full RESULT.md)",
+        "Resultary 2026/10/4 convex pyramid width result (result summary)",
+        "Frozen source RESULT.md and verify.py plus independent exact symbolic integration"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "An erosion optimizer at minimum width can coexist with a facet plank being better on actual captured volume; the theorem explicitly compares two different optimization functionals."
+        ],
+        "reasoning": "The cited minimum-width identification is used as prior geometry; neither prior conclusion logically implies F(W)>G(W) below the exact root.",
+        "searches": [
+          "Full Bakaev–Polyanskii arXiv:2607.27483",
+          "Full Resultary Bang simplex core published 2026-10-11"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "The submitted claim compares Beta(2,2) centered sections with Beta(1,3) facet-adjacent sections; the Bakaev–Polyanskii reduction concerns volume of eroded simplex and aggregate plank width."
+        ],
+        "reasoning": "Partial-slice volume, one-plank probability of a uniform tetrahedral point, and one-dimensional Dirichlet projection are equivalent ways of formulating G and F, but the inspected primary source does not assert their crossing.",
+        "searches": [
+          "Resultary: regular tetrahedron optimal single plank captured volume minimum width facet normal width translation crossover",
+          "arXiv:2607.27483 §5"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "No prior exact G/F crossover table in the inspected research findings; primary simplex paper notes regular tetrahedron lacks the facet-altitude=min-width property."
+        ],
+        "reasoning": "No exact table found, but lack of indexed table alone does not establish priority; older beta/simplex-spline tables remain a risk.",
+        "searches": [
+          "Resultary same query, 15 semantic hits",
+          "arXiv:2607.27483 regular simplex section"
+        ]
+      },
+      "rationale": "PASS best-of-knowledge: A primary full text comparison to Bakaev–Polyanskii partial-plank work and the complete Resultary Bang-core finding shows neither establishes the maximizing captured volume of a translated tetrahedral plank in the two specified symmetry orbits, nor their exact crossing. General simplex Minkowski-subtraction eroded-core optimization is a DIFFERENT functional; equality of minimum-width directions does not entail volume-capture dominance. No matching equivalent statement found, but classical simplex slice splines may give it implicitly.",
+      "residual_risks": [
+        "Older unindexed simplex-spline or planar-section density literature might contain these individual formulas and even the crossing.",
+        "The theorem does NOT optimize arbitrary oblique normals or multi-plank families."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "In dimension 3 the single-plank result is only proved for special simplex geometry when a facet altitude equals minimum width; the regular tetrahedron fails that premise.",
+          "evidence": "Bakaev–Polyanskii §5 discusses regular simplices and facet altitude restriction.",
+          "identifier_or_url": "https://arxiv.org/abs/2607.27483",
+          "material_read": "Read complete accessible primary HTML, introduction, main one-plank plane theorem, Bang reduction, and regular-simplex §5.",
+          "method": "Read accessible full primary text and compared its mathematical hypotheses, statements, and applicability.",
+          "title": "Optimal partial plank coverings",
+          "trigger": "Closest primary article on the exact covering objective"
+        },
+        {
+          "assessment": "It determines eroded-volume extrema and minimum-width directions but explicitly disclaims the step to optimal single-plank capture.",
+          "evidence": "Full RESULT.md statement A_u=(W/2)sum_i |<g_i,u>|; minimum erosion volume (1-W/w)^d; limitations expressly do not assert single-plank optimality.",
+          "identifier_or_url": "https://github.com/Resultary/2026/tree/main/2026/10/11/SCOPE-bang-s-homothetic-core-is-exact-for-every-simplex--b077f6e663a4",
+          "material_read": "Read full public RESULT.md, formula, proof, equality directions, and limitation.",
+          "method": "Read accessible full primary text and compared its mathematical hypotheses, statements, and applicability.",
+          "title": "Bang's homothetic core is exact for every simplex",
+          "trigger": "Strong same-object published prior covering geometry"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "rationale": "PASS: Partial-volume plank covering of a 3D regular simplex is a natural geometric optimization problem. A nontrivial exact interval disproves the plausible minimum-width-direction restriction when searching for the globally best single plank. It pinpoints a sharp crossover without overclaiming global optimality. Not merely a width calculation because translation-optimized volume profiles are compared.",
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "limitations": [
+    "Only two symmetry-orbit orientation types compared; no global maximizing-direction assertion."
+  ],
+  "schema_version": 1
+}
