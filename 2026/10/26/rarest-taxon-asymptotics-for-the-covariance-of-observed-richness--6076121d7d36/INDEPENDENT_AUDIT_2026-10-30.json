@@ -1,0 +1,124 @@
+{
+  "audit_date_utc": "2026-10-30",
+  "audited_at_utc": "2026-10-30T14:46:41Z",
+  "axes": {
+    "correctness": {
+      "checked_sources": [
+        "frozen 2026/10/26/rarest-taxon-asymptotics-for-the-covariance-of-observed-richness--6076121d7d36/RESULT.md",
+        "frozen 2026/10/26/rarest-taxon-asymptotics-for-the-covariance-of-observed-richness--6076121d7d36/REVIEW.md",
+        "independent_checks.py: INDEPENDENT_CHECKS_OK 1272",
+        "Git tree 4c991e969692bc80c5d07102bb04b8b4b51d2070"
+      ],
+      "rationale": "For n≥1 and a fixed positive finite categorical p, K=s−∑1{N_i=0}. Conditioning on N_i=0 replaces p by p^{(-i)}, proving exactly Cov(K,Hhat)=∑(1−p_i)^n(M_n(p)−M_n(p^{(-i)})). Fixed-positive binomial marginal Taylor expansion yields M_n(r)=H(r)−(d−1)/(2n)+(1−∑1/r_j)/(12n²)+O_r(n^-3), including d=1. For minimum mass t, H(p)−H(q)=h(t)−tH(q)>0 since h(t)/t>−log t≥log s>log(s−1). The m minimal species dominate exponentially; the next distinct mass u gives O((1−u)^n), absent for uniform p. Independent multinomial enumeration and deletion calculation matched 40 finite cases (5 profiles, n 1..8). This finite computation is not the asymptotic proof.",
+      "residual_risks": [
+        "Only fixed s, strictly positive p and IID draws; no uniformity if p_min→0 with n.",
+        "The O(n^-3) is fixed-parameter; signs for arbitrary finite n are not established."
+      ],
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Chen et al. (Entropy 2018) discuss entropy estimation, Miller–Madow and jackknife asymptotics, not covariance with observed richness.",
+          "The published richness/Gini–Simpson theorem addresses a different index."
+        ],
+        "reasoning": "The prior entropy-bias expansion alone becomes the covariance expansion only after the new exact deletion relation and strict rarest dominance. This is an explicit special-case implication check, not a search-hit claim.",
+        "searches": [
+          "web:",
+          "Resultary:2026/10/4/SCOPE-universal-positive-covariance-of-sample-richness-and-unbiased-gi--e84114bd4ba0"
+        ]
+      },
+      "checked_sources": [
+        "Resultary query: multinomial sampling covariance observed species richness plug-in Shannon entropy deletion identity rarest species decay bias",
+        "Resultary:2026/10/4/SCOPE-universal-positive-covariance-of-sample-richness-and-unbiased-gi--e84114bd4ba0",
+        "Resultary:2026/9/20/SCOPE-successive-species-discovery-covariance-missing-mass--4b975bda1dac",
+        "web:",
+        "web:"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "Published finite-alphabet entropy correction is a component of Step 2 but does not imply the exact Step 1 deletion covariance."
+        ],
+        "reasoning": "Prior estimator-bias results do not by themselves supply the all-mass covariance asymptotics; neither do analogous occupancy-polynomial results. Potential general mixed-moment theorem remains a risk.",
+        "searches": [
+          "web:",
+          "Resultary:2026/10/4/SCOPE-universal-positive-covariance-of-sample-richness-and-unbiased-gi--e84114bd4ba0"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Gini–Simpson is a quadratic frequency functional, while Shannon uses −x log x.",
+          "Missing-mass covariance involves successive species discoveries, not Hhat."
+        ],
+        "reasoning": "Substituting Gini–Simpson covariance or missing-mass covariance does not yield the stated Shannon deletion bias/rarest-taxon expansion; an unknown general occupancy identity remains possible.",
+        "searches": [
+          "Resultary:2026/10/4/SCOPE-universal-positive-covariance-of-sample-richness-and-unbiased-gi--e84114bd4ba0",
+          "Resultary:2026/9/20/SCOPE-successive-species-discovery-covariance-missing-mass--4b975bda1dac",
+          "web:"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "A semantic result search surfaced richness/Gini–Simpson and missing-mass laws but no table of this Shannon covariance."
+        ],
+        "reasoning": "No exact database/table coverage found in these bounded searches; this is not evidence of global novelty.",
+        "searches": [
+          "Resultary query: multinomial sampling covariance observed species richness plug-in Shannon entropy deletion identity rarest species decay bias",
+          "web:",
+          "web:"
+        ]
+      },
+      "rationale": "The unbiased Gini–Simpson/richness covariance and occupancy missing-mass results in the published mathematical database concern different functionals. Chen et al. give plug-in entropy-bias machinery, not this joint richness–Shannon covariance and its rarest-taxon coefficient. The absence-indicator decomposition is elementary, so a preexisting occupancy-entropy covariance identity is a genuine priority risk; best-of-knowledge originality of the combined asymptotic survives.",
+      "residual_risks": [
+        "Classical occupancy–entropy covariance may have an algebraically equivalent deletion identity under different language.",
+        "De'ath ecological full text not independently read; no assertion of literature-wide absence."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Covers entropy estimator bias and normal laws, not demonstrated to cover richness covariance.",
+          "evidence": "web:; web:",
+          "identifier_or_url": "https://www.mdpi.com/1099-4300/20/5/371",
+          "material_read": "Search/indexed article body: introduction, 2.2, Theorem 3, bias definitions and references; full HTML blocked by 429.",
+          "method": "Article excerpt/web search and PMC metadata; not complete full text",
+          "title": "Normal Laws for Two Entropy Estimators on Infinite Alphabets",
+          "trigger": "Same plug-in Shannon entropy bias expansion"
+        },
+        {
+          "assessment": "Different statistic; full-text implication cannot be ruled out merely from title/summary.",
+          "evidence": "Resultary ID 2026/10/4/SCOPE-universal-positive-covariance-of-sample-richness-and-unbiased-gi--e84114bd4ba0",
+          "identifier_or_url": "https://github.com/Resultary/2026/tree/main/2026/10/4/SCOPE-universal-positive-covariance-of-sample-richness-and-unbiased-gi--e84114bd4ba0",
+          "material_read": "Resultary full summary (not source repository proof).",
+          "method": "Resultary semantic index; summary only",
+          "title": "Universal positive covariance of sample richness and unbiased Gini–Simpson diversity",
+          "trigger": "Same richness but alternate diversity index"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "checked_sources": [
+        "frozen 2026/10/26/rarest-taxon-asymptotics-for-the-covariance-of-observed-richness--6076121d7d36/RESULT.md",
+        "Resultary query: multinomial sampling covariance observed species richness plug-in Shannon entropy deletion identity rarest species decay bias",
+        "Resultary:2026/10/4/SCOPE-universal-positive-covariance-of-sample-richness-and-unbiased-gi--e84114bd4ba0",
+        "Resultary:2026/9/20/SCOPE-successive-species-discovery-covariance-missing-mass--4b975bda1dac",
+        "web:",
+        "web:"
+      ],
+      "rationale": "Shannon entropy and observed species richness are routinely reported together. Their covariance uncertainty is not determined by either marginal or by Gini–Simpson covariance. The exact finite-n identity and sharp positive rarest-taxon exponential coefficient, universal 1/n and explicit 1/n² terms characterize their joint sampling behavior near richness saturation; a natural invariant for fixed ecological communities.",
+      "residual_risks": [
+        "Ecological sampling models with unobserved species or spatial dependence fall outside the theorem."
+      ],
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "final_claim": "Exact deletion covariance identity and rarest-taxon fixed-finite-alphabet Shannon covariance expansion to n^-2, with eventual positive sign.",
+  "limitations": [
+    "Only fixed s, strictly positive p and IID draws; no uniformity if p_min→0 with n.",
+    "The O(n^-3) is fixed-parameter; signs for arbitrary finite n are not established.",
+    "Classical occupancy–entropy covariance may have an algebraically equivalent deletion identity under different language.",
+    "De'ath ecological full text not independently read; no assertion of literature-wide absence.",
+    "Ecological sampling models with unobserved species or spatial dependence fall outside the theorem."
+  ],
+  "schema_version": 1
+}
