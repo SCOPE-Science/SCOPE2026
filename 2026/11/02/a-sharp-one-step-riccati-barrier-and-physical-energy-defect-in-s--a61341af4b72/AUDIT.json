@@ -1,0 +1,105 @@
+{
+  "correctness": {
+    "rationale": "The five substeps of published VA-II (eqs. 2.31--2.46) reduce on the periodized one-cell cold mode to an identity first advection/Riccati pair; a solvable 2x2 midpoint system gives r_mid=R/(1+y), v1=he/(1+y), r1=R(1-y)/(1+y). The exact Riccati denominator at time h/2 is (1-3y)/(1-y). On 0<y<1 this is positive iff y<1/3, while at y=1/3 the pole occurs at endpoint and for 1/3<y<1 it occurs earlier. The final charge-conserving current equals winding-aware displacement h v1/2, giving E1=e-hv1/2. Direct substitution yields the positive physical-energy change C0 e^2 h^4/[8 R^2(1+y)^2], and r1*g1-E1=4e y^2/[(1+y)(1-3y)]. Explicit algebra proves the identities for all real parameters in scope; exact Fraction tests check independent stage calculations and pole times.",
+    "status": "PASS"
+  },
+  "independent": false,
+  "independent_audit_status": "not_performed",
+  "originality": {
+    "broader_coverage": {
+      "evidence": [
+        "The motivating work proves exact modified energy and charge conservation but does not provide a uniform positive-time well-posedness theorem or a physical-energy bound for VA-II.",
+        "The predecessor is a semi-Lagrangian SAV VA/VM scheme with a different velocity/field update; its conserved energy statement is not a sharp VA-II Riccati/composition threshold."
+      ],
+      "reasoning": "General SAV conservation does not rule out a finite-time pole in one Riccati stage nor quantify physical E versus auxiliary r*g. General method equations cover the instance algorithmically, but the specific sharp step-size and physical drift are not established as results in the inspected prior works.",
+      "searches": [
+        "arXiv:2610.16028v1 (full accessible HTML, source Proposition 2.2 and Remark 2.3)",
+        "Crouseilles--Liu--Yue 2026 Semi-Lagrangian SAV method for Vlasov--Maxwell equations (accessible author PDF, Sections 2.2--2.3)",
+        "published-finding corpus: scalar auxiliary variable splitting scheme electrostatic Vlasov Ampere scaled electric field Riccati pole blowup substep well-posedness singularity"
+      ]
+    },
+    "checked_sources": [
+      "https://arxiv.org/abs/2610.16028",
+      "https://lirias.kuleuven.be/retrieve/50e8d678-ecc1-4287-b2ad-6c7dbd5a27e8"
+    ],
+    "claim_vs_prior_implication": {
+      "evidence": [
+        "Equation (2.39) alone shows that a Riccati denominator can vanish; without its cold-state input after (2.43), it does not yield the explicit barrier (1-3y)/(1-y).",
+        "Proposition 2.2 gives modified-energy invariance, which is compatible with the new exact positive physical-energy drift and does not imply the latter value.",
+        "Predecessor SAV energy arguments concern a different semi-Lagrangian splitting."
+      ],
+      "reasoning": "The prior formulas mathematically define the same algorithm, so the new theorem is a derived, specialized sharp diagnostic, not an independent integration scheme. It is not a restatement of their preservation proposition: it combines the full five-step Riccati pole, exact physical Ampere current, physical energy, and rescaled-field consistency on a specified Gauss-compatible mode. Possible earlier equivalent analysis remains a residual risk.",
+      "searches": [
+        "arXiv:2610.16028v1 (2.39), (2.43)--(2.46), Proposition 2.2",
+        "Crouseilles--Liu--Yue 2026 (Proposition 2, time-splitting schemes)",
+        "published-finding corpus: SAV scalar auxiliary variable method physical energy drift scaled field consistency finite timestep pole"
+      ]
+    },
+    "equivalent_formulations": {
+      "evidence": [
+        "The source equation (2.39) is a generic scalar Riccati substep, not the composed cold-state map or sharp threshold; equations (2.40)--(2.46) define further stages.",
+        "Nearest published published-finding corpus title, Critical quintic logarithm and finite-part energy in exponential-memory blow-up (2026-10-11), concerns a different exponential-memory ODE."
+      ],
+      "reasoning": "No equivalent one-cell five-stage threshold/field-consistency result was found in the retrieved mathematical records or inspected source sections. The source rational subflow is an essential ingredient, but evaluating its data after the midpoint and connecting the result to the physical field requires composition of all five stages; no uniqueness proof from database absence is claimed.",
+      "searches": [
+        "published-finding corpus: VA-II Riccati pole from zero initial particle velocity single cell modified energy vs physical electric field",
+        "published-finding corpus: Explicit SAV PIC Fan Crouseilles Hu scaled field denominator 1-3y finite timestep breakdown",
+        "web: VA-II singularity Riccati PIC Fan Crouseilles Hu 2026",
+        "arXiv:2610.16028v1 (sections 2.3.1--2.3.4)"
+      ]
+    },
+    "exact_database_or_table": {
+      "evidence": [
+        "No matching exact parameter table or formula appeared among returned records; nearest results treat distinct systems.",
+        "The source paper does not tabulate a cold-state pole threshold or physical-energy defect."
+      ],
+      "reasoning": "The result is a continuous symbolic threshold, not a finite invariant from a pre-existing tabulation. Search absence is weak evidence only.",
+      "searches": [
+        "published-finding corpus: one cell Vlasov Ampere PIC exact energy drift after Strang splitting five stages",
+        "published-finding corpus: physical electric field r g mismatch one particle SAV charge conserving modified energy",
+        "web: 2610.16028 one cell energy error"
+      ]
+    },
+    "rationale": "The motivating VA-II article already owns the splitting, Riccati rational substep, midpoint formula, separately deposited E update, and general modified-energy theorem, none claimed as new. It does not state the completed cold homogeneous five-stage map, exact connected-to-zero finite-step obstruction, exact strictly positive physical-energy defect, or scaled-field mismatch pole. The 2026 semi-Lagrangian SAV predecessor uses a different composition and likewise does not present these VA-II PIC-specific formulas. Actual mathematical search and accessible claim comparison found no equivalent theorem; generic SAV/one-cell algebra and incompletely indexed literature remain priority risks.",
+    "residual_risks": [
+      "Earlier or unindexed work could derive the same homogeneous VA-II formula; mathematical search cannot prove novelty.",
+      "The exact pole is visible in the published generic Riccati formula after nontrivial composition; priority hinges on whether this complete scalar sharp characterization was previously spelled out.",
+      "The benchmark allows a nonzero constant Gauss-law mode, excluded by the motivating paper's additional zero-mean potential initialization."
+    ],
+    "source_inspections": [
+      {
+        "assessment": "Defines subflows and general conservation; does not present the cold homogeneous five-stage pole/physical-energy identities",
+        "evidence": [
+          "Equations (2.39), (2.43), (2.44), (2.45), (2.46)",
+          "Proposition 2.2 and Remark 2.3"
+        ],
+        "identifier_or_url": "https://arxiv.org/abs/2610.16028",
+        "material_read": "Full accessible HTML sections 1, 2.1, 2.3, including equations (2.31)--(2.46), Proposition 2.2 and Remarks 2.3--2.4",
+        "method": "Direct full-document HTML text inspection and targeted searches for physical-energy/pole terminology",
+        "title": "Explicit charge-conserving and modified energy-conserving PIC methods using the SAV approach",
+        "trigger": "Direct motivating VA-II algorithm and plausible stronger coverage"
+      },
+      {
+        "assessment": "Older related SAV formulation and different semi-Lagrangian composition; no same five-stage VA-II PIC cold map in inspected material",
+        "evidence": [
+          "Section 2.2 SAV formulation",
+          "Section 2.3 Proposition 2, conservation and splitting"
+        ],
+        "identifier_or_url": "https://lirias.kuleuven.be/retrieve/50e8d678-ecc1-4287-b2ad-6c7dbd5a27e8",
+        "material_read": "Author-PDF page 5 (SAV formulation and conservation proof) and page 7 (first-order split, Proposition 2); source textual context for adjacent scheme",
+        "method": "Read page screenshots of authorized open-access PDF with scientific statements and equations",
+        "title": "Semi-Lagrangian SAV method for Vlasov--Maxwell equations",
+        "trigger": "Older directly related SAV Vlasov discretization"
+      }
+    ],
+    "status": "PASS"
+  },
+  "review_type": "self_review",
+  "schema_version": 1,
+  "scope_run_id": "a61341af-4b72-4499-a98f-e873e3dd5a74",
+  "self_review_status": "passed",
+  "value": {
+    "rationale": "The completed five-stage analysis identifies a sharp step-size obstruction in an explicit modified-energy-preserving PIC algorithm while its kinetic/auxiliary states stay finite, and quantifies the separate physical energy and represented-field inconsistencies. These are diagnostic, method-specific numerical well-posedness and conservation limits on a natural homogeneous mode, with an exact threshold that can inform timestep guards. The paper's zero-mean Poisson initialization excludes this harmonic mode, so conclusions are not misrepresented as failures of those restricted experiments.",
+    "status": "PASS"
+  }
+}
