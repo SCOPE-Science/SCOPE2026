@@ -1,19 +1,21 @@
-# Scientific review
+# Independent mathematical audit
 
-## Correctness
+## correctness
 
-**PASS.** A forced-choice argument on subdivision vertices gives a bijection between independent dominating sets of \(\mathtt C(H)\) and admissible cliques of \(H\). In the intermediate graph \(H=\mathtt C(G)\), every open neighborhood fails to be a clique, eliminating all inadmissible cliques. The three exhaustive clique types then give the polynomial by degree counting. Minimizer classification is proved by explicit first differences and covers complete graphs and stars separately. Exhaustive enumeration for connected labelled hosts through five vertices, together with seeded six-vertex cases, independently checks the complete polynomial. Computation supports but does not substitute for the general proof.
+PASS
 
-## Originality
+For finite connected simple G of n>=3 with m edges, M=m+binom(n,2), verify D_i(C^2(G);z)=sum_{s=0}^{alpha(G)}a_s(G) z^{M-(n-1)s+binom(s+1,2)} + m z^{M-1}+2m z^{M-n+2}. In C(H), the old-vertex part of each independent dominating set is a clique X and subdivision choices are forced exactly for edges of H-X; nonselected old v is undominated iff N_H(v)=X. In H=C(G), every open neighborhood is nonclique (old vertices have an isolated subdivision neighbor; subdivision vertices have nonadjacent endpoints), so all intermediate cliques are admissible. Their exhaustive types are original independent sets, m subdivision singletons, 2m incident pairs; degree count yields the formula. Difference e_{s+1}-e_s=s+2-n proves the n>=4 complete/star/other minimum multiplicity trichotomy and nonstar recovery. Independently enumerated all maximal independent sets of C^2(G) for four selected small hosts, including P3, K3, K1,3, P4; full claimed finite verifier was inspected but its entire 870-host run not repeated. Infinite proof is structural.
 
-**PASS, with historical-priority qualifications.** The most directly relevant 2026 paper, *Independent domination in central graphs* (arXiv:2609.16357v1), proves optimization formulas rather than this complete polynomial or total set census. The 2018 paper *On the independent domination polynomial of a graph* (arXiv:1808.07369v3) studies this invariant on other graph constructions. The accessible public result *Independent domination of higher iterated central graphs* (2026-09-17; record 7dc2104ad847) treats minimum numbers starting from the third iterate. Its full result does not imply this full second-iterate enumeration without the new all-clique admissibility and multiplicity analysis. No exact equivalent was found in targeted record and literature searches, which do not prove absolute novelty.
+## originality
 
-## Value
+PASS
 
-**PASS.** A general graph transformation is given an exact polynomial-level interpretation, not merely an extremal scalar formula. It transfers all independent-subset counts to a full independent-domination enumerator, yields the simple total \(\sum_s a_s(G)+3m\), and classifies every minimizing configuration with sharp, natural complete/star exceptions. This creates an exact counting bridge for arbitrary connected inputs and explains the unusual degeneracies of second-iterate minimizers.
+Theorem 2.12 in the directly relevant September 2026 central-graph paper already establishes the minimum independent domination NUMBER for C^2(G); this part is not new. Its Theorems 2.1 and 2.12 were examined in all 13 pages and do not give a full independent-domination polynomial or multiplicities. The new claim is the complete cardinality enumerator, constructive bijection of all sets, total count, minimum multiplicities, and coefficient recovery. General independent-domination polynomial theory and a higher-central-iterate minimum-number record were also compared. No matching stronger enumerator found in the checked material; priority remains contingent.
 
-## Limitations and closest literature
+## value
 
-The result concerns connected finite simple graphs of order at least three; the optimizer trichotomy requires order at least four. Historical-priority uncertainty remains, especially for equivalent formulations of central-graph enumeration not indexed under that name. There is no assertion of independent mathematical validation.
+PASS
 
-Self-review: passed. Independent audit: not yet performed.
+The independent-domination polynomial is a natural graph invariant refining a known minimum-number theorem. The exact closed formula for every connected input, its bijective explanation, and recovery of the original independent-set counts for nonstars would be useful for extremal enumeration and distinguishing iterated central graphs; the classification handles nontrivial complete/star degeneracies.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
