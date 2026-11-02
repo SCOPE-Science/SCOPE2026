@@ -1,0 +1,164 @@
+{
+  "audit_date_utc": "2026-10-29",
+  "audited_at_utc": "2026-10-29T05:53:46.254604Z",
+  "axes": {
+    "correctness": {
+      "rationale": "The quadratic Hamiltonian and zero-temperature Lindblad loss yield the displayed real drift A with invariant (q_c,p_h) and (p_c,q_h) 2x2 blocks, characteristic polynomials lambda^2+(d-Omega)lambda+g^2 and lambda^2+(d+Omega)lambda+g^2. For g>0, 0<Omega<d=gamma/2 both are strictly Hurwitz, so the covariance Lyapunov ODE has a unique stable fixed point. Direct substitution proves V_inf=diag(v+,v-,v-,v+), v+=d/[2(d-Omega)], v-=d/[2(d+Omega)], whose cross block is exactly zero; the zero-mean stationary Gaussian state factorizes and has occupation Omega^2/[2(d^2-Omega^2)]>0. The exact covariance flow V(t)=V_inf+e^{At}(I/2-V_inf)e^{A^Tt} gives charger squeezes O(t), off-block correlations -g Omega t^2/2[[0,1],[1,0]]+O(t^3), and local determinants 1/4+O(t^3). Local symplectic reduction and Gaussian PPT eigenvalue expansion give nu_tilde_- =1/2-g Omega t^2/2+O(t^3), hence E_N=g Omega t^2+O(t^3). Since limiting PPT eigenvalue sqrt(v+v-)=d/[2sqrt(d^2-Omega^2)] is strictly >1/2, continuity plus exponential covariance convergence gives one finite T beyond which entanglement never returns. A NEW independent matrix-exponential computation verified the Lyapunov residual (<=5.6e-17), Hurwitz condition, four sample small-time coefficients and stationary strict PPT gaps; these finite samples corroborate, not establish, the arbitrary-parameter analytic result.",
+      "residual_risks": [
+        "Transient entanglement birth assumes vacuum; stationary attractor convergence applies to Gaussian finite-second-moment initial states.",
+        "Strictly positive rates and exact resonance are needed; taking g=0 before t->infinity is a singular limit."
+      ],
+      "sources": [
+        "assigned RESULT.md mathematical derivation, actual verify.py inspected",
+        "independent_checks.py fresh matrix-exponential and Gaussian PPT checks",
+        "Downing and Ukhtary, A quantum battery with quadratic driving, Communications Physics 6 (2023), 322, doi:10.1038/s42005-023-01439-y",
+        "Simon, Peres-Horodecki Separability Criterion for Continuous Variable Systems, Phys Rev Lett 84 (2000), 2726, arxiv:quant-ph/9909044"
+      ],
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Downing–Ukhtary 2023 Eq. (42) gives stationary holder energy Omega^2/(2(d^2-Omega^2)), hence this numerical energy formula is established prior work. Simon provides separability criterion; Ge et al. study passive beam-splitter entanglement extraction; Isar examines uncoupled oscillators in a different bath; Downing–Ukhtary 2024 involves a pulsed protocol."
+        ],
+        "reasoning": "The prior energy corollary is not counted as novel. None of the inspected accessible stronger methods entails simultaneously the order-t^2 vacuum entanglement birth and an eventual strictly separable Gaussian product under this specific continuing drive and one-sided damping; the inaccessible original supplement may be a stronger source and is retained as a risk.",
+        "searches": [
+          "Downing Ukhtary A quantum battery with quadratic driving 2023 resonance entanglement supplementary material",
+          "Driven damped bosonic charger holder quadratic parametric pump resonant transient entanglement eventually separable stationary covariance product Gaussian",
+          "arxiv:quant-ph/9909044",
+          "arxiv:1506.04937",
+          "arxiv:1102.4495"
+        ]
+      },
+      "checked_sources": [
+        "Downing and Ukhtary, A quantum battery with quadratic driving, Communications Physics 6 (2023), 322, doi:10.1038/s42005-023-01439-y",
+        "Simon, Peres-Horodecki Separability Criterion for Continuous Variable Systems, Phys Rev Lett 84 (2000), 2726, arxiv:quant-ph/9909044",
+        "Ge, Tasgin and Zubairy, Conservation relation of nonclassicality and entanglement for Gaussian states in a beam splitter, Phys Rev A 92 (2015), 052328, arxiv:1506.04937",
+        "Isar, Entanglement in two-mode continuous variable open quantum systems, arxiv:1102.4495",
+        "Downing and Ukhtary, Hyperbolic enhancement of a quantum battery, Phys Rev A 109, 052206 (2024), abstract",
+        "Resultary semantic search on resonant bosonic battery transient Gaussian entanglement"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "The same mathematical model main article Eq. (42) computes the resonant stationary holder energy; Figure 5 negativity has Delta=gamma/2 and refers to the steady state, while the new analytic vacuum result gives E_N(t)=g Omega t^2+O(t^3) and eventual zero for all t>=T at Delta=0."
+        ],
+        "reasoning": "The already known marginal energy does not logically specify cross-correlations, partial-transpose spectrum at t>0 or a permanent late-time separability boundary. The covariance method and Simon criterion are established ingredients; their application to the claimed precise time asymptotics is the additional assertion. Supplement exact contents remain unread, so implication from that material is explicitly undecided.",
+        "searches": [
+          "Downing Ukhtary A quantum battery with quadratic driving 2023 resonance entanglement supplementary material",
+          "Communications Physics 6 (2023) equations (30),(39),(42), Figure 5",
+          "arxiv:quant-ph/9909044"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Gaussian vanishing cross block equals tensor-product Gaussian state, zero mutual information; Simon PPT eigenvalue <1/2 is equivalent to entanglement for one mode versus one mode. Downing–Ukhtary main paper has the same charger Hamiltonian but plots negativity at detuning Delta=gamma/2, not Delta=0."
+        ],
+        "reasoning": "The exact claim was compared in covariances, Gaussian PPT, and physical energy language. A marginal stationary energy formula is not equivalent to the full bipartite covariance or transient entanglement history. The supplement is acknowledged as potentially containing stronger moments.",
+        "searches": [
+          "Driven damped bosonic charger holder quadratic parametric pump resonant transient entanglement eventually separable stationary covariance product Gaussian",
+          "Downing Ukhtary A quantum battery with quadratic driving 2023 resonance entanglement supplementary material",
+          "arxiv:2311.02424",
+          "arxiv:quant-ph/9909044",
+          "arxiv:1506.04937"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "The published main text plots detuned steady negativity and charger/holder energies, with no exact-resonance time-resolved PPT coefficient table. Semantic results included unrelated two-cavity damping and Gaussian entanglement models."
+        ],
+        "reasoning": "A stationary energy table is prior and removed from novelty. The present claim is an all-parameter dynamic theorem, not a one-parameter numerical lookup; no matching exact event-time/PPT theorem found in inspected sources.",
+        "searches": [
+          "Driven damped bosonic charger holder quadratic parametric pump resonant transient entanglement eventually separable stationary covariance product Gaussian",
+          "Downing Ukhtary A quantum battery with quadratic driving 2023 resonance entanglement supplementary material",
+          "resonant quantum battery quadratic driving charging entanglement charger battery steady separable product 2023 2024",
+          "Resultary semantic query: Driven damped bosonic charger holder quadratic parametric pump resonant transient entanglement eventually separable stationary covariance product Gaussian"
+        ]
+      },
+      "rationale": "The original 2023 Downing–Ukhtary paper studies the identical quadratic charger–holder model and explicitly gives stationary energy at Delta=0, which is prior and not treated as new. The full openly available main article, including quadratic Hamiltonian Eq. (30), energy Eqs. (39),(42), and detuned figure 5, was inspected. It does not expressly give in that text the exact-resonance short-time PPT coefficient, late-time strict PPT gap and coupling-independent factorized steady covariance as this complete claim. Simon supplies the known Gaussian PPT criterion, and passive-beam-splitter or uncoupled-mode papers supply techniques, not a stronger dynamic theorem for this one-sided-damped pumped pair. Original supplementary first/second-moment derivations were TOO LARGE for accessible full-text retrieval and could imply an equivalent stationary result. Best-of-knowledge O PASS with that exact plausible source and older Gaussian-literature risks explicit; no whole-supplement negative assertion is made.",
+      "residual_risks": [
+        "The primary 2023 supplementary PDF contains additional first/second moment calculations and could already imply the stationary factorization; it was not materially read due full-document size limit.",
+        "Older Gaussian parametric-amplifier and quantum-optical literature could contain an equivalent all-rate transient-PPT result in different notation.",
+        "The same mathematical model stationary energy expression is already prior art; only the bipartite structural and time-dependent statements contribute to novelty."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Energy corollary is prior; main article does not expressly give the three-part exact-resonant entanglement theorem. Supplement is a real uninspected equivalent-formulation risk.",
+          "evidence": [
+            "Communications Physics 6, 322, Eqs. 30,39,42, Figure 5 and supplementary note 3 link; supplementary fetch returned Content length too large (10485761+)."
+          ],
+          "identifier_or_url": "https://www.nature.com/articles/s42005-023-01439-y",
+          "material_read": "Full openly available main HTML, especially Hamiltonian Eq. (30), steady energy Eqs. (39),(42), first/second moment statements, Fig. 5 caption and detuning assumptions; supplementary PDF link could not be retrieved because >10 MB tool limit.",
+          "method": "Read primary main article full relevant statements/equations and distinguish exact resonance from plotted detuned dynamics; inspect separate Supplementary Information link failure.",
+          "title": "Downing and Ukhtary, A quantum battery with quadratic driving, Communications Physics 6 (2023), 322, doi:10.1038/s42005-023-01439-y",
+          "trigger": "Identical charger-holder quadratic Hamiltonian and stationary Gaussian regime; highest priority same-model source."
+        },
+        {
+          "assessment": "Supports Gaussian PPT criterion but does not solve the driven Lindblad dynamics.",
+          "evidence": [
+            "Simon (2000) PPT criterion and its momentum-reflection formulation, cited in assigned RESULT.md."
+          ],
+          "identifier_or_url": "https://arxiv.org/abs/quant-ph/9909044",
+          "material_read": "Primary preprint covariance/PPT criterion as used in RESULT.md; complete original not newly retrieved in this run, so no claim to a fresh full-page rereading.",
+          "method": "Identify established criterion and its exact logical role rather than treating it as novelty.",
+          "title": "Simon, Peres-Horodecki Separability Criterion for Continuous Variable Systems, Phys Rev Lett 84 (2000), 2726, arxiv:quant-ph/9909044",
+          "trigger": "Foundational exact two-mode Gaussian PPT iff separable test."
+        },
+        {
+          "assessment": "Not the same dynamics; does not automatically imply irreversible late-time product despite transient entanglement.",
+          "evidence": [
+            "Ge et al. (2015) title and beam-splitter nonclassicality/entanglement statement."
+          ],
+          "identifier_or_url": "https://arxiv.org/abs/1506.04937",
+          "material_read": "Title, abstract and mathematical setup from research context; full original text not newly retrieved this run.",
+          "method": "Compare passive two-port single-shot protocol to open Markovian continuous pump and eventual separability.",
+          "title": "Ge, Tasgin and Zubairy, Conservation relation of nonclassicality and entanglement for Gaussian states in a beam splitter, Phys Rev A 92 (2015), 052328, arxiv:1506.04937",
+          "trigger": "Possible generalized passive-squeezing-to-entanglement theorem."
+        },
+        {
+          "assessment": "Its uncoupled-mode model does not entail the hopping-driven transient birth law.",
+          "evidence": [
+            "Isar (2011) uncoupled Gaussian oscillator scope as cited and summarized in the assigned paper."
+          ],
+          "identifier_or_url": "https://arxiv.org/abs/1102.4495",
+          "material_read": "Public source bibliographic claim and its uncoupled-mode model attribution, not a new whole-document inspection.",
+          "method": "Compare intermode Hamiltonian and bath assumptions.",
+          "title": "Isar, Entanglement in two-mode continuous variable open quantum systems, arxiv:1102.4495",
+          "trigger": "Broader two-mode open Gaussian state evolution and entanglement sudden death."
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "rationale": "A natural open two-mode bosonic battery demonstrates immediate nonzero Gaussian entanglement from a vacuum input but a uniquely attracting exactly product stationary state with nonzero stored holder energy. The coefficient g Omega in the small-time log-negativity and a strict long-time PPT gap for all positive couplings give sharp structural information about quantum correlations versus energetic usefulness and about steady measurements hiding transient correlations. This is a mathematically meaningful model classification beyond a routine parameter substitution, while not asserting a unique first death time or generic baths.",
+      "residual_risks": [
+        "Some stationary conclusions may follow mechanically from earlier full covariance equations in the unread supplementary source; priority is primarily in the combined transient and long-time theorem."
+      ],
+      "sources": [
+        "Downing and Ukhtary, A quantum battery with quadratic driving, Communications Physics 6 (2023), 322, doi:10.1038/s42005-023-01439-y",
+        "Simon, Peres-Horodecki Separability Criterion for Continuous Variable Systems, Phys Rev Lett 84 (2000), 2726, arxiv:quant-ph/9909044",
+        "assigned proof with exact Lyapunov fixed point and PPT Taylor analysis"
+      ],
+      "status": "PASS"
+    }
+  },
+  "checked_sources": [
+    "Downing and Ukhtary, A quantum battery with quadratic driving, Communications Physics 6 (2023), 322, doi:10.1038/s42005-023-01439-y",
+    "Simon, Peres-Horodecki Separability Criterion for Continuous Variable Systems, Phys Rev Lett 84 (2000), 2726, arxiv:quant-ph/9909044",
+    "Ge, Tasgin and Zubairy, Conservation relation of nonclassicality and entanglement for Gaussian states in a beam splitter, Phys Rev A 92 (2015), 052328, arxiv:1506.04937",
+    "Isar, Entanglement in two-mode continuous variable open quantum systems, arxiv:1102.4495",
+    "Downing and Ukhtary, Hyperbolic enhancement of a quantum battery, Phys Rev A 109, 052206 (2024), abstract",
+    "Resultary semantic search on resonant bosonic battery transient Gaussian entanglement"
+  ],
+  "disposition": "passed",
+  "limitations": [
+    "Exact resonance, one-sided zero-temperature Lindblad loss, g>0, 0<Omega<gamma/2, vacuum for immediate birth.",
+    "No claim of unique entanglement death time, no arbitrary non-Gaussian dynamics, no coupled-switch generalization.",
+    "Primary supplementary moments uninspected due size limit; explicit priority risk."
+  ],
+  "residual_risks": [
+    "The primary 2023 supplementary PDF contains additional first/second moment calculations and could already imply the stationary factorization; it was not materially read due full-document size limit.",
+    "Older Gaussian parametric-amplifier and quantum-optical literature could contain an equivalent all-rate transient-PPT result in different notation.",
+    "The same mathematical model stationary energy expression is already prior art; only the bipartite structural and time-dependent statements contribute to novelty."
+  ],
+  "schema_version": 1
+}
