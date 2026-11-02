@@ -1,15 +1,21 @@
-# Scientific review
+# Independent mathematical audit
 
-## Correctness
-PASS. The group law and inverses follow from degree preservation; generator-pair commutators span the image of the difference operator on the degree-zero lattice, and conjugation proves the precise lower-central recursion. The cyclotomic decomposition separates an invariant integer obstruction lattice in non-prime-power cycles from the no-algebraic-unit argument for prime-power cycles. For \(n=1\), the degree-zero lattice is zero and the theorem reduces correctly to the infinite cyclic group. Exact arithmetic checks of all cycle types through \(n=8\) passed, but the infinite statement is proved symbolically.
+## correctness
 
-## Originality
-PASS, with priority risk. The 2026 Zhang-twist source contains the motivating semigroup family and group-extension theory but no lower-central formula or residual-nilpotence classification. Previously available computations for precisely this family determine the group completion, its first homology, and center: the present claim does not repeat or take credit for those results. The contemporaneous cyclotomic Smith-form manuscript develops a method applicable to the matrices involved, but its Theorem 4.22 does not state the lower-central or residual-nilpotence theorem for the twist groups. Dedicated comparisons for alternative words (permutation-solution structure groups, cyclotomic units, nilpotence) did not reveal a covering theorem. Because the matrix analysis is related, equivalence in older literature remains a real risk.
+PASS
 
-## Value
-PASS. Residual nilpotence is a natural separation invariant for groups of fractions of noncommutative twists. The cycle-power criterion is sharp and arithmetic, distinguishing groups with similarly finite-order twisting permutations; it also identifies an explicit persistent lattice in the negative cases. It is a substantive all-rank classification rather than one more low-rank example or a restatement of the known abelianization and center.
+For any finite permutation π on n>=1, P its integer permutation matrix, |a| coordinate sum, K=ker |.|, and A=I-P, the twisted sum a⋆b=a+P^{|a|}b is associative with inverse -P^{-|a|}a and the nonnegative monoid generates its fraction group. Commutator (a⋆b)(b⋆a)^(-1)=(I-P^t)a-(I-P^s)b lies in AK; the basis generator commutators A(e_i-e_j) show γ2=AK. Conjugating degree-zero vectors by any degree-one element acts as P, so γ_r=A^{r-1}K for every r>=2. On a cycle with a mixed-prime divisor d, integral W_d=ker Φ_d(P) is nonzero and A acts as a lattice automorphism since Φ_d(1)=1, yielding a nonzero element in every γ_r. Conversely for prime-power cycles every nonzero eigenvalue 1-ζ of A on the root lattice L=im(A) is a nonunit (Φ_{p^j}(1)=p). A nonzero stabilized integral intersection J=∩A^jL would force an integer-lattice automorphism with only nonunit eigenvalues, contradiction; J=0 and residual nilpotence follows. This holds for mixed disjoint prime-power cycles of different primes (order need not be prime-power), and nonidentity π is never actually nilpotent.
 
-## References and limitations
-Primary: Hazrat–Mesyan–Steinberg, arXiv:2610.21005v1, Example 2.7 and §2.9. Related matrix theory: Noferini–Williams, arXiv:2610.19205v1, §§1, 4.3. Scope: finite permutations and their integer-lattice Zhang twists. Other structure groups or arbitrary Zhang systems are not covered; the persistent lower-central intersection is not fully decomposed. Available source inspection cannot prove uniqueness, and independent checking remains outstanding.
+## originality
 
-Self-review: passed. Independent audit: not yet performed.
+PASS
+
+Qualified original application of integral cyclotomic arithmetic to the full lower central series of permutation-twist monoid group completions. Hazrat–Mesyan–Steinberg introduced the exact twist family and studied group/extensions, and Noferini–Williams develops relevant cyclotomic Smith methods, but the inspected sources do not state this family’s lower central series or prime-power-cycle iff criterion.
+
+## value
+
+PASS
+
+Exact γ_r and a necessary-and-sufficient arithmetic residual-nilpotence criterion are fundamental invariants of the natural group completions of the named twist family, with a striking distinction between one 6-cycle and disjoint 2- and 3-cycles. This is not a reparametrization of an existing small-case computation.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

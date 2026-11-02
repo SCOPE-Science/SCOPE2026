@@ -1,0 +1,129 @@
+{
+  "audit_date_utc": "2026-10-28",
+  "audited_at_utc": "2026-10-28T04:46:39Z",
+  "axes": {
+    "correctness": {
+      "evidence": [
+        "Pinned RESULT.md Git blob 53924f9ed6af58e97b6fccdfb8f9038767ef9955 and verify.py blob e6ca07a14b6ca47d975b3343bd9b9a4520459cc1; exact Git tree 0b7f50e68152f475252672e43e7fb160db780047.",
+        "Fresh independent checks computed Φ_d(1) for divisors of cycle lengths 2..12 (prime-power p vs mixed-prime 1) and verified twisted commutator identities for sample permutations.",
+        "Group-theoretic commutator generation and cyclotomic nonunit lattice intersection proof were inspected in full; finite partition checks are not substituted for the arbitrary cycle theorem."
+      ],
+      "rationale": "For any finite permutation π on n>=1, P its integer permutation matrix, |a| coordinate sum, K=ker |.|, and A=I-P, the twisted sum a⋆b=a+P^{|a|}b is associative with inverse -P^{-|a|}a and the nonnegative monoid generates its fraction group. Commutator (a⋆b)(b⋆a)^(-1)=(I-P^t)a-(I-P^s)b lies in AK; the basis generator commutators A(e_i-e_j) show γ2=AK. Conjugating degree-zero vectors by any degree-one element acts as P, so γ_r=A^{r-1}K for every r>=2. On a cycle with a mixed-prime divisor d, integral W_d=ker Φ_d(P) is nonzero and A acts as a lattice automorphism since Φ_d(1)=1, yielding a nonzero element in every γ_r. Conversely for prime-power cycles every nonzero eigenvalue 1-ζ of A on the root lattice L=im(A) is a nonunit (Φ_{p^j}(1)=p). A nonzero stabilized integral intersection J=∩A^jL would force an integer-lattice automorphism with only nonunit eigenvalues, contradiction; J=0 and residual nilpotence follows. This holds for mixed disjoint prime-power cycles of different primes (order need not be prime-power), and nonidentity π is never actually nilpotent.",
+      "risks": [
+        "The result classifies residual nilpotence, not the exact full structure of a potentially nonzero intersection.",
+        "The group completion is taken in the universal fraction sense, not arbitrary Zhang twists of noncommutative monoids."
+      ],
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Noferini–Williams provides integer linear algebra for products of cyclotomic polynomials, particularly periodic Smith forms.",
+          "Generic virtually abelian structure does not identify commutator subgroup AK or the exact action on K without this twist calculation."
+        ],
+        "reasoning": "Smith form results could assist a general lattice proof but do not themselves state the permutation-cycle classification of residual nilpotence.",
+        "searches": [
+          "Noferini Williams Theorem 4.22 invariant factors cyclotomic products",
+          "general virtually abelian group residual nilpotence and eigenvalue criterion",
+          "Hazrat Mesyan Steinberg Section 2.9 group extensions"
+        ]
+      },
+      "checked_sources": [
+        "Hazrat–Mesyan–Steinberg arXiv:2610.21005 full accessible primary text, Example 2.7 and group extension",
+        "Noferini–Williams arXiv:2610.19205 abstract/Theorem 4.22 description",
+        "Resultary Zhang twists/residual nilpotence semantic search 2026-10-28"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "Hazrat–Mesyan–Steinberg establishes the model and general algebraic extension context; group commutator identities are extra.",
+          "Noferini–Williams evaluates related invariant factors but the present prime-power iff concerns vanishing of ∩_{j>=1} (I-P)^j K, not eventual Smith normal form alone."
+        ],
+        "reasoning": "The exact lower central formula and nonunit-eigenvalue intersection argument are genuine additions to the inspected prior implications, though other general group theory may encode equivalent statements.",
+        "searches": [
+          "arXiv:2610.21005 Example 2.7 and Section 2.9",
+          "arXiv:2610.19205 Theorem 4.22 cyclotomic products",
+          "Cyclotomic identity Φ_m(1)=1 or p"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Hazrat–Mesyan–Steinberg Example 2.7 is the very same free commutative monoid with permutation twisting, establishing the correct identification as prior.",
+          "Their accessible full primary text contains no lower-central-series or residual-nilpotence theorem in its headings and searched content."
+        ],
+        "reasoning": "A Zhang-twist group extension is an equivalent presentation of the objects; the exact infinite lower-central intersection and cycle-length obstruction are not given by the original example.",
+        "searches": [
+          "Resultary: Zhang twist free commutative monoid permutation group lower central residual nilpotent prime power cycles cyclotomic",
+          "Hazrat Mesyan Steinberg arXiv:2610.21005 Example 2.7 group completion",
+          "Noferini Williams arXiv:2610.19205 cyclotomic Smith powers"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "Resultary returned nilpotent-group power-avoidance records and unrelated cyclic-group homology; no matching lower central series table for this twist family."
+        ],
+        "reasoning": "This is an infinite-family group theorem, not a recomputation of a known small-group database; failure to find an exact table is a qualified observation only.",
+        "searches": [
+          "Resultary: lower central permutation Zhang twist exact group power cycles",
+          "Search cyclotomic prime-power eigenvalues residual nilpotence I-P permutation groups"
+        ]
+      },
+      "rationale": "Qualified original application of integral cyclotomic arithmetic to the full lower central series of permutation-twist monoid group completions. Hazrat–Mesyan–Steinberg introduced the exact twist family and studied group/extensions, and Noferini–Williams develops relevant cyclotomic Smith methods, but the inspected sources do not state this family’s lower central series or prime-power-cycle iff criterion.",
+      "residual_risks": [
+        "The Noferini–Williams complete source was not read; an equivalent lattice criterion may appear in its full text or older group theory.",
+        "An implicit general virtually abelian criterion could cover the result after nontrivial specialization."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "SUBSTANTIAL_PARTIAL_COVERAGE: defines and studies same objects; not the infinite-depth lower central/cyclotomic criterion in accessible text.",
+          "evidence": [
+            "Example 2.7 uses permutation twist of free commutative semigroup; lower central and nilpotent terms were not present in searchable full text."
+          ],
+          "identifier_or_url": "https://arxiv.org/abs/2610.21005",
+          "material_read": "Accessible complete ArXiv HTML full-text, Example 2.7 and group-extension section, with full-text searches for lower central/nilpotent",
+          "method": "Primary arXiv full-text reading and section/text search",
+          "title": "Zhang twists for semigroups and groupoids, with applications to Steinberg algebras",
+          "trigger": "Exact same family of permutation twists of free commutative monoids"
+        },
+        {
+          "assessment": "POSSIBLE_BROADER_METHOD: cyclotomic Smith factors, but no established implication to the named group-theoretic iff; full text is residual risk.",
+          "evidence": [
+            "Theorem 4.22 concerns eventual Smith-form periodicity for cyclotomic products; abstract does not settle every specialization."
+          ],
+          "identifier_or_url": "https://arxiv.org/abs/2610.19205",
+          "material_read": "Abstract and metadata with available Theorem 4.22 description; complete text not independently inspected",
+          "method": "ArXiv abstract/metadata and cited theorem comparison",
+          "title": "Invariant factors from products of cyclotomic polynomials, with applications",
+          "trigger": "Cyclotomic Smith forms may dominate lattice intersection argument"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "evidence": [
+        "Complete lower-central lattice formula for every n and every π, not merely finite-depth verification.",
+        "Prime-power condition sharp even for mixed-prime permutation order, and nilpotence differs from residual nilpotence."
+      ],
+      "rationale": "Exact γ_r and a necessary-and-sufficient arithmetic residual-nilpotence criterion are fundamental invariants of the natural group completions of the named twist family, with a striking distinction between one 6-cycle and disjoint 2- and 3-cycles. This is not a reparametrization of an existing small-case computation.",
+      "risks": [
+        "Does not classify all lower-central quotient Smith factors or the nontrivial residual intersection itself."
+      ],
+      "status": "PASS"
+    }
+  },
+  "checked_sources": [
+    "Pinned RESULT.md 53924f9ed6af58e97b6fccdfb8f9038767ef9955",
+    "verify.py e6ca07a14b6ca47d975b3343bd9b9a4520459cc1",
+    "Hazrat–Mesyan–Steinberg arXiv:2610.21005 primary text",
+    "Noferini–Williams arXiv:2610.19205 abstract and cited result",
+    "Resultary group twist semantic search"
+  ],
+  "disposition": "passed",
+  "limitations": [
+    "Permutation twists only; residual nilpotence rather than finite-step nilpotence."
+  ],
+  "residual_risks": [
+    "Noferini–Williams complete mathematical text not independently inspected in this run.",
+    "Known general group-theoretic residual nilpotence criteria might subsume the specialization."
+  ],
+  "schema_version": 1
+}
