@@ -1,0 +1,101 @@
+{
+  "correctness": {
+    "rationale": "The exact three-update map of Hou–Toh Algorithm 1 preserves a rank-one row-factor invariant for column-only costs. An explicit induction yields every iterate and dual contrast. The |1-s| geometric factor, s=2 nontrivial positive two-cycle and s>2 opposite boundary supports follow analytically, not from finite simulation. The standalone standard-library verifier passed 8849 independent replay/identity checks over four nonuniform configurations.",
+    "status": "PASS"
+  },
+  "independent": false,
+  "independent_audit_status": "not_performed",
+  "originality": {
+    "broader_coverage": {
+      "evidence": [
+        "Hou–Toh Theorem 3.1 guarantees convergence for 0<s<2 at large penalty and is silent on s≥2",
+        "The general BADMM and ADMM references in Hou–Toh introduction concern algorithmic framework and cannot establish the stated exact supercritical transport trajectory without a separate reduction"
+      ],
+      "reasoning": "A theorem covering convergence only on 0<s<2 does not imply that the interval cannot be enlarged. Generic proximal/ADMM rules may have analogous upper relaxation boundaries but do not cover the specific positive column-additive invariant orbit without proof.",
+      "searches": [
+        "Hou Toh logarithmic dual Bregman ADMM for optimal transport 2026 exact column separable cost 2-cycle s=2 unbounded multiplier s>2 with feasible starting coupling",
+        "logarithmic multiplier BADMM cycle divergence stepsize 2 primal fixed column normalization product transport additive column costs",
+        "Bregman ADMM for Bethe variational problem nonlinear dual update 2025 divergence relaxation"
+      ]
+    },
+    "checked_sources": [
+      "https://arxiv.org/abs/2610.08087",
+      "https://arxiv.org/abs/1711.01851",
+      "https://mathscinet.ams.org/msc/msc2020.html?btn=Current&t=90Cxx"
+    ],
+    "claim_vs_prior_implication": {
+      "evidence": [
+        "arXiv:2610.08087v1 Algorithm 1 gives update map; Theorem 3.1 has only s in (0,2)",
+        "arXiv:1711.01851 is a separate fixed overrelaxed Sinkhorn scaling algorithm",
+        "Prior published local BDRS work concerns s=1 local contraction, not s≥2 global divergence"
+      ],
+      "reasoning": "An algorithm definition is necessary for this derivation but not by itself a published conclusion of the exact sharp step boundary. The stronger all-start theorem for two-state overrelaxed Sinkhorn addresses different iterates. Neither the cited sufficient Hou–Toh theorem nor the other comparison logically entails the stated BADMM softmax, boundary cycle and polarizing limits as a claimed result.",
+      "searches": [
+        "Hou Toh logarithmic dual Bregman ADMM for optimal transport 2026 exact column separable cost 2-cycle s=2 unbounded multiplier s>2 with feasible starting coupling",
+        "overrelaxed Sinkhorn 2x2 optimal transport global 0 omega 2 projective 2017"
+      ]
+    },
+    "equivalent_formulations": {
+      "evidence": [
+        "Hou–Toh arXiv:2610.08087v1 Algorithm 1 (2.13a–c), Proposition 2.4(ii): an equivalent columnwise dual reduction, but not an all-iteration softmax solution for column-only C",
+        "Thibault et al. arXiv:1711.01851: distinct overrelaxed entropic transport scaling, not the logarithmic-dual BADMM map"
+      ],
+      "reasoning": "The equality Y^k=ab^T and the 1-s multiplier-difference recurrence can be derived from prior update formulas, but neither same-scheme exact orbit nor universal failure at s≥2 is stated in the inspected motivating paper. The earlier fixed overrelaxed Sinkhorn recurrence is not the same operator and its 2-threshold alone does not logically imply a counterexample for this BADMM.",
+      "searches": [
+        "Hou Toh logarithmic dual Bregman ADMM for optimal transport 2026 exact column separable cost 2-cycle s=2 unbounded multiplier s>2 with feasible starting coupling",
+        "logarithmic multiplier BADMM cycle divergence stepsize 2 primal fixed column normalization product transport additive column costs",
+        "entropy Bregman ADMM column-only optimal transport oscillation softmax with one minus s exponent finite penalty"
+      ]
+    },
+    "exact_database_or_table": {
+      "evidence": [
+        "Targeted search of equations (2.13), (2.15), column-only costs, finite two-cycles and supercritical boundary polarization did not locate a preexisting exact orbit table"
+      ],
+      "reasoning": "This is a closed-form all-iteration theorem for an algorithm rather than a tabulated finite invariant. A failed search is not positive proof of priority; full coverage by any stronger equivalent dynamical theorem would supersede the claim.",
+      "searches": [
+        "entropy Bregman ADMM column-only optimal transport oscillation softmax with one minus s exponent finite penalty",
+        "\"logarithmic dual\" \"ADMM\" \"s=2\" \"transport\" cycle",
+        "\"Bregman ADMM\" \"s>2\" divergence transport costs"
+      ]
+    },
+    "rationale": "Hou–Toh state the sufficient convergence interval 0<s<2 but do not state its universal sharpness, the full separable-cost BADMM orbit, or a feasible-start supercritical counterexample. Their columnwise logarithmic multiplier relation is credited as groundwork, not claimed new. Earlier overrelaxed Sinkhorn acts on a different map; related recorded two-state Sinkhorn results do not imply the explicit BADMM iterates. Priority search is non-exhaustive.",
+    "residual_risks": [
+      "Earlier specialized BADMM or equivalent relaxed-normalization literature may independently derive this same orbit.",
+      "The cost is column-additive and all feasible couplings are optimal; no extension to nondegenerate unique-optimum transport is claimed.",
+      "An independent full-text historical audit of all older matrix-balancing literature has not been completed."
+    ],
+    "source_inspections": [
+      {
+        "assessment": "Source proves sufficiency on 0<s<2 but does not state sharp failure at and above 2 or the separable-cost closed-form orbit",
+        "evidence": [
+          "Algorithm 1 equations (2.13a–c), Proposition 2.4(ii) eq. (2.15), Theorem 3.1, Sections 1 and 5"
+        ],
+        "identifier_or_url": "https://arxiv.org/abs/2610.08087",
+        "material_read": "Public full HTML: introduction, Algorithm 1 equations (2.13a–c), Proposition 2.4, Section 3 Theorem 3.1, conclusion, text search for stepsize and s=2",
+        "method": "Direct mathematical comparison of update definitions, all stated hypotheses and convergence conclusion",
+        "title": "A Logarithmic-dual-update Bregman ADMM for Optimal Transport",
+        "trigger": "Exact algorithm and convergence parameter; closest primary prior"
+      },
+      {
+        "assessment": "Does not establish exact same BADMM trajectory from accessible material; priority uncertainty remains",
+        "evidence": [
+          "November 6, 2017 arXiv abstract specifies adaptive overrelaxed Bregman projections"
+        ],
+        "identifier_or_url": "https://arxiv.org/abs/1711.01851",
+        "material_read": "Authoritative arXiv abstract and indexed description; complete text not materially compared in this run",
+        "method": "Compare the stated algorithm class (Sinkhorn overrelaxation) to logarithmic-dual BADMM",
+        "title": "Overrelaxed Sinkhorn-Knopp Algorithm for Regularized Optimal Transport",
+        "trigger": "Potential s=2 numerical balancing boundary, different map"
+      }
+    ],
+    "status": "PASS"
+  },
+  "review_type": "self_review",
+  "schema_version": 1,
+  "scope_run_id": "45b9830f-5971-40a8-a58e-b42c4648884f",
+  "self_review_status": "passed",
+  "value": {
+    "rationale": "This sharp, universal nonextendability boundary addresses the precise 0<s<2 condition in Hou–Toh’s convergence theorem. It isolates instability in the multiplier update even with an exact strictly feasible positive starting plan, arbitrarily large fixed penalty, and Y already equal to an optimal plan, separating genuine primal mismatch from difficult optimization. A complete finite-dimensional closed form proves a positive 2-cycle and disjoint-support supercritical polarization.",
+    "status": "PASS"
+  }
+}
