@@ -1,0 +1,114 @@
+{
+  "correctness": {
+    "rationale": "For pair lists that are matchings, the union graph has maximum degree two, including shared-pair parallel edges. One enumerates every recipient assignment by a transfer DP carrying the two own utilities, two cross valuations, and two boundary colours. Induction over vertices proves full signature coverage. Since deleting a good destroys at most one complete valued pair, EF1 is equivalent to cross evaluations at most own utility plus one. Pareto optimality is exactly the nondominated own-utility frontier. Cycle proofs use the uniqueness of the two alternating perfect matchings, a balancing contiguous split, and a componentwise frontier argument. Exact implementation was compared with independent complete enumeration on 1,700 random instances and 8 single-cycle cases.",
+    "status": "PASS"
+  },
+  "independent": false,
+  "independent_audit_status": "not_performed",
+  "originality": {
+    "broader_coverage": {
+      "evidence": [
+        "arxiv:2610.15801 Theorem 3.1 addresses hardness when the number of agents is unbounded; Theorem 3.4 is a 1/k utilitarian approximation and Section 4 computes EFX without PO.",
+        "arxiv:2607.23367 requires strictly increasing set functions; these pair-complement valuations have zero singleton gain.",
+        "A separate previously established result computes an exact EF-ell welfare law on repeated four-item blocks; it is a restricted input family and does not address PO+EF1 feasibility on arbitrary alternating paths/cycles."
+      ],
+      "reasoning": "General SPOC approximations or hardness do not imply the exact two-agent disjoint-pair free-matroid algorithm. Strict-monotonicity results cannot cover valuations in which individual goods have zero value. Repeated-block exact welfare is a special family within the new input domain, with a different optimization target; it does not dominate the new theorem.",
+      "searches": [
+        "two agent binary SPOC2 free matroid pair valuations joint EF1 Pareto optimality feasibility perfect matching alternating cycle exception",
+        "two agents disjoint pair complementary utilities union degree two colored graph Pareto fair outcomes exact polynomial-time",
+        "2026 arxiv two agent EF1 PO strict valuations",
+        "arxiv:2610.15801 Sections 2–4",
+        "arxiv:2607.23367 abstract and theorem description"
+      ]
+    },
+    "checked_sources": [
+      "arxiv:2610.15801 (full available rendered primary text, including relevant proposition, theorem statements and appendix)",
+      "arxiv:2607.23367 (abstract and theorem description only)",
+      "published-finding corpus semantic search results for the six recorded formulations"
+    ],
+    "claim_vs_prior_implication": {
+      "evidence": [
+        "Published four-item SPOC impossibility gives only the negative length-two case, not necessity/sufficiency for length one and all lengths at least three.",
+        "The new eight-good obstruction with cycle-length multiset (1,3) has no length-two connected component and cannot be inferred from the source’s isolated four-item counterexample without additional analysis.",
+        "Prior result on zero marginal singleton values has different assumptions from the strictly-increasing Teh theorem."
+      ],
+      "reasoning": "Prior negative examples do not determine the behavior of all longer cycles or disconnected unions, and approximation algorithms do not solve simultaneous PO+EF1 exact feasibility. The state DP provides a general constructive upper complexity bound absent from the named results; conversely the new result does not claim general SPOC tractability.",
+      "searches": [
+        "two agents each values disjoint complementary pairs as additive completed bundles; polynomial algorithm compute Pareto efficient EF1 via alternating cycles paths dynamic programming",
+        "two agent binary SPOC2 free matroid pair valuations joint EF1 Pareto optimality feasibility perfect matching alternating cycle exception",
+        "two agents disjoint pair complementary utilities union degree two colored graph Pareto fair outcomes exact polynomial-time",
+        "arxiv:2610.15801 Proposition 2.1, Theorems 3.1, 3.4, Section 4",
+        "arxiv:2607.23367 abstract"
+      ]
+    },
+    "equivalent_formulations": {
+      "evidence": [
+        "arxiv:2610.15801, Sections 2-4, Proposition 2.1 and Appendix A.1",
+        "The degree-two coloured union is equivalent to superposition of two matchings, which is a union of alternating paths/cycles.",
+        "published-finding corpus semantic searches identified nearest high-level matching/fairness titles without these valuation objects or the transfer-signature statement."
+      ],
+      "reasoning": "The algorithm is invariant under relabeling agents, goods, path orientation, and swapping edge colors, and the four-statistic DP is an equivalent transfer-matrix formulation. Prior four-good pair blocks and two-agent strictly-increasing utilities do not quantify over arbitrary disjoint pair-list unions, and no equivalent all-input Pareto+EF1 decision result was identified.",
+      "searches": [
+        "two agents each values disjoint complementary pairs as additive completed bundles; polynomial algorithm compute Pareto efficient EF1 via alternating cycles paths dynamic programming",
+        "two agent binary SPOC2 free matroid pair valuations joint EF1 Pareto optimality feasibility perfect matching alternating cycle exception",
+        "two agents complementary pair valuations disjoint perfect matchings alternating cycles Pareto optimal EF1 exact classification",
+        "\"SPOC\" \"alternating cycles\" EF1",
+        "\"complementary pairs\" \"Pareto\" \"envy-free up to one\" two agents"
+      ]
+    },
+    "exact_database_or_table": {
+      "evidence": [
+        "The primary paper contains a four-item obstruction and welfare approximations, not a table of signatures or a decision classification for arbitrary two-colour degree-two multigraphs.",
+        "A previously established exact repeated-block welfare formula and a separate graph-theoretic additive-binary EFX/EQX theorem have distinct hypotheses or restricted families, and do not state the present pair-complement DP or cycle boundary."
+      ],
+      "reasoning": "No exact database, census or table for this natural two-agent pair-complement class was located in inspected primary literature or other accessible scientific claims. The number of signed edges and all integer signatures vary with arbitrary input matchings, so a fixed small-table result would not directly cover this algorithm.",
+      "searches": [
+        "two agents complementary pair valuations disjoint perfect matchings alternating cycles Pareto optimal EF1 exact classification",
+        "fair allocation dichotomous preferences item complements Pyne Viswanathan Yang Zick 2026 graph cycles EF1 Pareto",
+        "fair allocation dichotomous preferences item complements SPOC two agent exact welfare"
+      ]
+    },
+    "rationale": "The nearest primary source arxiv:2610.15801 already provides the four-good length-two alternating-cycle failure and general many-agent hardness and approximation bounds. The accepted claim does not reclaim the example: it gives exact polynomial-time EF1+PO feasibility and EF1 welfare optimization across ALL two-agent disjoint pair-list instances (paths, cycles, disconnected components) plus the single-cycle length phase and a distinct eight-good disconnected obstruction. Previously established exact welfare for repeated four-item blocks concerns a special structured family and supplies no general decision algorithm. Strictly-increasing-valuation theorems do not apply to complements with zero marginal singleton value. Search returned no precise equivalent, though degree-two DP and unindexed prior results remain priority risks.",
+    "residual_risks": [
+      "Unindexed or differently named degree-two fair-allocation transfer algorithms may already imply the result.",
+      "The full primary manuscript for arxiv:2607.23367 was not inspected, although its strict-monotonicity hypothesis decisively differs.",
+      "No independent external research audit or exhaustive literature certification."
+    ],
+    "source_inspections": [
+      {
+        "assessment": "Covers the length-two counterexample as prior art and general approximation/hardness results, not the present exact two-agent arbitrary-disjoint-pair algorithm or single-cycle positive phase",
+        "evidence": [
+          "arxiv:2610.15801, Proposition 2.1, Section 2",
+          "arxiv:2610.15801, Theorem 3.1, Section 3.1",
+          "arxiv:2610.15801, Section 4, Appendix A.1"
+        ],
+        "identifier_or_url": "https://www.paperpeel.com/paper/2610.15801",
+        "material_read": "Full available reflowed HTML: Sections 1-5, Proposition 2.1, Theorems 3.1 and 3.4, Section 4, Appendix A.1 and references",
+        "method": "Full-text reading through lawful rendered arXiv manuscript mirror; checked hypotheses and the precise four-item example",
+        "title": "Fair Allocation with Dichotomous Preferences over Item Complements",
+        "trigger": "Exact same SPOC valuation framework and a four-good Pareto/EF1 counterexample"
+      },
+      {
+        "assessment": "The strict increasing marginal assumption excludes all nonempty instances of pure pair complements with zero singleton values; no claim that unseen appendices were inspected",
+        "evidence": [
+          "arxiv:2607.23367 abstract: strictly increasing valuations",
+          "Pair-complement singleton values are zero by definition"
+        ],
+        "identifier_or_url": "https://arxiv.org/abs/2607.23367",
+        "material_read": "Primary abstract and detailed theorem description; full manuscript text not obtained",
+        "method": "Primary bibliographic abstract and explanatory result outline; hypothesis comparison",
+        "title": "Fair Division with Strictly Increasing Valuations: A Tight Threshold for Two-Agent EF1 and PO",
+        "trigger": "Plausible stronger general statement on two-agent EF1+PO"
+      }
+    ],
+    "status": "PASS"
+  },
+  "review_type": "self_review",
+  "schema_version": 1,
+  "scope_run_id": "b059f18b-2765-4a9a-9443-3d640768bb9c",
+  "self_review_status": "passed",
+  "value": {
+    "rationale": "The source proves incompatibility of EF1 and PO and general SPOC welfare hardness, motivating exact islands of tractability. The two-agent, pair-size-two, additive-free-matroid subclass has an interpretable interaction graph (paths/cycles), and the claim supplies exact efficient fair allocation feasibility, witnesses and optimal fair welfare, plus a sharp 4-good versus >=6-good connected transition and an 8-good disconnected obstruction. It is not a mere relabeling or a single tiny recomputation; it resolves all inputs in a natural subdomain.",
+    "status": "PASS"
+  }
+}
