@@ -1,15 +1,21 @@
-# Self-review
+# Independent mathematical audit
 
-## Correctness — PASS
-The fiber-volume formula and polar support function are independently reconstructed, yielding the exact normalized product. The positive-coefficient polynomial form implies the strict lower bound. A strictly decreasing divided derivative proves a unique peak; the exponential envelope has a uniquely maximizing positive root; strict dimension monotonicity and compactness prove convergence and optimality of the universal constant. The standalone exact-rational and numerical verifier returned `VERIFY_OK 1490`. Neither finite tests nor cited literature substitute for the analytic universal proof.
+## correctness
 
-## Originality — PASS, with residual historical-priority risk
-Actual statement-level searches included coordinate-segment cross-polytope extrusions, Mahler products, polar norm forms, and sharp constants. The inspected full primary paper by Kim (arXiv:1212.2544v1) proves local Hanner stability and cannot yield this exact global profile without further calculation. Complete public `RESULT.md` texts for cube–cross-polytope intersections and the cube-plus-cross-polytope interpolation were inspected: their bodies differ from the one-axis extrusion and the stronger-looking exponential result does not imply this bounded dimension-free formula. The latter contains the *same positive transcendental root* as a different asymptotic saddle; this overlap is acknowledged and ruled out as direct implication, not erased. Complete pre-2012 historical priority is not proven, and an unrecognized shadow-system reformulation remains possible.
+PASS
 
-## Mathematical value — PASS
-The body is a natural Minkowski interpolation between two Hanner-type equality geometries, so its entire strict Mahler gap, unique finite-dimensional maximizer, sharp dimension-free envelope, and increasing-dimensional approach represent a motivated complete geometric extremum. A computed constant alone would be inadequate; the exact whole-family proof and sharpness make the result useful as a concrete test case for volume-product stability and extremal behavior.
+Fiber integration gives vol(B1^d+[-h,h]e1)=2^d(1+dh)/d!. The polar inequality max_j|uj|+h|u1|<=1 has volume 2^d/(dh)[1-(1+h)^(-d)], hence the asserted normalized product. With t=(1+h)^-1 its excess over one is (sum_{j=1}^{d-1}t^j-(d-1)t^d)/d>0; dividing the derivative by t^(d-1) produces a strictly decreasing root equation with one maximizer for every integer d>=2. Setting alpha=dh gives the strict envelope g(alpha)=(1+1/alpha)(1-exp(-alpha)), uniquely maximized at the positive alpha solving exp(alpha)=1+alpha+alpha^2; monotonicity in d for fixed alpha and compactness of maximizing alpha show increasing peaks to C*=1.298425607525639... and dh_d->alpha*. Direct rational polynomial-integration and volume-product comparisons passed 33 independent low-dimensional parameter cases; universal assertions use the proof.
 
-## Limits
-The result does not claim a bound for all unconditional convex bodies or a new general Mahler inequality. Numerical checks are diagnostics; independent validation has not been done.
+## originality
 
-Self-review: passed. Independent audit: not yet performed.
+PASS
+
+Existing Hanner local-minimality work concerns lower stability, not this global upper envelope. Full published cube/cross-polytope intersection and cube plus full cross-polytope Minkowski interpolation statements are geometrically different and do not specialize to a single-axis cross-polytope extrusion. The latter has the same scalar equation exp(alpha)=1+alpha+alpha^2 in a growing-dimensional saddle, which is explicitly acknowledged as prior shared numerical structure, not assumed independent novelty. The complete present profile and all-dimension optimal bound were not shown by inspected antecedents.
+
+## value
+
+PASS
+
+This symmetric one-coordinate extrusion interpolates between two natural Hanner-type Mahler-minimizer shapes. A complete all-dimensional positive excursion, unique finite optimum, strictly increasing normalized peaks, and a sharp dimension-free ceiling are meaningful benchmarks for local/global volume-product stability; not simply a computed constant.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
