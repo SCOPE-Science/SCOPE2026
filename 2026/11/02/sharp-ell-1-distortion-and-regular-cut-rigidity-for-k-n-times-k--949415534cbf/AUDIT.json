@@ -1,0 +1,124 @@
+{
+  "correctness": {
+    "rationale": "Every distance in K_n x K_n is 1 when both coordinates differ and 2 when exactly one agrees (n>=3). For any cut, exact separated-pair counts give A=2U/[n²(n−1)], B=2V/[n²(n−1)], C=2(T−U−V)/[n²(n−1)²]. The exact identity 2(n−1)C−(n−2)(A+B)=2/[n(n−1)] times the two row/column variance sums is nonnegative, with equality precisely for regular cuts. Integrating over nonnegative cut weights proves the lower bound. The explicit permutation-coordinate embedding realizes all pair distances with equality. Extremal distance-profile and supporting-cut rigidity follow from equality throughout. A standalone standard-library checker replayed successfully: 8755 breadth-first distances, 80088 cut certificates, and 1086 exact-rational embedding pairs. Finite checks are supplementary.",
+    "status": "PASS"
+  },
+  "independent": false,
+  "independent_audit_status": "not_performed",
+  "originality": {
+    "broader_coverage": {
+      "evidence": [
+        "Abraham et al., arXiv:1708.04073, Theorem 1 and Theorem 2, prove generic path-decomposition and pathwidth estimates, not an exact constant for this family.",
+        "Wang et al., DOI 10.3389/fphy.2020.00146, Theorem 2.6, concerns l1-embeddability preserved under gate-sums, not distortion of tensor products."
+      ],
+      "reasoning": "Neither a generic upper bound nor an isometric-closure operation implies the sharp rational constant and equality-cut structure for the ordered-pair metric. The present graph is not asserted to be a gate-sum of their type.",
+      "searches": [
+        "metric embedding graph shortest path into l1 optimal distortion graph products 2017 2018 research paper",
+        "direct product complete graphs L1 embeddability metric distortion",
+        "l1 embedding distortion complete multipartite graphs cut cone inequality"
+      ]
+    },
+    "checked_sources": [
+      "arXiv:1708.04073, first posted 2017-08-14; reviewed PDF introduction, results, and terminology checks.",
+      "DOI:10.3389/fphy.2020.00146, dated 2020-06-04; inspected main theorem and cut arguments in full HTML.",
+      "DOI:10.1016/S0012-365X(98)0007X-1 (Shpectorov); bibliographic metadata only, not full text.",
+      "Indexed published exact small cubic-symmetric L1 distortion finding dated 2026-09-11; title and summary only.",
+      "Accessible mathematical ledger claims on two-subset Kneser metrics, K_3,n metrics, and bipartite circulation projections; checked for statement implication only."
+    ],
+    "claim_vs_prior_implication": {
+      "evidence": [
+        "Earlier recorded Kneser result applies to unordered 2-subsets of a complete graph and Hamiltonian-cycle cuts; this result applies to ordered cells of an n-by-n board and perfect-matching cuts.",
+        "Earlier recorded K_3,n result applies to the original vertices of a complete bipartite graph, not to disjointness of its edges.",
+        "The new sum-of-squares slack is exactly a row/column count variance; it is not a specialization stated by either earlier claim."
+      ],
+      "reasoning": "Different vertex universes and adjacency relations prevent either previous exact formula from directly implying this one by parameter substitution. The balanced rook-complement formula is independently proved via a rectangular incidence-cut certificate.",
+      "searches": [
+        "optimal cut embedding graph of ordered pairs adjacent if both coordinates differ regular bipartite cuts",
+        "exact L1 distortion categorical direct tensor product of complete graphs K_m times K_n disjoint coordinate graph complement of rook graph",
+        "unit-edge complete bipartite K_3,n l1 distortion exact",
+        "two-subset Kneser graph KG(n,2) l1 distortion"
+      ]
+    },
+    "equivalent_formulations": {
+      "evidence": [
+        "The categorical product K_n x K_n is the complement of the n-by-n rook or lattice graph (standard graph-product definition).",
+        "The 1998 work by S. Shpectorov is titled Complementary l1-graphs, DOI 10.1016/S0012-365X(98)0007X-1; bibliographic metadata rather than its full text was accessible.",
+        "No retrieved statement asserted the present all-n optimal distortion or equality-cut formula."
+      ],
+      "reasoning": "The complement-of-rook and categorical-product formulations are exactly equivalent here, and both were searched. A classification of isometric l1-embeddability can decide whether distortion equals one, but does not on its own determine the sharp distortion for n>=4. Full Shpectorov text remains an acknowledged priority uncertainty.",
+      "searches": [
+        "complement rook graph optimal l1 distortion cut metric",
+        "categorical product complete graphs tensor graph ell_1 metric distortion cut",
+        "l1 distortion graph product K_n tensor K_n graph metrics",
+        "exact ell1 distortion complement lattice graph L_2(n) tensor Kronecker product K_n K_n equal alphabet n formula 2(n-2)/(n-1)"
+      ]
+    },
+    "exact_database_or_table": {
+      "evidence": [
+        "A published indexed result treats six named cubic-symmetric graphs (Petersen, Heawood, Möbius-Kantor, Pappus, Desargues, Dodecahedron), with individual finite values; it contains no stated parametric rook-complement family.",
+        "Standard databases identify rook lattice graphs and their complements but no exact l1-distortion table was found in accessible material."
+      ],
+      "reasoning": "The six-graph table is not a dominating exact formula for all categorical squares. Database and indexed-result searches provide only negative search evidence, so they are not treated as a proof of novelty.",
+      "searches": [
+        "l1 distortion of strongly regular graphs lattice graphs complement exact distortion",
+        "complement of lattice graph distortion embedding",
+        "published mathematical record: Exact L1-distortions of six small cubic-symmetric graphs via symmetry-reduced cut-cone duality",
+        "l1 distortion complement rook graph Latin square graph negative rank two"
+      ]
+    },
+    "rationale": "The exact distortion 2(n-2)/(n-1) for the ordered-pair categorical square and its all-optimal regular-cut rigidity are absent from the specific statements of the two inspected primary articles. Published indexed related exact-distortion findings cover other graph families; accessible same-line historical ledger claims concern unordered-pair Kneser graphs and complete bipartite graph metrics. This is a qualified best-knowledge originality assessment, not proof of global novelty.",
+    "residual_risks": [
+      "Full text of Shpectorov (1998) was unavailable because authorized institutional retrieval returned VPN disconnected; it is directly relevant to the complementary-graph isometric boundary, and an overlooked quantitative corollary is possible.",
+      "An exact formula or cut inequality may be recorded under disjointness graphs of edges of complete bipartite graphs, complements of lattice/rook graphs, or strongly regular graph embeddings without matching the searched terms.",
+      "The indexed six-graph distortion finding was not inspected in full because its public repository text could not be fetched; the title/summary does not imply coverage but appendicial coverage is not ruled out.",
+      "No independent literature-priority verification has been performed."
+    ],
+    "source_inspections": [
+      {
+        "assessment": "NOT_COVERING for the particular exact distortion: proves bounds in terms of shortest-path decomposition depth; does not state the rook-complement sharp formula.",
+        "evidence": "arXiv 1708.04073, pp. 1-3 (2023 revision, originally posted 2017-08-14): Theorems 1-2 and introduction.",
+        "identifier_or_url": "https://arxiv.org/pdf/1708.04073",
+        "material_read": "Full-text PDF introduction, formulation of Theorems 1-3, discussion of cut metrics and pathwidth, and whole-document searches for rook/tensor/Kronecker/product of complete.",
+        "method": "Open-access arXiv PDF text and rendered page inspection",
+        "title": "Metric Embedding via Shortest Path Decompositions",
+        "trigger": "General foundational result on graph metrics in real l1 and the cut decomposition used in the proof"
+      },
+      {
+        "assessment": "NOT_COVERING: shows gate-sums of l1-embeddable graphs remain l1-embeddable; not a tensor-product distortion theorem.",
+        "evidence": "Wang, Li, Wang, 2020, Sections 1-2; Theorem 2.6 and Corollaries 2.7-2.8.",
+        "identifier_or_url": "https://doi.org/10.3389/fphy.2020.00146",
+        "material_read": "Full HTML abstract, introduction, Section 2 including Theorems 2.1 and 2.6 and their proofs, and checks for tensor and rook terminology.",
+        "method": "Open-access primary article full text (2020-06-04)",
+        "title": "l1-Embeddability Under Gate-Sum Operation of Two l1-Graphs",
+        "trigger": "Qualitative graph l1-embedding results using convex cuts; possible broader coverage through graph operations"
+      },
+      {
+        "assessment": "UNRESOLVED PRIORITY RISK; no full-document noncoverage claim is made.",
+        "evidence": "S. Shpectorov, Complementary l1-graphs, Discrete Mathematics, bibliographic record dated 1998-10-28.",
+        "identifier_or_url": "https://doi.org/10.1016/S0012-365X(98)0007X-1",
+        "material_read": "Bibliographic metadata and title only; complete text was not accessible.",
+        "method": "University of Birmingham bibliographic record (1998 publication)",
+        "title": "Complementary l1-graphs",
+        "trigger": "Potentially relevant alternative formulation as complement of rook graph"
+      },
+      {
+        "assessment": "The summary names six different individual graphs and no rook-complement family; title/summary alone cannot rule out appendicial coverage.",
+        "evidence": "Indexed public finding dated 2026-09-11; six explicitly named graph objects.",
+        "identifier_or_url": "https://github.com/Resultary/2026/tree/main/2026/9/11/SCOPE004",
+        "material_read": "Indexed title and summary only; repository full text was not accessible through the attempted link.",
+        "method": "Published research index semantic record",
+        "title": "Exact L1-distortions of six small cubic-symmetric graphs via symmetry-reduced cut-cone duality",
+        "trigger": "Published exact l1 distortion computations might contain the same named graph"
+      }
+    ],
+    "status": "PASS"
+  },
+  "review_type": "self_review",
+  "schema_version": 1,
+  "scope_run_id": "94941553-4cbf-4231-81f0-740be532d47b",
+  "self_review_status": "passed",
+  "value": {
+    "rationale": "The least L1 distortion is an intrinsic, natural metric-embedding invariant of the infinite strongly regular family of complements of square lattice/rook graphs. The exact formula gives a sharp isometric-to-nonisometric transition at n=3 and approaches 2; a universal sharp sum-of-squares cut inequality classifies all equality-supporting cuts as regular bipartite incidence patterns and forces every optimal image distance. Those structural classifications make the fact useful beyond a numerical computation and are not implied by the nearest inspected qualitative gate-sum or generic embedding results. Rectangular products and general weighted cases remain open in this proof.",
+    "status": "PASS"
+  }
+}
