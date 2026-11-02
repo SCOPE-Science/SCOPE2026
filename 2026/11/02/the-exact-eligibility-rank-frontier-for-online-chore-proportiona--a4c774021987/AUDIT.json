@@ -1,0 +1,119 @@
+{
+  "correctness": {
+    "rationale": "For each job assigned to i, p_j<=r*p_j/|S_j|; summation gives L_i<=r P_i at every prefix. In the adaptive r-ary tournament the last champion receives h jobs and belongs to h eligibility sets; therefore its unit-job Prop1 ratio is exactly r(1-1/h), tending to r. Each new hyperedge joins disjoint components, proving Berge acyclicity. Executed exact rational checks independently examine finite cases; no finite result is used as an infinite proof.",
+    "status": "PASS"
+  },
+  "independent": false,
+  "independent_audit_status": "not_performed",
+  "originality": {
+    "broader_coverage": {
+      "evidence": [
+        "arXiv:2610.08064 Section 3 proves Theta(sqrt(m)) for unrestricted eligibility; its lower bound starts with sqrt(m) globally eligible jobs and ends with a set of sqrt(m) eligible machines.",
+        "arXiv:2610.08064 Appendix B.2 explicitly handles jobs with k_j <= alpha as individually harmless; this does not establish sharpness as rank stays bounded while m grows."
+      ],
+      "reasoning": "Unrestricted asymptotic Theta(sqrt(m)) is not an exact fixed-cardinality theorem and its lower construction exits the bounded-rank regime. The small-cardinality upper fact does not imply an adaptive lower bound on a Berge tree.",
+      "searches": [
+        "\"online\" \"proportional\" \"eligibility\" \"number\" \"eligible\" chores fairness 2026",
+        "\"online fair division\" \"maximum eligibility\" \"Prop1\"",
+        "online restricted assignment unit chores proportional share degree hyperedge size k deterministic optimal approximation factor r"
+      ]
+    },
+    "checked_sources": [
+      "arXiv:2610.08064, full HTML sections 1-3 and Appendix B.2",
+      "arXiv:2602.18098, full HTML sections 1-3",
+      "arXiv:2604.04159, full HTML sections 1-2 and theorem summaries",
+      "Ranked mathematical finding searches and available previous claim summaries for nearest overlap"
+    ],
+    "claim_vs_prior_implication": {
+      "evidence": [
+        "arXiv:2602.18098 Theorems and Section 3 are offline existence/complexity and do not quantify an irrevocable sequence adversary.",
+        "arXiv:2604.04159 Theorem 1.1 is about i.i.d. graph arrivals and expected global maximum load divided by offline optimum; our quantity is a per-agent degree-normalized share under adaptive inputs.",
+        "arXiv:2610.08064 Theorem 7 uses high-cardinality eligibility sets; no cardinality-r lower follows by restriction."
+      ],
+      "reasoning": "Neither offline Prop1 existence nor a global competitive graph-balancing estimate bounds the local eligibility-weighted Prop1 deficit against the adaptive tournament. The new obstruction is not an identified special case of a stronger published statement; a classical construction could still have unindexed consequences.",
+      "searches": [
+        "\"Fair orientations: proportionality and equitability\" \"online\" \"maximum degree\"",
+        "\"online graph balancing\" tree \"load\" \"half\" \"degree\" orientation",
+        "\"online graph orientation\" \"degree\" \"half\" \"one edge\" lower bound"
+      ]
+    },
+    "equivalent_formulations": {
+      "evidence": [
+        "arXiv:2610.08064 Sections 2-3 defines the rank/cardinality variables and eligibility-aware Prop1 but does not state the matching fixed-rank law.",
+        "arXiv:2602.18098 Sections 2-3 defines graph orientations and the same proportional-share denominator, addressing offline existence rather than online minimax."
+      ],
+      "reasoning": "Equivalent formulations include degree-normalized online edge orientations at rank two and online hyperedge orientations in general. The full-text results and searches retrieved no online sharp normalized-Prop1 statement, while classical maximum-indegree lower bounds concern a different denominator.",
+      "searches": [
+        "\"online\" \"proportionality\" \"r-uniform\" hypergraph chores",
+        "\"online graph orientation\" \"degree\" \"half\" \"one edge\" lower bound",
+        "online chores eligibility sets of bounded cardinality r sharp r-approximate proportionality up to one job hypergraph acyclic tournament"
+      ]
+    },
+    "exact_database_or_table": {
+      "evidence": [
+        "Retrieved ranked mathematical findings included studies of other random assignment and graph-orientation fairness measures but no exact cardinality-r online Prop1 law.",
+        "The two inspected fair-division manuscripts have result tables for offline feasibility or unrestricted number-of-agents scaling, not a rank-indexed exact table."
+      ],
+      "reasoning": "Searches against ranked mathematical findings and accessible literature did not identify an exact database/table entry. Lack of a hit alone is not proof of novelty; comparison also uses inspected theorem statements.",
+      "searches": [
+        "online graph-orientation chores proportional share half incident degree minus max edge deterministic lower bound factor two tree",
+        "online chores eligibility sets of bounded cardinality r sharp r-approximate proportionality up to one job hypergraph acyclic tournament",
+        "\"proportional share\" \"2\" \"eligible\" \"Prop1\" online"
+      ]
+    },
+    "rationale": "The inspected complete primary papers establish eligibility-aware benchmarks and a general Theta(sqrt(m)) bound, offline orientation fairness, and stochastic online graph balancing, respectively; none states or implies the exact deterministic online rank-r Prop1 factor together with a uniform-unit-chore Berge-tree lower bound. Direct small-cardinality upper observations alone do not imply the matching obstruction. Unindexed prior results remain possible.",
+    "residual_risks": [
+      "A classical online graph/hypergraph orientation result might imply an equivalent degree-normalized fairness lower bound even without stating Prop1; no such precise implication was identified.",
+      "An unindexed or inaccessible contemporary statement may independently establish the rank-r threshold.",
+      "Results for randomized algorithms facing oblivious arrivals were not assessed."
+    ],
+    "source_inspections": [
+      {
+        "assessment": "NOT_COVERING exact fixed rank-r threshold: general Theta(sqrt(m)) and high-eligibility lower do not force constant rank-r sharpness",
+        "evidence": [
+          "Section 2 defines P_i as sum p_j/|S_j| and Prop1 by dropping the largest received job.",
+          "Section 3.1 lower presents sqrt(m) initially all-eligible chores followed by a sqrt(m)-eligibility job.",
+          "Appendix B.2 handles k_j <= alpha trivially."
+        ],
+        "identifier_or_url": "https://arxiv.org/abs/2610.08064",
+        "material_read": "Full available HTML manuscript; sections 1–3, detailed definition and Theorem 7 lower bound, algorithm for general sizes, Appendix B.2 small-cardinality handling and related-work sections",
+        "method": "Direct primary full-text inspection and comparison of hypotheses, lower-bound eligibility cardinalities and conclusions",
+        "title": "Online Fair Division under Eligibility Constraints",
+        "trigger": "Same share definition, online chore objective and closest unrestricted theorem"
+      },
+      {
+        "assessment": "NOT_COVERING: offline PROP1 feasibility does not imply the online sharp constant or tournament obstruction",
+        "evidence": [
+          "Sections 1.1 and 3 detail offline relevance-constrained orientations, including multigraph/graph cases, and polynomial offline PROP1 existence.",
+          "No online analysis occurs in the full-text search."
+        ],
+        "identifier_or_url": "https://arxiv.org/abs/2602.18098",
+        "material_read": "Full available HTML manuscript, sections 1–3 and theorem statements on proportionality and relaxation existence/complexity",
+        "method": "Primary full-text comparison of offline orientation results with online adversarial quantifiers",
+        "title": "Fair Orientations: Proportionality and Equitability",
+        "trigger": "Independently introduced proportional share including rank-two orientation and Prop1"
+      },
+      {
+        "assessment": "NOT_COVERING as a theorem: different stochastic input model and global rather than local metric",
+        "evidence": [
+          "Theorem 1.1 gives O(loglog n) i.i.d. maximum-load competitiveness.",
+          "Definition 2.1 targets maximum indegree, not degree-normalized per-agent Prop1."
+        ],
+        "identifier_or_url": "https://arxiv.org/html/2604.04159v1",
+        "material_read": "Full available HTML manuscript, abstract, Sections 1–2 including Theorems 1.1–1.2 and problem definitions; later-section organization and lower-bound summary",
+        "method": "Direct comparison of i.i.d. inputs and global maximum-load competitive objective with adversarial per-vertex proportional-share Prop1",
+        "title": "Online Graph Balancing and the Power of Two Choices",
+        "trigger": "Same irrevocable graph-edge orientation objects at rank two"
+      }
+    ],
+    "status": "PASS"
+  },
+  "review_type": "self_review",
+  "schema_version": 1,
+  "scope_run_id": "a4c77402-1987-4861-9007-95c40b84d6d0",
+  "self_review_status": "passed",
+  "value": {
+    "rationale": "Maximum number r of feasible recipients per job is a natural parameter in skill-eligibility and hypergraph orientation. The all-r exact minimax value is accompanied by a substantive acyclic counterexample: unit chores on a simple tree already force approaching factor two, even though offline Prop1 always exists. The theorem separates acyclicity from online proportionality and identifies a structural phase law rather than an arbitrary finite example.",
+    "status": "PASS"
+  }
+}
