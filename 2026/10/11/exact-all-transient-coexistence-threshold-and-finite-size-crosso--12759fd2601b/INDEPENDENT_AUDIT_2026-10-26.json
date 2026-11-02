@@ -1,0 +1,149 @@
+{
+  "audit_date_utc": "2026-10-26",
+  "audited_at_utc": "2026-10-26T04:40:31Z",
+  "axes": {
+    "correctness": {
+      "rationale": "The final claim is for synchronous Boolean AND on an N-site periodic binary ring, p>=1, N>=3, z=e^mu>0, and initial states satisfying F^(p+1)x=F^p x (AT MOST p steps to a fixed state). Induction gives F^p(x)_i=product_{j=-p}^p x_{i+j}, with repeated cyclic positions harmless. A fixed point containing a 1 forces both neighbors to be 1 and hence is the homogeneous all-ones state, while all zeros is the only other fixed point. F^p x=1 occurs only for x=1; F^p x=0 iff the circular initial word avoids 1^(2p+1), even for 2p+1>N. The disjoint basin sum is z^N plus the cyclic avoidance partition. For a non-all-ones periodic word the run-length automaton state is uniquely determined by its preceding zero; closed walks yield trace(T_m(z)^N) exactly. T_m(z) has a strongly connected graph with a self-loop at state 0 for each z>0 and is primitive. Its Perron eigenvalue solves sum_{r=0}^{m-1} z^r/lambda^(r+1)=1. Strict decrease in lambda gives one positive solution. Evaluating at lambda=z gives m/z, hence the unique Perron/isolated-state crossing at z=m=2p+1, and P=max(log lambda,log z). Implicit differentiation at lambda=z=m gives rho=(sum r)/(sum(r+1))=(m-1)/(m+1)=p/(p+1), whereas the all-ones pressure slope equals 1. The two analytic branches therefore have a single first-order kink and jump 1/(p+1). Since Perron eigenvalue is simple with a uniform local spectral gap, trace(T(z_N)^N)=m^N exp(rho*t+o(1)) for z_N=m exp(t/N). The isolated term is m^N exp(t), yielding the logistic all-ones probability (1+exp(-t/(p+1)))^-1 and the density mixture; fixed p and t. Nothing is claimed for simultaneous p,N growth or for weighted time trajectories rather than weighted initial states. Independent implementation, not the submitted script, enumerated actual Boolean updates and independently formed matrix traces for p=1..4, N=3..10 and z=1,2,5 (96 exact equalities); eigenvalue checks at z=m for p=1..4 yielded rho=1/2,2/3,3/4,4/5, and numerical N=240 window checks approached the predicted sigmoid. Finite checks corroborate but do not prove the all-parameter analytic conclusions.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Koller–Hudcová give a general 4^(p+c)-state ECA trajectory-matrix method and exact limiting pressure via its leading eigenvalue under assumptions, including rule 128 as an instance.",
+          "Lind supplies word-forbiddance spectral/zeta formulas, a strictly broader classical method for one branch but no ECA-specific two-basin coexistence.",
+          "Bóna–Maga–Richey abstract studies uniform forbidden-word shifts and letter frequency, not in accessible material an extra absorbing phase."
+        ],
+        "reasoning": "The generic machinery covers the form of the partition computation, not the independently derived small m-state reduction and explicit closed-form crossing/logistic coefficient. The stronger-method versus stronger-conclusion distinction is essential: no direct specialization of a previously published explicit all-p formula was identified. Full-text risk from Bóna is retained.",
+        "searches": [
+          "Koller–Hudcová 2025 equations (4)-(19): generic ECA tilted partition and transfer matrices for arbitrary p,c",
+          "Lind 1989 Theorem 1/Corollary 1: arbitrary single forbidden words and periodic point zeta",
+          "Resultary search: weighted binary forbidden run plus isolated state Perron eigenvalue scaling",
+          "Bóna–Maga–Richey arXiv:2606.06655 abstract"
+        ]
+      },
+      "checked_sources": [
+        "Koller and Hudcová, Counting Short Trajectories in Elementary Cellular Automata using the Transfer Matrix Method, arXiv:2508.09768v1, §§ Counting trajectories, Transfer Matrix for ECA, Results and Discussion (Fig. 4), https://arxiv.org/pdf/2508.09768",
+        "D. A. Lind, Perturbations of Shifts of Finite Type, SIAM J. Discrete Math. 2 (1989), Theorem 1 and Corollary 1, https://sites.math.washington.edu/~lind/Papers/PerturbationsSFT.pdf",
+        "M. Bóna, B. Maga, J. Richey, Letter frequency in shifts of finite type with one forbidden word, arXiv:2606.06655 (abstract only accessible in this run), https://arxiv.org/abs/2606.06655",
+        "Koller–Hudcová reproducibility repository, s_given_rho_rule_128.csv and s_given_rho_rule_128_ending_all_0.csv (figure-data numeric tables), https://github.com/cedric-koller/counting_short_trajectories_ECA",
+        "Resultary three actual semantic searches; identical indexed assigned record excluded as self rather than independent prior art.",
+        "web search: rule 128 fugacity 2p+1 and weighted forbidden-run plus isolated state, no independent exact full theorem encountered."
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "Koller–Hudcová define the same initial chemical-potential and transient-cycle ensemble; its p=1 first-order-type switch is preexisting, while exact p-general μ_c and logistic finite-size law are absent from the inspected manuscript.",
+          "Lind’s characteristic/zeta formulas calculate periodic avoidance counts, supplying the method for trace(T^N) but not the isolated competing attractor and crossover.",
+          "Standard finite-dimensional spectral theory supplies the local matrix asymptotic once the correct ECA basin split and explicit Perron crossing have been established."
+        ],
+        "reasoning": "The claimed final theorem implies the observed p=1 jump (already anticipated), and it uses standard methods. Conversely neither inspected primary theorem alone states or directly fixes the explicit entire family of first-order crossing locations, density jumps, and critical scaling probabilities without the new basin/run derivation. No extra independent indexed theorem with stronger parameters was found.",
+        "searches": [
+          "Koller–Hudcová arXiv:2508.09768v1 Figures 4 and eqs. (4)-(19)",
+          "Lind 1989, Corollary 1, cyclic forbidden patterns",
+          "web query: one forbidden word shift plus isolated all-ones first-order transition weighted pressure"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "F^p fixed-point basin = disjoint all-ones configuration and binary cyclic 1^m avoiders, so it may be described as a reducible weighted subshift and isolated periodic orbit.",
+          "Koller–Hudcová Figure 4 (p.5, arXiv:2508.09768v1) uses exactly the same chemical-potential weighted ECA128 fixed-attractor ensemble and finds a p=1 jump from density 0.5 to 1.",
+          "Lind (1989), Theorem 1/Corollary 1, gives zeta/periodic-point counts for a full shift with a forbidden word; adding a separately weighted isolated orbit is not part of that theorem."
+        ],
+        "reasoning": "Equivalent language is a reducible union of one frozen all-one periodic trajectory and an irreducible 1^m-forbidden renewal shift. The previously known general trace mechanism and qualitative p=1 phase coexistence are real coverage; the specific full all-p crossing, density jump and finite-size scaling are not stated or automatically numerically determined by the inspected results. A broad implicit transfer formula is an algorithmic antecedent, not a proven identical closed-form conclusion.",
+        "searches": [
+          "Resultary semantic: rule 128 AND fixed-point basin chemical potential critical fugacity 2p+1 logistic scaling",
+          "Resultary semantic: binary words forbidding 1^m plus isolated all-ones orbit weighted pressure phase transition",
+          "web: rule 128 elementary cellular automaton chemical potential threshold density 2p+1 transfer matrix",
+          "Koller–Hudcová arXiv:2508.09768 §Results Fig.4",
+          "Lind 1989 Theorem 1 and Corollary 1"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "The publicly available Figure 4 numeric CSV rows tabulate approximate entropy at preset densities for p=1 through 5; source read includes headings and the p=1..4 rows.",
+          "The published paper states a numerical/qualitative jump for p=1 and graph curves at p=1..5; it does not give a symbolic threshold or logistic finite-size scaling table.",
+          "The only exact indexed Resultary match was the current assigned record itself, which is not independent priority evidence."
+        ],
+        "reasoning": "Existing numeric figures and source CSVs genuinely cover selected density profiles, not the symbolic all-integer m formulas or the N-dependent critical window. Search nonhits alone do not prove historical novelty.",
+        "searches": [
+          "cedric-koller/counting_short_trajectories_ECA GitHub: s_given_rho_rule_128.csv",
+          "cedric-koller/counting_short_trajectories_ECA GitHub: s_given_rho_rule_128_ending_all_0.csv",
+          "Koller–Hudcová Fig.4 p=1..5",
+          "Resultary exact all-transient 2p+1 search, self hit excluded"
+        ]
+      },
+      "rationale": "The structurally identical rule-128 chemical-potential trajectory ensemble and an observed p=1 first-order-like jump are already in Koller–Hudcová (2025), Fig. 4 and its discussion; p=1 qualitative coexistence and generic space-time transfer matrices are therefore covered and NOT credited as new. Lind (1989) covers the unweighted forbidden-word shift/zeta construction, and general Perron–Frobenius spectral facts are classical. The inspected primary paper does not state the explicit p-uniform transition mu_c(p)=log(2p+1), critical left slope p/(p+1), or N^-1-window logistic limit. These require special algebraic reduction of the AND basin to an m-state run automaton and identification of competition with a single homogeneous trajectory. An unindexed exact specialization of general transfer/pressure results is possible, so historical priority is qualified, not certified. The Bóna–Maga–Richey full text could not be inspected (arXiv PDF/HTML and lawful open-access search failed; authorized Oxford returned vpn_disconnected); its abstract concerns density inside one forbidden-word subshift and does not by itself resolve whether any hidden formula overlaps. No decisive prior theorem directly supplies the full statement in the inspected material.",
+      "residual_risks": [
+        "The general Koller–Hudcová transfer formula and Lind zeta technology render much of the method classical; the p=1 qualitative jump is already covered.",
+        "An unindexed prior exact evaluation of the weighted 1^m-forbidden run shift together with an isolated all-ones state could imply all reported formulas without using rule-128 terminology.",
+        "Bóna–Maga–Richey arXiv:2606.06655 complete primary PDF could not be inspected in this run; Oxford VPN disconnected after failed public and alternative OA retrieval. Its abstract alone cannot establish whole-document noncoverage.",
+        "Priority is best-of-knowledge, not an independence or comprehensive historical certificate."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "PARTIALLY COVERING: framework and p=1 qualitative density jump already known; not an explicit p-uniform μ_c=log(2p+1), density jump 1/(p+1), or logistic N^-1 window.",
+          "evidence": [
+            "Equations (4)–(8) define the same fugacity/pressure and density; equations (12)–(19) provide the general transfer machinery.",
+            "Figure 4 caption and discussion say p=1 transition density 0.5 to 1 and dominant all-ones trajectory; no specified critical μ or finite-size crossover in this discussion."
+          ],
+          "identifier_or_url": "arXiv:2508.09768v1; https://arxiv.org/pdf/2508.09768",
+          "material_read": "Complete accessible 10-page PDF searched, with substantive reading of model and partition definitions pp.2–3, generic transfer derivation p.4, Results/Figure 4 p.5 and following sections; Figure 4 visually inspected in PDF screenshot.",
+          "method": "Primary arXiv PDF with page-level visual inspection and textual search for critical, finite-size, coexistence.",
+          "title": "Counting Short Trajectories in Elementary Cellular Automata using the Transfer Matrix Method",
+          "trigger": "Same ECA rule 128, transient p and fixed attractors c=1, chemical-potential weighted initial-state ensemble; directly motivating Fig.4."
+        },
+        {
+          "assessment": "Covers forbidden-word zeta/entropy technology, but does not in inspected relevant passages formulate coexistence with an additional all-ones initial condition or its finite-size sigmoid.",
+          "evidence": [
+            "Theorem 1 and Corollary 1 explicitly calculate periodic point zeta functions when a word is forbidden, corroborating the transfer antecedent.",
+            "Its problem concerns a single transitive forbidden-word subsystem and reduction of spectral radius, not the two-component rule-128 trajectory ensemble."
+          ],
+          "identifier_or_url": "D. A. Lind (1989), DOI:10.1137/0402031; https://sites.math.washington.edu/~lind/Papers/PerturbationsSFT.pdf",
+          "material_read": "Author-hosted 16-page full PDF available. Inspected Introduction, shift presentations §§1–3, explicit zeta statement Theorem 1 and Corollary 1 in §4, with PDF page 3 visually checked; relevant pp.350–359.",
+          "method": "Lawful open-access primary author-hosted journal PDF, searched and visually inspected.",
+          "title": "Perturbations of Shifts of Finite Type",
+          "trigger": "One forbidden word 1^m is exactly the symbolic-dynamics equivalent of the nonexceptional ECA fixed-point basin."
+        },
+        {
+          "assessment": "Abstract covers average letter frequency inside one forbidden-word subshift; full-text overlap remains unresolved as a residual priority risk, not decisive evidence of noncoverage.",
+          "evidence": [
+            "Abstract describes uniformly random one-forbidden-word shift spaces, border polynomials, and frequencies.",
+            "No verified full-text passage decides whether it treats a separate all-ones absorbing state or μ-dependent phase competition."
+          ],
+          "identifier_or_url": "arXiv:2606.06655; https://arxiv.org/abs/2606.06655",
+          "material_read": "Public arXiv abstract and bibliographic descriptions only; arXiv PDF/HTML and lawful alternate open-access downloads were unavailable; complete full text not obtained.",
+          "method": "Tried arXiv PDF, PDF v2 and HTML v2; looked for alternative open access; then authorized Oxford Download attempted and returned vpn_disconnected; no bypass or claim of full-text inspection.",
+          "title": "Letter frequency in shifts of finite type with one forbidden word",
+          "trigger": "Potentially computes precisely the forbidden-run branch density, and could conceal a relevant formula in the full text."
+        },
+        {
+          "assessment": "Genuine finite sampled numerical entropy profiles at p=1..5; no symbolic all-transient formula or N^-1 finite-size window in inspected rows.",
+          "evidence": [
+            "Files have rows labeled p=1, p=2, p=3, p=4, p=5 and floating-point entropy values at preset densities.",
+            "The paired unrestricted and all-zero-ending tables align with the two-component phase interpretation."
+          ],
+          "identifier_or_url": "https://github.com/cedric-koller/counting_short_trajectories_ECA",
+          "material_read": "First twenty lines/rows of s_given_rho_rule_128.csv and s_given_rho_rule_128_ending_all_0.csv, including density grid headings and p=1..4 numerical rows.",
+          "method": "GitHub connected repository file reads.",
+          "title": "Counting Short Trajectories in Elementary Cellular Automata — Figure 4 data repository",
+          "trigger": "Exact database/table check for prior computations of rule-128 weighted density profiles."
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "rationale": "The rule-128 fixed-point-basin ensemble and its unexplained sharp density jump are already motivated experimentally by Koller–Hudcová, rather than being an arbitrary engineered example. The result analytically locates and quantifies the transition for EVERY fixed transient length p>=1; the nontrivial exact m=2p+1 reduced matrix gives a uniform explanation of why one all-ones configuration competes against exponentially many zero-basin words. The exact density jump and N^-1 logistic crossover quantify finite-size rounding of this physically natural constrained initial-state ensemble beyond plotted short-p cases. These sharp formulas are not mere restatements of the generic transfer-matrix recipe or of p=1 numerical data. Value does not rely on a new general Perron–Frobenius technique, a dynamic bifurcation, or a joint p,N asymptotic.",
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "limitations": [
+    "C proof applies only to synchronous rule 128, periodic rings N>=3, p>=1 fixed and real μ; fixed-time equality means at-most-p transient, not exact hitting time.",
+    "No joint p,N limit, unweighted dynamics phase transition, or general ECA classification is claimed.",
+    "Our independently implemented tests cover p=1..4,N=3..10,z in {1,2,5}; finite evidence does not substitute for the all-N analytic proof.",
+    "Known primary paper already gives generic tilted transfer matrices and qualitative p=1 density jump, so originality is narrower than the physical observation.",
+    "Bóna–Maga–Richey full text and unknown historical equivalent SFT specializations remain originality risks; authorized Oxford retrieval blocked by disconnected VPN, no bypass.",
+    "Export preparation was incomplete in the original submission; this administrative limitation does not change the scientific assessment.",
+    "Source tree Git SHA checked; no public/source modifications or external verification/Lean/expert attestation invented."
+  ],
+  "schema_version": 1
+}
