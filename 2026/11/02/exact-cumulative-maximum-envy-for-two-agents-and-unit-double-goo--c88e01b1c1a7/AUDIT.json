@@ -1,0 +1,123 @@
+{
+  "correctness": {
+    "rationale": "Modular-four folding creates an achievable path in states 0,1,2 no cost higher than arbitrary signed-gap path; switching every 1→2 unit-step branch to 1→0 saves 2 at the branch, with at most 2 lost before the next unit step, where trajectories merge. Hence greedy minimizes cost for any order. For reorderable goods, 2C≥a+2b+|D_end| plus parity gives the bound, and explicit zero-return blocks and terminal blocks achieve every parity case including empty and unit-free. Exact DP independently checked 32,767 fixed sequences and 289 counts, plus the sharp {1,3} boundary.",
+    "status": "PASS"
+  },
+  "independent": false,
+  "independent_audit_status": "not_performed",
+  "originality": {
+    "broader_coverage": {
+      "evidence": [
+        "arXiv:2610.09843v1 Theorem 4.1 offers a general dynamic program rather than a closed-form online greedy optimality statement; its Theorem 5.2 gives only an approximation for arbitrary identical values.",
+        "arXiv:2505.22174v1 abstract concerns approximate MMS and EF1/EF2 for personalized two-valued goods."
+      ],
+      "reasoning": "General exact dynamic programming can compute each instance, but its stated results do not imply the explicit uniform greedy theorem or the a,b count formula without a new structural argument. Approximate fairness constraints differ from minimizing the sum of worst-envy prefixes.",
+      "searches": [
+        "Temporal cumulative maximum envy minimization two agents identical items values 1 and 2 fixed arbitrary order myopic balancing greedy exact optimal",
+        "sequential goods cumulative envy optimum exact formula two agents",
+        "Goldberg Robinson Teh temporal envy exact two-valued positive goods fixed and optimizable order",
+        "https://arxiv.org/html/2610.09843v1 Sections 4–5",
+        "https://arxiv.org/abs/2505.22174"
+      ]
+    },
+    "checked_sources": [
+      "arxiv:2610.09843v1 §§2,4,5",
+      "arxiv:2410.14593v1 §§1,3.2.1",
+      "arxiv:2505.22174v1 abstract",
+      "published mathematical-result records, actual queries recorded in private envelope and originality checks",
+      "Relevant web searches for prefix sums, job balancing and two-level temporal envy"
+    ],
+    "claim_vs_prior_implication": {
+      "evidence": [
+        "Goldberg et al. Proposition 1: identical binary valuations {0,1}; Section 5 Theorem 5.2: 3/2 approximation for free order with two identical agents.",
+        "Elkind et al.: temporal EF1 existence for two item types, a feasibility rather than objective-minimization claim."
+      ],
+      "reasoning": "Existing feasibility (TEF1) does not determine exact sum-of-gaps optimality, and the known greedy binary optimality does not extend through an objective-preserving transformation. The new fixed-order statement holds for all two-positive-level sequences and the free-order result pins down an exact parity-sensitive numeric optimum. No inspected theorem entails either statement.",
+      "searches": [
+        "arxiv:2610.09843v1 Section 4 Proposition 1",
+        "arxiv:2610.09843v1 Section 5 Theorems 5.1–5.4",
+        "arxiv:2410.14593v1 Section 3.2.1",
+        "Primary: https://arxiv.org/html/2610.09843v1#S4",
+        "Primary: https://arxiv.org/html/2610.09843v1#S5"
+      ]
+    },
+    "equivalent_formulations": {
+      "evidence": [
+        "The normalized objective is the sum of absolute signed partial sums of a sequence of one- and two-step increments, with signs assigned in the given order.",
+        "Goldberg–Robinson–Teh, arXiv:2610.09843v1, Section 2 states cumulative maximum envy, and Section 4 Proposition 1 covers identical {0,1} values only."
+      ],
+      "reasoning": "The signed discrepancy formulation is equivalent to the new result; matching this formulation did not reveal a prior all-order greedy law. Splitting a double good into two unit goods changes the number and positions of terms in the cost, and subtracting a common value changes item-count imbalances, so binary Proposition 1 does not mechanically cover it.",
+      "searches": [
+        "fixed-order two-person cumulative-maximum-envy binary magnitudes one and two myopic balancing optimal exact",
+        "minimizing sum of prefix absolute load differences greedy optimal goods value exactly 1 or 2",
+        "cumulative maximum envy sequential goods temporal item allocation prefix sum optimal greedy",
+        "Literature: Goldberg Robinson Teh 2026 greedy exact two agents item values 1 2 cumulative maximum envy"
+      ]
+    },
+    "exact_database_or_table": {
+      "evidence": [
+        "Searches of published mathematical-result summaries surfaced stochastic envy-freeness, rank assignment, and Bernoulli balancing, but no equivalent exact count formula or fixed-order signed-gap claim.",
+        "The coefficient formula is proved for all nonnegative count pairs, not derived from a finite table."
+      ],
+      "reasoning": "A same-object exact database or table was not located, but this negative search alone is not a uniqueness certificate; exact finite computations only check bounded ranges.",
+      "searches": [
+        "Literature: cumulative envy values 1 2 exact optimum sequencing",
+        "Literature: minimum sum absolute partial sums 1 2 signs permutations",
+        "Literature: scheduling cumulative load imbalance online 1 2 jobs exact optimal",
+        "temporal envy Goldberg Robinson Teh"
+      ]
+    },
+    "rationale": "Compared same-object published primary full text with the new fixed-order online optimality and free-order exact count formula, checked alternate signed-prefix-discrepancy formulations in literature queries and published mathematical records, and inspected temporal two-item-type literature. No source inspected implies both claims; the relevant closest result has only a binary {0,1} greedy theorem and a general approximation. Priority risk remains from potentially unindexed prefix-balancing results and incomplete full text of a 2025 two-value paper.",
+    "residual_risks": [
+      "Classical discrepancy/minimum-total-imbalance literature may contain the same folded-state or exact block formula under different terminology.",
+      "The accessible arXiv HTML full text for arxiv:2505.22174v1 could not be retrieved; its abstract has a different stated target.",
+      "Targeted negative searches cannot establish worldwide uniqueness or independent publication priority."
+    ],
+    "source_inspections": [
+      {
+        "assessment": "Motivating paper covers {0,1} identical binary greedy and generic pseudopolynomial DP, and 3/2 approximation for reordering, but does not state the two strictly positive unit–double exact claims.",
+        "evidence": [
+          "§2 defines the sum of maximum envy at every round.",
+          "§4 lines 189–197 limits simple greedy result to identical binary values.",
+          "§5 lines 320–371 gives NP-completeness and approximation results for reorderable goods."
+        ],
+        "identifier_or_url": "arxiv:2610.09843v1 | https://arxiv.org/html/2610.09843v1",
+        "material_read": "Full-text abstract, definitions and §4 Proposition 1 plus dynamic program; §5 Theorems 5.1–5.4, proof discussion and relevant appendix references.",
+        "method": "Read accessible arXiv HTML and compared quantifiers, valuation alphabets and guarantee strength.",
+        "title": "Minimizing Cumulative Envy in Allocating a Sequence of Items",
+        "trigger": "Identical optimization objective, agents, fixed and free order."
+      },
+      {
+        "assessment": "Addresses temporal EF1 feasibility, not exact sum of maximum pairwise envy, so its guarantee does not imply the new optimum.",
+        "evidence": [
+          "Abstract specifies TEF1 at every round; §3.2.1 concerns two item types."
+        ],
+        "identifier_or_url": "arxiv:2410.14593v1 | https://arxiv.org/html/2410.14593v1",
+        "material_read": "Full-text abstract, introduction, temporal-EF1 definitions, and §3.2.1 two-types discussion.",
+        "method": "Read accessible arXiv HTML and compared existence/EF1 notion with numeric cumulative optimization.",
+        "title": "Temporal Fair Division of Indivisible Items",
+        "trigger": "Two-type temporal allocation could yield stronger coverage."
+      },
+      {
+        "assessment": "The abstract advertises online approximate MMS and EF1/EF2, not exact undiscounted cumulative-maximum-envy, but an uninspected full text leaves residual risk.",
+        "evidence": [
+          "Abstract states 1/(2n−1)-MMS and EF1/EF2 approaches for personalized two-value instances."
+        ],
+        "identifier_or_url": "arxiv:2505.22174v1 | https://arxiv.org/abs/2505.22174",
+        "material_read": "Accessible arXiv abstract; HTML full-text retrieval failed.",
+        "method": "Read abstract and bibliographic record; did not infer absence of a theorem from unavailable full text.",
+        "title": "Online Fair Division for Personalized 2-Value Instances",
+        "trigger": "Two-valued goods, possible stronger online algorithm."
+      }
+    ],
+    "status": "PASS"
+  },
+  "review_type": "self_review",
+  "schema_version": 1,
+  "scope_run_id": "c88e01b1-c1a7-4a40-86fb-8d7be0eebfec",
+  "self_review_status": "passed",
+  "value": {
+    "rationale": "The new cumulative maximum-envy objective has algorithmic hardness even under identical valuations; distinguishing 1-vs-2 positive values provides a natural nontrivial infinite tractable frontier. Stronger than generic pseudopolynomial feasibility, an online myopic rule is provably optimal despite fixed-order full-knowledge competitors, while the reordering formula exactly reveals a parity defect. The {1,3} counterexample identifies genuine sensitivity to the valuation ratio and guards against trivial generalization.",
+    "status": "PASS"
+  }
+}
