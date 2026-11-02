@@ -5,8 +5,11 @@
     "status": "not_performed"
   },
   "independent_audit": {
-    "evidence": null,
-    "status": "not_performed"
+    "status": "passed",
+    "evidence": [
+      "INDEPENDENT_AUDIT_2026-10-31.md",
+      "INDEPENDENT_AUDIT_2026-10-31.json"
+    ]
   },
   "lean_verification": {
     "evidence": null,
@@ -16,26 +19,24 @@
 }
 ---
 
-# Exact verification
-Run each of the following standalone scripts using Python 3:
+# Independent mathematical audit
 
-```sh
-python3 verify_over_prime_field.py
-python3 verify_over_extension.py
-```
+## correctness
 
-The first computes the coefficient's four essential powers over \(\mathbb F_{41}[u]/(u^2-3)\) and the exact remainder of \(Z^E\) modulo the monic degree-\(82\) polynomial \(G\). Observed output includes:
+PASS
 
-```
-PRIMITIVE_LAMBDA_TESTS {2: (40, 0), 3: (20, 25), 5: (18, 0), 7: (15, 26)}
-EXPONENT_DIGITS 131 EXPONENT_BITS 433
-CERTIFICATE_OK p=41 lambda=2+16u u^2=3 irreducible_degree=41 nonprimitive_factor=83
-```
+PASS: Arithmetic independently recomputed in F_41[u]/(u²−3): 3^20≡−1 mod41; λ=2+16u has λ^840=40, λ^560=20+25u, λ^336=18, λ^240=15+26u, so exact multiplicative order 1680. Root α has α^(41²)=α+32u, giving 41 distinct F_(41²)-Frobenius conjugates, hence irreducibility degree41. Eliminating u gives minimal G(Z)=Z^82+2Z^42+4Z^41+Z²+4Z+15 over F41. Independently checked 83|41^82−1 and polynomial modular exponentiation Z^((41^82−1)/83) mod G = 1 in exact integer arithmetic (433-bit exponent). Thus roots are not primitive. The proof is finite algebraic, not statistical experimentation. Revision caveat: the later Oct18 v3 paper no longer displays the historical v2 universal Conjecture 4.2, so this refutes that historical assertion, not an existing v3 existential claim.
 
-The second uses an independent representation of the root in the degree-\(41\) quotient of a quadratic finite field and yields:
+## originality
 
-```
-CERTIFICATE_OK independent_extension_ring p=41 degree=41 divisor=83
-```
+PASS
 
-The checkers use exact modular integer arithmetic only. Correctness of the symbolic reduction and field structure is explained in the accompanying proof. The computation is not an infinite search and claims no results for other primes. Independently commissioned external validation has not been performed.
+PASS best-of-knowledge for this explicit nonprimitive irreducible degree41 trinomial with primitive coefficient and index divisible by 83. Historical v2 2026 abstract expressly asserts universal primitivity for every primitive λ over F_{p²}; later v3 changes its conjectural scope to an existential form. A counterexample to the former does not disprove the latter. No previously tabulated p=41, λ=2+16u, factor83 witness identified in genuine Resultary/literature searches; unlocated earlier witnesses remain possible.
+
+## value
+
+PASS
+
+PASS: A concrete counterexample to a published historical universal finite-field conjecture separates irreducibility, primitive constant term and root primitivity via an exact cyclotomic divisor. Its independent reproducible 433-bit certificate at the first prime beyond the older tabulation is a motivated obstruction, not a random polynomial statistic. Do not infer the revised existential conjecture fails.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
