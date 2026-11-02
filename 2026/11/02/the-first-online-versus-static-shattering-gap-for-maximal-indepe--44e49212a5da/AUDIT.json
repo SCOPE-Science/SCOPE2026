@@ -1,0 +1,114 @@
+{
+  "correctness": {
+    "rationale": "Proof supplies complete definitions and quantifiers, exact eight-concept certificate (integer masks 73,86,90,150,154,166,169,170), a valid depth-three binary membership-query decision tree, all 56 triple trace tests, and exhaustive leaf-addition/canonical-center census of 48 unlabelled trees through order eight. An independent NetworkX implementation matches all small-order results. Standard Cartesian-product additivity is proved directly via the VC support criterion and Littlestone recursion, yielding the unrestricted formulas for every positive number of disjoint copies.",
+    "status": "PASS"
+  },
+  "independent": false,
+  "independent_audit_status": "not_performed",
+  "originality": {
+    "broader_coverage": {
+      "evidence": [
+        "Drmota et al., AofA 2018, Theorems 1 and 3, asymptotics for count and sizes of maximal independent sets, pp.3-4 (https://drops.dagstuhl.de/storage/00lipics/lipics-vol110-aofa2018/LIPIcs.AofA.2018.18/LIPIcs.AofA.2018.18.pdf)",
+        "Guingona et al., Theorem 3.10, equality of dimensions for a different linear zero-set class (https://arxiv.org/abs/2109.04805)"
+      ],
+      "reasoning": "An estimate for the number of maximal independent sets gives an information-theoretic ceiling on online depth but does not show a complete balanced depth-three tree. A theorem about zero-sets of vector spaces does not dominate the forest class. Published class-wide statistical counts do not imply the unique boundary among all eight-vertex isomorphism types.",
+      "searches": [
+        "Littlestone dimension family of maximal independent sets graph graph of all maximal independent sets online learning",
+        "VC dimension maximal independent sets forests trees induced matchings",
+        "Littlestone dimension VC dimension maximal independent sets shattering tree forest online learning"
+      ]
+    },
+    "checked_sources": [
+      "Drmota et al., 2018, DOI 10.4230/LIPIcs.AofA.2018.18, original OA 15-page PDF, main theorems/§3/§4",
+      "Guingona et al., arXiv:2109.04805 (first posted 2021-09-10), primary full HTML, §§1–3",
+      "Michel and Scott, 2024-04-04, author-hosted original PDF, §1, principal theorems, §4"
+    ],
+    "claim_vs_prior_implication": {
+      "evidence": [
+        "Drmota et al. prove tree enumerative distribution formulas but not membership-shattering theorems (https://drops.dagstuhl.de/storage/00lipics/lipics-vol110-aofa2018/LIPIcs.AofA.2018.18/LIPIcs.AofA.2018.18.pdf)",
+        "Michel-Scott Theorems 1.2–1.5 lower-bound graph reconstruction with set-valued oracle answers; their unknown object is a graph (https://people.maths.ox.ac.uk/michel/Papers/graph-reconstruction-maximal-independent-set-queries.pdf)",
+        "Guingona et al. Remark 2.3 notes the general VCdim ≤ Ldim inequality, insufficient to force the strict forest example (https://arxiv.org/abs/2109.04805)"
+      ],
+      "reasoning": "Knowing \\(\\operatorname{VCdim}\\le\\operatorname{Ldim}\\) and that eight maximal independent sets exist leaves Ldim equal to 2 or 3; the explicit adaptive tree establishes 3. Knowing the static VC dimension for forests does not show no earlier online gap or classify the unique first obstruction. Additivity is routine, but the sharp first gadget is not a mere substitution into the cited literature.",
+      "searches": [
+        "VC dimension and Littlestone dimension of maximal independent vertex sets of trees, forests, and induced matching characterization",
+        "online shattering maximal independent sets of graphs paths trees forests Littlestone dimension",
+        "adaptive shattering maximal stable sets trees induced matching online learning"
+      ]
+    },
+    "equivalent_formulations": {
+      "evidence": [
+        "Guingona et al., arXiv:2109.04805, §2 definitions of static and online shattering, §3 Thm 3.10 on zero-set families (https://arxiv.org/abs/2109.04805)",
+        "Michel-Scott, §1, a query returns a maximal independent set in an unknown induced subgraph (https://people.maths.ox.ac.uk/michel/Papers/graph-reconstruction-maximal-independent-set-queries.pdf)"
+      ],
+      "reasoning": "Static membership traces and adaptive vertex-query decision trees are well-defined on the maximal independent sets of one known forest. They are not dual to the graph-reconstruction oracle where a chosen vertex subset is answered by an MIS of an unknown graph. Zero-set equality formulas do not apply to maximal independent-set classes.",
+      "searches": [
+        "Littlestone dimension maximal independent sets trees forest",
+        "adaptive shattering maximal stable sets trees induced matching online learning",
+        "online shattering maximal independent sets of graphs paths trees forests Littlestone dimension"
+      ]
+    },
+    "exact_database_or_table": {
+      "evidence": [
+        "AofA 2018 §4.1 explicitly studies asymptotic random Cayley-tree maximal-independent-set counts rather than a table of dimension pairs (https://drops.dagstuhl.de/storage/00lipics/lipics-vol110-aofa2018/LIPIcs.AofA.2018.18/LIPIcs.AofA.2018.18.pdf)",
+        "Guingona et al. §2 explains VC and Littlestone dimensions of set systems but does not enumerate tree concept classes (https://arxiv.org/abs/2109.04805)"
+      ],
+      "reasoning": "The inspected primary text contains no exact finite census of these two dimensions on unlabelled trees through order eight. The exact census is newly reproduced by two independent complete procedures; missing searchable tables are not alone a novelty proof.",
+      "searches": [
+        "First tree maximal-independent-set Littlestone dimension exceeds VC dimension, unique eight-vertex spider S(1,2,4) and unbounded gap for disjoint unions",
+        "shattering class of inclusion-maximal stable sets, eight vertices, adaptive versus static dimensions",
+        "VC dimension and Littlestone dimension of maximal independent vertex sets of trees, forests, and induced matching characterization"
+      ]
+    },
+    "rationale": "The general maximal-independent-set count distributions in Drmota et al. do not imply membership-query VC/Littlestone dimensions; the Guingona et al. exact equality theorem concerns zero-sets of linear combinations, not maximal independent sets; Michel-Scott use maximal-independent-set outputs as an oracle to reconstruct an unknown graph, reversing the known/hidden objects. No inspected claim or indexed research record implies the unique first eight-vertex adaptive gap, its actual complete decision tree, or the unbounded repeated-copy difference. Risk remains for unindexed historical work.",
+    "residual_risks": [
+      "Indexed and full-text literature cannot prove absolute historical priority; earlier unindexed, differently phrased, or inaccessible work could contain a matching classification.",
+      "The finite census is machine-checked exhaustively, with reproducible programs; no separately commissioned third-party mathematical audit has occurred.",
+      "The result does not assert uniqueness or extremality for connected trees of order greater than eight."
+    ],
+    "source_inspections": [
+      {
+        "assessment": "NOT_COVERING: counts and size distribution for maximal independent sets of graph classes; no membership VC/Littlestone computation or sharp eight-vertex tree boundary.",
+        "evidence": [
+          "Theorems 1 and 3 state asymptotic counts, expected sizes, variances and central limit laws for random graphs; §4.1 applies functional equations to trees."
+        ],
+        "identifier_or_url": "https://drops.dagstuhl.de/storage/00lipics/lipics-vol110-aofa2018/LIPIcs.AofA.2018.18/LIPIcs.AofA.2018.18.pdf",
+        "material_read": "Original OA 15-page conference paper: abstract, Introduction §1, Theorems 1–3 pp.2–4, maximal-independent-set generating functions §3, Cayley-tree case §4.1, references.",
+        "method": "Primary publisher PDF, text plus page image",
+        "title": "Maximal Independent Sets and Maximal Matchings in Series-Parallel and Related Graph Classes",
+        "trigger": "Same combinatorial hypothesis family and trees; plausible stronger counting classification"
+      },
+      {
+        "assessment": "NOT_COVERING: the classes are zero-sets of linear combinations, not membership sets of maximal independent sets of fixed graphs.",
+        "evidence": [
+          "Theorem 3.10 gives both dimensions \\(d-1\\) under linear independence; no forest or maximal-independent-set restriction is present."
+        ],
+        "identifier_or_url": "https://arxiv.org/abs/2109.04805",
+        "material_read": "ArXiv full HTML text, introduction, Definitions 2.1–2.5, Theorem 3.10 and surrounding explanations.",
+        "method": "Primary arXiv HTML",
+        "title": "Littlestone and VC-dimension of families of zero sets",
+        "trigger": "Directly studies both named dimensions and their equality"
+      },
+      {
+        "assessment": "NOT_COVERING: oracle outputs a maximal independent set of chosen induced subgraph of an unknown graph; here the graph is known and each query asks whether a vertex lies in an unknown maximal independent set.",
+        "evidence": [
+          "§1 pp.1–2 explicitly defines query Q ⊆ V and answer as an MIS of the induced graph G[Q]."
+        ],
+        "identifier_or_url": "https://people.maths.ox.ac.uk/michel/Papers/graph-reconstruction-maximal-independent-set-queries.pdf",
+        "material_read": "Original 12-page publicly hosted manuscript, introduction and query definition, principal theorems, lower-bound argument §4, and concluding discussion.",
+        "method": "Primary author-posted PDF text plus first-page image",
+        "title": "Lower bounds for graph reconstruction with maximal independent set queries",
+        "trigger": "Very similar language of adaptive MIS queries"
+      }
+    ],
+    "status": "PASS"
+  },
+  "review_type": "self_review",
+  "schema_version": 1,
+  "scope_run_id": "44e49212-a5da-4089-91eb-eefd898fe2ad",
+  "self_review_status": "passed",
+  "value": {
+    "rationale": "The natural learning problem is to predict membership in an unknown maximal independent set of a known tree. The first order at which adaptive shattering strictly outperforms fixed-support shattering, and the unique extremal shape, are structurally motivated finite invariants. A complete finite classification plus an explicit adaptive witness is not a textbook deduction from MIS counts; disjoint-copy additivity then makes the gap unbounded over acyclic graphs, identifying a genuine qualitative difference.",
+    "status": "PASS"
+  }
+}
