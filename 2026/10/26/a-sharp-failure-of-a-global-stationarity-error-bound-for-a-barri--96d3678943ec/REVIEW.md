@@ -1,14 +1,21 @@
-# Review
+# Independent mathematical audit
 
-## Correctness
-The conjugate is computed directly from the first-order condition. Substitution gives the exact gap formula, and the Taylor expansion establishes its \(x_n^{-2}\) decay while \(|F'(x_n)|=1\). The smoothness, lower-bounded objective, and prox-boundedness claims are verified algebraically. The result is pointwise and does not claim that a method visits these points.
+## correctness
 
-## Originality
-The primary source introduces the same geometry-specific gap and notes the lack of a general standard-stationarity rate, but the inspected sections do not give this explicit lower-bounded composite counterexample or the exact asymptotic separation. A bounded semantic literature search returned related Bregman/proximal results, not an equivalent claim. A separate recent Bregman-proximal paper uses a different residual and a convex nonsmooth term; this does not cover the present construction. Search absence is not treated as proof of novelty.
+PASS
 
-## Value
-The example identifies a concrete limitation when interpreting a convergence guarantee in this gap as a Euclidean stationarity guarantee. It motivates reporting the geometry-specific metric as such, or adding bounded-gradient/error-bound assumptions before translating it into a standard residual.
+Derived Fenchel conjugate φ_r*(s)=|s|−r log(1+|s|/r) and independently simplified D_{φ_r*}(Y+1,Y)=r[1/(r+Y)−log(1+1/(r+Y))] for positive Y. With x_n=2πn, f′=x_n, −g′=x_n−1, so gap~r/(2x_n²) but F′=cos(x_n)=1. f has 1-Lipschitz gradient, g=sin(x)−x²/2 is prox-bounded at precisely threshold gamma=1, F bounded below. Statement concerns pointwise gap bound only, not algorithmic iterates.
 
-Closest literature: arXiv:2605.11850v1, especially Example 2.3 and Remark 4.6; arXiv:2609.34773v1, Sections 1–2. Residual risk: the claim does not rule out trajectory-specific conversion or conversion under stronger assumptions.
+## originality
 
-Self-review: passed. Independent audit: not yet performed.
+PASS
+
+Best-of-knowledge: the inspected primary mathematical assertions and targeted Resultary/published-SCOPE comparisons do not establish the full exact final claim as a known corollary. The identified prior work covers premises, generic methodologies, or weaker/special cases, as specified in the four comparisons; inaccessible or uninspected high-relevance sources remain genuine priority risks, not automatic failures.
+
+## value
+
+PASS
+
+The explicit example is a directly motivated obstruction to interpreting the source paper’s convergence in a geometry-specific Bregman dual gap as convergence in Euclidean stationarity. Its significance lies in showing the exact failure under smooth, bounded-below, prox-bounded assumptions; it is not a trajectory counterexample or a new general algorithm theorem.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

@@ -1,0 +1,114 @@
+{
+  "audit_date_utc": "2026-10-31",
+  "audited_at_utc": "2026-10-31T12:08:45Z",
+  "axes": {
+    "correctness": {
+      "checked_sources": [
+        "Frozen 2026/10/26/a-sharp-failure-of-a-global-stationarity-error-bound-for-a-barri--96d3678943ec/RESULT.md",
+        "Frozen 2026/10/26/a-sharp-failure-of-a-global-stationarity-error-bound-for-a-barri--96d3678943ec/SLOGAN.txt",
+        "Frozen 2026/10/26/a-sharp-failure-of-a-global-stationarity-error-bound-for-a-barri--96d3678943ec/VERIFICATION.md"
+      ],
+      "rationale": "Derived Fenchel conjugate φ_r*(s)=|s|−r log(1+|s|/r) and independently simplified D_{φ_r*}(Y+1,Y)=r[1/(r+Y)−log(1+1/(r+Y))] for positive Y. With x_n=2πn, f′=x_n, −g′=x_n−1, so gap~r/(2x_n²) but F′=cos(x_n)=1. f has 1-Lipschitz gradient, g=sin(x)−x²/2 is prox-bounded at precisely threshold gamma=1, F bounded below. Statement concerns pointwise gap bound only, not algorithmic iterates.",
+      "residual_risks": [
+        "Sequence x_n is not an iterate sequence; no algorithm nonconvergence is demonstrated."
+      ],
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Oikonomidis et al Remark 4.6 openly notes standard stationarity rates are not generally obtained.",
+          "Yamashita et al introduce a different Bregman proximal residual under other assumptions."
+        ],
+        "reasoning": "The source remark is a limitation on available theory, not a constructed no-go modulus with lower-bounded smooth composite objective. It narrows novelty and limits significance.",
+        "searches": [
+          "Bregman dual geometry gap small while Euclidean stationarity gradient remains bounded barrier conjugate",
+          "https://arxiv.org/abs/2609.34773"
+        ]
+      },
+      "checked_sources": [
+        "K. Oikonomidis et al., Constrained Stochastic Spectral Preconditioning Converges for Nonconvex Objectives, arXiv:2605.11850v1 — https://arxiv.org/html/2605.11850v1",
+        "https://arxiv.org/abs/2609.34773",
+        "Actual Resultary semantic query: Bregman dual geometry gap small while Euclidean stationarity gradient remains bounded barrier conjugate",
+        "Assigned frozen package RESULT.md and self-review AUDIT.json (read as evidence only, not scientific authority)"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "Explicit D_{φ*}(x_n,x_n−1)=r(a−log(1+a))→0 with |F′(x_n)|=1.",
+          "Source Remark 4.6 acknowledges failure to derive general Euclidean stationarity rates, not an impossibility theorem."
+        ],
+        "reasoning": "An analytical failure-to-prove rates does not logically imply impossibility; the explicit sequence establishes the missing counterexample under assumptions. Weak priority risk persists because metric degeneracy is classical.",
+        "searches": [
+          "Bregman dual geometry gap small while Euclidean stationarity gradient remains bounded barrier conjugate",
+          "https://arxiv.org/html/2605.11850v1"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "With positive dual arguments, φ_r* has second derivative decaying like r/s², so fixed dual gradient difference can have vanishing Bregman divergence.",
+          "The source defines the same geometry-specific Bregman gap in its stochastic convergence statements."
+        ],
+        "reasoning": "Equivalently the claim is a lack of uniform metric equivalence at unbounded dual arguments, not a counterexample to descent or convergence in the gap itself.",
+        "searches": [
+          "Bregman dual geometry gap small while Euclidean stationarity gradient remains bounded barrier conjugate",
+          "https://arxiv.org/html/2605.11850v1"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "The claim is an analytic counterexample for all n; no discrete census or table is the natural form."
+        ],
+        "reasoning": "The database/table check is substantively inapplicable to the infinite sequence of real points x_n. Search for source’s barrier example and dual gap was performed; no exact tabulated counterexample supplied.",
+        "searches": [
+          "Bregman dual geometry gap small while Euclidean stationarity gradient remains bounded barrier conjugate",
+          "https://arxiv.org/html/2605.11850v1"
+        ]
+      },
+      "rationale": "Best-of-knowledge: the inspected primary mathematical assertions and targeted Resultary/published-SCOPE comparisons do not establish the full exact final claim as a known corollary. The identified prior work covers premises, generic methodologies, or weaker/special cases, as specified in the four comparisons; inaccessible or uninspected high-relevance sources remain genuine priority risks, not automatic failures.",
+      "residual_risks": [
+        "The target authors already explicitly discuss lack of Euclidean-stationarity rates; the precise strength of the new claim is the explicit obstruction, not discovery of that conceptual limitation.",
+        "Classical nonuniform convexity of φ* makes the example technically elementary and possible prior folklore; value remains targeted to the precise current geometry.",
+        "Sequence x_n is not an iterate sequence; no algorithm nonconvergence is demonstrated."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Authors state no general standard stationarity rates are obtained and discuss cases of conversion; the inspected source does not give the exact example with residual one and vanishing gap. Absence of a bound is not itself impossibility; explicit sequence proves that distinction.",
+          "evidence": "arXiv:2605.11850v1, Example 2.3; Remark 4.6; https://arxiv.org/html/2605.11850v1",
+          "identifier_or_url": "https://arxiv.org/html/2605.11850v1",
+          "material_read": "Full public HTML research article, especially Example 2.3, Section 4.1, Remark 4.6 and relevant gap definitions",
+          "method": "Compared convergence metric and claimed stationarity implications against explicit F=sin(x) witness",
+          "title": "K. Oikonomidis et al., Constrained Stochastic Spectral Preconditioning Converges for Nonconvex Objectives, arXiv:2605.11850v1",
+          "trigger": "Defines identical dual Bregman gap and same normalized barrier reference"
+        },
+        {
+          "assessment": "Read material discusses a different Bregman proximal setting, but no full-text noncoverage conclusion is asserted.",
+          "evidence": "arXiv:2609.34773v1 abstract",
+          "identifier_or_url": "https://arxiv.org/abs/2609.34773",
+          "material_read": "Public title, abstract and problem-description excerpts; full paper not independently reread",
+          "method": "Compared convex/nonconvex assumptions and the nature of its proximal stationarity residual",
+          "title": "Y. Yamashita, S. Takahashi, A. Takeda, Accelerated Bregman Proximal Gradient Methods from Dual Geometric Perspectives",
+          "trigger": "Nearby proximal stationarity metric may imply stronger residual comparison"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "checked_sources": [
+        "K. Oikonomidis et al., Constrained Stochastic Spectral Preconditioning Converges for Nonconvex Objectives, arXiv:2605.11850v1 — https://arxiv.org/html/2605.11850v1"
+      ],
+      "rationale": "The explicit example is a directly motivated obstruction to interpreting the source paper’s convergence in a geometry-specific Bregman dual gap as convergence in Euclidean stationarity. Its significance lies in showing the exact failure under smooth, bounded-below, prox-bounded assumptions; it is not a trajectory counterexample or a new general algorithm theorem.",
+      "residual_risks": [
+        "Classical nonuniform convexity of φ* makes the example technically elementary and possible prior folklore; value remains targeted to the precise current geometry.",
+        "Sequence x_n is not an iterate sequence; no algorithm nonconvergence is demonstrated."
+      ],
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "limitations": [
+    "The target authors already explicitly discuss lack of Euclidean-stationarity rates; the precise strength of the new claim is the explicit obstruction, not discovery of that conceptual limitation.",
+    "Classical nonuniform convexity of φ* makes the example technically elementary and possible prior folklore; value remains targeted to the precise current geometry.",
+    "Sequence x_n is not an iterate sequence; no algorithm nonconvergence is demonstrated."
+  ],
+  "schema_version": 1
+}
