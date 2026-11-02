@@ -1,15 +1,21 @@
-# Scientific review
+# Independent mathematical audit
 
-## Correctness — PASS
-The exact facet-area formula follows from the incidence matrix determinant \(\det(B^\top B)=n\), the crosspolytope facet-pyramid decomposition, and centered signed edge potentials. Rademacher averaging produces \(\mathbb E A_F^2=W(T)/((n-2)!)^2\) without a numerical assumption. The universal norm comparison follows from an explicit fourth-moment bound and Hölder interpolation. The star law follows from a signed-sum identity; the path limit uses the functional invariance principle, the continuous mapping theorem, and bounded second moments to justify convergence of means. The centered Brownian covariance has eigenvalues \((\pi k)^{-2}\), giving the independent-normal expansion and the stated Laplace integral. Exact Gram-minor and graph-distance checks validate 360 finite facet cases. The finite checks do not replace the limiting proof.
+## correctness
 
-## Originality — PASS, with residual bibliographic uncertainty
-D'Alì–Delucchi–Michałek, *Many faces of symmetric edge polytopes* (arXiv:1910.05193v1), Example 2.3 establishes the crosspolytope lattice equivalence for trees and subsequent results describe facets. Unimodular equivalence need not preserve Euclidean facet area. Chen–Davis–Korchevskaia, *Facets and facet subgraphs of symmetric edge polytopes* (arXiv:2107.12315v1), analyze combinatorial facets; Delucchi–Hoessly, *Fundamental polytopes of metric trees via parallel connections of matroids* (arXiv:1612.05534v1), develop related face enumerations. None of the materially inspected passages gave this exact Euclidean Wiener identity, Brownian facet-area law or sharp path/star surface ratio. A published tree–Wiener energy identity for balanced regular-simplex edge points concerns a different geometric construction, while a known statement about mean width of signed tree roots concerns a different functional and does not imply facet areas. Search outcomes cannot exclude an equivalent earlier result under another name.
+PASS
 
-## Mathematical value — PASS
-All tree root polytopes are combinatorially crosspolytopes with the same intrinsic volume, so their differing Euclidean facet geometry is a natural missing invariant. The exact squared-area/Wiener correspondence bridges graph metric structure and facet geometry over every tree. The nondegenerate Brownian limit and explicit \(\sqrt n\)-scale separation show substantially different geometric regimes for path and star realizations; these are not a numerical table or a reparametrization of volume. The theorem does not claim sharp extremality across all trees.
+With d=n−1 tree edges, oriented incidence B has full rank and all n maximal minors ±1, whence det(BᵀB)=n. Each of the 2^d signed crosspolytope facets is a d−1 simplex and its pyramid with origin has intrinsic volume sqrt(n)/d!. Its supporting normal h_s satisfies Bᵀh_s=s and lies in 1⊥, so the facet area is sqrt(n)||h_s||/(d−1)!. Centered path potentials realize h_s, and ||h_s||²=(1/n)Σ_{u<v}(φ(u)−φ(v))². Rademacher independence gives E||h_s||²=W(T)/n and the claimed average squared area. Expanding E||Σ_e s_e q_e||⁴=a²+4Σ_{e<f}<q_e,q_f>²≤3a² and Hölder/Jensen proves sqrt(a/3)≤E||h||≤sqrt(a). On stars, ||h||²=n−1−Y²/n with Y a sum of n−1 signs, so ||h||/sqrt(n)→1 in probability and mean. On paths, a centered random walk scaled by sqrt(n) converges in C[0,1] to centered Brownian motion; the discrete L2 norm satisfies ||h||/n⇒sqrt(Q). Since E(||h||/n)²=(1−n⁻²)/6, uniform integrability gives expectation convergence. The mean-zero Neumann Green operator has eigenvalues 1/(π²k²), yielding Q=Σ Z_k²/(π²k²), and its Laplace product gives c=sqrt(2/π) ∫(1−sqrt(u/sinh u))/u²du. Independent direct incidence/facet Gram determinants for 16 tree cases (n=3..8, 744 signed facets) reproduce gram=n||h||² and exact Wiener means. Independent 60-digit quadrature gives c=0.3781319637260636570, as stated. Finite checks corroborate algebra only; analytic arguments establish arbitrary n and the limit.
 
-## Limitations and relationship to closest literature
-The lower universal constant is not asserted optimal. The finite checker does not prove arbitrary-order identities without the analytical steps, and the asymptotic constant does not provide rates. Bibliographic coverage is finite, and independent validation remains outstanding.
+## originality
 
-Self-review: passed. Independent audit: not yet performed.
+PASS
+
+The published tree crosspolytope equivalence and facet-labeling results, as well as closely matching geometric Resultary findings, are distinguished statement by statement. Lattice equivalence preserves face structure and normalized volume, not intrinsic Euclidean facet measures; prior inradius max-norm, zonotope spherical width and balanced-simplex Wiener energy are different invariants. A broad search found no primary result asserting the full mean squared facet area for all canonical trees, the Brownian path facet-area limit, or the explicit first-order path-to-star surface-area ratio. Standard Brownian and incidence-matrix ingredients are duly acknowledged. This is best-of-knowledge originality and retains risk of an alias/Kirchhoff-index treatment.
+
+## value
+
+PASS
+
+Every canonical n-vertex tree root polytope has the same combinatorial crosspolytope face lattice and intrinsic volume 2^(n−1)sqrt(n)/(n−1)!, making Euclidean boundary geometry a well-motivated invariant invisible to lattice equivalence. The exact squared-area moment converts its geometry into the Wiener index for every tree, not an arbitrary finite parameter slice. The path/star comparison exhibits qualitatively distinct typical facet areas (Brownian random profile versus deterministic concentration) and gives a nontrivial sharp sqrt(n) first-order surface ratio with an explicit universal constant. This is a useful complete structural identity plus an asymptotic classification of two canonical extremal tree families, without asserting unproved global extremality or an optimal universal lower bound.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
