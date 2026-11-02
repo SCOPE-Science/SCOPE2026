@@ -1,0 +1,17 @@
+# Scientific assessment of the cop-win ladder polynomial
+
+## Correctness — PASS
+For every nonempty vertex subset of \(P_2\square P_n\), triangle-freeness and the finite dismantling characterization reduce the cop-win property exactly to connected acyclicity. The column-word proof establishes necessary and sufficient local restrictions. The two weighted transition equations enumerate every admissible interval exactly once, and the geometric placement factor yields the displayed rational generating function. A separate gap enumeration proves every cardinality coefficient, and algebraic substitution and differentiation give the reliability and first-moment formulas. Exhaustive graph-level checks for nine sizes and an independent dismantling implementation for seven sizes corroborate the proof; the infinite conclusion does not rely on extrapolation.
+
+## Originality — PASS, with explicit publication-priority risk
+The full public OEIS entries A360202, A360918, and A360920 report the total number, maximum-tree multiplicity, and maximum-tree order, respectively. Those are known and credited. Their information cannot recover all cardinality coefficients or the probability dependence for arbitrary vertex survival \(p\). Ahmed--Cameron's 2020 preprint introduces the cop-win polynomial but examines unicyclic and bicyclic host graphs; the two-row ladder has cycle rank \(n-1\), hence lies outside those classes for \(n\ge4\). Vince's 2020 online article concerns all connected vertex subsets of ladders, not just the cop-win/acyclic ones in its accessible abstract. Literature searches included the aliases *induced subtree*, *cop-win polynomial*, *node cop-win reliability*, *connected induced forest*, and *two-row grid*. Targeted literature and mathematical-claim comparisons did not identify a statement implying the complete bivariate polynomial.
+
+The Ahmed--Cameron and Vince full texts were not successfully retrieved for complete material comparison, and differently indexed size-refined counts might exist. Novelty is therefore an evidence-based assessment of the full coefficient distribution, not an assertion of exhaustive or independent publication priority.
+
+## Mathematical value — PASS
+A variable-parameter vertex-failure reliability model requires the coefficient distribution by retained-vertex cardinality, which neither the known total counts nor the known extremal counts provide. The theorem supplies this distribution for an entire natural infinite graph family via an explicit rational bivariate generating function and a separate finite coefficient formula. It also determines the exact conditional expected size and establishes a limiting fraction of \(2/3\) for cop-win induced sets, contrasting with the reported \(3/4\) for all connected sets of the same ladders. This identifies the quantitative effect of requiring evader-capture rather than connectivity alone. The result does not extend to wider grids or nonuniform survival probabilities.
+
+## Scope and risks
+The same result is expressed across the polynomial, coefficient formula, probability generating function, and mean-size consequences. Tabulated scalar cases are not separate originality claims. Accessible primary records and the exact database entries have been compared, but two especially relevant full articles could not be completely inspected. No conclusion of independent validation is implied.
+
+Self-review: passed. Independent audit: not yet performed.
