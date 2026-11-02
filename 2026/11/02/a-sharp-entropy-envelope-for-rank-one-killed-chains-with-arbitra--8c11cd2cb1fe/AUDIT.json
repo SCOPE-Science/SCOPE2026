@@ -1,0 +1,128 @@
+{
+  "correctness": {
+    "evidence": [
+      "RESULT.md, sections Proof 1–5",
+      "check.py and check_output.txt, 467 finite consistency assertions",
+      "arxiv:2605.29030v1, definition of the operator and Gelfand spectral radius"
+    ],
+    "rationale": "The exact finite-path factorization follows from the destination law being independent of the activated ancestral state. For each finite path Gibbs variationality is an equality, and the entropy chain rule plus convexity gives the marginal entropy bound. Each generated symbol enters the time-average survival factor with total coefficient at most one, while the old-history fraction is the Cesàro average of a tail tending to zero, without requiring any moment of the lag. Two Jensen applications yield the spectral upper bound uniformly in the history. An iid tilted path measure, replacement by an independent stationary past, and a uniformly Lipschitz logarithm yield the stationary lower bound. Independent weighted variance and Taylor curvature give the quantitative collision lower bound; the dispersed-law limit follows since the squared lag masses vanish. Strict concavity gives the optimizer, and a direct factorization gives the single-lag boundary. Numerical checks consist of 467 verified finite assertions, including complete rational path/transfer equality for all indicated finite histories, and are not used in place of proof.",
+    "status": "PASS"
+  },
+  "independent": false,
+  "independent_audit_status": "not_performed",
+  "originality": {
+    "broader_coverage": {
+      "evidence": [
+        "arxiv:2501.00306v1, Section 3, displayed inequality (3.4) uses the maximum/minimum of a positive Perron eigenfunction, not the sharp entropy envelope.",
+        "arxiv:2608.24356v1, introduction and Lemma 2: ancestor selection is uniform on the finite realized lineage at each generation, so its law depends on generation; Theorem 1 gives a different growth constant.",
+        "arxiv:2605.29030v1, introductory discussion describes the upper bound as unresolved in general."
+      ],
+      "reasoning": "Neither related general theorem dominates the claim: the earlier fixed-law model lacks the sharp constant, and the later exact rank-one solution changes the sampling law with the generation. The present theorem is deliberately restricted to the rank-one stationary-lag subclass and makes no claim about arbitrary stochastic matrices.",
+      "searches": [
+        "On a population model with memory 2501.00306 spectral bound",
+        "Another solvable population dynamic with uniform ancestral memory arxiv 2608.24356 full text theorem",
+        "Bertoin Minchev upper bound rank one open problem"
+      ]
+    },
+    "checked_sources": [
+      "Bertoin–Minchev, arxiv:2605.29030v1, Sections 2–5",
+      "Bertoin, arxiv:2501.00306v1, Sections 1–3",
+      "Bertoin, arxiv:2608.24356v1, published public full-text rendering, Sections 1–3",
+      "Public mathematical-record search for equivalent entropy/Perron and stationary-lag formulations"
+    ],
+    "claim_vs_prior_implication": {
+      "evidence": [
+        "The source Corollary 5.2 is a liminf lower bound under dispersion, logically compatible with arbitrarily larger finite-lag radii.",
+        "The source Remark after Figure 2 asks for the universal upper bound explicitly.",
+        "The 2024 paper supplies a coarse spectral ratio bound and a benchmark comparison, neither sharp in the entropy tilt.",
+        "The 2026 uniform-ancestry paper proves its own exact integral growth constant and a one-sided large-deviation comparison for a nonstationary choice of ancestor."
+      ],
+      "reasoning": "A lower bound cannot imply the opposite upper bound; the earlier weak upper factor does not imply the smaller sharp entropy envelope; and a generation-dependent uniform-lineage theorem does not cover every stationary lag law. Direct independent-mark factorization and the entropy marginal step are additionally necessary.",
+      "searches": [
+        "arxiv:2605.29030v1 Corollary 5.2 question all relocation laws",
+        "arxiv:2501.00306v1 Theorem 1.1 inequality (3.4)",
+        "arxiv:2608.24356v1 Theorem 1 Theorem 14"
+      ]
+    },
+    "equivalent_formulations": {
+      "evidence": [
+        "For rank-one column tilts the Perron ratio equals the entropy functional exactly; this equivalence is proved in RESULT.md, Proof 5.",
+        "arxiv:2605.29030v1, Corollary 5.2 and the open question after Figure 2."
+      ],
+      "reasoning": "The proposed Perron expression and the entropy envelope are mathematically equivalent within rank one, so novelty comparisons were made to both forms. The motivating paper supplies a one-sided dispersed lower limit and asks whether an all-lag upper bound holds; it does not state the completed inequality or collision stability.",
+      "searches": [
+        "preferential relocations rank one spectral upper bound 2026",
+        "preferential relocations enhance survival rank one entropy optimal parameter",
+        "rank-one killed preferential relocation sharp entropy upper bound all lag distributions",
+        "arxiv:2605.29030v1"
+      ]
+    },
+    "exact_database_or_table": {
+      "evidence": [
+        "The result concerns an infinite family of probability laws on lag indices, not a finite lookup table.",
+        "The published source identifies the sharp-candidate expression but does not tabulate or certify the present upper inequality."
+      ],
+      "reasoning": "A known exact spectral value for one special finite-memory matrix or a stored numerical table cannot imply a universal bound across arbitrary countably supported lag laws. Mathematically comparable published-record queries returned no directly matching covering statement.",
+      "searches": [
+        "Bertoin Minchev sup r_a exp(-rho_a log a)",
+        "Preferential relocations enhance survival for Markov chains with killing",
+        "rank-one killed preferential relocation sharp entropy upper bound all lag distributions"
+      ]
+    },
+    "rationale": "The result establishes the exact proposed spectral upper bound for every lag law in the rank-one subclass, and a quantitative collision-controlled lower bound. The motivating 2026 paper poses the upper inequality rather than proving it, even for exponential-tail laws. Its Corollary 5.2 gives only a dispersed-family lower limit. The earlier fixed-lag branching model gives a benchmark comparison and a different nonsharp estimate. A subsequent rank-one population model uses a time-dependent uniform selection of all available ancestors; it is not a fixed-lag process, and its explicit growth constant does not imply the present universal bound or its attainment. Direct source, alias, entropy and mathematical-record searches uncovered no covering accessible statement. General variational principles are proof ingredients, not the asserted sharp uniform bound.",
+    "residual_risks": [
+      "Older or unindexed thermodynamic-formalism/relative-entropy results may contain a stronger theorem from which this rank-one special case follows.",
+      "No independent historical-priority determination has been performed.",
+      "The result is restricted to rank-one substochastic kernels; the general-matrix question remains unanswered."
+    ],
+    "source_inspections": [
+      {
+        "assessment": "SOURCE_AND_OPEN_QUESTION_NOT_COVERING: supplies dispersed lower bound and poses universal upper bound; no rank-one solution is stated.",
+        "evidence": [
+          "arxiv:2605.29030v1, lines 28–38, 116–128, 188–199, and 506–539."
+        ],
+        "identifier_or_url": "https://arxiv.org/html/2605.29030v1",
+        "material_read": "Abstract and Introduction, Sections 2–3 defining the killed memory operator and spectral radius, Section 4 Perron-tilt analysis, Section 5 Corollary 5.2 and the discussion after Figure 2, references.",
+        "method": "Accessible arXiv HTML full text; read mathematical displayed formulas and scope of statements.",
+        "title": "Preferential relocations enhance survival for Markov chains with killing",
+        "trigger": "Same operator, proposed Perron-tilt bound, and explicit open question"
+      },
+      {
+        "assessment": "RELATED_NOT_DOMINATING: older theorem is a one-sided benchmark comparison with a coarse upper estimate and finite-mean lag hypothesis.",
+        "evidence": [
+          "arxiv:2501.00306v1, lines 48–69 and 174–202."
+        ],
+        "identifier_or_url": "https://arxiv.org/html/2501.00306v1",
+        "material_read": "Introduction and kernel (1.2), Theorem 1.1; Sections 2–3 including equation (3.4), and the role of moment assumptions.",
+        "method": "Accessible arXiv HTML full text; checked the actual upper and lower formulas.",
+        "title": "On a population model with memory",
+        "trigger": "Earlier stationary-lag ancestral-memory spectral comparison from the same topic"
+      },
+      {
+        "assessment": "RELATED_DIFFERENT_SAMPLING: each generation chooses uniformly among all prior generations, rather than an iid lag from a single fixed law. Its exact Malthusian formula does not establish the present every-lag bound.",
+        "evidence": [
+          "arxiv:2608.24356v1, 25 August 2026; public rendering lines 120–149, 197–281, 427–458, and 1490–1525."
+        ],
+        "identifier_or_url": "https://www.researchgate.net/publication/413632217_Another_solvable_population_dynamic_with_uniform_ancestral_memory",
+        "material_read": "Public full-text rendering: Introduction definition (1.1), rank-one mean matrix and Malthusian formula (1.3), Theorem 1, Lemma 2, and Section 3 Theorem 14 and references.",
+        "method": "Publicly accessible full-text transcription on its research publication page; checked model definition and theorem quantifiers against the present claim.",
+        "title": "Another solvable population dynamic with uniform ancestral memory",
+        "trigger": "Highly relevant independent rank-one ancestral-memory calculation"
+      }
+    ],
+    "status": "PASS"
+  },
+  "review_type": "self_review",
+  "schema_version": 1,
+  "scope_run_id": "8c11cd2c-b1fe-4df2-930e-55c5ff36a540",
+  "self_review_status": "passed",
+  "value": {
+    "evidence": [
+      "arxiv:2605.29030v1, question following Figure 2",
+      "RESULT.md, Proof 2–5, quantitative and single-lag theorems",
+      "check.py finite transfer-matrix examples"
+    ],
+    "rationale": "The upper inequality is a concrete open question in a recent probability paper. Resolving it uniformly for all positive rank-one kernels and all lag distributions produces an exact natural asymptotic spectral invariant, not a parameter substitution. The quantitative squared-mass correction measures the collision probability of two independent lag selections, giving a structural explanation for when the bound becomes tight. The concentrated single-lag family supplies a meaningful boundary showing that remote memory does not substitute for diffuse memory. The theorem does not pretend to solve the unrestricted matrix case.",
+    "status": "PASS"
+  }
+}
