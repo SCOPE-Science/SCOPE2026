@@ -1,19 +1,21 @@
-# Scientific review
+# Independent mathematical audit
 
-## Correctness — PASS
+## correctness
 
-The exact logarithmic derivative gives \(J_M=1-8(M-1)\operatorname{Re}(z/(1-z^4))/\pi\). A direct numerator computation confines the negative-Jacobian set to the right half disk. On the two critical separating rays, the sharp maximum is \(k_*=3^{3/4}/(4\sqrt2)\). Above this level the rays separate three angular sectors; the maximum principle plus the explicit unit-circle boundary values and connected pole tongues give exactly one superlevel component in each sector. Below the level, an explicitly proved connected circular arc and radial connectors join all three boundary tongues, and the maximum principle rules out extra components. The two critical points are nondegenerate saddles because \(H''\ne0\). The exact polynomial checker has been run successfully. Its finite tests are not treated as connectivity proofs.
+PASS
 
-## Originality — PASS, with priority risk
+Differentiating the analytic logarithm gives J_M=1-8(M-1)Re[z/(1-z^4)]/pi. The positive region is in the right half disk. H'(z)=(1+3z^4)/(1-z^4)^2 has exactly two right-half critical points z=3^(-1/4)exp(±i*pi/4), both at k*=3^(3/4)/(4sqrt(2)); H'' is nonzero. The rays arg(z)=±pi/4 have U<=k*, thus separate three pole-associated superlevel tongues at and above k*. The explicit unit-circle values 1/(4cos(theta)) and maximum principle preclude further bounded components. Below k*, the radius-3^(-1/4) arc, real radial segment and ±pi/3 radial collars connect all three tongues, and the boundary analysis excludes extra components. The strict inequality makes equality a three-component case. Independent exact factorization and radial derivative checks corroborate the key formulas; finite sampling cannot prove global connectivity.
 
-The September 30, 2026 source treats the real-axis loss of local univalence and an asymptotic Landau radius; it does not classify the global negative-Jacobian components. Indexed work establishes the centered univalence radius, optimal shear transverse derivative, and a distinct three-to-five valence transition for real target points. Those conclusions neither imply nor numerically match the new three-to-one topology threshold; this is a comparison of the objects and implications, not titles. Source sections were inspected directly in the four-page paper. Several highly relevant indexed entries were available as descriptions but their full hosted texts could not be fetched, retaining possible hidden-priority overlap. Search absence alone is not claimed to prove novelty.
+## originality
 
-## Value — PASS
+PASS
 
-The exact number of orientation-reversing regions is a natural global invariant of a newly constructed harmonic counterexample, independent of both the first singular radius and specific target preimage counts. The algebraic threshold locates two simultaneous saddle reconnections and separates two distinct fold geometries over the entire deformation parameter. It is a global structural classification of the natural negative-Jacobian set, rather than an arbitrary finite slice or small numerical improvement.
+Best-of-knowledge source/implication comparison: Same model does not make the first-zero theorem equivalent: a change in topology of the entire J<0 set is independent of finding the earliest zero. No inspected theorem dominates the global three-to-one component count: injectivity radius, fiber cardinality and derivative optimization are different observables. All specific risks are retained; inaccessible literature alone did not determine the outcome.
 
-## Limits and closest literature
+## value
 
-The theorem concerns the explicit shear and does not classify general bounded harmonic mappings, full caustics or arbitrary complex-target valence. Borovikov (arXiv:2609.39676v1) supplies the shear and real-axis Jacobian formula. Related published-finding corpus records on its exact univalence radius (`...16de77633d7a`), real-fiber valence (`...c0d4ae0d2148`), and transverse-derivative sharpness (`...f86aa34f1bf1`) are distinct; their hosted full files were not retrievable and are a stated residual priority risk.
+PASS
 
-Self-review: passed. Independent audit: not yet performed.
+Complete topological classification of the natural orientation-reversing set in an explicit bounded harmonic-map counterexample, including the exact simultaneous saddle reconnection, not merely first Jacobian zero or target valence.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
