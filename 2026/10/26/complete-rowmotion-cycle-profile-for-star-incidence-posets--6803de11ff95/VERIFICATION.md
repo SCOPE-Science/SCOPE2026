@@ -5,8 +5,11 @@
     "status": "not_performed"
   },
   "independent_audit": {
-    "evidence": null,
-    "status": "not_performed"
+    "status": "passed",
+    "evidence": [
+      "INDEPENDENT_AUDIT_2026-10-30.md",
+      "INDEPENDENT_AUDIT_2026-10-30.json"
+    ]
   },
   "lean_verification": {
     "evidence": null,
@@ -16,21 +19,24 @@
 }
 ---
 
-# Verification
+# Independent mathematical audit
 
-Run `python3 verify.py` with the Python 3 standard library. The script directly forms the incidence poset, enumerates all downsets as bitmasks, computes rowmotion from minimal complement elements, and traces each orbit. It checks every case from \(n=1\) through \(n=8\) against the predicted cycle counts and independently checks the total number of ideals. The larger-\(n\) theorem follows from the proof in `RESULT.md`, not from extrapolation of these computations.
+## correctness
 
-Observed cycle profiles at the eight tested values:
+PASS
 
-| \(n\) | ideals | count of length \(2\) | length \(3\) | length \(8\) |
-| ---: | ---: | ---: | ---: | ---: |
-| 1 | 5 | 1 | 1 | 0 |
-| 2 | 13 | 1 | 1 | 1 |
-| 3 | 35 | 1 | 3 | 3 |
-| 4 | 97 | 1 | 13 | 7 |
-| 5 | 275 | 1 | 51 | 15 |
-| 6 | 793 | 1 | 181 | 31 |
-| 7 | 2315 | 1 | 603 | 63 |
-| 8 | 6817 | 1 | 1933 | 127 |
+Every order ideal has unique form A(S) without center, or B(w), w in {0,1,2}^n with center. Direct minimum-complement calculation gives R(A(S))=B(0 on S,1 off S), and on B(w) ternary-coordinate advance except when no digit 1, when R(B(w))=A(zeros). Two constant patterns yield one 2-cycle and one 3-cycle; words containing all three digits yield the remaining 3-cycles by inclusion-exclusion; proper nonempty subsets pair with complements to give distinct 8-cycles. All types exhaust ideals. An independent direct bitmask/comparability rowmotion enumerator confirms the exact profile for n=2..7.
 
-All tests passed. Numerical verification is exhaustive only within the stated finite range and is not independent scientific audit.
+## originality
+
+PASS
+
+Best-of-knowledge original on the stated restricted theorem after comparison of exact implications; no exhaustive priority claim and specified inspection limits remain.
+
+## value
+
+PASS
+
+A complete orbit-multiplicity formula distinguishes much more than the previously known period 24 and ubiquitous level orbit. It fully classifies the dynamics of a natural infinite incidence-poset family.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

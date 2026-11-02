@@ -1,15 +1,21 @@
-# Scientific review: complete rowmotion cycle profile for star-incidence posets
+# Independent mathematical audit
 
-## Correctness — PASS
-The three transition rules are reconstructed from the minimal-complement definition. Every ideal has exactly one normal form; the two constant-word cycles, the all-three-symbol ternary rotations, and the eight-cycles indexed by complementary nontrivial leaf-subset pairs are disjoint and exhaustive. Counting gives \(2^n+3^n\) ideals and the exact claimed orbit multiplicities for all integers \(n\ge2\). The independent bitmask verifier examines every ideal for \(1\le n\le8\) directly from poset inequalities; this is a finite check, not the reason the unbounded result follows.
+## correctness
 
-## Originality — PASS (with limits)
-The closest primary paper is Grinberg–Roby, *Iterative properties of birational rowmotion I* (2016, first public arXiv 2014-02-25): its Propositions 94 and 101–105 give one level orbit and period relations on skeletal posets. Those do not assert or imply the precise number of all nonlevel \(3\)- and \(8\)-cycles proved here. The fuller arXiv preprint Section 10 was checked for additional coverage. Dangwal et al. (2022) covers uniquely rooted trees, unlike either orientation of \(P_n\) when \(n\ge2\). The ideal-count sequence \(2^n+3^n\) is already known as OEIS A007689 and is not claimed as novel. Semantic searches found no directly covering result; unindexed or undiscovered statements remain possible.
+PASS
 
-## Value — PASS
-A graph-incidence family of mixed-orientation trees has its *entire* rowmotion cycle distribution classified in simple closed form for arbitrary size. This identifies nonlevel orbit multiplicities unavailable from the existing general period method, giving a motivated dynamical benchmark beyond one isolated finite experiment.
+Every order ideal has unique form A(S) without center, or B(w), w in {0,1,2}^n with center. Direct minimum-complement calculation gives R(A(S))=B(0 on S,1 off S), and on B(w) ternary-coordinate advance except when no digit 1, when R(B(w))=A(zeros). Two constant patterns yield one 2-cycle and one 3-cycle; words containing all three digits yield the remaining 3-cycles by inclusion-exclusion; proper nonempty subsets pair with complements to give distinct 8-cycles. All types exhaust ideals. An independent direct bitmask/comparability rowmotion enumerator confirms the exact profile for n=2..7.
 
-## Limitations and closest literature
-The statement concerns classical rowmotion on this specific graph-incidence family, not all orientations of trees and not birational orbit classification. Computer verification covers \(n\le8\); the proof applies to every \(n\ge2\). Related sources are Grinberg–Roby (2016, arXiv:1402.6178), Striker–Williams (2012, arXiv:1108.1172), Dangwal et al. (2022, *Rowmotion on Rooted Trees*), and OEIS A007689. No independent expert review is claimed.
+## originality
 
-Self-review: passed. Independent audit: not yet performed.
+PASS
+
+Best-of-knowledge original on the stated restricted theorem after comparison of exact implications; no exhaustive priority claim and specified inspection limits remain.
+
+## value
+
+PASS
+
+A complete orbit-multiplicity formula distinguishes much more than the previously known period 24 and ubiquitous level orbit. It fully classifies the dynamics of a natural infinite incidence-poset family.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
