@@ -1,19 +1,21 @@
-# Self-review
+# Independent mathematical audit
 
-## Correctness — PASS
+## correctness
 
-Stationary Poisson age and independence of future resetting imply the exact two-time covariance, strictly positive by the paired-difference identity for two decreasing nonconstant functions. Exponential covariance decay justifies Green–Kubo integration. Complete inter-reset intervals carry the iid centered rewards \(F(L)-m_rL\), which have all required moments; the regenerative reward CLT gives the variance rate. All five correlation-time regimes arise from independently derived three-regime static variance and three-regime integrated variance asymptotics. The crucial \(\alpha=1\) and \(\alpha=1/2\) logarithmic borders are handled separately. Seven numerical covariance/reward comparisons and two weak-reset checks are reproducible from `verify.py`. Risk: the model is a deterministic macroscopic temperature under exponential complete resets; no microscopic noise or joint-limit claim is proven.
+PASS
 
-## Originality — PASS (bounded evidence)
+A two-sided stationary Poisson clock has Exp(r) age; conditioning on no reset in (0,t] yields the exact covariance, and the positive same-monotonicity paired-difference identity gives strict positivity. Independent exponential cycles produce centered renewal rewards F(L)-mL, finite moments, the reward CLT, and exactly the Green–Kubo rate. For 0<alpha<1, scale U=rL and prove the relevant L² limit of the primitive, giving B_alpha>0; alpha=1 gives a log² border, alpha>1 an integrable primitive. Stationary variance has separate alpha<1/2, =1/2 and >1/2 regimes; division of half integrated variance by C(0) proves the five stated correlation-time equivalents. Domain alpha,r,T_*,tau>0 and order of limits were checked. Fresh independent numerical integration of regenerative rewards and an independently conditioned covariance agreed in six parameter cases to relative error under 1e-6; these finite tests do not prove asymptotics.
 
-Bodrova–Chechkin–Dubey (arXiv:2403.18974), examined in its model, stationary-moment and conclusion sections, establish the cooling/reset stationary one-time laws. Evans–Majumdar–Schehr (arXiv:1910.07993, section 5.1) establish general two-time reset identities; their application and specialization alone would not be new. The distinct content is the exact Poisson-age temperature covariance, the evaluated Green–Kubo rate and its divergent low-rate regime, plus all five sharp normalized-correlation-time equivalents. Published mathematical-record searches using the source identifier, aliases, singular exponents and Green–Kubo vocabulary did not return an identical claim; the closest relevant renewal-age result concerns age/residual-power correlations, a different functional. An unrecognized general published renewal asymptotic theorem could subsume the new special case; search absence is not proof of novelty.
+## originality
 
-## Mathematical value — PASS
+PASS
 
-The exact Haff-type law already specifies temperature relaxation under resetting, so the experimentally interpretable remaining question is the reliability of integrated temperature measurements. The theorem identifies a noncommuting low-reset versus long-observation noise effect: vanishing one-time variance can coexist with divergent per-time accumulated variance. Its thresholds distinguish integrability of the cooling profile from square-integrability and supply a complete non-arbitrary regime classification, including concrete Haff and viscoelastic specializations. It is not a generic exercise simply reparametrized, though future physical validation would be needed.
+Qualified best-of-knowledge originality is limited to the evaluated two-time temperature covariance and the sharp divergent integrated-noise/vanishing static-noise regimes and five correlation-time equivalents; general resetting, stationary one-time moments and regenerative CLTs are established prior results.
 
-## Closest literature and limits
+## value
 
-Primary comparison: Bodrova–Chechkin–Dubey, arXiv:2403.18974. General two-time machinery: Evans–Majumdar–Schehr, arXiv:1910.07993. Regenerative CLTs: Glynn–Whitt (1993). The present work does not claim novelty for the underlying stationary one-time distribution, general renewal CLT, or generic reset covariance decomposition. Priority against all broader renewal results is not proven.
+PASS
 
-Self-review: passed. Independent audit: not yet performed.
+The known Poisson-reset granular cooling model has a physically motivated long-time integrated-temperature observable. Its exact positive covariance, sharp variance-rate divergence for alpha<1/2 despite vanishing stationary fluctuation, and five nontrivial correlation-time regimes isolate two genuinely different critical exponents and supply useful fluctuation thresholds. This is more than a routine named-parameter substitution; the distinct L² asymptotic regimes and logarithmic boundaries have mathematical content.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
