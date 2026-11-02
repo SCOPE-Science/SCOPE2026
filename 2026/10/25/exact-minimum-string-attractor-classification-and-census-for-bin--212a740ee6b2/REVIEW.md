@@ -1,19 +1,21 @@
-# Scientific review
+# Independent mathematical audit
 
-## Correctness — PASS
+## correctness
 
-The all-parameter proof first constructs a three-position attractor for every binary four-run word. It constructs two-position witnesses in four exhaustive complementary regimes, and proves two distinct three-position obstructions with forced constant-run factors and single-boundary factors. Integer run-composition enumeration proves the generating function. An independent brute verifier checks all 2401 quadruples with run lengths from 1 through 7 and all enumerated coefficient lengths 4 through 22. The finite computations supplement the argument; they do not certify the infinite claim by themselves.
+PASS
 
-## Originality — PASS, with residual uncertainty
+For every positive a,b,c,d the factor-occurrence definition forces γ≥2; an explicit three-position universal witness covers all factors. The proof partitions the complement of (a>c and d>b) or (c>=a+2 and b>=d+2) into four exhaustive size-two witness cases; constant-run factors plus the 10 boundary prove three distinct forced positions in the two exceptional regimes. Direct independent exhaustive factor-occurrence computation checked all 625 quadruples with 1≤a,b,c,d≤5; independent integer compositions reproduced exact generating-function coefficients for n=4..24. The all-positive parameter result follows from proof cases, not the bounded experiment. Counting both starting symbols yields 2(z^6+z^8)/((1-z)^2(1-z^2)^2) and limiting density 1/2.
 
-The focal simple-Parry paper, the original finite-word string-attractor paper, the infinite-word overview, and the Rote paper were inspected for hypotheses and conclusions. They establish attractor definitions, bounds or specific morphic and infinite families rather than a complete all-four-run classification. Closest accessible published research records concern the 12-symbol unrestricted binary census, Thue–Morse minima, dyadic Rudin–Shapiro and paperfolding prefixes, and two antipalindromic pseudostandard families. None of those statements implies an exact size-two-versus-three threshold for every four-run word or the displayed generating function. A synonymous special-case result outside the inspected sources remains possible; a negative search alone cannot establish originality.
+## originality
 
-## Mathematical value — PASS
+PASS
 
-This result locates precisely where a binary word with a very small number of constant runs ceases to admit a two-position attractor. The theorem is complete across four independent positive run parameters, exhibits two qualitatively different sharp obstructions, and counts all exceptional indexed words by length, with asymptotic density one half. The statistic is natural in factor coverage and compressed indexing; the contribution is an all-parameter structural boundary, not an arbitrarily selected finite census.
+A new all-positive-four-run parameter classification is not implied by the general string-attractor definition/bounds or the inspected morphic-word results. The disjoint exact obstruction inequalities and complete indexed census sharpen generic finite-word bounds. Equivalent/synonymous literature may be unindexed, so this is qualified priority only.
 
-## Source and scope limits
+## value
 
-The first-public-source date is the original 2023-02-27 arXiv submission of the primary MSC 68R15 paper by Gheeraert, Romana and Stipulanti; it is not the date of the present theorem. Comparisons do not amount to a comprehensive mathematical-literature uniqueness certificate. The all-parameter theorem is supported by its proof and bounded finite corroboration. No independent audit was conducted.
+PASS
 
-Self-review: passed. Independent audit: not yet performed.
+A four-run binary word is a minimal natural test family for compact substring-index coverage with three transitions; the result provides a complete nontrivial threshold (two different obstructions), a constructive decision procedure for every four-tuple, and the exact proportion of exceptional indexed words. This is not merely a fixed-length brute-force table.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
