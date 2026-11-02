@@ -1,0 +1,115 @@
+{
+  "audit_date_utc": "2026-10-29",
+  "audited_at_utc": "2026-10-29T21:52:21Z",
+  "axes": {
+    "correctness": {
+      "rationale": "For each horizon T and vertex v let a_v count its excited events. Two consecutive excitations at a vertex are separated by ≥3 time steps. Along any edge every adjacent-time transmission uses distinct endpoint excitation events; otherwise same vertex would be excited at times distance two. Hence transmissions per edge ≤min(a_u,a_v), whereas each noninitial excitation requires q incoming transmissions. The layer-cake sum Σ_edges min(a_u,a_v)=Σ_{j≥1}|E[S_j]|≤ρ(G) Σ_v a_v gives (q−ρ)N_T≤qm. If ρ<q finite excitation budget forces extinction and initial refractory states clear by N+1. For K_{2q,2q}, ρ=q and explicit four-class state cycle is primitive period 4. Independent exhaustive graph/state enumeration checked all 216+5184+248589 initial states on all simple labeled graphs of size 3,4,5 with ρ<2, for q=2, including event budget and clock bound, independently of packaged verify_density.py. This finite check is corroboration, not the all-graph proof.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Bello--Sivakoff treats κ≥3, θ≥2 on infinite regular trees with iid random starts, almost-sure fixation and probability tails. Doba treats deterministic finite graphs but requires one excited neighbor."
+        ],
+        "reasoning": "Neither covers deterministic every-initial-state finite arbitrary-graph extinction with edge-density parameter and universal event budget; graph and quantifiers genuinely differ.",
+        "searches": [
+          "Resultary semantic search: Greenberg Hastings threshold q excitation finite graph maximum induced edge density extinction transmission count",
+          "Bello--Sivakoff Theorems 1.1–1.4",
+          "Doba 2018 Sections 2–7"
+        ]
+      },
+      "checked_sources": [
+        "Actual full assigned RESULT.md and verify_density.py blobs; event-matching and layer-cake argument independently reconstructed.",
+        "Independent exhaustive 253,989 labeled simple graph/initial configuration pairs for n=3–5 at q=2, all satisfying count/time bounds.",
+        "Doba (2018) primary 26-page PDF, Bello--Sivakoff arXiv:2108.06404 primary 22-page PDF.",
+        "Resultary top-8 semantic results, none matching theorem or implied density inequality."
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "Doba's one-neighbor rule and Bello--Sivakoff's almost-sure infinite-tree tail bounds do not imply the all-start finite-graph q≥2 statement. The stronger known trivial Δ<q extinction applies to some cases, but ρ<q includes high-degree wheels."
+        ],
+        "reasoning": "This gives strictly new general coverage compared to inspected prior statements by exploiting event matching/layer-cake, with explicit sharpness.",
+        "searches": [
+          "Resultary semantic search: Greenberg Hastings threshold q excitation finite graph maximum induced edge density extinction transmission count",
+          "Doba Eq update rule 2018",
+          "Bello--Sivakoff Theorem 1.1 and 1.4"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Exact combinatorial obstruction is Σ_edges min(a_u,a_v)≤ρ(G)N; compared with prior concepts of cycle-density/phase difference and probabilistic extinction."
+        ],
+        "reasoning": "A previously stated 'density' in Doba refers to maximum cycle density of excitation waves, a different quantity and θ=1; no dual or renaming of that theorem yields the threshold q≥2 finite excitation budget.",
+        "searches": [
+          "Resultary semantic search: Greenberg Hastings threshold q excitation finite graph maximum induced edge density extinction transmission count",
+          "Doba 2018 finite graph GHCA",
+          "Bello--Sivakoff 2021 arXiv:2108.06404"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "This is an infinite graph-family inequality and sharp boundary construction, not a finite data/table lookup; packaged 11,259-case log and new 253,989-case check are supporting experiments only."
+        ],
+        "reasoning": "No exact existing density-bounded excitation table could establish the unrestricted inequality; the mathematical proof is necessary.",
+        "searches": [
+          "Resultary semantic search: Greenberg Hastings threshold q excitation finite graph maximum induced edge density extinction transmission count",
+          "Resultary semantic search 8 hits",
+          "Doba finite-graph period classifications"
+        ]
+      },
+      "rationale": "For Densest-subgraph excitation extinction threshold and finite event budget: exact final statement and implication were compared against relevant published original mathematical statements and Resultary findings. This gives strictly new general coverage compared to inspected prior statements by exploiting event matching/layer-cake, with explicit sharpness. Best-of-knowledge qualified by explicitly named risks.",
+      "residual_risks": [
+        "An unindexed combinatorial event-count inequality for refractory dynamics or an equivalent arboricity/graph-density threshold could affect priority.",
+        "No necessity claim for arbitrary graphs with ρ≥q; sharpness only universally via K_{2q,2q}.",
+        "Finite enumerations are not proof for all graph sizes, though algebraic event-matching is unrestricted."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Transition requires ≥1 excited neighbor, not arbitrary q≥2; 'maximum cycle density' distinct from max induced edge/vertex density.",
+          "evidence": [
+            "p102 explicit neighbor trigger when at least one neighbor excited; graph update formalism."
+          ],
+          "identifier_or_url": "https://wpmedia.wolfram.com/sites/13/2018/09/27-2-1.pdf",
+          "material_read": "Full 26-page accessible primary PDF, particularly pp 101–103 rule and subsequent phase/cycle-density sections, verified with page image.",
+          "method": "Direct primary PDF reading plus screenshot.",
+          "title": "Doba, The Time Evolution of a Greenberg-Hastings Cellular Automaton on a Finite Graph",
+          "trigger": "Same finite-graph three-state dynamics and possible density terminology"
+        },
+        {
+          "assessment": "Infinite regular trees with iid starts, almost-sure fixation/fluctuation thresholds, not finite arbitrary-graph event budget.",
+          "evidence": [
+            "Theorem 1.1 and 1.4 concern almost-sure fixation on T_d, not all initial states; model θ≥2 defined p2."
+          ],
+          "identifier_or_url": "https://arxiv.org/pdf/2108.06404",
+          "material_read": "Full 22-page original arXiv PDF; definitions and Theorems 1.1–1.4 pp1–3 with screenshot.",
+          "method": "Primary arXiv PDF and screenshots, mathematical statement and quantifier comparison.",
+          "title": "Bello and Sivakoff, Cyclic Cellular Automata and Greenberg-Hastings Models on Regular Trees",
+          "trigger": "Same multi-neighbor excitation contact threshold"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "rationale": "A structural universal extinction criterion in terms of induced density rather than maximum degree, with a quantitative total excitation-event budget and exact equality counterexample, is useful for finite-threshold excitable graph dynamics. It handles nonuniform high-degree graphs and supplies an energy/event-count invariant, not merely a routine maximum-degree estimate.",
+      "status": "PASS"
+    }
+  },
+  "checked_sources": [
+    "Actual full assigned RESULT.md and verify_density.py blobs; event-matching and layer-cake argument independently reconstructed.",
+    "Independent exhaustive 253,989 labeled simple graph/initial configuration pairs for n=3–5 at q=2, all satisfying count/time bounds.",
+    "Doba (2018) primary 26-page PDF, Bello--Sivakoff arXiv:2108.06404 primary 22-page PDF.",
+    "Resultary top-8 semantic results, none matching theorem or implied density inequality."
+  ],
+  "disposition": "passed",
+  "limitations": [
+    "An unindexed combinatorial event-count inequality for refractory dynamics or an equivalent arboricity/graph-density threshold could affect priority.",
+    "No necessity claim for arbitrary graphs with ρ≥q; sharpness only universally via K_{2q,2q}.",
+    "Finite enumerations are not proof for all graph sizes, though algebraic event-matching is unrestricted."
+  ],
+  "residual_risks": [
+    "An unindexed combinatorial event-count inequality for refractory dynamics or an equivalent arboricity/graph-density threshold could affect priority.",
+    "No necessity claim for arbitrary graphs with ρ≥q; sharpness only universally via K_{2q,2q}.",
+    "Finite enumerations are not proof for all graph sizes, though algebraic event-matching is unrestricted."
+  ],
+  "schema_version": 1
+}
