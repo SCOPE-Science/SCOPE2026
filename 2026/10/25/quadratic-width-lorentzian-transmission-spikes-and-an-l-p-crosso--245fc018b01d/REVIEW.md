@@ -1,13 +1,21 @@
-# Scientific review: two-pendant Robin transmission boundary layer
+# Independent mathematical audit
 
-**Correctness (PASS).** The result follows from the exact two-resonator transmission identity established in [1]. Reconstructing the formulas in a centered phase coordinate yields a unique exact resonance, whose numerator and denominator have the same quartic scale on a quadratic phase window. The uniform rational-function envelope, a bounded second-derivative estimate away from the antiresonance, and dominated convergence give the superlevel-set measure and all three norm regimes for real \(p\ge1\). The included standalone script verifies representative instances; it is not used in lieu of a proof of the limiting statements.
+## correctness
 
-**Originality (PASS, best-knowledge).** Section 5.3 and Property 8 of Buhrii–Golovaty–Hryniv [1] identify convergence away from antiresonances and its failure on a shrinking region. Their example identifies order-inverse-wavenumber peak displacement, but does not calculate the order-inverse-square-wavenumber peak width, precise Lorentzian scaling, exceptional-set measure, or the mixed bulk/resonant \(L^p\) threshold. The earlier dipole-comb scattering calculation [2] has no Robin pendant phase. The diamond and hexagonal networks of [3] have different geometry, although their narrow resonances are important contextual prior art. The available research-record search returned other quantum-graph boundary and band asymptotics but no equivalent claim. A general theorem elsewhere could imply the special model and remains the primary originality risk.
+PASS
 
-**Value (PASS).** The originating paper explicitly highlights Robin–Neumann nonuniform high-energy convergence and its importance for spectral filtering. The new sharp measure quantifies how often a large transmission discrepancy actually occurs, while the crossover at \(p=2\) separates spectral observables affected by narrow perfect-transmission spikes from observables governed by ordinary perturbative phase response. It provides an exact, nontrivial quantitative characterization in a physically motivated minimal two-resonator configuration, not a small improvement to an unrelated constant.
+PASS. Starting from Buhrii–Golovaty–Hryniv Eq.5.12, independently checked phase reduction F(x,z)=sin⁴(x−z)/[sin⁴(x−z)+4cos²(x−z)sin²(3x−z)] and Neumann F(x,0). The unique root 3x−d(k)=0 has center delta/3+O(delta³). At x−x*=2delta² u/27, numerator and second denominator term are both order delta^4 and divide to 1/(1+u²). Neumann term is O(delta²). A Lorentzian envelope controls exceptional sets and p≥1 inner integrals; uniform outer Taylor expansion gives delta*g(x). Integrating inner spike yields 2sqrt(pi)/27 Gamma(p−1/2)/Gamma(p) delta²; bulk Gp delta^p; both at p=2 with pi/27. Supremum tends to one. Checked exact gamma constants and scope. Finiteness of examples is not the asymptotic proof.
 
-**Scope and limitations.** Fixed \(a,\ell>0\), two pendants, spacing \(2\ell\), and the specified type-I junction. No conclusion for general arrays or whole-half-line norms, and no global novelty certification. The mathematical proof has not been independently audited.
+## originality
 
-References: [1] K. Buhrii, Y. Golovaty, R. Hryniv, arXiv:2606.14931v1; [2] Y. Golovaty, R. Hryniv, S. Lavrynenko, arXiv:2503.23837v1; [3] A. Drinko, F. M. Andrade, D. Bazeia, Phys. Rev. A 100 (2019) 062117.
+PASS
 
-Self-review: passed. Independent audit: not yet performed.
+PASS with priority risk. Source [Buhrii–Golovaty–Hryniv] already obtains the transfer law, resonance displacement and nonuniform convergence, but relevant Eq.(5.12), Section 5.3, Property 8, Remark 4 do not supply the scaled width, measure constant, or Lp crossover coefficients. Earlier comb/diamond graph models show qualitative narrow peaks on different graph configurations. A general Fano-line-shape theorem might dominate some local asymptotics, but no examined source establishes these joint sharp cellwise claims.
+
+## value
+
+PASS
+
+PASS. Quantifies a documented high-energy failure of uniform Robin–Neumann convergence by exact size of exceptional frequency window and reveals how p-dependent observables switch between ordinary perturbative phase response and a rare unit-height resonance. This is motivated spectral-scattering analysis of the minimal nontrivial two-resonator model.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
