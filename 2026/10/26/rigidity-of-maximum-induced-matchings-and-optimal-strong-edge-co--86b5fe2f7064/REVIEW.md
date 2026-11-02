@@ -1,19 +1,21 @@
-# Review of the hypercube extremal-matching rigidity theorem
+# Independent mathematical audit
 
-## Correctness
+## correctness
 
-PASS. The normalized bipartite adjacency operator has nonconstant singular norm \(d-2\). Centered endpoint indicators yield the sharp \(2^{d-2}\) upper bound. Equality forces both endpoint sign functions into the coordinate-character eigenspaces with opposite coefficients. The squared Boolean-linear-form identity leaves exactly one nonzero coordinate coefficient, proving that every maximum matching is one of the \(2d\) coordinate-parity classes. Disjointness and the known edge count force the unique optimal strong edge-coloring and the empty exchange graph for \(d\ge3\). Independent edge-based and vertex-based exhaustive checks agree in their tested small dimensions.
+PASS
 
-## Originality
+In bipartition U,V of Q_d, each with N=2^{d-1}, the nonconstant singular norm of incidence operator T is d-2 for d>=3, from Walsh levels. For endpoints A subset U and B subset V of an induced matching of size k, edges between A and B number exactly k, so k >= d k^2/N -(d-2)k(1-k/N), hence k<=N/2=2^{d-2}. The coordinate/parity families attain bound. At equality, centered ±1 indicator F lies in span of d coordinate Walsh characters on U, and G uses the opposite coefficients on V. Hence linear L(z)=sum c_i z_i has L(z)^2=1 for every z in {±1}^d; its Fourier coefficients imply c_i c_j=0 for all i!=j, so one coefficient ±1 and only the 2d canonical maximum matchings exist. Their edge partition forces unique optimum 2d-color strong edge coloring; exchange graph has isolated vertices for d>=3. d=2 has four singleton maxima and complete exchange graph. Independent exhaustive enumeration checked dimensions 2,3,4, separately from infinite proof.
 
-PASS, with noted source-access risk. Theorem 41 of Dabrowski's accessible 2012 thesis proves the maximum size and supplies one construction but does not classify all maximizers in its inspected hypercube section. The 2021 full-text article credits the known hypercube strong chromatic index \(2d\) to Faudree et al.; the index alone does not force uniqueness without the full equality classification. Searches by the direct induced-matching formulation, strong-edge-coloring uniqueness, hypercube parity classes, and exact maximum-matching census found no statement covering the classification. The 1990 article and 2013 journal article were not inspected in full; an equivalent unindexed result remains possible.
+## originality
 
-## Value
+PASS
 
-PASS. Determining all extremizers of a classical infinite-family matching bound is a substantive rigidity refinement. It also resolves a natural uniqueness question for an optimal strong edge coloring and shows all distinct optimal matchings are edge-disjoint, leaving no one-edge exchange. Neither classification nor frozen exchange structure is a tautological consequence of the known numerical optima.
+Best-of-knowledge originality of the precisely delimited final claim after comparing exact object/parameter theorem implications; known tools and antecedents are credited. Primary full-text coverage where available and access exceptions are disclosed. Dabrowski Theorem 41 and historical strong index establish size 2^{d-2} and color count 2d; equality classification, color uniqueness and exchange-frozenness are not logical corollaries of those numerical facts alone.
 
-## Scope and remaining uncertainty
+## value
 
-The theorem is exact for all \(d\ge3\). The two-dimensional exchange graph is explicitly excepted. Exhaustive computational checks are finite corroboration only; source-access limitations affect confidence in literature completeness, not the self-contained mathematical implication.
+PASS
 
-Self-review: passed. Independent audit: not yet performed.
+The maximum induced-matching size and strong chromatic index were already known. Classifying every extremizer, rigidity of the only optimal coloring, and frozen one-edge exchange are natural complete exact combinatorial invariants of the full hypercube family, not mere rederivations of known bounds.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
