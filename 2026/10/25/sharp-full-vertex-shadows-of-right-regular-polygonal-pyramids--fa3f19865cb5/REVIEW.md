@@ -1,15 +1,21 @@
-# Scientific review
+# Independent mathematical audit
 
-## Correctness — PASS
-The full-vertex shadow event is equivalent to exactly one violated supporting line of the base polygon. For a regular base with at least five sides, those one-edge visibility cells are disjoint finite triangles with explicit vertices. The change from Haar directions to planar apex coordinates has an exact Cauchy Jacobian, and the standard spherical-triangle angle formula evaluates their mass. Differentiation reduces the optimum to a strictly increasing explicit function, which has one positive zero; exact substitution supplies the hexagonal benchmark and Taylor limits give the sharp asymptotic probability. The standalone checker reconstructs random projection convex hulls, rather than only re-evaluating the formula. Boundaries and exceptional directions are explicitly measure zero.
+## correctness
 
-## Originality — PASS on inspected evidence; historical priority provisional
-The closest public full-text comparison is the exact five-vertex law for centered **rectangular** pyramids. It concerns quadrilateral bases and unbounded one-edge visibility strips; it does not state or imply the \(n\ge5\) finite triangular-cell formula, its all-\(n\) uniqueness, or the inverse-square many-sided optimum. Glisse–Lazard (2007), Glisse et al. (2016), and Böröczky–Henk (1997) establish, respectively, silhouette-complexity bounds, asymptotics for Poisson random polytopes, and expected face-count asymptotics of regular polytopes. These are different geometric objects or weaker aggregate statistics. The 1983 triangle solid-angle formula is explicitly treated as a pre-existing calculation, not claimed as novel. Searches did not identify a dominating exact theorem. Specialized earlier work may be unindexed; independent historical verification remains worthwhile.
+PASS
 
-## Mathematical value — PASS
-The probability that an orthographic shadow preserves every vertex is a natural complete-visibility statistic, distinct from the average shadow size. The finite triangular visibility cells for \(n\ge5\) provide a genuine geometric regime change from rectangular bases. The theorem gives a complete sharp height optimization across all polygon side counts in that regime, a closed exact hexagonal benchmark, and the \(n^{-2}\) law with its optimal constant. These are more than isolated numerical outputs or applications of a single solid-angle identity.
+For n>=5, q=cos(2pi/n)>0, all n+1 vertices survive exactly if the projected apex planar point Q=-h(u_x,u_y)/u_z violates precisely one side-support inequality of the regular base. Each such cell is triangle with vertices (c,+/-s),(d,0), d=c/q; all other support inequalities hold by convexity. Haar normal projects to isotropic planar Cauchy density h/(2pi(h²+|Q|²)^(3/2)). The triangle solid angle gives p_n(h)=n/pi arctan[2s(d-c)h/D_n(h²)] with D_n(x)=(1+q+2x)sqrt(x+d²)+2(cd+x)sqrt(x+1). For G(x)=(a+2x)sqrt(x+t), 2xG_prime-G has strictly positive derivative, so the sum H_n=2xD_prime-D crosses zero exactly once; this is an analytic all-n proof, not a numerical root search. h_6=sqrt(3/5), p_6=6/pi arctan(sqrt2/22); Taylor analysis yields h_n->1/sqrt2 and n² p_n(h_n)->2pi²/(3sqrt3). Independently integrated triangular Cauchy density and rederived solid-angle equality for n=5,6,8; checks are corroborative only.
 
-## Limitations
-Only right centered pyramids with regular bases and Haar-uniform orthographic projection are covered. Lesser silhouette sizes are not classified. Independent audit has not been performed and historical novelty is not definitive.
+## originality
 
-Self-review: passed. Independent audit: not yet performed.
+PASS
+
+The assessed result treats all centered unit-circumradius right REGULAR n-gonal pyramids n>=5, including an exact one-triangle spherical-probability law, strict global uniqueness of the optimal height, a closed hexagon benchmark, and sharp inverse-square many-sided asymptotics. The closest published Resultary rectangular-pyramid theorem was read in full: its n=4 one-visible-side cells are unbounded strips and its formulas do not imply this bounded-triangle n>=5 statement or n->infinity asymptotic. Known silhouette-average results and the standard solid-angle identity are antecedents, not claimed discoveries. Best-of-knowledge originality PASS, not exhaustive priority.
+
+## value
+
+PASS
+
+The all-vertex shadow event is a natural exact distributional statistic, and the theorem solves the nontrivial geometric visibility and shape-optimization problem for the complete regular polygonal pyramid family n>=5. The n^-2 decay and optimal height limit are meaningful asymptotic invariants, not a renamed solid-angle computation.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

@@ -1,0 +1,121 @@
+{
+  "audit_date_utc": "2026-10-28",
+  "audited_at_utc": "2026-10-28T12:48:13Z",
+  "axes": {
+    "correctness": {
+      "checked_sources": [
+        "https://github.com/SCOPE-Science/SCOPE2026/blob/1f8e0be379eb81eef2fb9793610c55b58e95c7d6/2026/10/25/sharp-full-vertex-shadows-of-right-regular-polygonal-pyramids--fa3f19865cb5/RESULT.md",
+        "https://github.com/SCOPE-Science/SCOPE2026/blob/1f8e0be379eb81eef2fb9793610c55b58e95c7d6/2026/10/25/sharp-full-vertex-shadows-of-right-regular-polygonal-pyramids--fa3f19865cb5/CHECK.py",
+        "Independent quadrature script: /mnt/data/scope_worker-06_20261028T123636Z/audit_checks.py, PYRAMID_SOLID_ANGLE_QUADRATURE"
+      ],
+      "rationale": "For n>=5, q=cos(2pi/n)>0, all n+1 vertices survive exactly if the projected apex planar point Q=-h(u_x,u_y)/u_z violates precisely one side-support inequality of the regular base. Each such cell is triangle with vertices (c,+/-s),(d,0), d=c/q; all other support inequalities hold by convexity. Haar normal projects to isotropic planar Cauchy density h/(2pi(h²+|Q|²)^(3/2)). The triangle solid angle gives p_n(h)=n/pi arctan[2s(d-c)h/D_n(h²)] with D_n(x)=(1+q+2x)sqrt(x+d²)+2(cd+x)sqrt(x+1). For G(x)=(a+2x)sqrt(x+t), 2xG_prime-G has strictly positive derivative, so the sum H_n=2xD_prime-D crosses zero exactly once; this is an analytic all-n proof, not a numerical root search. h_6=sqrt(3/5), p_6=6/pi arctan(sqrt2/22); Taylor analysis yields h_n->1/sqrt2 and n² p_n(h_n)->2pi²/(3sqrt3). Independently integrated triangular Cauchy density and rederived solid-angle equality for n=5,6,8; checks are corroborative only.",
+      "residual_risks": [
+        "Collinear projection directions have measure zero; case n<=4 deliberately excluded. Asymptotic correctness relies on analytic Taylor estimate and compact root bracketing, not finite n."
+      ],
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "General expected silhouette bounds and regular-simplex/cross-polytope projections do not give the exact all-vertices extremal probability for a variable-height regular polygon pyramid."
+        ],
+        "reasoning": "Expected silhouette size and universal geometric estimates cannot determine the probability of retaining all n+1 projected vertices and the uniquely optimizing height.",
+        "searches": [
+          "arxiv:cs/0702087 silhouette upper bounds",
+          "Böröczky–Henk Random Projections of Regular Polytopes (1997)",
+          "Resultary rectangular-pyramid full RESULT.md"
+        ]
+      },
+      "checked_sources": [
+        "https://github.com/Resultary/2026/tree/main/2026/10/11/SCOPE-exact-five-vertex-shadow-law-and-unique-height-optimum-for-right--2273575e8a0a",
+        "https://arxiv.org/abs/cs/0702087",
+        "https://doi.org/10.1109/TBME.1983.325207",
+        "Resultary semantic shadow query"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "Prior full RESULT.md computes p(a,b,h) for rectangle n=4. Solid angle identity computes triangular solid angles given vertices but does not identify the exactly-one-visible-edge cells or prove unique optimal h_n for all n>=5."
+        ],
+        "reasoning": "At n>=5 the one-edge cells are bounded triangles with d=c/q; the rectangular theorem only handles n=4. The new uniqueness monotonicity and many-sided asymptotic are separate deductions.",
+        "searches": [
+          "https://github.com/Resultary/2026/tree/main/2026/10/11/SCOPE-exact-five-vertex-shadow-law-and-unique-height-optimum-for-right--2273575e8a0a",
+          "https://arxiv.org/abs/cs/0702087",
+          "https://doi.org/10.1109/TBME.1983.325207"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "The full rectangular-pyramid RESULT.md treats fixed rectangular bases with exactly five vertices and a different unbounded-strip event. The new bounded triangles have all n>=5, unique height and n^-2 law."
+        ],
+        "reasoning": "One may encode random-plane normals as a planar Cauchy apex point or spherical solid angles. These transformations give the proof, not an already published n>=5 classification. The n=4 rectangular result cannot be relabelled to n>=5.",
+        "searches": [
+          "Resultary semantic: probability all vertices visible orthogonal projection right regular polygonal pyramid full vertex shadow height aspect ratio",
+          "https://github.com/Resultary/2026/tree/main/2026/10/11/SCOPE-exact-five-vertex-shadow-law-and-unique-height-optimum-for-right--2273575e8a0a"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "Closest indexed exact table concerns a rectangular 5-vertex pyramid; no polygon-pyramid n>=5 all-height table surfaced."
+        ],
+        "reasoning": "A table of four- or five-vertex silhouette probabilities would not determine the symbolic all-n formula or the asymptotic constant; failed search is not proof of novelty.",
+        "searches": [
+          "Resultary pyramid-shadow semantic query above",
+          "web: orthographic projection regular pyramid all vertices visible probability silhouette projected vertices formula"
+        ]
+      },
+      "rationale": "The assessed result treats all centered unit-circumradius right REGULAR n-gonal pyramids n>=5, including an exact one-triangle spherical-probability law, strict global uniqueness of the optimal height, a closed hexagon benchmark, and sharp inverse-square many-sided asymptotics. The closest published Resultary rectangular-pyramid theorem was read in full: its n=4 one-visible-side cells are unbounded strips and its formulas do not imply this bounded-triangle n>=5 statement or n->infinity asymptotic. Known silhouette-average results and the standard solid-angle identity are antecedents, not claimed discoveries. Best-of-knowledge originality PASS, not exhaustive priority.",
+      "residual_risks": [
+        "Specialized random projection / silhouette papers or tables for polygonal pyramids may be unindexed; no universal priority assertion.",
+        "The 2007 silhouette upper-bound primary full proof was not fully inspected; the inspected statements do not contain the exact theorem."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "RELATED_DISTINCT_FAMILY; NOT_COVERING_N>=5",
+          "evidence": "Rectangular n=4 case has two unbounded strips versus n>=5 bounded triangular cells.",
+          "identifier_or_url": "https://github.com/Resultary/2026/tree/main/2026/10/11/SCOPE-exact-five-vertex-shadow-law-and-unique-height-optimum-for-right--2273575e8a0a",
+          "material_read": "Complete published RESULT.md including exact p(a,b,h), event strips, unique h and anisotropy proof",
+          "method": "GitHub original full primary text read through authenticated repository fetch",
+          "title": "Exact five-vertex shadow law and unique height optimum for right rectangular pyramids",
+          "trigger": "Closest exact visibility-probability theorem for related pyramids"
+        },
+        {
+          "assessment": "GENERAL_BOUND; UNRESOLVED_FULL_TEXT_PRIORITY",
+          "evidence": "Average silhouette complexity upper bound is not the exact probability retaining all n+1 vertices; full paper not claimed read.",
+          "identifier_or_url": "https://arxiv.org/abs/cs/0702087",
+          "material_read": "Public abstract/result summary and citation information; full theorem proof not inspected",
+          "method": "Public web search and abstract",
+          "title": "An Upper Bound on the Average Size of Silhouettes",
+          "trigger": "General upper bounds for random silhouette complexity"
+        },
+        {
+          "assessment": "STANDARD_TOOL_NOT_NOVEL",
+          "evidence": "Triangle solid angle formula alone does not prove the classification of visible polygon-edge cells or optimizer.",
+          "identifier_or_url": "https://doi.org/10.1109/TBME.1983.325207",
+          "material_read": "Bibliographic theorem/standard solid-angle identity as used and reconstructed; complete historical text not read",
+          "method": "Primary bibliographic citation plus independent geometric calculation",
+          "title": "The Solid Angle of a Plane Triangle",
+          "trigger": "Standard identity used to evaluate the cell integral"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "checked_sources": [
+        "https://github.com/SCOPE-Science/SCOPE2026/blob/1f8e0be379eb81eef2fb9793610c55b58e95c7d6/2026/10/25/sharp-full-vertex-shadows-of-right-regular-polygonal-pyramids--fa3f19865cb5/RESULT.md",
+        "https://github.com/Resultary/2026/tree/main/2026/10/11/SCOPE-exact-five-vertex-shadow-law-and-unique-height-optimum-for-right--2273575e8a0a"
+      ],
+      "rationale": "The all-vertex shadow event is a natural exact distributional statistic, and the theorem solves the nontrivial geometric visibility and shape-optimization problem for the complete regular polygonal pyramid family n>=5. The n^-2 decay and optimal height limit are meaningful asymptotic invariants, not a renamed solid-angle computation.",
+      "residual_risks": [
+        "Does not give full distribution of polygon shadow sizes or arbitrary apex offsets; value is specific but geometrically motivated."
+      ],
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "final_claim": "For n>=5 and h>0, exact p_n(h)=n/pi arctan(2s(d-c)h / [(1+q+2h²)sqrt(h²+d²)+2(cd+h²)sqrt(h²+1)]), unique optimal h_n, h_6=sqrt(3/5), p_6=(6/pi)arctan(sqrt2/22), h_n->1/sqrt2 and n²max p_n->2pi²/(3sqrt3).",
+  "limitations": [
+    "Haar orthographic projection, centered apex, unit-circumradius regular n-gon n>=5; no full silhouette law.",
+    "Originality is best-of-knowledge and prior unindexed probability literature remains a risk."
+  ],
+  "schema_version": 1
+}
