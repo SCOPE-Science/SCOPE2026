@@ -1,0 +1,45 @@
+# Six-cycle flips reconnect all cyclic four-bit Gray codes
+
+## Finding
+Let \(Q_4\) be the undirected graph with vertices \(\{0,1,\ldots,15\}\) and edges \(\{u,v\}\) precisely when the Hamming weight of the bitwise XOR of \(u\) and \(v\) equals one. A *cyclic four-bit Gray code* is an unoriented Hamiltonian cycle of \(Q_4\); cycles differing only by starting point or reversal count once. Let \(\mathcal H\) denote their complete set.
+
+For an even integer \(\ell\), define \(\mathcal F_\ell\) to have vertex set \(\mathcal H\), joining two distinct cycles \(C,C'\) if and only if \(E(C)\mathbin{\triangle}E(C')\) is the edge set of exactly one simple \(\ell\)-cycle of \(Q_4\). This is a single alternating-cycle flip; both endpoint configurations must be Hamiltonian. The union-of-lengths exchange graph is written \(\mathcal F_{4,6}\).
+
+**Theorem.** The four-cube has exactly \(1344\) unoriented Hamiltonian cycles. Its square-flip graph \(\mathcal F_4\) has \(1920\) edges, \(240\) isolated vertices and one other connected component of size \(1104\). Its hexagon-flip graph \(\mathcal F_6\) is connected with \(9408\) edges, radius \(5\), diameter \(6\), and full eccentricity distribution
+\[
+|\{C\in\mathcal H:\operatorname{ecc}_{\mathcal F_6}(C)=5\}|=432,\qquad
+|\{C\in\mathcal H:\operatorname{ecc}_{\mathcal F_6}(C)=6\}|=912.
+\]
+The graph \(\mathcal F_{4,6}\) is connected with \(11328\) edges and has the same eccentricity distribution. Thus six is the least allowed flip length sufficient for global connectivity; every two cyclic four-bit Gray codes are linked by at most six *hexagon-only* flips, and this upper bound is attained.
+
+## Assumptions and scope
+All graphs are finite, simple and undirected. Labels \(0,\ldots,15\) are fixed; no quotient by automorphism of \(Q_4\) is taken. A Hamiltonian cycle is one connected spanning two-regular subgraph (not an arbitrary spanning cycle cover). An exchange requires the symmetric difference to consist of the edges of **one simple** graph cycle, and the changed edge set must itself be Hamiltonian. Radius, diameter, and eccentricity refer to shortest-path distance in the indicated exchange graph. In the disconnected square-only graph, no global finite diameter is claimed.
+
+## Proof
+We give a complete finite proof by two different exhaustive methods; both runnable sources are included. We describe the bijections and inference rules that make their exhaustion mathematical rather than sampling.
+
+**State enumeration.** Fix the starting vertex of a Hamiltonian cyclic ordering at \(0\). Recursively extend a simple path through unused neighbors, retain the completed path if its final vertex neighbors \(0\), and keep only the orientation whose second vertex label is less than its last vertex label. Every undirected Hamiltonian cycle has exactly two rooted orientations beginning at \(0\); the strict comparison retains exactly one. Every retained sequence is Hamiltonian by construction, and every Hamiltonian cycle occurs. Encode its sixteen undirected edges as a bit mask over the lexicographically sorted \(32\) edges of \(Q_4\). Direct execution produces precisely \(1344\) distinct masks, reproducing the known scalar count.
+
+**Exact transitions, first construction.** Enumerate every simple cycle of lengths \(4\) and \(6\), anchoring the smallest vertex and retaining one cyclic orientation. These are respectively \(24\) and \(128\) distinct edge masks. Given a Hamiltonian mask \(m\) and one such cycle mask \(s\), compute \(m\mathbin{\mathrm{xor}}s\) and test membership in the complete Hamiltonian-mask dictionary. If it is present, then both endpoints have degree two at all vertices. At each vertex of the simple flip cycle, changing both incident cycle edges would change degree by two unless exactly one is deleted and one inserted. Hence membership forces the alternating condition at **every** flip-cycle vertex, with no additional assumption. Conversely, any legal alternating cycle flip is captured by this enumeration and the membership test. Deduplicating unordered pairs gives exactly \(1920\) square edges, \(9408\) hexagon edges, and \(11328\) combined edges.
+
+**Independent transition construction.** A separate C++ program again enumerates Hamiltonian cycles by rooted depth-first traversal but never enumerates four- or six-cycles as possible moves. It instead visits all \(\binom{1344}{2}\) unordered pairs of Hamiltonian masks, computes their symmetric difference, and recognizes an allowed move exactly when the differing edges number \(4\) or \(6\), every incident vertex has degree \(2\) in the symmetric-difference subgraph, and that subgraph is connected. Such a connected two-regular subgraph is precisely one simple cycle of the stated length. This independent edge-generation procedure returns the same three edge counts and complete connectivity and metric statistics.
+
+**Component and distance exhaustion.** For each exact adjacency table, a graph traversal computes connected components. For the square-only graph the sizes are \(1\) repeated \(240\) times and \(1104\) once. For hexagon-only and combined lengths the sole component has size \(1344\). Breadth-first search from **all 1344 starting vertices**, over the complete adjacency lists, gives \(432\) eccentricities equal to \(5\) and \(912\) equal to \(6\), both for hexagon-only and combined flips. These counts certify radius \(5\) and sharp diameter \(6\), without extrapolation or bounded-search assumptions.
+
+## Verification
+The attached `verify.py` uses standard-library Python and builds every local simple four-/six-cycle, then computes all neighbors by edge-mask XOR. Run `python3 verify.py`. The independently written `verify_alt.cpp` uses C++17 and generates all legal neighbors by pairwise Hamiltonian-mask comparison and connectedness testing; compile and run `c++ -std=c++17 -O2 verify_alt.cpp -o verify_alt && ./verify_alt`. Both output positive exhaustive certificates including the exact state, edge, component and eccentricity counts. Source listings are embedded in this same finding; no external input files, tables or packages are required.
+
+## Relationship to prior work
+Hamiltonian cycles of hypercubes are equivalent to cyclic Gray codes; the number \(1344\) was known and is **not** claimed as a discovery. Chebiryak and Kroening classify hypercube Hamiltonian cycles by edge-weight sequences and report the order-four count, rather than computing edge-set reconfiguration under single alternating square or hexagon flips. Deza and Shklyar study counting Hamiltonian cycles in larger hypercubes, also without this transition classification. Pettersson gives general Hamilton-cycle enumeration methods for grid graphs; counting states is not connectivity of the local-move graph. Takaoka studies Hamiltonian reconfiguration by two-edge switches in graph classes with different structural hypotheses; a general hardness theorem does not imply this exact four-cube hexagon reachability result. Nishat and Kazazi study rectangular, nonperiodic grid graphs and use different allowed moves; \(Q_4\) is instead the toroidal product \(C_4\square C_4\), so those connectivity results do not assert this finite classification. The exact transition and distance structure above was not identified in the consulted literature or mathematical research records.
+
+## Limitations
+This is a theorem for the fixed sixteen-vertex graph \(Q_4\), not an all-dimensional connectivity theorem or an algorithmic complexity guarantee. The enumeration is exact, but independently conducted scholarly validation is not claimed. The historical novelty comparison was necessarily limited to accessible literature and indexed mathematical records; an equivalent earlier enumeration or reconfiguration theorem could exist under different terminology, especially in less accessible work on cyclic Gray-code transformations.
+
+## References
+1. Y. Chebiryak and D. Kroening, “Towards a Classification of Hamiltonian Cycles in the 6-Cube,” *Journal on Satisfiability, Boolean Modeling and Computation* **4** (2008), 57–74, DOI:10.3233/SAT190038.
+2. M. Deza and R. Shklyar, “Enumeration of Hamiltonian Cycles in 6-cube,” arXiv:1003.4391v1, first posted 2010-03-23, especially the table for dimension four and bibliography.
+3. V. H. Pettersson, “Enumerating Hamiltonian Cycles,” *Electronic Journal of Combinatorics* **21** (2014), #P4.7, DOI:10.37236/4442.
+4. P. P. Parkhomenko, “Classification of the Hamiltonian Cycles in Binary Hypercubes,” *Automation and Remote Control* **62** (2001), 978–991, DOI:10.1023/A:1010257922257; abstract consulted, full text not obtained.
+5. A. Takaoka, “Complexity of Hamiltonian Cycle Reconfiguration,” *Algorithms* **11** (2018), 140, DOI:10.3390/a11090140; abstract and description of switch operation inspected.
+6. R. I. Nishat, *Reconfiguration of Hamiltonian Cycles and Paths in Grid Graphs*, PhD thesis, University of Victoria (2020), institutional record and abstract.
+7. A. Kazazi, “Reconfiguration of Hamiltonian Cycles in Rectangular Grid Graphs,” arXiv:2601.06731v1 (2026), abstract and stated move definition.
