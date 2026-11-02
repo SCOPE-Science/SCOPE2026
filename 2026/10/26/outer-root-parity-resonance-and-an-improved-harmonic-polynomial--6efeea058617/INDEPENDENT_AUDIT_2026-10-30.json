@@ -1,0 +1,139 @@
+{
+  "audit_date_utc": "2026-10-30",
+  "audited_at_utc": "2026-10-30T20:44:24.952316Z",
+  "axes": {
+    "correctness": {
+      "checked_sources": [
+        "Frozen RESULT.md Git blob 8213f44e66ac673c324a024f4afd899a3d6f6f56",
+        "Frozen verification.py blob c80fecc55f5af6ca18e1941b2a5fd880b4a42e1e, source read in full",
+        "Independent independent_checks.py HARMONIC_OUTER_ROOT_PARITY_CHECKS_OK and inequality at (77,5)",
+        "Lundberg 2022/2023 arxiv:2201.00788, original §§2–4 finite-root Kostlan perturbation method"
+      ],
+      "rationale": "The imaginary equation Im H_epsilon=epsilon Im z^n=0 confines all zeros to n lines through the origin; at generic Gaussian coefficients the origin is not a zero, so line counts add without duplicates. Restriction and sign normalization give epsilon x^n+f_j(x), where f_j/sqrt2 is a real Kostlan polynomial. For fixed squarefree f_j with nonzero leading coefficient, simple finite roots persist under small epsilon; after x=epsilon^{-1/(n-m)}y the remaining n-m zeros approach nonzero roots of y^{n-m}=-a_m. Hence an odd degree difference contributes one real outer root per line, while an even difference contributes two precisely when the top real coefficient is negative. For even difference the signs depend on cos(phi+2*pi*((n+m)/2)*j/n), whose repeated cyclic grid has length L=n/g and multiplicity g, giving exactly n or the symmetric n±g law. Its expectation is always n. Kac–Rice gives E(number of finite real Kostlan roots)=sqrt(m) per line. Since each of n line polynomials has at most n real zeros, dominated convergence proves the exact expectation limit. Every regular degree-n real polynomial has real-root count congruent to n modulo two, so the n-line total has parity n; the expectation forces at least R(n,m), the parity-compatible ceiling, in some sample. The n=77,m=5 arithmetic inequality yields 251>249. Independent numerical cosine-grid tests covered all n<80 with multiple phases and strict nonboundary checks, plus arithmetic for 77,5; original verification.py was read and supplies six exact rational Sturm perturbations. These finite checks support but do not replace root-continuity and Kac–Rice proofs.",
+      "residual_risks": [
+        "The result concerns expected distinct zero count for a coupled Gaussian family and a small-positive-epsilon limit, not an exact valence maximizer or full distribution of the finite part.",
+        "Fixed epsilon sufficiently small may depend on sample; there is no uniform samplewise epsilon.",
+        "Other constructions may be stronger for some degrees."
+      ],
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Lundberg’s model estimates expected bounded roots, not escaping-root count.",
+          "Khavinson–Lee–Saez provide deterministic m²+n+m lower bounds, a different construction; those bounds do not imply n(1+sqrt m) in all parameter ranges."
+        ],
+        "reasoning": "Older broad valence or random harmonic-polynomial work does not, in the material inspected, state this exact asymptotic for the special correlated Kostlan perturbation.",
+        "searches": [
+          "Lundberg 2022 full paper §3 and §4",
+          "Khavinson Lee Saez 2018 zeros harmonic polynomials",
+          "harmonic polynomials improved lower bound 77 5 251"
+        ]
+      },
+      "checked_sources": [
+        "Lundberg arxiv:2201.00788 full text §§1–4",
+        "Khavinson–Lee–Saez doi:10.1186/s40627-018-0012-2",
+        "Resultary semantic query: harmonic polynomial valence Kostlan Gaussian epsilon z^n q(z) plus conjugate q(z) outer roots n(1+sqrt m) parity resonance"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "The bounded-region perturbation lemma gives survival of finite roots only, not the number of diverging real branches.",
+          "The parity of the total count combined with exact mean n(1+sqrt(m)) yields an integer lower bound that can exceed previous n sqrt(m) by n."
+        ],
+        "reasoning": "The classical cited results are essential inputs but do not state the new line-grid arithmetic and unconditional all-degree sharpened existential bound as immediate conclusions.",
+        "searches": [
+          "Lundberg arxiv:2201.00788 Theorem 1.1, Lemma 3.4",
+          "Lee Lerario Lundberg 2015 arxiv:1308.6474",
+          "doi:10.1186/s40627-018-0012-2"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "The same ensemble H_epsilon and finite-line Kostlan counts appear verbatim in Lundberg §3.",
+          "Lundberg Theorem 1.1 yields >=ceil(n sqrt m), whereas this claim proves an exact limit of expectation n(1+sqrt m) by controlling roots at infinity."
+        ],
+        "reasoning": "The underlying construction is not novel; counting an additional root population and its phase parity gives a genuinely stronger statement than the previously established finite-root lower bound.",
+        "searches": [
+          "harmonic polynomial valence Kostlan Gaussian epsilon z^n q(z) plus conjugate q(z) outer roots n(1+sqrt m) parity resonance",
+          "harmonic polynomial \"n(1+sqrt(m))\" valence",
+          "Lundberg arxiv:2201.00788"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "Resultary hits were largely about unrelated harmonic-analysis polynomials, not an identical outer-grid count.",
+          "Published Lundberg and harmonic-valence references list other bounds and some finite counterexamples but not this formula."
+        ],
+        "reasoning": "No exact table/counterexample with this specific expected outer-root law was identified; absence in a search is not a novelty certificate.",
+        "searches": [
+          "Resultary query harmonic polynomial valence Kostlan Gaussian epsilon z^n q(z) plus conjugate q(z) outer roots n(1+sqrt m) parity resonance",
+          "harmonic polynomial valence n + n sqrt m roots",
+          "2015 certified harmonic counting 77 5"
+        ]
+      },
+      "rationale": "The exact Gaussian perturbation and one-dimensional line reductions were developed by Erik Lundberg in arxiv:2201.00788 (2022; published 2023), which obtains at least ceil(n sqrt m) distinct zeros from finite Kostlan roots. Full source text §§2–4 was read: its perturbation argument restricts roots to bounded real intervals and does not count the n-m roots escaping to infinity. The new calculation determines that outer contribution and arithmetic phase-grid law, yielding an additive n expected root improvement and a parity-adjusted all-degree existential theorem. Earlier Khavinson–Lee–Saez and Lee–Lerario–Lundberg construct other counterexamples and are not claimed as new; m=5 counterexamples might exist by other methods. Standard root escape, Kac–Rice and the Kostlan expectation are known ingredients; the joint arithmetic count and improved consequence are the assessed claims.",
+      "residual_risks": [
+        "A more recent or older harmonic-valence study may have counted escaping roots in precisely this ensemble under a different description; no exhaustive global priority certification.",
+        "The new lower bound is not guaranteed superior to all alternative constructions at each n,m, and existing fixed-degree counterexamples are not claimed as original."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "COVERS_MODEL_AND_FINITE_ROOTS_NOT_OUTER_LAW",
+          "evidence": "Theorem 1.1 shows >=ceil(n sqrt(m)); §3 bounds roots on compact intervals and does not classify roots diverging at epsilon^{-1/(n-m)}.",
+          "identifier_or_url": "https://arxiv.org/abs/2201.00788",
+          "material_read": "Full text of original 2022 arxiv preprint, §§1–4, including Theorem 1.1, Lemmas 2.1,3.1–3.4 and concluding remarks; checked scope of perturbation.",
+          "method": "Read complete accessible arxiv text, compared theorem with all finite and escaping-root terms.",
+          "title": "The valence of harmonic polynomials viewed through the probabilistic lens",
+          "trigger": "Same Gaussian Kostlan line-restriction model and valence lower bound"
+        },
+        {
+          "assessment": "DIFFERENT_KNOWN_BOUND",
+          "evidence": "Deterministic m²+n+m lower bound in Lundberg prior literature is not an exact Kostlan outer-root count.",
+          "identifier_or_url": "https://doi.org/10.1186/s40627-018-0012-2",
+          "material_read": "Accessible bibliographic/abstract and published comparison in Lundberg §1; not a full primary text reread in this run.",
+          "method": "Reviewed identified mathematical statement and model overlap; avoided whole-document noncoverage assertion.",
+          "title": "Zeros of harmonic polynomials, critical lemniscates, and caustics",
+          "trigger": "Potential stronger deterministic valence construction"
+        },
+        {
+          "assessment": "PRIOR_COUNTEREXAMPLES_CREDITED",
+          "evidence": "Earlier counterexamples at m near n are not claimed as new.",
+          "identifier_or_url": "https://arxiv.org/abs/1308.6474",
+          "material_read": "Lundberg 2022 Introduction discussion and paper abstract/metadata, not a whole-text inspection.",
+          "method": "Read comparative theorem characterization in Lundberg original paper.",
+          "title": "Remarks on Wilmshursts theorem",
+          "trigger": "Earlier counterexamples to conjectured maximal valence"
+        },
+        {
+          "assessment": "NOT_EXCLUDED_BY_SNIPPET",
+          "evidence": "A fixed (77,5) case might be covered by older finite certificates, but the new all-degree expected outer-root law remains the assessment target.",
+          "identifier_or_url": "Hauenstein–Lerario–Lundberg–Mehta 2015, Experiments on the zeros of harmonic polynomials using certified counting",
+          "material_read": "Cited original method and bibliographic summary in Lundberg §1, without full PDF inspection.",
+          "method": "Checked bibliographic relation and recorded residual risk.",
+          "title": "Experiments on the zeros of harmonic polynomials using certified counting",
+          "trigger": "Possible prior fixed-degree numerical table"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "checked_sources": [
+        "Lundberg 2022 Theorem 1.1, existing model and motivation",
+        "Frozen RESULT.md exact outer-root argument and (77,5) consequence"
+      ],
+      "rationale": "The exact arithmetic classification of escaping real roots is a structural property of an already-motivated Gaussian Kostlan harmonic-polynomial model. Counting them sharpens an existing valence lower bound by an additive n, extends the fixed-coanalytic-degree counterexample range of that construction, and supplies concrete (77,5) numbers. This is mathematically meaningful even though it is existential and not globally optimal; it is neither a mere numerical rerun nor an unsupported claim of first counterexample.",
+      "residual_risks": [
+        "Other constructions could dominate the bound in particular degrees; no maximal-valence classification."
+      ],
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "final_claim": "For any integers n>m>=1, Gaussian Kostlan q_m and H_epsilon(z)=epsilon z^n+q_m(z)+conj(q_m(z)) have lim_{epsilon downarrow 0} E(number of distinct zeros)=n(1+sqrt(m)). All zero counts eventually stabilize almost surely, with the outer escaping zeros exactly n for n-m odd and, for n-m even, n if L=n/g is even or n±g with equal probability if L odd, where g=gcd(n,(n+m)/2). Every pair of degrees therefore admits some harmonic polynomial p+conj q with at least the parity-admissible integer ceiling R(n,m) of n(1+sqrt m), yielding R(77,5)=251>249 (Wilmshurst proposed value).",
+  "limitations": [
+    "The variance statement applies only to the count of escaping roots, not to the total number of zeros.",
+    "No explicit closed coefficient tuple for (77,5), only probabilistic existence.",
+    "Relies on standard circular Gaussian top-coefficient phase; general polynomial ensembles excluded."
+  ],
+  "schema_version": 1
+}
