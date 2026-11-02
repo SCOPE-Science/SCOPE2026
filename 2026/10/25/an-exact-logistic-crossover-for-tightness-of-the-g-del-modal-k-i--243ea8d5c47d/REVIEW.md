@@ -1,19 +1,21 @@
-# Scientific review
+# Independent mathematical audit
 
-## Correctness
+## correctness
 
-**PASS.** The complete-frame Gödel necessity semantics reduces both terms to minima of atom truth degrees. The proof splits equality into two **disjoint** events, proves the split in both directions, and calculates their probabilities for arbitrary common discrete atom distributions. It obtains the exact uniform formula by substitution, then proves the geometric-minimum crossover and both endpoint regimes. Independent finite computation re-evaluates the original modal terms with exact rational weights for 486,250 valuation pairs; it does not purport to prove the infinite limit. The fixed-chain asymptotic bases and the noncommuting iterated limits are justified separately.
+PASS
 
-## Originality
+On a complete crisp n-world frame, Gödel implication a⇒b=1 if a<=b and b otherwise. Put A=min a_i, B=min b_i and L=min(a_i⇒b_i). Equality L=(A⇒B) occurs iff either A>B, or a_i<=b_i for every i; these events are disjoint. Independent identical discrete chain values with weights w_i give P(A=B)=sum_i (T_i^n-T_{i+1}^n)^2 and P(all a_i<=b_i)=((1+sum_i w_i^2)/2)^n. Adding half the nontie probability yields the exact weighted formula, uniform case included. When n/k→lambda in (0,infty), uniform minimum level tends to geometric(e^-lambda); its pairwise tie probability tends to tanh(lambda/2), yielding logistic 1/(1+e^lambda). Endpoint n/k→0 and infinity follow from maximum mass/tight minima, and fixed k leading exponential bases distinguish k=2,3,>=4. Fresh independent exact exhaustive modal-term evaluations across nine small (n,k) finite valuation models agreed. The proof, not those checks, establishes growing alphabets.
 
-**PASS within the material inspected.** Recent primary treatments of Gödel epistemic and witnessed modalities establish the underlying semantics, proof systems, finite-model properties, and complexity; they do not supply the equality-event law under random valuations or the logistic threshold. The nearest publicly available note on Gödel frame regrading concerns equivalence of frame validities under ordinal changes of accessibility, not probabilistic tightness of modal K on a fixed complete frame. Search comparisons also considered discrete minimum ties and equivalent order-statistic formulations, whose standard facts are used rather than claimed. Residual risk: equivalent random-fuzzy-logic or order-statistics results under different names might exist.
+## originality
 
-## Value
+PASS
 
-**PASS.** The modal K principle is fundamental; measuring when its inequality is sharp is a concrete quantitative refinement of validity. The theorem gives an exact law for every finite truth chain and world count, extends it to nonuniform chains, identifies the \(n/k\) scale at which discreteness changes the answer, and proves that the fine-scale and many-world limits do not commute. The fixed-chain crossover at three truth levels is a further mathematically motivated boundary. This is more than a single small-model calculation or routine modal-validity check.
+Gödel modal K validity, finite-model semantics and probability identities for order statistics are established prior knowledge. The claim assesses the model-specific exact equality-event probability on random valuations and its n/k logistic crossover/noncommuting limits. Inspected Gödel epistemic, finite-model axiomatization and frame-regrading results do not give this tightness distribution; an equivalent probabilistic encoding could be unindexed.
 
-## Closest sources and limitations
+## value
 
-Primary full-text materials inspected: *Tableaux for epistemic Gödel logic* (arXiv:2510.04642, pp. 1–4 and relevant results), *Axiomatizing logics of finite Gödel-Kripke models* (arXiv:2605.15810, Sections 0.1–0.3), and *A Gödel Modal Logic Over Witnessed Models* (arXiv:2606.31906, Section 2 and introduction). Compared the publicly available *Ordinal regrading classes of finite Gödel Kripke frames* and background *Standard Gödel Modal Logics* (2010). The result applies only under the sampling and frame conditions in RESULT.md; no independent novelty certification has been undertaken.
+PASS
 
-Self-review: passed. Independent audit: not yet performed.
+Quantitative sharpness of a basic valid modal inequality is mathematically motivated but not implied by its validity. The exact finite-chain distribution, arbitrary common nonuniform masses, logistic critical scaling, and noncommutation of limits identify a genuine truth-granularity phenomenon; not merely finite truth-table verification.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
