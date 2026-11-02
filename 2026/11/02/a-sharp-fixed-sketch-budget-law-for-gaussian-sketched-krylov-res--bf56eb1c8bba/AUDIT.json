@@ -1,0 +1,131 @@
+{
+  "correctness": {
+    "rationale": "Gaussian complete-sketch regression gives the exact independent chi-square quotient and inverse-moment threshold. Positive barycentric Chebyshev nodes prove equality for every k. The global discrete optimization is justified by a uniform exponential bound that confines minimizers to finitely many reserves, with exact integral tie analysis. Verifier replayed from current package paths.",
+    "status": "PASS"
+  },
+  "independent": false,
+  "independent_audit_status": "not_performed",
+  "originality": {
+    "broader_coverage": {
+      "evidence": [
+        "The sGMRES original chooses approximately twice the subspace dimension in its representative implementation and analyzes subspace embeddings.",
+        "Sketch-and-recycle GMRES discusses sketch-based Krylov/residual estimates; classical worst-case GMRES treats deterministic polynomial minimax without sketch risk."
+      ],
+      "reasoning": "Gaussian complete sketching does imply the exact extra inverse-Wishart factor, and Chebyshev GMRES determines a separate extremal factor, but neither source states or develops the combined attainable fixed-budget global risk and eventual discrete minimizer. Their claims are not stronger coverage of that new allocation conclusion.",
+      "searches": [
+        "\"fixed Gaussian sketch row budget optimum Krylov degree worst-case SPD mean square sGMRES Chebyshev oversampling risk\"",
+        "https://arxiv.org/abs/2111.00113",
+        "https://arxiv.org/abs/2311.14206",
+        "https://arxiv.org/abs/1302.5535"
+      ]
+    },
+    "checked_sources": [
+      "https://arxiv.org/abs/2111.00113",
+      "https://pmc.ncbi.nlm.nih.gov/articles/PMC7612324/",
+      "https://arxiv.org/abs/1302.5535",
+      "https://arxiv.org/abs/2311.14206",
+      "https://epubs.siam.org/doi/10.1137/19M1259481"
+    ],
+    "claim_vs_prior_implication": {
+      "evidence": [
+        "Gaussian sketched regression implies the exact Student risk for each fixed full-rank correction subspace, so that ingredient is acknowledged as covered.",
+        "Chebyshev minimax theory implies the sharp deterministic spectral factor, so that ingredient is acknowledged as covered.",
+        "Subspace embedding theorems do not quantify the inverse-Wishart heavy tail or optimize an exact finite-mean risk under a fixed row budget."
+      ],
+      "reasoning": "Published ingredients together enable a derivation of the new conclusion, but no inspected prior statement was found that already contains the sharp joint SPD envelope plus its unique eventual integer reserve. The contribution is an explicit cross-framework synthesis; publication-priority uncertainty is retained.",
+      "searches": [
+        "\"sketched GMRES fixed sketch dimension optimal Krylov degree risk heavy tail Wishart\"",
+        "https://pmc.ncbi.nlm.nih.gov/articles/PMC7612324/",
+        "https://arxiv.org/abs/1302.5535",
+        "https://arxiv.org/abs/2111.00113",
+        "https://arxiv.org/abs/2311.14206"
+      ]
+    },
+    "equivalent_formulations": {
+      "evidence": [
+        "Ahfock--Astle--Richardson Theorem 1 gives Student coefficient statistics at fixed regression dimension, and their displayed covariance covers one-depth expectation.",
+        "Nakatsukasa--Tropp Section 3 formulates the same sketched GMRES least-squares problem but emphasizes embedding guarantees."
+      ],
+      "reasoning": "One-depth sketch risk is indeed a specialization of published Gaussian regression theory; its independent novelty is not claimed. Neither source supplies Chebyshev-attaining SPD spectra combined with the globally optimized integer row reserve at fixed sketch budget.",
+      "searches": [
+        "\"Gaussian sketched GMRES minimax expected squared residual over positive definite matrices condition number\"",
+        "\"Student t sketched least squares optimal allocation Krylov subspace dimension Gaussian sketch finite expectation\"",
+        "https://pmc.ncbi.nlm.nih.gov/articles/PMC7612324/",
+        "https://arxiv.org/abs/2111.00113"
+      ]
+    },
+    "exact_database_or_table": {
+      "evidence": [
+        "Exact complete-sketch distribution and covariance are already recorded in published statistical literature; no inspected source supplied a tabulated sketch-row-versus-Krylov-depth optimum.",
+        "A separate direct calculation from these known ingredients is required for the integer optimizer and tie rule."
+      ],
+      "reasoning": "The finding is not a finite empirical table or recomputation of a published exact constant. The universal worst-case envelope and eventual integer reserve are analytic consequences with a distinct minimization step.",
+      "searches": [
+        "\"Gaussian sketch residual expected norm Chebyshev optimal subspace dimension sketch oversampling tradeoff square root condition number\"",
+        "\"sketched GMRES fixed sketch dimension optimal Krylov degree risk heavy tail Wishart\"",
+        "https://pmc.ncbi.nlm.nih.gov/articles/PMC7612324/"
+      ]
+    },
+    "rationale": "The contribution is the sharp attainable joint Gaussian-sketch/GMRES fixed-row-budget risk and eventual integer reserve, not the already-published Gaussian Student sketch law or classical Chebyshev extremal polynomial. Full primary text inspected for distinct joint coverage. Available comparisons do not exhibit the full implication; independent priority audit outstanding.",
+    "residual_risks": [
+      "A specialized publication could already combine the Gaussian complete-sketch Student result with Chebyshev extrema and discrete fixed-budget optimization.",
+      "Search and accessible-source comparisons cannot establish global publication priority; independent audit has not been performed.",
+      "Other sketch distributions, floating-point implementations, reused sketches, and adaptive Krylov stopping are not covered."
+    ],
+    "source_inspections": [
+      {
+        "assessment": "Defines sketched GMRES and gives embedding bounds, does not state exact Gaussian expected squared risk or fixed-row minimax depth selection",
+        "evidence": [
+          "2021 preprint section 1.2, equations (1.5),(1.6); section 3.2 equations (3.4),(3.5); Algorithm 1.1"
+        ],
+        "identifier_or_url": "https://arxiv.org/abs/2111.00113",
+        "material_read": "Full accessible preprint: introductory formulation, Algorithm 1.1, Sections 2-4 and reference context",
+        "method": "Read accessible primary preprint text and page image",
+        "title": "Fast & Accurate Randomized Algorithms for Linear Systems and Eigenvalue Problems",
+        "trigger": "Direct motivating sGMRES algorithm and MSC ownership"
+      },
+      {
+        "assessment": "Strong exact coverage of one-depth inverse-Wishart/Student factor; explicitly credited and excluded as novelty. Fixed-budget Krylov minimax allocation is not stated.",
+        "evidence": [
+          "Section 3.1 Theorem 1 parts (i)-(ii) and displayed covariance following it"
+        ],
+        "identifier_or_url": "https://pmc.ncbi.nlm.nih.gov/articles/PMC7612324/",
+        "material_read": "Accessible full-text HTML: sections 2-3, Theorem 1 and covariance equation (3), related work",
+        "method": "Inspected primary full-text theorem statement and conditioning",
+        "title": "Statistical properties of sketching algorithms",
+        "trigger": "Exact Student-distribution overlap in Gaussian least squares"
+      },
+      {
+        "assessment": "Deterministic worst-case polynomial framework is prior coverage; it does not include Gaussian sketch mean-square or depth allocation.",
+        "evidence": [
+          "Worst-case and ideal GMRES treatment and polynomial background"
+        ],
+        "identifier_or_url": "https://arxiv.org/abs/1302.5535",
+        "material_read": "Accessible 18-page preprint including worst-case and ideal GMRES discussion",
+        "method": "Read primary full PDF text and inspected first-page image",
+        "title": "Characterization of worst-case GMRES",
+        "trigger": "Deterministic Chebyshev/ideal GMRES dominance risk"
+      },
+      {
+        "assessment": "Sketch-and-recycle Krylov methods and empirical sketch sizes; no exact expected Gaussian minimax fixed-budget reserve identified in inspected text.",
+        "evidence": [
+          "Algorithm and residual analysis; numerical section uses sketch size prescribed relative to maximum Krylov dimension"
+        ],
+        "identifier_or_url": "https://arxiv.org/abs/2311.14206",
+        "material_read": "Accessible full preprint including methodology, residual analysis, numerical sections",
+        "method": "Inspected primary PDF text and relevant PDF page image",
+        "title": "Sketch-and-recycle GMRES",
+        "trigger": "Potential newer general randomized GMRES/oversampling result"
+      }
+    ],
+    "status": "PASS"
+  },
+  "review_type": "self_review",
+  "schema_version": 1,
+  "scope_run_id": "bf56eb1c-8bba-4175-89d5-0323d53de065",
+  "self_review_status": "passed",
+  "value": {
+    "rationale": "Fixed-row randomized Krylov design entails opposing polynomial-decay and inverse-Wishart amplification terms, making the exact optimal integer allocation structurally meaningful. The sharp reserve (~sqrt(K)/4) and infinite-mean edge identify real mathematical boundaries not captured by deterministic Chebyshev or Gaussian risk statements alone.",
+    "status": "PASS"
+  }
+}
