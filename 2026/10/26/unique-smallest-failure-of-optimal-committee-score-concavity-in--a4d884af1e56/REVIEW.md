@@ -1,19 +1,21 @@
-# Scientific review
+# Independent mathematical audit
 
-## Correctness — PASS
+## correctness
 
-The proof establishes nonnegative integer coverage increments, their positivity before saturation, and the obstruction bounds for all committee sizes. It then excludes every smaller number of voters or candidates and classifies the sole six-voter, four-candidate pattern by counting private voters. The family-count formula and the two explicit voter-deletion interval orderings are independently checkable. Exact exhaustive evaluation of 823,086 four-candidate multiset profiles on universes of one through six voters agrees with the proof. The unbounded-candidate part relies on the analytic argument, not finite enumeration.
+PASS
 
-## Originality — PASS (historical-priority risk remains)
+Let M(k) be maximum covered voters by exactly k approval candidates. Before all voters in the union U are covered, each optimal committee can add a strictly new voter; increments are positive integers, with M(2)-M(1)<=M(1). For <=3 candidates, submodularity of coverage shows 2M(2)>=M(1)+M(3). For arbitrary candidates with <=5 voters, any first strict convex step at k>=3 forces maximum supporter-set size <=1; at k=2, max set size <=2 and the three-set union estimate excludes M(1)=2,M(2)=3,M(3)>=5. For six voters and four candidates, violation at k=3 would require at least 8 private vertices among 6, impossible; at k=2 integer constraints force (M1,M2,M3)=(3,4,6). An optimal covering triple has three disjoint two-element supports; the fourth is a 3-element transversal, giving profile 0,3,4,6,6. Exactly 6!/(2!^3 3!)×2^3=120 voter-labelled candidate-unlabelled profiles, 2880 fully labelled. Explicit voter orderings after deletion establish voter-deletion criticality for consecutive-ones domain. Independent enumeration of every 4-multiset of subsets of n labelled voters n=3,4,5,6 found no violations for n<6 and exactly 120 canonical cases for n=6. This does not substitute for the arbitrary-number-of-candidates proof.
 
-The 2026 Manurangsi–Sornat theorem establishes concavity **when** candidate supporter sets are voter intervals. It does not itself establish the precise smallest non-interval failure or the unique classification and voter-deletion criticality. Related 2020 concave-coverage optimization work concerns approximate maximization of a submodular coverage objective, not this size-score phase boundary. Source and mathematical-record searches did not retrieve an implication-equivalent six-voter/four-candidate theorem. Unchecked textbook folklore or subsumption by a general finite set-system characterization is a residual risk, not a uniqueness guarantee.
+## originality
 
-## Mathematical value — PASS
+PASS
 
-A sharp structural boundary for a recent concavity theorem is a motivated question, independent of computational hardness. The first failure is uniquely characterized, one unit deep, and voter-deletion critical for the interval domain. The full classification demonstrates precisely how concavity can break upon leaving that domain. The result does not generalize to all Thiele scores or weighted electorate models.
+Best-of-knowledge independent comparison of the precise surviving theorem to same-object primary mathematics, Resultary semantic matches, general covering results and exact numeric searches; known foundations explicitly excluded from claimed novelty. Relevant inaccessible source risks are material and unresolved historical-priority caveats, not automatic scientific failure. The unique six-voter/four-candidate nonconcavity classification is not implied by the cited interval-domain positive concavity theorem.
 
-## Closest literature and limitations
+## value
 
-Manurangsi–Sornat (arXiv:2604.05953v1, Theorem 5 and Corollary 9) is the closest direct implication comparison. Barman–Fawzi–Fermé (arXiv:2010.00970) is broader background on concave coverage objectives, not a verified exclusion of every possible earlier equivalent result. Independent historical and mathematical checking remain outstanding.
+PASS
 
-Self-review: passed. Independent audit: not yet performed.
+The unique 6-voter/4-candidate first failure of discrete concavity, plus its voter-deletion criticality for the known interval-positive regime, is a natural sharp boundary between submodular coverage objectives and concave optimal-cardinality score sequences. The unique forbidden configuration and its complete multiplicity are reusable exact information. Not claimed for weighted voters or general Thiele scoring rules.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
