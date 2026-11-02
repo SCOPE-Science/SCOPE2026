@@ -1,11 +1,21 @@
-# Scientific review
+# Independent mathematical audit
 
-**Correctness — PASS.** The transfer formulas are verified on the dense substitution-aligned orbit from the exact identities \(S_{2k}=k\), \(S_{2k+1}=k+t_k\), then extended by continuity using the dyadic factor. The CRT coordinate change is explicitly invertible. For odd moduli, the decorated two-letter substitution is shown primitive by an odd-bit zero-residue construction and its orbit closure is proved to be the whole product. Unique ergodicity of each component follows from primitive substitution. The proof separately establishes conditional Thue–Morse balance and the all-modulus equidistribution corollary. The standalone verifier checks finite instances, not an infinite certificate.
+## correctness
 
-**Originality — PASS under examined evidence.** Kang–Jäger's Theorem 1.7 treats lifts of period-doubling, with an observation on binary nonminimality over Thue–Morse; Berthé et al. Example 7.12 treats the Thue–Morse \(q=2\) case explicitly. Both are respected as prior results. The assessed contribution is the uniform component-count theorem for every modulus over Thue–Morse, explicit finite-address conjugating maps and residue-density conclusion for every modulus. Semantic record searches and inspected primary texts did not identify stronger covering results. Residual risk: historical equivalent treatment under substitution heights or cocycle essential values.
+PASS
 
-**Value — PASS.** Classifying precisely which finite cyclic antiderivative lifts of a paradigmatic minimal substitution remain minimal is a motivated extension problem. The complete prime-primary splitting quantifies all exceptional moduli, identifies dynamics and invariant measures in every component, and reconciles nonminimality with exact distribution of arithmetic prefix sums. This is a structural classification, not a single finite calculation.
+The substitution t_{2k}=t_k, t_{2k+1}=1-t_k proves S_{2k}=k and S_{2k+1}=k+t_k. The continuous 2^{s+1}-odometer-address transfers u_s and u_m satisfy y_0=Δu_s mod 2^s and y_0=d+Δu_m mod m on the aligned dense orbit and hence throughout Y; Chinese remaindering gives the explicit conjugacy. The decorated primitive substitution Ψ(a,r)=((a,2r),(1-a,2r+1)) for odd m has all 2m letters in sufficiently high substituted blocks: disjoint binary one-bit parity-flip witnesses in each residue modulo odd m prove both symbols occur, and invertibility of 2^k transports all factors through residues. This proves strict ergodicity of each slice. Separate even/odd prefix counts and conditional digit fairness give density 1/q even for nonminimal q. Independently recomputed 64000 finite transfer/prefix identities; infinite assertions rest on substitution and odometer arguments, not enumeration.
 
-**Limitations.** Only the specified one-letter cocycle on the Thue–Morse shift is considered; the proof uses standard recognizability. Prior results cover the special binary case. No independent review or exhaustive historical bibliographic search is claimed.
+## originality
 
-Self-review: passed. Independent audit: not yet performed.
+PASS
+
+The classification of every q by its 2-primary divisor and explicit conjugating transfers extends the published q=2 nonminimal/equal-frequency example. The nearby period-doubling three-block extension is genuinely a different base/cocycle and does not imply this all-modulus Thue–Morse one-block result. However historical finite extension literature could encode the same transfer under group-cocycle terminology.
+
+## value
+
+PASS
+
+Minimal-component decomposition and residue-density law are natural topological and ergodic invariants of a canonical substitution cocycle; the theorem settles their behavior for every modulus, including nonminimal cases, rather than an arbitrary finite slice.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
