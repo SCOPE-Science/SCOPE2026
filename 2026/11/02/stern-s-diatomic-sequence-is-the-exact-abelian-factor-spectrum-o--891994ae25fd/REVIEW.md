@@ -1,0 +1,11 @@
+# Self-review
+
+**Correctness — PASS.** Distinct-length Parikh vectors are disjoint. The alternating-projection proof gives exact and exhaustive even and odd factor recurrences, including the two boundary lengths; these match Stern's recurrence. A direct finite rank-one base case proves all ranks. The total and Fibonacci-extremal assertions follow from independently written row-sum and adjacent-pair arguments. The Jacobsthal witness is verified through a two-term Stern recurrence. The standalone checker enumerates the entire Parikh spectrum through rank nine, without serving as an infinite proof.
+
+**Originality — PASS, qualified.** Source and claim comparisons searched Zimin/ruler-word Abelian/Parikh complexity, Stern/fusc Fibonacci/Jacobsthal aliases and related general Abelian-automatic results, both through published research records and primary literature. The closest source, de Luca and De Luca (arXiv:1410.4085), connects a ruler word to Stern's sequence but uses different invariants: Christoffel word lengths and central-word periods; it does not supply this finite-Zimin Parikh-factor identification in the inspected full text. Cooper and Rorabaugh (arXiv:1409.3080) supply the Zimin definition and valuation structure without Abelian complexity. The independent Stern Fibonacci bound is not claimed as new. Search incompleteness is a residual historical-priority risk.
+
+**Value — PASS.** This identifies the *entire natural Abelian factor-complexity spectrum* of an important recursive word, not an arbitrary numerical slice. It transfers structural Stern theory to word-factor Parikh images, yields the exact total \((3^n-1)/2\), and locates the sharp Fibonacci growth at natural Jacobsthal scales. It also permits computing any rank-length value in logarithmic time without constructing the exponentially long word. The precise invariant is relevant to anagram equivalence of contiguous factors and Abelian pattern analysis.
+
+**Limitations.** Alphabet letters must be distinct; no assertion about occurrence multiplicities, arbitrary morphic images, or other orders of equivalence. The proof and computer checks are self-reviewed only. Historical priority is not guaranteed.
+
+Self-review: passed. Independent audit: not yet performed.
