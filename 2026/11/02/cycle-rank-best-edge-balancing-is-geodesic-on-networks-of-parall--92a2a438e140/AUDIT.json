@@ -1,0 +1,143 @@
+{
+  "correctness": {
+    "rationale": "Every simple cycle of a block is the union of two terminal paths; edge negative-cycle rank is the number of opposite-sign paths. Any maximum-rank edge on a negative cycle lies on a minority path, or on either side of an exact tie. A flip always lowers the sum of minority counts by exactly one. The same sum is the minimum possible number of sign reversals by the blockwise path-parity lower bound, so convergence is all-choice and shortest. The negative-cycle energy decrement is r-2d+1. Conditional uniform pair and edge selection yields the exact rational length-biased tie formula. The standalone exhaustive checker reproduced 9168 signing cases, 77792 admissible transitions and exact tie checks.",
+    "status": "PASS"
+  },
+  "independent": false,
+  "independent_audit_status": "not_performed",
+  "originality": {
+    "broader_coverage": {
+      "evidence": [
+        "Chatterjee et al. 2022, Sec. VI: states noncomplete-network extension remains open and mentions blinkers, https://arxiv.org/html/2210.02394v1",
+        "Facchetti et al. 2011, DOI:10.1073/pnas.1109521108: spin-glass global optimization of signed structural balance"
+      ],
+      "reasoning": "The complete-graph convergence theorem uses a different triangle state space and does not cover triangle-free multi-path blocks. General Ising/frustration optimization does not constrain every greedy update or compute path-length tie probabilities. The claim is not meant to be a corollary of general shortest-distance computability.",
+      "searches": [
+        "\"best-edge dynamics\" \"bipartite\" signed networks",
+        "\"cycle-based\" \"triad dynamics\" \"signed networks\" edges",
+        "\"signed\" \"theta\" \"frustration\" \"best\" edge dynamics"
+      ]
+    },
+    "checked_sources": [
+      "https://arxiv.org/html/2210.02394v1",
+      "https://arxiv.org/abs/1606.03347",
+      "https://arxiv.org/html/2112.02664v2",
+      "https://doi.org/10.1016/0022-2496(78)90060-3",
+      "https://doi.org/10.1073/pnas.1109521108"
+    ],
+    "claim_vs_prior_implication": {
+      "evidence": [
+        "Chatterjee et al. 2022, Sec. IV and VI, arxiv:2210.02394v1",
+        "Giscard, Rochet and Wilson 2016, Sec. 1–2, arxiv:1606.03347",
+        "Cappello and Steffen 2022, Sec. 1.1 and Sec. 5, arxiv:2112.02664v2",
+        "Katai and Iwai 1978 abstract, DOI:10.1016/0022-2496(78)90060-3"
+      ],
+      "reasoning": "The original 2022 all-complete-graph claim cannot be specialized to sparse banana blocks with no triangles, nor does the 2016 cycle-count study specify a dynamics. The frustration-critical paper includes three-path theta terminology but investigates criticality and switching, not the all-history optimality or tie bias. The 1978 abstract suggests a related optimal distance decomposition, and is explicitly not treated as evidence that greedy geodesicity was unknown.",
+      "searches": [
+        "best edge dynamics noncomplete theta graph multiple internally vertex disjoint paths sign balance frustration cycles shortest correction",
+        "\"Katai\" \"Iwai\" 1978 balancing process pdf",
+        "\"best edge\" \"cycle\" \"signed\" \"balance\" network dynamics"
+      ]
+    },
+    "equivalent_formulations": {
+      "evidence": [
+        "Chatterjee et al. 2022, Sec. IV: triangle-based rank on complete networks, https://arxiv.org/html/2210.02394v1",
+        "Cappello and Steffen 2022, Sec. 1.1: frustration index and switching equivalence, https://arxiv.org/html/2112.02664v2"
+      ],
+      "reasoning": "The frustration index is the minimum number of edge-sign reversals to balance; equality of the scalar minimum alone is weaker than the statement that every legal cycle-rank best-edge move lies on an optimal reversal sequence, and weaker than the conditional tie law. Switching equivalence changes signatures without specifying the choice of maximal incident negative-cycle rank.",
+      "searches": [
+        "best edge dynamics noncomplete theta graph multiple internally vertex disjoint paths sign balance frustration cycles shortest correction",
+        "balance signed theta graph k theta graph negative cycle rank edge flips minimum imbalance",
+        "\"best edge\" \"cycle\" \"signed\" \"balance\" network dynamics"
+      ]
+    },
+    "exact_database_or_table": {
+      "evidence": [
+        "Published mathematical-record search closest to the graph motif was a theta-graph algebraic gnarledness result, an unrelated topological invariant; no equivalent balancing-dynamics certificate identified",
+        "Chatterjee et al. 2022 contains figures and empirical results for complete signed networks, not exact tables of path-parity trajectory laws",
+        "Katai and Iwai 1978 abstract concerns general minimum balancing processes by blocks; full text not verified"
+      ],
+      "reasoning": "No inspected exact database or table supplied the all-choice maximal-rank path-parity rule or the rational unequal-length tie probability. The existence of a database search cannot establish uniqueness and the old balancing-process full text remains an acknowledged comparison risk.",
+      "searches": [
+        "best edge dynamics on non-complete signed networks k internally vertex-disjoint terminal paths banana graphs exact number edge sign flips equals minimum path parity minority",
+        "simple cycle based structural balance dynamic multitheta graph path parities highest number of unbalanced cycles greedy update finite convergence optimal sign flips",
+        "On a finite signed network composed of 2-connected parallel-path theta blocks glued at articulation vertices, cycle-based best-edge dynamics always removes one minority path parity per move, attains exactly the frustration index, and tie probability depends on individual path lengths",
+        "\"Studies on the balancing, the minimal balancing\" pdf Katai Iwai 1978"
+      ]
+    },
+    "rationale": "The origin paper explicitly treats complete graphs with triangle-based best-edge dynamics and identifies the noncomplete-network problem; that result does not entail all-choice geodesicity on parallel-path block networks under a different, explicitly cycle-based edge rank. Preexisting structural balance and frustration papers identify cycles, switching and optimization, but the inspected material does not imply this trajectory-level theorem or its exact path-length tie distribution. The inaccessible full 1978 text remains a real, explicitly retained priority risk; a search failure is not treated as a novelty proof.",
+    "residual_risks": [
+      "The full text of Katai and Iwai (1978), which concerns minimum balancing processes by graph blocks, was not accessible; only its abstract supports a bounded, nondecisive comparison.",
+      "Broader graph-signing optimization literature may contain equivalent shortest-greedy dynamics expressed in different terminology.",
+      "The cycle-based extension is a distinct specified rule; priority and correctness must not be inferred from the original complete-graph triangle-based BED theorem."
+    ],
+    "source_inspections": [
+      {
+        "assessment": "NOT_COVERING for the exactly defined cycle-rank rule on bundle block networks: paper rank counts imbalanced triangles in complete graphs and leaves noncomplete networks open",
+        "evidence": [
+          "Section IV defines rank on imbalanced triangles",
+          "Section VI names noncomplete extensions and blinkers as future directions"
+        ],
+        "identifier_or_url": "https://arxiv.org/html/2210.02394v1",
+        "material_read": "Sections II, IV, VI and appendices and source PDF sections on rank, complete network convergence, and noncomplete-network discussion",
+        "method": "Full-text HTML sections and PDF textual/visual inspection",
+        "title": "Social Balance on Networks: Local Minima and Best Edge Dynamics",
+        "trigger": "Originating source and direct sparse-host scope comparison"
+      },
+      {
+        "assessment": "Inspected sections concern measurement/counting and no dynamic of maximum negative-cycle-incidence edge selection; remaining manuscript not asserted fully ruled out",
+        "evidence": [
+          "Sections 1.2, 1.4 and 2.1 define simple cycle sign and enumerate cycle scores"
+        ],
+        "identifier_or_url": "https://arxiv.org/abs/1606.03347",
+        "material_read": "Accessible parsed manuscript introduction and Section 2 on cycle enumeration and signed cycle measures",
+        "method": "Full-text open manuscript HTML text, inspected relevant sections",
+        "title": "Evaluating balance on social networks from their simple cycles",
+        "trigger": "Natural full-simple-cycle balance definition and possible cycle-rank equivalence"
+      },
+      {
+        "assessment": "Establishes switching/criticality background but inspected theorems do not assert path-length-biased cycle-BED trajectories",
+        "evidence": [
+          "Lemma 1.1 and Section 1.1 characterize frustration and switching",
+          "Proposition 5.2 mentions three-path theta for edge-sum criticality"
+        ],
+        "identifier_or_url": "https://arxiv.org/html/2112.02664v2",
+        "material_read": "Abstract; Sections 1.1 and 5.2 including theta graph statements",
+        "method": "Full-text HTML located and inspected mathematical definitions and related propositions",
+        "title": "Frustration-critical signed graphs",
+        "trigger": "Possible stronger frustration and theta-graph reduction"
+      },
+      {
+        "assessment": "PRIORITY RISK: abstract explicitly mentions decomposing minimum balancing processes by blocks. It does not verify or refute the new exact greedy-trajectory theorem; no full-text NOT_COVERING judgment is claimed.",
+        "evidence": [
+          "Abstract states balancing process decomposes into block components and gives minimum balancing algorithms"
+        ],
+        "identifier_or_url": "https://doi.org/10.1016/0022-2496(78)90060-3",
+        "material_read": "Abstract only; full text unavailable",
+        "method": "Abstract lookup and bounded open-access search",
+        "title": "Studies on the balancing, the minimal balancing, and the minimum balancing processes for social groups with planar and nonplanar graph structures",
+        "trigger": "Directly plausible antecedent on blockwise minimum sign flips"
+      },
+      {
+        "assessment": "Potentially covers distance optimization but not demonstrated to cover all-choice shortest greedy dynamics; full-text priority residual retained",
+        "evidence": [
+          "Abstract describes global structural-balance optimization via Ising ground-state methods"
+        ],
+        "identifier_or_url": "https://doi.org/10.1073/pnas.1109521108",
+        "material_read": "Publisher/repository abstract; full text not inspected",
+        "method": "Publisher abstract and repository metadata",
+        "title": "Computing global structural balance in large-scale signed social networks",
+        "trigger": "Possible general minimum-sign-reversal method"
+      }
+    ],
+    "status": "PASS"
+  },
+  "review_type": "self_review",
+  "schema_version": 1,
+  "scope_run_id": "92a2a438-e140-4735-ab2b-cd96422bc38f",
+  "self_review_status": "passed",
+  "value": {
+    "rationale": "A literature-motivated noncomplete network class with unbounded overlapping cycles admits deterministic, every-choice convergence and globally shortest conflict resolution despite known sparse-network blinker risks. The exact rank and path-length tie probability show how local pathway structures influence final group polarity. This is not merely a numeric finite example or a retelling of the known scalar frustration index.",
+    "status": "PASS"
+  }
+}
