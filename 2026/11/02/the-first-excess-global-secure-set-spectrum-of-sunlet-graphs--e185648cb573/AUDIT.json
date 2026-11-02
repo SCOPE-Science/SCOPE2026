@@ -1,0 +1,147 @@
+{
+  "correctness": {
+    "rationale": "Every dominating set on a sunlet contains a member of each core–leaf pair, so sizes n and n+1 have respectively 0 and 1 doubled pairs. Removing selected leaves from an attack cannot increase its surplus. For core attacks, direct neighborhood accounting gives d(U)=2*1_{A in U}+sum of state signs at external reached core indices. The two necessary forbidden run patterns have explicit negative-surplus witnessing attacks. For each permitted pattern, any attack either reaches the doubly selected root (surplus reserve two) or a reached missing C-core can be paired with a reached unselected B or A core (positive sign), giving sufficiency. Distinct anchored word counts are 2n-2 and n-3, yielding n(3n-5). The original-graph checker independently exhausts all selected attacks on every 0- or 1-excess configuration for cycle lengths 3–8 (2292 configuration tests), with reduced charge checks through n=11. This is corroboration; the infinity claim follows from the written proof.",
+    "status": "PASS"
+  },
+  "independent": false,
+  "independent_audit_status": "not_performed",
+  "originality": {
+    "broader_coverage": {
+      "evidence": [
+        "Jesse-Józefczyk 2014, Chapter 3 Proposition 3.1 establishes global security number n for every connected leaf corona.",
+        "Menon–Chithra, Section 5 gives corona bounds, and arXiv:2610.28222 gives exact minima for a different graph family."
+      ],
+      "reasoning": "The established broader leaf-corona result implies the minimum parameter but not the number or structure of first-excess sets. Generic corona bounds imply only existence or inequalities and do not dominate a coefficient-by-coefficient classification.",
+      "searches": [
+        "global secure domination cactus cycle corona path matching leaf near minimum",
+        "\"Secure domination of some graph operators\" Menon Chithra pdf corona 2023",
+        "\"global secure sets\" \"pendant vertex\" \"cycle\"",
+        "\"Secure domination of some graph operators\" Menon Chithra pdf corona 2023"
+      ]
+    },
+    "checked_sources": [
+      "arXiv:2610.28222 (complete accessible HTML; security definition and theorem sections)",
+      "Jesse-Józefczyk (2014) thesis, Chapter 3 Proposition 3.1 (full relevant pages)",
+      "Menon and Chithra, secure domination of graph operators (2023), author-shared article Section 5",
+      "Co-secure Domination in Jump Graphs for Enhanced Security (2024), sunlet and definition sections",
+      "Ho–Dutton (2011), bibliographic and abstract level only"
+    ],
+    "claim_vs_prior_implication": {
+      "evidence": [
+        "Jesse-Józefczyk 2014 Proposition 3.1 proves the minimum n and exhibits all-core-plus-one-leaf examples.",
+        "Menon–Chithra 2023 Section 5 treats security of corona products, and Zeng et al. 2026 treats Sierpiński graphs.",
+        "A public prior mathematical-record entry classifies minimum super dominating sets of one-leaf coronas, a distinct invariant."
+      ],
+      "reasoning": "The present theorem strictly refines known minimum information by classifying every n+1 global secure set, including mixed core-only and leaf-only runs. None of the compared implications determines this finite layer. The claimed novelty explicitly excludes the known minimum.",
+      "searches": [
+        "sunlet cycle pendant graph global secure sets one more than minimum n+1 exact enumeration",
+        "global secure sets of sunlet graph C_n corona K1 exact count size n+1 n(3n-5) structural A B C words",
+        "\"sunlet\" \"secure domination\"",
+        "\"sunlet\" \"global security number\""
+      ]
+    },
+    "equivalent_formulations": {
+      "evidence": [
+        "Brigham–Dutton–Hedetniemi security is the all-subsets neighborhood inequality as stated explicitly in arXiv:2610.28222 equation (1.1).",
+        "Searches about sunlet, core–leaf graph, one-leaf corona, global secure sets and first-excess cardinality did not yield a same-claim full classification."
+      ],
+      "reasoning": "The result is an enumeration of dominating vertex sets satisfying every subset-neighborhood balance, not the one-guard swap version, super domination, or co-secure domination. Equivalences were compared by their defining quantifiers and forbidden patterns.",
+      "searches": [
+        "global secure sets of sunlet graph C_n corona K1 exact count size n+1 n(3n-5) structural A B C words",
+        "global secure set closed neighborhood all subset balanced sunlet first excess classification",
+        "\"global secure\" \"sunlet\" graph",
+        "\"global secure set\" \"sunlet\" count",
+        "\"global secure sets\" \"corona\" graph cycle"
+      ]
+    },
+    "exact_database_or_table": {
+      "evidence": [
+        "The exact coefficient n(3n-5) and near-minimum count vector 12,28,50,78,112,152 for core lengths 3 through 8 were checked against targeted searches and earlier published-record retrieval.",
+        "No matching exact sunlet global-secure enumeration was identified."
+      ],
+      "reasoning": "Numerical overlap alone would not be evidence of a covering theorem. The check required the same all-subsets security definition, same graph, cardinality n+1 and actual coefficient or a stronger full polynomial; searches yielded none. Priority remains provisional.",
+      "searches": [
+        "n(3n-5) secure domination sunlet C_n corona K_1",
+        "\"3n-5\" \"sunlet\"",
+        "\"3n^2-5n\" \"secure\" graph",
+        "\"global secure domination polynomial\" \"sunlet\" cycle"
+      ]
+    },
+    "rationale": "The complete classified first-excess layer of global secure sets on all sunlets and the coefficient n(3n-5) do not follow from the known general n-minimum theorem (Jesse-Józefczyk 2014, Proposition 3.1), which supplies only a minimum and examples. The same all-subsets definition in the October 2026 motivating paper concerns Sierpiński graphs; the inspected corona-operator paper gives bounds rather than the full first-excess census. Actual prior-record and literature queries under equivalent names returned no covering result. This is a qualified best-knowledge originality assessment, not an absolute priority claim.",
+    "residual_risks": [
+      "The 2011 grid-like graph global-security article was not accessible in full; no whole-document noncoverage is asserted.",
+      "Unindexed earlier results under a different graph-security or corona-enumerator terminology could conceivably cover the first-excess formula.",
+      "Independently checking the claimed result and historical priority remains necessary."
+    ],
+    "source_inspections": [
+      {
+        "assessment": "Formulates same all-subsets security test; solves a minimum-size problem for Sierpiński graphs, not the one-excess vertex-set census of sunlet graphs.",
+        "evidence": [
+          "Posted 2026-10-20; primary MSC2020 05C69.",
+          "Section 1 equation (1.1) gives the same security inequality; Section 2 handles Sierpiński terminal cliques."
+        ],
+        "identifier_or_url": "https://arxiv.org/abs/2610.28222",
+        "material_read": "Open full HTML: abstract, introduction, definition (1.1), main theorem and terminal-clique proofs",
+        "method": "Direct reading of accessible arXiv HTML sections",
+        "title": "Secure Domination in Odd-order Sierpiński Graphs",
+        "trigger": "Recent public first source for the all-subsets secure-domination definition and modern structural gap"
+      },
+      {
+        "assessment": "Proposition 3.1 determines the minimum n for connected one-leaf corona and constructs first-excess examples; it does not give the complete size n+1 classification or count.",
+        "evidence": [
+          "2014, Chapter 3, Proposition 3.1: if domination number equals half the order, then the global security number equals half the order.",
+          "The proof displays all-core plus one-leaf sets, demonstrating some but not all first-excess sets."
+        ],
+        "identifier_or_url": "https://repozytorium.amu.edu.pl/server/api/core/bitstreams/b7479010-1a60-4396-aca8-2b6621919f7b/content",
+        "material_read": "Thesis abstract and Chapter 3, pages 20–21 (document pages 29–30), especially Proposition 3.1 and proof; indexed text was searched for corona and sunlet",
+        "method": "Read parsed PDF text and inspected relevant page images",
+        "title": "Secure Sets in Graphs",
+        "trigger": "Direct earlier theorem for secure domination on all one-leaf coronas"
+      },
+      {
+        "assessment": "Provides bounds and constructive sufficient sets for corona security and secure domination, not enumeration of size n+1 global secure sets on cycle corona K1.",
+        "evidence": [
+          "The paper defines security as the all-subsets condition and has primary MSC 05C69/05C76.",
+          "Section 5 establishes corona bounds for nontrivial connected attached graphs, not the claimed first-excess sunlet coefficient."
+        ],
+        "identifier_or_url": "https://www.researchgate.net/publication/364173410_Secure_domination_of_some_graph_operators",
+        "material_read": "Author-shared complete article text; abstract, definitions, and entire Section 5 Corona of graphs with Lemmas 5.1–5.3, Theorem 5.4, Corollary 5.5",
+        "method": "Direct reading of accessible author-shared full text",
+        "title": "Secure domination of some graph operators",
+        "trigger": "Strongest directly applicable general corona-operator publication"
+      },
+      {
+        "assessment": "Unresolved historical source. Abstract discusses global security on grid-like families rather than an identified next-to-minimum sunlet-set census; not used to claim full-document noncoverage.",
+        "evidence": [
+          "Y. Y. Ho and R. D. Dutton, Discrete Applied Mathematics 159 (2011), 490–496.",
+          "Full-text comparison not completed, so possible hidden coverage remains a residual risk."
+        ],
+        "identifier_or_url": "doi:10.1016/j.dam.2010.12.013",
+        "material_read": "Bibliographic metadata and abstract only; open full text was not obtained",
+        "method": "Public bibliographic/abstract search and attempted authorized full-text route",
+        "title": "Global secure sets of grid-like graphs",
+        "trigger": "Historically plausible global security source on paths and cycles"
+      },
+      {
+        "assessment": "Co-secure domination uses an exchange/guard condition rather than all-subsets neighborhood defense; its sunlet value cannot imply the present census.",
+        "evidence": [
+          "Sunlet example reports a minimum co-secure dominating set, not enumeration of all-subsets global secure sets."
+        ],
+        "identifier_or_url": "https://www.mdpi.com/2227-7390/12/19/3077",
+        "material_read": "Abstract and the sunlet/jump-graph portion in open HTML",
+        "method": "Direct scientific definition comparison",
+        "title": "Co-Secure Domination in Jump Graphs for Enhanced Security",
+        "trigger": "The terms sunlet and secure occur together"
+      }
+    ],
+    "status": "PASS"
+  },
+  "review_type": "self_review",
+  "schema_version": 1,
+  "scope_run_id": "e185648c-b573-4383-875e-764d6ebb721a",
+  "self_review_status": "passed",
+  "value": {
+    "rationale": "The natural stability/enumeration problem immediately above the known global security minimum has a nontrivial rigid classification: a single additional selected vertex permits only two monotone-run types or one isolated interior leaf-only vertex. The all-attack quantifier makes the local run obstruction substantive, and the exact n(3n-5) first-excess coefficient quantifies how sharply restricted the space of legal sets remains despite n*2^(n-1) dominating one-excess possibilities. The boundary-charge lemma is a structural technique for secure domination on graphs with private leaves; no new full-polynomial or general-corona theorem is claimed.",
+    "status": "PASS"
+  }
+}
