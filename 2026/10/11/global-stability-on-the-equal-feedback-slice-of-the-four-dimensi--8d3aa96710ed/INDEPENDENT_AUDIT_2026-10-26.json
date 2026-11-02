@@ -1,0 +1,175 @@
+{
+  "audit_date_utc": "2026-10-26",
+  "audited_at_utc": "2026-10-26T18:10:32Z",
+  "axes": {
+    "correctness": {
+      "checked_sources": [
+        "assigned RESULT.md",
+        "assigned verify.py",
+        "doi:10.3934/math.2023071"
+      ],
+      "evidence": [
+        "Original seven source files read; exact blob identities reassembled into SHA-1 Git tree matching assigned source tree.",
+        "Fresh independent SymPy Vdot+Q=0 identity and exact origin Jacobian checked.",
+        "LaSalle invariant core and stable forced z equation checked as analytic, non-numerical proof.",
+        "Stationary probability conclusion requires compact support for the generator identity."
+      ],
+      "rationale": "For all a,b,d,h,k,s>0 on k0=m=s and h²<ab, direct symbolic differentiation of V=(x²+y²+(s/k)u²)/2 gives Vdot=-(a x²-2hxy+b y²). This quadratic form is positive definite, so V is nonincreasing, bounding x,y,u for all forward time; stable scalar zdot=-dz+xy is bounded by variation of constants, excluding finite escape. LaSalle on the precompact trajectory yields omega limit in x=y=0, whose invariant core forces u=0; on the remaining z-axis zdot=-dz, so all states tend to origin. Local stability follows from small V and the forced z inequality. For compactly supported invariant measures, integrated Vdot=0 gives exact moment equality, Q positive definite forces x=y=0 almost surely; support invariance forces u=0 and integrating derivative z² then z=0. This proves unique compact invariant measure delta_0. We do not claim h²=ab or unequal feedback. Independent SymPy identity residual is zero; assigned seven Git blob identities yield source-tree SHA a2130de8f355eed896ab7a13b908c189645e3cc7.",
+      "residual_risks": [
+        "No boundary h²=ab or unequal-feedback claim is proved.",
+        "Uniform stability estimate for z uses its scalar stable forcing; V itself is not positive definite in all four variables."
+      ],
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Li–Cui Theorem 2.1 needs strict k0>m, not the equality k0=m, and gives an ultimate bound rather than all-data convergence to origin.",
+          "Li–Cui Theorem 2.2 gives a linearization/local asymptotic-stability condition; global convergence does not follow from this alone.",
+          "Wei–Yu–Zhang–Yao 2015 has extra feedback in y and wdot=-ky, and its global conclusion concerns boundedness of a different field.",
+          "Liu 2012 controlled synchronization/stabilization concerns two coupled systems and a different uncontrolled master vector field."
+        ],
+        "reasoning": "The closest previously published results either assume a different feedback arrangement or establish only boundedness, local equilibrium stability, or active-controlled error stability. Their hypotheses/conclusions do not dominate the claimed nonlinear global attractivity and compact stationary-measure rigidity on the equal-feedback slice.",
+        "searches": [
+          "doi:10.3934/math.2023071 full 17-page published primary article Eq.(1.2), Theorems 2.1, 2.2, 4.1–4.2, Table 1",
+          "doi:10.1007/s11071-015-2144-8 full 11-page author-hosted preprint, Eqs.(2)–(4) and Sec.5",
+          "doi:10.1007/s11071-011-9960-2 author-supplied full-text transcription, model and synchronization section",
+          "Web: generalized four-dimensional Rabinovich global asymptotic stability feedback equal k0 m x y u"
+        ]
+      },
+      "checked_sources": [
+        "doi:10.3934/math.2023071",
+        "doi:10.1007/s11071-015-2144-8",
+        "doi:10.1007/s11071-011-9960-2",
+        "doi:10.1016/j.cam.2009.12.008",
+        "Resultary/2026/2026/10/11/SCOPE-global-stability-on-the-equal-feedback-slice-of-the-four-dimensi--8d3aa96710ed (same claim, excluded from prior)",
+        "Resultary/2026/2026/10/4/SCOPE-corrected-equilibria-and-local-spectrum-of-the-cui-li-four-dimen--b7a74389bfb9"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "When k0=m=s and ab>h², Li–Cui Theorem 4.1 secondary Hopf condition s(a+b-2h)<0 is impossible by a+b>=2sqrt(ab)>2h; this excludes that particular Hopf criterion but does not entail global stability.",
+          "At equality Li–Cui’s ellipsoidal bound uses 1/(k0-m), so its Thm2.1 is inapplicable.",
+          "The independent energy derivative Vdot=-(a x²-2hxy+b y²) and precompactness plus LaSalle supply the missing nonlinear all-data argument, and compact invariance gives stationary-measure rigidity."
+        ],
+        "reasoning": "Known local stability, an absent Hopf bifurcation criterion, and ultimate boundedness do not imply global attraction or uniqueness of compactly supported invariant probabilities. The new implication is a parameter-restricted global certificate in an exact published field. It is not a consequence of the Li–Cui reported parameter table.",
+        "searches": [
+          "doi:10.3934/math.2023071 Eq.(1.2), Theorems 2.1/2.2/4.1",
+          "doi:10.1007/s11071-015-2144-8 Eqs.(3)/(4), Theorem 5.1",
+          "doi:10.1007/s11071-011-9960-2 master model and finite-time synchronization theorem",
+          "Resultary/2026/2026/10/4/SCOPE-corrected-equilibria-and-local-spectrum-of-the-cui-li-four-dimen--b7a74389bfb9/RESULT.md"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Resultary returns the assigned record itself as a public mirror; it is the same research finding, not an independent earlier theorem.",
+          "The different Cui–Li/2022 Qi-derived flow has (u,v,w,p) dynamics with ẋu=a(v-u)+evw and ẋp=-k(u+v); its correction determines equilibria/local spectra and does not yield this Li–Cui dual-feedback global theorem.",
+          "The original 2010/2012 Rabinovich extension adds a controller to y only, with wdot=-ky; it is not a relabeling of the model with +su in both xdot and ydot and udot=-k(x+y)."
+        ],
+        "reasoning": "The signed +/- state-feedback placement matters mathematically: equal copies of u in both horizontal equations cancel against -k(x+y) under a quadratic energy. Close names and similar parameters are insufficient to identify equivalent dynamical systems. No genuinely covering equivalent formulation was found, aside from the target record itself.",
+        "searches": [
+          "Resultary semantic: four-dimensional Rabinovich Li Cui equal feedback k0 m global stability Lyapunov origin condition h squared less a b",
+          "Resultary semantic: Rabinovich hyperchaotic system equal auxiliary feedback to x and y energy stability invariant measure x y u z",
+          "Web exact search: \"Rabinovich\" \"k0=m\" \"stability\" \"Li\" \"Cui\"",
+          "Resultary Resultary/2026/2026/10/4/SCOPE-corrected-equilibria-and-local-spectrum-of-the-cui-li-four-dimen--b7a74389bfb9/RESULT.md"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "Resultary same-title exact hit is the current claim mirrored in a published index; an exact self-hit is not independently prior mathematical coverage.",
+          "Source Table 1 uses (k0,m)=(0.8,0.8) but (b,h)=(1,10) and a varied 1.08..4, all outside h^2<ab; these are trajectory/LE computations, not a formula or exact stability table for the claimed region.",
+          "No independent database listing of the asserted all-parameter theorem was found in the queried indexes."
+        ],
+        "reasoning": "This is a global qualitative theorem for an open parameter region, not numerical reconstruction of a table. Failure of an exact-index search is only residual negative search evidence, not proof of novelty.",
+        "searches": [
+          "Resultary semantic: 4D Rabinovich 2022 Li Cui Lyapunov function stability k0 = m",
+          "Web exact: \"Rabinovich\" \"u'=-k(x+y)\" stable",
+          "Web exact: \"Rabinovich\" \"k0=m\" stability",
+          "doi:10.3934/math.2023071 numerical Table 1 and source Eq.(1.2)"
+        ]
+      },
+      "rationale": "Best-of-knowledge originality: the source-motivated exact equal dual-feedback cancellation yields a global theorem not implied by the inspected original boundedness/local stability statements; a publicly indexed identical Resultary record is the audited finding itself, not independent prior coverage. A shorter equivalent calculation in unindexed research remains possible.",
+      "residual_risks": [
+        "The full 2010 Liu et al. article was inaccessible; author-hosted preprint/OA attempts did not yield text and authorized institutional access reported VPN disconnected. Its earlier feedback placement differs in inspected material, but an unread ancillary general lemma cannot be excluded.",
+        "Short quadratic energy certificates may appear under generic control/passivity or Rabinovich terminology in unindexed literature; searches cannot prove absence.",
+        "The same exact finding already appears in Resultary as the record under assessment: that mirror is not independent earlier priority evidence."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Theorem 2.1 excludes k0=m; Theorem 2.2 is local; the Hopf criterion is incompatible with h²<ab on k0=m. It does not state all-initial-data convergence and stationary-measure uniqueness.",
+          "evidence": [
+            "Eq.(1.2), PDF p.2; Theorem 2.1 PDF p.3; Theorem 2.2 PDF p.5; Table 1 PDF p.8; Theorem 4.1 PDF pp.8–9."
+          ],
+          "identifier_or_url": "doi:10.3934/math.2023071",
+          "material_read": "Accessible full 17-page publisher PDF: equations, model history, Theorem 2.1 and proof, local stability Theorem 2.2, equal-feedback numerical Table 1, Hopf Theorems 4.1–4.2, conclusion and references.",
+          "method": "Lawful publisher OA full text; checked PDF text and page images for equations and hypothesis signs.",
+          "title": "A hyperchaos generated from Rabinovich system",
+          "trigger": "Introduces exactly the dual-feedback four-dimensional field and reports equality of feedback parameters in experiments."
+        },
+        {
+          "assessment": "The auxiliary state enters the y-equation only, and satisfies wdot=-ky. Theorem 5.1 concerns a different model and gives a trapping set, not the dual-feedback global-attraction theorem.",
+          "evidence": [
+            "Equations (2)–(4), PDF pp.2–3; boundedness derivation Section 5, PDF pp.8–9."
+          ],
+          "identifier_or_url": "doi:10.1007/s11071-015-2144-8",
+          "material_read": "Lawful full 11-page author-hosted preprint: model Eqs.(1)–(4), hidden-attractor/local-cycle sections, Section 5 energy/boundedness theorem and conclusion.",
+          "method": "Author-hosted accepted preprint full PDF, examined PDF text and page image of system.",
+          "title": "Study of hidden attractors, multiple limit cycles from Hopf bifurcation and boundedness of motion in the generalized hyperchaotic Rabinovich system",
+          "trigger": "Earlier generalized Rabinovich four-dimensional dynamics; plausible broader boundedness/stability coverage."
+        },
+        {
+          "assessment": "Master has fourth feedback in the y equation only and fourth derivative -ky; finite-time result stabilizes slave-master synchronization error via added controls, not origin of uncontrolled dual-feedback system.",
+          "evidence": [
+            "Master Eq.(1) and controlled slave Eq.(4); finite-time synchronization Theorem 1."
+          ],
+          "identifier_or_url": "doi:10.1007/s11071-011-9960-2",
+          "material_read": "Author-posted full-text reproduction: original circuit model and master system (1), controlled slave/error system (4)–(16), controller Lyapunov theorem, concluding material.",
+          "method": "Lawfully exposed author full text indexed in ResearchGate; compared displayed equations/theorem.",
+          "title": "Circuit implementation and finite-time synchronization of the 4D Rabinovich hyperchaotic system",
+          "trigger": "Earlier four-dimensional Rabinovich controller and potential global Lyapunov statement."
+        },
+        {
+          "assessment": "Available comparison shows an older singly added controller in the y equation, but no full-document noncoverage judgment is made; complete article remains an access-limited priority risk.",
+          "evidence": [
+            "2010 abstract states control-based 4D Rabinovich construction; 2022 Li–Cui introduction distinguishes prior [18–21] feedback insertion into second equation only."
+          ],
+          "identifier_or_url": "doi:10.1016/j.cam.2009.12.008",
+          "material_read": "Indexed abstract and bibliographic records; original 2022 primary source explanation of older state-feedback placement. The full 2010 article was NOT obtained.",
+          "method": "Searched for public preprint/arXiv and lawful OA full text; authorized institutional request returned VPN disconnected and was not bypassed.",
+          "title": "A hyperchaotic system from the Rabinovich system",
+          "trigger": "Foundational 2010 earlier 4D Rabinovich extension cited by introducing paper."
+        },
+        {
+          "assessment": "Different Qi-derived seven-parameter dynamical system, not the Li–Cui Rabinovich dual-feedback system; only local equilibrium correction, no global stability implication.",
+          "evidence": [
+            "Eq. u_dot=a(v-u)+evw, p_dot=-k(u+v) and listed equilibrium correction in RESULT.md."
+          ],
+          "identifier_or_url": "https://github.com/Resultary/2026/blob/main/2026/10/4/SCOPE-corrected-equilibria-and-local-spectrum-of-the-cui-li-four-dimen--b7a74389bfb9/RESULT.md",
+          "material_read": "Complete published RESULT.md, governing equations, equilibrium elimination, Jacobian and scope.",
+          "method": "Read repository document using authenticated read-only GitHub connector.",
+          "title": "Corrected equilibria and local spectrum of the Cui–Li four-dimensional flow",
+          "trigger": "A strong semantic match with reversed Cui/Li names and four-dimensional stability claim."
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "checked_sources": [
+        "doi:10.3934/math.2023071 Theorems 2.1–2.2 and Table 1",
+        "doi:10.1007/s11071-015-2144-8 Section 5"
+      ],
+      "rationale": "The equal dual-feedback slice is the very one used at k0=m=0.8 in the original Li–Cui numerical experiments, yet omitted by that paper’s k0>m boundedness theorem. A genuinely nonlinear all-initial-data convergence region and absence of any nonzero compact recurrent invariant measure are meaningful dynamical conclusions, stronger than local equilibrium stability and a numerical time series. Their motivation is specific to the exact published vector field, not a random parameter slice. This is a limited sufficient global-stability certificate, not complete phase classification.",
+      "residual_risks": [
+        "The quadratic cancellation is short and could be considered an elementary case of generalized damping/passivity techniques; the value derives from solving a concrete source-identified equal-feedback gap, not from a new general method.",
+        "There is no sharpness or complete dynamical classification at/above h²=ab."
+      ],
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "limitations": [
+    "No assertion at h^2=ab or for unequal feedback coefficients; the necessary compact-recurrence condition is not sufficient.",
+    "Complete Liu et al. (2010) foundational article unavailable through lawful access; only abstract/provenance comparison inspected.",
+    "The result does not classify dynamics for h^2>ab; no priority guarantee."
+  ],
+  "schema_version": 1
+}
