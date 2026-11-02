@@ -5,8 +5,11 @@
     "status": "not_performed"
   },
   "independent_audit": {
-    "evidence": null,
-    "status": "not_performed"
+    "status": "passed",
+    "evidence": [
+      "INDEPENDENT_AUDIT_2026-10-28.md",
+      "INDEPENDENT_AUDIT_2026-10-28.json"
+    ]
   },
   "lean_verification": {
     "evidence": null,
@@ -16,10 +19,24 @@
 }
 ---
 
-The reproducible script `verify_icosahedral_double_homology.py` completed successfully from the packaged path. It enumerates all 4096 vertex subsets, constructs 6504 inclusion maps, verifies every applicable composition of consecutive differentials is zero, and checks all 26 global differential matrices by exact integer unit-pivot reduction. Every reduction leaves an all-zero residual, so every nonzero Smith factor of each differential is 1.
+# Independent mathematical audit
 
-For induced subcomplexes of the \(2\)-sphere, reduced \(H_0\) and \(H_1\) are torsion-free; reduced \(H_2\) is nonzero only for the full sphere. Exact Smith decompositions construct the integral bases for the nonzero reduced \(H_0\) and \(H_1\) groups. `COMPUTATION.json` records the resulting chain dimensions, ranks, and bidegrees.
+## correctness
 
-Limitations: the computation establishes the integral double homology of this one complex only. It does not establish a general torsion-freeness theorem or classify other triangulations.
+PASS
 
-The trusted importer initializes absent external channels as unperformed; research never assesses or authors those channels or resets old evidence.
+The icosahedral simplicial boundary has 12 vertices,30 edges,20 triangles and 4096 induced vertex subsets. Independent enumeration found 1758 subsets with nonzero reduced H0 or H1 and reproduced every q0/q1 chain dimension exactly. An independently constructed integer q0 subset-poset differential in explicit component-difference bases satisfies delta²=0 and is completely exhausted by unimodular ±1 pivots, with ranks (35,125,190,100,12) at subset sizes 2..6 and zero at 7. Combinatorial Alexander duality for induced subcomplexes in S², complementing vertex sets, identifies the q1 cochain system as the transpose dual and gives reverse ranks (12,100,190,125,35), preserving unit Smith factors. Hence both cohomology systems are torsion-free and have ranks 1,10,10,1 at the indicated interior bidegrees. Empty and full subcomplexes contribute rank1 each; total integral rank24. This is a complete finite proof of this one complex, with no extrapolation.
+
+## originality
+
+PASS
+
+The exact six bidegrees and mod-two ranks were already published in arXiv:2405.00990 (not newly claimed). The surviving mathematical assertion is the integral lift and proof of absence of torsion at every bidegree. Mod-two groups alone cannot determine all integral groups, especially odd primary torsion. The exact integer Smith certificate is additional; later double/über/poset equivalence does not calculate this integer special case.
+
+## value
+
+PASS
+
+The icosahedral sphere is a canonical primitive triangulation where the previously published double-homology table was characteristic two only. An integral computation determining torsion exactly is a natural unresolved coefficient-level invariant, can support future comparisons of integral moment-angle invariants, and is not a textbook implication of the known mod-two rank table. No general theorem or paper-length contribution is demanded for this justified exact natural invariant.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

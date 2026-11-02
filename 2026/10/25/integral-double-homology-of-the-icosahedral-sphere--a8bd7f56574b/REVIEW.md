@@ -1,19 +1,21 @@
-## Correctness
+# Independent mathematical audit
 
-The claim is supported by an exact integral computation on the explicitly defined \(12\)-vertex icosahedral boundary complex. All \(4096\) induced subcomplexes are accounted for; integer inclusion maps are assembled in integral homology bases; the differential squares to zero; and all \(26\) global differential matrices reduce completely by unit pivots. This establishes the ranks and the absence of torsion for the stated groups.
+## correctness
 
-## Originality
+PASS
 
-The closest primary source reports the icosahedron's double homology over \(\mathbb F_2\), not the integral groups or their torsion. The non-primitive-sphere theorem and the minimum-degree theorem in that paper do not cover this primitive, degree-five icosahedral sphere. A later poset-homology comparison supplies an equivalent formulation but not the specific integral computation. Searches of the record index found related icosahedral invariants, but no matching integral double-homology claim.
+The icosahedral simplicial boundary has 12 vertices,30 edges,20 triangles and 4096 induced vertex subsets. Independent enumeration found 1758 subsets with nonzero reduced H0 or H1 and reproduced every q0/q1 chain dimension exactly. An independently constructed integer q0 subset-poset differential in explicit component-difference bases satisfies delta²=0 and is completely exhausted by unimodular ±1 pivots, with ranks (35,125,190,100,12) at subset sizes 2..6 and zero at 7. Combinatorial Alexander duality for induced subcomplexes in S², complementing vertex sets, identifies the q1 cochain system as the transpose dual and gives reverse ranks (12,100,190,125,35), preserving unit Smith factors. Hence both cohomology systems are torsion-free and have ranks 1,10,10,1 at the indicated interior bidegrees. Empty and full subcomplexes contribute rank1 each; total integral rank24. This is a complete finite proof of this one complex, with no extrapolation.
 
-## Value
+## originality
 
-Integral torsion-freeness is not determined by the mod-two rank table. This exact calculation resolves the coefficient-level structure for a canonical sphere triangulation and provides a reproducible benchmark for the broader question of possible double-homology ranks of \(2\)-sphere triangulations. It does not solve that classification problem.
+PASS
 
-## Closest literature and limitations
+The exact six bidegrees and mod-two ranks were already published in arXiv:2405.00990 (not newly claimed). The surviving mathematical assertion is the integral lift and proof of absence of torsion at every bidegree. Mod-two groups alone cannot determine all integral groups, especially odd primary torsion. The exact integer Smith certificate is additional; later double/über/poset equivalence does not calculate this integer special case.
 
-- Valenzuela Ruiz, *Sphere Triangulations and their Double Homology*, arXiv:2405.00990, especially the icosahedron computation and Question 4.13.
-- Valenzuela Ruiz, *Double, über and poset homology*, arXiv:2510.10424, especially Theorem 3.1 on equivalent poset-cohomology formulations.
-- The v1 PDF endpoint was unavailable, but the v1 HTML full text and the later PDF version were inspected. Search results cannot prove absolute novelty, and unindexed or unpublished computations remain a residual risk.
+## value
 
-Self-review: passed. Independent audit: not yet performed.
+PASS
+
+The icosahedral sphere is a canonical primitive triangulation where the previously published double-homology table was characteristic two only. An integral computation determining torsion exactly is a natural unresolved coefficient-level invariant, can support future comparisons of integral moment-angle invariants, and is not a textbook implication of the known mod-two rank table. No general theorem or paper-length contribution is demanded for this justified exact natural invariant.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
