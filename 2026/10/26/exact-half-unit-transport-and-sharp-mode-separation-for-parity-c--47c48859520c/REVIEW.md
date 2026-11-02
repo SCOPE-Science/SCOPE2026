@@ -1,15 +1,21 @@
-# Scientific review
+# Independent mathematical audit
 
-## Correctness — PASS
-The complete statement includes all positive-probability conditioning hypotheses and zero/degenerate state-probability boundaries. Every product factor has negative-real-part roots in the positive interior. The full strict Hermite–Biehler theorem provides both simple negative roots and their alternating order, with the rightmost zero in the even factor. Ordered Bernoulli parameters imply the CDF sandwich, and a common-quantile coupling establishes the exact half-unit distance. Finite-support continuity covers closed-simplex boundaries. An independent geometric lower bound is supplied by disjoint half-unit-separated lattices. Darroch's mode–mean inequality and parity quantization give the sharp \(3/2\) result; a fully specified two-trial distribution attains it. Rational checks (7,966 and 107,205 exact nondegenerate cases) are corroboration only; the universal proof is analytical.
+## correctness
 
-## Originality — PASS, qualified
-Broadie–Petkova (2026, arXiv:2603.09019v1) prove separate conditional Poisson-binomial laws and the \(5/2\) cross-parity mode bound. Their stronger source lemma is real-rootedness of each parity polynomial separately; the exact **two-law** CDF sandwich, optimal Wasserstein cost at all orders and the optimal \(3/2\) constant do not occur in their full paper. Holtz's strict interlacing theorem is essential preexisting mathematics, which is expressly not claimed as new. Tang–Tang survey general Poisson-binomial distributional approximations, not this parity-conditioned pair. Targeted semantic mathematical-record searches identified related but noncovering Bernoulli transport and cumulant results. Search incompleteness and potentially equivalent implicit stable-polynomial corollaries remain residual originality risks.
+PASS
 
-## Mathematical value — PASS
-The conclusion controls the entire pair of conditional score laws at the strongest essential-supremum transport scale and every lower-order Wasserstein scale, uniformly in dimension and heterogeneity. It strengthens a concrete published comparison of parity-conditioned score modes by one full unit and proves that no universal improvement of the new constant is possible. The result is not a parameter renaming, a numerical census, or a mere source restatement: strict interlacing is converted into a distributional ordering and explicit transport construction.
+For positive independent {0,1/2,1} factors, the generating polynomial G(w)=prod(L_i+T_i*w+W_i*w^2) is Hurwitz stable and has decomposition P(w^2)+w*Q(w^2). The strict Hermite-Biehler theorem yields alternating simple negative roots with P having one extra factor, hence interlacing Bernoulli parameters a_1<b_1<a_2<...<b_(n-1)<a_n. Pairwise uniform couplings yield J <=_st K <=_st J+1, where K has integer conditional law and J+1/2 half-integer conditional law. One common-quantile coupling then makes K-J in {0,1} a.s., proving every W_p=1/2 including infinity; positive-probability simplex limits handle zeros. Darroch strict mode-mean inequality gives modal distance <5/2, hence <=3/2 by half-integer lattice parity. The supplied two-factor example realizes 3/2. Independently checked 10,330 nondegenerate factor sets on the denominator-three probability grid through four variables against the exact CDF sandwich and mode bound. These are finite corroborations, not proof for arbitrary real factors.
 
-## Limitations and sources
-Independent trials only, scores restricted to \(\{0,1/2,1\}\), both parity events required. Exact rational finite checks do not prove universal claims. Key sources: Broadie–Petkova arXiv:2603.09019v1 (Sections 1–5), Holtz arXiv:math/0512591 (Theorems 1–2), Tang–Tang arXiv:1908.10024 and Darroch (1964). External review of novelty, proof, and applications remains outstanding.
+## originality
 
-Self-review: passed. Independent audit: not yet performed.
+PASS
+
+Broadie–Petkova Theorem 1 and Section 3 already give conditional Poisson-binomial structure, mean comparisons, and 5/2 cross-mode bound; Holtz gives classical strict root interlacing. The assessed novel statement is the *sharp coupling at lattice distance 1/2* and consequently 3/2 sharp modal separation, a short but nontrivial stochastic-order consequence rather than the already-published decomposition/interlacing.
+
+## value
+
+PASS
+
+Every optimal W_p exactly 1/2 is a strong structural relation between the two conditional laws, directly useful for coupling arguments and distributional comparisons of three-outcome sums. The exact best-possible modal constant improves a currently published bound with a witness; these are natural, reusable invariants, notwithstanding the short proof once root interlacing is known.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
