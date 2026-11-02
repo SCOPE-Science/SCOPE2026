@@ -1,0 +1,143 @@
+{
+  "correctness": {
+    "rationale": "Exact welfare normalization, disconnected-component separation, and matching domination for paths/even cycles and cyclically averaged matchings for odd cycles prove all coalition sizes >=4 can be replaced. The 1/2 or (q-1)/(2q) matching fraction dominates 2/q for every q>=4 in the respective case. The O(n) three-tile path recurrence and six fixed-vertex cycle cases are exhaustive, with separate triangle enumeration. Independent brute force examined 2209 connected signed-weight cases and 580 disconnected instances, plus P3/claw sharpness; finite tests are not the proof.",
+    "status": "PASS"
+  },
+  "independent": false,
+  "independent_audit_status": "not_performed",
+  "originality": {
+    "broader_coverage": {
+      "evidence": [
+        "Hanaka–Ikeyama–Ono 2023 Theorem 5.1: (nW)^{O(omega)} weighted generality",
+        "Bilò et al 2018 Lemma 13: social-optimum coalition diameter <=2 on unweighted trees, not weighted cycles"
+      ],
+      "reasoning": "The 2023 general weighted treewidth theorem covers the objects algorithmically but has pseudo-polynomial weight dependence and does not imply this stronger O(n+m) bound or the signed structural cutoff; the 2018 unweighted-tree structural result does not imply the signed-cycle theorem.",
+      "searches": [
+        "utilitarian welfare dense graph partition on weighted cycle negative edge preferences linear time path 3-vertex groups",
+        "strongly polynomial weighted fractional hedonic game paths cycles arbitrary real signed valuations degree at most two",
+        "\"weighted dense graph partition\" \"paths\" \"cycles\" dynamic programming",
+        "https://arxiv.org/abs/2310.05139 Theorem 5.1",
+        "https://www.jair.org/index.php/jair/article/download/11211/26422/20780 §4.3 Lemma 13"
+      ]
+    },
+    "checked_sources": [
+      "arxiv:2310.05139v1 §§1.2/2.3/4/5.1.1",
+      "doi:10.1613/jair.1.11211 PDF §4.3 Lemma 13",
+      "IJCAI 2015 proceedings paper §3/§4.2",
+      "arxiv:2107.13282v1 and SWAT2022 official abstract/introduction"
+    ],
+    "claim_vs_prior_implication": {
+      "evidence": [
+        "https://arxiv.org/abs/2310.05139 §1.2: explicitly leaves polynomial-time weighted bounded-treewidth open while providing (nW)^{O(omega)}",
+        "https://www.jair.org/index.php/jair/article/download/11211/26422/20780 p.341: lemma for unweighted trees",
+        "https://ijcai.org/proceedings/2015/71 §4.2: polynomial-time 4-approximation for symmetric weighted graphs"
+      ],
+      "reasoning": "The new domain is narrower (degree at most two) but its guaranteed magnitude-independent O(n) exact runtime and arbitrary signed-weight structural statement are not consequences of the previous (nW)^{O(omega)} theorem, unweighted structure theorem, or approximation result. Earlier unweighted degree-two algorithms are acknowledged as already implied special cases.",
+      "searches": [
+        "weighted fractional hedonic games path cycle linear time utilitarian welfare coalitions",
+        "\"dense graph partition\" \"weighted\" \"degree 2\" graph",
+        "\"fractional hedonic\" \"maximum degree two\" weighted",
+        "\"fractional hedonic\" \"weighted\" \"degree two\" \"coalition\" \"welfare\"",
+        "arxiv:2310.05139 §1.2 Table 2, Theorem 4.1 and Theorem 5.1",
+        "arxiv:2107.13282 introductory degree-two remark",
+        "ijcai2015:71 Theorem 7"
+      ]
+    },
+    "equivalent_formulations": {
+      "evidence": [
+        "https://arxiv.org/abs/2310.05139 §§1.2,2.3,5.1.1: weighted treewidth bound (nW)^{O(omega)}",
+        "https://ijcai.org/proceedings/2015/71 §3: weighted dense-graph objective 2w(E(C))/|C|"
+      ],
+      "reasoning": "The identical welfare formula also occurs as weighted dense graph partitioning; it was searched under both terminologies. The prior weighted general-graph approximation is not an exact degree-two linear-time result, and the weighted bounded-treewidth theorem leaves a weight-magnitude factor. No searched equivalent strongly linear signed path/cycle classification was identified.",
+      "searches": [
+        "fractional hedonic social welfare degree two graphs weighted path cycle maximum coalition size three matching contraction exact linear time",
+        "fractional hedonic utilitarian welfare exact max degree two weighted signed directed path cycle three-vertex coalitions linear time algorithm matching",
+        "\"fractional hedonic\" \"weighted\" \"path\" \"welfare\" \"linear time\"",
+        "\"dense graph partition\" \"weighted\" \"degree 2\" graph",
+        "arxiv:2310.05139 §2.3/§5.1.1",
+        "ijcai2015:71 §3/§4.2"
+      ]
+    },
+    "exact_database_or_table": {
+      "evidence": [
+        "The closest retrieved mathematical records concern geometric extrema of fractional matching polytopes and degree-two graph colorings, not fractional-hedonic coalition optimization.",
+        "Bazgan–Casel–Cazals 2022 treats unweighted edge-count density."
+      ],
+      "reasoning": "Semantic database hits concern distinct objectives (power indices, Euclidean matching polytopes, or colorings). No weighted signed degree-two welfare table was identified; the cited degree-two triviality remark applies only to unweighted graphs. Database search is not completeness proof.",
+      "searches": [
+        "fractional hedonic social welfare degree two graphs weighted path cycle maximum coalition size three matching contraction exact linear time",
+        "utilitarian welfare dense graph partition on weighted cycle negative edge preferences linear time path 3-vertex groups",
+        "strongly polynomial weighted fractional hedonic game paths cycles arbitrary real signed valuations degree at most two",
+        "fractional hedonic utilitarian welfare exact max degree two weighted signed directed path cycle three-vertex coalitions linear time algorithm matching",
+        "fractional hedonic social welfare degree two graphs weighted path cycle maximum coalition size three matching contraction exact linear time",
+        "https://arxiv.org/abs/2107.13282",
+        "https://drops.dagstuhl.de/entities/document/10.4230/LIPIcs.SWAT.2022.13"
+      ]
+    },
+    "rationale": "The strongest inspected 2023 source gives weighted bounded-treewidth optimization in (nW)^{O(omega)}, while 2018 short-coalition theory and 2022 degree-two density are unweighted; 2015 weighted FHG gives an approximation rather than exact strong linearity. Searches of mathematical records and alias literature found no implication of signed degree-two linear-time theorem. General literature not exhaustive; specialized equivalence remains possible.",
+    "residual_risks": [
+      "An equivalent signed-weight path/cycle linear-time theorem under weighted dense graph partitioning or alternative coalition terminology may be unindexed.",
+      "Full 2022 SWAT PDF was not visually inspected after access timeout; relevant abstract and introductory text were read via accessible lawful sources.",
+      "Later journal revisions of the 2023 preprint might contain detail absent from the inspected public preprint; specialized primary literature remains incompletely surveyed."
+    ],
+    "source_inspections": [
+      {
+        "assessment": "The general weighted bounded-treewidth algorithm is (nW)^{O(omega)}, not strongly linear; unweighted block result is not a signed degree-two characterization",
+        "evidence": [
+          "§1.2 Table 2 gives weighted (nW)^{O(omega)}",
+          "§5.1.1 Theorem 5.1 and proof"
+        ],
+        "identifier_or_url": "https://arxiv.org/abs/2310.05139",
+        "material_read": "Full accessible arXiv HTML, definition §2.3, introduction Tables 1–2, unweighted block structural theorem §4, weighted Theorem 5.1 and its dynamic-programming state",
+        "method": "Read original preprint sections and directly compare domain, quantified running times, and coalitions",
+        "title": "Maximizing Utilitarian and Egalitarian Welfare of Fractional Hedonic Games on Tree-like Graphs",
+        "trigger": "Same weighted symmetric fractional-hedonic objective; most plausible algorithmic coverage"
+      },
+      {
+        "assessment": "The strong short-coalition property proved there assumes unweighted trees, not arbitrary signed weights or cycles",
+        "evidence": [
+          "§4.3 explicitly starts “unweighted trees”",
+          "Lemma 13 PDF p.341 states diameter at most two only for unweighted trees"
+        ],
+        "identifier_or_url": "https://www.jair.org/index.php/jair/article/download/11211/26422/20780",
+        "material_read": "Original PDF introduction, §4.3 on PDF page 27, Lemma 13 proof and Theorem 17 discussion at page 33",
+        "method": "Read extracted PDF text and page image showing statement and proof of Lemma 13",
+        "title": "Nash Stable Outcomes in Fractional Hedonic Games: Existence, Efficiency and Computation",
+        "trigger": "Potentially stronger short-coalition and polynomial tree result"
+      },
+      {
+        "assessment": "Weighted 4-approximation and welfare representation do not establish exact O(n) on signed max-degree-two graphs",
+        "evidence": [
+          "§3 weighted formula 2w(E(C))/|C|",
+          "§4.2 Theorem 7 says 4-approximation"
+        ],
+        "identifier_or_url": "https://ijcai.org/proceedings/2015/71",
+        "material_read": "Official proceeding full-text sections on definition, weighted welfare formula, Theorem 7, and matching approximation",
+        "method": "Compared exact versus approximate optimization results and quantifiers",
+        "title": "Welfare Maximization in Fractional Hedonic Games",
+        "trigger": "Origin of weighted objective and possible matching-based dominance"
+      },
+      {
+        "assessment": "The considered objective uses unweighted edge counts; its degree-two claim does not imply arbitrary signed-weight strongly linear algorithm. Residual risk remains from uninspected full PDF material",
+        "evidence": [
+          "SWAT 2022 official abstract says ratio of number of edges to vertices",
+          "Public introduction says maximum-degree-two trivially solvable and cubic NP-hard, in unweighted setting"
+        ],
+        "identifier_or_url": "https://arxiv.org/abs/2107.13282",
+        "material_read": "arXiv abstract, SWAT 2022 official abstract and ResearchGate public introduction discussing degree-two and cubic results; full Dagstuhl PDF image not fetched because timeout",
+        "method": "Compared input edge-weight assumptions, degree-two remark and cubic hardness with the new signed-weight claim",
+        "title": "Dense Graph Partitioning on Sparse and Dense Graphs",
+        "trigger": "Exact alias of unweighted fractional-hedonic welfare; degree-two boundary"
+      }
+    ],
+    "status": "PASS"
+  },
+  "review_type": "self_review",
+  "schema_version": 1,
+  "scope_run_id": "676f75d2-5d45-431d-a032-c766fdf463e5",
+  "self_review_status": "passed",
+  "value": {
+    "rationale": "An exact structural and algorithmic theorem for the natural complete class of maximum-degree-two coalition networks, under unrestricted signed and heterogeneous valuations, removes pseudopolynomial weight dependence and yields a witness in strongly linear real arithmetic. The P3/claw examples show the coalition-size bound and degree boundary are sharp. This is a meaningful classification and complexity improvement, not merely re-expression of unweighted stars.",
+    "status": "PASS"
+  }
+}
