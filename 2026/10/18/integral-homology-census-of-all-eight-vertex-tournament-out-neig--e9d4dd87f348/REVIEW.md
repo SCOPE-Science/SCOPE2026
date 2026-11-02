@@ -1,12 +1,21 @@
-# Mathematical review
+# Independent mathematical audit
 
-## Correctness
-The finite universe is exhaustive by deletion-and-extension induction, exact adjacency-preserving canonicalization, and independently reproduced tournament class counts \(1,1,2,4,12,56,456,6880\). For each complex the full face poset and all oriented integral simplicial boundaries are reconstructed. The integer unit-pivot eliminations terminate with zero residual for each boundary, thereby proving all Smith factors are units; independent implementations recover all \(26\) profiles with identical exact frequencies. The Python verifier detects the known order-two homology torsion of the six-vertex projective-plane triangulation, guarding against trivial false negatives. Limitation: only eight-vertex tournaments and integral homology, not an infinite proof or homotopy classification.
+## correctness
 
-## Originality
-The full Dochtermann–Singh primary paper provides order-five homology and notes the torsion question as open; it does not report the order-eight integral spectrum. The closest published order-seven torsion-freeness result does not imply order-eight torsion-freeness or the \(26\) profiles, and the published order-six homotopy census is narrower. McKay supplies exact tournament counts, not homology. Searches using out-neighborhood, directed Hom from an oriented edge, eight-vertex tournament, torsion and Betti-spectrum formulations found no indexed theorem covering the exact result. Remaining risk: an unindexed or later exhaustive computation might duplicate part or all of the spectrum.
+PASS
 
-## Value
-The eight-vertex layer is the next complete order after the publicly established torsion-free seven-vertex cutoff. Closing it narrows the explicit torsion-existence problem of Dochtermann–Singh from possible order eight to at least order nine, and yields all homology ranks, not merely a negative search. This is a natural finite cutoff of \(6880\) isomorphism types with nontrivial second-homology phenomena, rather than an arbitrary example or routine substitution. Limitations for larger tournaments and stronger homotopy types remain substantive.
+Fresh independent C++17 exact enumerator generated class counts 1,1,2,4,12,56,456,6880 via complete vertex-extension and explicit adjacency-preserving isomorphism recursion. It constructed every nonempty face contained in a vertex out-neighborhood and oriented integer boundary matrices. Unit Smith pivots were eliminated unimodularly, and every remaining submatrix was exactly zero for all 6880 complexes, hence all boundary images are primitive and integral homology has no torsion. Fresh histogram reproduced all 26 advertised multiplicities (sum 6880). Independently checked the extremal representative via SymPy: f=(8,28,19,4), reduced ranks give (0,6,0). Six-vertex RP2 positive control has SNF(d2) with nine units and one factor 2. Proof is exhaustive finite computation only, not a theorem about larger tournaments.
 
-Self-review: passed. Independent audit: not yet performed.
+## originality
+
+PASS
+
+The next exact order-eight census is not implied by the full Dochtermann–Singh order-five homology table/dimension theorem, the separately read published n<=7 torsion cutoff, n=6 homotopy census, or McKay n=8 catalogue. Equivalence with directed Hom from an oriented edge was checked, and directed flag/tournaplex results involve different simplicial complexes. Best-of-knowledge originality with explicit unindexed-census risk, not a claim of absolute novelty.
+
+## value
+
+PASS
+
+The n=8 layer is the natural next complete cutoff after the established n<=7 torsion-free theorem and addresses an explicit foundational tournament torsion question. The result gives a new exact 26-profile integral homology distribution over all 6880 classes and raises the first possible torsion order to nine, including sharp beta1=6 and beta2=3 extrema. This exact complete natural finite invariant has mathematical value independent of a general infinite theorem or homotopy classification.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
